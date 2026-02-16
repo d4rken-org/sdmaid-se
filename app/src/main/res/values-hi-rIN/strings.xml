@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">डैशबोर्ड क्रिया बटन पर एक क्लिक के साथ सभी सुविधाओ के लिए स्कैन और मिटाने का कार्य प्रारंभ करें, कोई अतिरिक्त पुष्टिकरण नहीं।</string>
     <string name="dashboard_settings_oneclick_tools_title">वन-टैप टूल्स</string>
     <string name="dashboard_settings_oneclick_tools_desc">वन-टैप उपकरण: वन-टैप ऑपरेशन में कौन से उपकरण शामिल होने चाहिए?</string>
+    <string name="dashboard_card_config_title">डैशबोर्ड कार्ड</string>
+    <string name="dashboard_card_config_desc">कॉन्फ़िगर करें कि कौन से कार्ड दिखाए जाएं और उनका क्रम</string>
+    <string name="dashboard_card_config_header_title">पुनर्व्यवस्थित करने के लिए खींचें, दिखाने/छिपाने के लिए टॉगल करें</string>
     <string name="debug_notification_channel_label">डिबग सूचनाएं</string>
     <string name="debug_debuglog_file_label">रिकॉर्ड की गई लॉग फ़ाइल</string>
     <string name="debug_debuglog_recording_progress">रिकॉर्डिंग डिबग लॉग</string>
     <string name="debug_debuglog_record_action">डिबग लॉग रिकॉर्ड करें</string>
     <string name="debug_debuglog_stop_action">रिकॉर्डिंग रोकें</string>
     <string name="debug_debuglog_sensitive_information_message">उत्पन्न की गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें।</string>
+    <string name="debug_debuglog_screen_title">डिबग लॉग</string>
+    <string name="debug_debuglog_screen_discard_action">हटाएं</string>
+    <string name="debug_debuglog_screen_session_path_label">सत्र पथ</string>
+    <string name="debug_debuglog_screen_log_files_label">लॉग फ़ाइलें</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d फ़ाइल तैयार (%2$s)</item>
+        <item quantity="other">%1$d फ़ाइलें तैयार (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">यह सुविधा वह सब कुछ रिकॉर्ड करती है जो साझा करने योग्य एक ऐप द्वारा बनाई जाती है। बनाई गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें (उदाहरण के लिए एक डेवलपर को जो ऐसे किसी समस्या का निवारण कर रहा है)।</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्य</string>
     <string name="tasks_activity_working_notification_title">SD मेड काम कर रही है</string>
@@ -80,10 +91,24 @@
     <string name="support_installid_desc">स्वचालित त्रुटि रिपोर्ट अज्ञातकृत हैं। यदि निर्माणकर्ता को आपकी त्रुटि रिपोर्ट ढूंढ़ने की आवश्यकता है, तो अपनी स्थापित ID साझा करें।</string>
     <string name="support_debuglog_label">डीबग लॉग</string>
     <string name="support_debuglog_desc">ऐप जो कुछ भी कर रहा है उसे एक टेक्स्ट फ़ाइल में रिकॉर्ड करें जिसे आप साझा कर सकते हैं।</string>
+    <string name="support_debuglog_folder_label">डिबग लॉग फ़ोल्डर</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d फ़ाइल %2$s उपयोग कर रही है</item>
+        <item quantity="other">%1$d फ़ाइलें %2$s उपयोग कर रही हैं</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">कोई डिबग लॉग संग्रहीत नहीं</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">सभी डिबग लॉग हटाएं?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">यह सभी संग्रहीत डिबग लॉग सत्रों को स्थायी रूप से हटा देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">घूमने और सवाल पूछने की जगह।</string>
     <string name="changelog_label">परिवर्तनीयकरण</string>
     <string name="settings_acknowledgements_label">स्वीकृतियाँ</string>
+    <string name="settings_acknowledgements_category_translations_title">अनुवाद</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">किसने अनुवाद किया?</string>
+    <string name="settings_acknowledgements_category_thanks_title">धन्यवाद</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">हमारे मित्रों को विशेष धन्यवाद।</string>
+    <string name="settings_acknowledgements_category_licenses_title">लाइसेंस</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid द्वारा उपयोग किया गया सॉफ़्टवेयर।</string>
     <string name="setup_label">व्यवस्थित</string>
     <string name="setup_incomplete_card_title">व्यवस्था अधूरी है</string>
     <string name="setup_incomplete_card_body">बेहतर परिणाम पाने के लिए SD मेड व्यवस्था पूरी करें।</string>
@@ -155,6 +180,13 @@
     <string name="debug_bugreporter_label">स्वचालित त्रुटी रिपोर्ट</string>
     <string name="debug_bugreporter_summary">स्वचालित रूप से मुद्दों की रिपोर्ट करता है, जैसे ऐप पर विवरण क्रैश हो जाता है, इसलिए मैं इसका पता लगा सकता हूं और इसे ठीक कर सकता हूं।</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">डिबग मोड सक्षम है</string>
+    <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>
+    <string name="debug_card_dryrun_mode_label">ड्राई-रन मोड (हटाना अक्षम करें)</string>
+    <string name="debug_card_areas_reload_action">डेटा क्षेत्र पुनः लोड करें</string>
+    <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
+    <string name="debug_card_root_test_action">Root परीक्षण</string>
+    <string name="debug_card_shizuku_test_action">Shizuku परीक्षण</string>
     <string name="settings_category_tools_label">टूल</string>
     <string name="settings_category_filter">फ़िल्टर</string>
     <string name="settings_category_risklevel">जोखिम का स्तर</string>
@@ -190,6 +222,8 @@
     <string name="corpsefinder_filter_privatedata_summary">निजी ऐप्लिकेशन डेटा, जैसे कि अतिसंवेदनशील, ऐप सेटिंग्स लेकिन ब्राउज़र कैश भी।</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik कैश</string>
     <string name="corpsefinder_filter_dalvik_summary">कैश्ड ऐप निष्पादन डेटा।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART प्रोफ़ाइल</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART प्रोफ़ाइल Android द्वारा ऐप प्रदर्शन को अनुकूलित करने के लिए उपयोग की जाती हैं।</string>
     <string name="corpsefinder_filter_applib_label">ऐप लाइब्रेरी</string>
     <string name="corpsefinder_filter_applib_summary">ऐप संबंधित लाइब्रेरी डेटा।</string>
     <string name="corpsefinder_filter_appsource_label">ऐप स्रोत</string>
@@ -244,6 +278,8 @@
     <string name="systemcleaner_filter_screenshots_age_label">स्क्रीनशॉट की आयु</string>
     <string name="systemcleaner_filter_screenshots_age_summary">स्क्रीनशॉट को मिटाने के लिए विचार करने के लिए न्यूनतम आयु।</string>
     <string name="systemcleaner_filter_superfluosapks_label">अत्यधिक APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">समान संस्करण शामिल करें</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">स्थापित संस्करण से मेल खाने वाली APK फ़ाइलों को भी लक्षित करें। केवल पुराने संस्करण हटाने के लिए अक्षम करें।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डर</string>
     <string name="systemcleaner_filter_lostdir_summary">अस्थायी फ़ाइलें जो एंड्रॉयड उपकरणों के बीच डेटा स्थानांतरित करते समय बनाई जाती हैं।</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux फाइल</string>
@@ -304,6 +340,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">नाम कीवर्ड के बराबर है</string>
     <string name="systemcleaner_customfilter_last_edit">अंतिम संपादन: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">लाइव खोज</string>
+    <string name="systemcleaner_customfilter_editor_size_label">आकार प्रतिबंध</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">न्यूनतम आकार</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">अधिकतम आकार</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">फ़ाइल आकार के आधार पर मिलान सीमित करें। किसी भी आकार से मिलान के लिए खाली छोड़ें।</string>
+    <string name="systemcleaner_customfilter_editor_age_label">आयु प्रतिबंध</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">न्यूनतम आयु</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">अधिकतम आयु</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">फ़ाइल आयु (अंतिम संशोधित समय) के आधार पर मिलान सीमित करें। किसी भी आयु से मिलान के लिए खाली छोड़ें।</string>
     <string name="systemcleaner_customfilter_import_action">नया फ़िल्टर आयात करें</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फ़िल्टर निर्यात करें</string>
     <string name="appcleaner_tool_name">ऐप स्वच्छक</string>
@@ -346,6 +390,8 @@
     <string name="appcleaner_filter_recyclebins_summary">फ़ाइलें जो हटा दी गई थी लेकिन उन्हें पुनर्स्थापित करने की अनुमति देने के लिए एक विशेष फ़ोल्डर में डाल दी गई हैं।</string>
     <string name="appcleaner_filter_webview_label">Webview फ़ाइलें</string>
     <string name="appcleaner_filter_webview_summary">ऐप्स के भीतर उपयोग किए जाने वाले Webview इंस्टेंसेज द्वारा कैश की गई फ़ाइलें।</string>
+    <string name="appcleaner_filter_shortcutservice_label">ऐप शॉर्टकट आइकन</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ऐप शॉर्टकट और शेयर मेनू के लिए कैश्ड आइकन।</string>
     <string name="appcleaner_filter_whatsapp_backups_label">व्हाट्सएप का बैकअप</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">व्हाट्सएप बैकअप की अतिरिक्त प्रतियां हटाएं और केवल नवीनतम रखें।</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp के माध्यम से लोगों से प्राप्त की गई फ़ाइलें।</string>
@@ -397,6 +443,9 @@
     <string name="appcleaner_automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">सिस्टम ऐप गलत कॉन्फ़िगर किया गया</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS की सुरक्षा ऐप (com.miui.securitycenter) में उपयोग आंकड़े अनुमति (GET_USAGE_STATS) गुम है। यह ऐप विवरण में \"डेटा साफ़ करें\" और पहुंच के माध्यम से कैश साफ़ करने जैसी सुविधाओं को तोड़ता है। पूर्ण कार्यक्षमता बहाल करने के लिए अनुमति दें।</string>
+    <string name="appcleaner_forcestop_before_clearing_label">साफ़ करने से पहले बलपूर्वक रोकें</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">कैश साफ़ करने से पहले ऐप्स को बलपूर्वक रोकें। यह कुछ ऐप्स का कैश साफ़ करने में मदद कर सकता है, लेकिन ऐप्स में समस्या हो सकती है और मैन्युअल पुनः आरंभ की आवश्यकता हो सकती है।</string>
+    <string name="appcleaner_progress_force_stopping">ऐप्स बलपूर्वक रोके जा रहे हैं…</string>
     <string name="deduplicator_tool_name">डुप्लिकेटर</string>
     <string name="deduplicator_explanation_short">डुप्लिकेट फ़ाइलें</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -411,6 +460,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">सभी फ़ाइलों को मिटाने की अनुमति दें, भले ही कोई प्रति न बची हो।</string>
     <string name="deduplicator_search_locations_title">खोज स्थान</string>
     <string name="deduplicator_search_locations_all_summary">सभी पहुंच योग्य क्षेत्र</string>
+    <string name="deduplicator_keep_prefer_paths_title">रखने को प्राथमिकता दें</string>
+    <string name="deduplicator_keep_prefer_paths_summary">यह तय करते समय कि कौन सा डुप्लिकेट रखना है, इन स्थानों में फ़ाइलें रखने को प्राथमिकता दें।</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">कोई स्थान कॉन्फ़िगर नहीं किया गया</string>
     <string name="deduplicator_skip_minsize_title">न्यूनतम आकार</string>
     <string name="deduplicator_skip_minsize_description">न्यूनतम आकार से कम फ़ाइलों को छोड़ें।</string>
     <string name="deduplicator_skip_uncommon_title">असामान्य फ़ाइल प्रकार छोड़ें</string>
@@ -437,6 +489,65 @@
     <string name="deduplicator_details_cluster_title">डुप्लिकेट का सेट</string>
     <string name="deduplicator_matches_exact_label">बिल्कुल मेल</string>
     <string name="deduplicator_matches_similar_label">समान मेल</string>
+    <string name="deduplicator_arbiter_title">हटाने की रणनीति</string>
+    <string name="deduplicator_arbiter_summary">कॉन्फ़िगर करें कि कौन सी फ़ाइलें रखी जाएं और कौन सी हटाई जाएं।</string>
+    <string name="deduplicator_arbiter_explanation">डुप्लिकेट हटाते समय, SD Maid प्रत्येक मानदंड की क्रम में जांच करके तय करता है कि कौन सी फ़ाइल रखनी है। पहला मानदंड जो स्पष्ट विजेता देता है, परिणाम निर्धारित करता है। पुनर्व्यवस्थित करने के लिए खींचें, मोड बदलने के लिए टैप करें।</string>
+    <string name="deduplicator_arbiter_select_mode_title">मोड चुनें</string>
+    <string name="deduplicator_arbiter_configure_paths_action">पथ कॉन्फ़िगर करें…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">डुप्लिकेट प्रकार</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">समान फ़ाइलों की तुलना में सटीक मिलान को प्राथमिकता दें।</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">मीडिया इंडेक्सिंग</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">विचार करें कि क्या फ़ाइलें मीडिया प्रदाता द्वारा इंडेक्स की गई हैं।</string>
+    <string name="deduplicator_arbiter_criterium_location_title">संग्रहण स्थान</string>
+    <string name="deduplicator_arbiter_criterium_location_description">आंतरिक या बाहरी संग्रहण पर फ़ाइलों को प्राथमिकता दें।</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">फ़ोल्डर गहराई</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">उथली या गहरी फ़ोल्डर संरचनाओं में फ़ाइलों को प्राथमिकता दें।</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">संशोधन तिथि</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">संशोधन समय के आधार पर पुरानी या नई फ़ाइलों को प्राथमिकता दें।</string>
+    <string name="deduplicator_arbiter_criterium_size_title">फ़ाइल आकार</string>
+    <string name="deduplicator_arbiter_criterium_size_description">जब आकार भिन्न हों तो बड़ी या छोटी फ़ाइलों को प्राथमिकता दें।</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">पसंदीदा स्थान</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">आपके कॉन्फ़िगर किए गए पसंदीदा स्थानों में फ़ाइलें रखें।</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">सटीक मिलान प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">समान फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">इंडेक्स की गई फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">गैर-इंडेक्स फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">आंतरिक संग्रहण प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">बाहरी संग्रहण प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">उथले फ़ोल्डर प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">गहरे फ़ोल्डर प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">पुरानी फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">नई फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">बड़ी फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">छोटी फ़ाइलें प्राथमिकता</string>
+    <string name="deduplicator_view_mode_groups_label">समूह</string>
+    <string name="deduplicator_view_mode_directories_label">फ़ोल्डर</string>
+    <string name="squeezer_onboarding_title">छवि संपीड़न के बारे में</string>
+    <string name="squeezer_onboarding_message">छवि संपीड़न दृश्य विवरण हटाकर फ़ाइल आकार कम करता है। यह प्रक्रिया अपरिवर्तनीय है - मूल गुणवत्ता पुनर्स्थापित नहीं की जा सकती।\n\nयहां आपकी छवियों का पूर्वावलोकन है:</string>
+    <string name="squeezer_onboarding_original_label">मूल</string>
+    <string name="squeezer_onboarding_compressed_label">संपीड़न के बाद</string>
+    <string name="squeezer_onboarding_quality_label">गुणवत्ता: %d%%</string>
+    <string name="squeezer_onboarding_got_it">समझ गया</string>
+    <string name="squeezer_compare_action">तुलना देखें</string>
+    <string name="squeezer_no_example_found">चयनित पथों में कोई छवि नहीं मिली।</string>
+    <string name="squeezer_result_empty_message">कोई संपीड़न योग्य छवि नहीं मिली।</string>
+    <string name="squeezer_setup_warning">संपीड़न संग्रहण स्थान बचाने के लिए छवि गुणवत्ता को स्थायी रूप से कम करता है। इसे पूर्ववत नहीं किया जा सकता। शुरू करने से पहले अपनी सेटिंग्स की सावधानीपूर्वक समीक्षा करें।</string>
+    <string name="squeezer_setup_explanation">Media Squeeze संग्रहण स्थान खाली करने के लिए छवि फ़ाइल आकार कम करता है। यह छवि गुणवत्ता को स्थायी रूप से कम करता है और इसे पूर्ववत नहीं किया जा सकता। शुरू करने से पहले अपनी सेटिंग्स की सावधानीपूर्वक समीक्षा करें।</string>
+    <string name="squeezer_setup_paths_title">खोज स्थान</string>
+    <string name="squeezer_setup_paths_default">खोजने के लिए फ़ोल्डर चुनें</string>
+    <string name="squeezer_setup_quality_title">संपीड़न गुणवत्ता</string>
+    <string name="squeezer_setup_age_title">न्यूनतम आयु</string>
+    <string name="squeezer_setup_age_none">कोई सीमा नहीं (सभी फ़ाइलें शामिल करें)</string>
+    <string name="squeezer_setup_start_action">स्कैन शुरू करें</string>
+    <string name="squeezer_quality_hint_very_low">40%% से कम गुणवत्ता अनुपयोगी छवियां बना सकती है।</string>
+    <string name="squeezer_quality_hint_low">कम गुणवत्ता अधिक स्थान बचाती है लेकिन दृश्य दोष पैदा कर सकती है।</string>
+    <string name="squeezer_quality_hint_high">बहुत उच्च गुणवत्ता न्यूनतम स्थान बचत प्रदान करती है।</string>
+    <string name="squeezer_quality_hint_normal">संतुलित गुणवत्ता और स्थान बचत।</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">कम से कम %d दिन पुरानी</item>
+        <item quantity="other">कम से कम %d दिन पुरानी</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
     <string name="appcontrol_tool_name">ऐप नियंत्रक</string>
     <string name="appcontrol_explanation_short">आपके डिवाइस पर स्थापित किए गए ऐप्स।</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -716,147 +827,15 @@
     <string name="area_type_public_obb_label">सार्वजनिक ऐप संसाधन</string>
     <string name="area_type_private_data_label">निजी ऐप डेटा</string>
     <string name="area_type_portable_label">पोर्टेबल संग्रहण</string>
-    <string name="dashboard_card_config_title">डैशबोर्ड कार्ड</string>
-    <string name="dashboard_card_config_desc">कॉन्फ़िगर करें कि कौन से कार्ड दिखाए जाएं और उनका क्रम</string>
-    <string name="dashboard_card_config_header_title">पुनर्व्यवस्थित करने के लिए खींचें, दिखाने/छिपाने के लिए टॉगल करें</string>
-
-    <string name="debug_debuglog_screen_title">डिबग लॉग</string>
-    <string name="debug_debuglog_screen_discard_action">हटाएं</string>
-    <string name="debug_debuglog_screen_session_path_label">सत्र पथ</string>
-    <string name="debug_debuglog_screen_log_files_label">लॉग फ़ाइलें</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d फ़ाइल तैयार (%2$s)</item>
-        <item quantity="other">%1$d फ़ाइलें तैयार (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">डिबग लॉग फ़ोल्डर</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d फ़ाइल %2$s उपयोग कर रही है</item>
-        <item quantity="other">%1$d फ़ाइलें %2$s उपयोग कर रही हैं</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">कोई डिबग लॉग संग्रहीत नहीं</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">सभी डिबग लॉग हटाएं?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">यह सभी संग्रहीत डिबग लॉग सत्रों को स्थायी रूप से हटा देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
-
-    <string name="settings_acknowledgements_category_translations_title">अनुवाद</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">किसने अनुवाद किया?</string>
-    <string name="settings_acknowledgements_category_thanks_title">धन्यवाद</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">हमारे मित्रों को विशेष धन्यवाद।</string>
-    <string name="settings_acknowledgements_category_licenses_title">लाइसेंस</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid द्वारा उपयोग किया गया सॉफ़्टवेयर।</string>
-
-    <string name="debug_card_title">डिबग मोड सक्षम है</string>
-    <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>
-    <string name="debug_card_dryrun_mode_label">ड्राई-रन मोड (हटाना अक्षम करें)</string>
-    <string name="debug_card_areas_reload_action">डेटा क्षेत्र पुनः लोड करें</string>
-    <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
-    <string name="debug_card_root_test_action">Root परीक्षण</string>
-    <string name="debug_card_shizuku_test_action">Shizuku परीक्षण</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART प्रोफ़ाइल</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART प्रोफ़ाइल Android द्वारा ऐप प्रदर्शन को अनुकूलित करने के लिए उपयोग की जाती हैं।</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">समान संस्करण शामिल करें</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">स्थापित संस्करण से मेल खाने वाली APK फ़ाइलों को भी लक्षित करें। केवल पुराने संस्करण हटाने के लिए अक्षम करें।</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">आकार प्रतिबंध</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">न्यूनतम आकार</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">अधिकतम आकार</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">फ़ाइल आकार के आधार पर मिलान सीमित करें। किसी भी आकार से मिलान के लिए खाली छोड़ें।</string>
-    <string name="systemcleaner_customfilter_editor_age_label">आयु प्रतिबंध</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">न्यूनतम आयु</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">अधिकतम आयु</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">फ़ाइल आयु (अंतिम संशोधित समय) के आधार पर मिलान सीमित करें। किसी भी आयु से मिलान के लिए खाली छोड़ें।</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">ऐप शॉर्टकट आइकन</string>
-    <string name="appcleaner_filter_shortcutservice_summary">ऐप शॉर्टकट और शेयर मेनू के लिए कैश्ड आइकन।</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">साफ़ करने से पहले बलपूर्वक रोकें</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">कैश साफ़ करने से पहले ऐप्स को बलपूर्वक रोकें। यह कुछ ऐप्स का कैश साफ़ करने में मदद कर सकता है, लेकिन ऐप्स में समस्या हो सकती है और मैन्युअल पुनः आरंभ की आवश्यकता हो सकती है।</string>
-    <string name="appcleaner_progress_force_stopping">ऐप्स बलपूर्वक रोके जा रहे हैं…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">रखने को प्राथमिकता दें</string>
-    <string name="deduplicator_keep_prefer_paths_summary">यह तय करते समय कि कौन सा डुप्लिकेट रखना है, इन स्थानों में फ़ाइलें रखने को प्राथमिकता दें।</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">कोई स्थान कॉन्फ़िगर नहीं किया गया</string>
-
-    <string name="deduplicator_arbiter_title">हटाने की रणनीति</string>
-    <string name="deduplicator_arbiter_summary">कॉन्फ़िगर करें कि कौन सी फ़ाइलें रखी जाएं और कौन सी हटाई जाएं।</string>
-    <string name="deduplicator_arbiter_explanation">डुप्लिकेट हटाते समय, SD Maid प्रत्येक मानदंड की क्रम में जांच करके तय करता है कि कौन सी फ़ाइल रखनी है। पहला मानदंड जो स्पष्ट विजेता देता है, परिणाम निर्धारित करता है। पुनर्व्यवस्थित करने के लिए खींचें, मोड बदलने के लिए टैप करें।</string>
-    <string name="deduplicator_arbiter_select_mode_title">मोड चुनें</string>
-    <string name="deduplicator_arbiter_configure_paths_action">पथ कॉन्फ़िगर करें…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">डुप्लिकेट प्रकार</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">समान फ़ाइलों की तुलना में सटीक मिलान को प्राथमिकता दें।</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">मीडिया इंडेक्सिंग</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">विचार करें कि क्या फ़ाइलें मीडिया प्रदाता द्वारा इंडेक्स की गई हैं।</string>
-    <string name="deduplicator_arbiter_criterium_location_title">संग्रहण स्थान</string>
-    <string name="deduplicator_arbiter_criterium_location_description">आंतरिक या बाहरी संग्रहण पर फ़ाइलों को प्राथमिकता दें।</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">फ़ोल्डर गहराई</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">उथली या गहरी फ़ोल्डर संरचनाओं में फ़ाइलों को प्राथमिकता दें।</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">संशोधन तिथि</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">संशोधन समय के आधार पर पुरानी या नई फ़ाइलों को प्राथमिकता दें।</string>
-    <string name="deduplicator_arbiter_criterium_size_title">फ़ाइल आकार</string>
-    <string name="deduplicator_arbiter_criterium_size_description">जब आकार भिन्न हों तो बड़ी या छोटी फ़ाइलों को प्राथमिकता दें।</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">पसंदीदा स्थान</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">आपके कॉन्फ़िगर किए गए पसंदीदा स्थानों में फ़ाइलें रखें।</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">सटीक मिलान प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">समान फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">इंडेक्स की गई फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">गैर-इंडेक्स फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">आंतरिक संग्रहण प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">बाहरी संग्रहण प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">उथले फ़ोल्डर प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">गहरे फ़ोल्डर प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">पुरानी फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">नई फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">बड़ी फ़ाइलें प्राथमिकता</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">छोटी फ़ाइलें प्राथमिकता</string>
-
-    <string name="deduplicator_view_mode_groups_label">समूह</string>
-    <string name="deduplicator_view_mode_directories_label">फ़ोल्डर</string>
-
-    <string name="squeezer_onboarding_title">छवि संपीड़न के बारे में</string>
-    <string name="squeezer_onboarding_message">छवि संपीड़न दृश्य विवरण हटाकर फ़ाइल आकार कम करता है। यह प्रक्रिया अपरिवर्तनीय है - मूल गुणवत्ता पुनर्स्थापित नहीं की जा सकती।\n\nयहां आपकी छवियों का पूर्वावलोकन है:</string>
-    <string name="squeezer_onboarding_original_label">मूल</string>
-    <string name="squeezer_onboarding_compressed_label">संपीड़न के बाद</string>
-    <string name="squeezer_onboarding_quality_label">गुणवत्ता: %d%%</string>
-    <string name="squeezer_onboarding_got_it">समझ गया</string>
-    <string name="squeezer_compare_action">तुलना देखें</string>
-    <string name="squeezer_no_example_found">चयनित पथों में कोई छवि नहीं मिली।</string>
-    <string name="squeezer_result_empty_message">कोई संपीड़न योग्य छवि नहीं मिली।</string>
-    <string name="squeezer_setup_warning">संपीड़न संग्रहण स्थान बचाने के लिए छवि गुणवत्ता को स्थायी रूप से कम करता है। इसे पूर्ववत नहीं किया जा सकता। शुरू करने से पहले अपनी सेटिंग्स की सावधानीपूर्वक समीक्षा करें।</string>
-    <string name="squeezer_setup_explanation">Media Squeeze संग्रहण स्थान खाली करने के लिए छवि फ़ाइल आकार कम करता है। यह छवि गुणवत्ता को स्थायी रूप से कम करता है और इसे पूर्ववत नहीं किया जा सकता। शुरू करने से पहले अपनी सेटिंग्स की सावधानीपूर्वक समीक्षा करें।</string>
-    <string name="squeezer_setup_paths_title">खोज स्थान</string>
-    <string name="squeezer_setup_paths_default">खोजने के लिए फ़ोल्डर चुनें</string>
-    <string name="squeezer_setup_quality_title">संपीड़न गुणवत्ता</string>
-    <string name="squeezer_setup_age_title">न्यूनतम आयु</string>
-    <string name="squeezer_setup_age_none">कोई सीमा नहीं (सभी फ़ाइलें शामिल करें)</string>
-    <string name="squeezer_setup_start_action">स्कैन शुरू करें</string>
-    <string name="squeezer_quality_hint_very_low">40%% से कम गुणवत्ता अनुपयोगी छवियां बना सकती है।</string>
-    <string name="squeezer_quality_hint_low">कम गुणवत्ता अधिक स्थान बचाती है लेकिन दृश्य दोष पैदा कर सकती है।</string>
-    <string name="squeezer_quality_hint_high">बहुत उच्च गुणवत्ता न्यूनतम स्थान बचत प्रदान करती है।</string>
-    <string name="squeezer_quality_hint_normal">संतुलित गुणवत्ता और स्थान बचत।</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">कम से कम %d दिन पुरानी</item>
-        <item quantity="other">कम से कम %d दिन पुरानी</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
-
     <string name="shortcut_appcontrol_short">ऐप नियंत्रण</string>
     <string name="shortcut_appcontrol_long">स्थापित ऐप्स प्रबंधित करें</string>
     <string name="shortcut_onetap_short">स्कैन + हटाएं</string>
     <string name="shortcut_onetap_long">एक क्रिया में स्कैन और हटाएं</string>
-
     <string name="shortcuts_settings_category">शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_title">वन-टैप शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_summary">ऐप आइकन को देर तक दबाने पर \"स्कैन + हटाएं\" शॉर्टकट दिखाएं। वन-टैप डैशबोर्ड के समान टूल का उपयोग करता है।</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">फ़ाइलों को स्वाइप करके तय करें कि क्या रखना है और क्या हटाना है।</string>
-    <string name="swiper_dashcard_description">विशिष्ट फ़ोल्डरों में फ़ाइलों की मैन्युअल समीक्षा करें। क्या रखना और क्या हटाना है यह तय करने के लिए स्वाइप करें।</string>
     <string name="swiper_start_action">स्वाइप शुरू करें</string>
     <string name="swiper_continue_action">सत्र जारी रखें</string>
-    <string name="swiper_sessions_description">कुछ फ़ाइलों को मानवीय निर्णय की आवश्यकता होती है। आइटम स्वाइप करें और चुनें कि क्या रखना है या हटाना है। जिसके बारे में निश्चित न हों उसे छोड़ दें। यह टूल आपको विशिष्ट फ़ोल्डरों की मैन्युअल समीक्षा करने देता है, और पुष्टि करने तक कुछ भी नहीं हटाया जाता।</string>
     <string name="swiper_select_folders_action">फ़ोल्डर चुनें</string>
     <string name="swiper_scanning_title">स्कैन हो रहा है…</string>
     <plurals name="swiper_result_x_items_found">
@@ -982,4 +961,6 @@
     <string name="swiper_stamp_undo_2">पीछे!</string>
     <string name="swiper_stamp_undo_3">अरे!</string>
     <string name="swiper_stamp_undo_4">रुको!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">На ваше разположение.</string>
     <string name="slogan_message_1">Чисто и подредено.</string>
     <string name="slogan_message_2">Предотвратява хаоса.</string>
     <string name="slogan_message_3">Прави необходимото.</string>
-    <string name="slogan_message_4">Всичко е на място.</string>
     <string name="slogan_message_5">Безупречно.</string>
     <string name="slogan_message_6">Байтове, изчезнете!</string>
     <string name="slogan_message_7">Свободно място, щастливо място.</string>

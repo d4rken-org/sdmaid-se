@@ -631,7 +631,7 @@
     <string name="squeezer_onboarding_compressed_label">После сжатия</string>
     <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
     <string name="squeezer_onboarding_got_it">Понятно</string>
-    <string name="squeezer_compare_action">Сравнить</string>
+    <string name="squeezer_compare_action">Сравнение</string>
     <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
     <string name="squeezer_result_empty_message">Не найдено изображений, которые можно сжать.</string>
     <string name="squeezer_setup_warning">Сжатие навсегда снижает качество изображения для сохранения места. Это не может быть отменено. Перед началом внимательно проверьте настройки.</string>
@@ -1041,11 +1041,8 @@
     <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
     <string name="swiper_label">Свайпер</string>
     <string name="swiper_tool_name">Свайпер</string>
-    <string name="swiper_tool_description">Проведите по файлам, чтобы решить, что сохранить, а что удалить.</string>
-    <string name="swiper_dashcard_description">Вручную просматривайте файлы в определённых папках. Свайпните, чтобы решить, что оставить или удалить.</string>
     <string name="swiper_start_action">Начать свайп</string>
     <string name="swiper_continue_action">Продолжить сессию</string>
-    <string name="swiper_sessions_description">Некоторые файлы требуют решения человека. Проводите по элементам и выбирайте, что оставить или удалить. Пропускайте то, в чём не уверены. Этот инструмент позволяет вручную просматривать определённые папки, и ничего не будет удалено, пока вы не подтвердите.</string>
     <string name="swiper_select_folders_action">Выберите папки</string>
     <string name="swiper_scanning_title">Сканирование…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1084,7 +1081,7 @@
         <item quantity="other">Будет окончательно удалено %1$d файлов (%2$s). Это действие нельзя отменить.</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
-        <item quantity="one">%d нерешенный элемент будет отложен на более поздний срок.</item>
+        <item quantity="one">%d нерешенныйэлемент будет отложен на более поздний срок.</item>
         <item quantity="few">%d нерешенных элем. будут отложены на более поздний срок.</item>
         <item quantity="many">%d нерешенных элем. будут отложены на более поздний срок.</item>
         <item quantity="other">%d нерешенных элем. будут отложены на более поздний срок.</item>
@@ -1205,4 +1202,6 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Одну минуточку!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

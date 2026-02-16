@@ -8,7 +8,6 @@
     <string name="slogan_message_5">สมบูรณ์แบบ</string>
     <string name="slogan_message_6">ไบต์ หายไป!</string>
     <string name="slogan_message_7">พื้นที่ว่าง สถานที่มีความสุข</string>
-    <string name="slogan_message_4">จัดระเบียบทุกอย่างเรียบร้อย</string>
     <string name="slogan_message_8">ไม่เคยยอมแพ้กับคุณ</string>
     <string name="general_thank_you_label">ขอบคุณ</string>
     <string name="general_error_type_mismatch_msg">ประเภทไม่ตรงกัน: ต้องการ %1$s แต่ได้รับ %2$s</string>

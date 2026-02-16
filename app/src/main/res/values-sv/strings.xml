@@ -330,6 +330,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Namnet är lika med nyckelord</string>
     <string name="systemcleaner_customfilter_last_edit">Senast redigerad: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Livesökning</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Storleksbegränsningar</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minsta storlek</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximal storlek</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Begränsa matchningar baserat på filstorlek. Lämna tomt för att matcha alla storlekar.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Åldersbegränsningar</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Lägsta ålder</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximal ålder</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Begränsa matchningar baserat på filålder (senast ändrad tid). Lämna tomt för att matcha alla åldrar.</string>
     <string name="systemcleaner_customfilter_import_action">Importera nytt filter</string>
     <string name="systemcleaner_customfilter_export_action">Exportera valt filter</string>
     <string name="appcleaner_tool_name">AppCleaner</string>
@@ -423,6 +431,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Denna systemapp har ingen inställningsskärm. Cache-rensning via tillgänglighetstjänst är inte möjlig. Uteslut den för att påskynda cache-rensning.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp felkonfigurerad</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS:s säkerhetsapp (com.miui.securitycenter) saknar behörighet för användningsstatistik (GET_USAGE_STATS). Detta förstör funktioner som \"Rensa data\" i appdetaljer och cache-rensning via tillgänglighet. Bevilja behörigheten för att återställa full funktionalitet.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Tvångsstoppa före rensning</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Tvångsstoppa appar innan du rensar deras cache. Det kan hjälpa till att rensa vissa appars cache, men kan göra att appar inte fungerar korrekt och kräver manuell omstart.</string>
+    <string name="appcleaner_progress_force_stopping">Tvångsstoppar appar…</string>
     <string name="deduplicator_explanation_short">Hitta och ta bort duplicerade filer.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d dubblett borttagen</item>
@@ -436,6 +447,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Visa alternativ som låter dig ta bort alla filer i en uppsättning dubbletter så att ingen fil blir kvar.</string>
     <string name="deduplicator_search_locations_title">Sökplatser</string>
     <string name="deduplicator_search_locations_all_summary">Alla tillgängliga områden</string>
+    <string name="deduplicator_keep_prefer_paths_title">Föredra att behålla i</string>
+    <string name="deduplicator_keep_prefer_paths_summary">När det avgörs vilken dubblett som ska behållas, föredra filer på dessa platser.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Inga platser konfigurerade</string>
     <string name="deduplicator_skip_minsize_title">Minsta storlek</string>
     <string name="deduplicator_skip_minsize_description">Hoppa över filer som är under minsta storlek.</string>
     <string name="deduplicator_skip_uncommon_title">Hoppa över ovanliga filtyper</string>
@@ -462,6 +476,120 @@
     <string name="deduplicator_details_cluster_title">Uppsättning av dubbletter</string>
     <string name="deduplicator_matches_exact_label">Exakta kopior</string>
     <string name="deduplicator_matches_similar_label">Liknande filer</string>
+    <string name="deduplicator_arbiter_title">Raderingsstrategi</string>
+    <string name="deduplicator_arbiter_summary">Konfigurera vilka filer som behålls och vilka som raderas.</string>
+    <string name="deduplicator_arbiter_explanation">När dubbletter raderas avgör SD Maid vilken fil som ska behållas genom att kontrollera varje kriterium i ordning. Det första kriteriet som ger en tydlig vinnare avgör resultatet. Dra för att ändra ordning, tryck för att ändra läge.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Välj läge</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Konfigurera sökvägar…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Dubbletttyp</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Föredra exakta matchningar framför liknande filer.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Mediaindexering</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Överväg om filer är indexerade av medialeverantören.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lagringsplats</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Föredra filer på intern eller extern lagring.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Mappdjup</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Föredra filer i grundare eller djupare mappstrukturer.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Ändringsdatum</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Föredra äldre eller nyare filer baserat på ändringstid.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Filstorlek</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Föredra större eller mindre filer när storlekar skiljer sig.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Föredragna platser</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Behåll filer i dina konfigurerade föredragna platser.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Föredra exakta matchningar</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Föredra liknande filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Föredra indexerade filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Föredra icke-indexerade filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Föredra intern lagring</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Föredra extern lagring</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Föredra grunda mappar</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Föredra djupare mappar</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Föredra äldre filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Föredra nyare filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Föredra större filer</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Föredra mindre filer</string>
+    <string name="deduplicator_view_mode_groups_label">Grupper</string>
+    <string name="deduplicator_view_mode_directories_label">Mappar</string>
+    <string name="squeezer_tool_name">Mediakomprimering</string>
+    <string name="squeezer_explanation_short">Komprimera bilder för att spara lagringsutrymme.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d bild hittad</item>
+        <item quantity="other">%d bilder hittade</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s kan sparas</item>
+        <item quantity="other">~%s kan sparas</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d bild komprimerad</item>
+        <item quantity="other">%d bilder komprimerade</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d bild vald</item>
+        <item quantity="other">%d bilder valda</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Sökplatser</string>
+    <string name="squeezer_search_locations_default_summary">Kameramappar (standard)</string>
+    <string name="squeezer_min_size_title">Minsta filstorlek</string>
+    <string name="squeezer_min_size_description">Hoppa över bilder mindre än denna storlek.</string>
+    <string name="squeezer_min_age_title">Lägsta filålder</string>
+    <string name="squeezer_min_age_description">Inkludera bara bilder äldre än denna ålder.</string>
+    <string name="squeezer_compression_settings_label">Komprimeringsinställningar</string>
+    <string name="squeezer_quality_label">Kvalitet</string>
+    <string name="squeezer_quality_title">Komprimeringskvalitet</string>
+    <string name="squeezer_quality_description">Lägre kvalitet innebär mindre filstorlek men sämre bildkvalitet.</string>
+    <string name="squeezer_quality_example_format">Exempel: %1$s-bild → sparar ~%2$s vid %3$d%% kvalitet</string>
+    <string name="squeezer_quality_warning_low">Lägre kvalitet kan orsaka synliga artefakter.</string>
+    <string name="squeezer_quality_warning_high">Mycket hög kvalitet ger minimal utrymmebesparing.</string>
+    <string name="squeezer_types_category_label">Bildtyper</string>
+    <string name="squeezer_type_jpeg_description">Inkludera JPEG-bilder (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Inkludera WebP-bilder (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Hoppa över tidigare komprimerade</string>
+    <string name="squeezer_skip_compressed_description">Hoppa över bilder som redan komprimerats av SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Skriv EXIF-markör</string>
+    <string name="squeezer_exif_marker_description">Lägg till en markör i bildens EXIF-användarkommentarfält för att förhindra omkomprimering även om komprimeringshistoriken rensas.</string>
+    <string name="squeezer_estimated_savings_format">~%s besparing</string>
+    <string name="squeezer_no_savings_expected">Begränsad besparing</string>
+    <string name="squeezer_current_size_format">Storlek: %s</string>
+    <string name="squeezer_compress_action">Komprimera</string>
+    <string name="squeezer_compress_all_action">Komprimera alla</string>
+    <string name="squeezer_preview_dialog_title">Bekräfta komprimering</string>
+    <string name="squeezer_preview_total_size">Total storlek</string>
+    <string name="squeezer_preview_estimated_savings">Uppskattad besparing</string>
+    <string name="squeezer_compress_confirmation_title">Komprimera bilder?</string>
+    <string name="squeezer_compress_confirmation_message">Detta kommer ersätta originalbilder med komprimerade versioner. Denna åtgärd kan inte ångras.</string>
+    <string name="squeezer_history_title">Komprimeringshistorik</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d objekt (%2$s)</item>
+        <item quantity="other">%1$d objekt (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Ingen komprimeringshistorik</string>
+    <string name="squeezer_history_clear_title">Rensa komprimeringshistorik</string>
+    <string name="squeezer_history_clear_message">Detta gör att tidigare komprimerade bilder kan komprimeras igen. Bilderna själva påverkas inte.</string>
+    <string name="squeezer_onboarding_title">Om bildkomprimering</string>
+    <string name="squeezer_onboarding_message">Bildkomprimering minskar filstorleken genom att ta bort visuella detaljer. Denna process är irreversibel – originalkvaliteten kan inte återställas.\n\nHär är en förhandsgranskning av hur dina bilder kommer se ut:</string>
+    <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
+    <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Uppfattat</string>
+    <string name="squeezer_compare_action">Visa jämförelse</string>
+    <string name="squeezer_no_example_found">Inga bilder hittades i valda sökvägar.</string>
+    <string name="squeezer_result_empty_message">Inga komprimerbara bilder hittades.</string>
+    <string name="squeezer_setup_warning">Komprimering minskar bildkvaliteten permanent för att spara lagringsutrymme. Detta kan inte ångras. Granska dina inställningar noggrant innan du startar.</string>
+    <string name="squeezer_setup_explanation">Mediakomprimering minskar filstorleken på bilder för att frigöra lagringsutrymme. Detta minskar bildkvaliteten permanent och kan inte ångras. Granska dina inställningar noggrant innan du startar.</string>
+    <string name="squeezer_setup_paths_title">Sökplatser</string>
+    <string name="squeezer_setup_paths_default">Välj mappar att söka i</string>
+    <string name="squeezer_setup_quality_title">Komprimeringskvalitet</string>
+    <string name="squeezer_setup_age_title">Lägsta ålder</string>
+    <string name="squeezer_setup_age_none">Ingen gräns (inkludera alla filer)</string>
+    <string name="squeezer_setup_start_action">Starta skanning</string>
+    <string name="squeezer_quality_hint_very_low">Kvalitet under 40% kan skapa oanvändbara bilder.</string>
+    <string name="squeezer_quality_hint_low">Lägre kvalitet sparar mer utrymme men kan orsaka synliga artefakter.</string>
+    <string name="squeezer_quality_hint_high">Mycket hög kvalitet ger minimal utrymmebesparing.</string>
+    <string name="squeezer_quality_hint_normal">Balanserad kvalitet och utrymmebesparing.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Minst %d dag gammal</item>
+        <item quantity="other">Minst %d dagar gammal</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Uppskattad ~%d%% besparing för JPEG-filer</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Hantera installerade appar och deras funktioner.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -495,6 +623,7 @@
     <string name="appcontrol_tag_not_installed">Inte installerad</string>
     <string name="appcontrol_tag_enabled">Aktiverad</string>
     <string name="appcontrol_tag_disabled">Inaktiverad</string>
+    <string name="appcontrol_tag_debug">Felsökning</string>
     <string name="appcontrol_progress_enabling_package">Aktiverar app</string>
     <string name="appcontrol_progress_disabling_package">Inaktiverar app</string>
     <string name="appcontrol_list_filteroptions_label">Filteralternativ</string>
@@ -509,6 +638,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app avinstallerades</item>
         <item quantity="other">%d appar avinstallerades</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arkivera</string>
+    <string name="appcontrol_archive_selection_action">Arkivera appar</string>
+    <string name="appcontrol_archive_description">Arkivera för att frigöra utrymme samtidigt som appdata behålls för senare återställning.</string>
+    <string name="appcontrol_progress_archiving_app">Arkiverar app…</string>
+    <string name="appcontrol_archive_confirmation_title">Bekräfta arkivering</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arkivera %d app?</item>
+        <item quantity="other">Arkivera %d appar?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app arkiverad</item>
+        <item quantity="other">%d appar arkiverade</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Återställ</string>
+    <string name="appcontrol_restore_selection_action">Återställ appar</string>
+    <string name="appcontrol_restore_description">Återställ arkiverad app till fullt installerat tillstånd. Appdata bevaras.</string>
+    <string name="appcontrol_progress_restoring_app">Återställer app…</string>
+    <string name="appcontrol_restore_confirmation_title">Bekräfta återställning</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Återställa %d app?</item>
+        <item quantity="other">Återställa %d appar?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app återställd</item>
+        <item quantity="other">%d appar återställda</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Appstorlek</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
@@ -535,6 +690,9 @@
         <item quantity="other">%d appar exporterades</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exporterar %s</string>
+    <string name="appcontrol_share_list_action">Dela lista</string>
+    <string name="appcontrol_share_list_title">Mina appar</string>
+    <string name="appcontrol_share_list_footer">Delad via SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Tvinga stoppa appar</string>
     <string name="appcontrol_force_stop_action">Tvinga stopp</string>
     <string name="appcontrol_force_stop_confirm_title">Bekräfta tvinga stopp</string>
@@ -551,6 +709,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Tvinga stoppar…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Letar efter knappen \"Tvinga stopp\" (nyckelord: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arkiverar…</string>
+    <string name="appcontrol_automation_progress_find_archive">Letar efter \"Arkivera\"-knappen (nyckelord: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Återställer…</string>
+    <string name="appcontrol_automation_progress_find_restore">Letar efter \"Återställ\"-knappen (nyckelord: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Skärmtid: %1$s sedan %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Senast uppdaterad: %s</string>
     <string name="analyzer_tool_name">LagringsAnalysator</string>
@@ -570,6 +732,11 @@
         <item quantity="other">%s använt</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Ingen direkt åtkomst tillgänglig</string>
+    <string name="analyzer_content_create_swiper_session_action">Skapa Swiper-session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-session skapad med %d objekt</item>
+        <item quantity="other">Swiper-session skapad med %d objekt</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primär lagring</string>
     <string name="analyzer_storage_type_primary_description">Den primära lagringen för din enhet. Innehåller det interna SD-kortet, privat lagring för appar och systemdata.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundär lagring</string>
@@ -612,6 +779,7 @@
     <string name="exclusion_type_segment">Segmentuteslutning</string>
     <string name="exclusion_tags_alltools">Alla verktyg</string>
     <string name="exclusion_target_label">Uteslutningsmal</string>
+    <string name="exclusion_editor_path_change_action">Tryck för att ändra sökväg</string>
     <string name="exclusion_option_allow_partial">Tillåt partiella matchningar</string>
     <string name="exclusion_option_ignore_casing">Ignorera versaler/gemener</string>
     <string name="exclusion_editor_affected_tools_label">Påverkade verktyg</string>
@@ -747,184 +915,8 @@
     <string name="shortcuts_settings_category">Genvägar</string>
     <string name="shortcuts_onetap_enabled_title">En-tryck genväg</string>
     <string name="shortcuts_onetap_enabled_summary">Visa \"Skanna + Ta bort\" genväg vid långtryck på appikonen. Använder samma verktyg som en-tryck instrumentpanel.</string>
-    <string name="systemcleaner_customfilter_editor_size_label">Storleksbegränsningar</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minsta storlek</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximal storlek</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Begränsa matchningar baserat på filstorlek. Lämna tomt för att matcha alla storlekar.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Åldersbegränsningar</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Lägsta ålder</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximal ålder</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Begränsa matchningar baserat på filålder (senast ändrad tid). Lämna tomt för att matcha alla åldrar.</string>
-    <string name="appcleaner_forcestop_before_clearing_label">Tvångsstoppa före rensning</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Tvångsstoppa appar innan du rensar deras cache. Det kan hjälpa till att rensa vissa appars cache, men kan göra att appar inte fungerar korrekt och kräver manuell omstart.</string>
-    <string name="appcleaner_progress_force_stopping">Tvångsstoppar appar…</string>
-    <string name="deduplicator_keep_prefer_paths_title">Föredra att behålla i</string>
-    <string name="deduplicator_keep_prefer_paths_summary">När det avgörs vilken dubblett som ska behållas, föredra filer på dessa platser.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Inga platser konfigurerade</string>
-    <string name="deduplicator_arbiter_title">Raderingsstrategi</string>
-    <string name="deduplicator_arbiter_summary">Konfigurera vilka filer som behålls och vilka som raderas.</string>
-    <string name="deduplicator_arbiter_explanation">När dubbletter raderas avgör SD Maid vilken fil som ska behållas genom att kontrollera varje kriterium i ordning. Det första kriteriet som ger en tydlig vinnare avgör resultatet. Dra för att ändra ordning, tryck för att ändra läge.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Välj läge</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Konfigurera sökvägar…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Dubbletttyp</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Föredra exakta matchningar framför liknande filer.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Mediaindexering</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Överväg om filer är indexerade av medialeverantören.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Lagringsplats</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Föredra filer på intern eller extern lagring.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Mappdjup</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Föredra filer i grundare eller djupare mappstrukturer.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Ändringsdatum</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Föredra äldre eller nyare filer baserat på ändringstid.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Filstorlek</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Föredra större eller mindre filer när storlekar skiljer sig.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Föredragna platser</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Behåll filer i dina konfigurerade föredragna platser.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Föredra exakta matchningar</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Föredra liknande filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Föredra indexerade filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Föredra icke-indexerade filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Föredra intern lagring</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Föredra extern lagring</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Föredra grunda mappar</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Föredra djupare mappar</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Föredra äldre filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Föredra nyare filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Föredra större filer</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Föredra mindre filer</string>
-    <string name="deduplicator_view_mode_groups_label">Grupper</string>
-    <string name="deduplicator_view_mode_directories_label">Mappar</string>
-    <string name="squeezer_tool_name">Mediakomprimering</string>
-    <string name="squeezer_explanation_short">Komprimera bilder för att spara lagringsutrymme.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d bild hittad</item>
-        <item quantity="other">%d bilder hittade</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s kan sparas</item>
-        <item quantity="other">~%s kan sparas</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d bild komprimerad</item>
-        <item quantity="other">%d bilder komprimerade</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d bild vald</item>
-        <item quantity="other">%d bilder valda</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Sökplatser</string>
-    <string name="squeezer_search_locations_default_summary">Kameramappar (standard)</string>
-    <string name="squeezer_min_size_title">Minsta filstorlek</string>
-    <string name="squeezer_min_size_description">Hoppa över bilder mindre än denna storlek.</string>
-    <string name="squeezer_min_age_title">Lägsta filålder</string>
-    <string name="squeezer_min_age_description">Inkludera bara bilder äldre än denna ålder.</string>
-    <string name="squeezer_compression_settings_label">Komprimeringsinställningar</string>
-    <string name="squeezer_quality_label">Kvalitet</string>
-    <string name="squeezer_quality_title">Komprimeringskvalitet</string>
-    <string name="squeezer_quality_description">Lägre kvalitet innebär mindre filstorlek men sämre bildkvalitet.</string>
-    <string name="squeezer_quality_example_format">Exempel: %1$s-bild → sparar ~%2$s vid %3$d%% kvalitet</string>
-    <string name="squeezer_quality_warning_low">Lägre kvalitet kan orsaka synliga artefakter.</string>
-    <string name="squeezer_quality_warning_high">Mycket hög kvalitet ger minimal utrymmebesparing.</string>
-    <string name="squeezer_types_category_label">Bildtyper</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Inkludera JPEG-bilder (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Inkludera WebP-bilder (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Hoppa över tidigare komprimerade</string>
-    <string name="squeezer_skip_compressed_description">Hoppa över bilder som redan komprimerats av SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Skriv EXIF-markör</string>
-    <string name="squeezer_exif_marker_description">Lägg till en markör i bildens EXIF-användarkommentarfält för att förhindra omkomprimering även om komprimeringshistoriken rensas.</string>
-    <string name="squeezer_estimated_savings_format">~%s besparing</string>
-    <string name="squeezer_no_savings_expected">Begränsad besparing</string>
-    <string name="squeezer_current_size_format">Storlek: %s</string>
-    <string name="squeezer_compress_action">Komprimera</string>
-    <string name="squeezer_compress_all_action">Komprimera alla</string>
-    <string name="squeezer_preview_dialog_title">Bekräfta komprimering</string>
-    <string name="squeezer_preview_total_size">Total storlek</string>
-    <string name="squeezer_preview_estimated_savings">Uppskattad besparing</string>
-    <string name="squeezer_compress_confirmation_title">Komprimera bilder?</string>
-    <string name="squeezer_compress_confirmation_message">Detta kommer ersätta originalbilder med komprimerade versioner. Denna åtgärd kan inte ångras.</string>
-    <string name="squeezer_history_title">Komprimeringshistorik</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d objekt (%2$s)</item>
-        <item quantity="other">%1$d objekt (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Ingen komprimeringshistorik</string>
-    <string name="squeezer_history_clear_title">Rensa komprimeringshistorik</string>
-    <string name="squeezer_history_clear_message">Detta gör att tidigare komprimerade bilder kan komprimeras igen. Bilderna själva påverkas inte.</string>
-    <string name="squeezer_onboarding_title">Om bildkomprimering</string>
-    <string name="squeezer_onboarding_message">Bildkomprimering minskar filstorleken genom att ta bort visuella detaljer. Denna process är irreversibel – originalkvaliteten kan inte återställas.\n\nHär är en förhandsgranskning av hur dina bilder kommer se ut:</string>
-    <string name="squeezer_onboarding_original_label">Original</string>
-    <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
-    <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Uppfattat</string>
-    <string name="squeezer_compare_action">Visa jämförelse</string>
-    <string name="squeezer_no_example_found">Inga bilder hittades i valda sökvägar.</string>
-    <string name="squeezer_result_empty_message">Inga komprimerbara bilder hittades.</string>
-    <string name="squeezer_setup_warning">Komprimering minskar bildkvaliteten permanent för att spara lagringsutrymme. Detta kan inte ångras. Granska dina inställningar noggrant innan du startar.</string>
-    <string name="squeezer_setup_explanation">Mediakomprimering minskar filstorleken på bilder för att frigöra lagringsutrymme. Detta minskar bildkvaliteten permanent och kan inte ångras. Granska dina inställningar noggrant innan du startar.</string>
-    <string name="squeezer_setup_paths_title">Sökplatser</string>
-    <string name="squeezer_setup_paths_default">Välj mappar att söka i</string>
-    <string name="squeezer_setup_quality_title">Komprimeringskvalitet</string>
-    <string name="squeezer_setup_age_title">Lägsta ålder</string>
-    <string name="squeezer_setup_age_none">Ingen gräns (inkludera alla filer)</string>
-    <string name="squeezer_setup_start_action">Starta skanning</string>
-    <string name="squeezer_quality_hint_very_low">Kvalitet under 40% kan skapa oanvändbara bilder.</string>
-    <string name="squeezer_quality_hint_low">Lägre kvalitet sparar mer utrymme men kan orsaka synliga artefakter.</string>
-    <string name="squeezer_quality_hint_high">Mycket hög kvalitet ger minimal utrymmebesparing.</string>
-    <string name="squeezer_quality_hint_normal">Balanserad kvalitet och utrymmebesparing.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Minst %d dag gammal</item>
-        <item quantity="other">Minst %d dagar gammal</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Uppskattad ~%d%% besparing för JPEG-filer</string>
-    <string name="appcontrol_tag_debug">Felsökning</string>
-    <string name="appcontrol_archive_action">Arkivera</string>
-    <string name="appcontrol_archive_selection_action">Arkivera appar</string>
-    <string name="appcontrol_archive_description">Arkivera för att frigöra utrymme samtidigt som appdata behålls för senare återställning.</string>
-    <string name="appcontrol_progress_archiving_app">Arkiverar app…</string>
-    <string name="appcontrol_archive_confirmation_title">Bekräfta arkivering</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">Arkivera %d app?</item>
-        <item quantity="other">Arkivera %d appar?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d app arkiverad</item>
-        <item quantity="other">%d appar arkiverade</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Återställ</string>
-    <string name="appcontrol_restore_selection_action">Återställ appar</string>
-    <string name="appcontrol_restore_description">Återställ arkiverad app till fullt installerat tillstånd. Appdata bevaras.</string>
-    <string name="appcontrol_progress_restoring_app">Återställer app…</string>
-    <string name="appcontrol_restore_confirmation_title">Bekräfta återställning</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">Återställa %d app?</item>
-        <item quantity="other">Återställa %d appar?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d app återställd</item>
-        <item quantity="other">%d appar återställda</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Dela lista</string>
-    <string name="appcontrol_share_list_title">Mina appar</string>
-    <string name="appcontrol_share_list_footer">Delad via SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Arkiverar…</string>
-    <string name="appcontrol_automation_progress_find_archive">Letar efter \"Arkivera\"-knappen (nyckelord: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Återställer…</string>
-    <string name="appcontrol_automation_progress_find_restore">Letar efter \"Återställ\"-knappen (nyckelord: %s)</string>
-    <string name="analyzer_content_create_swiper_session_action">Skapa Swiper-session</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Swiper-session skapad med %d objekt</item>
-        <item quantity="other">Swiper-session skapad med %d objekt</item>
-    </plurals>
-    <string name="exclusion_editor_path_change_action">Tryck för att ändra sökväg</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Svep genom filer för att bestämma vad du vill behålla eller ta bort.</string>
-    <string name="swiper_dashcard_description">Granska filer i specifika mappar manuellt. Svep för att bestämma vad du vill behålla eller ta bort.</string>
     <string name="swiper_start_action">Börja svepa</string>
     <string name="swiper_continue_action">Fortsätt session</string>
-    <string name="swiper_sessions_description">Vissa filer kräver ett mänskligt beslut. Svep genom objekt och välj vad du vill behålla eller ta bort. Hoppa över allt du är osäker på. Detta verktyg låter dig granska specifika mappar manuellt, och inget tas bort förrän du bekräftar.</string>
     <string name="swiper_select_folders_action">Välj mappar</string>
     <string name="swiper_scanning_title">Skannar…</string>
     <plurals name="swiper_result_x_items_found">
@@ -972,10 +964,6 @@
         <item quantity="one">Fortsätt session från %1$d dag sedan (%2$d%% klart)</item>
         <item quantity="other">Fortsätt session från %1$d dagar sedan (%2$d%% klart)</item>
     </plurals>
-    <plurals name="swiper_dashcard_x_sessions">
-        <item quantity="one">%d session</item>
-        <item quantity="other">%d sessioner</item>
-    </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">%d obestämt objekt</item>
         <item quantity="other">%d obestämda objekt</item>
@@ -988,16 +976,10 @@
         <item quantity="one">%d fil per session</item>
         <item quantity="other">%d filer per session</item>
     </plurals>
-    <plurals name="swiper_sessions_upgrade_sessions_limit">
-        <item quantity="one">%d session</item>
-        <item quantity="other">%d sessioner</item>
-    </plurals>
-    <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_session_rename_title">Byt namn på session</string>
     <string name="swiper_session_rename_hint">Ange ett namn för denna session</string>
     <string name="swiper_sessions_current_sessions">Aktuella sessioner</string>
     <string name="swiper_session_paths_label">Sökvägar</string>
-    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d att behålla</item>
         <item quantity="other">%d att behålla</item>
@@ -1043,11 +1025,12 @@
     <string name="swiper_stamp_delete_3">Skräp!</string>
     <string name="swiper_stamp_delete_4">Ta bort!</string>
     <string name="swiper_stamp_skip_1">Hoppa!</string>
-    <string name="swiper_stamp_skip_2">Meh!</string>
     <string name="swiper_stamp_skip_3">Senare!</string>
     <string name="swiper_stamp_skip_4">Kanske!</string>
     <string name="swiper_stamp_undo_1">Ångra!</string>
     <string name="swiper_stamp_undo_2">Tillbaka!</string>
     <string name="swiper_stamp_undo_3">Oj!</string>
     <string name="swiper_stamp_undo_4">Vänta!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

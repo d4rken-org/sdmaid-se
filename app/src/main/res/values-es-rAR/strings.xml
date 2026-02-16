@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Herramientas de un toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">¿Qué herramientas deben incluirse en las operaciones de un solo toque?</string>
+    <string name="dashboard_card_config_title">Tarjetas del panel</string>
+    <string name="dashboard_card_config_desc">Configurá qué tarjetas se muestran y su orden</string>
+    <string name="dashboard_card_config_header_title">Arrastrá para reordenar, activá/desactivá para mostrar/ocultar</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando el registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
     <string name="debug_debuglog_stop_action">Detener la grabación</string>
     <string name="debug_debuglog_sensitive_information_message">El archivo generado contiene información sensible (por ejemplo, nombres de archivos y aplicaciones instaladas). Únicamente compartilo con personas de confianza.</string>
+    <string name="debug_debuglog_screen_title">Registro de depuración</string>
+    <string name="debug_debuglog_screen_discard_action">Descartar</string>
+    <string name="debug_debuglog_screen_session_path_label">Ruta de sesión</string>
+    <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d archivo listo (%2$s)</item>
+        <item quantity="other">%1$d archivos listos (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con terceros de confianza (por ejemplo, un desarrollador que soluciona un problema).</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
@@ -80,10 +91,24 @@
     <string name="support_installid_desc">Los reportes de errores automáticos son anónimos. Compartí tu ID de instalación si el desarrollador necesita encontrar tus reportes de errores.</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puedas compartir.</string>
+    <string name="support_debuglog_folder_label">Carpeta de registros de depuración</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d archivo usando %2$s</item>
+        <item quantity="other">%1$d archivos usando %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar para pasar el rato y hacer preguntas.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
+    <string name="settings_acknowledgements_category_translations_title">Traducciones</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">¿Quién tradujo esto?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Agradecimientos</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Agradecimiento especial a nuestros amigos.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencias</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software utilizado por SD Maid.</string>
     <string name="setup_label">Ajustes</string>
     <string name="setup_incomplete_card_title">Configuración incompleta</string>
     <string name="setup_incomplete_card_body">Terminá la configuración de SD Maid para obtener mejores resultados.</string>
@@ -156,6 +181,13 @@
     <string name="debug_bugreporter_label">Reportes de errores automáticos</string>
     <string name="debug_bugreporter_summary">Automáticamente reporta problemas, por ejemplo, detalles en los crasheos de la app así puedo averiguar el porqué y arreglarlo.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El modo de depuración está habilitado</string>
+    <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de prueba (deshabilitar eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar apps</string>
+    <string name="debug_card_root_test_action">Probar root</string>
+    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
     <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
@@ -191,6 +223,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Datos de aplicación privados, por ejemplo, credenciales, ajustes de aplicación pero también cachés de navegador.</string>
     <string name="corpsefinder_filter_dalvik_label">Caché Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Datos de ejecución de aplicaciones en caché.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Perfiles ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Los perfiles ART son usados por Android para optimizar el rendimiento de las apps.</string>
     <string name="corpsefinder_filter_applib_label">Libraries de aplicaciones</string>
     <string name="corpsefinder_filter_applib_summary">Datos de librerías relacionados con la aplicación.</string>
     <string name="corpsefinder_filter_appsource_label">Repositorios de la aplicación</string>
@@ -245,6 +279,8 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de capturas</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima para que las capturas de pantalla sean consideradas para eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir misma versión</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También incluir archivos APK que coincidan con la versión instalada. Deshabilitá para solo eliminar versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
@@ -305,6 +341,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nombre es igual a la palabra clave</string>
     <string name="systemcleaner_customfilter_last_edit">Última vez editado: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Búsqueda en vivo</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restricciones de tamaño</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamaño mínimo</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamaño máximo</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limitar coincidencias según el tamaño del archivo. Dejá vacío para coincidir con cualquier tamaño.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restricciones de antigüedad</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Antigüedad mínima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Antigüedad máxima</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (fecha de última modificación). Dejá vacío para coincidir con cualquier antigüedad.</string>
     <string name="systemcleaner_customfilter_import_action">Importar un nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar el filtro seleccionado</string>
     <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
@@ -347,6 +391,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Archivos que se han eliminado pero se han colocado en una carpeta especial para permitir restaurarlos.</string>
     <string name="appcleaner_filter_webview_label">Archivos de Webview</string>
     <string name="appcleaner_filter_webview_summary">Archivos almacenados en caché por instancias de Webview utilizados dentro de las aplicaciones.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Íconos de accesos directos de apps</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Íconos en caché para accesos directos de apps y menús de compartir.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copias de seguridad de WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Elimina las copias adicionales de las copias de seguridad de WhatsApp y conserva solo la más reciente.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Archivos que recibiste de personas a través de WhatsApp.</string>
@@ -398,6 +444,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Excluila para acelerar la limpieza de caché.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">La aplicación de Seguridad de HyperOS (com.miui.securitycenter) carece del permiso de Estadísticas de Uso (GET_USAGE_STATS). Esto rompe funciones como \"Borrar Datos\" en los detalles de la aplicación y la limpieza de caché a través de accesibilidad. Otorgá el permiso para restaurar la funcionalidad completa.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de apps antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas apps, pero podría causar problemas y requerir reinicio manual.</string>
+    <string name="appcleaner_progress_force_stopping">Forzando detención de apps…</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Encuentra los datos duplicados en tu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -412,6 +461,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar las opciones que permiten eliminar todos los archivos duplicados para que no quede ningún archivo.</string>
     <string name="deduplicator_search_locations_title">Ubicaciones de búsqueda</string>
     <string name="deduplicator_search_locations_all_summary">Todas las áreas accesibles</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferir mantener en</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Al decidir qué duplicado mantener, preferir mantener archivos en estas ubicaciones.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">No hay ubicaciones configuradas</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omite los archivos que no alcanzan el tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir los tipos de archivos poco comunes</string>
@@ -438,6 +490,64 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias exactas</string>
     <string name="deduplicator_matches_similar_label">Archivos similares</string>
+    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
+    <string name="deduplicator_arbiter_summary">Configurá qué archivos se mantienen y cuáles se eliminan.</string>
+    <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo mantener verificando cada criterio en orden. El primer criterio que produce un ganador claro determina el resultado. Arrastrá para reordenar, tocá para cambiar el modo.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir coincidencias exactas sobre archivos similares.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación de medios</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Profundidad de carpetas</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Preferir archivos en estructuras de carpetas más superficiales o más profundas.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Fecha de modificación</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Preferir archivos más viejos o más nuevos según la fecha de modificación.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Tamaño del archivo</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Preferir archivos más grandes o más chicos cuando los tamaños difieren.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Ubicaciones preferidas</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mantener archivos en las ubicaciones preferidas configuradas.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferir coincidencias exactas</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Preferir archivos similares</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferir archivos indexados</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferir archivos no indexados</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Preferir almacenamiento interno</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferir almacenamiento externo</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferir carpetas superficiales</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferir carpetas más profundas</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Preferir archivos más viejos</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Preferir archivos más nuevos</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Preferir archivos más grandes</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir archivos más chicos</string>
+    <string name="deduplicator_view_mode_groups_label">Grupos</string>
+    <string name="deduplicator_view_mode_directories_label">Carpetas</string>
+    <string name="squeezer_onboarding_title">Acerca de la compresión de imágenes</string>
+    <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAcá tenés una vista previa de cómo se verán tus imágenes:</string>
+    <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
+    <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Entendido</string>
+    <string name="squeezer_compare_action">Ver comparación</string>
+    <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
+    <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
+    <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de las imágenes para ahorrar espacio. No se puede deshacer. Revisá cuidadosamente la configuración antes de comenzar.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduce el tamaño de los archivos de imagen para liberar espacio. Esto reduce permanentemente la calidad de las imágenes y no se puede deshacer. Revisá cuidadosamente la configuración antes de comenzar.</string>
+    <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
+    <string name="squeezer_setup_paths_default">Seleccioná carpetas para buscar</string>
+    <string name="squeezer_setup_quality_title">Calidad de compresión</string>
+    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
+    <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
+    <string name="squeezer_setup_start_action">Iniciar escaneo</string>
+    <string name="squeezer_quality_hint_very_low">La calidad por debajo del 40%% puede crear imágenes inutilizables.</string>
+    <string name="squeezer_quality_hint_low">Una calidad más baja ahorra más espacio pero puede causar artefactos visibles.</string>
+    <string name="squeezer_quality_hint_high">Una calidad muy alta proporciona un ahorro mínimo de espacio.</string>
+    <string name="squeezer_quality_hint_normal">Calidad y ahorro de espacio equilibrados.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Al menos %d día de antigüedad</item>
+        <item quantity="other">Al menos %d días de antigüedad</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
     <string name="appcontrol_tool_name">Control de aplicaciones</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -728,147 +838,15 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="area_type_public_obb_label">Recursos de aplicación pública</string>
     <string name="area_type_private_data_label">Datos de aplicación privada</string>
     <string name="area_type_portable_label">Almacenamiento portátil</string>
-    <string name="dashboard_card_config_title">Tarjetas del panel</string>
-    <string name="dashboard_card_config_desc">Configurá qué tarjetas se muestran y su orden</string>
-    <string name="dashboard_card_config_header_title">Arrastrá para reordenar, activá/desactivá para mostrar/ocultar</string>
-
-    <string name="debug_debuglog_screen_title">Registro de depuración</string>
-    <string name="debug_debuglog_screen_discard_action">Descartar</string>
-    <string name="debug_debuglog_screen_session_path_label">Ruta de sesión</string>
-    <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d archivo listo (%2$s)</item>
-        <item quantity="other">%1$d archivos listos (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">Carpeta de registros de depuración</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d archivo usando %2$s</item>
-        <item quantity="other">%1$d archivos usando %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Traducciones</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">¿Quién tradujo esto?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Agradecimientos</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Agradecimiento especial a nuestros amigos.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Licencias</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Software utilizado por SD Maid.</string>
-
-    <string name="debug_card_title">El modo de depuración está habilitado</string>
-    <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
-    <string name="debug_card_dryrun_mode_label">Modo de prueba (deshabilitar eliminación)</string>
-    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
-    <string name="debug_card_pkgs_reload_action">Recargar apps</string>
-    <string name="debug_card_root_test_action">Probar root</string>
-    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">Perfiles ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Los perfiles ART son usados por Android para optimizar el rendimiento de las apps.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir misma versión</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También incluir archivos APK que coincidan con la versión instalada. Deshabilitá para solo eliminar versiones anteriores.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Restricciones de tamaño</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamaño mínimo</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamaño máximo</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Limitar coincidencias según el tamaño del archivo. Dejá vacío para coincidir con cualquier tamaño.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Restricciones de antigüedad</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Antigüedad mínima</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Antigüedad máxima</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (fecha de última modificación). Dejá vacío para coincidir con cualquier antigüedad.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Íconos de accesos directos de apps</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Íconos en caché para accesos directos de apps y menús de compartir.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de apps antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas apps, pero podría causar problemas y requerir reinicio manual.</string>
-    <string name="appcleaner_progress_force_stopping">Forzando detención de apps…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">Preferir mantener en</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Al decidir qué duplicado mantener, preferir mantener archivos en estas ubicaciones.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">No hay ubicaciones configuradas</string>
-
-    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
-    <string name="deduplicator_arbiter_summary">Configurá qué archivos se mantienen y cuáles se eliminan.</string>
-    <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo mantener verificando cada criterio en orden. El primer criterio que produce un ganador claro determina el resultado. Arrastrá para reordenar, tocá para cambiar el modo.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir coincidencias exactas sobre archivos similares.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación de medios</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Profundidad de carpetas</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Preferir archivos en estructuras de carpetas más superficiales o más profundas.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Fecha de modificación</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Preferir archivos más viejos o más nuevos según la fecha de modificación.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Tamaño del archivo</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Preferir archivos más grandes o más chicos cuando los tamaños difieren.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Ubicaciones preferidas</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mantener archivos en las ubicaciones preferidas configuradas.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferir coincidencias exactas</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Preferir archivos similares</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferir archivos indexados</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferir archivos no indexados</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Preferir almacenamiento interno</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferir almacenamiento externo</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferir carpetas superficiales</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferir carpetas más profundas</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Preferir archivos más viejos</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Preferir archivos más nuevos</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Preferir archivos más grandes</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir archivos más chicos</string>
-
-    <string name="deduplicator_view_mode_groups_label">Grupos</string>
-    <string name="deduplicator_view_mode_directories_label">Carpetas</string>
-
-    <string name="squeezer_onboarding_title">Acerca de la compresión de imágenes</string>
-    <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAcá tenés una vista previa de cómo se verán tus imágenes:</string>
-    <string name="squeezer_onboarding_original_label">Original</string>
-    <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
-    <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Entendido</string>
-    <string name="squeezer_compare_action">Ver comparación</string>
-    <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
-    <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
-    <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de las imágenes para ahorrar espacio. No se puede deshacer. Revisá cuidadosamente la configuración antes de comenzar.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze reduce el tamaño de los archivos de imagen para liberar espacio. Esto reduce permanentemente la calidad de las imágenes y no se puede deshacer. Revisá cuidadosamente la configuración antes de comenzar.</string>
-    <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
-    <string name="squeezer_setup_paths_default">Seleccioná carpetas para buscar</string>
-    <string name="squeezer_setup_quality_title">Calidad de compresión</string>
-    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
-    <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
-    <string name="squeezer_setup_start_action">Iniciar escaneo</string>
-    <string name="squeezer_quality_hint_very_low">La calidad por debajo del 40%% puede crear imágenes inutilizables.</string>
-    <string name="squeezer_quality_hint_low">Una calidad más baja ahorra más espacio pero puede causar artefactos visibles.</string>
-    <string name="squeezer_quality_hint_high">Una calidad muy alta proporciona un ahorro mínimo de espacio.</string>
-    <string name="squeezer_quality_hint_normal">Calidad y ahorro de espacio equilibrados.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Al menos %d día de antigüedad</item>
-        <item quantity="other">Al menos %d días de antigüedad</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
-
     <string name="shortcut_appcontrol_short">Control de Apps</string>
     <string name="shortcut_appcontrol_long">Administrar apps instaladas</string>
     <string name="shortcut_onetap_short">Escanear + Eliminar</string>
     <string name="shortcut_onetap_long">Escanear y eliminar en una acción</string>
-
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar acceso directo \"Escanear + Eliminar\" al mantener presionado el ícono de la app. Usa las mismas herramientas que el panel de un toque.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Deslizá entre archivos para decidir qué mantener o eliminar.</string>
-    <string name="swiper_dashcard_description">Revisá manualmente archivos en carpetas específicas. Deslizá para decidir qué mantener o eliminar.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
-    <string name="swiper_sessions_description">Algunos archivos necesitan una decisión humana. Deslizá entre los elementos y elegí qué mantener o eliminar. Saltá lo que no estés seguro. Esta herramienta te permite revisar carpetas manualmente, y nada se elimina hasta que confirmes.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -994,4 +972,6 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="swiper_stamp_undo_2">¡Volver!</string>
     <string name="swiper_stamp_undo_3">¡Uy!</string>
     <string name="swiper_stamp_undo_4">¡Esperá!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

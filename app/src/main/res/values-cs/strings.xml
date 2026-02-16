@@ -1041,11 +1041,10 @@
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
     <string name="swiper_label">Přetahovač</string>
     <string name="swiper_tool_name">Přetahovač</string>
-    <string name="swiper_tool_description">Rozhodněte přejetím přes soubory, co chcete zachovat nebo odstranit.</string>
-    <string name="swiper_dashcard_description">Ručně zkontrolujte soubory v konkrétních složkách. Přejetím rozhodněte, co ponechat nebo smazat.</string>
+    <string name="swiper_tool_description">Rychlé třídění složek — přejeďte prstem po souborech a vyberte, které chcete ponechat, smazat nebo přeskočit.</string>
+    <string name="swiper_dashcard_description">Třiďte konkrétní složky rychleji než v průzkumníku souborů — stačí přejet prstem po každém souboru.</string>
     <string name="swiper_start_action">Začít přetahovat</string>
     <string name="swiper_continue_action">Pokračovat v relaci</string>
-    <string name="swiper_sessions_description">Některé soubory vyžadují lidské rozhodnutí. Přejeďte přes položky a vyberte, co ponechat nebo smazat. Přeskočte vše, čím si nejste jisti. Tento nástroj umožňuje ruční kontrolu konkrétních složek a nic nebude odstraněno, dokud to nepotvrdíte.</string>
     <string name="swiper_select_folders_action">Vybrat složku</string>
     <string name="swiper_scanning_title">Skenování…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1103,7 +1102,7 @@
         <item quantity="one">Pokračovat v relaci před %1$d dnem (%2$d%% dokončeno)</item>
         <item quantity="few">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
         <item quantity="many">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
-        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d% % dokončeno)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">%d relace</item>
@@ -1205,4 +1204,6 @@
     <string name="swiper_stamp_undo_2">Zpět!</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Počkat!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

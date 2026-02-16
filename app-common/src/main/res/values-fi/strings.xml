@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Palveluksessasi.</string>
     <string name="slogan_message_1">Puhdas ja järjestyksessä.</string>
     <string name="slogan_message_2">Estää kaaoksen.</string>
@@ -8,7 +7,6 @@
     <string name="slogan_message_5">Tahraton.</string>
     <string name="slogan_message_6">Tavut, häipykää!</string>
     <string name="slogan_message_7">Vapaa tila, onnellinen paikka.</string>
-    <string name="slogan_message_4">Kaikki järjestyksessä.</string>
     <string name="slogan_message_8">En koskaan luovuta sinusta.</string>
     <string name="general_thank_you_label">Kiitos</string>
     <string name="general_error_type_mismatch_msg">Tyyppiristiriita: Haluttiin %1$s, mutta saatiin %2$s.</string>

@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
     <string name="dashboard_settings_oneclick_tools_title">Thai</string>
     <string name="dashboard_settings_oneclick_tools_desc">เครื่องมือใดที่ควรรวมอยู่ในการดำเนินการแตะครั้งเดียว?</string>
+    <string name="dashboard_card_config_title">การ์ดแดชบอร์ด</string>
+    <string name="dashboard_card_config_desc">กำหนดค่าการ์ดที่จะแสดงและลำดับ</string>
+    <string name="dashboard_card_config_header_title">ลากเพื่อเรียงลำดับ, สลับเพื่อแสดง/ซ่อน</string>
     <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
     <string name="debug_debuglog_file_label">ไฟล์บันทึกที่จัดเก็บไว้</string>
     <string name="debug_debuglog_recording_progress">จัดเก็บบันทึกการดีบัค</string>
@@ -17,6 +20,9 @@
     <string name="debug_debuglog_screen_discard_action">ละทิ้ง</string>
     <string name="debug_debuglog_screen_session_path_label">เส้นทางเซสชัน</string>
     <string name="debug_debuglog_screen_log_files_label">ไฟล์บันทึก</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ไฟล์พร้อม (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">ฟีเจอร์นี้จะบันทึกทุกสิ่งที่แอปกำลังทำลงในไฟล์ที่สามารถแชร์ได้ ไฟล์ที่สร้างขึ้นมีข้อมูลที่อ่อนไหว (เช่น ชื่อไฟล์และแอปที่ติดตั้ง) แชร์เฉพาะกับบุคคลที่เชื่อถือได้เท่านั้น (เช่น นักพัฒนาที่แก้ไขปัญหา)</string>
     <string name="tasks_activity_notification_channel_label">งานที่ทำอยู่</string>
     <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
@@ -82,10 +88,23 @@
     <string name="support_installid_desc">ตรวจไม่พบรายงานข้อผิดพลาดอัตโนมัติ โปรดแชร์ ID การติดตั้งของคุณหากนักพัฒนาร้องขอเพื่อหารายงานดังกล่าว</string>
     <string name="support_debuglog_label">บันทึกการดีบัก</string>
     <string name="support_debuglog_desc">จัดเก็บทุกกิจกรรมของแอพเป็นไฟล์ข้อความที่สามารถแชร์ได้</string>
+    <string name="support_debuglog_folder_label">โฟลเดอร์บันทึกดีบัก</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d ไฟล์ใช้ %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">ไม่มีบันทึกดีบักที่เก็บไว้</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">ลบบันทึกดีบักทั้งหมด?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">สิ่งนี้จะลบเซสชันบันทึกดีบักที่เก็บไว้ทั้งหมดอย่างถาวร ไม่สามารถเลิกทำได้</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">แหล่งพบปะพูดคุยและถามข้อสงสัย</string>
     <string name="changelog_label">มีอะไรใหม่</string>
     <string name="settings_acknowledgements_label">กิตติกรรมประกาศ</string>
+    <string name="settings_acknowledgements_category_translations_title">การแปล</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ใครเป็นผู้แปลสิ่งนี้?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ขอบคุณ</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ขอบคุณเป็นพิเศษแก่เพื่อนๆ ของเรา</string>
+    <string name="settings_acknowledgements_category_licenses_title">สัญญาอนุญาต</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">ซอฟต์แวร์ที่ SD Maid ใช้</string>
     <string name="setup_label">การตั้งค่า</string>
     <string name="setup_incomplete_card_title">การตั้งค่ายังไม่เสร็จ</string>
     <string name="setup_incomplete_card_body">ตั้งค่า SD Maid ให้เสร็จเพื่อให้แอพทำงานได้ดีขึ้น</string>
@@ -158,6 +177,13 @@
     <string name="debug_bugreporter_label">รายงานข้อผิดพลาดโดยอัตโนมัติ</string>
     <string name="debug_bugreporter_summary">รายงานปัญหาโดยอัตโนมัติ เช่น รายละเอียดเกี่ยวกับแอปขัดข้อง ดังนั้นฉันจึงสามารถทราบสาเหตุและแก้ไขได้</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">เปิดใช้โหมดดีบักแล้ว</string>
+    <string name="debug_card_trace_mode_label">เปิดใช้โหมดติดตาม</string>
+    <string name="debug_card_dryrun_mode_label">โหมดทดลอง (ปิดการลบ)</string>
+    <string name="debug_card_areas_reload_action">โหลดพื้นที่ข้อมูลใหม่</string>
+    <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
+    <string name="debug_card_root_test_action">ทดสอบ root</string>
+    <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
     <string name="settings_category_tools_label">เครื่องมือ</string>
     <string name="settings_category_filter">ตัวกรอง</string>
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
@@ -191,6 +217,8 @@
     <string name="corpsefinder_filter_privatedata_summary">ข้อมูลแอพส่วนตัว เช่น ข้อมูลรับรอง การตั้งค่าแอพ และแคชเบราว์เซอร์</string>
     <string name="corpsefinder_filter_dalvik_label">แคช Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">ข้อมูลการดำเนินการแอพที่ถูกแคช</string>
+    <string name="corpsefinder_filter_artprofiles_label">โปรไฟล์ ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">โปรไฟล์ ART ถูกใช้โดย Android เพื่อเพิ่มประสิทธิภาพแอป</string>
     <string name="corpsefinder_filter_applib_label">ไลบรารีแอพ</string>
     <string name="corpsefinder_filter_applib_summary">ข้อมูลไลบรารีที่เกี่ยวข้องกับแอพ</string>
     <string name="corpsefinder_filter_appsource_label">แหล่งแอพ</string>
@@ -240,6 +268,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">อายุภาพหน้าจอ</string>
     <string name="systemcleaner_filter_screenshots_age_summary">อายุขั้นต่ำสำหรับภาพหน้าจอที่จะพิจารณาลบ</string>
     <string name="systemcleaner_filter_superfluosapks_label">ไฟล์ APK ที่ไม่จำเป็น</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ไฟล์ติดตั้งที่ไม่จำเป็นอีกต่อไปตามเวอร์ชันแอปที่ติดตั้งแล้ว</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">รวมเวอร์ชันเดียวกัน</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">กำหนดเป้าหมายไฟล์ APK ที่ตรงกับเวอร์ชันที่ติดตั้งด้วย ปิดเพื่อลบเฉพาะเวอร์ชันเก่า</string>
     <string name="systemcleaner_filter_lostdir_label">โฟลเดอร์ LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">ไฟล์ชั่วคราวที่ถูกสร้างขึ้นเมื่อโอนข้อมูลระหว่างอุปกรณ์ Android</string>
     <string name="systemcleaner_filter_linuxfiles_label">ไฟล์ Linux</string>
@@ -300,6 +331,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">ชื่อเท่ากับคำสำคัญ</string>
     <string name="systemcleaner_customfilter_last_edit">แก้ไขล่าสุด: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">ค้นหาแบบทันที</string>
+    <string name="systemcleaner_customfilter_editor_size_label">ข้อจำกัดขนาด</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">ขนาดขั้นต่ำ</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">ขนาดสูงสุด</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">จำกัดผลลัพธ์ตามขนาดไฟล์ เว้นว่างเพื่อจับคู่ทุกขนาด</string>
+    <string name="systemcleaner_customfilter_editor_age_label">ข้อจำกัดอายุ</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">อายุขั้นต่ำ</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">อายุสูงสุด</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">จำกัดผลลัพธ์ตามอายุไฟล์ (เวลาแก้ไขล่าสุด) เว้นว่างเพื่อจับคู่ทุกอายุ</string>
     <string name="systemcleaner_customfilter_import_action">นำเข้าตัวกรองใหม่</string>
     <string name="systemcleaner_customfilter_export_action">ส่งออกตัวกรองที่เลือก</string>
     <string name="appcleaner_tool_name">ตัวทำความสะอาดแอพ</string>
@@ -342,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">ไฟล์ที่ถูกลบแต่ถูกย้ายไปยังโฟลเดอร์พิเศษเพื่อให้สามารถกู้คืนได้</string>
     <string name="appcleaner_filter_webview_label">ไฟล์ Webview</string>
     <string name="appcleaner_filter_webview_summary">ไฟล์ที่ถูกแคชโดย Webview ที่ใช้ภายในแอพ</string>
+    <string name="appcleaner_filter_shortcutservice_label">ไอคอนทางลัดแอป</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ไอคอนที่แคชไว้สำหรับทางลัดแอปและเมนูแชร์</string>
     <string name="appcleaner_filter_whatsapp_backups_label">การสำรองข้อมูล WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">ลบสำเนาการสำรองข้อมูล WhatsApp ที่เพิ่มเติมและเก็บไว้เฉพาะล่าสุดเท่านั้น</string>
     <string name="appcleaner_filter_whatsapp_received_summary">ไฟล์ที่คุณได้รับจากผู้คนผ่าน WhatsApp</string>
@@ -387,6 +428,9 @@
     <string name="appcleaner_automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">แอพระบบตั้งค่าไม่ถูกต้อง</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">แอพ Security ของ HyperOS (com.miui.securitycenter) ขาดสิทธิ์สถิติการใช้งาน (GET_USAGE_STATS) สิ่งนี้ทำให้คุณสมบัติเช่น \"ล้างข้อมูล\" ในรายละเอียดแอพและการล้างแคชผ่านบริการช่วยเหลือการเข้าถึงไม่ทำงาน อนุญาตสิทธิ์เพื่อคืนคำการทำงานเต็มรูปแบบ</string>
+    <string name="appcleaner_forcestop_before_clearing_label">บังคับหยุดก่อนล้าง</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">บังคับหยุดแอปก่อนล้างแคช อาจช่วยล้างแคชบางแอปได้ แต่อาจทำให้แอปทำงานผิดปกติและต้องรีสตาร์ทด้วยตนเอง</string>
+    <string name="appcleaner_progress_force_stopping">กำลังบังคับหยุดแอป…</string>
     <string name="deduplicator_tool_name">ตัวค้นหาไฟล์ซ้ำ</string>
     <string name="deduplicator_explanation_short">ค้นหาข้อมูลที่ซ้ำกันในอุปกรณ์ของคุณ</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -425,6 +469,114 @@
     <string name="deduplicator_details_cluster_title">กลุ่มไฟล์ซ้ำ</string>
     <string name="deduplicator_matches_exact_label">ไฟล์เหมือนกันทุกประการ</string>
     <string name="deduplicator_matches_similar_label">ไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_title">กลยุทธ์การลบ</string>
+    <string name="deduplicator_arbiter_summary">กำหนดค่าว่าไฟล์ใดจะถูกเก็บไว้และไฟล์ใดจะถูกลบ</string>
+    <string name="deduplicator_arbiter_explanation">เมื่อลบซ้ำ SD Maid จะตัดสินใจว่าจะเก็บไฟล์ใดโดยตรวจสอบเกณฑ์แต่ละข้อตามลำดับ เกณฑ์แรกที่ให้ผลลัพธ์ชัดเจนจะกำหนดผลลัพธ์ ลากเพื่อเรียงลำดับ แตะเพื่อเปลี่ยนโหมด</string>
+    <string name="deduplicator_arbiter_select_mode_title">เลือกโหมด</string>
+    <string name="deduplicator_arbiter_configure_paths_action">กำหนดค่าเส้นทาง…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ประเภทซ้ำ</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ให้ความสำคัญกับไฟล์ที่ตรงกันมากกว่าไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">การจัดทำดัชนีมีเดีย</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">พิจารณาว่าไฟล์ถูกจัดทำดัชนีโดยผู้ให้บริการมีเดียหรือไม่</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ตำแหน่งจัดเก็บ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ให้ความสำคัญกับไฟล์ในพื้นที่จัดเก็บภายในหรือภายนอก</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ความลึกของโฟลเดอร์</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ให้ความสำคัญกับไฟล์ในโครงสร้างโฟลเดอร์ตื้นหรือลึก</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">วันที่แก้ไข</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ให้ความสำคัญกับไฟล์เก่าหรือใหม่กว่าตามเวลาแก้ไข</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ขนาดไฟล์</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ให้ความสำคัญกับไฟล์ขนาดใหญ่หรือเล็กกว่าเมื่อขนาดต่างกัน</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ตำแหน่งที่ต้องการ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">เก็บไฟล์ในตำแหน่งที่คุณกำหนดค่าไว้</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ให้ความสำคัญกับไฟล์ที่ตรงกัน</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ให้ความสำคัญกับไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ให้ความสำคัญกับไฟล์ที่จัดทำดัชนี</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ให้ความสำคัญกับไฟล์ที่ไม่ได้จัดทำดัชนี</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ให้ความสำคัญกับพื้นที่จัดเก็บภายใน</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ให้ความสำคัญกับพื้นที่จัดเก็บภายนอก</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ให้ความสำคัญกับโฟลเดอร์ตื้น</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ให้ความสำคัญกับโฟลเดอร์ลึก</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ให้ความสำคัญกับไฟล์เก่า</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ให้ความสำคัญกับไฟล์ใหม่</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ให้ความสำคัญกับไฟล์ขนาดใหญ่</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ให้ความสำคัญกับไฟล์ขนาดเล็ก</string>
+    <string name="deduplicator_view_mode_groups_label">กลุ่ม</string>
+    <string name="deduplicator_view_mode_directories_label">โฟลเดอร์</string>
+    <string name="squeezer_explanation_short">บีบอัดรูปภาพเพื่อประหยัดพื้นที่จัดเก็บ</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">พบ %d รูปภาพ</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">ประหยัดได้ ~%s</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">บีบอัด %d รูปภาพแล้ว</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">เลือก %d รูปภาพ</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">ตำแหน่งค้นหา</string>
+    <string name="squeezer_search_locations_default_summary">โฟลเดอร์กล้อง (ค่าเริ่มต้น)</string>
+    <string name="squeezer_min_size_title">ขนาดไฟล์ขั้นต่ำ</string>
+    <string name="squeezer_min_size_description">ข้ามรูปภาพที่เล็กกว่าขนาดนี้</string>
+    <string name="squeezer_min_age_title">อายุไฟล์ขั้นต่ำ</string>
+    <string name="squeezer_min_age_description">รวมเฉพาะรูปภาพที่เก่ากว่าอายุนี้</string>
+    <string name="squeezer_compression_settings_label">การตั้งค่าการบีบอัด</string>
+    <string name="squeezer_quality_label">คุณภาพ</string>
+    <string name="squeezer_quality_title">คุณภาพการบีบอัด</string>
+    <string name="squeezer_quality_description">คุณภาพต่ำหมายถึงขนาดไฟล์เล็กลงแต่คุณภาพรูปลดลง</string>
+    <string name="squeezer_quality_example_format">ตัวอย่าง: รูปภาพ %1$s → ประหยัด ~%2$s ที่คุณภาพ %3$d%%</string>
+    <string name="squeezer_quality_warning_low">คุณภาพต่ำอาจทำให้เห็นสิ่งแปลกปลอมได้</string>
+    <string name="squeezer_quality_warning_high">คุณภาพสูงมากให้การประหยัดพื้นที่น้อย</string>
+    <string name="squeezer_types_category_label">ประเภทรูปภาพ</string>
+    <string name="squeezer_type_jpeg_description">รวมรูปภาพ JPEG (.jpg, .jpeg)</string>
+    <string name="squeezer_type_webp_description">รวมรูปภาพ WebP (.webp)</string>
+    <string name="squeezer_skip_compressed_title">ข้ามที่บีบอัดแล้ว</string>
+    <string name="squeezer_skip_compressed_description">ข้ามรูปภาพที่ SD Maid บีบอัดแล้ว</string>
+    <string name="squeezer_exif_marker_title">เขียนเครื่องหมาย EXIF</string>
+    <string name="squeezer_exif_marker_description">เพิ่มเครื่องหมายในช่องความคิดเห็นผู้ใช้ EXIF ของรูปภาพเพื่อป้องกันการบีบอัดซ้ำแม้ประวัติการบีบอัดจะถูกล้าง</string>
+    <string name="squeezer_estimated_savings_format">ประหยัด ~%s</string>
+    <string name="squeezer_no_savings_expected">ประหยัดได้จำกัด</string>
+    <string name="squeezer_current_size_format">ขนาด: %s</string>
+    <string name="squeezer_compress_action">บีบอัด</string>
+    <string name="squeezer_compress_all_action">บีบอัดทั้งหมด</string>
+    <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>
+    <string name="squeezer_preview_total_size">ขนาดรวม</string>
+    <string name="squeezer_preview_estimated_savings">ประหยัดโดยประมาณ</string>
+    <string name="squeezer_compress_confirmation_title">บีบอัดรูปภาพ?</string>
+    <string name="squeezer_compress_confirmation_message">สิ่งนี้จะแทนที่รูปภาพต้นฉบับด้วยเวอร์ชันที่บีบอัด ไม่สามารถเลิกทำได้</string>
+    <string name="squeezer_history_title">ประวัติการบีบอัด</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d รายการ (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">ไม่มีประวัติการบีบอัด</string>
+    <string name="squeezer_history_clear_title">ล้างประวัติการบีบอัด</string>
+    <string name="squeezer_history_clear_message">สิ่งนี้จะอนุญาตให้รูปภาพที่บีบอัดก่อนหน้านี้ถูกบีบอัดอีกครั้ง รูปภาพเองไม่ได้รับผลกระทบ</string>
+    <string name="squeezer_onboarding_title">เกี่ยวกับการบีบอัดรูปภาพ</string>
+    <string name="squeezer_onboarding_message">การบีบอัดรูปภาพลดขนาดไฟล์โดยการลดรายละเอียดภาพ กระบวนการนี้ไม่สามารถย้อนกลับได้ - คุณภาพต้นฉบับไม่สามารถกู้คืนได้\n\nนี่คือตัวอย่างของรูปภาพของคุณจะมีลักษณะอย่างไร:</string>
+    <string name="squeezer_onboarding_original_label">ต้นฉบับ</string>
+    <string name="squeezer_onboarding_compressed_label">หลังบีบอัด</string>
+    <string name="squeezer_onboarding_quality_label">คุณภาพ: %d%%</string>
+    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
+    <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
+    <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
+    <string name="squeezer_result_empty_message">ไม่พบรูปภาพที่บีบอัดได้</string>
+    <string name="squeezer_setup_warning">การบีบอัดลดคุณภาพรูปภาพอย่างถาวรเพื่อประหยัดพื้นที่จัดเก็บ ไม่สามารถเลิกทำได้ ตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
+    <string name="squeezer_setup_explanation">Media Squeeze ลดขนาดไฟล์ของรูปภาพเพื่อเพิ่มพื้นที่จัดเก็บ สิ่งนี้ลดคุณภาพรูปภาพอย่างถาวรและไม่สามารถเลิกทำได้ ตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
+    <string name="squeezer_setup_paths_title">ตำแหน่งค้นหา</string>
+    <string name="squeezer_setup_paths_default">เลือกโฟลเดอร์ที่จะค้นหา</string>
+    <string name="squeezer_setup_quality_title">คุณภาพการบีบอัด</string>
+    <string name="squeezer_setup_age_title">อายุขั้นต่ำ</string>
+    <string name="squeezer_setup_age_none">ไม่จำกัด (รวมทุกไฟล์)</string>
+    <string name="squeezer_setup_start_action">เริ่มสแกน</string>
+    <string name="squeezer_quality_hint_very_low">คุณภาพต่ำกว่า 40% อาจสร้างรูปภาพที่ใช้ไม่ได้</string>
+    <string name="squeezer_quality_hint_low">คุณภาพต่ำประหยัดพื้นที่มากขึ้นแต่อาจทำให้เห็นสิ่งแปลกปลอม</string>
+    <string name="squeezer_quality_hint_high">คุณภาพสูงมากให้การประหยัดพื้นที่น้อย</string>
+    <string name="squeezer_quality_hint_normal">สมดุลระหว่างคุณภาพและการประหยัดพื้นที่</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">อย่างน้อย %d วัน</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">ประมาณ ~%d%% สำหรับไฟล์ JPEG</string>
     <string name="appcontrol_tool_name">ตัวควบคุมแอพ</string>
     <string name="appcontrol_explanation_short">แอพที่ติดตั้งในอุปกรณ์ของคุณ</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -456,6 +608,7 @@
     <string name="appcontrol_tag_not_installed">ไม่ได้ติดตั้ง</string>
     <string name="appcontrol_tag_enabled">เปิดใช้งาน</string>
     <string name="appcontrol_tag_disabled">ปิดใช้งาน</string>
+    <string name="appcontrol_tag_debug">ดีบัก</string>
     <string name="appcontrol_progress_enabling_package">กำลังเปิดใช้งานแอพ</string>
     <string name="appcontrol_progress_disabling_package">กำลังปิดใช้งานแอพ</string>
     <string name="appcontrol_list_filteroptions_label">ตัวเลือกการกรอง</string>
@@ -469,6 +622,28 @@
     <string name="appcontrol_progress_uninstalling_app">กำลังถอนการติดตั้งแอพ</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">ถอนการติดตั้งแอพ %d แอพแล้ว</item>
+    </plurals>
+    <string name="appcontrol_archive_action">เก็บถาวร</string>
+    <string name="appcontrol_archive_selection_action">เก็บถาวรแอป</string>
+    <string name="appcontrol_archive_description">เก็บถาวรเพื่อเพิ่มพื้นที่ขณะเก็บข้อมูลแอปไว้สำหรับกู้คืนภายหลัง</string>
+    <string name="appcontrol_progress_archiving_app">กำลังเก็บถาวรแอป…</string>
+    <string name="appcontrol_archive_confirmation_title">ยืนยันการเก็บถาวร</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">เก็บถาวร %d แอป?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">เก็บถาวร %d แอปแล้ว</item>
+    </plurals>
+    <string name="appcontrol_restore_action">กู้คืน</string>
+    <string name="appcontrol_restore_selection_action">กู้คืนแอป</string>
+    <string name="appcontrol_restore_description">กู้คืนแอปที่เก็บถาวรกลับสู่สถานะติดตั้งเต็ม ข้อมูลแอปจะถูกเก็บรักษา</string>
+    <string name="appcontrol_progress_restoring_app">กำลังกู้คืนแอป…</string>
+    <string name="appcontrol_restore_confirmation_title">ยืนยันการกู้คืน</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">กู้คืน %d แอป?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">กู้คืน %d แอปแล้ว</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">ขนาดแอพ</string>
     <string name="appcontrol_app_sizes_apk_label">แอพ</string>
@@ -485,12 +660,18 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ได้การประมาณโครงขนาดของแต่ละแอพ</string>
     <string name="appcontrol_settings_module_activity_enabled_label">ตรวจสอบการใช้งาน</string>
     <string name="appcontrol_settings_module_activity_enabled_description">หาว่าแอพกำลังทำงานอยู่ (หรือเพิ่งทำงานเมื่อเร็วๆ นี้)</string>
+    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้อื่น</string>
+    <string name="appcontrol_include_multiuser_summary">รวมแอปจากโปรไฟล์ผู้ใช้อื่นบนอุปกรณ์นี้</string>
     <string name="appcontrol_export_app_selection_action">ส่งออกแอพ</string>
     <string name="appcontrol_export_title">ส่งออกแอพ</string>
+    <string name="appcontrol_export_description">บันทึกไฟล์ติดตั้งของแอปนี้ ไม่รวมข้อมูลแอป</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">ส่งออกแอพ %d แอพแล้ว</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">กำลังส่งออก %s</string>
+    <string name="appcontrol_share_list_action">แชร์รายการ</string>
+    <string name="appcontrol_share_list_title">แอปของฉัน</string>
+    <string name="appcontrol_share_list_footer">แชร์ผ่าน SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">บังคับให้หยุดแอพ</string>
     <string name="appcontrol_force_stop_action">บังคับให้หยุด</string>
     <string name="appcontrol_force_stop_confirm_title">ยืนยันการบังคับให้หยุด</string>
@@ -505,8 +686,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">กำลังบังคับให้หยุด...</string>
     <string name="appcontrol_automation_progress_find_force_stop">กำลังมองหาปุ่ม \"บังคับให้หยุด\" (คำสำคัญ: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">กำลังเก็บถาวร…</string>
+    <string name="appcontrol_automation_progress_find_archive">กำลังมองหาปุ่ม \"เก็บถาวร\" (คำสำคัญ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">กำลังกู้คืน…</string>
+    <string name="appcontrol_automation_progress_find_restore">กำลังมองหาปุ่ม \"กู้คืน\" (คำสำคัญ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">เวลาใช้งานหน้าจอ: %1$s ตั้งแต่ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">อัปเดตครั้งล่าสุด: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
     <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
     <string name="analyzer_explanation_short">ค้นหาสิ่งที่ใช้พื้นที่ในอุปกรณ์ของคุณ</string>
     <string name="analyzer_progress_scanning_device">ค้นหาอุปกรณ์จัดเก็บข้อมูล</string>
@@ -522,6 +708,10 @@
         <item quantity="other">ใช้ไปแล้ว %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">ไม่สามารถเข้าถึงโดยตรงได้</string>
+    <string name="analyzer_content_create_swiper_session_action">สร้างเซสชัน Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">สร้างเซสชัน Swiper แล้วพร้อม %d รายการ</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">พื้นที่จัดเก็บหลัก</string>
     <string name="analyzer_storage_type_primary_description">พื้นที่จัดเก็บหลักของอุปกรณ์ ประกอบด้วย SD card ภายใน พื้ที่จัดเก็บส่วนตัวสำหรับแอพ และข้อมูลระบบ</string>
     <string name="analyzer_storage_type_secondary_title">พื้นที่จัดเก็บรอง</string>
@@ -650,6 +840,15 @@
     <string name="review_app_review_action">รีวิว</string>
     <string name="review_app_dismiss_action">อาจในคราวหน้า</string>
     <string name="review_app_body">คุณต้องการให้คะแนน SD Maid หรือไม่?️ ❤️</string>
+    <string name="anniversary_card_title">สุขสันต์วันครบรอบ SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">อยู่กับคุณตั้งแต่ %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">แข็งแกร่ง %1$d ปี อุปกรณ์ของคุณสะอาดเรียบร้อยกับ SD Maid พื้นที่ที่เพิ่มขึ้น: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">แชร์ครบรอบ SD Maid ของคุณ</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d ปีกับ SD Maid — พื้นที่ที่เพิ่มขึ้น: %2$s ดูแล Android ให้สะอาดเรียบร้อย #SDMaid\nลองใช้: %3$s</item>
+    </plurals>
     <string name="stats_label">ประวัติ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">ลบพื้นที่ได้ %s</item>
@@ -686,239 +885,6 @@
     <string name="area_type_public_obb_label">ทรัพยากรแอพสาธารณะ</string>
     <string name="area_type_private_data_label">ข้อมูลแอพส่วนตัว</string>
     <string name="area_type_portable_label">พื้นที่จัดเก็บแบบพกพา</string>
-    <string name="dashboard_card_config_title">การ์ดแดชบอร์ด</string>
-    <string name="dashboard_card_config_desc">กำหนดค่าการ์ดที่จะแสดงและลำดับ</string>
-    <string name="dashboard_card_config_header_title">ลากเพื่อเรียงลำดับ, สลับเพื่อแสดง/ซ่อน</string>
-
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d ไฟล์พร้อม (%2$s)</item>
-        <item quantity="other">%1$d ไฟล์พร้อม (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">โฟลเดอร์บันทึกดีบัก</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d ไฟล์ใช้ %2$s</item>
-        <item quantity="other">%1$d ไฟล์ใช้ %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">ไม่มีบันทึกดีบักที่เก็บไว้</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">ลบบันทึกดีบักทั้งหมด?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">สิ่งนี้จะลบเซสชันบันทึกดีบักที่เก็บไว้ทั้งหมดอย่างถาวร ไม่สามารถเลิกทำได้</string>
-
-    <string name="settings_acknowledgements_category_translations_title">การแปล</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">ใครเป็นผู้แปลสิ่งนี้?</string>
-    <string name="settings_acknowledgements_category_thanks_title">ขอบคุณ</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">ขอบคุณเป็นพิเศษแก่เพื่อนๆ ของเรา</string>
-    <string name="settings_acknowledgements_category_licenses_title">สัญญาอนุญาต</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">ซอฟต์แวร์ที่ SD Maid ใช้</string>
-
-    <string name="debug_card_title">เปิดใช้โหมดดีบักแล้ว</string>
-    <string name="debug_card_trace_mode_label">เปิดใช้โหมดติดตาม</string>
-    <string name="debug_card_dryrun_mode_label">โหมดทดลอง (ปิดการลบ)</string>
-    <string name="debug_card_areas_reload_action">โหลดพื้นที่ข้อมูลใหม่</string>
-    <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
-    <string name="debug_card_root_test_action">ทดสอบ root</string>
-    <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">โปรไฟล์ ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">โปรไฟล์ ART ถูกใช้โดย Android เพื่อเพิ่มประสิทธิภาพแอป</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-
-    <string name="systemcleaner_filter_superfluosapks_summary">ไฟล์ติดตั้งที่ไม่จำเป็นอีกต่อไปตามเวอร์ชันแอปที่ติดตั้งแล้ว</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">รวมเวอร์ชันเดียวกัน</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">กำหนดเป้าหมายไฟล์ APK ที่ตรงกับเวอร์ชันที่ติดตั้งด้วย ปิดเพื่อลบเฉพาะเวอร์ชันเก่า</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">ข้อจำกัดขนาด</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">ขนาดขั้นต่ำ</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">ขนาดสูงสุด</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">จำกัดผลลัพธ์ตามขนาดไฟล์ เว้นว่างเพื่อจับคู่ทุกขนาด</string>
-    <string name="systemcleaner_customfilter_editor_age_label">ข้อจำกัดอายุ</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">อายุขั้นต่ำ</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">อายุสูงสุด</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">จำกัดผลลัพธ์ตามอายุไฟล์ (เวลาแก้ไขล่าสุด) เว้นว่างเพื่อจับคู่ทุกอายุ</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">ไอคอนทางลัดแอป</string>
-    <string name="appcleaner_filter_shortcutservice_summary">ไอคอนที่แคชไว้สำหรับทางลัดแอปและเมนูแชร์</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">บังคับหยุดก่อนล้าง</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">บังคับหยุดแอปก่อนล้างแคช อาจช่วยล้างแคชบางแอปได้ แต่อาจทำให้แอปทำงานผิดปกติและต้องรีสตาร์ทด้วยตนเอง</string>
-    <string name="appcleaner_progress_force_stopping">กำลังบังคับหยุดแอป…</string>
-
-    <string name="deduplicator_arbiter_title">กลยุทธ์การลบ</string>
-    <string name="deduplicator_arbiter_summary">กำหนดค่าว่าไฟล์ใดจะถูกเก็บไว้และไฟล์ใดจะถูกลบ</string>
-    <string name="deduplicator_arbiter_explanation">เมื่อลบซ้ำ SD Maid จะตัดสินใจว่าจะเก็บไฟล์ใดโดยตรวจสอบเกณฑ์แต่ละข้อตามลำดับ เกณฑ์แรกที่ให้ผลลัพธ์ชัดเจนจะกำหนดผลลัพธ์ ลากเพื่อเรียงลำดับ แตะเพื่อเปลี่ยนโหมด</string>
-    <string name="deduplicator_arbiter_select_mode_title">เลือกโหมด</string>
-    <string name="deduplicator_arbiter_configure_paths_action">กำหนดค่าเส้นทาง…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ประเภทซ้ำ</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ให้ความสำคัญกับไฟล์ที่ตรงกันมากกว่าไฟล์ที่คล้ายกัน</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">การจัดทำดัชนีมีเดีย</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">พิจารณาว่าไฟล์ถูกจัดทำดัชนีโดยผู้ให้บริการมีเดียหรือไม่</string>
-    <string name="deduplicator_arbiter_criterium_location_title">ตำแหน่งจัดเก็บ</string>
-    <string name="deduplicator_arbiter_criterium_location_description">ให้ความสำคัญกับไฟล์ในพื้นที่จัดเก็บภายในหรือภายนอก</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">ความลึกของโฟลเดอร์</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">ให้ความสำคัญกับไฟล์ในโครงสร้างโฟลเดอร์ตื้นหรือลึก</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">วันที่แก้ไข</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">ให้ความสำคัญกับไฟล์เก่าหรือใหม่กว่าตามเวลาแก้ไข</string>
-    <string name="deduplicator_arbiter_criterium_size_title">ขนาดไฟล์</string>
-    <string name="deduplicator_arbiter_criterium_size_description">ให้ความสำคัญกับไฟล์ขนาดใหญ่หรือเล็กกว่าเมื่อขนาดต่างกัน</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">ตำแหน่งที่ต้องการ</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">เก็บไฟล์ในตำแหน่งที่คุณกำหนดค่าไว้</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">ให้ความสำคัญกับไฟล์ที่ตรงกัน</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">ให้ความสำคัญกับไฟล์ที่คล้ายกัน</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">ให้ความสำคัญกับไฟล์ที่จัดทำดัชนี</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">ให้ความสำคัญกับไฟล์ที่ไม่ได้จัดทำดัชนี</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">ให้ความสำคัญกับพื้นที่จัดเก็บภายใน</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">ให้ความสำคัญกับพื้นที่จัดเก็บภายนอก</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">ให้ความสำคัญกับโฟลเดอร์ตื้น</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">ให้ความสำคัญกับโฟลเดอร์ลึก</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">ให้ความสำคัญกับไฟล์เก่า</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">ให้ความสำคัญกับไฟล์ใหม่</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">ให้ความสำคัญกับไฟล์ขนาดใหญ่</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">ให้ความสำคัญกับไฟล์ขนาดเล็ก</string>
-    <string name="deduplicator_view_mode_groups_label">กลุ่ม</string>
-    <string name="deduplicator_view_mode_directories_label">โฟลเดอร์</string>
-
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">บีบอัดรูปภาพเพื่อประหยัดพื้นที่จัดเก็บ</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">พบ %d รูปภาพ</item>
-        <item quantity="other">พบ %d รูปภาพ</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">ประหยัดได้ ~%s</item>
-        <item quantity="other">ประหยัดได้ ~%s</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">บีบอัด %d รูปภาพแล้ว</item>
-        <item quantity="other">บีบอัด %d รูปภาพแล้ว</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">เลือก %d รูปภาพ</item>
-        <item quantity="other">เลือก %d รูปภาพ</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">ตำแหน่งค้นหา</string>
-    <string name="squeezer_search_locations_default_summary">โฟลเดอร์กล้อง (ค่าเริ่มต้น)</string>
-    <string name="squeezer_min_size_title">ขนาดไฟล์ขั้นต่ำ</string>
-    <string name="squeezer_min_size_description">ข้ามรูปภาพที่เล็กกว่าขนาดนี้</string>
-    <string name="squeezer_min_age_title">อายุไฟล์ขั้นต่ำ</string>
-    <string name="squeezer_min_age_description">รวมเฉพาะรูปภาพที่เก่ากว่าอายุนี้</string>
-    <string name="squeezer_compression_settings_label">การตั้งค่าการบีบอัด</string>
-    <string name="squeezer_quality_label">คุณภาพ</string>
-    <string name="squeezer_quality_title">คุณภาพการบีบอัด</string>
-    <string name="squeezer_quality_description">คุณภาพต่ำหมายถึงขนาดไฟล์เล็กลงแต่คุณภาพรูปลดลง</string>
-    <string name="squeezer_quality_example_format">ตัวอย่าง: รูปภาพ %1$s → ประหยัด ~%2$s ที่คุณภาพ %3$d%%</string>
-    <string name="squeezer_quality_warning_low">คุณภาพต่ำอาจทำให้เห็นสิ่งแปลกปลอมได้</string>
-    <string name="squeezer_quality_warning_high">คุณภาพสูงมากให้การประหยัดพื้นที่น้อย</string>
-    <string name="squeezer_types_category_label">ประเภทรูปภาพ</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">รวมรูปภาพ JPEG (.jpg, .jpeg)</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">รวมรูปภาพ WebP (.webp)</string>
-    <string name="squeezer_skip_compressed_title">ข้ามที่บีบอัดแล้ว</string>
-    <string name="squeezer_skip_compressed_description">ข้ามรูปภาพที่ SD Maid บีบอัดแล้ว</string>
-    <string name="squeezer_exif_marker_title">เขียนเครื่องหมาย EXIF</string>
-    <string name="squeezer_exif_marker_description">เพิ่มเครื่องหมายในช่องความคิดเห็นผู้ใช้ EXIF ของรูปภาพเพื่อป้องกันการบีบอัดซ้ำแม้ประวัติการบีบอัดจะถูกล้าง</string>
-    <string name="squeezer_estimated_savings_format">ประหยัด ~%s</string>
-    <string name="squeezer_no_savings_expected">ประหยัดได้จำกัด</string>
-    <string name="squeezer_current_size_format">ขนาด: %s</string>
-    <string name="squeezer_compress_action">บีบอัด</string>
-    <string name="squeezer_compress_all_action">บีบอัดทั้งหมด</string>
-    <string name="squeezer_preview_dialog_title">ยืนยันการบีบอัด</string>
-    <string name="squeezer_preview_total_size">ขนาดรวม</string>
-    <string name="squeezer_preview_estimated_savings">ประหยัดโดยประมาณ</string>
-    <string name="squeezer_compress_confirmation_title">บีบอัดรูปภาพ?</string>
-    <string name="squeezer_compress_confirmation_message">สิ่งนี้จะแทนที่รูปภาพต้นฉบับด้วยเวอร์ชันที่บีบอัด ไม่สามารถเลิกทำได้</string>
-    <string name="squeezer_history_title">ประวัติการบีบอัด</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d รายการ (%2$s)</item>
-        <item quantity="other">%1$d รายการ (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">ไม่มีประวัติการบีบอัด</string>
-    <string name="squeezer_history_clear_title">ล้างประวัติการบีบอัด</string>
-    <string name="squeezer_history_clear_message">สิ่งนี้จะอนุญาตให้รูปภาพที่บีบอัดก่อนหน้านี้ถูกบีบอัดอีกครั้ง รูปภาพเองไม่ได้รับผลกระทบ</string>
-    <string name="squeezer_onboarding_title">เกี่ยวกับการบีบอัดรูปภาพ</string>
-    <string name="squeezer_onboarding_message">การบีบอัดรูปภาพลดขนาดไฟล์โดยการลดรายละเอียดภาพ กระบวนการนี้ไม่สามารถย้อนกลับได้ - คุณภาพต้นฉบับไม่สามารถกู้คืนได้\n\nนี่คือตัวอย่างของรูปภาพของคุณจะมีลักษณะอย่างไร:</string>
-    <string name="squeezer_onboarding_original_label">ต้นฉบับ</string>
-    <string name="squeezer_onboarding_compressed_label">หลังบีบอัด</string>
-    <string name="squeezer_onboarding_quality_label">คุณภาพ: %d%%</string>
-    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
-    <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
-    <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
-    <string name="squeezer_result_empty_message">ไม่พบรูปภาพที่บีบอัดได้</string>
-    <string name="squeezer_setup_warning">การบีบอัดลดคุณภาพรูปภาพอย่างถาวรเพื่อประหยัดพื้นที่จัดเก็บ ไม่สามารถเลิกทำได้ ตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
-    <string name="squeezer_setup_explanation">Media Squeeze ลดขนาดไฟล์ของรูปภาพเพื่อเพิ่มพื้นที่จัดเก็บ สิ่งนี้ลดคุณภาพรูปภาพอย่างถาวรและไม่สามารถเลิกทำได้ ตรวจสอบการตั้งค่าของคุณอย่างรอบคอบก่อนเริ่ม</string>
-    <string name="squeezer_setup_paths_title">ตำแหน่งค้นหา</string>
-    <string name="squeezer_setup_paths_default">เลือกโฟลเดอร์ที่จะค้นหา</string>
-    <string name="squeezer_setup_quality_title">คุณภาพการบีบอัด</string>
-    <string name="squeezer_setup_age_title">อายุขั้นต่ำ</string>
-    <string name="squeezer_setup_age_none">ไม่จำกัด (รวมทุกไฟล์)</string>
-    <string name="squeezer_setup_start_action">เริ่มสแกน</string>
-    <string name="squeezer_quality_hint_very_low">คุณภาพต่ำกว่า 40% อาจสร้างรูปภาพที่ใช้ไม่ได้</string>
-    <string name="squeezer_quality_hint_low">คุณภาพต่ำประหยัดพื้นที่มากขึ้นแต่อาจทำให้เห็นสิ่งแปลกปลอม</string>
-    <string name="squeezer_quality_hint_high">คุณภาพสูงมากให้การประหยัดพื้นที่น้อย</string>
-    <string name="squeezer_quality_hint_normal">สมดุลระหว่างคุณภาพและการประหยัดพื้นที่</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">อย่างน้อย %d วัน</item>
-        <item quantity="other">อย่างน้อย %d วัน</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">ประมาณ ~%d%% สำหรับไฟล์ JPEG</string>
-
-    <string name="appcontrol_archive_action">เก็บถาวร</string>
-    <string name="appcontrol_archive_selection_action">เก็บถาวรแอป</string>
-    <string name="appcontrol_archive_description">เก็บถาวรเพื่อเพิ่มพื้นที่ขณะเก็บข้อมูลแอปไว้สำหรับกู้คืนภายหลัง</string>
-    <string name="appcontrol_progress_archiving_app">กำลังเก็บถาวรแอป…</string>
-    <string name="appcontrol_archive_confirmation_title">ยืนยันการเก็บถาวร</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">เก็บถาวร %d แอป?</item>
-        <item quantity="other">เก็บถาวร %d แอป?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">เก็บถาวร %d แอปแล้ว</item>
-        <item quantity="other">เก็บถาวร %d แอปแล้ว</item>
-    </plurals>
-    <string name="appcontrol_restore_action">กู้คืน</string>
-    <string name="appcontrol_restore_selection_action">กู้คืนแอป</string>
-    <string name="appcontrol_restore_description">กู้คืนแอปที่เก็บถาวรกลับสู่สถานะติดตั้งเต็ม ข้อมูลแอปจะถูกเก็บรักษา</string>
-    <string name="appcontrol_progress_restoring_app">กำลังกู้คืนแอป…</string>
-    <string name="appcontrol_restore_confirmation_title">ยืนยันการกู้คืน</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">กู้คืน %d แอป?</item>
-        <item quantity="other">กู้คืน %d แอป?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">กู้คืน %d แอปแล้ว</item>
-        <item quantity="other">กู้คืน %d แอปแล้ว</item>
-    </plurals>
-    <string name="appcontrol_tag_debug">ดีบัก</string>
-    <string name="appcontrol_export_description">บันทึกไฟล์ติดตั้งของแอปนี้ ไม่รวมข้อมูลแอป</string>
-    <string name="appcontrol_share_list_action">แชร์รายการ</string>
-    <string name="appcontrol_share_list_title">แอปของฉัน</string>
-    <string name="appcontrol_share_list_footer">แชร์ผ่าน SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">กำลังเก็บถาวร…</string>
-    <string name="appcontrol_automation_progress_find_archive">กำลังมองหาปุ่ม \"เก็บถาวร\" (คำสำคัญ: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">กำลังกู้คืน…</string>
-    <string name="appcontrol_automation_progress_find_restore">กำลังมองหาปุ่ม \"กู้คืน\" (คำสำคัญ: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
-    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้อื่น</string>
-    <string name="appcontrol_include_multiuser_summary">รวมแอปจากโปรไฟล์ผู้ใช้อื่นบนอุปกรณ์นี้</string>
-
-    <string name="analyzer_content_create_swiper_session_action">สร้างเซสชัน Swiper</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">สร้างเซสชัน Swiper แล้วพร้อม %d รายการ</item>
-        <item quantity="other">สร้างเซสชัน Swiper แล้วพร้อม %d รายการ</item>
-    </plurals>
-
-    <string name="anniversary_card_title">สุขสันต์วันครบรอบ SD Maid ❤️</string>
-    <string name="anniversary_card_install_date">อยู่กับคุณตั้งแต่ %s</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="one">ครบ %1$d ปีแล้ว ขอบคุณที่ไว้วางใจ SD Maid ในการดูแลอุปกรณ์ Android ของคุณ พื้นที่ที่เพิ่มขึ้น: %2$s</item>
-        <item quantity="other">แข็งแกร่ง %1$d ปี อุปกรณ์ของคุณสะอาดเรียบร้อยกับ SD Maid พื้นที่ที่เพิ่มขึ้น: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">แชร์ครบรอบ SD Maid ของคุณ</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d ปีกับ SD Maid — พื้นที่ที่เพิ่มขึ้น: %2$s ดูแล Android ให้สะอาดเรียบร้อย #SDMaid\nลองใช้: %3$s</item>
-        <item quantity="other">%1$d ปีกับ SD Maid — พื้นที่ที่เพิ่มขึ้น: %2$s ดูแล Android ให้สะอาดเรียบร้อย #SDMaid\nลองใช้: %3$s</item>
-    </plurals>
-
     <string name="shortcut_appcontrol_short">ควบคุมแอป</string>
     <string name="shortcut_appcontrol_long">จัดการแอปที่ติดตั้ง</string>
     <string name="shortcut_onetap_short">สแกน + ลบ</string>
@@ -926,26 +892,17 @@
     <string name="shortcuts_settings_category">ทางลัด</string>
     <string name="shortcuts_onetap_enabled_title">ทางลัดแตะครั้งเดียว</string>
     <string name="shortcuts_onetap_enabled_summary">แสดงทางลัด \"สแกน + ลบ\" เมื่อกดค้างที่ไอคอนแอป ใช้เครื่องมือเดียวกับแดชบอร์ดแตะครั้งเดียว</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">ปัดดูไฟล์เพื่อตัดสินใจว่าจะเก็บหรือลบ</string>
-    <string name="swiper_dashcard_description">ตรวจสอบไฟล์ในโฟลเดอร์เฉพาะด้วยตนเอง ปัดเพื่อตัดสินใจว่าจะเก็บหรือลบ</string>
     <string name="swiper_start_action">เริ่มปัด</string>
     <string name="swiper_continue_action">ดำเนินเซสชันต่อ</string>
-    <string name="swiper_sessions_description">ไฟล์บางไฟล์ต้องการการตัดสินใจจากมนุษย์ ปัดดูรายการและเลือกว่าจะเก็บหรือลบ ข้ามสิ่งที่คุณไม่แน่ใจ เครื่องมือนี้ให้คุณตรวจสอบโฟลเดอร์เฉพาะด้วยตนเอง และไม่มีอะไรถูกลบจนกว่าคุณจะยืนยัน</string>
     <string name="swiper_select_folders_action">เลือกโฟลเดอร์</string>
     <string name="swiper_scanning_title">กำลังสแกน…</string>
     <plurals name="swiper_result_x_items_found">
-        <item quantity="one">พบ %d รายการ</item>
         <item quantity="other">พบ %d รายการ</item>
     </plurals>
     <plurals name="swiper_result_x_items_deleted">
-        <item quantity="one">ลบ %d รายการแล้ว</item>
         <item quantity="other">ลบ %d รายการแล้ว</item>
     </plurals>
     <plurals name="swiper_result_x_items_failed">
-        <item quantity="one">%d รายการล้มเหลว</item>
         <item quantity="other">%d รายการล้มเหลว</item>
     </plurals>
     <string name="swiper_item_position">#%1$d จาก %2$d</string>
@@ -960,11 +917,9 @@
     <string name="swiper_retry_action">ลองใหม่</string>
     <string name="swiper_delete_confirmation_title">ลบไฟล์?</string>
     <plurals name="swiper_delete_confirmation_message">
-        <item quantity="one">สิ่งนี้จะลบ %1$d ไฟล์ (%2$s) อย่างถาวร ไม่สามารถเลิกทำได้</item>
         <item quantity="other">สิ่งนี้จะลบ %1$d ไฟล์ (%2$s) อย่างถาวร ไม่สามารถเลิกทำได้</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
-        <item quantity="one">%d รายการที่ยังไม่ตัดสินใจจะยังคงอยู่สำหรับตรวจสอบภายหลัง</item>
         <item quantity="other">%d รายการที่ยังไม่ตัดสินใจจะยังคงอยู่สำหรับตรวจสอบภายหลัง</item>
     </plurals>
     <string name="swiper_delete_x_action">ลบ %1$d</string>
@@ -978,15 +933,12 @@
     <string name="swiper_discard_session_confirmation_message">การตัดสินใจทั้งหมดจะสูญหาย คุณแน่ใจหรือไม่?</string>
     <string name="swiper_no_preview_available">ไม่มีตัวอย่าง</string>
     <plurals name="swiper_dashcard_session_context">
-        <item quantity="one">ดำเนินเซสชันต่อจาก %1$d วันที่แล้ว (เสร็จ %2$d%%)</item>
         <item quantity="other">ดำเนินเซสชันต่อจาก %1$d วันที่แล้ว (เสร็จ %2$d%%)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
-        <item quantity="one">%d เซสชัน</item>
         <item quantity="other">%d เซสชัน</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
-        <item quantity="one">%d รายการที่ยังไม่ตัดสินใจ</item>
         <item quantity="other">%d รายการที่ยังไม่ตัดสินใจ</item>
     </plurals>
     <string name="swiper_session_timestamps">สร้างเมื่อ %1$s, กิจกรรมล่าสุด %2$s</string>
@@ -994,11 +946,9 @@
     <string name="swiper_sessions_empty_hint">แตะ + เพื่อเลือกโฟลเดอร์และเริ่มปัด</string>
     <string name="swiper_sessions_upgrade_body">อัปเกรดเพื่อลบข้อจำกัดเหล่านี้และสนับสนุนการพัฒนา เวอร์ชันฟรีจำกัดที่:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
-        <item quantity="one">%d ไฟล์ต่อเซสชัน</item>
         <item quantity="other">%d ไฟล์ต่อเซสชัน</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
-        <item quantity="one">%d เซสชัน</item>
         <item quantity="other">%d เซสชัน</item>
     </plurals>
     <string name="swiper_session_default_label">เซสชัน #%d</string>
@@ -1008,31 +958,25 @@
     <string name="swiper_session_paths_label">เส้นทาง</string>
     <string name="swiper_session_status_label">สถานะ</string>
     <plurals name="swiper_session_status_to_keep">
-        <item quantity="one">%d ที่จะเก็บ</item>
         <item quantity="other">%d ที่จะเก็บ</item>
     </plurals>
     <plurals name="swiper_session_status_to_delete">
-        <item quantity="one">%d ที่จะลบ</item>
         <item quantity="other">%d ที่จะลบ</item>
     </plurals>
     <plurals name="swiper_session_status_undecided">
-        <item quantity="one">%d ยังไม่ตัดสินใจ</item>
         <item quantity="other">%d ยังไม่ตัดสินใจ</item>
     </plurals>
     <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d เก็บไว้แล้ว</item>
         <item quantity="other">%d เก็บไว้แล้ว</item>
     </plurals>
     <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d ลบแล้ว</item>
         <item quantity="other">%d ลบแล้ว</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
-        <item quantity="one">เก็บ %d</item>
         <item quantity="other">เก็บ %d</item>
     </plurals>
     <plurals name="swiper_session_status_deleted">
-        <item quantity="one">ลบ %d</item>
         <item quantity="other">ลบ %d</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">ยกเว้น \"%1$s\" จากการสแกน Swiper?</string>
@@ -1041,6 +985,7 @@
     <string name="swiper_sessions_suggestion_downloads">โฟลเดอร์ดาวน์โหลด</string>
     <string name="swiper_sessions_suggestion_screenshots">ภาพหน้าจอ</string>
     <string name="swiper_sessions_suggestion_camera">ม้วนฟิล์มกล้อง</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">เก็บ!</string>
     <string name="swiper_stamp_keep_2">ดี!</string>
     <string name="swiper_stamp_keep_3">ใช่!</string>
@@ -1057,4 +1002,6 @@
     <string name="swiper_stamp_undo_2">กลับ!</string>
     <string name="swiper_stamp_undo_3">อุ๊ย!</string>
     <string name="swiper_stamp_undo_4">เดี๋ยว!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

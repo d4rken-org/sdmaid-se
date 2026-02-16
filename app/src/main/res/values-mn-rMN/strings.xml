@@ -42,7 +42,6 @@
     <string name="onboarding_welcome_body2">Бусад аппликешний ард цэвэрлэгээ хийж хадгалах орон зай олоорой. Хэрэггүй файлуудыг устгаж, үлдсэн өгөгдлийг арилгаарай.</string>
     <string name="onboarding_welcome_body_beta">Энэ бол бета (туршилтын) хувилбар юм. Хошин шогийн сэтгэлгээ, нөөц төлөвлөгөөтэй үргэлжлүүлээрэй. Тохиолдсон асуудлуудыг мэдэггэрэй.</string>
     <string name="onboarding_welcome_continue_action">Үргэлжлүүлэх</string>
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (өөрөөр хэлбэл SD Maid 2) нь SD Maid (өөрөөр хэлбэл SD Maid 1)-ийн өв залгамжлагч юм. Орчин үеийн Android-д зориулсан шинэ апп.</string>
     <string name="onboarding_versus_body2">Өмнөх хувилбарын архитектур нь 7 жилээс дээш настай бөгөөд шинэ Android хувилбаруудын сорилтод зориулж хийгдээгүй байна. Хөгжүүлэлтийг үргэлжлүүлэхийн тулд бүрэн дахин зохион байгуулах шаардлагатай байсан.</string>
     <string name="onboarding_versus_body3">Илүү сайн үр дүнгийн тулд SD Maid SE руу шилжихийг бодоорой.</string>
@@ -77,7 +76,6 @@
     <string name="ui_theme_style_setting_label">Загварын хэв маяг</string>
     <string name="ui_theme_style_setting_explanation">Аппликешний загварыг тохируулахад ашиглах өнгөний хэв маяг.</string>
     <string name="ui_theme_style_default_label">Стандарт</string>
-    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Файлын урьдчилсан харагдац</string>
     <string name="ui_previews_summary">Бүх хэрэгсэлд файлын урьдчилсан харагдацыг харуулах (жишээ нь зураг, видеоны өнгөц зураг).</string>
     <string name="ui_language_override_label">Аппликешний хэл</string>
@@ -91,7 +89,6 @@
     <string name="support_installid_desc">Автомат алдааны тайлан нэргүй байдаг. Хөгжүүлэгч таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-г хуваалцана уу.</string>
     <string name="support_debuglog_label">Дебаг лог</string>
     <string name="support_debuglog_desc">Аппликешний бүх үйлдлийг хуваалцах боломжтой текст файлд бичих.</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Хөндлөнгөөр ярилцах, асуулт асуух газар.</string>
     <string name="changelog_label">Өөрчлөлтийн бүртгэл</string>
     <string name="settings_acknowledgements_label">Талархал</string>
@@ -122,7 +119,6 @@
     <string name="setup_root_state_waiting_label">Root хандалтыг хүлээж байна.</string>
     <string name="setup_root_enable_root_use_label">Боломжтой бол root хандалт ашиглах</string>
     <string name="setup_root_disable_root_use_label">Root хандалт ашиглахгүй</string>
-    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid-д Shizuku-г боломжтой газар ашиглахыг зөвшөөрч үр дүнг сайжруулж, боломжуудыг идэвхжүүлнэ үү.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku холболт бэлэн байна.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-тай холбогдохыг хүлээж байна.</string>
@@ -159,7 +155,6 @@
     <string name="settings_category_tools_label">Хэрэгслүүд</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Аль хэдийн устгасан аппликешнүүдийн өгөгдөл.</string>
     <string name="corpsefinder_settings_summary">Сканнингийн шүүлтүүр болон эрсдэлийн түвшинг тохируулах.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Хадгалах хэрэгтэй үлдэгдлүүдийг оруулах</string>
@@ -194,7 +189,6 @@
     <string name="corpsefinder_filter_appasec_label">Шифрлэгдсэн аппликешний нөөцүүд</string>
     <string name="corpsefinder_filter_appasec_summary">Шифрлэгдсэн аппликешний нөөцүүд, жишээ нь тоглоомын хөрөнгүүд.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd модификацаар гадаад хадгалах сан руу зөөгдсөн өгөгдөл.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d аппликешний үлдэгдэл устгагдсан</item>
         <item quantity="other">%d аппликешний үлдэгдэл устгагдсан</item>
@@ -209,7 +203,6 @@
     <string name="corpsefinder_owner_unknown">Тодорхойгүй эзэмшигч</string>
     <string name="corpsefinder_corpse_hint_keeper">Энэ зүйл нь эзэмшигч нь устгагдсан ч хадгалахыг хүсэж болох өгөгдөл агуулж болно, жишээ нь зурагнууд эсвэл нөөцлөлтүүд.</string>
     <string name="corpsefinder_corpse_hint_common">Энэ зүйл маш нийтлэг нэртэй бөгөөд SD Maid-д мэдэгдэхгүй суулгагдсан аппуудад хамаарч болно.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Тодорхой аппликешнд хамаарахгүй илүүдэл өгөгдөл.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d тааралт устгагдсан</item>
@@ -234,7 +227,6 @@
     <string name="systemcleaner_delete_all_confirmation_message">Бүх шүүлтүүрийн агуулгыг устгах уу?</string>
     <string name="systemcleaner_customfilter_label">Тусгай шүүлтүүр</string>
     <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Тодорхой аппликешнүүдийн шаардлагагүй өгөгдөл.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Нийтийн үндсэн кэшүүд</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Нийтийн үндсэн аппликешний кэшүүд. Хуучин Android хувилбарууд дээр Android/data доор хандах боломжтой. Системийн тохиргоонд \"Кэш цэвэрлэх\" товчийг дарахад устгагддаг.</string>
@@ -266,8 +258,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Устгагдсан боловч сэргээх боломж олгохын тулд тусгай фолдерт байрлуулсан файлууд.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp нөөцлөлтүүд</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp нөөцлөлтүүдийн нэмэлт хуулбаруудыг устгаж зөвхөн хамгийн сүүлийнхийг хадгалах.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp хүлээн авсан файлууд</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp-аар хүмүүсээс хүлээн авсан файлууд.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp хүлээн авсан файлууд</string>
     <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp илгээсэн файлууд</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp-аар бусдад илгээсэн файлууд.</string>
     <string name="appcleaner_filter_telegram_label">Telegram медиа файлууд</string>
@@ -281,7 +273,6 @@
         <item quantity="one">%d шаардлагагүй зүйл олдсон</item>
         <item quantity="other">%d шаардлагагүй зүйл олдсон</item>
     </plurals>
-    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Төхөөрөмж дээрх давхардсан өгөгдлийг олох.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d давхардал устгагдсан</item>
@@ -302,9 +293,7 @@
     <string name="deduplicator_progress_comparing_files">Файлуудыг харьцуулж байна</string>
     <string name="deduplicator_view_mode_groups_label">Бүлгүүд</string>
     <string name="deduplicator_view_mode_directories_label">Фолдерууд</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Хадгалах зай хэмнэхийн тулд зургийг шахах.</string>
-    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Таны төхөөрөмж дээр суулгагдсан аппликешнүүд.</string>
     <string name="appcontrol_toggle_app_enable_action">Апп идэвхжүүлэх</string>
     <string name="appcontrol_toggle_app_disable_action">Апп идэвхгүй болгох</string>
@@ -326,7 +315,6 @@
     <string name="appcontrol_export_title">Апп экспортлох</string>
     <string name="appcontrol_share_list_action">Жагсаалт хуваалцах</string>
     <string name="appcontrol_force_stop_action">Албадан зогсоох</string>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Таны төхөөрөмж дээр юу зай эзлэж байгааг мэдэх.</string>
     <string name="analyzer_progress_scanning_device">Хадгалах төхөөрөмжүүдийг хайж байна</string>
     <string name="analyzer_progress_scanning_storage">Хадгалах санг сканнердаж байна</string>
@@ -397,16 +385,9 @@
     <string name="area_type_public_obb_label">Нийтийн аппликешний нөөцүүд</string>
     <string name="area_type_private_data_label">Хувийн аппликешний өгөгдөл</string>
     <string name="area_type_portable_label">Зөөврийн хадгалах сан</string>
-    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Суулгасан аппуудыг удирдах</string>
     <string name="shortcut_onetap_short">Сканнердах + Устгах</string>
     <string name="shortcut_onetap_long">Нэг үйлдлээр сканнердаж устгах</string>
-    <!-- Shorter versions for side-by-side display -->
-    <!-- Swiper stamp variations (Tinder-style labels) -->
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Файлуудаар гүйлгэж юу хадгалах, юу устгахаа шийднэ.</string>
-    <string name="swiper_dashcard_description">Тодорхой фолдерийн файлуудыг гараар хянах. Юу хадгалах, юу устгахаа шийдэхийн тулд гүйлгэнэ.</string>
     <string name="swiper_start_action">Гүйлгэж эхлэх</string>
     <string name="swiper_continue_action">Сессийг үргэлжлүүлэх</string>
     <string name="swiper_select_folders_action">Фолдерууд сонгох</string>
@@ -430,11 +411,13 @@
     <string name="swiper_retry_action">Дахин оролдох</string>
     <string name="swiper_delete_confirmation_title">Файлуудыг устгах уу?</string>
     <string name="swiper_no_preview_available">Урьдчилсан харагдац байхгүй</string>
+    <!-- Shorter versions for side-by-side display -->
     <string name="swiper_sessions_header_title">Цэгцлэхэд бэлэн үү?</string>
     <string name="swiper_sessions_suggestions_label">Эхлэхийн тулд:</string>
     <string name="swiper_sessions_suggestion_downloads">Татсан файлын фолдер</string>
     <string name="swiper_sessions_suggestion_screenshots">Дэлгэцийн зураг</string>
     <string name="swiper_sessions_suggestion_camera">Камерын цомог</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Хадгал!</string>
     <string name="swiper_stamp_keep_2">Гоё!</string>
     <string name="swiper_stamp_keep_3">Тийм!</string>
@@ -451,4 +434,6 @@
     <string name="swiper_stamp_undo_2">Буцах!</string>
     <string name="swiper_stamp_undo_3">Уучлаарай!</string>
     <string name="swiper_stamp_undo_4">Хүлээ!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

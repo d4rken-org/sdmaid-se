@@ -7,12 +7,22 @@
     <string name="dashboard_settings_oneclick_summary">대시보드의 버튼을 눌러 스캔과 삭제를 모두 진행할 수 있습니다. 추가로 확인이 필요하지 않습니다.</string>
     <string name="dashboard_settings_oneclick_tools_title">원터치 툴</string>
     <string name="dashboard_settings_oneclick_tools_desc">원터치 작업에 어떤 도구가 포함되어야 하나요?</string>
+    <string name="dashboard_card_config_title">대시보드 카드</string>
+    <string name="dashboard_card_config_desc">표시할 카드와 순서를 구성합니다</string>
+    <string name="dashboard_card_config_header_title">드래그하여 재정렬, 토글하여 표시/숨기기</string>
     <string name="debug_notification_channel_label">디버그 알림</string>
     <string name="debug_debuglog_file_label">기록한 로그 파일</string>
     <string name="debug_debuglog_recording_progress">디버그 로그 기록 중</string>
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>
     <string name="debug_debuglog_stop_action">기록 정지</string>
     <string name="debug_debuglog_sensitive_information_message">생성된 파일은 민감한 정보를 포함하고 있습니다. (파일 이름, 설치된 앱 등) 신뢰할 수 있는 이들과만 공유하세요.</string>
+    <string name="debug_debuglog_screen_title">디버그 로그</string>
+    <string name="debug_debuglog_screen_discard_action">삭제</string>
+    <string name="debug_debuglog_screen_session_path_label">세션 경로</string>
+    <string name="debug_debuglog_screen_log_files_label">로그 파일</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: 파일 이름 및 설치된 앱)가 포함됩니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하세요.</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
@@ -78,10 +88,23 @@
     <string name="support_installid_desc">자동 오류 보고는 익명입니다. 개발자에게 오류 보고서를 보내야 할 경우 설치 ID를 공유하세요.</string>
     <string name="support_debuglog_label">디버그 로그</string>
     <string name="support_debuglog_desc">앱에서 하고 있는 모든 작업을 텍스트 파일에 저장합니다.</string>
+    <string name="support_debuglog_folder_label">디버그 로그 폴더</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d개 파일, %2$s 사용</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">저장된 디버그 로그 없음</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">모든 디버그 로그를 삭제하시겠습니까?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">저장된 모든 디버그 로그 세션이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다.</string>
     <string name="discord_label">디스코드</string>
     <string name="discord_description">다른 사람들과 대화를 나누거나 질문할 수 있는 곳입니다.</string>
     <string name="changelog_label">업데이트 내역</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
+    <string name="settings_acknowledgements_category_translations_title">번역</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">누가 번역했나요?</string>
+    <string name="settings_acknowledgements_category_thanks_title">감사</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">우리 친구들에게 특별한 감사를.</string>
+    <string name="settings_acknowledgements_category_licenses_title">라이선스</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid가 사용하는 소프트웨어.</string>
     <string name="setup_label">설정하기</string>
     <string name="setup_incomplete_card_title">설정이 완료되지 않았습니다</string>
     <string name="setup_incomplete_card_body">설정을 완료하면 정리 시 더 좋은 결과를 얻을 수 있습니다.</string>
@@ -154,6 +177,13 @@
     <string name="debug_bugreporter_label">자동 버그 제보</string>
     <string name="debug_bugreporter_summary">앱이 강제 종료되는 등의 문제가 있을 때 자동으로 이를 보고합니다.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">디버그 모드가 활성화됨</string>
+    <string name="debug_card_trace_mode_label">추적 모드 활성화</string>
+    <string name="debug_card_dryrun_mode_label">테스트 모드 (삭제 비활성화)</string>
+    <string name="debug_card_areas_reload_action">데이터 영역 새로고침</string>
+    <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
+    <string name="debug_card_root_test_action">루트 테스트</string>
+    <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
     <string name="settings_category_tools_label">도구</string>
     <string name="settings_category_filter">필터</string>
     <string name="settings_category_risklevel">위험 수준</string>
@@ -187,6 +217,8 @@
     <string name="corpsefinder_filter_privatedata_summary">개인정보, 앱 설정, 브라우저 기록 등의 개인적 앱 기록입니다.</string>
     <string name="corpsefinder_filter_dalvik_label">달빅 캐시</string>
     <string name="corpsefinder_filter_dalvik_summary">캐시된 앱 실행 정보입니다.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 프로필</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 프로필은 Android에서 앱 성능을 최적화하는 데 사용됩니다.</string>
     <string name="corpsefinder_filter_applib_label">앱 라이브러리</string>
     <string name="corpsefinder_filter_applib_summary">앱의 라이브러리 데이터입니다.</string>
     <string name="corpsefinder_filter_appsource_label">앱 소스</string>
@@ -237,6 +269,8 @@
     <string name="systemcleaner_filter_screenshots_age_label">스크린샷 기간</string>
     <string name="systemcleaner_filter_screenshots_age_summary">삭제 대상으로 간주할 스크린샷의 최소 기간입니다.</string>
     <string name="systemcleaner_filter_superfluosapks_label">불필요한 APK 파일</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">동일 버전 포함</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">설치된 버전과 일치하는 APK 파일도 대상으로 합니다. 비활성화하면 이전 버전만 제거합니다.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 폴더</string>
     <string name="systemcleaner_filter_lostdir_summary">안드로이드 기기간 데이터를 이동할 때 생기는 임시 파일입니다.</string>
     <string name="systemcleaner_filter_linuxfiles_label">리눅스 파일</string>
@@ -297,6 +331,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">이름이 키워드와 동일합니다.</string>
     <string name="systemcleaner_customfilter_last_edit">최종 수정: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">실시간 검색</string>
+    <string name="systemcleaner_customfilter_editor_size_label">크기 제한</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">최소 크기</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">최대 크기</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">파일 크기를 기준으로 일치를 제한합니다. 모든 크기와 일치하려면 설정하지 마세요.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">기간 제한</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">최소 기간</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">최대 기간</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">파일 기간(마지막 수정 시간)을 기준으로 일치를 제한합니다. 모든 기간과 일치하려면 설정하지 마세요.</string>
     <string name="systemcleaner_customfilter_import_action">새로운 필터 가져오기</string>
     <string name="systemcleaner_customfilter_export_action">선택한 필터 내보내기</string>
     <string name="appcleaner_tool_name">앱 청소기</string>
@@ -339,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">삭제되었지만 다시 복구할 때를 대비해 특수 폴더에 저장된 파일입니다.</string>
     <string name="appcleaner_filter_webview_label">웹뷰 파일</string>
     <string name="appcleaner_filter_webview_summary">인앱 브라우저(웹뷰)에서 만들어진 캐시입니다.</string>
+    <string name="appcleaner_filter_shortcutservice_label">앱 바로가기 아이콘</string>
+    <string name="appcleaner_filter_shortcutservice_summary">앱 바로가기 및 공유 메뉴용 캐시된 아이콘.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 백업</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">오래된 WhatsApp 백업을 지우고 최신 버전만 남깁니다.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp을 통해 다른 사람으로부터 받은 파일입니다.</string>
@@ -387,6 +431,9 @@
     <string name="appcleaner_automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">시스템 앱이 잘못 구성됨</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS의 보안 앱(com.miui.securitycenter)에 사용 통계 권한(GET_USAGE_STATS)이 없습니다. 이로 인해 앱 세부정보의 \"데이터 지우기\"와 접근성을 통한 캐시 지우기 등의 기능이 손상됩니다. 전체 기능을 복원하려면 권한을 부여하세요.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">삭제 전 강제 종료</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">캐시를 삭제하기 전에 앱을 강제 종료합니다. 일부 앱의 캐시를 삭제하는 데 도움이 될 수 있지만, 앱이 오작동하거나 수동 재시작이 필요할 수 있습니다.</string>
+    <string name="appcleaner_progress_force_stopping">앱 강제 종료 중…</string>
     <string name="deduplicator_tool_name">중복 파일 제거기</string>
     <string name="deduplicator_explanation_short">기기의 중복된 파일을 찾습니다.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -399,6 +446,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">중복된 파일 세트의 모든 파일을 삭제할 수 있는 옵션을 표시하여 파일이 남지 않도록 합니다.</string>
     <string name="deduplicator_search_locations_title">검색 위치</string>
     <string name="deduplicator_search_locations_all_summary">모든 접근 가능한 영역</string>
+    <string name="deduplicator_keep_prefer_paths_title">보관 우선 위치</string>
+    <string name="deduplicator_keep_prefer_paths_summary">어떤 중복을 유지할지 결정할 때, 이 위치의 파일을 우선적으로 유지합니다.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">구성된 위치 없음</string>
     <string name="deduplicator_skip_minsize_title">최소 크기</string>
     <string name="deduplicator_skip_minsize_description">최소 크기 미만의 파일은 건너뜁니다.</string>
     <string name="deduplicator_skip_uncommon_title">흔하지 않은 파일 형식 건너뛰기</string>
@@ -424,6 +474,64 @@
     <string name="deduplicator_details_cluster_title">중복 세트</string>
     <string name="deduplicator_matches_exact_label">정확한 복사본</string>
     <string name="deduplicator_matches_similar_label">유사 파일</string>
+    <string name="deduplicator_arbiter_title">삭제 전략</string>
+    <string name="deduplicator_arbiter_summary">어떤 파일을 유지하고 어떤 파일을 삭제할지 구성합니다.</string>
+    <string name="deduplicator_arbiter_explanation">중복을 삭제할 때, SD Maid는 각 기준을 순서대로 확인하여 어떤 파일을 유지할지 결정합니다. 명확한 승자를 만드는 첫 번째 기준이 결과를 결정합니다. 드래그하여 재정렬, 탭하여 모드 변경.</string>
+    <string name="deduplicator_arbiter_select_mode_title">모드 선택</string>
+    <string name="deduplicator_arbiter_configure_paths_action">경로 구성…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">중복 유형</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">유사한 파일보다 정확한 일치를 선호합니다.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">미디어 인덱싱</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">파일이 미디어 제공자에 의해 인덱싱되었는지 고려합니다.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">저장소 위치</string>
+    <string name="deduplicator_arbiter_criterium_location_description">내부 또는 외부 저장소의 파일을 선호합니다.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">폴더 깊이</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">얕거나 깊은 폴더 구조의 파일을 선호합니다.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">수정 날짜</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">수정 시간에 따라 오래된 파일 또는 최신 파일을 선호합니다.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">파일 크기</string>
+    <string name="deduplicator_arbiter_criterium_size_description">크기가 다를 때 큰 파일 또는 작은 파일을 선호합니다.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">선호 위치</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">구성된 선호 위치에 파일을 유지합니다.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">정확한 일치 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">유사한 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">인덱싱된 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">인덱싱되지 않은 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">내부 저장소 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">외부 저장소 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">얕은 폴더 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">깊은 폴더 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">오래된 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">최신 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">큰 파일 선호</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">작은 파일 선호</string>
+    <string name="deduplicator_view_mode_groups_label">그룹</string>
+    <string name="deduplicator_view_mode_directories_label">폴더</string>
+    <string name="squeezer_onboarding_title">이미지 압축 소개</string>
+    <string name="squeezer_onboarding_message">이미지 압축은 시각적 세부 사항을 제거하여 파일 크기를 줄입니다. 이 과정은 되돌릴 수 없습니다 - 원래 품질을 복원할 수 없습니다.\n\n이미지가 어떻게 보일지 미리보기:</string>
+    <string name="squeezer_onboarding_original_label">원본</string>
+    <string name="squeezer_onboarding_compressed_label">압축 후</string>
+    <string name="squeezer_onboarding_quality_label">품질: %d%%</string>
+    <string name="squeezer_onboarding_got_it">확인</string>
+    <string name="squeezer_compare_action">비교 보기</string>
+    <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
+    <string name="squeezer_result_empty_message">압축 가능한 이미지를 찾을 수 없습니다.</string>
+    <string name="squeezer_setup_warning">압축은 저장 공간을 절약하기 위해 이미지 품질을 영구적으로 낮춥니다. 이 작업은 되돌릴 수 없습니다. 시작하기 전에 설정을 주의 깊게 확인하세요.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze는 저장 공간을 확보하기 위해 이미지 파일 크기를 줄입니다. 이미지 품질이 영구적으로 저하되며 되돌릴 수 없습니다. 시작하기 전에 설정을 주의 깊게 확인하세요.</string>
+    <string name="squeezer_setup_paths_title">검색 위치</string>
+    <string name="squeezer_setup_paths_default">검색할 폴더 선택</string>
+    <string name="squeezer_setup_quality_title">압축 품질</string>
+    <string name="squeezer_setup_age_title">최소 기간</string>
+    <string name="squeezer_setup_age_none">제한 없음 (모든 파일 포함)</string>
+    <string name="squeezer_setup_start_action">스캔 시작</string>
+    <string name="squeezer_quality_hint_very_low">40% 미만의 품질은 사용할 수 없는 이미지를 생성할 수 있습니다.</string>
+    <string name="squeezer_quality_hint_low">낮은 품질은 더 많은 공간을 절약하지만 눈에 보이는 아티팩트가 발생할 수 있습니다.</string>
+    <string name="squeezer_quality_hint_high">매우 높은 품질은 공간 절약이 거의 없습니다.</string>
+    <string name="squeezer_quality_hint_normal">품질과 공간 절약의 균형.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">최소 %d일 경과</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG 파일에 대해 ~%d%% 절약 예상</string>
     <string name="appcontrol_tool_name">앱제어</string>
     <string name="appcontrol_explanation_short">장치에 설치한 앱입니다.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -688,144 +796,15 @@
     <string name="area_type_public_obb_label">공용 앱 리소스</string>
     <string name="area_type_private_data_label">개인 앱 데이터</string>
     <string name="area_type_portable_label">휴대용 저장소</string>
-    <string name="dashboard_card_config_title">대시보드 카드</string>
-    <string name="dashboard_card_config_desc">표시할 카드와 순서를 구성합니다</string>
-    <string name="dashboard_card_config_header_title">드래그하여 재정렬, 토글하여 표시/숨기기</string>
-
-    <string name="debug_debuglog_screen_title">디버그 로그</string>
-    <string name="debug_debuglog_screen_discard_action">삭제</string>
-    <string name="debug_debuglog_screen_session_path_label">세션 경로</string>
-    <string name="debug_debuglog_screen_log_files_label">로그 파일</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">디버그 로그 폴더</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="other">%1$d개 파일, %2$s 사용</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">저장된 디버그 로그 없음</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">모든 디버그 로그를 삭제하시겠습니까?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">저장된 모든 디버그 로그 세션이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">번역</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">누가 번역했나요?</string>
-    <string name="settings_acknowledgements_category_thanks_title">감사</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">우리 친구들에게 특별한 감사를.</string>
-    <string name="settings_acknowledgements_category_licenses_title">라이선스</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid가 사용하는 소프트웨어.</string>
-
-    <string name="debug_card_title">디버그 모드가 활성화됨</string>
-    <string name="debug_card_trace_mode_label">추적 모드 활성화</string>
-    <string name="debug_card_dryrun_mode_label">테스트 모드 (삭제 비활성화)</string>
-    <string name="debug_card_areas_reload_action">데이터 영역 새로고침</string>
-    <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
-    <string name="debug_card_root_test_action">루트 테스트</string>
-    <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART 프로필</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART 프로필은 Android에서 앱 성능을 최적화하는 데 사용됩니다.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">동일 버전 포함</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">설치된 버전과 일치하는 APK 파일도 대상으로 합니다. 비활성화하면 이전 버전만 제거합니다.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">크기 제한</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">최소 크기</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">최대 크기</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">파일 크기를 기준으로 일치를 제한합니다. 모든 크기와 일치하려면 설정하지 마세요.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">기간 제한</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">최소 기간</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">최대 기간</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">파일 기간(마지막 수정 시간)을 기준으로 일치를 제한합니다. 모든 기간과 일치하려면 설정하지 마세요.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">앱 바로가기 아이콘</string>
-    <string name="appcleaner_filter_shortcutservice_summary">앱 바로가기 및 공유 메뉴용 캐시된 아이콘.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">삭제 전 강제 종료</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">캐시를 삭제하기 전에 앱을 강제 종료합니다. 일부 앱의 캐시를 삭제하는 데 도움이 될 수 있지만, 앱이 오작동하거나 수동 재시작이 필요할 수 있습니다.</string>
-    <string name="appcleaner_progress_force_stopping">앱 강제 종료 중…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">보관 우선 위치</string>
-    <string name="deduplicator_keep_prefer_paths_summary">어떤 중복을 유지할지 결정할 때, 이 위치의 파일을 우선적으로 유지합니다.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">구성된 위치 없음</string>
-
-    <string name="deduplicator_arbiter_title">삭제 전략</string>
-    <string name="deduplicator_arbiter_summary">어떤 파일을 유지하고 어떤 파일을 삭제할지 구성합니다.</string>
-    <string name="deduplicator_arbiter_explanation">중복을 삭제할 때, SD Maid는 각 기준을 순서대로 확인하여 어떤 파일을 유지할지 결정합니다. 명확한 승자를 만드는 첫 번째 기준이 결과를 결정합니다. 드래그하여 재정렬, 탭하여 모드 변경.</string>
-    <string name="deduplicator_arbiter_select_mode_title">모드 선택</string>
-    <string name="deduplicator_arbiter_configure_paths_action">경로 구성…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">중복 유형</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">유사한 파일보다 정확한 일치를 선호합니다.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">미디어 인덱싱</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">파일이 미디어 제공자에 의해 인덱싱되었는지 고려합니다.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">저장소 위치</string>
-    <string name="deduplicator_arbiter_criterium_location_description">내부 또는 외부 저장소의 파일을 선호합니다.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">폴더 깊이</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">얕거나 깊은 폴더 구조의 파일을 선호합니다.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">수정 날짜</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">수정 시간에 따라 오래된 파일 또는 최신 파일을 선호합니다.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">파일 크기</string>
-    <string name="deduplicator_arbiter_criterium_size_description">크기가 다를 때 큰 파일 또는 작은 파일을 선호합니다.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">선호 위치</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">구성된 선호 위치에 파일을 유지합니다.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">정확한 일치 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">유사한 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">인덱싱된 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">인덱싱되지 않은 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">내부 저장소 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">외부 저장소 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">얕은 폴더 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">깊은 폴더 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">오래된 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">최신 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">큰 파일 선호</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">작은 파일 선호</string>
-
-    <string name="deduplicator_view_mode_groups_label">그룹</string>
-    <string name="deduplicator_view_mode_directories_label">폴더</string>
-
-    <string name="squeezer_onboarding_title">이미지 압축 소개</string>
-    <string name="squeezer_onboarding_message">이미지 압축은 시각적 세부 사항을 제거하여 파일 크기를 줄입니다. 이 과정은 되돌릴 수 없습니다 - 원래 품질을 복원할 수 없습니다.\n\n이미지가 어떻게 보일지 미리보기:</string>
-    <string name="squeezer_onboarding_original_label">원본</string>
-    <string name="squeezer_onboarding_compressed_label">압축 후</string>
-    <string name="squeezer_onboarding_quality_label">품질: %d%%</string>
-    <string name="squeezer_onboarding_got_it">확인</string>
-    <string name="squeezer_compare_action">비교 보기</string>
-    <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
-    <string name="squeezer_result_empty_message">압축 가능한 이미지를 찾을 수 없습니다.</string>
-    <string name="squeezer_setup_warning">압축은 저장 공간을 절약하기 위해 이미지 품질을 영구적으로 낮춥니다. 이 작업은 되돌릴 수 없습니다. 시작하기 전에 설정을 주의 깊게 확인하세요.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze는 저장 공간을 확보하기 위해 이미지 파일 크기를 줄입니다. 이미지 품질이 영구적으로 저하되며 되돌릴 수 없습니다. 시작하기 전에 설정을 주의 깊게 확인하세요.</string>
-    <string name="squeezer_setup_paths_title">검색 위치</string>
-    <string name="squeezer_setup_paths_default">검색할 폴더 선택</string>
-    <string name="squeezer_setup_quality_title">압축 품질</string>
-    <string name="squeezer_setup_age_title">최소 기간</string>
-    <string name="squeezer_setup_age_none">제한 없음 (모든 파일 포함)</string>
-    <string name="squeezer_setup_start_action">스캔 시작</string>
-    <string name="squeezer_quality_hint_very_low">40% 미만의 품질은 사용할 수 없는 이미지를 생성할 수 있습니다.</string>
-    <string name="squeezer_quality_hint_low">낮은 품질은 더 많은 공간을 절약하지만 눈에 보이는 아티팩트가 발생할 수 있습니다.</string>
-    <string name="squeezer_quality_hint_high">매우 높은 품질은 공간 절약이 거의 없습니다.</string>
-    <string name="squeezer_quality_hint_normal">품질과 공간 절약의 균형.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="other">최소 %d일 경과</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG 파일에 대해 ~%d%% 절약 예상</string>
-
     <string name="shortcut_appcontrol_short">앱 관리</string>
     <string name="shortcut_appcontrol_long">설치된 앱 관리</string>
     <string name="shortcut_onetap_short">스캔 + 삭제</string>
     <string name="shortcut_onetap_long">한 번에 스캔하고 삭제</string>
-
     <string name="shortcuts_settings_category">바로가기</string>
     <string name="shortcuts_onetap_enabled_title">원탭 바로가기</string>
     <string name="shortcuts_onetap_enabled_summary">앱 아이콘을 길게 눌렀을 때 \"스캔 + 삭제\" 바로가기를 표시합니다. 원탭 대시보드와 동일한 도구를 사용합니다.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">파일을 스와이프하여 유지할지 삭제할지 결정합니다.</string>
-    <string name="swiper_dashcard_description">특정 폴더의 파일을 수동으로 검토합니다. 스와이프하여 유지 또는 삭제를 결정합니다.</string>
     <string name="swiper_start_action">스와이프 시작</string>
     <string name="swiper_continue_action">세션 계속</string>
-    <string name="swiper_sessions_description">일부 파일은 사람의 판단이 필요합니다. 항목을 스와이프하여 유지 또는 삭제를 선택하세요. 확실하지 않은 것은 건너뛰세요. 이 도구는 특정 폴더를 수동으로 검토할 수 있게 하며, 확인할 때까지 아무것도 제거되지 않습니다.</string>
     <string name="swiper_select_folders_action">폴더 선택</string>
     <string name="swiper_scanning_title">스캔 중…</string>
     <plurals name="swiper_result_x_items_found">
@@ -904,6 +883,7 @@
     <plurals name="swiper_session_status_already_deleted">
         <item quantity="other">%d개 이미 삭제됨</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="other">%d개 유지됨</item>
     </plurals>
@@ -916,6 +896,7 @@
     <string name="swiper_sessions_suggestion_downloads">다운로드 폴더</string>
     <string name="swiper_sessions_suggestion_screenshots">스크린샷</string>
     <string name="swiper_sessions_suggestion_camera">카메라 롤</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">유지!</string>
     <string name="swiper_stamp_keep_2">좋아!</string>
     <string name="swiper_stamp_keep_3">예!</string>
@@ -932,4 +913,6 @@
     <string name="swiper_stamp_undo_2">뒤로!</string>
     <string name="swiper_stamp_undo_3">앗!</string>
     <string name="swiper_stamp_undo_4">잠깐!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

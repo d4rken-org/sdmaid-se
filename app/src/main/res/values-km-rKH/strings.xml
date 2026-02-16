@@ -110,4 +110,6 @@
     <string name="corpsefinder_filter_privatedata_label">ទិន្នន័យកម្មវិធីឯកជន</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

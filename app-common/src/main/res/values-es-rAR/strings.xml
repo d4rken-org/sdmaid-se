@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Todavía se está trabajando en esta función y por el momento no se encuentra disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
+    <string name="general_apply_action">Aplicar</string>
     <string name="general_copy_action">Copiar</string>
     <string name="general_wipe_action">Limpiar</string>
     <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Resetear</string>
+    <string name="general_drag_handle_description">Arrastrá para reordenar</string>
     <string name="general_save_action">Guardar</string>
     <string name="general_thanks_action">Gracias</string>
     <string name="general_gotit_action">Entendido</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Editar</string>
     <string name="general_na_label">N/D</string>
     <string name="general_empty_label">Vacío</string>
+    <string name="general_new_badge_label">Nuevo</string>
     <string name="general_dismiss_action">Descartar</string>
     <string name="general_maybe_later_action">Tal vez más tarde</string>
     <string name="general_manage_action">Gestionar</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Cambiar modo de vista</string>
     <string name="general_delete_confirmation_title">Confirmá la eliminación</string>
     <string name="general_delete_confirmation_message_x">¿Borrar «%s»?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">¿Eliminar %d elemento seleccionado?</item>
+        <item quantity="other">¿Eliminar %d elementos seleccionados?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Se eliminó %d elemento.</item>
         <item quantity="other">Se eliminaron %d elementos.</item>
@@ -164,13 +171,6 @@
     <string name="general_error_report_bug_action">Reportar error</string>
     <string name="general_error_ipc_deadobject_title">Conexión de servicio perdida</string>
     <string name="general_error_ipc_deadobject_description">La conexión a un servicio crítico (por ejemplo, Magisk, Shizuku u otros servicios del sistema) se perdió inesperadamente. Por favor, reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o contáctame para que pueda solucionarlo.</string>
-    <string name="general_apply_action">Aplicar</string>
-    <string name="general_drag_handle_description">Arrastrá para reordenar</string>
-    <string name="general_new_badge_label">Nuevo</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">¿Eliminar %d elemento seleccionado?</item>
-        <item quantity="other">¿Eliminar %d elementos seleccionados?</item>
-    </plurals>
     <string name="general_user_label_owner">Propietario</string>
     <string name="general_user_label_system">Sistema</string>
 </resources>

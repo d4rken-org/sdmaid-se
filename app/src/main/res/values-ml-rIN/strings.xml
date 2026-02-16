@@ -118,4 +118,6 @@
     <string name="settings_category_risklevel">റിസ്ക് ലെവൽ</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

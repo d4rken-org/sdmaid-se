@@ -440,4 +440,6 @@
     <string name="area_type_private_data_label">تایبەت app data</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

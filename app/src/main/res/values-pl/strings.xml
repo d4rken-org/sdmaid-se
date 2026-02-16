@@ -61,7 +61,7 @@
     <string name="onboarding_privacy_bugreport_toggle_hint">Te opcje będzie można zmienić w ustawieniach.</string>
     <string name="onboarding_privacy_continue_action">Kontynuuj</string>
     <string name="onboarding_setup_title">Konfiguracja</string>
-    <string name="onboarding_setup_body1">SD Maid wyszuka wszystkie dostępne obszary danych.</string>
+    <string name="onboarding_setup_body1">SD Maid przeszuka wszystkie dostępne obszary danych.</string>
     <string name="onboarding_setup_body2">To, co jest dostępne, zależy od twojego urządzenia, wersji Androida i przyznanych uprawnień.</string>
     <string name="onboarding_setup_body3">Zacznij korzystać z SD Maid, konfigurując dostęp do obszarów, które powinny być przeszukane.</string>
     <string name="onboarding_setup_continue_action">Konfiguruj dostęp</string>
@@ -137,7 +137,7 @@
     <string name="setup_manage_storage_card_body">Zezwól SD Maid na zarządzanie pamięcią twojego urządzenia.</string>
     <string name="setup_manage_storage_card_body2">Podstawowy dostęp do pamięci publicznej, np. \"Download/\" i \"DCIM/\", ale nie zawsze \"Android/data\".</string>
     <string name="setup_root_card_title">Dostęp do roota</string>
-    <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu roota, jeśli jest dostępny? Dostęp root może zostać wykorzystany do sprawdzenia dodatkowych folderów systemowych i prywatnych danych aplikacji.</string>
+    <string name="setup_root_card_body">Czy SD Maid ma korzystać z dostępu do roota, jeśli jest dostępny? Dostęp do roota może zostać wykorzystany do sprawdzenia dodatkowych folderów systemowych i prywatnych danych aplikacji.</string>
     <string name="setup_root_state_ready_label">Dostęp do roota jest gotowy.</string>
     <string name="setup_root_state_waiting_label">Oczekiwanie na dostęp do roota.</string>
     <string name="setup_root_enable_root_use_label">Użyj dostępu do roota, jeśli jest dostępny</string>
@@ -156,7 +156,7 @@
     <string name="setup_permission_error_label">Błąd uprawnień</string>
     <string name="setup_usagestats_title">Statystyki używania</string>
     <string name="setup_usagestats_body">Uprawnienie do statystyk używania umożliwia uzyskanie dostępu do większej liczby szczegółów dotyczących aplikacji. SD Maid korzysta z niego, aby określić dodatkowe rozmiary pamięci podręcznej.</string>
-    <string name="setup_usagestats_hint">Wymagane do usuwania pamięci podręcznej z wykorzystaniem usługi ułatwień.</string>
+    <string name="setup_usagestats_hint">Wymagane do usunięcia pamięci podręcznej za pomocą usługi ułatwienia dostępu.</string>
     <string name="setup_notification_title">Powiadomienia</string>
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
@@ -172,11 +172,11 @@
     <string name="setup_acs_state_stopped_hint">Usługa jest włączona, ale nie jest uruchomiona. Spróbuj wyłączyć i włączyć lub zrestartować urządzenie. Upewnij się, że aplikacja SD Maid nie jest „optymalizowana” przez system.</string>
     <string name="setup_acs_state_stopped_hint_miui">Jeśli usługa jest ciągle wyłączana po pewnym czasie, spróbuj włączyć opcję „Auto Start” dla SD Maid w ustawieniach systemowych.</string>
     <string name="setup_acs_consent_positive_action">Włącz usługę i udziel dostępu</string>
-    <string name="setup_acs_consent_negative_action">Nie używaj usługi ułatwień</string>
+    <string name="setup_acs_consent_negative_action">Nie używaj usługi ułatwień dostępu</string>
     <string name="setup_acs_allow_hint">Jeśli widzisz małą ikonkę na krawędzi ekranu, to przypadkowo włączono opcję \"skrót\".</string>
     <string name="setup_acs_disallow_hint">Jeśli zmienisz zdanie, możesz ponownie zmienić tę opcję, przechodząc do ustawień i ponownie uruchamiając konfigurację.</string>
     <string name="setup_acs_appops_restriction_title">Ograniczone ustawienia</string>
-    <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
+    <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dostępu dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
     <string name="setup_inventory_card_title">Zasobnik aplikacji</string>
     <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz, aby znaleźć pliki, które nie należą do żadnej zainstalowanej aplikacji.</string>
     <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytaj o wszystkie pakiety\".</string>
@@ -265,7 +265,7 @@
     <string name="corpsefinder_owner_unknown">Nieznany właściciel</string>
     <string name="corpsefinder_corpse_hint_keeper">Ten przedmiot może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
     <string name="corpsefinder_corpse_hint_common">Ten przedmiot ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
-    <string name="systemcleaner_tool_name">Sprzątacz systemowy</string>
+    <string name="systemcleaner_tool_name">Sprzątacz systemu</string>
     <string name="systemcleaner_explanation_short">Zbędne dane, które nie należą do żadnej konkretnej aplikacji.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d dopasowanie zostało usunięte</item>
@@ -383,7 +383,7 @@
     <string name="appcleaner_include_runningapps_label">Uwzględnij uruchomione aplikacje</string>
     <string name="appcleaner_include_runningapps_summary">Uwzględnia uruchomione aplikacje, które mogą powodować zakłócenia.</string>
     <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne pamięci podręczne</string>
-    <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, do których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień. </string>
+    <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, do których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień dostępu. </string>
     <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
     <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcleaner_include_minimumsize_label">Minimalny rozmiar</string>
@@ -452,9 +452,9 @@
     <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień).</string>
+    <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień dostępu).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień dostępu niedostępna</string>
-    <string name="appcleaner_automation_unavailable_body">Oczyszczanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
+    <string name="appcleaner_automation_unavailable_body">Oczyszczanie niedostępnych pamięci podręcznych wymaga usługi ułatwień dostępu dla SD Maid, ale była ona niedostępna. Jeśli nie chcesz jej używać: Wyłącz opcję \"Uwzględnij niedostępne pamięci podręczne\".</string>
     <string name="appcleaner_junk_userprofile_label">Użytkownik</string>
     <string name="appcleaner_delete_confirmation_message_x">Usunąć zbędne pliki dla %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
@@ -470,11 +470,11 @@
     <string name="appcleaner_automation_error_no_settings_title">Ekran ustawień niedostępny</string>
     <string name="appcleaner_automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu nie jest możliwa. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacja systemowa nieprawidłowo skonfigurowana</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi dostępności są niedostępne. Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niedostępne. Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Wymuś zatrzymanie przed wyczyszczeniem</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie się aplikacji i wymagać ręcznego restartu.</string>
     <string name="appcleaner_progress_force_stopping">Wymuszanie zatrzymania…</string>
-    <string name="deduplicator_tool_name">Deduplikator</string>
+    <string name="deduplicator_tool_name">Usuwanie duplikatów</string>
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplikat usunięty</item>
@@ -637,7 +637,7 @@
     <string name="squeezer_setup_warning">Kompresja trwale zmniejsza jakość obrazu, aby zapisać miejsce na dysku. Tej operacji nie można cofnąć. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
     <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar pliku obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
     <string name="squeezer_setup_paths_title">Lokalizacje wyszukiwania</string>
-    <string name="squeezer_setup_paths_default">Wybierz foldery do wyszukania</string>
+    <string name="squeezer_setup_paths_default">Wybierz foldery do przeszukania</string>
     <string name="squeezer_setup_quality_title">Kompresja jakości</string>
     <string name="squeezer_setup_age_title">Minimalny wiek</string>
     <string name="squeezer_setup_age_none">Brak limitu (dołącz wszystkie pliki)</string>
@@ -792,7 +792,7 @@
         <item quantity="many">%d aplikacji zostało zatrzymanych</item>
         <item quantity="other">%d aplikacji zostało zatrzymanych</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień</string>
+    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcontrol_automation_title">Automatyzacja zarządzania aplikacjami</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Wymuszanie zatrzymania…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Szukam przycisku \"Wymuś zatrzymanie\" (słowa kluczowe: %s)</string>
@@ -866,7 +866,7 @@
     <string name="exclusion_manager_title">Menedżer wykluczeń</string>
     <string name="exclusion_manager_desc">Zarządzaj wykluczeniami plików i aplikacji.</string>
     <string name="exclusion_explanation_body1">Wyklucz pliki i aplikacje z działań SD Maid.</string>
-    <string name="exclusion_add_new_hint">Dodaj nowe wykluczenia, najpierw pozwalając SD Maid wyszukać, a następnie używając menu kontekstowego na wyniku, który chcesz wykluczyć.</string>
+    <string name="exclusion_add_new_hint">Aby dodać nowe wykluczenia, najpierw zezwól aplikacji SD Maid na przeszukiwanie, a następnie użyj menu kontekstowego, w wyniku który chcesz wykluczyć.</string>
     <string name="exclusion_create_action">Utwórz wykluczenie</string>
     <string name="exclusion_edit_action">Edytuj wykluczenie</string>
     <string name="exclusion_type_package">Wykluczenie aplikacji</string>
@@ -942,7 +942,7 @@
     <string name="scheduler_setting_nopowersaving_title">Pomiń przy niskim stanie baterii</string>
     <string name="scheduler_setting_nopowersaving_summary">Jeśli telefon jest w trybie oszczędzania energii, zaplanowane wykonanie zostanie pominięte.</string>
     <string name="scheduler_setting_charging_title">Pomiń, jeśli nie trwa ładowanie</string>
-    <string name="scheduler_setting_charging_summary">Jeśli urządzenie nie jest ładowane, zaplanowane wykonanie zostanie pominięte.</string>
+    <string name="scheduler_setting_charging_summary">Jeśli urządzenie się nie ładuje, zaplanowane wykonywanie operacji zostanie pominięte.</string>
     <string name="scheduler_setting_automation_title">Usługa ułatwień dostępu</string>
     <string name="scheduler_setting_automation_summary">Dołącz akcje, które używają usługi ułatwień dostępu. Wymaga to, aby SD Maid mógł wchodzić w interakcje z twoim ekranem (tzn. gdy jest odblokowany), gdy zadania są wykonywane.</string>
     <string name="scheduler_notification_channel_label">Harmonogram</string>
@@ -959,8 +959,9 @@
     <string name="translation_encourage_title">Przetłumacz SD Maid</string>
     <string name="translation_encourage_body">Aplikacja SD Maid jest tłumaczona przez wolontariuszy. Tłumaczenie, recenzowanie lub korekta, każda pomoc jest mile widziana!</string>
     <string name="translation_translators_title">Ta wersja została przetłumaczona przez</string>
-    <string name="translation_translators_people">Damian Stasik (sd@coded.pl);K4r0lSz
-Łukasz Kuchta (kuchtapc2015@gmail.com)</string>
+    <string name="translation_translators_people">Łukasz Kuchta (kuchtapc2015@gmail.com);
+Damian Stasik (sd@coded.pl);
+Karol Szastok (K4r0lSz);</string>
     <string name="motd_setting_enabled_label">Ważne wiadomości</string>
     <string name="motd_setting_enabled_explanation">Zezwól SD Maid na sprawdzanie ważnych wiadomości od twórcy.</string>
     <string name="updatecheck_setting_enabled_label">Sprawdzanie aktualizacji</string>
@@ -1042,11 +1043,8 @@
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
     <string name="swiper_label">Przesuwacz</string>
     <string name="swiper_tool_name">Przesuwacz</string>
-    <string name="swiper_tool_description">Przesuń palcem pliki, aby zdecydować, co zachować lub usunąć.</string>
-    <string name="swiper_dashcard_description">Ręcznie przejrzyj pliki w określonych folderach. Przesuń palcem, aby zdecydować, co zachować lub usunąć.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
     <string name="swiper_continue_action">Kontynuuj sesję</string>
-    <string name="swiper_sessions_description">Niektóre pliki wymagają ludzkiej decyzji. Przeciągnij elementy i wybierz co chcesz zachować lub usunąć. Pomiń cokolwiek, czego nie jesteś pewien. To narzędzie pozwala na ręczne przeglądanie określonych folderów i nic nie zostanie usunięte, dopóki nie potwierdzisz.</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1188,7 +1186,7 @@
     <string name="swiper_sessions_suggestions_label">Spróbuj, zaczynając od:</string>
     <string name="swiper_sessions_suggestion_downloads">Folder pobierania</string>
     <string name="swiper_sessions_suggestion_screenshots">Zrzuty ekranu</string>
-    <string name="swiper_sessions_suggestion_camera">Rolka aparatu</string>
+    <string name="swiper_sessions_suggestion_camera">Zdjęcia i filmy z aparatu</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Zachowaj!</string>
     <string name="swiper_stamp_keep_2">Fajnie!</string>
@@ -1206,4 +1204,6 @@
     <string name="swiper_stamp_undo_2">Wstecz!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Czekaj!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

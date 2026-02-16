@@ -19,11 +19,13 @@
     <string name="general_todo_msg">ამ ფუნქციაზე ჯერ კიდევ მუშაობს და ამჟამად მიუწვდომელია.</string>
     <string name="general_share_action">გააზიარება</string>
     <string name="general_done_action">შესრულებულია</string>
+    <string name="general_apply_action">გამოყენება</string>
     <string name="general_copy_action">კოპირება</string>
     <string name="general_wipe_action">წაშლა</string>
     <string name="general_cancel_action">გაუქმება</string>
     <string name="general_discard_action">უარყოფა</string>
     <string name="general_reset_action">გადატვირთვა</string>
+    <string name="general_drag_handle_description">გადაათრიეთ გადასალაგებლად</string>
     <string name="general_save_action">შენახვა</string>
     <string name="general_thanks_action">მადლობა</string>
     <string name="general_gotit_action">Გავიგე</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">რედაქტირება</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">ცარიელი</string>
+    <string name="general_new_badge_label">ახალი</string>
     <string name="general_dismiss_action">გაუქმება</string>
     <string name="general_maybe_later_action">შეიძლება მოგვიანებით</string>
     <string name="general_manage_action">მართვა</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">ნახვის რეჟიმის გადართვა</string>
     <string name="general_delete_confirmation_title">წაშლის დადასტურება</string>
     <string name="general_delete_confirmation_message_x">წავშალოთ \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">წავშალოთ %d მონიშნული ელემენტი?</item>
+        <item quantity="other">წავშალოთ %d მონიშნული ელემენტი?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ელემენტი წაიშალა.</item>
         <item quantity="other">%d ელემენტი წაიშალა.</item>
@@ -164,13 +171,6 @@
     <string name="general_error_report_bug_action">ბაგის მოხსენება</string>
     <string name="general_error_ipc_deadobject_title">სერვისის კავშირი დაიკარგა</string>
     <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
-    <string name="general_apply_action">გამოყენება</string>
-    <string name="general_drag_handle_description">გადაათრიეთ გადასალაგებლად</string>
-    <string name="general_new_badge_label">ახალი</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">წავშალოთ %d მონიშნული ელემენტი?</item>
-        <item quantity="other">წავშალოთ %d მონიშნული ელემენტი?</item>
-    </plurals>
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
 </resources>

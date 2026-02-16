@@ -88,7 +88,6 @@
     <string name="support_installid_desc">自動錯誤報告是匿名的。如果開發人員需要尋找您的錯誤報告，請分享您的安裝 ID。</string>
     <string name="support_debuglog_label">偵錯記錄</string>
     <string name="support_debuglog_desc">將應用程式正在做的所有事情記錄到一個文字檔案中，您可以分享它。</string>
-    <string name="discord_label">Discord</string>
     <string name="support_debuglog_folder_label">偵錯記錄資料夾</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="other">%1$d 個檔案使用 %2$s</item>
@@ -96,6 +95,7 @@
     <string name="support_debuglog_folder_empty_desc">沒有儲存的偵錯記錄</string>
     <string name="support_debuglog_folder_delete_confirmation_title">刪除所有偵錯記錄？</string>
     <string name="support_debuglog_folder_delete_confirmation_message">這將永久刪除所有儲存的偵錯記錄工作階段。此操作無法復原。</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">一個可以在其中閒逛並提出問題的地方。</string>
     <string name="changelog_label">變更記錄</string>
     <string name="settings_acknowledgements_label">特別感謝</string>
@@ -537,9 +537,7 @@
     <string name="squeezer_quality_warning_low">較低的品質可能會導致明顯的瑕疵。</string>
     <string name="squeezer_quality_warning_high">非常高的品質只能節省極少空間。</string>
     <string name="squeezer_types_category_label">圖片類型</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">包含 JPEG 圖片（.jpg、.jpeg）。</string>
-    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">包含 WebP 圖片（.webp）。</string>
     <string name="squeezer_skip_compressed_title">跳過已壓縮的圖片</string>
     <string name="squeezer_skip_compressed_description">跳過已被 SD Maid 壓縮過的圖片。</string>
@@ -766,10 +764,10 @@
     <string name="exclusion_type_segment">區段排除</string>
     <string name="exclusion_tags_alltools">所有工具</string>
     <string name="exclusion_target_label">排除目標</string>
+    <string name="exclusion_editor_path_change_action">點擊以變更路徑</string>
     <string name="exclusion_option_allow_partial">允許部分相符</string>
     <string name="exclusion_option_ignore_casing">忽略大小寫</string>
     <string name="exclusion_editor_affected_tools_label">受影響的工具</string>
-    <string name="exclusion_editor_path_change_action">點擊以變更路徑</string>
     <string name="exclusion_editor_path_explanation">路徑排除可以防止 SD Maid 進一步處理任何符合的路徑。這適用於檔案、資料夾及子資料夾。</string>
     <string name="exclusion_editor_pkg_explanation">應用程式排除可以防止 SD 女僕進一步處理任何相符的套件。</string>
     <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
@@ -907,13 +905,8 @@
     <string name="shortcuts_settings_category">捷徑</string>
     <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
     <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵式儀表板相同的工具。</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">滑動瀏覽檔案以決定保留或刪除。</string>
-    <string name="swiper_dashcard_description">手動瀏覽特定資料夾中的檔案。滑動以決定保留或刪除。</string>
     <string name="swiper_start_action">開始滑動</string>
     <string name="swiper_continue_action">繼續工作階段</string>
-    <string name="swiper_sessions_description">有些檔案需要人工決定。滑動瀏覽項目並選擇保留或刪除。不確定的項目可以跳過。此工具讓您手動瀏覽特定資料夾，在您確認之前不會刪除任何檔案。</string>
     <string name="swiper_select_folders_action">選取資料夾</string>
     <string name="swiper_scanning_title">正在掃描…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1022,4 +1015,6 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

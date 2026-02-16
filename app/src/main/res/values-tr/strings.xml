@@ -416,6 +416,7 @@
     <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem uygulaması yanlış yapılandırılmış</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'un Güvenlik uygulamasında (com.miui.securitycenter) Kullanım İstatistikleri izni (GET_USAGE_STATS) eksik. Bu, uygulama ayrıntılarındaki \"Verileri Temizle\" ve erişilebilirlik yoluyla önbellek temizleme gibi özellikleri bozar. Tam işlevselliği geri yükleme iznini verin.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Önbelleklerini temizlemeden önce uygulamaları zorla durdurun. Bazı uygulamaların önbelleğini temizlemeye yardımcı olabilir, ancak uygulamaların hatalı çalışmasına ve manuel yeniden başlatma gerektirmesine neden olabilir.</string>
     <string name="deduplicator_tool_name">Tekilleyici</string>
     <string name="deduplicator_explanation_short">Cihazındaki birbirinin aynısı olan verileri bul.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -457,6 +458,114 @@
     <string name="deduplicator_details_cluster_title">Yinelenenler kümesi</string>
     <string name="deduplicator_matches_exact_label">Birebir kopyalar</string>
     <string name="deduplicator_matches_similar_label">Benzer dosyalar</string>
+    <string name="deduplicator_arbiter_explanation">Yinelenenleri silerken SD Maid, her bir kriteri sırayla kontrol ederek hangi dosyanın saklanacağına karar verir. Net bir sonuç veren ilk kriter sonucu belirler. Yeniden sıralamak için sürükleyin, modu değiştirmek için dokunun.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Dosyaların medya sağlayıcı tarafından dizine alınıp alınmadığını değerlendirin.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Depolama konumu</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Dahili veya harici depolamadaki dosyaları tercih edin.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Klasör derinliği</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Daha sığ veya daha derin klasör yapılarındaki dosyaları tercih edin.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Değiştirilme tarihi</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Değiştirilme zamanına göre daha eski veya daha yeni dosyaları tercih edin.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Dosya boyutu</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Boyutlar farklı olduğunda daha büyük veya daha küçük dosyaları tercih edin.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Tercih edilen konumlar</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Yapılandırılmış tercih edilen konumlardaki dosyaları saklayın.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Tam eşleşmeleri tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Benzer dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Dizine alınmış dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Dizine alınmamış dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Dahili depolamayı tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Harici depolamayı tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Sığ klasörleri tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Derin klasörleri tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Eski dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Yeni dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Büyük dosyaları tercih et</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Küçük dosyaları tercih et</string>
+    <string name="deduplicator_view_mode_groups_label">Gruplar</string>
+    <string name="deduplicator_view_mode_directories_label">Klasörler</string>
+    <string name="squeezer_tool_name">Medya Sıkıştırıcı</string>
+    <string name="squeezer_explanation_short">Depolama alanı kazanmak için resimleri sıkıştırın.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d resim bulundu</item>
+        <item quantity="other">%d resim bulundu</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s tasarruf edilebilir</item>
+        <item quantity="other">~%s tasarruf edilebilir</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d resim sıkıştırıldı</item>
+        <item quantity="other">%d resim sıkıştırıldı</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d resim seçildi</item>
+        <item quantity="other">%d resim seçildi</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Arama konumları</string>
+    <string name="squeezer_search_locations_default_summary">Kamera klasörleri (varsayılan)</string>
+    <string name="squeezer_min_size_title">Minimum dosya boyutu</string>
+    <string name="squeezer_min_size_description">Bu boyuttan küçük resimleri atla.</string>
+    <string name="squeezer_min_age_title">Minimum dosya yaşı</string>
+    <string name="squeezer_min_age_description">Yalnızca bu yaştan eski resimleri dahil et.</string>
+    <string name="squeezer_compression_settings_label">Sıkıştırma ayarları</string>
+    <string name="squeezer_quality_label">Kalite</string>
+    <string name="squeezer_quality_title">Sıkıştırma kalitesi</string>
+    <string name="squeezer_quality_description">Düşük kalite, daha küçük dosya boyutu ancak düşük görüntü kalitesi anlamına gelir.</string>
+    <string name="squeezer_quality_example_format">Örnek: %1$s resim → %3$d%% kalitede ~%2$s tasarruf</string>
+    <string name="squeezer_quality_warning_low">Düşük kaliteler görünür bozulmalara neden olabilir.</string>
+    <string name="squeezer_quality_warning_high">Çok yüksek kalite minimum alan tasarrufu sağlar.</string>
+    <string name="squeezer_types_category_label">Resim türleri</string>
+    <string name="squeezer_type_jpeg_description">JPEG resimleri dahil et (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">WebP resimleri dahil et (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Önceden sıkıştırılmışları atla</string>
+    <string name="squeezer_skip_compressed_description">SD Maid tarafından zaten sıkıştırılmış resimleri atla.</string>
+    <string name="squeezer_exif_marker_title">EXIF işareti yaz</string>
+    <string name="squeezer_exif_marker_description">Sıkıştırma geçmişi temizlense bile yeniden sıkıştırmayı önlemek için resmin EXIF kullanıcı yorum alanına bir işaret ekleyin.</string>
+    <string name="squeezer_estimated_savings_format">~%s tasarruf</string>
+    <string name="squeezer_no_savings_expected">Sınırlı tasarruf</string>
+    <string name="squeezer_current_size_format">Boyut: %s</string>
+    <string name="squeezer_compress_action">Sıkıştır</string>
+    <string name="squeezer_compress_all_action">Tümünü sıkıştır</string>
+    <string name="squeezer_preview_dialog_title">Sıkıştırmayı onayla</string>
+    <string name="squeezer_preview_total_size">Toplam boyut</string>
+    <string name="squeezer_preview_estimated_savings">Tahmini tasarruf</string>
+    <string name="squeezer_compress_confirmation_title">Resimler sıkıştırılsın mı?</string>
+    <string name="squeezer_compress_confirmation_message">Bu, orijinal resimleri sıkıştırılmış sürümlerle değiştirecektir. Bu işlem geri alınamaz.</string>
+    <string name="squeezer_history_title">Sıkıştırma geçmişi</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d öğe (%2$s)</item>
+        <item quantity="other">%1$d öğe (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Sıkıştırma geçmişi yok</string>
+    <string name="squeezer_history_clear_title">Sıkıştırma geçmişini temizle</string>
+    <string name="squeezer_history_clear_message">Bu, daha önce sıkıştırılmış resimlerin tekrar sıkıştırılmasına izin verecektir. Resimlerin kendisi etkilenmez.</string>
+    <string name="squeezer_onboarding_title">Resim Sıkıştırma Hakkında</string>
+    <string name="squeezer_onboarding_message">Resim sıkıştırma, görsel detayları kaldırarak dosya boyutunu küçültür. Bu işlem geri alınamaz - orijinal kalite geri yüklenemez.\n\nResimlerinizin nasıl görüneceğinin bir önizlemesi:</string>
+    <string name="squeezer_onboarding_original_label">Orijinal</string>
+    <string name="squeezer_onboarding_compressed_label">Sıkıştırma sonrası</string>
+    <string name="squeezer_onboarding_quality_label">Kalite: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Anladım</string>
+    <string name="squeezer_compare_action">Karşılaştırmayı görüntüle</string>
+    <string name="squeezer_no_example_found">Seçilen yollarda resim bulunamadı.</string>
+    <string name="squeezer_result_empty_message">Sıkıştırılabilir resim bulunamadı.</string>
+    <string name="squeezer_setup_warning">Sıkıştırma, depolama alanı kazanmak için görüntü kalitesini kalıcı olarak düşürür. Bu geri alınamaz. Başlamadan önce ayarlarınızı dikkatlice gözden geçirin.</string>
+    <string name="squeezer_setup_explanation">Medya Sıkıştırıcı, depolama alanı açmak için resimlerin dosya boyutunu küçültür. Bu, görüntü kalitesini kalıcı olarak düşürür ve geri alınamaz. Başlamadan önce ayarlarınızı dikkatlice gözden geçirin.</string>
+    <string name="squeezer_setup_paths_title">Arama konumları</string>
+    <string name="squeezer_setup_paths_default">Aranacak klasörleri seçin</string>
+    <string name="squeezer_setup_quality_title">Sıkıştırma kalitesi</string>
+    <string name="squeezer_setup_age_title">Minimum yaş</string>
+    <string name="squeezer_setup_age_none">Sınır yok (tüm dosyaları dahil et)</string>
+    <string name="squeezer_setup_start_action">Taramayı Başlat</string>
+    <string name="squeezer_quality_hint_very_low">%40\'ın altındaki kalite kullanılamaz resimler oluşturabilir.</string>
+    <string name="squeezer_quality_hint_low">Düşük kalite daha fazla alan tasarrufu sağlar ancak görünür bozulmalara neden olabilir.</string>
+    <string name="squeezer_quality_hint_high">Çok yüksek kalite minimum alan tasarrufu sağlar.</string>
+    <string name="squeezer_quality_hint_normal">Dengeli kalite ve alan tasarrufu.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">En az %d gün eski</item>
+        <item quantity="other">En az %d gün eski</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG dosyaları için tahmini ~%d%% tasarruf</string>
     <string name="appcontrol_tool_name">Uygulama Kontrolü</string>
     <string name="appcontrol_explanation_short">Cihazınızdaki yüklü uygulamalar.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -506,6 +615,32 @@
         <item quantity="one">%d uygulama kaldırıldı</item>
         <item quantity="other">%d uygulama kaldırıldı</item>
     </plurals>
+    <string name="appcontrol_archive_action">Arşivle</string>
+    <string name="appcontrol_archive_selection_action">Uygulamaları arşivle</string>
+    <string name="appcontrol_archive_description">Uygulama verilerini koruyarak alan açmak için arşivleyin.</string>
+    <string name="appcontrol_progress_archiving_app">Uygulama arşivleniyor…</string>
+    <string name="appcontrol_archive_confirmation_title">Arşivlemeyi onayla</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d uygulama arşivlensin mi?</item>
+        <item quantity="other">%d uygulama arşivlensin mi?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d uygulama arşivlendi</item>
+        <item quantity="other">%d uygulama arşivlendi</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Geri yükle</string>
+    <string name="appcontrol_restore_selection_action">Uygulamaları geri yükle</string>
+    <string name="appcontrol_restore_description">Arşivlenmiş uygulamayı tam kurulu duruma geri yükleyin. Uygulama verileri korunur.</string>
+    <string name="appcontrol_progress_restoring_app">Uygulama geri yükleniyor…</string>
+    <string name="appcontrol_restore_confirmation_title">Geri yüklemeyi onayla</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d uygulama geri yüklensin mi?</item>
+        <item quantity="other">%d uygulama geri yüklensin mi?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d uygulama geri yüklendi</item>
+        <item quantity="other">%d uygulama geri yüklendi</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Uygulama boyutu</string>
     <string name="appcontrol_app_sizes_apk_label">Uygulama</string>
     <string name="appcontrol_app_sizes_data_label">Veri</string>
@@ -533,6 +668,9 @@
         <item quantity="other">%d uygulama dışa aktarıldı</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Dışa aktarılıyor %s</string>
+    <string name="appcontrol_share_list_action">Listeyi paylaş</string>
+    <string name="appcontrol_share_list_title">Uygulamalarım</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE ile paylaşıldı</string>
     <string name="appcontrol_force_stop_selection_action">Uygulamaları durdurmaya zorla</string>
     <string name="appcontrol_force_stop_action">Durdurmaya zorla</string>
     <string name="appcontrol_force_stop_confirm_title">Zorla durdurmayı onaylayın</string>
@@ -549,6 +687,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Durmaya zorlanıyor…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Durdurmaya zorla\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arşivleniyor…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Arşivle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Geri yükleniyor…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Geri yükle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran süresi: %2$s\'den beri %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Son güncelleme: %s</string>
     <string name="appcontrol_item_installedat_x_label">Yüklenme zamanı: %s</string>
@@ -569,6 +711,11 @@
         <item quantity="other">%s kullanılıyor</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Doğrudan erişim mevcut değil</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper oturumu oluştur</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d öğeyle Swiper oturumu oluşturuldu</item>
+        <item quantity="other">%d öğeyle Swiper oturumu oluşturuldu</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Birincil depolama</string>
     <string name="analyzer_storage_type_primary_description">Cihazınızın birincil depolama alanı. Dahili hafıza kartı, uygulamalar için özel depolama alanını ve sistem verilerini içerir.</string>
     <string name="analyzer_storage_type_secondary_title">İkincil depolama</string>
@@ -611,6 +758,7 @@
     <string name="exclusion_type_segment">Bölüm hariç tutma</string>
     <string name="exclusion_tags_alltools">Tüm araçlar</string>
     <string name="exclusion_target_label">Hariç tutma hedefi</string>
+    <string name="exclusion_editor_path_change_action">Yolu değiştirmek için dokunun</string>
     <string name="exclusion_option_allow_partial">Kısmi eşleşmelere izin ver</string>
     <string name="exclusion_option_ignore_casing">Büyük küçük harfi yoksay</string>
     <string name="exclusion_editor_affected_tools_label">Etkilenen araçlar</string>
@@ -760,164 +908,8 @@
     <string name="shortcuts_settings_category">Kısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
     <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
-    <string name="exclusion_editor_path_change_action">Yolu değiştirmek için dokunun</string>
-    <string name="appcontrol_tag_debug">Debug</string>
-    <string name="appcontrol_archive_action">Arşivle</string>
-    <string name="appcontrol_archive_selection_action">Uygulamaları arşivle</string>
-    <string name="appcontrol_archive_description">Uygulama verilerini koruyarak alan açmak için arşivleyin.</string>
-    <string name="appcontrol_progress_archiving_app">Uygulama arşivleniyor…</string>
-    <string name="appcontrol_archive_confirmation_title">Arşivlemeyi onayla</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">%d uygulama arşivlensin mi?</item>
-        <item quantity="other">%d uygulama arşivlensin mi?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d uygulama arşivlendi</item>
-        <item quantity="other">%d uygulama arşivlendi</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Geri yükle</string>
-    <string name="appcontrol_restore_selection_action">Uygulamaları geri yükle</string>
-    <string name="appcontrol_restore_description">Arşivlenmiş uygulamayı tam kurulu duruma geri yükleyin. Uygulama verileri korunur.</string>
-    <string name="appcontrol_progress_restoring_app">Uygulama geri yükleniyor…</string>
-    <string name="appcontrol_restore_confirmation_title">Geri yüklemeyi onayla</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">%d uygulama geri yüklensin mi?</item>
-        <item quantity="other">%d uygulama geri yüklensin mi?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d uygulama geri yüklendi</item>
-        <item quantity="other">%d uygulama geri yüklendi</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Listeyi paylaş</string>
-    <string name="appcontrol_share_list_title">Uygulamalarım</string>
-    <string name="appcontrol_share_list_footer">SD Maid SE ile paylaşıldı</string>
-    <string name="appcontrol_automation_subtitle_archiving">Arşivleniyor…</string>
-    <string name="appcontrol_automation_progress_find_archive">\"Arşivle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Geri yükleniyor…</string>
-    <string name="appcontrol_automation_progress_find_restore">\"Geri yükle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Önbelleklerini temizlemeden önce uygulamaları zorla durdurun. Bazı uygulamaların önbelleğini temizlemeye yardımcı olabilir, ancak uygulamaların hatalı çalışmasına ve manuel yeniden başlatma gerektirmesine neden olabilir.</string>
-    <string name="deduplicator_arbiter_explanation">Yinelenenleri silerken SD Maid, her bir kriteri sırayla kontrol ederek hangi dosyanın saklanacağına karar verir. Net bir sonuç veren ilk kriter sonucu belirler. Yeniden sıralamak için sürükleyin, modu değiştirmek için dokunun.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Dosyaların medya sağlayıcı tarafından dizine alınıp alınmadığını değerlendirin.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Depolama konumu</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Dahili veya harici depolamadaki dosyaları tercih edin.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Klasör derinliği</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Daha sığ veya daha derin klasör yapılarındaki dosyaları tercih edin.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Değiştirilme tarihi</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Değiştirilme zamanına göre daha eski veya daha yeni dosyaları tercih edin.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Dosya boyutu</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Boyutlar farklı olduğunda daha büyük veya daha küçük dosyaları tercih edin.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Tercih edilen konumlar</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Yapılandırılmış tercih edilen konumlardaki dosyaları saklayın.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Tam eşleşmeleri tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Benzer dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Dizine alınmış dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Dizine alınmamış dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Dahili depolamayı tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Harici depolamayı tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Sığ klasörleri tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Derin klasörleri tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Eski dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Yeni dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Büyük dosyaları tercih et</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Küçük dosyaları tercih et</string>
-    <string name="deduplicator_view_mode_groups_label">Gruplar</string>
-    <string name="deduplicator_view_mode_directories_label">Klasörler</string>
-    <string name="analyzer_content_create_swiper_session_action">Swiper oturumu oluştur</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">%d öğeyle Swiper oturumu oluşturuldu</item>
-        <item quantity="other">%d öğeyle Swiper oturumu oluşturuldu</item>
-    </plurals>
-    <string name="squeezer_tool_name">Medya Sıkıştırıcı</string>
-    <string name="squeezer_explanation_short">Depolama alanı kazanmak için resimleri sıkıştırın.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d resim bulundu</item>
-        <item quantity="other">%d resim bulundu</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s tasarruf edilebilir</item>
-        <item quantity="other">~%s tasarruf edilebilir</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d resim sıkıştırıldı</item>
-        <item quantity="other">%d resim sıkıştırıldı</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d resim seçildi</item>
-        <item quantity="other">%d resim seçildi</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Arama konumları</string>
-    <string name="squeezer_search_locations_default_summary">Kamera klasörleri (varsayılan)</string>
-    <string name="squeezer_min_size_title">Minimum dosya boyutu</string>
-    <string name="squeezer_min_size_description">Bu boyuttan küçük resimleri atla.</string>
-    <string name="squeezer_min_age_title">Minimum dosya yaşı</string>
-    <string name="squeezer_min_age_description">Yalnızca bu yaştan eski resimleri dahil et.</string>
-    <string name="squeezer_compression_settings_label">Sıkıştırma ayarları</string>
-    <string name="squeezer_quality_label">Kalite</string>
-    <string name="squeezer_quality_title">Sıkıştırma kalitesi</string>
-    <string name="squeezer_quality_description">Düşük kalite, daha küçük dosya boyutu ancak düşük görüntü kalitesi anlamına gelir.</string>
-    <string name="squeezer_quality_example_format">Örnek: %1$s resim → %3$d%% kalitede ~%2$s tasarruf</string>
-    <string name="squeezer_quality_warning_low">Düşük kaliteler görünür bozulmalara neden olabilir.</string>
-    <string name="squeezer_quality_warning_high">Çok yüksek kalite minimum alan tasarrufu sağlar.</string>
-    <string name="squeezer_types_category_label">Resim türleri</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG resimleri dahil et (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP resimleri dahil et (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Önceden sıkıştırılmışları atla</string>
-    <string name="squeezer_skip_compressed_description">SD Maid tarafından zaten sıkıştırılmış resimleri atla.</string>
-    <string name="squeezer_exif_marker_title">EXIF işareti yaz</string>
-    <string name="squeezer_exif_marker_description">Sıkıştırma geçmişi temizlense bile yeniden sıkıştırmayı önlemek için resmin EXIF kullanıcı yorum alanına bir işaret ekleyin.</string>
-    <string name="squeezer_estimated_savings_format">~%s tasarruf</string>
-    <string name="squeezer_no_savings_expected">Sınırlı tasarruf</string>
-    <string name="squeezer_current_size_format">Boyut: %s</string>
-    <string name="squeezer_compress_action">Sıkıştır</string>
-    <string name="squeezer_compress_all_action">Tümünü sıkıştır</string>
-    <string name="squeezer_preview_dialog_title">Sıkıştırmayı onayla</string>
-    <string name="squeezer_preview_total_size">Toplam boyut</string>
-    <string name="squeezer_preview_estimated_savings">Tahmini tasarruf</string>
-    <string name="squeezer_compress_confirmation_title">Resimler sıkıştırılsın mı?</string>
-    <string name="squeezer_compress_confirmation_message">Bu, orijinal resimleri sıkıştırılmış sürümlerle değiştirecektir. Bu işlem geri alınamaz.</string>
-    <string name="squeezer_history_title">Sıkıştırma geçmişi</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d öğe (%2$s)</item>
-        <item quantity="other">%1$d öğe (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Sıkıştırma geçmişi yok</string>
-    <string name="squeezer_history_clear_title">Sıkıştırma geçmişini temizle</string>
-    <string name="squeezer_history_clear_message">Bu, daha önce sıkıştırılmış resimlerin tekrar sıkıştırılmasına izin verecektir. Resimlerin kendisi etkilenmez.</string>
-    <string name="squeezer_onboarding_title">Resim Sıkıştırma Hakkında</string>
-    <string name="squeezer_onboarding_message">Resim sıkıştırma, görsel detayları kaldırarak dosya boyutunu küçültür. Bu işlem geri alınamaz - orijinal kalite geri yüklenemez.\n\nResimlerinizin nasıl görüneceğinin bir önizlemesi:</string>
-    <string name="squeezer_onboarding_original_label">Orijinal</string>
-    <string name="squeezer_onboarding_compressed_label">Sıkıştırma sonrası</string>
-    <string name="squeezer_onboarding_quality_label">Kalite: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Anladım</string>
-    <string name="squeezer_compare_action">Karşılaştırmayı görüntüle</string>
-    <string name="squeezer_no_example_found">Seçilen yollarda resim bulunamadı.</string>
-    <string name="squeezer_result_empty_message">Sıkıştırılabilir resim bulunamadı.</string>
-    <string name="squeezer_setup_warning">Sıkıştırma, depolama alanı kazanmak için görüntü kalitesini kalıcı olarak düşürür. Bu geri alınamaz. Başlamadan önce ayarlarınızı dikkatlice gözden geçirin.</string>
-    <string name="squeezer_setup_explanation">Medya Sıkıştırıcı, depolama alanı açmak için resimlerin dosya boyutunu küçültür. Bu, görüntü kalitesini kalıcı olarak düşürür ve geri alınamaz. Başlamadan önce ayarlarınızı dikkatlice gözden geçirin.</string>
-    <string name="squeezer_setup_paths_title">Arama konumları</string>
-    <string name="squeezer_setup_paths_default">Aranacak klasörleri seçin</string>
-    <string name="squeezer_setup_quality_title">Sıkıştırma kalitesi</string>
-    <string name="squeezer_setup_age_title">Minimum yaş</string>
-    <string name="squeezer_setup_age_none">Sınır yok (tüm dosyaları dahil et)</string>
-    <string name="squeezer_setup_start_action">Taramayı Başlat</string>
-    <string name="squeezer_quality_hint_very_low">%40\'ın altındaki kalite kullanılamaz resimler oluşturabilir.</string>
-    <string name="squeezer_quality_hint_low">Düşük kalite daha fazla alan tasarrufu sağlar ancak görünür bozulmalara neden olabilir.</string>
-    <string name="squeezer_quality_hint_high">Çok yüksek kalite minimum alan tasarrufu sağlar.</string>
-    <string name="squeezer_quality_hint_normal">Dengeli kalite ve alan tasarrufu.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">En az %d gün eski</item>
-        <item quantity="other">En az %d gün eski</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG dosyaları için tahmini ~%d%% tasarruf</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Dosyaları kaydırarak neyi saklayacağınıza veya sileceğinize karar verin.</string>
-    <string name="swiper_dashcard_description">Belirli klasörlerdeki dosyaları manuel olarak inceleyin. Neyi saklayacağınıza veya sileceğinize karar vermek için kaydırın.</string>
     <string name="swiper_start_action">Kaydırmaya başla</string>
     <string name="swiper_continue_action">Oturumu sürdür</string>
-    <string name="swiper_sessions_description">Bazı dosyalar insan kararı gerektirir. Öğeler arasında kaydırın ve neyi saklayacağınıza veya sileceğinize karar verin. Emin olmadıklarınızı atlayın. Bu araç belirli klasörleri manuel olarak incelemenizi sağlar ve siz onaylayana kadar hiçbir şey kaldırılmaz.</string>
     <string name="swiper_select_folders_action">Klasörleri seçin</string>
     <string name="swiper_scanning_title">Taranıyor…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1011,6 +1003,7 @@
         <item quantity="one">%d zaten silindi</item>
         <item quantity="other">%d zaten silindi</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d saklandı</item>
         <item quantity="other">%d saklandı</item>
@@ -1025,6 +1018,7 @@
     <string name="swiper_sessions_suggestion_downloads">İndirilenler klasörü</string>
     <string name="swiper_sessions_suggestion_screenshots">Ekran görüntüleri</string>
     <string name="swiper_sessions_suggestion_camera">Kamera rulosu</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Sakla!</string>
     <string name="swiper_stamp_keep_2">Güzel!</string>
     <string name="swiper_stamp_keep_3">Evet!</string>
@@ -1041,4 +1035,6 @@
     <string name="swiper_stamp_undo_2">Geri!</string>
     <string name="swiper_stamp_undo_3">Hay aksi!</string>
     <string name="swiper_stamp_undo_4">Dur!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

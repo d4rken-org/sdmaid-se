@@ -19,11 +19,13 @@
     <string name="general_todo_msg">이 기능은 아직 제작중이며, 아직 준비되지 않았습니다.</string>
     <string name="general_share_action">공유</string>
     <string name="general_done_action">완료</string>
+    <string name="general_apply_action">적용</string>
     <string name="general_copy_action">복사</string>
     <string name="general_wipe_action">삭제</string>
     <string name="general_cancel_action">취소</string>
     <string name="general_discard_action">취소</string>
     <string name="general_reset_action">초기화</string>
+    <string name="general_drag_handle_description">끌어서 순서 변경</string>
     <string name="general_save_action">저장</string>
     <string name="general_thanks_action">감사의 말씀</string>
     <string name="general_gotit_action">확인</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">수정</string>
     <string name="general_na_label">해당 없음</string>
     <string name="general_empty_label">비어 있음</string>
+    <string name="general_new_badge_label">새로운</string>
     <string name="general_dismiss_action">닫기</string>
     <string name="general_maybe_later_action">나중에</string>
     <string name="general_manage_action">관리</string>
@@ -91,6 +94,9 @@
     <string name="general_toggle_layout_mode">보기 모드 전환</string>
     <string name="general_delete_confirmation_title">삭제 확인</string>
     <string name="general_delete_confirmation_message_x">%s 를 삭제할까요?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">선택한 %d개 항목을 삭제할까요?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">%d개 항목을 삭제했습니다.</item>
     </plurals>
@@ -154,12 +160,6 @@
     <string name="general_error_report_bug_action">버그 신고</string>
     <string name="general_error_ipc_deadobject_title">서비스 연결 끊김</string>
     <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
-    <string name="general_apply_action">적용</string>
-    <string name="general_drag_handle_description">끌어서 순서 변경</string>
-    <string name="general_new_badge_label">새로운</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="other">선택한 %d개 항목을 삭제할까요?</item>
-    </plurals>
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
 </resources>

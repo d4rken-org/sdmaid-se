@@ -19,11 +19,13 @@
     <string name="general_todo_msg">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ \'ਤੇ ਅਜੇ ਵੀ ਕੰਮ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ਅਤੇ ਫਿਲਹਾਲ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
     <string name="general_share_action">ਸਾਂਝਾ ਕਰੋ</string>
     <string name="general_done_action">ਮੁਕੰਮਲ</string>
+    <string name="general_apply_action">ਲਾਗੂ ਕਰੋ</string>
     <string name="general_copy_action">ਕਾਪੀ ਕਰੋ</string>
     <string name="general_wipe_action">ਪੂੰਝੋ</string>
     <string name="general_cancel_action">ਰੱਦ ਕਰੋ</string>
     <string name="general_discard_action">ਖ਼ਾਰਜ ਕਰੋ</string>
     <string name="general_reset_action">ਰੀਸੈਟ ਕਰੋ</string>
+    <string name="general_drag_handle_description">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ</string>
     <string name="general_save_action">ਸਾਂਭੋ</string>
     <string name="general_thanks_action">ਮਿਹਰਬਾਨੀ</string>
     <string name="general_gotit_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">ਸੋਧੋ</string>
     <string name="general_na_label">ਲਾਗੂ ਨਹੀਂ ਹੋ ਸਕਦਾ</string>
     <string name="general_empty_label">ਖ਼ਾਲੀ</string>
+    <string name="general_new_badge_label">ਨਵਾਂ</string>
     <string name="general_dismiss_action">ਬਰਖਾਸਤ ਕਰੋ</string>
     <string name="general_maybe_later_action">ਫੇਰ ਕਦੇ</string>
     <string name="general_manage_action">ਪ੍ਰਬੰਧ ਕਰੋ</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">ਦੇਖਣ ਦਾ ਮੋਡ ਬਦਲੋ</string>
     <string name="general_delete_confirmation_title">ਮਿਟਾਉਣ ਦੀ ਪੁਸ਼ਟੀ ਕਰੋ</string>
     <string name="general_delete_confirmation_message_x">\"%s\" ਮਿਟਾਓ?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d ਚੁਣੀ ਆਈਟਮ ਮਿਟਾਓ?</item>
+        <item quantity="other">%d ਚੁਣੀਆਂ ਆਈਟਮਾਂ ਮਿਟਾਓ?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d ਆਈਟਮ ਮਿਟਾਇਆ ਗਿਆ।</item>
         <item quantity="other">%d ਆਈਟਮ ਮਿਟਾਏ ਗਏ।</item>
@@ -164,13 +171,6 @@
     <string name="general_error_report_bug_action">ਬੱਗ ਰਿਪੋਰਟ ਕਰੋ</string>
     <string name="general_error_ipc_deadobject_title">ਸੇਵਾ ਸੰਪਰਕ ਗੁਆਚ ਗਿਆ</string>
     <string name="general_error_ipc_deadobject_description">ਇੱਕ ਮਹੱਤਵਪੂਰਨ ਸੇਵਾ (ਜਿਵੇਂ ਕਿ Magisk, Shizuku, ਜਾਂ ਹੋਰ ਸਿਸਟਮ-ਪੱਧਰ ਦੀਆਂ ਸੇਵਾਵਾਂ) ਨਾਲ ਸੰਪਰਕ ਅਚਾਨਕ ਟੁੱਟ ਗਿਆ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਆਪਣਾ ਯੰਤਰ ਰੀਬੂਟ ਕਰੋ। ਜੇ ਸਮੱਸਿਆ ਜਾਰੀ ਰਹਿੰਦੀ ਹੈ, ਅਪਡੇਟ ਦੀ ਜਾਂਚ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
-    <string name="general_apply_action">ਲਾਗੂ ਕਰੋ</string>
-    <string name="general_drag_handle_description">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ</string>
-    <string name="general_new_badge_label">ਨਵਾਂ</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">%d ਚੁਣੀ ਆਈਟਮ ਮਿਟਾਓ?</item>
-        <item quantity="other">%d ਚੁਣੀਆਂ ਆਈਟਮਾਂ ਮਿਟਾਓ?</item>
-    </plurals>
     <string name="general_user_label_owner">ਮਾਲਕ</string>
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
 </resources>

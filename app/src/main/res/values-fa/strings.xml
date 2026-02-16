@@ -331,6 +331,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">نام برابر با کلید‌واژه</string>
     <string name="systemcleaner_customfilter_last_edit">آخرین ویرایش: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">جستجو زنده</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">محدود کردن نتایج بر اساس اندازه فایل. برای تطبیق هر اندازه‌ای خالی بگذارید.</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">محدود کردن نتایج بر اساس سن فایل (آخرین زمان تغییر). برای تطبیق هر سنی خالی بگذارید.</string>
     <string name="systemcleaner_customfilter_import_action">واردات فیلتر جدید</string>
     <string name="systemcleaner_customfilter_export_action">صادرات فیلتر انتخاب شده</string>
     <string name="appcleaner_tool_name">پاکسازی برنامه</string>
@@ -426,6 +428,7 @@
     <string name="appcleaner_automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">برنامه سیستمی اشتباه پیکربندی شده</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">برنامه امنیتی HyperOS (com.miui.securitycenter) فاقد مجوز آمار استفاده (GET_USAGE_STATS) است. این امر ویژگی‌هایی مانند \"پاک کردن داده\" در جزئیات برنامه و پاک کردن کش از طریق دسترسی را می‌شکند. مجوز را اعطا کنید تا عملکرد کامل بازیابی شود.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">قبل از پاکسازی حافظه نهان، برنامه‌ها را به اجبار متوقف کنید. این می‌تواند به پاکسازی حافظه نهان برخی برنامه‌ها کمک کند، اما ممکن است باعث اختلال در برنامه‌ها شود و نیاز به راه‌اندازی مجدد دستی داشته باشد.</string>
     <string name="deduplicator_tool_name">حذف تکراری</string>
     <string name="deduplicator_explanation_short">پیدا کردن داده‌های تکراری در دستگاه شما.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -467,6 +470,119 @@
     <string name="deduplicator_details_cluster_title">مجموعه‌ای از فایل‌های تکراری</string>
     <string name="deduplicator_matches_exact_label">نسخه‌های دقیقا مشابه</string>
     <string name="deduplicator_matches_similar_label">فایل های مشابه</string>
+    <string name="deduplicator_arbiter_explanation">هنگام حذف فایل‌های تکراری، SD Maid با بررسی هر معیار به ترتیب تصمیم می‌گیرد کدام فایل حفظ شود. اولین معیاری که نتیجه مشخصی داشته باشد، تعیین‌کننده است. برای تغییر ترتیب بکشید، برای تغییر حالت ضربه بزنید.</string>
+    <string name="deduplicator_arbiter_select_mode_title">انتخاب حالت</string>
+    <string name="deduplicator_arbiter_configure_paths_action">پیکربندی مسیرها…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">نوع تکراری</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ترجیح نسخه‌های دقیق به فایل‌های مشابه.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">ایندکس‌گذاری رسانه</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">در نظر بگیرید که آیا فایل‌ها توسط ارائه‌دهنده رسانه ایندکس شده‌اند یا خیر.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">مکان ذخیره‌سازی</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ترجیح فایل‌ها در حافظه داخلی یا خارجی.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">عمق پوشه</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ترجیح فایل‌ها در ساختارهای پوشه‌ای کم‌عمق یا عمیق‌تر.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">تاریخ تغییر</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ترجیح فایل‌های قدیمی‌تر یا جدیدتر بر اساس زمان تغییر.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">اندازه فایل</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ترجیح فایل‌های بزرگ‌تر یا کوچک‌تر هنگامی که اندازه‌ها متفاوت است.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">مکان‌های ترجیحی</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">حفظ فایل‌ها در مکان‌های ترجیحی پیکربندی شده شما.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ترجیح نسخه‌های دقیق</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ترجیح فایل‌های مشابه</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ترجیح فایل‌های ایندکس شده</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ترجیح فایل‌های ایندکس نشده</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ترجیح حافظه داخلی</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ترجیح حافظه خارجی</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ترجیح پوشه‌های کم‌عمق</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ترجیح پوشه‌های عمیق‌تر</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ترجیح فایل‌های قدیمی‌تر</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ترجیح فایل‌های جدیدتر</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ترجیح فایل‌های بزرگ‌تر</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ترجیح فایل‌های کوچک‌تر</string>
+    <string name="deduplicator_view_mode_groups_label">گروه‌ها</string>
+    <string name="deduplicator_view_mode_directories_label">پوشه‌ها</string>
+    <string name="squeezer_tool_name">فشرده‌سازی رسانه</string>
+    <string name="squeezer_explanation_short">فشرده‌سازی تصاویر برای صرفه‌جویی در فضای ذخیره‌سازی.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d تصویر یافت شد</item>
+        <item quantity="other">%d تصویر یافت شد</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s قابل صرفه‌جویی است</item>
+        <item quantity="other">~%s قابل صرفه‌جویی است</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d تصویر فشرده شد</item>
+        <item quantity="other">%d تصویر فشرده شد</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d تصویر انتخاب شد</item>
+        <item quantity="other">%d تصویر انتخاب شد</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">مکان‌های جستجو</string>
+    <string name="squeezer_search_locations_default_summary">پوشه‌های دوربین (پیش‌فرض)</string>
+    <string name="squeezer_min_size_title">حداقل اندازه فایل</string>
+    <string name="squeezer_min_size_description">فایل‌های کوچک‌تر از این اندازه را رد کنید.</string>
+    <string name="squeezer_min_age_title">حداقل سن فایل</string>
+    <string name="squeezer_min_age_description">فقط تصاویر قدیمی‌تر از این سن را شامل کنید.</string>
+    <string name="squeezer_compression_settings_label">تنظیمات فشرده‌سازی</string>
+    <string name="squeezer_quality_label">کیفیت</string>
+    <string name="squeezer_quality_title">کیفیت فشرده‌سازی</string>
+    <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای اندازه فایل کوچک‌تر اما کاهش کیفیت تصویر است.</string>
+    <string name="squeezer_quality_example_format">مثال: تصویر %1$s → صرفه‌جویی ~%2$s در کیفیت %3$d%%</string>
+    <string name="squeezer_quality_warning_low">کیفیت‌های پایین‌تر ممکن است آثار قابل مشاهده‌ای ایجاد کنند.</string>
+    <string name="squeezer_quality_warning_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
+    <string name="squeezer_types_category_label">انواع تصاویر</string>
+    <string name="squeezer_type_jpeg_description">شامل تصاویر JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">شامل تصاویر WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">رد کردن فایل‌های قبلاً فشرده شده</string>
+    <string name="squeezer_skip_compressed_description">رد کردن تصاویری که قبلاً توسط SD Maid فشرده شده‌اند.</string>
+    <string name="squeezer_exif_marker_title">نوشتن نشانگر EXIF</string>
+    <string name="squeezer_exif_marker_description">افزودن نشانگر به فیلد نظر کاربر EXIF تصویر برای جلوگیری از فشرده‌سازی مجدد حتی اگر تاریخچه فشرده‌سازی پاک شود.</string>
+    <string name="squeezer_estimated_savings_format">~%s صرفه‌جویی</string>
+    <string name="squeezer_no_savings_expected">صرفه‌جویی محدود</string>
+    <string name="squeezer_current_size_format">اندازه: %s</string>
+    <string name="squeezer_compress_action">فشرده‌سازی</string>
+    <string name="squeezer_compress_all_action">فشرده‌سازی همه</string>
+    <string name="squeezer_preview_dialog_title">تأیید فشرده‌سازی</string>
+    <string name="squeezer_preview_total_size">اندازه کل</string>
+    <string name="squeezer_preview_estimated_savings">صرفه‌جویی تخمینی</string>
+    <string name="squeezer_compress_confirmation_title">تصاویر فشرده شوند؟</string>
+    <string name="squeezer_compress_confirmation_message">این عمل تصاویر اصلی را با نسخه‌های فشرده جایگزین می‌کند. این عمل قابل بازگشت نیست.</string>
+    <string name="squeezer_history_title">تاریخچه فشرده‌سازی</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d مورد (%2$s)</item>
+        <item quantity="other">%1$d مورد (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">تاریخچه فشرده‌سازی خالی است</string>
+    <string name="squeezer_history_clear_title">پاک کردن تاریخچه فشرده‌سازی</string>
+    <string name="squeezer_history_clear_message">این اجازه می‌دهد تصاویر قبلاً فشرده شده دوباره فشرده شوند. خود تصاویر تحت تأثیر قرار نمی‌گیرند.</string>
+    <string name="squeezer_onboarding_title">درباره فشرده‌سازی تصاویر</string>
+    <string name="squeezer_onboarding_message">فشرده‌سازی تصاویر اندازه فایل را با حذف جزئیات بصری کاهش می‌دهد. این فرآیند غیرقابل بازگشت است - کیفیت اصلی قابل بازیابی نیست.\n\nدر اینجا پیش‌نمایشی از ظاهر تصاویر شما آمده است:</string>
+    <string name="squeezer_onboarding_original_label">اصلی</string>
+    <string name="squeezer_onboarding_compressed_label">پس از فشرده‌سازی</string>
+    <string name="squeezer_onboarding_quality_label">کیفیت: %d%%</string>
+    <string name="squeezer_onboarding_got_it">متوجه شدم</string>
+    <string name="squeezer_compare_action">مشاهده مقایسه</string>
+    <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
+    <string name="squeezer_result_empty_message">تصویر قابل فشرده‌سازی یافت نشد.</string>
+    <string name="squeezer_setup_warning">فشرده‌سازی به طور دائم کیفیت تصاویر را برای صرفه‌جویی در فضا کاهش می‌دهد. این عمل قابل بازگشت نیست. تنظیمات خود را قبل از شروع با دقت بررسی کنید.</string>
+    <string name="squeezer_setup_explanation">فشرده‌سازی رسانه اندازه فایل تصاویر را برای آزادسازی فضا کاهش می‌دهد. این عمل به طور دائم کیفیت تصویر را کاهش می‌دهد و قابل بازگشت نیست. تنظیمات خود را قبل از شروع با دقت بررسی کنید.</string>
+    <string name="squeezer_setup_paths_title">مکان‌های جستجو</string>
+    <string name="squeezer_setup_paths_default">انتخاب پوشه‌ها برای جستجو</string>
+    <string name="squeezer_setup_quality_title">کیفیت فشرده‌سازی</string>
+    <string name="squeezer_setup_age_title">حداقل سن</string>
+    <string name="squeezer_setup_age_none">بدون محدودیت (شامل همه فایل‌ها)</string>
+    <string name="squeezer_setup_start_action">شروع اسکن</string>
+    <string name="squeezer_quality_hint_very_low">کیفیت زیر ۴۰٪ ممکن است تصاویر غیرقابل استفاده ایجاد کند.</string>
+    <string name="squeezer_quality_hint_low">کیفیت پایین‌تر فضای بیشتری صرفه‌جویی می‌کند اما ممکن است آثار قابل مشاهده ایجاد کند.</string>
+    <string name="squeezer_quality_hint_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
+    <string name="squeezer_quality_hint_normal">تعادل بین کیفیت و صرفه‌جویی در فضا.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">حداقل %d روزه</item>
+        <item quantity="other">حداقل %d روزه</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">صرفه‌جویی تخمینی ~%d%% برای فایل‌های JPEG</string>
     <string name="appcontrol_tool_name">کنترل برنامه</string>
     <string name="appcontrol_explanation_short">برنامه‌های نصب‌شده بر روی دستگاه شما.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -516,6 +632,32 @@
         <item quantity="one">%d برنامه حذف نصب شد</item>
         <item quantity="other">%d برنامه حذف نصب شد</item>
     </plurals>
+    <string name="appcontrol_archive_action">بایگانی</string>
+    <string name="appcontrol_archive_selection_action">بایگانی برنامه‌ها</string>
+    <string name="appcontrol_archive_description">بایگانی برای آزادسازی فضا با حفظ داده‌های برنامه برای بازیابی بعدی.</string>
+    <string name="appcontrol_progress_archiving_app">در حال بایگانی برنامه…</string>
+    <string name="appcontrol_archive_confirmation_title">تأیید بایگانی</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d برنامه بایگانی شود؟</item>
+        <item quantity="other">%d برنامه بایگانی شوند؟</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d برنامه بایگانی شد</item>
+        <item quantity="other">%d برنامه بایگانی شدند</item>
+    </plurals>
+    <string name="appcontrol_restore_action">بازیابی</string>
+    <string name="appcontrol_restore_selection_action">بازیابی برنامه‌ها</string>
+    <string name="appcontrol_restore_description">بازیابی برنامه بایگانی شده به حالت نصب کامل. داده‌های برنامه حفظ می‌شوند.</string>
+    <string name="appcontrol_progress_restoring_app">در حال بازیابی برنامه…</string>
+    <string name="appcontrol_restore_confirmation_title">تأیید بازیابی</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d برنامه بازیابی شود؟</item>
+        <item quantity="other">%d برنامه بازیابی شوند؟</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d برنامه بازیابی شد</item>
+        <item quantity="other">%d برنامه بازیابی شدند</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">اندازه برنامه</string>
     <string name="appcontrol_app_sizes_apk_label">برنامه</string>
     <string name="appcontrol_app_sizes_data_label">داده‌</string>
@@ -543,6 +685,9 @@
         <item quantity="other">%d برنامه صادر شد</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">صادرکردن %s</string>
+    <string name="appcontrol_share_list_action">اشتراک‌گذاری لیست</string>
+    <string name="appcontrol_share_list_title">برنامه‌های من</string>
+    <string name="appcontrol_share_list_footer">به اشتراک گذاشته شده از طریق SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">توقف اجباری برنامه‌ها</string>
     <string name="appcontrol_force_stop_action">توقف اجباری</string>
     <string name="appcontrol_force_stop_confirm_title">تایید توقف اجباری</string>
@@ -559,6 +704,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">توقف اجباری…</string>
     <string name="appcontrol_automation_progress_find_force_stop">به دنبال دکمه \"توقف اجباری\" (کلید واژه‌ها: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">در حال بایگانی…</string>
+    <string name="appcontrol_automation_progress_find_archive">جستجوی دکمه \"بایگانی\" (کلیدواژه‌ها: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">در حال بازیابی…</string>
+    <string name="appcontrol_automation_progress_find_restore">جستجوی دکمه \"بازیابی\" (کلیدواژه‌ها: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخرین به‌روزرسانی: %s</string>
     <string name="appcontrol_item_installedat_x_label">نصب شده در: %s</string>
@@ -579,6 +728,11 @@
         <item quantity="other">%s استفاده شده</item>
     </plurals>
     <string name="analyzer_content_access_opaque">هیچ دسترسی مستقیمی در‌دسترس نیست</string>
+    <string name="analyzer_content_create_swiper_session_action">ایجاد جلسه Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">جلسه Swiper با %d مورد ایجاد شد</item>
+        <item quantity="other">جلسه Swiper با %d مورد ایجاد شد</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">حافظه اصلی</string>
     <string name="analyzer_storage_type_primary_description">فضای ذخیره‌سازی اصلی دستگاه شما. شامل کارت SD داخلی، فضای ذخیره‌سازی خصوصی برای برنامه‌ها و داده‌های سیستم است.</string>
     <string name="analyzer_storage_type_secondary_title">حافظه ثانویه</string>
@@ -621,6 +775,7 @@
     <string name="exclusion_type_segment">استثناء بخش</string>
     <string name="exclusion_tags_alltools">همه ابزار‌ها</string>
     <string name="exclusion_target_label">استثناء کردن هدف</string>
+    <string name="exclusion_editor_path_change_action">برای تغییر مسیر ضربه بزنید</string>
     <string name="exclusion_option_allow_partial">اجازه به عملیات جزئی</string>
     <string name="exclusion_option_ignore_casing">نادیده‌گرفتن پوشش</string>
     <string name="exclusion_editor_affected_tools_label">ابزارهای تأثیرپذیر</string>
@@ -769,178 +924,8 @@
     <string name="shortcuts_settings_category">میانبر‌ها</string>
     <string name="shortcuts_onetap_enabled_title">میانبر تک ضربه‌ای</string>
     <string name="shortcuts_onetap_enabled_summary">نمایش میانبر «اسکن + حذف» هنگام لمس طولانی نماد برنامه. از همان ابزارهای داشبورد تک‌ضربه‌ای استفاده می‌کند.</string>
-    <string name="deduplicator_arbiter_explanation">هنگام حذف فایل‌های تکراری، SD Maid با بررسی هر معیار به ترتیب تصمیم می‌گیرد کدام فایل حفظ شود. اولین معیاری که نتیجه مشخصی داشته باشد، تعیین‌کننده است. برای تغییر ترتیب بکشید، برای تغییر حالت ضربه بزنید.</string>
-    <string name="deduplicator_arbiter_select_mode_title">انتخاب حالت</string>
-    <string name="deduplicator_arbiter_configure_paths_action">پیکربندی مسیرها…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">نوع تکراری</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ترجیح نسخه‌های دقیق به فایل‌های مشابه.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">ایندکس‌گذاری رسانه</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">در نظر بگیرید که آیا فایل‌ها توسط ارائه‌دهنده رسانه ایندکس شده‌اند یا خیر.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">مکان ذخیره‌سازی</string>
-    <string name="deduplicator_arbiter_criterium_location_description">ترجیح فایل‌ها در حافظه داخلی یا خارجی.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">عمق پوشه</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">ترجیح فایل‌ها در ساختارهای پوشه‌ای کم‌عمق یا عمیق‌تر.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">تاریخ تغییر</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">ترجیح فایل‌های قدیمی‌تر یا جدیدتر بر اساس زمان تغییر.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">اندازه فایل</string>
-    <string name="deduplicator_arbiter_criterium_size_description">ترجیح فایل‌های بزرگ‌تر یا کوچک‌تر هنگامی که اندازه‌ها متفاوت است.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">مکان‌های ترجیحی</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">حفظ فایل‌ها در مکان‌های ترجیحی پیکربندی شده شما.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">ترجیح نسخه‌های دقیق</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">ترجیح فایل‌های مشابه</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">ترجیح فایل‌های ایندکس شده</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">ترجیح فایل‌های ایندکس نشده</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">ترجیح حافظه داخلی</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">ترجیح حافظه خارجی</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">ترجیح پوشه‌های کم‌عمق</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">ترجیح پوشه‌های عمیق‌تر</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">ترجیح فایل‌های قدیمی‌تر</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">ترجیح فایل‌های جدیدتر</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">ترجیح فایل‌های بزرگ‌تر</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">ترجیح فایل‌های کوچک‌تر</string>
-    <string name="deduplicator_view_mode_groups_label">گروه‌ها</string>
-    <string name="deduplicator_view_mode_directories_label">پوشه‌ها</string>
-
-    <string name="appcontrol_archive_action">بایگانی</string>
-    <string name="appcontrol_archive_selection_action">بایگانی برنامه‌ها</string>
-    <string name="appcontrol_archive_description">بایگانی برای آزادسازی فضا با حفظ داده‌های برنامه برای بازیابی بعدی.</string>
-    <string name="appcontrol_progress_archiving_app">در حال بایگانی برنامه…</string>
-    <string name="appcontrol_archive_confirmation_title">تأیید بایگانی</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">%d برنامه بایگانی شود؟</item>
-        <item quantity="other">%d برنامه بایگانی شوند؟</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d برنامه بایگانی شد</item>
-        <item quantity="other">%d برنامه بایگانی شدند</item>
-    </plurals>
-    <string name="appcontrol_restore_action">بازیابی</string>
-    <string name="appcontrol_restore_selection_action">بازیابی برنامه‌ها</string>
-    <string name="appcontrol_restore_description">بازیابی برنامه بایگانی شده به حالت نصب کامل. داده‌های برنامه حفظ می‌شوند.</string>
-    <string name="appcontrol_progress_restoring_app">در حال بازیابی برنامه…</string>
-    <string name="appcontrol_restore_confirmation_title">تأیید بازیابی</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">%d برنامه بازیابی شود؟</item>
-        <item quantity="other">%d برنامه بازیابی شوند؟</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d برنامه بازیابی شد</item>
-        <item quantity="other">%d برنامه بازیابی شدند</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">اشتراک‌گذاری لیست</string>
-    <string name="appcontrol_share_list_title">برنامه‌های من</string>
-    <string name="appcontrol_share_list_footer">به اشتراک گذاشته شده از طریق SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">در حال بایگانی…</string>
-    <string name="appcontrol_automation_progress_find_archive">جستجوی دکمه \"بایگانی\" (کلیدواژه‌ها: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">در حال بازیابی…</string>
-    <string name="appcontrol_automation_progress_find_restore">جستجوی دکمه \"بازیابی\" (کلیدواژه‌ها: %s)</string>
-    <string name="appcontrol_tag_debug">Debug</string>
-
-    <string name="analyzer_content_create_swiper_session_action">ایجاد جلسه Swiper</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">جلسه Swiper با %d مورد ایجاد شد</item>
-        <item quantity="other">جلسه Swiper با %d مورد ایجاد شد</item>
-    </plurals>
-
-    <string name="exclusion_editor_path_change_action">برای تغییر مسیر ضربه بزنید</string>
-
-    <string name="systemcleaner_customfilter_editor_size_explanation">محدود کردن نتایج بر اساس اندازه فایل. برای تطبیق هر اندازه‌ای خالی بگذارید.</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">محدود کردن نتایج بر اساس سن فایل (آخرین زمان تغییر). برای تطبیق هر سنی خالی بگذارید.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_summary">قبل از پاکسازی حافظه نهان، برنامه‌ها را به اجبار متوقف کنید. این می‌تواند به پاکسازی حافظه نهان برخی برنامه‌ها کمک کند، اما ممکن است باعث اختلال در برنامه‌ها شود و نیاز به راه‌اندازی مجدد دستی داشته باشد.</string>
-
-    <string name="squeezer_tool_name">فشرده‌سازی رسانه</string>
-    <string name="squeezer_explanation_short">فشرده‌سازی تصاویر برای صرفه‌جویی در فضای ذخیره‌سازی.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d تصویر یافت شد</item>
-        <item quantity="other">%d تصویر یافت شد</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s قابل صرفه‌جویی است</item>
-        <item quantity="other">~%s قابل صرفه‌جویی است</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d تصویر فشرده شد</item>
-        <item quantity="other">%d تصویر فشرده شد</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d تصویر انتخاب شد</item>
-        <item quantity="other">%d تصویر انتخاب شد</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">مکان‌های جستجو</string>
-    <string name="squeezer_search_locations_default_summary">پوشه‌های دوربین (پیش‌فرض)</string>
-    <string name="squeezer_min_size_title">حداقل اندازه فایل</string>
-    <string name="squeezer_min_size_description">فایل‌های کوچک‌تر از این اندازه را رد کنید.</string>
-    <string name="squeezer_min_age_title">حداقل سن فایل</string>
-    <string name="squeezer_min_age_description">فقط تصاویر قدیمی‌تر از این سن را شامل کنید.</string>
-    <string name="squeezer_compression_settings_label">تنظیمات فشرده‌سازی</string>
-    <string name="squeezer_quality_label">کیفیت</string>
-    <string name="squeezer_quality_title">کیفیت فشرده‌سازی</string>
-    <string name="squeezer_quality_description">کیفیت پایین‌تر به معنای اندازه فایل کوچک‌تر اما کاهش کیفیت تصویر است.</string>
-    <string name="squeezer_quality_example_format">مثال: تصویر %1$s → صرفه‌جویی ~%2$s در کیفیت %3$d%%</string>
-    <string name="squeezer_quality_warning_low">کیفیت‌های پایین‌تر ممکن است آثار قابل مشاهده‌ای ایجاد کنند.</string>
-    <string name="squeezer_quality_warning_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
-    <string name="squeezer_types_category_label">انواع تصاویر</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">شامل تصاویر JPEG (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">شامل تصاویر WebP (.webp).</string>
-    <string name="squeezer_skip_compressed_title">رد کردن فایل‌های قبلاً فشرده شده</string>
-    <string name="squeezer_skip_compressed_description">رد کردن تصاویری که قبلاً توسط SD Maid فشرده شده‌اند.</string>
-    <string name="squeezer_exif_marker_title">نوشتن نشانگر EXIF</string>
-    <string name="squeezer_exif_marker_description">افزودن نشانگر به فیلد نظر کاربر EXIF تصویر برای جلوگیری از فشرده‌سازی مجدد حتی اگر تاریخچه فشرده‌سازی پاک شود.</string>
-    <string name="squeezer_estimated_savings_format">~%s صرفه‌جویی</string>
-    <string name="squeezer_no_savings_expected">صرفه‌جویی محدود</string>
-    <string name="squeezer_current_size_format">اندازه: %s</string>
-    <string name="squeezer_compress_action">فشرده‌سازی</string>
-    <string name="squeezer_compress_all_action">فشرده‌سازی همه</string>
-    <string name="squeezer_preview_dialog_title">تأیید فشرده‌سازی</string>
-    <string name="squeezer_preview_total_size">اندازه کل</string>
-    <string name="squeezer_preview_estimated_savings">صرفه‌جویی تخمینی</string>
-    <string name="squeezer_compress_confirmation_title">تصاویر فشرده شوند؟</string>
-    <string name="squeezer_compress_confirmation_message">این عمل تصاویر اصلی را با نسخه‌های فشرده جایگزین می‌کند. این عمل قابل بازگشت نیست.</string>
-    <string name="squeezer_history_title">تاریخچه فشرده‌سازی</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d مورد (%2$s)</item>
-        <item quantity="other">%1$d مورد (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">تاریخچه فشرده‌سازی خالی است</string>
-    <string name="squeezer_history_clear_title">پاک کردن تاریخچه فشرده‌سازی</string>
-    <string name="squeezer_history_clear_message">این اجازه می‌دهد تصاویر قبلاً فشرده شده دوباره فشرده شوند. خود تصاویر تحت تأثیر قرار نمی‌گیرند.</string>
-    <string name="squeezer_onboarding_title">درباره فشرده‌سازی تصاویر</string>
-    <string name="squeezer_onboarding_message">فشرده‌سازی تصاویر اندازه فایل را با حذف جزئیات بصری کاهش می‌دهد. این فرآیند غیرقابل بازگشت است - کیفیت اصلی قابل بازیابی نیست.\n\nدر اینجا پیش‌نمایشی از ظاهر تصاویر شما آمده است:</string>
-    <string name="squeezer_onboarding_original_label">اصلی</string>
-    <string name="squeezer_onboarding_compressed_label">پس از فشرده‌سازی</string>
-    <string name="squeezer_onboarding_quality_label">کیفیت: %d%%</string>
-    <string name="squeezer_onboarding_got_it">متوجه شدم</string>
-    <string name="squeezer_compare_action">مشاهده مقایسه</string>
-    <string name="squeezer_no_example_found">تصویری در مسیرهای انتخابی یافت نشد.</string>
-    <string name="squeezer_result_empty_message">تصویر قابل فشرده‌سازی یافت نشد.</string>
-    <string name="squeezer_setup_warning">فشرده‌سازی به طور دائم کیفیت تصاویر را برای صرفه‌جویی در فضا کاهش می‌دهد. این عمل قابل بازگشت نیست. تنظیمات خود را قبل از شروع با دقت بررسی کنید.</string>
-    <string name="squeezer_setup_explanation">فشرده‌سازی رسانه اندازه فایل تصاویر را برای آزادسازی فضا کاهش می‌دهد. این عمل به طور دائم کیفیت تصویر را کاهش می‌دهد و قابل بازگشت نیست. تنظیمات خود را قبل از شروع با دقت بررسی کنید.</string>
-    <string name="squeezer_setup_paths_title">مکان‌های جستجو</string>
-    <string name="squeezer_setup_paths_default">انتخاب پوشه‌ها برای جستجو</string>
-    <string name="squeezer_setup_quality_title">کیفیت فشرده‌سازی</string>
-    <string name="squeezer_setup_age_title">حداقل سن</string>
-    <string name="squeezer_setup_age_none">بدون محدودیت (شامل همه فایل‌ها)</string>
-    <string name="squeezer_setup_start_action">شروع اسکن</string>
-    <string name="squeezer_quality_hint_very_low">کیفیت زیر ۴۰٪ ممکن است تصاویر غیرقابل استفاده ایجاد کند.</string>
-    <string name="squeezer_quality_hint_low">کیفیت پایین‌تر فضای بیشتری صرفه‌جویی می‌کند اما ممکن است آثار قابل مشاهده ایجاد کند.</string>
-    <string name="squeezer_quality_hint_high">کیفیت بسیار بالا صرفه‌جویی حداقلی در فضا ارائه می‌دهد.</string>
-    <string name="squeezer_quality_hint_normal">تعادل بین کیفیت و صرفه‌جویی در فضا.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">حداقل %d روزه</item>
-        <item quantity="other">حداقل %d روزه</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">صرفه‌جویی تخمینی ~%d%% برای فایل‌های JPEG</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">برای تصمیم‌گیری درباره حفظ یا حذف فایل‌ها بکشید.</string>
-    <string name="swiper_dashcard_description">فایل‌ها را در پوشه‌های خاص به صورت دستی بررسی کنید. بکشید تا تصمیم بگیرید چه چیزی را حفظ یا حذف کنید.</string>
     <string name="swiper_start_action">شروع کشیدن</string>
     <string name="swiper_continue_action">ادامه جلسه</string>
-    <string name="swiper_sessions_description">برخی فایل‌ها نیاز به تصمیم انسانی دارند. از موارد رد شوید و انتخاب کنید چه چیزی حفظ یا حذف شود. هر چیزی که مطمئن نیستید را رد کنید. این ابزار به شما امکان بررسی دستی پوشه‌های خاص را می‌دهد و تا زمان تأیید شما چیزی حذف نمی‌شود.</string>
     <string name="swiper_select_folders_action">انتخاب پوشه‌ها</string>
     <string name="swiper_scanning_title">در حال اسکن…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1034,6 +1019,7 @@
         <item quantity="one">%d قبلاً حذف شده</item>
         <item quantity="other">%d قبلاً حذف شده</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d حفظ شده</item>
         <item quantity="other">%d حفظ شده</item>
@@ -1048,6 +1034,7 @@
     <string name="swiper_sessions_suggestion_downloads">پوشه دانلودها</string>
     <string name="swiper_sessions_suggestion_screenshots">تصاویر صفحه</string>
     <string name="swiper_sessions_suggestion_camera">رول دوربین</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">حفظ!</string>
     <string name="swiper_stamp_keep_2">عالی!</string>
     <string name="swiper_stamp_keep_3">بله!</string>
@@ -1064,4 +1051,6 @@
     <string name="swiper_stamp_undo_2">برگرد!</string>
     <string name="swiper_stamp_undo_3">اوه!</string>
     <string name="swiper_stamp_undo_4">صبر!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

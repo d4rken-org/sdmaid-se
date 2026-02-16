@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">Byrja skönnun og eyðingu fyrir öll tæki með því að snerta aðgerðahnapp stjórnborðsins, án viðbótar staðfestinga.</string>
     <string name="dashboard_settings_oneclick_tools_title">Einn-snerting tæki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvaða tæki ætti að vera með í einn-snerting aðgerðum?</string>
+    <string name="dashboard_card_config_title">Stjórnborðsspjöld</string>
+    <string name="dashboard_card_config_desc">Stilla hvaða spjöld eru sýnd og röð þeirra</string>
+    <string name="dashboard_card_config_header_title">Dragðu til að endurraða, smelltu til að sýna/fela</string>
     <string name="debug_notification_channel_label">Villuleit tilkynningar</string>
     <string name="debug_debuglog_file_label">Skráð annáll skrá</string>
     <string name="debug_debuglog_recording_progress">Skrái villuleit annál</string>
     <string name="debug_debuglog_record_action">Skrá villuleit annál</string>
     <string name="debug_debuglog_stop_action">Stoppa upptöku</string>
     <string name="debug_debuglog_sensitive_information_message">Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum.</string>
+    <string name="debug_debuglog_screen_title">Villuleitarskrá</string>
+    <string name="debug_debuglog_screen_discard_action">Fleygja</string>
+    <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
+    <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d skrá tilbúin (%2$s)</item>
+        <item quantity="other">%1$d skrár tilbúnar (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Þessi eiginleiki skráir allt sem forritið er að gera í deilanlega skrá. Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
     <string name="tasks_activity_notification_channel_label">Virk verkefni</string>
     <string name="tasks_activity_working_notification_title">SD Maid er að vinna</string>
@@ -29,6 +40,7 @@
     <string name="onboarding_welcome_title">Velkomin</string>
     <string name="onboarding_welcome_body1">SD Maid SE stjórnar skrám, forritum og geymslu.</string>
     <string name="onboarding_welcome_body2">Fáðu geymslupláss með því að hreinsa upp á eftir öðrum forritum. Eyddu óþarfa skrám og fjarlægðu afgangsgögn.</string>
+    <string name="onboarding_welcome_body_beta">Þetta er beta (prófunar) útgáfa. Haltu áfram með húmorkennd og varaáætlun. Vinsamlegast tilkynntu vandamál sem þú lendir í.</string>
     <string name="onboarding_welcome_continue_action">Halda áfram</string>
     <string name="onboarding_versus_body1">SD Maid SE (þ.e. SD Maid 2) er arftaki SD Maid (þ.e. SD Maid 1). Nýtt forrit, fínstillt fyrir nútíma Android.</string>
     <string name="onboarding_versus_body2">Arkitektúr forvera þess er yfir 7 ára gamall og ekki hannaður fyrir áskoranir nýrri Android útgáfna. Algjör enduruppbygging var nauðsynleg til að halda þróun áfram.</string>
@@ -40,62 +52,34 @@
     <string name="onboarding_privacy_bugreport_toggle_body">Villuskýrslur eru sendar þegar villur koma upp og kunna að innihalda upplýsingar um forrit og skrár á tækinu þínu. Skýrslur hjálpa mér að laga villur og bæta forritið.</string>
     <string name="onboarding_privacy_bugreport_toggle">Leyfa sjálfvirkar villuskýrslur</string>
     <string name="onboarding_privacy_bugreport_toggle_hint">Þessa valkosti er hægt að breyta í stillingunum.</string>
-    <string name="onboarding_setup_title">Uppsetning</string>
-    <string name="onboarding_setup_continue_action">Halda áfram</string>
-
-    <string name="dashboard_card_config_title">Stjórnborðsspjöld</string>
-    <string name="dashboard_card_config_desc">Stilla hvaða spjöld eru sýnd og röð þeirra</string>
-    <string name="dashboard_card_config_header_title">Dragðu til að endurraða, smelltu til að sýna/fela</string>
-
-    <string name="debug_debuglog_screen_title">Villuleitarskrá</string>
-    <string name="debug_debuglog_screen_discard_action">Fleygja</string>
-    <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
-    <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d skrá tilbúin (%2$s)</item>
-        <item quantity="other">%1$d skrár tilbúnar (%2$s)</item>
-    </plurals>
-
-    <string name="onboarding_welcome_body_beta">Þetta er beta (prófunar) útgáfa. Haltu áfram með húmorkennd og varaáætlun. Vinsamlegast tilkynntu vandamál sem þú lendir í.</string>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-
     <string name="onboarding_privacy_continue_action">Halda áfram</string>
-
+    <string name="onboarding_setup_title">Uppsetning</string>
     <string name="onboarding_setup_body1">SD Maid mun leita í öllum aðgengilegum gagnasvæðum.</string>
     <string name="onboarding_setup_body2">Hvað er aðgengilegt fer eftir tækinu þínu, Android útgáfu og veittu leyfi.</string>
     <string name="onboarding_setup_body3">Byrjaðu að nota SD Maid með því að setja upp aðgang að svæðum sem á að leita í.</string>
-
+    <string name="onboarding_setup_continue_action">Halda áfram</string>
     <string name="settings_privacy_policy_label">Friðhelgisstefna</string>
     <string name="settings_privacy_policy_desc">Ábyrgð meðhöndlun gagna.</string>
     <string name="settings_category_other_label">Annað</string>
-
     <string name="settings_category_filter_generic">Almennt sía</string>
     <string name="settings_category_filter_specific">Sérstök sía</string>
     <string name="settings_sponsor_development_title">Styrkja þróun</string>
     <string name="settings_sponsor_development_summary">Vertu bakhjarl og gerðu áframhaldandi þróun mögulega.</string>
-
     <string name="general_settings_label">Almennt</string>
     <string name="general_settings_desc">Almennar stillingar sem hafa áhrif á allt forritið.</string>
     <string name="settings_category_ui_label">Notendaviðmót</string>
-
     <string name="ui_theme_mode_setting_label">Þemastilling</string>
     <string name="ui_theme_mode_setting_explanation">Stillingin sem notuð er við þema forritsins (t.d. nótt eða dagur).</string>
     <string name="ui_theme_mode_dark_label">Dökkt</string>
     <string name="ui_theme_mode_light_label">Ljóst</string>
     <string name="ui_theme_mode_system_label">Kerfi</string>
-
     <string name="ui_theme_style_setting_label">Þemastíll</string>
     <string name="ui_theme_style_setting_explanation">Litastíllinn sem notaður er við þema forritsins.</string>
     <string name="ui_theme_style_default_label">Sjálfgefið</string>
-    <string name="ui_theme_style_materialyou_label">Material You</string>
-
     <string name="ui_previews_title">Forskoðanir skráa</string>
     <string name="ui_previews_summary">Sýna forskoðanir skráa í öllum tækjum (t.d. smámyndir mynda og myndskeiða).</string>
-
     <string name="ui_language_override_label">Tungumál forrits</string>
     <string name="ui_language_override_desc">Veldu annað tungumál fyrir SD Maid, óháð sjálfgefnu tungumáli kerfisins. Núverandi: %s</string>
-
     <string name="settings_support_label">Stuðningur</string>
     <string name="settings_support_description">Lestu skjöl, tilkynntu vandamál, spjallaðu við aðra eða skráðu villuleitarskrár.</string>
     <string name="documentation_label">Skjöl</string>
@@ -113,9 +97,7 @@
     <string name="support_debuglog_folder_empty_desc">Engar villuleitarskrár geymdar</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Eyða öllum villuleitarskrám?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Þetta mun eyða öllum geymdum villuleitarskrám varanlega. Ekki er hægt að afturkalla þessa aðgerð.</string>
-    <string name="discord_label">Discord</string>
     <string name="discord_description">Staður til að hitta fólk og spyrja spurninga.</string>
-
     <string name="changelog_label">Breytingaskrá</string>
     <string name="settings_acknowledgements_label">Viðurkenningar</string>
     <string name="settings_acknowledgements_category_translations_title">Þýðingar</string>
@@ -124,7 +106,6 @@
     <string name="settings_acknowledgements_category_thanks_subtitle">Sérstakar þakkir til vina okkar.</string>
     <string name="settings_acknowledgements_category_licenses_title">Leyfi</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Hugbúnaður sem SD Maid notar.</string>
-
     <string name="setup_label">Uppsetning</string>
     <string name="setup_incomplete_card_title">Uppsetning er ófullnægjandi</string>
     <string name="setup_incomplete_card_body">Ljúktu uppsetningu SD Maid til að fá betri niðurstöður.</string>
@@ -134,20 +115,16 @@
     <string name="setup_title">Uppsetning</string>
     <string name="setup_forcedshow_summary">Sýna uppsetningarskjá aftur, þar á meðal liði sem þegar er lokið.</string>
     <string name="setup_checking_card_body">Staðfesti frágang uppsetningar og virkni.</string>
-
     <string name="general_error_setup_require_label">Uppsetning er ófullnægjandi</string>
     <string name="general_error_setup_require_msg">Frekari uppsetning er nauðsynleg til að nota þennan eiginleika. Ljúktu eftirstandandi uppsetningarskrefum.</string>
-
     <string name="setup_saf_card_title">Geymsluaðgangsrammi</string>
     <string name="setup_saf_card_body">Bættu niðurstöður með því að veita SD Maid aðgang að viðbótarsvæðum.</string>
     <string name="setup_saf_card_body2">Í flestum tilfellum opnast glugginn með réttri slóð forvalinni. Færslur verða grænar þegar aðgangur er veittur.</string>
     <string name="setup_saf_error_wrong_path">Þú valdir ranga slóð</string>
     <string name="setup_saf_missing_app_error">Skjalaviðmótsforritið er ekki tiltækt. Það er innbyggt kerfisforrit og ætti að vera tiltækt á öllum Android tækjum.</string>
-
     <string name="setup_manage_storage_card_title">Stjórna geymslu</string>
     <string name="setup_manage_storage_card_body">Leyfðu SD Maid að stjórna geymslunni þinni.</string>
     <string name="setup_manage_storage_card_body2">Grunnaðgangur að opinberri geymslu, t.d. \"Download/\" og \"DCIM/\", en ekki alltaf \"Android/data\".</string>
-
     <string name="setup_root_card_title">Root aðgangur</string>
     <string name="setup_root_card_body">Á SD Maid að nota root aðgang ef hann er tiltækur? Root aðgangur gerir kleift að skoða viðbótar kerfismöppur og einkagögn forrita.</string>
     <string name="setup_root_state_ready_label">Root aðgangur er tilbúinn.</string>
@@ -155,8 +132,6 @@
     <string name="setup_root_enable_root_use_label">Nota root aðgang ef tiltækur</string>
     <string name="setup_root_disable_root_use_label">Ekki nota root aðgang</string>
     <string name="setup_root_card_body2">Aðeins tiltækt á rooted tækjum. Ef þú gerðir ekki þessa breytingu þá er tækið þitt ekki rooted og þessi stilling hefur engin áhrif.</string>
-
-    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Leyfðu SD Maid að nota Shizuku þar sem hægt er til að bæta niðurstöður og virkja eiginleika.</string>
     <string name="setup_shizuku_card_body2">Þessi stilling hefur engin áhrif ef Shizuku forritið er ekki uppsett á tækinu þínu.</string>
     <string name="setup_shizuku_card_root_info">Shizuku ásamt root aðgangi virkjar ekki viðbótar eiginleika, en bætir áreiðanleika. SD Maid mun nota það sem varaúrræði.</string>
@@ -164,21 +139,16 @@
     <string name="setup_shizuku_state_waiting_label">Bíð eftir tengingu við Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Nota Shizuku ef tiltækt</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Ekki nota Shizuku</string>
-
     <string name="setup_dismiss_hint">Þú getur fundið uppsetningarskjáinn aftur í gegnum stillingavalmynd.</string>
     <string name="setup_permission_granted_label">Leyfi veitt</string>
     <string name="setup_permission_error_label">Villa í leyfi</string>
-
     <string name="setup_usagestats_title">Notkunartölfræði</string>
     <string name="setup_usagestats_body">Notkunartölfræðileyfið veitir aðgang að nánari upplýsingum um forrit. SD Maid notar það til að ákvarða viðbótar skyndiminnisstærðir.</string>
     <string name="setup_usagestats_hint">Nauðsynlegt fyrir eyðingu skyndiminnis byggt á aðgengisþjónustu.</string>
-
     <string name="setup_notification_title">Tilkynningar</string>
     <string name="setup_notification_body">Leyfðu SD Maid að senda tilkynningar til að upplýsa þig um yfirstandandi aðgerðir eða mikilvæga atburði.</string>
     <string name="setup_notification_hint">Tilkynningar eru notaðar sparlega 🤞</string>
-
     <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
-
     <string name="setup_acs_card_title">Aðgengisþjónusta</string>
     <string name="setup_acs_card_body">Aðgengisþjónustan gerir SD Maid kleift að eiga samskipti við skjáinn þinn og sjálfvirka leiðinleg verkefni, t.d. smella á \"Hreinsa skyndiminni\" á mörgum skjáum.</string>
     <string name="setup_acs_card_body2">SD Maid mun ekki nota aðgengisþjónustuna án samþykkis þíns, mun alltaf sýna áberandi vísbendingu á meðan hún er virk og mun ekki nota hana til að safna upplýsingum.</string>
@@ -195,16 +165,13 @@
     <string name="setup_acs_disallow_hint">Ef þú skiptir um skoðun geturðu breytt þessum valkosti aftur með því að fara í stillingar og endurræsa uppsetninguna.</string>
     <string name="setup_acs_appops_restriction_title">Takmarkaðar stillingar</string>
     <string name="setup_acs_appops_restriction_body">Getur ekki virkjað aðgengisþjónustu SD Maid? Android 13+ gæti sett takmarkanir á forrit sem eru ekki uppsett í gegnum Google Play. Lyftu þessum takmörkunum af kerfissíðu SD Maid. Valkosturinn er í samhengisvalmyndinni efst í hægra horni.</string>
-
     <string name="setup_inventory_card_title">Forritayfirlit</string>
     <string name="setup_inventory_card_body">SD Maid þarf að vita hvaða forrit þú hefur til að finna skrár sem tilheyra ekki neinu uppsettum forriti.</string>
     <string name="setup_inventory_card_extra">Leitaðu að leyfi sem kallast \"Forritalisti\" eða \"Query all packages\".</string>
     <string name="setup_inventory_invalid_message">Kerfið gaf ógilda lista yfir uppsett forrit (t.d. of fá eða sum vantaði). Farðu í kerfisstillingar og leyfðu SD Maid aðgang að \"Forritalista\".</string>
-
     <string name="dataarea_warningcard_empty_message">SD Maid fann engin gagnasvæði sem hægt er að skanna. Hefur þú lokið uppsetningunni?</string>
     <string name="dataarea_warningcard_label">Gagnasvæði</string>
     <string name="dataarea_warningcard_reload_action">Endurhlaða gagnasvæði</string>
-
     <string name="debug_mode_label">Villuleitarstilling</string>
     <string name="debug_mode_explanation">Virkja prófunarvalkosti og ítarlegri úttak. Forritið mun keyra hægar og virka öðruvísi.</string>
     <string name="debug_bugreporter_label">Sjálfvirkar villuskýrslur</string>
@@ -217,12 +184,9 @@
     <string name="debug_card_pkgs_reload_action">Endurhlaða forrit</string>
     <string name="debug_card_root_test_action">Prófa root</string>
     <string name="debug_card_shizuku_test_action">Prófa Shizuku</string>
-
     <string name="settings_category_tools_label">Verkfæri</string>
     <string name="settings_category_filter">Sía</string>
     <string name="settings_category_risklevel">Áhættustig</string>
-
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Gögn sem tilheyra forritum sem þegar hafa verið fjarlægð.</string>
     <string name="corpsefinder_settings_summary">Stilla skönnunarsíur og áhættustig.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Taka með æskileg leifar</string>
@@ -242,7 +206,6 @@
         <item quantity="other">Hreinsun tókst (%1$s): Losaði %2$s og fjarlægði %3$d hluti.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Eyða leifum</string>
-
     <string name="corpsefinder_filter_publicmedia_label">Opinber miðla</string>
     <string name="corpsefinder_filter_publicmedia_summary">Opinberar miðlaskrár, t.d. skrár sem berast í gegnum skilaboðaforrit.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB auðlindir</string>
@@ -266,7 +229,6 @@
     <string name="corpsefinder_filter_appasec_label">Dulkóðuð auðlindir forrita</string>
     <string name="corpsefinder_filter_appasec_summary">Dulkóðaðar auðlindir forrita, t.d. eignir leikja.</string>
     <string name="corpsefinder_filter_app2sd_summary">Gögn flutt á ytri geymslu með App2Sd breytingum.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d forritaleif eytt</item>
         <item quantity="other">%d forritaleifar eyddar</item>
@@ -281,13 +243,6 @@
     <string name="corpsefinder_owner_unknown">Óþekktur eigandi</string>
     <string name="corpsefinder_corpse_hint_keeper">Þessi hlutur gæti innihaldið gögn sem þú vilt halda þrátt fyrir að eigandinn hafi verið fjarlægður, t.d. myndir eða afrit.</string>
     <string name="corpsefinder_corpse_hint_common">Þessi hlutur ber mjög algengt nafn og gæti tilheyrt forritum sem enn eru uppsett en SD Maid þekkir ekki.</string>
-
-    <string name="data_area_sdcard_label">SD kort</string>
-    <string name="data_areas_label">Gagnasvæði</string>
-    <string name="data_areas_description">Gagnasvæði tákna staðsetningar á tækinu þínu sem SD Maid hefur aðgang að. Mismunandi gagnasvæði geta verið tiltæk eftir Android útgáfu þinni og leyfi sem hafa verið veitt.</string>
-    <string name="data_areas_short_summary">Svæði sem SD Maid hefur aðgang að byggt á núverandi veittu leyfum.</string>
-
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Óþörf gögn sem tilheyra ekki neinu ákveðnu forriti.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d samsvörun eytt</item>
@@ -327,7 +282,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac skrár</string>
     <string name="systemcleaner_filter_macfiles_summary">Skrár og möppur sem verða til þegar geymsla er skoðuð með Finder forriti Apple.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows skrár</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Gögn sem Windows skráaskoðari getur búið til á tengdri geymslu.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Gögn sem Windows skráaskoðari getur búið til á tengdri geymslu."</string>
     <string name="systemcleaner_filter_thumbnails_label">Smámyndir</string>
     <string name="systemcleaner_filter_thumbnails_summary">Geymdar forskoðanir fyrir myndir og myndbönd.</string>
     <string name="systemcleaner_filter_tempfiles_label">Tímabundnar kerfisskrár</string>
@@ -349,7 +304,6 @@
     <string name="systemcleaner_filter_usagestats_label">Notkunartölfræði</string>
     <string name="systemcleaner_filter_usagestats_summary">Skrár tengdar tölfræði forritanotkunar.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Eyða öllu innihaldi síunnar?</string>
-
     <string name="systemcleaner_customfilter_label">Sérsniðin sía</string>
     <string name="systemcleaner_customfilter_create_action">Búa til sérsniðna síu</string>
     <string name="systemcleaner_customfilter_create_hint">Búðu til sérsniðna síu til að eyða aukaskrám sem eru sérstæk fyrir tækið þitt og notkunartilfelli.</string>
@@ -391,8 +345,6 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Takmarka samsvörun eftir aldri skráar (síðast breytt). Skildu eftir óstillt til að para við hvaða aldur sem er.</string>
     <string name="systemcleaner_customfilter_import_action">Flytja inn nýja síu</string>
     <string name="systemcleaner_customfilter_export_action">Flytja út valda síu</string>
-
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Óþörf gögn sem tilheyra ákveðnum forritum.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Opinbert sjálfgefið skyndiminni</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Sjálfgefið opinbert skyndiminni forrita. Aðgengilegt undir Android/data á eldri Android útgáfum. Eytt þegar ýtt er á \"Hreinsa skyndiminni\" í kerfisstillingum.</string>
@@ -442,11 +394,8 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Skrár sendar frá WhatsApp til annarra.</string>
     <string name="appcleaner_filter_telegram_label">Telegram miðlaskrár</string>
     <string name="appcleaner_filter_telegram_summary">Skrár mótteknar eða sendar í gegnum Telegram.</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Skrár mótteknar í gegnum Threema.</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sendar eða mótteknar skrár í samtölum og WeChat augnablikum.</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Geymd miðlaskrár sem eru sóttar aftur þegar þau eru skoðuð í spjalli.</string>
     <string name="appcleaner_filter_qqchat_label">QQ spjall</string>
     <string name="appcleaner_filter_qqchat_summary">Sendar eða mótteknar skrár í QQ spjallsamtölum.</string>
@@ -488,8 +437,6 @@
     <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
     <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>
-
-    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Finna tvítekin gögn á tækinu þínu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d tvítekinn hlutur eyddur</item>
@@ -566,40 +513,6 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kjósa minni skrár</string>
     <string name="deduplicator_view_mode_groups_label">Hópar</string>
     <string name="deduplicator_view_mode_directories_label">Möppur</string>
-
-    <string name="exclusion_manager_title">Útilokunarstjóri</string>
-    <string name="exclusion_manager_desc">Stjórna skrá- og forritaútilokunun.</string>
-    <string name="exclusion_explanation_body1">Útiloka skrár og forrit frá aðgerðum SD Maid.</string>
-    <string name="exclusion_add_new_hint">Bættu við nýjum útilokunun með því að láta SD Maid leita fyrst og síðan nota samhengisvalmynd á niðurstöðuna sem þú vilt útiloka.</string>
-    <string name="exclusion_create_action">Búa til útilokun</string>
-    <string name="exclusion_edit_action">Breyta útilokun</string>
-    <string name="exclusion_type_package">Forritaútilokun</string>
-    <string name="exclusion_type_path">Slóðarútilokun</string>
-    <string name="exclusion_type_segment">Hlutaútilokun</string>
-    <string name="exclusion_tags_alltools">Öll verkfæri</string>
-    <string name="exclusion_target_label">Útilokunmarkmið</string>
-    <string name="exclusion_option_allow_partial">Leyfa hlutasamsvörun</string>
-    <string name="exclusion_option_ignore_casing">Hunsa stafstöðu</string>
-    <string name="exclusion_editor_affected_tools_label">Verkfæri sem verða fyrir áhrifum</string>
-    <string name="exclusion_editor_path_explanation">Slóðarútilokun kemur í veg fyrir að SD Maid vinni frekar úr samsvörunarslóðum. Þetta á við um skrár, möppur og undirmöppur.</string>
-    <string name="exclusion_editor_pkg_explanation">Forritaútilokun kemur í veg fyrir að SD Maid vinni úr samsvörunarforritum.</string>
-    <string name="exclusion_editor_segment_explanation">Hlutamiðuð útilokun er svipuð slóðarútilokun en leyfir hlutasamsvörun. Dæmi: \"DCIM/Camera\" útilokar \"/sdcard/DCIM/Camera/photo.png\".</string>
-    <string name="exclusion_editor_remove_confirmation_message">Fjarlægja þessa útilokun?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
-    <string name="exclusion_reset_default_exclusions">Endurheimta sjálfgefnar útilokanir</string>
-    <string name="exclusion_import_action">Flytja inn útilokanir</string>
-    <string name="exclusion_export_action">Flytja út útilokanir</string>
-    <string name="exclusion_create_pkg_hint">Notaðu AppControl verkfærið til að búa til forritaútilokanir.</string>
-    <string name="exclusion_create_path_hint">Notaðu StorageAnalyzer verkfærið til að búa til slóðaútilokanir.</string>
-    <string name="exclusion_show_defaults_action">Sýna sjálfgefnar</string>
-
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">Ein útilokun búin til</item>
-        <item quantity="other">%d útilokanir búnar til</item>
-    </plurals>
-    <string name="exclusion_editor_path_change_action">Ýttu til að breyta slóð</string>
-
-    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Þjappa myndum til að spara geymslupláss.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d mynd fannst</item>
@@ -631,9 +544,7 @@
     <string name="squeezer_quality_warning_low">Lægri gæði gætu valdið sjáanlegum göllum.</string>
     <string name="squeezer_quality_warning_high">Mjög há gæði veita lágmarks plásssparnað.</string>
     <string name="squeezer_types_category_label">Myndategundir</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Taka JPEG myndir (.jpg, .jpeg) með.</string>
-    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Taka WebP myndir (.webp) með.</string>
     <string name="squeezer_skip_compressed_title">Sleppa áður þjöppuðum</string>
     <string name="squeezer_skip_compressed_description">Sleppa myndum sem SD Maid hefur þegar þjappað.</string>
@@ -683,8 +594,6 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
-
-    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Forrit uppsett á tækinu þínu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d forrit greint</item>
@@ -710,7 +619,6 @@
     <string name="appcontrol_app_exclude_edit_description">Þetta forrit er nú útilokað frá einu eða fleiri verkfærum.</string>
     <string name="appcontrol_tag_user">Notandi</string>
     <string name="appcontrol_tag_active">Nýlega virkt</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Búnt</string>
     <string name="appcontrol_tag_system">Kerfi</string>
     <string name="appcontrol_tag_archived">Safnað</string>
@@ -813,8 +721,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Skjátími: %1$s síðan %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Síðast uppfært: %s</string>
     <string name="appcontrol_item_installedat_x_label">Uppsett: %s</string>
-
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Fáðu að vita hvað tekur pláss á tækinu þínu.</string>
     <string name="analyzer_progress_scanning_device">Leita af geymslumiðlum</string>
     <string name="analyzer_progress_scanning_storage">Skanna geymslu</string>
@@ -860,11 +766,43 @@
     <string name="analyzer_storage_content_app_extra_description">Aukagögn sem þetta forrit hefur sett utan sjálfgefinna slóða, t.d. myndir eða niðurhal.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Þetta forrit tekur %1$s á \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Þetta forrit hefur verið safnvistað.</string>
-
     <string name="data_area_public_app_data_official_label">Sjálfgefin opinber forritagögn</string>
     <string name="data_area_public_app_assets_official_label">Sjálfgefnar opinberar auðlindir forrita</string>
     <string name="data_area_public_storage_label">Opinber geymsla</string>
-
+    <string name="data_area_sdcard_label">SD kort</string>
+    <string name="data_areas_label">Gagnasvæði</string>
+    <string name="data_areas_description">Gagnasvæði tákna staðsetningar á tækinu þínu sem SD Maid hefur aðgang að. Mismunandi gagnasvæði geta verið tiltæk eftir Android útgáfu þinni og leyfi sem hafa verið veitt.</string>
+    <string name="data_areas_short_summary">Svæði sem SD Maid hefur aðgang að byggt á núverandi veittu leyfum.</string>
+    <string name="exclusion_manager_title">Útilokunarstjóri</string>
+    <string name="exclusion_manager_desc">Stjórna skrá- og forritaútilokunun.</string>
+    <string name="exclusion_explanation_body1">Útiloka skrár og forrit frá aðgerðum SD Maid.</string>
+    <string name="exclusion_add_new_hint">Bættu við nýjum útilokunun með því að láta SD Maid leita fyrst og síðan nota samhengisvalmynd á niðurstöðuna sem þú vilt útiloka.</string>
+    <string name="exclusion_create_action">Búa til útilokun</string>
+    <string name="exclusion_edit_action">Breyta útilokun</string>
+    <string name="exclusion_type_package">Forritaútilokun</string>
+    <string name="exclusion_type_path">Slóðarútilokun</string>
+    <string name="exclusion_type_segment">Hlutaútilokun</string>
+    <string name="exclusion_tags_alltools">Öll verkfæri</string>
+    <string name="exclusion_target_label">Útilokunmarkmið</string>
+    <string name="exclusion_editor_path_change_action">Ýttu til að breyta slóð</string>
+    <string name="exclusion_option_allow_partial">Leyfa hlutasamsvörun</string>
+    <string name="exclusion_option_ignore_casing">Hunsa stafstöðu</string>
+    <string name="exclusion_editor_affected_tools_label">Verkfæri sem verða fyrir áhrifum</string>
+    <string name="exclusion_editor_path_explanation">Slóðarútilokun kemur í veg fyrir að SD Maid vinni frekar úr samsvörunarslóðum. Þetta á við um skrár, möppur og undirmöppur.</string>
+    <string name="exclusion_editor_pkg_explanation">Forritaútilokun kemur í veg fyrir að SD Maid vinni úr samsvörunarforritum.</string>
+    <string name="exclusion_editor_segment_explanation">Hlutamiðuð útilokun er svipuð slóðarútilokun en leyfir hlutasamsvörun. Dæmi: \"DCIM/Camera\" útilokar \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Fjarlægja þessa útilokun?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
+    <string name="exclusion_reset_default_exclusions">Endurheimta sjálfgefnar útilokanir</string>
+    <string name="exclusion_import_action">Flytja inn útilokanir</string>
+    <string name="exclusion_export_action">Flytja út útilokanir</string>
+    <string name="exclusion_create_pkg_hint">Notaðu AppControl verkfærið til að búa til forritaútilokanir.</string>
+    <string name="exclusion_create_path_hint">Notaðu StorageAnalyzer verkfærið til að búa til slóðaútilokanir.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ein útilokun búin til</item>
+        <item quantity="other">%d útilokanir búnar til</item>
+    </plurals>
+    <string name="exclusion_show_defaults_action">Sýna sjálfgefnar</string>
     <string name="automation_accessibility_service_description">Notendur með sérstakar aðgengisþarfir geta virkjað þessa þjónustu til að leyfa SD Maid að sjálfvirka verkefni sem annars myndu krefjast leiðinlegrar handvirkrar notendaviðrásar (t.d. eyðing skyndiminnis).\n\nDæmi: Ef þú gefur SD Maid fyrirmæli um að stöðva mörg forrit þá getur SD Maid notað þessa þjónustu til að opna stillingaskjá hvers forrits, finna \'Þvinga stopp\' hnappinn og ýta á hann.\n\nSD Maid mun alltaf sýna áberandi þegar þessi þjónusta er notuð og veita auðvelda leið fyrir notandann til að hætta við hvaða víxlverkun sem er strax.\n\nEngar aðgerðir verða framkvæmdar án fyrirfram samþykkis notanda. Hægt er að gera þessa þjónustu óvirka hvenær sem er án skaðlegra áhrifa.</string>
     <string name="automation_screenoverlay_explanation">SD Maid er í samskiptum við tækið þitt. Ekki er hægt að nota skjáinn á sama tíma. Bíddu þar til aðgerðin er lokið eða hættu við hana.</string>
     <string name="automation_active_title">SD Maid er að vinna</string>
@@ -882,10 +820,8 @@
     <string name="automation_error_timeout_body">SD Maid lauk ekki öllum skrefum innan tímamarka. Ef þetta gerist áfram gæti þurft að aðlaga forritið að tækinu þínu. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
     <string name="automation_error_overlay_title">Sjálfvirkniyfirlögn</string>
     <string name="automation_error_overlay_body">SD Maid gat ekki sýnt sjálfvirkniyfirlögn. Athugaðu leyfi og prófaðu að endurræsa tækið.</string>
-
     <string name="history_label">Saga</string>
     <string name="history_description">Tímaröð yfir nýlegar aðgerðir og gögn sem urðu fyrir áhrifum.</string>
-
     <string name="scheduler_label">Tímasetjari</string>
     <string name="scheduler_execution_label">Næsta keyrsla (um það bil)</string>
     <string name="scheduler_execution_last_label">Síðasta keyrsla</string>
@@ -924,40 +860,20 @@
     <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
     <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
     <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>
-
     <string name="updates_dashcard_title">Uppfærsla tiltæk</string>
     <string name="updates_dashcard_body">Uppfærsla er tiltæk. Þú ert með %1$s og nýjasta útgáfan er %2$s.</string>
-
     <string name="translation_encourage_title">Þýða SD Maid</string>
     <string name="translation_encourage_body">SD Maid er þýtt af sjálfboðaliðum. Þýðing, yfirlestur eða prófarkalestur, hjálp þín er vel þegin!</string>
     <string name="translation_translators_title">Þessi útgáfa er þýdd af</string>
-
     <string name="motd_setting_enabled_label">Mikilvæg skilaboð</string>
     <string name="motd_setting_enabled_explanation">Leyfa SD Maid að leita að mikilvægum skilaboðum frá þróunaraðila.</string>
-
     <string name="updatecheck_setting_enabled_label">Uppfærsluleit</string>
     <string name="updatecheck_setting_enabled_explanation">Leyfa SD Maid að leita að uppfærslum til að láta þig vita ef nýrri útgáfa er tiltæk.</string>
     <string name="device_settings_category">Tæki</string>
-
     <string name="beta_version_indicator_desc">Forupplýsingaútgáfur sýna borða á upphafsskjánum. Þær eru uppfærðar oftar, gætu haft fleiri eiginleika, en gætu einnig haft fleiri villur.</string>
-
     <string name="review_app_review_action">Skrifa umsögn</string>
     <string name="review_app_dismiss_action">Kannski seinna</string>
     <string name="review_app_body">Viltu skilja eftir umsögn um SD Maid? ❤️</string>
-    <string name="stats_report_status_success">Tókst</string>
-    <string name="stats_report_status_partial_success">Tókst að hluta</string>
-    <string name="stats_report_status_partial_failure">Mistök</string>
-    <string name="stats_settings_desc">Stilltu tölfræði SD Maid, skýrslur og gagnageymslu.</string>
-    <string name="stats_settings_retention_category">Gagnageymsla</string>
-    <string name="stats_settings_retention_reports_label">Almennar skýrslur</string>
-    <string name="stats_settings_retention_reports_desc">Fjöldi daga áður en grunnsk​ýrslur SD Maid aðgerða eru eyddar.</string>
-    <string name="stats_settings_retention_paths_label">Nákvæmar slóðarupplýsingar</string>
-    <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
-    <string name="stats_settings_reset_all_label">Endurstilla allt</string>
-    <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
-    <string name="stats_affected_paths_label">Slóðir sem urðu fyrir áhrifum</string>
-    <string name="stats_affected_pkgs_label">Forrit sem urðu fyrir áhrifum</string>
-
     <string name="anniversary_card_title">Til hamingju með SD Maid afmælið ❤️</string>
     <string name="anniversary_card_install_date">Með þér síðan %s</string>
     <plurals name="anniversary_card_body">
@@ -969,7 +885,6 @@
         <item quantity="one">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
         <item quantity="other">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
     </plurals>
-
     <string name="stats_label">Saga</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s hefur verið losað.</item>
@@ -979,11 +894,23 @@
         <item quantity="one">%s hlutur unninn síðan þú bauðst SD Maid á tækið þitt.</item>
         <item quantity="other">%s hlutir unnir síðan þú bauðst SD Maid á tækið þitt.</item>
     </plurals>
+    <string name="stats_report_status_success">Tókst</string>
+    <string name="stats_report_status_partial_success">Tókst að hluta</string>
+    <string name="stats_report_status_partial_failure">Mistök</string>
+    <string name="stats_settings_desc">Stilltu tölfræði SD Maid, skýrslur og gagnageymslu.</string>
+    <string name="stats_settings_retention_category">Gagnageymsla</string>
+    <string name="stats_settings_retention_reports_label">Almennar skýrslur</string>
+    <string name="stats_settings_retention_reports_desc">Fjöldi daga áður en grunnsk​ýrslur SD Maid aðgerða eru eyddar.</string>
+    <string name="stats_settings_retention_paths_label">Nákvæmar slóðarupplýsingar</string>
+    <string name="stats_settings_retention_paths_desc">Fjöldi daga til að geyma smáatriði um slóðir sem SD Maid hefur áhrif á.</string>
     <plurals name="stats_settings_retention_x_days">
         <item quantity="one">%d dagur</item>
         <item quantity="other">%d dagar</item>
     </plurals>
-
+    <string name="stats_settings_reset_all_label">Endurstilla allt</string>
+    <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
+    <string name="stats_affected_paths_label">Slóðir sem urðu fyrir áhrifum</string>
+    <string name="stats_affected_pkgs_label">Forrit sem urðu fyrir áhrifum</string>
     <string name="picker_select_paths_title">Velja slóðir</string>
     <string name="picker_selected_paths_title">Valdar slóðir</string>
     <string name="picker_unsaved_confirmation_message">Fleygja breytingum?</string>
@@ -992,30 +919,20 @@
         <item quantity="other">%d slóðir valdar</item>
     </plurals>
     <string name="picker_home_action">Gagnasvæði</string>
-
     <string name="area_type_sdcard_label">Opinber geymsla</string>
     <string name="area_type_public_media_label">Opinberir forritamiðlar</string>
     <string name="area_type_public_data_label">Opinber forritagögn</string>
     <string name="area_type_public_obb_label">Opinberar auðlindir forrita</string>
     <string name="area_type_private_data_label">Einkaforritagögn</string>
     <string name="area_type_portable_label">Færanleg geymsla</string>
-
-    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Stjórna uppsettum forritum</string>
     <string name="shortcut_onetap_short">Skanna + Eyða</string>
     <string name="shortcut_onetap_long">Skanna og eyða í einni aðgerð</string>
-
     <string name="shortcuts_settings_category">Flýtileiðir</string>
     <string name="shortcuts_onetap_enabled_title">Flýtileið fyrir eina snertingu</string>
     <string name="shortcuts_onetap_enabled_summary">Sýna \"Skanna + Eyða\" flýtileið þegar forritatákninu er haldið inni. Notar sömu verkfæri og einn-snerting stjórnborð.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Strjúktu í gegnum skrár til að ákveða hvað á að halda eða eyða.</string>
-    <string name="swiper_dashcard_description">Farðu handvirkt yfir skrár í ákveðnum möppum. Strjúktu til að ákveða hvað á að halda eða eyða.</string>
     <string name="swiper_start_action">Byrja að strjúka</string>
     <string name="swiper_continue_action">Halda áfram með lotu</string>
-    <string name="swiper_sessions_description">Sumar skrár þarfnast mannlegrar ákvörðunar. Strjúktu í gegnum hluti og veldu hvað á að halda eða eyða. Slepptu öllu sem þú ert ekki viss um. Þetta verkfæri gerir þér kleift að fara handvirkt yfir ákveðnar möppur, og ekkert er fjarlægt fyrr en þú staðfestir.</string>
     <string name="swiper_select_folders_action">Veldu möppur</string>
     <string name="swiper_scanning_title">Skanna…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1059,7 +976,6 @@
     <string name="swiper_discard_session_confirmation_title">Fleygja lotu?</string>
     <string name="swiper_discard_session_confirmation_message">Allar ákvarðanir glatast. Ertu viss?</string>
     <string name="swiper_no_preview_available">Engin forskoðun tiltæk</string>
-
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Halda áfram með lotu frá %1$d degi síðan (%2$d%% lokið)</item>
         <item quantity="other">Halda áfram með lotu frá %1$d dögum síðan (%2$d%% lokið)</item>
@@ -1120,13 +1036,11 @@
         <item quantity="other">%d eytt</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">Útiloka \"%1$s\" frá Swiper skönnun?</string>
-
     <string name="swiper_sessions_header_title">Tilbúin til að hreinsa?</string>
     <string name="swiper_sessions_suggestions_label">Prófaðu að byrja á:</string>
     <string name="swiper_sessions_suggestion_downloads">Niðurhalsmappa</string>
     <string name="swiper_sessions_suggestion_screenshots">Skjámyndir</string>
     <string name="swiper_sessions_suggestion_camera">Myndavélarúlla</string>
-
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Halda!</string>
     <string name="swiper_stamp_keep_2">Flott!</string>
@@ -1144,4 +1058,6 @@
     <string name="swiper_stamp_undo_2">Til baka!</string>
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Bíddu!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

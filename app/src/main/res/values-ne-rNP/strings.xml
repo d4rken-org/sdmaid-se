@@ -423,4 +423,6 @@
     <string name="data_area_public_storage_label">सार्वजनिक भण्डारण</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

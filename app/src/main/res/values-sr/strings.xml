@@ -7,12 +7,24 @@
     <string name="dashboard_settings_oneclick_summary">Започни скенирање и брисање свих алатки са кликом на акционо дугме контролне табле, без додатних потврда.</string>
     <string name="dashboard_settings_oneclick_tools_title">Алатке једним кликом</string>
     <string name="dashboard_settings_oneclick_tools_desc">Које алатке би требале бити укључене у операције једним кликом?</string>
+    <string name="dashboard_card_config_title">Картице контролне табле</string>
+    <string name="dashboard_card_config_desc">Подесите које картице се приказују и њихов редослед</string>
+    <string name="dashboard_card_config_header_title">Превуците за промену редоследа, укључите/искључите приказ</string>
     <string name="debug_notification_channel_label">Обавештења о отклањању грешака</string>
     <string name="debug_debuglog_file_label">Снимљена датотека евиденције</string>
     <string name="debug_debuglog_recording_progress">Снимање дневника за отклањање грешака</string>
     <string name="debug_debuglog_record_action">Снимите дневник отклањања грешака</string>
     <string name="debug_debuglog_stop_action">Заустави снимање</string>
     <string name="debug_debuglog_sensitive_information_message">Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите га само са поузданим странама.</string>
+    <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
+    <string name="debug_debuglog_screen_discard_action">Одбаци</string>
+    <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
+    <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d датотека спремна (%2$s)</item>
+        <item quantity="few">%1$d датотеке спремне (%2$s)</item>
+        <item quantity="other">%1$d датотека спремно (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ова функција снима све што апликација ради у датотеку коју можете поделити. Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите је само са поузданим странама (нпр. програмером који решава проблем).</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
@@ -82,10 +94,25 @@
     <string name="support_installid_desc">Аутоматски извештаји о грешкама су анонимни. Поделите свој ИД инсталације ако програмер треба да пронађе ваше извештаје о грешци.</string>
     <string name="support_debuglog_label">Извештај о грешкама</string>
     <string name="support_debuglog_desc">Снимите све што апликација ради у текстуалну датотеку коју можете да делите.</string>
+    <string name="support_debuglog_folder_label">Фасцикла дневника отклањања грешака</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d датотека користи %2$s</item>
+        <item quantity="few">%1$d датотеке користе %2$s</item>
+        <item quantity="other">%1$d датотека користи %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Нема сачуваних дневника отклањања грешака</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Обрисати све дневнике отклањања грешака?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Ово ће трајно обрисати све сачуване сесије дневника отклањања грешака. Ова акција се не може поништити.</string>
     <string name="discord_label">Дискорд</string>
     <string name="discord_description">Место за дружење и постављање питања.</string>
     <string name="changelog_label">Дневник измена</string>
     <string name="settings_acknowledgements_label">Признања</string>
+    <string name="settings_acknowledgements_category_translations_title">Преводи</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ко је ово превео?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Захвалнице</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Посебне захвалнице нашим пријатељима.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Лиценце</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Софтвер који користи СД Чистач.</string>
     <string name="setup_label">Подешавање</string>
     <string name="setup_incomplete_card_title">Подешавање није завршено</string>
     <string name="setup_incomplete_card_body">Завршите подешавање СД Чистача да бисте добили боље резултате.</string>
@@ -159,6 +186,13 @@
     <string name="debug_bugreporter_label">Аутоматски извештаји о грешкама</string>
     <string name="debug_bugreporter_summary">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како би могао да схватим зашто и да то поправим.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
+    <string name="debug_card_trace_mode_label">Укључи режим праћења</string>
+    <string name="debug_card_dryrun_mode_label">Пробни режим (онемогући брисање)</string>
+    <string name="debug_card_areas_reload_action">Поново учитај области података</string>
+    <string name="debug_card_pkgs_reload_action">Поново учитај апликације</string>
+    <string name="debug_card_root_test_action">Тестирај root</string>
+    <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
     <string name="settings_category_tools_label">Алати</string>
     <string name="settings_category_filter">Филтер</string>
     <string name="settings_category_risklevel">Ниво Ризика</string>
@@ -196,6 +230,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Подаци приватних апликација, нпр. акредитиви, подешавања апликације али и кеш претраживача.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik кеш</string>
     <string name="corpsefinder_filter_dalvik_summary">Кеширани извршни подаци апликације.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART профили</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART профили које Android користи за оптимизацију перформанси апликација.</string>
     <string name="corpsefinder_filter_applib_label">Библиотеке апликације</string>
     <string name="corpsefinder_filter_applib_summary">Подаци библиотеке везани за апликацију.</string>
     <string name="corpsefinder_filter_appsource_label">Извори апликације</string>
@@ -254,6 +290,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Старост снимкова екрана</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Минимална старост снимкова екрана који се разматрају за брисање.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Лишни APK фајлови</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Инсталационе датотеке које више нису потребне на основу инсталираних верзија апликација.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Укључи исту верзију</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Такође циљај APK датотеке које одговарају инсталираној верзији. Онемогућите да бисте уклонили само старије верзије.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR фасцикле</string>
     <string name="systemcleaner_filter_lostdir_summary">Привремене датотеке које се креирају приликом преноса података између Андроид уређаја.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux датотеке</string>
@@ -314,6 +353,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Име је једнако кључној речи</string>
     <string name="systemcleaner_customfilter_last_edit">Последња измена: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Претрага у реалном времену</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Ограничења величине</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Минимална величина</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Максимална величина</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Ограничите резултате на основу величине датотеке. Оставите непостављено да бисте укључили све величине.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Ограничења старости</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Минимална старост</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Максимална старост</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Ограничите резултате на основу старости датотеке (време последње измене). Оставите непостављено да бисте укључили све старости.</string>
     <string name="systemcleaner_customfilter_import_action">Увези нови филтер</string>
     <string name="systemcleaner_customfilter_export_action">Извези изабрани филтер</string>
     <string name="appcleaner_tool_name">Чистач апликација</string>
@@ -356,6 +403,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Датотеке које су обрисане, али стављене у посебну фасциклу да би се омогућило њихово враћање.</string>
     <string name="appcleaner_filter_webview_label">Webview датотеке</string>
     <string name="appcleaner_filter_webview_summary">Датотеке кеширане од стране Webview инстанци коришћених унутар апликација.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Иконице пречица апликација</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кеширане иконице за пречице апликација и менијe дељења.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp резервне копије</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Обриши сувишне копије WhatsApp резервних копија и задржи само најновију.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Датотеке које сте примили од људи преко WhatsApp.</string>
@@ -407,6 +456,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системска апликација неправилно подешена</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS Security апликацији (com.miui.securitycenter) недостаје дозвола за статистике коришћења (GET_USAGE_STATS). Ово ломи функције попут \"Обриши податке\" у детаљима апликације и брисање кеша преко приступачности. Дајте дозволу да вратите пуну функционалност.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
+    <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>
     <string name="deduplicator_tool_name">Уклањалац дупликата</string>
     <string name="deduplicator_explanation_short">Пронађи дупличиране податке на вашем уређају.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -431,6 +483,7 @@
     <string name="deduplicator_detection_method_checksum_title">Контролна сума садржаја</string>
     <string name="deduplicator_detection_method_checksum_summary">Одреди дупликате израчунавањем контролних сума за датотеке. Датотеке са поклапајућим контролним сумама имају потпуно исти садржај.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуални хеш</string>
+    <string name="deduplicator_detection_method_phash_summary">Пронађите сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности. ⚠️ Детекција заснована на сличности може укључити лажне позитивне резултате који захтевају ручну верификацију.</string>
     <string name="deduplicator_occupied_space_label">Заузето складиште</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s је заузет дупликатима</item>
@@ -450,6 +503,127 @@
     <string name="deduplicator_details_cluster_title">Скуп дупликата</string>
     <string name="deduplicator_matches_exact_label">Тачне копије</string>
     <string name="deduplicator_matches_similar_label">Сличне датотеке</string>
+    <string name="deduplicator_arbiter_title">Стратегија брисања</string>
+    <string name="deduplicator_arbiter_summary">Подесите које датотеке се чувају а које бришу.</string>
+    <string name="deduplicator_arbiter_explanation">Приликом брисања дупликата, СД Чистач одлучује коју датотеку да задржи проверавајући сваки критеријум по реду. Први критеријум који произведе јасног победника одређује резултат. Превуците за промену редоследа, додирните за промену режима.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Изаберите режим</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Подеси путање…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Тип дупликата</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Преферирај тачне копије у односу на сличне датотеке.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Индексирање медија</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Узми у обзир да ли су датотеке индексиране од стране медијског провајдера.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Локација складишта</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Преферирај датотеке на интерном или екстерном складишту.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Дубина фасцикле</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Преферирај датотеке у плићим или дубљим структурама фасцикли.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Датум измене</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Преферирај старије или новије датотеке на основу времена измене.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Величина датотеке</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Преферирај веће или мање датотеке када се величине разликују.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Преферирана места</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Задржи датотеке на вашим подешеним преферираним местима.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Преферирај тачне копије</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Преферирај сличне датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Преферирај индексиране датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Преферирај неиндексиране датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Преферирај интерно складиште</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Преферирај екстерно складиште</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Преферирај плиће фасцикле</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Преферирај дубље фасцикле</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Преферирај старије датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Преферирај новије датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Преферирај веће датотеке</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Преферирај мање датотеке</string>
+    <string name="deduplicator_view_mode_groups_label">Групе</string>
+    <string name="deduplicator_view_mode_directories_label">Фасцикле</string>
+    <string name="squeezer_tool_name">Компресија медија</string>
+    <string name="squeezer_explanation_short">Компримујте слике да бисте уштедели простор за складиштење.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d слика пронађена</item>
+        <item quantity="few">%d слике пронађене</item>
+        <item quantity="other">%d слика пронађено</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s се може уштедети</item>
+        <item quantity="few">~%s се може уштедети</item>
+        <item quantity="other">~%s се може уштедети</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d слика компримована</item>
+        <item quantity="few">%d слике компримоване</item>
+        <item quantity="other">%d слика компримовано</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d слика изабрана</item>
+        <item quantity="few">%d слике изабране</item>
+        <item quantity="other">%d слика изабрано</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Локације претраге</string>
+    <string name="squeezer_search_locations_default_summary">Фасцикле камере (подразумевано)</string>
+    <string name="squeezer_min_size_title">Минимална величина датотеке</string>
+    <string name="squeezer_min_size_description">Прескочи слике мање од ове величине.</string>
+    <string name="squeezer_min_age_title">Минимална старост датотеке</string>
+    <string name="squeezer_min_age_description">Укључи само слике старије од ове старости.</string>
+    <string name="squeezer_compression_settings_label">Подешавања компресије</string>
+    <string name="squeezer_quality_label">Квалитет</string>
+    <string name="squeezer_quality_title">Квалитет компресије</string>
+    <string name="squeezer_quality_description">Нижи квалитет значи мању величину датотеке али смањен квалитет слике.</string>
+    <string name="squeezer_quality_example_format">Пример: %1$s слика → штеди ~%2$s при %3$d%% квалитету</string>
+    <string name="squeezer_quality_warning_low">Нижи квалитети могу изазвати видљиве артефакте.</string>
+    <string name="squeezer_quality_warning_high">Веома висок квалитет пружа минималну уштеду простора.</string>
+    <string name="squeezer_types_category_label">Типови слика</string>
+    <string name="squeezer_type_jpeg_description">Укључи JPEG слике (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Укључи WebP слике (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Прескочи претходно компримоване</string>
+    <string name="squeezer_skip_compressed_description">Прескочи слике које су већ компримоване од стране СД Чистача.</string>
+    <string name="squeezer_exif_marker_title">Упиши EXIF ознаку</string>
+    <string name="squeezer_exif_marker_description">Додај ознаку у EXIF поље коментара корисника слике да спречи поновну компресију чак и ако се историја компресије обрише.</string>
+    <string name="squeezer_estimated_savings_format">~%s уштеде</string>
+    <string name="squeezer_no_savings_expected">Ограничена уштеда</string>
+    <string name="squeezer_current_size_format">Величина: %s</string>
+    <string name="squeezer_compress_action">Компримуј</string>
+    <string name="squeezer_compress_all_action">Компримуј све</string>
+    <string name="squeezer_preview_dialog_title">Потврди компресију</string>
+    <string name="squeezer_preview_total_size">Укупна величина</string>
+    <string name="squeezer_preview_estimated_savings">Процењена уштеда</string>
+    <string name="squeezer_compress_confirmation_title">Компримовати слике?</string>
+    <string name="squeezer_compress_confirmation_message">Ово ће заменити оригиналне слике компримованим верзијама. Ова акција се не може поништити.</string>
+    <string name="squeezer_history_title">Историја компресије</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d ставка (%2$s)</item>
+        <item quantity="few">%1$d ставке (%2$s)</item>
+        <item quantity="other">%1$d ставки (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Нема историје компресије</string>
+    <string name="squeezer_history_clear_title">Обриши историју компресије</string>
+    <string name="squeezer_history_clear_message">Ово ће омогућити да се претходно компримоване слике поново компримују. Саме слике нису погођене.</string>
+    <string name="squeezer_onboarding_title">О компресији слика</string>
+    <string name="squeezer_onboarding_message">Компресија слика смањује величину датотеке уклањањем визуелних детаља. Овај процес је неповратан - оригинални квалитет се не може вратити.\n\nЕво прегледа како ће ваше слике изгледати:</string>
+    <string name="squeezer_onboarding_original_label">Оригинал</string>
+    <string name="squeezer_onboarding_compressed_label">После компресије</string>
+    <string name="squeezer_onboarding_quality_label">Квалитет: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Разумем</string>
+    <string name="squeezer_compare_action">Прегледај поређење</string>
+    <string name="squeezer_no_example_found">Нису пронађене слике на изабраним путањама.</string>
+    <string name="squeezer_result_empty_message">Нису пронађене слике за компресију.</string>
+    <string name="squeezer_setup_warning">Компресија трајно смањује квалитет слике да би уштедела простор за складиштење. Ово се не може поништити. Пажљиво прегледајте подешавања пре почетка.</string>
+    <string name="squeezer_setup_explanation">Компресија медија смањује величину датотеке слика да ослободи простор за складиштење. Ово трајно смањује квалитет слике и не може се поништити. Пажљиво прегледајте подешавања пре почетка.</string>
+    <string name="squeezer_setup_paths_title">Локације претраге</string>
+    <string name="squeezer_setup_paths_default">Изаберите фасцикле за претрагу</string>
+    <string name="squeezer_setup_quality_title">Квалитет компресије</string>
+    <string name="squeezer_setup_age_title">Минимална старост</string>
+    <string name="squeezer_setup_age_none">Без ограничења (укључи све датотеке)</string>
+    <string name="squeezer_setup_start_action">Покрени скенирање</string>
+    <string name="squeezer_quality_hint_very_low">Квалитет испод 40% може створити неупотребљиве слике.</string>
+    <string name="squeezer_quality_hint_low">Нижи квалитет штеди више простора али може изазвати видљиве артефакте.</string>
+    <string name="squeezer_quality_hint_high">Веома висок квалитет пружа минималну уштеду простора.</string>
+    <string name="squeezer_quality_hint_normal">Уравнотежен квалитет и уштеда простора.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Најмање %d дан старо</item>
+        <item quantity="few">Најмање %d дана старо</item>
+        <item quantity="other">Најмање %d дана старо</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Процењена ~%d%% уштеда за JPEG датотеке</string>
     <string name="appcontrol_tool_name">Контрола апликација</string>
     <string name="appcontrol_explanation_short">Апликације инсталиране на вашем уређају.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -499,6 +673,36 @@
         <item quantity="few">%d апликације су деинсталиране</item>
         <item quantity="other">%d апликација је деинсталирано</item>
     </plurals>
+    <string name="appcontrol_archive_action">Архивирај</string>
+    <string name="appcontrol_archive_selection_action">Архивирај апликације</string>
+    <string name="appcontrol_archive_description">Архивирајте да ослободите простор док чувате податке апликације за касније враћање.</string>
+    <string name="appcontrol_progress_archiving_app">Архивирање апликације…</string>
+    <string name="appcontrol_archive_confirmation_title">Потврди архивирање</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Архивирати %d апликацију?</item>
+        <item quantity="few">Архивирати %d апликације?</item>
+        <item quantity="other">Архивирати %d апликација?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d апликација архивирана</item>
+        <item quantity="few">%d апликације архивиране</item>
+        <item quantity="other">%d апликација архивирано</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Врати</string>
+    <string name="appcontrol_restore_selection_action">Врати апликације</string>
+    <string name="appcontrol_restore_description">Врати архивирану апликацију у потпуно инсталирано стање. Подаци апликације су сачувани.</string>
+    <string name="appcontrol_progress_restoring_app">Враћање апликације…</string>
+    <string name="appcontrol_restore_confirmation_title">Потврди враћање</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Вратити %d апликацију?</item>
+        <item quantity="few">Вратити %d апликације?</item>
+        <item quantity="other">Вратити %d апликација?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d апликација враћена</item>
+        <item quantity="few">%d апликације враћене</item>
+        <item quantity="other">%d апликација враћено</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Величина апликације</string>
     <string name="appcontrol_app_sizes_apk_label">Апликација</string>
     <string name="appcontrol_app_sizes_data_label">Подаци</string>
@@ -526,6 +730,9 @@
         <item quantity="other">%d апликација је извезено</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Извоз %s</string>
+    <string name="appcontrol_share_list_action">Подели листу</string>
+    <string name="appcontrol_share_list_title">Моје апликације</string>
+    <string name="appcontrol_share_list_footer">Подељено преко СД Чистач 2</string>
     <string name="appcontrol_force_stop_selection_action">Принудно заустави апликације</string>
     <string name="appcontrol_force_stop_action">Принудно заустави</string>
     <string name="appcontrol_force_stop_confirm_title">Потврди принудно заустављање</string>
@@ -544,8 +751,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Принудно заустављање…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Претрага \"Принудно заустави\" дугмета (кључне речи: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Архивирање…</string>
+    <string name="appcontrol_automation_progress_find_archive">Тражим дугме \"Архивирај\" (кључне речи: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Враћање…</string>
+    <string name="appcontrol_automation_progress_find_restore">Тражим дугме \"Врати\" (кључне речи: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Време на екрану: %1$s од %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Последње ажурирање: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Инсталирано: %s</string>
     <string name="analyzer_tool_name">Анализатор складишта</string>
     <string name="analyzer_explanation_short">Сазнај шта заузима простор на вашем уређају.</string>
     <string name="analyzer_progress_scanning_device">Претрага уређаја складишта</string>
@@ -565,6 +777,12 @@
         <item quantity="other">%s искоришћено</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Нема директног приступа</string>
+    <string name="analyzer_content_create_swiper_session_action">Направи Swiper сесију</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper сесија направљена са %d ставком</item>
+        <item quantity="few">Swiper сесија направљена са %d ставке</item>
+        <item quantity="other">Swiper сесија направљена са %d ставки</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Примарно складиште</string>
     <string name="analyzer_storage_type_primary_description">Примарно складиште вашег уређаја. Садржи интерну SD картицу, приватно складиште за апликације и системске податке.</string>
     <string name="analyzer_storage_type_secondary_title">Секундарно складиште</string>
@@ -638,6 +856,7 @@
     <string name="automation_error_screen_unavailable_title">Екран недоступан</string>
     <string name="automation_error_screen_unavailable_body">Операција је прекинута јер је екран постао недоступан (нпр. екран искључен или активан екран закључавања).</string>
     <string name="automation_error_compatibility_title">Компатибилност аутоматизације</string>
+    <string name="automation_error_compatibility_body">СД Чистач није успео да разуме распоред екрана. Ако се ово наставља, ваш језик или подешавање можда нису потпуно подржани. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
     <string name="automation_error_timeout_title">Истек времена аутоматизације</string>
     <string name="automation_error_overlay_title">Преклоп аутоматизације</string>
     <string name="automation_error_overlay_body">СД Чистач није могао приказати преклоп аутоматизације. Проверите дозволе и покушајте рестартовати уређај.</string>
@@ -697,6 +916,19 @@
     <string name="review_app_review_action">Оцени</string>
     <string name="review_app_dismiss_action">Можда касније</string>
     <string name="review_app_body">Желите ли оставити рецензију за СД Чистач?️ ❤️</string>
+    <string name="anniversary_card_title">Срећан годишњица СД Чистача ❤️</string>
+    <string name="anniversary_card_install_date">Са вама од %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Већ %1$d година заједно. Хвала на поверењу СД Чистачу да одржава ваш Android чистим и уредним. Ослобођен простор: %2$s</item>
+        <item quantity="few">%1$d године снаге. Ваш уређај остаје чист и уредан са СД Чистачем. Ослобођен простор: %2$s</item>
+        <item quantity="other">%1$d година снаге. Ваш уређај остаје чист и уредан са СД Чистачем. Ослобођен простор: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Поделите годишњицу СД Чистача</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d година са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
+        <item quantity="few">%1$d године са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
+        <item quantity="other">%1$d година са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
+    </plurals>
     <string name="stats_label">Историја</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s је ослобођено.</item>
@@ -741,274 +973,15 @@
     <string name="area_type_public_obb_label">Јавни ресурси апликација</string>
     <string name="area_type_private_data_label">Приватни подаци апликација</string>
     <string name="area_type_portable_label">Преносно складиште</string>
-    <string name="dashboard_card_config_title">Картице контролне табле</string>
-    <string name="dashboard_card_config_desc">Подесите које картице се приказују и њихов редослед</string>
-    <string name="dashboard_card_config_header_title">Превуците за промену редоследа, укључите/искључите приказ</string>
-
-    <string name="debug_debuglog_screen_title">Дневник отклањања грешака</string>
-    <string name="debug_debuglog_screen_discard_action">Одбаци</string>
-    <string name="debug_debuglog_screen_session_path_label">Путања сесије</string>
-    <string name="debug_debuglog_screen_log_files_label">Датотеке дневника</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d датотека спремна (%2$s)</item>
-        <item quantity="few">%1$d датотеке спремне (%2$s)</item>
-        <item quantity="other">%1$d датотека спремно (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">Фасцикла дневника отклањања грешака</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d датотека користи %2$s</item>
-        <item quantity="few">%1$d датотеке користе %2$s</item>
-        <item quantity="other">%1$d датотека користи %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Нема сачуваних дневника отклањања грешака</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Обрисати све дневнике отклањања грешака?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Ово ће трајно обрисати све сачуване сесије дневника отклањања грешака. Ова акција се не може поништити.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Преводи</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">Ко је ово превео?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Захвалнице</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Посебне захвалнице нашим пријатељима.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Лиценце</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Софтвер који користи СД Чистач.</string>
-
-    <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
-    <string name="debug_card_trace_mode_label">Укључи режим праћења</string>
-    <string name="debug_card_dryrun_mode_label">Пробни режим (онемогући брисање)</string>
-    <string name="debug_card_areas_reload_action">Поново учитај области података</string>
-    <string name="debug_card_pkgs_reload_action">Поново учитај апликације</string>
-    <string name="debug_card_root_test_action">Тестирај root</string>
-    <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART профили</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART профили које Android користи за оптимизацију перформанси апликација.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_summary">Инсталационе датотеке које више нису потребне на основу инсталираних верзија апликација.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Укључи исту верзију</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Такође циљај APK датотеке које одговарају инсталираној верзији. Онемогућите да бисте уклонили само старије верзије.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Ограничења величине</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Минимална величина</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Максимална величина</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Ограничите резултате на основу величине датотеке. Оставите непостављено да бисте укључили све величине.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Ограничења старости</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Минимална старост</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Максимална старост</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Ограничите резултате на основу старости датотеке (време последње измене). Оставите непостављено да бисте укључили све старости.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Иконице пречица апликација</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Кеширане иконице за пречице апликација и менијe дељења.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
-    <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>
-
-    <string name="deduplicator_detection_method_phash_summary">Пронађите сличне датотеке анализирањем карактеристика садржаја и поређењем перцептуалних хеш вредности. ⚠️ Детекција заснована на сличности може укључити лажне позитивне резултате који захтевају ручну верификацију.</string>
-
-    <string name="deduplicator_arbiter_title">Стратегија брисања</string>
-    <string name="deduplicator_arbiter_summary">Подесите које датотеке се чувају а које бришу.</string>
-    <string name="deduplicator_arbiter_explanation">Приликом брисања дупликата, СД Чистач одлучује коју датотеку да задржи проверавајући сваки критеријум по реду. Први критеријум који произведе јасног победника одређује резултат. Превуците за промену редоследа, додирните за промену режима.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Изаберите режим</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Подеси путање…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Тип дупликата</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Преферирај тачне копије у односу на сличне датотеке.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Индексирање медија</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Узми у обзир да ли су датотеке индексиране од стране медијског провајдера.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Локација складишта</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Преферирај датотеке на интерном или екстерном складишту.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Дубина фасцикле</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Преферирај датотеке у плићим или дубљим структурама фасцикли.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Датум измене</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Преферирај старије или новије датотеке на основу времена измене.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Величина датотеке</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Преферирај веће или мање датотеке када се величине разликују.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Преферирана места</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Задржи датотеке на вашим подешеним преферираним местима.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Преферирај тачне копије</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Преферирај сличне датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Преферирај индексиране датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Преферирај неиндексиране датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Преферирај интерно складиште</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Преферирај екстерно складиште</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Преферирај плиће фасцикле</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Преферирај дубље фасцикле</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Преферирај старије датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Преферирај новије датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Преферирај веће датотеке</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Преферирај мање датотеке</string>
-
-    <string name="deduplicator_view_mode_groups_label">Групе</string>
-    <string name="deduplicator_view_mode_directories_label">Фасцикле</string>
-
-    <string name="squeezer_tool_name">Компресија медија</string>
-    <string name="squeezer_explanation_short">Компримујте слике да бисте уштедели простор за складиштење.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d слика пронађена</item>
-        <item quantity="few">%d слике пронађене</item>
-        <item quantity="other">%d слика пронађено</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s се може уштедети</item>
-        <item quantity="few">~%s се може уштедети</item>
-        <item quantity="other">~%s се може уштедети</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d слика компримована</item>
-        <item quantity="few">%d слике компримоване</item>
-        <item quantity="other">%d слика компримовано</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d слика изабрана</item>
-        <item quantity="few">%d слике изабране</item>
-        <item quantity="other">%d слика изабрано</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Локације претраге</string>
-    <string name="squeezer_search_locations_default_summary">Фасцикле камере (подразумевано)</string>
-    <string name="squeezer_min_size_title">Минимална величина датотеке</string>
-    <string name="squeezer_min_size_description">Прескочи слике мање од ове величине.</string>
-    <string name="squeezer_min_age_title">Минимална старост датотеке</string>
-    <string name="squeezer_min_age_description">Укључи само слике старије од ове старости.</string>
-    <string name="squeezer_compression_settings_label">Подешавања компресије</string>
-    <string name="squeezer_quality_label">Квалитет</string>
-    <string name="squeezer_quality_title">Квалитет компресије</string>
-    <string name="squeezer_quality_description">Нижи квалитет значи мању величину датотеке али смањен квалитет слике.</string>
-    <string name="squeezer_quality_example_format">Пример: %1$s слика → штеди ~%2$s при %3$d%% квалитету</string>
-    <string name="squeezer_quality_warning_low">Нижи квалитети могу изазвати видљиве артефакте.</string>
-    <string name="squeezer_quality_warning_high">Веома висок квалитет пружа минималну уштеду простора.</string>
-    <string name="squeezer_types_category_label">Типови слика</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Укључи JPEG слике (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Укључи WebP слике (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Прескочи претходно компримоване</string>
-    <string name="squeezer_skip_compressed_description">Прескочи слике које су већ компримоване од стране СД Чистача.</string>
-    <string name="squeezer_exif_marker_title">Упиши EXIF ознаку</string>
-    <string name="squeezer_exif_marker_description">Додај ознаку у EXIF поље коментара корисника слике да спречи поновну компресију чак и ако се историја компресије обрише.</string>
-    <string name="squeezer_estimated_savings_format">~%s уштеде</string>
-    <string name="squeezer_no_savings_expected">Ограничена уштеда</string>
-    <string name="squeezer_current_size_format">Величина: %s</string>
-    <string name="squeezer_compress_action">Компримуј</string>
-    <string name="squeezer_compress_all_action">Компримуј све</string>
-    <string name="squeezer_preview_dialog_title">Потврди компресију</string>
-    <string name="squeezer_preview_total_size">Укупна величина</string>
-    <string name="squeezer_preview_estimated_savings">Процењена уштеда</string>
-    <string name="squeezer_compress_confirmation_title">Компримовати слике?</string>
-    <string name="squeezer_compress_confirmation_message">Ово ће заменити оригиналне слике компримованим верзијама. Ова акција се не може поништити.</string>
-    <string name="squeezer_history_title">Историја компресије</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d ставка (%2$s)</item>
-        <item quantity="few">%1$d ставке (%2$s)</item>
-        <item quantity="other">%1$d ставки (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Нема историје компресије</string>
-    <string name="squeezer_history_clear_title">Обриши историју компресије</string>
-    <string name="squeezer_history_clear_message">Ово ће омогућити да се претходно компримоване слике поново компримују. Саме слике нису погођене.</string>
-    <string name="squeezer_onboarding_title">О компресији слика</string>
-    <string name="squeezer_onboarding_message">Компресија слика смањује величину датотеке уклањањем визуелних детаља. Овај процес је неповратан - оригинални квалитет се не може вратити.\n\nЕво прегледа како ће ваше слике изгледати:</string>
-    <string name="squeezer_onboarding_original_label">Оригинал</string>
-    <string name="squeezer_onboarding_compressed_label">После компресије</string>
-    <string name="squeezer_onboarding_quality_label">Квалитет: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Разумем</string>
-    <string name="squeezer_compare_action">Прегледај поређење</string>
-    <string name="squeezer_no_example_found">Нису пронађене слике на изабраним путањама.</string>
-    <string name="squeezer_result_empty_message">Нису пронађене слике за компресију.</string>
-    <string name="squeezer_setup_warning">Компресија трајно смањује квалитет слике да би уштедела простор за складиштење. Ово се не може поништити. Пажљиво прегледајте подешавања пре почетка.</string>
-    <string name="squeezer_setup_explanation">Компресија медија смањује величину датотеке слика да ослободи простор за складиштење. Ово трајно смањује квалитет слике и не може се поништити. Пажљиво прегледајте подешавања пре почетка.</string>
-    <string name="squeezer_setup_paths_title">Локације претраге</string>
-    <string name="squeezer_setup_paths_default">Изаберите фасцикле за претрагу</string>
-    <string name="squeezer_setup_quality_title">Квалитет компресије</string>
-    <string name="squeezer_setup_age_title">Минимална старост</string>
-    <string name="squeezer_setup_age_none">Без ограничења (укључи све датотеке)</string>
-    <string name="squeezer_setup_start_action">Покрени скенирање</string>
-    <string name="squeezer_quality_hint_very_low">Квалитет испод 40% може створити неупотребљиве слике.</string>
-    <string name="squeezer_quality_hint_low">Нижи квалитет штеди више простора али може изазвати видљиве артефакте.</string>
-    <string name="squeezer_quality_hint_high">Веома висок квалитет пружа минималну уштеду простора.</string>
-    <string name="squeezer_quality_hint_normal">Уравнотежен квалитет и уштеда простора.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Најмање %d дан старо</item>
-        <item quantity="few">Најмање %d дана старо</item>
-        <item quantity="other">Најмање %d дана старо</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Процењена ~%d%% уштеда за JPEG датотеке</string>
-
-    <string name="appcontrol_archive_action">Архивирај</string>
-    <string name="appcontrol_archive_selection_action">Архивирај апликације</string>
-    <string name="appcontrol_archive_description">Архивирајте да ослободите простор док чувате податке апликације за касније враћање.</string>
-    <string name="appcontrol_progress_archiving_app">Архивирање апликације…</string>
-    <string name="appcontrol_archive_confirmation_title">Потврди архивирање</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">Архивирати %d апликацију?</item>
-        <item quantity="few">Архивирати %d апликације?</item>
-        <item quantity="other">Архивирати %d апликација?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d апликација архивирана</item>
-        <item quantity="few">%d апликације архивиране</item>
-        <item quantity="other">%d апликација архивирано</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Врати</string>
-    <string name="appcontrol_restore_selection_action">Врати апликације</string>
-    <string name="appcontrol_restore_description">Врати архивирану апликацију у потпуно инсталирано стање. Подаци апликације су сачувани.</string>
-    <string name="appcontrol_progress_restoring_app">Враћање апликације…</string>
-    <string name="appcontrol_restore_confirmation_title">Потврди враћање</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">Вратити %d апликацију?</item>
-        <item quantity="few">Вратити %d апликације?</item>
-        <item quantity="other">Вратити %d апликација?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d апликација враћена</item>
-        <item quantity="few">%d апликације враћене</item>
-        <item quantity="other">%d апликација враћено</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Подели листу</string>
-    <string name="appcontrol_share_list_title">Моје апликације</string>
-    <string name="appcontrol_share_list_footer">Подељено преко СД Чистач 2</string>
-    <string name="appcontrol_automation_subtitle_archiving">Архивирање…</string>
-    <string name="appcontrol_automation_progress_find_archive">Тражим дугме \"Архивирај\" (кључне речи: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Враћање…</string>
-    <string name="appcontrol_automation_progress_find_restore">Тражим дугме \"Врати\" (кључне речи: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">Инсталирано: %s</string>
-
-    <string name="analyzer_content_create_swiper_session_action">Направи Swiper сесију</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Swiper сесија направљена са %d ставком</item>
-        <item quantity="few">Swiper сесија направљена са %d ставке</item>
-        <item quantity="other">Swiper сесија направљена са %d ставки</item>
-    </plurals>
-
-    <string name="automation_error_compatibility_body">СД Чистач није успео да разуме распоред екрана. Ако се ово наставља, ваш језик или подешавање можда нису потпуно подржани. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
-
-    <string name="anniversary_card_title">Срећан годишњица СД Чистача ❤️</string>
-    <string name="anniversary_card_install_date">Са вама од %s</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="one">Већ %1$d година заједно. Хвала на поверењу СД Чистачу да одржава ваш Android чистим и уредним. Ослобођен простор: %2$s</item>
-        <item quantity="few">%1$d године снаге. Ваш уређај остаје чист и уредан са СД Чистачем. Ослобођен простор: %2$s</item>
-        <item quantity="other">%1$d година снаге. Ваш уређај остаје чист и уредан са СД Чистачем. Ослобођен простор: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">Поделите годишњицу СД Чистача</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d година са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
-        <item quantity="few">%1$d године са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
-        <item quantity="other">%1$d година са СД Чистачем — Ослобођен простор: %2$s. Одржава ваш Android чистим и уредним. #SDMaid\nИспробајте: %3$s</item>
-    </plurals>
-
     <string name="shortcut_appcontrol_short">Контрола апликација</string>
     <string name="shortcut_appcontrol_long">Управљајте инсталираним апликацијама</string>
     <string name="shortcut_onetap_short">Скенирај + Обриши</string>
     <string name="shortcut_onetap_long">Скенирање и брисање у једној акцији</string>
-
     <string name="shortcuts_settings_category">Пречице</string>
     <string name="shortcuts_onetap_enabled_title">Пречица једним кликом</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи пречицу \"Скенирај + Обриши\" при дугом притиску на иконицу апликације. Користи исте алатке као контролна табла једним кликом.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Превуците кроз датотеке да одлучите шта да задржите или обришете.</string>
-    <string name="swiper_dashcard_description">Ручно прегледајте датотеке у одређеним фасциклама. Превуците да одлучите шта да задржите или обришете.</string>
     <string name="swiper_start_action">Почни превлачење</string>
     <string name="swiper_continue_action">Настави сесију</string>
-    <string name="swiper_sessions_description">Неке датотеке захтевају људску одлуку. Превуците кроз ставке и изаберите шта да задржите или обришете. Прескочите све чега нисте сигурни. Овај алат вам омогућава да ручно прегледате одређене фасцикле, и ништа се не уклања док не потврдите.</string>
     <string name="swiper_select_folders_action">Изаберите фасцикле</string>
     <string name="swiper_scanning_title">Скенирање…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1057,7 +1030,6 @@
     <string name="swiper_discard_session_confirmation_title">Одбацити сесију?</string>
     <string name="swiper_discard_session_confirmation_message">Све одлуке ће бити изгубљене. Да ли сте сигурни?</string>
     <string name="swiper_no_preview_available">Преглед није доступан</string>
-
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Настави сесију од пре %1$d дана (%2$d%% завршено)</item>
         <item quantity="few">Настави сесију од пре %1$d дана (%2$d%% завршено)</item>
@@ -1130,13 +1102,11 @@
         <item quantity="other">%d обрисано</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">Искључити \"%1$s\" из Swiper скенирања?</string>
-
     <string name="swiper_sessions_header_title">Спремни за чишћење?</string>
     <string name="swiper_sessions_suggestions_label">Пробајте да почнете са:</string>
     <string name="swiper_sessions_suggestion_downloads">Фасцикла за преузимања</string>
     <string name="swiper_sessions_suggestion_screenshots">Снимци екрана</string>
     <string name="swiper_sessions_suggestion_camera">Снимци камере</string>
-
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Задржи!</string>
     <string name="swiper_stamp_keep_2">Лепо!</string>
@@ -1154,4 +1124,6 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Упс!</string>
     <string name="swiper_stamp_undo_4">Стани!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

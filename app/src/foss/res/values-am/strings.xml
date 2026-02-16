@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name_upgraded">SD Maid SE FOSS</string>
-    <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS ያስፈልጋል</string>
     <string name="upgrades_dashcard_title">SD Maid SE ያሻሽሉ</string>
     <string name="upgrades_dashcard_body">ተጨማሪ ባህሪያትን ይክፈቱ እና ቀጣይ ልማትን ለመደገፍ ደጋፊ ይሁኑ!</string>

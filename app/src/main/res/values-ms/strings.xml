@@ -7,12 +7,22 @@
     <string name="dashboard_settings_oneclick_summary">Mulakan imbasan dan pemadaman untuk semua alatan dengan satu ketikan pada butang tindakan papan pemuka, tiada pengesahan tambahan.</string>
     <string name="dashboard_settings_oneclick_tools_title">Alat satu-ketik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Alatan mana yang perlu disertakan dalam operasi satu ketikan?</string>
+    <string name="dashboard_card_config_title">Kad papan pemuka</string>
+    <string name="dashboard_card_config_desc">Konfigurasi kad yang ditunjukkan dan susunannya</string>
+    <string name="dashboard_card_config_header_title">Seret untuk susun semula, togol untuk tunjuk/sembunyi</string>
     <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
     <string name="debug_debuglog_recording_progress">Merakam log nyahpepijat</string>
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
     <string name="debug_debuglog_stop_action">Hentikan rakaman</string>
     <string name="debug_debuglog_sensitive_information_message">Fail yang dijana mengandungi maklumat sensitif (misalnya, nama fail dan aplikasi yang dipasang). Hanya kongsi dengan pihak yang dipercayai.</string>
+    <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
+    <string name="debug_debuglog_screen_discard_action">Buang</string>
+    <string name="debug_debuglog_screen_session_path_label">Laluan Sesi</string>
+    <string name="debug_debuglog_screen_log_files_label">Fail Log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d fail sedia (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (cth. nama fail dan aplikasi yang dipasang). Kongsi hanya dengan pihak yang dipercayai (cth. pembangun yang menyelesaikan masalah).</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
@@ -77,10 +87,23 @@
     <string name="support_installid_desc">Laporan ralat automatik adalah tanpa nama. Kongsi ID pemasangan anda jika pembangun perlu mencari laporan ralat anda.</string>
     <string name="support_debuglog_label">Log nyahpepijat</string>
     <string name="support_debuglog_desc">Rakam semua yang aplikasi lakukan ke dalam fail teks yang boleh anda kongsi.</string>
+    <string name="support_debuglog_folder_label">Folder log nyahpepijat</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d fail menggunakan %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Tiada log nyahpepijat disimpan</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Padam semua log nyahpepijat?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Ini akan memadam secara kekal semua sesi log nyahpepijat yang disimpan. Tindakan ini tidak boleh dibatalkan.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat melepak dan bertanya soalan.</string>
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Ucapan terima kasih</string>
+    <string name="settings_acknowledgements_category_translations_title">Terjemahan</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Siapa yang menterjemahkan ini?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Terima kasih</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Terima kasih khas kepada rakan-rakan kami.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lesen</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Perisian yang digunakan oleh SD Maid.</string>
     <string name="setup_label">Persediaan</string>
     <string name="setup_incomplete_card_title">Persediaan tidak lengkap</string>
     <string name="setup_incomplete_card_body">Selesaikan persediaan SD Maid untuk mendapatkan hasil yang lebih baik.</string>
@@ -153,6 +176,13 @@
     <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
     <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
+    <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>
+    <string name="debug_card_dryrun_mode_label">Mod larian kering (nyahaktif pemadaman)</string>
+    <string name="debug_card_areas_reload_action">Muat semula kawasan data</string>
+    <string name="debug_card_pkgs_reload_action">Muat semula aplikasi</string>
+    <string name="debug_card_root_test_action">Uji root</string>
+    <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
     <string name="settings_category_tools_label">Alatan</string>
     <string name="settings_category_filter">Penyaring</string>
     <string name="settings_category_risklevel">Tahap risiko</string>
@@ -186,6 +216,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Data aplikasi peribadi, mis. kelayakan, tetapan apl tetapi juga cache pelayar.</string>
     <string name="corpsefinder_filter_dalvik_label">Cache Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Data pelaksanaan aplikasi dicache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profil ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profil ART digunakan oleh Android untuk mengoptimumkan prestasi aplikasi.</string>
     <string name="corpsefinder_filter_applib_label">Perpustakaan aplikasi</string>
     <string name="corpsefinder_filter_applib_summary">Data perpustakaan berkaitan aplikasi.</string>
     <string name="corpsefinder_filter_appsource_label">Sumber aplikasi</string>
@@ -236,6 +268,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Umur tangkapan skrin</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Hanya padam tangkapan skrin yang lebih lama dari usia yang ditetapkan.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK berlebihan</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Fail pemasangan yang tidak lagi diperlukan berdasarkan versi aplikasi yang dipasang.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Sertakan versi yang sama</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Juga sasarkan fail APK yang sepadan dengan versi yang dipasang. Nyahaktif untuk hanya mengalih keluar versi lama.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folder</string>
     <string name="systemcleaner_filter_lostdir_summary">Fail sementara yang dibuat apabila memindahkan data antara peranti Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Fail Linux</string>
@@ -296,6 +331,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Sama dengan</string>
     <string name="systemcleaner_customfilter_last_edit">Terakhir disunting</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Carian langsung</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Sekatan saiz</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Saiz minimum</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Saiz maksimum</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Hadkan padanan berdasarkan saiz fail. Biarkan tidak ditetapkan untuk memadankan sebarang saiz.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Sekatan umur</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Umur minimum</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Umur maksimum</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Hadkan padanan berdasarkan umur fail (masa pengubahsuaian terakhir). Biarkan tidak ditetapkan untuk memadankan sebarang umur.</string>
     <string name="systemcleaner_customfilter_import_action">Import penapis tersuai</string>
     <string name="systemcleaner_customfilter_export_action">Eksport penapis tersuai</string>
     <string name="appcleaner_tool_name">AppCleaner</string>
@@ -338,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Fail yang telah dipadam tetapi dimasukkan ke dalam folder khas untuk membolehkannya dipulihkan.</string>
     <string name="appcleaner_filter_webview_label">Fail webview</string>
     <string name="appcleaner_filter_webview_summary">Fail dicache oleh tika Webview yang digunakan dalam apl.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikon pintasan aplikasi</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Ikon cache untuk pintasan aplikasi dan menu kongsi.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sandaran WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Padamkan salinan tambahan sandaran WhatsApp dan simpan yang terkini sahaja.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Media yang diterima melalui WhatsApp seperti gambar, video dan audio.</string>
@@ -386,6 +431,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Aplikasi sistem ini tidak mempunyai skrin tetapan. Pembersihan cache melalui perkhidmatan kebolehcapaian tidak mungkin. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikasi sistem tidak dikonfigurasi dengan betul</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikasi Keselamatan HyperOS (com.miui.securitycenter) kehilangan kebenaran Usage Stats (GET_USAGE_STATS). Ini memecahkan ciri seperti \"Kosongkan Data\" dalam butiran aplikasi dan pembersihan cache melalui kebolehcapaian. Berikan kebenaran untuk memulihkan fungsi penuh.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersih</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cachenya. Ia boleh membantu membersihkan cache sesetengah aplikasi, tetapi mungkin menyebabkan aplikasi tidak berfungsi dengan betul dan memerlukan mula semula secara manual.</string>
+    <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>
     <string name="deduplicator_explanation_short">Cari data pendua pada peranti anda.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">%d pendua dipadam</item>
@@ -405,6 +453,7 @@
     <string name="deduplicator_detection_method_checksum_title">Checksum kandungan</string>
     <string name="deduplicator_detection_method_checksum_summary">Tentukan pendua dengan mengira checksum untuk fail. Fail dengan checksum yang sepadan mempunyai kandungan yang sama persis.</string>
     <string name="deduplicator_detection_method_phash_title">Hash persepsi</string>
+    <string name="deduplicator_detection_method_phash_summary">Cari fail yang serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi. ⚠️ Pengesanan berasaskan keserupaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
     <string name="deduplicator_occupied_space_label">Storan yang digunakan</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s diduduki oleh pendua</item>
@@ -422,6 +471,115 @@
     <string name="deduplicator_details_cluster_title">Butiran kelompok</string>
     <string name="deduplicator_matches_exact_label">Salinan tepat</string>
     <string name="deduplicator_matches_similar_label">Fail serupa</string>
+    <string name="deduplicator_arbiter_title">Strategi pemadaman</string>
+    <string name="deduplicator_arbiter_summary">Konfigurasi fail mana yang disimpan dan mana yang dipadam.</string>
+    <string name="deduplicator_arbiter_explanation">Apabila memadam pendua, SD Maid menentukan fail mana yang disimpan dengan menyemak setiap kriteria mengikut turutan. Kriteria pertama yang menghasilkan pemenang jelas menentukan keputusan. Seret untuk menyusun semula, ketik untuk menukar mod.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Pilih mod</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Konfigurasi laluan…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Jenis pendua</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Utamakan salinan tepat berbanding fail serupa.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Pengindeksan media</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Pertimbangkan sama ada fail diindeks oleh penyedia media.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lokasi storan</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Utamakan fail pada storan dalaman atau luaran.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Kedalaman folder</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Utamakan fail dalam struktur folder yang cetek atau dalam.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Tarikh pengubahsuaian</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Utamakan fail lama atau baharu berdasarkan masa pengubahsuaian.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Saiz fail</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Utamakan fail yang lebih besar atau lebih kecil apabila saiz berbeza.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Lokasi pilihan</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Simpan fail di lokasi pilihan anda yang dikonfigurasi.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Utamakan salinan tepat</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Utamakan fail serupa</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Utamakan fail terindeks</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Utamakan fail tidak terindeks</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Utamakan storan dalaman</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Utamakan storan luaran</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Utamakan folder cetek</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Utamakan folder dalam</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Utamakan fail lama</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Utamakan fail baharu</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Utamakan fail lebih besar</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Utamakan fail lebih kecil</string>
+    <string name="deduplicator_view_mode_groups_label">Kumpulan</string>
+    <string name="deduplicator_view_mode_directories_label">Folder</string>
+    <string name="squeezer_tool_name">Mampat Media</string>
+    <string name="squeezer_explanation_short">Mampatkan imej untuk menjimatkan ruang storan.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">%d imej dijumpai</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">~%s boleh dijimatkan</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">%d imej dimampatkan</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">%d imej dipilih</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Lokasi carian</string>
+    <string name="squeezer_search_locations_default_summary">Folder kamera (lalai)</string>
+    <string name="squeezer_min_size_title">Saiz fail minimum</string>
+    <string name="squeezer_min_size_description">Langkau imej yang lebih kecil daripada saiz ini.</string>
+    <string name="squeezer_min_age_title">Umur fail minimum</string>
+    <string name="squeezer_min_age_description">Hanya sertakan imej yang lebih lama daripada umur ini.</string>
+    <string name="squeezer_compression_settings_label">Tetapan mampatan</string>
+    <string name="squeezer_quality_label">Kualiti</string>
+    <string name="squeezer_quality_title">Kualiti mampatan</string>
+    <string name="squeezer_quality_description">Kualiti rendah bermaksud saiz fail lebih kecil tetapi kualiti imej berkurangan.</string>
+    <string name="squeezer_quality_example_format">Contoh: %1$s imej → jimat ~%2$s pada kualiti %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Kualiti rendah mungkin menyebabkan artifak yang kelihatan.</string>
+    <string name="squeezer_quality_warning_high">Kualiti sangat tinggi memberikan penjimatan ruang yang minimum.</string>
+    <string name="squeezer_types_category_label">Jenis imej</string>
+    <string name="squeezer_type_jpeg_description">Sertakan imej JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Sertakan imej WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Langkau yang telah dimampatkan</string>
+    <string name="squeezer_skip_compressed_description">Langkau imej yang telah dimampatkan oleh SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Tulis penanda EXIF</string>
+    <string name="squeezer_exif_marker_description">Tambah penanda pada medan ulasan pengguna EXIF imej untuk mengelakkan pemampatan semula walaupun sejarah pemampatan dikosongkan.</string>
+    <string name="squeezer_estimated_savings_format">~%s penjimatan</string>
+    <string name="squeezer_no_savings_expected">Penjimatan terhad</string>
+    <string name="squeezer_current_size_format">Saiz: %s</string>
+    <string name="squeezer_compress_action">Mampat</string>
+    <string name="squeezer_compress_all_action">Mampat semua</string>
+    <string name="squeezer_preview_dialog_title">Sahkan pemampatan</string>
+    <string name="squeezer_preview_total_size">Jumlah saiz</string>
+    <string name="squeezer_preview_estimated_savings">Anggaran penjimatan</string>
+    <string name="squeezer_compress_confirmation_title">Mampat imej?</string>
+    <string name="squeezer_compress_confirmation_message">Ini akan menggantikan imej asal dengan versi yang dimampatkan. Tindakan ini tidak boleh dibatalkan.</string>
+    <string name="squeezer_history_title">Sejarah pemampatan</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d item (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Tiada sejarah pemampatan</string>
+    <string name="squeezer_history_clear_title">Kosongkan sejarah pemampatan</string>
+    <string name="squeezer_history_clear_message">Ini akan membenarkan imej yang telah dimampatkan sebelum ini untuk dimampatkan semula. Imej itu sendiri tidak terjejas.</string>
+    <string name="squeezer_onboarding_title">Tentang Pemampatan Imej</string>
+    <string name="squeezer_onboarding_message">Pemampatan imej mengurangkan saiz fail dengan mengalih keluar butiran visual. Proses ini tidak boleh dibalikkan - kualiti asal tidak boleh dipulihkan.\n\nBerikut ialah pratonton bagaimana imej anda akan kelihatan:</string>
+    <string name="squeezer_onboarding_original_label">Asal</string>
+    <string name="squeezer_onboarding_compressed_label">Selepas pemampatan</string>
+    <string name="squeezer_onboarding_quality_label">Kualiti: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Faham</string>
+    <string name="squeezer_compare_action">Lihat perbandingan</string>
+    <string name="squeezer_no_example_found">Tiada imej dijumpai di laluan yang dipilih.</string>
+    <string name="squeezer_result_empty_message">Tiada imej yang boleh dimampatkan dijumpai.</string>
+    <string name="squeezer_setup_warning">Pemampatan mengurangkan kualiti imej secara kekal untuk menjimatkan ruang storan. Ini tidak boleh dibatalkan. Semak tetapan anda dengan teliti sebelum memulakan.</string>
+    <string name="squeezer_setup_explanation">Mampat Media mengurangkan saiz fail imej untuk membebaskan ruang storan. Ini mengurangkan kualiti imej secara kekal dan tidak boleh dibatalkan. Semak tetapan anda dengan teliti sebelum memulakan.</string>
+    <string name="squeezer_setup_paths_title">Lokasi carian</string>
+    <string name="squeezer_setup_paths_default">Pilih folder untuk dicari</string>
+    <string name="squeezer_setup_quality_title">Kualiti mampatan</string>
+    <string name="squeezer_setup_age_title">Umur minimum</string>
+    <string name="squeezer_setup_age_none">Tiada had (sertakan semua fail)</string>
+    <string name="squeezer_setup_start_action">Mulakan Imbasan</string>
+    <string name="squeezer_quality_hint_very_low">Kualiti di bawah 40% mungkin mencipta imej yang tidak boleh digunakan.</string>
+    <string name="squeezer_quality_hint_low">Kualiti rendah menjimatkan lebih banyak ruang tetapi mungkin menyebabkan artifak yang kelihatan.</string>
+    <string name="squeezer_quality_hint_high">Kualiti sangat tinggi memberikan penjimatan ruang yang minimum.</string>
+    <string name="squeezer_quality_hint_normal">Kualiti dan penjimatan ruang yang seimbang.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">Sekurang-kurangnya %d hari</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Anggaran ~%d%% penjimatan untuk fail JPEG</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplikasi dipasang pada peranti anda.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -466,6 +624,28 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">%d aplikasi telah dinyahpasang</item>
     </plurals>
+    <string name="appcontrol_archive_action">Arkib</string>
+    <string name="appcontrol_archive_selection_action">Arkib aplikasi</string>
+    <string name="appcontrol_archive_description">Arkib untuk membebaskan ruang sambil mengekalkan data aplikasi untuk pemulihan kemudian.</string>
+    <string name="appcontrol_progress_archiving_app">Mengarkib aplikasi…</string>
+    <string name="appcontrol_archive_confirmation_title">Sahkan arkib</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">Arkib %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d aplikasi diarkibkan</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Pulih</string>
+    <string name="appcontrol_restore_selection_action">Pulih aplikasi</string>
+    <string name="appcontrol_restore_description">Pulih aplikasi yang diarkibkan ke keadaan dipasang sepenuhnya. Data aplikasi dikekalkan.</string>
+    <string name="appcontrol_progress_restoring_app">Memulihkan aplikasi…</string>
+    <string name="appcontrol_restore_confirmation_title">Sahkan pemulihan</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">Pulih %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d aplikasi dipulihkan</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Saiz aplikasi</string>
     <string name="appcontrol_app_sizes_apk_label">APK</string>
     <string name="appcontrol_toggle_confirmation_title">Togol</string>
@@ -485,6 +665,9 @@
         <item quantity="other">%d aplikasi telah dieksport</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Mengeksport: %s</string>
+    <string name="appcontrol_share_list_action">Kongsi senarai</string>
+    <string name="appcontrol_share_list_title">Aplikasi Saya</string>
+    <string name="appcontrol_share_list_footer">Dikongsi melalui SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Paksa berhenti</string>
     <string name="appcontrol_force_stop_action">Paksa berhenti</string>
     <string name="appcontrol_force_stop_confirm_title">Paksa berhenti</string>
@@ -499,8 +682,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti aplikasi</string>
     <string name="appcontrol_automation_progress_find_force_stop">Mencari butang paksa berhenti</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
+    <string name="appcontrol_automation_subtitle_archiving">Mengarkib…</string>
+    <string name="appcontrol_automation_progress_find_archive">Mencari butang \"Arkib\" (kata kunci: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Memulihkan…</string>
+    <string name="appcontrol_automation_progress_find_restore">Mencari butang \"Pulih\" (kata kunci: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Masa skrin: %1$s sejak %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kemaskini terakhir: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="analyzer_tool_name">Penganalisis Storan</string>
     <string name="analyzer_explanation_short">Ketahui apa yang menggunakan ruang pada peranti anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari peranti storan</string>
@@ -516,6 +704,10 @@
         <item quantity="other">%s digunakan</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
+    <string name="analyzer_content_create_swiper_session_action">Cipta sesi Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Sesi Swiper dicipta dengan %d item</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Storan utama</string>
     <string name="analyzer_storage_type_primary_description">Storan dalaman peranti</string>
     <string name="analyzer_storage_type_secondary_title">Storan sekunder</string>
@@ -646,6 +838,15 @@
     <string name="review_app_review_action">Ulas aplikasi</string>
     <string name="review_app_dismiss_action">Tidak, terima kasih</string>
     <string name="review_app_body">Adakah anda ingin meninggalkan ulasan untuk SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Selamat Ulang Tahun SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Bersama anda sejak %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">%1$d tahun bersama. Terima kasih kerana mempercayai SD Maid untuk memastikan Android anda bersih dan kemas. Ruang dibebaskan: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Kongsi ulang tahun SD Maid anda</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d tahun dengan SD Maid — Ruang dibebaskan: %2$s. Memastikan Android anda bersih dan kemas. #SDMaid\nCuba: %3$s</item>
+    </plurals>
     <string name="stats_label">Statistik</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s telah dibebaskan.</item>
@@ -682,244 +883,15 @@
     <string name="area_type_public_obb_label">OBB aplikasi awam</string>
     <string name="area_type_private_data_label">Data aplikasi peribadi</string>
     <string name="area_type_portable_label">Storan mudah alih</string>
-    <string name="dashboard_card_config_title">Kad papan pemuka</string>
-    <string name="dashboard_card_config_desc">Konfigurasi kad yang ditunjukkan dan susunannya</string>
-    <string name="dashboard_card_config_header_title">Seret untuk susun semula, togol untuk tunjuk/sembunyi</string>
-
-    <string name="debug_debuglog_screen_title">Log Nyahpepijat</string>
-    <string name="debug_debuglog_screen_discard_action">Buang</string>
-    <string name="debug_debuglog_screen_session_path_label">Laluan Sesi</string>
-    <string name="debug_debuglog_screen_log_files_label">Fail Log</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d fail sedia (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">Folder log nyahpepijat</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="other">%1$d fail menggunakan %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Tiada log nyahpepijat disimpan</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Padam semua log nyahpepijat?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Ini akan memadam secara kekal semua sesi log nyahpepijat yang disimpan. Tindakan ini tidak boleh dibatalkan.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Terjemahan</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">Siapa yang menterjemahkan ini?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Terima kasih</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Terima kasih khas kepada rakan-rakan kami.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Lesen</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Perisian yang digunakan oleh SD Maid.</string>
-
-    <string name="ui_theme_style_materialyou_label">Material You</string>
-
-    <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
-    <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>
-    <string name="debug_card_dryrun_mode_label">Mod larian kering (nyahaktif pemadaman)</string>
-    <string name="debug_card_areas_reload_action">Muat semula kawasan data</string>
-    <string name="debug_card_pkgs_reload_action">Muat semula aplikasi</string>
-    <string name="debug_card_root_test_action">Uji root</string>
-    <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">Profil ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Profil ART digunakan oleh Android untuk mengoptimumkan prestasi aplikasi.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_summary">Fail pemasangan yang tidak lagi diperlukan berdasarkan versi aplikasi yang dipasang.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Sertakan versi yang sama</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Juga sasarkan fail APK yang sepadan dengan versi yang dipasang. Nyahaktif untuk hanya mengalih keluar versi lama.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Sekatan saiz</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Saiz minimum</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Saiz maksimum</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Hadkan padanan berdasarkan saiz fail. Biarkan tidak ditetapkan untuk memadankan sebarang saiz.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Sekatan umur</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Umur minimum</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Umur maksimum</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Hadkan padanan berdasarkan umur fail (masa pengubahsuaian terakhir). Biarkan tidak ditetapkan untuk memadankan sebarang umur.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Ikon pintasan aplikasi</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Ikon cache untuk pintasan aplikasi dan menu kongsi.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Paksa berhenti sebelum membersih</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Paksa berhenti aplikasi sebelum membersihkan cachenya. Ia boleh membantu membersihkan cache sesetengah aplikasi, tetapi mungkin menyebabkan aplikasi tidak berfungsi dengan betul dan memerlukan mula semula secara manual.</string>
-    <string name="appcleaner_progress_force_stopping">Memaksa berhenti aplikasi…</string>
-
-    <string name="deduplicator_detection_method_phash_summary">Cari fail yang serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi. ⚠️ Pengesanan berasaskan keserupaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
-
-    <string name="deduplicator_arbiter_title">Strategi pemadaman</string>
-    <string name="deduplicator_arbiter_summary">Konfigurasi fail mana yang disimpan dan mana yang dipadam.</string>
-    <string name="deduplicator_arbiter_explanation">Apabila memadam pendua, SD Maid menentukan fail mana yang disimpan dengan menyemak setiap kriteria mengikut turutan. Kriteria pertama yang menghasilkan pemenang jelas menentukan keputusan. Seret untuk menyusun semula, ketik untuk menukar mod.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Pilih mod</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Konfigurasi laluan…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Jenis pendua</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Utamakan salinan tepat berbanding fail serupa.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Pengindeksan media</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Pertimbangkan sama ada fail diindeks oleh penyedia media.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Lokasi storan</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Utamakan fail pada storan dalaman atau luaran.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Kedalaman folder</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Utamakan fail dalam struktur folder yang cetek atau dalam.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Tarikh pengubahsuaian</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Utamakan fail lama atau baharu berdasarkan masa pengubahsuaian.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Saiz fail</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Utamakan fail yang lebih besar atau lebih kecil apabila saiz berbeza.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Lokasi pilihan</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Simpan fail di lokasi pilihan anda yang dikonfigurasi.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Utamakan salinan tepat</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Utamakan fail serupa</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Utamakan fail terindeks</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Utamakan fail tidak terindeks</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Utamakan storan dalaman</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Utamakan storan luaran</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Utamakan folder cetek</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Utamakan folder dalam</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Utamakan fail lama</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Utamakan fail baharu</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Utamakan fail lebih besar</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Utamakan fail lebih kecil</string>
-
-    <string name="deduplicator_view_mode_groups_label">Kumpulan</string>
-    <string name="deduplicator_view_mode_directories_label">Folder</string>
-
-    <string name="squeezer_tool_name">Mampat Media</string>
-    <string name="squeezer_explanation_short">Mampatkan imej untuk menjimatkan ruang storan.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">%d imej dijumpai</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="other">~%s boleh dijimatkan</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">%d imej dimampatkan</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="other">%d imej dipilih</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Lokasi carian</string>
-    <string name="squeezer_search_locations_default_summary">Folder kamera (lalai)</string>
-    <string name="squeezer_min_size_title">Saiz fail minimum</string>
-    <string name="squeezer_min_size_description">Langkau imej yang lebih kecil daripada saiz ini.</string>
-    <string name="squeezer_min_age_title">Umur fail minimum</string>
-    <string name="squeezer_min_age_description">Hanya sertakan imej yang lebih lama daripada umur ini.</string>
-    <string name="squeezer_compression_settings_label">Tetapan mampatan</string>
-    <string name="squeezer_quality_label">Kualiti</string>
-    <string name="squeezer_quality_title">Kualiti mampatan</string>
-    <string name="squeezer_quality_description">Kualiti rendah bermaksud saiz fail lebih kecil tetapi kualiti imej berkurangan.</string>
-    <string name="squeezer_quality_example_format">Contoh: %1$s imej → jimat ~%2$s pada kualiti %3$d%%</string>
-    <string name="squeezer_quality_warning_low">Kualiti rendah mungkin menyebabkan artifak yang kelihatan.</string>
-    <string name="squeezer_quality_warning_high">Kualiti sangat tinggi memberikan penjimatan ruang yang minimum.</string>
-    <string name="squeezer_types_category_label">Jenis imej</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Sertakan imej JPEG (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Sertakan imej WebP (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Langkau yang telah dimampatkan</string>
-    <string name="squeezer_skip_compressed_description">Langkau imej yang telah dimampatkan oleh SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Tulis penanda EXIF</string>
-    <string name="squeezer_exif_marker_description">Tambah penanda pada medan ulasan pengguna EXIF imej untuk mengelakkan pemampatan semula walaupun sejarah pemampatan dikosongkan.</string>
-    <string name="squeezer_estimated_savings_format">~%s penjimatan</string>
-    <string name="squeezer_no_savings_expected">Penjimatan terhad</string>
-    <string name="squeezer_current_size_format">Saiz: %s</string>
-    <string name="squeezer_compress_action">Mampat</string>
-    <string name="squeezer_compress_all_action">Mampat semua</string>
-    <string name="squeezer_preview_dialog_title">Sahkan pemampatan</string>
-    <string name="squeezer_preview_total_size">Jumlah saiz</string>
-    <string name="squeezer_preview_estimated_savings">Anggaran penjimatan</string>
-    <string name="squeezer_compress_confirmation_title">Mampat imej?</string>
-    <string name="squeezer_compress_confirmation_message">Ini akan menggantikan imej asal dengan versi yang dimampatkan. Tindakan ini tidak boleh dibatalkan.</string>
-    <string name="squeezer_history_title">Sejarah pemampatan</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="other">%1$d item (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Tiada sejarah pemampatan</string>
-    <string name="squeezer_history_clear_title">Kosongkan sejarah pemampatan</string>
-    <string name="squeezer_history_clear_message">Ini akan membenarkan imej yang telah dimampatkan sebelum ini untuk dimampatkan semula. Imej itu sendiri tidak terjejas.</string>
-    <string name="squeezer_onboarding_title">Tentang Pemampatan Imej</string>
-    <string name="squeezer_onboarding_message">Pemampatan imej mengurangkan saiz fail dengan mengalih keluar butiran visual. Proses ini tidak boleh dibalikkan - kualiti asal tidak boleh dipulihkan.\n\nBerikut ialah pratonton bagaimana imej anda akan kelihatan:</string>
-    <string name="squeezer_onboarding_original_label">Asal</string>
-    <string name="squeezer_onboarding_compressed_label">Selepas pemampatan</string>
-    <string name="squeezer_onboarding_quality_label">Kualiti: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Faham</string>
-    <string name="squeezer_compare_action">Lihat perbandingan</string>
-    <string name="squeezer_no_example_found">Tiada imej dijumpai di laluan yang dipilih.</string>
-    <string name="squeezer_result_empty_message">Tiada imej yang boleh dimampatkan dijumpai.</string>
-    <string name="squeezer_setup_warning">Pemampatan mengurangkan kualiti imej secara kekal untuk menjimatkan ruang storan. Ini tidak boleh dibatalkan. Semak tetapan anda dengan teliti sebelum memulakan.</string>
-    <string name="squeezer_setup_explanation">Mampat Media mengurangkan saiz fail imej untuk membebaskan ruang storan. Ini mengurangkan kualiti imej secara kekal dan tidak boleh dibatalkan. Semak tetapan anda dengan teliti sebelum memulakan.</string>
-    <string name="squeezer_setup_paths_title">Lokasi carian</string>
-    <string name="squeezer_setup_paths_default">Pilih folder untuk dicari</string>
-    <string name="squeezer_setup_quality_title">Kualiti mampatan</string>
-    <string name="squeezer_setup_age_title">Umur minimum</string>
-    <string name="squeezer_setup_age_none">Tiada had (sertakan semua fail)</string>
-    <string name="squeezer_setup_start_action">Mulakan Imbasan</string>
-    <string name="squeezer_quality_hint_very_low">Kualiti di bawah 40% mungkin mencipta imej yang tidak boleh digunakan.</string>
-    <string name="squeezer_quality_hint_low">Kualiti rendah menjimatkan lebih banyak ruang tetapi mungkin menyebabkan artifak yang kelihatan.</string>
-    <string name="squeezer_quality_hint_high">Kualiti sangat tinggi memberikan penjimatan ruang yang minimum.</string>
-    <string name="squeezer_quality_hint_normal">Kualiti dan penjimatan ruang yang seimbang.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="other">Sekurang-kurangnya %d hari</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Anggaran ~%d%% penjimatan untuk fail JPEG</string>
-
-    <string name="appcontrol_archive_action">Arkib</string>
-    <string name="appcontrol_archive_selection_action">Arkib aplikasi</string>
-    <string name="appcontrol_archive_description">Arkib untuk membebaskan ruang sambil mengekalkan data aplikasi untuk pemulihan kemudian.</string>
-    <string name="appcontrol_progress_archiving_app">Mengarkib aplikasi…</string>
-    <string name="appcontrol_archive_confirmation_title">Sahkan arkib</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="other">Arkib %d aplikasi?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="other">%d aplikasi diarkibkan</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Pulih</string>
-    <string name="appcontrol_restore_selection_action">Pulih aplikasi</string>
-    <string name="appcontrol_restore_description">Pulih aplikasi yang diarkibkan ke keadaan dipasang sepenuhnya. Data aplikasi dikekalkan.</string>
-    <string name="appcontrol_progress_restoring_app">Memulihkan aplikasi…</string>
-    <string name="appcontrol_restore_confirmation_title">Sahkan pemulihan</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="other">Pulih %d aplikasi?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="other">%d aplikasi dipulihkan</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Kongsi senarai</string>
-    <string name="appcontrol_share_list_title">Aplikasi Saya</string>
-    <string name="appcontrol_share_list_footer">Dikongsi melalui SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Mengarkib…</string>
-    <string name="appcontrol_automation_progress_find_archive">Mencari butang \"Arkib\" (kata kunci: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Memulihkan…</string>
-    <string name="appcontrol_automation_progress_find_restore">Mencari butang \"Pulih\" (kata kunci: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
-
-    <string name="analyzer_content_create_swiper_session_action">Cipta sesi Swiper</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="other">Sesi Swiper dicipta dengan %d item</item>
-    </plurals>
-
-    <string name="anniversary_card_title">Selamat Ulang Tahun SD Maid ❤️</string>
-    <string name="anniversary_card_install_date">Bersama anda sejak %s</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="other">%1$d tahun bersama. Terima kasih kerana mempercayai SD Maid untuk memastikan Android anda bersih dan kemas. Ruang dibebaskan: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">Kongsi ulang tahun SD Maid anda</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="other">%1$d tahun dengan SD Maid — Ruang dibebaskan: %2$s. Memastikan Android anda bersih dan kemas. #SDMaid\nCuba: %3$s</item>
-    </plurals>
-
     <string name="shortcut_appcontrol_short">Kawalan Aplikasi</string>
     <string name="shortcut_appcontrol_long">Urus aplikasi yang dipasang</string>
     <string name="shortcut_onetap_short">Imbas + Padam</string>
     <string name="shortcut_onetap_long">Imbas dan padam dalam satu tindakan</string>
-
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan satu ketik</string>
     <string name="shortcuts_onetap_enabled_summary">Tunjukkan pintasan \"Imbas + Padam\" apabila menekan lama ikon aplikasi. Menggunakan alat yang sama seperti papan pemuka satu ketik.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Leret melalui fail untuk memutuskan apa yang perlu disimpan atau dipadam.</string>
-    <string name="swiper_dashcard_description">Semak fail secara manual dalam folder tertentu. Leret untuk memutuskan apa yang perlu disimpan atau dipadam.</string>
     <string name="swiper_start_action">Mula meleret</string>
     <string name="swiper_continue_action">Teruskan sesi</string>
-    <string name="swiper_sessions_description">Sesetengah fail memerlukan keputusan manusia. Leret melalui item dan pilih apa yang perlu disimpan atau dipadam. Langkau apa-apa yang anda tidak pasti. Alat ini membolehkan anda menyemak folder tertentu secara manual, dan tiada apa yang dialih keluar sehingga anda mengesahkan.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
     <string name="swiper_scanning_title">Mengimbas…</string>
     <plurals name="swiper_result_x_items_found">
@@ -958,7 +930,6 @@
     <string name="swiper_discard_session_confirmation_title">Buang sesi?</string>
     <string name="swiper_discard_session_confirmation_message">Semua keputusan akan hilang. Adakah anda pasti?</string>
     <string name="swiper_no_preview_available">Tiada pratonton tersedia</string>
-
     <plurals name="swiper_dashcard_session_context">
         <item quantity="other">Teruskan sesi dari %1$d hari lalu (%2$d%% selesai)</item>
     </plurals>
@@ -983,7 +954,6 @@
     <string name="swiper_session_rename_hint">Masukkan nama untuk sesi ini</string>
     <string name="swiper_sessions_current_sessions">Sesi semasa</string>
     <string name="swiper_session_paths_label">Laluan</string>
-    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="other">%d untuk disimpan</item>
     </plurals>
@@ -1007,20 +977,17 @@
         <item quantity="other">%d dipadam</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">Kecualikan \"%1$s\" daripada imbasan Swiper?</string>
-
     <string name="swiper_sessions_header_title">Bersedia untuk mengemas?</string>
     <string name="swiper_sessions_suggestions_label">Cuba mulakan dengan:</string>
     <string name="swiper_sessions_suggestion_downloads">Folder muat turun</string>
     <string name="swiper_sessions_suggestion_screenshots">Tangkapan skrin</string>
     <string name="swiper_sessions_suggestion_camera">Gulungan kamera</string>
-
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Simpan!</string>
     <string name="swiper_stamp_keep_2">Bagus!</string>
     <string name="swiper_stamp_keep_3">Ya!</string>
     <string name="swiper_stamp_keep_4">Kekal!</string>
     <string name="swiper_stamp_delete_1">Tidak!</string>
-    <string name="swiper_stamp_delete_2">Bye!</string>
     <string name="swiper_stamp_delete_3">Sampah!</string>
     <string name="swiper_stamp_delete_4">Padam!</string>
     <string name="swiper_stamp_skip_1">Langkau!</string>
@@ -1031,4 +998,6 @@
     <string name="swiper_stamp_undo_2">Balik!</string>
     <string name="swiper_stamp_undo_3">Alamak!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

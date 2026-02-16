@@ -3,13 +3,13 @@
     <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Do twoich usług.</string>
     <string name="slogan_message_1">Czysto i schludnie.</string>
-    <string name="slogan_message_2">Zapobieganie chaosowi.</string>
-    <string name="slogan_message_3">Robienie tego, co konieczne.</string>
+    <string name="slogan_message_2">Zapobiega chaosowi.</string>
+    <string name="slogan_message_3">Robi to, co konieczne.</string>
     <string name="slogan_message_4">Wszystko dopięte na ostatni guzik.</string>
     <string name="slogan_message_5">Bez skazy.</string>
     <string name="slogan_message_6">Bajty, znikajcie!</string>
     <string name="slogan_message_7">Więcej miejsca, więcej radości.</string>
-    <string name="slogan_message_8">Nigdy się nie poddawaj.</string>
+    <string name="slogan_message_8">Nigdy się nie poddaje.</string>
     <string name="general_thank_you_label">Dziękuję</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
@@ -117,8 +117,8 @@
         <item quantity="many">%d elementów zostało usuniętych</item>
         <item quantity="other">%d elementów zostało usuniętych</item>
     </plurals>
-    <string name="general_root_required_label">Wymaga uprawnień root</string>
-    <string name="general_root_required_message">Wymaga urządzenia z uprawnieniami root</string>
+    <string name="general_root_required_label">Wymaga uprawnień roota</string>
+    <string name="general_root_required_message">Wymaga urządzenia z uprawnieniami roota</string>
     <string name="general_search_action">Szukaj</string>
     <string name="general_scan_device_action">Skanuj urządzenie</string>
     <string name="general_open_system_settings_action">Otwórz ustawienia systemowe</string>
@@ -191,7 +191,7 @@
     <string name="general_error_invalid_input_label">Nieprawidłowe dane</string>
     <string name="general_information_for_the_developer">Informacje dla programisty</string>
     <string name="general_error_report_bug_action">Zgłoś błąd</string>
-    <string name="general_error_ipc_deadobject_title">Połączenie usługi zostało utracone</string>
+    <string name="general_error_ipc_deadobject_title">Połączenie z usługą zostało utracone</string>
     <string name="general_error_ipc_deadobject_description">Połączenie z usługą krytyczną (np. Magisk, Shizuku, lub innymi usługami na poziomie systemowym) zostało niespodziewanie utracone. Uruchom ponownie urządzenie. Jeśli problem będzie się powtarzał, sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>

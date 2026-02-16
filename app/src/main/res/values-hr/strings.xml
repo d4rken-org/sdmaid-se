@@ -338,6 +338,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naziv je jednak ključnoj riječi</string>
     <string name="systemcleaner_customfilter_last_edit">Zadnje uređivanje: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Pretraživanje uživo</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimalna veličina</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimalna veličina</string>
     <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimalna starost</string>
     <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimalna starost</string>
     <string name="systemcleaner_customfilter_import_action">Uvezi novi filter</string>
@@ -438,6 +440,7 @@
     <string name="appcleaner_automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistemska aplikacija pogrešno konfigurirana</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Aplikaciji Sigurnost HyperOS-a (com.miui.securitycenter) nedostaje dopuštenje za statistiku korištenja (GET_USAGE_STATS). To prekida rad značajki poput \"Izbriši podatke\" u detaljima aplikacije i brisanja predmemorije putem pristupačnosti. Dajte dopuštenje za vraćanje pune funkcionalnosti.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Prisilno zaustavi aplikacije prije čišćenja njihove predmemorije. Može pomoći očistiti predmemoriju nekih aplikacija, ali može uzrokovati neispravno ponašanje aplikacija i zahtijevati ručno ponovno pokretanje.</string>
     <string name="deduplicator_tool_name">Deduplikator</string>
     <string name="deduplicator_explanation_short">Pronađite duplicirane podatke na svom uređaju.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -482,6 +485,122 @@
     <string name="deduplicator_details_cluster_title">Set duplikata</string>
     <string name="deduplicator_matches_exact_label">Potpune kopije</string>
     <string name="deduplicator_matches_similar_label">Slične datoteke</string>
+    <string name="deduplicator_arbiter_explanation">Prilikom brisanja duplikata, SD Maid odlučuje koju datoteku zadržati provjeravajući svaki kriterij redom. Prvi kriterij koji proizvede jasnog pobjednika određuje rezultat. Povucite za promjenu redoslijeda, dodirnite za promjenu načina.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Razmotrite jesu li datoteke indeksirane od strane pružatelja medija.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lokacija pohrane</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Preferiraj datoteke na unutarnjoj ili vanjskoj pohrani.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Dubina mapa</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Preferiraj datoteke u plićim ili dubljim strukturama mapa.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Datum izmjene</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Preferiraj starije ili novije datoteke na temelju vremena izmjene.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Veličina datoteke</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Preferiraj veće ili manje datoteke kada se veličine razlikuju.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Preferirane lokacije</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Zadrži datoteke na konfiguriranim preferiranim lokacijama.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferiraj točna podudaranja</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Preferiraj slične datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferiraj indeksirane datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferiraj neindeksirane datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Preferiraj unutarnju pohranu</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferiraj vanjsku pohranu</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferiraj plitke mape</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferiraj dublje mape</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Preferiraj starije datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Preferiraj novije datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Preferiraj veće datoteke</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferiraj manje datoteke</string>
+    <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="deduplicator_view_mode_directories_label">Mape</string>
+    <string name="squeezer_tool_name">Kompresija medija</string>
+    <string name="squeezer_explanation_short">Komprimirajte slike kako biste uštedili prostor za pohranu.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d slika pronađena</item>
+        <item quantity="few">%d slike pronađene</item>
+        <item quantity="other">%d slika pronađeno</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s se može uštedjeti</item>
+        <item quantity="few">~%s se mogu uštedjeti</item>
+        <item quantity="other">~%s se može uštedjeti</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d slika komprimirana</item>
+        <item quantity="few">%d slike komprimirane</item>
+        <item quantity="other">%d slika komprimirano</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d slika odabrana</item>
+        <item quantity="few">%d slike odabrane</item>
+        <item quantity="other">%d slika odabrano</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Lokacije pretraživanja</string>
+    <string name="squeezer_search_locations_default_summary">Mape kamere (zadano)</string>
+    <string name="squeezer_min_size_title">Minimalna veličina datoteke</string>
+    <string name="squeezer_min_size_description">Preskoči slike manje od ove veličine.</string>
+    <string name="squeezer_min_age_title">Minimalna starost datoteke</string>
+    <string name="squeezer_min_age_description">Uključi samo slike starije od ove starosti.</string>
+    <string name="squeezer_compression_settings_label">Postavke kompresije</string>
+    <string name="squeezer_quality_label">Kvaliteta</string>
+    <string name="squeezer_quality_title">Kvaliteta kompresije</string>
+    <string name="squeezer_quality_description">Niža kvaliteta znači manju veličinu datoteke, ali smanjenu kvalitetu slike.</string>
+    <string name="squeezer_quality_example_format">Primjer: %1$s slika → ušteda ~%2$s pri %3$d%% kvalitete</string>
+    <string name="squeezer_quality_warning_low">Niže kvalitete mogu uzrokovati vidljive artefakte.</string>
+    <string name="squeezer_quality_warning_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
+    <string name="squeezer_types_category_label">Vrste slika</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Uključi JPEG slike (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Uključi WebP slike (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Preskoči prethodno komprimirane</string>
+    <string name="squeezer_skip_compressed_description">Preskoči slike koje je SD Maid već komprimirao.</string>
+    <string name="squeezer_exif_marker_title">Zapiši EXIF marker</string>
+    <string name="squeezer_exif_marker_description">Dodaj marker u polje komentara korisnika EXIF slike kako bi se spriječila ponovna kompresija čak i ako se povijest kompresije obriše.</string>
+    <string name="squeezer_estimated_savings_format">~%s uštede</string>
+    <string name="squeezer_no_savings_expected">Ograničena ušteda</string>
+    <string name="squeezer_current_size_format">Veličina: %s</string>
+    <string name="squeezer_compress_action">Komprimiraj</string>
+    <string name="squeezer_compress_all_action">Komprimiraj sve</string>
+    <string name="squeezer_preview_dialog_title">Potvrdi kompresiju</string>
+    <string name="squeezer_preview_total_size">Ukupna veličina</string>
+    <string name="squeezer_preview_estimated_savings">Procijenjena ušteda</string>
+    <string name="squeezer_compress_confirmation_title">Komprimirati slike?</string>
+    <string name="squeezer_compress_confirmation_message">Ovo će zamijeniti originalne slike komprimiranim verzijama. Ova radnja se ne može poništiti.</string>
+    <string name="squeezer_history_title">Povijest kompresije</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d stavka (%2$s)</item>
+        <item quantity="few">%1$d stavke (%2$s)</item>
+        <item quantity="other">%1$d stavki (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Nema povijesti kompresije</string>
+    <string name="squeezer_history_clear_title">Obriši povijest kompresije</string>
+    <string name="squeezer_history_clear_message">Ovo će omogućiti ponovnu kompresiju prethodno komprimiranih slika. Same slike nisu pogođene.</string>
+    <string name="squeezer_onboarding_title">O kompresiji slika</string>
+    <string name="squeezer_onboarding_message">Kompresija slika smanjuje veličinu datoteke uklanjanjem vizualnih detalja. Ovaj proces je nepovratan - originalna kvaliteta se ne može vratiti.\n\nEvo pregleda kako će vaše slike izgledati:</string>
+    <string name="squeezer_onboarding_original_label">Originalno</string>
+    <string name="squeezer_onboarding_compressed_label">Nakon kompresije</string>
+    <string name="squeezer_onboarding_quality_label">Kvaliteta: %d%%</string>
+    <string name="squeezer_onboarding_got_it">U redu</string>
+    <string name="squeezer_compare_action">Pogledaj usporedbu</string>
+    <string name="squeezer_no_example_found">Nema slika u odabranim putanjama.</string>
+    <string name="squeezer_result_empty_message">Nema slika za kompresiju.</string>
+    <string name="squeezer_setup_warning">Kompresija trajno smanjuje kvalitetu slike kako bi uštedjela prostor. Ovo se ne može poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
+    <string name="squeezer_setup_explanation">Kompresija medija smanjuje veličinu datoteka slika kako bi oslobodila prostor. Ovo trajno smanjuje kvalitetu slike i ne može se poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
+    <string name="squeezer_setup_paths_title">Lokacije pretraživanja</string>
+    <string name="squeezer_setup_paths_default">Odaberite mape za pretraživanje</string>
+    <string name="squeezer_setup_quality_title">Kvaliteta kompresije</string>
+    <string name="squeezer_setup_age_title">Minimalna starost</string>
+    <string name="squeezer_setup_age_none">Bez ograničenja (uključi sve datoteke)</string>
+    <string name="squeezer_setup_start_action">Pokreni skeniranje</string>
+    <string name="squeezer_quality_hint_very_low">Kvaliteta ispod 40% može stvoriti neupotrebljive slike.</string>
+    <string name="squeezer_quality_hint_low">Niža kvaliteta štedi više prostora ali može uzrokovati vidljive artefakte.</string>
+    <string name="squeezer_quality_hint_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
+    <string name="squeezer_quality_hint_normal">Uravnotežena kvaliteta i ušteda prostora.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Najmanje %d dan stara</item>
+        <item quantity="few">Najmanje %d dana stara</item>
+        <item quantity="other">Najmanje %d dana stara</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Procjenjena ušteda od ~%d%% za JPEG datoteke</string>
     <string name="appcontrol_tool_name">Kontrola aplikacija</string>
     <string name="appcontrol_explanation_short">Aplikacije instalirane na vašem uređaju.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -533,6 +652,36 @@
         <item quantity="few">%d aplikacije su deinstalirane</item>
         <item quantity="other">%d aplikacija je deinstalirano</item>
     </plurals>
+    <string name="appcontrol_archive_action">Arhiviraj</string>
+    <string name="appcontrol_archive_selection_action">Arhiviraj aplikacije</string>
+    <string name="appcontrol_archive_description">Arhivirajte kako biste oslobodili prostor zadržavajući podatke aplikacije za kasniji oporavak.</string>
+    <string name="appcontrol_progress_archiving_app">Arhiviranje aplikacije…</string>
+    <string name="appcontrol_archive_confirmation_title">Potvrdi arhiviranje</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Arhivirati %d aplikaciju?</item>
+        <item quantity="few">Arhivirati %d aplikacije?</item>
+        <item quantity="other">Arhivirati %d aplikacija?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplikacija arhivirana</item>
+        <item quantity="few">%d aplikacije arhivirane</item>
+        <item quantity="other">%d aplikacija arhivirano</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Vrati</string>
+    <string name="appcontrol_restore_selection_action">Vrati aplikacije</string>
+    <string name="appcontrol_restore_description">Vrati arhiviranu aplikaciju u potpuno instalirano stanje. Podaci aplikacije su sačuvani.</string>
+    <string name="appcontrol_progress_restoring_app">Vraćanje aplikacije…</string>
+    <string name="appcontrol_restore_confirmation_title">Potvrdi vraćanje</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Vratiti %d aplikaciju?</item>
+        <item quantity="few">Vratiti %d aplikacije?</item>
+        <item quantity="other">Vratiti %d aplikacija?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplikacija vraćena</item>
+        <item quantity="few">%d aplikacije vraćene</item>
+        <item quantity="other">%d aplikacija vraćeno</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Veličina aplikacije</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikacija</string>
     <string name="appcontrol_app_sizes_data_label">Podaci</string>
@@ -563,6 +712,9 @@
         <item quantity="other">%d aplikacija je izvezeno</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Izvoz %s</string>
+    <string name="appcontrol_share_list_action">Podijeli popis</string>
+    <string name="appcontrol_share_list_title">Moje aplikacije</string>
+    <string name="appcontrol_share_list_footer">Podijeljeno putem SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Prisilno zaustavi aplikacije</string>
     <string name="appcontrol_force_stop_action">Prisilno zaustavi</string>
     <string name="appcontrol_force_stop_confirm_title">Potvrdi prisilno zaustavljanje</string>
@@ -581,6 +733,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Prisilno zaustavljanje…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Traženje gumba \"Prisilno zaustavi\" (ključne riječi: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arhiviranje…</string>
+    <string name="appcontrol_automation_progress_find_archive">Traženje gumba \"Arhiviraj\" (ključne riječi: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Vraćanje…</string>
+    <string name="appcontrol_automation_progress_find_restore">Traženje gumba \"Vrati\" (ključne riječi: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Vrijeme upotrebe: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zadnje ažuriranje: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalirano: %s</string>
@@ -603,6 +759,12 @@
         <item quantity="other">%s korišteno</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
+    <string name="analyzer_content_create_swiper_session_action">Kreiraj Swiper sesiju</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper sesija kreirana s %d stavkom</item>
+        <item quantity="few">Swiper sesija kreirana s %d stavke</item>
+        <item quantity="other">Swiper sesija kreirana s %d stavki</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primarna pohrana</string>
     <string name="analyzer_storage_type_primary_description">Primarna pohrana vašeg uređaja. Sadrži internu SD karticu, privatnu pohranu za aplikacije i sistemske podatke.</string>
     <string name="analyzer_storage_type_secondary_title">Sekundarna pohrana</string>
@@ -645,6 +807,7 @@
     <string name="exclusion_type_segment">Izuzimanje segmenta</string>
     <string name="exclusion_tags_alltools">Svi alati</string>
     <string name="exclusion_target_label">Meta izuzimanja</string>
+    <string name="exclusion_editor_path_change_action">Dodirnite za promjenu putanje</string>
     <string name="exclusion_option_allow_partial">Dopusti djelomična podudaranja</string>
     <string name="exclusion_option_ignore_casing">Zanemari velika/mala slova</string>
     <string name="exclusion_editor_affected_tools_label">Pogođeni alati</string>
@@ -801,175 +964,8 @@
     <string name="shortcuts_settings_category">Prečaci</string>
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
-    <string name="exclusion_editor_path_change_action">Dodirnite za promjenu putanje</string>
-    <string name="appcontrol_tag_debug">Debug</string>
-    <string name="appcontrol_archive_action">Arhiviraj</string>
-    <string name="appcontrol_archive_selection_action">Arhiviraj aplikacije</string>
-    <string name="appcontrol_archive_description">Arhivirajte kako biste oslobodili prostor zadržavajući podatke aplikacije za kasniji oporavak.</string>
-    <string name="appcontrol_progress_archiving_app">Arhiviranje aplikacije…</string>
-    <string name="appcontrol_archive_confirmation_title">Potvrdi arhiviranje</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">Arhivirati %d aplikaciju?</item>
-        <item quantity="few">Arhivirati %d aplikacije?</item>
-        <item quantity="other">Arhivirati %d aplikacija?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d aplikacija arhivirana</item>
-        <item quantity="few">%d aplikacije arhivirane</item>
-        <item quantity="other">%d aplikacija arhivirano</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Vrati</string>
-    <string name="appcontrol_restore_selection_action">Vrati aplikacije</string>
-    <string name="appcontrol_restore_description">Vrati arhiviranu aplikaciju u potpuno instalirano stanje. Podaci aplikacije su sačuvani.</string>
-    <string name="appcontrol_progress_restoring_app">Vraćanje aplikacije…</string>
-    <string name="appcontrol_restore_confirmation_title">Potvrdi vraćanje</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">Vratiti %d aplikaciju?</item>
-        <item quantity="few">Vratiti %d aplikacije?</item>
-        <item quantity="other">Vratiti %d aplikacija?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d aplikacija vraćena</item>
-        <item quantity="few">%d aplikacije vraćene</item>
-        <item quantity="other">%d aplikacija vraćeno</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Podijeli popis</string>
-    <string name="appcontrol_share_list_title">Moje aplikacije</string>
-    <string name="appcontrol_share_list_footer">Podijeljeno putem SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Arhiviranje…</string>
-    <string name="appcontrol_automation_progress_find_archive">Traženje gumba \"Arhiviraj\" (ključne riječi: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Vraćanje…</string>
-    <string name="appcontrol_automation_progress_find_restore">Traženje gumba \"Vrati\" (ključne riječi: %s)</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Prisilno zaustavi aplikacije prije čišćenja predmemorije. Može pomoći očistiti predmemoriju nekih aplikacija, ali može uzrokovati neispravno ponašanje aplikacija i zahtijevati ručno pokretanje.</string>
-    <string name="deduplicator_arbiter_explanation">Prilikom brisanja duplikata, SD Maid odlučuje koju datoteku zadržati provjeravajući svaki kriterij redom. Prvi kriterij koji proizvede jasnog pobjednika određuje rezultat. Povucite za promjenu redoslijeda, dodirnite za promjenu načina.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Razmotrite jesu li datoteke indeksirane od strane pružatelja medija.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Lokacija pohrane</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Preferiraj datoteke na unutarnjoj ili vanjskoj pohrani.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Dubina mapa</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Preferiraj datoteke u plićim ili dubljim strukturama mapa.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Datum izmjene</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Preferiraj starije ili novije datoteke na temelju vremena izmjene.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Veličina datoteke</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Preferiraj veće ili manje datoteke kada se veličine razlikuju.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Preferirane lokacije</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Zadrži datoteke na konfiguriranim preferiranim lokacijama.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferiraj točna podudaranja</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Preferiraj slične datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferiraj indeksirane datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferiraj neindeksirane datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Preferiraj unutarnju pohranu</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferiraj vanjsku pohranu</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferiraj plitke mape</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferiraj dublje mape</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Preferiraj starije datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Preferiraj novije datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Preferiraj veće datoteke</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferiraj manje datoteke</string>
-    <string name="deduplicator_view_mode_groups_label">Grupe</string>
-    <string name="deduplicator_view_mode_directories_label">Mape</string>
-    <string name="analyzer_content_create_swiper_session_action">Kreiraj Swiper sesiju</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Swiper sesija kreirana s %d stavkom</item>
-        <item quantity="few">Swiper sesija kreirana s %d stavke</item>
-        <item quantity="other">Swiper sesija kreirana s %d stavki</item>
-    </plurals>
-    <string name="squeezer_tool_name">Kompresija medija</string>
-    <string name="squeezer_explanation_short">Komprimiraj slike kako bi uštedio prostor za pohranu.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d slika pronađena</item>
-        <item quantity="few">%d slike pronađene</item>
-        <item quantity="other">%d slika pronađeno</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s se može uštedjeti</item>
-        <item quantity="few">~%s se mogu uštedjeti</item>
-        <item quantity="other">~%s se može uštedjeti</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d slika komprimirana</item>
-        <item quantity="few">%d slike komprimirane</item>
-        <item quantity="other">%d slika komprimirano</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d slika odabrana</item>
-        <item quantity="few">%d slike odabrane</item>
-        <item quantity="other">%d slika odabrano</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Lokacije pretraživanja</string>
-    <string name="squeezer_search_locations_default_summary">Mape kamere (zadano)</string>
-    <string name="squeezer_min_size_title">Minimalna veličina datoteke</string>
-    <string name="squeezer_min_size_description">Preskoči slike manje od ove veličine.</string>
-    <string name="squeezer_min_age_title">Minimalna starost datoteke</string>
-    <string name="squeezer_min_age_description">Uključi samo slike starije od ove starosti.</string>
-    <string name="squeezer_compression_settings_label">Postavke kompresije</string>
-    <string name="squeezer_quality_label">Kvaliteta</string>
-    <string name="squeezer_quality_title">Kvaliteta kompresije</string>
-    <string name="squeezer_quality_description">Niža kvaliteta znači manju veličinu datoteke, ali smanjenu kvalitetu slike.</string>
-    <string name="squeezer_quality_example_format">Primjer: %1$s slika → ušteda ~%2$s pri %3$d%% kvalitete</string>
-    <string name="squeezer_quality_warning_low">Niže kvalitete mogu uzrokovati vidljive artefakte.</string>
-    <string name="squeezer_quality_warning_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
-    <string name="squeezer_types_category_label">Vrste slika</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Uključi JPEG slike (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Uključi WebP slike (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Preskoči prethodno komprimirane</string>
-    <string name="squeezer_skip_compressed_description">Preskoči slike koje je SD Maid već komprimirao.</string>
-    <string name="squeezer_exif_marker_title">Zapiši EXIF marker</string>
-    <string name="squeezer_exif_marker_description">Dodaj marker u polje komentara korisnika EXIF slike kako bi se spriječila ponovna kompresija čak i ako se povijest kompresije obriše.</string>
-    <string name="squeezer_estimated_savings_format">~%s uštede</string>
-    <string name="squeezer_no_savings_expected">Ograničena ušteda</string>
-    <string name="squeezer_current_size_format">Veličina: %s</string>
-    <string name="squeezer_compress_action">Komprimiraj</string>
-    <string name="squeezer_compress_all_action">Komprimiraj sve</string>
-    <string name="squeezer_preview_dialog_title">Potvrdi kompresiju</string>
-    <string name="squeezer_preview_total_size">Ukupna veličina</string>
-    <string name="squeezer_preview_estimated_savings">Procjenjena ušteda</string>
-    <string name="squeezer_compress_confirmation_title">Komprimirati slike?</string>
-    <string name="squeezer_compress_confirmation_message">Ovo će zamijeniti originalne slike komprimiranim verzijama. Ova radnja se ne može poništiti.</string>
-    <string name="squeezer_history_title">Povijest kompresije</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d stavka (%2$s)</item>
-        <item quantity="few">%1$d stavke (%2$s)</item>
-        <item quantity="other">%1$d stavki (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Nema povijesti kompresije</string>
-    <string name="squeezer_history_clear_title">Obriši povijest kompresije</string>
-    <string name="squeezer_history_clear_message">Ovo će omogućiti ponovnu kompresiju prethodno komprimiranih slika. Same slike nisu pogođene.</string>
-    <string name="squeezer_onboarding_title">O kompresiji slika</string>
-    <string name="squeezer_onboarding_message">Kompresija slika smanjuje veličinu datoteke uklanjanjem vizualnih detalja. Ovaj proces je nepovratan - originalna kvaliteta se ne može vratiti.\n\nEvo pregleda kako će vaše slike izgledati:</string>
-    <string name="squeezer_onboarding_original_label">Original</string>
-    <string name="squeezer_onboarding_compressed_label">Nakon kompresije</string>
-    <string name="squeezer_onboarding_quality_label">Kvaliteta: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Razumijem</string>
-    <string name="squeezer_compare_action">Pogledaj usporedbu</string>
-    <string name="squeezer_no_example_found">Nema slika u odabranim putanjama.</string>
-    <string name="squeezer_result_empty_message">Nema slika za kompresiju.</string>
-    <string name="squeezer_setup_warning">Kompresija trajno smanjuje kvalitetu slike kako bi uštedjela prostor. Ovo se ne može poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
-    <string name="squeezer_setup_explanation">Kompresija medija smanjuje veličinu datoteka slika kako bi oslobodila prostor. Ovo trajno smanjuje kvalitetu slike i ne može se poništiti. Pažljivo pregledajte postavke prije pokretanja.</string>
-    <string name="squeezer_setup_paths_title">Lokacije pretraživanja</string>
-    <string name="squeezer_setup_paths_default">Odaberite mape za pretraživanje</string>
-    <string name="squeezer_setup_quality_title">Kvaliteta kompresije</string>
-    <string name="squeezer_setup_age_title">Minimalna starost</string>
-    <string name="squeezer_setup_age_none">Bez ograničenja (uključi sve datoteke)</string>
-    <string name="squeezer_setup_start_action">Pokreni skeniranje</string>
-    <string name="squeezer_quality_hint_very_low">Kvaliteta ispod 40% može stvoriti neupotrebljive slike.</string>
-    <string name="squeezer_quality_hint_low">Niža kvaliteta štedi više prostora ali može uzrokovati vidljive artefakte.</string>
-    <string name="squeezer_quality_hint_high">Vrlo visoka kvaliteta pruža minimalnu uštedu prostora.</string>
-    <string name="squeezer_quality_hint_normal">Uravnotežena kvaliteta i ušteda prostora.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Najmanje %d dan stara</item>
-        <item quantity="few">Najmanje %d dana stara</item>
-        <item quantity="other">Najmanje %d dana stara</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Procjenjena ušteda od ~%d%% za JPEG datoteke</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Prevlačite kroz datoteke kako biste odlučili što zadržati ili izbrisati.</string>
-    <string name="swiper_dashcard_description">Ručno pregledajte datoteke u određenim mapama. Prevlačite kako biste odlučili što zadržati ili izbrisati.</string>
     <string name="swiper_start_action">Počni prevlačiti</string>
     <string name="swiper_continue_action">Nastavi sesiju</string>
-    <string name="swiper_sessions_description">Neke datoteke zahtijevaju ljudsku odluku. Prevlačite kroz stavke i odaberite što zadržati ili izbrisati. Preskočite sve u što niste sigurni. Ovaj alat vam omogućuje ručno pregledavanje određenih mapa, i ništa se ne uklanja dok ne potvrdite.</string>
     <string name="swiper_select_folders_action">Odaberite mape</string>
     <string name="swiper_scanning_title">Skeniranje…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1052,7 +1048,6 @@
     <string name="swiper_session_rename_hint">Unesite naziv za ovu sesiju</string>
     <string name="swiper_sessions_current_sessions">Trenutne sesije</string>
     <string name="swiper_session_paths_label">Putanje</string>
-    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d za zadržati</item>
         <item quantity="few">%d za zadržati</item>
@@ -1078,6 +1073,7 @@
         <item quantity="few">%d već izbrisano</item>
         <item quantity="other">%d već izbrisano</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d zadržano</item>
         <item quantity="few">%d zadržano</item>
@@ -1111,4 +1107,6 @@
     <string name="swiper_stamp_undo_2">Natrag!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Čekaj!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

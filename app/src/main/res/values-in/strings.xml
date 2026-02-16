@@ -757,11 +757,8 @@
     <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan \"Pindai + Hapus\" saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
     <string name="swiper_label">Pemilah</string>
     <string name="swiper_tool_name">Pemilah</string>
-    <string name="swiper_tool_description">Geser berkas untuk menentukan mana yang disimpan atau dihapus.</string>
-    <string name="swiper_dashcard_description">Tinjau berkas secara manual di folder tertentu. Geser untuk memutuskan apa yang disimpan atau dihapus.</string>
     <string name="swiper_start_action">Mulai memilah</string>
     <string name="swiper_continue_action">Lanjutkan sesi</string>
-    <string name="swiper_sessions_description">Beberapa berkas membutuhkan keputusan manusia. Geser item dan pilih apa yang disimpan atau dihapus. Lewati apa pun yang tidak yakin. Alat ini memungkinkan Anda meninjau folder tertentu secara manual, dan tidak ada yang dihapus sampai Anda mengonfirmasi.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
     <string name="swiper_scanning_title">Memindai…</string>
     <plurals name="swiper_result_x_items_found">
@@ -796,4 +793,6 @@
     <string name="swiper_settings_show_details_title">Lihat detail berkas</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

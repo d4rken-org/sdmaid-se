@@ -339,6 +339,8 @@
     <string name="systemcleaner_customfilter_last_edit">সর্বশেষ সম্পাদন: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">লাইভ সার্চ</string>
     <string name="systemcleaner_customfilter_editor_size_label">আকার সীমাবদ্ধতা</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ফাইলের আকারের উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো আকারের সাথে মেলাতে সেট না করা রাখুন।</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
     <string name="appcleaner_tool_name">অ্যাপ পরিষ্কারক</string>
@@ -432,6 +434,7 @@
     <string name="appcleaner_automation_error_no_settings_body">এই সিস্টেম অ্যাপটিতে কোনও সেটিংস স্ক্রিন নেই। অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে ক্যাশ সাফ করা সম্ভব নয়। ক্যাশ সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">সিস্টেম অ্যাপটি ভুলভাবে কনফিগার করা হয়েছে</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS এর নিরাপত্তা অ্যাপ (com.miui.securitycenter) তে ব্যবহারের পরিসংখ্যান অনুমতি (GET_USAGE_STATS) অনুপস্থিত। এটি অ্যাপের বিবরণে \"ডেটা সাফ করুন\" এবং অ্যাক্সেসিবিলিটির মাধ্যমে ক্যাশ সাফ করার মতো বৈশিষ্ট্যগুলিকে ভেঙে দেয়। সম্পূর্ণ কার্যকারিতা পুনরুদ্ধার করার অনুমতি দিন।</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">ক্যাশ পরিষ্কার করার আগে অ্যাপ জোর করে বন্ধ করুন। এটি কিছু অ্যাপের ক্যাশ পরিষ্কার করতে সাহায্য করতে পারে, তবে অ্যাপ অস্বাভাবিক আচরণ করতে পারে এবং ম্যানুয়ালি পুনরায় চালু করতে হতে পারে।</string>
     <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
     <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -472,6 +475,119 @@
     <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
     <string name="deduplicator_matches_exact_label">হুবহু কপি</string>
     <string name="deduplicator_matches_similar_label">অনুরূপ ফাইল</string>
+    <string name="deduplicator_arbiter_explanation">ডুপ্লিকেট মুছে ফেলার সময়, SD Maid প্রতিটি মানদণ্ড ক্রমানুসারে পরীক্ষা করে কোন ফাইলটি রাখতে হবে তা নির্ধারণ করে। প্রথম মানদণ্ড যা একটি স্পষ্ট বিজয়ী দেয় তা ফলাফল নির্ধারণ করে। পুনর্বিন্যাস করতে টেনে আনুন, মোড পরিবর্তন করতে ট্যাপ করুন।</string>
+    <string name="deduplicator_arbiter_select_mode_title">মোড নির্বাচন করুন</string>
+    <string name="deduplicator_arbiter_configure_paths_action">পাথ কনফিগার করুন…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ডুপ্লিকেটের ধরন</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">অনুরূপ ফাইলের চেয়ে হুবহু মিলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">মিডিয়া ইন্ডেক্সিং</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ফাইলগুলি মিডিয়া প্রদানকারী দ্বারা ইন্ডেক্স করা হয়েছে কিনা বিবেচনা করুন।</string>
+    <string name="deduplicator_arbiter_criterium_location_title">স্টোরেজ অবস্থান</string>
+    <string name="deduplicator_arbiter_criterium_location_description">অভ্যন্তরীণ বা বাহ্যিক স্টোরেজের ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ফোল্ডারের গভীরতা</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">অগভীর বা গভীরতর ফোল্ডার কাঠামোর ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">পরিবর্তনের তারিখ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">পরিবর্তনের সময়ের উপর ভিত্তি করে পুরনো বা নতুন ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ফাইলের আকার</string>
+    <string name="deduplicator_arbiter_criterium_size_description">আকার ভিন্ন হলে বড় বা ছোট ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">পছন্দের অবস্থান</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">আপনার কনফিগার করা পছন্দের অবস্থানে ফাইল রাখুন।</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">হুবহু মিল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">অনুরূপ ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ইন্ডেক্স করা ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ইন্ডেক্স না করা ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">অভ্যন্তরীণ স্টোরেজ পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">বাহ্যিক স্টোরেজ পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">অগভীর ফোল্ডার পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">গভীরতর ফোল্ডার পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">পুরনো ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">নতুন ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">বড় ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ছোট ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_view_mode_groups_label">গ্রুপ</string>
+    <string name="deduplicator_view_mode_directories_label">ফোল্ডার</string>
+    <string name="squeezer_tool_name">মিডিয়া স্কুইজ</string>
+    <string name="squeezer_explanation_short">স্টোরেজ স্পেস বাঁচাতে ছবি সংকুচিত করুন।</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d ছবি পাওয়া গেছে</item>
+        <item quantity="other">%d ছবি পাওয়া গেছে</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s সাশ্রয় করা যাবে</item>
+        <item quantity="other">~%s সাশ্রয় করা যাবে</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d ছবি সংকুচিত হয়েছে</item>
+        <item quantity="other">%d ছবি সংকুচিত হয়েছে</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d ছবি নির্বাচিত</item>
+        <item quantity="other">%d ছবি নির্বাচিত</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">অনুসন্ধান অবস্থান</string>
+    <string name="squeezer_search_locations_default_summary">ক্যামেরা ফোল্ডার (ডিফল্ট)</string>
+    <string name="squeezer_min_size_title">সর্বনিম্ন ফাইল আকার</string>
+    <string name="squeezer_min_size_description">এই আকারের চেয়ে ছোট ছবি এড়িয়ে যান।</string>
+    <string name="squeezer_min_age_title">সর্বনিম্ন ফাইল বয়স</string>
+    <string name="squeezer_min_age_description">শুধুমাত্র এই বয়সের চেয়ে পুরনো ছবি অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_compression_settings_label">সংকোচন সেটিংস</string>
+    <string name="squeezer_quality_label">গুণমান</string>
+    <string name="squeezer_quality_title">সংকোচনের গুণমান</string>
+    <string name="squeezer_quality_description">নিম্ন গুণমান মানে ছোট ফাইল আকার কিন্তু হ্রাসকৃত ছবির গুণমান।</string>
+    <string name="squeezer_quality_example_format">উদাহরণ: %1$s ছবি → %3$d%% গুণমানে ~%2$s সাশ্রয়</string>
+    <string name="squeezer_quality_warning_low">নিম্ন গুণমান দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
+    <string name="squeezer_quality_warning_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
+    <string name="squeezer_types_category_label">ছবির ধরন</string>
+    <string name="squeezer_type_jpeg_description">JPEG ছবি (.jpg, .jpeg) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_type_webp_description">WebP ছবি (.webp) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_skip_compressed_title">আগে সংকুচিত এড়িয়ে যান</string>
+    <string name="squeezer_skip_compressed_description">SD Maid দ্বারা আগে সংকুচিত ছবি এড়িয়ে যান।</string>
+    <string name="squeezer_exif_marker_title">EXIF মার্কার লিখুন</string>
+    <string name="squeezer_exif_marker_description">সংকোচন ইতিহাস মুছে ফেলা হলেও পুনরায় সংকোচন রোধ করতে ছবির EXIF ব্যবহারকারী মন্তব্য ক্ষেত্রে একটি মার্কার যোগ করুন।</string>
+    <string name="squeezer_estimated_savings_format">~%s সাশ্রয়</string>
+    <string name="squeezer_no_savings_expected">সীমিত সাশ্রয়</string>
+    <string name="squeezer_current_size_format">আকার: %s</string>
+    <string name="squeezer_compress_action">সংকুচিত করুন</string>
+    <string name="squeezer_compress_all_action">সব সংকুচিত করুন</string>
+    <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>
+    <string name="squeezer_preview_total_size">মোট আকার</string>
+    <string name="squeezer_preview_estimated_savings">আনুমানিক সাশ্রয়</string>
+    <string name="squeezer_compress_confirmation_title">ছবি সংকুচিত করবেন?</string>
+    <string name="squeezer_compress_confirmation_message">এটি মূল ছবিগুলিকে সংকুচিত সংস্করণ দিয়ে প্রতিস্থাপন করবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</string>
+    <string name="squeezer_history_title">সংকোচন ইতিহাস</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d আইটেম (%2$s)</item>
+        <item quantity="other">%1$d আইটেম (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">কোন সংকোচন ইতিহাস নেই</string>
+    <string name="squeezer_history_clear_title">সংকোচন ইতিহাস মুছুন</string>
+    <string name="squeezer_history_clear_message">এটি আগে সংকুচিত ছবিগুলিকে আবার সংকুচিত করার অনুমতি দেবে। ছবিগুলি নিজেরা প্রভাবিত হবে না।</string>
+    <string name="squeezer_onboarding_title">ছবি সংকোচন সম্পর্কে</string>
+    <string name="squeezer_onboarding_message">ছবি সংকোচন ভিজ্যুয়াল বিশদ অপসারণ করে ফাইলের আকার কমায়। এই প্রক্রিয়া অপরিবর্তনীয় - আসল গুণমান পুনরুদ্ধার করা যাবে না।\n\nআপনার ছবিগুলি কেমন দেখাবে তার একটি প্রিভিউ এখানে:</string>
+    <string name="squeezer_onboarding_original_label">আসল</string>
+    <string name="squeezer_onboarding_compressed_label">সংকোচনের পর</string>
+    <string name="squeezer_onboarding_quality_label">গুণমান: %d%%</string>
+    <string name="squeezer_onboarding_got_it">বুঝেছি</string>
+    <string name="squeezer_compare_action">তুলনা দেখুন</string>
+    <string name="squeezer_no_example_found">নির্বাচিত পাথে কোনো ছবি পাওয়া যায়নি।</string>
+    <string name="squeezer_result_empty_message">সংকোচনযোগ্য কোনো ছবি পাওয়া যায়নি।</string>
+    <string name="squeezer_setup_warning">সংকোচন স্টোরেজ স্পেস বাঁচাতে স্থায়ীভাবে ছবির গুণমান হ্রাস করে। এটি পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
+    <string name="squeezer_setup_explanation">মিডিয়া স্কুইজ স্টোরেজ স্পেস খালি করতে ছবির ফাইলের আকার কমায়। এটি স্থায়ীভাবে ছবির গুণমান হ্রাস করে এবং পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
+    <string name="squeezer_setup_paths_title">অনুসন্ধান অবস্থান</string>
+    <string name="squeezer_setup_paths_default">অনুসন্ধানের জন্য ফোল্ডার নির্বাচন করুন</string>
+    <string name="squeezer_setup_quality_title">সংকোচনের গুণমান</string>
+    <string name="squeezer_setup_age_title">সর্বনিম্ন বয়স</string>
+    <string name="squeezer_setup_age_none">কোনো সীমা নেই (সব ফাইল অন্তর্ভুক্ত)</string>
+    <string name="squeezer_setup_start_action">স্ক্যান শুরু করুন</string>
+    <string name="squeezer_quality_hint_very_low">৪০% এর নিচে গুণমান ব্যবহারের অযোগ্য ছবি তৈরি করতে পারে।</string>
+    <string name="squeezer_quality_hint_low">নিম্ন গুণমান বেশি স্থান সাশ্রয় করে কিন্তু দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
+    <string name="squeezer_quality_hint_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
+    <string name="squeezer_quality_hint_normal">সুষম গুণমান এবং স্থান সাশ্রয়।</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">অন্তত %d দিন পুরনো</item>
+        <item quantity="other">অন্তত %d দিন পুরনো</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG ফাইলের জন্য আনুমানিক ~%d%% সাশ্রয়</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">আপনার ডিভাইসে ইনস্টল করা অ্যাপসমূহ।.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -506,6 +622,7 @@
     <string name="appcontrol_tag_not_installed">ইনস্টল করা নেই</string>
     <string name="appcontrol_tag_enabled">সক্রিয়</string>
     <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
+    <string name="appcontrol_tag_debug">ডিবাগ</string>
     <string name="appcontrol_progress_enabling_package">অ্যাপ সক্রিয় করা হচ্ছে</string>
     <string name="appcontrol_progress_disabling_package">অ্যাপ নিষ্ক্রিয় করা হচ্ছে</string>
     <string name="appcontrol_list_filteroptions_label">ফিল্টার অপশন</string>
@@ -520,6 +637,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d অ্যাপ আনইনস্টল করা হয়েছে</item>
         <item quantity="other">%d টি অ্যাপ আনইনস্টল করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_archive_action">আর্কাইভ</string>
+    <string name="appcontrol_archive_selection_action">অ্যাপ আর্কাইভ করুন</string>
+    <string name="appcontrol_archive_description">পরে পুনরুদ্ধারের জন্য অ্যাপ ডেটা রেখে জায়গা খালি করতে আর্কাইভ করুন।</string>
+    <string name="appcontrol_progress_archiving_app">অ্যাপ আর্কাইভ করা হচ্ছে…</string>
+    <string name="appcontrol_archive_confirmation_title">আর্কাইভ নিশ্চিত করুন</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d অ্যাপ আর্কাইভ করবেন?</item>
+        <item quantity="other">%d অ্যাপ আর্কাইভ করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_restore_action">পুনরুদ্ধার</string>
+    <string name="appcontrol_restore_selection_action">অ্যাপ পুনরুদ্ধার করুন</string>
+    <string name="appcontrol_restore_description">আর্কাইভ করা অ্যাপ সম্পূর্ণ ইনস্টল অবস্থায় পুনরুদ্ধার করুন। অ্যাপ ডেটা সংরক্ষিত থাকবে।</string>
+    <string name="appcontrol_progress_restoring_app">অ্যাপ পুনরুদ্ধার করা হচ্ছে…</string>
+    <string name="appcontrol_restore_confirmation_title">পুনরুদ্ধার নিশ্চিত করুন</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
+        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">অ্যাপের সাইজ</string>
     <string name="appcontrol_app_sizes_apk_label">অ্যাপ</string>
@@ -548,6 +691,9 @@
         <item quantity="other">%dটি অ্যাপ এক্সপোর্ট করা হয়েছে</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">এক্সপোর্ট করা হচ্ছে %s</string>
+    <string name="appcontrol_share_list_action">তালিকা শেয়ার করুন</string>
+    <string name="appcontrol_share_list_title">আমার অ্যাপ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE এর মাধ্যমে শেয়ার করা হয়েছে</string>
     <string name="appcontrol_force_stop_selection_action">জোর করে অ্যাপ বন্ধ করুন</string>
     <string name="appcontrol_force_stop_action">জোর করে বন্ধ করুন</string>
     <string name="appcontrol_force_stop_confirm_title">জোর করে অ্যাপ বন্ধ করা নিশ্চিত করুন</string>
@@ -564,6 +710,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"ফোর্স স্টপ\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">আর্কাইভ করা হচ্ছে…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"আর্কাইভ\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">পুনরুদ্ধার করা হচ্ছে…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"পুনরুদ্ধার\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
     <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
@@ -584,6 +734,11 @@
         <item quantity="other">%s ব্যবহার করা হয়েছে</item>
     </plurals>
     <string name="analyzer_content_access_opaque">কোন সরাসরি অ্যাক্সেস উপলব্ধ নয়</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper সেশন তৈরি করুন</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d আইটেম দিয়ে Swiper সেশন তৈরি হয়েছে</item>
+        <item quantity="other">%d আইটেম দিয়ে Swiper সেশন তৈরি হয়েছে</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">প্রাথমিক স্টোরেজ</string>
     <string name="analyzer_storage_type_primary_description">আপনার ডিভাইসের প্রাথমিক স্টোরেজ। অভ্যন্তরীণ SD কার্ড, অ্যাপগুলির জন্য ব্যক্তিগত স্টোরেজ এবং সিস্টেম ডেটা রয়েছে৷</string>
     <string name="analyzer_storage_type_secondary_title">সেকেন্ডারি স্টোরেজ</string>
@@ -626,6 +781,7 @@
     <string name="exclusion_type_segment">সেগমেন্ট বর্জন</string>
     <string name="exclusion_tags_alltools">সমস্ত টুল</string>
     <string name="exclusion_target_label">বর্জন লক্ষ্য</string>
+    <string name="exclusion_editor_path_change_action">পাথ পরিবর্তন করতে ট্যাপ করুন</string>
     <string name="exclusion_option_allow_partial">আংশিক মিলের অনুমতি দিন</string>
     <string name="exclusion_option_ignore_casing">আবরণ উপেক্ষা</string>
     <string name="exclusion_editor_affected_tools_label">প্রভাবিত টুল</string>
@@ -774,178 +930,8 @@
     <string name="shortcuts_settings_category">শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_title">এক-ট্যাপ শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_summary">অ্যাপ আইকনটি দীর্ঘক্ষণ টিপে রাখলে \"স্ক্যান + ডিলিট\" শর্টকাট দেখান। ওয়ান-ট্যাপ ড্যাশবোর্ডের মতো একই টুল ব্যবহার করে।</string>
-    <string name="deduplicator_arbiter_explanation">ডুপ্লিকেট মুছে ফেলার সময়, SD Maid প্রতিটি মানদণ্ড ক্রমানুসারে পরীক্ষা করে কোন ফাইলটি রাখতে হবে তা নির্ধারণ করে। প্রথম মানদণ্ড যা একটি স্পষ্ট বিজয়ী দেয় তা ফলাফল নির্ধারণ করে। পুনর্বিন্যাস করতে টেনে আনুন, মোড পরিবর্তন করতে ট্যাপ করুন।</string>
-    <string name="deduplicator_arbiter_select_mode_title">মোড নির্বাচন করুন</string>
-    <string name="deduplicator_arbiter_configure_paths_action">পাথ কনফিগার করুন…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ডুপ্লিকেটের ধরন</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">অনুরূপ ফাইলের চেয়ে হুবহু মিলকে প্রাধান্য দিন।</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">মিডিয়া ইন্ডেক্সিং</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">ফাইলগুলি মিডিয়া প্রদানকারী দ্বারা ইন্ডেক্স করা হয়েছে কিনা বিবেচনা করুন।</string>
-    <string name="deduplicator_arbiter_criterium_location_title">স্টোরেজ অবস্থান</string>
-    <string name="deduplicator_arbiter_criterium_location_description">অভ্যন্তরীণ বা বাহ্যিক স্টোরেজের ফাইলকে প্রাধান্য দিন।</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">ফোল্ডারের গভীরতা</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">অগভীর বা গভীরতর ফোল্ডার কাঠামোর ফাইলকে প্রাধান্য দিন।</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">পরিবর্তনের তারিখ</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">পরিবর্তনের সময়ের উপর ভিত্তি করে পুরনো বা নতুন ফাইলকে প্রাধান্য দিন।</string>
-    <string name="deduplicator_arbiter_criterium_size_title">ফাইলের আকার</string>
-    <string name="deduplicator_arbiter_criterium_size_description">আকার ভিন্ন হলে বড় বা ছোট ফাইলকে প্রাধান্য দিন।</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">পছন্দের অবস্থান</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">আপনার কনফিগার করা পছন্দের অবস্থানে ফাইল রাখুন।</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">হুবহু মিল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">অনুরূপ ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">ইন্ডেক্স করা ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">ইন্ডেক্স না করা ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">অভ্যন্তরীণ স্টোরেজ পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">বাহ্যিক স্টোরেজ পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">অগভীর ফোল্ডার পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">গভীরতর ফোল্ডার পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">পুরনো ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">নতুন ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">বড় ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">ছোট ফাইল পছন্দ করুন</string>
-    <string name="deduplicator_view_mode_groups_label">গ্রুপ</string>
-    <string name="deduplicator_view_mode_directories_label">ফোল্ডার</string>
-
-    <string name="appcontrol_archive_action">আর্কাইভ</string>
-    <string name="appcontrol_archive_selection_action">অ্যাপ আর্কাইভ করুন</string>
-    <string name="appcontrol_archive_description">পরে পুনরুদ্ধারের জন্য অ্যাপ ডেটা রেখে জায়গা খালি করতে আর্কাইভ করুন।</string>
-    <string name="appcontrol_progress_archiving_app">অ্যাপ আর্কাইভ করা হচ্ছে…</string>
-    <string name="appcontrol_archive_confirmation_title">আর্কাইভ নিশ্চিত করুন</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">%d অ্যাপ আর্কাইভ করবেন?</item>
-        <item quantity="other">%d অ্যাপ আর্কাইভ করবেন?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
-        <item quantity="other">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
-    </plurals>
-    <string name="appcontrol_restore_action">পুনরুদ্ধার</string>
-    <string name="appcontrol_restore_selection_action">অ্যাপ পুনরুদ্ধার করুন</string>
-    <string name="appcontrol_restore_description">আর্কাইভ করা অ্যাপ সম্পূর্ণ ইনস্টল অবস্থায় পুনরুদ্ধার করুন। অ্যাপ ডেটা সংরক্ষিত থাকবে।</string>
-    <string name="appcontrol_progress_restoring_app">অ্যাপ পুনরুদ্ধার করা হচ্ছে…</string>
-    <string name="appcontrol_restore_confirmation_title">পুনরুদ্ধার নিশ্চিত করুন</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
-        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
-        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">তালিকা শেয়ার করুন</string>
-    <string name="appcontrol_share_list_title">আমার অ্যাপ</string>
-    <string name="appcontrol_share_list_footer">SD Maid SE এর মাধ্যমে শেয়ার করা হয়েছে</string>
-    <string name="appcontrol_automation_subtitle_archiving">আর্কাইভ করা হচ্ছে…</string>
-    <string name="appcontrol_automation_progress_find_archive">\"আর্কাইভ\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">পুনরুদ্ধার করা হচ্ছে…</string>
-    <string name="appcontrol_automation_progress_find_restore">\"পুনরুদ্ধার\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
-    <string name="appcontrol_tag_debug">ডিবাগ</string>
-
-    <string name="analyzer_content_create_swiper_session_action">Swiper সেশন তৈরি করুন</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">%d আইটেম দিয়ে Swiper সেশন তৈরি হয়েছে</item>
-        <item quantity="other">%d আইটেম দিয়ে Swiper সেশন তৈরি হয়েছে</item>
-    </plurals>
-
-    <string name="exclusion_editor_path_change_action">পাথ পরিবর্তন করতে ট্যাপ করুন</string>
-
-    <string name="systemcleaner_customfilter_editor_size_explanation">ফাইলের আকারের উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো আকারের সাথে মেলাতে সেট না করা রাখুন।</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
-
-    <string name="appcleaner_forcestop_before_clearing_summary">ক্যাশ পরিষ্কার করার আগে অ্যাপ জোর করে বন্ধ করুন। এটি কিছু অ্যাপের ক্যাশ পরিষ্কার করতে সাহায্য করতে পারে, তবে অ্যাপ অস্বাভাবিক আচরণ করতে পারে এবং ম্যানুয়ালি পুনরায় চালু করতে হতে পারে।</string>
-
-    <string name="squeezer_tool_name">মিডিয়া স্কুইজ</string>
-    <string name="squeezer_explanation_short">স্টোরেজ স্পেস বাঁচাতে ছবি সংকুচিত করুন।</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d ছবি পাওয়া গেছে</item>
-        <item quantity="other">%d ছবি পাওয়া গেছে</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s সাশ্রয় করা যাবে</item>
-        <item quantity="other">~%s সাশ্রয় করা যাবে</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d ছবি সংকুচিত হয়েছে</item>
-        <item quantity="other">%d ছবি সংকুচিত হয়েছে</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d ছবি নির্বাচিত</item>
-        <item quantity="other">%d ছবি নির্বাচিত</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">অনুসন্ধান অবস্থান</string>
-    <string name="squeezer_search_locations_default_summary">ক্যামেরা ফোল্ডার (ডিফল্ট)</string>
-    <string name="squeezer_min_size_title">সর্বনিম্ন ফাইল আকার</string>
-    <string name="squeezer_min_size_description">এই আকারের চেয়ে ছোট ছবি এড়িয়ে যান।</string>
-    <string name="squeezer_min_age_title">সর্বনিম্ন ফাইল বয়স</string>
-    <string name="squeezer_min_age_description">শুধুমাত্র এই বয়সের চেয়ে পুরনো ছবি অন্তর্ভুক্ত করুন।</string>
-    <string name="squeezer_compression_settings_label">সংকোচন সেটিংস</string>
-    <string name="squeezer_quality_label">গুণমান</string>
-    <string name="squeezer_quality_title">সংকোচনের গুণমান</string>
-    <string name="squeezer_quality_description">নিম্ন গুণমান মানে ছোট ফাইল আকার কিন্তু হ্রাসকৃত ছবির গুণমান।</string>
-    <string name="squeezer_quality_example_format">উদাহরণ: %1$s ছবি → %3$d%% গুণমানে ~%2$s সাশ্রয়</string>
-    <string name="squeezer_quality_warning_low">নিম্ন গুণমান দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
-    <string name="squeezer_quality_warning_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
-    <string name="squeezer_types_category_label">ছবির ধরন</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG ছবি (.jpg, .jpeg) অন্তর্ভুক্ত করুন।</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP ছবি (.webp) অন্তর্ভুক্ত করুন।</string>
-    <string name="squeezer_skip_compressed_title">আগে সংকুচিত এড়িয়ে যান</string>
-    <string name="squeezer_skip_compressed_description">SD Maid দ্বারা আগে সংকুচিত ছবি এড়িয়ে যান।</string>
-    <string name="squeezer_exif_marker_title">EXIF মার্কার লিখুন</string>
-    <string name="squeezer_exif_marker_description">সংকোচন ইতিহাস মুছে ফেলা হলেও পুনরায় সংকোচন রোধ করতে ছবির EXIF ব্যবহারকারী মন্তব্য ক্ষেত্রে একটি মার্কার যোগ করুন।</string>
-    <string name="squeezer_estimated_savings_format">~%s সাশ্রয়</string>
-    <string name="squeezer_no_savings_expected">সীমিত সাশ্রয়</string>
-    <string name="squeezer_current_size_format">আকার: %s</string>
-    <string name="squeezer_compress_action">সংকুচিত করুন</string>
-    <string name="squeezer_compress_all_action">সব সংকুচিত করুন</string>
-    <string name="squeezer_preview_dialog_title">সংকোচন নিশ্চিত করুন</string>
-    <string name="squeezer_preview_total_size">মোট আকার</string>
-    <string name="squeezer_preview_estimated_savings">আনুমানিক সাশ্রয়</string>
-    <string name="squeezer_compress_confirmation_title">ছবি সংকুচিত করবেন?</string>
-    <string name="squeezer_compress_confirmation_message">এটি মূল ছবিগুলিকে সংকুচিত সংস্করণ দিয়ে প্রতিস্থাপন করবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</string>
-    <string name="squeezer_history_title">সংকোচন ইতিহাস</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d আইটেম (%2$s)</item>
-        <item quantity="other">%1$d আইটেম (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">কোন সংকোচন ইতিহাস নেই</string>
-    <string name="squeezer_history_clear_title">সংকোচন ইতিহাস মুছুন</string>
-    <string name="squeezer_history_clear_message">এটি আগে সংকুচিত ছবিগুলিকে আবার সংকুচিত করার অনুমতি দেবে। ছবিগুলি নিজেরা প্রভাবিত হবে না।</string>
-    <string name="squeezer_onboarding_title">ছবি সংকোচন সম্পর্কে</string>
-    <string name="squeezer_onboarding_message">ছবি সংকোচন ভিজ্যুয়াল বিশদ অপসারণ করে ফাইলের আকার কমায়। এই প্রক্রিয়া অপরিবর্তনীয় - আসল গুণমান পুনরুদ্ধার করা যাবে না।\n\nআপনার ছবিগুলি কেমন দেখাবে তার একটি প্রিভিউ এখানে:</string>
-    <string name="squeezer_onboarding_original_label">আসল</string>
-    <string name="squeezer_onboarding_compressed_label">সংকোচনের পর</string>
-    <string name="squeezer_onboarding_quality_label">গুণমান: %d%%</string>
-    <string name="squeezer_onboarding_got_it">বুঝেছি</string>
-    <string name="squeezer_compare_action">তুলনা দেখুন</string>
-    <string name="squeezer_no_example_found">নির্বাচিত পাথে কোনো ছবি পাওয়া যায়নি।</string>
-    <string name="squeezer_result_empty_message">সংকোচনযোগ্য কোনো ছবি পাওয়া যায়নি।</string>
-    <string name="squeezer_setup_warning">সংকোচন স্টোরেজ স্পেস বাঁচাতে স্থায়ীভাবে ছবির গুণমান হ্রাস করে। এটি পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
-    <string name="squeezer_setup_explanation">মিডিয়া স্কুইজ স্টোরেজ স্পেস খালি করতে ছবির ফাইলের আকার কমায়। এটি স্থায়ীভাবে ছবির গুণমান হ্রাস করে এবং পূর্বাবস্থায় ফেরানো যাবে না। শুরু করার আগে আপনার সেটিংস সাবধানে পর্যালোচনা করুন।</string>
-    <string name="squeezer_setup_paths_title">অনুসন্ধান অবস্থান</string>
-    <string name="squeezer_setup_paths_default">অনুসন্ধানের জন্য ফোল্ডার নির্বাচন করুন</string>
-    <string name="squeezer_setup_quality_title">সংকোচনের গুণমান</string>
-    <string name="squeezer_setup_age_title">সর্বনিম্ন বয়স</string>
-    <string name="squeezer_setup_age_none">কোনো সীমা নেই (সব ফাইল অন্তর্ভুক্ত)</string>
-    <string name="squeezer_setup_start_action">স্ক্যান শুরু করুন</string>
-    <string name="squeezer_quality_hint_very_low">৪০% এর নিচে গুণমান ব্যবহারের অযোগ্য ছবি তৈরি করতে পারে।</string>
-    <string name="squeezer_quality_hint_low">নিম্ন গুণমান বেশি স্থান সাশ্রয় করে কিন্তু দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
-    <string name="squeezer_quality_hint_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
-    <string name="squeezer_quality_hint_normal">সুষম গুণমান এবং স্থান সাশ্রয়।</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">অন্তত %d দিন পুরনো</item>
-        <item quantity="other">অন্তত %d দিন পুরনো</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG ফাইলের জন্য আনুমানিক ~%d%% সাশ্রয়</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">কোনটি রাখবেন বা মুছবেন তা সিদ্ধান্ত নিতে ফাইলের মধ্য দিয়ে সোয়াইপ করুন।</string>
-    <string name="swiper_dashcard_description">নির্দিষ্ট ফোল্ডারে ফাইল ম্যানুয়ালি পর্যালোচনা করুন। কোনটি রাখবেন বা মুছবেন তা সিদ্ধান্ত নিতে সোয়াইপ করুন।</string>
     <string name="swiper_start_action">সোয়াইপ শুরু করুন</string>
     <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
-    <string name="swiper_sessions_description">কিছু ফাইলের জন্য মানবিক সিদ্ধান্ত প্রয়োজন। আইটেমগুলির মধ্য দিয়ে সোয়াইপ করুন এবং কোনটি রাখবেন বা মুছবেন তা বেছে নিন। যেগুলি সম্পর্কে নিশ্চিত নন সেগুলি এড়িয়ে যান। এই টুলটি আপনাকে নির্দিষ্ট ফোল্ডার ম্যানুয়ালি পর্যালোচনা করতে দেয়, এবং আপনি নিশ্চিত না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
     <string name="swiper_scanning_title">স্ক্যান করা হচ্ছে…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1039,6 +1025,7 @@
         <item quantity="one">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
         <item quantity="other">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d রাখা হয়েছে</item>
         <item quantity="other">%d রাখা হয়েছে</item>
@@ -1053,6 +1040,7 @@
     <string name="swiper_sessions_suggestion_downloads">ডাউনলোড ফোল্ডার</string>
     <string name="swiper_sessions_suggestion_screenshots">স্ক্রিনশট</string>
     <string name="swiper_sessions_suggestion_camera">ক্যামেরা রোল</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">রাখুন!</string>
     <string name="swiper_stamp_keep_2">চমৎকার!</string>
     <string name="swiper_stamp_keep_3">হ্যাঁ!</string>
@@ -1069,4 +1057,6 @@
     <string name="swiper_stamp_undo_2">ফিরে!</string>
     <string name="swiper_stamp_undo_3">উফ!</string>
     <string name="swiper_stamp_undo_4">দাঁড়ান!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

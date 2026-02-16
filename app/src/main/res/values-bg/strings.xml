@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">Започнете сканиране и изтриване за всички инструменти с докосване на бутона за действие на таблото, без допълнителни потвърждения.</string>
     <string name="dashboard_settings_oneclick_tools_title">Инструменти с едно докосване</string>
     <string name="dashboard_settings_oneclick_tools_desc">Кои инструменти трябва да бъдат включени в операциите с едно докосване?</string>
+    <string name="dashboard_card_config_title">Карти на таблото</string>
+    <string name="dashboard_card_config_desc">Настройте кои карти се показват и реда им</string>
+    <string name="dashboard_card_config_header_title">Плъзнете за пренареждане, превключете за показване/скриване</string>
     <string name="debug_notification_channel_label">Уведомления за отстраняване на грешки</string>
     <string name="debug_debuglog_file_label">Записан лог файл</string>
     <string name="debug_debuglog_recording_progress">Записване на дебъг лог</string>
     <string name="debug_debuglog_record_action">Записване на дебъг лог</string>
     <string name="debug_debuglog_stop_action">Спиране на записването</string>
     <string name="debug_debuglog_sensitive_information_message">Генерираният файл съдържа чувствителна информация (напр. имена на файлове и инсталирани приложения). Споделяйте го само с доверени страни.</string>
+    <string name="debug_debuglog_screen_title">Дебъг лог</string>
+    <string name="debug_debuglog_screen_discard_action">Отхвърли</string>
+    <string name="debug_debuglog_screen_session_path_label">Път на сесията</string>
+    <string name="debug_debuglog_screen_log_files_label">Лог файлове</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d файл е готов (%2$s)</item>
+        <item quantity="other">%1$d файла са готови (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Тази функция записва всичко, което прави приложението, в споделим файл. Генерираният файл съдържа чувствителна информация (напр. имена на файлове и инсталирани приложения). Споделяйте го само с доверени страни (напр. разработчик, който решава проблем).</string>
     <string name="tasks_activity_notification_channel_label">Активни задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работи</string>
@@ -78,6 +89,14 @@
     <string name="support_installid_desc">Автоматичните доклади за грешки са анонимни. Споделете инсталационния си ID, ако разработчикът трябва да намери вашите доклади за грешки.</string>
     <string name="support_debuglog_label">Дебъг лог</string>
     <string name="support_debuglog_desc">Записвайте всичко, което прави приложението, в текстов файл, който можете да споделите.</string>
+    <string name="support_debuglog_folder_label">Папка за дебъг логове</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d файл, използващ %2$s</item>
+        <item quantity="other">%1$d файла, използващи %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Няма съхранени дебъг логове</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Изтриване на всички дебъг логове?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Това ще изтрие окончателно всички съхранени сесии на дебъг логове. Това действие не може да бъде отменено.</string>
     <string name="discord_description">Място за провеждане на време и задаване на въпроси.</string>
     <string name="changelog_label">Списък на промените</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
@@ -152,6 +171,13 @@
     <string name="debug_bugreporter_label">Автоматичен доклад за грешки</string>
     <string name="debug_bugreporter_summary">Автоматично докладва проблеми, напр. подробности за сривове на приложението, за да мога да разбера защо и да го поправя.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Режимът за отстраняване на грешки е активиран</string>
+    <string name="debug_card_trace_mode_label">Активиране на режим за проследяване</string>
+    <string name="debug_card_dryrun_mode_label">Пробен режим (без изтриване)</string>
+    <string name="debug_card_areas_reload_action">Презареждане на областите с данни</string>
+    <string name="debug_card_pkgs_reload_action">Презареждане на приложенията</string>
+    <string name="debug_card_root_test_action">Тест root</string>
+    <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
     <string name="settings_category_tools_label">Инструменти</string>
     <string name="settings_category_filter">Филтър</string>
     <string name="settings_category_risklevel">Ниво на риск</string>
@@ -186,6 +212,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Частни данни на приложения, напр. идентификационни данни, настройки на приложения, но също и кешове на браузъри.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik кеш</string>
     <string name="corpsefinder_filter_dalvik_summary">Кеширани данни за изпълнение на приложения.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART профили</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART профилите се използват от Android за оптимизиране на производителността на приложенията.</string>
     <string name="corpsefinder_filter_applib_label">Библиотеки на приложения</string>
     <string name="corpsefinder_filter_applib_summary">Данни на библиотеки, свързани с приложения.</string>
     <string name="corpsefinder_filter_appsource_label">Източници на приложения</string>
@@ -238,6 +266,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Възраст на екранните снимки</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Минимална възраст за екранни снимки, за да бъдат разгледани за изтриване.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Излишни APK файлове</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Инсталационни файлове, които вече не са необходими на база инсталираните версии на приложенията.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Включване на същата версия</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Също така насочване към APK файлове, които съвпадат с инсталираната версия. Деактивирайте, за да премахвате само по-стари версии.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR папки</string>
     <string name="systemcleaner_filter_lostdir_summary">Временни файлове, които се създават при прехвърляне на данни между Android устройства.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux файлове</string>
@@ -298,6 +329,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Името е равно на ключовата дума</string>
     <string name="systemcleaner_customfilter_last_edit">Последна редакция: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Търсене в реално време</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Ограничения по размер</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Минимален размер</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Максимален размер</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Ограничаване на съвпаденията по размер на файла. Оставете незададено за съвпадение с всякакъв размер.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Ограничения по възраст</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Минимална възраст</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Максимална възраст</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Ограничаване на съвпаденията по възраст на файла (последна модификация). Оставете незададено за съвпадение с всякаква възраст.</string>
     <string name="systemcleaner_customfilter_import_action">Импортиране на нов филтър</string>
     <string name="systemcleaner_customfilter_export_action">Експортиране на избрания филтър</string>
     <string name="appcleaner_explanation_short">Разходни данни, принадлежащи на конкретни приложения.</string>
@@ -339,6 +378,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Файлове, които са изтрити, но поставени в специална папка, за да се позволи възстановяването им.</string>
     <string name="appcleaner_filter_webview_label">Webview файлове</string>
     <string name="appcleaner_filter_webview_summary">Файлове, кеширани от Webview инстанции, използвани в приложения.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Икони за бързи клавиши</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кеширани икони за бързи клавиши на приложения и менюта за споделяне.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp резервни копия</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Изтриване на допълнителни копия от WhatsApp резервни копия и запазване само на най-новото.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Файлове, които сте получили от хора чрез WhatsApp.</string>
@@ -387,6 +428,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Това системно приложение няма екран с настройки. Изчистването на кеш чрез услуга за достъпност не е възможно. Изключете го, за да ускорите изчистването на кеш.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Системното приложение е неправилно конфигурирано</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Приложението Security на HyperOS (com.miui.securitycenter) липсва разрешението за статистики за използване (GET_USAGE_STATS). Това нарушава функции като \"Изчистване на данни\" в подробности за приложения и изчистване на кеш чрез достъпност. Предоставете разрешението за възстановяване на пълната функционалност.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Принудително спиране преди изчистване</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Принудително спиране на приложенията преди изчистване на кеша им. Може да помогне за изчистване на кеша на някои приложения, но може да причини неправилно поведение и да изисква ръчно рестартиране.</string>
+    <string name="appcleaner_progress_force_stopping">Принудително спиране на приложения…</string>
     <string name="deduplicator_explanation_short">Намиране на дублирани данни на вашето устройство.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d дубликат изтрит</item>
@@ -400,6 +444,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Покажете опции, които ви позволяват да изтриете всички файлове в комплект дубликати, така че да не остане никакъв файл.</string>
     <string name="deduplicator_search_locations_title">Места за търсене</string>
     <string name="deduplicator_search_locations_all_summary">Всички достъпни области</string>
+    <string name="deduplicator_keep_prefer_paths_title">Предпочитане на запазване в</string>
+    <string name="deduplicator_keep_prefer_paths_summary">При решаване кой дубликат да се запази, предпочитане на запазване на файлове в тези местоположения.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Няма конфигурирани местоположения</string>
     <string name="deduplicator_skip_minsize_title">Минимален размер</string>
     <string name="deduplicator_skip_minsize_description">Пропускане на файлове, които са под минималния размер.</string>
     <string name="deduplicator_skip_uncommon_title">Пропускане на необичайни типове файлове</string>
@@ -408,6 +455,7 @@
     <string name="deduplicator_detection_method_checksum_title">Контролна сума на съдържанието</string>
     <string name="deduplicator_detection_method_checksum_summary">Определяне на дубликати чрез изчисляване на контролни суми за файлове. Файлове със съвпадащи контролни суми имат точно същото съдържание.</string>
     <string name="deduplicator_detection_method_phash_title">Перцептуален хеш</string>
+    <string name="deduplicator_detection_method_phash_summary">Намиране на подобни файлове чрез анализ на характеристиките на съдържанието и сравняване на перцептуални хеш стойности. ⚠️ Базираното на подобие откриване може да включва фалшиви положителни резултати, изискващи ръчна проверка.</string>
     <string name="deduplicator_occupied_space_label">Заето хранилище</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s е заето от дубликати</item>
@@ -426,6 +474,120 @@
     <string name="deduplicator_details_cluster_title">Комплект дубликати</string>
     <string name="deduplicator_matches_exact_label">Точни копия</string>
     <string name="deduplicator_matches_similar_label">Подобни файлове</string>
+    <string name="deduplicator_arbiter_title">Стратегия за изтриване</string>
+    <string name="deduplicator_arbiter_summary">Настройте кои файлове се запазват и кои се изтриват.</string>
+    <string name="deduplicator_arbiter_explanation">При изтриване на дубликати SD Maid решава кой файл да запази, като проверява всеки критерий последователно. Първият критерий, който дава ясен победител, определя резултата. Плъзнете за пренареждане, докоснете за промяна на режима.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Избор на режим</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Конфигуриране на пътища…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Тип дубликат</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Предпочитане на точни съвпадения пред подобни файлове.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Медийно индексиране</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Отчитане дали файловете са индексирани от медийния доставчик.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Местоположение на хранилището</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Предпочитане на файлове на вътрешно или външно хранилище.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Дълбочина на папките</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Предпочитане на файлове в по-плитки или по-дълбоки структури от папки.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Дата на модификация</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Предпочитане на по-стари или по-нови файлове по време на модификация.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Размер на файла</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Предпочитане на по-големи или по-малки файлове, когато размерите се различават.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Предпочитани местоположения</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Запазване на файлове в конфигурираните предпочитани местоположения.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Предпочитане на точни съвпадения</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Предпочитане на подобни файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Предпочитане на индексирани файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Предпочитане на неиндексирани файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Предпочитане на вътрешно хранилище</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Предпочитане на външно хранилище</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Предпочитане на плитки папки</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Предпочитане на дълбоки папки</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Предпочитане на по-стари файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Предпочитане на по-нови файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Предпочитане на по-големи файлове</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Предпочитане на по-малки файлове</string>
+    <string name="deduplicator_view_mode_groups_label">Групи</string>
+    <string name="deduplicator_view_mode_directories_label">Папки</string>
+    <string name="squeezer_explanation_short">Компресиране на изображения за спестяване на място за съхранение.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d изображение намерено</item>
+        <item quantity="other">%d изображения намерени</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s може да се спести</item>
+        <item quantity="other">~%s могат да се спестят</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d изображение компресирано</item>
+        <item quantity="other">%d изображения компресирани</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d изображение избрано</item>
+        <item quantity="other">%d изображения избрани</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Местоположения за търсене</string>
+    <string name="squeezer_search_locations_default_summary">Папки на камерата (по подразбиране)</string>
+    <string name="squeezer_min_size_title">Минимален размер на файла</string>
+    <string name="squeezer_min_size_description">Пропускане на изображения по-малки от този размер.</string>
+    <string name="squeezer_min_age_title">Минимална възраст на файла</string>
+    <string name="squeezer_min_age_description">Включване само на изображения по-стари от тази възраст.</string>
+    <string name="squeezer_compression_settings_label">Настройки за компресия</string>
+    <string name="squeezer_quality_label">Качество</string>
+    <string name="squeezer_quality_title">Качество на компресия</string>
+    <string name="squeezer_quality_description">По-ниско качество означава по-малък размер на файла, но намалено качество на изображението.</string>
+    <string name="squeezer_quality_example_format">Пример: %1$s изображение → спестява ~%2$s при %3$d%% качество</string>
+    <string name="squeezer_quality_warning_low">По-ниските качества могат да причинят видими артефакти.</string>
+    <string name="squeezer_quality_warning_high">Много високото качество осигурява минимални спестявания на място.</string>
+    <string name="squeezer_types_category_label">Типове изображения</string>
+    <string name="squeezer_type_jpeg_description">Включване на JPEG изображения (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Включване на WebP изображения (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Пропускане на вече компресирани</string>
+    <string name="squeezer_skip_compressed_description">Пропускане на изображения, които вече са компресирани от SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Записване на EXIF маркер</string>
+    <string name="squeezer_exif_marker_description">Добавяне на маркер в полето за EXIF потребителски коментар на изображението, за да се предотврати повторна компресия, дори ако историята на компресията бъде изчистена.</string>
+    <string name="squeezer_estimated_savings_format">~%s спестявания</string>
+    <string name="squeezer_no_savings_expected">Ограничени спестявания</string>
+    <string name="squeezer_current_size_format">Размер: %s</string>
+    <string name="squeezer_compress_action">Компресиране</string>
+    <string name="squeezer_compress_all_action">Компресиране на всички</string>
+    <string name="squeezer_preview_dialog_title">Потвърждаване на компресията</string>
+    <string name="squeezer_preview_total_size">Общ размер</string>
+    <string name="squeezer_preview_estimated_savings">Очаквани спестявания</string>
+    <string name="squeezer_compress_confirmation_title">Компресиране на изображенията?</string>
+    <string name="squeezer_compress_confirmation_message">Това ще замени оригиналните изображения с компресирани версии. Това действие не може да бъде отменено.</string>
+    <string name="squeezer_history_title">История на компресията</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d елемент (%2$s)</item>
+        <item quantity="other">%1$d елемента (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Няма история на компресията</string>
+    <string name="squeezer_history_clear_title">Изчистване на историята на компресията</string>
+    <string name="squeezer_history_clear_message">Това ще позволи на вече компресираните изображения да бъдат компресирани отново. Самите изображения не са засегнати.</string>
+    <string name="squeezer_onboarding_title">За компресията на изображения</string>
+    <string name="squeezer_onboarding_message">Компресията на изображения намалява размера на файла чрез премахване на визуални детайли. Този процес е необратим - оригиналното качество не може да бъде възстановено.\n\nЕто предварителен преглед на това как ще изглеждат вашите изображения:</string>
+    <string name="squeezer_onboarding_original_label">Оригинал</string>
+    <string name="squeezer_onboarding_compressed_label">След компресия</string>
+    <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Разбрах</string>
+    <string name="squeezer_compare_action">Преглед на сравнение</string>
+    <string name="squeezer_no_example_found">Не са намерени изображения в избраните пътища.</string>
+    <string name="squeezer_result_empty_message">Не са намерени компресируеми изображения.</string>
+    <string name="squeezer_setup_warning">Компресията трайно намалява качеството на изображенията, за да спести място за съхранение. Това не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze намалява размера на файловете с изображения, за да освободи място за съхранение. Това трайно намалява качеството на изображенията и не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
+    <string name="squeezer_setup_paths_title">Местоположения за търсене</string>
+    <string name="squeezer_setup_paths_default">Изберете папки за търсене</string>
+    <string name="squeezer_setup_quality_title">Качество на компресия</string>
+    <string name="squeezer_setup_age_title">Минимална възраст</string>
+    <string name="squeezer_setup_age_none">Без ограничение (включване на всички файлове)</string>
+    <string name="squeezer_setup_start_action">Започване на сканиране</string>
+    <string name="squeezer_quality_hint_very_low">Качество под 40% може да създаде неизползваеми изображения.</string>
+    <string name="squeezer_quality_hint_low">По-ниско качество спестява повече място, но може да причини видими артефакти.</string>
+    <string name="squeezer_quality_hint_high">Много високо качество осигурява минимални спестявания на място.</string>
+    <string name="squeezer_quality_hint_normal">Балансирано качество и спестяване на място.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Поне %d ден стар</item>
+        <item quantity="other">Поне %d дни стар</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Очаквани ~%d%% спестявания за JPEG файлове</string>
     <string name="appcontrol_explanation_short">Приложения, инсталирани на вашето устройство.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d приложение открито</item>
@@ -443,6 +605,7 @@
     <string name="appcontrol_app_launch_title">Стартиране на приложение</string>
     <string name="appcontrol_app_launch_description">Стартиране на основната активност на това приложение.</string>
     <string name="appcontrol_app_forcestop_title">Принудително спиране</string>
+    <string name="appcontrol_app_forcestop_description">Спиране на приложението. Предотвратява самостоятелното му стартиране, докато не го отворите или устройството не се рестартира.</string>
     <string name="appcontrol_app_uninstall_description">Деинсталиране на това приложение от вашето устройство.</string>
     <string name="appcontrol_app_exclude_add_title">Изключване на приложение</string>
     <string name="appcontrol_app_exclude_add_description">Изключете това приложение от други операции в SD Maid.</string>
@@ -456,6 +619,7 @@
     <string name="appcontrol_tag_not_installed">Не е инсталирано</string>
     <string name="appcontrol_tag_enabled">Активирано</string>
     <string name="appcontrol_tag_disabled">Деактивирано</string>
+    <string name="appcontrol_tag_debug">Дебъг</string>
     <string name="appcontrol_progress_enabling_package">Активиrane на приложение</string>
     <string name="appcontrol_progress_disabling_package">Деактивиране на приложение</string>
     <string name="appcontrol_list_filteroptions_label">Опции за филтриране</string>
@@ -470,6 +634,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d приложение беше деинсталирано</item>
         <item quantity="other">%d приложения бяха деинсталирани</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Архивиране</string>
+    <string name="appcontrol_archive_selection_action">Архивиране на приложения</string>
+    <string name="appcontrol_archive_description">Архивиране за освобождаване на място, като данните на приложението се запазват за по-късно възстановяване.</string>
+    <string name="appcontrol_progress_archiving_app">Архивиране на приложение…</string>
+    <string name="appcontrol_archive_confirmation_title">Потвърждаване на архивирането</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Архивиране на %d приложение?</item>
+        <item quantity="other">Архивиране на %d приложения?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d приложение архивирано</item>
+        <item quantity="other">%d приложения архивирани</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Възстановяване</string>
+    <string name="appcontrol_restore_selection_action">Възстановяване на приложения</string>
+    <string name="appcontrol_restore_description">Възстановяване на архивирано приложение до пълно инсталирано състояние. Данните на приложението се запазват.</string>
+    <string name="appcontrol_progress_restoring_app">Възстановяване на приложение…</string>
+    <string name="appcontrol_restore_confirmation_title">Потвърждаване на възстановяването</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Възстановяване на %d приложение?</item>
+        <item quantity="other">Възстановяване на %d приложения?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d приложение възстановено</item>
+        <item quantity="other">%d приложения възстановени</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Размер на приложение</string>
     <string name="appcontrol_app_sizes_apk_label">Приложение</string>
@@ -488,13 +678,19 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Получаване на груба оценка на размера на всяко приложение.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определяне на активност</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Разберете дали приложение е (или наскоро е било) активно.</string>
+    <string name="appcontrol_include_multiuser_label">Включване на други потребители</string>
+    <string name="appcontrol_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
     <string name="appcontrol_export_app_selection_action">Експортиране на приложения</string>
     <string name="appcontrol_export_title">Експортиране на приложение</string>
+    <string name="appcontrol_export_description">Запазване на инсталационните файлове на това приложение. Не включва данните на приложението.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d приложение беше експортирано</item>
         <item quantity="other">%d приложения бяха експортирани</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Експортиране на %s</string>
+    <string name="appcontrol_share_list_action">Споделяне на списък</string>
+    <string name="appcontrol_share_list_title">Моите приложения</string>
+    <string name="appcontrol_share_list_footer">Споделено чрез SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Принудително спиране на приложения</string>
     <string name="appcontrol_force_stop_action">Принудително спиране</string>
     <string name="appcontrol_force_stop_confirm_title">Потвърждаване на принудително спиране</string>
@@ -511,8 +707,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Принудително спиране…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Търсене на бутон \"Принудително спиране\" (ключови думи: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Архивиране…</string>
+    <string name="appcontrol_automation_progress_find_archive">Търсене на бутон \"Архивиране\" (ключови думи: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Възстановяване…</string>
+    <string name="appcontrol_automation_progress_find_restore">Търсене на бутон \"Възстановяване\" (ключови думи: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Време на екрана: %1$s от %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Последно актуализирано: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Инсталирано на: %s</string>
     <string name="analyzer_explanation_short">Разберете какво заема място на вашето устройство.</string>
     <string name="analyzer_progress_scanning_device">Търсене на устройства за хранилище</string>
     <string name="analyzer_progress_scanning_storage">Сканиране на хранилище</string>
@@ -529,6 +730,11 @@
         <item quantity="other">%s използвани</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Няма наличен директен достъп</string>
+    <string name="analyzer_content_create_swiper_session_action">Създаване на Swiper сесия</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper сесия създадена с %d елемент</item>
+        <item quantity="other">Swiper сесия създадена с %d елемента</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Основно хранилище</string>
     <string name="analyzer_storage_type_primary_description">Основното хранилище на вашето устройство. Съдържа вътрешната SD карта, частно хранилище за приложения и системни данни.</string>
     <string name="analyzer_storage_type_secondary_title">Вторично хранилище</string>
@@ -571,6 +777,7 @@
     <string name="exclusion_type_segment">Изключване на сегмент</string>
     <string name="exclusion_tags_alltools">Всички инструменти</string>
     <string name="exclusion_target_label">Цел на изключване</string>
+    <string name="exclusion_editor_path_change_action">Докоснете за промяна на пътя</string>
     <string name="exclusion_option_allow_partial">Разрешаване на частични съвпадения</string>
     <string name="exclusion_option_ignore_casing">Игнориране на регистъра</string>
     <string name="exclusion_editor_affected_tools_label">Засегнати инструменти</string>
@@ -660,6 +867,17 @@
     <string name="review_app_review_action">Преглед</string>
     <string name="review_app_dismiss_action">Може би по-късно</string>
     <string name="review_app_body">Бихте ли искали да оставите на SD Maid оценка?️ ❤️</string>
+    <string name="anniversary_card_title">Честита годишнина с SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">С вас от %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Вече %1$d година заедно. Благодарим ви, че се доверявате на SD Maid да поддържа вашия Android чист и подреден. Освободено място: %2$s</item>
+        <item quantity="other">%1$d години заедно. Вашето устройство остава чисто и подредено с SD Maid. Освободено място: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Споделете годишнината си с SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d година с SD Maid — Освободено място: %2$s. Поддържайки вашия Android чист и подреден. #SDMaid\nОпитайте: %3$s</item>
+        <item quantity="other">%1$d години с SD Maid — Освободено място: %2$s. Поддържайки вашия Android чист и подреден. #SDMaid\nОпитайте: %3$s</item>
+    </plurals>
     <string name="stats_label">История</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s е освободен.</item>
@@ -700,242 +918,14 @@
     <string name="area_type_public_obb_label">Публични ресурси на приложения</string>
     <string name="area_type_private_data_label">Частни данни на приложения</string>
     <string name="area_type_portable_label">Преносимо хранилище</string>
-    <string name="dashboard_card_config_title">Карти на таблото</string>
-    <string name="dashboard_card_config_desc">Настройте кои карти се показват и реда им</string>
-    <string name="dashboard_card_config_header_title">Плъзнете за пренареждане, превключете за показване/скриване</string>
-    <string name="debug_debuglog_screen_title">Дебъг лог</string>
-    <string name="debug_debuglog_screen_discard_action">Отхвърли</string>
-    <string name="debug_debuglog_screen_session_path_label">Път на сесията</string>
-    <string name="debug_debuglog_screen_log_files_label">Лог файлове</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d файл е готов (%2$s)</item>
-        <item quantity="other">%1$d файла са готови (%2$s)</item>
-    </plurals>
-    <string name="support_debuglog_folder_label">Папка за дебъг логове</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d файл, използващ %2$s</item>
-        <item quantity="other">%1$d файла, използващи %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Няма съхранени дебъг логове</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Изтриване на всички дебъг логове?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Това ще изтрие окончателно всички съхранени сесии на дебъг логове. Това действие не може да бъде отменено.</string>
-    <string name="debug_card_title">Режимът за отстраняване на грешки е активиран</string>
-    <string name="debug_card_trace_mode_label">Активиране на режим за проследяване</string>
-    <string name="debug_card_dryrun_mode_label">Пробен режим (без изтриване)</string>
-    <string name="debug_card_areas_reload_action">Презареждане на областите с данни</string>
-    <string name="debug_card_pkgs_reload_action">Презареждане на приложенията</string>
-    <string name="debug_card_root_test_action">Тест root</string>
-    <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
-    <string name="corpsefinder_filter_artprofiles_label">ART профили</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART профилите се използват от Android за оптимизиране на производителността на приложенията.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Инсталационни файлове, които вече не са необходими на база инсталираните версии на приложенията.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Включване на същата версия</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Също така насочване към APK файлове, които съвпадат с инсталираната версия. Деактивирайте, за да премахвате само по-стари версии.</string>
-    <string name="systemcleaner_customfilter_editor_size_label">Ограничения по размер</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Минимален размер</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Максимален размер</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Ограничаване на съвпаденията по размер на файла. Оставете незададено за съвпадение с всякакъв размер.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Ограничения по възраст</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Минимална възраст</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Максимална възраст</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Ограничаване на съвпаденията по възраст на файла (последна модификация). Оставете незададено за съвпадение с всякаква възраст.</string>
-    <string name="appcleaner_filter_shortcutservice_label">Икони за бързи клавиши</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Кеширани икони за бързи клавиши на приложения и менюта за споделяне.</string>
-    <string name="appcleaner_forcestop_before_clearing_label">Принудително спиране преди изчистване</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Принудително спиране на приложенията преди изчистване на кеша им. Може да помогне за изчистване на кеша на някои приложения, но може да причини неправилно поведение и да изисква ръчно рестартиране.</string>
-    <string name="appcleaner_progress_force_stopping">Принудително спиране на приложения…</string>
-    <string name="deduplicator_keep_prefer_paths_title">Предпочитане на запазване в</string>
-    <string name="deduplicator_keep_prefer_paths_summary">При решаване кой дубликат да се запази, предпочитане на запазване на файлове в тези местоположения.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Няма конфигурирани местоположения</string>
-    <string name="deduplicator_detection_method_phash_summary">Намиране на подобни файлове чрез анализ на характеристиките на съдържанието и сравняване на перцептуални хеш стойности. ⚠️ Базираното на подобие откриване може да включва фалшиви положителни резултати, изискващи ръчна проверка.</string>
-    <string name="deduplicator_arbiter_title">Стратегия за изтриване</string>
-    <string name="deduplicator_arbiter_summary">Настройте кои файлове се запазват и кои се изтриват.</string>
-    <string name="deduplicator_arbiter_explanation">При изтриване на дубликати SD Maid решава кой файл да запази, като проверява всеки критерий последователно. Първият критерий, който дава ясен победител, определя резултата. Плъзнете за пренареждане, докоснете за промяна на режима.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Избор на режим</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Конфигуриране на пътища…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Тип дубликат</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Предпочитане на точни съвпадения пред подобни файлове.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Медийно индексиране</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Отчитане дали файловете са индексирани от медийния доставчик.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Местоположение на хранилището</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Предпочитане на файлове на вътрешно или външно хранилище.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Дълбочина на папките</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Предпочитане на файлове в по-плитки или по-дълбоки структури от папки.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Дата на модификация</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Предпочитане на по-стари или по-нови файлове по време на модификация.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Размер на файла</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Предпочитане на по-големи или по-малки файлове, когато размерите се различават.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Предпочитани местоположения</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Запазване на файлове в конфигурираните предпочитани местоположения.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Предпочитане на точни съвпадения</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Предпочитане на подобни файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Предпочитане на индексирани файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Предпочитане на неиндексирани файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Предпочитане на вътрешно хранилище</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Предпочитане на външно хранилище</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Предпочитане на плитки папки</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Предпочитане на дълбоки папки</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Предпочитане на по-стари файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Предпочитане на по-нови файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Предпочитане на по-големи файлове</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Предпочитане на по-малки файлове</string>
-    <string name="deduplicator_view_mode_groups_label">Групи</string>
-    <string name="deduplicator_view_mode_directories_label">Папки</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">Компресиране на изображения за спестяване на място за съхранение.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d изображение намерено</item>
-        <item quantity="other">%d изображения намерени</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s може да се спести</item>
-        <item quantity="other">~%s могат да се спестят</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d изображение компресирано</item>
-        <item quantity="other">%d изображения компресирани</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d изображение избрано</item>
-        <item quantity="other">%d изображения избрани</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Местоположения за търсене</string>
-    <string name="squeezer_search_locations_default_summary">Папки на камерата (по подразбиране)</string>
-    <string name="squeezer_min_size_title">Минимален размер на файла</string>
-    <string name="squeezer_min_size_description">Пропускане на изображения по-малки от този размер.</string>
-    <string name="squeezer_min_age_title">Минимална възраст на файла</string>
-    <string name="squeezer_min_age_description">Включване само на изображения по-стари от тази възраст.</string>
-    <string name="squeezer_compression_settings_label">Настройки за компресия</string>
-    <string name="squeezer_quality_label">Качество</string>
-    <string name="squeezer_quality_title">Качество на компресия</string>
-    <string name="squeezer_quality_description">По-ниско качество означава по-малък размер на файла, но намалено качество на изображението.</string>
-    <string name="squeezer_quality_example_format">Пример: %1$s изображение → спестява ~%2$s при %3$d%% качество</string>
-    <string name="squeezer_quality_warning_low">По-ниските качества могат да причинят видими артефакти.</string>
-    <string name="squeezer_quality_warning_high">Много високото качество осигурява минимални спестявания на място.</string>
-    <string name="squeezer_types_category_label">Типове изображения</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Включване на JPEG изображения (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Включване на WebP изображения (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Пропускане на вече компресирани</string>
-    <string name="squeezer_skip_compressed_description">Пропускане на изображения, които вече са компресирани от SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Записване на EXIF маркер</string>
-    <string name="squeezer_exif_marker_description">Добавяне на маркер в полето за EXIF потребителски коментар на изображението, за да се предотврати повторна компресия, дори ако историята на компресията бъде изчистена.</string>
-    <string name="squeezer_estimated_savings_format">~%s спестявания</string>
-    <string name="squeezer_no_savings_expected">Ограничени спестявания</string>
-    <string name="squeezer_current_size_format">Размер: %s</string>
-    <string name="squeezer_compress_action">Компресиране</string>
-    <string name="squeezer_compress_all_action">Компресиране на всички</string>
-    <string name="squeezer_preview_dialog_title">Потвърждаване на компресията</string>
-    <string name="squeezer_preview_total_size">Общ размер</string>
-    <string name="squeezer_preview_estimated_savings">Очаквани спестявания</string>
-    <string name="squeezer_compress_confirmation_title">Компресиране на изображенията?</string>
-    <string name="squeezer_compress_confirmation_message">Това ще замени оригиналните изображения с компресирани версии. Това действие не може да бъде отменено.</string>
-    <string name="squeezer_history_title">История на компресията</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d елемент (%2$s)</item>
-        <item quantity="other">%1$d елемента (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Няма история на компресията</string>
-    <string name="squeezer_history_clear_title">Изчистване на историята на компресията</string>
-    <string name="squeezer_history_clear_message">Това ще позволи на вече компресираните изображения да бъдат компресирани отново. Самите изображения не са засегнати.</string>
-    <string name="squeezer_onboarding_title">За компресията на изображения</string>
-    <string name="squeezer_onboarding_message">Компресията на изображения намалява размера на файла чрез премахване на визуални детайли. Този процес е необратим - оригиналното качество не може да бъде възстановено.\n\nЕто предварителен преглед на това как ще изглеждат вашите изображения:</string>
-    <string name="squeezer_onboarding_original_label">Оригинал</string>
-    <string name="squeezer_onboarding_compressed_label">След компресия</string>
-    <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Разбрах</string>
-    <string name="squeezer_compare_action">Преглед на сравнение</string>
-    <string name="squeezer_no_example_found">Не са намерени изображения в избраните пътища.</string>
-    <string name="squeezer_result_empty_message">Не са намерени компресируеми изображения.</string>
-    <string name="squeezer_setup_warning">Компресията трайно намалява качеството на изображенията, за да спести място за съхранение. Това не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze намалява размера на файловете с изображения, за да освободи място за съхранение. Това трайно намалява качеството на изображенията и не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
-    <string name="squeezer_setup_paths_title">Местоположения за търсене</string>
-    <string name="squeezer_setup_paths_default">Изберете папки за търсене</string>
-    <string name="squeezer_setup_quality_title">Качество на компресия</string>
-    <string name="squeezer_setup_age_title">Минимална възраст</string>
-    <string name="squeezer_setup_age_none">Без ограничение (включване на всички файлове)</string>
-    <string name="squeezer_setup_start_action">Започване на сканиране</string>
-    <string name="squeezer_quality_hint_very_low">Качество под 40% може да създаде неизползваеми изображения.</string>
-    <string name="squeezer_quality_hint_low">По-ниско качество спестява повече място, но може да причини видими артефакти.</string>
-    <string name="squeezer_quality_hint_high">Много високо качество осигурява минимални спестявания на място.</string>
-    <string name="squeezer_quality_hint_normal">Балансирано качество и спестяване на място.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Поне %d ден стар</item>
-        <item quantity="other">Поне %d дни стар</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Очаквани ~%d%% спестявания за JPEG файлове</string>
-    <string name="appcontrol_app_forcestop_description">Спиране на приложението. Предотвратява самостоятелното му стартиране, докато не го отворите или устройството не се рестартира.</string>
-    <string name="appcontrol_tag_debug">Дебъг</string>
-    <string name="appcontrol_archive_action">Архивиране</string>
-    <string name="appcontrol_archive_selection_action">Архивиране на приложения</string>
-    <string name="appcontrol_archive_description">Архивиране за освобождаване на място, като данните на приложението се запазват за по-късно възстановяване.</string>
-    <string name="appcontrol_progress_archiving_app">Архивиране на приложение…</string>
-    <string name="appcontrol_archive_confirmation_title">Потвърждаване на архивирането</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">Архивиране на %d приложение?</item>
-        <item quantity="other">Архивиране на %d приложения?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d приложение архивирано</item>
-        <item quantity="other">%d приложения архивирани</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Възстановяване</string>
-    <string name="appcontrol_restore_selection_action">Възстановяване на приложения</string>
-    <string name="appcontrol_restore_description">Възстановяване на архивирано приложение до пълно инсталирано състояние. Данните на приложението се запазват.</string>
-    <string name="appcontrol_progress_restoring_app">Възстановяване на приложение…</string>
-    <string name="appcontrol_restore_confirmation_title">Потвърждаване на възстановяването</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">Възстановяване на %d приложение?</item>
-        <item quantity="other">Възстановяване на %d приложения?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d приложение възстановено</item>
-        <item quantity="other">%d приложения възстановени</item>
-    </plurals>
-    <string name="appcontrol_include_multiuser_label">Включване на други потребители</string>
-    <string name="appcontrol_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
-    <string name="appcontrol_export_description">Запазване на инсталационните файлове на това приложение. Не включва данните на приложението.</string>
-    <string name="appcontrol_share_list_action">Споделяне на списък</string>
-    <string name="appcontrol_share_list_title">Моите приложения</string>
-    <string name="appcontrol_share_list_footer">Споделено чрез SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Архивиране…</string>
-    <string name="appcontrol_automation_progress_find_archive">Търсене на бутон \"Архивиране\" (ключови думи: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Възстановяване…</string>
-    <string name="appcontrol_automation_progress_find_restore">Търсене на бутон \"Възстановяване\" (ключови думи: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">Инсталирано на: %s</string>
-    <string name="analyzer_content_create_swiper_session_action">Създаване на Swiper сесия</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Swiper сесия създадена с %d елемент</item>
-        <item quantity="other">Swiper сесия създадена с %d елемента</item>
-    </plurals>
-    <string name="exclusion_editor_path_change_action">Докоснете за промяна на пътя</string>
-    <string name="anniversary_card_title">Честита годишнина с SD Maid ❤️</string>
-    <string name="anniversary_card_install_date">С вас от %s</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="one">Вече %1$d година заедно. Благодарим ви, че се доверявате на SD Maid да поддържа вашия Android чист и подреден. Освободено място: %2$s</item>
-        <item quantity="other">%1$d години заедно. Вашето устройство остава чисто и подредено с SD Maid. Освободено място: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">Споделете годишнината си с SD Maid</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d година с SD Maid — Освободено място: %2$s. Поддържайки вашия Android чист и подреден. #SDMaid\nОпитайте: %3$s</item>
-        <item quantity="other">%1$d години с SD Maid — Освободено място: %2$s. Поддържайки вашия Android чист и подреден. #SDMaid\nОпитайте: %3$s</item>
-    </plurals>
-    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Управление на инсталирани приложения</string>
     <string name="shortcut_onetap_short">Сканиране + Изтриване</string>
     <string name="shortcut_onetap_long">Сканиране и изтриване с едно действие</string>
     <string name="shortcuts_settings_category">Бързи клавиши</string>
     <string name="shortcuts_onetap_enabled_title">Бърз клавиш с едно докосване</string>
     <string name="shortcuts_onetap_enabled_summary">Показване на бърз клавиш \"Сканиране + Изтриване\" при дълго натискане на иконата на приложението. Използва същите инструменти като таблото с едно докосване.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Плъзнете през файлове, за да решите кои да запазите или изтриете.</string>
-    <string name="swiper_dashcard_description">Ръчно преглеждайте файлове в определени папки. Плъзнете, за да решите кои да запазите или изтриете.</string>
     <string name="swiper_start_action">Започнете плъзгане</string>
     <string name="swiper_continue_action">Продължаване на сесията</string>
-    <string name="swiper_sessions_description">Някои файлове изискват човешко решение. Плъзнете през елементите и изберете кои да запазите или изтриете. Пропуснете всичко, за което не сте сигурни. Този инструмент ви позволява ръчно да преглеждате определени папки и нищо не се премахва, докато не потвърдите.</string>
     <string name="swiper_select_folders_action">Избиране на папки</string>
     <string name="swiper_scanning_title">Сканиране…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1029,6 +1019,7 @@
         <item quantity="one">%d вече изтрит</item>
         <item quantity="other">%d вече изтрити</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d запазен</item>
         <item quantity="other">%d запазени</item>
@@ -1043,6 +1034,7 @@
     <string name="swiper_sessions_suggestion_downloads">Папка за изтегляния</string>
     <string name="swiper_sessions_suggestion_screenshots">Екранни снимки</string>
     <string name="swiper_sessions_suggestion_camera">Снимки от камерата</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Запази!</string>
     <string name="swiper_stamp_keep_2">Готино!</string>
     <string name="swiper_stamp_keep_3">Да!</string>
@@ -1059,4 +1051,6 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Опа!</string>
     <string name="swiper_stamp_undo_4">Чакай!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

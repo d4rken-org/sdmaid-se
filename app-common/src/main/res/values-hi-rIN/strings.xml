@@ -19,11 +19,13 @@
     <string name="general_todo_msg">इस फीचर पर अभी भी काम किया जा रहा है और फिलहाल यह उपलब्ध नहीं है।</string>
     <string name="general_share_action">शेयर करें</string>
     <string name="general_done_action">ठीक है</string>
+    <string name="general_apply_action">लागू करें</string>
     <string name="general_copy_action">कॉपी करें</string>
     <string name="general_wipe_action">साफ करें</string>
     <string name="general_cancel_action">रद्द करें</string>
     <string name="general_discard_action">खारिज करे</string>
     <string name="general_reset_action">रीसेट</string>
+    <string name="general_drag_handle_description">क्रम बदलने के लिए खींचें</string>
     <string name="general_save_action">सहेजे</string>
     <string name="general_thanks_action">धन्यवाद</string>
     <string name="general_gotit_action">समझ गया</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">संपादन करें</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">खाली है</string>
+    <string name="general_new_badge_label">नया</string>
     <string name="general_dismiss_action">खारिज करें</string>
     <string name="general_maybe_later_action">किंतु बाद में</string>
     <string name="general_manage_action">प्रबंधित करें</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">व्यू मोड स्विच करें</string>
     <string name="general_delete_confirmation_title">मिटाने की पुष्टि</string>
     <string name="general_delete_confirmation_message_x">मिटाएं \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d चयनित आइटम मिटाएं?</item>
+        <item quantity="other">%d चयनित आइटम मिटाएं?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d आइटम डिलीट किया।</item>
         <item quantity="other">%d आइटम डिलीट किए।</item>
@@ -164,13 +171,6 @@
     <string name="general_error_report_bug_action">बग रिपोर्ट करें</string>
     <string name="general_error_ipc_deadobject_title">सेवा कनेक्शन खो गया</string>
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जैसे Magisk, Shizuku, या अन्य सिस्टम-स्तर सेवाओं) का कनेक्शन अप्रत्याशित रूप से खो गया था। कृपया अपने डिवाइस को रीबूट करें। यदि समस्या बनी रहती है, तो अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
-    <string name="general_apply_action">लागू करें</string>
-    <string name="general_drag_handle_description">क्रम बदलने के लिए खींचें</string>
-    <string name="general_new_badge_label">नया</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">%d चयनित आइटम मिटाएं?</item>
-        <item quantity="other">%d चयनित आइटम मिटाएं?</item>
-    </plurals>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">सिस्टम</string>
 </resources>

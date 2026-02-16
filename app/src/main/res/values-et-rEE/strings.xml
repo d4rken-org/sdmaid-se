@@ -953,11 +953,8 @@
     <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
     <string name="swiper_label">Pühkija</string>
     <string name="swiper_tool_name">Pühkija</string>
-    <string name="swiper_tool_description">Pühi faile, et neid säilitada või kustutada.</string>
-    <string name="swiper_dashcard_description">Vaata failide üle käsitsi konkreetsetes kaustades. Pühi, et otsustada, mida säilitada või kustutada.</string>
     <string name="swiper_start_action">Alusta pühkimist</string>
     <string name="swiper_continue_action">Jätka seanssi</string>
-    <string name="swiper_sessions_description">Mõned failid vajavad inimese otsust. Pühi üksusi ja vali, mida säilitada või kustutada. Jäta vahele kõik, milles pole kindel. See tööriist võimaldab konkreetseid kaustu käsitsi üle vaadata ja midagi ei eemaldata enne kinnitamist.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
     <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1083,4 +1080,6 @@
     <string name="swiper_stamp_undo_2">Tagasi!</string>
     <string name="swiper_stamp_undo_3">Isver-susver!</string>
     <string name="swiper_stamp_undo_4">Pea hoogu!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

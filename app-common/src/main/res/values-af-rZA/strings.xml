@@ -44,7 +44,6 @@
     <string name="general_upgrade_action">Opgradeer</string>
     <string name="general_donate_action">Skenk</string>
     <string name="general_check_action">Kontroleer</string>
-    <string name="general_filter_action">Filter</string>
     <string name="general_internal_not_available_msg">Internetverbinding nie beskikbaar nie</string>
     <string name="general_refresh_action">Verfris</string>
     <string name="general_progress_searching">Soek</string>
@@ -114,10 +113,6 @@
     <string name="general_search_action">Soek</string>
     <string name="general_scan_device_action">Skandeer toestel</string>
     <string name="general_open_system_settings_action">Maak sisteem instellings oop</string>
-    <plurals name="result_x_items">
-        <item quantity="one">%s item</item>
-        <item quantity="other">%s items</item>
-    </plurals>
     <plurals name="result_x_successful">
         <item quantity="one">%d suksesvol</item>
         <item quantity="other">%d suksesvol</item>

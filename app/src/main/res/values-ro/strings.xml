@@ -989,11 +989,8 @@
     <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
     <string name="swiper_label">Glisare</string>
     <string name="swiper_tool_name">Glisare</string>
-    <string name="swiper_tool_description">Glisați prin fișiere pentru a decide ce să păstrați sau să ștergeți.</string>
-    <string name="swiper_dashcard_description">Examinați manual fișierele din dosare specifice. Glisați pentru a decide ce să păstrați sau să ștergeți.</string>
     <string name="swiper_start_action">Începeți glisarea</string>
     <string name="swiper_continue_action">Continuați sesiunea</string>
-    <string name="swiper_sessions_description">Unele fișiere necesită o decizie umană. Glisați prin elemente și alegeți ce să păstrați sau să ștergeți. Săriți peste orice nu sunteți sigur. Acest instrument vă permite să examinați manual dosare specifice și nimic nu este eliminat până când nu confirmați.</string>
     <string name="swiper_select_folders_action">Selectați foldere</string>
     <string name="swiper_scanning_title">Se scanează…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1110,4 +1107,6 @@
     <string name="swiper_stamp_undo_2">Înapoi!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Așteaptă!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

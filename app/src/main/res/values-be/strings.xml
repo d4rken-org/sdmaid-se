@@ -589,37 +589,70 @@
     <string name="squeezer_min_size_description">Прапускаць выявы меншыя за гэты памер.</string>
     <string name="squeezer_min_age_title">Мінімальны час стварэння файла</string>
     <string name="squeezer_min_age_description">Уключаць толькі выявы старэйшыя за дадзены час стварэння.</string>
+    <string name="squeezer_compression_settings_label">Налады сціскання</string>
+    <string name="squeezer_quality_label">Якасць</string>
+    <string name="squeezer_quality_title">Якасць сціскання</string>
     <string name="squeezer_quality_description">Ніжэйшая якасць азначае меншы памер файла, але і ніжэйшую якасць выявы.</string>
     <string name="squeezer_quality_example_format">Напрыклад: выява %1$s → сэканоміць ~%2$s з якасцю %3$d%%</string>
+    <string name="squeezer_quality_warning_low">Нізкая якасць можа прывесці да з\'яўлення бачных артэфактаў.</string>
+    <string name="squeezer_quality_warning_high">Вельмі высокая якасць забяспечвае мінімальную эканомію прасторы.</string>
     <string name="squeezer_types_category_label">Тыпы выявы</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Уключыць выявы JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Уключыць выявы WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Прапускаць раней сціснутыя</string>
     <string name="squeezer_skip_compressed_description">Прапускаць выявы, якія ўжо былі сціснутыя SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Запісаць маркер EXIF</string>
     <string name="squeezer_exif_marker_description">Дадае маркер у поле EXIF карыстальніцкага каментарыя ​выявы для прадухілення паўторнага сціскання, нават калі гісторыя сціскання ачышчана.</string>
+    <string name="squeezer_estimated_savings_format">~%s эканоміі</string>
+    <string name="squeezer_no_savings_expected">Абмежаваная эканомія</string>
+    <string name="squeezer_current_size_format">Памер: %s</string>
+    <string name="squeezer_compress_action">Сціснуць</string>
+    <string name="squeezer_compress_all_action">Сціснуць усё</string>
+    <string name="squeezer_preview_dialog_title">Пацвердзіць сцісканне</string>
     <string name="squeezer_preview_total_size">Агульны памер</string>
     <string name="squeezer_preview_estimated_savings">Меркаваная эканомія</string>
     <string name="squeezer_compress_confirmation_title">Сціснуць выявы?</string>
     <string name="squeezer_compress_confirmation_message">Гэта заменіць арыгінальныя выявы сціснутымі версіямі. Гэта дзеянне нельга скасаваць.</string>
     <string name="squeezer_history_title">Гісторыя сцісканняў</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d элемент (%2$s)</item>
+        <item quantity="few">%1$d элементы (%2$s)</item>
+        <item quantity="many">%1$d элементаў (%2$s)</item>
+        <item quantity="other">%1$d элементаў (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">Няма гісторыі сцісканняў</string>
     <string name="squeezer_history_clear_title">Ачысціць гісторыю сцісканняў</string>
     <string name="squeezer_history_clear_message">Гэта дазволіць зноў сціснуць раней сціснутыя выявы. Самі выявы застануцца нязменнымі.</string>
     <string name="squeezer_onboarding_title">Аб сцісканні выяў</string>
     <string name="squeezer_onboarding_message">Сцісканне выявы памяншае памер файла, выдаляючы візуальныя дэталі. Гэты працэс незваротны — першапачатковую якасць аднавіць немагчыма.\n\nВось папярэдні прагляд таго, як будуць выглядаць вашы выявы:</string>
+    <string name="squeezer_onboarding_original_label">Арыгінал</string>
+    <string name="squeezer_onboarding_compressed_label">Пасля сціскання</string>
+    <string name="squeezer_onboarding_quality_label">Якасць: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Зразумела</string>
     <string name="squeezer_compare_action">Паглядзець параўнанне</string>
     <string name="squeezer_no_example_found">У выбраных шляхах выявы не знойдзены.</string>
     <string name="squeezer_result_empty_message">Не знойдзена выяў, якія можна сціснуць.</string>
     <string name="squeezer_setup_warning">Сцісканне назаўсёды зніжае якасць выявы, каб сэканоміць месца. Гэта дзеянне немагчыма скасаваць. Уважліва праверце налады перад пачаткам працы.</string>
     <string name="squeezer_setup_explanation">Функцыя Сцісканне медыя памяншае памер файлаў выяў, каб вызваліць месца для захоўвання. Гэта дзеянне незваротна зніжае якасць выяў і не можа быць скасавана. Уважліва праверце налады перад пачаткам працы.</string>
+    <string name="squeezer_setup_paths_title">Пошук размяшчэнняў</string>
+    <string name="squeezer_setup_paths_default">Выберыце папкі для пошуку</string>
+    <string name="squeezer_setup_quality_title">Якасць сціскання</string>
     <string name="squeezer_setup_age_title">Мінімальны час стварэння</string>
     <string name="squeezer_setup_age_none">Няма абмежаванняў (уключыць усе файлы)</string>
+    <string name="squeezer_setup_start_action">Пачаць сканіраванне</string>
     <string name="squeezer_quality_hint_very_low">Якасць ніжэй за 40% можа прывесці да стварэння непрыдатных для выкарыстання выяў.</string>
+    <string name="squeezer_quality_hint_low">Ніжэйшая якасць дазваляе сэканоміць больш месца, але можа прывесці да з\'яўлення бачных артэфактаў.</string>
+    <string name="squeezer_quality_hint_high">Вельмі высокая якасць забяспечвае мінімальную эканомію прасторы.</string>
+    <string name="squeezer_quality_hint_normal">Збалансаваная якасць і эканомія прасторы.</string>
     <plurals name="squeezer_min_age_x_days">
         <item quantity="one">Не менш за %d дзень</item>
         <item quantity="few">Не менш за %d дні</item>
         <item quantity="many">Не менш за %d дзён</item>
         <item quantity="other">Не менш за %d дзён</item>
     </plurals>
+    <string name="squeezer_estimated_savings_percent">Прыблізная эканомія для файлаў JPEG складае ~%d%%</string>
     <string name="appcontrol_tool_name">Менеджар</string>
     <string name="appcontrol_explanation_short">Усталяваныя на вашай прыладзе праграмы.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -656,6 +689,7 @@
     <string name="appcontrol_tag_not_installed">Не ўсталявана</string>
     <string name="appcontrol_tag_enabled">Уключана</string>
     <string name="appcontrol_tag_disabled">Адключана</string>
+    <string name="appcontrol_tag_debug">Адладка</string>
     <string name="appcontrol_progress_enabling_package">Уключэнне праграмы</string>
     <string name="appcontrol_progress_disabling_package">Адключэнне праграмы</string>
     <string name="appcontrol_list_filteroptions_label">Параметры фільтра</string>
@@ -673,6 +707,10 @@
         <item quantity="many">Выдалена %d праграм</item>
         <item quantity="other">Выдалена %d праграм</item>
     </plurals>
+    <string name="appcontrol_archive_action">Архіў</string>
+    <string name="appcontrol_archive_selection_action">Архіваваць праграмы</string>
+    <string name="appcontrol_archive_description">Архіваваць для вызвалення месца с захаваннем даных праграмы для наступнага аднаўлення.</string>
+    <string name="appcontrol_progress_archiving_app">Архіваванне праграмы…</string>
     <string name="appcontrol_app_sizes_title">Памер праграмы</string>
     <string name="appcontrol_app_sizes_apk_label">Праграма</string>
     <string name="appcontrol_app_sizes_data_label">Даныя</string>
@@ -753,6 +791,13 @@
         <item quantity="other">Выкарыстана %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Адсутнічае прамы доступ</string>
+    <string name="analyzer_content_create_swiper_session_action">Стварыць сесію</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Сесія створана з %d элементам</item>
+        <item quantity="few">Сесія створана з %d элементамі</item>
+        <item quantity="many">Сесія створана з %d элементамі</item>
+        <item quantity="other">Сесія створана з %d элементамі</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Асноўнае сховішча</string>
     <string name="analyzer_storage_type_primary_description">Асноўнае сховішча вашай прылады. Змяшчае ўнутраную карту памяці, прыватнае сховішча для праграм і сістэмных даных.</string>
     <string name="analyzer_storage_type_secondary_title">Дадатковае сховішча</string>
@@ -959,14 +1004,66 @@
     <string name="shortcuts_settings_category">Ярлыкі</string>
     <string name="shortcuts_onetap_enabled_title">Хуткі ярлык</string>
     <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
-    <string name="swiper_dashcard_description">Прагледзьце файлы ў пэўных папках уручную. Правядзіце пальцам, каб вырашыць, што пакінуць або выдаліць.</string>
-    <string name="swiper_sessions_description">Некаторыя файлы патрабуюць рашэння чалавека. Правядзіце пальцам па элементах і абярыце, што пакінуць або выдаліць. Прапускайце тое, у чым не ўпэўненыя. Гэты інструмент дазваляе ўручную праглядаць пэўныя папкі, і нічога не выдаляецца, пакуль вы не пацвердзіце.</string>
+    <string name="swiper_label">Змахнуць і выдаліць</string>
+    <string name="swiper_tool_name">Змахнуць і выдаліць</string>
+    <string name="swiper_start_action">Пачаць агляд</string>
+    <string name="swiper_continue_action">Працягнуць сесію</string>
+    <string name="swiper_select_folders_action">Выбраць папкі</string>
+    <string name="swiper_scanning_title">Сканіраванне…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">Знойдзены %d элемент</item>
+        <item quantity="few">Знойдзена %d элементы</item>
+        <item quantity="many">Знойдзена %d элементаў</item>
+        <item quantity="other">Знойдзена %d элементаў</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">Выдалены %d элемент</item>
+        <item quantity="few">Выдалена %d элементы</item>
+        <item quantity="many">Выдалена %d элементаў</item>
+        <item quantity="other">Выдалена %d элементаў</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">Няўдала апрацаваны %d элемент</item>
+        <item quantity="few">Няўдала апрацавана %d элементы</item>
+        <item quantity="many">Няўдала апрацавана %d элементаў</item>
+        <item quantity="other">Няўдала апрацавана %d элементаў</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d з %2$d</string>
+    <string name="swiper_keep_action">Пакінуць</string>
+    <string name="swiper_skip_action">Прапусціць</string>
+    <string name="swiper_review_action">Агляд</string>
     <string name="swiper_status_title">Агляд рашэнняў</string>
+    <string name="swiper_status_action_keep_selected">Пакінуць выбраным</string>
+    <string name="swiper_status_action_delete_selected">Выдаліць выбранае</string>
+    <string name="swiper_status_action_reset_selected">Скінуць выбранае</string>
+    <string name="swiper_decision_undecided">Без рашэння</string>
+    <string name="swiper_retry_action">Паўтарыць</string>
+    <string name="swiper_delete_confirmation_title">Выдаліць файлы?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Будзе назаўсёды выдалены %1$d файл (%2$s). Гэта дзеянне немагчыма скасаваць.</item>
+        <item quantity="few">Будзе назаўсёды выдалена %1$d файлы (%2$s). Гэта дзеянне немагчыма скасаваць.</item>
+        <item quantity="many">Будзе назаўсёды выдалена %1$d файлаў (%2$s). Гэта дзеянне немагчыма скасаваць.</item>
+        <item quantity="other">Будзе назаўсёды выдалена %1$d файлаў (%2$s). Гэта дзеянне немагчыма скасаваць.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d нявырашаны элемент застанецца для наступнага разгляду.</item>
+        <item quantity="few">%d нявырашаных элемента застанецца для наступнага разгляду.</item>
+        <item quantity="many">%d нявырашаных элементаў застанецца для наступнага разгляду.</item>
+        <item quantity="other">%d нявырашаных элементаў застанецца для наступнага разгляду.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Выдаліць %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Змяніць кірунак правядзення пальцам</string>
+    <string name="swiper_settings_swap_directions_summary">Праводзіць пальцам налева, каб захаваць, направа - каб выдаліць.</string>
     <string name="swiper_settings_haptic_feedback_summary">Вібрацыя пры прыняцці або выдаленні рашэнняў.</string>
     <string name="swiper_discard_session_confirmation_message">Усе рашэнні будуць страчаныя. Вы ўпэўнены?</string>
     <string name="swiper_session_paths_label">Шляхі</string>
     <string name="swiper_session_status_label">Стан</string>
     <!-- Shorter versions for side-by-side display -->
+    <string name="swiper_sessions_header_title">Гатовыя пазбавіцца ад лішняга?</string>
+    <string name="swiper_sessions_suggestions_label">Паспрабуйце пачаць з:</string>
+    <string name="swiper_sessions_suggestion_downloads">Папкі загрузак</string>
+    <string name="swiper_sessions_suggestion_screenshots">Здымкаў экрана</string>
+    <string name="swiper_sessions_suggestion_camera">Галерэі камеры</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Пакінуць!</string>
     <string name="swiper_stamp_keep_2">Выдатна!</string>
@@ -984,4 +1081,6 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Пачакайце!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

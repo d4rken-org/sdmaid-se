@@ -9,12 +9,23 @@
     <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
     <string name="dashboard_card_config_title">כרטיסי לוח מחוונים</string>
     <string name="dashboard_card_config_desc">הגדר אילו כרטיסים מוצגים ואת הסדר שלהם</string>
+    <string name="dashboard_card_config_header_title">גרור לשינוי סדר, החלף להצגה/הסתרה</string>
     <string name="debug_notification_channel_label">התראות ניפוי באגים</string>
     <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
     <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>
     <string name="debug_debuglog_record_action">שמירת קובץ לוג</string>
     <string name="debug_debuglog_stop_action">הפסקת הקלטה</string>
     <string name="debug_debuglog_sensitive_information_message">הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים אמינים.</string>
+    <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
+    <string name="debug_debuglog_screen_discard_action">מחק</string>
+    <string name="debug_debuglog_screen_session_path_label">נתיב הפעלה</string>
+    <string name="debug_debuglog_screen_log_files_label">קבצי יומן</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
+        <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
+        <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיה).</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
     <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
@@ -86,10 +97,26 @@
     <string name="support_installid_desc">דוחות שגיאות אוטומטיים הם אנונימיים. שתף את מזהה ההתקנה שלך אם המפתח צריך למצוא את דוחות השגיאה שלך.</string>
     <string name="support_debuglog_label">יומן באגים</string>
     <string name="support_debuglog_desc">הקלט את כל מה שהאפליקציה עושה לקובץ טקסט שאתה יכול לשתף.</string>
+    <string name="support_debuglog_folder_label">תיקיית יומני ניפוי שגיאות</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">קובץ %1$d משתמש ב-%2$s</item>
+        <item quantity="two">%1$d קבצים משתמשים ב-%2$s</item>
+        <item quantity="many">%1$d קבצים משתמשים ב-%2$s</item>
+        <item quantity="other">%1$d קבצים משתמשים ב-%2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">אין יומני ניפוי שגיאות מאוחסנים</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">למחוק את כל יומני ניפוי השגיאות?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">פעולה זו תמחק לצמיתות את כל הפעלות יומני ניפוי השגיאות המאוחסנות. לא ניתן לבטל פעולה זו.</string>
     <string name="discord_label">דיסקורד</string>
     <string name="discord_description">מקום לבלות בו ולשאול שאלות.</string>
     <string name="changelog_label">יומן שינויים</string>
     <string name="settings_acknowledgements_label">תודות</string>
+    <string name="settings_acknowledgements_category_translations_title">תרגומים</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">מי תרגם?</string>
+    <string name="settings_acknowledgements_category_thanks_title">תודות</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">תודה מיוחדת לחברינו.</string>
+    <string name="settings_acknowledgements_category_licenses_title">רישיונות</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">תוכנות בשימוש SD Maid.</string>
     <string name="setup_label">התקנה</string>
     <string name="setup_incomplete_card_title">ההגדרה לא הסתיימה</string>
     <string name="setup_incomplete_card_body">סיימו את הגדרת SD Maid על מנת לקבל תוצאות טובות יותר.</string>
@@ -163,6 +190,13 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_bugreporter_label">דוחות קריסה אוטומטים</string>
     <string name="debug_bugreporter_summary">דיווח אוטומטית על בעיות, למשל. פרטים על קריסת האפליקציה כדי שאוכל להבין מה צריך לתקן.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
+    <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>
+    <string name="debug_card_dryrun_mode_label">מצב ניסיון (בטל מחיקה)</string>
+    <string name="debug_card_areas_reload_action">טען מחדש אזורי נתונים</string>
+    <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
+    <string name="debug_card_root_test_action">בדוק root</string>
+    <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
     <string name="settings_category_tools_label">כלים</string>
     <string name="settings_category_filter">סינון</string>
     <string name="settings_category_risklevel">רמת סיכון</string>
@@ -202,6 +236,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="corpsefinder_filter_privatedata_summary">נתוני אפליקציה פרטיים, למשל אישורים, הגדרות אפליקציה אבל גם מטמון דפדפן.</string>
     <string name="corpsefinder_filter_dalvik_label">מטמון Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">איחסון מידע  של ביצועי האפליקציה.</string>
+    <string name="corpsefinder_filter_artprofiles_label">פרופילי ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">פרופילי ART משמשים את Android לאופטימיזציה של ביצועי אפליקציות.</string>
     <string name="corpsefinder_filter_applib_label">ספריות האפליקציה</string>
     <string name="corpsefinder_filter_applib_summary">נתוני ספרייה הקשורים לאפליקציה.</string>
     <string name="corpsefinder_filter_appsource_label">מקורות אפליקציה</string>
@@ -264,6 +300,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_filter_screenshots_age_label">גיל צילום מסך</string>
     <string name="systemcleaner_filter_screenshots_age_summary">גיל מינימלי למחיקה של צילומי מסך.</string>
     <string name="systemcleaner_filter_superfluosapks_label">חבילות APK מיותרות</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">כלול אותה גרסה</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">כלול גם קבצי APK שתואמים לגרסה המותקנת. בטל כדי להסיר רק גרסאות ישנות יותר.</string>
     <string name="systemcleaner_filter_lostdir_label">תיקיות LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">קבצים זמניים שנוצרים בעת העברת נתונים בין מכשירי אנדרואיד.</string>
     <string name="systemcleaner_filter_linuxfiles_label">קבצי לינוקס</string>
@@ -324,6 +362,14 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">השם שווה למילת המפתח</string>
     <string name="systemcleaner_customfilter_last_edit">עריכה אחרונה: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">חיפוש חי</string>
+    <string name="systemcleaner_customfilter_editor_size_label">הגבלות גודל</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">גודל מינימלי</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">גודל מקסימלי</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">הגבל התאמות על פי גודל קובץ. השאר ריק כדי להתאים לכל גודל.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">הגבלות גיל</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">גיל מינימלי</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">גיל מקסימלי</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
     <string name="systemcleaner_customfilter_import_action">ייבא פילטר חדש</string>
     <string name="systemcleaner_customfilter_export_action">ייצא פילטרים נבחרים</string>
     <string name="appcleaner_tool_name">מנקה אפליקציות</string>
@@ -366,6 +412,8 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcleaner_filter_recyclebins_summary">קבצים שנמחקו אך הוכנסו לתיקיה מיוחדת כדי לאפשר לשחזר אותם.</string>
     <string name="appcleaner_filter_webview_label">קבצי תצוגת אינטרנט</string>
     <string name="appcleaner_filter_webview_summary">קבצים שנשמרו במטמון על ידי מופעי Webview בשימוש באפליקציות.</string>
+    <string name="appcleaner_filter_shortcutservice_label">סמלי קיצורי דרך לאפליקציות</string>
+    <string name="appcleaner_filter_shortcutservice_summary">סמלים ששמורים במטמון עבור קיצורי דרך לאפליקציות ותפריטי שיתוף.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">גיבוי וואטסאפ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">מחק עותקים נוספים של גיבויי WhatsApp ושמור רק את העדכניים ביותר.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">קבצים שהתקבלו מאנשים דרך וואטסאפ.</string>
@@ -423,6 +471,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcleaner_automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">אפליקציית המערכת מוגדרת בצורה שגויה</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">באפליקציית האבטחה (com.miui.securitycenter) של HyperOS חסרה הרשאת נתוני השימוש (GET_USAGE_STATS). זה משבית תכונות כמו \"נקה נתונים\" בפרטי אפליקציה וניקוי מטמון באמצעות נגישות. הענק את ההרשאה כדי לאפשר פונקציונליות מלאה.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
+    <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>
     <string name="deduplicator_tool_name">מסיר כפילות</string>
     <string name="deduplicator_explanation_short">מצא נתונים כפולים במכשיר שלך.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -441,6 +492,9 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">הצג אפשרויות המאפשרות לך למחוק את כל הקבצים בסט של כפילויות כך שלא יישאר קובץ.</string>
     <string name="deduplicator_search_locations_title">חיפוש מיקומים</string>
     <string name="deduplicator_search_locations_all_summary">כל האזורים הנגישים</string>
+    <string name="deduplicator_keep_prefer_paths_title">העדף שמירה ב</string>
+    <string name="deduplicator_keep_prefer_paths_summary">כאשר מחליטים איזה עותק לשמור, העדף לשמור קבצים במיקומים אלה.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">לא הוגדרו מיקומים</string>
     <string name="deduplicator_skip_minsize_title">גודל מינימלי</string>
     <string name="deduplicator_skip_minsize_description">דלג על קבצים שהם מתחת לגודל המינימלי.</string>
     <string name="deduplicator_skip_uncommon_title">דלג על סוגי קבצים לא שכיחים</string>
@@ -469,6 +523,67 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_details_cluster_title">רשימת כפילויות</string>
     <string name="deduplicator_matches_exact_label">עותקים מדויקים</string>
     <string name="deduplicator_matches_similar_label">קבצים דומים</string>
+    <string name="deduplicator_arbiter_title">אסטרטגיית מחיקה</string>
+    <string name="deduplicator_arbiter_summary">הגדר אילו קבצים נשמרים ואילו נמחקים.</string>
+    <string name="deduplicator_arbiter_explanation">בעת מחיקת כפילויות, SD Maid מחליט איזה קובץ לשמור על ידי בדיקת כל קריטריון לפי הסדר. הקריטריון הראשון שמפיק מנצח ברור קובע את התוצאה. גרור לשינוי סדר, הקש לשינוי מצב.</string>
+    <string name="deduplicator_arbiter_select_mode_title">בחר מצב</string>
+    <string name="deduplicator_arbiter_configure_paths_action">הגדר נתיבים…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">סוג כפילות</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">העדף התאמות מדויקות על פני קבצים דומים.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">אינדקס מדיה</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">בדוק האם קבצים מאונדקסים על ידי ספק המדיה.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">מיקום אחסון</string>
+    <string name="deduplicator_arbiter_criterium_location_description">העדף קבצים באחסון פנימי או חיצוני.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">עומק תיקיות</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">העדף קבצים במבני תיקיות רדודים או עמוקים יותר.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">תאריך שינוי</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">העדף קבצים ישנים או חדשים יותר על פי זמן השינוי.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">גודל קובץ</string>
+    <string name="deduplicator_arbiter_criterium_size_description">העדף קבצים גדולים או קטנים יותר כאשר הגדלים שונים.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">מיקומים מועדפים</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">שמור קבצים במיקומים המועדפים שהוגדרו.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">העדף התאמות מדויקות</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">העדף קבצים דומים</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">העדף קבצים מאונדקסים</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">העדף קבצים לא מאונדקסים</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">העדף אחסון פנימי</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">העדף אחסון חיצוני</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">העדף תיקיות רדודות</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">העדף תיקיות עמוקות</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">העדף קבצים ישנים</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">העדף קבצים חדשים</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">העדף קבצים גדולים</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">העדף קבצים קטנים</string>
+    <string name="deduplicator_view_mode_groups_label">קבוצות</string>
+    <string name="deduplicator_view_mode_directories_label">תיקיות</string>
+    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
+    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
+    <string name="squeezer_onboarding_original_label">מקור</string>
+    <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
+    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
+    <string name="squeezer_onboarding_got_it">הבנתי</string>
+    <string name="squeezer_compare_action">הצג השוואה</string>
+    <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
+    <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
+    <string name="squeezer_setup_warning">דחיסה מפחיתה לצמיתות את איכות התמונה כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק היטב את ההגדרות לפני ההתחלה.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
+    <string name="squeezer_setup_paths_title">מיקומי חיפוש</string>
+    <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
+    <string name="squeezer_setup_quality_title">איכות דחיסה</string>
+    <string name="squeezer_setup_age_title">גיל מינימלי</string>
+    <string name="squeezer_setup_age_none">ללא הגבלה (כלול את כל הקבצים)</string>
+    <string name="squeezer_setup_start_action">התחל סריקה</string>
+    <string name="squeezer_quality_hint_very_low">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
+    <string name="squeezer_quality_hint_low">איכות נמוכה יותר חוסכת יותר מקום אך עלולה לגרום לעיוותים נראים לעין.</string>
+    <string name="squeezer_quality_hint_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
+    <string name="squeezer_quality_hint_normal">איכות וחיסכון במקום מאוזנים.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">לפחות יום %d</item>
+        <item quantity="two">לפחות %d ימים</item>
+        <item quantity="many">לפחות %d ימים</item>
+        <item quantity="other">לפחות %d ימים</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
     <string name="appcontrol_tool_name">בקרת אפליקציה</string>
     <string name="appcontrol_explanation_short">אפליקציות המותקנות במכשיר שלך.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -778,151 +893,15 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="area_type_public_obb_label">משאבי אפליקציה ציבוריים</string>
     <string name="area_type_private_data_label">נתוני אפליקציה פרטיים</string>
     <string name="area_type_portable_label">אחסון נייד</string>
-    <string name="dashboard_card_config_header_title">גרור לשינוי סדר, החלף להצגה/הסתרה</string>
-
-    <string name="debug_debuglog_screen_title">יומן ניפוי שגיאות</string>
-    <string name="debug_debuglog_screen_discard_action">מחק</string>
-    <string name="debug_debuglog_screen_session_path_label">נתיב הפעלה</string>
-    <string name="debug_debuglog_screen_log_files_label">קבצי יומן</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">קובץ %1$d מוכן (%2$s)</item>
-        <item quantity="two">%1$d קבצים מוכנים (%2$s)</item>
-        <item quantity="many">%1$d קבצים מוכנים (%2$s)</item>
-        <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">תיקיית יומני ניפוי שגיאות</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">קובץ %1$d משתמש ב-%2$s</item>
-        <item quantity="two">%1$d קבצים משתמשים ב-%2$s</item>
-        <item quantity="many">%1$d קבצים משתמשים ב-%2$s</item>
-        <item quantity="other">%1$d קבצים משתמשים ב-%2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">אין יומני ניפוי שגיאות מאוחסנים</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">למחוק את כל יומני ניפוי השגיאות?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">פעולה זו תמחק לצמיתות את כל הפעלות יומני ניפוי השגיאות המאוחסנות. לא ניתן לבטל פעולה זו.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">תרגומים</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">מי תרגם?</string>
-    <string name="settings_acknowledgements_category_thanks_title">תודות</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">תודה מיוחדת לחברינו.</string>
-    <string name="settings_acknowledgements_category_licenses_title">רישיונות</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">תוכנות בשימוש SD Maid.</string>
-
-    <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
-    <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>
-    <string name="debug_card_dryrun_mode_label">מצב ניסיון (בטל מחיקה)</string>
-    <string name="debug_card_areas_reload_action">טען מחדש אזורי נתונים</string>
-    <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
-    <string name="debug_card_root_test_action">בדוק root</string>
-    <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">פרופילי ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">פרופילי ART משמשים את Android לאופטימיזציה של ביצועי אפליקציות.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">כלול אותה גרסה</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">כלול גם קבצי APK שתואמים לגרסה המותקנת. בטל כדי להסיר רק גרסאות ישנות יותר.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">הגבלות גודל</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">גודל מינימלי</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">גודל מקסימלי</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">הגבל התאמות על פי גודל קובץ. השאר ריק כדי להתאים לכל גודל.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">הגבלות גיל</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">גיל מינימלי</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">גיל מקסימלי</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">הגבל התאמות על פי גיל הקובץ (זמן שינוי אחרון). השאר ריק כדי להתאים לכל גיל.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">סמלי קיצורי דרך לאפליקציות</string>
-    <string name="appcleaner_filter_shortcutservice_summary">סמלים ששמורים במטמון עבור קיצורי דרך לאפליקציות ותפריטי שיתוף.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">עצירה מאולצת לפני ניקוי</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">עצור אפליקציות בכוח לפני ניקוי המטמון. יכול לעזור לנקות את המטמון של חלק מהאפליקציות, אך עלול לגרום לתקלות ולדרוש הפעלה מחדש ידנית.</string>
-    <string name="appcleaner_progress_force_stopping">עוצר אפליקציות בכוח…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">העדף שמירה ב</string>
-    <string name="deduplicator_keep_prefer_paths_summary">כאשר מחליטים איזה עותק לשמור, העדף לשמור קבצים במיקומים אלה.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">לא הוגדרו מיקומים</string>
-
-    <string name="deduplicator_arbiter_title">אסטרטגיית מחיקה</string>
-    <string name="deduplicator_arbiter_summary">הגדר אילו קבצים נשמרים ואילו נמחקים.</string>
-    <string name="deduplicator_arbiter_explanation">בעת מחיקת כפילויות, SD Maid מחליט איזה קובץ לשמור על ידי בדיקת כל קריטריון לפי הסדר. הקריטריון הראשון שמפיק מנצח ברור קובע את התוצאה. גרור לשינוי סדר, הקש לשינוי מצב.</string>
-    <string name="deduplicator_arbiter_select_mode_title">בחר מצב</string>
-    <string name="deduplicator_arbiter_configure_paths_action">הגדר נתיבים…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">סוג כפילות</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">העדף התאמות מדויקות על פני קבצים דומים.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">אינדקס מדיה</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">בדוק האם קבצים מאונדקסים על ידי ספק המדיה.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">מיקום אחסון</string>
-    <string name="deduplicator_arbiter_criterium_location_description">העדף קבצים באחסון פנימי או חיצוני.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">עומק תיקיות</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">העדף קבצים במבני תיקיות רדודים או עמוקים יותר.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">תאריך שינוי</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">העדף קבצים ישנים או חדשים יותר על פי זמן השינוי.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">גודל קובץ</string>
-    <string name="deduplicator_arbiter_criterium_size_description">העדף קבצים גדולים או קטנים יותר כאשר הגדלים שונים.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">מיקומים מועדפים</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">שמור קבצים במיקומים המועדפים שהוגדרו.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">העדף התאמות מדויקות</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">העדף קבצים דומים</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">העדף קבצים מאונדקסים</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">העדף קבצים לא מאונדקסים</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">העדף אחסון פנימי</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">העדף אחסון חיצוני</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">העדף תיקיות רדודות</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">העדף תיקיות עמוקות</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">העדף קבצים ישנים</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">העדף קבצים חדשים</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">העדף קבצים גדולים</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">העדף קבצים קטנים</string>
-
-    <string name="deduplicator_view_mode_groups_label">קבוצות</string>
-    <string name="deduplicator_view_mode_directories_label">תיקיות</string>
-
-    <string name="squeezer_onboarding_title">אודות דחיסת תמונות</string>
-    <string name="squeezer_onboarding_message">דחיסת תמונות מקטינה את גודל הקובץ על ידי הסרת פרטים חזותיים. תהליך זה בלתי הפיך - לא ניתן לשחזר את האיכות המקורית.\n\nהנה תצוגה מקדימה של איך התמונות שלך ייראו:</string>
-    <string name="squeezer_onboarding_original_label">מקור</string>
-    <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
-    <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
-    <string name="squeezer_onboarding_got_it">הבנתי</string>
-    <string name="squeezer_compare_action">הצג השוואה</string>
-    <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
-    <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
-    <string name="squeezer_setup_warning">דחיסה מפחיתה לצמיתות את איכות התמונה כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק היטב את ההגדרות לפני ההתחלה.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
-    <string name="squeezer_setup_paths_title">מיקומי חיפוש</string>
-    <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
-    <string name="squeezer_setup_quality_title">איכות דחיסה</string>
-    <string name="squeezer_setup_age_title">גיל מינימלי</string>
-    <string name="squeezer_setup_age_none">ללא הגבלה (כלול את כל הקבצים)</string>
-    <string name="squeezer_setup_start_action">התחל סריקה</string>
-    <string name="squeezer_quality_hint_very_low">איכות מתחת ל-40%% עלולה ליצור תמונות בלתי שמישות.</string>
-    <string name="squeezer_quality_hint_low">איכות נמוכה יותר חוסכת יותר מקום אך עלולה לגרום לעיוותים נראים לעין.</string>
-    <string name="squeezer_quality_hint_high">איכות גבוהה מאוד מספקת חיסכון מינימלי במקום.</string>
-    <string name="squeezer_quality_hint_normal">איכות וחיסכון במקום מאוזנים.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">לפחות יום %d</item>
-        <item quantity="two">לפחות %d ימים</item>
-        <item quantity="many">לפחות %d ימים</item>
-        <item quantity="other">לפחות %d ימים</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
-
     <string name="shortcut_appcontrol_short">ניהול אפליקציות</string>
     <string name="shortcut_appcontrol_long">נהל אפליקציות מותקנות</string>
     <string name="shortcut_onetap_short">סריקה + מחיקה</string>
     <string name="shortcut_onetap_long">סריקה ומחיקה בפעולה אחת</string>
-
     <string name="shortcuts_settings_category">קיצורי דרך</string>
     <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
     <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">החלק בין קבצים כדי להחליט מה לשמור ומה למחוק.</string>
-    <string name="swiper_dashcard_description">סקור קבצים ידנית בתיקיות ספציפיות. החלק כדי להחליט מה לשמור ומה למחוק.</string>
     <string name="swiper_start_action">התחל להחליק</string>
     <string name="swiper_continue_action">המשך הפעלה</string>
-    <string name="swiper_sessions_description">חלק מהקבצים דורשים החלטה אנושית. החלק בין פריטים ובחר מה לשמור ומה למחוק. דלג על כל דבר שאתה לא בטוח לגביו. כלי זה מאפשר לך לסקור תיקיות ספציפיות ידנית, ושום דבר לא נמחק עד שתאשר.</string>
     <string name="swiper_select_folders_action">בחר תיקיות</string>
     <string name="swiper_scanning_title">סורק…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1082,4 +1061,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="swiper_stamp_undo_2">חזור!</string>
     <string name="swiper_stamp_undo_3">אופס!</string>
     <string name="swiper_stamp_undo_4">רגע!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

@@ -429,7 +429,7 @@
     <string name="appcleaner_automation_error_no_settings_title">设置屏幕不可用</string>
     <string name="appcleaner_automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">系统应用配置错误</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的"清除数据"功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的手机管家 (com.miui.securitycenter) 缺少使用使用情况统计权限 (GET_USAGE_STATS) 。这会破坏应用详情中的\"清除数据\"功能以及通过辅助功能清除缓存等功能。授予此权限可恢复完整功能。</string>
     <string name="appcleaner_forcestop_before_clearing_label">清除前强制停止</string>
     <string name="appcleaner_forcestop_before_clearing_summary">清除缓存前先强制停止应用。这有助于清除部分应用的缓存，但可能导致应用异常，需要手动重启。</string>
     <string name="appcleaner_progress_force_stopping">正在强制停止应用…</string>
@@ -506,6 +506,82 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">偏好较小文件</string>
     <string name="deduplicator_view_mode_groups_label">分组</string>
     <string name="deduplicator_view_mode_directories_label">文件夹</string>
+    <string name="squeezer_tool_name">媒体压缩</string>
+    <string name="squeezer_explanation_short">压缩图片以节省存储空间。</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">找到 %d 张图片</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">可节省约 %s</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">已压缩 %d 张图片</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">已选择 %d 张图片</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">搜索位置</string>
+    <string name="squeezer_search_locations_default_summary">相机文件夹（默认）</string>
+    <string name="squeezer_min_size_title">最小文件大小</string>
+    <string name="squeezer_min_size_description">跳过小于此大小的图片。</string>
+    <string name="squeezer_min_age_title">最小文件年龄</string>
+    <string name="squeezer_min_age_description">仅包含超过此年龄的图片。</string>
+    <string name="squeezer_compression_settings_label">压缩设置</string>
+    <string name="squeezer_quality_label">质量</string>
+    <string name="squeezer_quality_title">压缩质量</string>
+    <string name="squeezer_quality_description">质量越低，文件越小，但图片质量也会降低。</string>
+    <string name="squeezer_quality_example_format">示例：%1$s 图片 → 以 %3$d%% 质量节省约 %2$s</string>
+    <string name="squeezer_quality_warning_low">较低的质量可能会导致明显的伪影。</string>
+    <string name="squeezer_quality_warning_high">非常高的质量只能节省极少空间。</string>
+    <string name="squeezer_types_category_label">图片类型</string>
+    <string name="squeezer_type_jpeg_description">包含 JPEG 图片（.jpg、.jpeg）。</string>
+    <string name="squeezer_type_webp_description">包含 WebP 图片（.webp）。</string>
+    <string name="squeezer_skip_compressed_title">跳过已压缩的图片</string>
+    <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩过的图片。</string>
+    <string name="squeezer_exif_marker_title">写入 EXIF 标记</string>
+    <string name="squeezer_exif_marker_description">在图片的 EXIF 用户备注字段中添加标记，以防止即使压缩记录被清除也不会重新压缩。</string>
+    <string name="squeezer_estimated_savings_format">约可节省 %s</string>
+    <string name="squeezer_no_savings_expected">节省有限</string>
+    <string name="squeezer_current_size_format">大小：%s</string>
+    <string name="squeezer_compress_action">压缩</string>
+    <string name="squeezer_compress_all_action">全部压缩</string>
+    <string name="squeezer_preview_dialog_title">确认压缩</string>
+    <string name="squeezer_preview_total_size">总大小</string>
+    <string name="squeezer_preview_estimated_savings">预估节省量</string>
+    <string name="squeezer_compress_confirmation_title">压缩图片？</string>
+    <string name="squeezer_compress_confirmation_message">这将用压缩版本替换原始图片。此操作无法撤消。</string>
+    <string name="squeezer_history_title">压缩历史</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d 个项目（%2$s）</item>
+    </plurals>
+    <string name="squeezer_history_empty">没有压缩历史</string>
+    <string name="squeezer_history_clear_title">清除压缩历史</string>
+    <string name="squeezer_history_clear_message">这将允许重新压缩之前已压缩的图片。图片本身不受影响。</string>
+    <string name="squeezer_onboarding_title">关于图片压缩</string>
+    <string name="squeezer_onboarding_message">图片压缩通过移除视觉细节来缩小文件大小。此过程不可逆——原始质量无法恢复。\n\n以下是压缩后图片的预览：</string>
+    <string name="squeezer_onboarding_original_label">原始</string>
+    <string name="squeezer_onboarding_compressed_label">压缩后</string>
+    <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
+    <string name="squeezer_onboarding_got_it">知道了</string>
+    <string name="squeezer_compare_action">查看对比</string>
+    <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
+    <string name="squeezer_result_empty_message">未找到可压缩的图片。</string>
+    <string name="squeezer_setup_warning">压缩会永久降低图片质量以节省存储空间。此操作无法撤消。开始前请仔细检查您的设置。</string>
+    <string name="squeezer_setup_explanation">媒体压缩通过缩小图片文件大小来释放存储空间。这会永久降低图片质量且无法撤消。开始前请仔细检查您的设置。</string>
+    <string name="squeezer_setup_paths_title">搜索位置</string>
+    <string name="squeezer_setup_paths_default">选择要搜索的文件夹</string>
+    <string name="squeezer_setup_quality_title">压缩质量</string>
+    <string name="squeezer_setup_age_title">最小年龄</string>
+    <string name="squeezer_setup_age_none">无限制（包含所有文件）</string>
+    <string name="squeezer_setup_start_action">开始扫描</string>
+    <string name="squeezer_quality_hint_very_low">质量低于 40% 可能会产生无法使用的图片。</string>
+    <string name="squeezer_quality_hint_low">较低的质量可节省更多空间，但可能会产生明显的伪影。</string>
+    <string name="squeezer_quality_hint_high">非常高的质量只能节省极少空间。</string>
+    <string name="squeezer_quality_hint_normal">质量与空间节省之间的平衡。</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">至少 %d 天前</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG 文件预估可节省约 %d%%</string>
     <string name="appcontrol_tool_name">应用控制</string>
     <string name="appcontrol_explanation_short">管理安装在您的设备上的应用程序。</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -554,6 +630,28 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="other">已卸载 %d 应用</item>
     </plurals>
+    <string name="appcontrol_archive_action">存档</string>
+    <string name="appcontrol_archive_selection_action">存档应用</string>
+    <string name="appcontrol_archive_description">存档以释放空间，同时保留应用数据供日后恢复。</string>
+    <string name="appcontrol_progress_archiving_app">正在存档应用…</string>
+    <string name="appcontrol_archive_confirmation_title">确认存档</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">存档 %d 个应用？</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">已存档 %d 个应用</item>
+    </plurals>
+    <string name="appcontrol_restore_action">恢复</string>
+    <string name="appcontrol_restore_selection_action">恢复应用</string>
+    <string name="appcontrol_restore_description">将存档的应用恢复到完整安装状态。应用数据将被保留。</string>
+    <string name="appcontrol_progress_restoring_app">正在恢复应用…</string>
+    <string name="appcontrol_restore_confirmation_title">确认恢复</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">恢复 %d 个应用？</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">已恢复 %d 个应用</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">应用大小</string>
     <string name="appcontrol_app_sizes_apk_label">应用</string>
     <string name="appcontrol_app_sizes_data_label">数据</string>
@@ -578,6 +676,9 @@
         <item quantity="other">已导出 %d 个应用</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">正在导出 %s</string>
+    <string name="appcontrol_share_list_action">分享列表</string>
+    <string name="appcontrol_share_list_title">我的应用</string>
+    <string name="appcontrol_share_list_footer">通过 SD Maid SE 分享</string>
     <string name="appcontrol_force_stop_selection_action">强制停止应用</string>
     <string name="appcontrol_force_stop_action">强行停止</string>
     <string name="appcontrol_force_stop_confirm_title">确认强制停止</string>
@@ -592,6 +693,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">正在强制停止…</string>
     <string name="appcontrol_automation_progress_find_force_stop">正在查找“强制停止”按钮（关键字：%s）</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
+    <string name="appcontrol_automation_subtitle_archiving">正在存档…</string>
+    <string name="appcontrol_automation_progress_find_archive">寻找\"存档\"按钮（关键词：%s）</string>
+    <string name="appcontrol_automation_subtitle_restoring">正在恢复…</string>
+    <string name="appcontrol_automation_progress_find_restore">寻找\"恢复\"按钮（关键词：%s）</string>
     <string name="appcontrol_item_screentime_x_since_y_label">屏幕使用时间：%1$s，自 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最后更新于 %s</string>
     <string name="appcontrol_item_installedat_x_label">安装在: %s</string>
@@ -610,6 +715,10 @@
         <item quantity="other">%s 已用空间</item>
     </plurals>
     <string name="analyzer_content_access_opaque">无法直接访问</string>
+    <string name="analyzer_content_create_swiper_session_action">创建 Swiper 会话</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">已创建包含 %d 个项目的 Swiper 会话</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">内部存储</string>
     <string name="analyzer_storage_type_primary_description">您设备的主要存储空间。包含内部 SD 卡、应用和系统数据的私有存储。</string>
     <string name="analyzer_storage_type_secondary_title">外部存储</string>
@@ -652,6 +761,7 @@
     <string name="exclusion_type_segment">分段排除项</string>
     <string name="exclusion_tags_alltools">所有工具</string>
     <string name="exclusion_target_label">目标排除项</string>
+    <string name="exclusion_editor_path_change_action">点击以更改路径</string>
     <string name="exclusion_option_allow_partial">允许部分匹配</string>
     <string name="exclusion_option_ignore_casing">忽略大小写</string>
     <string name="exclusion_editor_affected_tools_label">影响的工具</string>
@@ -792,125 +902,8 @@
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
     <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
-    <string name="appcontrol_archive_action">存档</string>
-    <string name="appcontrol_archive_selection_action">存档应用</string>
-    <string name="appcontrol_archive_description">存档以释放空间，同时保留应用数据供日后恢复。</string>
-    <string name="appcontrol_progress_archiving_app">正在存档应用…</string>
-    <string name="appcontrol_archive_confirmation_title">确认存档</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="other">存档 %d 个应用？</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="other">已存档 %d 个应用</item>
-    </plurals>
-    <string name="appcontrol_restore_action">恢复</string>
-    <string name="appcontrol_restore_selection_action">恢复应用</string>
-    <string name="appcontrol_restore_description">将存档的应用恢复到完整安装状态。应用数据将被保留。</string>
-    <string name="appcontrol_progress_restoring_app">正在恢复应用…</string>
-    <string name="appcontrol_restore_confirmation_title">确认恢复</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="other">恢复 %d 个应用？</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="other">已恢复 %d 个应用</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">分享列表</string>
-    <string name="appcontrol_share_list_title">我的应用</string>
-    <string name="appcontrol_share_list_footer">通过 SD Maid SE 分享</string>
-    <string name="appcontrol_automation_subtitle_archiving">正在存档…</string>
-    <string name="appcontrol_automation_progress_find_archive">寻找"存档"按钮（关键词：%s）</string>
-    <string name="appcontrol_automation_subtitle_restoring">正在恢复…</string>
-    <string name="appcontrol_automation_progress_find_restore">寻找"恢复"按钮（关键词：%s）</string>
-    <string name="analyzer_content_create_swiper_session_action">创建 Swiper 会话</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="other">已创建包含 %d 个项目的 Swiper 会话</item>
-    </plurals>
-    <string name="exclusion_editor_path_change_action">点击以更改路径</string>
-    <string name="squeezer_tool_name">媒体压缩</string>
-    <string name="squeezer_explanation_short">压缩图片以节省存储空间。</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="other">找到 %d 张图片</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="other">可节省约 %s</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="other">已压缩 %d 张图片</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="other">已选择 %d 张图片</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">搜索位置</string>
-    <string name="squeezer_search_locations_default_summary">相机文件夹（默认）</string>
-    <string name="squeezer_min_size_title">最小文件大小</string>
-    <string name="squeezer_min_size_description">跳过小于此大小的图片。</string>
-    <string name="squeezer_min_age_title">最小文件年龄</string>
-    <string name="squeezer_min_age_description">仅包含超过此年龄的图片。</string>
-    <string name="squeezer_compression_settings_label">压缩设置</string>
-    <string name="squeezer_quality_label">质量</string>
-    <string name="squeezer_quality_title">压缩质量</string>
-    <string name="squeezer_quality_description">质量越低，文件越小，但图片质量也会降低。</string>
-    <string name="squeezer_quality_example_format">示例：%1$s 图片 → 以 %3$d%% 质量节省约 %2$s</string>
-    <string name="squeezer_quality_warning_low">较低的质量可能会导致明显的伪影。</string>
-    <string name="squeezer_quality_warning_high">非常高的质量只能节省极少空间。</string>
-    <string name="squeezer_types_category_label">图片类型</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">包含 JPEG 图片（.jpg、.jpeg）。</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">包含 WebP 图片（.webp）。</string>
-    <string name="squeezer_skip_compressed_title">跳过已压缩的图片</string>
-    <string name="squeezer_skip_compressed_description">跳过已被 SD Maid 压缩过的图片。</string>
-    <string name="squeezer_exif_marker_title">写入 EXIF 标记</string>
-    <string name="squeezer_exif_marker_description">在图片的 EXIF 用户备注字段中添加标记，以防止即使压缩记录被清除也不会重新压缩。</string>
-    <string name="squeezer_estimated_savings_format">约可节省 %s</string>
-    <string name="squeezer_no_savings_expected">节省有限</string>
-    <string name="squeezer_current_size_format">大小：%s</string>
-    <string name="squeezer_compress_action">压缩</string>
-    <string name="squeezer_compress_all_action">全部压缩</string>
-    <string name="squeezer_preview_dialog_title">确认压缩</string>
-    <string name="squeezer_preview_total_size">总大小</string>
-    <string name="squeezer_preview_estimated_savings">预估节省量</string>
-    <string name="squeezer_compress_confirmation_title">压缩图片？</string>
-    <string name="squeezer_compress_confirmation_message">这将用压缩版本替换原始图片。此操作无法撤消。</string>
-    <string name="squeezer_history_title">压缩历史</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="other">%1$d 个项目（%2$s）</item>
-    </plurals>
-    <string name="squeezer_history_empty">没有压缩历史</string>
-    <string name="squeezer_history_clear_title">清除压缩历史</string>
-    <string name="squeezer_history_clear_message">这将允许重新压缩之前已压缩的图片。图片本身不受影响。</string>
-    <string name="squeezer_onboarding_title">关于图片压缩</string>
-    <string name="squeezer_onboarding_message">图片压缩通过移除视觉细节来缩小文件大小。此过程不可逆——原始质量无法恢复。\n\n以下是压缩后图片的预览：</string>
-    <string name="squeezer_onboarding_original_label">原始</string>
-    <string name="squeezer_onboarding_compressed_label">压缩后</string>
-    <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
-    <string name="squeezer_onboarding_got_it">知道了</string>
-    <string name="squeezer_compare_action">查看对比</string>
-    <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
-    <string name="squeezer_result_empty_message">未找到可压缩的图片。</string>
-    <string name="squeezer_setup_warning">压缩会永久降低图片质量以节省存储空间。此操作无法撤消。开始前请仔细检查您的设置。</string>
-    <string name="squeezer_setup_explanation">媒体压缩通过缩小图片文件大小来释放存储空间。这会永久降低图片质量且无法撤消。开始前请仔细检查您的设置。</string>
-    <string name="squeezer_setup_paths_title">搜索位置</string>
-    <string name="squeezer_setup_paths_default">选择要搜索的文件夹</string>
-    <string name="squeezer_setup_quality_title">压缩质量</string>
-    <string name="squeezer_setup_age_title">最小年龄</string>
-    <string name="squeezer_setup_age_none">无限制（包含所有文件）</string>
-    <string name="squeezer_setup_start_action">开始扫描</string>
-    <string name="squeezer_quality_hint_very_low">质量低于 40% 可能会产生无法使用的图片。</string>
-    <string name="squeezer_quality_hint_low">较低的质量可节省更多空间，但可能会产生明显的伪影。</string>
-    <string name="squeezer_quality_hint_high">非常高的质量只能节省极少空间。</string>
-    <string name="squeezer_quality_hint_normal">质量与空间节省之间的平衡。</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="other">至少 %d 天前</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG 文件预估可节省约 %d%%</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">滑动浏览文件以决定保留或删除。</string>
-    <string name="swiper_dashcard_description">手动浏览特定文件夹中的文件。滑动以决定保留或删除。</string>
     <string name="swiper_start_action">开始滑动</string>
     <string name="swiper_continue_action">继续会话</string>
-    <string name="swiper_sessions_description">有些文件需要人工决定。滑动浏览项目并选择保留或删除。不确定的项目可以跳过。此工具让您手动浏览特定文件夹，在您确认之前不会删除任何文件。</string>
     <string name="swiper_select_folders_action">选择文件夹</string>
     <string name="swiper_scanning_title">正在扫描…</string>
     <plurals name="swiper_result_x_items_found">
@@ -996,7 +989,7 @@
     <plurals name="swiper_session_status_deleted">
         <item quantity="other">已删除 %d 个</item>
     </plurals>
-    <string name="swiper_exclude_confirmation_message">从 Swiper 扫描中排除"%1$s"？</string>
+    <string name="swiper_exclude_confirmation_message">从 Swiper 扫描中排除\"%1$s\"？</string>
     <string name="swiper_sessions_header_title">准备好整理了吗？</string>
     <string name="swiper_sessions_suggestions_label">试试从以下开始：</string>
     <string name="swiper_sessions_suggestion_downloads">下载文件夹</string>
@@ -1019,4 +1012,6 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

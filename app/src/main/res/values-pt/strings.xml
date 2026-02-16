@@ -956,11 +956,8 @@ Recursos dos jogos.</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"varrer + apagar\" pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas de um toque.</string>
     <string name="swiper_label">Esfregona</string>
     <string name="swiper_tool_name">Esfregona</string>
-    <string name="swiper_tool_description">Deslize através dos arquivos para decidir o que manter ou excluir.</string>
-    <string name="swiper_dashcard_description">Rever manualmente arquivos em pastas específicas. Deslize para decidir o que manter ou excluir.</string>
     <string name="swiper_start_action">Comece a limpar</string>
     <string name="swiper_continue_action">Continuar sessão</string>
-    <string name="swiper_sessions_description">Alguns ficheiros precisam duma decisão humana. Deslize através dos itens e escolha o que deseja manter ou excluir. Pule qualquer coisa que não tenha certeza. Esta ferramenta permite rever pastas específicas manualmente, e, nada é removido até que você confirme.</string>
     <string name="swiper_select_folders_action">Selecionar pastas</string>
     <string name="swiper_scanning_title">Verificando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1086,4 +1083,6 @@ Recursos dos jogos.</string>
     <string name="swiper_stamp_undo_2">Voltar!</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Aguarde!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

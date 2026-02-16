@@ -167,10 +167,6 @@
     <string name="general_error_report_bug_action">I-report ang bug</string>
     <string name="general_error_ipc_deadobject_title">Naputol ang Koneksyon sa Serbisyo</string>
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
-    <plurals name="result_x_files">
-        <item quantity="one">%s file</item>
-        <item quantity="other">%s na file</item>
-    </plurals>
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
 </resources>

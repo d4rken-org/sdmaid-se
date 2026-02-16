@@ -8,8 +8,8 @@
     <string name="upgrades_dashcard_upgrade_action">업그레이드</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play에 연결할 수 없음</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid가 Google Play에 연결할 수 없습니다. Google Play가 설치되어 있고 최신 버전인가요? Google 계정이 로그인되어 있나요? Google Play 앱의 캐시를 지우고 기기를 재부팅해 보세요.</string>
-    <string name="upgrades_gplay_billing_error_description">Google Play에서 문제가 발생했습니다. 나중에 다시 시도하거나 기기를 다시시작 해주세요.\n\n상세정보: %s</string>
     <string name="upgrades_gplay_billing_error_label">Google Play 문제</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play에서 문제가 발생했습니다. 나중에 다시 시도하거나 기기를 다시시작 해주세요.\n\n상세정보: %s</string>
     <string name="upgrades_gplay_internal_error_title">Google Play 오류</string>
     <string name="upgrades_gplay_internal_error_description">Google Play 내부 오류가 발생했습니다. 다음을 시도해 주세요:\n\n• 기기를 재시작\n• Google Play 스토어 캐시 삭제\n• 나중에 다시 시도</string>
     <string name="upgrades_gplay_network_error_title">연결 오류</string>

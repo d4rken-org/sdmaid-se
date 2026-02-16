@@ -19,11 +19,13 @@
     <string name="general_todo_msg">Ciri ini masih diusahakan dan tidak tersedia pada masa ini.</string>
     <string name="general_share_action">Kongsi</string>
     <string name="general_done_action">Selesai</string>
+    <string name="general_apply_action">Gunakan</string>
     <string name="general_copy_action">Salinan</string>
     <string name="general_wipe_action">Lap</string>
     <string name="general_cancel_action">Batal</string>
     <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Tetapkan semula</string>
+    <string name="general_drag_handle_description">Seret untuk menyusun semula</string>
     <string name="general_save_action">Simpan</string>
     <string name="general_thanks_action">Terima kasih</string>
     <string name="general_gotit_action">Faham</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Kosong</string>
+    <string name="general_new_badge_label">Baharu</string>
     <string name="general_dismiss_action">Tolak</string>
     <string name="general_maybe_later_action">Mungkin kemudian</string>
     <string name="general_manage_action">Mengurus</string>
@@ -91,6 +94,9 @@
     <string name="general_toggle_layout_mode">Tukar mod paparan</string>
     <string name="general_delete_confirmation_title">Sahkan pemadaman</string>
     <string name="general_delete_confirmation_message_x">Padamkan \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="other">Padamkan %d item yang dipilih?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="other">Memadam %d item.</item>
     </plurals>
@@ -154,12 +160,6 @@
     <string name="general_error_report_bug_action">Laporkan pepijat</string>
     <string name="general_error_ipc_deadobject_title">Sambungan Perkhidmatan Terputus</string>
     <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
-    <string name="general_apply_action">Gunakan</string>
-    <string name="general_drag_handle_description">Seret untuk menyusun semula</string>
-    <string name="general_new_badge_label">Baharu</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="other">Padamkan %d item yang dipilih?</item>
-    </plurals>
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
 </resources>

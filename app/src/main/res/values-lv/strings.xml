@@ -7,12 +7,24 @@
     <string name="dashboard_settings_oneclick_summary">Sākt skenēšanu un dzēšanu visiem rīkiem, pieskaroties informācijas paneļa darbības pogai, bez papildu apstiprinājumiem.</string>
     <string name="dashboard_settings_oneclick_tools_title">Viena pieskāriena rīki</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurus rīkus iekļaut viena pieskāriena darbībās?</string>
+    <string name="dashboard_card_config_title">Informācijas paneļa kartes</string>
+    <string name="dashboard_card_config_desc">Konfigurēt, kuras kartes tiek rādītas un to kārtību</string>
+    <string name="dashboard_card_config_header_title">Velciet, lai pārkārtotu, pārslēdziet, lai rādītu/slēptu</string>
     <string name="debug_notification_channel_label">Atkļūdošanas paziņojumi</string>
     <string name="debug_debuglog_file_label">Ierakstītais žurnāla fails</string>
     <string name="debug_debuglog_recording_progress">Ieraksta atkļūdošanas žurnālu</string>
     <string name="debug_debuglog_record_action">Ierakstīt atkļūdošanas žurnālu</string>
     <string name="debug_debuglog_stop_action">Apturēt ierakstīšanu</string>
     <string name="debug_debuglog_sensitive_information_message">Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm.</string>
+    <string name="debug_debuglog_screen_title">Atkļūdošanas žurnāls</string>
+    <string name="debug_debuglog_screen_discard_action">Atmest</string>
+    <string name="debug_debuglog_screen_session_path_label">Sesijas ceļš</string>
+    <string name="debug_debuglog_screen_log_files_label">Žurnāla faili</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="zero">%1$d failu gatavi (%2$s)</item>
+        <item quantity="one">%1$d fails gatavs (%2$s)</item>
+        <item quantity="other">%1$d faili gatavi (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Šī funkcija ieraksta visu, ko lietotne dara, koplietojamā failā. Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm (piem. izstrādātāju, kas risina problēmu).</string>
     <string name="tasks_activity_notification_channel_label">Aktīvie uzdevumi</string>
     <string name="tasks_activity_working_notification_title">SD Maid strādā</string>
@@ -80,9 +92,24 @@
     <string name="support_installid_desc">Automātiskie kļūdu ziņojumi ir anonīmi. Dalieties ar savu instalācijas ID, ja izstrādātājam nepieciešams atrast jūsu kļūdu ziņojumus.</string>
     <string name="support_debuglog_label">Atkļūdošanas žurnāls</string>
     <string name="support_debuglog_desc">Ierakstiet visu, ko lietotne dara, teksta failā, ko varat kopīgot.</string>
+    <string name="support_debuglog_folder_label">Atkļūdošanas žurnālu mape</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="zero">%1$d failu izmanto %2$s</item>
+        <item quantity="one">%1$d fails izmanto %2$s</item>
+        <item quantity="other">%1$d faili izmanto %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Nav saglabātu atkļūdošanas žurnālu</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Dzēst visus atkļūdošanas žurnālus?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Tas neatgriezeniski dzēsīs visus saglabātos atkļūdošanas žurnālus. Šo darbību nevar atsaukt.</string>
     <string name="discord_description">Vieta, kur pavadīt laiku un uzdot jautājumus.</string>
     <string name="changelog_label">Izmaiņu žurnāls</string>
     <string name="settings_acknowledgements_label">Atzinības</string>
+    <string name="settings_acknowledgements_category_translations_title">Tulkojumi</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kas to tulkoja?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Paldies</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Īpaša pateicība mūsu draugiem.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licences</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programmatūra, ko izmanto SD Maid.</string>
     <string name="setup_label">Iestatīšana</string>
     <string name="setup_incomplete_card_title">Iestatīšana nav pabeigta</string>
     <string name="setup_incomplete_card_body">Pabeidziet SD Maid iestatīšanu, lai iegūtu labākus rezultātus.</string>
@@ -94,52 +121,14 @@
     <string name="setup_checking_card_body">Pārbauda iestatīšanas pabeigšanu un funkcionalitāti.</string>
     <string name="general_error_setup_require_label">Iestatīšana nav pabeigta</string>
     <string name="general_error_setup_require_msg">Lai izmantotu šo funkciju, nepieciešama papildu iestatīšana. Pabeidziet atlikušās iestatīšanas darbības.</string>
-    <string name="dashboard_card_config_title">Informācijas paneļa kartes</string>
-    <string name="dashboard_card_config_desc">Konfigurēt, kuras kartes tiek rādītas un to kārtību</string>
-    <string name="dashboard_card_config_header_title">Velciet, lai pārkārtotu, pārslēdziet, lai rādītu/slēptu</string>
-
-    <string name="debug_debuglog_screen_title">Atkļūdošanas žurnāls</string>
-    <string name="debug_debuglog_screen_discard_action">Atmest</string>
-    <string name="debug_debuglog_screen_session_path_label">Sesijas ceļš</string>
-    <string name="debug_debuglog_screen_log_files_label">Žurnāla faili</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="zero">%1$d failu gatavi (%2$s)</item>
-        <item quantity="one">%1$d fails gatavs (%2$s)</item>
-        <item quantity="other">%1$d faili gatavi (%2$s)</item>
-    </plurals>
-
-    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
-
-    <string name="ui_theme_style_materialyou_label">Material You</string>
-
-    <string name="discord_label">Discord</string>
-    <string name="support_debuglog_folder_label">Atkļūdošanas žurnālu mape</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="zero">%1$d failu izmanto %2$s</item>
-        <item quantity="one">%1$d fails izmanto %2$s</item>
-        <item quantity="other">%1$d faili izmanto %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Nav saglabātu atkļūdošanas žurnālu</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Dzēst visus atkļūdošanas žurnālus?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Tas neatgriezeniski dzēsīs visus saglabātos atkļūdošanas žurnālus. Šo darbību nevar atsaukt.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Tulkojumi</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">Kas to tulkoja?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Paldies</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Īpaša pateicība mūsu draugiem.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Licences</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Programmatūra, ko izmanto SD Maid.</string>
-
     <string name="setup_saf_card_title">Krātuves piekļuves ietvars</string>
     <string name="setup_saf_card_body">Uzlabojiet rezultātus, piešķirot SD Maid piekļuvi papildu zonām.</string>
     <string name="setup_saf_card_body2">Vairumā gadījumu logs atvērsies ar pareizo ceļu jau atlasītu. Ieraksti kļūst zaļi, kad piekļuve ir piešķirta.</string>
     <string name="setup_saf_error_wrong_path">Jūs izvēlējāties nepareizu ceļu</string>
     <string name="setup_saf_missing_app_error">Dokumentu UI lietotne nav pieejama. Tā ir iebūvēta sistēmas lietotne, kam jābūt pieejamai visās Android ierīcēs.</string>
-
     <string name="setup_manage_storage_card_title">Pārvaldīt krātuvi</string>
     <string name="setup_manage_storage_card_body">Ļaujiet SD Maid pārvaldīt jūsu krātuvi.</string>
     <string name="setup_manage_storage_card_body2">Pamata piekļuve publiskajai krātuvei, piem. \"Download/\" un \"DCIM/\", bet ne vienmēr \"Android/data\".</string>
-
     <string name="setup_root_card_title">Root piekļuve</string>
     <string name="setup_root_card_body">Vai SD Maid vajadzētu izmantot root piekļuvi, ja tā ir pieejama? Root piekļuve ļauj pārbaudīt papildu sistēmas mapes un privātos lietotņu datus.</string>
     <string name="setup_root_state_ready_label">Root piekļuve ir gatava.</string>
@@ -147,8 +136,6 @@
     <string name="setup_root_enable_root_use_label">Izmantot root piekļuvi, ja pieejama</string>
     <string name="setup_root_disable_root_use_label">Neizmantot root piekļuvi</string>
     <string name="setup_root_card_body2">Pieejams tikai ierīcēs ar root piekļuvi. Ja neesat veicis šo modifikāciju, jūsu ierīcei nav root un šim iestatījumam nav efekta.</string>
-
-    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Ļaujiet SD Maid izmantot Shizuku, kur iespējams, lai uzlabotu rezultātus un iespējotu funkcijas.</string>
     <string name="setup_shizuku_card_body2">Šim iestatījumam nav efekta, ja Shizuku lietotne nav iestatīta jūsu ierīcē.</string>
     <string name="setup_shizuku_card_root_info">Shizuku kombinācijā ar root piekļuvi neiespējo papildu funkcijas, bet uzlabo uzticamību. SD Maid izmantos to kā rezerves metodi.</string>
@@ -156,21 +143,16 @@
     <string name="setup_shizuku_state_waiting_label">Gaida savienojumu ar Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Izmantot Shizuku, ja pieejams</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Neizmantot Shizuku</string>
-
     <string name="setup_dismiss_hint">Iestatīšanas ekrānu var atrast atkal iestatījumu izvēlnē.</string>
     <string name="setup_permission_granted_label">Atļauja piešķirta</string>
     <string name="setup_permission_error_label">Atļaujas kļūda</string>
-
     <string name="setup_usagestats_title">Lietošanas statistika</string>
     <string name="setup_usagestats_body">Lietošanas statistikas atļauja nodrošina piekļuvi detalizētākai informācijai par lietotnēm. SD Maid to izmanto, lai noteiktu papildu kešatmiņas izmērus.</string>
     <string name="setup_usagestats_hint">Nepieciešams kešatmiņas dzēšanai, izmantojot pieejamības pakalpojumu.</string>
-
     <string name="setup_notification_title">Paziņojumi</string>
     <string name="setup_notification_body">Ļaujiet SD Maid sūtīt paziņojumus, lai informētu par notiekošajām darbībām vai svarīgiem notikumiem.</string>
     <string name="setup_notification_hint">Paziņojumi tiek izmantoti taupīgi 🤞</string>
-
     <string name="setup_feature_requires_additional_setup_x">Šī funkcija prasa papildu iestatīšanas darbību pabeigšanu: %s</string>
-
     <string name="setup_acs_card_title">Pieejamības pakalpojums</string>
     <string name="setup_acs_card_body">Pieejamības pakalpojums ļauj SD Maid mijiedarboties ar jūsu ekrānu un automatizēt garlaicīgas darbības, piem. nospiest \"Notīrīt kešatmiņu\" vairākos ekrānos.</string>
     <string name="setup_acs_card_body2">SD Maid neizmantos pieejamības pakalpojumu bez jūsu piekrišanas, vienmēr rādīs pamanāmu (atceļamu) indikatoru, kamēr tas ir aktīvs, un neizmantos to informācijas vākšanai.</string>
@@ -187,16 +169,13 @@
     <string name="setup_acs_disallow_hint">Ja pārdomājat, varat mainīt šo opciju, dodoties uz iestatījumiem un restartējot iestatīšanu.</string>
     <string name="setup_acs_appops_restriction_title">Ierobežoti iestatījumi</string>
     <string name="setup_acs_appops_restriction_body">Nevarat ieslēgt SD Maid pieejamības pakalpojumu? Android 13+ var piemērot ierobežojumus lietotnēm, kas nav instalētas caur Google Play. Noņemiet šos ierobežojumus SD Maid sistēmas informācijas lapā. Opcija atrodas konteksta izvēlnē augšējā labajā stūrī.</string>
-
     <string name="setup_inventory_card_title">Lietotņu saraksts</string>
     <string name="setup_inventory_card_body">SD Maid jāzina, kādas lietotnes jums ir, lai atrastu failus, kas nepieder nevienai instalētai lietotnei.</string>
     <string name="setup_inventory_card_extra">Meklējiet atļauju ar nosaukumu \"Lietotņu saraksts\" vai \"Query all packages\".</string>
     <string name="setup_inventory_invalid_message">Sistēma sniedza nederīgu instalēto lietotņu sarakstu (piem. pārāk maz vai dažas trūkst). Dodieties uz sistēmas iestatījumiem un ļaujiet SD Maid piekļūt \"Lietotņu sarakstam\".</string>
-
     <string name="dataarea_warningcard_empty_message">SD Maid neatrada nevienu skenējamu datu zonu. Vai esat pabeidzis iestatīšanu?</string>
     <string name="dataarea_warningcard_label">Datu zonas</string>
     <string name="dataarea_warningcard_reload_action">Pārlādēt datu zonas</string>
-
     <string name="debug_mode_label">Atkļūdošanas režīms</string>
     <string name="debug_mode_explanation">Ieslēgt testa opcijas un detalizētāku izvadi. Lietotne strādās lēnāk un darbosies atšķirīgi.</string>
     <string name="debug_bugreporter_label">Automātiskie kļūdu ziņojumi</string>
@@ -209,12 +188,9 @@
     <string name="debug_card_pkgs_reload_action">Pārlādēt lietotnes</string>
     <string name="debug_card_root_test_action">Testēt root</string>
     <string name="debug_card_shizuku_test_action">Testēt Shizuku</string>
-
     <string name="settings_category_tools_label">Rīki</string>
     <string name="settings_category_filter">Filtrs</string>
     <string name="settings_category_risklevel">Riska līmenis</string>
-
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Dati, kas pieder jau noņemtām lietotnēm.</string>
     <string name="corpsefinder_settings_summary">Pielāgot skenēšanas filtrus un riska līmeņus.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Iekļaut vēlamos atlikumus</string>
@@ -236,7 +212,6 @@
         <item quantity="other">Tīrīšana veiksmīga (%1$s): Atbrīvoti %2$s un noņemti %3$d vienumi.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Dzēst atlikumus</string>
-
     <string name="corpsefinder_filter_publicmedia_label">Publiskie mediji</string>
     <string name="corpsefinder_filter_publicmedia_summary">Publiskie mediju faili, piem. faili, kas saņemti caur ziņapmaiņas lietotnēm.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB resursi</string>
@@ -260,7 +235,6 @@
     <string name="corpsefinder_filter_appasec_label">Šifrēti lietotņu resursi</string>
     <string name="corpsefinder_filter_appasec_summary">Šifrēti lietotņu resursi, piem. spēļu aktīvi.</string>
     <string name="corpsefinder_filter_app2sd_summary">Dati, kas pārvietoti uz ārējo krātuvi, izmantojot App2Sd modifikācijas.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="zero">%d lietotņu atlikumu dzēsts</item>
         <item quantity="one">%d lietotnes atlikums dzēsts</item>
@@ -277,8 +251,6 @@
     <string name="corpsefinder_owner_unknown">Nezināms īpašnieks</string>
     <string name="corpsefinder_corpse_hint_keeper">Šis vienums var saturēt datus, kurus vēlaties paturēt, lai gan tā īpašnieks ir atinstalēts, piem. fotoattēlus vai dublējumkopijas.</string>
     <string name="corpsefinder_corpse_hint_common">Šim vienumam ir ļoti parasts nosaukums, un tas varētu piederēt joprojām instalētām lietotnēm, kuras SD Maid nepazīst.</string>
-
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Lieki dati, kas nepieder nevienai konkrētai lietotnei.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="zero">%d atbilstību dzēsts</item>
@@ -316,7 +288,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac faili</string>
     <string name="systemcleaner_filter_macfiles_summary">Faili un mapes, kas tiek izveidoti, pārlūkojot krātuvi ar Apple Finder lietotni.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows faili</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Dati, ko Windows failu pārlūks var izveidot pievienotā krātuvē.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dati, ko Windows failu pārlūks var izveidot pievienotā krātuvē."</string>
     <string name="systemcleaner_filter_thumbnails_label">Sīktēli</string>
     <string name="systemcleaner_filter_thumbnails_summary">Kešoti priekšskatījumi attēliem un video.</string>
     <string name="systemcleaner_filter_tempfiles_label">Pagaidu sistēmas faili</string>
@@ -324,13 +296,10 @@
     <string name="systemcleaner_filter_analytics_label">Analītikas faili</string>
     <string name="systemcleaner_filter_analytics_summary">Dati, kas saistīti ar analītiku un kļūdu izsekošanu.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Dzēst visu filtru saturu?</string>
-
     <string name="systemcleaner_customfilter_label">Pielāgots filtrs</string>
     <string name="systemcleaner_customfilter_create_action">Izveidot pielāgotu filtru</string>
     <string name="systemcleaner_customfilter_import_action">Importēt jaunu filtru</string>
     <string name="systemcleaner_customfilter_export_action">Eksportēt atlasīto filtru</string>
-
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Izlietojami dati, kas pieder konkrētām lietotnēm.</string>
     <string name="appcleaner_include_systemapps_label">Iekļaut sistēmas lietotnes</string>
     <string name="appcleaner_include_systemapps_summary">Iekļaut sistēmas lietotnes skenēšanā.</string>
@@ -347,24 +316,15 @@
         <item quantity="one">%d izlietojams vienums atrasts</item>
         <item quantity="other">%d izlietojami vienumi atrasti</item>
     </plurals>
-
-    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Atrodiet dublikātus jūsu ierīcē.</string>
     <string name="deduplicator_delete_confirmation_message">Dzēst visas kopijas, izņemot vienu, visos dublikātu komplektos?</string>
-
-    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Saspiediet attēlus, lai ietaupītu krātuves vietu.</string>
-
-    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Jūsu ierīcē instalētās lietotnes.</string>
-
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
     <string name="analyzer_device_storage_title">Ierīces krātuve</string>
     <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
-
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
     <string name="data_area_public_app_assets_official_label">Noklusējuma publiskie lietotņu aktīvi</string>
     <string name="data_area_public_storage_label">Publiskā krātuve</string>
@@ -372,18 +332,14 @@
     <string name="data_areas_label">Datu zonas</string>
     <string name="data_areas_description">Datu zonas attēlo vietas jūsu ierīcē, kurām SD Maid var piekļūt. Dažādas datu zonas var būt pieejamas atkarībā no jūsu Android versijas un piešķirtajām atļaujām.</string>
     <string name="data_areas_short_summary">Zonas, kurām SD Maid var piekļūt, balstoties uz pašreiz piešķirtajām atļaujām.</string>
-
     <string name="exclusion_manager_title">Izņēmumu pārvaldnieks</string>
     <string name="exclusion_manager_desc">Pārvaldīt failu un lietotņu izņēmumus.</string>
     <string name="exclusion_explanation_body1">Izslēgt failus un lietotnes no SD Maid darbībām.</string>
-
     <string name="automation_accessibility_service_description">Lietotāji ar īpašām pieejamības vajadzībām var iespējot šo pakalpojumu, lai ļautu SD Maid automatizēt uzdevumus, kas citādi prasītu garlaicīgu manuālu mijiedarbību (piem. kešatmiņas dzēšanu).\n\nPiemērs: Ja jūs dodat SD Maid norādījumu apturēt vairākas lietotnes, tad SD Maid var izmantot šo pakalpojumu, lai atvērtu katras lietotnes iestatījumu ekrānu, atrastu pogu \'Piespiedu apturēšana\' un to nospiestu.\n\nSD Maid vienmēr pamanāmi rādīs, kad šis pakalpojums tiek izmantots, un nodrošinās vienkāršu veidu, kā lietotājs var nekavējoties atcelt jebkuru mijiedarbību.\n\nNeviena darbība netiks veikta bez iepriekšējas lietotāja piekrišanas. Šo pakalpojumu var atspējot jebkurā laikā bez nelabvēlīgām sekām.</string>
     <string name="automation_screenoverlay_explanation">SD Maid mijiedarbojas ar jūsu ierīci. Nav iespējams vienlaicīgi izmantot ekrānu. Gaidiet, līdz darbība ir pabeigta, vai atceliet to.</string>
     <string name="automation_active_title">SD Maid strādā</string>
-
     <string name="history_label">Vēsture</string>
     <string name="history_description">Hronoloģisks pēdējo darbību un ietekmēto datu saraksts.</string>
-
     <string name="scheduler_label">Plānotājs</string>
     <string name="scheduler_execution_label">Nākamā izpilde (aptuveni)</string>
     <string name="scheduler_execution_last_label">Pēdējā izpilde</string>
@@ -398,29 +354,20 @@
     <string name="scheduler_notification_channel_label">Plānotājs</string>
     <string name="scheduler_notification_title">Plānotais uzdevums</string>
     <string name="scheduler_notification_message">Izpilda: \"%s\"</string>
-
     <string name="updates_dashcard_title">Atjauninājums pieejams</string>
     <string name="updates_dashcard_body">Ir pieejams atjauninājums. Jums ir %1$s un jaunākā versija ir %2$s.</string>
-
     <string name="translation_encourage_title">Tulkot SD Maid</string>
     <string name="translation_encourage_body">SD Maid tulko brīvprātīgie. Tulkošana, pārskatīšana vai korektūra — jūsu palīdzība ir novērtēta!</string>
-
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
-
     <string name="stats_label">Vēsture</string>
     <string name="stats_report_status_success">Veiksmīgi</string>
     <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
     <string name="stats_report_status_partial_failure">Neveiksmīgi</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Velciet cauri failiem, lai izlemtu, ko paturēt vai dzēst.</string>
     <string name="swiper_keep_action">Paturēt</string>
     <string name="swiper_skip_action">Izlaist</string>
     <string name="swiper_delete_confirmation_title">Dzēst failus?</string>
-
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Paturēt!</string>
@@ -439,4 +386,6 @@
     <string name="swiper_stamp_undo_2">Atpakaļ!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Pagaidi!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

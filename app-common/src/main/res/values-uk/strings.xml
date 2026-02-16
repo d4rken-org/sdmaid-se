@@ -20,7 +20,6 @@
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
     <string name="general_apply_action">Застосувати</string>
-    <string name="general_new_badge_label">Нове</string>
     <string name="general_copy_action">Копіювати</string>
     <string name="general_wipe_action">Очистити</string>
     <string name="general_cancel_action">Скасувати</string>
@@ -35,6 +34,7 @@
     <string name="general_edit_action">Редагувати</string>
     <string name="general_na_label">Недоступно</string>
     <string name="general_empty_label">Порожньо</string>
+    <string name="general_new_badge_label">Нове</string>
     <string name="general_dismiss_action">Відхилити</string>
     <string name="general_maybe_later_action">Можливо пізніше</string>
     <string name="general_manage_action">Керування</string>
@@ -81,8 +81,8 @@
     <string name="general_result_failure_message">Операція не вдалася</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">Звільніть %s місця.</item>
-        <item quantity="few">Звільніть%s місця.</item>
-        <item quantity="many">Звільніть%s місця.</item>
+        <item quantity="few">Звільніть %s місця.</item>
+        <item quantity="many">Звільніть %s місця.</item>
         <item quantity="other">Звільніть %s місця.</item>
     </plurals>
     <string name="general_options_label">Параметри</string>
@@ -105,7 +105,7 @@
     </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Видалено елемент %d.</item>
-        <item quantity="few">Видалено%d елемент.</item>
+        <item quantity="few">Видалено %d елемент.</item>
         <item quantity="many">Видалено %d елементи.</item>
         <item quantity="other">Видалено %d елементів.</item>
     </plurals>

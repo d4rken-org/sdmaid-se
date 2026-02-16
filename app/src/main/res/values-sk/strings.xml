@@ -597,9 +597,7 @@
     <string name="squeezer_quality_warning_low">Nižšie kvality môžu spôsobiť viditeľné artefakty.</string>
     <string name="squeezer_quality_warning_high">Veľmi vysoká kvalita poskytuje minimálnu úsporu miesta.</string>
     <string name="squeezer_types_category_label">Typy obrázkov</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Zahrnúť obrázky JPEG (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Zahrnúť obrázky WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">Preskočiť predtým komprimované</string>
     <string name="squeezer_skip_compressed_description">Preskočiť obrázky, ktoré už boli komprimované aplikáciou SD Maid.</string>
@@ -798,9 +796,9 @@
     <string name="appcontrol_automation_progress_find_force_stop">Hľadá sa tlačidlo „Vynútiť zastavenie“ (kľúčové slová: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archivácia…</string>
-    <string name="appcontrol_automation_progress_find_archive">Hľadá sa tlačidlo „Archivovať" (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_progress_find_archive">Hľadá sa tlačidlo „Archivovať\" (kľúčové slová: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Obnovovanie…</string>
-    <string name="appcontrol_automation_progress_find_restore">Hľadá sa tlačidlo „Obnoviť" (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_progress_find_restore">Hľadá sa tlačidlo „Obnoviť\" (kľúčové slová: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Čas obrazovky: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Naposledy aktualizované: %s</string>
     <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
@@ -1039,13 +1037,8 @@
     <string name="shortcuts_settings_category">Skratky</string>
     <string name="shortcuts_onetap_enabled_title">Skratka jedným klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobraziť skratku „Skenovať + Odstrániť“ pri dlhom stlačení ikony aplikácie. Používa rovnaké nástroje ako ovládací panel s jedným klepnutím.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Prejdite prstom cez súbory a rozhodnite, čo ponechať alebo odstrániť.</string>
-    <string name="swiper_dashcard_description">Manuálne skontrolujte súbory v konkrétnych priečinkoch. Potiahnutím rozhodnite, čo ponechať alebo odstrániť.</string>
     <string name="swiper_start_action">Začať potiahnutie</string>
     <string name="swiper_continue_action">Pokračovať v relácii</string>
-    <string name="swiper_sessions_description">Niektoré súbory potrebujú ľudské rozhodnutie. Prechádzajte položkami a vyberte, čo ponechať alebo odstrániť. Preskočte čokoľvek, čím si nie ste istí. Tento nástroj vám umožňuje manuálne skontrolovať konkrétne priečinky a nič sa neodstráni, kým to nepotvrdíte.</string>
     <string name="swiper_select_folders_action">Vybrať priečinky</string>
     <string name="swiper_scanning_title">Skenovanie…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1182,7 +1175,7 @@
         <item quantity="many">%d odstránených</item>
         <item quantity="other">%d odstránených</item>
     </plurals>
-    <string name="swiper_exclude_confirmation_message">Vylúčiť „%1$s" zo skenovania Swiper?</string>
+    <string name="swiper_exclude_confirmation_message">Vylúčiť „%1$s\" zo skenovania Swiper?</string>
     <string name="swiper_sessions_header_title">Pripravení na upratovanie?</string>
     <string name="swiper_sessions_suggestions_label">Skúste začať s:</string>
     <string name="swiper_sessions_suggestion_downloads">Priečinok stiahnutých súborov</string>
@@ -1205,4 +1198,6 @@
     <string name="swiper_stamp_undo_2">Naspäť!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počkať!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

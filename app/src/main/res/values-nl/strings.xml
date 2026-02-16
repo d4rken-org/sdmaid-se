@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Start het scannen en verwijderen voor alle hulpmiddelen met een klik op de actieknop van het dashboard, geen extra bevestigingen.</string>
     <string name="dashboard_settings_oneclick_tools_title">Hulpmiddelen met één tik</string>
     <string name="dashboard_settings_oneclick_tools_desc">Welke hulpmiddelen moeten worden opgenomen in bewerkingen met één tik?</string>
+    <string name="dashboard_card_config_title">Dashboardkaarten</string>
+    <string name="dashboard_card_config_desc">Configureer welke kaarten worden weergegeven en hun volgorde</string>
+    <string name="dashboard_card_config_header_title">Sleep om te herordenen, schakel om te tonen/verbergen</string>
     <string name="debug_notification_channel_label">Foutopsporing meldingen</string>
     <string name="debug_debuglog_file_label">Opgenomen logbestand</string>
     <string name="debug_debuglog_recording_progress">Foutopsporingslogboek opnemen</string>
@@ -325,6 +328,8 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naam is gelijk aan trefwoord</string>
     <string name="systemcleaner_customfilter_last_edit">Laatste bewerking: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live zoeken</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultaten op basis van bestandsgrootte. Laat onbeperkt om elke grootte te matchen.</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
     <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
     <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
     <string name="appcleaner_tool_name">AppReiniger</string>
@@ -462,11 +467,118 @@
     <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
     <string name="deduplicator_matches_similar_label">Gelijkaardige bestanden</string>
+    <string name="deduplicator_arbiter_explanation">Bij het verwijderen van duplicaten beslist SD Maid welk bestand behouden wordt door elk criterium op volgorde te controleren. Het eerste criterium dat een duidelijke winnaar oplevert, bepaalt het resultaat. Sleep om de volgorde te wijzigen, tik om de modus te wijzigen.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Selecteer modus</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Paden configureren…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplicaattype</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Geef de voorkeur aan exacte overeenkomsten boven vergelijkbare bestanden.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media-indexering</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Overweeg of bestanden zijn geïndexeerd door de mediaprovider.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Opslaglocatie</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Geef de voorkeur aan bestanden op interne of externe opslag.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Mapdiepte</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Geef de voorkeur aan bestanden in ondiepere of diepere mapstructuren.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Wijzigingsdatum</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Geef de voorkeur aan oudere of nieuwere bestanden op basis van wijzigingstijd.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Bestandsgrootte</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Geef de voorkeur aan grotere of kleinere bestanden wanneer de grootten verschillen.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Voorkeurslocaties</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Bewaar bestanden in je geconfigureerde voorkeurslocaties.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Exacte overeenkomsten verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Vergelijkbare bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Geïndexeerde bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Niet-geïndexeerde bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Interne opslag verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Externe opslag verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Ondiepe mappen verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Diepere mappen verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Oudere bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Nieuwere bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Grotere bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
+    <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
+    <string name="squeezer_explanation_short">Comprimeer afbeeldingen om opslagruimte te besparen.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d afbeelding gevonden</item>
+        <item quantity="other">%d afbeeldingen gevonden</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s kan worden bespaard</item>
+        <item quantity="other">~%s kan worden bespaard</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d afbeelding gecomprimeerd</item>
+        <item quantity="other">%d afbeeldingen gecomprimeerd</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d afbeelding geselecteerd</item>
+        <item quantity="other">%d afbeeldingen geselecteerd</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Zoeklocaties</string>
+    <string name="squeezer_search_locations_default_summary">Cameramappen (standaard)</string>
+    <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
+    <string name="squeezer_min_size_description">Sla afbeeldingen over die kleiner zijn dan deze grootte.</string>
+    <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
+    <string name="squeezer_min_age_description">Alleen afbeeldingen ouder dan deze leeftijd opnemen.</string>
+    <string name="squeezer_compression_settings_label">Compressie-instellingen</string>
+    <string name="squeezer_quality_label">Kwaliteit</string>
+    <string name="squeezer_quality_title">Compressiekwaliteit</string>
+    <string name="squeezer_quality_description">Lagere kwaliteit betekent kleinere bestandsgrootte maar verminderde beeldkwaliteit.</string>
+    <string name="squeezer_quality_example_format">Voorbeeld: %1$s afbeelding → bespaart ~%2$s bij %3$d%% kwaliteit</string>
+    <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
+    <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
+    <string name="squeezer_types_category_label">Afbeeldingstypen</string>
+    <string name="squeezer_type_jpeg_description">JPEG-afbeeldingen opnemen (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">WebP-afbeeldingen opnemen (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
+    <string name="squeezer_skip_compressed_description">Sla afbeeldingen over die al door SD Maid zijn gecomprimeerd.</string>
+    <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
+    <string name="squeezer_exif_marker_description">Voeg een markering toe aan het EXIF-opmerkingenveld van de afbeelding om hercompressie te voorkomen, zelfs als de compressiegeschiedenis wordt gewist.</string>
+    <string name="squeezer_estimated_savings_format">~%s besparing</string>
+    <string name="squeezer_no_savings_expected">Beperkte besparing</string>
+    <string name="squeezer_current_size_format">Grootte: %s</string>
+    <string name="squeezer_compress_action">Comprimeren</string>
+    <string name="squeezer_compress_all_action">Alles comprimeren</string>
+    <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
+    <string name="squeezer_preview_total_size">Totale grootte</string>
+    <string name="squeezer_preview_estimated_savings">Geschatte besparing</string>
+    <string name="squeezer_compress_confirmation_title">Afbeeldingen comprimeren?</string>
+    <string name="squeezer_compress_confirmation_message">Dit vervangt originele afbeeldingen door gecomprimeerde versies. Deze actie kan niet ongedaan worden gemaakt.</string>
+    <string name="squeezer_history_title">Compressiegeschiedenis</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
         <item quantity="other">%1$d items (%2$s)</item>
     </plurals>
+    <string name="squeezer_history_empty">Geen compressiegeschiedenis</string>
+    <string name="squeezer_history_clear_title">Compressiegeschiedenis wissen</string>
+    <string name="squeezer_history_clear_message">Dit maakt het mogelijk om eerder gecomprimeerde afbeeldingen opnieuw te comprimeren. De afbeeldingen zelf worden niet beïnvloed.</string>
+    <string name="squeezer_onboarding_title">Over beeldcompressie</string>
+    <string name="squeezer_onboarding_message">Beeldcompressie verkleint het bestand door visueel detail te verwijderen. Dit proces is onomkeerbaar - de originele kwaliteit kan niet worden hersteld.\n\nHier is een voorbeeld van hoe je afbeeldingen eruit zullen zien:</string>
+    <string name="squeezer_onboarding_original_label">Origineel</string>
+    <string name="squeezer_onboarding_compressed_label">Na compressie</string>
+    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Begrepen</string>
+    <string name="squeezer_compare_action">Bekijk de vergelijking</string>
+    <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
+    <string name="squeezer_result_empty_message">Geen comprimeerbare afbeeldingen gevonden.</string>
+    <string name="squeezer_setup_warning">Compressie vermindert permanent de beeldkwaliteit om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen om opslagruimte vrij te maken. Dit vermindert permanent de beeldkwaliteit en kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
+    <string name="squeezer_setup_paths_title">Zoeklocaties</string>
+    <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
+    <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>
+    <string name="squeezer_setup_age_title">Minimale leeftijd</string>
+    <string name="squeezer_setup_age_none">Geen limiet (alle bestanden opnemen)</string>
+    <string name="squeezer_setup_start_action">Scan starten</string>
+    <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
+    <string name="squeezer_quality_hint_low">Lagere kwaliteit bespaart meer ruimte maar kan zichtbare artefacten veroorzaken.</string>
+    <string name="squeezer_quality_hint_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
+    <string name="squeezer_quality_hint_normal">Gebalanceerde kwaliteit en ruimtebesparing.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Minstens %d dag oud</item>
+        <item quantity="other">Minstens %d dagen oud</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
     <string name="appcontrol_tool_name">AppControle</string>
     <string name="appcontrol_explanation_short">Apps die op je apparaat zijn geïnstalleerd.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -516,8 +628,32 @@
         <item quantity="one">%d app werd verwijderd</item>
         <item quantity="other">%d app werden verwijderd</item>
     </plurals>
+    <string name="appcontrol_archive_action">Archiveren</string>
+    <string name="appcontrol_archive_selection_action">Apps archiveren</string>
+    <string name="appcontrol_archive_description">Archiveer om ruimte vrij te maken met behoud van app-gegevens voor later herstel.</string>
     <string name="appcontrol_progress_archiving_app">App wordt gearchiveerd…</string>
+    <string name="appcontrol_archive_confirmation_title">Archivering bevestigen</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d app archiveren?</item>
+        <item quantity="other">%d apps archiveren?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app gearchiveerd</item>
+        <item quantity="other">%d apps gearchiveerd</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Herstellen</string>
+    <string name="appcontrol_restore_selection_action">Apps herstellen</string>
+    <string name="appcontrol_restore_description">Herstel gearchiveerde app naar volledig geïnstalleerde staat. App-gegevens worden bewaard.</string>
     <string name="appcontrol_progress_restoring_app">App wordt hersteld…</string>
+    <string name="appcontrol_restore_confirmation_title">Herstel bevestigen</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d app herstellen?</item>
+        <item quantity="other">%d apps herstellen?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app hersteld</item>
+        <item quantity="other">%d apps hersteld</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">App-grootte</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
     <string name="appcontrol_app_sizes_data_label">Gegevens</string>
@@ -545,6 +681,9 @@
         <item quantity="other">%d apps zijn geëxporteerd</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Bezig met exporteren van %s</string>
+    <string name="appcontrol_share_list_action">Lijst delen</string>
+    <string name="appcontrol_share_list_title">Mijn apps</string>
+    <string name="appcontrol_share_list_footer">Gedeeld via SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Forceer stop-apps</string>
     <string name="appcontrol_force_stop_action">Forceer stop</string>
     <string name="appcontrol_force_stop_confirm_title">Bevestig geforceerde stop</string>
@@ -561,6 +700,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Geforceerd stoppen…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ik zoek naar de knop \'Geforceerd stoppen\' (trefwoorden: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiveren…</string>
+    <string name="appcontrol_automation_progress_find_archive">Zoeken naar \"Archiveren\"-knop (trefwoorden: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Herstellen…</string>
+    <string name="appcontrol_automation_progress_find_restore">Zoeken naar \"Herstellen\"-knop (trefwoorden: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
@@ -581,6 +724,11 @@
         <item quantity="other">%s gebruikt</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Geen directe toegang beschikbaar</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper-sessie aanmaken</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-sessie aangemaakt met %d item</item>
+        <item quantity="other">Swiper-sessie aangemaakt met %d items</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primaire opslag</string>
     <string name="analyzer_storage_type_primary_description">De primaire opslag van je apparaat. Bevat de interne SD-kaart, privéopslag voor apps en systeemgegevens.</string>
     <string name="analyzer_storage_type_secondary_title">Secundaire opslag</string>
@@ -623,6 +771,7 @@
     <string name="exclusion_type_segment">Segmentuitsluiting</string>
     <string name="exclusion_tags_alltools">Alle hulpmiddelen</string>
     <string name="exclusion_target_label">Uitsluitingsdoel</string>
+    <string name="exclusion_editor_path_change_action">Tik om pad te wijzigen</string>
     <string name="exclusion_option_allow_partial">Gedeeltelijke overeenkomsten toestaan</string>
     <string name="exclusion_option_ignore_casing">Hoofd-/kleine letters negeren</string>
     <string name="exclusion_editor_affected_tools_label">Betrokken gereedschap</string>
@@ -771,173 +920,11 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
-    <string name="dashboard_card_config_title">Dashboardkaarten</string>
-    <string name="dashboard_card_config_desc">Configureer welke kaarten worden weergegeven en hun volgorde</string>
-    <string name="dashboard_card_config_header_title">Sleep om te herordenen, schakel om te tonen/verbergen</string>
-
-    <string name="deduplicator_arbiter_explanation">Bij het verwijderen van duplicaten beslist SD Maid welk bestand behouden wordt door elk criterium op volgorde te controleren. Het eerste criterium dat een duidelijke winnaar oplevert, bepaalt het resultaat. Sleep om de volgorde te wijzigen, tik om de modus te wijzigen.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Selecteer modus</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Paden configureren…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplicaattype</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Geef de voorkeur aan exacte overeenkomsten boven vergelijkbare bestanden.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Media-indexering</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Overweeg of bestanden zijn geïndexeerd door de mediaprovider.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Opslaglocatie</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Geef de voorkeur aan bestanden op interne of externe opslag.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Mapdiepte</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Geef de voorkeur aan bestanden in ondiepere of diepere mapstructuren.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Wijzigingsdatum</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Geef de voorkeur aan oudere of nieuwere bestanden op basis van wijzigingstijd.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Bestandsgrootte</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Geef de voorkeur aan grotere of kleinere bestanden wanneer de grootten verschillen.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Voorkeurslocaties</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Bewaar bestanden in je geconfigureerde voorkeurslocaties.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Exacte overeenkomsten verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Vergelijkbare bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Geïndexeerde bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Niet-geïndexeerde bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Interne opslag verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Externe opslag verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Ondiepe mappen verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Diepere mappen verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Oudere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Nieuwere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Grotere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
-    <string name="deduplicator_view_mode_groups_label">Groepen</string>
-
-    <string name="appcontrol_archive_action">Archiveren</string>
-    <string name="appcontrol_archive_selection_action">Apps archiveren</string>
-    <string name="appcontrol_archive_description">Archiveer om ruimte vrij te maken met behoud van app-gegevens voor later herstel.</string>
-    <string name="appcontrol_archive_confirmation_title">Archivering bevestigen</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">%d app archiveren?</item>
-        <item quantity="other">%d apps archiveren?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d app gearchiveerd</item>
-        <item quantity="other">%d apps gearchiveerd</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Herstellen</string>
-    <string name="appcontrol_restore_selection_action">Apps herstellen</string>
-    <string name="appcontrol_restore_description">Herstel gearchiveerde app naar volledig geïnstalleerde staat. App-gegevens worden bewaard.</string>
-    <string name="appcontrol_restore_confirmation_title">Herstel bevestigen</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">%d app herstellen?</item>
-        <item quantity="other">%d apps herstellen?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d app hersteld</item>
-        <item quantity="other">%d apps hersteld</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Lijst delen</string>
-    <string name="appcontrol_share_list_title">Mijn apps</string>
-    <string name="appcontrol_share_list_footer">Gedeeld via SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Archiveren…</string>
-    <string name="appcontrol_automation_progress_find_archive">Zoeken naar \"Archiveren\"-knop (trefwoorden: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Herstellen…</string>
-    <string name="appcontrol_automation_progress_find_restore">Zoeken naar \"Herstellen\"-knop (trefwoorden: %s)</string>
-    <string name="appcontrol_tag_debug">Debug</string>
-
-    <string name="analyzer_content_create_swiper_session_action">Swiper-sessie aanmaken</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Swiper-sessie aangemaakt met %d item</item>
-        <item quantity="other">Swiper-sessie aangemaakt met %d items</item>
-    </plurals>
-
-    <string name="exclusion_editor_path_change_action">Tik om pad te wijzigen</string>
-
-    <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultaten op basis van bestandsgrootte. Laat onbeperkt om elke grootte te matchen.</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
-
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">Comprimeer afbeeldingen om opslagruimte te besparen.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d afbeelding gevonden</item>
-        <item quantity="other">%d afbeeldingen gevonden</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s kan worden bespaard</item>
-        <item quantity="other">~%s kan worden bespaard</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d afbeelding gecomprimeerd</item>
-        <item quantity="other">%d afbeeldingen gecomprimeerd</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d afbeelding geselecteerd</item>
-        <item quantity="other">%d afbeeldingen geselecteerd</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Zoeklocaties</string>
-    <string name="squeezer_search_locations_default_summary">Cameramappen (standaard)</string>
-    <string name="squeezer_min_size_title">Minimale bestandsgrootte</string>
-    <string name="squeezer_min_size_description">Sla afbeeldingen over die kleiner zijn dan deze grootte.</string>
-    <string name="squeezer_min_age_title">Minimale bestandsleeftijd</string>
-    <string name="squeezer_min_age_description">Alleen afbeeldingen ouder dan deze leeftijd opnemen.</string>
-    <string name="squeezer_compression_settings_label">Compressie-instellingen</string>
-    <string name="squeezer_quality_label">Kwaliteit</string>
-    <string name="squeezer_quality_title">Compressiekwaliteit</string>
-    <string name="squeezer_quality_description">Lagere kwaliteit betekent kleinere bestandsgrootte maar verminderde beeldkwaliteit.</string>
-    <string name="squeezer_quality_example_format">Voorbeeld: %1$s afbeelding → bespaart ~%2$s bij %3$d%% kwaliteit</string>
-    <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
-    <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
-    <string name="squeezer_types_category_label">Afbeeldingstypen</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG-afbeeldingen opnemen (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP-afbeeldingen opnemen (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
-    <string name="squeezer_skip_compressed_description">Sla afbeeldingen over die al door SD Maid zijn gecomprimeerd.</string>
-    <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
-    <string name="squeezer_exif_marker_description">Voeg een markering toe aan het EXIF-opmerkingenveld van de afbeelding om hercompressie te voorkomen, zelfs als de compressiegeschiedenis wordt gewist.</string>
-    <string name="squeezer_estimated_savings_format">~%s besparing</string>
-    <string name="squeezer_no_savings_expected">Beperkte besparing</string>
-    <string name="squeezer_current_size_format">Grootte: %s</string>
-    <string name="squeezer_compress_action">Comprimeren</string>
-    <string name="squeezer_compress_all_action">Alles comprimeren</string>
-    <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
-    <string name="squeezer_preview_total_size">Totale grootte</string>
-    <string name="squeezer_preview_estimated_savings">Geschatte besparing</string>
-    <string name="squeezer_compress_confirmation_title">Afbeeldingen comprimeren?</string>
-    <string name="squeezer_compress_confirmation_message">Dit vervangt originele afbeeldingen door gecomprimeerde versies. Deze actie kan niet ongedaan worden gemaakt.</string>
-    <string name="squeezer_history_title">Compressiegeschiedenis</string>
-    <string name="squeezer_history_empty">Geen compressiegeschiedenis</string>
-    <string name="squeezer_history_clear_title">Compressiegeschiedenis wissen</string>
-    <string name="squeezer_history_clear_message">Dit maakt het mogelijk om eerder gecomprimeerde afbeeldingen opnieuw te comprimeren. De afbeeldingen zelf worden niet beïnvloed.</string>
-    <string name="squeezer_onboarding_title">Over beeldcompressie</string>
-    <string name="squeezer_onboarding_message">Beeldcompressie verkleint het bestand door visueel detail te verwijderen. Dit proces is onomkeerbaar - de originele kwaliteit kan niet worden hersteld.\n\nHier is een voorbeeld van hoe je afbeeldingen eruit zullen zien:</string>
-    <string name="squeezer_onboarding_original_label">Origineel</string>
-    <string name="squeezer_onboarding_compressed_label">Na compressie</string>
-    <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Begrepen</string>
-    <string name="squeezer_compare_action">Bekijk de vergelijking</string>
-    <string name="squeezer_no_example_found">Geen afbeeldingen gevonden in geselecteerde paden.</string>
-    <string name="squeezer_result_empty_message">Geen comprimeerbare afbeeldingen gevonden.</string>
-    <string name="squeezer_setup_warning">Compressie vermindert permanent de beeldkwaliteit om opslagruimte te besparen. Dit kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze verkleint de bestandsgrootte van afbeeldingen om opslagruimte vrij te maken. Dit vermindert permanent de beeldkwaliteit en kan niet ongedaan worden gemaakt. Controleer je instellingen zorgvuldig voordat je begint.</string>
-    <string name="squeezer_setup_paths_title">Zoeklocaties</string>
-    <string name="squeezer_setup_paths_default">Selecteer mappen om te doorzoeken</string>
-    <string name="squeezer_setup_quality_title">Compressiekwaliteit</string>
-    <string name="squeezer_setup_age_title">Minimale leeftijd</string>
-    <string name="squeezer_setup_age_none">Geen limiet (alle bestanden opnemen)</string>
-    <string name="squeezer_setup_start_action">Scan starten</string>
-    <string name="squeezer_quality_hint_very_low">Kwaliteit onder 40% kan onbruikbare afbeeldingen opleveren.</string>
-    <string name="squeezer_quality_hint_low">Lagere kwaliteit bespaart meer ruimte maar kan zichtbare artefacten veroorzaken.</string>
-    <string name="squeezer_quality_hint_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
-    <string name="squeezer_quality_hint_normal">Gebalanceerde kwaliteit en ruimtebesparing.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Minstens %d dag oud</item>
-        <item quantity="other">Minstens %d dagen oud</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Veeg door bestanden om te beslissen wat je wilt bewaren of verwijderen.</string>
-    <string name="swiper_dashcard_description">Controleer handmatig de bestanden in specifieke mappen. Veeg om te bepalen wat je wilt bewaren of verwijderen.</string>
+    <string name="swiper_tool_description">Ruim mappen snel op: blader door bestanden om ze te bewaren, te verwijderen of over te slaan.</string>
+    <string name="swiper_dashcard_description">Ruim specifieke mappen sneller op dan met een bestandsverkenner: veeg gewoon over elk bestand.</string>
     <string name="swiper_start_action">Begin met vegen</string>
     <string name="swiper_continue_action">Sessie voortzetten</string>
-    <string name="swiper_sessions_description">Voor sommige bestanden is een menselijke beoordeling nodig. Blader door de items en kies wat je wilt bewaren of verwijderen. Sla alles over waar je niet zeker van bent. Met deze tool kun je specifieke mappen handmatig controleren; niets wordt verwijderd voordat je jouw keuze bevestigt.</string>
+    <string name="swiper_sessions_description">Bekijk bestanden in 3 eenvoudige stappen:\n\n1. Kies een map om te scannen\n2. Veeg door de bestanden om ze te bewaren, te verwijderen of over te slaan\n3. Controleer je keuzes en bevestig\n\nNiets wordt verwijderd totdat je op de knop \'Verwijderen\' tikt.</string>
     <string name="swiper_select_folders_action">Mappen selecteren</string>
     <string name="swiper_scanning_title">Scannen…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1010,7 +997,6 @@
     <string name="swiper_session_rename_hint">Voer een naam in voor deze sessie</string>
     <string name="swiper_sessions_current_sessions">Huidige sessies</string>
     <string name="swiper_session_paths_label">Paden</string>
-    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d te bewaren</item>
         <item quantity="other">%d te bewaren</item>
@@ -1031,6 +1017,7 @@
         <item quantity="one">%d al verwijderd</item>
         <item quantity="other">%d al verwijderd</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d bewaard</item>
         <item quantity="other">%d bewaard</item>
@@ -1045,6 +1032,7 @@
     <string name="swiper_sessions_suggestion_downloads">Map Downloads</string>
     <string name="swiper_sessions_suggestion_screenshots">Schermafbeeldingen</string>
     <string name="swiper_sessions_suggestion_camera">Camerarol</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Bewaren!</string>
     <string name="swiper_stamp_keep_2">Mooi!</string>
     <string name="swiper_stamp_keep_3">Ja!</string>
@@ -1055,10 +1043,18 @@
     <string name="swiper_stamp_delete_4">Verwijderen!</string>
     <string name="swiper_stamp_skip_1">Overslaan!</string>
     <string name="swiper_stamp_skip_2">Mwah!</string>
-    <string name="swiper_stamp_skip_3">Later!</string>
     <string name="swiper_stamp_skip_4">Misschien!</string>
     <string name="swiper_stamp_undo_1">Ongedaan!</string>
     <string name="swiper_stamp_undo_2">Terug!</string>
     <string name="swiper_stamp_undo_3">Oeps!</string>
     <string name="swiper_stamp_undo_4">Wacht!</string>
+    <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tik ergens om te beginnen</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Begrepen</string>
+    <string name="swiper_gesture_overlay_left_delete">← Verwijderen</string>
+    <string name="swiper_gesture_overlay_right_keep">Bewaren →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Bewaren</string>
+    <string name="swiper_gesture_overlay_right_delete">Verwijderen →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Overslaan</string>
+    <!-- Swiper help dialog -->
 </resources>

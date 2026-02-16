@@ -416,6 +416,7 @@
     <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">La aplicación de Seguridad de HyperOS (com.miui.securitycenter) carece del permiso de Estadísticas de Uso (GET_USAGE_STATS). Esto interrumpe funciones como \"Limpiar Datos\" en detalles de aplicación y limpieza de caché a través de accesibilidad. Otorga el permiso para restaurar la funcionalidad completa.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Encuentra datos duplicados en tu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -457,6 +458,113 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias exactas</string>
     <string name="deduplicator_matches_similar_label">Archivos similares</string>
+    <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo conservar verificando cada criterio en orden. El primer criterio que produzca un ganador claro determina el resultado. Arrastra para reordenar, toca para cambiar el modo.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Profundidad de carpetas</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Preferir archivos en estructuras de carpetas más superficiales o más profundas.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Fecha de modificación</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Preferir archivos más antiguos o más nuevos según la fecha de modificación.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Tamaño de archivo</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Preferir archivos más grandes o más pequeños cuando los tamaños difieren.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Ubicaciones preferidas</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Conservar archivos en las ubicaciones preferidas configuradas.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferir coincidencias exactas</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Preferir archivos similares</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferir archivos indexados</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferir archivos no indexados</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Preferir almacenamiento interno</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferir almacenamiento externo</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferir carpetas superficiales</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferir carpetas más profundas</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Preferir archivos más antiguos</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Preferir archivos más nuevos</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Preferir archivos más grandes</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir archivos más pequeños</string>
+    <string name="deduplicator_view_mode_groups_label">Grupos</string>
+    <string name="deduplicator_view_mode_directories_label">Carpetas</string>
+    <string name="squeezer_tool_name">Compresor de Medios</string>
+    <string name="squeezer_explanation_short">Comprimir imágenes para ahorrar espacio de almacenamiento.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d imagen encontrada</item>
+        <item quantity="other">%d imágenes encontradas</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s se puede ahorrar</item>
+        <item quantity="other">~%s se pueden ahorrar</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d imagen comprimida</item>
+        <item quantity="other">%d imágenes comprimidas</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d imagen seleccionada</item>
+        <item quantity="other">%d imágenes seleccionadas</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Ubicaciones de búsqueda</string>
+    <string name="squeezer_search_locations_default_summary">Carpetas de cámara (predeterminado)</string>
+    <string name="squeezer_min_size_title">Tamaño mínimo de archivo</string>
+    <string name="squeezer_min_size_description">Omitir imágenes más pequeñas que este tamaño.</string>
+    <string name="squeezer_min_age_title">Antigüedad mínima del archivo</string>
+    <string name="squeezer_min_age_description">Solo incluir imágenes más antiguas que esta edad.</string>
+    <string name="squeezer_compression_settings_label">Ajustes de compresión</string>
+    <string name="squeezer_quality_label">Calidad</string>
+    <string name="squeezer_quality_title">Calidad de compresión</string>
+    <string name="squeezer_quality_description">Menor calidad significa menor tamaño de archivo pero menor calidad de imagen.</string>
+    <string name="squeezer_quality_example_format">Ejemplo: imagen %1$s → ahorra ~%2$s al %3$d%% de calidad</string>
+    <string name="squeezer_quality_warning_low">Calidades más bajas pueden causar artefactos visibles.</string>
+    <string name="squeezer_quality_warning_high">Calidad muy alta proporciona un ahorro de espacio mínimo.</string>
+    <string name="squeezer_types_category_label">Tipos de imagen</string>
+    <string name="squeezer_type_jpeg_description">Incluir imágenes JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Incluir imágenes WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Omitir previamente comprimidas</string>
+    <string name="squeezer_skip_compressed_description">Omitir imágenes que ya han sido comprimidas por SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Escribir marcador EXIF</string>
+    <string name="squeezer_exif_marker_description">Agregar un marcador al campo de comentario de usuario EXIF de la imagen para evitar la recompresión incluso si se borra el historial de compresión.</string>
+    <string name="squeezer_estimated_savings_format">~%s de ahorro</string>
+    <string name="squeezer_no_savings_expected">Ahorro limitado</string>
+    <string name="squeezer_current_size_format">Tamaño: %s</string>
+    <string name="squeezer_compress_action">Comprimir</string>
+    <string name="squeezer_compress_all_action">Comprimir todo</string>
+    <string name="squeezer_preview_dialog_title">Confirmar compresión</string>
+    <string name="squeezer_preview_total_size">Tamaño total</string>
+    <string name="squeezer_preview_estimated_savings">Ahorro estimado</string>
+    <string name="squeezer_compress_confirmation_title">¿Comprimir imágenes?</string>
+    <string name="squeezer_compress_confirmation_message">Esto reemplazará las imágenes originales con versiones comprimidas. Esta acción no se puede deshacer.</string>
+    <string name="squeezer_history_title">Historial de compresión</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d elemento (%2$s)</item>
+        <item quantity="other">%1$d elementos (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Sin historial de compresión</string>
+    <string name="squeezer_history_clear_title">Borrar historial de compresión</string>
+    <string name="squeezer_history_clear_message">Esto permitirá que las imágenes previamente comprimidas se compriman de nuevo. Las imágenes en sí no se ven afectadas.</string>
+    <string name="squeezer_onboarding_title">Acerca de la Compresión de Imágenes</string>
+    <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAquí tienes una vista previa de cómo se verán tus imágenes:</string>
+    <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
+    <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Entendido</string>
+    <string name="squeezer_compare_action">Ver comparación</string>
+    <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
+    <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
+    <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de imagen para ahorrar espacio. No se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
+    <string name="squeezer_setup_explanation">El Compresor de Medios reduce el tamaño de archivo de las imágenes para liberar espacio. Esto reduce permanentemente la calidad de imagen y no se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
+    <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
+    <string name="squeezer_setup_paths_default">Seleccionar carpetas para buscar</string>
+    <string name="squeezer_setup_quality_title">Calidad de compresión</string>
+    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
+    <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
+    <string name="squeezer_setup_start_action">Iniciar escaneo</string>
+    <string name="squeezer_quality_hint_very_low">Calidad por debajo del 40% puede crear imágenes inutilizables.</string>
+    <string name="squeezer_quality_hint_low">Menor calidad ahorra más espacio pero puede causar artefactos visibles.</string>
+    <string name="squeezer_quality_hint_high">Calidad muy alta proporciona ahorro de espacio mínimo.</string>
+    <string name="squeezer_quality_hint_normal">Calidad y ahorro de espacio equilibrados.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Al menos %d día de antigüedad</item>
+        <item quantity="other">Al menos %d días de antigüedad</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
     <string name="appcontrol_tool_name">Control de Aplicaciones</string>
     <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -506,6 +614,32 @@
         <item quantity="one">%d aplicación fue desinstalada</item>
         <item quantity="other">%d aplicaciones fueron desinstaladas</item>
     </plurals>
+    <string name="appcontrol_archive_action">Archivar</string>
+    <string name="appcontrol_archive_selection_action">Archivar aplicaciones</string>
+    <string name="appcontrol_archive_description">Archivar para liberar espacio manteniendo los datos de la aplicación para restauración posterior.</string>
+    <string name="appcontrol_progress_archiving_app">Archivando aplicación…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirmar archivo</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">¿Archivar %d aplicación?</item>
+        <item quantity="other">¿Archivar %d aplicaciones?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplicación archivada</item>
+        <item quantity="other">%d aplicaciones archivadas</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restaurar</string>
+    <string name="appcontrol_restore_selection_action">Restaurar aplicaciones</string>
+    <string name="appcontrol_restore_description">Restaurar la aplicación archivada al estado completamente instalado. Los datos de la aplicación se conservan.</string>
+    <string name="appcontrol_progress_restoring_app">Restaurando aplicación…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirmar restauración</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">¿Restaurar %d aplicación?</item>
+        <item quantity="other">¿Restaurar %d aplicaciones?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplicación restaurada</item>
+        <item quantity="other">%d aplicaciones restauradas</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Tamaño de aplicación</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicación</string>
     <string name="appcontrol_app_sizes_data_label">Datos</string>
@@ -533,6 +667,9 @@
         <item quantity="other">%d aplicaciones fueron exportadas</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exportando %s</string>
+    <string name="appcontrol_share_list_action">Compartir lista</string>
+    <string name="appcontrol_share_list_title">Mis aplicaciones</string>
+    <string name="appcontrol_share_list_footer">Compartido vía SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Forzar detención de aplicaciones</string>
     <string name="appcontrol_force_stop_action">Forzar detención</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmar detención forzada</string>
@@ -549,6 +686,10 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Forzando detención…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Buscando botón de \"Forzar detención\" (palabras clave: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archivando…</string>
+    <string name="appcontrol_automation_progress_find_archive">Buscando el botón \"Archivar\" (palabras clave: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restaurando…</string>
+    <string name="appcontrol_automation_progress_find_restore">Buscando el botón \"Restaurar\" (palabras clave: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalado en: %s</string>
@@ -569,6 +710,11 @@
         <item quantity="other">%s en uso</item>
     </plurals>
     <string name="analyzer_content_access_opaque">No hay acceso directo disponible</string>
+    <string name="analyzer_content_create_swiper_session_action">Crear sesión de Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesión de Swiper creada con %d elemento</item>
+        <item quantity="other">Sesión de Swiper creada con %d elementos</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Almacenamiento principal</string>
     <string name="analyzer_storage_type_primary_description">El almacenamiento principal de tu dispositivo. Contiene la tarjeta SD interna, almacenamiento privado para aplicaciones y datos del sistema.</string>
     <string name="analyzer_storage_type_secondary_title">Almacenamiento secundario</string>
@@ -611,6 +757,7 @@
     <string name="exclusion_type_segment">Exclusión de segmento</string>
     <string name="exclusion_tags_alltools">Todas las herramientas</string>
     <string name="exclusion_target_label">Objetivo de exclusión</string>
+    <string name="exclusion_editor_path_change_action">Toca para cambiar la ruta</string>
     <string name="exclusion_option_allow_partial">Permitir coincidencias parciales</string>
     <string name="exclusion_option_ignore_casing">Ignorar mayúsculas y minúsculas</string>
     <string name="exclusion_editor_affected_tools_label">Herramientas afectadas</string>
@@ -759,164 +906,8 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Buscar + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
-    <string name="exclusion_editor_path_change_action">Toca para cambiar la ruta</string>
-    <string name="appcontrol_tag_debug">Debug</string>
-    <string name="appcontrol_archive_action">Archivar</string>
-    <string name="appcontrol_archive_selection_action">Archivar aplicaciones</string>
-    <string name="appcontrol_archive_description">Archivar para liberar espacio manteniendo los datos de la aplicación para restauración posterior.</string>
-    <string name="appcontrol_progress_archiving_app">Archivando aplicación…</string>
-    <string name="appcontrol_archive_confirmation_title">Confirmar archivo</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">¿Archivar %d aplicación?</item>
-        <item quantity="other">¿Archivar %d aplicaciones?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d aplicación archivada</item>
-        <item quantity="other">%d aplicaciones archivadas</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Restaurar</string>
-    <string name="appcontrol_restore_selection_action">Restaurar aplicaciones</string>
-    <string name="appcontrol_restore_description">Restaurar la aplicación archivada al estado completamente instalado. Los datos de la aplicación se conservan.</string>
-    <string name="appcontrol_progress_restoring_app">Restaurando aplicación…</string>
-    <string name="appcontrol_restore_confirmation_title">Confirmar restauración</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">¿Restaurar %d aplicación?</item>
-        <item quantity="other">¿Restaurar %d aplicaciones?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d aplicación restaurada</item>
-        <item quantity="other">%d aplicaciones restauradas</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Compartir lista</string>
-    <string name="appcontrol_share_list_title">Mis aplicaciones</string>
-    <string name="appcontrol_share_list_footer">Compartido vía SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Archivando…</string>
-    <string name="appcontrol_automation_progress_find_archive">Buscando el botón \"Archivar\" (palabras clave: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Restaurando…</string>
-    <string name="appcontrol_automation_progress_find_restore">Buscando el botón \"Restaurar\" (palabras clave: %s)</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
-    <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo conservar verificando cada criterio en orden. El primer criterio que produzca un ganador claro determina el resultado. Arrastra para reordenar, toca para cambiar el modo.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Profundidad de carpetas</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Preferir archivos en estructuras de carpetas más superficiales o más profundas.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Fecha de modificación</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Preferir archivos más antiguos o más nuevos según la fecha de modificación.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Tamaño de archivo</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Preferir archivos más grandes o más pequeños cuando los tamaños difieren.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Ubicaciones preferidas</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Conservar archivos en las ubicaciones preferidas configuradas.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Preferir coincidencias exactas</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Preferir archivos similares</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Preferir archivos indexados</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Preferir archivos no indexados</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Preferir almacenamiento interno</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Preferir almacenamiento externo</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Preferir carpetas superficiales</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Preferir carpetas más profundas</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Preferir archivos más antiguos</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Preferir archivos más nuevos</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Preferir archivos más grandes</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir archivos más pequeños</string>
-    <string name="deduplicator_view_mode_groups_label">Grupos</string>
-    <string name="deduplicator_view_mode_directories_label">Carpetas</string>
-    <string name="analyzer_content_create_swiper_session_action">Crear sesión de Swiper</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Sesión de Swiper creada con %d elemento</item>
-        <item quantity="other">Sesión de Swiper creada con %d elementos</item>
-    </plurals>
-    <string name="squeezer_tool_name">Compresor de Medios</string>
-    <string name="squeezer_explanation_short">Comprimir imágenes para ahorrar espacio de almacenamiento.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d imagen encontrada</item>
-        <item quantity="other">%d imágenes encontradas</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s se puede ahorrar</item>
-        <item quantity="other">~%s se pueden ahorrar</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d imagen comprimida</item>
-        <item quantity="other">%d imágenes comprimidas</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d imagen seleccionada</item>
-        <item quantity="other">%d imágenes seleccionadas</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Ubicaciones de búsqueda</string>
-    <string name="squeezer_search_locations_default_summary">Carpetas de cámara (predeterminado)</string>
-    <string name="squeezer_min_size_title">Tamaño mínimo de archivo</string>
-    <string name="squeezer_min_size_description">Omitir imágenes más pequeñas que este tamaño.</string>
-    <string name="squeezer_min_age_title">Antigüedad mínima del archivo</string>
-    <string name="squeezer_min_age_description">Solo incluir imágenes más antiguas que esta edad.</string>
-    <string name="squeezer_compression_settings_label">Ajustes de compresión</string>
-    <string name="squeezer_quality_label">Calidad</string>
-    <string name="squeezer_quality_title">Calidad de compresión</string>
-    <string name="squeezer_quality_description">Menor calidad significa menor tamaño de archivo pero menor calidad de imagen.</string>
-    <string name="squeezer_quality_example_format">Ejemplo: imagen %1$s → ahorra ~%2$s al %3$d%% de calidad</string>
-    <string name="squeezer_quality_warning_low">Calidades más bajas pueden causar artefactos visibles.</string>
-    <string name="squeezer_quality_warning_high">Calidad muy alta proporciona un ahorro de espacio mínimo.</string>
-    <string name="squeezer_types_category_label">Tipos de imagen</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Incluir imágenes JPEG (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Incluir imágenes WebP (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Omitir previamente comprimidas</string>
-    <string name="squeezer_skip_compressed_description">Omitir imágenes que ya han sido comprimidas por SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Escribir marcador EXIF</string>
-    <string name="squeezer_exif_marker_description">Agregar un marcador al campo de comentario de usuario EXIF de la imagen para evitar la recompresión incluso si se borra el historial de compresión.</string>
-    <string name="squeezer_estimated_savings_format">~%s de ahorro</string>
-    <string name="squeezer_no_savings_expected">Ahorro limitado</string>
-    <string name="squeezer_current_size_format">Tamaño: %s</string>
-    <string name="squeezer_compress_action">Comprimir</string>
-    <string name="squeezer_compress_all_action">Comprimir todo</string>
-    <string name="squeezer_preview_dialog_title">Confirmar compresión</string>
-    <string name="squeezer_preview_total_size">Tamaño total</string>
-    <string name="squeezer_preview_estimated_savings">Ahorro estimado</string>
-    <string name="squeezer_compress_confirmation_title">¿Comprimir imágenes?</string>
-    <string name="squeezer_compress_confirmation_message">Esto reemplazará las imágenes originales con versiones comprimidas. Esta acción no se puede deshacer.</string>
-    <string name="squeezer_history_title">Historial de compresión</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d elemento (%2$s)</item>
-        <item quantity="other">%1$d elementos (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Sin historial de compresión</string>
-    <string name="squeezer_history_clear_title">Borrar historial de compresión</string>
-    <string name="squeezer_history_clear_message">Esto permitirá que las imágenes previamente comprimidas se compriman de nuevo. Las imágenes en sí no se ven afectadas.</string>
-    <string name="squeezer_onboarding_title">Acerca de la Compresión de Imágenes</string>
-    <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAquí tienes una vista previa de cómo se verán tus imágenes:</string>
-    <string name="squeezer_onboarding_original_label">Original</string>
-    <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
-    <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Entendido</string>
-    <string name="squeezer_compare_action">Ver comparación</string>
-    <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
-    <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
-    <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de imagen para ahorrar espacio. No se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
-    <string name="squeezer_setup_explanation">El Compresor de Medios reduce el tamaño de archivo de las imágenes para liberar espacio. Esto reduce permanentemente la calidad de imagen y no se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
-    <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
-    <string name="squeezer_setup_paths_default">Seleccionar carpetas para buscar</string>
-    <string name="squeezer_setup_quality_title">Calidad de compresión</string>
-    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
-    <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
-    <string name="squeezer_setup_start_action">Iniciar escaneo</string>
-    <string name="squeezer_quality_hint_very_low">Calidad por debajo del 40% puede crear imágenes inutilizables.</string>
-    <string name="squeezer_quality_hint_low">Menor calidad ahorra más espacio pero puede causar artefactos visibles.</string>
-    <string name="squeezer_quality_hint_high">Calidad muy alta proporciona ahorro de espacio mínimo.</string>
-    <string name="squeezer_quality_hint_normal">Calidad y ahorro de espacio equilibrados.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Al menos %d día de antigüedad</item>
-        <item quantity="other">Al menos %d días de antigüedad</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Desliza entre archivos para decidir qué conservar o eliminar.</string>
-    <string name="swiper_dashcard_description">Revisa manualmente archivos en carpetas específicas. Desliza para decidir qué conservar o eliminar.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
-    <string name="swiper_sessions_description">Algunos archivos necesitan una decisión humana. Desliza entre elementos y elige qué conservar o eliminar. Omite los que no estés seguro. Esta herramienta te permite revisar carpetas específicas manualmente, y nada se elimina hasta que confirmes.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1010,6 +1001,7 @@
         <item quantity="one">%d ya eliminado</item>
         <item quantity="other">%d ya eliminados</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d conservado</item>
         <item quantity="other">%d conservados</item>
@@ -1024,6 +1016,7 @@
     <string name="swiper_sessions_suggestion_downloads">Carpeta de descargas</string>
     <string name="swiper_sessions_suggestion_screenshots">Capturas de pantalla</string>
     <string name="swiper_sessions_suggestion_camera">Rollo de cámara</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">¡Conservar!</string>
     <string name="swiper_stamp_keep_2">¡Genial!</string>
     <string name="swiper_stamp_keep_3">¡Sí!</string>
@@ -1040,4 +1033,6 @@
     <string name="swiper_stamp_undo_2">¡Atrás!</string>
     <string name="swiper_stamp_undo_3">¡Ups!</string>
     <string name="swiper_stamp_undo_4">¡Espera!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

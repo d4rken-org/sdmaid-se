@@ -949,11 +949,8 @@
     <string name="shortcuts_onetap_enabled_title">Швидкий доступ одним дотиком</string>
     <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Прокрутіть файли, щоб вирішити, що зберегти, а що видалити.</string>
-    <string name="swiper_dashcard_description">Перегляньте файли в певних папках вручну. Проведіть пальцем, щоб вирішити, що залишити, а що видалити.</string>
     <string name="swiper_start_action">Почніть прокручувати</string>
     <string name="swiper_continue_action">Продовжити сесію</string>
-    <string name="swiper_sessions_description">Деякі файли потребують рішення людини. Прокрутіть елементи та виберіть, що зберегти, а що видалити. Пропустіть все, щодо чого ви не впевнені. Цей інструмент дозволяє вручну переглядати певні папки, і нічого не видаляється, поки ви не підтвердите.</string>
     <string name="swiper_select_folders_action">Вибрати папки</string>
     <string name="swiper_scanning_title">Сканування…</string>
     <string name="swiper_item_position">#%1$d з %2$d</string>
@@ -1011,4 +1008,6 @@
     <string name="swiper_stamp_undo_2">Назад!</string>
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Зачекайте!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

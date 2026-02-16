@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">Qala ukuskena nokususa kuwo wonke amathuluzi ngokucindezela inkinobho yesenzo yebhodi lokuphatha, ngaphandle kokuqinisekisa okwengeziwe.</string>
     <string name="dashboard_settings_oneclick_tools_title">Amathuluzi Okucindezela Kanye</string>
     <string name="dashboard_settings_oneclick_tools_desc">Yimaphi amathuluzi okufanele afakwe emisebenzini yokucindezela kanye?</string>
+    <string name="dashboard_card_config_title">Amakhadi ebhodi lokuphatha</string>
+    <string name="dashboard_card_config_desc">Lungisa ukuthi yimaphi amakhadi aboniswa nokuhlela kwawo</string>
+    <string name="dashboard_card_config_header_title">Hudula ukuhlela kabusha, guqula ukubonisa/ukufihla</string>
     <string name="debug_notification_channel_label">Izaziso zokulungisa amaphutha</string>
     <string name="debug_debuglog_file_label">Ifayela lomvala olurekhodewe</string>
     <string name="debug_debuglog_recording_progress">Kurekhoda umvala wokulungisa amaphutha</string>
     <string name="debug_debuglog_record_action">Rekhoda umvala wokulungisa amaphutha</string>
     <string name="debug_debuglog_stop_action">Misa ukurekhoda</string>
     <string name="debug_debuglog_sensitive_information_message">Ifayela elenziwe liqukethe ulwazi olubucayi (isib. amagama amafayela nezinhlelo zokusebenza ezifakiwe). Yabelane nalo kuphela nezinhlangothi ezithembekile.</string>
+    <string name="debug_debuglog_screen_title">Umvala Wokulungisa</string>
+    <string name="debug_debuglog_screen_discard_action">Lahla</string>
+    <string name="debug_debuglog_screen_session_path_label">Indlela Yeseshini</string>
+    <string name="debug_debuglog_screen_log_files_label">Amafayela Omvala</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ifayela lilungile (%2$s)</item>
+        <item quantity="other">%1$d amafayela alungile (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Lesi sici sirekhoda konke okwenziwa yi-app kufayela elingabelwana. Ifayela elenziwe liqukethe ulwazi olubucayi (isib. amagama amafayela nezinhlelo zokusebenza ezifakiwe). Yabelane nalo kuphela nezinhlangothi ezithembekile (isib. umthuthukisi oxazulula inkinga).</string>
     <string name="tasks_activity_notification_channel_label">Imisebenzi esebenzayo</string>
     <string name="tasks_activity_working_notification_title">I-SD Maid iyasebenza</string>
@@ -79,9 +90,23 @@
     <string name="support_installid_desc">Imibiko yeziphazamiso ezizenzakalelayo ayinabizo. Yabelana nge-ID yakho yokufaka uma umthuthukisi edinga ukuthola imibiko yakho yeziphazamiso.</string>
     <string name="support_debuglog_label">Ilogi lokuphephisa iziphazamiso</string>
     <string name="support_debuglog_desc">Rekhoda konke uhlelo olukwenzayo kufayela lombhalo ongawabelana ngalo.</string>
+    <string name="support_debuglog_folder_label">Ifolda yomvala wokulungisa</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d ifayela lisebenzisa %2$s</item>
+        <item quantity="other">%1$d amafayela asebenzisa %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Akukho imivala yokulungisa egciniwe</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Susa yonke imivala yokulungisa?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Lokhu kuzosusa unomphela zonke izeshini zemivala yokulungisa egciniwe. Lesi senzo asikwazi ukuhlehliswa.</string>
     <string name="discord_description">Indawo yokuzijabulisa futhi ubuze imibuzo.</string>
     <string name="changelog_label">Uhlu lwezinguquko</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
+    <string name="settings_acknowledgements_category_translations_title">Ukuhumusha</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ubani ohumushe lokhu?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Ukubonga</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Ukubonga okukhethekile kubangani bethu.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Amalayisense</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Isofthiwe esetshenziswa yi-SD Maid.</string>
     <string name="setup_label">Ukusetshenziswa</string>
     <string name="setup_incomplete_card_title">Ukusetshenziswa akukapheleli</string>
     <string name="setup_incomplete_card_body">Qedela ukusetshenziswa kwe-SD Maid ukuze uthole imiphumela engcono.</string>
@@ -154,6 +179,13 @@
     <string name="debug_bugreporter_label">Imibiko yamaphutha ezenzekelayo</string>
     <string name="debug_bugreporter_summary">Ibika ngokuzenzekelayo izinkinga, isib. imininingwane mayelana nokuphahlazeka kohlelo lokusebenza ukuze ngikwazi ukuthola ukuthi kungani futhi ngikulungise.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
+    <string name="debug_card_trace_mode_label">Vula imodi yokulandelela</string>
+    <string name="debug_card_dryrun_mode_label">Imodi yokuhlola (khubaza ukususa)</string>
+    <string name="debug_card_areas_reload_action">Layisha kabusha izindawo zedatha</string>
+    <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
+    <string name="debug_card_root_test_action">Hlola i-root</string>
+    <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
     <string name="settings_category_tools_label">Amathuluzi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="settings_category_risklevel">Izinga lengozi</string>
@@ -189,6 +221,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Idatha yohlelo eyimfihlo, isibonelo, izimvume, izilungiselelo zohlelo kanye nokugcinwa kwesiginali.</string>
     <string name="corpsefinder_filter_dalvik_label">Ukugcinwa kwe-Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Idatha yokusebenza kohlelo egciniwe.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Amaphrofayela e-ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Amaphrofayela e-ART asetshenziswa yi-Android ukuthuthukisa ukusebenza kohlelo.</string>
     <string name="corpsefinder_filter_applib_label">Amathala ezincwadi ohlelo</string>
     <string name="corpsefinder_filter_applib_summary">Idatha yamathala ezincwadi ehlobene nohlelo.</string>
     <string name="corpsefinder_filter_appsource_label">Imithombo yohlelo</string>
@@ -242,6 +276,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Iminyaka Yesithombe Sesikrini</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Iminyaka encane yezithombe zesikrini ukuze zicatshangelwe ukususwa.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Ama-APK angadingeki</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Amafayela okufaka angasadingeki ngokuya kwezinguqulo zohlelo ezifakiwe.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Faka inguqulo efanayo</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Futhi bhekelela amafayela e-APK afana neguqulo efakiwe. Khubaza ukususa kuphela izinguqulo ezindala.</string>
     <string name="systemcleaner_filter_lostdir_label">Amafolda e-LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Amafayela esikhashana adalwa lapho kudluliselwa idatha phakathi kwamadivayisi e-Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Amafayela e-Linux</string>
@@ -302,6 +339,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Igama lilingana negatsha angukhiye</string>
     <string name="systemcleaner_customfilter_last_edit">Ukuhlelwa kokugcina: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Ukusesha ngokuphila</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Imikhawulo yosayizi</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Usayizi omncane</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Usayizi omkhulu</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Khawulela imiphumela ngokuya ngosayizi wefayela. Shiya ingasetiwe ukufanisa noma yisiphi isayizi.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Imikhawulo yobudala</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Ubudala obuncane</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Ubudala obukhulu</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Khawulela imiphumela ngokuya ngobudala befayela (isikhathi sokugcina sokugqugquzela). Shiya ingasetiwe ukufanisa noma yibuphi ubudala.</string>
     <string name="systemcleaner_customfilter_import_action">Ngenisa isihluzi esisha</string>
     <string name="systemcleaner_customfilter_export_action">Khipha isihluzi esikhethiwe</string>
     <string name="appcleaner_tool_name">I-AppCleaner</string>
@@ -344,6 +389,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Amafayela asusiwe kodwa afakwe efoddeni elikhethekile ukuvumela ukubuyisela khona.</string>
     <string name="appcleaner_filter_webview_label">Amafayela e-Webview</string>
     <string name="appcleaner_filter_webview_summary">Amafayela agcinwe ama-instances e-Webview asetshenziswa ngaphakathi ezinhlelweni zokusebenza.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ama-icon esinqamuleli sohlelo</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Ama-icon e-cache ezinqamuleli zohlelo namamenyu okwabelana.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Izisekelo ze-WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Susa amakhophi engeziwe wezisekelo ze-WhatsApp futhi ugcine kuphela ezamuva.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Amafayela owathole kubantu nge-WhatsApp.</string>
@@ -395,6 +442,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Le nhlelo yesistimu ayinaso isikrini sezilungiselelo. Ukusula i-cache ngensiza yokufinyelela akukwazeki. Yikhiphe ukuze usheshise ukusula i-cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Uhlelo lwesistimu alulungisiwe kahle</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Uhlelo lwezokuphepha lwe-HyperOS (com.miui.securitycenter) luswele imvume Yezibalo Zokusetshenziswa (GET_USAGE_STATS). Lokhu kwehlisa izici ezifana no-\"Sula Idatha\" emininingwaneni yohlelo nokususa i-cache ngokufinyelela. Nikeza imvume ukubuyisela ukusebenza okuphelele.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Misa ngamandla ngaphambi kokusula</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Misa ngamandla izinhlelo zokusebenza ngaphambi kokusula i-cache yazo. Kungasiza ukusula i-cache yezinye izinhlelo, kodwa kungabangela ukuthi izinhlelo zingasebenzi kahle futhi zidinge ukuqalwa kabusha ngezandla.</string>
+    <string name="appcleaner_progress_force_stopping">Kumisa ngamandla izinhlelo zokusebenza…</string>
     <string name="deduplicator_tool_name">I-Deduplicator</string>
     <string name="deduplicator_explanation_short">Thola idatha ekhophisiwe kudivayisi yakho.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -417,6 +467,7 @@
     <string name="deduplicator_detection_method_checksum_title">I-checksum yokuqukethwe</string>
     <string name="deduplicator_detection_method_checksum_summary">Nquma okukhophisiwe ngokubala ama-checksum wamafayela. Amafayela ama-checksum afanayo anokuqukethwe okufanayo ngqo.</string>
     <string name="deduplicator_detection_method_phash_title">I-hash yokubona</string>
+    <string name="deduplicator_detection_method_phash_summary">Thola amafayela afanayo ngokuhlaziya izici zokuqukethwe nokuqhathanisa amagugu e-hash okuqonda. ⚠️ Ukutholwa okungesokunembile okusekelwe kufanayo kungafaka imiphumela engalona iqiniso edinga ukuqinisekiswa ngesandla.</string>
     <string name="deduplicator_occupied_space_label">Isitoreji esihleli</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">I-%s ihleli okukhophisiwe</item>
@@ -435,6 +486,121 @@
     <string name="deduplicator_details_cluster_title">Isethe sokukhophisa</string>
     <string name="deduplicator_matches_exact_label">Amakhophi aqondile</string>
     <string name="deduplicator_matches_similar_label">Amafayela afanayo</string>
+    <string name="deduplicator_arbiter_title">Isu lokususa</string>
+    <string name="deduplicator_arbiter_summary">Lungisa ukuthi yimaphi amafayela agcinwayo nawasusayo.</string>
+    <string name="deduplicator_arbiter_explanation">Lapho ususa amakhophi, i-SD Maid inquma ukuthi yiliphi ifayela eligcinwayo ngokuhlola umlinganiso ngamunye ngokulandelana. Umlinganiso wokuqala oveza umnqobi ucacile unquma umphumela. Hudula ukuhlela kabusha, cindezela ukuguqula imodi.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Khetha imodi</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Lungisa izindlela…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uhlobo lokukhophisa</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Ncamela ukukhophisa okuqondile kunokufana.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Ukufaka kwimidiya</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Cabangela ukuthi amafayela afakwe yisihlinzeki semidiya yini.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Indawo yokugcina</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Ncamela amafayela esitoreji sangaphakathi noma sangaphandle.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Ukujula kwefolda</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Ncamela amafayela ezakhiweni zamafolda amasha noma ajule kakhulu.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Usuku lokuguqulwa</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Ncamela amafayela amadala noma amasha ngokuya kwesikhathi sokuguqulwa.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Usayizi wefayela</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Ncamela amafayela amakhulu noma amancane lapho osayizi behlukile.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Izindawo ezikhethwayo</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Gcina amafayela ezindaweni zakho ezikhethwayo ozilungisile.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Ncamela ukukhophisa okuqondile</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Ncamela amafayela afanayo</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Ncamela amafayela afakiwe</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Ncamela amafayela angafakiwe</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Ncamela isitoreji sangaphakathi</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Ncamela isitoreji sangaphandle</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Ncamela amafolda amasha</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Ncamela amafolda ajule</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Ncamela amafayela amadala</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Ncamela amafayela amasha</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Ncamela amafayela amakhulu</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Ncamela amafayela amancane</string>
+    <string name="deduplicator_view_mode_groups_label">Amaqembu</string>
+    <string name="deduplicator_view_mode_directories_label">Amafolda</string>
+    <string name="squeezer_tool_name">Ukucindezela Imidiya</string>
+    <string name="squeezer_explanation_short">Cindezela izithombe ukonga isikhala sesitoreji.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d isithombe sitholakele</item>
+        <item quantity="other">%d izithombe zitholakele</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s kungongeka</item>
+        <item quantity="other">~%s kungongeka</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d isithombe sicindezelwe</item>
+        <item quantity="other">%d izithombe zicindezelwe</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d isithombe sikhethiwe</item>
+        <item quantity="other">%d izithombe zikhethiwe</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Izindawo zokusesha</string>
+    <string name="squeezer_search_locations_default_summary">Amafolda ekhamera (okuzenzakalelayo)</string>
+    <string name="squeezer_min_size_title">Usayizi omncane wefayela</string>
+    <string name="squeezer_min_size_description">Yeqa izithombe ezincane kunalo sayizi.</string>
+    <string name="squeezer_min_age_title">Ubudala obuncane befayela</string>
+    <string name="squeezer_min_age_description">Faka kuphela izithombe ezindala kunobu budala.</string>
+    <string name="squeezer_compression_settings_label">Izilungiselelo zokucindezela</string>
+    <string name="squeezer_quality_label">Ikhwalithi</string>
+    <string name="squeezer_quality_title">Ikhwalithi yokucindezela</string>
+    <string name="squeezer_quality_description">Ikhwalithi ephansi isho usayizi wefayela omncane kodwa ikhwalithi yesithombe encishisiwe.</string>
+    <string name="squeezer_quality_example_format">Isibonelo: %1$s isithombe → onga ~%2$s ku-%3$d%% ikhwalithi</string>
+    <string name="squeezer_quality_warning_low">Amakhwalithi aphansi angabangela izinkinga ezibonakalayo.</string>
+    <string name="squeezer_quality_warning_high">Ikhwalithi ephezulu kakhulu ihlinzeka ngokonga kancane.</string>
+    <string name="squeezer_types_category_label">Izinhlobo zezithombe</string>
+    <string name="squeezer_type_jpeg_description">Faka izithombe ze-JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">Faka izithombe ze-WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Yeqa ezicindezelwe ngaphambilini</string>
+    <string name="squeezer_skip_compressed_description">Yeqa izithombe esezicindezelwe yi-SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Bhala uphawu lwe-EXIF</string>
+    <string name="squeezer_exif_marker_description">Engeza uphawu enkundleni yokuphawula komsebenzisi we-EXIF yesithombe ukuvimbela ukucindezelwa kabusha noma umlando wokucindezela usulwe.</string>
+    <string name="squeezer_estimated_savings_format">~%s ukonga</string>
+    <string name="squeezer_no_savings_expected">Ukonga okulinganiselwe</string>
+    <string name="squeezer_current_size_format">Usayizi: %s</string>
+    <string name="squeezer_compress_action">Cindezela</string>
+    <string name="squeezer_compress_all_action">Cindezela konke</string>
+    <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>
+    <string name="squeezer_preview_total_size">Usayizi ophelele</string>
+    <string name="squeezer_preview_estimated_savings">Ukonga okulinganisiwe</string>
+    <string name="squeezer_compress_confirmation_title">Cindezela izithombe?</string>
+    <string name="squeezer_compress_confirmation_message">Lokhu kuzoshintsha izithombe zangempela ngezinguqulo ezicindezelwe. Lesi senzo asikwazi ukuhlehliswa.</string>
+    <string name="squeezer_history_title">Umlando wokucindezela</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d into (%2$s)</item>
+        <item quantity="other">%1$d izinto (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Akukho umlando wokucindezela</string>
+    <string name="squeezer_history_clear_title">Sula umlando wokucindezela</string>
+    <string name="squeezer_history_clear_message">Lokhu kuzovumela izithombe ebezicindezelwe ngaphambilini ukuba zicindezelwe futhi. Izithombe ngokwazo azithinteki.</string>
+    <string name="squeezer_onboarding_title">Mayelana Nokucindezela Izithombe</string>
+    <string name="squeezer_onboarding_message">Ukucindezela isithombe kunciphisa usayizi wefayela ngokususa imininingwane ebonakalayo. Le nqubo ayihlehliseki - ikhwalithi yokuqala ayikwazi ukubuyiswa.\n\nNansi imboniso yangaphambili yokuthi izithombe zakho zizobukeka kanjani:</string>
+    <string name="squeezer_onboarding_original_label">Okwangiempela</string>
+    <string name="squeezer_onboarding_compressed_label">Ngemuva kokucindezela</string>
+    <string name="squeezer_onboarding_quality_label">Ikhwalithi: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
+    <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
+    <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
+    <string name="squeezer_result_empty_message">Azikho izithombe ezicindezelekayo ezitholakele.</string>
+    <string name="squeezer_setup_warning">Ukucindezela kunciphisa unomphela ikhwalithi yesithombe ukuze kongeke isikhala sesitoreji. Lokhu akukwazi ukuhlehliswa. Buyekeza izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
+    <string name="squeezer_setup_explanation">Ukucindezela Imidiya kunciphisa usayizi wefayela lezithombe ukukhulula isikhala sesitoreji. Lokhu kunciphisa unomphela ikhwalithi yesithombe futhi akukwazi ukuhlehliswa. Buyekeza izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
+    <string name="squeezer_setup_paths_title">Izindawo zokusesha</string>
+    <string name="squeezer_setup_paths_default">Khetha amafolda okuseshwa</string>
+    <string name="squeezer_setup_quality_title">Ikhwalithi yokucindezela</string>
+    <string name="squeezer_setup_age_title">Ubudala obuncane</string>
+    <string name="squeezer_setup_age_none">Akukho umkhawulo (faka wonke amafayela)</string>
+    <string name="squeezer_setup_start_action">Qala Ukusesha</string>
+    <string name="squeezer_quality_hint_very_low">Ikhwalithi engaphansi kuka-40% ingadala izithombe ezingasebenziseki.</string>
+    <string name="squeezer_quality_hint_low">Ikhwalithi ephansi yonga isikhala esiningi kodwa ingabangela izinkinga ezibonakalayo.</string>
+    <string name="squeezer_quality_hint_high">Ikhwalithi ephezulu kakhulu ihlinzeka ngokonga okuncane.</string>
+    <string name="squeezer_quality_hint_normal">Ikhwalithi elinganisiwe nokonga isikhala.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Okungenani usuku olungu-%d</item>
+        <item quantity="other">Okungenani izinsuku ezingu-%d</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Kulinganiswa ~%d%% ukonga kwamafayela e-JPEG</string>
     <string name="appcontrol_tool_name">I-AppControl</string>
     <string name="appcontrol_explanation_short">Izinhlelo zokusebenza ezifakwe kudivayisi yakho.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -483,6 +649,32 @@
         <item quantity="one">Uhlelo olu-%d lukhishiwe</item>
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zikhishiwe</item>
     </plurals>
+    <string name="appcontrol_archive_action">Beka</string>
+    <string name="appcontrol_archive_selection_action">Beka izinhlelo zokusebenza</string>
+    <string name="appcontrol_archive_description">Beka ukukhulula isikhala ngesikhathi ugcina idatha yohlelo ukuze ibuyiswe kamuva.</string>
+    <string name="appcontrol_progress_archiving_app">Kubeka uhlelo…</string>
+    <string name="appcontrol_archive_confirmation_title">Qinisekisa ukubeka</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Beka uhlelo olungu-%d?</item>
+        <item quantity="other">Beka izinhlelo ezingu-%d?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d uhlelo lubekiwe</item>
+        <item quantity="other">%d izinhlelo zibekiwe</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Buyisela</string>
+    <string name="appcontrol_restore_selection_action">Buyisela izinhlelo zokusebenza</string>
+    <string name="appcontrol_restore_description">Buyisela uhlelo olubekiwe esimweni esifakiwe ngokuphelele. Idatha yohlelo ilondolozwa.</string>
+    <string name="appcontrol_progress_restoring_app">Kubuyisela uhlelo…</string>
+    <string name="appcontrol_restore_confirmation_title">Qinisekisa ukubuyisela</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Buyisela uhlelo olungu-%d?</item>
+        <item quantity="other">Buyisela izinhlelo ezingu-%d?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d uhlelo lubuyiselwe</item>
+        <item quantity="other">%d izinhlelo zibuyiselwe</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Usayizi wohlelo</string>
     <string name="appcontrol_app_sizes_apk_label">Uhlelo</string>
     <string name="appcontrol_app_sizes_data_label">Idatha</string>
@@ -507,6 +699,9 @@
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zikhishiwe</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Kukhipha %s</string>
+    <string name="appcontrol_share_list_action">Yabelana ngohlu</string>
+    <string name="appcontrol_share_list_title">Izinhlelo Zokusebenza Zami</string>
+    <string name="appcontrol_share_list_footer">Kwabelanwe nge-SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Misa ngamandla izinhlelo zokusebenza</string>
     <string name="appcontrol_force_stop_action">Misa ngamandla</string>
     <string name="appcontrol_force_stop_confirm_title">Qinisekisa ukumisa ngamandla</string>
@@ -523,8 +718,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Kumisa ngamandla…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Kubheka inkinobho ethi \"Misa ngamandla\" (amagama angukhiye: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Kubeka…</string>
+    <string name="appcontrol_automation_progress_find_archive">Kubheka inkinobho ethi \"Beka\" (amagama angukhiye: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Kubuyisela…</string>
+    <string name="appcontrol_automation_progress_find_restore">Kubheka inkinobho ethi \"Buyisela\" (amagama angukhiye: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Isikhathi sesikrini: %1$s kusukela %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kubuyekeziwe kokuqcina: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Kufakwe ngo: %s</string>
     <string name="analyzer_tool_name">I-StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Thola ukuthi yini ethatha isikhala kudivayisi yakho.</string>
     <string name="analyzer_progress_scanning_device">Kusesha amadivayisi esitoreji</string>
@@ -542,6 +742,11 @@
         <item quantity="other">%s zisetshenzisiwe</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Akukho ukufinyelela okuqondile okutholakalayo</string>
+    <string name="analyzer_content_create_swiper_session_action">Dala iseshini ye-Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Iseshini ye-Swiper yenziwe nge-%d into</item>
+        <item quantity="other">Iseshini ye-Swiper yenziwe nge-%d izinto</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Isitoreji esiyinhloko</string>
     <string name="analyzer_storage_type_primary_description">Isitoreji esiyinhloko sedivayisi yakho. Siqukethe ikhadi le-SD langaphakathi, isitoreji sangasese sezinhlelo zokusebenza nedatha yesistimu.</string>
     <string name="analyzer_storage_type_secondary_title">Isitoreji sesibili</string>
@@ -614,6 +819,7 @@
     <string name="automation_error_screen_unavailable_title">Isikrini asitholakali</string>
     <string name="automation_error_screen_unavailable_body">Umsebenzi uyekisiwe ngoba isikrini asasatholakali (isib. isibonisi sivaliwe noma isikrini sokukhiya sisebenza).</string>
     <string name="automation_error_compatibility_title">Ukuhambisana kokuzenzelela</string>
+    <string name="automation_error_compatibility_body">I-SD Maid ayikwazanga ukuqonda isakhiwo sesikrini. Uma lokhu kuqhubeka, ulimi noma ukusethwa kwakho kungase kungasekelwa ngokuphelele. Hlola izibuyekezo noma uxhumane nami ukuze ngikwazi ukukulungisa.</string>
     <string name="automation_error_timeout_title">Isikhathi sokuzenzelela siphelile</string>
     <string name="automation_error_timeout_body">I-SD Maid ayiqedanga zonke izinyathelo ngesikhathi esimisiwe. Uma lokhu kuqhubeka kwenzeka, kungase kudingeke ngilungise uhlelo kudivayisi yakho. Hlola izibuyekezo noma ungifinyelele ukuze ngikwazi ukukulungisa.</string>
     <string name="automation_error_overlay_title">Isembeso sokuzenzelela</string>
@@ -672,6 +878,17 @@
     <string name="review_app_review_action">Buyekeza</string>
     <string name="review_app_dismiss_action">Mhlawumbe kamuva</string>
     <string name="review_app_body">Ungathanda ukushiyela i-SD Maid ukubuyekeza?️ ❤️</string>
+    <string name="anniversary_card_title">Usuku Olukhulu Lwe-SD Maid Olujabula ❤️</string>
+    <string name="anniversary_card_install_date">Nawe kusukela ngo-%s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Unyaka ongu-%1$d ndawonye kakade. Siyabonga ngokuthemba i-SD Maid ukugcina i-Android yakho ihlanzekile nahlanzekile. Isikhala esikhululiwe: %2$s</item>
+        <item quantity="other">Iminyaka engu-%1$d niqine. Idivayisi yakho ihlala ihlanzekile futhi ihlanzekile nge-SD Maid. Isikhala esikhululiwe: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Yabelana ngosuku lwakho olukhulu lwe-SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">Unyaka ongu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
+        <item quantity="other">Iminyaka engu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
+    </plurals>
     <string name="stats_label">Umlando</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">I-%s ikhululiwe.</item>
@@ -712,263 +929,15 @@
     <string name="area_type_public_obb_label">Izinsiza zohlelo zomphakathi</string>
     <string name="area_type_private_data_label">Idatha yohlelo eyimfihlo</string>
     <string name="area_type_portable_label">Isitoreji esiphathekayo</string>
-    <string name="dashboard_card_config_title">Amakhadi ebhodi lokuphatha</string>
-    <string name="dashboard_card_config_desc">Lungisa ukuthi yimaphi amakhadi aboniswa nokuhlela kwawo</string>
-    <string name="dashboard_card_config_header_title">Hudula ukuhlela kabusha, guqula ukubonisa/ukufihla</string>
-
-    <string name="debug_debuglog_screen_title">Umvala Wokulungisa</string>
-    <string name="debug_debuglog_screen_discard_action">Lahla</string>
-    <string name="debug_debuglog_screen_session_path_label">Indlela Yeseshini</string>
-    <string name="debug_debuglog_screen_log_files_label">Amafayela Omvala</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d ifayela lilungile (%2$s)</item>
-        <item quantity="other">%1$d amafayela alungile (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">Ifolda yomvala wokulungisa</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d ifayela lisebenzisa %2$s</item>
-        <item quantity="other">%1$d amafayela asebenzisa %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Akukho imivala yokulungisa egciniwe</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Susa yonke imivala yokulungisa?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Lokhu kuzosusa unomphela zonke izeshini zemivala yokulungisa egciniwe. Lesi senzo asikwazi ukuhlehliswa.</string>
-
-    <string name="discord_label">Discord</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Ukuhumusha</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">Ubani ohumushe lokhu?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Ukubonga</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Ukubonga okukhethekile kubangani bethu.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Amalayisense</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Isofthiwe esetshenziswa yi-SD Maid.</string>
-
-    <string name="ui_theme_style_materialyou_label">Material You</string>
-
-    <string name="debug_card_title">Imodi yokulungisa amaphutha ivuliwe</string>
-    <string name="debug_card_trace_mode_label">Vula imodi yokulandelela</string>
-    <string name="debug_card_dryrun_mode_label">Imodi yokuhlola (khubaza ukususa)</string>
-    <string name="debug_card_areas_reload_action">Layisha kabusha izindawo zedatha</string>
-    <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
-    <string name="debug_card_root_test_action">Hlola i-root</string>
-    <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">Amaphrofayela e-ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Amaphrofayela e-ART asetshenziswa yi-Android ukuthuthukisa ukusebenza kohlelo.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_summary">Amafayela okufaka angasadingeki ngokuya kwezinguqulo zohlelo ezifakiwe.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Faka inguqulo efanayo</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Futhi bhekelela amafayela e-APK afana neguqulo efakiwe. Khubaza ukususa kuphela izinguqulo ezindala.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Imikhawulo yosayizi</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Usayizi omncane</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Usayizi omkhulu</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Khawulela imiphumela ngokuya ngosayizi wefayela. Shiya ingasetiwe ukufanisa noma yisiphi isayizi.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Imikhawulo yobudala</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Ubudala obuncane</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Ubudala obukhulu</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Khawulela imiphumela ngokuya ngobudala befayela (isikhathi sokugcina sokugqugquzela). Shiya ingasetiwe ukufanisa noma yibuphi ubudala.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Ama-icon esinqamuleli sohlelo</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Ama-icon e-cache ezinqamuleli zohlelo namamenyu okwabelana.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Misa ngamandla ngaphambi kokusula</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Misa ngamandla izinhlelo zokusebenza ngaphambi kokusula i-cache yazo. Kungasiza ukusula i-cache yezinye izinhlelo, kodwa kungabangela ukuthi izinhlelo zingasebenzi kahle futhi zidinge ukuqalwa kabusha ngezandla.</string>
-    <string name="appcleaner_progress_force_stopping">Kumisa ngamandla izinhlelo zokusebenza…</string>
-
-    <string name="deduplicator_detection_method_phash_summary">Thola amafayela afanayo ngokuhlaziya izici zokuqukethwe nokuqhathanisa amagugu e-hash okuqonda. ⚠️ Ukutholwa okungesokunembile okusekelwe kufanayo kungafaka imiphumela engalona iqiniso edinga ukuqinisekiswa ngesandla.</string>
-
-    <string name="deduplicator_arbiter_title">Isu lokususa</string>
-    <string name="deduplicator_arbiter_summary">Lungisa ukuthi yimaphi amafayela agcinwayo nawasusayo.</string>
-    <string name="deduplicator_arbiter_explanation">Lapho ususa amakhophi, i-SD Maid inquma ukuthi yiliphi ifayela eligcinwayo ngokuhlola umlinganiso ngamunye ngokulandelana. Umlinganiso wokuqala oveza umnqobi ucacile unquma umphumela. Hudula ukuhlela kabusha, cindezela ukuguqula imodi.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Khetha imodi</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Lungisa izindlela…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uhlobo lokukhophisa</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Ncamela ukukhophisa okuqondile kunokufana.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Ukufaka kwimidiya</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Cabangela ukuthi amafayela afakwe yisihlinzeki semidiya yini.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Indawo yokugcina</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Ncamela amafayela esitoreji sangaphakathi noma sangaphandle.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Ukujula kwefolda</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Ncamela amafayela ezakhiweni zamafolda amasha noma ajule kakhulu.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Usuku lokuguqulwa</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Ncamela amafayela amadala noma amasha ngokuya kwesikhathi sokuguqulwa.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Usayizi wefayela</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Ncamela amafayela amakhulu noma amancane lapho osayizi behlukile.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Izindawo ezikhethwayo</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Gcina amafayela ezindaweni zakho ezikhethwayo ozilungisile.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Ncamela ukukhophisa okuqondile</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Ncamela amafayela afanayo</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Ncamela amafayela afakiwe</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Ncamela amafayela angafakiwe</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Ncamela isitoreji sangaphakathi</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Ncamela isitoreji sangaphandle</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Ncamela amafolda amasha</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Ncamela amafolda ajule</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Ncamela amafayela amadala</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Ncamela amafayela amasha</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Ncamela amafayela amakhulu</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Ncamela amafayela amancane</string>
-
-    <string name="deduplicator_view_mode_groups_label">Amaqembu</string>
-    <string name="deduplicator_view_mode_directories_label">Amafolda</string>
-
-    <string name="squeezer_tool_name">Ukucindezela Imidiya</string>
-    <string name="squeezer_explanation_short">Cindezela izithombe ukonga isikhala sesitoreji.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d isithombe sitholakele</item>
-        <item quantity="other">%d izithombe zitholakele</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s kungongeka</item>
-        <item quantity="other">~%s kungongeka</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d isithombe sicindezelwe</item>
-        <item quantity="other">%d izithombe zicindezelwe</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d isithombe sikhethiwe</item>
-        <item quantity="other">%d izithombe zikhethiwe</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">Izindawo zokusesha</string>
-    <string name="squeezer_search_locations_default_summary">Amafolda ekhamera (okuzenzakalelayo)</string>
-    <string name="squeezer_min_size_title">Usayizi omncane wefayela</string>
-    <string name="squeezer_min_size_description">Yeqa izithombe ezincane kunalo sayizi.</string>
-    <string name="squeezer_min_age_title">Ubudala obuncane befayela</string>
-    <string name="squeezer_min_age_description">Faka kuphela izithombe ezindala kunobu budala.</string>
-    <string name="squeezer_compression_settings_label">Izilungiselelo zokucindezela</string>
-    <string name="squeezer_quality_label">Ikhwalithi</string>
-    <string name="squeezer_quality_title">Ikhwalithi yokucindezela</string>
-    <string name="squeezer_quality_description">Ikhwalithi ephansi isho usayizi wefayela omncane kodwa ikhwalithi yesithombe encishisiwe.</string>
-    <string name="squeezer_quality_example_format">Isibonelo: %1$s isithombe → onga ~%2$s ku-%3$d%% ikhwalithi</string>
-    <string name="squeezer_quality_warning_low">Amakhwalithi aphansi angabangela izinkinga ezibonakalayo.</string>
-    <string name="squeezer_quality_warning_high">Ikhwalithi ephezulu kakhulu ihlinzeka ngokonga kancane.</string>
-    <string name="squeezer_types_category_label">Izinhlobo zezithombe</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">Faka izithombe ze-JPEG (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">Faka izithombe ze-WebP (.webp).</string>
-    <string name="squeezer_skip_compressed_title">Yeqa ezicindezelwe ngaphambilini</string>
-    <string name="squeezer_skip_compressed_description">Yeqa izithombe esezicindezelwe yi-SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Bhala uphawu lwe-EXIF</string>
-    <string name="squeezer_exif_marker_description">Engeza uphawu enkundleni yokuphawula komsebenzisi we-EXIF yesithombe ukuvimbela ukucindezelwa kabusha noma umlando wokucindezela usulwe.</string>
-    <string name="squeezer_estimated_savings_format">~%s ukonga</string>
-    <string name="squeezer_no_savings_expected">Ukonga okulinganiselwe</string>
-    <string name="squeezer_current_size_format">Usayizi: %s</string>
-    <string name="squeezer_compress_action">Cindezela</string>
-    <string name="squeezer_compress_all_action">Cindezela konke</string>
-    <string name="squeezer_preview_dialog_title">Qinisekisa ukucindezela</string>
-    <string name="squeezer_preview_total_size">Usayizi ophelele</string>
-    <string name="squeezer_preview_estimated_savings">Ukonga okulinganisiwe</string>
-    <string name="squeezer_compress_confirmation_title">Cindezela izithombe?</string>
-    <string name="squeezer_compress_confirmation_message">Lokhu kuzoshintsha izithombe zangempela ngezinguqulo ezicindezelwe. Lesi senzo asikwazi ukuhlehliswa.</string>
-    <string name="squeezer_history_title">Umlando wokucindezela</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d into (%2$s)</item>
-        <item quantity="other">%1$d izinto (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">Akukho umlando wokucindezela</string>
-    <string name="squeezer_history_clear_title">Sula umlando wokucindezela</string>
-    <string name="squeezer_history_clear_message">Lokhu kuzovumela izithombe ebezicindezelwe ngaphambilini ukuba zicindezelwe futhi. Izithombe ngokwazo azithinteki.</string>
-    <string name="squeezer_onboarding_title">Mayelana Nokucindezela Izithombe</string>
-    <string name="squeezer_onboarding_message">Ukucindezela isithombe kunciphisa usayizi wefayela ngokususa imininingwane ebonakalayo. Le nqubo ayihlehliseki - ikhwalithi yokuqala ayikwazi ukubuyiswa.\n\nNansi imboniso yangaphambili yokuthi izithombe zakho zizobukeka kanjani:</string>
-    <string name="squeezer_onboarding_original_label">Okwangiempela</string>
-    <string name="squeezer_onboarding_compressed_label">Ngemuva kokucindezela</string>
-    <string name="squeezer_onboarding_quality_label">Ikhwalithi: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
-    <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
-    <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
-    <string name="squeezer_result_empty_message">Azikho izithombe ezicindezelekayo ezitholakele.</string>
-    <string name="squeezer_setup_warning">Ukucindezela kunciphisa unomphela ikhwalithi yesithombe ukuze kongeke isikhala sesitoreji. Lokhu akukwazi ukuhlehliswa. Buyekeza izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
-    <string name="squeezer_setup_explanation">Ukucindezela Imidiya kunciphisa usayizi wefayela lezithombe ukukhulula isikhala sesitoreji. Lokhu kunciphisa unomphela ikhwalithi yesithombe futhi akukwazi ukuhlehliswa. Buyekeza izilungiselelo zakho ngokucophelela ngaphambi kokuqala.</string>
-    <string name="squeezer_setup_paths_title">Izindawo zokusesha</string>
-    <string name="squeezer_setup_paths_default">Khetha amafolda okuseshwa</string>
-    <string name="squeezer_setup_quality_title">Ikhwalithi yokucindezela</string>
-    <string name="squeezer_setup_age_title">Ubudala obuncane</string>
-    <string name="squeezer_setup_age_none">Akukho umkhawulo (faka wonke amafayela)</string>
-    <string name="squeezer_setup_start_action">Qala Ukusesha</string>
-    <string name="squeezer_quality_hint_very_low">Ikhwalithi engaphansi kuka-40% ingadala izithombe ezingasebenziseki.</string>
-    <string name="squeezer_quality_hint_low">Ikhwalithi ephansi yonga isikhala esiningi kodwa ingabangela izinkinga ezibonakalayo.</string>
-    <string name="squeezer_quality_hint_high">Ikhwalithi ephezulu kakhulu ihlinzeka ngokonga okuncane.</string>
-    <string name="squeezer_quality_hint_normal">Ikhwalithi elinganisiwe nokonga isikhala.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Okungenani usuku olungu-%d</item>
-        <item quantity="other">Okungenani izinsuku ezingu-%d</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Kulinganiswa ~%d%% ukonga kwamafayela e-JPEG</string>
-
-    <string name="appcontrol_archive_action">Beka</string>
-    <string name="appcontrol_archive_selection_action">Beka izinhlelo zokusebenza</string>
-    <string name="appcontrol_archive_description">Beka ukukhulula isikhala ngesikhathi ugcina idatha yohlelo ukuze ibuyiswe kamuva.</string>
-    <string name="appcontrol_progress_archiving_app">Kubeka uhlelo…</string>
-    <string name="appcontrol_archive_confirmation_title">Qinisekisa ukubeka</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">Beka uhlelo olungu-%d?</item>
-        <item quantity="other">Beka izinhlelo ezingu-%d?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d uhlelo lubekiwe</item>
-        <item quantity="other">%d izinhlelo zibekiwe</item>
-    </plurals>
-    <string name="appcontrol_restore_action">Buyisela</string>
-    <string name="appcontrol_restore_selection_action">Buyisela izinhlelo zokusebenza</string>
-    <string name="appcontrol_restore_description">Buyisela uhlelo olubekiwe esimweni esifakiwe ngokuphelele. Idatha yohlelo ilondolozwa.</string>
-    <string name="appcontrol_progress_restoring_app">Kubuyisela uhlelo…</string>
-    <string name="appcontrol_restore_confirmation_title">Qinisekisa ukubuyisela</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">Buyisela uhlelo olungu-%d?</item>
-        <item quantity="other">Buyisela izinhlelo ezingu-%d?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d uhlelo lubuyiselwe</item>
-        <item quantity="other">%d izinhlelo zibuyiselwe</item>
-    </plurals>
-    <string name="appcontrol_share_list_action">Yabelana ngohlu</string>
-    <string name="appcontrol_share_list_title">Izinhlelo Zokusebenza Zami</string>
-    <string name="appcontrol_share_list_footer">Kwabelanwe nge-SD Maid SE</string>
-    <string name="appcontrol_automation_subtitle_archiving">Kubeka…</string>
-    <string name="appcontrol_automation_progress_find_archive">Kubheka inkinobho ethi \"Beka\" (amagama angukhiye: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">Kubuyisela…</string>
-    <string name="appcontrol_automation_progress_find_restore">Kubheka inkinobho ethi \"Buyisela\" (amagama angukhiye: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">Kufakwe ngo: %s</string>
-
-    <string name="analyzer_content_create_swiper_session_action">Dala iseshini ye-Swiper</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Iseshini ye-Swiper yenziwe nge-%d into</item>
-        <item quantity="other">Iseshini ye-Swiper yenziwe nge-%d izinto</item>
-    </plurals>
-
-    <string name="automation_error_compatibility_body">I-SD Maid ayikwazanga ukuqonda isakhiwo sesikrini. Uma lokhu kuqhubeka, ulimi noma ukusethwa kwakho kungase kungasekelwa ngokuphelele. Hlola izibuyekezo noma uxhumane nami ukuze ngikwazi ukukulungisa.</string>
-
-    <string name="anniversary_card_title">Usuku Olukhulu Lwe-SD Maid Olujabula ❤️</string>
-    <string name="anniversary_card_install_date">Nawe kusukela ngo-%s</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="one">Unyaka ongu-%1$d ndawonye kakade. Siyabonga ngokuthemba i-SD Maid ukugcina i-Android yakho ihlanzekile nahlanzekile. Isikhala esikhululiwe: %2$s</item>
-        <item quantity="other">Iminyaka engu-%1$d niqine. Idivayisi yakho ihlala ihlanzekile futhi ihlanzekile nge-SD Maid. Isikhala esikhululiwe: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">Yabelana ngosuku lwakho olukhulu lwe-SD Maid</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="one">Unyaka ongu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
-        <item quantity="other">Iminyaka engu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
-    </plurals>
-
     <string name="shortcut_appcontrol_short">Ukulawula Kohlelo</string>
     <string name="shortcut_appcontrol_long">Phatha izinhlelo zokusebenza ezifakiwe</string>
     <string name="shortcut_onetap_short">Sesha + Susa</string>
     <string name="shortcut_onetap_long">Sesha bese ususa ngesenzo esisodwa</string>
-
     <string name="shortcuts_settings_category">Izinqamuleli</string>
     <string name="shortcuts_onetap_enabled_title">Isinqamuleli sokucindezela kanye</string>
     <string name="shortcuts_onetap_enabled_summary">Bonisa isinqamuleli \"Sesha + Susa\" lapho ucindezela isikhathi eside isithonjana sohlelo. Sisebenzisa amathuluzi afanayo nebhodi lokuphatha lokucindezela kanye.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Swayipha phakathi kwamafayela ukuze unqume ukuthi yini oyigcinayo noma oyisusayo.</string>
-    <string name="swiper_dashcard_description">Buyekeza amafayela ngesandla emafolda athile. Swayipha ukuze unqume ukuthi yini oyigcinayo noma oyisusayo.</string>
     <string name="swiper_start_action">Qala ukuswayipha</string>
     <string name="swiper_continue_action">Qhubeka neseshini</string>
-    <string name="swiper_sessions_description">Amanye amafayela adinga isinqumo somuntu. Swayipha phakathi kwezinto bese ukhetha ukuthi yini oyigcinayo noma oyisusayo. Yeqa noma yini ongaqiniseki ngayo. Leli thuluzi likuvumela ukubuyekeza amafolda athile ngesandla, futhi akukho okukhishwayo kuze kuqinisekise.</string>
     <string name="swiper_select_folders_action">Khetha amafolda</string>
     <string name="swiper_scanning_title">Kuyasesha…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1012,7 +981,6 @@
     <string name="swiper_discard_session_confirmation_title">Lahla iseshini?</string>
     <string name="swiper_discard_session_confirmation_message">Zonke izinqumo zizolahleka. Uqinisekile?</string>
     <string name="swiper_no_preview_available">Akukho imboniso yangaphambili etholakalayo</string>
-
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">Qhubeka neseshini yosuku olungu-%1$d oludlule (%2$d%% kuqediwe)</item>
         <item quantity="other">Qhubeka neseshini yezinsuku ezingu-%1$d ezedlule (%2$d%% kuqediwe)</item>
@@ -1073,13 +1041,11 @@
         <item quantity="other">%d osusiwe</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">Khipha \"%1$s\" ekusesheni kwe-Swiper?</string>
-
     <string name="swiper_sessions_header_title">Ulungele ukuhlanza?</string>
     <string name="swiper_sessions_suggestions_label">Zama ukuqala nge:</string>
     <string name="swiper_sessions_suggestion_downloads">Ifolda Yokulandwe</string>
     <string name="swiper_sessions_suggestion_screenshots">Izithombe-skrini</string>
     <string name="swiper_sessions_suggestion_camera">Izithombe zekhamera</string>
-
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Gcina!</string>
     <string name="swiper_stamp_keep_2">Kuhle!</string>
@@ -1097,4 +1063,6 @@
     <string name="swiper_stamp_undo_2">Emuva!</string>
     <string name="swiper_stamp_undo_3">Hawu!</string>
     <string name="swiper_stamp_undo_4">Linda!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

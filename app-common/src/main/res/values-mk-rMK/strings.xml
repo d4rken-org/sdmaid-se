@@ -19,11 +19,13 @@
     <string name="general_todo_msg">На оваа функција сè уште се работи и моментално не е достапна.</string>
     <string name="general_share_action">Споделете</string>
     <string name="general_done_action">Готово</string>
+    <string name="general_apply_action">Примени</string>
     <string name="general_copy_action">Копирај</string>
     <string name="general_wipe_action">Избриши</string>
     <string name="general_cancel_action">Откажи</string>
     <string name="general_discard_action">Отфрли</string>
     <string name="general_reset_action">Ресетирај</string>
+    <string name="general_drag_handle_description">Повлечете за преуредување</string>
     <string name="general_save_action">Зачувај</string>
     <string name="general_thanks_action">Благодарност до</string>
     <string name="general_gotit_action">Разбрав</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">Уредување</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Празен</string>
+    <string name="general_new_badge_label">Ново</string>
     <string name="general_dismiss_action">Отфрли</string>
     <string name="general_maybe_later_action">Можеби подоцна</string>
     <string name="general_manage_action">Управувај</string>
@@ -92,6 +95,10 @@
     <string name="general_toggle_layout_mode">Префрлете го режимот на приказ</string>
     <string name="general_delete_confirmation_title">Потврдете го бришењето</string>
     <string name="general_delete_confirmation_message_x">Да се ​​избрише „%s“?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Избришете %d избрана ставка?</item>
+        <item quantity="other">Избришете %d избрани ставки?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Избришана %d ставка.</item>
         <item quantity="other">Избришани %d ставки.</item>
@@ -164,13 +171,6 @@
     <string name="general_error_report_bug_action">Пријави грешка</string>
     <string name="general_error_ipc_deadobject_title">Врската со услугата е изгубена</string>
     <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
-    <string name="general_apply_action">Примени</string>
-    <string name="general_drag_handle_description">Повлечете за преуредување</string>
-    <string name="general_new_badge_label">Ново</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Избришете %d избрана ставка?</item>
-        <item quantity="other">Избришете %d избрани ставки?</item>
-    </plurals>
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
 </resources>

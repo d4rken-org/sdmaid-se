@@ -172,4 +172,6 @@
     <string name="systemcleaner_filter_recenttasks_label">ວຽກງານລ່າສຸດ</string>
     <!-- Shorter versions for side-by-side display -->
     <!-- Swiper stamp variations (Tinder-style labels) -->
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

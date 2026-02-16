@@ -688,7 +688,7 @@
     <string name="appcontrol_force_stop_action">Buộc dừng</string>
     <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="other">Buộc dừng%d ứng dụng?</item>
+        <item quantity="other">Buộc dừng %d ứng dụng?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d ứng dụng đã bị dừng</item>
@@ -714,7 +714,7 @@
     <string name="analyzer_progress_scanning_system">Đang quét dữ liệu hệ thống</string>
     <string name="analyzer_device_storage_title">Bộ nhớ thiết bị</string>
     <plurals name="analyzer_space_available">
-        <item quantity="other">%skhả dụng</item>
+        <item quantity="other">%s khả dụng</item>
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="other">%s đã dùng</item>
@@ -911,11 +911,8 @@ TheNothingGuy</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Vuốt</string>
-    <string name="swiper_tool_description">Vuốt qua các tập tin để quyết định giữ lại hoặc xóa những tập tin nào.</string>
-    <string name="swiper_dashcard_description">Xem lại các tệp theo cách thủ công trong các thư mục cụ thể. Vuốt qua để quyết định giữ lại hoặc xóa những tệp nào.</string>
     <string name="swiper_start_action">Bắt đầu vuốt</string>
     <string name="swiper_continue_action">Tiếp tục phiên</string>
-    <string name="swiper_sessions_description">Một số tệp tin cần có quyết định của con người. Trượt qua các mục và chọn những mục cần lưu hoặc xóa. Hãy bỏ qua bất cứ điều gì bạn không chắc chắn. Công cụ này cho phép bạn xem lại các thư mục cụ thể theo cách thủ công, và không có gì bị xóa cho đến khi bạn xác nhận.</string>
     <string name="swiper_select_folders_action">Chọn thư mục</string>
     <string name="swiper_scanning_title">Đang quét…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1024,4 +1021,6 @@ TheNothingGuy</string>
     <string name="swiper_stamp_undo_2">Trở lại!</string>
     <string name="swiper_stamp_undo_3">Rất tiếc!</string>
     <string name="swiper_stamp_undo_4">Chờ chút!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

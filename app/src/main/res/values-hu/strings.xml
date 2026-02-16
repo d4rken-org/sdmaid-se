@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">Indítsa el az összes eszköz vizsgálatát és törlését az irányítópult műveletgombjára kattintva, további megerősítések nélkül.</string>
     <string name="dashboard_settings_oneclick_tools_title">Egy-érintéses eszközök</string>
     <string name="dashboard_settings_oneclick_tools_desc">Mely eszközök legyenek még benne az Egy-érintéses műveletekben?</string>
+    <string name="dashboard_card_config_title">Irányítópult kártyák</string>
+    <string name="dashboard_card_config_desc">Állítsd be, mely kártyák jelenjenek meg és milyen sorrendben</string>
+    <string name="dashboard_card_config_header_title">Húzd az átrendezéshez, kapcsold be/ki a megjelenítéshez/elrejtéshez</string>
     <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
     <string name="debug_debuglog_file_label">Rögzített naplófájl</string>
     <string name="debug_debuglog_recording_progress">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_stop_action">Rögzítés leállítása</string>
     <string name="debug_debuglog_sensitive_information_message">A létrehozott fájl bizalmas információkat tartalmaz (például fájlneveket és telepített alkalmazásokat). Csak megbízható felekkel ossza meg.</string>
+    <string name="debug_debuglog_screen_title">Hibakeresési napló</string>
+    <string name="debug_debuglog_screen_discard_action">Elvetés</string>
+    <string name="debug_debuglog_screen_session_path_label">Munkamenet útvonala</string>
+    <string name="debug_debuglog_screen_log_files_label">Naplófájlok</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fájl kész (%2$s)</item>
+        <item quantity="other">%1$d fájl kész (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ez a funkció mindent, amit az alkalmazás csinál, egy megosztható fájlba rögzít. A generált fájl érzékeny információkat tartalmaz (pl. fájlnevek és telepített alkalmazások). Csak megbízható felekkel (pl. egy probléma elhárításával foglalkozó fejlesztővel) oszd meg.</string>
     <string name="tasks_activity_notification_channel_label">Aktív feladatok</string>
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
@@ -80,10 +91,24 @@
     <string name="support_installid_desc">Az automatikus hibajelentések névtelenek. Ossza meg telepítési azonosítóját, ha a fejlesztőnek meg kell találnia a hibajelentéseket.</string>
     <string name="support_debuglog_label">Hibakeresési napló</string>
     <string name="support_debuglog_desc">Rögzítse mindazt, amit az alkalmazás csinál, egy megosztható szövegfájlba.</string>
+    <string name="support_debuglog_folder_label">Hibakeresési napló mappa</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fájl, %2$s helyet foglal</item>
+        <item quantity="other">%1$d fájl, %2$s helyet foglal</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Nincsenek tárolt hibakeresési naplók</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Törli az összes hibakeresési naplót?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Ez véglegesen törli az összes tárolt hibakeresési napló munkamenetet. Ez a művelet nem vonható vissza.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Egy hely, ahol lóghat és kérdéseket tehet fel.</string>
     <string name="changelog_label">Változási napló</string>
     <string name="settings_acknowledgements_label">Köszönetnyilvánítás</string>
+    <string name="settings_acknowledgements_category_translations_title">Fordítások</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ki fordította?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Köszönet</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Különleges köszönet barátainknak.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencek</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Az SD Maid által használt szoftverek.</string>
     <string name="setup_label">Beállítás</string>
     <string name="setup_incomplete_card_title">A beállítás nem teljes</string>
     <string name="setup_incomplete_card_body">Fejezze be az SD Maid beállítását a jobb eredmények érdekében.</string>
@@ -156,6 +181,13 @@
     <string name="debug_bugreporter_label">Automatikus hibajelentések</string>
     <string name="debug_bugreporter_summary">Automatikusan jelenti a problémákat, pl. az alkalmazás összeomlásának részleteit, hogy kitalálhassam, miért, és kijavíthassam.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
+    <string name="debug_card_trace_mode_label">Nyomkövetési mód engedélyezése</string>
+    <string name="debug_card_dryrun_mode_label">Próbaüzem (törlés letiltása)</string>
+    <string name="debug_card_areas_reload_action">Adatterületek újratöltése</string>
+    <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
+    <string name="debug_card_root_test_action">Root tesztelése</string>
+    <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
     <string name="settings_category_tools_label">Eszközök</string>
     <string name="settings_category_filter">Szűrő</string>
     <string name="settings_category_risklevel">Kockázati szint</string>
@@ -191,6 +223,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Privát alkalmazásadatok, pl. hitelesítő adatok, alkalmazásbeállítások, de a böngésző gyorsítótárai is azok.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik gyorsítótár</string>
     <string name="corpsefinder_filter_dalvik_summary">Gyorsítótárazott alkalmazás-végrehajtási adatok.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilok</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Az ART profilokat az Android az alkalmazások teljesítményének optimalizálásához használja.</string>
     <string name="corpsefinder_filter_applib_label">Alkalmazáskönyvtárak</string>
     <string name="corpsefinder_filter_applib_summary">Alkalmazáshoz kapcsolódó könyvtári adatok.</string>
     <string name="corpsefinder_filter_appsource_label">Alkalmazásforrások</string>
@@ -245,6 +279,8 @@
     <string name="systemcleaner_filter_screenshots_age_label">Képernyőkép életkora</string>
     <string name="systemcleaner_filter_screenshots_age_summary">A képernyőképek minimális életkora a törléshez.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Felesleges APK-k</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Azonos verzió belefoglalása</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">A telepített verzióval megegyező APK fájlok is szerepeljenek. Tiltsd le, hogy csak a régebbi verziók legyenek eltávolítva.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR mappák</string>
     <string name="systemcleaner_filter_lostdir_summary">Ideiglenes fájlok, amelyek Android-eszközök közötti adatátvitel során jönnek létre.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux fájlok</string>
@@ -305,6 +341,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">A név egyenlő a kulcsszóval</string>
     <string name="systemcleaner_customfilter_last_edit">Utoljára szerkesztve: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Élő keresés</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Méretkorlátozások</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimális méret</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximális méret</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Találatok szűrése fájlméret alapján. Hagyd üresen a bármely mérethez való illeszkedéshez.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Korkorlátozások</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimális kor</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximális kor</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Találatok szűrése fájlkor alapján (utolsó módosítás ideje). Hagyd üresen a bármely korhoz való illeszkedéshez.</string>
     <string name="systemcleaner_customfilter_import_action">Új szűrő importálása</string>
     <string name="systemcleaner_customfilter_export_action">Kiválasztott szűrő exportálása</string>
     <string name="appcleaner_tool_name">AlkalmazásTisztító</string>
@@ -347,6 +391,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Törölt fájlok, amelyeket egy speciális mappába helyeztek, hogy vissza lehessen állítani őket.</string>
     <string name="appcleaner_filter_webview_label">Webview fájlok</string>
     <string name="appcleaner_filter_webview_summary">Az alkalmazásokban használt WebView példányok által gyorsítótárazott fájlok.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Alkalmazás-parancsikon ikonok</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Gyorsítótárazott ikonok az alkalmazás-parancsikonokhoz és megosztási menükhöz.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp biztonsági mentések</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Törölje a WhatsApp biztonsági másolatainak extra másolatait, és csak a legfrissebbet tartsa meg.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Az emberektől WhatsAppon keresztül kapott fájlok.</string>
@@ -398,6 +444,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Rendszeralkalmazás rosszul konfigurált</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">A HyperOS biztonsági alkalmazása (com.miui.securitycenter) hiányzik a használati statisztikák engedélye (GET_USAGE_STATS). Ez megsérti az olyan funkciókat, mint az \"Adatok törlése\" az alkalmazás részleteiben és a gyorsítótár törlése az akadálymentesítésen keresztül. Adjon engedélyt a teljes funkcionalitás visszaállításához.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
+    <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>
     <string name="deduplicator_tool_name">Duplikált kereső</string>
     <string name="deduplicator_explanation_short">Duplikált adatok keresése a készüléken.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -412,6 +461,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Olyan beállítások megjelenítése, amelyek lehetővé teszik az összes duplikált fájljának törlését, hogy egyetlen fájl se maradjon meg.</string>
     <string name="deduplicator_search_locations_title">Helyek keresése</string>
     <string name="deduplicator_search_locations_all_summary">Minden hozzáférhető hely</string>
+    <string name="deduplicator_keep_prefer_paths_title">Előnyben részesítendő hely</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Amikor eldől, melyik másolatot tartjuk meg, ezeken a helyeken lévő fájlok élveznek előnyt.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nincsenek konfigurált helyek</string>
     <string name="deduplicator_skip_minsize_title">Minimális méret</string>
     <string name="deduplicator_skip_minsize_description">Minimális méret alatti fájlok kihagyása.</string>
     <string name="deduplicator_skip_uncommon_title">Nem gyakori fájltípusok kihagyása</string>
@@ -438,6 +490,65 @@
     <string name="deduplicator_details_cluster_title">Duplikátumok készlete</string>
     <string name="deduplicator_matches_exact_label">Pontos másolatok</string>
     <string name="deduplicator_matches_similar_label">Hasonló fájlok</string>
+    <string name="deduplicator_arbiter_title">Törlési stratégia</string>
+    <string name="deduplicator_arbiter_summary">Állítsd be, mely fájlok maradjanak meg és melyek legyenek törölve.</string>
+    <string name="deduplicator_arbiter_explanation">Duplikátumok törlésekor az SD Maid az egyes kritériumokat sorrendben ellenőrizve dönti el, melyik fájlt tartja meg. Az első egyértelmű eredményt adó kritérium határozza meg a döntést. Húzd az átrendezéshez, érintsd meg a mód váltásához.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Mód kiválasztása</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Útvonalak beállítása…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikátum típusa</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pontos egyezések előnyben részesítése a hasonló fájlokkal szemben.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Média indexelés</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Figyelembe veszi, hogy a fájlok indexelve vannak-e a médiaszolgáltató által.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Tárolási hely</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Belső vagy külső tárhelyen lévő fájlok előnyben részesítése.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Mappamélység</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Sekélyebb vagy mélyebb mappastruktúrában lévő fájlok előnyben részesítése.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Módosítás dátuma</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Régebbi vagy újabb fájlok előnyben részesítése a módosítás ideje alapján.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Fájlméret</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Nagyobb vagy kisebb fájlok előnyben részesítése, ha a méretek különböznek.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Előnyben részesített helyek</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Fájlok megtartása a konfigurált előnyben részesített helyeken.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Pontos egyezések előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Hasonló fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Indexelt fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Nem indexelt fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Belső tárhely előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Külső tárhely előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Sekély mappák előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Mélyebb mappák előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Régebbi fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Újabb fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Nagyobb fájlok előnyben részesítése</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Kisebb fájlok előnyben részesítése</string>
+    <string name="deduplicator_view_mode_groups_label">Csoportok</string>
+    <string name="deduplicator_view_mode_directories_label">Mappák</string>
+    <string name="squeezer_onboarding_title">A képtömörítésről</string>
+    <string name="squeezer_onboarding_message">A képtömörítés csökkenti a fájlméretet a vizuális részletek eltávolításával. Ez a folyamat visszafordíthatatlan - az eredeti minőség nem állítható vissza.\n\nÍgy fognak kinézni a képeid:</string>
+    <string name="squeezer_onboarding_original_label">Eredeti</string>
+    <string name="squeezer_onboarding_compressed_label">Tömörítés után</string>
+    <string name="squeezer_onboarding_quality_label">Minőség: %d%%</string>
+    <string name="squeezer_onboarding_got_it">Értem</string>
+    <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
+    <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
+    <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>
+    <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a képminőséget a tárhely megtakarítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
+    <string name="squeezer_setup_explanation">A Média Squeeze csökkenti a képfájlok méretét a tárhely felszabadításához. Ez véglegesen csökkenti a képminőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
+    <string name="squeezer_setup_paths_title">Keresési helyek</string>
+    <string name="squeezer_setup_paths_default">Válassz mappákat a kereséshez</string>
+    <string name="squeezer_setup_quality_title">Tömörítési minőség</string>
+    <string name="squeezer_setup_age_title">Minimális kor</string>
+    <string name="squeezer_setup_age_none">Nincs korlát (összes fájl)</string>
+    <string name="squeezer_setup_start_action">Keresés indítása</string>
+    <string name="squeezer_quality_hint_very_low">A 40%% alatti minőség használhatatlan képeket eredményezhet.</string>
+    <string name="squeezer_quality_hint_low">Az alacsonyabb minőség több helyet takarít meg, de látható műtermékeket okozhat.</string>
+    <string name="squeezer_quality_hint_high">A nagyon magas minőség minimális helytakarékosságot biztosít.</string>
+    <string name="squeezer_quality_hint_normal">Kiegyensúlyozott minőség és helytakarékosság.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Legalább %d napos</item>
+        <item quantity="other">Legalább %d napos</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
     <string name="appcontrol_tool_name">AlkalmazásVezérlés</string>
     <string name="appcontrol_explanation_short">Az eszközre telepített alkalmazások.</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -717,147 +828,15 @@
     <string name="area_type_public_obb_label">Nyilvános alkalmazás-erőforrások</string>
     <string name="area_type_private_data_label">Privát alkalmazásadatok</string>
     <string name="area_type_portable_label">Hordozható tárolás</string>
-    <string name="dashboard_card_config_title">Irányítópult kártyák</string>
-    <string name="dashboard_card_config_desc">Állítsd be, mely kártyák jelenjenek meg és milyen sorrendben</string>
-    <string name="dashboard_card_config_header_title">Húzd az átrendezéshez, kapcsold be/ki a megjelenítéshez/elrejtéshez</string>
-
-    <string name="debug_debuglog_screen_title">Hibakeresési napló</string>
-    <string name="debug_debuglog_screen_discard_action">Elvetés</string>
-    <string name="debug_debuglog_screen_session_path_label">Munkamenet útvonala</string>
-    <string name="debug_debuglog_screen_log_files_label">Naplófájlok</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d fájl kész (%2$s)</item>
-        <item quantity="other">%1$d fájl kész (%2$s)</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">Hibakeresési napló mappa</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d fájl, %2$s helyet foglal</item>
-        <item quantity="other">%1$d fájl, %2$s helyet foglal</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">Nincsenek tárolt hibakeresési naplók</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Törli az összes hibakeresési naplót?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Ez véglegesen törli az összes tárolt hibakeresési napló munkamenetet. Ez a művelet nem vonható vissza.</string>
-
-    <string name="settings_acknowledgements_category_translations_title">Fordítások</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">Ki fordította?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Köszönet</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Különleges köszönet barátainknak.</string>
-    <string name="settings_acknowledgements_category_licenses_title">Licencek</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">Az SD Maid által használt szoftverek.</string>
-
-    <string name="debug_card_title">A hibakeresési mód engedélyezve van</string>
-    <string name="debug_card_trace_mode_label">Nyomkövetési mód engedélyezése</string>
-    <string name="debug_card_dryrun_mode_label">Próbaüzem (törlés letiltása)</string>
-    <string name="debug_card_areas_reload_action">Adatterületek újratöltése</string>
-    <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
-    <string name="debug_card_root_test_action">Root tesztelése</string>
-    <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART profilok</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Az ART profilokat az Android az alkalmazások teljesítményének optimalizálásához használja.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Azonos verzió belefoglalása</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">A telepített verzióval megegyező APK fájlok is szerepeljenek. Tiltsd le, hogy csak a régebbi verziók legyenek eltávolítva.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Méretkorlátozások</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimális méret</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximális méret</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Találatok szűrése fájlméret alapján. Hagyd üresen a bármely mérethez való illeszkedéshez.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Korkorlátozások</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimális kor</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximális kor</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Találatok szűrése fájlkor alapján (utolsó módosítás ideje). Hagyd üresen a bármely korhoz való illeszkedéshez.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Alkalmazás-parancsikon ikonok</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Gyorsítótárazott ikonok az alkalmazás-parancsikonokhoz és megosztási menükhöz.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Kényszerleállítás törlés előtt</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Alkalmazások kényszerleállítása a gyorsítótár törlése előtt. Segíthet egyes alkalmazások gyorsítótárának törlésében, de az alkalmazások hibásan működhetnek és kézi újraindítást igényelhetnek.</string>
-    <string name="appcleaner_progress_force_stopping">Alkalmazások kényszerleállítása…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">Előnyben részesítendő hely</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Amikor eldől, melyik másolatot tartjuk meg, ezeken a helyeken lévő fájlok élveznek előnyt.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nincsenek konfigurált helyek</string>
-
-    <string name="deduplicator_arbiter_title">Törlési stratégia</string>
-    <string name="deduplicator_arbiter_summary">Állítsd be, mely fájlok maradjanak meg és melyek legyenek törölve.</string>
-    <string name="deduplicator_arbiter_explanation">Duplikátumok törlésekor az SD Maid az egyes kritériumokat sorrendben ellenőrizve dönti el, melyik fájlt tartja meg. Az első egyértelmű eredményt adó kritérium határozza meg a döntést. Húzd az átrendezéshez, érintsd meg a mód váltásához.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Mód kiválasztása</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Útvonalak beállítása…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplikátum típusa</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Pontos egyezések előnyben részesítése a hasonló fájlokkal szemben.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Média indexelés</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">Figyelembe veszi, hogy a fájlok indexelve vannak-e a médiaszolgáltató által.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">Tárolási hely</string>
-    <string name="deduplicator_arbiter_criterium_location_description">Belső vagy külső tárhelyen lévő fájlok előnyben részesítése.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">Mappamélység</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">Sekélyebb vagy mélyebb mappastruktúrában lévő fájlok előnyben részesítése.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">Módosítás dátuma</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">Régebbi vagy újabb fájlok előnyben részesítése a módosítás ideje alapján.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Fájlméret</string>
-    <string name="deduplicator_arbiter_criterium_size_description">Nagyobb vagy kisebb fájlok előnyben részesítése, ha a méretek különböznek.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">Előnyben részesített helyek</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">Fájlok megtartása a konfigurált előnyben részesített helyeken.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">Pontos egyezések előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">Hasonló fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Indexelt fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Nem indexelt fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Belső tárhely előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Külső tárhely előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Sekély mappák előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Mélyebb mappák előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Régebbi fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Újabb fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Nagyobb fájlok előnyben részesítése</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Kisebb fájlok előnyben részesítése</string>
-
-    <string name="deduplicator_view_mode_groups_label">Csoportok</string>
-    <string name="deduplicator_view_mode_directories_label">Mappák</string>
-
-    <string name="squeezer_onboarding_title">A képtömörítésről</string>
-    <string name="squeezer_onboarding_message">A képtömörítés csökkenti a fájlméretet a vizuális részletek eltávolításával. Ez a folyamat visszafordíthatatlan - az eredeti minőség nem állítható vissza.\n\nÍgy fognak kinézni a képeid:</string>
-    <string name="squeezer_onboarding_original_label">Eredeti</string>
-    <string name="squeezer_onboarding_compressed_label">Tömörítés után</string>
-    <string name="squeezer_onboarding_quality_label">Minőség: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Értem</string>
-    <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
-    <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
-    <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>
-    <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a képminőséget a tárhely megtakarítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
-    <string name="squeezer_setup_explanation">A Média Squeeze csökkenti a képfájlok méretét a tárhely felszabadításához. Ez véglegesen csökkenti a képminőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
-    <string name="squeezer_setup_paths_title">Keresési helyek</string>
-    <string name="squeezer_setup_paths_default">Válassz mappákat a kereséshez</string>
-    <string name="squeezer_setup_quality_title">Tömörítési minőség</string>
-    <string name="squeezer_setup_age_title">Minimális kor</string>
-    <string name="squeezer_setup_age_none">Nincs korlát (összes fájl)</string>
-    <string name="squeezer_setup_start_action">Keresés indítása</string>
-    <string name="squeezer_quality_hint_very_low">A 40%% alatti minőség használhatatlan képeket eredményezhet.</string>
-    <string name="squeezer_quality_hint_low">Az alacsonyabb minőség több helyet takarít meg, de látható műtermékeket okozhat.</string>
-    <string name="squeezer_quality_hint_high">A nagyon magas minőség minimális helytakarékosságot biztosít.</string>
-    <string name="squeezer_quality_hint_normal">Kiegyensúlyozott minőség és helytakarékosság.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">Legalább %d napos</item>
-        <item quantity="other">Legalább %d napos</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
-
     <string name="shortcut_appcontrol_short">Alkalmazáskezelő</string>
     <string name="shortcut_appcontrol_long">Telepített alkalmazások kezelése</string>
     <string name="shortcut_onetap_short">Keresés + Törlés</string>
     <string name="shortcut_onetap_long">Keresés és törlés egy lépésben</string>
-
     <string name="shortcuts_settings_category">Parancsikonok</string>
     <string name="shortcuts_onetap_enabled_title">Egyérintéses parancsikon</string>
     <string name="shortcuts_onetap_enabled_summary">\"Keresés + Törlés\" parancsikon megjelenítése az alkalmazásikon hosszú nyomásakor. Ugyanazokat az eszközöket használja, mint az egyérintéses irányítópult.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Húzd a fájlokat, hogy eldöntsd, mit tartasz meg és mit törölsz.</string>
-    <string name="swiper_dashcard_description">Kézi áttekintés adott mappákban. Húzd a fájlokat, hogy eldöntsd, mit tartasz meg és mit törölsz.</string>
     <string name="swiper_start_action">Húzogatás indítása</string>
     <string name="swiper_continue_action">Munkamenet folytatása</string>
-    <string name="swiper_sessions_description">Egyes fájloknál emberi döntés szükséges. Húzd végig az elemeket és válaszd ki, mit tartasz meg és mit törölsz. Hagyd ki, amiben nem vagy biztos. Ez az eszköz lehetővé teszi mappák kézi áttekintését, és semmi sem törlődik a megerősítésig.</string>
     <string name="swiper_select_folders_action">Mappák kiválasztása</string>
     <string name="swiper_scanning_title">Keresés…</string>
     <plurals name="swiper_result_x_items_found">
@@ -983,4 +962,6 @@
     <string name="swiper_stamp_undo_2">Mégsem!</string>
     <string name="swiper_stamp_undo_3">Hoppá!</string>
     <string name="swiper_stamp_undo_4">Várj!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

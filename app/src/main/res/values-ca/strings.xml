@@ -953,11 +953,8 @@
     <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un sol toc.</string>
     <string name="swiper_label">Escombrador</string>
     <string name="swiper_tool_name">Escombrador</string>
-    <string name="swiper_tool_description">Llisqueu els fitxers per decidir quins voleu conservar i quins suprimir.</string>
-    <string name="swiper_dashcard_description">Reviseu manualment els fitxers de carpetes específiques. Feu lliscar el dit per decidir què voleu conservar o suprimir.</string>
     <string name="swiper_start_action">Comença a lliscar</string>
     <string name="swiper_continue_action">Continua la sessió</string>
-    <string name="swiper_sessions_description">Alguns fitxers requereixen una decisió humana. Feu lliscar el dit pels elements i trieu què voleu conservar o suprimir. Ometeu tot allò que no tingueu clar. Aquesta eina us permet revisar carpetes específiques manualment i no s\'eliminarà res fins que no confirmeu.</string>
     <string name="swiper_select_folders_action">Selecciona les carpetes</string>
     <string name="swiper_scanning_title">S\'està escanejant…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1083,4 +1080,6 @@
     <string name="swiper_stamp_undo_2">Enrere!</string>
     <string name="swiper_stamp_undo_3">Vaja!</string>
     <string name="swiper_stamp_undo_4">Espera!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

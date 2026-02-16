@@ -7,12 +7,22 @@
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
     <string name="dashboard_settings_oneclick_tools_title">一鍵式工具</string>
     <string name="dashboard_settings_oneclick_tools_desc">什麼工具應當被包含在一鍵式工具中？</string>
+    <string name="dashboard_card_config_title">儀表板卡片</string>
+    <string name="dashboard_card_config_desc">設定顯示哪些卡片及其順序</string>
+    <string name="dashboard_card_config_header_title">拖曳以重新排序，切換以顯示/隱藏</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
     <string name="debug_debuglog_file_label">已記錄的記錄檔案</string>
     <string name="debug_debuglog_recording_progress">正在記錄偵錯記錄</string>
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
+    <string name="debug_debuglog_screen_title">偵錯日誌</string>
+    <string name="debug_debuglog_screen_discard_action">捨棄</string>
+    <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
+    <string name="debug_debuglog_screen_log_files_label">日誌檔案</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d 個檔案就緒（%2$s）</item>
+    </plurals>
     <string name="settings_debuglog_explanation">此功能將應用程式執行的所有操作記錄到可分享的檔案中。產生的檔案包含敏感資訊（例如檔案名稱和已安裝的應用程式）。僅與可信任的對象分享（例如正在排除問題的開發者）。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
@@ -78,10 +88,23 @@
     <string name="support_installid_desc">自動錯誤報告是匿名的。如果開發人員需要尋找您的錯誤報告，請分享您的安裝 ID。</string>
     <string name="support_debuglog_label">偵錯記錄</string>
     <string name="support_debuglog_desc">將應用程式正在做的所有事情記錄到一個文字檔案中，您可以分享它。</string>
+    <string name="support_debuglog_folder_label">偵錯日誌資料夾</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d 個檔案使用 %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">沒有已儲存的偵錯日誌</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">刪除所有偵錯日誌？</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">這將永久刪除所有已儲存的偵錯日誌工作階段。此操作無法撤銷。</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">一個可以在其中閒逛並提出問題的地方。</string>
     <string name="changelog_label">變更記錄</string>
     <string name="settings_acknowledgements_label">特別感謝</string>
+    <string name="settings_acknowledgements_category_translations_title">翻譯</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">誰翻譯了這個？</string>
+    <string name="settings_acknowledgements_category_thanks_title">鳴謝</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">特別感謝我們的朋友。</string>
+    <string name="settings_acknowledgements_category_licenses_title">授權</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的軟體。</string>
     <string name="setup_label">安裝程式</string>
     <string name="setup_incomplete_card_title">設定未完成</string>
     <string name="setup_incomplete_card_body">完成 SD 女僕的設定以取得更佳的結果。</string>
@@ -154,6 +177,13 @@
     <string name="debug_bugreporter_label">自動錯誤報告</string>
     <string name="debug_bugreporter_summary">自動回報問題，例如關於應用程式當機的詳細資料，這樣我就可以找出原因並修正錯誤。</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">偵錯模式已啟用</string>
+    <string name="debug_card_trace_mode_label">啟用追蹤模式</string>
+    <string name="debug_card_dryrun_mode_label">試執行模式（停用刪除）</string>
+    <string name="debug_card_areas_reload_action">重新載入資料區域</string>
+    <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
+    <string name="debug_card_root_test_action">測試 Root</string>
+    <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
     <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="settings_category_risklevel">風險層級</string>
@@ -187,6 +217,8 @@
     <string name="corpsefinder_filter_privatedata_summary">私人應用程式資料，例如認證、應用程式設定，但也包括瀏覽器快取。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik 快取</string>
     <string name="corpsefinder_filter_dalvik_summary">已快取的應用程式執行資料。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 設定檔用於 Android 最佳化應用程式效能。</string>
     <string name="corpsefinder_filter_applib_label">應用程式庫</string>
     <string name="corpsefinder_filter_applib_summary">與應用程式相關的程式庫資料。</string>
     <string name="corpsefinder_filter_appsource_label">應用程式來源</string>
@@ -237,6 +269,8 @@
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">螢幕截圖被考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">包含相同版本</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">也包括與已安裝版本相符的 APK 檔案。停用以只移除舊版本。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
     <string name="systemcleaner_filter_lostdir_summary">在 Android 裝置之間傳輸資料時建立的暫存檔案。</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux 檔案</string>
@@ -297,6 +331,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">名稱等同於關鍵字</string>
     <string name="systemcleaner_customfilter_last_edit">上次編輯：%s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">即時搜尋</string>
+    <string name="systemcleaner_customfilter_editor_size_label">大小限制</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">最小大小</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">最大大小</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">根據檔案大小限制符合項目。留空以符合任何大小。</string>
+    <string name="systemcleaner_customfilter_editor_age_label">年齡限制</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">最小年齡</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">最大年齡</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案年齡（最後修改時間）限制符合項目。留空以符合任何年齡。</string>
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
     <string name="systemcleaner_customfilter_export_action">匯出選取的過濾器</string>
     <string name="appcleaner_tool_name">應用清理器</string>
@@ -339,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">已被刪除的檔案，但被存放在一個特殊的資料夾中，以允許將它們還原。</string>
     <string name="appcleaner_filter_webview_label">Webview 檔案</string>
     <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
+    <string name="appcleaner_filter_shortcutservice_label">應用程式捷徑圖示</string>
+    <string name="appcleaner_filter_shortcutservice_summary">應用程式捷徑和分享選單的快取圖示。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">您透過 WhatsApp 從他人接收的檔案。</string>
@@ -387,6 +431,9 @@
     <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">系統應用程式配置錯誤</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的安全應用程式 (com.miui.securitycenter) 缺少使用統計權限 (GET_USAGE_STATS)。這會破壞應用程式詳細資訊中的「清除資料」等功能和透過無障礙清除快取。授予權限以恢復完整功能。</string>
+    <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">清除快取前強制停止應用程式。可能有助於清除某些應用程式的快取，但可能導致應用程式異常並需要手動重新啟動。</string>
+    <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
     <string name="deduplicator_tool_name">複製器</string>
     <string name="deduplicator_explanation_short">查找設備上重複的數據。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -399,6 +446,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">顯示刪除一組重複文件中所有文件的選項</string>
     <string name="deduplicator_search_locations_title">搜尋位置</string>
     <string name="deduplicator_search_locations_all_summary">所有可存取區域</string>
+    <string name="deduplicator_keep_prefer_paths_title">優先保留於</string>
+    <string name="deduplicator_keep_prefer_paths_summary">決定保留哪個重複項目時，優先保留這些位置中的檔案。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">尚未設定位置</string>
     <string name="deduplicator_skip_minsize_title">最小大小</string>
     <string name="deduplicator_skip_minsize_description">跳過小於所設定的最低大小的文件。</string>
     <string name="deduplicator_skip_uncommon_title">跳過不常見的格式</string>
@@ -424,6 +474,64 @@
     <string name="deduplicator_details_cluster_title">一組副本</string>
     <string name="deduplicator_matches_exact_label">精確副本</string>
     <string name="deduplicator_matches_similar_label">相似文件</string>
+    <string name="deduplicator_arbiter_title">刪除策略</string>
+    <string name="deduplicator_arbiter_summary">設定保留和刪除哪些檔案。</string>
+    <string name="deduplicator_arbiter_explanation">刪除重複項目時，SD Maid 會按順序檢查每個條件來決定保留哪個檔案。第一個產生明確結果的條件即為最終決定。拖曳以重新排序，輕觸以變更模式。</string>
+    <string name="deduplicator_arbiter_select_mode_title">選擇模式</string>
+    <string name="deduplicator_arbiter_configure_paths_action">設定路徑…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複類型</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">優先選擇完全相符而非類似的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">媒體索引</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">考慮檔案是否已被媒體提供者索引。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">儲存位置</string>
+    <string name="deduplicator_arbiter_criterium_location_description">優先選擇內部或外部儲存空間的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">資料夾深度</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">優先選擇較淺或較深資料夾結構中的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">修改日期</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">根據修改時間優先選擇較舊或較新的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">檔案大小</string>
+    <string name="deduplicator_arbiter_criterium_size_description">當大小不同時優先選擇較大或較小的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">偏好位置</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">保留在已設定的偏好位置中的檔案。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">優先完全相符</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">優先類似檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">優先已索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">優先未索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">優先內部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">優先外部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">優先較淺資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">優先較深資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">優先較舊檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">優先較新檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">優先較大檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">優先較小檔案</string>
+    <string name="deduplicator_view_mode_groups_label">群組</string>
+    <string name="deduplicator_view_mode_directories_label">資料夾</string>
+    <string name="squeezer_onboarding_title">關於圖片壓縮</string>
+    <string name="squeezer_onboarding_message">圖片壓縮透過移除視覺細節來縮小檔案大小。此過程不可逆 - 無法恢復原始品質。\n\n以下是壓縮後的預覽效果：</string>
+    <string name="squeezer_onboarding_original_label">原圖</string>
+    <string name="squeezer_onboarding_compressed_label">壓縮後</string>
+    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
+    <string name="squeezer_onboarding_got_it">了解</string>
+    <string name="squeezer_compare_action">檢視比較</string>
+    <string name="squeezer_no_example_found">在所選路徑中找不到圖片。</string>
+    <string name="squeezer_result_empty_message">找不到可壓縮的圖片。</string>
+    <string name="squeezer_setup_warning">壓縮會永久降低圖片品質以節省儲存空間。此操作無法撤銷。開始前請仔細檢查設定。</string>
+    <string name="squeezer_setup_explanation">Media Squeeze 可縮小圖片檔案大小以釋放儲存空間。這會永久降低圖片品質且無法撤銷。開始前請仔細檢查設定。</string>
+    <string name="squeezer_setup_paths_title">搜尋位置</string>
+    <string name="squeezer_setup_paths_default">選擇要搜尋的資料夾</string>
+    <string name="squeezer_setup_quality_title">壓縮品質</string>
+    <string name="squeezer_setup_age_title">最小年齡</string>
+    <string name="squeezer_setup_age_none">無限制（包含所有檔案）</string>
+    <string name="squeezer_setup_start_action">開始掃描</string>
+    <string name="squeezer_quality_hint_very_low">低於 40%% 的品質可能產生無法使用的圖片。</string>
+    <string name="squeezer_quality_hint_low">較低品質可節省更多空間，但可能產生可見瑕疵。</string>
+    <string name="squeezer_quality_hint_high">非常高的品質只能提供極少的空間節省。</string>
+    <string name="squeezer_quality_hint_normal">品質與空間節省之間取得平衡。</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">至少 %d 天</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG 檔案預計可節省約 %d%%</string>
     <string name="appcontrol_tool_name">應用控制</string>
     <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
     <plurals name="appcontrol_x_apps_detected_label">
@@ -688,144 +796,15 @@
     <string name="area_type_public_obb_label">公用應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
-    <string name="dashboard_card_config_title">儀表板卡片</string>
-    <string name="dashboard_card_config_desc">設定顯示哪些卡片及其順序</string>
-    <string name="dashboard_card_config_header_title">拖曳以重新排序，切換以顯示/隱藏</string>
-
-    <string name="debug_debuglog_screen_title">偵錯日誌</string>
-    <string name="debug_debuglog_screen_discard_action">捨棄</string>
-    <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
-    <string name="debug_debuglog_screen_log_files_label">日誌檔案</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d 個檔案就緒（%2$s）</item>
-    </plurals>
-
-    <string name="support_debuglog_folder_label">偵錯日誌資料夾</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="other">%1$d 個檔案使用 %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">沒有已儲存的偵錯日誌</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">刪除所有偵錯日誌？</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">這將永久刪除所有已儲存的偵錯日誌工作階段。此操作無法撤銷。</string>
-
-    <string name="settings_acknowledgements_category_translations_title">翻譯</string>
-    <string name="settings_acknowledgements_category_translations_subtitle">誰翻譯了這個？</string>
-    <string name="settings_acknowledgements_category_thanks_title">鳴謝</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">特別感謝我們的朋友。</string>
-    <string name="settings_acknowledgements_category_licenses_title">授權</string>
-    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的軟體。</string>
-
-    <string name="debug_card_title">偵錯模式已啟用</string>
-    <string name="debug_card_trace_mode_label">啟用追蹤模式</string>
-    <string name="debug_card_dryrun_mode_label">試執行模式（停用刪除）</string>
-    <string name="debug_card_areas_reload_action">重新載入資料區域</string>
-    <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
-    <string name="debug_card_root_test_action">測試 Root</string>
-    <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART 設定檔用於 Android 最佳化應用程式效能。</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">包含相同版本</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">也包括與已安裝版本相符的 APK 檔案。停用以只移除舊版本。</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">大小限制</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">最小大小</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">最大大小</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">根據檔案大小限制符合項目。留空以符合任何大小。</string>
-    <string name="systemcleaner_customfilter_editor_age_label">年齡限制</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">最小年齡</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">最大年齡</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案年齡（最後修改時間）限制符合項目。留空以符合任何年齡。</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">應用程式捷徑圖示</string>
-    <string name="appcleaner_filter_shortcutservice_summary">應用程式捷徑和分享選單的快取圖示。</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">清除前強制停止</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">清除快取前強制停止應用程式。可能有助於清除某些應用程式的快取，但可能導致應用程式異常並需要手動重新啟動。</string>
-    <string name="appcleaner_progress_force_stopping">正在強制停止應用程式…</string>
-
-    <string name="deduplicator_keep_prefer_paths_title">優先保留於</string>
-    <string name="deduplicator_keep_prefer_paths_summary">決定保留哪個重複項目時，優先保留這些位置中的檔案。</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">尚未設定位置</string>
-
-    <string name="deduplicator_arbiter_title">刪除策略</string>
-    <string name="deduplicator_arbiter_summary">設定保留和刪除哪些檔案。</string>
-    <string name="deduplicator_arbiter_explanation">刪除重複項目時，SD Maid 會按順序檢查每個條件來決定保留哪個檔案。第一個產生明確結果的條件即為最終決定。拖曳以重新排序，輕觸以變更模式。</string>
-    <string name="deduplicator_arbiter_select_mode_title">選擇模式</string>
-    <string name="deduplicator_arbiter_configure_paths_action">設定路徑…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複類型</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">優先選擇完全相符而非類似的檔案。</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">媒體索引</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">考慮檔案是否已被媒體提供者索引。</string>
-    <string name="deduplicator_arbiter_criterium_location_title">儲存位置</string>
-    <string name="deduplicator_arbiter_criterium_location_description">優先選擇內部或外部儲存空間的檔案。</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">資料夾深度</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">優先選擇較淺或較深資料夾結構中的檔案。</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">修改日期</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">根據修改時間優先選擇較舊或較新的檔案。</string>
-    <string name="deduplicator_arbiter_criterium_size_title">檔案大小</string>
-    <string name="deduplicator_arbiter_criterium_size_description">當大小不同時優先選擇較大或較小的檔案。</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">偏好位置</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">保留在已設定的偏好位置中的檔案。</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">優先完全相符</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">優先類似檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">優先已索引檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">優先未索引檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">優先內部儲存空間</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">優先外部儲存空間</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">優先較淺資料夾</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">優先較深資料夾</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">優先較舊檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">優先較新檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">優先較大檔案</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">優先較小檔案</string>
-
-    <string name="deduplicator_view_mode_groups_label">群組</string>
-    <string name="deduplicator_view_mode_directories_label">資料夾</string>
-
-    <string name="squeezer_onboarding_title">關於圖片壓縮</string>
-    <string name="squeezer_onboarding_message">圖片壓縮透過移除視覺細節來縮小檔案大小。此過程不可逆 - 無法恢復原始品質。\n\n以下是壓縮後的預覽效果：</string>
-    <string name="squeezer_onboarding_original_label">原圖</string>
-    <string name="squeezer_onboarding_compressed_label">壓縮後</string>
-    <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
-    <string name="squeezer_onboarding_got_it">了解</string>
-    <string name="squeezer_compare_action">檢視比較</string>
-    <string name="squeezer_no_example_found">在所選路徑中找不到圖片。</string>
-    <string name="squeezer_result_empty_message">找不到可壓縮的圖片。</string>
-    <string name="squeezer_setup_warning">壓縮會永久降低圖片品質以節省儲存空間。此操作無法撤銷。開始前請仔細檢查設定。</string>
-    <string name="squeezer_setup_explanation">Media Squeeze 可縮小圖片檔案大小以釋放儲存空間。這會永久降低圖片品質且無法撤銷。開始前請仔細檢查設定。</string>
-    <string name="squeezer_setup_paths_title">搜尋位置</string>
-    <string name="squeezer_setup_paths_default">選擇要搜尋的資料夾</string>
-    <string name="squeezer_setup_quality_title">壓縮品質</string>
-    <string name="squeezer_setup_age_title">最小年齡</string>
-    <string name="squeezer_setup_age_none">無限制（包含所有檔案）</string>
-    <string name="squeezer_setup_start_action">開始掃描</string>
-    <string name="squeezer_quality_hint_very_low">低於 40%% 的品質可能產生無法使用的圖片。</string>
-    <string name="squeezer_quality_hint_low">較低品質可節省更多空間，但可能產生可見瑕疵。</string>
-    <string name="squeezer_quality_hint_high">非常高的品質只能提供極少的空間節省。</string>
-    <string name="squeezer_quality_hint_normal">品質與空間節省之間取得平衡。</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="other">至少 %d 天</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG 檔案預計可節省約 %d%%</string>
-
     <string name="shortcut_appcontrol_short">應用程式管理</string>
     <string name="shortcut_appcontrol_long">管理已安裝的應用程式</string>
     <string name="shortcut_onetap_short">掃描 + 刪除</string>
     <string name="shortcut_onetap_long">一鍵掃描和刪除</string>
-
     <string name="shortcuts_settings_category">捷徑</string>
     <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
     <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵儀表板相同的工具。</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">滑動瀏覽檔案，決定要保留或刪除的項目。</string>
-    <string name="swiper_dashcard_description">手動檢視特定資料夾中的檔案。滑動以決定要保留或刪除。</string>
     <string name="swiper_start_action">開始滑動</string>
     <string name="swiper_continue_action">繼續工作階段</string>
-    <string name="swiper_sessions_description">某些檔案需要人工決定。滑動瀏覽項目，選擇要保留或刪除的內容。跳過任何不確定的項目。此工具讓您手動檢視特定資料夾，在您確認之前不會刪除任何內容。</string>
     <string name="swiper_select_folders_action">選擇資料夾</string>
     <string name="swiper_scanning_title">掃描中…</string>
     <plurals name="swiper_result_x_items_found">
@@ -934,4 +913,6 @@
     <string name="swiper_stamp_undo_2">返回！</string>
     <string name="swiper_stamp_undo_3">哎呀！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

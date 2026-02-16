@@ -60,7 +60,7 @@
     <string name="onboarding_setup_body3">Commencez à utiliser SD Maid en configurant l’accès aux emplacements à chercher.</string>
     <string name="onboarding_setup_continue_action">Configurer l’accès</string>
     <string name="settings_privacy_policy_label">Politique de confidentialité</string>
-    <string name="settings_privacy_policy_desc">Traiter les données de manière responsable.</string>
+    <string name="settings_privacy_policy_desc">Traitement responsable des données.</string>
     <string name="settings_category_other_label">Autres</string>
     <string name="settings_category_filter_generic">Filtre générique</string>
     <string name="settings_category_filter_specific">Filtre spécifique</string>
@@ -100,7 +100,7 @@
     <string name="support_debuglog_folder_delete_confirmation_title">Supprimer tous les journaux de débogage ?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Les sessions du journal de débogage seront supprimées irrémédiablement. Cette action est irréversible.</string>
     <string name="discord_label">Discord</string>
-    <string name="discord_description">Un endroit où se retrouver et poser des questions.</string>
+    <string name="discord_description">Un endroit à fréquenter, où poser des questions.</string>
     <string name="changelog_label">Journal des changements</string>
     <string name="settings_acknowledgements_label">Remerciements</string>
     <string name="settings_acknowledgements_category_translations_title">Traductions</string>
@@ -953,11 +953,8 @@
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
     <string name="swiper_label">Balayeur</string>
     <string name="swiper_tool_name">Balayeur</string>
-    <string name="swiper_tool_description">Parcourir les fichiers en balayant pour décider lesquels garder ou supprimer.</string>
-    <string name="swiper_dashcard_description">Examinez manuellement les fichiers de certains dossiers. Balayez pour décider quoi conserver ou supprimer.</string>
     <string name="swiper_start_action">Commencer à balayer</string>
     <string name="swiper_continue_action">Poursuivre la session</string>
-    <string name="swiper_sessions_description">Vous devez prendre une décision pour certains fichiers. Balayez les éléments et choisissez ceux que vous voulez conserver ou supprimer. Ignorez ceux pour lesquels vous avez un doute. Cet outil vous permet de contrôler quels dossiers examiner, et rien n’est supprimé sans votre confirmation.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
     <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1083,4 +1080,6 @@
     <string name="swiper_stamp_undo_2">Annuler !</string>
     <string name="swiper_stamp_undo_3">Oups !</string>
     <string name="swiper_stamp_undo_4">Attendre !</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

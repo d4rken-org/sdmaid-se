@@ -7,12 +7,23 @@
     <string name="dashboard_settings_oneclick_summary">డ్యాష్‌బోర్డ్ యాక్షన్ బటన్‌ను ఒకసారి నొక్కడంతో అన్ని టూల్స్ కోసం స్కాన్ మరియు తొలగింపును ప్రారంభించండి, అదనపు నిర్ధారణలు లేకుండా.</string>
     <string name="dashboard_settings_oneclick_tools_title">వన్-టాప్ టూల్స్</string>
     <string name="dashboard_settings_oneclick_tools_desc">వన్-టాప్ ఆపరేషన్లలో ఏ టూల్స్ చేర్చాలి?</string>
+    <string name="dashboard_card_config_title">డ్యాష్‌బోర్డ్ కార్డ్‌లు</string>
+    <string name="dashboard_card_config_desc">ఏ కార్డ్‌లు చూపించాలో మరియు వాటి క్రమాన్ని కాన్ఫిగర్ చేయండి</string>
+    <string name="dashboard_card_config_header_title">క్రమం మార్చడానికి డ్రాగ్ చేయండి, చూపించడానికి/దాచడానికి టోగుల్ చేయండి</string>
     <string name="debug_notification_channel_label">డీబగ్ నోటిఫికేషన్లు</string>
     <string name="debug_debuglog_file_label">రికార్డ్ చేయబడిన లాగ్ ఫైల్</string>
     <string name="debug_debuglog_recording_progress">డీబగ్ లాగ్ రికార్డ్ చేస్తోంది</string>
     <string name="debug_debuglog_record_action">డీబగ్ లాగ్ రికార్డ్ చేయండి</string>
     <string name="debug_debuglog_stop_action">రికార్డింగ్ ఆపండి</string>
     <string name="debug_debuglog_sensitive_information_message">సృష్టించబడిన ఫైల్‌లో సున్నితమైన సమాచారం ఉంది (ఉదా. ఫైల్ పేర్లు మరియు ఇన్‌స్టాల్ చేయబడిన యాప్‌లు). దీన్ని విశ్వసనీయ పక్షాలతో మాత్రమే పంచుకోండి.</string>
+    <string name="debug_debuglog_screen_title">డీబగ్ లాగ్</string>
+    <string name="debug_debuglog_screen_discard_action">విస్మరించు</string>
+    <string name="debug_debuglog_screen_session_path_label">సెషన్ పాథ్</string>
+    <string name="debug_debuglog_screen_log_files_label">లాగ్ ఫైల్‌లు</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d ఫైల్ సిద్ధం (%2$s)</item>
+        <item quantity="other">%1$d ఫైల్‌లు సిద్ధం (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">ఈ ఫీచర్ యాప్ చేస్తున్న ప్రతిదీ పంచుకోగల ఫైల్‌లో రికార్డ్ చేస్తుంది. సృష్టించబడిన ఫైల్‌లో సున్నితమైన సమాచారం ఉంది (ఉదా. ఫైల్ పేర్లు మరియు ఇన్‌స్టాల్ చేయబడిన యాప్‌లు). దీన్ని విశ్వసనీయ పక్షాలతో మాత్రమే పంచుకోండి (ఉదా. సమస్యను పరిష్కరించే డెవలపర్).</string>
     <string name="tasks_activity_notification_channel_label">సక్రియ కార్యాలు</string>
     <string name="tasks_activity_working_notification_title">SD Maid పని చేస్తోంది</string>
@@ -78,6 +89,14 @@
     <string name="support_installid_desc">ఆటోమ్యాటిక్ ఎరర్ రిపోర్ట్స్ అనానిమస్. డెవలపర్ మీ ఎరర్ రిపోర్ట్సై కనుగొనవలసిన పక్షం మీ ఇన్స్టాల్ IDని శేర్ చేయండి.</string>
     <string name="support_debuglog_label">డిబగ్ లాగ్</string>
     <string name="support_debuglog_desc">ఎప్లికేషన్ చేస్తున్న ప్రత్యేక పనిని మీరు శేర్ చేయగల టెక్స్ట్ ఫైల్‌లో రెకార్డ్ చేయండి.</string>
+    <string name="support_debuglog_folder_label">డీబగ్ లాగ్ ఫోల్డర్</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d ఫైల్ %2$s ఉపయోగిస్తోంది</item>
+        <item quantity="other">%1$d ఫైల్‌లు %2$s ఉపయోగిస్తున్నాయి</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">డీబగ్ లాగ్‌లు నిల్వ చేయబడలేదు</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">అన్ని డీబగ్ లాగ్‌లను తొలగించాలా?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ఇది నిల్వ చేయబడిన అన్ని డీబగ్ లాగ్ సెషన్‌లను శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
     <string name="discord_description">ప్రశ్నలు అడగడానికి మరియు సమయం గడపడానికి స్థలం.</string>
     <string name="changelog_label">మార్పుల లాగ్</string>
     <string name="settings_acknowledgements_label">అంగీకారాలు</string>
@@ -152,6 +171,13 @@
     <string name="debug_bugreporter_label">స్వయంచాలిత బగ్ రిపోర్ట్లు</string>
     <string name="debug_bugreporter_summary">సమస్యలను స్వయంచాలకంగా రిపోర్ట్ చేస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు నేను ఎందుకే చేశాను మరియు దానిని ఎలా సరిచేయాలను తెలుసుకునే వివరాలు.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">డీబగ్ మోడ్ ఎనేబుల్ చేయబడింది</string>
+    <string name="debug_card_trace_mode_label">ట్రేస్ మోడ్ ఎనేబుల్ చేయండి</string>
+    <string name="debug_card_dryrun_mode_label">డ్రై-రన్ మోడ్ (తొలగింపును నిలిపివేయి)</string>
+    <string name="debug_card_areas_reload_action">డేటా ప్రాంతాలను రీలోడ్ చేయండి</string>
+    <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
+    <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
+    <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
     <string name="settings_category_tools_label">టూల్స్</string>
     <string name="settings_category_filter">ఫిల్టర్</string>
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
@@ -186,6 +212,8 @@
     <string name="corpsefinder_filter_privatedata_summary">ప్రైవేట్ యాప్ డేటా, ఉదా. క్రెడెంషియల్స్, యాప్ సెట్టింగ్స్ మరియు బ్రౌజర్ క్యాషేలు.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik క్యాషే</string>
     <string name="corpsefinder_filter_dalvik_summary">క్యాష్డ్ యాప్ ఎక్సిక్యూషన్ డేటా.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART ప్రొఫైల్‌లు</string>
+    <string name="corpsefinder_filter_artprofiles_summary">యాప్ పనితీరును ఆప్టిమైజ్ చేయడానికి Android ద్వారా ART ప్రొఫైల్‌లు ఉపయోగించబడతాయి.</string>
     <string name="corpsefinder_filter_applib_label">యాప్ లైబ్రరీలు</string>
     <string name="corpsefinder_filter_applib_summary">యాప్ సంబంధిత లైబ్రరీ డేటా.</string>
     <string name="corpsefinder_filter_appsource_label">యాప్ సోర్సెస్</string>
@@ -238,6 +266,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">స్క్రీన్‌షాట్ వయస్సు</string>
     <string name="systemcleaner_filter_screenshots_age_summary">స్క్రీన్‌షాట్లను తొలగింపు కోసం పరిగణించడానికి కనిష్ఠ వయస్సు.</string>
     <string name="systemcleaner_filter_superfluosapks_label">అనవసరమైన APKలు</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ఇన్‌స్టాల్ చేసిన యాప్ వెర్షన్‌ల ఆధారంగా ఇకపై అవసరం లేని సెటప్ ఫైల్‌లు.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">అదే వెర్షన్‌ను చేర్చు</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ఇన్‌స్టాల్ చేసిన వెర్షన్‌తో సరిపోలే APK ఫైల్‌లను కూడా లక్ష్యంగా చేసుకోండి. పాత వెర్షన్‌లను మాత్రమే తొలగించడానికి నిలిపివేయండి.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ఫోల్డర్లు</string>
     <string name="systemcleaner_filter_lostdir_summary">Android పరికరాల మధ్య డేటాను మార్చివేటప్పుడు సృష్టించబడే తాత్కాలిక ఫైల్లు.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ఫైల్లు</string>
@@ -298,6 +329,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">పేరు కీవర్డ్‌కి సమానం</string>
     <string name="systemcleaner_customfilter_last_edit">చివరి ఎడిట్: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">లైవ్ సెర్చ్</string>
+    <string name="systemcleaner_customfilter_editor_size_label">పరిమాణ పరిమితులు</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">కనిష్ట పరిమాణం</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">గరిష్ట పరిమాణం</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ఫైల్ పరిమాణం ఆధారంగా సరిపోలికలను పరిమితం చేయండి. ఏదైనా పరిమాణంతో సరిపోలడానికి సెట్ చేయకుండా వదిలేయండి.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">వయసు పరిమితులు</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">కనిష్ట వయసు</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">గరిష్ట వయసు</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ఫైల్ వయసు (చివరి సవరణ సమయం) ఆధారంగా సరిపోలికలను పరిమితం చేయండి. ఏదైనా వయసుతో సరిపోలడానికి సెట్ చేయకుండా వదిలేయండి.</string>
     <string name="systemcleaner_customfilter_import_action">కొత్త ఫిల్టర్‌ను పరిచయం చేయండి</string>
     <string name="systemcleaner_customfilter_export_action">ఎంచుకొన్న ఫిల్టర్‌ను ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="appcleaner_explanation_short">ప్రత్యేక యాప్‌లకు చెందిన ఖర్చు చేయగల డేటా.</string>
@@ -339,6 +378,8 @@
     <string name="appcleaner_filter_recyclebins_summary">తొలగించబడిన కానీ వాటిని రిస్టోర్ చేయడానికి అనుమతించడానికి ప్రత్యేక ఫోల్డర్‌లో వేయబడిన ఫైల్‌లు.</string>
     <string name="appcleaner_filter_webview_label">Webview ఫైల్‌లు</string>
     <string name="appcleaner_filter_webview_summary">యాప్‌లలో ఉపయోగించే Webview ఇన్‌స్టన్‌సెస్ ద్వారా క్యాష్ చేయబడిన ఫైల్‌లు.</string>
+    <string name="appcleaner_filter_shortcutservice_label">యాప్ షార్ట్‌కట్ ఐకాన్‌లు</string>
+    <string name="appcleaner_filter_shortcutservice_summary">యాప్ షార్ట్‌కట్‌లు మరియు షేర్ మెనూల కోసం కాష్ చేయబడిన ఐకాన్‌లు.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp బ్యాకప్‌లు</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp బ్యాకప్‌ల అదుపు కాపీలను తొలగించి కొత్తదానిని మాత్రమే ఉంచండి.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp ద్వారా మీరు వ్యక్తుల నుంచి స్వీకరించిన ఫైల్‌లు.</string>
@@ -387,6 +428,9 @@
     <string name="appcleaner_automation_error_no_settings_body">ఈ సిస్టం యాప్ కి సెట్టింగ్స్ స్క్రీన్ లేదు. ప్రాప్యతా సేవ ద్వారా క్యాషే క్లీర్ చేయడం సాధ్యం కాదు. క్యాషే క్లీర్ చేయడానికి వేగాని నేర్పడానికి దీనిని బహిష్కరించండి.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">సిస్టం యాప్ తప్పుగా కాన్ఫిగర్ చేయబడింది</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS కీ సెక్యూరిటీ యాప్ (com.miui.securitycenter) లో వినియోగ గణాంకాల అనుమతి (GET_USAGE_STATS) లేదు. ఇది యాప్ వివరాలలో \"Clear Data\" మరియు accessibility ద్వారా క్యాషె క్లీరింగ్ వంటి ఫీచర్లను భంగపరుస్తుంది. పూర్ణ కార్యాచరణను పునరుద్ధరించడానికి అనుమతిని మంజూరు చేయండి.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">క్లియర్ చేయడానికి ముందు ఫోర్స్-స్టాప్ చేయి</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">వాటి కాష్‌ను క్లియర్ చేయడానికి ముందు యాప్‌లను ఫోర్స్-స్టాప్ చేయండి. ఇది కొన్ని యాప్‌ల కాష్‌లను క్లియర్ చేయడానికి సహాయపడవచ్చు, కానీ యాప్‌లు తప్పుగా ప్రవర్తించడానికి మరియు మాన్యువల్ రీస్టార్ట్ అవసరపడటానికి కారణం కావచ్చు.</string>
+    <string name="appcleaner_progress_force_stopping">యాప్‌లను ఫోర్స్-స్టాప్ చేస్తోంది…</string>
     <string name="deduplicator_tool_name">డుప్లికేట్ రిమూవర్</string>
     <string name="deduplicator_explanation_short">మీ పరికరంలో డుప్లికేట్ డేటాని కనుగొనండి.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -401,6 +445,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">డుప్లికేట్ సెట్‌లో అన్ని ఫైల్‌లను తొలగించడానికి అనుమతించే ఎంపికలను చూపించండి దీనిలో ఏ ఫైల్ కూడా మిగిలిపోదు.</string>
     <string name="deduplicator_search_locations_title">వెతకలు స్థలాలు</string>
     <string name="deduplicator_search_locations_all_summary">అన్ని ప్రాప్యత ప్రాంతాలు</string>
+    <string name="deduplicator_keep_prefer_paths_title">ఇక్కడ ఉంచడానికి ప్రాధాన్యత</string>
+    <string name="deduplicator_keep_prefer_paths_summary">ఏ డూప్లికేట్‌ను ఉంచాలో నిర్ణయించేటప్పుడు, ఈ స్థానాల్లో ఫైల్‌లను ఉంచడానికి ప్రాధాన్యత ఇవ్వండి.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">స్థానాలు కాన్ఫిగర్ చేయబడలేదు</string>
     <string name="deduplicator_skip_minsize_title">కనిష్ఠ పరిమాణం</string>
     <string name="deduplicator_skip_minsize_description">కనిష్ఠ పరిమాణం కంటే తక్కువ ఫైల్‌లను విడుదల చేయండి.</string>
     <string name="deduplicator_skip_uncommon_title">అప్రచలిత ఫైల్ రకాలను విడుదల చేయండి</string>
@@ -409,6 +456,7 @@
     <string name="deduplicator_detection_method_checksum_title">కంటెంట్ చెక్‌సమ్</string>
     <string name="deduplicator_detection_method_checksum_summary">ఫైల్‌ల కోసం చెక్‌సమ్‌లను లెక్కించి డుప్లికేట్‌లను నిర్ణయించండి. సరిపోలిక చెక్‌సమ్‌ల ఉన్న ఫైల్‌లు సరియాగా అను కంటెంట్ ఉంటాయి.</string>
     <string name="deduplicator_detection_method_phash_title">పర్సెప్చుఅల్ హాష్</string>
+    <string name="deduplicator_detection_method_phash_summary">కంటెంట్ ఫీచర్‌లను విశ్లేషించడం మరియు పర్సెప్చువల్ హాష్ విలువలను పోల్చడం ద్వారా సారూప్య ఫైల్‌లను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు పాజిటివ్‌లు ఉండవచ్చు, మాన్యువల్ ధృవీకరణ అవసరం.</string>
     <string name="deduplicator_occupied_space_label">ఆక్రమించిన స్టోరేజీ</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s డుప్లికేట్‌లు ఆక్రమించాయి</item>
@@ -427,6 +475,120 @@
     <string name="deduplicator_details_cluster_title">డుప్లికేట్‌ల సెట్</string>
     <string name="deduplicator_matches_exact_label">పూర్తి సరియాన కాపీలు</string>
     <string name="deduplicator_matches_similar_label">సమానమైన ఫైల్‌లు</string>
+    <string name="deduplicator_arbiter_title">తొలగింపు వ్యూహం</string>
+    <string name="deduplicator_arbiter_summary">ఏ ఫైల్‌లు ఉంచబడతాయో మరియు ఏవి తొలగించబడతాయో కాన్ఫిగర్ చేయండి.</string>
+    <string name="deduplicator_arbiter_explanation">డూప్లికేట్‌లను తొలగించేటప్పుడు, SD Maid ప్రతి ప్రమాణాన్ని క్రమంలో తనిఖీ చేయడం ద్వారా ఏ ఫైల్‌ను ఉంచాలో నిర్ణయిస్తుంది. స్పష్టమైన విజేతను ఉత్పత్తి చేసే మొదటి ప్రమాణం ఫలితాన్ని నిర్ణయిస్తుంది. క్రమం మార్చడానికి డ్రాగ్ చేయండి, మోడ్ మార్చడానికి నొక్కండి.</string>
+    <string name="deduplicator_arbiter_select_mode_title">మోడ్ ఎంచుకోండి</string>
+    <string name="deduplicator_arbiter_configure_paths_action">పాథ్‌లను కాన్ఫిగర్ చేయండి…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">డూప్లికేట్ రకం</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">సారూప్య ఫైల్‌ల కంటే ఖచ్చితమైన సరిపోలికలకు ప్రాధాన్యత.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">మీడియా ఇండెక్సింగ్</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ఫైల్‌లు మీడియా ప్రొవైడర్ ద్వారా ఇండెక్స్ చేయబడినాయా అనేది పరిగణించండి.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">స్టోరేజీ స్థానం</string>
+    <string name="deduplicator_arbiter_criterium_location_description">అంతర్గత లేదా బాహ్య స్టోరేజీలోని ఫైల్‌లకు ప్రాధాన్యత.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ఫోల్డర్ లోతు</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">తక్కువ లేదా ఎక్కువ లోతైన ఫోల్డర్ నిర్మాణాల్లోని ఫైల్‌లకు ప్రాధాన్యత.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">సవరణ తేదీ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">సవరణ సమయం ఆధారంగా పాత లేదా కొత్త ఫైల్‌లకు ప్రాధాన్యత.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ఫైల్ పరిమాణం</string>
+    <string name="deduplicator_arbiter_criterium_size_description">పరిమాణాలు భిన్నంగా ఉన్నప్పుడు పెద్ద లేదా చిన్న ఫైల్‌లకు ప్రాధాన్యత.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ఇష్టపడే స్థానాలు</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">మీ కాన్ఫిగర్ చేసిన ఇష్టపడే స్థానాల్లో ఫైల్‌లను ఉంచండి.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ఖచ్చితమైన సరిపోలికలకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">సారూప్య ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ఇండెక్స్ చేయబడిన ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ఇండెక్స్ చేయబడని ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">అంతర్గత స్టోరేజీకి ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">బాహ్య స్టోరేజీకి ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">తక్కువ లోతు ఫోల్డర్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ఎక్కువ లోతు ఫోల్డర్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">పాత ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">కొత్త ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">పెద్ద ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">చిన్న ఫైల్‌లకు ప్రాధాన్యత</string>
+    <string name="deduplicator_view_mode_groups_label">సమూహాలు</string>
+    <string name="deduplicator_view_mode_directories_label">ఫోల్డర్‌లు</string>
+    <string name="squeezer_explanation_short">స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్రాలను కుదించండి.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d చిత్రం కనుగొనబడింది</item>
+        <item quantity="other">%d చిత్రాలు కనుగొనబడ్డాయి</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ఆదా చేయవచ్చు</item>
+        <item quantity="other">~%s ఆదా చేయవచ్చు</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d చిత్రం కుదించబడింది</item>
+        <item quantity="other">%d చిత్రాలు కుదించబడ్డాయి</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d చిత్రం ఎంచుకోబడింది</item>
+        <item quantity="other">%d చిత్రాలు ఎంచుకోబడ్డాయి</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">వెతకడానికి స్థానాలు</string>
+    <string name="squeezer_search_locations_default_summary">కెమెరా ఫోల్డర్‌లు (డిఫాల్ట్)</string>
+    <string name="squeezer_min_size_title">కనిష్ట ఫైల్ పరిమాణం</string>
+    <string name="squeezer_min_size_description">ఈ పరిమాణం కంటే చిన్న చిత్రాలను దాటవేయండి.</string>
+    <string name="squeezer_min_age_title">కనిష్ట ఫైల్ వయసు</string>
+    <string name="squeezer_min_age_description">ఈ వయసు కంటే పాత చిత్రాలను మాత్రమే చేర్చండి.</string>
+    <string name="squeezer_compression_settings_label">కుదింపు సెట్టింగ్‌లు</string>
+    <string name="squeezer_quality_label">నాణ్యత</string>
+    <string name="squeezer_quality_title">కుదింపు నాణ్యత</string>
+    <string name="squeezer_quality_description">తక్కువ నాణ్యత అంటే చిన్న ఫైల్ పరిమాణం కానీ తగ్గిన చిత్ర నాణ్యత.</string>
+    <string name="squeezer_quality_example_format">ఉదాహరణ: %1$s చిత్రం → %3$d%% నాణ్యతలో ~%2$s ఆదా</string>
+    <string name="squeezer_quality_warning_low">తక్కువ నాణ్యతలు కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
+    <string name="squeezer_quality_warning_high">చాలా అధిక నాణ్యత కనిష్ట స్థల ఆదాను అందిస్తుంది.</string>
+    <string name="squeezer_types_category_label">చిత్ర రకాలు</string>
+    <string name="squeezer_type_jpeg_description">JPEG చిత్రాలను చేర్చండి (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_description">WebP చిత్రాలను చేర్చండి (.webp).</string>
+    <string name="squeezer_skip_compressed_title">గతంలో కుదించినవి దాటవేయండి</string>
+    <string name="squeezer_skip_compressed_description">SD Maid ద్వారా ఇప్పటికే కుదించబడిన చిత్రాలను దాటవేయండి.</string>
+    <string name="squeezer_exif_marker_title">EXIF మార్కర్ వ్రాయండి</string>
+    <string name="squeezer_exif_marker_description">కుదింపు చరిత్ర క్లియర్ చేయబడినా మళ్ళీ కుదింపును నిరోధించడానికి చిత్రం యొక్క EXIF వినియోగదారు వ్యాఖ్య ఫీల్డ్‌కు మార్కర్‌ను జోడించండి.</string>
+    <string name="squeezer_estimated_savings_format">~%s ఆదా</string>
+    <string name="squeezer_no_savings_expected">పరిమిత ఆదా</string>
+    <string name="squeezer_current_size_format">పరిమాణం: %s</string>
+    <string name="squeezer_compress_action">కుదించు</string>
+    <string name="squeezer_compress_all_action">అన్నీ కుదించు</string>
+    <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>
+    <string name="squeezer_preview_total_size">మొత్తం పరిమాణం</string>
+    <string name="squeezer_preview_estimated_savings">అంచనా ఆదా</string>
+    <string name="squeezer_compress_confirmation_title">చిత్రాలను కుదించాలా?</string>
+    <string name="squeezer_compress_confirmation_message">ఇది అసలు చిత్రాలను కుదించిన వెర్షన్‌లతో భర్తీ చేస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
+    <string name="squeezer_history_title">కుదింపు చరిత్ర</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d అంశం (%2$s)</item>
+        <item quantity="other">%1$d అంశాలు (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">కుదింపు చరిత్ర లేదు</string>
+    <string name="squeezer_history_clear_title">కుదింపు చరిత్రను క్లియర్ చేయండి</string>
+    <string name="squeezer_history_clear_message">ఇది గతంలో కుదించిన చిత్రాలను మళ్ళీ కుదించడానికి అనుమతిస్తుంది. చిత్రాలు ప్రభావితం కావు.</string>
+    <string name="squeezer_onboarding_title">చిత్ర కుదింపు గురించి</string>
+    <string name="squeezer_onboarding_message">చిత్ర కుదింపు విజువల్ వివరాలను తొలగించడం ద్వారా ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఈ ప్రక్రియ తిరుగులేనిది - అసలు నాణ్యతను పునరుద్ధరించలేరు.\n\nమీ చిత్రాలు ఎలా కనిపిస్తాయో ఇక్కడ ప్రివ్యూ ఉంది:</string>
+    <string name="squeezer_onboarding_original_label">అసలు</string>
+    <string name="squeezer_onboarding_compressed_label">కుదింపు తర్వాత</string>
+    <string name="squeezer_onboarding_quality_label">నాణ్యత: %d%%</string>
+    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
+    <string name="squeezer_compare_action">పోలిక చూడండి</string>
+    <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
+    <string name="squeezer_result_empty_message">కుదించగల చిత్రాలు కనుగొనబడలేదు.</string>
+    <string name="squeezer_setup_warning">కుదింపు స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్ర నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది. దీన్ని రద్దు చేయలేరు. ప్రారంభించే ముందు మీ సెట్టింగ్‌లను జాగ్రత్తగా సమీక్షించండి.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze స్టోరేజీ స్థలాన్ని ఖాళీ చేయడానికి చిత్రాల ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఇది చిత్ర నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది మరియు రద్దు చేయలేరు. ప్రారంభించే ముందు మీ సెట్టింగ్‌లను జాగ్రత్తగా సమీక్షించండి.</string>
+    <string name="squeezer_setup_paths_title">వెతకడానికి స్థానాలు</string>
+    <string name="squeezer_setup_paths_default">వెతకడానికి ఫోల్డర్‌లను ఎంచుకోండి</string>
+    <string name="squeezer_setup_quality_title">కుదింపు నాణ్యత</string>
+    <string name="squeezer_setup_age_title">కనిష్ట వయసు</string>
+    <string name="squeezer_setup_age_none">పరిమితి లేదు (అన్ని ఫైల్‌లను చేర్చు)</string>
+    <string name="squeezer_setup_start_action">స్కాన్ ప్రారంభించు</string>
+    <string name="squeezer_quality_hint_very_low">40% కంటే తక్కువ నాణ్యత ఉపయోగించలేని చిత్రాలను సృష్టించవచ్చు.</string>
+    <string name="squeezer_quality_hint_low">తక్కువ నాణ్యత ఎక్కువ స్థలాన్ని ఆదా చేస్తుంది కానీ కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
+    <string name="squeezer_quality_hint_high">చాలా అధిక నాణ్యత కనిష్ట స్థల ఆదాను అందిస్తుంది.</string>
+    <string name="squeezer_quality_hint_normal">సమతుల్య నాణ్యత మరియు స్థల ఆదా.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">కనీసం %d రోజు పాతది</item>
+        <item quantity="other">కనీసం %d రోజులు పాతవి</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG ఫైల్‌లకు అంచనా ~%d%% ఆదా</string>
     <string name="appcontrol_explanation_short">మీ పరికరంలో ఇన్‌స్టాల్ చేయబడిన యాప్‌లు.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d యాప్ కనుగొనబడింది</item>
@@ -444,6 +606,7 @@
     <string name="appcontrol_app_launch_title">యాప్‌ను లాంచ్ చేయండి</string>
     <string name="appcontrol_app_launch_description">ఈ యాప్ ప్రాధాన ఆక్టివిటీని లాంచ్ చేయండి.</string>
     <string name="appcontrol_app_forcestop_title">బలవన్మగా ఆపండి</string>
+    <string name="appcontrol_app_forcestop_description">యాప్‌ను ఆపివేయండి. మీరు దాన్ని తెరిచే వరకు లేదా పరికరం రీబూట్ అయ్యే వరకు దాన్ని తనంతట తానుగా ప్రారంభించకుండా నిరోధించండి.</string>
     <string name="appcontrol_app_uninstall_description">మీ పరికరం నుంచి ఈ యాప్‌ను అనిన్‌స్టాల్ చేయండి.</string>
     <string name="appcontrol_app_exclude_add_title">యాప్‌ను బహిష్కరించండి</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid లో ఇతర ఆపరేషన్‌ల నుంచి ఈ యాప్‌ను బహిష్కరించండి.</string>
@@ -458,6 +621,7 @@
     <string name="appcontrol_tag_not_installed">ఇన్‌స్టాల్ చేయలేదు</string>
     <string name="appcontrol_tag_enabled">ప్రారంభించబడిన</string>
     <string name="appcontrol_tag_disabled">రద్దు చేయబడిన</string>
+    <string name="appcontrol_tag_debug">డీబగ్</string>
     <string name="appcontrol_progress_enabling_package">యాప్‌ను ప్రారంభిస్తోంది</string>
     <string name="appcontrol_progress_disabling_package">యాప్‌ను రద్దు చేస్తోంది</string>
     <string name="appcontrol_list_filteroptions_label">ఫిల్టర్ ఎంపికలు</string>
@@ -472,6 +636,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d యాప్ అనిన్‌స్టాల్ చేయబడింది</item>
         <item quantity="other">%d యాప్‌లు అనిన్‌స్టాల్ చేయబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ఆర్కైవ్</string>
+    <string name="appcontrol_archive_selection_action">యాప్‌లను ఆర్కైవ్ చేయండి</string>
+    <string name="appcontrol_archive_description">తరువాత పునరుద్ధరణ కోసం యాప్ డేటాను ఉంచుతూ స్థలాన్ని ఖాళీ చేయడానికి ఆర్కైవ్ చేయండి.</string>
+    <string name="appcontrol_progress_archiving_app">యాప్‌ను ఆర్కైవ్ చేస్తోంది…</string>
+    <string name="appcontrol_archive_confirmation_title">ఆర్కైవ్ నిర్ధారించండి</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d యాప్‌ను ఆర్కైవ్ చేయాలా?</item>
+        <item quantity="other">%d యాప్‌లను ఆర్కైవ్ చేయాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d యాప్ ఆర్కైవ్ చేయబడింది</item>
+        <item quantity="other">%d యాప్‌లు ఆర్కైవ్ చేయబడ్డాయి</item>
+    </plurals>
+    <string name="appcontrol_restore_action">పునరుద్ధరించు</string>
+    <string name="appcontrol_restore_selection_action">యాప్‌లను పునరుద్ధరించండి</string>
+    <string name="appcontrol_restore_description">ఆర్కైవ్ చేసిన యాప్‌ను పూర్తిగా ఇన్‌స్టాల్ చేసిన స్థితికి పునరుద్ధరించండి. యాప్ డేటా భద్రపరచబడుతుంది.</string>
+    <string name="appcontrol_progress_restoring_app">యాప్‌ను పునరుద్ధరిస్తోంది…</string>
+    <string name="appcontrol_restore_confirmation_title">పునరుద్ధరణ నిర్ధారించండి</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d యాప్‌ను పునరుద్ధరించాలా?</item>
+        <item quantity="other">%d యాప్‌లను పునరుద్ధరించాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d యాప్ పునరుద్ధరించబడింది</item>
+        <item quantity="other">%d యాప్‌లు పునరుద్ధరించబడ్డాయి</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">యాప్ పరిమాణం</string>
     <string name="appcontrol_app_sizes_apk_label">యాప్</string>
@@ -490,13 +680,19 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ప్రతి యాప్ పరిమాణం శ్రేణుల అందాజు తెలుసుకోండి.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">కార్యాచరణను నిర్ణయించండి</string>
     <string name="appcontrol_settings_module_activity_enabled_description">యాప్ సక్రియంగా ఉందే (లేదా ఇద్దరు సక్రియంగా ఉందే) అని తెలుసుకోండి.</string>
+    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
+    <string name="appcontrol_include_multiuser_summary">ఈ పరికరంలోని ఇతర వినియోగదారు ప్రొఫైల్‌ల నుండి యాప్‌లను చేర్చండి.</string>
     <string name="appcontrol_export_app_selection_action">యాప్‌లను ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="appcontrol_export_title">యాప్‌ని ఎక్స్‌పోర్ట్ చేయండి</string>
+    <string name="appcontrol_export_description">ఈ యాప్ యొక్క ఇన్‌స్టాలేషన్ ఫైల్‌లను సేవ్ చేయండి. ఇందులో యాప్ డేటా చేర్చబడదు.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d యాప్ ఎక్స్‌పోర్ట్ చేయబడింది</item>
         <item quantity="other">%d యాప్‌లు ఎక్స్‌పోర్ట్ చేయబడినాయి</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">%s ను ఎక్స్‌పోర్ట్ చేస్తోంది</string>
+    <string name="appcontrol_share_list_action">జాబితాను షేర్ చేయండి</string>
+    <string name="appcontrol_share_list_title">నా యాప్‌లు</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE ద్వారా షేర్ చేయబడింది</string>
     <string name="appcontrol_force_stop_selection_action">యాప్‌లను బలవంతంగా ఆపండి</string>
     <string name="appcontrol_force_stop_action">బలవంతంగా ఆపండి</string>
     <string name="appcontrol_force_stop_confirm_title">బలవంతంగా ఆపడానికి నిర్ధారించండి</string>
@@ -513,8 +709,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">బలవంతంగా ఆపుతోంది…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్లు: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">ఆర్కైవ్ చేస్తోంది…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ఆర్కైవ్\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">పునరుద్ధరిస్తోంది…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"పునరుద్ధరించు\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">స్క్రీన్ సమయం: %2$s నుండి %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">చివరిగా అప్‌డేట్ చేయబడింది: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
     <string name="analyzer_explanation_short">మీ పరికరంలో ఏది స్థలాన్ని ఆక్రమిస్తోందో కనుగొనండి.</string>
     <string name="analyzer_progress_scanning_device">స్టోరేజీ పరికరాల కోసం వెతుకుతోంది</string>
     <string name="analyzer_progress_scanning_storage">స్టోరేజీని స్కాన్ చేస్తోంది</string>
@@ -531,6 +732,11 @@
         <item quantity="other">%s ఉపయోగించబడింది</item>
     </plurals>
     <string name="analyzer_content_access_opaque">నేరుగా ప్రాప్యత లేదు</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper సెషన్ సృష్టించు</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d అంశంతో Swiper సెషన్ సృష్టించబడింది</item>
+        <item quantity="other">%d అంశాలతో Swiper సెషన్ సృష్టించబడింది</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">ముఖ్య స్టోరేజీ</string>
     <string name="analyzer_storage_type_primary_description">మీ పరికరం ముఖ్య స్టోరేజీ. ఇంటర్నల్ SD కార్డ్, యాప్‌ల కోసం ప్రైవేట్ స్టోరేజీ మరియు సిస్టం డేటా ఉంటాయి.</string>
     <string name="analyzer_storage_type_secondary_title">ద్వితీయ స్టోరేజీ</string>
@@ -573,6 +779,7 @@
     <string name="exclusion_type_segment">సెగ్మెంట్ బహిష్కరణ</string>
     <string name="exclusion_tags_alltools">అన్ని టూల్‌లు</string>
     <string name="exclusion_target_label">బహిష్కరణ లక్ష్యం</string>
+    <string name="exclusion_editor_path_change_action">పాథ్ మార్చడానికి నొక్కండి</string>
     <string name="exclusion_option_allow_partial">భాగిక మిలికిలను అనుమతించండి</string>
     <string name="exclusion_option_ignore_casing">కేసింగ్‌ను విడుదల చేయండి</string>
     <string name="exclusion_editor_affected_tools_label">ప్రభావితమైన టూల్‌లు</string>
@@ -663,6 +870,17 @@
     <string name="review_app_review_action">సమీక్ష</string>
     <string name="review_app_dismiss_action">తరువాత ఆగామి</string>
     <string name="review_app_body">మీరు SD Maid కోసం సమీక్ష వ్రాయాలనుకుంటారా?️ ❤️</string>
+    <string name="anniversary_card_title">SD Maid వార్షికోత్సవం శుభాకాంక్షలు ❤️</string>
+    <string name="anniversary_card_install_date">%s నుండి మీతో</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">ఇప్పటికే %1$d సంవత్సరం కలిసి. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడానికి SD Maid ను నమ్మినందుకు ధన్యవాదాలు. ఖాళీ చేసిన స్థలం: %2$s</item>
+        <item quantity="other">%1$d సంవత్సరాలు బలంగా. SD Maid తో మీ పరికరం శుభ్రంగా మరియు చక్కగా ఉంటుంది. ఖాళీ చేసిన స్థలం: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">మీ SD Maid వార్షికోత్సవాన్ని షేర్ చేయండి</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid తో %1$d సంవత్సరం — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
+        <item quantity="other">SD Maid తో %1$d సంవత్సరాలు — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
+    </plurals>
     <string name="stats_label">చరిత్ర</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s విడుదల చేయబడింది.</item>
@@ -703,242 +921,14 @@
     <string name="area_type_public_obb_label">పబ్లిక్ యాప్ రిసోర్సెస్</string>
     <string name="area_type_private_data_label">ప్రైవేట్ యాప్ డేటా</string>
     <string name="area_type_portable_label">పోర్టేబుల్ స్టోరేజీ</string>
-    <string name="dashboard_card_config_title">డ్యాష్‌బోర్డ్ కార్డ్‌లు</string>
-    <string name="dashboard_card_config_desc">ఏ కార్డ్‌లు చూపించాలో మరియు వాటి క్రమాన్ని కాన్ఫిగర్ చేయండి</string>
-    <string name="dashboard_card_config_header_title">క్రమం మార్చడానికి డ్రాగ్ చేయండి, చూపించడానికి/దాచడానికి టోగుల్ చేయండి</string>
-    <string name="debug_debuglog_screen_title">డీబగ్ లాగ్</string>
-    <string name="debug_debuglog_screen_discard_action">విస్మరించు</string>
-    <string name="debug_debuglog_screen_session_path_label">సెషన్ పాథ్</string>
-    <string name="debug_debuglog_screen_log_files_label">లాగ్ ఫైల్‌లు</string>
-    <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d ఫైల్ సిద్ధం (%2$s)</item>
-        <item quantity="other">%1$d ఫైల్‌లు సిద్ధం (%2$s)</item>
-    </plurals>
-    <string name="support_debuglog_folder_label">డీబగ్ లాగ్ ఫోల్డర్</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d ఫైల్ %2$s ఉపయోగిస్తోంది</item>
-        <item quantity="other">%1$d ఫైల్‌లు %2$s ఉపయోగిస్తున్నాయి</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">డీబగ్ లాగ్‌లు నిల్వ చేయబడలేదు</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">అన్ని డీబగ్ లాగ్‌లను తొలగించాలా?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">ఇది నిల్వ చేయబడిన అన్ని డీబగ్ లాగ్ సెషన్‌లను శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
-    <string name="debug_card_title">డీబగ్ మోడ్ ఎనేబుల్ చేయబడింది</string>
-    <string name="debug_card_trace_mode_label">ట్రేస్ మోడ్ ఎనేబుల్ చేయండి</string>
-    <string name="debug_card_dryrun_mode_label">డ్రై-రన్ మోడ్ (తొలగింపును నిలిపివేయి)</string>
-    <string name="debug_card_areas_reload_action">డేటా ప్రాంతాలను రీలోడ్ చేయండి</string>
-    <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
-    <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
-    <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
-    <string name="corpsefinder_filter_artprofiles_label">ART ప్రొఫైల్‌లు</string>
-    <string name="corpsefinder_filter_artprofiles_summary">యాప్ పనితీరును ఆప్టిమైజ్ చేయడానికి Android ద్వారా ART ప్రొఫైల్‌లు ఉపయోగించబడతాయి.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">ఇన్‌స్టాల్ చేసిన యాప్ వెర్షన్‌ల ఆధారంగా ఇకపై అవసరం లేని సెటప్ ఫైల్‌లు.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">అదే వెర్షన్‌ను చేర్చు</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ఇన్‌స్టాల్ చేసిన వెర్షన్‌తో సరిపోలే APK ఫైల్‌లను కూడా లక్ష్యంగా చేసుకోండి. పాత వెర్షన్‌లను మాత్రమే తొలగించడానికి నిలిపివేయండి.</string>
-    <string name="systemcleaner_customfilter_editor_size_label">పరిమాణ పరిమితులు</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">కనిష్ట పరిమాణం</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">గరిష్ట పరిమాణం</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">ఫైల్ పరిమాణం ఆధారంగా సరిపోలికలను పరిమితం చేయండి. ఏదైనా పరిమాణంతో సరిపోలడానికి సెట్ చేయకుండా వదిలేయండి.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">వయసు పరిమితులు</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">కనిష్ట వయసు</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">గరిష్ట వయసు</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">ఫైల్ వయసు (చివరి సవరణ సమయం) ఆధారంగా సరిపోలికలను పరిమితం చేయండి. ఏదైనా వయసుతో సరిపోలడానికి సెట్ చేయకుండా వదిలేయండి.</string>
-    <string name="appcleaner_filter_shortcutservice_label">యాప్ షార్ట్‌కట్ ఐకాన్‌లు</string>
-    <string name="appcleaner_filter_shortcutservice_summary">యాప్ షార్ట్‌కట్‌లు మరియు షేర్ మెనూల కోసం కాష్ చేయబడిన ఐకాన్‌లు.</string>
-    <string name="appcleaner_forcestop_before_clearing_label">క్లియర్ చేయడానికి ముందు ఫోర్స్-స్టాప్ చేయి</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">వాటి కాష్‌ను క్లియర్ చేయడానికి ముందు యాప్‌లను ఫోర్స్-స్టాప్ చేయండి. ఇది కొన్ని యాప్‌ల కాష్‌లను క్లియర్ చేయడానికి సహాయపడవచ్చు, కానీ యాప్‌లు తప్పుగా ప్రవర్తించడానికి మరియు మాన్యువల్ రీస్టార్ట్ అవసరపడటానికి కారణం కావచ్చు.</string>
-    <string name="appcleaner_progress_force_stopping">యాప్‌లను ఫోర్స్-స్టాప్ చేస్తోంది…</string>
-    <string name="deduplicator_keep_prefer_paths_title">ఇక్కడ ఉంచడానికి ప్రాధాన్యత</string>
-    <string name="deduplicator_keep_prefer_paths_summary">ఏ డూప్లికేట్‌ను ఉంచాలో నిర్ణయించేటప్పుడు, ఈ స్థానాల్లో ఫైల్‌లను ఉంచడానికి ప్రాధాన్యత ఇవ్వండి.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">స్థానాలు కాన్ఫిగర్ చేయబడలేదు</string>
-    <string name="deduplicator_detection_method_phash_summary">కంటెంట్ ఫీచర్‌లను విశ్లేషించడం మరియు పర్సెప్చువల్ హాష్ విలువలను పోల్చడం ద్వారా సారూప్య ఫైల్‌లను కనుగొనండి. ⚠️ సారూప్యత-ఆధారిత గుర్తింపులో తప్పుడు పాజిటివ్‌లు ఉండవచ్చు, మాన్యువల్ ధృవీకరణ అవసరం.</string>
-    <string name="deduplicator_arbiter_title">తొలగింపు వ్యూహం</string>
-    <string name="deduplicator_arbiter_summary">ఏ ఫైల్‌లు ఉంచబడతాయో మరియు ఏవి తొలగించబడతాయో కాన్ఫిగర్ చేయండి.</string>
-    <string name="deduplicator_arbiter_explanation">డూప్లికేట్‌లను తొలగించేటప్పుడు, SD Maid ప్రతి ప్రమాణాన్ని క్రమంలో తనిఖీ చేయడం ద్వారా ఏ ఫైల్‌ను ఉంచాలో నిర్ణయిస్తుంది. స్పష్టమైన విజేతను ఉత్పత్తి చేసే మొదటి ప్రమాణం ఫలితాన్ని నిర్ణయిస్తుంది. క్రమం మార్చడానికి డ్రాగ్ చేయండి, మోడ్ మార్చడానికి నొక్కండి.</string>
-    <string name="deduplicator_arbiter_select_mode_title">మోడ్ ఎంచుకోండి</string>
-    <string name="deduplicator_arbiter_configure_paths_action">పాథ్‌లను కాన్ఫిగర్ చేయండి…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">డూప్లికేట్ రకం</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">సారూప్య ఫైల్‌ల కంటే ఖచ్చితమైన సరిపోలికలకు ప్రాధాన్యత.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">మీడియా ఇండెక్సింగ్</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_description">ఫైల్‌లు మీడియా ప్రొవైడర్ ద్వారా ఇండెక్స్ చేయబడినాయా అనేది పరిగణించండి.</string>
-    <string name="deduplicator_arbiter_criterium_location_title">స్టోరేజీ స్థానం</string>
-    <string name="deduplicator_arbiter_criterium_location_description">అంతర్గత లేదా బాహ్య స్టోరేజీలోని ఫైల్‌లకు ప్రాధాన్యత.</string>
-    <string name="deduplicator_arbiter_criterium_nesting_title">ఫోల్డర్ లోతు</string>
-    <string name="deduplicator_arbiter_criterium_nesting_description">తక్కువ లేదా ఎక్కువ లోతైన ఫోల్డర్ నిర్మాణాల్లోని ఫైల్‌లకు ప్రాధాన్యత.</string>
-    <string name="deduplicator_arbiter_criterium_modified_title">సవరణ తేదీ</string>
-    <string name="deduplicator_arbiter_criterium_modified_description">సవరణ సమయం ఆధారంగా పాత లేదా కొత్త ఫైల్‌లకు ప్రాధాన్యత.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">ఫైల్ పరిమాణం</string>
-    <string name="deduplicator_arbiter_criterium_size_description">పరిమాణాలు భిన్నంగా ఉన్నప్పుడు పెద్ద లేదా చిన్న ఫైల్‌లకు ప్రాధాన్యత.</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_title">ఇష్టపడే స్థానాలు</string>
-    <string name="deduplicator_arbiter_criterium_preferred_path_description">మీ కాన్ఫిగర్ చేసిన ఇష్టపడే స్థానాల్లో ఫైల్‌లను ఉంచండి.</string>
-    <string name="deduplicator_arbiter_mode_prefer_checksum">ఖచ్చితమైన సరిపోలికలకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_phash">సారూప్య ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">ఇండెక్స్ చేయబడిన ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">ఇండెక్స్ చేయబడని ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">అంతర్గత స్టోరేజీకి ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">బాహ్య స్టోరేజీకి ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">తక్కువ లోతు ఫోల్డర్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">ఎక్కువ లోతు ఫోల్డర్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">పాత ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">కొత్త ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">పెద్ద ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">చిన్న ఫైల్‌లకు ప్రాధాన్యత</string>
-    <string name="deduplicator_view_mode_groups_label">సమూహాలు</string>
-    <string name="deduplicator_view_mode_directories_label">ఫోల్డర్‌లు</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్రాలను కుదించండి.</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d చిత్రం కనుగొనబడింది</item>
-        <item quantity="other">%d చిత్రాలు కనుగొనబడ్డాయి</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s ఆదా చేయవచ్చు</item>
-        <item quantity="other">~%s ఆదా చేయవచ్చు</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d చిత్రం కుదించబడింది</item>
-        <item quantity="other">%d చిత్రాలు కుదించబడ్డాయి</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d చిత్రం ఎంచుకోబడింది</item>
-        <item quantity="other">%d చిత్రాలు ఎంచుకోబడ్డాయి</item>
-    </plurals>
-    <string name="squeezer_search_locations_title">వెతకడానికి స్థానాలు</string>
-    <string name="squeezer_search_locations_default_summary">కెమెరా ఫోల్డర్‌లు (డిఫాల్ట్)</string>
-    <string name="squeezer_min_size_title">కనిష్ట ఫైల్ పరిమాణం</string>
-    <string name="squeezer_min_size_description">ఈ పరిమాణం కంటే చిన్న చిత్రాలను దాటవేయండి.</string>
-    <string name="squeezer_min_age_title">కనిష్ట ఫైల్ వయసు</string>
-    <string name="squeezer_min_age_description">ఈ వయసు కంటే పాత చిత్రాలను మాత్రమే చేర్చండి.</string>
-    <string name="squeezer_compression_settings_label">కుదింపు సెట్టింగ్‌లు</string>
-    <string name="squeezer_quality_label">నాణ్యత</string>
-    <string name="squeezer_quality_title">కుదింపు నాణ్యత</string>
-    <string name="squeezer_quality_description">తక్కువ నాణ్యత అంటే చిన్న ఫైల్ పరిమాణం కానీ తగ్గిన చిత్ర నాణ్యత.</string>
-    <string name="squeezer_quality_example_format">ఉదాహరణ: %1$s చిత్రం → %3$d%% నాణ్యతలో ~%2$s ఆదా</string>
-    <string name="squeezer_quality_warning_low">తక్కువ నాణ్యతలు కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
-    <string name="squeezer_quality_warning_high">చాలా అధిక నాణ్యత కనిష్ట స్థల ఆదాను అందిస్తుంది.</string>
-    <string name="squeezer_types_category_label">చిత్ర రకాలు</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG చిత్రాలను చేర్చండి (.jpg, .jpeg).</string>
-    <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP చిత్రాలను చేర్చండి (.webp).</string>
-    <string name="squeezer_skip_compressed_title">గతంలో కుదించినవి దాటవేయండి</string>
-    <string name="squeezer_skip_compressed_description">SD Maid ద్వారా ఇప్పటికే కుదించబడిన చిత్రాలను దాటవేయండి.</string>
-    <string name="squeezer_exif_marker_title">EXIF మార్కర్ వ్రాయండి</string>
-    <string name="squeezer_exif_marker_description">కుదింపు చరిత్ర క్లియర్ చేయబడినా మళ్ళీ కుదింపును నిరోధించడానికి చిత్రం యొక్క EXIF వినియోగదారు వ్యాఖ్య ఫీల్డ్‌కు మార్కర్‌ను జోడించండి.</string>
-    <string name="squeezer_estimated_savings_format">~%s ఆదా</string>
-    <string name="squeezer_no_savings_expected">పరిమిత ఆదా</string>
-    <string name="squeezer_current_size_format">పరిమాణం: %s</string>
-    <string name="squeezer_compress_action">కుదించు</string>
-    <string name="squeezer_compress_all_action">అన్నీ కుదించు</string>
-    <string name="squeezer_preview_dialog_title">కుదింపును నిర్ధారించండి</string>
-    <string name="squeezer_preview_total_size">మొత్తం పరిమాణం</string>
-    <string name="squeezer_preview_estimated_savings">అంచనా ఆదా</string>
-    <string name="squeezer_compress_confirmation_title">చిత్రాలను కుదించాలా?</string>
-    <string name="squeezer_compress_confirmation_message">ఇది అసలు చిత్రాలను కుదించిన వెర్షన్‌లతో భర్తీ చేస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
-    <string name="squeezer_history_title">కుదింపు చరిత్ర</string>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d అంశం (%2$s)</item>
-        <item quantity="other">%1$d అంశాలు (%2$s)</item>
-    </plurals>
-    <string name="squeezer_history_empty">కుదింపు చరిత్ర లేదు</string>
-    <string name="squeezer_history_clear_title">కుదింపు చరిత్రను క్లియర్ చేయండి</string>
-    <string name="squeezer_history_clear_message">ఇది గతంలో కుదించిన చిత్రాలను మళ్ళీ కుదించడానికి అనుమతిస్తుంది. చిత్రాలు ప్రభావితం కావు.</string>
-    <string name="squeezer_onboarding_title">చిత్ర కుదింపు గురించి</string>
-    <string name="squeezer_onboarding_message">చిత్ర కుదింపు విజువల్ వివరాలను తొలగించడం ద్వారా ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఈ ప్రక్రియ తిరుగులేనిది - అసలు నాణ్యతను పునరుద్ధరించలేరు.\n\nమీ చిత్రాలు ఎలా కనిపిస్తాయో ఇక్కడ ప్రివ్యూ ఉంది:</string>
-    <string name="squeezer_onboarding_original_label">అసలు</string>
-    <string name="squeezer_onboarding_compressed_label">కుదింపు తర్వాత</string>
-    <string name="squeezer_onboarding_quality_label">నాణ్యత: %d%%</string>
-    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
-    <string name="squeezer_compare_action">పోలిక చూడండి</string>
-    <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
-    <string name="squeezer_result_empty_message">కుదించగల చిత్రాలు కనుగొనబడలేదు.</string>
-    <string name="squeezer_setup_warning">కుదింపు స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్ర నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది. దీన్ని రద్దు చేయలేరు. ప్రారంభించే ముందు మీ సెట్టింగ్‌లను జాగ్రత్తగా సమీక్షించండి.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze స్టోరేజీ స్థలాన్ని ఖాళీ చేయడానికి చిత్రాల ఫైల్ పరిమాణాన్ని తగ్గిస్తుంది. ఇది చిత్ర నాణ్యతను శాశ్వతంగా తగ్గిస్తుంది మరియు రద్దు చేయలేరు. ప్రారంభించే ముందు మీ సెట్టింగ్‌లను జాగ్రత్తగా సమీక్షించండి.</string>
-    <string name="squeezer_setup_paths_title">వెతకడానికి స్థానాలు</string>
-    <string name="squeezer_setup_paths_default">వెతకడానికి ఫోల్డర్‌లను ఎంచుకోండి</string>
-    <string name="squeezer_setup_quality_title">కుదింపు నాణ్యత</string>
-    <string name="squeezer_setup_age_title">కనిష్ట వయసు</string>
-    <string name="squeezer_setup_age_none">పరిమితి లేదు (అన్ని ఫైల్‌లను చేర్చు)</string>
-    <string name="squeezer_setup_start_action">స్కాన్ ప్రారంభించు</string>
-    <string name="squeezer_quality_hint_very_low">40% కంటే తక్కువ నాణ్యత ఉపయోగించలేని చిత్రాలను సృష్టించవచ్చు.</string>
-    <string name="squeezer_quality_hint_low">తక్కువ నాణ్యత ఎక్కువ స్థలాన్ని ఆదా చేస్తుంది కానీ కనిపించే ఆర్టిఫాక్ట్‌లకు కారణం కావచ్చు.</string>
-    <string name="squeezer_quality_hint_high">చాలా అధిక నాణ్యత కనిష్ట స్థల ఆదాను అందిస్తుంది.</string>
-    <string name="squeezer_quality_hint_normal">సమతుల్య నాణ్యత మరియు స్థల ఆదా.</string>
-    <plurals name="squeezer_min_age_x_days">
-        <item quantity="one">కనీసం %d రోజు పాతది</item>
-        <item quantity="other">కనీసం %d రోజులు పాతవి</item>
-    </plurals>
-    <string name="squeezer_estimated_savings_percent">JPEG ఫైల్‌లకు అంచనా ~%d%% ఆదా</string>
-    <string name="appcontrol_app_forcestop_description">యాప్‌ను ఆపివేయండి. మీరు దాన్ని తెరిచే వరకు లేదా పరికరం రీబూట్ అయ్యే వరకు దాన్ని తనంతట తానుగా ప్రారంభించకుండా నిరోధించండి.</string>
-    <string name="appcontrol_tag_debug">డీబగ్</string>
-    <string name="appcontrol_archive_action">ఆర్కైవ్</string>
-    <string name="appcontrol_archive_selection_action">యాప్‌లను ఆర్కైవ్ చేయండి</string>
-    <string name="appcontrol_archive_description">తరువాత పునరుద్ధరణ కోసం యాప్ డేటాను ఉంచుతూ స్థలాన్ని ఖాళీ చేయడానికి ఆర్కైవ్ చేయండి.</string>
-    <string name="appcontrol_progress_archiving_app">యాప్‌ను ఆర్కైవ్ చేస్తోంది…</string>
-    <string name="appcontrol_archive_confirmation_title">ఆర్కైవ్ నిర్ధారించండి</string>
-    <plurals name="appcontrol_archive_confirmation_x">
-        <item quantity="one">%d యాప్‌ను ఆర్కైవ్ చేయాలా?</item>
-        <item quantity="other">%d యాప్‌లను ఆర్కైవ్ చేయాలా?</item>
-    </plurals>
-    <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d యాప్ ఆర్కైవ్ చేయబడింది</item>
-        <item quantity="other">%d యాప్‌లు ఆర్కైవ్ చేయబడ్డాయి</item>
-    </plurals>
-    <string name="appcontrol_restore_action">పునరుద్ధరించు</string>
-    <string name="appcontrol_restore_selection_action">యాప్‌లను పునరుద్ధరించండి</string>
-    <string name="appcontrol_restore_description">ఆర్కైవ్ చేసిన యాప్‌ను పూర్తిగా ఇన్‌స్టాల్ చేసిన స్థితికి పునరుద్ధరించండి. యాప్ డేటా భద్రపరచబడుతుంది.</string>
-    <string name="appcontrol_progress_restoring_app">యాప్‌ను పునరుద్ధరిస్తోంది…</string>
-    <string name="appcontrol_restore_confirmation_title">పునరుద్ధరణ నిర్ధారించండి</string>
-    <plurals name="appcontrol_restore_confirmation_x">
-        <item quantity="one">%d యాప్‌ను పునరుద్ధరించాలా?</item>
-        <item quantity="other">%d యాప్‌లను పునరుద్ధరించాలా?</item>
-    </plurals>
-    <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d యాప్ పునరుద్ధరించబడింది</item>
-        <item quantity="other">%d యాప్‌లు పునరుద్ధరించబడ్డాయి</item>
-    </plurals>
-    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
-    <string name="appcontrol_include_multiuser_summary">ఈ పరికరంలోని ఇతర వినియోగదారు ప్రొఫైల్‌ల నుండి యాప్‌లను చేర్చండి.</string>
-    <string name="appcontrol_export_description">ఈ యాప్ యొక్క ఇన్‌స్టాలేషన్ ఫైల్‌లను సేవ్ చేయండి. ఇందులో యాప్ డేటా చేర్చబడదు.</string>
-    <string name="appcontrol_share_list_action">జాబితాను షేర్ చేయండి</string>
-    <string name="appcontrol_share_list_title">నా యాప్‌లు</string>
-    <string name="appcontrol_share_list_footer">SD Maid SE ద్వారా షేర్ చేయబడింది</string>
-    <string name="appcontrol_automation_subtitle_archiving">ఆర్కైవ్ చేస్తోంది…</string>
-    <string name="appcontrol_automation_progress_find_archive">\"ఆర్కైవ్\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
-    <string name="appcontrol_automation_subtitle_restoring">పునరుద్ధరిస్తోంది…</string>
-    <string name="appcontrol_automation_progress_find_restore">\"పునరుద్ధరించు\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
-    <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
-    <string name="analyzer_content_create_swiper_session_action">Swiper సెషన్ సృష్టించు</string>
-    <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">%d అంశంతో Swiper సెషన్ సృష్టించబడింది</item>
-        <item quantity="other">%d అంశాలతో Swiper సెషన్ సృష్టించబడింది</item>
-    </plurals>
-    <string name="exclusion_editor_path_change_action">పాథ్ మార్చడానికి నొక్కండి</string>
-    <string name="anniversary_card_title">SD Maid వార్షికోత్సవం శుభాకాంక్షలు ❤️</string>
-    <string name="anniversary_card_install_date">%s నుండి మీతో</string>
-    <plurals name="anniversary_card_body">
-        <item quantity="one">ఇప్పటికే %1$d సంవత్సరం కలిసి. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడానికి SD Maid ను నమ్మినందుకు ధన్యవాదాలు. ఖాళీ చేసిన స్థలం: %2$s</item>
-        <item quantity="other">%1$d సంవత్సరాలు బలంగా. SD Maid తో మీ పరికరం శుభ్రంగా మరియు చక్కగా ఉంటుంది. ఖాళీ చేసిన స్థలం: %2$s</item>
-    </plurals>
-    <string name="anniversary_share_title">మీ SD Maid వార్షికోత్సవాన్ని షేర్ చేయండి</string>
-    <plurals name="anniversary_share_text">
-        <item quantity="one">SD Maid తో %1$d సంవత్సరం — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
-        <item quantity="other">SD Maid తో %1$d సంవత్సరాలు — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
-    </plurals>
-    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">ఇన్‌స్టాల్ చేసిన యాప్‌లను నిర్వహించండి</string>
     <string name="shortcut_onetap_short">స్కాన్ + తొలగించు</string>
     <string name="shortcut_onetap_long">ఒక చర్యలో స్కాన్ మరియు తొలగింపు</string>
     <string name="shortcuts_settings_category">షార్ట్‌కట్‌లు</string>
     <string name="shortcuts_onetap_enabled_title">వన్-టాప్ షార్ట్‌కట్</string>
     <string name="shortcuts_onetap_enabled_summary">యాప్ ఐకాన్‌ను ఎక్కువసేపు నొక్కినప్పుడు \"స్కాన్ + తొలగించు\" షార్ట్‌కట్‌ను చూపించు. వన్-టాప్ డ్యాష్‌బోర్డ్ వలె అదే టూల్స్ ఉపయోగిస్తుంది.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">ఏమి ఉంచాలో లేదా తొలగించాలో నిర్ణయించడానికి ఫైల్‌ల ద్వారా స్వైప్ చేయండి.</string>
-    <string name="swiper_dashcard_description">నిర్దిష్ట ఫోల్డర్‌లలో ఫైల్‌లను మాన్యువల్‌గా సమీక్షించండి. ఏమి ఉంచాలో లేదా తొలగించాలో నిర్ణయించడానికి స్వైప్ చేయండి.</string>
     <string name="swiper_start_action">స్వైపింగ్ ప్రారంభించు</string>
     <string name="swiper_continue_action">సెషన్ కొనసాగించు</string>
-    <string name="swiper_sessions_description">కొన్ని ఫైల్‌లకు మానవ నిర్ణయం అవసరం. అంశాల ద్వారా స్వైప్ చేయండి మరియు ఏమి ఉంచాలో లేదా తొలగించాలో ఎంచుకోండి. మీకు ఖచ్చితంగా తెలియని వాటిని దాటవేయండి. ఈ టూల్ నిర్దిష్ట ఫోల్డర్‌లను మాన్యువల్‌గా సమీక్షించడానికి అనుమతిస్తుంది, మరియు మీరు నిర్ధారించే వరకు ఏమీ తొలగించబడదు.</string>
     <string name="swiper_select_folders_action">ఫోల్డర్‌లను ఎంచుకోండి</string>
     <string name="swiper_scanning_title">స్కాన్ చేస్తోంది…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1032,6 +1022,7 @@
         <item quantity="one">%d ఇప్పటికే తొలగించబడింది</item>
         <item quantity="other">%d ఇప్పటికే తొలగించబడ్డాయి</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d ఉంచబడింది</item>
         <item quantity="other">%d ఉంచబడ్డాయి</item>
@@ -1046,6 +1037,7 @@
     <string name="swiper_sessions_suggestion_downloads">డౌన్‌లోడ్‌ల ఫోల్డర్</string>
     <string name="swiper_sessions_suggestion_screenshots">స్క్రీన్‌షాట్‌లు</string>
     <string name="swiper_sessions_suggestion_camera">కెమెరా రోల్</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">ఉంచు!</string>
     <string name="swiper_stamp_keep_2">బాగుంది!</string>
     <string name="swiper_stamp_keep_3">అవును!</string>
@@ -1062,4 +1054,6 @@
     <string name="swiper_stamp_undo_2">వెనక్కి!</string>
     <string name="swiper_stamp_undo_3">అయ్యో!</string>
     <string name="swiper_stamp_undo_4">ఆగు!</string>
+    <!-- Swiper gesture overlay -->
+    <!-- Swiper help dialog -->
 </resources>

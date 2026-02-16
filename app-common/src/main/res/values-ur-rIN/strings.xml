@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">آپ کی خدمت میں۔</string>
     <string name="slogan_message_1">صاف اور منظم۔</string>
     <string name="slogan_message_2">افراتفری سے بچانا۔</string>
     <string name="slogan_message_3">ضروری کام کرنا۔</string>
-    <string name="slogan_message_4">سب کچھ ترتیب میں۔</string>
     <string name="slogan_message_5">بے داغ۔</string>
     <string name="slogan_message_6">بائٹس، جاؤ!</string>
     <string name="slogan_message_7">آزاد جگہ، خوش جگہ۔</string>

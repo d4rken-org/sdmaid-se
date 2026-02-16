@@ -19,11 +19,13 @@
     <string name="general_todo_msg">הפונקציה עדיין בעבודה ואינה זמינה כרגע.</string>
     <string name="general_share_action">שיתוף</string>
     <string name="general_done_action">בוצע</string>
+    <string name="general_apply_action">החל</string>
     <string name="general_copy_action">העתקה</string>
     <string name="general_wipe_action">מחק</string>
     <string name="general_cancel_action">ביטול</string>
     <string name="general_discard_action">ביטול</string>
     <string name="general_reset_action">איפוס</string>
+    <string name="general_drag_handle_description">גרור לשינוי סדר</string>
     <string name="general_save_action">שמור</string>
     <string name="general_thanks_action">תודה</string>
     <string name="general_gotit_action">הבנתי</string>
@@ -32,6 +34,7 @@
     <string name="general_edit_action">עריכה</string>
     <string name="general_na_label">לא זמין</string>
     <string name="general_empty_label">ריק</string>
+    <string name="general_new_badge_label">חדש</string>
     <string name="general_dismiss_action">דחה</string>
     <string name="general_maybe_later_action">אולי מאוחר יותר</string>
     <string name="general_manage_action">נהל</string>
@@ -94,6 +97,12 @@
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
     <string name="general_delete_confirmation_title">אישור מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">למחוק %d פריט שנבחר?</item>
+        <item quantity="two">למחוק %d פריטים שנבחרו?</item>
+        <item quantity="many">למחוק %d פריטים שנבחרו?</item>
+        <item quantity="other">למחוק %d פריטים שנבחרו?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">פריט %d נמחק.</item>
         <item quantity="two">נמחקו %d פריטים.</item>
@@ -184,15 +193,6 @@
     <string name="general_error_report_bug_action">דווח על באג</string>
     <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
-    <string name="general_apply_action">החל</string>
-    <string name="general_drag_handle_description">גרור לשינוי סדר</string>
-    <string name="general_new_badge_label">חדש</string>
-    <plurals name="general_delete_confirmation_message_selected_x_items">
-        <item quantity="one">למחוק %d פריט שנבחר?</item>
-        <item quantity="two">למחוק %d פריטים שנבחרו?</item>
-        <item quantity="many">למחוק %d פריטים שנבחרו?</item>
-        <item quantity="other">למחוק %d פריטים שנבחרו?</item>
-    </plurals>
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
 </resources>
