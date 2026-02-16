@@ -953,8 +953,11 @@
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"Escanear + Excluir\" ao pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas que um toque.</string>
     <string name="swiper_label">Deslizador</string>
     <string name="swiper_tool_name">Deslizador</string>
+    <string name="swiper_tool_description">Organize pastas rapidamente — deslize em cada arquivo para manter, excluir ou pular.</string>
+    <string name="swiper_dashcard_description">Organize pastas específicas mais rápido que um explorador de arquivos — basta deslizar cada arquivo.</string>
     <string name="swiper_start_action">Começar a deslizar</string>
     <string name="swiper_continue_action">Continuar sessão</string>
+    <string name="swiper_sessions_description">Revise arquivos em 3 passos simples:\n\n1. Escolha uma pasta para escanear\n2. Deslize em cada arquivo para manter, excluir ou pular\n3. Revise suas escolhas e confirme\n\nNada é removido até você tocar no botão final de exclusão.</string>
     <string name="swiper_select_folders_action">Selecionar pastas</string>
     <string name="swiper_scanning_title">Verificando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1081,5 +1084,16 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Espere!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para começar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
+    <string name="swiper_gesture_overlay_left_delete">← Excluir</string>
+    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
+    <string name="swiper_gesture_overlay_right_delete">Excluir →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Pular</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_help_title">Como o Deslizador funciona</string>
+    <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Pular\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada é excluído até você confirmar na tela de revisão.</string>
 </resources>

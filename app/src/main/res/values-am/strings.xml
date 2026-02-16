@@ -929,8 +929,13 @@
     <string name="shortcuts_settings_category">ምቹ መንገዶች</string>
     <string name="shortcuts_onetap_enabled_title">አንድ-ንካ ምቹ መንገድ</string>
     <string name="shortcuts_onetap_enabled_summary">የመተግበሪያ አዶውን ረዘም ብለው ሲጫኑ \"ፈልግ + ሰርዝ\" ምቹ መንገድ ያሳዩ። ከአንድ-ንካ ዳሽቦርድ ጋር ተመሳሳይ መሣሪያዎችን ይጠቀማል።</string>
+    <string name="swiper_label">ማንሸራተቻ</string>
+    <string name="swiper_tool_name">ማንሸራተቻ</string>
+    <string name="swiper_tool_description">ማህደሮችን በፍጥነት ያስተካክሉ — ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ።</string>
+    <string name="swiper_dashcard_description">ከፋይል ገላጭ በፍጥነት ልዩ ማህደሮችን ያስተካክሉ — እያንዳንዱን ፋይል ብቻ ያንሸራትቱ።</string>
     <string name="swiper_start_action">ማንሸራተት ጀምር</string>
     <string name="swiper_continue_action">ክፍለ ጊዜ ቀጥል</string>
+    <string name="swiper_sessions_description">ፋይሎችን በ3 ቀላል ደረጃዎች ይገምግሙ:\n\n1. ለመፈለግ ማህደር ይምረጡ\n2. ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ\n3. ምርጫዎችዎን ይገምግሙና ያረጋግጡ\n\nየመጨረሻውን ሰርዝ ቁልፍ እስኪጫኑ ድረስ ምንም አይወገድም።</string>
     <string name="swiper_select_folders_action">ማህደሮች ይምረጡ</string>
     <string name="swiper_scanning_title">በመፈለግ ላይ…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1057,5 +1062,16 @@
     <string name="swiper_stamp_undo_3">ወይ!</string>
     <string name="swiper_stamp_undo_4">ቆይ!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">ለመጀመር የትም ይንኩ</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
+    <string name="swiper_gesture_overlay_left_delete">← ሰርዝ</string>
+    <string name="swiper_gesture_overlay_right_keep">አስቀምጥ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← አስቀምጥ</string>
+    <string name="swiper_gesture_overlay_right_delete">ሰርዝ →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ዝለል</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ መልስ</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">እገዛ</string>
+    <string name="swiper_help_title">ማንሸራተቻ እንዴት እንደሚሰራ</string>
+    <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
 </resources>

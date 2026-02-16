@@ -1065,11 +1065,24 @@
     <string name="swiper_stamp_delete_3">Søppel!</string>
     <string name="swiper_stamp_delete_4">Slett!</string>
     <string name="swiper_stamp_skip_1">Hopp!</string>
+    <string name="swiper_stamp_skip_2">Tja!</string>
     <string name="swiper_stamp_skip_3">Senere!</string>
     <string name="swiper_stamp_skip_4">Kanskje!</string>
     <string name="swiper_stamp_undo_1">Angre!</string>
     <string name="swiper_stamp_undo_2">Tilbake!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Vent!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Trykk hvor som helst for å starte</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Forstått</string>
+    <string name="swiper_gesture_overlay_left_delete">← Slett</string>
+    <string name="swiper_gesture_overlay_right_keep">Behold →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Behold</string>
+    <string name="swiper_gesture_overlay_right_delete">Slett →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Hopp over</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Angre</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Hjelp</string>
+    <string name="swiper_help_title">Slik fungerer Swiper</string>
+    <string name="swiper_help_message">Sveip over hver fil for å ta en avgjørelse:\n\n← Sveip til venstre: %1$s\n→ Sveip til høyre: %2$s\n↑ Sveip opp: Hopp over\n↓ Sveip ned: Angre (etter første sveip)\n\nDu kan også bruke knappene nederst.\n\nNår du er ferdig, trykk \"Gjennomgå\" for å se alle avgjørelsene dine. Ingenting slettes før du bekrefter på gjennomgangsskjermen.</string>
 </resources>

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro کی ضرورت ہے</string>
     <string name="upgrades_dashcard_title">SD Maid SE کو اپ گریڈ کریں</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro بہتر نتائج، زیادہ خصوصیات اور طاقتور صارفین کے لیے اختیارات پیش کرتا ہے۔</string>

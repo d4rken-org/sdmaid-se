@@ -538,7 +538,9 @@
     <string name="squeezer_quality_warning_low">নিম্ন গুণমান দৃশ্যমান আর্টিফ্যাক্ট তৈরি করতে পারে।</string>
     <string name="squeezer_quality_warning_high">অত্যন্ত উচ্চ গুণমান ন্যূনতম স্থান সাশ্রয় প্রদান করে।</string>
     <string name="squeezer_types_category_label">ছবির ধরন</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ছবি (.jpg, .jpeg) অন্তর্ভুক্ত করুন।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ছবি (.webp) অন্তর্ভুক্ত করুন।</string>
     <string name="squeezer_skip_compressed_title">আগে সংকুচিত এড়িয়ে যান</string>
     <string name="squeezer_skip_compressed_description">SD Maid দ্বারা আগে সংকুচিত ছবি এড়িয়ে যান।</string>
@@ -930,6 +932,11 @@
     <string name="shortcuts_settings_category">শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_title">এক-ট্যাপ শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_summary">অ্যাপ আইকনটি দীর্ঘক্ষণ টিপে রাখলে \"স্ক্যান + ডিলিট\" শর্টকাট দেখান। ওয়ান-ট্যাপ ড্যাশবোর্ডের মতো একই টুল ব্যবহার করে।</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">দ্রুত ফোল্ডার গোছান — ফাইল সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান।</string>
+    <string name="swiper_dashcard_description">ফাইল এক্সপ্লোরারের চেয়ে দ্রুত নির্দিষ্ট ফোল্ডার গোছান — শুধু প্রতিটি ফাইল সোয়াইপ করুন।</string>
+    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_start_action">সোয়াইপ শুরু করুন</string>
     <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
     <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
@@ -1058,5 +1065,16 @@
     <string name="swiper_stamp_undo_3">উফ!</string>
     <string name="swiper_stamp_undo_4">দাঁড়ান!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">শুরু করতে যেকোনো জায়গায় ট্যাপ করুন</string>
+    <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
+    <string name="swiper_gesture_overlay_left_delete">← মুছুন</string>
+    <string name="swiper_gesture_overlay_right_keep">রাখুন →</string>
+    <string name="swiper_gesture_overlay_left_keep">← রাখুন</string>
+    <string name="swiper_gesture_overlay_right_delete">মুছুন →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ এড়িয়ে যান</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ পূর্বাবস্থা</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">সাহায্য</string>
+    <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
+    <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
 </resources>

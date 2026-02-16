@@ -1013,5 +1013,23 @@
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">点击任意位置开始</string>
+    <string name="swiper_gesture_overlay_dismiss_action">知道了</string>
+    <string name="swiper_gesture_overlay_left_delete">← 删除</string>
+    <string name="swiper_gesture_overlay_right_keep">保留 →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 保留</string>
+    <string name="swiper_gesture_overlay_right_delete">删除 →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ 跳过</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
+
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">帮助</string>
+    <string name="swiper_help_title">Swiper 使用方法</string>
+    <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
+    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
+    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
 </resources>

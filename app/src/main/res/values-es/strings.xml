@@ -951,9 +951,13 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo a un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Escanear + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
+    <string name="swiper_label">Limpiador</string>
     <string name="swiper_tool_name">Limpiador</string>
+    <string name="swiper_tool_description">Ordena carpetas rápido — desliza cada archivo para conservar, eliminar u omitir.</string>
+    <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos — simplemente desliza cada archivo.</string>
     <string name="swiper_start_action">Comenzar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus decisiones y confirma\n\nNada se elimina hasta que pulses el botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1080,5 +1084,16 @@
     <string name="swiper_stamp_undo_3">¡Ups!</string>
     <string name="swiper_stamp_undo_4">¡Espera!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toca en cualquier lugar para empezar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
+    <string name="swiper_gesture_overlay_right_keep">Conservar →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Conservar</string>
+    <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Omitir</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ayuda</string>
+    <string name="swiper_help_title">Cómo funciona el Limpiador</string>
+    <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Omitir\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
 </resources>

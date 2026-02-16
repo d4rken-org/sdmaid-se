@@ -953,8 +953,11 @@
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
     <string name="swiper_label">Balayeur</string>
     <string name="swiper_tool_name">Balayeur</string>
+    <string name="swiper_tool_description">Désencombrez vos dossiers rapidement — balayez chaque fichier pour conserver, supprimer ou ignorer.</string>
+    <string name="swiper_dashcard_description">Désencombrez des dossiers spécifiques plus vite qu\'un explorateur de fichiers — balayez simplement chaque fichier.</string>
     <string name="swiper_start_action">Commencer à balayer</string>
     <string name="swiper_continue_action">Poursuivre la session</string>
+    <string name="swiper_sessions_description">Révisez les fichiers en 3 étapes simples :\n\n1. Choisissez un dossier à analyser\n2. Balayez les fichiers pour conserver, supprimer ou ignorer\n3. Révisez vos choix et confirmez\n\nRien n\'est supprimé tant que vous n\'appuyez pas sur le bouton de suppression final.</string>
     <string name="swiper_select_folders_action">Choisir des dossiers</string>
     <string name="swiper_scanning_title">Analyse…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1081,5 +1084,16 @@
     <string name="swiper_stamp_undo_3">Oups !</string>
     <string name="swiper_stamp_undo_4">Attendre !</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Touchez n\'importe où pour commencer</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Compris</string>
+    <string name="swiper_gesture_overlay_left_delete">← Supprimer</string>
+    <string name="swiper_gesture_overlay_right_keep">Conserver →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Conserver</string>
+    <string name="swiper_gesture_overlay_right_delete">Supprimer →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ignorer</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Annuler</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Aide</string>
+    <string name="swiper_help_title">Comment fonctionne le Balayeur</string>
+    <string name="swiper_help_message">Balayez chaque fichier pour prendre une décision :\n\n← Balayer vers la gauche : %1$s\n→ Balayer vers la droite : %2$s\n↑ Balayer vers le haut : Ignorer\n↓ Balayer vers le bas : Annuler (après le premier balayage)\n\nVous pouvez aussi utiliser les boutons en bas.\n\nQuand vous avez terminé, touchez « Réviser » pour voir toutes vos décisions. Rien n\'est supprimé tant que vous ne confirmez pas sur l\'écran de révision.</string>
 </resources>

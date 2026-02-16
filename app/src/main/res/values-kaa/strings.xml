@@ -947,6 +947,7 @@
     <string name="swiper_stamp_delete_3">Shıqındı!</string>
     <string name="swiper_stamp_delete_4">O\'shiriw!</string>
     <string name="swiper_stamp_skip_1">O\'tiw!</string>
+    <string name="swiper_stamp_skip_2">Hm!</string>
     <string name="swiper_stamp_skip_3">Keyin!</string>
     <string name="swiper_stamp_skip_4">Ba\'lkim!</string>
     <string name="swiper_stamp_undo_1">Qaytarıw!</string>
@@ -954,5 +955,16 @@
     <string name="swiper_stamp_undo_3">Oy!</string>
     <string name="swiper_stamp_undo_4">Toqtań!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Baslaw ushın islegen jerge basıń</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Túsindim</string>
+    <string name="swiper_gesture_overlay_left_delete">← O\'shiriw</string>
+    <string name="swiper_gesture_overlay_right_keep">Saqlap qalıw →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saqlap qalıw</string>
+    <string name="swiper_gesture_overlay_right_delete">O\'shiriw →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ O\'tiw</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarıw</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Járdem</string>
+    <string name="swiper_help_title">Swiper qalay islaydi</string>
+    <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
 </resources>

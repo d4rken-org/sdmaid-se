@@ -637,7 +637,9 @@
     <string name="squeezer_quality_warning_low">الجودة المنخفضة قد تسبب تشوهات مرئية.</string>
     <string name="squeezer_quality_warning_high">الجودة العالية جدًا توفر مساحة قليلة.</string>
     <string name="squeezer_types_category_label">أنواع الصور</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">تضمين صور JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">تضمين صور WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">تخطي المضغوطة سابقًا</string>
     <string name="squeezer_skip_compressed_description">تخطي الصور التي تم ضغطها بالفعل بواسطة SD Maid.</string>
@@ -1108,6 +1110,11 @@
     <string name="shortcuts_settings_category">الاختصارات</string>
     <string name="shortcuts_onetap_enabled_title">اختصار بنقرة واحدة</string>
     <string name="shortcuts_onetap_enabled_summary">أظهر الاختصار \"فحص + حذف\" عند الضغط المطول على أيقونة التطبيق. يستخدم نفس الأدوات مثل لوحة التحكم بنقرة واحدة.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">رتّب المجلدات بسرعة — مرر الملفات للاحتفاظ أو الحذف أو التخطي.</string>
+    <string name="swiper_dashcard_description">رتّب مجلدات محددة أسرع من مستكشف الملفات — فقط مرر كل ملف.</string>
+    <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_start_action">ابدأ التمرير</string>
     <string name="swiper_continue_action">متابعة الجلسة</string>
     <string name="swiper_select_folders_action">اختر المجلدات</string>
@@ -1304,5 +1311,16 @@
     <string name="swiper_stamp_undo_3">أوبس!</string>
     <string name="swiper_stamp_undo_4">انتظر!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">انقر في أي مكان للبدء</string>
+    <string name="swiper_gesture_overlay_dismiss_action">فهمت</string>
+    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
+    <string name="swiper_gesture_overlay_right_keep">احتفظ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← احتفظ</string>
+    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ تخطَّ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ تراجع</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">مساعدة</string>
+    <string name="swiper_help_title">كيف يعمل Swiper</string>
+    <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
 </resources>

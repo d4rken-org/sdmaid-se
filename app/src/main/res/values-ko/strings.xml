@@ -803,8 +803,13 @@
     <string name="shortcuts_settings_category">바로가기</string>
     <string name="shortcuts_onetap_enabled_title">원탭 바로가기</string>
     <string name="shortcuts_onetap_enabled_summary">앱 아이콘을 길게 눌렀을 때 \"스캔 + 삭제\" 바로가기를 표시합니다. 원탭 대시보드와 동일한 도구를 사용합니다.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">폴더를 빠르게 정리하세요 — 파일을 스와이프하여 보관, 삭제 또는 건너뛰기.</string>
+    <string name="swiper_dashcard_description">파일 탐색기보다 빠르게 특정 폴더를 정리하세요 — 각 파일을 스와이프하기만 하면 됩니다.</string>
     <string name="swiper_start_action">스와이프 시작</string>
     <string name="swiper_continue_action">세션 계속</string>
+    <string name="swiper_sessions_description">3단계로 파일을 검토하세요:\n\n1. 스캔할 폴더를 선택\n2. 파일을 스와이프하여 보관, 삭제 또는 건너뛰기\n3. 선택 사항을 검토하고 확인\n\n최종 삭제 버튼을 탭하기 전까지는 아무것도 삭제되지 않습니다.</string>
     <string name="swiper_select_folders_action">폴더 선택</string>
     <string name="swiper_scanning_title">스캔 중…</string>
     <plurals name="swiper_result_x_items_found">
@@ -914,5 +919,16 @@
     <string name="swiper_stamp_undo_3">앗!</string>
     <string name="swiper_stamp_undo_4">잠깐!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">아무 곳이나 탭하여 시작</string>
+    <string name="swiper_gesture_overlay_dismiss_action">확인</string>
+    <string name="swiper_gesture_overlay_left_delete">← 삭제</string>
+    <string name="swiper_gesture_overlay_right_keep">보관 →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 보관</string>
+    <string name="swiper_gesture_overlay_right_delete">삭제 →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ 건너뛰기</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ 되돌리기</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">도움말</string>
+    <string name="swiper_help_title">Swiper 사용 방법</string>
+    <string name="swiper_help_message">각 파일을 스와이프하여 결정하세요:\n\n← 왼쪽으로 스와이프: %1$s\n→ 오른쪽으로 스와이프: %2$s\n↑ 위로 스와이프: 건너뛰기\n↓ 아래로 스와이프: 되돌리기 (첫 스와이프 이후)\n\n하단 버튼을 사용할 수도 있습니다.\n\n완료되면 \"검토\"를 탭하여 모든 결정을 확인하세요. 검토 화면에서 확인하기 전까지는 아무것도 삭제되지 않습니다.</string>
 </resources>

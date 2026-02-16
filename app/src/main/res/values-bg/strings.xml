@@ -1052,5 +1052,23 @@
     <string name="swiper_stamp_undo_3">Опа!</string>
     <string name="swiper_stamp_undo_4">Чакай!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Докоснете навсякъде за начало</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Разбрах</string>
+    <string name="swiper_gesture_overlay_left_delete">← Изтриване</string>
+    <string name="swiper_gesture_overlay_right_keep">Запазване →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Запазване</string>
+    <string name="swiper_gesture_overlay_right_delete">Изтриване →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Пропускане</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Отмяна</string>
+
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Помощ</string>
+    <string name="swiper_help_title">Как работи Swiper</string>
+    <string name="swiper_help_message">Плъзнете всеки файл, за да вземете решение:\n\n← Плъзнете наляво: %1$s\n→ Плъзнете надясно: %2$s\n↑ Плъзнете нагоре: Пропускане\n↓ Плъзнете надолу: Отмяна (след първото плъзгане)\n\nМожете също да използвате бутоните в долната част.\n\nКогато приключите, докоснете \"Преглед\", за да видите всичките си решения. Нищо не се изтрива, докато не потвърдите на екрана за преглед.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Разчистете папки бързо — плъзнете файлове, за да запазите, изтриете или пропуснете.</string>
+    <string name="swiper_dashcard_description">Разчистете конкретни папки по-бързо от файлов мениджър — просто плъзнете всеки файл.</string>
+    <string name="swiper_sessions_description">Прегледайте файлове в 3 лесни стъпки:\n\n1. Изберете папка за сканиране\n2. Плъзнете файлове, за да запазите, изтриете или пропуснете\n3. Прегледайте решенията си и потвърдете\n\nНищо не се премахва, докато не докоснете крайния бутон за изтриване.</string>
 </resources>

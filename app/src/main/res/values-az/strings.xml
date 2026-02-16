@@ -1081,5 +1081,16 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Dayan!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Başlamaq üçün istənilən yerə toxunun</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
+    <string name="swiper_gesture_overlay_left_delete">← Sil</string>
+    <string name="swiper_gesture_overlay_right_keep">Saxla →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saxla</string>
+    <string name="swiper_gesture_overlay_right_delete">Sil →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Keç</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Kömək</string>
+    <string name="swiper_help_title">Swiper necə işləyir</string>
+    <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
 </resources>

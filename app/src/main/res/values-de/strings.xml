@@ -1054,6 +1054,7 @@
     <string name="swiper_stamp_delete_3">Müll!</string>
     <string name="swiper_stamp_delete_4">Löschen!</string>
     <string name="swiper_stamp_skip_1">Weiter!</string>
+    <string name="swiper_stamp_skip_2">Naja!</string>
     <string name="swiper_stamp_skip_3">Später!</string>
     <string name="swiper_stamp_skip_4">Vielleicht!</string>
     <string name="swiper_stamp_undo_1">Rückgängig!</string>
@@ -1061,5 +1062,16 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Warte!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tippe irgendwo, um zu starten</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
+    <string name="swiper_gesture_overlay_left_delete">← Löschen</string>
+    <string name="swiper_gesture_overlay_right_keep">Behalten →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Behalten</string>
+    <string name="swiper_gesture_overlay_right_delete">Löschen →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Überspringen</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Rückgängig</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Hilfe</string>
+    <string name="swiper_help_title">So funktioniert Swiper</string>
+    <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wisch)\n\nDu kannst auch die Schaltflächen unten verwenden.\n\nWenn du fertig bist, tippe auf \"Überprüfen\", um alle deine Entscheidungen zu sehen. Es wird nichts gelöscht, bis du auf dem Überprüfungsbildschirm bestätigst.</string>
 </resources>

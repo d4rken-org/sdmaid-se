@@ -1006,8 +1006,11 @@
     <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
     <string name="swiper_label">Змахнуць і выдаліць</string>
     <string name="swiper_tool_name">Змахнуць і выдаліць</string>
+    <string name="swiper_tool_description">Хутка навядзіце парадак у папках — правядзіце пальцам па файлах, каб захаваць, выдаліць або прапусціць.</string>
+    <string name="swiper_dashcard_description">Навядзіце парадак у канкрэтных папках хутчэй, чым у файлавым менеджары — проста правядзіце пальцам па кожным файле.</string>
     <string name="swiper_start_action">Пачаць агляд</string>
     <string name="swiper_continue_action">Працягнуць сесію</string>
+    <string name="swiper_sessions_description">Праглядзіце файлы ў 3 простыя крокі:\n\n1. Абярыце папку для сканіравання\n2. Правядзіце пальцам па файлах, каб захаваць, выдаліць або прапусціць\n3. Праглядзіце свае рашэнні і пацвердзіце\n\nНічога не выдаляецца, пакуль вы не націснеце канчатковую кнопку выдалення.</string>
     <string name="swiper_select_folders_action">Выбраць папкі</string>
     <string name="swiper_scanning_title">Сканіраванне…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1054,11 +1057,97 @@
     <string name="swiper_delete_x_action">Выдаліць %1$d</string>
     <string name="swiper_settings_swap_directions_title">Змяніць кірунак правядзення пальцам</string>
     <string name="swiper_settings_swap_directions_summary">Праводзіць пальцам налева, каб захаваць, направа - каб выдаліць.</string>
+    <string name="swiper_settings_show_details_title">Паказваць дэталі файла</string>
+    <string name="swiper_settings_show_details_summary">Паказваць імя файла, памер і дату на экране правядзення.</string>
+    <string name="swiper_settings_haptic_feedback_title">Тактыльны водгук</string>
     <string name="swiper_settings_haptic_feedback_summary">Вібрацыя пры прыняцці або выдаленні рашэнняў.</string>
+    <string name="swiper_discard_session_confirmation_title">Адхіліць сесію?</string>
     <string name="swiper_discard_session_confirmation_message">Усе рашэнні будуць страчаныя. Вы ўпэўнены?</string>
+    <string name="swiper_no_preview_available">Папярэдні прагляд недаступны</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Працягнуць сесію з %1$d дня таму (%2$d%% завершана)</item>
+        <item quantity="few">Працягнуць сесію з %1$d дзён таму (%2$d%% завершана)</item>
+        <item quantity="many">Працягнуць сесію з %1$d дзён таму (%2$d%% завершана)</item>
+        <item quantity="other">Працягнуць сесію з %1$d дзён таму (%2$d%% завершана)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d сесія</item>
+        <item quantity="few">%d сесіі</item>
+        <item quantity="many">%d сесій</item>
+        <item quantity="other">%d сесій</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d нявырашаны элемент</item>
+        <item quantity="few">%d нявырашаныя элементы</item>
+        <item quantity="many">%d нявырашаных элементаў</item>
+        <item quantity="other">%d нявырашаных элементаў</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Створана %1$s, апошняя актыўнасць %2$s</string>
+    <string name="swiper_session_remove_action">Выдаліць сесію</string>
+    <string name="swiper_sessions_empty_hint">Дакраніцеся +, каб выбраць папку і пачаць правядзенне</string>
+    <string name="swiper_sessions_upgrade_body">Абнавіце, каб зняць гэтыя абмежаванні і падтрымаць распрацоўку. Бясплатная версія абмежавана:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d файл за сесію</item>
+        <item quantity="few">%d файлы за сесію</item>
+        <item quantity="many">%d файлаў за сесію</item>
+        <item quantity="other">%d файлаў за сесію</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d сесія</item>
+        <item quantity="few">%d сесіі</item>
+        <item quantity="many">%d сесій</item>
+        <item quantity="other">%d сесій</item>
+    </plurals>
+    <string name="swiper_session_default_label">Сесія #%d</string>
+    <string name="swiper_session_rename_title">Перайменаваць сесію</string>
+    <string name="swiper_session_rename_hint">Увядзіце назву для гэтай сесіі</string>
+    <string name="swiper_sessions_current_sessions">Бягучыя сесіі</string>
     <string name="swiper_session_paths_label">Шляхі</string>
     <string name="swiper_session_status_label">Стан</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d пакінуць</item>
+        <item quantity="few">%d пакінуць</item>
+        <item quantity="many">%d пакінуць</item>
+        <item quantity="other">%d пакінуць</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d выдаліць</item>
+        <item quantity="few">%d выдаліць</item>
+        <item quantity="many">%d выдаліць</item>
+        <item quantity="other">%d выдаліць</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d нявырашаны</item>
+        <item quantity="few">%d нявырашаныя</item>
+        <item quantity="many">%d нявырашаных</item>
+        <item quantity="other">%d нявырашаных</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ужо пакінуты</item>
+        <item quantity="few">%d ужо пакінутыя</item>
+        <item quantity="many">%d ужо пакінутых</item>
+        <item quantity="other">%d ужо пакінутых</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ужо выдалены</item>
+        <item quantity="few">%d ужо выдаленыя</item>
+        <item quantity="many">%d ужо выдаленых</item>
+        <item quantity="other">%d ужо выдаленых</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d пакінуты</item>
+        <item quantity="few">%d пакінутыя</item>
+        <item quantity="many">%d пакінутых</item>
+        <item quantity="other">%d пакінутых</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d выдалены</item>
+        <item quantity="few">%d выдаленыя</item>
+        <item quantity="many">%d выдаленых</item>
+        <item quantity="other">%d выдаленых</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" выключыць са сканіраванняў Swiper?</string>
     <string name="swiper_sessions_header_title">Гатовыя пазбавіцца ад лішняга?</string>
     <string name="swiper_sessions_suggestions_label">Паспрабуйце пачаць з:</string>
     <string name="swiper_sessions_suggestion_downloads">Папкі загрузак</string>
@@ -1082,5 +1171,16 @@
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Пачакайце!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Дакраніцеся ў любым месцы, каб пачаць</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Зразумела</string>
+    <string name="swiper_gesture_overlay_left_delete">← Выдаліць</string>
+    <string name="swiper_gesture_overlay_right_keep">Пакінуць →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Пакінуць</string>
+    <string name="swiper_gesture_overlay_right_delete">Выдаліць →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Прапусціць</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Скасаваць</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Даведка</string>
+    <string name="swiper_help_title">Як працуе Swiper</string>
+    <string name="swiper_help_message">Правядзіце пальцам па кожным файле, каб прыняць рашэнне:\n\n← Правесці ўлева: %1$s\n→ Правесці ўправа: %2$s\n↑ Правесці ўверх: Прапусціць\n↓ Правесці ўніз: Скасаваць (пасля першага правядзення)\n\nВы таксама можаце выкарыстоўваць кнопкі ўнізе.\n\nКалі скончыце, дакраніцеся \"Агляд\", каб убачыць усе вашы рашэнні. Нічога не выдаляецца, пакуль вы не пацвердзіце на экране агляду.</string>
 </resources>

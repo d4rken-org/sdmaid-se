@@ -946,8 +946,13 @@
     <string name="shortcuts_settings_category">Pikanäppäimet</string>
     <string name="shortcuts_onetap_enabled_title">Yhden napautuksen pikakuvake</string>
     <string name="shortcuts_onetap_enabled_summary">Näytä \"Skannaa + Poista\" -pikakuvake painamalla sovelluskuvaketta pitkään. Käyttää samoja työkaluja kuin yhden napautuksen kojelauta.</string>
+    <string name="swiper_label">Pyyhkäisijä</string>
+    <string name="swiper_tool_name">Pyyhkäisijä</string>
+    <string name="swiper_tool_description">Järjestä kansiot nopeasti — pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi.</string>
+    <string name="swiper_dashcard_description">Järjestä tietyt kansiot nopeammin kuin tiedostonhallinnalla — pyyhkäise jokainen tiedosto.</string>
     <string name="swiper_start_action">Aloita pyyhkäisy</string>
     <string name="swiper_continue_action">Jatka istuntoa</string>
+    <string name="swiper_sessions_description">Tarkista tiedostot 3 helpolla askeleella:\n\n1. Valitse kansio skannattavaksi\n2. Pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi\n3. Tarkista valintasi ja vahvista\n\nMitään ei poisteta ennen kuin painat lopullista poista-painiketta.</string>
     <string name="swiper_select_folders_action">Valitse kansiot</string>
     <string name="swiper_scanning_title">Skannataan…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1066,6 +1071,7 @@
     <string name="swiper_stamp_delete_3">Roskiin!</string>
     <string name="swiper_stamp_delete_4">Poista!</string>
     <string name="swiper_stamp_skip_1">Ohita!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
     <string name="swiper_stamp_skip_3">Myöhemmin!</string>
     <string name="swiper_stamp_skip_4">Ehkä!</string>
     <string name="swiper_stamp_undo_1">Kumoa!</string>
@@ -1073,5 +1079,16 @@
     <string name="swiper_stamp_undo_3">Oho!</string>
     <string name="swiper_stamp_undo_4">Odota!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Napauta mitä tahansa aloittaaksesi</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
+    <string name="swiper_gesture_overlay_left_delete">← Poista</string>
+    <string name="swiper_gesture_overlay_right_keep">Säilytä →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Säilytä</string>
+    <string name="swiper_gesture_overlay_right_delete">Poista →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ohita</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Kumoa</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ohje</string>
+    <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
+    <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
 </resources>

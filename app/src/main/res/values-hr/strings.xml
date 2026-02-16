@@ -964,6 +964,11 @@
     <string name="shortcuts_settings_category">Prečaci</string>
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Brzo počistite mape — prevlačite datoteke da zadržite, izbrišete ili preskočite.</string>
+    <string name="swiper_dashcard_description">Počistite određene mape brže nego s upraviteljem datotekama — samo prevucite svaku datoteku.</string>
+    <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_start_action">Počni prevlačiti</string>
     <string name="swiper_continue_action">Nastavi sesiju</string>
     <string name="swiper_select_folders_action">Odaberite mape</string>
@@ -1048,6 +1053,7 @@
     <string name="swiper_session_rename_hint">Unesite naziv za ovu sesiju</string>
     <string name="swiper_sessions_current_sessions">Trenutne sesije</string>
     <string name="swiper_session_paths_label">Putanje</string>
+    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d za zadržati</item>
         <item quantity="few">%d za zadržati</item>
@@ -1108,5 +1114,16 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Čekaj!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Dodirnite bilo gdje za početak</string>
+    <string name="swiper_gesture_overlay_dismiss_action">U redu</string>
+    <string name="swiper_gesture_overlay_left_delete">← Izbriši</string>
+    <string name="swiper_gesture_overlay_right_keep">Zadrži →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Zadrži</string>
+    <string name="swiper_gesture_overlay_right_delete">Izbriši →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Preskoči</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Poništi</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Pomoć</string>
+    <string name="swiper_help_title">Kako Swiper radi</string>
+    <string name="swiper_help_message">Povucite svaku datoteku za donošenje odluke:\n\n← Povucite ulijevo: %1$s\n→ Povucite udesno: %2$s\n↑ Povucite prema gore: Preskoči\n↓ Povucite prema dolje: Poništi (nakon prvog povlačenja)\n\nMožete koristiti i gumbe na dnu.\n\nKada završite, dodirnite \"Pregled\" za prikaz svih vaših odluka. Ništa se ne briše dok ne potvrdite na zaslonu za pregled.</string>
 </resources>

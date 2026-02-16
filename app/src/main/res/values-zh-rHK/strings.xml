@@ -803,8 +803,13 @@
     <string name="shortcuts_settings_category">捷徑</string>
     <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
     <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵儀表板相同的工具。</string>
+    <string name="swiper_label">滑動整理</string>
+    <string name="swiper_tool_name">滑動整理</string>
+    <string name="swiper_tool_description">快速整理資料夾 — 滑動檔案以保留、刪除或跳過。</string>
+    <string name="swiper_dashcard_description">比檔案瀏覽器更快速地整理特定資料夾 — 只需滑動每個檔案。</string>
     <string name="swiper_start_action">開始滑動</string>
     <string name="swiper_continue_action">繼續工作階段</string>
+    <string name="swiper_sessions_description">3 個簡單步驟檢視檔案：\n\n1. 選擇要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢視你的選擇並確認\n\n在你點擊最終刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_select_folders_action">選擇資料夾</string>
     <string name="swiper_scanning_title">掃描中…</string>
     <plurals name="swiper_result_x_items_found">
@@ -914,5 +919,16 @@
     <string name="swiper_stamp_undo_3">哎呀！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">輕觸任何位置開始</string>
+    <string name="swiper_gesture_overlay_dismiss_action">明白了</string>
+    <string name="swiper_gesture_overlay_left_delete">← 刪除</string>
+    <string name="swiper_gesture_overlay_right_keep">保留 →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 保留</string>
+    <string name="swiper_gesture_overlay_right_delete">刪除 →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ 跳過</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ 復原</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">說明</string>
+    <string name="swiper_help_title">Swiper 使用方法</string>
+    <string name="swiper_help_message">滑動每個檔案作出決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（首次滑動後）\n\n你也可以使用底部的按鈕。\n\n完成後，輕觸「檢視」查看所有決定。在確認畫面上確認之前，不會刪除任何內容。</string>
 </resources>

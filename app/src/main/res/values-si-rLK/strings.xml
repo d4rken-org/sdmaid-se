@@ -872,12 +872,18 @@
     <string name="area_type_portable_label">පොර්ටෙබොල් ආචයනය</string>
     <string name="shortcut_appcontrol_long">ස්ථාපිත යෙදුම් කළමනාකරණය</string>
     <string name="shortcut_onetap_short">පරිලෝකනය + මකන්න</string>
+    <string name="shortcut_appcontrol_short">යෙදුම් පාලනය</string>
     <string name="shortcut_onetap_long">එක් ක්‍රියාවකින් පරිලෝකනය සහ මැකීම</string>
     <string name="shortcuts_settings_category">කෙටිමං</string>
     <string name="shortcuts_onetap_enabled_title">එක්-තට්ටු කෙටිමඟ</string>
     <string name="shortcuts_onetap_enabled_summary">යෙදුම් අයිකනය දිගු ඔබා ගෙන \"පරිලෝකනය + මකන්න\" කෙටිමඟ පෙන්වන්න. එක්-තට්ටු උපකරණ පුවරුව හා සමාන මෙවලම් භාවිත කරයි.</string>
+    <string name="swiper_label">ස්වයිපර්</string>
+    <string name="swiper_tool_name">ස්වයිපර්</string>
+    <string name="swiper_tool_description">ෆෝල්ඩර ඉක්මනින් පිළිවෙළට සකසන්න — ගොනු තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ස්වයිප් කරන්න.</string>
+    <string name="swiper_dashcard_description">නිශ්චිත ෆෝල්ඩර ගොනු ගවේෂකයකට වඩා වේගයෙන් පිළිවෙළට සකසන්න — සෑම ගොනුවක්ම ස්වයිප් කරන්න.</string>
     <string name="swiper_start_action">ස්වයිප් කිරීම ආරම්භ කරන්න</string>
     <string name="swiper_continue_action">සැසිය දිගටම</string>
+    <string name="swiper_sessions_description">සරල පියවර 3කින් ගොනු සමාලෝචනය කරන්න:\n\n1. පරිලෝකනය කිරීමට ෆෝල්ඩරයක් තෝරන්න\n2. තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ගොනු ස්වයිප් කරන්න\n3. ඔබේ තේරීම් සමාලෝචනය කර තහවුරු කරන්න\n\nඅවසාන මකන්න බොත්තම ඔබන තුරු කිසිවක් ඉවත් නොකෙරේ.</string>
     <string name="swiper_select_folders_action">ෆෝල්ඩර තෝරන්න</string>
     <string name="swiper_scanning_title">පරිලෝකනය කරමින්…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1004,5 +1010,16 @@
     <string name="swiper_stamp_undo_3">අපොයි!</string>
     <string name="swiper_stamp_undo_4">ඉන්න!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">ආරම්භ කිරීමට ඕනෑම තැනක තට්ටු කරන්න</string>
+    <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
+    <string name="swiper_gesture_overlay_left_delete">← මකන්න</string>
+    <string name="swiper_gesture_overlay_right_keep">තබාගන්න →</string>
+    <string name="swiper_gesture_overlay_left_keep">← තබාගන්න</string>
+    <string name="swiper_gesture_overlay_right_delete">මකන්න →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ මඟ හරින්න</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ අස් කරන්න</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">උදව්</string>
+    <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
+    <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
 </resources>

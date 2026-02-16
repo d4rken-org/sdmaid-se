@@ -820,6 +820,64 @@
     <string name="deduplicator_view_mode_groups_label">Grupoj</string>
     <string name="deduplicator_view_mode_directories_label">Dosierujoj</string>
 
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Kunpremu bildojn por ŝpari stokan spacon.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d bildo trovita</item>
+        <item quantity="other">%d bildoj trovitaj</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ŝparebla</item>
+        <item quantity="other">~%s ŝparebla</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d bildo kunpremita</item>
+        <item quantity="other">%d bildoj kunpremitaj</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d bildo elektita</item>
+        <item quantity="other">%d bildoj elektitaj</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Serĉlokoj</string>
+    <string name="squeezer_search_locations_default_summary">Kameraj dosierujoj (defaŭlta)</string>
+    <string name="squeezer_min_size_title">Minimuma dosiera grandeco</string>
+    <string name="squeezer_min_size_description">Preterpasi bildojn pli malgrandajn ol ĉi tiu grandeco.</string>
+    <string name="squeezer_min_age_title">Minimuma dosiera aĝo</string>
+    <string name="squeezer_min_age_description">Nur inkluzivi bildojn pli malnovajn ol ĉi tiu aĝo.</string>
+    <string name="squeezer_compression_settings_label">Kunpremaj agordoj</string>
+    <string name="squeezer_quality_label">Kvalito</string>
+    <string name="squeezer_quality_title">Kunprema kvalito</string>
+    <string name="squeezer_quality_description">Pli malalta kvalito signifas pli malgrandan dosieran grandecon sed reduktitan bildan kvaliton.</string>
+    <string name="squeezer_quality_example_format">Ekzemplo: %1$s bildo → ŝparas ~%2$s ĉe %3$d%% kvalito</string>
+    <string name="squeezer_quality_warning_low">Pli malaltaj kvalitoj povas kaŭzi videblajn artefaktojn.</string>
+    <string name="squeezer_quality_warning_high">Tre alta kvalito provizas minimuman spacan ŝparon.</string>
+    <string name="squeezer_types_category_label">Bildaj tipoj</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Inkluzivi JPEG-bildojn (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Inkluzivi WebP-bildojn (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Preterpasi antaŭe kunpremitajn</string>
+    <string name="squeezer_skip_compressed_description">Preterpasi bildojn jam kunpremitajn de SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Skribi EXIF-markon</string>
+    <string name="squeezer_exif_marker_description">Aldoni markon al la EXIF-a uzanta komenta kampo de la bildo por malhelpi rekunpremadon eĉ se la kunprema historio estas forigita.</string>
+    <string name="squeezer_estimated_savings_format">~%s ŝparo</string>
+    <string name="squeezer_no_savings_expected">Limigita ŝparo</string>
+    <string name="squeezer_current_size_format">Grandeco: %s</string>
+    <string name="squeezer_compress_action">Kunpremi</string>
+    <string name="squeezer_compress_all_action">Kunpremi ĉion</string>
+    <string name="squeezer_preview_dialog_title">Konfirmi kunpremadon</string>
+    <string name="squeezer_preview_total_size">Totala grandeco</string>
+    <string name="squeezer_preview_estimated_savings">Taksita ŝparo</string>
+    <string name="squeezer_compress_confirmation_title">Ĉu kunpremi bildojn?</string>
+    <string name="squeezer_compress_confirmation_message">Ĉi tio anstataŭigos originalajn bildojn per kunpremitaj versioj. Ĉi tiu ago ne estas malfarebla.</string>
+    <string name="squeezer_history_title">Kunprema historio</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d ero (%2$s)</item>
+        <item quantity="other">%1$d eroj (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Neniu kunprema historio</string>
+    <string name="squeezer_history_clear_title">Forigi kunpreman historion</string>
+    <string name="squeezer_history_clear_message">Ĉi tio permesos antaŭe kunpremitajn bildojn esti kunpremitaj denove. La bildoj mem ne estas tuŝitaj.</string>
     <string name="squeezer_onboarding_title">Pri bilda kunpremado</string>
     <string name="squeezer_onboarding_message">Bilda kunpremado reduktas la dosieran grandecon forigante vidajn detalojn. Ĉi tiu procezo estas nerevokebla - la originala kvalito ne restaŭreblas.\n\nJen antaŭrigardo kiel viaj bildoj aspektos:</string>
     <string name="squeezer_onboarding_original_label">Originalo</string>
@@ -988,4 +1046,17 @@
     <string name="swiper_stamp_undo_2">Reen!</string>
     <string name="swiper_stamp_undo_3">Ho!</string>
     <string name="swiper_stamp_undo_4">Atendu!</string>
+    <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tuŝu ie ajn por komenci</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Komprenite</string>
+    <string name="swiper_gesture_overlay_left_delete">← Forigi</string>
+    <string name="swiper_gesture_overlay_right_keep">Konservi →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Konservi</string>
+    <string name="swiper_gesture_overlay_right_delete">Forigi →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Preterpasi</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Malfari</string>
+    <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Helpo</string>
+    <string name="swiper_help_title">Kiel Swiper funkcias</string>
+    <string name="swiper_help_message">Svingu ĉiun dosieron por decidi:\n\n← Svingu maldekstren: %1$s\n→ Svingu dekstren: %2$s\n↑ Svingu supren: Preterpasi\n↓ Svingu malsupren: Malfari (post la unua svingo)\n\nVi ankaŭ povas uzi la butonojn ĉe la malsupro.\n\nKiam vi finis, tuŝu \"Revizio\" por vidi ĉiujn viajn decidojn. Nenio estas forigita ĝis vi konfirmas en la revizia ekrano.</string>
 </resources>

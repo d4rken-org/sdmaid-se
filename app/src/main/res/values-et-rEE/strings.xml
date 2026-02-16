@@ -953,8 +953,11 @@
     <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
     <string name="swiper_label">Pühkija</string>
     <string name="swiper_tool_name">Pühkija</string>
+    <string name="swiper_tool_description">Korista kaustad kiiresti — pühkides faile säilitamiseks, kustutamiseks või vahelejätmiseks.</string>
+    <string name="swiper_dashcard_description">Korista kindlaid kaustu kiiremini kui failihaldur — lihtsalt pühi iga faili.</string>
     <string name="swiper_start_action">Alusta pühkimist</string>
     <string name="swiper_continue_action">Jätka seanssi</string>
+    <string name="swiper_sessions_description">Vaata failid üle 3 lihtsa sammuga:\n\n1. Vali kaust skanneerimiseks\n2. Pühi faile säilitamiseks, kustutamiseks või vahelejätmiseks\n3. Vaata oma valikud üle ja kinnita\n\nMidagi ei kustutata enne, kui vajutate lõplikku kustutamisnuppu.</string>
     <string name="swiper_select_folders_action">Vali kaustad</string>
     <string name="swiper_scanning_title">Skanneerimine…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1081,5 +1084,16 @@
     <string name="swiper_stamp_undo_3">Isver-susver!</string>
     <string name="swiper_stamp_undo_4">Pea hoogu!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Alustamiseks puuduta kuhugi</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Selge</string>
+    <string name="swiper_gesture_overlay_left_delete">← Kustuta</string>
+    <string name="swiper_gesture_overlay_right_keep">Säilita →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Säilita</string>
+    <string name="swiper_gesture_overlay_right_delete">Kustuta →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Jäta vahele</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Võta tagasi</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Abi</string>
+    <string name="swiper_help_title">Kuidas Pühkija töötab</string>
+    <string name="swiper_help_message">Otsuse tegemiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: Jäta vahele\n↓ Pühi alla: Võta tagasi (pärast esimest pühkimist)\n\nVõite kasutada ka allpool olevaid nuppe.\n\nKui olete lõpetanud, puudutage \"Vaata üle\", et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitate ülevaatekuval.</string>
 </resources>

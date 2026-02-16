@@ -885,8 +885,13 @@
     <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
     <string name="shortcuts_settings_category">ショートカット</string>
     <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">フォルダを素早く整理 — ファイルをスワイプして保持、削除、スキップ。</string>
+    <string name="swiper_dashcard_description">ファイルエクスプローラーより速く特定のフォルダを整理 — 各ファイルをスワイプするだけ。</string>
     <string name="swiper_start_action">スワイプを開始</string>
     <string name="swiper_continue_action">セッションを続行</string>
+    <string name="swiper_sessions_description">3つの簡単なステップでファイルを確認:\n\n1. スキャンするフォルダを選択\n2. ファイルをスワイプして保持、削除、スキップ\n3. 選択内容を確認して承認\n\n最終的な削除ボタンをタップするまで何も削除されません。</string>
     <string name="swiper_select_folders_action">フォルダを選択</string>
     <string name="swiper_scanning_title">スキャン中…</string>
     <plurals name="swiper_result_x_items_found">
@@ -996,5 +1001,16 @@
     <string name="swiper_stamp_undo_3">おっと！</string>
     <string name="swiper_stamp_undo_4">待って！</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">どこかをタップして開始</string>
+    <string name="swiper_gesture_overlay_dismiss_action">了解</string>
+    <string name="swiper_gesture_overlay_left_delete">← 削除</string>
+    <string name="swiper_gesture_overlay_right_keep">保持 →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 保持</string>
+    <string name="swiper_gesture_overlay_right_delete">削除 →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ スキップ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ 元に戻す</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">ヘルプ</string>
+    <string name="swiper_help_title">Swiperの使い方</string>
+    <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
 </resources>

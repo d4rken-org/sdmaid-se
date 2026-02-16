@@ -953,8 +953,11 @@
     <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un sol toc.</string>
     <string name="swiper_label">Escombrador</string>
     <string name="swiper_tool_name">Escombrador</string>
+    <string name="swiper_tool_description">Posa ordre a les carpetes ràpidament: llisca els fitxers per mantenir-los, suprimir-los o ometre\'ls.</string>
+    <string name="swiper_dashcard_description">Posa ordre a carpetes específiques més ràpid que un explorador de fitxers: simplement llisca cada fitxer.</string>
     <string name="swiper_start_action">Comença a lliscar</string>
     <string name="swiper_continue_action">Continua la sessió</string>
+    <string name="swiper_sessions_description">Revisa els fitxers en 3 passos senzills:\n\n1. Tria una carpeta per escanejar\n2. Llisca els fitxers per mantenir-los, suprimir-los o ometre\'ls\n3. Revisa les decisions i confirma\n\nNo se suprimeix res fins que toqueu el botó final de supressió.</string>
     <string name="swiper_select_folders_action">Selecciona les carpetes</string>
     <string name="swiper_scanning_title">S\'està escanejant…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1081,5 +1084,16 @@
     <string name="swiper_stamp_undo_3">Vaja!</string>
     <string name="swiper_stamp_undo_4">Espera!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toca qualsevol lloc per començar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
+    <string name="swiper_gesture_overlay_left_delete">← Suprimeix</string>
+    <string name="swiper_gesture_overlay_right_keep">Mantén →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mantén</string>
+    <string name="swiper_gesture_overlay_right_delete">Suprimeix →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Omet</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Desfés</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_help_title">Com funciona l\'escombrador</string>
+    <string name="swiper_help_message">Llisca cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
 </resources>

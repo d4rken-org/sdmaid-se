@@ -1059,5 +1059,23 @@
     <string name="swiper_stamp_undo_3">Lo!</string>
     <string name="swiper_stamp_undo_4">Ngoja!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Gusa popote ili kuanza</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Nimeelewa</string>
+    <string name="swiper_gesture_overlay_left_delete">← Futa</string>
+    <string name="swiper_gesture_overlay_right_keep">Weka →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Weka</string>
+    <string name="swiper_gesture_overlay_right_delete">Futa →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ruka</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Tendua</string>
+
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Msaada</string>
+    <string name="swiper_help_title">Jinsi Swiper inavyofanya kazi</string>
+    <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Safisha folda haraka — piga swaipu faili ili kuweka, kufuta, au kuruka.</string>
+    <string name="swiper_dashcard_description">Safisha folda maalum kwa kasi zaidi kuliko kivinjari cha faili — piga swaipu tu kila faili.</string>
+    <string name="swiper_sessions_description">Kagua faili katika hatua 3 rahisi:\n\n1. Chagua folda ya kuchanganua\n2. Piga swaipu faili ili kuweka, kufuta, au kuruka\n3. Kagua uchaguzi wako na uthibitishe\n\nHakuna kinachondolewa hadi uguse kitufe cha mwisho cha kufuta.</string>
 </resources>

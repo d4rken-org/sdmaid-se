@@ -1037,8 +1037,13 @@
     <string name="shortcuts_settings_category">Skratky</string>
     <string name="shortcuts_onetap_enabled_title">Skratka jedným klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobraziť skratku „Skenovať + Odstrániť“ pri dlhom stlačení ikony aplikácie. Používa rovnaké nástroje ako ovládací panel s jedným klepnutím.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Rýchlo upracte priečinky — potiahnutím súborov ich ponechajte, odstráňte alebo preskočte.</string>
+    <string name="swiper_dashcard_description">Upracte konkrétne priečinky rýchlejšie ako v správcovi súborov — stačí potiahnuť každý súbor.</string>
     <string name="swiper_start_action">Začať potiahnutie</string>
     <string name="swiper_continue_action">Pokračovať v relácii</string>
+    <string name="swiper_sessions_description">Skontrolujte súbory v 3 jednoduchých krokoch:\n\n1. Vyberte priečinok na skenovanie\n2. Potiahnutím súborov ich ponechajte, odstráňte alebo preskočte\n3. Skontrolujte rozhodnutia a potvrďte\n\nNič sa neodstráni, kým neklepnete na tlačidlo konečného odstránenia.</string>
     <string name="swiper_select_folders_action">Vybrať priečinky</string>
     <string name="swiper_scanning_title">Skenovanie…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1199,5 +1204,16 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počkať!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Klepnutím kdekoľvek začnite</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
+    <string name="swiper_gesture_overlay_left_delete">← Odstrániť</string>
+    <string name="swiper_gesture_overlay_right_keep">Ponechať →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Ponechať</string>
+    <string name="swiper_gesture_overlay_right_delete">Odstrániť →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Preskočiť</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Späť</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_help_title">Ako funguje Swiper</string>
+    <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
 </resources>

@@ -927,8 +927,13 @@
     <string name="shortcuts_settings_category">షార్ట్‌కట్‌లు</string>
     <string name="shortcuts_onetap_enabled_title">వన్-టాప్ షార్ట్‌కట్</string>
     <string name="shortcuts_onetap_enabled_summary">యాప్ ఐకాన్‌ను ఎక్కువసేపు నొక్కినప్పుడు \"స్కాన్ + తొలగించు\" షార్ట్‌కట్‌ను చూపించు. వన్-టాప్ డ్యాష్‌బోర్డ్ వలె అదే టూల్స్ ఉపయోగిస్తుంది.</string>
+    <string name="swiper_label">స్వైపర్</string>
+    <string name="swiper_tool_name">స్వైపర్</string>
+    <string name="swiper_tool_description">ఫోల్డర్‌లను త్వరగా క్రమబద్ధం చేయండి — ఫైల్‌లను ఉంచడానికి, తొలగించడానికి లేదా దాటవేయడానికి స్వైప్ చేయండి.</string>
+    <string name="swiper_dashcard_description">ఫైల్ ఎక్స్‌ప్లోరర్ కంటే వేగంగా నిర్దిష్ట ఫోల్డర్‌లను క్రమబద్ధం చేయండి — ప్రతి ఫైల్‌ను స్వైప్ చేయండి.</string>
     <string name="swiper_start_action">స్వైపింగ్ ప్రారంభించు</string>
     <string name="swiper_continue_action">సెషన్ కొనసాగించు</string>
+    <string name="swiper_sessions_description">3 సులభ దశల్లో ఫైల్‌లను సమీక్షించండి:\n\n1. స్కాన్ చేయడానికి ఫోల్డర్‌ను ఎంచుకోండి\n2. ఉంచడానికి, తొలగించడానికి లేదా దాటవేయడానికి ఫైల్‌లను స్వైప్ చేయండి\n3. మీ ఎంపికలను సమీక్షించి నిర్ధారించండి\n\nతుది తొలగించు బటన్‌ను నొక్కే వరకు ఏదీ తొలగించబడదు.</string>
     <string name="swiper_select_folders_action">ఫోల్డర్‌లను ఎంచుకోండి</string>
     <string name="swiper_scanning_title">స్కాన్ చేస్తోంది…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1055,5 +1060,16 @@
     <string name="swiper_stamp_undo_3">అయ్యో!</string>
     <string name="swiper_stamp_undo_4">ఆగు!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">ప్రారంభించడానికి ఎక్కడైనా నొక్కండి</string>
+    <string name="swiper_gesture_overlay_dismiss_action">అర్థమైంది</string>
+    <string name="swiper_gesture_overlay_left_delete">← తొలగించు</string>
+    <string name="swiper_gesture_overlay_right_keep">ఉంచు →</string>
+    <string name="swiper_gesture_overlay_left_keep">← ఉంచు</string>
+    <string name="swiper_gesture_overlay_right_delete">తొలగించు →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ దాటవేయి</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ రద్దు</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">సహాయం</string>
+    <string name="swiper_help_title">Swiper ఎలా పని చేస్తుంది</string>
+    <string name="swiper_help_message">నిర్ణయం తీసుకోవడానికి ప్రతి ఫైల్‌ను స్వైప్ చేయండి:\n\n← ఎడమకు స్వైప్: %1$s\n→ కుడికి స్వైప్: %2$s\n↑ పైకి స్వైప్: దాటవేయి\n↓ క్రిందికి స్వైప్: రద్దు (మొదటి స్వైప్ తర్వాత)\n\nమీరు దిగువన ఉన్న బటన్‌లను కూడా ఉపయోగించవచ్చు.\n\nమీరు పూర్తి చేసిన తర్వాత, మీ అన్ని నిర్ణయాలను చూడటానికి \"సమీక్ష\" నొక్కండి. సమీక్ష స్క్రీన్‌లో మీరు నిర్ధారించే వరకు ఏదీ తొలగించబడదు.</string>
 </resources>

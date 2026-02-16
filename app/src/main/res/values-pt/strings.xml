@@ -1084,5 +1084,21 @@ Recursos dos jogos.</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Aguarde!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para começar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_gesture_overlay_left_delete">← Apagar</string>
+    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
+    <string name="swiper_gesture_overlay_right_delete">Apagar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ignorar</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
+
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_help_title">Como funciona o Swiper</string>
+    <string name="swiper_help_message">Deslize cada ficheiro para tomar uma decisão:\n\n← Deslizar para a esquerda: %1$s\n→ Deslizar para a direita: %2$s\n↑ Deslizar para cima: Ignorar\n↓ Deslizar para baixo: Desfazer (após o primeiro deslize)\n\nTambém pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Rever\" para ver todas as suas decisões. Nada é apagado até confirmar no ecrã de revisão.</string>
+
+    <string name="swiper_tool_description">Organize pastas rapidamente — deslize ficheiros para manter, apagar ou ignorar.</string>
+    <string name="swiper_dashcard_description">Organize pastas específicas mais rápido do que um explorador de ficheiros — basta deslizar cada ficheiro.</string>
+    <string name="swiper_sessions_description">Reveja ficheiros em 3 passos simples:\n\n1. Escolha uma pasta para analisar\n2. Deslize ficheiros para manter, apagar ou ignorar\n3. Reveja as suas escolhas e confirme\n\nNada é removido até tocar no botão final de apagar.</string>
 </resources>

@@ -1003,5 +1003,16 @@
     <string name="swiper_stamp_undo_3">அச்சோ!</string>
     <string name="swiper_stamp_undo_4">நில்!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">தொடங்க எங்கு வேண்டுமானாலும் தட்டவும்</string>
+    <string name="swiper_gesture_overlay_dismiss_action">புரிந்தது</string>
+    <string name="swiper_gesture_overlay_left_delete">← நீக்கு</string>
+    <string name="swiper_gesture_overlay_right_keep">வைத்திரு →</string>
+    <string name="swiper_gesture_overlay_left_keep">← வைத்திரு</string>
+    <string name="swiper_gesture_overlay_right_delete">நீக்கு →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ தவிர்</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ மீட்டமை</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">உதவி</string>
+    <string name="swiper_help_title">Swiper எவ்வாறு செயல்படுகிறது</string>
+    <string name="swiper_help_message">முடிவெடுக்க ஒவ்வொரு கோப்பையும் ஸ்வைப் செய்யவும்:\n\n← இடதுபக்கம் ஸ்வைப்: %1$s\n→ வலதுபக்கம் ஸ்வைப்: %2$s\n↑ மேலே ஸ்வைப்: தவிர்\n↓ கீழே ஸ்வைப்: மீட்டமை (முதல் ஸ்வைப்பிற்குப் பிறகு)\n\nகீழே உள்ள பொத்தான்களையும் பயன்படுத்தலாம்.\n\nமுடிந்ததும், உங்கள் அனைத்து முடிவுகளையும் காண \"மதிப்பாய்வு\" என்பதைத் தட்டவும். மதிப்பாய்வுத் திரையில் உறுதிப்படுத்தும் வரை எதுவும் நீக்கப்படாது.</string>
 </resources>

@@ -161,6 +161,10 @@
         <item quantity="one">%d oras</item>
         <item quantity="other">%d na oras</item>
     </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s file</item>
+        <item quantity="other">%s na file</item>
+    </plurals>
     <string name="general_advice_title">Mga Payo</string>
     <string name="general_error_invalid_input_label">Hindi valid ang input</string>
     <string name="general_information_for_the_developer">Impormasyon para sa developer</string>

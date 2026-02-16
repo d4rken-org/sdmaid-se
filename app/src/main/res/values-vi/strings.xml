@@ -911,8 +911,11 @@ TheNothingGuy</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Vuốt</string>
+    <string name="swiper_tool_description">Dọn dẹp thư mục nhanh chóng — vuốt tệp để giữ, xóa hoặc bỏ qua.</string>
+    <string name="swiper_dashcard_description">Dọn dẹp các thư mục cụ thể nhanh hơn trình quản lý tệp — chỉ cần vuốt từng tệp.</string>
     <string name="swiper_start_action">Bắt đầu vuốt</string>
     <string name="swiper_continue_action">Tiếp tục phiên</string>
+    <string name="swiper_sessions_description">Xem lại tệp trong 3 bước đơn giản:\n\n1. Chọn thư mục để quét\n2. Vuốt tệp để giữ, xóa hoặc bỏ qua\n3. Xem lại lựa chọn của bạn và xác nhận\n\nKhông có gì bị xóa cho đến khi bạn nhấn nút xóa cuối cùng.</string>
     <string name="swiper_select_folders_action">Chọn thư mục</string>
     <string name="swiper_scanning_title">Đang quét…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1022,5 +1025,16 @@ TheNothingGuy</string>
     <string name="swiper_stamp_undo_3">Rất tiếc!</string>
     <string name="swiper_stamp_undo_4">Chờ chút!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Chạm bất kỳ đâu để bắt đầu</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Đã hiểu</string>
+    <string name="swiper_gesture_overlay_left_delete">← Xóa</string>
+    <string name="swiper_gesture_overlay_right_keep">Giữ lại →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Giữ lại</string>
+    <string name="swiper_gesture_overlay_right_delete">Xóa →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Bỏ qua</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Hoàn tác</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Trợ giúp</string>
+    <string name="swiper_help_title">Cách Swiper hoạt động</string>
+    <string name="swiper_help_message">Vuốt từng tệp để đưa ra quyết định:\n\n← Vuốt sang trái: %1$s\n→ Vuốt sang phải: %2$s\n↑ Vuốt lên: Bỏ qua\n↓ Vuốt xuống: Hoàn tác (sau lần vuốt đầu tiên)\n\nBạn cũng có thể sử dụng các nút ở phía dưới.\n\nKhi hoàn tất, nhấn \"Xem lại\" để xem tất cả quyết định của bạn. Không có gì bị xóa cho đến khi bạn xác nhận trên màn hình xem lại.</string>
 </resources>

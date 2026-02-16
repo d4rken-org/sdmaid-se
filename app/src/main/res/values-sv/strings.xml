@@ -915,8 +915,13 @@
     <string name="shortcuts_settings_category">Genvägar</string>
     <string name="shortcuts_onetap_enabled_title">En-tryck genväg</string>
     <string name="shortcuts_onetap_enabled_summary">Visa \"Skanna + Ta bort\" genväg vid långtryck på appikonen. Använder samma verktyg som en-tryck instrumentpanel.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Rensa mappar snabbt — svep genom filer för att behålla, ta bort eller hoppa över.</string>
+    <string name="swiper_dashcard_description">Rensa specifika mappar snabbare än en filhanterare — svep bara varje fil.</string>
     <string name="swiper_start_action">Börja svepa</string>
     <string name="swiper_continue_action">Fortsätt session</string>
+    <string name="swiper_sessions_description">Granska filer i 3 enkla steg:\n\n1. Välj en mapp att skanna\n2. Svep genom filer för att behålla, ta bort eller hoppa över\n3. Granska dina val och bekräfta\n\nInget tas bort förrän du trycker på den slutliga raderingsknappen.</string>
     <string name="swiper_select_folders_action">Välj mappar</string>
     <string name="swiper_scanning_title">Skannar…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1025,6 +1030,7 @@
     <string name="swiper_stamp_delete_3">Skräp!</string>
     <string name="swiper_stamp_delete_4">Ta bort!</string>
     <string name="swiper_stamp_skip_1">Hoppa!</string>
+    <string name="swiper_stamp_skip_2">Nä!</string>
     <string name="swiper_stamp_skip_3">Senare!</string>
     <string name="swiper_stamp_skip_4">Kanske!</string>
     <string name="swiper_stamp_undo_1">Ångra!</string>
@@ -1032,5 +1038,16 @@
     <string name="swiper_stamp_undo_3">Oj!</string>
     <string name="swiper_stamp_undo_4">Vänta!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tryck var som helst för att börja</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Uppfattat</string>
+    <string name="swiper_gesture_overlay_left_delete">← Ta bort</string>
+    <string name="swiper_gesture_overlay_right_keep">Behåll →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Behåll</string>
+    <string name="swiper_gesture_overlay_right_delete">Ta bort →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Hoppa över</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Ångra</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Hjälp</string>
+    <string name="swiper_help_title">Hur Swiper fungerar</string>
+    <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
 </resources>

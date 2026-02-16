@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
     <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Atualizare SD Maid SE</string>
     <string name="upgrades_dashcard_body">Aberri funtzionalidades addizionales e diventa patronu pro sustènnere su isvilupu continuadu!</string>

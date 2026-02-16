@@ -1041,8 +1041,11 @@
     <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
     <string name="swiper_label">Свайпер</string>
     <string name="swiper_tool_name">Свайпер</string>
+    <string name="swiper_tool_description">Быстро наведите порядок в папках — проведите по файлам, чтобы оставить, удалить или пропустить.</string>
+    <string name="swiper_dashcard_description">Разберите конкретные папки быстрее, чем в файловом менеджере — просто проведите по каждому файлу.</string>
     <string name="swiper_start_action">Начать свайп</string>
     <string name="swiper_continue_action">Продолжить сессию</string>
+    <string name="swiper_sessions_description">Просмотрите файлы за 3 простых шага:\n\n1. Выберите папку для сканирования\n2. Проведите по файлам, чтобы оставить, удалить или пропустить\n3. Проверьте решения и подтвердите\n\nНичего не удаляется, пока вы не нажмёте финальную кнопку удаления.</string>
     <string name="swiper_select_folders_action">Выберите папки</string>
     <string name="swiper_scanning_title">Сканирование…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1203,5 +1206,16 @@
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Одну минуточку!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Нажмите в любом месте, чтобы начать</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Понятно</string>
+    <string name="swiper_gesture_overlay_left_delete">← Удалить</string>
+    <string name="swiper_gesture_overlay_right_keep">Оставить →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Оставить</string>
+    <string name="swiper_gesture_overlay_right_delete">Удалить →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Пропустить</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Отменить</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Справка</string>
+    <string name="swiper_help_title">Как работает Swiper</string>
+    <string name="swiper_help_message">Проведите по каждому файлу, чтобы принять решение:\n\n← Свайп влево: %1$s\n→ Свайп вправо: %2$s\n↑ Свайп вверх: Пропустить\n↓ Свайп вниз: Отменить (после первого свайпа)\n\nВы также можете использовать кнопки внизу.\n\nКогда закончите, нажмите «Обзор», чтобы просмотреть все решения. Ничего не удаляется, пока вы не подтвердите на экране обзора.</string>
 </resources>

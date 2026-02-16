@@ -7,6 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Paneldeki eylem butonuna tek bir dokunuşla, ek onay olmaksızın, bütün araçları kullanarak tek seferde tarayın ve silin.</string>
     <string name="dashboard_settings_oneclick_tools_title">Tek-Tık Araçlar</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hangi araçlar tek-tık işlemlerine eklenilsin?</string>
+    <string name="dashboard_card_config_title">Panel kartları</string>
+    <string name="dashboard_card_config_desc">Hangi kartların gösterileceğini ve sıralarını yapılandırın</string>
+    <string name="dashboard_card_config_header_title">Sıralamak için sürükleyin, göstermek/gizlemek için değiştirin</string>
     <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
     <string name="debug_debuglog_file_label">Kaydedilmiş günlük dosyası</string>
     <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>
@@ -908,8 +911,13 @@
     <string name="shortcuts_settings_category">Kısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
     <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
+    <string name="swiper_label">Kaydırıcı</string>
+    <string name="swiper_tool_name">Kaydırıcı</string>
+    <string name="swiper_tool_description">Klasörleri hızlıca düzenleyin — dosyaları saklamak, silmek veya atlamak için kaydırın.</string>
+    <string name="swiper_dashcard_description">Belirli klasörleri dosya yöneticisinden daha hızlı düzenleyin — her dosyayı kaydırmanız yeterli.</string>
     <string name="swiper_start_action">Kaydırmaya başla</string>
     <string name="swiper_continue_action">Oturumu sürdür</string>
+    <string name="swiper_sessions_description">Dosyaları 3 basit adımda gözden geçirin:\n\n1. Taranacak bir klasör seçin\n2. Dosyaları saklamak, silmek veya atlamak için kaydırın\n3. Seçimlerinizi gözden geçirin ve onaylayın\n\nSon silme düğmesine dokunana kadar hiçbir şey silinmez.</string>
     <string name="swiper_select_folders_action">Klasörleri seçin</string>
     <string name="swiper_scanning_title">Taranıyor…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1036,5 +1044,16 @@
     <string name="swiper_stamp_undo_3">Hay aksi!</string>
     <string name="swiper_stamp_undo_4">Dur!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Başlamak için herhangi bir yere dokunun</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
+    <string name="swiper_gesture_overlay_left_delete">← Sil</string>
+    <string name="swiper_gesture_overlay_right_keep">Sakla →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Sakla</string>
+    <string name="swiper_gesture_overlay_right_delete">Sil →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Atla</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Yardım</string>
+    <string name="swiper_help_title">Swiper nasıl çalışır</string>
+    <string name="swiper_help_message">Her dosyayı kaydırarak bir karar verin:\n\n← Sola kaydırma: %1$s\n→ Sağa kaydırma: %2$s\n↑ Yukarı kaydırma: Atla\n↓ Aşağı kaydırma: Geri al (ilk kaydırmadan sonra)\n\nAlttaki düğmeleri de kullanabilirsiniz.\n\nİşiniz bittiğinde, tüm kararlarınızı görmek için \"İncele\"ye dokunun. İnceleme ekranında onaylayana kadar hiçbir şey silinmez.</string>
 </resources>

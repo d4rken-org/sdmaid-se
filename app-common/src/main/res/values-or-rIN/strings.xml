@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">ଆପଣଙ୍କ ସେବାରେ।</string>
     <string name="slogan_message_1">ପରିଷ୍କାର ଓ ସୁବ୍ୟବସ୍ଥିତ।</string>
     <string name="slogan_message_2">ବିଶୃଙ୍ଖଳା ରୋକିବା।</string>

@@ -20,6 +20,12 @@
     <string name="debug_debuglog_screen_discard_action">Відмінити</string>
     <string name="debug_debuglog_screen_session_path_label">Шлях сесії</string>
     <string name="debug_debuglog_screen_log_files_label">Файли журналів</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d файл готовий (%2$s)</item>
+        <item quantity="few">%1$d файли готові (%2$s)</item>
+        <item quantity="many">%1$d файлів готові (%2$s)</item>
+        <item quantity="other">%1$d файлів готові (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Ця функція записує все, що робить додаток, у файл, до якого можна надати спільний доступ. Створений файл містить конфіденційну інформацію (наприклад, імена файлів і встановлених додатків). Діліться ним лише з довіреними особами (наприклад, з розробником, який вирішує проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активні завдання</string>
     <string name="tasks_activity_working_notification_title">SD Maid працює</string>
@@ -92,6 +98,12 @@
     <string name="support_debuglog_label">Журнал налагодження</string>
     <string name="support_debuglog_desc">Записуйте все, що робить додаток, у текстовий файл, яким ви можете поділитися.</string>
     <string name="support_debuglog_folder_label">Папка журналу налагодження</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d файл займає %2$s</item>
+        <item quantity="few">%1$d файли займають %2$s</item>
+        <item quantity="many">%1$d файлів займають %2$s</item>
+        <item quantity="other">%1$d файлів займають %2$s</item>
+    </plurals>
     <string name="support_debuglog_folder_empty_desc">Журнали налагодження не зберігаються</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Видалити всі журнали налагодження?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Це призведе до остаточного видалення всіх збережених сеансів журналу налагодження. Цю дію неможливо скасувати.</string>
@@ -545,7 +557,32 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Віддавайте перевагу меншим файлам</string>
     <string name="deduplicator_view_mode_groups_label">Групи</string>
     <string name="deduplicator_view_mode_directories_label">Папки</string>
+    <string name="squeezer_tool_name">Стиснення медіа</string>
     <string name="squeezer_explanation_short">Стискайте зображення, щоб заощадити місце на диску.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d зображення знайдено</item>
+        <item quantity="few">%d зображення знайдено</item>
+        <item quantity="many">%d зображень знайдено</item>
+        <item quantity="other">%d зображень знайдено</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s можна заощадити</item>
+        <item quantity="few">~%s можна заощадити</item>
+        <item quantity="many">~%s можна заощадити</item>
+        <item quantity="other">~%s можна заощадити</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d зображення стиснуто</item>
+        <item quantity="few">%d зображення стиснуто</item>
+        <item quantity="many">%d зображень стиснуто</item>
+        <item quantity="other">%d зображень стиснуто</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d зображення вибрано</item>
+        <item quantity="few">%d зображення вибрано</item>
+        <item quantity="many">%d зображень вибрано</item>
+        <item quantity="other">%d зображень вибрано</item>
+    </plurals>
     <string name="squeezer_search_locations_title">Пошук місць</string>
     <string name="squeezer_search_locations_default_summary">Папки камери (за замовчуванням)</string>
     <string name="squeezer_min_size_title">Мінімальний розмір файлу</string>
@@ -579,6 +616,12 @@
     <string name="squeezer_compress_confirmation_title">Стиснути зображення?</string>
     <string name="squeezer_compress_confirmation_message">Це замінить оригінальні зображення на стислі версії. Цю дію неможливо скасувати.</string>
     <string name="squeezer_history_title">Історія стиснення</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d елемент (%2$s)</item>
+        <item quantity="few">%1$d елементи (%2$s)</item>
+        <item quantity="many">%1$d елементів (%2$s)</item>
+        <item quantity="other">%1$d елементів (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">Відсутність історії стиснення</string>
     <string name="squeezer_history_clear_title">Очистити історію стиснення</string>
     <string name="squeezer_history_clear_message">Це дозволить повторно стиснути раніше стиснуті зображення. Самі зображення не зміняться.</string>
@@ -603,6 +646,12 @@
     <string name="squeezer_quality_hint_low">Нижча якість економить більше місця, але може спричинити появу видимих артефактів.</string>
     <string name="squeezer_quality_hint_high">Дуже висока якість забезпечує мінімальну економію місця.</string>
     <string name="squeezer_quality_hint_normal">Збалансована якість та економія місця.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Не менше %d дня</item>
+        <item quantity="few">Не менше %d днів</item>
+        <item quantity="many">Не менше %d днів</item>
+        <item quantity="other">Не менше %d днів</item>
+    </plurals>
     <string name="squeezer_estimated_savings_percent">Орієнтовна економія ~%d%% для файлів JPEG</string>
     <string name="appcontrol_tool_name">Управління додатками</string>
     <string name="appcontrol_explanation_short">Додатки, встановлені на вашому пристрої.</string>
@@ -663,11 +712,35 @@
     <string name="appcontrol_archive_description">Архівуйте на вільний простір, зберігаючи дані додатків для подальшого відновлення.</string>
     <string name="appcontrol_progress_archiving_app">Архівування додатка…</string>
     <string name="appcontrol_archive_confirmation_title">Підтвердити архівування</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Заархівувати %d додаток?</item>
+        <item quantity="few">Заархівувати %d додатки?</item>
+        <item quantity="many">Заархівувати %d додатків?</item>
+        <item quantity="other">Заархівувати %d додатків?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d додаток заархівовано</item>
+        <item quantity="few">%d додатки заархівовано</item>
+        <item quantity="many">%d додатків заархівовано</item>
+        <item quantity="other">%d додатків заархівовано</item>
+    </plurals>
     <string name="appcontrol_restore_action">Відновити</string>
     <string name="appcontrol_restore_selection_action">Відновити додатки</string>
     <string name="appcontrol_restore_description">Відновити архівний додаток до повністю встановленого стану. Дані додатку зберігаються.</string>
     <string name="appcontrol_progress_restoring_app">Відновлення додатка…</string>
     <string name="appcontrol_restore_confirmation_title">Підтвердити відновлення</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Відновити %d додаток?</item>
+        <item quantity="few">Відновити %d додатки?</item>
+        <item quantity="many">Відновити %d додатків?</item>
+        <item quantity="other">Відновити %d додатків?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d додаток відновлено</item>
+        <item quantity="few">%d додатки відновлено</item>
+        <item quantity="many">%d додатків відновлено</item>
+        <item quantity="other">%d додатків відновлено</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">Розмір додатка</string>
     <string name="appcontrol_app_sizes_apk_label">Додаток</string>
     <string name="appcontrol_app_sizes_data_label">Дані</string>
@@ -753,6 +826,12 @@
     </plurals>
     <string name="analyzer_content_access_opaque">Прямий доступ недоступний</string>
     <string name="analyzer_content_create_swiper_session_action">Створити сесію Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Сесію Swiper створено з %d елементом</item>
+        <item quantity="few">Сесію Swiper створено з %d елементами</item>
+        <item quantity="many">Сесію Swiper створено з %d елементами</item>
+        <item quantity="other">Сесію Swiper створено з %d елементами</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Первинне сховище</string>
     <string name="analyzer_storage_type_primary_description">Основне сховище вашого пристрою. Містить внутрішню SD карту, приватне сховище для додатків та системних даних.</string>
     <string name="analyzer_storage_type_secondary_title">Вторинне сховище</string>
@@ -892,7 +971,19 @@
     <string name="review_app_body">Бажаєте залишити відгук про SD Maid?️ ❤️</string>
     <string name="anniversary_card_title">З річницею SD Maid ❤️</string>
     <string name="anniversary_card_install_date">З вами з %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Вже %1$d рік разом. Дякуємо, що довіряєте SD Maid підтримку чистоти вашого Android. Звільнено місця: %2$s</item>
+        <item quantity="few">%1$d роки разом. Ваш пристрій залишається чистим та охайним завдяки SD Maid. Звільнено місця: %2$s</item>
+        <item quantity="many">%1$d років разом. Ваш пристрій залишається чистим та охайним завдяки SD Maid. Звільнено місця: %2$s</item>
+        <item quantity="other">%1$d років разом. Ваш пристрій залишається чистим та охайним завдяки SD Maid. Звільнено місця: %2$s</item>
+    </plurals>
     <string name="anniversary_share_title">Поділіться своєю річницею SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d рік з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
+        <item quantity="few">%1$d роки з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
+        <item quantity="many">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
+        <item quantity="other">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
+    </plurals>
     <string name="stats_label">Історія</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s було звільнено.</item>
@@ -949,10 +1040,32 @@
     <string name="shortcuts_onetap_enabled_title">Швидкий доступ одним дотиком</string>
     <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
     <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Швидко впорядковуйте папки — проводьте пальцем по файлах, щоб зберегти, видалити або пропустити.</string>
+    <string name="swiper_dashcard_description">Впорядковуйте папки швидше, ніж у файловому менеджері — просто проведіть пальцем по кожному файлу.</string>
     <string name="swiper_start_action">Почніть прокручувати</string>
     <string name="swiper_continue_action">Продовжити сесію</string>
+    <string name="swiper_sessions_description">Переглядайте файли у 3 простих кроки:\n\n1. Виберіть папку для сканування\n2. Проводьте пальцем по файлах, щоб зберегти, видалити або пропустити\n3. Перегляньте свої рішення та підтвердіть\n\nНічого не видаляється, поки ви не натиснете кнопку остаточного видалення.</string>
     <string name="swiper_select_folders_action">Вибрати папки</string>
     <string name="swiper_scanning_title">Сканування…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d елемент знайдено</item>
+        <item quantity="few">%d елементи знайдено</item>
+        <item quantity="many">%d елементів знайдено</item>
+        <item quantity="other">%d елементів знайдено</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d елемент видалено</item>
+        <item quantity="few">%d елементи видалено</item>
+        <item quantity="many">%d елементів видалено</item>
+        <item quantity="other">%d елементів видалено</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d елемент з помилкою</item>
+        <item quantity="few">%d елементи з помилкою</item>
+        <item quantity="many">%d елементів з помилкою</item>
+        <item quantity="other">%d елементів з помилкою</item>
+    </plurals>
     <string name="swiper_item_position">#%1$d з %2$d</string>
     <string name="swiper_keep_action">Зберігати</string>
     <string name="swiper_skip_action">Пропустити</string>
@@ -964,6 +1077,18 @@
     <string name="swiper_decision_undecided">Невизначений</string>
     <string name="swiper_retry_action">Повторити спробу</string>
     <string name="swiper_delete_confirmation_title">Видалити файли?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Це назавжди видалить %1$d файл (%2$s). Цю дію неможливо скасувати.</item>
+        <item quantity="few">Це назавжди видалить %1$d файли (%2$s). Цю дію неможливо скасувати.</item>
+        <item quantity="many">Це назавжди видалить %1$d файлів (%2$s). Цю дію неможливо скасувати.</item>
+        <item quantity="other">Це назавжди видалить %1$d файлів (%2$s). Цю дію неможливо скасувати.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d невизначений елемент залишиться для подальшого перегляду.</item>
+        <item quantity="few">%d невизначені елементи залишаться для подальшого перегляду.</item>
+        <item quantity="many">%d невизначених елементів залишаться для подальшого перегляду.</item>
+        <item quantity="other">%d невизначених елементів залишаться для подальшого перегляду.</item>
+    </plurals>
     <string name="swiper_delete_x_action">Видалити %1$d</string>
     <string name="swiper_settings_swap_directions_title">Змінити напрямок прокручування</string>
     <string name="swiper_settings_swap_directions_summary">Проведіть пальцем вліво, щоб зберегти, вправо, щоб видалити.</string>
@@ -974,17 +1099,89 @@
     <string name="swiper_discard_session_confirmation_title">Скасувати сесію?</string>
     <string name="swiper_discard_session_confirmation_message">Всі рішення будуть втрачені. Ви впевнені?</string>
     <string name="swiper_no_preview_available">Попередній перегляд недоступний</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Продовжити сесію %1$d день тому (%2$d%% завершено)</item>
+        <item quantity="few">Продовжити сесію %1$d дні тому (%2$d%% завершено)</item>
+        <item quantity="many">Продовжити сесію %1$d днів тому (%2$d%% завершено)</item>
+        <item quantity="other">Продовжити сесію %1$d днів тому (%2$d%% завершено)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d сесія</item>
+        <item quantity="few">%d сесії</item>
+        <item quantity="many">%d сесій</item>
+        <item quantity="other">%d сесій</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d невизначений елемент</item>
+        <item quantity="few">%d невизначені елементи</item>
+        <item quantity="many">%d невизначених елементів</item>
+        <item quantity="other">%d невизначених елементів</item>
+    </plurals>
     <string name="swiper_session_timestamps">Створено %1$s, остання активність %2$s</string>
     <string name="swiper_session_remove_action">Видалити сесію</string>
     <string name="swiper_sessions_empty_hint">Натисніть +, щоб вибрати папку та почати перегортати</string>
     <string name="swiper_sessions_upgrade_body">Оновіть додаток, щоб зняти ці обмеження та підтримати розробку. Безкоштовна версія має такі обмеження:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d файл на сесію</item>
+        <item quantity="few">%d файли на сесію</item>
+        <item quantity="many">%d файлів на сесію</item>
+        <item quantity="other">%d файлів на сесію</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d сесія</item>
+        <item quantity="few">%d сесії</item>
+        <item quantity="many">%d сесій</item>
+        <item quantity="other">%d сесій</item>
+    </plurals>
     <string name="swiper_session_default_label">Сесія №%d</string>
     <string name="swiper_session_rename_title">Перейменувати сесію</string>
     <string name="swiper_session_rename_hint">Введіть назву для цієї сесії</string>
     <string name="swiper_sessions_current_sessions">Поточні сесії</string>
     <string name="swiper_session_paths_label">Шляхи</string>
     <string name="swiper_session_status_label">Статус</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d для збереження</item>
+        <item quantity="few">%d для збереження</item>
+        <item quantity="many">%d для збереження</item>
+        <item quantity="other">%d для збереження</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d для видалення</item>
+        <item quantity="few">%d для видалення</item>
+        <item quantity="many">%d для видалення</item>
+        <item quantity="other">%d для видалення</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d невизначений</item>
+        <item quantity="few">%d невизначені</item>
+        <item quantity="many">%d невизначених</item>
+        <item quantity="other">%d невизначених</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d вже збережено</item>
+        <item quantity="few">%d вже збережено</item>
+        <item quantity="many">%d вже збережено</item>
+        <item quantity="other">%d вже збережено</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d вже видалено</item>
+        <item quantity="few">%d вже видалено</item>
+        <item quantity="many">%d вже видалено</item>
+        <item quantity="other">%d вже видалено</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d збережено</item>
+        <item quantity="few">%d збережено</item>
+        <item quantity="many">%d збережено</item>
+        <item quantity="other">%d збережено</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d видалено</item>
+        <item quantity="few">%d видалено</item>
+        <item quantity="many">%d видалено</item>
+        <item quantity="other">%d видалено</item>
+    </plurals>
     <string name="swiper_exclude_confirmation_message">Виключити «%1$s» зі сканування Swiper?</string>
     <string name="swiper_sessions_header_title">Готові прибрати зайве?</string>
     <string name="swiper_sessions_suggestions_label">Спробуйте почати з:</string>
@@ -1009,5 +1206,16 @@
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Зачекайте!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Натисніть будь-де, щоб почати</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Зрозуміло</string>
+    <string name="swiper_gesture_overlay_left_delete">← Видалити</string>
+    <string name="swiper_gesture_overlay_right_keep">Зберегти →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Зберегти</string>
+    <string name="swiper_gesture_overlay_right_delete">Видалити →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Пропустити</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Скасувати</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Довідка</string>
+    <string name="swiper_help_title">Як працює Swiper</string>
+    <string name="swiper_help_message">Проведіть по кожному файлу, щоб прийняти рішення:\n\n← Проведіть вліво: %1$s\n→ Проведіть вправо: %2$s\n↑ Проведіть вгору: Пропустити\n↓ Проведіть вниз: Скасувати (після першого свайпу)\n\nВи також можете використовувати кнопки внизу.\n\nКоли закінчите, натисніть \"Огляд\", щоб переглянути всі рішення. Нічого не видаляється, поки ви не підтвердите на екрані перегляду.</string>
 </resources>

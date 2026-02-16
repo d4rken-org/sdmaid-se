@@ -1040,5 +1040,25 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Prit!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Prekni kudo për të filluar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
+    <string name="swiper_gesture_overlay_left_delete">← Fshi</string>
+    <string name="swiper_gesture_overlay_right_keep">Mbaj →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mbaj</string>
+    <string name="swiper_gesture_overlay_right_delete">Fshi →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Kapërce</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
+
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ndihmë</string>
+    <string name="swiper_help_title">Si funksionon Swiper</string>
+    <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
+    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
+    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
+
+    <string name="swiper_stamp_skip_2">Meh!</string>
 </resources>

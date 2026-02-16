@@ -839,8 +839,13 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="shortcuts_settings_category">Scorciatoie</string>
     <string name="shortcuts_onetap_enabled_title">Scorciatoia singolo tocco</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la scorciatoia \"Scansione + Elimina\" quando si tiene premuta l\'icona dell\'app. Usa gli stessi strumenti della dashboard singolo tocco.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Riordina le cartelle velocemente — scorri i file per tenerli, eliminarli o saltarli.</string>
+    <string name="swiper_dashcard_description">Riordina cartelle specifiche più velocemente di un file manager — basta scorrere ogni file.</string>
     <string name="swiper_start_action">Inizia a scorrere</string>
     <string name="swiper_continue_action">Continua sessione</string>
+    <string name="swiper_sessions_description">Rivedi i file in 3 semplici passaggi:\n\n1. Scegli una cartella da scansionare\n2. Scorri i file per tenerli, eliminarli o saltarli\n3. Rivedi le tue scelte e conferma\n\nNulla viene rimosso finché non tocchi il pulsante finale di eliminazione.</string>
     <string name="swiper_select_folders_action">Seleziona cartelle</string>
     <string name="swiper_scanning_title">Scansione…</string>
     <plurals name="swiper_result_x_items_found">
@@ -967,5 +972,16 @@ Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/phot
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Aspetta!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tocca ovunque per iniziare</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Capito</string>
+    <string name="swiper_gesture_overlay_left_delete">← Elimina</string>
+    <string name="swiper_gesture_overlay_right_keep">Tieni →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Tieni</string>
+    <string name="swiper_gesture_overlay_right_delete">Elimina →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Salta</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Aiuto</string>
+    <string name="swiper_help_title">Come funziona Swiper</string>
+    <string name="swiper_help_message">Scorri ogni file per prendere una decisione:\n\n← Scorri a sinistra: %1$s\n→ Scorri a destra: %2$s\n↑ Scorri in alto: Salta\n↓ Scorri in basso: Annulla (dopo il primo scorrimento)\n\nPuoi anche usare i pulsanti in basso.\n\nQuando hai finito, tocca \"Revisione\" per vedere tutte le tue decisioni. Nulla viene eliminato finché non confermi nella schermata di revisione.</string>
 </resources>

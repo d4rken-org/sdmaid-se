@@ -516,7 +516,9 @@
     <string name="squeezer_quality_warning_low">Calidades más bajas pueden causar artefactos visibles.</string>
     <string name="squeezer_quality_warning_high">Calidad muy alta proporciona un ahorro de espacio mínimo.</string>
     <string name="squeezer_types_category_label">Tipos de imagen</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Incluir imágenes JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Incluir imágenes WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">Omitir previamente comprimidas</string>
     <string name="squeezer_skip_compressed_description">Omitir imágenes que ya han sido comprimidas por SD Maid.</string>
@@ -906,6 +908,11 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Buscar + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Ordena carpetas rápido: desliza archivos para conservar, eliminar u omitir.</string>
+    <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos: simplemente desliza cada archivo.</string>
+    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
@@ -1034,5 +1041,16 @@
     <string name="swiper_stamp_undo_3">¡Ups!</string>
     <string name="swiper_stamp_undo_4">¡Espera!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toca en cualquier lugar para comenzar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
+    <string name="swiper_gesture_overlay_right_keep">Conservar →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Conservar</string>
+    <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Omitir</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ayuda</string>
+    <string name="swiper_help_title">Cómo funciona Swiper</string>
+    <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Desliza a la izquierda: %1$s\n→ Desliza a la derecha: %2$s\n↑ Desliza hacia arriba: Omitir\n↓ Desliza hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. Nada se elimina hasta que confirmes en la pantalla de revisión.</string>
 </resources>

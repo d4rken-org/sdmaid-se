@@ -900,8 +900,13 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="shortcuts_settings_category">קיצורי דרך</string>
     <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
     <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">סדר תיקיות מהר — החלק קבצים כדי לשמור, למחוק או לדלג.</string>
+    <string name="swiper_dashcard_description">סדר תיקיות ספציפיות מהר יותר מסייר קבצים — פשוט החלק כל קובץ.</string>
     <string name="swiper_start_action">התחל להחליק</string>
     <string name="swiper_continue_action">המשך הפעלה</string>
+    <string name="swiper_sessions_description">סקור קבצים ב-3 שלבים פשוטים:\n\n1. בחר תיקייה לסריקה\n2. החלק קבצים כדי לשמור, למחוק או לדלג\n3. סקור את הבחירות שלך ואשר\n\nשום דבר לא נמחק עד שתלחץ על כפתור המחיקה הסופי.</string>
     <string name="swiper_select_folders_action">בחר תיקיות</string>
     <string name="swiper_scanning_title">סורק…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1062,5 +1067,16 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="swiper_stamp_undo_3">אופס!</string>
     <string name="swiper_stamp_undo_4">רגע!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">הקש בכל מקום כדי להתחיל</string>
+    <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
+    <string name="swiper_gesture_overlay_left_delete">← מחק</string>
+    <string name="swiper_gesture_overlay_right_keep">שמור →</string>
+    <string name="swiper_gesture_overlay_left_keep">← שמור</string>
+    <string name="swiper_gesture_overlay_right_delete">מחק →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ דלג</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ בטל</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">עזרה</string>
+    <string name="swiper_help_title">איך Swiper עובד</string>
+    <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
 </resources>

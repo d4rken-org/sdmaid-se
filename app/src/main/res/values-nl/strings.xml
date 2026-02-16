@@ -498,6 +498,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
     <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Comprimeer afbeeldingen om opslagruimte te besparen.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d afbeelding gevonden</item>
@@ -529,7 +530,9 @@
     <string name="squeezer_quality_warning_low">Lagere kwaliteiten kunnen zichtbare artefacten veroorzaken.</string>
     <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
     <string name="squeezer_types_category_label">Afbeeldingstypen</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG-afbeeldingen opnemen (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP-afbeeldingen opnemen (.webp).</string>
     <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
     <string name="squeezer_skip_compressed_description">Sla afbeeldingen over die al door SD Maid zijn gecomprimeerd.</string>
@@ -920,6 +923,8 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ruim mappen snel op: blader door bestanden om ze te bewaren, te verwijderen of over te slaan.</string>
     <string name="swiper_dashcard_description">Ruim specifieke mappen sneller op dan met een bestandsverkenner: veeg gewoon over elk bestand.</string>
     <string name="swiper_start_action">Begin met vegen</string>
@@ -997,6 +1002,7 @@
     <string name="swiper_session_rename_hint">Voer een naam in voor deze sessie</string>
     <string name="swiper_sessions_current_sessions">Huidige sessies</string>
     <string name="swiper_session_paths_label">Paden</string>
+    <string name="swiper_session_status_label">Status</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d te bewaren</item>
         <item quantity="other">%d te bewaren</item>
@@ -1056,5 +1062,9 @@
     <string name="swiper_gesture_overlay_left_keep">← Bewaren</string>
     <string name="swiper_gesture_overlay_right_delete">Verwijderen →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Overslaan</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Ongedaan maken</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Help</string>
+    <string name="swiper_help_title">Hoe Swiper werkt</string>
+    <string name="swiper_help_message">Veeg over elk bestand om een beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na eerste veeg)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik op \"Controleren\" om al je beslissingen te zien. Er wordt niets verwijderd totdat je bevestigt op het controlescherm.</string>
 </resources>

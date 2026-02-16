@@ -834,8 +834,13 @@
     <string name="shortcuts_settings_category">शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_title">वन-टैप शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_summary">ऐप आइकन को देर तक दबाने पर \"स्कैन + हटाएं\" शॉर्टकट दिखाएं। वन-टैप डैशबोर्ड के समान टूल का उपयोग करता है।</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">फ़ोल्डरों को जल्दी साफ करें — फ़ाइलों को रखने, हटाने या छोड़ने के लिए स्वाइप करें।</string>
+    <string name="swiper_dashcard_description">फ़ाइल एक्सप्लोरर से तेज़ — बस हर फ़ाइल को स्वाइप करके विशिष्ट फ़ोल्डरों को व्यवस्थित करें।</string>
     <string name="swiper_start_action">स्वाइप शुरू करें</string>
     <string name="swiper_continue_action">सत्र जारी रखें</string>
+    <string name="swiper_sessions_description">3 आसान चरणों में फ़ाइलों की समीक्षा करें:\n\n1. स्कैन करने के लिए एक फ़ोल्डर चुनें\n2. फ़ाइलों को रखने, हटाने या छोड़ने के लिए स्वाइप करें\n3. अपने विकल्पों की समीक्षा करें और पुष्टि करें\n\nजब तक आप अंतिम हटाएं बटन नहीं दबाते, कुछ भी नहीं हटाया जाता।</string>
     <string name="swiper_select_folders_action">फ़ोल्डर चुनें</string>
     <string name="swiper_scanning_title">स्कैन हो रहा है…</string>
     <plurals name="swiper_result_x_items_found">
@@ -962,5 +967,16 @@
     <string name="swiper_stamp_undo_3">अरे!</string>
     <string name="swiper_stamp_undo_4">रुको!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">शुरू करने के लिए कहीं भी टैप करें</string>
+    <string name="swiper_gesture_overlay_dismiss_action">समझ गया</string>
+    <string name="swiper_gesture_overlay_left_delete">← हटाएं</string>
+    <string name="swiper_gesture_overlay_right_keep">रखें →</string>
+    <string name="swiper_gesture_overlay_left_keep">← रखें</string>
+    <string name="swiper_gesture_overlay_right_delete">हटाएं →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ छोड़ें</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत करें</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">मदद</string>
+    <string name="swiper_help_title">Swiper कैसे काम करता है</string>
+    <string name="swiper_help_message">प्रत्येक फ़ाइल पर निर्णय लेने के लिए स्वाइप करें:\n\n← बाएं स्वाइप करें: %1$s\n→ दाएं स्वाइप करें: %2$s\n↑ ऊपर स्वाइप करें: छोड़ें\n↓ नीचे स्वाइप करें: पूर्ववत करें (पहले स्वाइप के बाद)\n\nआप नीचे दिए गए बटनों का भी उपयोग कर सकते हैं।\n\nजब आप कर लें, तो अपने सभी निर्णय देखने के लिए \"समीक्षा\" पर टैप करें। समीक्षा स्क्रीन पर पुष्टि करने तक कुछ भी हटाया नहीं जाता।</string>
 </resources>

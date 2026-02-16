@@ -925,14 +925,20 @@
     <string name="area_type_public_obb_label">Opinberar auðlindir forrita</string>
     <string name="area_type_private_data_label">Einkaforritagögn</string>
     <string name="area_type_portable_label">Færanleg geymsla</string>
+    <string name="shortcut_appcontrol_short">Forritastjórnun</string>
     <string name="shortcut_appcontrol_long">Stjórna uppsettum forritum</string>
     <string name="shortcut_onetap_short">Skanna + Eyða</string>
     <string name="shortcut_onetap_long">Skanna og eyða í einni aðgerð</string>
     <string name="shortcuts_settings_category">Flýtileiðir</string>
     <string name="shortcuts_onetap_enabled_title">Flýtileið fyrir eina snertingu</string>
     <string name="shortcuts_onetap_enabled_summary">Sýna \"Skanna + Eyða\" flýtileið þegar forritatákninu er haldið inni. Notar sömu verkfæri og einn-snerting stjórnborð.</string>
+    <string name="swiper_label">Strjúkari</string>
+    <string name="swiper_tool_name">Strjúkari</string>
+    <string name="swiper_tool_description">Hreinsaðu möppur hratt — strjúktu skrám til að halda, eyða eða sleppa.</string>
+    <string name="swiper_dashcard_description">Hreinsaðu tilteknar möppur hraðar en skráavafri — strjúktu einfaldlega hverri skrá.</string>
     <string name="swiper_start_action">Byrja að strjúka</string>
     <string name="swiper_continue_action">Halda áfram með lotu</string>
+    <string name="swiper_sessions_description">Farðu yfir skrár í 3 einföldum skrefum:\n\n1. Veldu möppu til að skanna\n2. Strjúktu skrám til að halda, eyða eða sleppa\n3. Farðu yfir valin þín og staðfestu\n\nEkkert er fjarlægt fyrr en þú ýtir á lokahnapinn til að eyða.</string>
     <string name="swiper_select_folders_action">Veldu möppur</string>
     <string name="swiper_scanning_title">Skanna…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1059,5 +1065,16 @@
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Bíddu!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Ýttu hvar sem er til að byrja</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Í lagi</string>
+    <string name="swiper_gesture_overlay_left_delete">← Eyða</string>
+    <string name="swiper_gesture_overlay_right_keep">Halda →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Halda</string>
+    <string name="swiper_gesture_overlay_right_delete">Eyða →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Sleppa</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Afturkalla</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Hjálp</string>
+    <string name="swiper_help_title">Hvernig Strjúkari virkar</string>
+    <string name="swiper_help_message">Strjúktu hverri skrá til að taka ákvörðun:\n\n← Strjúktu til vinstri: %1$s\n→ Strjúktu til hægri: %2$s\n↑ Strjúktu upp: Sleppa\n↓ Strjúktu niður: Afturkalla (eftir fyrsta strjúk)\n\nÞú getur líka notað hnappana neðst.\n\nÞegar þú ert búin/n, ýttu á \"Yfirfara\" til að sjá allar ákvarðanir þínar. Ekkert er eytt fyrr en þú staðfestir á yfirferðarskjánum.</string>
 </resources>

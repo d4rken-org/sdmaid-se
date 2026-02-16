@@ -3,6 +3,8 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">Vereist SD Maid SE Pro</string>
+
+    <string name="upgrades_dashcard_title">SD Maid SE upgraden</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro biedt betere resultaten, meer functies en opties voor gevorderde gebruikers.</string>
     <string name="upgrades_dashcard_upgrade_action">Upgraden</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play is niet beschikbaar</string>

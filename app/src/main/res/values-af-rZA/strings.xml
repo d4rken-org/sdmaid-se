@@ -1034,11 +1034,24 @@
     <string name="swiper_stamp_delete_3">Gemors!</string>
     <string name="swiper_stamp_delete_4">Verwyder!</string>
     <string name="swiper_stamp_skip_1">Slaan oor!</string>
+    <string name="swiper_stamp_skip_2">Ag!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
     <string name="swiper_stamp_skip_4">Miskien!</string>
     <string name="swiper_stamp_undo_1">Ontdoen!</string>
     <string name="swiper_stamp_undo_2">Terug!</string>
     <string name="swiper_stamp_undo_3">Oeps!</string>
     <string name="swiper_stamp_undo_4">Wag!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tik enige plek om te begin</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
+    <string name="swiper_gesture_overlay_left_delete">← Verwyder</string>
+    <string name="swiper_gesture_overlay_right_keep">Hou →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Hou</string>
+    <string name="swiper_gesture_overlay_right_delete">Verwyder →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Slaan oor</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Ontdoen</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Hulp</string>
+    <string name="swiper_help_title">Hoe Swiper werk</string>
+    <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
 </resources>

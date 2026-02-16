@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS ଆବଶ୍ୟକ</string>
     <string name="upgrades_dashcard_title">SD Maid SE ଅପଗ୍ରେଡ କରନ୍ତୁ</string>
     <string name="upgrades_dashcard_body">ଅତିରିକ୍ତ ବୈଶିଷ୍ଟ୍ୟଗୁଡ଼ିକ ଅନଲକ କରନ୍ତୁ ଏବଂ ନିରନ୍ତର ବିକାଶକୁ ସମର୍ଥନ କରିବା ପାଇଁ ଜଣେ ପୃଷ୍ଠପୋଷକ ହୋଇଯାଆନ୍ତୁ!</string>

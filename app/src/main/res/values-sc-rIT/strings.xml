@@ -919,8 +919,13 @@
     <string name="shortcuts_settings_category">Iscurtzadas</string>
     <string name="shortcuts_onetap_enabled_title">Iscurtzada de unu tocu</string>
     <string name="shortcuts_onetap_enabled_summary">Mustra s\'iscurtzada \"Chirca + Cantzella\" cando si prèmit a longu s\'icone de s\'aplicatzione. Impitat is matessi istrumentos de su pannellu de unu tocu.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Fae òrdine in sas cartellas a sa lestra — iscorre is archìvios pro mantènnere, cantzellare o brincare.</string>
+    <string name="swiper_dashcard_description">Fae òrdine in cartellas ispetzìficas prus a sa lestra de unu esploratore de archìvios — basta iscòrrere cada archìviu.</string>
     <string name="swiper_start_action">Cumintza a iscòrrere</string>
     <string name="swiper_continue_action">Sighit sa sessione</string>
+    <string name="swiper_sessions_description">Revisiona is archìvios in 3 passos semplìtzios:\n\n1. Sèbera una cartella de chìrcare\n2. Iscorre is archìvios pro mantènnere, cantzellare o brincare\n3. Revisiona is detzisiones tuas e cunfirma\n\nNo si cantzellat nudda fintzas a cando tocas su butone de cantzellamentu finale.</string>
     <string name="swiper_select_folders_action">Sèbera cartellas</string>
     <string name="swiper_scanning_title">Chirchende…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1047,5 +1052,16 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Firma!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toca in cale si siat logu pro cumintzare</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Cumpresu</string>
+    <string name="swiper_gesture_overlay_left_delete">← Cantzella</string>
+    <string name="swiper_gesture_overlay_right_keep">Mantèni →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mantèni</string>
+    <string name="swiper_gesture_overlay_right_delete">Cantzella →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Brinca</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Agiudu</string>
+    <string name="swiper_help_title">Comente funtzionat Swiper</string>
+    <string name="swiper_help_message">Iscorre cada archìviu pro leare una detzisione:\n\n← Iscorre a manu manca: %1$s\n→ Iscorre a manu dereta: %2$s\n↑ Iscorre a susu: Brinca\n↓ Iscorre a josso: Annulla (a pustis de su primu iscorrimentu)\n\nPodes fintzas impreare is butones in bàsciu.\n\nCando as acabadu, toca \"Revisione\" pro bìdere totu is detzisiones tuas. No si cantzellat nudda fintzas a cando non lu cunfirmas in sa pàgina de revisione.</string>
 </resources>

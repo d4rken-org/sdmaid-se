@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Таны үйлчилгээнд.</string>
     <string name="slogan_message_1">Цэвэр бөгөөд эмх цэгцтэй.</string>
     <string name="slogan_message_2">Эмх замбараагүй байдлаас сэргийлэх.</string>
     <string name="slogan_message_3">Хэрэгтэй зүйлийг хийх.</string>
+    <string name="slogan_message_4">Бүгд эмх цэгцтэй.</string>
     <string name="slogan_message_5">Толигор.</string>
     <string name="slogan_message_6">Байт, явж!</string>
     <string name="slogan_message_7">Чөлөөт зай, баяр баясгалантай газар.</string>

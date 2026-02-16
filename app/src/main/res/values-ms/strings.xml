@@ -890,8 +890,13 @@
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan satu ketik</string>
     <string name="shortcuts_onetap_enabled_summary">Tunjukkan pintasan \"Imbas + Padam\" apabila menekan lama ikon aplikasi. Menggunakan alat yang sama seperti papan pemuka satu ketik.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Kemas folder dengan cepat — leret fail untuk simpan, padam atau langkau.</string>
+    <string name="swiper_dashcard_description">Kemas folder tertentu lebih pantas daripada penjelajah fail — hanya leret setiap fail.</string>
     <string name="swiper_start_action">Mula meleret</string>
     <string name="swiper_continue_action">Teruskan sesi</string>
+    <string name="swiper_sessions_description">Semak fail dalam 3 langkah mudah:\n\n1. Pilih folder untuk diimbas\n2. Leret fail untuk simpan, padam atau langkau\n3. Semak pilihan anda dan sahkan\n\nTiada apa yang dibuang sehingga anda mengetik butang padam terakhir.</string>
     <string name="swiper_select_folders_action">Pilih folder</string>
     <string name="swiper_scanning_title">Mengimbas…</string>
     <plurals name="swiper_result_x_items_found">
@@ -988,6 +993,7 @@
     <string name="swiper_stamp_keep_3">Ya!</string>
     <string name="swiper_stamp_keep_4">Kekal!</string>
     <string name="swiper_stamp_delete_1">Tidak!</string>
+    <string name="swiper_stamp_delete_2">Bye!</string>
     <string name="swiper_stamp_delete_3">Sampah!</string>
     <string name="swiper_stamp_delete_4">Padam!</string>
     <string name="swiper_stamp_skip_1">Langkau!</string>
@@ -999,5 +1005,16 @@
     <string name="swiper_stamp_undo_3">Alamak!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Ketik di mana-mana untuk mula</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
+    <string name="swiper_gesture_overlay_left_delete">← Padam</string>
+    <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
+    <string name="swiper_gesture_overlay_right_delete">Padam →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Langkau</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Bantuan</string>
+    <string name="swiper_help_title">Cara Swiper berfungsi</string>
+    <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
 </resources>

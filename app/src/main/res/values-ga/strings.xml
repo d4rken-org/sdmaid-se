@@ -1135,4 +1135,17 @@
     <string name="swiper_stamp_undo_2">Siar!</string>
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Fan!</string>
+    <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tapáil áit ar bith chun tosú</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Tuigim</string>
+    <string name="swiper_gesture_overlay_left_delete">← Scrios</string>
+    <string name="swiper_gesture_overlay_right_keep">Coinnigh →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Coinnigh</string>
+    <string name="swiper_gesture_overlay_right_delete">Scrios →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Scipeáil</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Cealaigh</string>
+    <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Cabhair</string>
+    <string name="swiper_help_title">Conas a oibríonn Swiper</string>
+    <string name="swiper_help_message">Svaidhpeáil gach comhad chun cinneadh a dhéanamh:\n\n← Svaidhpeáil ar chlé: %1$s\n→ Svaidhpeáil ar dheis: %2$s\n↑ Svaidhpeáil suas: Scipeáil\n↓ Svaidhpeáil síos: Cealaigh (tar éis an chéad svaidhpeáil)\n\nIs féidir leat na cnaipí ag an mbun a úsáid freisin.\n\nNuair atá tú réidh, tapáil \"Athbhreithniú\" chun do chinntí go léir a fheiceáil. Ní scriostar aon rud go dtí go ndearbhaíonn tú ar an scáileán athbhreithnithe.</string>
 </resources>

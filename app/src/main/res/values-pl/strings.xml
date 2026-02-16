@@ -1043,8 +1043,11 @@ Karol Szastok (K4r0lSz);</string>
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
     <string name="swiper_label">Przesuwacz</string>
     <string name="swiper_tool_name">Przesuwacz</string>
+    <string name="swiper_tool_description">Szybko uporządkuj foldery — przesuwaj pliki, aby zachować, usunąć lub pominąć.</string>
+    <string name="swiper_dashcard_description">Uporządkuj konkretne foldery szybciej niż eksplorator plików — po prostu przesuń każdy plik.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>
     <string name="swiper_continue_action">Kontynuuj sesję</string>
+    <string name="swiper_sessions_description">Przeglądaj pliki w 3 prostych krokach:\n\n1. Wybierz folder do skanowania\n2. Przesuwaj pliki, aby zachować, usunąć lub pominąć\n3. Sprawdź swoje wybory i potwierdź\n\nNic nie zostanie usunięte, dopóki nie naciśniesz przycisku ostatecznego usunięcia.</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1205,5 +1208,16 @@ Karol Szastok (K4r0lSz);</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Czekaj!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Dotknij w dowolnym miejscu, aby rozpocząć</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
+    <string name="swiper_gesture_overlay_left_delete">← Usuń</string>
+    <string name="swiper_gesture_overlay_right_keep">Zachowaj →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Zachowaj</string>
+    <string name="swiper_gesture_overlay_right_delete">Usuń →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Pomiń</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Cofnij</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_help_title">Jak działa Przesuwacz</string>
+    <string name="swiper_help_message">Przesuń każdy plik, aby podjąć decyzję:\n\n← Przesuń w lewo: %1$s\n→ Przesuń w prawo: %2$s\n↑ Przesuń w górę: Pomiń\n↓ Przesuń w dół: Cofnij (po pierwszym przesunięciu)\n\nMożesz też użyć przycisków na dole.\n\nGdy skończysz, dotknij \"Oceń\", aby zobaczyć wszystkie decyzje. Nic nie zostanie usunięte, dopóki nie potwierdzisz na ekranie przeglądu.</string>
 </resources>

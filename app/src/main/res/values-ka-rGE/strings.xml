@@ -924,8 +924,13 @@
     <string name="shortcuts_settings_category">მალსახმობები</string>
     <string name="shortcuts_onetap_enabled_title">ერთი შეხების მალსახმობი</string>
     <string name="shortcuts_onetap_enabled_summary">\"სკანირება + წაშლა\" მალსახმობის ჩვენება აპის ხატულაზე დიდხანს დაჭერისას. იყენებს იმავე ინსტრუმენტებს, რასაც ერთი შეხების დაფა.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">სწრაფად მოაწესრიგეთ საქაღალდეები — გადაფურცლეთ ფაილები შესანახად, წასაშლელად ან გამოსატოვებლად.</string>
+    <string name="swiper_dashcard_description">მოაწესრიგეთ კონკრეტული საქაღალდეები ფაილების მენეჯერზე სწრაფად — უბრალოდ გადაფურცლეთ თითოეული ფაილი.</string>
     <string name="swiper_start_action">გადაფურცვლის დაწყება</string>
     <string name="swiper_continue_action">სესიის გაგრძელება</string>
+    <string name="swiper_sessions_description">გადახედეთ ფაილებს 3 მარტივ ნაბიჯში:\n\n1. აირჩიეთ საქაღალდე სკანირებისთვის\n2. გადაფურცლეთ ფაილები შესანახად, წასაშლელად ან გამოსატოვებლად\n3. გადახედეთ თქვენს არჩევანს და დაადასტურეთ\n\nარაფერი წაიშლება, სანამ საბოლოო წაშლის ღილაკს არ დააჭერთ.</string>
     <string name="swiper_select_folders_action">საქაღალდეების არჩევა</string>
     <string name="swiper_scanning_title">სკანირდება…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1052,5 +1057,16 @@
     <string name="swiper_stamp_undo_3">უპს!</string>
     <string name="swiper_stamp_undo_4">მოიცა!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">დასაწყებად შეეხეთ ნებისმიერ ადგილას</string>
+    <string name="swiper_gesture_overlay_dismiss_action">გასაგებია</string>
+    <string name="swiper_gesture_overlay_left_delete">← წაშლა</string>
+    <string name="swiper_gesture_overlay_right_keep">შენახვა →</string>
+    <string name="swiper_gesture_overlay_left_keep">← შენახვა</string>
+    <string name="swiper_gesture_overlay_right_delete">წაშლა →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ გამოტოვება</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ გაუქმება</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">დახმარება</string>
+    <string name="swiper_help_title">როგორ მუშაობს Swiper</string>
+    <string name="swiper_help_message">გადაფურცლეთ თითოეული ფაილი გადაწყვეტილების მისაღებად:\n\n← გადაფურცლეთ მარცხნივ: %1$s\n→ გადაფურცლეთ მარჯვნივ: %2$s\n↑ გადაფურცლეთ ზემოთ: გამოტოვება\n↓ გადაფურცლეთ ქვემოთ: გაუქმება (პირველი გადაფურცვლის შემდეგ)\n\nასევე შეგიძლიათ გამოიყენოთ ღილაკები ბოლოში.\n\nდასრულების შემდეგ, შეეხეთ \"მიმოხილვას\" ყველა გადაწყვეტილების სანახავად. არაფერი წაიშლება, სანამ მიმოხილვის ეკრანზე არ დაადასტურებთ.</string>
 </resources>

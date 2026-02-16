@@ -1205,5 +1205,16 @@
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Počkat!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Klepněte kamkoli pro zahájení</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
+    <string name="swiper_gesture_overlay_left_delete">← Smazat</string>
+    <string name="swiper_gesture_overlay_right_keep">Ponechat →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Ponechat</string>
+    <string name="swiper_gesture_overlay_right_delete">Smazat →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Přeskočit</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Zpět</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Nápověda</string>
+    <string name="swiper_help_title">Jak Swiper funguje</string>
+    <string name="swiper_help_message">Přejeďte každý soubor pro rozhodnutí:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zpět (po prvním přejetí)\n\nMůžete také použít tlačítka ve spodní části.\n\nAž budete hotovi, klepněte na \"Zkontrolovat\" pro zobrazení všech vašich rozhodnutí. Nic nebude smazáno, dokud nepotvrdíte na obrazovce kontroly.</string>
 </resources>

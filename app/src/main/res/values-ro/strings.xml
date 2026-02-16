@@ -1108,5 +1108,16 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Așteaptă!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Atingeți oriunde pentru a începe</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Am înțeles</string>
+    <string name="swiper_gesture_overlay_left_delete">← Șterge</string>
+    <string name="swiper_gesture_overlay_right_keep">Păstrează →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Păstrează</string>
+    <string name="swiper_gesture_overlay_right_delete">Șterge →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Sari</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Anulare</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Ajutor</string>
+    <string name="swiper_help_title">Cum funcționează Swiper</string>
+    <string name="swiper_help_message">Glisați fiecare fișier pentru a lua o decizie:\n\n← Glisați la stânga: %1$s\n→ Glisați la dreapta: %2$s\n↑ Glisați în sus: Sari\n↓ Glisați în jos: Anulare (după prima glisare)\n\nPuteți utiliza și butoanele de jos.\n\nCând ați terminat, atingeți \"Revizuire\" pentru a vedea toate deciziile. Nimic nu este șters până nu confirmați pe ecranul de revizuire.</string>
 </resources>

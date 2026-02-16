@@ -538,7 +538,9 @@
     <string name="squeezer_quality_warning_low">کم معیار میں نظر آنے والی خرابیاں ہو سکتی ہیں۔</string>
     <string name="squeezer_quality_warning_high">بہت زیادہ معیار کم جگہ بچاتا ہے۔</string>
     <string name="squeezer_types_category_label">تصویر کی اقسام</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG تصاویر (.jpg, .jpeg) شامل کریں۔</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP تصاویر (.webp) شامل کریں۔</string>
     <string name="squeezer_skip_compressed_title">پہلے سے کمپریس شدہ چھوڑیں</string>
     <string name="squeezer_skip_compressed_description">وہ تصاویر چھوڑیں جو پہلے سے SD Maid نے کمپریس کی ہیں۔</string>
@@ -926,6 +928,11 @@
     <string name="shortcuts_settings_category">شارٹ کٹس</string>
     <string name="shortcuts_onetap_enabled_title">ون ٹیپ شارٹ کٹ</string>
     <string name="shortcuts_onetap_enabled_summary">ایپ آئیکن کو دیر تک دبانے پر \"اسکین + حذف\" شارٹ کٹ دکھائیں۔ ون ٹیپ ڈیش بورڈ جیسے ٹولز استعمال کرتا ہے۔</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">فولڈرز جلدی صاف کریں — فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں۔</string>
+    <string name="swiper_dashcard_description">فائل ایکسپلورر سے تیز مخصوص فولڈرز صاف کریں — بس ہر فائل سوائپ کریں۔</string>
+    <string name="swiper_sessions_description">3 آسان مراحل میں فائلوں کا جائزہ لیں:\n\n1. اسکین کرنے کے لیے فولڈر چنیں\n2. فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں\n3. اپنے انتخاب کا جائزہ لیں اور تصدیق کریں\n\nآخری حذف بٹن دبانے تک کچھ بھی نہیں ہٹایا جاتا۔</string>
     <string name="swiper_start_action">سوائپ شروع کریں</string>
     <string name="swiper_continue_action">سیشن جاری رکھیں</string>
     <string name="swiper_select_folders_action">فولڈرز منتخب کریں</string>
@@ -1054,5 +1061,16 @@
     <string name="swiper_stamp_undo_3">اوہو!</string>
     <string name="swiper_stamp_undo_4">رکیں!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">شروع کرنے کے لیے کہیں بھی ٹیپ کریں</string>
+    <string name="swiper_gesture_overlay_dismiss_action">سمجھ آ گئی</string>
+    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
+    <string name="swiper_gesture_overlay_right_keep">رکھیں →</string>
+    <string name="swiper_gesture_overlay_left_keep">← رکھیں</string>
+    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ چھوڑیں</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ واپس</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">مدد</string>
+    <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
+    <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
 </resources>

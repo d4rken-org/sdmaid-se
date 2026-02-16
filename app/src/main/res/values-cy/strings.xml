@@ -1184,4 +1184,17 @@
     <string name="swiper_stamp_undo_2">Nôl!</string>
     <string name="swiper_stamp_undo_3">Wps!</string>
     <string name="swiper_stamp_undo_4">Aros!</string>
+    <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tapiwch unrhyw le i ddechrau</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Iawn</string>
+    <string name="swiper_gesture_overlay_left_delete">← Dileu</string>
+    <string name="swiper_gesture_overlay_right_keep">Cadw →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Cadw</string>
+    <string name="swiper_gesture_overlay_right_delete">Dileu →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Sgipio</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Dadwneud</string>
+    <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Cymorth</string>
+    <string name="swiper_help_title">Sut mae Swiper yn gweithio</string>
+    <string name="swiper_help_message">Sweipiwch bob ffeil i wneud penderfyniad:\n\n← Sweipio i\'r chwith: %1$s\n→ Sweipio i\'r dde: %2$s\n↑ Sweipio i fyny: Sgipio\n↓ Sweipio i lawr: Dadwneud (ar ôl y sweipio cyntaf)\n\nGallwch hefyd ddefnyddio\'r botymau ar y gwaelod.\n\nPan fyddwch chi\'n barod, tapiwch \"Adolygu\" i weld eich holl benderfyniadau. Ni fydd unrhyw beth yn cael ei ddileu nes i chi gadarnhau ar y sgrin adolygu.</string>
 </resources>

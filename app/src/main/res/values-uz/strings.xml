@@ -931,8 +931,11 @@
     <string name="shortcuts_onetap_enabled_summary">Ilova belgisini uzoq bosganda \"Skanerlash + O\'chirish\" yorlig\'ini ko\'rsatish. Bir bosishli boshqaruv paneli bilan bir xil vositalardan foydalanadi.</string>
     <string name="swiper_label">O‘chirish</string>
     <string name="swiper_tool_name">O‘chirish</string>
+    <string name="swiper_tool_description">Papkalarni tez tartibga keltiring — fayllarni saqlash, o\'chirish yoki o\'tkazish uchun suring.</string>
+    <string name="swiper_dashcard_description">Muayyan papkalarni fayl boshqaruvchisidan tezroq tartibga keltiring — har bir faylni suring.</string>
     <string name="swiper_start_action">Surishni boshlash</string>
     <string name="swiper_continue_action">Sessiyani davom ettirish</string>
+    <string name="swiper_sessions_description">Fayllarni 3 oddiy qadamda ko\'rib chiqing:\n\n1. Skanerlash uchun papkani tanlang\n2. Fayllarni saqlash, o\'chirish yoki o\'tkazish uchun suring\n3. Tanlovlaringizni ko\'rib chiqing va tasdiqlang\n\nYakuniy o\'chirish tugmasini bosguningizcha hech narsa o\'chirilmaydi.</string>
     <string name="swiper_select_folders_action">Papkalarni tanlash</string>
     <string name="swiper_scanning_title">Skanerlanmoqda…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1059,5 +1062,16 @@
     <string name="swiper_stamp_undo_3">Voy!</string>
     <string name="swiper_stamp_undo_4">Kuting!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Boshlash uchun istalgan joyga bosing</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Tushunarli</string>
+    <string name="swiper_gesture_overlay_left_delete">← O\'chirish</string>
+    <string name="swiper_gesture_overlay_right_keep">Saqlash →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saqlash</string>
+    <string name="swiper_gesture_overlay_right_delete">O\'chirish →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ O\'tkazish</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarish</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Yordam</string>
+    <string name="swiper_help_title">Swiper qanday ishlaydi</string>
+    <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
 </resources>

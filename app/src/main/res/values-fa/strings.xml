@@ -1052,5 +1052,16 @@
     <string name="swiper_stamp_undo_3">اوه!</string>
     <string name="swiper_stamp_undo_4">صبر!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">برای شروع هر جایی ضربه بزنید</string>
+    <string name="swiper_gesture_overlay_dismiss_action">متوجه شدم</string>
+    <string name="swiper_gesture_overlay_left_delete">← حذف</string>
+    <string name="swiper_gesture_overlay_right_keep">نگه‌داشتن →</string>
+    <string name="swiper_gesture_overlay_left_keep">← نگه‌داشتن</string>
+    <string name="swiper_gesture_overlay_right_delete">حذف →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ رد شدن</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ بازگشت</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">راهنما</string>
+    <string name="swiper_help_title">نحوه کار Swiper</string>
+    <string name="swiper_help_message">هر فایل را بکشید تا تصمیم بگیرید:\n\n← کشیدن به چپ: %1$s\n→ کشیدن به راست: %2$s\n↑ کشیدن به بالا: رد شدن\n↓ کشیدن به پایین: بازگشت (پس از اولین کشیدن)\n\nهمچنین می‌توانید از دکمه‌های پایین استفاده کنید.\n\nوقتی کارتان تمام شد، روی \"بررسی\" ضربه بزنید تا همه تصمیم‌هایتان را ببینید. تا زمانی که در صفحه بررسی تأیید نکنید، هیچ چیز حذف نمی‌شود.</string>
 </resources>

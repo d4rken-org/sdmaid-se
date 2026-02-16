@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+
     <string name="upgrade_feature_requires_pro">Потребен е SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Надградете го SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro нуди подобри резултати, повеќе функции и опции за напредни корисници.</string>

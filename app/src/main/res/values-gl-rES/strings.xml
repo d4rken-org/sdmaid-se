@@ -1060,5 +1060,16 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Agarda!</string>
     <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Toca en calquera lugar para comezar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
+    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
+    <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Saltar</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Desfacer</string>
     <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Axuda</string>
+    <string name="swiper_help_title">Como funciona Swiper</string>
+    <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
 </resources>

@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">మీ సేవలో.</string>
     <string name="slogan_message_1">శుభ్రంగా మరియు క్రమబద్ధంగా.</string>
     <string name="slogan_message_2">గందరగోళాన్ని నివారిస్తుంది.</string>
     <string name="slogan_message_3">అవసరమైనది చేస్తుంది.</string>
+    <string name="slogan_message_4">అన్నీ క్రమంలో ఉన్నాయి.</string>
     <string name="slogan_message_5">నిర్మలమైనది.</string>
     <string name="slogan_message_6">బైట్లు, వెళ్లండి!</string>
     <string name="slogan_message_7">ఖాళీ స్థలం, సంతోషకరమైన స్థలం.</string>
