@@ -966,7 +966,7 @@
     <string name="updatecheck_setting_enabled_explanation">Povolit aplikaci SD Maid vyhledávat aktualizace a informovat, zda je k dispozici novější verze.</string>
     <string name="device_settings_category">Zařízení</string>
     <string name="beta_version_indicator_desc">Ve zkušebních verzích se na úvodní obrazovce zobrazuje malá lišta. Jsou častěji aktualizovány, mohou mít více funkcí, ale také více chyb.</string>
-    <string name="review_app_review_action">Ohodnotit</string>
+    <string name="review_app_review_action">Posoudit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
     <string name="anniversary_card_title">Šťastné výročí s aplikací SD Maid ❤️</string>
@@ -1039,12 +1039,13 @@
     <string name="shortcuts_settings_category">Zkratky</string>
     <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
-    <string name="swiper_label">Přetahovač</string>
-    <string name="swiper_tool_name">Přetahovač</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Rychlé třídění složek — přejeďte prstem po souborech a vyberte, které chcete ponechat, smazat nebo přeskočit.</string>
     <string name="swiper_dashcard_description">Třiďte konkrétní složky rychleji než v průzkumníku souborů — stačí přejet prstem po každém souboru.</string>
     <string name="swiper_start_action">Začít přetahovat</string>
     <string name="swiper_continue_action">Pokračovat v relaci</string>
+    <string name="swiper_sessions_description">Prohlédněte si soubory ve 3 jednoduchých krocích:\n\n1. Vyberte složku, kterou chcete prohledat\n2. Procházejte soubory a rozhodněte se, které chcete ponechat, smazat nebo přeskočit\n3. Zkontrolujte své volby a potvrďte\n\nNic nebude smazáno, dokud nekliknete na tlačítko pro definitivní smazání.</string>
     <string name="swiper_select_folders_action">Vybrat složku</string>
     <string name="swiper_scanning_title">Skenování…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1205,16 +1206,16 @@
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Počkat!</string>
     <!-- Swiper gesture overlay -->
-    <string name="swiper_gesture_overlay_dismiss">Klepněte kamkoli pro zahájení</string>
+    <string name="swiper_gesture_overlay_dismiss">Začněte klepnutím kamkoli</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
     <string name="swiper_gesture_overlay_left_delete">← Smazat</string>
     <string name="swiper_gesture_overlay_right_keep">Ponechat →</string>
     <string name="swiper_gesture_overlay_left_keep">← Ponechat</string>
     <string name="swiper_gesture_overlay_right_delete">Smazat →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Přeskočit</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ Zpět</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Vrať zpět</string>
     <!-- Swiper help dialog -->
-    <string name="swiper_help_action">Nápověda</string>
-    <string name="swiper_help_title">Jak Swiper funguje</string>
-    <string name="swiper_help_message">Přejeďte každý soubor pro rozhodnutí:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zpět (po prvním přejetí)\n\nMůžete také použít tlačítka ve spodní části.\n\nAž budete hotovi, klepněte na \"Zkontrolovat\" pro zobrazení všech vašich rozhodnutí. Nic nebude smazáno, dokud nepotvrdíte na obrazovce kontroly.</string>
+    <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_help_title">Jak funguje Swiper</string>
+    <string name="swiper_help_message">Přejeďte prstem po každém souboru a rozhodněte se:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zrušit (po prvním přejetí)\n\nMůžete také použít tlačítka v dolní části.\n\nAž budete hotovi, klepněte na \"Posoudit\" a zobrazte všechna svá rozhodnutí. Nic se nesmaže, dokud nepotvrdíte na obrazovce s přehledem.</string>
 </resources>
