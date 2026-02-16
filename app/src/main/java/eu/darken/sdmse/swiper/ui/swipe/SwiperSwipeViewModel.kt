@@ -67,13 +67,15 @@ class SwiperSwipeViewModel @Inject constructor(
         settings.swapSwipeDirections.flow,
         settings.showFileDetailsOverlay.flow,
         undoHistory,
+        settings.hasShownGestureOverlay.flow,
     ) { session: SwipeSession?,
         items: List<SwipeItem>,
         allSessions: List<Swiper.SessionWithStats>,
         indexOverride: Int?,
         swapDirections: Boolean,
         showDetails: Boolean,
-        undoStack: List<UndoEntry> ->
+        undoStack: List<UndoEntry>,
+        hasShownOverlay: Boolean ->
         // Clear stale override when session was reset to 0 (e.g., after deletion)
         val currentIndex = when {
             session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
@@ -107,6 +109,7 @@ class SwiperSwipeViewModel @Inject constructor(
             showDetails = showDetails,
             sessionPosition = sessionPosition,
             canUndo = undoStack.isNotEmpty(),
+            showGestureOverlay = !hasShownOverlay,
         )
     }.asLiveData2()
 
@@ -222,6 +225,11 @@ class SwiperSwipeViewModel @Inject constructor(
         SwiperSwipeFragmentDirections.actionSwiperSwipeFragmentToSwiperStatusFragment(sessionId).navigate()
     }
 
+    fun dismissGestureOverlay() = launch {
+        log(TAG, INFO) { "dismissGestureOverlay()" }
+        settings.hasShownGestureOverlay.value(true)
+    }
+
     fun excludeAndRemove(item: SwipeItem) = launch {
         log(TAG, INFO) { "excludeAndRemove(${item.lookup.lookedUp})" }
         val exclusion = PathExclusion(
@@ -248,6 +256,7 @@ class SwiperSwipeViewModel @Inject constructor(
         val showDetails: Boolean,
         val sessionPosition: Int?,
         val canUndo: Boolean,
+        val showGestureOverlay: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex

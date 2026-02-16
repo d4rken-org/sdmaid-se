@@ -25,6 +25,7 @@ class SwiperSettings @Inject constructor(
     val swapSwipeDirections = dataStore.createValue("swipe.directions.swapped", false)
     val showFileDetailsOverlay = dataStore.createValue("swipe.details.overlay.enabled", true)
     val hapticFeedbackEnabled = dataStore.createValue("swipe.haptic.enabled", true)
+    val hasShownGestureOverlay = dataStore.createValue("swipe.gesture.overlay.shown", false)
 
     override val mapper = PreferenceStoreMapper(
         swapSwipeDirections,

@@ -1016,11 +1016,11 @@
 
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Swipe through files to decide what to keep or delete.</string>
-    <string name="swiper_dashcard_description">Manually review files in specific folders. Swipe to decide what to keep or delete.</string>
+    <string name="swiper_tool_description">Declutter folders fast — swipe through files to keep, delete, or skip.</string>
+    <string name="swiper_dashcard_description">Declutter specific folders faster than a file explorer — just swipe each file.</string>
     <string name="swiper_start_action">Start swiping</string>
     <string name="swiper_continue_action">Continue session</string>
-    <string name="swiper_sessions_description">Some files need a human decision. Swipe through items and choose what to keep or delete. Skip anything you’re unsure about. This tool lets you review specific folders manually, and nothing is removed until you confirm.</string>
+    <string name="swiper_sessions_description">Review files in 3 simple steps:\n\n1. Pick a folder to scan\n2. Swipe through files to keep, delete, or skip\n3. Review your choices and confirm\n\nNothing is removed until you tap the final delete button.</string>
     <string name="swiper_select_folders_action">Select folders</string>
     <string name="swiper_scanning_title">Scanning…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1149,4 +1149,19 @@
     <string name="swiper_stamp_undo_2">Back!</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Wait!</string>
+
+    <!-- Swiper gesture overlay -->
+    <string name="swiper_gesture_overlay_dismiss">Tap anywhere to start</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Got it</string>
+    <string name="swiper_gesture_overlay_left_delete">← Delete</string>
+    <string name="swiper_gesture_overlay_right_keep">Keep →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Keep</string>
+    <string name="swiper_gesture_overlay_right_delete">Delete →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Skip</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Undo</string>
+
+    <!-- Swiper help dialog -->
+    <string name="swiper_help_action">Help</string>
+    <string name="swiper_help_title">How Swiper works</string>
+    <string name="swiper_help_message">Swipe each file to make a decision:\n\n← Swipe left: %1$s\n→ Swipe right: %2$s\n↑ Swipe up: Skip\n↓ Swipe down: Undo (after first swipe)\n\nYou can also use the buttons at the bottom.\n\nWhen you\'re done, tap \"Review\" to see all your decisions. Nothing is deleted until you confirm on the review screen.</string>
 </resources>

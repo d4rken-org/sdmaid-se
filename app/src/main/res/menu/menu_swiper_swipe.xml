@@ -3,6 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item
+        android:id="@+id/action_help"
+        android:icon="@drawable/ic_help_outline"
+        android:title="@string/swiper_help_action"
+        app:showAsAction="ifRoom" />
+
+    <item
         android:id="@+id/action_review"
         android:icon="@drawable/baseline_list_alt_24"
         android:title="@string/swiper_review_action"

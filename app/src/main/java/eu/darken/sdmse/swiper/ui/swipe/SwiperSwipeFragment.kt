@@ -41,6 +41,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
     private var currentItems: List<SwipeItem> = emptyList()
     private var currentIndex: Int = 0
     private var isInitialScroll = true
+    private var currentSwapDirections: Boolean = false
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
@@ -55,6 +56,17 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
         // actionLayout requires manual click handling
         ui.toolbar.menu.findItem(R.id.action_review)?.actionView?.setOnClickListener {
             vm.navigateToStatus()
+        }
+
+        ui.toolbar.setOnMenuItemClickListener { menuItem ->
+            when (menuItem.itemId) {
+                R.id.action_help -> {
+                    showHelpDialog()
+                    true
+                }
+
+                else -> false
+            }
         }
 
         // SwipeCardView setup
@@ -212,6 +224,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             }
             currentItems = state.items
             currentIndex = state.currentIndex
+            currentSwapDirections = state.swapDirections
 
             progressAdapter.submitList(state.items)
             progressAdapter.currentItemIndex = state.currentIndex
@@ -286,9 +299,51 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                     .withEndAction { undoContainer.visibility = View.INVISIBLE }
                     .start()
             }
+
+            // Gesture overlay (first-use onboarding)
+            if (state.showGestureOverlay) {
+                gestureOverlay.root.visibility = View.VISIBLE
+                if (state.swapDirections) {
+                    gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_heart)
+                    gestureOverlay.overlayLeftLabel.setText(R.string.swiper_gesture_overlay_left_keep)
+                    gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_delete)
+                    gestureOverlay.overlayRightLabel.setText(R.string.swiper_gesture_overlay_right_delete)
+                } else {
+                    gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_delete)
+                    gestureOverlay.overlayLeftLabel.setText(R.string.swiper_gesture_overlay_left_delete)
+                    gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_heart)
+                    gestureOverlay.overlayRightLabel.setText(R.string.swiper_gesture_overlay_right_keep)
+                }
+                val dismissOverlay = View.OnClickListener {
+                    gestureOverlay.root.visibility = View.GONE
+                    vm.dismissGestureOverlay()
+                }
+                gestureOverlay.root.setOnClickListener(dismissOverlay)
+                gestureOverlay.overlayDismissAction.setOnClickListener(dismissOverlay)
+            } else {
+                gestureOverlay.root.visibility = View.GONE
+            }
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    private fun showHelpDialog() {
+        val leftAction = if (currentSwapDirections) {
+            getString(R.string.swiper_keep_action)
+        } else {
+            getString(eu.darken.sdmse.common.R.string.general_delete_action)
+        }
+        val rightAction = if (currentSwapDirections) {
+            getString(eu.darken.sdmse.common.R.string.general_delete_action)
+        } else {
+            getString(R.string.swiper_keep_action)
+        }
+        MaterialAlertDialogBuilder(requireContext())
+            .setTitle(R.string.swiper_help_title)
+            .setMessage(getString(R.string.swiper_help_message, leftAction, rightAction))
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 
     private fun showExcludeDialog(item: SwipeItem) {
