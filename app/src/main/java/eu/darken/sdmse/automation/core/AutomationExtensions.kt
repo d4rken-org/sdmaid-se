@@ -58,14 +58,30 @@ suspend fun AutomationModule.finishAutomation(
     deviceDetective: DeviceDetective,
 ) = withContext(if (userCancelled) NonCancellable else EmptyCoroutineContext) {
     if (returnToApp) {
-        log(INFO) { "finishAutomation(...): Returning to SD Maid" }
-        val returnIntern = Intent(context, MainActivity::class.java).apply {
-            flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                    Intent.FLAG_ACTIVITY_CLEAR_TOP or
-                    Intent.FLAG_ACTIVITY_SINGLE_TOP or
-                    Intent.FLAG_ACTIVITY_NO_ANIMATION
+        // Settings may have multiple screens open (e.g. App Info → Storage).
+        // Press BACK until we're back at SD Maid, closing all settings screens along the way.
+        log(INFO) { "finishAutomation(...): Pressing BACK to return to SD Maid" }
+        for (attempt in 1..10) {
+            val currentPkg = host.windowRoot()?.packageName?.toString()
+            if (currentPkg == context.packageName) {
+                log(INFO) { "finishAutomation(...): Back at SD Maid after ${attempt - 1} BACK press(es)" }
+                break
+            }
+            log(VERBOSE) { "finishAutomation(...): At $currentPkg, pressing BACK (attempt $attempt)" }
+            host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_BACK)
+            delay(200)
         }
-        context.startActivity(returnIntern)
+        // Fallback: if BACK didn't get us back, use intent navigation
+        if (host.windowRoot()?.packageName?.toString() != context.packageName) {
+            log(INFO) { "finishAutomation(...): BACK loop didn't return to SD Maid, using intent" }
+            val returnIntent = Intent(context, MainActivity::class.java).apply {
+                flags = Intent.FLAG_ACTIVITY_NEW_TASK or
+                        Intent.FLAG_ACTIVITY_CLEAR_TOP or
+                        Intent.FLAG_ACTIVITY_SINGLE_TOP or
+                        Intent.FLAG_ACTIVITY_NO_ANIMATION
+            }
+            context.startActivity(returnIntent)
+        }
     } else {
         when (deviceDetective.getROMType()) {
             RomType.ANDROID_TV -> {

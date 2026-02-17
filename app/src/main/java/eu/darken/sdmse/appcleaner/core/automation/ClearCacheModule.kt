@@ -134,13 +134,16 @@ class ClearCacheModule @AssistedInject constructor(
 
         labelDebugger.logAllLabels()
 
-        val result = processTask(task)
-
-        finishAutomation(
-            userCancelled = result.cancelledByUser,
-            returnToApp = task.returnToApp,
-            deviceDetective = deviceDetective,
-        )
+        var result: ProcessedTask? = null
+        try {
+            result = processTask(task)
+        } finally {
+            finishAutomation(
+                userCancelled = result?.cancelledByUser ?: false,
+                returnToApp = task.returnToApp,
+                deviceDetective = deviceDetective,
+            )
+        }
 
         if (Bugs.isDebug) {
             result.failed.forEach { (id, e) -> log(TAG, WARN) { "$id failed with $e" } }

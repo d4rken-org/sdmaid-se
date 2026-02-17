@@ -154,79 +154,81 @@ class AppControlAutomation @AssistedInject constructor(
 
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
-        for (target in task.targets) {
-            if (target.userHandle != currentUserHandle) {
-                throw UnsupportedOperationException("ACS based force-stop is not support for other users ($target)")
-            }
+        try {
+            for (target in task.targets) {
+                if (target.userHandle != currentUserHandle) {
+                    throw UnsupportedOperationException("ACS based force-stop is not support for other users ($target)")
+                }
 
-            val installed = pkgRepo.get(target.pkgId, target.userHandle)
+                val installed = pkgRepo.get(target.pkgId, target.userHandle)
 
-            if (installed == null) {
-                log(TAG, WARN) { "$target is not in package repo" }
-                failed.add(target)
-                continue
-            }
+                if (installed == null) {
+                    log(TAG, WARN) { "$target is not in package repo" }
+                    failed.add(target)
+                    continue
+                }
 
-            log(TAG) { "Force stopping $installed" }
-            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
+                log(TAG) { "Force stopping $installed" }
+                updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
 
-            try {
-                processSpecForPkg(installed)
-                log(TAG, INFO) { "Successfully force-stopped $target" }
-                successful.add(target)
-            } catch (e: Exception) {
-                when {
-                    e is InvalidSystemStateException -> {
-                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is AutomationTimeoutException -> {
-                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                        failed.add(target)
-                    }
-
-                    e is AutomationOverlayException -> {
-                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is UnsupportedOperationException -> {
-                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is CancellationException -> {
-                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                        updateProgressSecondary(CaString.EMPTY)
-                        updateProgressCount(Progress.Count.Indeterminate())
-                        if (e is UserCancelledAutomationException) {
-                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                            cancelledByUser = true
-                            break
-                        } else {
+                try {
+                    processSpecForPkg(installed)
+                    log(TAG, INFO) { "Successfully force-stopped $target" }
+                    successful.add(target)
+                } catch (e: Exception) {
+                    when {
+                        e is InvalidSystemStateException -> {
+                            log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
                             throw e
                         }
-                    }
 
-                    else -> {
-                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                        failed.add(target)
+                        e is AutomationTimeoutException -> {
+                            log(TAG, WARN) { "Timeout while processing $installed: $e" }
+                            failed.add(target)
+                        }
+
+                        e is AutomationOverlayException -> {
+                            log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                            throw e
+                        }
+
+                        e is UnsupportedOperationException -> {
+                            log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
+                            throw e
+                        }
+
+                        e is CancellationException -> {
+                            log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                            updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                            updateProgressSecondary(CaString.EMPTY)
+                            updateProgressCount(Progress.Count.Indeterminate())
+                            if (e is UserCancelledAutomationException) {
+                                log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                                cancelledByUser = true
+                                break
+                            } else {
+                                throw e
+                            }
+                        }
+
+                        else -> {
+                            log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
+                            failed.add(target)
+                        }
                     }
+                } finally {
+                    updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
                 }
-            } finally {
-                updateProgressCount(Progress.Count.Percent(task.targets.indexOf(target), task.targets.size))
             }
+        } finally {
+            delay(250)
+
+            finishAutomation(
+                userCancelled = cancelledByUser,
+                returnToApp = true,
+                deviceDetective = deviceDetective,
+            )
         }
-
-        delay(250)
-
-        finishAutomation(
-            userCancelled = cancelledByUser,
-            returnToApp = true,
-            deviceDetective = deviceDetective,
-        )
 
         return ForceStopAutomationTask.Result(
             successful = successful,
@@ -282,79 +284,81 @@ class AppControlAutomation @AssistedInject constructor(
 
         var cancelledByUser = false
         val currentUserHandle = userManager2.currentUser().handle
-        for (target in targets) {
-            if (target.userHandle != currentUserHandle) {
-                throw UnsupportedOperationException("${operation.unsupportedMessage} ($target)")
-            }
+        try {
+            for (target in targets) {
+                if (target.userHandle != currentUserHandle) {
+                    throw UnsupportedOperationException("${operation.unsupportedMessage} ($target)")
+                }
 
-            val installed = pkgRepo.get(target.pkgId, target.userHandle)
+                val installed = pkgRepo.get(target.pkgId, target.userHandle)
 
-            if (installed == null) {
-                log(TAG, WARN) { "$target is not in package repo" }
-                failed.add(target)
-                continue
-            }
+                if (installed == null) {
+                    log(TAG, WARN) { "$target is not in package repo" }
+                    failed.add(target)
+                    continue
+                }
 
-            log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }}ing $installed" }
-            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
+                log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }}ing $installed" }
+                updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
 
-            try {
-                processOperationSpecForPkg(installed, operation)
-                log(TAG, INFO) { "Successfully ${operationName}d $target" }
-                successful.add(target)
-            } catch (e: Exception) {
-                when {
-                    e is InvalidSystemStateException -> {
-                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is AutomationTimeoutException -> {
-                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
-                        failed.add(target)
-                    }
-
-                    e is AutomationOverlayException -> {
-                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is UnsupportedOperationException -> {
-                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
-                        throw e
-                    }
-
-                    e is CancellationException -> {
-                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
-                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
-                        updateProgressSecondary(CaString.EMPTY)
-                        updateProgressCount(Progress.Count.Indeterminate())
-                        if (e is UserCancelledAutomationException) {
-                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
-                            cancelledByUser = true
-                            break
-                        } else {
+                try {
+                    processOperationSpecForPkg(installed, operation)
+                    log(TAG, INFO) { "Successfully ${operationName}d $target" }
+                    successful.add(target)
+                } catch (e: Exception) {
+                    when {
+                        e is InvalidSystemStateException -> {
+                            log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
                             throw e
                         }
-                    }
 
-                    else -> {
-                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
-                        failed.add(target)
+                        e is AutomationTimeoutException -> {
+                            log(TAG, WARN) { "Timeout while processing $installed: $e" }
+                            failed.add(target)
+                        }
+
+                        e is AutomationOverlayException -> {
+                            log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                            throw e
+                        }
+
+                        e is UnsupportedOperationException -> {
+                            log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
+                            throw e
+                        }
+
+                        e is CancellationException -> {
+                            log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                            updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                            updateProgressSecondary(CaString.EMPTY)
+                            updateProgressCount(Progress.Count.Indeterminate())
+                            if (e is UserCancelledAutomationException) {
+                                log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                                cancelledByUser = true
+                                break
+                            } else {
+                                throw e
+                            }
+                        }
+
+                        else -> {
+                            log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
+                            failed.add(target)
+                        }
                     }
+                } finally {
+                    updateProgressCount(Progress.Count.Percent(targets.indexOf(target), targets.size))
                 }
-            } finally {
-                updateProgressCount(Progress.Count.Percent(targets.indexOf(target), targets.size))
             }
+        } finally {
+            delay(250)
+
+            finishAutomation(
+                userCancelled = cancelledByUser,
+                returnToApp = true,
+                deviceDetective = deviceDetective,
+            )
         }
-
-        delay(250)
-
-        finishAutomation(
-            userCancelled = cancelledByUser,
-            returnToApp = true,
-            deviceDetective = deviceDetective,
-        )
 
         return successful to failed
     }

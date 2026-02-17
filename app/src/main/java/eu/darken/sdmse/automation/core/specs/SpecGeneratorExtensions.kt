@@ -39,10 +39,11 @@ fun SpecGenerator.windowLauncherDefaultSettings(
     pkgInfo: Installed
 ): suspend StepContext.() -> Unit = {
     val intent = pkgInfo.getSettingsIntent(androidContext).apply {
-        flags = Intent.FLAG_ACTIVITY_NEW_TASK or
-                Intent.FLAG_ACTIVITY_CLEAR_TASK or
-                Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS or
-                Intent.FLAG_ACTIVITY_NO_ANIMATION
+        addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+        addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK)
+        addFlags(Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
+        addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
+        addFlags(Intent.FLAG_ACTIVITY_NO_HISTORY)
     }
     log(tag, INFO) { "Launching $intent" }
     host.service.startActivity(intent)
