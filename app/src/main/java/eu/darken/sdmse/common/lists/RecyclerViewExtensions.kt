@@ -134,6 +134,7 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
 
     tracker.addObserver(object : SelectionTracker.SelectionObserver<String>() {
         override fun onSelectionChanged() {
+            if (this@installListSelection.view == null) return
             onChange(tracker)
             when {
                 tracker.hasSelection() -> {

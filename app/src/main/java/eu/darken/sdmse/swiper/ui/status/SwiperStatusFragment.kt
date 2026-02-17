@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
@@ -33,6 +34,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
     private var currentState: SwiperStatusViewModel.State? = null
     private var isToolbarCollapsed = false
     private var menuFinalizeAction: MenuItem? = null
+    private var offsetListener: AppBarLayout.OnOffsetChangedListener? = null
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         EdgeToEdgeHelper(requireActivity()).apply {
@@ -59,9 +61,11 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             }
         }
 
-        ui.appbar.addOnOffsetChangedListener { appBarLayout, verticalOffset ->
+        offsetListener = AppBarLayout.OnOffsetChangedListener { appBarLayout, verticalOffset ->
+            if (view == null) return@OnOffsetChangedListener
+
             val totalScrollRange = appBarLayout.totalScrollRange
-            if (totalScrollRange == 0) return@addOnOffsetChangedListener
+            if (totalScrollRange == 0) return@OnOffsetChangedListener
 
             val collapseRatio = abs(verticalOffset).toFloat() / totalScrollRange.toFloat()
             val newCollapsed = collapseRatio >= 0.7f
@@ -74,6 +78,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             // Fade expanded content (fully faded at 50% collapse)
             ui.expandedContent.alpha = 1f - (collapseRatio / 0.5f).coerceIn(0f, 1f)
         }
+        ui.appbar.addOnOffsetChangedListener(offsetListener)
 
         val adapter = SwiperStatusAdapter()
         ui.list.setupDefaults(adapter, verticalDividers = false)
@@ -189,6 +194,12 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onDestroyView() {
+        ui.appbar.removeOnOffsetChangedListener(offsetListener)
+        offsetListener = null
+        super.onDestroyView()
     }
 
     private fun updateFinalizeState(state: SwiperStatusViewModel.State) {
