@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.ui.editor.pkg
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -37,7 +36,7 @@ class PkgExclusionViewModel @Inject constructor(
 
     val events = SingleLiveEvent<PkgExclusionEvents>()
 
-    private val currentState = DynamicStateFlow(TAG, viewModelScope) {
+    private val currentState = DynamicStateFlow(TAG, vmScope) {
         val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as PkgExclusion?
 
         if (origExclusion == null && initialOptions == null) {

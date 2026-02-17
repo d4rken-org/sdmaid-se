@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.ui.editor.path
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -39,7 +38,7 @@ class PathExclusionViewModel @Inject constructor(
 
     val events = SingleLiveEvent<PathEditorEvents>()
 
-    private val currentState = DynamicStateFlow(TAG, viewModelScope) {
+    private val currentState = DynamicStateFlow(TAG, vmScope) {
         val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as PathExclusion?
 
         if (origExclusion == null && initialOptions == null) {

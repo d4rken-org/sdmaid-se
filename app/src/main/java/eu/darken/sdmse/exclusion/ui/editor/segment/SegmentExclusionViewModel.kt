@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.ui.editor.segment
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -38,7 +37,7 @@ class SegmentExclusionViewModel @Inject constructor(
 
     val events = SingleLiveEvent<SegmentExclusionEvents>()
 
-    private val currentState = DynamicStateFlow(TAG, viewModelScope) {
+    private val currentState = DynamicStateFlow(TAG, vmScope) {
         val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as SegmentExclusion?
 
         if (origExclusion == null && initialOptions == null) {

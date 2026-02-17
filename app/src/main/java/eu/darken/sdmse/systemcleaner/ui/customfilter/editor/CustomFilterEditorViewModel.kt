@@ -1,7 +1,6 @@
 package eu.darken.sdmse.systemcleaner.ui.customfilter.editor
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataArea
@@ -60,7 +59,7 @@ class CustomFilterEditorViewModel @Inject constructor(
 
     val events = SingleLiveEvent<CustomFilterEditorEvents>()
 
-    private val currentState = DynamicStateFlow(TAG, viewModelScope) {
+    private val currentState = DynamicStateFlow(TAG, vmScope) {
         val originalConfig = filterRepo.currentConfigs().singleOrNull { it.identifier == identifier }
 
         if (originalConfig == null && initialOptions == null) {

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.scheduler.ui.manager.create
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -25,7 +24,7 @@ class ScheduleItemViewModel @Inject constructor(
 
     private val scheduleId: String = navArgs.scheduleId
 
-    private val internalState = DynamicStateFlow<State>(parentScope = viewModelScope) {
+    private val internalState = DynamicStateFlow<State>(parentScope = vmScope) {
         val existing = schedulerManager.getSchedule(scheduleId)
         State(
             existing = existing,

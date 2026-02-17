@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.picker
 
 import androidx.lifecycle.SavedStateHandle
-import androidx.lifecycle.viewModelScope
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -99,7 +98,7 @@ class PickerViewModel @Inject constructor(
                         val childPath = targetArea.path.child(*childSegments)
                         val lookup = try {
                             childPath.lookup(gatewaySwitch)
-                        } catch (e: Exception) {
+                        } catch (e: IOException) {
                             log(TAG) { "Failed to lookup nav path segment: $childPath" }
                             break
                         }
@@ -205,7 +204,7 @@ class PickerViewModel @Inject constructor(
             hasChanges = selected.map { it.lookedUp } != request.selectedPaths,
             progress = null,
         ).run { emit(this) }
-    }.replayingShare(viewModelScope)
+    }.replayingShare(vmScope)
 
     val state = internalState.asLiveData2()
 
