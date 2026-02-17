@@ -886,6 +886,8 @@
     <string name="automation_error_timeout_body">SD Maid did not complete all steps within the time limit. If this keeps happening, I might need to adjust the app for your device. Check for updates or reach out to me so I can fix it.</string>
     <string name="automation_error_overlay_title">Automation overlay</string>
     <string name="automation_error_overlay_body">SD Maid could not show the automation overlay. Check permissions and try rebooting your device.</string>
+    <string name="automation_error_scheduler_title">Scheduled automation failed</string>
+    <string name="automation_error_scheduler_body">A scheduled task tried to use the accessibility service, but it was unavailable. If you don\'t need this, disable the \"Accessibility service\" option in the scheduler settings.</string>
 
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>

@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.localized
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.flow.throttleLatest
@@ -83,7 +84,7 @@ class StatsRepo @Inject constructor(
             },
             primaryMessage = task.result?.primaryInfo?.get(context),
             secondaryMessage = task.result?.secondaryInfo?.get(context),
-            errorMessage = task.error?.toString(),
+            errorMessage = task.error?.localized(context)?.asText()?.get(context),
             affectedCount = reportDetails?.affectedCount,
             affectedSpace = reportDetails?.affectedSpace,
             extra = null,

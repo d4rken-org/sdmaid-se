@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
+import eu.darken.sdmse.common.error.localized
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.ui.MainActivity
@@ -123,7 +124,7 @@ class SchedulerNotifications @Inject constructor(
 SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
                         SDMTool.Type.SWIPER -> R.string.swiper_tool_name
                     }
-                    context.getString(toolNameId) to it.error.toString()
+                    context.getString(toolNameId) to it.error!!.localized(context).asText().get(context)
                 }
             "$errorMsg\n${errorTools.joinToString("\n") { "${it.first}: ${it.second}" }}"
         } else {

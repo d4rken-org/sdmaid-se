@@ -20,7 +20,10 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.error.hasCause
 import eu.darken.sdmse.common.root.RootManager
+import eu.darken.sdmse.automation.core.errors.AutomationException
+import eu.darken.sdmse.automation.core.errors.AutomationSchedulerException
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
@@ -166,7 +169,12 @@ class SchedulerWorker @AssistedInject constructor(
                     SchedulerNotifications.Results(task, result = result)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Scheduler task failed ($task): ${e.asLog()}" }
-                    SchedulerNotifications.Results(task, error = e)
+                    val wrappedError = if (e.hasCause(AutomationException::class)) {
+                        AutomationSchedulerException(e)
+                    } else {
+                        e
+                    }
+                    SchedulerNotifications.Results(task, error = wrappedError)
                 }
             }
         }
