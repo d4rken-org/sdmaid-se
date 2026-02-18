@@ -115,6 +115,40 @@
     <string name="discord_label">Discord</string>
     <string name="discord_description">A place to hang out in and ask questions.</string>
 
+    <string name="support_contact_label">Contact developer</string>
+    <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
+    <string name="support_contact_category_label">Category</string>
+    <string name="support_contact_category_bug_label">Bug report</string>
+    <string name="support_contact_category_feature_label">Feature request</string>
+    <string name="support_contact_category_question_label">Question</string>
+    <string name="support_contact_tool_label">Related tool</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">General</string>
+    <string name="support_contact_description_label">Description</string>
+    <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the issue. Please be specific (minimum 20 words).</string>
+    <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific (minimum 20 words).</string>
+    <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific (minimum 20 words).</string>
+    <string name="support_contact_tried_label">What have you tried?</string>
+    <string name="support_contact_tried_restart_label">Restarted the app</string>
+    <string name="support_contact_tried_clear_cache_label">Cleared SD Maid\'s cache</string>
+    <string name="support_contact_tried_reboot_label">Rebooted the device</string>
+    <string name="support_contact_tried_permissions_label">Checked permissions</string>
+    <string name="support_contact_tried_other_hint">Anything else you tried\u2026</string>
+    <string name="support_contact_expected_label">Expected behavior</string>
+    <string name="support_contact_expected_hint">Describe what you expected to happen (minimum 10 words).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d word</item>
+        <item quantity="other">%1$d / %2$d words</item>
+    </plurals>
+    <string name="support_contact_send_action">Send</string>
+    <string name="support_contact_no_email_app">No email app found on this device.</string>
+
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
     <string name="settings_acknowledgements_category_translations_title">Translations</string>

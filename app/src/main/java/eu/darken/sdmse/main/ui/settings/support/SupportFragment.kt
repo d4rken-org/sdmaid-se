@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
 
 @Keep
@@ -37,6 +38,10 @@ class SupportFragment : PreferenceFragment2() {
     private val debugLogFolderPref by lazy { findPreference<Preference>("support.debuglog.folder")!! }
 
     override fun onPreferencesCreated() {
+        findPreference<Preference>("support.contact")!!.setOnPreferenceClickListener {
+            SettingsFragmentDirections.actionSettingsContainerFragmentToSupportContactFormFragment().navigate()
+            true
+        }
         installIdPref.setOnPreferenceClickListener {
             vm.copyInstallID()
             true

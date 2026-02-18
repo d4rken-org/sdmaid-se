@@ -143,7 +143,15 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_customFilterListFragment"
             app:destination="@id/customFilterListFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_supportContactFormFragment"
+            app:destination="@id/supportContactFormFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/supportContactFormFragment"
+        android:name="eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFragment"
+        tools:layout="@layout/support_contact_form_fragment" />
 
     <action
         android:id="@+id/goToUpgradeFragment"

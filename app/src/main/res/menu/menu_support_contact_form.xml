@@ -1,0 +1,14 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.darken.sdmse.main.ui.MainActivity">
+
+    <item
+        android:id="@+id/menu_action_send"
+        android:enabled="false"
+        android:icon="@drawable/ic_email_onsurface"
+        android:orderInCategory="80"
+        android:title="@string/support_contact_send_action"
+        app:showAsAction="always" />
+
+</menu>

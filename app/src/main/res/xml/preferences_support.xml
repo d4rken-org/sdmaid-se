@@ -25,6 +25,11 @@
             android:action="android.intent.action.VIEW"
             android:data="https://discord.gg/8Fjy6PTfXu" />
     </eu.darken.sdmse.common.preferences.IntentPreference>
+    <Preference
+        android:icon="@drawable/ic_baseline_contact_support_24"
+        android:key="support.contact"
+        android:summary="@string/support_contact_desc"
+        android:title="@string/support_contact_label" />
 
     <PreferenceCategory app:title="@string/settings_category_other_label">
         <Preference
