@@ -26,6 +26,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
+import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterEditorOptions
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
@@ -193,10 +194,11 @@ class CustomFilterEditorViewModel @Inject constructor(
     fun toggleFileType(type: FileType) = launch {
         log(TAG) { "toggleFileType($type)" }
         currentState.updateBlocking {
-            val newFileTypes = if (current.fileTypes?.contains(type) == true) {
-                current.fileTypes - type
-            } else if (current.fileTypes?.contains(type) == false) {
-                current.fileTypes + type
+            val currentTypes = current.fileTypes
+            val newFileTypes = if (currentTypes?.contains(type) == true) {
+                currentTypes - type
+            } else if (currentTypes?.contains(type) == false) {
+                currentTypes + type
             } else {
                 setOf(type)
             }

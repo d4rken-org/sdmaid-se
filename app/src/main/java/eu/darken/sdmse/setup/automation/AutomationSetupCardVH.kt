@@ -3,6 +3,7 @@ package eu.darken.sdmse.setup.automation
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.ui.setLeftIcon
@@ -33,7 +34,7 @@ class AutomationSetupCardVH(parent: ViewGroup) :
                 )
 
                 state.canSelfEnable -> setLeftIcon(
-                    R.drawable.ic_baseline_access_time_filled_24,
+                    CommonR.drawable.ic_baseline_access_time_filled_24,
                     com.google.android.material.R.attr.colorSecondary
                 )
 

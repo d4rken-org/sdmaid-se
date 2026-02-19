@@ -31,7 +31,7 @@ import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SystemcleanerCustomfilterListFragmentBinding
-import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions
+import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterEditorOptions
 import javax.inject.Inject
 
 @AndroidEntryPoint

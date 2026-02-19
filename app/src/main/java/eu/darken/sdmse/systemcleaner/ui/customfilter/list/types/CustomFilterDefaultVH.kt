@@ -38,7 +38,7 @@ class CustomFilterDefaultVH(parent: ViewGroup) :
         primary.text = item.config.label
 
         secondary.text = getString(
-            R.string.systemcleaner_customfilter_last_edit,
+            eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_last_edit,
             DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT).format(item.config.modifiedAt.toSystemTimezone()),
         )
 

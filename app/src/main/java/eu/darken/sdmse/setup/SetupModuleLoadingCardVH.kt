@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SetupModuleLoadingItemBinding
 
@@ -28,7 +29,7 @@ class SetupModuleLoadingCardVH(parent: ViewGroup) :
                 SetupModule.Type.NOTIFICATION -> R.drawable.ic_notification_24
                 SetupModule.Type.SAF -> R.drawable.ic_saf
                 SetupModule.Type.STORAGE -> R.drawable.ic_sd_storage
-                SetupModule.Type.INVENTORY -> R.drawable.ic_apps
+                SetupModule.Type.INVENTORY -> CommonR.drawable.ic_apps
             }
         )
         title.setText(

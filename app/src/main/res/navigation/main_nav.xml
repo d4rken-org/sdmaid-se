@@ -456,7 +456,7 @@
         <argument
             android:name="initial"
             android:defaultValue="@null"
-            app:argType="eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions"
+            app:argType="eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterEditorOptions"
             app:nullable="true" />
         <argument
             android:name="identifier"

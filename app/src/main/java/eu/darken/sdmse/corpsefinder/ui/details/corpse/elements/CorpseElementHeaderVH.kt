@@ -44,7 +44,7 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         ownersValue.text = if (corpse.ownerInfo.owners.isNotEmpty()) {
             corpse.ownerInfo.owners.joinToString("\n") { it.pkgId.name }
         } else {
-            getString(R.string.corpsefinder_owner_unknown)
+            getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_owner_unknown)
         }
 
         hintsLabel.isGone = corpse.riskLevel == RiskLevel.NORMAL
@@ -57,12 +57,12 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
             }
 
             RiskLevel.KEEPER -> hintsValue.apply {
-                text = getString(R.string.corpsefinder_corpse_hint_keeper)
+                text = getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_corpse_hint_keeper)
                 setTextColor(getColorForAttr(com.google.android.material.R.attr.colorSecondary))
             }
 
             RiskLevel.COMMON -> hintsValue.apply {
-                text = getString(R.string.corpsefinder_corpse_hint_common)
+                text = getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_corpse_hint_common)
                 setTextColor(getColorForAttr(com.google.android.material.R.attr.colorTertiary))
             }
         }

@@ -146,7 +146,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             val current = vm.state.value?.current?.sizeMinimum ?: 0L
             SizeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.systemcleaner_customfilter_editor_size_minimum_label,
+                titleRes = eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_size_minimum_label,
                 currentSize = current,
                 onReset = { vm.updateSizeMinimum(null) },
                 onSave = { vm.updateSizeMinimum(it) },
@@ -157,7 +157,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             val current = vm.state.value?.current?.sizeMaximum ?: 0L
             SizeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.systemcleaner_customfilter_editor_size_maximum_label,
+                titleRes = eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_size_maximum_label,
                 currentSize = current,
                 onReset = { vm.updateSizeMaximum(null) },
                 onSave = { vm.updateSizeMaximum(it) },
@@ -168,7 +168,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             val current = vm.state.value?.current?.ageMinimum ?: Duration.ZERO
             AgeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.systemcleaner_customfilter_editor_age_minimum_label,
+                titleRes = eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_age_minimum_label,
                 currentAge = current,
                 onReset = { vm.updateAgeMinimum(null) },
                 onSave = { vm.updateAgeMinimum(it) },
@@ -179,7 +179,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
             val current = vm.state.value?.current?.ageMaximum ?: Duration.ZERO
             AgeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.systemcleaner_customfilter_editor_age_maximum_label,
+                titleRes = eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_age_maximum_label,
                 currentAge = current,
                 onReset = { vm.updateAgeMaximum(null) },
                 onSave = { vm.updateAgeMaximum(it) },
@@ -232,7 +232,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
         vm.events.observe2 {
             when (it) {
                 is CustomFilterEditorEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.systemcleaner_editor_remove_confirmation_message)
+                    setMessage(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_editor_remove_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_remove_action) { _, _ ->
                         vm.remove(confirmed = true)
                     }
@@ -241,7 +241,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
                 }.show()
 
                 is CustomFilterEditorEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.systemcleaner_editor_unsaved_confirmation_message)
+                    setMessage(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_editor_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }
@@ -267,7 +267,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
 
         vm.liveSearch.observe2(ui) { state ->
             liveSearchPrimary.text = when (state.firstInit) {
-                true -> getString(R.string.systemcleaner_customfilter_editor_livesearch_label)
+                true -> getString(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_livesearch_label)
                 false -> getQuantityString2(
                     eu.darken.sdmse.common.R.plurals.result_x_items,
                     state.matches.size

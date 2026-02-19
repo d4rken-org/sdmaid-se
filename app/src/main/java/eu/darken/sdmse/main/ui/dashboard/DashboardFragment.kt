@@ -200,7 +200,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             when (event) {
                 is DashboardEvents.CorpseFinderDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                    setMessage(R.string.corpsefinder_delete_all_confirmation_message)
+                    setMessage(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_delete_all_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showCorpseFinder() }
@@ -208,7 +208,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
                 is DashboardEvents.SystemCleanerDeleteConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-                    setMessage(R.string.systemcleaner_delete_all_confirmation_message)
+                    setMessage(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_delete_all_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_show_details_action) { _, _ -> vm.showSystemCleaner() }

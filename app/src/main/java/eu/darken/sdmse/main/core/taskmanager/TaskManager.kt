@@ -47,7 +47,7 @@ class TaskManager @Inject constructor(
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
     private val taskWorkerControl: TaskWorkerControl,
     private val statsRepo: StatsRepo,
-) {
+) : TaskSubmitter {
 
     private val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
 
@@ -195,7 +195,7 @@ class TaskManager @Inject constructor(
         result
     }
 
-    suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
+    override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result {
         log(TAG, INFO) { "submit(): $task" }
         val taskId = rngString
 

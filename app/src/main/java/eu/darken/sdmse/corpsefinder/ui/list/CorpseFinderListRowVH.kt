@@ -48,13 +48,13 @@ class CorpseFinderListRowVH(parent: ViewGroup) :
             }
 
             RiskLevel.KEEPER -> tertiary.apply {
-                text = getString(R.string.corpsefinder_corpse_hint_keeper)
+                text = getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_corpse_hint_keeper)
                 isVisible = true
                 setTextColor(getColorForAttr(com.google.android.material.R.attr.colorSecondary))
             }
 
             RiskLevel.COMMON -> tertiary.apply {
-                text = getString(R.string.corpsefinder_corpse_hint_common)
+                text = getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_corpse_hint_common)
                 isVisible = true
                 setTextColor(getColorForAttr(com.google.android.material.R.attr.colorTertiary))
             }

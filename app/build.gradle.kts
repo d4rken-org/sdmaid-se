@@ -203,6 +203,10 @@ dependencies {
     implementation(project(":app-common-io"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-shell"))
+    implementation(project(":app-common-data"))
+    implementation(project(":app-common-exclusion"))
+    implementation(project(":app-corpsefinder"))
+    implementation(project(":app-systemcleaner"))
 
     addDI()
     addCoroutines()

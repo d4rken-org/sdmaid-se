@@ -26,7 +26,7 @@ class ExternalWatcherTaskReceiver : BroadcastReceiver() {
     @Inject @AppScope lateinit var appScope: CoroutineScope
     @Inject lateinit var taskManager: TaskManager
     @Inject lateinit var corpseFinderSettings: CorpseFinderSettings
-    @Inject lateinit var uninstallWatcherNotifications: UninstallWatcherNotifications
+    @Inject lateinit var watcherNotifications: WatcherNotifications
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG) { "onReceive($context,$intent)" }
@@ -50,7 +50,7 @@ class ExternalWatcherTaskReceiver : BroadcastReceiver() {
         Bugs.leaveBreadCrumb("Watcher task event")
 
         appScope.launch {
-            uninstallWatcherNotifications.clearNotifications()
+            watcherNotifications.clearNotifications()
 
             val internalTask = when (externalTask) {
                 is ExternalWatcherTask.Delete -> UninstallWatcherTask(

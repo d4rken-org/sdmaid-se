@@ -10,6 +10,7 @@ import androidx.viewpager.widget.ViewPager
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
@@ -81,7 +82,7 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
             toolbar.menu.findItem(R.id.action_toggle_view_mode)?.apply {
                 isVisible = state.progress == null
                 setIcon(
-                    if (state.isDirectoryViewEnabled) R.drawable.ic_baseline_format_list_bulleted_24
+                    if (state.isDirectoryViewEnabled) CommonR.drawable.ic_baseline_format_list_bulleted_24
                     else R.drawable.ic_folder
                 )
                 setTitle(

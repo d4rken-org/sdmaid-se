@@ -254,24 +254,24 @@ class TaggedInputView @JvmOverloads constructor(
         val chipTag = this@showModeSwitcher
         setTitle(
             when (chipTag.criterium) {
-                is SegmentCriterium -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_label
-                is NameCriterium -> R.string.systemcleaner_customfilter_editor_name_matching_mode_label
+                is SegmentCriterium -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_label
+                is NameCriterium -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_label
             }
         )
 
         val tagTypes = when (chipTag.criterium) {
             is NameCriterium -> listOf(
-                NameCriterium.Mode.Start() to R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label,
-                NameCriterium.Mode.Contain() to R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label,
-                NameCriterium.Mode.End() to R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label,
-                NameCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label,
+                NameCriterium.Mode.Start() to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label,
+                NameCriterium.Mode.Contain() to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label,
+                NameCriterium.Mode.End() to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label,
+                NameCriterium.Mode.Equal() to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label,
             )
 
             is SegmentCriterium -> listOf(
-                SegmentCriterium.Mode.Start(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label,
-                SegmentCriterium.Mode.Contain(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label,
-                SegmentCriterium.Mode.End(allowPartial = true) to R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label,
-                SegmentCriterium.Mode.Equal() to R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label,
+                SegmentCriterium.Mode.Start(allowPartial = true) to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label,
+                SegmentCriterium.Mode.Contain(allowPartial = true) to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label,
+                SegmentCriterium.Mode.End(allowPartial = true) to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label,
+                SegmentCriterium.Mode.Equal() to eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label,
             )
         }
         setSingleChoiceItems(
@@ -309,17 +309,17 @@ class TaggedInputView @JvmOverloads constructor(
         @get:StringRes val labelRes: Int
             get() = when (criterium) {
                 is NameCriterium -> when (criterium.mode) {
-                    is NameCriterium.Mode.Start -> R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label
-                    is NameCriterium.Mode.Contain -> R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label
-                    is NameCriterium.Mode.End -> R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label
-                    is NameCriterium.Mode.Equal -> R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label
+                    is NameCriterium.Mode.Start -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_start_label
+                    is NameCriterium.Mode.Contain -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_contains_label
+                    is NameCriterium.Mode.End -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_end_label
+                    is NameCriterium.Mode.Equal -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_name_matching_mode_equal_label
                 }
 
                 is SegmentCriterium -> when (criterium.mode) {
-                    is SegmentCriterium.Mode.Start -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label
-                    is SegmentCriterium.Mode.Contain -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label
-                    is SegmentCriterium.Mode.End -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label
-                    is SegmentCriterium.Mode.Equal -> R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label
+                    is SegmentCriterium.Mode.Start -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_start_label
+                    is SegmentCriterium.Mode.Contain -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_contains_label
+                    is SegmentCriterium.Mode.End -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_end_label
+                    is SegmentCriterium.Mode.Equal -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_customfilter_editor_segments_matching_mode_equal_label
                     is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
                     is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
                 }

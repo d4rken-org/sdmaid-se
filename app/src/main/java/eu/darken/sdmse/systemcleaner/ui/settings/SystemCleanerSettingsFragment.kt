@@ -81,7 +81,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
             setOnPreferenceClickListener {
                 AgeInputDialog(
                     requireActivity(),
-                    titleRes = R.string.systemcleaner_filter_screenshots_age_label,
+                    titleRes = eu.darken.sdmse.systemcleaner.R.string.systemcleaner_filter_screenshots_age_label,
                     currentAge = settings.filterScreenshotsAge.valueBlocking,
                     onReset = {
                         settings.filterScreenshotsAge.valueBlocking = SystemCleanerSettings.SCREENSHOTS_AGE_DEFAULT
@@ -126,7 +126,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
 
         vm.screenshotsAge.observe2(this) { age ->
             filterScreenshotsEnabled.summary = getString(
-                R.string.systemcleaner_filter_screenshots_summary,
+                eu.darken.sdmse.systemcleaner.R.string.systemcleaner_filter_screenshots_summary,
                 AgeInputDialog.formatAge(requireContext(), age)
             )
         }

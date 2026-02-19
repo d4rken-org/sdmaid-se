@@ -3,6 +3,7 @@ package eu.darken.sdmse.corpsefinder.ui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.corpsefinder.core.filter.AppAsecFileCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppLibCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.AppSourceCorpseFilter
@@ -20,17 +21,17 @@ import kotlin.reflect.KClass
 @get:StringRes
 val <T : CorpseFilter> KClass<T>.labelRes: Int
     get() = when (this) {
-        SdcardCorpseFilter::class -> R.string.corpsefinder_filter_sdcard_label
-        PublicMediaCorpseFilter::class -> R.string.corpsefinder_filter_publicmedia_label
-        PublicDataCorpseFilter::class -> R.string.corpsefinder_filter_publicdata_label
-        PublicObbCorpseFilter::class -> R.string.corpsefinder_filter_publicobb_label
-        PrivateDataCorpseFilter::class -> R.string.corpsefinder_filter_privatedata_label
-        DalvikCorpseFilter::class -> R.string.corpsefinder_filter_dalvik_label
-        ArtProfilesCorpseFilter::class -> R.string.corpsefinder_filter_artprofiles_label
-        AppLibCorpseFilter::class -> R.string.corpsefinder_filter_applib_label
-        AppSourceCorpseFilter::class -> R.string.corpsefinder_filter_appsource_label
-        AppSourcePrivateCorpseFilter::class -> R.string.corpsefinder_filter_appsource_private_label
-        AppAsecFileCorpseFilter::class -> R.string.corpsefinder_filter_appasec_label
+        SdcardCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_sdcard_label
+        PublicMediaCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_publicmedia_label
+        PublicDataCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_publicdata_label
+        PublicObbCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_publicobb_label
+        PrivateDataCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_privatedata_label
+        DalvikCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_dalvik_label
+        ArtProfilesCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_artprofiles_label
+        AppLibCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_applib_label
+        AppSourceCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_appsource_label
+        AppSourcePrivateCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_appsource_private_label
+        AppAsecFileCorpseFilter::class -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_filter_appasec_label
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
@@ -45,7 +46,7 @@ val <T : CorpseFilter> KClass<T>.iconRes: Int
         DalvikCorpseFilter::class -> R.drawable.ic_turbine_24
         ArtProfilesCorpseFilter::class -> R.drawable.ic_artboard_24
         AppLibCorpseFilter::class -> eu.darken.sdmse.common.io.R.drawable.ic_baseline_local_library_24
-        AppSourceCorpseFilter::class -> R.drawable.ic_app_extra_24
+        AppSourceCorpseFilter::class -> CommonR.drawable.ic_app_extra_24
         AppSourcePrivateCorpseFilter::class -> R.drawable.ic_folder_key_24
         AppAsecFileCorpseFilter::class -> R.drawable.ic_folder_key_24
         else -> R.drawable.ghost

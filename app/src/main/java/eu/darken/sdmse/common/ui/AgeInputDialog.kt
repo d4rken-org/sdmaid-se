@@ -114,23 +114,7 @@ class AgeInputDialog(
     companion object {
         fun formatAge(
             context: Context,
-            age: Duration
-        ): String = when {
-            age.toDays() > 0 -> {
-                context.resources.getQuantityString(
-                    eu.darken.sdmse.common.R.plurals.general_age_days,
-                    age.toDays().toInt(),
-                    age.toDays()
-                )
-            }
-
-            else -> {
-                context.resources.getQuantityString(
-                    eu.darken.sdmse.common.R.plurals.general_age_hours,
-                    age.toHours().toInt(),
-                    age.toHours()
-                )
-            }
-        }
+            age: Duration,
+        ): String = eu.darken.sdmse.common.ui.formatAge(context, age)
     }
 }

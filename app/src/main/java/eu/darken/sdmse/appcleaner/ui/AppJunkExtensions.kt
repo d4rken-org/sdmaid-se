@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcleaner.ui
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.AdvertisementFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.AnalyticsFilter
@@ -84,17 +85,17 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
 @get:DrawableRes
 val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
-        DefaultCachesPrivateFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
+        DefaultCachesPublicFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
+        DefaultCachesPrivateFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
         HiddenFilter::class -> R.drawable.ic_hidden_file_24
         ThumbnailsFilter::class -> R.drawable.ic_multimedia_24
-        CodeCacheFilter::class -> R.drawable.ic_baseline_format_list_bulleted_24
-        AdvertisementFilter::class -> R.drawable.ic_baseline_ads_click_24
+        CodeCacheFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
+        AdvertisementFilter::class -> CommonR.drawable.ic_baseline_ads_click_24
         BugReportingFilter::class -> R.drawable.ic_bug_report
-        AnalyticsFilter::class -> R.drawable.ic_analytics_onsurface
+        AnalyticsFilter::class -> CommonR.drawable.ic_analytics_onsurface
         GameFilesFilter::class -> R.drawable.ic_game_controller_24
         OfflineCacheFilter::class -> R.drawable.ic_signal_off_24
-        RecycleBinsFilter::class -> R.drawable.ic_recycle_bin_24
+        RecycleBinsFilter::class -> CommonR.drawable.ic_recycle_bin_24
         WebViewCacheFilter::class -> R.drawable.ic_chrome_24
         ShortcutServiceFilter::class -> R.drawable.ic_image_multiple_24
         WhatsAppBackupsFilter::class -> R.drawable.ic_whatsapp_24

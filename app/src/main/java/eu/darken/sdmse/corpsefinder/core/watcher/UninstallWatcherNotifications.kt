@@ -9,7 +9,11 @@ import android.content.Intent
 import android.text.format.Formatter
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationCompat.BigTextStyle
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
@@ -23,14 +27,14 @@ import javax.inject.Inject
 class UninstallWatcherNotifications @Inject constructor(
     @ApplicationContext private val context: Context,
     private val notificationManager: NotificationManager,
-) {
+) : WatcherNotifications {
 
     private val builder: NotificationCompat.Builder
 
     init {
         NotificationChannel(
             CHANNEL_ID,
-            context.getString(R.string.corpsefinder_watcher_title),
+            context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_title),
             NotificationManager.IMPORTANCE_DEFAULT
         ).run { notificationManager.createNotificationChannel(this) }
 
@@ -57,20 +61,20 @@ class UninstallWatcherNotifications @Inject constructor(
             return builder.apply {
                 clearActions()
                 setStyle(null)
-                setContentTitle(context.getString(R.string.corpsefinder_watcher_title))
+                setContentTitle(context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_title))
                 setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
             }
         }
 
         return builder.apply {
             clearActions()
-            setContentTitle(context.getString(R.string.corpsefinder_watcher_title))
+            setContentTitle(context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_title))
         }
     }
 
     private fun forDeletionResult(result: ExternalWatcherResult.Deletion): Notification = getBuilder(result).apply {
         val resultText = context.getQuantityString2(
-            R.plurals.corpsefinder_watcher_notification_delete_result,
+            eu.darken.sdmse.corpsefinder.R.plurals.corpsefinder_watcher_notification_delete_result,
             result.deletedItems,
             result.appName?.get(context) ?: result.pkgId.name,
             Formatter.formatShortFileSize(context, result.freedSpace),
@@ -82,7 +86,7 @@ class UninstallWatcherNotifications @Inject constructor(
 
     private fun forScanResult(result: ExternalWatcherResult.Scan): Notification = getBuilder(result).apply {
         val resultText = context.getQuantityString2(
-            R.plurals.corpsefinder_watcher_notification_scan_result,
+            eu.darken.sdmse.corpsefinder.R.plurals.corpsefinder_watcher_notification_scan_result,
             result.foundItems,
             result.foundItems,
             result.pkgId.name
@@ -108,28 +112,33 @@ class UninstallWatcherNotifications @Inject constructor(
 
             val deleteAction = NotificationCompat.Action(
                 R.drawable.ic_delete,
-                context.getString(R.string.corpsefinder_watcher_notification_delete_action),
+                context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_notification_delete_action),
                 deletePi
             )
             addAction(deleteAction)
         }
     }.build()
 
-    fun notifyOfScan(result: ExternalWatcherResult.Scan) {
+    override fun notifyOfScan(result: ExternalWatcherResult.Scan) {
         log(TAG) { "notifyOfScan($result)" }
         val notification = forScanResult(result)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
-    fun notifyOfDeletion(result: ExternalWatcherResult.Deletion) {
+    override fun notifyOfDeletion(result: ExternalWatcherResult.Deletion) {
         log(TAG) { "notifyOfDeletion($result)" }
         val notification = forDeletionResult(result)
         notificationManager.notify(NOTIFICATION_ID, notification)
     }
 
-    fun clearNotifications() {
+    override fun clearNotifications() {
         log(TAG) { "clearNotifications()" }
         notificationManager.cancel(NOTIFICATION_ID)
+    }
+
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds abstract fun watcherNotifications(impl: UninstallWatcherNotifications): WatcherNotifications
     }
 
     companion object {

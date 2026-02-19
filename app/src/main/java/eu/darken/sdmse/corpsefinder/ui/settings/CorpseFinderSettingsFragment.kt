@@ -66,10 +66,10 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
             isWatcherEnabled.apply {
                 isPersistent = state.isPro
                 if (state.isPro) {
-                    setSummary(R.string.corpsefinder_watcher_summary)
+                    setSummary(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_summary)
                 } else {
                     summary =
-                        "${getString(R.string.corpsefinder_watcher_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
+                        "${getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
                 }
                 setOnPreferenceClickListener {
                     if (!state.isPro) {

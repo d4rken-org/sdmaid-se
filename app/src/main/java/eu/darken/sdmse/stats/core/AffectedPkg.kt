@@ -2,24 +2,6 @@ package eu.darken.sdmse.stats.core
 
 import androidx.annotation.DrawableRes
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.pkgs.Pkg
-
-interface AffectedPkg {
-    val reportId: ReportId
-    val action: Action
-    val pkgId: Pkg.Id
-
-    enum class Action {
-        EXPORTED,
-        STOPPED,
-        ENABLED,
-        DISABLED,
-        DELETED,
-        ARCHIVED,
-        RESTORED,
-        ;
-    }
-}
 
 @get:DrawableRes val AffectedPkg.Action.iconRes: Int
     get() = when (this) {
