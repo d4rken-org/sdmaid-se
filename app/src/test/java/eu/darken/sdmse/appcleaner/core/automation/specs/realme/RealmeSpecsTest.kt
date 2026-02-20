@@ -26,7 +26,7 @@ class RealmeSpecsTest : BaseAppCleanerSpecTest<RealmeSpecs, RealmeLabels>() {
         deviceDetective = deviceDetective,
         realmeLabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
     )
 

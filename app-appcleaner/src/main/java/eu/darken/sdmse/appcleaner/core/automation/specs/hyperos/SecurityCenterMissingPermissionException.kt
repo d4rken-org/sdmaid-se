@@ -3,7 +3,7 @@ package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 import android.content.Intent
 import android.provider.Settings
 import androidx.core.net.toUri
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.automation.core.errors.InvalidSystemStateException
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.asLog

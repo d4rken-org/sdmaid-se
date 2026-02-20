@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.user.UserHandle2
-import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.device.RomTypeProvider
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
 import io.mockk.every
@@ -29,7 +29,6 @@ import testhelpers.AcsDebugParser
 import testhelpers.BaseTest
 import testhelpers.TestACSNodeInfo
 import testhelpers.automation.TestAutomationHost
-import testhelpers.mockDataStoreValue
 
 /**
  * Base test class for AppCleaner automation specs.
@@ -56,7 +55,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
     protected lateinit var ipcFunnel: IPCFunnel
     protected lateinit var deviceDetective: DeviceDetective
     protected lateinit var storageEntryFinder: StorageEntryFinder
-    protected lateinit var generalSettings: GeneralSettings
+    protected lateinit var romTypeProvider: RomTypeProvider
     protected lateinit var stepper: Stepper
 
     // Test automation host with event support
@@ -86,7 +85,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
         ipcFunnel = mockk()
         deviceDetective = mockk()
         storageEntryFinder = mockk()
-        generalSettings = mockk()
+        romTypeProvider = mockk()
         stepper = mockk(relaxed = true)
 
         // Create spec-specific labels mock
@@ -186,7 +185,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
 
     @Test
     fun `isResponsible returns true when romType matches`() = runTest {
-        every { generalSettings.romTypeDetection } returns mockDataStoreValue(romType)
+        coEvery { romTypeProvider.getRomType() } returns romType
 
         val spec = createSpec()
         val result = spec.isResponsible(createTestPkg())
@@ -196,7 +195,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
 
     @Test
     open fun `isResponsible returns true when AUTO and device matches`() = runTest {
-        every { generalSettings.romTypeDetection } returns mockDataStoreValue(RomType.AUTO)
+        coEvery { romTypeProvider.getRomType() } returns RomType.AUTO
         coEvery { deviceDetective.getROMType() } returns romType
 
         val spec = createSpec()
@@ -209,7 +208,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
     fun `isResponsible returns false when different romType set`() = runTest {
         // Use a different ROM type than the one this spec handles
         val differentRom = RomType.entries.first { it != romType && it != RomType.AUTO }
-        every { generalSettings.romTypeDetection } returns mockDataStoreValue(differentRom)
+        coEvery { romTypeProvider.getRomType() } returns differentRom
 
         val spec = createSpec()
         val result = spec.isResponsible(createTestPkg())
@@ -219,7 +218,7 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
 
     @Test
     fun `isResponsible returns false when AUTO and device is different`() = runTest {
-        every { generalSettings.romTypeDetection } returns mockDataStoreValue(RomType.AUTO)
+        coEvery { romTypeProvider.getRomType() } returns RomType.AUTO
         // Return a different ROM type from device detection
         val differentRom = RomType.entries.first { it != romType && it != RomType.AUTO }
         coEvery { deviceDetective.getROMType() } returns differentRom

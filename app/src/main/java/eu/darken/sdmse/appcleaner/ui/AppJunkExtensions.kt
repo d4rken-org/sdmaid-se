@@ -31,54 +31,54 @@ import kotlin.reflect.KClass
 @get:StringRes
 val <T : ExpendablesFilter> KClass<T>.labelRes: Int
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> R.string.appcleaner_filter_defaultcachespublic_label
-        DefaultCachesPrivateFilter::class -> R.string.appcleaner_filter_defaultcachesprivate_label
-        HiddenFilter::class -> R.string.appcleaner_filter_hiddencaches_label
-        ThumbnailsFilter::class -> R.string.appcleaner_filter_thumbnails_label
-        CodeCacheFilter::class -> R.string.appcleaner_filter_codecache_label
-        AdvertisementFilter::class -> R.string.appcleaner_filter_advertisement_label
-        BugReportingFilter::class -> R.string.appcleaner_filter_bugreporting_label
-        AnalyticsFilter::class -> R.string.appcleaner_filter_analytics_label
-        GameFilesFilter::class -> R.string.appcleaner_filter_gamefiles_label
-        OfflineCacheFilter::class -> R.string.appcleaner_filter_offlinecache_label
-        RecycleBinsFilter::class -> R.string.appcleaner_filter_recyclebins_label
-        WebViewCacheFilter::class -> R.string.appcleaner_filter_webview_label
-        ShortcutServiceFilter::class -> R.string.appcleaner_filter_shortcutservice_label
-        WhatsAppBackupsFilter::class -> R.string.appcleaner_filter_whatsapp_backups_label
-        WhatsAppReceivedFilter::class -> R.string.appcleaner_filter_whatsapp_received_label
-        WhatsAppSentFilter::class -> R.string.appcleaner_filter_whatsapp_sent_label
-        TelegramFilter::class -> R.string.appcleaner_filter_telegram_label
-        ThreemaFilter::class -> R.string.appcleaner_filter_threema_label
-        WeChatFilter::class -> R.string.appcleaner_filter_wechat_label
-        ViberFilter::class -> R.string.appcleaner_filter_viber_label
-        MobileQQFilter::class -> R.string.appcleaner_filter_qqchat_label
+        DefaultCachesPublicFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_defaultcachespublic_label
+        DefaultCachesPrivateFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_defaultcachesprivate_label
+        HiddenFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_hiddencaches_label
+        ThumbnailsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_thumbnails_label
+        CodeCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_codecache_label
+        AdvertisementFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_advertisement_label
+        BugReportingFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_bugreporting_label
+        AnalyticsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_analytics_label
+        GameFilesFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_gamefiles_label
+        OfflineCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_offlinecache_label
+        RecycleBinsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_recyclebins_label
+        WebViewCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_webview_label
+        ShortcutServiceFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_shortcutservice_label
+        WhatsAppBackupsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_backups_label
+        WhatsAppReceivedFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_received_label
+        WhatsAppSentFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_sent_label
+        TelegramFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_telegram_label
+        ThreemaFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_threema_label
+        WeChatFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_wechat_label
+        ViberFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_viber_label
+        MobileQQFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_qqchat_label
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 
 @get:StringRes
 val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> R.string.appcleaner_filter_defaultcachespublic_summary
-        DefaultCachesPrivateFilter::class -> R.string.appcleaner_filter_defaultcachesprivate_summary
-        HiddenFilter::class -> R.string.appcleaner_filter_hiddencaches_summary
-        ThumbnailsFilter::class -> R.string.appcleaner_filter_thumbnails_summary
-        CodeCacheFilter::class -> R.string.appcleaner_filter_codecache_summary
-        AdvertisementFilter::class -> R.string.appcleaner_filter_advertisement_summary
-        BugReportingFilter::class -> R.string.appcleaner_filter_bugreporting_summary
-        AnalyticsFilter::class -> R.string.appcleaner_filter_analytics_summary
-        GameFilesFilter::class -> R.string.appcleaner_filter_gamefiles_summary
-        OfflineCacheFilter::class -> R.string.appcleaner_filter_offlinecache_summary
-        RecycleBinsFilter::class -> R.string.appcleaner_filter_recyclebins_summary
-        WebViewCacheFilter::class -> R.string.appcleaner_filter_webview_summary
-        ShortcutServiceFilter::class -> R.string.appcleaner_filter_shortcutservice_summary
-        WhatsAppBackupsFilter::class -> R.string.appcleaner_filter_whatsapp_backups_summary
-        WhatsAppReceivedFilter::class -> R.string.appcleaner_filter_whatsapp_received_summary
-        WhatsAppSentFilter::class -> R.string.appcleaner_filter_whatsapp_sent_summary
-        TelegramFilter::class -> R.string.appcleaner_filter_telegram_summary
-        ThreemaFilter::class -> R.string.appcleaner_filter_threema_summary
-        WeChatFilter::class -> R.string.appcleaner_filter_wechat_summary
-        ViberFilter::class -> R.string.appcleaner_filter_viber_summary
-        MobileQQFilter::class -> R.string.appcleaner_filter_qqchat_summary
+        DefaultCachesPublicFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_defaultcachespublic_summary
+        DefaultCachesPrivateFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_defaultcachesprivate_summary
+        HiddenFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_hiddencaches_summary
+        ThumbnailsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_thumbnails_summary
+        CodeCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_codecache_summary
+        AdvertisementFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_advertisement_summary
+        BugReportingFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_bugreporting_summary
+        AnalyticsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_analytics_summary
+        GameFilesFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_gamefiles_summary
+        OfflineCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_offlinecache_summary
+        RecycleBinsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_recyclebins_summary
+        WebViewCacheFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_webview_summary
+        ShortcutServiceFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_shortcutservice_summary
+        WhatsAppBackupsFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_backups_summary
+        WhatsAppReceivedFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_received_summary
+        WhatsAppSentFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_whatsapp_sent_summary
+        TelegramFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_telegram_summary
+        ThreemaFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_threema_summary
+        WeChatFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_wechat_summary
+        ViberFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_viber_summary
+        MobileQQFilter::class -> eu.darken.sdmse.appcleaner.R.string.appcleaner_filter_qqchat_summary
         else -> eu.darken.sdmse.common.R.string.general_todo_msg
     }
 

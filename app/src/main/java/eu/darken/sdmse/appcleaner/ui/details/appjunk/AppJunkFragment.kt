@@ -102,7 +102,7 @@ class AppJunkFragment : Fragment3(R.layout.appcleaner_appjunk_fragment) {
                         when {
                             event.items.singleOrNull() is AppJunkElementInaccessibleVH.Item -> getString(
                                 eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x,
-                                getString(R.string.appcleaner_item_caches_inaccessible_title),
+                                getString(eu.darken.sdmse.appcleaner.R.string.appcleaner_item_caches_inaccessible_title),
                             )
 
                             event.items.singleOrNull() is AppJunkElementFileCategoryVH.Item -> getString(

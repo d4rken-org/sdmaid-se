@@ -190,4 +190,5 @@
 
     <string name="general_user_label_owner">Owner</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Setup</string>
 </resources>

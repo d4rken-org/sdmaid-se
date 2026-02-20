@@ -10,7 +10,7 @@ import dagger.assisted.AssistedInject
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.LabelDebugger
 import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
@@ -30,6 +30,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.oxygenos.OxygenOSSpecs
 import eu.darken.sdmse.appcleaner.core.automation.specs.realme.RealmeSpecs
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
+import eu.darken.sdmse.automation.core.AutomationReturnHelper
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationCompatibilityException
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
@@ -43,7 +44,6 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.OpsCounter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -66,7 +66,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
-import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.device.RomTypeProvider
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import javax.inject.Provider
@@ -81,7 +81,8 @@ class ClearCacheModule @AssistedInject constructor(
     private val userManager2: UserManager2,
     private val labelDebugger: LabelDebugger,
     private val deviceDetective: DeviceDetective,
-    private val generalSettings: GeneralSettings,
+    private val romTypeProvider: RomTypeProvider,
+    private val automationReturnHelper: AutomationReturnHelper,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -140,7 +141,7 @@ class ClearCacheModule @AssistedInject constructor(
         } finally {
             finishAutomation(
                 userCancelled = result?.cancelledByUser ?: false,
-                returnToApp = task.returnToApp,
+                returnToAppIntent = if (task.returnToApp) automationReturnHelper.createReturnToAppIntent(context) else null,
                 deviceDetective = deviceDetective,
             )
         }
@@ -266,7 +267,7 @@ class ClearCacheModule @AssistedInject constructor(
     private suspend fun processSpecForPkg(pkg: Installed) {
         log(TAG) { "Clearing default primary caches for $pkg" }
         val start = System.currentTimeMillis()
-        val romTypeDetection = generalSettings.romTypeDetection.value()
+        val romTypeDetection = romTypeProvider.getRomType()
         log(TAG, INFO) { "romTypeDetection=$romTypeDetection" }
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }

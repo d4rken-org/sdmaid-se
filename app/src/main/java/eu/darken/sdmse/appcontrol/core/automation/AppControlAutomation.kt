@@ -19,10 +19,11 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
-import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
+import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.appcontrol.core.restore.RestoreAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
+import eu.darken.sdmse.automation.core.AutomationReturnHelper
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.AutomationTimeoutException
@@ -65,6 +66,7 @@ class AppControlAutomation @AssistedInject constructor(
     private val userManager2: UserManager2,
     private val labelDebugger: AppControlLabelDebugger,
     private val deviceDetective: DeviceDetective,
+    private val automationReturnHelper: AutomationReturnHelper,
 ) : AutomationModule(automationHost) {
 
     private enum class Operation {
@@ -225,7 +227,7 @@ class AppControlAutomation @AssistedInject constructor(
 
             finishAutomation(
                 userCancelled = cancelledByUser,
-                returnToApp = true,
+            returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
                 deviceDetective = deviceDetective,
             )
         }
@@ -355,7 +357,7 @@ class AppControlAutomation @AssistedInject constructor(
 
             finishAutomation(
                 userCancelled = cancelledByUser,
-                returnToApp = true,
+            returnToAppIntent = automationReturnHelper.createReturnToAppIntent(context),
                 deviceDetective = deviceDetective,
             )
         }

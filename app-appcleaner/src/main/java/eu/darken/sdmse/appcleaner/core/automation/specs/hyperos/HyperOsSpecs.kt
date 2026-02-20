@@ -10,13 +10,12 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
+import eu.darken.sdmse.appcleaner.R
+import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
-import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -49,7 +48,6 @@ import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs.isDryRun
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -65,7 +63,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
-import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.device.RomTypeProvider
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filter
@@ -87,7 +85,7 @@ class HyperOsSpecs @Inject constructor(
     private val aospLabels: AOSPLabels,
     private val deviceAdminManager: DeviceAdminManager,
     private val storageEntryFinder: StorageEntryFinder,
-    private val generalSettings: GeneralSettings,
+    private val romTypeProvider: RomTypeProvider,
     private val stepper: Stepper,
     private val animationTool: AnimationTool,
 ) : AppCleanerSpecGenerator {
@@ -95,7 +93,7 @@ class HyperOsSpecs @Inject constructor(
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        val romType = generalSettings.romTypeDetection.value()
+        val romType = romTypeProvider.getRomType()
         if (romType == RomType.HYPEROS) return true
         if (romType != RomType.AUTO) return false
 
@@ -313,7 +311,7 @@ class HyperOsSpecs @Inject constructor(
                         .mapNotNull { host.windowRoot() }
                         .mapNotNull { root ->
                             val rect = Rect()
-                            (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
+                            host.windowRoot()?.getBoundsInScreen(rect)
                             log(TAG) { "Settling-Check0: Window Root: $rect" }
                             root.crawl().map { it.node }.singleOrNull {
                                 it.textMatchesAny(clearCacheLabels)

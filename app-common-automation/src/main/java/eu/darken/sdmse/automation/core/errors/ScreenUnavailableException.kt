@@ -1,6 +1,6 @@
 package eu.darken.sdmse.automation.core.errors
 
-import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError

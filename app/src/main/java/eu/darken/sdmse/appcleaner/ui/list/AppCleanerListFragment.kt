@@ -96,12 +96,12 @@ class AppCleanerListFragment : Fragment3(R.layout.appcleaner_list_fragment) {
                     setMessage(
                         if (event.items.size == 1) {
                             getString(
-                                R.string.appcleaner_delete_confirmation_message_x,
+                                eu.darken.sdmse.appcleaner.R.string.appcleaner_delete_confirmation_message_x,
                                 event.items.single().junk.label.get(context)
                             )
                         } else {
                             requireContext().getQuantityString2(
-                                R.plurals.appcleaner_delete_confirmation_message_selected_x_items,
+                                eu.darken.sdmse.appcleaner.R.plurals.appcleaner_delete_confirmation_message_selected_x_items,
                                 event.items.size,
                                 event.items.size,
                             )

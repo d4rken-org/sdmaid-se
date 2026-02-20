@@ -1,10 +1,10 @@
 package eu.darken.sdmse.appcleaner.core
 
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.automation.ClearCacheTask
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCache
 import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
-import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
+import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.AutomationManager
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
@@ -137,7 +137,7 @@ class InaccessibleDeleter @Inject constructor(
 
         if (useAutomation && remainingTargets.isNotEmpty()) {
             log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
-            updateProgressPrimary(R.string.appcleaner_automation_loading)
+            updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_loading)
             updateProgressSecondary(CaString.EMPTY)
             updateProgressCount(Progress.Count.Indeterminate())
 
@@ -180,11 +180,11 @@ class InaccessibleDeleter @Inject constructor(
     private suspend fun forceStopApps(targets: List<InstallId>) {
         log(TAG, INFO) { "Force-stopping ${targets.size} apps before clearing cache" }
 
-        updateProgressPrimary(R.string.appcleaner_progress_force_stopping)
+        updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_progress_force_stopping)
         updateProgressSecondary(CaString.EMPTY)
-        updateProgressCount(Progress.Count.Percent(targets.size))
 
         if (rootManager.canUseRootNow() || adbManager.canUseAdbNow()) {
+            updateProgressCount(Progress.Count.Percent(targets.size))
             log(TAG) { "Using ROOT/ADB for force-stop" }
             targets.forEach { installId ->
                 try {
@@ -197,6 +197,7 @@ class InaccessibleDeleter @Inject constructor(
                 }
             }
         } else if (automationSetupModule.isComplete()) {
+            updateProgressCount(Progress.Count.Indeterminate())
             log(TAG) { "Using Automation for force-stop" }
             val task = ForceStopAutomationTask(targets)
             try {
@@ -214,7 +215,7 @@ class InaccessibleDeleter @Inject constructor(
 
     private suspend fun trimCachesWithAdb(targets: Collection<AppJunk>): InaccDelResult {
         log(TAG) { "Using ADB to delete inaccessible caches" }
-        updateProgressPrimary(R.string.appcleaner_progress_shizuku_deleting_caches)
+        updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_progress_shizuku_deleting_caches)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
 
         val trimCandidates = targets.filter { !it.pkg.isSystemApp }

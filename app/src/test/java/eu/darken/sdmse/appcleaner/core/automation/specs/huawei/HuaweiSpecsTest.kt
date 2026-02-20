@@ -15,7 +15,6 @@ import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
-import testhelpers.mockDataStoreValue
 
 class HuaweiSpecsTest : BaseAppCleanerSpecTest<HuaweiSpecs, HuaweiLabels>() {
 
@@ -28,7 +27,7 @@ class HuaweiSpecsTest : BaseAppCleanerSpecTest<HuaweiSpecs, HuaweiLabels>() {
         deviceDetective = deviceDetective,
         huaweiLabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
     )
 
@@ -54,7 +53,7 @@ class HuaweiSpecsTest : BaseAppCleanerSpecTest<HuaweiSpecs, HuaweiLabels>() {
     // Override tests that need API level mocking - Huawei requires API 29+
     @Test
     override fun `isResponsible returns true when AUTO and device matches`() = runTest {
-        every { generalSettings.romTypeDetection } returns mockDataStoreValue(RomType.AUTO)
+        coEvery { romTypeProvider.getRomType() } returns RomType.AUTO
         coEvery { deviceDetective.getROMType() } returns romType
 
         val spec = createSpec()

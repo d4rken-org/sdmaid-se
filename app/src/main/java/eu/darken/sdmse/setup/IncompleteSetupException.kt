@@ -22,7 +22,7 @@ class IncompleteSetupException(private val setupTypes: Set<SetupModule.Type>) : 
                 ${setupTypes.joinToString(",") { "'${ctx.getString(it.labelRes)}'" }}
             """.trimIndent()
         },
-        fixActionLabel = R.string.setup_title.toCaString(),
+        fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString(),
         fixAction = {
             val navController = Navigation.findNavController(it, R.id.nav_host)
             val options = SetupScreenOptions(isOnboarding = true, typeFilter = setupTypes)

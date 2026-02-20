@@ -2,7 +2,7 @@ package eu.darken.sdmse.automation.core.errors
 
 import androidx.navigation.Navigation
 import eu.darken.sdmse.MainDirections
-import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
@@ -17,9 +17,9 @@ open class AutomationNoConsentException(
         throwable = this,
         label = R.string.automation_error_no_consent_title.toCaString(),
         description = R.string.automation_error_no_consent_body.toCaString(),
-        fixActionLabel = R.string.setup_title.toCaString(),
+        fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString(),
         fixAction = {
-            val navController = Navigation.findNavController(it, R.id.nav_host)
+            val navController = Navigation.findNavController(it, eu.darken.sdmse.R.id.nav_host)
             val options = SetupScreenOptions(showCompleted = true, typeFilter = setOf(SetupModule.Type.AUTOMATION))
             navController.navigate(MainDirections.goToSetup(options = options))
         }

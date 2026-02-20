@@ -7,7 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
+import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
@@ -149,7 +149,7 @@ class OukitelSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop button for $pkg",
-                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
+                label = eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

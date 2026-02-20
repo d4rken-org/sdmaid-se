@@ -3,6 +3,7 @@ package eu.darken.sdmse.appcontrol.core.forcestop
 import dagger.Reusable
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.automation.core.AutomationManager
+import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow

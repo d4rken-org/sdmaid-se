@@ -1,7 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.aosp
 
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerLabelSource
-import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPLabels
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.getLocales
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -15,7 +14,7 @@ class AOSPLabels29Plus @Inject constructor(
     // Something like "App info"
     fun getSettingsTitleDynamic(
         acsContext: AutomationExplorer.Context,
-    ): Set<String> = acsContext.getStrings(AOSPLabels.Companion.SETTINGS_PKG, setOf("application_info_label"))
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf("application_info_label"))
 
     fun getStorageEntryDynamic(
         acsContext: AutomationExplorer.Context

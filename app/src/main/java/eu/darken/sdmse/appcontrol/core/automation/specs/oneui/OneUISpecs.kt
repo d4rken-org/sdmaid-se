@@ -8,7 +8,7 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
-import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPSpecs
+
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
@@ -104,7 +104,7 @@ class OneUISpecs @Inject constructor(
         }
 
         if (wasDisabled) {
-            log(AOSPSpecs.TAG) { "Force stop button was disabled, app is already stopped." }
+            log(TAG) { "Force stop button was disabled, app is already stopped." }
             return@plan
         }
 
@@ -132,7 +132,7 @@ class OneUISpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop for $pkg",
-                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
+                label = eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

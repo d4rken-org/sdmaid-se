@@ -58,10 +58,10 @@ class AppJunkViewModel @Inject constructor(
             onExcludeClicked = { exclude(setOf(it)) },
         ).run { items.add(this) }
 
-        junk.inaccessibleCache?.let {
+        junk.inaccessibleCache?.let { cache ->
             AppJunkElementInaccessibleVH.Item(
                 appJunk = junk,
-                inaccessibleCache = junk.inaccessibleCache,
+                inaccessibleCache = cache,
                 onItemClick = { delete(setOf(it)) }
             ).run { items.add(this) }
         }

@@ -8,7 +8,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.crawl
@@ -29,7 +29,6 @@ import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -42,7 +41,7 @@ import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
-import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.device.RomTypeProvider
 import javax.inject.Inject
 
 @Reusable
@@ -51,14 +50,14 @@ open class AndroidTVSpecs @Inject constructor(
     @ApplicationContext private val context: Context,
     private val deviceDetective: DeviceDetective,
     private val androidTVLabels: AndroidTVLabels,
-    private val generalSettings: GeneralSettings,
+    private val romTypeProvider: RomTypeProvider,
     private val stepper: Stepper,
 ) : AppCleanerSpecGenerator {
 
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        val romType = generalSettings.romTypeDetection.value()
+        val romType = romTypeProvider.getRomType()
         if (romType == RomType.ANDROID_TV) return true
         if (romType != RomType.AUTO) return false
 

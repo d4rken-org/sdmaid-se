@@ -7,7 +7,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
-import eu.darken.sdmse.appcleaner.core.automation.specs.alcatel.AlcatelSpecs
+
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
@@ -98,7 +98,7 @@ open class AndroidTVSpecs @Inject constructor(
                 descriptionInternal = "Force stop button for $pkg",
                 label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
-                windowCheck = windowCheckDefaultSettings(AlcatelSpecs.SETTINGS_PKG, ipcFunnel, pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
                 nodeAction = action,
             )
@@ -135,7 +135,7 @@ open class AndroidTVSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop for $pkg",
-                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(okLbl),
+                label = eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(okLbl),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

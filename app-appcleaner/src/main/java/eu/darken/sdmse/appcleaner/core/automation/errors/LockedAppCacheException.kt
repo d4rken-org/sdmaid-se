@@ -1,6 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.automation.errors
 
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError

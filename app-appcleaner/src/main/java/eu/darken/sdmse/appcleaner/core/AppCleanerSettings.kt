@@ -10,7 +10,6 @@ import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -19,7 +18,6 @@ import javax.inject.Singleton
 class AppCleanerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     moshi: Moshi,
-    generalSettings: GeneralSettings,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_appcleaner")

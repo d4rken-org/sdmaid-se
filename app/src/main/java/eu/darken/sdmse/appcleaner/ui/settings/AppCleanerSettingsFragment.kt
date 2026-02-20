@@ -47,7 +47,7 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
             setOnPreferenceClickListener {
                 SizeInputDialog(
                     requireActivity(),
-                    titleRes = R.string.appcleaner_include_minimumsize_label,
+                    titleRes = eu.darken.sdmse.appcleaner.R.string.appcleaner_include_minimumsize_label,
                     currentSize = settings.minCacheSizeBytes.valueBlocking,
                     onReset = { settings.minCacheSizeBytes.valueBlocking = AppCleanerSettings.MIN_CACHE_SIZE_DEFAULT },
                     onSave = { settings.minCacheSizeBytes.valueBlocking = it }
@@ -60,7 +60,7 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
             setOnPreferenceClickListener {
                 AgeInputDialog(
                     requireActivity(),
-                    titleRes = R.string.appcleaner_include_minimumage_label,
+                    titleRes = eu.darken.sdmse.appcleaner.R.string.appcleaner_include_minimumage_label,
                     currentAge = Duration.ofMillis(settings.minCacheAgeMs.valueBlocking),
                     maximumAge = Duration.ofDays(182),
                     onReset = { settings.minCacheAgeMs.valueBlocking = AppCleanerSettings.MIN_CACHE_AGE_DEFAULT },

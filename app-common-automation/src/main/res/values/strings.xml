@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nExample: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force Stop\' button and tap it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nNo actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid is interacting with your device. It\'s not possible to use the screen at the same time. Wait until the operation is finished or cancel it.</string>
+    <string name="automation_active_title">SD Maid is working</string>
+    <string name="automation_error_no_consent_title">Automation error</string>
+    <string name="automation_error_no_consent_body">Accessibility service is not set up. Complete the setup and give consent.</string>
+    <string name="automation_error_not_enabled_title">Service isn\'t enabled</string>
+    <string name="automation_error_not_enabled_body">Accessibility service is disabled. Turn it on again.</string>
+    <string name="automation_error_not_running_title">Service isn\'t running</string>
+    <string name="automation_error_not_running_body">Accessibility service is not running. Try rebooting the device.</string>
+    <string name="automation_error_screen_unavailable_title">Screen unavailable</string>
+    <string name="automation_error_screen_unavailable_body">The operation was aborted because the screen became unavailable (e.g. display off or lockscreen active).</string>
+    <string name="automation_error_compatibility_title">Automation compatibility</string>
+    <string name="automation_error_compatibility_body">SD Maid couldn\'t figure out the screen layout. If this keeps happening, your language or setup might not be fully supported. Check for updates or reach out to me so I can fix it.</string>
+    <string name="automation_error_timeout_title">Automation timeout</string>
+    <string name="automation_error_timeout_body">SD Maid did not complete all steps within the time limit. If this keeps happening, I might need to adjust the app for your device. Check for updates or reach out to me so I can fix it.</string>
+    <string name="automation_error_overlay_title">Automation overlay</string>
+    <string name="automation_error_overlay_body">SD Maid could not show the automation overlay. Check permissions and try rebooting your device.</string>
+    <string name="automation_error_scheduler_title">Scheduled automation failed</string>
+    <string name="automation_error_scheduler_body">A scheduled task tried to use the accessibility service, but it was unavailable. If you don\'t need this, disable the \"Accessibility service\" option in the scheduler settings.</string>
+    <string name="automation_error_no_settings_title">Settings screen unavailable</string>
+    <string name="automation_error_no_settings_body">This system app has no settings screen. Cache clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
+</resources>

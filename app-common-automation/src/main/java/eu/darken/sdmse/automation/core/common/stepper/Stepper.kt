@@ -44,7 +44,7 @@ class Stepper @Inject constructor(
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
-        Progress.Data(primary = R.string.general_progress_preparing.toCaString())
+        Progress.Data(primary = eu.darken.sdmse.common.R.string.general_progress_preparing.toCaString())
     )
 
     override val progress: Flow<Progress.Data?> = progressPub.throttleLatest(50)

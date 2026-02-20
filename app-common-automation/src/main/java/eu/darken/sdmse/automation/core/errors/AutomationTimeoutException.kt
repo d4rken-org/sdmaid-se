@@ -2,11 +2,13 @@ package eu.darken.sdmse.automation.core.errors
 
 import android.content.Intent
 import androidx.core.net.toUri
-import eu.darken.sdmse.R
+import eu.darken.sdmse.automation.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.error.HasLocalizedError
 import eu.darken.sdmse.common.error.LocalizedError
-import eu.darken.sdmse.common.error.asErrorDialogBuilder
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import kotlinx.coroutines.TimeoutCancellationException
 
 open class AutomationTimeoutException(
@@ -29,7 +31,7 @@ open class AutomationTimeoutException(
                 }
                 it.startActivity(intent)
             } catch (e: Exception) {
-                e.asErrorDialogBuilder(it).show()
+                log(WARN) { "Failed to open bug report URL: ${e.asLog()}" }
             }
         }
     )

@@ -22,7 +22,7 @@ class OneUISpecsTest : BaseAppCleanerSpecTest<OneUISpecs, OneUILabels>() {
         deviceDetective = deviceDetective,
         oneUILabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
     )
 

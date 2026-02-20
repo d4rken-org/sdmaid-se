@@ -1,6 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.tasks
 
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.forensics.ExpendablesFilter
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.appcontrol.core.forcestop
+package eu.darken.sdmse.automation.core
 
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.common.pkgs.features.InstallId

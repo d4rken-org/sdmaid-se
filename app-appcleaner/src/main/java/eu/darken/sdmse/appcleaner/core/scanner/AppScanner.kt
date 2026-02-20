@@ -1,6 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.scanner
 
 import android.content.Context
+import eu.darken.sdmse.appcleaner.R
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcleaner.core.AppCleanerSettings
 import eu.darken.sdmse.appcleaner.core.AppJunk
@@ -510,7 +511,7 @@ class AppScanner @Inject constructor(
             return emptyList()
         }
 
-        updateProgressPrimary(eu.darken.sdmse.R.string.appcleaner_progress_determining_inaccessible_caches)
+        updateProgressPrimary(R.string.appcleaner_progress_determining_inaccessible_caches)
         updateProgressSecondary(CaString.EMPTY)
         updateProgressCount(Progress.Count.Indeterminate())
 

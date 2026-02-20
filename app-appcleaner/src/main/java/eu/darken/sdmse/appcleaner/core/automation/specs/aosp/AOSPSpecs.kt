@@ -9,7 +9,7 @@ import dagger.Reusable
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
-import eu.darken.sdmse.R
+import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
@@ -37,7 +37,6 @@ import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
 import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
@@ -51,7 +50,7 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.ui.SizeParser
-import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.common.device.RomTypeProvider
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.withTimeoutOrNull
@@ -63,7 +62,7 @@ class AOSPSpecs @Inject constructor(
     private val deviceDetective: DeviceDetective,
     private val aospLabels: AOSPLabels,
     private val storageEntryFinder: StorageEntryFinder,
-    private val generalSettings: GeneralSettings,
+    private val romTypeProvider: RomTypeProvider,
     private val stepper: Stepper,
     private val inputInjector: InputInjector,
 ) : AppCleanerSpecGenerator {
@@ -71,7 +70,7 @@ class AOSPSpecs @Inject constructor(
     override val tag: String = TAG
 
     override suspend fun isResponsible(pkg: Installed): Boolean {
-        val romType = generalSettings.romTypeDetection.value()
+        val romType = romTypeProvider.getRomType()
         if (romType == RomType.AOSP) return true
         if (romType != RomType.AUTO) return false
 
