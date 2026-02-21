@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">ຂໍ້ມູນທີ່ເປັນຂອງແອັບທີ່ຖືກລຶບອອກແລ້ວ.</string>
+    <string name="corpsefinder_settings_summary">ປັບແຕ່ງຕົວກໍງການສແກນ ແລະ ລະດັບຄວາມເສີ່ຍງ.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">ສົ່ງຄວາມທີ່ເຫຼືອທີ່ແປບບອນ</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">ໄຟລໄທີ່ທ່ານອາດຕ້ອງການໄວ້, ແມ້ວ່າແອັບຈະຖືກถອນອອກ, ເຊ່ນ ຮູບຖ່າຍທີ່ທ່ານຖ່າຍ ຫຼື ໄຟລໄສໍາຮອງທີ່ທ່ານສ້າງ.</string>
+    <string name="corpsefinder_settings_risk_common_title">ສົ່ງຊື່ທີ່ໃຊ້ກັນທົ່ວໄປ</string>
+    <string name="corpsefinder_settings_risk_common_summary">ຂໍ້ມູນທີ່ມີຊື່ທີ່ໃຊ້ກັນທົ່ວໄປ, ເຊ່ນ ໂຟດເດອນ \"ບົນທຶກ\" ທີ່ເປັນຂອງແອັບທີ່ບໍ່ຮູ້ຈັກຫຼາຍตົວ.</string>
+    <string name="corpsefinder_watcher_title">ຕົວຕິດຕາມການถອນອອກ</string>
+    <string name="corpsefinder_watcher_summary">ສແກນຫາຄວາມທີ່ເຫຼືອອັດຕະໂນມັດເມື່ອແອັບຖືກລຶບອອກ.</string>
+    <string name="corpsefinder_watcher_autodelete_title">ການລຶບອັດຕະໂນມັດ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">ລຶບຄວາມທີ່ເຫຼືອທີ່ເກີ່ຍວຂ້ອງກັບແອັບທີ່ຖືກຖອນອອກອັດຕະໂນມັດ.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">ລຶບຄວາມທີ່ເຫຼືອ</string>
+    <string name="corpsefinder_filter_publicmedia_label">ສື່ເຜີ່ຢພາບສາຘາລະນະ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ໄຟລໄສື່ເຜີ່ຢພາບສາຘາລະນະ, ເຊ່ນ ໄຟລໄທີ່ໄດ້ຮັບຜ່ານແອັບຂໍ້ຄວາມ.</string>
+    <string name="corpsefinder_filter_publicobb_label">ທຸນ OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">ທຸນເພີ່ມເຕີມຂອງແອັບ, ເຊ່ນ ຂໍ້ມູນເກມ.</string>
+    <string name="corpsefinder_filter_publicdata_label">ຂໍ້ມູນແອັບສາຘາລະນະ</string>
+</resources>

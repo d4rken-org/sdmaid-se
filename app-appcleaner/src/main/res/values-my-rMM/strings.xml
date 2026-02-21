@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_tool_name">အက်ပ် သန့်ရှင်းရေးကိရိယာ</string>
+    <string name="appcleaner_explanation_short">သီးသန့် အက်ပ်များ၏ ဖျက်ပစ်နိုင်သော ဒေတာများ။</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">အများပြည်သူ မူလ ကက်ရှ်များ</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">မူလ အများပြည်သူ အက်ပ် ကက်ရှ်များ။ Android ဗားရှင်း ဟောင်းများတွင် Android/data အောက်တွင် အသုံးပြုနိုင်သည်။ စနစ် ဆက်တင်များတွင် \"ကက်ရှ် ဖြင့်ရှင်း\" နှိပ်သောအခါ ဖျက်ပစ်သည်။</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">ပုဂ္ဂလိက မူလ ကက်ရှ်များ</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">မူလ ပုဂ္ဂလိက အက်ပ် ကက်ရှ်များ။ စနစ် ဆက်တင်များတွင် \"ကက်ရှ် ဖြင့်ရှင်း\" နှိပ်သောအခါ ဖျက်ပစ်သည်။</string>
+    <string name="appcleaner_include_systemapps_label">စနစ် အက်ပ်များ ပါဝင်စေရန်</string>
+    <string name="appcleaner_include_systemapps_summary">စနစ် အက်ပ်များကို စစ်ဆေးမှုတွင် ပါဝင်စေပါ။</string>
+    <string name="appcleaner_include_runningapps_label">လုပ်ဆောင်နေသော အက်ပ်များ ပါဝင်စေရန်</string>
+    <string name="appcleaner_include_runningapps_summary">လုပ်ဆောင်နေသော အက်ပ်များကို ပါဝင်စေပါ (သတိဖြင့် အသုံးပြုပါ)။</string>
+    <string name="appcleaner_filter_wechat_summary">စကားပြောဆိုမှုများနှင့် WeChat အချိန်များတွင် ပို့သော သို့မဟုတ် လက်ခံသော ဖိုင်များ။</string>
+    <string name="appcleaner_filter_viber_summary">စကားပြောဆိုမှုတွင် ကြည့်ရှုသောအခါ ပြန်လည် ဒေါင်းလုဒ် လုပ်သော ကက်ရှ် မီဒီယာ ဖိုင်များ။</string>
+    <string name="appcleaner_filter_qqchat_label">QQ စကားပြောဆိုမှု</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ စကားပြောဆိုမှုများတွင် ပို့သော သို့မဟုတ် လက်ခံသော ဖိုင်များ။</string>
+    <string name="appcleaner_delete_all_confirmation_message">အက်ပ် အားလုံးအတွက် ဖျက်ပစ်နိုင်သော အရာများကို ဖျက်မလား။</string>
+    <string name="appcleaner_automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>
+    <string name="appcleaner_automation_title">AppCleaner အလိုအလျောက် လုပ်ငန်း</string>
+</resources>

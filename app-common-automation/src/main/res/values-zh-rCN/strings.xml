@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">有特殊无障碍需求的用户可以启用此服务，SD Maid 可替您自动完成那些需要用户繁琐交互的任务（如清理缓存）。\n\n例如，如果您想批量停止应用，SD Maid 可以借助此服务打开每个应用的设置界面，自动找到“强制停止”按钮并点击。\n\nSD Maid 在运行此服务时会产生醒目提示，以便您随时取消任意操作。\n\n所有操作行为都需要用户事先批准才会实施。用户可以随时禁用此服务，且不会产生任何负面影响。</string>
+    <string name="automation_screenoverlay_explanation">SD Maid 正在占用您的设备。此时无法使用屏幕，请等待操作完成或取消操作。</string>
+    <string name="automation_active_title">SD Maid 正在运行</string>
+    <string name="automation_error_no_consent_title">自动化错误</string>
+    <string name="automation_error_no_consent_body">未设置无障碍服务。请完成设置并给予许可。</string>
+    <string name="automation_error_not_enabled_title">服务未启用</string>
+    <string name="automation_error_not_enabled_body">未启用服务，请重新启用。</string>
+    <string name="automation_error_not_running_title">服务未运行</string>
+    <string name="automation_error_not_running_body">无障碍服务未运行。请尝试重启设备。</string>
+    <string name="automation_error_screen_unavailable_title">屏幕不可用</string>
+    <string name="automation_error_screen_unavailable_body">由于屏幕不可用（例如，息屏或锁屏状态）操作已终止。</string>
+    <string name="automation_error_compatibility_title">自动操作兼容性</string>
+    <string name="automation_error_compatibility_body">SD Maid 无法确定您的屏幕布局大小。 如果这种情况持续发生，可能是您的语言或系统设置不能完全支持。 请检查更新应用或联系我让我解决这个问题。</string>
+    <string name="automation_error_timeout_title">自动操作超时</string>
+    <string name="automation_error_timeout_body">SD Maid 未能在时间限制内完成所有步骤。 如果这种情况多次发生，开发者可能需要为您的设备调整应用程序。 检查应用更新或联系开发者，以便开发者能够修复它。</string>
+    <string name="automation_error_overlay_title">自动操作叠加层</string>
+    <string name="automation_error_overlay_body">SD Maid 无法显示自动操作叠加层。检查权限问题并尝试重启您的设备。</string>
+    <string name="automation_error_no_settings_title">设置屏幕不可用</string>
+    <string name="automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
+</resources>

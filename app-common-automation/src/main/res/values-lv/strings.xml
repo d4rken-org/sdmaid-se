@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Lietotāji ar īpašām pieejamības vajadzībām var iespējot šo pakalpojumu, lai ļautu SD Maid automatizēt uzdevumus, kas citādi prasītu garlaicīgu manuālu mijiedarbību (piem. kešatmiņas dzēšanu).\n\nPiemērs: Ja jūs dodat SD Maid norādījumu apturēt vairākas lietotnes, tad SD Maid var izmantot šo pakalpojumu, lai atvērtu katras lietotnes iestatījumu ekrānu, atrastu pogu \'Piespiedu apturēšana\' un to nospiestu.\n\nSD Maid vienmēr pamanāmi rādīs, kad šis pakalpojums tiek izmantots, un nodrošinās vienkāršu veidu, kā lietotājs var nekavējoties atcelt jebkuru mijiedarbību.\n\nNeviena darbība netiks veikta bez iepriekšējas lietotāja piekrišanas. Šo pakalpojumu var atspējot jebkurā laikā bez nelabvēlīgām sekām.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid mijiedarbojas ar jūsu ierīci. Nav iespējams vienlaicīgi izmantot ekrānu. Gaidiet, līdz darbība ir pabeigta, vai atceliet to.</string>
+    <string name="automation_active_title">SD Maid strādā</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">ذخیره‌سازی عمومی</string>
+    <string name="area_type_public_media_label">رسانه برنامه عمومی</string>
+    <string name="area_type_public_data_label">داده‌های عمومی برنامه</string>
+    <string name="area_type_public_obb_label">منابع برنامه عمومی</string>
+    <string name="area_type_private_data_label">اطلاعات خصوصی برنامه </string>
+    <string name="area_type_portable_label">فضای ذخیره‌سازی قابل‌حمل</string>
+</resources>

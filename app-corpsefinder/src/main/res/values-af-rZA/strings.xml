@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data wat behoort aan reeds verwyderde toepassings.</string>
+    <string name="corpsefinder_settings_summary">Stel skandering filters en risiko vlakke af.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Sluit wenslike oorblyfsels in</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Lêers wat jy dalk wil hou, selfs as die toepassing gedeïnstalleer is, bv. foto\'s wat jy geneem het of rugsteune wat jy geskep het.</string>
+    <string name="corpsefinder_settings_risk_common_title">Sluit algemene name in</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data met algemeen gebruikte name, bv. \'n lêergids \"Notes\" is eiendom van te veel onbekende toepassings.</string>
+    <string name="corpsefinder_watcher_title">Deïnstallasie wagter</string>
+    <string name="corpsefinder_watcher_summary">Skandeer outomaties vir oorblyfsels wanneer \'n toepassing verwyder word.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Outomatiese skrapping</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Skrap outomaties enige oorblyfsels wat verband hou met die gedeïnstalleerde toepassing.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d oorblyfsel gevind na deïnstallasie van %2$s.</item>
+        <item quantity="other">%1$d oorblyfsels gevind na deïnstallasie van %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Skoonmaak suksesvol (%1$s): %2$s bevry en %3$d item verwyder.</item>
+        <item quantity="other">Skoonmaak suksesvol (%1$s): %2$s bevry en %3$d items verwyder.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Skrap oorblyfsels</string>
+    <string name="corpsefinder_filter_publicmedia_label">Openbare media</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Openbare media lêers, bv. lêers ontvang via boodskapper toepassings.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB hulpbronne</string>
+    <string name="corpsefinder_filter_publicobb_summary">Addisionele toepassing hulpbronne, bv. spel bates.</string>
+    <string name="corpsefinder_filter_publicdata_label">Openbare toepassing data</string>
+    <string name="corpsefinder_filter_publicdata_summary">Nie-sensitiewe toepassing data, bv. kaart kas.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kaart</string>
+    <string name="corpsefinder_filter_sdcard_summary">Algemene openbare berging, intern en ekstern (bv. SD kaarte).</string>
+    <string name="corpsefinder_filter_privatedata_label">Private toepassing data</string>
+    <string name="corpsefinder_filter_privatedata_summary">Private toepassing data, bv. geloofsbriewe, toepassing instellings maar ook blaaier kas.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik kas</string>
+    <string name="corpsefinder_filter_dalvik_summary">Gekasde toepassing uitvoering data.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiele</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiele word deur Android gebruik om toepassingsprestasie te optimaliseer.</string>
+    <string name="corpsefinder_filter_applib_label">Toepassing biblioteke</string>
+    <string name="corpsefinder_filter_applib_summary">Toepassing verwante biblioteek data.</string>
+    <string name="corpsefinder_filter_appsource_label">Toepassing bronne</string>
+    <string name="corpsefinder_filter_appsource_summary">Toepassing installasie data, d.w.s. waar APK\'s gaan.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Private toepassing bronne</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Beperkte toepassing installasie data, bv. beskermde derde party toepassings.</string>
+    <string name="corpsefinder_filter_appasec_label">Versleutelde toepassing hulpbronne</string>
+    <string name="corpsefinder_filter_appasec_summary">Versleutelde toepassing hulpbronne, bv. spel bates.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data geskuif na eksterne berging deur App2Sd mods.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d toepassing oorblyfsel geskrap</item>
+        <item quantity="other">%d toepassing oorblyfsels geskrap</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d toepassing oorblyfsel ontdek</item>
+        <item quantity="other">%d toepassing oorblyfsels ontdek</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Skrap alle toepassing oorblyfsels?</string>
+    <string name="corpsefinder_owners_label">Eienaars</string>
+    <string name="corpsefinder_corpse_hints_label">Kennisgewing</string>
+    <string name="corpsefinder_owner_unknown">Onbekende eienaar</string>
+    <string name="corpsefinder_corpse_hint_keeper">Hierdie item mag data bevat wat jy wil hou ten spyte van dit se eienaar wat gedeïnstalleer is, bv. foto\'s of rugsteune.</string>
+    <string name="corpsefinder_corpse_hint_common">Hierdie item het \'n baie algemene naam en kan behoort aan nog geïnstalleerde toepassings wat SD Maid nie ken nie.</string>
+</resources>

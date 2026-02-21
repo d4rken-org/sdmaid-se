@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Potete abilitare questo servizio per concedere a SD Maid di automatizzare compiti che richiederebbero molteplici interazioni manuali (ad esempio l\'eliminazioni della cache). \n\nEsempio: Se viene chiesto a SD Maid di arrestare più app, allora questo servizio viene utilizzato per aprire le impostazioni di ogni app, trovare il bottone \'Arresto forzato\' e cliccarlo.\n\nSD Maid mostrerà sempre quando il servizio verrà utilizzao e consentendo all\'utente di annullare le interazioni immadiatamente.\n\nNessuna azione verrà eseguita senza l\'approvazione dell\'utente. Questo servizio può essere disattivato in qualsiasi momento senza effetti collaterali.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid sta interagendo con il tuo dispositivo. Non è possibile utilizzare lo schermo allo stesso tempo. Attendere fino al termine dell\'operazione o annullarla.</string>
+    <string name="automation_active_title">SD Maid sta funzionando</string>
+    <string name="automation_error_no_consent_title">Errore di automazione</string>
+    <string name="automation_error_no_consent_body">Il servizio di accessibilità non è configurato. Completa la configurazione e dai il consenso.</string>
+    <string name="automation_error_not_enabled_title">Servizio non abilitato</string>
+    <string name="automation_error_not_enabled_body">Il servizio di accessibilità è disabilitato. Attivalo.</string>
+    <string name="automation_error_not_running_title">Servizio non in esecuzione</string>
+    <string name="automation_error_not_running_body">Il servizio di accessibilità non è in esecuzione. Prova a riavviare il dispositivo.</string>
+    <string name="automation_error_screen_unavailable_title">Schermo non disponibile</string>
+    <string name="automation_error_screen_unavailable_body">L\'operazione è stata interrotta perché lo schermo non era disponibile (ad es. schermo spento o schermata di blocco attiva).</string>
+    <string name="automation_error_compatibility_title">Compatibilità automazione</string>
+    <string name="automation_error_compatibility_body">SD Maid non è riuscita a capire il layout dello schermo. Se questo continua ad accadere, la tua lingua o configurazione potrebbe non essere completamente supportata. Controlla gli aggiornamenti o contattami così posso risolvere il problema.</string>
+    <string name="automation_error_timeout_title">Timeout automazione</string>
+    <string name="automation_error_timeout_body">SD Maid non ha completato tutti i passaggi entro il limite di tempo. Se continua a succedere, potrei dover adattare l\'app per il tuo dispositivo. Controlla gli aggiornamenti o contattami così posso risolverlo.</string>
+    <string name="automation_error_overlay_title">Overlay automazione</string>
+    <string name="automation_error_overlay_body">SD Maid non è riuscito a mostrare l\'overlay di automazione. Controlla i permessi e prova a riavviare il dispositivo.</string>
+    <string name="automation_error_no_settings_title">Schermata impostazioni non disponibile</string>
+    <string name="automation_error_no_settings_body">Questa app di sistema non ha una schermata delle impostazioni. La cancellazione della cache tramite servizio di accessibilità non è possibile. Escludila per velocizzare la cancellazione della cache.</string>
+</resources>

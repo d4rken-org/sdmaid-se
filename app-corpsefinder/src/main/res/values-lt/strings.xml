@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Duomenys, priklausantys jau pašalintoms programoms.</string>
+    <string name="corpsefinder_settings_summary">Sureguliuokite nuskaitymo filtrus ir rizikos lygius.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Įtraukti pageidaujamus failus</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Failus, kuriuos galbūt norėsite išsaugoti, net jei programa bus pašalinta, pvz., padarytas nuotraukas arba sukurtas atsargines kopijas.</string>
+    <string name="corpsefinder_settings_risk_common_title">Įtraukite bendrinius pavadinimus</string>
+    <string name="corpsefinder_settings_risk_common_summary">Duomenys su dažnai naudojamais pavadinimais, pvz., aplankas \"Notes\" priklauso per daug nežinomų programų.</string>
+    <string name="corpsefinder_watcher_summary">Automatiškai nuskaitykite likučius, kai programa pašalinama.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatinis ištrynimas</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatiškai ištrinkite visus su pašalinta programa susijusius likučius.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Ištrinkite likučius</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Viešieji medijos failai, pvz., failai, gauti per žinučių programėles.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ištekliai</string>
+    <string name="corpsefinder_filter_publicdata_label">Viešieji programėlės duomenys</string>
+    <string name="corpsefinder_filter_publicdata_summary">Neskelbtini programėlės duomenys, pvz., žemėlapių talpyklos.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kortelė</string>
+    <string name="corpsefinder_filter_sdcard_summary">Bendra viešoji saugykla, vidinė ir išorinė 
+(pvz., SD kortelės).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privatūs programėlės duomenys</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privatūs programėlės duomenys, pvz., įgaliojimai, programėlės nustatymai, taip pat naršyklės talpyklos.</string>
+    <string name="corpsefinder_filter_dalvik_label">\"Dalvik\" talpykla</string>
+    <string name="corpsefinder_filter_dalvik_summary">Į spartinančiąją atmintį įrašyti programos vykdymo duomenys.</string>
+    <string name="corpsefinder_filter_applib_label">Programėlių bibliotekos</string>
+    <string name="corpsefinder_filter_applib_summary">Su programa susiję bibliotekos duomenys.</string>
+    <string name="corpsefinder_filter_appsource_label">Programėlės šaltiniai</string>
+    <string name="corpsefinder_filter_appsource_summary">Programėlių diegimo duomenys, t. y. kur patenka APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privatūs programėlių šaltiniai</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Apribotų programėlių diegimo duomenys, pvz., apsaugotos trečiųjų šalių programėlės.</string>
+    <string name="corpsefinder_filter_appasec_label">Užšifruoti programėlės ištekliai</string>
+    <string name="corpsefinder_filter_app2sd_summary">Duomenys perkelti į išorinę saugyklą naudojant \"App2Sd\" modifikacijas.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_owners_label">Savininkai</string>
+    <string name="corpsefinder_corpse_hints_label">Pranešimas</string>
+    <string name="corpsefinder_owner_unknown">Nežinomas savininkas</string>
+    <string name="corpsefinder_corpse_hint_keeper">Šiame elemente gali būti duomenų, kuriuos norite išsaugoti, nepaisant to, kad jo savininkas buvo pašalintas, pvz., nuotraukų arba atsarginių kopijų.</string>
+    <string name="corpsefinder_corpse_hint_common">Šis elementas turi labai įprastą pavadinimą ir gali priklausyti vis dar įdiegtoms programoms, kurių \"SD Maid\" nežino.</string>
+</resources>

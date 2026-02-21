@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data milik aplikasi yang telah dialih keluar.</string>
+    <string name="corpsefinder_settings_summary">Laraskan penapis imbasan dan tahap risiko.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa yang diingini</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Fail yang mungkin mahu anda simpan, walaupun aplikasi dinyahpasang, mis. foto yang anda ambil atau sandaran yang anda buat.</string>
+    <string name="corpsefinder_settings_risk_common_title">Sertakan nama biasa</string>
+    <string name="corpsefinder_settings_risk_common_summary">Fail yang sepadan dengan nama pakej aplikasi yang dipasang akan dikecualikan secara automatik.</string>
+    <string name="corpsefinder_watcher_title">Nyahpasang pemerhati</string>
+    <string name="corpsefinder_watcher_summary">Imbas secara automatik untuk saki-baki apabila aplikasi dialih keluar.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Pemadaman automatik</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Pemadaman secara automatik mana-mana saki-baki yang berkaitan dengan aplikasi yang dinyahpasang.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">%1$d saki-baki ditemui selepas menyahpasang %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">Pembersihan berjaya (%1$s): Membebaskan %2$s dan mengalih keluar %3$d item.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Padamkan sisa</string>
+    <string name="corpsefinder_filter_publicmedia_label">Media awam</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Fail media awam, cth. fail yang diterima melalui aplikasi messenger.</string>
+    <string name="corpsefinder_filter_publicobb_label">Sumber OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Sumber aplikasi tambahan, mis. aset permainan.</string>
+    <string name="corpsefinder_filter_publicdata_label">Data aplikasi awam</string>
+    <string name="corpsefinder_filter_publicdata_summary">Data aplikasi tidak sensitif, mis. cache peta.</string>
+    <string name="corpsefinder_filter_sdcard_label">Kad SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Storan awam umum, dalaman dan luaran (cth. kad SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Data aplikasi peribadi</string>
+    <string name="corpsefinder_filter_privatedata_summary">Data aplikasi peribadi, mis. kelayakan, tetapan apl tetapi juga cache pelayar.</string>
+    <string name="corpsefinder_filter_dalvik_label">Cache Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Data pelaksanaan aplikasi dicache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profil ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profil ART digunakan oleh Android untuk mengoptimumkan prestasi aplikasi.</string>
+    <string name="corpsefinder_filter_applib_label">Perpustakaan aplikasi</string>
+    <string name="corpsefinder_filter_applib_summary">Data perpustakaan berkaitan aplikasi.</string>
+    <string name="corpsefinder_filter_appsource_label">Sumber aplikasi</string>
+    <string name="corpsefinder_filter_appsource_summary">Data pemasangan aplikasi, iaitu tempat APK pergi.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Sumber apl peribadi</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Data pemasangan aplikasi terhad, mis. aplikasi pihak ketiga yang dilindungi.</string>
+    <string name="corpsefinder_filter_appasec_label">Sumber aplikasi yang dipersulitkan</string>
+    <string name="corpsefinder_filter_appasec_summary">Sumber aplikasi yang dipersulitkan, mis. aset permainan.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data dialihkan ke storan luaran oleh mod App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d bangkai dipadam</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">%d sisa aplikasi ditemui</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Padamkan semua sisa aplikasi?</string>
+    <string name="corpsefinder_owners_label">Pemilik</string>
+    <string name="corpsefinder_corpse_hints_label">Notis</string>
+    <string name="corpsefinder_owner_unknown">Pemilik tidak dikenali</string>
+    <string name="corpsefinder_corpse_hint_keeper">Item ini mungkin mengandungi data yang anda ingin simpan walaupun pemiliknya dinyahpasang, mis. foto atau sandaran.</string>
+    <string name="corpsefinder_corpse_hint_common">Item ini mempunyai nama yang sangat biasa dan mungkin tergolong dalam aplikasi yang masih dipasang yang tidak diketahui oleh SD Maid.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">მომხმარებლები განსაკუთრებული ხელმისაწვდომობის საჭიროებებით შეუძლიათ ჩართონ ეს სერვისი, რათა SD Maid-მა შეძლოს ამოცანების ავტომატიზაცია, რომლებიც სხვაგვარად მოითხოვს მოსაწყენ მანუალურ მომხმარებლის ინტერაქციას (მაგ. ქეშის წაშლა).\n\nმაგალითი: თუ SD Maid-ს უბრძანებთ რამდენიმე აპის გაჩერებას, მაშინ SD Maid-ს შეუძლია გამოიყენოს ეს სერვისი თითოეული აპის პარამეტრების ეკრანის გასახსნელად, \"იძულებითი გაჩერების\" ღილაკის საპოვნელად და მასზე დაჭერისთვის.\n\nSD Maid ყოველთვის თვალსაჩინოდ აჩვენებს ამ სერვისის გამოყენებისას და უზრუნველყოფს მომხმარებლისთვის მარტივ გზას ნებისმიერი ინტერაქციის დაუყოვნებლივ გაუქმებისთვის.\n\nარანაირი მოქმედება არ შესრულდება წინასწარი მომხმარებლის დასტურის გარეშე. ეს სერვისი შეიძლება ხელახლა გაითიშოს ნებისმიერ დროს უარყოფითი ეფექტების გარეშე.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ურთიერთობს თქვენს მოწყობილობასთან. შეუძლებელია ეკრანის ერთდროული გამოყენება. დაელოდეთ ოპერაციის დასრულებას ან გააუქმეთ.</string>
+    <string name="automation_active_title">SD Maid მუშაობს</string>
+    <string name="automation_error_no_consent_title">ავტომატიზაციის შეცდომა</string>
+    <string name="automation_error_no_consent_body">ხელმისაწვდომობის სერვისი არ არის დაყენებული. დაასრულეთ დაყენება და მიეცით თანხმობა.</string>
+    <string name="automation_error_not_enabled_title">სერვისი არ არის ჩართული</string>
+    <string name="automation_error_not_enabled_body">ხელმისაწვდომობის სერვისი გათიშულია. ხელახლა ჩართეთ.</string>
+    <string name="automation_error_not_running_title">სერვისი არ მუშაობს</string>
+    <string name="automation_error_not_running_body">ხელმისაწვდომობის სერვისი არ მუშაობს. სცადეთ მოწყობილობის გადატვირთვა.</string>
+    <string name="automation_error_screen_unavailable_title">ეკრანი მიუწვდომელია</string>
+    <string name="automation_error_screen_unavailable_body">ოპერაცია შეწყვეტილ იქნა, რადგან ეკრანი გახდა მიუწვდომელი (მაგ. ეკრანი გათიშული ან დაბლოკვის ეკრანი აქტიური).</string>
+    <string name="automation_error_compatibility_title">ავტომატიზაციის თავსებადობა</string>
+    <string name="automation_error_compatibility_body">SD Maid-მ ვერ გაარკვია ეკრანის განლაგება. თუ ეს გრძელდება, შესაძლოა თქვენი ენა ან დაყენება სრულად არ არის მხარდაჭერილი. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
+    <string name="automation_error_timeout_title">ავტომატიზაციის ვადის გასვლა</string>
+    <string name="automation_error_timeout_body">SD Maid-მ ვერ დაასრულა ყველა ნაბიჯი დროის ლიმიტში. თუ ეს გრძელდება, შესაძლოა დამჭირდეს აპის მორგება თქვენი მოწყობილობისთვის. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
+    <string name="automation_error_overlay_title">ავტომატიზაციის ოვერლეი</string>
+    <string name="automation_error_overlay_body">SD Maid-მ ვერ აჩვენა ავტომატიზაციის ოვერლეი. შეამოწმეთ ნებართვები და სცადეთ მოწყობილობის გადატვირთვა.</string>
+    <string name="automation_error_no_settings_title">პარამეტრების ეკრანი მიუწვდომელია</string>
+    <string name="automation_error_no_settings_body">ამ სისტემურ აპს არ აქვს პარამეტრების ეკრანი. ქეშის გასუფთავება ხელმისაწვდომობის სერვისის საშუალებით შეუძლებელია. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
+</resources>

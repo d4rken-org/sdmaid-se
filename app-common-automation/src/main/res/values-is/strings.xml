@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Notendur með sérstakar aðgengisþarfir geta virkjað þessa þjónustu til að leyfa SD Maid að sjálfvirka verkefni sem annars myndu krefjast leiðinlegrar handvirkrar notendaviðrásar (t.d. eyðing skyndiminnis).\n\nDæmi: Ef þú gefur SD Maid fyrirmæli um að stöðva mörg forrit þá getur SD Maid notað þessa þjónustu til að opna stillingaskjá hvers forrits, finna \'Þvinga stopp\' hnappinn og ýta á hann.\n\nSD Maid mun alltaf sýna áberandi þegar þessi þjónusta er notuð og veita auðvelda leið fyrir notandann til að hætta við hvaða víxlverkun sem er strax.\n\nEngar aðgerðir verða framkvæmdar án fyrirfram samþykkis notanda. Hægt er að gera þessa þjónustu óvirka hvenær sem er án skaðlegra áhrifa.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid er í samskiptum við tækið þitt. Ekki er hægt að nota skjáinn á sama tíma. Bíddu þar til aðgerðin er lokið eða hættu við hana.</string>
+    <string name="automation_active_title">SD Maid er að vinna</string>
+    <string name="automation_error_no_consent_title">Villa í sjálfvirkni</string>
+    <string name="automation_error_no_consent_body">Aðgengisþjónusta er ekki uppsett. Ljúktu uppsetningunni og veittu samþykki.</string>
+    <string name="automation_error_not_enabled_title">Þjónusta er ekki virk</string>
+    <string name="automation_error_not_enabled_body">Aðgengisþjónustan er óvirk. Kveiktu á henni aftur.</string>
+    <string name="automation_error_not_running_title">Þjónusta er ekki í gangi</string>
+    <string name="automation_error_not_running_body">Aðgengisþjónustan er ekki í gangi. Prófaðu að endurræsa tækið.</string>
+    <string name="automation_error_screen_unavailable_title">Skjár ekki tiltækur</string>
+    <string name="automation_error_screen_unavailable_body">Aðgerðinni var hætt vegna þess að skjárinn varð ótiltækur (t.d. skjár slökktur eða lásskjár virkur).</string>
+    <string name="automation_error_compatibility_title">Samhæfni sjálfvirkni</string>
+    <string name="automation_error_compatibility_body">SD Maid gat ekki greint skipulag skjásins. Ef þetta gerist áfram gæti tungumálið þitt eða uppsetning ekki verið fullstudd. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
+    <string name="automation_error_timeout_title">Tímamörk sjálfvirkni</string>
+    <string name="automation_error_timeout_body">SD Maid lauk ekki öllum skrefum innan tímamarka. Ef þetta gerist áfram gæti þurft að aðlaga forritið að tækinu þínu. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
+    <string name="automation_error_overlay_title">Sjálfvirkniyfirlögn</string>
+    <string name="automation_error_overlay_body">SD Maid gat ekki sýnt sjálfvirkniyfirlögn. Athugaðu leyfi og prófaðu að endurræsa tækið.</string>
+    <string name="automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
+    <string name="automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+</resources>

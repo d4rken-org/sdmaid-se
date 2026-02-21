@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">საჯარო მეხსიერება</string>
+    <string name="area_type_public_media_label">საჯარო აპის მედია</string>
+    <string name="area_type_public_data_label">საჯარო აპის მონაცემები</string>
+    <string name="area_type_public_obb_label">საჯარო აპის რესურსები</string>
+    <string name="area_type_private_data_label">კერძო აპის მონაცემები</string>
+    <string name="area_type_portable_label">პორტატული მეხსიერება</string>
+</resources>

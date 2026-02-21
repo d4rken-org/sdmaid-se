@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Usuários com necessidades especiais de acessibilidade podem habilitar esse serviço para permitir que o SD Maid automatize tarefas que de certa forma exigiriam uma interação manual tediosa do usuário (por exemplo, exclusão de cache).\n\nExemplo: Se você instruir o SD Maid a parar vários aplicativos, o SD Maid poderá usar esse serviço para abrir a tela de configurações de cada aplicativo, encontrar o botão \'Forçar Parada\' e clicar nele.\n\nO SD Maid sempre será exibido de forma destacada ao usar esse serviço e fornecerá uma maneira fácil para o usuário cancelar qualquer interação imediatamente.\n\nNenhuma ação será executada sem a aprovação prévia do usuário. Este serviço pode ser desativado novamente a qualquer momento sem efeitos adversos.</string>
+    <string name="automation_screenoverlay_explanation">O SD Maid está interagindo com o dispositivo. Não é possível usar a tela simultaneamente. Aguarde até que a operação termine ou cancele.</string>
+    <string name="automation_active_title">SD Maid está trabalhando</string>
+    <string name="automation_error_no_consent_title">Erro de automação</string>
+    <string name="automation_error_no_consent_body">O serviço de acessibilidade não está configurado. Conclua a configuração e dê consentimento.</string>
+    <string name="automation_error_not_enabled_title">O serviço não está ativado</string>
+    <string name="automation_error_not_enabled_body">O serviço de acessibilidade está desativado. Ative-o novamente.</string>
+    <string name="automation_error_not_running_title">Serviço não está em execução</string>
+    <string name="automation_error_not_running_body">O serviço de acessibilidade não está funcionando. Tente reiniciar o dispositivo.</string>
+    <string name="automation_error_screen_unavailable_title">Tela indisponível</string>
+    <string name="automation_error_screen_unavailable_body">A operação foi abortada porque a tela tornou-se indisponível (por exemplo, tela desligada ou tela de bloqueio ativa).</string>
+    <string name="automation_error_compatibility_title">Compatibilidade de automação</string>
+    <string name="automation_error_compatibility_body">O SD Maid não conseguiu descobrir o layout da tela. Se isso continuar acontecendo, seu idioma ou instalação pode não ser totalmente suportado. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="automation_error_timeout_title">Tempo limite de automação</string>
+    <string name="automation_error_timeout_body">O SD Maid não completou todas as etapas dentro do limite de tempo. Se isso continuar acontecendo, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
+    <string name="automation_error_overlay_title">Sobreposição de automação</string>
+    <string name="automation_error_overlay_body">O SD Maid não pôde mostrar a sobreposição de automação. Verifique as permissões e tente reiniciar o seu dispositivo.</string>
+    <string name="automation_error_no_settings_title">Tela de configurações indisponível</string>
+    <string name="automation_error_no_settings_body">Este aplicativo do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Excluí-lo para acelerar a limpeza de cache.</string>
+</resources>

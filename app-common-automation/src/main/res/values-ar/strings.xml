@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">يمكن للمستخدمين ذوي الاحتياجات الخاصة بإمكانية الوصول تمكين هذه الخدمة للسماح لـ SD Maid بأتمتة المهام التي تتطلب بخلاف ذلك تفاعلًا يدويًا مملاً من المستخدم (مثل حذف ذاكرة التخزين المؤقت). \ n \ n مثال: إذا طلبت SD Maid لإيقاف تطبيقات متعددة ، فيمكن لـ SD Maid استخدام هذا خدمة لفتح كل شاشة من شاشات إعدادات التطبيقات ، ابحث عن زر \"فرض الإيقاف\" وانقر فوقه. \ n \ n ستظهر SD Maid دائمًا بشكل بارز عند استخدام هذه الخدمة وتوفر طريقة سهلة للمستخدم لإلغاء أي تفاعل على الفور. \ n \ n لا سيتم تنفيذ الإجراءات دون موافقة مسبقة من المستخدم. يمكن تعطيل هذه الخدمة مرة أخرى في أي وقت دون آثار سلبية.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid يتفاعل مع جهازك. لا يمكن استخدام الشاشة في نفس الوقت. انتظر حتى تنتهي العملية أو قم بإلغائها.</string>
+    <string name="automation_active_title">SD Maid يعمل</string>
+    <string name="automation_error_no_consent_title">خطأ في الأتمتة</string>
+    <string name="automation_error_no_consent_body">لم يتم إعداد خدمة الوصول. أكمل الإعداد وامنح الموافقة.</string>
+    <string name="automation_error_not_enabled_title">الخدمة غير ممكّنة</string>
+    <string name="automation_error_not_enabled_body">خدمة الوصول معطلة. قم بتشغيله مرة أخرى.</string>
+    <string name="automation_error_not_running_title">الخدمة لا تعمل</string>
+    <string name="automation_error_not_running_body">خدمة الوصول ليست قيد التشغيل. حاول إعادة تشغيل الجهاز.</string>
+    <string name="automation_error_screen_unavailable_title">الشاشة غير متوفرة</string>
+    <string name="automation_error_screen_unavailable_body">تم إلغاء العملية لأن الشاشة أصبحت غير متاحة (على سبيل المثال ، إيقاف تشغيل الشاشة أو تنشيط شاشة القفل).</string>
+    <string name="automation_error_compatibility_title">توافق الأتمتة</string>
+    <string name="automation_error_compatibility_body">تعذر على SD Maid معرفة تخطيط الشاشة. إذا استمر هذا في الحدوث، قد لا تكون لغتك أو إعدادك مدعومة بالكامل. تحقق من وجود تحديثات أو الاتصال بي حتى يمكنني إصلاحها.</string>
+    <string name="automation_error_timeout_title">انتهاء مهلة الأتمتة</string>
+    <string name="automation_error_timeout_body">لم يكمل SD Maid جميع الخطوات ضمن الحد الزمني. إذا استمر هذا في الحدوث، قد أحتاج إلى تعديل التطبيق لجهازك. تحقق من التحديثات أو تواصل معي حتى أتمكن من إصلاحه.</string>
+    <string name="automation_error_overlay_title">تراكب الأتمتة</string>
+    <string name="automation_error_overlay_body">لم يتمكن SD Maid من إظهار تراكب الأتمتة. تحقق من الأذونات وحاول إعادة تشغيل جهازك.</string>
+    <string name="automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
+    <string name="automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
+</resources>

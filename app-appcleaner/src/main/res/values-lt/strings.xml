@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_tool_name">\"AppCleaner\"</string>
+    <string name="appcleaner_explanation_short">Naudotini duomenys, priklausantys konkrečioms programoms.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">Viešoji numatytoji talpykla</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Numatytoji viešoji programėlių talpykla. Senesnėse Android versijose pasiekiama per Android/data. Ištrinama bakstelėjus Išvalyti talpyklą sistemos nustatymuose.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">Privati numatytoji talpykla</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Numatytoji privati programų talpykla. Ištrinta bakstelėjus Išvalyti talpyklą sistemos nustatymuose.</string>
+    <string name="appcleaner_include_systemapps_label">Įtraukti sistemos programas</string>
+    <string name="appcleaner_include_systemapps_summary">Į skenavimą įtraukite sistemos programas.</string>
+    <string name="appcleaner_include_runningapps_label">Įtraukti veikiančias programas</string>
+    <string name="appcleaner_include_runningapps_summary">Įtraukti šiuo metu veikiančias programas, kurios gali trukdyti.</string>
+    <string name="appcleaner_include_inaccessible_label">Įtraukti nepasiekiamas talpyklas</string>
+    <string name="appcleaner_include_inaccessible_summary">Įtraukite duomenis, kurių negalima tiesiogiai pasiekti, bet kuriuos galima ištrinti naudojant sistemos nustatymus ir automatizuotai naudojant prieinamumo paslaugą.</string>
+    <string name="appcleaner_include_multiuser_label">Įtraukti kitus naudotojus</string>
+    <string name="appcleaner_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
+    <string name="appcleaner_include_minimumsize_label">Minimalus dydis</string>
+    <string name="appcleaner_include_minimumsize_summary">Praleisti programas, kurių naudotinų duomenų suma yra mažesnė už minimumą.</string>
+    <string name="appcleaner_include_minimumage_label">Minimalus amžius</string>
+    <string name="appcleaner_include_minimumage_summary">Praleisti failus, kurie jaunesni nei minimalus amžius.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Operacinės sistemos aptikimas</string>
+    <string name="appcleaner_automation_romtype_detection_summary">Automatizavimas, pagrįstas prieinamumu, gali nepavykti, jei SD Maid netinkamai aptiks jūsų OS. Naudokite šį nustatymą, kad perrašytumėte aptiktą OS.</string>
+    <string name="appcleaner_filter_codecache_label">Kodo talpykla</string>
+    <string name="appcleaner_filter_codecache_summary">JVM kodo talpykla. Baito kodo blokai, sukompiliuoti į gimtąjį kodą.</string>
+    <string name="appcleaner_filter_advertisement_label">Reklamos duomenys</string>
+    <string name="appcleaner_filter_advertisement_summary">Su reklama susiję failai, pvz., saugoma medija.</string>
+    <string name="appcleaner_filter_bugreporting_label">Klaidų pranešimai</string>
+    <string name="appcleaner_filter_bugreporting_summary">Su klaidų pranešimais susiję duomenys, pvz., klaidų žurnalai ar gedimo atmintinės.</string>
+    <string name="appcleaner_filter_analytics_label">Analitika</string>
+    <string name="appcleaner_filter_analytics_summary">Su analitika susiję duomenys, pvz., saugoma statistika apie tai, ką paliečiate programoje.</string>
+    <string name="appcleaner_filter_hiddencaches_label">Paslėptos talpyklos</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Bendrosios paskirties talpyklos, saugomos už sistemos ribų.</string>
+    <string name="appcleaner_filter_thumbnails_label">Medijos miniatiūros</string>
+    <string name="appcleaner_filter_thumbnails_summary">Vaizdų, vaizdo įrašų ir garso peržiūros miniatiūrų nuotraukos.</string>
+    <string name="appcleaner_filter_gamefiles_label">Žaidimų failai</string>
+    <string name="appcleaner_filter_gamefiles_summary">Su žaidimais susiję ištekliai, kuriuos žaidimas iš naujo įkeltų kitą kartą paleidžiant, jei reikia.</string>
+    <string name="appcleaner_filter_offlinecache_label">Neprisijungus talpykla</string>
+    <string name="appcleaner_filter_offlinecache_summary">Failai, saugomi naudoti neprisijungus, pvz., žemėlapių plokštelės.</string>
+    <string name="appcleaner_filter_recyclebins_label">Šiukšlių dėžės</string>
+    <string name="appcleaner_filter_recyclebins_summary">Failai, kurie buvo ištrinti, bet padėti į specialų aplanką, kad būtų galima juos atkurti.</string>
+</resources>

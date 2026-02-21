@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Мусор</string>
+    <string name="corpsefinder_explanation_short">Данные, принадлежащие уже удаленным приложениям.</string>
+    <string name="corpsefinder_settings_summary">Настройка фильтров сканирования и уровней риска.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Включать желаемые остатки</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Файлы, которые Вы, возможно, захотите сохранить, даже если приложение будет удалено, например, сделанные Вами фотографии или созданные Вами резервные копии.</string>
+    <string name="corpsefinder_settings_risk_common_title">Включать общие названия</string>
+    <string name="corpsefinder_settings_risk_common_summary">Данные с общими именами, например, папка \"Заметки\" принадлежит многим неизвестным приложениям.</string>
+    <string name="corpsefinder_watcher_title">Контроль удаления</string>
+    <string name="corpsefinder_watcher_summary">Автоматическое сканирование на наличие остатков при удалении приложения.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Автоудаление</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Автоматическое удаление всех остатков, связанных с удаленным приложением.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="few">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="many">После удаления %2$s найдено остатков: %1$d.</item>
+        <item quantity="other">После удаления %2$s найдено остатков: %1$d.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
+        <item quantity="few">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
+        <item quantity="many">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
+        <item quantity="other">Очистка выполнена(%1$s): освобождено %2$s и удалено %3$d элем.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Удалить остатки</string>
+    <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Публичные медиафайлы, например, файлы, полученные через приложения для обмена сообщениями.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB-файлы ресурсов</string>
+    <string name="corpsefinder_filter_publicobb_summary">Дополнительные ресурсы приложений такие как уровни игр.</string>
+    <string name="corpsefinder_filter_publicdata_label">Публичные данные приложений</string>
+    <string name="corpsefinder_filter_publicdata_summary">Неконфиденциальные данные приложений, например, кэш карт.</string>
+    <string name="corpsefinder_filter_sdcard_label">Карта памяти</string>
+    <string name="corpsefinder_filter_sdcard_summary">Хранилище общего пользования, внутреннее и внешнее (например, карты SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Приватные данные приложений</string>
+    <string name="corpsefinder_filter_privatedata_summary">Приватные данные приложения, такие как учетные записи, настройки приложения, а также кэш браузеров.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik кэш</string>
+    <string name="corpsefinder_filter_dalvik_summary">Кэшированные данные о выполнении приложения.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Профили ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Профили ART используются Android для оптимизации работы приложений.</string>
+    <string name="corpsefinder_filter_applib_label">Библиотеки приложений</string>
+    <string name="corpsefinder_filter_applib_summary">Данные библиотек, связанные с приложением.</string>
+    <string name="corpsefinder_filter_appsource_label">Источники приложений</string>
+    <string name="corpsefinder_filter_appsource_summary">Данные об установке приложений, то есть куда попадают APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Приватные источники приложений</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Данные об установке приложений с ограничениями, например, защищенных сторонних приложений.</string>
+    <string name="corpsefinder_filter_appasec_label">Зашифрованные ресурсы приложений</string>
+    <string name="corpsefinder_filter_appasec_summary">Зашифрованные ресурсы приложений такие как данные игр.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Данные, перемещённые на внешнее хранилище с помощью App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Удалено остатков: %d</item>
+        <item quantity="few">Удалено остатков: %d</item>
+        <item quantity="many">Удалено остатков: %d</item>
+        <item quantity="other">Удалено остатков: %d</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">Обнаружено остатков приложений: %d</item>
+        <item quantity="few">Обнаружено остатков приложений: %d</item>
+        <item quantity="many">Обнаружено остатков приложений: %d</item>
+        <item quantity="other">Обнаружено остатков приложений: %d</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Удалить все остатки приложения?</string>
+    <string name="corpsefinder_owners_label">Владельцы</string>
+    <string name="corpsefinder_corpse_hints_label">Примечание</string>
+    <string name="corpsefinder_owner_unknown">Неизвестный владелец</string>
+    <string name="corpsefinder_corpse_hint_keeper">Этот элемент может содержать данные, которые Вы хотите сохранить, несмотря на удаление его владельца, например, фотографии или резервные копии.</string>
+    <string name="corpsefinder_corpse_hint_common">Этот элемент имеет очень распространенное название и может принадлежать все ещё установленным приложениям, о которых SD Maid не знает.</string>
+</resources>

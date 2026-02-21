@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_error_timeout_title">အလိုအလျောက်လုပ်ငန်း အချိန်ကုန်ခြင်း</string>
+    <string name="automation_error_timeout_body">SD Maid သည် အချိန်ကန့်သတ်ချက်အတွင်း အဆင့်များ အားလုံးကို မပြီးစီးနိုင်ပါ။ ဤအခြေအနေ ဆက်လက် ဖြစ်ပေါ်ပါက၊ သင့်စက်အတွက် အက်ပ်ကို ချိန်ညှိရန် လိုအပ်နိုင်သည်။ အပ်ဒိတ်များ စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ထံ ဆက်သွယ်ပြီး ပြင်ဆင်စေပါ။</string>
+    <string name="automation_error_overlay_title">အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်</string>
+    <string name="automation_error_overlay_body">SD Maid သည် အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်ကို မပြသနိုင်ပါ။ ခွင့်ပြုချက်များ စစ်ဆေးပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+</resources>

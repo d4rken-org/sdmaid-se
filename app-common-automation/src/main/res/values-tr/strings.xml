@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Farklı uygulamaların önbelleklerini sırayla temizlemek gibi sıkıcı ve tekrarlayan işlemleri yapmak istemeyen veya kendine özel erişilebilirlik kuralı oluşturmak isteyen kullanıcılar için SD Maid erişilebilirlik hizmetini kullanarak bu işlemleri otomatikleştirebilir.\n\nÖrneğin birden fazla uygulamayı zorla durdurmak isterseniz bu hizmet sayesinde SD Maid\'e her bir uygulama için ayarlar ekranını açmasını ve ardından zorla durdurmasını öğretebilirsiniz.\n\nSD Maid bu hizmeti kullandığı her zaman ekranda bir uyarı ve istenildiği takdirde işlemin derhal iptal edilebilmesi için bir tuş gösterir.\n\nÖncesinde kullanıcı onayı olmaksızın hiçbir işlem yapılmayacaktır. Bu hizmeti istediğiniz zaman devre dışı bırakılabilirsiniz, olumsuz bir etkisi olmaz.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid, cihazınızla etkileşime giriyor. Ekranı aynı anda kullanmak mümkün değildir. İşlem bitene kadar bekleyin veya iptal edin.</string>
+    <string name="automation_active_title">SD Maid çalışıyor</string>
+    <string name="automation_error_no_consent_title">Otomasyon hatası</string>
+    <string name="automation_error_no_consent_body">Erişilebilirlik hizmeti kurulmamış. Kurulumu tamamlayın ve izin verin.</string>
+    <string name="automation_error_not_enabled_title">Hizmet etkin değil</string>
+    <string name="automation_error_not_enabled_body">Erişilebilirlik hizmeti devre dışı bırakıldı. Tekrar açın.</string>
+    <string name="automation_error_not_running_title">Hizmet çalışmıyor</string>
+    <string name="automation_error_not_running_body">Erişilebilirlik hizmeti çalışmıyor. Cihazı yeniden başlatmayı deneyin.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran kullanılamıyor</string>
+    <string name="automation_error_screen_unavailable_body">Ekran kullanılamaz hale geldiği için işlem iptal edildi (örn. ekran kapalı veya ekran kilidi etkin).</string>
+    <string name="automation_error_compatibility_title">Otomasyon uyumluluğu</string>
+    <string name="automation_error_compatibility_body">SD Maid ekran düzenini çözemedi. Bu durum devam ederse, diliniz veya kurulumunuz tam olarak desteklenmiyor olabilir. Güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="automation_error_timeout_title">Otomasyon zaman aşımı</string>
+    <string name="automation_error_timeout_body">SD Maid tüm adımları zaman sınırı içinde tamamlamadı. Bu durum devam ederse, uygulamayı cihazınız için ayarlamam gerekebilir. Güncellemeleri kontrol edin veya bana ulaşın, böylece düzeltebilirim.</string>
+    <string name="automation_error_overlay_title">Otomasyon katmanı</string>
+    <string name="automation_error_overlay_body">SD Maid otomasyon katmanını gösteremedi. İzinleri kontrol edin ve cihazınızı yeniden başlatmayı deneyin.</string>
+    <string name="automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
+    <string name="automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
+</resources>

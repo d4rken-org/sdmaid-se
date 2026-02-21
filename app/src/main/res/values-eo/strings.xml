@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Ĉu forigi rezultojn en ĉiuj iloj?</string>
     <string name="dashboard_settings_category">Stirpanelo</string>
@@ -150,210 +150,6 @@
     <string name="settings_category_tools_label">Iloj</string>
     <string name="settings_category_filter">Filtrilo</string>
     <string name="settings_category_risklevel">Riska nivelo</string>
-    <string name="corpsefinder_tool_name">KadavroTrovilo</string>
-    <string name="corpsefinder_explanation_short">Datumoj apartenantaj al jam forigitaj aplikaĵoj.</string>
-    <string name="corpsefinder_settings_summary">Agordi skanajn filtrilojn kaj riskajn nivelojn.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Inkluzivi dezirindajn restaĵojn</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Dosieroj, kiujn vi eble volas konservi, eĉ se la aplikaĵo estas malinstalita, ekz. fotoj kiujn vi prenis aŭ sekurkopioj kiujn vi kreis.</string>
-    <string name="corpsefinder_settings_risk_common_title">Inkluzivi komunajn nomojn</string>
-    <string name="corpsefinder_settings_risk_common_summary">Datumoj kun ofte uzataj nomoj, ekz. dosierujo "Notoj" estas posedata de tro multaj nekonataj aplikaĵoj.</string>
-    <string name="corpsefinder_watcher_title">Malinstala observilo</string>
-    <string name="corpsefinder_watcher_summary">Aŭtomate skani por restaĵoj kiam aplikaĵo estas forigita.</string>
-    <string name="corpsefinder_watcher_autodelete_title">Aŭtomata forigo</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Aŭtomate forigi ĉiujn restaĵojn rilatajn al la malinstalita aplikaĵo.</string>
-    <string name="corpsefinder_watcher_notification_delete_action">Forigi restaĵojn</string>
-    <string name="corpsefinder_filter_publicmedia_label">Publikaj aŭdvidaĵoj</string>
-    <string name="corpsefinder_filter_publicmedia_summary">Publikaj aŭdvidaj dosieroj, ekz. dosieroj ricevitaj per mesaĝilaj aplikaĵoj.</string>
-    <string name="corpsefinder_filter_publicobb_label">OBB-rimedoj</string>
-    <string name="corpsefinder_filter_publicobb_summary">Aldonaj aplikaĵaj rimedoj, ekz. ludaj aktivaĵoj.</string>
-    <string name="corpsefinder_filter_publicdata_label">Publikaj aplikaĵaj datumoj</string>
-    <string name="corpsefinder_filter_publicdata_summary">Ne-sentemaj aplikaĵaj datumoj, ekz. mapaj kaŝmemoroj.</string>
-    <string name="corpsefinder_filter_sdcard_label">SD-karto</string>
-    <string name="corpsefinder_filter_sdcard_summary">Ĝenerala publika stokado, interna kaj ekstera (ekz. SD-kartoj).</string>
-    <string name="corpsefinder_filter_privatedata_label">Privataj aplikaĵaj datumoj</string>
-    <string name="corpsefinder_filter_privatedata_summary">Privataj aplikaĵaj datumoj, ekz. legitimaĵoj, aplikaĵaj agordoj sed ankaŭ retumilaj kaŝmemoroj.</string>
-    <string name="corpsefinder_filter_dalvik_label">Dalvik-kaŝmemoro</string>
-    <string name="corpsefinder_filter_dalvik_summary">Kaŝmemorigitaj aplikaĵaj plenumdatumoj.</string>
-    <string name="corpsefinder_filter_applib_label">Aplikaĵaj bibliotekoj</string>
-    <string name="corpsefinder_filter_applib_summary">Aplikaĵ-rilataj bibliotekaj datumoj.</string>
-    <string name="corpsefinder_filter_appsource_label">Aplikaĵaj fontoj</string>
-    <string name="corpsefinder_filter_appsource_summary">Aplikaĵaj instaldatumoj, t.e. kie APK-oj iras.</string>
-    <string name="corpsefinder_filter_appsource_private_label">Privataj aplikaĵaj fontoj</string>
-    <string name="corpsefinder_filter_appsource_private_summary">Limigitaj aplikaĵaj instaldatumoj, ekz. protektitaj triaj aplikaĵoj.</string>
-    <string name="corpsefinder_filter_appasec_label">Ĉifritaj aplikaĵaj rimedoj</string>
-    <string name="corpsefinder_filter_appasec_summary">Ĉifritaj aplikaĵaj rimedoj, ekz. ludaj aktivaĵoj.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Datumoj movitaj al ekstera stokado per App2Sd-modifoj.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Ĉu forigi ĉiujn aplikaĵajn restaĵojn?</string>
-    <string name="corpsefinder_owners_label">Posedantoj</string>
-    <string name="corpsefinder_corpse_hints_label">Avizo</string>
-    <string name="corpsefinder_owner_unknown">Nekonata posedanto</string>
-    <string name="corpsefinder_corpse_hint_keeper">Ĉi tiu ero povas enhavi datumojn kiujn vi volas konservi malgraŭ ke ĝia posedanto estas malinstalita, ekz. fotoj aŭ sekurkopioj.</string>
-    <string name="corpsefinder_corpse_hint_common">Ĉi tiu ero havas tre komunan nomon kaj povus aparteni al ankoraŭ instalitaj aplikaĵoj kiujn SD Maid ne konas.</string>
-    <string name="systemcleaner_tool_name">SistemPurigilo</string>
-    <string name="systemcleaner_explanation_short">Superflua datumoj kiuj ne apartenas al iu specifa aplikaĵo.</string>
-    <string name="systemcleaner_filter_custom_label">Propra filtrilo</string>
-    <string name="systemcleaner_filter_custom_manage_label">Administri proprajn filtrilojn</string>
-    <string name="systemcleaner_filter_custom_manage_summary">Krei, forigi, importi kaj eksporti viajn proprajn filtrilojn.</string>
-    <string name="systemcleaner_filter_logfiles_label">Sistemaj protokoldosieroj</string>
-    <string name="systemcleaner_filter_logfiles_summary">Sistemaj kaj sistem-servaj protokoldosieroj (ekz. *.log) en diversaj lokoj.</string>
-    <string name="systemcleaner_filter_packagecaches_label">Instalila kaŝmemoro</string>
-    <string name="systemcleaner_filter_packagecaches_summary">Kaŝmemorigitaj datumoj rilataj al instalitaj aplikaĵoj, kiuj estas uzataj de la sistema pakaĵ-administrado.</string>
-    <string name="systemcleaner_filter_advertisements_label">Reklamaj dosieroj</string>
-    <string name="systemcleaner_filter_advertisements_summary">Dosieroj kreitaj por aŭ de reklamoj.</string>
-    <string name="systemcleaner_filter_anr_label">ANR-eraroj</string>
-    <string name="systemcleaner_filter_anr_summary">Spuroj de \'aplikaĵo ne respondas\' eventoj.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Malplenaj dosierujoj</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Malplenaj dosierujoj de la tuta aparato. Nestitaj dosierujoj eble bezonas plurajn pasojn.</string>
-    <string name="systemcleaner_filter_screenshots_label">Ekrankopioj</string>
-    <string name="systemcleaner_filter_screenshots_summary">Ekrankopioj pli malnovaj ol %s el diversaj aplikaĵoj kaj lokoj.</string>
-    <string name="systemcleaner_filter_trashed_label">Rubujigitaj dosieroj</string>
-    <string name="systemcleaner_filter_trashed_summary">Dosieroj en reciklujoj de diversaj aplikaĵoj kaj lokoj, markitaj por forigo sed ankoraŭ ne daŭre forigitaj.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Ekrankopia Aĝo</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">Minimuma aĝo por ke ekrankopioj estu konsiderataj por forigo.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">Superfluaj APK-oj</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Instalaj dosieroj kiuj estas pli malnovaj aŭ egalaj al aplikaĵaj versioj jam instalitaj.</string>
-    <string name="systemcleaner_filter_lostdir_label">LOST.DIR dosierujoj</string>
-    <string name="systemcleaner_filter_lostdir_summary">Provizoraj dosieroj kreitaj dum transigo de datumoj inter Android-aparatoj.</string>
-    <string name="systemcleaner_filter_linuxfiles_label">Linux-dosieroj</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Dosieroj kaj dosierujoj kreitaj kiam stokado estis konektita al linux-komputilo.</string>
-    <string name="systemcleaner_filter_macfiles_label">Mac-dosieroj</string>
-    <string name="systemcleaner_filter_macfiles_summary">Dosieroj kaj dosierujoj kreitaj dum foliumado de stokado per la Finder-aplikaĵo de Apple.</string>
-    <string name="systemcleaner_filter_windowsfiles_label">Windows-dosieroj</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Datumoj kiujn la Windows-dosier-esplorilo povas krei sur konektita stokado."</string>
-    <string name="systemcleaner_filter_thumbnails_label">Miniaturaj bildoj</string>
-    <string name="systemcleaner_filter_thumbnails_summary">Kaŝmemorigitaj antaŭrigardoj por bildoj kaj videoj.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Provizoraj sistemaj dosieroj</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Sistem-rilataj provizoraj dosieroj, kutime mallongdaŭraj kaŝmemoroj por aktivaj operacioj.</string>
-    <string name="systemcleaner_filter_analytics_label">Analitikaj dosieroj</string>
-    <string name="systemcleaner_filter_analytics_summary">Datumoj rilataj al analitiko kaj cimo-spurado.</string>
-    <string name="systemcleaner_filter_downloadcache_label">Elŝuta kaŝmemoro</string>
-    <string name="systemcleaner_filter_downloadcache_summary">Sistema kaŝmemora dosierujo uzata por diversaj aferoj (ekz. OTA-ĝisdatigoj).</string>
-    <string name="systemcleaner_filter_localtmp_label">Lokaj provizoraj dosieroj</string>
-    <string name="systemcleaner_filter_localtmp_summary">Sistem-rilataj provizoraj dosieroj (ekz. de Android Studio).</string>
-    <string name="systemcleaner_filter_datalogger_label">Sistemaj protokoldosieroj</string>
-    <string name="systemcleaner_filter_datalogger_summary">Sistem-serv-specifaj protokoldosieroj.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Protokola faligujo</string>
-    <string name="systemcleaner_filter_logdropbox_summary">Areo por la sistemo faligi protokoldosierojn.</string>
-    <string name="systemcleaner_filter_recenttasks_label">Lastaj taskoj</string>
-    <string name="systemcleaner_filter_recenttasks_summary">Datumoj rilataj al la taska historio en la sistema task-ŝaltilo.</string>
-    <string name="systemcleaner_filter_tombstones_label">Sistema kraŝa restaĵo</string>
-    <string name="systemcleaner_filter_tombstones_summary">Se denaskaj procezoj kraŝas (ekz. ludoj), tiam dosieroj estas kreitaj ĉi tie.</string>
-    <string name="systemcleaner_filter_usagestats_label">Uzaj statistikoj</string>
-    <string name="systemcleaner_filter_usagestats_summary">Dosieroj rilataj al aplikaĵaj uzaj statistikoj.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Ĉu forigi ĉiujn filtrilajn enhavojn?</string>
-    <string name="systemcleaner_customfilter_label">Propra filtrilo</string>
-    <string name="systemcleaner_customfilter_create_action">Krei propran filtrilon</string>
-    <string name="systemcleaner_customfilter_create_hint">Krei propran filtrilon por forigi ekstrajn dosierojn unikajn por via aparato kaj uzkazoj.</string>
-    <string name="systemcleaner_editor_remove_confirmation_message">Ĉu forigi ĉi tiun filtrilon?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Vi havas nekonservitajn ŝanĝojn!</string>
-    <string name="systemcleaner_customfilter_editor_label_label">Filtrila etikedo</string>
-    <string name="systemcleaner_customfilter_editor_warning">Propraj filtriloj povas esti riskaj. Kontrolu viajn skanajn rezultojn antaŭ forigo!</string>
-    <string name="systemcleaner_customfilter_editor_areas_label">Datumareoj</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">Se neniu areo estas elektita, tiam ĉiuj alireblaj datumareoj estos skanataj kaj kongruitaj.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Dosiertipaj limigoj</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Dosieroj</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dosierujoj</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">Se neniu tipo estas elektita, tiam ĉiuj tipoj estos kongruitaj.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Vojaj kriterioj</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">La cela vojo devas kongrui almenaŭ unu enigon (ekz. "Downloads/oldapks/game-"). Longpremu enigojn por pliaj opcioj.</string>
-    <string name="systemcleaner_customfilter_editor_name_label">Nomaj kriterioj</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">La cela nomo devas enhavi almenaŭ unu el la ŝlosilvortoj (ekz. "-receipt"). Longpremu enigojn por pliaj opcioj.</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_label">Ekskluzivoj</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">La rezulto estos ekskludita se la vojo kongruas kun iu ajn enigo (ekz. "DCIM"). Longpremu enigojn por pliaj opcioj.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Voja kompara reĝimo</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Vojo komenciĝas per ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Vojo enhavas ŝlosilvorton</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Vojo finiĝas per ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Vojo egalas al ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Noma kompara reĝimo</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Nomo komenciĝas per ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Nomo enhavas ŝlosilvorton</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Nomo finiĝas per ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nomo egalas al ŝlosilvorto</string>
-    <string name="systemcleaner_customfilter_last_edit">Lasta redakto: %s</string>
-    <string name="systemcleaner_customfilter_editor_livesearch_label">Viva serĉo</string>
-    <string name="systemcleaner_customfilter_import_action">Importi novan filtrilon</string>
-    <string name="systemcleaner_customfilter_export_action">Eksporti elektitan filtrilon</string>
-    <string name="appcleaner_tool_name">AplikaĵPurigilo</string>
-    <string name="appcleaner_explanation_short">Elspezebla datumoj apartenantaj al specifaj aplikaĵoj.</string>
-    <string name="appcleaner_filter_defaultcachespublic_label">Publikaj defaŭltaj kaŝmemoroj</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Defaŭltaj publikaj aplikaĵaj kaŝmemoroj. Alireblaj sub Android/data en pli malnovaj Android-versioj. Forigitaj kiam frapetante "Viŝi kaŝmemoron" en la sistemaj agordoj.</string>
-    <string name="appcleaner_filter_defaultcachesprivate_label">Privataj defaŭltaj kaŝmemoroj</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Defaŭltaj privataj aplikaĵaj kaŝmemoroj. Forigitaj kiam frapetante "Viŝi kaŝmemoron" en la sistemaj agordoj.</string>
-    <string name="appcleaner_include_systemapps_label">Inkluzivi sistemajn aplikaĵojn</string>
-    <string name="appcleaner_include_systemapps_summary">Inkluzivi sistemajn aplikaĵojn en la skano.</string>
-    <string name="appcleaner_include_runningapps_label">Inkluzivi rulantajn aplikaĵojn</string>
-    <string name="appcleaner_include_runningapps_summary">Inkluzivi aplikaĵojn kiuj nuntempe rulas kaj kiuj povas kaŭzi interferon.</string>
-    <string name="appcleaner_include_inaccessible_label">Inkluzivi nealireblajn kaŝmemorojn</string>
-    <string name="appcleaner_include_inaccessible_summary">Inkluzivi datumojn kiuj ne povas esti alireblaj rekte sed povas esti forigitaj per sistemaj agordoj kaj aŭtomatigitaj uzante alireblecan servon.</string>
-    <string name="appcleaner_include_multiuser_label">Inkluzivi aliajn uzantojn</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluzivi aplikaĵojn de aliaj uzantaj profiloj en ĉi tiu aparato.</string>
-    <string name="appcleaner_include_minimumsize_label">Minimuma grandeco</string>
-    <string name="appcleaner_include_minimumsize_summary">Preterpasi aplikaĵojn kie la sumo de elspezebla datumoj estas sub la minimumo.</string>
-    <string name="appcleaner_include_minimumage_label">Minimuma aĝo</string>
-    <string name="appcleaner_include_minimumage_summary">Preterpasi dosierojn kiuj estas pli junaj ol la minimuma aĝo.</string>
-    <string name="appcleaner_automation_romtype_detection_label">Operaciuma detekto</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Alireblec-bazita aŭtomatigo povas malsukcesi se SD Maid ne detektas vian OS ĝuste. Uzu ĉi tiun agordon por anstataŭigi la detektitan OS.</string>
-    <string name="appcleaner_filter_codecache_label">Koda kaŝmemoro</string>
-    <string name="appcleaner_filter_codecache_summary">JVM-koda kaŝmemoro. Blokoj de bajtokodo kompilitaj en denaskan kodon.</string>
-    <string name="appcleaner_filter_advertisement_label">Reklamaj datumoj</string>
-    <string name="appcleaner_filter_advertisement_summary">Dosieroj rilataj al reklamoj, ekz. kaŝmemorigitaj aŭdvidaĵoj.</string>
-    <string name="appcleaner_filter_bugreporting_label">Cimo-raportado</string>
-    <string name="appcleaner_filter_bugreporting_summary">Cimo-raportado-rilataj datumoj, ekz. erar-protokoloj aŭ kraŝ-elŝutoj.</string>
-    <string name="appcleaner_filter_analytics_label">Analitiko</string>
-    <string name="appcleaner_filter_analytics_summary">Analitik-rilataj datumoj, ekz. kaŝmemorigitaj statistikoj pri kion vi frapetas en aplikaĵo.</string>
-    <string name="appcleaner_filter_hiddencaches_label">Kaŝitaj kaŝmemoroj</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Ĝeneralaj kaŝmemoroj stokitaj ekster la atingo de la sistemo.</string>
-    <string name="appcleaner_filter_thumbnails_label">Aŭdvidaj miniaturoj</string>
-    <string name="appcleaner_filter_thumbnails_summary">Bildaj, videaj kaj sonaj antaŭrigardaj miniaturaj bildoj.</string>
-    <string name="appcleaner_filter_gamefiles_label">Ludaj dosieroj</string>
-    <string name="appcleaner_filter_gamefiles_summary">Lud-rilataj rimedoj kiujn la ludo reŝargus ĉe venonta lanĉo se necese.</string>
-    <string name="appcleaner_filter_offlinecache_label">Senkonekta kaŝmemoro</string>
-    <string name="appcleaner_filter_offlinecache_summary">Dosieroj stokitaj por uzo kiam senkonekte, ekz. mapaj kaheloj.</string>
-    <string name="appcleaner_filter_recyclebins_label">Reciklujoj</string>
-    <string name="appcleaner_filter_recyclebins_summary">Dosieroj kiuj estis forigitaj sed metitaj en specialan dosierujon por ebligi restaŭri ilin.</string>
-    <string name="appcleaner_filter_webview_label">Webview-dosieroj</string>
-    <string name="appcleaner_filter_webview_summary">Dosieroj kaŝmemorigitaj de Webview-okazaĵoj uzataj ene de aplikaĵoj.</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp-sekurkopioj</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">Forigi kromajn kopiojn de WhatsApp-sekurkopioj kaj konservi nur la lastan.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Dosieroj kiujn vi ricevis de homoj per WhatsApp.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp-ricevitaj dosieroj</string>
-    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp-senditaj dosieroj</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Dosieroj senditaj de WhatsApp al aliaj.</string>
-    <string name="appcleaner_filter_telegram_label">Telegram-aŭdvidaj dosieroj</string>
-    <string name="appcleaner_filter_telegram_summary">Dosieroj ricevitaj aŭ senditaj per Telegram.</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
-    <string name="appcleaner_filter_threema_summary">Dosieroj ricevitaj per Threema.</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_filter_wechat_summary">Senditaj aŭ ricevitaj dosieroj en konversacioj kaj WeChat-momentoj.</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
-    <string name="appcleaner_filter_viber_summary">Kaŝmemorigitaj aŭdvidaj dosieroj kiuj estas elŝutitaj denove kiam rigarditaj en babilejo.</string>
-    <string name="appcleaner_filter_qqchat_label">QQ-babilejo</string>
-    <string name="appcleaner_filter_qqchat_summary">Senditaj aŭ ricevitaj dosieroj en QQ-babilaj konversacioj.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Ĉu forigi elspezeblajn erojn por ĉiuj aplikaĵoj?</string>
-    <string name="appcleaner_automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
-    <string name="appcleaner_automation_title">AplikaĵPurigila aŭtomatigo</string>
-    <string name="appcleaner_automation_subtitle_default_caches">Viŝante defaŭltajn kaŝmemorojn…</string>
-    <string name="appcleaner_automation_progress_open_settings">Malfermante agordan ekranon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">Serĉante "Stokado" enigon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">Serĉante "Viŝi datumojn" butonon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Serĉante "Viŝi kaŝmemoron" butonon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_item_caches_inaccessible_title">Defaŭltaj kaŝmemoroj</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Publikaj kaj privataj defaŭltaj kaŝmemoroj. Ne rekte alireblaj, sed povas esti forigitaj nerekte (ekz. per alirebleca servo).</string>
-    <string name="appcleaner_automation_unavailable_title">Alirebleca servo nedisponebla</string>
-    <string name="appcleaner_automation_unavailable_body">Viŝi nealireblajn kaŝmemorojn postulas la alireblecan servon de SD Maid, sed ĝi estis nedisponebla. Se vi ne volas uzi ĝin: Malŝaltu la opcion "Inkluzivi nealireblajn kaŝmemorojn".</string>
-    <string name="appcleaner_junk_userprofile_label">Uzanto</string>
-    <string name="appcleaner_delete_confirmation_message_x">Ĉu forigi elspezeblajn dosierojn por %s?</string>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Forigante kaŝmemorojn uzante Shizuku</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">Determinante nealireblajn kaŝmemorojn</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">Viŝi kaŝmemoron nedisponebla</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">La sistemo malebligis la butonon "Viŝi kaŝmemoron" por ĉi tiu aplikaĵo. Ekskluzivi ĝin por rapidigi kaŝmemoran viŝadon.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Agorda ekrano nedisponebla</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ĉi tiu sistema aplikaĵo ne havas agordan ekranon. Kaŝmemora viŝado per alirebleca servo ne eblas. Ekskluzivi ĝin por rapidigi kaŝmemoran viŝadon.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">Sistema aplikaĵo misagordita</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">La Sekureca aplikaĵo de HyperOS (com.miui.securitycenter) ne havas la permeson de Uzaj Statistikoj (GET_USAGE_STATS). Ĉi tio rompas funkciojn kiel "Viŝi Datumojn" en aplikaĵaj detaloj kaj kaŝmemoran viŝadon per alirebleco. Donu la permeson por restarigi plenan funkciadon.</string>
     <string name="deduplicator_tool_name">Malduobligilo</string>
     <string name="deduplicator_explanation_short">Trovi duoblajn datumojn en via aparato.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Ebligi \"Forigi ĉiujn\"</string>
@@ -513,23 +309,6 @@
     <string name="exclusion_create_pkg_hint">Uzi la AplikaĵKontrolan ilon por krei aplikaĵajn ekskluzivajn.</string>
     <string name="exclusion_create_path_hint">Uzi la StokadAnalizilon por krei vojajn ekskluzivajn.</string>
     <string name="exclusion_show_defaults_action">Montri defaŭltojn</string>
-    <string name="automation_accessibility_service_description">Uzantoj kun specialaj alireblecaj bezonoj povas ebligi ĉi tiun servon por permesi al SD Maid aŭtomatigi taskojn kiuj alie postulus tedajn manlabor-uzantajn interagojn (ekz. kaŝmemora forigo).\n\nEkzemplo: Se vi instruas SD Maid haltigi plurajn aplikaĵojn, tiam SD Maid povas uzi ĉi tiun servon por malfermi ĉiu aplikaĵan agordan ekranon, trovi la butonon \'Perforte Haltigi\' kaj frapeti ĝin.\n\nSD Maid ĉiam elstare montros kiam uzante ĉi tiun servon kaj provizos facilan manieron por la uzanto nuligi iun ajn interagon tuj.\n\nNeniuj agoj estos plenumitaj sen antaŭa uzanta aprobo. Ĉi tiu servo povas esti malebligita denove iam ajn sen malfavoraj efikoj.</string>
-    <string name="automation_screenoverlay_explanation">SD Maid interagas kun via aparato. Ne eblas uzi la ekranon samtempe. Atendu ĝis la operacio estas finita aŭ nuligi ĝin.</string>
-    <string name="automation_active_title">SD Maid laboras</string>
-    <string name="automation_error_no_consent_title">Aŭtomatiga eraro</string>
-    <string name="automation_error_no_consent_body">Alirebleca servo ne estas agordita. Kompletigu la agordon kaj donu konsenton.</string>
-    <string name="automation_error_not_enabled_title">Servo ne estas ebligita</string>
-    <string name="automation_error_not_enabled_body">Alirebleca servo estas malebligita. Ŝaltu ĝin denove.</string>
-    <string name="automation_error_not_running_title">Servo ne rulas</string>
-    <string name="automation_error_not_running_body">Alirebleca servo ne rulas. Provu reŝargi la aparaton.</string>
-    <string name="automation_error_screen_unavailable_title">Ekrano nedisponebla</string>
-    <string name="automation_error_screen_unavailable_body">La operacio estis ĉesigita ĉar la ekrano fariĝis nedisponebla (ekz. ekrano malŝaltita aŭ ŝlosekrano aktiva).</string>
-    <string name="automation_error_compatibility_title">Aŭtomatiga kongrueco</string>
-    <string name="automation_error_compatibility_body">SD Maid ne povis eltrovi la ekranan aranĝon. Se ĉi tio daŭre okazas, via lingvo aŭ agordaro eble ne estas plene subtenata. Kontrolu ĝisdatigojn aŭ kontaktu min por ke mi povu ripari ĝin.</string>
-    <string name="automation_error_timeout_title">Aŭtomatiga tempolimo</string>
-    <string name="automation_error_timeout_body">SD Maid ne kompletigis ĉiujn paŝojn ene de la tempolimo. Se ĉi tio daŭre okazas, mi eble bezonas ĝustigi la aplikaĵon por via aparato. Kontrolu ĝisdatigojn aŭ kontaktu min por ke mi povu ripari ĝin.</string>
-    <string name="automation_error_overlay_title">Aŭtomatiga supermetaĵo</string>
-    <string name="automation_error_overlay_body">SD Maid ne povis montri la aŭtomatigan supermetaĵon. Kontrolu permesojn kaj provu reŝargi vian aparaton.</string>
     <string name="history_label">Historio</string>
     <string name="history_description">Kronologia listo de lastatempaj agoj kaj tuŝitaj datumoj.</string>
     <string name="scheduler_label">Planilo</string>
@@ -599,12 +378,6 @@
     <string name="picker_selected_paths_title">Elektitaj vojoj</string>
     <string name="picker_unsaved_confirmation_message">Ĉu forĵeti ŝanĝojn?</string>
     <string name="picker_home_action">Datumareoj</string>
-    <string name="area_type_sdcard_label">Publika stokado</string>
-    <string name="area_type_public_media_label">Publikaj aplikaĵaj aŭdvidaĵoj</string>
-    <string name="area_type_public_data_label">Publikaj aplikaĵaj datumoj</string>
-    <string name="area_type_public_obb_label">Publikaj aplikaĵaj rimedoj</string>
-    <string name="area_type_private_data_label">Privataj aplikaĵaj datumoj</string>
-    <string name="area_type_portable_label">Portebla stokado</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d aktiva tasko</item>
         <item quantity="other">%d aktivaj taskoj</item>
@@ -612,42 +385,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d tasko en vico</item>
         <item quantity="other">%d taskoj en vico</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d restaĵo trovita post malinstali %2$s.</item>
-        <item quantity="other">%1$d restaĵoj trovitaj post malinstali %2$s.</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">Purigado sukcesa (%1$s): Liberigis %2$s kaj forigis %3$d eron.</item>
-        <item quantity="other">Purigado sukcesa (%1$s): Liberigis %2$s kaj forigis %3$d erojn.</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d aplikaĵa restaĵo forigita</item>
-        <item quantity="other">%d aplikaĵaj restaĵoj forigitaj</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d aplikaĵa restaĵo malkovrita</item>
-        <item quantity="other">%d aplikaĵaj restaĵoj malkovritaj</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d kongruo forigita</item>
-        <item quantity="other">%d kongruoj forigitaj</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d filtrila kongruo</item>
-        <item quantity="other">%d filtrilaj kongruoj</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d elspezebla ero forigita</item>
-        <item quantity="other">%d elspezeblaj eroj forigitaj</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d elspezebla ero trovita</item>
-        <item quantity="other">%d elspezeblaj eroj trovitaj</item>
-    </plurals>
-    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Ĉu forigi elspezeblajn dosierojn por %d elektita aplikaĵo?</item>
-        <item quantity="other">Ĉu forigi elspezeblajn dosierojn por %d elektitaj aplikaĵoj?</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duoblaĵo forigita</item>
@@ -721,11 +458,9 @@
         <item quantity="one">%d vojo elektita</item>
         <item quantity="other">%d vojoj elektitaj</item>
     </plurals>
-
     <string name="dashboard_card_config_title">Panelaj kartoj</string>
     <string name="dashboard_card_config_desc">Agordu kiujn kartojn montri kaj ilian ordon</string>
     <string name="dashboard_card_config_header_title">Trenu por reordigi, ŝaltu por montri/kaŝi</string>
-
     <string name="debug_debuglog_screen_title">Sencimiga protokolo</string>
     <string name="debug_debuglog_screen_discard_action">Forĵeti</string>
     <string name="debug_debuglog_screen_session_path_label">Seanca vojo</string>
@@ -734,7 +469,6 @@
         <item quantity="one">%1$d dosiero preta (%2$s)</item>
         <item quantity="other">%1$d dosieroj pretaj (%2$s)</item>
     </plurals>
-
     <string name="support_debuglog_folder_label">Dosierujo de sencimiga protokolo</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d dosiero uzante %2$s</item>
@@ -743,14 +477,12 @@
     <string name="support_debuglog_folder_empty_desc">Neniuj sencimigaj protokoloj konservitaj</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Ĉu forigi ĉiujn sencimigajn protokolojn?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Ĉi tio porĉiame forigos ĉiujn konservitajn sencimigajn protokolajn seancojn. Ĉi tiu ago ne estas malfarebla.</string>
-
     <string name="settings_acknowledgements_category_translations_title">Tradukoj</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Kiu tradukis ĉi tion?</string>
     <string name="settings_acknowledgements_category_thanks_title">Dankoj</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Specialaj dankoj al niaj amikoj.</string>
     <string name="settings_acknowledgements_category_licenses_title">Licencoj</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Programaro uzata de SD Maid.</string>
-
     <string name="debug_card_title">Sencimiga reĝimo estas ŝaltita</string>
     <string name="debug_card_trace_mode_label">Ŝalti spuran reĝimon</string>
     <string name="debug_card_dryrun_mode_label">Prova reĝimo (malŝalti forigadon)</string>
@@ -758,33 +490,9 @@
     <string name="debug_card_pkgs_reload_action">Reŝargi aplikaĵojn</string>
     <string name="debug_card_root_test_action">Testi root</string>
     <string name="debug_card_shizuku_test_action">Testi Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">ART-profiloj</string>
-    <string name="corpsefinder_filter_artprofiles_summary">ART-profiloj estas uzataj de Android por optimumigi aplikaĵan efikecon.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inkluzivi saman version</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ankaŭ celi APK-dosierojn kiuj kongruas kun la instalita versio. Malŝaltu por forigi nur pli malnovajn versiojn.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Grandecaj limigoj</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimuma grandeco</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimuma grandeco</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Limigu kongruojn laŭ dosiera grandeco. Lasu malplena por kongrui kun ajna grandeco.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Aĝaj limigoj</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimuma aĝo</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimuma aĝo</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Limigu kongruojn laŭ dosiera aĝo (lasta modifa tempo). Lasu malplena por kongrui kun ajna aĝo.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Aplikaĵaj mallongigaj ikonoj</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Kaŝmemoraj ikonoj por aplikaĵaj mallongigoj kaj kunhavigaj menuoj.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Devige halti antaŭ purigado</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Devige haltu aplikaĵojn antaŭ purigi ilian kaŝmemoron. Ĝi povas helpi purigi la kaŝmemoron de kelkaj aplikaĵoj, sed povas kaŭzi misfunkciojn kaj postuli manan restarton.</string>
-    <string name="appcleaner_progress_force_stopping">Devige haltante aplikaĵojn…</string>
-
     <string name="deduplicator_keep_prefer_paths_title">Preferi konservi en</string>
     <string name="deduplicator_keep_prefer_paths_summary">Kiam oni decidas kiun duplikaton konservi, preferi konservi dosierojn en ĉi tiuj lokoj.</string>
     <string name="deduplicator_keep_prefer_paths_none_summary">Neniuj lokoj agorditaj</string>
-
     <string name="deduplicator_arbiter_title">Forigada strategio</string>
     <string name="deduplicator_arbiter_summary">Agordu kiuj dosieroj estas konservitaj kaj kiuj forigitaj.</string>
     <string name="deduplicator_arbiter_explanation">Kiam oni forigas duplikatojn, SD Maid decidas kiun dosieron konservi kontrolante ĉiun kriterion laŭorde. La unua kriterio kiu produktas klaran gajnanton determinas la rezulton. Trenu por reordigi, tuŝu por ŝanĝi reĝimon.</string>
@@ -816,10 +524,8 @@
     <string name="deduplicator_arbiter_mode_prefer_newer">Preferi pli novajn dosierojn</string>
     <string name="deduplicator_arbiter_mode_prefer_larger">Preferi pli grandajn dosierojn</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferi pli malgrandajn dosierojn</string>
-
     <string name="deduplicator_view_mode_groups_label">Grupoj</string>
     <string name="deduplicator_view_mode_directories_label">Dosierujoj</string>
-
     <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Kunpremu bildojn por ŝpari stokan spacon.</string>
     <plurals name="squeezer_result_x_images_found">
@@ -904,16 +610,13 @@
         <item quantity="other">Almenaŭ %d tagoj malnova</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Taksita ~%d%% ŝparo por JPEG-dosieroj</string>
-
     <string name="shortcut_appcontrol_short">Aplikaĵa Kontrolo</string>
     <string name="shortcut_appcontrol_long">Administri instalitajn aplikaĵojn</string>
     <string name="shortcut_onetap_short">Skani + Forigi</string>
     <string name="shortcut_onetap_long">Skani kaj forigi en unu ago</string>
-
     <string name="shortcuts_settings_category">Mallongigoj</string>
     <string name="shortcuts_onetap_enabled_title">Unutuŝa mallongigo</string>
     <string name="shortcuts_onetap_enabled_summary">Montri mallongigon \"Skani + Forigi\" ĉe longa tuŝo de la aplikaĵa ikono. Uzas la samajn ilojn kiel la unutuŝa panelo.</string>
-
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Svingu tra dosieroj por decidi kion konservi aŭ forigi.</string>
@@ -1014,7 +717,6 @@
         <item quantity="one">%d jam forigita</item>
         <item quantity="other">%d jam forigitaj</item>
     </plurals>
-    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d konservita</item>
         <item quantity="other">%d konservitaj</item>
@@ -1029,7 +731,6 @@
     <string name="swiper_sessions_suggestion_downloads">Elŝuta dosierujo</string>
     <string name="swiper_sessions_suggestion_screenshots">Ekrankopioj</string>
     <string name="swiper_sessions_suggestion_camera">Kamera rulaĵo</string>
-    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Konservu!</string>
     <string name="swiper_stamp_keep_2">Bela!</string>
     <string name="swiper_stamp_keep_3">Jes!</string>
@@ -1046,7 +747,6 @@
     <string name="swiper_stamp_undo_2">Reen!</string>
     <string name="swiper_stamp_undo_3">Ho!</string>
     <string name="swiper_stamp_undo_4">Atendu!</string>
-    <!-- Swiper gesture overlay -->
     <string name="swiper_gesture_overlay_dismiss">Tuŝu ie ajn por komenci</string>
     <string name="swiper_gesture_overlay_dismiss_action">Komprenite</string>
     <string name="swiper_gesture_overlay_left_delete">← Forigi</string>
@@ -1055,7 +755,6 @@
     <string name="swiper_gesture_overlay_right_delete">Forigi →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preterpasi</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Malfari</string>
-    <!-- Swiper help dialog -->
     <string name="swiper_help_action">Helpo</string>
     <string name="swiper_help_title">Kiel Swiper funkcias</string>
     <string name="swiper_help_message">Svingu ĉiun dosieron por decidi:\n\n← Svingu maldekstren: %1$s\n→ Svingu dekstren: %2$s\n↑ Svingu supren: Preterpasi\n↓ Svingu malsupren: Malfari (post la unua svingo)\n\nVi ankaŭ povas uzi la butonojn ĉe la malsupro.\n\nKiam vi finis, tuŝu \"Revizio\" por vidi ĉiujn viajn decidojn. Nenio estas forigita ĝis vi konfirmas en la revizia ekrano.</string>

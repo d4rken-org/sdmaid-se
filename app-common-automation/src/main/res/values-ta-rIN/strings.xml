@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">சிறப்பு அணுகல் தேவைகள் உள்ள பயனர்கள் இந்த சேவையை இயக்கி SD Maid ஐ அலுப்பான கைமுறை பயனர் தொடர்பு தேவைப்படும் பணிகளை (எ.கா. கேச் நீக்குதல்) தானியங்கியமாக்க அனுமதிக்கலாம்.\n\nஉதாரணம்: நீங்கள் SD Maid ஐ பல பயன்பாடுகளை நிறுத்த அறிவுறுத்தினால், SD Maid இந்த சேவையைப் பயன்படுத்தி ஒவ்வொரு பயன்பாட்டின் அமைப்புகள் திரையைத் திறக்கலாம், \'Force Stop\' பொத்தானைக் கண்டுபிடித்து அதைத் தட்டலாம்.\n\nSD Maid இந்த சேவையைப் பயன்படுத்தும்போது எப்போதும் தெளிவாகக் காட்டும் மற்றும் பயனருக்கு எந்த தொடர்பையும் உடனடியாக ரத்து செய்வதற்கான எளிய வழியை வழங்கும்.\n\nமுன்னாள் பயனர் ஒப்புதல் இல்லாமல் எந்த செயல்களும் செய்யப்படாது. இந்த சேவையை எந்த நேரத்திலும் மீண்டும் முடக்கலாம் எதிர்மறை விளைவுகள் இல்லாமல்.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid உங்கள் சாதனத்துடன் தொடர்பு கொள்ளிறது. அதே நேரத்தில் திரையைப் பயன்படுத்த முடியாது. செயல்பாடு முடியும் வரை காத்திருக்கவும் அல்லது அதை ரத்து செய்யவும்.</string>
+    <string name="automation_active_title">SD Maid வேலை செய்கிறது</string>
+    <string name="automation_error_no_consent_title">தனியாக்க பிழை</string>
+    <string name="automation_error_no_consent_body">அணுகல் சேவை அமைக்கப்படவில்லை. அமைப்பை முடித்து ஒப்புதல் வழங்கவும்.</string>
+    <string name="automation_error_not_enabled_title">சேவை இயக்கப்படவில்லை</string>
+    <string name="automation_error_not_enabled_body">அணுகல் சேவை முடக்கப்பட்டுள்ளது. அதை மீண்டும் இயக்கவும்.</string>
+    <string name="automation_error_not_running_title">சேவை இயங்கவில்லை</string>
+    <string name="automation_error_not_running_body">அணுகல் சேவை இயங்கவில்லை. சாதனத்தை மீண்டும் தொடங்க முயற்சிக்கவும்.</string>
+    <string name="automation_error_screen_unavailable_title">திரை கிடைக்கவில்லை</string>
+    <string name="automation_error_screen_unavailable_body">திரை கிடைக்காமல் போனதால் செயல்பாடு நிறுத்தப்பட்டது (எ.கா. திரை அணைந்தது அல்லது பரிந்துரை செயல்படுத்திவது).</string>
+    <string name="automation_error_compatibility_title">தனியாக்க இணங்கத்தன்மை</string>
+    <string name="automation_error_compatibility_body">SD Maid திரை அமைப்பைக் கண்டுபிடிக்க முடியவில்லை. இது தொடர்ந்து நடந்தால், உங்கள் மொழி அல்லது அமைப்பு முழுமையாக ஆதரிக்கப்படாமல் இருக்கலாம். புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதைச் சரிசெய்ய எனக்கு தெரியப்படுத்தவும்.</string>
+    <string name="automation_error_timeout_title">தனியாக்க நேரகடைதல்</string>
+    <string name="automation_error_timeout_body">SD Maid நேர வரம்பிற்குள் அனைத்து படிகளையும் முடிக்கவில்லை. இது தொடர்ந்து நடந்தால், உங்கள் சாதனத்திற்காக பயன்பாட்டைச் சரிசெய்ய வேண்டியிருக்கலாம். புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதைச் சரிசெய்ய எனக்கு தெரியப்படுத்தவும்.</string>
+    <string name="automation_error_overlay_title">தனியாக்க மேல்பதிவு</string>
+    <string name="automation_error_overlay_body">SD Maid தனியாக்க மேல்பதிவைக் காட்ட முடியவில்லை. அனுமதிகளைச் சரிபார்த்து உங்கள் சாதனத்தை மீண்டும் தொடங்க முயற்சிக்கவும்.</string>
+    <string name="automation_error_no_settings_title">அமைப்புகள் திரை கிடைக்கவில்லை</string>
+    <string name="automation_error_no_settings_body">இந்த கணினி பயன்பாட்டில் அமைப்புகள் திரை இல்லை. அணுகல் சேவை வழியாக கேச் அழிப்பு சாத்தியமில்லை. கேச் அழிப்பை விரைவுபடுத்த அதை விலக்கவும்.</string>
+</resources>

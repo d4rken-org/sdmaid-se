@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_explanation_short">Izlietojami dati, kas pieder konkrētām lietotnēm.</string>
+    <string name="appcleaner_include_systemapps_label">Iekļaut sistēmas lietotnes</string>
+    <string name="appcleaner_include_systemapps_summary">Iekļaut sistēmas lietotnes skenēšanā.</string>
+    <string name="appcleaner_include_inaccessible_label">Iekļaut nepieejamās kešatmiņas</string>
+    <string name="appcleaner_include_inaccessible_summary">Iekļaut datus, kam nevar piekļūt tieši, bet kurus var dzēst caur sistēmas iestatījumiem un automatizēt, izmantojot pieejamības pakalpojumu.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Dzēst izlietojamos vienumus visām lietotnēm?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="zero">%d izlietojamu vienumu dzēsts</item>
+        <item quantity="one">%d izlietojams vienums dzēsts</item>
+        <item quantity="other">%d izlietojami vienumi dzēsti</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="zero">%d izlietojamu vienumu atrasts</item>
+        <item quantity="one">%d izlietojams vienums atrasts</item>
+        <item quantity="other">%d izlietojami vienumi atrasti</item>
+    </plurals>
+</resources>

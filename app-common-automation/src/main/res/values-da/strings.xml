@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Brugere med særlige tilgængelighedsbehov kan aktivere denne tjeneste, så SD Maid kan automatisere opgaver, der ellers kræver kedelig manuel brugerinteraktion (f.eks. cachesletning).\n\nEksempel: Hvis du beder SD Maid om at stoppe flere apps, bruges tjenesten til at åbne hver apps’ indstillingsskærme, finde knappen \"Gennemtving Stop\" og trykke på den.\n\nSD Maid viser altid tydeligt, når tjenesten bruges, og giver brugeren mulighed for straks at annullere enhver interaktion.\n\nIngen handlinger udføres uden brugerens forudgående godkendelse. Tjenesten kan til enhver tid deaktiveres uden konsekvenser.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagerer med din enhed. Skærmen kan ikke bruges samtidig. Vent, indtil handlingen er fuldført, eller afbryd den.</string>
+    <string name="automation_active_title">SD Maid arbejder</string>
+    <string name="automation_error_no_consent_title">Automatiseringsfejl</string>
+    <string name="automation_error_no_consent_body">Tilgængelighedstjenesten er ikke opsat. Fuldfør opsætningen, og giv din tilladelse.</string>
+    <string name="automation_error_not_enabled_title">Tjenesten er ikke aktiveret</string>
+    <string name="automation_error_not_enabled_body">Tilgængelighedstjenesten er deaktiveret. Slå den til igen.</string>
+    <string name="automation_error_not_running_title">Tjenesten kører ikke</string>
+    <string name="automation_error_not_running_body">Tilgængelighedstjenesten kører ikke. Prøv at genstarte enheden.</string>
+    <string name="automation_error_screen_unavailable_title">Skærm utilgængelig</string>
+    <string name="automation_error_screen_unavailable_body">Handlingen blev afbrudt, fordi skærmen blev utilgængelig (f.eks. skærm slukket eller låseskærm aktiv).</string>
+    <string name="automation_error_compatibility_title">Automatiseringskompatibilitet</string>
+    <string name="automation_error_compatibility_body">SD Maid kunne ikke finde ud af skærmens layout. Hvis dette fortsætter, understøttes dit sprog eller din opsætning muligvis ikke helt. Søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
+    <string name="automation_error_timeout_title">Automatiseringstimeout</string>
+    <string name="automation_error_timeout_body">SD Maid gennemførte ikke alle trin inden for tidsgrænsen. Hvis dette fortsætter, skal appen muligvis justeres til din enhed. Søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
+    <string name="automation_error_overlay_title">Automatiseringsoverlejring</string>
+    <string name="automation_error_overlay_body">SD Maid kunne ikke vise automatiseringsoverlejringen. Tjek tilladelserne, og prøv at genstarte din enhed.</string>
+    <string name="automation_error_no_settings_title">Indstillingsskærm utilgængelig</string>
+    <string name="automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
+</resources>

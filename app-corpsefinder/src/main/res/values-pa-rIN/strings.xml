@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">ਪਹਿਲਾਂ ਹਟਾਈਆਂ ਗਈਆਂ ਐਪਾਂ ਨਾਲ ਸੰਬੰਧਿਤ ਡੇਟਾ।</string>
+    <string name="corpsefinder_settings_summary">ਸਕੈਨ ਫਿਲਟਰਾਂ ਅਤੇ ਜੋਖਮ ਪੱਧਰਾਂ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋ।</string>
+    <string name="corpsefinder_settings_risk_keeper_title">ਲੋੜੀਂਦੇ ਬਚੇ-ਖੁਚੇ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">ਫਾਇਲਾਂ ਜੋ ਤੁਸੀਂ ਰੱਖਣਾ ਚਾਹ ਸਕਦੇ ਹੋ, ਭਾਵੇਂ ਐਪ ਅਣਇੰਸਟਾਲ ਹੋ ਜਾਵੇ, ਜਿਵੇਂ ਕਿ ਤੁਹਾਡੇ ਦੁਆਰਾ ਲਈਆਂ ਗਈਆਂ ਫੋਟੋਆਂ ਜਾਂ ਤੁਹਾਡੇ ਦੁਆਰਾ ਬਣਾਏ ਗਏ ਬੈਕਅੱਪ।</string>
+    <string name="corpsefinder_settings_risk_common_title">ਆਮ ਨਾਮ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="corpsefinder_settings_risk_common_summary">ਆਮ ਤੌਰ \'ਤੇ ਵਰਤੇ ਜਾਂਦੇ ਨਾਮਾਂ ਵਾਲਾ ਡੇਟਾ, ਜਿਵੇਂ ਕਿ ਇੱਕ ਫੋਲਡਰ \"Notes\" ਬਹੁਤ ਸਾਰੀਆਂ ਅਣਜਾਣ ਐਪਾਂ ਦੀ ਮਲਕੀਅਤ ਹੈ।</string>
+    <string name="corpsefinder_watcher_title">ਅਣਇੰਸਟਾਲ ਵਾਚਰ</string>
+    <string name="corpsefinder_watcher_summary">ਜਦੋਂ ਕੋਈ ਐਪ ਹਟਾਈ ਜਾਂਦੀ ਹੈ ਤਾਂ ਬਚੇ-ਖੁਚੇ ਹਿੱਸਿਆਂ ਲਈ ਆਪਣੇ ਆਪ ਸਕੈਨ ਕਰੋ।</string>
+    <string name="corpsefinder_watcher_autodelete_title">ਸਵੈਚਲਿਤ ਮਿਟਾਉਣਾ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">ਅਣਇੰਸਟਾਲ ਕੀਤੀ ਐਪ ਨਾਲ ਸੰਬੰਧਿਤ ਕਿਸੇ ਵੀ ਬਚੇ-ਖੁਚੇ ਹਿੱਸਿਆਂ ਨੂੰ ਆਪਣੇ ਆਪ ਮਿਟਾਓ।</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s ਨੂੰ ਅਣਸਥਾਪਿਤ ਕਰਨ ਤੋਂ ਬਾਅਦ %1$d ਬਕਾਇਆ ਮਿਲਿਆ।</item>
+        <item quantity="other">%2$s ਨੂੰ ਅਣਸਥਾਪਿਤ ਕਰਨ ਤੋਂ ਬਾਅਦ %1$d ਬਕਾਇਆ ਮਿਲੇ।</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">ਸਫਾਈ ਸਫਲ (%1$s): %2$s ਮੁਕਤ ਕੀਤਾ ਅਤੇ %3$d ਆਈਟਮ ਹਟਾਇਆ।</item>
+        <item quantity="other">ਸਫਾਈ ਸਫਲ (%1$s): %2$s ਮੁਕਤ ਕੀਤਾ ਅਤੇ %3$d ਆਈਟਮਾਂ ਹਟਾਈਆਂ।</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">ਬਚੇ-ਖੁਚੇ ਹਿੱਸੇ ਮਿਟਾਓ</string>
+    <string name="corpsefinder_filter_publicmedia_label">ਜਨਤਕ ਮੀਡੀਆ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ਜਨਤਕ ਮੀਡੀਆ ਫਾਇਲਾਂ, ਜਿਵੇਂ ਕਿ ਮੈਸੇਂਜਰ ਐਪਾਂ ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਫਾਇਲਾਂ।</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ਸਰੋਤ</string>
+    <string name="corpsefinder_filter_publicobb_summary">ਵਾਧੂ ਐਪ ਸਰੋਤ, ਜਿਵੇਂ ਕਿ ਗੇਮ ਸੰਪੱਤੀਆਂ।</string>
+    <string name="corpsefinder_filter_publicdata_label">ਜਨਤਕ ਐਪ ਡੇਟਾ</string>
+    <string name="corpsefinder_filter_publicdata_summary">ਗੈਰ-ਸੰਵੇਦਨਸ਼ੀਲ ਐਪ ਡੇਟਾ, ਜਿਵੇਂ ਕਿ ਨਕਸ਼ੇ ਦੇ ਕੈਸ਼।</string>
+    <string name="corpsefinder_filter_sdcard_label">SD ਕਾਰਡ</string>
+    <string name="corpsefinder_filter_sdcard_summary">ਆਮ ਜਨਤਕ ਸਟੋਰੇਜ, ਅੰਦਰੂਨੀ ਅਤੇ ਬਾਹਰੀ (ਜਿਵੇਂ ਕਿ SD ਕਾਰਡ)।</string>
+    <string name="corpsefinder_filter_privatedata_label">ਨਿੱਜੀ ਐਪ ਡੇਟਾ</string>
+    <string name="corpsefinder_filter_privatedata_summary">ਨਿੱਜੀ ਐਪ ਡੇਟਾ, ਜਿਵੇਂ ਕਿ ਪ੍ਰਮਾਣ-ਪੱਤਰ, ਐਪ ਸੈਟਿੰਗਾਂ ਪਰ ਬ੍ਰਾਊਜ਼ਰ ਕੈਸ਼ ਵੀ।</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik ਕੈਸ਼</string>
+    <string name="corpsefinder_filter_dalvik_summary">ਕੈਸ਼ ਕੀਤਾ ਐਪ ਐਗਜ਼ੀਕਿਊਸ਼ਨ ਡੇਟਾ।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART ਪ੍ਰੋਫਾਈਲਾਂ</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART ਪ੍ਰੋਫਾਈਲਾਂ Android ਦੁਆਰਾ ਐਪ ਦੀ ਕਾਰਗੁਜ਼ਾਰੀ ਨੂੰ ਅਨੁਕੂਲ ਬਣਾਉਣ ਲਈ ਵਰਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
+    <string name="corpsefinder_filter_applib_label">ਐਪ ਲਾਇਬ੍ਰੇਰੀਆਂ</string>
+    <string name="corpsefinder_filter_applib_summary">ਐਪ ਸੰਬੰਧਿਤ ਲਾਇਬ੍ਰੇਰੀ ਡੇਟਾ।</string>
+    <string name="corpsefinder_filter_appsource_label">ਐਪ ਸਰੋਤ</string>
+    <string name="corpsefinder_filter_appsource_summary">ਐਪ ਇੰਸਟਾਲੇਸ਼ਨ ਡੇਟਾ, ਭਾਵ ਕਿ APKs ਕਿੱਥੇ ਜਾਂਦੀਆਂ ਹਨ।</string>
+    <string name="corpsefinder_filter_appsource_private_label">ਨਿੱਜੀ ਐਪ ਸਰੋਤ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">ਪ੍ਰਤਿਬੰਧਿਤ ਐਪ ਇੰਸਟਾਲੇਸ਼ਨ ਡੇਟਾ, ਜਿਵੇਂ ਕਿ ਸੁਰੱਖਿਅਤ ਤੀਜੀ ਧਿਰ ਦੀਆਂ ਐਪਾਂ।</string>
+    <string name="corpsefinder_filter_appasec_label">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ</string>
+    <string name="corpsefinder_filter_appasec_summary">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ, ਜਿਵੇਂ ਕਿ ਗੇਮ ਸੰਪੱਤੀਆਂ।</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd ਮੋਡਾਂ ਦੁਆਰਾ ਬਾਹਰੀ ਸਟੋਰੇਜ \'ਤੇ ਭੇਜਿਆ ਗਿਆ ਡੇਟਾ।</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ਐਪ ਬਕਾਇਆ ਮਿਟਾਇਆ ਗਿਆ</item>
+        <item quantity="other">%d ਐਪ ਬਕਾਇਆ ਮਿਟਾਏ ਗਏ</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ਐਪ ਬਕਾਇਆ ਖੋਜਿਆ ਗਿਆ</item>
+        <item quantity="other">%d ਐਪ ਬਕਾਇਆ ਖੋਜੇ ਗਏ</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">ਸਾਰੇ ਐਪ ਬਚੇ-ਖੁਚੇ ਹਿੱਸੇ ਮਿਟਾਉਣੇ ਹਨ?</string>
+    <string name="corpsefinder_owners_label">ਮਾਲਕ</string>
+    <string name="corpsefinder_corpse_hints_label">ਸੂਚਨਾ</string>
+    <string name="corpsefinder_owner_unknown">ਅਣਜਾਣ ਮਾਲਕ</string>
+    <string name="corpsefinder_corpse_hint_keeper">ਇਸ ਆਈਟਮ ਵਿੱਚ ਉਹ ਡੇਟਾ ਹੋ ਸਕਦਾ ਹੈ ਜੋ ਤੁਸੀਂ ਇਸਦੇ ਮਾਲਕ ਦੇ ਅਣਇੰਸਟਾਲ ਹੋਣ ਦੇ ਬਾਵਜੂਦ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਜਿਵੇਂ ਕਿ ਫੋਟੋਆਂ ਜਾਂ ਬੈਕਅੱਪ।</string>
+    <string name="corpsefinder_corpse_hint_common">ਇਸ ਆਈਟਮ ਦਾ ਬਹੁਤ ਆਮ ਨਾਮ ਹੈ ਅਤੇ ਇਹ ਅਜੇ ਵੀ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਨਾਲ ਸੰਬੰਧਿਤ ਹੋ ਸਕਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਨੂੰ SD Maid ਨਹੀਂ ਜਾਣਦਾ।</string>
+</resources>

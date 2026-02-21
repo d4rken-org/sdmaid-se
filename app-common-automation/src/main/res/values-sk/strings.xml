@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Užívatelia s potrebou špeciálneho prístupu môžu túto službu povoliť, aby SD Maid mohlo automatizovať úlohy, ktoré by inak vyžadovali ručný zásah užívatela(napr. čistenie medzipamäte).\n\nPríklad: Ak zadáte aplikácii SD Maid príkaz, aby zastavila niekoľko aplikácií, môže SD Maid túto službu použiť k otvoreniu obrazovky nastavenia každej aplikácie, k nájdeniu tlačidla \"Vynútiť zastavenie\" a klepnúť naň.\n\nSD Maid vám vždy zobrazí používanie tejto služby, aby ste v prípade potreby mohli kedykoľvek zrušiť danú akciu.\n\nŽiadna akcia sa nevykoná bez predchádzajúceho súhlasu užívateľa. Táto služba môže byť kedykoľvek zakázaná bez nežiadúcich účinkov.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid komunikuje s vaším zariadením. Nie je možné súčasne používať obrazovku. Počkajte na dokončenie operácie alebo ju zrušte.</string>
+    <string name="automation_active_title">SD Maid pracuje</string>
+    <string name="automation_error_no_consent_title">Chyba automatizácie</string>
+    <string name="automation_error_no_consent_body">Služba dostupnosti nie je nastavená. Dokončite nastavenie a udeľte súhlas.</string>
+    <string name="automation_error_not_enabled_title">Služba nie je povolená</string>
+    <string name="automation_error_not_enabled_body">Služba dostupnosti je zakázaná. Znovu ju zapnite.</string>
+    <string name="automation_error_not_running_title">Služba nie je spustená</string>
+    <string name="automation_error_not_running_body">Služba dostupnosti nie je spustená. Skúste reštartovať zariadenie.</string>
+    <string name="automation_error_screen_unavailable_title">Obrazovka je nedostupná</string>
+    <string name="automation_error_screen_unavailable_body">Operácia bola prerušená, pretože obrazovka bola nedostupná (napr. vypnutý displej alebo aktívna uzamknutá obrazovka).</string>
+    <string name="automation_error_compatibility_title">Kompatibilita automatizácie</string>
+    <string name="automation_error_compatibility_body">SD Maid nedokázal zistiť rozloženie obrazovky. Ak sa to stále deje, váš jazyk alebo nastavenie možno nie je plne podporované. Skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="automation_error_timeout_title">Časový limit automatizácie</string>
+    <string name="automation_error_timeout_body">SD Maid nedokončil všetky kroky v časovom limite. Ak sa to stále deje, možno budem musieť upraviť aplikáciu pre vaše zariadenie. Skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
+    <string name="automation_error_overlay_title">Prekrytie automatizácie</string>
+    <string name="automation_error_overlay_body">SD Maid nedokázal zobraziť prekrytie automatizácie. Skontrolujte povolenia a skúste reštartovať zariadenie.</string>
+    <string name="automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
+    <string name="automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
+</resources>

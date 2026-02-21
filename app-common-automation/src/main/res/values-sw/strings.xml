@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Watumiaji wenye mahitaji maalum ya ufikiaji wanaweza kuwezesha huduma hii ili kuruhusu SD Maid kuotomatisha kazi ambazo vinginevyo zingehitaji mwingiliano wa mtumiaji wa mkono unaochosha (k.m. kufuta akiba).\n\nMfano: Ikiwa utamwagiza SD Maid kusimamisha programu nyingi basi SD Maid inaweza kutumia huduma hii kufungua skrini ya mipangilio ya kila programu, kupata kitufe cha \'Simamisha kwa Nguvu\' na kuibonyeza.\n\nSD Maid itaonyesha kila wakati kwa wazi inapotumia huduma hii na kutoa njia rahisi kwa mtumiaji kughairi mwingiliano wowote mara moja.\n\nHakuna vitendo vitakavyotekelezwa bila idhini ya awali ya mtumiaji. Huduma hii inaweza kuzimwa tena wakati wowote bila madhara.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid inaingiliana na kifaa chako. Haiwezekani kutumia skrini wakati huo huo. Subiri mpaka shughuli iimalize au ighairie.</string>
+    <string name="automation_active_title">SD Maid inafanya kazi</string>
+    <string name="automation_error_no_consent_title">Kosa la uotomatishaji</string>
+    <string name="automation_error_no_consent_body">Huduma ya ufikiaji haijasanidiwa. Kamilisha usanidi na toa idhini.</string>
+    <string name="automation_error_not_enabled_title">Huduma haijawashwa</string>
+    <string name="automation_error_not_enabled_body">Huduma ya ufikiaji imezimwa. Iwashe tena.</string>
+    <string name="automation_error_not_running_title">Huduma haiendeshi</string>
+    <string name="automation_error_not_running_body">Huduma ya ufikiaji haiendeshi. Jaribu kuanzisha upya kifaa.</string>
+    <string name="automation_error_screen_unavailable_title">Skrini haipatikani</string>
+    <string name="automation_error_screen_unavailable_body">Shughuli ilighairiwa kwa sababu skrini haikupatikana (k.m. onyesho kimezimwa au skrini ya kufunga imewashwa).</string>
+    <string name="automation_error_compatibility_title">Ulinganifu wa uotomatishaji</string>
+    <string name="automation_error_compatibility_body">SD Maid haikuweza kutambua mpangilio wa skrini. Ikiwa hii inaendelea kutokea, lugha au usanidi wako huwenda hautegemezwi kikamilifu. Angalia masasisho au niwasiliane nami ili niweze kurekebisha.</string>
+    <string name="automation_error_timeout_title">Muda wa uotomatishaji umeisha</string>
+    <string name="automation_error_timeout_body">SD Maid haikukamilisha hatua zote ndani ya muda uliowekwa. Ikiwa hii inaendelea kutokea, huenda ninahitaji kurekebishia programu kwa kifaa chako. Angalia masasisho au niwasiliane nami ili niweze kurekebisha.</string>
+    <string name="automation_error_overlay_title">Uwekaji wa uotomatishaji</string>
+    <string name="automation_error_overlay_body">SD Maid haikuweza kuonyesha uwekaji wa uotomatishaji. Angalia ruhusa na jaribu kuanzisha upya kifaa chako.</string>
+    <string name="automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
+    <string name="automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
+</resources>

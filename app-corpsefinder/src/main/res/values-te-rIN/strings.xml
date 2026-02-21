@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">ఇమి తెగెసివేసిన యాప్‌లకు సంబంధించిన డేటా.</string>
+    <string name="corpsefinder_settings_summary">స్కాన్ ఫిల్టర్‌లు మరియు నష్ట స్థాయిలను సరిచేయండి.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">అవసరమైన అవశేషాలను చేర్చండి</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">యాప్ అనిన్‌స్టాల్ చేసినా కూడా మీరు ఉంచుకోవాలని అనిపించే ఫైల్‌లు, ఉదా. మీరు తీసిన ఫోటోలు లేదా సృష్టించిన బ్యాకప్‌లు.</string>
+    <string name="corpsefinder_settings_risk_common_title">సాధారణ పేర్లను చేర్చండి</string>
+    <string name="corpsefinder_settings_risk_common_summary">సాధారణంగా ఉపయోగించే పేర్ల ఉన్న డేటా, ఉదా. \"Notes\" ఫోల్డర్ చాలా ఎక్కువ తెలియని యాప్‌లకు సంబంధించినది.</string>
+    <string name="corpsefinder_watcher_title">అనిన్‌స్టాల్ వాచర్</string>
+    <string name="corpsefinder_watcher_summary">యాప్ తెగెసివేసినప్పుడు అవశేషాల కోసం స్వయంచాలకంగా స్కాన్ చేయండి.</string>
+    <string name="corpsefinder_watcher_autodelete_title">స్వయంచాలక తొలగింపు</string>
+    <string name="corpsefinder_watcher_autodelete_summary">అనిన్‌స్టాల్ చేసిన యాప్‌కు సంబంధించిన ఏవైనా అవశేషాలను స్వయంచాలకంగా తొలగించండి.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s అనిన్‌స్టాల్ చేసిన తర్వాత %1$d అవశేషం కనుగొనబడింది.</item>
+        <item quantity="other">%2$s అనిన్‌స్టాల్ చేసిన తర్వాత %1$d అవశేషాలు కనుగొనబడినాయి.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">క్లీనప్ విజయవంతం (%1$s): %2$s విడుదల చేసి %3$d అంశాన్ని తెగెసింది.</item>
+        <item quantity="other">క్లీనప్ విజయవంతం (%1$s): %2$s విడుదల చేసి %3$d అంశాలను తెగెసింది.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">అవశేషాలను తొలగించండి</string>
+    <string name="corpsefinder_filter_publicmedia_label">పబ్లిక్ మీడియా</string>
+    <string name="corpsefinder_filter_publicmedia_summary">పబ్లిక్ మీడియా ఫైల్‌లు, ఉదా. మెసెంజర్ యాప్‌ల ద్వారా స్వీకరించిన ఫైల్‌లు.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB రిసోర్సెస్</string>
+    <string name="corpsefinder_filter_publicobb_summary">అదుపు యాప్ రిసోర్సెస్, ఉదా. గేమ్ ఆసెట్‌లు.</string>
+    <string name="corpsefinder_filter_publicdata_label">పబ్లిక్ యాప్ డేటా</string>
+    <string name="corpsefinder_filter_publicdata_summary">సెన్సిటివ్ కాని యాప్ డేటా, ఉదా. మ్యాప్ క్యాషేలు.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD కార్డ్</string>
+    <string name="corpsefinder_filter_sdcard_summary">సాధారణ పబ్లిక్ స్టోరేజీ, ఇంటర్నల్ మరియు ఎక్స్టర్నల్ (ఉదా. SD కార్డులు).</string>
+    <string name="corpsefinder_filter_privatedata_label">ప్రైవేట్ యాప్ డేటా</string>
+    <string name="corpsefinder_filter_privatedata_summary">ప్రైవేట్ యాప్ డేటా, ఉదా. క్రెడెంషియల్స్, యాప్ సెట్టింగ్స్ మరియు బ్రౌజర్ క్యాషేలు.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik క్యాషే</string>
+    <string name="corpsefinder_filter_dalvik_summary">క్యాష్డ్ యాప్ ఎక్సిక్యూషన్ డేటా.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART ప్రొఫైల్‌లు</string>
+    <string name="corpsefinder_filter_artprofiles_summary">యాప్ పనితీరును ఆప్టిమైజ్ చేయడానికి Android ద్వారా ART ప్రొఫైల్‌లు ఉపయోగించబడతాయి.</string>
+    <string name="corpsefinder_filter_applib_label">యాప్ లైబ్రరీలు</string>
+    <string name="corpsefinder_filter_applib_summary">యాప్ సంబంధిత లైబ్రరీ డేటా.</string>
+    <string name="corpsefinder_filter_appsource_label">యాప్ సోర్సెస్</string>
+    <string name="corpsefinder_filter_appsource_summary">యాప్ ఇన్‌స్టాలేషన్ డేటా, అంటే APKలు ఎక్కడకు వెళ్లుతాయి.</string>
+    <string name="corpsefinder_filter_appsource_private_label">ప్రైవేట్ యాప్ సోర్సెస్</string>
+    <string name="corpsefinder_filter_appsource_private_summary">పరిమితం చేయబడిన యాప్ ఇన్‌స్టాలేషన్ డేటా, ఉదా. సంరక్షిత మూడవ పక్ష యాప్‌లు.</string>
+    <string name="corpsefinder_filter_appasec_label">ఎన్‌క్రిప్ట్ చేయబడిన యాప్ రిసోర్సెస్</string>
+    <string name="corpsefinder_filter_appasec_summary">ఎన్‌క్రిప్ట్ చేయబడిన యాప్ రిసోర్సెస్, ఉదా. గేమ్ ఆసెట్‌లు.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd మాడ్‌ల ద్వారా ఎక్స్టర్నల్ స్టోరేజీకి తరలించబడిన డేటా.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d యాప్ అవశేషం తొలగించబడింది</item>
+        <item quantity="other">%d యాప్ అవశేషాలు తొలగించబడినాయి</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d యాప్ అవశేషం కనుగొనబడింది</item>
+        <item quantity="other">%d యాప్ అవశేషాలు కనుగొనబడినాయి</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">అన్ని యాప్ అవశేషాలను తొలగించాలా?</string>
+    <string name="corpsefinder_owners_label">స్వామ్యులు</string>
+    <string name="corpsefinder_corpse_hints_label">గమనిక</string>
+    <string name="corpsefinder_owner_unknown">తెలియని స్వామి</string>
+    <string name="corpsefinder_corpse_hint_keeper">ఈ అంశం దాని స్వామి అనిన్‌స్టాల్ చేయబడినా మీరు ఉంచుకోవలసిన డేటాను కలిగి ఉండవచ్చు, ఉదా. ఫోటోలు లేదా బ్యాకప్లు.</string>
+    <string name="corpsefinder_corpse_hint_common">ఈ అంశం చాలా సాధారణ పేరును కలిగి ఉంది మరియు SD Maid కు తెలియని ఇన్నూ ఇన్‌స్టాల్ చేయబడిన యాప్‌లకు చెందవచ్చు.</string>
+</resources>

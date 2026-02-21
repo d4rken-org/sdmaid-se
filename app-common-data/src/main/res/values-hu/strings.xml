@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Nyilvános tároló</string>
+    <string name="area_type_public_media_label">Nyilvános alkalmazás média</string>
+    <string name="area_type_public_data_label">Nyilvános alkalmazásadatok</string>
+    <string name="area_type_public_obb_label">Nyilvános alkalmazás-erőforrások</string>
+    <string name="area_type_private_data_label">Privát alkalmazásadatok</string>
+    <string name="area_type_portable_label">Hordozható tárolás</string>
+</resources>

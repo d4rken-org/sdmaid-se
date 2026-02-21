@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Wyszukiwarka pozostałości</string>
+    <string name="corpsefinder_explanation_short">Dane należące do usuniętych aplikacji.</string>
+    <string name="corpsefinder_settings_summary">Dostosuj filtry skanowania i poziomy ryzyka.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Uwzględnij pożądane pozostałości</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Pliki, które mogą być przydatne, nawet jeśli aplikacja jest odinstalowana, np. zdjęcia lub kopie zapasowe.</string>
+    <string name="corpsefinder_settings_risk_common_title">Uwzględnij powszechne nazwy</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dane o powszechnie używanych nazwach, np. folder „Notatki”, jest własnością zbyt wielu nieznanych aplikacji.</string>
+    <string name="corpsefinder_watcher_title">Obserwator odinstalowania</string>
+    <string name="corpsefinder_watcher_summary">Automatyczne skanowanie pozostałości po usunięciu aplikacji.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatycznie usuwa wszystkie pozostałe elementy związane z odinstalowaną aplikacją.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d pozostałość została znaleziona po odinstalowaniu %2$s.</item>
+        <item quantity="few">%1$d pozostałości zostały znalezione po odinstalowaniu %2$s.</item>
+        <item quantity="many">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
+        <item quantity="other">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d element.</item>
+        <item quantity="few">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementy.</item>
+        <item quantity="many">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementów.</item>
+        <item quantity="other">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d elementów.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Usuń pozostałości</string>
+    <string name="corpsefinder_filter_publicmedia_label">Publiczne pliki multimedialne</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Publiczne pliki multimedialne, np. pliki otrzymane za pośrednictwem aplikacji do przesyłania wiadomości.</string>
+    <string name="corpsefinder_filter_publicobb_label">Zasoby OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Dodatkowe zasoby aplikacji, np. zasoby gier.</string>
+    <string name="corpsefinder_filter_publicdata_label">Publiczne dane aplikacji</string>
+    <string name="corpsefinder_filter_publicdata_summary">Niewrażliwe dane aplikacji, np. pamięci podręczne map.</string>
+    <string name="corpsefinder_filter_sdcard_label">Karta SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ogólna publiczna pamięć, wewnętrzna i zewnętrzna (np. karty SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Prywatne dane aplikacji</string>
+    <string name="corpsefinder_filter_privatedata_summary">Prywatne dane aplikacji, np. dane uwierzytelniające, ustawienia aplikacji, ale także pamięci podręczne przeglądarek.</string>
+    <string name="corpsefinder_filter_dalvik_label">Pamięć podręczna Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Pamięć podręczna danych wykonujących aplikacji.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profile ART są używane przez Androida do optymalizacji wydajności aplikacji.</string>
+    <string name="corpsefinder_filter_applib_label">Biblioteki aplikacji</string>
+    <string name="corpsefinder_filter_applib_summary">Dane związane z bibliotekami aplikacji.</string>
+    <string name="corpsefinder_filter_appsource_label">Źródła aplikacji</string>
+    <string name="corpsefinder_filter_appsource_summary">Dane dotyczące instalacji aplikacji, czyli gdzie trafiają pliki APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Prywatne źródła aplikacji</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Ograniczone dane instalacji aplikacji, np. chronione aplikacje firm trzecich.</string>
+    <string name="corpsefinder_filter_appasec_label">Zaszyfrowane zasoby aplikacji</string>
+    <string name="corpsefinder_filter_appasec_summary">Zasoby aplikacji szyfrowane, np. zasoby gier.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Usunięto %d pozostałość aplikacji</item>
+        <item quantity="few">Usunięto %d pozostałości aplikacji</item>
+        <item quantity="many">Usunięto %d pozostałości aplikacji</item>
+        <item quantity="other">Usunięto %d pozostałości aplikacji</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d pozostałość po aplikacji wykryta</item>
+        <item quantity="few">%d pozostałości po aplikacji wykryte</item>
+        <item quantity="many">%d pozostałości po aplikacjach wykryto</item>
+        <item quantity="other">%d pozostałości po aplikacjach wykryto</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Usunąć wszystkie pozostałości po aplikacjach?</string>
+    <string name="corpsefinder_owners_label">Właściciele</string>
+    <string name="corpsefinder_corpse_hints_label">Uwaga</string>
+    <string name="corpsefinder_owner_unknown">Nieznany właściciel</string>
+    <string name="corpsefinder_corpse_hint_keeper">Ten przedmiot może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
+    <string name="corpsefinder_corpse_hint_common">Ten przedmiot ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">有特殊存取需要的使用者可以啟用此服務，以允許 SD 女僕自動完成原本需要乏味的手動互動的工作 (例如快取刪除)。\n\n範例：如果您指示 SD 女僕停止多個應用程式，那麼 SD 女僕可以使用這項服務以開啟每個應用程式的設定畫面，找到「強制停止」按鈕並輕觸。\n\n在使用此服務時，SD 女僕將一律醒目顯示，並為使用者直接取消互動提供一個簡單的方法。\n\n未經使用者預先核准，將不會執行任何動作。這項服務可以在任何時候再次被停用，而不會產生不利影響。</string>
+    <string name="automation_screenoverlay_explanation">SD 女僕正在與您的裝置進行互動。無法在同一時間使用螢幕，請稍候作業完成或取消作業。</string>
+    <string name="automation_active_title">SD 女僕正在運作</string>
+    <string name="automation_error_no_consent_title">自動化錯誤</string>
+    <string name="automation_error_no_consent_body">無障礙服務未設定，請完成安裝程式並給予同意。</string>
+    <string name="automation_error_not_enabled_title">服務未啟用</string>
+    <string name="automation_error_not_enabled_body">無障礙服務已停用，請將它重新開啟。</string>
+    <string name="automation_error_not_running_title">服務未在執行</string>
+    <string name="automation_error_not_running_body">無障礙服務未在執行，請嘗試重新啟動裝置。</string>
+    <string name="automation_error_screen_unavailable_title">螢幕無法使用</string>
+    <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
+    <string name="automation_error_compatibility_title">自動化相容性</string>
+    <string name="automation_error_compatibility_body">SD Maid 無法辨識螢幕佈局。如果這種情況持續發生，可能是因為您的語言或設定尚未完全支援。請檢查是否有更新，或聯絡我以便修復問題。</string>
+    <string name="automation_error_timeout_title">自動化逾時</string>
+    <string name="automation_error_timeout_body">SD Maid 未在時間限制內完成所有步驟。如果這種情況持續發生，我可能需要為您的裝置調整應用程式。檢查更新或聯絡我，以便我修復它。</string>
+    <string name="automation_error_overlay_title">自動化覆蓋層</string>
+    <string name="automation_error_overlay_body">SD Maid 無法顯示自動化覆蓋層。檢查權限並嘗試重新啟動您的裝置。</string>
+    <string name="automation_error_no_settings_title">設定畫面不可用</string>
+    <string name="automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
+</resources>

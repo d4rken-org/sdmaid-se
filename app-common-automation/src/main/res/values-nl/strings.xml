@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Gebruikers met speciale toegankelijkheidsbehoeften kunnen deze service inschakelen zodat SD Maid taken kan automatiseren die anders omslachtig handmatig gebruikersinteractie zouden vereisen (bijv. het verwijderen van de cache). \n\nVoorbeeld: als je SD Maid opdracht geeft om meerdere apps te stoppen, kan SD Maid deze service gebruiken om het instellingenscherm van elke app te openen, de knop \'Geforceerd stoppen\' te vinden en erop te tikken.\n\nSD Maid wordt altijd prominent weergegeven bij gebruik van deze service en biedt de gebruiker een eenvoudige manier om elke interactie onmiddellijk te annuleren.\n\nEr worden geen acties uitgevoerd zonder voorafgaande toestemming van de gebruiker. Deze service kan op elk moment weer worden uitgeschakeld zonder nadelige gevolgen.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid communiceert met je apparaat. Het is niet mogelijk om tegelijkertijd het scherm te gebruiken. Wacht tot de bewerking voltooid is of annuleer deze.</string>
+    <string name="automation_active_title">SD Maid is aan het werk</string>
+    <string name="automation_error_no_consent_title">Automatiseringsfout</string>
+    <string name="automation_error_no_consent_body">De toegankelijkheidsservice is niet ingesteld. Voltooi de installatie en geef toestemming.</string>
+    <string name="automation_error_not_enabled_title">Service is niet ingeschakeld</string>
+    <string name="automation_error_not_enabled_body">Toegankelijkheidsservice is uitgeschakeld. Schakel het opnieuw in.</string>
+    <string name="automation_error_not_running_title">Service is niet actief</string>
+    <string name="automation_error_not_running_body">De toegankelijkheidsservice is niet actief. Probeer het apparaat opnieuw op te starten.</string>
+    <string name="automation_error_screen_unavailable_title">Scherm niet beschikbaar</string>
+    <string name="automation_error_screen_unavailable_body">De bewerking is afgebroken omdat het scherm niet meer beschikbaar was (bijv. weergave uit of vergrendelscherm actief).</string>
+    <string name="automation_error_compatibility_title">Automatiseringscompatibiliteit</string>
+    <string name="automation_error_compatibility_body">SD Maid kon de schermindeling niet achterhalen. Als dit blijft gebeuren, wordt je taal of installatie mogelijk niet volledig ondersteund. Controleer op updates of neem contact met mij op, zodat ik het kan oplossen.</string>
+    <string name="automation_error_timeout_title">Automatiseringstime-out</string>
+    <string name="automation_error_timeout_body">SD Maid heeft niet alle stappen binnen de tijdslimiet voltooid. Als dit probleem blijft optreden, moet ik de app mogelijk aanpassen voor je apparaat. Controleer op updates of neem contact met me op zodat ik het probleem kan oplossen.</string>
+    <string name="automation_error_overlay_title">Automatiseringsoverlay</string>
+    <string name="automation_error_overlay_body">SD Maid kon de automatiseringsoverlay niet weergeven. Controleer de rechten en probeer je apparaat opnieuw op te starten.</string>
+    <string name="automation_error_no_settings_title">Instellingenscherm niet beschikbaar</string>
+    <string name="automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
+</resources>

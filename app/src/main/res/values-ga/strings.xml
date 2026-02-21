@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Scrios torthaí i ngach uirlis?</string>
     <string name="dashboard_settings_category">Painéal Rialaithe</string>
@@ -133,29 +133,6 @@
     <string name="settings_category_tools_label">Uirlisí</string>
     <string name="settings_category_filter">Scagán</string>
     <string name="settings_category_risklevel">Leibhéal rioscai</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="corpsefinder_explanation_short">Sonraí a bhaineann le haipeanna atá bainte cheana féin.</string>
-    <string name="corpsefinder_settings_summary">Coigearáil scagáin scanaidh agus leibhéil rioscai.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Cuir iarmharacha inmhianaithe san áireamh</string>
-    <string name="corpsefinder_settings_risk_common_title">Cuir ainmneacha coitianta san áireamh</string>
-    <string name="corpsefinder_watcher_title">Faire díshuiteála</string>
-    <string name="corpsefinder_watcher_autodelete_title">Scriosadh uathoibríoch</string>
-    <string name="corpsefinder_watcher_notification_delete_action">Scrios iarmharacha</string>
-    <string name="systemcleaner_filter_packagecaches_label">Taisce suiteála</string>
-    <string name="systemcleaner_filter_packagecaches_summary">Sonraí taiscthe a bhaineann le haipeanna suiteála a úsáideann bainistiú paiciste an chórais.</string>
-    <string name="systemcleaner_filter_advertisements_label">Comhaid fhograiochta</string>
-    <string name="systemcleaner_filter_advertisements_summary">Comhaid atá cruthaithe do nó ag fograiocht.</string>
-    <string name="systemcleaner_filter_anr_label">Earráidí ANR</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Fillteáin fholmha</string>
-    <string name="systemcleaner_filter_screenshots_label">Gabhaíl scailéin</string>
-    <string name="systemcleaner_customfilter_editor_label_label">Lipead scagáin</string>
-    <string name="systemcleaner_customfilter_editor_warning">Féadfaidh scagáin saincheaptha a bheith contarach. Seiceáil do thorthaí scanaidh roimh scriosadh!</string>
-    <string name="systemcleaner_customfilter_editor_areas_label">Limistéir sonraí</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Srianta cíneail comhaid</string>
-    <string name="appcleaner_filter_advertisement_label">Sonraí fhograiochta</string>
-    <string name="appcleaner_filter_advertisement_summary">Comhaid a bhaineann le fograiocht, m.sh. meáin taiscthe.</string>
-    <string name="appcleaner_filter_bugreporting_label">Tuairisci fabht</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">Ag cinneadh taiscthe doróchtana</string>
     <string name="appcontrol_app_forcestop_description">Stopann an aip. Coiscionn sé ó tosai sé féin go dtí go n-osclann tú é nó go n-athtosaênn an guthán.</string>
     <string name="appcontrol_item_installedat_x_label">Suiteála ag: %s</string>
     <string name="exclusion_tags_alltools">Gach uirlis</string>
@@ -178,187 +155,6 @@
     <string name="dataarea_warningcard_empty_message">Níor aimsigh SD Maid aon cheantair sonraí is féidir a scanadh. Ar chríochnaigh tú an tsocrú?</string>
     <string name="debug_mode_explanation">Cumasaigh roghanna tástála agus aschur níos beohiúla. Rithfidh an aip níos moille agus feidhmeoidh sí go difriúil.</string>
     <string name="debug_bugreporter_summary">Tuairiscíonn saincheisteanna go huathoibríoch, m.sh. sonraí faoi thuairtí na haipe ionas gur féidir liom a fháil amach cén fáth agus é a dheisiú.</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Comhaid ar mhaith leat a choinneáil, fiú má dhíshuiteáiltear an aip, m.sh. grianghraif a ghlac tú nó cúltacaí a chruthaigh tú.</string>
-    <string name="corpsefinder_settings_risk_common_summary">Sonraí le hainmneacha coitianta, m.sh. tá fillteán \"Nótaí\" faoi úinéireacht an iomarca aipeanna anaithnide.</string>
-    <string name="corpsefinder_watcher_summary">Scan go huathoibríoch d\'iarsmaí nuair a bhaintear aip.</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Scrios go huathoibríoch aon iarsmaí a bhaineann leis an aip dhíshuiteáilte.</string>
-    <string name="corpsefinder_filter_publicmedia_label">Meáin phoiblí</string>
-    <string name="corpsefinder_filter_publicmedia_summary">Comhaid mheán poiblí, m.sh. comhaid a fuarthas trí aipeanna teachtaireachta.</string>
-    <string name="corpsefinder_filter_publicobb_label">Acmhainní OBB</string>
-    <string name="corpsefinder_filter_publicobb_summary">Acmhainní breise aipe, m.sh. sócmhainní cluiche.</string>
-    <string name="corpsefinder_filter_publicdata_label">Sonraí aipe poiblí</string>
-    <string name="corpsefinder_filter_publicdata_summary">Sonraí aipe neamhíogaire, m.sh. taiscí léarscáile.</string>
-    <string name="corpsefinder_filter_sdcard_label">Cárta SD</string>
-    <string name="corpsefinder_filter_sdcard_summary">Stóráil phoiblí ghinearálta, inmheánach agus seachtrach (m.sh. cártaí SD).</string>
-    <string name="corpsefinder_filter_privatedata_label">Sonraí aipe príobháideacha</string>
-    <string name="corpsefinder_filter_privatedata_summary">Sonraí aipe príobháideacha, m.sh. dintiúir, socruithe aipe ach freisin taiscí brabhsálaí.</string>
-    <string name="corpsefinder_filter_dalvik_label">Taisce Dalvik</string>
-    <string name="corpsefinder_filter_dalvik_summary">Sonraí forghníomhaithe aipe taiscthe.</string>
-    <string name="corpsefinder_filter_applib_label">Leabharlanna aipe</string>
-    <string name="corpsefinder_filter_applib_summary">Sonraí leabharlainne a bhaineann le haip.</string>
-    <string name="corpsefinder_filter_appsource_label">Foinsí aipe</string>
-    <string name="corpsefinder_filter_appsource_summary">Sonraí suiteála aipe, i.e. cá dtéann APKanna.</string>
-    <string name="corpsefinder_filter_appsource_private_label">Foinsí aipe príobháideacha</string>
-    <string name="corpsefinder_filter_appsource_private_summary">Sonraí suiteála aipe srianta, m.sh. aipeanna tríú páirtí cosanta.</string>
-    <string name="corpsefinder_filter_appasec_label">Acmhainní aipe criptithe</string>
-    <string name="corpsefinder_filter_appasec_summary">Acmhainní aipe criptithe, m.sh. sócmhainní cluiche.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Sonraí a aistrigh go stóráil sheachtrach ag modanna App2Sd.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Scrios gach iarsma aipe?</string>
-    <string name="corpsefinder_owners_label">Úinéirí</string>
-    <string name="corpsefinder_corpse_hints_label">Fógra</string>
-    <string name="corpsefinder_owner_unknown">Úinéir anaithnid</string>
-    <string name="corpsefinder_corpse_hint_keeper">D\'fhéadfadh sonraí a bheith sa mhír seo ar mhaith leat a choinneáil cé go ndíshuiteáladh a úinéir, m.sh. grianghraif nó cúltacaí.</string>
-    <string name="corpsefinder_corpse_hint_common">Tá ainm an-choitianta ar an mír seo agus d\'fhéadfadh sé a bheith ag baint le haipeanna atá fós suiteáilte nach bhfuil a fhios ag SD Maid fúthu.</string>
-    <string name="systemcleaner_tool_name">Glanóir Córais</string>
-    <string name="systemcleaner_explanation_short">Sonraí breise nach mbaineann le haon aip ar leith.</string>
-    <string name="systemcleaner_filter_custom_label">Scagaire saincheaptha</string>
-    <string name="systemcleaner_filter_custom_manage_label">Bainistigh scagairí saincheaptha</string>
-    <string name="systemcleaner_filter_custom_manage_summary">Cruthaigh, scrios, iompórtáil agus easpórtáil do chuid scagairí saincheaptha.</string>
-    <string name="systemcleaner_filter_logfiles_label">Comhaid loga an chórais</string>
-    <string name="systemcleaner_filter_logfiles_summary">Comhaid loga an chórais agus seirbhísí an chórais (m.sh. *.log) in áiteanna éagsúla.</string>
-    <string name="systemcleaner_filter_anr_summary">Rianta ó imeachtaí \'níl an fheidhmchlár ag freagairt\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Fillteáin fholmha ó gach cearn den ghléas. D\'fhéadfadh fillteáin neadaithe a bheith ag teastáil go leor bealaí.</string>
-    <string name="systemcleaner_filter_screenshots_summary">Grianghrafanna scáileáin níos sine ná %s ó aipeanna agus áiteanna iolracha.</string>
-    <string name="systemcleaner_filter_trashed_label">Comhaid sa bhruscar</string>
-    <string name="systemcleaner_filter_trashed_summary">Comhaid i mboscaí athchúrsála ó aipeanna agus áiteanna éagsúla atá marcáilte le scriosadh ach nach bhfuil fós bainte go buan.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Aois Grianghraf Scáileáin</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">Íosaois do ghrianghrafanna scáileáin le breathnú orthu le haghaidh scriosadh.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">APKanna breise</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Comhaid shocraithe atá níos sine ná nó cothrom le leaganacha aip atá suiteáilte cheana féin.</string>
-    <string name="systemcleaner_filter_lostdir_label">Fillteáin LOST.DIR</string>
-    <string name="systemcleaner_filter_lostdir_summary">Comhaid shealadacha a chruthaítear agus sonraí á n-aistriú idir gléasanna Android.</string>
-    <string name="systemcleaner_filter_linuxfiles_label">Comhaid Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Comhaid agus fillteáin a chruthaítear nuair a nasctar stóráil le ríomhaire linux.</string>
-    <string name="systemcleaner_filter_macfiles_label">Comhaid Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Comhaid agus fillteáin a chruthaítear agus stóráil á brabhsáil le haip aimsitheoireachta Apple.</string>
-    <string name="systemcleaner_filter_windowsfiles_label">Comhaid Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"Sonraí is féidir le taiscéalaí comhad Windows a chruthú ar stóráil nasctha."</string>
-    <string name="systemcleaner_filter_thumbnails_label">Íomhánna mearog</string>
-    <string name="systemcleaner_filter_thumbnails_summary">Réamhamhairc thaiscthe d\'íomhánna agus físeáin.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Comhaid shealadacha an chórais</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Comhaid shealadacha a bhaineann leis an gcóras, de ghnáth taiscí gearrshaolach d\'oibríochtaí gníomhacha.</string>
-    <string name="systemcleaner_filter_analytics_label">Comhaid anailíseachta</string>
-    <string name="systemcleaner_filter_analytics_summary">Sonraí a bhaineann le hanailíseacht agus rianú fabhtanna.</string>
-    <string name="systemcleaner_filter_downloadcache_label">Taisce íoslódála</string>
-    <string name="systemcleaner_filter_downloadcache_summary">Fillteán taisce córais a úsáidtear do rudaí éagsúla (m.sh. nuashonruithe OTA).</string>
-    <string name="systemcleaner_filter_localtmp_label">Comhaid shealadacha áitiúla</string>
-    <string name="systemcleaner_filter_localtmp_summary">Comhaid shealadacha a bhaineann leis an gcóras (m.sh. ó Android Studio).</string>
-    <string name="systemcleaner_filter_datalogger_label">Comhaid loga an chórais</string>
-    <string name="systemcleaner_filter_datalogger_summary">Comhaid loga sainiúla seirbhíse an chórais.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Bosca scaoilte loga</string>
-    <string name="systemcleaner_filter_logdropbox_summary">Limistéar don chóras chun comhaid loga a scaoileadh isteach ann.</string>
-    <string name="systemcleaner_filter_recenttasks_label">Tascanna le déanaí</string>
-    <string name="systemcleaner_filter_recenttasks_summary">Sonraí a bhaineann le stair na dtascanna in aistreoir tasc an chórais.</string>
-    <string name="systemcleaner_filter_tombstones_label">Iarsmaí tuairte an chórais</string>
-    <string name="systemcleaner_filter_tombstones_summary">Má thuairteann próisis dhúchasacha (m.sh. cluichí), ansin cruthaítear comhaid anseo.</string>
-    <string name="systemcleaner_filter_usagestats_label">Staitisticí úsáide</string>
-    <string name="systemcleaner_filter_usagestats_summary">Comhaid a bhaineann le staitisticí úsáide feidhmchláir.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Scrios gach ábhar scagaire?</string>
-    <string name="systemcleaner_customfilter_label">Scagaire saincheaptha</string>
-    <string name="systemcleaner_customfilter_create_action">Cruthaigh scagaire saincheaptha</string>
-    <string name="systemcleaner_customfilter_create_hint">Cruthaigh scagaire saincheaptha chun comhaid bhreise a scriosadh atá ar leith do do ghléas agus do chásanna úsáide.</string>
-    <string name="systemcleaner_editor_remove_confirmation_message">Bain an scagaire seo?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Tá athruithe gan sábháil agat!</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">Mura roghnaítear aon limistéar, ansin déanfar scanadh agus meaitseáil ar gach limistéar sonraí inrochtana.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Comhaid</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Fillteáin</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">Mura roghnaítear cineál ar bith, déanfar gach cineál a mheaitseáil.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Critéir chonaire</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Ní mór don chonair sprice meaitseáil le hiontráil amháin ar a laghad (m.sh. \"Downloads/oldapks/game-\"). Brúigh iontrálacha go fada le haghaidh roghanna breise.</string>
-    <string name="systemcleaner_customfilter_editor_name_label">Critéir ainme</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Ní mór don ainm sprice ceann ar a laghad de na heochairfhocail a bheith ann (m.sh. \"-receipt\"). Brúigh iontrálacha go fada le haghaidh roghanna breise.</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_label">Eisiamh</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Déanfar an toradh a eisiamh má mheaitseálann an chonair iontráil ar bith (m.sh. \"DCIM\"). Brúigh iontrálacha go fada le haghaidh roghanna breise.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Mód comparáide conaire</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Tosaíonn an chonair le heochairfhocal</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Tá eochairfhocal sa chonair</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Críochnaíonn an chonair le heochairfhocal</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Tá an chonair cothrom leis an eochairfhocal</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mód comparáide ainme</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Tosaíonn an t-ainm le heochairfhocal</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Tá eochairfhocal san ainm</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Críochnaíonn an t-ainm le heochairfhocal</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Tá an t-ainm cothrom leis an eochairfhocal</string>
-    <string name="systemcleaner_customfilter_last_edit">Eagarthóireacht dheireanach: %s</string>
-    <string name="systemcleaner_customfilter_editor_livesearch_label">Cuardach beo</string>
-    <string name="systemcleaner_customfilter_import_action">Iompórtáil scagaire nua</string>
-    <string name="systemcleaner_customfilter_export_action">Easpórtáil an scagaire roghnaithe</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
-    <string name="appcleaner_explanation_short">Sonraí inchaite a bhaineann le haipeanna ar leith.</string>
-    <string name="appcleaner_filter_defaultcachespublic_label">Taiscí réamhshocraithe poiblí</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Taiscí réamhshocraithe poiblí aipeanna. In rochtain faoi Android/data ar leaganacha sean-Android. Scriostar nuair a bhrúnn tú "Glan taisce" i socruithe an chórais.</string>
-    <string name="appcleaner_filter_defaultcachesprivate_label">Taiscí réamhshocraithe príobháideacha</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Taiscí réamhshocraithe príobháideacha aipeanna. Scriostar nuair a bhrúnn tú "Glan taisce" i socruithe an chórais.</string>
-    <string name="appcleaner_include_systemapps_label">Cuir aipeanna córais san áireamh</string>
-    <string name="appcleaner_include_systemapps_summary">Cuir aipeanna córais san áireamh sa scanadh.</string>
-    <string name="appcleaner_include_runningapps_label">Cuir aipeanna atá ag rith san áireamh</string>
-    <string name="appcleaner_include_runningapps_summary">Cuir aipeanna atá ag rith faoi láthair san áireamh a d\'fhéadfadh cur isteach a dhéanamh.</string>
-    <string name="appcleaner_include_inaccessible_label">Cuir taiscí neamhrochtana san áireamh</string>
-    <string name="appcleaner_include_inaccessible_summary">Cuir sonraí nach féidir rochtain a fháil orthu go díreach san áireamh ach is féidir iad a scriosadh trí shocruithe an chórais agus a uathoibriú ag baint úsáide as seirbhís inrochtaineachta. </string>
-    <string name="appcleaner_include_multiuser_label">Cuir úsáideoirí eile san áireamh</string>
-    <string name="appcleaner_include_multiuser_summary">Cuir aipeanna ó phróifílí úsáideora eile ar an ngléas seo san áireamh.</string>
-    <string name="appcleaner_include_minimumsize_label">Íosmhéid</string>
-    <string name="appcleaner_include_minimumsize_summary">Gabh thar aipeanna ina bhfuil suim na sonraí inchaite faoin íosleibhéal.</string>
-    <string name="appcleaner_include_minimumage_label">Íosaois</string>
-    <string name="appcleaner_include_minimumage_summary">Gabh thar chomhaid atá níos óige ná an íosaois.</string>
-    <string name="appcleaner_automation_romtype_detection_label">Braite córais oibriúcháin</string>
-    <string name="appcleaner_automation_romtype_detection_summary">D\'fhéadfadh uathoibriú bunaithe ar inrochtaineacht teip mura mbraitheann SD Maid do chóras oibriúcháin i gceart. Úsáid an socrú seo chun an córas oibriúcháin braite a shárú.</string>
-    <string name="appcleaner_filter_codecache_label">Taisce chóid</string>
-    <string name="appcleaner_filter_codecache_summary">Taisce chóid JVM. Bloic de bytecode tiomsaithe i gcód dúchasach.</string>
-    <string name="appcleaner_filter_bugreporting_summary">Sonraí a bhaineann le tuairisciú fabhtanna, m.sh. logaí earráide nó dumpanna tuairte.</string>
-    <string name="appcleaner_filter_analytics_label">Anailísíocht</string>
-    <string name="appcleaner_filter_analytics_summary">Sonraí a bhaineann le hanailísíocht, m.sh. staitisticí taiscthe do na rudaí a theagmháileann tú in aip.</string>
-    <string name="appcleaner_filter_hiddencaches_label">Taiscí folaithe</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Taiscí ginearálta stóráilte lasmuigh de raon an chórais.</string>
-    <string name="appcleaner_filter_thumbnails_label">Mionsamhlacha meán</string>
-    <string name="appcleaner_filter_thumbnails_summary">Pictiúir mionsamhlacha réamhamhairc íomhá, físeáin agus fuaime.</string>
-    <string name="appcleaner_filter_gamefiles_label">Comhaid chluiche</string>
-    <string name="appcleaner_filter_gamefiles_summary">Acmhainní a bhaineann le cluichí a d\'athlódálfadh an cluiche ar an gcéad lainseáil eile más gá.</string>
-    <string name="appcleaner_filter_offlinecache_label">Taisce as líne</string>
-    <string name="appcleaner_filter_offlinecache_summary">Comhaid a stóráiltear chun úsáid a bhaint astu nuair atá tú as líne, m.sh. tíleanna léarscáile.</string>
-    <string name="appcleaner_filter_recyclebins_label">Boscaí athchúrsála</string>
-    <string name="appcleaner_filter_recyclebins_summary">Comhaid a scriosadh ach a cuireadh i bhfillteán speisialta chun go mbeidh sé ar fáil iad a chur ar ais.</string>
-    <string name="appcleaner_filter_webview_label">Comhaid radharc gréasáin</string>
-    <string name="appcleaner_filter_webview_summary">Comhaid a thaiscíonn cásanna radharc gréasáin a úsáidtear laistigh d\'aipeanna.</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">Cúltacaí WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">Scrios cóipeanna breise de chúltacaí WhatsApp agus ná coinnigh ach an ceann is déanaí.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Comhaid a fuair tú ó dhaoine trí WhatsApp.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Comhaid faighte WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_label">Comhaid seolta WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Comhaid a seoladh ó WhatsApp chuig daoine eile.</string>
-    <string name="appcleaner_filter_telegram_label">Comhaid mheán Telegram</string>
-    <string name="appcleaner_filter_telegram_summary">Comhaid a fuarthas nó a seoladh trí Telegram.</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
-    <string name="appcleaner_filter_threema_summary">Comhaid a fuarthas trí Threema.</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_filter_wechat_summary">Comhaid a seoladh nó a fuarthas i gcomhráite agus i momintí WeChat.</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
-    <string name="appcleaner_filter_viber_summary">Comhaid mheán taiscthe a íoslódáiltear arís nuair a fheictear iad sa chomhrá.</string>
-    <string name="appcleaner_filter_qqchat_label">Comhrá QQ</string>
-    <string name="appcleaner_filter_qqchat_summary">Comhaid a seoladh nó a fuarthas i gcomhráite QQ.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Scrios míreanna inchaite do gach aip?</string>
-    <string name="appcleaner_automation_loading">Ag ullmhú uathoibrithe trí sheirbhís inrochtaineachta</string>
-    <string name="appcleaner_automation_title">Uathoibriú AppCleaner</string>
-    <string name="appcleaner_automation_subtitle_default_caches">Ag glanadh na dtaiscí réamhshocruithe…</string>
-    <string name="appcleaner_automation_progress_open_settings">Ag oscailt scáileán na socruithe (eochairfhocail: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">Ag cuardach do iontráil \"Stórála\" (eochairfhocail: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">Ag lorg cnaipe \"Glan sonraí\" (eochairfhocail: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Ag lorg cnaipe \"Glan taisce\" (eochairfhocail: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Ag iarraidh an gníomh roimhe seo a dhearbhú (eochairfhocail: %s)</string>
-    <string name="appcleaner_item_caches_inaccessible_title">Taiscí réamhshocruithe</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Taiscí réamhshocruithe poiblí agus príobháideacha. Ní féidir rochtain a fháil orthu go díreach, ach is féidir iad a scriosadh go hindíreach (m.sh. trí sheirbhís inrochtaineachta).</string>
-    <string name="appcleaner_automation_unavailable_title">Seirbhís inrochtaineachta níl ar fáil</string>
-    <string name="appcleaner_automation_unavailable_body">Teastaíonn seirbhís inrochtaineachta SD Maid chun taiscí nach bhfuil inrochtana a ghlanadh, ach ní raibh sí ar fáil. Mura dteastaíonn uait é a úsáid: Díchumasaigh an rogha "Cuir taiscí nach bhfuil inrochtana san áireamh".</string>
-    <string name="appcleaner_junk_userprofile_label">Úsáideoir</string>
-    <string name="appcleaner_delete_confirmation_message_x">Scrios comhaid inchaite do %s?</string>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Ag scriosadh taiscí trí Shizuku a úsáid</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">Glan taisce níl ar fáil</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Tá an córas tar éis an cnaipe "Glan taisce" a dhíchumasú don aip seo. Fág amach é chun glanadh na dtaiscí a luasú.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Scáileán socruithe níl ar fáil</string>
-    <string name="appcleaner_automation_error_no_settings_body">Níl scáileán socruithe ag an aip chórais seo. Ní féidir taiscí a ghlanadh trí sheirbhís inrochtaineachta. Fág amach é chun glanadh na dtaiscí a luasú.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">Aip chórais míchumraithe</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Tá cead Usage Stats (GET_USAGE_STATS) ar iarraidh ó aip Slándála HyperOS (com.miui.securitycenter). Briseann sé seo gnéithe cosúil le "Glan Sonraí" i sonraí na haipe agus glanadh taiscí trí inrochtaineacht. Tabhair an cead chun feidhmiúlacht iomlán a chur ar ais.</string>
     <string name="deduplicator_tool_name">Dífhoilsitheoir</string>
     <string name="deduplicator_explanation_short">Aimsigh sonraí dúblacha ar do ghléas.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Déan \"Scrios iomlán\" indéanta</string>
@@ -534,23 +330,6 @@
     <string name="exclusion_create_pkg_hint">Úsáid an uirlis AppControl chun eisiaimh aipeanna a chruthú.</string>
     <string name="exclusion_create_path_hint">Úsáid an uirlis StorageAnalyzer chun eisiaimh conaire a chruthú.</string>
     <string name="exclusion_show_defaults_action">Taispeáin réamhshocruithe</string>
-    <string name="automation_accessibility_service_description">Is féidir le húsáideoirí le riachtanais inrochtaineachta speisialta an tseirbhís seo a chumasú chun ligean do SD Maid tascanna a uathoibriú a mbeadh idirghníomhaíocht láimhe leadránach úsáideora ag teastáil uathu murach sin (m.sh. scriosadh taisce).\n\nSampla: Má ordaíonn tú do SD Maid aipeanna iolracha a stopadh ansin is féidir le SD Maid an tseirbhís seo a úsáid chun scáileán socruithe gach aipe a oscailt, an cnaipe \'Fórsa Stop\' a aimsiú agus tap air.\n\nTaispeánfaidh SD Maid i gcónaí go suntasach nuair a bheidh an tseirbhís seo á úsáid agus soláthróidh sé bealach éasca don úsáideoir aon idirghníomhaíocht a chealú láithreach.\n\nNí dhéanfar aon ghníomhartha gan cheadú úsáideora roimh ré. Is féidir an tseirbhís seo a dhíchumasú arís ag am ar bith gan éifeachtaí díobhálacha.</string>
-    <string name="automation_screenoverlay_explanation">Tá SD Maid ag idirghníomhú le do ghléas. Ní féidir an scáileán a úsáid ag an am céanna. Fan go dtí go mbeidh an oibríocht críochnaithe nó cealú é.</string>
-    <string name="automation_active_title">Tá SD Maid ag obair</string>
-    <string name="automation_error_no_consent_title">Earráid uathoibrithe</string>
-    <string name="automation_error_no_consent_body">Níl an tseirbhís inrochtaineachta socraithe. Comhlánaigh an socrú agus tabhair toiliú.</string>
-    <string name="automation_error_not_enabled_title">Níl an tseirbhís cumasaithe</string>
-    <string name="automation_error_not_enabled_body">Tá an tseirbhís inrochtaineachta díchumasaithe. Cas air arís é.</string>
-    <string name="automation_error_not_running_title">Níl an tseirbhís ag rith</string>
-    <string name="automation_error_not_running_body">Níl an tseirbhís inrochtaineachta ag rith. Déan iarracht an gléas a atosú.</string>
-    <string name="automation_error_screen_unavailable_title">Scáileán nach bhfuil ar fáil</string>
-    <string name="automation_error_screen_unavailable_body">Tobscoireadh an oibríocht toisc nach raibh an scáileán ar fáil (m.sh. taispeáint múchta nó scáileán glais gníomhach).</string>
-    <string name="automation_error_compatibility_title">Comhoiriúnacht uathoibrithe</string>
-    <string name="automation_error_compatibility_body">Níorbh fhéidir le SD Maid leagan amach an scáileáin a dhéanamh amach. Má leanann sé seo ar aghaidh, b\'fhéidir nach dtacófar go hiomlán le do theanga nó do shocrú. Seiceáil le haghaidh nuashonruithe nó déan teagmháil liom ionas gur féidir liom é a dheisiú.</string>
-    <string name="automation_error_timeout_title">Ama istigh uathoibrithe</string>
-    <string name="automation_error_timeout_body">Níor chríochnaigh SD Maid gach céim laistigh den teorainn ama. Má leanann sé seo ar aghaidh, b\'fhéidir go mbeidh orm an aip a choigeartú do do ghléas. Seiceáil le haghaidh nuashonruithe nó déan teagmháil liom ionas gur féidir liom é a dheisiú.</string>
-    <string name="automation_error_overlay_title">Forleagan uathoibrithe</string>
-    <string name="automation_error_overlay_body">Níorbh fhéidir le SD Maid an forleagan uathoibrithe a thaispeáint. Seiceáil ceadanna agus déan iarracht do ghléas a atosú.</string>
     <string name="history_label">Stair</string>
     <string name="history_description">Liosta in ord cróineolaíoch de ghníomhartha le déanaí agus sonraí difear orthu.</string>
     <string name="scheduler_label">Sceidealóir</string>
@@ -635,12 +414,6 @@
     <string name="picker_select_paths_title">Roghnaigh cosáin</string>
     <string name="picker_selected_paths_title">Cosáin roghnaithe</string>
     <string name="picker_home_action">Limistéir sonraí</string>
-    <string name="area_type_sdcard_label">Stóráil phoiblí</string>
-    <string name="area_type_public_media_label">Meáin aipe phoiblí</string>
-    <string name="area_type_public_data_label">Sonraí aipe phoiblí</string>
-    <string name="area_type_public_obb_label">Acmhainní aipe phoiblí</string>
-    <string name="area_type_private_data_label">Sonraí aipe phríobháideacha</string>
-    <string name="area_type_portable_label">Stóráil iniompartha</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d tasc gníomhach</item>
         <item quantity="two">%d thasc ghníomhacha</item>
@@ -654,69 +427,6 @@
         <item quantity="few">%d thasc sa scuaine</item>
         <item quantity="many">%d dtasc sa scuaine</item>
         <item quantity="other">%d tasc sa scuaine</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
-        <item quantity="two">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
-        <item quantity="few">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
-        <item quantity="many">%1$d n-iarsma aimsithe tar éis díshuiteáil %2$s.</item>
-        <item quantity="other">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
-        <item quantity="two">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mhír.</item>
-        <item quantity="few">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mhír.</item>
-        <item quantity="many">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
-        <item quantity="other">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d iarsma aipe scriosta</item>
-        <item quantity="two">%d iarsma aipe scriosta</item>
-        <item quantity="few">%d iarsma aipe scriosta</item>
-        <item quantity="many">%d n-iarsma aipe scriosta</item>
-        <item quantity="other">%d iarsma aipe scriosta</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d iarsma aipe aimsithe</item>
-        <item quantity="two">%d iarsma aipe aimsithe</item>
-        <item quantity="few">%d iarsma aipe aimsithe</item>
-        <item quantity="many">%d n-iarsma aipe aimsithe</item>
-        <item quantity="other">%d iarsma aipe aimsithe</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d mheaitseáil scriosta</item>
-        <item quantity="two">%d mheaitseáil scriosta</item>
-        <item quantity="few">%d mheaitseáil scriosta</item>
-        <item quantity="many">%d meaitseáil scriosta</item>
-        <item quantity="other">%d meaitseáil scriosta</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d mheaitseáil scagaire</item>
-        <item quantity="two">%d mheaitseáil scagaire</item>
-        <item quantity="few">%d mheaitseáil scagaire</item>
-        <item quantity="many">%d meaitseáil scagaire</item>
-        <item quantity="other">%d meaitseáil scagaire</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d mhír chaiteachais scriosta</item>
-        <item quantity="two">%d mhír chaiteachais scriosta</item>
-        <item quantity="few">%d mhír chaiteachais scriosta</item>
-        <item quantity="many">%d mír chaiteachais scriosta</item>
-        <item quantity="other">%d mír chaiteachais scriosta</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d mhír chaiteachais aimsithe</item>
-        <item quantity="two">%d mhír chaiteachais aimsithe</item>
-        <item quantity="few">%d mhír chaiteachais aimsithe</item>
-        <item quantity="many">%d mír chaiteachais aimsithe</item>
-        <item quantity="other">%d mír chaiteachais aimsithe</item>
-    </plurals>
-    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="one">Scrios comhaid chaiteachais don %d aip roghnaithe?</item>
-        <item quantity="two">Scrios comhaid chaiteachais don %d aip roghnaithe?</item>
-        <item quantity="few">Scrios comhaid chaiteachais don %d aip roghnaithe?</item>
-        <item quantity="many">Scrios comhaid chaiteachais don %d n-aip roghnaithe?</item>
-        <item quantity="other">Scrios comhaid chaiteachais don %d aip roghnaithe?</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d dúblach scriosta</item>
@@ -882,11 +592,9 @@
         <item quantity="many">%d gcosán roghnaithe</item>
         <item quantity="other">%d cosán roghnaithe</item>
     </plurals>
-
     <string name="dashboard_card_config_title">Cártaí painéil</string>
     <string name="dashboard_card_config_desc">Cumraigh cé na cártaí a thaispeántar agus a n-ord</string>
     <string name="dashboard_card_config_header_title">Tarraing chun athordú, scoránaigh chun taispeáint/folú</string>
-
     <string name="debug_debuglog_screen_title">Loga dífhabhtaithe</string>
     <string name="debug_debuglog_screen_discard_action">Diúscair</string>
     <string name="debug_debuglog_screen_session_path_label">Cosán seisiúin</string>
@@ -898,7 +606,6 @@
         <item quantity="many">%1$d gcomhad réidh (%2$s)</item>
         <item quantity="other">%1$d comhad réidh (%2$s)</item>
     </plurals>
-
     <string name="support_debuglog_folder_label">Fillteán loga dífhabhtaithe</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d chomhad ag úsáid %2$s</item>
@@ -910,14 +617,12 @@
     <string name="support_debuglog_folder_empty_desc">Níl aon logaí dífhabhtaithe stóráilte</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Scrios gach loga dífhabhtaithe?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Scriosfaidh sé seo go buan gach seisiún loga dífhabhtaithe atá stóráilte. Ní féidir an gníomh seo a chealú.</string>
-
     <string name="settings_acknowledgements_category_translations_title">Aistriúcháin</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Cé a d\'aistrigh é seo?</string>
     <string name="settings_acknowledgements_category_thanks_title">Buíochas</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Buíochas speisialta dár gcairde.</string>
     <string name="settings_acknowledgements_category_licenses_title">Ceadúnais</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Bogearraí a úsáideann SD Maid.</string>
-
     <string name="debug_card_title">Tá modh dífhabhtaithe cumasaithe</string>
     <string name="debug_card_trace_mode_label">Cumasaigh modh rianaithe</string>
     <string name="debug_card_dryrun_mode_label">Modh trialach (díchumasaigh scriosadh)</string>
@@ -925,33 +630,9 @@
     <string name="debug_card_pkgs_reload_action">Athlódáil aipeanna</string>
     <string name="debug_card_root_test_action">Tástáil root</string>
     <string name="debug_card_shizuku_test_action">Tástáil Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">Próifílí ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Úsáideann Android próifílí ART chun feidhmíocht aipeanna a bharrfheabhsú.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Cuir an leagan céanna san áireamh</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Díriú freisin ar chomhaid APK a mheaitseálann an leagan suiteáilte. Díchumasaigh chun leaganacha níos sine amháin a bhaint.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Srianta méide</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Méid íosta</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Uasmhéid</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Teorainn meaitseálacha bunaithe ar mhéid comhaid. Fág folamh chun aon mhéid a mheaitseáil.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Srianta aoise</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Aois íosta</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Uasaois</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Teorainn meaitseálacha bunaithe ar aois comhaid (am modhnaithe deiridh). Fág folamh chun aon aois a mheaitseáil.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Deilbhíní aicearra aipe</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Deilbhíní taisce le haghaidh aicearraí aipe agus roghchláir roinnte.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Brústopadh roimh ghlanadh</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Brústop aipeanna sula nglantar a dtaisce. Féadfaidh sé cabhrú le taisce roinnt aipeanna a ghlanadh, ach d\'fhéadfadh sé aipeanna a mhífheidhmiú agus atosú láimhe a éileamh.</string>
-    <string name="appcleaner_progress_force_stopping">Ag brústopadh aipeanna…</string>
-
     <string name="deduplicator_keep_prefer_paths_title">Is fearr coinneáil i</string>
     <string name="deduplicator_keep_prefer_paths_summary">Agus cinneadh á dhéanamh maidir le cé acu dúblach a choinneáil, is fearr comhaid a choinneáil sna háiteanna seo.</string>
     <string name="deduplicator_keep_prefer_paths_none_summary">Níl aon áiteanna cumraithe</string>
-
     <string name="deduplicator_arbiter_title">Straitéis scriosaidh</string>
     <string name="deduplicator_arbiter_summary">Cumraigh cé na comhaid a choinnítear agus cé na cinn a scriostar.</string>
     <string name="deduplicator_arbiter_explanation">Agus dúblaigh á scriosadh, socraíonn SD Maid cé acu comhad a choinneáil trí gach critéar a sheiceáil in ord. Cinneann an chéad chritéar a thugann buaiteoir soiléir an toradh. Tarraing chun athordú, tapáil chun modh a athrú.</string>
@@ -983,7 +664,6 @@
     <string name="deduplicator_arbiter_mode_prefer_newer">Is fearr comhaid níos nuaí</string>
     <string name="deduplicator_arbiter_mode_prefer_larger">Is fearr comhaid níos mó</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Is fearr comhaid níos lú</string>
-
     <string name="deduplicator_view_mode_groups_label">Grúpaí</string>
     <string name="deduplicator_view_mode_directories_label">Fillteáin</string>
     <string name="squeezer_tool_name">Fáisceadh Meán</string>
@@ -1088,16 +768,13 @@
         <item quantity="other">%d lá ar a laghad d\'aois</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Coigilteas measta ~%d%% do chomhaid JPEG</string>
-
     <string name="shortcut_appcontrol_short">Rialú Aipe</string>
     <string name="shortcut_appcontrol_long">Bainistigh aipeanna suiteáilte</string>
     <string name="shortcut_onetap_short">Scan + Scrios</string>
     <string name="shortcut_onetap_long">Scan agus scrios in aon ghníomh amháin</string>
-
     <string name="shortcuts_settings_category">Aicearraí</string>
     <string name="shortcuts_onetap_enabled_title">Aicearra aon-tapáil</string>
     <string name="shortcuts_onetap_enabled_summary">Taispeáin aicearra \"Scan + Scrios\" agus deilbhín na haipe á bhrú go fada. Úsáideann sé na huirlisí céanna leis an bpainéal aon-tapáil.</string>
-
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Svaidhpeáil trí chomhaid chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
@@ -1243,7 +920,6 @@
         <item quantity="many">%d scriosta cheana</item>
         <item quantity="other">%d scriosta cheana</item>
     </plurals>
-    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d coinnithe</item>
         <item quantity="two">%d choinnithe</item>
@@ -1264,7 +940,6 @@
     <string name="swiper_sessions_suggestion_downloads">Fillteán íoslódálacha</string>
     <string name="swiper_sessions_suggestion_screenshots">Gabhálacha scáileáin</string>
     <string name="swiper_sessions_suggestion_camera">Rolla ceamara</string>
-    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Coinnigh!</string>
     <string name="swiper_stamp_keep_2">Go deas!</string>
     <string name="swiper_stamp_keep_3">Sea!</string>
@@ -1281,7 +956,6 @@
     <string name="swiper_stamp_undo_2">Siar!</string>
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Fan!</string>
-    <!-- Swiper gesture overlay -->
     <string name="swiper_gesture_overlay_dismiss">Tapáil áit ar bith chun tosú</string>
     <string name="swiper_gesture_overlay_dismiss_action">Tuigim</string>
     <string name="swiper_gesture_overlay_left_delete">← Scrios</string>
@@ -1290,7 +964,6 @@
     <string name="swiper_gesture_overlay_right_delete">Scrios →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Scipeáil</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Cealaigh</string>
-    <!-- Swiper help dialog -->
     <string name="swiper_help_action">Cabhair</string>
     <string name="swiper_help_title">Conas a oibríonn Swiper</string>
     <string name="swiper_help_message">Svaidhpeáil gach comhad chun cinneadh a dhéanamh:\n\n← Svaidhpeáil ar chlé: %1$s\n→ Svaidhpeáil ar dheis: %2$s\n↑ Svaidhpeáil suas: Scipeáil\n↓ Svaidhpeáil síos: Cealaigh (tar éis an chéad svaidhpeáil)\n\nIs féidir leat na cnaipí ag an mbun a úsáid freisin.\n\nNuair atá tú réidh, tapáil \"Athbhreithniú\" chun do chinntí go léir a fheiceáil. Ní scriostar aon rud go dtí go ndearbhaíonn tú ar an scáileán athbhreithnithe.</string>

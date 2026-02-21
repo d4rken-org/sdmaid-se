@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Käyttäjät, joilla on erityisiä saavutettavuustarpeita, voivat ottaa tämän palvelun käyttöön, jotta SD Maid voi automatisoida tehtäviä, jotka muutoin vaatisivat ikävää manuaalista käyttäjän vuorovaikutusta (esim. välimuistin poisto).\n\nEsimerkki: Jos kehität SD Maidia pysäyttämään useita sovelluksia, SD Maid voi käyttää tätä palvelua kunkin sovelluksen asetusnäytön avaamiseen, \'Pakota pysäytys\' -painikkeen löytämiseen ja sen napauttamiseen.\n\nSD Maid näyttää aina selvästi, milloin käyttää tätä palvelua ja tarjoaa helpon tavan käyttäjälle perua mikä tahansa vuorovaikutus välittömästi.\n\nMitään toimintoja ei suoriteta ilman käyttäjän ennakkohyväksyntää. Tämä palvelu voidaan poistaa käytöstä milloin tahansa ilman haittavaikutuksia.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid on vuorovaikutuksessa laitteesi kanssa. Näyttöä ei voi käyttää samaan aikaan. Odota, kunnes toiminto on valmis tai peruuta se.</string>
+    <string name="automation_active_title">SD Maid työskentelee</string>
+    <string name="automation_error_no_consent_title">Automaatiovirhe</string>
+    <string name="automation_error_no_consent_body">Saavutettavuuspalvelua ei ole määritetty. Suorita asennus loppuun ja anna suostumus.</string>
+    <string name="automation_error_not_enabled_title">Palvelu ei ole käytössä</string>
+    <string name="automation_error_not_enabled_body">Automaatiopalvelu ei ole käytössä. Ota se käyttöön asetuksista.</string>
+    <string name="automation_error_not_running_title">Palvelu ei ole käynnissä</string>
+    <string name="automation_error_not_running_body">Saavutettavuuspalvelu ei ole käynnissä. Yritä käynnistää laite uudelleen.</string>
+    <string name="automation_error_screen_unavailable_title">Näyttö ei saavutettavissa</string>
+    <string name="automation_error_screen_unavailable_body">Toiminto keskeytettiin, koska näyttö tuli saavuttamattomaksi (esim. näyttö pois päältä tai lukitusnäyttö aktiivinen).</string>
+    <string name="automation_error_compatibility_title">Automaation yhteensopivuus</string>
+    <string name="automation_error_compatibility_body">SD Maid ei voinut selvittää näytön asettelua. Jos tämä jatkuu, kielesi tai asetuksesi eivät ehkä ole täysin tuettuja. Tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="automation_error_timeout_title">Automaation aikakatkaisu</string>
+    <string name="automation_error_timeout_body">SD Maid ei suorittanut kaikkia vaiheita aikarajan sisällä. Jos tämä jatkuu, minun täytyy ehkä säätää sovellusta laitteellesi. Tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
+    <string name="automation_error_overlay_title">Automaation peittokuva</string>
+    <string name="automation_error_overlay_body">SD Maid ei voinut näyttää automaation peittokuvaa. Tarkista käyttöoikeudet ja yritä käynnistää laitteesi uudelleen.</string>
+    <string name="automation_error_no_settings_title">Asetuksia ei löytynyt</string>
+    <string name="automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
+</resources>

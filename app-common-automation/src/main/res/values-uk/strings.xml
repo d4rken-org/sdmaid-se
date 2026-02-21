@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Користувачі з особливими потребами можуть увімкнути цю службу, щоб дозволити SD Maid автоматизувати завдання, які інакше вимагали б нудної ручної взаємодії користувача (наприклад, видалення кешу).\n\nПриклад: Якщо ви доручили SD Maid зупинити кілька програм, то SD Maid може використовувати цю послугу, щоб відкрити екран налаштувань кожної програми, знайти кнопку \"Примусова зупинка\" і натиснути її.\n\nПід час використання цієї послуги SD Maid завжди буде на видному місці і надасть користувачеві простий спосіб негайно скасувати будь-яку взаємодію.\n\nНіякі дії не будуть виконуватися без попереднього схвалення користувача. Цю послугу можна вимкнути знову в будь-який час без жодних негативних наслідків.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid взаємодіє з вашим пристроєм. Одночасно користуватися екраном неможливо. Дочекайтеся завершення операції або скасуйте її.</string>
+    <string name="automation_active_title">SD Maid працює</string>
+    <string name="automation_error_no_consent_title">Помилка автоматизації</string>
+    <string name="automation_error_no_consent_body">Сервіс спеціальних можливостей не налаштований. Завершіть налаштування і дайте згоду.</string>
+    <string name="automation_error_not_enabled_title">Сервіс не ввімкнено</string>
+    <string name="automation_error_not_enabled_body">Сервіс спеціальних можливостей вимкнено. Увімкніть його знову.</string>
+    <string name="automation_error_not_running_title">Сервіс не запущено</string>
+    <string name="automation_error_not_running_body">Сервіс спеціальних можливостей не запущений. Спробуйте перезавантажити пристрій.</string>
+    <string name="automation_error_screen_unavailable_title">Екран недоступний</string>
+    <string name="automation_error_screen_unavailable_body">Операцію було перервано, оскільки екран став недоступним (наприклад, вимкнено дисплей або активовано екран блокування).</string>
+    <string name="automation_error_compatibility_title">Сумісність з автоматизацією</string>
+    <string name="automation_error_compatibility_body">SD Maid не вдалося визначити розкладку екрана. Якщо це повторюється, можливо, ваша мова або налаштування підтримуються не повністю. Перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг це виправити.</string>
+    <string name="automation_error_timeout_title">Час очікування автоматизації</string>
+    <string name="automation_error_timeout_body">SD Maid не виконала всі кроки в межах встановленого часу. Якщо це повторюється, можливо, мені доведеться налаштувати додаток для вашого пристрою. Перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг це виправити.</string>
+    <string name="automation_error_overlay_title">Накладання автоматизації</string>
+    <string name="automation_error_overlay_body">SD Maid не змогла показати накладення автоматизації. Перевірте дозволи та спробуйте перезавантажити пристрій.</string>
+    <string name="automation_error_no_settings_title">Екран налаштувань недоступний</string>
+    <string name="automation_error_no_settings_body">Цей системний додаток не має екрана налаштувань. Очищення кешу за допомогою служби доступності неможливе. Вимкніть її, щоб пришвидшити очищення кешу.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">ప్రత్యేక ప్రాప్యతా అవసరాలు ఉన్న వినియోగదారులు SD Maid ను అయితే కష్టకరమైన మానుయల్ వినియోగదారు ఇంటరాక్షన్ అవసరమైన కార్యాలను స్వయంచాలకం చేయడానికి ఈ సేవను ప్రారంభించవచ్చు.\n\nఉదాహరణ: మీరు SD Maid ను ఎక్కువ యాప్‌లను ఆపడానికి నిర్దేశించిన SD Maid ప్రతి యాప్ సెట్టింగ్స్ స్క్రీన్‌ను తెరవడం, \'Force Stop\' బటన్‌ను కనుగొనడం మరియు అదిని టాప్ చేయడం కోసం ఈ సేవను ఉపయోగించవచ్చు.\n\nSD Maid ఈ సేవను ఉపయోగిస్తున్నప్పుడు ఎల్లప్పుడూ స్పష్టంగా చూపిస్తుంది మరియు వినియోగదారుడి ఏ ఇంటరాక్షన్‌నైనా తక్షణమే రద్దు చేయడానికి సులభమైన మార్గాని అందిస్తుంది.\n\nముందు వినియోగదారు ఆమోదం లేకుండా ఏ క్రియలు చేయబడవు. ఈ సేవను ఏ సమయానైనా మళ్లీ ప్రతికూల ప్రభావాలు లేకుండా రద్దు చేయవచ్చు.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid మీ పరికరంతో ఇంటరాక్ట్ చేస్తోంది. అదే సమయంలో స్క్రీన్‌ను ఉపయోగించడం సాధ్యం కాదు. కార్యాచరణ పూర్తి అవుతున్న వరకు వేచి ఉండండి లేదా ఆదిని రద్దు చేయండి.</string>
+    <string name="automation_active_title">SD Maid పని చేస్తోంది</string>
+    <string name="automation_error_no_consent_title">స్వయంచాలకత లోపం</string>
+    <string name="automation_error_no_consent_body">ప్రాప్యతా సేవ సెటప్ అవ్వలేదు. సెటప్‌ను పూర్తి చేసి సమ్మతి ఇవ్వండి.</string>
+    <string name="automation_error_not_enabled_title">సేవ ప్రారంభించబడలేదు</string>
+    <string name="automation_error_not_enabled_body">ప్రాప్యతా సేవ రద్దు చేయబడింది. దానిని మల్లీ ఆన్ చేయండి.</string>
+    <string name="automation_error_not_running_title">సేవ కార్యాచరణలో లేదు</string>
+    <string name="automation_error_not_running_body">ప్రాప్యతా సేవ కార్యాచరణలో లేదు. పరికరాన్ని రీబూట్ చేయడానికి ప్రయత్నించండి.</string>
+    <string name="automation_error_screen_unavailable_title">స్క్రీన్ అనుపలబ్ధం</string>
+    <string name="automation_error_screen_unavailable_body">స్క్రీన్ అనుపలబ్ధం అవ్వడం వల్ల కార్యాచరణ రద్దు చేయబడింది (ఉదా. డిస్ప్లే ఆఫ్ లేదా లాక్‌స్క్రీన్ సక్రియం).</string>
+    <string name="automation_error_compatibility_title">స్వయంచాలకత అనుకూలత</string>
+    <string name="automation_error_compatibility_body">SD Maid స్క్రీన్ లేయౌట్‌ను అర్థం చేసుకోలేకపోయింది. ఇది సంభవిస్తే ఉండితే, మీ భాష లేదా సెటప్ పూర్తిగా సపోర్ట్ చేయబడకపోవచ్చు. అప్‌డేట్‌ల కోసం చూడండి లేదా నాకు తెలియజేయండి కాబట్టి నేను దానిని సరిచేయగలను.</string>
+    <string name="automation_error_timeout_title">స్వయంచాలకత సమయ మీరించింది</string>
+    <string name="automation_error_timeout_body">SD Maid సమయ మర్యాదలో అన్ని దశలను పూర్తి చేయలేదు. ఇది సంభవిస్తే ఉండితే, నేను మీ పరికరం కోసం యాప్‌ను సరిచేయవలసివచ్చు. అప్‌డేట్‌ల కోసం చూడండి లేదా నాకు తెలియజేయండి కాబట్టి నేను దానిని సరిచేయగలను.</string>
+    <string name="automation_error_overlay_title">స్వయంచాలకత ఓవర్‌లే</string>
+    <string name="automation_error_overlay_body">SD Maid స్వయంచాలకత ఓవర్‌లేను చూపించలేదు. అనుమతులను చూడండి మరియు మీ పరికరాన్ని రీబూట్ చేయడానికి ప్రయత్నించండి.</string>
+    <string name="automation_error_no_settings_title">సెట్టింగ్స్ స్క్రీన్ అనుపలబ్ధం</string>
+    <string name="automation_error_no_settings_body">ఈ సిస్టం యాప్ కి సెట్టింగ్స్ స్క్రీన్ లేదు. ప్రాప్యతా సేవ ద్వారా క్యాషే క్లీర్ చేయడం సాధ్యం కాదు. క్యాషే క్లీర్ చేయడానికి వేగాని నేర్పడానికి దీనిని బహిష్కరించండి.</string>
+</resources>

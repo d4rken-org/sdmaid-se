@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Korisnici s posebnim potrebama pristupačnosti mogu omogućiti ovu uslugu kako bi SD Maidu dopustili automatizaciju zadataka koji bi inače zahtijevali zamornu ručnu korisničku interakciju (npr. brisanje predmemorije).\n\nPrimjer: ako SD Maidu naredite da zaustavi više aplikacija, SD Maid može koristiti ovu uslugu za otvaranje zaslona postavki svake aplikacije, pronalaženje gumba \'Prisilno zaustavi\' i njegovog aktiviranja.\n\nSD Maid će se uvijek istaknuti kada koristite ovu uslugu i omogućiti korisniku jednostavan način da odmah otkaže bilo kakvu interakciju.\n\nNikakve radnje neće biti izvedene bez prethodnog odobrenja korisnika. Ova se usluga može ponovno onemogućiti u bilo kojem trenutku bez negativnih učinaka.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid je u interakciji s vašim uređajem. Nije moguće koristiti zaslon u isto vrijeme. Pričekajte dok operacija ne završi ili ju otkažite.</string>
+    <string name="automation_active_title">SD Maid radi</string>
+    <string name="automation_error_no_consent_title">Greška automatizacije</string>
+    <string name="automation_error_no_consent_body">Usluga pristupačnosti nije postavljena. Dovršite postavljanje i dajte pristanak.</string>
+    <string name="automation_error_not_enabled_title">Usluga nije omogućena</string>
+    <string name="automation_error_not_enabled_body">Usluga pristupačnosti je onemogućena. Ponovno ju uključite.</string>
+    <string name="automation_error_not_running_title">Usluga nije pokrenuta</string>
+    <string name="automation_error_not_running_body">Usluga pristupačnosti nije pokrenuta. Pokušajte ponovno pokrenuti uređaj.</string>
+    <string name="automation_error_screen_unavailable_title">Zaslon nedostupan</string>
+    <string name="automation_error_screen_unavailable_body">Operacija je prekinuta jer je zaslon postao nedostupan (npr. zaslon je isključen ili se nalazi na zaključanom zaslonu).</string>
+    <string name="automation_error_compatibility_title">Kompatibilnost automatizacije</string>
+    <string name="automation_error_compatibility_body">SD Maid nije mogao prepoznati raspored zaslona. Ako se to nastavi događati, vaš jezik ili postavke možda nisu u potpunosti podržane. Provjerite ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
+    <string name="automation_error_timeout_title">Istek vremena automatizacije</string>
+    <string name="automation_error_timeout_body">SD Maid nije dovršio sve korake unutar vremenskog ograničenja. Ako se ovo nastavi događati, možda ću morati prilagoditi aplikaciju za vaš uređaj. Provjerite ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
+    <string name="automation_error_overlay_title">Preklapajući sadržaj automatizacije</string>
+    <string name="automation_error_overlay_body">SD Maid nije mogao prikazati preklapajući sadržaj automatizacije. Provjerite dopuštenja i pokušajte ponovno pokrenuti uređaj.</string>
+    <string name="automation_error_no_settings_title">Zaslon postavki nedostupan</string>
+    <string name="automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
+</resources>

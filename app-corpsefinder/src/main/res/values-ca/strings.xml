@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Cercador de brossa</string>
+    <string name="corpsefinder_explanation_short">Dades que pertanyen a aplicacions ja eliminades.</string>
+    <string name="corpsefinder_settings_summary">Ajusteu els filtres d\'escaneig i els nivells de risc.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Inclou les restes desitjables</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Fitxers que potser voldreu conservar, encara que l\'aplicació estigui desinstal·lada, p. ex. fotos que heu fet o còpies de seguretat que heu creat.</string>
+    <string name="corpsefinder_settings_risk_common_title">Inclou noms comuns</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dades amb noms d\'ús habitual, p. ex. una carpeta «Notes» és propietat de massa aplicacions desconegudes.</string>
+    <string name="corpsefinder_watcher_title">Vigilant de desinstal·lacions</string>
+    <string name="corpsefinder_watcher_summary">Explora automàticament les restes quan s\'elimina una aplicació.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Eliminació automàtica</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Suprimeix automàticament les restes relacionades amb l\'aplicació desinstal·lada.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">S\'ha trobat %1$d resta després de desinstal·lar %2$s.</item>
+        <item quantity="other">S\'han trobat %1$d sobrants després de desinstal·lar %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Neteja correcta (%1$s): s\'ha alliberat %2$s i s\'ha eliminat %3$d element.</item>
+        <item quantity="other">Neteja correcta (%1$s): s\'han alliberat %2$s i s\'han eliminat %3$d elements.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Elimina les restes</string>
+    <string name="corpsefinder_filter_publicmedia_label">Mitjans públics</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Fitxers multimèdia públics, p. ex. fitxers rebuts mitjançant aplicacions de missatgeria.</string>
+    <string name="corpsefinder_filter_publicobb_label">Recursos OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Recursos addicionals d\'aplicacions, p. ex. actius del joc.</string>
+    <string name="corpsefinder_filter_publicdata_label">Dades públiques de l\'aplicació</string>
+    <string name="corpsefinder_filter_publicdata_summary">Dades no sensibles de l\'aplicació, p. ex. memòries cau de mapes.</string>
+    <string name="corpsefinder_filter_sdcard_label">Targeta SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Emmagatzematge públic general, intern i extern (p. ex. targetes SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Dades privades de l\'aplicació</string>
+    <string name="corpsefinder_filter_privatedata_summary">Dades privades de l\'aplicació, p. ex. credencials, configuració de l\'aplicació, però també memòria cau del navegador.</string>
+    <string name="corpsefinder_filter_dalvik_label">Memòria cau Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Dades d\'execució de l\'aplicació a la memòria cau.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Perfils ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">L\'Android utilitza els perfils ART per optimitzar el rendiment de les aplicacions.</string>
+    <string name="corpsefinder_filter_applib_label">Biblioteques d\'aplicacions</string>
+    <string name="corpsefinder_filter_applib_summary">Dades de la biblioteca relacionades amb l\'aplicació.</string>
+    <string name="corpsefinder_filter_appsource_label">Fonts de l\'aplicació</string>
+    <string name="corpsefinder_filter_appsource_summary">Dades d\'instal·lació de l\'aplicació, és a dir, on van els APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Fonts d\'aplicacions privades</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Dades d\'instal·lació d\'aplicacions restringides, p. ex. aplicacions protegides de tercers.</string>
+    <string name="corpsefinder_filter_appasec_label">Recursos de l\'aplicació xifrats</string>
+    <string name="corpsefinder_filter_appasec_summary">Recursos de l\'aplicació xifrats, p. ex. actius del joc.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Dades mogudes a l\'emmagatzematge extern mitjançant modificacions d\'App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">S\'ha suprimit %d deixalla d\'aplicacions</item>
+        <item quantity="other">S\'han suprimit %d deixalles d\'aplicacions</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">S\'ha descobert restes d\'%d aplicació</item>
+        <item quantity="other">S\'han descobert restes de %d aplicacions</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Voleu suprimir totes les restes de l\'aplicació?</string>
+    <string name="corpsefinder_owners_label">Propietaris</string>
+    <string name="corpsefinder_corpse_hints_label">Avís</string>
+    <string name="corpsefinder_owner_unknown">Propietari desconegut</string>
+    <string name="corpsefinder_corpse_hint_keeper">Aquest element pot contenir dades que voleu conservar tot i que el seu propietari s\'hagi desinstal·lat, p. ex. fotos o còpies de seguretat.</string>
+    <string name="corpsefinder_corpse_hint_common">Aquest element té un nom molt comú i podria pertànyer a aplicacions encara instal·lades que l\'SD Maid no coneix.</string>
+</resources>

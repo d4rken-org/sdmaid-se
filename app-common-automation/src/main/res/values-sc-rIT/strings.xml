@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Usuàrios cun netzessidades ispetziales de atzessibilidade podent abilitare custu servitziu pro permitere a SD Maid de automatizare tareas chi altriementu diant richì²dere una interatzione manualle tèdiosa de usuàriu (es. cantzelladura de cache).\n\nEsempru: Si cumandas a SD Maid de firmmare múltiplas aplicatziones, SD Maid podet impreare custu servitziu pro abèrrere sa ischermada de impostatziones de cada aplicatzione, agatare su butone \'Firmmare a sa fortza\' e intuccae·lu.\n\nSD Maid sempre at a ammustrare de manera prominente cando est impreende custu servitziu e at a dare una manera façile pro s\'usuàriu de annullare cale si siat interatzione immediatamente.\n\nPeruna atzione at a èssere eseguida chene aprovada priore de s\'usuàriu. Custu servitziu podet èssere disabilitadu torra a cale si siat momentu chene efetos negativos.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid est interaghende cun su dispositivu tuo. No est possìbile impreare s\'ischermada in su matessi tempus. Aspeta fintzas a chi s\'operatzione siat finida o annulla·la.</string>
+    <string name="automation_active_title">SD Maid est trabalende</string>
+    <string name="automation_error_no_consent_title">Errore de automatizatzione</string>
+    <string name="automation_error_not_enabled_title">Su servitziu no est abilitadu</string>
+    <string name="automation_error_not_running_title">Su servitziu no est eseguende</string>
+    <string name="automation_error_screen_unavailable_title">Ischermada non disponìbile</string>
+    <string name="automation_error_screen_unavailable_body">S\'operatzione est istada interrotta ca s\'ischermada est diventada non disponìbile (es. ischermada istudada o ischermada de blocu ativa).</string>
+    <string name="automation_error_compatibility_title">Cumpatibilidade de automatizatzione</string>
+    <string name="automation_error_compatibility_body">SD Maid no at potu cumprèndere sa dispositziane de s\'ischermada. Si custu sighit a sutzèdere, sa limba tua o sa cunfiguratzione diant non èssere cumplitamente suportadas. Verifica pro agiornamentos o cuntata·mene a mie ca devo currigere.</string>
+    <string name="automation_error_timeout_title">Iscadèntzia de automatizatzione</string>
+    <string name="automation_error_timeout_body">SD Maid no at cumpletu totu is passos intro de su lìmite de tempus. Si custu sighit a sutzèdere, devet agiu¬zare s\'aplicatzione pro su dispositivu tuo. Verifica pro agiornamentos o cuntata·mene a mie ca devo currigere.</string>
+    <string name="automation_error_overlay_title">Sovrapositzinde de automatizatzione</string>
+    <string name="automation_error_overlay_body">SD Maid no at potu ammustrare sa sovrapositzinde de automatizatzione. Verifica is permissos e prova a torrare a incendere su dispositivu tuo.</string>
+    <string name="automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
+    <string name="automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
+</resources>

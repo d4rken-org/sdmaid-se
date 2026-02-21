@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">ဖယ်ရှားပြီးသား အက်ပ်များနှင့် သက်ဆိုင်သော ဒေတာများ။</string>
+    <string name="corpsefinder_settings_summary">စကင်န်စစ်ထုတ်ခြင်းများနှင့် အန္တရာယ်အဆင့်များကို ချိန်ညှိရန်။</string>
+    <string name="corpsefinder_settings_risk_keeper_title">လိုလားသော အကြွင်းအကျန်များ ထည့်သွင်းရန်</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">အက်ပ်ကို ဖြုတ်ပြီးသော်လည်း သင်ထားရှိလိုနိုင်သော ဖိုင်များ၊ ဥပမာ သင်ရိုက်ခဲ့သော ပုံများ သို့မဟုတ် သင်ဖန်တီးခဲ့သော backup များ။</string>
+    <string name="corpsefinder_settings_risk_common_title">ဘုံအမည်များ ထည့်သွင်းရန်</string>
+    <string name="corpsefinder_settings_risk_common_summary">များသောအားဖြင့် အသုံးပြုသော အမည်များရှိသော ဒေတာများ၊ ဥပမာ \"မှတ်စုများ\" ဖိုင်တွဲသည် အများလွန်းသော အမျိုးမသိ အက်ပ်များက ပိုင်ဆိုင်သည်။</string>
+    <string name="corpsefinder_watcher_title">ဖြုတ်ခြင်း စောင့်ကြည့်ရေးကိရိယာ</string>
+    <string name="corpsefinder_watcher_summary">အက်ပ်တစ်ခု ဖယ်ရှားလိုက်သောအခါ အကြွင်းအကျန်များကို အလိုအလျောက် စကင်န်ဖတ်ရန်။</string>
+    <string name="corpsefinder_watcher_autodelete_title">အလိုအလျောက် ဖျက်ခြင်း</string>
+    <string name="corpsefinder_watcher_autodelete_summary">ဖြုတ်လိုက်သော အက်ပ်နှင့် သက်ဆိုင်သော အကြွင်းအကျန်များကို အလိုအလျောက် ဖျက်ရန်။</string>
+    <string name="corpsefinder_watcher_notification_delete_action">အကြွင်းအကျန်များကို ဖျက်ရန်</string>
+    <string name="corpsefinder_filter_publicmedia_label">အများပြည်သူမီဒီယာ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">အများပြည်သူမီဒီယာဖိုင်များ၊ ဥပမာ စာပို့အက်ပ်များမှတစ်ဆင့် လက်ခံရရှိသော ဖိုင်များ။</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB အရင်းအမြစ်များ</string>
+    <string name="corpsefinder_filter_publicobb_summary">နောက်ထပ် အက်ပ်အရင်းအမြစ်များ၊ ဥပမာ ဂိမ်းပစ္စည်းများ။</string>
+    <string name="corpsefinder_filter_publicdata_label">အများပြည်သူ အက်ပ်ဒေတာ</string>
+    <string name="corpsefinder_filter_publicdata_summary">အရေးမကြီးသော အက်ပ်ဒေတာများ၊ ဥပမာ မြေပုံ cache များ။</string>
+    <string name="corpsefinder_filter_sdcard_label">SD ကတ်</string>
+    <string name="corpsefinder_filter_sdcard_summary">ယေဘူယျ အများပြည်သူ သိုလှောင်မှု၊ အတွင်းပိုင်းနှင့် အပြင်ပိုင်း (ဥပမာ SD ကတ်များ)။</string>
+    <string name="corpsefinder_filter_privatedata_label">ပုဂ္ဂလိက အက်ပ်ဒေတာ</string>
+    <string name="corpsefinder_filter_privatedata_summary">ပုဂ္ဂလိက အက်ပ်ဒေတာများ၊ ဥပမာ ခွင့်ပြုစာများ၊ အက်ပ်ဆက်တင်များအပြင် ဘရောင်ဇာ cache များ။</string>
+    <string name="corpsefinder_filter_dalvik_summary">Cache လုပ်ထားသော အက်ပ်လုပ်ဆောင်မှု ဒေတာများ။</string>
+    <string name="corpsefinder_filter_applib_label">အက်ပ် လိုင်ဘရီများ</string>
+    <string name="corpsefinder_filter_applib_summary">အက်ပ်နှင့် ဆက်စပ်သော လိုက်ဘရီ ဒေတာ။</string>
+    <string name="corpsefinder_filter_appsource_label">အက်ပ် ရင်းမြစ်များ</string>
+    <string name="corpsefinder_filter_appsource_summary">အက်ပ် ထည့်သွင်းမှု ဒေတာ၊ APK များ သိမ်းဆည်းသည့် နေရာ။</string>
+    <string name="corpsefinder_filter_appsource_private_label">သီးသန့် အက်ပ် ရင်းမြစ်များ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">ကန့်သတ်ထားသော အက်ပ် ထည့်သွင်းမှု ဒေတာ၊ ဥပမာ - ကာကွယ်ထားသော တတိယပါတီ အက်ပ်များ။</string>
+    <string name="corpsefinder_filter_appasec_label">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ</string>
+    <string name="corpsefinder_filter_appasec_summary">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ၊ ဥပမာ - ဂိမ်း ပိုင်ဆိုင်မှုများ။</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2SD မွန်များ အသုံးပြု၍ ပြင်ပ သိုလှောင်ခန်းသို့ ရွှေ့ထားသော ဒေတာ။</string>
+    <string name="corpsefinder_delete_all_confirmation_message">အက်ပ် အကြွင်းအကျန် အားလုံး ဖျက်မလား။</string>
+    <string name="corpsefinder_owners_label">ပိုင်ရှင်များ</string>
+    <string name="corpsefinder_corpse_hints_label">အသိပေးချက်</string>
+    <string name="corpsefinder_owner_unknown">မသိသော ပိုင်ရှင်</string>
+    <string name="corpsefinder_corpse_hint_keeper">ဤအရာသည် ပိုင်ရှင် အက်ပ်ကို ဖြုတ်ထားသော်လည်း သိမ်းထားလိုသော ဒေတာများ ပါဝင်နိုင်သည်၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် အရန်သိမ်းဆည်းမှုများ။</string>
+    <string name="corpsefinder_corpse_hint_common">ဤအရာသည် အလွန်အသုံးများသော အမည်ရှိပြီး SD Maid မသိသော ထည့်သွင်းထားဆဲ အက်ပ်များ၏ ပိုင်ဆိုင်မှု ဖြစ်နိုင်သည်။</string>
+</resources>

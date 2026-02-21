@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Utilizatorii cu nevoi speciale de accesibilitate pot permite acestui serviciu să permită SD Maid să automatizeze sarcini care altfel ar necesita interacțiunea manuală dificilă a utilizatorului (e.. ştergere cache).\n\nExemplu: Dacă dați instrucțiuni de ajutor SD pentru a opri mai multe aplicații, atunci ajutorul SD poate folosi acest serviciu pentru a deschide ecranul de setări al fiecărei aplicații, găsește butonul „Oprește forțata” și apasă pe el.\n\nSD Maid va arăta întotdeauna în mod vizibil când se utilizează acest serviciu și va oferi o modalitate ușoară utilizatorului de a anula imediat orice interacțiune.\n\nNicio acțiune nu va fi efectuată fără aprobarea prealabilă a utilizatorului. Acest serviciu poate fi dezactivat din nou în orice moment, fără efecte adverse.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interacționează cu dispozitivul dvs. Nu este posibil să utilizați ecranul în același timp. Așteptați până la finalizarea operației sau anulați-o.</string>
+    <string name="automation_active_title">SD Maid funcționează</string>
+    <string name="automation_error_no_consent_title">Eroare de automatizare</string>
+    <string name="automation_error_no_consent_body">Serviciul de accesibilitate nu este configurat. Finalizați configurarea și acordați consimțământul.</string>
+    <string name="automation_error_not_enabled_title">Serviciul nu este activat</string>
+    <string name="automation_error_not_enabled_body">Serviciul de accesibilitate este dezactivat. Activați-l din nou.</string>
+    <string name="automation_error_not_running_title">Serviciul nu rulează</string>
+    <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încercați să reporniți dispozitivul.</string>
+    <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
+    <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
+    <string name="automation_error_compatibility_title">Compatibilitate automată</string>
+    <string name="automation_error_compatibility_body">SD Maid nu și-a putut da seama de aspectul ecranului. Dacă acest lucru se întâmplă în continuare, este posibil ca limba sau configurația dvs. să nu fie pe deplin acceptate. Verificați actualizările sau contactați-mă ca să pot remedia.</string>
+    <string name="automation_error_timeout_title">Automatizarea a expirat</string>
+    <string name="automation_error_timeout_body">SD Maid nu a parcurs toți pașii în termenul limită. Dacă acest lucru continuă să se întâmple, ar putea fi necesar să ajustați aplicația pentru dispozitivul dvs. Verificați dacă există actualizări sau contactați-mă pentru a le putea repara.</string>
+    <string name="automation_error_overlay_title">Suprapunere automată</string>
+    <string name="automation_error_overlay_body">SD Maid nu a putut arăta suprapunerea automatizării. Verificați permisiunile și încercați să reporniți dispozitivul.</string>
+    <string name="automation_error_no_settings_title">Setări ecran indisponibil</string>
+    <string name="automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+</resources>

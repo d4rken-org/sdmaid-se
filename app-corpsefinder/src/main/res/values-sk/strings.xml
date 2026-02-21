@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Hľadač mŕtvol</string>
+    <string name="corpsefinder_explanation_short">Údaje patriace už odstráneným aplikáciám.</string>
+    <string name="corpsefinder_settings_summary">Upravte filtre skenovania a úrovne rizika.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Zahrňte žiaduce pozostatky</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Súbory, ktoré si možno budete chcieť ponechať, aj keď je aplikácia odinštalovaná, napr. nasnímané fotografie alebo zálohy, ktoré ste vytvorili.</string>
+    <string name="corpsefinder_settings_risk_common_title">Zahrnúť bežné názvy</string>
+    <string name="corpsefinder_settings_risk_common_summary">Údaje s bežne používanými názvami, napr. priečinok „Poznámky“ vlastní príliš veľa neznámych aplikácií.</string>
+    <string name="corpsefinder_watcher_title">Sledovač odinštalácií</string>
+    <string name="corpsefinder_watcher_summary">Automaticky vyhľadať zvyšky po odstránení aplikácie.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatické odstránenie</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automaticky odstráňte všetky zvyšky súvisiace s odinštalovanou aplikáciou.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d pozostatok nájdený po odinštalovaní %2$s.</item>
+        <item quantity="few">%1$d pozostatky nájdené po odinštalovaní %2$s.</item>
+        <item quantity="many">%1$d pozostatkov nájdených po odinštalovaní %2$s.</item>
+        <item quantity="other">%1$d pozostatkov nájdených po odinštalovaní %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránila sa %3$d položka.</item>
+        <item quantity="few">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránili sa %3$d položky.</item>
+        <item quantity="many">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
+        <item quantity="other">Vyčistenie bolo úspešné (%1$s): Uvoľnilo sa %2$s a odstránilo sa %3$d položiek.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Odstrániť zvyšky</string>
+    <string name="corpsefinder_filter_publicmedia_label">Verejné médiá</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Súbory verejných médií, napr. súbory prijaté prostredníctvom aplikácií na odosielanie správ.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB zdroje</string>
+    <string name="corpsefinder_filter_publicobb_summary">Ďalšie zdroje aplikácií, napr. herné prostriedky.</string>
+    <string name="corpsefinder_filter_publicdata_label">Verejné údaje aplikácie</string>
+    <string name="corpsefinder_filter_publicdata_summary">Údaje aplikácií, ktoré nie sú citlivé, napr. vyrovnávacia pamäť máp.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD karta</string>
+    <string name="corpsefinder_filter_sdcard_summary">Všeobecné verejné úložisko, interné a externé (napr. SD karty).</string>
+    <string name="corpsefinder_filter_privatedata_label">Súkromné údaje aplikácie</string>
+    <string name="corpsefinder_filter_privatedata_summary">Súkromné údaje aplikácie, napr. prihlasovacie údaje, nastavenia aplikácie, ale aj vyrovnávaciu pamäť prehliadača.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Údaje o spustení aplikácie vo vyrovnávacej pamäti.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profily</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profily ART používa systém Android na optimalizáciu výkonu aplikácií.</string>
+    <string name="corpsefinder_filter_applib_label">Knižnice aplikácie</string>
+    <string name="corpsefinder_filter_applib_summary">Údaje knižnice súvisiace s aplikáciou.</string>
+    <string name="corpsefinder_filter_appsource_label">Zdroje aplikácií</string>
+    <string name="corpsefinder_filter_appsource_summary">Údaje o inštalácii aplikácie, t. j. kam sa ukladajú súbory APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Súkromné zdroje aplikácie</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Obmedzené údaje o inštalácii aplikácie, napr. chránené aplikácie tretích strán.</string>
+    <string name="corpsefinder_filter_appasec_label">Šifrované prostriedky aplikácie</string>
+    <string name="corpsefinder_filter_appasec_summary">Šifrované zdroje aplikácií, napr. herné prostriedky.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Údaje presunuté do externého úložiska pomocou modov App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d zvyšok aplikácie odstránený</item>
+        <item quantity="few">%d zvyšky aplikácií odstránené</item>
+        <item quantity="many">%d zvyškov aplikácií odstránených</item>
+        <item quantity="other">%d zvyškov aplikácií odstránených</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d nájdený pozostatok aplikácie</item>
+        <item quantity="few">%d nájdené pozostatky aplikácie</item>
+        <item quantity="many">%d nájdených pozostatkov aplikácie</item>
+        <item quantity="other">%d nájdených pozostatkov aplikácie</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Odstrániť všetky zvyšky aplikácie?</string>
+    <string name="corpsefinder_owners_label">Vlastníci</string>
+    <string name="corpsefinder_corpse_hints_label">Oznámenie</string>
+    <string name="corpsefinder_owner_unknown">Neznámy vlastník</string>
+    <string name="corpsefinder_corpse_hint_keeper">Táto položka môže obsahovať údaje, ktoré si chcete ponechať napriek odinštalovaniu jej vlastníka, napr. fotografie alebo zálohy.</string>
+    <string name="corpsefinder_corpse_hint_common">Táto položka má veľmi bežný názov a môže patriť k stále nainštalovaným aplikáciám, ktoré SD Maid nepozná.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Οι χρήστες με ειδικές ανάγκες προσβασιμότητας μπορούν να ενεργοποιήσουν αυτήν την υπηρεσία να επιτρέπει στο SD Maid να αυτοματοποιήσει εργασίες που διαφορετικά θα απαιτούσαν κουραστική χειροκίνητη αλληλεπίδραση με το χρήστη (π.χ. διαγραφή της προσωρινής μνήμης).\n\nΠαράδειγμα: Εάν δώσετε οδηγίες στο SD Maid να σταματήσει πολλαπλές εφαρμογές, τότε το SD Maid μπορεί να χρησιμοποιήσει αυτήν την υπηρεσία για να ανοίξει κάθε οθόνη ρυθμίσεων εφαρμογών, να βρει το κουμπί \'Force Stop\' και να το κάνει κλικ.\n\nΤο SD Maid εμφανίζεται πάντα κατά τη χρήση αυτής της υπηρεσίας και παρέχει έναν εύκολο τρόπο για τον χρήστη να ακυρώσει αμέσως οποιαδήποτε αλληλεπίδραση.\n\nΔεν θα πραγματοποιηθούν ενέργειες χωρίς προηγούμενη έγκριση του χρήστη. Η υπηρεσία αυτή μπορεί να απενεργοποιηθεί ανά πάσα στιγμή χωρίς ανεπιθύμητες ενέργειες.</string>
+    <string name="automation_screenoverlay_explanation">Το SD Maid αλληλεπιδρά με τη συσκευή σας. Δεν είναι δυνατή η ταυτόχρονη χρήση της οθόνης. Περιμένετε έως ότου ολοκληρωθεί η λειτουργία ή ακυρώστε την.</string>
+    <string name="automation_active_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
+    <string name="automation_error_no_consent_title">Σφάλμα αυτοματισμού</string>
+    <string name="automation_error_no_consent_body">Η υπηρεσία προσβασιμότητας δεν έχει ρυθμιστεί. Ολοκληρώστε τη ρύθμιση και δώστε τη συγκατάθεσή σας.</string>
+    <string name="automation_error_not_enabled_title">Η υπηρεσία δεν είναι ενεργοποιημένη</string>
+    <string name="automation_error_not_enabled_body">Η υπηρεσία προσβασιμότητας είναι απενεργοποιημένη. Ενεργοποιήστε το ξανά.</string>
+    <string name="automation_error_not_running_title">Η υπηρεσία δεν εκτελείται</string>
+    <string name="automation_error_not_running_body">Η υπηρεσία προσβασιμότητας δεν εκτελείται. Δοκιμάστε να επανεκκινήσετε τη συσκευή.</string>
+    <string name="automation_error_screen_unavailable_title">Μη διαθέσιμη οθόνη</string>
+    <string name="automation_error_screen_unavailable_body">Η λειτουργία ματαιώθηκε επειδή η οθόνη δεν ήταν διαθέσιμη (π.χ. απενεργοποιημένη οθόνη ή ενεργή οθόνη κλειδώματος).</string>
+    <string name="automation_error_compatibility_title">Συμβατότητα αυτοματισμού</string>
+    <string name="automation_error_compatibility_body">Το SD Maid δεν μπόρεσε να καταλάβει τη διάταξη της οθόνης. Αν αυτό συνεχίσει να συμβαίνει, η γλώσσα ή η ρύθμιση σας ενδέχεται να μην υποστηρίζονται πλήρως. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου ώστε να μπορώ να το διορθώσω.</string>
+    <string name="automation_error_timeout_title">Λήξη χρονικού ορίου αυτοματισμού</string>
+    <string name="automation_error_timeout_body">Το SD Maid δεν ολοκλήρωσε όλα τα βήματα εντός του χρονικού ορίου. Εάν συνεχιστεί αυτό, ίσως χρειαστεί να προσαρμόσω την εφαρμογή για τη συσκευή σας. Ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
+    <string name="automation_error_overlay_title">Επικάλυψη αυτοματισμού</string>
+    <string name="automation_error_overlay_body">Το SD Maid δεν μπόρεσε να εμφανίσει την επικάλυψη αυτοματισμού. Ελέγξτε τα δικαιώματα και δοκιμάστε να επανεκκινήσετε τη συσκευή σας.</string>
+    <string name="automation_error_no_settings_title">Μη διαθέσιμη οθόνη ρυθμίσεων</string>
+    <string name="automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Η εκκαθάριση της μνήμης cache μέσω της υπηρεσίας προσβασιμότητας δεν είναι δυνατή. Εξαιρέστε την για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
+</resources>

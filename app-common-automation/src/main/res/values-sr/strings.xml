@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Корисници са посебним потребама приступачности могу омогућити овај сервис да би СД Чистач могао аутоматски обављати задатке који би иначе захтевали досадну ручну интеракцију (нпр. брисање кеша).\n\nПример: Ако упутите СД Чистач да заустави више апликација, СД Чистач може користити овај сервис да отвори екран подешавања сваке апликације, пронађе дугме \'\u041fринудно заустави\' и додирне га.\n\nСД Чистач ће увек јасно показати када користи овај сервис и омогућити лак начин да корисник одмах откаже било коју интеракцију.\n\nНиједна акција неће бити извршена без претходног одобрења корисника. Овај сервис се може поново онемогућити у било ком тренутку без негативних ефеката.</string>
+    <string name="automation_screenoverlay_explanation">СД Чистач интерагује са вашим уређајем. Није могуће користити екран у исто време. Сачекајте док се операција не заврши или је откажите.</string>
+    <string name="automation_active_title">СД Чистач ради</string>
+    <string name="automation_error_no_consent_title">Грешка аутоматизације</string>
+    <string name="automation_error_no_consent_body">Сервис приступачности није подешен. Завршите подешавање и дајте сагласност.</string>
+    <string name="automation_error_not_enabled_title">Сервис није омогућен</string>
+    <string name="automation_error_not_enabled_body">Сервис приступачности је онемогућен. Поново га укључите.</string>
+    <string name="automation_error_not_running_title">Сервис не ради</string>
+    <string name="automation_error_not_running_body">Сервис приступачности не ради. Покушајте рестартовати уређај.</string>
+    <string name="automation_error_screen_unavailable_title">Екран недоступан</string>
+    <string name="automation_error_screen_unavailable_body">Операција је прекинута јер је екран постао недоступан (нпр. екран искључен или активан екран закључавања).</string>
+    <string name="automation_error_compatibility_title">Компатибилност аутоматизације</string>
+    <string name="automation_error_compatibility_body">СД Чистач није успео да разуме распоред екрана. Ако се ово наставља, ваш језик или подешавање можда нису потпуно подржани. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
+    <string name="automation_error_timeout_title">Истек времена аутоматизације</string>
+    <string name="automation_error_overlay_title">Преклоп аутоматизације</string>
+    <string name="automation_error_overlay_body">СД Чистач није могао приказати преклоп аутоматизације. Проверите дозволе и покушајте рестартовати уређај.</string>
+    <string name="automation_error_no_settings_title">Екран подешавања недоступан</string>
+    <string name="automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
+</resources>

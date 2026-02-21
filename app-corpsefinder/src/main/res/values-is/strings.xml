@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">Gögn sem tilheyra forritum sem þegar hafa verið fjarlægð.</string>
+    <string name="corpsefinder_settings_summary">Stilla skönnunarsíur og áhættustig.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Taka með æskileg leifar</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Skrár sem þú gætir viljað halda þrátt fyrir að forritið sé fjarlægt, t.d. myndir sem þú tókst eða afrit sem þú bjóst til.</string>
+    <string name="corpsefinder_settings_risk_common_title">Taka með algeng nöfn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Gögn með algengum nöfnum, t.d. mappa \"Notes\" tilheyrir of mörgum óþekktum forritum.</string>
+    <string name="corpsefinder_watcher_title">Fjarlægingareftirvakt</string>
+    <string name="corpsefinder_watcher_summary">Skanna sjálfkrafa eftir leifum þegar forrit er fjarlægt.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Sjálfvirk eyðing</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Eyða sjálfkrafa öllum leifum sem tengjast fjarlægða forritinu.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d leif fannst eftir fjarlægingu á %2$s.</item>
+        <item quantity="other">%1$d leifar fundust eftir fjarlægingu á %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Hreinsun tókst (%1$s): Losaði %2$s og fjarlægði %3$d hlut.</item>
+        <item quantity="other">Hreinsun tókst (%1$s): Losaði %2$s og fjarlægði %3$d hluti.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Eyða leifum</string>
+    <string name="corpsefinder_filter_publicmedia_label">Opinber miðla</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Opinberar miðlaskrár, t.d. skrár sem berast í gegnum skilaboðaforrit.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB auðlindir</string>
+    <string name="corpsefinder_filter_publicobb_summary">Viðbótar auðlindir forrita, t.d. eignir leikja.</string>
+    <string name="corpsefinder_filter_publicdata_label">Opinber forritagögn</string>
+    <string name="corpsefinder_filter_publicdata_summary">Óviðkvæm forritagögn, t.d. kortaskyndiminni.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kort</string>
+    <string name="corpsefinder_filter_sdcard_summary">Almenn opinber geymsla, innri og ytri (t.d. SD kort).</string>
+    <string name="corpsefinder_filter_privatedata_label">Einkagögn forrita</string>
+    <string name="corpsefinder_filter_privatedata_summary">Einkagögn forrita, t.d. auðkenni, stillingar forrita en einnig skyndiminni vafra.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik skyndiminni</string>
+    <string name="corpsefinder_filter_dalvik_summary">Geymd keyrslugögn forrita.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART prófílar</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART prófílar eru notuð af Android til að fínstilla afköst forrita.</string>
+    <string name="corpsefinder_filter_applib_label">Forritasöfn</string>
+    <string name="corpsefinder_filter_applib_summary">Forritatengd söfnunargögn.</string>
+    <string name="corpsefinder_filter_appsource_label">Forritauppsprettur</string>
+    <string name="corpsefinder_filter_appsource_summary">Uppsetningargögn forrita, þ.e. hvert APK skrár fara.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Einkauppsprettur forrita</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Takmarkaðar uppsetningargögn, t.d. vernduð forrit þriðja aðila.</string>
+    <string name="corpsefinder_filter_appasec_label">Dulkóðuð auðlindir forrita</string>
+    <string name="corpsefinder_filter_appasec_summary">Dulkóðaðar auðlindir forrita, t.d. eignir leikja.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_filter_app2sd_summary">Gögn flutt á ytri geymslu með App2Sd breytingum.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d forritaleif eytt</item>
+        <item quantity="other">%d forritaleifar eyddar</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d forritaleif fannst</item>
+        <item quantity="other">%d forritaleifar fundust</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Eyða öllum forritaleifum?</string>
+    <string name="corpsefinder_owners_label">Eigendur</string>
+    <string name="corpsefinder_corpse_hints_label">Athugasemd</string>
+    <string name="corpsefinder_owner_unknown">Óþekktur eigandi</string>
+    <string name="corpsefinder_corpse_hint_keeper">Þessi hlutur gæti innihaldið gögn sem þú vilt halda þrátt fyrir að eigandinn hafi verið fjarlægður, t.d. myndir eða afrit.</string>
+    <string name="corpsefinder_corpse_hint_common">Þessi hlutur ber mjög algengt nafn og gæti tilheyrt forritum sem enn eru uppsett en SD Maid þekkir ekki.</string>
+</resources>

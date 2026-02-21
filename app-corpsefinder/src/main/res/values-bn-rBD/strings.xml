@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">শব-সন্ধানী</string>
+    <string name="corpsefinder_explanation_short">ইতোমধ্যে অপসারিত অ্যাপসমূহের ডেটা।</string>
+    <string name="corpsefinder_settings_summary">স্ক্যান ফিল্টার এবং ঝুঁকির মাত্রা সামঞ্জস্য করুন।</string>
+    <string name="corpsefinder_settings_risk_keeper_title">পছন্দসই অবশিষ্টাংশ অন্তর্ভুক্ত করুন</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">অ্যাপটি আনইনস্টল করা থাকলেও আপনি যে ফাইলগুলি রাখতে চান, যেমন আপনার তোলা ফটো বা আপনার তৈরি করা ব্যাকআপ।</string>
+    <string name="corpsefinder_settings_risk_common_title">পরিচিত নামগুলো অন্তর্ভুক্ত করুন</string>
+    <string name="corpsefinder_settings_risk_common_summary">সাধারণত ব্যবহৃত নাম সহ ডেটা, যেমন একটি ফোল্ডার \"Notes\" অনেকগুলি অজানা অ্যাপের মালিকানাধীন৷</string>
+    <string name="corpsefinder_watcher_title">আনইনস্টল ওয়াচার</string>
+    <string name="corpsefinder_watcher_summary">একটি অ্যাপ আনইনস্টল করা হলে স্বয়ংক্রিয়ভাবে ওই অ্যাপের অপ্রয়োজনীয় ফাইল স্ক্যান করুন।</string>
+    <string name="corpsefinder_watcher_autodelete_title">স্বয়ংক্রিয় মোছা</string>
+    <string name="corpsefinder_watcher_autodelete_summary">আনইনস্টল করা অ্যাপের সাথে সম্পর্কিত যেকোন অবশিষ্টাংশ স্বয়ংক্রিয়ভাবে মুছুন।</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s আনইনস্টল করার পরে অবশিষ্টাংশ পাওয়া গেছে %1$d ।</item>
+        <item quantity="other">%2$s আনইনস্টল করার পরে অবশিষ্টাংশ পাওয়া গেছে %1$d ।</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">পরিষ্কার করা সফল (%1$s): খালি %2$s এবং রিমুভ হয়েছে %3$d আইটেম.</item>
+        <item quantity="other">পরিষ্কার করা সফল (%1$s): খালি %2$s এবং রিমুভ হয়েছে %3$d আইটেম.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">অবশিষ্টাংশ মুছুন</string>
+    <string name="corpsefinder_filter_publicmedia_label">পাবলিক মিডিয়া</string>
+    <string name="corpsefinder_filter_publicmedia_summary">পাবলিক মিডিয়া ফাইল, যেমন মেসেঞ্জার অ্যাপের মাধ্যমে প্রাপ্ত ফাইল।</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB রিসোর্স</string>
+    <string name="corpsefinder_filter_publicobb_summary">অতিরিক্ত অ্যাপ রিসোর্স, যেমন- গেম অ্যাসেট।</string>
+    <string name="corpsefinder_filter_publicdata_label">পাবলিক অ্যাপ ডেটা</string>
+    <string name="corpsefinder_filter_publicdata_summary">অ-সংবেদনশীল অ্যাপ ডেটা, যেমন ম্যাপ ক্যাশ</string>
+    <string name="corpsefinder_filter_sdcard_label">SD কার্ড</string>
+    <string name="corpsefinder_filter_sdcard_summary">সাধারণ পাবলিক স্টোরেজ, ইন্টার্নাল এবং এক্সটার্নাল (যেমন- SD কার্ড)।</string>
+    <string name="corpsefinder_filter_privatedata_label">প্রাইভেট অ্যাপ ডেটা</string>
+    <string name="corpsefinder_filter_privatedata_summary">প্রাইভেট অ্যাপ ডেটা, যেমন শংসাপত্র, অ্যাপ সেটিংস বা ব্রাউজার ক্যাশ।</string>
+    <string name="corpsefinder_filter_dalvik_label">ডালভিক ক্যাশ</string>
+    <string name="corpsefinder_filter_dalvik_summary">ক্যাশেড অ্যাপ এক্সিকিউশন ডেটা।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART প্রোফাইল</string>
+    <string name="corpsefinder_filter_artprofiles_summary">অ্যাপের কর্মক্ষমতা অপ্টিমাইজ করার জন্য অ্যান্ড্রয়েড ART প্রোফাইল ব্যবহার করে।</string>
+    <string name="corpsefinder_filter_applib_label">অ্যাপ লাইব্রেরি</string>
+    <string name="corpsefinder_filter_applib_summary">অ্যাপ সম্পর্কিত লাইব্রেরি ডেটা।</string>
+    <string name="corpsefinder_filter_appsource_label">অ্যাপ সোর্স</string>
+    <string name="corpsefinder_filter_appsource_summary">অ্যাপ ইনস্টলেশন ডেটা, যেমন APKগুলি কোথায় যায়৷</string>
+    <string name="corpsefinder_filter_appsource_private_label">ব্যক্তিগত অ্যাপ সোর্স</string>
+    <string name="corpsefinder_filter_appsource_private_summary">সীমাবদ্ধ অ্যাপ ইনস্টলেশন ডেটা, যেমন সুরক্ষিত তৃতীয় পক্ষের অ্যাপ।</string>
+    <string name="corpsefinder_filter_appasec_label">এনক্রিপ্ট করা অ্যাপ রিসোর্স</string>
+    <string name="corpsefinder_filter_appasec_summary">এনক্রিপ্ট করা অ্যাপ রিসোর্স, যেমন গেম অ্যাসেট।</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd মোড দ্বারা ডেটা এক্সট্রানাল স্টোরেজে স্থানান্তরিত হয়েছে৷</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d টি অ্যাপের অবশিষ্টাংশ মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d টি অ্যাপের অবশিষ্টাংশ মুছে ফেলা হয়েছে</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d অ্যাপের অবশিষ্টাংশ পাওয়া হয়েছে</item>
+        <item quantity="other">%d অ্যাপের অবশিষ্টাংশ পাওয়া হয়েছে</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">সমস্ত অ্যাপের অবশিষ্টাংশ মুছবেন?</string>
+    <string name="corpsefinder_owners_label">Owners</string>
+    <string name="corpsefinder_corpse_hints_label">বিজ্ঞপ্তি</string>
+    <string name="corpsefinder_owner_unknown">অজানা মালিক</string>
+    <string name="corpsefinder_corpse_hint_keeper">এই আইটেমটির মালিকের আনইনস্টল হওয়া সত্ত্বেও আপনি যে ডেটা রাখতে চান তা থাকতে পারে, যেমন ফটো বা ব্যাকআপ।</string>
+    <string name="corpsefinder_corpse_hint_common">এই আইটেমটির একটি খুব সাধারণ নাম রয়েছে এবং এটি এখনও ইনস্টল করা অ্যাপগুলির অন্তর্গত হতে পারে যা SD Maid জানে না৷</string>
+</resources>

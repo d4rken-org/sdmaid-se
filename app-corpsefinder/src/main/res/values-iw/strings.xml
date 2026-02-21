@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">איתור קבצים \"מתים\"</string>
+    <string name="corpsefinder_explanation_short">מידע השייך לאפליקציות שהוסרו כבר.</string>
+    <string name="corpsefinder_settings_summary">התאמה של מסנני הסריקה ורמות הסיכון.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">כלול שאריות רצויות</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">קבצים שאולי תרצו לשמור, גם אם האפליקציה כבר הוסרה, למשל. תמונות שצילמת או גיבויים שיצרת.</string>
+    <string name="corpsefinder_settings_risk_common_title">לכלול שמות נפוצים</string>
+    <string name="corpsefinder_settings_risk_common_summary">נתונים עם שמות נפוצים, למשל. תיקייה \"הערות\" נמצאת בבעלות יותר מדי אפליקציות לא ידועות.</string>
+    <string name="corpsefinder_watcher_title">ההאזנה להסרת אפליקציות</string>
+    <string name="corpsefinder_watcher_summary">סרוק אוטומטית לאיתור שאריות כאשר אפליקציה מוסרת מהמכשיר.</string>
+    <string name="corpsefinder_watcher_autodelete_title">מחיקה אוטומטית</string>
+    <string name="corpsefinder_watcher_autodelete_summary">מחק אוטומטית את כל השאריות הקשורות לאפליקציה שהוסרה.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">נמצאה שארית %1$d לאחר הסרת ההתקנה של %2$s.</item>
+        <item quantity="two">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
+        <item quantity="many">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
+        <item quantity="other">נמצאו %1$d שרידים לאחר הסרת ההתקנה של %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">הניקוי הצליח (%1$s): שוחרר %2$s והוסר %3$d פריט.</item>
+        <item quantity="two">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
+        <item quantity="many">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
+        <item quantity="other">הניקוי הצליח (%1$s): שחרר %2$s והסרת %3$d פריטים.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">מחק שאריות</string>
+    <string name="corpsefinder_filter_publicmedia_label">מדיה ציבורית</string>
+    <string name="corpsefinder_filter_publicmedia_summary">מדיה ציבורית, לדוגמה קבצים שהתקבלו דרך אפליקציות מסרים.</string>
+    <string name="corpsefinder_filter_publicobb_label">משאבי OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">משאבי אפליקציה נוספים, למשל. נכסי משחק.</string>
+    <string name="corpsefinder_filter_publicdata_label">נתוני אפליקציה ציבוריים</string>
+    <string name="corpsefinder_filter_publicdata_summary">מידע לא רגיש, לדוגמה קבצי מטמון של מפות.</string>
+    <string name="corpsefinder_filter_sdcard_label">כרטיס SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">אחסון ציבורי כללי, פנימי וחיצוני (למשל כרטיסי SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">נתוני אפליקציה פרטיים</string>
+    <string name="corpsefinder_filter_privatedata_summary">נתוני אפליקציה פרטיים, למשל אישורים, הגדרות אפליקציה אבל גם מטמון דפדפן.</string>
+    <string name="corpsefinder_filter_dalvik_label">מטמון Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">איחסון מידע  של ביצועי האפליקציה.</string>
+    <string name="corpsefinder_filter_artprofiles_label">פרופילי ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">פרופילי ART משמשים את Android לאופטימיזציה של ביצועי אפליקציות.</string>
+    <string name="corpsefinder_filter_applib_label">ספריות האפליקציה</string>
+    <string name="corpsefinder_filter_applib_summary">נתוני ספרייה הקשורים לאפליקציה.</string>
+    <string name="corpsefinder_filter_appsource_label">מקורות אפליקציה</string>
+    <string name="corpsefinder_filter_appsource_summary">נתוני התקנת האפליקציה, כלומר לאן מגיעות חבילות APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">מקורות פרטיים של האפליקציה </string>
+    <string name="corpsefinder_filter_appsource_private_summary">נתוני התקנת אפליקציה מוגבלים, למשל אפליקציות צד שלישי מוגנות.</string>
+    <string name="corpsefinder_filter_appasec_label">משאבי אפליקציה מוצפנים</string>
+    <string name="corpsefinder_filter_appasec_summary">משאבי אפליקציה מוצפנים, למשל נכסי משחק.</string>
+    <string name="corpsefinder_filter_app2sd_summary">נתונים הועברו לאחסון חיצוני על ידי מוד App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d שארית אפליקציה נמחקה</item>
+        <item quantity="two">%d שאריות אפליקציה נמחקו</item>
+        <item quantity="many">%d שאריות אפליקציה נמחקו</item>
+        <item quantity="other">%d שאריות אפליקציה נמחקו</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">התגלתה שארית אפליקציה %d</item>
+        <item quantity="two">התגלו %d שרידי אפליקציה</item>
+        <item quantity="many">התגלו %d שרידי אפליקציה</item>
+        <item quantity="other">התגלו %d שרידי אפליקציה</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">למחוק את כל שאריות האפליקציה?</string>
+    <string name="corpsefinder_owners_label">בעלים</string>
+    <string name="corpsefinder_corpse_hints_label">הודעה</string>
+    <string name="corpsefinder_owner_unknown">בעלים לא ידוע</string>
+    <string name="corpsefinder_corpse_hint_keeper">פריט זה עשוי להכיל נתונים שברצונך לשמור למרות שהבעלים שלו הוסר, למשל. תמונות או גיבויים.</string>
+    <string name="corpsefinder_corpse_hint_common">לפריט זה יש שם נפוץ מאוד ויכול להיות שייך לאפליקציות שעדיין מותקנות ש-SD Maid לא מכיר.</string>
+</resources>

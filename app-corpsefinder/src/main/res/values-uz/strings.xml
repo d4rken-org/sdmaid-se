@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Qoldiqlarni topuvchi</string>
+    <string name="corpsefinder_explanation_short">Allaqachon olib tashlangan ilovalarning ma\'lumotlari.</string>
+    <string name="corpsefinder_settings_summary">Skanerlash filtrlarini va xavf darajalarini sozlash.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Istalmagan qoldiqlarni qo\'shish</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Ilova o\'chirilgan bo\'lsa ham, saqlamoqchi bo\'lgan fayllar, masalan, olgan suratlaringiz yoki yaratgan zaxira nusxalaringiz.</string>
+    <string name="corpsefinder_settings_risk_common_title">Umumiy nomlarni qo\'shish</string>
+    <string name="corpsefinder_settings_risk_common_summary">Umumiy ishlatilgan nomlarga ega ma\'lumotlar, masalan \"Eslatmalar\" papkasi juda ko\'p noma\'lum ilovalar tomonidan egallanadi.</string>
+    <string name="corpsefinder_watcher_title">O\'chirish kuzatuvchisi</string>
+    <string name="corpsefinder_watcher_summary">Ilova olib tashlanganda qoldiqlarni avtomatik skanerlash.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Avtomatik o\'chirish</string>
+    <string name="corpsefinder_watcher_autodelete_summary">O\'chirilgan ilova bilan bog\'liq barcha qoldiqlarni avtomatik o\'chirish.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s ni o\'chirgandan keyin %1$d qoldiq topildi.</item>
+        <item quantity="other">%2$s ni o\'chirgandan keyin %1$d qoldiq topildi.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Tozalash muvaffaqiyatli (%1$s): %2$s bo\'shatildi va %3$d element olib tashlandi.</item>
+        <item quantity="other">Tozalash muvaffaqiyatli (%1$s): %2$s bo\'shatildi va %3$d element olib tashlandi.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Qoldiqlarni o\'chirish</string>
+    <string name="corpsefinder_filter_publicmedia_label">Umumiy media</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Umumiy media fayllari, masalan messenger ilovalar orqali olingan fayllar.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB resurslari</string>
+    <string name="corpsefinder_filter_publicobb_summary">Qo\'shimcha ilova resurslari, masalan o\'yin aktivlari.</string>
+    <string name="corpsefinder_filter_publicdata_label">Umumiy ilova ma\'lumotlari</string>
+    <string name="corpsefinder_filter_publicdata_summary">Maxfiy bo\'lmagan ilova ma\'lumotlari, masalan xarita keshi.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD karta</string>
+    <string name="corpsefinder_filter_sdcard_summary">Umumiy xotira, ichki va tashqi (masalan SD kartalar).</string>
+    <string name="corpsefinder_filter_privatedata_label">Shaxsiy ilova ma\'lumotlari</string>
+    <string name="corpsefinder_filter_privatedata_summary">Shaxsiy ilova ma\'lumotlari, masalan, identifikatsiya ma\'lumotlari, ilova sozlamalari va brauzer keshlari.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik keshi</string>
+    <string name="corpsefinder_filter_dalvik_summary">Keshga saqlangan ilova bajarilish ma\'lumotlari.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profillari</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profillari Android tomonidan ilova ishlashini optimallashtirish uchun ishlatiladi.</string>
+    <string name="corpsefinder_filter_applib_label">Ilova kutubxonalari</string>
+    <string name="corpsefinder_filter_applib_summary">Ilova bilan bog\'liq kutubxona ma\'lumotlari.</string>
+    <string name="corpsefinder_filter_appsource_label">Ilova manbaalari</string>
+    <string name="corpsefinder_filter_appsource_summary">Ilova o\'rnatish ma\'lumotlari, ya\'ni APK fayllar joylashuvi.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Shaxsiy ilova manbaalari</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Cheklangan ilova o\'rnatish ma\'lumotlari, masalan, himoyalangan uchinchi tomon ilovalar.</string>
+    <string name="corpsefinder_filter_appasec_label">Shifrlangan ilova resurslari</string>
+    <string name="corpsefinder_filter_appasec_summary">Shifrlangan ilova resurslari, masalan, o\'yin aktivlari.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Ilova2Sd modifikatsiyalari tomonidan tashqi xotiraga ko\'chirilgan ma\'lumotlar.</string>
+    <string name="corpsefinder_filter_app2sd_label">Ilova2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ilova qoldig\'i o\'chirildi</item>
+        <item quantity="other">%d ilova qoldig\'i o\'chirildi</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ilova qoldig\'i topildi</item>
+        <item quantity="other">%d ilova qoldig\'i topildi</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Barcha ilova qoldiqlarini o\'chirish kerakmi?</string>
+    <string name="corpsefinder_owners_label">Egalar</string>
+    <string name="corpsefinder_corpse_hints_label">Eslatma</string>
+    <string name="corpsefinder_owner_unknown">Noma\'lum ega</string>
+    <string name="corpsefinder_corpse_hint_keeper">Bu element egasi o\'chirilgan bo\'lsa ham, saqlamoqchi bo\'lgan ma\'lumotlarni o\'z ichiga olishi mumkin, masalan, suratlar yoki zaxira nusxalar.</string>
+    <string name="corpsefinder_corpse_hint_common">Bu element juda keng tarqalgan nomga ega va SD Maid bilmaydigan hali ham o\'rnatilgan ilovalar ega bo\'lishi mumkin.</string>
+</resources>

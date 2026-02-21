@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">کاربران با نیازهای دسترسی ویژه می‌توانند این سرویس را فعال کنند تا SD Maid وظایفی را که به طور معمول نیاز به تعامل دستی خسته‌کننده دارند (مانند حذف کش) خودکار کند.\n\nمثال: اگر به SD Maid دستور دهید که چند برنامه را متوقف کند، SD Maid می‌تواند از این سرویس استفاده کند تا صفحه تنظیمات هر برنامه را باز کند، دکمه «توقف اجباری» را پیدا کند و آن را فشار دهد.\n\nSD Maid همیشه هنگام استفاده از این سرویس به طور واضح نشان می‌دهد و راهی آسان برای کاربر فراهم می‌کند تا هر تعاملی را بلافاصله لغو کند.\n\nهیچ اقدامی بدون تأیید قبلی کاربر انجام نخواهد شد. این سرویس را می‌توان در هر زمان بدون اثرات منفی دوباره غیرفعال کرد.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid با دستگاه شما در حال تعامل است. استفاده از صفحه نمایش به طور همزمان ممکن نیست. منتظر بمانید تا عملیات به پایان برسد یا آن را لغو کنید.</string>
+    <string name="automation_active_title">SD Maid در حال کارکردن است</string>
+    <string name="automation_error_no_consent_title">خطا خودکارسازی</string>
+    <string name="automation_error_no_consent_body">سرویس دسترسی تنظیم نشده است. تنظیمات را کامل کنید و اجازه دهید.</string>
+    <string name="automation_error_not_enabled_title">سرویس فعال نیست</string>
+    <string name="automation_error_not_enabled_body">سرویس دسترسی غیرفعال است. آن را دوباره روشن کنید.</string>
+    <string name="automation_error_not_running_title">سرویس اجرا نمی‌شود</string>
+    <string name="automation_error_not_running_body">سرویس دسترسی در حال اجرا نیست. دستگاه را دوباره راه‌اندازی کنید.</string>
+    <string name="automation_error_screen_unavailable_title">صفحه نمایش در دسترس نیست</string>
+    <string name="automation_error_screen_unavailable_body">عملیات متوقف شد زیرا صفحه نمایش در دسترس نبود (مانند خاموش شدن نمایشگر یا فعال بودن قفل صفحه).</string>
+    <string name="automation_error_compatibility_title">سازگاری اتوماسیون</string>
+    <string name="automation_error_compatibility_body">به نظر می‌رسد SD Maid با مشکل تشخیص طرح صفحه روبرو است. اگر این مشکل همچنان ادامه دارد، ممکن است زبان یا تنظیمات دستگاه شما به طور کامل پشتیبانی نشود. پیشنهاد می‌کنم ابتدا بررسی کنید که آیا بروزرسانی برای برنامه وجود دارد یا خیر.</string>
+    <string name="automation_error_timeout_title">پایان زمان اتوماسیون</string>
+    <string name="automation_error_timeout_body">SD Maid تمام مراحل را در محدوده زمانی تکمیل نکرد. اگر این اتفاق ادامه یابد، ممکن است نیاز باشد برنامه را برای دستگاه شما تنظیم کنم. به‌روزرسانی‌ها را بررسی کنید یا با من تماس بگیرید تا بتوانم آن را برطرف کنم.</string>
+    <string name="automation_error_overlay_title">پوشش اتوماسیون</string>
+    <string name="automation_error_overlay_body">SD Maid نتوانست پوشش اتوماسیون را نمایش دهد. مجوزها را بررسی کنید و دستگاه خود را مجدداً راه‌اندازی کنید.</string>
+    <string name="automation_error_no_settings_title">صفحه تنظیمات در دسترس نیست</string>
+    <string name="automation_error_no_settings_body">این برنامه سیستمی صفحه تنظیماتی ندارد. پاک کردن کش از طریق سرویس دسترسی امکان‌پذیر نیست. آن را حذف کنید تا پاک کردن کش سریع‌تر شود.</string>
+</resources>

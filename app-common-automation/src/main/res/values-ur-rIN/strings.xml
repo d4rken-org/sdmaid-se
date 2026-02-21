@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">خاص رسائی ضروریات والے صارفین اس سروس کو فعال کر سکتے ہیں تاکہ SD Maid کو ایسے کام شامل کرنے کی اجازت دی جا سکے جو بصورت دیگر بوریॅ دستی صارف برقراری کی ضرورت ہوگی (مثل کیش ڈیلیٹ)۔\n\nمثال: اگر آپ SD Maid کو متعدد ایپس بند کرنے کا کہیں تو SD Maid اس سروس کا استعمال کرکے ہر ایپ کی سیٹنگز سکرین کھول سکتا ہے، \'Force Stop\' بٹن تلاش کر سکتا ہے اور اسے ٹیپ کر سکتا ہے۔\n\nSD Maid ہمیشہ اس سروس کا استعمال کرتے وقت نمایاں نظر آئے گا اور صارف کو فوری طور پر کوئی بھی برقراری منسوخ کرنے کا آسان طریقہ فراہم کرے گا۔\n\nبنا صارف کی پیشین منظوری کے کوئی عمل انجام نہیں دیا جائے گا۔ یہ سروس کسی بھی وقت دوبارہ بنا نقصان اثرات کے بند کی جا سکتی ہے۔</string>
+    <string name="automation_screenoverlay_explanation">SD Maid آپ کے ڈیوائس کے ساتھ برقراری کر رہا ہے۔ اسی وقت سکرین کا استعمال ممکن نہیں۔ آپریشن مکمل ہونے کا انتظار کریں یا اسے منسوخ کریں۔</string>
+    <string name="automation_active_title">SD Maid کام کر رہا ہے</string>
+    <string name="automation_error_no_consent_title">آٹومیشن کی خرابی</string>
+    <string name="automation_error_no_consent_body">رسائی سروس سیٹ اپ نہیں ہے۔ سیٹ اپ مکمل کریں اور رضامندی دیں۔</string>
+    <string name="automation_error_not_enabled_title">سروس فعال نہیں ہے</string>
+    <string name="automation_error_not_enabled_body">رسائی سروس غیر فعال ہے۔ اسے دوبارہ آن کریں۔</string>
+    <string name="automation_error_not_running_title">سروس چل نہیں رہی</string>
+    <string name="automation_error_not_running_body">رسائی سروس چل نہیں رہی۔ ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
+    <string name="automation_error_screen_unavailable_title">سکرین دستیاب نہیں</string>
+    <string name="automation_error_screen_unavailable_body">آپریشن منسوخ کر دیا گیا کیونکہ سکرین دستیاب نہیں ہو گئی (مثل ڈسپلے بند یا لاک سکرین فعال)۔</string>
+    <string name="automation_error_compatibility_title">آٹومیشن کی موافقت</string>
+    <string name="automation_error_compatibility_body">SD Maid سکرین لے آؤٹ سمجھ نہیں سکا۔ اگر یہ مسلسل ہوتا رہے، تو آپ کی زبان یا سیٹ اپ مکمل طور پر مدد شدہ نہیں ہو سکتا۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
+    <string name="automation_error_timeout_title">آٹومیشن ٹائم آؤٹ</string>
+    <string name="automation_error_timeout_body">SD Maid نے مقررہ وقت کی حد میں تمام مراحل مکمل نہیں کیے۔ اگر یہ مسلسل ہوتا رہے، تو مجھے آپ کے ڈیوائس کے لیے ایپ کو اڈجسٹ کرنے کی ضرورت ہو سکتی ہے۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
+    <string name="automation_error_overlay_title">آٹومیشن اوورلے</string>
+    <string name="automation_error_overlay_body">SD Maid آٹومیشن اوورلے نہیں دکھا سکا۔ اجازات چیک کریں اور اپنے ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
+    <string name="automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
+    <string name="automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+</resources>

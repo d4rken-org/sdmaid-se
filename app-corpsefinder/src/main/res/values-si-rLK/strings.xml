@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">දැනටමත් ඉවත් කැරී යෙදුම්වලට පායැනේ දත්ත.</string>
+    <string name="corpsefinder_settings_summary">ස්කැන් පෙරණ සහ අවදානම් මට්ටම් සමත කරන්න.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">අනික්ෂිත අවශේෂ ඇතිරි ඇතුල් කරන්න</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">යෙදුම අසථාපනය කැරී හොන්දැ ඔබට හාරා ගැනීමට ඇශ්ට වෛ හැකි ගොනු, උදා. ඔබ ගැත්ත ෆායාකැර නකඬත් ඔබ සැදු පසුක්පත.</string>
+    <string name="corpsefinder_settings_risk_common_title">පෙළිචිට නම් ඇතුල් කරන්න</string>
+    <string name="corpsefinder_settings_risk_common_summary">පෙළිචිටව භාවිතා කරන්න නම් ඇද දත්ත, උදා. \"Notes\" ෆෝල්ඩරයක් ඉතා අචාන යෙදුම්වලට පායැනේ වේ.</string>
+    <string name="corpsefinder_watcher_title">අසථාපන හවස් කරණය</string>
+    <string name="corpsefinder_watcher_summary">යෙදුමක් ඉවත් කැරීම විට ස්වයංක්‍රියව ඇතිරි සංශොධනය කරන්න.</string>
+    <string name="corpsefinder_watcher_autodelete_title">ස්වයංක්‍රිය මකාදම</string>
+    <string name="corpsefinder_watcher_autodelete_summary">අසථාපනය කැරී යෙදුමට සම්බන්ධිත වු අමුරුම ඇතිරිම ස්වයංක්‍රියව මකා දමන්න.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">ඇතිරි මකා දමන්න</string>
+    <string name="corpsefinder_filter_publicmedia_label">පොදු මැඩියා</string>
+    <string name="corpsefinder_filter_publicmedia_summary">පොදු මැඩියා ගොනු, උදා. සන්දේශ යෙදුම් අරහා ලබා ගත ගොනු.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB සම්පත්</string>
+    <string name="corpsefinder_filter_publicobb_summary">අමතර යෙදුම් සම්පත්, උදා. ගෙම් ඉඛින්.</string>
+    <string name="corpsefinder_filter_publicdata_label">පොදු යෙදුම් දත්ත</string>
+    <string name="corpsefinder_filter_publicdata_summary">අසංවේදී යෙදුම් දත්ත, උදා. නක්ශ කැශ්.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD කාඩ්පත්</string>
+    <string name="corpsefinder_filter_sdcard_summary">සාමාන්‍ය පොදු ආචයනය, ඇතිරි සහ බැහිර අංශ (උදා. SD කාඩ්පත්).</string>
+    <string name="corpsefinder_filter_privatedata_label">පුද්ගලික යෙදුම් දත්ත</string>
+    <string name="corpsefinder_filter_privatedata_summary">පුද්ගලික යෙදුම් දත්ත, උදා. ප්‍රමාණ පත්‍ර, යෙදුම් සෆකසිම් සහ ඪ්‍රාවඩක කැශ්.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik කැශ්</string>
+    <string name="corpsefinder_filter_dalvik_summary">කැශ් කැරී යෙදුම් ක්‍රියාකාරිත්ව දත්ත.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART පැතිකඩ</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART පැතිකඩ යෙදුම් කාර්ය සාධනය ප්‍රශස්ත කිරීමට Android විසින් භාවිත කරයි.</string>
+    <string name="corpsefinder_filter_applib_label">යෙදුම් පුස්තකාලය</string>
+    <string name="corpsefinder_filter_applib_summary">යෙදුම්වලට සම්බන්ධ පුස්තකාල දත්ත.</string>
+    <string name="corpsefinder_filter_appsource_label">යෙදුම් ඉංශ</string>
+    <string name="corpsefinder_filter_appsource_summary">යෙදුම් සථාපන දත්ත, එනම් APK යන්නේ.</string>
+    <string name="corpsefinder_filter_appsource_private_label">පුද්ගලික යෙදුම් ඉංශ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">පරිමිත යෙදුම් සථාපන දත්ත, උදා. සුරක්ෂිත තිසර පක්ෂ යෙදුම්.</string>
+    <string name="corpsefinder_filter_appasec_label">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්</string>
+    <string name="corpsefinder_filter_appasec_summary">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්, උදා. ගෙම් ඉඛින්.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd mods අරහා බැහිර ආචයනයට හැරී දත්ත.</string>
+    <string name="corpsefinder_delete_all_confirmation_message">සියලුම යෙදුම් ඇතිරි මකා දමන්නද?</string>
+    <string name="corpsefinder_owners_label">මාලිකාන්</string>
+    <string name="corpsefinder_corpse_hints_label">සෑහන්</string>
+    <string name="corpsefinder_owner_unknown">අචාන මාලිකයා</string>
+    <string name="corpsefinder_corpse_hint_keeper">මෙම අයිතමේ මාලිකයා අසථාපනය කැරී හොන්දැ ඔබට හාරා ගැනීමට ඇශ්ට වෛ හැකි දත්ත ඇතුල් විය හැකිය, උදා. ෆායාකැර නකඬත් පසුක්පත.</string>
+    <string name="corpsefinder_corpse_hint_common">මෙම අයිතමට ඉතා පෙළිචිට නමක් ඇද අතර SD Maid නොදැනන දැනටමත් සථාපනය කැරී යෙදුම්වලට පායැන් නැති විය හැකිය.</string>
+</resources>

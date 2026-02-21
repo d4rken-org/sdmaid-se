@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Arnawlı jetimdilik kereksinishlerge iye paydalanıwshılar bul xızmetdi qosıp, SD Maid qa basqasha qolayız qol menen ótkeriletugın tapsırmalardy avtomatlashtırıwǵa ruxsat bere aladı (mısalı, kesh óshiriw).\n\nMısal: Eger siz SD Maid qa bir neshe qosımshalardy toqtatıwdı buyırsańız, SD Maid bul xızmet arqalı hár bir qosımshanıń sazlamalar ekranın ashıp, \'Májbúriy toqtatıw\' túymesin tabıp, onı basa aladı.\n\nSD Maid bul xızmetdi paydalanǵanda hámme waqıt kórinip turadı hám paydalanıwshıǵa qálegen waqıtta óz-ara tásirlesiw di toqtatıw imkaniyatın beredi.\n\nHesh qanday háreketler paydalanıwshınıń aldın ala ruxsatısız orınlanbaydı. Bul xızmet qálegen waqıtta hesh qanday keri tásirlerdi keltirmesten óshirilip qoyılıwı múmkin.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid qurılmańız benen óz-ara tásirleste. Ekrannan bir waqıtta paydalanıw múmkin emes. Ámeliyat tamamlanǵansha kútiń yamasa onı biykar etiń.</string>
+    <string name="automation_active_title">SD Maid islep atır</string>
+    <string name="automation_error_no_consent_title">Avtomatlashtırıw qátesi</string>
+    <string name="automation_error_no_consent_body">Jetimdilik xızmeti ornatılmaǵan. Ornatıwdı tamamlań hám razılıq beriń.</string>
+    <string name="automation_error_not_enabled_title">Xızmet qosılmaǵan</string>
+    <string name="automation_error_not_enabled_body">Jetimdilik xızmeti óshirilgen. Onı qayta qosıń.</string>
+    <string name="automation_error_not_running_title">Xızmet islemeydi</string>
+    <string name="automation_error_not_running_body">Jetimdilik xızmeti islemeydi. Qurılmańızdı qayta júkleń.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran jetimsiz</string>
+    <string name="automation_error_screen_unavailable_body">Ámeliyat toqtatıldı, sebebi ekran jetimsiz boldı (mısalı, ekran óshik yamasa bloklawshı ekran aktiv).</string>
+    <string name="automation_error_compatibility_title">Avtomatlashtırıw sáykesligi</string>
+    <string name="automation_error_compatibility_body">SD Maid ekran dúzilisin anıqlay almadı. Eger bul qayta-qayta bolıp tursa, siz paydalanıp atırǵan til yamasa sazlamalar tolıq qollanbawı múmkin. Jańalanıwlardı tekseriń yamasa maǵan xabar beriń, men bul máselen sheshiw.</string>
+    <string name="automation_error_timeout_title">Avtomatlashtırıw waqıtı ótti</string>
+    <string name="automation_error_timeout_body">SD Maid barlıq qádemlerdi belgilengen waqıt ishinde tamamlay almadı. Eger bul qayta-qayta bolıp tursa, men qosımshany qurılmańızǵa moslastırıwım kerek bolıwı múmkin. Jańalanıwlardı tekseriń yamasa maǵan xabar beriń, men bul máselen sheshiw.</string>
+    <string name="automation_error_overlay_title">Avtomatlashtırıw qatlamı</string>
+    <string name="automation_error_overlay_body">SD Maid avtomatlashtırıw qatlamın kórsete almadı. Ruxsatnamalardy tekseriń hám qurılmańızdı qayta júkleń.</string>
+    <string name="automation_error_no_settings_title">Parametrler ekranı jetimli emes</string>
+    <string name="automation_error_no_settings_body">Bul sistema qosımshasında parametrler ekranı joq. Jetimlilik qullıǵı arqalı keş tazalaw múmkin emes. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
+</resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">I-CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Idatha engeyezinhlelo zokusebenza ezisuliwe.</string>
+    <string name="corpsefinder_settings_summary">Lungisa izihluzi zokuskena namazinga engozi.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Faka izinsalela ezifunekayo</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Amafayela ongafuna ukuwagcina, nakuba uhlelo lukususiwe, isib. izithombe ozithathile noma amasipala owenzile.</string>
+    <string name="corpsefinder_settings_risk_common_title">Faka amagama avame ukusetshenziswa</string>
+    <string name="corpsefinder_settings_risk_common_summary">Idatha enamagama avamile, isib. ifoloda ethi \"Amanothi\" ephethwe izinhlelo eziningi ezingaziwa.</string>
+    <string name="corpsefinder_watcher_title">Isiboni sokususa</string>
+    <string name="corpsefinder_watcher_summary">Skena ngokuzenzakalelayo izinsalela uma kusuliwe uhlelo.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Ukususa okuzenzakalelayo</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Susa ngokuzenzakalelayo noma yiziphi izinsalela ezihlobene nohlelo olusuliwe.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">Kutholakele insalela engu-%1$d ngemva kokususa %2$s.</item>
+        <item quantity="other">Kutholakele izinsalela ezingu-%1$d ngemva kokususa %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Ukuhlanza kuphumelele (%1$s): Kukhishwe %2$s futhi kususiwe into engu-%3$d.</item>
+        <item quantity="other">Ukuhlanza kuphumelele (%1$s): Kukhishwe %2$s futhi kususiwe izinto ezingu-%3$d.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Susa izinsalela</string>
+    <string name="corpsefinder_filter_publicmedia_label">Imidiya yomphakathi</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Amafayela emidiya yomphakathi, isibonelo, amafayela atholakale ngezinhlelo zemiyalezo.</string>
+    <string name="corpsefinder_filter_publicobb_label">Izinsiza ze-OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Izinsiza ezengeziwe zohlelo, isibonelo, amathuluzi emidlalo.</string>
+    <string name="corpsefinder_filter_publicdata_label">Idatha yohlelo lomphakathi</string>
+    <string name="corpsefinder_filter_publicdata_summary">Idatha yohlelo engabucayi, isibonelo, ukugcinwa kwamamephu.</string>
+    <string name="corpsefinder_filter_sdcard_label">Ikhadi le-SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ukugcinwa komphakathi okuvamile, kwangaphakathi nangaphandle (isibonelo, amakhadi e-SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Idatha yohlelo eyimfihlo</string>
+    <string name="corpsefinder_filter_privatedata_summary">Idatha yohlelo eyimfihlo, isibonelo, izimvume, izilungiselelo zohlelo kanye nokugcinwa kwesiginali.</string>
+    <string name="corpsefinder_filter_dalvik_label">Ukugcinwa kwe-Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Idatha yokusebenza kohlelo egciniwe.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Amaphrofayela e-ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Amaphrofayela e-ART asetshenziswa yi-Android ukuthuthukisa ukusebenza kohlelo.</string>
+    <string name="corpsefinder_filter_applib_label">Amathala ezincwadi ohlelo</string>
+    <string name="corpsefinder_filter_applib_summary">Idatha yamathala ezincwadi ehlobene nohlelo.</string>
+    <string name="corpsefinder_filter_appsource_label">Imithombo yohlelo</string>
+    <string name="corpsefinder_filter_appsource_summary">Idatha yokufaka uhlelo, okungukuthi lapho ama-APK aya khona.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Imithombo yohlelo eyimfihlo</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Idatha yokufaka uhlelo evinjelwe, isibonelo, izinhlelo ezivikiwe zenkampani yesithathu.</string>
+    <string name="corpsefinder_filter_appasec_label">Izinsiza zohlelo ezibhalwe ngekhodi</string>
+    <string name="corpsefinder_filter_appasec_summary">Izinsiza zohlelo ezibhalwe ngekhodi, isibonelo, amathuluzi emidlalo.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Idatha ehanjiswe ekugcinweni kwangaphandle ama-App2Sd mods.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">Insalela yohlelo engu-%d isuliwe</item>
+        <item quantity="other">Izinsalela zohlelo ezingu-%d zisuliwe</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">Insalela yohlelo engu-%d itholiwe</item>
+        <item quantity="other">Izinsalela zohlelo ezingu-%d zitholiwe</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Susa zonke izinsalela zohlelo?</string>
+    <string name="corpsefinder_owners_label">Abanikazi</string>
+    <string name="corpsefinder_corpse_hints_label">Isaziso</string>
+    <string name="corpsefinder_owner_unknown">Umnikazi ongaziwa</string>
+    <string name="corpsefinder_corpse_hint_keeper">Le nto ingase iqukethe idatha ofuna ukuyigcina naphezu komnikazi wayo esuliwe, isibonelo, izithombe noma amasipala.</string>
+    <string name="corpsefinder_corpse_hint_common">Le nto inegama elivamile kakhulu futhi ingase ibe ngeyezinhlelo ezisafakiwe i-SD Maid engazaziyo.</string>
+</resources>

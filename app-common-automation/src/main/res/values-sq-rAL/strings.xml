@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Përdoruesit me nevoja të veçanta aksesueshmërie mund ta mundësojnë këtë shërbim që të lejojë SD Maid të automatizojë detyrat që përndryshe do të kërkonin ndërveprim manual të lodhshëm të përdoruesit (p.sh. fshirjen e memories së fshehtë).\n\nShembull: Nëse e udhëzon SD Maid të ndalojë shumë aplikacione, atëherë SD Maid mund ta përdorë këtë shërbimi për të hapur ekranin e cilësimeve të çdo aplikacioni, gjeni butonin \"Ndalo me forcë\" dhe prekeni lehtë.\n\nSD Maid do të shfaqet gjithmonë në mënyrë të dukshme kur përdor këtë shërbim dhe do të ofrojë një mënyrë të thjeshtë për përdoruesin që të anulojë menjëherë çdo ndërveprim.\n\nAsnjë veprim do të kryhen pa miratimin paraprak të përdoruesit. Ky shërbim mund të çaktivizohet përsëri në çdo kohë pa efekte negative.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid po ndërvepron me pajisjen tuaj. Nuk është e mundur të përdoret ekrani në të njëjtën kohë. Prisni derisa operacioni të përfundojë ose anuloni atë.</string>
+    <string name="automation_active_title">SD Maid po punon</string>
+    <string name="automation_error_no_consent_title">Gabim automatizimi</string>
+    <string name="automation_error_no_consent_body">Shërbimi i aksesueshmërisë nuk është konfiguruar. Plotësoni konfigurimin dhe jepni pëlqimin.</string>
+    <string name="automation_error_not_enabled_title">Shërbimi nuk është i aktivizuar</string>
+    <string name="automation_error_not_enabled_body">Shërbimi i aksesueshmërisë është i çaktivizuar. Ndize sërish.</string>
+    <string name="automation_error_not_running_title">Shërbimi nuk funksionon</string>
+    <string name="automation_error_not_running_body">Shërbimi i aksesueshmërisë nuk funksionon. Provoni të rindizni pajisjen.</string>
+    <string name="automation_error_screen_unavailable_title">Ekrani nuk disponohet</string>
+    <string name="automation_error_screen_unavailable_body">Operacioni u ndërpre sepse ekrani u bë i padisponueshëm (p.sh. ekrani i fikur ose ekrani i kyçur aktiv).</string>
+    <string name="automation_error_compatibility_title">Përputhshmëria e automatizimit</string>
+    <string name="automation_error_compatibility_body">SD Maid nuk mund të kuptonte strukturën e ekranit. Nëse kjo vazhdon të ndodhë, gjuha ose konfigurimi juaj mund të mos mbështetet plotësisht. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
+    <string name="automation_error_timeout_title">Koha e automatizimit mbaroi</string>
+    <string name="automation_error_timeout_body">SD Maid nuk përfundoi të gjitha hapat brenda kufirit kohor. Nëse kjo vazhdon të ndodhë, mund të duhet të rregulloj aplikacionin për pajisjen tuaj. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
+    <string name="automation_error_overlay_title">Mbivendosja e automatizimit</string>
+    <string name="automation_error_overlay_body">SD Maid nuk mund të shfaqte mbivendosjen e automatizimit. Kontrolloni lejet dhe provoni të rindizni pajisjen tuaj.</string>
+    <string name="automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
+    <string name="automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+</resources>

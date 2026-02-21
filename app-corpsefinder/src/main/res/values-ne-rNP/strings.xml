@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">पहिले नै हटाइएका एप्सहरूसँग सम्बन्धित डाटा।</string>
+    <string name="corpsefinder_settings_summary">स्क्यान फिल्टरहरू र जोखिम स्तरहरू समायोजन गर्नुहोस्।</string>
+    <string name="corpsefinder_settings_risk_keeper_title">वांछनीय अवशेषहरू समावेश गर्नुहोस्</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">फाइलहरू जुन तपाईं राख्न चाहनुहुन्छ, एप अनइन्स्टल भएको भए पनि, जस्तै तपाईंले खिचेका फोटोहरू वा सिर्जना गरेका ब्याकअपहरू।</string>
+    <string name="corpsefinder_settings_risk_common_title">सामान्य नामहरू समावेश गर्नुहोस्</string>
+    <string name="corpsefinder_settings_risk_common_summary">सामान्यतया प्रयोग हुने नामहरू भएका डाटा, जस्तै \"Notes\" फोल्डर धेरै अज्ञात एप्सहरूको स्वामित्वमा छ।</string>
+    <string name="corpsefinder_watcher_title">अनइन्स्टल वाचर</string>
+    <string name="corpsefinder_watcher_summary">एप हटाउँदा स्वचालित रूपमा अवशेषहरूको लागि स्क्यान गर्नुहोस्।</string>
+    <string name="corpsefinder_watcher_autodelete_title">स्वचालित मेटाउने</string>
+    <string name="corpsefinder_watcher_autodelete_summary">अनइन्स्टल गरिएको एपसँग सम्बन्धित कुनै पनि अवशेषहरू स्वचालित रूपमा मेटाउनुहोस्।</string>
+    <string name="corpsefinder_watcher_notification_delete_action">अवशेषहरू मेटाउनुहोस्</string>
+    <string name="corpsefinder_filter_publicmedia_label">पब्लिक मिडिया</string>
+    <string name="corpsefinder_filter_publicmedia_summary">पब्लिक मिडिया फाइलहरू, जस्तै मेसेन्जर एप्सहरू मार्फत प्राप्त फाइलहरू।</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB संसाधनहरू</string>
+    <string name="corpsefinder_filter_publicobb_summary">अतिरिक्त एप संसाधनहरू, जस्तै गेम एसेटहरू।</string>
+    <string name="corpsefinder_filter_publicdata_label">पब्लिक एप डाटा</string>
+    <string name="corpsefinder_filter_publicdata_summary">गैर-संवेदनशील एप डाटा, जस्तै म्याप क्यासहरू।</string>
+    <string name="corpsefinder_filter_sdcard_label">SD कार्ड</string>
+    <string name="corpsefinder_filter_sdcard_summary">सामान्य पब्लिक भण्डारण, आन्तरिक र बाह्य (जस्तै SD कार्डहरू)।</string>
+    <string name="corpsefinder_filter_privatedata_label">निजी एप डाटा</string>
+    <string name="corpsefinder_filter_privatedata_summary">निजी एप डाटा, जस्तै प्रमाणहरू, एप सेटिङहरू तर ब्राउजर क्यासहरू पनि।</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik क्यास</string>
+    <string name="corpsefinder_filter_dalvik_summary">क्यास गरिएको एप कार्यान्वयन डाटा।</string>
+    <string name="corpsefinder_filter_applib_label">एप लाइब्रेरीहरू</string>
+    <string name="corpsefinder_filter_applib_summary">एप सम्बन्धित लाइब्रेरी डाटा।</string>
+    <string name="corpsefinder_filter_appsource_label">एप स्रोतहरू</string>
+    <string name="corpsefinder_filter_appsource_summary">एप स्थापना डाटा, जहाँ APKs जान्छन्।</string>
+    <string name="corpsefinder_filter_appsource_private_label">निजी एप स्रोतहरू</string>
+    <string name="corpsefinder_filter_appsource_private_summary">प्रतिबन्धित एप स्थापना डाटा, जस्तै सुरक्षित तेस्रो पक्ष एप्सहरू।</string>
+    <string name="corpsefinder_filter_appasec_label">एन्क्रिप्टेड एप संसाधनहरू</string>
+    <string name="corpsefinder_filter_appasec_summary">एन्क्रिप्टेड एप संसाधनहरू, जस्तै गेम एसेटहरू।</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd मोडहरूद्वारा बाह्य भण्डारणमा सारिएको डाटा।</string>
+    <string name="corpsefinder_delete_all_confirmation_message">सबै एप अवशेषहरू मेटाउने?</string>
+    <string name="corpsefinder_owners_label">मालिकहरू</string>
+    <string name="corpsefinder_corpse_hints_label">सूचना</string>
+    <string name="corpsefinder_owner_unknown">अज्ञात मालिक</string>
+    <string name="corpsefinder_corpse_hint_keeper">यो वस्तुमा त्यसको मालिक अनइन्स्टल भएको भएतापनि तपाईंले राख्न चाहनुभएको डेटा हुन सक्छ, जस्तै फोटो वा ब्याकअप।</string>
+    <string name="corpsefinder_corpse_hint_common">यो वस्तुको धेरै सामान्य नाम छ र यो अझै स्थापित एप्सको हुन सक्छ जुन SD Maid लाई थाहा छैन।</string>
+</resources>

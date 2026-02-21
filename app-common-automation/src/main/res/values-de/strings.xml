@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Benutzer mit besonderen Anforderungen an die Barrierefreiheit können diesen Dienst aktivieren, damit SD Maid Aufgaben automatisieren kann, die ansonsten mühsame manuelle Benutzerinteraktionen erfordern würden (z. B. Cache-Löschen).\n\nBeispiel: Wenn Du SD Maid anweist, mehrere Apps zu stoppen, kann SD Maid dies verwenden, um den Einstellungsbildschirm jeder App zu öffnen, nach der Schaltfläche „Stoppen erzwingen“ zu suchen und darauf zu tippen.\n\nSD Maid wird bei der Nutzung dieses Dienstes immer gut sichtbar angezeigt und bietet dem Benutzer eine einfache Möglichkeit, jede Interaktion sofort abzubrechen.\n\nEs werden keine Aktionen ohne vorherige Zustimmung des Benutzers durchgeführt. Dieser Dienst kann jederzeit ohne nachteilige Auswirkungen wieder deaktiviert werden.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagiert mit Deinem Gerät. Eine gleichzeitige Nutzung des Bildschirms ist nicht möglich. Warte bis der Vorgang abgeschlossen ist oder brich ihn ab.</string>
+    <string name="automation_active_title">SD Maid funktioniert</string>
+    <string name="automation_error_no_consent_title">Automatisierungsfehler</string>
+    <string name="automation_error_no_consent_body">Der Bedienungshilfe-Service ist nicht eingerichtet. Schließ die Einrichtung ab und bestätige die Verwendung.</string>
+    <string name="automation_error_not_enabled_title">Dienst ist nicht aktiviert</string>
+    <string name="automation_error_not_enabled_body">Der Barrierefreiheitsdienst ist deaktiviert. Schalte Ihn wieder ein.</string>
+    <string name="automation_error_not_running_title">Der Dienst läuft nicht</string>
+    <string name="automation_error_not_running_body">Der Barrierefreiheitsdienst wird nicht ausgeführt. Versuche das Gerät neu zu starten.</string>
+    <string name="automation_error_screen_unavailable_title">Bildschirm nicht verfügbar</string>
+    <string name="automation_error_screen_unavailable_body">Der Vorgang wurde abgebrochen, da der Bildschirm nicht mehr verfügbar war (z.B. Bildschirm aus oder Sperrbildschirm).</string>
+    <string name="automation_error_compatibility_title">Automatisierungskompatibilität</string>
+    <string name="automation_error_compatibility_body">SD-Maid konnte das Bildschirmlayout nicht ermitteln. Wenn dies wiederholend geschieht, wird Ihre Sprache oder das Setup möglicherweise nicht vollständig unterstützt. Suchen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
+    <string name="automation_error_timeout_title">Automatisierungs-Timeout</string>
+    <string name="automation_error_timeout_body">SD Maid hat nicht alle Schritte innerhalb des Zeitlimits abgeschlossen. Wenn dies weiterhin passiert, könnte es sein, dass ich die App für dein Gerät anpassen muss. Suche nach Updates oder wenden dich an mich, damit ich es beheben kann.</string>
+    <string name="automation_error_overlay_title">Automatisierungs-Overlay</string>
+    <string name="automation_error_overlay_body">SD Maid konnte das Automatisierungs-Overlay nicht anzeigen. Überprüfe die Berechtigungen und versuche dein Gerät neu zu starten.</string>
+    <string name="automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
+    <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Maxsus kirish ehtiyojlari bo\'lgan foydalanuvchilar SD Maid ga aks holda zerikarli qo\'lda foydalanuvchi o\'zaro ta\'sirini talab qiladigan vazifalarni avtomatlashtirish uchun ushbu xizmatni yoqishi mumkin (masalan, kesh o\'chirish).\n\nMisol: Agar siz SD Maid ga bir nechta ilovalarni to\'xtatishni buyursangiz, SD Maid ushbu xizmatdan har bir ilovaning sozlamalar ekranini ochish, \"Majburiy to\'xtatish\" tugmasini topish va uni bosish uchun foydalanishi mumkin.\n\nSD Maid ushbu xizmatdan foydalanganda har doim aniq ko\'rsatadi va foydalanuvchiga har qanday o\'zaro ta\'sirni darhol bekor qilish uchun oson yo\'l taqdim etadi.\n\nOldingi foydalanuvchi roziligi bo\'lmasa hech qanday harakat bajarilmaydi. Ushbu xizmatni istalgan vaqtda salbiy ta\'sirlarsiz qayta o\'chirish mumkin.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid qurilmangiz bilan o\'zaro ta\'sir qilmoqda. Bir vaqtning o\'zida ekrandan foydalanish mumkin emas. Operatsiya tugagunicha kuting yoki uni bekor qiling.</string>
+    <string name="automation_active_title">SD Maid ishlayapti</string>
+    <string name="automation_error_no_consent_title">Avtomatlashtirish xatosi</string>
+    <string name="automation_error_no_consent_body">Kirish xizmati sozlanmagan. Sozlashni tugallang va rozilik bering.</string>
+    <string name="automation_error_not_enabled_title">Xizmat yoqilmagan</string>
+    <string name="automation_error_not_enabled_body">Kirish xizmati o\'chirilgan. Uni qayta yoqing.</string>
+    <string name="automation_error_not_running_title">Xizmat ishlamayapti</string>
+    <string name="automation_error_not_running_body">Kirish xizmati ishlamayapti. Qurilmani qayta ishga tushirishga harakat qiling.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran mavjud emas</string>
+    <string name="automation_error_screen_unavailable_body">Operatsiya bekor qilindi, chunki ekran mavjud bo\'lmadi (masalan, displey o\'chirilgan yoki qulflash ekrani faol).</string>
+    <string name="automation_error_compatibility_title">Avtomatlashtirish mosligi</string>
+    <string name="automation_error_compatibility_body">SD Maid ekran tartibini aniqlay olmadi. Agar bu davom etsa, sizning tilingiz yoki sozlamangiz to\'liq qo\'llab-quvvatlanmasligi mumkin. Yangilanishlarni tekshiring yoki men buni tuzatishim uchun men bilan bog\'laning.</string>
+    <string name="automation_error_timeout_title">Avtomatlashtirish vaqti tugadi</string>
+    <string name="automation_error_timeout_body">SD Maid belgilangan vaqt ichida barcha bosqichlarni bajarmadi. Agar bu davom etsa, men qurilmangiz uchun ilovani sozlashim kerak bo\'lishi mumkin. Yangilanishlarni tekshiring yoki men buni tuzatishim uchun men bilan bog\'laning.</string>
+    <string name="automation_error_overlay_title">Avtomatlashtirish qatlami</string>
+    <string name="automation_error_overlay_body">SD Maid avtomatlashtirish qatlamini ko\'rsata olmadi. Ruxsatlarni tekshiring va qurilmangizni qayta ishga tushirishga harakat qiling.</string>
+    <string name="automation_error_no_settings_title">Sozlamalar ekrani mavjud emas</string>
+    <string name="automation_error_no_settings_body">Ushbu tizim ilovasida sozlamalar ekrani yo\'q. Kirish xizmati orqali kesh tozalash mumkin emas. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
+</resources>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">جستجوگر بقایا</string>
+    <string name="corpsefinder_explanation_short">این داده‌ها مربوط به برنامه‌هایی هستند که قبلاً حذف شده‌اند.</string>
+    <string name="corpsefinder_settings_summary">فیلترهای اسکن و سطوح خطر را تنظیم کنید.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">بقایای دلخواه را شامل کنید</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">فایل‌هایی که ممکن است بخواهید نگه دارید، حتی اگر برنامه حذف شود، مانند عکس‌هایی که گرفته‌اید یا پشتیبان‌گیری‌هایی که ایجاد کرده‌اید.</string>
+    <string name="corpsefinder_settings_risk_common_title"> شامل شدن نام‌های رایج</string>
+    <string name="corpsefinder_settings_risk_common_summary">داده‌هایی با نام‌های متداول، به عنوان مثال، یک پوشه با نام \"Notes\" که توسط برنامه‌های ناشناس زیادی مالکیت دارد.</string>
+    <string name="corpsefinder_watcher_title">مشاهده پاک شده ها</string>
+    <string name="corpsefinder_watcher_summary">به صورت خودکار برای باقی‌مانده‌ها هنگام حذف یک برنامه اسکن کنید.</string>
+    <string name="corpsefinder_watcher_autodelete_title">حذف خودکار</string>
+    <string name="corpsefinder_watcher_autodelete_summary">به صورت خودکار هر گونه باقی‌مانده مرتبط با برنامه حذف شده را پاک کنید.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d باقی‌مانده پس از حذف نصب %2$s پیدا شد.</item>
+        <item quantity="other">%1$d باقی‌مانده پس از حذف نصب %2$s پیدا شد.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">پاکسازی موفقیت‌آمیز (%1$s): %2$s آزاد شد و %3$d مورد حذف گردید.</item>
+        <item quantity="other">پاکسازی موفقیت‌آمیز (%1$s): %2$s آزاد شد و %3$d مورد حذف گردید.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">حذف باقیمانده‌ها</string>
+    <string name="corpsefinder_filter_publicmedia_label">رسانه عمومی</string>
+    <string name="corpsefinder_filter_publicmedia_summary">فایل‌های رسانه‌ای عمومی، به عنوان مثال فایل‌هایی که از طریق برنامه‌های پیام‌رسان دریافت شده‌اند.</string>
+    <string name="corpsefinder_filter_publicobb_label">منابع OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">منابع اضافی برنامه، مانند فایل‌های بازی.</string>
+    <string name="corpsefinder_filter_publicdata_label">داده‌های عمومی برنامه</string>
+    <string name="corpsefinder_filter_publicdata_summary">داده‌های غیر حساس برنامه، مانند کش نقشه‌ها.</string>
+    <string name="corpsefinder_filter_sdcard_label">کارت حافظه</string>
+    <string name="corpsefinder_filter_sdcard_summary">ذخیره‌سازی عمومی، داخلی و خارجی (به عنوان مثال، کارت‌های حافظه).</string>
+    <string name="corpsefinder_filter_privatedata_label">اطلاعات خصوصی برنامه </string>
+    <string name="corpsefinder_filter_privatedata_summary">داده‌های خصوصی برنامه، مانند اعتبارات، تنظیمات برنامه و همچنین کش مرورگر.</string>
+    <string name="corpsefinder_filter_dalvik_label">حافظه پنهان دالویک</string>
+    <string name="corpsefinder_filter_dalvik_summary">داده‌های اجرایی کش شده برنامه.</string>
+    <string name="corpsefinder_filter_artprofiles_label">پروفایل‌های زمان اجرای اندروید</string>
+    <string name="corpsefinder_filter_artprofiles_summary">پروفایل های زمان‌اجرا توسط اندروید برای بهینه‌سازی عملکرد برنامه استفاده می‌شوند.</string>
+    <string name="corpsefinder_filter_applib_label">کتابخانه‌های برنامه</string>
+    <string name="corpsefinder_filter_applib_summary">کتابخانه‌های مربوط به برنامه.</string>
+    <string name="corpsefinder_filter_appsource_label">منابع برنامه</string>
+    <string name="corpsefinder_filter_appsource_summary">داده‌های نصب برنامه، یعنی جایی که فایل‌های APK قرار می‌گیرند.</string>
+    <string name="corpsefinder_filter_appsource_private_label">منابع خصوصی برنامه</string>
+    <string name="corpsefinder_filter_appsource_private_summary">داده‌های نصب برنامه‌های محدود، به عنوان مثال برنامه‌های شخص ثالث محافظت‌شده.</string>
+    <string name="corpsefinder_filter_appasec_label">منابع رمزنگاری شده برنامه</string>
+    <string name="corpsefinder_filter_appasec_summary">منابع رمزنگاری شده برنامه، به عنوان مثال فایل‌های بازی.</string>
+    <string name="corpsefinder_filter_app2sd_summary">داده‌هایی که توسط مودهای App2Sd به حافظه خارجی منتقل شده‌اند.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d باقی‌مانده برنامه حذف شد.</item>
+        <item quantity="other">%d باقی‌مانده برنامه حذف شد.</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d باقی‌مانده برنامه پیدا شد.</item>
+        <item quantity="other">%d باقی‌مانده برنامه پیدا شد.</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">همه باقی‌مانده‌های برنامه حذف شود؟</string>
+    <string name="corpsefinder_owners_label">صاحبان</string>
+    <string name="corpsefinder_corpse_hints_label">اطلاعیه</string>
+    <string name="corpsefinder_owner_unknown">مالک نامشخص</string>
+    <string name="corpsefinder_corpse_hint_keeper">این مورد ممکن است حاوی داده‌هایی باشد که می‌خواهید نگه دارید حتی با اینکه مالک آن حذف شده است، به عنوان مثال، عکس‌ها یا پشتیبان‌ها.</string>
+    <string name="corpsefinder_corpse_hint_common">این مورد دارای نام بسیار رایجی است و ممکن است متعلق به برنامه‌هایی باشد که هنوز نصب هستند و SD Maid آن‌ها را نمی‌شناسد.</string>
+</resources>

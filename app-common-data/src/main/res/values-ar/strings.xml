@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">التخزين العام</string>
+    <string name="area_type_public_media_label">وسائط التطبيق العامة</string>
+    <string name="area_type_public_data_label">بيانات التطبيق العامة</string>
+    <string name="area_type_public_obb_label">موارد التطبيقات العامة</string>
+    <string name="area_type_private_data_label">بيانات التطبيق الخاص</string>
+    <string name="area_type_portable_label">وحدة تخزين محمولة</string>
+</resources>

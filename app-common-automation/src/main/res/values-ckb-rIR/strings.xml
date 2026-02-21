@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Users with special accessibility needs can enable this service to allow SD Maid to automate tasks that would otherwise require tedious manual user interaction (e.g. cache deletion).\n\nنموونە: If you instruct SD Maid to stop multiple apps then SD Maid can use this service to open each apps settings screen, find the \'Force وەستاندن\' button and tap it.\n\nSD Maid will always prominently show when using this service and provide an easy way for the user to cancel any interaction immediately.\n\nنەخێر actions will be performed without prior user approval. This service can be disabled again at any time without adverse effects.</string>
+    <string name="automation_error_no_consent_title">خۆکارmation error</string>
+    <string name="automation_error_no_consent_body">دەسیەڵاتibility service is not set up. تەواو the setup and give consent.</string>
+    <string name="automation_error_not_enabled_title">خزمەتگوزاری isn\'t enabled</string>
+    <string name="automation_error_not_enabled_body">دەسیەڵاتibility service is disabled. Turn it on again.</string>
+    <string name="automation_error_not_running_title">خزمەتگوزاری isn\'t running</string>
+    <string name="automation_error_not_running_body">دەسیەڵاتibility service is not running. Try rebooting the device.</string>
+    <string name="automation_error_compatibility_title">خۆکارmation compatibility</string>
+    <string name="automation_error_timeout_title">خۆکارmation timeout</string>
+    <string name="automation_error_overlay_title">خۆکارmation overlay</string>
+    <string name="automation_error_no_settings_title">ڕێکخستنەکان screen unavailable</string>
+    <string name="automation_error_no_settings_body">This system app has no settings screen. کاش clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
+</resources>

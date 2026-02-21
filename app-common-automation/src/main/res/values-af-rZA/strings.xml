@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Gebruikers met spesiale toeganklikheid behoeftes kan hierdie diens aktiveer om SD Maid toe te laat om take te outomatiseer wat andersins vervelige handmatige gebruiker interaksie sou vereis (bv. kas skrapping).\n\nVoorbeeld: As jy SD Maid opdrag gee om verskeie toepassings te stop dan kan SD Maid hierdie diens gebruik om elke toepassing se instellings skerm oop te maak, die \'Dwing Stop\' knoppie te vind en dit te tik.\n\nSD Maid sal altyd prominent wys wanneer hierdie diens gebruik word en \'n maklike manier vir die gebruiker voorsien om enige interaksie onmiddellik te kanselleer.\n\nGeen aksies sal uitgevoer word sonder voorafgaande gebruiker goedkeuring nie. Hierdie diens kan te eniger tyd weer gedeaktiveer word sonder nadelige gevolge.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interaksie met jou toestel. Dit is nie moontlik om die skerm terselfdertyd te gebruik nie. Wag totdat die bewerking klaar is of kanselleer dit.</string>
+    <string name="automation_active_title">SD Maid werk</string>
+    <string name="automation_error_no_consent_title">Outomatisering fout</string>
+    <string name="automation_error_no_consent_body">Toeganklikheid diens is nie opgestel nie. Voltooi die opstelling en gee toestemming.</string>
+    <string name="automation_error_not_enabled_title">Diens is nie geaktiveer nie</string>
+    <string name="automation_error_not_enabled_body">Toeganklikheid diens is gedeaktiveer. Skakel dit weer aan.</string>
+    <string name="automation_error_not_running_title">Diens loop nie</string>
+    <string name="automation_error_not_running_body">Toeganklikheid diens loop nie. Probeer om die toestel te herlaai.</string>
+    <string name="automation_error_screen_unavailable_title">Skerm nie beskikbaar nie</string>
+    <string name="automation_error_screen_unavailable_body">Die bewerking is gestaak omdat die skerm onbeskikbaar geword het (bv. vertoon af of slotskerm aktief).</string>
+    <string name="automation_error_compatibility_title">Outomatisering versoenbaar</string>
+    <string name="automation_error_compatibility_body">SD Maid kon nie die skerm uitleg uitvind nie. As dit aanhou gebeur, is jou taal of opstelling dalk nie ten volle ondersteun nie. Kyk vir opdaterings of kontak my sodat ek dit kan regmaak.</string>
+    <string name="automation_error_timeout_title">Outomatisering tyduitloop</string>
+    <string name="automation_error_timeout_body">SD Maid het nie alle stappe binne die tydlimiet voltooi nie. As dit aanhou gebeur, moet ek dalk die toepassing vir jou toestel aanpas. Kyk vir opdaterings of kontak my sodat ek dit kan regmaak.</string>
+    <string name="automation_error_overlay_title">Outomatisering oorlegger</string>
+    <string name="automation_error_overlay_body">SD Maid kon nie die outomatisering oorlegger wys nie. Kontroleer toestemmings en probeer om jou toestel te herlaai.</string>
+    <string name="automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
+    <string name="automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
+</resources>

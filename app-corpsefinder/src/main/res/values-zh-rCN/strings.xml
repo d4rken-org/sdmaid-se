@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">卸载残留</string>
+    <string name="corpsefinder_explanation_short">已卸载应用的数据。</string>
+    <string name="corpsefinder_settings_summary">修改扫描过滤器和风险等级。</string>
+    <string name="corpsefinder_settings_risk_keeper_title">显示有用的残留</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">您可能想保留的已卸载应用的文件，例如您拍摄的照片或者创建的备份。</string>
+    <string name="corpsefinder_settings_risk_common_title">包含常见名称</string>
+    <string name="corpsefinder_settings_risk_common_summary">名称过于常见的文件，例如很多应用都会有“Notes”文件夹。</string>
+    <string name="corpsefinder_watcher_title">卸载监视器</string>
+    <string name="corpsefinder_watcher_summary">卸载应用时自动扫描残留数据。</string>
+    <string name="corpsefinder_watcher_autodelete_title">自动删除</string>
+    <string name="corpsefinder_watcher_autodelete_summary">自动删除与已卸载应用相关的残留数据。</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">卸载 %2$s 后发现了 %1$d 项残留数据。</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">清理成功（%1$s）：已释放 %2$s 并删除了 %3$d 个项目。</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">删除残留数据</string>
+    <string name="corpsefinder_filter_publicmedia_label">公共媒体</string>
+    <string name="corpsefinder_filter_publicmedia_summary">公共媒体文件，例如通过通讯应用程序接收的文件。</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB 资源</string>
+    <string name="corpsefinder_filter_publicobb_summary">额外的应用资源，例如游戏资源。</string>
+    <string name="corpsefinder_filter_publicdata_label">公共应用数据</string>
+    <string name="corpsefinder_filter_publicdata_summary">非敏感的应用数据，例如地图缓存。</string>
+    <string name="corpsefinder_filter_sdcard_label">SD 卡</string>
+    <string name="corpsefinder_filter_sdcard_summary">一般公共存储，内部和外部（例如 SD 卡）。</string>
+    <string name="corpsefinder_filter_privatedata_label">私有程序数据</string>
+    <string name="corpsefinder_filter_privatedata_summary">私有程序数据，例如登录凭证、应用设置、浏览器缓存等。</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik 虚拟机缓存</string>
+    <string name="corpsefinder_filter_dalvik_summary">已缓存程序的执行数据。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 配置文件</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 配置文件被安卓系统用于优化应用性能。</string>
+    <string name="corpsefinder_filter_applib_label">程序库</string>
+    <string name="corpsefinder_filter_applib_summary">程序相关的库数据</string>
+    <string name="corpsefinder_filter_appsource_label">程序源</string>
+    <string name="corpsefinder_filter_appsource_summary">程序安装数据，如安装包路径。</string>
+    <string name="corpsefinder_filter_appsource_private_label">私有程序源</string>
+    <string name="corpsefinder_filter_appsource_private_summary">受限应用安装数据，如受保护的第三方应用。</string>
+    <string name="corpsefinder_filter_appasec_label">加密的应用资源</string>
+    <string name="corpsefinder_filter_appasec_summary">加密的应用资源，例如游戏资产</string>
+    <string name="corpsefinder_filter_app2sd_summary">通过 App2Sd 模组移动到外部储存的数据。</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d 应用残留已删除</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">发现了 %d 项应用残留</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">要删除所有的应用残留吗？</string>
+    <string name="corpsefinder_owners_label">所有者</string>
+    <string name="corpsefinder_corpse_hints_label">注意</string>
+    <string name="corpsefinder_owner_unknown">未知所有者</string>
+    <string name="corpsefinder_corpse_hint_keeper">虽然此项的所有者已被卸载，但仍可能包含您想要保留的数据，如照片或备份。</string>
+    <string name="corpsefinder_corpse_hint_common">此项的文件名很常见，有可能属于 SD Maid 不知道的未卸载应用。</string>
+</resources>

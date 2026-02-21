@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">داتای زیادە کە هی هیچ ئەپێکی دیاریکراو نییە.</string>
+    <string name="systemcleaner_filter_logfiles_label">فایلەکانی لۆگی سیستەم</string>
+    <string name="systemcleaner_filter_advertisements_label">فایلەکانی ڕیکلام</string>
+    <string name="systemcleaner_filter_anr_label">هەڵەکانی ANR</string>
+    <string name="systemcleaner_filter_emptydirectories_label">بوخچە بەتاڵەکان</string>
+    <string name="systemcleaner_filter_screenshots_label">وێنەی شاشە</string>
+    <string name="systemcleaner_filter_thumbnails_label">وێنەی بچووک</string>
+    <string name="systemcleaner_filter_tempfiles_label">فایلە کاتییەکانی سیستەم</string>
+    <string name="systemcleaner_filter_lostdir_label">بوخچەکانی LOST.DIR</string>
+    <string name="systemcleaner_filter_linuxfiles_label">فایلەکانی Linux</string>
+    <string name="systemcleaner_filter_macfiles_label">فایلەکانی Mac</string>
+    <string name="systemcleaner_filter_windowsfiles_label">فایلەکانی Windows</string>
+    <string name="systemcleaner_customfilter_label">فلتەری تایبەت</string>
+    <string name="systemcleaner_customfilter_create_action">فلتەری تایبەت دروست بکە</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d هاوتا سڕایەوە</item>
+        <item quantity="other">%d هاوتا سڕانەوە</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d هاوتای فلتەر</item>
+        <item quantity="other">%d هاوتای فلتەر</item>
+    </plurals>
+    <string name="systemcleaner_delete_all_confirmation_message">هەموو ناوەڕۆکی فلتەر بسڕیتەوە؟</string>
+</resources>

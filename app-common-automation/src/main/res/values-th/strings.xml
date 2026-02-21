@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">ผู้ใช้ที่มีความต้องการการเข้าถึงพิเศษสามารถเปิดใช้งานบริการนี้เพื่อให้ SD Maid ทำงานอัตโนมัติในงานที่อาจต้องการการกระทำด้วยตนเองที่น่าเบื่อ (เช่น การลบแคช)\n\nตัวอย่าง: หากคุณสั่งให้ SD Maid หยุดแอพหลายตัว SD Maid สามารถใช้บริการนี้เพื่อเปิดหน้าจอการตั้งค่าของแต่ละแอพ หาปุ่ม \"Force Stop\" และแตะมัน\n\nSD Maid จะแสดงอย่างชัดเจนเสมอเมื่อใช้บริการนี้และให้วิธีง่ายๆ สำหรับผู้ใช้ในการยกเลิกการโต้ตอบทันที\n\nจะไม่มีการดำเนินการใดๆ โดยไม่ได้รับอนุมัติจากผู้ใช้ก่อน บริการนี้สามารถปิดใช้งานอีกครั้งได้ตลอดเวลาโดยไม่มีผลกระทบที่ไม่พึงประสงค์</string>
+    <string name="automation_screenoverlay_explanation">SD Maid กำลังโต้ตอบกับอุปกรณ์ของคุณ ไม่สามารถใช้งานหน้าจอพร้อมกันได้ รอจนกว่าการดำเนินการจะเสร็จสิ้นหรือยกเลิก</string>
+    <string name="automation_active_title">SD Maid กำลังทำงาน</string>
+    <string name="automation_error_no_consent_title">ข้อผิดพลาดการทำงานอัตโนมัติ</string>
+    <string name="automation_error_no_consent_body">บริการความสามารถในการเข้าถึงยังไม่ได้ตั้งค่า ทำการตั้งค่าให้เสร็จสมบูรณ์และให้สิทธิ์</string>
+    <string name="automation_error_not_enabled_title">บริการไม่ได้เปิดใช้งาน</string>
+    <string name="automation_error_not_enabled_body">บริการความสามารถในการเข้าถึงถูกปิดใช้งาน เปิดใช้งานอีกครั้ง</string>
+    <string name="automation_error_not_running_title">บริการไม่ได้ทำงาน</string>
+    <string name="automation_error_not_running_body">บริการความสามารถในการเข้าถึงไม่ได้ทำงาน ลองรีสตาร์ทอุปกรณ์</string>
+    <string name="automation_error_screen_unavailable_title">หน้าจอไม่พร้อมใช้งาน</string>
+    <string name="automation_error_screen_unavailable_body">การดำเนินการถูกยกเลิกเนื่องจากหน้าจอไม่พร้อมใช้งาน (เช่น หน้าจอปิดหรือหน้าจอล็อกเปิดอยู่)</string>
+    <string name="automation_error_compatibility_title">ความเข้ากันได้ของการทำงานอัตโนมัติ</string>
+    <string name="automation_error_compatibility_body">SD Maid ไม่สามารถเข้าใจรูปแบบหน้าจอได้ หากปัญหานี้ยังคงเกิดขึ้นต่อไป ภาษาหรือการตั้งค่าของคุณอาจไม่ได้รับการรองรับอย่างเต็มที่ ตรวจสอบการอัปเดตหรือติดต่อผมเพื่อให้ผมแก้ไข</string>
+    <string name="automation_error_timeout_title">การทำงานอัตโนมัติหมดเวลา</string>
+    <string name="automation_error_timeout_body">SD Maid ไม่สามารถทำขั้นตอนทั้งหมดได้ภายในขอบเวลาที่กำหนด หากปัญหานี้ยังคงเกิดขึ้นต่อไป ผมอาจต้องปรับแอพสำหรับอุปกรณ์ของคุณ ตรวจสอบการอัปเดตหรือติดต่อผมเพื่อให้ผมแก้ไข</string>
+    <string name="automation_error_overlay_title">เลเยอร์การทำงานอัตโนมัติ</string>
+    <string name="automation_error_overlay_body">SD Maid ไม่สามารถแสดงเลเยอร์การทำงานอัตโนมัติได้ ตรวจสอบสิทธิ์และลองรีสตาร์ทอุปกรณ์</string>
+    <string name="automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
+    <string name="automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
+</resources>

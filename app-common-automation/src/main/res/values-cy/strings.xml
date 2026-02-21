@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Gall defnyddwyr ag anghenion hygyrchedd arbennig alluogi\'r gwasanaeth hwn i ganiatáu i SD Maid awtomeiddio tasgau a fyddai fel arall yn gofyn am ryngweithio llafurus gan y defnyddiwr (e.e. dileu storfa).\n\nEnghraifft: Os ydych chi\'n cyfarwyddo SD Maid i stopio apiau lluosog, gall SD Maid ddefnyddio\'r gwasanaeth hwn i agor sgrin gosodiadau pob ap, dod o hyd i\'r botwm \'Gorfodi i Stopio\' a\'i dapio.\n\nBydd SD Maid bob amser yn dangos yn amlwg wrth ddefnyddio\'r gwasanaeth hwn ac yn darparu ffordd hawdd i\'r defnyddiwr ganslo unrhyw ryngweithiad ar unwaith.\n\nNi fydd unrhyw weithredoedd yn cael eu cyflawni heb gymeradwyaeth flaenorol gan y defnyddiwr. Gellir analluogi\'r gwasanaeth hwn eto ar unrhyw adeg heb effeithiau niweidiol.</string>
+    <string name="automation_screenoverlay_explanation">Mae SD Maid yn rhyngweithio â\'ch dyfais. Nid yw\'n bosibl defnyddio\'r sgrin ar yr un pryd. Arhoswch nes bod y weithred wedi\'i chwblhau neu ei chanslo.</string>
+    <string name="automation_active_title">Mae SD Maid yn gweithio</string>
+    <string name="automation_error_no_consent_title">Gwall awtomeiddio</string>
+    <string name="automation_error_no_consent_body">Nid yw\'r gwasanaeth hygyrchedd wedi\'i sefydlu. Cwblhewch y gosodiad a rhoi caniatâd.</string>
+    <string name="automation_error_not_enabled_title">Nid yw\'r gwasanaeth wedi\'i alluogi</string>
+    <string name="automation_error_not_enabled_body">Mae\'r gwasanaeth hygyrchedd wedi\'i analluogi. Trowch e ymlaen eto.</string>
+    <string name="automation_error_not_running_title">Nid yw\'r gwasanaeth yn rhedeg</string>
+    <string name="automation_error_not_running_body">Nid yw\'r gwasanaeth hygyrchedd yn rhedeg. Ceisiwch ailgychwyn y ddyfais.</string>
+    <string name="automation_error_screen_unavailable_title">Sgrin ddim ar gael</string>
+    <string name="automation_error_screen_unavailable_body">Cafodd y weithred ei hatal oherwydd bod y sgrin wedi dod yn anhygyrch (e.e. arddangos i ffwrdd neu sgrin clo\'n weithredol).</string>
+    <string name="automation_error_compatibility_title">Cydnawsedd awtomeiddio</string>
+    <string name="automation_error_compatibility_body">Ni allai SD Maid ddeall cynllun y sgrin. Os yw hyn yn parhau i ddigwydd, efallai nad yw eich iaith neu osodiad yn cael ei gefnogi\'n llawn. Gwiriwch am ddiweddariadau neu cysylltwch â mi fel y gallaf ei drwsio.</string>
+    <string name="automation_error_timeout_title">Terfyn amser awtomeiddio</string>
+    <string name="automation_error_timeout_body">Ni chwblhaodd SD Maid yr holl gamau o fewn y terfyn amser. Os yw hyn yn parhau i ddigwydd, efallai y bydd angen i mi addasu\'r ap ar gyfer eich dyfais. Gwiriwch am ddiweddariadau neu cysylltwch â mi fel y gallaf ei drwsio.</string>
+    <string name="automation_error_overlay_title">Troshaen awtomeiddio</string>
+    <string name="automation_error_overlay_body">Ni allai SD Maid ddangos y droshaen awtomeiddio. Gwiriwch ganiatadau a cheisiwch ailgychwyn eich dyfais.</string>
+    <string name="automation_error_no_settings_title">Sgrin gosodiadau ddim ar gael</string>
+    <string name="automation_error_no_settings_body">Nid oes gan yr ap system hwn sgrin gosodiadau. Nid yw clirio storfa trwy wasanaeth hygyrchedd yn bosibl. Eithrio fe i gyflymu clirio storfa.</string>
+</resources>

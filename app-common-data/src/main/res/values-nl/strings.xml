@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Openbare opslag</string>
+    <string name="area_type_public_media_label">Openbare app-media</string>
+    <string name="area_type_public_data_label">Openbare app-gegevens</string>
+    <string name="area_type_public_obb_label">Openbare app-bronnen</string>
+    <string name="area_type_private_data_label">Privé app-gegevens</string>
+    <string name="area_type_portable_label">Draagbare opslag</string>
+</resources>

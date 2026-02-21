@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data som tillhör redan borttagna appar.</string>
+    <string name="corpsefinder_settings_summary">Justera skanningsfilter och risknivåer.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Inkludera önskvärda kvarlevor</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Filer som du kanske vill behålla, även om appen är avinstallerad, t.ex. foton du tagit eller säkerhetskopior du skapat.</string>
+    <string name="corpsefinder_settings_risk_common_title">Inkludera vanliga namn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data med vanligt använda namn, t.ex. en mapp \"Anteckningar\" ägs av för många okända appar.</string>
+    <string name="corpsefinder_watcher_title">Avinstallationsövervakare</string>
+    <string name="corpsefinder_watcher_summary">Skanna automatiskt efter kvarlevor när en app tas bort.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatisk borttagning</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Ta automatiskt bort alla kvarlevor relaterade till den avinstallerade appen.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d kvarleva hittades efter avinstallation av %2$s.</item>
+        <item quantity="other">%1$d kvarlevor hittades efter avinstallation av %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Rensning lyckades (%1$s): Frigjorde %2$s och tog bort %3$d objekt.</item>
+        <item quantity="other">Rensning lyckades (%1$s): Frigjorde %2$s och tog bort %3$d objekt.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Ta bort kvarlevor</string>
+    <string name="corpsefinder_filter_publicmedia_label">Offentlig media</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Offentliga mediafiler, t.ex. filer mottagna via messenger-appar.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB-resurser</string>
+    <string name="corpsefinder_filter_publicobb_summary">Ytterligare appresurser, t.ex. speltillgångar.</string>
+    <string name="corpsefinder_filter_publicdata_label">Offentlig appdata</string>
+    <string name="corpsefinder_filter_publicdata_summary">Icke-känslig appdata, t.ex. kartcache.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD-kort</string>
+    <string name="corpsefinder_filter_sdcard_summary">Allmän offentlig lagring, intern och extern (t.ex. SD-kort).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privat appdata</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privat appdata, t.ex. referenser, appinställningar men även webbläsarcache.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik-cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Cachad appkörningsdata.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiler</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiler används av Android för att optimera apprestanda.</string>
+    <string name="corpsefinder_filter_applib_label">Appbibliotek</string>
+    <string name="corpsefinder_filter_applib_summary">Apprelaterad biblioteksdata.</string>
+    <string name="corpsefinder_filter_appsource_label">Appkällor</string>
+    <string name="corpsefinder_filter_appsource_summary">Appinstallationsdata, dvs. där APK:er placeras.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privata appkällor</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Begränsad appinstallationsdata, t.ex. skyddade tredjepartsappar.</string>
+    <string name="corpsefinder_filter_appasec_label">Krypterade appresurser</string>
+    <string name="corpsefinder_filter_appasec_summary">Krypterade appresurser, t.ex. speltillgångar.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data flyttad till extern lagring av App2Sd-modifikationer.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d appkvarleva borttagen</item>
+        <item quantity="other">%d appkvarlevor borttagna</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d appkvarleva upptäckt</item>
+        <item quantity="other">%d appkvarlevor upptäckta</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Ta bort alla appkvarlevor?</string>
+    <string name="corpsefinder_owners_label">Ägare</string>
+    <string name="corpsefinder_corpse_hints_label">Observera</string>
+    <string name="corpsefinder_owner_unknown">Okänd ägare</string>
+    <string name="corpsefinder_corpse_hint_keeper">Detta objekt kan innehålla data du vill behålla trots att dess ägare är avinstallerad, t.ex. foton eller säkerhetskopior.</string>
+    <string name="corpsefinder_corpse_hint_common">Detta objekt har ett mycket vanligt namn och kan tillhöra fortfarande installerade appar som SD Maid inte känner till.</string>
+</resources>

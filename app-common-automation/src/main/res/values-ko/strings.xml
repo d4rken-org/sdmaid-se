@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">접근성 기능이 필요한 사용자는 이 서비스를 허용하여 일일이 수동으로 작동시켜야 하는 (캐시 삭제 같은) 기능들을 자동화할 수 있습니다.\n\n예를 들어 SD Maid가 여러 개의 앱을 중지해야 할 경우, SD Maid는 이 서비스를 사용하여 각 앱의 설정 화면을 띄운 뒤 강제 중지 버튼을 찾아 자동으로 누르게 됩니다.\n\nSD Maid는 이 기능을 사용할 때마다 이용자에게 이 기능을 실행할지 반드시 물어볼 것이며, 사용자는 언제든지 서비스 동작을 쉽게 중지할 수 있습니다.\n\n사용자의 동의 없이는 어떠한 동작도 실행되지 않습니다. 사용자는 큰 문제 없이 언제든지 이 기능을 끌 수 있습니다.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid가 화면과 상호작용하고 있습니다. 사용자가 지금 화면을 사용할 수 없습니다. 작업이 끝날 때까지 기다리거나 작업을 취소하세요.</string>
+    <string name="automation_active_title">SD Maid가 동작하고 있습니다</string>
+    <string name="automation_error_no_consent_title">자동화 오류</string>
+    <string name="automation_error_no_consent_body">접근성 서비스가 셋업되지 않았습니다. 셋업을 완료하고 사용에 동의해주세요.</string>
+    <string name="automation_error_not_enabled_title">서비스를 사용할 수 없습니다</string>
+    <string name="automation_error_not_enabled_body">접근성 서비스가 비활성화 되었습니다. 설정에서 다시 켜주세요.</string>
+    <string name="automation_error_not_running_title">서비스는 실행 중이 아닙니다</string>
+    <string name="automation_error_not_running_body">접근성 서비스가 실행중이지 않습니다. 기기를 재부팅해보세요.</string>
+    <string name="automation_error_screen_unavailable_title">화면을 볼 수 없음</string>
+    <string name="automation_error_screen_unavailable_body">화면을 볼 수 없게 되어 작업이 중단되었습니다(예: 디스플레이가 꺼져 있거나 잠금 화면이 활성화되어있음).</string>
+    <string name="automation_error_compatibility_title">자동화 호환성</string>
+    <string name="automation_error_compatibility_body">SD Maid가 화면 레이아웃을 파악할 수 없었습니다. 이 문제가 계속 발생하면 사용하시는 언어나 설정이 완전히 지원되지 않을 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_timeout_title">자동화 시간 초과</string>
+    <string name="automation_error_timeout_body">SD Maid가 시간 제한 내에 모든 단계를 완료하지 못했습니다. 이 문제가 계속 발생하면 사용자의 기기에 맞게 앱을 조정해야 할 수 있습니다. 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
+    <string name="automation_error_overlay_title">자동화 오버레이</string>
+    <string name="automation_error_overlay_body">SD Maid가 자동화 오버레이를 표시할 수 없었습니다. 권한을 확인하고 기기를 재부팅해 보세요.</string>
+    <string name="automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
+    <string name="automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">A speciális kisegítő lehetőségeket igénylő felhasználók engedélyezhetik ezt a szolgáltatást, hogy az SD Maid automatizálja azokat a feladatokat, amelyek egyébként fárasztó manuális felhasználói beavatkozást igényelnének (pl. a gyorsítótár törlése).\n\nPélda: Ha utasítja az SD Maid szolgáltatást több alkalmazás leállítására, akkor az SD Maid ezt használhatja szolgáltatást az egyes alkalmazások beállítási képernyőjének megnyitásához, keresse meg a \"Kényszerített leállítás\" gombot, és kattintson rá.\n\nAz SD Maid mindig jól látható lesz, amikor ezt a szolgáltatást használja, és egyszerű módot kínál a felhasználónak az interakció azonnali megszakítására.\n\nNem műveleteket a felhasználó előzetes jóváhagyása nélkül hajtják végre. Ez a szolgáltatás bármikor újra letiltható káros hatások nélkül.</string>
+    <string name="automation_screenoverlay_explanation">Az SD Maid kölcsönhatásba lép az eszközzel. A képernyőt nem lehet egyszerre használni. Várja meg, amíg a művelet befejeződik, vagy törölje azt.</string>
+    <string name="automation_active_title">Az SD Maid működik</string>
+    <string name="automation_error_no_consent_title">Automatizálási hiba</string>
+    <string name="automation_error_no_consent_body">A kisegítő lehetőségek szolgáltatása nincs beállítva. Fejezze be a beállítást és adja meg a hozzájárulását.</string>
+    <string name="automation_error_not_enabled_title">A szolgáltatás nincs engedélyezve</string>
+    <string name="automation_error_not_enabled_body">A kisegítő lehetőségek szolgáltatása le van tiltva. Kapcsolja be újra.</string>
+    <string name="automation_error_not_running_title">A szolgáltatás nem fut</string>
+    <string name="automation_error_not_running_body">A kisegítő lehetőségek szolgáltatás nem fut. Próbálja újraindítani az eszközt.</string>
+    <string name="automation_error_screen_unavailable_title">A képernyő nem elérhető</string>
+    <string name="automation_error_screen_unavailable_body">A művelet megszakadt, mert a képernyő nem volt elérhető (pl. a kijelző kikapcsolt vagy a záróképernyő aktív).</string>
+    <string name="automation_error_compatibility_title">Automatizálási kompatibilitás</string>
+    <string name="automation_error_compatibility_body">Az SD Maid nem tudott rájönni a képernyő elrendezésére. Ha ez folyamatosan előfordul, akkor lehet, hogy a te nyelved vagy beállításod nem támogatott teljes mértékben. Ellenőrizd a frissítéseket, vagy keress meg engem, hogy megjavíthassam.</string>
+    <string name="automation_error_timeout_title">Automatizálási időtúllépés</string>
+    <string name="automation_error_timeout_body">Az SD Maid nem fejezett be minden lépést az időkorláton belül. Ha ez továbbra is előfordul, lehet, hogy módosítanom kell az alkalmazást az eszközéhez. Ellenőrizze a frissítéseket vagy lépjen kapcsolatba velem, hogy meg tudjam javítani.</string>
+    <string name="automation_error_overlay_title">Automatizálási átfedés</string>
+    <string name="automation_error_overlay_body">Az SD Maid nem tudta megjeleníteni az automatizálási átfedést. Ellenőrizze az engedélyeket és próbálja meg újraindítani az eszközt.</string>
+    <string name="automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
+    <string name="automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
+</resources>

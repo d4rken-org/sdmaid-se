@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Hilanîna giştî</string>
+    <string name="area_type_public_media_label">Medyaya giştî ya sepanan</string>
+    <string name="area_type_public_data_label">Daneyên giştî yên sepanan</string>
+    <string name="area_type_public_obb_label">Çavkaniyên giştî yên sepanan</string>
+    <string name="area_type_private_data_label">Daneyên taybet ên sepanan</string>
+    <string name="area_type_portable_label">Hilanîna guhêzbar</string>
+</resources>

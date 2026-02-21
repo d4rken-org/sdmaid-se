@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Нийтийн хадгалах сан</string>
+    <string name="area_type_public_media_label">Нийтийн аппликешний медиа</string>
+    <string name="area_type_public_data_label">Нийтийн аппликешний өгөгдөл</string>
+    <string name="area_type_public_obb_label">Нийтийн аппликешний нөөцүүд</string>
+    <string name="area_type_private_data_label">Хувийн аппликешний өгөгдөл</string>
+    <string name="area_type_portable_label">Зөөврийн хадгалах сан</string>
+</resources>

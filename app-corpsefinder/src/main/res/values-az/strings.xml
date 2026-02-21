@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">QalıqAxtaran</string>
+    <string name="corpsefinder_explanation_short">Artıq silinmiş tətbiqlərə aid məlumatlar.</string>
+    <string name="corpsefinder_settings_summary">Skan süzgəclərini və risk səviyyələrini tənzimləyin.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Arzuolunan qalıqları daxil edin</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Tətbiq silinsə belə saxlamaq istəyə biləcəyiniz fayllar, məsələn, çəkdiyiniz şəkillər və ya yaratdığınız yedekləmələr.</string>
+    <string name="corpsefinder_settings_risk_common_title">Ümumi adları daxil edin</string>
+    <string name="corpsefinder_settings_risk_common_summary">Təz-təz istifadə edilən adları olan məlumatlar, məsələn, \"Qeydlər\" qovluğu çox sayıda naməlum tətbiqlərə məxsusdur.</string>
+    <string name="corpsefinder_watcher_title">Silmə izləyicisi</string>
+    <string name="corpsefinder_watcher_summary">Tətbiq silindikdə qalıqları avtomatik skan et.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Avtomatik silmə</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Silinmiş tətbiqlə bağlı bütün qalıqları avtomatik sil.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s silindikdən sonra %1$d qalıq tapıldı.</item>
+        <item quantity="other">%2$s silindikdən sonra %1$d qalıq tapıldı.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Təmizlik uğurlu (%1$s): %2$s azad edildi və %3$d element silindi.</item>
+        <item quantity="other">Təmizlik uğurlu (%1$s): %2$s azad edildi və %3$d element silindi.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Qalıqları sil</string>
+    <string name="corpsefinder_filter_publicmedia_label">İctimai media</string>
+    <string name="corpsefinder_filter_publicmedia_summary">İctimai media faylları, məsələn, mesajlaşma tətbiqləri vasitəsilə alınan fayllar.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB resursları</string>
+    <string name="corpsefinder_filter_publicobb_summary">Əlavə tətbiq resursları, məsələn, oyun faylları.</string>
+    <string name="corpsefinder_filter_publicdata_label">İctimai tətbiq məlumatları</string>
+    <string name="corpsefinder_filter_publicdata_summary">Həssas olmayan tətbiq məlumatları, məsələn, xəritə keşləri.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kart</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ümumi ictimai yaddaş, daxili və xarici (məs. SD kartlar).</string>
+    <string name="corpsefinder_filter_privatedata_label">Şəxsi tətbiq məlumatları</string>
+    <string name="corpsefinder_filter_privatedata_summary">Məxfi tətbiq məlumatları, məsələn, giriş məlumatları, tətbiq parametrləri, həmçinin brauzer keşləri.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik keşi</string>
+    <string name="corpsefinder_filter_dalvik_summary">Tətbiqin keşlənmiş icra məlumatları.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilləri</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profilləri Android tərəfindən tətbiq məhsuldarlığını optimallaşdırmaq üçün istifadə olunur.</string>
+    <string name="corpsefinder_filter_applib_label">Tətbiq kitabxanaları</string>
+    <string name="corpsefinder_filter_applib_summary">Tətbiqlə bağlı kitabxana məlumatları.</string>
+    <string name="corpsefinder_filter_appsource_label">Tətbiq mənbələri</string>
+    <string name="corpsefinder_filter_appsource_summary">Tətbiq quraşdırma məlumatları, yəni APK-ların yerində getdiyi yer.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Məxfi tətbiq mənbələri</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Məhdudlaşdırılmış tətbiq quraşdırma məlumatları, məsələn, qorunan üçüncü tərəf tətbiqləri.</string>
+    <string name="corpsefinder_filter_appasec_label">Şifrələnmiş tətbiq resursları</string>
+    <string name="corpsefinder_filter_appasec_summary">Şifrələnmiş tətbiq resursları, məsələn, oyun aktivləri.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2SD modları tərəfindən xarici yaddaşa köçürülən məlumatlar.</string>
+    <string name="corpsefinder_filter_app2sd_label">Tətbiqlərin Sd karta köçürülməsi</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d tətbiq qalığı silindi</item>
+        <item quantity="other">%d tətbiq qalığı silindi</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d tətbiq qalığı aşkar edildi</item>
+        <item quantity="other">%d tətbiq qalığı aşkar edildi</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Bütün tətbiq qalıqları silinsinmi?</string>
+    <string name="corpsefinder_owners_label">Sahiblər</string>
+    <string name="corpsefinder_corpse_hints_label">Bildiriş</string>
+    <string name="corpsefinder_owner_unknown">Naməlum sahib</string>
+    <string name="corpsefinder_corpse_hint_keeper">Bu element sahıbi silinməsinə baxmayaraq saxlamaq istəyə biləcəyiniz məlumatları əhatə edə bilər, məsələn, şəkillər və ya yedekləmələr.</string>
+    <string name="corpsefinder_corpse_hint_common">Bu elementin çox ümumi adı var və SD Maid-in tanımadığı hələ də quraşdırılmış tətbiqlərə aid ola bilər.</string>
+</resources>

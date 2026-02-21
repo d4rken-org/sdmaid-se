@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Tragač ostataka</string>
+    <string name="corpsefinder_explanation_short">Podaci koji pripadaju već uklonjenim aplikacijama.</string>
+    <string name="corpsefinder_settings_summary">Prilagodite filtere skeniranja i razine rizika.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Uključi poželjne ostatke</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Datoteke koje biste možda željeli zadržati, čak i ako je aplikacija deinstalirana, npr. fotografije koje ste snimili ili sigurnosne kopije koje ste izradili.</string>
+    <string name="corpsefinder_settings_risk_common_title">Uključi uobičajena imena</string>
+    <string name="corpsefinder_settings_risk_common_summary">Podaci sa često korištenim imenima, npr. mapu \"Notes\" koristi previše nepoznatih aplikacija.</string>
+    <string name="corpsefinder_watcher_title">Praćenje deinstalacija</string>
+    <string name="corpsefinder_watcher_summary">Automatski skenirajte ostatke nakon uklanjanja aplikacije.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatsko brisanje</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatski obrišite sve ostatke povezane s deinstaliranom aplikacijom.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d ostatak pronađen nakon deinstaliranja %2$s.</item>
+        <item quantity="few">%1$d ostatka pronađena nakon deinstaliranja %2$s.</item>
+        <item quantity="other">%1$d ostataka pronađeno nakon deinstaliranja %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavka je uklonjena.</item>
+        <item quantity="few">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavke su uklonjene.</item>
+        <item quantity="other">Čišćenje uspješno (%1$s): %2$s je oslobođeno i %3$d stavki je uklonjeno.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Izbriši ostatke</string>
+    <string name="corpsefinder_filter_publicmedia_label">Javni mediji</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Javne medijske datoteke, npr. datoteke primljene putem aplikacija za slanje poruka.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB resursi</string>
+    <string name="corpsefinder_filter_publicobb_summary">Dodatni resursi aplikacije, npr. podaci igara.</string>
+    <string name="corpsefinder_filter_publicdata_label">Javni podaci aplikacije</string>
+    <string name="corpsefinder_filter_publicdata_summary">Neosjetljivi podaci aplikacije, npr. predmemorija karata.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kartica</string>
+    <string name="corpsefinder_filter_sdcard_summary">Opća javna pohrana, unutarnja i vanjska (npr. SD kartice).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privatni podaci aplikacije</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privatni podaci aplikacije, npr. vjerodajnice, postavke aplikacije, ali i predmemorija preglednika.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik predmemorija</string>
+    <string name="corpsefinder_filter_dalvik_summary">Predmemorirani podaci o izvršavanju aplikacije.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profili</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android koristi ART profile za optimizaciju performansi aplikacija.</string>
+    <string name="corpsefinder_filter_applib_label">Biblioteke aplikacije</string>
+    <string name="corpsefinder_filter_applib_summary">Podaci biblioteka vezani uz aplikaciju.</string>
+    <string name="corpsefinder_filter_appsource_label">Izvori aplikacije</string>
+    <string name="corpsefinder_filter_appsource_summary">Podaci o instalaciji aplikacije, tj. kamo idu APK-ovi.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privatni izvori aplikacije</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Podaci o ograničenoj instalaciji aplikacije, npr. zaštićene aplikacije trećih strana.</string>
+    <string name="corpsefinder_filter_appasec_label">Šifrirani resursi aplikacije</string>
+    <string name="corpsefinder_filter_appasec_summary">Šifrirani resursi aplikacije, npr. podaci igara.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Podaci premješteni u vanjsku pohranu putem App2SD modova.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ostatak aplikacija izbrisan</item>
+        <item quantity="few">%d ostatka aplikacija izbrisana</item>
+        <item quantity="other">%d ostataka aplikacija izbrisano</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ostatak aplikacija otkriven</item>
+        <item quantity="few">%d ostatka aplikacija otkrivena</item>
+        <item quantity="other">%d ostataka aplikacija otkrivena</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Izbrisati sve ostatke aplikacija?</string>
+    <string name="corpsefinder_owners_label">Vlasnici</string>
+    <string name="corpsefinder_corpse_hints_label">Napomena</string>
+    <string name="corpsefinder_owner_unknown">Nepoznat vlasnik</string>
+    <string name="corpsefinder_corpse_hint_keeper">Ova stavka može sadržavati podatke koje želite zadržati iako je njen vlasnik deinstaliran, npr. fotografije ili sigurnosne kopije.</string>
+    <string name="corpsefinder_corpse_hint_common">Ova stavka ima vrlo uobičajeno ime i mogla bi pripadati još instaliranim aplikacijama koje SD Maid ne poznaje.</string>
+</resources>

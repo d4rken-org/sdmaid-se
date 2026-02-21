@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Ang mga user na may special accessibility needs ay maaaring mag-enable ng service na ito para payagan ang SD Maid na mag-automate ng mga task na sa ibang paraan ay mangangailangan ng nakakagudang manual user interaction (hal. cache deletion).
+
+Halimbawa: Kung ipag-utos ninyo sa SD Maid na tigilin ang maraming app, maaaring gamitin ng SD Maid ang service na ito para buksan ang settings screen ng bawat app, hanapin ang \'Force Stop\' button at i-tap ito.
+
+Palaging malinaw na ipapakita ng SD Maid kung kailan ginagamit ang service na ito at magbibigay ng madaling paraan para sa user na agad na kanselahin ang anumang interaction.
+
+Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disable ulit ang service na ito anumang oras nang walang masamang epekto.</string>
+    <string name="automation_screenoverlay_explanation">Nakikipag-ugnayan ang SD Maid sa inyong device. Hindi maaaring gamitin ang screen sa parehong oras. Maghintay hanggang matapos ang operasyon o kanselahin ito.</string>
+    <string name="automation_active_title">Tumatrabaho ang SD Maid</string>
+    <string name="automation_error_no_consent_title">Error sa automation</string>
+    <string name="automation_error_no_consent_body">Hindi naka-set up ang accessibility service. Kumpletuhin ang setup at magbigay ng consent.</string>
+    <string name="automation_error_not_enabled_title">Hindi naka-enable ang service</string>
+    <string name="automation_error_not_enabled_body">Naka-disable ang accessibility service. Buksan ito ulit.</string>
+    <string name="automation_error_not_running_title">Hindi tumatakbo ang service</string>
+    <string name="automation_error_not_running_body">Hindi tumatakbo ang accessibility service. Subukang i-reboot ang device.</string>
+    <string name="automation_error_screen_unavailable_title">Hindi available ang screen</string>
+    <string name="automation_error_screen_unavailable_body">Ang operasyon ay na-abort dahil naging hindi available ang screen (hal. display off o lockscreen active).</string>
+    <string name="automation_error_compatibility_title">Pagkakatugma ng automation</string>
+    <string name="automation_error_compatibility_body">Hindi na-figure out ng SD Maid ang screen layout. Kung patuloy itong mangyayari, maaaring hindi ganap na supported ang inyong wika o setup. Mag-check ng mga update o makipag-ugnayan sa akin para maayos ko ito.</string>
+    <string name="automation_error_timeout_title">Nag-timeout ang automation</string>
+    <string name="automation_error_timeout_body">Hindi nakumpleto ng SD Maid ang lahat ng hakbang sa loob ng time limit. Kung patuloy itong mangyayari, maaaring kailangan kong mag-adjust ng app para sa inyong device. Mag-check ng mga update o makipag-ugnayan sa akin para maayos ko ito.</string>
+    <string name="automation_error_overlay_title">Overlay ng automation</string>
+    <string name="automation_error_overlay_body">Hindi naipakita ng SD Maid ang automation overlay. I-check ang mga permission at subukang i-reboot ang inyong device.</string>
+    <string name="automation_error_no_settings_title">Hindi available ang Settings screen</string>
+    <string name="automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
+</resources>

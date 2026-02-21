@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Корисници со посебни потреби за пристапност може да ја овозможат оваа услуга за да му дозволат на SD Maid да автоматизира задачи кои инаку би барале досадна рачна интеракција (пр. бришење кеш).\n\nПример: Ако му наредите на SD Maid да запре повеќе апликации, тогаш SD Maid може да ја користи оваа услуга за отворање на екранот за поставки на секоја апликација, наоѓање на копчето \'Принудно запирање\' и допирање.\n\nSD Maid секогаш видливо ќе покажува кога ја користи оваа услуга и ќе обезбеди лесен начин за корисникот да ја откаже интеракцијата веднаш.\n\nНиедна акција нема да биде извршена без претходно одобрување од корисникот. Оваа услуга може да се исклучи повторно во секое време без негативни последици.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid комуницира со вашиот уред. Не е можно да го користите екранот истовремено. Почекајте додека операцијата не заврши или откажете ја.</string>
+    <string name="automation_active_title">SD Maid работи</string>
+    <string name="automation_error_no_consent_title">Грешка во автоматизацијата</string>
+    <string name="automation_error_no_consent_body">Услугата за пристапност не е поставена. Завршете ја поставката и дајте согласност.</string>
+    <string name="automation_error_not_enabled_title">Услугата не е вклучена</string>
+    <string name="automation_error_not_enabled_body">Услугата за пристапност е исклучена. Вклучете ја повторно.</string>
+    <string name="automation_error_not_running_title">Услугата не работи</string>
+    <string name="automation_error_not_running_body">Услугата за пристапност не работи. Обидете се да го рестартирате уредот.</string>
+    <string name="automation_error_screen_unavailable_title">Екранот е недостапен</string>
+    <string name="automation_error_screen_unavailable_body">Операцијата е прекината бидејќи екранот стана недостапен (пр. екранот е исклучен или заклучен).</string>
+    <string name="automation_error_compatibility_title">Компатибилност на автоматизацијата</string>
+    <string name="automation_error_compatibility_body">SD Maid не можеше да го одреди распоредот на екранот. Ако ова продолжи да се случува, вашиот јазик или поставување може да не е целосно поддржан. Проверете за ажурирања или контактирајте ме за да го поправам.</string>
+    <string name="automation_error_timeout_title">Истек на автоматизацијата</string>
+    <string name="automation_error_timeout_body">SD Maid не ги заврши сите чекори во временскиот рок. Ако ова продолжи да се случува, можеби ќе треба да ја прилагодам апликацијата за вашиот уред. Проверете за ажурирања или контактирајте ме за да го поправам.</string>
+    <string name="automation_error_overlay_title">Преклопување на автоматизацијата</string>
+    <string name="automation_error_overlay_body">SD Maid не можеше да го прикаже преклопувањето за автоматизација. Проверете ги дозволите и обидете се да го рестартирате уредот.</string>
+    <string name="automation_error_no_settings_title">Екранот за поставки е недостапен</string>
+    <string name="automation_error_no_settings_body">Оваа системска апликација нема екран за поставки. Бришење кеш преку услуга за пристапност не е можно. Исклучете ја за побрзо бришење на кеш.</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="systemcleaner_explanation_short">Тодорхой аппликешнд хамаарахгүй илүүдэл өгөгдөл.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d тааралт устгагдсан</item>
+        <item quantity="other">%d тааралт устгагдсан</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d шүүлтүүрийн тааралт</item>
+        <item quantity="other">%d шүүлтүүрийн тааралт</item>
+    </plurals>
+    <string name="systemcleaner_filter_logfiles_label">Системийн лог файлууд</string>
+    <string name="systemcleaner_filter_logfiles_summary">Системийн болон системийн үйлчилгээний лог файлууд (жишээ нь *.log) янз бүрийн байршилд.</string>
+    <string name="systemcleaner_filter_advertisements_label">Зарын файлууд</string>
+    <string name="systemcleaner_filter_advertisements_summary">Зар сурталчилгаанд зориулж эсвэл зар сурталчилгаагаар үүсгэгдсэн файлууд.</string>
+    <string name="systemcleaner_filter_anr_label">ANR алдаанууд</string>
+    <string name="systemcleaner_filter_anr_summary">\"Аппликешн хариу өгөхгүй байна\" үйл явдлуудын мөрөөс.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Хоосон фолдерууд</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Төхөөрөмж даяарх хоосон фолдерууд. Давхар фолдерууд олон удаагийн ажиллагаа шаардаж болно.</string>
+    <string name="systemcleaner_filter_thumbnails_label">Өнгөц зургууд</string>
+    <string name="systemcleaner_filter_thumbnails_summary">Зураг болон видеоны кэшлэгдсэн урьдчилсан харагдац.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Түр зуурын системийн файлууд</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Системтэй холбоотой түр файлууд, ихэвчлэн идэвхтэй үйлдлүүдийн богино хугацааны кэш.</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Бүх шүүлтүүрийн агуулгыг устгах уу?</string>
+    <string name="systemcleaner_customfilter_label">Тусгай шүүлтүүр</string>
+    <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
+</resources>

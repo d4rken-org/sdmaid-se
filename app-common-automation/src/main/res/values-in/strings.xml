@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Pengguna dengan kebutuhan aksesibilitas khusus dapat mengaktifkan layanan ini untuk memungkinkan SD Maid mengotomatiskan tugas yang sebaliknya memerlukan interaksi manual pengguna yang membosankan (misalnya penghapusan cache).\n\nContoh: Jika Anda menginstruksikan SD Maid untuk menghentikan beberapa aplikasi, maka SD Maid dapat menggunakan layanan ini untuk membuka setiap layar pengaturan aplikasi, menemukan tombol \'Paksa Berhenti\' dan mengetuknya.\n\nSD Maid akan selalu menampilkan secara menonjol saat menggunakan layanan ini dan menyediakan cara mudah bagi pengguna untuk membatalkan interaksi apa pun dengan segera.\n\nTidak ada tindakan yang akan dilakukan tanpa persetujuan pengguna sebelumnya. Layanan ini dapat dinonaktifkan kembali kapan saja tanpa efek samping.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid sedang berinteraksi dengan perangkat Anda. Tidak memungkinkan untuk menggunakan layar secara bersamaan. Tunggu sampai operasi selesai atau dibatalkan.</string>
+    <string name="automation_active_title">SD Maid sedang bekerja</string>
+    <string name="automation_error_no_consent_title">Kesalahan otomatisasi</string>
+    <string name="automation_error_no_consent_body">Layanan aksesibilitas belum disiapkan. Selesaikan penyiapan dan berikan persetujuan.</string>
+    <string name="automation_error_not_enabled_title">Layanan tidak diaktifkan</string>
+    <string name="automation_error_not_enabled_body">Layanan aksesibilitas dinonaktifkan. Aktifkan lagi.</string>
+    <string name="automation_error_not_running_title">Layanan tidak dijalankan</string>
+    <string name="automation_error_not_running_body">Layanan aksesibilitas tidak berjalan. Coba nyalakan ulang perangkat anda.</string>
+    <string name="automation_error_screen_unavailable_title">Layar tidak tersedia</string>
+    <string name="automation_error_screen_unavailable_body">Operasi dibatalkan karena layar tidak tersedia (misalnya layar mati atau layar kunci aktif).</string>
+    <string name="automation_error_compatibility_title">Kompatibilitas otomasi</string>
+    <string name="automation_error_compatibility_body">SD Maid tidak bisa mengetahui tata letak layar. Jika ini terus terjadi, bahasa atau pengaturan Anda mungkin belum sepenuhnya didukung. Periksa pembaruan atau hubungi saya agar saya bisa memperbaikinya.</string>
+    <string name="automation_error_timeout_title">Timeout otomasi</string>
+    <string name="automation_error_timeout_body">SD Maid tidak menyelesaikan semua langkah dalam batas waktu. Jika ini terus terjadi, saya mungkin perlu menyesuaikan aplikasi untuk perangkat Anda. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
+    <string name="automation_error_overlay_title">Overlay otomasi</string>
+    <string name="automation_error_overlay_body">SD Maid tidak dapat menampilkan overlay otomasi. Periksa izin dan coba reboot perangkat Anda.</string>
+    <string name="automation_error_no_settings_title">Layar pengaturan tidak tersedia</string>
+    <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
+</resources>

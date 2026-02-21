@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">特別なアクセシビリティを必要とするユーザーは、このサービスを有効にすることで、通常はユーザーによる面倒な手動操作を必要とするタスク (例: キャッシュの削除など) を、SD Maidが自動化できるようにします。\n\n例: 複数のアプリを停止するようにSD Maidを操作した場合、SD Maidはこのサービスを使用して各アプリ設定画面を開き、\'強制停止\' ボタンを見つけてクリックします。\n\nSD Maidは、このサービスを使用しているときに常に目立つように表示し、ユーザーが操作を即座にキャンセルするための簡単な方法を提供します。\n\nユーザーの事前承認なしには、いかなる操作も実行されません。このサービスは悪影響を及ぼすことなくいつでも再度無効にすることができます。</string>
+    <string name="automation_screenoverlay_explanation">SD Maid はデバイスと相互作用しています。同時に画面を使用することはできません。 操作が完了するかキャンセルされるまで待ちます。</string>
+    <string name="automation_active_title">SD Maidは稼動中です</string>
+    <string name="automation_error_no_consent_title">自動化のエラー</string>
+    <string name="automation_error_no_consent_body">ユーザー補助サービスが設定されていません。セットアップを完了し、同意を得てください。</string>
+    <string name="automation_error_not_enabled_title">サービスが有効になっていません</string>
+    <string name="automation_error_not_enabled_body">ユーザー補助サービスが無効になっています。もう一度オンにしてください。</string>
+    <string name="automation_error_not_running_title">サービスが実行されていません</string>
+    <string name="automation_error_not_running_body">ユーザー補助サービスが実行されていません。デバイスを再起動してみてください。</string>
+    <string name="automation_error_screen_unavailable_title">画面が利用できません</string>
+    <string name="automation_error_screen_unavailable_body">画面が利用できなくなったため、操作が中断されました(たとえば、画面のスリープやロック画面の有効化など)。</string>
+    <string name="automation_error_compatibility_title">自動化の互換性</string>
+    <string name="automation_error_compatibility_body">SD Maidは画面レイアウトを判別できませんでした。これが続く場合、お使いの言語や設定が完全にサポートされていない可能性があります。更新を確認するか、修正できるよう私にご連絡ください。</string>
+    <string name="automation_error_timeout_title">自動化タイムアウト</string>
+    <string name="automation_error_timeout_body">SD Maidは時間制限内にすべての手順を完了できませんでした。これが続く場合、お使いのデバイス用にアプリを調整する必要があるかもしれません。更新を確認するか、修正できるよう私にご連絡ください。</string>
+    <string name="automation_error_overlay_title">自動化オーバーレイ</string>
+    <string name="automation_error_overlay_body">SD Maidは自動化オーバーレイを表示できませんでした。権限を確認し、デバイスの再起動を試してください。</string>
+    <string name="automation_error_no_settings_title">設定画面が利用できません</string>
+    <string name="automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
+</resources>

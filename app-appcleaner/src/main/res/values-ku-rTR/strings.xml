@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="appcleaner_explanation_short">داتای ناپێویست کە هی ئەپە دیاریکراوەکانە.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">کاشی گشتی ستاندارد</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">کاشی تایبەتی ستاندارد</string>
+    <string name="appcleaner_include_systemapps_label">ئەپەکانی سیستەم لەخۆبگرە</string>
+    <string name="appcleaner_include_runningapps_label">ئەپە کارکەرەکان لەخۆبگرە</string>
+    <string name="appcleaner_include_inaccessible_label">کاشی نادەستکەوت لەخۆبگرە</string>
+    <string name="appcleaner_filter_codecache_label">کاشی کۆد</string>
+    <string name="appcleaner_filter_advertisement_label">داتای ڕیکلام</string>
+    <string name="appcleaner_filter_bugreporting_label">ڕاپۆرتکردنی هەڵە</string>
+    <string name="appcleaner_filter_analytics_label">شیکاری</string>
+    <string name="appcleaner_filter_hiddencaches_label">کاشی شاراوە</string>
+    <string name="appcleaner_filter_thumbnails_label">وێنەی بچووک</string>
+    <string name="appcleaner_filter_gamefiles_label">فایلەکانی یاری</string>
+    <string name="appcleaner_filter_offlinecache_label">کاشی ئۆفلاین</string>
+    <string name="appcleaner_filter_recyclebins_label">سەتڵی ڕەشکردنەوە</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">پاشەکەوتەکانی WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_label">فایلە وەرگیراوەکانی WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">فایلە ناردراوەکانی WhatsApp</string>
+    <string name="appcleaner_filter_telegram_label">فایلەکانی مێدیای Telegram</string>
+    <string name="appcleaner_delete_all_confirmation_message">شتە ناپێویستەکان بۆ هەموو ئەپەکان بسڕیتەوە؟</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d شتی ناپێویست سڕایەوە</item>
+        <item quantity="other">%d شتی ناپێویست سڕانەوە</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d شتی ناپێویست دۆزرایەوە</item>
+        <item quantity="other">%d شتی ناپێویست دۆزرانەوە</item>
+    </plurals>
+</resources>

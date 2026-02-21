@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">ବିଶେଷ ଆକ୍ସେସିବିଲିଟି ଆବଶ୍ୟକତା ଥିବା ଉପଭୋଗକାରୀମାନେ ଏହି ସେବା ସକ୍ଷମ କରି SD Maid କୁ ସେହି କାର୍ଯ୍ୟଗୁଡ଼ିକ ସ୍ୱୟଂଚାଳିତ କରିବାକୁ ଅନୁମତି ଦେଇପାରିବେ ଯାହା ଅନ୍ୟଥା କ୍ଲାନ୍ତକାରୀ ମାନୁଆଲ୍ ଉପଭୋଗକାରୀ ଇଣ୍ଟରାକ୍ସନ୍ ଆବଶ୍ୟକ କରିଥାନ୍ତା (ଯଥା କ୍ୟାଶ୍ ଡିଲିଟ୍)।\n\nଉଦାହରଣ: ଯଦି ଆପଣ SD Maid କୁ ଏକାଧିକ ଆପ୍ ବନ୍ଦ କରିବାକୁ ନିର୍ଦ୍ଦେଶ ଦିଅନ୍ତି ତେବେ SD Maid ଏହି ସେବା ବ୍ୟବହାର କରି ପ୍ରତ୍ୟେକ ଆପ୍ର ସେଟିଂସ୍ ସ୍କ୍ରିନ୍ ଖୋଲିପାରିବ, \'Force Stop\' ବଟନ୍ ଖୋଜି ତାକୁ ଟ୍ୟାପ୍ କରିପାରିବ।\n\nSD Maid ଏହି ସେବା ବ୍ୟବହାର କରିବା ସମୟରେ ସର୍ବଦା ସ୍ପଷ୍ଟ ଭାବରେ ଦେଖାଇବ ଏବଂ ଉପଭୋଗକାରୀଙ୍କୁ ତୁରନ୍ତ କୌଣସି ଇଣ୍ଟରାକ୍ସନ୍ ବାତିଲ୍ କରିବା ପାଇଁ ସହଜ ଉପାୟ ପ୍ରଦାନ କରିବ।\n\nପୂର୍ବ ଉପଭୋଗକାରୀ ଅନୁମୋଦନ ବିନା କୌଣସି କାର୍ଯ୍ୟ କରାଯିବ ନାହିଁ। ଏହି ସେବା କୌଣସି ପ୍ରତିକୂଳ ପ୍ରଭାବ ବିନା ଯେକୌଣସି ସମୟରେ ପୁନର୍ବାର ଅକ୍ଷମ କରାଯାଇପାରିବ।</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ଆପଣଙ୍କ ଡିଵାଇସ୍ ସହ ମିଥଷ୍କ୍ରିୟା କରୁଛି। ଏକାସାଙ୍ଗରେ ସ୍କ୍ରୀନ୍ ବ୍ୟବହାର କରିବା ସମ୍ଭବ ନୁହେଁ। ପ୍ରକ୍ରିୟା ଶେଷ ହେବା ପର୍ଯ୍ୟନ୍ତ ଅପେକ୍ଷା କରନ୍ତୁ କିମ୍ବା ଏହାକୁ ବାତିଲ୍ କରନ୍ତୁ।</string>
+    <string name="automation_active_title">SD Maid କାମ କରୁଅଛି</string>
+    <string name="automation_error_no_consent_title">ଅଟୋମେସନ୍ ତ୍ରୁଟି</string>
+    <string name="automation_error_no_consent_body">ଆକ୍ସେସିବିଲିଟି ସେବା ସେଟଅପ୍ ହୋଇନାହିଁ। ସେଟଅପ୍ ସମ୍ପୂର୍ଣ୍ଣ କରନ୍ତୁ ଏବଂ ସମ୍ମତି ଦିଅନ୍ତୁ।</string>
+    <string name="automation_error_not_enabled_title">ସେଵା ସକ୍ଷମ ହୋଇନି</string>
+    <string name="automation_error_not_enabled_body">ଆକ୍ସେସିବିଲିଟି ସେବା ଅକ୍ଷମ ଅଛି। ଏହାକୁ ପୁନର୍ବାର ଚାଲୁ କରନ୍ତୁ।</string>
+    <string name="automation_error_not_running_title">ସେଵା ଚାଲୁନି</string>
+    <string name="automation_error_not_running_body">ଆକ୍ସେସିବିଲିଟି ସେବା ଚାଲୁ ନାହିଁ। ଡିଭାଇସ୍ ରିବୁଟ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="automation_error_screen_unavailable_title">ସ୍କ୍ରିନ୍ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="automation_error_screen_unavailable_body">ସ୍କ୍ରିନ୍ ଅନୁପଲବ୍ଧ ହେବା କାରଣରୁ ଅପରେସନ୍ ବାତିଲ୍ ହୋଇଗଲା (ଯଥା ଡିସପ୍ଲେ ବନ୍ଦ କିମ୍ବା ଲକସ୍କ୍ରିନ୍ ସକ୍ରିୟ)।</string>
+    <string name="automation_error_compatibility_title">ଅଟୋମେସନ୍ ସୁସଙ୍ଗତି</string>
+    <string name="automation_error_compatibility_body">SD Maid ସ୍କ୍ରିନ୍ ଲେଆଉଟ୍ ବୁଝିପାରିଲା ନାହିଁ। ଯଦି ଏହା ହେଉଥାଏ, ଆପଣଙ୍କ ଭାଷା କିମ୍ବା ସେଟଅପ୍ ସମ୍ପୂର୍ଣ୍ଣ ସପୋର୍ଟ ହୋଇନପାରେ। ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ଯୋଗାଯୋଗ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ଠିକ୍ କରିପାରିବି।</string>
+    <string name="automation_error_timeout_title">ଅଟୋମେସନ୍ ଟାଇମଆଉଟ୍</string>
+    <string name="automation_error_timeout_body">SD Maid ସମୟ ସୀମା ମଧ୍ୟରେ ସମସ୍ତ ପଦକ୍ଷେପ ସମ୍ପୂର୍ଣ୍ଣ କରିପାରିଲା ନାହିଁ। ଯଦି ଏହା ହେଉଥାଏ, ମୁଁ ଆପଣଙ୍କ ଡିଭାଇସ୍ ପାଇଁ ଆପ୍କୁ ଆଡଜଷ୍ଟ କରିବାକୁ ପଡ଼ିପାରେ। ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ଯୋଗାଯୋଗ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ଠିକ୍ କରିପାରିବି।</string>
+    <string name="automation_error_overlay_title">ଅଟୋମେସନ୍ ଓଭରଲେ</string>
+    <string name="automation_error_overlay_body">SD Maid ଅଟୋମେସନ୍ ଓଭରଲେ ଦେଖାଇପାରିଲା ନାହିଁ। ଅନୁମତି ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
+    <string name="automation_error_no_settings_title">ସେଟିଂସ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="automation_error_no_settings_body">ଏହି ସିଷ୍ଟମ ଆପ୍‌ର କୌଣସି ସେଟିଂସ ସ୍କ୍ରିନ ନାହିଁ। ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ କ୍ୟାଶ ସଫା କରିବା ସମ୍ଭବ ନୁହେଁ। କ୍ୟାଶ ସଫା କରିବାର ଗତି ବଢ଼ାଇବା ପାଇଁ ଏହାକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">ਵਿਸ਼ੇਸ਼ ਪਹੁੰਚਯੋਗਤਾ ਲੋੜਾਂ ਵਾਲੇ ਵਰਤੋਂਕਾਰ ਇਸ ਸੇਵਾ ਨੂੰ ਸਮਰੱਥ ਕਰ ਸਕਦੇ ਹਨ ਤਾਂ ਜੋ SD Maid ਨੂੰ ਉਹ ਕਾਰਜ ਆਪਣੇ-ਆਪ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿੱਤੀ ਜਾ ਸਕੇ ਜਿਨ੍ਹਾਂ ਲਈ ਨਹੀਂ ਤਾਂ ਬੋਰਿੰਗ ਮੈਨੁਅਲ ਵਰਤੋਂਕਾਰ ਇੰਟਰੈਕਸ਼ਨ ਦੀ ਲੋੜ ਹੁੰਦੀ (ਜਿਵੇਂ ਕਿ ਕੈਸ਼ ਮਿਟਾਉਣਾ)।\n\nਉਦਾਹਰਨ: ਜੇ ਤੁਸੀਂ SD Maid ਨੂੰ ਕਈ ਐਪਾਂ ਬੰਦ ਕਰਨ ਦੀ ਹਦਾਇਤ ਦਿੰਦੇ ਹੋ ਤਾਂ SD Maid ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਹਰੇਕ ਐਪ ਦੀ ਸੈਟਿੰਗ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹ ਸਕਦਾ ਹੈ, \'ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ\' ਬਟਨ ਲੱਭ ਸਕਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਦਬਾ ਸਕਦਾ ਹੈ।\n\nSD Maid ਹਮੇਸ਼ਾ ਸਪਸ਼ਟ ਰੂਪ ਵਿੱਚ ਦਿਖਾਏਗਾ ਜਦੋਂ ਇਸ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ ਅਤੇ ਵਰਤੋਂਕਾਰ ਨੂੰ ਕਿਸੇ ਵੀ ਇੰਟਰੈਕਸ਼ਨ ਨੂੰ ਤੁਰੰਤ ਰੱਦ ਕਰਨ ਦਾ ਆਸਾਨ ਤਰੀਕਾ ਪ੍ਰਦਾਨ ਕਰੇਗਾ।\n\nਪਹਿਲਾਂ ਤੋਂ ਵਰਤੋਂਕਾਰ ਦੀ ਮਨਜ਼ੂਰੀ ਤੋਂ ਬਿਨਾਂ ਕੋਈ ਕਾਰਵਾਈ ਨਹੀਂ ਕੀਤੀ ਜਾਵੇਗੀ। ਇਹ ਸੇਵਾ ਕਿਸੇ ਵੀ ਸਮੇਂ ਬਿਨਾਂ ਕਿਸੇ ਮਾੜੇ ਪ੍ਰਭਾਵ ਦੇ ਮੁੜ ਅਸਮਰੱਥ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰ ਰਿਹਾ ਹੈ। ਇੱਕੋ ਸਮੇਂ ਸਕ੍ਰੀਨ ਦੀ ਵਰਤੋਂ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕਾਰਵਾਈ ਪੂਰੀ ਹੋਣ ਤੱਕ ਇੰਤਜ਼ਾਰ ਕਰੋ ਜਾਂ ਇਸਨੂੰ ਰੱਦ ਕਰੋ।</string>
+    <string name="automation_active_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="automation_error_no_consent_title">ਆਟੋਮੇਸ਼ਨ ਗਲਤੀ</string>
+    <string name="automation_error_no_consent_body">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਸੈੱਟ ਅੱਪ ਨਹੀਂ ਹੈ। ਸੈੱਟਅੱਪ ਪੂਰਾ ਕਰੋ ਅਤੇ ਸਹਿਮਤੀ ਦਿਓ।</string>
+    <string name="automation_error_not_enabled_title">ਸੇਵਾ ਸਮਰੱਥ ਨਹੀਂ ਹੈ</string>
+    <string name="automation_error_not_enabled_body">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਅਸਮਰੱਥ ਹੈ। ਇਸਨੂੰ ਮੁੜ ਚਾਲੂ ਕਰੋ।</string>
+    <string name="automation_error_not_running_title">ਸੇਵਾ ਚੱਲ ਨਹੀਂ ਰਹੀ</string>
+    <string name="automation_error_not_running_body">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਨਹੀਂ ਚੱਲ ਰਹੀ। ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="automation_error_screen_unavailable_title">ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="automation_error_screen_unavailable_body">ਕਾਰਵਾਈ ਨੂੰ ਰੱਦ ਕਰ ਦਿੱਤਾ ਗਿਆ ਕਿਉਂਕਿ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ ਹੋ ਗਈ (ਜਿਵੇਂ ਕਿ ਡਿਸਪਲੇ ਬੰਦ ਜਾਂ ਲਾਕਸਕ੍ਰੀਨ ਸਰਗਰਮ)।</string>
+    <string name="automation_error_compatibility_title">ਆਟੋਮੇਸ਼ਨ ਅਨੁਕੂਲਤਾ</string>
+    <string name="automation_error_compatibility_body">SD Maid ਸਕ੍ਰੀਨ ਲੇਆਉਟ ਨੂੰ ਸਮਝ ਨਹੀਂ ਸਕਿਆ। ਜੇ ਇਹ ਹੁੰਦਾ ਰਿਹਾ ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਤੁਹਾਡੀ ਭਾਸ਼ਾ ਜਾਂ ਸੈੱਟਅੱਪ ਦਾ ਪੂਰਾ ਸਮਰਥਨ ਨਾ ਹੋਵੇ। ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <string name="automation_error_timeout_title">ਆਟੋਮੇਸ਼ਨ ਟਾਈਮਆਉਟ</string>
+    <string name="automation_error_timeout_body">SD Maid ਨੇ ਸਮਾਂ ਸੀਮਾ ਦੇ ਅੰਦਰ ਸਾਰੇ ਪੜਾਅ ਪੂਰੇ ਨਹੀਂ ਕੀਤੇ। ਜੇ ਇਹ ਹੁੰਦਾ ਰਿਹਾ ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਮੈਨੂੰ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਲਈ ਐਪ ਨੂੰ ਅਡਜਸਟ ਕਰਨਾ ਪਵੇ। ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <string name="automation_error_overlay_title">ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ</string>
+    <string name="automation_error_overlay_body">SD Maid ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ ਨਹੀਂ ਦਿਖਾ ਸਕਿਆ। ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ ਅਤੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
+</resources>

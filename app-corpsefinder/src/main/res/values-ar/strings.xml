@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">العثور على الملفات المتبقية</string>
+    <string name="corpsefinder_explanation_short">بيانات لتطبيقات قد تم حذفها.</string>
+    <string name="corpsefinder_settings_summary">ضبط عوامل تصفية الفحص ومستويات المخاطر.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">قم بتضمين البقايا المرغوبة</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">الملفات التي قد ترغب في الاحتفاظ بها ، حتى إذا تم إلغاء تثبيت التطبيق ، على سبيل المثال الصور التي التقطتها أو النسخ الاحتياطية التي قمت بإنشائها.</string>
+    <string name="corpsefinder_settings_risk_common_title">قم بتضمين الأسماء الشائعة</string>
+    <string name="corpsefinder_settings_risk_common_summary">البيانات ذات الأسماء شائعة الاستخدام ، على سبيل المثال مجلد \"ملاحظات\" مملوكة للعديد من التطبيقات غير المعروفة.</string>
+    <string name="corpsefinder_watcher_title">مراقب إلغاء تثبيت</string>
+    <string name="corpsefinder_watcher_summary">البحث تلقائياً عن بقايا عند إزالة التطبيق.</string>
+    <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
+    <string name="corpsefinder_watcher_autodelete_summary">حذف أي بقايا ذات صلة بالتطبيق غير المثبت تلقائياً.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="zero">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="one">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="two">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="few">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="many">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="other">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="zero">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="one">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="two">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="few">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="many">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="other">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">حذف الملفات المتبقية</string>
+    <string name="corpsefinder_filter_publicmedia_label">الوسائط العامة</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ملفات الوسائط العامة ، على سبيل المثال الملفات المستلمة عبر تطبيقات المراسلة.</string>
+    <string name="corpsefinder_filter_publicobb_label">موارد OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">موارد التطبيق الإضافية ، على سبيل المثال أصول اللعبة.</string>
+    <string name="corpsefinder_filter_publicdata_label">بيانات التطبيق العامة</string>
+    <string name="corpsefinder_filter_publicdata_summary">بيانات التطبيق غير الحساسة ، على سبيل المثال مخابئ الخريطة.</string>
+    <string name="corpsefinder_filter_sdcard_label">بطاقة الذاكرة SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">التخزين العام ، الداخلي والخارجي (مثل بطاقات SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">بيانات التطبيق الخاصة</string>
+    <string name="corpsefinder_filter_privatedata_summary">بيانات التطبيق الخاص ، على سبيل المثال بيانات الاعتماد وإعدادات التطبيق وأيضًا ذاكرة التخزين المؤقت للمتصفح.</string>
+    <string name="corpsefinder_filter_dalvik_label">مخبأ Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">بيانات تنفيذ التطبيق المخزنة مؤقتًا.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ملفات تعريف الـ ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">يتم استخدام ملفات تعريف الـ ART من قبل أندرويد لتحسين أداء التطبيق.</string>
+    <string name="corpsefinder_filter_applib_label">مكتبات التطبيقات</string>
+    <string name="corpsefinder_filter_applib_summary">بيانات المكتبة ذات الصلة بالتطبيق.</string>
+    <string name="corpsefinder_filter_appsource_label">موارد التطبيق</string>
+    <string name="corpsefinder_filter_appsource_summary">بيانات تثبيت التطبيق ، أي أين تذهب ملفات APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">موارد التطبيق الخاصة</string>
+    <string name="corpsefinder_filter_appsource_private_summary">بيانات تثبيت التطبيق المقيدة ، على سبيل المثال تطبيقات الطرف الثالث المحمية.</string>
+    <string name="corpsefinder_filter_appasec_label">موارد التطبيق المشفرة</string>
+    <string name="corpsefinder_filter_appasec_summary">موارد التطبيق المشفرة ، على سبيل المثال أصول اللعبة.</string>
+    <string name="corpsefinder_filter_app2sd_summary">تم نقل البيانات إلى وحدة التخزين الخارجية عن طريق تعديل App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">التطبيق إلى الذاكرة</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="zero">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="one">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="two">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="few">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="many">تم حذف %d من بقايا التطبيق</item>
+        <item quantity="other">تم حذف %d من بقايا التطبيق</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="zero">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="one">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="two">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="few">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="many">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="other">%d بقايا تطبيق اكتشفت</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">حذف جميع بقايا التطبيق؟</string>
+    <string name="corpsefinder_owners_label">المالكون</string>
+    <string name="corpsefinder_corpse_hints_label">تنويه</string>
+    <string name="corpsefinder_owner_unknown">مالك غير معروف</string>
+    <string name="corpsefinder_corpse_hint_keeper">قد يحتوي هذا العنصر على بيانات تريد الاحتفاظ بها بالرغم من إلغاء تثبيت مالكها ، على سبيل المثال الصور أو النسخ الاحتياطية.</string>
+    <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>
+</resources>

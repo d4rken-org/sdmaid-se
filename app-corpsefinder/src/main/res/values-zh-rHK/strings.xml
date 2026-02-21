@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">殘骸尋檢器</string>
+    <string name="corpsefinder_explanation_short">屬於已移除應用程式的資料。</string>
+    <string name="corpsefinder_settings_summary">調整掃描過濾器和風險層級。</string>
+    <string name="corpsefinder_settings_risk_keeper_title">包含合理的殘餘項目</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">您可能想要保留的檔案，即使這個應用程式已被解除安裝，例如您拍攝的相片和您建立的備份。</string>
+    <string name="corpsefinder_settings_risk_common_title">包含常見名稱</string>
+    <string name="corpsefinder_settings_risk_common_summary">具有常用名稱的資料，例如被過多未知應用程式擁有的「Notes」資料夾。</string>
+    <string name="corpsefinder_watcher_title">解除安裝監看員</string>
+    <string name="corpsefinder_watcher_summary">在應用程式被移除時自動掃描殘留項目。</string>
+    <string name="corpsefinder_watcher_autodelete_title">自動刪除</string>
+    <string name="corpsefinder_watcher_autodelete_summary">自動刪除與已解除安裝的應用程式相關的殘留。</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">已在 %2$s 解除安裝後找到 %1$d 個殘留項目。</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">清理成功 (%1$s)：已釋出 %2$s 並移除 %3$d 個項目。</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">刪除殘留項目</string>
+    <string name="corpsefinder_filter_publicmedia_label">公用媒體</string>
+    <string name="corpsefinder_filter_publicmedia_summary">公用媒體檔案，例如透過訊息應用程式接收的檔案。</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB 資源</string>
+    <string name="corpsefinder_filter_publicobb_summary">額外應用程式資源，例如遊戲資產。</string>
+    <string name="corpsefinder_filter_publicdata_label">公用應用程式資料</string>
+    <string name="corpsefinder_filter_publicdata_summary">非機密應用程式資料，例如地圖快取。</string>
+    <string name="corpsefinder_filter_sdcard_label">SD 卡</string>
+    <string name="corpsefinder_filter_sdcard_summary">一般公用儲存空間，內部和外部儲存空間 (例如 SD 卡)。</string>
+    <string name="corpsefinder_filter_privatedata_label">私人應用程式資料</string>
+    <string name="corpsefinder_filter_privatedata_summary">私人應用程式資料，例如認證、應用程式設定，但也包括瀏覽器快取。</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik 快取</string>
+    <string name="corpsefinder_filter_dalvik_summary">已快取的應用程式執行資料。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART 設定檔用於 Android 最佳化應用程式效能。</string>
+    <string name="corpsefinder_filter_applib_label">應用程式庫</string>
+    <string name="corpsefinder_filter_applib_summary">與應用程式相關的程式庫資料。</string>
+    <string name="corpsefinder_filter_appsource_label">應用程式來源</string>
+    <string name="corpsefinder_filter_appsource_summary">應用程式安裝資料，例如 APK 的位置。</string>
+    <string name="corpsefinder_filter_appsource_private_label">私人應用程式來源</string>
+    <string name="corpsefinder_filter_appsource_private_summary">受限制的應用程式安裝資料，例如受保護的第三方應用程式。</string>
+    <string name="corpsefinder_filter_appasec_label">加密的應用程式資源</string>
+    <string name="corpsefinder_filter_appasec_summary">加密的應用程式資源，例如遊戲資產。</string>
+    <string name="corpsefinder_filter_app2sd_summary">資料已被 App2Sd 模組移至外部儲存空間。</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">已刪除 %d 個應用程式殘留</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">%d 個應用程式殘留已找到</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">刪除所有應用程式殘留？</string>
+    <string name="corpsefinder_owners_label">擁有者</string>
+    <string name="corpsefinder_corpse_hints_label">注意事項</string>
+    <string name="corpsefinder_owner_unknown">未知擁有者</string>
+    <string name="corpsefinder_corpse_hint_keeper">此項目可能包含您想要保留的資料，儘管它的擁有者已被解除安裝，例如相片或備份。</string>
+    <string name="corpsefinder_corpse_hint_common">此項目有一個非常常見的名稱，可能屬於已安裝的應用程式，但 SD 女僕卻不知道。</string>
+</resources>

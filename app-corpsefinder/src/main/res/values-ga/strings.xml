@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Sonraí a bhaineann le haipeanna atá bainte cheana féin.</string>
+    <string name="corpsefinder_settings_summary">Coigearáil scagáin scanaidh agus leibhéil rioscai.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Cuir iarmharacha inmhianaithe san áireamh</string>
+    <string name="corpsefinder_settings_risk_common_title">Cuir ainmneacha coitianta san áireamh</string>
+    <string name="corpsefinder_watcher_title">Faire díshuiteála</string>
+    <string name="corpsefinder_watcher_autodelete_title">Scriosadh uathoibríoch</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Scrios iarmharacha</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Comhaid ar mhaith leat a choinneáil, fiú má dhíshuiteáiltear an aip, m.sh. grianghraif a ghlac tú nó cúltacaí a chruthaigh tú.</string>
+    <string name="corpsefinder_settings_risk_common_summary">Sonraí le hainmneacha coitianta, m.sh. tá fillteán \"Nótaí\" faoi úinéireacht an iomarca aipeanna anaithnide.</string>
+    <string name="corpsefinder_watcher_summary">Scan go huathoibríoch d\'iarsmaí nuair a bhaintear aip.</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Scrios go huathoibríoch aon iarsmaí a bhaineann leis an aip dhíshuiteáilte.</string>
+    <string name="corpsefinder_filter_publicmedia_label">Meáin phoiblí</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Comhaid mheán poiblí, m.sh. comhaid a fuarthas trí aipeanna teachtaireachta.</string>
+    <string name="corpsefinder_filter_publicobb_label">Acmhainní OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Acmhainní breise aipe, m.sh. sócmhainní cluiche.</string>
+    <string name="corpsefinder_filter_publicdata_label">Sonraí aipe poiblí</string>
+    <string name="corpsefinder_filter_publicdata_summary">Sonraí aipe neamhíogaire, m.sh. taiscí léarscáile.</string>
+    <string name="corpsefinder_filter_sdcard_label">Cárta SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Stóráil phoiblí ghinearálta, inmheánach agus seachtrach (m.sh. cártaí SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Sonraí aipe príobháideacha</string>
+    <string name="corpsefinder_filter_privatedata_summary">Sonraí aipe príobháideacha, m.sh. dintiúir, socruithe aipe ach freisin taiscí brabhsálaí.</string>
+    <string name="corpsefinder_filter_dalvik_label">Taisce Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Sonraí forghníomhaithe aipe taiscthe.</string>
+    <string name="corpsefinder_filter_applib_label">Leabharlanna aipe</string>
+    <string name="corpsefinder_filter_applib_summary">Sonraí leabharlainne a bhaineann le haip.</string>
+    <string name="corpsefinder_filter_appsource_label">Foinsí aipe</string>
+    <string name="corpsefinder_filter_appsource_summary">Sonraí suiteála aipe, i.e. cá dtéann APKanna.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Foinsí aipe príobháideacha</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Sonraí suiteála aipe srianta, m.sh. aipeanna tríú páirtí cosanta.</string>
+    <string name="corpsefinder_filter_appasec_label">Acmhainní aipe criptithe</string>
+    <string name="corpsefinder_filter_appasec_summary">Acmhainní aipe criptithe, m.sh. sócmhainní cluiche.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Sonraí a aistrigh go stóráil sheachtrach ag modanna App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Scrios gach iarsma aipe?</string>
+    <string name="corpsefinder_owners_label">Úinéirí</string>
+    <string name="corpsefinder_corpse_hints_label">Fógra</string>
+    <string name="corpsefinder_owner_unknown">Úinéir anaithnid</string>
+    <string name="corpsefinder_corpse_hint_keeper">D\'fhéadfadh sonraí a bheith sa mhír seo ar mhaith leat a choinneáil cé go ndíshuiteáladh a úinéir, m.sh. grianghraif nó cúltacaí.</string>
+    <string name="corpsefinder_corpse_hint_common">Tá ainm an-choitianta ar an mír seo agus d\'fhéadfadh sé a bheith ag baint le haipeanna atá fós suiteáilte nach bhfuil a fhios ag SD Maid fúthu.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
+        <item quantity="two">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
+        <item quantity="few">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
+        <item quantity="many">%1$d n-iarsma aimsithe tar éis díshuiteáil %2$s.</item>
+        <item quantity="other">%1$d iarsma aimsithe tar éis díshuiteáil %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
+        <item quantity="two">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mhír.</item>
+        <item quantity="few">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mhír.</item>
+        <item quantity="many">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
+        <item quantity="other">Glanadh rathúil (%1$s): Saoradh %2$s agus baineadh %3$d mír.</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d iarsma aipe scriosta</item>
+        <item quantity="two">%d iarsma aipe scriosta</item>
+        <item quantity="few">%d iarsma aipe scriosta</item>
+        <item quantity="many">%d n-iarsma aipe scriosta</item>
+        <item quantity="other">%d iarsma aipe scriosta</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d iarsma aipe aimsithe</item>
+        <item quantity="two">%d iarsma aipe aimsithe</item>
+        <item quantity="few">%d iarsma aipe aimsithe</item>
+        <item quantity="many">%d n-iarsma aipe aimsithe</item>
+        <item quantity="other">%d iarsma aipe aimsithe</item>
+    </plurals>
+    <string name="corpsefinder_filter_artprofiles_label">Próifílí ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Úsáideann Android próifílí ART chun feidhmíocht aipeanna a bharrfheabhsú.</string>
+</resources>

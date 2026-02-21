@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data li tappartjeni għal apps li diġà tneħħew.</string>
+    <string name="corpsefinder_settings_summary">Aġġusta l-filtri tal-iskannjar u l-livelli ta\' riskju.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Inkludi fdalijiet mixtieqa</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Fajls li forsi trid iżżomm, anke jekk l-app ġiet diżinstallata, eż. ritratti li ħadt jew backups li ħloqt.</string>
+    <string name="corpsefinder_settings_risk_common_title">Inkludi ismijiet komuni</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data b\'ismijiet użati komunement, eż. folder \"Notes\" hija pusseduta minn wisq apps mhux magħrufa.</string>
+    <string name="corpsefinder_watcher_title">Watcher ta\' diżinstallazzjoni</string>
+    <string name="corpsefinder_watcher_summary">Awtomatikament iskennja għal fdalijiet meta app titneħħa.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Tħassir awtomatiku</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Awtomatikament ħassar kull fdalija relatata mal-app diżinstallata.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d fdalija misjuba wara d-diżinstallazzjoni ta\' %2$s.</item>
+        <item quantity="other">%1$d fdalijiet misjuba wara d-diżinstallazzjoni ta\' %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">It-tindif irnexxa (%1$s): Ħelest %2$s u tneħħa %3$d oġġett.</item>
+        <item quantity="other">It-tindif irnexxa (%1$s): Ħelest %2$s u tneħħew %3$d oġġetti.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Ħassar il-fdalijiet</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d fdalija ta\' app imħassra</item>
+        <item quantity="other">%d fdalijiet ta\' apps imħassra</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d fdalija ta\' app misjuba</item>
+        <item quantity="other">%d fdalijiet ta\' apps misjuba</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Tħassar il-fdalijiet kollha tal-apps?</string>
+    <string name="corpsefinder_filter_publicmedia_label">Midja pubblika</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Fajls pubbliċi tal-midja, eż. fajls riċevuti permezz ta\' apps ta\' messaġġi.</string>
+    <string name="corpsefinder_filter_publicobb_label">Riżorsi OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Riżorsi addizzjonali tal-app, eż. assets tal-logħob.</string>
+    <string name="corpsefinder_filter_publicdata_label">Data pubblika tal-app</string>
+    <string name="corpsefinder_filter_publicdata_summary">Data tal-app mhux sensittiva, eż. caches tal-mapep.</string>
+    <string name="corpsefinder_filter_sdcard_label">Kard SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ħażna pubblika ġenerali, interna u esterna (eż. karti SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Data privata tal-app</string>
+    <string name="corpsefinder_filter_privatedata_summary">Data privata tal-app, eż. kredenzjali, settings tal-app imma wkoll caches tal-browser.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Data cached tal-eżekuzzjoni tal-apps.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profili ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Il-profili ART jintużaw minn Android biex jottimizzaw il-prestazzjoni tal-apps.</string>
+    <string name="corpsefinder_filter_applib_label">Libreriji tal-app</string>
+    <string name="corpsefinder_filter_applib_summary">Data ta\' libreriji relatata mal-apps.</string>
+    <string name="corpsefinder_filter_appsource_label">Sorsi tal-app</string>
+    <string name="corpsefinder_filter_appsource_summary">Data tal-installazzjoni tal-app, jiġifieri fejn imorru l-APKs.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Sorsi privati tal-app</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Data ristretta tal-installazzjoni tal-app, eż. apps protetti ta\' parti terza.</string>
+    <string name="corpsefinder_filter_appasec_label">Riżorsi encrypted tal-app</string>
+    <string name="corpsefinder_filter_appasec_summary">Riżorsi encrypted tal-app, eż. assets tal-logħob.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data mmexxija għal ħażna esterna minn modifiki App2SD.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_owners_label">Sidien</string>
+    <string name="corpsefinder_corpse_hints_label">Nota</string>
+    <string name="corpsefinder_owner_unknown">Sid mhux magħruf</string>
+    <string name="corpsefinder_corpse_hint_keeper">Dan l-oġġett jista\' jkun fih data li trid iżżomm minkejja li s-sid tagħha ġie diżinstallat, eż. ritratti jew backups.</string>
+    <string name="corpsefinder_corpse_hint_common">Dan l-oġġett għandu isem komuni ħafna u jista\' jappartjeni għal apps għadhom installati li SD Maid ma jafhomx.</string>
+</resources>

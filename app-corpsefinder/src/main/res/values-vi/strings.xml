@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Tìm kiếm tàn dư</string>
+    <string name="corpsefinder_explanation_short">Dữ liệu thuộc về các ứng dụng đã bị xóa.</string>
+    <string name="corpsefinder_settings_summary">Điều chỉnh bộ lọc quét và mức độ rủi ro.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Bao gồm tàn dư mong muốn</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Các tệp mà bạn có thể muốn giữ lại, ngay cả khi đã gỡ cài đặt ứng dụng, ví dụ: ảnh bạn đã chụp hoặc bản sao lưu bạn đã tạo.</string>
+    <string name="corpsefinder_settings_risk_common_title">Bao gồm tên phổ biến</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dữ liệu có tên thường được sử dụng, ví dụ: thư mục \"Ghi chú\" thuộc sở hữu của quá nhiều ứng dụng không xác định.</string>
+    <string name="corpsefinder_watcher_title">Theo dõi gỡ cài đặt</string>
+    <string name="corpsefinder_watcher_summary">Tự động quét phần còn lại khi một ứng dụng bị xóa.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Tự động xóa</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Tự động xóa mọi phần còn lại liên quan đến ứng dụng đã gỡ cài đặt.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">Đã tìm thấy %1$d phần còn lại sau khi gỡ cài đặt %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">Dọn dẹp thành công (%1$s): Giải phóng %2$s và xóa %3$d mục.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Xóa tàn dư</string>
+    <string name="corpsefinder_filter_publicmedia_label">Đa phương tiện công khai</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Các tệp đa phương tiện công khai ví dụ: các tệp nhận được qua ứng dụng nhắn tin.</string>
+    <string name="corpsefinder_filter_publicobb_label">Tài nguyên OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Tài nguyên ứng dụng bổ sung, ví dụ: tài nguyên trò chơi.</string>
+    <string name="corpsefinder_filter_publicdata_label">Dữ liệu ứng dụng công khai</string>
+    <string name="corpsefinder_filter_publicdata_summary">Dữ liệu ứng dụng không nhạy cảm, ví dụ: bộ đệm bản đồ.</string>
+    <string name="corpsefinder_filter_sdcard_label">Thẻ SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Bộ nhớ chung, bên trong và bên ngoài (ví dụ: thẻ SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Dữ liệu ứng dụng riêng tư</string>
+    <string name="corpsefinder_filter_privatedata_summary">Dữ liệu ứng dụng riêng tư, ví dụ: thông tin đăng nhập, cài đặt ứng dụng cũng bao gồm cả bộ đệm của trình duyệt.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Dữ liệu thực thi ứng dụng được lưu trong bộ nhớ cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Cấu hình ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Cấu hình ART được Android sử dụng để tối ưu hóa hiệu suất ứng dụng.</string>
+    <string name="corpsefinder_filter_applib_label">Thư viện ứng dụng</string>
+    <string name="corpsefinder_filter_applib_summary">Dữ liệu thư viện liên quan đến ứng dụng.</string>
+    <string name="corpsefinder_filter_appsource_label">Nguồn ứng dụng</string>
+    <string name="corpsefinder_filter_appsource_summary">Dữ liệu cài đặt ứng dụng, tức là vị trí của APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Nguồn ứng dụng riêng tư</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Dữ liệu cài đặt ứng dụng bị hạn chế, ví dụ: các ứng dụng của bên thứ ba được bảo vệ.</string>
+    <string name="corpsefinder_filter_appasec_label">Tài nguyên ứng dụng được mã hóa</string>
+    <string name="corpsefinder_filter_appasec_summary">Tài nguyên ứng dụng được mã hóa, ví dụ: tài nguyên trò chơi.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Dữ liệu được chuyển sang bộ nhớ ngoài bằng chế độ App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d phần còn lại của ứng dụng đã bị xóa</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">Đã phát hiện %d phần còn lại của ứng dụng</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Xóa tất cả phần còn lại của ứng dụng?</string>
+    <string name="corpsefinder_owners_label">Chủ sở hữu</string>
+    <string name="corpsefinder_corpse_hints_label">Ghi chú</string>
+    <string name="corpsefinder_owner_unknown">Chủ sở hữu không xác định</string>
+    <string name="corpsefinder_corpse_hint_keeper">Mục này có thể chứa dữ liệu bạn muốn giữ mặc dù chủ sở hữu của nó đã bị gỡ cài đặt, ví dụ: ảnh hoặc bản sao lưu.</string>
+    <string name="corpsefinder_corpse_hint_common">Mục này có một tên rất phổ biến và có thể thuộc về các ứng dụng vẫn được cài đặt mà SD Maid không biết.</string>
+</resources>

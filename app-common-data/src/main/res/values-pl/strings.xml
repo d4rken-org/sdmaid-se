@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Pamięć publiczna</string>
+    <string name="area_type_public_media_label">Publiczne multimedia aplikacji</string>
+    <string name="area_type_public_data_label">Publiczne dane aplikacji</string>
+    <string name="area_type_public_obb_label">Publiczne zasoby aplikacji</string>
+    <string name="area_type_private_data_label">Prywatne dane aplikacji</string>
+    <string name="area_type_portable_label">Pamięć przenośna</string>
+</resources>

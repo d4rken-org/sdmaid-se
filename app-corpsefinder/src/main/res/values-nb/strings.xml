@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Restfinner</string>
+    <string name="corpsefinder_explanation_short">Data tilhørende apper som allerede er fjernet.</string>
+    <string name="corpsefinder_settings_summary">Juster skannefiltre og risikonivåer.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Ønskelige rester</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Filer som du kanskje vil beholde, selv om appen er avinstallert, f.eks. bilder du tok eller sikkerhetskopier du laget.</string>
+    <string name="corpsefinder_settings_risk_common_title">Vanlige navn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data med ofte brukte navn, f.eks. en mappe \"Notater\" eies av for mange ukjente apper.</string>
+    <string name="corpsefinder_watcher_title">Avinstalleringsovervåker</string>
+    <string name="corpsefinder_watcher_summary">Søk etter rester automatisk når en app fjernes.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatisk sletting</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Slett eventuelle rester relatert til den avinstallerte appen automatisk.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d rest funnet etter avinstallering av %2$s.</item>
+        <item quantity="other">%1$d rester funnet etter avinstallering av %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Opprydding vellykket (%1$s): %2$s frigjort og %3$d element fjernet.</item>
+        <item quantity="other">Opprydding vellykket (%1$s): %2$s frigjort og %3$d elementer fjernet.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Slett rester</string>
+    <string name="corpsefinder_filter_publicmedia_label">Offentlige medier</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Offentlige mediefiler, f.eks. filer mottatt via meldingsapper.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ressurser</string>
+    <string name="corpsefinder_filter_publicobb_summary">Ytterligere appressurser, f.eks. spillressurser.</string>
+    <string name="corpsefinder_filter_publicdata_label">Offentlig appdata</string>
+    <string name="corpsefinder_filter_publicdata_summary">Ikke-sensitiv appdata, f.eks. buffere for kart.</string>
+    <string name="corpsefinder_filter_sdcard_label">Minnekort</string>
+    <string name="corpsefinder_filter_sdcard_summary">Generell offentlig lagring, intern og ekstern (f.eks. SD-kort).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privat appdata</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privat appdata, f.eks. legitimasjon, appinnstillinger, men også nettleserbuffere.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik buffere</string>
+    <string name="corpsefinder_filter_dalvik_summary">Bufret data for appkjøring.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiler</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiler brukes av Android for å optimalisere appytelsen.</string>
+    <string name="corpsefinder_filter_applib_label">Appbiblioteker</string>
+    <string name="corpsefinder_filter_applib_summary">Apprelaterte bibliotekdata.</string>
+    <string name="corpsefinder_filter_appsource_label">Appkilder</string>
+    <string name="corpsefinder_filter_appsource_summary">Data om appinstallasjon, det vil si hvor APK-filer går.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Private appkilder</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Begrenset data om appinstallasjon, f.eks. beskyttede tredjepartsapper.</string>
+    <string name="corpsefinder_filter_appasec_label">Krypterte appressurser</string>
+    <string name="corpsefinder_filter_appasec_summary">Krypterte appressurser, f.eks. spillressurser.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data flyttet til ekstern lagring av App2SD modifikasjoner.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d app-rest slettet</item>
+        <item quantity="other">%d app-rester slettet</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d app-rest oppdaget</item>
+        <item quantity="other">%d app-rester oppdaget</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Vil du slette alle apprester?</string>
+    <string name="corpsefinder_owners_label">Eiere</string>
+    <string name="corpsefinder_corpse_hints_label">Merk</string>
+    <string name="corpsefinder_owner_unknown">Ukjent eier</string>
+    <string name="corpsefinder_corpse_hint_keeper">Dette elementet kan inneholde data du vil beholde til tross for at eieren blir avinstallert, f.eks. bilder eller sikkerhetskopier.</string>
+    <string name="corpsefinder_corpse_hint_common">Dette elementet har et veldig vanlig navn og kan tilhøre fortsatt installerte apper som SD Maid ikke kjenner.</string>
+</resources>

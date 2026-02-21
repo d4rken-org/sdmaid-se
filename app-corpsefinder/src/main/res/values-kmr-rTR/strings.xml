@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Daneyên ku ji sepanên jêbirî ne.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d bermahiya sepanê hat jêbirin</item>
+        <item quantity="other">%d bermahiyên sepanan hatin jêbirin</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d bermahiya sepanê hat dîtin</item>
+        <item quantity="other">%d bermahiyên sepanan hatin dîtin</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Hemû bermahiyên sepanan jê bibin?</string>
+    <string name="corpsefinder_filter_publicmedia_label">Medyaya giştî</string>
+    <string name="corpsefinder_filter_publicobb_label">Çavkaniyên OBB</string>
+    <string name="corpsefinder_filter_publicdata_label">Daneyên giştî yên sepanê</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kart</string>
+    <string name="corpsefinder_filter_privatedata_label">Daneyên taybet ên sepanê</string>
+    <string name="corpsefinder_filter_dalvik_label">Pêşbirka Dalvik</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profîlên ART</string>
+    <string name="corpsefinder_filter_applib_label">Pirtûkxaneyên sepanê</string>
+    <string name="corpsefinder_filter_appsource_label">Çavkaniyên sepanê</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_owners_label">Xwedî</string>
+    <string name="corpsefinder_owner_unknown">Xwedîyê nenas</string>
+</resources>

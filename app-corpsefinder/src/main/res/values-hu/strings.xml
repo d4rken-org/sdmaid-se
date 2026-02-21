@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">MaradványSzűrő</string>
+    <string name="corpsefinder_explanation_short">A már eltávolított alkalmazásokhoz tartozó adatok.</string>
+    <string name="corpsefinder_settings_summary">Állítsa be a szkennelési szűrőket és a kockázati szinteket.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Tartalmazza a kívánatos maradványokat</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Fájlok, amelyeket érdemes megtartani, még akkor is, ha az alkalmazást eltávolították, pl. az Ön által készített fényképek vagy biztonsági másolatok.</string>
+    <string name="corpsefinder_settings_risk_common_title">Tartalmazzon általános neveket</string>
+    <string name="corpsefinder_settings_risk_common_summary">Túlságosan gyakori elnevezésű adatok, pl. a „Jegyzetek” mappa túl sok ismeretlen alkalmazás tulajdonában van.</string>
+    <string name="corpsefinder_watcher_title">Eltávolítás figyelő</string>
+    <string name="corpsefinder_watcher_summary">Automatikusan keresi a maradványokat, ha egy alkalmazást eltávolított.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatikus törlés</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automatikusan keresi a maradványokat, ha egy alkalmazást eltávolított.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d maradványt találtunk a(z) %2$s eltávolítása után.</item>
+        <item quantity="other">%1$d maradványokat találtunk a(z) %2$s eltávolítása után.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">A tisztítás sikeres (%1$s): %2$s felszabadítva és %3$d elem eltávolítva.</item>
+        <item quantity="other">A tisztítás sikeres (%1$s): %2$s felszabadítva és %3$d elem eltávolítva.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Maradványok törlése</string>
+    <string name="corpsefinder_filter_publicmedia_label">Nyilvános média</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Nyilvános médiafájlok, pl. üzenetküldő alkalmazásokon keresztül kapott fájlok.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB erőforrások</string>
+    <string name="corpsefinder_filter_publicobb_summary">További alkalmazásforrások, pl. játékeszközök.</string>
+    <string name="corpsefinder_filter_publicdata_label">Nyilvános alkalmazásadatok</string>
+    <string name="corpsefinder_filter_publicdata_summary">Nem érzékeny alkalmazásadatok, pl. térkép gyorsítótárak.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD kártya</string>
+    <string name="corpsefinder_filter_sdcard_summary">Általános nyilvános tárhely, belső és külső (pl. SD-kártyák).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privát alkalmazásadatok</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privát alkalmazásadatok, pl. hitelesítő adatok, alkalmazásbeállítások, de a böngésző gyorsítótárai is azok.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik gyorsítótár</string>
+    <string name="corpsefinder_filter_dalvik_summary">Gyorsítótárazott alkalmazás-végrehajtási adatok.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilok</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Az ART profilokat az Android az alkalmazások teljesítményének optimalizálásához használja.</string>
+    <string name="corpsefinder_filter_applib_label">Alkalmazáskönyvtárak</string>
+    <string name="corpsefinder_filter_applib_summary">Alkalmazáshoz kapcsolódó könyvtári adatok.</string>
+    <string name="corpsefinder_filter_appsource_label">Alkalmazásforrások</string>
+    <string name="corpsefinder_filter_appsource_summary">Alkalmazástelepítési adatok, azaz hova kerülnek az APK-k.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privát alkalmazásforrások</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Korlátozott alkalmazástelepítési adatok, pl. védett harmadik féltől származó alkalmazások.</string>
+    <string name="corpsefinder_filter_appasec_label">Titkosított alkalmazásforrások</string>
+    <string name="corpsefinder_filter_appasec_summary">Titkosított alkalmazásforrások, pl. játékeszközök.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Az adatokat az App2Sd modok külső tárolóra helyezték át.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d alkalmazás maradványa törölve</item>
+        <item quantity="other">%d alkalmazás maradványa törölve</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d alkalmazás maradvány felfedezve</item>
+        <item quantity="other">%d alkalmazás maradványok felfedezve</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Törli az összes alkalmazás maradványt?</string>
+    <string name="corpsefinder_owners_label">Tulajdonosok</string>
+    <string name="corpsefinder_corpse_hints_label">Értesítés</string>
+    <string name="corpsefinder_owner_unknown">Ismeretlen tulajdonos</string>
+    <string name="corpsefinder_corpse_hint_keeper">Ez az elem tartalmazhat olyan adatokat, amelyeket meg szeretne őrizni annak ellenére, hogy a tulajdonosát eltávolították, pl. fényképeket vagy biztonsági másolatokat.</string>
+    <string name="corpsefinder_corpse_hint_common">Ennek az elemnek nagyon gyakori a neve, és olyan még telepített alkalmazásokhoz tartozhat, amelyeket az SD Maid nem ismer.</string>
+</resources>

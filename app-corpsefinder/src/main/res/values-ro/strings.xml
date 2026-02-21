@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Găsitor de cadavre</string>
+    <string name="corpsefinder_explanation_short">Date care aparțin aplicațiilor deja eliminate.</string>
+    <string name="corpsefinder_settings_summary">Ajustează filtrele de scanare și nivelele de risc.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Include rămășițele dorite</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Fișiere pe care vrei să le păstrezi, chiar dacă aplicația este dezinstalată, ex: fotografii pe care le-ai făcut sau copii de rezervă pe care le-ai creat.</string>
+    <string name="corpsefinder_settings_risk_common_title">Include nume comune</string>
+    <string name="corpsefinder_settings_risk_common_summary">Date cu nume utilizate în mod obișnuit, de ex. un dosar \"Note\" este deținut de prea multe aplicații necunoscute.</string>
+    <string name="corpsefinder_watcher_title">Urmăritor de dezinstalări</string>
+    <string name="corpsefinder_watcher_summary">Scanează automat pentru rămășițe când o aplicație este eliminată.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Ștergere automată</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Șterge automat resturile legate de aplicația dezinstalată.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d Rămășiță găsită după dezinstalarea %2$s.</item>
+        <item quantity="few">%1$d Rămășițe găsite după dezinstalarea %2$s.</item>
+        <item quantity="other">%1$d Rămășițe găsite după dezinstalarea %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementul %3$d.</item>
+        <item quantity="few">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementele %3$d.</item>
+        <item quantity="other">Curățat cu succes (%1$s): A fost eliberat %2$s și a eliminat elementele %3$d.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Șterge resturile</string>
+    <string name="corpsefinder_filter_publicmedia_label">Media public</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Fișiere media publice, ex: fișiere primite prin aplicații de mesagerie.</string>
+    <string name="corpsefinder_filter_publicobb_label">Resurse OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Resurse suplimentare ale aplicației, ex: active de joc.</string>
+    <string name="corpsefinder_filter_publicdata_label">Date publice ale aplicației</string>
+    <string name="corpsefinder_filter_publicdata_summary">Date nesensibile ale aplicației, ex: cache pentru hărți.</string>
+    <string name="corpsefinder_filter_sdcard_label">Card SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Stocarea generale publice, intern și extern (ex: Carduri SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Datele aplicației private</string>
+    <string name="corpsefinder_filter_privatedata_summary">Datele aplicației private, ex: acreditările, setările aplicației, dar și cache-urile browserului.</string>
+    <string name="corpsefinder_filter_dalvik_label">Cache dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Datele de execuție a aplicației stocate în cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profilele ART sunt folosite de Android pentru optimizarea performanței aplicațiilor.</string>
+    <string name="corpsefinder_filter_applib_label">Biblioteci ale aplicației</string>
+    <string name="corpsefinder_filter_applib_summary">Date de bibliotecă legate de aplicație.</string>
+    <string name="corpsefinder_filter_appsource_label">Sursele aplicației</string>
+    <string name="corpsefinder_filter_appsource_summary">Date de instalare ale aplicației, ex: unde merg APK-urile.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Sursele aplicației private</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Date restricționate de instalare a aplicației, ex: aplicații terță parte protejate.</string>
+    <string name="corpsefinder_filter_appasec_label">Resurse a aplicației criptat</string>
+    <string name="corpsefinder_filter_appasec_summary">Resurse criptate a aplicației, ex: activele jocului.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Datele mutate în stocarea externă de către modurile aplicației App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d aplicație restantă a fost ștearsă</item>
+        <item quantity="few">%d aplicații restante au fost șterse</item>
+        <item quantity="other">%d aplicații restante au fost șterse</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">A fost descoperită %d rămășiță de aplicație</item>
+        <item quantity="few">Au fost descoperite %d rămășițe de aplicație</item>
+        <item quantity="other">Au fost descoperite %d rămășițe de aplicație</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Ștergeți toate resturile aplicațiilor?</string>
+    <string name="corpsefinder_owners_label">Proprietarii</string>
+    <string name="corpsefinder_corpse_hints_label">Înștiințare</string>
+    <string name="corpsefinder_owner_unknown">Propietar necunoscut</string>
+    <string name="corpsefinder_corpse_hint_keeper">Acest articol poate conține date pe care doriți să le păstrați, deși proprietarul său este dezinstalat, ex: fotografii sau copii de rezervă.</string>
+    <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și ar putea aparține unor aplicații încă instalate pe care SD Maid nu le cunoaște.</string>
+</resources>

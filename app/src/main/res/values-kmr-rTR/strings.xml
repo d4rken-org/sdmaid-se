@@ -92,17 +92,10 @@
     <string name="dataarea_warningcard_label">Deverên daneyan</string>
     <string name="debug_mode_label">Moda debug</string>
     <string name="debug_bugreporter_label">Raporên xeletiyên otomatîk</string>
-    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Moda debug çalak e</string>
     <string name="settings_category_tools_label">Amûr</string>
     <string name="settings_category_filter">Parzûn</string>
     <string name="settings_category_risklevel">Asta xeterê</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="corpsefinder_explanation_short">Daneyên ku ji sepanên jêbirî ne.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Daneyên zêde yên ku ne yê sepaneke taybet in.</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
-    <string name="appcleaner_explanation_short">Daneyên ne hewce yên ku ji sepanên taybet in.</string>
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Li ser amûra xwe daneyên dubare bibînin.</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
@@ -126,8 +119,6 @@
     <string name="review_app_review_action">Binirxîne</string>
     <string name="review_app_dismiss_action">Belkî paşê</string>
     <string name="review_app_body">Ma hûn dixwazin ji SD Maid re nirxandinekê bihêlin? ❤️</string>
-    <!-- Shorter versions for side-by-side display -->
-    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Di nav pelan de bişopînin da ku biryar bidin çi bihêlin an jê bibin.</string>
@@ -176,76 +167,6 @@
     <string name="swiper_stamp_undo_2">Paş!</string>
     <string name="swiper_stamp_undo_3">Ax!</string>
     <string name="swiper_stamp_undo_4">Bisekine!</string>
-    <string name="appcleaner_filter_defaultcachespublic_label">Pêşbirkên giştî yên standard</string>
-    <string name="appcleaner_filter_defaultcachesprivate_label">Pêşbirkên taybet ên standard</string>
-    <string name="appcleaner_include_systemapps_label">Sepanên pergalê tê de bikin</string>
-    <string name="appcleaner_include_runningapps_label">Sepanên ku dixebitin tê de bikin</string>
-    <string name="appcleaner_include_inaccessible_label">Pêşbirkên negihîştî tê de bikin</string>
-    <string name="appcleaner_filter_codecache_label">Pêşbirka kodê</string>
-    <string name="appcleaner_filter_advertisement_label">Daneyên reklaman</string>
-    <string name="appcleaner_filter_bugreporting_label">Raportkirina xeletiyan</string>
-    <string name="appcleaner_filter_analytics_label">Analîtîk</string>
-    <string name="appcleaner_filter_hiddencaches_label">Pêşbirkên veşartî</string>
-    <string name="appcleaner_filter_thumbnails_label">Wêneyên piçûk ên medyayê</string>
-    <string name="appcleaner_filter_gamefiles_label">Pelên lîstikan</string>
-    <string name="appcleaner_filter_offlinecache_label">Pêşbirka bê torê</string>
-    <string name="appcleaner_filter_recyclebins_label">Tenişteyên çopê</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp kopiyên piştgirî</string>
-    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp pelên wergirandî</string>
-    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp pelên şandî</string>
-    <string name="appcleaner_filter_telegram_label">Telegram pelên medyayê</string>
-    <string name="appcleaner_delete_all_confirmation_message">Tiştên ne hewce ji bo hemû sepanan jê bibin?</string>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="one">%d tiştê ne hewce hat jêbirin</item>
-        <item quantity="other">%d tiştên ne hewce hatin jêbirin</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d tiştê ne hewce hat dîtin</item>
-        <item quantity="other">%d tiştên ne hewce hatin dîtin</item>
-    </plurals>
-    <string name="systemcleaner_filter_logfiles_label">Pelên log ên pergalê</string>
-    <string name="systemcleaner_filter_advertisements_label">Pelên reklaman</string>
-    <string name="systemcleaner_filter_anr_label">Xeletiyên ANR</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Peldankên vala</string>
-    <string name="systemcleaner_filter_screenshots_label">Wêneyên ekranê</string>
-    <string name="systemcleaner_filter_thumbnails_label">Wêneyên piçûk</string>
-    <string name="systemcleaner_filter_tempfiles_label">Pelên demkî yên pergalê</string>
-    <string name="systemcleaner_filter_lostdir_label">Peldankên LOST.DIR</string>
-    <string name="systemcleaner_filter_linuxfiles_label">Pelên Linux</string>
-    <string name="systemcleaner_filter_macfiles_label">Pelên Mac</string>
-    <string name="systemcleaner_filter_windowsfiles_label">Pelên Windows</string>
-    <string name="systemcleaner_customfilter_label">Parzûna taybet</string>
-    <string name="systemcleaner_customfilter_create_action">Parzûna taybet biafirînin</string>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d lihevhatin hat jêbirin</item>
-        <item quantity="other">%d lihevhatin hatin jêbirin</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d lihevhatina parzûnê</item>
-        <item quantity="other">%d lihevhatinên parzûnê</item>
-    </plurals>
-    <string name="systemcleaner_delete_all_confirmation_message">Hemû naveroka parzûnê jê bibin?</string>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">%d bermahiya sepanê hat jêbirin</item>
-        <item quantity="other">%d bermahiyên sepanan hatin jêbirin</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d bermahiya sepanê hat dîtin</item>
-        <item quantity="other">%d bermahiyên sepanan hatin dîtin</item>
-    </plurals>
-    <string name="corpsefinder_delete_all_confirmation_message">Hemû bermahiyên sepanan jê bibin?</string>
-    <string name="corpsefinder_filter_publicmedia_label">Medyaya giştî</string>
-    <string name="corpsefinder_filter_publicobb_label">Çavkaniyên OBB</string>
-    <string name="corpsefinder_filter_publicdata_label">Daneyên giştî yên sepanê</string>
-    <string name="corpsefinder_filter_sdcard_label">SD kart</string>
-    <string name="corpsefinder_filter_privatedata_label">Daneyên taybet ên sepanê</string>
-    <string name="corpsefinder_filter_dalvik_label">Pêşbirka Dalvik</string>
-    <string name="corpsefinder_filter_artprofiles_label">Profîlên ART</string>
-    <string name="corpsefinder_filter_applib_label">Pirtûkxaneyên sepanê</string>
-    <string name="corpsefinder_filter_appsource_label">Çavkaniyên sepanê</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_owners_label">Xwedî</string>
-    <string name="corpsefinder_owner_unknown">Xwedîyê nenas</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d dubare hat jêbirin</item>
         <item quantity="other">%d dubare hatin jêbirin</item>
@@ -292,10 +213,6 @@
     <string name="analyzer_storage_content_type_app_label">Sepan</string>
     <string name="analyzer_storage_content_type_media_label">Pelên bikarhêner</string>
     <string name="analyzer_storage_content_type_system_label">Daneyên pergalê</string>
-    <string name="automation_active_title">SD Maid dixebite</string>
-    <string name="automation_error_no_consent_title">Xeletiya otomasyonê</string>
-    <string name="automation_error_not_enabled_title">Servîs ne çalak e</string>
-    <string name="automation_error_not_running_title">Servîs naxebite</string>
     <string name="scheduler_execution_label">Pêkanîna din (nêzîk)</string>
     <string name="scheduler_execution_last_label">Pêkanîna dawî</string>
     <string name="scheduler_new_schedule_action">Planê biafirînin</string>
@@ -312,12 +229,6 @@
     <string name="scheduler_notification_result_failure_message">Hin karên plansazkirî serneketîn an bi xeletiyan re rûbirû bûn. Wan bi destan biceribînin.</string>
     <string name="motd_setting_enabled_label">Peyamên girîng</string>
     <string name="updatecheck_setting_enabled_label">Kontrola nûvekirinan</string>
-    <string name="area_type_sdcard_label">Hilanîna giştî</string>
-    <string name="area_type_public_media_label">Medyaya giştî ya sepanan</string>
-    <string name="area_type_public_data_label">Daneyên giştî yên sepanan</string>
-    <string name="area_type_public_obb_label">Çavkaniyên giştî yên sepanan</string>
-    <string name="area_type_private_data_label">Daneyên taybet ên sepanan</string>
-    <string name="area_type_portable_label">Hilanîna guhêzbar</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_onetap_short">Bişopîne + Jê bibe</string>
     <string name="picker_select_paths_title">Rêyên hilbijêrin</string>

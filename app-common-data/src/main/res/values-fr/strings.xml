@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Mémoire publique</string>
+    <string name="area_type_public_media_label">Supports publics d’applis</string>
+    <string name="area_type_public_data_label">Données publiques d’applis</string>
+    <string name="area_type_public_obb_label">Ressources publiques d’applis</string>
+    <string name="area_type_private_data_label">Données privées d’applis</string>
+    <string name="area_type_portable_label">Unité de stockage amovible</string>
+</resources>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="systemcleaner_explanation_short">Daneyên zêde yên ku ne yê sepaneke taybet in.</string>
+    <string name="systemcleaner_filter_logfiles_label">Pelên log ên pergalê</string>
+    <string name="systemcleaner_filter_advertisements_label">Pelên reklaman</string>
+    <string name="systemcleaner_filter_anr_label">Xeletiyên ANR</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Peldankên vala</string>
+    <string name="systemcleaner_filter_screenshots_label">Wêneyên ekranê</string>
+    <string name="systemcleaner_filter_thumbnails_label">Wêneyên piçûk</string>
+    <string name="systemcleaner_filter_tempfiles_label">Pelên demkî yên pergalê</string>
+    <string name="systemcleaner_filter_lostdir_label">Peldankên LOST.DIR</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Pelên Linux</string>
+    <string name="systemcleaner_filter_macfiles_label">Pelên Mac</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Pelên Windows</string>
+    <string name="systemcleaner_customfilter_label">Parzûna taybet</string>
+    <string name="systemcleaner_customfilter_create_action">Parzûna taybet biafirînin</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d lihevhatin hat jêbirin</item>
+        <item quantity="other">%d lihevhatin hatin jêbirin</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d lihevhatina parzûnê</item>
+        <item quantity="other">%d lihevhatinên parzûnê</item>
+    </plurals>
+    <string name="systemcleaner_delete_all_confirmation_message">Hemû naveroka parzûnê jê bibin?</string>
+</resources>

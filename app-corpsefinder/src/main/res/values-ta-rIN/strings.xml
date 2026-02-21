@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">மிச்சம் கண்டுபிடிப்பான்</string>
+    <string name="corpsefinder_explanation_short">ஏற்கனவே அகற்றப்பட்ட பயன்பாடுகளுக்கு சொந்தமான தரவு.</string>
+    <string name="corpsefinder_settings_summary">ஸ்கேன் வடிப்பான்கள் மற்றும் ஆபத்து நிலைகளை சரிசெய்யவும்.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">விரும்பத்தக்க மிச்சங்களை சேர்க்கவும்</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">பயன்பாடு நீக்கப்பட்டாலும் நீங்கள் வைத்திருக்க விரும்பும் கோப்புகள், எ.கா. நீங்கள் எடுத்த புகைப்படங்கள் அல்லது நீங்கள் உருவாக்கிய காப்புப்பிரதிகள்.</string>
+    <string name="corpsefinder_settings_risk_common_title">பொதுவான பெயர்களை சேர்க்கவும்</string>
+    <string name="corpsefinder_settings_risk_common_summary">பொதுவாக பயன்படுத்தப்படும் பெயர்களுடன் தரவு, எ.கா. \"குறிப்புகள்\" எனும் அடைவு பல தெரியாத பயன்பாடுகளுக்கு சொந்தமானது.</string>
+    <string name="corpsefinder_watcher_title">நீக்குதல் கண்காணிப்பான்</string>
+    <string name="corpsefinder_watcher_summary">ஒரு பயன்பாடு அகற்றப்படும்போது மிச்சங்களுக்காக தானியங்கியாக ஸ்கேன் செய்யவும்.</string>
+    <string name="corpsefinder_watcher_autodelete_title">தானியங்கி நீக்குதல்</string>
+    <string name="corpsefinder_watcher_autodelete_summary">நீக்கப்பட்ட பயன்பாட்டுடன் தொடர்புடைய எந்த மிச்சங்களையும் தானியங்கியாக நீக்கவும்.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s ஐ நீக்கிய பிறகு %1$d மிச்சம் கண்டுபிடிக்கப்பட்டது.</item>
+        <item quantity="other">%2$s ஐ நீக்கிய பிறகு %1$d மிச்சங்கள் கண்டுபிடிக்கப்பட்டன.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">சுத்தம் வெற்றிகரமாக நிறைவடைந்தது (%1$s): %2$s விடுவிக்கப்பட்டது மற்றும் %3$d உருப்படி நீக்கப்பட்டது.</item>
+        <item quantity="other">சுத்தம் வெற்றிகரமாக நிறைவடைந்தது (%1$s): %2$s விடுவிக்கப்பட்டது மற்றும் %3$d உருப்படிகள் நீக்கப்பட்டன.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">மிச்சங்களை நீக்கு</string>
+    <string name="corpsefinder_filter_publicmedia_label">பொது ஊடகம்</string>
+    <string name="corpsefinder_filter_publicmedia_summary">பொது ஊடக கோப்புகள், எ.கா. தூது பயன்பாடுகள் வழியாக பெறப்பட்ட கோப்புகள்.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB வளங்கள்</string>
+    <string name="corpsefinder_filter_publicobb_summary">கூடுதல் பயன்பாட்டு வளங்கள், எ.கா. விளையாட்டு சொத்துகள்.</string>
+    <string name="corpsefinder_filter_publicdata_label">பொது பயன்பாட்டு தரவு</string>
+    <string name="corpsefinder_filter_publicdata_summary">முக்கியமல்லாத பயன்பாட்டு தரவு, எ.கா. வரைபட கேச்கள்.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD அட்டை</string>
+    <string name="corpsefinder_filter_sdcard_summary">பொது சேமிப்பகம், உள்ளக மற்றும் வெளி (எ.கா. SD அட்டைகள்).</string>
+    <string name="corpsefinder_filter_privatedata_label">தனியார் பயன்பாட்டு தரவு</string>
+    <string name="corpsefinder_filter_privatedata_summary">தனியார் பயன்பாட்டு தரவு, எ.கா. சான்றிதழ்கள், பயன்பாட்டு அமைப்புகள் மற்றும் உலாவி கேச்கள்.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik கேச்</string>
+    <string name="corpsefinder_filter_dalvik_summary">கேச் செய்யப்பட்ட பயன்பாட்டு செயல்பாட்டு தரவு.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART சுயவிவரங்கள்</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART சுயவிவரங்கள் செயலி செயல்திறனை மேம்படுத்த Android ஆல் பயன்படுத்தப்படுகின்றன.</string>
+    <string name="corpsefinder_filter_applib_label">பயன்பாட்டு நூலகங்கள்</string>
+    <string name="corpsefinder_filter_applib_summary">பயன்பாட்டுடன் தொடர்புடைய நூலக தரவு.</string>
+    <string name="corpsefinder_filter_appsource_label">பயன்பாட்டு மூலங்கள்</string>
+    <string name="corpsefinder_filter_appsource_summary">பயன்பாட்டு நிறுவல் தரவு, அதாவது APKகள் செல்லும் இடம்.</string>
+    <string name="corpsefinder_filter_appsource_private_label">தனியார் பயன்பாட்டு மூலங்கள்</string>
+    <string name="corpsefinder_filter_appsource_private_summary">கட்டுப்படுத்தப்பட்ட பயன்பாட்டு நிறுவல் தரவு, எ.கா. பாதுகாக்கப்பட்ட மூன்றாம் தரப்பு பயன்பாடுகள்.</string>
+    <string name="corpsefinder_filter_appasec_label">மறைகுறியிடப்பட்ட பயன்பாட்டு வளங்கள்</string>
+    <string name="corpsefinder_filter_appasec_summary">மறைகுறியிடப்பட்ட பயன்பாட்டு வளங்கள், எ.கா. விளையாட்டு சொத்துகள்.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd மாற்றங்களால் வெளி சேமிப்பகத்திற்கு நகர்த்தப்பட்ட தரவு.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d பயன்பாட்டு மிச்சம் நீக்கப்பட்டது</item>
+        <item quantity="other">%d பயன்பாட்டு மிச்சங்கள் நீக்கப்பட்டன</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d பயன்பாட்டு மிச்சம் கண்டுபிடிக்கப்பட்டது</item>
+        <item quantity="other">%d பயன்பாட்டு மிச்சங்கள் கண்டுபிடிக்கப்பட்டன</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">அனைத்து பயன்பாட்டு மிச்சங்களையும் நீக்கவா?</string>
+    <string name="corpsefinder_owners_label">உரிமையாளர்கள்</string>
+    <string name="corpsefinder_corpse_hints_label">அறிவிப்பு</string>
+    <string name="corpsefinder_owner_unknown">தெரியாத உரிமையாளர்</string>
+    <string name="corpsefinder_corpse_hint_keeper">இந்த உருப்படியின் உரிமையாளர் நீக்கப்பட்டிருந்தாலும் நீங்கள் வைத்துக்கொள்ளக் கருதும் தரவு இருக்கலாம், எ.கா. புகைப்படங்கள் அல்லது காப்புப்பிரதிகள்.</string>
+    <string name="corpsefinder_corpse_hint_common">இந்த உருப்படிக்கு மிகவும் பொதுவான பெயர் உள்ளது மற்றும் SD Maid க்கு தெரியாத நிறுவப்பட்ட பயன்பாடுகளுக்கு சொந்தமானதாக இருக்கலாம்.</string>
+</resources>

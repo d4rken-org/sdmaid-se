@@ -1,4 +1,4 @@
-<?xml version='1.0' encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Dileu canlyniadau ym mhob offeryn?</string>
     <string name="dashboard_settings_category">Dangosfwrdd</string>
@@ -150,210 +150,6 @@
     <string name="settings_category_tools_label">Offer</string>
     <string name="settings_category_filter">Hidlydd</string>
     <string name="settings_category_risklevel">Lefel risg</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="corpsefinder_explanation_short">Data sy\'n perthyn i apiau sydd eisoes wedi\'u tynnu.</string>
-    <string name="corpsefinder_settings_summary">Addasu hidlyddion sgan a lefelau risg.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Cynnwys gweddillion dymunol</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Ffeiliau y gallech fod eisiau eu cadw, hyd yn oed os yw\'r ap wedi\'i ddadosod, e.e. lluniau rydych wedi\'u tynnu neu gopïau wrth gefn rydych wedi\'u creu.</string>
-    <string name="corpsefinder_settings_risk_common_title">Cynnwys enwau cyffredin</string>
-    <string name="corpsefinder_settings_risk_common_summary">Data gydag enwau a ddefnyddir yn gyffredin, e.e. mae ffolder "Nodiadau" yn eiddo i ormod o apiau anhysbys.</string>
-    <string name="corpsefinder_watcher_title">Gwyliwr dadosod</string>
-    <string name="corpsefinder_watcher_summary">Sganio\'n awtomatig am weddillion pan fydd ap yn cael ei dynnu.</string>
-    <string name="corpsefinder_watcher_autodelete_title">Dileu awtomatig</string>
-    <string name="corpsefinder_watcher_autodelete_summary">Dileu\'n awtomatig unrhyw weddillion sy\'n gysylltiedig â\'r ap sydd wedi\'i ddadosod.</string>
-    <string name="corpsefinder_watcher_notification_delete_action">Dileu gweddillion</string>
-    <string name="corpsefinder_filter_publicmedia_label">Cyfryngau cyhoeddus</string>
-    <string name="corpsefinder_filter_publicmedia_summary">Ffeiliau cyfryngau cyhoeddus, e.e. ffeiliau a dderbyniwyd drwy apiau negeseuon.</string>
-    <string name="corpsefinder_filter_publicobb_label">Adnoddau OBB</string>
-    <string name="corpsefinder_filter_publicobb_summary">Adnoddau ap ychwanegol, e.e. asedau gêm.</string>
-    <string name="corpsefinder_filter_publicdata_label">Data ap cyhoeddus</string>
-    <string name="corpsefinder_filter_publicdata_summary">Data ap nad yw\'n sensitif, e.e. storfeydd map.</string>
-    <string name="corpsefinder_filter_sdcard_label">Cerdyn SD</string>
-    <string name="corpsefinder_filter_sdcard_summary">Storfa gyhoeddus gyffredinol, mewnol ac allanol (e.e. cardiau SD).</string>
-    <string name="corpsefinder_filter_privatedata_label">Data ap preifat</string>
-    <string name="corpsefinder_filter_privatedata_summary">Data ap preifat, e.e. manylion mewngofnodi, gosodiadau ap ond hefyd storfeydd porwr.</string>
-    <string name="corpsefinder_filter_dalvik_label">Storfa Dalvik</string>
-    <string name="corpsefinder_filter_dalvik_summary">Data gweithredu ap wedi\'i storio.</string>
-    <string name="corpsefinder_filter_applib_label">Llyfrgelloedd ap</string>
-    <string name="corpsefinder_filter_applib_summary">Data llyfrgell sy\'n gysylltiedig ag ap.</string>
-    <string name="corpsefinder_filter_appsource_label">Ffynonellau ap</string>
-    <string name="corpsefinder_filter_appsource_summary">Data gosod ap, h.y. lle mae ffeiliau APK yn mynd.</string>
-    <string name="corpsefinder_filter_appsource_private_label">Ffynonellau ap preifat</string>
-    <string name="corpsefinder_filter_appsource_private_summary">Data gosod ap cyfyngedig, e.e. apiau trydydd parti gwarchodedig.</string>
-    <string name="corpsefinder_filter_appasec_label">Adnoddau ap wedi\'u hamgryptio</string>
-    <string name="corpsefinder_filter_appasec_summary">Adnoddau ap wedi\'u hamgryptio, e.e. asedau gêm.</string>
-    <string name="corpsefinder_filter_app2sd_summary">Data wedi\'i symud i storfa allanol gan fodau App2Sd.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
-    <string name="corpsefinder_delete_all_confirmation_message">Dileu pob gweddillion ap?</string>
-    <string name="corpsefinder_owners_label">Perchnogion</string>
-    <string name="corpsefinder_corpse_hints_label">Rhybudd</string>
-    <string name="corpsefinder_owner_unknown">Perchennog anhysbys</string>
-    <string name="corpsefinder_corpse_hint_keeper">Gallai\'r eitem hon gynnwys data rydych am ei gadw er bod ei berchennog wedi\'i ddadosod, e.e. lluniau neu gopïau wrth gefn.</string>
-    <string name="corpsefinder_corpse_hint_common">Mae gan yr eitem hon enw cyffredin iawn a gallai berthyn i apiau sydd dal wedi\'u gosod nad yw SD Maid yn eu hadnabod.</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="systemcleaner_explanation_short">Data diangen nad yw\'n perthyn i unrhyw ap penodol.</string>
-    <string name="systemcleaner_filter_custom_label">Hidlydd personol</string>
-    <string name="systemcleaner_filter_custom_manage_label">Rheoli hidlyddion personol</string>
-    <string name="systemcleaner_filter_custom_manage_summary">Creu, dileu, mewnforio ac allforio eich hidlyddion personol.</string>
-    <string name="systemcleaner_filter_logfiles_label">Ffeiliau log system</string>
-    <string name="systemcleaner_filter_logfiles_summary">Ffeiliau log system a gwasanaeth system (e.e. *.log) mewn lleoliadau amrywiol.</string>
-    <string name="systemcleaner_filter_packagecaches_label">Storfa gosodwr</string>
-    <string name="systemcleaner_filter_packagecaches_summary">Data wedi\'i storio sy\'n gysylltiedig ag apiau wedi\'u gosod a ddefnyddir gan reolaeth pecynnau\'r system.</string>
-    <string name="systemcleaner_filter_advertisements_label">Ffeiliau hysbysebion</string>
-    <string name="systemcleaner_filter_advertisements_summary">Ffeiliau sydd wedi\'u creu ar gyfer neu gan hysbysebion.</string>
-    <string name="systemcleaner_filter_anr_label">Gwallau ANR</string>
-    <string name="systemcleaner_filter_anr_summary">Olion o ddigwyddiadau \'nid yw\'r rhaglen yn ymateb\'.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Ffolderi gwag</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Ffolderi gwag o bob rhan o\'r ddyfais. Efallai y bydd angen sawl ymgais ar ffolderi nythol.</string>
-    <string name="systemcleaner_filter_screenshots_label">Sgrinluniau</string>
-    <string name="systemcleaner_filter_screenshots_summary">Sgrinluniau sy\'n hŷn na %s o apiau a lleoliadau lluosog.</string>
-    <string name="systemcleaner_filter_trashed_label">Ffeiliau wedi\'u dileu</string>
-    <string name="systemcleaner_filter_trashed_summary">Ffeiliau mewn biniau ailgylchu o apiau a lleoliadau amrywiol sydd wedi\'u marcio i\'w dileu ond heb eu dileu\'n barhaol eto.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Oedran Sgrinluniau</string>
-    <string name="systemcleaner_filter_screenshots_age_summary">Oedran lleiaf i sgrinluniau gael eu hystyried ar gyfer dileu.</string>
-    <string name="systemcleaner_filter_superfluosapks_label">APKs diangen</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Ffeiliau gosod sy\'n hŷn neu\'n hafal i fersiynau ap sydd eisoes wedi\'u gosod.</string>
-    <string name="systemcleaner_filter_lostdir_label">Ffolderi LOST.DIR</string>
-    <string name="systemcleaner_filter_lostdir_summary">Ffeiliau dros dro sy\'n cael eu creu wrth drosglwyddo data rhwng dyfeisiau Android.</string>
-    <string name="systemcleaner_filter_linuxfiles_label">Ffeiliau Linux</string>
-    <string name="systemcleaner_filter_linuxfiles_summary">Ffeiliau a ffolderi sy\'n cael eu creu pan fydd storfa wedi\'i chysylltu â chyfrifiadur Linux.</string>
-    <string name="systemcleaner_filter_macfiles_label">Ffeiliau Mac</string>
-    <string name="systemcleaner_filter_macfiles_summary">Ffeiliau a ffolderi sy\'n cael eu creu wrth bori storfa gydag ap finder Apple.</string>
-    <string name="systemcleaner_filter_windowsfiles_label">Ffeiliau Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Data y gall porwr ffeiliau Windows ei greu ar storfa gysylltiedig.</string>
-    <string name="systemcleaner_filter_thumbnails_label">Delweddau bach</string>
-    <string name="systemcleaner_filter_thumbnails_summary">Rhagolygon wedi\'u storio ar gyfer delweddau a fideos.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Ffeiliau system dros dro</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Ffeiliau dros dro sy\'n gysylltiedig â\'r system, fel arfer storfeydd byr ar gyfer gweithrediadau gweithredol.</string>
-    <string name="systemcleaner_filter_analytics_label">Ffeiliau dadansoddeg</string>
-    <string name="systemcleaner_filter_analytics_summary">Data sy\'n gysylltiedig â dadansoddeg ac olrhain namau.</string>
-    <string name="systemcleaner_filter_downloadcache_label">Storfa lawrlwytho</string>
-    <string name="systemcleaner_filter_downloadcache_summary">Ffolder storfa system a ddefnyddir ar gyfer pethau amrywiol (e.e. diweddariadau OTA).</string>
-    <string name="systemcleaner_filter_localtmp_label">Ffeiliau dros dro lleol</string>
-    <string name="systemcleaner_filter_localtmp_summary">Ffeiliau dros dro sy\'n gysylltiedig â\'r system (e.e. o Android Studio).</string>
-    <string name="systemcleaner_filter_datalogger_label">Ffeiliau log system</string>
-    <string name="systemcleaner_filter_datalogger_summary">Ffeiliau log penodol i wasanaeth system.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Blwch gollwng log</string>
-    <string name="systemcleaner_filter_logdropbox_summary">Ardal i\'r system ollwng ffeiliau log iddi.</string>
-    <string name="systemcleaner_filter_recenttasks_label">Tasgau diweddar</string>
-    <string name="systemcleaner_filter_recenttasks_summary">Data sy\'n gysylltiedig â hanes tasgau yn newidydd tasgau\'r system.</string>
-    <string name="systemcleaner_filter_tombstones_label">Gweddillion chwalu system</string>
-    <string name="systemcleaner_filter_tombstones_summary">Os yw prosesau brodorol yn chwalu (e.e. gemau), yna mae ffeiliau\'n cael eu creu yma.</string>
-    <string name="systemcleaner_filter_usagestats_label">Ystadegau defnydd</string>
-    <string name="systemcleaner_filter_usagestats_summary">Ffeiliau sy\'n gysylltiedig ag ystadegau defnydd rhaglenni.</string>
-    <string name="systemcleaner_delete_all_confirmation_message">Dileu holl gynnwys yr hidlydd?</string>
-    <string name="systemcleaner_customfilter_label">Hidlydd personol</string>
-    <string name="systemcleaner_customfilter_create_action">Creu hidlydd personol</string>
-    <string name="systemcleaner_customfilter_create_hint">Creu hidlydd personol i ddileu ffeiliau ychwanegol sy\'n unigryw i\'ch dyfais a\'ch achosion defnydd.</string>
-    <string name="systemcleaner_editor_remove_confirmation_message">Tynnu\'r hidlydd hwn?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
-    <string name="systemcleaner_customfilter_editor_label_label">Label hidlydd</string>
-    <string name="systemcleaner_customfilter_editor_warning">Gall hidlyddion personol fod yn beryglus. Gwiriwch ganlyniadau\'ch sgan cyn dileu!</string>
-    <string name="systemcleaner_customfilter_editor_areas_label">Ardaloedd data</string>
-    <string name="systemcleaner_customfilter_editor_areas_explanation">Os nad oes ardal wedi\'i dewis, bydd yr holl ardaloedd data hygyrch yn cael eu sganio a\'u paru.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Cyfyngiadau math o ffeil</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Ffeiliau</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Ffolderi</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_hint">Os nad oes math wedi\'i ddewis, bydd pob math yn cael eu paru.</string>
-    <string name="systemcleaner_customfilter_editor_path_label">Meini prawf llwybr</string>
-    <string name="systemcleaner_customfilter_editor_path_explanation">Mae angen i\'r llwybr targed gyd-fynd ag o leiaf un cofnod (e.e. "Downloads/oldapks/game-"). Pwyswch yn hir ar gofnodion am fwy o opsiynau.</string>
-    <string name="systemcleaner_customfilter_editor_name_label">Meini prawf enw</string>
-    <string name="systemcleaner_customfilter_editor_name_explanation">Rhaid i\'r enw targed gynnwys o leiaf un o\'r allweddeiriau (e.e. "-receipt"). Pwyswch yn hir ar gofnodion am fwy o opsiynau.</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_label">Eithrio</string>
-    <string name="systemcleaner_customfilter_editor_exclusions_explanation">Bydd y canlyniad yn cael ei eithrio os yw\'r llwybr yn cyfateb ag unrhyw gofnod (e.e. "DCIM"). Pwyswch yn hir ar gofnodion am fwy o opsiynau.</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">Modd cymharu llwybr</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">Mae\'r llwybr yn dechrau gydag allweddair</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Mae\'r llwybr yn cynnwys allweddair</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Mae\'r llwybr yn gorffen gydag allweddair</string>
-    <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Mae\'r llwybr yn hafal i\'r allweddair</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modd cymharu enw</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Mae\'r enw yn dechrau gydag allweddair</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Mae\'r enw yn cynnwys allweddair</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Mae\'r enw yn gorffen gydag allweddair</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Mae\'r enw yn hafal i\'r allweddair</string>
-    <string name="systemcleaner_customfilter_last_edit">Golygu diwethaf: %s</string>
-    <string name="systemcleaner_customfilter_editor_livesearch_label">Chwilio byw</string>
-    <string name="systemcleaner_customfilter_import_action">Mewnforio hidlydd newydd</string>
-    <string name="systemcleaner_customfilter_export_action">Allforio hidlydd a ddewiswyd</string>
-    <string name="appcleaner_tool_name">Glanhawr Apiau</string>
-    <string name="appcleaner_explanation_short">Data gwariadwy sy\'n perthyn i apiau penodol.</string>
-    <string name="appcleaner_filter_defaultcachespublic_label">Storfeydd cyhoeddus rhagosodedig</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Storfeydd apiau cyhoeddus rhagosodedig. Hygyrch o dan Android/data ar fersiynau Android hŷn. Yn cael eu dileu wrth dapio "Clirio storfa" yn y gosodiadau system.</string>
-    <string name="appcleaner_filter_defaultcachesprivate_label">Storfeydd preifat rhagosodedig</string>
-    <string name="appcleaner_filter_defaultcachesprivate_summary">Storfeydd apiau preifat rhagosodedig. Yn cael eu dileu wrth dapio "Clirio storfa" yn y gosodiadau system.</string>
-    <string name="appcleaner_include_systemapps_label">Cynnwys apiau system</string>
-    <string name="appcleaner_include_systemapps_summary">Cynnwys apiau system yn y sgan.</string>
-    <string name="appcleaner_include_runningapps_label">Cynnwys apiau sy\'n rhedeg</string>
-    <string name="appcleaner_include_runningapps_summary">Cynnwys apiau sy\'n rhedeg ar hyn o bryd a allai achosi ymyrraeth.</string>
-    <string name="appcleaner_include_inaccessible_label">Cynnwys storfeydd anhygyrch</string>
-    <string name="appcleaner_include_inaccessible_summary">Cynnwys data na ellir ei gyrchu\'n uniongyrchol ond y gellir ei ddileu trwy osodiadau\'r system a\'i awtomeiddio gan ddefnyddio gwasanaeth hygyrchedd.</string>
-    <string name="appcleaner_include_multiuser_label">Cynnwys defnyddwyr eraill</string>
-    <string name="appcleaner_include_multiuser_summary">Cynnwys apiau o broffiliau defnyddwyr eraill ar y ddyfais hon.</string>
-    <string name="appcleaner_include_minimumsize_label">Maint lleiaf</string>
-    <string name="appcleaner_include_minimumsize_summary">Hepgor apiau lle mae cyfanswm y data gwariadwy yn is na\'r lleiafswm.</string>
-    <string name="appcleaner_include_minimumage_label">Oedran lleiaf</string>
-    <string name="appcleaner_include_minimumage_summary">Hepgor ffeiliau sy\'n iau na\'r oedran lleiaf.</string>
-    <string name="appcleaner_automation_romtype_detection_label">Canfod system weithredu</string>
-    <string name="appcleaner_automation_romtype_detection_summary">Gall awtomeiddio seiliedig ar hygyrchedd fethu os nad yw SD Maid yn canfod eich system weithredu yn gywir. Defnyddiwch y gosodiad hwn i ddiystyru\'r system weithredu a ganfuwyd.</string>
-    <string name="appcleaner_filter_codecache_label">Storfa cod</string>
-    <string name="appcleaner_filter_codecache_summary">Storfa cod JVM. Blociau o god beit wedi\'u crynhoi i god cynhenid.</string>
-    <string name="appcleaner_filter_advertisement_label">Data hysbysebion</string>
-    <string name="appcleaner_filter_advertisement_summary">Ffeiliau sy\'n gysylltiedig â hysbysebion, e.e. cyfryngau wedi\'u storio.</string>
-    <string name="appcleaner_filter_bugreporting_label">Adrodd gwallau</string>
-    <string name="appcleaner_filter_bugreporting_summary">Data sy\'n gysylltiedig ag adrodd gwallau, e.e. cofnodion gwall neu ddympiau chwalu.</string>
-    <string name="appcleaner_filter_analytics_label">Dadansoddeg</string>
-    <string name="appcleaner_filter_analytics_summary">Data sy\'n gysylltiedig â dadansoddeg, e.e. ystadegau wedi\'u storio ar gyfer yr hyn rydych yn ei dapio mewn ap.</string>
-    <string name="appcleaner_filter_hiddencaches_label">Storfeydd cudd</string>
-    <string name="appcleaner_filter_hiddencaches_summary">Storfeydd pwrpas cyffredinol wedi\'u storio y tu allan i gyrraedd y system.</string>
-    <string name="appcleaner_filter_thumbnails_label">Lluniau bach cyfryngau</string>
-    <string name="appcleaner_filter_thumbnails_summary">Lluniau bach rhagolwg delweddau, fideo a sain.</string>
-    <string name="appcleaner_filter_gamefiles_label">Ffeiliau gêm</string>
-    <string name="appcleaner_filter_gamefiles_summary">Adnoddau sy\'n gysylltiedig â gêm y byddai\'r gêm yn eu hail-lwytho ar y lansiad nesaf os oes angen.</string>
-    <string name="appcleaner_filter_offlinecache_label">Storfa all-lein</string>
-    <string name="appcleaner_filter_offlinecache_summary">Ffeiliau wedi\'u storio i\'w defnyddio pan yn all-lein, e.e. teils map.</string>
-    <string name="appcleaner_filter_recyclebins_label">Biniau ailgylchu</string>
-    <string name="appcleaner_filter_recyclebins_summary">Ffeiliau sydd wedi\'u dileu ond wedi\'u rhoi mewn ffolder arbennig i ganiatáu eu hadfer.</string>
-    <string name="appcleaner_filter_webview_label">Ffeiliau golwg gwe</string>
-    <string name="appcleaner_filter_webview_summary">Ffeiliau wedi\'u storio gan achosion Golwg Gwe a ddefnyddir o fewn apiau.</string>
-    <string name="appcleaner_filter_whatsapp_backups_label">Copïau wrth gefn WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_backups_summary">Dileu copïau ychwanegol o gopïau wrth gefn WhatsApp a chadw\'r diweddaraf yn unig.</string>
-    <string name="appcleaner_filter_whatsapp_received_summary">Ffeiliau a dderbyniwyd gennych gan bobl drwy WhatsApp.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Ffeiliau a dderbyniwyd WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_label">Ffeiliau a anfonwyd WhatsApp</string>
-    <string name="appcleaner_filter_whatsapp_sent_summary">Ffeiliau a anfonwyd o WhatsApp i eraill.</string>
-    <string name="appcleaner_filter_telegram_label">Ffeiliau cyfryngau Telegram</string>
-    <string name="appcleaner_filter_telegram_summary">Ffeiliau a dderbyniwyd neu a anfonwyd drwy Telegram.</string>
-    <string name="appcleaner_filter_threema_label">Threema</string>
-    <string name="appcleaner_filter_threema_summary">Ffeiliau a dderbyniwyd drwy Threema.</string>
-    <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_filter_wechat_summary">Ffeiliau a anfonwyd neu a dderbyniwyd mewn sgyrsiau ac eiliadau WeChat.</string>
-    <string name="appcleaner_filter_viber_label">Viber</string>
-    <string name="appcleaner_filter_viber_summary">Ffeiliau cyfryngau wedi\'u storio sy\'n cael eu lawrlwytho eto wrth eu gweld mewn sgwrs.</string>
-    <string name="appcleaner_filter_qqchat_label">Sgwrs QQ</string>
-    <string name="appcleaner_filter_qqchat_summary">Ffeiliau a anfonwyd neu a dderbyniwyd mewn sgyrsiau sgwrs QQ.</string>
-    <string name="appcleaner_delete_all_confirmation_message">Dileu eitemau gwariadwy ar gyfer pob ap?</string>
-    <string name="appcleaner_automation_loading">Paratoi awtomeiddio trwy wasanaeth hygyrchedd</string>
-    <string name="appcleaner_automation_title">Awtomeiddio Glanhawr Apiau</string>
-    <string name="appcleaner_automation_subtitle_default_caches">Clirio storfeydd rhagosodedig…</string>
-    <string name="appcleaner_automation_progress_open_settings">Agor sgrin gosodiadau (allweddeiriau: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">Chwilio am gofnod "Storfa" (allweddeiriau: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">Chwilio am fotwm "Clirio data" (allweddeiriau: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Chwilio am fotwm "Clirio storfa" (allweddeiriau: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Ceisio cadarnhau gweithred flaenorol (allweddeiriau: %s)</string>
-    <string name="appcleaner_item_caches_inaccessible_title">Storfeydd rhagosodedig</string>
-    <string name="appcleaner_item_caches_inaccessible_body">Storfeydd rhagosodedig cyhoeddus a phreifat. Nid ydynt yn hygyrch yn uniongyrchol, ond gellir eu dileu\'n anuniongyrchol (e.e. trwy wasanaeth hygyrchedd).</string>
-    <string name="appcleaner_automation_unavailable_title">Gwasanaeth hygyrchedd ddim ar gael</string>
-    <string name="appcleaner_automation_unavailable_body">Mae clirio storfeydd anhygyrch yn gofyn am wasanaeth hygyrchedd SD Maid, ond nid oedd ar gael. Os nad ydych am ei ddefnyddio: Analluogwch yr opsiwn "Cynnwys storfeydd anhygyrch".</string>
-    <string name="appcleaner_junk_userprofile_label">Defnyddiwr</string>
-    <string name="appcleaner_delete_confirmation_message_x">Dileu ffeiliau gwariadwy ar gyfer %s?</string>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Dileu storfeydd gan ddefnyddio Shizuku</string>
-    <string name="appcleaner_progress_determining_inaccessible_caches">Pennu storfeydd anhygyrch</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">Clirio storfa ddim ar gael</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Mae\'r system wedi analluogi\'r botwm "Clirio storfa" ar gyfer yr ap hwn. Eithrio fe i gyflymu clirio storfa.</string>
-    <string name="appcleaner_automation_error_no_settings_title">Sgrin gosodiadau ddim ar gael</string>
-    <string name="appcleaner_automation_error_no_settings_body">Nid oes gan yr ap system hwn sgrin gosodiadau. Nid yw clirio storfa trwy wasanaeth hygyrchedd yn bosibl. Eithrio fe i gyflymu clirio storfa.</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_title">Ap system wedi\'i gamffurfio</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Mae ap Diogelwch HyperOS (com.miui.securitycenter) yn colli\'r caniatâd Ystadegau Defnydd (GET_USAGE_STATS). Mae hyn yn torri nodweddion fel "Clirio Data" ym manylion ap a chlirio storfa trwy hygyrchedd. Rhowch y caniatâd i adfer swyddogaeth lawn.</string>
     <string name="deduplicator_tool_name">Diddyblygydd</string>
     <string name="deduplicator_explanation_short">Dod o hyd i ddata dyblyg ar eich dyfais.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Gwneud "Dileu popeth" yn bosibl</string>
@@ -533,23 +329,6 @@
     <string name="exclusion_create_pkg_hint">Defnyddiwch yr offeryn Rheolaeth Apiau i greu eithriadau apiau.</string>
     <string name="exclusion_create_path_hint">Defnyddiwch yr offeryn Dadansoddwr Storfa i greu eithriadau llwybr.</string>
     <string name="exclusion_show_defaults_action">Dangos rhagosodiadau</string>
-    <string name="automation_accessibility_service_description">Gall defnyddwyr ag anghenion hygyrchedd arbennig alluogi\'r gwasanaeth hwn i ganiatáu i SD Maid awtomeiddio tasgau a fyddai fel arall yn gofyn am ryngweithio llafurus gan y defnyddiwr (e.e. dileu storfa).\n\nEnghraifft: Os ydych chi\'n cyfarwyddo SD Maid i stopio apiau lluosog, gall SD Maid ddefnyddio\'r gwasanaeth hwn i agor sgrin gosodiadau pob ap, dod o hyd i\'r botwm \'Gorfodi i Stopio\' a\'i dapio.\n\nBydd SD Maid bob amser yn dangos yn amlwg wrth ddefnyddio\'r gwasanaeth hwn ac yn darparu ffordd hawdd i\'r defnyddiwr ganslo unrhyw ryngweithiad ar unwaith.\n\nNi fydd unrhyw weithredoedd yn cael eu cyflawni heb gymeradwyaeth flaenorol gan y defnyddiwr. Gellir analluogi\'r gwasanaeth hwn eto ar unrhyw adeg heb effeithiau niweidiol.</string>
-    <string name="automation_screenoverlay_explanation">Mae SD Maid yn rhyngweithio â\'ch dyfais. Nid yw\'n bosibl defnyddio\'r sgrin ar yr un pryd. Arhoswch nes bod y weithred wedi\'i chwblhau neu ei chanslo.</string>
-    <string name="automation_active_title">Mae SD Maid yn gweithio</string>
-    <string name="automation_error_no_consent_title">Gwall awtomeiddio</string>
-    <string name="automation_error_no_consent_body">Nid yw\'r gwasanaeth hygyrchedd wedi\'i sefydlu. Cwblhewch y gosodiad a rhoi caniatâd.</string>
-    <string name="automation_error_not_enabled_title">Nid yw\'r gwasanaeth wedi\'i alluogi</string>
-    <string name="automation_error_not_enabled_body">Mae\'r gwasanaeth hygyrchedd wedi\'i analluogi. Trowch e ymlaen eto.</string>
-    <string name="automation_error_not_running_title">Nid yw\'r gwasanaeth yn rhedeg</string>
-    <string name="automation_error_not_running_body">Nid yw\'r gwasanaeth hygyrchedd yn rhedeg. Ceisiwch ailgychwyn y ddyfais.</string>
-    <string name="automation_error_screen_unavailable_title">Sgrin ddim ar gael</string>
-    <string name="automation_error_screen_unavailable_body">Cafodd y weithred ei hatal oherwydd bod y sgrin wedi dod yn anhygyrch (e.e. arddangos i ffwrdd neu sgrin clo\'n weithredol).</string>
-    <string name="automation_error_compatibility_title">Cydnawsedd awtomeiddio</string>
-    <string name="automation_error_compatibility_body">Ni allai SD Maid ddeall cynllun y sgrin. Os yw hyn yn parhau i ddigwydd, efallai nad yw eich iaith neu osodiad yn cael ei gefnogi\'n llawn. Gwiriwch am ddiweddariadau neu cysylltwch â mi fel y gallaf ei drwsio.</string>
-    <string name="automation_error_timeout_title">Terfyn amser awtomeiddio</string>
-    <string name="automation_error_timeout_body">Ni chwblhaodd SD Maid yr holl gamau o fewn y terfyn amser. Os yw hyn yn parhau i ddigwydd, efallai y bydd angen i mi addasu\'r ap ar gyfer eich dyfais. Gwiriwch am ddiweddariadau neu cysylltwch â mi fel y gallaf ei drwsio.</string>
-    <string name="automation_error_overlay_title">Troshaen awtomeiddio</string>
-    <string name="automation_error_overlay_body">Ni allai SD Maid ddangos y droshaen awtomeiddio. Gwiriwch ganiatadau a cheisiwch ailgychwyn eich dyfais.</string>
     <string name="history_label">Hanes</string>
     <string name="history_description">Rhestr gronolegol o weithredoedd diweddar a data a effeithiwyd.</string>
     <string name="scheduler_label">Amserlenydd</string>
@@ -632,12 +411,6 @@
     <string name="picker_selected_paths_title">Llwybrau a ddewiswyd</string>
     <string name="picker_unsaved_confirmation_message">Gwaredu newidiadau?</string>
     <string name="picker_home_action">Ardaloedd data</string>
-    <string name="area_type_sdcard_label">Storfa gyhoeddus</string>
-    <string name="area_type_public_media_label">Cyfryngau apiau cyhoeddus</string>
-    <string name="area_type_public_data_label">Data apiau cyhoeddus</string>
-    <string name="area_type_public_obb_label">Adnoddau apiau cyhoeddus</string>
-    <string name="area_type_private_data_label">Data apiau preifat</string>
-    <string name="area_type_portable_label">Storfa symudol</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="zero">%d tasg gweithredol</item>
         <item quantity="one">%d tasg gweithredol</item>
@@ -653,78 +426,6 @@
         <item quantity="few">%d tasg yn y ciw</item>
         <item quantity="many">%d tasg yn y ciw</item>
         <item quantity="other">%d o dasgau yn y ciw</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="zero">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
-        <item quantity="one">%1$d gweddillion wedi\'i ddarganfod ar ôl dadosod %2$s.</item>
-        <item quantity="two">%1$d weddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
-        <item quantity="few">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
-        <item quantity="many">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
-        <item quantity="other">%1$d o weddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
-    </plurals>
-    <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="zero">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
-        <item quantity="one">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
-        <item quantity="two">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
-        <item quantity="few">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
-        <item quantity="many">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
-        <item quantity="other">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d o eitemau.</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="zero">%d gweddillion ap wedi\'u dileu</item>
-        <item quantity="one">%d gweddillion ap wedi\'i ddileu</item>
-        <item quantity="two">%d weddillion ap wedi\'u dileu</item>
-        <item quantity="few">%d gweddillion ap wedi\'u dileu</item>
-        <item quantity="many">%d gweddillion ap wedi\'u dileu</item>
-        <item quantity="other">%d o weddillion apiau wedi\'u dileu</item>
-    </plurals>
-    <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="zero">%d gweddillion ap wedi\'u darganfod</item>
-        <item quantity="one">%d gweddillion ap wedi\'i ddarganfod</item>
-        <item quantity="two">%d weddillion ap wedi\'u darganfod</item>
-        <item quantity="few">%d gweddillion ap wedi\'u darganfod</item>
-        <item quantity="many">%d gweddillion ap wedi\'u darganfod</item>
-        <item quantity="other">%d o weddillion apiau wedi\'u darganfod</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="zero">%d cyfatebiad wedi\'i ddileu</item>
-        <item quantity="one">%d cyfatebiad wedi\'i ddileu</item>
-        <item quantity="two">%d gyfatebiad wedi\'u dileu</item>
-        <item quantity="few">%d cyfatebiad wedi\'u dileu</item>
-        <item quantity="many">%d cyfatebiad wedi\'u dileu</item>
-        <item quantity="other">%d o gyfatebiadau wedi\'u dileu</item>
-    </plurals>
-    <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="zero">%d cyfatebiad hidlydd</item>
-        <item quantity="one">%d cyfatebiad hidlydd</item>
-        <item quantity="two">%d gyfatebiad hidlydd</item>
-        <item quantity="few">%d cyfatebiad hidlydd</item>
-        <item quantity="many">%d cyfatebiad hidlydd</item>
-        <item quantity="other">%d o gyfatebiadau hidlydd</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_deleted">
-        <item quantity="zero">%d eitem wariadwy wedi\'i dileu</item>
-        <item quantity="one">%d eitem wariadwy wedi\'i dileu</item>
-        <item quantity="two">%d eitem wariadwy wedi\'u dileu</item>
-        <item quantity="few">%d eitem wariadwy wedi\'u dileu</item>
-        <item quantity="many">%d eitem wariadwy wedi\'u dileu</item>
-        <item quantity="other">%d o eitemau gwariadwy wedi\'u dileu</item>
-    </plurals>
-    <plurals name="appcleaner_result_x_items_found">
-        <item quantity="zero">%d eitem wariadwy wedi\'i darganfod</item>
-        <item quantity="one">%d eitem wariadwy wedi\'i darganfod</item>
-        <item quantity="two">%d eitem wariadwy wedi\'u darganfod</item>
-        <item quantity="few">%d eitem wariadwy wedi\'u darganfod</item>
-        <item quantity="many">%d eitem wariadwy wedi\'u darganfod</item>
-        <item quantity="other">%d o eitemau gwariadwy wedi\'u darganfod</item>
-    </plurals>
-    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
-        <item quantity="zero">Dileu ffeiliau gwariadwy ar gyfer %d ap a ddewiswyd?</item>
-        <item quantity="one">Dileu ffeiliau gwariadwy ar gyfer %d ap a ddewiswyd?</item>
-        <item quantity="two">Dileu ffeiliau gwariadwy ar gyfer %d ap a ddewiswyd?</item>
-        <item quantity="few">Dileu ffeiliau gwariadwy ar gyfer %d ap a ddewiswyd?</item>
-        <item quantity="many">Dileu ffeiliau gwariadwy ar gyfer %d ap a ddewiswyd?</item>
-        <item quantity="other">Dileu ffeiliau gwariadwy ar gyfer %d o apiau a ddewiswyd?</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="zero">%d dyblyg wedi\'i ddileu</item>
@@ -912,11 +613,9 @@
         <item quantity="many">%d llwybr wedi\'u dewis</item>
         <item quantity="other">%d o lwybrau wedi\'u dewis</item>
     </plurals>
-
     <string name="dashboard_card_config_title">Cardiau dangosfwrdd</string>
     <string name="dashboard_card_config_desc">Ffurfweddu pa gardiau sy\'n cael eu dangos a\'u trefn</string>
     <string name="dashboard_card_config_header_title">Llusgwch i aildrefnu, toglo i ddangos/cuddio</string>
-
     <string name="debug_debuglog_screen_title">Cofnod dadfygio</string>
     <string name="debug_debuglog_screen_discard_action">Taflu</string>
     <string name="debug_debuglog_screen_session_path_label">Llwybr sesiwn</string>
@@ -929,7 +628,6 @@
         <item quantity="many">%1$d ffeil yn barod (%2$s)</item>
         <item quantity="other">%1$d o ffeiliau yn barod (%2$s)</item>
     </plurals>
-
     <string name="support_debuglog_folder_label">Ffolder cofnod dadfygio</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="zero">%1$d ffeil yn defnyddio %2$s</item>
@@ -942,14 +640,12 @@
     <string name="support_debuglog_folder_empty_desc">Dim cofnodion dadfygio wedi\'u storio</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Dileu pob cofnod dadfygio?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Bydd hyn yn dileu\'n barhaol bob sesiwn cofnod dadfygio sydd wedi\'u storio. Ni ellir dadwneud y weithred hon.</string>
-
     <string name="settings_acknowledgements_category_translations_title">Cyfieithiadau</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Pwy gyfieethodd hwn?</string>
     <string name="settings_acknowledgements_category_thanks_title">Diolch</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Diolch arbennig i\'n ffrindiau.</string>
     <string name="settings_acknowledgements_category_licenses_title">Trwyddedau</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Meddalwedd a ddefnyddir gan SD Maid.</string>
-
     <string name="debug_card_title">Mae modd dadfygio wedi\'i alluogi</string>
     <string name="debug_card_trace_mode_label">Galluogi modd olrhain</string>
     <string name="debug_card_dryrun_mode_label">Modd prawf (analluogi dileu)</string>
@@ -957,33 +653,9 @@
     <string name="debug_card_pkgs_reload_action">Ail-lwytho apiau</string>
     <string name="debug_card_root_test_action">Profi root</string>
     <string name="debug_card_shizuku_test_action">Profi Shizuku</string>
-
-    <string name="corpsefinder_filter_artprofiles_label">Proffiliau ART</string>
-    <string name="corpsefinder_filter_artprofiles_summary">Mae proffiliau ART yn cael eu defnyddio gan Android i wneud apiau\'n gyflymach.</string>
-
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Cynnwys yr un fersiwn</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Hefyd targedu ffeiliau APK sy\'n cyfateb i\'r fersiwn sydd wedi\'i osod. Analluogwch i ddileu fersiynau hŷn yn unig.</string>
-
-    <string name="systemcleaner_customfilter_editor_size_label">Cyfyngiadau maint</string>
-    <string name="systemcleaner_customfilter_editor_size_minimum_label">Maint lleiaf</string>
-    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maint mwyaf</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Cyfyngu canlyniadau yn ôl maint ffeil. Gadewch yn wag i gyfateb unrhyw faint.</string>
-    <string name="systemcleaner_customfilter_editor_age_label">Cyfyngiadau oedran</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Oedran lleiaf</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Oedran mwyaf</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Cyfyngu canlyniadau yn ôl oedran ffeil (amser addasu diwethaf). Gadewch yn wag i gyfateb unrhyw oedran.</string>
-
-    <string name="appcleaner_filter_shortcutservice_label">Eiconau llwybr byr ap</string>
-    <string name="appcleaner_filter_shortcutservice_summary">Eiconau wedi\'u cadw dros dro ar gyfer llwybrau byr apiau a dewislenni rhannu.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Gorfodi stopio cyn clirio</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Gorfodi stopio apiau cyn clirio eu storfa dros dro. Gall helpu i glirio storfa dros dro rhai apiau, ond gall achosi i apiau gamymddwyn a gofyn am ailddechrau â llaw.</string>
-    <string name="appcleaner_progress_force_stopping">Gorfodi stopio apiau…</string>
-
     <string name="deduplicator_keep_prefer_paths_title">Yn well cadw yn</string>
     <string name="deduplicator_keep_prefer_paths_summary">Wrth benderfynu pa ddyblyg i\'w gadw, yn well cadw ffeiliau yn y lleoliadau hyn.</string>
     <string name="deduplicator_keep_prefer_paths_none_summary">Dim lleoliadau wedi\'u ffurfweddu</string>
-
     <string name="deduplicator_arbiter_title">Strategaeth dileu</string>
     <string name="deduplicator_arbiter_summary">Ffurfweddwch pa ffeiliau sy\'n cael eu cadw a pha rai sy\'n cael eu dileu.</string>
     <string name="deduplicator_arbiter_explanation">Wrth ddileu dyblygiadau, mae SD Maid yn penderfynu pa ffeil i\'w chadw drwy wirio pob maen prawf yn eu trefn. Y maen prawf cyntaf sy\'n rhoi enillydd clir sy\'n pennu\'r canlyniad. Llusgwch i aildrefnu, tapiwch i newid modd.</string>
@@ -1015,7 +687,6 @@
     <string name="deduplicator_arbiter_mode_prefer_newer">Yn well ffeiliau newydd</string>
     <string name="deduplicator_arbiter_mode_prefer_larger">Yn well ffeiliau mwy</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Yn well ffeiliau llai</string>
-
     <string name="deduplicator_view_mode_groups_label">Grwpiau</string>
     <string name="deduplicator_view_mode_directories_label">Ffolderi</string>
     <string name="squeezer_tool_name">Gwasgu Cyfryngau</string>
@@ -1126,16 +797,13 @@
         <item quantity="other">O leiaf %d o ddyddiau oed</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Arbedion amcangyfrif o ~%d%% ar gyfer ffeiliau JPEG</string>
-
     <string name="shortcut_appcontrol_short">Rheoli Apiau</string>
     <string name="shortcut_appcontrol_long">Rheoli apiau sydd wedi\'u gosod</string>
     <string name="shortcut_onetap_short">Sganio + Dileu</string>
     <string name="shortcut_onetap_long">Sganio a dileu mewn un weithred</string>
-
     <string name="shortcuts_settings_category">Llwybrau byr</string>
     <string name="shortcuts_onetap_enabled_title">Llwybr byr un-tap</string>
     <string name="shortcuts_onetap_enabled_summary">Dangos llwybr byr \"Sganio + Dileu\" wrth wasgu\'n hir ar eicon yr ap. Defnyddia\'r un offer â dangosfwrdd un-tap.</string>
-
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Sweipiwch drwy ffeiliau i benderfynu beth i\'w gadw neu\'i ddileu.</string>
@@ -1296,7 +964,6 @@
         <item quantity="many">%d eisoes wedi\'u dileu</item>
         <item quantity="other">%d eisoes wedi\'u dileu</item>
     </plurals>
-    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="zero">%d wedi\'u cadw</item>
         <item quantity="one">%d wedi\'i gadw</item>
@@ -1319,7 +986,6 @@
     <string name="swiper_sessions_suggestion_downloads">Ffolder lawrlwytho</string>
     <string name="swiper_sessions_suggestion_screenshots">Sgrinluniau</string>
     <string name="swiper_sessions_suggestion_camera">Rholyn camera</string>
-    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Cadw!</string>
     <string name="swiper_stamp_keep_2">Neis!</string>
     <string name="swiper_stamp_keep_3">Ie!</string>
@@ -1336,7 +1002,6 @@
     <string name="swiper_stamp_undo_2">Nôl!</string>
     <string name="swiper_stamp_undo_3">Wps!</string>
     <string name="swiper_stamp_undo_4">Aros!</string>
-    <!-- Swiper gesture overlay -->
     <string name="swiper_gesture_overlay_dismiss">Tapiwch unrhyw le i ddechrau</string>
     <string name="swiper_gesture_overlay_dismiss_action">Iawn</string>
     <string name="swiper_gesture_overlay_left_delete">← Dileu</string>
@@ -1345,7 +1010,6 @@
     <string name="swiper_gesture_overlay_right_delete">Dileu →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Sgipio</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Dadwneud</string>
-    <!-- Swiper help dialog -->
     <string name="swiper_help_action">Cymorth</string>
     <string name="swiper_help_title">Sut mae Swiper yn gweithio</string>
     <string name="swiper_help_message">Sweipiwch bob ffeil i wneud penderfyniad:\n\n← Sweipio i\'r chwith: %1$s\n→ Sweipio i\'r dde: %2$s\n↑ Sweipio i fyny: Sgipio\n↓ Sweipio i lawr: Dadwneud (ar ôl y sweipio cyntaf)\n\nGallwch hefyd ddefnyddio\'r botymau ar y gwaelod.\n\nPan fyddwch chi\'n barod, tapiwch \"Adolygu\" i weld eich holl benderfyniadau. Ni fydd unrhyw beth yn cael ei ddileu nes i chi gadarnhau ar y sgrin adolygu.</string>

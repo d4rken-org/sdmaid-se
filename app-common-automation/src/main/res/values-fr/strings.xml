@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Les utilisateurs qui ont des besoins d’accessibilité particuliers peuvent activer ce service pour autoriser SD Maid à automatiser les tâches qui demanderaient autrement une interaction manuelle et fastidieuse de l’utilisateur (p. ex. l’effacement du cache).\n\nExemple : si vous demandez à SD Maid d’arrêter plusieurs applis, SD Maid peut alors utiliser ce service pour ouvrir l’écran des paramètres de chaque appli, trouver le bouton « Forcer l’arrêt » et l’activer.\n\nSD Maid sera toujours affichée lors de l’utilisation de ce service et offrira à l’utilisateur une manière simple d’annuler immédiatement toute interaction.\n\nAucune action ne sera effectuée sans l’accord préalable de l’utilisateur. Ce service peut être redésactivé en tout temps sans effets indésirables.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagit avec votre appareil. Il est impossible d’utiliser l’écran en même temps. Attendez la fin de l\'opération ou annulez-la.</string>
+    <string name="automation_active_title">SD Maid travaille</string>
+    <string name="automation_error_no_consent_title">Erreur d’automatisation</string>
+    <string name="automation_error_no_consent_body">Le service d’accessibilité n’est pas configuré. Terminez la configuration et donnez votre accord.</string>
+    <string name="automation_error_not_enabled_title">Le service n’est pas activé</string>
+    <string name="automation_error_not_enabled_body">Le service d’accessibilité est désactivé. Réactivez-le.</string>
+    <string name="automation_error_not_running_title">Le service ne s’exécute pas</string>
+    <string name="automation_error_not_running_body">Le service d’accessibilité ne s’exécute pas. Essayez de redémarrer l’appareil.</string>
+    <string name="automation_error_screen_unavailable_title">Écran inaccessible</string>
+    <string name="automation_error_screen_unavailable_body">L’opération a été interrompue, car l’écran est devenu inaccessible (p. ex. éteint ou verrouillé).</string>
+    <string name="automation_error_compatibility_title">Compatibilité avec l’automatisation</string>
+    <string name="automation_error_compatibility_body">SD Maid n’a pas réussi à déterminer l’agencement de l’écran. Si cela se produit régulièrement, il se peut que votre langue ou votre configuration ne soit pas entièrement prise en charge. Cherchez des mises à jour ou contactez-moi afin que je corrige la situation.</string>
+    <string name="automation_error_timeout_title">Expiration de l’automatisation</string>
+    <string name="automation_error_timeout_body">SD Maid n’a pas effectué toutes les étapes dans le temps imparti. Si cela se reproduit, je devrais peut-être modifier l’appli pour votre appareil. Cherchez des mises à jour ou contactez-moi pour que je corrige la situation.</string>
+    <string name="automation_error_overlay_title">Surcouche d’automatisation</string>
+    <string name="automation_error_overlay_body">SD Maid ne peut pas afficher la surcouche d’automatisation. Vérifiez les autorisations et tentez de redémarrer votre appareil.</string>
+    <string name="automation_error_no_settings_title">Il n’y a pas d’écran de paramétrage</string>
+    <string name="automation_error_no_settings_body">Cette appli système n’a pas d’écran de paramètres. Le service d’accessibilité ne peut pas en vider le cache. L’exclure accélère le vidage du cache.</string>
+</resources>

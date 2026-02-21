@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Els usuaris amb necessitats especials d\'accessibilitat poden habilitar aquest servei per permetre que l\'SD Maid automatitzi tasques que d\'altra manera requeririen una interacció manual de l\'usuari tediosa (p. ex. l\'eliminació de la memòria cau).\n\nExemple: si indiqueu a l\'SD Maid que aturi diverses aplicacions, l\'SD Maid pot utilitzar aquest servei per obrir la pantalla de configuració de cada aplicació, cerqueu el botó «Força l\'aturada» i toqueu-lo. \n\nL\'SD Maid sempre es mostrarà de manera destacada quan utilitzeu aquest servei i proporcionarà una manera fàcil perquè l\'usuari cancel·li qualsevol interacció immediatament.\n\n\nNo es realitzarà cap acció sense l\'aprovació prèvia de l\'usuari. Aquest servei es pot tornar a desactivar en qualsevol moment sense efectes adversos.</string>
+    <string name="automation_screenoverlay_explanation">L\'SD Maid està interactuant amb el vostre dispositiu. No és possible utilitzar la pantalla al mateix temps. Espereu fins que finalitzi l\'operació o cancel·leu-la.</string>
+    <string name="automation_active_title">L\'SD Maid està en execució</string>
+    <string name="automation_error_no_consent_title">Error d\'automatització</string>
+    <string name="automation_error_no_consent_body">El servei d\'accessibilitat no està configurat. Completeu la configuració i doneu el consentiment.</string>
+    <string name="automation_error_not_enabled_title">El servei no està habilitat</string>
+    <string name="automation_error_not_enabled_body">El servei d\'accessibilitat està desactivat. Torneu-lo a activar.</string>
+    <string name="automation_error_not_running_title">El servei no s\'està executant</string>
+    <string name="automation_error_not_running_body">El servei d\'accessibilitat no s\'està executant. Proveu de reiniciar el dispositiu.</string>
+    <string name="automation_error_screen_unavailable_title">Pantalla no disponible</string>
+    <string name="automation_error_screen_unavailable_body">L\'operació s\'ha cancel·lat perquè la pantalla no estava disponible (p. ex. pantalla apagada o pantalla de bloqueig activa).</string>
+    <string name="automation_error_compatibility_title">Compatibilitat d\'automatització</string>
+    <string name="automation_error_compatibility_body">L\'SD Maid no ha pogut esbrinar la disposició de la pantalla. Si això continua passant, és possible que el vostre idioma o configuració no siguin totalment compatibles. Comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi per poder solucionar-ho.</string>
+    <string name="automation_error_timeout_title">Temps d\'espera d\'automatització</string>
+    <string name="automation_error_timeout_body">L\'SD Maid no ha completat tots els passos dins del límit de temps. Si això continua passant, potser hauré d\'ajustar l\'aplicació per al vostre dispositiu. Comproveu si hi ha actualitzacions o contacteu amb mi perquè ho pugui solucionar.</string>
+    <string name="automation_error_overlay_title">Superposició d\'automatització</string>
+    <string name="automation_error_overlay_body">L\'SD Maid no ha pogut mostrar la superposició d\'automatització. Comproveu els permisos i proveu de reiniciar el dispositiu.</string>
+    <string name="automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
+    <string name="automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
+</resources>

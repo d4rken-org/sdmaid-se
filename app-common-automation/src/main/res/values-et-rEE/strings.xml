@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Erivajadustega kasutajad saavad selle teenuse lubamisega lasta SD Maidil automatiseerida ülesandeid, mis muidu nõuaksid kasutajalt tüütut käsitsi sekkumist (nt vahemälu kustutamine).\n\nNäide: kui õpetad SD Maidi peatama mitu rakendust, siis SD Maid saab selle teenusega avada iga rakenduse seadete ekraani, leida nupu „Force Stop“ (Sundpeatamine) ja puutuda seda.\n\nSD Maid ilmub selle teenuse kasutamisel alati silmapaistvalt ja võimaldab kasutajal hõlpsalt tühistada mis tahes tegevuse kohe.\n\nMitte midagi ei tehta ilma kasutaja eelneva loata. Seda teenust saab keelata taas igal ajal ilma tõsiste tagajärgedeta.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid toimetab seadmega. Samal ajal ei saa kasutada ekraani. Oodake toimetamise lõppu või tühistage see.</string>
+    <string name="automation_active_title">SD Maid töötab</string>
+    <string name="automation_error_no_consent_title">Automatiseerimise viga</string>
+    <string name="automation_error_no_consent_body">Juurdepääsetavusteenus pole seadistatud. Lõpetage seadistamine ja andke luba.</string>
+    <string name="automation_error_not_enabled_title">Teenus pole lubatud</string>
+    <string name="automation_error_not_enabled_body">Juurdepääsetavusteenus on keelatud. Lubage see taas.</string>
+    <string name="automation_error_not_running_title">Teenus ei tööta</string>
+    <string name="automation_error_not_running_body">Juurdepääsetavusteenus ei tööta. Üritage seadet taaskäivitada.</string>
+    <string name="automation_error_screen_unavailable_title">Ekraan puhkab</string>
+    <string name="automation_error_screen_unavailable_body">Toiming tühistati, kuna ekraan lülitus välja või lukustus.</string>
+    <string name="automation_error_compatibility_title">Automatiseerimise ühilduvus</string>
+    <string name="automation_error_compatibility_body">SD Maid ei suutnud tuvastada ekraani suurust. Selle kordumisel ei pruugi teie keel või seadistus olla toetatud. Kontrollige uuendusi või suhelge minuga, et saaksin seda lahendada.</string>
+    <string name="automation_error_timeout_title">Automatiseerimise ajalõpp</string>
+    <string name="automation_error_timeout_body">SD Maid lõpetas ajavahemikus vaid osad etapid. Niiviisi jätkates peaksin võib-olla kohandama rakendust teie seadme järgi. Selle lahendamiseks kontrollige uuenduste olemasolu või suhelge minuga.</string>
+    <string name="automation_error_overlay_title">Automatiseerimise ülekate</string>
+    <string name="automation_error_overlay_body">SD Maid ei suutnud kuvada automatiseerimise ülekatet. Kontrollige lube ja üritage taaskäivitada oma seade.</string>
+    <string name="automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
+    <string name="automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
+</resources>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Xüsusi əlçatanlıq ehtiyacları olan istifadəçilər SD Maid-in əks halda yorucu əl istifadəçi müdaxiləsi tələb edən tapşırıqları avtomatlaşdırmasına icazə vermək üçün bu xidməti aktivləşdirə bilərlər.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid cihazınızla qarşılıqlı əlaqədədir. Eyni vaxtda ekranı istifadə etmək mümkün deyil. Əməliyyat bitənə qədər gözləyin və ya ləğv edin.</string>
+    <string name="automation_active_title">SD Maid işləyir</string>
+    <string name="automation_error_no_consent_title">Avtomatlaşdırma xətası</string>
+    <string name="automation_error_no_consent_body">Əlçatanlıq xidməti qurulmayıb. Quraşdırmanı tamamlayın və razılıq verin.</string>
+    <string name="automation_error_not_enabled_title">Xidmət aktiv deyil</string>
+    <string name="automation_error_not_enabled_body">Əlçatanlıq xidməti deaktivdir. Onu yenidən açın.</string>
+    <string name="automation_error_not_running_title">Xidmət işləmir</string>
+    <string name="automation_error_not_running_body">Əlçatanlıq xidməti işləmir. Cihazı yenidən başlatmağı cəhd edin.</string>
+    <string name="automation_error_screen_unavailable_title">Ekran əlçatan deyil</string>
+    <string name="automation_error_screen_unavailable_body">Ekran əlçatan olmadığı üçün əməliyyat dayandırıldı (məsələn ekran bağlı və ya kilit ekranı aktiv).</string>
+    <string name="automation_error_compatibility_title">Avtomatlaşdırma uyğunluğu</string>
+    <string name="automation_error_compatibility_body">SD Maid ekran qurğusunu anlaya bilmədi. Bu davam edərsə, diliniz və ya qurğunuz tam dəstəklənməyə bilər. Yeniləmələri yoxlayın və ya düzəltməyim üçün mənə müraciət edin.</string>
+    <string name="automation_error_timeout_title">Avtomatlaşdırma vaxt dolması</string>
+    <string name="automation_error_timeout_body">SD Maid bütün addımları vaxt məhdudiyyəti daxilində tamamlamadı. Bu davam edərsə, tətbiqi cihazınız üçün tənzimləmək lazım ola bilər. Yeniləmələri yoxlayın və ya düzəltməyim üçün mənə müraciət edin.</string>
+    <string name="automation_error_overlay_title">Avtomatlaşdırma örtüyü</string>
+    <string name="automation_error_overlay_body">SD Maid avtomatlaşdırma örtüyünü göstərə bilmədi. İcazələri yoxlayın və cihazınızı yenidən başlatmağı cəhd edin.</string>
+    <string name="automation_error_no_settings_title">Parametrlər ekranı əlçatan deyil</string>
+    <string name="automation_error_no_settings_body">Bu sistem tətbiqinin heç bir parametrlər ekranı yoxdur. Əlçatanlıq xidməti vasitəsilə keş təmizləmə mümkün deyil. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
+</resources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="corpsefinder_explanation_short">Data sy\'n perthyn i apiau sydd eisoes wedi\'u tynnu.</string>
+    <string name="corpsefinder_settings_summary">Addasu hidlyddion sgan a lefelau risg.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Cynnwys gweddillion dymunol</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Ffeiliau y gallech fod eisiau eu cadw, hyd yn oed os yw\'r ap wedi\'i ddadosod, e.e. lluniau rydych wedi\'u tynnu neu gopïau wrth gefn rydych wedi\'u creu.</string>
+    <string name="corpsefinder_settings_risk_common_title">Cynnwys enwau cyffredin</string>
+    <string name="corpsefinder_settings_risk_common_summary">Data gydag enwau a ddefnyddir yn gyffredin, e.e. mae ffolder "Nodiadau" yn eiddo i ormod o apiau anhysbys.</string>
+    <string name="corpsefinder_watcher_title">Gwyliwr dadosod</string>
+    <string name="corpsefinder_watcher_summary">Sganio\'n awtomatig am weddillion pan fydd ap yn cael ei dynnu.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Dileu awtomatig</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Dileu\'n awtomatig unrhyw weddillion sy\'n gysylltiedig â\'r ap sydd wedi\'i ddadosod.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Dileu gweddillion</string>
+    <string name="corpsefinder_filter_publicmedia_label">Cyfryngau cyhoeddus</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Ffeiliau cyfryngau cyhoeddus, e.e. ffeiliau a dderbyniwyd drwy apiau negeseuon.</string>
+    <string name="corpsefinder_filter_publicobb_label">Adnoddau OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Adnoddau ap ychwanegol, e.e. asedau gêm.</string>
+    <string name="corpsefinder_filter_publicdata_label">Data ap cyhoeddus</string>
+    <string name="corpsefinder_filter_publicdata_summary">Data ap nad yw\'n sensitif, e.e. storfeydd map.</string>
+    <string name="corpsefinder_filter_sdcard_label">Cerdyn SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Storfa gyhoeddus gyffredinol, mewnol ac allanol (e.e. cardiau SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Data ap preifat</string>
+    <string name="corpsefinder_filter_privatedata_summary">Data ap preifat, e.e. manylion mewngofnodi, gosodiadau ap ond hefyd storfeydd porwr.</string>
+    <string name="corpsefinder_filter_dalvik_label">Storfa Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Data gweithredu ap wedi\'i storio.</string>
+    <string name="corpsefinder_filter_applib_label">Llyfrgelloedd ap</string>
+    <string name="corpsefinder_filter_applib_summary">Data llyfrgell sy\'n gysylltiedig ag ap.</string>
+    <string name="corpsefinder_filter_appsource_label">Ffynonellau ap</string>
+    <string name="corpsefinder_filter_appsource_summary">Data gosod ap, h.y. lle mae ffeiliau APK yn mynd.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Ffynonellau ap preifat</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Data gosod ap cyfyngedig, e.e. apiau trydydd parti gwarchodedig.</string>
+    <string name="corpsefinder_filter_appasec_label">Adnoddau ap wedi\'u hamgryptio</string>
+    <string name="corpsefinder_filter_appasec_summary">Adnoddau ap wedi\'u hamgryptio, e.e. asedau gêm.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Data wedi\'i symud i storfa allanol gan fodau App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Dileu pob gweddillion ap?</string>
+    <string name="corpsefinder_owners_label">Perchnogion</string>
+    <string name="corpsefinder_corpse_hints_label">Rhybudd</string>
+    <string name="corpsefinder_owner_unknown">Perchennog anhysbys</string>
+    <string name="corpsefinder_corpse_hint_keeper">Gallai\'r eitem hon gynnwys data rydych am ei gadw er bod ei berchennog wedi\'i ddadosod, e.e. lluniau neu gopïau wrth gefn.</string>
+    <string name="corpsefinder_corpse_hint_common">Mae gan yr eitem hon enw cyffredin iawn a gallai berthyn i apiau sydd dal wedi\'u gosod nad yw SD Maid yn eu hadnabod.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="zero">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
+        <item quantity="one">%1$d gweddillion wedi\'i ddarganfod ar ôl dadosod %2$s.</item>
+        <item quantity="two">%1$d weddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
+        <item quantity="few">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
+        <item quantity="many">%1$d gweddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
+        <item quantity="other">%1$d o weddillion wedi\'u darganfod ar ôl dadosod %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="zero">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
+        <item quantity="one">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
+        <item quantity="two">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
+        <item quantity="few">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
+        <item quantity="many">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d eitem.</item>
+        <item quantity="other">Glanhau llwyddiannus (%1$s): Rhyddhawyd %2$s a dilëwyd %3$d o eitemau.</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="zero">%d gweddillion ap wedi\'u dileu</item>
+        <item quantity="one">%d gweddillion ap wedi\'i ddileu</item>
+        <item quantity="two">%d weddillion ap wedi\'u dileu</item>
+        <item quantity="few">%d gweddillion ap wedi\'u dileu</item>
+        <item quantity="many">%d gweddillion ap wedi\'u dileu</item>
+        <item quantity="other">%d o weddillion apiau wedi\'u dileu</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="zero">%d gweddillion ap wedi\'u darganfod</item>
+        <item quantity="one">%d gweddillion ap wedi\'i ddarganfod</item>
+        <item quantity="two">%d weddillion ap wedi\'u darganfod</item>
+        <item quantity="few">%d gweddillion ap wedi\'u darganfod</item>
+        <item quantity="many">%d gweddillion ap wedi\'u darganfod</item>
+        <item quantity="other">%d o weddillion apiau wedi\'u darganfod</item>
+    </plurals>
+    <string name="corpsefinder_filter_artprofiles_label">Proffiliau ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Mae proffiliau ART yn cael eu defnyddio gan Android i wneud apiau\'n gyflymach.</string>
+</resources>

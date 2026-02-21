@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Storfa gyhoeddus</string>
+    <string name="area_type_public_media_label">Cyfryngau apiau cyhoeddus</string>
+    <string name="area_type_public_data_label">Data apiau cyhoeddus</string>
+    <string name="area_type_public_obb_label">Adnoddau apiau cyhoeddus</string>
+    <string name="area_type_private_data_label">Data apiau preifat</string>
+    <string name="area_type_portable_label">Storfa symudol</string>
+</resources>

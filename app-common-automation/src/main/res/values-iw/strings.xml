@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">משתמשים עם צרכי נגישות מיוחדים יכולים לאפשר לשירות זה לאפשר ל-SD Maid לבצע אוטומציה של משימות שאחרות היו דורשות אינטראקציה ידנית מייגעת של המשתמש (למשל מחיקת מטמון).\n\nדוגמה: אם תורות ל-SD Maid לעצור מספר אפליקציות, SD Maid יכולה להשתמש בשירות זה כדי לפתוח כל מסך הגדרות אפליקציות, מצא את הלחצן \'כפוף עצירה קלה\' והקש עליו.\n\nתמיד יספק את הדרך הבולטת ל-SD Maid כדי להשתמש בשירות הזה. כל אינטראקציה מיידית.\n\nלא יבוצעו פעולות ללא אישור מראש של המשתמש. שירות זה יכול להיות מושבת שוב בכל עת ללא השפעות שליליות.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid מקיימת אינטראקציה עם המכשיר שלך. לא ניתן להשתמש במסך בו זמנית. המתן עד לסיום הפעולה או בטל אותה.</string>
+    <string name="automation_active_title">SD Maid עובד</string>
+    <string name="automation_error_no_consent_title">שגיאת אוטומציה</string>
+    <string name="automation_error_no_consent_body">שירות הנגישות אינו מוגדר. השלם את ההגדרה ותן הסכמה.</string>
+    <string name="automation_error_not_enabled_title">השירות אינו מופעל</string>
+    <string name="automation_error_not_enabled_body">שירות הנגישות מושבת. הפעל אותו שוב.</string>
+    <string name="automation_error_not_running_title">השירות לא פועל</string>
+    <string name="automation_error_not_running_body">שירות הנגישות אינו פועל. נסה לאתחל את המכשיר.</string>
+    <string name="automation_error_screen_unavailable_title">מסך לא זמין</string>
+    <string name="automation_error_screen_unavailable_body">הפעולה בוטלה מכיוון שהמסך לא זמין (למשל, תצוגה כבויה או מסך נעילה פעיל).</string>
+    <string name="automation_error_compatibility_title">אוטומציה תאימות</string>
+    <string name="automation_error_compatibility_body">SD Maid לא הצליחה להבין את פריסת המסך. אם זה ממשיך לקרות, ייתכן שהשפה או ההגדרה שלך לא נתמכים באופן מלא. בדוק אם יש עדכונים או פנה אליי כדי שאוכל לתקן את זה.</string>
+    <string name="automation_error_timeout_title">פסק זמן לאוטומציה</string>
+    <string name="automation_error_timeout_body">SD Maid לא השלימה את כל השלבים בתוך מגבלת הזמן. אם זה ממשיך לקרות, ייתכן שאצטרך להתאים את האפליקציה למכשיר שלך. בדוק אם יש עדכונים או צור איתי קשר כדי שאוכל לתקן את זה.</string>
+    <string name="automation_error_overlay_title">שכבת-על אוטומציה</string>
+    <string name="automation_error_overlay_body">SD Maid לא הצליח להציג את שכבת האוטומציה. בדוק את ההרשאות ונסה לאתחל את המכשיר.</string>
+    <string name="automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
+    <string name="automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
+</resources>

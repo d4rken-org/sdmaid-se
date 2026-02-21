@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Los usuarios con necesidades especiales de accesibilidad pueden habilitar este servicio para permitir a SD Maid automatizar las tareas que de otro modo requerirían una tediosa interacción manual del usuario (por ejemplo, la eliminación de la caché).\n\nPor ejemplo: Si indicas a SD Maid que detenga varias aplicaciones, SD Maid puede usar este servicio para abrir la pantalla de configuración de cada aplicación, utilizar este servicio para abrir la pantalla de configuración de cada aplicación y encontrar el botón \'Forzar la detención de la aplicación\' y presionarlo.\n\nSD Maid siempre se mostrará de forma destacada cuando se utiliza este servicio y proporcionará una manera fácil para que el usuario cancele cualquier interacción inmediatamente.\n\nNo se llevará a cabo ninguna acción sin la aprobación previa del usuario. Este servicio puede ser desactivado de nuevo en cualquier momento sin efectos adversos.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid está interactuando con tu dispositivo. No es posible utilizar la pantalla al mismo tiempo. Espere a que finalice la operación o cancélela.</string>
+    <string name="automation_active_title">SD Maid está trabajando</string>
+    <string name="automation_error_no_consent_title">Error de automatización</string>
+    <string name="automation_error_no_consent_body">El servicio de accesibilidad no está configurado. Complete la configuración y dé su consentimiento.</string>
+    <string name="automation_error_not_enabled_title">El servicio no está activado</string>
+    <string name="automation_error_not_enabled_body">El servicio de accesibilidad está desactivado. Actívalo de nuevo.</string>
+    <string name="automation_error_not_running_title">El servicio no se está ejecutando</string>
+    <string name="automation_error_not_running_body">El servicio de accesibilidad no se está ejecutando. Intente reiniciar el dispositivo.</string>
+    <string name="automation_error_screen_unavailable_title">No hay ninguna pantalla disponible</string>
+    <string name="automation_error_screen_unavailable_body">La operación se canceló porque la pantalla dejó de estar disponible (por ejemplo, pantalla apagada o pantalla de bloqueo activa).</string>
+    <string name="automation_error_compatibility_title">Compatibilidad de automatización</string>
+    <string name="automation_error_compatibility_body">SD Maid no pudo entender el diseño de la pantalla. Si esto sigue ocurriendo, es posible que el idioma o la configuración no sean totalmente compatibles. Busca actualizaciones o comunícate conmigo para que pueda arreglarlo.</string>
+    <string name="automation_error_timeout_title">Tiempo de espera de automatización</string>
+    <string name="automation_error_timeout_body">SD Maid no completó todos los pasos dentro del tiempo límite. Si esto sigue ocurriendo, quizás tenga que adaptar la aplicación a su dispositivo. Busque actualizaciones o contácteme para solucionarlo.</string>
+    <string name="automation_error_overlay_title">Superposición de automatización</string>
+    <string name="automation_error_overlay_body">SD Maid no pudo mostrar la superposición de automatización. Verifique los permisos e intente reiniciar el dispositivo.</string>
+    <string name="automation_error_no_settings_title">Configuración no disponible</string>
+    <string name="automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. No es posible borrar la caché a través del servicio de accesibilidad. Exclúyela para acelerar el borrado de la caché.</string>
+</resources>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Пошук рештків</string>
+    <string name="corpsefinder_explanation_short">Дані, що належать вже видаленим додаткам.</string>
+    <string name="corpsefinder_settings_summary">Налаштуйте фільтри сканування та рівні ризику.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Включити бажані залишки</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Файли, які ви, можливо, захочете зберегти, навіть якщо додаток буде видалено, наприклад, зроблені вами фотографії або створені резервні копії.</string>
+    <string name="corpsefinder_settings_risk_common_title">Включити загальні назви</string>
+    <string name="corpsefinder_settings_risk_common_summary">Дані з загальновживаними іменами, наприклад, папка \"Нотатки\", належать занадто багатьом невідомим додаткам.</string>
+    <string name="corpsefinder_watcher_title">Контролер деінсталяції</string>
+    <string name="corpsefinder_watcher_summary">Автоматичне сканування на наявність залишків після видалення додатка.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Автоматичне видалення</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Автоматично видаляти будь-які залишки, пов\'язані з видаленим додатком.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d залишок знайдено після видалення %2$s.</item>
+        <item quantity="few">%1$d залишки знайдені після видалення %2$s.</item>
+        <item quantity="many">%1$d залишків знайдено після видалення %2$s.</item>
+        <item quantity="other">%1$d залишків знайдено після видалення %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елемент.</item>
+        <item quantity="few">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементи.</item>
+        <item quantity="many">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементів.</item>
+        <item quantity="other">Очищення виконано успішно (%1$s): Звільнено %2$s та вилучено %3$d елементів.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Видалити залишки</string>
+    <string name="corpsefinder_filter_publicmedia_label">Загальнодоступні медіафайли</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Загальнодоступні медіафайли, наприклад, файли, отримані через месенджери.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB файли ресурсів</string>
+    <string name="corpsefinder_filter_publicobb_summary">Додаткові ресурси додатків, наприклад, ігрові ресурси.</string>
+    <string name="corpsefinder_filter_publicdata_label">Загальнодоступні дані додатку</string>
+    <string name="corpsefinder_filter_publicdata_summary">Нечутливі дані додатків, наприклад, кеш мапи.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD карта</string>
+    <string name="corpsefinder_filter_sdcard_summary">Загальнодоступні сховища, внутрішні та зовнішні (наприклад, SD-карти).</string>
+    <string name="corpsefinder_filter_privatedata_label">Особисті дані додатку</string>
+    <string name="corpsefinder_filter_privatedata_summary">Приватні дані додатків, наприклад, облікові дані, налаштування додатків, а також кеш браузера.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik кеш</string>
+    <string name="corpsefinder_filter_dalvik_summary">Кешовані дані виконання додатків.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Профілі ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Профілі ART використовуються Android для оптимізації продуктивності додатків.</string>
+    <string name="corpsefinder_filter_applib_label">Бібліотеки додатків</string>
+    <string name="corpsefinder_filter_applib_summary">Дані бібліотеки, пов\'язані з додатком.</string>
+    <string name="corpsefinder_filter_appsource_label">Джерела додатку</string>
+    <string name="corpsefinder_filter_appsource_summary">Дані про інсталяцію додатків, тобто куди потрапляють APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Приватні джерела додатків</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Обмежені дані про встановлення додатків, наприклад, захищених додатків сторонніх розробників.</string>
+    <string name="corpsefinder_filter_appasec_label">Зашифровані ресурси додатків</string>
+    <string name="corpsefinder_filter_appasec_summary">Зашифровані ресурси додатків, наприклад, ігрові ресурси.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Дані, переміщені на зовнішнє сховище за допомогою App2SD.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d залишок додатку видалено</item>
+        <item quantity="few">%d залишки додатків видалено</item>
+        <item quantity="many">%d залишків додатків видалено</item>
+        <item quantity="other">%d залишків додатків видалено</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">Виявлено залишок додатка %d</item>
+        <item quantity="few">Виявлено залишки додатка %d</item>
+        <item quantity="many">Виявлено залишків додатка %d</item>
+        <item quantity="other">Виявлено залишки додатка %d</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Видалити всі залишки додатків?</string>
+    <string name="corpsefinder_owners_label">Власники</string>
+    <string name="corpsefinder_corpse_hints_label">Примітка</string>
+    <string name="corpsefinder_owner_unknown">Невідомий власник</string>
+    <string name="corpsefinder_corpse_hint_keeper">Цей елемент може містити дані, які ви хочете зберегти, незважаючи на те, що їх власник видалив додаток, наприклад, фотографії або резервні копії.</string>
+    <string name="corpsefinder_corpse_hint_common">Цей елемент має дуже поширену назву і може належати до ще встановлених додатків, про які SD Maid не знає.</string>
+</resources>

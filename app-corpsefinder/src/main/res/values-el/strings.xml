@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Εύρεση υπολειμμάτων</string>
+    <string name="corpsefinder_explanation_short">Δεδομένα που ανήκουν σε εφαρμογές που έχουν ήδη καταργηθεί.</string>
+    <string name="corpsefinder_settings_summary">Ρυθμίστε τα φίλτρα σάρωσης και τα επίπεδα κινδύνου.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Συμπεριλάβετε επιθυμητά υπολείμματα</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Αρχεία που ίσως θέλετε να διατηρήσετε, ακόμη και αν η εφαρμογή έχει απεγκατασταθεί, π.χ. φωτογραφίες που τραβήξατε ή αντίγραφα ασφαλείας που δημιουργήσατε.</string>
+    <string name="corpsefinder_settings_risk_common_title">Συμπερίληψη κοινότυπων ονομάτων</string>
+    <string name="corpsefinder_settings_risk_common_summary">Δεδομένα με πολύ κοινά ονόματα, π.χ. ένας φάκελος \"σημειώσεις\" ανήκει σε πάρα πολλές άγνωστες εφαρμογές.</string>
+    <string name="corpsefinder_watcher_title">Παρατηρητής απεγκαταστάσεων</string>
+    <string name="corpsefinder_watcher_summary">Αυτόματη σάρωση για υπολείμματα όταν αφαιρεθεί μια εφαρμογή.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Αυτόματη διαγραφή</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Διαγράψτε αυτόματα τυχόν υπολείμματα που σχετίζονται με την απεγκατεστημένη εφαρμογή.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d υπόλοιπο βρέθηκε μετά την απεγκατάσταση του %2$s.</item>
+        <item quantity="other">%1$d υπολείμματα βρέθηκαν μετά την απεγκατάσταση του %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Επιτυχής καθαρισμός (%1$s): Απελευθερώθηκαν %2$s και διαγράφηκε %3$d αντικείμενο.</item>
+        <item quantity="other">Επιτυχής καθαρισμός (%1$s): Απελευθερώθηκαν %2$s και διαγράφηκαν %3$d αντικείμενα.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Διαγραφή υπολειμμάτων</string>
+    <string name="corpsefinder_filter_publicmedia_label">Δημόσια πολυμέσα</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Δημόσια αρχεία πολυμέσων, π.χ. αρχεία που λαμβάνονται μέσω εφαρμογών messenger.</string>
+    <string name="corpsefinder_filter_publicobb_label">Πόροι OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Πρόσθετοι πόροι εφαρμογών, π.χ. στοιχεία παιχνιδιού.</string>
+    <string name="corpsefinder_filter_publicdata_label">Δημόσια δεδομένα εφαρμογών</string>
+    <string name="corpsefinder_filter_publicdata_summary">Μην ευαίσθητα δεδομένα εφαρμογών, π.χ. κρυφές μνήμες χαρτών.</string>
+    <string name="corpsefinder_filter_sdcard_label">Κάρτα SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Γενικός δημόσιος αποθηκευτικός χώρος, εσωτερικός και εξωτερικός (π.χ. κάρτες SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Ιδιωτικά δεδομένα εφαρμογών</string>
+    <string name="corpsefinder_filter_privatedata_summary">Ιδιωτικά δεδομένα εφαρμογών, π.χ. διαπιστευτήρια, ρυθμίσεις εφαρμογών αλλά και κρυφές μνήμες προγράμματος περιήγησης.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Αποθηκευμένα δεδομένα εκτέλεσης εφαρμογών.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART προφίλ</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Τα προφίλ ART χρησιμοποιούνται από το Android για τη βελτιστοποίηση της απόδοσης της εφαρμογής.</string>
+    <string name="corpsefinder_filter_applib_label">Βιβλιοθήκες εφαρμογών</string>
+    <string name="corpsefinder_filter_applib_summary">Δεδομένα library εφαρμογών.</string>
+    <string name="corpsefinder_filter_appsource_label">Πηγές εφαρμογών</string>
+    <string name="corpsefinder_filter_appsource_summary">Δεδομένα εγκατάστασης εφαρμογών, δηλαδή όπου πηγαίνουν τα APKs.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Ιδιωτικές πηγές εφαρμογών</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Περιορισμένα δεδομένα εγκατάστασης εφαρμογών, π.χ. προστατευμένες εφαρμογές τρίτων.</string>
+    <string name="corpsefinder_filter_appasec_label">Κρυπτογραφημένοι πόροι εφαρμογών</string>
+    <string name="corpsefinder_filter_appasec_summary">Κρυπτογραφημένοι πόροι εφαρμογών, π.χ. στοιχεία παιχνιδιών.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Δεδομένα που μεταφέρθηκαν σε εξωτερικό χώρο αποθήκευσης από εργαλείο τύπου App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d υπόλοιπο εφαρμογής διαγράφηκε</item>
+        <item quantity="other">%d υπολείμματα εφαρμογών διαγράφηκαν</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">Βρέθηκε %d υπόλοιπο εφαρμογής</item>
+        <item quantity="other">Βρέθηκαν %d υπολείμματα εφαρμογών</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Διαγραφή όλων των υπολειμμάτων εφαρμογών;</string>
+    <string name="corpsefinder_owners_label">Ιδιοκτήτες</string>
+    <string name="corpsefinder_corpse_hints_label">Προσοχή</string>
+    <string name="corpsefinder_owner_unknown">Άγνωστος ιδιοκτήτης</string>
+    <string name="corpsefinder_corpse_hint_keeper">Αυτό το στοιχείο μπορεί να περιέχει δεδομένα που θέλετε να διατηρήσετε παρά την απεγκατάσταση του κατόχου του, π.χ. φωτογραφίες ή αντίγραφα ασφαλείας.</string>
+    <string name="corpsefinder_corpse_hint_common">Αυτό το στοιχείο έχει ένα πολύ κοινό όνομα και θα μπορούσε να ανήκει σε ακόμα εγκατεστημένες εφαρμογές που η SD Maid δεν γνωρίζει.</string>
+</resources>

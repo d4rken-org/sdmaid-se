@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">Leichenfinder</string>
+    <string name="corpsefinder_explanation_short">Daten, die zu bereits entfernten Apps gehören.</string>
+    <string name="corpsefinder_settings_summary">Passe Scanfilter und Risikostufen an.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Erwünschte Reste einbeziehen</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Dateien, die Du vielleicht behalten möchtest, auch wenn die App deinstalliert ist, z.B. Fotos, die Du aufgenommen hast, oder Sicherungskopien, die Du erstellt hast.</string>
+    <string name="corpsefinder_settings_risk_common_title">Gebräuchliche Namen einbeziehen</string>
+    <string name="corpsefinder_settings_risk_common_summary">Daten mit häufig verwendeten Namen - z.B. ein Ordner \"Notes\" - gehört zu zu vielen unbekannten Apps.</string>
+    <string name="corpsefinder_watcher_title">Deinstallations-Beobachter</string>
+    <string name="corpsefinder_watcher_summary">Automatische Suche nach Überresten, wenn eine App entfernt wird.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automatisches Löschen</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Lösche automatisch alle Überreste der deinstallierten App.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d Rest nach der Deinstallation von %2$s gefunden.</item>
+        <item quantity="other">Nach der Deinstallation von %2$s wurden %1$d Reste gefunden.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Element entfernt.</item>
+        <item quantity="other">Aufräumen erfolgreich (%1$s): %2$s freigegeben und %3$d Elemente entfernt.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Reste löschen</string>
+    <string name="corpsefinder_filter_publicmedia_label">Öffentliche Medien</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Öffentliche Mediendateien, z.B. Dateien, die über Messenger-Apps empfangen wurden.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB Ressourcen</string>
+    <string name="corpsefinder_filter_publicobb_summary">Zusätzliche App-Ressourcen, z.B Spiel-Assets.</string>
+    <string name="corpsefinder_filter_publicdata_label">Öffentliche App-Daten</string>
+    <string name="corpsefinder_filter_publicdata_summary">Nicht-sensible App-Daten, z.B. Karten-Caches.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD-Karte</string>
+    <string name="corpsefinder_filter_sdcard_summary">Allgemeiner öffentlicher Speicher, intern und extern (z.B. SD-Karten).</string>
+    <string name="corpsefinder_filter_privatedata_label">Private App-Daten</string>
+    <string name="corpsefinder_filter_privatedata_summary">Private App Daten, z.B. Zugangsdaten, App-Einstellungen, aber auch Browser Caches.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik Cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">Zwischengespeicherte App-Ausführungsdaten.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART Profile</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-Profile werden von Android verwendet, um die App-Leistung zu optimieren.</string>
+    <string name="corpsefinder_filter_applib_label">App-Bibliotheken</string>
+    <string name="corpsefinder_filter_applib_summary">Bibliotheksdaten, zu einer App gehörend.</string>
+    <string name="corpsefinder_filter_appsource_label">App-Quellen</string>
+    <string name="corpsefinder_filter_appsource_summary">App-Installationsdaten, d.h. wohin APKs gehen.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Private App-Quellen</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Eingeschränkte App-Installationsdaten, z.B. geschützte Apps von Drittanbietern.</string>
+    <string name="corpsefinder_filter_appasec_label">Verschlüsselte App-Ressourcen</string>
+    <string name="corpsefinder_filter_appasec_summary">Verschlüsselte App-Ressourcen, z.B. Spiel-Assets.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Daten, die von App2Sd Mods in den externen Speicher verschoben wurden.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d App-Rest gelöscht</item>
+        <item quantity="other">%d App-Reste gelöscht</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d App-Rest entdeckt</item>
+        <item quantity="other">%d App-Reste entdeckt</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Alle App-Reste löschen?</string>
+    <string name="corpsefinder_owners_label">Besitzer</string>
+    <string name="corpsefinder_corpse_hints_label">Hinweis</string>
+    <string name="corpsefinder_owner_unknown">Unbekannter Besitzer</string>
+    <string name="corpsefinder_corpse_hint_keeper">Dieses Element enthält möglicherweise Daten, die Du behalten möchtest, obwohl der Besitzer deinstalliert wurde, z.B. Fotos oder Backups.</string>
+    <string name="corpsefinder_corpse_hint_common">Dieses Element hat einen sehr gebräuchlichen Namen und könnte zu noch installierten Apps gehören, die SD Maid nicht kennt.</string>
+</resources>

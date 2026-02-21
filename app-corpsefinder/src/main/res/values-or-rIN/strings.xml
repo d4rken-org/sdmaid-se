@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">ଶଵ_ସନ୍ଧାନକାରୀ</string>
+    <string name="corpsefinder_explanation_short">ଆଗରୁ ଅପସାରିତ ହୋଇଥିବା ଆପ୍‌ଗୁଡ଼ିକର ତଥ୍ୟ।</string>
+    <string name="corpsefinder_settings_summary">ସ୍କାନ୍ ଫିଲ୍ଟର ଏବଂ ବିପଦ ସ୍ତରଗୁଡ଼ିକୁ ସମନ୍ୱୟ କରନ୍ତୁ।</string>
+    <string name="corpsefinder_settings_risk_keeper_title">ଆବଶ୍ୟକୀୟ ଅବଶିଷ୍ଟାଂଶ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">ଫାଇଲ୍ ଗୁଡ଼ିକ ଯାହାକୁ ଆପଣ ରଖିବାକୁ ଚାହିଁପାରନ୍ତି, ଆପ୍ ଅନଇନଷ୍ଟଲ୍ ହେଲେ ମଧ୍ୟ, ଯଥା ଆପଣ ନେଇଥିବା ଫଟୋ କିମ୍ବା ଆପଣ ସୃଷ୍ଟି କରିଥିବା ବ୍ୟାକଅପ୍।</string>
+    <string name="corpsefinder_settings_risk_common_title">ସାଧାରଣ ନାମଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="corpsefinder_settings_risk_common_summary">ସାଧାରଣ ଭାବରେ ବ୍ୟବହୃତ ନାମ ସହିତ ଡାଟା, ଯଥା ଏକ \"Notes\" ଫୋଲ୍ଡର ଅନେକ ଅଜଣା ଆପ୍ସର ମାଲିକାନାରେ ଅଛି।</string>
+    <string name="corpsefinder_watcher_title">ଅନଇନଷ୍ଟଲ୍ ନିରୀକ୍ଷକ</string>
+    <string name="corpsefinder_watcher_summary">ଏକ ଆପ୍ ଅପସାରିତ ହେଲେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଅବଶିଷ୍ଟାଂଶ ପାଇଁ ସ୍କାନ୍ କରନ୍ତୁ।</string>
+    <string name="corpsefinder_watcher_autodelete_title">ସ୍ୱୟଂଚାଳିତ ବିଲୋପ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">ଅନଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ ସହିତ ସମ୍ବନ୍ଧିତ କୌଣସି ଅବଶିଷ୍ଟାଂଶକୁ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ଡିଲିଟ୍ କରନ୍ତୁ।</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s ଅନଇନଷ୍ଟଲ କରିବା ପରେ %1$d ଅବଶିଷ୍ଟାଂଶ ମିଳିଲା।</item>
+        <item quantity="other">%2$s ଅନଇନଷ୍ଟଲ କରିବା ପରେ %1$d ଅବଶିଷ୍ଟାଂଶ ମିଳିଲା।</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">ପରିଷ୍କାର ସଫଳ ହୋଇଛି (%1$s): %2$s ମୁକ୍ତ କରାଯାଇ %3$dଟିଏ ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା।</item>
+        <item quantity="other">ପରିଷ୍କାର ସଫଳ ହୋଇଛି (%1$s): %2$s ମୁକ୍ତ କରାଯାଇ %3$dଟି ଦ୍ରବ୍ୟ ଅପସାରଣ କରାଗଲା।</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="corpsefinder_filter_publicmedia_label">ସାର୍ଵଜନୀନ ମିଡ଼ିଆ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">ସାର୍ଵଜନୀନ ମିଡ଼ିଆ ଫାଇଲ୍, ଯଥା ମେସେଞ୍ଜର ଆପ୍ ମାଧ୍ୟମରେ ପ୍ରାପ୍ତ ଫାଇଲ୍‌ଗୁଡ଼ା।</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ସମ୍ବଳଗୁଡ଼ିକ</string>
+    <string name="corpsefinder_filter_publicobb_summary">ଅତିରିକ୍ତ ଆପ୍ ସମ୍ବଳ, ଯଥା ଗେମ୍ ସମ୍ପତ୍ତି।</string>
+    <string name="corpsefinder_filter_publicdata_label">ସାର୍ବଜନିକ ଆପ୍ ଡାଟା</string>
+    <string name="corpsefinder_filter_publicdata_summary">ଅସମ୍ବେଦନଶୀଳ ଆପ୍ ଡାଟା, ଯଥା ମ୍ୟାପ୍ କ୍ୟାଶ୍।</string>
+    <string name="corpsefinder_filter_sdcard_label">SD କାର୍ଡ</string>
+    <string name="corpsefinder_filter_sdcard_summary">ସାଧାରଣ ସାର୍ବଜନିକ ଷ୍ଟୋରେଜ୍, ଆଭ୍ୟନ୍ତରୀଣ ଏବଂ ବାହ୍ୟ (ଯଥା SD କାର୍ଡ)।</string>
+    <string name="corpsefinder_filter_privatedata_label">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଡାଟା</string>
+    <string name="corpsefinder_filter_privatedata_summary">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଡାଟା, ଯଥା କ୍ରେଡେନସିଆଲ୍, ଆପ୍ ସେଟିଂସ୍ ଏବଂ ବ୍ରାଉଜର କ୍ୟାଶ୍।</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik କ୍ୟାଶ୍</string>
+    <string name="corpsefinder_filter_dalvik_summary">ଦ୍ରୁତିକା କରି ସାଇତିଥିବା ଆପ୍ ନିଷ୍ପାଦନ ତଥ୍ୟ।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART ପ୍ରୋଫାଇଲ୍</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART ପ୍ରୋଫାଇଲ୍‌ଗୁଡିକ Android ଦ୍ୱାରା ଆପ୍ ପ୍ରଦର୍ଶନ ଉନ୍ନତ କରିବା ପାଇଁ ବ୍ୟବହୃତ ହୁଏ।</string>
+    <string name="corpsefinder_filter_applib_label">ଆପ୍ ଲାଇବ୍ରେରୀଗୁଡ଼ିକ</string>
+    <string name="corpsefinder_filter_applib_summary">ଆପ୍ ସମ୍ବନ୍ଧିତ ଲାଇବ୍ରେରୀ ଡାଟା।</string>
+    <string name="corpsefinder_filter_appsource_label">ଆପ୍ ଉତ୍ସଗୁଡ଼ିକ</string>
+    <string name="corpsefinder_filter_appsource_summary">ଆପ୍ ଇନଷ୍ଟଲେସନ୍ ଡାଟା, ଅର୍ଥାତ୍ ଯେଉଁଠାରେ APK ଗୁଡ଼ିକ ଯାଏ।</string>
+    <string name="corpsefinder_filter_appsource_private_label">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଉତ୍ସଗୁଡ଼ିକ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">ପ୍ରତିବନ୍ଧିତ ଆପ୍ ଇନଷ୍ଟଲେସନ୍ ଡାଟା, ଯଥା ସୁରକ୍ଷିତ ତୃତୀୟ ପକ୍ଷ ଆପ୍ସ।</string>
+    <string name="corpsefinder_filter_appasec_label">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳଗୁଡ଼ିକ</string>
+    <string name="corpsefinder_filter_appasec_summary">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳ, ଯଥା ଗେମ୍ ସମ୍ପତ୍ତି।</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd ମୋଡ୍ ଦ୍ୱାରା ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ କୁ ସ୍ଥାନାନ୍ତରିତ ଡାଟା।</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଆବିଷ୍କୃତ</item>
+        <item quantity="other">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଆବିଷ୍କୃତ</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">ସମସ୍ତ ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ କରିବେ?</string>
+    <string name="corpsefinder_owners_label">ମାଲିକମାନେ</string>
+    <string name="corpsefinder_corpse_hints_label">ସୂଚନା</string>
+    <string name="corpsefinder_owner_unknown">ଅଜଣା ମାଲିକ</string>
+    <string name="corpsefinder_corpse_hint_keeper">ଏହି ଆଇଟମ୍ ରେ ଏପରି ଡାଟା ଥାଇପାରେ ଯାହାକୁ ଆପଣ ଏହାର ମାଲିକ ଅନଇନଷ୍ଟଲ୍ ହେଲେ ମଧ୍ୟ ରଖିବାକୁ ଚାହିଁପାରନ୍ତି, ଯଥା ଫଟୋ କିମ୍ବା ବ୍ୟାକଅପ୍।</string>
+    <string name="corpsefinder_corpse_hint_common">ଏହି ଆଇଟମ୍ ର ଏକ ବହୁତ ସାଧାରଣ ନାମ ଅଛି ଏବଂ ଏହା SD Maid ଜାଣିନଥିବା ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସର ହୋଇପାରେ।</string>
+</resources>

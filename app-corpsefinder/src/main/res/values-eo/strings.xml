@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_tool_name">KadavroTrovilo</string>
+    <string name="corpsefinder_explanation_short">Datumoj apartenantaj al jam forigitaj aplikaĵoj.</string>
+    <string name="corpsefinder_settings_summary">Agordi skanajn filtrilojn kaj riskajn nivelojn.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Inkluzivi dezirindajn restaĵojn</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Dosieroj, kiujn vi eble volas konservi, eĉ se la aplikaĵo estas malinstalita, ekz. fotoj kiujn vi prenis aŭ sekurkopioj kiujn vi kreis.</string>
+    <string name="corpsefinder_settings_risk_common_title">Inkluzivi komunajn nomojn</string>
+    <string name="corpsefinder_settings_risk_common_summary">Datumoj kun ofte uzataj nomoj, ekz. dosierujo "Notoj" estas posedata de tro multaj nekonataj aplikaĵoj.</string>
+    <string name="corpsefinder_watcher_title">Malinstala observilo</string>
+    <string name="corpsefinder_watcher_summary">Aŭtomate skani por restaĵoj kiam aplikaĵo estas forigita.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Aŭtomata forigo</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Aŭtomate forigi ĉiujn restaĵojn rilatajn al la malinstalita aplikaĵo.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Forigi restaĵojn</string>
+    <string name="corpsefinder_filter_publicmedia_label">Publikaj aŭdvidaĵoj</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Publikaj aŭdvidaj dosieroj, ekz. dosieroj ricevitaj per mesaĝilaj aplikaĵoj.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB-rimedoj</string>
+    <string name="corpsefinder_filter_publicobb_summary">Aldonaj aplikaĵaj rimedoj, ekz. ludaj aktivaĵoj.</string>
+    <string name="corpsefinder_filter_publicdata_label">Publikaj aplikaĵaj datumoj</string>
+    <string name="corpsefinder_filter_publicdata_summary">Ne-sentemaj aplikaĵaj datumoj, ekz. mapaj kaŝmemoroj.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD-karto</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ĝenerala publika stokado, interna kaj ekstera (ekz. SD-kartoj).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privataj aplikaĵaj datumoj</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privataj aplikaĵaj datumoj, ekz. legitimaĵoj, aplikaĵaj agordoj sed ankaŭ retumilaj kaŝmemoroj.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik-kaŝmemoro</string>
+    <string name="corpsefinder_filter_dalvik_summary">Kaŝmemorigitaj aplikaĵaj plenumdatumoj.</string>
+    <string name="corpsefinder_filter_applib_label">Aplikaĵaj bibliotekoj</string>
+    <string name="corpsefinder_filter_applib_summary">Aplikaĵ-rilataj bibliotekaj datumoj.</string>
+    <string name="corpsefinder_filter_appsource_label">Aplikaĵaj fontoj</string>
+    <string name="corpsefinder_filter_appsource_summary">Aplikaĵaj instaldatumoj, t.e. kie APK-oj iras.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privataj aplikaĵaj fontoj</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Limigitaj aplikaĵaj instaldatumoj, ekz. protektitaj triaj aplikaĵoj.</string>
+    <string name="corpsefinder_filter_appasec_label">Ĉifritaj aplikaĵaj rimedoj</string>
+    <string name="corpsefinder_filter_appasec_summary">Ĉifritaj aplikaĵaj rimedoj, ekz. ludaj aktivaĵoj.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Datumoj movitaj al ekstera stokado per App2Sd-modifoj.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_delete_all_confirmation_message">Ĉu forigi ĉiujn aplikaĵajn restaĵojn?</string>
+    <string name="corpsefinder_owners_label">Posedantoj</string>
+    <string name="corpsefinder_corpse_hints_label">Avizo</string>
+    <string name="corpsefinder_owner_unknown">Nekonata posedanto</string>
+    <string name="corpsefinder_corpse_hint_keeper">Ĉi tiu ero povas enhavi datumojn kiujn vi volas konservi malgraŭ ke ĝia posedanto estas malinstalita, ekz. fotoj aŭ sekurkopioj.</string>
+    <string name="corpsefinder_corpse_hint_common">Ĉi tiu ero havas tre komunan nomon kaj povus aparteni al ankoraŭ instalitaj aplikaĵoj kiujn SD Maid ne konas.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d restaĵo trovita post malinstali %2$s.</item>
+        <item quantity="other">%1$d restaĵoj trovitaj post malinstali %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Purigado sukcesa (%1$s): Liberigis %2$s kaj forigis %3$d eron.</item>
+        <item quantity="other">Purigado sukcesa (%1$s): Liberigis %2$s kaj forigis %3$d erojn.</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d aplikaĵa restaĵo forigita</item>
+        <item quantity="other">%d aplikaĵaj restaĵoj forigitaj</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d aplikaĵa restaĵo malkovrita</item>
+        <item quantity="other">%d aplikaĵaj restaĵoj malkovritaj</item>
+    </plurals>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiloj</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiloj estas uzataj de Android por optimumigi aplikaĵan efikecon.</string>
+</resources>
