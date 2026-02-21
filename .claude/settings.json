@@ -1,19 +1,24 @@
 {
   "permissions": {
-	"allow": [
-	  "mcp__ide__getDiagnostics",
-	  "Bash(./gradlew:*)",
-	  "Bash(git add:*)",
-	  "Bash(git log:*)",
-	  "Bash(git commit:*)",
-	  "Bash(git status:*)",
-	  "Bash(gh issue list:*)",
-	  "Bash(gh pr list:*)",
-	  "Bash(gh label list:*)",
-	  "Bash(git show:*)",
-	  "WebSearch",
-	  "WebFetch(domain:developer.android.com)"
-	],
-	"deny": []
+    "allow": [
+      "mcp__ide__getDiagnostics",
+      "Bash(./gradlew:*)",
+      "Bash(git add:*)",
+      "Bash(git log:*)",
+      "Bash(git commit:*)",
+      "Bash(git status:*)",
+      "Bash(gh issue list:*)",
+      "Bash(gh pr list:*)",
+      "Bash(gh label list:*)",
+      "Bash(git show:*)",
+      "WebSearch",
+      "WebFetch(domain:developer.android.com)"
+    ],
+    "deny": []
+  },
+  "enabledPlugins": {
+    "android-translation@claude-code-cafe": true,
+    "debugbadger@claude-code-cafe": true,
+    "jvm-tools@claude-code-cafe": true
   }
 }
