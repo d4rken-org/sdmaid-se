@@ -108,6 +108,36 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": *stringmapping
   }, {
+    "source": "/app-common-automation/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-automation.xml",
+    "translation": "/app-common-automation/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-data/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-data.xml",
+    "translation": "/app-common-data/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-appcleaner/src/main/res/values/strings.xml",
+    "dest": "/strings-app-appcleaner.xml",
+    "translation": "/app-appcleaner/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-corpsefinder/src/main/res/values/strings.xml",
+    "dest": "/strings-app-corpsefinder.xml",
+    "translation": "/app-corpsefinder/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-systemcleaner/src/main/res/values/strings.xml",
+    "dest": "/strings-app-systemcleaner.xml",
+    "translation": "/app-systemcleaner/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
     "source": "/fastlane/metadata/android/en-US/full_description.txt",
     "dest": "/store-description.txt",
     "translation": "/fastlane/metadata/android/%locale%/full_description.txt",
