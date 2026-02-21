@@ -8,7 +8,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EmailTool
 import eu.darken.sdmse.common.SingleLiveEvent
-import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -19,19 +18,9 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.setup.SetupManager
-import eu.darken.sdmse.setup.SetupModule
-import eu.darken.sdmse.setup.automation.AutomationSetupModule
-import eu.darken.sdmse.setup.root.RootSetupModule
-import eu.darken.sdmse.setup.saf.SAFSetupModule
-import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
-import eu.darken.sdmse.setup.storage.StorageSetupModule
-import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.parcelize.Parcelize
 import java.io.File
 import javax.inject.Inject
@@ -41,9 +30,7 @@ class SupportContactFormViewModel @Inject constructor(
     private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val emailTool: EmailTool,
-    private val webpageTool: WebpageTool,
     private val upgradeRepo: UpgradeRepo,
-    private val setupManager: SetupManager,
     private val recorderModule: RecorderModule,
     private val debugLogZipper: DebugLogZipper,
 ) : ViewModel3(dispatcherProvider) {
@@ -91,12 +78,6 @@ class SupportContactFormViewModel @Inject constructor(
         val tool: Tool = Tool.GENERAL,
         val description: String = "",
         val expectedBehavior: String = "",
-        val triedUpdated: Boolean = false,
-        val triedRestart: Boolean = false,
-        val triedClearCache: Boolean = false,
-        val triedReboot: Boolean = false,
-        val triedPermissions: Boolean = false,
-        val triedOther: String = "",
         val isSending: Boolean = false,
     ) : Parcelable {
         val isBug: Boolean get() = category == Category.BUG
@@ -131,34 +112,6 @@ class SupportContactFormViewModel @Inject constructor(
 
     fun updateExpectedBehavior(text: String) = launch {
         updateState { copy(expectedBehavior = text) }
-    }
-
-    fun toggleTriedUpdated(checked: Boolean) = launch {
-        updateState { copy(triedUpdated = checked) }
-    }
-
-    fun openUpdateCheck() {
-        webpageTool.open(upgradeRepo.betaSite)
-    }
-
-    fun toggleTriedRestart(checked: Boolean) = launch {
-        updateState { copy(triedRestart = checked) }
-    }
-
-    fun toggleTriedClearCache(checked: Boolean) = launch {
-        updateState { copy(triedClearCache = checked) }
-    }
-
-    fun toggleTriedReboot(checked: Boolean) = launch {
-        updateState { copy(triedReboot = checked) }
-    }
-
-    fun toggleTriedPermissions(checked: Boolean) = launch {
-        updateState { copy(triedPermissions = checked) }
-    }
-
-    fun updateTriedOther(text: String) = launch {
-        updateState { copy(triedOther = text) }
     }
 
     private fun scanLogSessions(): List<LogSessionItem> {
@@ -211,9 +164,6 @@ class SupportContactFormViewModel @Inject constructor(
         try {
             val state = currentState.value()
 
-            val categoryLabel = state.category.name
-            val toolLabel = state.tool.name
-
             val logUri = pickerState.selectedZip?.let {
                 try {
                     debugLogZipper.getUriForZip(it)
@@ -223,50 +173,39 @@ class SupportContactFormViewModel @Inject constructor(
                     null
                 }
             }
-            val setupInfo = if (logUri == null) getSetupInfo() else null
 
-            val categoryShort = state.category.name
+            val isPro = try {
+                upgradeRepo.upgradeInfo.first().isPro
+            } catch (e: Exception) {
+                null
+            }
+
             val subjectPreview = state.description.trim()
                 .split("\\s+".toRegex())
                 .filter { it.isNotEmpty() }
                 .take(8)
                 .joinToString(" ")
-            val subject = "[SDMSE][$categoryShort][$toolLabel] $subjectPreview"
+            val subject = "[SDMSE][${state.category.name}][${state.tool.name}] $subjectPreview"
 
             val body = buildString {
-                appendLine("Category: $categoryLabel")
-                appendLine("Tool: $toolLabel")
-                appendLine()
-                appendLine("--- Description ---")
                 appendLine(state.description)
 
                 if (state.isBug) {
                     appendLine()
                     appendLine("--- Expected Behavior ---")
                     appendLine(state.expectedBehavior)
-                    appendLine()
-                    appendLine("--- What I Tried ---")
-                    appendLine("[${if (state.triedUpdated) "x" else " "}] Updated to the latest version")
-                    appendLine("[${if (state.triedRestart) "x" else " "}] Restarted the app")
-                    appendLine("[${if (state.triedClearCache) "x" else " "}] Cleared SD Maid's cache")
-                    appendLine("[${if (state.triedReboot) "x" else " "}] Rebooted the device")
-                    appendLine("[${if (state.triedPermissions) "x" else " "}] Checked permissions")
-                    if (state.triedOther.isNotBlank()) {
-                        appendLine("Additional: ${state.triedOther}")
-                    }
                 }
 
+                val proIndicator = when (isPro) {
+                    true -> " \u2605"
+                    false -> " \u2606"
+                    null -> ""
+                }
                 appendLine()
                 appendLine("--- Device Info ---")
-                appendLine("App: ${BuildConfigWrap.VERSION_DESCRIPTION}")
+                appendLine("App: ${BuildConfigWrap.VERSION_DESCRIPTION}$proIndicator")
                 appendLine("Android: ${Build.VERSION.RELEASE} (SDK ${Build.VERSION.SDK_INT})")
                 appendLine("Device: ${Build.MANUFACTURER} ${Build.MODEL}")
-
-                if (setupInfo != null) {
-                    appendLine()
-                    appendLine("--- Setup ---")
-                    append(setupInfo)
-                }
             }
             val email = EmailTool.Email(
                 receipients = listOf(SUPPORT_EMAIL),
@@ -279,59 +218,6 @@ class SupportContactFormViewModel @Inject constructor(
             events.postValue(SupportContactFormEvents.OpenEmail(intent))
         } finally {
             updateState { copy(isSending = false) }
-        }
-    }
-
-    private suspend fun getSetupInfo(): String {
-        val moduleStates = withTimeoutOrNull(5_000L) {
-            setupManager.state
-                .filterNot { it.isWorking }
-                .map { it.moduleStates.filterIsInstance<SetupModule.State.Current>() }
-                .first()
-        } ?: return "Setup info unavailable (timed out)\n"
-
-        return buildString {
-            for (module in moduleStates.sortedBy { it.type.ordinal }) {
-                val status = when (module) {
-                    is RootSetupModule.Result -> when {
-                        module.ourService -> "granted"
-                        module.useRoot == false -> "disabled"
-                        !module.isInstalled -> "not available"
-                        else -> "not granted"
-                    }
-
-                    is ShizukuSetupModule.Result -> when {
-                        module.ourService -> "granted"
-                        !module.isCompatible -> "not available"
-                        module.useShizuku == false -> "disabled"
-                        !module.isInstalled -> "not installed"
-                        else -> "not granted"
-                    }
-
-                    is SAFSetupModule.Result -> {
-                        val granted = module.paths.count { it.hasAccess }
-                        "${granted}/${module.paths.size} areas"
-                    }
-
-                    is StorageSetupModule.Result -> {
-                        val granted = module.paths.count { it.hasAccess }
-                        val perms = if (module.missingPermission.isEmpty()) "ok" else "missing"
-                        "permission $perms, ${granted}/${module.paths.size} paths"
-                    }
-
-                    is AutomationSetupModule.Result -> when {
-                        module.isNotRequired -> "not required"
-                        module.isServiceRunning -> "running"
-                        module.isServiceEnabled -> "enabled, not running"
-                        module.hasConsent == true -> "consent given, not enabled"
-                        module.hasConsent == false -> "declined"
-                        else -> "not set up"
-                    }
-
-                    else -> if (module.isComplete) "ok" else "missing"
-                }
-                appendLine("${module.type.name}: $status")
-            }
         }
     }
 

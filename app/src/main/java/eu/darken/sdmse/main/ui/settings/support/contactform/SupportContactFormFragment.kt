@@ -90,16 +90,6 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
             vm.updateExpectedBehavior(text?.toString() ?: "")
         }
 
-        ui.triedUpdated.setOnCheckedChangeListener { _, isChecked -> vm.toggleTriedUpdated(isChecked) }
-        ui.checkUpdatesLink.setOnClickListener { vm.openUpdateCheck() }
-        ui.triedRestart.setOnCheckedChangeListener { _, isChecked -> vm.toggleTriedRestart(isChecked) }
-        ui.triedClearCache.setOnCheckedChangeListener { _, isChecked -> vm.toggleTriedClearCache(isChecked) }
-        ui.triedReboot.setOnCheckedChangeListener { _, isChecked -> vm.toggleTriedReboot(isChecked) }
-        ui.triedPermissions.setOnCheckedChangeListener { _, isChecked -> vm.toggleTriedPermissions(isChecked) }
-        ui.triedOtherInput.addTextChangedListener { text ->
-            vm.updateTriedOther(text?.toString() ?: "")
-        }
-
         ui.logSessionList.setupDefaults(logSessionAdapter)
 
         vm.logPickerState.observe2(ui) { pickerState ->
@@ -133,7 +123,6 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
         }
 
         vm.state.observe2(ui) { state ->
-            triedCard.isVisible = state.isBug
             expectedCard.isVisible = state.isBug
 
             descriptionHint.text = when (state.category) {

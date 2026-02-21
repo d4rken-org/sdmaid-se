@@ -136,14 +136,6 @@
     <string name="support_contact_description_bug_hint">Describe what happened and how to reproduce the issue. Please be specific (minimum 20 words).</string>
     <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific (minimum 20 words).</string>
     <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific (minimum 20 words).</string>
-    <string name="support_contact_tried_label">What have you tried?</string>
-    <string name="support_contact_tried_updated_label">Updated to the latest version</string>
-    <string name="support_contact_tried_check_updates_action">Check for updates</string>
-    <string name="support_contact_tried_restart_label">Restarted the app</string>
-    <string name="support_contact_tried_clear_cache_label">Cleared SD Maid\'s cache</string>
-    <string name="support_contact_tried_reboot_label">Rebooted the device</string>
-    <string name="support_contact_tried_permissions_label">Checked permissions</string>
-    <string name="support_contact_tried_other_hint">Anything else you tried\u2026</string>
     <string name="support_contact_expected_label">Expected behavior</string>
     <string name="support_contact_expected_hint">Describe what you expected to happen (minimum 10 words).</string>
     <plurals name="support_contact_word_count">
