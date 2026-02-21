@@ -4,11 +4,19 @@ import android.os.Build
 import android.os.Parcelable
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EmailTool
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
+import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.SetupManager
@@ -20,9 +28,12 @@ import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import kotlinx.coroutines.flow.filterNot
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.withTimeoutOrNull
 import kotlinx.parcelize.Parcelize
+import java.io.File
 import javax.inject.Inject
 
 @HiltViewModel
@@ -30,7 +41,11 @@ class SupportContactFormViewModel @Inject constructor(
     private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val emailTool: EmailTool,
+    private val webpageTool: WebpageTool,
+    private val upgradeRepo: UpgradeRepo,
     private val setupManager: SetupManager,
+    private val recorderModule: RecorderModule,
+    private val debugLogZipper: DebugLogZipper,
 ) : ViewModel3(dispatcherProvider) {
 
     val events = SingleLiveEvent<SupportContactFormEvents>()
@@ -41,12 +56,42 @@ class SupportContactFormViewModel @Inject constructor(
 
     val state = currentState.asLiveData2()
 
+    private val logPickerStater = DynamicStateFlow(TAG, vmScope) {
+        LogPickerState(sessions = scanLogSessions())
+    }
+    val logPickerState = logPickerStater.asLiveData2()
+
+    data class LogPickerState(
+        val isRecording: Boolean = false,
+        val sessions: List<LogSessionItem> = emptyList(),
+        val selectedZip: File? = null,
+    )
+
+    data class LogSessionItem(
+        val zipFile: File,
+        val size: Long,
+        val lastModified: Long,
+    )
+
+    init {
+        recorderModule.state
+            .onEach { recState ->
+                val sessions = scanLogSessions()
+                logPickerStater.updateBlocking {
+                    val selected = selectedZip?.takeIf { sel -> sessions.any { it.zipFile == sel } }
+                    copy(isRecording = recState.isRecording, sessions = sessions, selectedZip = selected)
+                }
+            }
+            .launchIn(vmScope)
+    }
+
     @Parcelize
     data class State(
-        val category: Category = Category.BUG,
+        val category: Category = Category.QUESTION,
         val tool: Tool = Tool.GENERAL,
         val description: String = "",
         val expectedBehavior: String = "",
+        val triedUpdated: Boolean = false,
         val triedRestart: Boolean = false,
         val triedClearCache: Boolean = false,
         val triedReboot: Boolean = false,
@@ -88,6 +133,14 @@ class SupportContactFormViewModel @Inject constructor(
         updateState { copy(expectedBehavior = text) }
     }
 
+    fun toggleTriedUpdated(checked: Boolean) = launch {
+        updateState { copy(triedUpdated = checked) }
+    }
+
+    fun openUpdateCheck() {
+        webpageTool.open(upgradeRepo.betaSite)
+    }
+
     fun toggleTriedRestart(checked: Boolean) = launch {
         updateState { copy(triedRestart = checked) }
     }
@@ -108,7 +161,51 @@ class SupportContactFormViewModel @Inject constructor(
         updateState { copy(triedOther = text) }
     }
 
+    private fun scanLogSessions(): List<LogSessionItem> {
+        return recorderModule.getLogDirectories()
+            .flatMap { parent -> parent.listFiles()?.filter { it.extension == "zip" } ?: emptyList() }
+            .map { zip ->
+                LogSessionItem(
+                    zipFile = zip,
+                    size = zip.length(),
+                    lastModified = zip.lastModified(),
+                )
+            }
+            .sortedByDescending { it.lastModified }
+    }
+
+    fun refreshLogSessions() = launch {
+        val sessions = scanLogSessions()
+        logPickerStater.updateBlocking {
+            val selected = selectedZip?.takeIf { sel -> sessions.any { it.zipFile == sel } }
+            copy(sessions = sessions, selectedZip = selected)
+        }
+    }
+
+    fun selectLogSession(zipFile: File) = launch {
+        logPickerStater.updateBlocking {
+            copy(selectedZip = if (selectedZip == zipFile) null else zipFile)
+        }
+    }
+
+    fun deleteLogSession(zipFile: File) = launch {
+        zipFile.delete()
+        File(zipFile.parentFile, zipFile.nameWithoutExtension).deleteRecursively()
+        refreshLogSessions()
+    }
+
+    fun startRecording() = launch {
+        recorderModule.startRecorder()
+    }
+
+    fun stopRecording() = launch {
+        recorderModule.stopRecorder()
+    }
+
     fun send() = launch {
+        val pickerState = logPickerStater.value()
+        if (pickerState.isRecording) return@launch
+
         updateState { copy(isSending = true) }
 
         try {
@@ -131,10 +228,28 @@ class SupportContactFormViewModel @Inject constructor(
                 Tool.GENERAL -> "General"
             }
 
-            val setupInfo = getSetupInfo()
+            val logUri = pickerState.selectedZip?.let {
+                try {
+                    debugLogZipper.getUriForZip(it)
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to zip logs: ${e.asLog()}" }
+                    events.postValue(SupportContactFormEvents.ShowError(R.string.support_contact_debuglog_zip_error))
+                    null
+                }
+            }
+            val setupInfo = if (logUri == null) getSetupInfo() else null
 
-            val subjectPreview = state.description.take(60).replace("\n", " ")
-            val subject = "[$categoryLabel][$toolLabel] $subjectPreview"
+            val categoryShort = when (state.category) {
+                Category.BUG -> "Bug"
+                Category.FEATURE -> "Feature"
+                Category.QUESTION -> "Question"
+            }
+            val subjectPreview = state.description.trim()
+                .split("\\s+".toRegex())
+                .filter { it.isNotEmpty() }
+                .take(8)
+                .joinToString(" ")
+            val subject = "[SDMSE][$categoryShort][$toolLabel] $subjectPreview"
 
             val body = buildString {
                 appendLine("Category: $categoryLabel")
@@ -149,6 +264,7 @@ class SupportContactFormViewModel @Inject constructor(
                     appendLine(state.expectedBehavior)
                     appendLine()
                     appendLine("--- What I Tried ---")
+                    appendLine("[${if (state.triedUpdated) "x" else " "}] Updated to the latest version")
                     appendLine("[${if (state.triedRestart) "x" else " "}] Restarted the app")
                     appendLine("[${if (state.triedClearCache) "x" else " "}] Cleared SD Maid's cache")
                     appendLine("[${if (state.triedReboot) "x" else " "}] Rebooted the device")
@@ -163,15 +279,18 @@ class SupportContactFormViewModel @Inject constructor(
                 appendLine("App: ${BuildConfigWrap.VERSION_DESCRIPTION}")
                 appendLine("Android: ${Build.VERSION.RELEASE} (SDK ${Build.VERSION.SDK_INT})")
                 appendLine("Device: ${Build.MANUFACTURER} ${Build.MODEL}")
-                appendLine()
-                appendLine("--- Setup ---")
-                append(setupInfo)
-            }
 
+                if (setupInfo != null) {
+                    appendLine()
+                    appendLine("--- Setup ---")
+                    append(setupInfo)
+                }
+            }
             val email = EmailTool.Email(
                 receipients = listOf(SUPPORT_EMAIL),
                 subject = subject,
                 body = body,
+                attachment = logUri,
             )
 
             val intent = emailTool.build(email, offerChooser = true)

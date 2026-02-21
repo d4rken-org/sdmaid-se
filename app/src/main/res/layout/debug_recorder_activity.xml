@@ -307,16 +307,25 @@
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
+                    android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:text="@string/debug_debuglog_screen_discard_action"
                     app:strokeColor="?attr/colorOutline" />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/keep_action"
+                    style="@style/Widget.Material3.Button.TonalButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginHorizontal="4dp"
+                    android:layout_weight="1"
+                    android:text="@string/general_save_action" />
+
                 <FrameLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="2">
+                    android:layout_marginStart="4dp"
+                    android:layout_weight="1">
 
                     <com.google.android.material.button.MaterialButton
                         android:id="@+id/share_action"

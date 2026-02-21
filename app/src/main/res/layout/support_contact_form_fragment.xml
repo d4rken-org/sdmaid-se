@@ -18,7 +18,6 @@
             style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:menu="@menu/menu_support_contact_form"
             app:title="@string/support_contact_label" />
 
     </com.google.android.material.appbar.AppBarLayout>
@@ -55,36 +54,104 @@
                         style="@style/TextAppearance.Material3.TitleSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_segment_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
                         android:text="@string/support_contact_category_label" />
 
-                    <RadioGroup
+                    <com.google.android.material.chip.ChipGroup
                         android:id="@+id/category_group"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="8dp"
-                        android:orientation="vertical">
+                        app:selectionRequired="true"
+                        app:singleSelection="true">
 
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/category_bug"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/category_question"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:checked="true"
-                            android:text="@string/support_contact_category_bug_label" />
+                            android:text="@string/support_contact_category_question_label" />
 
-                        <com.google.android.material.radiobutton.MaterialRadioButton
+                        <com.google.android.material.chip.Chip
                             android:id="@+id/category_feature"
-                            android:layout_width="match_parent"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:text="@string/support_contact_category_feature_label" />
 
-                        <com.google.android.material.radiobutton.MaterialRadioButton
-                            android:id="@+id/category_question"
-                            android:layout_width="match_parent"
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/category_bug"
+                            style="@style/Widget.Material3.Chip.Filter"
+                            android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="@string/support_contact_category_question_label" />
+                            android:text="@string/support_contact_category_bug_label" />
 
-                    </RadioGroup>
+                    </com.google.android.material.chip.ChipGroup>
 
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Debug log (bug only) -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/debug_log_card"
+                style="@style/Widget.Material3.CardView.Filled"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginVertical="8dp"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.TitleSmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_bug_report_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
+                        android:text="@string/support_contact_debuglog_label" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/debug_log_picker_hint"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="@string/support_contact_debuglog_picker_hint" />
+
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/log_session_list"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:nestedScrollingEnabled="false" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/log_session_empty"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/support_contact_debuglog_picker_empty"
+                        android:visibility="gone" />
+
+                    <com.google.android.material.button.MaterialButton
+                        android:id="@+id/debug_log_button"
+                        style="@style/Widget.Material3.Button.TonalButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="end"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/debug_debuglog_record_action"
+                        app:icon="@drawable/ic_baseline_bug_report_24" />
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
@@ -106,6 +173,9 @@
                         style="@style/TextAppearance.Material3.TitleSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_application_cog_outline_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
                         android:text="@string/support_contact_tool_label" />
 
                     <com.google.android.material.chip.ChipGroup
@@ -240,13 +310,31 @@
                         style="@style/TextAppearance.Material3.TitleSmall"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:drawableStart="@drawable/ic_baseline_format_list_bulleted_24"
+                        android:drawablePadding="8dp"
+                        android:gravity="center_vertical"
                         android:text="@string/support_contact_tried_label" />
+
+                    <com.google.android.material.checkbox.MaterialCheckBox
+                        android:id="@+id/tried_updated"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:text="@string/support_contact_tried_updated_label" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/check_updates_link"
+                        style="@style/TextAppearance.Material3.BodySmall"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="end"
+                        android:text="@string/support_contact_tried_check_updates_action"
+                        android:textColor="?attr/colorPrimary" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
                         android:id="@+id/tried_restart"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="8dp"
                         android:text="@string/support_contact_tried_restart_label" />
 
                     <com.google.android.material.checkbox.MaterialCheckBox
@@ -327,6 +415,61 @@
 
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
+
+            <!-- Personal note -->
+            <com.google.android.material.card.MaterialCardView
+                style="@style/Widget.Material3.CardView.Outlined"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:padding="16dp">
+
+                    <ImageView
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:importantForAccessibility="no"
+                        android:src="@drawable/ic_baseline_contact_support_24" />
+
+                    <com.google.android.material.textview.MaterialTextView
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="12dp"
+                        android:layout_weight="1"
+                        android:text="@string/support_contact_welcome" />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/send_button"
+                style="@style/SDMButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="16dp"
+                android:enabled="false"
+                android:text="@string/support_contact_send_action"
+                app:icon="@drawable/ic_email_onsurface" />
+
+            <!-- Footer -->
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/footer_text"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:gravity="center"
+                android:paddingHorizontal="20dp"
+                android:text="@string/support_contact_footer"
+                android:textColor="?android:attr/textColorSecondary" />
 
         </LinearLayout>
 

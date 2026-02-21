@@ -28,9 +28,12 @@ class DebugLogZipper @Inject constructor(
         )
     }
 
-    fun deleteZip(logDir: File) {
-        File(logDir.parentFile, "${logDir.name}.zip").let {
-            if (it.exists()) it.delete()
-        }
+    fun getUriForZip(zipFile: File): Uri {
+        return FileProvider.getUriForFile(
+            context,
+            BuildConfigWrap.APPLICATION_ID + ".provider",
+            zipFile,
+        )
     }
+
 }

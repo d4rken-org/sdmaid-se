@@ -81,6 +81,7 @@ class RecorderActivity : Activity2() {
         vm.state.observe2 { state ->
             ui.loadingIndicator.isGone = !state.isWorking
             ui.shareAction.isInvisible = state.isWorking
+            ui.keepAction.isInvisible = state.isWorking
 
             ui.recordingPath.text = state.logDir?.let { "${it.path}/" } ?: "?"
 
@@ -112,6 +113,7 @@ class RecorderActivity : Activity2() {
             setText(sp, TextView.BufferType.SPANNABLE)
         }
 
+        ui.keepAction.setOnClickListener { vm.keep() }
         ui.cancelAction.setOnClickListener { vm.discard() }
     }
 

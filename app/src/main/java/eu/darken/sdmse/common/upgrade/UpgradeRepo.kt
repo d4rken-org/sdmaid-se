@@ -6,6 +6,7 @@ import java.time.Instant
 interface UpgradeRepo {
     val storeSite: String
     val upgradeSite: String
+    val betaSite: String
 
     val upgradeInfo: Flow<Info>
 

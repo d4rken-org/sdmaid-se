@@ -256,6 +256,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 is DashboardEvents.SqueezerSetup -> {
                     DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
                 }
+
             }
         }
 

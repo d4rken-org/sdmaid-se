@@ -37,4 +37,5 @@ sealed interface DashboardEvents {
     data class OpenIntent(val intent: Intent) : DashboardEvents
 
     data object SqueezerSetup : DashboardEvents
+
 }

@@ -117,6 +117,8 @@
 
     <string name="support_contact_label">Contact developer</string>
     <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply. Since I handle development, bug fixes, and support on my own, it can take a little time. Thanks for your patience.</string>
+    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email.</string>
     <string name="support_contact_category_label">Category</string>
     <string name="support_contact_category_bug_label">Bug report</string>
     <string name="support_contact_category_feature_label">Feature request</string>
@@ -135,6 +137,8 @@
     <string name="support_contact_description_feature_hint">Describe the feature you would like to see. Please be specific (minimum 20 words).</string>
     <string name="support_contact_description_question_hint">Describe your question in detail. Please be specific (minimum 20 words).</string>
     <string name="support_contact_tried_label">What have you tried?</string>
+    <string name="support_contact_tried_updated_label">Updated to the latest version</string>
+    <string name="support_contact_tried_check_updates_action">Check for updates</string>
     <string name="support_contact_tried_restart_label">Restarted the app</string>
     <string name="support_contact_tried_clear_cache_label">Cleared SD Maid\'s cache</string>
     <string name="support_contact_tried_reboot_label">Rebooted the device</string>
@@ -146,7 +150,11 @@
         <item quantity="one">%1$d / %2$d word</item>
         <item quantity="other">%1$d / %2$d words</item>
     </plurals>
-    <string name="support_contact_send_action">Send</string>
+    <string name="support_contact_debuglog_label">Debug log</string>
+    <string name="support_contact_debuglog_zip_error">Failed to compress debug log</string>
+    <string name="support_contact_debuglog_picker_hint">Attach an existing debug log, or record a new one.</string>
+    <string name="support_contact_debuglog_picker_empty">No debug logs found. Record one first.</string>
+        <string name="support_contact_send_action">Open email app</string>
     <string name="support_contact_no_email_app">No email app found on this device.</string>
 
     <string name="changelog_label">Changelog</string>

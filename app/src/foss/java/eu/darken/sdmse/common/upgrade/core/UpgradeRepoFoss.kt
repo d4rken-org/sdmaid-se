@@ -28,6 +28,7 @@ class UpgradeRepoFoss @Inject constructor(
 
     override val storeSite: String = STORE_SITE
     override val upgradeSite: String = UPGRADE_SITE
+    override val betaSite: String = BETA_SITE
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -74,6 +75,7 @@ class UpgradeRepoFoss @Inject constructor(
     companion object {
         private const val STORE_SITE = "https://github.com/d4rken-org/sdmaid-se"
         private const val UPGRADE_SITE = "https://github.com/sponsors/d4rken"
+        private const val BETA_SITE = "https://github.com/d4rken-org/sdmaid-se/releases"
         private val TAG = logTag("Upgrade", "Foss", "Repo")
     }
 }

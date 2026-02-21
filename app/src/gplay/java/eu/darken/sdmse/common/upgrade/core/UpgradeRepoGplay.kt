@@ -44,6 +44,7 @@ class UpgradeRepoGplay @Inject constructor(
 
     override val storeSite: String = STORE_SITE
     override val upgradeSite: String = UPGRADE_SITE
+    override val betaSite: String = BETA_SITE
 
     override val upgradeInfo: Flow<Info> = billingManager.billingData
         .map<BillingData, BillingData?> { it }
@@ -149,6 +150,7 @@ class UpgradeRepoGplay @Inject constructor(
     companion object {
         private const val STORE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         private const val UPGRADE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
+        private const val BETA_SITE = "https://play.google.com/apps/testing/eu.darken.sdmse"
         val TAG: String = logTag("Upgrade", "Gplay", "Repo")
     }
 }

@@ -65,7 +65,10 @@ class RecorderModule @Inject constructor(
 
     private val internalState = DynamicStateFlow(TAG, appScope + dispatcherProvider.IO) {
         val triggerFileExists = triggerFile.exists()
-        State(shouldRecord = triggerFileExists || debugSettings.recorderPath.value() != null)
+        val savedPath = debugSettings.recorderPath.value()
+        State(
+            shouldRecord = triggerFileExists || savedPath != null,
+        )
     }
     val state: Flow<State> = internalState.flow
 
@@ -112,7 +115,6 @@ class RecorderModule @Inject constructor(
 
                         copy(
                             recorder = null,
-                            lastLogDir = currentLogDir,
                         )
                     } else {
                         this
@@ -217,7 +219,6 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
-        val lastLogDir: File? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
