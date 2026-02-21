@@ -123,7 +123,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid пытается исправить проблемы с установкой.</string>
     <string name="setup_incomplete_card_dismiss_action">Отклонить</string>
     <string name="setup_incomplete_card_continue_action">Продолжить установку</string>
-    <string name="setup_title">Установка</string>
     <string name="setup_forcedshow_summary">Повторный запуск экрана установки, включая выполненные пункты.</string>
     <string name="setup_checking_card_body">Проверка настроек и функциональности.</string>
     <string name="general_error_setup_require_label">Настройка не завершена</string>

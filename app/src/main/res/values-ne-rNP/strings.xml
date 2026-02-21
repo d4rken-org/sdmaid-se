@@ -87,7 +87,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ले सेटअप समस्याहरू समाधान गर्ने प्रयास गरिरहेको छ।</string>
     <string name="setup_incomplete_card_dismiss_action">खारेज गर्नुहोस्</string>
     <string name="setup_incomplete_card_continue_action">सेटअप जारी राख्नुहोस्</string>
-    <string name="setup_title">सेटअप</string>
     <string name="setup_forcedshow_summary">पहिले नै पूरा भएका वस्तुहरू सहित सेटअप स्क्रिन फेरि देखाउनुहोस्।</string>
     <string name="setup_checking_card_body">सेटअप पूर्णता र कार्यक्षमता प्रमाणीकरण गर्दै।</string>
     <string name="general_error_setup_require_label">सेटअप अपूर्ण छ</string>

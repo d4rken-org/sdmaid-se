@@ -111,7 +111,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid はセットアップの問題の修復をしています。</string>
     <string name="setup_incomplete_card_dismiss_action">破棄</string>
     <string name="setup_incomplete_card_continue_action">セットアップを続行</string>
-    <string name="setup_title">セットアップ</string>
     <string name="setup_forcedshow_summary">既に完了した項目を含めて、再度セットアップ画面を表示します。</string>
     <string name="setup_checking_card_body">セットアップ完了と機能の確認。</string>
     <string name="general_error_setup_require_label">セットアップが完了していません</string>

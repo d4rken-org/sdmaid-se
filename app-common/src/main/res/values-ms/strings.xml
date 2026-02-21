@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">Sambungan ke perkhidmatan kritikal (contoh: Magisk, Shizuku, atau perkhidmatan tahap sistem lain) telah terputus secara tidak dijangka. Sila but semula peranti anda. Jika isu ini berterusan, semak kemas kini atau hubungi saya untuk pembaikan.</string>
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
+    <string name="setup_title">Persediaan</string>
 </resources>

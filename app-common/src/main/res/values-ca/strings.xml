@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Configuració</string>
 </resources>

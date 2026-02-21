@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Se ha perdido inesperadamente la conexión con un servicio esencial (por ejemplo, Magisk, Shizuku u otros servicios del sistema). Reinicia tu dispositivo. Si el problema persiste, busca actualizaciones o ponte en contacto conmigo para que pueda solucionarlo.</string>
     <string name="general_user_label_owner">Autor</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Configuración</string>
 </resources>

@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">ଏକ ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ସେବାକୁ (ଯେପରିକି Magisk, Shizuku, କିମ୍ବା ଅନ୍ୟାନ୍ୟ ସିସ୍ଟମ୍-ସ୍ତରୀୟ ସେବା) ସଂଯୋଗ ଅନପେକ୍ଷିତ ଭାବେ ହଜିଗଲା। ଦୟାକରି ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରନ୍ତୁ। ଯଦି ସମସ୍ୟା ଚାଲୁଥାଏ, ଅପଡେଟ୍ ଯାଞ୍ଚ କରନ୍ତୁ କିମ୍ବା ମୋତେ ସମ୍ପର୍କ କରନ୍ତୁ ଯାହାଫଳରେ ମୁଁ ଏହାକୁ ସମାଧାନ କରିପାରିବି।</string>
     <string name="general_user_label_owner">ମାଲିକ</string>
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
+    <string name="setup_title">ସେଟଅପ</string>
 </resources>

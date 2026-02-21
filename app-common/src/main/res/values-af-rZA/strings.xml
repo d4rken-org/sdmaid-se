@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Die verbinding na \'n kritieke diens (bv. Magisk, Shizuku, of ander stelsel-vlak dienste) is onverwags verloor. Herlaai asseblief jou toestel. As die probleem voortduur, kontroleer vir opdaterings of kontak my sodat ek dit kan regstel.</string>
     <string name="general_user_label_owner">Eienaar</string>
     <string name="general_user_label_system">Stelsel</string>
+    <string name="setup_title">Opstelling</string>
 </resources>

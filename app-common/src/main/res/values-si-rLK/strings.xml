@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">වැදගත් සේවාවකට (උදා: Magisk, Shizuku, හෝ වෙනත් පද්ධති මට්ටමේ සේවා) සම්බන්ධතාවය අනපේක්ෂිතව නැති විය. කරුණාකර ඔබගේ උපකරණය නැවත ආරම්භ කරන්න. ගැටලුව දිගටම පවතින්නේ නම්, යාවත්කාලීන පරීක්ෂා කරන්න හෝ එය නිවැරදි කිරීම සඳහා මා සම්බන්ධ කරගන්න.</string>
     <string name="general_user_label_owner">හිමිකරු</string>
     <string name="general_user_label_system">පද්ධතිය</string>
+    <string name="setup_title">පිහිටුවීම</string>
 </resources>

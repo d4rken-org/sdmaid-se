@@ -113,7 +113,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid inajaribu kurekebisha matatizo ya usanidi.</string>
     <string name="setup_incomplete_card_dismiss_action">Ondoa</string>
     <string name="setup_incomplete_card_continue_action">Endelea na usanidi</string>
-    <string name="setup_title">Usanidi</string>
     <string name="setup_forcedshow_summary">Onyesha skrini ya usanidi tena, pamoja na vipengele vilivyokamilishwa.</string>
     <string name="setup_checking_card_body">Inathibitisha kukamilika kwa usanidi na utendaji.</string>
     <string name="general_error_setup_require_label">Usanidi haujakamilika</string>

@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
+    <string name="setup_title">Поставување</string>
 </resources>

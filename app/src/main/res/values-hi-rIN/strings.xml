@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">सेटअप समस्याओं का स्वतः समाधान हो रहा है।</string>
     <string name="setup_incomplete_card_dismiss_action">खारिज करें</string>
     <string name="setup_incomplete_card_continue_action">व्यवस्था चालू रखें</string>
-    <string name="setup_title">व्यवस्थित</string>
     <string name="setup_forcedshow_summary">व्यवस्था स्क्रीन फिर से दिखाएं, जिसमें पहले से ही पूर्ण वस्तुएं शामिल हैं।</string>
     <string name="setup_checking_card_body">सेटअप पूर्णता और कार्यक्षमता की जांच की जा रही है।</string>
     <string name="general_error_setup_require_label">सेटअप अधूरा है</string>

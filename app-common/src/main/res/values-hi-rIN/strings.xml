@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जैसे Magisk, Shizuku, या अन्य सिस्टम-स्तर सेवाओं) का कनेक्शन अप्रत्याशित रूप से खो गया था। कृपया अपने डिवाइस को रीबूट करें। यदि समस्या बनी रहती है, तो अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">सिस्टम</string>
+    <string name="setup_title">व्यवस्थित</string>
 </resources>

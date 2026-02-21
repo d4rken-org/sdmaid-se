@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid సెటప్ సమస్యలను పరిష్కరించడానికి ప్రయత్నిస్తోంది.</string>
     <string name="setup_incomplete_card_dismiss_action">తీసివేయండి</string>
     <string name="setup_incomplete_card_continue_action">సెటప్ కొనసాగించండి</string>
-    <string name="setup_title">సెటప్</string>
     <string name="setup_forcedshow_summary">ఇప్పటికే పూర్తయిన అంశాలతో సహా సెటప్ స్క్రీన్‌ను మళ్లీ చూపించండి.</string>
     <string name="setup_checking_card_body">సెటప్ పూర్తిగా మరియు కార్యాచరణను ధృవీకరిస్తోంది.</string>
     <string name="general_error_setup_require_label">సెటప్ అసంపూర్ణంగా ఉంది</string>

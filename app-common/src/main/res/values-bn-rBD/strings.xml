@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">একটি গুরুত্বপূর্ণ পরিষেবার (যেমন Magisk, Shizuku, অথবা অন্যান্য সিস্টেম-স্তরের পরিষেবা) সাথে সংযোগ অপ্রত্যাশিতভাবে বিচ্ছিন্ন হয়ে গেছে। আপনার ডিভাইসটি রিবুট করুন। যদি সমস্যাটি থেকে যায়, তাহলে আপডেটগুলি পরীক্ষা করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
     <string name="general_user_label_owner">মালিক</string>
     <string name="general_user_label_system">সিস্টেম</string>
+    <string name="setup_title">সেটআপ</string>
 </resources>

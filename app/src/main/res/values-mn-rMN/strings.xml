@@ -104,7 +104,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid тохиргооны асуудлыг засахыг оролдож байна.</string>
     <string name="setup_incomplete_card_dismiss_action">Үл тоомсорлох</string>
     <string name="setup_incomplete_card_continue_action">Тохиргоог үргэлжлүүлэх</string>
-    <string name="setup_title">Тохиргоо</string>
     <string name="setup_forcedshow_summary">Тохиргооны дэлгэцийг аль хэдийн дууссан зүйлсийг оруулаад дахин харуулах.</string>
     <string name="setup_checking_card_body">Тохиргоо дууссан эсэх болон ажиллагааг шалгаж байна.</string>
     <string name="general_error_setup_require_label">Тохиргоо дуусаагүй байна</string>

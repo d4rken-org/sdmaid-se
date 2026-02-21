@@ -123,7 +123,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid se pokouší opravit problémy s nastavením.</string>
     <string name="setup_incomplete_card_dismiss_action">Zamítnout</string>
     <string name="setup_incomplete_card_continue_action">Pokračovat v nastavení</string>
-    <string name="setup_title">Nastavení</string>
     <string name="setup_forcedshow_summary">Znovu zobrazit obrazovku nastavení včetně již dokončených položek.</string>
     <string name="setup_checking_card_body">Ověření dokončení nastavení a funkčnosti.</string>
     <string name="general_error_setup_require_label">Nastavení dokončena</string>

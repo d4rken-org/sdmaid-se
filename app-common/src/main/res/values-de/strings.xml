@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z.B. Magisk, Shizuku oder anderen System-Level-Diensten) wurde unerwartet verloren. Bitte starten Sie Ihr Gerät neu. Wenn das Problem weiterhin besteht, prüfen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
     <string name="general_user_label_owner">Besitzer</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Einrichtung</string>
 </resources>

@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Forbindelsen til en kritisk tjeneste (f.eks. Magisk, Shizuku eller andre systemtjenester) blev uventet afbrudt. Genstart din enhed. Hvis problemet fortsætter, søg efter opdateringer, eller kontakt mig, så jeg kan løse det.</string>
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Opsætning</string>
 </resources>

@@ -77,7 +77,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid သည် တပ်ဆင်မှုပြဿနာများကို ပြုပြင်ရန်ကြိုးစားနေပါသည်။</string>
     <string name="setup_incomplete_card_dismiss_action">ပယ်ရန်</string>
     <string name="setup_incomplete_card_continue_action">တပ်ဆင်မှုကို ဆက်လက်လုပ်ရန်</string>
-    <string name="setup_title">တပ်ဆင်မှု</string>
     <string name="setup_forcedshow_summary">ပြီးမြောက်ပြီးသားအရာများအပါအဝင် တပ်ဆင်မှုစာမျက်နှာကို ပြန်ပြရန်။</string>
     <string name="setup_checking_card_body">တပ်ဆင်မှုပြီးမြောက်မှုနှင့် လုပ်ဆောင်နိုင်မှုကို စစ်ဆေးနေပါသည်။</string>
     <string name="general_error_setup_require_label">တပ်ဆင်မှု မပြီးမြောက်သေးပါ</string>

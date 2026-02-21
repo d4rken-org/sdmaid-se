@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Sa connessione a unu servìtziu crìticu (pro es. Magisk, Shizuku, o àteros servìtzios de sistema) est istada pèrdida in manera inaspetada. Pro piaghere torra a aviare su dispositivu. Si su problema persistit, verìfica sos agiornamentos o cuntàtami pro lu currigere.</string>
     <string name="general_user_label_owner">Propriedàriu</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Cunfiguratzione</string>
 </resources>

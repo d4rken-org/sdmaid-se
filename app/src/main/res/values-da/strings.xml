@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid prøver at løse opsætningsproblemer.</string>
     <string name="setup_incomplete_card_dismiss_action">Afvis</string>
     <string name="setup_incomplete_card_continue_action">Fortsæt opsætning</string>
-    <string name="setup_title">Opsætning</string>
     <string name="setup_forcedshow_summary">Vis opsætningsskærmen igen, inklusive allerede udførte punkter.</string>
     <string name="setup_checking_card_body">Bekræfter, at opsætningen er fuldført og fungerer.</string>
     <string name="general_error_setup_require_label">Opsætningen er ikke fuldført</string>

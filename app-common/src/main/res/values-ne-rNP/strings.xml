@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">एक महत्वपूर्ण सेवा (जस्तै Magisk, Shizuku, वा अन्य सिस्टम-स्तर सेवाहरू) को जडान अप्रत्याशित रूपमा हराएको छ। कृपया आफ्नो उपकरण पुनः सुरु गर्नुहोस्। यदि समस्या कायम रह्यो भने, अपडेटहरू जाँच्नुहोस् वा मलाई सम्पर्क गर्नुहोस्।</string>
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">प्रणाली</string>
+    <string name="setup_title">सेटअप</string>
 </resources>

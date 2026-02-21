@@ -107,7 +107,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid kurulum sorunlarını çözmeye çalışıyor.</string>
     <string name="setup_incomplete_card_dismiss_action">Yoksay</string>
     <string name="setup_incomplete_card_continue_action">Kuruluma devam et</string>
-    <string name="setup_title">Kur</string>
     <string name="setup_forcedshow_summary">Tamamlanmış adımları da içeren kurulum ekranını tekrar göster.</string>
     <string name="setup_checking_card_body">Kurulum ve işlevsellik doğrulanıyor.</string>
     <string name="general_error_setup_require_label">Kurulum tamamlanmamış</string>

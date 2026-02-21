@@ -111,7 +111,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid 正在尝试修复设置问题。</string>
     <string name="setup_incomplete_card_dismiss_action">取消</string>
     <string name="setup_incomplete_card_continue_action">继续设置</string>
-    <string name="setup_title">设置</string>
     <string name="setup_forcedshow_summary">再次显示设置界面，包括已完成的项目。</string>
     <string name="setup_checking_card_body">验证设置完成情况和功能。</string>
     <string name="general_error_setup_require_label">设置未完成</string>

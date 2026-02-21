@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">การเชื่อมต่อกับบริการสำคัญ (เช่น Magisk, Shizuku หรือบริการระดับระบบอื่นๆ) สูญหายโดยไม่คาดคิด โปรดรีสตาร์ทอุปกรณ์ของคุณ หากปัญหายังคงอยู่ ให้ตรวจสอบการอัปเดตหรือติดต่อฉันเพื่อแก้ไข</string>
     <string name="general_user_label_owner">เจ้าของ</string>
     <string name="general_user_label_system">ระบบ</string>
+    <string name="setup_title">การตั้งค่า</string>
 </resources>

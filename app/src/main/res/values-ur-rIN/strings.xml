@@ -106,7 +106,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid سیٹ اپ کے مسائل ٹھیک کرنے کی کوشش کر رہا ہے۔</string>
     <string name="setup_incomplete_card_dismiss_action">برخاست کریں</string>
     <string name="setup_incomplete_card_continue_action">سیٹ اپ جاری رکھیں</string>
-    <string name="setup_title">سیٹ اپ</string>
     <string name="setup_forcedshow_summary">پہلے سے مکمل ازافہ مدوں سمیت سیٹ اپ سکرین دوبارہ دکھائیں۔</string>
     <string name="setup_checking_card_body">سیٹ اپ کی تکمیل اور فعالیت کی تصدیق کر رہے ہیں۔</string>
     <string name="general_error_setup_require_label">سیٹ اپ نامکمل ہے</string>

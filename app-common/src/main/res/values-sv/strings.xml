@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Anslutningen till en kritisk tjänst (t.ex. Magisk, Shizuku eller andra tjänster på systemnivå) förlorades oväntat. Starta om din enhet. Om problemet kvarstår, sök efter uppdateringar eller kontakta mig så att jag kan åtgärda det.</string>
     <string name="general_user_label_owner">Ägare</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Inställningar</string>
 </resources>

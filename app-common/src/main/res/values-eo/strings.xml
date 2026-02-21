@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Je via servo.</string>
     <string name="slogan_message_1">Pura kaj bona.</string>
     <string name="slogan_message_2">Malhelpi kaoson.</string>
@@ -11,9 +10,7 @@
     <string name="slogan_message_6">Bajtoj, foriru!</string>
     <string name="slogan_message_7">Libera spaco, feliĉa loko.</string>
     <string name="slogan_message_8">Neniam forlasos vin.</string>
-
     <string name="general_thank_you_label">Dankon</string>
-
     <string name="general_error_type_mismatch_msg">Tipo-malkongruo: Volis %1$s, sed ricevis %2$s.</string>
     <string name="general_error_cant_access_msg">Ne povas aliri %s.</string>
     <string name="general_error_root_unavailable">Radika aliro ne disponebla.</string>
@@ -80,14 +77,12 @@
     <string name="general_sort_options_label">Ordig-opcioj</string>
     <string name="general_sort_reverse_action">Renversa ordig-reĝimo</string>
     <string name="general_tag_filter_label">Filtri laŭ etikedoj</string>
-
     <string name="general_result_success_message">Operacio sukcesis</string>
     <string name="general_result_failure_message">Operacio malsukcesis</string>
     <plurals name="general_result_x_space_freed">
         <item quantity="one">%s spaco liberiĝis.</item>
         <item quantity="other">%s spaco liberiĝis.</item>
     </plurals>
-
     <string name="general_options_label">Opcioj</string>
     <string name="general_details_label">Detaloj</string>
     <string name="general_view_action">Vidi</string>
@@ -98,7 +93,6 @@
     <string name="general_show_details_action">Montri detalojn</string>
     <string name="general_show_all_action">Montri ĉion</string>
     <string name="general_toggle_layout_mode">Ŝanĝi vid-reĝimon</string>
-
     <string name="general_delete_confirmation_title">Konfirmi forigon</string>
     <string name="general_delete_confirmation_message_x">Forigi \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Forigi la %d elektitajn erojn?</string>
@@ -106,21 +100,17 @@
         <item quantity="one">%d ero foriĝis.</item>
         <item quantity="other">%d eroj foriĝis.</item>
     </plurals>
-
     <string name="general_remove_action">Forpreni</string>
     <string name="general_remove_selected_action">Forpreni elektitajn</string>
     <plurals name="general_remove_success_x_items">
         <item quantity="one">Unu ero forpreniĝis</item>
         <item quantity="other">%d eroj forpreniĝis</item>
     </plurals>
-
     <string name="general_root_required_label">Radika aliro necesa</string>
     <string name="general_root_required_message">Radikigita aparato necesa</string>
-
     <string name="general_search_action">Serĉi</string>
     <string name="general_scan_device_action">Skani aparaton</string>
     <string name="general_open_system_settings_action">Malfermi sistem-agordojn</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s ero</item>
         <item quantity="other">%s eroj</item>
@@ -144,28 +134,21 @@
     <string name="general_grant_access_action">Doni aliron</string>
     <string name="general_enable_service_action">Ŝalti servon</string>
     <string name="general_undo_action">Malfari</string>
-
     <string name="general_list_select_all_action">Elekti ĉion</string>
-
     <string name="general_path_label">Vojo</string>
     <string name="general_type_label">Tipo</string>
     <string name="general_size_label">Grandeco</string>
     <string name="general_exclude_action">Ekskluzivi</string>
     <string name="general_exclude_selected_action">Ekskluzivi elektitajn</string>
-
     <string name="general_device_label">Aparato</string>
-
     <string name="general_settings_title">Agordoj</string>
     <string name="general_help_title">Helpo</string>
-
     <string name="file_type_symbolic_link">Ligilo</string>
     <string name="file_type_directory">Dosierujo</string>
     <string name="file_type_file">Dosiero</string>
     <string name="file_type_unknown">Nekonata</string>
-
     <string name="general_progress_ready">Preta</string>
     <string name="general_progress_done">Preta</string>
-
     <string name="general_rom_type_auto_label">Aŭtomata (defaŭlta)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d tago</item>
@@ -187,4 +170,5 @@
     <string name="general_error_ipc_deadobject_description">Konekto kun kritika servo (ekz. Magisk, Shizuku, aŭ aliaj sistem-nivelaj servoj) neatendite perdiĝis. Bonvolu restartigii vian aparaton. Se la problemo daŭras, kontrolu ĝisdatigojn aŭ kontaktu min por solvi ĝin.</string>
     <string name="general_user_label_owner">Posedanto</string>
     <string name="general_user_label_system">Sistemo</string>
+    <string name="setup_title">Agordado</string>
 </resources>

@@ -195,4 +195,5 @@
     <string name="general_error_ipc_deadobject_description">Соединение с необходимой службой (например, Magisk, Shizuku или другой службой системного уровня) потеряно. Пожалуйста, перезагрузите Ваше устройство. Если проблема не исчезает, проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
     <string name="general_user_label_owner">Владелец</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Установка</string>
 </resources>

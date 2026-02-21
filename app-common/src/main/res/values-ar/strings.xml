@@ -217,4 +217,5 @@
     <string name="general_error_ipc_deadobject_description">انقطع الاتصال بخدمة مهمة (مثل ماجكسً أو شيزوكو أو خِدْمَات أخرى على مستوى النظام) بشكل غير متوقع. يُرجى إعادة تشغيل جهازك. إذا استمرت المشكلة، فتحقق من وجود تحديثات أو تواصل معي لحلها.</string>
     <string name="general_user_label_owner">المالك</string>
     <string name="general_user_label_system">النظام</string>
+    <string name="setup_title">الإعداد</string>
 </resources>

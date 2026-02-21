@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">ഒരു നിർണായക സേവനത്തിലേക്കുള്ള കണക്ഷൻ (ഉദാ. Magisk, Shizuku, അല്ലെങ്കിൽ മറ്റ് സിസ്റ്റം-ലെവൽ സേവനങ്ങൾ) അപ്രതീക്ഷിതമായി നഷ്ടപ്പെട്ടു. ദയവായി നിങ്ങളുടെ ഉപകരണം റീബൂട്ട് ചെയ്യുക. പ്രശ്നം തുടരുകയാണെങ്കിൽ, അപ്ഡേറ്റുകൾക്കായി പരിശോധിക്കുക അല്ലെങ്കിൽ എന്നെ ബന്ധപ്പെടുക.</string>
     <string name="general_user_label_owner">ഉടമ</string>
     <string name="general_user_label_system">സിസ്റ്റം</string>
+    <string name="setup_title">സെറ്റപ്പ്</string>
 </resources>

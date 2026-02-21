@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Ühendus olulise teenusega (nt Magisk, Shizuku või muu süsteemi tasemel oleva teenusega) katkes ootamatult. Taaskäivitage oma seade. Probleemi kordumisel kontrollige uuendusi või suhelge minuga, et saaksin seda parandada.</string>
     <string name="general_user_label_owner">Omanik</string>
     <string name="general_user_label_system">Süsteem</string>
+    <string name="setup_title">Seadistamine</string>
 </resources>

@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid sozlash muammolarini tuzatishga harakat qilmoqda.</string>
     <string name="setup_incomplete_card_dismiss_action">Yopish</string>
     <string name="setup_incomplete_card_continue_action">Sozlashni davom ettirish</string>
-    <string name="setup_title">Sozlash</string>
     <string name="setup_forcedshow_summary">Sozlash ekranini, shu jumladan allaqachon tugallangan elementlarni qayta ko\'rsatish.</string>
     <string name="setup_checking_card_body">Sozlash tugallanishi va funksionalligini tekshirish.</string>
     <string name="general_error_setup_require_label">Sozlash tugallanmagan</string>

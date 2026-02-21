@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid се опитва да реши проблеми с настройката.</string>
     <string name="setup_incomplete_card_dismiss_action">Отхвърли</string>
     <string name="setup_incomplete_card_continue_action">Продължи настройката</string>
-    <string name="setup_title">Настройка</string>
     <string name="setup_forcedshow_summary">Покажете отново екрана за настройка, включително вече завършените елементи.</string>
     <string name="setup_checking_card_body">Потвърждаване на функционалността и завършеността на настройката.</string>
     <string name="general_error_setup_require_label">Настройката не е завършена</string>

@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">重要なサービス（Magisk、Shizuku、その他のシステムレベルサービスなど）への接続が予期せず失われました。デバイスを再起動してください。問題が解決しない場合は、アップデートを確認するか、私に連絡して修正できるようにしてください。</string>
     <string name="general_user_label_owner">オーナー</string>
     <string name="general_user_label_system">システム</string>
+    <string name="setup_title">セットアップ</string>
 </resources>

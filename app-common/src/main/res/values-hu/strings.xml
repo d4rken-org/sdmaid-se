@@ -178,4 +178,5 @@
     <string name="general_error_ipc_deadobject_description">Egy kritikus szolgáltatáshoz (pl. Magisk, Shizuku vagy más rendszerszintű szolgáltatások) való kapcsolat váratlanul megszakadt. Kérjük, indítsa újra az eszközét. Ha a probléma továbbra is fennáll, ellenőrizze a frissítéseket, vagy lépjen kapcsolatba velem, hogy kijavíthassam.</string>
     <string name="general_user_label_owner">Tulajdonos</string>
     <string name="general_user_label_system">Rendszer</string>
+    <string name="setup_title">Beállítás</string>
 </resources>

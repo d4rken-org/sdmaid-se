@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">Kết nối đến một dịch vụ quan trọng (như: Magisk, Shizuku hoặc các dịch vụ cấp hệ thống khác) bị mất kết nối đột ngột. Vui lòng khởi động lại thiết bị. Nếu sự cố vẫn tiếp diễn, hãy kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
     <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
+    <string name="setup_title">Thiết lập</string>
 </resources>

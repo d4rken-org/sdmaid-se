@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">與重要服務（例如 Magisk、Shizuku 或其他系統級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續存在，請檢查更新或聯絡我以便修復。</string>
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
+    <string name="setup_title">安裝程式</string>
 </resources>

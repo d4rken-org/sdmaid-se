@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
+    <string name="setup_title">დაყენება</string>
 </resources>

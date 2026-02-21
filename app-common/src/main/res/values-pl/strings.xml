@@ -195,4 +195,5 @@
     <string name="general_error_ipc_deadobject_description">Połączenie z usługą krytyczną (np. Magisk, Shizuku, lub innymi usługami na poziomie systemowym) zostało niespodziewanie utracone. Uruchom ponownie urządzenie. Jeśli problem będzie się powtarzał, sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>
+    <string name="setup_title">Konfiguracja</string>
 </resources>

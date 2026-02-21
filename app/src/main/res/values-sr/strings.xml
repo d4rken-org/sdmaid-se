@@ -119,7 +119,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid покушава да поправи проблеме са подешавањем.</string>
     <string name="setup_incomplete_card_dismiss_action">Одбаци</string>
     <string name="setup_incomplete_card_continue_action">Наставите подешавање</string>
-    <string name="setup_title">Подешавање</string>
     <string name="setup_forcedshow_summary">Прикажи поново екран за подешавање, укључујући већ завршене ставке.</string>
     <string name="setup_checking_card_body">Провера завршетка подешавања и функционалности.</string>
     <string name="general_error_setup_require_label">Подешавање није завршено</string>

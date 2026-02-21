@@ -111,7 +111,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid đang cố khắc phục sự cố thiết lập.</string>
     <string name="setup_incomplete_card_dismiss_action">Bỏ qua</string>
     <string name="setup_incomplete_card_continue_action">Tiếp tục thiết lập</string>
-    <string name="setup_title">Thiết lập</string>
     <string name="setup_forcedshow_summary">Hiển thị lại màn hình thiết lập, bao gồm các mục đã hoàn thành.</string>
     <string name="setup_checking_card_body">Xác minh hoàn thành thiết lập và chức năng.</string>
     <string name="general_error_setup_require_label">Thiết lập chưa hoàn tất</string>

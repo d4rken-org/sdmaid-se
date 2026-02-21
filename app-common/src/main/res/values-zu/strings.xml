@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Ukuxhuma ensizakalweni ebalulekile (isib. Magisk, Shizuku, noma ezinye izinsizakalo zezinga lesistimu) kulahleke ngendlela engalindelekile. Sicela uphinde uqalise idivayisi yakho. Uma inkinga iqhubeka, hlola izibuyekezo noma xhumana nami ukuze ngiyilungise.</string>
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
+    <string name="setup_title">Ukusetshenziswa</string>
 </resources>

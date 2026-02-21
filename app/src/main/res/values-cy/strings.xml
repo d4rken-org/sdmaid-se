@@ -82,7 +82,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">Mae SD Maid yn ceisio trwsio problemau gosod.</string>
     <string name="setup_incomplete_card_dismiss_action">Diystyru</string>
     <string name="setup_incomplete_card_continue_action">Parhau i osod</string>
-    <string name="setup_title">Gosod</string>
     <string name="setup_forcedshow_summary">Dangos sgrin gosod eto, gan gynnwys eitemau sydd eisoes wedi\'u cwblhau.</string>
     <string name="setup_checking_card_body">Gwirio cwblhad a swyddogaeth y gosodiad.</string>
     <string name="general_error_setup_require_label">Mae\'r gosodiad yn anghyflawn</string>

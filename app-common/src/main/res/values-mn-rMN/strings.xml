@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Чухал үйлчилгээний холболт (жишээ нь Magisk, Shizuku эсвэл бусад системийн түвшний үйлчилгээнүүд) гэнэт тасарсан. Төхөөрөмжөө дахин эхлүүлнэ үү. Хэрэв асуудал үргэлжилвэл шинэчлэлийг шалгаж эсвэл надтай холбогдоно уу.</string>
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
+    <string name="setup_title">Тохиргоо</string>
 </resources>

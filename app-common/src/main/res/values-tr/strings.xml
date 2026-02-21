@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
     <string name="general_user_label_owner">Sahibi</string>
     <string name="general_user_label_system">Sistem</string>
+    <string name="setup_title">Kur</string>
 </resources>

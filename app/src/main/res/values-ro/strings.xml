@@ -119,7 +119,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid încearcă să rezolve problemele de instalare.</string>
     <string name="setup_incomplete_card_dismiss_action">Respinge</string>
     <string name="setup_incomplete_card_continue_action">Continuă configurarea</string>
-    <string name="setup_title">Parte de configurare</string>
     <string name="setup_forcedshow_summary">Arată ecranul de configurare din nou, inclusiv sarcini deja completate.</string>
     <string name="setup_checking_card_body">Verificarea finalizării configurării și a funcționalității.</string>
     <string name="general_error_setup_require_label">Configurarea este incompletă</string>

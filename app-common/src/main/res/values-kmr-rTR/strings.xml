@@ -170,4 +170,5 @@
     <string name="general_error_ipc_deadobject_description">Girêdana bi karûbarek girîng re (mînak Magisk, Shizuku an karûbarên asta pergalê yên din) bi rengekî nenas winda bû. Ji kerema xwe amûra xwe ji nû ve bide destpêkirin. Eger pirsgirêk berdewam bike, ji bo nûkirinan binêre an jî bi min re têkilî deyne da ez bikaribim çak bikim.</string>
     <string name="general_user_label_owner">Xwedî</string>
     <string name="general_user_label_system">Pergal</string>
+    <string name="setup_title">Sazkirîn</string>
 </resources>

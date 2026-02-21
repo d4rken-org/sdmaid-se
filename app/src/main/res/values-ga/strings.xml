@@ -139,7 +139,6 @@
     <string name="scheduler_schedule_last_at_x">Ritheadh deireanach ag %s</string>
     <string name="picker_unsaved_confirmation_message">Caith athruithe ar lár?</string>
     <string name="setup_label">Socrú</string>
-    <string name="setup_title">Socrú</string>
     <string name="setup_acs_card_body2">Ní úsáidfidh SD Maid an tseirbhís inrochtaineachta gan do thoiliú, taispeánfaidh sé táscaire feiceálach (inchealaithte) i gcónaí fad atá sé gníomhach agus ní úsáidfidh sé é chun faisnéis a bhailiú.</string>
     <string name="setup_acs_state_stopped">Tá an tseirbhís inrochtaineachta stoptha</string>
     <string name="setup_acs_state_stopped_hint">Tá an tseirbhís cumasaithe, ach níl sí ag rith. Cas í as/ar nó atosaigh do ghléas. Seiceáil nach bhfuil an córas ag "optamú" SD Maid.</string>

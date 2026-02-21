@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">Το SD Maid προσπαθεί να διορθώσει προβλήματα εγκατάστασης.</string>
     <string name="setup_incomplete_card_dismiss_action">Παράλειψη</string>
     <string name="setup_incomplete_card_continue_action">Συνέχεια εγκατάστασης</string>
-    <string name="setup_title">Εγκατάσταση</string>
     <string name="setup_forcedshow_summary">Εμφάνιση οθόνης ρύθμισης ξανά, συμπεριλαμβανομένων των ήδη ολοκληρωμένων στοιχείων.</string>
     <string name="setup_checking_card_body">Επαλήθευση ολοκλήρωσης και λειτουργικότητας της εγκατάστασης.</string>
     <string name="general_error_setup_require_label">Η εγκατάσταση δεν είναι ολοκληρωμένη</string>

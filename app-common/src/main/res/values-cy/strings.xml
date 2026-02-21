@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Wrth eich gwasanaeth.</string>
     <string name="slogan_message_1">Glân a thaclus.</string>
     <string name="slogan_message_2">Atal anhrefn.</string>
@@ -11,9 +10,7 @@
     <string name="slogan_message_6">Bytes, ewch o\'ma!</string>
     <string name="slogan_message_7">Lle rhydd, lle hapus.</string>
     <string name="slogan_message_8">Byth yn mynd i roi\'r gorau i chi.</string>
-
     <string name="general_thank_you_label">Diolch</string>
-
     <string name="general_error_type_mismatch_msg">Anghydwedd math: Eisiau %1$s, ond cael %2$s.</string>
     <string name="general_error_cant_access_msg">Methu cael mynediad at %s.</string>
     <string name="general_error_root_unavailable">Nid yw mynediad gwraidd ar gael.</string>
@@ -80,7 +77,6 @@
     <string name="general_sort_options_label">Opsiynau trefnu</string>
     <string name="general_sort_reverse_action">Modd trefnu gwrthdroi</string>
     <string name="general_tag_filter_label">Hidlo yn ôl tagiau</string>
-
     <string name="general_result_success_message">Llwyddodd y weithred</string>
     <string name="general_result_failure_message">Methodd y weithred</string>
     <plurals name="general_result_x_space_freed">
@@ -91,7 +87,6 @@
         <item quantity="many">Lle %s wedi\'i ryddhau.</item>
         <item quantity="other">Lle %s wedi\'i ryddhau.</item>
     </plurals>
-
     <string name="general_options_label">Opsiynau</string>
     <string name="general_details_label">Manylion</string>
     <string name="general_view_action">Gweld</string>
@@ -102,7 +97,6 @@
     <string name="general_show_details_action">Dangos manylion</string>
     <string name="general_show_all_action">Dangos popeth</string>
     <string name="general_toggle_layout_mode">Newid modd gweld</string>
-
     <string name="general_delete_confirmation_title">Cadarnhau dileu</string>
     <string name="general_delete_confirmation_message_x">Dileu \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Dileu\'r %d eitem a ddewiswyd?</string>
@@ -114,7 +108,6 @@
         <item quantity="many">Dilëwyd %d eitem.</item>
         <item quantity="other">Dilëwyd %d eitem.</item>
     </plurals>
-
     <string name="general_remove_action">Tynnu</string>
     <string name="general_remove_selected_action">Tynnu\'r dewis</string>
     <plurals name="general_remove_success_x_items">
@@ -125,14 +118,11 @@
         <item quantity="many">Tynnwyd %d eitem</item>
         <item quantity="other">Tynnwyd %d eitem</item>
     </plurals>
-
     <string name="general_root_required_label">Mae angen gwraidd</string>
     <string name="general_root_required_message">Mae angen dyfais wreiddiol</string>
-
     <string name="general_search_action">Chwilio</string>
     <string name="general_scan_device_action">Sganio\'r ddyfais</string>
     <string name="general_open_system_settings_action">Agor gosodiadau\'r system</string>
-
     <plurals name="result_x_items">
         <item quantity="zero">%s eitem</item>
         <item quantity="one">%s eitem</item>
@@ -172,28 +162,21 @@
     <string name="general_grant_access_action">Rhoi mynediad</string>
     <string name="general_enable_service_action">Galluogi gwasanaeth</string>
     <string name="general_undo_action">Dadwneud</string>
-
     <string name="general_list_select_all_action">Dewis popeth</string>
-
     <string name="general_path_label">Llwybr</string>
     <string name="general_type_label">Math</string>
     <string name="general_size_label">Maint</string>
     <string name="general_exclude_action">Eithrio</string>
     <string name="general_exclude_selected_action">Eithrio\'r dewis</string>
-
     <string name="general_device_label">Dyfais</string>
-
     <string name="general_settings_title">Gosodiadau</string>
     <string name="general_help_title">Help</string>
-
     <string name="file_type_symbolic_link">Cyswllt</string>
     <string name="file_type_directory">Cyfeiriadur</string>
     <string name="file_type_file">Ffeil</string>
     <string name="file_type_unknown">Anhysbys</string>
-
     <string name="general_progress_ready">Barod</string>
     <string name="general_progress_done">Wedi gorffen</string>
-
     <string name="general_rom_type_auto_label">Awtomatig (rhagosodiad)</string>
     <plurals name="general_age_days">
         <item quantity="zero">%d diwrnod</item>
@@ -227,4 +210,5 @@
     <string name="general_error_ipc_deadobject_description">Collwyd cysylltiad â gwasanaeth hanfodol (e.e. Magisk, Shizuku, neu wasanaethau lefel system eraill) yn annisgwyl. Ailgychwynnwch eich dyfais os gwelwch yn dda. Os yw\'r broblem yn parhau, gwiriwch am ddiweddariadau neu cysylltwch â mi i\'w ddatrys.</string>
     <string name="general_user_label_owner">Perchennog</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Gosod</string>
 </resources>

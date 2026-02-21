@@ -123,7 +123,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid próbuje naprawić problemy z konfiguracją.</string>
     <string name="setup_incomplete_card_dismiss_action">Odrzuć</string>
     <string name="setup_incomplete_card_continue_action">Kontynuuj konfigurację</string>
-    <string name="setup_title">Konfiguracja</string>
     <string name="setup_forcedshow_summary">Pokaż ponownie ekran konfiguracji, uwzględniając już wykonane elementy.</string>
     <string name="setup_checking_card_body">Weryfikacja ukończenia konfiguracji i funkcjonalności.</string>
     <string name="general_error_setup_require_label">Konfiguracja nie jest ukończona</string>

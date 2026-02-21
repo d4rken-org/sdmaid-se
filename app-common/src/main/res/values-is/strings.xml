@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Tenging við mikilvæga þjónustu (t.d. Magisk, Shizuku eða aðra kerfisstigs þjónustu) tapaðist óvænt. Vinsamlegast endurræstu tækið þitt. Ef vandamálið helst áfram skaltu athuga uppfærslur eða hafa samband við mig svo ég geti lagað það.</string>
     <string name="general_user_label_owner">Eigandi</string>
     <string name="general_user_label_system">Kerfi</string>
+    <string name="setup_title">Uppsetning</string>
 </resources>

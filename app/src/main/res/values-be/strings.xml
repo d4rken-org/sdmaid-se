@@ -123,7 +123,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid спрабуе выправіць праблемы з наладамі.</string>
     <string name="setup_incomplete_card_dismiss_action">Адхіліць</string>
     <string name="setup_incomplete_card_continue_action">Працягнуць наладжванне</string>
-    <string name="setup_title">Наладжванне</string>
     <string name="setup_forcedshow_summary">Паўторна паказаць экран наладжвання, у тым ліку з ужо наладжанымі элементамі.</string>
     <string name="setup_checking_card_body">Праверка налад і функцыянальнасці.</string>
     <string name="general_error_setup_require_label">Наладжванне не завершана</string>

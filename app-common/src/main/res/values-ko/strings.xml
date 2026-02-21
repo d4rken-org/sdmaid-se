@@ -162,4 +162,5 @@
     <string name="general_error_ipc_deadobject_description">중요한 서비스(예: Magisk, Shizuku 또는 기타 시스템 수준 서비스)와의 연결이 예기치 않게 끊어졌습니다. 기기를 재부팅하십시오. 문제가 지속되면 업데이트를 확인하거나 저에게 연락하여 수정할 수 있도록 해주세요.</string>
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
+    <string name="setup_title">설정하기</string>
 </resources>

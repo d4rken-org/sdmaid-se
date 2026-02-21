@@ -184,4 +184,5 @@
     <string name="general_error_ipc_deadobject_description">Veza s kritičnom uslugom (npr. Magisk, Shizuku ili druge usluge na razini sustava) neočekivano je izgubljena. Ponovno pokrenite uređaj. Ako se problem nastavi, provjerite ima li ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
+    <string name="setup_title">Postavljanje</string>
 </resources>

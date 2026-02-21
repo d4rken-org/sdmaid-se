@@ -195,4 +195,5 @@
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
+    <string name="setup_title">הגדרה</string>
 </resources>

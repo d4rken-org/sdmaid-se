@@ -105,7 +105,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ornatlash problemaların tüzewge tırısadı.</string>
     <string name="setup_incomplete_card_dismiss_action">Biykarlaw</string>
     <string name="setup_incomplete_card_continue_action">Ornatıwdı dawam etiw</string>
-    <string name="setup_title">Ornatıw</string>
     <string name="setup_forcedshow_summary">Ornatlash ekranın qayta körset, aldin tamamlangan nerselerdi de kose algında.</string>
     <string name="setup_checking_card_body">Ornatlash tamamlanıwı hám funkcional ıslewın tekseredi.</string>
     <string name="general_error_setup_require_label">Ornatlash tolemsiz</string>

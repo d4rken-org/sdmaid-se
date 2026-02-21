@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Muunganisho na huduma muhimu (k.m. Magisk, Shizuku, au huduma zingine za kiwango cha mfumo) umepotea bila kutarajiwa. Tafadhali anzisha upya kifaa chako. Ikiwa tatizo linaendelea, angalia masasisho au niwasiliane nami ili niweze kulirekebisha.</string>
     <string name="general_user_label_owner">Mmiliki</string>
     <string name="general_user_label_system">Mfumo</string>
+    <string name="setup_title">Usanidi</string>
 </resources>

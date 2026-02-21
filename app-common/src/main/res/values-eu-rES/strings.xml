@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Zerbitzu kritiko batekin (adib. Magisk, Shizuku edo bestelako sistema-mailako zerbitzuak) konexioa ustekabean galdu da. Mesedez berrabiarazi zure gailua. Arazoa jarraitzen badu, eguneraketak egiaztatu edo nirekin harremanetan jarri konpon dezadan.</string>
     <string name="general_user_label_owner">Jabea</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Konfigurazioa</string>
 </resources>

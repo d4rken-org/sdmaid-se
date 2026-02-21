@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Mánisli xızmetke (masalan, Magisk, Shizuku, yamasa basqa sistema darajasındaǵı xızmetler) baylanıs kútilmegen túrde úzildi. Qurılmańızdı qayta júklań. Eger máselerni dawam etse, jańartıwlardı tekseriń yamasa mańa ádepki ústinde ózi sheshimni tapıw ushın xabar beriń.</string>
     <string name="general_user_label_owner">Iye</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Ornatıw</string>
 </resources>

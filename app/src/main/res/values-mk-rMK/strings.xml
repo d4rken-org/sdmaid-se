@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid се обидува да ги поправи проблемите со поставувањето.</string>
     <string name="setup_incomplete_card_dismiss_action">Отфрли</string>
     <string name="setup_incomplete_card_continue_action">Продолжи со поставување</string>
-    <string name="setup_title">Поставување</string>
     <string name="setup_forcedshow_summary">Покажи го екранот за поставување повторно, вклучувајќи ги веќе завршените ставки.</string>
     <string name="setup_checking_card_body">Проверка на завршеност и функционалност на поставувањето.</string>
     <string name="general_error_setup_require_label">Поставувањето е нецелосно</string>

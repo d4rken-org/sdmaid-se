@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
     <string name="general_user_label_owner">Egasi</string>
     <string name="general_user_label_system">Tizim</string>
+    <string name="setup_title">Sozlash</string>
 </resources>

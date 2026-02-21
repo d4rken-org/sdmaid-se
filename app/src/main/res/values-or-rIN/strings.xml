@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid ସେଟଅପ ସମସ୍ୟାଗୁଡିକ ଠିକ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି।</string>
     <string name="setup_incomplete_card_dismiss_action">ଖାରଜ କରନ୍ତୁ</string>
     <string name="setup_incomplete_card_continue_action">ସେଟଅପ ଜାରି ରଖନ୍ତୁ</string>
-    <string name="setup_title">ସେଟଅପ</string>
     <string name="setup_forcedshow_summary">ପୂର୍ବରୁ ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଥିବା ଆଇଟମଗୁଡିକ ସହିତ ସେଟଅପ ସ୍କ୍ରିନ ପୁଣି ଦେଖାନ୍ତୁ।</string>
     <string name="setup_checking_card_body">ସେଟଅପ ସମାପ୍ତି ଏବଂ କାର୍ଯ୍ୟକାରିତା ଯାଞ୍ଚ କରୁଛି।</string>
     <string name="general_error_setup_require_label">ସେଟଅପ ଅସମ୍ପୂର୍ଣ୍ଣ ଅଛି</string>

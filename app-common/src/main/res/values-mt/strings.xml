@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Fis-servizz tiegħek.</string>
     <string name="slogan_message_1">Nadif u mgħaqqad.</string>
     <string name="slogan_message_2">Jevita l-kaos.</string>
@@ -11,9 +10,7 @@
     <string name="slogan_message_6">Bytes, morru!</string>
     <string name="slogan_message_7">Spazju ħieles, post ferrieħ.</string>
     <string name="slogan_message_8">Qatt ma se nwaqqaf għalik.</string>
-
     <string name="general_thank_you_label">Grazzi</string>
-
     <string name="general_error_type_mismatch_msg">Tip ma jaqbilx: Xtaq %1$s, imma ġie %2$s.</string>
     <string name="general_error_cant_access_msg">Ma nistax naċċessa %s.</string>
     <string name="general_error_root_unavailable">Aċċess għall-għeruq mhux disponibbli.</string>
@@ -80,7 +77,6 @@
     <string name="general_sort_options_label">Għażliet tal-issortjar</string>
     <string name="general_sort_reverse_action">Modalità issortjar kontra</string>
     <string name="general_tag_filter_label">Iffiltra skont it-tags</string>
-
     <string name="general_result_success_message">Operazzjoni b\'suċċess</string>
     <string name="general_result_failure_message">Operazzjoni falliet</string>
     <plurals name="general_result_x_space_freed">
@@ -89,7 +85,6 @@
         <item quantity="many">%s spazju ċċarat.</item>
         <item quantity="other">%s spazju ċċarat.</item>
     </plurals>
-
     <string name="general_options_label">Għażliet</string>
     <string name="general_details_label">Dettalji</string>
     <string name="general_view_action">Ara</string>
@@ -100,7 +95,6 @@
     <string name="general_show_details_action">Uri dettalji</string>
     <string name="general_show_all_action">Uri kollox</string>
     <string name="general_toggle_layout_mode">Ibdel modalità tal-veduta</string>
-
     <string name="general_delete_confirmation_title">Ikkonferma t-tħassir</string>
     <string name="general_delete_confirmation_message_x">Tħassar \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Tħassar il-%d oġġetti magħżula?</string>
@@ -110,7 +104,6 @@
         <item quantity="many">%d oġġett imħassar.</item>
         <item quantity="other">%d oġġett imħassar.</item>
     </plurals>
-
     <string name="general_remove_action">Neħħi</string>
     <string name="general_remove_selected_action">Neħħi l-magħżula</string>
     <plurals name="general_remove_success_x_items">
@@ -119,14 +112,11 @@
         <item quantity="many">%d oġġett imneħħi</item>
         <item quantity="other">%d oġġett imneħħi</item>
     </plurals>
-
     <string name="general_root_required_label">Għeruq meħtieġa</string>
     <string name="general_root_required_message">Apparat bil-għeruq meħtieġ</string>
-
     <string name="general_search_action">Fittex</string>
     <string name="general_scan_device_action">Skenja l-apparat</string>
     <string name="general_open_system_settings_action">Iftaħ settings tas-sistema</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s oġġett</item>
         <item quantity="few">%s oġġetti</item>
@@ -158,28 +148,21 @@
     <string name="general_grant_access_action">Agħti aċċess</string>
     <string name="general_enable_service_action">Ippermetti s-servizz</string>
     <string name="general_undo_action">Annulla</string>
-
     <string name="general_list_select_all_action">Agħżel kollox</string>
-
     <string name="general_path_label">Mogħdija</string>
     <string name="general_type_label">Tip</string>
     <string name="general_size_label">Daqs</string>
     <string name="general_exclude_action">Eskludi</string>
     <string name="general_exclude_selected_action">Eskludi l-magħżula</string>
-
     <string name="general_device_label">Apparat</string>
-
     <string name="general_settings_title">Settings</string>
     <string name="general_help_title">Għajnuna</string>
-
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Direttorju</string>
     <string name="file_type_file">Fajl</string>
     <string name="file_type_unknown">Mhux magħruf</string>
-
     <string name="general_progress_ready">Lest</string>
     <string name="general_progress_done">Lest</string>
-
     <string name="general_rom_type_auto_label">Awtomatiku (default)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d jum</item>
@@ -207,4 +190,5 @@
     <string name="general_error_ipc_deadobject_description">Konnessjoni ma\' servizz kritiku (eż. Magisk, Shizuku, jew servizzi oħra fil-livell tas-sistema) mitlufa mhux mistenni. Jekk jogħġbok irristartja l-apparat tiegħek. Jekk il-problema tibqa\', iċċekkja għal aġġornamenti jew ikkuntattjani biex nissolvha.</string>
     <string name="general_user_label_owner">Sid</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Setup</string>
 </resources>

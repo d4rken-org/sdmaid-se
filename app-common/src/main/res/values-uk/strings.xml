@@ -195,4 +195,5 @@
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Налаштування</string>
 </resources>

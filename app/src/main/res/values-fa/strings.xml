@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid در حال تلاش برای رفع مشکلات تنظیمات است.</string>
     <string name="setup_incomplete_card_dismiss_action">رد کردن</string>
     <string name="setup_incomplete_card_continue_action">ادامه راه‌اندازی</string>
-    <string name="setup_title">راه‌اندازی</string>
     <string name="setup_forcedshow_summary">برای نمایش مجدد صفحه تنظیم کردن، از جمله موارد تکمیل شده.</string>
     <string name="setup_checking_card_body">در حال بررسی تکمیل تنظیم و عملکرد.</string>
     <string name="general_error_setup_require_label">راه‌اندازی کامل نیست</string>

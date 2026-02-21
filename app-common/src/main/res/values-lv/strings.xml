@@ -184,4 +184,5 @@
     <string name="general_error_ipc_deadobject_description">Savienojums ar kritiski svarīgu pakalpojumu (piemēram, Magisk, Shizuku vai citi sistēmas līmeņa pakalpojumi) tika negaidīti zaudēts. Lūdzu restartējiet savu ierīci. Ja problēma turpinās, pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to labotu.</string>
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
+    <string name="setup_title">Iestatīšana</string>
 </resources>

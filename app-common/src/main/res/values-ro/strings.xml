@@ -184,4 +184,5 @@
     <string name="general_error_ipc_deadobject_description">Conexiunea la un serviciu critic (de ex. Magisk, Shizuku sau alte servicii la nivel de sistem) au fost pierdute în mod neașteptat. Vă rugăm să reporniți dispozitivul. Dacă problema persistă, verificați dacă există actualizări sau contactați-mă, astfel încât să o pot rezolva.</string>
     <string name="general_user_label_owner">Proprietar</string>
     <string name="general_user_label_system">Sistem</string>
+    <string name="setup_title">Parte de configurare</string>
 </resources>

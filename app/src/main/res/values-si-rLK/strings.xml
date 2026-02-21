@@ -107,7 +107,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid පිහිටුවීම් ගැටලු නිවැරදි කිරීමට උත්සාහ කරයි.</string>
     <string name="setup_incomplete_card_dismiss_action">ඉවතලන්න</string>
     <string name="setup_incomplete_card_continue_action">පිහිටුවීම ඉදිරියට</string>
-    <string name="setup_title">පිහිටුවීම</string>
     <string name="setup_forcedshow_summary">දැනටමත් සම්පූර්ණ කළ අයිතම ඇතුළුව පිහිටුවීම් තිරය නැවත පෙන්වන්න.</string>
     <string name="setup_checking_card_body">පිහිටුවීම සම්පූර්ණ වීම සහ ක්‍රියාකාරිත්වය සත්‍යාපනය කරමින්.</string>
     <string name="general_error_setup_require_label">පිහිටුවීම අසම්පූර්ණයි</string>

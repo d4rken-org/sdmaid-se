@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
+    <string name="setup_title">அமைப்பு</string>
 </resources>

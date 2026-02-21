@@ -113,7 +113,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">I-SD Maid izama ukulungisa izinkinga zokusetshenziswa.</string>
     <string name="setup_incomplete_card_dismiss_action">Cashisa</string>
     <string name="setup_incomplete_card_continue_action">Qhubeka nokusetshenziswa</string>
-    <string name="setup_title">Ukusetshenziswa</string>
     <string name="setup_forcedshow_summary">Bonisa isikrini sokusetshenziswa futhi, kubandakanya nezinto eseziqediwe.</string>
     <string name="setup_checking_card_body">Kuqinisekiswa ukuqedwa kokusetshenziswa nokuphathwa.</string>
     <string name="general_error_setup_require_label">Ukusetshenziswa akukapheleli</string>

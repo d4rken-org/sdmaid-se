@@ -102,7 +102,6 @@
     <string name="setup_incomplete_card_body">சிறந்த முடிவுகளைப் பெற SD Maid\'இன் அமைப்பை முடிக்கவும்.</string>
     <string name="setup_incomplete_card_dismiss_action">நிராகரி</string>
     <string name="setup_incomplete_card_continue_action">அமைப்பை தொடரவும்</string>
-    <string name="setup_title">அமைப்பு</string>
     <string name="setup_forcedshow_summary">ஏற்கனவே முடிந்த உருப்படிகளுடன் அமைப்பு திரையை மீண்டும் காட்டவும்.</string>
     <string name="setup_checking_card_body">அமைப்பு முடிவு மற்றும் செயல்பாடு சரிபார்க்கப்படுகிறது.</string>
     <string name="general_error_setup_require_label">அமைப்பு முடிக்கவில்லை</string>

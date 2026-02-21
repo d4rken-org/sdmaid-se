@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتگوزارییەکی گرنگەوە (بۆ نموونە ماجیسک، شیزوکو، یان خزمەتگوزارییەکانی ئاستی سیستەمی دیکە) بە شێوەیەکی چاوەڕواننەکراو پچڕا. تکایە ئامێرەکەت ڕیستارت بکە. ئەگەر کێشەکە بەردەوام بوو، نوێکردنەوەکان بپشکنە یان پەیوەندیم پێوە بکە تا بتوانم چاکی بکەمەوە.</string>
     <string name="general_user_label_owner">خاوەن</string>
     <string name="general_user_label_system">سیستەم</string>
+    <string name="setup_title">ڕێکخستن</string>
 </resources>

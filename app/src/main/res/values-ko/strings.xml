@@ -111,7 +111,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid에서 설정 오류를 고치는 중입니다.</string>
     <string name="setup_incomplete_card_dismiss_action">무시</string>
     <string name="setup_incomplete_card_continue_action">설정 계속하기</string>
-    <string name="setup_title">설정하기</string>
     <string name="setup_forcedshow_summary">초기 설정 화면을 다시 엽니다. 이미 완료된 설정을 다시 진행할 수 있습니다.</string>
     <string name="setup_checking_card_body">설정 완료와 기능성을 검증하고 있어요.</string>
     <string name="general_error_setup_require_label">설정을 완료하지 않았어요</string>

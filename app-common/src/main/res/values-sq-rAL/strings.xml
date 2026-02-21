@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Lidhja me një shërbim kritik (p.sh. Magisk, Shizuku, ose shërbime të tjera të nivelit të sistemit) u ndërpre papritur. Ju lutemi rinisni pajisjen tuaj. Nëse problemi vazhdon, kontrolloni për përditësime ose më kontaktoni që ta rregulloj.</string>
     <string name="general_user_label_owner">Pronari</string>
     <string name="general_user_label_system">Sistemi</string>
+    <string name="setup_title">Konfigurim</string>
 </resources>

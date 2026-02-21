@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Връзката с критична услуга (напр. Magisk, Shizuku или други услуги на системно ниво) беше неочаквано загубена. Моля, рестартирайте устройството си. Ако проблемът продължи, проверете за актуализации или се свържете с мен, за да го поправя.</string>
     <string name="general_user_label_owner">Собственик</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Настройка</string>
 </resources>

@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">L\'SD Maid està intentant solucionar problemes de configuració.</string>
     <string name="setup_incomplete_card_dismiss_action">Ignora</string>
     <string name="setup_incomplete_card_continue_action">Continua la configuració</string>
-    <string name="setup_title">Configuració</string>
     <string name="setup_forcedshow_summary">Torna a mostrar la pantalla de configuració, inclosos els elements ja completats.</string>
     <string name="setup_checking_card_body">Verificació de la finalització de la configuració i la funcionalitat.</string>
     <string name="general_error_setup_require_label">La configuració no s\'ha completat</string>

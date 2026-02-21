@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
+    <string name="setup_title">سیٹ اپ</string>
 </resources>

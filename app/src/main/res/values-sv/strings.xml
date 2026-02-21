@@ -115,7 +115,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid försöker åtgärda inställningsproblem.</string>
     <string name="setup_incomplete_card_dismiss_action">Stäng</string>
     <string name="setup_incomplete_card_continue_action">Fortsätt inställningar</string>
-    <string name="setup_title">Inställningar</string>
     <string name="setup_forcedshow_summary">Visa inställningsskärmen igen, inklusive redan slutförda objekt.</string>
     <string name="setup_checking_card_body">Verifierar att inställningarna är slutförda och fungerar.</string>
     <string name="general_error_setup_require_label">Inställningarna är ofullständiga</string>

@@ -107,7 +107,6 @@
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid qed jipprova jsewwi problemi tas-setup.</string>
     <string name="setup_incomplete_card_dismiss_action">Warrab</string>
     <string name="setup_incomplete_card_continue_action">Kompli s-setup</string>
-    <string name="setup_title">Setup</string>
     <string name="setup_forcedshow_summary">Uri l-iskrin tas-setup mill-ġdid, inkluż oġġetti li diġà tlestew.</string>
     <string name="setup_checking_card_body">Qed jivverifika t-tlestija u l-funzjonalità tas-setup.</string>
     <string name="general_error_setup_require_label">Is-setup mhux komplut</string>

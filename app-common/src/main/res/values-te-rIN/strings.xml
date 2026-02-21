@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">క్రిటికల్ సేవకు (ఉదా. Magisk, Shizuku, లేదా ఇతర సిస్టమ్-స్థాయి సేవలు) కనెక్షన్ అనుకోకుండా కోల్పోయింది. దయచేసి మీ పరికరాన్ని రీస్టార్ట్ చేయండి. సమస్య కొనసాగితే, అప్‌డేట్‌లను తనిఖీ చేయండి లేదా దాన్ని పరిష్కరించడానికి నన్ను సంప్రదించండి.</string>
     <string name="general_user_label_owner">యజమాని</string>
     <string name="general_user_label_system">సిస్టమ్</string>
+    <string name="setup_title">సెటప్</string>
 </resources>
