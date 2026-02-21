@@ -107,7 +107,7 @@ class AutomationSetupCardVH(parent: ViewGroup) :
             setOnClickListener { item.onGrantAction() }
 
         }
-        shortcutHint.isVisible = state.hasConsent != true || !state.isServiceRunning
+        shortcutHint.isVisible = state.hasConsent == true && state.isShortcutOrButtonEnabled
 
         disallowAction.apply {
             isVisible = state.hasConsent != false

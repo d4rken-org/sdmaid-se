@@ -107,6 +107,24 @@ class AutomationManager @Inject constructor(
 
     suspend fun isServiceEnabled(): Boolean = getAutomationServices().contains(ourServiceComp)
 
+    suspend fun isShortcutOrButtonEnabled(): Boolean {
+        val shortcutTarget = runCatching {
+            settingsProvider.get<String>(
+                SystemSettingsProvider.Type.SECURE,
+                "accessibility_shortcut_target_service"
+            )
+        }.getOrNull()
+
+        val buttonTarget = runCatching {
+            settingsProvider.get<String>(
+                SystemSettingsProvider.Type.SECURE,
+                "accessibility_button_targets"
+            )
+        }.getOrNull()
+
+        return parseAccessibilityTargets(shortcutTarget, buttonTarget).contains(ourServiceComp)
+    }
+
     fun isServiceLaunched() = serviceHolder.value != null
 
     suspend fun canSelfEnable() = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
@@ -240,5 +258,12 @@ class AutomationManager @Inject constructor(
 
     companion object {
         val TAG: String = logTag("Automation", "Manager")
+
+        internal fun parseAccessibilityTargets(vararg settings: String?): Set<ComponentName> =
+            settings.filterNotNull()
+                .flatMap { it.split(":") }
+                .filter { it.isNotBlank() }
+                .mapNotNull { ComponentName.unflattenFromString(it) }
+                .toSet()
     }
 }

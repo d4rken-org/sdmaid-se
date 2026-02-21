@@ -56,6 +56,9 @@ class AutomationSetupModule @Inject constructor(
         val canSelfEnable = automationManager.canSelfEnable()
         log(TAG) { "canSelfEnable=$canSelfEnable" }
 
+        val isShortcutOrButtonEnabled = automationManager.isShortcutOrButtonEnabled()
+        log(TAG) { "isShortcutOrButtonEnabled=$isShortcutOrButtonEnabled" }
+
         val mightBeRestricted = context.mightBeRestrictedDueToSideload()
         log(TAG) { "mightBeRestricted=$mightBeRestricted" }
 
@@ -86,6 +89,7 @@ class AutomationSetupModule @Inject constructor(
             canSelfEnable = canSelfEnable,
             isServiceEnabled = isServiceEnabled,
             isServiceRunning = isServiceRunning,
+            isShortcutOrButtonEnabled = isShortcutOrButtonEnabled,
             needsXiaomiAutostart = deviceDetective.getROMType() == RomType.MIUI && !canSelfEnable,
             liftRestrictionsIntent = liftRestrictionsIntent,
             showAppOpsRestrictionHint = showAppOpsRestrictionHint,
@@ -129,6 +133,7 @@ class AutomationSetupModule @Inject constructor(
         val canSelfEnable: Boolean,
         val isServiceEnabled: Boolean,
         val isServiceRunning: Boolean,
+        val isShortcutOrButtonEnabled: Boolean,
         val needsXiaomiAutostart: Boolean,
         val liftRestrictionsIntent: Intent,
         val showAppOpsRestrictionHint: Boolean,
