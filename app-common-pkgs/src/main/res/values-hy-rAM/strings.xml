@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="pkgrepo_invalid_inventory_error_title">Անվավեր հավելվածի գույքագրում</string>
-    <string name="pkgrepo_invalid_inventory_error_description">Համակարգը SD Maid-ին տրամադրել է տեղադրված հավելվածների անվավեր ցուցակ:</string>
-</resources>

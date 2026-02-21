@@ -1,25 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <string name="upgrade_feature_requires_pro">Պահանջում է SD Maid SE Pro</string>
-    <string name="upgrades_dashcard_upgrade_action">Թարմացնել</string>
-    <string name="upgrades_gplay_unavailable_error_title">Google Play հասանելի չէ</string>
-    <string name="upgrades_gplay_unavailable_error_description">SD Maid-ը չի կարող կապվել Google Play-ի հետ: Google Play-ը տեղադրված և թարմացված է: Ձեր Google հաշիվը մուտք գործած է: Փորձեք մաքրել Google Play հավելվածի քեշը և վերագործարկել ձեր սարքը:</string>
-    <string name="upgrades_no_purchases_found_check_account">Գնումներ չեն գտնվել: Օգտագործում եք ճիշտ հաշիվը:</string>
-    <string name="upgrade_screen_title">Ստացեք SD Maid SE Pro</string>
-    <string name="upgrade_screen_preamble">SD Maid-ը չունի գովազդներ և չի վաճառում օգտատերերի տվյալները: Իմ աշխատանքը ֆինանսավորվում է ձեր կողմից ❤️:</string>
-    <string name="upgrade_screen_benefits_title">Առավելություններ</string>
-    <string name="upgrade_screen_benefits_body">• Հավելվածների մաքրում 💯\n• Պլանավորված գործողություններ ⏰\n• Լրացուցիչ ընտրանքներ բոլոր գործիքների համար ⚙️\n• Ձեր սեփական ջնջման կանոնները ✍️\n• Մոտիվացված մշակող 🧙\nևս ավելին…</string>
-    <string name="upgrade_screen_how_title">Ընտրանքներ</string>
-    <string name="upgrade_screen_how_body">Կարող եք ընտրել միանգամյա գնման և ավելի էժան տարեկան բաժանորդագրության միջև:\nԲաժանորդագրությունը սկսվում է անվճար 14 օրվա փորձարկման շրջանով, որից հետո ձեզնից կգանձվի տարին մեկ անգամ: Փորձարկումը և բաժանորդագրությունը կարելի է չեղարկել ցանկացած ժամանակ:\nՆույն գործառույթները, միայն տարբեր գնային մոդելներ:</string>
-    <string name="upgrade_screen_subscription_trial_action">Սկսել անվճար 14 օրվա փորձարկումը</string>
-    <string name="upgrade_screen_subscription_action">Բաժանորդագրվել</string>
-    <string name="upgrade_screen_subscription_action_hint">Բաժանորդագրությունը արժե %s տարեկան:</string>
-    <string name="upgrade_screen_iap_action">Միանգամյա գնում</string>
-    <string name="upgrade_screen_iap_action_hint">Միանգամյա գնումը արժե %s:</string>
-    <string name="upgrade_screen_thanks_toast">Դուք լավագույնն եք! ❤️</string>
-    <string name="upgrade_screen_restore_purchase_action">Վերականգնել գնումը</string>
-    <string name="upgrade_screen_restore_purchase_message">Ձեր թարմացումը գործում է նույն Google հաշվով սարքերում:</string>
-    <string name="upgrade_screen_restore_troubleshooting_msg">Խնդիրների լուծման խորհուրդներ չճանաչված թարմացումների համար՝</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Play Store համաժամանակեցումը կարող է ժամանակ խլել: Փորձեք վերագործարկել, մաքրել Google Play քեշը կամ պարզապես սպասել:</string>
-    <string name="upgrade_screen_restore_multiaccount_hint">Բազմաթիվ հաշիվները կարող են շփոթեցնել Google Play-ին: Դուրս եկեք այլ հաշիվներից կամ տեղադրեք Google Play կայքի միջոցով, որը ստիպում է կապեր կոնկրետ հաշվի հետ:</string>
-</resources>
