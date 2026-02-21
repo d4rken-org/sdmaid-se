@@ -118,7 +118,7 @@
     <string name="support_contact_label">Contact developer</string>
     <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
     <string name="support_contact_welcome">I read every message myself and do my best to reply. Since I handle development, bug fixes, and support on my own, it can take a little time. Thanks for your patience.</string>
-    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email.</string>
+    <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
     <string name="support_contact_category_label">Category</string>
     <string name="support_contact_category_bug_label">Bug report</string>
     <string name="support_contact_category_feature_label">Feature request</string>

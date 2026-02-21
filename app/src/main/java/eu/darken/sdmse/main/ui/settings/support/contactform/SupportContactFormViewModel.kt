@@ -211,22 +211,8 @@ class SupportContactFormViewModel @Inject constructor(
         try {
             val state = currentState.value()
 
-            val categoryLabel = when (state.category) {
-                Category.BUG -> "Bug Report"
-                Category.FEATURE -> "Feature Request"
-                Category.QUESTION -> "Question"
-            }
-
-            val toolLabel = when (state.tool) {
-                Tool.APP_CLEANER -> "AppCleaner"
-                Tool.CORPSE_FINDER -> "CorpseFinder"
-                Tool.SYSTEM_CLEANER -> "SystemCleaner"
-                Tool.DEDUPLICATOR -> "Deduplicator"
-                Tool.ANALYZER -> "Analyzer"
-                Tool.APP_CONTROL -> "AppControl"
-                Tool.SCHEDULER -> "Scheduler"
-                Tool.GENERAL -> "General"
-            }
+            val categoryLabel = state.category.name
+            val toolLabel = state.tool.name
 
             val logUri = pickerState.selectedZip?.let {
                 try {
@@ -239,11 +225,7 @@ class SupportContactFormViewModel @Inject constructor(
             }
             val setupInfo = if (logUri == null) getSetupInfo() else null
 
-            val categoryShort = when (state.category) {
-                Category.BUG -> "Bug"
-                Category.FEATURE -> "Feature"
-                Category.QUESTION -> "Question"
-            }
+            val categoryShort = state.category.name
             val subjectPreview = state.description.trim()
                 .split("\\s+".toRegex())
                 .filter { it.isNotEmpty() }
