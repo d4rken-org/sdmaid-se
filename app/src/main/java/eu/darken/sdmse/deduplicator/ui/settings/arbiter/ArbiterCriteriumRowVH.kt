@@ -32,7 +32,7 @@ class ArbiterCriteriumRowVH(parent: ViewGroup) :
         mode.text = when (criterium) {
             is ArbiterCriterium.PreferredPath -> {
                 if (criterium.keepPreferPaths.isEmpty()) {
-                    context.getString(R.string.deduplicator_arbiter_configure_paths_action)
+                    context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_configure_paths_action)
                 } else {
                     criterium.keepPreferPaths.joinToString("\n") { it.userReadablePath.get(context) }
                 }
@@ -53,25 +53,25 @@ class ArbiterCriteriumRowVH(parent: ViewGroup) :
 
     private fun getTitleForCriterium(criterium: ArbiterCriterium): String = context.getString(
         when (criterium) {
-            is ArbiterCriterium.DuplicateType -> R.string.deduplicator_arbiter_criterium_duplicate_type_title
-            is ArbiterCriterium.MediaProvider -> R.string.deduplicator_arbiter_criterium_media_provider_title
-            is ArbiterCriterium.Location -> R.string.deduplicator_arbiter_criterium_location_title
-            is ArbiterCriterium.Nesting -> R.string.deduplicator_arbiter_criterium_nesting_title
-            is ArbiterCriterium.Modified -> R.string.deduplicator_arbiter_criterium_modified_title
-            is ArbiterCriterium.Size -> R.string.deduplicator_arbiter_criterium_size_title
-            is ArbiterCriterium.PreferredPath -> R.string.deduplicator_arbiter_criterium_preferred_path_title
+            is ArbiterCriterium.DuplicateType -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_duplicate_type_title
+            is ArbiterCriterium.MediaProvider -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_media_provider_title
+            is ArbiterCriterium.Location -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_location_title
+            is ArbiterCriterium.Nesting -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_nesting_title
+            is ArbiterCriterium.Modified -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_modified_title
+            is ArbiterCriterium.Size -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_size_title
+            is ArbiterCriterium.PreferredPath -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_preferred_path_title
         }
     )
 
     private fun getDescriptionForCriterium(criterium: ArbiterCriterium): String = context.getString(
         when (criterium) {
-            is ArbiterCriterium.DuplicateType -> R.string.deduplicator_arbiter_criterium_duplicate_type_description
-            is ArbiterCriterium.MediaProvider -> R.string.deduplicator_arbiter_criterium_media_provider_description
-            is ArbiterCriterium.Location -> R.string.deduplicator_arbiter_criterium_location_description
-            is ArbiterCriterium.Nesting -> R.string.deduplicator_arbiter_criterium_nesting_description
-            is ArbiterCriterium.Modified -> R.string.deduplicator_arbiter_criterium_modified_description
-            is ArbiterCriterium.Size -> R.string.deduplicator_arbiter_criterium_size_description
-            is ArbiterCriterium.PreferredPath -> R.string.deduplicator_arbiter_criterium_preferred_path_description
+            is ArbiterCriterium.DuplicateType -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_duplicate_type_description
+            is ArbiterCriterium.MediaProvider -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_media_provider_description
+            is ArbiterCriterium.Location -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_location_description
+            is ArbiterCriterium.Nesting -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_nesting_description
+            is ArbiterCriterium.Modified -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_modified_description
+            is ArbiterCriterium.Size -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_size_description
+            is ArbiterCriterium.PreferredPath -> eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_criterium_preferred_path_description
         }
     )
 

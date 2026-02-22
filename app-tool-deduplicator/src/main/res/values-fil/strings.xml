@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">Hanapin ang mga duplicate na data sa inyong device.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplicate na nabura</item>
+        <item quantity="other">%d mga duplicate na nabura</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d duplicate set na nakita</item>
+        <item quantity="other">%d mga duplicate set na nakita</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Gawing posible ang \"Delete all\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Ipakita ang mga opsyon na nagbibigay-daan sa inyong tanggalin ang lahat ng file sa isang set ng mga duplicate para walang natitirang file.</string>
+    <string name="deduplicator_search_locations_title">Mga lokasyon ng paghahanap</string>
+    <string name="deduplicator_search_locations_all_summary">Lahat ng ma-access na lugar</string>
+    <string name="deduplicator_keep_prefer_paths_title">Mas gusto na panatilihin sa</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kapag nagpapasya kung aling duplicate ang pananatilihin, mas gusto na panatilihin ang mga file sa mga lokasyong ito.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Walang naka-configure na lokasyon</string>
+    <string name="deduplicator_skip_minsize_title">Minimum na laki</string>
+    <string name="deduplicator_skip_minsize_description">Laktawan ang mga file na nasa ibaba ng minimum na laki.</string>
+    <string name="deduplicator_skip_uncommon_title">Laktawan ang mga hindi karaniwang uri ng file</string>
+    <string name="deduplicator_skip_uncommon_description">Isama lang ang mga karaniwang media file, dokumento at archive.</string>
+    <string name="deduplicator_detection_method_label">Paraan ng pagtukoy</string>
+    <string name="deduplicator_detection_method_checksum_summary">Tukuyin ang mga duplicate sa pamamagitan ng pagkakalkula ng mga checksum para sa mga file. Ang mga file na may magkatugang checksum ay may eksaktong magkaparehong nilalaman.</string>
+    <string name="deduplicator_detection_method_phash_summary">Hanapin ang mga katulad na file sa pamamagitan ng pagsusuri ng mga content feature at paghahambing ng perceptual hash values. ⚠️ Ang similarity-based detection ay maaaring magsama ng mga false positive na nangangailangan ng manu-manong verification.</string>
+    <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s ay ginagamit ng mga duplicate</item>
+        <item quantity="other">%s ay ginagamit ng mga duplicate</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">Laki ng file</string>
+    <string name="deduplicator_average_size_label">Average na laki</string>
+    <string name="deduplicator_delete_confirmation_message">Burahin ang lahat maliban sa isang kopya sa lahat ng set ng mga doble na file?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Burahin ang lahat maliban sa isang kopya sa set na ito ng mga doble na file?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Burahin ang lahat ng file sa set na ito ng mga doble na file? Walang maiiwan!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Burahin ang lahat maliban sa isang kopya sa bawat napiling set ng mga doble na file?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Burahin ang lahat ng file sa bawat napiling set ng mga doble na file? Walang maiiwan!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Burahin ang lahat ng kopya. Walang maiiwan!</string>
+    <string name="deduplicator_progress_comparing_files">Naghahambing ng mga file</string>
+    <string name="deduplicator_details_cluster_title">Set ng mga doble</string>
+    <string name="deduplicator_matches_exact_label">Eksaktong mga kopya</string>
+    <string name="deduplicator_matches_similar_label">Mga katulad na file</string>
+    <string name="deduplicator_arbiter_title">Diskarte sa pag-delete</string>
+    <string name="deduplicator_arbiter_summary">I-configure kung aling mga file ang pinapanatili at alin ang dine-delete.</string>
+    <string name="deduplicator_arbiter_explanation">Kapag nagde-delete ng mga duplicate, pinipili ng SD Maid kung aling file ang pananatilihin sa pamamagitan ng pagsusuri ng bawat kriterya ayon sa pagkakasunod-sunod. Ang unang kriterya na gumawa ng malinaw na panalo ang nagde-determine ng resulta. I-drag upang i-reorder, i-tap upang baguhin ang mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Pumili ng mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">I-configure ang mga path…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uri ng duplicate</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Mas gusto ang eksaktong mga tugma kaysa sa mga katulad na file.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Isaalang-alang kung ang mga file ay naka-index ng media provider.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lokasyon ng storage</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Mas gusto ang mga file sa internal o external storage.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Lalim ng folder</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Mas gusto ang mga file sa mas mababaw o mas malalim na folder structure.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Petsa ng pagbabago</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Mas gusto ang mga mas lumang o mas bagong file batay sa oras ng pagbabago.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Sukat ng file</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Mas gusto ang mas malalaking o mas maliliit na file kapag magkaiba ang sukat.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Mga piniling lokasyon</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Panatilihin ang mga file sa iyong mga naka-configure na piniling lokasyon.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Mas gusto ang eksaktong mga tugma</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Mas gusto ang mga katulad na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Mas gusto ang mga naka-index na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Mas gusto ang mga hindi naka-index na file</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Mas gusto ang internal storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Mas gusto ang external storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Mas gusto ang mababaw na folder</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Mas gusto ang mas malalim na folder</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Mas gusto ang mas lumang file</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Mas gusto ang mas bagong file</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Mas gusto ang mas malalaking file</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Mas gusto ang mas maliliit na file</string>
+    <string name="deduplicator_view_mode_groups_label">Mga grupo</string>
+    <string name="deduplicator_view_mode_directories_label">Mga folder</string>
+</resources>

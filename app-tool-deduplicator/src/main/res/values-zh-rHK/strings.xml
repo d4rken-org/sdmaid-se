@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">複製器</string>
+    <string name="deduplicator_explanation_short">查找設備上重複的數據。</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">已刪除 %d 個重複項</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d 個發現的重複集</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">可同時清理所有垃圾文件</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">顯示刪除一組重複文件中所有文件的選項</string>
+    <string name="deduplicator_search_locations_title">搜尋位置</string>
+    <string name="deduplicator_search_locations_all_summary">所有可存取區域</string>
+    <string name="deduplicator_keep_prefer_paths_title">優先保留於</string>
+    <string name="deduplicator_keep_prefer_paths_summary">決定保留哪個重複項目時，優先保留這些位置中的檔案。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">尚未設定位置</string>
+    <string name="deduplicator_skip_minsize_title">最小大小</string>
+    <string name="deduplicator_skip_minsize_description">跳過小於所設定的最低大小的文件。</string>
+    <string name="deduplicator_skip_uncommon_title">跳過不常見的格式</string>
+    <string name="deduplicator_skip_uncommon_description">只包括常見的媒體、文檔和檔案</string>
+    <string name="deduplicator_detection_method_label">檢測方式</string>
+    <string name="deduplicator_detection_method_checksum_title">內容校驗和</string>
+    <string name="deduplicator_detection_method_checksum_summary">通過計算文件校驗和以確定重複文件。校驗和相同的文件具有完全相同的內容。</string>
+    <string name="deduplicator_detection_method_phash_title">感知哈希值</string>
+    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵和比較感知雜湊值來尋找相似檔案。⚠️ 基於相似度的偵測可能會包含誤判結果，需要手動驗證。</string>
+    <string name="deduplicator_occupied_space_label">已佔用空間</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s 被重複項佔用</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">文件大小</string>
+    <string name="deduplicator_average_size_label">平均大小</string>
+    <string name="deduplicator_cluster_x_label">集群 %s</string>
+    <string name="deduplicator_delete_confirmation_message">你要刪除所有重複文件組中的重複副本（保留一個副本）嗎？</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">你要刪除這個重複文件組中的重複副本（保留一個副本）嗎？</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">你確定刪除這個重複文件集的所有文件嗎？這將不會保留這個重覆文件集中的任何文件！</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">你要刪除所選擇的重複文件組中的重複副本（保留一個副本）嗎？</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">你確定刪除所選擇的重複文件集的所有文件嗎？這將不會保留所選重覆文件集中的任何文件！</string>
+    <string name="deduplicator_delete_all_toggle_msg">刪除所有文件。不會保留任何文件！</string>
+    <string name="deduplicator_progress_comparing_files">正在比對文件</string>
+    <string name="deduplicator_details_cluster_title">一組副本</string>
+    <string name="deduplicator_matches_exact_label">精確副本</string>
+    <string name="deduplicator_matches_similar_label">相似文件</string>
+    <string name="deduplicator_arbiter_title">刪除策略</string>
+    <string name="deduplicator_arbiter_summary">設定保留和刪除哪些檔案。</string>
+    <string name="deduplicator_arbiter_explanation">刪除重複項目時，SD Maid 會按順序檢查每個條件來決定保留哪個檔案。第一個產生明確結果的條件即為最終決定。拖曳以重新排序，輕觸以變更模式。</string>
+    <string name="deduplicator_arbiter_select_mode_title">選擇模式</string>
+    <string name="deduplicator_arbiter_configure_paths_action">設定路徑…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複類型</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">優先選擇完全相符而非類似的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">媒體索引</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">考慮檔案是否已被媒體提供者索引。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">儲存位置</string>
+    <string name="deduplicator_arbiter_criterium_location_description">優先選擇內部或外部儲存空間的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">資料夾深度</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">優先選擇較淺或較深資料夾結構中的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">修改日期</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">根據修改時間優先選擇較舊或較新的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">檔案大小</string>
+    <string name="deduplicator_arbiter_criterium_size_description">當大小不同時優先選擇較大或較小的檔案。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">偏好位置</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">保留在已設定的偏好位置中的檔案。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">優先完全相符</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">優先類似檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">優先已索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">優先未索引檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">優先內部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">優先外部儲存空間</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">優先較淺資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">優先較深資料夾</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">優先較舊檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">優先較新檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">優先較大檔案</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">優先較小檔案</string>
+    <string name="deduplicator_view_mode_groups_label">群組</string>
+    <string name="deduplicator_view_mode_directories_label">資料夾</string>
+</resources>

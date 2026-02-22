@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီတွင် မိတ္တူ တစ်ခုမှလွဲ၍ အားလုံးကို ဖျက်မလား။</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီရှိ ဖိုင် အားလုံးကို ဖျက်မလား။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
+    <string name="deduplicator_delete_all_toggle_msg">မိတ္တူ အားလုံး ဖျက်ပါ။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
+    <string name="deduplicator_progress_comparing_files">ဖိုင်များ နှိုင်းယှဉ်နေသည်</string>
+    <string name="deduplicator_details_cluster_title">ပွားသော ဖိုင်များ အစု</string>
+    <string name="deduplicator_matches_exact_label">တိကျသော မိတ္တူများ</string>
+    <string name="deduplicator_matches_similar_label">ဆင်တူသော ဖိုင်များ</string>
+</resources>

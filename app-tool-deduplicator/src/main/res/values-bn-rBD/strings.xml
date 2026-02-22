@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
+    <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d ডুপ্লিকেট মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d সদৃশ মুছে ফেলা হয়েছে</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d সদৃশ সেট পাওয়া গেছে</item>
+        <item quantity="other">%d টি সদৃশ সেট পাওয়া গেছে</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"সমস্ত মুছুন\" সম্ভব করুন</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">এমন বিকল্পগুলি দেখান যা আপনাকে সদৃশগুলির একটি সেটের সমস্ত ফাইল মুছতে দেয় যাতে কোনও ফাইল অবশিষ্ট না থাকে।</string>
+    <string name="deduplicator_search_locations_title">অবস্থান অনুসন্ধান করুন</string>
+    <string name="deduplicator_search_locations_all_summary">সমস্ত প্রবেশযোগ্য এলাকা</string>
+    <string name="deduplicator_skip_minsize_title">ন্যূনতম আকার</string>
+    <string name="deduplicator_skip_minsize_description">ন্যূনতম আকারের নিচের ফাইলগুলি এড়িয়ে যান।</string>
+    <string name="deduplicator_skip_uncommon_title">অস্বাভাবিক ফাইলের ধরন এড়িয়ে যান</string>
+    <string name="deduplicator_skip_uncommon_description">শুধুমাত্র সাধারণ মিডিয়া ফাইল, ডকুমেন্ট এবং আর্কাইভ অন্তর্ভুক্ত</string>
+    <string name="deduplicator_detection_method_label">সনাক্তকরণ পদ্ধতি</string>
+    <string name="deduplicator_detection_method_checksum_title">কন্টেন্ট চেকসাম</string>
+    <string name="deduplicator_detection_method_checksum_summary">ফাইলের জন্য চেকসাম গণনা করে ডুপ্লিকেট নির্ধারণ করুন। ম্যাচিং চেকসাম সহ ফাইলগুলিতে একই কন্টেন্ট রয়েছে৷</string>
+    <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
+    <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
+        <item quantity="other">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ফাইলের আকার</string>
+    <string name="deduplicator_average_size_label">গড় আকার</string>
+    <string name="deduplicator_cluster_x_label">ক্লাস্টার %s</string>
+    <string name="deduplicator_delete_confirmation_message">সদৃশ ফাইলের সমস্ত সেটে একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">এই সদৃশ ফাইলের একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">সদৃশ ফাইলের এই সেটের সমস্ত ফাইল মুছবেন? কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের একটি কপি ছাড়া সব মুছে ফেলবেন?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">প্রতিটি নির্বাচিত ডুপ্লিকেট ফাইলের সমস্ত ফাইল মুছে ফেলবেন? কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_delete_all_toggle_msg">সব কপি মুছুন. কোন ফাইল বাকি নেই!</string>
+    <string name="deduplicator_progress_comparing_files">ফাইল তুলনা করা হচ্ছে</string>
+    <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
+    <string name="deduplicator_matches_exact_label">হুবহু কপি</string>
+    <string name="deduplicator_matches_similar_label">অনুরূপ ফাইল</string>
+    <string name="deduplicator_arbiter_explanation">ডুপ্লিকেট মুছে ফেলার সময়, SD Maid প্রতিটি মানদণ্ড ক্রমানুসারে পরীক্ষা করে কোন ফাইলটি রাখতে হবে তা নির্ধারণ করে। প্রথম মানদণ্ড যা একটি স্পষ্ট বিজয়ী দেয় তা ফলাফল নির্ধারণ করে। পুনর্বিন্যাস করতে টেনে আনুন, মোড পরিবর্তন করতে ট্যাপ করুন।</string>
+    <string name="deduplicator_arbiter_select_mode_title">মোড নির্বাচন করুন</string>
+    <string name="deduplicator_arbiter_configure_paths_action">পাথ কনফিগার করুন…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ডুপ্লিকেটের ধরন</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">অনুরূপ ফাইলের চেয়ে হুবহু মিলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">মিডিয়া ইন্ডেক্সিং</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ফাইলগুলি মিডিয়া প্রদানকারী দ্বারা ইন্ডেক্স করা হয়েছে কিনা বিবেচনা করুন।</string>
+    <string name="deduplicator_arbiter_criterium_location_title">স্টোরেজ অবস্থান</string>
+    <string name="deduplicator_arbiter_criterium_location_description">অভ্যন্তরীণ বা বাহ্যিক স্টোরেজের ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ফোল্ডারের গভীরতা</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">অগভীর বা গভীরতর ফোল্ডার কাঠামোর ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">পরিবর্তনের তারিখ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">পরিবর্তনের সময়ের উপর ভিত্তি করে পুরনো বা নতুন ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ফাইলের আকার</string>
+    <string name="deduplicator_arbiter_criterium_size_description">আকার ভিন্ন হলে বড় বা ছোট ফাইলকে প্রাধান্য দিন।</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">পছন্দের অবস্থান</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">আপনার কনফিগার করা পছন্দের অবস্থানে ফাইল রাখুন।</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">হুবহু মিল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">অনুরূপ ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ইন্ডেক্স করা ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ইন্ডেক্স না করা ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">অভ্যন্তরীণ স্টোরেজ পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">বাহ্যিক স্টোরেজ পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">অগভীর ফোল্ডার পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">গভীরতর ফোল্ডার পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">পুরনো ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">নতুন ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">বড় ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ছোট ফাইল পছন্দ করুন</string>
+    <string name="deduplicator_view_mode_groups_label">গ্রুপ</string>
+    <string name="deduplicator_view_mode_directories_label">ফোল্ডার</string>
+</resources>

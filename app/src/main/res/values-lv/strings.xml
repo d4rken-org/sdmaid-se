@@ -189,8 +189,6 @@
     <string name="settings_category_tools_label">Rīki</string>
     <string name="settings_category_filter">Filtrs</string>
     <string name="settings_category_risklevel">Riska līmenis</string>
-    <string name="deduplicator_explanation_short">Atrodiet dublikātus jūsu ierīcē.</string>
-    <string name="deduplicator_delete_confirmation_message">Dzēst visas kopijas, izņemot vienu, visos dublikātu komplektos?</string>
     <string name="squeezer_explanation_short">Saspiediet attēlus, lai ietaupītu krātuves vietu.</string>
     <string name="appcontrol_explanation_short">Jūsu ierīcē instalētās lietotnes.</string>
     <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>

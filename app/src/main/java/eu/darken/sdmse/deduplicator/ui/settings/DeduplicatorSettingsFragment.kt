@@ -44,7 +44,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
             log(TAG) { "Updating state: $state" }
             searchLocationsPref.apply {
                 summary = if (state.scanPaths.isEmpty()) {
-                    getString(R.string.deduplicator_search_locations_all_summary)
+                    getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_search_locations_all_summary)
                 } else {
                     state.scanPaths.joinToString("\n") {
                         it.userReadablePath.get(requireContext())
@@ -100,7 +100,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
             setOnPreferenceClickListener {
                 SizeInputDialog(
                     requireActivity(),
-                    titleRes = R.string.deduplicator_skip_minsize_title,
+                    titleRes = eu.darken.sdmse.deduplicator.R.string.deduplicator_skip_minsize_title,
                     currentSize = settings.minSizeBytes.valueBlocking,
                     onReset = { settings.minSizeBytes.valueBlocking = DeduplicatorSettings.MIN_FILE_SIZE },
                     onSave = { settings.minSizeBytes.valueBlocking = it }

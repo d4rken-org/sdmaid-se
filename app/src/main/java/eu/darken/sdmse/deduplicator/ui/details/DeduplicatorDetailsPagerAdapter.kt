@@ -22,7 +22,7 @@ class DeduplicatorDetailsPagerAdapter(
     }
 
     override fun getPageTitle(position: Int): CharSequence = context.getString(
-        R.string.deduplicator_cluster_x_label,
+        eu.darken.sdmse.deduplicator.R.string.deduplicator_cluster_x_label,
         "#$position"
     )
 

@@ -147,7 +147,7 @@ class ArbiterConfigFragment : Fragment3(R.layout.deduplicator_arbiter_config_fra
         val currentIndex = modes.indexOf(currentMode).coerceAtLeast(0)
 
         MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.deduplicator_arbiter_select_mode_title)
+            setTitle(eu.darken.sdmse.deduplicator.R.string.deduplicator_arbiter_select_mode_title)
             setSingleChoiceItems(labels, currentIndex) { dialog, which ->
                 vm.onModeSelected(event.item, modes[which])
                 dialog.dismiss()

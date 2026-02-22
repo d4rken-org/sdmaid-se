@@ -37,7 +37,7 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
                 SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_tool_name
                 SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name
                 SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name
-                SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
+                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name
 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
@@ -47,7 +47,7 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
                     SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_explanation_short
                     SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_explanation_short
                     SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_explanation_short
-                    SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
+                    SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_explanation_short
 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
                 }
             )

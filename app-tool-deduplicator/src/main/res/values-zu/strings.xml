@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">I-Deduplicator</string>
+    <string name="deduplicator_explanation_short">Thola idatha ekhophisiwe kudivayisi yakho.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">Okukhophisiwe oku-%d kusuliwe</item>
+        <item quantity="other">Okukhophisiwe oku-%d kusuliwe</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">Isethe sokukhophisa esi-%d sitholiwe</item>
+        <item quantity="other">Amasethe okukhophisa angu-%d atholiwe</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Yenza \"Susa konke\" kube kungenzeka</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Bonisa izinketho ezikuvumela ukuthi ususe wonke amafayela esetheni sokukhophisa ukuze kungabi nafayela elisele.</string>
+    <string name="deduplicator_search_locations_title">Izindawo zokusesha</string>
+    <string name="deduplicator_search_locations_all_summary">Zonke izindawo ezifikelekayo</string>
+    <string name="deduplicator_skip_minsize_title">Usayizi omncane</string>
+    <string name="deduplicator_skip_minsize_description">Yeqa amafayela angaphansi kosayizi omncane.</string>
+    <string name="deduplicator_skip_uncommon_title">Yeqa izinhlobo zamafayela angavamile</string>
+    <string name="deduplicator_skip_uncommon_description">Faka kuphela amafayela emidiya avamile, amadokhumenti kanye namabhokisi.</string>
+    <string name="deduplicator_detection_method_label">Indlela yokuthola</string>
+    <string name="deduplicator_detection_method_checksum_title">I-checksum yokuqukethwe</string>
+    <string name="deduplicator_detection_method_checksum_summary">Nquma okukhophisiwe ngokubala ama-checksum wamafayela. Amafayela ama-checksum afanayo anokuqukethwe okufanayo ngqo.</string>
+    <string name="deduplicator_detection_method_phash_title">I-hash yokubona</string>
+    <string name="deduplicator_detection_method_phash_summary">Thola amafayela afanayo ngokuhlaziya izici zokuqukethwe nokuqhathanisa amagugu e-hash okuqonda. ⚠️ Ukutholwa okungesokunembile okusekelwe kufanayo kungafaka imiphumela engalona iqiniso edinga ukuqinisekiswa ngesandla.</string>
+    <string name="deduplicator_occupied_space_label">Isitoreji esihleli</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">I-%s ihleli okukhophisiwe</item>
+        <item quantity="other">I-%s zihleli okukhophisiwe</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">Usayizi wefayela</string>
+    <string name="deduplicator_average_size_label">Usayizi wesilinganiso</string>
+    <string name="deduplicator_cluster_x_label">Iqembu %s</string>
+    <string name="deduplicator_delete_confirmation_message">Susa konke ngaphandle kwekhophi eyodwa kuwo wonke amasethe amafayela akhophisiwe?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Susa konke ngaphandle kwekhophi eyodwa kule sethe yamafayela akhophisiwe?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Susa wonke amafayela kule sethe yamafayela akhophisiwe? Akukho fayela elisele!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Susa konke ngaphandle kwekhophi eyodwa kulesethe ngasinye esikhethiwe samafayela akhophisiwe?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Susa wonke amafayela kulesethe ngasinye esikhethiwe samafayela akhophisiwe? Akukho fayela elisele!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Susa zonke izihlanganiso. Akukho fayela elisele!</string>
+    <string name="deduplicator_progress_comparing_files">Kuqhathanisa amafayela</string>
+    <string name="deduplicator_details_cluster_title">Isethe sokukhophisa</string>
+    <string name="deduplicator_matches_exact_label">Amakhophi aqondile</string>
+    <string name="deduplicator_matches_similar_label">Amafayela afanayo</string>
+    <string name="deduplicator_arbiter_title">Isu lokususa</string>
+    <string name="deduplicator_arbiter_summary">Lungisa ukuthi yimaphi amafayela agcinwayo nawasusayo.</string>
+    <string name="deduplicator_arbiter_explanation">Lapho ususa amakhophi, i-SD Maid inquma ukuthi yiliphi ifayela eligcinwayo ngokuhlola umlinganiso ngamunye ngokulandelana. Umlinganiso wokuqala oveza umnqobi ucacile unquma umphumela. Hudula ukuhlela kabusha, cindezela ukuguqula imodi.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Khetha imodi</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Lungisa izindlela…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uhlobo lokukhophisa</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Ncamela ukukhophisa okuqondile kunokufana.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Ukufaka kwimidiya</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Cabangela ukuthi amafayela afakwe yisihlinzeki semidiya yini.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Indawo yokugcina</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Ncamela amafayela esitoreji sangaphakathi noma sangaphandle.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Ukujula kwefolda</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Ncamela amafayela ezakhiweni zamafolda amasha noma ajule kakhulu.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Usuku lokuguqulwa</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Ncamela amafayela amadala noma amasha ngokuya kwesikhathi sokuguqulwa.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Usayizi wefayela</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Ncamela amafayela amakhulu noma amancane lapho osayizi behlukile.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Izindawo ezikhethwayo</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Gcina amafayela ezindaweni zakho ezikhethwayo ozilungisile.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Ncamela ukukhophisa okuqondile</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Ncamela amafayela afanayo</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Ncamela amafayela afakiwe</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Ncamela amafayela angafakiwe</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Ncamela isitoreji sangaphakathi</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Ncamela isitoreji sangaphandle</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Ncamela amafolda amasha</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Ncamela amafolda ajule</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Ncamela amafayela amadala</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Ncamela amafayela amasha</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Ncamela amafayela amakhulu</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Ncamela amafayela amancane</string>
+    <string name="deduplicator_view_mode_groups_label">Amaqembu</string>
+    <string name="deduplicator_view_mode_directories_label">Amafolda</string>
+</resources>

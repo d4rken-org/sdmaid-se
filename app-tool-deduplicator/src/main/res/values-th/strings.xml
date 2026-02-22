@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">ตัวค้นหาไฟล์ซ้ำ</string>
+    <string name="deduplicator_explanation_short">ค้นหาข้อมูลที่ซ้ำกันในอุปกรณ์ของคุณ</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">ลบไฟล์ซ้ำ %d ไฟล์แล้ว</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">พบกลุ่มไฟล์ซ้ำ %d กลุ่ม</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">เปิดใช้งาน \"ลบทั้งหมด\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">แสดงตัวเลือกที่ให้คุณสามารถลบไฟล์ทั้งหมดในกลุ่มไฟล์ซ้ำได้ จนไม่มีไฟล์เหลืออยู่</string>
+    <string name="deduplicator_search_locations_title">สถานที่ค้นหา</string>
+    <string name="deduplicator_search_locations_all_summary">พื้นที่ทั้งหมดที่เข้าถึงได้</string>
+    <string name="deduplicator_keep_prefer_paths_title">เก็บไว้ใน</string>
+    <string name="deduplicator_keep_prefer_paths_summary">เมื่อตัดสินใจว่าจะเก็บไฟล์ซ้ำตัวไหน ให้เลือกเก็บไฟล์ในตำแหน่งเหล่านี้</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">ไม่มีตำแหน่งที่กำหนดค่า</string>
+    <string name="deduplicator_skip_minsize_title">ขนาดขั้นต่ำ</string>
+    <string name="deduplicator_skip_minsize_description">ข้ามไฟล์ที่มีขนาดต่ำกว่าขนาดขั้นต่ำ</string>
+    <string name="deduplicator_skip_uncommon_title">ข้ามไฟล์ประเภทที่ไม่พบบ่อย</string>
+    <string name="deduplicator_skip_uncommon_description">รวมเฉพาะไฟล์สื่อ เอกสาร และไฟล์บีบอัดที่พบบ่อยเท่านั้น</string>
+    <string name="deduplicator_detection_method_label">วิธีการตรวจสอบ</string>
+    <string name="deduplicator_detection_method_checksum_title">ค่าตรวจสอบเนื้อหา</string>
+    <string name="deduplicator_detection_method_checksum_summary">กำหนดไฟล์ซ้ำโดยการคำนวณค่าตรวจสอบสำหรับไฟล์ ไฟล์ที่มีค่าตรวจสอบตรงกันจะมีเนื้อหาเหมือนกันทุกประการ</string>
+    <string name="deduplicator_detection_method_phash_title">แฮชการรับรู้</string>
+    <string name="deduplicator_detection_method_phash_summary">ค้นหาไฟล์ที่คล้ายกันโดยวิเคราะห์คุณลักษณะเนื้อหาและเปรียบเทียบค่าแฮชเชิงรับรู้ ⚠️ การตรวจจับตามความคล้ายคลึงอาจรวมผลบวกปลอมที่ต้องตรวจสอบด้วยตนเอง</string>
+    <string name="deduplicator_occupied_space_label">พื้นที่ที่ถูกใช้งาน</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s ถูกใช้งานโดยไฟล์ซ้ำ</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ขนาดไฟล์</string>
+    <string name="deduplicator_average_size_label">ขนาดเฉลี่ย</string>
+    <string name="deduplicator_cluster_x_label">กลุ่ม %s</string>
+    <string name="deduplicator_delete_confirmation_message">ลบไฟล์ซ้ำทั้งหมดโดยเหลือไว้เพียงไฟล์เดียวในแต่ละกลุ่ม?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">ลบไฟล์ซ้ำในกลุ่มนี้โดยเหลือไว้เพียงไฟล์เดียว?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ลบไฟล์ทั้งหมดในกลุ่มนี้? จะไม่มีไฟล์เหลืออยู่!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">ลบไฟล์ซ้ำในแต่ละกลุ่มที่เลือกโดยเหลือไว้เพียงไฟล์เดียว?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ลบไฟล์ทั้งหมดในแต่ละกลุ่มที่เลือก? จะไม่มีไฟล์เหลืออยู่!</string>
+    <string name="deduplicator_delete_all_toggle_msg">ลบทุกไฟล์ จะไม่มีไฟล์เหลืออยู่!</string>
+    <string name="deduplicator_progress_comparing_files">กำลังเปรียบเทียบไฟล์</string>
+    <string name="deduplicator_details_cluster_title">กลุ่มไฟล์ซ้ำ</string>
+    <string name="deduplicator_matches_exact_label">ไฟล์เหมือนกันทุกประการ</string>
+    <string name="deduplicator_matches_similar_label">ไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_title">กลยุทธ์การลบ</string>
+    <string name="deduplicator_arbiter_summary">กำหนดค่าว่าไฟล์ใดจะถูกเก็บไว้และไฟล์ใดจะถูกลบ</string>
+    <string name="deduplicator_arbiter_explanation">เมื่อลบซ้ำ SD Maid จะตัดสินใจว่าจะเก็บไฟล์ใดโดยตรวจสอบเกณฑ์แต่ละข้อตามลำดับ เกณฑ์แรกที่ให้ผลลัพธ์ชัดเจนจะกำหนดผลลัพธ์ ลากเพื่อเรียงลำดับ แตะเพื่อเปลี่ยนโหมด</string>
+    <string name="deduplicator_arbiter_select_mode_title">เลือกโหมด</string>
+    <string name="deduplicator_arbiter_configure_paths_action">กำหนดค่าเส้นทาง…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ประเภทซ้ำ</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ให้ความสำคัญกับไฟล์ที่ตรงกันมากกว่าไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">การจัดทำดัชนีมีเดีย</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">พิจารณาว่าไฟล์ถูกจัดทำดัชนีโดยผู้ให้บริการมีเดียหรือไม่</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ตำแหน่งจัดเก็บ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ให้ความสำคัญกับไฟล์ในพื้นที่จัดเก็บภายในหรือภายนอก</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ความลึกของโฟลเดอร์</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ให้ความสำคัญกับไฟล์ในโครงสร้างโฟลเดอร์ตื้นหรือลึก</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">วันที่แก้ไข</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ให้ความสำคัญกับไฟล์เก่าหรือใหม่กว่าตามเวลาแก้ไข</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ขนาดไฟล์</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ให้ความสำคัญกับไฟล์ขนาดใหญ่หรือเล็กกว่าเมื่อขนาดต่างกัน</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ตำแหน่งที่ต้องการ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">เก็บไฟล์ในตำแหน่งที่คุณกำหนดค่าไว้</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ให้ความสำคัญกับไฟล์ที่ตรงกัน</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ให้ความสำคัญกับไฟล์ที่คล้ายกัน</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ให้ความสำคัญกับไฟล์ที่จัดทำดัชนี</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ให้ความสำคัญกับไฟล์ที่ไม่ได้จัดทำดัชนี</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ให้ความสำคัญกับพื้นที่จัดเก็บภายใน</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ให้ความสำคัญกับพื้นที่จัดเก็บภายนอก</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ให้ความสำคัญกับโฟลเดอร์ตื้น</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ให้ความสำคัญกับโฟลเดอร์ลึก</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ให้ความสำคัญกับไฟล์เก่า</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ให้ความสำคัญกับไฟล์ใหม่</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ให้ความสำคัญกับไฟล์ขนาดใหญ่</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ให้ความสำคัญกับไฟล์ขนาดเล็ก</string>
+    <string name="deduplicator_view_mode_groups_label">กลุ่ม</string>
+    <string name="deduplicator_view_mode_directories_label">โฟลเดอร์</string>
+</resources>

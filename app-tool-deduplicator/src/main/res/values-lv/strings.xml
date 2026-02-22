@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">Atrodiet dublikātus jūsu ierīcē.</string>
+    <string name="deduplicator_delete_confirmation_message">Dzēst visas kopijas, izņemot vienu, visos dublikātu komplektos?</string>
+</resources>

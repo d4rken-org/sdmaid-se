@@ -144,8 +144,6 @@
     <string name="settings_category_tools_label">Għodod</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
-    <string name="deduplicator_tool_name">Deduplicator</string>
-    <string name="deduplicator_explanation_short">Sib data duplikata fuq l-apparat tiegħek.</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Skopri x\'qed jieħu spazju fuq l-apparat tiegħek.</string>
     <string name="appcontrol_tool_name">AppControl</string>
@@ -215,20 +213,6 @@
     <string name="swiper_stamp_undo_2">Lura!</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Stenna!</string>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d duplikat imħassar</item>
-        <item quantity="other">%d duplikati mħassra</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d sett ta\' duplikati misjub</item>
-        <item quantity="other">%d settijiet ta\' duplikati misjuba</item>
-    </plurals>
-    <string name="deduplicator_search_locations_title">Postijiet tat-tiftix</string>
-    <string name="deduplicator_detection_method_label">Metodu ta\' detezzjoni</string>
-    <string name="deduplicator_delete_confirmation_message">Tħassar kollox ħlief kopja waħda f\'kull sett ta\' duplikati?</string>
-    <string name="deduplicator_progress_comparing_files">Qed jitqabblu fajls</string>
-    <string name="deduplicator_view_mode_groups_label">Gruppi</string>
-    <string name="deduplicator_view_mode_directories_label">Folders</string>
     <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Ikkompressja stampi biex tiffranka spazju.</string>
     <string name="appcontrol_toggle_app_enable_action">Attiva app</string>

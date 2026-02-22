@@ -86,8 +86,8 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
                     else R.drawable.ic_folder
                 )
                 setTitle(
-                    if (state.isDirectoryViewEnabled) R.string.deduplicator_view_mode_groups_label
-                    else R.string.deduplicator_view_mode_directories_label
+                    if (state.isDirectoryViewEnabled) eu.darken.sdmse.deduplicator.R.string.deduplicator_view_mode_groups_label
+                    else eu.darken.sdmse.deduplicator.R.string.deduplicator_view_mode_directories_label
                 )
             }
         }

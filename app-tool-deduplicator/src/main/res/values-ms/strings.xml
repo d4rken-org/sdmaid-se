@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">Pendua</string>
+    <string name="deduplicator_explanation_short">Cari data pendua pada peranti anda.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d pendua dipadam</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d set pendua ditemui</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Membolehkan \"Padam semua\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Tunjukkan pilihan yang membolehkan anda memadam semua fail dalam set pendua supaya tiada fail yang tinggal.</string>
+    <string name="deduplicator_search_locations_title">Lokasi carian</string>
+    <string name="deduplicator_search_locations_all_summary">Semua kawasan yang boleh diakses</string>
+    <string name="deduplicator_keep_prefer_paths_title">Keutamaan penyimpanan dalam</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Apabila menentukan pendua mana yang disimpan, utamakan fail di lokasi ini.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Tiada lokasi dikonfigurasi</string>
+    <string name="deduplicator_skip_minsize_title">Saiz minimum</string>
+    <string name="deduplicator_skip_minsize_description">Langkau fail yang kurang daripada saiz minimum.</string>
+    <string name="deduplicator_skip_uncommon_title">Langkau jenis fail yang jarang</string>
+    <string name="deduplicator_skip_uncommon_description">Hanya sertakan fail media biasa, dokumen dan arkib.</string>
+    <string name="deduplicator_detection_method_label">Kaedah pengesanan</string>
+    <string name="deduplicator_detection_method_checksum_title">Checksum kandungan</string>
+    <string name="deduplicator_detection_method_checksum_summary">Tentukan pendua dengan mengira checksum untuk fail. Fail dengan checksum yang sepadan mempunyai kandungan yang sama persis.</string>
+    <string name="deduplicator_detection_method_phash_title">Hash persepsi</string>
+    <string name="deduplicator_detection_method_phash_summary">Cari fail yang serupa dengan menganalisis ciri kandungan dan membandingkan nilai hash persepsi. ⚠️ Pengesanan berasaskan keserupaan mungkin termasuk positif palsu yang memerlukan pengesahan manual.</string>
+    <string name="deduplicator_occupied_space_label">Storan yang digunakan</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s diduduki oleh pendua</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">Saiz fail</string>
+    <string name="deduplicator_average_size_label">Saiz purata</string>
+    <string name="deduplicator_cluster_x_label">Kelompok %s</string>
+    <string name="deduplicator_delete_confirmation_message">Padam semua kecuali satu salinan dalam semua set fail pendua?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Padam semua kecuali satu salinan dalam set fail pendua ini?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Padam semua fail dalam set fail pendua ini? Tiada fail yang tinggal!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Padam semua kecuali satu salinan dalam set fail pendua yang dipilih?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Padam semua fail dalam setiap set fail pendua yang dipilih? Tiada fail yang tinggal!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Padam semua salinan</string>
+    <string name="deduplicator_progress_comparing_files">Membandingkan fail</string>
+    <string name="deduplicator_details_cluster_title">Butiran kelompok</string>
+    <string name="deduplicator_matches_exact_label">Salinan tepat</string>
+    <string name="deduplicator_matches_similar_label">Fail serupa</string>
+    <string name="deduplicator_arbiter_title">Strategi pemadaman</string>
+    <string name="deduplicator_arbiter_summary">Konfigurasi fail mana yang disimpan dan mana yang dipadam.</string>
+    <string name="deduplicator_arbiter_explanation">Apabila memadam pendua, SD Maid menentukan fail mana yang disimpan dengan menyemak setiap kriteria mengikut turutan. Kriteria pertama yang menghasilkan pemenang jelas menentukan keputusan. Seret untuk menyusun semula, ketik untuk menukar mod.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Pilih mod</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Konfigurasi laluan…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Jenis pendua</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Utamakan salinan tepat berbanding fail serupa.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Pengindeksan media</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Pertimbangkan sama ada fail diindeks oleh penyedia media.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Lokasi storan</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Utamakan fail pada storan dalaman atau luaran.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Kedalaman folder</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Utamakan fail dalam struktur folder yang cetek atau dalam.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Tarikh pengubahsuaian</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Utamakan fail lama atau baharu berdasarkan masa pengubahsuaian.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Saiz fail</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Utamakan fail yang lebih besar atau lebih kecil apabila saiz berbeza.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Lokasi pilihan</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Simpan fail di lokasi pilihan anda yang dikonfigurasi.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Utamakan salinan tepat</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Utamakan fail serupa</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Utamakan fail terindeks</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Utamakan fail tidak terindeks</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Utamakan storan dalaman</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Utamakan storan luaran</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Utamakan folder cetek</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Utamakan folder dalam</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Utamakan fail lama</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Utamakan fail baharu</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Utamakan fail lebih besar</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Utamakan fail lebih kecil</string>
+    <string name="deduplicator_view_mode_groups_label">Kumpulan</string>
+    <string name="deduplicator_view_mode_directories_label">Folder</string>
+</resources>

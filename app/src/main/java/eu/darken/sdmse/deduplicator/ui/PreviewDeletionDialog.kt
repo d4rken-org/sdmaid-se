@@ -178,15 +178,15 @@ class PreviewDeletionDialog @Inject constructor(
             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
             setMessage(
                 when (mode) {
-                    is Mode.All -> context.getString(R.string.deduplicator_delete_confirmation_message)
+                    is Mode.All -> context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_confirmation_message)
                     is Mode.Clusters -> when (mode.count) {
-                        1 -> context.getString(R.string.deduplicator_delete_single_set_confirmation_message)
-                        else -> context.getString(R.string.deduplicator_delete_multiple_sets_confirmation_message)
+                        1 -> context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_single_set_confirmation_message)
+                        else -> context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_multiple_sets_confirmation_message)
                     }
 
                     is Mode.Groups -> when (mode.count) {
-                        1 -> context.getString(R.string.deduplicator_delete_single_set_confirmation_message)
-                        else -> context.getString(R.string.deduplicator_delete_multiple_sets_confirmation_message)
+                        1 -> context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_single_set_confirmation_message)
+                        else -> context.getString(eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_multiple_sets_confirmation_message)
                     }
 
                     is Mode.Duplicates -> when (mode.count) {
@@ -220,13 +220,13 @@ class PreviewDeletionDialog @Inject constructor(
 
                 is Mode.Clusters, is Mode.Groups -> when (mode.count) {
                     1 -> when (isChecked) {
-                        true -> R.string.deduplicator_delete_single_set_keep_none_confirmation_message
-                        false -> R.string.deduplicator_delete_single_set_confirmation_message
+                        true -> eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_single_set_keep_none_confirmation_message
+                        false -> eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_single_set_confirmation_message
                     }
 
                     else -> when (isChecked) {
-                        true -> R.string.deduplicator_delete_multiple_sets_keep_none_confirmation_message
-                        false -> R.string.deduplicator_delete_multiple_sets_confirmation_message
+                        true -> eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_multiple_sets_keep_none_confirmation_message
+                        false -> eu.darken.sdmse.deduplicator.R.string.deduplicator_delete_multiple_sets_confirmation_message
                     }
                 }
             }

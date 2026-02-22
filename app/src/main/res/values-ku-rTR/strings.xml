@@ -77,8 +77,6 @@
     <string name="settings_category_tools_label">ئامرازەکان</string>
     <string name="settings_category_filter">فلتەر</string>
     <string name="settings_category_risklevel">ئاستی مەترسی</string>
-    <string name="deduplicator_tool_name">Deduplicator</string>
-    <string name="deduplicator_explanation_short">داتای دووبارە لەسەر ئامرازەکەت بدۆزەرەوە.</string>
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">بزانە چی شوێنی لەسەر ئامرازەکەت دەگرێت.</string>
     <string name="appcontrol_tool_name">AppControl</string>
@@ -147,20 +145,6 @@
     <string name="swiper_stamp_undo_2">گەڕانەوە!</string>
     <string name="swiper_stamp_undo_3">ئۆپس!</string>
     <string name="swiper_stamp_undo_4">وەستە!</string>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d دووبارە سڕایەوە</item>
-        <item quantity="other">%d دووبارە سڕانەوە</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d کۆمەڵەی دووبارە دۆزرایەوە</item>
-        <item quantity="other">%d کۆمەڵەی دووبارە دۆزرانەوە</item>
-    </plurals>
-    <string name="deduplicator_search_locations_title">شوێنەکانی گەڕان</string>
-    <string name="deduplicator_detection_method_label">شێوازی دۆزینەوە</string>
-    <string name="deduplicator_delete_confirmation_message">لە هەموو کۆمەڵەکانی فایلی دووبارەدا هەمووی بسڕیتەوە جگە لە یەک کۆپی؟</string>
-    <string name="deduplicator_progress_comparing_files">فایلەکان بەراوردکراون</string>
-    <string name="deduplicator_view_mode_groups_label">گرووپەکان</string>
-    <string name="deduplicator_view_mode_directories_label">بوخچەکان</string>
     <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">وێنەکان بچووک بکەرەوە بۆ ئازادکردنی شوێنی کۆگا.</string>
     <string name="appcontrol_toggle_app_enable_action">ئەپ چالاک بکە</string>

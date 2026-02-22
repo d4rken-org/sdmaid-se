@@ -49,6 +49,7 @@ dependencies {
     addCoroutines()
     addSerialization()
     addIO()
+    addCoil()
 
     addTesting()
     testImplementation(project(":app-common-test"))

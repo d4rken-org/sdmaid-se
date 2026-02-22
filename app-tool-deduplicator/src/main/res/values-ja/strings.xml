@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">重複ファイル</string>
+    <string name="deduplicator_explanation_short">お使いのデバイスの重複データを見つけます。</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">重複ファイルを %d 個削除しました</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d 重複したセットが見つかりました</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">「すべて削除」を有効にする</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">重複のセット内のすべてのファイルを削除できるオプションを表示し、ファイルが残されないようにします。</string>
+    <string name="deduplicator_search_locations_title">検索場所</string>
+    <string name="deduplicator_search_locations_all_summary">すべてのアクセス可能な領域</string>
+    <string name="deduplicator_keep_prefer_paths_title">優先保持場所</string>
+    <string name="deduplicator_keep_prefer_paths_summary">どの重複を保持するか決定する際、これらの場所にあるファイルを優先します。</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">場所が設定されていません</string>
+    <string name="deduplicator_skip_minsize_title">最小サイズ</string>
+    <string name="deduplicator_skip_minsize_description">最小サイズ以下のファイルをスキップします。</string>
+    <string name="deduplicator_skip_uncommon_title">一般的でないファイルタイプをスキップ</string>
+    <string name="deduplicator_skip_uncommon_description">一般的なメディアファイル、ドキュメント、アーカイブのみが含まれます。</string>
+    <string name="deduplicator_detection_method_label">検出方法</string>
+    <string name="deduplicator_detection_method_checksum_title">コンテンツのチェックサム</string>
+    <string name="deduplicator_detection_method_checksum_summary">ファイルのチェックサムを計算することで重複を決定します。チェックサムに一致するファイルは全く同じ内容を持ちます。</string>
+    <string name="deduplicator_detection_method_phash_title">概念ハッシュ</string>
+    <string name="deduplicator_detection_method_phash_summary">コンテンツの特徴を分析し知覚ハッシュ値を比較して類似ファイルを検出します。⚠️ 類似性に基づく検出では誤検出が含まれる場合があり、手動確認が必要です。</string>
+    <string name="deduplicator_occupied_space_label">占拠されたストレージ</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%sが重複により占有されています</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ファイルサイズ</string>
+    <string name="deduplicator_average_size_label">平均サイズ</string>
+    <string name="deduplicator_cluster_x_label">クラスター %s</string>
+    <string name="deduplicator_delete_confirmation_message">重複するファイルのすべてのセットで、1つのコピーを除いてすべてを削除しますか？</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">この重複ファイル群から、1つのコピーを除いてすべてを削除しますか？</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">重複ファイルのこのセット内のすべてのファイルを削除しますか？ファイルが残っていません！</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">重複ファイルの選択された各セットで、1つのコピーを除いてすべてを削除しますか？</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">重複ファイルの選択した各セット内のすべてのファイルを削除しますか？ファイルが残っていません！</string>
+    <string name="deduplicator_delete_all_toggle_msg">すべてのコピーを削除します。残りのファイルはありません！</string>
+    <string name="deduplicator_progress_comparing_files">ファイルの比較</string>
+    <string name="deduplicator_details_cluster_title">重複のセット</string>
+    <string name="deduplicator_matches_exact_label">正確なコピー</string>
+    <string name="deduplicator_matches_similar_label">類似のファイル</string>
+    <string name="deduplicator_arbiter_title">削除戦略</string>
+    <string name="deduplicator_arbiter_summary">保持するファイルと削除するファイルを設定します。</string>
+    <string name="deduplicator_arbiter_explanation">重複を削除する際、SD Maidは各基準を順番にチェックして保持するファイルを決定します。明確な勝者を生む最初の基準が結果を決定します。ドラッグで並べ替え、タップでモードを変更。</string>
+    <string name="deduplicator_arbiter_select_mode_title">モードを選択</string>
+    <string name="deduplicator_arbiter_configure_paths_action">パスを設定…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">重複タイプ</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">類似ファイルよりも完全一致を優先します。</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">メディアインデックス</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ファイルがメディアプロバイダーにインデックスされているかを考慮します。</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ストレージの場所</string>
+    <string name="deduplicator_arbiter_criterium_location_description">内部または外部ストレージのファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">フォルダの深さ</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">より浅いまたはより深いフォルダ構造のファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">変更日</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">変更日時に基づいて古いまたは新しいファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ファイルサイズ</string>
+    <string name="deduplicator_arbiter_criterium_size_description">サイズが異なる場合、より大きいまたはより小さいファイルを優先します。</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">優先場所</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">設定した優先場所にあるファイルを保持します。</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">完全一致を優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">類似ファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">インデックス済みファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">未インデックスファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">内部ストレージを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">外部ストレージを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">浅いフォルダを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">深いフォルダを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">古いファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">新しいファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">大きいファイルを優先</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">小さいファイルを優先</string>
+    <string name="deduplicator_view_mode_groups_label">グループ</string>
+    <string name="deduplicator_view_mode_directories_label">フォルダ</string>
+</resources>

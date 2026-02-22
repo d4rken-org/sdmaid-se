@@ -11,7 +11,7 @@ val SDMTool.Type.labelRes: Int
         SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_tool_name
         SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name
         SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name
-        SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
+        SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name
         SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
         SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name

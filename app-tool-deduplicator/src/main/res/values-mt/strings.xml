@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_explanation_short">Sib data duplikata fuq l-apparat tiegħek.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d duplikat imħassar</item>
+        <item quantity="other">%d duplikati mħassra</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d sett ta\' duplikati misjub</item>
+        <item quantity="other">%d settijiet ta\' duplikati misjuba</item>
+    </plurals>
+    <string name="deduplicator_search_locations_title">Postijiet tat-tiftix</string>
+    <string name="deduplicator_detection_method_label">Metodu ta\' detezzjoni</string>
+    <string name="deduplicator_delete_confirmation_message">Tħassar kollox ħlief kopja waħda f\'kull sett ta\' duplikati?</string>
+    <string name="deduplicator_progress_comparing_files">Qed jitqabblu fajls</string>
+    <string name="deduplicator_view_mode_groups_label">Gruppi</string>
+    <string name="deduplicator_view_mode_directories_label">Folders</string>
+</resources>

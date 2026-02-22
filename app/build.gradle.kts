@@ -209,6 +209,7 @@ dependencies {
     implementation(project(":app-tool-corpsefinder"))
     implementation(project(":app-tool-systemcleaner"))
     implementation(project(":app-tool-appcleaner"))
+    implementation(project(":app-tool-deduplicator"))
 
     addDI()
     addCoroutines()

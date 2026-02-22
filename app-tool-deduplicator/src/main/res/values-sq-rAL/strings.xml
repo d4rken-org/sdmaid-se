@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_tool_name">Fshirja e skedarëve duplikat</string>
+    <string name="deduplicator_explanation_short">Gjeni të dhëna të kopjuara në pajisjen tuaj.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d dublikatë u fshi</item>
+        <item quantity="other">%d dublikata u fshinë</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">U gjet %d grup dublikatë</item>
+        <item quantity="other">U gjetën %d grupe dublikate</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">Bëni të mundur \"Fshi të gjitha\"</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">Trego opsionet që ju lejojnë të fshini të gjithë skedarët në një grup dublikate në mënyrë që të mos mbetet asnjë skedar.</string>
+    <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
+    <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
+    <string name="deduplicator_skip_minsize_title">Madhësia minimale</string>
+    <string name="deduplicator_skip_minsize_description">Kapërceni skedarët që janë nën madhësinë minimale.</string>
+    <string name="deduplicator_skip_uncommon_title">Kapërceni llojet e pazakonta të skedarëve</string>
+    <string name="deduplicator_skip_uncommon_description">Përfshini vetëm skedarët e zakonshëm të medias, dokumentet dhe arkivat.</string>
+    <string name="deduplicator_detection_method_label">Metoda e zbulimit</string>
+    <string name="deduplicator_detection_method_checksum_title">Shuma e kontrollit të përmbajtjes</string>
+    <string name="deduplicator_detection_method_checksum_summary">Përcaktoni dublikatat duke llogaritur shumat e kontrollit për skedarët. Skedarët me shuma kontrolli që përputhen kanë të njëjtën përmbajtje.</string>
+    <string name="deduplicator_detection_method_phash_title">Hash perceptues</string>
+    <string name="deduplicator_detection_method_phash_summary">Gjeni skedarë të ngjashëm duke analizuar veçoritë e përmbajtjes dhe duke krahasuar vlerat e perceptuara të hash-it. ⚠️ Zbulimi i bazuar në ngjashmëri mund të përfshijë rezultate pozitive të rreme që kërkojnë verifikim manual.</string>
+    <string name="deduplicator_occupied_space_label">Magazina e zënë</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s është zënë nga dublikata</item>
+        <item quantity="other">%s janë zënë nga dublikata</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">Madhësia e skedarit</string>
+    <string name="deduplicator_average_size_label">Madhësia mesatare</string>
+    <string name="deduplicator_cluster_x_label">Tog %s</string>
+    <string name="deduplicator_delete_confirmation_message">Të fshihen të gjitha, përveç një kopje, në të gjitha grupet e skedarëve dublikatë?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">Të fshihen të gjitha, përveç një kopjeje në këtë grup skedarësh dublikatë?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Të fshihen të gjithë skedarët në këtë grup skedarësh dublikatë? Asnjë skedar nuk ka mbetur!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">Të fshihen të gjitha, përveç një kopjeje në çdo grup të përzgjedhur skedarësh dublikatë?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Të fshihen të gjithë skedarët në çdo grup të përzgjedhur skedarësh dublikatë? Asnjë skedar nuk ka mbetur!</string>
+    <string name="deduplicator_delete_all_toggle_msg">Fshini të gjitha kopjet. Asnjë skedar nuk ka mbetur!</string>
+    <string name="deduplicator_progress_comparing_files">Krahasimi i skedarëve</string>
+    <string name="deduplicator_details_cluster_title">Set duplikatesh</string>
+    <string name="deduplicator_matches_exact_label">Kopje ekzakte</string>
+    <string name="deduplicator_matches_similar_label">Skedarë të ngjashëm</string>
+    <string name="deduplicator_arbiter_explanation">Kur fshini dublikatat, SD Maid vendos se cilin skedar ta mbajë duke kontrolluar çdo kriter sipas radhës. Kriteri i parë që jep një fitues të qartë përcakton rezultatin. Tërhiqni për të rirenditur, prekni për të ndryshuar modalitetin.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Zgjidhni modalitetin</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Konfiguro shtegjet…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Lloji i dublikatës</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Prefero përputhjet e sakta ndaj skedarëve të ngjashëm.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indeksimi i mediave</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Merrni parasysh nëse skedarët janë të indeksuar nga ofruesi i mediave.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Vendndodhja e ruajtjes</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Prefero skedarët në ruajtjen e brendshme ose të jashtme.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Thellësia e dosjes</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Prefero skedarët në struktura dosjesh më të cekëta ose më të thella.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Data e modifikimit</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Prefero skedarët më të vjetër ose më të rinj bazuar në kohën e modifikimit.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Madhësia e skedarit</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Prefero skedarët më të mëdhenj ose më të vegjël kur madhësitë ndryshojnë.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Vendndodhjet e preferuara</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Mbani skedarët në vendndodhjet tuaja të preferuara të konfiguruara.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Prefero përputhjet e sakta</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Prefero skedarët e ngjashëm</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Prefero skedarët e indeksuar</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Prefero skedarët e pa-indeksuar</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Prefero ruajtjen e brendshme</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Prefero ruajtjen e jashtme</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Prefero dosjet e cekëta</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Prefero dosjet më të thella</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Prefero skedarët më të vjetër</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Prefero skedarët më të rinj</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Prefero skedarët më të mëdhenj</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
+    <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="deduplicator_view_mode_directories_label">Dosje</string>
+</resources>
