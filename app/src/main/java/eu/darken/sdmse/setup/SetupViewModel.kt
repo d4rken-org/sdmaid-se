@@ -34,8 +34,12 @@ import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
 @HiltViewModel
@@ -63,7 +67,7 @@ class SetupViewModel @Inject constructor(
 
     val events = SingleLiveEvent<SetupEvents>()
 
-    val listItems: LiveData<List<SetupAdapter.Item>> = setupManager.state
+    private val itemsStateFlow: StateFlow<List<SetupAdapter.Item>?> = setupManager.state
         .map { setupState ->
             val items = mutableListOf<SetupAdapter.Item>()
 
@@ -236,12 +240,16 @@ class SetupViewModel @Inject constructor(
 
             items
         }
-        .onEach {
-            if (it.isEmpty() && !screenOptions.showCompleted) {
-                navback()
-            }
-        }
         .setupCommonEventHandlers(TAG) { "listItems" }
+        .stateIn(vmScope, SharingStarted.Eagerly, null)
+
+    val listItems: LiveData<List<SetupAdapter.Item>> = itemsStateFlow
+        .filterNotNull()
+        .asLiveData2()
+
+    val isSetupComplete: LiveData<Boolean> = itemsStateFlow
+        .map { items -> items != null && items.isEmpty() && !screenOptions.showCompleted }
+        .distinctUntilChanged()
         .asLiveData2()
 
     fun onSafAccessGranted(uri: Uri?) = launch {

@@ -111,6 +111,14 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
             setupAdapter.update(it)
         }
 
+        var hasNavigatedBack = false
+        vm.isSetupComplete.observe2(ui) { isComplete ->
+            if (isComplete && !hasNavigatedBack) {
+                vm.navback()
+                hasNavigatedBack = true
+            }
+        }
+
         vm.events.observe2(ui) { event ->
             when (event) {
                 is SetupEvents.SafRequestAccess -> try {
