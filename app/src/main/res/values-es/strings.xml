@@ -7,9 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Inicia el escaneo y la eliminación para todas las herramientas con un clic en el botón de acción del panel de control, sin confirmaciones adicionales.</string>
     <string name="dashboard_settings_oneclick_tools_title">Herramientas de un solo toque</string>
     <string name="dashboard_settings_oneclick_tools_desc">¿Qué herramientas deben incluirse en las operaciones de un solo toque?</string>
-    <string name="dashboard_card_config_title">Tarjetas del panel de control</string>
-    <string name="dashboard_card_config_desc">Configura qué tarjetas se muestran y su orden</string>
-    <string name="dashboard_card_config_header_title">Arrastra para reordenar, alterna para mostrar/ocultar</string>
+    <string name="dashboard_card_config_title">Tarjetas del panel</string>
+    <string name="dashboard_card_config_desc">Configura qué tarjetas se muestran y el orden</string>
+    <string name="dashboard_card_config_header_title">Arrastra para reordenar, conmuta para mostrar/ocultar</string>
     <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo del registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando registro de depuración</string>
@@ -91,12 +91,12 @@
     <string name="support_installid_desc">Los informes de errores automáticos son anónimos. Comparte tu identificador de la instalación si el desarrollador necesita encontrar tus informes de errores.</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puedas compartir.</string>
-    <string name="support_debuglog_folder_label">Carpeta de registros de depuración</string>
+    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d archivo usando %2$s</item>
         <item quantity="other">%1$d archivos usando %2$s</item>
     </plurals>
-    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
+    <string name="support_debuglog_folder_empty_desc">Sin registros de depuración guardados</string>
     <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
@@ -181,13 +181,13 @@
     <string name="debug_bugreporter_label">Informes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Informa automáticamente de los fallos, por ejemplo, de los detalles de los bloqueos de la aplicación para que pueda averiguar el por qué y solucionarlos.</string>
     <!-- Debug card (dashboard) -->
-    <string name="debug_card_title">El modo de depuración está habilitado</string>
-    <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
-    <string name="debug_card_dryrun_mode_label">Modo de ejecución en seco (desactivar eliminación)</string>
-    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
-    <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
-    <string name="debug_card_root_test_action">Probar root</string>
-    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
+    <string name="debug_card_title">El modo de depuración está activado</string>
+    <string name="debug_card_trace_mode_label">Activar el modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de simulación (desactivar la eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar las áreas de los datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar las aplicaciones</string>
+    <string name="debug_card_root_test_action">Probar el modo root</string>
+    <string name="debug_card_shizuku_test_action">Probar con Shizuku</string>
     <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="settings_category_risklevel">Nivel del riesgo</string>
@@ -279,9 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para que las capturas de pantalla sean consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de instalación que ya no son necesarios según las versiones de aplicaciones instaladas.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir misma versión</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También incluir archivos APK que coincidan con la versión instalada. Desactivar para solo eliminar versiones anteriores.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Los archivos de configuración que ya no son necesarios según las versiones de las aplicaciones instaladas.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir la misma versión</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Selecciona también los archivos APK que coincidan con la versión instalada. Desactiva esta opción para eliminar solo las versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
@@ -342,10 +342,10 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Nombre es igual a la palabra clave</string>
     <string name="systemcleaner_customfilter_last_edit">Último cambio: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Búsqueda en tiempo real</string>
-    <string name="systemcleaner_customfilter_editor_size_label">Restricciones de tamaño</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restricciones por tamaño</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamaño mínimo</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamaño máximo</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Limitar resultados según el tamaño del archivo. Dejar sin configurar para cualquier tamaño.</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limita las coincidencias según el tamaño del archivo. Déjalo sin configurar para que coincida con cualquier tamaño.</string>
     <string name="systemcleaner_customfilter_editor_age_label">Restricciones de antigüedad</string>
     <string name="systemcleaner_customfilter_editor_age_minimum_label">Antigüedad mínima</string>
     <string name="systemcleaner_customfilter_editor_age_maximum_label">Antigüedad máxima</string>
@@ -589,7 +589,7 @@
     <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
     <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
     <string name="squeezer_onboarding_got_it">Entendido</string>
-    <string name="squeezer_compare_action">Ver comparación</string>
+    <string name="squeezer_compare_action">Observa la comparación</string>
     <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
     <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
     <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de imagen para ahorrar espacio. No se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
@@ -662,7 +662,7 @@
     <string name="appcontrol_archive_action">Archivar</string>
     <string name="appcontrol_archive_selection_action">Archivar aplicaciones</string>
     <string name="appcontrol_archive_description">Archivar para liberar espacio conservando los datos de la aplicación para restauración posterior.</string>
-    <string name="appcontrol_progress_archiving_app">Archivando aplicación…</string>
+    <string name="appcontrol_progress_archiving_app">Archivando la aplicación…</string>
     <string name="appcontrol_archive_confirmation_title">Confirmar archivado</string>
     <plurals name="appcontrol_archive_confirmation_x">
         <item quantity="one">¿Archivar %d aplicación?</item>
@@ -675,7 +675,7 @@
     <string name="appcontrol_restore_action">Restaurar</string>
     <string name="appcontrol_restore_selection_action">Restaurar aplicaciones</string>
     <string name="appcontrol_restore_description">Restaurar la aplicación archivada a un estado completamente instalado. Los datos de la aplicación se conservan.</string>
-    <string name="appcontrol_progress_restoring_app">Restaurando aplicación…</string>
+    <string name="appcontrol_progress_restoring_app">Restaurando la aplicación…</string>
     <string name="appcontrol_restore_confirmation_title">Confirmar restauración</string>
     <plurals name="appcontrol_restore_confirmation_x">
         <item quantity="one">¿Restaurar %d aplicación?</item>
@@ -953,11 +953,11 @@
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Escanear + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
     <string name="swiper_label">Limpiador</string>
     <string name="swiper_tool_name">Limpiador</string>
-    <string name="swiper_tool_description">Ordena carpetas rápido — desliza cada archivo para conservar, eliminar u omitir.</string>
-    <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos — simplemente desliza cada archivo.</string>
+    <string name="swiper_tool_description">Ordena rápidamente tus carpetas: desliza el dedo por los archivos para conservarlos, eliminarlos u omitirlos.</string>
+    <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que con un explorador de archivos: solo tienes que deslizar cada archivo.</string>
     <string name="swiper_start_action">Comenzar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
-    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus decisiones y confirma\n\nNada se elimina hasta que pulses el botón final de eliminar.</string>
+    <string name="swiper_sessions_description">Revisa los archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza el dedo por los archivos para conservarlos, eliminarlos u omitirlos\n3. Revisa tus elecciones y confirma\n\n. No se eliminará nada hasta que pulses el botón de eliminación definitiva.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -984,12 +984,12 @@
     <string name="swiper_retry_action">Reintentar</string>
     <string name="swiper_delete_confirmation_title">¿Eliminar archivos?</string>
     <plurals name="swiper_delete_confirmation_message">
-        <item quantity="one">Esto eliminará permanentemente %1$d archivo (%2$s). Esta acción no se puede deshacer.</item>
+        <item quantity="one">Esto eliminará permanentemente el archivo %1$d (%2$s). Esta acción no se puede deshacer.</item>
         <item quantity="other">Esto eliminará permanentemente %1$d archivos (%2$s). Esta acción no se puede deshacer.</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
-        <item quantity="one">%d elemento sin decidir permanecerá para revisión posterior.</item>
-        <item quantity="other">%d elementos sin decidir permanecerán para revisión posterior.</item>
+        <item quantity="one">%d elemento, no decidido permanecerá para una revisión posterior.</item>
+        <item quantity="other">%d Elementos sin decisión, permanecerán para una revisión posterior.</item>
     </plurals>
     <string name="swiper_delete_x_action">Eliminar %1$d</string>
     <string name="swiper_settings_swap_directions_title">Intercambiar direcciones de deslizamiento</string>
@@ -1018,8 +1018,8 @@
     <string name="swiper_sessions_empty_hint">Toca + para seleccionar una carpeta y comenzar a deslizar</string>
     <string name="swiper_sessions_upgrade_body">Actualiza para eliminar estos límites y apoyar el desarrollo. La versión gratuita está limitada a:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
-        <item quantity="one">%d archivo por sesión</item>
-        <item quantity="other">%d archivos por sesión</item>
+        <item quantity="one">%d Archivo por sesión</item>
+        <item quantity="other">%d Archivos por sesión</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
         <item quantity="one">%d sesión</item>
@@ -1094,6 +1094,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Ayuda</string>
-    <string name="swiper_help_title">Cómo funciona el Limpiador</string>
-    <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Omitir\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
+    <string name="swiper_help_title">Cómo funciona Swiper</string>
+    <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Deslizar hacia la izquierda: %1$s\n→ Deslizar hacia la derecha: %2$s\n↑ Deslizar hacia arriba: Omitir\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\n. Cuando hayas terminado, pulsa «Revisar» para ver todas tus decisiones. No se eliminará nada hasta que lo confirmes en la pantalla de revisión.</string>
 </resources>

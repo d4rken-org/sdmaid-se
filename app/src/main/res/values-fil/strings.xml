@@ -16,6 +16,7 @@
     <string name="debug_debuglog_record_action">Itala ang debug log</string>
     <string name="debug_debuglog_stop_action">Itigil ang pagta-tala</string>
     <string name="debug_debuglog_sensitive_information_message">Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo.</string>
+    <string name="debug_debuglog_screen_title">Debug Log</string>
     <string name="debug_debuglog_screen_discard_action">Itapon</string>
     <string name="debug_debuglog_screen_session_path_label">Path ng Session</string>
     <string name="debug_debuglog_screen_log_files_label">Mga Log File</string>
@@ -61,13 +62,22 @@
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_category_other_label">Iba</string>
+    <string name="settings_category_filter_generic">Generic na filter</string>
+    <string name="settings_category_filter_specific">Specific na filter</string>
     <string name="settings_sponsor_development_title">Mag-sponsor ng development</string>
     <string name="settings_sponsor_development_summary">Maging patron at gawing posible ang patuloy na development.</string>
+    <string name="general_settings_label">Pangkalahatan</string>
     <string name="general_settings_desc">Mga pangkalahatang pagbabago na nakakaapekto sa buong app.</string>
+    <string name="settings_category_ui_label">User interface</string>
+    <string name="ui_theme_mode_setting_label">Tema mode</string>
     <string name="ui_theme_mode_setting_explanation">Ang mode na ginagamit sa pag-theme ng app (hal. gabi o araw).</string>
     <string name="ui_theme_mode_dark_label">Dilim</string>
     <string name="ui_theme_mode_light_label">Liwanag</string>
+    <string name="ui_theme_mode_system_label">System</string>
+    <string name="ui_theme_style_setting_label">Estilo ng tema</string>
     <string name="ui_theme_style_setting_explanation">Ang color style na ginagamit sa pag-theme ng app.</string>
+    <string name="ui_theme_style_default_label">Default</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Mga preview ng file</string>
     <string name="ui_previews_summary">Ipakita ang mga preview ng file sa lahat ng tools (hal. mga thumbnail ng larawan at video).</string>
     <string name="ui_language_override_label">Wika ng app</string>
@@ -79,7 +89,9 @@
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="support_installid_label">Install ID</string>
     <string name="support_installid_desc">Ang mga awtomatikong error report ay walang pangalan. Ibahagi ang inyong install ID kung kailangan ng developer na hanapin ang inyong mga error report.</string>
+    <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari ninyong ibahagi.</string>
+    <string name="support_debuglog_folder_label">Debug log folder</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d file na gumagamit ng %2$s</item>
         <item quantity="other">%1$d mga file na gumagamit ng %2$s</item>
@@ -89,20 +101,31 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Permanenteng mabubura ang lahat ng nakaimbak na debug log sessions. Hindi na maaaring ibalik ang aksyon na ito.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Lugar kung saan makipag usap at mag tanong.</string>
+    <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Mga pagkilala</string>
+    <string name="settings_acknowledgements_category_translations_title">Mga Pagsasalin</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Sino ang nag-translate nito?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Salamat</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Espesyal na pasasalamat sa aming mga kaibigan.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Mga Lisensya</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software na ginagamit ng SD Maid.</string>
+    <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Hindi pa tapos ang setup</string>
     <string name="setup_incomplete_card_body">Tapusin ang setup ng SD Maid para sa mas magandang resulta.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Sinusubukan ng SD Maid na ayusin ang mga isyu sa setup.</string>
     <string name="setup_incomplete_card_dismiss_action">Huwag pansinin</string>
     <string name="setup_incomplete_card_continue_action">Ituloy ang setup</string>
+    <string name="setup_title">Setup</string>
     <string name="setup_forcedshow_summary">Ipakita ulit ang setup screen, kasama ang mga natapos na.</string>
     <string name="setup_checking_card_body">Sinusuri ang pagkakatapos ng setup at functionality.</string>
     <string name="general_error_setup_require_label">Hindi pa tapos ang setup</string>
     <string name="general_error_setup_require_msg">Kailangan pa ng karagdagang setup para magamit ang feature na ito. Tapusin ang mga natitirang hakbang sa setup.</string>
+    <string name="setup_saf_card_title">Storage access framework</string>
     <string name="setup_saf_card_body">Pagbutihin ang mga resulta sa pamamagitan ng pagbibigay ng access sa SD Maid sa mga karagdagang lugar.</string>
     <string name="setup_saf_card_body2">Sa karamihan ng mga kaso, magbubukas ang window na may tamang path na nakapili na. Magiging berde ang mga entry kapag nabigyan ng access.</string>
     <string name="setup_saf_error_wrong_path">Pinili mo ang maling Path</string>
     <string name="setup_saf_missing_app_error">Ang Documents UI app ay hindi makita. Kabilang yan sa System apps at laging mayroon yan sa halos lahat ng Android devices.</string>
+    <string name="setup_manage_storage_card_title">Pamahalaan ang storage</string>
     <string name="setup_manage_storage_card_body">Payagan ang SD Maid na pamahalaan ang inyong storage.</string>
     <string name="setup_manage_storage_card_body2">Basic na access sa public storage, hal. \"Download/\" at \"DCIM/\", pero hindi palaging \"Android/data\".</string>
     <string name="setup_root_card_title">Access sa root</string>
@@ -112,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">Gamitin ang Root access pag mayroon</string>
     <string name="setup_root_disable_root_use_label">Wag gamitin ang Root access</string>
     <string name="setup_root_card_body2">Available lamang sa mga rooted na device. Kung hindi ninyo ginawa ang modification na ito, hindi rooted ang inyong device at walang epekto ang setting na ito.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Payagan ang SD Maid na gamitin ang Shizuku kung posible para pagbutihin ang mga resulta at paganahin ang mga feature.</string>
     <string name="setup_shizuku_card_body2">Walang epekto ang setting na ito kung hindi naka-setup ang Shizuku app sa inyong device.</string>
     <string name="setup_shizuku_card_root_info">Ang Shizuku na pinagsama sa root access ay hindi nagbibigay ng karagdagang features, pero pinapagbuti nito ang reliability. Gagamitin ito ng SD Maid bilang fallback method.</string>
@@ -129,6 +153,7 @@
     <string name="setup_notification_body">Payagan ang SD Maid na mag-post ng mga notification para bigyang-alam kayo tungkol sa mga kasalukuyang operasyon o mahahalagang pangyayari.</string>
     <string name="setup_notification_hint">Ginagamit nang maingat ang mga notification 🤞</string>
     <string name="setup_feature_requires_additional_setup_x">Ang feature na ito ay nangangailangan ng pagkumpleto ng mga karagdagang setup item: %s</string>
+    <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">Ang accessibility service ay nagbibigay-daan sa SD Maid na makipag-interact sa inyong screen at mag-automate ng mga nakakaboring na aksyon, hal. pag-tap ng \"Clear cache\" sa maraming screen.</string>
     <string name="setup_acs_card_body2">Hindi gagamitin ng SD Maid ang accessibility service nang walang inyong pahintulot, palaging magpapakita ng kitang-kita (pwedeng ma-cancel) na indicator habang aktibo at hindi ito gagamitin para mangolekta ng impormasyon.</string>
     <string name="setup_acs_state_enabled">Naka-enable ang accessibility service</string>
@@ -144,12 +169,14 @@
     <string name="setup_acs_disallow_hint">Kung magbabago ang inyong isip, maaari ninyong baguhin ulit ang option na ito sa pamamagitan ng pagpunta sa settings at pag-restart ng setup.</string>
     <string name="setup_acs_appops_restriction_title">Nakatakdang Settings</string>
     <string name="setup_acs_appops_restriction_body">Hindi ma-enable ang accessibility service ng SD Maid? Maaaring mag-apply ng mga restriction ang Android 13+ sa mga app na hindi na-install sa pamamagitan ng Google Play. Alisin ang mga restriction na ito mula sa detail page ng system para sa SD Maid. Nasa context menu sa taas na kanang sulok ang option.</string>
+    <string name="setup_inventory_card_title">Inventory ng app</string>
     <string name="setup_inventory_card_body">Kailangan ng SD Maid na malaman kung anong mga app ang mayroon kayo para mahanap ang mga file na hindi kabilang sa anumang naka-install na app.</string>
     <string name="setup_inventory_card_extra">Hanapin ang permission na tinatawag na \"App list\" o \"Query all packages\".</string>
     <string name="setup_inventory_invalid_message">Nagbigay ang system ng hindi wastong listahan ng mga naka-install na app (hal. masyadong kaunti o may nawawala). Pumunta sa system settings at payagan ang SD Maid na ma-access ang \"App list\".</string>
     <string name="dataarea_warningcard_empty_message">Walang nahanap na data area na pwedeng i-scan ang SD Maid. Natapos ba ninyo ang setup?</string>
     <string name="dataarea_warningcard_label">Mga data area</string>
     <string name="dataarea_warningcard_reload_action">I-reload ang mga data area</string>
+    <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">I-enable ang mga test option at mas detalyadong output. Mas mabagal tatakbo ang app at iba ang performance.</string>
     <string name="debug_bugreporter_label">Awtomatikong bug reports</string>
     <string name="debug_bugreporter_summary">Awtomatikong nag-rereport ng mga isyu, hal. mga detalye tungkol sa app crash para malaman ko kung bakit at maayos ko.</string>
@@ -171,6 +198,7 @@
     <string name="corpsefinder_settings_risk_keeper_summary">Mga file na maaaring gusto ninyong itago, kahit naka-uninstall na ang app, hal. mga larawan na kinuha ninyo o mga backup na ginawa ninyo.</string>
     <string name="corpsefinder_settings_risk_common_title">Isama ang mga karaniwang pangalan</string>
     <string name="corpsefinder_settings_risk_common_summary">Data na may karaniwang ginagamit na pangalan, hal. isang folder na \"Notes\" ay pagmamay-ari ng maraming hindi kilalang app.</string>
+    <string name="corpsefinder_watcher_title">Uninstall watcher</string>
     <string name="corpsefinder_watcher_summary">Awtomatikong mag-scan ng mga natira kapag may natatanggal na app.</string>
     <string name="corpsefinder_watcher_autodelete_title">Awtomatikong pagtanggal</string>
     <string name="corpsefinder_watcher_autodelete_summary">Awtomatikong tanggalin ang anumang natira na nauugnay sa app na na-uninstall.</string>
@@ -183,11 +211,15 @@
         <item quantity="other">Matagumpay na pag-clean up (%1$s): Na-free ang %2$s at naalis ang %3$d mga item.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Tanggalin ang mga natira</string>
+    <string name="corpsefinder_filter_publicmedia_label">Public media</string>
     <string name="corpsefinder_filter_publicmedia_summary">Mga public media file, hal. mga file na natanggap sa pamamagitan ng messenger apps.</string>
     <string name="corpsefinder_filter_publicobb_label">Mga OBB resource</string>
     <string name="corpsefinder_filter_publicobb_summary">Mga karagdagang app resource, hal. mga game asset.</string>
+    <string name="corpsefinder_filter_publicdata_label">Public app data</string>
     <string name="corpsefinder_filter_publicdata_summary">Hindi sensitibong app data, hal. mga map cache.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD card</string>
     <string name="corpsefinder_filter_sdcard_summary">Pangkalahatang public storage, internal at external (hal. mga SD card).</string>
+    <string name="corpsefinder_filter_privatedata_label">Private app data</string>
     <string name="corpsefinder_filter_privatedata_summary">Private app data, hal. mga kredensyal, app settings pero pati na rin ang mga browser cache.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Naka-cache na app execution data.</string>
@@ -217,16 +249,22 @@
     <string name="corpsefinder_owner_unknown">Hindi kilalang may-ari</string>
     <string name="corpsefinder_corpse_hint_keeper">Maaaring may data ang item na ito na gusto ninyong itago kahit na-uninstall na ang may-ari nito, hal. mga larawan o backup.</string>
     <string name="corpsefinder_corpse_hint_common">Ang item na ito ay may karaniwang pangalan at maaaring kabilang sa mga app na naka-install pa na hindi alam ng SD Maid.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Sobrang data na hindi kabilang sa anumang specific na app.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d match na nabura</item>
         <item quantity="other">%d mga match na nabura</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d tugma ng filter</item>
+        <item quantity="other">%d tugma ng filter</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Pasadya na Salaan</string>
     <string name="systemcleaner_filter_custom_manage_label">Pamahalaan ang mga custom filter</string>
     <string name="systemcleaner_filter_custom_manage_summary">Gumawa, tanggalin, mag-import at mag-export ng inyong mga custom filter.</string>
     <string name="systemcleaner_filter_logfiles_label">Mga system log file</string>
     <string name="systemcleaner_filter_logfiles_summary">Mga system at system service log file (hal. *.log) sa iba\'t ibang lokasyon.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Installer cache</string>
     <string name="systemcleaner_filter_packagecaches_summary">Naka-cache na data na nauugnay sa mga naka-install na app na ginagamit ng package management ng system.</string>
     <string name="systemcleaner_filter_advertisements_label">Ad files</string>
     <string name="systemcleaner_filter_advertisements_summary">Mga files na nagawa o para sa patalastas.</string>
@@ -258,11 +296,13 @@
     <string name="systemcleaner_filter_tempfiles_summary">System-related na pansamantalang file, karaniwang panandaliang cache para sa mga aktibong operasyon.</string>
     <string name="systemcleaner_filter_analytics_label">Mga analytics file</string>
     <string name="systemcleaner_filter_analytics_summary">Data na nauugnay sa analytics at bug tracking.</string>
+    <string name="systemcleaner_filter_downloadcache_label">Download cache</string>
     <string name="systemcleaner_filter_downloadcache_summary">System cache folder na ginagamit para sa iba\'t ibang bagay (hal. OTA update).</string>
     <string name="systemcleaner_filter_localtmp_label">Mga lokal na pansamantalang file</string>
     <string name="systemcleaner_filter_localtmp_summary">System-related na pansamantalang file (hal. mula sa Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">Mga system log file</string>
     <string name="systemcleaner_filter_datalogger_summary">System service specific na log file.</string>
+    <string name="systemcleaner_filter_logdropbox_label">Log drop box</string>
     <string name="systemcleaner_filter_logdropbox_summary">Lugar para sa system na maglagay ng mga log file.</string>
     <string name="systemcleaner_filter_recenttasks_label">Mga kamakailang gawain</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data na nauugnay sa kasaysayan ng mga gawain sa task switcher ng system.</string>
@@ -271,6 +311,7 @@
     <string name="systemcleaner_filter_usagestats_label">Mga usage stats</string>
     <string name="systemcleaner_filter_usagestats_summary">Mga file na nauugnay sa application usage stats.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Tanggalin ang lahat ng laman ng filter?</string>
+    <string name="systemcleaner_customfilter_label">Custom na filter</string>
     <string name="systemcleaner_customfilter_create_action">Gumawa ng custom filter</string>
     <string name="systemcleaner_customfilter_create_hint">Gumawa ng custom filter para tanggalin ang mga karagdagang file na natatangi sa inyong device at mga gamit.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tanggalin ang filter na ito?</string>
@@ -300,6 +341,7 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Pangalan ay nagtatapos sa keyword</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Pangalan ay katumbas ng keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Huling edit: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
     <string name="systemcleaner_customfilter_editor_size_label">Mga limitasyon sa sukat</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Pinakamaliit na sukat</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Pinakamataas na sukat</string>
@@ -310,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitahan ang mga resulta batay sa edad ng file (huling pagbabago). Hayaang walang setting upang tumugma sa anumang edad.</string>
     <string name="systemcleaner_customfilter_import_action">Mag-import ng bagong filter</string>
     <string name="systemcleaner_customfilter_export_action">I-export ang napilingi na filter</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Mga expendable na data na kabilang sa mga specific na app.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Public default cache</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Default public app cache. Ma-access sa Android/data sa mga mas lumang bersyon ng Android. Natanggal kapag nag-tap ng \"Clear cache\" sa system settings.</string>
@@ -327,10 +370,15 @@
     <string name="appcleaner_include_minimumsize_summary">Laktawan ang mga app kung ang kabuuan ng expendable data ay nasa ibaba ng minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimum na edad</string>
     <string name="appcleaner_include_minimumage_summary">Laktawan ang mga file na mas bata pa sa minimum na edad.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Pagkilala ng operating system</string>
     <string name="appcleaner_automation_romtype_detection_summary">Ang accessibility-based na automation ay maaaring hindi gumana kung hindi naitama ng SD Maid ang inyong OS. Gamitin ang setting na ito para ma-override ang detected na OS.</string>
+    <string name="appcleaner_filter_codecache_label">Code cache</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Mga block ng bytecode na na-compile sa native code.</string>
+    <string name="appcleaner_filter_advertisement_label">Advertisement data</string>
     <string name="appcleaner_filter_advertisement_summary">Mga file na nauugnay sa mga advertisement, hal. naka-cache na media.</string>
+    <string name="appcleaner_filter_bugreporting_label">Bug reporting</string>
     <string name="appcleaner_filter_bugreporting_summary">Data na nauugnay sa bug reporting, hal. mga error log o crash dump.</string>
+    <string name="appcleaner_filter_analytics_label">Analytics</string>
     <string name="appcleaner_filter_analytics_summary">Data na nauugnay sa analytics, hal. naka-cache na stats para sa mga ni-tap ninyo sa isang app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Mga nakatagong cache</string>
     <string name="appcleaner_filter_hiddencaches_summary">Mga general purpose na cache na nakaimbak sa labas ng abot ng system.</string>
@@ -338,6 +386,7 @@
     <string name="appcleaner_filter_thumbnails_summary">Mga thumbnail na larawan ng preview ng mga image, video at audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Mga game file</string>
     <string name="appcleaner_filter_gamefiles_summary">Mga game-related na resource na ire-reload ng laro sa susunod na launch kung kinakailangan.</string>
+    <string name="appcleaner_filter_offlinecache_label">Offline cache</string>
     <string name="appcleaner_filter_offlinecache_summary">Mga file na nakaimbak para gamitin kapag offline, hal. mga map tile.</string>
     <string name="appcleaner_filter_recyclebins_label">Mga recycle bin</string>
     <string name="appcleaner_filter_recyclebins_summary">Mga file na na-delete na pero nilagay sa special na folder para ma-restore.</string>
@@ -353,9 +402,13 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Mga file na naipadala mula sa WhatsApp sa iba.</string>
     <string name="appcleaner_filter_telegram_label">Mga Telegram media file</string>
     <string name="appcleaner_filter_telegram_summary">Mga file na natanggap o naipadala sa pamamagitan ng Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Mga file na natanggap sa pamamagitan ng Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Mga file na naipadala o natanggap sa mga conversation at WeChat moment.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mga naka-cache na media file na ina-download ulit kapag tinignan sa chat.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
     <string name="appcleaner_filter_qqchat_summary">Mga file na naipadala o natanggap sa mga QQ chat conversation.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tanggalin ang mga expendable na item para sa lahat ng app?</string>
     <plurals name="appcleaner_result_x_items_deleted">
@@ -367,6 +420,7 @@
         <item quantity="other">%d mga expendable item na nakita</item>
     </plurals>
     <string name="appcleaner_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
+    <string name="appcleaner_automation_title">AppCleaner automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">Nagliligpit ng mga default cache…</string>
     <string name="appcleaner_automation_progress_open_settings">Binubuksan ang settings screen (mga keyword: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Naghahanap ng \"Storage\" entry (mga keyword: %s)</string>
@@ -377,6 +431,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Mga public at private default cache. Hindi direktang ma-access, pero maaaring matanggal nang hindi direkta (hal. sa pamamagitan ng accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">Hindi available ang accessibility service</string>
     <string name="appcleaner_automation_unavailable_body">Ang paglilinis ng mga hindi ma-access na cache ay nangangailangan ng accessibility service ng SD Maid, pero hindi ito available. Kung ayaw ninyong gamitin ito: I-disable ang opsyong \"Include inaccessible caches\".</string>
+    <string name="appcleaner_junk_userprofile_label">User</string>
     <string name="appcleaner_delete_confirmation_message_x">Tanggalin ang mga expendable na file para sa %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Burahin ang mga expendable file para sa %d napiling app?</item>
@@ -393,6 +448,7 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop bago i-clear</string>
     <string name="appcleaner_forcestop_before_clearing_summary">I-force-stop ang mga app bago i-clear ang kanilang cache. Maaari itong makatulong sa pag-clear ng cache ng ilang app, ngunit maaaring magdulot ng maling pagkilos ng mga app at mangailangan ng manu-manong pag-restart.</string>
     <string name="appcleaner_progress_force_stopping">Finoforce-stop ang mga app…</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Hanapin ang mga duplicate na data sa inyong device.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplicate na nabura</item>
@@ -414,7 +470,9 @@
     <string name="deduplicator_skip_uncommon_title">Laktawan ang mga hindi karaniwang uri ng file</string>
     <string name="deduplicator_skip_uncommon_description">Isama lang ang mga karaniwang media file, dokumento at archive.</string>
     <string name="deduplicator_detection_method_label">Paraan ng pagtukoy</string>
+    <string name="deduplicator_detection_method_checksum_title">Content checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Tukuyin ang mga duplicate sa pamamagitan ng pagkakalkula ng mga checksum para sa mga file. Ang mga file na may magkatugang checksum ay may eksaktong magkaparehong nilalaman.</string>
+    <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hanapin ang mga katulad na file sa pamamagitan ng pagsusuri ng mga content feature at paghahambing ng perceptual hash values. ⚠️ Ang similarity-based detection ay maaaring magsama ng mga false positive na nangangailangan ng manu-manong verification.</string>
     <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
@@ -423,6 +481,7 @@
     </plurals>
     <string name="deduplicator_file_size_label">Laki ng file</string>
     <string name="deduplicator_average_size_label">Average na laki</string>
+    <string name="deduplicator_cluster_x_label">Cluster %s</string>
     <string name="deduplicator_delete_confirmation_message">Burahin ang lahat maliban sa isang kopya sa lahat ng set ng mga doble na file?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Burahin ang lahat maliban sa isang kopya sa set na ito ng mga doble na file?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Burahin ang lahat ng file sa set na ito ng mga doble na file? Walang maiiwan!</string>
@@ -440,6 +499,7 @@
     <string name="deduplicator_arbiter_configure_paths_action">I-configure ang mga path…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uri ng duplicate</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Mas gusto ang eksaktong mga tugma kaysa sa mga katulad na file.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indexing</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Isaalang-alang kung ang mga file ay naka-index ng media provider.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Lokasyon ng storage</string>
     <string name="deduplicator_arbiter_criterium_location_description">Mas gusto ang mga file sa internal o external storage.</string>
@@ -465,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Mas gusto ang mas maliliit na file</string>
     <string name="deduplicator_view_mode_groups_label">Mga grupo</string>
     <string name="deduplicator_view_mode_directories_label">Mga folder</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">I-compress ang mga larawan upang makatipid ng storage space.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d larawang nahanap</item>
@@ -515,6 +576,10 @@
     <string name="squeezer_compress_confirmation_title">I-compress ang mga larawan?</string>
     <string name="squeezer_compress_confirmation_message">Papalitan nito ang mga orihinal na larawan ng mga na-compress na bersyon. Hindi na maaaring ibalik ang aksyon na ito.</string>
     <string name="squeezer_history_title">History ng compression</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d items (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">Walang history ng compression</string>
     <string name="squeezer_history_clear_title">I-clear ang history ng compression</string>
     <string name="squeezer_history_clear_message">Papayagan nitong ma-compress muli ang mga dating na-compress na larawan. Hindi maaapektuhan ang mga larawan mismo.</string>
@@ -544,6 +609,7 @@
         <item quantity="other">Hindi bababa sa %d araw na edad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Tinatayang ~%d%% na matitipid para sa mga JPEG file</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Mga app na naka-install sa inyong device.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d app na natuklasan</item>
@@ -560,18 +626,24 @@
     <string name="appcontrol_systemsettings_open_description">Buksan ang system settings ng inyong device para sa app na ito.</string>
     <string name="appcontrol_app_launch_title">I-launch ang app</string>
     <string name="appcontrol_app_launch_description">I-launch ang pangunahing activity ng app na ito.</string>
+    <string name="appcontrol_app_forcestop_title">Pilitin ang paghinto</string>
     <string name="appcontrol_app_forcestop_description">Itigil ang app. Pigilan itong mag-start mismo hangga\'t hindi mo binubuksan o nire-reboot ang device.</string>
     <string name="appcontrol_app_uninstall_description">I-uninstall ang app na ito sa inyong device.</string>
     <string name="appcontrol_app_exclude_add_title">I-exclude ang app</string>
     <string name="appcontrol_app_exclude_add_description">I-exclude ang app na ito mula sa ibang mga operasyon sa SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">I-edit ang exclusion</string>
     <string name="appcontrol_app_exclude_edit_description">Ang app na ito ay kasalukuyang naka-exclude mula sa isa o higit pang mga tool.</string>
+    <string name="appcontrol_tag_user">User</string>
     <string name="appcontrol_tag_active">Kamakailang aktibo</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Naka-archive</string>
     <string name="appcontrol_tag_uninstalled">Data Lamang</string>
     <string name="appcontrol_tag_not_installed">Hindi naka-install</string>
     <string name="appcontrol_tag_enabled">Naka-enable</string>
     <string name="appcontrol_tag_disabled">Naka-disable</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Ine-enable ang app</string>
     <string name="appcontrol_progress_disabling_package">Dini-disable ang app</string>
     <string name="appcontrol_list_filteroptions_label">Mga filter option</string>
@@ -580,6 +652,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Unang naka-install</string>
     <string name="appcontrol_list_sortmode_packagename_label">Package name</string>
     <string name="appcontrol_list_sortmode_size_label">Laki</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Screen time</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Ang mga laki ng app ay tinantya para sa performance. Gamitin ang StorageAnalyzer tool para sa mas tumpak na data.</string>
     <string name="appcontrol_progress_uninstalling_app">Inu-uninstall ang app</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -613,6 +686,9 @@
         <item quantity="other">%d mga app na na-restore</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Laki ng app</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Datos</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Kumpirmahin ang aksyon</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">Baguhin ang enabled/disabled state ng %d app?</item>
@@ -640,6 +716,7 @@
     <string name="appcontrol_share_list_title">Aking Mga App</string>
     <string name="appcontrol_share_list_footer">Na-share sa pamamagitan ng SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Force stop ang mga app</string>
+    <string name="appcontrol_force_stop_action">Pilitin ang paghinto</string>
     <string name="appcontrol_force_stop_confirm_title">Kumpirmahin ang force stop</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
         <item quantity="one">Force stop ang %d app?</item>
@@ -650,6 +727,7 @@
         <item quantity="other">%d mga app ay na-stop</item>
     </plurals>
     <string name="appcontrol_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
+    <string name="appcontrol_automation_title">AppControl automation</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Nag-force stop…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Naghahanap ng \"Force stop\" button (keywords: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
@@ -660,12 +738,18 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s mula %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Huling na-update: %s</string>
     <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Alamin kung ano ang kumukuha ng space sa inyong device.</string>
     <string name="analyzer_progress_scanning_device">Naghahanap ng mga storage device</string>
     <string name="analyzer_progress_scanning_storage">Nag-scan ng storage</string>
     <string name="analyzer_progress_scanning_apps">Nag-scan ng mga app</string>
     <string name="analyzer_progress_scanning_userfiles">Naghahanap ng mga user file</string>
     <string name="analyzer_progress_scanning_system">Nag-scan ng system data</string>
+    <string name="analyzer_device_storage_title">Imbakan ng device</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s available</item>
+        <item quantity="other">%s available</item>
+    </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="one">%s ginagamit</item>
         <item quantity="other">%s ginagamit</item>
@@ -676,31 +760,48 @@
         <item quantity="one">Nagawa ang Swiper session na may %d item</item>
         <item quantity="other">Nagawa ang Swiper session na may %d mga item</item>
     </plurals>
+    <string name="analyzer_storage_type_primary_title">Pangunahing imbakan</string>
     <string name="analyzer_storage_type_primary_description">Ang primary storage ng inyong device. Naglalaman ng internal SD card, private storage para sa mga app at system data.</string>
+    <string name="analyzer_storage_type_secondary_title">Pangalawang imbakan</string>
     <string name="analyzer_storage_type_secondary_description">Isang secondary storage, karaniwang removable SD card. Naglalaman ng mga media file at data mula sa mga app na sumusuporta dito.</string>
+    <string name="analyzer_storage_type_tertiary_title">Portable storage</string>
     <string name="analyzer_storage_type_tertiary_description">Isang portable storage, halimbawa flash drive na nakakabit sa inyong USB port.</string>
+    <string name="analyzer_storage_content_title">Nilalaman ng imbakan</string>
     <string name="analyzer_storage_content_type_app_label">Mga app</string>
     <string name="analyzer_storage_content_type_app_description">Space na ginagamit ng mga naka-install na app at kanilang data (ibig sabihin application files, data at caches).</string>
     <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Kulang ang mga permission</string>
     <string name="analyzer_storage_content_type_media_label">Mga user file</string>
     <string name="analyzer_storage_content_type_media_description">Mga nakuhang larawan, naka-record na video o na-download na data. Anumang data na hindi kabilang sa isang tukoy na app.</string>
+    <string name="analyzer_storage_content_type_system_label">Datos ng system</string>
     <string name="analyzer_storage_content_type_system_description">Mga system app at system data. Mga app at data mula sa ibang mga user, kung may mga user account na naka-set sa device na ito.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod ng app</string>
     <string name="analyzer_storage_content_app_code_description">Mga application file, library at resource. Ang space na ito ay maaaring ma-free sa pamamagitan ng pag-uninstall ng app o pag-archive nito (available sa mas bagong Android version).</string>
+    <string name="analyzer_storage_content_app_data_label">Datos ng app</string>
     <string name="analyzer_storage_content_app_data_description">Data, mga setting at cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Media ng app</string>
     <string name="analyzer_storage_content_app_media_description">Mga media file mula sa app na ito, halimbawa nakuhang WhatsApp photos.</string>
     <string name="analyzer_storage_content_app_extra_label">Extra na app file</string>
     <string name="analyzer_storage_content_app_extra_description">Extra na data na inilagay ng app na ito sa labas ng default paths, halimbawa mga photo o download.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ang app na ito ay sumusukat ng %1$s sa \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ang app na ito ay naka-archive.</string>
+    <string name="data_area_public_app_data_official_label">Mga default na public app data</string>
+    <string name="data_area_public_app_assets_official_label">Mga default na public app assets</string>
+    <string name="data_area_public_storage_label">Public storage</string>
+    <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Mga data area</string>
     <string name="data_areas_description">Ang mga data area ay kumakatawan sa mga lokasyon sa inyong device na accessible sa SD Maid. Maaaring magkakaibang data area ang makakagamit depende sa inyong Android version at mga permission na naibigay.</string>
     <string name="data_areas_short_summary">Mga area na ma-access ng SD Maid base sa kasalukuyang mga permission na naibigay.</string>
+    <string name="exclusion_manager_title">Exclusion manager</string>
     <string name="exclusion_manager_desc">Pamahalaan ang mga file at app exclusion.</string>
     <string name="exclusion_explanation_body1">I-exclude ang mga file at app mula sa mga operasyon ng SD Maid.</string>
     <string name="exclusion_add_new_hint">Magdagdag ng mga bagong exclusion sa pamamagitan ng unang pagpapasearch sa SD Maid at pagkatapos gamitin ang context menu sa resulta na gusto ninyong i-exclude.</string>
     <string name="exclusion_create_action">Gumawa ng exclusion</string>
     <string name="exclusion_edit_action">I-edit ang exclusion</string>
+    <string name="exclusion_type_package">App exclusion</string>
+    <string name="exclusion_type_path">Path exclusion</string>
+    <string name="exclusion_type_segment">Segment na pagbubukod</string>
     <string name="exclusion_tags_alltools">Lahat ng tools</string>
+    <string name="exclusion_target_label">Target ng pagbubukod</string>
     <string name="exclusion_editor_path_change_action">I-tap upang palitan ang path</string>
     <string name="exclusion_option_allow_partial">Payagan ang partial matches</string>
     <string name="exclusion_option_ignore_casing">Huwag pansinin ang casing</string>
@@ -788,6 +889,7 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="translation_encourage_title">I-translate ang SD Maid</string>
     <string name="translation_encourage_body">Ang SD Maid ay isinalin ng mga boluntaryo. Translation, review o proofreading, pinahahalagahan ang inyong tulong\!</string>
     <string name="translation_translators_title">Ang version na ito ay isinalin nina</string>
+    <string name="translation_translators_people">Makina na Pagsasalin</string>
     <string name="motd_setting_enabled_label">Mga mahalagang mensahe</string>
     <string name="motd_setting_enabled_explanation">Payagan ang SD Maid na mag-check ng mga mahalagang mensahe mula sa developer.</string>
     <string name="updatecheck_setting_enabled_label">Pag-check ng update</string>
@@ -911,7 +1013,7 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">%d session</item>
-        <item quantity="other">%d mga session</item>
+        <item quantity="other">%d sessions</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">%d hindi pa napagpasyahang item</item>
@@ -927,7 +1029,7 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
         <item quantity="one">%d session</item>
-        <item quantity="other">%d mga session</item>
+        <item quantity="other">%d sessions</item>
     </plurals>
     <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_session_rename_title">I-rename ang session</string>

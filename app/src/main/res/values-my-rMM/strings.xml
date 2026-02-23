@@ -7,15 +7,31 @@
     <string name="dashboard_settings_oneclick_summary">ဒက်ရှ်ဘုတ်၏ လုပ်ဆောင်ချက်ခလုတ်ကို နှိပ်ခြင်းဖြင့် ကိရိယာအားလုံးအတွက် စကင်န်ဖတ်ခြင်းနှင့် ဖျက်ခြင်းတို့ကို စတင်ပါ၊ အပိုအတည်ပြုချက်မရှိပါ။</string>
     <string name="dashboard_settings_oneclick_tools_title">တစ်ခါနှိပ် ကိရိယာများ</string>
     <string name="dashboard_settings_oneclick_tools_desc">တစ်ခါနှိပ် လုပ်ဆောင်မှုများတွင် မည်သည့်ကိရိယာများကို ထည့်သွင်းရမည်နည်း?</string>
+    <string name="dashboard_card_config_title">Dashboard ကဒ်များ</string>
+    <string name="dashboard_card_config_desc">ညည့်ကဒ်များ နှင့် ၎င်းတို့ အစီအစဥ်ကို ရွေးချယ်ခြင်း။</string>
+    <string name="dashboard_card_config_header_title">ခေါ်ဆောင်ခြင်းဖြင့် အစီအစဥ်ပြုလုပ်ခြင်း၊ အဖွင့်အပိတ်ကို ပြသခြင်း/ဝှက်ခြင်း</string>
     <string name="debug_notification_channel_label">အမှားရှာဖွေမှု အကြောင်းကြားချက်များ</string>
     <string name="debug_debuglog_file_label">မှတ်တမ်းတင်ထားသော log ဖိုင်</string>
     <string name="debug_debuglog_recording_progress">debug log ကို မှတ်တမ်းတင်နေသည်</string>
     <string name="debug_debuglog_record_action">debug log မှတ်တမ်းတင်ပါ</string>
     <string name="debug_debuglog_stop_action">ဖမ်ယူခြင်းကို ရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ။</string>
+    <string name="debug_debuglog_screen_title">ဒီဘတ်ဂ်လုံ</string>
+    <string name="debug_debuglog_screen_discard_action">စွန့်ပစ်သည်</string>
+    <string name="debug_debuglog_screen_session_path_label">အစီအစဥ်လမ်းကြောင်း</string>
+    <string name="debug_debuglog_screen_log_files_label">မှတ်တမ်းဖိုင်များ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ဖိုင်များ အဆင်သင့်ဖြစ်သည် (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">ဤ feature သည် အက်ပ်လုပ်နေသမျှကို မျှဝေနိုင်သော ဖိုင်တွင် မှတ်တမ်းတင်သည်။ ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ (ဥပမာ- ပြဿနာဖြေရှင်းနေသော developer)။</string>
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">%d တာဝန်အသက်ဝင်နေသော</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">%d တာဝန်တန်းစီနေသော</item>
+    </plurals>
     <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
     <string name="onboarding_welcome_title">ကြိုဆိုပါသည်</string>
@@ -23,6 +39,7 @@
     <string name="onboarding_welcome_body2">အခြားအက်ပ်များ၏နောက်တွင် သန့်ရှင်းရေးလုပ်ခြင်းဖြင့် သိမ်းဆည်းမှုနေရာရပါ။ မလိုအပ်သောဖိုင်များကို ဖျက်ပြီး ကျန်ရှိနေသောဒေတာများကို ဖယ်ရှားပါ။</string>
     <string name="onboarding_welcome_body_beta">ဤသည်မှာ beta (စမ်းသပ်) တည်ဆောက်မှုတစ်ခုဖြစ်သည်။ ရယ်မောမှုသဘောထားနှင့် အရန်အစီအစဉ်ဖြင့် ဆက်လက်လုပ်ဆောင်ပါ။ တွေ့ကြုံရသော ပြဿနာများကို သတင်းပို့ပါ။</string>
     <string name="onboarding_welcome_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ဆိုလိုသည်မှာ SD Maid 2) သည် SD Maid (ဆိုလိုသည်မှာ SD Maid 1) ၏ဆက်ခံသူဖြစ်သည်။ ခေတ်မီ Android အတွက် အကောင်းဆုံးဖြစ်အောင် ပြုလုပ်ထားသော အက်ပ်အသစ်။</string>
     <string name="onboarding_versus_body2">၎င်း၏ ယခင်ဗားရှင်း၏ architecture သည် ၇ နှစ်ကျော်ဟောင်းပြီး Android ဗားရှင်းအသစ်များ၏ စိန်ခေါ်မှုများအတွက် ဒီဇိုင်းမပြုလုပ်ထားပါ။ ဖွံ့ဖြိုးတိုးတက်မှုကို ဆက်လက်လုပ်ဆောင်ရန် အပြည့်အဝ ပြန်လည်ဒီဇိုင်းပြုလုပ်ရန် လိုအပ်သည်။</string>
     <string name="onboarding_versus_body3">ပိုမိုကောင်းမွန်သော ရလဒ်များအတွက် SD Maid SE သို့ ပြောင်းလဲခြင်းကို စဉ်းစားပါ။</string>
@@ -57,6 +74,7 @@
     <string name="ui_theme_style_setting_label">ပုံစံ ပုံရုပ်</string>
     <string name="ui_theme_style_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော အရောင် ပုံရုပ်။</string>
     <string name="ui_theme_style_default_label">မူလ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ဖိုင် ကြိုကြည့်ခြင်းများ</string>
     <string name="ui_previews_summary">ကိရိယာအားလုံးတွင် ဖိုင် ကြိုကြည့်ခြင်းများကို ပြသပါ (ဥပမာ- ပုံနှင့် ဗီဒီယို thumbnail များ)။</string>
     <string name="ui_language_override_label">အက်ပ် ဘာသာစကား</string>
@@ -65,12 +83,28 @@
     <string name="settings_support_description">စာရွက်စာတန်းများ ဖတ်ရှုခြင်း၊ ပြဿနာများ သတင်းပို့ခြင်း၊ အခြားသူများနှင့် စကားပြောခြင်း သို့မဟုတ် debug log များ မှတ်တမ်းတင်ခြင်း။</string>
     <string name="documentation_label">စာရွက်စာတန်းများ</string>
     <string name="issue_tracker_description">Bug report များနှင့် feature တောင်းဆိုမှုများအတွက် အများပြည်သူ issue tracker။</string>
+    <string name="issue_tracker_label">ပြဿနာခွဲခြင်းကိရိယာ</string>
     <string name="support_installid_label">တပ်ဆင်မှု ID</string>
     <string name="support_installid_desc">အလိုအလျှောက် အမှား report များသည် အမည်မသိဖြစ်သည်။ Developer သည် သင့် အမှား report များကို ရှာဖွေရန် လိုအပ်ပါက သင့် တပ်ဆင်မှု ID ကို မျှဝေပါ။</string>
+    <string name="support_debuglog_label">ဒီဘတ်ဂ်မှတ်တမ်း</string>
     <string name="support_debuglog_desc">အက်ပ်လုပ်နေသမျှကို သင်မျှဝေနိုင်သော စာသား ဖိုင်တွင် မှတ်တမ်းတင်ပါ။</string>
+    <string name="support_debuglog_folder_label">Debug မှတ်တမ်း ဖိုလ်ဒါ</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d ဖိုင်များ %2$s ကိုအသုံးပြုနေသည်</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc"> သိမ်းဆည်းထားသော debug မှတ်တမ်းများ မရှိသည်</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">debug မှတ်တမ်းအားလုံး ဖျက်ရန် လိုအပ်သနည်း။</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ဤသည် သိမ်းဆည်းထားသော debug မှတ်တမ်းများအားလုံးကို အပြီးဖျက်သည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်လည်ပြုလုပ်၍မရနိုင်သည်။</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">လှည့်လည်နေရန်နှင့် မေးခွန်းများ မေးရန် နေရာ။</string>
     <string name="changelog_label">ပြောင်းလဲမှုများ စာရင်း</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်ကြမ်း</string>
+    <string name="settings_acknowledgements_category_translations_title">ဘာသာ ပြန်လည်ဆောင်ရွက်မှု</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ဘာသာ ပြန်လည်ဆောင်ရွက်ခဲ့သူ ဘယ်သူများ ဖြစ်သနည်း။</string>
+    <string name="settings_acknowledgements_category_thanks_title">ကျေးဇူးတင်ပါသည်</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ကျွနုပ်တို့၏ သူငယ်ခင်သူများအား အထူးကျေးဇူးတင်ပါသည်။</string>
+    <string name="settings_acknowledgements_category_licenses_title">လိုင်စင်များ</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid မှ အသုံးပြုသော ဆော့ဖ်ဝဲ။</string>
     <string name="setup_label">တပ်ဆင်မှု</string>
     <string name="setup_incomplete_card_title">တပ်ဆင်မှု မပြီးမြောက်သေးပါ</string>
     <string name="setup_incomplete_card_body">ပိုကောင်းသောရလဒ်များရရှိရန် SD Maid ၏ တပ်ဆင်မှုကို ပြီးမြောက်အောင်လုပ်ပါ။</string>
@@ -97,6 +131,7 @@
     <string name="setup_root_enable_root_use_label">ရရှိနိုင်ပါက root ဝင်ရောက်ခွင့်ကို အသုံးပြုရန်</string>
     <string name="setup_root_disable_root_use_label">Root ဝင်ရောက်ခွင့်ကို မသုံးရန်</string>
     <string name="setup_root_card_body2">Root လုပ်ထားသောကိရိယာများတွင်သာ ရရှိနိုင်သည်။ သင်ကဤပြုပြင်မှုကို မလုပ်ခဲ့ပါက သင့်ကိရိယာသည် root မလုပ်ထားပါ၊ ဤဆက်တင်သည် အကျိုးသက်ရောက်မှုမရှိပါ။</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ရလဒ်များကို မြှင့်တင်ရန်နှင့် အင်္ဂါရပ်များကို ဖွင့်ရန် SD Maid ကို ဖြစ်နိုင်သော နေရာများတွင် Shizuku ကို အသုံးပြုခွင့်ပေးပါ။</string>
     <string name="setup_shizuku_card_body2">Shizuku အက်ပ်ကို သင့်ကိရိယာတွင် တပ်ဆင်မထားပါက ဤဆက်တင်သည် အကျိုးသက်ရောက်မှုမရှိပါ။</string>
     <string name="setup_shizuku_card_root_info">Shizuku ကို root ဝင်ရောက်ခွင့်နှင့် ပေါင်းစပ်ခြင်းသည် နောက်ထပ်အင်္ဂါရပ်များကို ဖွင့်မပေးပါ၊ သို့သော် ယုံကြည်စိတ်ချရမှုကို မြှင့်တင်ပေးသည်။ SD Maid သည် ၎င်းကို အရန်နည်းလမ်းအဖြစ် အသုံးပြုမည်။</string>
@@ -142,9 +177,17 @@
     <string name="debug_bugreporter_label">အလိုအလျောက် အမှားအစီရင်ခံစာများ</string>
     <string name="debug_bugreporter_summary">ပြဿနာများကို အလိုအလျောက် သတင်းပို့သည်၊ ဥပမာ အက်ပ် crash ဖြစ်မှုအသေးစိတ်များ၊ ကျွန်ုပ်က အဘယ်ကြောင့်ဖြစ်ကြောင်း ရှာဖွေပြီး ပြုပြင်နိုင်ရန်။</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug မုံဒ်ကို အသုံးပြုထားသည်</string>
+    <string name="debug_card_trace_mode_label">Trace မုံဒ်ကို အသုံးပြုခြင်း</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run မုံဒ် (ဖျက်မှုအားပိတ်ခြင်း)</string>
+    <string name="debug_card_areas_reload_action">ဒေတာ အလယ်အလတ်များကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
+    <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
+    <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>
+    <string name="debug_card_shizuku_test_action">Shizuku စမ်းသည်</string>
     <string name="settings_category_tools_label">ကိရိယာများ</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">ဖယ်ရှားပြီးသား အက်ပ်များနှင့် သက်ဆိုင်သော ဒေတာများ။</string>
     <string name="corpsefinder_settings_summary">စကင်န်စစ်ထုတ်ခြင်းများနှင့် အန္တရာယ်အဆင့်များကို ချိန်ညှိရန်။</string>
     <string name="corpsefinder_settings_risk_keeper_title">လိုလားသော အကြွင်းအကျန်များ ထည့်သွင်းရန်</string>
@@ -155,6 +198,12 @@
     <string name="corpsefinder_watcher_summary">အက်ပ်တစ်ခု ဖယ်ရှားလိုက်သောအခါ အကြွင်းအကျန်များကို အလိုအလျောက် စကင်န်ဖတ်ရန်။</string>
     <string name="corpsefinder_watcher_autodelete_title">အလိုအလျောက် ဖျက်ခြင်း</string>
     <string name="corpsefinder_watcher_autodelete_summary">ဖြုတ်လိုက်သော အက်ပ်နှင့် သက်ဆိုင်သော အကြွင်းအကျန်များကို အလိုအလျောက် ဖျက်ရန်။</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">%2$s ကို ဖျက်ပစ်ပြီးနောက် %1$d ကျန်ရစ်များ တွေ့ရှိသည်။</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">သန့်ရှင်းမှု အောင်မြင်ပါသည် (%1$s) - %2$s ကို လွှတ်ပြီး %3$d အရာများ ဖယ်ရှားလိုက်ပါသည်။</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">အကြွင်းအကျန်များကို ဖျက်ရန်</string>
     <string name="corpsefinder_filter_publicmedia_label">အများပြည်သူမီဒီယာ</string>
     <string name="corpsefinder_filter_publicmedia_summary">အများပြည်သူမီဒီယာဖိုင်များ၊ ဥပမာ စာပို့အက်ပ်များမှတစ်ဆင့် လက်ခံရရှိသော ဖိုင်များ။</string>
@@ -166,7 +215,10 @@
     <string name="corpsefinder_filter_sdcard_summary">ယေဘူယျ အများပြည်သူ သိုလှောင်မှု၊ အတွင်းပိုင်းနှင့် အပြင်ပိုင်း (ဥပမာ SD ကတ်များ)။</string>
     <string name="corpsefinder_filter_privatedata_label">ပုဂ္ဂလိက အက်ပ်ဒေတာ</string>
     <string name="corpsefinder_filter_privatedata_summary">ပုဂ္ဂလိက အက်ပ်ဒေတာများ၊ ဥပမာ ခွင့်ပြုစာများ၊ အက်ပ်ဆက်တင်များအပြင် ဘရောင်ဇာ cache များ။</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik သိုလှောင်မှု</string>
     <string name="corpsefinder_filter_dalvik_summary">Cache လုပ်ထားသော အက်ပ်လုပ်ဆောင်မှု ဒေတာများ။</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiles</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profiles များကို Android သည် အက်ပ်လုပ်ဆောင်ချက်ကို အဆင်ပြေစေရန် အသုံးပြုသည်။</string>
     <string name="corpsefinder_filter_applib_label">အက်ပ် လိုင်ဘရီများ</string>
     <string name="corpsefinder_filter_applib_summary">အက်ပ်နှင့် ဆက်စပ်သော လိုက်ဘရီ ဒေတာ။</string>
     <string name="corpsefinder_filter_appsource_label">အက်ပ် ရင်းမြစ်များ</string>
@@ -176,6 +228,13 @@
     <string name="corpsefinder_filter_appasec_label">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ</string>
     <string name="corpsefinder_filter_appasec_summary">စာဝှက်ထားသော အက်ပ် အရင်းအမြစ်များ၊ ဥပမာ - ဂိမ်း ပိုင်ဆိုင်မှုများ။</string>
     <string name="corpsefinder_filter_app2sd_summary">App2SD မွန်များ အသုံးပြု၍ ပြင်ပ သိုလှောင်ခန်းသို့ ရွှေ့ထားသော ဒေတာ။</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d အပ်ပလီကေးရှင်းအကြွင်းအကျန်ကိုဖျက်သည်</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">%d အက်ပ်ကျန်ရစ်များ တွေ့ရှိပါသည်</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">အက်ပ် အကြွင်းအကျန် အားလုံး ဖျက်မလား။</string>
     <string name="corpsefinder_owners_label">ပိုင်ရှင်များ</string>
     <string name="corpsefinder_corpse_hints_label">အသိပေးချက်</string>
@@ -184,6 +243,12 @@
     <string name="corpsefinder_corpse_hint_common">ဤအရာသည် အလွန်အသုံးများသော အမည်ရှိပြီး SD Maid မသိသော ထည့်သွင်းထားဆဲ အက်ပ်များ၏ ပိုင်ဆိုင်မှု ဖြစ်နိုင်သည်။</string>
     <string name="systemcleaner_tool_name">စနစ် သန့်ရှင်းရေးကိရိယာ</string>
     <string name="systemcleaner_explanation_short">သီးသန့် အက်ပ်တစ်ခုခုနှင့် မသက်ဆိုင်သော အပိုဒေတာများ။</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d ကျေးဇူးပြုပါစုံမှုကိုဖျက်သည်</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="other">%d စစ်ထုတ်မှုကိုက်ညီမှု</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">စိတ်ကြိုက် စစ်ထုတ်မှု</string>
     <string name="systemcleaner_filter_custom_manage_label">စိတ်ကြိုက် စစ်ထုတ်မှုများ စီမံခန့်ခွဲရန်</string>
     <string name="systemcleaner_filter_custom_manage_summary">သင်၏ စိတ်ကြိုက် စစ်ထုတ်မှုများကို ဖန်တီး၊ ဖျက်၊ တင်သွင်းနှင့် တင်ပို့ပါ။</string>
@@ -204,6 +269,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">မျက်နှာပြင်ဓာတ်ပုံ သက်တမ်း</string>
     <string name="systemcleaner_filter_screenshots_age_summary">ဖျက်ရန် ထည့်သွင်းစဉ်းစားမည့် မျက်နှာပြင်ဓာတ်ပုံများအတွက် အနည်းဆုံး သက်တမ်း။</string>
     <string name="systemcleaner_filter_superfluosapks_label">အပို APK များ</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">ထည့်သွင်းထားသည့် အက်ပ်ဗားရှင်းများအပေါ်အခြေခံ၍ လိုအပ်မည်မဟုတ်သည့် ဖိုင်များကို ဆက်တင်ပြုလုပ်သည်။</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">တူညီသောဗားရှင်းပါဝင်ပါ</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">ထည့်သွင်းထားသည့် ဗားရှင်းနှင့် ကိုက်ညီသည့် APK ဖိုင်များလည်း ပစ်ထုတ်ပါ။ အသက်ဗားရှင်းများကိုသာ ဖျက်ပစ်ရန် အသုံးပြုမှုကို ပိတ်ဆိတ်ပါ။</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ဖိုင်တွဲများ</string>
     <string name="systemcleaner_filter_lostdir_summary">Android စက်ပစ္စည်းများကြား ဒေတာ လွှဲပြောင်းစဉ် ဖန်တီးသော ယာယီ ဖိုင်များ။</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ဖိုင်များ</string>
@@ -264,6 +332,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">အမည်သည် အဓိကစကားလုံးနှင့် တူညီသည်</string>
     <string name="systemcleaner_customfilter_last_edit">နောက်ဆုံး ပြင်ဆင်ချက် - %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">တိုက်ရိုက် ရှာဖွေမှု</string>
+    <string name="systemcleaner_customfilter_editor_size_label">အရွယ်အစားကန့်သတ်ချက်</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">အနည်းဆုံးအရွယ်အစား</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">အများဆုံးအရွယ်အစား</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ဖိုင်အရွယ်အစားအပေါ်အခြေခံ၍ ကိုက်ညီမှုများကို ကန့်သတ်ပါ။ မည်သည့်အရွယ်အစားမျိုးကိုမျ ကိုက်ညီရန် မသတ်မှတ်ဘဲ ထားခြင်းအတွက် မသတ်မှတ်ပါ။</string>
+    <string name="systemcleaner_customfilter_editor_age_label">အသက်ကန့်သတ်ချက်</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">အနည်းဆုံးအသက်</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">အများဆုံးအသက်</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ဖိုင်အသက် (နောက်ဆုံးပြင်ဆင်သည့်အချိန်)အပေါ်အခြေခံ၍ ကိုက်ညီမှုများကို ကန့်သတ်ပါ။ မည်သည့်အသက်မျိုးကိုမျ ကိုက်ညီရန် မသတ်မှတ်ဘဲ ထားခြင်းအတွက် မသတ်မှတ်ပါ။</string>
     <string name="systemcleaner_customfilter_import_action">စစ်ထုတ်မှု အသစ် တင်သွင်းရန်</string>
     <string name="systemcleaner_customfilter_export_action">ရွေးချယ်ထားသော စစ်ထုတ်မှု တင်ပို့ရန်</string>
     <string name="appcleaner_tool_name">အက်ပ် သန့်ရှင်းရေးကိရိယာ</string>
@@ -276,13 +352,123 @@
     <string name="appcleaner_include_systemapps_summary">စနစ် အက်ပ်များကို စစ်ဆေးမှုတွင် ပါဝင်စေပါ။</string>
     <string name="appcleaner_include_runningapps_label">လုပ်ဆောင်နေသော အက်ပ်များ ပါဝင်စေရန်</string>
     <string name="appcleaner_include_runningapps_summary">လုပ်ဆောင်နေသော အက်ပ်များကို ပါဝင်စေပါ (သတိဖြင့် အသုံးပြုပါ)။</string>
+    <string name="appcleaner_include_inaccessible_label">အင်္ဂါရပ်သားကျည်းကျည်း သိုလှောင်ချက်များ ထည့သွင်းပါ</string>
+    <string name="appcleaner_include_inaccessible_summary">တိုက်ရိုက်ဝင်ရောက်မရသော်လည်း စနစ်ချိန်ညှိချက်များမှ ဖျက်သိမ်းနိုင်ပြီး အလိုအလျောက်ဝန်ဆောင်မှုအား အသုံးပြု၍ ဖျက်သိမ်းနိုင်သည့်ဒေတာများပါဝင်သည်။</string>
+    <string name="appcleaner_include_multiuser_label">အခြား အသုံးပြုသူများ ထည့်သွင်းရန်</string>
+    <string name="appcleaner_include_multiuser_summary">ဤကိရိယာတွင် အခြား အသုံးပြုပား များမှ အပ်ပလီကေးရှင်းများကို ထည့်သွင်းရန်</string>
+    <string name="appcleaner_include_minimumsize_label">အနည့်ဆုံး အရွယ်အစား</string>
+    <string name="appcleaner_include_minimumsize_summary">ဖျက်ပစ်သောဒေတာ ပောင်လဒ် အနည့်ဆုံးထက် နည့်သော အပ်ပလီကေးရှင်းများကို ကျော်လွှားရန်</string>
+    <string name="appcleaner_include_minimumage_label">အနည့်ဆုံး အသက်</string>
+    <string name="appcleaner_include_minimumage_summary">အနည့်ဆုံး အသက်ထက် ငယ်သောဖိုင်များကို ကျော်လွှားရန်</string>
+    <string name="appcleaner_automation_romtype_detection_label">လည်ပတ်မှုစနစ် ရှာဖွေခြင်း</string>
+    <string name="appcleaner_automation_romtype_detection_summary">SD Maid သည် သင့်လည်ပတ်မှုစနစ်ကို မှန်ကန်စွာ မသိရှိပါက Accessibility အခြေခံ အလိုအလျှောက်လုပ်ဆောင်မှု ချို့ယွင်းနိုင်သည်။ သိရှိထားသည့် လည်ပတ်မှုစနစ်ကို အစားထိုးရန် ဤသတ်မှတ်ချက်ကို သုံးပါ။</string>
+    <string name="appcleaner_filter_codecache_label">ကုဒ်သိုလှောင်မှု</string>
+    <string name="appcleaner_filter_codecache_summary">JVM ကုဒ်သိုလှောင်မှု။ bytecode ကနေ native code သို့ compile ပြုလုပ်ထားသော ဘလောက်များ။</string>
+    <string name="appcleaner_filter_advertisement_label">ကြော်ငြာဒေတာ</string>
+    <string name="appcleaner_filter_advertisement_summary">ကြော်ငြာများနှင့်ဆက်စပ်သောဖိုင်များ၊ ဥပမာ သိုလှောင်မှုမီဒီယာများ။</string>
+    <string name="appcleaner_filter_bugreporting_label">ချွတ်ယွင်းချက်တင်ပြမှု</string>
+    <string name="appcleaner_filter_bugreporting_summary">ချွတ်ယွင်းချက်တင်ပြမှုနှင့်ဆက်စပ်သောဒေတာ၊ ဥပမာ အမှားမှတ်တမ်းများ သို့မဟုတ် crash dump များ။</string>
+    <string name="appcleaner_filter_analytics_label">ခွဲခြမ်းစိတ်ဖြာမှု</string>
+    <string name="appcleaner_filter_analytics_summary">ခွင့်ပြုချက် ဆိုင်ရာ အချက်အလက် ဥပမာ တစ်ခြား အက်ပ်တစ်ခုတွင် သင်ထုတ်လုပ်သည့် အရာများအတွက် သိုလှောင်ချက်ထားသည့် ကိန်းဂဏန်းများ။</string>
+    <string name="appcleaner_filter_hiddencaches_label">ဝှက်ထားသောသိုလှောင်မှုများ</string>
+    <string name="appcleaner_filter_hiddencaches_summary">စနစ်၏ ကျယ်ကျယ်လောင်းလောင်း အဆင်ပြင်ပြင်ပြင်ပြင် ပြင်အပြင်ခြင်းများ။</string>
+    <string name="appcleaner_filter_thumbnails_label">မီဒီယာ ပုံသေးများ</string>
+    <string name="appcleaner_filter_thumbnails_summary">ပုံ၊ ဗီဒီယာ နှင်် အသံ အစမ်ကြည့်် ပုံသေးများများ</string>
+    <string name="appcleaner_filter_gamefiles_label">ဂိမ်းဖိုင်များ</string>
+    <string name="appcleaner_filter_gamefiles_summary">ဂိမ်းများမှလိုအပမးသောအရင်းအမြေက်သောက ဂိမ်းသည် လိုအပမးပါက နောက်ခြည်းသော ဂိမ်းဆိုင်ရာအရင်းများ။</string>
+    <string name="appcleaner_filter_offlinecache_label">အော်ဖ်လိုင်းသိုလှောင်မှု</string>
+    <string name="appcleaner_filter_offlinecache_summary">အော်ဖ်လိုင်းအသုံးပြုသိမ်းသိုလှောင်မှုဖိုင်များ၊ ဥပမာ မြေပုနည်းအဆွပ်များ။</string>
+    <string name="appcleaner_filter_recyclebins_label">ဖျက်သိမ်းပုံးများ</string>
+    <string name="appcleaner_filter_recyclebins_summary">ဖျက်သိမ်းလိုက်ခြန်ရောသောသိ့ု့မဟုတ် ပြန်လည်ရယ်ခွင်ပြုသော အထူးသောဖိုင်က်သိ့ ဖျက်သိမ်းဖိုင်များ။</string>
+    <string name="appcleaner_filter_webview_label">Webview ဖိုင်များ</string>
+    <string name="appcleaner_filter_webview_summary">အက်ပ်များအတွင်း အသုံးပြုသည့် Webview အလျှောက်တွင် သိုလှောင်ချက်ထားသည့် ဖိုင်များ။</string>
+    <string name="appcleaner_filter_shortcutservice_label">အပ်ပလီကေးရှင်း အတိုကောက် icon များ</string>
+    <string name="appcleaner_filter_shortcutservice_summary">အပ်ပလီကေးရှင်း အတိုကောက်များ ၏ သိမ်းဆည်းထားသော icon များ။</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp အရန်သိုလှောင်မှုများ</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp အရန်သိုလှောင်မှုများရှေက်ထပ်ဆောင်သောမိတ်တုများဖျက်သိမ်းပြီး နောက်ဆုံးကိုသာအရက်တက်သာမှ။</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp မှတစ်ဆင့် လူများထံမှ ရယူသည့် စာရွက်များ။</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp မှ ရယူသည့် စာရွက်များ</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp ပို့လွှတ်သောဖိုင်များ</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp မှ အခြားသူများသို့ ပို့ဆောင်ခဲ့သည့် ဖိုင်များ။</string>
+    <string name="appcleaner_filter_telegram_label">Telegram မီဒီယာဖိုင်များ</string>
+    <string name="appcleaner_filter_telegram_summary">Telegram မှတစ်ဆင့် လက်ခံသို့မဟုတ် ပို့လွှတ်ထားသည့် ဖိုင်များ။</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">Threema မှတစ်ဆင့် လက်ခံထားသည့် ဖိုင်များ။</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">စကားပြောဆိုမှုများနှင့် WeChat အချိန်များတွင် ပို့သော သို့မဟုတ် လက်ခံသော ဖိုင်များ။</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">စကားပြောဆိုမှုတွင် ကြည့်ရှုသောအခါ ပြန်လည် ဒေါင်းလုဒ် လုပ်သော ကက်ရှ် မီဒီယာ ဖိုင်များ။</string>
     <string name="appcleaner_filter_qqchat_label">QQ စကားပြောဆိုမှု</string>
     <string name="appcleaner_filter_qqchat_summary">QQ စကားပြောဆိုမှုများတွင် ပို့သော သို့မဟုတ် လက်ခံသော ဖိုင်များ။</string>
     <string name="appcleaner_delete_all_confirmation_message">အက်ပ် အားလုံးအတွက် ဖျက်ပစ်နိုင်သော အရာများကို ဖျက်မလား။</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="other">%d အပ်ပလီကေးရှင်းအသုံးလျှင်ကိုဖျက်သည်</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="other">%d ဖြုန်းနိုင်သည့်ပစ္စည်းများ တွေ့ပြီ</item>
+    </plurals>
     <string name="appcleaner_automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>
     <string name="appcleaner_automation_title">AppCleaner အလိုအလျောက် လုပ်ငန်း</string>
+    <string name="appcleaner_automation_subtitle_default_caches">ပုံမှန် သိုလှောင်မှုများ ဖျက်ဆီးနေသည်…</string>
+    <string name="appcleaner_automation_progress_open_settings">ဆက်တင်မျက်နှာစုံကို ဖွင့်နေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">“သိုလှောင်ချက်” ထည့်သွင်းမှုကို ရှာဖွေနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">“ဒေတာရှင်းလင်း” ခလုတ်ကို ရှာဖွေနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">“ကက်ရှ ရှင်းလင်း” ခလုတ်ကို ရှာဖွေနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">အရင်ကလုပ်ဆောင်ချက်ကို အတည်ပြုနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcleaner_item_caches_inaccessible_title">ပုံမှန် သိုလှောင်မှုများ</string>
+    <string name="appcleaner_item_caches_inaccessible_body">ပုံမှန် သိုလှောင်မှုများ (အများသုံး နှင့် ကိုယ်ရေး)။ တိုက်ရိုက်အသုံးပြုမရပါက accessibility ဝန်ဆောင်မှုမှတစ်ဆင့် ဖျက်သိမ်းနိုင်သည်။</string>
+    <string name="appcleaner_automation_unavailable_title">Accessibility ဝန်ဆောင်မှု မရနိုင်ပါ</string>
+    <string name="appcleaner_automation_unavailable_body">အင်္ဂါရပ်သားကျည်းကျည်း သိုလှောင်ချက်များ ရှင်းလင်းပြင်ဆင်ရန် SD Maid ၏ အင်္ဂါရပ်သားအစီအမံစနစ် လိုအပ်သော်လည်း ၎င်းကို မရရှိနိုင်ပါ။ သုံးလိုမှ မပြုလုပ်လိုပါက \"အင်္ဂါရပ်သားကျည်းကျည်း သိုလှောင်ချက်များ ထည့်သွင်းရန်\" ရွေးချယ်ချက်ကို ပိတ်ခွင့်ပြုပါ။</string>
+    <string name="appcleaner_junk_userprofile_label">အသုံးပြုသူ</string>
+    <string name="appcleaner_delete_confirmation_message_x">%s အတွက် ဖျက်ပစ်နိုင်သည့် ဖိုင်များ ဖျက်မည်လျှင်?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="other">%d ရွေးချယ်ထားသည့် အက်ပ်များအတွက် ဖျက်ပစ်နိုင်သည့် ဖိုင်များ ဖျက်မည်လျှင်?</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ကို အသုံးပြု၍ သိုလှောင်ချက်များ ဖျက်ပစ်နေသည်</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">အသုံးမပြုနိုင်သော cache များကိုဆုံးဖြတ်နေသည်</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Cache ရှင်းလင်းမှု မရနိုင်ပါ</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">စနစ်သည် ဤအက်ပ်အတွက် \"Cache ရှင်းလင်းမှု\" ခလုတ်ကို ပိတ်ထားသည်။ Cache ရှင်းလင်းမှုကို အရှိန်မြှင့်တင်ရန် ၎င်းကိုခြိုးခြင်းအားဖြင့် အသုံးပြုနိုင်သည်။</string>
+    <string name="appcleaner_automation_error_no_settings_title">ဆက်တင်မျက်နှာပြင် မရနိုင်ပါ</string>
+    <string name="appcleaner_automation_error_no_settings_body">ဤစနစ်အက်ပ်တွင် ဆက်တင်မျက်နှာပြင်မရှိပါ။ Accessibility service မှတစ်ဆင့် cache ရှင်းလင်းမှုမည်လျှင်မဖြစ်နိုင်ပါ။ Cache ရှင်းလင်းမှုအရှိန်မြှင့်တင်ရန် ၎င်းကိုခြိုးခြင်းအားဖြင့် အသုံးပြုနိုင်သည်။</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">စနစ်အက်ပ်မှားတည်ဆောက်ထားသည်</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS ၏ Security အက်ပ် (com.miui.securitycenter) သည် Usage Stats ခွင့်ပြုချက် (GET_USAGE_STATS) ကို ဆုံးရှုံးထားသည်။ ဤသည်က \"အက်ပ်အသေးစိတ်များတွင် ဒေတာရှင်းလင်းမှု\" နှင့် Accessibility မှတစ်ဆင့် cache ရှင်းလင်းမှုလို အလုံးစုံလုပ်ဆောင်ချက်များကို ချိုးဖောက်သည်။ အပြည့်အစုံလုပ်ဆောင်ချက်များကိုပြန်လည်ရယူရန် ခွင့်ပြုချက်ကိုပေးအပ်သည်။</string>
+    <string name="appcleaner_forcestop_before_clearing_label">ဖျက်ရှင်းမီခွင့်ပြုတိုက်ရိုက်ရပ်တန်းချ</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">အက်ပ်များ၏ cache များကိုရှင်းလင်းမီ အက်ပ်များကိုအင္ဂါရပ်ရန်အားထုတ်ပါ။၎င်းသည်အချို့အက်ပ်များ၏ cache များရှင်းလင်းရန်အကူအညီပေးနိုင်သော်လည်း အက်ပ်များသည်မှားတွေ့နိုင်ပြီးလက်ဖြင့်နောက်ဆက်တွဲလိုအပ်နိုင်သည်။</string>
+    <string name="appcleaner_progress_force_stopping">အက်ပ်များကို တိုက်ရိုက်ရပ်တန်းချ ဆောင်ရွက်နေသည်…</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="deduplicator_explanation_short">သင့်ကိရိယာတွင် အလားတူ ဒေတာများ ရှာဖွေပါ။</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d ကျိုးကြောင်းဆန်သောဖိုင်ကိုဖျက်သည်</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">အလားတူ set %d ခုတွေ့ရှိခဲ့သည်</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"အားလုံးဖျက်ပါ\" အလိုအလျှောက်ခွင့်ပြုပါ</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">အလားတူ duplicate များ၏ set မှ အားလုံးဖိုင်များ ဖျက်သိမ်းနိုင်သည့် ရွေးချယ်စရာများ ပြပါ၊ ထိုသို့နှင့် ဖိုင်မည်သည့်ခုမျှ ကျန်ရှိမည်မဟုတ်သည်။</string>
+    <string name="deduplicator_search_locations_title">ရှာဖွေရန် နေရာများ</string>
+    <string name="deduplicator_search_locations_all_summary">အားလုံး လက်လှမ်းနိုင်သော နေရာများ</string>
+    <string name="deduplicator_keep_prefer_paths_title">အတွင်းတွင် ကျန်ရှိခိုင်လုံရန် နှစ်လိုသည်</string>
+    <string name="deduplicator_keep_prefer_paths_summary">ရှင်းလင်းရန် ရိုက်ခြင်း အစီရင်ခံများကို ဆုံးဖြတ်သည့်အခါ၊ ဤနေရာများတွင် ဖိုင်များ ကျန်ရှိခိုင်လုံစေရန် နှစ်လိုသည်။</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">မည်သည့်နေရာများမျ ဆက်သင်းမထားသည့်</string>
+    <string name="deduplicator_skip_minsize_title">အနိမ့်ဆုံး အရွယ်အစား</string>
+    <string name="deduplicator_skip_minsize_description">အနိမ့်ဆုံး အရွယ်အစားအောက်ရှိ ဖိုင်များကို ကျော်လွှားပါ။</string>
+    <string name="deduplicator_skip_uncommon_title">ပုံမှန်မဟုတ်သောဖိုင်အမျိုးအစားများကိုကျော်လွှားပါ</string>
+    <string name="deduplicator_skip_uncommon_description">ပုံမှန်သောမီဒီယာ ဖိုင်များ၊ စာရွက်များနှင့် မှတ်တမ်းများသာထည့်သွင်းပါ။</string>
+    <string name="deduplicator_detection_method_label">ရှာဖွေမှုနည်းလမ်း</string>
+    <string name="deduplicator_detection_method_checksum_title">အကြောင်းအရာ checksum</string>
+    <string name="deduplicator_detection_method_checksum_summary">ဖိုင်များအတွက် checksums တွက်ချက်ခြင်းဖြင့် အလားတူများကို ဆုံးဖြတ်ပါ။ Checksums နှင့် ကိုက်ညီသောဖိုင်များတွင် အတူတူပါသောအကြောင်းအရာ ရှိသည်။</string>
+    <string name="deduplicator_detection_method_phash_title">အာရုံခံ hash</string>
+    <string name="deduplicator_detection_method_phash_summary">အကြောင်းအရာ ဝိသေသလက္ခဏများ ခွဲခြမ်းစိတ်ဖြာခြင်း နှင့် ကြေးမုံစံ hash တန်ဖိုးများ နှိုင်းယှဥ်ခြင်းအားဖြင့် အလားတူ ဖိုင်များ ရှာဖွေခြင်း။ ⚠️ အလားတူမှုအခြေခံ ရှာဖွေခြင်းတွင် လက်ဖြင့် အတည်ပြုမှု လိုအပ်သော မှားယွင်းသော အခြေအနေများ ပါဝင်နိုင်သည်။</string>
+    <string name="deduplicator_occupied_space_label">သိုလှောင်ထားသောနေရာ</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s သည် ခွဲခြားမည်ဖြင့် ယူထားသည်</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ဖိုင်အရွယ်အစား</string>
+    <string name="deduplicator_average_size_label">ပျမ်းမျှအရွယ်အစား</string>
+    <string name="deduplicator_cluster_x_label">စုခွဲ %s</string>
+    <string name="deduplicator_delete_confirmation_message">ဆန်တူသောဖိုင်များ၏ အားလုံးအစုံများတွင် တစ်ခုမှလွဲ၍ အားလုံးကိုဖျက်သိမ်းမည်လား?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">ဆန်တူသောဖိုင်များ၏ဤအစုံတွင် တစ်ခုမှလွဲ၍ အားလုံးကိုဖျက်သိမ်းမည်လား?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ဆန်တူသောဖိုင်များ၏ဤအစုံတွင် ဖိုင်အားလုံးကိုဖျက်သိမ်းမည်လား? ကျန်ရှိသောဖိုင်မရှိ!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီတွင် မိတ္တူ တစ်ခုမှလွဲ၍ အားလုံးကို ဖျက်မလား။</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီရှိ ဖိုင် အားလုံးကို ဖျက်မလား။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
     <string name="deduplicator_delete_all_toggle_msg">မိတ္တူ အားလုံး ဖျက်ပါ။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
@@ -290,25 +476,275 @@
     <string name="deduplicator_details_cluster_title">ပွားသော ဖိုင်များ အစု</string>
     <string name="deduplicator_matches_exact_label">တိကျသော မိတ္တူများ</string>
     <string name="deduplicator_matches_similar_label">ဆင်တူသော ဖိုင်များ</string>
+    <string name="deduplicator_arbiter_title">ဖျက်ရှင်းမှုအမျိုးအစား</string>
+    <string name="deduplicator_arbiter_summary">ကုန်ကျစာရင်းများကို ယူဆောင်သည့် အတွက် ဆုံးဖြတ်ရန် တည်ဆောက်ပါ။</string>
+    <string name="deduplicator_arbiter_explanation">ကုန်ကျစာရင်းများကို ဖျက်ရှင်းသည့်အခါ SD Maid သည် အစီအစဥ်အပါအဝင် တစ်ခုစီစီပွားရေးမူလများကို စစ်ဆေးခြင်းဖြင့် ကုန်ကျစာရင်းများကို ဆုံးဖြတ်ပါ။ ထိရောက်သည့် အစီအစဥ်များ ရှုံးဂုဏ်ရည်များ တည်ဆောက်သည်။ အစီအစဥ်များကို ပြန်လည်သည်း၍နှိပ်မှ ပြောင်းလဲခြင်းအတွက်။</string>
+    <string name="deduplicator_arbiter_select_mode_title">အမျိုးအစားကို ရွေးချယ်ပါ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">ခရီးကြောင်းများ ဆက်သင်းပါ…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ကုန်ကျစာရင်းအမျိုးအစား</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">အလားတူ ဖိုင်များမှ ထိုက်ဆိုင်သည့် ကုန်ကျစာရင်းများကို နှစ်လိုသည်။</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">မီဒီယာ အညွှန်းတစ်ခုခု</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ဖိုင်များကို မီဒီယာ ပေးစွမ်းလုပ်ဆောင်ချက်မြတ်ခြင်း သုံးသပ်ပါ။</string>
+    <string name="deduplicator_arbiter_criterium_location_title">သိုလှောင်မှုနေရာ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">အတွင်း သို့မဟုတ် အပြင်အရင်းများတွင် ဖိုင်များကို နှစ်လိုသည်။</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ဖိုင်တိုက် အနက်</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">နိမ့်သော သို့မဟုတ် နက်ရှိုင်းသော ဖိုလ်ဒါ ဖွဲ့စည်းပုံတွင် ဖိုင်များကို နှစ်သက်သည်။</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ပြင်ဆင်ခဲ့သည့် နေ့စွဲ</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ပြင်ဆင်ခြင်းအချိန်အခြေခံကျ အဟောင်း သို့မဟုတ် အသစ်သည့် ဖိုင်များကို နှစ်သက်သည်။</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ဖိုင်းအရွယ်အစား</string>
+    <string name="deduplicator_arbiter_criterium_size_description">အရွယ်အစားများ ကွဲပြားလျှင် ကြီးမားသော သို့မဟုတ် သေးငယ်သော ဖိုင်များကို နှစ်သက်သည်။</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">အနိုင်တင်ထားသည့် တည်နေရာများ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">သင်၏ ပြင်ဆင်ထားသည့် အနိုင်တင်ထားသည့် တည်နေရာများတွင် ဖိုင်များ ထိန်းသိမ်းရန်။</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">အတိအကျ ကိုက်ညီမှုများကို အနိုင်တင်မည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">အလားတူ ဖိုင်များကို အနိုင်တင်မည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">စာမျက်နှာပြင် ပွင့်တင်ထားသည့် ဖိုင်များကို အနိုင်တင်မည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">စာမျက်နှာပြင် မပွင့်တင်ထားသည့် ဖိုင်များကို အနိုင်တင်မည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">အတွင်းပိုင်း သိုလှောင်ခန်းကို အနိုင်တင်မည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ပြင်ပ သိုလှောင်ခန်းကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">နိမ့်သော ဖိုလ်ဒါများကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">နက်ရှိုင်းသော ဖိုလ်ဒါများကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">အဟောင်း ဖိုင်များကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">အသစ်သည့် ဖိုင်များကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ကြီးမားသော ဖိုင်များကို နှစ်သက်သည်</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">သေးငယ်သော ဖိုင်များကို နှစ်သက်သည်</string>
+    <string name="deduplicator_view_mode_groups_label">အုပ်စုများ</string>
+    <string name="deduplicator_view_mode_directories_label">ဖိုလ်ဒါများ</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">သိုလှောင်ခန်းအနေခံ ချေ့ဆုံးရန် ပုံများကို ကျုံ့ခိုင်းရန်။</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="other">%d ပုံများ တွေ့ရှိခဲ့သည်</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="other">~%s ကို ချေ့လို့ရသည်</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="other">%d ပုံများ ကျုံ့ခိုင်းခဲ့သည်</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="other">%d ပုံများ ရွေးချယ်ခဲ့သည်</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">ရှာဖွေရန် နေရာများ</string>
+    <string name="squeezer_search_locations_default_summary">ကင်မေရာ ဖိုလ်ဒါများ (မူရင်း)</string>
+    <string name="squeezer_min_size_title">နည်းဆုံး ဖိုင်အရွယ်အစား</string>
+    <string name="squeezer_min_size_description">ဤအရွယ်အစားထက် သေးငယ်သော ရုပ်ပုံများကို ကျော်လွှားသည်။</string>
+    <string name="squeezer_min_age_title">အနည်းဆုံးဖိုင်အသက်</string>
+    <string name="squeezer_min_age_description">ဤအသက်ထက်ပိုတူးဆွဲသောပုံများကိုသာ ထည့်သွင်းပါ။</string>
+    <string name="squeezer_compression_settings_label">ချုံ့ခြင်းအတည်ဆက်များ</string>
+    <string name="squeezer_quality_label">အရည်အသွေး</string>
+    <string name="squeezer_quality_title">ချုံ့ခြင်းအရည်အသွေး</string>
+    <string name="squeezer_quality_description">အနိမ့်အရည်အသွေးသည် သေးငယ်သောဖိုင်အရွယ်အစားကို ဆိုလိုသည်ဖြင့် ပုံအရည်အသွေးကျဆင်းသွားသည်။</string>
+    <string name="squeezer_quality_example_format">ဥပမာ - %1$s ပုံ → ~%2$s သိမ်းဆည်းပြီး %3$d%% အရည်အသွေး</string>
+    <string name="squeezer_quality_warning_low">အနိမ့်အရည်အသွေးများသည် မြင်နိုင်သောအားလျှင်အချို့နေရာများကိုဖြစ်ပွားစေနိုင်သည်။</string>
+    <string name="squeezer_quality_warning_high">အလွန်မြင့်မားသောအရည်အသွေးသည် နည်းပါးသောအာကာသသိမ်းဆည်းမှုကိုပေးလေသည်။</string>
+    <string name="squeezer_types_category_label">ပုံအမျိုးအစားများ</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG ပုံများ (.jpg, .jpeg) ကို ထည့်သွင်းပါ။</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP ပုံများ (.webp) ကို ထည့်သွင်းပါ။</string>
+    <string name="squeezer_skip_compressed_title">အလွတ်ချုံ့လိုက်သည့်ပုံများကိုလွှဲတင်ပါ</string>
+    <string name="squeezer_skip_compressed_description">SD Maid မှ ဒီယောင်အခြင်းအရာကျစ်လစ်များထားပြီးသည့် ပုံများကိုလွှဲတင်ပါ။</string>
+    <string name="squeezer_exif_marker_title">EXIF အညွှန်းကိုရေးသည်</string>
+    <string name="squeezer_exif_marker_description">ချုံ့ခြင်းမှတ်တမ်းကို ရှင်းလင်းပြီးပါလျှင်ပင် ပုံ၏ EXIF အသုံးပြုသူထင်ခေါ်မှတ်တမ်းအကွက်သို့ အညွှန်းကိုထည့်သွင်းပြီး ပြန်လည်ချုံ့ခြင်းကိုကာကွယ်ပါ။</string>
+    <string name="squeezer_estimated_savings_format">~%s သိမ်းဆည်းပြီး</string>
+    <string name="squeezer_no_savings_expected">ကန့်သတ်သည့်သိမ်းဆည်းမှု</string>
+    <string name="squeezer_current_size_format">အရွယ်အစား - %s</string>
+    <string name="squeezer_compress_action">ချုံ့ခြင်း</string>
+    <string name="squeezer_compress_all_action">အားလုံးချုံ့ခြင်း</string>
+    <string name="squeezer_preview_dialog_title">ချုံ့ခြင်းကိုအတည်ပြုပါ</string>
+    <string name="squeezer_preview_total_size">စုစုပေါင်းအရွယ်အစား</string>
+    <string name="squeezer_preview_estimated_savings">ခန့်မှန်းသည့်သိမ်းဆည်းမှု</string>
+    <string name="squeezer_compress_confirmation_title">ပုံများချုံ့ခြင်းလား?</string>
+    <string name="squeezer_compress_confirmation_message">ဤအရာသည် မူလပုံများကို ချုံ့ခြင်းပြုလုပ်လိုက်သောအူတူများဖြင့် အစားထိုးလိုက်သည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်လည်ပယ်ဖျက်၍မရပါ။</string>
+    <string name="squeezer_history_title">ချုံ့ခြင်းမှတ်တမ်း</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="other">%1$d ခု (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">ချုံ့ခြင်းမှတ်တမ်းမရှိ</string>
+    <string name="squeezer_history_clear_title">ကြိုးပြီးခုံခြင်းမှတ်တမ်းကို ရှင်းလင်းရန်</string>
+    <string name="squeezer_history_clear_message">ကြိုးပြီးခုံခြင်းခံထားသည့် ပုံများကို နောက်တစ်ကြိမ် ကြိုးပြီးခုံခြင်းခံစေနိုင်ပါသည်။ ပုံများကိုယ်တည်းကို သက်ရောက်မည်မဟုတ်ပါ။</string>
+    <string name="squeezer_onboarding_title">ပုံကြိုးပြီးခုံခြင်းအကြောင်း</string>
+    <string name="squeezer_onboarding_message">ပုံကြိုးပြီးခုံခြင်းသည် အသေးစိတ်အရေးအသားများကို ဖယ်ရှားခြင်းဖြင့် ဖိုင်အရွယ်အစားကို လျှော့ချပါသည်။ ဤလုပ်ငန်းစဉ်သည် ပြန်လည်မလုပ်နိုင်သော - မူလအရည်အသွေးကို ပြန်လည်ရယူ၍မရပါ။
+
+သင်၏ပုံများမည်သည့်အတိုင်းပုံ ဆင်တွဲလိမ့်မည်ကို ကြိုတင်ကြည့်ရှုမည်ဖြစ်သည်</string>
+    <string name="squeezer_onboarding_original_label">မူလ</string>
+    <string name="squeezer_onboarding_compressed_label">ကြိုးပြီးခုံခြင်းအနောက်</string>
+    <string name="squeezer_onboarding_quality_label">အရည်အသွေး - %d%%</string>
+    <string name="squeezer_onboarding_got_it">နားလည်ပါပြီ</string>
+    <string name="squeezer_compare_action">နှိုင်းယှဉ်မှုကိုကြည့်ပါ</string>
+    <string name="squeezer_no_example_found">ရွေးချယ်ထားသည့်လမ်းကြောင်းများတွင် ပုံများမတွေ့ရှိပါ။</string>
+    <string name="squeezer_result_empty_message">ကြိုးပြီးခုံခြင်းနိုင်သည့် ပုံများ မတွေ့ရှိပါ။</string>
+    <string name="squeezer_setup_warning">ကြိုးပြီးခုံခြင်းသည် သိုလှောင်ခန်းအရာကို အလွတ်လုပ်ရန် ပုံအရည်အသွေးကို အမြဲမြဲ လျှော့ချပါသည်။ ဤလုပ်ငန်းကို ပြန်လည်မလုပ်နိုင်ပါ။ စတင်မီ သင်၏ အပြင်အဆင်များကို အသေးစိတ်စစ်ဆေးပါ။</string>
+    <string name="squeezer_setup_explanation">Media Squeeze သည် သိုလှောင်ခန်းအရာကို အလွတ်လုပ်ရန် ပုံများ၏ ဖိုင်အရွယ်အစားကို လျှော့ချပါသည်။ ဤလုပ်ငန်းသည် ပုံအရည်အသွေးကို အမြဲမြဲ လျှော့ချပြီး ပြန်လည်မလုပ်နိုင်ပါ။ စတင်မီ သင်၏ အပြင်အဆင်များကို အသေးစိတ်စစ်ဆေးပါ။</string>
+    <string name="squeezer_setup_paths_title">ရှာဖွေရန်အနေအထားများ</string>
+    <string name="squeezer_setup_paths_default">ရှာဖွေရန် ဖိုလ်ဒါများကို ရွေးချယ်ပါ</string>
+    <string name="squeezer_setup_quality_title">ကြိုးပြီးခုံခြင်းအရည်အသွေး</string>
+    <string name="squeezer_setup_age_title">အနည်းဆုံးအသက်</string>
+    <string name="squeezer_setup_age_none">ကန့်သတ်မည်မဟုတ်ပါ (လုံးလုံးအားလုံးတည်းဒီတွင်ဆိုင်းခြင်း)</string>
+    <string name="squeezer_setup_start_action">ရှာဖွေမှုစတင်ပါ</string>
+    <string name="squeezer_quality_hint_very_low">40% အောက်အရည်အသွေးသည် မသုံးနိုင်သည့် ပုံများကို ဖန်တီးနိုင်ပါသည်။</string>
+    <string name="squeezer_quality_hint_low">နိမ့်သည့်အရည်အသွေးသည် ပိုမိုသိုလှောင်ခန်းအရာကို ကယ်တင်သော်လည်း မြင်သာသည့် ချိုးကျေးမှုများ ဖြစ်စေနိုင်ပါသည်။</string>
+    <string name="squeezer_quality_hint_high">အလွန်မြင့်မားသည့်အရည်အသွေးသည် သိုလှောင်ခန်းအရာ ကယ်တင်ခွင့်အနည်းငယ်သည်။</string>
+    <string name="squeezer_quality_hint_normal">စိတ်ကြိုက်သည့်အရည်အသွေးနှင့် သိုလှောင်ခန်းအရာကယ်တင်ခွင့်။</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="other">အနည်းဆုံး %d ရက်ကြာသည်</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG ဖိုင်များအတွက် ခန့်မှန်းခြင်း ~%d%% ကယ်တင်ခွင့်</string>
     <string name="appcontrol_tool_name">အက်ပ် ထိန်းချုပ်မှု</string>
     <string name="appcontrol_explanation_short">အက်ပ်များကို ထိန်းချုပ်ရန်နှင့် ကြီးကြပ်ရန်။</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">%d အက်ပ်တွေ့ပြီ</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">အက်ပ်များကို ပြောင်းလဲပါ</string>
+    <string name="appcontrol_toggle_app_enable_action">အက်ပ် ဖွင့်ရန်</string>
+    <string name="appcontrol_toggle_app_disable_action">အက်ပ် ပိတ်ရန်</string>
+    <string name="appcontrol_toggle_app_enable_description">အက်ပ်ဖွင့်ခြင်းဖြင့် run ပြုလုပ်နိုင်ပြီး activity ရှိပါက launcher တွင် မြင်ရနိုင်သည်။</string>
+    <string name="appcontrol_toggle_app_disable_description">အက်ပ်ပိတ်ခြင်းဖြင့် run ပြုလုပ်မရနိုင်ပြီး menu များမှ ဝှက်ထားသည်။ ဒေတာဆုံးရှုံးမည်မဟုတ်ပါ။</string>
+    <string name="appcontrol_appstore_open_title">အက်ပ်ဆိုင်တွင် ဖွင့်ရန်</string>
+    <string name="appcontrol_appstore_open_description">ဤအက်ပ်အား တပ်ဆင်ထားသည့် အက်ပ်ဆိုင်တွင် ဖွင့်ကြည့်ရန်။</string>
+    <string name="appcontrol_systemsettings_open_title">ဆက်တင်များ ကြည့်ရှုရန်</string>
+    <string name="appcontrol_systemsettings_open_description">ဤအက်ပ်အတွက် ကိရိယာ၏ စနစ်သတ်မှတ်ချက်များ ဖွင့်ရန်။</string>
+    <string name="appcontrol_app_launch_title">အက်ပ် ဖွင့်ရန်</string>
+    <string name="appcontrol_app_launch_description">ဤအပ်ပလီကေးရှင်း၏ အခားလုပ်အဆောင်ကို ဖွင်ရန်</string>
+    <string name="appcontrol_app_forcestop_title">အတင်းအကျပ်ရပ်တန့်ခြင်း</string>
+    <string name="appcontrol_app_forcestop_description">အပ်ပလီကေးရှင်းကို ရပ်တန်းခြင်း။ သင် ဖွင့်လည်းထိ သို့မဟုတ် စက်ကို ပြန်လည်စတင်သည့်အထိ အသုံးပြုသည့်အခါ ခိုင်လုံအောင် ကာကွယ်ခြင်း။</string>
+    <string name="appcontrol_app_uninstall_description">ဤအပ်ကို သင်၏ကိရိယာမှ ဖျက်သိမ်းခြင်း</string>
+    <string name="appcontrol_app_exclude_add_title">အပ်ကိုချန်းခွဲထုတ်ပြီး</string>
+    <string name="appcontrol_app_exclude_add_description">ဤအပ်ကို SD Maid ရှိ အခြား လုပ်ဆောင်ချက်များမှ ချန်းခွဲထုတ်ပြီး</string>
+    <string name="appcontrol_app_exclude_edit_title">ချန်းခွဲထုတ်ပြီးအရာ ပြင်ဆင်ခြင်း</string>
+    <string name="appcontrol_app_exclude_edit_description">ဤအပ်သည် လက်ရှိတွင် ကိရိယာတစ်ခု သို့မဟုတ် တစ်ခုထက်ပိုမှ ချန်းခွဲထားသည်</string>
+    <string name="appcontrol_tag_user">အသုံးပြုသူ</string>
+    <string name="appcontrol_tag_active">မကြာသေးမီက သုံးစွဲခဲ့</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">စုစည်းမှု</string>
+    <string name="appcontrol_tag_system">စနစ်</string>
+    <string name="appcontrol_tag_archived">စုဆောင်းထားသော</string>
+    <string name="appcontrol_tag_uninstalled">ဒေတာ သာ</string>
+    <string name="appcontrol_tag_not_installed">မ ထည့်သွင်းထားသော</string>
+    <string name="appcontrol_tag_enabled">ခွင့်ပြုထားသည်</string>
+    <string name="appcontrol_tag_disabled">ပိတ်ထားသည်</string>
+    <string name="appcontrol_tag_debug">ဒီကနေ</string>
+    <string name="appcontrol_progress_enabling_package">အက်ပ် ဖွင့်နေသည်</string>
+    <string name="appcontrol_progress_disabling_package">အက်ပ် ပိတ်နေသည်</string>
+    <string name="appcontrol_list_filteroptions_label">စစ်ထုတ်ချက် ရွေးချယ်မှုများ</string>
+    <string name="appcontrol_list_sortmode_name_label">အက်ပ်အမည်</string>
+    <string name="appcontrol_list_sortmode_updated_label">နောက်ဆုံးတစ်ကြိမ် အဆင့်မြှင့်တင်ခဲ့သည့် အချိန်</string>
+    <string name="appcontrol_list_sortmode_installed_label">ပထမဆုံးထည့်သွင်းခဲ့သည့် အချိန်</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Package အမည်</string>
+    <string name="appcontrol_list_sortmode_size_label">အရွယ်အစား</string>
+    <string name="appcontrol_list_sortmode_screentime_label">မျက်နှာပြင်အချိန်</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">အက်ပ်အရွယ်အစားများသည် လုပ်ဆောင်ချက်ရည်ရွယ်ချက်အတွက် ခန့်မှန်းထားသည်။ ပိုမိုတိကျသောအချက်အလက်အတွက် StorageAnalyzer ကိရိယာကိုသုံးပါ။</string>
+    <string name="appcontrol_progress_uninstalling_app">အပ်ကို ဖျက်သိမ်းနေသည်</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d အပ်ပလီကေးရှင်းများကိုဖျက်သည်</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ကောင်းကင်စင်</string>
+    <string name="appcontrol_archive_selection_action">အက်ပ်များကို ကောင်းကင်စင်ပြုလုပ်ပါ</string>
+    <string name="appcontrol_archive_description">နောက်ပိုင်းတွင် ပြန်လည်ရယူနိုင်ရန် အက်ပ်ဒေတာကို သိမ်းဆည်းထားချင်း သိုလှောင်ခန်းအရာကို အလွတ်လုပ်ရန် ကောင်းကင်စင်ပြုလုပ်ပါ။</string>
+    <string name="appcontrol_progress_archiving_app">အက်ပ်ကိုစုစည်းနေသည်…</string>
+    <string name="appcontrol_archive_confirmation_title">ကောင်းကင်စင်ကို အတည်ပြုပါ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">%d အက်ပ်များကို ကောင်းကင်စင်ပြုလုပ်လိုသလား</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d အက်ပ်များသိုလှောင်ထားသည်</item>
+    </plurals>
+    <string name="appcontrol_restore_action">ပြန်လည်ရယူခြင်း</string>
+    <string name="appcontrol_restore_selection_action">အက်ပ်များပြန်လည်ရယူခြင်း</string>
+    <string name="appcontrol_restore_description">မော်ကွန်းတင်ထားသော အက်ပ်ကို အပြည့်အဝ ထည့်သွင်းထားသော အခြေအနေသို့ ပြန်လည်ရယူသည်။ အက်ပ် ဒေတာများ ထိန်းသိမ်းထားသည်။</string>
+    <string name="appcontrol_progress_restoring_app">အက်ပ်ကိုပြန်လည်ရယူနေသည်…</string>
+    <string name="appcontrol_restore_confirmation_title">ပြန်လည်ရယူမှုကို အတည်ပြုခြင်း</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">%d အက်ပ်များကို ပြန်လည်ရယူပါသလား။</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d အက်ပ်များပြန်လည်ရယူရှိသည်</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">အက်ပ်အရွယ်အစား</string>
+    <string name="appcontrol_app_sizes_apk_label">အက်ပ်</string>
     <string name="appcontrol_app_sizes_data_label">ဒေတာ</string>
     <string name="appcontrol_app_sizes_cache_label">ကက်ရှ်</string>
     <string name="appcontrol_toggle_confirmation_title">လုပ်ဆောင်ချက် အတည်ပြုပါ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">%d အက်ပ်များအတွက် အသုံးပြုလျက်ရှိသော/အသုံးမပြုသောအခြေအနေကို ပြောင်းလဲမည်လား?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d အပ်ပလီကေးရှင်းများကိုရွှေ့ကူးသည်</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">အရွယ်အစားများ သတ်မှတ်ရန်</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">အက်ပ်တစ်ခုချင်းစီ၏ အရွယ်အစား ခန့်မှန်းချက် ရယူပါ။</string>
     <string name="appcontrol_settings_module_activity_enabled_label">လုပ်ဆောင်မှု သတ်မှတ်ရန်</string>
     <string name="appcontrol_settings_module_activity_enabled_description">အက်ပ် တစ်ခုသည် လှုပ်ရှားသည် (သို့မဟုတ် မကြာသေးမီက လှုပ်ရှားခဲ့သည်) ရှာဖွေပါ။</string>
+    <string name="appcontrol_include_multiuser_label">အခြားအသုံးပြုသူများထည့်သွင်းသည်</string>
+    <string name="appcontrol_include_multiuser_summary">ဤစက်ပစ္စည်းရှိ အခြားအသုံးပြုသူအစုအဖွဲ့များမှ အက်ပ်များထည့်သွင်းသည်။</string>
     <string name="appcontrol_export_app_selection_action">အက်ပ်များ တင်ပို့ရန်</string>
+    <string name="appcontrol_export_title">အက်ပ်ထုတ်ခြင်း</string>
+    <string name="appcontrol_export_description">ဤအပ်ပလီကေးရှင်း၏ ထည့်သွင်းအုပ်ထည့်ခြင်း ဖိုင်များကို သိမ်းဆည်းခြင်း။ ဤတွင် အပ်ပလီကေးရှင်း အချက်အလက်များမပါရှိသည်။</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d အပ်ပလီကေးရှင်းများကိုတင်ပို့သည်</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ထုတ်ခြင်း</string>
+    <string name="appcontrol_share_list_action">စာရင်းမျှဝေခြင်း</string>
+    <string name="appcontrol_share_list_title">ကျွန်တော်၏အက်ပ်များ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE မှတစ်ဆင့်မျှဝေထားသည်</string>
+    <string name="appcontrol_force_stop_selection_action">အက်ပ်များကို အတင်းအကျပ်ရပ်တန့်ခြင်း</string>
+    <string name="appcontrol_force_stop_action">အတင်းအကျပ်ရပ်တန့်ခြင်း</string>
+    <string name="appcontrol_force_stop_confirm_title">အတင်းအကျပ်ရပ်တန့်ခြင်းကို အတည်ပြုပါ</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">အက်ပ် %d ခုကို အတင်းအကျပ်ရပ်တန့်မည်လား?</item>
+    </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">အက်ပ် %d ခုများကို ရပ်တန့်ခဲ့သည်</item>
     </plurals>
+    <string name="appcontrol_automation_loading">အသုံးပြုမှုဝန်ဆောင်မှုမှတစ်ဆင့် အလိုအလျှောက်စနစ်ကို ပြင်ဆင်နေသည်</string>
+    <string name="appcontrol_automation_title">AppControl အလိုအလျှောက်စနစ်</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">အတင်းအကျပ်ရပ်တန့်နေသည်…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">“အတင်းအကျပ်ရပ်တန့်ခြင်း” ခလုတ်ကို ရှာဖွေနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">အရင်ကလုပ်ဆောင်ချက်ကို အတည်ပြုနေသည် (သော့်ခလုတ်များ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">သိုလှောင်ခြင်း…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"အဆင့်သတ်မှတ်ခြင်း\" ခလုတ်ကို ရှာဖွေခြင်း (သော့ချက်စကား: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">ပြန်လည်ရယူခြင်း…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"ပြန်လည်ရယူခြင်း\" ခလုတ်ကို ရှာဖွေခြင်း (သော့ချက်စကား: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">မျက်နှာပြင်အချိန်- %1$s (%2$s မှ)</string>
+    <string name="appcontrol_item_lastupdate_x_label">နောက်ဆုံးအဆင့်မြှင့်တင်သည်- %s</string>
+    <string name="appcontrol_item_installedat_x_label">ထည့်သွင်းထားသည်: %s</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">သင်၏ကိရိယာတွင် မည်သည့်အရာက နေရာယူနေသည်ကို ရှာဖွေရန်</string>
+    <string name="analyzer_progress_scanning_device">သိုလှောင်မှုကိရိယာများအတွက် ရှာဖွေနေသည်</string>
+    <string name="analyzer_progress_scanning_storage">သိုလှောင်မှု စကင်ပြုလုပ်နေသည်</string>
+    <string name="analyzer_progress_scanning_apps">အပ်များ စကင်ပြုလုပ်နေသည်</string>
+    <string name="analyzer_progress_scanning_userfiles">အသုံးပြုသူဖိုင်များ ရှာဖွေနေသည်</string>
+    <string name="analyzer_progress_scanning_system">စနစ်အချက်အလက်များ စကင်ပြုလုပ်နေသည်</string>
+    <string name="analyzer_device_storage_title">ကိရိယာသိုလှောင်မှု</string>
     <plurals name="analyzer_space_available">
         <item quantity="other">%s ရရှိနိုင်သည်</item>
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="other">%s အသုံးပြုပြီး</item>
     </plurals>
+    <string name="analyzer_content_access_opaque">တိုက်ရိုက် ဝင်ရောက်ခွင့် မရပါ</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper အစီအစဉ်ဖန်တီးခြင်း</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Swiper အစီအစဉ်ကို %d မုဒ္ဒာများသတ်ဖြင့်ဖန်တီးထားသည်</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">မူလသိုလှောင်မှု</string>
+    <string name="analyzer_storage_type_primary_description">သင့်ကိရိယာ၏ အဓိကသိုလှောင်မှု။ အတွင်းပိုင်း SD ကဒ်၊ အက်ပ်များအတွက် ပုဂ္ဂလိကသိုလှောင်မှု နှင့် စနစ်ဒေတာများပါဝင်သည်။</string>
+    <string name="analyzer_storage_type_secondary_title">ဒုတိယသိုလှောင်မှု</string>
+    <string name="analyzer_storage_type_secondary_description">အခြား သိုလှောင်မှု၊ ပုံမှန်အားဖြင့် ဖယ်ရှားနိုင်သည့် SD ကဒ်။ မီဒီယာ ဖိုင်များ နှင့် အက်ပ်အချို့မှ ဒေတာများပါဝင်သည်။</string>
+    <string name="analyzer_storage_type_tertiary_title">ယာယီသိုလှောင်ချက်</string>
+    <string name="analyzer_storage_type_tertiary_description">သင့်ယူအက်စ်ဘီ ပေါ့ထဲသို့ စည်သွင်းထားသည့် ဖလက်ရှ်ဒရိုက်ကဲ့သို့ သိုလှောင်ချက်ဖြစ်သည်။</string>
+    <string name="analyzer_storage_content_title">သိုလှောင်မှုအကြောင်းအရာ</string>
+    <string name="analyzer_storage_content_type_app_label">အပ်များ</string>
+    <string name="analyzer_storage_content_type_app_description">ထည့သွင်းထားသည့် အက်ပ်များနှင့် ၎င်းတို့၏ အချက်အလက်များ (အက်ပ်လီကေးရှင်း ဖိုင်များ၊ အချက်အလက် နှင့် သိုလှောင်ချက်များ) မှ သိမ်းဆည်းရှိသည့် နေရာ။</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ခွင့်ပြုချက်များ မရှိပါ</string>
+    <string name="analyzer_storage_content_type_media_label">အသုံးပြုသူဖိုင်များ</string>
+    <string name="analyzer_storage_content_type_media_description">ရိုက်ကူးထားသောပုံများ၊ မှတ်တမ်းတင်ထားသောဗီဒီယာများ သို့မဟုတ် ဒောင်းလုဒ်လုပ်အချက်အလက်များ။ သစ်သညသောအပ်မျို့ မဆိုင်သောအချက်အလက်</string>
+    <string name="analyzer_storage_content_type_system_label">စနစ်အချက်အလက်</string>
+    <string name="analyzer_storage_content_type_system_description">စနစ်အက်ပ်များ နှင့် စနစ်ဒေတာ။ ဤကိရိယာတွင် အသုံးပြုသူအများအပြားရှိပါက အခြားအသုံးပြုသူများမှ အက်ပ်များ နှင့် ဒေတာ။</string>
+    <string name="analyzer_storage_content_app_code_label">အပ်ကုဒ်</string>
+    <string name="analyzer_storage_content_app_code_description">အပ်ပလီကေးရှင်းဖိုင်များ၊စာကြည်းများနှင့်မြေအပြင်အဆင်များ။ ဤနေရာသည်အပ်ပလီကေးရှင်းကိုဖျက်ခြင်းသို့မဟုတ်စုဆောင်းခြင်းဖြင့်လွတ်လပ်နိုင်သည်(Android ဗားရှင်းအသစ်များတွင်ရရှိနိုင်သည်)။</string>
+    <string name="analyzer_storage_content_app_data_label">အပ်အချက်အလက်</string>
+    <string name="analyzer_storage_content_app_data_description">အချက်အလက်၊ ဆက်တင်များနှင်း ကက်ရှ်များ</string>
+    <string name="analyzer_storage_content_app_media_label">အပ်မီဒီယာ</string>
     <string name="analyzer_storage_content_app_media_description">ဤအက်ပ်မှ မီဒီယာ ဖိုင်များ၊ ဥပမာ - လက်ခံရရှိသော WhatsApp ဓာတ်ပုံများ။</string>
     <string name="analyzer_storage_content_app_extra_label">အပို အက်ပ် ဖိုင်များ</string>
     <string name="analyzer_storage_content_app_extra_description">ဤအက်ပ်သည် မူလ လမ်းကြောင်းများ အပြင်ဘက်တွင် ထားရှိထားသော အပို ဒေတာ၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် ဒေါင်းလုဒ်များ။</string>
@@ -317,9 +753,58 @@
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>
     <string name="data_area_public_storage_label">အများပြည်သူ သိုလှောင်မှု</string>
+    <string name="data_area_sdcard_label">SD ကဒ်</string>
+    <string name="data_areas_label">ဒေတာနေရာများ</string>
+    <string name="data_areas_description">ဒေတာနေရာများသည် SD Maid အသုံးပြုနိုင်သည့် ကိရိယာပေါ်ရှိ တည်နေရာများကို ကိုယ်စားပြုသည်။ Android ဗားရှင်း နှင့် ပေးထားသည့် ခွင့်ပြုချက်များပေါ်မူတည်၍ မတူညီသည့် ဒေတာနေရာများ ရနိုင်သည်။</string>
+    <string name="data_areas_short_summary">SD Maid သည် လက်ရှိ ပြည့်စုံသည့် ခွင့်ပြုချက်ပေါ်အခြန်ချမ့် သုံးမြုနိုင်သည့် နေရာများ။</string>
+    <string name="exclusion_manager_title">ခြင့်ချန်းစီမှခန့်ခွဲမှု</string>
+    <string name="exclusion_manager_desc">ဖိုင်နှင့် အက်ပ် ခြင့်ချန်းများကို စီမှခန့်ခွဲ။</string>
+    <string name="exclusion_explanation_body1">SD Maid ရော လုပ်ဆင်ချက်များမှ ဖိုင်များနှင့် အက်ပ်များကို ခြင့်ချန်းပက်။</string>
+    <string name="exclusion_add_new_hint">SD Maid ကို ရှာဖွေခွင့်ပြုပြီး ခြင့်ချန်းလိုက်သည့် ရလိပ်ပေါ်တွင် အခြန်ချမ့်ချက်ကို အသုံးပြုခြန်ချ မ်မိနေကို ခြင့်ချန်းများ ထည့်သွင်းနိုင်သည်။</string>
+    <string name="exclusion_create_action">ချန်းခွဲထုတ်ပြီး ဖန်တီးခြင်း</string>
+    <string name="exclusion_edit_action">ခြင်းချက်ကို ပြင်ဆင်ပါ</string>
+    <string name="exclusion_type_package">အက်ပ် ခြင့်ချန်း</string>
+    <string name="exclusion_type_path">ပာက်ထား ခြင့်ချန်း</string>
+    <string name="exclusion_type_segment">အစိတ်အပိုင်း ခြင်းချက်</string>
+    <string name="exclusion_tags_alltools">ကိရိယာအားလုံး</string>
+    <string name="exclusion_target_label">ခြင်းချက်၏ ဦးတည်ချက်</string>
+    <string name="exclusion_editor_path_change_action">လမ်းကြောင်းပြောင်းလဲရန်တို့ တွတ်ထိုးခြင်း</string>
+    <string name="exclusion_option_allow_partial">တစ်ခြင်း အခွင့်အလမ်းများခွင့်ပြုပါ</string>
+    <string name="exclusion_option_ignore_casing">စာလုံးအစီအစဥ်ကို လျစ်လျူရှုပါ</string>
+    <string name="exclusion_editor_affected_tools_label">သက်ဆိုင်ရာ ကိရိယာများ</string>
+    <string name="exclusion_editor_path_explanation">လမ်းကြောင်းမြှုပ်သွင်းခြင်းမှာ SD Maid ကို၎င်းနှုတ်ဆက်သည့်လမ်းကြောင်းများအားလုံးကိုပြန်လည်စီမံခန့်ခွဲခြင်းမှတားဆီးပေးသည်။ ဤသည်ဖိုင်များ၊ဖိုလ်ဒါများနှင့်ဆန့်ကျင်သည့်ဖိုလ်ဒါများသို့ လည်းကျေးဇူးပြု။</string>
+    <string name="exclusion_editor_pkg_explanation">အက်ပ်ခြင်းချက်သည် SD Maid မှ ကိုက်ညီသည့် မည်သည့် အထုပ်စုများကိုမျှ လုပ်ဆောင်ခွင့်ပြုမည်မဟုတ်ပါ။</string>
+    <string name="exclusion_editor_segment_explanation">အစိတ်အပိုင်းအခြေခံ ခြင်းချက်သည် ခရီးအလှမ်းခြင်းချက်နှင့် တူညီသော်လည်း တစ်ခြင်း အခွင့်အလမ်းများခွင့်ပြုပါသည်။ ဥပမာ - \"DCIM/Camera\" သည် \"/sdcard/DCIM/Camera/photo.png\" ကို ခြင်းချက်ပြုလုပ်ပါသည်။</string>
+    <string name="exclusion_editor_remove_confirmation_message">ဤခြင်းချက်ကို ဖျက်မည်လျှင်?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">သင်သည် သိမ်းဆည်းမထားသည့် ပြောင်းလဲမှုများ ရှိပါသည်!</string>
+    <string name="exclusion_reset_default_exclusions">ပုံသေဖယ်ခွဲမှုများကိုပြန်ဆင်နွှဲမည်</string>
+    <string name="exclusion_import_action">ဖယ်ခွဲမှုများ သွင်းခြင်း</string>
+    <string name="exclusion_export_action">ဖယ်ခွဲမှုများ ထုတ်ခြင်း</string>
+    <string name="exclusion_create_pkg_hint">AppControl ကိရိယာကို အသုံးပြု၍ အက်ပ်ခြင်းချက်များ ဖန်တီးပါ။</string>
+    <string name="exclusion_create_path_hint">StorageAnalyzer ကိရိယာကို အသုံးပြု၍ ခရီးအလှမ်းခြင်းချက်များ ဖန်တီးပါ။</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">ဖယ်ထုတ်မှု %d ခု ဖန်တီးပြီး</item>
     </plurals>
+    <string name="exclusion_show_defaults_action">ပုံမှန်များ ပြသပါ</string>
+    <string name="automation_accessibility_service_description">အထူးအင်္ဂါရပ်သားလိုအပ်ချက်များ ရှိသည့် အသုံးပြုသူများသည် ဤအစီအမံစနစ်ကို အမှုန်ပါးဖြင့် လုပ်ဆောင်ရမည့် လုပ်ဆောင်ချက်များကို အလိုအလျှောက်ပြုလုပ်ရန် SD Maid အား ခွင့်ပြုရန် အမှုန်ပါးဖြင့် အစီအမံစနစ်ကို ဖွင့်နိုင်ပါသည် (ဥပမာ - သိုလှောင်ချက် ဖျက်ပစ်မှု)။
+
+ဥပမာ - သင်သည် SD Maid အား အက်ပ်များစွာ ရပ်တန့်ရန် အမိန့်ပေးပါက SD Maid သည် ဤအစီအမံစနစ်ကို အသုံးပြု၍ အက်ပ်တစ်ခုချင်းစီ၏ အပြင်အဆင်များ စာမျက်နှာကို ဖွင့်ခွင့် \'Force Stop\' ခလုတ်ကို ရှာဖွေပြီး နှိပ်နိုင်ပါသည်။
+
+SD Maid သည် ဤအစီအမံစနစ်ကို အသုံးပြုသည့်အခါ သည်းခြင်းစွာ ပြသကာ အသုံးပြုသူအား မည်သည့်အကျင့်အတည်းမျိုးမျိုးမျိုးမျိုး ချက်ခြင်းရန် လွယ်လင့်တကူ နည်းလမ်း ပေးလိမ့်မည်။
+
+ယခင်အတည်းချက်ပြုမှု မရှိဘဲ မည်သည့်လုပ်ဆောင်ချက်မျိုးမျိုးမျိုးမျိုး မြုပ်ဆောင်ရမည်မဟုတ်ပါ။ ဤအစီအမံစနစ်ကို မည်သည့်အချိန်တွင်မျိုးမျိုး ပြန်အဆင်ခြင်းနိုင်ပြီး အဆိုးအကျေးမျိုးမျိုးမျိုးမျိုး မရှိဘဲ ရပ်တန့်နိုင်ပါသည်။</string>
+    <string name="automation_screenoverlay_explanation">SD Maid သည် သင့်ရေဪ ကိရိယာနှင့် အပြန်အလှန်ဆောင်ရှိ လုပ်ဆင်ချန်းသည်။ တပြီနေကို မျက်နှေသဪယစုံး အသုံးပြုမအလမ်ပါ။ လုပ်ဆင်ချက် ပြီးဆုံးသည့်အထိုး စော့်ဆင်သည့် သို့မဟုတ် ပယ်ဖျက်သိမ်းပါ။</string>
+    <string name="automation_active_title">SD Maid လုပ်ဆင်ချန်းသည်</string>
+    <string name="automation_error_no_consent_title">အလိုအလျောက် အမှားအယွင်း</string>
+    <string name="automation_error_no_consent_body">Accessibility ဝန်ဆောင်မှု သတ်မှတ်ချက်ပြီးမရှိပါ။ သတ်မှတ်ချက် ပြီးဆုံးမြီး ခွင့်ပြုချက် ပေါ်ပါ။</string>
+    <string name="automation_error_not_enabled_title">ဝန်ဆောင်မှု ဖွင့်ထားမရသာ</string>
+    <string name="automation_error_not_enabled_body">Accessibility ဝန်ဆောင်မှု ပိတ်ထားသည်။ ထပ်မြည့် ဖွင့်ပါ။</string>
+    <string name="automation_error_not_running_title">ဝန်ဆောင်မှု လုပ်ဆင်ချန်းမရသာ</string>
+    <string name="automation_error_not_running_body">Accessibility ဝန်ဆောင်မှု လုပ်ဆင်ချန်းမရသာ။ ကိရိယာကို ထပ်မြည့် စတ်မမ်သော။</string>
+    <string name="automation_error_screen_unavailable_title">မျက်နှာပြင် မရရှိနိုင်ပါ</string>
+    <string name="automation_error_screen_unavailable_body">မျက်နှာပြင် မရရှိနိုင်ခြင်းကြောင့် လုပ်ဆောင်ချက်ကို ဖျက်သိမ်းခဲ့သည် (ဥပမာ - ဖန်သားပြင်ပိတ်ခြင်း သို့မဟုတ် လော့ခ်မျက်နှာပြင် တက်ခြင်း)။</string>
+    <string name="automation_error_compatibility_title">အလိုအလျှောက်လုပ်ဆောင်မှုအဆင်ပြေမှု</string>
+    <string name="automation_error_compatibility_body">SD Maid သည် အမျက်နှာစာ အစီအစဥ်ကို အဆုံးအဖြတ်မလုပ်နိုင်ခဲ့သည်။ အကယ်၍ ၎င်းကို ထပ်မံတဖန်ဖြစ်ပွားပါက၊ သင်႕၏ ဘာသာစကား သို့မဟုတ် ချထားခွင့်အစီအစဥ်မည် အပြည့်အစုံးဖြင့် မှီခိုထားသည်။ အဆင်ပြေခွင့် အတွက် ကြည့်ရှုပါ သို့မဟုတ် ကျွနုပ်မှ ၎င်းကို ပြင်ဆင်နိုင်သည့်အတွက် ကျွနုပ်ထံ ဆက်သွယ်ပါ။</string>
     <string name="automation_error_timeout_title">အလိုအလျောက်လုပ်ငန်း အချိန်ကုန်ခြင်း</string>
     <string name="automation_error_timeout_body">SD Maid သည် အချိန်ကန့်သတ်ချက်အတွင်း အဆင့်များ အားလုံးကို မပြီးစီးနိုင်ပါ။ ဤအခြေအနေ ဆက်လက် ဖြစ်ပေါ်ပါက၊ သင့်စက်အတွက် အက်ပ်ကို ချိန်ညှိရန် လိုအပ်နိုင်သည်။ အပ်ဒိတ်များ စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ထံ ဆက်သွယ်ပြီး ပြင်ဆင်စေပါ။</string>
     <string name="automation_error_overlay_title">အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်</string>
@@ -328,18 +813,206 @@
     <string name="history_description">မကြာသေးမီက လုပ်ဆောင်ချက်များနှင့် ထိခိုက်ခံရသော ဒေတာများ၏ အချိန်စဉ် စာရင်း။</string>
     <string name="scheduler_label">အချိန်ဇယား ချိန်ညှိမှု</string>
     <string name="scheduler_execution_label">နောက်ထပ် လုပ်ဆောင်မှု (ခန့်မှန်းချက်)</string>
+    <string name="scheduler_execution_last_label">နောဆုံးအကြိမ် လုပ်ဆင်ချက်</string>
+    <string name="scheduler_settings_label">အချိန်းအမှတ်</string>
+    <string name="scheduler_settings_summary">အချိန်းအမှတ်နှင့်ဆက်စပ်သော ဆက်တင်မှတ်ချက်များ ပြေုလုပ်။</string>
+    <string name="scheduler_new_schedule_action">အချိန်း ဖန့်တီးပါ</string>
+    <string name="scheduler_schedule_name_label">အချိန်း အမည်</string>
+    <string name="scheduler_schedule_toggle_enabled">အချိန်း ဖွင့်ထားသည်</string>
+    <string name="scheduler_schedule_toggle_disabled">အချိန်း ပိတ်ထားသည်</string>
+    <string name="scheduler_edit_schedule_action">အချိန်း ပြင့်ဆင်ပါ</string>
+    <string name="scheduler_schedule_time_label">ခန့်မှန်းသော အချိန်</string>
+    <string name="scheduler_schedule_repeat_label">ရက်အတွက် ခြားကာလ</string>
+    <string name="scheduler_schedule_default_name">ပုံမှန် အချိန်း</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s လည်း %2$s ခန့်</string>
+    <string name="scheduler_schedule_next_at_x">%s အတွက် စီစည်းထားသည်</string>
+    <string name="scheduler_schedule_last_at_x">%s တွင် နောဆုံးအကြိမ် လုပ်ဆင်ချခံ့်သည်</string>
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">%d ရက်တိုင်း</item>
     </plurals>
+    <string name="scheduler_schedule_repeat_interval">ခြားကာလ</string>
+    <string name="scheduler_inaccurate_execution_hint">မှော်လင့့််ထားသည့် လုပ်ဆင်ချက်အချိန်းများသည် ခန့်မှန်းချက်များပြစစ်ထုတ်များ ဖြစ်သည်။ မွှော်ရေလျှပြီးတွင် အချိန်းများ နောဆပို့ သို့မဟုတ် အအးထွက်နိုင်သည်။</string>
+    <string name="scheduler_no_active_schedules_subtitle">လုပ်ဆောင်နေသော အချိန်ဆိုင်ရာ မရှိပါ</string>
+    <string name="scheduler_setting_nopowersaving_title">ဘက်ထရီ နိမ့်သည့်အခါ ကျော်လွှားရန်</string>
+    <string name="scheduler_setting_nopowersaving_summary">ကိရိယာသည် ဘက်ထရီချွေတာမုဒ်တွင်ရှိပါက အချိန်ဆုံးဆည်းထားသည့် လုပ်ဆောင်ချက်ကို ကျော်လွှားပစ်ပါမည်။</string>
+    <string name="scheduler_setting_charging_title">အားသွင်းခြင်းမရှိပါက ကျော်လွှားပါ</string>
+    <string name="scheduler_setting_charging_summary">ကိရိယာကို အားသွင်းမပေးပါက အချိန်ဆုံးဆည်းထားသည့် လုပ်ဆောင်ချက်ကို ကျော်လွှားပစ်ပါမည်။</string>
+    <string name="scheduler_setting_automation_title">အင်္ဂါရပ်သားအစီအမံစနစ်</string>
+    <string name="scheduler_setting_automation_summary">အင်္ဂါရပ်သားအစီအမံစနစ်ကို အသုံးပြုသည့် လုပ်ဆောင်ချက်များကို ထည့်သွင်းပါ။ ကိုယ်တိုင်၏ အသုံးပြုမှုဆိုင်ရာ လုပ်ဆောင်ချက်များ လုပ်ဆောင်သည့်အခါ SD Maid သည် သင်၏မျက်နှာပြင်နှင့် တုံ့ပြန်နိုင်ရန်လိုအပ်ပါသည် (ဆိုလိုသည်မှာ၎င်းသည် သော့ဖွင့်ထားရှိသည်)။</string>
+    <string name="scheduler_notification_channel_label">အချိန်ဆုံးဆည်းထားမှု</string>
+    <string name="scheduler_notification_title">အချိန်ဆုံးဆည်းထားသည့် လုပ်ဆောင်ချက်</string>
+    <string name="scheduler_notification_message">လုပ်ဆောင်နေသည်: \"%s\"</string>
+    <string name="scheduler_notification_result_title">အချိန်ဆုံးဆည်းထားမှု ပြီးဆုံးပါပြီ</string>
+    <string name="scheduler_notification_result_success_message">အားလုံးအချိန်ဆုံးဆည်းထားသော လုပ်ဆောင်ချက်များ အောင်မြင်စွာ လုပ်ဆောင်ပြီးပါပြီ။</string>
+    <string name="scheduler_notification_result_failure_message">အချို့အချိန်ဆုံးဆည်းထားသော လုပ်ဆောင်ချက်များ ကျခြင်း သို့မဟုတ် အမှားအယွင်းများ ကြုံတွေ့ခဲ့သည်။ သူတို့ကို ကိုယ်တိုင်လုပ်ဆောင်ကြည့်ပါ။</string>
+    <string name="scheduler_commands_after_schedule_label">အချိန်ဆုံးဆည်းပြီးနောက် အမိန့်များ</string>
+    <string name="scheduler_commands_after_schedule_desc">အချိန်ဆုံးဆည်းအဆုံးတွင် လုပ်ဆောင်မည့် Android shell အမိန့်များ။</string>
+    <string name="scheduler_battery_optimization_hint">နောက်ခံလုပ်ဆောင်မှုဆိုင်ရာပြဿနာများကြုံတွေ့ပါက SD Maid အတွက်ကျန်းမာရေးလုံခြုံမှုအကောင်အထည်ဖြန့်ဝေခြင်းကိုပိတ်ခြင်းစဥ်းစားပါ။</string>
+    <string name="updates_dashcard_title">အပ်ဒိတ်ရနိုင်သည်</string>
+    <string name="updates_dashcard_body">အပ်ဒိတ်ရနိုင်သည်။ သင်သည် %1$s ရှိပြီး နောက်ဆုံးဗားရှင်း %2$s ဖြစ်သည်။</string>
+    <string name="translation_encourage_title">SD Maid ကို ဘာသာပြန်ဆိုရန်</string>
+    <string name="translation_encourage_body">SD Maid ကို စေတနာ ဝါဒီများမှ ဘာသာပြန်ဆိုသည်။ ဘာသာပြန်ဆိုခြင်း၊ သုံးသပ်ခြင်း သို့မဟုတ် ပြုပြင်စစ်ဆေးခြင်း၊ သင်၏ အကူအညီကို တန်ဖိုးထားပါသည်</string>
+    <string name="translation_translators_title">ဤဗားရှင်းကို ဘာသာပြန်ဆိုသူ</string>
+    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="motd_setting_enabled_label">အရေးကြီးသောသတင်းများ</string>
+    <string name="motd_setting_enabled_explanation">SD Maid သည် ဖန်တီးသူမှ အရေးကြီးသောသတင်းများ စစ်ဆေးရန် ခွင့်ပြုပါ။</string>
+    <string name="updatecheck_setting_enabled_label">အဆင့်မြှင့်တင်ခြင်းကို စစ်ဆေးပါ</string>
+    <string name="updatecheck_setting_enabled_explanation">SD Maid သည် အဆင့်မြှင့်တင်ခြင်းများကို စစ်ဆေးရန် ခွင့်ပြုပါ ၊ ထို့ကြောင့် ပိုသစ်သော version မရှိနိုင်ခြင်းကို သိရှိနိုင်ပါသည်။</string>
     <string name="device_settings_category">စက်ပစ္စည်း</string>
     <string name="beta_version_indicator_desc">ကြိုတင်ဖြန့်ချိမှု ဗားရှင်းများသည် ပြိုင်ပွဲ မျက်နှာပြင်တွင် ရှည်သော ဖဲကြိုးလေး ပြသသည်။ ၎င်းတို့သည် မကြာခဏ အပ်ဒိတ် ပြုလုပ်ပြီး၊ လုပ်ဆောင်ချက်များ ပိုများနိုင်သော်လည်း ချွတ်ယွင်းချက်များလည်း ပိုများနိုင်သည်။</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>
+    <string name="anniversary_card_title">SD Maid အထုံးအဝါစည်ပွဲ ၎င်းဖြစ်ပါသည် ❤️</string>
+    <string name="anniversary_card_install_date">သင်ထံ %s မှစ၍ အတူရှိသည်</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">%1$d နှစ် အားကောင်း။ သင်၏ ကိရိယာသည် SD Maid ဖြင့် ရှင်းလင်းပြီး စုစည်းထားသည်။ လွှတ်ပြုခြင်းအနေအထားရှိသည်: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">သင်၏ SD Maid အထုံးအဝါစည်ပွဲ ၎င်းပိုင်းခွဲခြင်း</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d နှစ် SD Maid ဖြင့်အတူ — လွှတ်ပြုခြင်းအနေအထားရှိသည်: %2$s။ သင်၏ Android ကိရိယာကိုရှင်းလင်းပြီး စုစည်းထားခြင်း။ #SDMaid\nစမ်းသပ်ကြည့်ပါ: %3$s</item>
+    </plurals>
     <string name="stats_label">မှတ်တမ်း</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="other">%s ကို လွှတ်ပြီးပါပြီ။</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="other">သင် SD Maid ကို သင်႕၏စက်ပစ္စည်းသို့ ဖိတ်ခေါ်ပြီးကတည်းက %s ခုများ လုပ်ဆောင်ထားသည်။</item>
+    </plurals>
     <string name="stats_report_status_success">အောင်မြင်မှု</string>
     <string name="stats_report_status_partial_success">တစ်စိတ်တစ်ပိုင်း အောင်မြင်မှု</string>
+    <string name="stats_report_status_partial_failure">ပျက်ကွက်မှု</string>
+    <string name="stats_settings_desc">SD Maid ၏ စာရင်းအင်္ဂတ်များ၊ အစီရင်ခံများ နှင့် ဒေတာ ထိန်းသိမ်းမှုကို ပြင်ဆင်ပါ။</string>
+    <string name="stats_settings_retention_category">ထိန်းသိမ်းမှု</string>
+    <string name="stats_settings_retention_reports_label">ယေ.သော အစီရင်ခံများ</string>
+    <string name="stats_settings_retention_reports_desc">SD Maid အခြေခံအလုပ်လုပ်ဆောင်ချက် အစီရင်ခံများကို ဖျက်သည့်အထိ ရက်သတ္တပတ်အရေအတွက်။</string>
+    <string name="stats_settings_retention_paths_label">လမ်းကြောင်း အသေးစိတ် အချက်အလက်</string>
+    <string name="stats_settings_retention_paths_desc">SD Maid မှ အကျိုးသက်ရောက်သည့် လမ်းကြောင်းများ အတွက် အသေးစိတ် အချက်အလက်များ ထိန်းသိမ်းရန် ရက်သတ္တပတ်အရေအတွက်။</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="other">%d ရက်</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">အားလုံးကို ပြန်သတ်မှတ်ပါ</string>
+    <string name="stats_settings_reset_all_desc">အစီရင်ခံများအားလုံးကို ဖျက်ပြီး စာရင်းအင်္ဂတ်များအားလုံးကို သုညသို့ သတ်မှတ်ပါ။</string>
+    <string name="stats_affected_paths_label">အကျိုးသက်ရောက်သည့် လမ်းကြောင်းများ</string>
+    <string name="stats_affected_pkgs_label">အကျိုးသက်ရောက်သည့် အက်ပ်များ</string>
+    <string name="picker_select_paths_title">လမ်းကြောင်းများ ရွေးချယ်ပါ</string>
+    <string name="picker_selected_paths_title">ရွေးချယ်ထားသည့် လမ်းကြောင်းများ</string>
+    <string name="picker_unsaved_confirmation_message">ပြောင်းလဲမှုများကို စွန့်ပစ်ပါ?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d လမ်းကြောင်းများ ရွေးချယ်ထားသည်</item>
+    </plurals>
+    <string name="picker_home_action">ဒေတာ နေရာများ</string>
+    <string name="area_type_sdcard_label">ပွင့်လင်း သိုလှောင်ခန်း</string>
+    <string name="area_type_public_media_label">ပွင့်လင်း အက်ပ်မီဒီယာ</string>
+    <string name="area_type_public_data_label">အများသုံး အက်ပ်ဒေတာ</string>
+    <string name="area_type_public_obb_label">အများသုံး အက်ပ်အရင်းအမြစ်</string>
+    <string name="area_type_private_data_label">ကိုယ်ရေးအက်ပ်ဒေတာ</string>
+    <string name="area_type_portable_label">ရွှေ့လျားနိုင်သည့်သိုလှောင်မှု</string>
+    <string name="shortcut_appcontrol_short">အက်ပ်ထိန်းချုပ်မှု</string>
+    <string name="shortcut_appcontrol_long">တည်ဆောက်ထားသည့်အက်ပ်များကိုစီမံခန့်ခွဲသည်</string>
+    <string name="shortcut_onetap_short">စကင်+ဖျက်သည်</string>
+    <string name="shortcut_onetap_long">တစ်ခြင်းအလုပ်ခွင်းဖြင့် စကင်နှင့်ဖျက်သည်</string>
+    <string name="shortcuts_settings_category">ခင်ဗျား</string>
+    <string name="shortcuts_onetap_enabled_title">တစ်ချက်သုံးတိုက်ခင်ဗျား</string>
+    <string name="shortcuts_onetap_enabled_summary">အပ်ပလီကေးရှင်း icon ကို အရှည်ကြာ တိုက်နယ်သည့်အခါ \"စကင်န်လုပ် + ဖျက်\" အတိုကောက် ပွင့်လင်းပြသပါ။ အဆင့်တစ်ခုထဲ dashboard ဖြင့်အလားတူ tool များအသုံးပြုသည်။</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">ဖိုလ်ဒါများကိုလျင်မြန်စွာရှင်းလင်းပါ — ကျန်ထားရန်၊ဖျက်ရန်သို့မဟုတ်ကျော်လွှားရန်ဖိုင်များကိုဖြည်းဖြည်းအဝင်းအဖုံအလျောက်ပြုလုပ်ပါ။</string>
+    <string name="swiper_dashcard_description">ဖိုင်ရှာဖွေရိုးရှင်းစနစ်ထက်ကျင့်သုံးမရသည့်ဖိုလ်ဒါများကိုလျင်မြန်စွာရှင်းလင်းပါ — ဖိုင်တစ်ခုစီကိုအဝင်းအဖုံအလျောက်ပြုလုပဿပါ။</string>
+    <string name="swiper_start_action">စတင်စွဲွတ်ခြင်း</string>
+    <string name="swiper_continue_action">အစီအစဉ်ဆက်လက်ခြင်း</string>
+    <string name="swiper_sessions_description">ရိုးရှင်းသည့်အဆင့် 3 ခုတွင်ဖိုင်များကိုပြန်လည်သုံးသပဿပါ\n\n1. စကင်ဆန်းခြင်းအတွက်ဖိုလ်ဒါကိုရွေးချယ်ပါ\n2. ကျန်ထားရန်၊ဖျက်ရန်သို့မဟုတ်ကျော်လွှားရန်ဖိုင်များကိုအဝင်းအဖုံအလျောက်ပြုလုပဿပါ\n3. သင်၏ရွေးချယ်မှုများကိုပြန်လည်သုံးသပဿပြီးအတည်ပြုပါ\n\nအဖျက်ခလုတ်ကိုနှိပဿသည့်အချိန်အထိအဘယ်အရာမျှဖယ်ထုတဿသည်မဟုတဿပါ။</string>
+    <string name="swiper_select_folders_action">ဖိုလ်ဒါများရွေးချယ်ခြင်း</string>
+    <string name="swiper_scanning_title">စကင်ခြင်း…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">%d မုဒ္ဒာများတွေ့ရှိထားသည်</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">%d မုဒ္ဒာများဖျက်သိမ်းထားသည်</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d မုဒ္ဒာများမအောင်မြင်</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">ထိန်းသိမ်းခြင်း</string>
+    <string name="swiper_skip_action">လွှဲခြင်း</string>
+    <string name="swiper_review_action">ပြန်လည်ကြည့်ခြင်း</string>
+    <string name="swiper_status_title">ဆုံးဖြတ်ချက်များကို ပြန်လည်သုံးသပ်ပါ</string>
+    <string name="swiper_status_action_keep_selected">ရွေးချယ်ထားသည်များကို ထိန်းသိမ်းပါ</string>
+    <string name="swiper_status_action_delete_selected">ရွေးချယ်ထားသည်များကို ဖျက်ပါ</string>
+    <string name="swiper_status_action_reset_selected">ရွေးချယ်ထားသည်များကို ပြန်လည်သတ်မှတ်ပါ</string>
+    <string name="swiper_decision_undecided">မဆုံးဖြတ်သည့်</string>
+    <string name="swiper_retry_action">ထပ်မံကြိုးစားပါ</string>
+    <string name="swiper_delete_confirmation_title">ဖိုင်များ ဖျက်မည်လား?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">ဤသည်%1$d ဖိုင်များ (%2$s) ကို အမြဲဖျက်ပစ်မည်ဖြစ်သည်။ ဤလုပ်ဆောင်ချက်ကိုပယ်ဖျက်၍မရနိုင်ပါ။</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d ဆုံးဖြတ်ချက်မချေးရသေးသည့်ဆန္ဒများသည်နောက်ပိုင်းတွင်ပြန်လည်သုံးသပ်ရန်ကျန်ရှိနေသည်။</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ဖျက်ပါ</string>
+    <string name="swiper_settings_swap_directions_title">စွဲလန်းလုပ်ဆောင်ချက်များကို ပြောင်းလဲပါ</string>
+    <string name="swiper_settings_swap_directions_summary">ဘယ်ဖက်သို့ စွဲဆိုင်းခြင်းဖြင့် ထိန်းသိမ်း၊ ညာဖက်သို့ စွဲဆိုင်းခြင်းဖြင့် ဖျက်ပါ။</string>
+    <string name="swiper_settings_show_details_title">ဖိုင်အသေးစိတ်များ ပြပါ</string>
+    <string name="swiper_settings_show_details_summary">စွဲလုပ်ဆောင်ချက်မျက်နှာပြင်တွင် ဖိုင်အမည်၊ အရွယ်အစားနှင့် နေ့စွဲများကို ပြပါ။</string>
+    <string name="swiper_settings_haptic_feedback_title">ထိတွေ့အတုံ့အပြန်များ</string>
+    <string name="swiper_settings_haptic_feedback_summary">ထိန်းသိမ်း သို့မဟုတ် ဖျက်ရန် ဆုံးဖြတ်ချက်များ ပြုလုပ်သည့်အခါ တုန်ခါစေပါ။</string>
+    <string name="swiper_discard_session_confirmation_title">စက်မှုသုံးအစုစည်းအစုကို ပယ်ထုတ်မည်လား?</string>
+    <string name="swiper_discard_session_confirmation_message">ဆုံးဖြတ်ချက်များအားလုံးကို ဆုံးရှုံးမည်ဖြစ်သည်။ သင့်သည် သေချာမည်လား?</string>
+    <string name="swiper_no_preview_available">အစpreview မရနိုင်ပါ</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">%1$d ရက်အရှေ့ (%2$d%% အပြီးအောင်) မှကဋ္ဋာလုပ်ဆောင်ချက်ကိုဆက်လက်ပြုလုပ်ပါ</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d အစုစည်းအစုများ</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d မဆုံးဖြတ်သည့်မိုန်းများ</item>
+    </plurals>
+    <string name="swiper_session_timestamps">%1$s တွင် ပြုလုပ်ခဲ့၊ နောက်ဆုံးလုပ်ဆောင်ချက် %2$s</string>
+    <string name="swiper_session_remove_action">အစုစည်းအစုကို ဖယ်ရှားပါ</string>
+    <string name="swiper_sessions_empty_hint">ဖိုလ်ဒါတစ်ခု ရွေးချယ်ရန်နှင့် စွဲလုပ်ဆောင်ခြင်းကို စတင်ရန် + ကိုအသုံးပြုပါ</string>
+    <string name="swiper_sessions_upgrade_body">ဤကန့်သတ်ချက်များကိုဖယ်ထုတ်ရန်နှင့်ဖွံ့ဖြိုးတိုးတက်မှုကိုထောက်ခံရန်အဆင့်မြှင့်တင်ပါ။ အခမဲ့ဗားရှင်းသည်အောက်ပါတို့သို့ကန့်သတ်ထားသည်-</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">%d ကဋ္ဋာလုပ်ဆောင်ချက်တစ်ခုအသီးသီးဖိုင်</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d ကဋ္ဋာလုပ်ဆောင်ချက်</item>
+    </plurals>
+    <string name="swiper_session_default_label">အစုစည်းအစု #%d</string>
+    <string name="swiper_session_rename_title">အစုစည်းအစုအမည်ပြောင်းလဲပါ</string>
+    <string name="swiper_session_rename_hint">ဤအစုစည်းအစုအတွက် အမည်ထည့်သွင်းပါ</string>
+    <string name="swiper_sessions_current_sessions">လက်ရှိအစုစည်းအစုများ</string>
+    <string name="swiper_session_paths_label">လမ်းကြောင်းများ</string>
+    <string name="swiper_session_status_label">အခြေအနေ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d ထိန်းသိမ်းရန်</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d ဖျက်ရန်</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d ဆုံးဖြတ်ချက်မချေးရသေးပါ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d ကိုယ်တိုင်ကျန်ထားပြီးပါ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d ကိုယ်တိုင်ဖျက်ပြီးပါ</item>
+    </plurals>
     <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d ကျန်ထားသည်</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d ဖျက်သည်</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" ကို Swiper စကင်ဆန်းကနဲ့ဖယ်ထုတ်မည်လည်း။</string>
+    <string name="swiper_sessions_header_title">ရှင်းလင်းရန်အဆင့်သင့်ပါသလား။</string>
+    <string name="swiper_sessions_suggestions_label">ဒီနှင့်စတင်ကြည့်ပါ။</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloadများ ဖိုလ်ဒါ</string>
+    <string name="swiper_sessions_suggestion_screenshots">ကျေးဇူးတင်ရန်ဓာတ်ပုံများ</string>
+    <string name="swiper_sessions_suggestion_camera">ကင်မရာချ</string>
     <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">သိမ်း!</string>
     <string name="swiper_stamp_keep_2">ကောင်း!</string>

@@ -382,6 +382,8 @@
     <string name="appcleaner_filter_recyclebins_summary">删除后被移动到特定文件夹以备恢复的文件。</string>
     <string name="appcleaner_filter_webview_label">Webview 文件</string>
     <string name="appcleaner_filter_webview_summary">应用内置浏览器的缓存文件。</string>
+    <string name="appcleaner_filter_shortcutservice_label">应用快捷方式图标</string>
+    <string name="appcleaner_filter_shortcutservice_summary">应用快捷方式和分享菜单的缓存图标。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 备份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">删除 WhatsApp 备份的额外副本，只保留最新备份</string>
     <string name="appcleaner_filter_whatsapp_received_summary">您通过 WhatsApp 从其他人那里收到的文件</string>
@@ -905,8 +907,13 @@
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
     <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
+    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
     <string name="swiper_start_action">开始滑动</string>
     <string name="swiper_continue_action">继续会话</string>
+    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
     <string name="swiper_select_folders_action">选择文件夹</string>
     <string name="swiper_scanning_title">正在扫描…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1024,15 +1031,8 @@
     <string name="swiper_gesture_overlay_right_delete">删除 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ 跳过</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">帮助</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
-    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
-    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
 </resources>

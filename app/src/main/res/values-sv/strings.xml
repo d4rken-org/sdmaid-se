@@ -1005,6 +1005,10 @@
         <item quantity="one">Fortsätt session från %1$d dag sedan (%2$d%% klart)</item>
         <item quantity="other">Fortsätt session från %1$d dagar sedan (%2$d%% klart)</item>
     </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessioner</item>
+    </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">%d obestämt objekt</item>
         <item quantity="other">%d obestämda objekt</item>
@@ -1017,9 +1021,13 @@
         <item quantity="one">%d fil per session</item>
         <item quantity="other">%d filer per session</item>
     </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessioner</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_session_rename_title">Byt namn på session</string>
     <string name="swiper_session_rename_hint">Ange ett namn för denna session</string>
-    <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_sessions_current_sessions">Aktuella sessioner</string>
     <string name="swiper_session_paths_label">Sökvägar</string>
     <string name="swiper_session_status_label">Status</string>

@@ -135,7 +135,7 @@
     <string name="setup_root_enable_root_use_label">Përdorni aksesin rrënjë nëse është i disponueshëm</string>
     <string name="setup_root_disable_root_use_label">Mos përdorni qasje në rrënjë</string>
     <string name="setup_root_card_body2">Në dispozicion vetëm në pajisjet e rrënjosura. Nëse nuk e keni bërë këtë modifikim, atëherë pajisja juaj nuk është e rrënjosur dhe ky cilësim nuk ka asnjë efekt.</string>
-    <string name="setup_shizuku_card_title">Qetësi</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Lejo SD Maid të përdorë \"Shizuku\" ku është e mundur për të përmirësuar rezultatet dhe aktivizuar veçoritë.</string>
     <string name="setup_shizuku_card_body2">Ky cilësim nuk ka efekt nëse aplikacioni \"Shizuku\" nuk është konfiguruar në pajisjen tuaj.</string>
     <string name="setup_shizuku_card_root_info">Shizuku në kombinim me qasjen rrënjore nuk mundëson veçori shtesë, por përmirëson besueshmërinë. SD Maid do ta përdorë atë si metodë kthimi.</string>
@@ -181,6 +181,13 @@
     <string name="debug_bugreporter_label">Raportet automatike të gabimeve</string>
     <string name="debug_bugreporter_summary">Raporton automatikisht probleme, p.sh. detajet mbi dështimin e aplikacionit në mënyrë që të kuptoj pse dhe ta rregulloj atë.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Mënyra e korrigjimit është aktivizuar</string>
+    <string name="debug_card_trace_mode_label">Aktivizo mënyrën e gjurmimit</string>
+    <string name="debug_card_dryrun_mode_label">Mënyrë provë (çaktivizo fshirjen)</string>
+    <string name="debug_card_areas_reload_action">Ringarko zonat e të dhênave</string>
+    <string name="debug_card_pkgs_reload_action">Ringarko aplikacionet</string>
+    <string name="debug_card_root_test_action">Testo root</string>
+    <string name="debug_card_shizuku_test_action">Testo Shizuku</string>
     <string name="settings_category_tools_label">Mjetet</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
@@ -272,6 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Mosha e pamjeve të ekranit</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Mosha minimale për pamjet e ekranit që të konsiderohen për fshirje.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK të tepërta ose të panevojshme</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Skedarë instalimi që nuk nevojiten më bazuar në versionet e aplikacioneve të instaluara.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Përfshi të njëjtin version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Synoni gjithashtu skedarët APK që përputhen me versionin e instaluar. Çaktivizo për të hequr vetëm versionet më të vjetra.</string>
     <string name="systemcleaner_filter_lostdir_label">Dosjet LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Skedarët e përkohshëm që krijohen gjatë transferimit të të dhënave midis pajisjeve Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Skedarët Linux</string>
@@ -332,7 +342,13 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Emri është i barabartë me fjalën kyçe</string>
     <string name="systemcleaner_customfilter_last_edit">Redaktimi i fundit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Kërkim i drejtpërdrejtë(live)</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Kufizime madhësie</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Madhësia minimale</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Madhësia maksimale</string>
     <string name="systemcleaner_customfilter_editor_size_explanation">Kufizoni rezultatet bazuar në madhësinë e skedarit. Lëreni pa vendosur për të përputhur çdo madhësi.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Kufizime moshe</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Mosha minimale</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Mosha maksimale</string>
     <string name="systemcleaner_customfilter_editor_age_explanation">Kufizoni rezultatet bazuar në moshën e skedarit (koha e modifikimit të fundit). Lëreni pa vendosur për të përputhur çdo moshë.</string>
     <string name="systemcleaner_customfilter_import_action">Importoni filtër të ri</string>
     <string name="systemcleaner_customfilter_export_action">Eksporto filtrin e zgjedhur</string>
@@ -446,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Trego opsionet që ju lejojnë të fshini të gjithë skedarët në një grup dublikate në mënyrë që të mos mbetet asnjë skedar.</string>
     <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
     <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
+    <string name="deduplicator_keep_prefer_paths_title">Prefero ruajtjen në</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kur vendoset cilin dublikat të ruhet, prefero mbajtjen e skedarëve në këto vendndodhje.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nuk ka vendndodhje të konfiguruara</string>
     <string name="deduplicator_skip_minsize_title">Madhësia minimale</string>
     <string name="deduplicator_skip_minsize_description">Kapërceni skedarët që janë nën madhësinë minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Kapërceni llojet e pazakonta të skedarëve</string>
@@ -473,6 +492,8 @@
     <string name="deduplicator_details_cluster_title">Set duplikatesh</string>
     <string name="deduplicator_matches_exact_label">Kopje ekzakte</string>
     <string name="deduplicator_matches_similar_label">Skedarë të ngjashëm</string>
+    <string name="deduplicator_arbiter_title">Strategjia e fshirjes</string>
+    <string name="deduplicator_arbiter_summary">Konfiguro cilët skedarë ruhen dhe cilët fshihen.</string>
     <string name="deduplicator_arbiter_explanation">Kur fshini dublikatat, SD Maid vendos se cilin skedar ta mbajë duke kontrolluar çdo kriter sipas radhës. Kriteri i parë që jep një fitues të qartë përcakton rezultatin. Tërhiqni për të rirenditur, prekni për të ndryshuar modalitetin.</string>
     <string name="deduplicator_arbiter_select_mode_title">Zgjidhni modalitetin</string>
     <string name="deduplicator_arbiter_configure_paths_action">Konfiguro shtegjet…</string>
@@ -504,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Dosje</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Kompresoni imazhet për të kursyer hapësirë ​​ruajtëse.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d imazh u gjet</item>
@@ -563,7 +585,7 @@
     <string name="squeezer_history_clear_message">Kjo do të lejojë imazhet e kompresuara më parë të kompresohen përsëri. Vetë imazhet nuk preken.</string>
     <string name="squeezer_onboarding_title">Rreth kompresimit të imazheve</string>
     <string name="squeezer_onboarding_message">Kompresimi i imazheve zvogëlon madhësinë e skedarit duke hequr detajet vizuale. Ky proces është i pakthyeshëm - cilësia origjinale nuk mund të rikthehet.\n\nJa një pamje paraprake se si do të duken imazhet tuaja:</string>
-    <string name="squeezer_onboarding_original_label">Origjinale</string>
+    <string name="squeezer_onboarding_original_label">Origjinal</string>
     <string name="squeezer_onboarding_compressed_label">Pas kompresimit</string>
     <string name="squeezer_onboarding_quality_label">Cilësia: %d%%</string>
     <string name="squeezer_onboarding_got_it">E kuptova</string>
@@ -621,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">Nuk është instaluar</string>
     <string name="appcontrol_tag_enabled">Aktivizuar</string>
     <string name="appcontrol_tag_disabled">Çaktivizuar</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Aktivizimi i aplikacionit</string>
     <string name="appcontrol_progress_disabling_package">Çaktivizimi i aplikacionit</string>
     <string name="appcontrol_list_filteroptions_label">Opsionet e filtrit</string>
@@ -928,8 +951,13 @@
     <string name="shortcuts_settings_category">Shkurtica</string>
     <string name="shortcuts_onetap_enabled_title">Shkurtica me një të klikuar</string>
     <string name="shortcuts_onetap_enabled_summary">Shfaq shkurtoren \"Skano + Fshij\" kur shtyp gjatë ikonën e aplikacionit. Përdor të njëjtat mjete si paneli me një prekje.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
+    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
     <string name="swiper_start_action">Fillo rrëshqitjen</string>
     <string name="swiper_continue_action">Vazhdo sesionin</string>
+    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
     <string name="swiper_select_folders_action">Zgjidhni dosjet</string>
     <string name="swiper_scanning_title">Duke skanuar…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1048,6 +1076,7 @@
     <string name="swiper_stamp_delete_3">Mbeturinë!</string>
     <string name="swiper_stamp_delete_4">Fshi!</string>
     <string name="swiper_stamp_skip_1">Kapërce!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
     <string name="swiper_stamp_skip_3">Më vonë!</string>
     <string name="swiper_stamp_skip_4">Ndoshta!</string>
     <string name="swiper_stamp_undo_1">Zhbëj!</string>
@@ -1063,17 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">Fshi →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Kapërce</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Ndihmë</string>
     <string name="swiper_help_title">Si funksionon Swiper</string>
     <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
-    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
-    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
-
-    <string name="swiper_stamp_skip_2">Meh!</string>
 </resources>

@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-
     <string name="upgrade_feature_requires_pro">SD Maid SE FOSS လိုအပ်သည်</string>
     <string name="upgrades_dashcard_title">SD Maid SE ကို အဆင့်မြှင့်ရန်</string>
     <string name="upgrades_dashcard_body">အပိုဝန်ဆောင်မှုများကို ဖွင့်ပြီး ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးရန် ကူညီသူဖြစ်လာပါ!</string>

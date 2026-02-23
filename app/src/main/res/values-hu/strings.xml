@@ -29,7 +29,7 @@
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d aktív feladat</item>
-        <item quantity="other">%d aktív feladatok 😁</item>
+        <item quantity="other">%d aktív feladatok</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d feladat a sorban</item>
@@ -951,8 +951,13 @@
     <string name="shortcuts_settings_category">Parancsikonok</string>
     <string name="shortcuts_onetap_enabled_title">Egyérintéses parancsikon</string>
     <string name="shortcuts_onetap_enabled_summary">\"Keresés + Törlés\" parancsikon megjelenítése az alkalmazásikon hosszú nyomásakor. Ugyanazokat az eszközöket használja, mint az egyérintéses irányítópult.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Mappák gyors rendrakása — húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz.</string>
+    <string name="swiper_dashcard_description">Mappák rendezése gyorsabban, mint egy fájlkezelővel — csak húzd az egyes fájlokat.</string>
     <string name="swiper_start_action">Húzogatás indítása</string>
     <string name="swiper_continue_action">Munkamenet folytatása</string>
+    <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>
     <string name="swiper_select_folders_action">Mappák kiválasztása</string>
     <string name="swiper_scanning_title">Keresés…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1087,15 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">Törlés →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Kihagyás</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Visszavonás</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Súgó</string>
     <string name="swiper_help_title">Hogyan működik a Swiper</string>
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Mappák gyors rendrakása — húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz.</string>
-    <string name="swiper_dashcard_description">Mappák rendezése gyorsabban, mint egy fájlkezelővel — csak húzd az egyes fájlokat.</string>
-    <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>
 </resources>

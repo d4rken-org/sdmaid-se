@@ -2,7 +2,6 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
-
     <string name="upgrade_feature_requires_pro">Krefst SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Uppfæra SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro býður betri niðurstöður, fleiri eiginleika og valkosti fyrir vanareynda notendur.</string>

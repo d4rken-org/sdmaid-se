@@ -42,6 +42,7 @@
     <string name="onboarding_welcome_body2">Gaña espazo de almacenamento limpando tras outras aplicacións. Elimina ficheiros prescindibles e remove datos residuais.</string>
     <string name="onboarding_welcome_body_beta">Esta é unha versión beta (de proba). Procede con sentido do humor e un plan de seguranza. Por favor, informa dos problemas que atopes.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) é o sucesor de SD Maid (alias SD Maid 1). Unha aplicación nova, optimizada para Android moderno.</string>
     <string name="onboarding_versus_body2">A arquitectura da súa predecesora ten máis de 7 anos e non foi deseñada para os desafíos das versións máis novas de Android. Era necesario un redeseño completo para continuar o desenvolvemento.</string>
     <string name="onboarding_versus_body3">Considera cambiar a SD Maid SE para mellorar os resultados.</string>
@@ -76,6 +77,7 @@
     <string name="ui_theme_style_setting_label">Estilo de tema</string>
     <string name="ui_theme_style_setting_explanation">O estilo de cor usado para tematizar a aplicación.</string>
     <string name="ui_theme_style_default_label">Predeterminado</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Vistas previas de ficheiros</string>
     <string name="ui_previews_summary">Mostrar vistas previas de ficheiros en todas as ferramentas (p. ex. miniaturas de imaxes e vídeos).</string>
     <string name="ui_language_override_label">Idioma da aplicación</string>
@@ -97,6 +99,7 @@
     <string name="support_debuglog_folder_empty_desc">Non hai rexistros de depuración gardados</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Eliminar todos os rexistros de depuración?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Isto eliminará permanentemente todas as sesións de rexistro de depuración gardadas. Esta acción non se pode desfacer.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar para pasar o rato e facer preguntas.</string>
     <string name="changelog_label">Rexistro de cambios</string>
     <string name="settings_acknowledgements_label">Recoñecementos</string>
@@ -132,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">Usar acceso root se está dispoñible</string>
     <string name="setup_root_disable_root_use_label">Non usar acceso root</string>
     <string name="setup_root_card_body2">Só dispoñible en dispositivos con root. Se non fixeches esta modificación, entón o teu dispositivo non ten root e esta configuración non ten efecto.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permite a SD Maid usar Shizuku onde sexa posible para mellorar os resultados e habilitar funcionalidades.</string>
     <string name="setup_shizuku_card_body2">Esta configuración non ten efecto se a aplicación Shizuku non está configurada no teu dispositivo.</string>
     <string name="setup_shizuku_card_root_info">Shizuku en combinación co acceso root non habilita funcionalidades adicionais, pero mellora a fiabilidade. SD Maid usarao como método de respaldo.</string>
@@ -187,6 +191,7 @@
     <string name="settings_category_tools_label">Ferramentas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de risco</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Datos pertencentes a aplicacións xa eliminadas.</string>
     <string name="corpsefinder_settings_summary">Axustar filtros de escaneo e niveis de risco.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Incluír restos desexables</string>
@@ -228,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">Datos de instalación de aplicacións restrinxidos, p. ex. aplicacións de terceiros protexidas.</string>
     <string name="corpsefinder_filter_appasec_label">Recursos de aplicacións cifrados</string>
     <string name="corpsefinder_filter_appasec_summary">Recursos de aplicacións cifrados, p. ex. recursos de xogos.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">Datos movidos ao almacenamento externo mediante modificacións App2Sd.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d resto de aplicación eliminado</item>
         <item quantity="other">%d restos de aplicacións eliminados</item>
@@ -244,6 +249,7 @@
     <string name="corpsefinder_owner_unknown">Propietario descoñecido</string>
     <string name="corpsefinder_corpse_hint_keeper">Este elemento pode conter datos que queira conservar a pesar de que o seu propietario fose desinstalado, p. ex. fotos ou copias de seguranza.</string>
     <string name="corpsefinder_corpse_hint_common">Este elemento ten un nome moi común e podería pertencer a aplicacións aínda instaladas que SD Maid non coñece.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Datos superfluos que non pertencen a ningunha aplicación específica.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d coincidencia eliminada</item>
@@ -346,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias en base á antigüidade do ficheiro (última modificación). Deixar sen definir para coincidir con calquera antigüidade.</string>
     <string name="systemcleaner_customfilter_import_action">Importar novo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro seleccionado</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Datos prescindibles pertencentes a aplicacións específicas.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cachés públicas predeterminadas</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cachés públicas predeterminadas das aplicacións. Accesibles en Android/data en versións antigas de Android. Elimínanse ao tocar \"Borrar caché\" na configuración do sistema.</string>
@@ -518,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir ficheiros máis pequenos</string>
     <string name="deduplicator_view_mode_groups_label">Grupos</string>
     <string name="deduplicator_view_mode_directories_label">Cartafoles</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Comprimir imaxes para aforrar espazo de almacenamento.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d imaxe atopada</item>
@@ -601,6 +609,7 @@
         <item quantity="other">Polo menos %d días de antigüidade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Aforro estimado de ~%d%% para ficheiros JPEG</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicacións instaladas no teu dispositivo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplicación detectada</item>
@@ -624,9 +633,9 @@
     <string name="appcontrol_app_exclude_add_description">Excluír esta aplicación doutras operacións en SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Editar exclusión</string>
     <string name="appcontrol_app_exclude_edit_description">Esta aplicación está actualmente excluída dunha ou máis ferramentas.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_active">Activa recentemente</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paquete</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arquivada</string>
@@ -634,7 +643,7 @@
     <string name="appcontrol_tag_not_installed">Non instalada</string>
     <string name="appcontrol_tag_enabled">Activada</string>
     <string name="appcontrol_tag_disabled">Desactivada</string>
-    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_tag_debug">Depuración</string>
     <string name="appcontrol_progress_enabling_package">Activando aplicación</string>
     <string name="appcontrol_progress_disabling_package">Desactivando aplicación</string>
     <string name="appcontrol_list_filteroptions_label">Opcións de filtro</string>
@@ -729,6 +738,7 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Tempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalada o: %s</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Descubra que está ocupando espazo no seu dispositivo.</string>
     <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamento</string>
     <string name="analyzer_progress_scanning_storage">Analizando almacenamento</string>
@@ -934,14 +944,20 @@
     <string name="area_type_public_obb_label">Recursos públicos das aplicacións</string>
     <string name="area_type_private_data_label">Datos privados das aplicacións</string>
     <string name="area_type_portable_label">Almacenamento portátil</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Xestionar aplicacións instaladas</string>
     <string name="shortcut_onetap_short">Escanear + Eliminar</string>
     <string name="shortcut_onetap_long">Escanear e eliminar nunha acción</string>
     <string name="shortcuts_settings_category">Atallos</string>
     <string name="shortcuts_onetap_enabled_title">Atallo dun toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar o atallo \"Escanear + Eliminar\" ao manter premida a icona da aplicación. Usa as mesmas ferramentas que o panel dun toque.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Ordena cartafoles rapidamente -- pasa o dedo polos ficheiros para gardar, eliminar ou saltar.</string>
+    <string name="swiper_dashcard_description">Ordena cartafoles específicos máis rápido que cun explorador de ficheiros -- simplemente pasa o dedo en cada ficheiro.</string>
     <string name="swiper_start_action">Comezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar cartafoles</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1080,9 +1096,4 @@
     <string name="swiper_help_action">Axuda</string>
     <string name="swiper_help_title">Como funciona Swiper</string>
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Ordena cartafoles rapidamente -- pasa o dedo polos ficheiros para gardar, eliminar ou saltar.</string>
-    <string name="swiper_dashcard_description">Ordena cartafoles específicos máis rápido que cun explorador de ficheiros -- simplemente pasa o dedo en cada ficheiro.</string>
-    <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
 </resources>

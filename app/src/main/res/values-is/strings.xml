@@ -42,6 +42,7 @@
     <string name="onboarding_welcome_body2">Fáðu geymslupláss með því að hreinsa upp á eftir öðrum forritum. Eyddu óþarfa skrám og fjarlægðu afgangsgögn.</string>
     <string name="onboarding_welcome_body_beta">Þetta er beta (prófunar) útgáfa. Haltu áfram með húmorkennd og varaáætlun. Vinsamlegast tilkynntu vandamál sem þú lendir í.</string>
     <string name="onboarding_welcome_continue_action">Halda áfram</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (þ.e. SD Maid 2) er arftaki SD Maid (þ.e. SD Maid 1). Nýtt forrit, fínstillt fyrir nútíma Android.</string>
     <string name="onboarding_versus_body2">Arkitektúr forvera þess er yfir 7 ára gamall og ekki hannaður fyrir áskoranir nýrri Android útgáfna. Algjör enduruppbygging var nauðsynleg til að halda þróun áfram.</string>
     <string name="onboarding_versus_body3">Íhugaðu að skipta yfir í SD Maid SE fyrir betri niðurstöður.</string>
@@ -76,6 +77,7 @@
     <string name="ui_theme_style_setting_label">Þemastíll</string>
     <string name="ui_theme_style_setting_explanation">Litastíllinn sem notaður er við þema forritsins.</string>
     <string name="ui_theme_style_default_label">Sjálfgefið</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Forskoðanir skráa</string>
     <string name="ui_previews_summary">Sýna forskoðanir skráa í öllum tækjum (t.d. smámyndir mynda og myndskeiða).</string>
     <string name="ui_language_override_label">Tungumál forrits</string>
@@ -97,6 +99,7 @@
     <string name="support_debuglog_folder_empty_desc">Engar villuleitarskrár geymdar</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Eyða öllum villuleitarskrám?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Þetta mun eyða öllum geymdum villuleitarskrám varanlega. Ekki er hægt að afturkalla þessa aðgerð.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Staður til að hitta fólk og spyrja spurninga.</string>
     <string name="changelog_label">Breytingaskrá</string>
     <string name="settings_acknowledgements_label">Viðurkenningar</string>
@@ -132,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">Nota root aðgang ef tiltækur</string>
     <string name="setup_root_disable_root_use_label">Ekki nota root aðgang</string>
     <string name="setup_root_card_body2">Aðeins tiltækt á rooted tækjum. Ef þú gerðir ekki þessa breytingu þá er tækið þitt ekki rooted og þessi stilling hefur engin áhrif.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Leyfðu SD Maid að nota Shizuku þar sem hægt er til að bæta niðurstöður og virkja eiginleika.</string>
     <string name="setup_shizuku_card_body2">Þessi stilling hefur engin áhrif ef Shizuku forritið er ekki uppsett á tækinu þínu.</string>
     <string name="setup_shizuku_card_root_info">Shizuku ásamt root aðgangi virkjar ekki viðbótar eiginleika, en bætir áreiðanleika. SD Maid mun nota það sem varaúrræði.</string>
@@ -187,6 +191,7 @@
     <string name="settings_category_tools_label">Verkfæri</string>
     <string name="settings_category_filter">Sía</string>
     <string name="settings_category_risklevel">Áhættustig</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Gögn sem tilheyra forritum sem þegar hafa verið fjarlægð.</string>
     <string name="corpsefinder_settings_summary">Stilla skönnunarsíur og áhættustig.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Taka með æskileg leifar</string>
@@ -228,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">Takmarkaðar uppsetningargögn, t.d. vernduð forrit þriðja aðila.</string>
     <string name="corpsefinder_filter_appasec_label">Dulkóðuð auðlindir forrita</string>
     <string name="corpsefinder_filter_appasec_summary">Dulkóðaðar auðlindir forrita, t.d. eignir leikja.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">Gögn flutt á ytri geymslu með App2Sd breytingum.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d forritaleif eytt</item>
         <item quantity="other">%d forritaleifar eyddar</item>
@@ -244,6 +249,7 @@
     <string name="corpsefinder_owner_unknown">Óþekktur eigandi</string>
     <string name="corpsefinder_corpse_hint_keeper">Þessi hlutur gæti innihaldið gögn sem þú vilt halda þrátt fyrir að eigandinn hafi verið fjarlægður, t.d. myndir eða afrit.</string>
     <string name="corpsefinder_corpse_hint_common">Þessi hlutur ber mjög algengt nafn og gæti tilheyrt forritum sem enn eru uppsett en SD Maid þekkir ekki.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Óþörf gögn sem tilheyra ekki neinu ákveðnu forriti.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d samsvörun eytt</item>
@@ -346,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Takmarka samsvörun eftir aldri skráar (síðast breytt). Skildu eftir óstillt til að para við hvaða aldur sem er.</string>
     <string name="systemcleaner_customfilter_import_action">Flytja inn nýja síu</string>
     <string name="systemcleaner_customfilter_export_action">Flytja út valda síu</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Óþörf gögn sem tilheyra ákveðnum forritum.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Opinbert sjálfgefið skyndiminni</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Sjálfgefið opinbert skyndiminni forrita. Aðgengilegt undir Android/data á eldri Android útgáfum. Eytt þegar ýtt er á \"Hreinsa skyndiminni\" í kerfisstillingum.</string>
@@ -395,8 +402,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Skrár sendar frá WhatsApp til annarra.</string>
     <string name="appcleaner_filter_telegram_label">Telegram miðlaskrár</string>
     <string name="appcleaner_filter_telegram_summary">Skrár mótteknar eða sendar í gegnum Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Skrár mótteknar í gegnum Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sendar eða mótteknar skrár í samtölum og WeChat augnablikum.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Geymd miðlaskrár sem eru sóttar aftur þegar þau eru skoðuð í spjalli.</string>
     <string name="appcleaner_filter_qqchat_label">QQ spjall</string>
     <string name="appcleaner_filter_qqchat_summary">Sendar eða mótteknar skrár í QQ spjallsamtölum.</string>
@@ -438,6 +448,7 @@
     <string name="appcleaner_forcestop_before_clearing_label">Þvinga stopp fyrir hreinsun</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Þvinga stopp á forritum áður en skyndiminni þeirra er hreinsað. Það gæti hjálpað við hreinsun sumra forrita, en gæti valdið truflunum og krafist handvirkrar endurræsingar.</string>
     <string name="appcleaner_progress_force_stopping">Þvinga stopp á forritum…</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Finna tvítekin gögn á tækinu þínu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d tvítekinn hlutur eyddur</item>
@@ -514,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kjósa minni skrár</string>
     <string name="deduplicator_view_mode_groups_label">Hópar</string>
     <string name="deduplicator_view_mode_directories_label">Möppur</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Þjappa myndum til að spara geymslupláss.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d mynd fannst</item>
@@ -597,6 +609,7 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Forrit uppsett á tækinu þínu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d forrit greint</item>
@@ -725,6 +738,7 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Skjátími: %1$s síðan %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Síðast uppfært: %s</string>
     <string name="appcontrol_item_installedat_x_label">Uppsett: %s</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Fáðu að vita hvað tekur pláss á tækinu þínu.</string>
     <string name="analyzer_progress_scanning_device">Leita af geymslumiðlum</string>
     <string name="analyzer_progress_scanning_storage">Skanna geymslu</string>
@@ -869,6 +883,7 @@
     <string name="translation_encourage_title">Þýða SD Maid</string>
     <string name="translation_encourage_body">SD Maid er þýtt af sjálfboðaliðum. Þýðing, yfirlestur eða prófarkalestur, hjálp þín er vel þegin!</string>
     <string name="translation_translators_title">Þessi útgáfa er þýdd af</string>
+    <string name="translation_translators_people">Vélþýðing</string>
     <string name="motd_setting_enabled_label">Mikilvæg skilaboð</string>
     <string name="motd_setting_enabled_explanation">Leyfa SD Maid að leita að mikilvægum skilaboðum frá þróunaraðila.</string>
     <string name="updatecheck_setting_enabled_label">Uppfærsluleit</string>

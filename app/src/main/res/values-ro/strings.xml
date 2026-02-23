@@ -540,6 +540,7 @@
     <string name="deduplicator_arbiter_mode_prefer_larger">Preferați fișierele mari</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferați fișierele mici</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="deduplicator_view_mode_directories_label">Foldere</string>
     <string name="squeezer_tool_name">Împărțire media</string>
     <string name="squeezer_explanation_short">Comprimați imaginile pentru a economisi spațiu de stocare.</string>
     <plurals name="squeezer_result_x_images_found">
@@ -685,6 +686,7 @@
     <string name="appcontrol_archive_action">Arhivă</string>
     <string name="appcontrol_archive_selection_action">Aplicații arhivate</string>
     <string name="appcontrol_archive_description">Arhiva la spațiu liber, păstrând în același timp datele aplicației pentru restaurare ulterioară.</string>
+    <string name="appcontrol_progress_archiving_app">Se arhivează aplicația…</string>
     <string name="appcontrol_archive_confirmation_title">Confirmați arhiva</string>
     <plurals name="appcontrol_archive_confirmation_x">
         <item quantity="one">Arhivați %d aplicație?</item>
@@ -699,6 +701,7 @@
     <string name="appcontrol_restore_action">Restaurare</string>
     <string name="appcontrol_restore_selection_action">Restaurați aplicații</string>
     <string name="appcontrol_restore_description">Restaurați aplicația arhivată la starea complet instalată. Datele aplicației sunt păstrate.</string>
+    <string name="appcontrol_progress_restoring_app">Se restaurează aplicația…</string>
     <string name="appcontrol_restore_confirmation_title">Confirmați restaurare</string>
     <plurals name="appcontrol_restore_confirmation_x">
         <item quantity="one">Restaurați %d aplicație?</item>

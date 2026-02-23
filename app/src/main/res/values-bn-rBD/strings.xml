@@ -343,7 +343,12 @@
     <string name="systemcleaner_customfilter_last_edit">সর্বশেষ সম্পাদন: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">লাইভ সার্চ</string>
     <string name="systemcleaner_customfilter_editor_size_label">আকার সীমাবদ্ধতা</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">সর্বনিম্ন আকার</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">সর্বোচ্চ আকার</string>
     <string name="systemcleaner_customfilter_editor_size_explanation">ফাইলের আকারের উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো আকারের সাথে মেলাতে সেট না করা রাখুন।</string>
+    <string name="systemcleaner_customfilter_editor_age_label">বয়সের সীমাবদ্ধতা</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">সর্বনিম্ন বয়স</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">সর্বোচ্চ বয়স</string>
     <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
@@ -387,6 +392,8 @@
     <string name="appcleaner_filter_recyclebins_summary">যে ফাইলগুলো মুছে ফেলা হয়েছে কিন্তু একটি বিশেষ ফোল্ডারে রেখে দেওয়া হয়েছে যাতে এগুলো পুনরুদ্ধার করা যায়।</string>
     <string name="appcleaner_filter_webview_label">ওয়েবভিউ ফাইল</string>
     <string name="appcleaner_filter_webview_summary">অ্যাপের মধ্যে ব্যবহৃত ওয়েবভিউ দৃষ্টান্ত দ্বারা ক্যাশ করা ফাইলগুলি৷</string>
+    <string name="appcleaner_filter_shortcutservice_label">অ্যাপ শর্টকাট আইকন</string>
+    <string name="appcleaner_filter_shortcutservice_summary">অ্যাপ শর্টকাট ও শেয়ার মেনুর জন্য ক্যাশড আইকন।</string>
     <string name="appcleaner_filter_whatsapp_backups_label">হোয়াটসঅ্যাপ ব্যাকআপ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">হোয়াটসঅ্যাপ ব্যাকআপের অতিরিক্ত কপি মুছুন এবং শুধুমাত্র সর্বশেষ রাখুন।</string>
     <string name="appcleaner_filter_whatsapp_received_summary">আপনি হোয়াটসঅ্যাপের মাধ্যমে লোকেদের কাছ থেকে প্রাপ্ত ফাইলগুলি।</string>
@@ -455,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">এমন বিকল্পগুলি দেখান যা আপনাকে সদৃশগুলির একটি সেটের সমস্ত ফাইল মুছতে দেয় যাতে কোনও ফাইল অবশিষ্ট না থাকে।</string>
     <string name="deduplicator_search_locations_title">অবস্থান অনুসন্ধান করুন</string>
     <string name="deduplicator_search_locations_all_summary">সমস্ত প্রবেশযোগ্য এলাকা</string>
+    <string name="deduplicator_keep_prefer_paths_title">রাখার পছন্দের অবস্থান</string>
+    <string name="deduplicator_keep_prefer_paths_summary">কোন ডুপ্লিকেটটি রাখবেন তা নির্ধারণ করার সময়, এই অবস্থানগুলিতে ফাইল রাখার অগ্রাধিকার দিন।</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">কোনো অবস্থান কনফিগার করা নেই</string>
     <string name="deduplicator_skip_minsize_title">ন্যূনতম আকার</string>
     <string name="deduplicator_skip_minsize_description">ন্যূনতম আকারের নিচের ফাইলগুলি এড়িয়ে যান।</string>
     <string name="deduplicator_skip_uncommon_title">অস্বাভাবিক ফাইলের ধরন এড়িয়ে যান</string>
@@ -463,6 +473,7 @@
     <string name="deduplicator_detection_method_checksum_title">কন্টেন্ট চেকসাম</string>
     <string name="deduplicator_detection_method_checksum_summary">ফাইলের জন্য চেকসাম গণনা করে ডুপ্লিকেট নির্ধারণ করুন। ম্যাচিং চেকসাম সহ ফাইলগুলিতে একই কন্টেন্ট রয়েছে৷</string>
     <string name="deduplicator_detection_method_phash_title">উপলব্ধিগত হ্যাশ</string>
+    <string name="deduplicator_detection_method_phash_summary">কন্টেন্টের বৈশিষ্ট্য বিশ্লেষণ করে এবং পারসেপচুয়াল হ্যাশ মান তুলনা করে অনুরূপ ফাইল খুঁজুন। ⚠️ সাদৃশ্য-ভিত্তিক সনাক্তকরণে মিথ্যা ফলাফল থাকতে পারে যা ম্যানুয়ালি যাচাই করা প্রয়োজন।</string>
     <string name="deduplicator_occupied_space_label">সঞ্চয়স্থান দখল</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s ডুপ্লিকেট দ্বারা দখল করা আছে</item>
@@ -481,6 +492,8 @@
     <string name="deduplicator_details_cluster_title">সদৃশ সেট</string>
     <string name="deduplicator_matches_exact_label">হুবহু কপি</string>
     <string name="deduplicator_matches_similar_label">অনুরূপ ফাইল</string>
+    <string name="deduplicator_arbiter_title">মুছে ফেলার কৌশল</string>
+    <string name="deduplicator_arbiter_summary">কোন ফাইলগুলি রাখা হবে এবং কোনগুলি মুছে ফেলা হবে তা কনফিগার করুন।</string>
     <string name="deduplicator_arbiter_explanation">ডুপ্লিকেট মুছে ফেলার সময়, SD Maid প্রতিটি মানদণ্ড ক্রমানুসারে পরীক্ষা করে কোন ফাইলটি রাখতে হবে তা নির্ধারণ করে। প্রথম মানদণ্ড যা একটি স্পষ্ট বিজয়ী দেয় তা ফলাফল নির্ধারণ করে। পুনর্বিন্যাস করতে টেনে আনুন, মোড পরিবর্তন করতে ট্যাপ করুন।</string>
     <string name="deduplicator_arbiter_select_mode_title">মোড নির্বাচন করুন</string>
     <string name="deduplicator_arbiter_configure_paths_action">পাথ কনফিগার করুন…</string>
@@ -942,9 +955,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">দ্রুত ফোল্ডার গোছান — ফাইল সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান।</string>
     <string name="swiper_dashcard_description">ফাইল এক্সপ্লোরারের চেয়ে দ্রুত নির্দিষ্ট ফোল্ডার গোছান — শুধু প্রতিটি ফাইল সোয়াইপ করুন।</string>
-    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_start_action">সোয়াইপ শুরু করুন</string>
     <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
+    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
     <string name="swiper_scanning_title">স্ক্যান করা হচ্ছে…</string>
     <plurals name="swiper_result_x_items_found">

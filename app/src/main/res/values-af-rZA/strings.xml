@@ -173,8 +173,8 @@
     <string name="setup_inventory_card_body">SD Maid moet weet watter toepassings jy het om lêers te vind wat nie aan enige geïnstalleerde toepassings behoort nie.</string>
     <string name="setup_inventory_card_extra">Soek vir \'n toestemming genaamd \"Toepassing lys\" of \"Vraag alle pakkette\".</string>
     <string name="setup_inventory_invalid_message">Die stelsel het \'n ongeldige lys van geïnstalleerde toepassings verskaf (bv. te min of sommige was vermis). Gaan na stelsel instellings en laat SD Maid toegang toe tot \"Toepassing lys\".</string>
-    <string name="dataarea_warningcard_label">Data-areas</string>
     <string name="dataarea_warningcard_empty_message">SD Maid het geen data areas gevind wat geskandeer kan word nie. Het jy die opstelling voltooi?</string>
+    <string name="dataarea_warningcard_label">Data-areas</string>
     <string name="dataarea_warningcard_reload_action">Herlaai data areas</string>
     <string name="debug_mode_label">Ontfout modus</string>
     <string name="debug_mode_explanation">Aktiveer toets opsies en meer uitvoerige uitset. Toepassing sal stadiger loop en anders presteer.</string>
@@ -233,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">Beperkte toepassing installasie data, bv. beskermde derde party toepassings.</string>
     <string name="corpsefinder_filter_appasec_label">Versleutelde toepassing hulpbronne</string>
     <string name="corpsefinder_filter_appasec_summary">Versleutelde toepassing hulpbronne, bv. spel bates.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">Data geskuif na eksterne berging deur App2Sd mods.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d toepassing oorblyfsel geskrap</item>
         <item quantity="other">%d toepassing oorblyfsels geskrap</item>
@@ -883,7 +883,7 @@
     <string name="translation_encourage_title">Vertaal SD Maid</string>
     <string name="translation_encourage_body">SD Maid word deur vrywilligers vertaal. Vertaling, hersiening of proeflees, jou hulp word waardeer!</string>
     <string name="translation_translators_title">Hierdie weergawe is vertaal deur</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">Masjienvertaling</string>
     <string name="motd_setting_enabled_label">Belangrike boodskappe</string>
     <string name="motd_setting_enabled_explanation">Laat SD Maid toe om te kyk vir belangrike boodskappe van die ontwikkelaar.</string>
     <string name="updatecheck_setting_enabled_label">Opdatering kontrole</string>

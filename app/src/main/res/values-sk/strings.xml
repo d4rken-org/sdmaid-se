@@ -1217,5 +1217,5 @@
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_help_title">Ako funguje Swiper</string>
-    <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
+    <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať\" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
 </resources>

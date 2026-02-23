@@ -138,8 +138,7 @@
     <string name="setup_root_state_waiting_label">Чекање приступа суперкориснику.</string>
     <string name="setup_root_enable_root_use_label">Користи \"суперкорисник\" приступ ако је доступан</string>
     <string name="setup_root_disable_root_use_label">Немој користити \"супекорисник\" приступ</string>
-    <string name="setup_root_card_body2">Доступно једино не уре
-Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
+    <string name="setup_root_card_body2">Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дозволи да SD Maid користи Shizuku где је могуће да побољша резултате и омогући функције.</string>
     <string name="setup_shizuku_card_body2">Ово подешавање нема утицаја ако апликација Shizuku није инсталирана на вашем уређају.</string>
@@ -413,8 +412,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Датотеке послате са WhatsApp осталима.</string>
     <string name="appcleaner_filter_telegram_label">Telegram медијске датотеке</string>
     <string name="appcleaner_filter_telegram_summary">Датотеке примљене или послате преко Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Датотеке примљене преко Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Послате или примљене датотеке у разговорима и WeChat тренуцима.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кеширане медијске датотеке које се поново преузимају када се прикажу у чету.</string>
     <string name="appcleaner_filter_qqchat_label">QQ чет</string>
     <string name="appcleaner_filter_qqchat_summary">Послате или примљене датотеке у QQ чет разговорима.</string>
@@ -475,6 +477,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Прикажи опције које вам омогућавају да обришете све датотеке у скупу дупликата тако да ниједна датотека не остане.</string>
     <string name="deduplicator_search_locations_title">Локације претраге</string>
     <string name="deduplicator_search_locations_all_summary">Све приступачне области</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferujem čuvanje u</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kada odlučuješ koja dupla da sačuvaš, preferuješ čuvanje datoteka u ovim lokacijama.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nema konfiguriranih lokacija</string>
     <string name="deduplicator_skip_minsize_title">Минимална величина</string>
     <string name="deduplicator_skip_minsize_description">Прескочи датотеке које су испод минималне величине.</string>
     <string name="deduplicator_skip_uncommon_title">Прескочи неуобичајене типове датотека</string>
@@ -645,6 +650,7 @@
     <string name="appcontrol_app_launch_title">Покрени апликацију</string>
     <string name="appcontrol_app_launch_description">Покрени примарну активност ове апликације.</string>
     <string name="appcontrol_app_forcestop_title">Принудно заустављање</string>
+    <string name="appcontrol_app_forcestop_description">Zaustavi aplikaciju. Sprečи je da se sama pokrene dok je ne otvoriš ili dok se uređaj ne resetuje.</string>
     <string name="appcontrol_app_uninstall_description">Деинсталирај ову апликацију са вашег уређаја.</string>
     <string name="appcontrol_app_exclude_add_title">Искључи апликацију</string>
     <string name="appcontrol_app_exclude_add_description">Искључи ову апликацију из осталих операција у СД Чистачу.</string>
@@ -652,6 +658,7 @@
     <string name="appcontrol_app_exclude_edit_description">Ова апликација је тренутно искључена из једног или више алата.</string>
     <string name="appcontrol_tag_user">Корисник</string>
     <string name="appcontrol_tag_active">Недавно активна</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Систем</string>
     <string name="appcontrol_tag_archived">Архивирано</string>
@@ -659,6 +666,7 @@
     <string name="appcontrol_tag_not_installed">Није инсталирано</string>
     <string name="appcontrol_tag_enabled">Омогућено</string>
     <string name="appcontrol_tag_disabled">Онемогућено</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Омогућавање апликације</string>
     <string name="appcontrol_progress_disabling_package">Онемогућавање апликације</string>
     <string name="appcontrol_list_filteroptions_label">Опције филтера</string>
@@ -724,8 +732,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Добиј грубу процену величине сваке апликације.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Одреди активност</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Сазнај да ли је апликација (или је недавно била) активна.</string>
+    <string name="appcontrol_include_multiuser_label">Uključi ostale korisnike</string>
+    <string name="appcontrol_include_multiuser_summary">Uključi aplikacije sa ostalih korisničkih profila na ovoj uređaju.</string>
     <string name="appcontrol_export_app_selection_action">Извези апликације</string>
     <string name="appcontrol_export_title">Извези апликацију</string>
+    <string name="appcontrol_export_description">Sačuvaj datoteke instalacije ove aplikacije. Ovo ne uključuje podatke aplikacije.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d апликација је извезена</item>
         <item quantity="few">%d апликације су извезене</item>
@@ -827,6 +838,7 @@
     <string name="exclusion_type_segment">Искључење сегмента</string>
     <string name="exclusion_tags_alltools">Све алатке</string>
     <string name="exclusion_target_label">Циљ искључења</string>
+    <string name="exclusion_editor_path_change_action">Dodirni da promeniš putanju</string>
     <string name="exclusion_option_allow_partial">Дозволи делимична подударања</string>
     <string name="exclusion_option_ignore_casing">Игнориши величину слова</string>
     <string name="exclusion_editor_affected_tools_label">Погођене алатке</string>
@@ -860,6 +872,7 @@
     <string name="automation_error_compatibility_title">Компатибилност аутоматизације</string>
     <string name="automation_error_compatibility_body">СД Чистач није успео да разуме распоред екрана. Ако се ово наставља, ваш језик или подешавање можда нису потпуно подржани. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
     <string name="automation_error_timeout_title">Истек времена аутоматизације</string>
+    <string name="automation_error_timeout_body">SD Maid nije završio sve korake u predviđenom vremenskom roku. Ako se ovo i dalje dešava, mogu da prilagodim aplikaciju za tvoj uređaj. Proveri da li postoje ažuriranja ili se obrni na mene kako bih to mogao da ispravim.</string>
     <string name="automation_error_overlay_title">Преклоп аутоматизације</string>
     <string name="automation_error_overlay_body">СД Чистач није могао приказати преклоп аутоматизације. Проверите дозволе и покушајте рестартовати уређај.</string>
     <string name="history_label">Историја</string>
@@ -982,8 +995,13 @@
     <string name="shortcuts_settings_category">Пречице</string>
     <string name="shortcuts_onetap_enabled_title">Пречица једним кликом</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи пречицу \"Скенирај + Обриши\" при дугом притиску на иконицу апликације. Користи исте алатке као контролна табла једним кликом.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Брзо средите фасцикле — превуците фајлове да задржите, обришете или прескочите.</string>
+    <string name="swiper_dashcard_description">Средите одређене фасцикле брже него у менаџеру фајлова — само превуците сваки фајл.</string>
     <string name="swiper_start_action">Почни превлачење</string>
     <string name="swiper_continue_action">Настави сесију</string>
+    <string name="swiper_sessions_description">Прегледајте фајлове у 3 једноставна корака:\n\n1. Изаберите фасциклу за скенирање\n2. Превуците фајлове да задржите, обришете или прескочите\n3. Прегледајте своје одлуке и потврдите\n\nНишта се не уклања док не додирнете коначно дугме за брисање.</string>
     <string name="swiper_select_folders_action">Изаберите фасцикле</string>
     <string name="swiper_scanning_title">Скенирање…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1135,15 +1153,8 @@
     <string name="swiper_gesture_overlay_right_delete">Обриши →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Прескочи</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Поништи</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Помоћ</string>
     <string name="swiper_help_title">Како ради Swiper</string>
     <string name="swiper_help_message">Превуците сваки фајл да донесете одлуку:\n\n← Превуците лево: %1$s\n→ Превуците десно: %2$s\n↑ Превуците горе: Прескочи\n↓ Превуците доле: Поништи (после првог превлачења)\n\nМожете користити и дугмад на дну.\n\nКада завршите, додирните \"Преглед\" да видите све своје одлуке. Ништа се не брише док не потврдите на екрану за преглед.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Брзо средите фасцикле — превуците фајлове да задржите, обришете или прескочите.</string>
-    <string name="swiper_dashcard_description">Средите одређене фасцикле брже него у менаџеру фајлова — само превуците сваки фајл.</string>
-    <string name="swiper_sessions_description">Прегледајте фајлове у 3 једноставна корака:\n\n1. Изаберите фасциклу за скенирање\n2. Превуците фајлове да задржите, обришете или прескочите\n3. Прегледајте своје одлуке и потврдите\n\nНишта се не уклања док не додирнете коначно дугме за брисање.</string>
 </resources>

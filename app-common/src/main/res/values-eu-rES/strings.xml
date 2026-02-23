@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Zure zerbitzutan.</string>
     <string name="slogan_message_1">Garbi eta txukun.</string>
     <string name="slogan_message_2">Kaosa saihesten.</string>
     <string name="slogan_message_3">Beharrezkoa egiten.</string>
-    <string name="slogan_message_4">Dena bere tokian.</string>
+    <string name="slogan_message_4">Dena ondo daude.</string>
     <string name="slogan_message_5">Orbain gabe.</string>
     <string name="slogan_message_6">Byteak, joan zaitezte!</string>
     <string name="slogan_message_7">Leku librea, leku zoriontsua.</string>

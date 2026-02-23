@@ -77,6 +77,7 @@
     <string name="ui_theme_style_setting_label">ਥੀਮ ਸਟਾਈਲ</string>
     <string name="ui_theme_style_setting_explanation">ਐਪ ਨੂੰ ਥੀਮ ਕਰਦੇ ਸਮੇਂ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰੰਗ ਸਟਾਈਲ।</string>
     <string name="ui_theme_style_default_label">ਮੂਲ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ਫਾਈਲ ਪ੍ਰੀਵਿਊ</string>
     <string name="ui_previews_summary">ਸਾਰੇ ਟੂਲਸ ਵਿੱਚ ਫਾਈਲ ਪ੍ਰੀਵਿਊ ਦਿਖਾਓ (ਜਿਵੇਂ ਚਿੱਤਰ ਅਤੇ ਵੀਡੀਓ ਥੰਬਨੇਲ)।</string>
     <string name="ui_language_override_label">ਐਪ ਭਾਸ਼ਾ</string>
@@ -98,6 +99,7 @@
     <string name="support_debuglog_folder_empty_desc">ਕੋਈ ਡੀਬੱਗ ਲੌਗ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਹਨ</string>
     <string name="support_debuglog_folder_delete_confirmation_title">ਸਾਰੇ ਡੀਬੱਗ ਲੌਗ ਮਿਟਾਉਣੇ ਹਨ?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">ਇਹ ਸਾਰੇ ਸੁਰੱਖਿਅਤ ਡੀਬੱਗ ਲੌਗ ਸੈਸ਼ਨਾਂ ਨੂੰ ਪੱਕੇ ਤੌਰ \'ਤੇ ਮਿਟਾ ਦੇਵੇਗਾ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ਘੁੰਮਣ ਅਤੇ ਸਵਾਲ ਪੁੱਛਣ ਲਈ ਜਗ੍ਹਾ।</string>
     <string name="changelog_label">ਤਬਦੀਲੀ ਲੌਗ</string>
     <string name="settings_acknowledgements_label">ਆਭਾਰ</string>
@@ -133,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">ਜੇ ਉਪਲਬਧ ਹੈ ਤਾਂ root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="setup_root_disable_root_use_label">Root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ</string>
     <string name="setup_root_card_body2">ਸਿਰਫ਼ ਰੂਟ ਕੀਤੇ ਡਿਵਾਈਸਾਂ \'ਤੇ ਉਪਲਬਧ ਹੈ। ਜੇਕਰ ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਤਾਂ ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਰੂਟ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸ ਸੈਟਿੰਗ ਦਾ ਕੋਈ ਪ੍ਰਭਾਵ ਨਹੀਂ ਹੈ।</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ਕੀ SD Maid ਨੂੰ Shizuku ਦੀ ਵਰਤੋਂ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ ਜੇ ਇਹ ਉਪਲਬਧ ਹੈ? Shizuku root ਇਜਾਜ਼ਤਾਂ ਤੋਂ ਬਿਨਾਂ ਵਾਧੂ ਡੇਟਾ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰ ਸਕਦਾ ਹੈ।</string>
     <string name="setup_shizuku_card_body2">ਜੇ ਤੁਹਾਡੇ ਯੰਤਰ ਤੇ Shizuku ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ ਤਾਂ ਇਸ ਸੈਟਿੰਗ ਦਾ ਕੋਈ ਪ੍ਰਭਾਵ ਨਹੀਂ ਹੈ</string>
     <string name="setup_shizuku_card_root_info">ਰੂਟ ਐਕਸੈਸ ਦੇ ਨਾਲ Shizuku ਵਾਧੂ ਫੀਚਰਾਂ ਨੂੰ ਸਮਰੱਥ ਨਹੀਂ ਕਰਦਾ, ਪਰ ਇਹ ਭਰੋਸੇਯੋਗਤਾ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦਾ ਹੈ। SD Maid ਇਸਨੂੰ ਫਾਲਬੈਕ ਵਿਧੀ ਵਜੋਂ ਵਰਤੇਗਾ।</string>
@@ -188,6 +191,7 @@
     <string name="settings_category_tools_label">ਸੰਦ</string>
     <string name="settings_category_filter">ਫਿਲਟਰ</string>
     <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">ਪਹਿਲਾਂ ਹਟਾਈਆਂ ਗਈਆਂ ਐਪਾਂ ਨਾਲ ਸੰਬੰਧਿਤ ਡੇਟਾ।</string>
     <string name="corpsefinder_settings_summary">ਸਕੈਨ ਫਿਲਟਰਾਂ ਅਤੇ ਜੋਖਮ ਪੱਧਰਾਂ ਨੂੰ ਅਨੁਕੂਲਿਤ ਕਰੋ।</string>
     <string name="corpsefinder_settings_risk_keeper_title">ਲੋੜੀਂਦੇ ਬਚੇ-ਖੁਚੇ ਸ਼ਾਮਲ ਕਰੋ</string>
@@ -230,6 +234,7 @@
     <string name="corpsefinder_filter_appasec_label">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ</string>
     <string name="corpsefinder_filter_appasec_summary">ਇਨਕ੍ਰਿਪਟਡ ਐਪ ਸਰੋਤ, ਜਿਵੇਂ ਕਿ ਗੇਮ ਸੰਪੱਤੀਆਂ।</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd ਮੋਡਾਂ ਦੁਆਰਾ ਬਾਹਰੀ ਸਟੋਰੇਜ \'ਤੇ ਭੇਜਿਆ ਗਿਆ ਡੇਟਾ।</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ਐਪ ਬਕਾਇਆ ਮਿਟਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਐਪ ਬਕਾਇਆ ਮਿਟਾਏ ਗਏ</item>
@@ -244,6 +249,7 @@
     <string name="corpsefinder_owner_unknown">ਅਣਜਾਣ ਮਾਲਕ</string>
     <string name="corpsefinder_corpse_hint_keeper">ਇਸ ਆਈਟਮ ਵਿੱਚ ਉਹ ਡੇਟਾ ਹੋ ਸਕਦਾ ਹੈ ਜੋ ਤੁਸੀਂ ਇਸਦੇ ਮਾਲਕ ਦੇ ਅਣਇੰਸਟਾਲ ਹੋਣ ਦੇ ਬਾਵਜੂਦ ਰੱਖਣਾ ਚਾਹੁੰਦੇ ਹੋ, ਜਿਵੇਂ ਕਿ ਫੋਟੋਆਂ ਜਾਂ ਬੈਕਅੱਪ।</string>
     <string name="corpsefinder_corpse_hint_common">ਇਸ ਆਈਟਮ ਦਾ ਬਹੁਤ ਆਮ ਨਾਮ ਹੈ ਅਤੇ ਇਹ ਅਜੇ ਵੀ ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਨਾਲ ਸੰਬੰਧਿਤ ਹੋ ਸਕਦਾ ਹੈ ਜਿਨ੍ਹਾਂ ਨੂੰ SD Maid ਨਹੀਂ ਜਾਣਦਾ।</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">ਫਾਲਤੂ ਡੇਟਾ ਜੋ ਕਿਸੇ ਖਾਸ ਐਪ ਨਾਲ ਸੰਬੰਧਿਤ ਨਹੀਂ ਹੈ।</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d ਮੇਲ ਮਿਟਾਇਆ ਗਿਆ</item>
@@ -346,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ਫਾਈਲ ਦੀ ਉਮਰ (ਆਖਰੀ ਸੋਧ ਸਮਾਂ) ਦੇ ਆਧਾਰ \'ਤੇ ਨਤੀਜੇ ਸੀਮਤ ਕਰੋ। ਕਿਸੇ ਵੀ ਉਮਰ ਨਾਲ ਮੇਲ ਖਾਣ ਲਈ ਖਾਲੀ ਛੱਡੋ।</string>
     <string name="systemcleaner_customfilter_import_action">ਨਵਾਂ ਫਿਲਟਰ ਆਯਾਤ ਕਰੋ</string>
     <string name="systemcleaner_customfilter_export_action">ਚੁਣਿਆ ਫਿਲਟਰ ਨਿਰਯਾਤ ਕਰੋ</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">ਖਾਸ ਐਪਾਂ ਨਾਲ ਸੰਬੰਧਿਤ ਖਰਚਯੋਗ ਡੇਟਾ।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ਜਨਤਕ ਮੂਲ ਕੈਸ਼</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ਮੂਲ ਜਨਤਕ ਐਪ ਕੈਸ਼। ਪੁਰਾਣੇ Android ਸੰਸਕਰਣਾਂ ਵਿੱਚ Android/data ਦੇ ਅਧੀਨ ਪਹੁੰਚਯੋਗ। ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"ਕੈਸ਼ ਸਾਫ ਕਰੋ\" \'ਤੇ ਟੈਪ ਕਰਨ \'ਤੇ ਮਿਟਾਈ ਜਾਂਦੀ ਹੈ।</string>
@@ -395,8 +402,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp ਤੋਂ ਦੂਜਿਆਂ ਨੂੰ ਭੇਜੀਆਂ ਫਾਇਲਾਂ।</string>
     <string name="appcleaner_filter_telegram_label">Telegram ਮੀਡੀਆ ਫਾਇਲਾਂ</string>
     <string name="appcleaner_filter_telegram_summary">Telegram ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਜਾਂ ਭੇਜੀਆਂ ਫਾਇਲਾਂ।</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Threema ਰਾਹੀਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਫਾਇਲਾਂ।</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">ਗੱਲਬਾਤ ਅਤੇ WeChat ਪਲਾਂ ਵਿੱਚ ਭੇਜੀਆਂ ਜਾਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਫਾਇਲਾਂ।</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">ਕੈਸ਼ ਕੀਤੀਆਂ ਮੀਡੀਆ ਫਾਇਲਾਂ ਜੋ ਚੈਟ ਵਿੱਚ ਦੇਖਣ ਸਮੇਂ ਦੁਬਾਰਾ ਡਾਊਨਲੋਡ ਕੀਤੀਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
     <string name="appcleaner_filter_qqchat_label">QQ ਚੈਟ</string>
     <string name="appcleaner_filter_qqchat_summary">QQ ਚੈਟ ਗੱਲਬਾਤ ਵਿੱਚ ਭੇਜੀਆਂ ਜਾਂ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ ਫਾਇਲਾਂ।</string>
@@ -452,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">ਵਿਕਲਪ ਦਿਖਾਓ ਜੋ ਤੁਹਾਨੂੰ ਡੁਪਲੀਕੇਟਾਂ ਦੇ ਸੈੱਟ ਵਿੱਚ ਸਾਰੀਆਂ ਫਾਇਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਦੀ ਆਗਿਆ ਦਿੰਦੇ ਹਨ ਤਾਂ ਜੋ ਕੋਈ ਫਾਈਲ ਬਾਕੀ ਨਾ ਰਹੇ।</string>
     <string name="deduplicator_search_locations_title">ਖੋਜ ਸਥਾਨ</string>
     <string name="deduplicator_search_locations_all_summary">ਸਾਰੇ ਪਹੁੰਚਯੋਗ ਖੇਤਰ</string>
+    <string name="deduplicator_keep_prefer_paths_title">ਵਿੱਚ ਰੱਖਣ ਨੂੰ ਤਰਜੀਹ ਦਿਓ</string>
+    <string name="deduplicator_keep_prefer_paths_summary">ਡੁਪਲੀਕੇਟ ਨੂੰ ਕਿਹੜਾ ਰੱਖਣਾ ਹੈ, ਇਹ ਫੈਸਲਾ ਕਰਦੇ ਸਮੇਂ ਇਨ੍ਹਾਂ ਸਥਾਨਾਂ ਵਿੱਚ ਫਾਈਲਾਂ ਨੂੰ ਰੱਖਣ ਨੂੰ ਤਰਜੀਹ ਦਿਓ।</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">ਕੋਈ ਸਥਾਨ ਸੰਰਚਿਤ ਨਹੀਂ</string>
     <string name="deduplicator_skip_minsize_title">ਘੱਟੋ-ਘੱਟ ਆਕਾਰ</string>
     <string name="deduplicator_skip_minsize_description">ਉਹ ਫਾਈਲਾਂ ਛੱਡੋ ਜੋ ਘੱਟੋ-ਘੱਟ ਆਕਾਰ ਤੋਂ ਛੋਟੀਆਂ ਹਨ।</string>
     <string name="deduplicator_skip_uncommon_title">ਅਸਧਾਰਨ ਫਾਈਲ ਕਿਸਮਾਂ ਛੱਡੋ</string>
@@ -544,7 +557,9 @@
     <string name="squeezer_quality_warning_low">ਘੱਟ ਗੁਣਵੱਤਾ ਦਿਖਾਈ ਦੇਣ ਵਾਲੀਆਂ ਖਾਮੀਆਂ ਪੈਦਾ ਕਰ ਸਕਦੀ ਹੈ।</string>
     <string name="squeezer_quality_warning_high">ਬਹੁਤ ਉੱਚੀ ਗੁਣਵੱਤਾ ਘੱਟ ਥਾਂ ਬਚਾਉਂਦੀ ਹੈ।</string>
     <string name="squeezer_types_category_label">ਤਸਵੀਰ ਕਿਸਮਾਂ</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ਤਸਵੀਰਾਂ (.jpg, .jpeg) ਸ਼ਾਮਲ ਕਰੋ।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ਤਸਵੀਰਾਂ (.webp) ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="squeezer_skip_compressed_title">ਪਹਿਲਾਂ ਕੰਪ੍ਰੈਸ ਕੀਤੀਆਂ ਛੱਡੋ</string>
     <string name="squeezer_skip_compressed_description">SD Maid ਦੁਆਰਾ ਪਹਿਲਾਂ ਹੀ ਕੰਪ੍ਰੈਸ ਕੀਤੀਆਂ ਤਸਵੀਰਾਂ ਛੱਡੋ।</string>
@@ -612,6 +627,7 @@
     <string name="appcontrol_app_launch_title">ਐਪ ਚਲਾਓ</string>
     <string name="appcontrol_app_launch_description">ਇਸ ਐਪ ਦੀ ਮੁੱਖ ਗਤੀਵਿਧੀ ਨੂੰ ਚਲਾਓ।</string>
     <string name="appcontrol_app_forcestop_title">ਜ਼ਬਰਦਸਤੀ ਬੰਦ ਕਰੋ</string>
+    <string name="appcontrol_app_forcestop_description">ਐਪ ਨੂੰ ਰੋਕੋ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਇਸ ਨੂੰ ਖੋਲ ਨਾ ਦਿੰਦੇ ਜਾਂ ਡਿਵਾਇਸ ਨੂੰ ਮੁਲਤਵੀ ਨਾ ਕਰਦੇ, ਇਸ ਨੂੰ ਆਪਣੇ ਆਪ ਨੂੰ ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਰੋਕੋ।</string>
     <string name="appcontrol_app_uninstall_description">ਇਸ ਐਪ ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ ਤੋਂ ਅਣਸਥਾਪਿਤ ਕਰੋ।</string>
     <string name="appcontrol_app_exclude_add_title">ਐਪ ਨੂੰ ਬਾਹਰ ਕਰੋ</string>
     <string name="appcontrol_app_exclude_add_description">SD Maid ਵਿੱਚ ਹੋਰ ਕਾਰਵਾਈਆਂ ਤੋਂ ਇਸ ਐਪ ਨੂੰ ਬਾਹਰ ਰੱਖੋ।</string>
@@ -619,6 +635,7 @@
     <string name="appcontrol_app_exclude_edit_description">ਇਹ ਐਪ ਵਰਤਮਾਨ ਵਿੱਚ ਇੱਕ ਜਾਂ ਵੱਧ ਟੂਲਾਂ ਤੋਂ ਬਾਹਰ ਰੱਖੀ ਗਈ ਹੈ।</string>
     <string name="appcontrol_tag_user">ਵਰਤੋਂਕਾਰ</string>
     <string name="appcontrol_tag_active">ਹਾਲ ਹੀ ਵਿੱਚ ਸਰਗਰਮ</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ਬੰਡਲ</string>
     <string name="appcontrol_tag_system">ਸਿਸਟਮ</string>
     <string name="appcontrol_tag_archived">ਸੰਗ੍ਰਹਿਤ</string>
@@ -626,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">ਸਥਾਪਿਤ ਨਹੀਂ</string>
     <string name="appcontrol_tag_enabled">ਸਮਰੱਥ</string>
     <string name="appcontrol_tag_disabled">ਅਸਮਰੱਥ</string>
+    <string name="appcontrol_tag_debug">ਡੀਬੱਗ</string>
     <string name="appcontrol_progress_enabling_package">ਐਪ ਨੂੰ ਸਮਰੱਥ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <string name="appcontrol_progress_disabling_package">ਐਪ ਨੂੰ ਅਸਮਰੱਥ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
     <string name="appcontrol_list_filteroptions_label">ਫਿਲਟਰ ਵਿਕਲਪ</string>
@@ -684,8 +702,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ਹਰੇਕ ਐਪ ਦੇ ਆਕਾਰ ਦਾ ਮੋਟਾ ਅੰਦਾਜ਼ਾ ਲਗਾਓ।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">ਗਤੀਵਿਧੀ ਨਿਰਧਾਰਤ ਕਰੋ</string>
     <string name="appcontrol_settings_module_activity_enabled_description">ਪਤਾ ਲਗਾਓ ਕਿ ਕੋਈ ਐਪ ਸਰਗਰਮ ਹੈ (ਜਾਂ ਹਾਲ ਹੀ ਵਿੱਚ ਸੀ)।</string>
+    <string name="appcontrol_include_multiuser_label">ਹੋਰ ਯੂਜ਼ਰਾਂ ਨੂੰ ਸ਼ਾਮਲ ਕਰੋ</string>
+    <string name="appcontrol_include_multiuser_summary">ਇਸ ਡਿਵਾਇਸ ਦੇ ਹੋਰ ਯੂਜ਼ਰ ਪ੍ਰੋਫਾਈਲਾਂ ਤੋਂ ਐਪਸ ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="appcontrol_export_app_selection_action">ਐਪਾਂ ਨੂੰ ਨਿਰਯਾਤ ਕਰੋ</string>
     <string name="appcontrol_export_title">ਐਪ ਨੂੰ ਨਿਰਯਾਤ ਕਰੋ</string>
+    <string name="appcontrol_export_description">ਇਸ ਐਪ ਦੀਆਂ ਸਥਾਪਨ ਫਾਈਲਾਂ ਸੁਰੱਖਿਤ ਕਰੋ। ਇਸ ਵਿੱਚ ਐਪ ਡੇਟਾ ਸ਼ਾਮਲ ਨਹੀਂ ਹੈ।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ਐਪ ਨਿਰਯਾਤ ਕੀਤੀ ਗਈ</item>
         <item quantity="other">%d ਐਪਾਂ ਨਿਰਯਾਤ ਕੀਤੀਆਂ ਗਈਆਂ</item>
@@ -716,6 +737,7 @@
     <string name="appcontrol_automation_progress_find_restore">\"ਬਹਾਲ ਕਰੋ\" ਬਟਨ ਲੱਭਿਆ ਜਾ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">ਸਕ੍ਰੀਨ ਸਮਾਂ: %2$s ਤੋਂ %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">ਆਖਰੀ ਅੱਪਡੇਟ: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ਸਥਾਪਿਤ ਹੈ: %s</string>
     <string name="analyzer_tool_name">ਸਟੋਰੇਜ ਵਿਸ਼ਲੇਸ਼ਕ</string>
     <string name="analyzer_explanation_short">ਪਤਾ ਲਗਾਓ ਕਿ ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਕੀ ਥਾਂ ਲੈ ਰਿਹਾ ਹੈ।</string>
     <string name="analyzer_progress_scanning_device">ਸਟੋਰੇਜ ਡਿਵਾਈਸਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
@@ -780,6 +802,7 @@
     <string name="exclusion_type_segment">ਖੰਡ ਬਾਹਰੀਕਰਣ</string>
     <string name="exclusion_tags_alltools">ਸਾਰੇ ਟੂਲ</string>
     <string name="exclusion_target_label">ਬਾਹਰੀਕਰਣ ਟਾਰਗੇਟ</string>
+    <string name="exclusion_editor_path_change_action">ਪਾਥ ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="exclusion_option_allow_partial">ਅੰਸ਼ਿਕ ਮੇਲ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</string>
     <string name="exclusion_option_ignore_casing">ਕੇਸਿੰਗ ਨੂੰ ਅਣਦੇਖਾ ਕਰੋ</string>
     <string name="exclusion_editor_affected_tools_label">ਪ੍ਰਭਾਵਿਤ ਟੂਲ</string>
@@ -860,6 +883,7 @@
     <string name="translation_encourage_title">SD Maid ਦਾ ਅਨੁਵਾਦ ਕਰੋ</string>
     <string name="translation_encourage_body">SD Maid ਦਾ ਅਨੁਵਾਦ ਸਵੈਸੇਵਕਾਂ ਦੁਆਰਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਅਨੁਵਾਦ, ਸਮੀਖਿਆ ਜਾਂ ਪਰੂਫਰੀਡਿੰਗ, ਤੁਹਾਡੀ ਮਦਦ ਦੀ ਸ਼ਲਾਘਾ ਕੀਤੀ ਜਾਂਦੀ ਹੈ!</string>
     <string name="translation_translators_title">ਇਸ ਵਰਜਨ ਦਾ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ</string>
+    <string name="translation_translators_people">ਮਸ਼ੀਨੀ ਅਨੁਵਾਦ</string>
     <string name="motd_setting_enabled_label">ਮਹੱਤਵਪੂਰਨ ਸੰਦੇਸ਼</string>
     <string name="motd_setting_enabled_explanation">SD Maid ਨੂੰ ਡਿਵੈਲਪਰ ਤੋਂ ਮਹੱਤਵਪੂਰਨ ਸੰਦੇਸ਼ ਚੈੱਕ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।</string>
     <string name="updatecheck_setting_enabled_label">ਅੱਪਡੇਟ ਚੈੱਕ</string>

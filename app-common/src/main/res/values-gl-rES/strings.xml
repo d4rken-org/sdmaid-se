@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Ao teu servizo.</string>
     <string name="slogan_message_1">Limpo e ordenado.</string>
     <string name="slogan_message_2">Previnindo o caos.</string>

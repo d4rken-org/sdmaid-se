@@ -42,6 +42,7 @@
     <string name="onboarding_welcome_body2">Pata nafasi ya kuhifadhi kwa kusafisha nyuma ya programu nyingine. Futa mafaili yanayoweza kutumika na ondoa data iliyobaki.</string>
     <string name="onboarding_welcome_body_beta">Hii ni toleo la beta (la majaribio). Endelea na hali ya kicheko na mpango wa kuhifadhi. Tafadhali ripoti matatizo unayokutana nayo.</string>
     <string name="onboarding_welcome_continue_action">Endelea</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (yaani SD Maid 2) ni mrithi wa SD Maid (yaani SD Maid 1). Programu mpya, iliyoboresha kwa Android ya kisasa.</string>
     <string name="onboarding_versus_body2">Muundo wa kale una umri wa zaidi ya miaka 7 na haukunundwa kwa changamoto za matoleo mapya ya Android. Muundo mpya kamili ulikuwa muhimu ili kuendelea na maendeleo.</string>
     <string name="onboarding_versus_body3">Fikiria kubadilisha kwenda SD Maid SE kwa matokeo bora zaidi.</string>
@@ -98,6 +99,7 @@
     <string name="support_debuglog_folder_empty_desc">Hakuna rekodi za marekebisho zilizohifadhiwa</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Futa rekodi zote za marekebisho?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Hii itafuta kabisa vipindi vyote vya rekodi za marekebisho vilivyohifadhiwa. Kitendo hiki hakiwezi kutenduliwa.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Mahali pa kukutana na kuuliza maswali.</string>
     <string name="changelog_label">Historia ya mabadiliko</string>
     <string name="settings_acknowledgements_label">Shukrani</string>
@@ -133,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">Tumia ufikiaji wa mizizi ikiwa unapatikana</string>
     <string name="setup_root_disable_root_use_label">Usitumie ufikiaji wa mizizi</string>
     <string name="setup_root_card_body2">Inapatikana tu kwenye vifaa vilivyopata mizizi. Ikiwa hukufanya marekebisho haya, basi kifaa chako hakina mizizi na mpangilio huu hauna athari.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Ruhusu SD Maid kutumia Shizuku inapowezekana ili kuboresha matokeo na kuwezesha vipengele.</string>
     <string name="setup_shizuku_card_body2">Mpangilio huu hauna athari ikiwa programu ya Shizuku haijasanidiwa kwenye kifaa chako.</string>
     <string name="setup_shizuku_card_root_info">Shizuku pamoja na ufikiaji wa mizizi haiwezesha vipengele vya ziada, lakini inaboresha uaminifu. SD Maid itaitumia kama njia mbadala.</string>
@@ -230,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">Data ya usakinishaji iliyozuiliwa, k.m. programu za wahusika wengine zilizolindwa.</string>
     <string name="corpsefinder_filter_appasec_label">Rasilimali za programu zilizosimbwa</string>
     <string name="corpsefinder_filter_appasec_summary">Rasilimali za programu zilizosimbwa, k.m. mali za mchezo.</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">Data iliyohamishwa kwenye hifadhi ya nje na App2SD mods.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Baki %d la programu limefutwa</item>
         <item quantity="other">Mabaki %d ya programu yamefutwa</item>
@@ -624,14 +627,15 @@
     <string name="appcontrol_app_launch_title">Zindua programu</string>
     <string name="appcontrol_app_launch_description">Zindua shughuli kuu ya programu hii.</string>
     <string name="appcontrol_app_forcestop_title">Simamisha kwa nguvu</string>
+    <string name="appcontrol_app_forcestop_description">Simama programu. Kuzuia kwa kujianzisha yenyewe hadi utayafungua au kifaa kizisiwe.</string>
     <string name="appcontrol_app_uninstall_description">Ondoa programu hii kutoka kifaa chako.</string>
     <string name="appcontrol_app_exclude_add_title">Tenga programu</string>
     <string name="appcontrol_app_exclude_add_description">Tenga programu hii kutoka shughuli nyingine katika SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Hariri kutengwa</string>
     <string name="appcontrol_app_exclude_edit_description">Programu hii kwa sasa imetengwa kutoka zana moja au zaidi.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Mtumiaji</string>
     <string name="appcontrol_tag_active">Zimekuwa zinafanya kazi hivi karibuni</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundla</string>
     <string name="appcontrol_tag_system">Mfumo</string>
     <string name="appcontrol_tag_archived">Imehifadhiwa</string>
@@ -639,7 +643,7 @@
     <string name="appcontrol_tag_not_installed">Haijasakinishwa</string>
     <string name="appcontrol_tag_enabled">Imewashwa</string>
     <string name="appcontrol_tag_disabled">Imezimwa</string>
-    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_tag_debug">Kutatua matatizo</string>
     <string name="appcontrol_progress_enabling_package">Inawasha programu</string>
     <string name="appcontrol_progress_disabling_package">Inazima programu</string>
     <string name="appcontrol_list_filteroptions_label">Chaguo za kichungi</string>
@@ -947,8 +951,13 @@
     <string name="shortcuts_settings_category">Mikato</string>
     <string name="shortcuts_onetap_enabled_title">Mkato wa kubofya mara moja</string>
     <string name="shortcuts_onetap_enabled_summary">Onyesha mkato wa \"Tafuta + Futa\" unapobonyeza kwa muda mrefu aikoni ya programu. Inatumia zana sawa na dashibodi ya kubofya mara moja.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Safisha folda haraka — piga swaipu faili ili kuweka, kufuta, au kuruka.</string>
+    <string name="swiper_dashcard_description">Safisha folda maalum kwa kasi zaidi kuliko kivinjari cha faili — piga swaipu tu kila faili.</string>
     <string name="swiper_start_action">Anza kutelezesha</string>
     <string name="swiper_continue_action">Endelea na kipindi</string>
+    <string name="swiper_sessions_description">Kagua faili katika hatua 3 rahisi:\n\n1. Chagua folda ya kuchanganua\n2. Piga swaipu faili ili kuweka, kufuta, au kuruka\n3. Kagua uchaguzi wako na uthibitishe\n\nHakuna kinachondolewa hadi uguse kitufe cha mwisho cha kufuta.</string>
     <string name="swiper_select_folders_action">Chagua folda</string>
     <string name="swiper_scanning_title">Inatafuta…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1083,15 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">Futa →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Ruka</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Tendua</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Msaada</string>
     <string name="swiper_help_title">Jinsi Swiper inavyofanya kazi</string>
     <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Safisha folda haraka — piga swaipu faili ili kuweka, kufuta, au kuruka.</string>
-    <string name="swiper_dashcard_description">Safisha folda maalum kwa kasi zaidi kuliko kivinjari cha faili — piga swaipu tu kila faili.</string>
-    <string name="swiper_sessions_description">Kagua faili katika hatua 3 rahisi:\n\n1. Chagua folda ya kuchanganua\n2. Piga swaipu faili ili kuweka, kufuta, au kuruka\n3. Kagua uchaguzi wako na uthibitishe\n\nHakuna kinachondolewa hadi uguse kitufe cha mwisho cha kufuta.</string>
 </resources>

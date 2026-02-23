@@ -91,6 +91,14 @@
     <string name="support_installid_desc">Los informes de errores automáticos son anónimos. Comparta su identificador de la instalación si el desarrollador necesita encontrar sus informes de errores.</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puede compartir.</string>
+    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d archivo usando %2$s</item>
+        <item quantity="other">%1$d archivos usando %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar donde pasar el rato y preguntar.</string>
     <string name="changelog_label">Historial de cambios</string>
@@ -173,6 +181,13 @@
     <string name="debug_bugreporter_label">Reportes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Reporta automáticamente problemas, p. ej. detalles sobre cierres de aplicación para que pueda averiguar por qué y arreglarlo.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El modo de depuración está activado</string>
+    <string name="debug_card_trace_mode_label">Activar modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de prueba (desactivar eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
+    <string name="debug_card_root_test_action">Probar root</string>
+    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
     <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
@@ -264,6 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para ser consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs inútiles</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de configuración que ya no son necesarios según las versiones de las aplicaciones instaladas.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir la misma versión</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También apunta a archivos APK que coincidan con la versión instalada. Desactiva para eliminar solo las versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
@@ -324,6 +342,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">El nombre es igual a palabra clave</string>
     <string name="systemcleaner_customfilter_last_edit">Última edición: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Búsqueda en vivo</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restricciones de tamaño</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamaño mínimo</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamaño máximo</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limitar coincidencias según el tamaño del archivo. Deja sin definir para coincidir con cualquier tamaño.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restricciones de antigüedad</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Antigüedad mínima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Antigüedad máxima</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (última modificación). Deja sin definir para coincidir con cualquier antigüedad.</string>
     <string name="systemcleaner_customfilter_import_action">Importar nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro seleccionado</string>
     <string name="appcleaner_tool_name">Limpiador de Aplicaciones</string>
@@ -419,7 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">La aplicación de Seguridad de HyperOS (com.miui.securitycenter) carece del permiso de Estadísticas de Uso (GET_USAGE_STATS). Esto interrumpe funciones como \"Limpiar Datos\" en detalles de aplicación y limpieza de caché a través de accesibilidad. Otorga el permiso para restaurar la funcionalidad completa.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
+    <string name="appcleaner_progress_force_stopping">Forzando detención de aplicaciones…</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
     <string name="deduplicator_explanation_short">Encuentra datos duplicados en tu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -434,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opciones que te permiten eliminar todos los archivos en un conjunto de duplicados para que no quede ningún archivo.</string>
     <string name="deduplicator_search_locations_title">Ubicaciones de búsqueda</string>
     <string name="deduplicator_search_locations_all_summary">Todas las áreas accesibles</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferir conservar en</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Al decidir qué duplicado conservar, se prefiere conservar los archivos en estas ubicaciones.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">No hay ubicaciones configuradas</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omitir archivos que estén por debajo del tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir tipos de archivo poco comunes</string>
@@ -461,7 +492,14 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias exactas</string>
     <string name="deduplicator_matches_similar_label">Archivos similares</string>
+    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
+    <string name="deduplicator_arbiter_summary">Configura qué archivos se conservan y cuáles se eliminan.</string>
     <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo conservar verificando cada criterio en orden. El primer criterio que produzca un ganador claro determina el resultado. Arrastra para reordenar, toca para cambiar el modo.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir copias exactas sobre archivos similares.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación multimedia</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
     <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
@@ -547,6 +585,7 @@
     <string name="squeezer_history_clear_message">Esto permitirá que las imágenes previamente comprimidas se compriman de nuevo. Las imágenes en sí no se ven afectadas.</string>
     <string name="squeezer_onboarding_title">Acerca de la Compresión de Imágenes</string>
     <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAquí tienes una vista previa de cómo se verán tus imágenes:</string>
+    <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
     <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
     <string name="squeezer_onboarding_got_it">Entendido</string>
@@ -604,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">No instalada</string>
     <string name="appcontrol_tag_enabled">Habilitada</string>
     <string name="appcontrol_tag_disabled">Deshabilitada</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Habilitando aplicación</string>
     <string name="appcontrol_progress_disabling_package">Deshabilitando aplicación</string>
     <string name="appcontrol_list_filteroptions_label">Opciones de filtro</string>
@@ -915,9 +955,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ordena carpetas rápido: desliza archivos para conservar, eliminar u omitir.</string>
     <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos: simplemente desliza cada archivo.</string>
-    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1056,25 +1096,4 @@
     <string name="swiper_help_action">Ayuda</string>
     <string name="swiper_help_title">Cómo funciona Swiper</string>
     <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Desliza a la izquierda: %1$s\n→ Desliza a la derecha: %2$s\n↑ Desliza hacia arriba: Omitir\n↓ Desliza hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. Nada se elimina hasta que confirmes en la pantalla de revisión.</string>
-
-    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d archivo usando %2$s</item>
-        <item quantity="other">%1$d archivos usando %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
-
-    <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
-    <string name="appcleaner_progress_force_stopping">Forzando detención de aplicaciones…</string>
-
-    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
-    <string name="deduplicator_arbiter_summary">Configura qué archivos se conservan y cuáles se eliminan.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir copias exactas sobre archivos similares.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación multimedia</string>
-
 </resources>

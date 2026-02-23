@@ -91,6 +91,14 @@
     <string name="support_installid_desc">Otomatik hata raporları anonim olarak bildirilir. Geliştiricinin hata raporlarınızı bulabilmesi için yükleme kimliğinizi paylaşın.</string>
     <string name="support_debuglog_label">Hata ayıklama günlüğü</string>
     <string name="support_debuglog_desc">Uygulamanın yaptığı her işlemi paylaşabileceğiniz bir metin dosyasına kaydedin.</string>
+    <string name="support_debuglog_folder_label">Hata ayıklama günlüğü klasörü</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d dosya, %2$s kullanıyor</item>
+        <item quantity="other">%1$d dosya, %2$s kullanıyor</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Kayıtlı hata ayıklama günlüğü yok</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Tüm hata ayıklama günlükleri silinsin mi?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Bu işlem, kayıtlı tüm hata ayıklama günlüğü oturumlarını kalıcı olarak silecek. Bu işlem geri alınamaz.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Vakit geçirip soru sorabileceğiniz bir yer.</string>
     <string name="changelog_label">Değişiklik günlüğü</string>
@@ -173,6 +181,13 @@
     <string name="debug_bugreporter_label">Otomatik hata raporları</string>
     <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Hata ayıklama modu etkin</string>
+    <string name="debug_card_trace_mode_label">İzleme modunu etkinleştir</string>
+    <string name="debug_card_dryrun_mode_label">Kuru çalıştırma modu (silmeyi devre dışı bırak)</string>
+    <string name="debug_card_areas_reload_action">Veri alanlarını yeniden yükle</string>
+    <string name="debug_card_pkgs_reload_action">Uygulamaları yeniden yükle</string>
+    <string name="debug_card_root_test_action">Root\'u test et</string>
+    <string name="debug_card_shizuku_test_action">Shizuku\'yu test et</string>
     <string name="settings_category_tools_label">Araçlar</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risk Seviyesi</string>
@@ -424,14 +439,15 @@
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku kullanılarak önbellekler siliniyor</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Erişilemeyen önbellekler belirleniyor</string>
-    <string name="appcleaner_progress_force_stopping">Uygulamalar zorla durduruluyor…</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Önbellek temizleme kullanılamıyor</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Sistem bu uygulama için \"Önbelleği temizle\" düğmesini devre dışı bıraktı. Önbelleği temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="appcleaner_automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
     <string name="appcleaner_automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Sistem uygulaması yanlış yapılandırılmış</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'un Güvenlik uygulamasında (com.miui.securitycenter) Kullanım İstatistikleri izni (GET_USAGE_STATS) eksik. Bu, uygulama ayrıntılarındaki \"Verileri Temizle\" ve erişilebilirlik yoluyla önbellek temizleme gibi özellikleri bozar. Tam işlevselliği geri yükleme iznini verin.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Temizlemeden önce zorla durdur</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Önbelleklerini temizlemeden önce uygulamaları zorla durdurun. Bazı uygulamaların önbelleğini temizlemeye yardımcı olabilir, ancak uygulamaların hatalı çalışmasına ve manuel yeniden başlatma gerektirmesine neden olabilir.</string>
+    <string name="appcleaner_progress_force_stopping">Uygulamalar zorla durduruluyor…</string>
     <string name="deduplicator_tool_name">Tekilleyici</string>
     <string name="deduplicator_explanation_short">Cihazındaki birbirinin aynısı olan verileri bul.</string>
     <plurals name="deduplicator_result_x_clusters_processed">

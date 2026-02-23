@@ -44,7 +44,7 @@
     <string name="general_upgrade_action">Opgradeer</string>
     <string name="general_donate_action">Skenk</string>
     <string name="general_check_action">Kontroleer</string>
-    <string name="general_filter_action">Filter</string>
+    <string name="general_filter_action">Filtreer</string>
     <string name="general_internal_not_available_msg">Internetverbinding nie beskikbaar nie</string>
     <string name="general_refresh_action">Verfris</string>
     <string name="general_progress_searching">Soek</string>

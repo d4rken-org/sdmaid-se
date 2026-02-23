@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Jūsu pakalpojumā.</string>
     <string name="slogan_message_1">Tīrs un kārtīgs.</string>
     <string name="slogan_message_2">Novērš haoss.</string>
     <string name="slogan_message_3">Dara to, kas nepieciešams.</string>
-    <string name="slogan_message_4">Viss savās vietās.</string>
+    <string name="slogan_message_4">Visi pīķi uz vietas.</string>
     <string name="slogan_message_5">Nevainojams.</string>
     <string name="slogan_message_6">Baiti, nost!</string>
     <string name="slogan_message_7">Brīva vieta, laimīga vieta.</string>

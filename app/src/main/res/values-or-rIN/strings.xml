@@ -233,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">ପ୍ରତିବନ୍ଧିତ ଆପ୍ ଇନଷ୍ଟଲେସନ୍ ଡାଟା, ଯଥା ସୁରକ୍ଷିତ ତୃତୀୟ ପକ୍ଷ ଆପ୍ସ।</string>
     <string name="corpsefinder_filter_appasec_label">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳଗୁଡ଼ିକ</string>
     <string name="corpsefinder_filter_appasec_summary">ଏନକ୍ରିପ୍ଟେଡ୍ ଆପ୍ ସମ୍ବଳ, ଯଥା ଗେମ୍ ସମ୍ପତ୍ତି।</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd ମୋଡ୍ ଦ୍ୱାରା ବାହ୍ୟ ଷ୍ଟୋରେଜ୍ କୁ ସ୍ଥାନାନ୍ତରିତ ଡାଟା।</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ ହୋଇଛି</item>
         <item quantity="other">%d ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ ହୋଇଛି</item>
@@ -951,8 +951,13 @@
     <string name="shortcuts_settings_category">ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_title">ଏକ-ଟ୍ୟାପ୍ ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_summary">ଆପ୍ ଆଇକନ୍ ଦୀର୍ଘ-ଦବାଇବା ସମୟରେ \"ସ୍କାନ୍ + ଡିଲିଟ୍\" ସର୍ଟକଟ୍ ଦେଖାନ୍ତୁ। ଏକ-ଟ୍ୟାପ୍ ଡ୍ୟାସବୋର୍ଡ ସହ ସମାନ ଟୁଲ୍ ବ୍ୟବହାର କରେ।</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଶୀଘ୍ର ସଫା କରନ୍ତୁ — ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_dashcard_description">ଏକ ଫାଇଲ୍ ଏକ୍ସପ୍ଲୋରରଠାରୁ ଅଧିକ ଶୀଘ୍ର ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ସଫା କରନ୍ତୁ — କେବଳ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
     <string name="swiper_start_action">ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="swiper_continue_action">ସେସନ୍ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="swiper_sessions_description">୩ଟି ସରଳ ପଦକ୍ଷେପରେ ଫାଇଲ୍ ସମୀକ୍ଷା କରନ୍ତୁ:\n\n1. ସ୍କାନ୍ କରିବାକୁ ଏକ ଫୋଲ୍ଡର ବାଛନ୍ତୁ\n2. ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ\n3. ଆପଣଙ୍କ ବାଛନା ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ\n\nଆପଣ ଶେଷ ବିଲୋପ ବଟନ୍ ଟ୍ୟାପ୍ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
     <string name="swiper_select_folders_action">ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
     <string name="swiper_scanning_title">ସ୍କାନ୍ କରୁଛି…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1087,15 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ଼ନ୍ତୁ</string>
     <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">ସାହାଯ୍ୟ</string>
     <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
     <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଶୀଘ୍ର ସଫା କରନ୍ତୁ — ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="swiper_dashcard_description">ଏକ ଫାଇଲ୍ ଏକ୍ସପ୍ଲୋରରଠାରୁ ଅଧିକ ଶୀଘ୍ର ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ସଫା କରନ୍ତୁ — କେବଳ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="swiper_sessions_description">୩ଟି ସରଳ ପଦକ୍ଷେପରେ ଫାଇଲ୍ ସମୀକ୍ଷା କରନ୍ତୁ:\n\n1. ସ୍କାନ୍ କରିବାକୁ ଏକ ଫୋଲ୍ଡର ବାଛନ୍ତୁ\n2. ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ\n3. ଆପଣଙ୍କ ବାଛନା ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ\n\nଆପଣ ଶେଷ ବିଲୋପ ବଟନ୍ ଟ୍ୟାପ୍ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
 </resources>

@@ -439,15 +439,15 @@
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Διαγραφή κρυφής προσωρινής μνήμης χρησιμοποιώντας το Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Προσδιορισμός μη προσβάσιμων προσωρινών μνήμων</string>
-    <string name="appcleaner_forcestop_before_clearing_label">Αναγκαστική διακοπή πριν από την εκκαθάριση</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Αναγκαστική διακοπή εφαρμογών πριν από την εκκαθάριση της μνήμης cache τους. Μπορεί να βοηθήσει στην εκκαθάριση ορισμένων κρυφών μνημών εφαρμογών, αλλά μπορεί να προκαλέσει δυσλειτουργία εφαρμογών και να απαιτηθεί χειροκίνητη επανεκκίνηση.</string>
-    <string name="appcleaner_progress_force_stopping">Αναγκαστική διακοπή εφαρμογών…</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Εκκαθάριση προσωρινής μνήμης μη διαθέσιμη</string>
     <string name="appcleaner_automation_error_locked_appcache_body">Το σύστημα έχει απενεργοποιήσει το κουμπί \"Εκκαθάριση μνήμης cache\" για αυτήν την εφαρμογή. Εξαιρέστε το για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
     <string name="appcleaner_automation_error_no_settings_title">Μη διαθέσιμη οθόνη ρυθμίσεων</string>
     <string name="appcleaner_automation_error_no_settings_body">Αυτή η εφαρμογή συστήματος δεν έχει οθόνη ρυθμίσεων. Η εκκαθάριση της μνήμης cache μέσω της υπηρεσίας προσβασιμότητας δεν είναι δυνατή. Εξαιρέστε την για να επιταχύνετε την εκκαθάριση της μνήμης cache.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Η εφαρμογή συστήματος δεν έχει ρυθμιστεί σωστά</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">Η εφαρμογή ασφαλείας του HyperOS (com.miui.securitycenter) δεν έχει το δικαίωμα Στατιστικά χρήσης (GET_USAGE_STATS). Αυτό διακόπτει λειτουργίες όπως η \"Εκκαθάριση δεδομένων\" στις λεπτομέρειες της εφαρμογής και η εκκαθάριση της προσωρινής μνήμης μέσω προσβασιμότητας. Παραχωρήστε το δικαίωμα για να επαναφέρετε την πλήρη λειτουργικότητα.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Αναγκαστική διακοπή πριν από την εκκαθάριση</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Αναγκαστική διακοπή εφαρμογών πριν από την εκκαθάριση της μνήμης cache τους. Μπορεί να βοηθήσει στην εκκαθάριση ορισμένων κρυφών μνημών εφαρμογών, αλλά μπορεί να προκαλέσει δυσλειτουργία εφαρμογών και να απαιτηθεί χειροκίνητη επανεκκίνηση.</string>
+    <string name="appcleaner_progress_force_stopping">Αναγκαστική διακοπή εφαρμογών…</string>
     <string name="deduplicator_tool_name">Αποδιπλοποιητής</string>
     <string name="deduplicator_explanation_short">Βρείτε διπλότυπα δεδομένα στη συσκευή σας.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -1051,6 +1051,7 @@
         <item quantity="one">%d ήδη διαγραμμένο</item>
         <item quantity="other">%d ήδη διαγραμμένα</item>
     </plurals>
+    <!-- Shorter versions for side-by-side display -->
     <plurals name="swiper_session_status_kept">
         <item quantity="one">%d διατηρημένο</item>
         <item quantity="other">%d διατηρημένα</item>
@@ -1065,6 +1066,7 @@
     <string name="swiper_sessions_suggestion_downloads">Φάκελος λήψεων</string>
     <string name="swiper_sessions_suggestion_screenshots">Στιγμιότυπα οθόνης</string>
     <string name="swiper_sessions_suggestion_camera">Φωτογραφίες κάμερας</string>
+    <!-- Swiper stamp variations (Tinder-style labels) -->
     <string name="swiper_stamp_keep_1">Κράτα!</string>
     <string name="swiper_stamp_keep_2">Ωραίο!</string>
     <string name="swiper_stamp_keep_3">Ναι!</string>
@@ -1081,6 +1083,7 @@
     <string name="swiper_stamp_undo_2">Πίσω!</string>
     <string name="swiper_stamp_undo_3">Ωχ!</string>
     <string name="swiper_stamp_undo_4">Περίμενε!</string>
+    <!-- Swiper gesture overlay -->
     <string name="swiper_gesture_overlay_dismiss">Πατήστε οπουδήποτε για να ξεκινήσετε</string>
     <string name="swiper_gesture_overlay_dismiss_action">Κατάλαβα</string>
     <string name="swiper_gesture_overlay_left_delete">← Διαγραφή</string>
@@ -1089,6 +1092,7 @@
     <string name="swiper_gesture_overlay_right_delete">Διαγραφή →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Παράλειψη</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Αναίρεση</string>
+    <!-- Swiper help dialog -->
     <string name="swiper_help_action">Βοήθεια</string>
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>

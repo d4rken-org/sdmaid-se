@@ -227,8 +227,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">ข้อมูลการติดตั้งแอพที่ถูกจำกัด เช่น แอพบุคคลที่สามที่ได้รับการป้องกัน</string>
     <string name="corpsefinder_filter_appasec_label">ทรัพยากรแอพที่ถูกเข้ารหัส</string>
     <string name="corpsefinder_filter_appasec_summary">ทรัพยากรแอพที่ถูกเข้ารหัส เช่น ทรัพยากรเกม</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">ข้อมูลที่ถูกย้ายไปยังพื้นที่เก็บข้อมูลภายนอกโดย App2Sd mods</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="other">ลบซากแอพ %d รายการแล้ว</item>
     </plurals>
@@ -509,6 +509,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">ให้ความสำคัญกับไฟล์ขนาดเล็ก</string>
     <string name="deduplicator_view_mode_groups_label">กลุ่ม</string>
     <string name="deduplicator_view_mode_directories_label">โฟลเดอร์</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">บีบอัดรูปภาพเพื่อประหยัดพื้นที่จัดเก็บ</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="other">พบ %d รูปภาพ</item>
@@ -603,14 +604,15 @@
     <string name="appcontrol_app_launch_title">เปิดแอพ</string>
     <string name="appcontrol_app_launch_description">เปิดกิจกรรมหลักของแอพนี้</string>
     <string name="appcontrol_app_forcestop_title">บังคับให้หยุด</string>
+    <string name="appcontrol_app_forcestop_description">หยุดแอปทำงาน ป้องกันไม่ให้แอปเริ่มต้นเองจนกว่าคุณจะเปิดแอปหรือรีบูตอุปกรณ์</string>
     <string name="appcontrol_app_uninstall_description">ถอนการติดตั้งแอพนี้ออกจากอุปกรณ์</string>
     <string name="appcontrol_app_exclude_add_title">ยกเว้นแอพ</string>
     <string name="appcontrol_app_exclude_add_description">ยกเว้นแอพนี้จากการดำเนินการอื่นๆ ใน SD Maid</string>
     <string name="appcontrol_app_exclude_edit_title">แก้ไขการยกเว้น</string>
     <string name="appcontrol_app_exclude_edit_description">แอพนี้ถูกยกเว้นจากเครื่องมือหนึ่งหรือมากกว่า</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">ผู้ใช้</string>
     <string name="appcontrol_tag_active">ใช้งานเมื่อเร็วๆ นี้</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">แบนดิล</string>
     <string name="appcontrol_tag_system">ระบบ</string>
     <string name="appcontrol_tag_archived">ถูกเก็บไว้</string>
@@ -749,6 +751,7 @@
     <string name="data_area_public_app_data_official_label">ข้อมูลแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_app_assets_official_label">ทรัพยากรแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_storage_label">พื้นที่จัดเก็บสาธารณะ</string>
+    <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">พื้นที่ข้อมูล</string>
     <string name="data_areas_description">พื้นที่ข้อมูลหมายถึงสถานที่ในอุปกรณ์ของคุณที่ SD Maid สามารถเข้าถึงได้ พื้นที่ข้อมูลที่แตกต่างกันอาจใช้ได้ขึ้นอยู่กับเวอร์ชัน Android และสิทธิ์ที่ได้รับอนุญาต</string>
     <string name="data_areas_short_summary">พื้นที่ที่ SD Maid สามารถเข้าถึงได้ตามสิทธิ์ที่ได้รับอนุญาตในปัจจุบัน</string>
@@ -842,6 +845,7 @@
     <string name="translation_encourage_title">แปล SD Maid</string>
     <string name="translation_encourage_body">SD Maid ถูกแปลโดยอาสาสมัคร การแปล, การตรวจทานหรือการพิสูจน์อักษร ความช่วยเหลือของคุณขอบคุณมาก!</string>
     <string name="translation_translators_title">เวอร์ชันนี้แปลโดย</string>
+    <string name="translation_translators_people">การแปลโดยเครื่องจักร</string>
     <string name="motd_setting_enabled_label">ข้อความสำคัญ</string>
     <string name="motd_setting_enabled_explanation">อนุญาตให้ SD Maid ตรวจสอบข้อความสำคัญจากผู้พัฒนา</string>
     <string name="updatecheck_setting_enabled_label">ตรวจสอบการอัปเดต</string>
@@ -903,8 +907,13 @@
     <string name="shortcuts_settings_category">ทางลัด</string>
     <string name="shortcuts_onetap_enabled_title">ทางลัดแตะครั้งเดียว</string>
     <string name="shortcuts_onetap_enabled_summary">แสดงทางลัด \"สแกน + ลบ\" เมื่อกดค้างที่ไอคอนแอป ใช้เครื่องมือเดียวกับแดชบอร์ดแตะครั้งเดียว</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">จัดระเบียบโฟลเดอร์อย่างรวดเร็ว -- ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม</string>
+    <string name="swiper_dashcard_description">จัดระเบียบโฟลเดอร์เฉพาะได้เร็วกว่าตัวจัดการไฟล์ -- แค่ปัดแต่ละไฟล์</string>
     <string name="swiper_start_action">เริ่มปัด</string>
     <string name="swiper_continue_action">ดำเนินเซสชันต่อ</string>
+    <string name="swiper_sessions_description">ตรวจสอบไฟล์ใน 3 ขั้นตอนง่ายๆ:\n\n1. เลือกโฟลเดอร์ที่จะสแกน\n2. ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม\n3. ตรวจสอบตัวเลือกของคุณและยืนยัน\n\nจะไม่มีอะไรถูกลบจนกว่าคุณจะแตะปุ่มลบสุดท้าย</string>
     <string name="swiper_select_folders_action">เลือกโฟลเดอร์</string>
     <string name="swiper_scanning_title">กำลังสแกน…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1026,9 +1035,4 @@
     <string name="swiper_help_action">ช่วยเหลือ</string>
     <string name="swiper_help_title">วิธีใช้ Swiper</string>
     <string name="swiper_help_message">ปัดไฟล์แต่ละรายการเพื่อตัดสินใจ:\n\n← ปัดซ้าย: %1$s\n→ ปัดขวา: %2$s\n↑ ปัดขึ้น: ข้าม\n↓ ปัดลง: เลิกทำ (หลังจากปัดครั้งแรก)\n\nคุณยังสามารถใช้ปุ่มด้านล่างได้\n\nเมื่อเสร็จแล้ว แตะ \"ตรวจสอบ\" เพื่อดูการตัดสินใจทั้งหมดของคุณ จะไม่มีอะไรถูกลบจนกว่าคุณจะยืนยันในหน้าตรวจสอบ</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">จัดระเบียบโฟลเดอร์อย่างรวดเร็ว -- ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม</string>
-    <string name="swiper_dashcard_description">จัดระเบียบโฟลเดอร์เฉพาะได้เร็วกว่าตัวจัดการไฟล์ -- แค่ปัดแต่ละไฟล์</string>
-    <string name="swiper_sessions_description">ตรวจสอบไฟล์ใน 3 ขั้นตอนง่ายๆ:\n\n1. เลือกโฟลเดอร์ที่จะสแกน\n2. ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม\n3. ตรวจสอบตัวเลือกของคุณและยืนยัน\n\nจะไม่มีอะไรถูกลบจนกว่าคุณจะแตะปุ่มลบสุดท้าย</string>
 </resources>

@@ -74,6 +74,7 @@
     <string name="ui_theme_style_setting_label">Gaya tema</string>
     <string name="ui_theme_style_setting_explanation">Gaya warna yang digunakan semasa menema aplikasi.</string>
     <string name="ui_theme_style_default_label">Lalai</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pratonton fail</string>
     <string name="ui_previews_summary">Paparkan pratonton fail dalam semua alatan (cth. imej kecil dan video).</string>
     <string name="ui_language_override_label">Ganti bahasa</string>
@@ -603,6 +604,7 @@
     <string name="appcontrol_app_launch_title">Lancarkan aplikasi</string>
     <string name="appcontrol_app_launch_description">Lancarkan aktiviti utama aplikasi ini.</string>
     <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
+    <string name="appcontrol_app_forcestop_description">Hentikan aplikasi. Cegah ia daripada memulai sendiri sehingga anda membukanya atau peranti dimulakan semula.</string>
     <string name="appcontrol_app_uninstall_description">Nyahpasang aplikasi ini daripada peranti anda.</string>
     <string name="appcontrol_app_exclude_add_title">Singkir aplikasi</string>
     <string name="appcontrol_app_exclude_add_description">Asingkan aplikasi ini daripada operasi lain dalam SD Maid.</string>
@@ -674,6 +676,7 @@
     <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada peranti ini.</string>
     <string name="appcontrol_export_app_selection_action">Eksport aplikasi terpilih</string>
     <string name="appcontrol_export_title">Eksport</string>
+    <string name="appcontrol_export_description">Simpan fail pemasangan aplikasi ini. Ini tidak termasuk data aplikasi.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d aplikasi telah dieksport</item>
     </plurals>
@@ -763,6 +766,7 @@
     <string name="exclusion_type_segment">Pengecualian segmen</string>
     <string name="exclusion_tags_alltools">Semua alatan</string>
     <string name="exclusion_target_label">Sasaran pengecualian</string>
+    <string name="exclusion_editor_path_change_action">Sentuh untuk mengubah laluan</string>
     <string name="exclusion_option_allow_partial">Benarkan padanan separa</string>
     <string name="exclusion_option_ignore_casing">Abaikan selongsong</string>
     <string name="exclusion_editor_affected_tools_label">Alatan yang terjejas</string>
@@ -1007,7 +1011,7 @@
     <string name="swiper_stamp_keep_3">Ya!</string>
     <string name="swiper_stamp_keep_4">Kekal!</string>
     <string name="swiper_stamp_delete_1">Tidak!</string>
-    <string name="swiper_stamp_delete_2">Bye!</string>
+    <string name="swiper_stamp_delete_2">Selamat tinggal!</string>
     <string name="swiper_stamp_delete_3">Sampah!</string>
     <string name="swiper_stamp_delete_4">Padam!</string>
     <string name="swiper_stamp_skip_1">Langkau!</string>

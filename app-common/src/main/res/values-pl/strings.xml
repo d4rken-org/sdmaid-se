@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-    <string name="slogan_message_0">Do twoich usług.</string>
-    <string name="slogan_message_1">Czysto i schludnie.</string>
-    <string name="slogan_message_2">Zapobiega chaosowi.</string>
-    <string name="slogan_message_3">Robi to, co konieczne.</string>
+    <string name="slogan_message_0">Do twoich usług</string>
+    <string name="slogan_message_1">Czysto i schludnie</string>
+    <string name="slogan_message_2">Zapobiega chaosowi</string>
+    <string name="slogan_message_3">Robi to, co konieczne</string>
     <string name="slogan_message_4">Wszystko dopięte na ostatni guzik.</string>
-    <string name="slogan_message_5">Bez skazy.</string>
+    <string name="slogan_message_5">Bez skazy</string>
     <string name="slogan_message_6">Bajty, znikajcie!</string>
-    <string name="slogan_message_7">Więcej miejsca, więcej radości.</string>
-    <string name="slogan_message_8">Nigdy się nie poddaje.</string>
+    <string name="slogan_message_7">Więcej miejsca, więcej radości</string>
+    <string name="slogan_message_8">Nigdy się nie poddaje</string>
     <string name="general_thank_you_label">Dziękuję ci</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
@@ -42,7 +42,7 @@
     <string name="general_error_label">Błąd</string>
     <string name="general_tap_hint_msg">Dotknij, aby uzyskać więcej opcji</string>
     <string name="general_upgrade_action">Uaktualnij</string>
-    <string name="general_donate_action">Wspomóż</string>
+    <string name="general_donate_action">Wesprzyj</string>
     <string name="general_check_action">Sprawdź</string>
     <string name="general_filter_action">Filtruj</string>
     <string name="general_internal_not_available_msg">Brak połączenia z internetem</string>

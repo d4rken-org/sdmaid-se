@@ -16,10 +16,10 @@
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
-    <string name="debug_debuglog_screen_title">偵錯日誌</string>
-    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_title">偵錯記錄</string>
+    <string name="debug_debuglog_screen_discard_action">捨棄</string>
     <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
-    <string name="debug_debuglog_screen_log_files_label">日誌檔</string>
+    <string name="debug_debuglog_screen_log_files_label">記錄檔案</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
         <item quantity="other">已準備好 %1$d 個檔案（%2$s）</item>
     </plurals>
@@ -911,9 +911,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">快速整理資料夾 — 滑動檔案以保留、刪除或跳過。</string>
     <string name="swiper_dashcard_description">比檔案管理員更快地整理特定資料夾 — 只需滑動每個檔案。</string>
-    <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_start_action">開始滑動</string>
     <string name="swiper_continue_action">繼續工作階段</string>
+    <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_select_folders_action">選取資料夾</string>
     <string name="swiper_scanning_title">正在掃描…</string>
     <plurals name="swiper_result_x_items_found">

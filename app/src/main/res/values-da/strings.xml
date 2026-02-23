@@ -182,8 +182,11 @@
     <string name="debug_bugreporter_summary">Rapporterer automatisk problemer, f.eks. detaljer om appnedbrud, så jeg kan finde ud af hvorfor og rette det.</string>
     <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
+    <string name="debug_card_trace_mode_label">Aktivér sporingstilstand</string>
+    <string name="debug_card_dryrun_mode_label">Testtilstand (deaktivér sletning)</string>
     <string name="debug_card_areas_reload_action">Genindlæs dataområder</string>
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
+    <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
     <string name="settings_category_tools_label">Værktøjer</string>
     <string name="settings_category_filter">Filter</string>
@@ -276,7 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skærmbilledalder</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumsalder for, at skærmbilleder tages i betragtning til sletning.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK\'er</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Opsætningsfiler, der ikke længere er nødvendige...</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inkluder samme version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Inkluder også APK-filer...</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
     <string name="systemcleaner_filter_lostdir_summary">Midlertidige filer, der oprettes, når der overføres data mellem Android-enheder.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
@@ -340,7 +345,11 @@
     <string name="systemcleaner_customfilter_editor_size_label">Størrelses begrænsninger</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimumsstørrelse</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimal størrelse</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Begræns matches baseret på filstørrelse...</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Aldersbegrænsninger</string>
     <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimumsalder</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimal alder</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Begræns matches baseret på filens alder...</string>
     <string name="systemcleaner_customfilter_import_action">Importér nyt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksportér valgt filter</string>
     <string name="appcleaner_tool_name">Apprenser</string>
@@ -436,6 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systemapp konfigureret forkert</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\' sikkerhedsapp (com.miui.securitycenter) mangler tilladelsen til brugsstatistik (GET_USAGE_STATS). Dette forhindrer funktioner som \"Ryd data\" i appdetaljer og cache-rydning via tilgængelighed. Giv tilladelsen for at gendanne fuld funktionalitet.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Tvangsafslut før rydning</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Tvangsafslut apps...</string>
+    <string name="appcleaner_progress_force_stopping">Tvangsafslutter apps…</string>
     <string name="deduplicator_tool_name">Duplikationsfjerner</string>
     <string name="deduplicator_explanation_short">Find duplikerede data på din enhed.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -450,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Vis indstillinger, der lader dig slette alle filer i et sæt duplikater, så ingen filer er tilovers.</string>
     <string name="deduplicator_search_locations_title">Søgeplaceringer</string>
     <string name="deduplicator_search_locations_all_summary">Alle tilgængelige områder</string>
+    <string name="deduplicator_keep_prefer_paths_title">Foretrék at beholde i</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Når det besluttes...</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Ingen placeringer konfigureret</string>
     <string name="deduplicator_skip_minsize_title">Minimum størrelse</string>
     <string name="deduplicator_skip_minsize_description">Spring over filer under minimumsstørrelsen.</string>
     <string name="deduplicator_skip_uncommon_title">Spring over ualmindelige filtyper</string>
@@ -538,8 +553,8 @@
     <string name="squeezer_quality_label">Kvalitet</string>
     <string name="squeezer_quality_title">Kompressions kvalitet</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret billedkvalitet.</string>
-    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
     <string name="squeezer_quality_example_format">Eksempel: %1$s billede → sparer ~%2$s ved %3$d%% kvalitet</string>
+    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
     <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
     <string name="squeezer_types_category_label">Billedtyper</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>

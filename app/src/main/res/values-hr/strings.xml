@@ -999,9 +999,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Brzo počistite mape — prevlačite datoteke da zadržite, izbrišete ili preskočite.</string>
     <string name="swiper_dashcard_description">Počistite određene mape brže nego s upraviteljem datotekama — samo prevucite svaku datoteku.</string>
-    <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_start_action">Počni prevlačiti</string>
     <string name="swiper_continue_action">Nastavi sesiju</string>
+    <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_select_folders_action">Odaberite mape</string>
     <string name="swiper_scanning_title">Skeniranje…</string>
     <plurals name="swiper_result_x_items_found">

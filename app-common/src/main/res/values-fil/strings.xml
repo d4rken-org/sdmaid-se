@@ -163,7 +163,7 @@
     </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s file</item>
-        <item quantity="other">%s na file</item>
+        <item quantity="other">%s files</item>
     </plurals>
     <string name="general_advice_title">Mga Payo</string>
     <string name="general_error_invalid_input_label">Hindi valid ang input</string>

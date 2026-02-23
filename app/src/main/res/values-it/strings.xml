@@ -33,7 +33,7 @@
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d attività in coda</item>
-        <item quantity="other">%d processi nella cache</item>
+        <item quantity="other">%d attività in coda</item>
     </plurals>
     <string name="tasks_result_notification_channel_label">Risultati attività</string>
     <string name="tasks_result_subtext">Risultato attività</string>
@@ -526,7 +526,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferisci file più piccoli</string>
     <string name="deduplicator_view_mode_groups_label">Gruppi</string>
     <string name="deduplicator_view_mode_directories_label">Cartelle</string>
-
     <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Comprimi le immagini per risparmiare spazio di archiviazione.</string>
     <plurals name="squeezer_result_x_images_found">
@@ -585,7 +584,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="squeezer_history_empty">Nessuna cronologia di compressione</string>
     <string name="squeezer_history_clear_title">Cancella cronologia compressione</string>
     <string name="squeezer_history_clear_message">Questo permetterà di comprimere nuovamente le immagini già compresse. Le immagini stesse non vengono modificate.</string>
-
     <string name="squeezer_onboarding_title">Informazioni sulla compressione immagini</string>
     <string name="squeezer_onboarding_message">La compressione riduce la dimensione dei file rimuovendo dettagli visivi. Questo processo è irreversibile - la qualità originale non può essere ripristinata.\n\nEcco un\'anteprima di come appariranno le tue immagini:</string>
     <string name="squeezer_onboarding_original_label">Originale</string>
@@ -658,6 +656,10 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <string name="appcontrol_list_sortmode_screentime_label">Tempo schermo</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Le dimensioni delle app sono stimate per ragioni di prestazioni. Utilizzare lo StorageAnalyzer per dati più accurati.</string>
     <string name="appcontrol_progress_uninstalling_app">Rimozione app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app è stata disinstallata</item>
+        <item quantity="other">%d app sono state disinstallate</item>
+    </plurals>
     <string name="appcontrol_archive_action">Archivia</string>
     <string name="appcontrol_archive_selection_action">Archivia app</string>
     <string name="appcontrol_archive_description">Archivia per liberare spazio mantenendo i dati dell\'app per un successivo ripristino.</string>
@@ -683,10 +685,6 @@ Se non lo si vuole usare: Disabilita l\'opzione \"Includi cache inaccessibili\".
     <plurals name="appcontrol_restore_result_x">
         <item quantity="one">%d app ripristinata</item>
         <item quantity="other">%d app ripristinate</item>
-    </plurals>
-    <plurals name="appcontrol_uninstall_result_message_x">
-        <item quantity="one">%d app è stata disinstallata</item>
-        <item quantity="other">%d app sono state disinstallate</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Dimensioni app</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>

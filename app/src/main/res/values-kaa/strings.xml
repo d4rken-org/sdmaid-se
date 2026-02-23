@@ -27,6 +27,10 @@
     <string name="settings_debuglog_explanation">Bul funkciya programmaniń barlıq islerinen bólisuv mümkin fayl sıpatında jazıp aladi. Jaratılgan fayl mahrem maǵlıwmatlardı qamtıydı (mısalı fayl atlari hám ornatlgan programmalar). Buni tek ishenshli adamlarmenen bólis (mısalı, problem sheship atırgan programmer).</string>
     <string name="tasks_activity_notification_channel_label">Aktiv wazıypalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid islep atır</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="one">%d aktiv tapshırma</item>
+        <item quantity="other">%d aktiv tapshırma</item>
+    </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d tapsırma gezekte</item>
         <item quantity="other">%d tapsırma gezekte</item>
@@ -99,6 +103,12 @@
     <string name="discord_description">Dardemlesıw hám sorawlar soriw üşin orin.</string>
     <string name="changelog_label">Ózgerisler</string>
     <string name="settings_acknowledgements_label">Minnetdarshılıq</string>
+    <string name="settings_acknowledgements_category_translations_title">Tarjimalar</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Bu qaysi tarjima qildi?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Rahmat</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Hamkorlarimizga alohida rahmat.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Litsenziyalar</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid tomonidan ishlatiladigan dasturiy oʻrnatish.</string>
     <string name="setup_label">Ornatıw</string>
     <string name="setup_incomplete_card_title">Ornatıw juwmaqlanbadı</string>
     <string name="setup_incomplete_card_body">Eń jaqsı nátiyjelerge erisiw ushın SD Maid ornatıwın juwmaqlań.</string>
@@ -181,6 +191,7 @@
     <string name="settings_category_tools_label">Ásbaplar</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Qáwip dárejesi</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Бұрыннан ошырылған қолданбаларға тиеслі даталар.</string>
     <string name="corpsefinder_settings_summary">Сканерлеу фильтрлерін һәм риск дәрежелерін сазлаў.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Кереклі қалдықтарды қосу</string>
@@ -191,6 +202,14 @@
     <string name="corpsefinder_watcher_summary">Қолданба ошырылғанда қалдықтарды автоматик сканерлеу.</string>
     <string name="corpsefinder_watcher_autodelete_title">Avtomat tárizde óshiriw</string>
     <string name="corpsefinder_watcher_autodelete_summary">Ошырылған қолданбаға байланыслы барлық қалдықтарды автоматик ошыру.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s alastaw sonında %1$d qalıntı tabılgan.</item>
+        <item quantity="other">%2$s alastaw sonında %1$d qalıntı tabılgan.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Tazalaw muvaffaqiyatli (%1$s): %2$s bostan qutulğan hámde %3$d tar\'atıw alastagan.</item>
+        <item quantity="other">Tazalaw muvaffaqiyatli (%1$s): %2$s bostan qutulğan hámde %3$d tar\'atıw alastagan.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Qaldıqlardı óshiriw</string>
     <string name="corpsefinder_filter_publicmedia_label">Ǵalabalıq media faylları</string>
     <string name="corpsefinder_filter_publicmedia_summary">Қоғамлық медиа файллары, мысалы, хабаршы қолданбалары арқылы алынған файллар.</string>
@@ -216,6 +235,14 @@
     <string name="corpsefinder_filter_appasec_summary">Шифрланған қолданба ресурслары, мысалы, ойын активтері.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd өзгертулері арқылы сыртқы сақтағышқа көшірілген даталар.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ilova qoldig\'i o\'chirildi</item>
+        <item quantity="other">%d ilova qoldiqlari o\'chirildi</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d app qalıntısı aytılıp tabılğan</item>
+        <item quantity="other">%d app qalıntısı aytılıp tabılğan</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Barlıq qosımsha qaldıqları óshirilsinbe?</string>
     <string name="corpsefinder_owners_label">Iyeleri</string>
     <string name="corpsefinder_corpse_hints_label">Esletpe</string>
@@ -224,6 +251,14 @@
     <string name="corpsefinder_corpse_hint_common">Бұл элементтің өте көп кездесетін аты бар һәм ол SD Maid білмейтін әлі де орнатылған қолданбаларға тиеслі болуы мүмкін.</string>
     <string name="systemcleaner_tool_name">Sistema</string>
     <string name="systemcleaner_explanation_short">Қандай да нақты қолданбаға тиеслі емес артық даталар.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d mos kelish o\'chirildi</item>
+        <item quantity="other">%d mos kelishlar o\'chirildi</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d filter qayta keldi</item>
+        <item quantity="other">%d filter qayta keldi</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">Arnawlı filtrler</string>
     <string name="systemcleaner_filter_custom_manage_label">Arnawlı filtrlerdi basqarıń</string>
     <string name="systemcleaner_filter_custom_manage_summary">Өзіңіздің өзгеше фильтрлерін құру, ошыру, импорт һәм экспорт ету.</string>
@@ -376,6 +411,14 @@
     <string name="appcleaner_filter_qqchat_label">QQ söylesuw</string>
     <string name="appcleaner_filter_qqchat_summary">QQ söylesuw söylesuвlerinde jiberilgen yamasa alıngan fayllar.</string>
     <string name="appcleaner_delete_all_confirmation_message">Barlıq qosımşalar ushın jok etetuğın zatlardı öşirip taslama?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d keraksiz element o\'chirildi</item>
+        <item quantity="other">%d keraksiz elementlar o\'chirildi</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d shetkel tar\'atıw tabılgan</item>
+        <item quantity="other">%d shetkel tar\'atıw tabılgan</item>
+    </plurals>
     <string name="appcleaner_automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>
     <string name="appcleaner_automation_title">AppCleaner avtomatiyası</string>
     <string name="appcleaner_automation_subtitle_default_caches">Baslı keşlerdı tazalawda…</string>
@@ -390,6 +433,10 @@
     <string name="appcleaner_automation_unavailable_body">Jetimli bolmaǵan keşlerdı tazalaw SD Maid jetimlilik qullıǵın talap etedi, biraq ol jetimli emes edi. Eger onı paydalanǵıńız kelmese: \"Jetimli bolmaǵan keşlerdı qosıw\" optsiyasın öshiriń.</string>
     <string name="appcleaner_junk_userprofile_label">Paydalanıwshı</string>
     <string name="appcleaner_delete_confirmation_message_x">%s ushın jok etetuǵın fayllarıdı öshirip taslama?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d tallanğan app üshín shetkel tar\'atıwlarına joqtaw berileysiz?</item>
+        <item quantity="other">%d tallanğan app üshín shetkel tar\'atıwlarına joqtaw berileysiz?</item>
+    </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku paydalanıp keşlerdı öshirip atır</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Jetimli bolmaǵan keşlerdı anıqlaw</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Keşti tazalaw jetimli emes</string>
@@ -403,6 +450,14 @@
     <string name="appcleaner_progress_force_stopping">Qollanbalardı ma\'jbu\'riy toqtatıw…</string>
     <string name="deduplicator_tool_name">Dublikatlardı tabıwshı</string>
     <string name="deduplicator_explanation_short">Qurılmańızda dublikat maǵlıwmatlardı tabıń.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d takroriy o\'chirildi</item>
+        <item quantity="other">%d takroriylar o\'chirildi</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d qaytalanıw to\'plami tabılgan</item>
+        <item quantity="other">%d qaytalanıw to\'plami tabılgan</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"Barlıǵın öshiriw\" múmkinshiligin jarat</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikatlar toplamındaǵı barlıq fayllarıdı öshiriwge múmkinshilik beretuǵın optsiyalırdı kórsetiw, sonlıqtan hesh fayl qalmaydi.</string>
     <string name="deduplicator_search_locations_title">Izlew orınları</string>
@@ -420,6 +475,10 @@
     <string name="deduplicator_detection_method_phash_title">Qabıllaw xeshi</string>
     <string name="deduplicator_detection_method_phash_summary">Mazmun o\'zgesheliklerdi taldaw ha\'m perseptual xesh qıymatların salıstırıw arqalı uqsas faylları tabın\'. ⚠️ Uqsaslıqqa tiykarlanǵan anıqlaw jalǵan pozitiflerdı o\'z ishine alıwı mu\'mkin, qoldan tekseriwdi talap etedi.</string>
     <string name="deduplicator_occupied_space_label">Bándelgen saqlawsh</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s qoʻshni fayllar tomonidan ushlab olinadi</item>
+        <item quantity="other">%s qoʻshni fayllar tomonidan ushlab olinadi</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Fayl kólemi</string>
     <string name="deduplicator_average_size_label">Ortasha kólem</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
@@ -466,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kishi fayllar artıqsha ko\'riledi</string>
     <string name="deduplicator_view_mode_groups_label">Toparlar</string>
     <string name="deduplicator_view_mode_directories_label">Papkalar</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Saqlash ornın u\'nemlew ushin su\'wretlerdi sıǵıstırıw.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d su\'wret tabıldı</item>
@@ -525,7 +585,7 @@
     <string name="squeezer_history_clear_message">Bul aldın sıǵıstırılǵan su\'wretlerdi qayta sıǵıstırıwǵa mu\'mkinshilik beredi. Su\'wretlerdiń o\'zleri ta\'sir etilmeydi.</string>
     <string name="squeezer_onboarding_title">Su\'wret sıǵıstırıw haqqında</string>
     <string name="squeezer_onboarding_message">Su\'wret sıǵıstırıw ko\'riniw detallarin alıp taslaw arqalı fayl o\'lshemin kemeyterdi. Bul protsess qaytarılmas - original sapa qayta tikleniwi mu\'mkin emes.\n\nSu\'wretleriniz qalay ko\'rinetuǵının aldın alıw:</string>
-    <string name="squeezer_onboarding_original_label">Original</string>
+    <string name="squeezer_onboarding_original_label">Asl</string>
     <string name="squeezer_onboarding_compressed_label">Sıǵıstırılǵannan keyin</string>
     <string name="squeezer_onboarding_quality_label">Sapa: %d%%</string>
     <string name="squeezer_onboarding_got_it">Tu\'sindim</string>
@@ -549,6 +609,7 @@
         <item quantity="other">Keminde %d ku\'n eski</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG faylları ushin boljamalı ~%d%% u\'nemlew</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Qurılmańızǵa ornatılǵan baǵdarlamalar.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d baǵdarlama tabıldı</item>
@@ -572,9 +633,9 @@
     <string name="appcontrol_app_exclude_add_description">Bul qosímshanı SD Maidtıń basqa ámellerinen shetlew.</string>
     <string name="appcontrol_app_exclude_edit_title">Shetlewdi ózgertiw</string>
     <string name="appcontrol_app_exclude_edit_description">Bul qosímsha házirgi waqıtta bir yamasa birneshe quraldan shetlengen.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Paydalanıwshı</string>
     <string name="appcontrol_tag_active">Jaqında aktiv</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Toplam</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arxivlengen</string>
@@ -594,6 +655,10 @@
     <string name="appcontrol_list_sortmode_screentime_label">Ekran waqtı</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Qosímsha kólemleri ónimdilik maqsetinde shamamen esaplanǵan. Anıǵıraq maǵlıwmatlar ushın StorageAnalyzer quralın paydalanıń.</string>
     <string name="appcontrol_progress_uninstalling_app">Qosímsha óshiriliw</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ilova o\'chirildi</item>
+        <item quantity="other">%d ilovalar o\'chirildi</item>
+    </plurals>
     <string name="appcontrol_archive_action">Arxivlew</string>
     <string name="appcontrol_archive_selection_action">Qollanbalardı arxivlew</string>
     <string name="appcontrol_archive_description">Keyin tiklaw ushin qollanba maǵlıwmatların saqlap, orın bosatıw ushin arxivlew.</string>
@@ -625,6 +690,14 @@
     <string name="appcontrol_app_sizes_data_label">Maǵlıwmat</string>
     <string name="appcontrol_app_sizes_cache_label">Kesh</string>
     <string name="appcontrol_toggle_confirmation_title">Háreketin tastıyıqlaw</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d app-nıñ holatın o\'zgertiw kerektiyin?</item>
+        <item quantity="other">%d app-nıñ holatın o\'zgertiw kerektiyin?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ilova almashtirildi</item>
+        <item quantity="other">%d ilovalar almashtirildi</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Kólemlerdi anıqlaw</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Hár bir qosímshanıń shamamen kólemin alıw.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivlikti anıqlaw</string>
@@ -634,6 +707,10 @@
     <string name="appcontrol_export_app_selection_action">Qosímshalardı eksportlaw</string>
     <string name="appcontrol_export_title">Qosímshanı eksportlaw</string>
     <string name="appcontrol_export_description">Usı qollanbanıń ornatıw faylların saqlap alıw. Bul qollanba maǵlıwmatların o\'z ishine almaydı.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d qoʻllanba eksport qilindi</item>
+        <item quantity="other">%d qoʻllanba eksport qilindi</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s eksportlanıwda</string>
     <string name="appcontrol_share_list_action">Dizimdi bo\'lisiw</string>
     <string name="appcontrol_share_list_title">Meniń qollanbalarm</string>
@@ -641,6 +718,14 @@
     <string name="appcontrol_force_stop_selection_action">Baǵdarlamalardı májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_action">Májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_confirm_title">Májbúrlep toqtatıwdı tastıyıqlaw</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d app-nı tóptew berileysiz?</item>
+        <item quantity="other">%d app-nı tóptew berileysiz?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d qoʻllanba toxtaldi</item>
+        <item quantity="other">%d qoʻllanba toxtaldi</item>
+    </plurals>
     <string name="appcontrol_automation_loading">Qoljetimlilik xızmetin paydalanıp avtomatlandırıwdı tayarlaw</string>
     <string name="appcontrol_automation_title">AppControl avtomatlandırıw</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Májbúrlep toqtatılıp atır…</string>
@@ -661,6 +746,14 @@
     <string name="analyzer_progress_scanning_userfiles">Paydalanıwshı faylların izlew</string>
     <string name="analyzer_progress_scanning_system">Sistema maǵlıwmatların skanerlew</string>
     <string name="analyzer_device_storage_title">Qurılma saqlaw orını</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s bar</item>
+        <item quantity="other">%s bar</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s paydalanılğan</item>
+        <item quantity="other">%s paydalanılğan</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Tuwrıdan-tuwrı kirisiw múmkin emes</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper sessiyasın jaratıw</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
@@ -723,6 +816,10 @@
     <string name="exclusion_export_action">Shetlestiriwlerdi eksport qılıw</string>
     <string name="exclusion_create_pkg_hint">Qosımsha shetlestiriwlerin jaratıw ushın AppControl quralınan paydalanıń.</string>
     <string name="exclusion_create_path_hint">Jol shetlestiriwlerin jaratıw ushın StorageAnalyzer quralınan paydalanıń.</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bir álabaw júzege asırılğan</item>
+        <item quantity="other">%d álabaw júzege asırılğan</item>
+    </plurals>
     <string name="exclusion_show_defaults_action">Ádepki bahaları kórsetiw</string>
     <string name="automation_accessibility_service_description">Arnawlı jetimdilik kereksinishlerge iye paydalanıwshılar bul xızmetdi qosıp, SD Maid qa basqasha qolayız qol menen ótkeriletugın tapsırmalardy avtomatlashtırıwǵa ruxsat bere aladı (mısalı, kesh óshiriw).\n\nMısal: Eger siz SD Maid qa bir neshe qosımshalardy toqtatıwdı buyırsańız, SD Maid bul xızmet arqalı hár bir qosımshanıń sazlamalar ekranın ashıp, \'Májbúriy toqtatıw\' túymesin tabıp, onı basa aladı.\n\nSD Maid bul xızmetdi paydalanǵanda hámme waqıt kórinip turadı hám paydalanıwshıǵa qálegen waqıtta óz-ara tásirlesiw di toqtatıw imkaniyatın beredi.\n\nHesh qanday háreketler paydalanıwshınıń aldın ala ruxsatısız orınlanbaydı. Bul xızmet qálegen waqıtta hesh qanday keri tásirlerdi keltirmesten óshirilip qoyılıwı múmkin.</string>
     <string name="automation_screenoverlay_explanation">SD Maid qurılmańız benen óz-ara tásirleste. Ekrannan bir waqıtta paydalanıw múmkin emes. Ámeliyat tamamlanǵansha kútiń yamasa onı biykar etiń.</string>
@@ -759,6 +856,10 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s shama menen %2$s</string>
     <string name="scheduler_schedule_next_at_x">%s úshin josparlangan</string>
     <string name="scheduler_schedule_last_at_x">Aqırğı ret %s waqıtta ótkizilgen</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Kündiz</item>
+        <item quantity="other">Hár %d kün</item>
+    </plurals>
     <string name="scheduler_schedule_repeat_interval">Qaytalaw aralığı</string>
     <string name="scheduler_inaccurate_execution_hint">Kútilip turğan ótkiziw waqıtları jaqın sandılar. Batareyanı únemdeş úshin josparlawlar keshiktiriliw yáki tezletiliw múmkin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Aktiv josparlawlar joq</string>
@@ -782,6 +883,7 @@
     <string name="translation_encourage_title">SD Maid-tı awdarıw</string>
     <string name="translation_encourage_body">SD Maid erekti júmısshılar tárápınan awdarılad̨ı. Awdarıw, qaraw yáki kórip shıg̨ıw, járdemińiz qadırlenedi\!</string>
     <string name="translation_translators_title">Bul versiya awdarılg̱an</string>
+    <string name="translation_translators_people">Mashinali awdarma</string>
     <string name="motd_setting_enabled_label">Máńizdi xabarlawlar</string>
     <string name="motd_setting_enabled_explanation">SD Maid-ǵa ishlepkerleuşiden máńizdi xabarlawlardı tekseruwe ruqsat beriu.</string>
     <string name="updatecheck_setting_enabled_label">Jańartu tekseriw</string>
@@ -803,6 +905,14 @@
         <item quantity="other">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
     </plurals>
     <string name="stats_label">Tarıx</string>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">%s boʻsh qilindi.</item>
+        <item quantity="other">%s boʻsh qilindi.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">SD Maid-ni qoʻngʻiroq qilgandan keyin %s element qayta ishlanib chiqdi.</item>
+        <item quantity="other">SD Maid-ni qoʻngʻiroq qilgandan keyin %s elementler qayta ishlanib chiqdi.</item>
+    </plurals>
     <string name="stats_report_status_success">Tabıs</string>
     <string name="stats_report_status_partial_success">Ishinen tabıs</string>
     <string name="stats_report_status_partial_failure">Sátsizlik</string>
@@ -812,6 +922,10 @@
     <string name="stats_settings_retention_reports_desc">SD Maid-tıŋ ásasiy operaciya esabatların óshiriw aldından kúnler sanı.</string>
     <string name="stats_settings_retention_paths_label">Egjeyli jollar maǵlıwmatı</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tárápınan tásirleng̱en jollar haqqında egjeyliklerni saqlaw kúnler sanı.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d kun</item>
+        <item quantity="other">%d kun</item>
+    </plurals>
     <string name="stats_settings_reset_all_label">Barlıg̱ın qayta ornatıw</string>
     <string name="stats_settings_reset_all_desc">Barlıq esabatlardı óshiriw hám barlıq statistikalardı nólge ornatıw.</string>
     <string name="stats_affected_paths_label">Tásirleng̱en jollar</string>
@@ -819,6 +933,10 @@
     <string name="picker_select_paths_title">Jollar saylaw</string>
     <string name="picker_selected_paths_title">Saylag̱an jollar</string>
     <string name="picker_unsaved_confirmation_message">Ózgerisler tashlaw?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d manzil tanlab olingan</item>
+        <item quantity="other">%d manzillar tanlab olingan</item>
+    </plurals>
     <string name="picker_home_action">Ma\'lumot sahalar</string>
     <string name="area_type_sdcard_label">Umumiy saqlash</string>
     <string name="area_type_public_media_label">Umumiy qollanba media</string>
@@ -826,14 +944,20 @@
     <string name="area_type_public_obb_label">Umumiy qollanba resurstar</string>
     <string name="area_type_private_data_label">Sha\'xsiy qollanba ma\'lumotlar</string>
     <string name="area_type_portable_label">Ko\'shirilma saqlash</string>
+    <string name="shortcut_appcontrol_short">Qoʻllanba Nazorati</string>
     <string name="shortcut_appcontrol_long">Ornatılǵan qollanbalardı basqarıw</string>
     <string name="shortcut_onetap_short">Skanerlew + O\'shiriw</string>
     <string name="shortcut_onetap_long">Bir a\'melde skanerlew ha\'m o\'shiriw</string>
     <string name="shortcuts_settings_category">Tezkor belgiler</string>
     <string name="shortcuts_onetap_enabled_title">Bir basıw tezkor belgisi</string>
     <string name="shortcuts_onetap_enabled_summary">Qollanba ikonkasın uzaq basqanda \"Skanerlew + O\'shiriw\" tezkor belgisini ko\'rsetiw. Bir basıw basqarma paneli menen birday qurallar paydalanıladı.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Papkalardı tez retke keltiw -- faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań.</string>
+    <string name="swiper_dashcard_description">Belgli papkalardı fayl menejerinen tezrek retke keltiriń -- hár fayldı sıypań.</string>
     <string name="swiper_start_action">Sıypawdı baslaw</string>
     <string name="swiper_continue_action">Sessiyanı dawam ettiw</string>
+    <string name="swiper_sessions_description">Faylları 3 qádem menen tekserip shıǵıń:\n\n1. Skanerlew ushın papka tańlań\n2. Faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań\n3. Tańlawlarıńızdı tekserip, tastıyıqlań\n\nSońǵı o\'shiriw túymesin baspaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_select_folders_action">Papkalardı tańlaw</string>
     <string name="swiper_scanning_title">Skanerlenip atır…</string>
     <plurals name="swiper_result_x_items_found">
@@ -972,9 +1096,4 @@
     <string name="swiper_help_action">Járdem</string>
     <string name="swiper_help_title">Swiper qalay islaydi</string>
     <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Papkalardı tez retke keltiw -- faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań.</string>
-    <string name="swiper_dashcard_description">Belgli papkalardı fayl menejerinen tezrek retke keltiriń -- hár fayldı sıypań.</string>
-    <string name="swiper_sessions_description">Faylları 3 qádem menen tekserip shıǵıń:\n\n1. Skanerlew ushın papka tańlań\n2. Faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań\n3. Tańlawlarıńızdı tekserip, tastıyıqlań\n\nSońǵı o\'shiriw túymesin baspaǵansha hesh nárse o\'shirilmeydi.</string>
 </resources>

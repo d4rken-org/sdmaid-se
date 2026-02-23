@@ -279,6 +279,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de capturas</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima para que las capturas de pantalla sean consideradas para eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de instalación que ya no son necesarios según las versiones de las apps instaladas.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir misma versión</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También incluir archivos APK que coincidan con la versión instalada. Deshabilitá para solo eliminar versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
@@ -961,8 +962,13 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar acceso directo \"Escanear + Eliminar\" al mantener presionado el ícono de la app. Usa las mismas herramientas que el panel de un toque.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Organizá carpetas rápido — deslizá archivos para conservar, eliminar o saltar.</string>
+    <string name="swiper_dashcard_description">Organizá carpetas específicas más rápido que un explorador de archivos — simplemente deslizá cada archivo.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisá archivos en 3 simples pasos:\n\n1. Elegí una carpeta para escanear\n2. Deslizá archivos para conservar, eliminar o saltar\n3. Revisá tus elecciones y confirmá\n\nNo se elimina nada hasta que toques el botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1097,15 +1103,8 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Saltar</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Ayuda</string>
     <string name="swiper_help_title">Cómo funciona Swiper</string>
     <string name="swiper_help_message">Deslizá cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Saltar\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién podés usar los botones de abajo.\n\nCuando termines, tocá \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Organizá carpetas rápido — deslizá archivos para conservar, eliminar o saltar.</string>
-    <string name="swiper_dashcard_description">Organizá carpetas específicas más rápido que un explorador de archivos — simplemente deslizá cada archivo.</string>
-    <string name="swiper_sessions_description">Revisá archivos en 3 simples pasos:\n\n1. Elegí una carpeta para escanear\n2. Deslizá archivos para conservar, eliminar o saltar\n3. Revisá tus elecciones y confirmá\n\nNo se elimina nada hasta que toques el botón final de eliminar.</string>
 </resources>

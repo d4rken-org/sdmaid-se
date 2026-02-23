@@ -289,7 +289,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac датотеки</string>
     <string name="systemcleaner_filter_macfiles_summary">Датотеки и папки создадени при прегледување на складирањето со Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows датотеки</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Податоци кои Windows Explorer може да ги создаде на поврзано складирање.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Податоци кои Windows Explorer може да ги создаде на поврзано складирање."</string>
     <string name="systemcleaner_filter_thumbnails_label">Сликички</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кеширани прегледи за слики и видеа.</string>
     <string name="systemcleaner_filter_tempfiles_label">Привремени системски датотеки</string>
@@ -883,7 +883,7 @@
     <string name="translation_encourage_title">Преведете го SD Maid</string>
     <string name="translation_encourage_body">SD Maid е преведен од волонтери. Превод, преглед или коректура, вашата помош е ценета!</string>
     <string name="translation_translators_title">Оваа верзија е преведена од</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">Машинско преведување</string>
     <string name="motd_setting_enabled_label">Важни пораки</string>
     <string name="motd_setting_enabled_explanation">Дозволете на SD Maid да проверува за важни пораки од развивачот.</string>
     <string name="updatecheck_setting_enabled_label">Проверка за ажурирања</string>

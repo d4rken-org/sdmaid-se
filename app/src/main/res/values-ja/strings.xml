@@ -383,6 +383,7 @@
     <string name="appcleaner_filter_webview_label">Webviewのファイル</string>
     <string name="appcleaner_filter_webview_summary">アプリ内で使用されるWebviewインスタンスによってキャッシュされたファイル。</string>
     <string name="appcleaner_filter_shortcutservice_label">アプリのショートカット アイコン</string>
+    <string name="appcleaner_filter_shortcutservice_summary">アプリのショートカットや共有メニュー用にキャッシュされたアイコン。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsAppのバックアップ</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsAppバックアップの余分なコピーを削除し、最新のものだけを残す。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp経由で他の人から受信したファイル。</string>

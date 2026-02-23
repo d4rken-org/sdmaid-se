@@ -42,6 +42,7 @@
     <string name="onboarding_welcome_body2">Ottenere ispàtziu de archìviu limpende a pustis de àteras aplicatziones. Cantzellare documentos chi si podent ispentzare e bogare datos chi abarrant.</string>
     <string name="onboarding_welcome_body_beta">Custa est una versione beta (de proa). Andare innantis cun sensu de umor e unu piano de resèrvia. Pro praghere, raporta is problemas chi incontras.</string>
     <string name="onboarding_welcome_continue_action">Continuare</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (o semmo SD Maid 2) est s\'erede de SD Maid (o semmo SD Maid 1). Una aplicatzione noa, otimizada pro Android moderno.</string>
     <string name="onboarding_versus_body2">S\'architetura de s\'antecessore suo tenet prus de 7 annos e no est istada progetada pro is isfidas de is versiones noas de Android. Una riprogetatzione cumpleta est istada netzessària pro continuare su isviluppu.</string>
     <string name="onboarding_versus_body3">Cunsidera de cambiare a SD Maid SE pro risultados mègius.</string>
@@ -76,6 +77,7 @@
     <string name="ui_theme_style_setting_label">Istile de tema</string>
     <string name="ui_theme_style_setting_explanation">S\'istile de colore impreau pro s\'aspetu de s\'aplicaçione.</string>
     <string name="ui_theme_style_default_label">Predeterminàu</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Anteprimas de archivios</string>
     <string name="ui_previews_summary">Mustra anteprimas de archivios in totu sos ainas (e.g. miniaturinas de imàgines e video).</string>
     <string name="ui_language_override_label">Limba de s\'aplicaçione</string>
@@ -97,9 +99,16 @@
     <string name="support_debuglog_folder_empty_desc">Perunu registru de debug serbadu</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Cantzellare totu is registros de debug?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Custu at a cantzellare in manera permanente totu is sessiones de registru de debug serbadas. Custa atzione non si podet annullare.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Unu logu pro si riunire e faghere preguntas.</string>
     <string name="changelog_label">Registru de cambiamentos</string>
     <string name="settings_acknowledgements_label">Arregonoschentos</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduziones</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Chi at traduttu custa?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Gràtzias</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Gràtzias spetziales a is amigos nostros.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licèntzias</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software impreadu de SD Maid.</string>
     <string name="setup_label">Cunfiguratzione</string>
     <string name="setup_incomplete_card_title">Cunfiguratzione incumpleta</string>
     <string name="setup_incomplete_card_body">Cumpletare sa cunfiguratzione de SD Maid pro ottenner mègius risultados.</string>
@@ -126,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">Impreare s\'atzessu root si est disponìbile</string>
     <string name="setup_root_disable_root_use_label">Non impreare s\'atzessu root</string>
     <string name="setup_root_card_body2">Disponibile petzi in dispositivos cun root. Si no as fatu custa modifica, tando su dispositivu tuo no tenet root e custa impostatzione no tenet efetu.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permitere a SD Maid de impreare Shizuku cando est possìbile pro megiorare is risultados e abilitare caraterìsticas.</string>
     <string name="setup_shizuku_card_body2">Custa impostatzione no tenet efetu si s\'aplicatzione Shizuku no est cunfigurada in su dispositivu tuo.</string>
     <string name="setup_shizuku_card_root_info">Shizuku in cumbinatzione cun s\'atzessu root no abilitat caraterìsticas additzionales, ma megiorat s\'affidabilidade. SD Maid dd\'at a impreare comente mètodu de riserva.</string>
@@ -181,6 +191,7 @@
     <string name="settings_category_tools_label">Ainas</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="settings_category_risklevel">Livellu de riscutu</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Datos apertèntos a aplicatziones ja bogadas.</string>
     <string name="corpsefinder_settings_summary">Agiustare is filtros de iscansione e is livellos de riscutu.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Inclutìghere is abarramentos desiderables</string>
@@ -223,6 +234,7 @@
     <string name="corpsefinder_filter_appasec_label">Risursas de aplicatziones criptadas</string>
     <string name="corpsefinder_filter_appasec_summary">Risursas de aplicatziones criptadas, pro es. assets de jogo.</string>
     <string name="corpsefinder_filter_app2sd_summary">Datos movidos a archìviu esternu dae mods App2SD.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d abarramento de aplicatzione cantzelladu</item>
         <item quantity="other">%d abarramentos de aplicatziones cantzellados</item>
@@ -237,6 +249,7 @@
     <string name="corpsefinder_owner_unknown">Propietariu disconnotu</string>
     <string name="corpsefinder_corpse_hint_keeper">Custu elementu podet cuntenner datos chi cheres mantenner mancai su propietariu suo seghet disinstalladu, pro es. fotos o copias de resèrvia.</string>
     <string name="corpsefinder_corpse_hint_common">Custu elementu tenet unu nòmene meda cumune e dda podet apertènere a aplicatziones galu installadas chi SD Maid no connet.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Datos superfluous chi no apertènint a peruna aplicatzione ispetzìfica.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d currispondentzia cantzellada</item>
@@ -322,6 +335,7 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Su caminu cuntenet faedda crae</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Su caminu acabbat cun faedda crae</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Su caminu est eguale a sa faedda crae</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modu cumparagiòne de nomenes</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Su nòmene cumintzat cun faedda crae</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Su nòmene cuntenet faedda crae</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Su nòmene acabbat cun faedda crae</string>
@@ -338,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Lìmita is currespondèntzias segundu s\'edade de s\'archìviu (ùrtima modìfica). Lassa sena cunfigurare pro currespòndere a calisisiat edade.</string>
     <string name="systemcleaner_customfilter_import_action">Importare filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Esportare filtru seletzionadu</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Datos ispentzìbiles apertèntos a aplicatziones ispetzìficas.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache predefinidas púbblic</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache predefinidas púbblicas de aplicatziones. Atzessìbiles in Android/data in versiones prus bentias de Android. Cantzelladas cando tintighes \"Limpiai sa cache\" in is impostatziones de sistema.</string>
@@ -387,8 +402,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Documentos imbiados dae WhatsApp a àteros.</string>
     <string name="appcleaner_filter_telegram_label">Documentos de media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Documentos retzidos o imbiados a travessu de Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Documentos retzidos a travessu de Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Documentos imbiados o retzidos in conversatziones e momentos WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Documentos de media in cache chi benint iscarrigados torra cando bistos in chat.</string>
     <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
     <string name="appcleaner_filter_qqchat_summary">Documentos imbiados o retzidos in conversatziones de chat QQ.</string>
@@ -430,6 +448,7 @@
     <string name="appcleaner_forcestop_before_clearing_label">Firma a fortza prima de sa limpesa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Firma a fortza is aplicatziones prima de limpiare sa memòria temporànea insoro. Podet agiudare a limpiare sa memòria de àteras aplicatziones, ma podet càusare cumportamentos anòmalos e netzessitare unu torrada a aviare manuale.</string>
     <string name="appcleaner_progress_force_stopping">Firmende a fortza is aplicatziones…</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Agatare datos duplicados in su dispositivu tuo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplicadu cantzelladu</item>
@@ -462,6 +481,7 @@
     </plurals>
     <string name="deduplicator_file_size_label">Mannària de documentu</string>
     <string name="deduplicator_average_size_label">Mannària média</string>
+    <string name="deduplicator_cluster_x_label">Grupu %s</string>
     <string name="deduplicator_delete_confirmation_message">Cantzellare totu manca una còpia in totu is grupos de documentos duplicados?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Cantzellare totu manca una còpia in custu grupu de documentos duplicados?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Cantzellare totu is documentos in custu grupu de documentos duplicados? Perunu documentu abarrat!</string>
@@ -505,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Pràtzia archìvios prus minores</string>
     <string name="deduplicator_view_mode_groups_label">Grupos</string>
     <string name="deduplicator_view_mode_directories_label">Cartellas</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">Cumprimi is immàgines pro isparagnare ispàtziu de archìviu.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d immàgine agatada</item>
@@ -536,7 +557,9 @@
     <string name="squeezer_quality_warning_low">Calidades prus bascias podent càusare artefatos visìbiles.</string>
     <string name="squeezer_quality_warning_high">Calidade meda arta dat isparagnos mìnimos de ispàtziu.</string>
     <string name="squeezer_types_category_label">Gèneres de immàgine</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Inclùe immàgines JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inclùe immàgines WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">Brinca is cumprimidas in antis</string>
     <string name="squeezer_skip_compressed_description">Brinca is immàgines chi SD Maid at giai cumprimidu.</string>
@@ -586,6 +609,7 @@
         <item quantity="other">A su mancu %d dies de edade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Isparagnu istimadu de ~%d%% pro archìvios JPEG</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Aplicatziones installadas in su dispositivu tuo.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d aplicatzione rilevada</item>
@@ -611,12 +635,15 @@
     <string name="appcontrol_app_exclude_edit_description">Custa aplicatzione est correnteménte esclusa dae una o prus ainas.</string>
     <string name="appcontrol_tag_user">Usuàriu</string>
     <string name="appcontrol_tag_active">Recenteménte ativu</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Pabbetu</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archivadu</string>
     <string name="appcontrol_tag_uninstalled">Datos petzi</string>
     <string name="appcontrol_tag_not_installed">No installadu</string>
     <string name="appcontrol_tag_enabled">Abilitadu</string>
     <string name="appcontrol_tag_disabled">Disabilitadu</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Abilitende aplicatzione</string>
     <string name="appcontrol_progress_disabling_package">Disabilitende aplicatzione</string>
     <string name="appcontrol_list_filteroptions_label">Optziones de filtru</string>
@@ -661,6 +688,7 @@
     <string name="appcontrol_app_sizes_title">Mannària de aplicatzione</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicatzione</string>
     <string name="appcontrol_app_sizes_data_label">Datos</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Confirmarre atzione</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">Cambiare s\'istadu abilitadu/disabilitadu de %d aplicatzione?</item>
@@ -797,8 +825,11 @@
     <string name="automation_screenoverlay_explanation">SD Maid est interaghende cun su dispositivu tuo. No est possìbile impreare s\'ischermada in su matessi tempus. Aspeta fintzas a chi s\'operatzione siat finida o annulla·la.</string>
     <string name="automation_active_title">SD Maid est trabalende</string>
     <string name="automation_error_no_consent_title">Errore de automatizatzione</string>
+    <string name="automation_error_no_consent_body">Serbìziu de accessibilidadi non est configuradu. Cumpleta sa configuraziòne e cuncedi su cunsensu.</string>
     <string name="automation_error_not_enabled_title">Su servitziu no est abilitadu</string>
+    <string name="automation_error_not_enabled_body">Serbìziu de accessibilidadi est disabilitadu. Atziòna·lu de nou.</string>
     <string name="automation_error_not_running_title">Su servitziu no est eseguende</string>
+    <string name="automation_error_not_running_body">Serbìziu de accessibilidadi non est in esecuziòne. Proba a riabbiare su dispositivu.</string>
     <string name="automation_error_screen_unavailable_title">Ischermada non disponìbile</string>
     <string name="automation_error_screen_unavailable_body">S\'operatzione est istada interrotta ca s\'ischermada est diventada non disponìbile (es. ischermada istudada o ischermada de blocu ativa).</string>
     <string name="automation_error_compatibility_title">Cumpatibilidade de automatizatzione</string>
@@ -913,6 +944,7 @@
     <string name="area_type_public_obb_label">Risursas públicas de aplicatzione</string>
     <string name="area_type_private_data_label">Datos privados de aplicatzione</string>
     <string name="area_type_portable_label">Archìviu portàbile</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">Gesti is aplicatziones installadas</string>
     <string name="shortcut_onetap_short">Chirca + Cantzella</string>
     <string name="shortcut_onetap_long">Chirca e cantzella in un\'atzione</string>

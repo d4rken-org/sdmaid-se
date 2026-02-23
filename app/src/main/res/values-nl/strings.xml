@@ -91,10 +91,14 @@
     <string name="support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel je installatie-ID als de ontwikkelaar je foutmeldingen moet vinden.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Noteer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
+    <string name="support_debuglog_folder_label">Map voor foutopsporingslogboeken</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d bestand gebruikt %2$s</item>
         <item quantity="other">%1$d bestanden gebruiken %2$s</item>
     </plurals>
+    <string name="support_debuglog_folder_empty_desc">Geen foutopsporingslogboeken opgeslagen</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Alle foutopsporingslogboeken verwijderen?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Dit zal alle opgeslagen foutopsporingslogsessies permanent verwijderen. Deze actie kan niet ongedaan worden gemaakt.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="changelog_label">Wijzigingslogboek</string>
@@ -177,6 +181,13 @@
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
     <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
     <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
+    <string name="debug_card_trace_mode_label">Traceermodus inschakelen</string>
+    <string name="debug_card_dryrun_mode_label">Droogloopsmodus (verwijdering uitschakelen)</string>
+    <string name="debug_card_areas_reload_action">Gegevensgebieden opnieuw laden</string>
+    <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
+    <string name="debug_card_root_test_action">Root testen</string>
+    <string name="debug_card_shizuku_test_action">Shizuku testen</string>
     <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risico niveau</string>
@@ -268,6 +279,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Schermafbeelding Leeftijd</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumleeftijd waarop schermafbeeldingen in aanmerking komen voor verwijdering.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overbodige APK\'s</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die niet langer nodig zijn op basis van geïnstalleerde app-versies.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Dezelfde versie opnemen</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ook APK-bestanden targeten die overeenkomen met de geïnstalleerde versie. Uitschakelen om alleen oudere versies te verwijderen.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
     <string name="systemcleaner_filter_lostdir_summary">Tijdelijke bestanden die worden gemaakt bij de overdracht van gegevens tussen Android-apparaten.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux bestanden</string>
@@ -328,7 +342,13 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naam is gelijk aan trefwoord</string>
     <string name="systemcleaner_customfilter_last_edit">Laatste bewerking: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live zoeken</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Groottelimieten</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimumgrootte</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximumgrootte</string>
     <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultaten op basis van bestandsgrootte. Laat onbeperkt om elke grootte te matchen.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Leeftijdslimieten</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimumleeftijd</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximumleeftijd</string>
     <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
     <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
     <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
@@ -425,7 +445,9 @@
     <string name="appcleaner_automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Systeem-app verkeerd geconfigureerd</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">De beveiligingsapp van HyperOS (com.miui.securitycenter) mist de toestemming Gebruiksstatistieken (GET_USAGE_STATS). Dit werkt niet meer zoals \'Gegevens wissen\' in appdetails en het wissen van de cache via toegankelijkheid. Verleen de toestemming om de volledige functionaliteit te herstellen.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Geforceerd stoppen voor wissen</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Sluit apps geforceerd af voordat je hun cache wist. Dit kan helpen om de cache van sommige apps te wissen, maar het kan er ook toe leiden dat apps niet goed meer werken en handmatig opnieuw moeten worden opgestart.</string>
+    <string name="appcleaner_progress_force_stopping">Apps geforceerd stoppen…</string>
     <string name="deduplicator_tool_name">Ontdubbelaar</string>
     <string name="deduplicator_explanation_short">Zoek dubbele gegevens op je toestel.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -440,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Opties weergeven waarmee je alle bestanden in een set duplicaten kunt verwijderen, zodat er geen bestand overblijft.</string>
     <string name="deduplicator_search_locations_title">Zoek locaties</string>
     <string name="deduplicator_search_locations_all_summary">Alle toegankelijke gebieden</string>
+    <string name="deduplicator_keep_prefer_paths_title">Bij voorkeur bewaren in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Geef bij het bepalen welk duplicaat behouden wordt de voorkeur aan bestanden op deze locaties.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Geen locaties geconfigureerd</string>
     <string name="deduplicator_skip_minsize_title">Minimale afmeting</string>
     <string name="deduplicator_skip_minsize_description">Bestanden overslaan die kleiner zijn dan de minimale grootte.</string>
     <string name="deduplicator_skip_uncommon_title">Sla ongebruikelijke bestandstypen over</string>
@@ -467,6 +492,8 @@
     <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
     <string name="deduplicator_matches_similar_label">Gelijkaardige bestanden</string>
+    <string name="deduplicator_arbiter_title">Verwijderingsstrategie</string>
+    <string name="deduplicator_arbiter_summary">Configureer welke bestanden worden bewaard en welke worden verwijderd.</string>
     <string name="deduplicator_arbiter_explanation">Bij het verwijderen van duplicaten beslist SD Maid welk bestand behouden wordt door elk criterium op volgorde te controleren. Het eerste criterium dat een duidelijke winnaar oplevert, bepaalt het resultaat. Sleep om de volgorde te wijzigen, tik om de modus te wijzigen.</string>
     <string name="deduplicator_arbiter_select_mode_title">Selecteer modus</string>
     <string name="deduplicator_arbiter_configure_paths_action">Paden configureren…</string>
@@ -616,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">Niet geïnstalleerd</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
+    <string name="appcontrol_tag_debug">Foutopsporing</string>
     <string name="appcontrol_progress_enabling_package">App inschakelen</string>
     <string name="appcontrol_progress_disabling_package">App uitschakelen</string>
     <string name="appcontrol_list_filteroptions_label">Filter opties</string>
@@ -1049,6 +1077,7 @@
     <string name="swiper_stamp_delete_4">Verwijderen!</string>
     <string name="swiper_stamp_skip_1">Overslaan!</string>
     <string name="swiper_stamp_skip_2">Mwah!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
     <string name="swiper_stamp_skip_4">Misschien!</string>
     <string name="swiper_stamp_undo_1">Ongedaan!</string>
     <string name="swiper_stamp_undo_2">Terug!</string>
@@ -1066,5 +1095,5 @@
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Help</string>
     <string name="swiper_help_title">Hoe Swiper werkt</string>
-    <string name="swiper_help_message">Veeg over elk bestand om een beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na eerste veeg)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik op \"Controleren\" om al je beslissingen te zien. Er wordt niets verwijderd totdat je bevestigt op het controlescherm.</string>
+    <string name="swiper_help_message">Veeg over elk bestand om een ​​beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na de eerste veegbeweging)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik je op \'Beoordelen\' om al je beslissingen te bekijken. Niets wordt verwijderd totdat je bevestigt op het beoordelingsscherm.</string>
 </resources>

@@ -233,8 +233,8 @@
     <string name="corpsefinder_filter_appsource_private_summary">የተገደበ የመተግበሪያ መጫኛ ውሂብ፣ ለምሳሌ የተጠበቁ የሶስተኛ ወገን መተግበሪያዎች።</string>
     <string name="corpsefinder_filter_appasec_label">የተመሰጠሩ የመተግበሪያ ሀብቶች</string>
     <string name="corpsefinder_filter_appasec_summary">የተመሰጠሩ የመተግበሪያ ሀብቶች፣ ለምሳሌ የጨዋታ ንብረቶች።</string>
-    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_filter_app2sd_summary">በApp2Sd ማሻሻያዎች ወደ ውጫዊ ማጠራቀሚያ የተወሰደ ውሂብ።</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d የመተግበሪያ ቀሪ ተሰርዟል</item>
         <item quantity="other">%d የመተግበሪያ ቀሪዎች ተሰርዘዋል</item>
@@ -951,8 +951,8 @@
     <string name="shortcuts_settings_category">ምቹ መንገዶች</string>
     <string name="shortcuts_onetap_enabled_title">አንድ-ንካ ምቹ መንገድ</string>
     <string name="shortcuts_onetap_enabled_summary">የመተግበሪያ አዶውን ረዘም ብለው ሲጫኑ \"ፈልግ + ሰርዝ\" ምቹ መንገድ ያሳዩ። ከአንድ-ንካ ዳሽቦርድ ጋር ተመሳሳይ መሣሪያዎችን ይጠቀማል።</string>
-    <string name="swiper_label">ማንሸራተቻ</string>
-    <string name="swiper_tool_name">ማንሸራተቻ</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">ማህደሮችን በፍጥነት ያስተካክሉ — ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ።</string>
     <string name="swiper_dashcard_description">ከፋይል ገላጭ በፍጥነት ልዩ ማህደሮችን ያስተካክሉ — እያንዳንዱን ፋይል ብቻ ያንሸራትቱ።</string>
     <string name="swiper_start_action">ማንሸራተት ጀምር</string>

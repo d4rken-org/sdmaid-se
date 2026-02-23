@@ -77,6 +77,7 @@
     <string name="ui_theme_style_setting_label">Isitayela sendlela yokubuka</string>
     <string name="ui_theme_style_setting_explanation">Isitayela sombala esisetshenziswa lapho kufakwa indlela yokubuka uhlelo.</string>
     <string name="ui_theme_style_default_label">Okuzenzakalelayo</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Ukubuka kuqala kwamafayela</string>
     <string name="ui_previews_summary">Bonisa ukubuka kuqala kwamafayela kuwo wonke amathuluzi (isib. izithombe ezincane zesithombe nevidiyo).</string>
     <string name="ui_language_override_label">Ulimi lohlelo</string>
@@ -98,6 +99,7 @@
     <string name="support_debuglog_folder_empty_desc">Akukho imivala yokulungisa egciniwe</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Susa yonke imivala yokulungisa?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Lokhu kuzosusa unomphela zonke izeshini zemivala yokulungisa egciniwe. Lesi senzo asikwazi ukuhlehliswa.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Indawo yokuzijabulisa futhi ubuze imibuzo.</string>
     <string name="changelog_label">Uhlu lwezinguquko</string>
     <string name="settings_acknowledgements_label">Ukubonga</string>
@@ -232,6 +234,7 @@
     <string name="corpsefinder_filter_appasec_label">Izinsiza zohlelo ezibhalwe ngekhodi</string>
     <string name="corpsefinder_filter_appasec_summary">Izinsiza zohlelo ezibhalwe ngekhodi, isibonelo, amathuluzi emidlalo.</string>
     <string name="corpsefinder_filter_app2sd_summary">Idatha ehanjiswe ekugcinweni kwangaphandle ama-App2Sd mods.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">Insalela yohlelo engu-%d isuliwe</item>
         <item quantity="other">Izinsalela zohlelo ezingu-%d zisuliwe</item>
@@ -459,6 +462,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Bonisa izinketho ezikuvumela ukuthi ususe wonke amafayela esetheni sokukhophisa ukuze kungabi nafayela elisele.</string>
     <string name="deduplicator_search_locations_title">Izindawo zokusesha</string>
     <string name="deduplicator_search_locations_all_summary">Zonke izindawo ezifikelekayo</string>
+    <string name="deduplicator_keep_prefer_paths_title">Khetha ukugcina</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Lapho kunqunywa ukuthi yiziphi izifayela ezamathuluzi ezidonsayo ukusebenza, khetha ukugcina izifayela kule ndawo.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Akukho ndawo echazwe</string>
     <string name="deduplicator_skip_minsize_title">Usayizi omncane</string>
     <string name="deduplicator_skip_minsize_description">Yeqa amafayela angaphansi kosayizi omncane.</string>
     <string name="deduplicator_skip_uncommon_title">Yeqa izinhlobo zamafayela angavamile</string>
@@ -621,6 +627,7 @@
     <string name="appcontrol_app_launch_title">Qalisa uhlelo</string>
     <string name="appcontrol_app_launch_description">Qalisa umsebenzi oyinhloko wale nhlelo.</string>
     <string name="appcontrol_app_forcestop_title">Misa ngamandla</string>
+    <string name="appcontrol_app_forcestop_description">Misa inhlelo. Vusha ukuthi izikhulise ukuya kuyo kuze kube yize uvula noma ishayalali ibutswa.</string>
     <string name="appcontrol_app_uninstall_description">Khipha lolu hlelo kudivayisi yakho.</string>
     <string name="appcontrol_app_exclude_add_title">Khipha uhlelo</string>
     <string name="appcontrol_app_exclude_add_description">Khipha lolu hlelo kwezinye izinqubo ze-SD Maid.</string>
@@ -636,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">Akufakwanga</string>
     <string name="appcontrol_tag_enabled">Kunikwe amandla</string>
     <string name="appcontrol_tag_disabled">Kukhubazekile</string>
+    <string name="appcontrol_tag_debug">Ukulinganisela</string>
     <string name="appcontrol_progress_enabling_package">Kunika amandla uhlelo</string>
     <string name="appcontrol_progress_disabling_package">Kukhubaza uhlelo</string>
     <string name="appcontrol_list_filteroptions_label">Izinketho zokusihluza</string>
@@ -694,8 +702,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Thola isilinganiso esimfushane sosayizi sohlelo ngalunye.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Nquma umsebenzi</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Thola ukuthi uhlelo lusebenza (noma belisebenza kamuva).</string>
+    <string name="appcontrol_include_multiuser_label">Faka abayisebenzisa abanye</string>
+    <string name="appcontrol_include_multiuser_summary">Faka ama-apps avela kumaphurofayila abanye abasebenzisi kusistimu yako.</string>
     <string name="appcontrol_export_app_selection_action">Khipha izinhlelo zokusebenza</string>
     <string name="appcontrol_export_title">Khipha uhlelo</string>
+    <string name="appcontrol_export_description">Longe izifayela zokufakwa kwale nhlelo. Lokhu akubaluli idatha ye-app.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Uhlelo olu-%d lukhishiwe</item>
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zikhishiwe</item>
@@ -791,6 +802,7 @@
     <string name="exclusion_type_segment">Ukukhishwa kwesegimenti</string>
     <string name="exclusion_tags_alltools">Wonke amathuluzi</string>
     <string name="exclusion_target_label">Inhloso yokukhishwa</string>
+    <string name="exclusion_editor_path_change_action">Thinta ukushintsha inzila</string>
     <string name="exclusion_option_allow_partial">Vumela ukufana okungaphelele</string>
     <string name="exclusion_option_ignore_casing">Ziba amagama amakhulu namancane</string>
     <string name="exclusion_editor_affected_tools_label">Amathuluzi athintekile</string>
@@ -871,6 +883,7 @@
     <string name="translation_encourage_title">Humusha i-SD Maid</string>
     <string name="translation_encourage_body">I-SD Maid ihunyushwa amavolontiya. Ukuhumusha, ukubuyekeza noma ukufunda umbhalo, usizo lwakho luyathakaselwa!</string>
     <string name="translation_translators_title">Le nguqulo ihunyushwe ngu</string>
+    <string name="translation_translators_people">Ukuhumusha Ngomshini</string>
     <string name="motd_setting_enabled_label">Imilayezo ebalulekile</string>
     <string name="motd_setting_enabled_explanation">Vumela i-SD Maid ukuthi ihlole imilayezo ebalulekile evela kumthuthukisi.</string>
     <string name="updatecheck_setting_enabled_label">Ukuhlola isibuyekezo</string>
@@ -938,8 +951,13 @@
     <string name="shortcuts_settings_category">Izinqamuleli</string>
     <string name="shortcuts_onetap_enabled_title">Isinqamuleli sokucindezela kanye</string>
     <string name="shortcuts_onetap_enabled_summary">Bonisa isinqamuleli \"Sesha + Susa\" lapho ucindezela isikhathi eside isithonjana sohlelo. Sisebenzisa amathuluzi afanayo nebhodi lokuphatha lokucindezela kanye.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Hlanza amafolda ngokushesha — swayipha amafayela ukuze ugcine, ususe, noma uyeqe.</string>
+    <string name="swiper_dashcard_description">Hlanza amafolda athile ngokushesha kunesiphequluli samafayela — swayipha nje ifayela ngalinye.</string>
     <string name="swiper_start_action">Qala ukuswayipha</string>
     <string name="swiper_continue_action">Qhubeka neseshini</string>
+    <string name="swiper_sessions_description">Buyekeza amafayela ngezinyathelo ezi-3 ezilula:\n\n1. Khetha ifolda ozoyiskena\n2. Swayipha amafayela ukuze ugcine, ususe, noma uyeqe\n3. Buyekeza ukukhetha kwakho bese uqinisekisa\n\nAkukho okususwayo kuze kube uthepha inkinobho yokugcina yokususa.</string>
     <string name="swiper_select_folders_action">Khetha amafolda</string>
     <string name="swiper_scanning_title">Kuyasesha…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1074,15 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">Susa →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Yeqa</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Hlehlisa</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Usizo</string>
     <string name="swiper_help_title">Indlela i-Swiper esebenza ngayo</string>
     <string name="swiper_help_message">Swayipha ifayela ngalinye ukuze uthathe isinqumo:\n\n← Swayipha kwesokunxele: %1$s\n→ Swayipha kwesokudla: %2$s\n↑ Swayipha phezulu: Yeqa\n↓ Swayipha phansi: Hlehlisa (ngemva kokuswayipha kokuqala)\n\nUngasebenzisa nezinkinobho ezingezansi.\n\nUma uqedile, thepha \"Buyekeza\" ukuze ubone zonke izinqumo zakho. Akukho okususwayo kuze kube uqinisekisa kusikrini sokubuyekeza.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Hlanza amafolda ngokushesha — swayipha amafayela ukuze ugcine, ususe, noma uyeqe.</string>
-    <string name="swiper_dashcard_description">Hlanza amafolda athile ngokushesha kunesiphequluli samafayela — swayipha nje ifayela ngalinye.</string>
-    <string name="swiper_sessions_description">Buyekeza amafayela ngezinyathelo ezi-3 ezilula:\n\n1. Khetha ifolda ozoyiskena\n2. Swayipha amafayela ukuze ugcine, ususe, noma uyeqe\n3. Buyekeza ukukhetha kwakho bese uqinisekisa\n\nAkukho okususwayo kuze kube uthepha inkinobho yokugcina yokususa.</string>
 </resources>

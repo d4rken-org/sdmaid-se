@@ -76,7 +76,7 @@
     <string name="general_settings_desc">Ogólne ustawienia wpływające na całą aplikację.</string>
     <string name="settings_category_ui_label">Interfejs użytkownika</string>
     <string name="ui_theme_mode_setting_label">Tryb motywu</string>
-    <string name="ui_theme_mode_setting_explanation">Tryb, w jakim używana jest aplikacja (np. w nocy lub dzień).</string>
+    <string name="ui_theme_mode_setting_explanation">Tryb, w jakim używana jest aplikacja (np. ciemny lub jasny).</string>
     <string name="ui_theme_mode_dark_label">Ciemny</string>
     <string name="ui_theme_mode_light_label">Jasny</string>
     <string name="ui_theme_mode_system_label">Systemowy</string>
@@ -179,7 +179,7 @@
     <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dostępu dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
     <string name="setup_inventory_card_title">Zasobnik aplikacji</string>
     <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz, aby znaleźć pliki, które nie należą do żadnej zainstalowanej aplikacji.</string>
-    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytaj o wszystkie pakiety\".</string>
+    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie Lista aplikacji lub Zapytaj o wszystkie pakiety.</string>
     <string name="setup_inventory_invalid_message">System dostarczył nieprawidłową listę zainstalowanych aplikacji (np. zbyt małą lub niektóre z nich nie działały). Przejdź do ustawień systemu i zezwól aplikacji SD Maid na dostęp do „Listy aplikacji”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
@@ -199,7 +199,7 @@
     <string name="settings_category_tools_label">Narzędzia</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Poziom ryzyka</string>
-    <string name="corpsefinder_tool_name">Wyszukiwarka pozostałości</string>
+    <string name="corpsefinder_tool_name">Wyszukiwanie pozostałości</string>
     <string name="corpsefinder_explanation_short">Dane należące do usuniętych aplikacji.</string>
     <string name="corpsefinder_settings_summary">Dostosuj filtry skanowania i poziomy ryzyka.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Uwzględnij pożądane pozostałości</string>
@@ -265,7 +265,7 @@
     <string name="corpsefinder_owner_unknown">Nieznany właściciel</string>
     <string name="corpsefinder_corpse_hint_keeper">Ten przedmiot może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
     <string name="corpsefinder_corpse_hint_common">Ten przedmiot ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
-    <string name="systemcleaner_tool_name">Sprzątacz systemu</string>
+    <string name="systemcleaner_tool_name">Sprzątanie systemu</string>
     <string name="systemcleaner_explanation_short">Zbędne dane, które nie należą do żadnej konkretnej aplikacji.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d dopasowanie zostało usunięte</item>
@@ -372,7 +372,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ogranicz dopasowania na podstawie wieku pliku (czasu ostatniej modyfikacji). Pozostaw puste, aby dopasować dowolny wiek.</string>
     <string name="systemcleaner_customfilter_import_action">Importuj nowy filtr</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuj wybrany filtr</string>
-    <string name="appcleaner_tool_name">Sprzątacz aplikacji</string>
+    <string name="appcleaner_tool_name">Sprzątanie aplikacji</string>
     <string name="appcleaner_explanation_short">Zbędne dane należące do konkretnych aplikacji.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publiczne domyślne pamięci podręczne</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne pod Androidem/dane w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
@@ -699,7 +699,7 @@
     <string name="appcontrol_list_sortmode_packagename_label">Nazwa pakietu</string>
     <string name="appcontrol_list_sortmode_size_label">Rozmiar</string>
     <string name="appcontrol_list_sortmode_screentime_label">Czas przed ekranem</string>
-    <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względów wydajności. Użyj narzędzia Analizator magazynu, aby uzyskać dokładniejsze dane.</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względu na wydajność. Aby uzyskać dokładniejsze dane, użyj narzędzia Analizowanie pamięci.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d aplikacja została odinstalowana</item>
@@ -804,7 +804,7 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Czas ekranu: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ostatnia aktualizacja: %s</string>
     <string name="appcontrol_item_installedat_x_label">Zainstalowano: %s</string>
-    <string name="analyzer_tool_name">Analizator pamięci</string>
+    <string name="analyzer_tool_name">Analiza pamięci</string>
     <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
     <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>
     <string name="analyzer_progress_scanning_storage">Skanowanie pamięci</string>
@@ -887,7 +887,7 @@
     <string name="exclusion_import_action">Importuj wykluczenia</string>
     <string name="exclusion_export_action">Eksportuj wykluczenia</string>
     <string name="exclusion_create_pkg_hint">Użyj narzędzia Zarządzanie aplikacjami, aby utworzyć wykluczenia aplikacji.</string>
-    <string name="exclusion_create_path_hint">Użyj narzędzia Analizator pamięci do utworzenia wykluczeń ścieżek.</string>
+    <string name="exclusion_create_path_hint">Użyj narzędzia Analiza pamięci do utworzenia wykluczeń ścieżek.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Utworzono jedno wykluczenie</item>
         <item quantity="few">Utworzono %d wykluczenia</item>

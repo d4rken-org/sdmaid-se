@@ -955,9 +955,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Rydd opp i mapper raskt — sveip gjennom filer for å beholde, slette eller hoppe over.</string>
     <string name="swiper_dashcard_description">Rydd opp i bestemte mapper raskere enn en filutforsker — bare sveip hver fil.</string>
-    <string name="swiper_sessions_description">Gå gjennom filer i 3 enkle trinn:\n\n1. Velg en mappe å skanne\n2. Sveip gjennom filer for å beholde, slette eller hoppe over\n3. Gjennomgå valgene dine og bekreft\n\nIngenting fjernes før du trykker den endelige sletteknappen.</string>
     <string name="swiper_start_action">Start sveipingen</string>
     <string name="swiper_continue_action">Fortsett økt</string>
+    <string name="swiper_sessions_description">Gå gjennom filer i 3 enkle trinn:\n\n1. Velg en mappe å skanne\n2. Sveip gjennom filer for å beholde, slette eller hoppe over\n3. Gjennomgå valgene dine og bekreft\n\nIngenting fjernes før du trykker den endelige sletteknappen.</string>
     <string name="swiper_select_folders_action">Velg mapper</string>
     <string name="swiper_scanning_title">Skanner…</string>
     <plurals name="swiper_result_x_items_found">

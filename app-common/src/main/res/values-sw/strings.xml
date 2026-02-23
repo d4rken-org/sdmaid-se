@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="app_name">SD Maid SE</string>
     <string name="slogan_message_0">Katika huduma yako.</string>
     <string name="slogan_message_1">Safi na mpangilio.</string>
     <string name="slogan_message_2">Kuzuia machafuko.</string>
     <string name="slogan_message_3">Kufanya kile kinachohitajika.</string>
-    <string name="slogan_message_4">Kila kitu kiko sawa.</string>
+    <string name="slogan_message_4">Vitu vyote vyako katika mpangilio.</string>
     <string name="slogan_message_5">Bila madoa.</string>
     <string name="slogan_message_6">Bytes, ondoka!</string>
     <string name="slogan_message_7">Nafasi ya bure, mahali pazuri.</string>

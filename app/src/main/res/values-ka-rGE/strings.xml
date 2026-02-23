@@ -203,12 +203,12 @@
     <string name="corpsefinder_watcher_autodelete_title">ავტომატური წაშლა</string>
     <string name="corpsefinder_watcher_autodelete_summary">ავტომატურად წაშალოს ნებისმიერი ნარჩენი, რომელიც დაკავშირებულია წაშლილ აპთან.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%d ნარჩენი ნაპოვნია</item>
-        <item quantity="other">%d ნარჩენი ნაპოვნია</item>
+        <item quantity="one">%1$d remnant found after uninstalling %2$s.</item>
+        <item quantity="other">%1$d remnants found after uninstalling %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">%d ნარჩენი წაშლილია</item>
-        <item quantity="other">%d ნარჩენი წაშლილია</item>
+        <item quantity="one">Clean up successful (%1$s): Freed %2$s and removed %3$d item.</item>
+        <item quantity="other">Clean up successful (%1$s): Freed %2$s and removed %3$d items.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">ნარჩენების წაშლა</string>
     <string name="corpsefinder_filter_publicmedia_label">საზოგადოებრივი მედია</string>
@@ -352,7 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">შედეგების შეზღუდვა ფაილის ასაკის მიხედვით (ბოლო ცვლილების დრო). დატოვეთ ცარიელი ნებისმიერი ასაკის დასამთხვევად.</string>
     <string name="systemcleaner_customfilter_import_action">ახალი ფილტრის იმპორტი</string>
     <string name="systemcleaner_customfilter_export_action">არჩეული ფილტრის ექსპორტი</string>
-    <string name="appcleaner_tool_name">აპლიკაციის გამწმენდი</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">დახარჯული მონაცემები, რომლებიც ეკუთვნის კონკრეტულ აპებს.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">საჯარო ნაგულისხმევი ქეშები</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ნაგულისხმევი საჯარო აპების ქეშები. ხელმისაწვდომია Android/data-ს ქვეშ Android-ის ძველ ვერსიებზე. იშლება სისტემურ პარამეტრებში \"ქეშის გასუფთავების\" დაჭერისას.</string>
@@ -635,14 +635,14 @@
     <string name="appcontrol_app_exclude_edit_description">ეს აპი ამჟამად გამორიცხულია ერთი ან მეტი ხელსაწყოდან.</string>
     <string name="appcontrol_tag_user">მომხმარებელი</string>
     <string name="appcontrol_tag_active">ახლახანს აქტიური</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_system">სისტემა</string>
     <string name="appcontrol_tag_archived">დაარქივებული</string>
     <string name="appcontrol_tag_uninstalled">მხოლოდ მონაცემები</string>
     <string name="appcontrol_tag_not_installed">არ არის დაინსტალირებული</string>
     <string name="appcontrol_tag_enabled">ჩართული</string>
     <string name="appcontrol_tag_disabled">გათიშული</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
-    <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_debug">გამართვა</string>
     <string name="appcontrol_progress_enabling_package">აპის ჩართვა</string>
     <string name="appcontrol_progress_disabling_package">აპის გათიშვა</string>
@@ -883,7 +883,7 @@
     <string name="translation_encourage_title">თარგმნეთ SD Maid</string>
     <string name="translation_encourage_body">SD Maid ითარგმნება მოხალისეების მიერ. თარგმანი, მიმოხილვა ან კორექტირება - თქვენი დახმარება დაფასებულია!</string>
     <string name="translation_translators_title">ეს ვერსია ითარგმნა შემდეგის მიერ</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">მანქანური თარგმანი</string>
     <string name="motd_setting_enabled_label">მნიშვნელოვანი შეტყობინებები</string>
     <string name="motd_setting_enabled_explanation">SD Maid-ის ნების დართვა დეველოპერისგან მნიშვნელოვანი შეტყობინებების შესამოწმებლად.</string>
     <string name="updatecheck_setting_enabled_label">განახლების შემოწმება</string>

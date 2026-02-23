@@ -135,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">यदि उपलब्ध है तब रूट तक पहुंच का उपयोग करें</string>
     <string name="setup_root_disable_root_use_label">रूट तक पहुंच का उपयोग न करें</string>
     <string name="setup_root_card_body2">केवल रूट किए गए उपकरणों पर उपलब्ध है। यदि आपने यह संशोधन नहीं किया है, तो आपका डिवाइस रूट नहीं किया गया है और इस सेटिंग का कोई प्रभाव नहीं पड़ता है।</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid को परिणामों में सुधार और सुविधाओं को सक्षम करने के लिए जहां संभव हो Shizuku का उपयोग करने की अनुमति दें।</string>
     <string name="setup_shizuku_card_body2">यदि आपके डिवाइस पर Shizuku ऐप सेट अप नहीं है तो इस सेटिंग का कोई प्रभाव नहीं है।</string>
     <string name="setup_shizuku_card_root_info">रूट एक्सेस के साथ Shizuku अतिरिक्त सुविधाएं सक्षम नहीं करता है, लेकिन यह विश्वसनीयता में सुधार करता है। SD Maid इसे फॉलबैक विधि के रूप में उपयोग करेगा।</string>
@@ -278,6 +279,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">स्क्रीनशॉट की आयु</string>
     <string name="systemcleaner_filter_screenshots_age_summary">स्क्रीनशॉट को मिटाने के लिए विचार करने के लिए न्यूनतम आयु।</string>
     <string name="systemcleaner_filter_superfluosapks_label">अत्यधिक APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">सेटअप फाइलें जो इंस्टॉल किए गए ऐप्लिकेशन संस्करणों के आधार पर अब आवश्यक नहीं हैं।</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">समान संस्करण शामिल करें</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">स्थापित संस्करण से मेल खाने वाली APK फ़ाइलों को भी लक्षित करें। केवल पुराने संस्करण हटाने के लिए अक्षम करें।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डर</string>
@@ -471,6 +473,7 @@
     <string name="deduplicator_detection_method_checksum_title">चेकसम</string>
     <string name="deduplicator_detection_method_checksum_summary">फ़ाइल सामग्री की तुलना करने के लिए चेकसम का उपयोग करें। अधिक सटीक लेकिन धीमा।</string>
     <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल हैश</string>
+    <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताओं का विश्लेषण करके और धारणात्मक हैश मूल्यों की तुलना करके समान फाइलें खोजें। ⚠️ समानता-आधारित पहचान में गलत सकारात्मक शामिल हो सकते हैं जिनके लिए मैनुअल सत्यापन की आवश्यकता होती है।</string>
     <string name="deduplicator_occupied_space_label">कब्जाया गया स्थान</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s डुप्लिकेट्स द्वारा कब्जा किया गया है</item>
@@ -522,6 +525,64 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">छोटी फ़ाइलें प्राथमिकता</string>
     <string name="deduplicator_view_mode_groups_label">समूह</string>
     <string name="deduplicator_view_mode_directories_label">फ़ोल्डर</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">स्टोरेज स्पेस बचाने के लिए छवियों को संपीड़ित करें।</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d छवि मिली</item>
+        <item quantity="other">%d छवियां मिलीं</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s बचाया जा सकता है</item>
+        <item quantity="other">~%s बचाया जा सकता है</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d छवि संपीड़ित की गई</item>
+        <item quantity="other">%d छवियां संपीड़ित की गईं</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d छवि चुनी गई</item>
+        <item quantity="other">%d छवियां चुनी गईं</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">खोज स्थान</string>
+    <string name="squeezer_search_locations_default_summary">कैमरा फ़ोल्डर्स (डिफ़ॉल्ट)</string>
+    <string name="squeezer_min_size_title">न्यूनतम फाइल आकार</string>
+    <string name="squeezer_min_size_description">इस आकार से छोटी छवियों को छोड़ें।</string>
+    <string name="squeezer_min_age_title">न्यूनतम फाइल आयु</string>
+    <string name="squeezer_min_age_description">केवल इस आयु से पुरानी छवियों को शामिल करें।</string>
+    <string name="squeezer_compression_settings_label">संपीड़न सेटिंग्स</string>
+    <string name="squeezer_quality_label">गुणवत्ता</string>
+    <string name="squeezer_quality_title">संपीड़न गुणवत्ता</string>
+    <string name="squeezer_quality_description">कम गुणवत्ता का अर्थ है छोटा फाइल आकार लेकिन कम छवि गुणवत्ता।</string>
+    <string name="squeezer_quality_example_format">उदाहरण: %1$s छवि → लगभग %2$s बचाता है %3$d%% गुणवत्ता पर</string>
+    <string name="squeezer_quality_warning_low">कम गुणवत्ता दृश्यमान कलाकृतियों का कारण बन सकती है।</string>
+    <string name="squeezer_quality_warning_high">बहुत उच्च गुणवत्ता न्यूनतम स्पेस बचाता है।</string>
+    <string name="squeezer_types_category_label">छवि प्रकार</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG छवियों (.jpg, .jpeg) को शामिल करें।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP छवियों (.webp) को शामिल करें।</string>
+    <string name="squeezer_skip_compressed_title">पहले से संपीड़ित को छोड़ें</string>
+    <string name="squeezer_skip_compressed_description">ऐसी छवियों को छोड़ें जो पहले से ही SD Maid द्वारा संपीड़ित की जा चुकी हैं।</string>
+    <string name="squeezer_exif_marker_title">EXIF मार्कर लिखें</string>
+    <string name="squeezer_exif_marker_description">छवि के EXIF यूजर कमेंट फील्ड में एक मार्कर जोड़ें ताकि संपीड़न इतिहास साफ़ होने पर भी पुनः संपीड़न को रोका जा सके।</string>
+    <string name="squeezer_estimated_savings_format">~%s बचत</string>
+    <string name="squeezer_no_savings_expected">सीमित बचत</string>
+    <string name="squeezer_current_size_format">आकार: %s</string>
+    <string name="squeezer_compress_action">संपीड़ित करें</string>
+    <string name="squeezer_compress_all_action">सभी को संपीड़ित करें</string>
+    <string name="squeezer_preview_dialog_title">संपीड़न की पुष्टि करें</string>
+    <string name="squeezer_preview_total_size">कुल आकार</string>
+    <string name="squeezer_preview_estimated_savings">अनुमानित बचत</string>
+    <string name="squeezer_compress_confirmation_title">छवियों को संपीड़ित करें?</string>
+    <string name="squeezer_compress_confirmation_message">यह मूल छवियों को संपीड़ित संस्करणों से बदल देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
+    <string name="squeezer_history_title">संपीड़न इतिहास</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d आइटम (%2$s)</item>
+        <item quantity="other">%1$d आइटम (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">कोई संपीड़न इतिहास नहीं</string>
+    <string name="squeezer_history_clear_title">संपीड़न इतिहास साफ़ करें</string>
+    <string name="squeezer_history_clear_message">यह पहले संपीड़ित छवियों को फिर से संपीड़ित करने की अनुमति देगा। छवियों को प्रभावित नहीं किया जाएगा।</string>
     <string name="squeezer_onboarding_title">छवि संपीड़न के बारे में</string>
     <string name="squeezer_onboarding_message">छवि संपीड़न दृश्य विवरण हटाकर फ़ाइल आकार कम करता है। यह प्रक्रिया अपरिवर्तनीय है - मूल गुणवत्ता पुनर्स्थापित नहीं की जा सकती।\n\nयहां आपकी छवियों का पूर्वावलोकन है:</string>
     <string name="squeezer_onboarding_original_label">मूल</string>
@@ -566,6 +627,7 @@
     <string name="appcontrol_app_launch_title">ऐप खोलें</string>
     <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
     <string name="appcontrol_app_forcestop_title">बलपूर्वक रोकें</string>
+    <string name="appcontrol_app_forcestop_description">ऐप्लिकेशन को बंद करें। इसे तब तक स्वयं से शुरू होने से रोकें जब तक आप इसे खोलें या डिवाइस को रीबूट न करें।</string>
     <string name="appcontrol_app_uninstall_description">इस ऐप को अपने डिवाइस से अनइंस्टॉल करें।</string>
     <string name="appcontrol_app_exclude_add_title">बहिष्कृत ऐप्स</string>
     <string name="appcontrol_app_exclude_add_description">SD मेड में अन्य कार्यों से इस ऐप को बाहर करें।</string>
@@ -573,6 +635,7 @@
     <string name="appcontrol_app_exclude_edit_description">इस ऐप को वर्तमान में एक या अधिक टूल से बाहर रखा गया है।</string>
     <string name="appcontrol_tag_user">उपयोगकर्ता</string>
     <string name="appcontrol_tag_active">सक्रिय</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">बंडल</string>
     <string name="appcontrol_tag_system">सिस्टम</string>
     <string name="appcontrol_tag_archived">संग्रहीत</string>
@@ -580,6 +643,7 @@
     <string name="appcontrol_tag_not_installed">इंस्टॉल नहीं</string>
     <string name="appcontrol_tag_enabled">सक्षम</string>
     <string name="appcontrol_tag_disabled">अक्षम</string>
+    <string name="appcontrol_tag_debug">डिबग</string>
     <string name="appcontrol_progress_enabling_package">ऐप सक्षम हो रहा है</string>
     <string name="appcontrol_progress_disabling_package">ऐप अक्षम हो रहा है</string>
     <string name="appcontrol_list_filteroptions_label">फ़िल्टर विकल्प</string>
@@ -594,6 +658,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ऐप अनइंस्टॉल किया गया</item>
         <item quantity="other">%d ऐप्स अनइंस्टॉल किए गए</item>
+    </plurals>
+    <string name="appcontrol_archive_action">आर्काइव</string>
+    <string name="appcontrol_archive_selection_action">ऐप्स को आर्काइव करें</string>
+    <string name="appcontrol_archive_description">स्थान खाली करने के लिए ऐप्स को आर्काइव करें और बाद में पुनर्स्थापन के लिए ऐप डेटा रखें।</string>
+    <string name="appcontrol_progress_archiving_app">ऐप को संग्रहीत किया जा रहा है…</string>
+    <string name="appcontrol_archive_confirmation_title">आर्काइव की पुष्टि करें</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ऐप को संग्रहीत करें?</item>
+        <item quantity="other">%d ऐप को संग्रहीत करें?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ऐप संग्रहीत किया गया</item>
+        <item quantity="other">%d ऐप संग्रहीत किए गए</item>
+    </plurals>
+    <string name="appcontrol_restore_action">पुनर्स्थापित करें</string>
+    <string name="appcontrol_restore_selection_action">ऐप्स को पुनर्स्थापित करें</string>
+    <string name="appcontrol_restore_description">आर्काइव किए गए ऐप को पूरी तरह इंस्टॉल की गई स्थिति में पुनर्स्थापित करें। ऐप डेटा संरक्षित है।</string>
+    <string name="appcontrol_progress_restoring_app">ऐप को पुनः स्थापित किया जा रहा है…</string>
+    <string name="appcontrol_restore_confirmation_title">पुनर्स्थापन की पुष्टि करें</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ऐप को पुनः स्थापित करें?</item>
+        <item quantity="other">%d ऐप को पुनः स्थापित करें?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ऐप पुनः स्थापित किया गया</item>
+        <item quantity="other">%d ऐप पुनः स्थापित किए गए</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">ऐप का आकार</string>
     <string name="appcontrol_app_sizes_apk_label">ऐप</string>
@@ -612,13 +702,19 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ऐप आकार की जानकारी दिखाएं।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">गतिविधि जानकारी</string>
     <string name="appcontrol_settings_module_activity_enabled_description">ऐप गतिविधि और स्क्रीन समय की जानकारी दिखाएं।</string>
+    <string name="appcontrol_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
+    <string name="appcontrol_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल से ऐप्स शामिल करें।</string>
     <string name="appcontrol_export_app_selection_action">ऐप्स निर्यात करें</string>
     <string name="appcontrol_export_title">ऐप निर्यात करें</string>
+    <string name="appcontrol_export_description">इस ऐप्लिकेशन की इंस्टॉलेशन फाइलें सहेजें। इसमें ऐप्लिकेशन डेटा शामिल नहीं है।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ऐप निर्यात किया गया</item>
         <item quantity="other">%d ऐप्स निर्यात किए गए</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">%s निर्यात किया जा रहा है</string>
+    <string name="appcontrol_share_list_action">सूची साझा करें</string>
+    <string name="appcontrol_share_list_title">मेरे ऐप्स</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE द्वारा साझा किया गया</string>
     <string name="appcontrol_force_stop_selection_action">ऐप्स को बलपूर्वक रोकें</string>
     <string name="appcontrol_force_stop_action">बलपूर्वक रोकें</string>
     <string name="appcontrol_force_stop_confirm_title">बलपूर्वक रोकने की पुष्टि करें</string>
@@ -635,8 +731,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">बलपूर्वक रोका जा रहा है…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"बलपूर्वक रोकें\" बटन ढूंढा जा रहा है (कीवर्ड: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">आर्काइव किया जा रहा है…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"आर्काइव\" बटन खोजा जा रहा है (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">पुनर्स्थापन किया जा रहा है…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"पुनर्स्थापित करें\" बटन खोजा जा रहा है (कीवर्ड: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">स्क्रीन समय: %2$s से %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">अंतिम अद्यतन: %s</string>
+    <string name="appcontrol_item_installedat_x_label">इंस्टॉल किया गया: %s</string>
     <string name="analyzer_tool_name">संग्रहणविश्लेषक</string>
     <string name="analyzer_explanation_short">पता करें कि आपके डिवाइस में क्या जगह ले रहा है।</string>
     <string name="analyzer_progress_scanning_device">संग्रहण उपकरणों की खोज की जा रही है</string>
@@ -654,6 +755,11 @@
         <item quantity="other">%s उपयोग में</item>
     </plurals>
     <string name="analyzer_content_access_opaque">कोई सीधी पहुँच उपलब्ध नहीं है</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper सत्र बनाएं</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper सेशन %d आइटम के साथ बनाया गया</item>
+        <item quantity="other">Swiper सेशन %d आइटम के साथ बनाया गया</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">प्रारंभिक संग्रहण</string>
     <string name="analyzer_storage_type_primary_description">मुख्य आंतरिक संग्रहण स्थान।</string>
     <string name="analyzer_storage_type_secondary_title">माध्यमिक संग्रहण</string>
@@ -696,6 +802,7 @@
     <string name="exclusion_type_segment">खंड अपवर्जन</string>
     <string name="exclusion_tags_alltools">सभी टूल</string>
     <string name="exclusion_target_label">अपवर्जन लक्ष्य</string>
+    <string name="exclusion_editor_path_change_action">पथ बदलने के लिए टैप करें</string>
     <string name="exclusion_option_allow_partial">आंशिक मिलान की अनुमति दें</string>
     <string name="exclusion_option_ignore_casing">आवरण पर ध्यान न दें</string>
     <string name="exclusion_editor_affected_tools_label">प्रभावित उपकरण</string>
@@ -787,6 +894,19 @@
     <string name="review_app_review_action">समीक्षा करें</string>
     <string name="review_app_dismiss_action">शायद बाद में</string>
     <string name="review_app_body">क्या आप SD Maid को एक समीक्षा देना चाहेंगे? ❤️</string>
+    <string name="anniversary_card_title">Happy SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_install_date">%s से आपके साथ</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">पहले से ही %1$d साल एक साथ। SD Maid को अपने Android को स्वच्छ और व्यवस्थित रखने के लिए विश्वास देने के लिए धन्यवाद। मुक्त की गई जगह: %2$s</item>
+        <item quantity="other">%1$d साल मजबूत। SD Maid के साथ आपका डिवाइस स्वच्छ और व्यवस्थित रहता है। मुक्त की गई जगह: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">अपना SD Maid वर्षगांठ शेयर करें</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
+इसे आजमाएं: %3$s</item>
+        <item quantity="other">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
+इसे आजमाएं: %3$s</item>
+    </plurals>
     <string name="stats_label">इतिहास</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s मुक्त किया गया है।</item>

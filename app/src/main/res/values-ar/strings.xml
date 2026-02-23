@@ -1131,9 +1131,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">رتّب المجلدات بسرعة — مرر الملفات للاحتفاظ أو الحذف أو التخطي.</string>
     <string name="swiper_dashcard_description">رتّب مجلدات محددة أسرع من مستكشف الملفات — فقط مرر كل ملف.</string>
-    <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_start_action">ابدأ التمرير</string>
     <string name="swiper_continue_action">متابعة الجلسة</string>
+    <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_select_folders_action">اختر المجلدات</string>
     <string name="swiper_scanning_title">جارٍ الفحص…</string>
     <plurals name="swiper_result_x_items_found">

@@ -300,6 +300,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="systemcleaner_filter_screenshots_age_label">גיל צילום מסך</string>
     <string name="systemcleaner_filter_screenshots_age_summary">גיל מינימלי למחיקה של צילומי מסך.</string>
     <string name="systemcleaner_filter_superfluosapks_label">חבילות APK מיותרות</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">קובצי התקנה שאינם נחוצים עוד בהתאם לגרסאות האפליקציות המותקנות.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">כלול אותה גרסה</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">כלול גם קבצי APK שתואמים לגרסה המותקנת. בטל כדי להסיר רק גרסאות ישנות יותר.</string>
     <string name="systemcleaner_filter_lostdir_label">תיקיות LOST.DIR</string>

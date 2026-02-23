@@ -11,8 +11,8 @@
     <string name="upgrade_screen_how_title">Jak pomóc</string>
     <string name="upgrade_screen_how_body">Zostań patronem i sponsorem rozwoju! Dotknij przycisku poniżej, aby aktywować wszystkie dodatkowe funkcje i otworzyć mój profil sponsorów GitHub.</string>
     <string name="upgrade_screen_why_title">To wywołuje 🪄</string>
-    <string name="upgrade_screen_why_body">• Funkcjonalność usuwania Sprzątaczem aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne zasady usuwania ✍️\n• Motywację programisty 🧙\ni wiele więcej…</string>
+    <string name="upgrade_screen_why_body">• Sprzątanie aplikacji 💯\n• Zaplanowane operacje ⏰\n• Dodatkowe opcje dla wszystkich narzędzi ⚙️\n• Twoje własne zasady usuwania ✍️\n• Motywacja programisty 🧙\ni wiele więcej…</string>
     <string name="upgrade_screen_sponsor_action">Wesprzyj rozwój</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatywą są reklamy, analityka i Google Play 🙁</string>
-    <string name="upgrade_screen_thanks_toast">Dziękuję za wsparcie dla rozwoju oprogramowania otwarto źródłowego❤️</string>
+    <string name="upgrade_screen_thanks_toast">Dziękuję za wsparcie rozwoju oprogramowania otwarto źródłowego❤️</string>
 </resources>

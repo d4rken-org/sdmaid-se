@@ -42,6 +42,7 @@
     <string name="onboarding_welcome_body2">වෙනත් යෙදුම් පිටුපස පිරිසිදු කිරීමෙන් ආචයන ඉඩ ලබාගන්න. වියදම් කළ හැකි ගොනු මකා ඉතිරි දත්ත ඉවත් කරන්න.</string>
     <string name="onboarding_welcome_body_beta">මෙය beta (පරීක්ෂණ) ගොඩනැගීමකි. හාස්‍යමය හැඟීමක් සහ උපස්ථ සැලසුමක් සහිතව ඉදිරියට යන්න. ඔබට මුහුණ දෙන ගැටලු වාර්තා කරන්න.</string>
     <string name="onboarding_welcome_continue_action">ඉදිරියට</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 ලෙසද හඳුන්වනු ලබයි) SD Maid (SD Maid 1 ලෙසද හඳුන්වනු ලබයි) හි අනුප්‍රාප්තිකයා වේ. නවීන Android සඳහා ප්‍රශස්ත කරන ලද නව යෙදුමකි.</string>
     <string name="onboarding_versus_body2">එහි පූර්වගාමියාගේ ගෘහ නිර්මාණ ශිල්පය වසර 7කට වඩා පැරණි වන අතර නවීන Android අනුවාදවල අභියෝගයන් සඳහා සැලසුම් කර නොමැත. සංවර්ධනය ඉදිරියට ගෙන යාම සඳහා සම්පූර්ණ ප්‍රතිසැකසුමක් අවශ්‍ය විය.</string>
     <string name="onboarding_versus_body3">වැඩි දියුණු ප්‍රතිඵල සඳහා SD Maid SE වෙත මාරුවීම සලකා බලන්න.</string>
@@ -76,6 +77,7 @@
     <string name="ui_theme_style_setting_label">තේමා මෝදය</string>
     <string name="ui_theme_style_setting_explanation">යෙදුම තේමා කිරීමේදී භාවිතා කරන වර්ණ මෝදය.</string>
     <string name="ui_theme_style_default_label">පෙරනිමි</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ගොනු පූර්ව දසුන්</string>
     <string name="ui_previews_summary">සියලුම මෙවලම්වල ගොනු පූර්ව දසුන් පෙන්වන්න (උදා. රූප සහ වීඩියෝ සිඟිති රූප).</string>
     <string name="ui_language_override_label">යෙදුම් භාෂාව</string>
@@ -101,6 +103,12 @@
     <string name="discord_description">සැරිසැරීමට සහ ප්‍රශ්න ඇසීමට තැනක්.</string>
     <string name="changelog_label">වෙනස්කම් සටහන</string>
     <string name="settings_acknowledgements_label">පිළිගැනීම්</string>
+    <string name="settings_acknowledgements_category_translations_title">පරිවර්තන</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">මෙය පරිවර්තනය කරන ලද්දේ කවුද?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ස්තූතියි</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">අපගේ මිතුරුවරුන්ට විශේෂ ස්තූති.</string>
+    <string name="settings_acknowledgements_category_licenses_title">බලපත්‍ර</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid විසින් භාවිතා කරන ලද මෘදුකාංග.</string>
     <string name="setup_label">පිහිටුවීම</string>
     <string name="setup_incomplete_card_title">පිහිටුවීම අසම්පූර්ණයි</string>
     <string name="setup_incomplete_card_body">වඩා හොඳ ප්‍රතිඵල ලබාගැනීම සඳහා SD Maid හි පිහිටුවීම සම්පූර්ණ කරන්න.</string>
@@ -127,6 +135,7 @@
     <string name="setup_root_enable_root_use_label">ලබා ගත හැකි නම් මූල ප්‍රවේශය භාවිතා කරන්න</string>
     <string name="setup_root_disable_root_use_label">මූල ප්‍රවේශය භාවිතා නොකරන්න</string>
     <string name="setup_root_card_body2">මූල උපකරණවලම පමණක් ලබා ගැනීම. ඔබ මෙම වෙනස් කිරීම නැති නම්, ඔබේ උපකරණය මූල අකාර නවැත අතර මෙම සෆකසිමට පිහිෆාවක් නැත.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ප්‍රතිඵල වැඩිදියුදු කිරීම සහ විශේෂාංග සක්‍රිය කිරීම සඳහා හැකි ෠ාන්වලම Shizuku භාවිතා කිරීමට SD Maid හට ඉඩ දෙන්න.</string>
     <string name="setup_shizuku_card_body2">ඔබේ උපකරණයො Shizuku යෙදුම පිහිටුවා නැති නම් මෙම සෆකසිමට පිහිෆාවක් නැත.</string>
     <string name="setup_shizuku_card_root_info">මූල ප්‍රවේශය සහ මිළෙන් වු Shizuku අමතර විශේෂාංග සක්‍රිය නොකරනවා නමුත් නිර්බරතාවය වැඩිදියුදු කරයි. SD Maid එය පසුක් රිටි පද්ධතියක් ලෙස භාවිතා කළ ඉම.</string>
@@ -182,6 +191,7 @@
     <string name="settings_category_tools_label">මෙවලම්</string>
     <string name="settings_category_filter">පෙරණය</string>
     <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">දැනටමත් ඉවත් කැරී යෙදුම්වලට පායැනේ දත්ත.</string>
     <string name="corpsefinder_settings_summary">ස්කැන් පෙරණ සහ අවදානම් මට්ටම් සමත කරන්න.</string>
     <string name="corpsefinder_settings_risk_keeper_title">අනික්ෂිත අවශේෂ ඇතිරි ඇතුල් කරන්න</string>
@@ -192,6 +202,14 @@
     <string name="corpsefinder_watcher_summary">යෙදුමක් ඉවත් කැරීම විට ස්වයංක්‍රියව ඇතිරි සංශොධනය කරන්න.</string>
     <string name="corpsefinder_watcher_autodelete_title">ස්වයංක්‍රිය මකාදම</string>
     <string name="corpsefinder_watcher_autodelete_summary">අසථාපනය කැරී යෙදුමට සම්බන්ධිත වු අමුරුම ඇතිරිම ස්වයංක්‍රියව මකා දමන්න.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s අස්ථාපනය කිරීමෙන් පසු ඉතිරි %1$d ක් සොයා ගන්නා ලදී.</item>
+        <item quantity="other">%2$s අස්ථාපනය කිරීමෙන් පසු ඉතිරි %1$d සොයා ගන්නා ලදී.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">පරිෂ්කරණ සාර්ථක (%1$s): %2$s මුදා හරින ලද අතර %3$d අයිතම ඉවත් කරන ලදී.</item>
+        <item quantity="other">පරිෂ්කරණ සාර්ථක (%1$s): %2$s මුදා හරින ලද අතර %3$d අයිතම ඉවත් කරන ලදී.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">ඇතිරි මකා දමන්න</string>
     <string name="corpsefinder_filter_publicmedia_label">පොදු මැඩියා</string>
     <string name="corpsefinder_filter_publicmedia_summary">පොදු මැඩියා ගොනු, උදා. සන්දේශ යෙදුම් අරහා ලබා ගත ගොනු.</string>
@@ -216,13 +234,31 @@
     <string name="corpsefinder_filter_appasec_label">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්</string>
     <string name="corpsefinder_filter_appasec_summary">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්, උදා. ගෙම් ඉඛින්.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd mods අරහා බැහිර ආචයනයට හැරී දත්ත.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">යෙදුම් ඉතිරි %d ක් මකා දමන ලදී</item>
+        <item quantity="other">යෙදුම් ඉතිරි %d මකා දමන ලදී</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">යෙදුම් ඉතිරි %d ක් සොයා ගන්නා ලදී</item>
+        <item quantity="other">යෙදුම් ඉතිරි %d සොයා ගන්නා ලදී</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">සියලුම යෙදුම් ඇතිරි මකා දමන්නද?</string>
     <string name="corpsefinder_owners_label">මාලිකාන්</string>
     <string name="corpsefinder_corpse_hints_label">සෑහන්</string>
     <string name="corpsefinder_owner_unknown">අචාන මාලිකයා</string>
     <string name="corpsefinder_corpse_hint_keeper">මෙම අයිතමේ මාලිකයා අසථාපනය කැරී හොන්දැ ඔබට හාරා ගැනීමට ඇශ්ට වෛ හැකි දත්ත ඇතුල් විය හැකිය, උදා. ෆායාකැර නකඬත් පසුක්පත.</string>
     <string name="corpsefinder_corpse_hint_common">මෙම අයිතමට ඉතා පෙළිචිට නමක් ඇද අතර SD Maid නොදැනන දැනටමත් සථාපනය කැරී යෙදුම්වලට පායැන් නැති විය හැකිය.</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">එපිටි විශේෂ යෙදුමකට පායැන් නොවො අතිරෙක දත්ත.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">ගැලපීම් %d ක් මකා දමන ලදී</item>
+        <item quantity="other">ගැලපීම් %d මකා දමන ලදී</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">ෆිල්ටර ගැලපීම් %d ක්</item>
+        <item quantity="other">ෆිල්ටර ගැලපීම් %d</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">මැනුවල් පෙරණ</string>
     <string name="systemcleaner_filter_custom_manage_label">මැනුවල් පෙරණ කළමනාකරණය කරන්න</string>
     <string name="systemcleaner_filter_custom_manage_summary">ඔබේ මැනුවල් පෙරණ සැදුම, මකාදම, අරමුණු කිරීම සහ නිර්යාත කිරීම.</string>
@@ -316,6 +352,7 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">ගොනු වයස (අවසන් වෙනස් කළ වේලාව) මත පදනම්ව ගැළපීම් සීමා කරන්න. ඕනෑම වයසකට ගැළපීමට සැකසීමෙන් තොරව තබන්න.</string>
     <string name="systemcleaner_customfilter_import_action">නව පෙරණ අරමුණු කරන්න</string>
     <string name="systemcleaner_customfilter_export_action">සිරැසූ පෙරණ නිර්යාත කරන්න</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">විශේෂ යෙදුම්වලට පායැන් වියදම් කළ හැකි දත්ත.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">පොදු පෙරනිමි කැශ්</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">පෙරනිමි පොදු යෙදුම් කැශ්. පැරණි Android අහිජාවලින් Android/data අංශයෙන් සම්පන්න විය හැකිය. පද්ධති සම්සාවල \"Clear cache\" මැනඬ සෑහන් කිරීම විට මකා දමන්න.</string>
@@ -365,9 +402,13 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp වෙතින් අන්‍යයන්ට යවන ලද ගොනු.</string>
     <string name="appcleaner_filter_telegram_label">Telegram මාධ්‍ය ගොනු</string>
     <string name="appcleaner_filter_telegram_summary">Telegram හරහා ලැබුණු හෝ යවන ලද ගොනු.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Threema හරහා ලැබුණු ගොනු.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">කතාබහාවලින් හා WeChat සනටැන්හි යවන ලද හෝ ලැබුණු ගොනු.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">කතාබහාවම බැලීමේ නෙවත කින් පිබඳැනෙ කෘස් කඩ මාධ්‍ය ගොනු.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
     <string name="appcleaner_filter_qqchat_summary">QQ chat කතාබහාවල යවන ලද හෝ ලැබුණු ගොනු.</string>
     <string name="appcleaner_delete_all_confirmation_message">සියලුම යෙදුම් සඳහා වියදම් කළ හැකි අයිතම මකා දමන්නද?</string>
     <plurals name="appcleaner_result_x_items_deleted">
@@ -407,6 +448,7 @@
     <string name="appcleaner_forcestop_before_clearing_label">මැකීමට පෙර බලහත්කාරයෙන් නවතන්න</string>
     <string name="appcleaner_forcestop_before_clearing_summary">හැඹිලිය මැකීමට පෙර යෙදුම් බලහත්කාරයෙන් නවතන්න. සමහර යෙදුම්වල හැඹිලිය මැකීමට උපකාර විය හැකි නමුත්, යෙදුම් අක්‍රමණික ලෙස ක්‍රියා කළ හැකි අතර අතින් නැවත ආරම්භ කිරීම අවශ්‍ය විය හැක.</string>
     <string name="appcleaner_progress_force_stopping">යෙදුම් බලහත්කාරයෙන් නවතමින්…</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">ඔබේ පිකරණයම එකම දත්ත සොයා ගන්න.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d බහුපතක් මකා දැමීම</item>
@@ -483,6 +525,7 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">කුඩා ගොනු වලට කැමැත්ත</string>
     <string name="deduplicator_view_mode_groups_label">කණ්ඩායම්</string>
     <string name="deduplicator_view_mode_directories_label">ෆෝල්ඩර</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="squeezer_explanation_short">ගබඩා ඉඩ ඉතිරි කිරීමට රූප සංකෝචනය කරන්න.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">රූපය %d ක් හමු විය</item>
@@ -514,7 +557,9 @@
     <string name="squeezer_quality_warning_low">අඩු ගුණත්වයන්හි දෘශ්‍ය අවශේෂ ඇති විය හැක.</string>
     <string name="squeezer_quality_warning_high">ඉතා ඉහළ ගුණත්වය අවම ඉඩ ඉතිරිකිරීම් සපයයි.</string>
     <string name="squeezer_types_category_label">රූප වර්ග</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG රූප (.jpg, .jpeg) ඇතුළත් කරන්න.</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP රූප (.webp) ඇතුළත් කරන්න.</string>
     <string name="squeezer_skip_compressed_title">කලින් සංකෝචනය කළ ඒවා මඟ හරින්න</string>
     <string name="squeezer_skip_compressed_description">SD Maid විසින් දැනටමත් සංකෝචනය කර ඇති රූප මඟ හරින්න.</string>
@@ -564,6 +609,7 @@
         <item quantity="other">අවම දින %d ක් පැරණි</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ගොනු සඳහා ඇස්තමේන්තු ~%d%% ඉතිරි</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">ඔබේ පිකරණයම ස්ථාපිත යෙදුම්.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">%d යෙදුමක් සොයා ගනු ලැබීම</item>
@@ -589,6 +635,8 @@
     <string name="appcontrol_app_exclude_edit_description">මෙම යෙදුම සාමාන්‍යයෙන් මෙවලමෝ වැඩා බැහැර කර ඇත.</string>
     <string name="appcontrol_tag_user">පරිශීලක</string>
     <string name="appcontrol_tag_active">සමීප කාලයම සක්‍රිය</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">සම්ප්‍රවේශණ</string>
     <string name="appcontrol_tag_system">පද්ධති</string>
     <string name="appcontrol_tag_archived">ආරකිව කඩ</string>
     <string name="appcontrol_tag_uninstalled">දත්ත පමණක්</string>
@@ -646,9 +694,23 @@
         <item quantity="one">%d යෙදුමේ සක්‍රිය/අබල ස්ථානය වෙනස් කරන්නද?</item>
         <item quantity="other">%d යෙදුම් සඳහා සක්‍රිය/අබල ස්ථාන වෙනස් කරන්නද?</item>
     </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">යෙදුම %d ටොගල් කරන ලදී</item>
+        <item quantity="other">යෙදුම් %d ටොගල් කරන ලදී</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">ප්‍රමාණ තීරණ කරන්න</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">එක එක යෙදුමේ ප්‍රමාණ පිළිබඳ සමීපවර්තී ඇස්තමේන්තු ලබා ගන්න.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">ක්‍රියාකාරිත්වය තීරණ කරන්න</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">යෙදුමක් සක්‍රියව පැවතුනේ ද (හෝ මෑතකදී) සොයා ගන්න.</string>
     <string name="appcontrol_include_multiuser_label">වෙනත් පරිශීලකයින් ඇතුළත් කරන්න</string>
     <string name="appcontrol_include_multiuser_summary">මෙම උපාංගයේ වෙනත් පරිශීලක පැතිකඩවලින් යෙදුම් ඇතුළත් කරන්න.</string>
+    <string name="appcontrol_export_app_selection_action">යෙදුම් අපනයන කරන්න</string>
+    <string name="appcontrol_export_title">යෙදුම අපනයන කරන්න</string>
     <string name="appcontrol_export_description">මෙම යෙදුමේ ස්ථාපන ගොනු සුරකින්න. මෙයට යෙදුම් දත්ත ඇතුළත් නොවේ.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">යෙදුම %d අපනයන කරන ලදී</item>
+        <item quantity="other">යෙදුම් %d අපනයන කරන ලදී</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s නිර්යාත කරමින්</string>
     <string name="appcontrol_share_list_action">ලැයිස්තුව බෙදාගන්න</string>
     <string name="appcontrol_share_list_title">මගේ යෙදුම්</string>
@@ -676,6 +738,7 @@
     <string name="appcontrol_item_screentime_x_since_y_label">තිර කාලය: %2$s ඉපැකි %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">අවසාන වන් වාර යාවත්කාලීන කැරී: %s</string>
     <string name="appcontrol_item_installedat_x_label">ස්ථාපිත දිනය: %s</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">ඔබේ පිකරණයම හී ඉඩම පීරුව නෙන් සොයා ගන්න.</string>
     <string name="analyzer_progress_scanning_device">ආචයන පිකරණ සොයමින්</string>
     <string name="analyzer_progress_scanning_storage">ආචයනය ශෝධනය කරමින්</string>
@@ -761,6 +824,16 @@
     <string name="automation_accessibility_service_description">විශේෂ ප්‍රවේශ්‍යතා අවශ්‍යතා හෛය පරිශීලකයන්ට SD Maid ට එසේම නම් කසාප්කර හස්ත පරිශීලක ඈන්ටරැක්ශන් අවශ්‍ය කාර්ය (උදා. කැශ් මකාදමන්න) ස්වයංක්‍රිය කිරීමට අවසර දෙන්න මෙම සේවාව සක්‍රිය කරන්න පුළුවාන්.\n\nඋදාහරණ: ඔබ SD Maid ට බහුපක් යෙදුම් නවත්වන්න ඕදේශ කූව හොත SD Maid ට සියලු යෙදුම් සැකසීම් තිරය විවෘත කිරීම, \'ගිහි නවත්වන්න\' බොත්තම සොයා ගෙන්න සහ එය ශීග්‍රව ස්පර්ශ කිරීම සඳහා මෙම සේවාව භාවිතා කරන්න පුළුවාන්.\n\nSD Maid මෙම සේවාව භාවිතා කරන විට අවශ්‍යයෙන්ම පෙන්වා බේණ් සහ පරිශීලකයා එනිම කාර්යාව ඉධිව රද්ද් කිරීමට සුලබ විචානක් ලබා දෙන් ඇත.\n\nඉපැරින් පරිශීලක නොැොවුමක් නොමැතිව එනිම ක්‍රියාවක් කාර්යාන්විත නොකරයි. මෙම සේවාව එනිම වෙලාවක අහිතක හානියක් නොමැතිව නැවඳ අබල කරන්න පුළුවාන්.</string>
     <string name="automation_screenoverlay_explanation">SD Maid ඔබේ පිකරණය සමග කාර්යාව කරමින්. එම වෙලාවඩම තිරය භාවිතා කිරීමට හැකියාවක් නැත. මෙහෙයුම සමාප්ත වෙන් පර්යන්ත අපේක්ෂා කරන්න හෝ එය රද්ද් කරන්න.</string>
     <string name="automation_active_title">SD Maid කාර්ය කරමින්</string>
+    <string name="automation_error_no_consent_title">ස්වයංක්‍රීයතා දෝෂය</string>
+    <string name="automation_error_no_consent_body">ප්‍රවේශනීයතා සේවාව සකසා නැත. සැකසුම සම්පූර්ණ කරන්න සහ එකඟතා දෙන්න.</string>
+    <string name="automation_error_not_enabled_title">සේවාව සක්‍රිය නැත</string>
+    <string name="automation_error_not_enabled_body">ප්‍රවේශනීයතා සේවාව අක්‍රිය කර ඇත. එය නැවත සක්‍රිය කරන්න.</string>
+    <string name="automation_error_not_running_title">සේවාව ක්‍රියාත්මක නැත</string>
+    <string name="automation_error_not_running_body">ප්‍රවේශනීයතා සේවාව ක්‍රියාත්මක නැත. උපාංගය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
+    <string name="automation_error_screen_unavailable_title">තිරය ලබා ගත නොහැක</string>
+    <string name="automation_error_screen_unavailable_body">තිරය ලබා ගත නොහැකි වූ නිසා මෙහෙයුම නතර කරන ලදී (උදා: සංදර්ශනය අක්‍රිය හෝ අගුළු තිරය සක්‍රිය).</string>
+    <string name="automation_error_compatibility_title">ස්වයංක්‍රීයතා අනුකූලතා</string>
+    <string name="automation_error_compatibility_body">SD Maid තිරයේ සැකැස්ම තීරණය කිරීමට නොහැකි විය. එය නිරන්තරයෙන් සිදුවේ නම්, ඔබේ භාෂාව හෝ සැකසුම සම්පූර්ණයෙන් සමර්ථනය නොකරනු ඉඩ ඇත. යාවත්කාලීන සඳහා පරීක්ෂා කරන්න හෝ එය නිවැරදි කිරීමට මට අමතරන්න.</string>
     <string name="automation_error_timeout_title">ස්වයංක්‍රියකරණ කාලසමාප්ති</string>
     <string name="automation_error_timeout_body">SD Maid කාල සිමාව අතර සියලු පීසිරීම් සමාප්ත නොකැරීය. මෙය නිරන්තරව සිදු වෙම් නම්, මම ඔබේ පිකරණය සඳහා යෙදුම හරසාදනය කිරීමට සිදු වෙයි. යාවත්කාලීන බොන්න හෝ මම එය නිවැරදි කිරීමට මං කොඩාසන කරන්න.</string>
     <string name="automation_error_overlay_title">ස්වයංක්‍රියකරණ බහිරුවර</string>
@@ -810,6 +883,7 @@
     <string name="translation_encourage_title">SD Maid බාෂාන්තර කරන්න</string>
     <string name="translation_encourage_body">SD Maid ස්වේච්චා සේවකයන් විසින් බාෂාන්තර කර ඇත. බාෂාන්තරය, පුනරීක්ෂණය හෝ රුඟරිටය කිරීම, ඔබේ සහායතාව පුගණ!</string>
     <string name="translation_translators_title">මෙම අනුවාදය පරිවර්තනය කර ඇත්තේ</string>
+    <string name="translation_translators_people">දයක්රිය පරිවර්තනය</string>
     <string name="motd_setting_enabled_label">වැදගත් පණිවිඩ</string>
     <string name="motd_setting_enabled_explanation">සංවර්ධකයාගෙන් වැදගත් පණිවිඩ සඳහා SD Maid පරීක්ෂා කිරීමට ඉඩ දෙන්න.</string>
     <string name="updatecheck_setting_enabled_label">යාවත්කාලීන පරීක්ෂාව</string>
@@ -870,9 +944,9 @@
     <string name="area_type_public_obb_label">පූදු යෙදුම් සන්පත්</string>
     <string name="area_type_private_data_label">පුද්ගලික යෙදුම් දත්ත</string>
     <string name="area_type_portable_label">පොර්ටෙබොල් ආචයනය</string>
+    <string name="shortcut_appcontrol_short">යෙදුම් පාලනය</string>
     <string name="shortcut_appcontrol_long">ස්ථාපිත යෙදුම් කළමනාකරණය</string>
     <string name="shortcut_onetap_short">පරිලෝකනය + මකන්න</string>
-    <string name="shortcut_appcontrol_short">යෙදුම් පාලනය</string>
     <string name="shortcut_onetap_long">එක් ක්‍රියාවකින් පරිලෝකනය සහ මැකීම</string>
     <string name="shortcuts_settings_category">කෙටිමං</string>
     <string name="shortcuts_onetap_enabled_title">එක්-තට්ටු කෙටිමඟ</string>

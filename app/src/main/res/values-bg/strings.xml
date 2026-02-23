@@ -555,9 +555,9 @@
     <string name="squeezer_quality_description">По-ниско качество означава по-малък размер на файла, но намалено качество на изображението.</string>
     <string name="squeezer_quality_example_format">Пример: %1$s изображение → спестява ~%2$s при %3$d%% качество</string>
     <string name="squeezer_quality_warning_low">По-ниските качества могат да причинят видими артефакти.</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_quality_warning_high">Много високото качество осигурява минимални спестявания на място.</string>
     <string name="squeezer_types_category_label">Типове изображения</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Включване на JPEG изображения (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Включване на WebP изображения (.webp).</string>
@@ -635,14 +635,14 @@
     <string name="appcontrol_app_exclude_edit_description">Това приложение в момента е изключено от един или повече инструменти.</string>
     <string name="appcontrol_tag_user">Потребител</string>
     <string name="appcontrol_tag_active">Наскоро активно</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Пакет</string>
     <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_archived">Архивирано</string>
     <string name="appcontrol_tag_uninstalled">Само данни</string>
     <string name="appcontrol_tag_not_installed">Не е инсталирано</string>
     <string name="appcontrol_tag_enabled">Активирано</string>
     <string name="appcontrol_tag_disabled">Деактивирано</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
-    <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_debug">Дебъг</string>
     <string name="appcontrol_progress_enabling_package">Активиrane на приложение</string>
     <string name="appcontrol_progress_disabling_package">Деактивиране на приложение</string>
@@ -883,7 +883,7 @@
     <string name="translation_encourage_title">Преведете SD Maid</string>
     <string name="translation_encourage_body">SD Maid се превежда от доброволци. Превод, преглед или корекция, вашата помощ се оценява!</string>
     <string name="translation_translators_title">Тази версия е преведена от</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">Машинен превод</string>
     <string name="motd_setting_enabled_label">Важни съобщения</string>
     <string name="motd_setting_enabled_explanation">Позволете на SD Maid да проверява за важни съобщения от разработчика.</string>
     <string name="updatecheck_setting_enabled_label">Проверка за актуализации</string>
@@ -944,15 +944,20 @@
     <string name="area_type_public_obb_label">Публични ресурси на приложения</string>
     <string name="area_type_private_data_label">Частни данни на приложения</string>
     <string name="area_type_portable_label">Преносимо хранилище</string>
-    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_short">Управление на приложения</string>
     <string name="shortcut_appcontrol_long">Управление на инсталирани приложения</string>
     <string name="shortcut_onetap_short">Сканиране + Изтриване</string>
     <string name="shortcut_onetap_long">Сканиране и изтриване с едно действие</string>
     <string name="shortcuts_settings_category">Бързи клавиши</string>
     <string name="shortcuts_onetap_enabled_title">Бърз клавиш с едно докосване</string>
     <string name="shortcuts_onetap_enabled_summary">Показване на бърз клавиш \"Сканиране + Изтриване\" при дълго натискане на иконата на приложението. Използва същите инструменти като таблото с едно докосване.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Разчистете папки бързо — плъзнете файлове, за да запазите, изтриете или пропуснете.</string>
+    <string name="swiper_dashcard_description">Разчистете конкретни папки по-бързо от файлов мениджър — просто плъзнете всеки файл.</string>
     <string name="swiper_start_action">Започнете плъзгане</string>
     <string name="swiper_continue_action">Продължаване на сесията</string>
+    <string name="swiper_sessions_description">Прегледайте файлове в 3 лесни стъпки:\n\n1. Изберете папка за сканиране\n2. Плъзнете файлове, за да запазите, изтриете или пропуснете\n3. Прегледайте решенията си и потвърдете\n\nНищо не се премахва, докато не докоснете крайния бутон за изтриване.</string>
     <string name="swiper_select_folders_action">Избиране на папки</string>
     <string name="swiper_scanning_title">Сканиране…</string>
     <plurals name="swiper_result_x_items_found">
@@ -1087,15 +1092,8 @@
     <string name="swiper_gesture_overlay_right_delete">Изтриване →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Пропускане</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Отмяна</string>
-
     <!-- Swiper help dialog -->
     <string name="swiper_help_action">Помощ</string>
     <string name="swiper_help_title">Как работи Swiper</string>
     <string name="swiper_help_message">Плъзнете всеки файл, за да вземете решение:\n\n← Плъзнете наляво: %1$s\n→ Плъзнете надясно: %2$s\n↑ Плъзнете нагоре: Пропускане\n↓ Плъзнете надолу: Отмяна (след първото плъзгане)\n\nМожете също да използвате бутоните в долната част.\n\nКогато приключите, докоснете \"Преглед\", за да видите всичките си решения. Нищо не се изтрива, докато не потвърдите на екрана за преглед.</string>
-
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
-    <string name="swiper_tool_description">Разчистете папки бързо — плъзнете файлове, за да запазите, изтриете или пропуснете.</string>
-    <string name="swiper_dashcard_description">Разчистете конкретни папки по-бързо от файлов мениджър — просто плъзнете всеки файл.</string>
-    <string name="swiper_sessions_description">Прегледайте файлове в 3 лесни стъпки:\n\n1. Изберете папка за сканиране\n2. Плъзнете файлове, за да запазите, изтриете или пропуснете\n3. Прегледайте решенията си и потвърдете\n\nНищо не се премахва, докато не докоснете крайния бутон за изтриване.</string>
 </resources>
