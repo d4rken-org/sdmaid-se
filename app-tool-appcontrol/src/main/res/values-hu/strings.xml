@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AlkalmazásVezérlés</string>
+    <string name="appcontrol_explanation_short">Az eszközre telepített alkalmazások.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d alkalmazás észlelve</item>
+        <item quantity="other">%d alkalmazások észlelve</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Alkalmazások átkapcsolása</string>
+    <string name="appcontrol_toggle_app_enable_action">Alkalmazás engedélyezése</string>
+    <string name="appcontrol_toggle_app_disable_action">Alkalmazás letiltása</string>
+    <string name="appcontrol_toggle_app_enable_description">Egy alkalmazás engedélyezése lehetővé teszi annak futtatását, és láthatóvá teheti az indítóban, ha tevékenységet folytat.</string>
+    <string name="appcontrol_toggle_app_disable_description">Egy alkalmazás letiltása megakadályozza annak futását, és elrejti a menükből. Nincs adatvesztés.</string>
+    <string name="appcontrol_appstore_open_title">Nyissa meg az App Store-ban</string>
+    <string name="appcontrol_appstore_open_description">Nyissa meg ezt az alkalmazást abban az alkalmazásboltban, ahonnan telepítette.</string>
+    <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
+    <string name="appcontrol_systemsettings_open_description">Nyissa meg eszköze rendszerbeállításait ehhez az alkalmazáshoz.</string>
+    <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
+    <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
+    <string name="appcontrol_app_forcestop_title">Leállítás kényszerítése</string>
+    <string name="appcontrol_app_forcestop_description">Az alkalmazás leállítása. Megakadályozza az önálló indulást, amíg meg nem nyitod vagy újra nem indítod az eszközt.</string>
+    <string name="appcontrol_app_uninstall_description">Alkalmazás eltávolítása az eszközről.</string>
+    <string name="appcontrol_app_exclude_add_title">Alkalmazás kizárása</string>
+    <string name="appcontrol_app_exclude_add_description">Zárja ki ezt az alkalmazást az SD Maid egyéb műveleteiből.</string>
+    <string name="appcontrol_app_exclude_edit_title">Kizárás szerkesztése</string>
+    <string name="appcontrol_app_exclude_edit_description">Ez az alkalmazás jelenleg ki van zárva egy vagy több eszközből.</string>
+    <string name="appcontrol_tag_user">Felhasználó</string>
+    <string name="appcontrol_tag_active">Nemrég aktív</string>
+    <string name="appcontrol_tag_apk_base">App</string>
+    <string name="appcontrol_tag_apk_bundle">Csomag</string>
+    <string name="appcontrol_tag_system">Rendszer</string>
+    <string name="appcontrol_tag_archived">Archiválva</string>
+    <string name="appcontrol_tag_uninstalled">Csak adatok</string>
+    <string name="appcontrol_tag_not_installed">Nincs telepítve</string>
+    <string name="appcontrol_tag_enabled">Engedélyezve</string>
+    <string name="appcontrol_tag_disabled">Letiltva</string>
+    <string name="appcontrol_tag_debug">Hibakeresés</string>
+    <string name="appcontrol_progress_enabling_package">Alkalmazás engedélyezése</string>
+    <string name="appcontrol_progress_disabling_package">Alkalmazás letiltása</string>
+    <string name="appcontrol_list_filteroptions_label">Szűrési lehetőségek</string>
+    <string name="appcontrol_list_sortmode_name_label">Alkalmazás név</string>
+    <string name="appcontrol_list_sortmode_updated_label">Utolsó frissítés</string>
+    <string name="appcontrol_list_sortmode_installed_label">Először telepítve</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Csomag név</string>
+    <string name="appcontrol_list_sortmode_size_label">Méret</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Képernyőidő</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Az alkalmazások mérete teljesítményi okokból becsült. Pontosabb adatokért használja a StorageAnalyzer eszközt.</string>
+    <string name="appcontrol_progress_uninstalling_app">App eltávolítása...</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d alkalmazás eltávolításra került</item>
+        <item quantity="other">%d alkalmazás eltávolításra került</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archiválás</string>
+    <string name="appcontrol_archive_selection_action">Alkalmazások archiválása</string>
+    <string name="appcontrol_archive_description">Archiválás a hely felszabadításához, miközben az alkalmazásadatok megmaradnak a későbbi visszaállításhoz.</string>
+    <string name="appcontrol_progress_archiving_app">Alkalmazás archiválása…</string>
+    <string name="appcontrol_archive_confirmation_title">Archiválás megerősítése</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d alkalmazás archiválása?</item>
+        <item quantity="other">%d alkalmazás archiválása?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d alkalmazás archiválva</item>
+        <item quantity="other">%d alkalmazás archiválva</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Visszaállítás</string>
+    <string name="appcontrol_restore_selection_action">Alkalmazások visszaállítása</string>
+    <string name="appcontrol_restore_description">Archivált alkalmazás visszaállítása teljesen telepített állapotra. Az alkalmazásadatok megmaradnak.</string>
+    <string name="appcontrol_progress_restoring_app">Alkalmazás visszaállítása…</string>
+    <string name="appcontrol_restore_confirmation_title">Visszaállítás megerősítése</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d alkalmazás visszaállítása?</item>
+        <item quantity="other">%d alkalmazás visszaállítása?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d alkalmazás visszaállítva</item>
+        <item quantity="other">%d alkalmazás visszaállítva</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">App méret</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Adat</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Tevékenység megerősítése</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d alkalmazás engedélyezett/letiltott állapotának módosítása?</item>
+        <item quantity="other">%d alkalmazás engedélyezett/letiltott állapotának módosítása?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d alkalmazás át lett kapcsolva</item>
+        <item quantity="other">%d alkalmazás át lett kapcsolva</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Méretek megállapítása</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Egy körülbelüli méret megállapítása minden egyes appnak.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Tevékenység megállapítása</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Nézze meg, hogy egy alkalmazás aktív (vagy nemrégiben volt-e) aktív.</string>
+    <string name="appcontrol_include_multiuser_label">Más felhasználók bevonása</string>
+    <string name="appcontrol_include_multiuser_summary">Az eszközön lévő más felhasználói profilok alkalmazásainak bevonása.</string>
+    <string name="appcontrol_export_app_selection_action">Appok exportálása</string>
+    <string name="appcontrol_export_title">App exportálása</string>
+    <string name="appcontrol_export_description">Az alkalmazás telepítőfájljainak mentése. Az alkalmazásadatok nem tartoznak bele.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d alkalmazás exportálásra került</item>
+        <item quantity="other">%d alkalmazás exportálásra került</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Exportálás %s</string>
+    <string name="appcontrol_share_list_action">Lista megosztása</string>
+    <string name="appcontrol_share_list_title">Alkalmazásaim</string>
+    <string name="appcontrol_share_list_footer">Megosztva az SD Maid SE-vel</string>
+    <string name="appcontrol_force_stop_selection_action">Alkalmazások kényszerített leállítása</string>
+    <string name="appcontrol_force_stop_action">Leállítás kényszerítése</string>
+    <string name="appcontrol_force_stop_confirm_title">Kényszerített leállítás megerősítése</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d alkalmazás kényszerített leállítása?</item>
+        <item quantity="other">%d alkalmazás kényszerített leállítása?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d alkalmazás leállt</item>
+        <item quantity="other">%d alkalmazás leállt</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Automatizálás előkészítése az akadálymentesítési szolgáltatáson keresztül</string>
+    <string name="appcontrol_automation_title">AlkalmazásTisztító automatizálás</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Kényszerített leállítás…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">„Leállítás kényszerítése” gomb keresése (kulcsszavak: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiválás…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Archiválás\" gomb keresése (kulcsszavak: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Visszaállítás…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Visszaállítás\" gomb keresése (kulcsszavak: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Képernyőidő: %1$s %2$s óta</string>
+    <string name="appcontrol_item_lastupdate_x_label">Utoljára frissítve: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Telepítve: %s</string>
+</resources>

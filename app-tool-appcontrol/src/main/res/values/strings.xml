@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Apps installed on your device.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d app detected</item>
+        <item quantity="other">%d apps detected</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Toggle apps</string>
+    <string name="appcontrol_toggle_app_enable_action">Enable app</string>
+    <string name="appcontrol_toggle_app_disable_action">Disable app</string>
+    <string name="appcontrol_toggle_app_enable_description">Enabling an app allows it to run and may make it visible in your launcher if it has an activity.</string>
+    <string name="appcontrol_toggle_app_disable_description">Disabling an app prevents it from running and hides it from menus. There is no data loss.</string>
+    <string name="appcontrol_appstore_open_title">Open in app store</string>
+    <string name="appcontrol_appstore_open_description">Open this app in the app store it was installed from.</string>
+    <string name="appcontrol_systemsettings_open_title">Show settings</string>
+    <string name="appcontrol_systemsettings_open_description">Open your device\'s system settings for this app.</string>
+    <string name="appcontrol_app_launch_title">Launch app</string>
+    <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
+    <string name="appcontrol_app_forcestop_title">Force stop</string>
+    <string name="appcontrol_app_forcestop_description">Stop the app. Prevent it from starting itself until you open it or the device is rebooted.</string>
+    <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
+    <string name="appcontrol_app_exclude_add_title">Exclude app</string>
+    <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Edit exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">This app is currently excluded from one or more tools.</string>
+    <string name="appcontrol_tag_user">User</string>
+    <string name="appcontrol_tag_active">Recently active</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_system">System</string>
+    <string name="appcontrol_tag_archived">Archived</string>
+    <string name="appcontrol_tag_uninstalled">Data Only</string>
+    <string name="appcontrol_tag_not_installed">Not installed</string>
+    <string name="appcontrol_tag_enabled">Enabled</string>
+    <string name="appcontrol_tag_disabled">Disabled</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_progress_enabling_package">Enabling app</string>
+    <string name="appcontrol_progress_disabling_package">Disabling app</string>
+    <string name="appcontrol_list_filteroptions_label">Filter options</string>
+    <string name="appcontrol_list_sortmode_name_label">App name</string>
+    <string name="appcontrol_list_sortmode_updated_label">Last updated</string>
+    <string name="appcontrol_list_sortmode_installed_label">First installed</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Packagename</string>
+    <string name="appcontrol_list_sortmode_size_label">Size</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Screen time</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">App sizes are estimated for performance reasons. Use the StorageAnalyzer tool for more accurate data.</string>
+    <string name="appcontrol_progress_uninstalling_app">Uninstalling app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app was uninstalled</item>
+        <item quantity="other">%d apps were uninstalled</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archive</string>
+    <string name="appcontrol_archive_selection_action">Archive apps</string>
+    <string name="appcontrol_archive_description">Archive to free space while keeping app data for later restoration.</string>
+    <string name="appcontrol_progress_archiving_app">Archiving app…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirm archive</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archive %d app?</item>
+        <item quantity="other">Archive %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app archived</item>
+        <item quantity="other">%d apps archived</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restore</string>
+    <string name="appcontrol_restore_selection_action">Restore apps</string>
+    <string name="appcontrol_restore_description">Restore archived app to fully installed state. App data is preserved.</string>
+    <string name="appcontrol_progress_restoring_app">Restoring app…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirm restore</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Restore %d app?</item>
+        <item quantity="other">Restore %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app restored</item>
+        <item quantity="other">%d apps restored</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">App size</string>
+    <string name="appcontrol_app_sizes_apk_label">App</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirm action</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Change enabled/disabled state of %d app?</item>
+        <item quantity="other">Change enabled/disabled states for %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app was toggled</item>
+        <item quantity="other">%d apps were toggled</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determine sizes</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Get a rough estimate of each app\'s size.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determine activity</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Find out if an app is (or recently was) active.</string>
+    <string name="appcontrol_include_multiuser_label">Include other users</string>
+    <string name="appcontrol_include_multiuser_summary">Include apps from other user profiles on this device.</string>
+    <string name="appcontrol_export_app_selection_action">Export apps</string>
+    <string name="appcontrol_export_title">Export app</string>
+    <string name="appcontrol_export_description">Save this app\'s installation files. This does not include app data.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app was exported</item>
+        <item quantity="other">%d apps were exported</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Exporting %s</string>
+    <string name="appcontrol_share_list_action">Share list</string>
+    <string name="appcontrol_share_list_title">My Apps</string>
+    <string name="appcontrol_share_list_footer">Shared via SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Force stop apps</string>
+    <string name="appcontrol_force_stop_action">Force stop</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirm force stop</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Force stop %d app?</item>
+        <item quantity="other">Force stop %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app was stopped</item>
+        <item quantity="other">%d apps were stopped</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
+    <string name="appcontrol_automation_title">AppControl automation</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Force stopping…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Looking for \"Force stop\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiving…</string>
+    <string name="appcontrol_automation_progress_find_archive">Looking for \"Archive\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restoring…</string>
+    <string name="appcontrol_automation_progress_find_restore">Looking for \"Restore\" button (keywords: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>
+</resources>

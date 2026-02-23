@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AplikaĵKontrolo</string>
+    <string name="appcontrol_explanation_short">Aplikaĵoj instalitaj en via aparato.</string>
+    <string name="appcontrol_toggle_app_selection_action">Baskuli aplikaĵojn</string>
+    <string name="appcontrol_toggle_app_enable_action">Ebligi aplikaĵon</string>
+    <string name="appcontrol_toggle_app_disable_action">Malebligi aplikaĵon</string>
+    <string name="appcontrol_toggle_app_enable_description">Ebligi aplikaĵon permesas al ĝi ruli kaj povas vidigi ĝin en via lanĉilo se ĝi havas agadon.</string>
+    <string name="appcontrol_toggle_app_disable_description">Malebligi aplikaĵon malhelpas ĝin ruli kaj kaŝas ĝin de menuoj. Ne estas datumperdo.</string>
+    <string name="appcontrol_appstore_open_title">Malfermi en aplikaĵvendejo</string>
+    <string name="appcontrol_appstore_open_description">Malfermi ĉi tiun aplikaĵon en la aplikaĵvendejo de kie ĝi estis instalita.</string>
+    <string name="appcontrol_systemsettings_open_title">Montri agordojn</string>
+    <string name="appcontrol_systemsettings_open_description">Malfermi la sistemajn agordojn de via aparato por ĉi tiu aplikaĵo.</string>
+    <string name="appcontrol_app_launch_title">Lanĉi aplikaĵon</string>
+    <string name="appcontrol_app_launch_description">Lanĉi la ĉefan agadon de ĉi tiu aplikaĵo.</string>
+    <string name="appcontrol_app_forcestop_title">Perforte haltigi</string>
+    <string name="appcontrol_app_forcestop_description">Haltigas la aplikaĵon. Malhelpas ĝin komenciĝi ĝis vi malfermas ĝin aŭ la aparato estas reŝargita.</string>
+    <string name="appcontrol_app_uninstall_description">Malinstali ĉi tiun aplikaĵon de via aparato.</string>
+    <string name="appcontrol_app_exclude_add_title">Ekskluzivi aplikaĵon</string>
+    <string name="appcontrol_app_exclude_add_description">Ekskluzivi ĉi tiun aplikaĵon de aliaj operacioj en SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Redakti ekskluzivon</string>
+    <string name="appcontrol_app_exclude_edit_description">Ĉi tiu aplikaĵo estas nune ekskluzivia de unu aŭ pli da iloj.</string>
+    <string name="appcontrol_tag_user">Uzanto</string>
+    <string name="appcontrol_tag_active">Laste aktiva</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Fasko</string>
+    <string name="appcontrol_tag_system">Sistemo</string>
+    <string name="appcontrol_tag_archived">Arkivita</string>
+    <string name="appcontrol_tag_uninstalled">Nur datumoj</string>
+    <string name="appcontrol_tag_not_installed">Ne instalita</string>
+    <string name="appcontrol_tag_enabled">Ebligita</string>
+    <string name="appcontrol_tag_disabled">Malebligita</string>
+    <string name="appcontrol_progress_enabling_package">Ebligante aplikaĵon</string>
+    <string name="appcontrol_progress_disabling_package">Malebligante aplikaĵon</string>
+    <string name="appcontrol_list_filteroptions_label">Filtraj opcioj</string>
+    <string name="appcontrol_list_sortmode_name_label">Aplikaĵnomo</string>
+    <string name="appcontrol_list_sortmode_updated_label">Laste ĝisdatigita</string>
+    <string name="appcontrol_list_sortmode_installed_label">Unue instalita</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Pakaĵnomo</string>
+    <string name="appcontrol_list_sortmode_size_label">Grandeco</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Ekrantempo</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Aplikaĵgrandecoj estas taksitaj pro efikecaj kialoj. Uzu la StokadAnalizilon por pli precizaj datumoj.</string>
+    <string name="appcontrol_progress_uninstalling_app">Malinstalante aplikaĵon</string>
+    <string name="appcontrol_app_sizes_title">Aplikaĵgrandeco</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplikaĵo</string>
+    <string name="appcontrol_app_sizes_data_label">Datumoj</string>
+    <string name="appcontrol_app_sizes_cache_label">Kaŝmemoro</string>
+    <string name="appcontrol_toggle_confirmation_title">Konfirmi agon</string>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determini grandecojn</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Ricevi proksimuman takson de ĉiu aplikaĵo\'s grandeco.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determini aktivon</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Eltrovi ĉu aplikaĵo estas (aŭ laste estis) aktiva.</string>
+    <string name="appcontrol_export_app_selection_action">Eksporti aplikaĵojn</string>
+    <string name="appcontrol_export_title">Eksporti aplikaĵon</string>
+    <string name="appcontrol_export_description">Konservi la instalajn dosierojn de ĉi tiu aplikaĵo. Ĉi tio ne inkluzivas aplikaĵdatumojn.</string>
+    <string name="appcontrol_progress_exporting_x">Eksportante %s</string>
+    <string name="appcontrol_force_stop_selection_action">Perforte haltigi aplikaĵojn</string>
+    <string name="appcontrol_force_stop_action">Perforte haltigi</string>
+    <string name="appcontrol_force_stop_confirm_title">Konfirmi perforten haltigon</string>
+    <string name="appcontrol_automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
+    <string name="appcontrol_automation_title">AplikaĵKontrola aŭtomatigo</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Perforte haltigante…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Serĉante butonon \"Perforte haltigi\" (ŝlosilvortoj: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Ekrantempo: %1$s ekde %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Laste ĝisdatigita: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalita je: %s</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d aplikaĵo detektita</item>
+        <item quantity="other">%d aplikaĵoj detektitaj</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikaĵo estis malinstalita</item>
+        <item quantity="other">%d aplikaĵoj estis malinstalitaj</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Ĉu ŝanĝi ebligitan/malebligitan staton de %d aplikaĵo?</item>
+        <item quantity="other">Ĉu ŝanĝi ebligitajn/malebligitajn statojn por %d aplikaĵoj?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikaĵo estis baskulita</item>
+        <item quantity="other">%d aplikaĵoj estis baskulitaj</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikaĵo estis eksportita</item>
+        <item quantity="other">%d aplikaĵoj estis eksportitaj</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Ĉu perforte haltigi %d aplikaĵon?</item>
+        <item quantity="other">Ĉu perforte haltigi %d aplikaĵojn?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikaĵo estis haltigita</item>
+        <item quantity="other">%d aplikaĵoj estis haltigitaj</item>
+    </plurals>
+</resources>

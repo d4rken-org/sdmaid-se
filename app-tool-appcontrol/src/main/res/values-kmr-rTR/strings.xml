@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Sepanên ku li ser amûra we hatine sazkirin.</string>
+    <string name="appcontrol_toggle_app_enable_action">Sepanê çalak bikin</string>
+    <string name="appcontrol_toggle_app_disable_action">Sepanê neçalak bikin</string>
+    <string name="appcontrol_appstore_open_title">Di firotgehê de vekin</string>
+    <string name="appcontrol_systemsettings_open_title">Mîhengan nîşan bide</string>
+    <string name="appcontrol_app_launch_title">Sepanê bide destpêkirin</string>
+    <string name="appcontrol_app_forcestop_title">Bi zorê rawestîne</string>
+    <string name="appcontrol_tag_user">Bikarhêner</string>
+    <string name="appcontrol_tag_system">Pergal</string>
+    <string name="appcontrol_tag_enabled">Çalak</string>
+    <string name="appcontrol_tag_disabled">Neçalak</string>
+    <string name="appcontrol_list_sortmode_name_label">Navê sepanê</string>
+    <string name="appcontrol_list_sortmode_updated_label">Dawî nûvekirin</string>
+    <string name="appcontrol_list_sortmode_installed_label">Yekem sazkirin</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Navê pakêtê</string>
+    <string name="appcontrol_list_sortmode_size_label">Mezinahî</string>
+    <string name="appcontrol_archive_action">Arşîv bike</string>
+    <string name="appcontrol_restore_action">Vegerîne</string>
+    <string name="appcontrol_export_title">Sepanê derxe</string>
+    <string name="appcontrol_share_list_action">Lîsteyê parve bike</string>
+    <string name="appcontrol_force_stop_action">Bi zorê rawestîne</string>
+</resources>

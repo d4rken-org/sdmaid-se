@@ -23,12 +23,12 @@ class ExcludeActionVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         if (item.exclusion == null) {
             icon.setImageResource(R.drawable.ic_shield_24)
-            primary.text = getString(R.string.appcontrol_app_exclude_add_title)
-            secondary.text = getString(R.string.appcontrol_app_exclude_add_description)
+            primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_add_title)
+            secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_add_description)
         } else {
             icon.setImageResource(R.drawable.ic_shield_edit_24)
-            primary.text = getString(R.string.appcontrol_app_exclude_edit_title)
-            secondary.text = getString(R.string.appcontrol_app_exclude_edit_description)
+            primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_edit_title)
+            secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_edit_description)
         }
         itemView.setOnClickListener { item.onExclude(item.exclusion) }
     }

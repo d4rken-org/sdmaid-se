@@ -30,27 +30,28 @@ class InfoUsageVH(parent: ViewGroup) :
 
         val dateFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM)
         installedAt.text = getString(
-            R.string.appcontrol_item_installedat_x_label,
+            eu.darken.sdmse.appcontrol.R.string.appcontrol_item_installedat_x_label,
             appInfo.installedAt?.toSystemTimezone()?.format(dateFormatter)
                 ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
         )
 
         updatedAt.text = getString(
-            R.string.appcontrol_item_lastupdate_x_label,
+            eu.darken.sdmse.appcontrol.R.string.appcontrol_item_lastupdate_x_label,
             appInfo.updatedAt?.toSystemTimezone()?.format(dateFormatter)
                 ?: getString(eu.darken.sdmse.common.R.string.general_na_label)
         )
 
         screenTime.apply {
-            isGone = appInfo.usage == null
-            text = if (appInfo.usage == null) {
+            val usage = appInfo.usage
+            isGone = usage == null
+            text = if (usage == null) {
                 context.getString(eu.darken.sdmse.common.R.string.general_na_label)
             } else {
                 val formatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
-                val since = appInfo.usage.screenTimeSince.toSystemTimezone().format(formatter)
+                val since = usage.screenTimeSince.toSystemTimezone().format(formatter)
                 @Suppress("DEPRECATION")
-                val durationTxt = appInfo.usage.screenTime.formatDuration(abbrev = DateUtils.LENGTH_LONG)
-                getString(R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
+                val durationTxt = usage.screenTime.formatDuration(abbrev = DateUtils.LENGTH_LONG)
+                getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_item_screentime_x_since_y_label, durationTxt, since)
             }
         }
 

@@ -106,17 +106,17 @@ class AppControlAutomation @AssistedInject constructor(
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
 
         val subtitle = when (task) {
-            is ForceStopAutomationTask -> R.string.appcontrol_automation_subtitle_force_stopping
-            is ArchiveAutomationTask -> R.string.appcontrol_automation_subtitle_archiving
-            is RestoreAutomationTask -> R.string.appcontrol_automation_subtitle_restoring
-            else -> R.string.appcontrol_automation_subtitle_force_stopping
+            is ForceStopAutomationTask -> eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_subtitle_force_stopping
+            is ArchiveAutomationTask -> eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_subtitle_archiving
+            is RestoreAutomationTask -> eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_subtitle_restoring
+            else -> eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_subtitle_force_stopping
         }
 
         host.changeOptions {
             AutomationHost.Options(
                 showOverlay = true,
                 passthrough = false,
-                controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
+                controlPanelTitle = eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_title.toCaString(),
                 controlPanelSubtitle = subtitle.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (

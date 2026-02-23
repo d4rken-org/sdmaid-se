@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">Έλεγχος Εφαρμογών</string>
+    <string name="appcontrol_explanation_short">Εφαρμογές εγκατεστημένες στη συσκευή σας.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d εφαρμογή εντοπίστηκε</item>
+        <item quantity="other">%d εφαρμογές εντοπίστηκαν</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Εναλλαγή εφαρμογών</string>
+    <string name="appcontrol_toggle_app_enable_action">Ενεργοποίηση εφαρμογής</string>
+    <string name="appcontrol_toggle_app_disable_action">Απενεργοποίηση εφαρμογής</string>
+    <string name="appcontrol_toggle_app_enable_description">Η ενεργοποίηση μιας εφαρμογής της επιτρέπει να εκτελείται και μπορεί να την κάνει ορατή στην αρχική σας οθόνη εάν έχει κάποια δραστηριότητα.</string>
+    <string name="appcontrol_toggle_app_disable_description">Η απενεργοποίηση μιας εφαρμογής εμποδίζει την εκτέλεση και την αποκρύπτει από τα μενού. Δεν υπάρχει απώλεια δεδομένων.</string>
+    <string name="appcontrol_appstore_open_title">Άνοιγμα στο app store</string>
+    <string name="appcontrol_appstore_open_description">Ανοίξτε αυτήν την εφαρμογή στο κατάστημα εφαρμογών από το οποίο εγκαταστάθηκε.</string>
+    <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
+    <string name="appcontrol_systemsettings_open_description">Ανοίξτε τις ρυθμίσεις συστήματος της συσκευής σας για αυτήν την εφαρμογή.</string>
+    <string name="appcontrol_app_launch_title">Εκκίνηση εφαρμογής</string>
+    <string name="appcontrol_app_launch_description">Εκκίνηση της κύριας δραστηριότητας αυτής της εφαρμογής.</string>
+    <string name="appcontrol_app_forcestop_title">Επιβολή διακοπής</string>
+    <string name="appcontrol_app_forcestop_description">Διακόψτε την εφαρμογή. Αποτρέψτε την αυτόματη εκκίνησή της μέχρι να την ανοίξετε ή να επανεκκινηθεί η συσκευή.</string>
+    <string name="appcontrol_app_uninstall_description">Απεγκατάσταση αυτής της εφαρμογής από τη συσκευή σας.</string>
+    <string name="appcontrol_app_exclude_add_title">Εξαίρεση εφαρμογής</string>
+    <string name="appcontrol_app_exclude_add_description">Εξαίρεση αυτής της εφαρμογής από άλλες λειτουργίες στο SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Επεξεργασία εξαίρεσης</string>
+    <string name="appcontrol_app_exclude_edit_description">Αυτή η εφαρμογή εξαιρείται επί του παρόντος από ένα ή περισσότερα εργαλεία.</string>
+    <string name="appcontrol_tag_user">Χρήστη</string>
+    <string name="appcontrol_tag_active">Πρόσφατα ενεργό</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Πακέτο</string>
+    <string name="appcontrol_tag_system">Σύστημα</string>
+    <string name="appcontrol_tag_archived">Αρχειοθετημένο</string>
+    <string name="appcontrol_tag_uninstalled">Μόνο Δεδομένα</string>
+    <string name="appcontrol_tag_not_installed">Δεν έχει εγκατασταθεί</string>
+    <string name="appcontrol_tag_enabled">Ενεργοποιημένο</string>
+    <string name="appcontrol_tag_disabled">Απενεργοποιημένο</string>
+    <string name="appcontrol_tag_debug">Αποσφαλμάτωση</string>
+    <string name="appcontrol_progress_enabling_package">Ενεργοποίηση εφαρμογής</string>
+    <string name="appcontrol_progress_disabling_package">Απενεργοποίηση εφαρμογής</string>
+    <string name="appcontrol_list_filteroptions_label">Επιλογές φίλτρου</string>
+    <string name="appcontrol_list_sortmode_name_label">Όνομα εφαρμογής</string>
+    <string name="appcontrol_list_sortmode_updated_label">Τελευταία ενημέρωση</string>
+    <string name="appcontrol_list_sortmode_installed_label">Πρώτη εγκατάσταση</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Όνομα πακέτου</string>
+    <string name="appcontrol_list_sortmode_size_label">Μέγεθος</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Χρόνος χρήσης οθόνης</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Τα μεγέθη των εφαρμογών εκτιμώνται για λόγους απόδοσης. Χρησιμοποιήστε το εργαλείο Αναλυτής Αποθηκευτικού Χώρου για πιο ακριβή δεδομένα.</string>
+    <string name="appcontrol_progress_uninstalling_app">Απεγκατάσταση εφαρμογής</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d εφαρμογή απεγκαταστάθηκε</item>
+        <item quantity="other">%d εφαρμογές απεγκαταστάθηκαν</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Αρχειοθέτηση</string>
+    <string name="appcontrol_archive_selection_action">Αρχειοθέτηση εφαρμογών</string>
+    <string name="appcontrol_archive_description">Αρχειοθέτηση για εξοικονόμηση χώρου διατηρώντας τα δεδομένα εφαρμογής για μελλοντική επαναφορά.</string>
+    <string name="appcontrol_progress_archiving_app">Αρχειοθέτηση εφαρμογής…</string>
+    <string name="appcontrol_archive_confirmation_title">Επιβεβαίωση αρχειοθέτησης</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Αρχειοθέτηση %d εφαρμογής;</item>
+        <item quantity="other">Αρχειοθέτηση %d εφαρμογών;</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d εφαρμογή αρχειοθετήθηκε</item>
+        <item quantity="other">%d εφαρμογές αρχειοθετήθηκαν</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Επαναφορά</string>
+    <string name="appcontrol_restore_selection_action">Επαναφορά εφαρμογών</string>
+    <string name="appcontrol_restore_description">Επαναφορά αρχειοθετημένης εφαρμογής σε πλήρως εγκατεστημένη κατάσταση. Τα δεδομένα εφαρμογής διατηρούνται.</string>
+    <string name="appcontrol_progress_restoring_app">Επαναφορά εφαρμογής…</string>
+    <string name="appcontrol_restore_confirmation_title">Επιβεβαίωση επαναφοράς</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Επαναφορά %d εφαρμογής;</item>
+        <item quantity="other">Επαναφορά %d εφαρμογών;</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d εφαρμογή επαναφέρθηκε</item>
+        <item quantity="other">%d εφαρμογές επαναφέρθηκαν</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Μέγεθος εφαρμογής</string>
+    <string name="appcontrol_app_sizes_apk_label">Εφαρμογή</string>
+    <string name="appcontrol_app_sizes_data_label">Δεδομένα</string>
+    <string name="appcontrol_app_sizes_cache_label">Προσωρινή μνήμη cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Επιβεβαίωση ενέργειας</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Αλλαγή κατάστασης ενεργοποίησης/απενεργοποίησης %d εφαρμογής;</item>
+        <item quantity="other">Αλλαγή κατάστασης ενεργοποίησης/απενεργοποίησης για %d εφαρμογές;</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">Έγινε ενναλαγή %d εφαρμογής</item>
+        <item quantity="other">Έγινε ενναλαγή %d εφαρμογών</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Προσδιορισμός μεγεθών</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Λάβετε μια πρόχειρη εκτίμηση του μεγέθους κάθε εφαρμογής.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Προσδιορισμός δραστηριότητας</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Μάθετε εάν μια εφαρμογή είναι (ή ήταν πρόσφατα) ενεργή.</string>
+    <string name="appcontrol_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
+    <string name="appcontrol_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="appcontrol_export_app_selection_action">Εξαγωγή εφαρμογών</string>
+    <string name="appcontrol_export_title">Εξαγωγή εφαρμογής</string>
+    <string name="appcontrol_export_description">Αποθηκεύστε τα αρχεία εγκατάστασης αυτής της εφαρμογής. Αυτό δεν περιλαμβάνει δεδομένα εφαρμογής.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">Έγινε εξαγωγή %d εφαρμογής</item>
+        <item quantity="other">Έγινε εξαγωγή %d εφαρμογών</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Εξαγωγή %s</string>
+    <string name="appcontrol_share_list_action">Κοινοποίηση λίστας</string>
+    <string name="appcontrol_share_list_title">Οι εφαρμογές μου</string>
+    <string name="appcontrol_share_list_footer">Κοινοποιήθηκε μέσω SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Επιβολή διακοπής εφαρμογών</string>
+    <string name="appcontrol_force_stop_action">Επιβολή διακοπής</string>
+    <string name="appcontrol_force_stop_confirm_title">Επιβεβαίωση επιβολής διακοπής</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Επιβολή διακοπής %d εφαρμογής;</item>
+        <item quantity="other">Επιβολή διακοπής %d εφαρμογών;</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d εφαρμογή σταμάτησε</item>
+        <item quantity="other">%d εφαρμογές σταμάτησαν</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
+    <string name="appcontrol_automation_title">Αυτόματος Έλεγχος Εφαρμογών</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Επιβολή διακοπής…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Αναζήτηση για το κουμπί \"Αναγκαστική διακοπή\" (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Αρχειοθέτηση…</string>
+    <string name="appcontrol_automation_progress_find_archive">Αναζήτηση για το κουμπί \"Αρχειοθέτηση\" (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Επαναφορά…</string>
+    <string name="appcontrol_automation_progress_find_restore">Αναζήτηση για το κουμπί \"Επαναφορά\" (λέξεις-κλειδιά: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Χρόνος χρήσης οθόνης: %1$s από %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Τελευταία ενημέρωση: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Εγκαταστάθηκε σε: %s</string>
+</resources>

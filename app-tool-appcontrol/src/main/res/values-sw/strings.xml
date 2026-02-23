@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">Udhibiti wa Programu</string>
+    <string name="appcontrol_explanation_short">Programu zilizosakinishwa kwenye kifaa chako.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">Programu %d imegunduliwa</item>
+        <item quantity="other">Programu %d zimegunduliwa</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Badilisha programu</string>
+    <string name="appcontrol_toggle_app_enable_action">Washa programu</string>
+    <string name="appcontrol_toggle_app_disable_action">Zima programu</string>
+    <string name="appcontrol_toggle_app_enable_description">Kuwasha programu kunaruhusu iendeshe na inaweza kuifanya ionekane kwenye kizindua chako ikiwa ina shughuli.</string>
+    <string name="appcontrol_toggle_app_disable_description">Kuzima programu kunazuia isiendeshe na kuificha kutoka menyu. Hakuna upotevu wa data.</string>
+    <string name="appcontrol_appstore_open_title">Fungua katika duka la programu</string>
+    <string name="appcontrol_appstore_open_description">Fungua programu hii katika duka la programu lililoitumiwa kusakinisha.</string>
+    <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
+    <string name="appcontrol_systemsettings_open_description">Fungua mipangilio ya mfumo wa kifaa chako kwa programu hii.</string>
+    <string name="appcontrol_app_launch_title">Zindua programu</string>
+    <string name="appcontrol_app_launch_description">Zindua shughuli kuu ya programu hii.</string>
+    <string name="appcontrol_app_forcestop_title">Simamisha kwa nguvu</string>
+    <string name="appcontrol_app_uninstall_description">Ondoa programu hii kutoka kifaa chako.</string>
+    <string name="appcontrol_app_exclude_add_title">Tenga programu</string>
+    <string name="appcontrol_app_exclude_add_description">Tenga programu hii kutoka shughuli nyingine katika SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Hariri kutengwa</string>
+    <string name="appcontrol_app_exclude_edit_description">Programu hii kwa sasa imetengwa kutoka zana moja au zaidi.</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_user">Mtumiaji</string>
+    <string name="appcontrol_tag_active">Zimekuwa zinafanya kazi hivi karibuni</string>
+    <string name="appcontrol_tag_apk_bundle">Bundla</string>
+    <string name="appcontrol_tag_system">Mfumo</string>
+    <string name="appcontrol_tag_archived">Imehifadhiwa</string>
+    <string name="appcontrol_tag_uninstalled">Data Tu</string>
+    <string name="appcontrol_tag_not_installed">Haijasakinishwa</string>
+    <string name="appcontrol_tag_enabled">Imewashwa</string>
+    <string name="appcontrol_tag_disabled">Imezimwa</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_progress_enabling_package">Inawasha programu</string>
+    <string name="appcontrol_progress_disabling_package">Inazima programu</string>
+    <string name="appcontrol_list_filteroptions_label">Chaguo za kichungi</string>
+    <string name="appcontrol_list_sortmode_name_label">Jina la programu</string>
+    <string name="appcontrol_list_sortmode_updated_label">Iliyosasishwa mwisho</string>
+    <string name="appcontrol_list_sortmode_installed_label">Iliposakinishwa kwanza</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Jina la kifurushi</string>
+    <string name="appcontrol_list_sortmode_size_label">Ukubwa</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Muda wa skrini</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Ukubwa wa programu unakadirika kwa sababu za utendaji. Tumia zana ya StorageAnalyzer kwa data sahihi zaidi.</string>
+    <string name="appcontrol_progress_uninstalling_app">Inaondoa programu</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">Programu %d imeondolewa</item>
+        <item quantity="other">Programu %d zimeondolewa</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Hifadhi</string>
+    <string name="appcontrol_archive_selection_action">Hifadhi programu</string>
+    <string name="appcontrol_archive_description">Hifadhi ili kupata nafasi huku ukihifadhi data ya programu kwa urejeshaji wa baadaye.</string>
+    <string name="appcontrol_progress_archiving_app">Inahifadhi programu…</string>
+    <string name="appcontrol_archive_confirmation_title">Thibitisha kuhifadhi</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Hifadhi programu %d?</item>
+        <item quantity="other">Hifadhi programu %d?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">programu %d imehifadhiwa</item>
+        <item quantity="other">programu %d zimehifadhiwa</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Rejesha</string>
+    <string name="appcontrol_restore_selection_action">Rejesha programu</string>
+    <string name="appcontrol_restore_description">Rejesha programu iliyohifadhiwa hadi hali iliyosakinishwa kikamilifu. Data ya programu imehifadhiwa.</string>
+    <string name="appcontrol_progress_restoring_app">Inarejesha programu…</string>
+    <string name="appcontrol_restore_confirmation_title">Thibitisha kurejeshwa</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Rejesha programu %d?</item>
+        <item quantity="other">Rejesha programu %d?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">programu %d imerejeshwa</item>
+        <item quantity="other">programu %d zimerejeshwa</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Ukubwa wa programu</string>
+    <string name="appcontrol_app_sizes_apk_label">Programu</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Akiba</string>
+    <string name="appcontrol_toggle_confirmation_title">Thibitisha kitendo</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Badilisha hali ya kuwashwa/kuzimwa ya programu %d?</item>
+        <item quantity="other">Badilisha hali za kuwashwa/kuzimwa za programu %d?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">Programu %d imebadilishwa</item>
+        <item quantity="other">Programu %d zimebadilishwa</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Bainisha ukubwa</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Pata makadirio ya jumla ya ukubwa wa kila programu.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Bainisha shughuli</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Gundua ikiwa programu inafanya kazi (au ilikuwa inafanya kazi hivi karibuni).</string>
+    <string name="appcontrol_include_multiuser_label">Jumuisha watumiaji wengine</string>
+    <string name="appcontrol_include_multiuser_summary">Jumuisha programu kutoka wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
+    <string name="appcontrol_export_app_selection_action">Hamisha programu</string>
+    <string name="appcontrol_export_title">Hamisha programu</string>
+    <string name="appcontrol_export_description">Hifadhi faili za usakinishaji wa programu hii. Hii haijumuishi data ya programu.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">Programu %d imehamishwa</item>
+        <item quantity="other">Programu %d zimehamishwa</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Inahamisha %s</string>
+    <string name="appcontrol_share_list_action">Shiriki orodha</string>
+    <string name="appcontrol_share_list_title">Programu Zangu</string>
+    <string name="appcontrol_share_list_footer">Imeshirikiwa kupitia SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Simamisha programu kwa nguvu</string>
+    <string name="appcontrol_force_stop_action">Simamisha kwa nguvu</string>
+    <string name="appcontrol_force_stop_confirm_title">Thibitisha kusimamisha kwa nguvu</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Simamisha programu %d kwa nguvu?</item>
+        <item quantity="other">Simamisha programu %d kwa nguvu?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">Programu %d imesimamishwa</item>
+        <item quantity="other">Programu %d zimesimamishwa</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
+    <string name="appcontrol_automation_title">Uotomatishaji wa Udhibiti wa Programu</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Inasimamisha kwa nguvu…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Inatafuta kitufe cha \"Simamisha kwa nguvu\" (maneno muhimu: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Inahifadhi…</string>
+    <string name="appcontrol_automation_progress_find_archive">Inatafuta kitufe cha \"Hifadhi\" (maneno muhimu: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Inarejesha…</string>
+    <string name="appcontrol_automation_progress_find_restore">Inatafuta kitufe cha \"Rejesha\" (maneno muhimu: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Muda wa skrini: %1$s tangu %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Iliyosasishwa mwisho: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Ilisakinishwa: %s</string>
+</resources>

@@ -213,6 +213,7 @@ dependencies {
     implementation(project(":app-tool-squeezer"))
     implementation(project(":app-tool-analyzer"))
     implementation(project(":app-tool-swiper"))
+    implementation(project(":app-tool-appcontrol"))
 
     addDI()
     addCoroutines()

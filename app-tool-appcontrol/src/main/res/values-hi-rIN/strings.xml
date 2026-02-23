@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">ऐप नियंत्रक</string>
+    <string name="appcontrol_explanation_short">आपके डिवाइस पर स्थापित किए गए ऐप्स।</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d ऐप का पता चला</item>
+        <item quantity="other">%d ऐपो का पता चला</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">ऐप्स टॉगल करें</string>
+    <string name="appcontrol_toggle_app_enable_action">ऐप सक्षम करें</string>
+    <string name="appcontrol_toggle_app_disable_action">ऐप अक्षम करें</string>
+    <string name="appcontrol_toggle_app_enable_description">किसी ऐप को सक्षम करने से उसे चलने की अनुमति मिलती है और यदि उसमें कोई गतिविधि होती है तो वह आपके लॉन्चर में दिखाई दे सकता है।</string>
+    <string name="appcontrol_toggle_app_disable_description">किसी ऐप को अक्षम करना उसे चलने से रोकता है और उसे मेन्यू से छुपा देता है। इससे कोई डेटा हानि नहीं है।</string>
+    <string name="appcontrol_appstore_open_title">ऐप स्टोर में खोलें</string>
+    <string name="appcontrol_appstore_open_description">जिससे इस ऐप को स्थापित किया गया था, इसे उस ऐप स्टोर में खोलें।</string>
+    <string name="appcontrol_systemsettings_open_title">सेटिंग दिखाएं</string>
+    <string name="appcontrol_systemsettings_open_description">इस ऐप्लिकेशन के लिए अपने डिवाइस की सिस्टम सेटिंग खोलें.</string>
+    <string name="appcontrol_app_launch_title">ऐप खोलें</string>
+    <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
+    <string name="appcontrol_app_forcestop_title">बलपूर्वक रोकें</string>
+    <string name="appcontrol_app_uninstall_description">इस ऐप को अपने डिवाइस से अनइंस्टॉल करें।</string>
+    <string name="appcontrol_app_exclude_add_title">बहिष्कृत ऐप्स</string>
+    <string name="appcontrol_app_exclude_add_description">SD मेड में अन्य कार्यों से इस ऐप को बाहर करें।</string>
+    <string name="appcontrol_app_exclude_edit_title">अपवर्जन में संशोधन करें</string>
+    <string name="appcontrol_app_exclude_edit_description">इस ऐप को वर्तमान में एक या अधिक टूल से बाहर रखा गया है।</string>
+    <string name="appcontrol_tag_user">उपयोगकर्ता</string>
+    <string name="appcontrol_tag_active">सक्रिय</string>
+    <string name="appcontrol_tag_apk_bundle">बंडल</string>
+    <string name="appcontrol_tag_system">सिस्टम</string>
+    <string name="appcontrol_tag_archived">संग्रहीत</string>
+    <string name="appcontrol_tag_uninstalled">केवल डेटा</string>
+    <string name="appcontrol_tag_not_installed">इंस्टॉल नहीं</string>
+    <string name="appcontrol_tag_enabled">सक्षम</string>
+    <string name="appcontrol_tag_disabled">अक्षम</string>
+    <string name="appcontrol_progress_enabling_package">ऐप सक्षम हो रहा है</string>
+    <string name="appcontrol_progress_disabling_package">ऐप अक्षम हो रहा है</string>
+    <string name="appcontrol_list_filteroptions_label">फ़िल्टर विकल्प</string>
+    <string name="appcontrol_list_sortmode_name_label">ऐप का नाम</string>
+    <string name="appcontrol_list_sortmode_updated_label">अद्यतन की तारीख</string>
+    <string name="appcontrol_list_sortmode_installed_label">इंस्टॉल की तारीख</string>
+    <string name="appcontrol_list_sortmode_packagename_label">पैकेज का नाम</string>
+    <string name="appcontrol_list_sortmode_size_label">आकार</string>
+    <string name="appcontrol_list_sortmode_screentime_label">स्क्रीन समय</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">आकार की जानकारी उपलब्ध नहीं है।</string>
+    <string name="appcontrol_progress_uninstalling_app">ऐप्लिकेशन अनइंस्टॉल किया जा रहा है</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ऐप अनइंस्टॉल किया गया</item>
+        <item quantity="other">%d ऐप्स अनइंस्टॉल किए गए</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ऐप का आकार</string>
+    <string name="appcontrol_app_sizes_apk_label">ऐप</string>
+    <string name="appcontrol_app_sizes_data_label">डेटा</string>
+    <string name="appcontrol_app_sizes_cache_label">कैश</string>
+    <string name="appcontrol_toggle_confirmation_title">कार्रवाई की पुष्टि करें</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ऐप को टॉगल करें?</item>
+        <item quantity="other">%d ऐप्स को टॉगल करें?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ऐप टॉगल किया गया</item>
+        <item quantity="other">%d ऐप्स टॉगल किए गए</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">आकार जानकारी</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ऐप आकार की जानकारी दिखाएं।</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">गतिविधि जानकारी</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">ऐप गतिविधि और स्क्रीन समय की जानकारी दिखाएं।</string>
+    <string name="appcontrol_export_app_selection_action">ऐप्स निर्यात करें</string>
+    <string name="appcontrol_export_title">ऐप निर्यात करें</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ऐप निर्यात किया गया</item>
+        <item quantity="other">%d ऐप्स निर्यात किए गए</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s निर्यात किया जा रहा है</string>
+    <string name="appcontrol_force_stop_selection_action">ऐप्स को बलपूर्वक रोकें</string>
+    <string name="appcontrol_force_stop_action">बलपूर्वक रोकें</string>
+    <string name="appcontrol_force_stop_confirm_title">बलपूर्वक रोकने की पुष्टि करें</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ऐप को बलपूर्वक रोकें?</item>
+        <item quantity="other">%d ऐप्स को बलपूर्वक रोकें?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ऐप रोका गया</item>
+        <item quantity="other">%d ऐप्स रोके गए</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
+    <string name="appcontrol_automation_title">AppControl स्वचालन</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">बलपूर्वक रोका जा रहा है…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"बलपूर्वक रोकें\" बटन ढूंढा जा रहा है (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">स्क्रीन समय: %2$s से %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">अंतिम अद्यतन: %s</string>
+</resources>

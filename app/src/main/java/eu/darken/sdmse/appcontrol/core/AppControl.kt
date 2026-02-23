@@ -201,8 +201,8 @@ class AppControl @Inject constructor(
 
                 updateProgressPrimary(target.label)
                 updateProgressSecondary(
-                    if (newState) R.string.appcontrol_progress_enabling_package
-                    else R.string.appcontrol_progress_disabling_package
+                    if (newState) eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_enabling_package
+                    else eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_disabling_package
                 )
 
                 try {
@@ -256,7 +256,7 @@ class AppControl @Inject constructor(
             task.targets.forEach { targetId ->
                 val target = snapshot.apps.single { it.installId == targetId }
                 updateProgressPrimary(target.label)
-                updateProgressSecondary(R.string.appcontrol_progress_uninstalling_app)
+                updateProgressSecondary(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_uninstalling_app)
 
                 try {
                     uninstaller.uninstall(target)
@@ -299,7 +299,7 @@ class AppControl @Inject constructor(
 
     private suspend fun performExportSave(task: AppExportTask): AppExportTask.Result {
         log(TAG) { "performExportSave(): $task" }
-        updateProgressPrimary { it.getString(R.string.appcontrol_progress_exporting_x, "...") }
+        updateProgressPrimary { it.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x, "...") }
         updateProgressCount(Progress.Count.Counter(task.targets.size))
 
         val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
@@ -311,7 +311,7 @@ class AppControl @Inject constructor(
             .map { targetId -> snapshot.apps.single { it.installId == targetId } }
             .map { appInfo ->
                 updateProgressPrimary {
-                    it.getString(R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
+                    it.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_exporting_x, appInfo.label.get(it))
                 }
                 exporter.withProgress(
                     client = this,
@@ -378,7 +378,7 @@ class AppControl @Inject constructor(
             task.targets.forEach { targetId ->
                 val target = snapshot.apps.single { it.installId == targetId }
                 updateProgressPrimary(target.label)
-                updateProgressSecondary(R.string.appcontrol_progress_archiving_app)
+                updateProgressSecondary(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_archiving_app)
 
                 try {
                     archiver.archive(target)
@@ -431,7 +431,7 @@ class AppControl @Inject constructor(
             task.targets.forEach { targetId ->
                 val target = snapshot.apps.single { it.installId == targetId }
                 updateProgressPrimary(target.label)
-                updateProgressSecondary(R.string.appcontrol_progress_restoring_app)
+                updateProgressSecondary(eu.darken.sdmse.appcontrol.R.string.appcontrol_progress_restoring_app)
 
                 try {
                     restorer.restore(target)

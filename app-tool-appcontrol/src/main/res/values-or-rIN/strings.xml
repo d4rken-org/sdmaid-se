@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">ଆପ୍‌_ନିୟନ୍ତ୍ରଣ</string>
+    <string name="appcontrol_explanation_short">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ ଅଧିସ୍ଥାପିତ ଆପ୍‌ସବୁ।</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d ଆପ୍ ଚିହ୍ନଟ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ଚିହ୍ନଟ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">ଆପ୍ ଟୋଗଲ୍ କରନ୍ତୁ</string>
+    <string name="appcontrol_toggle_app_enable_action">ଆପ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
+    <string name="appcontrol_toggle_app_disable_action">ଆପ୍ ଅକ୍ଷମ କରିବା</string>
+    <string name="appcontrol_toggle_app_enable_description">ଆପ୍ ସକ୍ଷମ କରିବା ଦ୍ୱାରା ଏହା ଚଲାଯାଇପାରିବ ଏବଂ ଯଦି ଏଥିରେ କୌଣସି ଆକ୍ଟିଭିଟି ଥାଏ ତେବେ ଆପଣଙ୍କ ଲଞ୍ଚରରେ ଦୃଶ୍ୟମାନ ହୋଇପାରେ।</string>
+    <string name="appcontrol_toggle_app_disable_description">ଆପ୍ ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ଏହା ଚଲାଯିବାକୁ ବାରଣ କରେ ଏବଂ ମେନୁରୁ ଲୁଚାଇ ଦିଏ। କୌଣସି ଡାଟା ହାନି ହୁଏ ନାହିଁ।</string>
+    <string name="appcontrol_appstore_open_title">ଆପ୍ ଷ୍ଟୋରରେ ଖୋଲନ୍ତୁ</string>
+    <string name="appcontrol_appstore_open_description">ଯେଉଁ ଆପ୍ ଷ୍ଟୋରରୁ ଏହା ଇନଷ୍ଟଲ ହୋଇଥିଲା ସେହି ଆପ୍ ଷ୍ଟୋରରେ ଏହି ଆପ୍ କୁ ଖୋଲନ୍ତୁ।</string>
+    <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
+    <string name="appcontrol_systemsettings_open_description">ଏହି ଆପ୍ ପାଇଁ ଆପଣଙ୍କ ଡିଭାଇସର ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ଖୋଲନ୍ତୁ।</string>
+    <string name="appcontrol_app_launch_title">ଆପ୍ ଲଞ୍ଚ କରନ୍ତୁ</string>
+    <string name="appcontrol_app_launch_description">ଏହି ଆପ୍ର ପ୍ରାଥମିକ ଆକ୍ଟିଭିଟି ଲଞ୍ଚ କରନ୍ତୁ।</string>
+    <string name="appcontrol_app_forcestop_title">ବଳପୂର୍ବକ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="appcontrol_app_forcestop_description">ଆପ୍ ବନ୍ଦ କରନ୍ତୁ। ଆପଣ ଏହାକୁ ଖୋଲିବା କିମ୍ବା ଡିଭାଇସ୍ ରିବୁଟ୍ ନ ହେବା ପର୍ଯ୍ୟନ୍ତ ଏହା ନିଜେ ଆରମ୍ଭ ହେବାକୁ ବାରଣ କରନ୍ତୁ।</string>
+    <string name="appcontrol_app_uninstall_description">ଆପଣଙ୍କ ଡିଭାଇସରୁ ଏହି ଆପ୍ କୁ ଅନଇନଷ୍ଟଲ କରନ୍ତୁ।</string>
+    <string name="appcontrol_app_exclude_add_title">ଆପ୍ କୁ ବାଦ୍ ଦିଅନ୍ତୁ</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid ର ଅନ୍ୟ କାର୍ଯ୍ୟରୁ ଏହି ଆପ୍ କୁ ବାଦ୍ ଦିଅନ୍ତୁ।</string>
+    <string name="appcontrol_app_exclude_edit_title">ବାଦ୍ ସମ୍ପାଦନା କରନ୍ତୁ</string>
+    <string name="appcontrol_app_exclude_edit_description">ଏହି ଆପ୍ ବର୍ତ୍ତମାନ ଏକ କିମ୍ବା ଅଧିକ ଟୁଲ୍ସରୁ ବାଦ୍ ପଡ଼ିଛି।</string>
+    <string name="appcontrol_tag_user">ଉପଭୋକ୍ତା</string>
+    <string name="appcontrol_tag_active">ସମ୍ପ୍ରତି ସକ୍ରିୟ</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">ବଣ୍ଡଲ୍</string>
+    <string name="appcontrol_tag_system">ସିଷ୍ଟମ୍</string>
+    <string name="appcontrol_tag_archived">ଆର୍କାଇଭ୍ଡ</string>
+    <string name="appcontrol_tag_uninstalled">କେବଳ ଡାଟା</string>
+    <string name="appcontrol_tag_not_installed">ଇନଷ୍ଟଲ୍ ହୋଇନାହିଁ</string>
+    <string name="appcontrol_tag_enabled">ସକ୍ଷମ ଅଛି</string>
+    <string name="appcontrol_tag_disabled">ଅକ୍ଷମ ଅଛି</string>
+    <string name="appcontrol_tag_debug">ଡିବଗ୍</string>
+    <string name="appcontrol_progress_enabling_package">ଆପ୍ ସକ୍ଷମ ହେଉଛି</string>
+    <string name="appcontrol_progress_disabling_package">ଆପ୍ ଅକ୍ଷମ ହେଉଛି</string>
+    <string name="appcontrol_list_filteroptions_label">ଫିଲ୍ଟର ବିକଳ୍ପଗୁଡ଼ିକ</string>
+    <string name="appcontrol_list_sortmode_name_label">ଆପ୍ ନାମ</string>
+    <string name="appcontrol_list_sortmode_updated_label">ଗତ ଅଦ୍ୟତନ</string>
+    <string name="appcontrol_list_sortmode_installed_label">ପ୍ରଥମେ ଅଧିସ୍ଥାପିତ</string>
+    <string name="appcontrol_list_sortmode_packagename_label">ପ୍ୟାକେଜ୍‌_ନାମ</string>
+    <string name="appcontrol_list_sortmode_size_label">ଆକାର</string>
+    <string name="appcontrol_list_sortmode_screentime_label">ସ୍କ୍ରିନ୍ ସମୟ</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">କାର୍ଯ୍ୟକ୍ଷମତା କାରଣରୁ ଆପ୍ ଆକାରଗୁଡ଼ିକ ଆନୁମାନିକ। ଅଧିକ ସଠିକ ଡାଟା ପାଇଁ StorageAnalyzer ଟୁଲ୍ ବ୍ୟବହାର କରନ୍ତୁ।</string>
+    <string name="appcontrol_progress_uninstalling_app">ଆପ୍ ଅନଇନଷ୍ଟଲ କରୁଛି</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ଆପ୍ ଅନଇନଷ୍ଟଲ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ଅନଇନଷ୍ଟଲ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ଆର୍କାଇଭ୍</string>
+    <string name="appcontrol_archive_selection_action">ଆପ୍ସ ଆର୍କାଇଭ୍ କରନ୍ତୁ</string>
+    <string name="appcontrol_archive_description">ପରେ ପୁନଃସ୍ଥାପନ ପାଇଁ ଆପ୍ ଡାଟା ରଖିବା ସହ ସ୍ଥାନ ମୁକ୍ତ କରିବା ପାଇଁ ଆର୍କାଇଭ୍ କରନ୍ତୁ।</string>
+    <string name="appcontrol_progress_archiving_app">ଆପ୍ ଆର୍କାଇଭ୍ କରୁଛି…</string>
+    <string name="appcontrol_archive_confirmation_title">ଆର୍କାଇଭ୍ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ଆପ୍ ଆର୍କାଇଭ୍ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍ସ ଆର୍କାଇଭ୍ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ସ ଆର୍କାଇଭ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_restore_action">ପୁନଃସ୍ଥାପନ</string>
+    <string name="appcontrol_restore_selection_action">ଆପ୍ସ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ</string>
+    <string name="appcontrol_restore_description">ଆର୍କାଇଭ୍ ହୋଇଥିବା ଆପ୍‌କୁ ସମ୍ପୂର୍ଣ୍ଣ ଇନଷ୍ଟଲ୍ ସ୍ଥିତିକୁ ପୁନଃସ୍ଥାପନ କରନ୍ତୁ। ଆପ୍ ଡାଟା ସଂରକ୍ଷିତ।</string>
+    <string name="appcontrol_progress_restoring_app">ଆପ୍ ପୁନଃସ୍ଥାପନ କରୁଛି…</string>
+    <string name="appcontrol_restore_confirmation_title">ପୁନଃସ୍ଥାପନ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ଆପ୍ ପୁନଃସ୍ଥାପନ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍ସ ପୁନଃସ୍ଥାପନ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ଆପ୍ ପୁନଃସ୍ଥାପିତ</item>
+        <item quantity="other">%d ଆପ୍ସ ପୁନଃସ୍ଥାପିତ</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ଆପ୍ ଆକାର</string>
+    <string name="appcontrol_app_sizes_apk_label">ଆପ୍</string>
+    <string name="appcontrol_app_sizes_data_label">ଡାଟା</string>
+    <string name="appcontrol_app_sizes_cache_label">କ୍ୟାସ୍</string>
+    <string name="appcontrol_toggle_confirmation_title">କାର୍ଯ୍ୟ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ଆପ୍‌ର ସକ୍ରିୟ/ନିଷ୍କ୍ରିୟ ଅବସ୍ଥା ପରିବର୍ତ୍ତନ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍‌ର ସକ୍ରିୟ/ନିଷ୍କ୍ରିୟ ଅବସ୍ଥା ପରିବର୍ତ୍ତନ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ଆପ୍ ଟଗଲ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ଟଗଲ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">ଆକାର ନିର୍ଣ୍ଣୟ କରନ୍ତୁ</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ପ୍ରତ୍ୟେକ ଆପ୍ର ଆକାରର ଏକ ଆନୁମାନିକ ପରିମାଣ ପ୍ରାପ୍ତ କରନ୍ତୁ।</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">କାର୍ଯ୍ୟକଳାପ ନିର୍ଦ୍ଧାରଣ</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">ଏକ ଆପ୍ ସକ୍ରିୟ (କିମ୍ବା ସମ୍ପ୍ରତି ସକ୍ରିୟ ଥିଲା) କି ନାହିଁ ଜାଣନ୍ତୁ।</string>
+    <string name="appcontrol_include_multiuser_label">ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କୁ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="appcontrol_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଭୋକ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍ସ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="appcontrol_export_app_selection_action">ଆପ୍ ଗୁଡ଼ିକ ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="appcontrol_export_title">ଆପ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
+    <string name="appcontrol_export_description">ଏହି ଆପ୍ର ଇନଷ୍ଟଲେସନ୍ ଫାଇଲ୍ ସେଭ୍ କରନ୍ତୁ। ଏଥିରେ ଆପ୍ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ ନାହିଁ।</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ଆପ୍ ଏକ୍ସପୋର୍ଟ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ଏକ୍ସପୋର୍ଟ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ରପ୍ତାନି କରୁଛି</string>
+    <string name="appcontrol_share_list_action">ତାଲିକା ସେୟାର କରନ୍ତୁ</string>
+    <string name="appcontrol_share_list_title">ମୋ ଆପ୍ସ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE ମାଧ୍ୟମରେ ସେୟାର ହୋଇଛି</string>
+    <string name="appcontrol_force_stop_selection_action">ଆପ୍ ଗୁଡ଼ିକୁ ବଳପୂର୍ବକ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="appcontrol_force_stop_action">ବଳପୂର୍ବକ ବନ୍ଦ କରନ୍ତୁ</string>
+    <string name="appcontrol_force_stop_confirm_title">ବଳପୂର୍ବକ ବନ୍ଦ କରିବାକୁ ନିଶ୍ଚିତ କରନ୍ତୁ</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ଆପ୍‌କୁ ବାଧ୍ୟତାମୂଳକ ବନ୍ଦ କରିବେ?</item>
+        <item quantity="other">%d ଆପ୍‌କୁ ବାଧ୍ୟତାମୂଳକ ବନ୍ଦ କରିବେ?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ଆପ୍ ବନ୍ଦ ହୋଇଛି</item>
+        <item quantity="other">%d ଆପ୍ ବନ୍ଦ ହୋଇଛି</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">ଅଭିଗମ୍ୟତା ସେବା ମାଧ୍ୟମରେ ସ୍ୱୟଂଚାଳନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
+    <string name="appcontrol_automation_title">AppControl ସ୍ୱୟଂଚାଳନ</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">ବଳପୂର୍ବକ ବନ୍ଦ କରୁଛି…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"ବଳପୂର୍ବକ ବନ୍ଦ\" ବଟନ୍ ଖୋଜୁଛି (କୀୱାର୍ଡ: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟକୁ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କୀୱାର୍ଡ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">ଆର୍କାଇଭ୍ କରୁଛି…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ଆର୍କାଇଭ୍\" ବଟନ୍ ଖୋଜୁଛି (ମୁଖ୍ୟ ଶବ୍ଦ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">ପୁନଃସ୍ଥାପନ କରୁଛି…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"ପୁନଃସ୍ଥାପନ\" ବଟନ୍ ଖୋଜୁଛି (ମୁଖ୍ୟ ଶବ୍ଦ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">ସ୍କ୍ରିନ୍ ସମୟ: %2$s ପରଠାରୁ %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">ଶେଷ ଅପଡେଟ୍: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା: %s</string>
+</resources>

@@ -120,7 +120,7 @@ class AOSPSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Force stop button for $pkg",
-                label = R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
+                label = eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_progress_find_force_stop.toCaString(forceStopLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
@@ -202,7 +202,7 @@ class AOSPSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Archive button for $pkg",
-                label = R.string.appcontrol_automation_progress_find_archive.toCaString(archiveLabels),
+                label = eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_progress_find_archive.toCaString(archiveLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
@@ -254,7 +254,7 @@ class AOSPSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Restore button for $pkg",
-                label = R.string.appcontrol_automation_progress_find_restore.toCaString(restoreLabels),
+                label = eu.darken.sdmse.appcontrol.R.string.appcontrol_automation_progress_find_restore.toCaString(restoreLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),

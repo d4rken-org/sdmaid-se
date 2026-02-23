@@ -189,7 +189,6 @@
     <string name="settings_category_tools_label">Rīki</string>
     <string name="settings_category_filter">Filtrs</string>
     <string name="settings_category_risklevel">Riska līmenis</string>
-    <string name="appcontrol_explanation_short">Jūsu ierīcē instalētās lietotnes.</string>
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
     <string name="data_area_public_app_assets_official_label">Noklusējuma publiskie lietotņu aktīvi</string>
     <string name="data_area_public_storage_label">Publiskā krātuve</string>

@@ -499,8 +499,8 @@ class AppControlListViewModel @Inject constructor(
                 }
             }
         }
-        val title = context.getString(R.string.appcontrol_share_list_title)
-        val footer = context.getString(R.string.appcontrol_share_list_footer)
+        val title = context.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_share_list_title)
+        val footer = context.getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_share_list_footer)
         val text = "# $title\n\n$appsList\n\n---\n*$footer*"
         events.postValue(AppControlListEvents.ShareList(text))
     }

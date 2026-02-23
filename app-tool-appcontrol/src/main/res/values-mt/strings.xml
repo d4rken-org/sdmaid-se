@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Apps installati fuq l-apparat tiegħek.</string>
+    <string name="appcontrol_toggle_app_enable_action">Attiva app</string>
+    <string name="appcontrol_toggle_app_disable_action">Disattiva app</string>
+    <string name="appcontrol_appstore_open_title">Iftaħ fil-ħanut</string>
+    <string name="appcontrol_systemsettings_open_title">Uri settings</string>
+    <string name="appcontrol_app_launch_title">Ibda app</string>
+    <string name="appcontrol_app_forcestop_title">Waqqaf b\'forza</string>
+    <string name="appcontrol_tag_user">Utent</string>
+    <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_enabled">Attivat</string>
+    <string name="appcontrol_tag_disabled">Disattivat</string>
+    <string name="appcontrol_list_sortmode_name_label">Isem tal-app</string>
+    <string name="appcontrol_list_sortmode_updated_label">L-aħħar aġġornat</string>
+    <string name="appcontrol_list_sortmode_installed_label">L-ewwel installat</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Isem tal-pakkett</string>
+    <string name="appcontrol_list_sortmode_size_label">Daqs</string>
+    <string name="appcontrol_archive_action">Arkivja</string>
+    <string name="appcontrol_restore_action">Irrestawra</string>
+    <string name="appcontrol_export_title">Esporta app</string>
+    <string name="appcontrol_share_list_action">Aqsam il-lista</string>
+    <string name="appcontrol_force_stop_action">Waqqaf b\'forza</string>
+</resources>

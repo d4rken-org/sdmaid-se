@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">మీ పరికరంలో ఇన్‌స్టాల్ చేయబడిన యాప్‌లు.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d యాప్ కనుగొనబడింది</item>
+        <item quantity="other">%d యాప్‌లు కనుగొనబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">యాప్‌లను టాగల్ చేయండి</string>
+    <string name="appcontrol_toggle_app_enable_action">యాప్‌ను ప్రారంభించండి</string>
+    <string name="appcontrol_toggle_app_disable_action">యాప్‌ను రద్దు చేయండి</string>
+    <string name="appcontrol_toggle_app_enable_description">యాప్‌ను ప్రారంభించడం అది పనిచేయడానికి అనుమతిస్తుంది మరియు అది ఆక్టివిటీ ఉంటే మీ లాంచర్‌లో కనిపించు చేయవచ్చు.</string>
+    <string name="appcontrol_toggle_app_disable_description">యాప్‌ను రద్దు చేయడం అది పనిచేయడానికి ఇంపేడ్ అవుతుంది మరియు దీనిని మెనుల నుంచి దాచిపేస్తుంది. డేటా నష్టం ఉందు.</string>
+    <string name="appcontrol_appstore_open_title">యాప్ స్టోర్‌లో తెరవండి</string>
+    <string name="appcontrol_appstore_open_description">ఈ యాప్‌ను ఇన్‌స్టాల్ చేసిన యాప్ స్టోర్‌లో తెరవండి.</string>
+    <string name="appcontrol_systemsettings_open_title">సెట్టింగ్స్ చూపించండి</string>
+    <string name="appcontrol_systemsettings_open_description">ఈ యాప్ కోసం మీ పరికరం సిస్టం సెట్టింగ్స్ తెరవండి.</string>
+    <string name="appcontrol_app_launch_title">యాప్‌ను లాంచ్ చేయండి</string>
+    <string name="appcontrol_app_launch_description">ఈ యాప్ ప్రాధాన ఆక్టివిటీని లాంచ్ చేయండి.</string>
+    <string name="appcontrol_app_forcestop_title">బలవన్మగా ఆపండి</string>
+    <string name="appcontrol_app_forcestop_description">యాప్‌ను ఆపివేయండి. మీరు దాన్ని తెరిచే వరకు లేదా పరికరం రీబూట్ అయ్యే వరకు దాన్ని తనంతట తానుగా ప్రారంభించకుండా నిరోధించండి.</string>
+    <string name="appcontrol_app_uninstall_description">మీ పరికరం నుంచి ఈ యాప్‌ను అనిన్‌స్టాల్ చేయండి.</string>
+    <string name="appcontrol_app_exclude_add_title">యాప్‌ను బహిష్కరించండి</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid లో ఇతర ఆపరేషన్‌ల నుంచి ఈ యాప్‌ను బహిష్కరించండి.</string>
+    <string name="appcontrol_app_exclude_edit_title">బహిష్కరణను ఎడిట్ చేయండి</string>
+    <string name="appcontrol_app_exclude_edit_description">ఈ యాప్ ప్రస్తుతం ఒక లేదా ఎక్కువ టూల్‌ల నుంచి బహిష్కరించబడింది.</string>
+    <string name="appcontrol_tag_user">వినియోగదారు</string>
+    <string name="appcontrol_tag_active">ఇక్కడ సక్రియం</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">బండల్</string>
+    <string name="appcontrol_tag_system">సిస్టం</string>
+    <string name="appcontrol_tag_archived">ఆర్కైవ్ చేయబడిన</string>
+    <string name="appcontrol_tag_uninstalled">డేటా మాత్రమే</string>
+    <string name="appcontrol_tag_not_installed">ఇన్‌స్టాల్ చేయలేదు</string>
+    <string name="appcontrol_tag_enabled">ప్రారంభించబడిన</string>
+    <string name="appcontrol_tag_disabled">రద్దు చేయబడిన</string>
+    <string name="appcontrol_tag_debug">డీబగ్</string>
+    <string name="appcontrol_progress_enabling_package">యాప్‌ను ప్రారంభిస్తోంది</string>
+    <string name="appcontrol_progress_disabling_package">యాప్‌ను రద్దు చేస్తోంది</string>
+    <string name="appcontrol_list_filteroptions_label">ఫిల్టర్ ఎంపికలు</string>
+    <string name="appcontrol_list_sortmode_name_label">యాప్ పేరు</string>
+    <string name="appcontrol_list_sortmode_updated_label">కొత్తగా అప్‌డేట్ చేయబడిన</string>
+    <string name="appcontrol_list_sortmode_installed_label">ముందు ఇన్‌స్టాల్ చేయబడిన</string>
+    <string name="appcontrol_list_sortmode_packagename_label">ప్యాకేజీ పేరు</string>
+    <string name="appcontrol_list_sortmode_size_label">పరిమాణం</string>
+    <string name="appcontrol_list_sortmode_screentime_label">స్క్రీన్ సమయం</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">యాప్ పరిమాణాలు పరఫార్మెన్స్ కారణాల అందాజులు. మరింత ఖుదాయిన డేటా కోసం StorageAnalyzer టూల్‌ను ఉపయోగించండి.</string>
+    <string name="appcontrol_progress_uninstalling_app">యాప్‌ను అనిన్‌స్టాల్ చేస్తోంది</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d యాప్ అనిన్‌స్టాల్ చేయబడింది</item>
+        <item quantity="other">%d యాప్‌లు అనిన్‌స్టాల్ చేయబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ఆర్కైవ్</string>
+    <string name="appcontrol_archive_selection_action">యాప్‌లను ఆర్కైవ్ చేయండి</string>
+    <string name="appcontrol_archive_description">తరువాత పునరుద్ధరణ కోసం యాప్ డేటాను ఉంచుతూ స్థలాన్ని ఖాళీ చేయడానికి ఆర్కైవ్ చేయండి.</string>
+    <string name="appcontrol_progress_archiving_app">యాప్‌ను ఆర్కైవ్ చేస్తోంది…</string>
+    <string name="appcontrol_archive_confirmation_title">ఆర్కైవ్ నిర్ధారించండి</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d యాప్‌ను ఆర్కైవ్ చేయాలా?</item>
+        <item quantity="other">%d యాప్‌లను ఆర్కైవ్ చేయాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d యాప్ ఆర్కైవ్ చేయబడింది</item>
+        <item quantity="other">%d యాప్‌లు ఆర్కైవ్ చేయబడ్డాయి</item>
+    </plurals>
+    <string name="appcontrol_restore_action">పునరుద్ధరించు</string>
+    <string name="appcontrol_restore_selection_action">యాప్‌లను పునరుద్ధరించండి</string>
+    <string name="appcontrol_restore_description">ఆర్కైవ్ చేసిన యాప్‌ను పూర్తిగా ఇన్‌స్టాల్ చేసిన స్థితికి పునరుద్ధరించండి. యాప్ డేటా భద్రపరచబడుతుంది.</string>
+    <string name="appcontrol_progress_restoring_app">యాప్‌ను పునరుద్ధరిస్తోంది…</string>
+    <string name="appcontrol_restore_confirmation_title">పునరుద్ధరణ నిర్ధారించండి</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d యాప్‌ను పునరుద్ధరించాలా?</item>
+        <item quantity="other">%d యాప్‌లను పునరుద్ధరించాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d యాప్ పునరుద్ధరించబడింది</item>
+        <item quantity="other">%d యాప్‌లు పునరుద్ధరించబడ్డాయి</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">యాప్ పరిమాణం</string>
+    <string name="appcontrol_app_sizes_apk_label">యాప్</string>
+    <string name="appcontrol_app_sizes_data_label">డేటా</string>
+    <string name="appcontrol_app_sizes_cache_label">క్యాషే</string>
+    <string name="appcontrol_toggle_confirmation_title">క్రియను నిర్ధారించండి</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d యాప్ ప్రారంభించబడిన/రద్దు చేయబడిన స్థితిని మార్చాలా?</item>
+        <item quantity="other">%d యాప్‌ల ప్రారంభించబడిన/రద్దు చేయబడిన స్థితిలను మార్చాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d యాప్ టాగల్ చేయబడింది</item>
+        <item quantity="other">%d యాప్‌లు టాగల్ చేయబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">పరిమాణాలను నిర్ణయించండి</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ప్రతి యాప్ పరిమాణం శ్రేణుల అందాజు తెలుసుకోండి.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">కార్యాచరణను నిర్ణయించండి</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">యాప్ సక్రియంగా ఉందే (లేదా ఇద్దరు సక్రియంగా ఉందే) అని తెలుసుకోండి.</string>
+    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
+    <string name="appcontrol_include_multiuser_summary">ఈ పరికరంలోని ఇతర వినియోగదారు ప్రొఫైల్‌ల నుండి యాప్‌లను చేర్చండి.</string>
+    <string name="appcontrol_export_app_selection_action">యాప్‌లను ఎక్స్‌పోర్ట్ చేయండి</string>
+    <string name="appcontrol_export_title">యాప్‌ని ఎక్స్‌పోర్ట్ చేయండి</string>
+    <string name="appcontrol_export_description">ఈ యాప్ యొక్క ఇన్‌స్టాలేషన్ ఫైల్‌లను సేవ్ చేయండి. ఇందులో యాప్ డేటా చేర్చబడదు.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d యాప్ ఎక్స్‌పోర్ట్ చేయబడింది</item>
+        <item quantity="other">%d యాప్‌లు ఎక్స్‌పోర్ట్ చేయబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ను ఎక్స్‌పోర్ట్ చేస్తోంది</string>
+    <string name="appcontrol_share_list_action">జాబితాను షేర్ చేయండి</string>
+    <string name="appcontrol_share_list_title">నా యాప్‌లు</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE ద్వారా షేర్ చేయబడింది</string>
+    <string name="appcontrol_force_stop_selection_action">యాప్‌లను బలవంతంగా ఆపండి</string>
+    <string name="appcontrol_force_stop_action">బలవంతంగా ఆపండి</string>
+    <string name="appcontrol_force_stop_confirm_title">బలవంతంగా ఆపడానికి నిర్ధారించండి</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d యాప్‌ను బలవంతంగా ఆపాలా?</item>
+        <item quantity="other">%d యాప్‌లను బలవంతంగా ఆపాలా?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d యాప్ ఆపబడింది</item>
+        <item quantity="other">%d యాప్‌లు ఆపబడినాయి</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">ప్రాప్యతా సేవ ద్వారా స్వయంచాలకతను సిద్ధం చేస్తోంది</string>
+    <string name="appcontrol_automation_title">AppControl స్వయంచాలకత</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">బలవంతంగా ఆపుతోంది…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్లు: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">ఆర్కైవ్ చేస్తోంది…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ఆర్కైవ్\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">పునరుద్ధరిస్తోంది…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"పునరుద్ధరించు\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">స్క్రీన్ సమయం: %2$s నుండి %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">చివరిగా అప్‌డేట్ చేయబడింది: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
+</resources>

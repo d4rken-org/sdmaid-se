@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
+    <string name="appcontrol_explanation_short">Aplikasi terpasang di perangkat Anda.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">%d aplikasi terdeteksi</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Pilih aplikasi</string>
+    <string name="appcontrol_toggle_app_enable_action">Aktifkan aplikasi</string>
+    <string name="appcontrol_toggle_app_disable_action">Nonaktifkan aplikasi</string>
+    <string name="appcontrol_toggle_app_enable_description">Mengaktifkan aplikasi membuatnya bisa berjalan dan bisa dilihat di launcher Anda jika ada aktifitas.</string>
+    <string name="appcontrol_toggle_app_disable_description">Menonaktifkan aplikasi mencegahnya untuk berjalan dan tersembunyi di menu. Tidak ada data yang hilang.</string>
+    <string name="appcontrol_appstore_open_title">Buka di toko aplikasi</string>
+    <string name="appcontrol_appstore_open_description">Buka aplikasi ini di toko aplikasi tempatnya diinstal.</string>
+    <string name="appcontrol_systemsettings_open_title">Tampilkan pengaturan</string>
+    <string name="appcontrol_systemsettings_open_description">Membuka info aplikasi ini di pengaturan sistem perangkat.</string>
+    <string name="appcontrol_app_launch_title">Jalankan aplikasi</string>
+    <string name="appcontrol_app_launch_description">Jalankan aplikasi ini.</string>
+    <string name="appcontrol_app_forcestop_title">Paksa berhenti</string>
+    <string name="appcontrol_app_forcestop_description">Hentikan aplikasi. Mencegah berjalan otomatis sampai pengguna membuka aplikasi atau menyalakan ulang perangkat.</string>
+    <string name="appcontrol_app_uninstall_description">Copot aplikasi ini dari perangkat Anda.</string>
+    <string name="appcontrol_app_exclude_add_title">Kecualikan aplikasi</string>
+    <string name="appcontrol_app_exclude_add_description">Kecualikan aplikasi ini dari operasi-operasi lain di SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Ubah pengecualian</string>
+    <string name="appcontrol_app_exclude_edit_description">Aplikasi ini dikecualikan dari satu atau lebih alat.</string>
+    <string name="appcontrol_tag_user">Pengguna</string>
+    <string name="appcontrol_tag_active">Baru-baru ini aktif</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundel</string>
+    <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Diarsip</string>
+    <string name="appcontrol_tag_uninstalled">Hanya Data</string>
+    <string name="appcontrol_tag_not_installed">Tidak dipasang</string>
+    <string name="appcontrol_tag_enabled">Diaktifkan</string>
+    <string name="appcontrol_tag_disabled">Dinonaktifkan</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_progress_enabling_package">Mengaktifkan aplikasi</string>
+    <string name="appcontrol_progress_disabling_package">Menonaktifkan aplikasi</string>
+    <string name="appcontrol_list_filteroptions_label">Pilihan filter</string>
+    <string name="appcontrol_list_sortmode_name_label">Nama aplikasi</string>
+    <string name="appcontrol_list_sortmode_updated_label">Terakhir diperbarui</string>
+    <string name="appcontrol_list_sortmode_installed_label">Diinstal pertama kali</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Nama paket</string>
+    <string name="appcontrol_list_sortmode_size_label">Ukuran</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Waktu layar</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Ukuran aplikasi diperkirakan untuk alasan kinerja. Gunakan alat StorageAnalyzer untuk data yang lebih akurat.</string>
+    <string name="appcontrol_progress_uninstalling_app">Mencopot aplikasi</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d aplikasi dihapus</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arsip</string>
+    <string name="appcontrol_archive_selection_action">Arsipkan aplikasi</string>
+    <string name="appcontrol_archive_description">Arsipkan untuk membebaskan ruang sambil menyimpan data aplikasi untuk pemulihan nanti.</string>
+    <string name="appcontrol_progress_archiving_app">Mengarsipkan aplikasi…</string>
+    <string name="appcontrol_archive_confirmation_title">Konfirmasi arsip</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">Arsipkan %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d aplikasi diarsipkan</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Pulihkan</string>
+    <string name="appcontrol_restore_selection_action">Pulihkan aplikasi</string>
+    <string name="appcontrol_restore_description">Pulihkan aplikasi yang diarsipkan ke status terinstal penuh. Data aplikasi dipertahankan.</string>
+    <string name="appcontrol_progress_restoring_app">Memulihkan aplikasi…</string>
+    <string name="appcontrol_restore_confirmation_title">Konfirmasi pemulihan</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">Pulihkan %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d aplikasi dipulihkan</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Ukuran aplikasi</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplikasi</string>
+    <string name="appcontrol_app_sizes_data_label">Data</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
+    <string name="appcontrol_toggle_confirmation_title">Konfirmasi tindakan</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">Ubah status aktif/nonaktif %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d aplikasi diubah statusnya</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Tentukan ukuran</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan perkiraan kasar ukuran masing-masing aplikasi.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Tentukan aktivitas</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Ketahui apakah suatu aplikasi sedang (atau baru-baru ini) aktif.</string>
+    <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada perangkat ini.</string>
+    <string name="appcontrol_export_app_selection_action">Ekspor aplikasi</string>
+    <string name="appcontrol_export_title">Ekspor aplikasi</string>
+    <string name="appcontrol_export_description">Simpan file instalasi aplikasi. Tidak termasuk data aplikasi.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d aplikasi diekspor</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Mengekspor %s</string>
+    <string name="appcontrol_share_list_action">Bagikan daftar</string>
+    <string name="appcontrol_share_list_title">Aplikasi Saya</string>
+    <string name="appcontrol_share_list_footer">Dibagikan melalui SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Paksa berhenti aplikasi</string>
+    <string name="appcontrol_force_stop_action">Paksa berhenti</string>
+    <string name="appcontrol_force_stop_confirm_title">Konfirmasi penghentian paksa</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">Paksa berhenti %d aplikasi?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">%d aplikasi dihentikan</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
+    <string name="appcontrol_automation_title">Otomatisasi AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Mencari tombol \"Paksa setop\" (kata kunci: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Mengarsipkan…</string>
+    <string name="appcontrol_automation_progress_find_archive">Mencari tombol \"Arsip\" (kata kunci: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Memulihkan…</string>
+    <string name="appcontrol_automation_progress_find_restore">Mencari tombol \"Pulihkan\" (kata kunci: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Waktu layar: %1$s sejak %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Terakhir diperbarui: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Dipasang di: %s</string>
+</resources>

@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">በመሣሪያዎ ላይ የተጫኑ መተግበሪያዎች።</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d መተግበሪያ ተፈለጋል</item>
+        <item quantity="other">%d መተግበሪያዎች ተፈለጉ</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">መተግበሪያዎችን ቀይር</string>
+    <string name="appcontrol_toggle_app_enable_action">መተግበሪያ አስችል</string>
+    <string name="appcontrol_toggle_app_disable_action">መተግበሪያ አሰናክል</string>
+    <string name="appcontrol_toggle_app_enable_description">መተግበሪያን ማስቻል እንዲሄድ ያስችለዋል እንዲሁም ተግባር ቢኖረው በማስጀመሪያዎ ውስጥ እንዲታይ ያደርገዋል።</string>
+    <string name="appcontrol_toggle_app_disable_description">መተግበሪያን ማሰናከል እንዳይሄድ ይከላከለዋል እንዲሁም ከዝርዝሮች ይደብቀዋል። ምንም የውሂብ ብክነት የለም።</string>
+    <string name="appcontrol_appstore_open_title">በመተግበሪያ መደብር ውስጥ ክፈት</string>
+    <string name="appcontrol_appstore_open_description">ይህንን መተግበሪያ ከተጫነበት መተግበሪያ መደብር ውስጥ ይክፈቱ።</string>
+    <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
+    <string name="appcontrol_systemsettings_open_description">ለዚህ መተግበሪያ የመሣሪያዎን የሲስተም ቅንብሮች ይክፈቱ።</string>
+    <string name="appcontrol_app_launch_title">መተግበሪያን ያስጀምሩ</string>
+    <string name="appcontrol_app_launch_description">የዚህ መተግበሪያ ዋና ተግባር ያስጀምሩ።</string>
+    <string name="appcontrol_app_forcestop_title">በግዳጅ አቁም</string>
+    <string name="appcontrol_app_forcestop_description">መተግበሪያውን ያቁሙ። እስኪከፍቱ ወይም መሣሪያው እስኪዳስ ድረስ እንዳይጀምር ያግዱ።</string>
+    <string name="appcontrol_app_uninstall_description">ይህንን መተግበሪያ ከመሣሪያዎ ያጥፉ።</string>
+    <string name="appcontrol_app_exclude_add_title">መተግበሪያን አስወግድ</string>
+    <string name="appcontrol_app_exclude_add_description">ይህንን መተግበሪያ ከሌሎች SD Maid ተግባራት አስወግድ።</string>
+    <string name="appcontrol_app_exclude_edit_title">ማስወገጃን አርም</string>
+    <string name="appcontrol_app_exclude_edit_description">ይህ መተግበሪያ አሁን ከአንድ ወይም ከብዙ መሳሪያዎች ተወግዷል።</string>
+    <string name="appcontrol_tag_user">ተጠቃሚ</string>
+    <string name="appcontrol_tag_active">በቅርቡ ንቁ</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">ጥቅል</string>
+    <string name="appcontrol_tag_system">ሲስተም</string>
+    <string name="appcontrol_tag_archived">ተደርሷል</string>
+    <string name="appcontrol_tag_uninstalled">ውሂብ ብቻ</string>
+    <string name="appcontrol_tag_not_installed">አልተጫነም</string>
+    <string name="appcontrol_tag_enabled">ተችሏል</string>
+    <string name="appcontrol_tag_disabled">ተሰናክሏል</string>
+    <string name="appcontrol_tag_debug">ማረም</string>
+    <string name="appcontrol_progress_enabling_package">መተግበሪያን በማስቻል ላይ</string>
+    <string name="appcontrol_progress_disabling_package">መተግበሪያን በማሰናከል ላይ</string>
+    <string name="appcontrol_list_filteroptions_label">የማጣሪያ አማራጮች</string>
+    <string name="appcontrol_list_sortmode_name_label">የመተግበሪያ ስም</string>
+    <string name="appcontrol_list_sortmode_updated_label">በመጨረሻ ተዘምኗል</string>
+    <string name="appcontrol_list_sortmode_installed_label">መጀመሪያ ተጫኗል</string>
+    <string name="appcontrol_list_sortmode_packagename_label">የጥቅል ስም</string>
+    <string name="appcontrol_list_sortmode_size_label">መጠን</string>
+    <string name="appcontrol_list_sortmode_screentime_label">የማያ ጊዜ</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">የመተግበሪያ መጠኖች ለአፈጻጸም ምክንያቶች ይገመታሉ። ለተጨማሪ ትክክለኛ ውሂብ StorageAnalyzer መሳሪያን ይጠቀሙ።</string>
+    <string name="appcontrol_progress_uninstalling_app">መተግበሪያን በማጥፋት ላይ</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተጥፏል</item>
+        <item quantity="other">%d መተግበሪያዎች ተጥፈዋል</item>
+    </plurals>
+    <string name="appcontrol_archive_action">መዝገብ ቤት</string>
+    <string name="appcontrol_archive_selection_action">መተግበሪያዎችን ያስቀምጡ</string>
+    <string name="appcontrol_archive_description">በኋላ ለመመለስ የመተግበሪያ ውሂብ እየጠበቁ ቦታ ለማስለቀቅ ያስቀምጡ።</string>
+    <string name="appcontrol_progress_archiving_app">መተግበሪያ በማስቀመጥ ላይ…</string>
+    <string name="appcontrol_archive_confirmation_title">ማስቀመጥ ያረጋግጡ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d መተግበሪያ ያስቀምጡ?</item>
+        <item quantity="other">%d መተግበሪያዎች ያስቀምጡ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d መተግበሪያ ተቀምጧል</item>
+        <item quantity="other">%d መተግበሪያዎች ተቀምጠዋል</item>
+    </plurals>
+    <string name="appcontrol_restore_action">መልስ</string>
+    <string name="appcontrol_restore_selection_action">መተግበሪያዎችን ይመልሱ</string>
+    <string name="appcontrol_restore_description">የተቀመጠውን መተግበሪያ ወደ ሙሉ በሙሉ የተጫነ ሁኔታ ይመልሱ። የመተግበሪያ ውሂብ ተጠብቋል።</string>
+    <string name="appcontrol_progress_restoring_app">መተግበሪያ በመመለስ ላይ…</string>
+    <string name="appcontrol_restore_confirmation_title">መመለስ ያረጋግጡ</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d መተግበሪያ ይመልሱ?</item>
+        <item quantity="other">%d መተግበሪያዎች ይመልሱ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d መተግበሪያ ተመልሷል</item>
+        <item quantity="other">%d መተግበሪያዎች ተመልሰዋል</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">የመተግበሪያ መጠን</string>
+    <string name="appcontrol_app_sizes_apk_label">መተግበሪያ</string>
+    <string name="appcontrol_app_sizes_data_label">ውሂብ</string>
+    <string name="appcontrol_app_sizes_cache_label">መሸፈኛ</string>
+    <string name="appcontrol_toggle_confirmation_title">ተግባር አረጋግጥ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">የ%d መተግበሪያ የተቻለ/የተሰናከለ ሁኔታ ይቀየር?</item>
+        <item quantity="other">ለ%d መተግበሪያዎች የተቻሉ/የተሰናከሉ ሁኔታዎች ይቀየሩ?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተቀይሯል</item>
+        <item quantity="other">%d መተግበሪያዎች ተቀይረዋል</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">መጠኖችን ወስን</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">የእያንዳንዱ መተግበሪያ መጠን ግምታዊ ገመታ ያግኙ።</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">እንቅስቃሴን ወስን</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">መተግበሪያ ንቁ (ወይም በቅርቡ ነበር) እንደሆነ ያውቁ።</string>
+    <string name="appcontrol_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
+    <string name="appcontrol_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት።</string>
+    <string name="appcontrol_export_app_selection_action">መተግበሪያዎችን ላክ</string>
+    <string name="appcontrol_export_title">መተግበሪያ ላክ</string>
+    <string name="appcontrol_export_description">የዚህን መተግበሪያ የመጫኛ ፋይሎች ያስቀምጡ። ይህ የመተግበሪያ ውሂብ አያካትትም።</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d መተግበሪያ ተልኳል</item>
+        <item quantity="other">%d መተግበሪያዎች ተልከዋል</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%sን በመላክ ላይ</string>
+    <string name="appcontrol_share_list_action">ዝርዝር ያጋሩ</string>
+    <string name="appcontrol_share_list_title">መተግበሪያዎቼ</string>
+    <string name="appcontrol_share_list_footer">በSD Maid SE የተጋራ</string>
+    <string name="appcontrol_force_stop_selection_action">መተግበሪያዎችን በግዳጅ አቁም</string>
+    <string name="appcontrol_force_stop_action">በግዳጅ አቁም</string>
+    <string name="appcontrol_force_stop_confirm_title">በግዳጅ ማቆም አረጋግጥ</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d መተግበሪያን በግዳጅ ታቆማለህ?</item>
+        <item quantity="other">%d መተግበሪያዎችን በግዳጅ ታቆማለህ?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d መተግበሪያ ቆሟል</item>
+        <item quantity="other">%d መተግበሪያዎች ቆመዋል</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
+    <string name="appcontrol_automation_title">AppControl ራሳዊነት</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">በግዳጅ በማቆም ላይ…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">ለ\"በግዳጅ አቁም\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">በማስቀመጥ ላይ…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"ማስቀመጥ\" ቁልፍ በመፈለግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">በመመለስ ላይ…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"መመለስ\" ቁልፍ በመፈለግ ላይ (ቁልፍ ቃላት: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">የማያ ጊዜ: %1$s ከ%2$s ጀምሮ</string>
+    <string name="appcontrol_item_lastupdate_x_label">በመጨረሻ ተዘምኗል: %s</string>
+    <string name="appcontrol_item_installedat_x_label">የተጫነበት: %s</string>
+</resources>

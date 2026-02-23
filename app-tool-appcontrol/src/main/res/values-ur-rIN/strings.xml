@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">آپ کے ڈیوائس پر انسٹال شدہ ایپس۔</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d ایپ کا پتہ لگا</item>
+        <item quantity="other">%d ایپس کا پتہ لگا</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">ایپس ٹوگل کریں</string>
+    <string name="appcontrol_toggle_app_enable_action">ایپ فعال کریں</string>
+    <string name="appcontrol_toggle_app_disable_action">ایپ غیر فعال کریں</string>
+    <string name="appcontrol_toggle_app_enable_description">ایپ فعال کرنے سے اسے چلنے کی اجازت ملتی ہے اور اگر اس کی کوئی ایکٹوٹی ہے تو یہ آپ کے لانچر میں نظر آ سکتی ہے۔</string>
+    <string name="appcontrol_toggle_app_disable_description">ایپ غیر فعال کرنے سے یہ چلنے سے رک جاتی ہے اور مینیوز سے چھپ جاتی ہے۔ کوئی ڈیٹا کمی نہیں ہوتی۔</string>
+    <string name="appcontrol_appstore_open_title">ایپ سٹور میں کھولیں</string>
+    <string name="appcontrol_appstore_open_description">اس ایپ کو اس ایپ سٹور میں کھولیں جہاں سے یہ انسٹال ہوئی تھی۔</string>
+    <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
+    <string name="appcontrol_systemsettings_open_description">اس ایپ کے لیے آپ کے ڈیوائس کی سسٹم سیٹنگز کھولیں۔</string>
+    <string name="appcontrol_app_launch_title">ایپ لانچ کریں</string>
+    <string name="appcontrol_app_launch_description">اس ایپ کی بنیادی سرگرمی لانچ کریں۔</string>
+    <string name="appcontrol_app_forcestop_title">زبردستی بند کریں</string>
+    <string name="appcontrol_app_forcestop_description">ایپ بند کریں۔ اسے خود شروع ہونے سے روکیں جب تک آپ اسے کھولیں یا ڈیوائس ریبوٹ نہ ہو۔</string>
+    <string name="appcontrol_app_uninstall_description">اس ایپ کو آپ کے ڈیوائس سے ان انسٹال کریں۔</string>
+    <string name="appcontrol_app_exclude_add_title">ایپ کو خارج کریں</string>
+    <string name="appcontrol_app_exclude_add_description">اس ایپ کو SD Maid کی دیگر کارروائیوں سے خارج کریں۔</string>
+    <string name="appcontrol_app_exclude_edit_title">استثنا کو تبدیل کریں</string>
+    <string name="appcontrol_app_exclude_edit_description">یہ ایپ فی الوقت ایک یا زیادہ ٹولز سے خارج ہے۔</string>
+    <string name="appcontrol_tag_user">صارف</string>
+    <string name="appcontrol_tag_active">حال ہی میں فعال</string>
+    <string name="appcontrol_tag_system">سسٹم</string>
+    <string name="appcontrol_tag_archived">آرکائیو شدہ</string>
+    <string name="appcontrol_tag_uninstalled">صرف ڈیٹا</string>
+    <string name="appcontrol_tag_not_installed">انسٹال نہیں</string>
+    <string name="appcontrol_tag_enabled">فعال</string>
+    <string name="appcontrol_tag_disabled">غیر فعال</string>
+    <string name="appcontrol_tag_debug">ڈیبگ</string>
+    <string name="appcontrol_progress_enabling_package">ایپ فعال کر رہے ہیں</string>
+    <string name="appcontrol_progress_disabling_package">ایپ غیر فعال کر رہے ہیں</string>
+    <string name="appcontrol_list_filteroptions_label">فلٹر آپشنز</string>
+    <string name="appcontrol_list_sortmode_name_label">ایپ کا نام</string>
+    <string name="appcontrol_list_sortmode_updated_label">آخری اپڈیٹ</string>
+    <string name="appcontrol_list_sortmode_installed_label">پہلی انسٹالیشن</string>
+    <string name="appcontrol_list_sortmode_packagename_label">پیکج نام</string>
+    <string name="appcontrol_list_sortmode_size_label">سائز</string>
+    <string name="appcontrol_list_sortmode_screentime_label">سکرین ٹائم</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">ایپ کے سائز کارکردگی کی وجہ سے تخمینی ہیں۔ زیادہ درست ڈیٹا کے لیے StorageAnalyzer ٹول استعمال کریں۔</string>
+    <string name="appcontrol_progress_uninstalling_app">ایپ ان انسٹال کر رہے ہیں</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ایپ ان انسٹال ہوئی</item>
+        <item quantity="other">%d ایپس ان انسٹال ہوئے</item>
+    </plurals>
+    <string name="appcontrol_archive_action">آرکائیو</string>
+    <string name="appcontrol_archive_selection_action">ایپس آرکائیو کریں</string>
+    <string name="appcontrol_archive_description">بعد میں بحالی کے لیے ایپ ڈیٹا رکھتے ہوئے جگہ خالی کرنے کے لیے آرکائیو کریں۔</string>
+    <string name="appcontrol_progress_archiving_app">ایپ آرکائیو ہو رہی ہے…</string>
+    <string name="appcontrol_archive_confirmation_title">آرکائیو کی تصدیق</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ایپ آرکائیو کریں؟</item>
+        <item quantity="other">%d ایپس آرکائیو کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ایپ آرکائیو ہوئی</item>
+        <item quantity="other">%d ایپس آرکائیو ہوئیں</item>
+    </plurals>
+    <string name="appcontrol_restore_action">بحال کریں</string>
+    <string name="appcontrol_restore_selection_action">ایپس بحال کریں</string>
+    <string name="appcontrol_restore_description">آرکائیو شدہ ایپ کو مکمل انسٹال حالت میں بحال کریں۔ ایپ ڈیٹا محفوظ رہتا ہے۔</string>
+    <string name="appcontrol_progress_restoring_app">ایپ بحال ہو رہی ہے…</string>
+    <string name="appcontrol_restore_confirmation_title">بحالی کی تصدیق</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ایپ بحال کریں؟</item>
+        <item quantity="other">%d ایپس بحال کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ایپ بحال ہوئی</item>
+        <item quantity="other">%d ایپس بحال ہوئیں</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ایپ سائز</string>
+    <string name="appcontrol_app_sizes_apk_label">ایپ</string>
+    <string name="appcontrol_app_sizes_data_label">ڈیٹا</string>
+    <string name="appcontrol_app_sizes_cache_label">کیش</string>
+    <string name="appcontrol_toggle_confirmation_title">عمل کی تصدیق کریں</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ایپ کی فعال/غیر فعال حالت تبدیل کریں؟</item>
+        <item quantity="other">%d ایپس کی فعال/غیر فعال حالات تبدیل کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ایپ ٹوگل ہوئی</item>
+        <item quantity="other">%d ایپس ٹوگل ہوئے</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">سائز کا تعین</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ہر ایپ کے سائز کا تخمینی اندازہ لگائیں۔</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">سرگرمی کا تعین</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">پتہ کریں کہ کیا ایپ فعال ہے (یا حال ہی میں تھی)۔</string>
+    <string name="appcontrol_include_multiuser_label">دوسرے صارفین شامل کریں</string>
+    <string name="appcontrol_include_multiuser_summary">اس ڈیوائس پر دوسرے صارف پروفائلز کی ایپس شامل کریں۔</string>
+    <string name="appcontrol_export_app_selection_action">ایپس ایکسپورٹ کریں</string>
+    <string name="appcontrol_export_title">ایپ ایکسپورٹ کریں</string>
+    <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں ہے۔</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ایپ ایکسپورٹ ہوئی</item>
+        <item quantity="other">%d ایپس ایکسپورٹ ہوئے</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ایکسپورٹ کر رہے ہیں</string>
+    <string name="appcontrol_share_list_action">فہرست شیئر کریں</string>
+    <string name="appcontrol_share_list_title">میری ایپس</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE کے ذریعے شیئر کیا گیا</string>
+    <string name="appcontrol_force_stop_selection_action">ایپس کو زبردستی بند کریں</string>
+    <string name="appcontrol_force_stop_action">زبردستی بند کریں</string>
+    <string name="appcontrol_force_stop_confirm_title">زبردستی بند کرنے کی تصدیق</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ایپ کو زبردستی بند کریں؟</item>
+        <item quantity="other">%d ایپس کو زبردستی بند کریں؟</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ایپ بند کیا گیا</item>
+        <item quantity="other">%d ایپس بند کیے گئے</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
+    <string name="appcontrol_automation_title">AppControl آٹومیشن</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">زبردستی بند کر رہے ہیں…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">آرکائیو ہو رہا ہے…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"آرکائیو\" بٹن تلاش کر رہا ہے (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">بحال ہو رہا ہے…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"بحال\" بٹن تلاش کر رہا ہے (کلیدی الفاظ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">سکرین ٹائم: %1$s بعد %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">آخری اپڈیٹ: %s</string>
+    <string name="appcontrol_item_installedat_x_label">انسٹال کی تاریخ: %s</string>
+</resources>

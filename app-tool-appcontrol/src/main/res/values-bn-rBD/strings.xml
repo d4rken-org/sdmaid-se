@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">আপনার ডিভাইসে ইনস্টল করা অ্যাপসমূহ।.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d অ্যাপ শনাক্ত করা হয়েছে</item>
+        <item quantity="other">%d টি অ্যাপ শনাক্ত করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">অ্যাপগুলি টগল করুন</string>
+    <string name="appcontrol_toggle_app_enable_action">অ্যাপ সক্রিয় করুন</string>
+    <string name="appcontrol_toggle_app_disable_action">অ্যাপ নিষ্ক্রিয় করুন</string>
+    <string name="appcontrol_toggle_app_enable_description">একটি অ্যাপ্লিকেশান সক্রিয় করে এটিকে চালানোর অনুমতি দেয় এবং যদি এটির কোনো কার্যকলাপ থাকে তবে এটি আপনার লঞ্চারে দৃশ্যমান করতে পারে৷</string>
+    <string name="appcontrol_toggle_app_disable_description">একটি অ্যাপ নিষ্ক্রিয় করলে তা এটিকে চলতে বাধা দেয় এবং এটি মেনু থেকে লুকিয়ে রাখে। এতে কোনো ডাটা মুছে যায় না।</string>
+    <string name="appcontrol_appstore_open_title">অ্যাপ স্টোরে খুলুন</string>
+    <string name="appcontrol_appstore_open_description">এই অ্যাপটি যে অ্যাপ স্টোর থেকে ইনস্টল করা হয়েছিল সেখানে খুলুন।</string>
+    <string name="appcontrol_systemsettings_open_title">সেটিংস দেখান</string>
+    <string name="appcontrol_systemsettings_open_description">এই অ্যাপের জন্য আপনার ডিভাইসের সিস্টেম সেটিংস খুলুন।</string>
+    <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
+    <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
+    <string name="appcontrol_app_forcestop_title">জোর করে বন্ধ করুন</string>
+    <string name="appcontrol_app_forcestop_description">অ্যাপটি বন্ধ করুন। এটি খোলা বা ডিভাইসটি রিবুট না হওয়া পর্যন্ত এটি নিজে থেকে শুরু হওয়া থেকে বিরত রাখুন।</string>
+    <string name="appcontrol_app_uninstall_description">আপনার ডিভাইস থেকে এই অ্যাপ্লিকেশন আনইনস্টল করুন।</string>
+    <string name="appcontrol_app_exclude_add_title">অ্যাপ বাদ দিন</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid-এর অন্যান্য ক্রিয়াকলাপ থেকে এই অ্যাপটিকে বাদ দিন।</string>
+    <string name="appcontrol_app_exclude_edit_title">বর্জন সম্পাদনা করুন</string>
+    <string name="appcontrol_app_exclude_edit_description">এই অ্যাপটি বর্তমানে এক বা একাধিক টুল থেকে বাদ দেওয়া হয়েছে।</string>
+    <string name="appcontrol_tag_user">ব্যবহারকারী</string>
+    <string name="appcontrol_tag_active">সম্প্রতি সক্রিয়</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">বান্ডল</string>
+    <string name="appcontrol_tag_system">সিস্টেম</string>
+    <string name="appcontrol_tag_archived">আর্কাইভ</string>
+    <string name="appcontrol_tag_uninstalled">শুধুমাত্র ডেটা</string>
+    <string name="appcontrol_tag_not_installed">ইনস্টল করা নেই</string>
+    <string name="appcontrol_tag_enabled">সক্রিয়</string>
+    <string name="appcontrol_tag_disabled">নিষ্ক্রিয়</string>
+    <string name="appcontrol_tag_debug">ডিবাগ</string>
+    <string name="appcontrol_progress_enabling_package">অ্যাপ সক্রিয় করা হচ্ছে</string>
+    <string name="appcontrol_progress_disabling_package">অ্যাপ নিষ্ক্রিয় করা হচ্ছে</string>
+    <string name="appcontrol_list_filteroptions_label">ফিল্টার অপশন</string>
+    <string name="appcontrol_list_sortmode_name_label">অ্যাপের নাম</string>
+    <string name="appcontrol_list_sortmode_updated_label">সর্বশেষ আপডেট</string>
+    <string name="appcontrol_list_sortmode_installed_label">প্রথমবার ইনস্টল করা</string>
+    <string name="appcontrol_list_sortmode_packagename_label">প্যাকেজের নাম</string>
+    <string name="appcontrol_list_sortmode_size_label">আকার</string>
+    <string name="appcontrol_list_sortmode_screentime_label">স্ক্রিন সময়</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">অ্যাপ্লিকেশান আকার কর্মক্ষমতা কারণে অনুমান করা হয়. আরও সঠিক তথ্যের জন্য স্টোরেজ অ্যানালাইজার টুল ব্যবহার করুন।</string>
+    <string name="appcontrol_progress_uninstalling_app">অ্যাপ আনইনস্টল করা হচ্ছে</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d অ্যাপ আনইনস্টল করা হয়েছে</item>
+        <item quantity="other">%d টি অ্যাপ আনইনস্টল করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_archive_action">আর্কাইভ</string>
+    <string name="appcontrol_archive_selection_action">অ্যাপ আর্কাইভ করুন</string>
+    <string name="appcontrol_archive_description">পরে পুনরুদ্ধারের জন্য অ্যাপ ডেটা রেখে জায়গা খালি করতে আর্কাইভ করুন।</string>
+    <string name="appcontrol_progress_archiving_app">অ্যাপ আর্কাইভ করা হচ্ছে…</string>
+    <string name="appcontrol_archive_confirmation_title">আর্কাইভ নিশ্চিত করুন</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d অ্যাপ আর্কাইভ করবেন?</item>
+        <item quantity="other">%d অ্যাপ আর্কাইভ করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ আর্কাইভ করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_restore_action">পুনরুদ্ধার</string>
+    <string name="appcontrol_restore_selection_action">অ্যাপ পুনরুদ্ধার করুন</string>
+    <string name="appcontrol_restore_description">আর্কাইভ করা অ্যাপ সম্পূর্ণ ইনস্টল অবস্থায় পুনরুদ্ধার করুন। অ্যাপ ডেটা সংরক্ষিত থাকবে।</string>
+    <string name="appcontrol_progress_restoring_app">অ্যাপ পুনরুদ্ধার করা হচ্ছে…</string>
+    <string name="appcontrol_restore_confirmation_title">পুনরুদ্ধার নিশ্চিত করুন</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
+        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ পুনরুদ্ধার করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">অ্যাপের সাইজ</string>
+    <string name="appcontrol_app_sizes_apk_label">অ্যাপ</string>
+    <string name="appcontrol_app_sizes_data_label">ডাটা</string>
+    <string name="appcontrol_app_sizes_cache_label">ক্যাশ</string>
+    <string name="appcontrol_toggle_confirmation_title">কর্ম নিশ্চিত করুন</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d অ্যাপের সক্ষম/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
+        <item quantity="other">%d অ্যাপের জন্য সক্রিয়/অক্ষম অবস্থা পরিবর্তন করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d অ্যাপ টগল করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ টগল করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">আকার নির্ধারণ করুন</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">প্রতিটি অ্যাপের আকারের মোটামুটি অনুমান পান।</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">কার্যকলাপ নির্ধারণ</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">একটি অ্যাপ সক্রিয় (বা সম্প্রতি ছিল) কিনা তা খুঁজে বের করুন।</string>
+    <string name="appcontrol_include_multiuser_label">অন্যান্য ব্যবহারকারীদের অন্তর্ভুক্ত করুন</string>
+    <string name="appcontrol_include_multiuser_summary">এই ডিভাইসে অন্যান্য ব্যবহারকারীর প্রোফাইল থেকে অ্যাপ অন্তর্ভুক্ত করুন।</string>
+    <string name="appcontrol_export_app_selection_action">এক্সপোর্ট অ্যাপস</string>
+    <string name="appcontrol_export_title">এক্সপোর্ট অ্যাপ</string>
+    <string name="appcontrol_export_description">এই অ্যাপের ইনস্টলেশন ফাইলগুলি সংরক্ষণ করুন। এতে অ্যাপ ডেটা অন্তর্ভুক্ত নয়।</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d অ্যাপ এক্সপোর্ট করা হয়েছে</item>
+        <item quantity="other">%dটি অ্যাপ এক্সপোর্ট করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">এক্সপোর্ট করা হচ্ছে %s</string>
+    <string name="appcontrol_share_list_action">তালিকা শেয়ার করুন</string>
+    <string name="appcontrol_share_list_title">আমার অ্যাপ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE এর মাধ্যমে শেয়ার করা হয়েছে</string>
+    <string name="appcontrol_force_stop_selection_action">জোর করে অ্যাপ বন্ধ করুন</string>
+    <string name="appcontrol_force_stop_action">জোর করে বন্ধ করুন</string>
+    <string name="appcontrol_force_stop_confirm_title">জোর করে অ্যাপ বন্ধ করা নিশ্চিত করুন</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one"> %d অ্যাপটি জোর করে বন্ধ করবেন?</item>
+        <item quantity="other">%d অ্যাপ গুলো জোর করে বন্ধ করবেন?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d অ্যাপ বন্ধ করা হয়েছে</item>
+        <item quantity="other">%d অ্যাপ বন্ধ করা হয়েছে</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
+    <string name="appcontrol_automation_title">AppControl অটোমোশন</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">জোর করে থামানো হচ্ছে…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"ফোর্স স্টপ\" বাটন খুঁজছেন (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">আর্কাইভ করা হচ্ছে…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"আর্কাইভ\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">পুনরুদ্ধার করা হচ্ছে…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"পুনরুদ্ধার\" বোতাম খোঁজা হচ্ছে (কীওয়ার্ড: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
+</resources>

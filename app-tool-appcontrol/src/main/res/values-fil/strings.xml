@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">Mga app na naka-install sa inyong device.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d app na natuklasan</item>
+        <item quantity="other">%d mga app na natuklasan</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">I-toggle ang mga app</string>
+    <string name="appcontrol_toggle_app_enable_action">I-enable ang app</string>
+    <string name="appcontrol_toggle_app_disable_action">I-disable ang app</string>
+    <string name="appcontrol_toggle_app_enable_description">Ang pag-enable ng isang app ay nagpapahintulot dito na tumakbo at maaaring makita sa inyong launcher kung may activity ito.</string>
+    <string name="appcontrol_toggle_app_disable_description">Ang pag-disable ng isang app ay pumipigil dito na tumakbo at natatago ito sa mga menu. Walang mawawalang data.</string>
+    <string name="appcontrol_appstore_open_title">Buksan sa app store</string>
+    <string name="appcontrol_appstore_open_description">Buksan ang app na ito sa app store kung saan ito naka-install.</string>
+    <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>
+    <string name="appcontrol_systemsettings_open_description">Buksan ang system settings ng inyong device para sa app na ito.</string>
+    <string name="appcontrol_app_launch_title">I-launch ang app</string>
+    <string name="appcontrol_app_launch_description">I-launch ang pangunahing activity ng app na ito.</string>
+    <string name="appcontrol_app_forcestop_description">Itigil ang app. Pigilan itong mag-start mismo hangga\'t hindi mo binubuksan o nire-reboot ang device.</string>
+    <string name="appcontrol_app_uninstall_description">I-uninstall ang app na ito sa inyong device.</string>
+    <string name="appcontrol_app_exclude_add_title">I-exclude ang app</string>
+    <string name="appcontrol_app_exclude_add_description">I-exclude ang app na ito mula sa ibang mga operasyon sa SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">I-edit ang exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">Ang app na ito ay kasalukuyang naka-exclude mula sa isa o higit pang mga tool.</string>
+    <string name="appcontrol_tag_active">Kamakailang aktibo</string>
+    <string name="appcontrol_tag_archived">Naka-archive</string>
+    <string name="appcontrol_tag_uninstalled">Data Lamang</string>
+    <string name="appcontrol_tag_not_installed">Hindi naka-install</string>
+    <string name="appcontrol_tag_enabled">Naka-enable</string>
+    <string name="appcontrol_tag_disabled">Naka-disable</string>
+    <string name="appcontrol_progress_enabling_package">Ine-enable ang app</string>
+    <string name="appcontrol_progress_disabling_package">Dini-disable ang app</string>
+    <string name="appcontrol_list_filteroptions_label">Mga filter option</string>
+    <string name="appcontrol_list_sortmode_name_label">Pangalan ng app</string>
+    <string name="appcontrol_list_sortmode_updated_label">Huling na-update</string>
+    <string name="appcontrol_list_sortmode_installed_label">Unang naka-install</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Package name</string>
+    <string name="appcontrol_list_sortmode_size_label">Laki</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Ang mga laki ng app ay tinantya para sa performance. Gamitin ang StorageAnalyzer tool para sa mas tumpak na data.</string>
+    <string name="appcontrol_progress_uninstalling_app">Inu-uninstall ang app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d app ang na-uninstall</item>
+        <item quantity="other">%d mga app ang na-uninstall</item>
+    </plurals>
+    <string name="appcontrol_archive_action">I-archive</string>
+    <string name="appcontrol_archive_selection_action">I-archive ang mga app</string>
+    <string name="appcontrol_archive_description">I-archive upang magpalaya ng espasyo habang pinapanatili ang app data para sa pagbabalik mamaya.</string>
+    <string name="appcontrol_progress_archiving_app">Ina-archive ang app…</string>
+    <string name="appcontrol_archive_confirmation_title">Kumpirmahin ang pag-archive</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">I-archive ang %d app?</item>
+        <item quantity="other">I-archive ang %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app na na-archive</item>
+        <item quantity="other">%d mga app na na-archive</item>
+    </plurals>
+    <string name="appcontrol_restore_action">I-restore</string>
+    <string name="appcontrol_restore_selection_action">I-restore ang mga app</string>
+    <string name="appcontrol_restore_description">I-restore ang naka-archive na app sa ganap na naka-install na estado. Napapanatili ang app data.</string>
+    <string name="appcontrol_progress_restoring_app">Ire-restore ang app…</string>
+    <string name="appcontrol_restore_confirmation_title">Kumpirmahin ang pag-restore</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">I-restore ang %d app?</item>
+        <item quantity="other">I-restore ang %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app na na-restore</item>
+        <item quantity="other">%d mga app na na-restore</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Laki ng app</string>
+    <string name="appcontrol_toggle_confirmation_title">Kumpirmahin ang aksyon</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Baguhin ang enabled/disabled state ng %d app?</item>
+        <item quantity="other">Baguhin ang mga enabled/disabled state para sa %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d app ay na-toggle</item>
+        <item quantity="other">%d mga app ay na-toggle</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Tukuyin ang mga laki</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Makakuha ng tantyang laki ng bawat app.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Tukuyin ang aktibidad</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Alamin kung ang isang app ay aktibo (o kamakailang aktibo).</string>
+    <string name="appcontrol_include_multiuser_label">Isama ang ibang user</string>
+    <string name="appcontrol_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
+    <string name="appcontrol_export_app_selection_action">I-export ang mga app</string>
+    <string name="appcontrol_export_title">I-export ang app</string>
+    <string name="appcontrol_export_description">I-save ang mga installation file ng app na ito. Hindi kasama ang app data.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d app ay na-export</item>
+        <item quantity="other">%d mga app ay na-export</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Ine-export ang %s</string>
+    <string name="appcontrol_share_list_action">I-share ang listahan</string>
+    <string name="appcontrol_share_list_title">Aking Mga App</string>
+    <string name="appcontrol_share_list_footer">Na-share sa pamamagitan ng SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Force stop ang mga app</string>
+    <string name="appcontrol_force_stop_confirm_title">Kumpirmahin ang force stop</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Force stop ang %d app?</item>
+        <item quantity="other">Force stop ang %d mga app?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d app ay na-stop</item>
+        <item quantity="other">%d mga app ay na-stop</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Nag-force stop…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Naghahanap ng \"Force stop\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Ina-archive…</string>
+    <string name="appcontrol_automation_progress_find_archive">Hinahanap ang \"Archive\" button (mga keyword: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Ire-restore…</string>
+    <string name="appcontrol_automation_progress_find_restore">Hinahanap ang \"Restore\" button (mga keyword: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s mula %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Huling na-update: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
+</resources>

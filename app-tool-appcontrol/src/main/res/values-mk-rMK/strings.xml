@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">Апликации инсталирани на вашиот уред.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d апликација откриена</item>
+        <item quantity="other">%d апликации откриени</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Вклучи/исклучи апликации</string>
+    <string name="appcontrol_toggle_app_enable_action">Вклучи апликација</string>
+    <string name="appcontrol_toggle_app_disable_action">Исклучи апликација</string>
+    <string name="appcontrol_toggle_app_enable_description">Вклучувањето на апликацијата и дозволува да работи и може да ја направи видлива во стартерот ако има активност.</string>
+    <string name="appcontrol_toggle_app_disable_description">Исклучувањето на апликацијата ја спречува да работи и ја крие од менијата. Нема загуба на податоци.</string>
+    <string name="appcontrol_appstore_open_title">Отвори во продавница</string>
+    <string name="appcontrol_appstore_open_description">Отворете ја оваа апликација во продавницата од која е инсталирана.</string>
+    <string name="appcontrol_systemsettings_open_title">Прикажи поставки</string>
+    <string name="appcontrol_systemsettings_open_description">Отворете ги системските поставки за оваа апликација.</string>
+    <string name="appcontrol_app_launch_title">Стартувај апликација</string>
+    <string name="appcontrol_app_launch_description">Стартувај ја примарната активност на оваа апликација.</string>
+    <string name="appcontrol_app_forcestop_title">Принудно запирање</string>
+    <string name="appcontrol_app_forcestop_description">Запрете ја апликацијата. Спречете ја од самостоечко стартување додека не ја отворите или не го рестартирате уредот.</string>
+    <string name="appcontrol_app_uninstall_description">Деинсталирајте ја оваа апликација од вашиот уред.</string>
+    <string name="appcontrol_app_exclude_add_title">Исклучи апликација</string>
+    <string name="appcontrol_app_exclude_add_description">Исклучете ја оваа апликација од другите операции во SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Уреди исклучок</string>
+    <string name="appcontrol_app_exclude_edit_description">Оваа апликација моментално е исклучена од една или повеќе алатки.</string>
+    <string name="appcontrol_tag_user">Корисник</string>
+    <string name="appcontrol_tag_active">Скоро активна</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_system">Систем</string>
+    <string name="appcontrol_tag_archived">Архивирана</string>
+    <string name="appcontrol_tag_uninstalled">Само податоци</string>
+    <string name="appcontrol_tag_not_installed">Не е инсталирана</string>
+    <string name="appcontrol_tag_enabled">Вклучена</string>
+    <string name="appcontrol_tag_disabled">Исклучена</string>
+    <string name="appcontrol_tag_debug">Дебаг</string>
+    <string name="appcontrol_progress_enabling_package">Вклучување апликација</string>
+    <string name="appcontrol_progress_disabling_package">Исклучување апликација</string>
+    <string name="appcontrol_list_filteroptions_label">Опции за филтрирање</string>
+    <string name="appcontrol_list_sortmode_name_label">Име на апликација</string>
+    <string name="appcontrol_list_sortmode_updated_label">Последно ажурирање</string>
+    <string name="appcontrol_list_sortmode_installed_label">Прво инсталирање</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Име на пакет</string>
+    <string name="appcontrol_list_sortmode_size_label">Големина</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Време на екран</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Големините на апликациите се проценети заради перформанси. Користете ја алатката StorageAnalyzer за попрецизни податоци.</string>
+    <string name="appcontrol_progress_uninstalling_app">Деинсталирање апликација</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d апликација е деинсталирана</item>
+        <item quantity="other">%d апликации се деинсталирани</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Архивирај</string>
+    <string name="appcontrol_archive_selection_action">Архивирај апликации</string>
+    <string name="appcontrol_archive_description">Архивирајте за да ослободите простор додека ги задржувате податоците за подоцнежно обновување.</string>
+    <string name="appcontrol_progress_archiving_app">Архивирање апликација…</string>
+    <string name="appcontrol_archive_confirmation_title">Потврди архивирање</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Архивирај %d апликација?</item>
+        <item quantity="other">Архивирај %d апликации?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d апликација архивирана</item>
+        <item quantity="other">%d апликации архивирани</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Обнови</string>
+    <string name="appcontrol_restore_selection_action">Обнови апликации</string>
+    <string name="appcontrol_restore_description">Обновете ја архивираната апликација во целосно инсталирана состојба. Податоците на апликацијата се зачувани.</string>
+    <string name="appcontrol_progress_restoring_app">Обновување апликација…</string>
+    <string name="appcontrol_restore_confirmation_title">Потврди обновување</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Обнови %d апликација?</item>
+        <item quantity="other">Обнови %d апликации?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d апликација обновена</item>
+        <item quantity="other">%d апликации обновени</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Големина на апликација</string>
+    <string name="appcontrol_app_sizes_apk_label">Апликација</string>
+    <string name="appcontrol_app_sizes_data_label">Податоци</string>
+    <string name="appcontrol_app_sizes_cache_label">Кеш</string>
+    <string name="appcontrol_toggle_confirmation_title">Потврди акција</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Промени вклучена/исклучена состојба на %d апликација?</item>
+        <item quantity="other">Промени вклучена/исклучена состојба на %d апликации?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d апликација е променета</item>
+        <item quantity="other">%d апликации се променети</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Одреди големини</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Добијте груба проценка на големината на секоја апликација.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Одреди активност</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Дознајте дали апликацијата е (или неодамна била) активна.</string>
+    <string name="appcontrol_include_multiuser_label">Вклучи други корисници</string>
+    <string name="appcontrol_include_multiuser_summary">Вклучи апликации од други кориснички профили на овој уред.</string>
+    <string name="appcontrol_export_app_selection_action">Извези апликации</string>
+    <string name="appcontrol_export_title">Извези апликација</string>
+    <string name="appcontrol_export_description">Зачувајте ги инсталационите датотеки на оваа апликација. Ова не ги вклучува податоците на апликацијата.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d апликација е извезена</item>
+        <item quantity="other">%d апликации се извезени</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Извезување %s</string>
+    <string name="appcontrol_share_list_action">Сподели листа</string>
+    <string name="appcontrol_share_list_title">Мои апликации</string>
+    <string name="appcontrol_share_list_footer">Споделено преку SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Принудно запри апликации</string>
+    <string name="appcontrol_force_stop_action">Принудно запирање</string>
+    <string name="appcontrol_force_stop_confirm_title">Потврди принудно запирање</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Принудно запри %d апликација?</item>
+        <item quantity="other">Принудно запри %d апликации?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d апликација е запрена</item>
+        <item quantity="other">%d апликации се запрени</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Подготовка на автоматизација преку услуга за пристапност</string>
+    <string name="appcontrol_automation_title">Автоматизација на AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Принудно запирање…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Барање копче \"Принудно запирање\" (клучни зборови: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Обид за потврда на претходната акција (клучни зборови: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Архивирање…</string>
+    <string name="appcontrol_automation_progress_find_archive">Барање копче \"Архивирај\" (клучни зборови: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Обновување…</string>
+    <string name="appcontrol_automation_progress_find_restore">Барање копче \"Обнови\" (клучни зборови: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Време на екран: %1$s од %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Последно ажурирање: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Инсталирана на: %s</string>
+</resources>

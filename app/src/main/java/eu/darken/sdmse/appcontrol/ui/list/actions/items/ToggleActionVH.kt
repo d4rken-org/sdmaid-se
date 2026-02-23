@@ -25,12 +25,12 @@ class ToggleActionVH(parent: ViewGroup) :
 
         if (appInfo.pkg.isEnabled) {
             icon.setImageResource(R.drawable.ic_snowflake_24)
-            primary.text = getString(R.string.appcontrol_toggle_app_disable_action)
-            secondary.text = getString(R.string.appcontrol_toggle_app_disable_description)
+            primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_disable_action)
+            secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_disable_description)
         } else {
             icon.setImageResource(R.drawable.ic_snowflake_off_24)
-            primary.text = getString(R.string.appcontrol_toggle_app_enable_action)
-            secondary.text = getString(R.string.appcontrol_toggle_app_enable_description)
+            primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_enable_action)
+            secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_enable_description)
         }
 
         itemView.setOnClickListener { item.onToggle(appInfo) }

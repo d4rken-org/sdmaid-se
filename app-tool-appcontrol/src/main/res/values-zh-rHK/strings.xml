@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">應用控制</string>
+    <string name="appcontrol_explanation_short">安裝在您的裝置上的應用程式。</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">%d 個應用程式已偵測</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">切換應用程式</string>
+    <string name="appcontrol_toggle_app_enable_action">啟用應用程式</string>
+    <string name="appcontrol_toggle_app_disable_action">停用應用程式</string>
+    <string name="appcontrol_toggle_app_enable_description">啟用應用程式即可允許它執行，但如果它存在活動，可能會使它在您的啟動器中可見。</string>
+    <string name="appcontrol_toggle_app_disable_description">停用應用程式會阻止它執行並將其隱藏，但不會遺失資料。</string>
+    <string name="appcontrol_appstore_open_title">在應用程式商店中開啟</string>
+    <string name="appcontrol_appstore_open_description">在其安裝的應用程式商店中開啟這個應用程式。</string>
+    <string name="appcontrol_systemsettings_open_title">顯示設定</string>
+    <string name="appcontrol_systemsettings_open_description">開啟這個應用程式的系統設定。</string>
+    <string name="appcontrol_app_launch_title">啟動應用程式</string>
+    <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
+    <string name="appcontrol_app_forcestop_title">強制停止</string>
+    <string name="appcontrol_app_forcestop_description">停止應用程式。在您開啟或裝置重新啟動之前，防止它自行啟動。</string>
+    <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
+    <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
+    <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
+    <string name="appcontrol_app_exclude_edit_title">編輯排除</string>
+    <string name="appcontrol_app_exclude_edit_description">這個應用程式目前已從一個或多個工具中排除。</string>
+    <string name="appcontrol_tag_user">使用者</string>
+    <string name="appcontrol_tag_active">最近使用</string>
+    <string name="appcontrol_tag_apk_base">安裝包</string>
+    <string name="appcontrol_tag_apk_bundle">套件</string>
+    <string name="appcontrol_tag_system">系統</string>
+    <string name="appcontrol_tag_archived">已封存</string>
+    <string name="appcontrol_tag_uninstalled">僅資料</string>
+    <string name="appcontrol_tag_not_installed">未安裝</string>
+    <string name="appcontrol_tag_enabled">已啟用</string>
+    <string name="appcontrol_tag_disabled">已停用</string>
+    <string name="appcontrol_tag_debug">除錯</string>
+    <string name="appcontrol_progress_enabling_package">正在啟用應用程式</string>
+    <string name="appcontrol_progress_disabling_package">正在停用應用程式</string>
+    <string name="appcontrol_list_filteroptions_label">過濾器選項</string>
+    <string name="appcontrol_list_sortmode_name_label">應用程式名稱</string>
+    <string name="appcontrol_list_sortmode_updated_label">最後更新</string>
+    <string name="appcontrol_list_sortmode_installed_label">首次安裝</string>
+    <string name="appcontrol_list_sortmode_packagename_label">套件名稱</string>
+    <string name="appcontrol_list_sortmode_size_label">大小</string>
+    <string name="appcontrol_list_sortmode_screentime_label">螢幕時間</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">出於性能考慮，應用程序大小為估計值。請使用存儲分析器以獲得更準確的數據。</string>
+    <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">已解除安裝 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_archive_action">封存</string>
+    <string name="appcontrol_archive_selection_action">封存應用程式</string>
+    <string name="appcontrol_archive_description">封存以釋放空間，同時保留應用程式資料以供日後還原。</string>
+    <string name="appcontrol_progress_archiving_app">正在封存應用程式…</string>
+    <string name="appcontrol_archive_confirmation_title">確認封存</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">封存 %d 個應用程式？</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">已封存 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_restore_action">還原</string>
+    <string name="appcontrol_restore_selection_action">還原應用程式</string>
+    <string name="appcontrol_restore_description">將已封存的應用程式還原為完整安裝狀態。應用程式資料會被保留。</string>
+    <string name="appcontrol_progress_restoring_app">正在還原應用程式…</string>
+    <string name="appcontrol_restore_confirmation_title">確認還原</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">還原 %d 個應用程式？</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">已還原 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">應用程式大小</string>
+    <string name="appcontrol_app_sizes_apk_label">應用程式</string>
+    <string name="appcontrol_app_sizes_data_label">數據</string>
+    <string name="appcontrol_app_sizes_cache_label">快取</string>
+    <string name="appcontrol_toggle_confirmation_title">確認操作</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">更改 %d 個應用程式的啟用/禁用狀態？</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">已切換 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">確定大小</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小。</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">確認的活動</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">檢查應用程式是否活動（或最近活動）。</string>
+    <string name="appcontrol_include_multiuser_label">包含其他使用者</string>
+    <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
+    <string name="appcontrol_export_app_selection_action">導出應用程式</string>
+    <string name="appcontrol_export_title">導出應用程式</string>
+    <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。不包含應用程式資料。</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">已匯出 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">正在導出 %s</string>
+    <string name="appcontrol_share_list_action">分享清單</string>
+    <string name="appcontrol_share_list_title">我的應用程式</string>
+    <string name="appcontrol_share_list_footer">透過 SD Maid SE 分享</string>
+    <string name="appcontrol_force_stop_selection_action">強制停止</string>
+    <string name="appcontrol_force_stop_action">強制停止</string>
+    <string name="appcontrol_force_stop_confirm_title">強制停止</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">強制停止 %d 個應用程式？</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">已停止 %d 個應用程式</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">正在準備自動化</string>
+    <string name="appcontrol_automation_title">自動化</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">強制停止 %s</string>
+    <string name="appcontrol_automation_progress_find_force_stop">尋找「強制停止」按鈕（關鍵字：%s）</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前動作（關鍵字：%s）</string>
+    <string name="appcontrol_automation_subtitle_archiving">正在封存…</string>
+    <string name="appcontrol_automation_progress_find_archive">尋找「封存」按鈕（關鍵字：%s）</string>
+    <string name="appcontrol_automation_subtitle_restoring">正在還原…</string>
+    <string name="appcontrol_automation_progress_find_restore">尋找「還原」按鈕（關鍵字：%s）</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%2$s 以來 %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
+    <string name="appcontrol_item_installedat_x_label">安裝日期：%s</string>
+</resources>

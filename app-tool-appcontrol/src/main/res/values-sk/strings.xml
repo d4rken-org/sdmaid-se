@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">Kontrola aplikácií</string>
+    <string name="appcontrol_explanation_short">Aplikácie nainštalované vo vašom zariadení.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d aplikácia zistená</item>
+        <item quantity="few">%d aplikácie zistené</item>
+        <item quantity="many">%d aplikácií zistených</item>
+        <item quantity="other">%d aplikácií zistených</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Prepnúť aplikácie</string>
+    <string name="appcontrol_toggle_app_enable_action">Povoliť aplikáciu</string>
+    <string name="appcontrol_toggle_app_disable_action">Zakázať aplikáciu</string>
+    <string name="appcontrol_toggle_app_enable_description">Povolenie aplikácie umožní jej spustenie a môže sa stať viditeľnou v spúšťači, ak má nejakú aktivitu.</string>
+    <string name="appcontrol_toggle_app_disable_description">Zakázanie aplikácie zabráni jej spusteniu a skryje ju v ponukách. Nedochádza k strate údajov.</string>
+    <string name="appcontrol_appstore_open_title">Otvoriť v obchode s aplikáciami</string>
+    <string name="appcontrol_appstore_open_description">Otvorte túto aplikáciu v obchode s aplikáciami, z ktorého bola nainštalovaná.</string>
+    <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
+    <string name="appcontrol_systemsettings_open_description">Otvorte systémové nastavenia zariadenia pre túto aplikáciu.</string>
+    <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
+    <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
+    <string name="appcontrol_app_forcestop_title">Vynútiť zastavenie</string>
+    <string name="appcontrol_app_forcestop_description">Zastavte aplikáciu. Zabráňte jej samovoľnému spusteniu, kým ju neotvoríte alebo kým sa zariadenie nereštartuje.</string>
+    <string name="appcontrol_app_uninstall_description">Odinštalujte túto aplikáciu zo svojho zariadenia.</string>
+    <string name="appcontrol_app_exclude_add_title">Vylúčiť aplikáciu</string>
+    <string name="appcontrol_app_exclude_add_description">Vylúčte túto aplikáciu z iných operácií v SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Upraviť vylúčenie</string>
+    <string name="appcontrol_app_exclude_edit_description">Táto aplikácia je momentálne vylúčená z jedného alebo viacerých nástrojov.</string>
+    <string name="appcontrol_tag_user">Užívateľ</string>
+    <string name="appcontrol_tag_active">Nedávno aktívne</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Balík</string>
+    <string name="appcontrol_tag_system">Systém</string>
+    <string name="appcontrol_tag_archived">Archivované</string>
+    <string name="appcontrol_tag_uninstalled">Iba údaje</string>
+    <string name="appcontrol_tag_not_installed">Nie je nainštalovaná</string>
+    <string name="appcontrol_tag_enabled">Povolené</string>
+    <string name="appcontrol_tag_disabled">Zakázané</string>
+    <string name="appcontrol_tag_debug">Ladenie</string>
+    <string name="appcontrol_progress_enabling_package">Aktivácia aplikácie</string>
+    <string name="appcontrol_progress_disabling_package">Deaktivácia aplikácie</string>
+    <string name="appcontrol_list_filteroptions_label">Možnosti filtrovania</string>
+    <string name="appcontrol_list_sortmode_name_label">Názov aplikácie</string>
+    <string name="appcontrol_list_sortmode_updated_label">Naposledy aktualizované</string>
+    <string name="appcontrol_list_sortmode_installed_label">Prvá inštalácia</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Názov balíka</string>
+    <string name="appcontrol_list_sortmode_size_label">Veľkosť</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Čas obrazovky</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Veľkosti aplikácií sú odhadované z dôvodu výkonu. Pre presnejšie údaje použite nástroj Analyzátor úložiska.</string>
+    <string name="appcontrol_progress_uninstalling_app">Odinštaluje sa</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikácia bola odinštalovaná</item>
+        <item quantity="few">%d aplikácie boli odinštalované</item>
+        <item quantity="many">%d aplikácií bolo odinštalovaných</item>
+        <item quantity="other">%d aplikácií bolo odinštalovaných</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archivovať</string>
+    <string name="appcontrol_archive_selection_action">Archivovať aplikácie</string>
+    <string name="appcontrol_archive_description">Archivujte, aby ste uvoľnili miesto a zároveň zachovali údaje aplikácie na neskoršie obnovenie.</string>
+    <string name="appcontrol_progress_archiving_app">Archivácia aplikácie…</string>
+    <string name="appcontrol_archive_confirmation_title">Potvrdiť archiváciu</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archivovať %d aplikáciu?</item>
+        <item quantity="few">Archivovať %d aplikácie?</item>
+        <item quantity="many">Archivovať %d aplikácií?</item>
+        <item quantity="other">Archivovať %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplikácia archivovaná</item>
+        <item quantity="few">%d aplikácie archivované</item>
+        <item quantity="many">%d aplikácií archivovaných</item>
+        <item quantity="other">%d aplikácií archivovaných</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Obnoviť</string>
+    <string name="appcontrol_restore_selection_action">Obnoviť aplikácie</string>
+    <string name="appcontrol_restore_description">Obnovte archivovanú aplikáciu do plne nainštalovaného stavu. Údaje aplikácie sú zachované.</string>
+    <string name="appcontrol_progress_restoring_app">Obnovovanie aplikácie…</string>
+    <string name="appcontrol_restore_confirmation_title">Potvrdiť obnovenie</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Obnoviť %d aplikáciu?</item>
+        <item quantity="few">Obnoviť %d aplikácie?</item>
+        <item quantity="many">Obnoviť %d aplikácií?</item>
+        <item quantity="other">Obnoviť %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplikácia obnovená</item>
+        <item quantity="few">%d aplikácie obnovené</item>
+        <item quantity="many">%d aplikácií obnovených</item>
+        <item quantity="other">%d aplikácií obnovených</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Veľkosť aplikácie</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplikácia</string>
+    <string name="appcontrol_app_sizes_data_label">Dáta</string>
+    <string name="appcontrol_app_sizes_cache_label">Vyrovnávacia pamäť</string>
+    <string name="appcontrol_toggle_confirmation_title">Potvrdiť akciu</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Zmeniť povolený/zakázaný stav pre %d aplikáciu?</item>
+        <item quantity="few">Zmeniť povolený/zakázaný stav pre %d aplikácie?</item>
+        <item quantity="many">Zmeniť povolený/zakázaný stav pre %d aplikácií?</item>
+        <item quantity="other">Zmeniť povolený/zakázaný stav pre %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikácia bola prepnutá</item>
+        <item quantity="few">%d aplikácie boli prepnuté</item>
+        <item quantity="many">%d aplikácií bolo prepnutých</item>
+        <item quantity="other">%d aplikácií bolo prepnutých</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Určte veľkosti</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Získajte hrubý odhad veľkosti každej aplikácie.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Určiť aktivitu</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Zistite, či je aplikácia (alebo nedávno bola) aktívna.</string>
+    <string name="appcontrol_include_multiuser_label">Zahrnúť ďalších používateľov</string>
+    <string name="appcontrol_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
+    <string name="appcontrol_export_app_selection_action">Exportovať aplikácie</string>
+    <string name="appcontrol_export_title">Exportovať aplikáciu</string>
+    <string name="appcontrol_export_description">Uložte inštalačné súbory tejto aplikácie. Nezahŕňa to údaje aplikácie.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikácia bola exportovaná</item>
+        <item quantity="few">%d aplikácie boli exportované</item>
+        <item quantity="many">%d aplikácií bolo exportovaných</item>
+        <item quantity="other">%d aplikácií bolo exportovaných</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Exportovanie %s</string>
+    <string name="appcontrol_share_list_action">Zdieľať zoznam</string>
+    <string name="appcontrol_share_list_title">Moje aplikácie</string>
+    <string name="appcontrol_share_list_footer">Zdieľané cez SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Vynútiť zastavenie aplikácií</string>
+    <string name="appcontrol_force_stop_action">Vynútiť zastavenie</string>
+    <string name="appcontrol_force_stop_confirm_title">Potvrďte vynútené zastavenie</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Vynútiť zastavenie %d aplikácie?</item>
+        <item quantity="few">Vynútiť zastavenie %d aplikácií?</item>
+        <item quantity="many">Vynútiť zastavenie %d aplikácií?</item>
+        <item quantity="other">Vynútiť zastavenie %d aplikácií?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikácia bola zastavená</item>
+        <item quantity="few">%d aplikácie boli zastavené</item>
+        <item quantity="many">%d aplikácií bolo zastavených</item>
+        <item quantity="other">%d aplikácií bolo zastavených</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>
+    <string name="appcontrol_automation_title">Automatizácia Správcu aplikácií</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Vynútené zastavenie…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Hľadá sa tlačidlo „Vynútiť zastavenie“ (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Pokúšam sa potvrdiť predchádzajúcu akciu (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archivácia…</string>
+    <string name="appcontrol_automation_progress_find_archive">Hľadá sa tlačidlo „Archivovať\" (kľúčové slová: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Obnovovanie…</string>
+    <string name="appcontrol_automation_progress_find_restore">Hľadá sa tlačidlo „Obnoviť\" (kľúčové slová: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Čas obrazovky: %1$s od %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Naposledy aktualizované: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Nainštalované: %s</string>
+</resources>

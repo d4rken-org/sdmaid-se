@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">აპები, რომლებიც დაინსტალირებულია თქვენს მოწყობილობაზე.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d აპი ნაპოვნია</item>
+        <item quantity="other">%d აპი ნაპოვნია</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">აპების გადართვა</string>
+    <string name="appcontrol_toggle_app_enable_action">აპის ჩართვა</string>
+    <string name="appcontrol_toggle_app_disable_action">აპის გათიშვა</string>
+    <string name="appcontrol_toggle_app_enable_description">აპის ჩართვა საშუალებას აძლევს გაიშვას და შეიძლება ხილვადი გახადოს თქვენს გამშვებში, თუ აქვს აქტივობა.</string>
+    <string name="appcontrol_toggle_app_disable_description">აპის გათიშვა ხელს უშლის მის გაშვებას და მალავს მენიუებიდან. მონაცემების დაკარგვა არ ხდება.</string>
+    <string name="appcontrol_appstore_open_title">აპ მაღაზიაში გახსნა</string>
+    <string name="appcontrol_appstore_open_description">ამ აპის გახსნა აპ მაღაზიაში, საიდანაც ის დაინსტალირდა.</string>
+    <string name="appcontrol_systemsettings_open_title">პარამეტრების ჩვენება</string>
+    <string name="appcontrol_systemsettings_open_description">ამ აპის სისტემური პარამეტრების გახსნა თქვენს მოწყობილობაზე.</string>
+    <string name="appcontrol_app_launch_title">აპის გაშვება</string>
+    <string name="appcontrol_app_launch_description">ამ აპის ძირითადი აქტივობის გაშვება.</string>
+    <string name="appcontrol_app_forcestop_title">იძულებითი გაჩერება</string>
+    <string name="appcontrol_app_forcestop_description">აპის გაჩერება. აპი ვერ შეძლებს თავისით გაშვებას, სანამ თქვენ არ გახსნით ან მოწყობილობა არ გადაიტვირთება.</string>
+    <string name="appcontrol_app_uninstall_description">ამ აპის წაშლა თქვენი მოწყობილობიდან.</string>
+    <string name="appcontrol_app_exclude_add_title">აპის გამორიცხვა</string>
+    <string name="appcontrol_app_exclude_add_description">გამორიცხეთ ეს აპი SD Maid-ის სხვა ოპერაციებიდან.</string>
+    <string name="appcontrol_app_exclude_edit_title">გამორიცხვის რედაქტირება</string>
+    <string name="appcontrol_app_exclude_edit_description">ეს აპი ამჟამად გამორიცხულია ერთი ან მეტი ხელსაწყოდან.</string>
+    <string name="appcontrol_tag_user">მომხმარებელი</string>
+    <string name="appcontrol_tag_active">ახლახანს აქტიური</string>
+    <string name="appcontrol_tag_system">სისტემა</string>
+    <string name="appcontrol_tag_archived">დაარქივებული</string>
+    <string name="appcontrol_tag_uninstalled">მხოლოდ მონაცემები</string>
+    <string name="appcontrol_tag_not_installed">არ არის დაინსტალირებული</string>
+    <string name="appcontrol_tag_enabled">ჩართული</string>
+    <string name="appcontrol_tag_disabled">გათიშული</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_debug">გამართვა</string>
+    <string name="appcontrol_progress_enabling_package">აპის ჩართვა</string>
+    <string name="appcontrol_progress_disabling_package">აპის გათიშვა</string>
+    <string name="appcontrol_list_filteroptions_label">ფილტრის ოფციები</string>
+    <string name="appcontrol_list_sortmode_name_label">აპის სახელი</string>
+    <string name="appcontrol_list_sortmode_updated_label">ბოლოს განახლებული</string>
+    <string name="appcontrol_list_sortmode_installed_label">პირველად დაინსტალირებული</string>
+    <string name="appcontrol_list_sortmode_packagename_label">პაკეტის სახელი</string>
+    <string name="appcontrol_list_sortmode_size_label">ზომა</string>
+    <string name="appcontrol_list_sortmode_screentime_label">ეკრანის დრო</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">აპების ზომები შეფასებულია წარმადობის მიზნებისთვის. გამოიყენეთ StorageAnalyzer ხელსაწყო უფრო ზუსტი მონაცემებისთვის.</string>
+    <string name="appcontrol_progress_uninstalling_app">აპის წაშლა</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d აპი წაშლილია</item>
+        <item quantity="other">%d აპი წაშლილია</item>
+    </plurals>
+    <string name="appcontrol_archive_action">არქივირება</string>
+    <string name="appcontrol_archive_selection_action">აპების არქივირება</string>
+    <string name="appcontrol_archive_description">არქივირება ადგილის გასათავისუფლებლად, აპის მონაცემების შენარჩუნებით მოგვიანებით აღსადგენად.</string>
+    <string name="appcontrol_progress_archiving_app">აპის არქივირება…</string>
+    <string name="appcontrol_archive_confirmation_title">არქივირების დადასტურება</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d აპის არქივირება?</item>
+        <item quantity="other">%d აპის არქივირება?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d აპი არქივირებულია</item>
+        <item quantity="other">%d აპი არქივირებულია</item>
+    </plurals>
+    <string name="appcontrol_restore_action">აღდგენა</string>
+    <string name="appcontrol_restore_selection_action">აპების აღდგენა</string>
+    <string name="appcontrol_restore_description">არქივირებული აპის აღდგენა სრულად დაინსტალირებულ მდგომარეობაში. აპის მონაცემები შენარჩუნებულია.</string>
+    <string name="appcontrol_progress_restoring_app">აპის აღდგენა…</string>
+    <string name="appcontrol_restore_confirmation_title">აღდგენის დადასტურება</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d აპის აღდგენა?</item>
+        <item quantity="other">%d აპის აღდგენა?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d აპი აღდგენილია</item>
+        <item quantity="other">%d აპი აღდგენილია</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">აპის ზომა</string>
+    <string name="appcontrol_app_sizes_apk_label">აპი</string>
+    <string name="appcontrol_app_sizes_data_label">მონაცემები</string>
+    <string name="appcontrol_app_sizes_cache_label">ქეში</string>
+    <string name="appcontrol_toggle_confirmation_title">მოქმედების დადასტურება</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">გადავრთოთ %d აპი?</item>
+        <item quantity="other">გადავრთოთ %d აპი?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d აპი გადართულია</item>
+        <item quantity="other">%d აპი გადართულია</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">ზომების განსაზღვრა</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">თითოეული აპის ზომის დაახლოებითი შეფასება.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">აქტივობის განსაზღვრა</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">გაიგეთ აქტიურია (ან ახლახანს იყო აქტიური) აპი თუ არა.</string>
+    <string name="appcontrol_include_multiuser_label">სხვა მომხმარებლების ჩართვა</string>
+    <string name="appcontrol_include_multiuser_summary">ამ მოწყობილობაზე სხვა მომხმარებლის პროფილების აპების ჩართვა.</string>
+    <string name="appcontrol_export_app_selection_action">აპების ექსპორტი</string>
+    <string name="appcontrol_export_title">აპის ექსპორტი</string>
+    <string name="appcontrol_export_description">ამ აპის ინსტალაციის ფაილების შენახვა. აპის მონაცემებს არ მოიცავს.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d აპი ექსპორტირებულია</item>
+        <item quantity="other">%d აპი ექსპორტირებულია</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s-ის ექსპორტი</string>
+    <string name="appcontrol_share_list_action">სიის გაზიარება</string>
+    <string name="appcontrol_share_list_title">ჩემი აპები</string>
+    <string name="appcontrol_share_list_footer">გაზიარებულია SD Maid SE-ით</string>
+    <string name="appcontrol_force_stop_selection_action">აპების იძულებითი გაჩერება</string>
+    <string name="appcontrol_force_stop_action">იძულებითი გაჩერება</string>
+    <string name="appcontrol_force_stop_confirm_title">იძულებითი გაჩერების დადასტურება</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">იძულებით გავაჩეროთ %d აპი?</item>
+        <item quantity="other">იძულებით გავაჩეროთ %d აპი?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d აპი იძულებით გაჩერდა</item>
+        <item quantity="other">%d აპი იძულებით გაჩერდა</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">ავტომატიზაციის მომზადება ხელმისაწვდომობის სერვისის საშუალებით</string>
+    <string name="appcontrol_automation_title">AppControl ავტომატიზაცია</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">იძულებითი გაჩერება...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"იძულებითი გაჩერების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">არქივირდება…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"არქივირების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">აღდგება…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"აღდგენის\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">ეკრანის დრო: %1$s %2$s-დან</string>
+    <string name="appcontrol_item_lastupdate_x_label">ბოლოს განახლდა: %s</string>
+    <string name="appcontrol_item_installedat_x_label">დაინსტალირდა: %s</string>
+</resources>

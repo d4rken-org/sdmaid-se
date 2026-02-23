@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">ตัวควบคุมแอพ</string>
+    <string name="appcontrol_explanation_short">แอพที่ติดตั้งในอุปกรณ์ของคุณ</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">ตรวจพบแอพ %d แอพ</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">สลับการเลือกแอพ</string>
+    <string name="appcontrol_toggle_app_enable_action">เปิดใช้งานแอพ</string>
+    <string name="appcontrol_toggle_app_disable_action">ปิดใช้งานแอพ</string>
+    <string name="appcontrol_toggle_app_enable_description">การเปิดใช้งานแอพจะทำให้แอพสามารถทำงานได้ และอาจทำให้มองเห็นในเมนูได้หากมีกิจกรรม</string>
+    <string name="appcontrol_toggle_app_disable_description">การปิดใช้งานแอพจะป้องกันไม่ให้แอพทำงานและซ่อนจากเมนู ไม่มีการสูญเสียข้อมูล</string>
+    <string name="appcontrol_appstore_open_title">เปิดในร้านแอพ</string>
+    <string name="appcontrol_appstore_open_description">เปิดแอพนี้ในร้านแอพที่ดาวน์โหลดมา</string>
+    <string name="appcontrol_systemsettings_open_title">แสดงการตั้งค่า</string>
+    <string name="appcontrol_systemsettings_open_description">เปิดการตั้งค่าระบบของอุปกรณ์สำหรับแอพนี้</string>
+    <string name="appcontrol_app_launch_title">เปิดแอพ</string>
+    <string name="appcontrol_app_launch_description">เปิดกิจกรรมหลักของแอพนี้</string>
+    <string name="appcontrol_app_forcestop_title">บังคับให้หยุด</string>
+    <string name="appcontrol_app_uninstall_description">ถอนการติดตั้งแอพนี้ออกจากอุปกรณ์</string>
+    <string name="appcontrol_app_exclude_add_title">ยกเว้นแอพ</string>
+    <string name="appcontrol_app_exclude_add_description">ยกเว้นแอพนี้จากการดำเนินการอื่นๆ ใน SD Maid</string>
+    <string name="appcontrol_app_exclude_edit_title">แก้ไขการยกเว้น</string>
+    <string name="appcontrol_app_exclude_edit_description">แอพนี้ถูกยกเว้นจากเครื่องมือหนึ่งหรือมากกว่า</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_user">ผู้ใช้</string>
+    <string name="appcontrol_tag_active">ใช้งานเมื่อเร็วๆ นี้</string>
+    <string name="appcontrol_tag_apk_bundle">แบนดิล</string>
+    <string name="appcontrol_tag_system">ระบบ</string>
+    <string name="appcontrol_tag_archived">ถูกเก็บไว้</string>
+    <string name="appcontrol_tag_uninstalled">ข้อมูลเท่านั้น</string>
+    <string name="appcontrol_tag_not_installed">ไม่ได้ติดตั้ง</string>
+    <string name="appcontrol_tag_enabled">เปิดใช้งาน</string>
+    <string name="appcontrol_tag_disabled">ปิดใช้งาน</string>
+    <string name="appcontrol_tag_debug">ดีบัก</string>
+    <string name="appcontrol_progress_enabling_package">กำลังเปิดใช้งานแอพ</string>
+    <string name="appcontrol_progress_disabling_package">กำลังปิดใช้งานแอพ</string>
+    <string name="appcontrol_list_filteroptions_label">ตัวเลือกการกรอง</string>
+    <string name="appcontrol_list_sortmode_name_label">ชื่อแอพ</string>
+    <string name="appcontrol_list_sortmode_updated_label">อัปเดตล่าสุด</string>
+    <string name="appcontrol_list_sortmode_installed_label">ติดตั้งครั้งแรก</string>
+    <string name="appcontrol_list_sortmode_packagename_label">ชื่อแพกเกจ</string>
+    <string name="appcontrol_list_sortmode_size_label">ขนาด</string>
+    <string name="appcontrol_list_sortmode_screentime_label">เวลาใช้งานหน้าจอ</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">ขนาดแอพเป็นการประมาณเพื่อประสิทธิภาพการทำงาน ใช้เครื่องมือ StorageAnalyzer สำหรับข้อมูลที่แม่นยำกว่า</string>
+    <string name="appcontrol_progress_uninstalling_app">กำลังถอนการติดตั้งแอพ</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">ถอนการติดตั้งแอพ %d แอพแล้ว</item>
+    </plurals>
+    <string name="appcontrol_archive_action">เก็บถาวร</string>
+    <string name="appcontrol_archive_selection_action">เก็บถาวรแอป</string>
+    <string name="appcontrol_archive_description">เก็บถาวรเพื่อเพิ่มพื้นที่ขณะเก็บข้อมูลแอปไว้สำหรับกู้คืนภายหลัง</string>
+    <string name="appcontrol_progress_archiving_app">กำลังเก็บถาวรแอป…</string>
+    <string name="appcontrol_archive_confirmation_title">ยืนยันการเก็บถาวร</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">เก็บถาวร %d แอป?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">เก็บถาวร %d แอปแล้ว</item>
+    </plurals>
+    <string name="appcontrol_restore_action">กู้คืน</string>
+    <string name="appcontrol_restore_selection_action">กู้คืนแอป</string>
+    <string name="appcontrol_restore_description">กู้คืนแอปที่เก็บถาวรกลับสู่สถานะติดตั้งเต็ม ข้อมูลแอปจะถูกเก็บรักษา</string>
+    <string name="appcontrol_progress_restoring_app">กำลังกู้คืนแอป…</string>
+    <string name="appcontrol_restore_confirmation_title">ยืนยันการกู้คืน</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">กู้คืน %d แอป?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">กู้คืน %d แอปแล้ว</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ขนาดแอพ</string>
+    <string name="appcontrol_app_sizes_apk_label">แอพ</string>
+    <string name="appcontrol_app_sizes_data_label">ข้อมูล</string>
+    <string name="appcontrol_app_sizes_cache_label">แคช</string>
+    <string name="appcontrol_toggle_confirmation_title">ยืนยันการดำเนินการ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">เปลี่ยนสถานะเปิด/ปิดใช้งานของแอพ %d แอพ?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">สลับสถานะแอพ %d แอพแล้ว</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">กำหนดขนาด</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ได้การประมาณโครงขนาดของแต่ละแอพ</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">ตรวจสอบการใช้งาน</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">หาว่าแอพกำลังทำงานอยู่ (หรือเพิ่งทำงานเมื่อเร็วๆ นี้)</string>
+    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้อื่น</string>
+    <string name="appcontrol_include_multiuser_summary">รวมแอปจากโปรไฟล์ผู้ใช้อื่นบนอุปกรณ์นี้</string>
+    <string name="appcontrol_export_app_selection_action">ส่งออกแอพ</string>
+    <string name="appcontrol_export_title">ส่งออกแอพ</string>
+    <string name="appcontrol_export_description">บันทึกไฟล์ติดตั้งของแอปนี้ ไม่รวมข้อมูลแอป</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">ส่งออกแอพ %d แอพแล้ว</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">กำลังส่งออก %s</string>
+    <string name="appcontrol_share_list_action">แชร์รายการ</string>
+    <string name="appcontrol_share_list_title">แอปของฉัน</string>
+    <string name="appcontrol_share_list_footer">แชร์ผ่าน SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">บังคับให้หยุดแอพ</string>
+    <string name="appcontrol_force_stop_action">บังคับให้หยุด</string>
+    <string name="appcontrol_force_stop_confirm_title">ยืนยันการบังคับให้หยุด</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">บังคับให้หยุดแอพ %d แอพ?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">หยุดการทำงานแอพ %d แอพแล้ว</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
+    <string name="appcontrol_automation_title">การควบคุมแอพอัตโนมัติ</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">กำลังบังคับให้หยุด...</string>
+    <string name="appcontrol_automation_progress_find_force_stop">กำลังมองหาปุ่ม \"บังคับให้หยุด\" (คำสำคัญ: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">กำลังเก็บถาวร…</string>
+    <string name="appcontrol_automation_progress_find_archive">กำลังมองหาปุ่ม \"เก็บถาวร\" (คำสำคัญ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">กำลังกู้คืน…</string>
+    <string name="appcontrol_automation_progress_find_restore">กำลังมองหาปุ่ม \"กู้คืน\" (คำสำคัญ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">เวลาใช้งานหน้าจอ: %1$s ตั้งแต่ %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">อัปเดตครั้งล่าสุด: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
+</resources>

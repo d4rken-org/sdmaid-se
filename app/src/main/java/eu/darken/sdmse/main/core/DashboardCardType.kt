@@ -15,7 +15,7 @@ enum class DashboardCardType(
     SYSTEMCLEANER(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name, R.drawable.ic_baseline_view_list_24),
     APPCLEANER(eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name, R.drawable.ic_recycle),
     DEDUPLICATOR(eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name, R.drawable.ic_content_duplicate_24),
-    APPCONTROL(R.string.appcontrol_tool_name, CommonR.drawable.ic_apps),
+    APPCONTROL(eu.darken.sdmse.appcontrol.R.string.appcontrol_tool_name, CommonR.drawable.ic_apps),
     ANALYZER(eu.darken.sdmse.analyzer.R.string.analyzer_tool_name, R.drawable.baseline_data_usage_24),
 SWIPER(eu.darken.sdmse.swiper.R.string.swiper_tool_name, R.drawable.ic_baseline_swipe_24),
     SQUEEZER(eu.darken.sdmse.squeezer.R.string.squeezer_tool_name, R.drawable.ic_image_compress_24),

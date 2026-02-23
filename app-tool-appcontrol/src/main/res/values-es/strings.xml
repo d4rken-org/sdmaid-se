@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">Control de las aplicaciones</string>
+    <string name="appcontrol_explanation_short">Aplicaciones instaladas en tu dispositivo.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">Se ha detectado %d aplicación</item>
+        <item quantity="other">Se han detectado %d aplicaciones</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Alternar las aplicaciones</string>
+    <string name="appcontrol_toggle_app_enable_action">Activar aplicación</string>
+    <string name="appcontrol_toggle_app_disable_action">Desactivar aplicación</string>
+    <string name="appcontrol_toggle_app_enable_description">Activar una aplicación permite que se ejecute y puede hacerla visible en tu lanzador si tiene una actividad.</string>
+    <string name="appcontrol_toggle_app_disable_description">Desactivar una aplicación impide que se ejecute y la oculta de los menús. No hay pérdida de datos.</string>
+    <string name="appcontrol_appstore_open_title">Abrir en la tienda de aplicaciones</string>
+    <string name="appcontrol_appstore_open_description">Abre esta aplicación en la tienda de aplicaciones desde la que fue instalada.</string>
+    <string name="appcontrol_systemsettings_open_title">Mostrar ajustes</string>
+    <string name="appcontrol_systemsettings_open_description">Abre la configuración del sistema de tu dispositivo para esta aplicación.</string>
+    <string name="appcontrol_app_launch_title">Iniciar aplicación</string>
+    <string name="appcontrol_app_launch_description">Iniciar la actividad principal de esta aplicación.</string>
+    <string name="appcontrol_app_forcestop_title">Forzar la detención</string>
+    <string name="appcontrol_app_forcestop_description">Detiene la aplicación. Evita que se inicie sola hasta que la abras o se reinicie el dispositivo.</string>
+    <string name="appcontrol_app_uninstall_description">Desinstalar esta aplicación de tu dispositivo.</string>
+    <string name="appcontrol_app_exclude_add_title">Omitir la aplicación</string>
+    <string name="appcontrol_app_exclude_add_description">Excluye esta aplicación de otras operaciones en SD Maid.</string>
+    <string name="appcontrol_app_exclude_edit_title">Editar excepción</string>
+    <string name="appcontrol_app_exclude_edit_description">Actualmente esta aplicación está excluida de una o más herramientas.</string>
+    <string name="appcontrol_tag_user">Usuario</string>
+    <string name="appcontrol_tag_active">Activo recientemente</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paquete</string>
+    <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_archived">Archivado</string>
+    <string name="appcontrol_tag_uninstalled">Solo datos</string>
+    <string name="appcontrol_tag_not_installed">No instalado</string>
+    <string name="appcontrol_tag_enabled">Activado</string>
+    <string name="appcontrol_tag_disabled">Desactivado</string>
+    <string name="appcontrol_tag_debug">Depuración</string>
+    <string name="appcontrol_progress_enabling_package">Activar aplicación</string>
+    <string name="appcontrol_progress_disabling_package">Desactivar aplicación</string>
+    <string name="appcontrol_list_filteroptions_label">Opciones de filtrado</string>
+    <string name="appcontrol_list_sortmode_name_label">Nombre de aplicación</string>
+    <string name="appcontrol_list_sortmode_updated_label">Última modificación</string>
+    <string name="appcontrol_list_sortmode_installed_label">Primera instalación</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Nombre del paquete</string>
+    <string name="appcontrol_list_sortmode_size_label">Tamaño</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Tiempo de pantalla</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Los tamaños de las aplicaciones se estiman por motivos de rendimiento. Utilice la herramienta StorageAnalyzer para obtener datos más precisos.</string>
+    <string name="appcontrol_progress_uninstalling_app">Desinstalar la aplicación</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplicación desinstalada</item>
+        <item quantity="other">%d aplicaciones desinstaladas</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archivar</string>
+    <string name="appcontrol_archive_selection_action">Archivar aplicaciones</string>
+    <string name="appcontrol_archive_description">Archivar para liberar espacio conservando los datos de la aplicación para restauración posterior.</string>
+    <string name="appcontrol_progress_archiving_app">Archivando aplicación…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirmar archivado</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">¿Archivar %d aplicación?</item>
+        <item quantity="other">¿Archivar %d aplicaciones?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplicación archivada</item>
+        <item quantity="other">%d aplicaciones archivadas</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restaurar</string>
+    <string name="appcontrol_restore_selection_action">Restaurar aplicaciones</string>
+    <string name="appcontrol_restore_description">Restaurar la aplicación archivada a un estado completamente instalado. Los datos de la aplicación se conservan.</string>
+    <string name="appcontrol_progress_restoring_app">Restaurando aplicación…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirmar restauración</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">¿Restaurar %d aplicación?</item>
+        <item quantity="other">¿Restaurar %d aplicaciones?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplicación restaurada</item>
+        <item quantity="other">%d aplicaciones restauradas</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Tamaño de la aplicación</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplicación</string>
+    <string name="appcontrol_app_sizes_data_label">Datos</string>
+    <string name="appcontrol_app_sizes_cache_label">Caché</string>
+    <string name="appcontrol_toggle_confirmation_title">Confirmar la acción</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">¿Cambiar el estado habilitado/deshabilitado para %d aplicación?</item>
+        <item quantity="other">¿Cambiar los estados habilitados/deshabilitados para %d aplicaciones?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplicación desactivada</item>
+        <item quantity="other">%d aplicaciones desactivadas</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Determinar los tamaños</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Obtenga una estimación aproximada del tamaño de cada aplicación.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Determinar la actividad</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Descubra si una aplicación está (o estuvo recientemente) activa.</string>
+    <string name="appcontrol_include_multiuser_label">Incluir a otros usuarios</string>
+    <string name="appcontrol_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario usados en este dispositivo.</string>
+    <string name="appcontrol_export_app_selection_action">Exportar las aplicaciones</string>
+    <string name="appcontrol_export_title">Exportar la aplicación</string>
+    <string name="appcontrol_export_description">Guarda los archivos de instalación de esta aplicación. Esto no incluye los datos de la misma.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">Se ha exportado %d aplicación</item>
+        <item quantity="other">Se han exportado %d aplicaciones</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Exportando %s</string>
+    <string name="appcontrol_share_list_action">Compartir lista</string>
+    <string name="appcontrol_share_list_title">Mis aplicaciones</string>
+    <string name="appcontrol_share_list_footer">Compartido a través de SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Forzar la detención de las aplicaciones</string>
+    <string name="appcontrol_force_stop_action">Forzar la detención</string>
+    <string name="appcontrol_force_stop_confirm_title">Confirmar la detención a la fuerza</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">¿Forzar la parada de la aplicación %d?</item>
+        <item quantity="other">¿Forzar las paradas de las aplicaciones %d?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">Se ha detenido %d aplicación</item>
+        <item quantity="other">Se han detenido %d aplicaciones</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Preparando la automatización mediante el servicio de accesibilidad</string>
+    <string name="appcontrol_automation_title">Automatización del control de las aplicaciones</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Forzando la detención…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Buscando el botón \"Forzar la detención\" (palabras clave: %s)</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archivando…</string>
+    <string name="appcontrol_automation_progress_find_archive">Buscando botón \"Archivar\" (palabras clave: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restaurando…</string>
+    <string name="appcontrol_automation_progress_find_restore">Buscando botón \"Restaurar\" (palabras clave: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Tiempo de pantalla: %1$s desde %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalado en: %s</string>
+</resources>

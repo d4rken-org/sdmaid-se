@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="appcontrol_explanation_short">ئەپەکانی دامەزراوە لەسەر ئامرازەکەت.</string>
+    <string name="appcontrol_toggle_app_enable_action">ئەپ چالاک بکە</string>
+    <string name="appcontrol_toggle_app_disable_action">ئەپ ناچالاک بکە</string>
+    <string name="appcontrol_appstore_open_title">لە فرۆشگا بکەرەوە</string>
+    <string name="appcontrol_systemsettings_open_title">ڕێکخستنەکان نیشان بدە</string>
+    <string name="appcontrol_app_launch_title">ئەپ بکەرەوە</string>
+    <string name="appcontrol_app_forcestop_title">بە زۆر ڕابگرە</string>
+    <string name="appcontrol_tag_user">بەکارهێنەر</string>
+    <string name="appcontrol_tag_system">سیستەم</string>
+    <string name="appcontrol_tag_enabled">چالاک</string>
+    <string name="appcontrol_tag_disabled">ناچالاک</string>
+    <string name="appcontrol_list_sortmode_name_label">ناوی ئەپ</string>
+    <string name="appcontrol_list_sortmode_updated_label">دوایین نوێکاری</string>
+    <string name="appcontrol_list_sortmode_installed_label">یەکەم دامەزراندن</string>
+    <string name="appcontrol_list_sortmode_packagename_label">ناوی پاکێج</string>
+    <string name="appcontrol_list_sortmode_size_label">قەبارە</string>
+    <string name="appcontrol_archive_action">ئەرشیف</string>
+    <string name="appcontrol_restore_action">گەڕاندنەوە</string>
+    <string name="appcontrol_export_title">ئەپ هەناردە بکە</string>
+    <string name="appcontrol_share_list_action">لیست هاوبەش بکە</string>
+    <string name="appcontrol_force_stop_action">بە زۆر ڕابگرە</string>
+</resources>

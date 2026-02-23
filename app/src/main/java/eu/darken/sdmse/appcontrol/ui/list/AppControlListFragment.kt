@@ -363,15 +363,15 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     .show()
 
                 AppControlListEvents.ShowSizeSortCaveat -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.appcontrol_list_sortmode_size_caveat_msg)
+                    setMessage(eu.darken.sdmse.appcontrol.R.string.appcontrol_list_sortmode_size_caveat_msg)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_gotit_action) { _, _ ->
                         vm.ackSizeSortCaveat()
                     }
                 }.show()
 
                 is AppControlListEvents.ConfirmToggle -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.appcontrol_toggle_confirmation_title)
-                    setMessage(getQuantityString2(R.plurals.appcontrol_toggle_confirmation_message_x, event.items.size))
+                    setTitle(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_confirmation_title)
+                    setMessage(getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_toggle_confirmation_message_x, event.items.size))
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_continue) { _, _ ->
                         vm.toggle(event.items, confirmed = true)
                         tracker.clearSelection()
@@ -385,11 +385,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }
 
                 is AppControlListEvents.ConfirmForceStop -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.appcontrol_force_stop_confirm_title)
+                    setTitle(eu.darken.sdmse.appcontrol.R.string.appcontrol_force_stop_confirm_title)
                     setMessage(
-                        getQuantityString2(R.plurals.appcontrol_force_stop_confirmation_message_x, event.items.size)
+                        getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_force_stop_confirmation_message_x, event.items.size)
                     )
-                    setPositiveButton(R.string.appcontrol_force_stop_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.appcontrol.R.string.appcontrol_force_stop_action) { _, _ ->
                         vm.forceStop(event.items, confirmed = true)
                         tracker.clearSelection()
                     }
@@ -397,11 +397,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }.show()
 
                 is AppControlListEvents.ConfirmArchive -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.appcontrol_archive_confirmation_title)
+                    setTitle(eu.darken.sdmse.appcontrol.R.string.appcontrol_archive_confirmation_title)
                     setMessage(
-                        getQuantityString2(R.plurals.appcontrol_archive_confirmation_x, event.items.size)
+                        getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_archive_confirmation_x, event.items.size)
                     )
-                    setPositiveButton(R.string.appcontrol_archive_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.appcontrol.R.string.appcontrol_archive_action) { _, _ ->
                         vm.archive(event.items, confirmed = true)
                         tracker.clearSelection()
                     }
@@ -409,11 +409,11 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 }.show()
 
                 is AppControlListEvents.ConfirmRestore -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.appcontrol_restore_confirmation_title)
+                    setTitle(eu.darken.sdmse.appcontrol.R.string.appcontrol_restore_confirmation_title)
                     setMessage(
-                        getQuantityString2(R.plurals.appcontrol_restore_confirmation_x, event.items.size)
+                        getQuantityString2(eu.darken.sdmse.appcontrol.R.plurals.appcontrol_restore_confirmation_x, event.items.size)
                     )
-                    setPositiveButton(R.string.appcontrol_restore_action) { _, _ ->
+                    setPositiveButton(eu.darken.sdmse.appcontrol.R.string.appcontrol_restore_action) { _, _ ->
                         vm.restore(event.items, confirmed = true)
                         tracker.clearSelection()
                     }
