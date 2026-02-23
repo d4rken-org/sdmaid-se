@@ -153,7 +153,6 @@
     <string name="settings_category_tools_label">Хэрэгслүүд</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
-    <string name="squeezer_explanation_short">Хадгалах зай хэмнэхийн тулд зургийг шахах.</string>
     <string name="appcontrol_explanation_short">Таны төхөөрөмж дээр суулгагдсан аппликешнүүд.</string>
     <string name="appcontrol_toggle_app_enable_action">Апп идэвхжүүлэх</string>
     <string name="appcontrol_toggle_app_disable_action">Апп идэвхгүй болгох</string>

@@ -213,8 +213,6 @@
     <string name="swiper_stamp_undo_2">Lura!</string>
     <string name="swiper_stamp_undo_3">Oops!</string>
     <string name="swiper_stamp_undo_4">Stenna!</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">Ikkompressja stampi biex tiffranka spazju.</string>
     <string name="appcontrol_toggle_app_enable_action">Attiva app</string>
     <string name="appcontrol_toggle_app_disable_action">Disattiva app</string>
     <string name="appcontrol_appstore_open_title">Iftaħ fil-ħanut</string>

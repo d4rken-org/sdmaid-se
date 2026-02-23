@@ -36,9 +36,9 @@ class SqueezerSettingsFragment : PreferenceFragment2() {
 
             historyPref.summary = if (state.historyCount > 0) {
                 val (formatted, _) = ByteFormatter.formatSize(requireContext(), state.historyDatabaseSize)
-                resources.getQuantityString(R.plurals.squeezer_history_summary, state.historyCount, state.historyCount, formatted)
+                resources.getQuantityString(eu.darken.sdmse.squeezer.R.plurals.squeezer_history_summary, state.historyCount, state.historyCount, formatted)
             } else {
-                getString(R.string.squeezer_history_empty)
+                getString(eu.darken.sdmse.squeezer.R.string.squeezer_history_empty)
             }
         }
         super.onViewCreated(view, savedInstanceState)
@@ -49,8 +49,8 @@ class SqueezerSettingsFragment : PreferenceFragment2() {
 
         historyPref.setOnPreferenceClickListener {
             MaterialAlertDialogBuilder(requireContext()).apply {
-                setTitle(R.string.squeezer_history_clear_title)
-                setMessage(R.string.squeezer_history_clear_message)
+                setTitle(eu.darken.sdmse.squeezer.R.string.squeezer_history_clear_title)
+                setMessage(eu.darken.sdmse.squeezer.R.string.squeezer_history_clear_message)
                 setPositiveButton(eu.darken.sdmse.common.R.string.general_reset_action) { _, _ ->
                     vm.clearHistory()
                 }

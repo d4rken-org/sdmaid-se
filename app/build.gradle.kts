@@ -210,6 +210,7 @@ dependencies {
     implementation(project(":app-tool-systemcleaner"))
     implementation(project(":app-tool-appcleaner"))
     implementation(project(":app-tool-deduplicator"))
+    implementation(project(":app-tool-squeezer"))
 
     addDI()
     addCoroutines()

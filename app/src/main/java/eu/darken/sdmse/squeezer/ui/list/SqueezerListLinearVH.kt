@@ -46,18 +46,18 @@ class SqueezerListLinearVH(parent: ViewGroup) :
         filepath.text = image.lookup.userReadablePath.get(context).replaceLast(image.lookup.name, "")
 
         currentSize.text = context.getString(
-            R.string.squeezer_current_size_format,
+            eu.darken.sdmse.squeezer.R.string.squeezer_current_size_format,
             Formatter.formatShortFileSize(context, image.size)
         )
 
         val savings = image.estimatedSavings
         estimatedSavings.text = if (savings != null && savings > 0) {
             context.getString(
-                R.string.squeezer_estimated_savings_format,
+                eu.darken.sdmse.squeezer.R.string.squeezer_estimated_savings_format,
                 Formatter.formatShortFileSize(context, savings)
             )
         } else {
-            context.getString(R.string.squeezer_no_savings_expected)
+            context.getString(eu.darken.sdmse.squeezer.R.string.squeezer_no_savings_expected)
         }
 
         root.setOnClickListener { item.onItemClicked(item) }

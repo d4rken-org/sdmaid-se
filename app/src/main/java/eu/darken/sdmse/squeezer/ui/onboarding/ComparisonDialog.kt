@@ -56,8 +56,8 @@ class ComparisonDialog : DialogFragment() {
         val quality = args.getInt(ARG_QUALITY)
         val isWebp = args.getBoolean(ARG_IS_WEBP)
 
-        binding.originalLabel.text = getString(R.string.squeezer_onboarding_original_label)
-        binding.compressedLabel.text = "${getString(R.string.squeezer_onboarding_compressed_label)} ($quality%)"
+        binding.originalLabel.text = getString(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_original_label)
+        binding.compressedLabel.text = "${getString(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_compressed_label)} ($quality%)"
 
         binding.closeAction.setOnClickListener { dismiss() }
 

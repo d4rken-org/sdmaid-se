@@ -164,8 +164,6 @@
     <string name="swiper_stamp_undo_2">Paş!</string>
     <string name="swiper_stamp_undo_3">Ax!</string>
     <string name="swiper_stamp_undo_4">Bisekine!</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">Wêneyan bihûr bikin da ku cihê hilanînê biparêzin.</string>
     <string name="appcontrol_toggle_app_enable_action">Sepanê çalak bikin</string>
     <string name="appcontrol_toggle_app_disable_action">Sepanê neçalak bikin</string>
     <string name="appcontrol_appstore_open_title">Di firotgehê de vekin</string>

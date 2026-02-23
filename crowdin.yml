@@ -138,6 +138,12 @@
     #    "update_option" : "update_without_changes",
     "languages_mapping": *stringmapping
   }, {
+    "source": "/app-tool-squeezer/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-squeezer.xml",
+    "translation": "/app-tool-squeezer/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
     "source": "/app-tool-systemcleaner/src/main/res/values/strings.xml",
     "dest": "/strings-app-tool-systemcleaner.xml",
     "translation": "/app-tool-systemcleaner/src/main/res/values-%android_code%/strings.xml",

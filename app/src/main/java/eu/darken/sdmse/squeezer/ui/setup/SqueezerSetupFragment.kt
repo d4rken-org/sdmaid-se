@@ -66,7 +66,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             val currentAge = vm.state.value?.minAge ?: SqueezerSettings.MIN_AGE_DEFAULT
             AgeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.squeezer_min_age_title,
+                titleRes = eu.darken.sdmse.squeezer.R.string.squeezer_min_age_title,
                 maximumAge = Duration.ofDays(365),
                 currentAge = currentAge,
                 onReset = { vm.updateMinAge(SqueezerSettings.MIN_AGE_DEFAULT) },
@@ -78,7 +78,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             val currentSize = vm.state.value?.minSizeBytes ?: SqueezerSettings.MIN_FILE_SIZE
             SizeInputDialog(
                 activity = requireActivity(),
-                titleRes = R.string.squeezer_min_size_title,
+                titleRes = eu.darken.sdmse.squeezer.R.string.squeezer_min_size_title,
                 currentSize = currentSize,
                 maximumSize = 20 * 1000 * 1000L,
                 onReset = { vm.updateMinSize(SqueezerSettings.MIN_FILE_SIZE) },
@@ -99,7 +99,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             loadingOverlay.setProgress(state.progress)
 
             pathsValue.text = if (state.scanPaths.isEmpty()) {
-                getString(R.string.squeezer_setup_paths_default)
+                getString(eu.darken.sdmse.squeezer.R.string.squeezer_setup_paths_default)
             } else {
                 state.scanPaths.joinToString("\n") {
                     it.userReadablePath.get(requireContext())
@@ -120,13 +120,13 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             )
 
             qualityEstimate.text = state.estimatedSavingsPercent?.let {
-                getString(R.string.squeezer_estimated_savings_percent, it)
+                getString(eu.darken.sdmse.squeezer.R.string.squeezer_estimated_savings_percent, it)
             } ?: ""
             qualityEstimate.isVisible = state.estimatedSavingsPercent != null && state.quality < 100
 
             val minAgeDays = state.minAge.toDays().toInt()
             ageValue.text = resources.getQuantityString(
-                R.plurals.squeezer_min_age_x_days,
+                eu.darken.sdmse.squeezer.R.plurals.squeezer_min_age_x_days,
                 minAgeDays,
                 minAgeDays
             )
@@ -173,7 +173,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
                 is SqueezerSetupEvents.NoExampleFound -> {
                     Toast.makeText(
                         requireContext(),
-                        R.string.squeezer_no_example_found,
+                        eu.darken.sdmse.squeezer.R.string.squeezer_no_example_found,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -181,7 +181,7 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
                 is SqueezerSetupEvents.NoResultsFound -> {
                     Toast.makeText(
                         requireContext(),
-                        R.string.squeezer_result_empty_message,
+                        eu.darken.sdmse.squeezer.R.string.squeezer_result_empty_message,
                         Toast.LENGTH_SHORT
                     ).show()
                 }
@@ -202,10 +202,10 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
     }
 
     private fun getQualityHint(quality: Int): String = when {
-        quality < 40 -> getString(R.string.squeezer_quality_hint_very_low)
-        quality <= 50 -> getString(R.string.squeezer_quality_hint_low)
-        quality >= 95 -> getString(R.string.squeezer_quality_hint_high)
-        else -> getString(R.string.squeezer_quality_hint_normal)
+        quality < 40 -> getString(eu.darken.sdmse.squeezer.R.string.squeezer_quality_hint_very_low)
+        quality <= 50 -> getString(eu.darken.sdmse.squeezer.R.string.squeezer_quality_hint_low)
+        quality >= 95 -> getString(eu.darken.sdmse.squeezer.R.string.squeezer_quality_hint_high)
+        else -> getString(eu.darken.sdmse.squeezer.R.string.squeezer_quality_hint_normal)
     }
 
     companion object {

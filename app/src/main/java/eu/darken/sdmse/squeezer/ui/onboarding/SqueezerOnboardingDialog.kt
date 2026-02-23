@@ -43,7 +43,7 @@ class SqueezerOnboardingDialog @Inject constructor(
         binding.compressedSize.text = "~${Formatter.formatShortFileSize(context, compressedSize)}"
 
         binding.qualityIndicator.text = context.getString(
-            R.string.squeezer_onboarding_quality_label,
+            eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_quality_label,
             quality,
         )
 
@@ -66,18 +66,18 @@ class SqueezerOnboardingDialog @Inject constructor(
                 withContext(Dispatchers.Main) {
                     binding.originalImage.setImageResource(R.drawable.splash_mascot)
                     binding.compressedImage.setImageResource(R.drawable.splash_mascot)
-                    binding.compressedSize.text = context.getString(R.string.squeezer_no_savings_expected)
+                    binding.compressedSize.text = context.getString(eu.darken.sdmse.squeezer.R.string.squeezer_no_savings_expected)
                 }
             }
         }
 
         val dialog: Dialog = MaterialAlertDialogBuilder(context).apply {
-            setTitle(R.string.squeezer_onboarding_title)
+            setTitle(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_title)
             setView(binding.root)
-            setPositiveButton(R.string.squeezer_onboarding_got_it) { _, _ ->
+            setPositiveButton(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_got_it) { _, _ ->
                 onDismiss()
             }
-            setNeutralButton(R.string.squeezer_compare_action) { _, _ ->
+            setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->
                 ComparisonDialog.newInstance(path, quality, sampleImage.isWebp)
                     .show(fragment.childFragmentManager, "comparison")
                 onDismiss()

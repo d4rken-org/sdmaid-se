@@ -32,7 +32,7 @@ class PreviewCompressionDialog @Inject constructor(
 
         binding.apply {
             itemCount.text = context.resources.getQuantityString(
-                R.plurals.squeezer_preview_x_images,
+                eu.darken.sdmse.squeezer.R.plurals.squeezer_preview_x_images,
                 items.size,
                 items.size
             )
@@ -42,15 +42,15 @@ class PreviewCompressionDialog @Inject constructor(
         }
 
         MaterialAlertDialogBuilder(context).apply {
-            setTitle(R.string.squeezer_preview_dialog_title)
+            setTitle(eu.darken.sdmse.squeezer.R.string.squeezer_preview_dialog_title)
             setView(binding.root)
-            setPositiveButton(R.string.squeezer_compress_action) { _, _ ->
+            setPositiveButton(eu.darken.sdmse.squeezer.R.string.squeezer_compress_action) { _, _ ->
                 onPositive(quality)
             }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                 onNegative()
             }
-            setNeutralButton(R.string.squeezer_compare_action) { _, _ ->
+            setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->
                 val sampleImage = items.firstOrNull() ?: return@setNeutralButton
                 val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
 

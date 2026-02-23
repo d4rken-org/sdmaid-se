@@ -145,8 +145,6 @@
     <string name="swiper_stamp_undo_2">گەڕانەوە!</string>
     <string name="swiper_stamp_undo_3">ئۆپس!</string>
     <string name="swiper_stamp_undo_4">وەستە!</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="squeezer_explanation_short">وێنەکان بچووک بکەرەوە بۆ ئازادکردنی شوێنی کۆگا.</string>
     <string name="appcontrol_toggle_app_enable_action">ئەپ چالاک بکە</string>
     <string name="appcontrol_toggle_app_disable_action">ئەپ ناچالاک بکە</string>
     <string name="appcontrol_appstore_open_title">لە فرۆشگا بکەرەوە</string>

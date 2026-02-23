@@ -45,11 +45,11 @@ class SqueezerListGridVH(parent: ViewGroup) :
         val savings = image.estimatedSavings
         secondary.text = if (savings != null && savings > 0) {
             context.getString(
-                R.string.squeezer_estimated_savings_format,
+                eu.darken.sdmse.squeezer.R.string.squeezer_estimated_savings_format,
                 Formatter.formatShortFileSize(context, savings)
             )
         } else {
-            context.getString(R.string.squeezer_no_savings_expected)
+            context.getString(eu.darken.sdmse.squeezer.R.string.squeezer_no_savings_expected)
         }
 
         previewAction.setOnClickListener { item.onPreviewClicked(item) }

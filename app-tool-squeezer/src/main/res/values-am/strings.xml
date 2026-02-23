@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="squeezer_tool_name">ሚዲያ መጨመቂያ</string>
+    <string name="squeezer_explanation_short">የማከማቻ ቦታ ለመቆጠብ ምስሎችን ይጨምቁ።</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d ምስል ተገኝቷል</item>
+        <item quantity="other">%d ምስሎች ተገኝተዋል</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s ሊቆጠብ ይችላል</item>
+        <item quantity="other">~%s ሊቆጠቡ ይችላሉ</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d ምስል ተጨምቋል</item>
+        <item quantity="other">%d ምስሎች ተጨምቀዋል</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d ምስል ተመርጧል</item>
+        <item quantity="other">%d ምስሎች ተመርጠዋል</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">የፍለጋ ቦታዎች</string>
+    <string name="squeezer_search_locations_default_summary">የካሜራ ማህደሮች (ነባሪ)</string>
+    <string name="squeezer_min_size_title">ዝቅተኛ የፋይል መጠን</string>
+    <string name="squeezer_min_size_description">ከዚህ መጠን ያነሱ ምስሎችን ይዝለሉ።</string>
+    <string name="squeezer_min_age_title">ዝቅተኛ የፋይል ዕድሜ</string>
+    <string name="squeezer_min_age_description">ከዚህ ዕድሜ የቆዩ ምስሎችን ብቻ ያካትቱ።</string>
+    <string name="squeezer_compression_settings_label">የመጨመቅ ቅንብሮች</string>
+    <string name="squeezer_quality_label">ጥራት</string>
+    <string name="squeezer_quality_title">የመጨመቅ ጥራት</string>
+    <string name="squeezer_quality_description">ዝቅ ያለ ጥራት ትንሽ የፋይል መጠን ማለት ነው ግን የቀነሰ የምስል ጥራት።</string>
+    <string name="squeezer_quality_example_format">ምሳሌ: %1$s ምስል → በ%3$d%% ጥራት ~%2$s ይቆጥባል</string>
+    <string name="squeezer_quality_warning_low">ዝቅ ያሉ ጥራቶች የሚታዩ ጉድለቶች ሊያስከትሉ ይችላሉ።</string>
+    <string name="squeezer_quality_warning_high">በጣም ከፍተኛ ጥራት ዝቅተኛ ቦታ ቁጠባ ይሰጣል።</string>
+    <string name="squeezer_types_category_label">የምስል ዓይነቶች</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG ምስሎችን (.jpg, .jpeg) ያካትቱ።</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP ምስሎችን (.webp) ያካትቱ።</string>
+    <string name="squeezer_skip_compressed_title">ቀድሞ የተጨመቁትን ይዝለሉ</string>
+    <string name="squeezer_skip_compressed_description">በSD Maid ቀድሞ የተጨመቁ ምስሎችን ይዝለሉ።</string>
+    <string name="squeezer_exif_marker_title">EXIF ምልክት ይፃፉ</string>
+    <string name="squeezer_exif_marker_description">የመጨመቅ ታሪክ ቢጸዳ እንኳን እንደገና መጨመቅን ለመከላከል በምስሉ EXIF የተጠቃሚ አስተያየት መስክ ውስጥ ምልክት ያክሉ።</string>
+    <string name="squeezer_estimated_savings_format">~%s ቁጠባ</string>
+    <string name="squeezer_no_savings_expected">ውስን ቁጠባ</string>
+    <string name="squeezer_current_size_format">መጠን: %s</string>
+    <string name="squeezer_compress_action">ጨምቅ</string>
+    <string name="squeezer_compress_all_action">ሁሉንም ጨምቅ</string>
+    <string name="squeezer_preview_dialog_title">መጨመቅ ያረጋግጡ</string>
+    <string name="squeezer_preview_total_size">ጠቅላላ መጠን</string>
+    <string name="squeezer_preview_estimated_savings">የተገመተ ቁጠባ</string>
+    <string name="squeezer_compress_confirmation_title">ምስሎችን ይጨምቁ?</string>
+    <string name="squeezer_compress_confirmation_message">ይህ ዋና ምስሎችን በተጨመቁ ስሪቶች ይተካል። ይህ ድርጊት ሊሰረዝ አይችልም።</string>
+    <string name="squeezer_history_title">የመጨመቅ ታሪክ</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d ንጥል (%2$s)</item>
+        <item quantity="other">%1$d ንጥሎች (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">ምንም የመጨመቅ ታሪክ የለም</string>
+    <string name="squeezer_history_clear_title">የመጨመቅ ታሪክ ያጽዱ</string>
+    <string name="squeezer_history_clear_message">ይህ ቀድሞ የተጨመቁ ምስሎች እንደገና እንዲጨመቁ ያስችላል። ምስሎቹ ራሳቸው አይነኩም።</string>
+    <string name="squeezer_onboarding_title">ስለ ምስል መጨመቅ</string>
+    <string name="squeezer_onboarding_message">የምስል መጨመቅ ምስላዊ ዝርዝርን በማስወገድ የፋይል መጠንን ይቀንሳል። ይህ ሂደት ሊቀለበስ አይችልም - ዋናው ጥራት ሊመለስ አይችልም።\n\nምስሎችዎ እንዴት እንደሚታዩ ቅድመ-ዕይታ ይኸውና:</string>
+    <string name="squeezer_onboarding_original_label">ዋና</string>
+    <string name="squeezer_onboarding_compressed_label">ከመጨመቅ በኋላ</string>
+    <string name="squeezer_onboarding_quality_label">ጥራት: %d%%</string>
+    <string name="squeezer_onboarding_got_it">ገባኝ</string>
+    <string name="squeezer_compare_action">ንጽጽር ይመልከቱ</string>
+    <string name="squeezer_no_example_found">በተመረጡ ዱካዎች ውስጥ ምንም ምስሎች አልተገኙም።</string>
+    <string name="squeezer_result_empty_message">ሊጨመቁ የሚችሉ ምስሎች አልተገኙም።</string>
+    <string name="squeezer_setup_warning">መጨመቅ የማከማቻ ቦታ ለመቆጠብ የምስል ጥራትን በቋሚነት ይቀንሳል። ይህ ሊሰረዝ አይችልም። ከመጀመርዎ በፊት ቅንብሮችዎን በጥንቃቄ ይገምግሙ።</string>
+    <string name="squeezer_setup_explanation">ሚዲያ መጨመቂያ የማከማቻ ቦታ ለማስለቀቅ የምስል ፋይል መጠንን ይቀንሳል። ይህ የምስል ጥራትን በቋሚነት ይቀንሳልና ሊሰረዝ አይችልም። ከመጀመርዎ በፊት ቅንብሮችዎን በጥንቃቄ ይገምግሙ።</string>
+    <string name="squeezer_setup_paths_title">የፍለጋ ቦታዎች</string>
+    <string name="squeezer_setup_paths_default">ለመፈለግ ማህደሮችን ይምረጡ</string>
+    <string name="squeezer_setup_quality_title">የመጨመቅ ጥራት</string>
+    <string name="squeezer_setup_age_title">ዝቅተኛ ዕድሜ</string>
+    <string name="squeezer_setup_age_none">ገደብ የለም (ሁሉንም ፋይሎች ያካትቱ)</string>
+    <string name="squeezer_setup_start_action">ፍለጋ ጀምር</string>
+    <string name="squeezer_quality_hint_very_low">ከ40% በታች ጥራት ጥቅም ላይ ሊውሉ የማይችሉ ምስሎችን ሊፈጥር ይችላል።</string>
+    <string name="squeezer_quality_hint_low">ዝቅ ያለ ጥራት ብዙ ቦታ ይቆጥባል ግን የሚታዩ ጉድለቶች ሊያስከትል ይችላል።</string>
+    <string name="squeezer_quality_hint_high">በጣም ከፍተኛ ጥራት ዝቅተኛ ቦታ ቁጠባ ይሰጣል።</string>
+    <string name="squeezer_quality_hint_normal">ሚዛናዊ ጥራትና ቦታ ቁጠባ።</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">ቢያንስ %d ቀን የቆየ</item>
+        <item quantity="other">ቢያንስ %d ቀናት የቆየ</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">ለJPEG ፋይሎች የሚገመት ~%d%% ቁጠባ</string>
+</resources>

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.squeezer.core.tasks
 
 import android.os.Parcelable
-import eu.darken.sdmse.R
+import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
