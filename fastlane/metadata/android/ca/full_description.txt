@@ -35,13 +35,13 @@ La gestió de l'emmagatzematge pot ser complexa amb aplicacions, mitjans, sistem
 
 Baixades duplicades, fotos enviades a través de les xarxes socials o simplement imatges similars de la mateixa escena: amb el temps, es poden acumular còpies. L'eina «Desduplicador» troba fitxers que són exactament iguals o similars i us ajuda a eliminar còpies addicionals.
 
-👆 Desencombra amb un lliscament
+👆 Desfeu-vos del desordre amb un lliscament
 
-Tria una carpeta i revisa els fitxers un per un amb lliscaments simples per conservar, eliminar o ometre. L'eina «Swiper» et permet revisar totes les decisions abans d'eliminar res, i pots desar una sessió per continuar-la més tard.
+Trieu una carpeta i reviseu els fitxers un per un amb lliscaments simples per conservar, eliminar o ometre. L'eina «Swiper» us permet revisar totes les decisions abans d'eliminar res, i podeu desar una sessió per continuar-la més tard.
 
-🗄️ Estalvia espai sense esborrar fotos
+🗄️ Estalvieu espai sense esborrar fotos
 
-Les fotos poden ocupar molt d'emmagatzematge, però no sempre vols eliminar-les. L'eina «Media Squeeze» comprimeix les teves imatges amb paràmetres de qualitat ajustables per alliberar espai mentre conserves les teves fotos.
+Les fotos poden ocupar molt d'emmagatzematge, però no sempre voleu eliminar-les. L'eina «Media Squeeze» comprimeix imatges amb paràmetres de qualitat ajustables per alliberar espai mentre conserves les vostres fotos.
 
 Aquesta aplicació no té anuncis. Algunes funcions requereixen una millora de pagament.
 

@@ -1,40 +1,55 @@
-<i>SD Maid 2/SE</i> Android cihazınızı təmiz və nizamlı saxlamaq üçün etibarlı köməkçinizdir.
+<i>SD Maid 2/SE</i> Android-inizi təmiz və səliqəli saxlamaq üçün etibarlı köməkçinizdir.
 
-Heç kim mükəmməl deyil, Android də həmçinin.
-* ​Artıq sildiyiniz tətbiqlər arxada nəsə qoyub gedir.
-* İstəmədiyiniz jurnallar loglar, xəta hesabatları və digər fayllar daim yaradılmaqdadır.
-* Yaddaşınızda tanımadığınız fayllar və qovluqlar toplanır.
-* Qalereyanızdakı dublikat eyni fotolar.
+Heç kim mükəmməl deyil, Android də.
 
-Gəlin daha çox davam etməyək... Qoy SD Maid 2/SE sizə kömək etsin!
+* Artıq silmiş olduğunuz tətbiqlər arxalarında bir şey buraxır.
+* İstəmədiyiniz jurnallar, qəza hesabatları və digər fayllar daim yaradılır.
+* Saxlama yerinə tanımadığınız fayllar və qovluqlar toplanır.
+* Qalereyanizdəki dublikat fotolar.
 
-SD Maid 2/SE, cihazınızdakı xüsusi faylların hansı tətbiqlər tərəfindən yaradıldığını müəyyən etmək üzrə ixtisaslaşmış bir tətbiq və fayl meneceridir. SD Maid 2/SE yaddaş sahəsini təhlükəsiz şəkildə boşaltmaq üçün cihazınızda axtarış aparır və faylları quraşdırılmış tətbiqlərlə müqayisə edərək sizə müvafiq seçimlər təklif edir.
+Burada davam etməyək… SD Maid 2/SE sizə kömək etsin!
 
-✨ Tətbiqləri sildikdən sonra qalıqları təmizləyin
-Əgər tətbiqlər özləri üçün təyin olunmuş qovluqlardan kənarda fayllar yaradırlarsa, həmin fayllar tətbiqləri sildikdən sonra da qala bilər. "CorpseFinder" aləti tətbiq qalıqlarını tapır, onların hansı tətbiqə məxsus olduğunu bildirir və onları silməyinizə kömək edir.
+SD Maid 2/SE, cihazınızda hansı tətbiqlərin müəyyən fayllar yaratdığını bilməkdə ixətisaşlaşmış tətbiq və fayl meneceridir. SD Maid 2/SE cihazınızı axtaran və faylları yüklənmiş tətbiqlərlə müqayisə edərək saxlama məkanını təhlükəsiz boşaltmaq seçimləri təklif edir.
 
-🔍 Cihazınızda ağıllı üsulla axtarış edin
-Boş qovluqlar, müvəqqəti fayllar, artıq quraşdırılmış tətbiqlər və daha çoxu üçün filtrləyin. Hətta öz axtarış meyarlarınızı da yarada bilərsiniz. "SystemCleaner" aləti müxtəlif meyarlar əsasında cihazınızda avtomatik axtarış aparmağa və faylları silməyə imkan verir.
+✨ Tətbiqləri sildəkdən sonra təmizləyin
 
-🧹 Delete expendable files and hidden caches
-Miniatürlər thumbnails, zibil qutuları, oflayn keşlər və daha çoxu: Əgər tətbiqlər öz təmizliklərini etmirsə, o zaman bunu bu tətbiq edəcək. "AppCleaner" aləti lazımsız faylları olan tətbiqləri tapır.
+Tətbiqlər təyin edilmiş qovluqların xəricində fayllar yaradırsa, tətbiqlər silindikclə belə fayllar qala bilər. "CorpseFinder" aləti tətbiq qalıqlarını tapır, onların hansı tətbiqə aid olduğunu bildirir və onları silməyə kömək edir.
 
-📦 Bütün tətbiqlərinizi idarə edin
-Cihazınızda quraşdırılmış bütün tətbiqlərin ətraflı siyahısını əldə edin. Aktiv, deaktiv, istifadəçi və ya sistem tətbiqi fərq etməz: heç bir tətbiq sizdən gizlənə bilməz. "AppControl" aləti tətbiqlərinizi axtarmağa, çeşidləməyə və idarə etməyə imkan verən bir tətbiq meneceridir.
+🔍 Cihazınızı açıq fikirlə axtarın
 
-📊 Yaddaşınızı nələr doldurur
-Telefonun yaddaşı, SD kartlar və USB cihazları arasında tətbiqlər, media, sistem və digər fayllar olduqda, yaddaşın idarə edilməsi mürəkkəbləşə bilər. "StorageAnalyzer" cihazınızda yaddaşın necə istifadə olunduğunu göstərən və yaddaş idarəetməsini sadələşdirən bir fayl meneceridir.
+Boş qovluqlar, müəqqəti fayllar, artıq yüklənmiş tətbiqlər və daha çoxu üçün süzgəc. Hətta öz axtarış meyarlarınızı yarada bilərsiniz. "SystemCleaner" aləti cihazınızı avtomatik axtarmanıza və müxtəlif mələyarlara əsasən faylları silməyinizə imkan verir.
+
+🧹 Lazımsız faylları və gizli keşləri silin
+
+Miniatürlər, zəbil qutuları, oflayn keşlər və daha çoxu: Tətbiqlər öz arxından təmizləmizsə, bu tətbiq bunu edəcək. "AppCleaner" aləti lazımsız fayllara malik tətbiqləri tapır.
+
+📦 Bütn tətbiqlərinizi idarə edin
+
+Cihazınızda yüklənmiş bütn tətbiqlərin hərtərəfli siyahısını əldə edin. Fəal, deaktiv, istifədəçi və ya sistem tətbiqi: heç bir tətbiq sizdən gizlənə bilməz. "AppControl" aləti tətbiqlərinizi axtarıb sərələndirməyinizə və idarə etməyinizə imkan verən tətbiq meneceridir.
+
+📊 Yeriğinizi nə işledir
+
+Tətbiq, media, sistem və digər fayllarla telefon saxlaması, SD kartlar və USB qurğular arasında saxlama idarəsi mürəkkəb ola bilər. "StorageAnalyzer" cihazınızda yerin necə istifadə edildiyini göstərən fayl meneceridir və saxlama idarənizi sadələşdirir.
 
 📷 Dublikat məlumatları tapın
-Təkrarlanan yükləmələr, sosial media vasitəsilə göndərilən fotolar və ya eyni mənzərənin sadəcə bənzər şəkilləri: Zaman keçdikcə bu nüsxələr toplana bilər. "Deduplicator" aləti tamamilə eyni və ya oxşar olan faylları tapır və artıq nüsxələri silməyinizə kömək edir.
 
-Bu tətbiq reklamsızdır. Bəzi funksiyalar üçün ödənişli təkmilləşdirmə upgrade tələb olunur.
+Dublikat yükləmələr, sosial media vasəsilə göndərilən fotolar və ya eyni səhnənin oxşar şəkilləri: Zamanı ilə nüsxələr toplanabilir. "Deduplicator" aləti eyni və ya oxşar faylları tapır və əlavə nüsxələri silməyə kömək edir.
+
+👆 Sürüşlə sələqləşdirin
+
+Bir qovluq seçin və saxlamaq, silmək və ya keçmək üçün sadə sürüşlərlə faylları bir-bir nəzərdən keçirin. "Swiper" aləti hər şey silinməzdən əvvəl bütn qərarları nəzərdən keçirməyinizə imkan verir və sesi sonra davam etdirmək üçün saxlaya bilərsiniz.
+
+🗃️ Fotoqraf silmədən yer boşaldın
+
+Fotolar çox yer tuta bilər, lakin onları həmişə silmək istəmirsəniz. "Media Squeeze" aləti şəkillerinizi saxlayıraq yer boşaltmaq üçün tənzimlənə bilən keyfiyyət parametrləri ilə şəkillerinizi sıxışdırır.
+
+Bu tətbiqdə reklam yoxdur. Bəzi xüsusiyyətlər ödənişli yükseltmə tələb edir.
 
 SD Maid 2/SE, SD Maid 1/Legacy-nin davamçısıdır.
-Yeni Android versiyaları üçün optimallaşdırılıb və əsas diqqəti təmizliyə yönəldib.
+Daha yeni Android versiyaları üçün optimallaşdırılmış və təmizliyə yönəlmiş.
 
-Bu tətbiq, yorucu hərəkətləri avtomatlaşdırmaq üçün AccessibilityService API-dan istifadə edən seçimli funksiyalara malikdir.
-AccessibilityService API-dan istifadə edərək, bu tətbiq çox sayda tətbiq üzərində əməliyyatlar icra etmək üçün sizin yerinizə düymələrə klikləyə bilər, məsələn. keşlərin silinməsi.
-Bu tətbiq məlumat toplamaq üçün AccessibilityService API-dan istifadə etmir.
+Bu tətbiqin Accessibility Service API-dən istifadə edərək səkilləri avtomatikləşdirmək üçün istəğə bağlı xüsusiyyətləri var.
+Accessibility Service API-dən istifadə edərək bu tətbiq bir neçə tətbiqdə əməliyyatlar aparmaq üçün sizin üçün düymələrə basa bilər, məsələn. keşləri silmək.
+Bu tətbiq məlumat toplamaq üçün Accessibility Service API-dən istifadə etmir.
 
-SD Maid 2/SE, bir Fayl Meneceri və Təmizlik Tətbiqidir.
+SD Maid 2/SE Fayl Meneceri və Təmizləyici Tətbiqidir.
