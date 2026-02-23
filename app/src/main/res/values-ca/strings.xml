@@ -102,9 +102,9 @@
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lloc on passar l\'estona i fer preguntes.</string>
     <string name="support_contact_label">Contacta amb el desenvolupador</string>
-    <string name="support_contact_desc">Omple un formulari per enviar un correu electrònic al desenvolupador.</string>
-    <string name="support_contact_welcome">Llegeixo tots els missatges personalment i faig tot el possible per respondre. Com que gestiono el desenvolupament, la correcció d\'errors i el suport per compte propi, pot trigar una mica. Gràcies per la teva paciència.</string>
-    <string name="support_contact_footer">El teu missatge s\'enviarà per correu electrònic. La informació del dispositiu i de la configuració s\'adjunta automàticament. Pots adjuntar captures de pantalla o un vídeo al correu. Algunes parts del correu estaran en anglès perquè el desenvolupador les pugui entendre fàcilment.</string>
+    <string name="support_contact_desc">Ompliu un formulari per enviar un correu al desenvolupador.</string>
+    <string name="support_contact_welcome">Llegeixo tots els missatges personalment i faig tot el possible per respondre. Com que gestiono el desenvolupament, la correcció d\'errors i el suport per compte propi, pot trigar una mica. Gràcies per la vostra paciència.</string>
+    <string name="support_contact_footer">El vostre missatge s\'enviarà per correu. La informació del dispositiu i de la configuració s\'adjunta automàticament. Podeu adjuntar captures de pantalla o un vídeo al correu. Algunes parts del correu estaran en anglès perquè el desenvolupador les pugui entendre fàcilment.</string>
     <string name="support_contact_category_label">Categoria</string>
     <string name="support_contact_category_bug_label">Informe d\'error</string>
     <string name="support_contact_category_feature_label">Sol·licitud de funció</string>
@@ -119,19 +119,19 @@
     <string name="support_contact_tool_scheduler_label">Programador</string>
     <string name="support_contact_tool_general_label">General</string>
     <string name="support_contact_description_label">Descripció</string>
-    <string name="support_contact_description_bug_hint">Descriu què ha passat i com reproduir el problema. Sigues específic (mínim 20 paraules).</string>
-    <string name="support_contact_description_feature_hint">Descriu la funció que t\'agradaria veure. Sigues específic (mínim 20 paraules).</string>
-    <string name="support_contact_description_question_hint">Descriu la teva pregunta en detall. Sigues específic (mínim 20 paraules).</string>
+    <string name="support_contact_description_bug_hint">Descriviu què ha passat i com reproduir el problema. Sigueu específic (mínim 20 paraules).</string>
+    <string name="support_contact_description_feature_hint">Descriviu la funció que us agradaria veure. Sigueu específic (mínim 20 paraules).</string>
+    <string name="support_contact_description_question_hint">Descriviu la vostra pregunta en detall. Sigueu específic (mínim 20 paraules).</string>
     <string name="support_contact_expected_label">Comportament esperat</string>
-    <string name="support_contact_expected_hint">Descriu el que esperaves que passés (mínim 10 paraules).</string>
+    <string name="support_contact_expected_hint">Descriviu el que esperàveu que passés (mínim 10 paraules).</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d paraula</item>
         <item quantity="other">%1$d / %2$d paraules</item>
     </plurals>
     <string name="support_contact_debuglog_label">Registre de depuració</string>
     <string name="support_contact_debuglog_zip_error">No s\'ha pogut comprimir el registre de depuració</string>
-    <string name="support_contact_debuglog_picker_hint">Adjunta un registre de depuració existent o enregistra\'n un de nou.</string>
-    <string name="support_contact_debuglog_picker_empty">No s\'han trobat registres de depuració. Enregistra\'n un primer.</string>
+    <string name="support_contact_debuglog_picker_hint">Adjunteu un registre de depuració existent o enregistreu-ne un de nou.</string>
+    <string name="support_contact_debuglog_picker_empty">No s\'han trobat registres de depuració. Enregistreu-ne un primer.</string>
     <string name="support_contact_send_action">Obre l\'aplicació de correu</string>
     <string name="support_contact_no_email_app">No s\'ha trobat cap aplicació de correu en aquest dispositiu.</string>
     <string name="changelog_label">Registre de canvis</string>
@@ -198,7 +198,7 @@
     <string name="setup_acs_state_stopped_hint_miui">Si el servei es continua desactivant al cap d\'un temps, proveu d\'activar l\'opció «Inici automàtic» per a l\'SD Maid a la configuració del sistema.</string>
     <string name="setup_acs_consent_positive_action">Habiliteu el servei i concediu l\'accés</string>
     <string name="setup_acs_consent_negative_action">No utilitzeu el servei d\'accessibilitat</string>
-    <string name="setup_acs_allow_hint">La drecera d\'accessibilitat o el botó per a SD Maid SE està activat. Obre la configuració d\'accessibilitat del dispositiu i desactiva l\'opció de drecera/botó per evitar una icona no desitjada a la vora de la pantalla.</string>
+    <string name="setup_acs_allow_hint">La drecera d\'accessibilitat o el botó per a l\'SD Maid SE està activat. Obriu la configuració d\'accessibilitat del dispositiu i desactiveu l\'opció de drecera/botó per evitar una icona no desitjada a la vora de la pantalla.</string>
     <string name="setup_acs_disallow_hint">Si canvieu d\'opinió, podeu tornar a modificar aquesta opció entrant a la configuració i reiniciar-la.</string>
     <string name="setup_acs_appops_restriction_title">Configuració restringida</string>
     <string name="setup_acs_appops_restriction_body">No podeu activar el servei d\'accessibilitat de l\'SD Maids? En versions superiors d\'Android 13 pot aplicar restriccions a les aplicacions no instal·lades al Google Play. Suprimiu aquestes restriccions des de la pàgina de detalls del sistema per a l\'SD Maid. L\'opció es troba al menú contextual a l\'extrem superior dret.</string>
@@ -872,7 +872,7 @@
     <string name="automation_error_overlay_title">Superposició d\'automatització</string>
     <string name="automation_error_overlay_body">L\'SD Maid no ha pogut mostrar la superposició d\'automatització. Comproveu els permisos i proveu de reiniciar el dispositiu.</string>
     <string name="automation_error_scheduler_title">Ha fallat l\'automatització programada</string>
-    <string name="automation_error_scheduler_body">Una tasca programada ha intentat utilitzar el servei d\'accessibilitat, però no estava disponible. Si no ho necessites, desactiva l\'opció «Servei d\'accessibilitat» a la configuració del programador.</string>
+    <string name="automation_error_scheduler_body">Una tasca programada ha intentat utilitzar el servei d\'accessibilitat, però no estava disponible. Si no ho necessiteu, desactiveu l\'opció «Servei d\'accessibilitat» a la configuració del programador.</string>
     <string name="history_label">Historial</string>
     <string name="history_description">Una llista cronològica d\'accions recents i dades afectades.</string>
     <string name="scheduler_label">Programador</string>
