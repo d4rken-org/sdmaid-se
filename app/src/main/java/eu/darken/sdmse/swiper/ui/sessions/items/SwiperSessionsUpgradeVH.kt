@@ -18,9 +18,9 @@ class SwiperSessionsUpgradeVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>,
     ) -> Unit = binding { item ->
-        val filesLimit = getQuantityString(R.plurals.swiper_sessions_upgrade_files_limit, item.freeVersionLimit)
-        val sessionsLimit = getQuantityString(R.plurals.swiper_sessions_upgrade_sessions_limit, item.freeSessionLimit)
-        body.text = getString(R.string.swiper_sessions_upgrade_body) + "\n\u2022 $filesLimit\n\u2022 $sessionsLimit"
+        val filesLimit = getQuantityString(eu.darken.sdmse.swiper.R.plurals.swiper_sessions_upgrade_files_limit, item.freeVersionLimit)
+        val sessionsLimit = getQuantityString(eu.darken.sdmse.swiper.R.plurals.swiper_sessions_upgrade_sessions_limit, item.freeSessionLimit)
+        body.text = getString(eu.darken.sdmse.swiper.R.string.swiper_sessions_upgrade_body) + "\n\u2022 $filesLimit\n\u2022 $sessionsLimit"
         upgradeAction.setOnClickListener { item.onUpgrade() }
     }
 

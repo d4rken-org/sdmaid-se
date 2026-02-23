@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">Anza kutelezesha</string>
+    <string name="swiper_continue_action">Endelea na kipindi</string>
+    <string name="swiper_select_folders_action">Chagua folda</string>
+    <string name="swiper_scanning_title">Inatafuta…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">kipengele %d kimepatikana</item>
+        <item quantity="other">vipengele %d vimepatikana</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">kipengele %d kimefutwa</item>
+        <item quantity="other">vipengele %d vimefutwa</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">kipengele %d kimeshindwa</item>
+        <item quantity="other">vipengele %d vimeshindwa</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d kati ya %2$d</string>
+    <string name="swiper_keep_action">Hifadhi</string>
+    <string name="swiper_skip_action">Ruka</string>
+    <string name="swiper_review_action">Kagua</string>
+    <string name="swiper_status_title">Kagua maamuzi</string>
+    <string name="swiper_status_action_keep_selected">Hifadhi vilivyochaguliwa</string>
+    <string name="swiper_status_action_delete_selected">Futa vilivyochaguliwa</string>
+    <string name="swiper_status_action_reset_selected">Weka upya vilivyochaguliwa</string>
+    <string name="swiper_decision_undecided">Haijamuliwa</string>
+    <string name="swiper_retry_action">Jaribu tena</string>
+    <string name="swiper_delete_confirmation_title">Futa mafaili?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Hii itafuta kabisa faili %1$d (%2$s). Kitendo hiki hakiwezi kutenduliwa.</item>
+        <item quantity="other">Hii itafuta kabisa mafaili %1$d (%2$s). Kitendo hiki hakiwezi kutenduliwa.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">Kipengele %d kisichoamuliwa kitabaki kwa ukaguzi wa baadaye.</item>
+        <item quantity="other">Vipengele %d visivyoamuliwa vitabaki kwa ukaguzi wa baadaye.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Futa %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Badilisha mwelekeo wa kutelezesha</string>
+    <string name="swiper_settings_swap_directions_summary">Telezesha kushoto kuhifadhi, kulia kufuta.</string>
+    <string name="swiper_settings_show_details_title">Onyesha maelezo ya faili</string>
+    <string name="swiper_settings_show_details_summary">Onyesha jina la faili, ukubwa na tarehe kwenye skrini ya kutelezesha.</string>
+    <string name="swiper_settings_haptic_feedback_title">Majibu ya kugusa</string>
+    <string name="swiper_settings_haptic_feedback_summary">Tetema unapofanya maamuzi ya kuhifadhi au kufuta.</string>
+    <string name="swiper_discard_session_confirmation_title">Tupa kipindi?</string>
+    <string name="swiper_discard_session_confirmation_message">Maamuzi yote yatapotea. Una uhakika?</string>
+    <string name="swiper_no_preview_available">Hakikisho haipatikani</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Endelea na kipindi kutoka siku %1$d iliyopita (%2$d%% imekamilika)</item>
+        <item quantity="other">Endelea na kipindi kutoka siku %1$d zilizopita (%2$d%% imekamilika)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">kipindi %d</item>
+        <item quantity="other">vipindi %d</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">kipengele %d kisichoamuliwa</item>
+        <item quantity="other">vipengele %d visivyoamuliwa</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Kilitengenezwa %1$s, shughuli ya mwisho %2$s</string>
+    <string name="swiper_session_remove_action">Ondoa kipindi</string>
+    <string name="swiper_sessions_empty_hint">Bofya + kuchagua folda na kuanza kutelezesha</string>
+    <string name="swiper_sessions_upgrade_body">Panda daraja kuondoa vikwazo hivi na kusaidia maendeleo. Toleo la bure limezuiliwa kwa:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">faili %d kwa kila kipindi</item>
+        <item quantity="other">mafaili %d kwa kila kipindi</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">kipindi %d</item>
+        <item quantity="other">vipindi %d</item>
+    </plurals>
+    <string name="swiper_session_default_label">Kipindi #%d</string>
+    <string name="swiper_session_rename_title">Badilisha jina la kipindi</string>
+    <string name="swiper_session_rename_hint">Ingiza jina la kipindi hiki</string>
+    <string name="swiper_sessions_current_sessions">Vipindi vya sasa</string>
+    <string name="swiper_session_paths_label">Njia</string>
+    <string name="swiper_session_status_label">Hali</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ya kuhifadhi</item>
+        <item quantity="other">%d ya kuhifadhi</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ya kufuta</item>
+        <item quantity="other">%d ya kufuta</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d isiyoamuliwa</item>
+        <item quantity="other">%d zisizioamuliwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d tayari imehifadhiwa</item>
+        <item quantity="other">%d tayari zimehifadhiwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d tayari imefutwa</item>
+        <item quantity="other">%d tayari zimefutwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d imehifadhiwa</item>
+        <item quantity="other">%d zimehifadhiwa</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d imefutwa</item>
+        <item quantity="other">%d zimefutwa</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Ondoa \"%1$s\" kutoka kwa utafutaji wa Swiper?</string>
+    <string name="swiper_sessions_header_title">Tayari kusafisha?</string>
+    <string name="swiper_sessions_suggestions_label">Jaribu kuanza na:</string>
+    <string name="swiper_sessions_suggestion_downloads">Folda ya vipakuliwa</string>
+    <string name="swiper_sessions_suggestion_screenshots">Picha za skrini</string>
+    <string name="swiper_sessions_suggestion_camera">Picha za kamera</string>
+    <string name="swiper_stamp_keep_1">Hifadhi!</string>
+    <string name="swiper_stamp_keep_2">Nzuri!</string>
+    <string name="swiper_stamp_keep_3">Ndiyo!</string>
+    <string name="swiper_stamp_keep_4">Okoa!</string>
+    <string name="swiper_stamp_delete_1">Hapana!</string>
+    <string name="swiper_stamp_delete_2">Kwaheri!</string>
+    <string name="swiper_stamp_delete_3">Taka!</string>
+    <string name="swiper_stamp_delete_4">Futa!</string>
+    <string name="swiper_stamp_skip_1">Ruka!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Baadaye!</string>
+    <string name="swiper_stamp_skip_4">Labda!</string>
+    <string name="swiper_stamp_undo_1">Tendua!</string>
+    <string name="swiper_stamp_undo_2">Rudi!</string>
+    <string name="swiper_stamp_undo_3">Lo!</string>
+    <string name="swiper_stamp_undo_4">Ngoja!</string>
+    <string name="swiper_gesture_overlay_dismiss">Gusa popote ili kuanza</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Nimeelewa</string>
+    <string name="swiper_gesture_overlay_left_delete">← Futa</string>
+    <string name="swiper_gesture_overlay_right_keep">Weka →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Weka</string>
+    <string name="swiper_gesture_overlay_right_delete">Futa →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ruka</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Tendua</string>
+    <string name="swiper_help_action">Msaada</string>
+    <string name="swiper_help_title">Jinsi Swiper inavyofanya kazi</string>
+    <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Safisha folda haraka — piga swaipu faili ili kuweka, kufuta, au kuruka.</string>
+    <string name="swiper_dashcard_description">Safisha folda maalum kwa kasi zaidi kuliko kivinjari cha faili — piga swaipu tu kila faili.</string>
+    <string name="swiper_sessions_description">Kagua faili katika hatua 3 rahisi:\n\n1. Chagua folda ya kuchanganua\n2. Piga swaipu faili ili kuweka, kufuta, au kuruka\n3. Kagua uchaguzi wako na uthibitishe\n\nHakuna kinachondolewa hadi uguse kitufe cha mwisho cha kufuta.</string>
+</resources>

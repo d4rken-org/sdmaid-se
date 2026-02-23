@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Rychlé třídění složek — přejeďte prstem po souborech a vyberte, které chcete ponechat, smazat nebo přeskočit.</string>
+    <string name="swiper_dashcard_description">Třiďte konkrétní složky rychleji než v průzkumníku souborů — stačí přejet prstem po každém souboru.</string>
+    <string name="swiper_start_action">Začít přetahovat</string>
+    <string name="swiper_continue_action">Pokračovat v relaci</string>
+    <string name="swiper_sessions_description">Prohlédněte si soubory ve 3 jednoduchých krocích:\n\n1. Vyberte složku, kterou chcete prohledat\n2. Procházejte soubory a rozhodněte se, které chcete ponechat, smazat nebo přeskočit\n3. Zkontrolujte své volby a potvrďte\n\nNic nebude smazáno, dokud nekliknete na tlačítko pro definitivní smazání.</string>
+    <string name="swiper_select_folders_action">Vybrat složku</string>
+    <string name="swiper_scanning_title">Skenování…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d položka nalezena</item>
+        <item quantity="few">%d položky nalezeny</item>
+        <item quantity="many">%d položek nalezeno</item>
+        <item quantity="other">%d položek nalezeno</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d položka smazána</item>
+        <item quantity="few">%d položky smazány</item>
+        <item quantity="many">%d položek smazáno</item>
+        <item quantity="other">%d položek smazáno</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d položka selhala</item>
+        <item quantity="few">%d položky selhaly</item>
+        <item quantity="many">%d položek selhalo</item>
+        <item quantity="other">%d položek selhalo</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d z %2$d</string>
+    <string name="swiper_keep_action">Ponechat</string>
+    <string name="swiper_skip_action">Přeskočit</string>
+    <string name="swiper_review_action">Posoudit</string>
+    <string name="swiper_status_title">Posouzení rozhodnutí</string>
+    <string name="swiper_status_action_keep_selected">Ponechat vybrané</string>
+    <string name="swiper_status_action_delete_selected">Smazat vybrané</string>
+    <string name="swiper_status_action_reset_selected">Obnovit vybrané</string>
+    <string name="swiper_decision_undecided">Nerozhodnutý</string>
+    <string name="swiper_retry_action">Opakovat</string>
+    <string name="swiper_delete_confirmation_title">Odstranit soubory?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Tímto trvale odstraníte %1$d soubor (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="few">Tímto trvale odstraníte %1$d soubory (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="many">Tímto trvale odstraníte %1$d souborů (%2$s). Tuto akci nelze vrátit zpět.</item>
+        <item quantity="other">Tímto trvale odstraníte %1$d souborů (%2$s). Tuto akci nelze vrátit zpět.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d nerozhodnutá položka zůstane pro pozdější posouzení.</item>
+        <item quantity="few">%d nerozhodnuté položky zůstanou pro pozdější posouzení.</item>
+        <item quantity="many">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
+        <item quantity="other">%d nerozhodnutých položek zůstane pro pozdější posouzení.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Smazat %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Prohodit směr přejetí</string>
+    <string name="swiper_settings_swap_directions_summary">Přejetím doleva zachovat, doprava pro odstranění.</string>
+    <string name="swiper_settings_show_details_title">Zobrazit detaily souboru</string>
+    <string name="swiper_settings_show_details_summary">Zobrazit název souboru, velikost a datum na obrazovce přejetí.</string>
+    <string name="swiper_settings_haptic_feedback_title">Hmatová odezva</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrovat při rozhodnutí zachování nebo mazání.</string>
+    <string name="swiper_discard_session_confirmation_title">Zahodit relaci?</string>
+    <string name="swiper_discard_session_confirmation_message">Všechna rozhodnutí budou ztracena. Jste si jisti?</string>
+    <string name="swiper_no_preview_available">Náhled není dostupný</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Pokračovat v relaci před %1$d dnem (%2$d%% dokončeno)</item>
+        <item quantity="few">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+        <item quantity="many">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
+        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d% % dokončeno)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d relace</item>
+        <item quantity="few">%d relace</item>
+        <item quantity="many">%d relací</item>
+        <item quantity="other">%d relací</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d nerozhodnutá položka</item>
+        <item quantity="few">%d nerozhodnuté položky</item>
+        <item quantity="many">%d nerozhodnutých položek</item>
+        <item quantity="other">%d nerozhodnutých položek</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Vytvořeno %1$s, poslední aktivita %2$s</string>
+    <string name="swiper_session_remove_action">Odstranit relaci</string>
+    <string name="swiper_sessions_empty_hint">Klepnutím na + vyberte složku a začněte přejíždět</string>
+    <string name="swiper_sessions_upgrade_body">Upgradujte pro odstranění těchto limitů a podporu vývoje. Bezplatná verze je omezena na:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d soubor na relaci</item>
+        <item quantity="few">%d soubory na relaci</item>
+        <item quantity="many">%d souborů na relaci</item>
+        <item quantity="other">%d souborů na relaci</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d relace</item>
+        <item quantity="few">%d relace</item>
+        <item quantity="many">%d relací</item>
+        <item quantity="other">%d relací</item>
+    </plurals>
+    <string name="swiper_session_default_label">Relace #%d</string>
+    <string name="swiper_session_rename_title">Přejmenovat relaci</string>
+    <string name="swiper_session_rename_hint">Zadejte název pro tuto relaci</string>
+    <string name="swiper_sessions_current_sessions">Aktuální relace</string>
+    <string name="swiper_session_paths_label">Cesty</string>
+    <string name="swiper_session_status_label">Stav</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d k ponechání</item>
+        <item quantity="few">%d k ponechání</item>
+        <item quantity="many">%d k ponechání</item>
+        <item quantity="other">%d k ponechání</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ke smazání</item>
+        <item quantity="few">%d ke smazání</item>
+        <item quantity="many">%d ke smazání</item>
+        <item quantity="other">%d ke smazání</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d nerozhodnuto</item>
+        <item quantity="few">%d nerozhodnuto</item>
+        <item quantity="many">%d nerozhodnuto</item>
+        <item quantity="other">%d nerozhodnuto</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d již uchovaná</item>
+        <item quantity="few">%d již uchované</item>
+        <item quantity="many">%d již uchovaných</item>
+        <item quantity="other">%d již uchovaných</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d již odstraněna</item>
+        <item quantity="few">%d již odstraněny</item>
+        <item quantity="many">%d již odstraněno</item>
+        <item quantity="other">%d již odstraněno</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d uchovaná</item>
+        <item quantity="few">%d uchované</item>
+        <item quantity="many">%d uchovaných</item>
+        <item quantity="other">%d uchovaných</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d odstraněna</item>
+        <item quantity="few">%d odstraněny</item>
+        <item quantity="many">%d odstraněno</item>
+        <item quantity="other">%d odstraněno</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Vyloučit \"%1$s\" ze skenování Přetahovače?</string>
+    <string name="swiper_sessions_header_title">Jste připraveni k úklidu?</string>
+    <string name="swiper_sessions_suggestions_label">Zkuste začít s:</string>
+    <string name="swiper_sessions_suggestion_downloads">Složka pro stažené</string>
+    <string name="swiper_sessions_suggestion_screenshots">Snímky obrazovky</string>
+    <string name="swiper_sessions_suggestion_camera">Fotogalerie</string>
+    <string name="swiper_stamp_keep_1">Ponechat!</string>
+    <string name="swiper_stamp_keep_2">Hezké!</string>
+    <string name="swiper_stamp_keep_3">Ano!</string>
+    <string name="swiper_stamp_keep_4">Zachovat!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Čau!</string>
+    <string name="swiper_stamp_delete_3">Odpad!</string>
+    <string name="swiper_stamp_delete_4">Smazat!</string>
+    <string name="swiper_stamp_skip_1">Přeskočit!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Později!</string>
+    <string name="swiper_stamp_skip_4">Možná!</string>
+    <string name="swiper_stamp_undo_1">Vrať zpět!</string>
+    <string name="swiper_stamp_undo_2">Zpět!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Počkat!</string>
+    <string name="swiper_gesture_overlay_dismiss">Začněte klepnutím kamkoli</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
+    <string name="swiper_gesture_overlay_left_delete">← Smazat</string>
+    <string name="swiper_gesture_overlay_right_keep">Ponechat →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Ponechat</string>
+    <string name="swiper_gesture_overlay_right_delete">Smazat →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Přeskočit</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Vrať zpět</string>
+    <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_help_title">Jak funguje Swiper</string>
+    <string name="swiper_help_message">Přejeďte prstem po každém souboru a rozhodněte se:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zrušit (po prvním přejetí)\n\nMůžete také použít tlačítka v dolní části.\n\nAž budete hotovi, klepněte na \"Posoudit\" a zobrazte všechna svá rozhodnutí. Nic se nesmaže, dokud nepotvrdíte na obrazovce s přehledem.</string>
+</resources>

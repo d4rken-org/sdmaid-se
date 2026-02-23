@@ -119,10 +119,10 @@ class SchedulerNotifications @Inject constructor(
                         SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name
                         SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name
                         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
-                        SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
+                        SDMTool.Type.ANALYZER -> eu.darken.sdmse.analyzer.R.string.analyzer_tool_name
                         SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name
 SDMTool.Type.SQUEEZER -> eu.darken.sdmse.squeezer.R.string.squeezer_tool_name
-                        SDMTool.Type.SWIPER -> R.string.swiper_tool_name
+                        SDMTool.Type.SWIPER -> eu.darken.sdmse.swiper.R.string.swiper_tool_name
                     }
                     context.getString(toolNameId) to it.error!!.localized(context).asText().get(context)
                 }

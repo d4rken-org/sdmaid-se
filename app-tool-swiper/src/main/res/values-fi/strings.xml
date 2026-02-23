@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Pyyhkäisijä</string>
+    <string name="swiper_tool_name">Pyyhkäisijä</string>
+    <string name="swiper_tool_description">Järjestä kansiot nopeasti — pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi.</string>
+    <string name="swiper_dashcard_description">Järjestä tietyt kansiot nopeammin kuin tiedostonhallinnalla — pyyhkäise jokainen tiedosto.</string>
+    <string name="swiper_start_action">Aloita pyyhkäisy</string>
+    <string name="swiper_continue_action">Jatka istuntoa</string>
+    <string name="swiper_sessions_description">Tarkista tiedostot 3 helpolla askeleella:\n\n1. Valitse kansio skannattavaksi\n2. Pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi\n3. Tarkista valintasi ja vahvista\n\nMitään ei poisteta ennen kuin painat lopullista poista-painiketta.</string>
+    <string name="swiper_select_folders_action">Valitse kansiot</string>
+    <string name="swiper_scanning_title">Skannataan…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d kohde löydetty</item>
+        <item quantity="other">%d kohdetta löydetty</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d kohde poistettu</item>
+        <item quantity="other">%d kohdetta poistettu</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d kohde epäonnistui</item>
+        <item quantity="other">%d kohdetta epäonnistui</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Säilytä</string>
+    <string name="swiper_skip_action">Ohita</string>
+    <string name="swiper_review_action">Tarkista</string>
+    <string name="swiper_status_title">Tarkista päätökset</string>
+    <string name="swiper_status_action_keep_selected">Säilytä valitut</string>
+    <string name="swiper_status_action_delete_selected">Poista valitut</string>
+    <string name="swiper_status_action_reset_selected">Nollaa valitut</string>
+    <string name="swiper_decision_undecided">Päättämätön</string>
+    <string name="swiper_retry_action">Yritä uudelleen</string>
+    <string name="swiper_delete_confirmation_title">Poistetaanko tiedostot?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Tämä poistaa pysyvästi %1$d tiedoston (%2$s). Tätä toimintoa ei voi kumota.</item>
+        <item quantity="other">Tämä poistaa pysyvästi %1$d tiedostoa (%2$s). Tätä toimintoa ei voi kumota.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d päättämätön kohde jää myöhempää tarkistusta varten.</item>
+        <item quantity="other">%d päättämätöntä kohdetta jää myöhempää tarkistusta varten.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Poista %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Vaihda pyyhkäisysuunnat</string>
+    <string name="swiper_settings_swap_directions_summary">Pyyhkäise vasemmalle säilyttääksesi, oikealle poistaaksesi.</string>
+    <string name="swiper_settings_show_details_title">Näytä tiedoston tiedot</string>
+    <string name="swiper_settings_show_details_summary">Näytä tiedoston nimi, koko ja päivämäärä pyyhkäisynäytöllä.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptinen palaute</string>
+    <string name="swiper_settings_haptic_feedback_summary">Värise tehdessä säilytys- tai poistopäätöksiä.</string>
+    <string name="swiper_discard_session_confirmation_title">Hylätäänkö istunto?</string>
+    <string name="swiper_discard_session_confirmation_message">Kaikki päätökset menetetään. Oletko varma?</string>
+    <string name="swiper_no_preview_available">Esikatselu ei saatavilla</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
+        <item quantity="other">Jatka istuntoa %1$d päivän takaa (%2$d%% valmis)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d istunto</item>
+        <item quantity="other">%d istuntoa</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d päättämätön kohde</item>
+        <item quantity="other">%d päättämätöntä kohdetta</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Luotu %1$s, viimeisin toiminta %2$s</string>
+    <string name="swiper_session_remove_action">Poista istunto</string>
+    <string name="swiper_sessions_empty_hint">Napauta + valitaksesi kansion ja aloittaaksesi pyyhkäisyn</string>
+    <string name="swiper_sessions_upgrade_body">Päivitä poistaaksesi nämä rajoitukset ja tukeaksesi kehitystä. Ilmaisversio on rajoitettu:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d tiedosto per istunto</item>
+        <item quantity="other">%d tiedostoa per istunto</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d istunto</item>
+        <item quantity="other">%d istuntoa</item>
+    </plurals>
+    <string name="swiper_session_default_label">Istunto #%d</string>
+    <string name="swiper_session_rename_title">Nimeä istunto uudelleen</string>
+    <string name="swiper_session_rename_hint">Anna nimi tälle istunnolle</string>
+    <string name="swiper_sessions_current_sessions">Nykyiset istunnot</string>
+    <string name="swiper_session_paths_label">Polut</string>
+    <string name="swiper_session_status_label">Tila</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d säilytettävä</item>
+        <item quantity="other">%d säilytettävää</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d poistettava</item>
+        <item quantity="other">%d poistettavaa</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d päättämätön</item>
+        <item quantity="other">%d päättämätöntä</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d jo säilytetty</item>
+        <item quantity="other">%d jo säilytettyä</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d jo poistettu</item>
+        <item quantity="other">%d jo poistettua</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d säilytetty</item>
+        <item quantity="other">%d säilytettyä</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d poistettu</item>
+        <item quantity="other">%d poistettua</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Suljetaanko \"%1$s\" pois Swiper-skannauksista?</string>
+    <string name="swiper_sessions_header_title">Valmis järjestämään?</string>
+    <string name="swiper_sessions_suggestions_label">Kokeile aloittaa:</string>
+    <string name="swiper_sessions_suggestion_downloads">Lataukset-kansio</string>
+    <string name="swiper_sessions_suggestion_screenshots">Kuvakaappaukset</string>
+    <string name="swiper_sessions_suggestion_camera">Kameran kuvat</string>
+    <string name="swiper_stamp_keep_1">Säilytä!</string>
+    <string name="swiper_stamp_keep_2">Kiva!</string>
+    <string name="swiper_stamp_keep_3">Kyllä!</string>
+    <string name="swiper_stamp_keep_4">Tallenna!</string>
+    <string name="swiper_stamp_delete_1">Ei!</string>
+    <string name="swiper_stamp_delete_2">Hei hei!</string>
+    <string name="swiper_stamp_delete_3">Roskiin!</string>
+    <string name="swiper_stamp_delete_4">Poista!</string>
+    <string name="swiper_stamp_skip_1">Ohita!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Myöhemmin!</string>
+    <string name="swiper_stamp_skip_4">Ehkä!</string>
+    <string name="swiper_stamp_undo_1">Kumoa!</string>
+    <string name="swiper_stamp_undo_2">Takaisin!</string>
+    <string name="swiper_stamp_undo_3">Oho!</string>
+    <string name="swiper_stamp_undo_4">Odota!</string>
+    <string name="swiper_gesture_overlay_dismiss">Napauta mitä tahansa aloittaaksesi</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
+    <string name="swiper_gesture_overlay_left_delete">← Poista</string>
+    <string name="swiper_gesture_overlay_right_keep">Säilytä →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Säilytä</string>
+    <string name="swiper_gesture_overlay_right_delete">Poista →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ohita</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Kumoa</string>
+    <string name="swiper_help_action">Ohje</string>
+    <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
+    <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
+</resources>

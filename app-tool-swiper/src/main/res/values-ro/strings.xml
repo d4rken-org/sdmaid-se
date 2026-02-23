@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Glisare</string>
+    <string name="swiper_tool_name">Glisare</string>
+    <string name="swiper_tool_description">Dezaglomerați folderele rapid — glisați fișierele pentru a păstra, șterge sau sări.</string>
+    <string name="swiper_dashcard_description">Dezaglomerați foldere specifice mai rapid decât un explorator de fișiere — doar glisați fiecare fișier.</string>
+    <string name="swiper_start_action">Începeți glisarea</string>
+    <string name="swiper_continue_action">Continuați sesiunea</string>
+    <string name="swiper_sessions_description">Revizuiți fișierele în 3 pași simpli:\n\n1. Alegeți un folder de scanat\n2. Glisați fișierele pentru a păstra, șterge sau sări\n3. Revizuiți alegerile și confirmați\n\nNimic nu este eliminat până nu atingeți butonul final de ștergere.</string>
+    <string name="swiper_select_folders_action">Selectați foldere</string>
+    <string name="swiper_scanning_title">Se scanează…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d element găsit</item>
+        <item quantity="few">%d elemente găsite</item>
+        <item quantity="other">%d elemente găsite</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d element șters</item>
+        <item quantity="few">%d elemente șterse</item>
+        <item quantity="other">%d elemente șterse</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d element eșuat</item>
+        <item quantity="few">%d elemente eșuate</item>
+        <item quantity="other">%d elemente eșuate</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d din %2$d</string>
+    <string name="swiper_keep_action">Păstrați</string>
+    <string name="swiper_skip_action">Treceți peste</string>
+    <string name="swiper_review_action">Revizuiți</string>
+    <string name="swiper_status_title">Decizii de revizuire</string>
+    <string name="swiper_status_action_keep_selected">Păstrați selecțiile</string>
+    <string name="swiper_status_action_delete_selected">Ștergeți selecțiile</string>
+    <string name="swiper_status_action_reset_selected">Resetați selecțiile</string>
+    <string name="swiper_decision_undecided">Indecis</string>
+    <string name="swiper_retry_action">Reîncărcați</string>
+    <string name="swiper_delete_confirmation_title">Ștergeți fișierele?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Aceasta va șterge permanent %1$d fișier (%2$s). Această acțiune nu poate fi anulată.</item>
+        <item quantity="few">Aceasta va șterge permanent %1$d fișiere (%2$s). Această acțiune nu poate fi anulată.</item>
+        <item quantity="other">Aceasta va șterge permanent %1$d fișiere (%2$s). Această acțiune nu poate fi anulată.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d element indecis va rămâne pentru revizuire ulterioară.</item>
+        <item quantity="few">%d elemente indecise vor rămâne pentru revizuire ulterioară.</item>
+        <item quantity="other">%d elemente indecise vor rămâne pentru revizuire ulterioară.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Ștergeți %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Schimbați direcțiile de glisare</string>
+    <string name="swiper_settings_swap_directions_summary">Trageți cu degetul spre stânga pentru a păstra, spre dreapta pentru a șterge.</string>
+    <string name="swiper_settings_show_details_title">Afișarea detaliilor fișierului</string>
+    <string name="swiper_settings_show_details_summary">Afișați numele fișierului, dimensiunea și data pe ecranul de glisare.</string>
+    <string name="swiper_settings_haptic_feedback_title">Vibrații la atingere</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrați atunci când luați decizii de păstrare sau ștergere.</string>
+    <string name="swiper_discard_session_confirmation_title">Renunțați la sesiune?</string>
+    <string name="swiper_discard_session_confirmation_message">Toate deciziile vor fi pierdute. Sunteți sigur?</string>
+    <string name="swiper_no_preview_available">Nu există previzualizare disponibilă</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continuați sesiunea de acum %1$d zi (%2$d%% finalizat)</item>
+        <item quantity="few">Continuați sesiunea de acum %1$d zile (%2$d%% finalizat)</item>
+        <item quantity="other">Continuați sesiunea de acum %1$d zile (%2$d%% finalizat)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sesiune</item>
+        <item quantity="few">%d sesiuni</item>
+        <item quantity="other">%d sesiuni</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d element indecis</item>
+        <item quantity="few">%d elemente indecise</item>
+        <item quantity="other">%d elemente indecise</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Creat %1$s, ultima activitate %2$s</string>
+    <string name="swiper_session_remove_action">Eliminați sesiune</string>
+    <string name="swiper_sessions_empty_hint">Atingeți + pentru a selecta un folder și a începe glisarea</string>
+    <string name="swiper_sessions_upgrade_body">Faceți upgrade pentru a elimina aceste limite și a susține dezvoltarea. Versiunea gratuită este limitată la:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fișier per sesiune</item>
+        <item quantity="few">%d fișiere per sesiune</item>
+        <item quantity="other">%d fișiere per sesiune</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sesiune</item>
+        <item quantity="few">%d sesiuni</item>
+        <item quantity="other">%d sesiuni</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesiune #%d</string>
+    <string name="swiper_session_rename_title">Redenumiți sesiune</string>
+    <string name="swiper_session_rename_hint">Introduceți un nume pentru această sesiune</string>
+    <string name="swiper_sessions_current_sessions">Sesiuni curente</string>
+    <string name="swiper_session_paths_label">Căi</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d de păstrat</item>
+        <item quantity="few">%d de păstrat</item>
+        <item quantity="other">%d de păstrat</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d de șters</item>
+        <item quantity="few">%d de șters</item>
+        <item quantity="other">%d de șters</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d indecis</item>
+        <item quantity="few">%d indecise</item>
+        <item quantity="other">%d indecise</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d deja păstrat</item>
+        <item quantity="few">%d deja păstrate</item>
+        <item quantity="other">%d deja păstrate</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d deja șters</item>
+        <item quantity="few">%d deja șterse</item>
+        <item quantity="other">%d deja șterse</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d păstrat</item>
+        <item quantity="few">%d păstrate</item>
+        <item quantity="other">%d păstrate</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ștearsă</item>
+        <item quantity="few">%d șterse</item>
+        <item quantity="other">%d șterse</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Excludeți \"%1$s\" din scanările Swiper?</string>
+    <string name="swiper_sessions_header_title">Pregătit de curățat?</string>
+    <string name="swiper_sessions_suggestions_label">Încercați să începeți cu:</string>
+    <string name="swiper_sessions_suggestion_downloads">Folder descărcări</string>
+    <string name="swiper_sessions_suggestion_screenshots">Capturi de ecran</string>
+    <string name="swiper_sessions_suggestion_camera">Galerie cameră</string>
+    <string name="swiper_stamp_keep_1">Păstrați!</string>
+    <string name="swiper_stamp_keep_2">Grozav!</string>
+    <string name="swiper_stamp_keep_3">Da!</string>
+    <string name="swiper_stamp_keep_4">Salvați!</string>
+    <string name="swiper_stamp_delete_1">Nup!</string>
+    <string name="swiper_stamp_delete_2">La revedere!</string>
+    <string name="swiper_stamp_delete_3">Gunoi!</string>
+    <string name="swiper_stamp_delete_4">Șterge!</string>
+    <string name="swiper_stamp_skip_1">Sari!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Mai târziu!</string>
+    <string name="swiper_stamp_skip_4">Poate!</string>
+    <string name="swiper_stamp_undo_1">Anulare!</string>
+    <string name="swiper_stamp_undo_2">Înapoi!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Așteaptă!</string>
+    <string name="swiper_gesture_overlay_dismiss">Atingeți oriunde pentru a începe</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Am înțeles</string>
+    <string name="swiper_gesture_overlay_left_delete">← Șterge</string>
+    <string name="swiper_gesture_overlay_right_keep">Păstrează →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Păstrează</string>
+    <string name="swiper_gesture_overlay_right_delete">Șterge →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Sari</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Anulare</string>
+    <string name="swiper_help_action">Ajutor</string>
+    <string name="swiper_help_title">Cum funcționează Swiper</string>
+    <string name="swiper_help_message">Glisați fiecare fișier pentru a lua o decizie:\n\n← Glisați la stânga: %1$s\n→ Glisați la dreapta: %2$s\n↑ Glisați în sus: Sari\n↓ Glisați în jos: Anulare (după prima glisare)\n\nPuteți utiliza și butoanele de jos.\n\nCând ați terminat, atingeți \"Revizuire\" pentru a vedea toate deciziile. Nimic nu este șters până nu confirmați pe ecranul de revizuire.</string>
+</resources>

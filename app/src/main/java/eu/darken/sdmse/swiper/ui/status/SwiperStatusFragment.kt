@@ -135,7 +135,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
 
             // Keep stats
             keepCount.text = resources.getQuantityString(
-                R.plurals.swiper_session_status_to_keep,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_to_keep,
                 state.keepCount,
                 state.keepCount
             )
@@ -144,7 +144,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
 
             // Delete stats
             deleteCount.text = resources.getQuantityString(
-                R.plurals.swiper_session_status_to_delete,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_to_delete,
                 state.deleteCount,
                 state.deleteCount
             )
@@ -153,7 +153,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
 
             // Undecided stats
             undecidedCount.text = resources.getQuantityString(
-                R.plurals.swiper_session_status_undecided,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_undecided,
                 state.undecidedCount,
                 state.undecidedCount
             )
@@ -170,7 +170,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             alreadyKeptIcon.visibility = if (showKept) View.VISIBLE else View.GONE
             alreadyKeptCount.visibility = if (showKept) View.VISIBLE else View.GONE
             alreadyKeptCount.text = resources.getQuantityString(
-                R.plurals.swiper_session_status_kept,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_kept,
                 state.alreadyKeptCount,
                 state.alreadyKeptCount,
             )
@@ -181,7 +181,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             alreadyDeletedIcon.visibility = if (showDeleted) View.VISIBLE else View.GONE
             alreadyDeletedCount.visibility = if (showDeleted) View.VISIBLE else View.GONE
             alreadyDeletedCount.text = resources.getQuantityString(
-                R.plurals.swiper_session_status_deleted,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_deleted,
                 state.alreadyDeletedCount,
                 state.alreadyDeletedCount,
             )
@@ -223,7 +223,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             // Has items to delete - show delete (RED)
             state.deleteCount > 0 -> ButtonState(
                 text = if (state.undecidedCount > 0) {
-                    getString(R.string.swiper_delete_x_action, state.deleteCount)
+                    getString(eu.darken.sdmse.swiper.R.string.swiper_delete_x_action, state.deleteCount)
                 } else {
                     getString(eu.darken.sdmse.common.R.string.general_delete_action)
                 },
@@ -304,7 +304,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         val (deleteSizeFormatted, _) = ByteFormatter.formatSize(requireContext(), state.deleteSize)
 
         return buildString {
-            append(getString(R.string.swiper_keep_action))
+            append(getString(eu.darken.sdmse.swiper.R.string.swiper_keep_action))
             append(" ")
             append(state.keepCount)
             append(" • ")
@@ -344,14 +344,14 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         val (sizeFormatted, _) = ByteFormatter.formatSize(requireContext(), state.deleteSize)
 
         val deleteMessage = resources.getQuantityString(
-            R.plurals.swiper_delete_confirmation_message,
+            eu.darken.sdmse.swiper.R.plurals.swiper_delete_confirmation_message,
             state.deleteCount,
             state.deleteCount,
             sizeFormatted,
         )
         val message = if (state.undecidedCount > 0) {
             val undecidedMessage = resources.getQuantityString(
-                R.plurals.swiper_delete_confirmation_message_partial_undecided,
+                eu.darken.sdmse.swiper.R.plurals.swiper_delete_confirmation_message_partial_undecided,
                 state.undecidedCount,
                 state.undecidedCount,
             )
@@ -361,7 +361,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         }
 
         MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.swiper_delete_confirmation_title)
+            setTitle(eu.darken.sdmse.swiper.R.string.swiper_delete_confirmation_title)
             setMessage(message)
             setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
                 vm.retryAllFailed()  // Always call - no-op if no failed items

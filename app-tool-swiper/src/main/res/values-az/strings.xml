@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Sürüşdürücü</string>
+    <string name="swiper_tool_name">Sürüşdürücü</string>
+    <string name="swiper_tool_description">Qovluqları tez səliqəyə salın — faylları saxlamaq, silmək və ya keçmək üçün sürüşdürün.</string>
+    <string name="swiper_dashcard_description">Müəyyən qovluqları fayl menecerindən daha sürətli səliqəyə salın — sadəcə hər faylı sürüşdürün.</string>
+    <string name="swiper_start_action">Sürüşdürməyə başla</string>
+    <string name="swiper_continue_action">Sessiyanı davam etdir</string>
+    <string name="swiper_sessions_description">Faylları 3 sadə addımda nəzərdən keçirin:\n\n1. Skan etmək üçün qovluq seçin\n2. Faylları saxlamaq, silmək və ya keçmək üçün sürüşdürün\n3. Seçimlərinizi nəzərdən keçirin və təsdiqləyin\n\nSon silmə düyməsinə toxunana qədər heç nə silinmir.</string>
+    <string name="swiper_select_folders_action">Qovluqları seç</string>
+    <string name="swiper_scanning_title">Skan edilir…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d element tapıldı</item>
+        <item quantity="other">%d element tapıldı</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d element silindi</item>
+        <item quantity="other">%d element silindi</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d element uğursuz oldu</item>
+        <item quantity="other">%d element uğursuz oldu</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Saxla</string>
+    <string name="swiper_skip_action">Keç</string>
+    <string name="swiper_review_action">Baxış</string>
+    <string name="swiper_status_title">Qərarları nəzərdən keçir</string>
+    <string name="swiper_status_action_keep_selected">Seçilənləri saxla</string>
+    <string name="swiper_status_action_delete_selected">Seçilənləri sil</string>
+    <string name="swiper_status_action_reset_selected">Seçilənləri sıfırla</string>
+    <string name="swiper_decision_undecided">Qərarsız</string>
+    <string name="swiper_retry_action">Yenidən cəhd et</string>
+    <string name="swiper_delete_confirmation_title">Fayllar silinsin?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Bu %1$d faylı (%2$s) həmişəlik siləcək. Bu əməliyyat geri qaytarıla bilməz.</item>
+        <item quantity="other">Bu %1$d faylı (%2$s) həmişəlik siləcək. Bu əməliyyat geri qaytarıla bilməz.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d qərarsız element sonrakı nəzərdən keçirmə üçün qalacaq.</item>
+        <item quantity="other">%d qərarsız element sonrakı nəzərdən keçirmə üçün qalacaq.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d sil</string>
+    <string name="swiper_settings_swap_directions_title">Sürüşdürmə istiqamətlərini dəyiş</string>
+    <string name="swiper_settings_swap_directions_summary">Saxlamaq üçün sola, silmək üçün sağa sürüşdürün.</string>
+    <string name="swiper_settings_show_details_title">Fayl detallarını göstər</string>
+    <string name="swiper_settings_show_details_summary">Sürüşdürmə ekranında fayl adını, ölçüsünü və tarixini göstərin.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptik əks-əlaqə</string>
+    <string name="swiper_settings_haptic_feedback_summary">Saxlama və ya silmə qərarları verdikdə titrəmə.</string>
+    <string name="swiper_discard_session_confirmation_title">Sessiya ləğv edilsin?</string>
+    <string name="swiper_discard_session_confirmation_message">Bütün qərarlar itiriləcək. Əminsiniz?</string>
+    <string name="swiper_no_preview_available">Ön baxış mövcud deyil</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
+        <item quantity="other">%1$d gün əvvəlki sessiyanı davam etdir (%2$d%% tamamlanıb)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d qərarsız element</item>
+        <item quantity="other">%d qərarsız element</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Yaradılıb %1$s, son fəaliyyət %2$s</string>
+    <string name="swiper_session_remove_action">Sessiyanı sil</string>
+    <string name="swiper_sessions_empty_hint">Qovluq seçmək və sürüşdürməyə başlamaq üçün + toxunun</string>
+    <string name="swiper_sessions_upgrade_body">Bu məhdudiyyətləri aradan qaldırmaq və inkişafı dəstəkləmək üçün yeniləyin. Pulsuz versiya bunlarla məhdudlaşır:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">Hər sessiyada %d fayl</item>
+        <item quantity="other">Hər sessiyada %d fayl</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessiya #%d</string>
+    <string name="swiper_session_rename_title">Sessiyanın adını dəyiş</string>
+    <string name="swiper_session_rename_hint">Bu sessiya üçün ad daxil edin</string>
+    <string name="swiper_sessions_current_sessions">Mövcud sessiyalar</string>
+    <string name="swiper_session_paths_label">Yollar</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d saxlanacaq</item>
+        <item quantity="other">%d saxlanacaq</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d silinəcək</item>
+        <item quantity="other">%d silinəcək</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d qərarsız</item>
+        <item quantity="other">%d qərarsız</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d artıq saxlanılıb</item>
+        <item quantity="other">%d artıq saxlanılıb</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d artıq silinib</item>
+        <item quantity="other">%d artıq silinib</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d saxlanılıb</item>
+        <item quantity="other">%d saxlanılıb</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d silinib</item>
+        <item quantity="other">%d silinib</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" Swiper skanlarından istisna edilsin?</string>
+    <string name="swiper_sessions_header_title">Səliqəyə salmağa hazırsınız?</string>
+    <string name="swiper_sessions_suggestions_label">Bunlarla başlayın:</string>
+    <string name="swiper_sessions_suggestion_downloads">Yükləmələr qovluğu</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekran görüntüləri</string>
+    <string name="swiper_sessions_suggestion_camera">Kamera rulosu</string>
+    <string name="swiper_stamp_keep_1">Saxla!</string>
+    <string name="swiper_stamp_keep_2">Gözəl!</string>
+    <string name="swiper_stamp_keep_3">Bəli!</string>
+    <string name="swiper_stamp_keep_4">Qoru!</string>
+    <string name="swiper_stamp_delete_1">Xeyr!</string>
+    <string name="swiper_stamp_delete_2">Əlvida!</string>
+    <string name="swiper_stamp_delete_3">Zibil!</string>
+    <string name="swiper_stamp_delete_4">Sil!</string>
+    <string name="swiper_stamp_skip_1">Keç!</string>
+    <string name="swiper_stamp_skip_2">Boş ver!</string>
+    <string name="swiper_stamp_skip_3">Sonra!</string>
+    <string name="swiper_stamp_skip_4">Bəlkə!</string>
+    <string name="swiper_stamp_undo_1">Geri al!</string>
+    <string name="swiper_stamp_undo_2">Geri!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Dayan!</string>
+    <string name="swiper_gesture_overlay_dismiss">Başlamaq üçün istənilən yerə toxunun</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
+    <string name="swiper_gesture_overlay_left_delete">← Sil</string>
+    <string name="swiper_gesture_overlay_right_keep">Saxla →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saxla</string>
+    <string name="swiper_gesture_overlay_right_delete">Sil →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Keç</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
+    <string name="swiper_help_action">Kömək</string>
+    <string name="swiper_help_title">Swiper necə işləyir</string>
+    <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
+</resources>

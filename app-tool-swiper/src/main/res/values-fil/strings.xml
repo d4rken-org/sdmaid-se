@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Mabilis na linisin ang mga folder — mag-swipe ng mga file para itabi, burahin, o laktawan.</string>
+    <string name="swiper_dashcard_description">Linisin ang mga tiyak na folder nang mas mabilis kaysa sa file explorer — i-swipe lang ang bawat file.</string>
+    <string name="swiper_start_action">Magsimulang mag-swipe</string>
+    <string name="swiper_continue_action">Ipagpatuloy ang session</string>
+    <string name="swiper_sessions_description">Suriin ang mga file sa 3 simpleng hakbang:\n\n1. Pumili ng folder na i-scan\n2. Mag-swipe ng mga file para itabi, burahin, o laktawan\n3. Suriin ang mga pagpapasya at kumpirmahin\n\nWalang maaalis hanggang hindi mo na-tap ang huling delete button.</string>
+    <string name="swiper_select_folders_action">Pumili ng mga folder</string>
+    <string name="swiper_scanning_title">Nag-i-scan…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item na nahanap</item>
+        <item quantity="other">%d mga item na nahanap</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item na na-delete</item>
+        <item quantity="other">%d mga item na na-delete</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item na nabigo</item>
+        <item quantity="other">%d mga item na nabigo</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d sa %2$d</string>
+    <string name="swiper_keep_action">Itabi</string>
+    <string name="swiper_skip_action">Laktawan</string>
+    <string name="swiper_review_action">Suriin</string>
+    <string name="swiper_status_title">Suriin ang mga desisyon</string>
+    <string name="swiper_status_action_keep_selected">Itabi ang napili</string>
+    <string name="swiper_status_action_delete_selected">I-delete ang napili</string>
+    <string name="swiper_status_action_reset_selected">I-reset ang napili</string>
+    <string name="swiper_decision_undecided">Hindi pa napagpasyahan</string>
+    <string name="swiper_retry_action">Subukan muli</string>
+    <string name="swiper_delete_confirmation_title">I-delete ang mga file?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Permanenteng ide-delete nito ang %1$d file (%2$s). Hindi na maaaring ibalik ang aksyon na ito.</item>
+        <item quantity="other">Permanenteng ide-delete nito ang %1$d mga file (%2$s). Hindi na maaaring ibalik ang aksyon na ito.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
+        <item quantity="other">%d mga hindi pa napagpasyahang item ang mananatili para sa susunod na pagsusuri.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">I-delete %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Magpalit ng direksyon ng swipe</string>
+    <string name="swiper_settings_swap_directions_summary">Mag-swipe pakaliwa upang itabi, pakanan upang i-delete.</string>
+    <string name="swiper_settings_show_details_title">Ipakita ang mga detalye ng file</string>
+    <string name="swiper_settings_show_details_summary">Ipakita ang pangalan, sukat at petsa ng file sa swipe screen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptic na feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Mag-vibrate kapag gumagawa ng desisyon na itabi o i-delete.</string>
+    <string name="swiper_discard_session_confirmation_title">Itapon ang session?</string>
+    <string name="swiper_discard_session_confirmation_message">Mawawala ang lahat ng desisyon. Sigurado ka ba?</string>
+    <string name="swiper_no_preview_available">Walang preview na available</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Ipagpatuloy ang session mula %1$d araw na ang nakalipas (%2$d%% tapos na)</item>
+        <item quantity="other">Ipagpatuloy ang session mula %1$d araw na ang nakalipas (%2$d%% tapos na)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d mga session</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d hindi pa napagpasyahang item</item>
+        <item quantity="other">%d mga hindi pa napagpasyahang item</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Ginawa %1$s, huling aktibidad %2$s</string>
+    <string name="swiper_session_remove_action">Alisin ang session</string>
+    <string name="swiper_sessions_empty_hint">I-tap ang + upang pumili ng folder at magsimulang mag-swipe</string>
+    <string name="swiper_sessions_upgrade_body">Mag-upgrade upang alisin ang mga limitasyong ito at suportahan ang development. Ang libreng bersyon ay limitado sa:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d file bawat session</item>
+        <item quantity="other">%d mga file bawat session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d mga session</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_rename_title">I-rename ang session</string>
+    <string name="swiper_session_rename_hint">Maglagay ng pangalan para sa session na ito</string>
+    <string name="swiper_sessions_current_sessions">Mga kasalukuyang session</string>
+    <string name="swiper_session_paths_label">Mga Path</string>
+    <string name="swiper_session_status_label">Katayuan</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d itatabi</item>
+        <item quantity="other">%d itatabi</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ide-delete</item>
+        <item quantity="other">%d ide-delete</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d hindi pa napagpasyahan</item>
+        <item quantity="other">%d hindi pa napagpasyahan</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d naitabi na</item>
+        <item quantity="other">%d naitabi na</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d na-delete na</item>
+        <item quantity="other">%d na-delete na</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d naitabi</item>
+        <item quantity="other">%d naitabi</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d na-delete</item>
+        <item quantity="other">%d na-delete</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">I-exclude ang \"%1$s\" sa mga Swiper scan?</string>
+    <string name="swiper_sessions_header_title">Handa nang mag-declutter?</string>
+    <string name="swiper_sessions_suggestions_label">Subukang magsimula sa:</string>
+    <string name="swiper_sessions_suggestion_downloads">Folder ng mga download</string>
+    <string name="swiper_sessions_suggestion_screenshots">Mga Screenshot</string>
+    <string name="swiper_sessions_suggestion_camera">Camera roll</string>
+    <string name="swiper_stamp_keep_1">Itabi!</string>
+    <string name="swiper_stamp_keep_2">Ganda!</string>
+    <string name="swiper_stamp_keep_3">Oo!</string>
+    <string name="swiper_stamp_keep_4">I-save!</string>
+    <string name="swiper_stamp_delete_1">Hindi!</string>
+    <string name="swiper_stamp_delete_2">Paalam!</string>
+    <string name="swiper_stamp_delete_3">Basura!</string>
+    <string name="swiper_stamp_delete_4">Burahin!</string>
+    <string name="swiper_stamp_skip_1">Laktawan!</string>
+    <string name="swiper_stamp_skip_2">Basta!</string>
+    <string name="swiper_stamp_skip_3">Mamaya!</string>
+    <string name="swiper_stamp_skip_4">Siguro!</string>
+    <string name="swiper_stamp_undo_1">I-undo!</string>
+    <string name="swiper_stamp_undo_2">Bumalik!</string>
+    <string name="swiper_stamp_undo_3">Ay!</string>
+    <string name="swiper_stamp_undo_4">Teka!</string>
+    <string name="swiper_gesture_overlay_dismiss">I-tap kahit saan para magsimula</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Nakuha ko</string>
+    <string name="swiper_gesture_overlay_left_delete">← Burahin</string>
+    <string name="swiper_gesture_overlay_right_keep">Itabi →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Itabi</string>
+    <string name="swiper_gesture_overlay_right_delete">Burahin →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Laktawan</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ I-undo</string>
+    <string name="swiper_help_action">Tulong</string>
+    <string name="swiper_help_title">Paano gumagana ang Swiper</string>
+    <string name="swiper_help_message">I-swipe ang bawat file para gumawa ng desisyon:\n\n← I-swipe pakaliwa: %1$s\n→ I-swipe pakanan: %2$s\n↑ I-swipe pataas: Laktawan\n↓ I-swipe pababa: I-undo (pagkatapos ng unang swipe)\n\nMaaari ka ring gumamit ng mga button sa ibaba.\n\nKapag tapos ka na, i-tap ang \"Suriin\" para makita ang lahat ng iyong desisyon. Walang nabubura hanggang hindi mo kinukumpirma sa review screen.</string>
+</resources>

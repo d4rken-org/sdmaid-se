@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Фолдеруудыг хурдан цэгцлэх — файлуудыг гүйлгэж хадгалах, устгах, эсвэл алгасах.</string>
+    <string name="swiper_dashcard_description">Тодорхой фолдеруудыг файл менежерээс илүү хурдан цэгцлэх — файл бүрийг зүгээр л гүйлгэ.</string>
+    <string name="swiper_start_action">Гүйлгэж эхлэх</string>
+    <string name="swiper_continue_action">Сессийг үргэлжлүүлэх</string>
+    <string name="swiper_sessions_description">Файлуудыг 3 энгийн алхмаар хянах:\n\n1. Сканнердах фолдер сонгох\n2. Файлуудыг гүйлгэж хадгалах, устгах, эсвэл алгасах\n3. Сонголтоо хянаж баталгаажуулах\n\nУстгах товчийг дарах хүртэл юу ч устгагдахгүй.</string>
+    <string name="swiper_select_folders_action">Фолдерууд сонгох</string>
+    <string name="swiper_scanning_title">Сканнердаж байна…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d зүйл олдсон</item>
+        <item quantity="other">%d зүйл олдсон</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d зүйл устгагдсан</item>
+        <item quantity="other">%d зүйл устгагдсан</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d зүйл амжилтгүй</item>
+        <item quantity="other">%d зүйл амжилтгүй</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Хадгалах</string>
+    <string name="swiper_skip_action">Алгасах</string>
+    <string name="swiper_review_action">Хянах</string>
+    <string name="swiper_status_title">Шийдвэрүүдийг хянах</string>
+    <string name="swiper_status_action_keep_selected">Сонгосныг хадгалах</string>
+    <string name="swiper_status_action_delete_selected">Сонгосныг устгах</string>
+    <string name="swiper_status_action_reset_selected">Сонгосныг шинэчлэх</string>
+    <string name="swiper_decision_undecided">Шийдэгдээгүй</string>
+    <string name="swiper_retry_action">Дахин оролдох</string>
+    <string name="swiper_delete_confirmation_title">Файлуудыг устгах уу?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">%1$d файлыг (%2$s) бүрмөсөн устгана. Энэ үйлдлийг буцаах боломжгүй.</item>
+        <item quantity="other">%1$d файлыг (%2$s) бүрмөсөн устгана. Энэ үйлдлийг буцаах боломжгүй.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d шийдэгдээгүй зүйл дараа хянуулахаар үлдэнэ.</item>
+        <item quantity="other">%d шийдэгдээгүй зүйл дараа хянуулахаар үлдэнэ.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d устгах</string>
+    <string name="swiper_settings_swap_directions_title">Гүйлгэх чиглэлийг сольх</string>
+    <string name="swiper_settings_swap_directions_summary">Зүүн тийш гүйлгэж хадгалах, баруун тийш устгах.</string>
+    <string name="swiper_settings_show_details_title">Файлын дэлгэрэнгүйг харуулах</string>
+    <string name="swiper_settings_show_details_summary">Гүйлгэх дэлгэц дээр файлын нэр, хэмжээ, огноог харуулах.</string>
+    <string name="swiper_settings_haptic_feedback_title">Чичиргээт хариу үйлдэл</string>
+    <string name="swiper_settings_haptic_feedback_summary">Хадгалах эсвэл устгах шийдвэр гаргахад чичирнэ.</string>
+    <string name="swiper_discard_session_confirmation_title">Сессийг устгах уу?</string>
+    <string name="swiper_discard_session_confirmation_message">Бүх шийдвэр алдагдана. Итгэлтэй байна уу?</string>
+    <string name="swiper_no_preview_available">Урьдчилсан харагдац байхгүй</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d өдрийн өмнөх сессийг үргэлжлүүлэх (%2$d%% дууссан)</item>
+        <item quantity="other">%1$d өдрийн өмнөх сессийг үргэлжлүүлэх (%2$d%% дууссан)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d сесси</item>
+        <item quantity="other">%d сесси</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d шийдэгдээгүй зүйл</item>
+        <item quantity="other">%d шийдэгдээгүй зүйл</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Үүсгэсэн %1$s, сүүлийн идэвхжил %2$s</string>
+    <string name="swiper_session_remove_action">Сессийг устгах</string>
+    <string name="swiper_sessions_empty_hint">+ товчлуурыг дарж фолдер сонгоод гүйлгэж эхлээрэй</string>
+    <string name="swiper_sessions_upgrade_body">Эдгээр хязгаарлалтыг арилгаж, хөгжүүлэлтийг дэмжихийн тулд шинэчлээрэй. Үнэгүй хувилбар нь дараахаар хязгаарлагдана:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">Сесси бүрт %d файл</item>
+        <item quantity="other">Сесси бүрт %d файл</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d сесси</item>
+        <item quantity="other">%d сесси</item>
+    </plurals>
+    <string name="swiper_session_default_label">Сесси #%d</string>
+    <string name="swiper_session_rename_title">Сессийг нэрлэх</string>
+    <string name="swiper_session_rename_hint">Энэ сессийн нэрийг оруулна уу</string>
+    <string name="swiper_sessions_current_sessions">Одоогийн сессүүд</string>
+    <string name="swiper_session_paths_label">Замууд</string>
+    <string name="swiper_session_status_label">Төлөв</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d хадгалах</item>
+        <item quantity="other">%d хадгалах</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d устгах</item>
+        <item quantity="other">%d устгах</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d шийдэгдээгүй</item>
+        <item quantity="other">%d шийдэгдээгүй</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d аль хэдийн хадгалсан</item>
+        <item quantity="other">%d аль хэдийн хадгалсан</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d аль хэдийн устгасан</item>
+        <item quantity="other">%d аль хэдийн устгасан</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d хадгалсан</item>
+        <item quantity="other">%d хадгалсан</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d устгасан</item>
+        <item quantity="other">%d устгасан</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\"-г Swiper сканнердалтаас хасах уу?</string>
+    <string name="swiper_sessions_header_title">Цэгцлэхэд бэлэн үү?</string>
+    <string name="swiper_sessions_suggestions_label">Эхлэхийн тулд:</string>
+    <string name="swiper_sessions_suggestion_downloads">Татсан файлын фолдер</string>
+    <string name="swiper_sessions_suggestion_screenshots">Дэлгэцийн зураг</string>
+    <string name="swiper_sessions_suggestion_camera">Камерын цомог</string>
+    <string name="swiper_stamp_keep_1">Хадгал!</string>
+    <string name="swiper_stamp_keep_2">Гоё!</string>
+    <string name="swiper_stamp_keep_3">Тийм!</string>
+    <string name="swiper_stamp_keep_4">Хадгал!</string>
+    <string name="swiper_stamp_delete_1">Үгүй!</string>
+    <string name="swiper_stamp_delete_2">Баяртай!</string>
+    <string name="swiper_stamp_delete_3">Хогт!</string>
+    <string name="swiper_stamp_delete_4">Устга!</string>
+    <string name="swiper_stamp_skip_1">Алгас!</string>
+    <string name="swiper_stamp_skip_2">Заа!</string>
+    <string name="swiper_stamp_skip_3">Дараа!</string>
+    <string name="swiper_stamp_skip_4">Магадгүй!</string>
+    <string name="swiper_stamp_undo_1">Буцаах!</string>
+    <string name="swiper_stamp_undo_2">Буцах!</string>
+    <string name="swiper_stamp_undo_3">Уучлаарай!</string>
+    <string name="swiper_stamp_undo_4">Хүлээ!</string>
+    <string name="swiper_gesture_overlay_dismiss">Эхлэхийн тулд хаана ч товшино уу</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Ойлголоо</string>
+    <string name="swiper_gesture_overlay_left_delete">← Устгах</string>
+    <string name="swiper_gesture_overlay_right_keep">Хадгалах →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Хадгалах</string>
+    <string name="swiper_gesture_overlay_right_delete">Устгах →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Алгасах</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Буцаах</string>
+    <string name="swiper_help_action">Тусламж</string>
+    <string name="swiper_help_title">Swiper хэрхэн ажилладаг</string>
+    <string name="swiper_help_message">Файл бүрийг гүйлгэж шийдвэр гарга:\n\n← Зүүн тийш гүйлгэх: %1$s\n→ Баруун тийш гүйлгэх: %2$s\n↑ Дээш гүйлгэх: Алгасах\n↓ Доош гүйлгэх: Буцаах (анхны гүйлгэлтийн дараа)\n\nДоод талын товчлууруудыг бас ашиглаж болно.\n\nДууссаны дараа \"Хянах\" дээр дарж бүх шийдвэрээ харна уу. Хяналтын дэлгэц дээр баталгаажуулах хүртэл юу ч устгагдахгүй.</string>
+</resources>

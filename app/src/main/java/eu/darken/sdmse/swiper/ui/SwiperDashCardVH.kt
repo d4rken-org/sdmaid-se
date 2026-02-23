@@ -30,8 +30,8 @@ class SwiperDashCardVH(parent: ViewGroup) :
         when {
             sessionsWithStats.isEmpty() -> {
                 // No sessions: show tool description
-                subtitle.text = getString(R.string.swiper_dashcard_description)
-                viewAction.text = getString(R.string.swiper_start_action)
+                subtitle.text = getString(eu.darken.sdmse.swiper.R.string.swiper_dashcard_description)
+                viewAction.text = getString(eu.darken.sdmse.swiper.R.string.swiper_start_action)
             }
             sessionsWithStats.size == 1 -> {
                 // Single session: show context "Continue session from X days ago (Y% finished)"
@@ -41,7 +41,7 @@ class SwiperDashCardVH(parent: ViewGroup) :
                 val finished = sessionWithStats.keepCount + sessionWithStats.deleteCount
                 val percent = if (session.totalItems > 0) (finished * 100 / session.totalItems) else 0
                 subtitle.text = getQuantityString(
-                    R.plurals.swiper_dashcard_session_context,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_dashcard_session_context,
                     daysAgo,
                     daysAgo,
                     percent,
@@ -52,11 +52,11 @@ class SwiperDashCardVH(parent: ViewGroup) :
                 // Multiple sessions: show "X sessions, Y undecided items"
                 val totalUndecided = sessionsWithStats.sumOf { it.undecidedCount }
                 val sessionsText = getQuantityString(
-                    R.plurals.swiper_dashcard_x_sessions,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_dashcard_x_sessions,
                     sessionsWithStats.size,
                 )
                 val undecidedText = getQuantityString(
-                    R.plurals.swiper_dashcard_x_undecided_items,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_dashcard_x_undecided_items,
                     totalUndecided,
                 )
                 subtitle.text = "$sessionsText, $undecidedText"

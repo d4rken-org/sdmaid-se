@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">দ্রুত ফোল্ডার গোছান — ফাইল সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান।</string>
+    <string name="swiper_dashcard_description">ফাইল এক্সপ্লোরারের চেয়ে দ্রুত নির্দিষ্ট ফোল্ডার গোছান — শুধু প্রতিটি ফাইল সোয়াইপ করুন।</string>
+    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
+    <string name="swiper_start_action">সোয়াইপ শুরু করুন</string>
+    <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
+    <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
+    <string name="swiper_scanning_title">স্ক্যান করা হচ্ছে…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d আইটেম পাওয়া গেছে</item>
+        <item quantity="other">%d আইটেম পাওয়া গেছে</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d আইটেম মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d আইটেম মুছে ফেলা হয়েছে</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d আইটেম ব্যর্থ হয়েছে</item>
+        <item quantity="other">%d আইটেম ব্যর্থ হয়েছে</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">রাখুন</string>
+    <string name="swiper_skip_action">এড়িয়ে যান</string>
+    <string name="swiper_review_action">পর্যালোচনা</string>
+    <string name="swiper_status_title">সিদ্ধান্ত পর্যালোচনা</string>
+    <string name="swiper_status_action_keep_selected">নির্বাচিত রাখুন</string>
+    <string name="swiper_status_action_delete_selected">নির্বাচিত মুছুন</string>
+    <string name="swiper_status_action_reset_selected">নির্বাচিত রিসেট করুন</string>
+    <string name="swiper_decision_undecided">অনির্ধারিত</string>
+    <string name="swiper_retry_action">পুনরায় চেষ্টা</string>
+    <string name="swiper_delete_confirmation_title">ফাইল মুছবেন?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">এটি স্থায়ীভাবে %1$d ফাইল (%2$s) মুছে ফেলবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</item>
+        <item quantity="other">এটি স্থায়ীভাবে %1$d ফাইল (%2$s) মুছে ফেলবে। এই ক্রিয়া পূর্বাবস্থায় ফেরানো যাবে না।</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d অনির্ধারিত আইটেম পরবর্তী পর্যালোচনার জন্য থাকবে।</item>
+        <item quantity="other">%d অনির্ধারিত আইটেম পরবর্তী পর্যালোচনার জন্য থাকবে।</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d মুছুন</string>
+    <string name="swiper_settings_swap_directions_title">সোয়াইপ দিক অদলবদল</string>
+    <string name="swiper_settings_swap_directions_summary">রাখতে বামে সোয়াইপ, মুছতে ডানে।</string>
+    <string name="swiper_settings_show_details_title">ফাইলের বিবরণ দেখান</string>
+    <string name="swiper_settings_show_details_summary">সোয়াইপ স্ক্রিনে ফাইলের নাম, আকার এবং তারিখ দেখান।</string>
+    <string name="swiper_settings_haptic_feedback_title">হ্যাপটিক ফিডব্যাক</string>
+    <string name="swiper_settings_haptic_feedback_summary">রাখা বা মোছার সিদ্ধান্তের সময় কম্পন।</string>
+    <string name="swiper_discard_session_confirmation_title">সেশন বাতিল করবেন?</string>
+    <string name="swiper_discard_session_confirmation_message">সমস্ত সিদ্ধান্ত হারিয়ে যাবে। আপনি কি নিশ্চিত?</string>
+    <string name="swiper_no_preview_available">কোনো প্রিভিউ পাওয়া যায়নি</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d দিন আগের সেশন চালিয়ে যান (%2$d%% সম্পন্ন)</item>
+        <item quantity="other">%1$d দিন আগের সেশন চালিয়ে যান (%2$d%% সম্পন্ন)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d সেশন</item>
+        <item quantity="other">%d সেশন</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d অনির্ধারিত আইটেম</item>
+        <item quantity="other">%d অনির্ধারিত আইটেম</item>
+    </plurals>
+    <string name="swiper_session_timestamps">তৈরি %1$s, শেষ কার্যকলাপ %2$s</string>
+    <string name="swiper_session_remove_action">সেশন সরান</string>
+    <string name="swiper_sessions_empty_hint">একটি ফোল্ডার নির্বাচন করতে এবং সোয়াইপ শুরু করতে + ট্যাপ করুন</string>
+    <string name="swiper_sessions_upgrade_body">এই সীমাবদ্ধতা সরাতে এবং উন্নয়নে সহায়তা করতে আপগ্রেড করুন। বিনামূল্যে সংস্করণ সীমিত:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">প্রতি সেশনে %d ফাইল</item>
+        <item quantity="other">প্রতি সেশনে %d ফাইল</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d সেশন</item>
+        <item quantity="other">%d সেশন</item>
+    </plurals>
+    <string name="swiper_session_default_label">সেশন #%d</string>
+    <string name="swiper_session_rename_title">সেশনের নাম পরিবর্তন</string>
+    <string name="swiper_session_rename_hint">এই সেশনের জন্য একটি নাম লিখুন</string>
+    <string name="swiper_sessions_current_sessions">বর্তমান সেশন</string>
+    <string name="swiper_session_paths_label">পাথ</string>
+    <string name="swiper_session_status_label">অবস্থা</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d রাখতে হবে</item>
+        <item quantity="other">%d রাখতে হবে</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d মুছতে হবে</item>
+        <item quantity="other">%d মুছতে হবে</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d অনির্ধারিত</item>
+        <item quantity="other">%d অনির্ধারিত</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ইতিমধ্যে রাখা হয়েছে</item>
+        <item quantity="other">%d ইতিমধ্যে রাখা হয়েছে</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d ইতিমধ্যে মুছে ফেলা হয়েছে</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d রাখা হয়েছে</item>
+        <item quantity="other">%d রাখা হয়েছে</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d মুছে ফেলা হয়েছে</item>
+        <item quantity="other">%d মুছে ফেলা হয়েছে</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" Swiper স্ক্যান থেকে বাদ দেবেন?</string>
+    <string name="swiper_sessions_header_title">গোছানোর জন্য প্রস্তুত?</string>
+    <string name="swiper_sessions_suggestions_label">এগুলো দিয়ে শুরু করুন:</string>
+    <string name="swiper_sessions_suggestion_downloads">ডাউনলোড ফোল্ডার</string>
+    <string name="swiper_sessions_suggestion_screenshots">স্ক্রিনশট</string>
+    <string name="swiper_sessions_suggestion_camera">ক্যামেরা রোল</string>
+    <string name="swiper_stamp_keep_1">রাখুন!</string>
+    <string name="swiper_stamp_keep_2">চমৎকার!</string>
+    <string name="swiper_stamp_keep_3">হ্যাঁ!</string>
+    <string name="swiper_stamp_keep_4">সেভ!</string>
+    <string name="swiper_stamp_delete_1">না!</string>
+    <string name="swiper_stamp_delete_2">বিদায়!</string>
+    <string name="swiper_stamp_delete_3">ময়লা!</string>
+    <string name="swiper_stamp_delete_4">মুছুন!</string>
+    <string name="swiper_stamp_skip_1">এড়িয়ে!</string>
+    <string name="swiper_stamp_skip_2">মেহ!</string>
+    <string name="swiper_stamp_skip_3">পরে!</string>
+    <string name="swiper_stamp_skip_4">হয়তো!</string>
+    <string name="swiper_stamp_undo_1">পূর্বাবস্থা!</string>
+    <string name="swiper_stamp_undo_2">ফিরে!</string>
+    <string name="swiper_stamp_undo_3">উফ!</string>
+    <string name="swiper_stamp_undo_4">দাঁড়ান!</string>
+    <string name="swiper_gesture_overlay_dismiss">শুরু করতে যেকোনো জায়গায় ট্যাপ করুন</string>
+    <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
+    <string name="swiper_gesture_overlay_left_delete">← মুছুন</string>
+    <string name="swiper_gesture_overlay_right_keep">রাখুন →</string>
+    <string name="swiper_gesture_overlay_left_keep">← রাখুন</string>
+    <string name="swiper_gesture_overlay_right_delete">মুছুন →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ এড়িয়ে যান</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ পূর্বাবস্থা</string>
+    <string name="swiper_help_action">সাহায্য</string>
+    <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
+    <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
+</resources>

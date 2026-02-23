@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">Húzogatás indítása</string>
+    <string name="swiper_continue_action">Munkamenet folytatása</string>
+    <string name="swiper_select_folders_action">Mappák kiválasztása</string>
+    <string name="swiper_scanning_title">Keresés…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d elem található</item>
+        <item quantity="other">%d elem található</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d elem törölve</item>
+        <item quantity="other">%d elem törölve</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d elem sikertelen</item>
+        <item quantity="other">%d elem sikertelen</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Megtartás</string>
+    <string name="swiper_skip_action">Kihagyás</string>
+    <string name="swiper_review_action">Áttekintés</string>
+    <string name="swiper_status_title">Döntések áttekintése</string>
+    <string name="swiper_status_action_keep_selected">Kijelöltek megtartása</string>
+    <string name="swiper_status_action_delete_selected">Kijelöltek törlése</string>
+    <string name="swiper_status_action_reset_selected">Kijelöltek visszaállítása</string>
+    <string name="swiper_decision_undecided">Eldöntetlen</string>
+    <string name="swiper_retry_action">Újrapróbálás</string>
+    <string name="swiper_delete_confirmation_title">Fájlok törlése?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Ez véglegesen törli a(z) %1$d fájlt (%2$s). Ez a művelet nem vonható vissza.</item>
+        <item quantity="other">Ez véglegesen törli a(z) %1$d fájlt (%2$s). Ez a művelet nem vonható vissza.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d eldöntetlen elem marad későbbi áttekintésre.</item>
+        <item quantity="other">%d eldöntetlen elem marad későbbi áttekintésre.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d törlése</string>
+    <string name="swiper_settings_swap_directions_title">Húzási irányok felcserélése</string>
+    <string name="swiper_settings_swap_directions_summary">Balra húzás a megtartáshoz, jobbra a törléshez.</string>
+    <string name="swiper_settings_show_details_title">Fájl részletek megjelenítése</string>
+    <string name="swiper_settings_show_details_summary">Fájlnév, méret és dátum megjelenítése a húzogatási képernyőn.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptikus visszajelzés</string>
+    <string name="swiper_settings_haptic_feedback_summary">Rezgés a megtartás vagy törlés döntéseknél.</string>
+    <string name="swiper_discard_session_confirmation_title">Munkamenet elvetése?</string>
+    <string name="swiper_discard_session_confirmation_message">Minden döntés elvész. Biztosan folytatod?</string>
+    <string name="swiper_no_preview_available">Nincs elérhető előnézet</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Munkamenet folytatása %1$d napja (%2$d%% kész)</item>
+        <item quantity="other">Munkamenet folytatása %1$d napja (%2$d%% kész)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d munkamenet</item>
+        <item quantity="other">%d munkamenet</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d eldöntetlen elem</item>
+        <item quantity="other">%d eldöntetlen elem</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Létrehozva: %1$s, utolsó tevékenység: %2$s</string>
+    <string name="swiper_session_remove_action">Munkamenet eltávolítása</string>
+    <string name="swiper_sessions_empty_hint">Érintsd meg a + gombot egy mappa kiválasztásához és a húzogatás megkezdéséhez</string>
+    <string name="swiper_sessions_upgrade_body">Frissíts a korlátok eltávolításához és a fejlesztés támogatásához. Az ingyenes verzió korlátai:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d fájl munkamenetenként</item>
+        <item quantity="other">%d fájl munkamenetenként</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d munkamenet</item>
+        <item quantity="other">%d munkamenet</item>
+    </plurals>
+    <string name="swiper_session_default_label">Munkamenet #%d</string>
+    <string name="swiper_session_rename_title">Munkamenet átnevezése</string>
+    <string name="swiper_session_rename_hint">Add meg a munkamenet nevét</string>
+    <string name="swiper_sessions_current_sessions">Jelenlegi munkamenetek</string>
+    <string name="swiper_session_paths_label">Útvonalak</string>
+    <string name="swiper_session_status_label">Állapot</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d megtartandó</item>
+        <item quantity="other">%d megtartandó</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d törlendő</item>
+        <item quantity="other">%d törlendő</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d eldöntetlen</item>
+        <item quantity="other">%d eldöntetlen</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d már megtartva</item>
+        <item quantity="other">%d már megtartva</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d már törölve</item>
+        <item quantity="other">%d már törölve</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d megtartva</item>
+        <item quantity="other">%d megtartva</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d törölve</item>
+        <item quantity="other">%d törölve</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" kizárása a Swiper keresésekből?</string>
+    <string name="swiper_sessions_header_title">Készen állsz a rendrakásra?</string>
+    <string name="swiper_sessions_suggestions_label">Próbáld ki ezekkel:</string>
+    <string name="swiper_sessions_suggestion_downloads">Letöltések mappa</string>
+    <string name="swiper_sessions_suggestion_screenshots">Képernyőképek</string>
+    <string name="swiper_sessions_suggestion_camera">Kameratekercs</string>
+    <string name="swiper_stamp_keep_1">Tartsd!</string>
+    <string name="swiper_stamp_keep_2">Szép!</string>
+    <string name="swiper_stamp_keep_3">Igen!</string>
+    <string name="swiper_stamp_keep_4">Mentés!</string>
+    <string name="swiper_stamp_delete_1">Nem!</string>
+    <string name="swiper_stamp_delete_2">Szia!</string>
+    <string name="swiper_stamp_delete_3">Kuka!</string>
+    <string name="swiper_stamp_delete_4">Törlés!</string>
+    <string name="swiper_stamp_skip_1">Kihagy!</string>
+    <string name="swiper_stamp_skip_2">Hm!</string>
+    <string name="swiper_stamp_skip_3">Később!</string>
+    <string name="swiper_stamp_skip_4">Talán!</string>
+    <string name="swiper_stamp_undo_1">Vissza!</string>
+    <string name="swiper_stamp_undo_2">Mégsem!</string>
+    <string name="swiper_stamp_undo_3">Hoppá!</string>
+    <string name="swiper_stamp_undo_4">Várj!</string>
+    <string name="swiper_gesture_overlay_dismiss">Érintsd meg bárhol a kezdéshez</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Értem</string>
+    <string name="swiper_gesture_overlay_left_delete">← Törlés</string>
+    <string name="swiper_gesture_overlay_right_keep">Megtartás →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Megtartás</string>
+    <string name="swiper_gesture_overlay_right_delete">Törlés →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Kihagyás</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Visszavonás</string>
+    <string name="swiper_help_action">Súgó</string>
+    <string name="swiper_help_title">Hogyan működik a Swiper</string>
+    <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Mappák gyors rendrakása — húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz.</string>
+    <string name="swiper_dashcard_description">Mappák rendezése gyorsabban, mint egy fájlkezelővel — csak húzd az egyes fájlokat.</string>
+    <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>
+</resources>

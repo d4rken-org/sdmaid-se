@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Esfregona</string>
+    <string name="swiper_tool_name">Esfregona</string>
+    <string name="swiper_tool_description">Organize pastas rapidamente — deslize ficheiros para manter, apagar ou ignorar.</string>
+    <string name="swiper_dashcard_description">Organize pastas específicas mais rápido do que um explorador de ficheiros — basta deslizar cada ficheiro.</string>
+    <string name="swiper_start_action">Comece a limpar</string>
+    <string name="swiper_continue_action">Continuar sessão</string>
+    <string name="swiper_sessions_description">Reveja ficheiros em 3 passos simples:\n\n1. Escolha uma pasta para analisar\n2. Deslize ficheiros para manter, apagar ou ignorar\n3. Reveja as suas escolhas e confirme\n\nNada é removido até tocar no botão final de apagar.</string>
+    <string name="swiper_select_folders_action">Selecionar pastas</string>
+    <string name="swiper_scanning_title">Verificando…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item encontrado</item>
+        <item quantity="other">%d itens encontrados</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item eliminado</item>
+        <item quantity="other">%d itens eliminados</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item falhou</item>
+        <item quantity="other">%d itens falharam</item>
+    </plurals>
+    <string name="swiper_item_position">%1$d de %2$d</string>
+    <string name="swiper_keep_action">Manter</string>
+    <string name="swiper_skip_action">Ignorar</string>
+    <string name="swiper_review_action">Rever</string>
+    <string name="swiper_status_title">Rever decisões</string>
+    <string name="swiper_status_action_keep_selected">Manter selecionados</string>
+    <string name="swiper_status_action_delete_selected">Eliminar selecionados</string>
+    <string name="swiper_status_action_reset_selected">Redefinir selecionado</string>
+    <string name="swiper_decision_undecided">Não decidido</string>
+    <string name="swiper_retry_action">Tentar novamente</string>
+    <string name="swiper_delete_confirmation_title">Apagar ficheiros?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Isto irá apagar permanentemente o arquivo %1$d (%2$s). Esta ação não pode ser desfeita.</item>
+        <item quantity="other">Isto irá apagar permanentemente arquivos %1$d (%2$s). Esta ação não pode ser desfeita.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d item sem decisão permanecerá para revisão posterior.</item>
+        <item quantity="other">%d itens sem decisão permanecerão para posterior análise.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Apagar %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Inverter a direção da esfregona</string>
+    <string name="swiper_settings_swap_directions_summary">Deslize a esfregona para a esquerda para manter, para a direita para excluir.</string>
+    <string name="swiper_settings_show_details_title">Mostrar os detalhes do ficheiro</string>
+    <string name="swiper_settings_show_details_summary">Exibe o nome do arquivo, tamanho e data na tela de limpeza.</string>
+    <string name="swiper_settings_haptic_feedback_title">Feedback tátil</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrar ao tomar decisões de manutenção ou exclusão.</string>
+    <string name="swiper_discard_session_confirmation_title">Descartar sessão?</string>
+    <string name="swiper_discard_session_confirmation_message">Todas as decisões serão perdidas. Você tem certeza?</string>
+    <string name="swiper_no_preview_available">Sem pré-visualização disponível</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continuar a sessão de %1$d dia atrás (%2$d%% finalizada)</item>
+        <item quantity="other">Continuar a sessão de há %1$d dias (%2$d%% finalizada)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessão</item>
+        <item quantity="other">%d sessões</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d item não decidido</item>
+        <item quantity="other">%d itens não decididos</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Criado %1$s, última atividade %2$s</string>
+    <string name="swiper_session_remove_action">Remover sessão</string>
+    <string name="swiper_sessions_empty_hint">Toque em + para selecionar uma pasta e começar a usar a esfregona</string>
+    <string name="swiper_sessions_upgrade_body">Atualize para remover estes limites e apoiar o desenvolvimento. A versão gratuita é limitada a:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d ficheiro por sessão</item>
+        <item quantity="other">%d ficheiros por sessão</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessão</item>
+        <item quantity="other">%d sessões</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessão #%d</string>
+    <string name="swiper_session_rename_title">Renomear sessão</string>
+    <string name="swiper_session_rename_hint">Digite um nome para esta sessão</string>
+    <string name="swiper_sessions_current_sessions">Sessões atuais</string>
+    <string name="swiper_session_paths_label">Caminhos</string>
+    <string name="swiper_session_status_label">Estado</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d para manter</item>
+        <item quantity="other">%d para manter</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d para apagar</item>
+        <item quantity="other">%d para apagar</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d não decidido</item>
+        <item quantity="other">%d não decididos</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d já guardado</item>
+        <item quantity="other">%d já guardados</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d já apagado</item>
+        <item quantity="other">%d já apagados</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d mantido</item>
+        <item quantity="other">%d mantidos</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d eliminado</item>
+        <item quantity="other">%d eliminados</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Excluir \"%1$s\" de scans da esfregona?</string>
+    <string name="swiper_sessions_header_title">Pronto para organizar?</string>
+    <string name="swiper_sessions_suggestions_label">Tente começar com:</string>
+    <string name="swiper_sessions_suggestion_downloads">Pasta de Transferências</string>
+    <string name="swiper_sessions_suggestion_screenshots">Capturas de ecrã</string>
+    <string name="swiper_sessions_suggestion_camera">Imagens da câmera</string>
+    <string name="swiper_stamp_keep_1">Manter!</string>
+    <string name="swiper_stamp_keep_2">Boa!</string>
+    <string name="swiper_stamp_keep_3">Sim!</string>
+    <string name="swiper_stamp_keep_4">Guarde!</string>
+    <string name="swiper_stamp_delete_1">Na!</string>
+    <string name="swiper_stamp_delete_2">Adeus!</string>
+    <string name="swiper_stamp_delete_3">Lixo!</string>
+    <string name="swiper_stamp_delete_4">Apagar!</string>
+    <string name="swiper_stamp_skip_1">Ignorar!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Mais tarde!</string>
+    <string name="swiper_stamp_skip_4">Talvez!</string>
+    <string name="swiper_stamp_undo_1">Desfazer!</string>
+    <string name="swiper_stamp_undo_2">Voltar!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Aguarde!</string>
+    <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para começar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_gesture_overlay_left_delete">← Apagar</string>
+    <string name="swiper_gesture_overlay_right_keep">Manter →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Manter</string>
+    <string name="swiper_gesture_overlay_right_delete">Apagar →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Ignorar</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
+    <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_help_title">Como funciona o Swiper</string>
+    <string name="swiper_help_message">Deslize cada ficheiro para tomar uma decisão:\n\n← Deslizar para a esquerda: %1$s\n→ Deslizar para a direita: %2$s\n↑ Deslizar para cima: Ignorar\n↓ Deslizar para baixo: Desfazer (após o primeiro deslize)\n\nTambém pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Rever\" para ver todas as suas decisões. Nada é apagado até confirmar no ecrã de revisão.</string>
+</resources>

@@ -173,7 +173,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 deleteAction.setImageResource(R.drawable.ic_heart)
                 keepAction.setImageResource(R.drawable.ic_delete)
                 // Swap labels
-                deleteLabel.setText(R.string.swiper_keep_action)
+                deleteLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
                 keepLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
                 // Swap tints: left button gets primary (keep), right button gets error (delete)
                 deleteAction.backgroundTintList = ColorStateList.valueOf(
@@ -207,7 +207,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 keepAction.setImageResource(R.drawable.ic_heart)
                 // Normal labels
                 deleteLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
-                keepLabel.setText(R.string.swiper_keep_action)
+                keepLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
                 // Normal tints: left button gets error (delete), right button gets primary (keep)
                 deleteAction.backgroundTintList = ColorStateList.valueOf(
                     requireContext().getColorForAttr(com.google.android.material.R.attr.colorErrorContainer),
@@ -249,7 +249,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                         fileMeta = "$size • $date",
                         position = state.currentItemOriginalIndex?.let { idx ->
                             getString(
-                                R.string.swiper_item_position,
+                                eu.darken.sdmse.swiper.R.string.swiper_item_position,
                                 idx + 1,
                                 state.totalItems,
                             )
@@ -267,7 +267,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             }
 
             toolbar.subtitle = state.sessionLabel
-                ?: state.sessionPosition?.let { getString(R.string.swiper_session_default_label, it) }
+                ?: state.sessionPosition?.let { getString(eu.darken.sdmse.swiper.R.string.swiper_session_default_label, it) }
 
             progressBar.progress = state.progressPercent
             progressPercent.text = "${state.progressPercent}%"
@@ -305,14 +305,14 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 gestureOverlay.root.visibility = View.VISIBLE
                 if (state.swapDirections) {
                     gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_heart)
-                    gestureOverlay.overlayLeftLabel.setText(R.string.swiper_gesture_overlay_left_keep)
+                    gestureOverlay.overlayLeftLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_left_keep)
                     gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_delete)
-                    gestureOverlay.overlayRightLabel.setText(R.string.swiper_gesture_overlay_right_delete)
+                    gestureOverlay.overlayRightLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_right_delete)
                 } else {
                     gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_delete)
-                    gestureOverlay.overlayLeftLabel.setText(R.string.swiper_gesture_overlay_left_delete)
+                    gestureOverlay.overlayLeftLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_left_delete)
                     gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_heart)
-                    gestureOverlay.overlayRightLabel.setText(R.string.swiper_gesture_overlay_right_keep)
+                    gestureOverlay.overlayRightLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_right_keep)
                 }
                 val dismissOverlay = View.OnClickListener {
                     gestureOverlay.root.visibility = View.GONE
@@ -330,18 +330,18 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
     private fun showHelpDialog() {
         val leftAction = if (currentSwapDirections) {
-            getString(R.string.swiper_keep_action)
+            getString(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
         } else {
             getString(eu.darken.sdmse.common.R.string.general_delete_action)
         }
         val rightAction = if (currentSwapDirections) {
             getString(eu.darken.sdmse.common.R.string.general_delete_action)
         } else {
-            getString(R.string.swiper_keep_action)
+            getString(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
         }
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(R.string.swiper_help_title)
-            .setMessage(getString(R.string.swiper_help_message, leftAction, rightAction))
+            .setTitle(eu.darken.sdmse.swiper.R.string.swiper_help_title)
+            .setMessage(getString(eu.darken.sdmse.swiper.R.string.swiper_help_message, leftAction, rightAction))
             .setPositiveButton(android.R.string.ok, null)
             .show()
     }
@@ -349,7 +349,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
     private fun showExcludeDialog(item: SwipeItem) {
         MaterialAlertDialogBuilder(requireContext())
             .setTitle(R.string.exclusion_create_action)
-            .setMessage(getString(R.string.swiper_exclude_confirmation_message, item.lookup.userReadablePath.get(requireContext())))
+            .setMessage(getString(eu.darken.sdmse.swiper.R.string.swiper_exclude_confirmation_message, item.lookup.userReadablePath.get(requireContext())))
             .setPositiveButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
                 vm.excludeAndRemove(item)
             }

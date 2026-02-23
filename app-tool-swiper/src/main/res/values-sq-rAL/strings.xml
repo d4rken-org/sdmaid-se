@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">Fillo rrëshqitjen</string>
+    <string name="swiper_continue_action">Vazhdo sesionin</string>
+    <string name="swiper_select_folders_action">Zgjidhni dosjet</string>
+    <string name="swiper_scanning_title">Duke skanuar…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d artikull u gjet</item>
+        <item quantity="other">%d artikuj u gjetën</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d artikull u fshi</item>
+        <item quantity="other">%d artikuj u fshinë</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d artikull dështoi</item>
+        <item quantity="other">%d artikuj dështuan</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d nga %2$d</string>
+    <string name="swiper_keep_action">Mbaj</string>
+    <string name="swiper_skip_action">Kapërce</string>
+    <string name="swiper_review_action">Rishiko</string>
+    <string name="swiper_status_title">Rishiko vendimet</string>
+    <string name="swiper_status_action_keep_selected">Mbaj të zgjedhurat</string>
+    <string name="swiper_status_action_delete_selected">Fshi të zgjedhurat</string>
+    <string name="swiper_status_action_reset_selected">Rivendos të zgjedhurat</string>
+    <string name="swiper_decision_undecided">I pavendosur</string>
+    <string name="swiper_retry_action">Riprovo</string>
+    <string name="swiper_delete_confirmation_title">Fshi skedarët?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Kjo do të fshijë përgjithmonë %1$d skedar (%2$s). Ky veprim nuk mund të zhbëhet.</item>
+        <item quantity="other">Kjo do të fshijë përgjithmonë %1$d skedarë (%2$s). Ky veprim nuk mund të zhbëhet.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d artikull i pavendosur do të mbetet për rishikim të mëvonshëm.</item>
+        <item quantity="other">%d artikuj të pavendosur do të mbeten për rishikim të mëvonshëm.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Fshi %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Ndrysho drejtimet e rrëshqitjes</string>
+    <string name="swiper_settings_swap_directions_summary">Rrëshqitni majtas për të mbajtur, djathtas për të fshirë.</string>
+    <string name="swiper_settings_show_details_title">Shfaq detajet e skedarit</string>
+    <string name="swiper_settings_show_details_summary">Shfaq emrin e skedarit, madhësinë dhe datën në ekranin e rrëshqitjes.</string>
+    <string name="swiper_settings_haptic_feedback_title">Reagim haptik</string>
+    <string name="swiper_settings_haptic_feedback_summary">Dridhu kur merrni vendime për mbajtje ose fshirje.</string>
+    <string name="swiper_discard_session_confirmation_title">Hidhni sesionin?</string>
+    <string name="swiper_discard_session_confirmation_message">Të gjitha vendimet do të humbasin. Jeni të sigurt?</string>
+    <string name="swiper_no_preview_available">Nuk ka pamje paraprake</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
+        <item quantity="other">Vazhdo sesionin nga %1$d ditë më parë (%2$d%% e përfunduar)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sesion</item>
+        <item quantity="other">%d sesione</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d artikull i pavendosur</item>
+        <item quantity="other">%d artikuj të pavendosur</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Krijuar %1$s, aktiviteti i fundit %2$s</string>
+    <string name="swiper_session_remove_action">Hiq sesionin</string>
+    <string name="swiper_sessions_empty_hint">Prekni + për të zgjedhur një dosje dhe filloni rrëshqitjen</string>
+    <string name="swiper_sessions_upgrade_body">Përmirësoni për të hequr këto kufizime dhe mbështetur zhvillimin. Versioni falas është i kufizuar në:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d skedar për sesion</item>
+        <item quantity="other">%d skedarë për sesion</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sesion</item>
+        <item quantity="other">%d sesione</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesioni #%d</string>
+    <string name="swiper_session_rename_title">Riemërto sesionin</string>
+    <string name="swiper_session_rename_hint">Shkruani një emër për këtë sesion</string>
+    <string name="swiper_sessions_current_sessions">Sesionet aktuale</string>
+    <string name="swiper_session_paths_label">Shtegjet</string>
+    <string name="swiper_session_status_label">Statusi</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d për t\'u mbajtur</item>
+        <item quantity="other">%d për t\'u mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d për t\'u fshirë</item>
+        <item quantity="other">%d për t\'u fshirë</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d i pavendosur</item>
+        <item quantity="other">%d të pavendosur</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d tashmë i mbajtur</item>
+        <item quantity="other">%d tashmë të mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d tashmë i fshirë</item>
+        <item quantity="other">%d tashmë të fshirë</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d i mbajtur</item>
+        <item quantity="other">%d të mbajtur</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d i fshirë</item>
+        <item quantity="other">%d të fshirë</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Përjashto \"%1$s\" nga skanimet Swiper?</string>
+    <string name="swiper_sessions_header_title">Gati për të pastruar?</string>
+    <string name="swiper_sessions_suggestions_label">Filloni me:</string>
+    <string name="swiper_sessions_suggestion_downloads">Dosja e shkarkimeve</string>
+    <string name="swiper_sessions_suggestion_screenshots">Fotografitë e ekranit</string>
+    <string name="swiper_sessions_suggestion_camera">Ruli i kamerës</string>
+    <string name="swiper_stamp_keep_1">Mbaj!</string>
+    <string name="swiper_stamp_keep_2">Bukur!</string>
+    <string name="swiper_stamp_keep_3">Po!</string>
+    <string name="swiper_stamp_keep_4">Ruaj!</string>
+    <string name="swiper_stamp_delete_1">Jo!</string>
+    <string name="swiper_stamp_delete_2">Mirupafshim!</string>
+    <string name="swiper_stamp_delete_3">Mbeturinë!</string>
+    <string name="swiper_stamp_delete_4">Fshi!</string>
+    <string name="swiper_stamp_skip_1">Kapërce!</string>
+    <string name="swiper_stamp_skip_3">Më vonë!</string>
+    <string name="swiper_stamp_skip_4">Ndoshta!</string>
+    <string name="swiper_stamp_undo_1">Zhbëj!</string>
+    <string name="swiper_stamp_undo_2">Prapa!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Prit!</string>
+    <string name="swiper_gesture_overlay_dismiss">Prekni kudo për të filluar</string>
+    <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
+    <string name="swiper_gesture_overlay_left_delete">← Fshi</string>
+    <string name="swiper_gesture_overlay_right_keep">Mbaj →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Mbaj</string>
+    <string name="swiper_gesture_overlay_right_delete">Fshi →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Kapërce</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
+    <string name="swiper_help_action">Ndihmë</string>
+    <string name="swiper_help_title">Si funksionon Swiper</string>
+    <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
+    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
+    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+</resources>

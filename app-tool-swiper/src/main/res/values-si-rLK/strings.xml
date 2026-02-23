@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">ස්වයිපර්</string>
+    <string name="swiper_tool_name">ස්වයිපර්</string>
+    <string name="swiper_tool_description">ෆෝල්ඩර ඉක්මනින් පිළිවෙළට සකසන්න — ගොනු තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ස්වයිප් කරන්න.</string>
+    <string name="swiper_dashcard_description">නිශ්චිත ෆෝල්ඩර ගොනු ගවේෂකයකට වඩා වේගයෙන් පිළිවෙළට සකසන්න — සෑම ගොනුවක්ම ස්වයිප් කරන්න.</string>
+    <string name="swiper_start_action">ස්වයිප් කිරීම ආරම්භ කරන්න</string>
+    <string name="swiper_continue_action">සැසිය දිගටම</string>
+    <string name="swiper_sessions_description">සරල පියවර 3කින් ගොනු සමාලෝචනය කරන්න:\n\n1. පරිලෝකනය කිරීමට ෆෝල්ඩරයක් තෝරන්න\n2. තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ගොනු ස්වයිප් කරන්න\n3. ඔබේ තේරීම් සමාලෝචනය කර තහවුරු කරන්න\n\nඅවසාන මකන්න බොත්තම ඔබන තුරු කිසිවක් ඉවත් නොකෙරේ.</string>
+    <string name="swiper_select_folders_action">ෆෝල්ඩර තෝරන්න</string>
+    <string name="swiper_scanning_title">පරිලෝකනය කරමින්…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">අයිතම %d හමු විය</item>
+        <item quantity="other">අයිතම %d හමු විය</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">අයිතම %d මකා දැමිණි</item>
+        <item quantity="other">අයිතම %d මකා දැමිණි</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">අයිතම %d අසාර්ථක විය</item>
+        <item quantity="other">අයිතම %d අසාර්ථක විය</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">තබාගන්න</string>
+    <string name="swiper_skip_action">මඟ හරින්න</string>
+    <string name="swiper_review_action">සමාලෝචනය</string>
+    <string name="swiper_status_title">තීරණ සමාලෝචනය</string>
+    <string name="swiper_status_action_keep_selected">තෝරාගත්තවා තබාගන්න</string>
+    <string name="swiper_status_action_delete_selected">තෝරාගත්තවා මකන්න</string>
+    <string name="swiper_status_action_reset_selected">තෝරාගත්තවා යළි පිහිටුවන්න</string>
+    <string name="swiper_decision_undecided">තීරණය නොකළ</string>
+    <string name="swiper_retry_action">නැවත උත්සාහ</string>
+    <string name="swiper_delete_confirmation_title">ගොනු මකන්නද?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">මෙය ගොනු %1$d (%2$s) ස්ථිරවම මකනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක.</item>
+        <item quantity="other">මෙය ගොනු %1$d (%2$s) ස්ථිරවම මකනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">තීරණය නොකළ අයිතම %d පසුව සමාලෝචනය සඳහා ඉතිරි වනු ඇත.</item>
+        <item quantity="other">තීරණය නොකළ අයිතම %d පසුව සමාලෝචනය සඳහා ඉතිරි වනු ඇත.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d මකන්න</string>
+    <string name="swiper_settings_swap_directions_title">ස්වයිප් දිශා මාරු කරන්න</string>
+    <string name="swiper_settings_swap_directions_summary">තබා ගැනීමට වමට ස්වයිප්, මැකීමට දකුණට ස්වයිප්.</string>
+    <string name="swiper_settings_show_details_title">ගොනු විස්තර පෙන්වන්න</string>
+    <string name="swiper_settings_show_details_summary">ස්වයිප් තිරයේ ගොනු නම, ප්‍රමාණය සහ දිනය පෙන්වන්න.</string>
+    <string name="swiper_settings_haptic_feedback_title">හැප්ටික් ප්‍රතිචාරය</string>
+    <string name="swiper_settings_haptic_feedback_summary">තබා ගැනීම හෝ මැකීම තීරණ ගන්නා විට කම්පනය.</string>
+    <string name="swiper_discard_session_confirmation_title">සැසිය ඉවත ලන්නද?</string>
+    <string name="swiper_discard_session_confirmation_message">සියලු තීරණ නැති වනු ඇත. ඔබට විශ්වාසද?</string>
+    <string name="swiper_no_preview_available">පෙරදසුනක් නැත</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
+        <item quantity="other">දින %1$d කට පෙර සැසිය දිගටම (%2$d%% අවසන්)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">සැසි %d</item>
+        <item quantity="other">සැසි %d</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">තීරණය නොකළ අයිතම %d</item>
+        <item quantity="other">තීරණය නොකළ අයිතම %d</item>
+    </plurals>
+    <string name="swiper_session_timestamps">සාදන ලද %1$s, අවසන් ක්‍රියාකාරකම %2$s</string>
+    <string name="swiper_session_remove_action">සැසිය ඉවත් කරන්න</string>
+    <string name="swiper_sessions_empty_hint">ෆෝල්ඩරයක් තෝරා ස්වයිප් කිරීම ආරම්භ කිරීමට + තට්ටු කරන්න</string>
+    <string name="swiper_sessions_upgrade_body">මෙම සීමාවන් ඉවත් කිරීමට සහ සංවර්ධනයට සහාය වීමට උත්ශ්‍රේණි කරන්න. නොමිලේ අනුවාදය සීමිතයි:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">සැසියකට ගොනු %d</item>
+        <item quantity="other">සැසියකට ගොනු %d</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">සැසි %d</item>
+        <item quantity="other">සැසි %d</item>
+    </plurals>
+    <string name="swiper_session_default_label">සැසිය #%d</string>
+    <string name="swiper_session_rename_title">සැසිය නැවත නම් කරන්න</string>
+    <string name="swiper_session_rename_hint">මෙම සැසිය සඳහා නමක් ඇතුළත් කරන්න</string>
+    <string name="swiper_sessions_current_sessions">වත්මන් සැසි</string>
+    <string name="swiper_session_paths_label">මාර්ග</string>
+    <string name="swiper_session_status_label">තත්ත්වය</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d තබා ගැනීමට</item>
+        <item quantity="other">%d තබා ගැනීමට</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d මැකීමට</item>
+        <item quantity="other">%d මැකීමට</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d තීරණය නොකළ</item>
+        <item quantity="other">%d තීරණය නොකළ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d දැනටමත් තබාගෙන</item>
+        <item quantity="other">%d දැනටමත් තබාගෙන</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d දැනටමත් මකා ඇත</item>
+        <item quantity="other">%d දැනටමත් මකා ඇත</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d තබාගෙන</item>
+        <item quantity="other">%d තබාගෙන</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d මකා ඇත</item>
+        <item quantity="other">%d මකා ඇත</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" Swiper පරිලෝකනයන්ගෙන් බැහැර කරන්නද?</string>
+    <string name="swiper_sessions_header_title">පිළිවෙළට සකස් කිරීමට සූදානම්ද?</string>
+    <string name="swiper_sessions_suggestions_label">මෙයින් ආරම්භ කරන්න:</string>
+    <string name="swiper_sessions_suggestion_downloads">බාගැනීම් ෆෝල්ඩරය</string>
+    <string name="swiper_sessions_suggestion_screenshots">තිර රූ</string>
+    <string name="swiper_sessions_suggestion_camera">කැමරා රෝලය</string>
+    <string name="swiper_stamp_keep_1">තබාගන්න!</string>
+    <string name="swiper_stamp_keep_2">හොඳයි!</string>
+    <string name="swiper_stamp_keep_3">ඔව්!</string>
+    <string name="swiper_stamp_keep_4">සුරකින්න!</string>
+    <string name="swiper_stamp_delete_1">එපා!</string>
+    <string name="swiper_stamp_delete_2">ආයුබෝ!</string>
+    <string name="swiper_stamp_delete_3">කුණු!</string>
+    <string name="swiper_stamp_delete_4">මකන්න!</string>
+    <string name="swiper_stamp_skip_1">මඟ හරින්න!</string>
+    <string name="swiper_stamp_skip_2">මෙහ්!</string>
+    <string name="swiper_stamp_skip_3">පසුව!</string>
+    <string name="swiper_stamp_skip_4">සමහරවිට!</string>
+    <string name="swiper_stamp_undo_1">අස් කරන්න!</string>
+    <string name="swiper_stamp_undo_2">ආපසු!</string>
+    <string name="swiper_stamp_undo_3">අපොයි!</string>
+    <string name="swiper_stamp_undo_4">ඉන්න!</string>
+    <string name="swiper_gesture_overlay_dismiss">ආරම්භ කිරීමට ඕනෑම තැනක තට්ටු කරන්න</string>
+    <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
+    <string name="swiper_gesture_overlay_left_delete">← මකන්න</string>
+    <string name="swiper_gesture_overlay_right_keep">තබාගන්න →</string>
+    <string name="swiper_gesture_overlay_left_keep">← තබාගන්න</string>
+    <string name="swiper_gesture_overlay_right_delete">මකන්න →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ මඟ හරින්න</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ අස් කරන්න</string>
+    <string name="swiper_help_action">උදව්</string>
+    <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
+    <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
+</resources>

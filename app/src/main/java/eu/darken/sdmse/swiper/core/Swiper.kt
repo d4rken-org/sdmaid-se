@@ -158,11 +158,12 @@ class Swiper @Inject constructor(
         val itemLimit = if (isPro) null else SwiperSettings.FREE_VERSION_LIMIT
 
         // Determine paths and sessionId
-        val (paths, sessionId) = if (task.sessionId != null) {
+        val taskSessionId = task.sessionId
+        val (paths, sessionId) = if (taskSessionId != null) {
             // Scanning existing session
-            val session = sessionDao.getSession(task.sessionId)
-                ?: throw IllegalArgumentException("Session not found: ${task.sessionId}")
-            session.sourcePaths.toSet() to task.sessionId
+            val session = sessionDao.getSession(taskSessionId)
+                ?: throw IllegalArgumentException("Session not found: $taskSessionId")
+            session.sourcePaths.toSet() to taskSessionId
         } else {
             // Creating new session (backward compatibility)
             task.paths!! to null

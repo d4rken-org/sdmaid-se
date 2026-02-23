@@ -72,7 +72,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
 
             // Update toolbar subtitle
             toolbar.subtitle = if (hasSessions) {
-                getString(R.string.swiper_sessions_current_sessions)
+                getString(eu.darken.sdmse.swiper.R.string.swiper_sessions_current_sessions)
             } else {
                 null
             }
@@ -102,7 +102,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                 val position = index + 1
                 val sessionId = sessionWithStats.session.sessionId
                 val displayLabel = sessionWithStats.session.label
-                    ?: getString(R.string.swiper_session_default_label, position)
+                    ?: getString(eu.darken.sdmse.swiper.R.string.swiper_session_default_label, position)
                 items.add(
                     SwiperSessionsSessionVH.Item(
                         sessionWithStats = sessionWithStats,
@@ -147,8 +147,8 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
 
     private fun showDiscardConfirmation(sessionId: String) {
         MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.swiper_discard_session_confirmation_title)
-            setMessage(R.string.swiper_discard_session_confirmation_message)
+            setTitle(eu.darken.sdmse.swiper.R.string.swiper_discard_session_confirmation_title)
+            setMessage(eu.darken.sdmse.swiper.R.string.swiper_discard_session_confirmation_message)
             setPositiveButton(eu.darken.sdmse.common.R.string.general_remove_action) { _, _ ->
                 vm.discardSession(sessionId)
             }
@@ -163,7 +163,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
         nameInput.setText(currentLabel)
 
         val dialog = MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(R.string.swiper_session_rename_title)
+            setTitle(eu.darken.sdmse.swiper.R.string.swiper_session_rename_title)
             setView(dialogView)
             setPositiveButton(eu.darken.sdmse.common.R.string.general_save_action) { _, _ ->
                 val newLabel = nameInput.text?.toString()?.takeIf { it.isNotBlank() }

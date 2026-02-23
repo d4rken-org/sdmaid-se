@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
+    <string name="swiper_continue_action">ସେସନ୍ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="swiper_select_folders_action">ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
+    <string name="swiper_scanning_title">ସ୍କାନ୍ କରୁଛି…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ଆଇଟମ୍ ମିଳିଲା</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ମିଳିଲା</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ଆଇଟମ୍ ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ଆଇଟମ୍ ବିଫଳ</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ବିଫଳ</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ର %2$d</string>
+    <string name="swiper_keep_action">ରଖନ୍ତୁ</string>
+    <string name="swiper_skip_action">ଛାଡନ୍ତୁ</string>
+    <string name="swiper_review_action">ସମୀକ୍ଷା</string>
+    <string name="swiper_status_title">ନିଷ୍ପତ୍ତି ସମୀକ୍ଷା</string>
+    <string name="swiper_status_action_keep_selected">ଚୟନିତ ରଖନ୍ତୁ</string>
+    <string name="swiper_status_action_delete_selected">ଚୟନିତ ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_status_action_reset_selected">ଚୟନିତ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_decision_undecided">ଅନିଷ୍ପତ୍ତିତ</string>
+    <string name="swiper_retry_action">ପୁନଃଚେଷ୍ଟା</string>
+    <string name="swiper_delete_confirmation_title">ଫାଇଲ୍ ଡିଲିଟ୍ କରିବେ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">ଏହା ସ୍ଥାୟୀ ଭାବରେ %1$d ଫାଇଲ୍ (%2$s) ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</item>
+        <item quantity="other">ଏହା ସ୍ଥାୟୀ ଭାବରେ %1$d ଫାଇଲ୍‌ଗୁଡିକ (%2$s) ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍‌ଗୁଡିକ ପରେ ସମୀକ୍ଷା ପାଇଁ ରହିବ।</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_settings_swap_directions_title">ସ୍ୱାଇପ୍ ଦିଗ ବଦଳାନ୍ତୁ</string>
+    <string name="swiper_settings_swap_directions_summary">ରଖିବା ପାଇଁ ବାମକୁ ସ୍ୱାଇପ୍ କରନ୍ତୁ, ଡିଲିଟ୍ ପାଇଁ ଡାହାଣକୁ।</string>
+    <string name="swiper_settings_show_details_title">ଫାଇଲ୍ ବିବରଣୀ ଦେଖାନ୍ତୁ</string>
+    <string name="swiper_settings_show_details_summary">ସ୍ୱାଇପ୍ ସ୍କ୍ରୀନ୍‌ରେ ଫାଇଲ୍ ନାମ, ଆକାର ଏବଂ ତାରିଖ ଦେଖାନ୍ତୁ।</string>
+    <string name="swiper_settings_haptic_feedback_title">ସ୍ପର୍ଶ ପ୍ରତିକ୍ରିୟା</string>
+    <string name="swiper_settings_haptic_feedback_summary">ରଖିବା କିମ୍ବା ଡିଲିଟ୍ ନିଷ୍ପତ୍ତି ନେବା ସମୟରେ କମ୍ପନ।</string>
+    <string name="swiper_discard_session_confirmation_title">ସେସନ୍ ଖାରଜ କରିବେ?</string>
+    <string name="swiper_discard_session_confirmation_message">ସମସ୍ତ ନିଷ୍ପତ୍ତି ହରାଇ ଯିବ। ଆପଣ ନିଶ୍ଚିତ?</string>
+    <string name="swiper_no_preview_available">ପୂର୍ବାବଲୋକନ ଉପಲବ୍ଧ ନାହିଁ</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
+        <item quantity="other">%1$d ଦିନ ଆଗରୁ ସେସନ୍ ଜାରି ରଖନ୍ତୁ (%2$d%% ସମ୍ପୂର୍ଣ୍ଣ)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d ସେସନ୍</item>
+        <item quantity="other">%d ସେସନ୍</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ ଆଇଟମ୍‌ଗୁଡିକ</item>
+    </plurals>
+    <string name="swiper_session_timestamps">ସୃଷ୍ଟି %1$s, ଶେଷ ସକ୍ରିୟତା %2$s</string>
+    <string name="swiper_session_remove_action">ସେସନ୍ ଅପସାରଣ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_empty_hint">ଏକ ଫୋଲ୍ଡର ଚୟନ କରିବା ଏବଂ ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରିବା ପାଇଁ + ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_upgrade_body">ଏହି ସୀମା ଅପସାରଣ ଏବଂ ବିକାଶ ସମର୍ଥନ ପାଇଁ ଅପଗ୍ରେଡ୍ କରନ୍ତୁ। ମାଗଣା ସଂସ୍କରଣ ସୀମିତ:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">ସେସନ୍ ପ୍ରତି %d ଫାଇଲ୍</item>
+        <item quantity="other">ସେସନ୍ ପ୍ରତି %d ଫାଇଲ୍</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d ସେସନ୍</item>
+        <item quantity="other">%d ସେସନ୍</item>
+    </plurals>
+    <string name="swiper_session_default_label">ସେସନ୍ #%d</string>
+    <string name="swiper_session_rename_title">ସେସନ୍ ପୁନଃନାମକରଣ</string>
+    <string name="swiper_session_rename_hint">ଏହି ସେସନ୍ ପାଇଁ ଏକ ନାମ ପ୍ରବେଶ କରନ୍ତୁ</string>
+    <string name="swiper_sessions_current_sessions">ବର୍ତ୍ତମାନ ସେସନ୍</string>
+    <string name="swiper_session_paths_label">ପଥ</string>
+    <string name="swiper_session_status_label">ସ୍ଥିତି</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ରଖିବା ପାଇଁ</item>
+        <item quantity="other">%d ରଖିବା ପାଇଁ</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ଡିଲିଟ୍ ପାଇଁ</item>
+        <item quantity="other">%d ଡିଲିଟ୍ ପାଇଁ</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d ଅନିଷ୍ପତ୍ତିତ</item>
+        <item quantity="other">%d ଅନିଷ୍ପତ୍ତିତ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
+        <item quantity="other">%d ପୂର୍ବରୁ ରଖାଯାଇଛି</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ପୂର୍ବରୁ ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d ରଖାଯାଇଛି</item>
+        <item quantity="other">%d ରଖାଯାଇଛି</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ଡିଲିଟ୍ ହୋଇଛି</item>
+        <item quantity="other">%d ଡିଲିଟ୍ ହୋଇଛି</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Swiper ସ୍କାନ୍‌ରୁ \"%1$s\" ବାହାର କରିବେ?</string>
+    <string name="swiper_sessions_header_title">ସଫା କରିବାକୁ ପ୍ରସ୍ତୁତ?</string>
+    <string name="swiper_sessions_suggestions_label">ଏଥିରୁ ଆରମ୍ଭ କରି ଚେଷ୍ଟା କରନ୍ତୁ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ଡାଉନଲୋଡ ଫୋଲ୍ଡର</string>
+    <string name="swiper_sessions_suggestion_screenshots">ସ୍କ୍ରୀନସଟ୍</string>
+    <string name="swiper_sessions_suggestion_camera">କ୍ୟାମେରା ରୋଲ୍</string>
+    <string name="swiper_stamp_keep_1">ରଖନ୍ତୁ!</string>
+    <string name="swiper_stamp_keep_2">ଭଲ!</string>
+    <string name="swiper_stamp_keep_3">ହଁ!</string>
+    <string name="swiper_stamp_keep_4">ସଞ୍ଚୟ!</string>
+    <string name="swiper_stamp_delete_1">ନାହିଁ!</string>
+    <string name="swiper_stamp_delete_2">ବିଦାୟ!</string>
+    <string name="swiper_stamp_delete_3">ଆବର୍ଜନା!</string>
+    <string name="swiper_stamp_delete_4">ଡିଲିଟ୍!</string>
+    <string name="swiper_stamp_skip_1">ଛାଡନ୍ତୁ!</string>
+    <string name="swiper_stamp_skip_2">ହମ୍!</string>
+    <string name="swiper_stamp_skip_3">ପରେ!</string>
+    <string name="swiper_stamp_skip_4">ହୋଇପାରେ!</string>
+    <string name="swiper_stamp_undo_1">ପ୍ରତ୍ୟାବର୍ତ୍ତନ!</string>
+    <string name="swiper_stamp_undo_2">ପଛକୁ!</string>
+    <string name="swiper_stamp_undo_3">ଓହୋ!</string>
+    <string name="swiper_stamp_undo_4">ଅପେକ୍ଷା!</string>
+    <string name="swiper_gesture_overlay_dismiss">ଆରମ୍ଭ କରିବାକୁ ଯେକୌଣସି ସ୍ଥାନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ବୁଝିଲି</string>
+    <string name="swiper_gesture_overlay_left_delete">← ବିଲୋପ</string>
+    <string name="swiper_gesture_overlay_right_keep">ରଖନ୍ତୁ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← ରଖନ୍ତୁ</string>
+    <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ଼ନ୍ତୁ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
+    <string name="swiper_help_action">ସାହାଯ୍ୟ</string>
+    <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
+    <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଶୀଘ୍ର ସଫା କରନ୍ତୁ — ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_dashcard_description">ଏକ ଫାଇଲ୍ ଏକ୍ସପ୍ଲୋରରଠାରୁ ଅଧିକ ଶୀଘ୍ର ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ସଫା କରନ୍ତୁ — କେବଳ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_sessions_description">୩ଟି ସରଳ ପଦକ୍ଷେପରେ ଫାଇଲ୍ ସମୀକ୍ଷା କରନ୍ତୁ:\n\n1. ସ୍କାନ୍ କରିବାକୁ ଏକ ଫୋଲ୍ଡର ବାଛନ୍ତୁ\n2. ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ\n3. ଆପଣଙ୍କ ବାଛନା ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ\n\nଆପଣ ଶେଷ ବିଲୋପ ବଟନ୍ ଟ୍ୟାପ୍ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
+</resources>

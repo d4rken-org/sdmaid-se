@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_stamp_keep_1">هێشتنەوە!</string>
+    <string name="swiper_stamp_keep_2">باشە!</string>
+    <string name="swiper_stamp_keep_3">بەڵێ!</string>
+    <string name="swiper_stamp_keep_4">پاشەکەوت!</string>
+    <string name="swiper_stamp_delete_1">نەخێر!</string>
+    <string name="swiper_stamp_delete_2">خواحافیز!</string>
+    <string name="swiper_stamp_delete_3">زیبڵ!</string>
+    <string name="swiper_stamp_delete_4">سڕینەوە!</string>
+    <string name="swiper_stamp_skip_1">تێپەڕاندن!</string>
+    <string name="swiper_stamp_skip_2">باشە!</string>
+    <string name="swiper_stamp_skip_3">دواتر!</string>
+    <string name="swiper_stamp_skip_4">لەوانەیە!</string>
+    <string name="swiper_stamp_undo_1">گەڕانەوە!</string>
+    <string name="swiper_stamp_undo_2">دواوە!</string>
+    <string name="swiper_stamp_undo_3">ئۆپس!</string>
+    <string name="swiper_stamp_undo_4">وەستە!</string>
+    <string name="swiper_gesture_overlay_dismiss">بۆ دەستپێکردن لە هەر شوێنێک دەست بدە</string>
+    <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
+    <string name="swiper_gesture_overlay_left_delete">← سڕینەوە</string>
+    <string name="swiper_gesture_overlay_right_keep">هێشتنەوە →</string>
+    <string name="swiper_gesture_overlay_left_keep">← هێشتنەوە</string>
+    <string name="swiper_gesture_overlay_right_delete">سڕینەوە →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ تێپەڕاندن</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ گەڕانەوە</string>
+    <string name="swiper_help_action">یارمەتی</string>
+    <string name="swiper_help_title">چۆن Swiper کاردەکات</string>
+    <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
+</resources>

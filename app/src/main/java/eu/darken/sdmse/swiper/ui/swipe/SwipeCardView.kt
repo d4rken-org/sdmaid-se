@@ -10,7 +10,6 @@ import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.databinding.SwiperCardItemBinding
@@ -69,28 +68,28 @@ class SwipeCardView @JvmOverloads constructor(
 
     // Stamp text resource IDs
     private val keepStampResources = listOf(
-        R.string.swiper_stamp_keep_1,
-        R.string.swiper_stamp_keep_2,
-        R.string.swiper_stamp_keep_3,
-        R.string.swiper_stamp_keep_4,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_keep_1,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_keep_2,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_keep_3,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_keep_4,
     )
     private val deleteStampResources = listOf(
-        R.string.swiper_stamp_delete_1,
-        R.string.swiper_stamp_delete_2,
-        R.string.swiper_stamp_delete_3,
-        R.string.swiper_stamp_delete_4,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_delete_1,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_delete_2,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_delete_3,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_delete_4,
     )
     private val skipStampResources = listOf(
-        R.string.swiper_stamp_skip_1,
-        R.string.swiper_stamp_skip_2,
-        R.string.swiper_stamp_skip_3,
-        R.string.swiper_stamp_skip_4,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_skip_1,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_skip_2,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_skip_3,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_skip_4,
     )
     private val undoStampResources = listOf(
-        R.string.swiper_stamp_undo_1,
-        R.string.swiper_stamp_undo_2,
-        R.string.swiper_stamp_undo_3,
-        R.string.swiper_stamp_undo_4,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_undo_1,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_undo_2,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_undo_3,
+        eu.darken.sdmse.swiper.R.string.swiper_stamp_undo_4,
     )
 
     init {

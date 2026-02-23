@@ -29,7 +29,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
 
         // Session title - custom label or "Session #N"
         sessionTitle.text = session.label
-            ?: getString(R.string.swiper_session_default_label, item.position)
+            ?: getString(eu.darken.sdmse.swiper.R.string.swiper_session_default_label, item.position)
 
         // Title container for renaming (tap anywhere on title + icon)
         titleContainer.setOnClickListener { item.onRename() }
@@ -47,7 +47,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             DateUtils.MINUTE_IN_MILLIS,
             DateUtils.FORMAT_ABBREV_RELATIVE,
         )
-        timestamps.text = getString(R.string.swiper_session_timestamps, createdRelative, lastActivityRelative)
+        timestamps.text = getString(eu.darken.sdmse.swiper.R.string.swiper_session_timestamps, createdRelative, lastActivityRelative)
 
         // Paths section - one path per line with middle ellipsis
         pathsContainer.removeAllViews()
@@ -76,17 +76,17 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             sessionProgressText.text = "$progressPercent%"
 
             keepCount.text = context.resources.getQuantityString(
-                R.plurals.swiper_session_status_to_keep,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_to_keep,
                 sessionWithStats.keepCount,
                 sessionWithStats.keepCount,
             )
             deleteCount.text = context.resources.getQuantityString(
-                R.plurals.swiper_session_status_to_delete,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_to_delete,
                 sessionWithStats.deleteCount,
                 sessionWithStats.deleteCount,
             )
             openCount.text = context.resources.getQuantityString(
-                R.plurals.swiper_session_status_undecided,
+                eu.darken.sdmse.swiper.R.plurals.swiper_session_status_undecided,
                 sessionWithStats.undecidedCount,
                 sessionWithStats.undecidedCount,
             )
@@ -107,7 +107,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             item.isScanning -> {
                 // Scanning in progress - show cancel button (disabled if already cancelling)
                 actionButton.text = getString(eu.darken.sdmse.common.R.string.general_cancel_action)
-                actionButton.setIconResource(R.drawable.ic_cancel)
+                actionButton.setIconResource(eu.darken.sdmse.swiper.R.drawable.ic_cancel)
                 actionButton.isEnabled = !item.isCancelling
                 actionButton.setOnClickListener { item.onCancel() }
             }
@@ -121,9 +121,9 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
                 // Scan complete with items found
                 val hasStarted = sessionWithStats.keepCount + sessionWithStats.deleteCount > 0
                 actionButton.text = if (hasStarted) {
-                    getString(R.string.swiper_continue_action)
+                    getString(eu.darken.sdmse.swiper.R.string.swiper_continue_action)
                 } else {
-                    getString(R.string.swiper_start_action)
+                    getString(eu.darken.sdmse.swiper.R.string.swiper_start_action)
                 }
                 actionButton.setIconResource(R.drawable.ic_baseline_swipe_24)
                 actionButton.isEnabled = true

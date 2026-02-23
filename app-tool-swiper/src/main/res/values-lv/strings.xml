@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_keep_action">Paturēt</string>
+    <string name="swiper_skip_action">Izlaist</string>
+    <string name="swiper_delete_confirmation_title">Dzēst failus?</string>
+    <string name="swiper_stamp_keep_1">Paturēt!</string>
+    <string name="swiper_stamp_keep_2">Jauki!</string>
+    <string name="swiper_stamp_keep_3">Jā!</string>
+    <string name="swiper_stamp_keep_4">Saglabāt!</string>
+    <string name="swiper_stamp_delete_1">Nē!</string>
+    <string name="swiper_stamp_delete_2">Čau!</string>
+    <string name="swiper_stamp_delete_3">Miskaste!</string>
+    <string name="swiper_stamp_delete_4">Dzēst!</string>
+    <string name="swiper_stamp_skip_1">Izlaist!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Vēlāk!</string>
+    <string name="swiper_stamp_skip_4">Varbūt!</string>
+    <string name="swiper_stamp_undo_1">Atsaukt!</string>
+    <string name="swiper_stamp_undo_2">Atpakaļ!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Pagaidi!</string>
+</resources>

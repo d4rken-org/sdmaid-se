@@ -24,7 +24,7 @@ data class SwiperDeleteTask(
         override val primaryInfo
             get() = caString {
                 getQuantityString2(
-                    eu.darken.sdmse.R.plurals.swiper_result_x_items_deleted,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_result_x_items_deleted,
                     affectedCount,
                 )
             }
@@ -50,7 +50,7 @@ data class SwiperDeleteTask(
         override val primaryInfo
             get() = caString {
                 getQuantityString2(
-                    eu.darken.sdmse.R.plurals.swiper_result_x_items_deleted,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_result_x_items_deleted,
                     affectedCount,
                 )
             }
@@ -58,7 +58,7 @@ data class SwiperDeleteTask(
         override val secondaryInfo
             get() = caString {
                 getQuantityString2(
-                    eu.darken.sdmse.R.plurals.swiper_result_x_items_failed,
+                    eu.darken.sdmse.swiper.R.plurals.swiper_result_x_items_failed,
                     failedCount,
                     failedCount,
                 )

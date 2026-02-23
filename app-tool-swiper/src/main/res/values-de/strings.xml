@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Ordner schnell aufräumen — durch Dateien wischen, um sie zu behalten, zu löschen oder zu überspringen.</string>
+    <string name="swiper_dashcard_description">Bestimmte Ordner schneller aufräumen als mit einem Dateimanager — einfach über jede Datei wischen.</string>
+    <string name="swiper_start_action">Wischen starten</string>
+    <string name="swiper_continue_action">Sitzung fortsetzen</string>
+    <string name="swiper_sessions_description">Dateien in 3 einfachen Schritten durchgehen:\n\n1. Einen Ordner zum Scannen auswählen\n2. Durch Dateien wischen, um sie zu behalten, zu löschen oder zu überspringen\n3. Deine Auswahl überprüfen und bestätigen\n\nNichts wird entfernt, bis du den endgültigen Löschen-Button drückst.</string>
+    <string name="swiper_select_folders_action">Ordner auswählen</string>
+    <string name="swiper_scanning_title">Scanne…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d Element gefunden</item>
+        <item quantity="other">%d Elemente gefunden</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d Element gelöscht</item>
+        <item quantity="other">%d Elemente gelöscht</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d Element fehlgeschlagen</item>
+        <item quantity="other">%d Elemente fehlgeschlagen</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d von %2$d</string>
+    <string name="swiper_keep_action">Behalten</string>
+    <string name="swiper_skip_action">Überspringen</string>
+    <string name="swiper_review_action">Überprüfen</string>
+    <string name="swiper_status_title">Entscheidungen überprüfen</string>
+    <string name="swiper_status_action_keep_selected">Ausgewählte behalten</string>
+    <string name="swiper_status_action_delete_selected">Ausgewählte löschen</string>
+    <string name="swiper_status_action_reset_selected">Ausgewählte zurücksetzen</string>
+    <string name="swiper_decision_undecided">Unentschieden</string>
+    <string name="swiper_retry_action">Erneut versuchen</string>
+    <string name="swiper_delete_confirmation_title">Dateien löschen?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Dies wird %1$d Datei (%2$s) dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden.</item>
+        <item quantity="other">Dies wird %1$d Dateien (%2$s) dauerhaft löschen. Diese Aktion kann nicht rückgängig gemacht werden.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d unentschiedenes Element bleibt zur späteren Überprüfung.</item>
+        <item quantity="other">%d unentschiedene Elemente bleiben zur späteren Überprüfung.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d löschen</string>
+    <string name="swiper_settings_swap_directions_title">Wischrichtungen tauschen</string>
+    <string name="swiper_settings_swap_directions_summary">Nach links wischen zum Behalten, nach rechts zum Löschen.</string>
+    <string name="swiper_settings_show_details_title">Dateidetails anzeigen</string>
+    <string name="swiper_settings_show_details_summary">Dateiname, Größe und Datum auf dem Wisch-Bildschirm anzeigen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptisches Feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrieren bei Behalten- oder Löschen-Entscheidungen.</string>
+    <string name="swiper_discard_session_confirmation_title">Sitzung verwerfen?</string>
+    <string name="swiper_discard_session_confirmation_message">Alle Entscheidungen gehen verloren. Bist du sicher?</string>
+    <string name="swiper_no_preview_available">Keine Vorschau verfügbar</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Sitzung von vor %1$d Tag fortsetzen (%2$d%% fertig)</item>
+        <item quantity="other">Sitzung von vor %1$d Tagen fortsetzen (%2$d%% fertig)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d Sitzung</item>
+        <item quantity="other">%d Sitzungen</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d unentschiedenes Element</item>
+        <item quantity="other">%d unentschiedene Elemente</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Erstellt %1$s, letzte Aktivität %2$s</string>
+    <string name="swiper_session_remove_action">Sitzung entfernen</string>
+    <string name="swiper_sessions_empty_hint">Tippe +, um einen Ordner auszuwählen und mit dem Wischen zu beginnen</string>
+    <string name="swiper_sessions_upgrade_body">Upgrade, um diese Grenzen zu entfernen und die Entwicklung zu unterstützen. Die kostenlose Version ist begrenzt auf:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d Datei pro Sitzung</item>
+        <item quantity="other">%d Dateien pro Sitzung</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d Sitzung</item>
+        <item quantity="other">%d Sitzungen</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sitzung #%d</string>
+    <string name="swiper_session_rename_title">Sitzung umbenennen</string>
+    <string name="swiper_session_rename_hint">Einen Namen für diese Sitzung eingeben</string>
+    <string name="swiper_sessions_current_sessions">Aktuelle Sitzungen</string>
+    <string name="swiper_session_paths_label">Pfade</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d zum Behalten</item>
+        <item quantity="other">%d zum Behalten</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d zum Löschen</item>
+        <item quantity="other">%d zum Löschen</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d unentschieden</item>
+        <item quantity="other">%d unentschieden</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d bereits behalten</item>
+        <item quantity="other">%d bereits behalten</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d bereits gelöscht</item>
+        <item quantity="other">%d bereits gelöscht</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d behalten</item>
+        <item quantity="other">%d behalten</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d gelöscht</item>
+        <item quantity="other">%d gelöscht</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" von Swiper-Scans ausschließen?</string>
+    <string name="swiper_sessions_header_title">Bereit zum Aufräumen?</string>
+    <string name="swiper_sessions_suggestions_label">Versuche es mit:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads-Ordner</string>
+    <string name="swiper_sessions_suggestion_screenshots">Screenshots</string>
+    <string name="swiper_sessions_suggestion_camera">Kameraaufnahmen</string>
+    <string name="swiper_stamp_keep_1">Behalten!</string>
+    <string name="swiper_stamp_keep_2">Schön!</string>
+    <string name="swiper_stamp_keep_3">Ja!</string>
+    <string name="swiper_stamp_keep_4">Speichern!</string>
+    <string name="swiper_stamp_delete_1">Nein!</string>
+    <string name="swiper_stamp_delete_2">Tschüss!</string>
+    <string name="swiper_stamp_delete_3">Müll!</string>
+    <string name="swiper_stamp_delete_4">Löschen!</string>
+    <string name="swiper_stamp_skip_1">Weiter!</string>
+    <string name="swiper_stamp_skip_2">Naja!</string>
+    <string name="swiper_stamp_skip_3">Später!</string>
+    <string name="swiper_stamp_skip_4">Vielleicht!</string>
+    <string name="swiper_stamp_undo_1">Rückgängig!</string>
+    <string name="swiper_stamp_undo_2">Zurück!</string>
+    <string name="swiper_stamp_undo_3">Ups!</string>
+    <string name="swiper_stamp_undo_4">Warte!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tippe irgendwo, um zu starten</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
+    <string name="swiper_gesture_overlay_left_delete">← Löschen</string>
+    <string name="swiper_gesture_overlay_right_keep">Behalten →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Behalten</string>
+    <string name="swiper_gesture_overlay_right_delete">Löschen →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Überspringen</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Rückgängig</string>
+    <string name="swiper_help_action">Hilfe</string>
+    <string name="swiper_help_title">So funktioniert Swiper</string>
+    <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wisch)\n\nDu kannst auch die Schaltflächen unten verwenden.\n\nWenn du fertig bist, tippe auf \"Überprüfen\", um alle deine Entscheidungen zu sehen. Es wird nichts gelöscht, bis du auf dem Überprüfungsbildschirm bestätigst.</string>
+</resources>

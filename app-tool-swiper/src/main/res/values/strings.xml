@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Declutter folders fast — swipe through files to keep, delete, or skip.</string>
+    <string name="swiper_dashcard_description">Declutter specific folders faster than a file explorer — just swipe each file.</string>
+    <string name="swiper_start_action">Start swiping</string>
+    <string name="swiper_continue_action">Continue session</string>
+    <string name="swiper_sessions_description">Review files in 3 simple steps:\n\n1. Pick a folder to scan\n2. Swipe through files to keep, delete, or skip\n3. Review your choices and confirm\n\nNothing is removed until you tap the final delete button.</string>
+    <string name="swiper_select_folders_action">Select folders</string>
+    <string name="swiper_scanning_title">Scanning…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item found</item>
+        <item quantity="other">%d items found</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item deleted</item>
+        <item quantity="other">%d items deleted</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item failed</item>
+        <item quantity="other">%d items failed</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d of %2$d</string>
+    <string name="swiper_keep_action">Keep</string>
+    <string name="swiper_skip_action">Skip</string>
+    <string name="swiper_review_action">Review</string>
+    <string name="swiper_status_title">Review decisions</string>
+    <string name="swiper_status_action_keep_selected">Keep selected</string>
+    <string name="swiper_status_action_delete_selected">Delete selected</string>
+    <string name="swiper_status_action_reset_selected">Reset selected</string>
+    <string name="swiper_decision_undecided">Undecided</string>
+    <string name="swiper_retry_action">Retry</string>
+    <string name="swiper_delete_confirmation_title">Delete files?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">This will permanently delete %1$d file (%2$s). This action cannot be undone.</item>
+        <item quantity="other">This will permanently delete %1$d files (%2$s). This action cannot be undone.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d undecided item will remain for later review.</item>
+        <item quantity="other">%d undecided items will remain for later review.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Delete %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
+    <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>
+    <string name="swiper_settings_show_details_title">Show file details</string>
+    <string name="swiper_settings_show_details_summary">Display file name, size and date on the swipe screen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptic feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrate when making keep or delete decisions.</string>
+    <string name="swiper_discard_session_confirmation_title">Discard session?</string>
+    <string name="swiper_discard_session_confirmation_message">All decisions will be lost. Are you sure?</string>
+    <string name="swiper_no_preview_available">No preview available</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continue session from %1$d day ago (%2$d%% finished)</item>
+        <item quantity="other">Continue session from %1$d days ago (%2$d%% finished)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d undecided item</item>
+        <item quantity="other">%d undecided items</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Created %1$s, last activity %2$s</string>
+    <string name="swiper_session_remove_action">Remove session</string>
+    <string name="swiper_sessions_empty_hint">Tap + to select a folder and start swiping</string>
+    <string name="swiper_sessions_upgrade_body">Upgrade to remove these limits and support development. The free version is limited to:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d file per session</item>
+        <item quantity="other">%d files per session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_rename_title">Rename session</string>
+    <string name="swiper_session_rename_hint">Enter a name for this session</string>
+    <string name="swiper_sessions_current_sessions">Current sessions</string>
+    <string name="swiper_session_paths_label">Paths</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d to keep</item>
+        <item quantity="other">%d to keep</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d to delete</item>
+        <item quantity="other">%d to delete</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d undecided</item>
+        <item quantity="other">%d undecided</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d already kept</item>
+        <item quantity="other">%d already kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d already deleted</item>
+        <item quantity="other">%d already deleted</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d kept</item>
+        <item quantity="other">%d kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d deleted</item>
+        <item quantity="other">%d deleted</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Exclude \"%1$s\" from Swiper scans?</string>
+    <string name="swiper_sessions_header_title">Ready to declutter?</string>
+    <string name="swiper_sessions_suggestions_label">Try starting with:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads folder</string>
+    <string name="swiper_sessions_suggestion_screenshots">Screenshots</string>
+    <string name="swiper_sessions_suggestion_camera">Camera roll</string>
+    <string name="swiper_stamp_keep_1">Keep!</string>
+    <string name="swiper_stamp_keep_2">Nice!</string>
+    <string name="swiper_stamp_keep_3">Yes!</string>
+    <string name="swiper_stamp_keep_4">Save!</string>
+    <string name="swiper_stamp_delete_1">Nope!</string>
+    <string name="swiper_stamp_delete_2">Bye!</string>
+    <string name="swiper_stamp_delete_3">Trash!</string>
+    <string name="swiper_stamp_delete_4">Delete!</string>
+    <string name="swiper_stamp_skip_1">Skip!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
+    <string name="swiper_stamp_skip_4">Maybe!</string>
+    <string name="swiper_stamp_undo_1">Undo!</string>
+    <string name="swiper_stamp_undo_2">Back!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Wait!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tap anywhere to start</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Got it</string>
+    <string name="swiper_gesture_overlay_left_delete">← Delete</string>
+    <string name="swiper_gesture_overlay_right_keep">Keep →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Keep</string>
+    <string name="swiper_gesture_overlay_right_delete">Delete →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Skip</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Undo</string>
+    <string name="swiper_help_action">Help</string>
+    <string name="swiper_help_title">How Swiper works</string>
+    <string name="swiper_help_message">Swipe each file to make a decision:\n\n← Swipe left: %1$s\n→ Swipe right: %2$s\n↑ Swipe up: Skip\n↓ Swipe down: Undo (after first swipe)\n\nYou can also use the buttons at the bottom.\n\nWhen you\'re done, tap \"Review\" to see all your decisions. Nothing is deleted until you confirm on the review screen.</string>
+</resources>

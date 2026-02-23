@@ -1,6 +1,6 @@
 package eu.darken.sdmse.swiper.core.tasks
 
-import eu.darken.sdmse.R
+import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.getQuantityString2

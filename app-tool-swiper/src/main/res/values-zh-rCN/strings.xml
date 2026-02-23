@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">开始滑动</string>
+    <string name="swiper_continue_action">继续会话</string>
+    <string name="swiper_select_folders_action">选择文件夹</string>
+    <string name="swiper_scanning_title">正在扫描…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">找到 %d 个项目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">已删除 %d 个项目</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d 个项目失败</item>
+    </plurals>
+    <string name="swiper_item_position">第 %1$d 个，共 %2$d 个</string>
+    <string name="swiper_keep_action">保留</string>
+    <string name="swiper_skip_action">跳过</string>
+    <string name="swiper_review_action">审查</string>
+    <string name="swiper_status_title">审查决定</string>
+    <string name="swiper_status_action_keep_selected">保留所选</string>
+    <string name="swiper_status_action_delete_selected">删除所选</string>
+    <string name="swiper_status_action_reset_selected">重置所选</string>
+    <string name="swiper_decision_undecided">未决定</string>
+    <string name="swiper_retry_action">重试</string>
+    <string name="swiper_delete_confirmation_title">删除文件？</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">这将永久删除 %1$d 个文件（%2$s）。此操作无法撤消。</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d 个未决定的项目将保留供日后审查。</item>
+    </plurals>
+    <string name="swiper_delete_x_action">删除 %1$d</string>
+    <string name="swiper_settings_swap_directions_title">交换滑动方向</string>
+    <string name="swiper_settings_swap_directions_summary">向左滑动保留，向右滑动删除。</string>
+    <string name="swiper_settings_show_details_title">显示文件详情</string>
+    <string name="swiper_settings_show_details_summary">在滑动屏幕上显示文件名、大小和日期。</string>
+    <string name="swiper_settings_haptic_feedback_title">触觉反馈</string>
+    <string name="swiper_settings_haptic_feedback_summary">做出保留或删除决定时振动。</string>
+    <string name="swiper_discard_session_confirmation_title">丢弃会话？</string>
+    <string name="swiper_discard_session_confirmation_message">所有决定将会丢失。您确定吗？</string>
+    <string name="swiper_no_preview_available">没有可用的预览</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">继续 %1$d 天前的会话（已完成 %2$d%%）</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d 个会话</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d 个未决定的项目</item>
+    </plurals>
+    <string name="swiper_session_timestamps">创建于 %1$s，最后活动 %2$s</string>
+    <string name="swiper_session_remove_action">移除会话</string>
+    <string name="swiper_sessions_empty_hint">点击 + 选择文件夹并开始滑动</string>
+    <string name="swiper_sessions_upgrade_body">升级以移除这些限制并支持开发。免费版受限于：</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">每个会话 %d 个文件</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d 个会话</item>
+    </plurals>
+    <string name="swiper_session_default_label">会话 #%d</string>
+    <string name="swiper_session_rename_title">重命名会话</string>
+    <string name="swiper_session_rename_hint">为此会话输入名称</string>
+    <string name="swiper_sessions_current_sessions">当前会话</string>
+    <string name="swiper_session_paths_label">路径</string>
+    <string name="swiper_session_status_label">状态</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d 个待保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d 个待删除</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d 个未决定</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d 个已保留</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d 个已删除</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">已保留 %d 个</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">已删除 %d 个</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">从 Swiper 扫描中排除\"%1$s\"？</string>
+    <string name="swiper_sessions_header_title">准备好整理了吗？</string>
+    <string name="swiper_sessions_suggestions_label">试试从以下开始：</string>
+    <string name="swiper_sessions_suggestion_downloads">下载文件夹</string>
+    <string name="swiper_sessions_suggestion_screenshots">截图</string>
+    <string name="swiper_sessions_suggestion_camera">相机胶卷</string>
+    <string name="swiper_stamp_keep_1">保留！</string>
+    <string name="swiper_stamp_keep_2">不错！</string>
+    <string name="swiper_stamp_keep_3">要！</string>
+    <string name="swiper_stamp_keep_4">留下！</string>
+    <string name="swiper_stamp_delete_1">不要！</string>
+    <string name="swiper_stamp_delete_2">拜拜！</string>
+    <string name="swiper_stamp_delete_3">垃圾！</string>
+    <string name="swiper_stamp_delete_4">删除！</string>
+    <string name="swiper_stamp_skip_1">跳过！</string>
+    <string name="swiper_stamp_skip_2">算了！</string>
+    <string name="swiper_stamp_skip_3">以后！</string>
+    <string name="swiper_stamp_skip_4">也许！</string>
+    <string name="swiper_stamp_undo_1">撤销！</string>
+    <string name="swiper_stamp_undo_2">返回！</string>
+    <string name="swiper_stamp_undo_3">糟糕！</string>
+    <string name="swiper_stamp_undo_4">等等！</string>
+    <string name="swiper_gesture_overlay_dismiss">点击任意位置开始</string>
+    <string name="swiper_gesture_overlay_dismiss_action">知道了</string>
+    <string name="swiper_gesture_overlay_left_delete">← 删除</string>
+    <string name="swiper_gesture_overlay_right_keep">保留 →</string>
+    <string name="swiper_gesture_overlay_left_keep">← 保留</string>
+    <string name="swiper_gesture_overlay_right_delete">删除 →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ 跳过</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
+    <string name="swiper_help_action">帮助</string>
+    <string name="swiper_help_title">Swiper 使用方法</string>
+    <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
+    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
+    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
+</resources>

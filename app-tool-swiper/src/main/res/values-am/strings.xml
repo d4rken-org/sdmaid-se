@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">ማንሸራተቻ</string>
+    <string name="swiper_tool_name">ማንሸራተቻ</string>
+    <string name="swiper_tool_description">ማህደሮችን በፍጥነት ያስተካክሉ — ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ።</string>
+    <string name="swiper_dashcard_description">ከፋይል ገላጭ በፍጥነት ልዩ ማህደሮችን ያስተካክሉ — እያንዳንዱን ፋይል ብቻ ያንሸራትቱ።</string>
+    <string name="swiper_start_action">ማንሸራተት ጀምር</string>
+    <string name="swiper_continue_action">ክፍለ ጊዜ ቀጥል</string>
+    <string name="swiper_sessions_description">ፋይሎችን በ3 ቀላል ደረጃዎች ይገምግሙ:\n\n1. ለመፈለግ ማህደር ይምረጡ\n2. ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ\n3. ምርጫዎችዎን ይገምግሙና ያረጋግጡ\n\nየመጨረሻውን ሰርዝ ቁልፍ እስኪጫኑ ድረስ ምንም አይወገድም።</string>
+    <string name="swiper_select_folders_action">ማህደሮች ይምረጡ</string>
+    <string name="swiper_scanning_title">በመፈለግ ላይ…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ንጥል ተገኝቷል</item>
+        <item quantity="other">%d ንጥሎች ተገኝተዋል</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ንጥል ተሰርዟል</item>
+        <item quantity="other">%d ንጥሎች ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ንጥል ያልተሳካ</item>
+        <item quantity="other">%d ንጥሎች ያልተሳኩ</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ከ%2$d</string>
+    <string name="swiper_keep_action">ያስቀምጡ</string>
+    <string name="swiper_skip_action">ይዝለሉ</string>
+    <string name="swiper_review_action">ይገምግሙ</string>
+    <string name="swiper_status_title">ውሳኔዎችን ይገምግሙ</string>
+    <string name="swiper_status_action_keep_selected">የተመረጡትን ያስቀምጡ</string>
+    <string name="swiper_status_action_delete_selected">የተመረጡትን ይሰርዙ</string>
+    <string name="swiper_status_action_reset_selected">የተመረጡትን ዳግም ያቀናብሩ</string>
+    <string name="swiper_decision_undecided">ያልተወሰነ</string>
+    <string name="swiper_retry_action">እንደገና ይሞክሩ</string>
+    <string name="swiper_delete_confirmation_title">ፋይሎችን ይሰርዙ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">ይህ %1$d ፋይል (%2$s) በቋሚነት ይሰርዛል። ይህ ድርጊት ሊሰረዝ አይችልም።</item>
+        <item quantity="other">ይህ %1$d ፋይሎች (%2$s) በቋሚነት ይሰርዛል። ይህ ድርጊት ሊሰረዝ አይችልም።</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d ያልተወሰነ ንጥል ለወደፊት ግምገማ ይቀራል።</item>
+        <item quantity="other">%d ያልተወሰኑ ንጥሎች ለወደፊት ግምገማ ይቀራሉ።</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ሰርዝ</string>
+    <string name="swiper_settings_swap_directions_title">የማንሸራተቻ አቅጣጫዎችን ይቀያይሩ</string>
+    <string name="swiper_settings_swap_directions_summary">ለማስቀመጥ ወደ ግራ ያንሸራትቱ፣ ለመሰረዝ ወደ ቀኝ።</string>
+    <string name="swiper_settings_show_details_title">የፋይል ዝርዝሮችን ያሳዩ</string>
+    <string name="swiper_settings_show_details_summary">በማንሸራተቻ ስክሪኑ ላይ የፋይል ስም፣ መጠንና ቀን ያሳዩ።</string>
+    <string name="swiper_settings_haptic_feedback_title">የንካ ምላሽ</string>
+    <string name="swiper_settings_haptic_feedback_summary">ማስቀመጥ ወይም መሰረዝ ውሳኔዎችን ሲያደርጉ ይንቀጠቀጡ።</string>
+    <string name="swiper_discard_session_confirmation_title">ክፍለ ጊዜ ይጣል?</string>
+    <string name="swiper_discard_session_confirmation_message">ሁሉም ውሳኔዎች ይጠፋሉ። እርግጠኛ ነዎት?</string>
+    <string name="swiper_no_preview_available">ቅድመ-ዕይታ የለም</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">ከ%1$d ቀን በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
+        <item quantity="other">ከ%1$d ቀናት በፊት ክፍለ ጊዜ ቀጥል (%2$d%% ተጠናቋል)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d ክፍለ ጊዜ</item>
+        <item quantity="other">%d ክፍለ ጊዜዎች</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d ያልተወሰነ ንጥል</item>
+        <item quantity="other">%d ያልተወሰኑ ንጥሎች</item>
+    </plurals>
+    <string name="swiper_session_timestamps">የተፈጠረ %1$s፣ የመጨረሻ እንቅስቃሴ %2$s</string>
+    <string name="swiper_session_remove_action">ክፍለ ጊዜ አስወግድ</string>
+    <string name="swiper_sessions_empty_hint">ማህደር ለመምረጥና ማንሸራተት ለመጀመር + ይንኩ</string>
+    <string name="swiper_sessions_upgrade_body">እነዚህን ገደቦች ለማስወገድና ልማትን ለመደገፍ ያሻሽሉ። ነፃው ስሪት የተገደበ ነው በ:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">በክፍለ ጊዜ %d ፋይል</item>
+        <item quantity="other">በክፍለ ጊዜ %d ፋይሎች</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d ክፍለ ጊዜ</item>
+        <item quantity="other">%d ክፍለ ጊዜዎች</item>
+    </plurals>
+    <string name="swiper_session_default_label">ክፍለ ጊዜ #%d</string>
+    <string name="swiper_session_rename_title">ክፍለ ጊዜ ዳግም ይሰይሙ</string>
+    <string name="swiper_session_rename_hint">ለዚህ ክፍለ ጊዜ ስም ያስገቡ</string>
+    <string name="swiper_sessions_current_sessions">ያሉ ክፍለ ጊዜዎች</string>
+    <string name="swiper_session_paths_label">ዱካዎች</string>
+    <string name="swiper_session_status_label">ሁኔታ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d ለማስቀመጥ</item>
+        <item quantity="other">%d ለማስቀመጥ</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ለመሰረዝ</item>
+        <item quantity="other">%d ለመሰረዝ</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d ያልተወሰነ</item>
+        <item quantity="other">%d ያልተወሰኑ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d ቀድሞ ተቀምጧል</item>
+        <item quantity="other">%d ቀድሞ ተቀምጠዋል</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d ቀድሞ ተሰርዟል</item>
+        <item quantity="other">%d ቀድሞ ተሰርዘዋል</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d ተቀምጧል</item>
+        <item quantity="other">%d ተቀምጠዋል</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ተሰርዟል</item>
+        <item quantity="other">%d ተሰርዘዋል</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\"ን ከSwiper ፍለጋ ያስወግዱ?</string>
+    <string name="swiper_sessions_header_title">ለማጽዳት ዝግጁ ነዎት?</string>
+    <string name="swiper_sessions_suggestions_label">በዚህ ለመጀመር ይሞክሩ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ማውረጃ ማህደር</string>
+    <string name="swiper_sessions_suggestion_screenshots">ስክሪንሾቶች</string>
+    <string name="swiper_sessions_suggestion_camera">ካሜራ ጥቅል</string>
+    <string name="swiper_stamp_keep_1">አስቀምጥ!</string>
+    <string name="swiper_stamp_keep_2">ጥሩ!</string>
+    <string name="swiper_stamp_keep_3">አዎ!</string>
+    <string name="swiper_stamp_keep_4">ጠብቅ!</string>
+    <string name="swiper_stamp_delete_1">አይ!</string>
+    <string name="swiper_stamp_delete_2">ቻው!</string>
+    <string name="swiper_stamp_delete_3">ቆሻሻ!</string>
+    <string name="swiper_stamp_delete_4">ሰርዝ!</string>
+    <string name="swiper_stamp_skip_1">ዝለል!</string>
+    <string name="swiper_stamp_skip_2">እህ!</string>
+    <string name="swiper_stamp_skip_3">ቆይ!</string>
+    <string name="swiper_stamp_skip_4">ምናልባት!</string>
+    <string name="swiper_stamp_undo_1">መልስ!</string>
+    <string name="swiper_stamp_undo_2">ተመለስ!</string>
+    <string name="swiper_stamp_undo_3">ወይ!</string>
+    <string name="swiper_stamp_undo_4">ቆይ!</string>
+    <string name="swiper_gesture_overlay_dismiss">ለመጀመር የትም ይንኩ</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
+    <string name="swiper_gesture_overlay_left_delete">← ሰርዝ</string>
+    <string name="swiper_gesture_overlay_right_keep">አስቀምጥ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← አስቀምጥ</string>
+    <string name="swiper_gesture_overlay_right_delete">ሰርዝ →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ዝለል</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ መልስ</string>
+    <string name="swiper_help_action">እገዛ</string>
+    <string name="swiper_help_title">ማንሸራተቻ እንዴት እንደሚሰራ</string>
+    <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
+</resources>

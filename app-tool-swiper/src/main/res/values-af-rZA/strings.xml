@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Ruim vouers vinnig op — swiep deur lêers om te hou, verwyder of oor te slaan.</string>
+    <string name="swiper_dashcard_description">Ruim spesifieke vouers vinniger op as \'n lêerverkenner — swiep net elke lêer.</string>
+    <string name="swiper_start_action">Begin swiep</string>
+    <string name="swiper_continue_action">Gaan voort met sessie</string>
+    <string name="swiper_sessions_description">Hersien lêers in 3 eenvoudige stappe:\n\n1. Kies \'n vouer om te skandeer\n2. Swiep deur lêers om te hou, verwyder of oor te slaan\n3. Hersien jou keuses en bevestig\n\nNiks word verwyder totdat jy die finale verwyder-knoppie tik nie.</string>
+    <string name="swiper_select_folders_action">Kies vouers</string>
+    <string name="swiper_scanning_title">Skandeer…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item gevind</item>
+        <item quantity="other">%d items gevind</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item verwyder</item>
+        <item quantity="other">%d items verwyder</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item misluk</item>
+        <item quantity="other">%d items misluk</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d van %2$d</string>
+    <string name="swiper_keep_action">Hou</string>
+    <string name="swiper_skip_action">Slaan oor</string>
+    <string name="swiper_review_action">Hersien</string>
+    <string name="swiper_status_title">Hersien besluite</string>
+    <string name="swiper_status_action_keep_selected">Hou gekose</string>
+    <string name="swiper_status_action_delete_selected">Verwyder gekose</string>
+    <string name="swiper_status_action_reset_selected">Herstel gekose</string>
+    <string name="swiper_decision_undecided">Onbeslis</string>
+    <string name="swiper_retry_action">Probeer weer</string>
+    <string name="swiper_delete_confirmation_title">Verwyder lêers?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Dit sal %1$d lêer (%2$s) permanent verwyder. Hierdie aksie kan nie ongedaan gemaak word nie.</item>
+        <item quantity="other">Dit sal %1$d lêers (%2$s) permanent verwyder. Hierdie aksie kan nie ongedaan gemaak word nie.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d onbesliste item sal oorbly vir latere hersiening.</item>
+        <item quantity="other">%d onbesliste items sal oorbly vir latere hersiening.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Verwyder %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Ruil swieprigtings om</string>
+    <string name="swiper_settings_swap_directions_summary">Swiep links om te hou, regs om te verwyder.</string>
+    <string name="swiper_settings_show_details_title">Wys lêerbesonderhede</string>
+    <string name="swiper_settings_show_details_summary">Vertoon lêernaam, grootte en datum op die swiepskerm.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptiese terugvoer</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibreer wanneer hou- of verwyder-besluite geneem word.</string>
+    <string name="swiper_discard_session_confirmation_title">Verwerp sessie?</string>
+    <string name="swiper_discard_session_confirmation_message">Alle besluite sal verlore gaan. Is jy seker?</string>
+    <string name="swiper_no_preview_available">Geen voorskou beskikbaar nie</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Gaan voort met sessie van %1$d dag gelede (%2$d%% voltooi)</item>
+        <item quantity="other">Gaan voort met sessie van %1$d dae gelede (%2$d%% voltooi)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessie</item>
+        <item quantity="other">%d sessies</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d onbesliste item</item>
+        <item quantity="other">%d onbesliste items</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Geskep %1$s, laaste aktiwiteit %2$s</string>
+    <string name="swiper_session_remove_action">Verwyder sessie</string>
+    <string name="swiper_sessions_empty_hint">Tik + om \'n vouer te kies en begin swiep</string>
+    <string name="swiper_sessions_upgrade_body">Gradeer op om hierdie beperkings te verwyder en ontwikkeling te ondersteun. Die gratis weergawe is beperk tot:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d lêer per sessie</item>
+        <item quantity="other">%d lêers per sessie</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessie</item>
+        <item quantity="other">%d sessies</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessie #%d</string>
+    <string name="swiper_session_rename_title">Hernoem sessie</string>
+    <string name="swiper_session_rename_hint">Voer \'n naam vir hierdie sessie in</string>
+    <string name="swiper_sessions_current_sessions">Huidige sessies</string>
+    <string name="swiper_session_paths_label">Paaie</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d om te hou</item>
+        <item quantity="other">%d om te hou</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d om te verwyder</item>
+        <item quantity="other">%d om te verwyder</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d onbeslis</item>
+        <item quantity="other">%d onbeslis</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d reeds gehou</item>
+        <item quantity="other">%d reeds gehou</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d reeds verwyder</item>
+        <item quantity="other">%d reeds verwyder</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d gehou</item>
+        <item quantity="other">%d gehou</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d verwyder</item>
+        <item quantity="other">%d verwyder</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Sluit \"%1$s\" uit van Swiper-skanderings?</string>
+    <string name="swiper_sessions_header_title">Gereed om op te ruim?</string>
+    <string name="swiper_sessions_suggestions_label">Probeer begin met:</string>
+    <string name="swiper_sessions_suggestion_downloads">Aflaaie-vouer</string>
+    <string name="swiper_sessions_suggestion_screenshots">Skermkiekies</string>
+    <string name="swiper_sessions_suggestion_camera">Kamerarol</string>
+    <string name="swiper_stamp_keep_1">Hou!</string>
+    <string name="swiper_stamp_keep_2">Mooi!</string>
+    <string name="swiper_stamp_keep_3">Ja!</string>
+    <string name="swiper_stamp_keep_4">Stoor!</string>
+    <string name="swiper_stamp_delete_1">Nee!</string>
+    <string name="swiper_stamp_delete_2">Totsiens!</string>
+    <string name="swiper_stamp_delete_3">Gemors!</string>
+    <string name="swiper_stamp_delete_4">Verwyder!</string>
+    <string name="swiper_stamp_skip_1">Slaan oor!</string>
+    <string name="swiper_stamp_skip_2">Ag!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
+    <string name="swiper_stamp_skip_4">Miskien!</string>
+    <string name="swiper_stamp_undo_1">Ontdoen!</string>
+    <string name="swiper_stamp_undo_2">Terug!</string>
+    <string name="swiper_stamp_undo_3">Oeps!</string>
+    <string name="swiper_stamp_undo_4">Wag!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tik enige plek om te begin</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
+    <string name="swiper_gesture_overlay_left_delete">← Verwyder</string>
+    <string name="swiper_gesture_overlay_right_keep">Hou →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Hou</string>
+    <string name="swiper_gesture_overlay_right_delete">Verwyder →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Slaan oor</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Ontdoen</string>
+    <string name="swiper_help_action">Hulp</string>
+    <string name="swiper_help_title">Hoe Swiper werk</string>
+    <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
+</resources>

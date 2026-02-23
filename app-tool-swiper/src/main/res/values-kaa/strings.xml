@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_start_action">Sıypawdı baslaw</string>
+    <string name="swiper_continue_action">Sessiyanı dawam ettiw</string>
+    <string name="swiper_select_folders_action">Papkalardı tańlaw</string>
+    <string name="swiper_scanning_title">Skanerlenip atır…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d element tabıldı</item>
+        <item quantity="other">%d element tabıldı</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d element o\'shirildi</item>
+        <item quantity="other">%d element o\'shirildi</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d element sa\'tsiz boldı</item>
+        <item quantity="other">%d element sa\'tsiz boldı</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d / %2$d</string>
+    <string name="swiper_keep_action">Saqlap qalıw</string>
+    <string name="swiper_skip_action">Atlap o\'tiw</string>
+    <string name="swiper_review_action">Tekserw</string>
+    <string name="swiper_status_title">Sheshimlirdi tekserw</string>
+    <string name="swiper_status_action_keep_selected">Tańlanǵanlardı saqlap qalıw</string>
+    <string name="swiper_status_action_delete_selected">Tańlanǵanlardı o\'shiriw</string>
+    <string name="swiper_status_action_reset_selected">Tańlanǵanlardı qayta sazlaw</string>
+    <string name="swiper_decision_undecided">Sheshilmegen</string>
+    <string name="swiper_retry_action">Qayta urınıw</string>
+    <string name="swiper_delete_confirmation_title">Faylardı o\'shiriw?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Bul %1$d fayl (%2$s) biyrden o\'shiriledi. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</item>
+        <item quantity="other">Bul %1$d fayl (%2$s) biyrden o\'shiriledi. Bul a\'meldi qaytarǵa alıw mu\'mkin emes.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
+        <item quantity="other">%d sheshilmegen element keyingi tekserw ushin qaladı.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d o\'shiriw</string>
+    <string name="swiper_settings_swap_directions_title">Sıypaw baǵıtların almastırıw</string>
+    <string name="swiper_settings_swap_directions_summary">Saqlap qalıw ushin shepke, o\'shiriw ushin ońǵa sıypatın\'.</string>
+    <string name="swiper_settings_show_details_title">Fayl maǵlıwmatların ko\'rsetiw</string>
+    <string name="swiper_settings_show_details_summary">Sıypaw ekranında fayl atı, o\'lshemi ha\'m sa\'nesin ko\'rsetiw.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptik baylanıs</string>
+    <string name="swiper_settings_haptic_feedback_summary">Saqlap qalıw yamasa o\'shiriw sheshimlerin bergende terbeniw.</string>
+    <string name="swiper_discard_session_confirmation_title">Sessiyanı tashlap?</string>
+    <string name="swiper_discard_session_confirmation_message">Barlıq sheshimler joǵaltıladı. Isenimlimsiz?</string>
+    <string name="swiper_no_preview_available">Aldın alıw joq</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
+        <item quantity="other">%1$d ku\'n aldınǵı sessiyanı dawam ettiw (%2$d%% tayar)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d sheshilmegen element</item>
+        <item quantity="other">%d sheshilmegen element</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Jaratılǵan %1$s, aqırǵı belsendilik %2$s</string>
+    <string name="swiper_session_remove_action">Sessiyanı alıp taslaw</string>
+    <string name="swiper_sessions_empty_hint">Papka tańlaw ha\'m sıypawdı baslaw ushin + basın\'</string>
+    <string name="swiper_sessions_upgrade_body">Usı sheklewlerdi alıp taslaw ha\'m islenip shıǵarıwdı qollaw ushin jańartın\'. Tegin versiya sheklew:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">Ha\'r sessiyada %d fayl</item>
+        <item quantity="other">Ha\'r sessiyada %d fayl</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sessiya</item>
+        <item quantity="other">%d sessiya</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sessiya #%d</string>
+    <string name="swiper_session_rename_title">Sessiyanı qayta atalandırıw</string>
+    <string name="swiper_session_rename_hint">Usı sessiya ushin at kiritin\'</string>
+    <string name="swiper_sessions_current_sessions">Aǵımdaǵı sessiyalar</string>
+    <string name="swiper_session_paths_label">Jollar</string>
+    <string name="swiper_session_status_label">Jaǵday</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d saqlap qalıw</item>
+        <item quantity="other">%d saqlap qalıw</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d o\'shiriw</item>
+        <item quantity="other">%d o\'shiriw</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d sheshilmegen</item>
+        <item quantity="other">%d sheshilmegen</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d aldınan saqlanǵan</item>
+        <item quantity="other">%d aldınan saqlanǵan</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d aldınan o\'shirilgen</item>
+        <item quantity="other">%d aldınan o\'shirilgen</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d saqlanǵan</item>
+        <item quantity="other">%d saqlanǵan</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d o\'shirilgen</item>
+        <item quantity="other">%d o\'shirilgen</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">\"%1$s\" Swiper skanerlewlerinen shıǵarıp taslaw?</string>
+    <string name="swiper_sessions_header_title">Retke keltiriwge tayarsız?</string>
+    <string name="swiper_sessions_suggestions_label">Usınan baslan\':</string>
+    <string name="swiper_sessions_suggestion_downloads">Ju\'klewler papkası</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekran su\'wretleri</string>
+    <string name="swiper_sessions_suggestion_camera">Kamera ruly</string>
+    <string name="swiper_stamp_keep_1">Saqlap qalıw!</string>
+    <string name="swiper_stamp_keep_2">Jaqsı!</string>
+    <string name="swiper_stamp_keep_3">Awa!</string>
+    <string name="swiper_stamp_keep_4">Saqlap!</string>
+    <string name="swiper_stamp_delete_1">Yaq!</string>
+    <string name="swiper_stamp_delete_2">Xosh!</string>
+    <string name="swiper_stamp_delete_3">Shıqındı!</string>
+    <string name="swiper_stamp_delete_4">O\'shiriw!</string>
+    <string name="swiper_stamp_skip_1">O\'tiw!</string>
+    <string name="swiper_stamp_skip_2">Hm!</string>
+    <string name="swiper_stamp_skip_3">Keyin!</string>
+    <string name="swiper_stamp_skip_4">Ba\'lkim!</string>
+    <string name="swiper_stamp_undo_1">Qaytarıw!</string>
+    <string name="swiper_stamp_undo_2">Artqa!</string>
+    <string name="swiper_stamp_undo_3">Oy!</string>
+    <string name="swiper_stamp_undo_4">Toqtań!</string>
+    <string name="swiper_gesture_overlay_dismiss">Baslaw ushın islegen jerge basıń</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Túsindim</string>
+    <string name="swiper_gesture_overlay_left_delete">← O\'shiriw</string>
+    <string name="swiper_gesture_overlay_right_keep">Saqlap qalıw →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Saqlap qalıw</string>
+    <string name="swiper_gesture_overlay_right_delete">O\'shiriw →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ O\'tiw</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Qaytarıw</string>
+    <string name="swiper_help_action">Járdem</string>
+    <string name="swiper_help_title">Swiper qalay islaydi</string>
+    <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Papkalardı tez retke keltiw -- faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań.</string>
+    <string name="swiper_dashcard_description">Belgli papkalardı fayl menejerinen tezrek retke keltiriń -- hár fayldı sıypań.</string>
+    <string name="swiper_sessions_description">Faylları 3 qádem menen tekserip shıǵıń:\n\n1. Skanerlew ushın papka tańlań\n2. Faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań\n3. Tańlawlarıńızdı tekserip, tastıyıqlań\n\nSońǵı o\'shiriw túymesin baspaǵansha hesh nárse o\'shirilmeydi.</string>
+</resources>
