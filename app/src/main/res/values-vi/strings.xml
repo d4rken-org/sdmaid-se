@@ -97,6 +97,38 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Thao tác này sẽ xóa vĩnh viễn tất cả các phiên ghi chép gỡ lỗi đã lưu. Không thể hủy bỏ thao tác này.</string>
     <string name="discord_label">Xung đột</string>
     <string name="discord_description">Một nơi để giải trí và đặt câu hỏi.</string>
+    <string name="support_contact_label">Liên hệ nhà phát triển</string>
+    <string name="support_contact_desc">Điền vào biểu mẫu để gửi email cho nhà phát triển.</string>
+    <string name="support_contact_welcome">Tôi tự đọc mỗi tin nhắn và cố gắng hết sức để trả lời. Vì tôi một mình xử lý việc phát triển, sửa lỗi và hỗ trợ, nên có thể mất một chút thời gian. Cảm ơn sự kiên nhẫn của bạn.</string>
+    <string name="support_contact_footer">Tin nhắn của bạn sẽ được gửi qua email. Thông tin thiết bị và cài đặt được đính kèm tự động. Bạn có thể đính kèm ảnh chụp màn hình hoặc video vào email. Một số phần của email sẽ bằng tiếng Anh để nhà phát triển có thể dễ dàng hiểu.</string>
+    <string name="support_contact_category_label">Danh mục</string>
+    <string name="support_contact_category_bug_label">Báo cáo lỗi</string>
+    <string name="support_contact_category_feature_label">Yêu cầu tính năng</string>
+    <string name="support_contact_category_question_label">Câu hỏi</string>
+    <string name="support_contact_tool_label">Công cụ liên quan</string>
+    <string name="support_contact_tool_appcleaner_label">Dọn dẹp ứng dụng</string>
+    <string name="support_contact_tool_corpsefinder_label">Tìm kiếm tàn dư</string>
+    <string name="support_contact_tool_systemcleaner_label">Dọn dẹp hệ thống</string>
+    <string name="support_contact_tool_deduplicator_label">Quản lý tệp trùng lặp</string>
+    <string name="support_contact_tool_analyzer_label">Phân tích</string>
+    <string name="support_contact_tool_appcontrol_label">Kiểm soát ứng dụng</string>
+    <string name="support_contact_tool_scheduler_label">Lịch trình</string>
+    <string name="support_contact_tool_general_label">Tổng quan</string>
+    <string name="support_contact_description_label">Mô tả</string>
+    <string name="support_contact_description_bug_hint">Mô tả những gì đã xảy ra và cách tái hiện sự cố. Vui lòng nêu rõ (tối thiểu 20 từ).</string>
+    <string name="support_contact_description_feature_hint">Mô tả tính năng bạn muốn thấy. Vui lòng nêu rõ (tối thiểu 20 từ).</string>
+    <string name="support_contact_description_question_hint">Mô tả câu hỏi của bạn một cách chi tiết. Vui lòng nêu rõ (tối thiểu 20 từ).</string>
+    <string name="support_contact_expected_label">Hành vi mong đợi</string>
+    <string name="support_contact_expected_hint">Mô tả những gì bạn mong đợi xảy ra (tối thiểu 10 từ).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d từ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Nhật ký gỡ lỗi</string>
+    <string name="support_contact_debuglog_zip_error">Không thể nén nhật ký gỡ lỗi</string>
+    <string name="support_contact_debuglog_picker_hint">Đính kèm nhật ký gỡ lỗi hiện có, hoặc ghi lại một nhật ký mới.</string>
+    <string name="support_contact_debuglog_picker_empty">Không tìm thấy nhật ký gỡ lỗi nào. Hãy ghi lại một nhật ký trước.</string>
+    <string name="support_contact_send_action">Mở ứng dụng email</string>
+    <string name="support_contact_no_email_app">Không tìm thấy ứng dụng email nào trên thiết bị này.</string>
     <string name="changelog_label">Nhật ký thay đổi</string>
     <string name="settings_acknowledgements_label">Ghi nhận</string>
     <string name="settings_acknowledgements_category_translations_title">Bản dịch</string>
@@ -161,7 +193,7 @@
     <string name="setup_acs_state_stopped_hint_miui">Nếu dịch vụ tiếp tục bị tắt sau một thời gian, hãy thử bật tùy chọn \"Tự động bắt đầu\" cho SD Maid trong cài đặt hệ thống.</string>
     <string name="setup_acs_consent_positive_action">Kích hoạt dịch vụ và cấp quyền truy cập</string>
     <string name="setup_acs_consent_negative_action">Không sử dụng dịch vụ trợ năng</string>
-    <string name="setup_acs_allow_hint">Nếu bạn thấy một biểu tượng nhỏ trên cạnh màn hình, thì bạn đã vô tình bật tùy chọn \"phím tắt\".</string>
+    <string name="setup_acs_allow_hint">Phím tắt hoặc nút trợ năng cho SD Maid SE đang được bật. Mở cài đặt Trợ năng của thiết bị và tắt tùy chọn phím tắt/nút để tránh biểu tượng không mong muốn trên cạnh màn hình.</string>
     <string name="setup_acs_disallow_hint">Nếu đổi ý, bạn có thể thay đổi lại tùy chọn này bằng cách vào cài đặt và khởi động lại thiết lập.</string>
     <string name="setup_acs_appops_restriction_title">Cài đặt hạn chế</string>
     <string name="setup_acs_appops_restriction_body">Không thể bật dịch vụ trợ năng SD Maids? Android 13 trở lên có thể áp dụng các hạn chế đối với các ứng dụng không được cài đặt qua Google Play. Gỡ bỏ những hạn chế này khỏi trang chi tiết của hệ thống dành cho SD Maid. Tùy chọn nằm trong menu ngữ cảnh ở góc trên cùng bên phải.</string>
@@ -688,7 +720,7 @@
     <string name="appcontrol_force_stop_action">Buộc dừng</string>
     <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="other">Buộc dừng %d ứng dụng?</item>
+        <item quantity="other">Buộc dừng%d ứng dụng?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d ứng dụng đã bị dừng</item>
@@ -714,7 +746,7 @@
     <string name="analyzer_progress_scanning_system">Đang quét dữ liệu hệ thống</string>
     <string name="analyzer_device_storage_title">Bộ nhớ thiết bị</string>
     <plurals name="analyzer_space_available">
-        <item quantity="other">%s khả dụng</item>
+        <item quantity="other">%skhả dụng</item>
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="other">%s đã dùng</item>
@@ -801,6 +833,8 @@
     <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
     <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>
     <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
+    <string name="automation_error_scheduler_title">Tự động hóa theo lịch trình đã thất bại</string>
+    <string name="automation_error_scheduler_body">Một tác vụ theo lịch trình đã cố sử dụng dịch vụ trợ năng, nhưng dịch vụ không khả dụng. Nếu bạn không cần điều này, hãy tắt tùy chọn “Dịch vụ trợ năng” trong cài đặt bộ lập lịch.</string>
     <string name="history_label">Lịch sử</string>
     <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="scheduler_label">Lịch trình</string>

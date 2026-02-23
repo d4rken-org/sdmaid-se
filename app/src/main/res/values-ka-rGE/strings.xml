@@ -101,6 +101,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">ეს სამუდამოდ წაშლის ყველა შენახულ გამართვის ჟურნალის სესიას. ეს მოქმედება ვერ გაუქმდება.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">ადგილი დასასვენებლად და კითხვების დასმისთვის.</string>
+    <string name="support_contact_label">დეველოპერთან დაკავშირება</string>
+    <string name="support_contact_desc">შეავსეთ ფორმა დეველოპერისთვის ელფოსტის გასაგზავნად.</string>
+    <string name="support_contact_welcome">თითოეულ შეტყობინებას თავად ვკითხულობ და ვცდილობ პასუხი გავცე. ვინაიდან დეველოპმენტს, შეცდომების გამოსწორებას და მხარდაჭერას მარტო ვაგებ, შეიძლება ცოტა დრო დასჭირდეს. გმადლობთ მოთმინებისთვის.</string>
+    <string name="support_contact_footer">თქვენი შეტყობინება ელფოსტით გაიგზავნება. მოწყობილობის და კონფიგურაციის ინფორმაცია ავტომატურად ერთვის. შეგიძლიათ ელფოსტას სქრინშოტები ან ვიდეო დაურთოთ. ელფოსტის ზოგიერთი ნაწილი ინგლისურ ენაზე იქნება, რათა დეველოპერმა მარტივად გაიგოს.</string>
+    <string name="support_contact_category_label">კატეგორია</string>
+    <string name="support_contact_category_bug_label">შეცდომის მოხსენება</string>
+    <string name="support_contact_category_feature_label">ფუნქციის მოთხოვნა</string>
+    <string name="support_contact_category_question_label">კითხვა</string>
+    <string name="support_contact_tool_label">დაკავშირებული ინსტრუმენტი</string>
+    <string name="support_contact_tool_appcleaner_label">აპლიკაციის გამწმენდი</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">მგეგმავი</string>
+    <string name="support_contact_tool_general_label">ზოგადი</string>
+    <string name="support_contact_description_label">აღწერა</string>
+    <string name="support_contact_description_bug_hint">აღწერეთ რა მოხდა და როგორ გამეორდება პრობლემა. გთხოვთ, იყოთ კონკრეტული (მინიმუმ 20 სიტყვა).</string>
+    <string name="support_contact_description_feature_hint">აღწერეთ ფუნქცია, რომლის ნახვა გსურთ. გთხოვთ, იყოთ კონკრეტული (მინიმუმ 20 სიტყვა).</string>
+    <string name="support_contact_description_question_hint">დეტალურად აღწერეთ თქვენი კითხვა. გთხოვთ, იყოთ კონკრეტული (მინიმუმ 20 სიტყვა).</string>
+    <string name="support_contact_expected_label">მოსალოდნელი ქცევა</string>
+    <string name="support_contact_expected_hint">აღწერეთ რა მოსალოდნელი გქონდათ (მინიმუმ 10 სიტყვა).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d სიტყვა</item>
+        <item quantity="other">%1$d / %2$d სიტყვა</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">გამართვის ჟურნალი</string>
+    <string name="support_contact_debuglog_zip_error">გამართვის ჟურნალის შეკუმშვა ვერ მოხერხდა</string>
+    <string name="support_contact_debuglog_picker_hint">მიამაგრეთ არსებული გამართვის ჟურნალი, ან ჩაწერეთ ახალი.</string>
+    <string name="support_contact_debuglog_picker_empty">გამართვის ჟურნალები ვერ მოიძებნა. ჯერ ჩაწერეთ ერთი.</string>
+    <string name="support_contact_send_action">ელფოსტის აპლიკაციის გახსნა</string>
+    <string name="support_contact_no_email_app">ამ მოწყობილობაზე ელფოსტის აპლიკაცია ვერ მოიძებნა.</string>
     <string name="changelog_label">ცვლილებების ჟურნალი</string>
     <string name="settings_acknowledgements_label">მადლიერებები</string>
     <string name="settings_acknowledgements_category_translations_title">თარგმანები</string>
@@ -165,7 +198,7 @@
     <string name="setup_acs_state_stopped_hint_miui">თუ გარკვეული პერიოდის შემდეგ სერვისი გაითიშება, სცადეთ სისტემის პარამეტრებში SD Maid-ის ოფციის „ავტომატური დაწყება“ ჩართვა.</string>
     <string name="setup_acs_consent_positive_action">სერვისის ჩართვა და წვდომის მინიჭება</string>
     <string name="setup_acs_consent_negative_action">არ გამოიყენოთ მარტივი წვდომის სერვისი</string>
-    <string name="setup_acs_allow_hint">თუ ეკრანის კიდეზე ხედავთ პატარა ხატულას, მაშინ თქვენ შემთხვევით ჩართეთ \"მასახვრეტი\" ვარიანტი.</string>
+    <string name="setup_acs_allow_hint">SD Maid SE-ს წვდომის მალსახმობი ან ღილაკი ჩართულია. გახსენეთ მოწყობილობის წვდომის პარამეტრები და გამორთეთ მალსახმობი/ღილაკის პარამეტრი, რათა თავიდან აიცილოთ გაუჭირვებელი ხატულა ეკრანის კიდეზე.</string>
     <string name="setup_acs_disallow_hint">თუ გადაიფიქრებთ, შეგიძლიათ კვლავ შეცვალოთ ეს პარამეტრი პარამეტრებში შესვლით და დაყენების გადატვირთვით.</string>
     <string name="setup_acs_appops_restriction_title">შეზღუდული პარამეტრები</string>
     <string name="setup_acs_appops_restriction_body">არ შეგიძლიათ SD Maids-ის წვდომის სერვისის ჩართვა? Android 13+ შეიძლება დაწესდეს შეზღუდვები აპებზე, რომლებიც არ არის დაინსტალირებული Google Play-ზე. გააუქმეთ ეს შეზღუდვები სისტემის დეტალების გვერდიდან SD Maid-ისთვის. ვარიანტი მდებარეობს ზედა მარჯვენა კუთხეში კონტექსტურ მენიუში.</string>
@@ -203,12 +236,12 @@
     <string name="corpsefinder_watcher_autodelete_title">ავტომატური წაშლა</string>
     <string name="corpsefinder_watcher_autodelete_summary">ავტომატურად წაშალოს ნებისმიერი ნარჩენი, რომელიც დაკავშირებულია წაშლილ აპთან.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d remnant found after uninstalling %2$s.</item>
-        <item quantity="other">%1$d remnants found after uninstalling %2$s.</item>
+        <item quantity="one">%d ნარჩენი ნაპოვნია</item>
+        <item quantity="other">%d ნარჩენი ნაპოვნია</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="one">Clean up successful (%1$s): Freed %2$s and removed %3$d item.</item>
-        <item quantity="other">Clean up successful (%1$s): Freed %2$s and removed %3$d items.</item>
+        <item quantity="one">%d ნარჩენი წაშლილია</item>
+        <item quantity="other">%d ნარჩენი წაშლილია</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">ნარჩენების წაშლა</string>
     <string name="corpsefinder_filter_publicmedia_label">საზოგადოებრივი მედია</string>
@@ -838,6 +871,8 @@
     <string name="automation_error_timeout_body">SD Maid-მ ვერ დაასრულა ყველა ნაბიჯი დროის ლიმიტში. თუ ეს გრძელდება, შესაძლოა დამჭირდეს აპის მორგება თქვენი მოწყობილობისთვის. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
     <string name="automation_error_overlay_title">ავტომატიზაციის ოვერლეი</string>
     <string name="automation_error_overlay_body">SD Maid-მ ვერ აჩვენა ავტომატიზაციის ოვერლეი. შეამოწმეთ ნებართვები და სცადეთ მოწყობილობის გადატვირთვა.</string>
+    <string name="automation_error_scheduler_title">დაგეგმილი ავტომატიზაცია ვერ შესრულდა</string>
+    <string name="automation_error_scheduler_body">დაგეგმილმა ამოცანა ცდილობდა გამოეყენებინა წვდომის სერვისი, მაგრამ ის მიუწვდომელი იყო. თუ ეს არ გჭირდებათ, გამორთეთ \"წვდომის სერვისის\" პარამეტრი განრიგის პარამეტრებში.</string>
     <string name="history_label">ისტორია</string>
     <string name="history_description">ბოლოდროინდელი მოქმედებებისა და დაზარალებული მონაცემების ქრონოლოგიური ჩამონათვალი.</string>
     <string name="scheduler_label">მგეგმავი</string>

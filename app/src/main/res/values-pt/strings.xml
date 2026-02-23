@@ -101,6 +101,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Isto irá apagar permanentemente todas as sessões de depuração armazenadas. Esta ação não pode ser desfeita.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para estar e fazer perguntas.</string>
+    <string name="support_contact_label">Contactar o programador</string>
+    <string name="support_contact_desc">Preencha um formulário para enviar um e-mail ao programador.</string>
+    <string name="support_contact_welcome">Leio cada mensagem pessoalmente e faço o meu melhor para responder. Como trato do desenvolvimento, correções de erros e suporte sozinho, pode demorar um pouco. Obrigado pela sua paciência.</string>
+    <string name="support_contact_footer">A sua mensagem será enviada por e-mail. As informações do dispositivo e da configuração são anexadas automaticamente. Pode anexar capturas de ecrã ou um vídeo ao e-mail. Algumas partes do e-mail estarão em inglês para que o programador o possa compreender facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_bug_label">Relatório de erro</string>
+    <string name="support_contact_category_feature_label">Pedido de funcionalidade</string>
+    <string name="support_contact_category_question_label">Pergunta</string>
+    <string name="support_contact_tool_label">Ferramenta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">Encontrar resíduos</string>
+    <string name="support_contact_tool_systemcleaner_label">Limpeza de sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Des-duplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analisador</string>
+    <string name="support_contact_tool_appcontrol_label">Controlo de aplicações</string>
+    <string name="support_contact_tool_scheduler_label">Agenda</string>
+    <string name="support_contact_tool_general_label">Geral</string>
+    <string name="support_contact_description_label">Descrição</string>
+    <string name="support_contact_description_bug_hint">Descreva o que aconteceu e como reproduzir o problema. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_description_feature_hint">Descreva a funcionalidade que gostaria de ver. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_description_question_hint">Descreva a sua pergunta em detalhe. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_expected_label">Comportamento esperado</string>
+    <string name="support_contact_expected_hint">Descreva o que esperava que acontecesse (mínimo 10 palavras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palavra</item>
+        <item quantity="other">%1$d / %2$d palavras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registo de depuração</string>
+    <string name="support_contact_debuglog_zip_error">Falha ao comprimir o registo de depuração</string>
+    <string name="support_contact_debuglog_picker_hint">Anexe um registo de depuração existente ou grave um novo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nenhum registo de depuração encontrado. Grave um primeiro.</string>
+    <string name="support_contact_send_action">Abrir aplicação de e-mail</string>
+    <string name="support_contact_no_email_app">Nenhuma aplicação de e-mail encontrada neste dispositivo.</string>
     <string name="changelog_label">Registo de alterações</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
     <string name="settings_acknowledgements_category_translations_title">Traduções</string>
@@ -165,7 +198,7 @@
     <string name="setup_acs_state_stopped_hint_miui">Se o serviço continuar a ser desativado após um tempo, tente habilitar a opção \"Início automático\" para o SD Maid nas configurações do sistema.</string>
     <string name="setup_acs_consent_positive_action">Habilitar o serviço e conceder acesso</string>
     <string name="setup_acs_consent_negative_action">Não usar o serviço de acessibilidade</string>
-    <string name="setup_acs_allow_hint">Se você vir um pequeno ícone na borda da tela, então ativou acidentalmente a opção \"atalho\".</string>
+    <string name="setup_acs_allow_hint">O atalho ou botão de acessibilidade do SD Maid SE está ativado. Abra as definições de Acessibilidade do seu dispositivo e desative a opção de atalho/botão para evitar um ícone indesejado na margem do ecrã.</string>
     <string name="setup_acs_disallow_hint">Se mudar de ideias pode alterar esta opção novamente indo para ás configurações e reiniciando a configuração.</string>
     <string name="setup_acs_appops_restriction_title">Configurações restritas</string>
     <string name="setup_acs_appops_restriction_body">Não é possível ativar o serviço de acessibilidade SD Maid? O Android 13+ pode aplicar restrições a apps não instaladas pelo Google Play. Retire as restrições na página de detalhes do sistema para o SD Maid. A opção está no menu de contexto no canto superior direito.</string>
@@ -840,6 +873,8 @@ Recursos dos jogos.</string>
  acontecer, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
     <string name="automation_error_overlay_title">Erro de automação</string>
     <string name="automation_error_overlay_body">O SD Maid não pôde mostrar a sobreposição de automação. Verifique as permissões e tente reiniciar o seu dispositivo.</string>
+    <string name="automation_error_scheduler_title">Falha na automação agendada</string>
+    <string name="automation_error_scheduler_body">Uma tarefa agendada tentou utilizar o serviço de acessibilidade, mas este não estava disponível. Se não precisar disto, desative a opção \"Serviço de acessibilidade\" nas definições do agendador.</string>
     <string name="history_label">Histórico</string>
     <string name="history_description">Uma lista cronológica de ações recentes e dados afetados.</string>
     <string name="scheduler_label">Agendar</string>
