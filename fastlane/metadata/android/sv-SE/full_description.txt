@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> är din Androids betrodda assistent för att hålla den ren och snygg.
 
 Ingen är perfekt och inte Android heller.
+
 * Appar som du redan har tagit bort lämnar något bakom sig.
 * Loggar, kraschrapporter och andra filer du inte vill ha skapas ständigt.
 * Din lagring samlar på sig filer och mappar du inte känner igen.
@@ -11,22 +12,36 @@ Låt oss inte fortsätta räkna upp… Låt SD Maid 2/SE hjälpa dig!
 SD Maid 2/SE är en app- och filhanterare som specialiserat sig på att veta vilka appar som har skapat specifika filer på din enhet. SD Maid 2/SE söker igenom din enhet och jämför filer med installerade appar för att erbjuda alternativ för att på ett säkert sätt frigöra lagringsutrymme.
 
 ✨ Rensa upp efter att ha avinstallerat appar
+
 Om appar skapar filer utanför sina utsedda mappar kan filerna finnas kvar även efter att apparna avinstallerats. Verktyget "CorpseFinder" hittar app-rester, berättar vilken app de tillhörde och hjälper dig ta bort dem.
 
 🔍 Sök igenom din enhet på ett smart sätt
+
 Filtrera efter tomma mappar, temporära filer, redan installerade appar med mera. Du kan till och med skapa din egna sökkriterier. Verktyget "SystemCleaner" låter dig automatiskt söka igenom din enhet och ta bort filer baserat på olika kriterier.
 
 🧹 Ta bort onödiga filer och dolda cachar
+
 Miniatyrbilder, papperskorgar, offlinecachar med mera: Om appar inte städar upp efter sig gör den här appen det. Verktyget "AppCleaner" hittar appar med onödiga filer.
 
 📦 Hantera alla dina appar
+
 Få en fullständig lista över alla appar installerade på din enhet. Aktiverad, inaktiverad, användar- eller systemapp: ingen app kan gömma sig för dig. Verktyget "AppControl" är en apphanterare som låter dig söka, sortera och hantera dina appar.
 
 📊 Vad är det som tar upp all ditt utrymme
+
 Lagringshantering kan vara komplext med appar, media, system och andra filer spridda över telefonens lagring, SD-kort och USB-enheter. "StorageAnalyzer" är en filhanterare som visar hur utrymme används på din enhet och förenklar hanteringen av din lagring.
 
 📷 Hitta duplicerad data
+
 Duplicerade nedladdningar, foton skickade via sociala medier eller bara liknande bilder från samma scen: med tiden kan kopior hopa sig. Verktyget "Deduplicator" hittar filer som är identiska eller liknande och hjälper dig ta bort extra kopior.
+
+👆 Rensa enkelt med en svepning
+
+Välj en mapp och gå igenom filer en i taget med enkla svepningar för att behålla, ta bort eller hoppa över. Verktyget "Swiper" låter dig granska alla beslut innan något raderas, och du kan spara en session för att fortsätta senare.
+
+🗄️ Spara utrymme utan att ta bort foton
+
+Foton kan ta upp mycket lagringsutrymme, men du vill inte alltid ta bort dem. Verktyget "Media Squeeze" komprimerar dina bilder med justerbara kvalitetsinställningar för att frigöra utrymme medan du behåller dina foton.
 
 Denna app är annons-fri. Vissa funktioner kräver en betald uppgradering.
 

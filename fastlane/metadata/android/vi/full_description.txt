@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> là trợ lý đáng tin cậy trên Android của bạn, giúp thiết bị luôn sạch sẽ và gọn gàng.
 
 Không ai là hoàn hảo cả và Android cũng vậy.
+
 Những ứng dụng bạn đã gỡ bỏ sẽ để lại các tập tin rác.
 * Nhật ký, báo cáo sự cố và các tệp khác mà bạn không muốn liên tục được tạo.
 * Bộ lưu trữ của bạn đang thu thập các tệp và thư mục mà bạn không nhận ra.
@@ -11,22 +12,36 @@ Những ứng dụng bạn đã gỡ bỏ sẽ để lại các tập tin rá
 SD Maid 2/SE là trình quản lý tệp và ứng dụng chuyên biết ứng dụng nào đã tạo các tệp cụ thể trên thiết bị của bạn. SD Maid 2/SE tìm kiếm thiết bị của bạn và so sánh các tệp với các ứng dụng đã cài đặt để cung cấp các tùy chọn giải phóng dung lượng lưu trữ một cách an toàn.
 
 ✨ Dọn dẹp sau khi gỡ cài đặt ứng dụng
+
 Nếu ứng dụng tạo tệp bên ngoài thư mục được chỉ định thì tệp có thể vẫn còn ngay cả sau khi gỡ cài đặt ứng dụng. Công cụ "CorpseFinder" tìm kiếm các phần còn lại của ứng dụng, cho bạn biết chúng thuộc về ứng dụng nào và giúp bạn xóa chúng.
 
 🔍 Tìm kiếm thiết bị của bạn một cách thông minh
+
 Lọc các thư mục trống, tệp tạm thời, ứng dụng đã cài đặt và hơn thế nữa. Bạn thậm chí có thể tạo tiêu chí tìm kiếm của riêng bạn. Công cụ "SystemCleaner" cho phép bạn tự động tìm kiếm thiết bị của mình và xóa các tệp dựa trên nhiều tiêu chí khác nhau.
 
 🧹 Xóa các tập tin có thể sử dụng được và bộ nhớ đệm ẩn
+
 Hình thu nhỏ, thùng rác, bộ nhớ đệm ngoại tuyến và hơn thế nữa: Nếu ứng dụng không tự dọn dẹp thì ứng dụng này sẽ làm như vậy. Công cụ "AppCleaner" tìm các ứng dụng có tệp có thể sử dụng được.
 
 📦 Quản lý tất cả ứng dụng của bạn
+
 Nhận danh sách đầy đủ tất cả các ứng dụng được cài đặt trên thiết bị của bạn. Bật, tắt, ứng dụng người dùng hoặc hệ thống: không ứng dụng nào có thể ẩn khỏi bạn. Công cụ "AppControl" là trình quản lý ứng dụng cho phép bạn tìm kiếm, sắp xếp và kiểm soát ứng dụng của mình.
 
 📊 Điều gì đang chiếm hết không gian của bạn
+
 Việc quản lý bộ nhớ có thể phức tạp với các ứng dụng, phương tiện, hệ thống & các tệp khác trên bộ nhớ điện thoại, thẻ SD & thiết bị USB. "StorageAnalyzer" là trình quản lý tệp hiển thị cách sử dụng dung lượng trên thiết bị của bạn, đơn giản hóa việc quản lý bộ nhớ của bạn.
 
 📷 Tìm dữ liệu trùng lặp
+
 Các bản tải xuống trùng lặp, ảnh được gửi qua mạng xã hội hoặc chỉ những bức ảnh tương tự của cùng một cảnh: Theo thời gian, các bản sao có thể tích lũy. Công cụ "Dupplicator" tìm các tệp giống hệt hoặc tương tự nhau và giúp bạn xóa các bản sao bổ sung.
+
+👆 Dọn dẹp bằng một cú vuốt
+
+Chọn một thư mục và xem qua từng tệp một bằng các cú vuốt đơn giản để giữ lại, xóa hoặc bỏ qua. Công cụ “Swiper” cho phép bạn xem lại tất cả các quyết định trước khi xóa bất cứ thứ gì, và bạn có thể lưu phiên để tiếp tục sau.
+
+🗂️ Tiết kiệm dung lượng mà không xóa ảnh
+
+Ảnh có thể chiếm nhiều dung lượng, nhưng bạn không phải lúc nào cũng muốn xóa chúng. Công cụ “Media Squeeze” nén hình ảnh của bạn với cài đặt chất lượng có thể điều chỉnh để giải phóng dung lượng trong khi vẫn giữ lại ảnh của bạn.
 
 Ứng dụng này không có quảng cáo. Một số tính năng yêu cầu trả phí để nâng cấp.
 

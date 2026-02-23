@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> yiyo inzira yokuthembeka ye-Android yakho, ukuze uwugcine oluhlaza nomhlala.
 
 Akumuntu oyiperfect, futhi Android ayiperfect nawo.
+
 * Izinhlelo zesoftware osizusile uzishiye izinto emuva.
 * Imibuzo, izindlela zokubanika negama futhi eminye imifanekiso oyifuna ayakhiwa ngokuhlala.
 * Isinkumbulo sakho iqoqa izifayela namafodele awakuvi.
@@ -11,22 +12,36 @@ Asikwazi ukunqoba lapa… Vumela i-SD Maid 2/SE ukuthi ikusise!
 SD Maid 2/SE iyinhlelo zesoftware nokumphathi wefayela okugxile ekwazini okukhethekile okuthi yimaphi izinhlelo zesoftware ezakhe izifayela ethize ngakuqondile ku-divayisi yakho. SD Maid 2/SE ithola divayisi yakho futhi iqhathanisa izifayela ne-apps efakwe ukuze unikezele ikhethelo lokugcina ngokonzululwazi nokuyilibula isithombe sesitoreji.
 
 ✨ Lungisa emva kokususa izinhlelo zesoftware
+
 Uma ama-apps akha izifayela ngaphandle kwamafodele wawo avumelekile khona izifayela zingahlala noma ngemuva kokususa ama-apps. Ithuluzi le-"CorpseFinder" lithole insiswa yama-apps, likutshele ukuthi ayipilela kweyaphi inhlelo futhi likusiza ukuyisusa.
 
 🔍 Thola divayisi yakho ngendlela enembile
+
 Hlela izifako ezingenalutho, izifayela ezesikhashana, ama-apps asundelekile futhi okuningi. Ngisho unokwakha imikhela yokusesha eyakho. Ithuluzi lokumphathi "SystemCleaner" likuvumela ukuthola divayisi yakho ngokusulwa nokususa izifayela ngokusemweni kwezenhlelo ezahlukene.
 
 🧹 Susa izifayela ezingenzela futhi fihle amakhasi
+
 Izithombe, izindonga zesitolo, amakhasi okusebenza ngokungemuva futhi okwengeziwe: Uma izinhlelo zesoftware azigcinela kuzo, khona-ke le nhlelo izoyenza. Ithuluzi lokumphathi "AppCleaner" lithola izinhlelo zesoftware ezinesifayela esengenzela.
 
 📦 Phatha wonke ama-apps akho
+
 Thola uhlu oluphelele lwawo wonke ama-apps afakwe kusistimu yako. Okhutshelwe, okuthulisiwe, ama-apps asebalazini noma kasistimu: akukho app engakwazi ukuzihela. I-"AppControl" iyithuluzi lokuphatha ama-apps okukuvumela ukuthi utshele, uhlukanise futhi ukulawule ama-apps akho.
 
 📊 Yini ebandla konke inzuzo yakho
+
 Ukulawula inkumbulo kunokuba nokuluqoba ngama-apps, imithombo, isistema, nezinye izifayela eziqatshelwe kusistimu yefoneni, amakadi e-SD, kanye nemithombo ye-USB. I-"StorageAnalyzer" iyinkundla yokuphatha ifayela ebonisa indlela inzuzo esetshenziswa kusistimu yakho, eyenza ukuthi lokhu kube lula.
 
 📷 Thola idatha efanayo
+
 Okukhethwe kabili, izithombe ezithunyelwe ngama-social media noma isithombe sifanayo sendawo: Ngaphandle kwesikhathi, amakopi angqobwa. Ithuluzi le-"Deduplicator" lithole izifayela eziyafana noma zifanayo futhi likusiza ukususa amakopi ezongeziwe.
+
+👆 Susa ukuxakamezeka ngokuswayipha
+
+Khetha ifolda uphambane nefayela ngalinye nge-swipe elilula ukugcina, ukususa, noma ukudlula. Ithuluzi le-"Swiper" likuvumela ukuhlola zonke izinqumo ngaphambi kokususwa kwanoma yini, futhi ungasindisa umjaho ukuze uqhubeke kamuva.
+
+🗜️ Londoloza indawo ngaphandle kokususa izithombe
+
+Izithombe zingathatha inqwaba yenqwaba yesitoreji, kodwa awufuni njalo ukuzisusa. Ithuluzi le-"Media Squeeze" licindezelela izithombe zakho ngezilungiselelo zokhono ezilungisekayo ukuze kukhululeke indawo, futhi ugcine izithombe zakho.
 
 Lolu hlelo alunamajazi. Ezinye izici zidinga ukugreyda kokungenani.
 

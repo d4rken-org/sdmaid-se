@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> je dôveryhodný pomocník vášho Androidu, ktorý ho udržiava čistý a uprataný.
 
 Nikto nie je dokonalý a Android tiež nie.
+
 * Aplikácie, ktoré ste už odstránili, po sebe niečo zanechávajú.
 * Protokoly, správy o zlyhaní a iné súbory, ktoré nechcete sa neustále vytvárajú.
 * Vo vašom úložisku sa zhromažďujú súbory a adresáre, ktoré nepoznáte.
@@ -11,22 +12,36 @@ Nepokračujme tu... Nechajte SD Maid 2/SE pomôcť vám!
 SD Maid 2/SE je aplikácia a správca súborov, ktorý sa špecializuje na zistenie, ktoré aplikácie vytvorili konkrétne súbory na vašom zariadení. SD Maid 2/SE prehľadá vaše zariadenie a porovná súbory s nainštalovanými aplikáciami, aby ponúkol možnosti na bezpečné uvoľnenie úložného priestoru.
 
 ✨ Čistenie po odinštalovaní aplikácií
+
 Ak aplikácie vytvárajú súbory mimo svojich určených priečinkov, súbory môžu zostať aj po odinštalovaní aplikácií. Nástroj „Hľadač mŕtvol“ nájde zvyšky aplikácie, povie vám, ku ktorej aplikácii patrili, a pomôže vám ich odstrániť.
 
 🔍 Prehľadajte svoje zariadenie inteligentným spôsobom
+
 Filtrujte prázdne priečinky, dočasné súbory, už nainštalované aplikácie a ďalšie. Môžete si dokonca vytvoriť vlastné kritériá vyhľadávania. Nástroj „Čistič systému“ vám umožňuje automaticky prehľadávať vaše zariadenie a mazať súbory na základe rôznych kritérií.
 
 🧹 Odstráňte nepotrebné súbory a skryté vyrovnávacie pamäte
+
 Miniatúry, smetné koše, offline vyrovnávacie pamäte a ďalšie: Ak aplikácie po sebe neupracú, urobí to táto aplikácia. Nástroj „Čistič aplikácií“ nájde aplikácie s nepotrebnými súbormi.
 
 📦 Spravujte všetky svoje aplikácie
+
 Získajte úplný zoznam všetkých aplikácií nainštalovaných vo vašom zariadení. Povolená, zakázaná, používateľská alebo systémová aplikácia: žiadna aplikácia sa pred vami nemôže skryť. Nástroj „Správca aplikácií“ je správca aplikácií, ktorý vám umožňuje vyhľadávať, triediť a ovládať vaše aplikácie.
 
 📊 Čo využíva celý váš priestor
+
 Správa úložiska môže byť zložitá s aplikáciami, médiami, systémovými a ďalšími súbormi v úložisku telefónu, SD kartách a zariadeniach USB. „Analyzátor úložiska“ je správca súborov, ktorý zobrazuje využitie miesta na vašom zariadení, čím zjednodušuje správu úložiska.
 
 📷 Nájdite duplicitné údaje
+
 Duplicitné sťahovanie, fotografie odoslané prostredníctvom sociálnych médií alebo len podobné obrázky tej istej scény: Postupom času sa môžu hromadiť kópie. Nástroj "Deduplikátor" nájde súbory, ktoré sú úplne rovnaké alebo podobné, a pomôže vám odstrániť nadbytočné kópie.
+
+👆 Upratajte potiahnutením prsta
+
+Vyberte priečinok a prechádzajte súbory jeden po druhom jednoduchými potiahnuteními – ponechajte, odstráňte alebo preskоčte. Nástroj „Swiper“ umožňuje skontrolovať všetky rozhodnutia pred vymazaním a reláciu môžete uložiť na neskôr.
+
+🗃️ Ušetrite miesto bez mazania fotografií
+
+Fotografie môžu zaberať veľa úložného priestoru, ale nie vždy ich chcete odstrániť. Nástroj „Media Squeeze“ komprimuje vaše obrázky s nastaviteľnou kvalitou, aby uvoľnil miesto a zároveň zachoval vaše fotografie.
 
 Táto aplikácia je bez reklám. Niektoré funkcie vyžadujú platenú inováciu.
 

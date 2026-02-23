@@ -1,6 +1,7 @@
 Ang <i>SD Maid 2/SE</i> ay ang mapagkakatiwalaang assistant sa pagpapanatili ng kalinisan ng iyong Android.
 
 Walang sinumang perpekto, kahit na ang Android.
+
 * May naiiwang datos ang mga app na na-uninstall mo na.
 * Ang mga log, crash report at ibang file na hindi mo gustong makita ay patuloy na lumilikha.
 * Ang iyong storage ay nagsasabing nakolekta ang mga file at folder na hindi mo kinikilala.
@@ -11,22 +12,36 @@ Huwag nang magpatuloy dito… Hayaan ang SD Maid 2/SE na tumulong sa iyo!
 Ang SD Maid 2/SE ay isang app at file manager na nag-espesyalisa sa pag-alam kung aling mga app ang lumikha ng mga partikular na file sa iyong device. Ang SD Maid 2/SE ay nagsasaliksik sa iyong device at naghambing ng mga file sa mga naka-install na app upang mag-alok ng mga opsyon para sa ligtas na pagpapalaya ng storage space.
 
 ✨ Linisin pagkatapos mag-uninstall ng mga app
+
 Kung ang mga app ay lumilikha ng mga file sa labas ng kanilang mga itinalagang folder, ang mga file ay maaaring manatili kahit pagkatapos i-uninstall ang mga app. Ang "CorpseFinder" tool ay nakahanap ng mga natitira mula sa app, sinasabi sa iyo kung aling app ang kanilang kabilang at tumutulong sa iyo na burahin ang mga ito.
 
 🔍 Tuklasin ang iyong device sa matalinong paraan
+
 I-filter ang mga walang laman na folder, temporal na mga file, na-install na ang mga app at marami pang iba. Maaari mo ring lumikha ng iyong sariling search criteria. Ang "SystemCleaner" tool ay nagbibigay-daan sa iyo na awtomatikong maghahanap sa iyong device at magbura ng mga file batay sa iba't ibang criteria.
 
 🧹 Burahin ang mga hindi kailangang file at nakatagong cache
+
 Mga thumbnail, trash bin, offline cache at marami pang iba: Kung ang mga app ay hindi nag-clean up pagkatapos nila, gagawin ito ng app na ito. Ang "AppCleaner" tool ay nakakahanap ng mga app na may mga hindi kailangang file.
 
 📦 Pamahalaan ang lahat ng iyong mga app
+
 Makakuha ng komprehensibong listahan ng lahat ng app na naka-install sa iyong device. Enabled, disabled, user o system app: walang app na makakagawa ng kahanga. Ang "AppControl" tool ay isang app manager na nagbibigay-daan sa iyo na maghanap, maguri at kontrolin ang iyong mga app.
 
 📊 Ano ang gumagamit ng lahat ng iyong storage
+
 Ang storage management ay maaaring maging kumplikado sa mga app, media, system, at iba pang file sa phone storage, SD card, at USB device. Ang "StorageAnalyzer" ay isang file manager na nagpapakita kung paano ginagamit ang storage sa iyong device, na ginagawang simple ang iyong storage management.
 
 📷 Hanapin ang duplicate na data
+
 Mga duplicate na download, photo na ipinadala sa pamamagitan ng social media o simpleng magkakahawig na larawan ng parehong scene: Over time ay maaaring mag-accumulate ng mga kopya. Ang "Deduplicator" tool ay nakakahanap ng mga file na eksaktong pareho o magkakahawig at tumutulong sa iyo na burahin ang mga karagdagang kopya.
+
+👆 Linisin sa pamamagitan ng swipe
+
+Pumili ng folder at suriin ang mga file isa-isa gamit ang simpleng swipe upang itago, tanggalin, o laktawan. Ang tool na "Swiper" ay nagbibigay-daan sa iyo na suriin ang lahat ng desisyon bago ang anumang ay matanggal, at maaari kang mag-save ng session para ituloy sa ibang pagkakataon.
+
+🗜️ Makatipid ng espasyo nang hindi tinatanggal ang mga larawan
+
+Ang mga larawan ay maaaring kumuha ng maraming storage, ngunit hindi mo palaging nais na alisin ang mga ito. Ang tool na "Media Squeeze" ay nag-compress ng iyong mga larawan gamit ang naaayos na mga setting ng kalidad upang makalaya ng espasyo habang pinapanatili ang iyong mga larawan.
 
 Ang app na ito ay walang ads. Nangangailangan ng bayad na upgrade ang ilang feature.
 

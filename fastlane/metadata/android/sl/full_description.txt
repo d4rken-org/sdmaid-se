@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> je zaupanja vreden pomočnik za Android, ki ga ohrani čistega in urejenega.
 
 Nihče ni popoln, niti Android.
+
 * Odstranjeni programi pustijo nekaj za sabo.
 * Dnevniki, poročila o sesutjih in druge neželene datoteke se stalno ustvarjajo.
 * Na vaši pomnilniški napravi se nabirajo neznane datoteke in mape.
@@ -11,22 +12,36 @@ In še bil lahko naštevali …  Naj vam SD Maid 2/SE pomaga!
 SD Maid 2/SE je upravitelj datotek in programov, ki poišče, kateri programi so ustvarili določene datoteke na napravi. SD Maid 2/SE preišče napravo in primerja datoteke z nameščenimi programi, da lahko ponudi možnosti varne sprostitve prostora.
 
 ✨ Čiščenje po odstranitvi programov
+
 Če programi ustvarijo datoteke izven namenskih map, potem lahko tam ostanejo tudi po odstranitvi programa. Orodje "Iskalec trupel" poišče ostanke programa, vam sporoči, kateremu programu so pripadali in vam jih pomaga izbrisati.
 
 🔍 Pametno iskanje po napravi
+
 Filtrirajte prazne mape, začasne datoteke, že nameščene programe in več. Ustvarite lahko tudi svoja iskalna merila. Orodje "Čistilec sistema" omogoča samodejno iskanje in brisanje datotek glede na razna merila.
 
 🧹 Brisanje odvečnih datotek in skritih predpomnilnikov
+
 Sličice, smetnjaki, predpomnilniki za delo brez povezave in več: če programi ne počistijo za sabo, potem bo ta program. Orodje "Čistilec programov" poišče programe z odvečnimi datotekami.
 
 📦 Upravljanje vseh programov
+
 Pridobite celovit seznam vseh nameščenih programov na napravi. Omogočen, onemogočen, uporabniški ali sistemski: noben program se ne more skriti pred vami. Orodje "Nadzor programov" je upravitelj programov, ki omogoča iskanje, razvrščanje in nadziranje programov.
 
 📊 Kaj porablja ves prostor
+
 S programi, predstavnostjo, sistemom in drugimi datotekami je lahko upravljanje s prostorom, kartico SD in napravami USB zapleteno. "Analizator shrambe" je upravitelj datotek, ki ponazori način uporabe prostora na napravi in s tem poenostavi upravljanje z njem.
 
 📷 Iskanje podvojenih podatkov
+
 Podvojeni prejemi, fotografije, poslane preko družbenih omrežij ali podobne fotografije istega prizora: čez čas se lahko kopije naberejo. Orodje "Odstranjevalec dvojnikov" poišče datoteke, ki so povsem enake ali podobne, in vam pomaga izbrisati odvečne kopije.
+
+👆 Počisti z drsenjem
+
+Izberi mapo in pregleduj datoteke eno za drugo s preprostimi drsnimi potezami – ohrani, izbriši ali preskoči. Orodje »Swiper« ti omogoča pregled vseh odločitev, preden se karkoli izbriše, in sejo lahko shraniš za nadaljevanje pozneje.
+
+🗄️ Prihrani prostor brez brisanja fotografij
+
+Fotografije lahko zasedejo veliko prostora za shranjevanje, vendar jih ne želiš vedno odstraniti. Orodje »Media Squeeze« stisne tvoje slike z nastavljivo kakovostjo, da sprosti prostor, ne da bi izgubil fotografije.
 
 Ta program je brez oglasov.  Nekatere značilnosti zahtevajo plačljivo nadgradnjo.
 

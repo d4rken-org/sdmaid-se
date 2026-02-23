@@ -1,6 +1,7 @@
 L'<i>SD Maid 2/SE</i> és l'assistent de confiança del vostre Android per mantenir-lo net i ordenat.
 
 Ningú és perfecte i l'Android tampoc.
+
 * Les aplicacions que ja heu eliminat deixen alguna cosa enrere.
 * Registres, informes d'error i altres fitxers que no voleu es creen constantment.
 * El vostre emmagatzematge està recopilant fitxers i carpetes que no reconeixeu.
@@ -11,22 +12,36 @@ No continueu així... Deixeu que l'SD Maid 2/SE us ajudi!
 L'SD Maid 2/SE és un gestor d'aplicacions i fitxers especialitzat en saber quines aplicacions han creat fitxers específics al vostre dispositiu. L'SD Maid 2/SE cerca al vostre dispositiu i compara fitxers amb les aplicacions instal·lades per oferir opcions per alliberar espai d'emmagatzematge de manera segura.
 
 ✨ Neteja després de desinstal·lar les aplicacions
+
 Si les aplicacions creen fitxers fora de les carpetes designades, els fitxers poden romandre fins i tot després de desinstal·lar les aplicacions. L'eina «Cercador de brossa» troba les restes d'aplicacions, us indica a quina aplicació pertanyien i us ajuda a eliminar-les.
 
 🔍 Cerca el vostre dispositiu de manera intel·ligent
+
 Filtreu les carpetes buides, els fitxers temporals, les aplicacions ja instal·lades i molt més. Fins i tot podeu crear els vostres propis criteris de cerca. L'eina «Netejador del sistema» us permet cercar automàticament al vostre dispositiu i eliminar fitxers segons diversos criteris.
 
 🧹 Suprimeix fitxers fungibles i memòries cau ocultes
+
 Miniatures, papereres, memòria cau fora de línia i molt més: si les aplicacions no es netegen després, aquesta aplicació ho farà. L'eina «Netejador d'aplicacions» troba aplicacions amb fitxers fungibles.
 
 📦 Gestiona totes les vostres aplicacions
+
 Obteniu una llista completa de totes les aplicacions instal·lades al vostre dispositiu. Aplicació habilitada, deshabilitada, d'usuari o del sistema: cap aplicació es pot amagar. L'eina «Control d'aplicacions» és un gestor d'aplicacions que us permet cercar, ordenar i controlar les vostres aplicacions.
 
 📊 Què està utilitzant tot el vostre espai
+
 La gestió de l'emmagatzematge pot ser complexa amb aplicacions, mitjans, sistema i altres fitxers a l'emmagatzematge del telèfon, targetes SD i dispositius USB. L'«Analitzador d'emmagatzematge» és un gestor de fitxers que mostra com s'utilitza l'espai al dispositiu, simplificant la gestió de l'emmagatzematge.
 
 📷 Cerca dades duplicades
+
 Baixades duplicades, fotos enviades a través de les xarxes socials o simplement imatges similars de la mateixa escena: amb el temps, es poden acumular còpies. L'eina «Desduplicador» troba fitxers que són exactament iguals o similars i us ajuda a eliminar còpies addicionals.
+
+👆 Desencombra amb un lliscament
+
+Tria una carpeta i revisa els fitxers un per un amb lliscaments simples per conservar, eliminar o ometre. L'eina «Swiper» et permet revisar totes les decisions abans d'eliminar res, i pots desar una sessió per continuar-la més tard.
+
+🗄️ Estalvia espai sense esborrar fotos
+
+Les fotos poden ocupar molt d'emmagatzematge, però no sempre vols eliminar-les. L'eina «Media Squeeze» comprimeix les teves imatges amb paràmetres de qualitat ajustables per alliberar espai mentre conserves les teves fotos.
 
 Aquesta aplicació no té anuncis. Algunes funcions requereixen una millora de pagament.
 

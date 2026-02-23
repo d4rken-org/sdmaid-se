@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> on Androidi usaldusväärne abiline, mis hoiab puhtust ja korda.
 
 Mitte keegi pole täiuslik ja sama kehtib Androidile.
+
 * Juba eemaldatud rakendused jätavad midagi maha.
 * Pidevalt luuakse ebaolulisi logisid, veaaruandeid ja muid faile.
 * Hoiuruumi koguneb võõraid faile ja kaustu.
@@ -11,22 +12,36 @@ Saab ka teisiti... Luba SD Maid 2/SE-l end aidata!
 SD Maid 2/SE on rakendus ja failihaldur, mis teab rakenduste loodud failide päritolu. SD Maid 2/SE otsib seadmest ja võrdleb faile paigaldatud rakendustega, et pakkuda ohutut hoiuruumi vabastamist.
 
 ✨ Rakenduste eemaldamisjärgne puhastus
+
 Kui rakendused loovad faile kohtadesse, kus pole nende andmeid, siis need failid püsivad isegi pärast rakenduste eemaldamist. Jäägileidja leiab rakenduse jääke, näitab millisele rakendusele need kuuluvad ja aitab neid kustutada.
 
 🔍 Otsige seadmest nutikalt
+
 Jaota tühje kaustu, ajutisi faile, juba paigaldatud rakendusi ja muud. Saate luua isegi enda otsingutermini. Süsteemipuhastaja otsib ise seadmest faile kustutamiseks vastavalt teie nõudmisele.
 
 🧹 Jääkide ja peidetud vahemälude kustutamine
+
 Pisipildid, prügikastid, võrguühenduseta vahemälud jne. Kui rakendused ei korista enda tagant, siis see rakendus teeb seda. Rakendusepuhastaja leiab jääkidega rakendusi.
 
 📦 Hallake kõiki rakendusi
+
 Saate põhjaliku loendi kõikidest seadmesse paigaldatud rakendustest. Lubatud, keelatud, kasutaja või süsteemi rakendus: ükski rakendus ei peida end teie eest. Rakendusekontroll on rakendusi otsiv, jaotav ja haldav rakendustehaldur.
 
 📊 Mis võtab ruumi?
+
 Ruumi haldamine rakenduste, meediumi, süsteemi ja muude failidega on keeruline telefoni sisemälus, SD-kaartidel ja USB-seadmetel. „Hoiustamisruumi analüüsija” on seadme ruumi kasutamist kirjeldav ja ruumi haldamist hõlbustav failihaldur.
 
 📷 Samasuguste andmete otsimine
+
 Mitu korda allalaaditu, sotsiaalmeedia kaudu saadetud pildid või sama stseeni sarnased pildid. Koopiad võivad aja jooksul koguneda. Koopiate eemaldaja otsib samasuguseid või sarnaseid faile ja aitab kustutada liigseid koopiaid.
+
+👆 Korralda ühe viipega
+
+Vali kaust ja vaata faile ükshaaval lihtsate viibete abil – hoia, kustuta või jäta vahele. Vahendiga „Viipaja“ uudistad kõiki ettepanekuid enne kustutamist ja seansi saab salvestada hiljem jätkamiseks.
+
+🗄️ Säästa ruumi fotosid kustutamata
+
+Fotod võivad võtta palju salvestusruumi, kuid sa ei pruugi neid alati kustutada tahta. Vahend „Meediumi tihendaja“ tihendab pilte reguleeritavate kvaliteediseadetega, et vabastada ruumi pilte kustutamata.
 
 See rakendus on reklaamivaba. Osa võimalusi vajab tasulist täiendust.
 

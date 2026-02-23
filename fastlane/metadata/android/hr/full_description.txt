@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> je pouzdani pomoćnik vašeg Androida koji ga održava čistim i urednim.
 
 Nitko nije savršen, pa tako ni Android.
+
 * Aplikacije koje ste već uklonili ostavljaju nešto iza sebe.
 * Zapisnici, izvješća o rušenju i druge datoteke koje ne želite stalno se stvaraju.
 * Vaša pohrana skuplja datoteke i direktorije koje ne prepoznajete.
@@ -11,22 +12,36 @@ Da ne duljimo... Neka vam SD Maid 2/SE pomogne!
 SD Maid 2/SE je aplikacija i upravitelj datoteka specijaliziran za to da prepozna koje su aplikacije stvorile određene datoteke na vašem uređaju. SD Maid 2/SE pretražuje vaš uređaj i uspoređuje datoteke s instaliranim aplikacijama kako bi ponudio opcije za sigurno oslobađanje prostora za pohranu.
 
 ✨ Počistite nakon deinstalacije aplikacija
+
 Ako aplikacije stvaraju datoteke izvan svojih određenih mapa, datoteke mogu ostati čak i nakon deinstalacije aplikacija. Alat "Tragač ostataka" pronalazi ostatke aplikacija, govori vam kojoj aplikaciji pripadaju i pomaže vam da ih izbrišete.
 
 🔍 Pretražujte svoj uređaj na pametniji način
+
 Filtrirajte prazne mape, privremene datoteke, predinstalirane aplikacije i još mnogo toga. Možete čak i stvoriti vlastite kriterije pretraživanja. Alat "Čistač sustava" omogućuje vam automatsko pretraživanje uređaja i brisanje datoteka na temelju različitih kriterija.
 
 🧹 Izbrišite potrošne datoteke i skrivene predmemorije
+
 Minijature, smeće, izvanmrežne predmemorije i još mnogo toga: Ako aplikacije ne čiste za sobom, onda ova aplikacija hoće. Alat "Čistač sustava" pronalazi aplikacije s potrošnim datotekama.
 
 📦 Upravljajte svim svojim aplikacijama
+
 Dobijte sveobuhvatan popis svih aplikacija instaliranih na vašem uređaju. Omogućena, onemogućena, korisnička ili sistemska aplikacija: nijedna aplikacija se ne može sakriti od vas. Alat "Kontrola aplikacija" je upravitelj aplikacija koji vam omogućuje pretraživanje, sortiranje i upravljanje aplikacijama.
 
 📊 Što vam zauzima sav prostor
+
 Upravljanje pohranom može biti složeno s aplikacijama, medijima, sustavom i drugim datotekama na memoriji telefona, SD karticama i USB uređajima. "Analizator pohrane" je upravitelj datoteka koji prikazuje na koji se način prostor na vašem uređaju koristi, pojednostavljujući upravljanje pohranom.
 
 📷 Pronađite duplicirane podatke
+
 Dvostruka preuzimanja, fotografije poslane putem društvenih mreža ili samo slične slike istog prizora: S vremenom se kopije mogu nakupiti. Alat "Deduplikator" pronalazi datoteke koje su potpuno iste ili slične i pomaže vam izbrisati dodatne kopije.
+
+👆 Pospremite brzim prelaskom prsta
+
+Odaberite mapu i pregledajte datoteke jednu po jednu jednostavnim prelaskom prsta kako biste ih zadržali, izbrisali ili preskočili. Alat "Swiper" omogućuje vam pregled svih odluka prije brisanja, a sesiju možete spremiti za nastavak kasnije.
+
+🗄️ Uštedite prostor bez brisanja fotografija
+
+Fotografije mogu zauzeti puno prostora za pohranu, ali ih ne želite uvijek ukloniti. Alat "Media Squeeze" komprimira vaše slike s podesivim postavkama kvalitete kako bi oslobodio prostor uz zadržavanje vaših fotografija.
 
 Ova aplikacija ne sadrži oglase. Neke značajke zahtijevaju plaćenu nadogradnju.
 

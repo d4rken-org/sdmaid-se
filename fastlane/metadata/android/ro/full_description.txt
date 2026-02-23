@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> este asistentul dvs. de încredere pentru Android, pentru a-l menține curat și ordonat.
 
 Nimeni nu este perfect și nici Android nu este.
+
 * Aplicațiile pe care le-ai eliminat deja lasă ceva în spatele lor.
 * Jurnalele, rapoartele de blocare și alte fișiere pe care nu le doriți sunt create în mod constant.
 * Stocarea dvs. colectează fișiere și foldere pe care nu le recunoașteți.
@@ -11,22 +12,36 @@ Să nu continuăm aici... Lăsați SD Maid 2/SE să vă ajute!
 SD Maid 2/SE este un manager de aplicații și fișiere care este specializat în a ști ce aplicații au creat anumite fișiere pe dispozitivul dvs. SD Maid 2/SE caută dispozitivul dvs. și compară fișierele cu aplicațiile instalate pentru a oferi opțiuni pentru eliberarea în siguranță a spațiului de stocare.
 
 ✨ Curățați după dezinstalarea aplicațiilor
+
 Dacă aplicațiile creează fișiere în afara folderelor lor desemnate, atunci fișierele pot rămâne chiar și după dezinstalarea aplicațiilor. Instrumentul „Găsitor de cadavre” găsește rămășițele aplicațiilor, vă spune căror aplicații au aparținut și vă ajută să le ștergeți.
 
 🔍 Căutați dispozitivul în mod inteligent
+
 Filtrați pentru foldere goale, fișiere temporare, aplicații deja instalate și multe altele. Puteți chiar să vă creați propriile criterii de căutare. Instrumentul „Curățitor de sistem” vă permite să căutați automat dispozitivul și să ștergeți fișiere pe baza diferitelor criterii.
 
 🧹 Ștergeți fișierele consumabile și cache-urile ascunse
+
 Miniaturi, coșuri de gunoi, cache offline și multe altele: dacă aplicațiile nu se curăță după ele, atunci această aplicație o va face. Instrumentul „Curățitor de aplicații” găsește aplicații cu fișiere consumabile.
 
 📦 Gestionați toate aplicațiile dvs
+
 Obțineți o listă cuprinzătoare a tuturor aplicațiilor instalate pe dispozitivul dvs. Aplicație activată, dezactivată, de utilizator sau de sistem: nicio aplicație nu vă poate ascunde. Instrumentul „Controlul Aplicațiilor” este un manager de aplicații care vă permite să căutați, să sortați și să vă controlați aplicațiile.
 
 📊 Ce vă folosește tot spațiul
+
 Gestionarea stocării poate fi complexă cu aplicații, media, sistem și alte fișiere din stocarea telefonului, cardurile SD și dispozitivele USB. „Analizatorul de stocare” este un manager de fișiere care afișează modul în care este utilizat spațiul pe dispozitiv, simplificând gestionarea stocării.
 
 📷 Găsiți date duplicat
+
 Descărcări duplicate, fotografii trimise prin intermediul rețelelor sociale sau doar imagini similare ale aceleiași scene: în timp, copiile se pot acumula. Instrumentul „Deduplicator” găsește fișiere care sunt exact aceleași sau similare și vă ajută să ștergeți copii suplimentare.
+
+👆 Organizează cu o glisare
+
+Alege un folder și parcurge fișierele unul câte unul cu simple glisări pentru a păstra, șterge sau sări peste ele. Instrumentul „Swiper” îți permite să revizuiești toate deciziile înainte ca ceva să fie șters, iar sesiunea poate fi salvată pentru a continua mai târziu.
+
+🗜️ Eliberează spațiu fără a șterge fotografiile
+
+Fotografiile pot ocupa mult spațiu de stocare, dar nu vrei întotdeauna să le elimini. Instrumentul „Media Squeeze” comprimă imaginile tale cu setări de calitate reglabile pentru a elibera spațiu păstrându-ți fotografiile.
 
 Această aplicație nu conține reclame. Unele funcții necesită o actualizare plătită.
 

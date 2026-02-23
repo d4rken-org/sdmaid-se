@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> ni msaada unaaminika wa Android yako, kukamatia safi na nzuri.
 
 Hakuna mtu yeyote aliye kamili na Android si sawa.
+
 * Programu ulizozifuta tayari huacha kitu nyuma.
 * Kumbukumbu, ripoti za makosa na faili nyingine usiyotaka hutengenezwa kila wakati.
 * Hifadhi yako inapokusanya faili na mafolder unayowajua.
@@ -11,22 +12,36 @@ Tusiweze kuendelea hapa… Acha SD Maid 2/SE kukusaidia!
 SD Maid 2/SE ni programu na kidhibiti cha faili kinachoboreshe ujumbe kuhusu ni programu ipi zilizosanidi faili mahsusi kwenye zako. SD Maid 2/SE hutafuta zako na kulinganisha faili na programu zilizoimamisha ili kutoa fursa za salama za kuacha mahali pa hifadhi.
 
 ✨ Safisha baada ya kusakinisha programu
+
 Ikiwa programu huunda faili nje ya mafolder yaliyogaiwa, basi faili zinaweza kubaki hata baada ya kuondoa immakilishi ya programu. Zana ya "CorpseFinder" inatafuta mabaki ya programu, inakuambia ni programu gani waliyomtokea na inakusaidia kuyafuta.
 
 🔍 Tafuta kwenye kifaa chako kwa njia mahiri
+
 Chuja kwa mafolder tupu, faili za muda, programu zilizoimakilishi tayari na zaidi. Unaweza hata kuunda vigezo vyako venyewe vya utafutaji. Zana ya "SystemCleaner" inakuruhusu kutafuta kiotomatiki kwenye kifaa chako na kufuta faili kulingana na vigezo mbalimbali.
 
 🧹 Futa faili yanayoweza kuondolewa na akiba zilizofichwa
+
 Picha ndogo, bakaki za takataka, akiba ya nje ya mtandao na zaidi: Ikiwa programu hazijikambii, basi programu hii itakufa. Zana ya "AppCleaner" inatafuta programu zilizo na faili yanayoweza kuondolewa.
 
 📦 Dhibiti programu zako zote
+
 Pata orodha kamili ya programu zote zilizoimakilishi kwenye kifaa chako. Imezaliwa, imezimwa, programu ya mtumiaji au mfumo: hakuna programu inayoweza kujificha kwako. Zana ya "AppControl" ni kidhibiti programu kinachokukuruhusu kutafuta, kupanga na kudhibiti programu zako.
 
 📊 Ni nini kinachotumia nafasi yako yote
+
 Usimamizi wa hifadhi unaweza kuwa changamano na programu, media, mfumo, na faili nyingine zikiwa kwenye hifadhi ya simu, kadi za SD, na vifaa vya USB. "StorageAnalyzer" ni kidhibiti faili kinachoonyesha jinsi nafasi inavyotumika kwenye kifaa chako, na kurahisisha usimamizi wako wa hifadhi.
 
 📷 Tafuta data inayorudiwa
+
 Chimbuko rudufu, picha zilizotumwa kupitia mitandao ya kijamii au tu picha sawa za maadhimisho sawa: Baada ya muda, nakala zinaweza kukusanya. Zana ya "Deduplicator" inatafuta faili ambayo ni sawa kabisa au sawa na kukusaidia kufuta nakala za ziada.
+
+👆 Safisha kwa kumezea
+
+Chagua folda na upitie faili moja kwa moja kwa meza rahisi za kuhifadhi, kufuta, au kuruka. Zana ya "Swiper" inakuruhusu kupitia maamuzi yote kabla ya kitu chochote kufutwa, na unaweza kuhifadhi kipindi kuendelea baadaye.
+
+🗜️ Okoa nafasi bila kufuta picha
+
+Picha zinaweza kuchukua nafasi nyingi ya hifadhi, lakini huhitaji kuzifuta kila wakati. Zana ya "Media Squeeze" inakandamiza picha zako kwa mipangilio ya ubora inayoweza kurekebishwa ili kuacha nafasi ukibaki na picha zako.
 
 Programu hii haina tangazo. Baadhi ya huduma inahitaji kusasisha kutokwa na fedha.
 

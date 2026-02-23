@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> est l’assistante de votre Android, pour le garder propre et bien rangé, en toute confiance.
 
 Personne n’est parfait et Android non plus.
+
 * Les applis que vous avez déjà supprimées laissent des traces.
 * Des journaux, des relevés de plantage et d’autres fichiers dont vous ne voulez pas sont créés en permanence.
 * Des fichiers et dossiers que vous ne reconnaissez pas s’accumulent sur votre téléphone.
@@ -11,22 +12,36 @@ N’allons pas plus loin… Laissez SD Maid 2/SE vous aider.
 SD Maid 2/SE est une appli et un gestionnaire de fichiers dont la spécialité est de savoir par quelles applis certains fichiers de votre appareil ont été créés. SD Maid 2/SE parcourt votre appareil et compare les fichiers aux applis installées afin de vous offrir des options pour libérer de l’espace en toute sécurité.
 
 ✨ Nettoyer après désinstallation des applis
+
 Si des applis créent des fichiers en dehors de leurs dossiers désignés, ces fichiers peuvent subsister même après désinstallation des applis. La « Recherche de cadavres » trouve les restes d’applis, vous indique à quelle appli ils appartenaient et vous aide à les supprimer.
 
 🔍 Rechercher intelligemment sur votre appareil
+
 Cherchez les dossiers vides, les fichiers temporaires, les applis déjà installées et plus encore. Vous pouvez même créer vos propres critères de recherche. Le « Nettoyeur système » vous permet de chercher automatiquement sur votre appareil des fichiers selon différents critères et de les supprimer.
 
 🧹 Supprimer les fichiers superflus et les caches dissimulés
+
 Imagettes, corbeilles, caches hors ligne et plus encore. Si les applis laissent des traces, cette appli fera le ménage. Le « Nettoyeur d’applis » trouve les applis qui ont des fichiers superflus.
 
 📦 Gérer toutes vos applis
+
 Obtenez une liste complète de toutes les applis installées sur votre appareil. Applis activées, désactivées, pour utilisateurs ou système, aucune appli ne vous échappe. Le « Vérificateur d’applis » est un gestionnaire d’applis qui vous permet d’explorer, trier et de contrôler vos applis.
 
 📊 Ce qui utilise tout votre espace
+
 La gestion de l’espace de stockage peut s’avérer complexe avec les applis, les médias, les fichiers système et les autres fichiers répartis sur la mémoire de votre téléphone, les cartes SD et sur les périphériques USB. L’« Analyseur de mémoire » est un gestionnaire de fichiers qui affiche l’utilisation de l’espace sur votre appareil et qui simplifie la gestion de votre espace de stockage.
 
 📷 Trouver des données dupliquées
+
 Photos provenant des réseaux sociaux, images similaires d’une même scène et téléchargements dupliqués. Les copies s’accumulent. Le « Déduplicateur » trouve les fichiers identiques ou similaires et vous aide à supprimer les copies supplémentaires.
+
+👆 Désencombrez d'un glissement
+
+Choisissez un dossier et parcourez les fichiers un par un avec de simples glissements pour les garder, les supprimer ou les ignorer. L'outil « Swiper » vous permet de revoir toutes les décisions avant que quoi que ce soit soit supprimé, et vous pouvez sauvegarder une session pour la reprendre plus tard.
+
+🗄️ Libérez de l'espace sans supprimer vos photos
+
+Les photos peuvent occuper beaucoup de stockage, mais vous ne voulez pas toujours les supprimer. L'outil « Media Squeeze » compresse vos images avec des paramètres de qualité réglables pour libérer de l'espace tout en conservant vos photos.
 
 SD Maid ne sert aucune publicité. Certaines fonctions sont réservées à la version payante.
 

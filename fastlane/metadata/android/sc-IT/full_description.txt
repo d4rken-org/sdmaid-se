@@ -1,40 +1,55 @@
-<i>SD Maid 2/SE</i> est s'assistente afidàbile de su tou Android, pro ddu mantènnere lìmpiu e ordinadu.
+<i>SD Maid 2/SE</i> est s'asistente de cunfidantza pro tu Android, pro tènnelu limpiu e ordinadu.
 
-Nemos est perfetu e mancu Android ddu est.
-* Aplicatziones chi as giai bogadu lassant calicuna cosa a palas.
-* Registros, reportàgios de arrestos anòmalos e àteros files chi non cheres sunt semper creados.
-* S'archìviu tou est collende files e cartellas chi non reconnosches.
-* Fotos duplicadas in sa galleria tua.
+Nessunu est perfetu e Android nche no.
 
-Non sighemus inoghe… Lassa chi SD Maid 2/SE t'agiutet!
+* Sa aplicatziones chi ti as already removed lassat cale cosa ca.
+* Logos, rapportus de crashes e àteru documentus chi non dugus sunt criadus in maniera costanta.
+* S'archiviadura tuva est collende archivos e cartellas chi non reconnòscis.
+* Fotus duplicadas in sa tua galeria.
 
-SD Maid 2/SE est un'aplicatzione e gestore de files ispetzializadu in su connòschere cales aplicatziones ant creadu files ispetzìficos in su dispositivu tuo. SD Maid 2/SE chircat in su dispositivu tuo e cumparat files cun aplicatziones installadas pro ofèrrere optziones pro liberare in manera segura s'ispàtziu de archìviu.
+No sighimus in sa matessi strada… Lassa chi SD Maid 2/SE ti aiudet!
 
-✨ Lìmpia a pustis de disinstallare aplicatziones
-Si sas aplicatziones creant files foras de sas cartellas issoro designadas, tando sos files podent abarrare fintzas a pustis de disinstallare sas aplicatziones. S'istrumentu "Agatadore de Restas" agatat rastas de aplicatziones, ti narat a cale aplicatzione perteniant e t'agiutat a ddas bogare.
+SD Maid 2/SE est unu'appicatziòne e gestor de documentus chi se speciàlizet in su cunnoschimentu de ite documentus tzi hant criau sa aplicatziones instaladas in su disponitivu. SD Maid 2/SE tzercat su disponitivu tuu e cumparabilat su documentus cun sa aplicatziones instaladas pro oferti optziones seguidas pro dilibera spatzis de memorza.
 
-🔍 Chirca in su dispositivu tuo in manera inteligente
-Filtra pro cartellas bòidas, files temporàneos, aplicatziones giai installadas e àteru. Podes creare fintzas sos critèrios de chirca tuos. S'istrumentu "Lmpiadore de Sistema" ti permitit de chircare automaticamente in su dispositivu tuo e de bogare files segundu critèrios diferentes.
+✨ Limpiu dopu de disinstalare aplicatziones
 
-🧹 Boga files dispensàbiles e caches cuadas
-Miniaturas, canisteddos de s'àliga, caches offline e àteru: si sas aplicatziones non lìmpiant a palas issoro, tando custa aplicatzione ddu faghet. S'istrumentu "Lmpiadore de Aplicatziones" agatat aplicatziones cun files dispensàbiles.
+Si is app creant archivos foras is cartellas designadas podet esse chi is archivos issent finimos eske dopo s'istallacioni. Lo strumentu "CorpseFinder" aischit is rèstias de app, ti narat a cales app pereteneant e ti agiudat a as tzolare.
 
-📦 Gestit totu sas aplicatziones tuas
-Otene una lista cumprèndida de totu sas aplicatziones installadas in su dispositivu tuo. Ativada, disativada, aplicatzione de utente o de sistema: peruna aplicatzione si podet cuare dae te. S'istrumentu "Controllu de Aplicatziones" est unu gestore de aplicatziones chi ti permitit de chircare, ordinare e controllare sas aplicatziones tuas.
+🔍 Tzercat su disponitivu tuu in modu inteligente
 
-📊 It'est chi est usende totu s'ispàtziu tuo
-Sa gestione de s'archìviu podet èssere cumplessa cun aplicatziones, mèdios, sistema e àteros files in s'archìviu de su telèfonu, ischedas SD e dispositivos USB. S'"Analizadore de Archìviu" est unu gestore de files chi mustrat comente s'ispàtziu est usadu in su dispositivu tuo, semplifichende sa gestione de s'archìviu tuo.
+Filtra pro cartellas bòidas, archivos temporales, app jai installadas e ancora. Podis creare puru isus propios critèrios de tzerca. Su ferramienta "SystemCleaner" ti che permetet de tzercare automaticamenti su disponitivu tuu e de elimunare documentus base in divèrsos critèrios.
 
-📷 Agata datos duplicados
-Scarrigamentos duplicados, fotos imbiadas tràmite mèdios sotziales o simplemente figuras sìmiles de sa matessi iscena: cun su tempus sas còpias si podent amuntonare. S'istrumentu "Bogadore de Duplicados" agatat files chi sunt esatamente uguales o sìmiles e t'agiutat a bogare còpias in prus.
+🧹 Elimuna documentus dispensàbiles e cache cuados
 
-Custa aplicatzione est sena publitzidade. Unas cantas funtziones recherint un'agiornamentu a pagamentu.
+Previsualitzatziones, carustelus de basura, cachès offline e prus: Si sa aplicatziones non se limpian dopu de is sè, custu'appicatziòne su faet. Sa ferramienta "AppCleaner" at a trobare aplicatziones cun documentus dispensàbiles.
 
-SD Maid 2/SE est su sighidore de SD Maid 1/Legacy.
-Otimizadu pro versiones prus noas de Android e focalizadu in sa limpiadura.
+📦 Gestiona totu is sas aplicatziones tuas
 
-Custa aplicatzione tenet funtziones optzionales chi impreant s'API de su Servìtziu de Atzessibilidade pro automatizare atziones fastigiosas.
-Impreende s'API de su Servìtziu de Atzessibilidade, custa aplicatzione podet prèmere butones pro te pro esecutare operatziones in prus aplicatziones, pro esempru sa bogadura de sas caches.
-Custa aplicatzione non impreat s'API de su Servìtziu de Atzessibilidade pro collire informatziones.
+Otene un'elencu completu de totu is app installadas in su dispositivu. Ativadas, disativadas, app de is utentes o app de sistema: ninga app si podet ammudare a te. Lo strumentu "AppControl" est un gestore de app chi ti permite de bischire, ordunare e controllare is app tuasas.
 
-SD Maid 2/SE est un'Aplicatzione Gestore de Files e Limpiadore.
+📊 Che cosa est impreando tuttu s'ispazzu tuvu
+
+Sa gestione de s'archiviadura podet essere cumplicada cun app, media, sistema, e atrios archivos in sa memoria intena, scheddas SD, e dispositivus USB. "StorageAnalyzer" est un gestore de archivos chi ammustra comente s'archiviadura est impreada in su dispositivu, simplificande sa gestione de s'archiviadura.
+
+📷 Aischire datos duplicados
+
+Downloads duplicados, fotografie mandadas per is redes sociales o solamente fotografie similes de is istessa scena: In su tempus is copias podent accumularese. Lo strumentu "Deduplicator" aischit is archivos chi sunt esattamente is istessos o similes e ti agiudat a tzolare is copias extras.
+
+👆 Riordina cun unu scivolamentu
+
+Sèligi una cartella e percorri sos archivos unu a unu cun scivolamentos simpros pro mantènnere, cancellare o saltare. Su strumentu "Swiper" ti permìtit de revisare totu sas detzisiones prima chi nudda siat cancelladu, e podes salvar una sessione pro cuntinuare prus tardi.
+
+🗜️ Lìbera ispàtziu sena cancellare fotografias
+
+Sas fotografias podent ocupare meda archiviada, ma no semper boles borrarelas. Su strumentu "Media Squeeze" comprimit sas imàgines tuas cun impostatziones de qualidade regulàbiles pro lìberare ispàtziu mantenende sas fotografias tuas.
+
+Custa app non tenet pubblicitade. Parte de sa caratteristicas richierent un'agu a pagadu.
+
+SD Maid 2/SE est su successore de SD Maid 1/Legacy.
+Optimizadu pro versiones novidas de Android e focalizadu in sa limpiadha.
+
+Custa app tenet caraterísticas opzionalas chi impreant s'API de AccessibilityService pro automatizare az'atziones tediadosas.
+Impreande s'API de AccessibilityService, custa app podet faire click in is butones pro te pro fàghere operatziones in múltiplas app, p.e. eliminadu sa cache.
+Custa app non imprea s'API de AccessibilityService pro colligere informatziones.
+
+SD Maid 2/SE est una app de File Manager & Cleaner.

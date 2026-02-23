@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> ialah pembantu dipercayai Android anda, untuk memastikannya bersih dan rapi.
 
 Tiada siapa yang sempurna dan begitu juga Android.
+
 * Aplikasi yang telah anda alih keluar tinggalkan sesuatu.
 * Log, laporan kerosakan dan fail lain yang anda tidak mahu sentiasa dicipta.
 * Penyimpanan anda mengumpul fail dan folder yang tidak anda kenali.
@@ -11,22 +12,36 @@ Jangan teruskan di sini… Biarkan SD Maid 2/SE membantu anda!
 SD Maid 2/SE ialah pengurus aplikasi dan fail yang pakar dalam mengetahui aplikasi mana yang telah mencipta fail tertentu di peranti anda. SD Maid 2/SE mencari peranti anda dan membandingkan fail dengan aplikasi yang dipasang untuk menawarkan pilihan bagi membebaskan ruang penyimpanan dengan selamat.
 
 ✨ Bersihkan selepas menyahpasang aplikasi
+
 Jika aplikasi membuat fail di luar folder yang ditentukan, fail boleh kekal walaupun selepas menyahpasang aplikasi. Alat "CorpseFinder" mencari baki aplikasi, memberitahu anda aplikasi mana yang dimilikinya dan membantu anda memadamkannya.
 
 🔍 Cari peranti anda dengan cara yang pintar
+
 Tapis untuk folder kosong, fail sementara, aplikasi yang sudah dipasang dan banyak lagi. Anda juga boleh membuat kriteria pencarian anda sendiri. Alat "SystemCleaner" membolehkan anda mencari peranti secara automatik dan memadamkan fail berdasarkan pelbagai kriteria.
 
 🧹 Padamkan fail yang boleh dibuang dan cache tersembunyi
+
 Gambar kecil, tong sampah, cache luar talian dan banyak lagi: Jika aplikasi tidak membersihkan selepas diri mereka, maka apl ini akan. Alat "AppCleaner" mencari aplikasi dengan fail yang boleh dibuang.
 
 📦 Urus semua aplikasi anda
+
 Dapatkan senarai komprehensif semua aplikasi yang dipasang di peranti anda. Didayakan, dilumpuhkan, aplikasi pengguna atau sistem: tiada aplikasi boleh bersembunyi daripada anda. Alat "AppControl" ialah pengurus aplikasi yang membolehkan anda mencari, menyusun dan mengawal aplikasi anda.
 
 📊 Apa yang menggunakan semua ruang anda
+
 Pengurusan penyimpanan boleh menjadi rumit dengan aplikasi, media, sistem dan fail lain di seluruh storan telefon, kad SD dan peranti USB. "StorageAnalyzer" ialah pengurus fail yang memaparkan bagaimana ruang digunakan di peranti anda, memudahkan pengurusan penyimpanan anda.
 
 📷 Cari data berganda
+
 Muat turun berganda, foto yang dihantar melalui media sosial atau hanya gambar serupa pemandangan yang sama: Seiring masa salinan boleh terkumpul. Alat "Deduplicator" mencari fail yang sama persis atau serupa dan membantu anda memadamkan salinan tambahan.
+
+👆 Kemas kini dengan leret
+
+Pilih folder dan semak fail satu demi satu dengan leret mudah untuk simpan, padam, atau langkau. Alat "Swiper" membolehkan anda menyemak semua keputusan sebelum apa-apa dipadam, dan anda boleh menyimpan sesi untuk diteruskan kemudian.
+
+🗜️ Jimat ruang tanpa memadam foto
+
+Foto boleh mengambil banyak ruang storan, tetapi anda tidak selalu mahu memadamnya. Alat "Media Squeeze" memampatkan imej anda dengan tetapan kualiti yang boleh dilaraskan untuk membebaskan ruang sambil mengekalkan gambar anda.
 
 Apl ini bebas iklan. Sesetengah ciri memerlukan naik taraf berbayar.
 

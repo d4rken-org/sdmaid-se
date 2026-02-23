@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> on Android-laitteesi luotettava avustaja, joka pitää sen puhtaana ja järjestyksessä.
 
 Kukaan ei ole täydellinen, eikä Androidkaan.
+
 * Jo poistamistasi sovelluksista jää jotain jäljelle.
 * Lokeja, virheraportteja ja muita tiedostoja, joita et halua säilyttää, luodaan jatkuvasti.
 * Tallennustilaasi kerääntyy tiedostoja ja kansioita, joita et tunnista.
@@ -11,22 +12,36 @@ Ei jatketa ​​tähän. Anna SD Maid 2/SE:n auttaa sinua!
 SD Maid 2/SE on sovellus ja tiedostonhallintaohjelma, joka on erikoistunut määrittämään, mitkä sovellukset ovat luoneet tiettyjä tiedostoja laitteellesi. SD Maid 2/SE etsii laitteeltasi tiedostoja ja vertaa niitä asennettuihin sovelluksiin tarjotakseen vaihtoehtoja tallennustilan turvalliseen vapauttamiseen.
 
 ✨ Siivoa sovellusten poistamisen jälkeen
+
 Jos sovellukset luovat tiedostoja niiden nimettyjen kansioiden ulkopuolelle, tiedostot voivat säilyä myös sovellusten poistamisen jälkeen. "CorpseFinder"-työkalu löytää sovellusjäänteitä, kertoo mihin sovellukseen ne kuuluivat ja auttaa poistamaan ne.
 
 🔍 Hae laitteeltasi älykkäästi
+
 Suodata tyhjiä kansioita, väliaikaisia ​​tiedostoja, jo asennettuja sovelluksia ja enemmänkin. Voit jopa luoda omia hakukriteerejä. "SystemCleaner"-työkalun avulla voit automaattisesti etsiä laitteeltasi ja poistaa tiedostoja erilaisten kriteerien perusteella.
 
 🧹 Poista kertakäyttöiset tiedostot ja piilotetut välimuistit
+
 Pienoiskuvat, roskakorit, ei-verkkotilassa olevat välimuistit ja enemmänkin: Jos sovellukset eivät siivoa jälkensä, tämä sovellus tekee sen. "AppCleaner"-työkalu löytää sovellukset, joissa on poistettavia tiedostoja.
 
 📦 Hallitse kaikkia sovelluksiasi
+
 Saat kattavan luettelon kaikista laitteellesi asennetuista sovelluksista. Käytössä, pois käytöstä, käyttäjä- vai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "AppControl"-työkalu on sovellusten hallintaohjelma, jonka avulla voit hakea, lajitella ja hallita sovelluksiasi.
 
 📊 Mikä vie kaiken tilasi
+
 Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa puhelimen tallennustilassa, SD-korteilla ja USB-laitteilla. "StorageAnalyzer" on tiedostonhallintaohjelma, joka näyttää, miten laitteesi tilaa käytetään, mikä yksinkertaistaa tallennustilan hallintaa.
 
 📷 Etsi päällekkäisiä tietoja
+
 Kaksoislataukset, sosiaalisen median kautta lähetetyt kuvat tai vain samankaltaiset kuvat samasta näkymästä: Ajan myötä kopioita voi kertyä. "Deduplicator"-työkalu löytää täsmälleen samat tai samanlaiset tiedostot ja auttaa poistamaan ylimääräiset kopiot.
+
+👆 Siisti pyyhkäisemällä
+
+Valitse kansio ja käy tiedostot läpi yksi kerrallaan yksinkertaisilla pyyhkäisyillä: säilyttä, poista tai ohita. "Swiper"-työkalu antaa sinun tarkistaa kaikki päätökset ennen poistamista, ja voit tallentaa istunnon jatkaaksesi myöhemmin.
+
+🗄️ Säästä tilaa poistamatta kuvia
+
+Kuvat voivat viedä paljon tallennustilaa, mutta et aina halua poistaa niitä. "Media Squeeze" -työkalu pakkaa kuvasi säädettävillä laadun asetuksilla vapauttaen tilaa pitäen kuvasi tallessa.
 
 Tämä sovellus on mainokseton. Jotkin ominaisuudet vaativat maksullisen päivityksen.
 

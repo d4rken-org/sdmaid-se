@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> è il tuo assistente di fiducia per tenere Android pulito e ordinato.
 
 Nessuno è perfetto, nemmeno Android.
+
 * Le app che disinstalli lasciano alcuni residui.
 * File di log, report sugli arresti anomali e altri tipi di file indesiderati vengono creati di continuo.
 * La tua memoria accumula file e cartelle che non riconosci.
@@ -11,22 +12,36 @@ Lascia che SD Maid 2/SE ti aiuti!
 SD Maid 2/SE è un'app e un gestore di file specializzato nel riconoscere quali applicazioni hanno creato file specifici nel tuo dispositivo. SD Maid 2/SE scansiona il tuo dispositivo e compara i file con le app installate permettendoti di liberare spazio di archiviazione in modo sicuro.
 
 ✨ Pulizia dopo la disinstallazione delle app
+
 Non andiamo oltre... Se le app creano file al di fuori delle cartelle d'installazione, questi file possono rimanere anche dopo aver disinstallato l'app. Lo strumento "Ricerca Residui" trova i resti delle app, ti dice a quale app appartenevano e ti aiuta a eliminarli
 
 🔍 Ricerca nel tuo dispositivo in modo intelligente
+
 Filtra per cartelle vuote, file temporanei, app già installate e molto altro. Puoi anche creare i tuoi filtri di ricerca. La funzione "Pulitore di Sistema" ti consente di cercare e rimuovere file in base a vari criteri.
 
 🧹 Elimina i file rimovibili e le cache nascoste
+
 Anteprime, file nel cestino, cache offline e altro ancora: se le rispettive app non li ripuliscono, quest'app lo farà. La funzione "Pulitore di App" controlla le app con file rimovibili.
 
 📦 Gestisci tutte le tue app
+
 Ottieni un elenco completo di tutte le app installate sul tuo dispositivo. App attive, disattivate, installate dall'utente o di sistema: nessuna di queste potrà nascondersi. La funzionalità "Controllo App" ti consente di cercare, ordinare e controllare le tue app.
 
 📊 Che cosa sta usando tutta la tua memoria
+
 La gestione della memoria può essere complessa tra app, file multimediali, file di sistema e altri file presenti nel dispositivo, schede SD e dispositivi USB. L'"Analizzatore di Archiviazione" è un gestore file che mostra lo spazio utilizzato nel dispositivo, semplificando la gestione della memoria.
 
 📷 Trova file doppioni
+
 Doppioni di download, foto inviate via social o anche immagini simili: Con il tempo le copie si possono accumulare. La funzionalità "Rimozione Duplicati" trova file identici o molto simili e ti aiuta a eliminare le copie di troppo.
+
+👆 Riordina con uno swipe
+
+Scegli una cartella e scorri i file uno per uno con semplici swipe per tenerli, eliminarli o saltarli. Lo strumento "Swiper" ti consente di rivedere tutte le decisioni prima che qualsiasi cosa venga eliminata, e puoi salvare una sessione per continuare in seguito.
+
+🗠️ Risparmia spazio senza eliminare foto
+
+Le foto possono occupare molto spazio, ma non sempre si vuole rimuoverle. Lo strumento "Media Squeeze" comprime le immagini con impostazioni di qualità regolabili per liberare spazio mantenendo le tue foto.
 
 Questa app è senza pubblicità. Alcune funzionalità richiedono un aggiornamento a pagamento.
 

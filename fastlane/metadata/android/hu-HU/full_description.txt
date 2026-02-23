@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> az Androidod megbízható asszisztense, hogy tisztán és rendben tartsa azt.
 
 Semmi sem tökéletes, még az Android sem.
+
 * Az eltávolított alkalmazásaid hagynak maguk után valamit.
 * Folyamatosan keletkeznek a naplók, az összeomlási jelentések és más, nem kívánt fájlok.
 * A tárhelyre ismeretlen fájlok és mappák gyűlnek össze.
@@ -11,22 +12,36 @@ Ne is folytassuk... Hagyd, hogy az SD Maid 2/SE segítsen!
 Az SD Maid 2/SE egy olyan alkalmazás- és fájlkezelő, amely arra specializálódott, hogy tudja, mely alkalmazások hoztak létre bizonyos fájlokat a készüléken. Az SD Maid 2/SE átkutatja a készüléket, és összehasonlítja a fájlokat a telepített alkalmazásokkal, hogy lehetőségeket kínáljon a tárhely biztonságos felszabadítására.
 
 ✨ Alkalmazások eltávolítása utáni tisztítás
+
 Ha az alkalmazások a kijelölt mappákon kívül hoznak létre fájlokat, akkor a fájlok az alkalmazások eltávolítása után is megmaradhatnak. A „MaradványSzűrő” eszköz megtalálja az alkalmazásmaradványokat, és megmondja, hogy melyik alkalmazáshoz tartoztak, és segít törölni őket.
 
 🔍 Keresés az eszközön okos módon
+
 Az üres mappák, az ideiglenes fájlok, a már telepített alkalmazások stb. szűrése. Még saját keresési feltételeket is létrehozhatóak. A „RendszerTisztító” eszköz lehetővé teszi a készülék automatikus keresését és a fájlok törlését különböző feltételek alapján.
 
 🧹 Felesleges fájlok és rejtett gyorsítótárak törlése
+
 Miniatűrök, kukák, offline gyorsítótárak és még sok más: Ha az alkalmazások nem takarítanak maguk után, akkor ez az alkalmazás megteszi. Az „AlkalmazásTisztító” eszköz megtalálja a feláldozható fájlokat tartalmazó alkalmazásokat.
 
 📦 Az összes alkalmazás kezelése
+
 Átfogó listát kaphatsz a készülékre telepített összes alkalmazásról. Engedélyezett, letiltott, felhasználói vagy rendszeralkalmazás: egyetlen alkalmazás sem rejtőzhet el előled. Az „AlkalmazásTisztító” eszköz egy alkalmazáskezelő, amely lehetővé teszi az alkalmazások keresését, rendezését és ellenőrzését.
 
 📊 Mi használja az összes helyet
+
 A tárhely kezelése összetett lehet az alkalmazások, a média, a rendszer és egyéb fájlok kezelése a telefon tárolóján, az SD-kártyákon és az USB-eszközökön. A „TárhelyElemző” egy fájlkezelő, amely megjeleníti, hogyan van használva a tárhely az eszközön, így egyszerűsítve a tárhelykezelést.
 
 📷 Duplikált adatok keresése
+
 Duplikált letöltések, közösségi médián keresztül küldött fotók vagy egyszerűen csak hasonló képek ugyanarról a jelenetről: Idővel a másolatok felhalmozódhatnak. A „Deduplicator” eszköz megtalálja a pontosan azonos vagy hasonló fájlokat, és segít törölni a felesleges másolatokat.
+
+👆 Rendet rakni egyetlen simítással
+
+Válasszon ki egy mappát, és nézze át a fájlokat egyenként egyszerű simításokkal: megtart, töröl vagy kihagy. A "Swiper" eszköz lehetővé teszi, hogy áttekintse az összes döntést, mielőtt bármit törölne, és elmentheti a munkamenetet a folytatáshoz.
+
+🗜️ Hely felszabadítása fényképek törlése nélkül
+
+A fényképek sok tárhelyet foglalhatnak, de nem mindig akarjuk törölni őket. A "Media Squeeze" eszköz beállítható minőségi beállításokkal tömrösíti a képeit, hogy felszabadítson tárhelyet, miközben megtartja a fényképeket.
 
 Ez az alkalmazás hirdetésmentes. Egyes funkciók fizetős frissítést igényelnek.
 

@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> er din Androids pålidelige assistent, der holder den ren og ryddelig.
 
 Ingen er perfekte – heller ikke Android.
+
 * Apps, du allerede har fjernet, efterlader noget.
 * Logfiler, nedbrudsrapporter og andre filer, du ikke ønsker, oprettes konstant.
 * Dit lager fyldes med filer og mapper, du ikke kender.
@@ -11,22 +12,36 @@ Lad os ikke fortsætte her… Lad SD Maid 2/SE hjælpe dig!
 SD Maid 2/SE er en app- og filhåndtering, der er specialiseret i at identificere, hvilke apps der har oprettet bestemte filer på din enhed. SD Maid 2/SE søger på din enhed og sammenligner filer med installerede apps for at tilbyde sikre muligheder for at frigøre lagerplads.
 
 ✨ Ryd op efter afinstallation af apps
+
 Hvis apps opretter filer uden for deres tildelte mapper, kan filerne forblive, selv efter at apps er afinstalleret. Værktøjet "Ligfinder" finder app-rester, fortæller dig, hvilken app de tilhørte, og hjælper dig med at slette dem.
 
 🔍 Søg på din enhed på den smarte måde
+
 Filtrér efter tomme mapper, midlertidige filer, allerede installerede apps og mere. Du kan endda oprette dine egne søgekriterier. Værktøjet "Systemrenser" lader dig automatisk søge på din enhed og slette filer baseret på forskellige kriterier.
 
 🧹 Slet overflødige filer og skjulte cacher
+
 Miniaturebilleder, papirkurve, offline-caches og mere. Hvis apps ikke rydder op efter sig selv, gør denne app det. Værktøjet "Apprenser" finder apps med overflødige filer.
 
 📦 Administrer alle dine apps
+
 Få en omfattende liste over alle apps installeret på din enhed. Aktiveret, deaktiveret, bruger- eller systemapp – ingen app kan skjule sig for dig. Værktøjet "Appkontrol" er en app-administrator, der lader dig søge, sortere og kontrollere dine apps.
 
 📊 Hvad bruger al din plads
+
 Lageradministration kan være kompleks med apps, medier, systemer og andre filer på tværs af telefonlager, SD-kort og USB-enheder. "Lageranalyse" er en filhåndtering, der viser, hvordan pladsen bruges på din enhed, hvilket forenkler lageradministration.
 
 📷 Find duplikerede data
+
 Duplikerede downloads, billeder sendt via sociale medier eller bare lignende billeder af den samme scene – over tid kan kopier ophobe sig. Værktøjet "Duplikationsfjerner" finder filer, der er nøjagtigt ens eller lignende, og hjælper dig med at slette ekstra kopier.
+
+👆 Ryd op med et swipe
+
+Vælg en mappe og gennemgå filer én efter én med simple swipes for at beholde, slette eller springe over. Værktøjet "Swiper" lader dig gennemgå alle beslutninger, inden noget slettes, og du kan gemme en session for at fortsætte senere.
+
+🗄️ Spar plads uden at slette fotos
+
+Fotos kan fylde meget lagerplads, men du ønsker ikke altid at fjerne dem. Værktøjet "Media Squeeze" komprimerer dine billeder med justerbare kvalitetsindstillinger for at frigsøre plads, mens du beholder dine billeder.
 
 Denne app er annoncefri. Nogle funktioner kræver en betalt opgradering.
 

@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> ir jūsu Androida uzticamais palīgs, lai to uzturētu tīru un kārtīgu.
 
 Neviens nav perfekts, arī ne Android.
+
 * Programmas, kuras jūs jau noņēmuši, atstāj pēdas aiz sevis.
 * Žurnāli, avāriju pārskati un citi faili, kurus jūs nevēlaties, tiek nepārtraukti veidoti.
 * Jūsu krātuves tīrums savāc failus un mapes, kurus nepazīstat.
@@ -11,22 +12,36 @@ Neturpināsim tālāk… Ļaujiet SD Maid 2/SE jums palīdzēt!
 SD Maid 2/SE ir lietotne un failu pārvaldnieks, kas specializējas zināt, kuras lietotnes ir izveidojušas specifiskus failus jūsu ierīcē. SD Maid 2/SE meklē jūsu ierīcē un salīdzina failus ar instalētajām lietotņēm, lai piedāvātu iespējas drošai krātuves vietas atbrīvošanai.
 
 ✨ Attīrīt pēc lietoņu atinstalēšanas
+
 Ja lietotnes izveido failus ārpus savām atrašanās vietām, faili var palikt arī pēc lietoņu atinstalēšanas. Rīks "CorpseFinder" atrod lietotņu atliekas, informē jūs, kurai lietotnei tās piederēja, un palīdz tās dzēst.
 
 🔍 Meklējiet savu ierīci gudri
+
 Filtrējiet tukšas mapes, pagaidu failus, jau instalētās lietotnes un vairāk. Varat pat izveidot savas meklēšanas kritērijus. Rīks „SystemCleaner” ļauj jums automātiski meklēt jūsu ierīcē un dzēst failus pēc dažādiem kritērijiem.
 
 🧹 Dzēsiet nepiebūtiskos failus un slēptus cache
+
 Sīktēli, atkritumu tvertnes, bezsaistes kešatmiņa un vairāk: Ja lietotnes nesakopj pēc sevis, tad šī lietotne to darīs. Rīks "AppCleaner" atrod lietotnes ar lieku failu.
 
 📦 Vadiet visas savas lietotnes
+
 Iegūstiet visaptverošu sarakstu ar visām jūsu ierīcē instalētajām lietotņēm. Iespējota, atspējota, lietotāja vai sistēmas lietotne: neviena lietotne no jums nevar paslēpties. Rīks "AppControl" ir lietoņu pārvaldnieks, kas ļauj meklēt, kārtot un kontrolēt jūsu lietotnes.
 
 📊 Kas izmanto visu jūsu vietu
+
 Krātuvnes pārvaldība var būt sarežģīta ar lietotņēm, multividi, sistēmu un citiem failiem telefonā, SD kartēs un USB ierīcēs. "StorageAnalyzer" ir failu pārvaldnieks, kas parāda, kā vieta tiek izmantota jūsu ierīcē, vienkāršojot jūsu krātuvnes pārvaldību.
 
 📷 Atrodiet dublējošos datus
+
 Dublējušies lejupielādes, caur sociālajiem medijiem sūtītās fotogrāfijas vai vienkārši līdzīgas vienas ainas bildes: Laika gaitā kopijas var uzkrāties. Rīks "Deduplicator" atrod failus, kas ir pilnīgi vienādi vai līdzīgi, un palīdz dzēst liekas kopijas.
+
+👆 Sakārtojiet ar vilkšanu
+
+Izvēlieties mapi un pa vienai pārskatiet failus ar vienkāršiem vilkšanas žestiem, lai saglabātu, dzēstu vai izlaistu. Rīks „Swiper” ļauj pārskatīt visus lēmumus pirms kaut kas tiek dzēsts, un varat saglabāt sesiju, lai turpinātu vēlāk.
+
+🗄️ Ietaupiet vietu, nedzēšot fotattēlus
+
+Fotoattēli var aizņemt daudz krātuves, taču tos ne vienmēr vēlaties noņemt. Rīks „Media Squeeze” saspiež jūsu attēlus ar regulējamiem kvalitātes iestatījumiem, lai atbrīvotu vietu, saglabājot jūsu fotoattēlus.
 
 Šī lietotne ir bez reklāmām. Dažas funkcijas prasa apmaksātu atjauninājumu.
 

@@ -1,6 +1,7 @@
 <i>SD Maid 2/SE</i> es el asistente de confianza de tu Android, para mantenerlo limpio y ordenado.
 
 Nadie es perfecto y Android tampoco lo es.
+
 * Las aplicaciones que ya borraste dejan algo detrás.
 * Constantemente se crean registros, informes de fallos y otros archivos que no deseas.
 *Tu almacenamiento está colectando archivos y carpetas que no lo reconoces.
@@ -11,22 +12,36 @@ Deja que SD Maid SE te ayude!
 SD Maid 2/SE es un gestor de aplicaciones y archivos especializado en saber qué aplicaciones han creado archivos específicos en tu dispositivo. SD Maid 2/SE busca en tu dispositivo y compara los archivos con las aplicaciones instaladas para ofrecerte opciones para liberar espacio de almacenamiento de forma segura.
 
 ✨ Limpia después de desinstalar las aplicaciones
+
 Si las aplicaciones crean archivos fuera de sus carpetas designadas, los archivos pueden permanecer incluso después de desinstalarlas. La herramienta "Buscador de Restos" encuentra los remanentes de las aplicaciones, te dice a qué aplicación pertenecían y te ayuda a eliminarlos.
 
 🔍 Busca tu dispositivo de forma inteligente
+
 Filtrar por carpetas vacías, archivos temporales, aplicaciones ya instaladas y más. Incluso puede crear tus propios criterios de búsqueda. La herramienta "Limpiador del sistema" te permite buscar automáticamente en tu dispositivo y eliminar archivos en función de varios criterios.
 
 🧹 Eliminar archivos prescindibles y cachés ocultos
+
 Miniaturas, papeleras, cachés sin conexión y mucho más: Si las aplicaciones no se limpian solas, esta aplicación lo hará. La herramienta "Limpiador de aplicaciones" encuentra aplicaciones con archivos prescindibles.
 
 📦 Gestiona todas tus aplicaciones
+
 Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación activada, desactivada, de usuario o de sistema: ninguna aplicación puede esconderse de vos. La herramienta "Control de aplicaciones" es un gestor de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
 
 📊 Qué está usando todo su espacio
+
 La gestión del almacenamiento puede ser compleja, con aplicaciones, media, sistema y otros archivos en el almacenamiento del teléfono, tarjetas SD y dispositivos USB. "Analizador de Almacenamiento" es un gestor de archivos que muestra cómo se utiliza el espacio en tu dispositivo, simplificando la gestión de tu almacenamiento.
 
 📷 Encontrar datos duplicados
+
 Descargas duplicadas, fotos enviadas a través de las redes sociales o simplemente fotos similares de la misma escena: Con el tiempo pueden acumularse copias. La herramienta "Deduplicador" encuentra archivos exactamente iguales o similares y te ayuda a eliminar las copias sobrantes.
+
+👆 Organizá con un deslizamiento
+
+Elegí una carpeta y revisá los archivos uno a uno con simples deslizamientos para conservar, eliminar u omitir. La herramienta "Swiper" te permite revisar todas las decisiones antes de eliminar cualquier cosa, y podés guardar una sesión para continuar después.
+
+🗄️ Ahorrá espacio sin eliminar fotos
+
+Las fotos pueden ocupar mucho almacenamiento, pero no siempre querés eliminarlas. La herramienta "Media Squeeze" comprime tus imágenes con ajustes de calidad personalizables para liberar espacio mientras conservás tus fotos.
 
 Esta aplicación no tiene publicidad. Algunas características requieren la versión de paga.
 
