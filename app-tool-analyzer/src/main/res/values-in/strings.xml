@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Penganalisis Penyimpanan</string>
+    <string name="analyzer_explanation_short">Cari tahu apa yang menggunakan ruang di perangkat Anda.</string>
+    <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
+    <string name="analyzer_progress_scanning_storage">Memindai penyimpanan</string>
+    <string name="analyzer_progress_scanning_apps">Memindai aplikasi</string>
+    <string name="analyzer_progress_scanning_userfiles">Mencari file pengguna</string>
+    <string name="analyzer_progress_scanning_system">Memindai data sistem</string>
+    <string name="analyzer_device_storage_title">Penyimpanan perangkat</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s tersedia</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s digunakan</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Tidak ada akses langsung yang tersedia</string>
+    <string name="analyzer_content_create_swiper_session_action">Buat sesi Memilah</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Sesi memilah dibuat dengan %d item</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Penyimpanan utama</string>
+    <string name="analyzer_storage_type_primary_description">Penyimpanan utama pada perangkat anda. Berisi internal kartu SD, penyimpanan privat untuk aplikasi-aplikasi dan data sistem.</string>
+    <string name="analyzer_storage_type_secondary_title">Penyimpanan cadangan</string>
+    <string name="analyzer_storage_type_secondary_description">Penyimpanan sekunder, biasanya sebuah kartu SD yang dapat dicabut. Berisi file-file media dan data dari aplikasi-aplikasi yang mendukung.</string>
+    <string name="analyzer_storage_type_tertiary_title">Penyimpanan eksternal</string>
+    <string name="analyzer_storage_type_tertiary_description">Penyimpanan eksternal, misal. flash drive yang dicolokkan ke port USB Anda.</string>
+    <string name="analyzer_storage_content_title">Isi penyimpanan</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
+    <string name="analyzer_storage_content_type_app_description">Ruang yang ditempati oleh aplikasi terinstal dan datanya (yaitu file aplikasi, data, dan cache).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Izin tidak ada</string>
+    <string name="analyzer_storage_content_type_media_label">Berkas pengguna</string>
+    <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik aplikasi tertentu.</string>
+    <string name="analyzer_storage_content_type_system_label">Data sistem</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
+    <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
+    <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini dapat dibebaskan dengan mencopot pemasangan aplikasi atau mengarsipkannya (tersedia pada versi Android yang lebih baru).</string>
+    <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
+    <string name="analyzer_storage_content_app_data_description">Data, pengaturan, dan tembolok.</string>
+    <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>
+    <string name="analyzer_storage_content_app_media_description">File media dari aplikasi ini, seperti foto-foto WhatsApp yang diterima.</string>
+    <string name="analyzer_storage_content_app_extra_label">File aplikasi lainnya</string>
+    <string name="analyzer_storage_content_app_extra_description">Data lain yang ditempatkan di luar jalur umumnya oleh aplikasi ini, seperti foto atau unduhan.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
+</resources>

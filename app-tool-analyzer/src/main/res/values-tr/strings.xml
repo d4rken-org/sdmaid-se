@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Depolama Analizcisi</string>
+    <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
+    <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
+    <string name="analyzer_progress_scanning_storage">Depolama taranıyor</string>
+    <string name="analyzer_progress_scanning_apps">Uygulamalar taranıyor</string>
+    <string name="analyzer_progress_scanning_userfiles">Kullanıcı dosyaları taranıyor</string>
+    <string name="analyzer_progress_scanning_system">Sistem verileri taranıyor</string>
+    <string name="analyzer_device_storage_title">Cihaz depolama alanı</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s kullanılabilir</item>
+        <item quantity="other">%s kullanılabilir</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s kullanılıyor</item>
+        <item quantity="other">%s kullanılıyor</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Doğrudan erişim mevcut değil</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper oturumu oluştur</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d öğeyle Swiper oturumu oluşturuldu</item>
+        <item quantity="other">%d öğeyle Swiper oturumu oluşturuldu</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Birincil depolama</string>
+    <string name="analyzer_storage_type_primary_description">Cihazınızın birincil depolama alanı. Dahili hafıza kartı, uygulamalar için özel depolama alanını ve sistem verilerini içerir.</string>
+    <string name="analyzer_storage_type_secondary_title">İkincil depolama</string>
+    <string name="analyzer_storage_type_secondary_description">Genellikle çıkarılabilir bir hafıza kartı olan ikincil bir depolama alanı. Medya dosyalarını ve onu destekleyen uygulamalardan gelen verileri içerir.</string>
+    <string name="analyzer_storage_type_tertiary_title">Taşınabilir depolama</string>
+    <string name="analyzer_storage_type_tertiary_description">USB portunuza takılı bir flash sürücü gibi taşınabilir bir depolama alanı.</string>
+    <string name="analyzer_storage_content_title">Depolama içeriği</string>
+    <string name="analyzer_storage_content_type_app_label">Uygulamalar</string>
+    <string name="analyzer_storage_content_type_app_description">Yüklü uygulamalar ve verileri (yani uygulama dosyaları, veriler ve önbellekler) tarafından kaplanan alan.</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">İzinler eksik</string>
+    <string name="analyzer_storage_content_type_media_label">Kullanıcı dosyaları</string>
+    <string name="analyzer_storage_content_type_media_description">Çekilen resimler, kaydedilen videolar veya indirilen veriler. Belirli bir uygulamaya ait olmayan tüm veriler.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistem verileri</string>
+    <string name="analyzer_storage_content_type_system_description">Sistem uygulamaları ve sistem verileri. Bu cihazda birden fazla kullanıcı hesabı ayarlanmışsa, diğer kullanıcılara ait uygulamalar ve veriler.</string>
+    <string name="analyzer_storage_content_app_code_label">Uygulama kodu</string>
+    <string name="analyzer_storage_content_app_code_description">Uygulama dosyaları, kütüphaneler ve kaynaklar. Bu alan, uygulamayı kaldırarak veya arşivleyerek (daha yeni Android sürümlerinde mevcuttur) boşaltılabilir.</string>
+    <string name="analyzer_storage_content_app_data_label">Uygulama verileri</string>
+    <string name="analyzer_storage_content_app_data_description">Veriler, ayarlar ve önbellekler.</string>
+    <string name="analyzer_storage_content_app_media_label">Uygulama medyası</string>
+    <string name="analyzer_storage_content_app_media_description">Bu uygulamaya ait medya dosyaları, örneğin alınan WhatsApp fotoğrafları.</string>
+    <string name="analyzer_storage_content_app_extra_label">Ek uygulama dosyaları</string>
+    <string name="analyzer_storage_content_app_extra_description">Bu uygulamanın varsayılan dizinler dışındaki verileri, örneğin fotoğraflar veya indirmeler.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Bu uygulama \"%2$s\"de %1$s yer kaplıyor.</string>
+    <string name="analyzer_app_details_app_is_archived">Bu uygulama arşivlendi.</string>
+</resources>

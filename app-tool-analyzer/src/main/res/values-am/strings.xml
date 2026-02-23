@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">በመሣሪያዎ ላይ ምን ቦታ እንደሚወስድ ያውቁ።</string>
+    <string name="analyzer_progress_scanning_device">የማጠራቀሚያ መሣሪያዎችን በመፈልግ ላይ</string>
+    <string name="analyzer_progress_scanning_storage">ማጠራቀሚያን በመመርመር ላይ</string>
+    <string name="analyzer_progress_scanning_apps">መተግበሪያዎችን በመመርመር ላይ</string>
+    <string name="analyzer_progress_scanning_userfiles">የተጠቃሚ ፋይሎችን በመፈልግ ላይ</string>
+    <string name="analyzer_progress_scanning_system">የሲስተም ውሂብን በመመርመር ላይ</string>
+    <string name="analyzer_device_storage_title">የመሣሪያ ማጠራቀሚያ</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ይገኛል</item>
+        <item quantity="other">%s ይገኛል</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ተጠቅሟል</item>
+        <item quantity="other">%s ተጠቅሟል</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">ምንም ቀጥታ መዳረሻ አይገኝም</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper ክፍለ ጊዜ ይፍጠሩ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">ከ%d ንጥል ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
+        <item quantity="other">ከ%d ንጥሎች ጋር Swiper ክፍለ ጊዜ ተፈጥሯል</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">ዋና ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_primary_description">የመሣሪያዎ ዋና ማጠራቀሚያ። ውስጣዊ SD ካርድ፣ ለመተግበሪያዎች ግላዊ ማጠራቀሚያና የሲስተም ውሂብ ይዟል።</string>
+    <string name="analyzer_storage_type_secondary_title">ሁለተኛ ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_secondary_description">ሁለተኛ ማጠራቀሚያ፣ በተለምዶ ተወገዳ SD ካርድ። የሚዲያ ፋይሎችና የሚደግፉ መተግበሪያዎች ውሂብ ይዟል።</string>
+    <string name="analyzer_storage_type_tertiary_title">ተለዋዋጭ ማጠራቀሚያ</string>
+    <string name="analyzer_storage_type_tertiary_description">ተለዋዋጭ ማጠራቀሚያ፣ ለምሳሌ ወደ USB ወደብዎ የተሰካ ፍላሽ ድራይቭ።</string>
+    <string name="analyzer_storage_content_title">የማጠራቀሚያ ይዘት</string>
+    <string name="analyzer_storage_content_type_app_label">መተግበሪያዎች</string>
+    <string name="analyzer_storage_content_type_app_description">በተጫኑ መተግበሪያዎችና በውሂባቸው የተያዘ ቦታ (ማለትም የመተግበሪያ ፋይሎች፣ ውሂብና መሸፈኛዎች)།</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ፈቃዶች ጎድለዋል</string>
+    <string name="analyzer_storage_content_type_media_label">የተጠቃሚ ፋይሎች</string>
+    <string name="analyzer_storage_content_type_media_description">የተወሰዱ ምስሎች፣ የተቀዱ ቪዲዮዎች ወይም የተወረዱ ውሂቦች። ለተወሰነ መተግበሪያ የማያመሩ ማንኛቸውም ውሂቦች።</string>
+    <string name="analyzer_storage_content_type_system_label">የሲስተም ውሂብ</string>
+    <string name="analyzer_storage_content_type_system_description">የሲስተም መተግበሪያዎችና የሲስተም ውሂብ። ብዙ የተጠቃሚ መለያዎች በዚህ መሣሪያ ላይ ከተሰናዱ የሌሎች ተጠቃሚዎች መተግበሪያዎችና ውሂብ።</string>
+    <string name="analyzer_storage_content_app_code_label">የመተግበሪያ ኮድ</string>
+    <string name="analyzer_storage_content_app_code_description">የመተግበሪያ ፋይሎች፣ ቤተ-መጻሕፍትና ሀብቶች። ይህ ቦታ መተግበሪያውን በማጥፋት ወይም በማከማቸት (በአዲሶቹ አንድሮይድ ስሪቶች ላይ ይገኛል) ሊለቀቅ ይችላል።</string>
+    <string name="analyzer_storage_content_app_data_label">የመተግበሪያ ውሂብ</string>
+    <string name="analyzer_storage_content_app_data_description">ውሂብ፣ ቅንብሮችና መሸፈኛዎች።</string>
+    <string name="analyzer_storage_content_app_media_label">የመተግበሪያ ሚዲያ</string>
+    <string name="analyzer_storage_content_app_media_description">ከዚህ መተግበሪያ የሚዲያ ፋይሎች፣ ለምሳሌ የተቀበሉ WhatsApp ፎቶዎች።</string>
+    <string name="analyzer_storage_content_app_extra_label">ተጨማሪ የመተግበሪያ ፋይሎች</string>
+    <string name="analyzer_storage_content_app_extra_description">ይህ መተግበሪያ ከነባሪ መንገዶች ውጭ ያስቀመጠው ተጨማሪ ውሂብ፣ ለምሳሌ ፎቶዎች ወይም ዳውንሎዶች።</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ይህ መተግበሪያ %1$sን በ\"%2$s\" ላይ ይይዛል።</string>
+    <string name="analyzer_app_details_app_is_archived">ይህ መተግበሪያ ተደርሷል።</string>
+</resources>

@@ -168,7 +168,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             when (event) {
                 is ContentItemEvents.ShowNoAccessHint -> Snackbar.make(
                     requireView(),
-                    R.string.analyzer_content_access_opaque,
+                    eu.darken.sdmse.analyzer.R.string.analyzer_content_access_opaque,
                     Snackbar.LENGTH_SHORT
                 ).show()
 
@@ -221,7 +221,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                 is ContentItemEvents.SwiperSessionCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.analyzer_content_swiper_session_created_x_items, event.itemCount),
+                        getQuantityString2(eu.darken.sdmse.analyzer.R.plurals.analyzer_content_swiper_session_created_x_items, event.itemCount),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {

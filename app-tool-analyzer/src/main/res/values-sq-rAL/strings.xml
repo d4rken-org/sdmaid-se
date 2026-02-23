@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analizuesi i magazinës</string>
+    <string name="analyzer_explanation_short">Zbuloni se çfarë po zë hapësirë ​​në pajisjen tuaj.</string>
+    <string name="analyzer_progress_scanning_device">Duke kërkuar për pajisje ruajtëse</string>
+    <string name="analyzer_progress_scanning_storage">Skanimi i ruajtjes</string>
+    <string name="analyzer_progress_scanning_apps">Skanimi i aplikacioneve</string>
+    <string name="analyzer_progress_scanning_userfiles">Kërkimi i skedarëve të përdoruesit</string>
+    <string name="analyzer_progress_scanning_system">Skanimi i të dhënave të sistemit</string>
+    <string name="analyzer_device_storage_title">Hapësira ruajtëse e pajisjes</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s në dispozicion</item>
+        <item quantity="other">%s në dispozicion</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s të përdorura</item>
+        <item quantity="other">%s të përdorura</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Nuk ka qasje të drejtpërdrejtë</string>
+    <string name="analyzer_content_create_swiper_session_action">Krijo sesion Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesioni Swiper u krijua me %d artikull</item>
+        <item quantity="other">Sesioni Swiper u krijua me %d artikuj</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Magazina primare</string>
+    <string name="analyzer_storage_type_primary_description">Ruajtja kryesore e pajisjes suaj. Përmban kartën e brendshme SD, hapësirën ruajtëse private për aplikacionet dhe të dhënat e sistemit.</string>
+    <string name="analyzer_storage_type_secondary_title">Magazina sekondare</string>
+    <string name="analyzer_storage_type_secondary_description">Një hapësirë ​​ruajtëse shtesë ose dytësore, zakonisht një kartë SD e lëvizshme. Përmban skedarë mediash dhe të dhëna nga aplikacionet që e mbështesin atë.</string>
+    <string name="analyzer_storage_type_tertiary_title">Magazinim portativ(i jashtëm)</string>
+    <string name="analyzer_storage_type_tertiary_description">Një ruajtje portative, p.sh. një flash drive i lidhur në portën tuaj USB.</string>
+    <string name="analyzer_storage_content_title">Përmbajtja e magazinës</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikacionet</string>
+    <string name="analyzer_storage_content_type_app_description">Hapësira e zënë nga aplikacionet e instaluara dhe të dhënat e tyre (d.m.th. skedarët e aplikacioneve, të dhënat dhe memoriet e fshehta).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Mungojnë lejet</string>
+    <string name="analyzer_storage_content_type_media_label">Skedarët e përdoruesit</string>
+    <string name="analyzer_storage_content_type_media_description">Fotografi të shkrepura, video të regjistruara ose të dhëna të shkarkuara. Çdo të dhënë që nuk i përket një aplikacioni specifik.</string>
+    <string name="analyzer_storage_content_type_system_label">Të dhënat e sistemit</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikacionet e sistemit dhe të dhënat e sistemit. Aplikacionet dhe të dhënat nga përdoruesit e tjerë, nëse në këtë pajisje janë caktuar disa llogari përdoruesish.</string>
+    <string name="analyzer_storage_content_app_code_label">Kodi i aplikacionit</string>
+    <string name="analyzer_storage_content_app_code_description">Skedarët e aplikacionit, bibliotekat dhe burimet. Kjo hapësirë ​​mund të lirohet duke çinstaluar aplikacionin ose duke e arkivuar atë (e disponueshme në versionin më të ri të Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Të dhenat e programit</string>
+    <string name="analyzer_storage_content_app_data_description">Të dhënat, cilësimet dhe cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Media e aplikacionit</string>
+    <string name="analyzer_storage_content_app_media_description">Skedarët e medias nga ky aplikacion, p.sh. mori fotot e WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Skedarët shtesë të aplikacionit</string>
+    <string name="analyzer_storage_content_app_extra_description">Të dhëna shtesë që ky aplikacion ka vendosur jashtë shtigjeve të paracaktuara, p.sh. foto ose shkarkime.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ky aplikacion zë %1$s në \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ky aplikacion është arkivuar.</string>
+</resources>

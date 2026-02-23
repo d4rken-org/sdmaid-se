@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Lageranalyse</string>
+    <string name="analyzer_explanation_short">Find ud af, hvad der optager plads på din enhed.</string>
+    <string name="analyzer_progress_scanning_device">Søger efter lagerenheder</string>
+    <string name="analyzer_progress_scanning_storage">Scanner lager</string>
+    <string name="analyzer_progress_scanning_apps">Scanner apps</string>
+    <string name="analyzer_progress_scanning_userfiles">Søger i brugerfiler</string>
+    <string name="analyzer_progress_scanning_system">Scanner systemdata</string>
+    <string name="analyzer_device_storage_title">Enhedslagerplads</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s tilgængelig</item>
+        <item quantity="other">%s tilgængelig</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s brugt</item>
+        <item quantity="other">%s brugt</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Ingen direkte adgang tilgængelig</string>
+    <string name="analyzer_content_create_swiper_session_action">Opret Swiper-session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-session oprettet med %d element</item>
+        <item quantity="other">Swiper-session oprettet med %d elementer</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Primær lager</string>
+    <string name="analyzer_storage_type_primary_description">Det primære lager på din enhed. Indeholder det interne SD-kort samt privat lager til apps og systemdata.</string>
+    <string name="analyzer_storage_type_secondary_title">Sekundær lager</string>
+    <string name="analyzer_storage_type_secondary_description">Et sekundært lager, normalt et udtageligt SD-kort. Indeholder mediefiler og data fra apps, som understøtter det.</string>
+    <string name="analyzer_storage_type_tertiary_title">Flytbart lager</string>
+    <string name="analyzer_storage_type_tertiary_description">En flytbar lagerenhed, f.eks. et USB-drev tilsluttet din USB-port.</string>
+    <string name="analyzer_storage_content_title">Lagerindhold</string>
+    <string name="analyzer_storage_content_type_app_label">Apps</string>
+    <string name="analyzer_storage_content_type_app_description">Plads optaget af installerede apps og deres data (dvs. programfiler, data og cacher).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Tilladelser mangler</string>
+    <string name="analyzer_storage_content_type_media_label">Brugerfiler</string>
+    <string name="analyzer_storage_content_type_media_description">Billeder, videooptagelser eller downloadede data. Al data, der ikke hører til en bestemt app.</string>
+    <string name="analyzer_storage_content_type_system_label">Systemdata</string>
+    <string name="analyzer_storage_content_type_system_description">Systemapps og -data. Apps og data fra andre brugere, hvis enheden har flere brugerkonti.</string>
+    <string name="analyzer_storage_content_app_code_label">Appkode</string>
+    <string name="analyzer_storage_content_app_code_description">Programfiler, biblioteker og ressourcer. Denne plads kan frigøres ved at afinstallere eller arkivere appen (tilgængelig på nyere Android-versioner).</string>
+    <string name="analyzer_storage_content_app_data_label">Appdata</string>
+    <string name="analyzer_storage_content_app_data_description">Data, indstillinger og cacher.</string>
+    <string name="analyzer_storage_content_app_media_label">Appmedier</string>
+    <string name="analyzer_storage_content_app_media_description">Mediefiler fra denne app, f.eks. modtagne WhatsApp-fotos.</string>
+    <string name="analyzer_storage_content_app_extra_label">Ekstra appfiler</string>
+    <string name="analyzer_storage_content_app_extra_description">Ekstra data, som denne app har gemt uden for standardstierne, f.eks. fotos eller downloads.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Denne app optager %1$s på \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Denne app er blevet arkiveret.</string>
+</resources>

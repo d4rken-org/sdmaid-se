@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analizator pamięci</string>
+    <string name="analyzer_explanation_short">Dowiedz się, co zajmuje miejsce na urządzeniu.</string>
+    <string name="analyzer_progress_scanning_device">Wyszukiwanie urządzeń pamięci</string>
+    <string name="analyzer_progress_scanning_storage">Skanowanie pamięci</string>
+    <string name="analyzer_progress_scanning_apps">Skanowanie aplikacji</string>
+    <string name="analyzer_progress_scanning_userfiles">Wyszukiwanie plików użytkownika</string>
+    <string name="analyzer_progress_scanning_system">Skanowanie danych systemu</string>
+    <string name="analyzer_device_storage_title">Pamięć urządzenia</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s dostępna</item>
+        <item quantity="few">%s dostępne</item>
+        <item quantity="many">%s dostępnych</item>
+        <item quantity="other">%s dostępnych</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s używany</item>
+        <item quantity="few">%s używane</item>
+        <item quantity="many">%s używanych</item>
+        <item quantity="other">%s używanych</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Brak bezpośredniego dostępu</string>
+    <string name="analyzer_content_create_swiper_session_action">Utwórz sesję Przesuwacza</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesja Przesuwacza została utworzona z elementu %d</item>
+        <item quantity="few">Sesja Przesuwacza została utworzona z %d elementów</item>
+        <item quantity="many">Sesja Przesuwacza została utworzona z %d elementów</item>
+        <item quantity="other">Sesja Przesuwacza utworzona z %d elementów</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>
+    <string name="analyzer_storage_type_primary_description">Podstawowa pamięć twojego urządzenia. Zawiera wewnętrzną kartę SD, prywatne miejsce na aplikacje i dane systemowe.</string>
+    <string name="analyzer_storage_type_secondary_title">Pamięć zewnętrzna</string>
+    <string name="analyzer_storage_type_secondary_description">Pamięć dodatkowa, zwykle wymienna karta SD. Zawiera pliki multimedialne i dane z aplikacji, które je obsługują.</string>
+    <string name="analyzer_storage_type_tertiary_title">Pamięć przenośna</string>
+    <string name="analyzer_storage_type_tertiary_description">Pamięć przenośna, np. pendrive podłączony do portu USB.</string>
+    <string name="analyzer_storage_content_title">Zawartość pamięci</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikacje</string>
+    <string name="analyzer_storage_content_type_app_description">Przestrzeń zajmowana przez zainstalowane aplikacje i ich dane (np. pliki, dane oraz pamięć podręczną aplikacji).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Brak uprawnień</string>
+    <string name="analyzer_storage_content_type_media_label">Pliki użytkownika</string>
+    <string name="analyzer_storage_content_type_media_description">Przechwycone zdjęcia, nagrane filmy lub pobrane dane. Wszelkie dane, które nie należą do konkretnej aplikacji.</string>
+    <string name="analyzer_storage_content_type_system_label">Dane systemowe</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikacje systemowe i dane systemowe. Aplikacje i dane od innych użytkowników, jeśli na tym urządzeniu ustawiono kilka kont użytkowników.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod aplikacji</string>
+    <string name="analyzer_storage_content_app_code_description">Pliki aplikacji, biblioteki i zasoby. Przestrzeń, która może zostać uwolniona przez odinstalowanie aplikacji lub jej archiwizację (dostępne w nowszej wersji Androida).</string>
+    <string name="analyzer_storage_content_app_data_label">Dane aplikacji</string>
+    <string name="analyzer_storage_content_app_data_description">Dane, ustawienia i pamięci podręczne.</string>
+    <string name="analyzer_storage_content_app_media_label">Multimedia aplikacji</string>
+    <string name="analyzer_storage_content_app_media_description">Pliki multimedialne z tej aplikacji, np. zdjęcia otrzymane przez WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Dodatkowe pliki aplikacji</string>
+    <string name="analyzer_storage_content_app_extra_description">Dodatkowe dane, które aplikacja umieściła poza domyślnymi ścieżkami, np. zdjęcia lub pobierania.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aplikacja zajmuje %1$s na \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Aplikacja została zarchiwizowana.</string>
+</resources>

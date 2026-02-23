@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">ଷ୍ଟୋରେଜ୍ ବିଶ୍ଳେଷକ</string>
+    <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
+    <string name="analyzer_progress_scanning_device">ଷ୍ଟୋରେଜ୍ ଉପକରଣ ଖୋଜୁଛି</string>
+    <string name="analyzer_progress_scanning_storage">ଷ୍ଟୋରେଜ୍ ସ୍କ୍ୟାନ୍ କରୁଛି</string>
+    <string name="analyzer_progress_scanning_apps">ଆପ୍ ଗୁଡ଼ିକ ସ୍କ୍ୟାନ୍ କରୁଛି</string>
+    <string name="analyzer_progress_scanning_userfiles">ଉପଭୋକ୍ତା ଫାଇଲ ଖୋଜୁଛି</string>
+    <string name="analyzer_progress_scanning_system">ସିଷ୍ଟମ୍ ଡାଟା ସ୍କ୍ୟାନ୍ କରୁଛି</string>
+    <string name="analyzer_device_storage_title">ଡିଵାଇସ୍ ଷ୍ଟୋରେଜ୍</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ଉପଲବ୍ଧ</item>
+        <item quantity="other">%s ଉପଲବ୍ଧ</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ବ୍ୟବହୃତ</item>
+        <item quantity="other">%s ବ୍ୟବହୃତ</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">କୌଣସି ପ୍ରତ୍ୟକ୍ଷ ପ୍ରବେଶ ଉପଲବ୍ଧ ନାହିଁ</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper ସେସନ୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d ଆଇଟମ୍ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
+        <item quantity="other">%d ଆଇଟମ୍‌ଗୁଡିକ ସହ Swiper ସେସନ୍ ସୃଷ୍ଟି ହୋଇଛି</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
+    <string name="analyzer_storage_type_primary_description">ଆପଣଙ୍କ ଡିଵାଇସ୍‌ର ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍। ଯହିଁରେ ଅନ୍ତଃ SD card, ଆପ୍ ଏବଂ ସିଷ୍ଟମ୍ ତଥ୍ୟ ପାଇଁ ଘରୋଇ ଷ୍ଟୋରେଜ୍ ରହିଥାଏ।</string>
+    <string name="analyzer_storage_type_secondary_title">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>
+    <string name="analyzer_storage_type_secondary_description">ଏକ ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍, ସାଧାରଣତଃ ଏକ ଅପସାରଣ-ଯୋଗ୍ୟ SD card। ଯହିଁରେ ସମର୍ଥିତ ଆପ୍‌ଗୁଡ଼ିକର ମିଡ଼ିଆ ଫାଇଲ୍ ଏବଂ ତଥ୍ୟ ରହିଥାଏ।</string>
+    <string name="analyzer_storage_type_tertiary_title">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+    <string name="analyzer_storage_type_tertiary_description">ଏକ ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍, ଯେପରିକି ଆପଣଙ୍କ USB ପୋର୍ଟରେ ଲଗାଯାଇଥିବା ଫ୍ଲାସ୍ ଡ୍ରାଇଭ୍।</string>
+    <string name="analyzer_storage_content_title">ଷ୍ଟୋରେଜ୍ ଵିଷୟଵସ୍ତୁ</string>
+    <string name="analyzer_storage_content_type_app_label">ଆପ୍ସ</string>
+    <string name="analyzer_storage_content_type_app_description">ଇନ୍‌ଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ଏବଂ ସେମାନଙ୍କ ଡାଟା (ଯଥା ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଡାଟା ଏବଂ କ୍ୟାସ୍) ଦ୍ୱାରା ଦଖଲ ହୋଇଥିବା ସ୍ଥାନ।</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ଅନୁମତି ଅନୁପସ୍ଥିତ</string>
+    <string name="analyzer_storage_content_type_media_label">ଉପଭୋକ୍ତା ଫାଇଲ</string>
+    <string name="analyzer_storage_content_type_media_description">କ୍ୟାପଚର୍ ହୋଇଥିବା ଛବି, ରେକର୍ଡ ହୋଇଥିବା ଭିଡିଓ କିମ୍ବା ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଡାଟା। କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍ର ନଥିବା ଯେକୌଣସି ଡାଟା।</string>
+    <string name="analyzer_storage_content_type_system_label">ସିଷ୍ଟମ୍ ତଥ୍ୟ</string>
+    <string name="analyzer_storage_content_type_system_description">ସିଷ୍ଟମ୍ ଆପ୍ସ ଏବଂ ସିଷ୍ଟମ୍ ଡାଟା। ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କ ଆପ୍ସ ଏବଂ ଡାଟା, ଯଦି ଏହି ଉପକରଣରେ ଅନେକ ଉପଭୋକ୍ତା ଆକାଉଣ୍ଟ ସେଟ୍ ହୋଇଛି।</string>
+    <string name="analyzer_storage_content_app_code_label">ଆପ୍ କୋଡ୍</string>
+    <string name="analyzer_storage_content_app_code_description">ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଲାଇବ୍ରେରୀ ଏବଂ ରିସୋର୍ସ। ଆପ୍କୁ ଅନ୍‌ଇନ୍‌ଷ୍ଟଲ୍ କରି କିମ୍ବା ଆର୍କାଇଭ୍ କରି (ନୂତନ Android ସଂସ୍କରଣରେ ଉପଲବ୍ଧ) ଏହି ସ୍ଥାନ ମୁକ୍ତ କରାଯାଇପାରିବ।</string>
+    <string name="analyzer_storage_content_app_data_label">ଆପ୍ ତଥ୍ୟ</string>
+    <string name="analyzer_storage_content_app_data_description">ତଥ୍ୟ, ସେଟିଂ ଏବଂ ଦ୍ରୁତିକା।</string>
+    <string name="analyzer_storage_content_app_media_label">ଆପ୍ ମିଡ଼ିଆ</string>
+    <string name="analyzer_storage_content_app_media_description">ଏହି ଆପ୍ର ମିଡିଆ ଫାଇଲ, ଯେପରିକି ପ୍ରାପ୍ତ WhatsApp ଫଟୋ।</string>
+    <string name="analyzer_storage_content_app_extra_label">ଅତିରିକ୍ତ ଆପ୍ ଫାଇଲ</string>
+    <string name="analyzer_storage_content_app_extra_description">ଏହି ଆପ୍ ଡିଫଲ୍ଟ ପାଥ୍ ବାହାରେ ରଖିଥିବା ଅତିରିକ୍ତ ଡାଟା, ଯେପରିକି ଫଟୋ କିମ୍ବା ଡାଉନଲୋଡ୍।</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ଏହି ଆପ୍ \"%2$s\"ରେ %1$s ଦଖଲ କରିଛି।</string>
+    <string name="analyzer_app_details_app_is_archived">ଏହି ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି।</string>
+</resources>

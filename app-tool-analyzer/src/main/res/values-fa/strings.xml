@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
+    <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
+    <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>
+    <string name="analyzer_progress_scanning_storage">در حال جستجوی ذخیره‌سازی</string>
+    <string name="analyzer_progress_scanning_apps">در حال جستجوی برنامه‌ها</string>
+    <string name="analyzer_progress_scanning_userfiles">در حال جستجوی فایل‌های کاربر</string>
+    <string name="analyzer_progress_scanning_system">در حال جستجوی داده‌های سیستم</string>
+    <string name="analyzer_device_storage_title">حافظه دستگاه</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s در دسترس</item>
+        <item quantity="other">%s در دسترس</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s استفاده شده</item>
+        <item quantity="other">%s استفاده شده</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">هیچ دسترسی مستقیمی در‌دسترس نیست</string>
+    <string name="analyzer_content_create_swiper_session_action">ایجاد جلسه Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">جلسه Swiper با %d مورد ایجاد شد</item>
+        <item quantity="other">جلسه Swiper با %d مورد ایجاد شد</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">حافظه اصلی</string>
+    <string name="analyzer_storage_type_primary_description">فضای ذخیره‌سازی اصلی دستگاه شما. شامل کارت SD داخلی، فضای ذخیره‌سازی خصوصی برای برنامه‌ها و داده‌های سیستم است.</string>
+    <string name="analyzer_storage_type_secondary_title">حافظه ثانویه</string>
+    <string name="analyzer_storage_type_secondary_description">ذخیره‌سازی ثانویه، که معمولاً یک کارت SD قابل جابجایی است. شامل فایل‌های رسانه‌ای و داده‌های برنامه‌هایی است که از آن پشتیبانی می‌کنند.</string>
+    <string name="analyzer_storage_type_tertiary_title">فضای ذخیره‌سازی قابل‌حمل</string>
+    <string name="analyzer_storage_type_tertiary_description">یک فضای ذخیره‌سازی قابل حمل، مانند یک فلش درایو که به پورت USB شما متصل شده.</string>
+    <string name="analyzer_storage_content_title">محتوای فضای ذخیره‌سازی</string>
+    <string name="analyzer_storage_content_type_app_label">برنامه‌</string>
+    <string name="analyzer_storage_content_type_app_description">فضای اشغالی توسط برنامه‌های نصب شده و داده‌های آن‌ها (یعنی فایل‌های برنامه، داده‌ها و کش‌ها).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">مجوز ها گمشده</string>
+    <string name="analyzer_storage_content_type_media_label">فایلهای کاربر</string>
+    <string name="analyzer_storage_content_type_media_description">تصاویر گرفته شده، ویدئوهای ضبط شده یا داده‌های دانلود شده. هر داده‌ای که به یک برنامه خاص تعلق ندارد.</string>
+    <string name="analyzer_storage_content_type_system_label">داده های سیستم</string>
+    <string name="analyzer_storage_content_type_system_description">برنامه های سیستم و داده های سیستم و سایر کاربران، در صورتی که چندین حساب کاربری در این دستگاه تنظیم شده باشد.</string>
+    <string name="analyzer_storage_content_app_code_label">کد برنامه</string>
+    <string name="analyzer_storage_content_app_code_description">فایل‌های برنامه، کتابخانه‌ها و منابع. این فضا را می‌توان با حذف برنامه یا بایگانی آن آزاد کرد (این امکان در نسخه‌های جدیدتر اندروید وجود دارد).</string>
+    <string name="analyzer_storage_content_app_data_label">داده برنامه</string>
+    <string name="analyzer_storage_content_app_data_description">داده، تنظیمات و حافظه نهان.</string>
+    <string name="analyzer_storage_content_app_media_label">رسانه برنامه</string>
+    <string name="analyzer_storage_content_app_media_description">فایل‌های رسانه‌ای از برنامه، مانند عکس‌های دریافتی واتساپ.</string>
+    <string name="analyzer_storage_content_app_extra_label">فایل‌های اضافی برنامه</string>
+    <string name="analyzer_storage_content_app_extra_description">داده‌های اضافی که این برنامه در خارج از مسیرهای پیش‌فرض ذخیره کرده است، مثلاً عکس‌ها یا بارگیری‌ها.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">این برنامه %1$s بر روی \"%2$s\" را اشغال کرده.</string>
+    <string name="analyzer_app_details_app_is_archived">این برنامه بایگانی شده است.</string>
+</resources>

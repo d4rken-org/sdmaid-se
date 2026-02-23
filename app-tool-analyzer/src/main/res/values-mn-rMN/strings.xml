@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">Таны төхөөрөмж дээр юу зай эзлэж байгааг мэдэх.</string>
+    <string name="analyzer_progress_scanning_device">Хадгалах төхөөрөмжүүдийг хайж байна</string>
+    <string name="analyzer_progress_scanning_storage">Хадгалах санг сканнердаж байна</string>
+    <string name="analyzer_progress_scanning_apps">Аппликешнүүдийг сканнердаж байна</string>
+    <string name="analyzer_device_storage_title">Төхөөрөмжийн хадгалах сан</string>
+    <string name="analyzer_storage_type_primary_title">Үндсэн хадгалах сан</string>
+    <string name="analyzer_storage_type_secondary_title">Хоёрдогч хадгалах сан</string>
+    <string name="analyzer_storage_content_title">Хадгалах сангийн агуулга</string>
+    <string name="analyzer_storage_content_type_app_label">Аппликешнүүд</string>
+    <string name="analyzer_storage_content_type_media_label">Хэрэглэгчийн файлууд</string>
+    <string name="analyzer_storage_content_type_system_label">Системийн өгөгдөл</string>
+</resources>

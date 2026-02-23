@@ -43,12 +43,12 @@ class DeviceStorageScanner @Inject constructor(
     suspend fun scan(): Set<DeviceStorage> {
         log(TAG) { "Scanning..." }
 
-        updateProgressPrimary(R.string.analyzer_progress_scanning_device)
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_device)
 
         val setupIncomplete = !storageSetupModule.isComplete()
 
         val primaryDevice = run {
-            updateProgressSecondary(R.string.analyzer_storage_type_primary_title)
+            updateProgressSecondary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_primary_title)
             val id = StorageId(
                 internalId = null,
                 externalId = StorageManager.UUID_DEFAULT,
@@ -69,7 +69,7 @@ class DeviceStorageScanner @Inject constructor(
 
             DeviceStorage(
                 id = id,
-                label = R.string.analyzer_storage_type_primary_title.toCaString(),
+                label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_primary_title.toCaString(),
                 type = DeviceStorage.Type.PRIMARY,
                 hardware = DeviceStorage.Hardware.BUILT_IN,
                 spaceCapacity = totalBytes,
@@ -79,13 +79,13 @@ class DeviceStorageScanner @Inject constructor(
         }
 
         log(TAG) { "Primary: $primaryDevice" }
-        updateProgressSecondary(R.string.analyzer_storage_type_secondary_title)
+        updateProgressSecondary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_secondary_title)
 
         val secondaryDevices: Set<DeviceStorage> = (storageManager2.volumes ?: emptySet())
             .filter { it.isPrimary == false && it.fsUuid != null && it.isMounted }
             .mapNotNull { volume ->
                 updateProgressSecondary(
-                    volume.path?.path?.toCaString() ?: R.string.analyzer_storage_type_secondary_title.toCaString()
+                    volume.path?.path?.toCaString() ?: eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_secondary_title.toCaString()
                 )
 
                 var volumeId: UUID? = try {
@@ -138,8 +138,8 @@ class DeviceStorageScanner @Inject constructor(
                     id = id,
                     label = when (type) {
                         DeviceStorage.Type.PRIMARY -> throw IllegalArgumentException("Can't be primary")
-                        DeviceStorage.Type.SECONDARY -> R.string.analyzer_storage_type_secondary_title.toCaString()
-                        DeviceStorage.Type.PORTABLE -> R.string.analyzer_storage_type_tertiary_title.toCaString()
+                        DeviceStorage.Type.SECONDARY -> eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_secondary_title.toCaString()
+                        DeviceStorage.Type.PORTABLE -> eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_tertiary_title.toCaString()
                     },
                     type = type,
                     hardware = hardware,

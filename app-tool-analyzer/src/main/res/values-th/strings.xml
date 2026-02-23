@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
+    <string name="analyzer_explanation_short">ค้นหาสิ่งที่ใช้พื้นที่ในอุปกรณ์ของคุณ</string>
+    <string name="analyzer_progress_scanning_device">ค้นหาอุปกรณ์จัดเก็บข้อมูล</string>
+    <string name="analyzer_progress_scanning_storage">กำลังสแกนพื้นที่จัดเก็บ</string>
+    <string name="analyzer_progress_scanning_apps">กำลังสแกนแอพ</string>
+    <string name="analyzer_progress_scanning_userfiles">ค้นหาไฟล์ผู้ใช้</string>
+    <string name="analyzer_progress_scanning_system">กำลังสแกนข้อมูลระบบ</string>
+    <string name="analyzer_device_storage_title">พื้นที่จัดเก็บอุปกรณ์</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">ว่าง %s</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">ใช้ไปแล้ว %s</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">ไม่สามารถเข้าถึงโดยตรงได้</string>
+    <string name="analyzer_content_create_swiper_session_action">สร้างเซสชัน Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">สร้างเซสชัน Swiper แล้วพร้อม %d รายการ</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">พื้นที่จัดเก็บหลัก</string>
+    <string name="analyzer_storage_type_primary_description">พื้นที่จัดเก็บหลักของอุปกรณ์ ประกอบด้วย SD card ภายใน พื้ที่จัดเก็บส่วนตัวสำหรับแอพ และข้อมูลระบบ</string>
+    <string name="analyzer_storage_type_secondary_title">พื้นที่จัดเก็บรอง</string>
+    <string name="analyzer_storage_type_secondary_description">พื้นที่จัดเก็บรอง โดยทั่วไปคือ SD card ที่ถอดได้ ประกอบด้วยไฟล์มีเดียและข้อมูลจากแอพที่รองรับ</string>
+    <string name="analyzer_storage_type_tertiary_title">พื้นที่จัดเก็บแบบพกพา</string>
+    <string name="analyzer_storage_type_tertiary_description">พื้นที่จัดเก็บแบบพกพา เช่น แฟลชไดรฟ์ที่เสียบเข้าปอร์ต USB</string>
+    <string name="analyzer_storage_content_title">เนื้อหาในพื้นที่จัดเก็บ</string>
+    <string name="analyzer_storage_content_type_app_label">แอพ</string>
+    <string name="analyzer_storage_content_type_app_description">พื้นที่ที่ถูกใช้โดยแอพที่ติดตั้งและข้อมูลของพวกมัน (ไฟล์แอพพลิเคชัน, ข้อมูล, และแคช)</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ขาดสิทธิ์</string>
+    <string name="analyzer_storage_content_type_media_label">ไฟล์ผู้ใช้</string>
+    <string name="analyzer_storage_content_type_media_description">รูปภาพที่ถ่าย, วิดีโอที่บันทึก, หรือข้อมูลที่ดาวน์โหลด ข้อมูลใดๆ ที่ไม่ได้เป็นของแอพใดโดยเฉพาะ</string>
+    <string name="analyzer_storage_content_type_system_label">ข้อมูลระบบ</string>
+    <string name="analyzer_storage_content_type_system_description">แอพระบบและข้อมูลระบบ แอพและข้อมูลจากผู้ใช้คนอื่น หากมีบัญชีผู้ใช้หลายบัญชีบนอุปกรณ์นี้</string>
+    <string name="analyzer_storage_content_app_code_label">โค้ดแอพ</string>
+    <string name="analyzer_storage_content_app_code_description">ไฟล์แอพพลิเคชัน, ไลบรารี และทรัพยากร สามารถลบพื้นที่นี้ได้โดยถอนการติดตั้งแอพหรือเก็บแอพไว้ (ใช้ได้ใน Android รุ่นใหม่)</string>
+    <string name="analyzer_storage_content_app_data_label">ข้อมูลแอพ</string>
+    <string name="analyzer_storage_content_app_data_description">ข้อมูล, การตั้งค่า และแคช</string>
+    <string name="analyzer_storage_content_app_media_label">ไฟล์มีเดียแอพ</string>
+    <string name="analyzer_storage_content_app_media_description">ไฟล์มีเดียจากแอพนี้ เช่น รูปภาพที่ได้รับจาก WhatsApp</string>
+    <string name="analyzer_storage_content_app_extra_label">ไฟล์แอพเพิ่มเติม</string>
+    <string name="analyzer_storage_content_app_extra_description">ข้อมูลเพิ่มเติมที่แอพนี้วางไว้นอกเส้นทางเริ่มต้น เช่น รูปภาพหรือไฟล์ดาวน์โหลด</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">แอพนี้ใช้พื้นที่ %1$s บน \"%2$s\"</string>
+    <string name="analyzer_app_details_app_is_archived">แอพนี้ถูกเก็บไว้แล้ว</string>
+</resources>

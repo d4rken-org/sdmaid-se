@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
+    <string name="analyzer_device_storage_title">Ierīces krātuve</string>
+    <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analysoi</string>
+    <string name="analyzer_explanation_short">Selvitä mikä vie tilaa laitteeltasi.</string>
+    <string name="analyzer_progress_scanning_device">Etsitään tallennuslaitteita</string>
+    <string name="analyzer_progress_scanning_storage">Skannataan tallennustilaa</string>
+    <string name="analyzer_progress_scanning_apps">Skannataan sovelluksia</string>
+    <string name="analyzer_progress_scanning_userfiles">Etsitään käyttäjätiedostoja</string>
+    <string name="analyzer_progress_scanning_system">Skannataan järjestelmätietoja</string>
+    <string name="analyzer_device_storage_title">Laitteen tallennustila</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s käytettävissä</item>
+        <item quantity="other">%s käytettävissä</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s käytetty</item>
+        <item quantity="other">%s käytetty</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Suora pääsy ei ole käytettävissä</string>
+    <string name="analyzer_content_create_swiper_session_action">Luo Swiper-istunto</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper-istunto luotu %d kohteella</item>
+        <item quantity="other">Swiper-istunto luotu %d kohteella</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Sisäinen tallennustila</string>
+    <string name="analyzer_storage_type_primary_description">Laitteen sisäinen tallennustila.</string>
+    <string name="analyzer_storage_type_secondary_title">Ulkoinen tallennustila</string>
+    <string name="analyzer_storage_type_secondary_description">Ulkoinen tallennustila kuten SD-kortti.</string>
+    <string name="analyzer_storage_type_tertiary_title">USB-tallennustila</string>
+    <string name="analyzer_storage_type_tertiary_description">USB-tallennustila ja muut liitetyt laitteet.</string>
+    <string name="analyzer_storage_content_title">Tallennustilan sisältö</string>
+    <string name="analyzer_storage_content_type_app_label">Sovellukset</string>
+    <string name="analyzer_storage_content_type_app_description">Asennetut sovellukset.</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Asenna SD Maid saadaksesi tarkempia tietoja.</string>
+    <string name="analyzer_storage_content_type_media_label">Media</string>
+    <string name="analyzer_storage_content_type_media_description">Kuvat, videot, äänet ja muut mediatiedostot.</string>
+    <string name="analyzer_storage_content_type_system_label">Järjestelmä</string>
+    <string name="analyzer_storage_content_type_system_description">Käyttöjärjestelmä ja järjestelmäsovellukset.</string>
+    <string name="analyzer_storage_content_app_code_label">Koodi</string>
+    <string name="analyzer_storage_content_app_code_description">Sovelluksen asennustiedostot (APK ja muut välimuistiin tallennetut tiedostot).</string>
+    <string name="analyzer_storage_content_app_data_label">Tiedot</string>
+    <string name="analyzer_storage_content_app_data_description">Sovelluksen tiedot, asetukset ja yksityiset tiedostot.</string>
+    <string name="analyzer_storage_content_app_media_label">Media</string>
+    <string name="analyzer_storage_content_app_media_description">Sovelluksen luomat ja tallentamat mediatiedostot.</string>
+    <string name="analyzer_storage_content_app_extra_label">Ylimääräinen</string>
+    <string name="analyzer_storage_content_app_extra_description">Ylimääräiset sovellustiedot ja resurssit.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Tämä sovellus vie %1$s tilaa kohteessa \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Tämä sovellus on arkistoitu.</string>
+</resources>

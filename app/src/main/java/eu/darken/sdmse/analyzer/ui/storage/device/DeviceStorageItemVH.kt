@@ -35,13 +35,13 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         }
 
         secondary.text = when (storage.type) {
-            DeviceStorage.Type.PRIMARY -> getString(R.string.analyzer_storage_type_primary_description)
-            DeviceStorage.Type.SECONDARY -> getString(R.string.analyzer_storage_type_secondary_description)
-            DeviceStorage.Type.PORTABLE -> getString(R.string.analyzer_storage_type_tertiary_description)
+            DeviceStorage.Type.PRIMARY -> getString(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_primary_description)
+            DeviceStorage.Type.SECONDARY -> getString(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_secondary_description)
+            DeviceStorage.Type.PORTABLE -> getString(eu.darken.sdmse.analyzer.R.string.analyzer_storage_type_tertiary_description)
         }
         tertiary.apply {
             isVisible = item.storage.setupIncomplete
-            text = getString(R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
+            text = getString(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
         }
 
         hardwareIcon.setImageResource(
@@ -63,7 +63,7 @@ class DeviceStorageItemVH(parent: ViewGroup) :
         available.apply {
             val formattedFree = Formatter.formatShortFileSize(context, storage.spaceFree)
             text = getQuantityString(
-                R.plurals.analyzer_space_available,
+                eu.darken.sdmse.analyzer.R.plurals.analyzer_space_available,
                 ByteFormatter.stripSizeUnit(formattedFree)?.roundToInt() ?: 1,
                 formattedFree
             )

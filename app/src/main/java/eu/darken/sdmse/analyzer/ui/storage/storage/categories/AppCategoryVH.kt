@@ -33,10 +33,10 @@ class AppCategoryVH(parent: ViewGroup) :
 
         usedSpace.apply {
             text = if (content.setupIncomplete) {
-                getString(R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
+                getString(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_app_setup_incomplete_hint)
             } else {
                 getQuantityString(
-                    R.plurals.analyzer_space_used,
+                    eu.darken.sdmse.analyzer.R.plurals.analyzer_space_used,
                     ByteFormatter.stripSizeUnit(usedText)?.roundToInt() ?: 1,
                     usedText
                 )

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Αναλυτής Αποθηκευτικού Χώρου</string>
+    <string name="analyzer_explanation_short">Μάθετε τι καταλαμβάνει χώρο στη συσκευή σας.</string>
+    <string name="analyzer_progress_scanning_device">Αναζήτηση για συσκευές αποθηκευτικού χώρου</string>
+    <string name="analyzer_progress_scanning_storage">Σάρωση αποθηκευτικού χώρου</string>
+    <string name="analyzer_progress_scanning_apps">Σάρωση εφαρμογών</string>
+    <string name="analyzer_progress_scanning_userfiles">Αναζήτηση αρχείων χρήστη</string>
+    <string name="analyzer_progress_scanning_system">Σάρωση δεδομένων συστήματος</string>
+    <string name="analyzer_device_storage_title">Αποθηκευτικός χώρος συσκευής</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s διαθέσιμο</item>
+        <item quantity="other">%s διαθέσιμα</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s χρησιμοποιείται</item>
+        <item quantity="other">%s χρησιμοποιούνται</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Δεν υπάρχει άμεση πρόσβαση</string>
+    <string name="analyzer_content_create_swiper_session_action">Δημιουργία συνεδρίας Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενο</item>
+        <item quantity="other">Δημιουργήθηκε συνεδρία Swiper με %d αντικείμενα</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Πρωτεύων αποθηκευτικός χώρος</string>
+    <string name="analyzer_storage_type_primary_description">Ο κυρίως αποθηκευτικός χώρος της συσκευής σας. Περιέχει την εσωτερική κάρτα SD, ιδιωτικό χώρο αποθήκευσης για εφαρμογές και δεδομένα συστήματος.</string>
+    <string name="analyzer_storage_type_secondary_title">Δευτερεύων αποθηκευτικός χώρος</string>
+    <string name="analyzer_storage_type_secondary_description">Ένας δευτερεύων αποθηκευτικός χώρος, συνήθως μια αφαιρούμενη κάρτα SD. Περιέχει αρχεία πολυμέσων και δεδομένα από εφαρμογές που το υποστηρίζουν.</string>
+    <string name="analyzer_storage_type_tertiary_title">Φορητός χώρος αποθήκευσης</string>
+    <string name="analyzer_storage_type_tertiary_description">Ένας φορητός χώρος αποθήκευσης, π.χ. μια μονάδα flash συνδέθηκε στη θύρα USB σας.</string>
+    <string name="analyzer_storage_content_title">Περιεχόμενο αποθηκευτικού χώρου</string>
+    <string name="analyzer_storage_content_type_app_label">Εφαρμογές</string>
+    <string name="analyzer_storage_content_type_app_description">Χώρος που καταλαμβάνεται από εγκατεστημένες εφαρμογές και τα δεδομένα τους (δηλαδή αρχεία εφαρμογών, δεδομένα και προσωρινές μνήμες).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Λείπουν τα δικαιώματα</string>
+    <string name="analyzer_storage_content_type_media_label">Αρχεία χρήστη</string>
+    <string name="analyzer_storage_content_type_media_description">Συλληφθείσες εικόνες, εγγεγραμμένα βίντεο ή ληφθέντα δεδομένα. Οποιαδήποτε δεδομένα που δεν ανήκουν σε μια συγκεκριμένη εφαρμογή.</string>
+    <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
+    <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
+    <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, βιβλιοθήκες και πόροι. Αυτός ο χώρος μπορεί να ελευθερωθεί με την απεγκατάσταση της εφαρμογής ή την αρχειοθέτησή της (διατίθεται σε νεότερη έκδοση Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>
+    <string name="analyzer_storage_content_app_data_description">Δεδομένα, ρυθμίσεις και προσωρινές μνήμες.</string>
+    <string name="analyzer_storage_content_app_media_label">Μέσα εφαρμογής</string>
+    <string name="analyzer_storage_content_app_media_description">Αρχεία πολυμέσων από αυτήν την εφαρμογή, π.χ. ληφθέντες φωτογραφίες WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Επιπλέον αρχεία εφαρμογών</string>
+    <string name="analyzer_storage_content_app_extra_description">Επιπλέον δεδομένα που έχει τοποθετήσει αυτή η εφαρμογή εκτός των προεπιλεγμένων διαδρομών, π.χ. φωτογραφίες ή λήψεις.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Αυτή η εφαρμογή έχει αρχειοθετηθεί.</string>
+</resources>

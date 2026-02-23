@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">StokadAnalizilo</string>
+    <string name="analyzer_explanation_short">Eltrovi kio okupas spacon en via aparato.</string>
+    <string name="analyzer_progress_scanning_device">Serĉante stokadaparatojn</string>
+    <string name="analyzer_progress_scanning_storage">Skanante stokadon</string>
+    <string name="analyzer_progress_scanning_apps">Skanante aplikaĵojn</string>
+    <string name="analyzer_progress_scanning_userfiles">Serĉante uzantajn dosierojn</string>
+    <string name="analyzer_progress_scanning_system">Skanante sistemajn datumojn</string>
+    <string name="analyzer_device_storage_title">Aparata stokado</string>
+    <string name="analyzer_content_access_opaque">Neniu rekta aliro disponebla</string>
+    <string name="analyzer_storage_type_primary_title">Ĉefa stokado</string>
+    <string name="analyzer_storage_type_primary_description">La ĉefa stokado de via aparato. Enhavas la internan SD-karton, privatan stokadon por aplikaĵoj kaj sistemajn datumojn.</string>
+    <string name="analyzer_storage_type_secondary_title">Dua stokado</string>
+    <string name="analyzer_storage_type_secondary_description">Dua stokado, kutime forprenebla SD-karto. Enhavas aŭdvidajn dosierojn kaj datumojn de aplikaĵoj kiuj subtenas ĝin.</string>
+    <string name="analyzer_storage_type_tertiary_title">Portebla stokado</string>
+    <string name="analyzer_storage_type_tertiary_description">Portebla stokado, ekz. USB-memorilo konektita al via USB-pordo.</string>
+    <string name="analyzer_storage_content_title">Stokada enhavo</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikaĵoj</string>
+    <string name="analyzer_storage_content_type_app_description">Spaco okupita de instalitaj aplikaĵoj kaj iliaj datumoj (t.e. aplikaĵaj dosieroj, datumoj kaj kaŝmemoroj).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Permesoj mankas</string>
+    <string name="analyzer_storage_content_type_media_label">Uzantaj dosieroj</string>
+    <string name="analyzer_storage_content_type_media_description">Kaptitaj fotoj, registritaj videoj aŭ elŝutitaj datumoj. Iu ajn datumoj kiuj ne apartenas al specifa aplikaĵo.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistemaj datumoj</string>
+    <string name="analyzer_storage_content_type_system_description">Sistemaj aplikaĵoj kaj sistemaj datumoj. Aplikaĵoj kaj datumoj de aliaj uzantoj, se pluraj uzantkonteoj estas agorditaj en ĉi tiu aparato.</string>
+    <string name="analyzer_storage_content_app_code_label">Aplikaĵkodo</string>
+    <string name="analyzer_storage_content_app_code_description">Aplikaĵaj dosieroj, bibliotekoj kaj rimedoj. Ĉi tiu spaco povas esti liberigita malinstalante la aplikaĵon aŭ arkivigante ĝin (disponebla en pli novaj Android-versioj).</string>
+    <string name="analyzer_storage_content_app_data_label">Aplikaĵaj datumoj</string>
+    <string name="analyzer_storage_content_app_data_description">Datumoj, agordoj kaj kaŝmemoroj.</string>
+    <string name="analyzer_storage_content_app_media_label">Aplikaĵaj aŭdvidaĵoj</string>
+    <string name="analyzer_storage_content_app_media_description">Aŭdvidaj dosieroj de ĉi tiu aplikaĵo, ekz. ricevitaj WhatsApp-fotoj.</string>
+    <string name="analyzer_storage_content_app_extra_label">Ekstraaj aplikaĵaj dosieroj</string>
+    <string name="analyzer_storage_content_app_extra_description">Ekstraaj datumoj kiujn ĉi tiu aplikaĵo metis ekster la defaŭltaj vojoj, ekz. fotoj aŭ elŝutoj.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ĉi tiu aplikaĵo okupas %1$s en \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ĉi tiu aplikaĵo estis arkivigita.</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s disponebla</item>
+        <item quantity="other">%s disponeblaj</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s uzita</item>
+        <item quantity="other">%s uzitaj</item>
+    </plurals>
+</resources>

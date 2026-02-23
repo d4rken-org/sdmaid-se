@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">存储分析器</string>
+    <string name="analyzer_explanation_short">探究占用您设备存储空间的内容。</string>
+    <string name="analyzer_progress_scanning_device">正在搜索存储设备</string>
+    <string name="analyzer_progress_scanning_storage">正在扫描存储空间</string>
+    <string name="analyzer_progress_scanning_apps">正在扫描应用</string>
+    <string name="analyzer_progress_scanning_userfiles">正在搜索用户文件</string>
+    <string name="analyzer_progress_scanning_system">正在搜索系统数据</string>
+    <string name="analyzer_device_storage_title">设备存储</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s 可用空间</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s 已用空间</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">无法直接访问</string>
+    <string name="analyzer_content_create_swiper_session_action">创建 Swiper 会话</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">已创建包含 %d 个项目的 Swiper 会话</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">内部存储</string>
+    <string name="analyzer_storage_type_primary_description">您设备的主要存储空间。包含内部 SD 卡、应用和系统数据的私有存储。</string>
+    <string name="analyzer_storage_type_secondary_title">外部存储</string>
+    <string name="analyzer_storage_type_secondary_description">额外的存储空间，通常为外置 SD 卡。包含媒体文件和受支持应用的数据。</string>
+    <string name="analyzer_storage_type_tertiary_title">便携式存储</string>
+    <string name="analyzer_storage_type_tertiary_description">便携式存储，例如插入 USB 接口的闪存盘。</string>
+    <string name="analyzer_storage_content_title">存储内容</string>
+    <string name="analyzer_storage_content_type_app_label">应用</string>
+    <string name="analyzer_storage_content_type_app_description">已安装应用及其数据占用的空间（例如应用文件、数据和缓存）。</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">缺少权限</string>
+    <string name="analyzer_storage_content_type_media_label">用户文件</string>
+    <string name="analyzer_storage_content_type_media_description">截取的图片、录制的视频或下载的数据，不属于特定应用的任何数据</string>
+    <string name="analyzer_storage_content_type_system_label">系统数据</string>
+    <string name="analyzer_storage_content_type_system_description">系统应用和系统数据。如果在此设备上设置了其他用户账户，则这也将清除其他用户的应用和数据。</string>
+    <string name="analyzer_storage_content_app_code_label">应用代码</string>
+    <string name="analyzer_storage_content_app_code_description">应用程序的文件、依赖库和资源。此空间可以通过卸载应用程序或将其存档（在较新的安卓版本上）从而释放。</string>
+    <string name="analyzer_storage_content_app_data_label">应用数据</string>
+    <string name="analyzer_storage_content_app_data_description">数据、设置和缓存</string>
+    <string name="analyzer_storage_content_app_media_label">应用媒体</string>
+    <string name="analyzer_storage_content_app_media_description">来自此应用的媒体文件，例如接收到的 WhatsApp 图片</string>
+    <string name="analyzer_storage_content_app_extra_label">额外应用文件</string>
+    <string name="analyzer_storage_content_app_extra_description">此应用放在默认路径之外的额外数据，例如图片或下载</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">此应用在“%2$s”上占用了 %1$s</string>
+    <string name="analyzer_app_details_app_is_archived">此应用已被归档。</string>
+</resources>

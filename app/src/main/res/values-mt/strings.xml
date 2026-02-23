@@ -144,8 +144,6 @@
     <string name="settings_category_tools_label">Għodod</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
-    <string name="analyzer_explanation_short">Skopri x\'qed jieħu spazju fuq l-apparat tiegħek.</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="appcontrol_explanation_short">Apps installati fuq l-apparat tiegħek.</string>
     <string name="scheduler_label">Scheduler</string>
@@ -233,16 +231,6 @@
     <string name="appcontrol_export_title">Esporta app</string>
     <string name="appcontrol_share_list_action">Aqsam il-lista</string>
     <string name="appcontrol_force_stop_action">Waqqaf b\'forza</string>
-    <string name="analyzer_progress_scanning_device">Qed infittxu apparati tal-ħażna</string>
-    <string name="analyzer_progress_scanning_storage">Qed tiskennja l-ħażna</string>
-    <string name="analyzer_progress_scanning_apps">Qed jiskenjaw l-apps</string>
-    <string name="analyzer_device_storage_title">Ħażna tal-apparat</string>
-    <string name="analyzer_storage_type_primary_title">Ħażna primarja</string>
-    <string name="analyzer_storage_type_secondary_title">Ħażna sekondarja</string>
-    <string name="analyzer_storage_content_title">Kontenut tal-ħażna</string>
-    <string name="analyzer_storage_content_type_app_label">Apps</string>
-    <string name="analyzer_storage_content_type_media_label">Fajls tal-utent</string>
-    <string name="analyzer_storage_content_type_system_label">Data tas-sistema</string>
     <string name="scheduler_execution_label">Eżekuzzjoni li jmiss (approssimattivament)</string>
     <string name="scheduler_execution_last_label">L-aħħar eżekuzzjoni</string>
     <string name="scheduler_new_schedule_action">Oħloq skeda</string>

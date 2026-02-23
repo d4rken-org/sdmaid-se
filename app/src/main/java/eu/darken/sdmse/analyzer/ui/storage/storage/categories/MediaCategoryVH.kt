@@ -30,7 +30,7 @@ class MediaCategoryVH(parent: ViewGroup) :
         val usedText = Formatter.formatShortFileSize(context, content.spaceUsed)
         val totalPercent = ((content.spaceUsed / storage.spaceUsed.toDouble()) * 100).toInt()
         usedSpace.text = getQuantityString(
-            R.plurals.analyzer_space_used,
+            eu.darken.sdmse.analyzer.R.plurals.analyzer_space_used,
             ByteFormatter.stripSizeUnit(usedText)?.roundToInt() ?: 1,
             usedText
         )

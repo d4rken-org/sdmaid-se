@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analizadore de Archìviu</string>
+    <string name="analyzer_explanation_short">Ischire ite est ocupende ispàtziu in su dispositivu tuo.</string>
+    <string name="analyzer_progress_scanning_device">Chirchende dispositivos de archìviu</string>
+    <string name="analyzer_progress_scanning_storage">Iscansionende archìviu</string>
+    <string name="analyzer_progress_scanning_apps">Iscansionende aplicatziones</string>
+    <string name="analyzer_progress_scanning_userfiles">Chirchende documentos de usuàriu</string>
+    <string name="analyzer_progress_scanning_system">Iscansionende datos de sistema</string>
+    <string name="analyzer_device_storage_title">Archìviu de dispositivu</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s disponìbile</item>
+        <item quantity="other">%s disponìbiles</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s impreadu</item>
+        <item quantity="other">%s impreados</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Perunu atzessu deretu a disponimentu</string>
+    <string name="analyzer_content_create_swiper_session_action">Crea sessione Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sessione Swiper creada cun %d elementu</item>
+        <item quantity="other">Sessione Swiper creada cun %d elementos</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Archìviu primàriu</string>
+    <string name="analyzer_storage_type_primary_description">S\'archìviu primàriu de su dispositivu tuo. Cuntenet sa carta SD interna, s\'archìviu privadu pro aplicatziones e datos de sistema.</string>
+    <string name="analyzer_storage_type_secondary_title">Archìviu secundàriu</string>
+    <string name="analyzer_storage_type_secondary_description">Unu archìviu secundàriu, de sòlitu una carta SD bogàbile. Cuntenet documentos multimedia e datos dae aplicatziones chi lu suportant.</string>
+    <string name="analyzer_storage_type_tertiary_title">Archìviu portàbile</string>
+    <string name="analyzer_storage_type_tertiary_description">Unu archìviu portàbile, es. una unidade flash connetida a sa porta USB tua.</string>
+    <string name="analyzer_storage_content_title">Cuntenèntzia de s\'archìviu</string>
+    <string name="analyzer_storage_content_type_app_label">Aplicatziones</string>
+    <string name="analyzer_storage_content_type_app_description">Ispàtziu ocupadu dae aplicatziones installadas e datos issoro (id est documentos de aplicatzione, datos e cache).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Mancant permissos</string>
+    <string name="analyzer_storage_content_type_media_label">Documentos de usuàriu</string>
+    <string name="analyzer_storage_content_type_media_description">Imàgines pigadas, vídeos registrados o datos iscarrigados. Cale si siat datu chi no apertenet a una aplicatzione ispetzìfica.</string>
+    <string name="analyzer_storage_content_type_system_label">Datos de sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Aplicatziones de sistema e datos de sistema. Aplicatziones e datos dae àteros usuàrios, si tàntos contos de usuàriu sunt cunfigurrados in custu dispositivu.</string>
+    <string name="analyzer_storage_content_app_code_label">Còdighe de aplicatzione</string>
+    <string name="analyzer_storage_content_app_code_description">Documentos de aplicatzione, bibliotecas e risursas. Custu ispàtziu podet èssere liberadu disinstalende s\'aplicatzione o archiviende·la (a disponimentu in versiones de Android più noas).</string>
+    <string name="analyzer_storage_content_app_data_label">Datos de aplicatzione</string>
+    <string name="analyzer_storage_content_app_data_description">Datos, impostatziones e cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Media de aplicatzione</string>
+    <string name="analyzer_storage_content_app_media_description">Documentos multimedia dae custa aplicatzione, es. fotografias de WhatsApp retzidas.</string>
+    <string name="analyzer_storage_content_app_extra_label">Documentos additzionales de aplicatzione</string>
+    <string name="analyzer_storage_content_app_extra_description">Datos additzionales chi custa aplicatzione at postu a foras de is caminos predefinidos, es. fotografias o iscarrigamentos.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Custa aplicatzione ocupat %1$s in \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Custa aplicatzione est istada archiviada.</string>
+</resources>

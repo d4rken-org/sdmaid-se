@@ -211,6 +211,7 @@ dependencies {
     implementation(project(":app-tool-appcleaner"))
     implementation(project(":app-tool-deduplicator"))
     implementation(project(":app-tool-squeezer"))
+    implementation(project(":app-tool-analyzer"))
 
     addDI()
     addCoroutines()

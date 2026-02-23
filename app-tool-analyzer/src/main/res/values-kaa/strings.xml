@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Saqlaw orın analizatori</string>
+    <string name="analyzer_explanation_short">Qurılmańızda orın iyelep turǵan nárselerdi anıqlaw.</string>
+    <string name="analyzer_progress_scanning_device">Saqlaw qurılmaların izlew</string>
+    <string name="analyzer_progress_scanning_storage">Saqlaw orındı skanerlew</string>
+    <string name="analyzer_progress_scanning_apps">Baǵdarlamalardı skanerlew</string>
+    <string name="analyzer_progress_scanning_userfiles">Paydalanıwshı faylların izlew</string>
+    <string name="analyzer_progress_scanning_system">Sistema maǵlıwmatların skanerlew</string>
+    <string name="analyzer_device_storage_title">Qurılma saqlaw orını</string>
+    <string name="analyzer_content_access_opaque">Tuwrıdan-tuwrı kirisiw múmkin emes</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper sessiyasın jaratıw</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d element menen Swiper sessiyası jaratıldı</item>
+        <item quantity="other">%d element menen Swiper sessiyası jaratıldı</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Tiykarǵı saqlaw orını</string>
+    <string name="analyzer_storage_type_primary_description">Qurılmańızdıń tiykarǵı saqlaw orını. Ishki SD karta, baǵdarlamalar ushın jeke saqlaw orını hám sistema maǵlıwmatların óz ishine aladı.</string>
+    <string name="analyzer_storage_type_secondary_title">Qosımsha saqlaw orını</string>
+    <string name="analyzer_storage_type_secondary_description">Qosımsha saqlaw orını, ádetde shıǵarıp alınǵan SD karta. Media fayllar hám onı qollap-quwatlaytuǵın baǵdarlamalar maǵlıwmatların óz ishine aladı.</string>
+    <string name="analyzer_storage_type_tertiary_title">Kósip júriwshi saqlaw orını</string>
+    <string name="analyzer_storage_type_tertiary_description">Kósip júriwshi saqlaw orını, mısalı, USB portıńızǵa jalǵanǵan flesh-disk.</string>
+    <string name="analyzer_storage_content_title">Saqlaw mazmunı</string>
+    <string name="analyzer_storage_content_type_app_label">Qosımshalar</string>
+    <string name="analyzer_storage_content_type_app_description">Ornatılǵan baǵdarlamalar hám olardıń maǵlıwmatları iyelep turǵan orın (yaǵnıy baǵdarlama faylları, maǵlıwmatlar hám keshler).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Ruqsatnamalar jetispeydi</string>
+    <string name="analyzer_storage_content_type_media_label">Paydalanıwshı faylları</string>
+    <string name="analyzer_storage_content_type_media_description">Túsirilgen súwretler, jazılǵan videolar yamasa júklengen maǵlıwmatlar. Qandayda bir anıq baǵdarlamaǵa tiyisli bolmaǵan hár qanday maǵlıwmat.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistema maǵlıwmatları</string>
+    <string name="analyzer_storage_content_type_system_description">Sistema baǵdarlamaları hám sistema maǵlıwmatları. Eger bul qurılmada bir neshe paydalanıwshı akkauntı ornatılǵan bolsa, basqa paydalanıwshılardıń baǵdarlamaları hám maǵlıwmatları.</string>
+    <string name="analyzer_storage_content_app_code_label">Qosımsha kodı</string>
+    <string name="analyzer_storage_content_app_code_description">Baǵdarlama faylları, kitapxanalar hám resurslar. Bul orındı baǵdarlamanı óshiriw yamasa arxivlew arqalı bosatıw múmkin (jańa Android nusqalarında bar).</string>
+    <string name="analyzer_storage_content_app_data_label">Qosımsha maǵlıwmatları</string>
+    <string name="analyzer_storage_content_app_data_description">Maǵlıwmatlar, sazlawlar hám keshler.</string>
+    <string name="analyzer_storage_content_app_media_label">Baǵdarlama mediası</string>
+    <string name="analyzer_storage_content_app_media_description">Bul baǵdarlamadaǵı media fayllar, mısalı, qabıl etilgen WhatsApp súwretleri.</string>
+    <string name="analyzer_storage_content_app_extra_label">Qosımsha baǵdarlama faylları</string>
+    <string name="analyzer_storage_content_app_extra_description">Bul baǵdarlama ádettegi jollardan tısqarı jaylastırǵan qosımsha maǵlıwmatlar, mısalı, súwretler yamasa júklewler.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Bul baǵdarlama \"%2$s\" ústinde %1$s orın iyeleydi.</string>
+    <string name="analyzer_app_details_app_is_archived">Bul baǵdarlama arxivlangan.</string>
+</resources>

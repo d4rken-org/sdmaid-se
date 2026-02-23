@@ -37,8 +37,9 @@ class ContentItemGridVH(parent: ViewGroup) :
         val content = item.content
 
         previewImage.apply {
-            if (content.lookup != null) {
-                loadFilePreview(content.lookup) {
+            val lookup = content.lookup
+            if (lookup != null) {
+                loadFilePreview(lookup) {
                     // Exception java.lang.IllegalArgumentException: Software rendering doesn't support hardware bitmaps
                     bitmapConfig(Bitmap.Config.ARGB_8888)
                 }

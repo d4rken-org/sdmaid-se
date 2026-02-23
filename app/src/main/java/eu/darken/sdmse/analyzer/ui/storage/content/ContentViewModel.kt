@@ -121,10 +121,13 @@ class ContentViewModel @Inject constructor(
             .map { content ->
                 val onItemClicked: () -> Unit = {
                     when (content.type) {
-                        FileType.FILE -> if (content.lookup != null) {
-                            open(content.lookup)
-                        } else {
-                            log(TAG) { "Content has no lookup, can't open: $content" }
+                        FileType.FILE -> {
+                            val lookup = content.lookup
+                            if (lookup != null) {
+                                open(lookup)
+                            } else {
+                                log(TAG) { "Content has no lookup, can't open: $content" }
+                            }
                         }
 
                         else -> if (content.inaccessible) {

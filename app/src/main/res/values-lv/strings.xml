@@ -190,11 +190,6 @@
     <string name="settings_category_filter">Filtrs</string>
     <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="appcontrol_explanation_short">Jūsu ierīcē instalētās lietotnes.</string>
-    <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
-    <string name="analyzer_device_storage_title">Ierīces krātuve</string>
-    <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
-    <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
-    <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
     <string name="data_area_public_app_assets_official_label">Noklusējuma publiskie lietotņu aktīvi</string>
     <string name="data_area_public_storage_label">Publiskā krātuve</string>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">ਸਟੋਰੇਜ ਵਿਸ਼ਲੇਸ਼ਕ</string>
+    <string name="analyzer_explanation_short">ਪਤਾ ਲਗਾਓ ਕਿ ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਕੀ ਥਾਂ ਲੈ ਰਿਹਾ ਹੈ।</string>
+    <string name="analyzer_progress_scanning_device">ਸਟੋਰੇਜ ਡਿਵਾਈਸਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
+    <string name="analyzer_progress_scanning_storage">ਸਟੋਰੇਜ ਸਕੈਨ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
+    <string name="analyzer_progress_scanning_apps">ਐਪਾਂ ਸਕੈਨ ਕੀਤੀਆਂ ਜਾ ਰਹੀਆਂ ਹਨ</string>
+    <string name="analyzer_progress_scanning_userfiles">ਵਰਤੋਂਕਾਰ ਫਾਈਲਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
+    <string name="analyzer_progress_scanning_system">ਸਿਸਟਮ ਡਾਟਾ ਸਕੈਨ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ</string>
+    <string name="analyzer_device_storage_title">ਡਿਵਾਈਸ ਸਟੋਰੇਜ</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ਉਪਲਬਧ ਹੈ</item>
+        <item quantity="other">%s ਉਪਲਬਧ ਹੈ</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ਵਰਤਿਆ ਗਿਆ</item>
+        <item quantity="other">%s ਵਰਤਿਆ ਗਿਆ</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">ਕੋਈ ਸਿੱਧੀ ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper ਸੈਸ਼ਨ ਬਣਾਓ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d ਆਈਟਮ ਨਾਲ Swiper ਸੈਸ਼ਨ ਬਣਾਇਆ ਗਿਆ</item>
+        <item quantity="other">%d ਆਈਟਮਾਂ ਨਾਲ Swiper ਸੈਸ਼ਨ ਬਣਾਇਆ ਗਿਆ</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">ਮੁੱਖ ਸਟੋਰੇਜ</string>
+    <string name="analyzer_storage_type_primary_description">ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਦੀ ਮੁੱਖ ਸਟੋਰੇਜ। ਇਸ ਵਿੱਚ ਅੰਦਰੂਨੀ SD ਕਾਰਡ, ਐਪਾਂ ਲਈ ਨਿੱਜੀ ਸਟੋਰੇਜ ਅਤੇ ਸਿਸਟਮ ਡਾਟਾ ਸ਼ਾਮਲ ਹੈ।</string>
+    <string name="analyzer_storage_type_secondary_title">ਸੈਕੰਡਰੀ ਸਟੋਰੇਜ</string>
+    <string name="analyzer_storage_type_secondary_description">ਇੱਕ ਸੈਕੰਡਰੀ ਸਟੋਰੇਜ, ਆਮ ਤੌਰ \'ਤੇ ਇੱਕ ਹਟਾਉਣਯੋਗ SD ਕਾਰਡ। ਇਸ ਵਿੱਚ ਮੀਡੀਆ ਫਾਈਲਾਂ ਅਤੇ ਉਹਨਾਂ ਐਪਾਂ ਦਾ ਡਾਟਾ ਸ਼ਾਮਲ ਹੈ ਜੋ ਇਸਦਾ ਸਮਰਥਨ ਕਰਦੀਆਂ ਹਨ।</string>
+    <string name="analyzer_storage_type_tertiary_title">ਪੋਰਟੇਬਲ ਸਟੋਰੇਜ</string>
+    <string name="analyzer_storage_type_tertiary_description">ਇੱਕ ਪੋਰਟੇਬਲ ਸਟੋਰੇਜ, ਜਿਵੇਂ ਕਿ ਤੁਹਾਡੇ USB ਪੋਰਟ ਵਿੱਚ ਲਗਾਈ ਗਈ ਫਲੈਸ਼ ਡਰਾਈਵ।</string>
+    <string name="analyzer_storage_content_title">ਸਟੋਰੇਜ ਸਮੱਗਰੀ</string>
+    <string name="analyzer_storage_content_type_app_label">ਐਪਾਂ</string>
+    <string name="analyzer_storage_content_type_app_description">ਸਥਾਪਿਤ ਐਪਾਂ ਅਤੇ ਉਹਨਾਂ ਦੇ ਡਾਟਾ (ਯਾਨੀ ਐਪਲੀਕੇਸ਼ਨ ਫਾਈਲਾਂ, ਡਾਟਾ ਅਤੇ ਕੈਸ਼) ਦੁਆਰਾ ਲਈ ਗਈ ਜਗ੍ਹਾ।</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ਇਜਾਜ਼ਤਾਂ ਗੁੰਮ ਹਨ</string>
+    <string name="analyzer_storage_content_type_media_label">ਵਰਤੋਂਕਾਰ ਫਾਈਲਾਂ</string>
+    <string name="analyzer_storage_content_type_media_description">ਖਿੱਚੀਆਂ ਗਈਆਂ ਤਸਵੀਰਾਂ, ਰਿਕਾਰਡ ਕੀਤੇ ਵੀਡੀਓ ਜਾਂ ਡਾਊਨਲੋਡ ਕੀਤਾ ਡਾਟਾ। ਕੋਈ ਵੀ ਡਾਟਾ ਜੋ ਕਿਸੇ ਖਾਸ ਐਪ ਨਾਲ ਸਬੰਧਤ ਨਹੀਂ ਹੈ।</string>
+    <string name="analyzer_storage_content_type_system_label">ਸਿਸਟਮ ਡਾਟਾ</string>
+    <string name="analyzer_storage_content_type_system_description">ਸਿਸਟਮ ਐਪਾਂ ਅਤੇ ਸਿਸਟਮ ਡਾਟਾ। ਜੇ ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਕਈ ਵਰਤੋਂਕਾਰ ਖਾਤੇ ਸੈੱਟ ਹਨ ਤਾਂ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਦੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ।</string>
+    <string name="analyzer_storage_content_app_code_label">ਐਪ ਕੋਡ</string>
+    <string name="analyzer_storage_content_app_code_description">ਐਪਲੀਕੇਸ਼ਨ ਫਾਈਲਾਂ, ਲਾਇਬ੍ਰੇਰੀਆਂ ਅਤੇ ਸਰੋਤ। ਇਹ ਜਗ੍ਹਾ ਐਪ ਨੂੰ ਅਣਸਥਾਪਿਤ ਕਰਕੇ ਜਾਂ ਇਸਨੂੰ ਸੰਗ੍ਰਹਿਤ ਕਰਕੇ (ਨਵੇਂ Android ਵਰਜਨ \'ਤੇ ਉਪਲਬਧ) ਮੁਕਤ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
+    <string name="analyzer_storage_content_app_data_label">ਐਪ ਡਾਟਾ</string>
+    <string name="analyzer_storage_content_app_data_description">ਡਾਟਾ, ਸੈਟਿੰਗਾਂ ਅਤੇ ਕੈਸ਼।</string>
+    <string name="analyzer_storage_content_app_media_label">ਐਪ ਮੀਡੀਆ</string>
+    <string name="analyzer_storage_content_app_media_description">ਇਸ ਐਪ ਤੋਂ ਮੀਡੀਆ ਫਾਈਲਾਂ, ਜਿਵੇਂ ਕਿ ਪ੍ਰਾਪਤ ਕੀਤੀਆਂ WhatsApp ਤਸਵੀਰਾਂ।</string>
+    <string name="analyzer_storage_content_app_extra_label">ਵਾਧੂ ਐਪ ਫਾਈਲਾਂ</string>
+    <string name="analyzer_storage_content_app_extra_description">ਵਾਧੂ ਡਾਟਾ ਜੋ ਇਸ ਐਪ ਨੇ ਮੂਲ ਮਾਰਗਾਂ ਤੋਂ ਬਾਹਰ ਰੱਖਿਆ ਹੈ, ਜਿਵੇਂ ਕਿ ਤਸਵੀਰਾਂ ਜਾਂ ਡਾਊਨਲੋਡ।</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ਇਹ ਐਪ \"%2$s\" \'ਤੇ %1$s ਦਾ ਸਥਾਨ ਲੈਂਦੀ ਹੈ।</string>
+    <string name="analyzer_app_details_app_is_archived">ਇਹ ਐਪ ਸੰਗ੍ਰਹਿਤ ਕੀਤੀ ਗਈ ਹੈ।</string>
+</resources>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
+    <string name="analyzer_explanation_short">Descobriu què ocupa espai al vostre dispositiu.</string>
+    <string name="analyzer_progress_scanning_device">Cerca de dispositius d\'emmagatzematge</string>
+    <string name="analyzer_progress_scanning_storage">Escaneig d\'emmagatzematge</string>
+    <string name="analyzer_progress_scanning_apps">Escaneig d\'aplicacions</string>
+    <string name="analyzer_progress_scanning_userfiles">Cerca de fitxers d\'usuari</string>
+    <string name="analyzer_progress_scanning_system">Escaneig de dades del sistema</string>
+    <string name="analyzer_device_storage_title">Emmagatzematge del dispositiu</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s disponible</item>
+        <item quantity="other">%s disponibles</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s usat</item>
+        <item quantity="other">%s usats</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">No hi ha accés directe disponible</string>
+    <string name="analyzer_content_create_swiper_session_action">Crea una sessió d\'escombrador</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sessió d\'escombrador creada amb %d element</item>
+        <item quantity="other">Sessió d\'escombrador creada amb %d elements</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Emmagatzematge primari</string>
+    <string name="analyzer_storage_type_primary_description">L\'emmagatzematge principal del vostre dispositiu. Conté la targeta SD interna, emmagatzematge privat per a aplicacions i dades del sistema.</string>
+    <string name="analyzer_storage_type_secondary_title">Emmagatzematge secundari</string>
+    <string name="analyzer_storage_type_secondary_description">Un emmagatzematge secundari, normalment una targeta SD extraïble. Conté fitxers multimèdia i dades d\'aplicacions que ho admeten.</string>
+    <string name="analyzer_storage_type_tertiary_title">Emmagatzematge portàtil</string>
+    <string name="analyzer_storage_type_tertiary_description">Un emmagatzematge portàtil, p. ex. una unitat flaix connectada al port USB.</string>
+    <string name="analyzer_storage_content_title">Contingut d\'emmagatzematge</string>
+    <string name="analyzer_storage_content_type_app_label">Aplicacions</string>
+    <string name="analyzer_storage_content_type_app_description">Espai ocupat per les aplicacions instal·lades i les seves dades (és a dir, fitxers d\'aplicacions, dades i memòria cau).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Falten permisos</string>
+    <string name="analyzer_storage_content_type_media_label">Fitxers d\'usuari</string>
+    <string name="analyzer_storage_content_type_media_description">Imatges capturades, vídeos gravats o dades baixades. Qualsevol dada que no pertanyi a una aplicació específica.</string>
+    <string name="analyzer_storage_content_type_system_label">Dades del sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Aplicacions del sistema i dades del sistema. Aplicacions i dades d\'altres usuaris, si hi ha diversos comptes d\'usuari configurats en aquest dispositiu.</string>
+    <string name="analyzer_storage_content_app_code_label">Codi de l\'aplicació</string>
+    <string name="analyzer_storage_content_app_code_description">Fitxers d\'aplicacions, biblioteques i recursos. Aquest espai es pot alliberar desinstal·lant l\'aplicació o arxivant-la (disponible a la versió d\'Android més recent).</string>
+    <string name="analyzer_storage_content_app_data_label">Dades de l\'aplicació</string>
+    <string name="analyzer_storage_content_app_data_description">Dades, configuració i memòria cau.</string>
+    <string name="analyzer_storage_content_app_media_label">Mitjans de l\'aplicació</string>
+    <string name="analyzer_storage_content_app_media_description">Fitxers multimèdia d\'aquesta aplicació, p. ex. fotos rebudes del WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Fitxers d\'aplicacions addicionals</string>
+    <string name="analyzer_storage_content_app_extra_description">Dades addicionals que aquesta aplicació ha col·locat fora de les rutes per defecte, p. ex. fotos o baixades.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aquesta aplicació ocupa %1$s a «%2$s».</string>
+    <string name="analyzer_app_details_app_is_archived">Aquesta aplicació s\'ha arxivat.</string>
+</resources>

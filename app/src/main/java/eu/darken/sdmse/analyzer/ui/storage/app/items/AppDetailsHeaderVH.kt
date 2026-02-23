@@ -34,13 +34,13 @@ class AppDetailsHeaderVH(parent: ViewGroup) :
 
         primary.apply {
             text = getString(
-                R.string.analyzer_app_details_app_occupies_x_on_y,
+                eu.darken.sdmse.analyzer.R.string.analyzer_app_details_app_occupies_x_on_y,
                 Formatter.formatShortFileSize(context, pkgStat.totalSize),
                 storage.label.get(context)
             )
             if (pkgStat.pkg.isArchived) {
                 append(" ")
-                append(getString(R.string.analyzer_app_details_app_is_archived))
+                append(getString(eu.darken.sdmse.analyzer.R.string.analyzer_app_details_app_is_archived))
             }
         }
 

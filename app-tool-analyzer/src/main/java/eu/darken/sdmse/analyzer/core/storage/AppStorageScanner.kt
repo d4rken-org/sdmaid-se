@@ -3,7 +3,7 @@ package eu.darken.sdmse.analyzer.core.storage
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.R
+import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage

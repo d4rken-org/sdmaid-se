@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Анализ памяти</string>
+    <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
+    <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>
+    <string name="analyzer_progress_scanning_storage">Анализ хранилища</string>
+    <string name="analyzer_progress_scanning_apps">Анализ приложений</string>
+    <string name="analyzer_progress_scanning_userfiles">Поиск пользовательских файлов</string>
+    <string name="analyzer_progress_scanning_system">Анализ системных данных</string>
+    <string name="analyzer_device_storage_title">Хранилище устройства</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">Доступно %s</item>
+        <item quantity="few">Доступно %s</item>
+        <item quantity="many">Доступно %s</item>
+        <item quantity="other">Доступно %s</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">Занято %s</item>
+        <item quantity="few">Занято %s</item>
+        <item quantity="many">Занято %s</item>
+        <item quantity="other">Занято %s</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Отсутствует прямой доступ</string>
+    <string name="analyzer_content_create_swiper_session_action">Создать сессию Свайпер</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Сессия Свайпер создана с помощью %d элемента</item>
+        <item quantity="few">Сессия Свайпер создана с помощью %d элем.</item>
+        <item quantity="many">Сессия Свайпер создана с помощью %d элем.</item>
+        <item quantity="other">Сессия Свайпер создана с помощью %d элем.</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Основное хранилище</string>
+    <string name="analyzer_storage_type_primary_description">Основное хранилище Вашего устройства. Включает в себя внутренний раздел SD card, данные приложений и системы.</string>
+    <string name="analyzer_storage_type_secondary_title">Дополнительное хранилище</string>
+    <string name="analyzer_storage_type_secondary_description">Дополнительная память, обычно внешняя карта памяти. Содержит медиафайлы и данные приложений, которые поддерживают её.</string>
+    <string name="analyzer_storage_type_tertiary_title">Съемный накопитель</string>
+    <string name="analyzer_storage_type_tertiary_description">Съемный накопитель, например, флэш-диск подключен к USB-порту.</string>
+    <string name="analyzer_storage_content_title">Содержимое хранилища</string>
+    <string name="analyzer_storage_content_type_app_label">Приложения</string>
+    <string name="analyzer_storage_content_type_app_description">Место, занятое установленными приложениями и их данными (например, файлы приложений, данные и кэш).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Отсутствуют разрешения</string>
+    <string name="analyzer_storage_content_type_media_label">Пользовательские файлы</string>
+    <string name="analyzer_storage_content_type_media_description">Сохраненные изображения, видео или загруженные данные. Любые данные, которые не принадлежат определенному приложению.</string>
+    <string name="analyzer_storage_content_type_system_label">Системные данные</string>
+    <string name="analyzer_storage_content_type_system_description">Системные приложения и системные данные. Приложения и данные других пользователей, если на этом устройстве установлено несколько учетных записей.</string>
+    <string name="analyzer_storage_content_app_code_label">Код приложения</string>
+    <string name="analyzer_storage_content_app_code_description">Файлы приложений, библиотеки и ресурсы. Это место можно освободить, удаляя приложение или архивируя его (доступно на новой версии Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Данные приложений</string>
+    <string name="analyzer_storage_content_app_data_description">Данные, настройки и кэш.</string>
+    <string name="analyzer_storage_content_app_media_label">Медиа приложений</string>
+    <string name="analyzer_storage_content_app_media_description">Медиафайлы этого приложения, например фотографии, полученные в WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Дополнительные файлы приложения</string>
+    <string name="analyzer_storage_content_app_extra_description">Дополнительные данные, которые это приложение поместило вне стандартных путей, например фото или загрузки.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Это приложение занимает %1$s на \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Это приложение было архивировано.</string>
+</resources>

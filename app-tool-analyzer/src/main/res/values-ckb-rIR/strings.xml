@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">ناحیەکانAnalyzer</string>
+    <string name="analyzer_progress_scanning_device">گەڕانing for storage devices</string>
+    <string name="analyzer_progress_scanning_storage">گەڕانning storage</string>
+    <string name="analyzer_progress_scanning_apps">گەڕانning apps</string>
+    <string name="analyzer_progress_scanning_userfiles">گەڕانing user files</string>
+    <string name="analyzer_progress_scanning_system">گەڕانning system data</string>
+    <string name="analyzer_device_storage_title">ئامێر storage</string>
+    <string name="analyzer_content_access_opaque">نەخێر direct access available</string>
+    <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable SD card. Contains media فایلs and data from apps that support it.</string>
+    <string name="analyzer_storage_content_title">ناحیەکان content</string>
+    <string name="analyzer_storage_content_type_app_label">ئەپەکان</string>
+    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. application فایلs, data and caches).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">مۆڵەتs are missing</string>
+    <string name="analyzer_storage_content_type_media_label">User فایلs</string>
+    <string name="analyzer_storage_content_type_system_label">سیستەم data</string>
+    <string name="analyzer_storage_content_type_system_description">سیستەم apps and system data. ئەپs and data from other users, if several user accounts are set on this device.</string>
+    <string name="analyzer_storage_content_app_code_label">ئەپ code</string>
+    <string name="analyzer_storage_content_app_code_description">ئەپlication files, libraries and resources. This space can be freed by uninstalling the app or archiving it (available on newer Android version).</string>
+    <string name="analyzer_storage_content_app_data_label">ئەپ data</string>
+    <string name="analyzer_storage_content_app_data_description">داتا, settings and caches.</string>
+    <string name="analyzer_storage_content_app_media_label">ئەپ media</string>
+    <string name="analyzer_storage_content_app_media_description">میدیا files from this app, e.g. received Whatsئەپ photos.</string>
+    <string name="analyzer_storage_content_app_extra_label">Extra app فایلs</string>
+</resources>

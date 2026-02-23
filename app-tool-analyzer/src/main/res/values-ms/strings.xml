@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Penganalisis Storan</string>
+    <string name="analyzer_explanation_short">Ketahui apa yang menggunakan ruang pada peranti anda.</string>
+    <string name="analyzer_progress_scanning_device">Mencari peranti storan</string>
+    <string name="analyzer_progress_scanning_storage">Mengimbas storan</string>
+    <string name="analyzer_progress_scanning_apps">Mengimbas aplikasi</string>
+    <string name="analyzer_progress_scanning_userfiles">Mencari fail pengguna</string>
+    <string name="analyzer_progress_scanning_system">Mengimbas data sistem</string>
+    <string name="analyzer_device_storage_title">Storan peranti</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s tersedia</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s digunakan</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Tiada akses langsung tersedia</string>
+    <string name="analyzer_content_create_swiper_session_action">Cipta sesi Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">Sesi Swiper dicipta dengan %d item</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Storan utama</string>
+    <string name="analyzer_storage_type_primary_description">Storan dalaman peranti</string>
+    <string name="analyzer_storage_type_secondary_title">Storan sekunder</string>
+    <string name="analyzer_storage_type_secondary_description">Storan luaran seperti kad SD</string>
+    <string name="analyzer_storage_type_tertiary_title">Lain-lain</string>
+    <string name="analyzer_storage_type_tertiary_description">Storan tambahan atau storan rangkaian</string>
+    <string name="analyzer_storage_content_title">Kandungan storan</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikasi</string>
+    <string name="analyzer_storage_content_type_app_description">Ruang yang diduduki oleh aplikasi yang dipasang dan datanya (iaitu fail aplikasi, data dan cache).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Kebenaran telah menghilang</string>
+    <string name="analyzer_storage_content_type_media_label">Fail pengguna</string>
+    <string name="analyzer_storage_content_type_media_description">Gambar yang ditangkap, video yang dirakam atau data yang dimuat turun. Sebarang data yang bukan milik aplikasi tertentu.</string>
+    <string name="analyzer_storage_content_type_system_label">Data sistem</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akaun pengguna ditetapkan pada peranti ini.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod aplikasi</string>
+    <string name="analyzer_storage_content_app_code_description">Fail aplikasi, perpustakaan dan sumber. Ruang ini boleh dibebaskan dengan menyahpasang aplikasi atau mengarkibkannya (tersedia pada versi Android yang lebih baharu).</string>
+    <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>
+    <string name="analyzer_storage_content_app_data_description">Data, tetapan dan cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Media aplikasi</string>
+    <string name="analyzer_storage_content_app_media_description">Fail media daripada aplikasi ini, cth. menerima gambar WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Fail aplikasi tambahan</string>
+    <string name="analyzer_storage_content_app_extra_description">Data tambahan yang telah diletakkan oleh aplikasi ini di luar laluan lalai, cth. foto atau muat turun.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarkibkan.</string>
+</resources>

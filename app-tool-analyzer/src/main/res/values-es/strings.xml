@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
+    <string name="analyzer_explanation_short">Averigua qué ocupa espacio en tu dispositivo.</string>
+    <string name="analyzer_progress_scanning_device">Buscando dispositivos de almacenamiento</string>
+    <string name="analyzer_progress_scanning_storage">Escaneando el almacenamiento</string>
+    <string name="analyzer_progress_scanning_apps">Escaneando las aplicaciones</string>
+    <string name="analyzer_progress_scanning_userfiles">Buscando los archivos del usuario</string>
+    <string name="analyzer_progress_scanning_system">Escaneando los datos del sistema</string>
+    <string name="analyzer_device_storage_title">Almacenamiento del dispositivo</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s disponible</item>
+        <item quantity="other">%s disponibles</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s utilizado</item>
+        <item quantity="other">%s utilizados</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">No hay acceso directo</string>
+    <string name="analyzer_content_create_swiper_session_action">Crear sesión de Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Sesión de Swiper creada con %d elemento</item>
+        <item quantity="other">Sesión de Swiper creada con %d elementos</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Almacenamiento principal</string>
+    <string name="analyzer_storage_type_primary_description">El almacenamiento principal de tu dispositivo. Contiene la tarjeta SD interna, almacenamiento privado para aplicaciones y datos del sistema.</string>
+    <string name="analyzer_storage_type_secondary_title">Almacenamiento Secundario</string>
+    <string name="analyzer_storage_type_secondary_description">Un almacenamiento secundario, normalmente una tarjeta SD extraíble. Contiene archivos multimedia y los datos de las aplicaciones que lo soportan.</string>
+    <string name="analyzer_storage_type_tertiary_title">Almacenamiento portátil</string>
+    <string name="analyzer_storage_type_tertiary_description">Un almacenamiento portátil, por ejemplo, una unidad flash conectada al puerto USB.</string>
+    <string name="analyzer_storage_content_title">Contenido del almacenamiento</string>
+    <string name="analyzer_storage_content_type_app_label">Aplicaciones</string>
+    <string name="analyzer_storage_content_type_app_description">Espacio ocupado por las aplicaciones instaladas y sus datos (es decir, los archivos de las aplicaciones, los datos y las cachés).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">No hay permisos</string>
+    <string name="analyzer_storage_content_type_media_label">Archivos del usuario</string>
+    <string name="analyzer_storage_content_type_media_description">Imágenes capturadas, videos grabados o datos descargados. Cualquier dato que no pertenezca a una aplicación específica.</string>
+    <string name="analyzer_storage_content_type_system_label">Datos del sistema</string>
+    <string name="analyzer_storage_content_type_system_description">Las aplicaciones y los datos del sistema. Las aplicaciones y los datos de otros usuarios, si hay varias cuentas de usuario configuradas en este dispositivo.</string>
+    <string name="analyzer_storage_content_app_code_label">Código de la aplicación</string>
+    <string name="analyzer_storage_content_app_code_description">Archivos, bibliotecas y recursos de la aplicación. Este espacio puede liberarse desinstalando la aplicación o archivándola (disponible en las versiones más recientes de Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Datos de la aplicación</string>
+    <string name="analyzer_storage_content_app_data_description">Datos, configuraciones y cachés.</string>
+    <string name="analyzer_storage_content_app_media_label">Aplicación multimedia</string>
+    <string name="analyzer_storage_content_app_media_description">Archivos multimedia de esta aplicación, por ejemplo, las fotos recibidas de WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Archivos adicionales de la aplicación</string>
+    <string name="analyzer_storage_content_app_extra_description">Datos adicionales que esta aplicación ha colocado fuera de las rutas predeterminadas, por ejemplo, fotos o descargas.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Esta aplicación ocupa %1$s en \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Esta aplicación ha sido archivada.</string>
+</resources>

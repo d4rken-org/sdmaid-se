@@ -36,8 +36,9 @@ class ContentItemListVH(parent: ViewGroup) :
         val content = item.content
 
         contentIcon.apply {
-            if (content.lookup != null) {
-                loadFilePreview(content.lookup)
+            val lookup = content.lookup
+            if (lookup != null) {
+                loadFilePreview(lookup)
             } else {
                 dispose()
                 setImageResource(content.type.iconRes)

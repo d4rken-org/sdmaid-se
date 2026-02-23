@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s ရရှိနိုင်သည်</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s အသုံးပြုပြီး</item>
+    </plurals>
+    <string name="analyzer_storage_content_app_media_description">ဤအက်ပ်မှ မီဒီယာ ဖိုင်များ၊ ဥပမာ - လက်ခံရရှိသော WhatsApp ဓာတ်ပုံများ။</string>
+    <string name="analyzer_storage_content_app_extra_label">အပို အက်ပ် ဖိုင်များ</string>
+    <string name="analyzer_storage_content_app_extra_description">ဤအက်ပ်သည် မူလ လမ်းကြောင်းများ အပြင်ဘက်တွင် ထားရှိထားသော အပို ဒေတာ၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် ဒေါင်းလုဒ်များ။</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ဤအက်ပ်သည် \"%2$s\" တွင် %1$s ယူထားသည်။</string>
+    <string name="analyzer_app_details_app_is_archived">ဤအက်ပ်ကို မှတ်တမ်းတင်ထားသည်။</string>
+</resources>

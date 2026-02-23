@@ -102,15 +102,15 @@ class AppDetailsViewModel @Inject constructor(
         ).run { items.add(this) }
 
         pkgStat.appCode
-            ?.let {
+            ?.let { group ->
                 AppDetailsAppCodeVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
-                    group = it,
+                    group = group,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.appCode.id,
+                            groupId = group.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }
@@ -119,15 +119,15 @@ class AppDetailsViewModel @Inject constructor(
             ?.run { items.add(this) }
 
         pkgStat.appData
-            ?.let {
+            ?.let { group ->
                 AppDetailsAppDataVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
-                    group = it,
+                    group = group,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.appData.id,
+                            groupId = group.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }
@@ -136,15 +136,15 @@ class AppDetailsViewModel @Inject constructor(
             ?.run { items.add(this) }
 
         pkgStat.appMedia
-            ?.let {
+            ?.let { group ->
                 AppDetailsAppMediaVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
-                    group = it,
+                    group = group,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.appMedia.id,
+                            groupId = group.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }
@@ -153,15 +153,15 @@ class AppDetailsViewModel @Inject constructor(
             ?.run { items.add(this) }
 
         pkgStat.extraData
-            ?.let {
+            ?.let { group ->
                 AppDetailsExtraDataVH.Item(
                     storage = storage,
                     pkgStat = pkgStat,
-                    group = it,
+                    group = group,
                     onViewAction = {
                         AppDetailsFragmentDirections.actionAppDetailsFragmentToContentFragment(
                             storageId = targetStorageId,
-                            groupId = pkgStat.extraData.id,
+                            groupId = group.id,
                             installId = pkgStat.id,
                         ).navigate()
                     }

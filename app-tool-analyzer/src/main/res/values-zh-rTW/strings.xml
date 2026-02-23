@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">儲存分析器</string>
+    <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
+    <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>
+    <string name="analyzer_progress_scanning_storage">正在掃描儲存空間</string>
+    <string name="analyzer_progress_scanning_apps">正在掃描應用程式</string>
+    <string name="analyzer_progress_scanning_userfiles">正在搜尋使用者檔案</string>
+    <string name="analyzer_progress_scanning_system">正在搜尋系統資料</string>
+    <string name="analyzer_device_storage_title">裝置儲存空間</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s 可用</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s 已用</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">沒有可用的直接存取</string>
+    <string name="analyzer_content_create_swiper_session_action">建立 Swiper 工作階段</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">已建立包含 %d 個項目的 Swiper 工作階段</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">主要儲存空間</string>
+    <string name="analyzer_storage_type_primary_description">您裝置的主要儲存空間，包含內部「SD 卡」、應用程式和系統資料的私人儲存空間。</string>
+    <string name="analyzer_storage_type_secondary_title">次要儲存空間</string>
+    <string name="analyzer_storage_type_secondary_description">次要儲存空間，通常是卸除式 SD 卡。包含媒體檔案和受支援的應用程式資料。</string>
+    <string name="analyzer_storage_type_tertiary_title">可攜式儲存</string>
+    <string name="analyzer_storage_type_tertiary_description">一種可攜式儲存裝置，例如插入 USB 連接埠的隨身碟。</string>
+    <string name="analyzer_storage_content_title">儲存空間內容</string>
+    <string name="analyzer_storage_content_type_app_label">應用程式</string>
+    <string name="analyzer_storage_content_type_app_description">已安裝的應用程式及其資料 (即應用程式檔案、資料和快取) 佔用的空間。</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">權限遺失</string>
+    <string name="analyzer_storage_content_type_media_label">使用者檔案</string>
+    <string name="analyzer_storage_content_type_media_description">擷取的圖片、錄製的影片或已下載的資料，任何不屬於特定應用程式的資料。</string>
+    <string name="analyzer_storage_content_type_system_label">系統資料</string>
+    <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
+    <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
+    <string name="analyzer_storage_content_app_code_description">應用程式的檔案、函式庫和資源。可以透過解除安裝應用程式或將其封存（適用於較新版的 Android 系統）來釋放這些空間。</string>
+    <string name="analyzer_storage_content_app_data_label">應用程式資料</string>
+    <string name="analyzer_storage_content_app_data_description">資料、設定和快取。</string>
+    <string name="analyzer_storage_content_app_media_label">應用程式媒體</string>
+    <string name="analyzer_storage_content_app_media_description">來自這個應用程式的媒體檔案，例如接收的 WhatsApp 相片。</string>
+    <string name="analyzer_storage_content_app_extra_label">額外應用程式檔案</string>
+    <string name="analyzer_storage_content_app_extra_description">這個應用程式放置在預設路徑之外的額外資料，例如相片和下載項目。</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">這個應用程式在「%2$s」上佔用了 %1$s。</string>
+    <string name="analyzer_app_details_app_is_archived">此應用程式已被封存。</string>
+</resources>

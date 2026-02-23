@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">Дознајте што зафаќа простор на вашиот уред.</string>
+    <string name="analyzer_progress_scanning_device">Пребарување складишни уреди</string>
+    <string name="analyzer_progress_scanning_storage">Скенирање складирање</string>
+    <string name="analyzer_progress_scanning_apps">Скенирање апликации</string>
+    <string name="analyzer_progress_scanning_userfiles">Пребарување кориснички датотеки</string>
+    <string name="analyzer_progress_scanning_system">Скенирање системски податоци</string>
+    <string name="analyzer_device_storage_title">Складирање на уредот</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s достапно</item>
+        <item quantity="other">%s достапни</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s искористено</item>
+        <item quantity="other">%s искористени</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Нема достапен директен пристап</string>
+    <string name="analyzer_content_create_swiper_session_action">Создај Swiper сесија</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper сесија создадена со %d ставка</item>
+        <item quantity="other">Swiper сесија создадена со %d ставки</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Примарно складирање</string>
+    <string name="analyzer_storage_type_primary_description">Примарното складирање на вашиот уред. Содржи внатрешна SD картичка, приватно складирање за апликации и системски податоци.</string>
+    <string name="analyzer_storage_type_secondary_title">Секундарно складирање</string>
+    <string name="analyzer_storage_type_secondary_description">Секундарно складирање, обично отстранлива SD картичка. Содржи медиа датотеки и податоци од апликации кои го поддржуваат.</string>
+    <string name="analyzer_storage_type_tertiary_title">Преносливо складирање</string>
+    <string name="analyzer_storage_type_tertiary_description">Преносливо складирање, пр. флеш диск вклучен во USB портот.</string>
+    <string name="analyzer_storage_content_title">Содржина на складирање</string>
+    <string name="analyzer_storage_content_type_app_label">Апликации</string>
+    <string name="analyzer_storage_content_type_app_description">Простор зафатен од инсталирани апликации и нивните податоци (пр. датотеки на апликации, податоци и кешови).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Недостасуваат дозволи</string>
+    <string name="analyzer_storage_content_type_media_label">Кориснички датотеки</string>
+    <string name="analyzer_storage_content_type_media_description">Сликани фотографии, снимени видеа или преземени податоци. Сите податоци кои не припаѓаат на конкретна апликација.</string>
+    <string name="analyzer_storage_content_type_system_label">Системски податоци</string>
+    <string name="analyzer_storage_content_type_system_description">Системски апликации и системски податоци. Апликации и податоци од други корисници, ако на уредот има повеќе кориснички сметки.</string>
+    <string name="analyzer_storage_content_app_code_label">Код на апликација</string>
+    <string name="analyzer_storage_content_app_code_description">Датотеки, библиотеки и ресурси на апликацијата. Овој простор може да се ослободи со деинсталирање или архивирање на апликацијата (достапно на понови верзии на Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Податоци на апликација</string>
+    <string name="analyzer_storage_content_app_data_description">Податоци, поставки и кешови.</string>
+    <string name="analyzer_storage_content_app_media_label">Медиа на апликација</string>
+    <string name="analyzer_storage_content_app_media_description">Медиа датотеки од оваа апликација, пр. примени WhatsApp фотографии.</string>
+    <string name="analyzer_storage_content_app_extra_label">Дополнителни датотеки на апликација</string>
+    <string name="analyzer_storage_content_app_extra_description">Дополнителни податоци кои оваа апликација ги ставила надвор од стандардните патеки, пр. фотографии или преземања.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Оваа апликација зафаќа %1$s на \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Оваа апликација е архивирана.</string>
+</resources>

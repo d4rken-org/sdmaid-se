@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">I-StorageAnalyzer</string>
+    <string name="analyzer_explanation_short">Thola ukuthi yini ethatha isikhala kudivayisi yakho.</string>
+    <string name="analyzer_progress_scanning_device">Kusesha amadivayisi esitoreji</string>
+    <string name="analyzer_progress_scanning_storage">Kuskena isitoreji</string>
+    <string name="analyzer_progress_scanning_apps">Kuskena izinhlelo zokusebenza</string>
+    <string name="analyzer_progress_scanning_userfiles">Kusesha amafayela omsebenzisi</string>
+    <string name="analyzer_progress_scanning_system">Kuskena idatha yesistimu</string>
+    <string name="analyzer_device_storage_title">Isitoreji sedivayisi</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s itholakala</item>
+        <item quantity="other">%s zitholakala</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s isetshenzisiwe</item>
+        <item quantity="other">%s zisetshenzisiwe</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Akukho ukufinyelela okuqondile okutholakalayo</string>
+    <string name="analyzer_content_create_swiper_session_action">Dala iseshini ye-Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Iseshini ye-Swiper yenziwe nge-%d into</item>
+        <item quantity="other">Iseshini ye-Swiper yenziwe nge-%d izinto</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Isitoreji esiyinhloko</string>
+    <string name="analyzer_storage_type_primary_description">Isitoreji esiyinhloko sedivayisi yakho. Siqukethe ikhadi le-SD langaphakathi, isitoreji sangasese sezinhlelo zokusebenza nedatha yesistimu.</string>
+    <string name="analyzer_storage_type_secondary_title">Isitoreji sesibili</string>
+    <string name="analyzer_storage_type_secondary_description">Isitoreji sesibili, ngokuvamile ikhadi le-SD elisusekayo. Siqukethe amafayela emidiya nedatha evela ezinhlelweni zokusebenza ezisisekelayo.</string>
+    <string name="analyzer_storage_type_tertiary_title">Isitoreji esiphathekayo</string>
+    <string name="analyzer_storage_type_tertiary_description">Isitoreji esiphathekayo, isib. i-flash drive enamathiselwe emnyangweni wakho we-USB.</string>
+    <string name="analyzer_storage_content_title">Okuqukethwe yisitoreji</string>
+    <string name="analyzer_storage_content_type_app_label">Izinhlelo zokusebenza</string>
+    <string name="analyzer_storage_content_type_app_description">Isikhala esihlalwa yizinhlelo zokusebenza ezifakiwe nedatha yazo (okuyinto, amafayela ezinhlelo zokusebenza, idatha nama-cache).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Izimvume zilahlekelwe</string>
+    <string name="analyzer_storage_content_type_media_label">Amafayela omsebenzisi</string>
+    <string name="analyzer_storage_content_type_media_description">Izithombe ezithathiwe, amavidiyo arekhotiwe noma idatha elandiwe. Noma iyiphi idatha engeyona eyinhlelo lokusebenza elithile.</string>
+    <string name="analyzer_storage_content_type_system_label">Idatha yesistimu</string>
+    <string name="analyzer_storage_content_type_system_description">Izinhlelo zokusebenza zesistimu nedatha yesistimu. Izinhlelo zokusebenza nedatha kwabanye abasebenzisi, uma ama-akhawunti abasebenzisi ambalwa esetiwe kule divayisi.</string>
+    <string name="analyzer_storage_content_app_code_label">Ikhodi yohlelo</string>
+    <string name="analyzer_storage_content_app_code_description">Amafayela ohlelo, amathala ezincwadi nezinsiza. Lesi sikhala singakhululwa ngokususa uhlelo noma ngokusibekela (sitholakala kwinguqulo entsha ye-Android).</string>
+    <string name="analyzer_storage_content_app_data_label">Idatha yohlelo</string>
+    <string name="analyzer_storage_content_app_data_description">Idatha, izilungiselelo nama-cache.</string>
+    <string name="analyzer_storage_content_app_media_label">Imidiya yohlelo</string>
+    <string name="analyzer_storage_content_app_media_description">Amafayela emidiya avela kulo hlelo, isib. izithombe ze-WhatsApp ezitholiwe.</string>
+    <string name="analyzer_storage_content_app_extra_label">Amafayela ohlelo engeziwe</string>
+    <string name="analyzer_storage_content_app_extra_description">Idatha engeziwe lolu hlelo oluyibeke ngaphandle kwezindlela ezijwayelekile, isib. izithombe noma okwandiwe.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Lolu hlelo luhlala ku-%1$s ku-\"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Lolu hlelo lubekelwe.</string>
+</resources>

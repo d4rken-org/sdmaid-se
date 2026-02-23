@@ -18,7 +18,7 @@ import kotlinx.coroutines.flow.toList
 import java.util.LinkedList
 
 
-internal fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> {
+fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> {
     val workList = this.sortedBy { it.path.segments.size }.reversed().toMutableList()
 
     val topLevel = mutableListOf<ContentItem>()
@@ -59,10 +59,10 @@ internal fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> 
     return topLevel
 }
 
-internal fun Collection<ContentItem>.toFlatContent(): Collection<ContentItem> =
+fun Collection<ContentItem>.toFlatContent(): Collection<ContentItem> =
     this.map { it.toFlatContent() }.flatten()
 
-internal fun ContentItem.toFlatContent(): Collection<ContentItem> {
+fun ContentItem.toFlatContent(): Collection<ContentItem> {
     val result = mutableListOf<ContentItem>()
 
     result.add(this.copy(children = emptySet()))
@@ -76,7 +76,7 @@ internal fun ContentItem.toFlatContent(): Collection<ContentItem> {
 }
 
 
-internal fun Collection<ContentItem>.findContent(filter: (ContentItem) -> Boolean): ContentItem? {
+fun Collection<ContentItem>.findContent(filter: (ContentItem) -> Boolean): ContentItem? {
     val queue = LinkedList(this)
 
     while (!queue.isEmpty()) {
@@ -89,7 +89,7 @@ internal fun Collection<ContentItem>.findContent(filter: (ContentItem) -> Boolea
 }
 
 
-internal suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
+suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
     log(TAG, VERBOSE) { "Walking content items for $this" }
 
     // What ever `this` is , the gatewaySwitch should make sure we end up with something usable
@@ -109,7 +109,7 @@ internal suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): Conten
     }
 }
 
-internal suspend fun APath.sizeContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
+suspend fun APath.sizeContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
     log(TAG, VERBOSE) { "Sizing content items for $this" }
 
     val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)

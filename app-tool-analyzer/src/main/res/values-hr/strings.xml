@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analizator pohrane</string>
+    <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
+    <string name="analyzer_progress_scanning_device">Traženje uređaja za pohranu</string>
+    <string name="analyzer_progress_scanning_storage">Skeniranje pohrane</string>
+    <string name="analyzer_progress_scanning_apps">Skeniranje aplikacija</string>
+    <string name="analyzer_progress_scanning_userfiles">Pretraživanje korisničkih datoteka</string>
+    <string name="analyzer_progress_scanning_system">Skeniranje sistemskih podataka</string>
+    <string name="analyzer_device_storage_title">Pohrana uređaja</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s dostupan</item>
+        <item quantity="few">%s dostupna</item>
+        <item quantity="other">%s dostupno</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s korišten</item>
+        <item quantity="few">%s korištena</item>
+        <item quantity="other">%s korišteno</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Nije dostupan izravan pristup</string>
+    <string name="analyzer_content_create_swiper_session_action">Kreiraj Swiper sesiju</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper sesija kreirana s %d stavkom</item>
+        <item quantity="few">Swiper sesija kreirana s %d stavke</item>
+        <item quantity="other">Swiper sesija kreirana s %d stavki</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Primarna pohrana</string>
+    <string name="analyzer_storage_type_primary_description">Primarna pohrana vašeg uređaja. Sadrži internu SD karticu, privatnu pohranu za aplikacije i sistemske podatke.</string>
+    <string name="analyzer_storage_type_secondary_title">Sekundarna pohrana</string>
+    <string name="analyzer_storage_type_secondary_description">Sekundarna pohrana, obično uklonjiva SD kartica. Sadrži medijske datoteke i podatke iz aplikacija koje to podržavaju.</string>
+    <string name="analyzer_storage_type_tertiary_title">Prijenosna pohrana</string>
+    <string name="analyzer_storage_type_tertiary_description">Prijenosna pohrana, npr. memorijski pogon priključen na USB priključak.</string>
+    <string name="analyzer_storage_content_title">Sadržaj pohrane</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikacije</string>
+    <string name="analyzer_storage_content_type_app_description">Prostor koji zauzimaju instalirane aplikacije i njihovi podaci (tj. datoteke aplikacija, podaci i predmemorije).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Nedostaju dopuštenja</string>
+    <string name="analyzer_storage_content_type_media_label">Korisničke datoteke</string>
+    <string name="analyzer_storage_content_type_media_description">Snimljene slike, videozapisi ili preuzeti podaci. Svi podaci koji ne pripadaju određenoj aplikaciji.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistemski podaci</string>
+    <string name="analyzer_storage_content_type_system_description">Aplikacije sustava i sistemski podaci. Aplikacije i podaci drugih korisnika, ako je na ovom uređaju postavljeno više korisničkih računa.</string>
+    <string name="analyzer_storage_content_app_code_label">Kod aplikacije</string>
+    <string name="analyzer_storage_content_app_code_description">Datoteke aplikacije, biblioteke i resursi. Ovaj se prostor može osloboditi deinstaliranjem aplikacije ili njenim arhiviranjem (dostupno u novijim verzijama Androida).</string>
+    <string name="analyzer_storage_content_app_data_label">Podaci aplikacije</string>
+    <string name="analyzer_storage_content_app_data_description">Podaci, postavke i predmemorije.</string>
+    <string name="analyzer_storage_content_app_media_label">Mediji aplikacije</string>
+    <string name="analyzer_storage_content_app_media_description">Medijske datoteke iz ove aplikacije, npr. primljene WhatsApp fotografije.</string>
+    <string name="analyzer_storage_content_app_extra_label">Dodatne datoteke aplikacije</string>
+    <string name="analyzer_storage_content_app_extra_description">Dodatni podaci koje je ova aplikacija postavila izvan zadanih putanja, npr. fotografije ili preuzimanja.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ova aplikacija zauzima %1$s na \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ova je aplikacija arhivirana.</string>
+</resources>

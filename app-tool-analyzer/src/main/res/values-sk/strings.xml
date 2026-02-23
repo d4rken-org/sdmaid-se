@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_tool_name">Analyzátor úložiska</string>
+    <string name="analyzer_explanation_short">Zistite, čo zaberá miesto na vašom zariadení.</string>
+    <string name="analyzer_progress_scanning_device">Vyhľadávanie úložných zariadení</string>
+    <string name="analyzer_progress_scanning_storage">Skenovanie úložiska</string>
+    <string name="analyzer_progress_scanning_apps">Skenovanie aplikácií</string>
+    <string name="analyzer_progress_scanning_userfiles">Vyhľadávanie súborov užívateľa</string>
+    <string name="analyzer_progress_scanning_system">Skenovanie systémových údajov</string>
+    <string name="analyzer_device_storage_title">Úložisko zariadenia</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s dostupná</item>
+        <item quantity="few">%s dostupné</item>
+        <item quantity="many">%s dostupných</item>
+        <item quantity="other">%s dostupných</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s použitá</item>
+        <item quantity="few">%s použité</item>
+        <item quantity="many">%s použitých</item>
+        <item quantity="other">%s použitých</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Priamy prístup nie je k dispozícii</string>
+    <string name="analyzer_content_create_swiper_session_action">Vytvoriť reláciu Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Relácia Swiper vytvorená s %d položkou</item>
+        <item quantity="few">Relácia Swiper vytvorená s %d položkami</item>
+        <item quantity="many">Relácia Swiper vytvorená s %d položkami</item>
+        <item quantity="other">Relácia Swiper vytvorená s %d položkami</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Primárne úložisko</string>
+    <string name="analyzer_storage_type_primary_description">Primárne úložisko vášho zariadenia. Obsahuje internú SD kartu, súkromné úložisko pre aplikácie a systémové dáta.</string>
+    <string name="analyzer_storage_type_secondary_title">Sekundárne úložisko</string>
+    <string name="analyzer_storage_type_secondary_description">Sekundárne úložisko, zvyčajne vymeniteľná SD karta. Obsahuje mediálne súbory a údaje z aplikácií, ktoré to podporujú.</string>
+    <string name="analyzer_storage_type_tertiary_title">Prenosné úložisko</string>
+    <string name="analyzer_storage_type_tertiary_description">Prenosné úložisko, napr. flash disk zapojený do portu USB.</string>
+    <string name="analyzer_storage_content_title">Obsah úložiska</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikácie</string>
+    <string name="analyzer_storage_content_type_app_description">Priestor, ktorý zaberajú nainštalované aplikácie a ich údaje (t. j. súbory aplikácie, údaje a vyrovnávacie pamäte).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Chýbajú povolenia</string>
+    <string name="analyzer_storage_content_type_media_label">Užívateľské súbory</string>
+    <string name="analyzer_storage_content_type_media_description">Nasnímané obrázky, nahrané videá alebo stiahnuté dáta. Akékoľvek údaje, ktoré nepatria do konkrétnej aplikácie.</string>
+    <string name="analyzer_storage_content_type_system_label">Systémové údaje</string>
+    <string name="analyzer_storage_content_type_system_description">Systémové aplikácie a systémové údaje. Aplikácie a údaje od iných používateľov, ak je na tomto zariadení nastavených niekoľko používateľských účtov.</string>
+    <string name="analyzer_storage_content_app_code_label">Kód aplikácie</string>
+    <string name="analyzer_storage_content_app_code_description">Aplikačné súbory, knižnice a zdroje. Tento priestor je možné uvoľniť odinštalovaním aplikácie alebo jej archiváciou (k dispozícii v novšej verzii Androidu).</string>
+    <string name="analyzer_storage_content_app_data_label">Dáta aplikácie</string>
+    <string name="analyzer_storage_content_app_data_description">Dáta, nastavenia a vyrovnávacie pamäte.</string>
+    <string name="analyzer_storage_content_app_media_label">Médiá aplikácie</string>
+    <string name="analyzer_storage_content_app_media_description">Mediálne súbory z tejto aplikácie, napr. prijaté fotografie WhatsApp.</string>
+    <string name="analyzer_storage_content_app_extra_label">Dodatočné súbory aplikácií</string>
+    <string name="analyzer_storage_content_app_extra_description">Ďalšie údaje, ktoré táto aplikácia umiestnila mimo predvolených ciest, napr. fotografie alebo stiahnuté súbory.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Táto aplikácia zaberá %1$s na „%2$s“.</string>
+    <string name="analyzer_app_details_app_is_archived">Táto aplikácia bola archivovaná.</string>
+</resources>

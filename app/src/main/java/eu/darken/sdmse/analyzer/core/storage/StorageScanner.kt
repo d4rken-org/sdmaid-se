@@ -139,7 +139,7 @@ class StorageScanner @Inject constructor(
                     ?.let { gatewaySwitch.lookup(it, type = GatewaySwitch.Type.AUTO) }
                 log(TAG, INFO) { "Public storage dir is $storageDir for $volume" }
 
-                updateProgressSecondary(R.string.analyzer_progress_scanning_storage)
+                updateProgressSecondary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_storage)
 
                 val folders = storageDir?.lookedUp
                     ?.listFiles(gatewaySwitch)
@@ -190,7 +190,7 @@ class StorageScanner @Inject constructor(
             )
         }
 
-        updateProgressPrimary(R.string.analyzer_progress_scanning_apps)
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_apps)
 
         val targetPkgs = pkgRepo.current()
             .filter { it.packageName != "android" }
@@ -241,7 +241,7 @@ class StorageScanner @Inject constructor(
 
     private suspend fun scanForMedia(storage: DeviceStorage, mediaDir: APathLookup<*>): MediaCategory {
         log(TAG) { "scanForMedia($storage)" }
-        updateProgressPrimary(R.string.analyzer_progress_scanning_userfiles)
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_userfiles)
         updateProgressCount(Progress.Count.Percent(topLevelDirs.size))
 
         val topLevelContents: Collection<ContentItem> = topLevelDirs.mapNotNull { ownerInfo ->
@@ -260,7 +260,7 @@ class StorageScanner @Inject constructor(
         val rootItem = topLevelContents.plus(ContentItem.fromLookup(mediaDir)).toNestedContent().single()
 
         val group = ContentGroup(
-            label = R.string.analyzer_storage_content_type_media_label.toCaString(),
+            label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_media_label.toCaString(),
             contents = setOf(rootItem),
         )
 
@@ -276,7 +276,7 @@ class StorageScanner @Inject constructor(
         mediaCategory: MediaCategory
     ): SystemCategory? {
         log(TAG) { "scanForSystem($storage)" }
-        updateProgressPrimary(R.string.analyzer_progress_scanning_system)
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_progress_scanning_system)
         updateProgressSecondary(Progress.Data().secondary)
         updateProgressCount(Progress.Count.Indeterminate())
 
@@ -294,7 +294,7 @@ class StorageScanner @Inject constructor(
 
         val groups = setOf(
             ContentGroup(
-                label = R.string.analyzer_storage_content_type_system_label.toCaString(),
+                label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_label.toCaString(),
                 contents = contentItems
             )
         )
