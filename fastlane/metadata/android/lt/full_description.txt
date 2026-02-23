@@ -1,40 +1,40 @@
-<i>SD Maid 2/SE</i> yra patikimas jūsų „Android“ pagalbininkas, padedantis palaikyti švarą ir tvarką.
+<i>„SD Maid 2/SE“</i> – tai patikima pagalbininkė jūsų „Android“ įrenginiui, padedanti jį išlaikyti švarų ir tvarkingą.
 
-Niekas nėra tobulas, „Android“ taip pat.
-* Jau pašalintos programėlės palieka pėdsakų.
-* Nuolat kuriami žurnalai, strigčių ataskaitos ir kiti nenorimi failai.
-* Jūsų saugykloje kaupiasi neatpažįstami failai ir aplankai.
-* Pasikartojančios nuotraukos jūsų galerijoje.
+Niekas nėra tobulas, taip pat ir „Android“.
+* Programos, kurias jau pašalinote, palieka kažką.
+* Žurnalai, avariniai ataskaitos ir kiti failai, kurių nenorite, nuolat sukuriami.
+* Jūsų saugojimas renka failus ir aplankus, kurių neatpažįstate.
+* Dublikuotos nuotraukos jūsų galerijoje.
 
-Nesiplėskime... Leiskite SD Maid 2/SE jums padėti!
+Neplėskime čia… Leiskite SD Maid 2/SE jums padėti!
 
-SD Maid 2/SE yra programėlių ir failų tvarkyklė, kuri specializuojasi nustatant, kurios programėlės sukūrė konkrečius failus jūsų įrenginyje. SD Maid 2/SE ieško jūsų įrenginyje ir lygina failus su įdiegtomis programėlėmis, kad pasiūlytų saugius būdus atlaisvinti saugyklos vietą.
+SD Maid 2/SE yra programų ir failų tvarkytuvei, kuri specializuojasi žinoti, kurios programos sukūrė konkrečius failus jūsų įrenginyje. SD Maid 2/SE peržiūri jūsų įrenginį ir palygina failus su įdiegtomis programomis, siūlydama parinktis saugiai atlaisvinti saugojimo vietą.
 
-✨ Išvalykite po programėlių pašalinimo
-Jei programėlės kuria failus ne joms skirtuose aplankuose, failai gali likti net ir pašalinus programėles. Įrankis „CorpseFinder“ (Lavonų ieškiklis) randa programėlių liekanas, nurodo, kuriai programėlei jos priklausė, ir padeda jas ištrinti.
+✨ Išvalykite po programų pašalinimo
+Jei programos sukuria failus už joms skirtų aplankų ribų, failai gali likti net pašalinus programas. „CorpseFinder“ įrankis randa programos likučius, pasako, kuriai programai jie priklausė, ir padeda juos ištrinti.
 
-🔍 Ieškokite savo įrenginyje išmaniai
-Filtruokite tuščius aplankus, laikinus failus, jau įdiegtas programėles ir kt. Galite netgi susikurti savo paieškos kriterijus. Įrankis „SystemCleaner“ (Sistemos valiklis) leidžia automatiškai ieškoti jūsų įrenginyje ir trinti failus pagal įvairius kriterijus.
+🔍 Išmaniai peržiūrėkite savo įrenginį
+Filtruokite pagal tuščius aplankus, laikinuosius failus, jau įdiegtas programas ir daugiau. Galite sukurti ir savo paieškos kriterijus. Įrankis „SystemCleaner“ leidžia automatiškai peržiūrėti jūsų įrenginį ir šalinti failus pagal įvairius kriterijus.
 
-🧹 Ištrinkite nereikalingus failus ir paslėptas podėlio bylas
-Miniatiūros, šiukšliadėžės, neprisijungusios podėlio bylos ir kt.: jei programėlės pačios neišsivalo, tai padarys ši programėlė. Įrankis „AppCleaner“ (Programėlių valiklis) randa programėles su nereikalingais failais.
+🧹 Šalinkite nereikalingus failus ir paslėptus podėlius
+Miniatūros, šiukšliadėžės, neprisijungę podėliai ir daugiau: jei programos po savęs nesivalo, tai padarys ši programa. Įrankis „AppCleaner“ randa programas su nereikalingais failais.
 
-📦 Tvarkykite visas savo programėles
-Gaukite išsamų visų jūsų įrenginyje įdiegtų programėlių sąrašą. Įjungta, išjungta, vartotojo ar sistemos programėlė: jokia programėlė nuo jūsų nepasislėps. Įrankis „AppControl“ (Programėlių valdymas) yra programėlių tvarkyklė, leidžianti ieškoti, rūšiuoti ir valdyti jūsų programėles.
+📦 Valdykite visas savo programas
+Gaukite išsamų visų jūsų įrenginyje įdiegtu programų sąrašą. Įjungta, išjungta, vartotojo ar sistemos programa: nė viena programa nuo jūsų neslėps. Įrankis „AppControl“ yra programų valdytojas, leidžiantis ieškoti, rūšiuoti ir valdyti jūsų programas.
 
 📊 Kas naudoja visą jūsų vietą
-Saugyklos valdymas gali būti sudėtingas dėl programėlių, medijos, sistemos ir kitų failų, esančių telefono saugykloje, SD kortelėse ir USB įrenginiuose. „StorageAnalyzer“ (Saugyklos analizatorius) yra failų tvarkyklė, rodanti, kaip naudojama vieta jūsų įrenginyje, supaprastinanti jūsų saugyklos valdymą.
+Saugojimo valdymas gali būti sudėtingas turint programas, mediją, sistemą ir kitus failus telefono saugykloje, SD kortelėse ir USB įrenginiuose. „StorageAnalyzer“ yra failų valdytojas, kuris rodo, kaip naudojama vieta jūsų įrenginyje, supaprastindamas saugojimo valdymą.
 
-📷 Raskite pasikartojančius duomenis
-Pasikartojantys atsisiuntimai, per socialinius tinklus siųstos nuotraukos ar tiesiog panašios tos pačios scenos nuotraukos: laikui bėgant kopijos gali kauptis. Įrankis „Deduplicator“ (Dublikatų šaliklis) randa failus, kurie yra visiškai tokie patys arba panašūs, ir padeda ištrinti papildomas kopijas.
+📷 Raskite dubliuotus duomenis
+Dubliuoti atsisiuntimai, nuotraukos siųstos per socialinės žiniasklaidos tinklus arba tik panašios tos pačios scenos nuotraukos: laikui bėgant kopijos gali sukauptis. Įrankis „Deduplicator“ randa failus, kurie yra visiškai identiški ar panašūs, ir padeda šalinti papildomas kopijas.
 
-Ši programėlė yra be skelbimų. Kai kurioms funkcijoms reikalingas mokamas atnaujinimas.
+Ši programa neturi skelbimu. Kai kurioms funkcijoms reikalingas mokamas atnaujinimas.
 
-SD Maid 2/SE yra SD Maid 1/Legacy įpėdinė.
-Optimizuota naujesnėms „Android“ versijoms ir orientuota į valymą.
+SD Maid 2/SE yra SD Maid 1/Legacy pasikeitėjas.
+Optimizuota naujesnems Android versijoms ir orientuota į valymo funkcijas.
 
-Ši programėlė turi papildomų funkcijų, kurios naudoja „AccessibilityService“ API, kad automatizuotų varginančius veiksmus.
-Naudodama „AccessibilityService“ API, ši programėlė gali už jus spustelėti mygtukus, kad atliktų operacijas keliose programėlėse, pvz., ištrintų podėlio bylas.
-Ši programėlė nenaudoja „AccessibilityService“ API informacijai rinkti.
+Ši programa turi pasirenkamas funkcijas, kurios naudoja AccessibilityService API, norint automatizuoti nuobodžius veiksmus.
+Naudodama AccessibilityService API, ši programa gali paspausti mygtukus jūsų vardu, atlikdama operacijas keliose programose, pvz. ištrinant podėlius.
+Ši programa nenaudoja AccessibilityService API informacijai rinkti.
 
-SD Maid 2/SE yra failų tvarkyklė ir valymo programėlė.
+„SD Maid 2/SE“ yra failų tvarkytuvės ir valymo programa.

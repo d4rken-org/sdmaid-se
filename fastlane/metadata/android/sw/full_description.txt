@@ -1,40 +1,40 @@
-<i>SD Maid 2/SE</i> ni msaidizi unayemwamini wa Android yako, ili kuiweka safi na nadhifu.
+<i>SD Maid 2/SE</i> ni msaada unaaminika wa Android yako, kukamatia safi na nzuri.
 
-Hakuna aliye mkamilifu na wala Android haiko hivyo.
-* Programu ambazo tayari umeziondoa huacha kitu nyuma.
-* Kumbukumbu, ripoti za kuacha kufanya kazi na faili zingine usizozitaka huundwa kila wakati.
-* Hifadhi yako inakusanya faili na folda usizozitambua.
-* Picha rudufu kwenye ghala yako.
+Hakuna mtu yeyote aliye kamili na Android si sawa.
+* Programu ulizozifuta tayari huacha kitu nyuma.
+* Kumbukumbu, ripoti za makosa na faili nyingine usiyotaka hutengenezwa kila wakati.
+* Hifadhi yako inapokusanya faili na mafolder unayowajua.
+* Picha zinazojirudia katika kamera yako.
 
-Tusiendelee hapa… Acha SD Maid 2/SE ikusaidie!
+Tusiweze kuendelea hapa… Acha SD Maid 2/SE kukusaidia!
 
-SD Maid 2/SE ni programu na kidhibiti faili ambacho kina utaalam wa kujua ni programu zipi zimeunda faili maalum kwenye kifaa chako. SD Maid 2/SE hutafuta kifaa chako na kulinganisha faili na programu zilizosakinishwa ili kutoa chaguo za kuongeza nafasi ya hifadhi kwa usalama.
+SD Maid 2/SE ni programu na kidhibiti cha faili kinachoboreshe ujumbe kuhusu ni programu ipi zilizosanidi faili mahsusi kwenye zako. SD Maid 2/SE hutafuta zako na kulinganisha faili na programu zilizoimamisha ili kutoa fursa za salama za kuacha mahali pa hifadhi.
 
-✨ Safisha baada ya kusanidua programu
-Ikiwa programu huunda faili nje ya folda zao zilizoteuliwa basi faili zinaweza kubaki hata baada ya kusanidua programu. Zana ya "Kitafuta Mabaki" hupata mabaki ya programu, hukueleza ni programu ipi iliyokuwa nayo na hukusaidia kuyafuta.
+✨ Safisha baada ya kusakinisha programu
+Ikiwa programu huunda faili nje ya mafolder yaliyogaiwa, basi faili zinaweza kubaki hata baada ya kuondoa immakilishi ya programu. Zana ya "CorpseFinder" inatafuta mabaki ya programu, inakuambia ni programu gani waliyomtokea na inakusaidia kuyafuta.
 
-🔍 Tafuta kifaa chako kwa njia bora
-Chuia folda tupu, faili za muda, programu zilizosakinishwa tayari na zaidi. Unaweza hata kuunda vigezo vyako vya utafutaji. Zana ya "Kisafishaji Mfumo" hukuruhusu kutafuta kifaa chako kiotomatiki na kufuta faili kulingana na vigezo mbalimbali.
+🔍 Tafuta kwenye kifaa chako kwa njia mahiri
+Chuja kwa mafolder tupu, faili za muda, programu zilizoimakilishi tayari na zaidi. Unaweza hata kuunda vigezo vyako venyewe vya utafutaji. Zana ya "SystemCleaner" inakuruhusu kutafuta kiotomatiki kwenye kifaa chako na kufuta faili kulingana na vigezo mbalimbali.
 
-🧹 Futa faili zinazoweza kutumika na kashe zilizofichwa
-Vijipicha, mapipa ya taka, kashe za nje ya mtandao na zaidi: Ikiwa programu hazijisafishi zenyewe, basi programu hii itafanya hivyo. Zana ya "Kisafishaji Programu" hupata programu zilizo na faili zinazoweza kutumika.
+🧹 Futa faili yanayoweza kuondolewa na akiba zilizofichwa
+Picha ndogo, bakaki za takataka, akiba ya nje ya mtandao na zaidi: Ikiwa programu hazijikambii, basi programu hii itakufa. Zana ya "AppCleaner" inatafuta programu zilizo na faili yanayoweza kuondolewa.
 
 📦 Dhibiti programu zako zote
-Pata orodha kamili ya programu zote zilizosakinishwa kwenye kifaa chako. Programu iliyowezeshwa, iliyolemazwa, ya mtumiaji au ya mfumo: hakuna programu inayoweza kujificha kwako. Zana ya "Udhibiti wa Programu" ni kidhibiti programu kinachokuruhusu kutafuta, kupanga na kudhibiti programu zako.
+Pata orodha kamili ya programu zote zilizoimakilishi kwenye kifaa chako. Imezaliwa, imezimwa, programu ya mtumiaji au mfumo: hakuna programu inayoweza kujificha kwako. Zana ya "AppControl" ni kidhibiti programu kinachokukuruhusu kutafuta, kupanga na kudhibiti programu zako.
 
 📊 Ni nini kinachotumia nafasi yako yote
-Udhibiti wa hifadhi unaweza kuwa mgumu kwa programu, midia, mfumo, na faili zingine kwenye hifadhi ya simu, kadi za SD, na vifaa vya USB. "Kichanganuzi cha Hifadhi" ni kidhibiti faili kinachoonyesha jinsi nafasi inavyotumika kwenye kifaa chako, kurahisisha udhibiti wako wa hifadhi.
+Usimamizi wa hifadhi unaweza kuwa changamano na programu, media, mfumo, na faili nyingine zikiwa kwenye hifadhi ya simu, kadi za SD, na vifaa vya USB. "StorageAnalyzer" ni kidhibiti faili kinachoonyesha jinsi nafasi inavyotumika kwenye kifaa chako, na kurahisisha usimamizi wako wa hifadhi.
 
-📷 Pata data rudufu
-Upakuaji rudufu, picha zilizotumwa kupitia mitandao ya kijamii au picha zinazofanana tu za tukio lile lile: Baada ya muda nakala zinaweza kujilimbikiza. Zana ya "Kiondoa Urudufu" hupata faili ambazo ni sawa kabisa au zinazofanana na hukusaidia kufuta nakala za ziada.
+📷 Tafuta data inayorudiwa
+Chimbuko rudufu, picha zilizotumwa kupitia mitandao ya kijamii au tu picha sawa za maadhimisho sawa: Baada ya muda, nakala zinaweza kukusanya. Zana ya "Deduplicator" inatafuta faili ambayo ni sawa kabisa au sawa na kukusaidia kufuta nakala za ziada.
 
-Programu hii haina matangazo. Baadhi ya vipengele vinahitaji toleo jipya la kulipia.
+Programu hii haina tangazo. Baadhi ya huduma inahitaji kusasisha kutokwa na fedha.
 
-SD Maid 2/SE ndiye mrithi wa SD Maid 1/Legacy.
-Imeboreshwa kwa matoleo mapya zaidi ya Android na inalenga kusafisha.
+SD Maid 2/SE ni mfuatiano wa SD Maid 1/Legacy.
+Imeboreshwa kwa matoleka mapya ya Android na inakamatia kusafisha.
 
-Programu hii ina vipengele vya hiari vinavyotumia API ya Huduma ya Ufikivu ili kuendesha vitendo vya kuchosha kiotomatiki.
-Kwa kutumia API ya Huduma ya Ufikivu, programu hii inaweza kubofya vitufe ili ufanye shughuli kwenye programu nyingi, k.m. kufuta kashe.
-Programu hii haitumii API ya Huduma ya Ufikivu kukusanya taarifa.
+Programu hii ina vipengele vya hiari ambavyo vinatumia API ya AccessibilityService kuotomatiki vitendo vikali.
+Kwa kutumia API ya AccessibilityService, programu hii inaweza kubofya kitufe kwa ajili yako kufanya shughuli kwa programu kadhaa, mfano. kufuta akache.
+Programu hii haitumii API ya AccessibilityService kukusanya taarifa.
 
-SD Maid 2/SE ni Kidhibiti Faili na Programu ya Kusafisha.
+SD Maid 2/SE ni Programu ya Kidhibiti Faili & Utadhamiaji.

@@ -11,30 +11,30 @@ Kom ons gaan nie hier aan nie... Laat SD Maid 2/SE jou help!
 SD Maid 2/SE is 'n toepassing- en lêerbestuurder wat daarin spesialiseer om te weet watter toepassings spesifieke lêers op jou toestel geskep het. SD Maid 2/SE deursoek jou toestel en vergelyk lêers met geïnstalleerde toepassings om opsies te bied om veilig stoorspasie vry te maak.
 
 ✨ Maak skoon nadat jy programme verwyder het
-As toepassings lêers buite hul aangewese vouers skep, kan lêers bly, selfs nadat die toepassings gedeïnstalleer is. Die "LykVinder"-nutsding vind toepassingsreste, sê vir jou aan watter toepassing dit behoort het en help jou om dit uit te vee.
+As toepassings lêers buite hul aangewese vouers skep, kan lêers bly, selfs nadat die toepassings gedeïnstalleer is. Die "CorpseFinder"-nutsding vind app-oorskotte, vertel jou aan watter app hulle behoort het en help jou om hulle te verwyder.
 
 🔍 Soek jou toestel op die slim manier
-Filter vir leë dopgehou, tydelike lêers, reeds geïnstalleerde toepassings en meer. Jy kan selfs jou eie soekkriteria skep. Die "StelselSkoonmaker"-nutsding laat jou toe om jou toestel outomaties te deursoek en lêers uit te vee op grond van verskeie kriteria.
+Filter vir leë dopgehou, tydelike lêers, reeds geïnstalleerde toepassings en meer. Jy kan selfs jou eie soekkriteria skep. Met die "SystemCleaner"-instrument kan jy outomaties jou toestel deursoek en lêers uitvee op grond van verskeie kriteria.
 
 🧹 Vee uitwisbare lêers en verborge kas uit
-Duimnaels, asblikke, vanlyn kas en meer: As programme nie agter hulself opruim nie, sal hierdie toepassing dit doen. Die "ToepSkoonmaker"-nutsding vind toepassings met verbruikbare lêers.
+Duimnaels, asblikke, vanlyn kas en meer: As programme nie agter hulself opruim nie, sal hierdie toepassing dit doen. Die "AppCleaner"-nutsding vind toepassings met verbruikbare lêers.
 
 📦 Bestuur al jou programme
-Kry 'n omvattende lys van alle toepassings wat op jou toestel geïnstalleer is. Geaktiveerde, gedeaktiveerde, gebruiker- of stelseltoepassing: geen toepassing kan vir jou wegsteek nie. Die "ToepKontrole"-nutsding is 'n toepassingbestuurder waarmee u u toepassings kan soek, sorteer en beheer.
+Kry 'n omvattende lys van alle toepassings wat op jou toestel geïnstalleer is. Geaktiveerde, gedeaktiveerde, gebruiker- of stelseltoepassing: geen toepassing kan vir jou wegsteek nie. Die "AppControl"-nutsding is 'n toepassingbestuurder waarmee u u toepassings kan soek, sorteer en beheer.
 
 📊 Wat gebruik al jou spasie
-Bergingbestuur kan kompleks wees met toepassings, media, stelsel- en ander lêers oor telefoonberging, SD-kaarte en USB-toestelle. "BergingOntleder" is 'n lêerbestuurder wat wys hoe spasie op jou toestel gebruik word, wat jou bergingbestuur vereenvoudig.
+Bergingbestuur kan kompleks wees met toepassings, media, stelsel- en ander lêers oor telefoonberging, SD-kaarte en USB-toestelle. "StorageAnalyzer" is 'n lêerbestuurder wat wys hoe spasie op jou toestel gebruik word, wat jou bergingbestuur vereenvoudig.
 
 📷 Soek duplikaatdata
-Duplikaataflaaie, foto's wat deur sosiale media gestuur word of net soortgelyke foto's van dieselfde toneel: Met verloop van tyd kan kopieë ophoop. Die "Ontdubbelaar"-nutsding vind lêers wat presies dieselfde of soortgelyk is en help jou om ekstra kopieë uit te vee.
+Duplikaataflaaie, foto's wat deur sosiale media gestuur word of net soortgelyke foto's van dieselfde toneel: Met verloop van tyd kan kopieë ophoop. Die "Deduplicator"-nutsding vind lêers wat presies dieselfde of soortgelyk is en help jou om ekstra kopieë uit te vee.
 
 Hierdie toepassing is advertensievry. Sommige kenmerke vereis 'n betaalde opgradering.
 
 SD Maid 2/SE is die opvolger van SD Maid 1/Legacy.
 Geoptimaliseer vir nuwer Android-weergawes en gefokus op skoonmaak.
 
-Hierdie toepassing het opsionele kenmerke wat die Toeganklikheiddiens API gebruik om vervelige aksies te outomatiseer.
-Deur die Toeganklikheiddiens API te gebruik, kan hierdie toepassing knoppies klik sodat u bewerkings op verskeie toepassings kan uitvoer, bv. caches uitvee.
-Hierdie toepassing gebruik nie die Toeganklikheiddiens API om inligting in te samel nie.
+Hierdie toepassing het opsionele kenmerke wat die AccessibilityService API gebruik om vervelige aksies te outomatiseer.
+Deur die AccessibilityService API te gebruik, kan hierdie toepassing knoppies klik sodat u bewerkings op verskeie toepassings kan uitvoer, bv. caches uitvee.
+Hierdie toepassing gebruik nie die AccessibilityService API om inligting in te samel nie.
 
 SD Maid 2/SE is 'n lêerbestuurder en skoonmaker-app.

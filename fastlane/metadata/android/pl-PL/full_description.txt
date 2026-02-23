@@ -11,19 +11,19 @@ Nie tędy droga… Niech SD Maid 2/SE Ci pomoże!
 SD Maid 2/SE to menedżer aplikacji i plików, który specjalizuje się w sprawdzaniu plików utworzonych przez aplikacje na twoim urządzeniu. SD Maid 2/SE przeszukuje urządzenie i porównuje pliki z zainstalowanymi aplikacjami, aby zaoferować opcje bezpiecznego zwolnienia przestrzeni dyskowej.
 
 ✨ Posprzątaj po odinstalowaniu aplikacji
-Jeśli aplikacje tworzą pliki poza wyznaczonymi folderami, pliki mogą pozostać nawet po odinstalowaniu aplikacji. Narzędzie „Wyszukiwarka pozostałości” wyszukuje pozostałości aplikacji, informuje, do której aplikacji należały i pomaga je usunąć.
+Jeśli aplikacje tworzą pliki poza wyznaczonymi folderami, pliki mogą pozostać nawet po odinstalowaniu aplikacji. Narzędzie „Wyszukiwanie pozostałości” wyszukuje pozostałości aplikacji, informuje, do której aplikacji należały i pomaga je usunąć.
 
 🔍 Przeszukaj swoje urządzenie w inteligentny sposób
-Filtruj puste foldery, pliki tymczasowe, już zainstalowane aplikacje i nie tylko. Możesz nawet utworzyć własne kryteria wyszukiwania. Narzędzie "Sprzątacz systemu" pozwala automatycznie przeszukiwać urządzenie i usuwać pliki w oparciu o różne kryteria.
+Filtruj puste foldery, pliki tymczasowe, już zainstalowane aplikacje i nie tylko. Możesz nawet utworzyć własne kryteria wyszukiwania. Narzędzie "Sprzątanie systemu" pozwala automatycznie przeszukiwać urządzenie i usuwać pliki w oparciu o różne kryteria.
 
 🧹 Usuń niepotrzebne pliki i ukrytą pamięć podręczną
-Miniaturki, kosz, pliki pamięci podręcznej i wiele innych: Jeśli aplikacje nie posprzątają same po siebie, to ta aplikacja to zrobi. Narzędzie „Sprzątacz aplikacji” wyszukuje aplikacje zawierające zbędne pliki.
+Miniatury, kosz, pamięci podręczne offline i wiele więcej: jeśli aplikacje nie sprzątają po sobie, ta aplikacja to zrobi. Narzędzie „Sprzątanie aplikacji” wyszukuje aplikacje zawierające zbędne pliki.
 
 📦 Zarządzaj wszystkimi swoimi aplikacjami
 Pobierz wyczerpującą listę wszystkich aplikacji zainstalowanych na twoim urządzeniu. Włączona, wyłączona, aplikacja użytkownika lub systemowa: żadna aplikacja nie może się przed tobą ukryć. Narzędzie "Zarządzanie aplikacjami" jest menedżerem aplikacji, który umożliwia wyszukiwanie, sortowanie i kontrolowanie aplikacji.
 
 📊 Co zajmuje całą twoją przestrzeń
-Zarządzanie pamięcią masową może być skomplikowane w przypadku aplikacji, multimediów, systemu i innych plików w pamięci telefonu, kartach SD i urządzeniach USB. "Analizator pamięci" jest menedżerem plików, który wyświetla sposób wykorzystania miejsca na urządzeniu, upraszczając zarządzanie pamięcią.
+Zarządzanie pamięcią masową może być skomplikowane w przypadku aplikacji, multimediów, systemu i innych plików w pamięci telefonu, kartach SD i urządzeniach USB. "Analizowanie pamięci" jest menedżerem plików, który wyświetla sposób wykorzystania miejsca na urządzeniu, upraszczając zarządzanie pamięcią.
 
 📷 Znajdź duplikaty danych
 Duplikaty pobrań, zdjęcia wysyłane za pośrednictwem mediów społecznościowych lub po prostu podobne zdjęcia tej samej sceny: z czasem kopie mogą się kumulować. Narzędzie "Usuwanie duplikatów" znajduje pliki, które są dokładnie takie same lub podobne i pomaga usunąć dodatkowe kopie.

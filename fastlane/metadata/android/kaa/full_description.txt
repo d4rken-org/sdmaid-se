@@ -1,40 +1,40 @@
-<i>SD Maid 2/SE</i> - bul Androidıńızdıń taza hám tártipli saqlaw ushın isenimli járdemshisi.
+<i>SD Maid 2/SE</i> - Android üshín ishonchli yardamchi, uni taza hámde tartibli tutup.
 
-Hesh kim kámil emes, Android ta sonday.
-* Siz álleqashan óshirip taslaǵan qosımshalar iz qaldıradı.
-* Sizge kerek bolmaǵan jurnallar, buzılıwlar haqqında esabatlar hám basqa fayllar úzliksiz jaratılıp atır.
-* Saqlaw ornıńız siz tanımaǵan fayllar hám papkalardı jıynap atır.
-* Galereyańızdaǵı qaytalanatuǵın súwretler.
+Hésh kim shárt emes hámde Android da shárt emes.
+* Öziyiz alastagan appalar bír neerse qaldıstıradı.
+* Loqlar, qırağu alıp tasları hámde basqa fayl’lar tóki jerleñip yazılǧa joq.
+* Saqlash joyi siz tanmaydigan fayllar va papkalarni yig'yapmokta.
+* Qalereyadagı qaytalanıw surat’lar.
 
-Keliń, dawam etpeymiz... SD Maid 2/SE sizge járdem bersin!
+Búl jerde davamlanbaymyz… SD Maid 2/SE-nıñ kömegiñe muvaqqal túriñiz!
 
-SD Maid 2/SE - bul qaysı qosımshalar qurılmańızda arnawlı fayllardı jaratqanın biliwge qánigelesken qosımsha hám fayl menedjeri. SD Maid 2/SE qurılmańızdı izleydi hám saqlaw ornın qáwipsiz bosatıw ushın variantlardı usınıw maqsetinde fayllardı ornatılǵan qosımshalar menen salıstıradı.
+SD Maid 2/SE - qaysi app’lar sizdiñ quraymaña qaysi fayl’larды jüzege asırğanlığın bilip turadı app hámde fayl menegeri. SD Maid 2/SE quraymaňıznı izdep, fayl’lardy o‘rnatılğan app’lar men salıstırıp, saqlawsh bo‘shin tevin qutulgah optsiyaların taklif etedi.
 
-✨ Qosımshalardı óshirgennen keyin tazalaw
-Eger qosımshalar belgili papkalarınan sırtta fayllar jaratsa, fayllar qosımshalardı óshirgennen keyin de qalıwı múmkin. "Qaldıq İzlàwshi" quralı qosımsha qaldıqların tabadı, olar qaysı qosımshaǵa tiyisli ekenligin aytadı hám olardı óshiriwge járdemlesedi.
+✨ App’larny alastaw sonında tazalaw
+Agar ilova belgilangan papkalaridan tashqarida fayllar yaratsa, ilova o'chirilgandan so'ng ham fayllar qolishi mumkin. CorpseFinder asbabi qoʻllanba qoldiqlari topadi, ular qaysi qoʻllanba tomonidan boʻlgani haqida sizga xabar beradi va ularni oʻchishda yordam beradi.
 
-🔍 Qurılmańızdı aqıllı usılda izleń
-Bos papkalar, waqtınshalıq fayllar, álleqashan ornatılǵan qosımshalar hám basqalar ushın filtrleń. Hátte óz izlew kriteryalarıńızdı da jarata alasız. "Sistema Tazalawshı" quralı qurılmańızdı avtomat túrde izlewge hám hár túrli kriteryalarǵa tiykarlanıp fayllardı óshiriwge imkaniyat beredi.
+🔍 Ushbu joylashtirilgan yuqori intellektli izlanish
+Bo'sh papkalar, vaqtincha fayllar, allaqachon o'rnatilgan ilovalari va boshqalarni filtrlang. Siz hatto o‘zingizning izlanish mezonlaringizni yarata olasiz. "SystemCleaner" vositasi qurilmangizni avtomatik ravishda izlab fayllarni turli mezonlar asosida o‘chirishga imkon beradi.
 
-🧹 Kerek emes fayllar hám jasırın keshlardi óshiriń
-Kishireytilgen súwretler, shıǵındı shelekleri, oflayn keshler hám basqalar: Eger qosımshalar óz artınan tazalamasa, bul qosımsha onı isleydi. "Qosımsha Tazalawshı" quralı kerek emes faylları bar qosımshalardı tabadı.
+🧹 Keraksiz fayllarni va yashirin keshlarni o‘chirib tashlang
+Tasvirlar, axlat qutilari, oflayn keshlar va boshqalar: Agar ilova o‘zini tozalamasa, bu ilova buni qiladi. "AppCleaner" vositasi keraksiz fayllar bilan ilovalari topadi.
 
-📦 Barlıq qosımshalarıńızdı basqarıń
-Qurılmańızda ornatılǵan barlıq qosımshalardıń keń kólemli dizimin alıń. Aktivlestirilgen, óshirilgen, paydalanıwshı yamasa sistema qosımshası: hesh bir qosımsha sizden jasırına almaydı. "Qosımsha Basqarıwshısı" quralı qosımshalarıńızdı izlewge, tártiplewge hám basqarıwǵa imkaniyat beretuǵın qosımsha menedjeri.
+📦 Barcha ilovalaringizni boshqaring
+Qurilmangizga o‘rnatilgan barcha ilovalarga keng ko‘rinish oling. Faollashtirilgan, o‘chirilgan, foydalanuvchi yoki tizim ilovasi: hech qanday ilova siz oldidan yashina olmaydi. "AppControl" vositasi ilovalardagi qidiruv, saralash va boshqarishga imkon beradigan ilova menedjeri.
 
-📊 Barlıq bos orın nege isletilip atır
-Saqlaw ornın basqarıw telefon saqlaw ornı, SD kartalar hám USB qurılmalarındaǵı qosımshalar, media, sistema hám basqa fayllar menen quramalı bolıwı múmkin. "Saqlaw Ornı Analizatori" - bul qurılmańızda bos orın qalay isletilip atırǵanın kórsetetuǵın fayl menedjeri bolıp, saqlaw ornın basqarıwdı ápiwayılastıradı.
+📊 Barcha joyingizni nima ishlatayotgani
+Saqlash boshqarishi murakkab bo‘lishi mumkin: ilova, media, tizim va boshqa fayllar telefon saqlash joyida, SD kartalar va USB qurilmalarida. "StorageAnalyzer" saqlash joyi qurilmangizda qanday ishlatilayotganini ko‘rsatadigan fayl menedjeri bo‘lib, saqlash boshqarishini soddalashtiradi.
 
-📷 Qaytalanatuǵın maǵlıwmatlardı tabıń
-Qaytalanatuǵın júklep alıwlar, sociallıq tarmaqlar arqalı jiberilgen súwretler yamasa tek bir kórinistiń uqsas súwretleri: Waqıt ótiwi menen nusqalar jıynalıwı múmkin. "Dublikatlardı Óshiriwshi" quralı tap sol yamasa uqsas fayllardı tabadı hám artıqsha nusqalardı óshiriwge járdemlesedi.
+📷 Takroriy ma‘lumotlarni topib oling
+Takroriy yuklashlar, ijtimoiy tarmoqlar orqali yuborilgan fotosuratlar yoki bir xil sahnaning shunga o‘xshash rasmlari: Vaqt davomida nusxalar to‘planishi mumkin. "Deduplicator" vositasi bir xil yoki o'xshash fayllarni topadi va siz qo'shimcha nusxalarni o'chirishga yordam beradi.
 
-Bul qosımsha reklamasız. Ayırım funkciyalar tólemli jańalanıwdı talap etedi.
+Bu ilova reklamali emas. Kóp funktsiyalar to‘lem yapılğan upgrade talap qıladı.
 
-SD Maid 2/SE - bul SD Maid 1/Legacy-dıń miyrasxorı.
-Jańa Android versiyaları ushın optimallastırılǵan hám tazalawǵa baǵdarlanǵan.
+SD Maid 2/SE - SD Maid 1/Legacy-nıñ преемник.
+Jañá Android versiyalarına optimizaciyalanğan hámde tazalaw üshín bagdarlanğan.
 
-Bul qosımshada zerikerli háreketlerdi avtomatlastırıw ushın Qolaylıq Xızmeti API-sin paydalanatuǵın qosımsha funkciyalar bar.
-Qolaylıq Xızmeti API-sin paydalanıp, bul qosımsha bir neshe qosımshalarda operaciyalardı orınlaw ushın siziń ushın túymelerdi basıwı múmkin, mısalı, keshlerdi óshiriw.
-Bul qosımsha maǵlıwmat jıynaw ushın Qolaylıq Xızmeti API-sin paydalanbaydı.
+Bu ilovada AccessibilityService API dan foydalanib, zerikarli harakatlarni avtomatlashtirish uchun ixtiyoriy xususiyatlar mavjud.
+AccessibilityService API dan foydalanib, bu ilova siz uchun tugmalarni bosib bir nechta ilovalarda amallarni bajaradigan tugmalarni bosish mumkin. keshedeń búgin.
+Bu ilova ma'lumotlarni to'plash uchun AccessibilityService API dan foydalanmaydi.
 
-SD Maid 2/SE - bul Fayl Menedjeri & Tazalawshı Qosımsha.
+SD Maid 2/SE fayl menedjeri va tozalash ilovasiga javob beradi.

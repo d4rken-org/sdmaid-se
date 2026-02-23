@@ -1,40 +1,40 @@
-<i>SD Maid 2/SE</i> ialah pembantu Android anda yang dipercayai, untuk memastikan ia sentiasa bersih dan kemas.
+<i>SD Maid 2/SE</i> ialah pembantu dipercayai Android anda, untuk memastikannya bersih dan rapi.
 
 Tiada siapa yang sempurna dan begitu juga Android.
-* Aplikasi yang telah anda alih keluar meninggalkan sisa.
-* Log, laporan pepijat dan fail lain yang anda tidak mahu sentiasa dicipta.
-* Storan anda mengumpul fail dan folder yang tidak anda kenali.
-* Gambar pendua dalam galeri anda.
+* Aplikasi yang telah anda alih keluar tinggalkan sesuatu.
+* Log, laporan kerosakan dan fail lain yang anda tidak mahu sentiasa dicipta.
+* Penyimpanan anda mengumpul fail dan folder yang tidak anda kenali.
+* Foto berganda dalam galeri anda.
 
-Jangan kita teruskan di sini... Biar SD Maid 2/SE membantu anda!
+Jangan teruskan di sini… Biarkan SD Maid 2/SE membantu anda!
 
-SD Maid 2/SE ialah pengurus aplikasi dan fail yang pakar dalam mengetahui aplikasi mana yang telah mencipta fail tertentu pada peranti anda. SD Maid 2/SE mencari peranti anda dan membandingkan fail dengan aplikasi yang dipasang untuk menawarkan pilihan bagi mengosongkan ruang storan dengan selamat.
+SD Maid 2/SE ialah pengurus aplikasi dan fail yang pakar dalam mengetahui aplikasi mana yang telah mencipta fail tertentu di peranti anda. SD Maid 2/SE mencari peranti anda dan membandingkan fail dengan aplikasi yang dipasang untuk menawarkan pilihan bagi membebaskan ruang penyimpanan dengan selamat.
 
 ✨ Bersihkan selepas menyahpasang aplikasi
-Jika aplikasi mencipta fail di luar folder yang ditetapkan, fail tersebut mungkin kekal walaupun selepas aplikasi dinyahpasang. Alat "CorpseFinder" (Pencari Sisa) mencari sisa aplikasi, memberitahu anda aplikasi mana yang memilikinya dan membantu anda memadamkannya.
+Jika aplikasi membuat fail di luar folder yang ditentukan, fail boleh kekal walaupun selepas menyahpasang aplikasi. Alat "CorpseFinder" mencari baki aplikasi, memberitahu anda aplikasi mana yang dimilikinya dan membantu anda memadamkannya.
 
-🔍 Cari peranti anda dengan cara yang bijak
-Tapis folder kosong, fail sementara, aplikasi yang sudah dipasang dan banyak lagi. Anda juga boleh mencipta kriteria carian anda sendiri. Alat "SystemCleaner" (Pembersih Sistem) membolehkan anda mencari peranti anda secara automatik dan memadam fail berdasarkan pelbagai kriteria.
+🔍 Cari peranti anda dengan cara yang pintar
+Tapis untuk folder kosong, fail sementara, aplikasi yang sudah dipasang dan banyak lagi. Anda juga boleh membuat kriteria pencarian anda sendiri. Alat "SystemCleaner" membolehkan anda mencari peranti secara automatik dan memadamkan fail berdasarkan pelbagai kriteria.
 
-🧹 Padam fail yang boleh dibuang dan cache tersembunyi
-Imej kecil, tong sampah, cache luar talian dan banyak lagi: Jika aplikasi tidak membersihkan diri sendiri, aplikasi ini akan melakukannya. Alat "AppCleaner" (Pembersih Aplikasi) mencari aplikasi dengan fail yang boleh dibuang.
+🧹 Padamkan fail yang boleh dibuang dan cache tersembunyi
+Gambar kecil, tong sampah, cache luar talian dan banyak lagi: Jika aplikasi tidak membersihkan selepas diri mereka, maka apl ini akan. Alat "AppCleaner" mencari aplikasi dengan fail yang boleh dibuang.
 
 📦 Urus semua aplikasi anda
-Dapatkan senarai komprehensif semua aplikasi yang dipasang pada peranti anda. Aplikasi yang didayakan, dilumpuhkan, pengguna atau sistem: tiada aplikasi yang boleh bersembunyi daripada anda. Alat "AppControl" (Kawalan Aplikasi) ialah pengurus aplikasi yang membolehkan anda mencari, menyusun dan mengawal aplikasi anda.
+Dapatkan senarai komprehensif semua aplikasi yang dipasang di peranti anda. Didayakan, dilumpuhkan, aplikasi pengguna atau sistem: tiada aplikasi boleh bersembunyi daripada anda. Alat "AppControl" ialah pengurus aplikasi yang membolehkan anda mencari, menyusun dan mengawal aplikasi anda.
 
 📊 Apa yang menggunakan semua ruang anda
-Pengurusan storan boleh menjadi rumit dengan aplikasi, media, sistem dan fail lain merentasi storan telefon, kad SD dan peranti USB. "StorageAnalyzer" (Penganalisis Storan) ialah pengurus fail yang memaparkan cara ruang digunakan pada peranti anda, memudahkan pengurusan storan anda.
+Pengurusan penyimpanan boleh menjadi rumit dengan aplikasi, media, sistem dan fail lain di seluruh storan telefon, kad SD dan peranti USB. "StorageAnalyzer" ialah pengurus fail yang memaparkan bagaimana ruang digunakan di peranti anda, memudahkan pengurusan penyimpanan anda.
 
-📷 Cari data pendua
-Muat turun pendua, gambar yang dihantar melalui media sosial atau hanya gambar serupa bagi babak yang sama: Lama kelamaan salinan boleh terkumpul. Alat "Deduplicator" (Penyahpendua) mencari fail yang betul-betul sama atau serupa dan membantu anda memadam salinan tambahan.
+📷 Cari data berganda
+Muat turun berganda, foto yang dihantar melalui media sosial atau hanya gambar serupa pemandangan yang sama: Seiring masa salinan boleh terkumpul. Alat "Deduplicator" mencari fail yang sama persis atau serupa dan membantu anda memadamkan salinan tambahan.
 
-Aplikasi ini bebas iklan. Sesetengah ciri memerlukan naik taraf berbayar.
+Apl ini bebas iklan. Sesetengah ciri memerlukan naik taraf berbayar.
 
-SD Maid 2/SE ialah pengganti kepada SD Maid 1/Legacy.
-Dioptimumkan untuk versi Android yang lebih baharu dan memberi tumpuan kepada pembersihan.
+SD Maid 2/SE ialah pengganti SD Maid 1/Legacy.
+Dioptimumkan untuk versi Android yang lebih baharu dan memfokuskan pada pembersihan.
 
-Aplikasi ini mempunyai ciri pilihan yang menggunakan API AccessibilityService untuk mengautomasikan tindakan yang membosankan.
-Menggunakan API AccessibilityService, aplikasi ini boleh mengklik butang untuk anda melakukan operasi pada berbilang aplikasi, cth. memadam cache.
-Aplikasi ini tidak menggunakan API AccessibilityService untuk mengumpul maklumat.
+Apl ini mempunyai ciri pilihan yang menggunakan API AccessibilityService untuk mengotomatikkan tindakan yang membosankan.
+Menggunakan API AccessibilityService, apl ini boleh mengklik butang untuk anda bagi melakukan operasi pada berbagai aplikasi, contohnya. memadam cache.
+Apl ini tidak menggunakan API AccessibilityService untuk mengumpul maklumat.
 
 SD Maid 2/SE ialah Aplikasi Pengurus Fail & Pembersih.
