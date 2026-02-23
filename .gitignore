@@ -20,3 +20,4 @@ build/
 # Claude Code
 .claude/settings.local.json
 .claude/tmp/
+/fastlane/README.md
