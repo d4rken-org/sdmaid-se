@@ -45,6 +45,7 @@ dependencies {
     addDI()
     addCoroutines()
     addIO()
+    addCoil()
 
     addTesting()
     testImplementation(project(":app-common-test"))

@@ -1,0 +1,40 @@
+<resources>
+    <string name="scheduler_label">Scheduler</string>
+    <string name="scheduler_execution_label">Next execution (approximately)</string>
+    <string name="scheduler_execution_last_label">Last execution</string>
+    <string name="scheduler_settings_label">Scheduler</string>
+    <string name="scheduler_settings_summary">Adjust scheduler related settings.</string>
+    <string name="scheduler_new_schedule_action">Create schedule</string>
+    <string name="scheduler_schedule_name_label">Schedule name</string>
+    <string name="scheduler_schedule_toggle_enabled">Schedule is enabled</string>
+    <string name="scheduler_schedule_toggle_disabled">Schedule is disabled</string>
+    <string name="scheduler_edit_schedule_action">Edit schedule</string>
+    <string name="scheduler_schedule_time_label">Approximate time</string>
+    <string name="scheduler_schedule_repeat_label">Repeat interval in days</string>
+    <string name="scheduler_schedule_default_name">Default schedule</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s around %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Planned for %s</string>
+    <string name="scheduler_schedule_last_at_x">Last executed at %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Daily</item>
+        <item quantity="other">Every %d days</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Repeat interval</string>
+    <string name="scheduler_inaccurate_execution_hint">Expected execution times are approximations. Schedules may be delayed or expedited if it conserves battery.</string>
+    <string name="scheduler_no_active_schedules_subtitle">No active schedules</string>
+    <string name="scheduler_setting_nopowersaving_title">Skip on low battery</string>
+    <string name="scheduler_setting_nopowersaving_summary">If the device is in power-saving mode, the scheduled execution will be skipped.</string>
+    <string name="scheduler_setting_charging_title">Skip when not charging</string>
+    <string name="scheduler_setting_charging_summary">If the device is not charging, the scheduled execution will be skipped.</string>
+    <string name="scheduler_setting_automation_title">Accessibility service</string>
+    <string name="scheduler_setting_automation_summary">Include actions that use an accessibility service. This requires that SD Maid can interact with your screen (i.e. it\'s unlocked) when the tasks are executed.</string>
+    <string name="scheduler_notification_channel_label">Scheduler</string>
+    <string name="scheduler_notification_title">Scheduled task</string>
+    <string name="scheduler_notification_message">Executing: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Scheduler finished</string>
+    <string name="scheduler_notification_result_success_message">All scheduled tasks ran successfully.</string>
+    <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered errors. Try running them manually.</string>
+    <string name="scheduler_commands_after_schedule_label">Post-schedule commands</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell commands that will be executed at the end of a schedule.</string>
+    <string name="scheduler_battery_optimization_hint">Consider disabling battery optimizations for SD Maid if you experience issues with background execution.</string>
+</resources>

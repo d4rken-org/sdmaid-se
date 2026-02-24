@@ -1,7 +1,11 @@
 package eu.darken.sdmse.setup
 
 import android.content.Context
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -42,10 +46,10 @@ class SetupHealer @Inject constructor(
     private val storageSetupModule: StorageSetupModule,
     private val dataAreaManager: DataAreaManager,
     private val automationSetupModule: AutomationSetupModule,
-) {
+) : SetupHealerSource {
 
-    private val internalState = MutableStateFlow(State())
-    val state: Flow<State> = internalState
+    private val internalState = MutableStateFlow(SetupHealerSource.State())
+    override val state: Flow<SetupHealerSource.State> = internalState
 
     init {
         combine(
@@ -178,10 +182,10 @@ class SetupHealer @Inject constructor(
         }
     }
 
-    data class State(
-        val healAttemptCount: Int = 0,
-        val isWorking: Boolean = false,
-    )
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds abstract fun source(healer: SetupHealer): SetupHealerSource
+    }
 
     companion object {
         private val TAG = logTag("Setup", "Healer")

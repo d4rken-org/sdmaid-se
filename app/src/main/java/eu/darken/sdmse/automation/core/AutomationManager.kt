@@ -3,7 +3,11 @@ package eu.darken.sdmse.automation.core
 import android.content.ComponentName
 import android.content.Context
 import android.provider.Settings
+import dagger.Binds
+import dagger.Module
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.automation.core.animation.AnimationTool
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationNotEnabledException
@@ -49,7 +53,7 @@ class AutomationManager @Inject constructor(
     private val setupHelper: SetupHelper,
     private val settingsProvider: SystemSettingsProvider,
     private val animationTool: AnimationTool,
-) {
+) : AutomationSubmitter {
 
     init {
         appScope.launch {
@@ -232,7 +236,7 @@ class AutomationManager @Inject constructor(
 
     private val serviceResource = SharedResource(TAG, appScope, serviceLauncher)
 
-    suspend fun submit(task: AutomationTask): AutomationTask.Result {
+    override suspend fun submit(task: AutomationTask): AutomationTask.Result {
         log(TAG) { "submit(): $task" }
         return serviceResource.useRes { it.submit(task) }
     }
@@ -254,6 +258,11 @@ class AutomationManager @Inject constructor(
     ) {
         @Suppress("UNCHECKED_CAST")
         suspend fun <R> submit(task: AutomationTask): R = service.submit(task) as R
+    }
+
+    @Module @InstallIn(SingletonComponent::class)
+    abstract class DIM {
+        @Binds abstract fun submitter(manager: AutomationManager): AutomationSubmitter
     }
 
     companion object {

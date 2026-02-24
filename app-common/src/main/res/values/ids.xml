@@ -18,6 +18,8 @@
     <item name="goToPreview" type="id" />
     <item name="goToCustomFilterList" type="id" />
     <item name="goToPicker" type="id" />
+    <item name="goToDashboard" type="id" />
+    <item name="goToPathExclusionEditor" type="id" />
     <item name="nav_host" type="id" />
     <item name="swiperSessionsFragment" type="id" />
 </resources>

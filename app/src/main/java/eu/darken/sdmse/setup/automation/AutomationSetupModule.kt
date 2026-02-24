@@ -30,6 +30,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import java.time.Instant
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
@@ -159,6 +160,7 @@ class AutomationSetupModule @Inject constructor(
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: AutomationSetupModule): SetupModule
+        @Binds @Named("automation") abstract fun named(mod: AutomationSetupModule): SetupModule
     }
 
     companion object {

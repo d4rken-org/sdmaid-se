@@ -43,7 +43,7 @@ val DashboardCardType.labelRes: Int
         DashboardCardType.ANALYZER -> eu.darken.sdmse.analyzer.R.string.analyzer_tool_name
         DashboardCardType.SWIPER -> eu.darken.sdmse.swiper.R.string.swiper_tool_name
         DashboardCardType.SQUEEZER -> eu.darken.sdmse.squeezer.R.string.squeezer_tool_name
-        DashboardCardType.SCHEDULER -> R.string.scheduler_label
+        DashboardCardType.SCHEDULER -> eu.darken.sdmse.scheduler.R.string.scheduler_label
         DashboardCardType.STATS -> R.string.stats_label
     }
 
