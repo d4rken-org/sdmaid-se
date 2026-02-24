@@ -73,7 +73,7 @@ class AutomationManager @Inject constructor(
         serviceHolder.value = service
     }
 
-    val useAcs: Flow<Boolean> = combine(
+    override val useAcs: Flow<Boolean> = combine(
         settings.hasAcsConsent.flow,
         currentService,
     ) { consent, _ ->
