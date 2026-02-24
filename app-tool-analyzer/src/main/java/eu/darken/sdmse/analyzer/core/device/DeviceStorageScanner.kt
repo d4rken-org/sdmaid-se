@@ -1,7 +1,6 @@
 package eu.darken.sdmse.analyzer.core.device
 
 import android.os.storage.StorageManager
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -16,15 +15,16 @@ import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageStatsManager2
+import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
-import eu.darken.sdmse.setup.storage.StorageSetupModule
+import javax.inject.Named
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
-    private val storageSetupModule: StorageSetupModule,
+    @Named("storage") private val storageSetupModule: SetupModule,
     private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val storageStatsmanager: StorageStatsManager2,

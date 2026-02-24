@@ -45,7 +45,6 @@ import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
-import eu.darken.sdmse.setup.inventory.InventorySetupModule
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -55,6 +54,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Provider
 import javax.inject.Singleton
 
@@ -64,7 +64,7 @@ class Analyzer @Inject constructor(
     private val deviceScanner: Provider<DeviceStorageScanner>,
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
-    private val appInventorySetupModule: InventorySetupModule,
+    @Named("inventory") private val appInventorySetupModule: SetupModule,
     private val mediaStoreTool: MediaStoreTool,
 ) : SDMTool, Progress.Client {
 

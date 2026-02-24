@@ -41,6 +41,7 @@ dependencies {
     implementation(project(":app-common-root"))
     implementation(project(":app-common-shell"))
     implementation(project(":app-common-data"))
+    implementation(project(":app-common-setup"))
 
     addAndroidCore()
     addDI()

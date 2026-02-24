@@ -1,6 +1,5 @@
 package eu.darken.sdmse.analyzer.core.storage
 
-import eu.darken.sdmse.R
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
@@ -43,9 +42,9 @@ import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageVolumeX
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
-import eu.darken.sdmse.setup.inventory.InventorySetupModule
+import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
-import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
+import javax.inject.Named
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -61,8 +60,8 @@ class StorageScanner @Inject constructor(
     private val fileForensics: FileForensics,
     private val dataAreaManager: DataAreaManager,
     private val appScannerFactory: AppStorageScanner.Factory,
-    private val inventorySetupModule: InventorySetupModule,
-    private val usageStatsSetupModule: UsageStatsSetupModule,
+    @Named("inventory") private val inventorySetupModule: SetupModule,
+    @Named("usagestats") private val usageStatsSetupModule: SetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
