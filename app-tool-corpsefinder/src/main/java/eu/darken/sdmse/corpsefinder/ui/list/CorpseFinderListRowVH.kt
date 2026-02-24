@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -61,13 +62,7 @@ class CorpseFinderListRowVH(parent: ViewGroup) :
         }
 
         areaInfo.text = getString(corpse.filterType.labelRes)
-        sizeIcon.setImageResource(
-            when {
-                corpse.lookup.fileType == FileType.DIRECTORY -> R.drawable.ic_folder
-                corpse.lookup.fileType == FileType.FILE -> R.drawable.ic_file
-                else -> R.drawable.file_question
-            }
-        )
+        sizeIcon.setImageResource(corpse.lookup.fileType.iconRes)
         size.text = StringBuilder().apply {
             if (corpse.content.isNotEmpty()) {
                 append(getQuantityString(eu.darken.sdmse.common.R.plurals.result_x_items, corpse.content.size))

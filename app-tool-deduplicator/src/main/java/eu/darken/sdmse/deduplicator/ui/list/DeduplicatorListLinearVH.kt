@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.deduplicator.R
-import eu.darken.sdmse.deduplicator.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.differ.update

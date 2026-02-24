@@ -83,7 +83,7 @@ class DeduplicatorDetailsFragment : Fragment3(R.layout.deduplicator_details_frag
                 isVisible = state.progress == null
                 setIcon(
                     if (state.isDirectoryViewEnabled) CommonR.drawable.ic_baseline_format_list_bulleted_24
-                    else R.drawable.ic_folder
+                    else eu.darken.sdmse.common.io.R.drawable.ic_folder
                 )
                 setTitle(
                     if (state.isDirectoryViewEnabled) eu.darken.sdmse.deduplicator.R.string.deduplicator_view_mode_groups_label

@@ -4,7 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import coil.transform.RoundedCornersTransformation
 import eu.darken.sdmse.deduplicator.R
-import eu.darken.sdmse.deduplicator.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH

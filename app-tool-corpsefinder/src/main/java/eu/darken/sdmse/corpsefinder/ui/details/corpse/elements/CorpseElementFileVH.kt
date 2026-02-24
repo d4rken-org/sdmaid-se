@@ -3,7 +3,7 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isGone
-import eu.darken.sdmse.corpsefinder.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.joinSegments

@@ -3,7 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.deduplicator.R
-import eu.darken.sdmse.deduplicator.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem

@@ -4,7 +4,7 @@ import android.graphics.Bitmap
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.squeezer.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.squeezer.core.CompressibleImage

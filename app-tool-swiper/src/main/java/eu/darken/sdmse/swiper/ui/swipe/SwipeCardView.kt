@@ -10,7 +10,7 @@ import android.view.MotionEvent
 import android.view.VelocityTracker
 import android.widget.FrameLayout
 import androidx.core.view.isVisible
-import eu.darken.sdmse.swiper.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.swiper.databinding.SwiperCardItemBinding
 import eu.darken.sdmse.swiper.core.SwipeDecision

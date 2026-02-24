@@ -3,7 +3,7 @@ package eu.darken.sdmse.swiper.ui.status
 import android.view.ViewGroup
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.swiper.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer

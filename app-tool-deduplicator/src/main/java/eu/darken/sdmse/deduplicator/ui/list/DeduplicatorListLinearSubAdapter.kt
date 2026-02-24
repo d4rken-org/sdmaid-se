@@ -8,7 +8,7 @@ import androidx.core.view.isVisible
 import androidx.viewbinding.ViewBinding
 import coil.transform.RoundedCornersTransformation
 import eu.darken.sdmse.deduplicator.R
-import eu.darken.sdmse.deduplicator.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer

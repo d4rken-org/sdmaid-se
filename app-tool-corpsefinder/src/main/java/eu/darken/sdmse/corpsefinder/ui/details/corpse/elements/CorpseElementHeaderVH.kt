@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isGone
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.corpsefinder.core.Corpse
@@ -32,13 +33,7 @@ class CorpseElementHeaderVH(parent: ViewGroup) :
         typeIcon.setImageResource(corpse.filterType.iconRes)
         typeValue.text = getString(corpse.filterType.labelRes)
 
-        sizeIcon.setImageResource(
-            when {
-                corpse.lookup.fileType == FileType.DIRECTORY -> R.drawable.ic_folder
-                corpse.lookup.fileType == FileType.FILE -> R.drawable.ic_file
-                else -> R.drawable.file_question
-            }
-        )
+        sizeIcon.setImageResource(corpse.lookup.fileType.iconRes)
         sizeVaule.text = Formatter.formatFileSize(context, corpse.size)
 
         ownersValue.text = if (corpse.ownerInfo.owners.isNotEmpty()) {

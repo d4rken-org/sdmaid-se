@@ -14,7 +14,7 @@ import coil.transform.RoundedCornersTransformation
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.materialswitch.MaterialSwitch
 import dagger.hilt.android.qualifiers.ActivityContext
-import eu.darken.sdmse.deduplicator.ui.loadFilePreview
+import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.lists.BindableVH
