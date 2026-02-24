@@ -8,7 +8,7 @@ import java.util.UUID
 
 @JsonClass(generateAdapter = true)
 data class MotdState(
-    @Json(name = "motd") val motd: MotdApi.Motd,
+    @Json(name = "motd") val motd: Motd,
     @Json(name = "locale") val locale: Locale,
 ) {
     val id: UUID

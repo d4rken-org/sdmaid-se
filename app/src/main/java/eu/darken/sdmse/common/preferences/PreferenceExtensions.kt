@@ -11,11 +11,18 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 
 
 inline fun <reified T> ListPreference.setupWithEnum(preference: DataStoreValue<T>) where  T : Enum<T>, T : EnumPreference<T> {
+    setupWithEnum(preference) { it.label.get(context) }
+}
+
+inline fun <reified T : Enum<T>> ListPreference.setupWithEnum(
+    preference: DataStoreValue<T>,
+    labelMapper: (T) -> String,
+) {
     isPersistent = false
 
     val startValue = preference.valueBlocking
 
-    entries = enumValues<T>().map { it.label.get(context) }.toTypedArray()
+    entries = enumValues<T>().map { labelMapper(it) }.toTypedArray()
     entryValues = enumValues<T>().map { (preference.writer(it) as String).removeSurrounding("\"") }.toTypedArray()
     value = (preference.writer(startValue) as String).removeSurrounding("\"")
 

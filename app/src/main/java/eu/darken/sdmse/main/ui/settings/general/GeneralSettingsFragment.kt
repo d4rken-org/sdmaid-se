@@ -14,6 +14,8 @@ import eu.darken.sdmse.common.locale.toList
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.ListPreference2
 import eu.darken.sdmse.common.preferences.setupWithEnum
+import eu.darken.sdmse.common.theming.ThemeMode
+import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.uix.PreferenceFragment3
 import eu.darken.sdmse.main.core.GeneralSettings
 import javax.inject.Inject
@@ -51,8 +53,19 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
         romTypeOverride.setupWithEnum(settings.romTypeDetection)
 
-        themeModePref.setupWithEnum(settings.themeMode)
-        themeStylePref.setupWithEnum(settings.themeStyle)
+        themeModePref.setupWithEnum(settings.themeMode) {
+            when (it) {
+                ThemeMode.SYSTEM -> getString(R.string.ui_theme_mode_system_label)
+                ThemeMode.DARK -> getString(R.string.ui_theme_mode_dark_label)
+                ThemeMode.LIGHT -> getString(R.string.ui_theme_mode_light_label)
+            }
+        }
+        themeStylePref.setupWithEnum(settings.themeStyle) {
+            when (it) {
+                ThemeStyle.DEFAULT -> getString(R.string.ui_theme_style_default_label)
+                ThemeStyle.MATERIAL_YOU -> getString(R.string.ui_theme_style_materialyou_label)
+            }
+        }
 
         oneClickTools.setOnPreferenceClickListener {
             oneClickToolDialog.show(requireContext())
