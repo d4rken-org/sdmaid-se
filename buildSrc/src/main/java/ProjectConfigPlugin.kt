@@ -8,7 +8,7 @@ open class ProjectConfig {
     val packageName = "eu.darken.sdmse"
     val minSdk = 26
 
-    val compileSdk = 35
+    val compileSdk = 36
     val compileSdkPreview: String? = null
     val targetSdk = 35
     val targetSdkPreview: String? = null

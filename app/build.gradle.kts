@@ -61,7 +61,7 @@ android {
         create("foss") {
             dimension = "version"
             signingConfig = signingConfigs["releaseFoss"]
-            // The info block is encrypted and can only be read by google
+            // The info block is encrypted and can only be read by Google
             dependenciesInfo {
                 includeInApk = false
                 includeInBundle = false
@@ -210,15 +210,14 @@ dependencies {
     addIO()
     addRetrofit()
 
-    "gplayImplementation"("com.android.billingclient:billing:8.0.0")
-    "gplayImplementation"("com.android.billingclient:billing-ktx:8.0.0")
+    "gplayImplementation"("com.android.billingclient:billing:8.3.0")
+    "gplayImplementation"("com.android.billingclient:billing-ktx:8.3.0")
 
-    //noinspection GradleDependency See https://issuetracker.google.com/issues/374691245
-    "gplayImplementation"("com.google.android.play:review:2.0.1")
-    //noinspection GradleDependency See https://issuetracker.google.com/issues/374691245
-    "gplayImplementation"("com.google.android.play:review-ktx:2.0.1")
+    "gplayImplementation"("com.google.android.play:review:2.0.2")
+    "gplayImplementation"("com.google.android.play:review-ktx:2.0.2")
 
     addAndroidCore()
+    implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
     addWorkerManager()
 
@@ -231,14 +230,14 @@ dependencies {
     addCoil()
     addLottie()
 
-    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
     implementation("me.zhanghai.android.fastscroll:library:1.3.0")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
-    implementation("androidx.core:core-splashscreen:1.0.0")
-    implementation("androidx.exifinterface:exifinterface:1.3.7")
+    implementation("androidx.core:core-splashscreen:1.2.0")
+    implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
@@ -248,6 +247,6 @@ dependencies {
 
 
 
-    testImplementation("org.robolectric:robolectric:4.16")
+    testImplementation("org.robolectric:robolectric:4.16.1")
     testImplementation("androidx.test.ext:junit:1.3.0")
 }

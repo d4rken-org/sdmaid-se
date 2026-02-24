@@ -1,6 +1,6 @@
 package eu.darken.sdmse.main
 
-import android.arch.core.executor.testing.InstantTaskExecutorRule
+import androidx.arch.core.executor.testing.InstantTaskExecutorRule
 import androidx.lifecycle.liveData
 import androidx.test.core.app.launchActivity
 import dagger.hilt.android.testing.BindValue

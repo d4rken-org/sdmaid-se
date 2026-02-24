@@ -115,7 +115,7 @@ class PickerViewModel @Inject constructor(
 
                     // Remove the last item (the selected path itself) so it shows in the list
                     if (navPath.size > 1) {
-                        navPath.removeLast()
+                        navPath.removeAt(navPath.lastIndex)
                     }
 
                     log(TAG, INFO) { "Pre-navigating to: ${navPath.map { it.lookup.lookedUp }}" }

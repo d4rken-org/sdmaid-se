@@ -122,7 +122,7 @@ class UiDumper @Inject constructor(
                     when (parser.name) {
                         "node" -> {
                             if (nodeStack.isNotEmpty()) {
-                                val completed = nodeStack.removeLast().toUiNode()
+                                val completed = nodeStack.removeAt(nodeStack.lastIndex).toUiNode()
                                 if (nodeStack.isNotEmpty()) {
                                     nodeStack.last().children.add(completed)
                                 } else {

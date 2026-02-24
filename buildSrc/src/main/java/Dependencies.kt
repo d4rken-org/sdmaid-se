@@ -16,7 +16,7 @@ private fun DependencyHandler.testImplementation(
     dependencyNotation: String,
     dependencyConfiguration: Action<ExternalModuleDependency>
 ): ExternalModuleDependency = addDependencyTo(
-    this, "androidTestImplementation", dependencyNotation, dependencyConfiguration
+    this, "testImplementation", dependencyNotation, dependencyConfiguration
 )
 
 private fun DependencyHandler.ksp(dependencyNotation: Any): Dependency? =
@@ -87,7 +87,7 @@ fun DependencyHandlerScope.addCoil() {
 }
 
 fun DependencyHandlerScope.addLottie() {
-    implementation("com.airbnb.android:lottie:3.5.0")
+    implementation("com.airbnb.android:lottie:6.7.1")
 }
 
 fun DependencyHandlerScope.addSerialization() {
@@ -98,7 +98,7 @@ fun DependencyHandlerScope.addSerialization() {
 }
 
 fun DependencyHandlerScope.addIO() {
-    implementation("com.squareup.okio:okio:3.15.0")
+    implementation("com.squareup.okio:okio:3.16.4")
 }
 
 fun DependencyHandlerScope.addRetrofit() {
@@ -111,22 +111,22 @@ fun DependencyHandlerScope.addRetrofit() {
 }
 
 fun DependencyHandlerScope.addAndroidCore() {
-    implementation("androidx.core:core-ktx:1.8.0")
-    implementation("androidx.appcompat:appcompat:1.7.0")
-    implementation("androidx.annotation:annotation:1.4.0")
+    implementation("androidx.core:core-ktx:1.17.0")
+    implementation("androidx.appcompat:appcompat:1.7.1")
+    implementation("androidx.annotation:annotation:1.9.1")
 
-    implementation("androidx.preference:preference-ktx:1.2.0")
-    implementation("androidx.datastore:datastore-preferences:1.0.0")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.datastore:datastore-preferences:1.2.0")
 }
 
 fun DependencyHandlerScope.addRoomDb() {
-    implementation("androidx.room:room-runtime:2.7.1")
-    implementation("androidx.room:room-ktx:2.7.1")
-    ksp("androidx.room:room-compiler:2.7.1")
+    implementation("androidx.room:room-runtime:2.8.4")
+    implementation("androidx.room:room-ktx:2.8.4")
+    ksp("androidx.room:room-compiler:2.8.4")
 }
 
 fun DependencyHandlerScope.addWorkerManager() {
-    val version = "2.10.3"
+    val version = "2.11.0"
     implementation("androidx.work:work-runtime:$version")
     testImplementation("androidx.work:work-testing:$version")
     implementation("androidx.work:work-runtime-ktx:$version")
@@ -136,30 +136,30 @@ fun DependencyHandlerScope.addWorkerManager() {
 }
 
 fun DependencyHandlerScope.addAndroidUI() {
-    implementation("androidx.activity:activity-ktx:1.10.0")
+    implementation("androidx.activity:activity-ktx:1.12.4")
     implementation("androidx.fragment:fragment-ktx:1.8.9")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.2")
-    implementation("androidx.lifecycle:lifecycle-common-java8:2.9.2")
-    implementation("androidx.lifecycle:lifecycle-process:2.9.2")
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.2")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-common-java8:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-process:2.9.4")
+    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.9.4")
 
     implementation("androidx.constraintlayout:constraintlayout:2.2.1")
-    implementation("com.google.android.material:material:1.13.0-alpha12")
+    implementation("com.google.android.material:material:1.13.0")
 }
 
 fun DependencyHandlerScope.addTesting() {
     testImplementation("junit:junit:4.13.2")
-    testImplementation("org.junit.vintage:junit-vintage-engine:5.13.0")
-    testImplementation("androidx.test:core-ktx:1.6.1")
+    testImplementation("org.junit.vintage:junit-vintage-engine:5.14.2")
+    testImplementation("androidx.test:core-ktx:1.7.0")
 
-    testImplementation("io.mockk:mockk:1.14.5")
-    androidTestImplementation("io.mockk:mockk-android:1.14.5")
+    testImplementation("io.mockk:mockk:1.14.9")
+    androidTestImplementation("io.mockk:mockk-android:1.14.9")
 
-    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.13.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-api:5.13.0")
-    testImplementation("org.junit.jupiter:junit-jupiter-params:5.13.0")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:5.14.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-api:5.14.2")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:5.14.2")
 
 
     testImplementation("io.kotest:kotest-runner-junit5:5.9.1")
@@ -170,15 +170,15 @@ fun DependencyHandlerScope.addTesting() {
 
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
-    debugImplementation("androidx.test:core-ktx:1.6.1")
+    debugImplementation("androidx.test:core-ktx:1.7.0")
 
-    androidTestImplementation("androidx.test.ext:junit:1.2.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
+    androidTestImplementation("androidx.test.ext:junit:1.3.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
 
-    androidTestImplementation("androidx.test:runner:1.6.2")
-    androidTestImplementation("androidx.test:rules:1.6.1")
-    androidTestImplementation("androidx.test.espresso:espresso-core:3.6.1")
-    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.6.1")
-    androidTestImplementation("androidx.test.espresso:espresso-intents:3.6.1")
-    androidTestImplementation("androidx.test.espresso.idling:idling-concurrent:3.6.1")
+    androidTestImplementation("androidx.test:runner:1.7.0")
+    androidTestImplementation("androidx.test:rules:1.7.0")
+    androidTestImplementation("androidx.test.espresso:espresso-core:3.7.0")
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.7.0")
+    androidTestImplementation("androidx.test.espresso:espresso-intents:3.7.0")
+    androidTestImplementation("androidx.test.espresso.idling:idling-concurrent:3.7.0")
 }
