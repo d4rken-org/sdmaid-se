@@ -288,10 +288,6 @@
     <string name="exclusion_export_action">Export exclusions</string>
     <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
     <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">One exclusion created</item>
-        <item quantity="other">%d exclusions created</item>
-    </plurals>
     <string name="exclusion_show_defaults_action">Show defaults</string>
 
     <string name="history_label">History</string>

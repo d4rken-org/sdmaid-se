@@ -20,6 +20,10 @@ val SetupModule.Type.labelRes: Int
         SetupModule.Type.INVENTORY -> R.string.setup_inventory_card_title
     }
 
+fun installShowSetupHint() {
+    showSetupHint = { fragment, types -> types.showFixSetupHint(fragment) }
+}
+
 fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
     // If the user navigates back while the snackbar is still showing
     // then we don't have access to the fragment anymore to get the navcontroller

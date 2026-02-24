@@ -224,7 +224,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                     .make(
                         requireView(),
                         getQuantityString2(
-                            R.plurals.exclusion_x_new_exclusions,
+                            eu.darken.sdmse.common.R.plurals.exclusion_x_new_exclusions,
                             event.exclusions.size
                         ),
                         Snackbar.LENGTH_INDEFINITE

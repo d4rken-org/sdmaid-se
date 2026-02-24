@@ -6,7 +6,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.toSystemTimezone
 import eu.darken.sdmse.databinding.SchedulerDashboardItemBinding
-import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import java.time.Instant
@@ -62,7 +62,7 @@ class SchedulerDashCardVH(parent: ViewGroup) :
 
     data class Item(
         val schedulerState: SchedulerManager.State,
-        val taskState: TaskManager.State,
+        val taskState: TaskSubmitter.State,
         val onManageClicked: () -> Unit,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()

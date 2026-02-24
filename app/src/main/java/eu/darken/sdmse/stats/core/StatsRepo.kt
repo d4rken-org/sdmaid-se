@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.shareLatest
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.main.core.taskmanager.TaskManager
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.ReportsDatabase
 import kotlinx.coroutines.CoroutineScope
@@ -62,7 +62,7 @@ class StatsRepo @Inject constructor(
         .throttleLatest(500)
         .shareLatest(appScope)
 
-    suspend fun report(task: TaskManager.ManagedTask) {
+    suspend fun report(task: TaskSubmitter.ManagedTask) {
         log(TAG, INFO) { "report(${task.id})...${task.task.javaClass}" }
 
         if (task.task !is Reportable) {
@@ -76,7 +76,7 @@ class StatsRepo @Inject constructor(
         val report = ReportEntity(
             startAt = task.startedAt ?: Instant.now(),
             endAt = task.completedAt ?: Instant.now(),
-            tool = task.tool.type,
+            tool = task.toolType,
             status = when {
                 task.error != null -> Report.Status.FAILURE
                 reportDetails != null -> reportDetails.status

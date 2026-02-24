@@ -55,7 +55,7 @@ class TaskWorkerNotifications @Inject constructor(
         }
     }
 
-    fun getBuilder(state: TaskManager.State?): NotificationCompat.Builder {
+    fun getBuilder(state: TaskSubmitter.State?): NotificationCompat.Builder {
         if (state == null) {
             return builder.apply {
                 setStyle(null)
@@ -83,9 +83,9 @@ class TaskWorkerNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(state: TaskManager.State?): Notification = getBuilder(state).build()
+    fun getNotification(state: TaskSubmitter.State?): Notification = getBuilder(state).build()
 
-    fun getForegroundInfo(state: TaskManager.State?): ForegroundInfo = getBuilder(state).toForegroundInfo()
+    fun getForegroundInfo(state: TaskSubmitter.State?): ForegroundInfo = getBuilder(state).toForegroundInfo()
 
     private fun NotificationCompat.Builder.toForegroundInfo(): ForegroundInfo = if (hasApiLevel(29)) {
         @Suppress("NewApi")

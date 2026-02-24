@@ -53,9 +53,9 @@ class TaskManager @Inject constructor(
 
     private val managerLock = Mutex()
     private val concurrencyLock = Semaphore(2)
-    private val managedTasks = MutableStateFlow(emptyMap<String, ManagedTask>())
+    private val taskEntries = MutableStateFlow(emptyMap<String, TaskEntry>())
 
-    data class ManagedTask(
+    private data class TaskEntry(
         val id: String,
         val task: SDMTool.Task,
         val tool: SDMTool,
@@ -76,25 +76,27 @@ class TaskManager @Inject constructor(
         val isActive: Boolean = !isComplete && startedAt != null
         val isQueued: Boolean = !isComplete && startedAt == null && cancelledAt == null
 
+        fun toPublic() = TaskSubmitter.ManagedTask(
+            id = id,
+            toolType = toolType,
+            task = task,
+            queuedAt = queuedAt,
+            startedAt = startedAt,
+            cancelledAt = cancelledAt,
+            completedAt = completedAt,
+            result = result,
+            error = error,
+        )
+
         override fun toString(): String {
-            return "ManagedTask(${toolType}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
+            return "TaskEntry(${toolType}: ${task.javaClass.simpleName} - queued=$queuedAt, started=$startedAt, completed=$completedAt, cancelled=$cancelledAt) - result=$result, error=$error)"
         }
     }
 
-    data class State(
-        val tasks: Collection<ManagedTask> = emptySet()
-    ) {
-        val isIdle: Boolean
-            get() = tasks.all { it.isComplete }
-
-        val hasCancellable: Boolean
-            get() = tasks.any { !it.isComplete && !it.isCancelling }
-    }
-
-    val state = managedTasks
-        .map { manTasks ->
-            State(
-                tasks = manTasks.values
+    override val state = taskEntries
+        .map { entries ->
+            TaskSubmitter.State(
+                tasks = entries.values.map { it.toPublic() }
             )
         }
 
@@ -103,8 +105,8 @@ class TaskManager @Inject constructor(
             .distinctUntilChanged()
             .onEach {
                 log(TAG, VERBOSE) { "Task map changed:" }
-                managedTasks.value.values.forEachIndexed { index, managedTask ->
-                    log(TAG, VERBOSE) { "#$index - $managedTask" }
+                taskEntries.value.values.forEachIndexed { index, entry ->
+                    log(TAG, VERBOSE) { "#$index - $entry" }
                 }
             }
             .launchIn(appScope)
@@ -145,26 +147,26 @@ class TaskManager @Inject constructor(
     }
 
     private suspend fun updateTasks(
-        update: MutableMap<String, ManagedTask>.() -> Unit
-    ): Map<String, ManagedTask> = withContext(NonCancellable) {
+        update: MutableMap<String, TaskEntry>.() -> Unit
+    ): Map<String, TaskEntry> = withContext(NonCancellable) {
         managerLock.withLock {
-            val modMap = managedTasks.value.toMutableMap()
+            val modMap = taskEntries.value.toMutableMap()
             update(modMap)
             modMap.toMap().also {
-                managedTasks.value = it
+                taskEntries.value = it
             }
         }
     }
 
     private suspend fun stage(taskId: String) {
         log(TAG) { "stage(): Staging $taskId" }
-        var tempTask: ManagedTask? = null
+        var tempEntry: TaskEntry? = null
         updateTasks {
             this[taskId] = this[taskId]!!
-                .also { tempTask = it }
+                .also { tempEntry = it }
         }
-        val managedTask: ManagedTask = tempTask ?: throw IllegalStateException("Can't find task $taskId")
-        val tool = managedTask.tool
+        val entry: TaskEntry = tempEntry ?: throw IllegalStateException("Can't find task $taskId")
+        val tool = entry.tool
 
         tool.updateProgress {
             it ?: Progress.Data(
@@ -178,20 +180,20 @@ class TaskManager @Inject constructor(
         log(TAG) { "execute(): Starting $taskId" }
         val start = System.currentTimeMillis()
 
-        var tempTask: ManagedTask? = null
+        var tempEntry: TaskEntry? = null
         updateTasks {
             this[taskId] = this[taskId]!!
                 .copy(startedAt = Instant.now())
-                .also { tempTask = it }
+                .also { tempEntry = it }
         }
-        val managedTask: ManagedTask = tempTask ?: throw IllegalStateException("Can't find task $taskId")
+        val entry: TaskEntry = tempEntry ?: throw IllegalStateException("Can't find task $taskId")
 
-        val tool = managedTask.tool
-        val result = tool.useRes { tool.submit(managedTask.task) }
+        val tool = entry.tool
+        val result = tool.useRes { tool.submit(entry.task) }
 
         val stop = System.currentTimeMillis()
-        log(TAG) { "execute() after ${stop - start}ms: $result : $tempTask" }
-        log(TAG) { "execute(): Managed tasks now:\n${managedTasks.value.values.joinToString("\n")}" }
+        log(TAG) { "execute() after ${stop - start}ms: $result : $tempEntry" }
+        log(TAG) { "execute(): Task entries now:\n${taskEntries.value.values.joinToString("\n")}" }
         result
     }
 
@@ -231,13 +233,13 @@ class TaskManager @Inject constructor(
             }
         }
 
-        job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${managedTasks.value[taskId]}" } }
+        job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${taskEntries.value[taskId]}" } }
 
-        managedTasks
+        taskEntries
             .mapNotNull { it[taskId] }
             .filter { it.isComplete }
             .take(1)
-            .onEach { statsRepo.report(it) }
+            .onEach { statsRepo.report(it.toPublic()) }
             .launchIn(appScope)
 
         withContext(NonCancellable) {
@@ -249,7 +251,7 @@ class TaskManager @Inject constructor(
             sharedResource.addChild(tool.sharedResource)
 
             updateTasks {
-                val managedTask = ManagedTask(
+                val entry = TaskEntry(
                     id = taskId,
                     task = task,
                     tool = tool,
@@ -257,15 +259,15 @@ class TaskManager @Inject constructor(
                     resourceLock = keepAlive,
                 )
 
-                this[managedTask.id] = managedTask
+                this[entry.id] = entry
 
-                log(TAG) { "submit(): Queued: $managedTask" }
+                log(TAG) { "submit(): Queued: $entry" }
             }
         }
 
         job.join()
 
-        val endTask = managedTasks
+        val endTask = taskEntries
             .mapNotNull { it[taskId] }
             .filter { it.isComplete }
             .first()
@@ -273,17 +275,19 @@ class TaskManager @Inject constructor(
         return endTask.result ?: throw endTask.error!!
     }
 
-    fun cancel(type: SDMTool.Type) = appScope.launch {
-        log(TAG, INFO) { "cancel($type)" }
+    override fun cancel(type: SDMTool.Type) {
+        appScope.launch {
+            log(TAG, INFO) { "cancel($type)" }
 
-        updateTasks {
-            this
-                .filter { it.value.tool.type == type && it.value.cancelledAt == null }
-                .onEach { (key, value) ->
-                    log(TAG) { "Cancelling $value" }
-                    value.job?.cancel()
-                    this[key] = this[key]!!.copy(cancelledAt = Instant.now())
-                }
+            updateTasks {
+                this
+                    .filter { it.value.tool.type == type && it.value.cancelledAt == null }
+                    .onEach { (key, value) ->
+                        log(TAG) { "Cancelling $value" }
+                        value.job?.cancel()
+                        this[key] = this[key]!!.copy(cancelledAt = Instant.now())
+                    }
+            }
         }
     }
 

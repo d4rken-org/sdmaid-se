@@ -10,4 +10,11 @@
     <item name="goToUpgradeFragment" type="id" />
     <item name="goToReportsFragment" type="id" />
     <item name="goToSwiperSessions" type="id" />
+    <item name="goToSetup" type="id" />
+    <item name="goToAppControlListFragment" type="id" />
+    <item name="goToDeviceStorageFragment" type="id" />
+    <item name="goToCustomFilterEditor" type="id" />
+    <item name="goToArbiterConfig" type="id" />
+    <item name="goToPreview" type="id" />
+    <item name="goToCustomFilterList" type="id" />
 </resources>

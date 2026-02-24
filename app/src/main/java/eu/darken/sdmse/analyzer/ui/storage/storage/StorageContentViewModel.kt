@@ -117,7 +117,7 @@ class StorageContentViewModel @Inject constructor(
     fun onNavigateBack() = launch {
         log(TAG) { "onNavigateBack()" }
         val activeAnalyzerTasks = taskManager.state.first().tasks
-            .filter { it.tool.type == SDMTool.Type.ANALYZER }
+            .filter { it.toolType == SDMTool.Type.ANALYZER }
             .any { it.isActive }
         if (activeAnalyzerTasks) {
             log(TAG) { "Canceling active tasks" }

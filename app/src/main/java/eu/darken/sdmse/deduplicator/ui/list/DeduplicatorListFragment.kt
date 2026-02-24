@@ -165,7 +165,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 is DeduplicatorListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                        getQuantityString2(eu.darken.sdmse.common.R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {

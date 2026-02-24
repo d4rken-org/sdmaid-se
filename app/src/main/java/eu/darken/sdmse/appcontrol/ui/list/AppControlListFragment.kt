@@ -354,7 +354,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                 is AppControlListEvents.ExclusionsCreated -> Snackbar
                     .make(
                         requireView(),
-                        getQuantityString2(R.plurals.exclusion_x_new_exclusions, event.count),
+                        getQuantityString2(eu.darken.sdmse.common.R.plurals.exclusion_x_new_exclusions, event.count),
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {

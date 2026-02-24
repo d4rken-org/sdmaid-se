@@ -39,7 +39,7 @@ import eu.darken.sdmse.exclusion.core.types.UserExclusion
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
-import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragmentDirections
+import eu.darken.sdmse.common.navigation.navDirections
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
@@ -255,7 +255,7 @@ class ExclusionListViewModel @Inject constructor(
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Pro upgrade required" }
-            CustomFilterListFragmentDirections.goToUpgradeFragment().navigate()
+            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
             return@launch
         }
 

@@ -4,10 +4,7 @@
         <attr name="pvTitle" format="reference|string" />
         <attr name="pvDescription" format="reference|string" />
     </declare-styleable>
-    <declare-styleable name="TaggedInputView">
-        <attr name="tivTitle" format="reference" />
-    </declare-styleable>
-    <declare-styleable name="MascotView">
+<declare-styleable name="MascotView">
         <attr name="mascotMode" format="enum">
             <enum name="auto" value="0" />
             <enum name="none" value="1" />
