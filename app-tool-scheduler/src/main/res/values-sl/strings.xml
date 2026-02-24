@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Urnik</string>
+    <string name="scheduler_execution_label">Naslednji zagon (približno)</string>
+    <string name="scheduler_execution_last_label">Zadnji zagon</string>
+    <string name="scheduler_settings_label">Urejevalec urnikov</string>
+    <string name="scheduler_settings_summary">Prilagodi nastavitve, ki so povezane z urejevalcem urnikov.</string>
+    <string name="scheduler_new_schedule_action">Ustvari urnik</string>
+    <string name="scheduler_schedule_name_label">Ime urnika</string>
+    <string name="scheduler_schedule_toggle_enabled">Urnik je omogočen.</string>
+    <string name="scheduler_schedule_toggle_disabled">Urnik je onemogočen.</string>
+    <string name="scheduler_edit_schedule_action">Uredi urnik</string>
+    <string name="scheduler_schedule_time_label">Približni čas</string>
+    <string name="scheduler_schedule_repeat_label">Razmik ponavljanja v dnevih</string>
+    <string name="scheduler_schedule_default_name">Privzeti urnik</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s okoli %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Načrtovano za %s</string>
+    <string name="scheduler_schedule_last_at_x">Nazadnje zagnano ob %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Dnevno</item>
+        <item quantity="two">Vsake %d dni</item>
+        <item quantity="few">Vsake %d dni</item>
+        <item quantity="other">Vsakih %d dni</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Razmik ponovitev</string>
+    <string name="scheduler_inaccurate_execution_hint">Pričakovani časi izvajanja so približni.  Urniki se lahko zaženejo prej ali kasneje glede na shemo varčevanja z energijo.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Ni dejavnih urnikov.</string>
+    <string name="scheduler_setting_nopowersaving_title">Preskoči pri nizkem stanju baterije</string>
+    <string name="scheduler_setting_nopowersaving_summary">Če je naprava v načinu varčevanja z energijo, bo načrtovano izvajanje preskočeno.</string>
+    <string name="scheduler_setting_charging_title">Preskoči, kadar se ne polni</string>
+    <string name="scheduler_setting_charging_summary">Če se naprava ne polni, bo načrtovano izvajanje preskočeno.</string>
+    <string name="scheduler_setting_automation_title">Storitev dostopnosti</string>
+    <string name="scheduler_setting_automation_summary">Vključi dejanja, ki uporabljajo storitev dostopnosti.  To zahteva, da lahko SD Maid upravlja z vašim zaslonom (ko je odklenjen), ko se opravila izvajajo.</string>
+    <string name="scheduler_notification_channel_label">Urejevalec urnikov</string>
+    <string name="scheduler_notification_title">Načrtovano opravilo</string>
+    <string name="scheduler_notification_message">Izvajanje: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Urnik je končan.</string>
+    <string name="scheduler_notification_result_success_message">Vsa načrtovana opravila so se uspešno izvedla.</string>
+    <string name="scheduler_notification_result_failure_message">Nekatera načrtovana opravila se niso uspešno končala ali so naletela na napake.  Poizkusite jih ročno zagnati.</string>
+    <string name="scheduler_commands_after_schedule_label">Ukazi, ki se izvedejo po urniku</string>
+    <string name="scheduler_commands_after_schedule_desc">Ukazi Androidove lupine, ki bodo izvedeni po koncu urnika.</string>
+    <string name="scheduler_battery_optimization_hint">Če opazite težave z izvajanjem v ozadju, lahko za SD Maid onemogočite optimizacijo energije.</string>
+</resources>

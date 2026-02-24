@@ -175,4 +175,9 @@
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>
     <string name="exclusion_create_action">ማስወገጃ ፍጠር</string>
+    <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">አንድ ማስወገጃ ተፈጠረ</item>
+        <item quantity="other">%d ማስወገጃዎች ተፈጠሩ</item>
+    </plurals>
 </resources>

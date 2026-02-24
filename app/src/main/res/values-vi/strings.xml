@@ -147,7 +147,6 @@
     <string name="setup_notification_title">Thông báo</string>
     <string name="setup_notification_body">Cho phép SD Maid đăng thông báo cho bạn về các hoạt động đang diễn ra hoặc các sự kiện quan trọng.</string>
     <string name="setup_notification_hint">Thông báo được sử dụng một cách tiết kiệm 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
     <string name="setup_acs_card_title">Dịch vụ trợ năng</string>
     <string name="setup_acs_card_body">Dịch vụ trợ năng cho phép SD Maid tương tác với màn hình của bạn và tự động hóa các tác vụ tẻ nhạt, ví dụ: nhấn \"Xóa bộ nhớ cache\" trên nhiều màn hình.</string>
     <string name="setup_acs_card_body2">SD Maid sẽ không sử dụng dịch vụ trợ năng mà không có sự đồng ý của bạn, sẽ luôn hiển thị một chỉ báo nổi bật (có thể hủy) khi đang hoạt động và sẽ không sử dụng nó để thu thập thông tin.</string>

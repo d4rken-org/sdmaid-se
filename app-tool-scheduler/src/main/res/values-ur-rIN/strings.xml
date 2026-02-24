@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">شیڈیولر</string>
+    <string name="scheduler_execution_label">اگلی تکمیل (تقریباً)</string>
+    <string name="scheduler_execution_last_label">آخری تکمیل</string>
+    <string name="scheduler_settings_label">شیڈیولر</string>
+    <string name="scheduler_settings_summary">شیڈیولر سے متعلق سیٹنگز میں تبدیلی کریں۔</string>
+    <string name="scheduler_new_schedule_action">شیڈیول بنائیں</string>
+    <string name="scheduler_schedule_name_label">شیڈیول کا نام</string>
+    <string name="scheduler_schedule_toggle_enabled">شیڈیول فعال ہے</string>
+    <string name="scheduler_schedule_toggle_disabled">شیڈیول غیر فعال ہے</string>
+    <string name="scheduler_edit_schedule_action">شیڈیول تبدیل کریں</string>
+    <string name="scheduler_schedule_time_label">تخمینی وقت</string>
+    <string name="scheduler_schedule_repeat_label">دنوں میں تکرار کا وقفہ</string>
+    <string name="scheduler_schedule_default_name">ڈیفالٹ شیڈیول</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s تقریباً %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s کے لیے منصوبہ</string>
+    <string name="scheduler_schedule_last_at_x">%s پر آخری بار عمل کیا گیا</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">روزانہ</item>
+        <item quantity="other">ہر %d دن</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">تکرار کا وقفہ</string>
+    <string name="scheduler_inaccurate_execution_hint">متوقع تکمیل کے اوقات تخمینی ہیں۔ اگر بیٹری بچانے کے لیے ضروری ہو تو شیڈیولز موخر یا جلدی ہو سکتے ہیں۔</string>
+    <string name="scheduler_no_active_schedules_subtitle">کوئی فعال شیڈیول نہیں</string>
+    <string name="scheduler_setting_nopowersaving_title">کم بیٹری پر چھوڑیں</string>
+    <string name="scheduler_setting_nopowersaving_summary">اگر ڈیوائس پاور سیونگ موڈ میں ہے، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
+    <string name="scheduler_setting_charging_title">چارجنگ نہ ہونے پر چھوڑیں</string>
+    <string name="scheduler_setting_charging_summary">اگر ڈیوائس چارج نہیں ہو رہا، تو شیڈیول شدہ تکمیل چھوڑ دی جائے گی۔</string>
+    <string name="scheduler_setting_automation_title">رسائی سروس</string>
+    <string name="scheduler_setting_automation_summary">رسائی سروس استعمال کرنے والی کارروائیاں شامل کریں۔ اس کے لیے ضروری ہے کہ کام سرانجام ہونے کے وقت SD Maid آپ کی سکرین کے ساتھ برقراری کر سکے (یعنی یہ غیر مقفل ہو)۔</string>
+    <string name="scheduler_notification_channel_label">شیڈیولر</string>
+    <string name="scheduler_notification_title">مقررہ کام</string>
+    <string name="scheduler_notification_message">عمل کر رہے ہیں: \"%s\"</string>
+    <string name="scheduler_notification_result_title">شیڈیولر مکمل</string>
+    <string name="scheduler_notification_result_success_message">تمام شیڈیول شدہ کام کامیابی سے چلے۔</string>
+    <string name="scheduler_notification_result_failure_message">کچھ شیڈیول شدہ کام ناکام ہوئے یا خرابی کا سامنا کیا۔ انھیں دستی طور پر چلانے کی کوشش کریں۔</string>
+    <string name="scheduler_commands_after_schedule_label">شیڈیول کے بعد کے کمانڈز</string>
+    <string name="scheduler_commands_after_schedule_desc">Android شیل کمانڈز جو شیڈیول کے اختتام پر تعین کیے جائیں گے۔</string>
+    <string name="scheduler_battery_optimization_hint">اگر آپ کو پس منظر کی تکمیل میں مسائل کا سامنا ہو تو SD Maid کے لیے بیٹری آپٹیمائزیشن بند کرنے پر غور کریں۔</string>
+</resources>

@@ -118,4 +118,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
     <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
+    <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
+    <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
 </resources>

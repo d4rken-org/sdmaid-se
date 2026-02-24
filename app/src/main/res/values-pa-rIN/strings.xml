@@ -148,7 +148,6 @@
     <string name="setup_notification_title">ਸੂਚਨਾਵਾਂ</string>
     <string name="setup_notification_body">SD Maid ਨੂੰ ਚੱਲ ਰਹੀਆਂ ਕਾਰਵਾਈਆਂ ਜਾਂ ਮਹੱਤਵਪੂਰਨ ਘਟਨਾਵਾਂ ਬਾਰੇ ਤੁਹਾਨੂੰ ਸੂਚਿਤ ਕਰਨ ਲਈ ਸੂਚਨਾਵਾਂ ਪੋਸਟ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।</string>
     <string name="setup_notification_hint">ਸੂਚਨਾਵਾਂ ਦੀ ਵਰਤੋਂ ਸੰਜਮ ਨਾਲ ਕੀਤੀ ਜਾਂਦੀ ਹੈ 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ਇਸ ਫੀਚਰ ਲਈ ਵਾਧੂ ਸੈੱਟਅੱਪ ਆਈਟਮਾਂ ਨੂੰ ਪੂਰਾ ਕਰਨਾ ਜ਼ਰੂਰੀ ਹੈ: %s</string>
     <string name="setup_acs_card_title">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ</string>
     <string name="setup_acs_card_body">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ SD Maid ਨੂੰ ਤੁਹਾਡੀ ਸਕ੍ਰੀਨ ਨਾਲ ਇੰਟਰੈਕਟ ਕਰਨ ਅਤੇ ਥਕਾਊ ਕਾਰਵਾਈਆਂ ਨੂੰ ਸਵੈਚਲਿਤ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦੀ ਹੈ, ਜਿਵੇਂ ਕਿ ਕਈ ਸਕ੍ਰੀਨਾਂ \'ਤੇ \"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" \'ਤੇ ਟੈਪ ਕਰਨਾ।</string>
     <string name="setup_acs_card_body2">SD Maid ਤੁਹਾਡੀ ਸਹਿਮਤੀ ਤੋਂ ਬਿਨਾਂ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਨਹੀਂ ਕਰੇਗਾ, ਸਰਗਰਮ ਹੋਣ \'ਤੇ ਹਮੇਸ਼ਾ ਇੱਕ ਪ੍ਰਮੁੱਖ (ਰੱਦ ਕਰਨ ਯੋਗ) ਸੂਚਕ ਪ੍ਰਦਰਸ਼ਿਤ ਕਰੇਗਾ ਅਤੇ ਇਸਦੀ ਵਰਤੋਂ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਕਰਨ ਲਈ ਨਹੀਂ ਕਰੇਗਾ।</string>

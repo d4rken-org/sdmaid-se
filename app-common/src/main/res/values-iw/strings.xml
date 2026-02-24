@@ -197,4 +197,11 @@
     <string name="general_user_label_system">מערכת</string>
     <string name="setup_title">הגדרה</string>
     <string name="exclusion_create_action">צור החרגה</string>
+    <string name="setup_feature_requires_additional_setup_x">תכונה זו דורשת השלמת פריטי הגדרה נוספים: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">נוצרה החרגה אחת</item>
+        <item quantity="two">נוצרו %d החרגות</item>
+        <item quantity="many">נוצרו %d החרגות</item>
+        <item quantity="other">נוצרו %d החרגות</item>
+    </plurals>
 </resources>

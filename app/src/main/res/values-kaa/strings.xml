@@ -141,7 +141,6 @@
     <string name="setup_notification_title">Xabarlamalar</string>
     <string name="setup_notification_body">SD Maid ga dáwam etip atırgan operaciyalar yaki muhim hádiyasellar haqqında habarlama jiberiw ruqsátın ber.</string>
     <string name="setup_notification_hint">Bildiriw xatılarnan kem paydalanıladı 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
     <string name="setup_acs_card_title">Arnawlı imkaniyatlar xızmeti</string>
     <string name="setup_acs_card_body">Qol jetkiziwlilik xizmeti SD Maid ga sizin ekranınızmenen árekeslesiwge hám zerikkarli harektlerni avtomatizaciyalawga mümkinshilik beredi, mısalı bir neshe ekranda \"Keshti tazart\" dep basqansha.</string>
     <string name="setup_acs_card_body2">SD Maid sizin kelisimınızsiz qol jetkiziwlilik xizmetin paydanbaydı, fayll bolıp atırgan waqtında árqashán körinietugun (basıp taslaw mümkin) indikatordi körsetedi hám onı maǵlıwmat joynaw üşin paydalanbaydı.</string>

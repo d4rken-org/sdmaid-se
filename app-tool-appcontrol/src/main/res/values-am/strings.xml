@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">የማያ ጊዜ: %1$s ከ%2$s ጀምሮ</string>
     <string name="appcontrol_item_lastupdate_x_label">በመጨረሻ ተዘምኗል: %s</string>
     <string name="appcontrol_item_installedat_x_label">የተጫነበት: %s</string>
+    <string name="shortcut_appcontrol_short">የመተግበሪያ ቁጥጥር</string>
+    <string name="shortcut_appcontrol_long">የተጫኑ መተግበሪያዎችን ያስተዳድሩ</string>
 </resources>

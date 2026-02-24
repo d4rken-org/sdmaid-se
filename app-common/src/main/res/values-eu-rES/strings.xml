@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Jabea</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Konfigurazioa</string>
+    <string name="setup_feature_requires_additional_setup_x">Eginbide honek konfigurazio-elementu gehigarriak osatzea eskatzen du: %s</string>
 </resources>

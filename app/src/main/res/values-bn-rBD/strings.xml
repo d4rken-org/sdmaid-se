@@ -151,7 +151,6 @@
     <string name="setup_notification_title">নোটিফিকেশন</string>
     <string name="setup_notification_body">চলমান ক্রিয়াকলাপ বা গুরুত্বপূর্ণ ইভেন্টগুলি সম্পর্কে আপনাকে অবহিত করতে SD Maid কে নোটিফিকেশন দেখানোর অনুমতি দিন।</string>
     <string name="setup_notification_hint">বিজ্ঞপ্তিসমূহ কদাচিৎ ব্যবহার করা হয় 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">এই ফিচারটির জন্য বাড়তি সেটআপ সম্পূর্ণ করতে হবে: %s</string>
     <string name="setup_acs_card_title">অ্যাক্সেসিবিলিটি পরিষেবা</string>
     <string name="setup_acs_card_body">অ্যাক্সেসিবিলিটি পরিষেবা SD Maid কে আপনার স্ক্রিনের সাথে ইন্টারঅ্যাক্ট করতে এবং ক্রিয়াগুলি স্বয়ংক্রিয়ভাবে করতে দেয়, যেমন একাধিক স্ক্রিনে \"ক্যাশ সাফ করুন\" ট্যাপ করতে।</string>
     <string name="setup_acs_card_body2">SD Maid আপনার সম্মতি ছাড়া অ্যাক্সেসিবিলিটি পরিষেবা ব্যবহার করবে না, সক্রিয় থাকাকালীন সর্বদা একটি বিশিষ্ট (বাতিলযোগ্য) নির্দেশক দেখাবে এবং তথ্য সংগ্রহ করতে এটি ব্যবহার করবে না।</string>

@@ -143,7 +143,6 @@
     <string name="setup_notification_title">Bildirimler</string>
     <string name="setup_notification_body">SD Maid\'in devam eden işlemler veya önemli etkinlikler hakkında sizi bilgilendirmek için bildirimler yayınlamasına izin verin.</string>
     <string name="setup_notification_hint">Nadiren bildirim gösterilir 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Bu özellik için ek kurulum öğelerinin tamamlanması gerekir: %s</string>
     <string name="setup_acs_card_title">Erişilebilirlik hizmeti</string>
     <string name="setup_acs_card_body">Erişilebilirlik hizmeti, SD Maid\'in ekranınızla etkileşime girmesine ve birden fazla ekranda \"Önbelleği temizle\" seçeneğine tıklamak gibi sıkıcı eylemleri otomatikleştirmesine olanak tanır.</string>
     <string name="setup_acs_card_body2">SD Maid, izniniz olmadan erişilebilirlik hizmetini kullanmayacak, aktifken her zaman belirgin (iptal edilebilir) bir gösterge gösterecek ve bilgi toplamak için kullanmayacaktır.</string>

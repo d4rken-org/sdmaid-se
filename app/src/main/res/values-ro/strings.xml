@@ -155,7 +155,6 @@
     <string name="setup_notification_title">Notificări</string>
     <string name="setup_notification_body">Acordă SD Maid de-a posta notificări pentru a te informa despre operații în curs de desfășurare sau evenimente importante.</string>
     <string name="setup_notification_hint">Notificările sunt folosite cu moderație 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor adiționale de configurare: %s</string>
     <string name="setup_acs_card_title">Serviciul de accesibilitate</string>
     <string name="setup_acs_card_body">Serviciul de accesibilitate permite SD Maid de-a interacționa cu ecranul tău și a automatiza acțiuni complexe, de ex: apăsând pe \"Șterge cache\" la ecrane multiple.</string>
     <string name="setup_acs_card_body2">SD Maid nu va folosi serviciul de accesibilitate fără acordul tău, va afișa întotdeauna un indicator proeminent (anulabil) când este activ și nu va fi folosit pentru a colecta informații.</string>

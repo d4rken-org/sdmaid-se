@@ -175,4 +175,9 @@
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>
     <string name="exclusion_create_action">ବହିଷ୍କାର ସୃଷ୍ଟି କରନ୍ତୁ</string>
+    <string name="setup_feature_requires_additional_setup_x">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଅତିରିକ୍ତ ସେଟଅପ ଆଇଟମଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ଆବଶ୍ୟକ କରେ: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ଗୋଟିଏ ବାଦ ସୃଷ୍ଟି ହୋଇଛି</item>
+        <item quantity="other">%d ବାଦ ସୃଷ୍ଟି ହୋଇଛି</item>
+    </plurals>
 </resources>

@@ -186,4 +186,10 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Parte de configurare</string>
     <string name="exclusion_create_action">Creează excludere</string>
+    <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor adiționale de configurare: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">O singură excludere creată</item>
+        <item quantity="few">%d excluderi create</item>
+        <item quantity="other">Excluderi %d create</item>
+    </plurals>
 </resources>

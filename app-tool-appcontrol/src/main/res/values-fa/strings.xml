@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">مدت زمان نمایش: %1$s از %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخرین به‌روزرسانی: %s</string>
     <string name="appcontrol_item_installedat_x_label">نصب شده در: %s</string>
+    <string name="shortcut_appcontrol_short">کنترل برنامه</string>
+    <string name="shortcut_appcontrol_long">مدیریت برنامه‌های نصبی</string>
 </resources>

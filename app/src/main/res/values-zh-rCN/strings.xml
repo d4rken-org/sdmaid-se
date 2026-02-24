@@ -147,7 +147,6 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允许 SD Maid 发布通知以告知您正在进行的操作或重要事件。</string>
     <string name="setup_notification_hint">我们不会滥用通知 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： %s</string>
     <string name="setup_acs_card_title">无障碍服务</string>
     <string name="setup_acs_card_body">无障碍服务允许 SD Maid 与您的屏幕交互，并自动完成重复性的动作，如在不同页面点击“清除缓存”。</string>
     <string name="setup_acs_card_body2">SD Maid 只会在您的允许下使用无障碍服务，并会在使用时显示醒目的提示。（此过程可以随时取消），并且不会收集信息。</string>

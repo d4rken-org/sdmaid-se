@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Értesítések</string>
     <string name="setup_notification_body">Engedélyezze az SD Maid számára, hogy értesítéseket tegyen közzé a folyamatban lévő műveletekről vagy fontos eseményekről.</string>
     <string name="setup_notification_hint">Az értesítéseket takarékosan használjuk 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
     <string name="setup_acs_card_title">Kisegítő lehetőségek</string>
     <string name="setup_acs_card_body">Az akadálymentesítési szolgáltatás lehetővé teszi az SD Maid számára, hogy interakcióba lépjen az Ön képernyőjével, és automatizálja az unalmas műveleteket, pl. több képernyőn kattintson a \"Gyorsítótár törlése\" gombra.</string>
     <string name="setup_acs_card_body2">Az SD Maid nem használja az akadálymentesítési szolgáltatást az Ön beleegyezése nélkül, aktív állapotában mindig jól látható (megszakítható) jelzőt jelenít meg, és nem használja fel információgyűjtésre.</string>

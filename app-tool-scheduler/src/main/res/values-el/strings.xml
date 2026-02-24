@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Χρονοδιάγραμμα</string>
+    <string name="scheduler_execution_label">Επόμενη εκτέλεση (κατά προσέγγιση)</string>
+    <string name="scheduler_execution_last_label">Τελευταία εκτέλεση</string>
+    <string name="scheduler_settings_label">Χρονοδιάγραμμα</string>
+    <string name="scheduler_settings_summary">Προσαρμόστε τις ρυθμίσεις που σχετίζονται με το χρονοδιάγραμμα.</string>
+    <string name="scheduler_new_schedule_action">Δημιουργία χρονοδιαγράμματος</string>
+    <string name="scheduler_schedule_name_label">Όνομα χρονοδιαγράμματος</string>
+    <string name="scheduler_schedule_toggle_enabled">Το χρονοδιάγραμμα είναι ενεργοποιημένο</string>
+    <string name="scheduler_schedule_toggle_disabled">Το χρονοδιάγραμμα είναι απενεργοποιημένο</string>
+    <string name="scheduler_edit_schedule_action">Επεξεργασία χρονοδιαγράμματος</string>
+    <string name="scheduler_schedule_time_label">Χρόνος κατά προσέγγιση</string>
+    <string name="scheduler_schedule_repeat_label">Διάστημα επανάληψης σε ημέρες</string>
+    <string name="scheduler_schedule_default_name">Προεπιλεγμένο χρονοδιάγραμμα</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s περίπου %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Προγραμματισμένο για %s</string>
+    <string name="scheduler_schedule_last_at_x">Τελευταία εκτέλεση στις %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Καθημερινά</item>
+        <item quantity="other">Κάθε %d ημέρες</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Διάστημα επανάληψης</string>
+    <string name="scheduler_inaccurate_execution_hint">Οι αναμενόμενοι χρόνοι εκτέλεσης είναι προσεγγίσεις. Τα χρονοδιαγράμματα ενδέχεται να καθυστερήσουν ή να επιταχυνθούν εάν εξοικονομούν μπαταρία.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Δεν υπάρχουν ενεργά χρονοδιαγράμματα</string>
+    <string name="scheduler_setting_nopowersaving_title">Παράληψη όταν η μπαταρία είναι χαμηλή</string>
+    <string name="scheduler_setting_nopowersaving_summary">Εάν η συσκευή βρίσκεται σε λειτουργία εξοικονόμησης ενέργειας, η προγραμματισμένη εκτέλεση θα παραλειφθεί.</string>
+    <string name="scheduler_setting_charging_title">Παράλειψη όταν δεν γίνεται φόρτιση</string>
+    <string name="scheduler_setting_charging_summary">Εάν η συσκευή δεν φορτίζει, η προγραμματισμένη εκτέλεση θα παραλειφθεί.</string>
+    <string name="scheduler_setting_automation_title">Υπηρεσία προσβασιμότητας</string>
+    <string name="scheduler_setting_automation_summary">Συμπεριλάβετε ενέργειες που χρησιμοποιούν μια υπηρεσία προσβασιμότητας. Αυτό απαιτεί ότι το SD Maid μπορεί να αλληλεπιδράσει με την οθόνη σας (δηλαδή είναι ήδη ξεκλειδωμένη) όταν εκτελούνται οι εργασίες.</string>
+    <string name="scheduler_notification_channel_label">Χρονοδιάγραμμα</string>
+    <string name="scheduler_notification_title">Προγραμματισμένες εργασίες</string>
+    <string name="scheduler_notification_message">Εκτελείται: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Ο προγραμματισμός ολοκληρώθηκε</string>
+    <string name="scheduler_notification_result_success_message">Όλες οι προγραμματισμένες εργασίες εκτελέστηκαν με επιτυχία.</string>
+    <string name="scheduler_notification_result_failure_message">Ορισμένες προγραμματισμένες εργασίες απέτυχαν ή αντιμετώπισαν σφάλματα. Δοκιμάστε να τις εκτελέσετε χειροκίνητα.</string>
+    <string name="scheduler_commands_after_schedule_label">Εντολές μετά από το χρονοδιάγραμμα</string>
+    <string name="scheduler_commands_after_schedule_desc">Εντολές κελύφους Android που θα εκτελεστούν στο τέλος ενός χρονοδιαγράμματος.</string>
+    <string name="scheduler_battery_optimization_hint">Εάν αντιμετωπίζετε προβλήματα με την εκτέλεση στο παρασκήνιο, εξετάστε το ενδεχόμενο να απενεργοποιήσετε τις βελτιστοποιήσεις μπαταρίας για το SD Maid.</string>
+</resources>

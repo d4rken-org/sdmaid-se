@@ -174,4 +174,9 @@
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="exclusion_create_action">Gumawa ng exclusion</string>
+    <string name="setup_feature_requires_additional_setup_x">Ang feature na ito ay nangangailangan ng pagkumpleto ng mga karagdagang setup item: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Isang exclusion ang nagawa</item>
+        <item quantity="other">%d mga exclusion ang nagawa</item>
+    </plurals>
 </resources>

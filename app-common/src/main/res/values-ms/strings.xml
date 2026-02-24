@@ -164,4 +164,8 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Persediaan</string>
     <string name="exclusion_create_action">Buat pengecualian</string>
+    <string name="setup_feature_requires_additional_setup_x">Ciri ini memerlukan persediaan tambahan: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d pengecualian dibuat</item>
+    </plurals>
 </resources>

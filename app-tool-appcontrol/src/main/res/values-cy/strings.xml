@@ -173,4 +173,6 @@
         <item quantity="many">Stopiwyd %d ap</item>
         <item quantity="other">Stopiwyd %d o apiau</item>
     </plurals>
+    <string name="shortcut_appcontrol_short">Rheoli Apiau</string>
+    <string name="shortcut_appcontrol_long">Rheoli apiau sydd wedi\'u gosod</string>
 </resources>

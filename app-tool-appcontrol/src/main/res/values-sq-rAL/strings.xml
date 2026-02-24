@@ -128,4 +128,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Koha e ekranit: %1$s që nga %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Përditësuar për herë të fundit: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instaluar më: %s</string>
+    <string name="shortcut_appcontrol_short">Kontrolli i aplikacionit</string>
+    <string name="shortcut_appcontrol_long">Menaxho aplikacionet e instaluara</string>
 </resources>

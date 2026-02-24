@@ -118,7 +118,6 @@
     <string name="setup_notification_title">Sciigoj</string>
     <string name="setup_notification_body">Permesu al SD Maid afiŝi sciigojn por informi vin pri daŭrantaj operacioj aŭ gravaj eventoj.</string>
     <string name="setup_notification_hint">Sciigoj estas uzataj ŝpare 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ĉi tiu funkcio postulas kompletigi aldonajn agordajn erojn: %s</string>
     <string name="setup_acs_card_title">Alirebleca servo</string>
     <string name="setup_acs_card_body">La alirebleca servo permesas al SD Maid interagi kun via ekrano kaj aŭtomatigi tedajn agojn, ekz. frapeti \"Malplenigi kaŝmemoron\" sur pluraj ekranoj.</string>
     <string name="setup_acs_card_body2">SD Maid ne uzos la alireblecan servon sen via konsento, ĉiam montros elstaran (nuleblan) indikilon dum aktiva kaj ne uzos ĝin por kolekti informojn.</string>

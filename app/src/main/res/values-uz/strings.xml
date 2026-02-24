@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Bildirishnomalar</string>
     <string name="setup_notification_body">Davom etayotgan operatsiyalar yoki muhim hodisalar haqida sizni xabardor qilish uchun SD Maid ga bildirishnomalar jo\'natishga ruxsat bering.</string>
     <string name="setup_notification_hint">Bildirishnomalar kam foydalaniladi 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ushbu xususiyat qo\'shimcha sozlash elementlarini tugallashni talab qiladi: %s</string>
     <string name="setup_acs_card_title">Kirish xizmati</string>
     <string name="setup_acs_card_body">Kirish xizmati SD Maid ga ekraningiz bilan o\'zaro ta\'sir qilish va zerikarli harakatlarni avtomatlashtirish imkonini beradi, masalan bir nechta ekranlarda \"Keshni tozalash\" ni bosish.</string>
     <string name="setup_acs_card_body2">SD Maid sizning roziligingiz holda kirish xizmatidan foydalanmaydi, faol bo\'lgan vaqtda har doim ko\'zga ko\'rinadigan (bekor qilinadigan) indikatorni ko\'rsatadi va uni ma\'lumot to\'plash uchun ishlatmaydi.</string>

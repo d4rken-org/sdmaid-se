@@ -116,4 +116,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Masa skrin: %1$s sejak %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kemaskini terakhir: %s</string>
     <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
+    <string name="shortcut_appcontrol_short">Kawalan Aplikasi</string>
+    <string name="shortcut_appcontrol_long">Urus aplikasi yang dipasang</string>
 </resources>

@@ -124,4 +124,5 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Tempus de ischermada: %1$s dae %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ùrtimu agiornamentu: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installadu su: %s</string>
+    <string name="shortcut_appcontrol_long">Gesti is aplicatziones installadas</string>
 </resources>

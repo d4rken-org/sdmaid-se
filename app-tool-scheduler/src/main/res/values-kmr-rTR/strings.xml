@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Plansaz</string>
+    <string name="scheduler_execution_label">Pêkanîna din (nêzîk)</string>
+    <string name="scheduler_execution_last_label">Pêkanîna dawî</string>
+    <string name="scheduler_new_schedule_action">Planê biafirînin</string>
+    <string name="scheduler_schedule_name_label">Navê planê</string>
+    <string name="scheduler_schedule_toggle_enabled">Plan çalak e</string>
+    <string name="scheduler_schedule_toggle_disabled">Plan neçalak e</string>
+    <string name="scheduler_schedule_time_label">Dema nêzîk</string>
+    <string name="scheduler_schedule_default_name">Plana standard</string>
+    <string name="scheduler_no_active_schedules_subtitle">Tu planên çalak tune</string>
+    <string name="scheduler_notification_channel_label">Plansaz</string>
+    <string name="scheduler_notification_title">Karê plansazkirî</string>
+    <string name="scheduler_notification_result_title">Plansaz qediya</string>
+    <string name="scheduler_notification_result_success_message">Hemû karên plansazkirî bi serfirazî hatin pêkanîn.</string>
+    <string name="scheduler_notification_result_failure_message">Hin karên plansazkirî serneketîn an bi xeletiyan re rûbirû bûn. Wan bi destan biceribînin.</string>
+</resources>

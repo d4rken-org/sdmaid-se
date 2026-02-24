@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Savininkas</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>
+    <string name="setup_feature_requires_additional_setup_x">Šiai funkcijai reikia atlikti papildomus sąrankos elementus: %s</string>
 </resources>

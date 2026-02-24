@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Bildirişlər</string>
     <string name="setup_notification_body">Davam edən əməliyyatlar və ya vacıb hadisələr haqqında sizi məlumatlandırmaq üçün SD Maid-ə bildirişlər göndərməyə icazə verin.</string>
     <string name="setup_notification_hint">Bildirişlərdən qənaətlə istifadə olunur 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Bu funksiya əlavə quraşdırma elementlərini tamamlamaq tələb edir: %s</string>
     <string name="setup_acs_card_title">Əlçatanlıq xidməti</string>
     <string name="setup_acs_card_body">Əlçatanlılıq xidməti SD Maid-ə ekranınızla qarşılıqlı əlaqədə olmaq və yorucu hərəkətləri avtomatlaşdırmaq imkanı verir, məsələn, bir neçə ekranda \"Keşi təmizlə\" düyməsinə toxunmaq.</string>
     <string name="setup_acs_card_body2">SD Maid sizin razılığınız olmadan əlçatanlılıq xidmətini istifadə etməyəcək, aktiv olduğu müddətdə həmişə görünən (ləğv edilə bilən) göstərici göstərəcək və məlumat toplamaq üçün istifadə etməyəcək.</string>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Penjadual</string>
+    <string name="scheduler_execution_label">Pelaksanaan seterusnya (lebihkurang)</string>
+    <string name="scheduler_execution_last_label">Pelaksanaan terakhir</string>
+    <string name="scheduler_settings_label">Penjadual</string>
+    <string name="scheduler_settings_summary">Laraskan tetapan berkaitan penjadual.</string>
+    <string name="scheduler_new_schedule_action">Buat jadual</string>
+    <string name="scheduler_schedule_name_label">Nama jadual</string>
+    <string name="scheduler_schedule_toggle_enabled">Jadual didayakan</string>
+    <string name="scheduler_schedule_toggle_disabled">Jadual dinyahdayakan</string>
+    <string name="scheduler_edit_schedule_action">Edit jadual</string>
+    <string name="scheduler_schedule_time_label">Anggaran masa</string>
+    <string name="scheduler_schedule_repeat_label">Ulangi selang dalam beberapa hari</string>
+    <string name="scheduler_schedule_default_name">Jadual lalai</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s sekitar %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Dirancang untuk %s</string>
+    <string name="scheduler_schedule_last_at_x">Terakhir dilaksanakan pada %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">Setiap %d hari</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Ulang selang</string>
+    <string name="scheduler_inaccurate_execution_hint">Jangkaan masa pelaksanaan adalah anggaran. Jadual mungkin ditangguhkan atau dipercepatkan jika ia menjimatkan bateri.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Tiada jadual aktif</string>
+    <string name="scheduler_setting_nopowersaving_title">Langkau pada bateri lemah</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jika peranti berada dalam mod penjimatan kuasa, pelaksanaan berjadual akan dilangkau.</string>
+    <string name="scheduler_setting_charging_title">Langkau apabila tidak mengecas</string>
+    <string name="scheduler_setting_charging_summary">Jika peranti tidak mengecas, pelaksanaan berjadual akan dilangkau.</string>
+    <string name="scheduler_setting_automation_title">Perkhidmatan kebolehcapaian</string>
+    <string name="scheduler_setting_automation_summary">Sertakan tindakan yang menggunakan perkhidmatan kebolehaksesan. Ini memerlukan SD Maid boleh berinteraksi dengan skrin anda (iaitu skrin dibuka) apabila tugasan dilaksanakan.</string>
+    <string name="scheduler_notification_channel_label">Penjadual</string>
+    <string name="scheduler_notification_title">Tugas berjadual</string>
+    <string name="scheduler_notification_message">Melaksanakan: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Penjadual selesai</string>
+    <string name="scheduler_notification_result_success_message">Semua tugas berjadual berjalan dengan jayanya.</string>
+    <string name="scheduler_notification_result_failure_message">Beberapa tugas berjadual gagal atau menghadapi ralat. Cuba jalankan secara manual.</string>
+    <string name="scheduler_commands_after_schedule_label">Arahan selepas jadual</string>
+    <string name="scheduler_commands_after_schedule_desc">Arahan shell Android yang akan dilaksanakan pada akhir jadual.</string>
+    <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk melumpuhkan pengoptimuman bateri untuk SD Maid jika anda menghadapi masalah dengan pelaksanaan latar belakang.</string>
+</resources>

@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Skjermtid: %1$s siden %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Sist oppdatert: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installert på: %s</string>
+    <string name="shortcut_appcontrol_short">Appkontroll</string>
+    <string name="shortcut_appcontrol_long">Administrer installerte apper</string>
 </resources>

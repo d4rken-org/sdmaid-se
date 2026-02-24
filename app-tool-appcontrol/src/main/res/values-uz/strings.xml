@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran vaqti: %1$s %2$s dan beri</string>
     <string name="appcontrol_item_lastupdate_x_label">Oxirgi yangilanish: %s</string>
     <string name="appcontrol_item_installedat_x_label">O\'rnatilgan sana: %s</string>
+    <string name="shortcut_appcontrol_short">Ilovalarni boshqarish</string>
+    <string name="shortcut_appcontrol_long">O\'rnatilgan ilovalarni boshqarish</string>
 </resources>

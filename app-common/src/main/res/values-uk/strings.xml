@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Налаштування</string>
     <string name="exclusion_create_action">Створити виняток</string>
+    <string name="setup_feature_requires_additional_setup_x">Ця функція вимагає виконання додаткових елементів налаштування: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створено один виняток</item>
+        <item quantity="few">Створено %d винятки</item>
+        <item quantity="many">Створено %d винятків</item>
+        <item quantity="other">Створено %d винятків</item>
+    </plurals>
 </resources>

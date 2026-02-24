@@ -162,4 +162,6 @@
         <item quantity="many">Stopadh %d n-aip</item>
         <item quantity="other">Stopadh %d aip</item>
     </plurals>
+    <string name="shortcut_appcontrol_short">Rialú Aipe</string>
+    <string name="shortcut_appcontrol_long">Bainistigh aipeanna suiteáilte</string>
 </resources>

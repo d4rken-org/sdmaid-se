@@ -122,4 +122,6 @@
     <string name="appcontrol_automation_progress_find_restore">\"ਬਹਾਲ ਕਰੋ\" ਬਟਨ ਲੱਭਿਆ ਜਾ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">ਸਕ੍ਰੀਨ ਸਮਾਂ: %2$s ਤੋਂ %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">ਆਖਰੀ ਅੱਪਡੇਟ: %s</string>
+    <string name="shortcut_appcontrol_short">ਐਪ ਕੰਟਰੋਲ</string>
+    <string name="shortcut_appcontrol_long">ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਾਂ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰੋ</string>
 </resources>

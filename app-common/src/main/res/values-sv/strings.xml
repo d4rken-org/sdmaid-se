@@ -175,4 +175,9 @@
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Inställningar</string>
     <string name="exclusion_create_action">Skapa uteslutning</string>
+    <string name="setup_feature_requires_additional_setup_x">Denna funktion kräver att ytterligare inställningsobjekt slutförs: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">En uteslutning skapad</item>
+        <item quantity="other">%d uteslutningar skapade</item>
+    </plurals>
 </resources>

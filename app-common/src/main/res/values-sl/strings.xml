@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Nastavi</string>
     <string name="exclusion_create_action">Ustvari izjemo</string>
+    <string name="setup_feature_requires_additional_setup_x">Ta funkcija zahteva dokončanje dodatnih možnosti nastavitve: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ustvarjena je bila ena izjema.</item>
+        <item quantity="two">Ustvarjeni sta bili %d izjemi.</item>
+        <item quantity="few">Ustvarjene so bile %d izjeme.</item>
+        <item quantity="other">Ustvarjenih je bilo %d izjem.</item>
+    </plurals>
 </resources>

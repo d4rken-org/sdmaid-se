@@ -164,4 +164,8 @@
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>
     <string name="exclusion_create_action">Tạo loại trừ</string>
+    <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">Đã tạo %d loại trừ</item>
+    </plurals>
 </resources>

@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Sistemi</string>
     <string name="setup_title">Konfigurim</string>
     <string name="exclusion_create_action">Krijo përjashtim</string>
+    <string name="setup_feature_requires_additional_setup_x">Ky funksion kërkon plotësimin e artikujve shtesë të konfigurimit: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">U krijua një përjashtim</item>
+        <item quantity="other">%d përjashtime u krijuan</item>
+    </plurals>
 </resources>

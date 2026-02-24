@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Сістэма</string>
     <string name="setup_title">Наладжванне</string>
     <string name="exclusion_create_action">Стварыць выключэнне</string>
+    <string name="setup_feature_requires_additional_setup_x">Для гэтай функцыі неабходна наладзіць дадатковыя элементы: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створана адно выключэнне</item>
+        <item quantity="few">Створана %d выключэння</item>
+        <item quantity="many">Створана %d выключэнняў</item>
+        <item quantity="other">Створана %d выключэнняў</item>
+    </plurals>
 </resources>

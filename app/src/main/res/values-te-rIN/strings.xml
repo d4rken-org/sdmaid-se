@@ -151,7 +151,6 @@
     <string name="setup_notification_title">నోటిఫికేషన్లు</string>
     <string name="setup_notification_body">చాలు వున్న కార్యాచరణలు మరియు ముఖ్యమైన సంఘటనల గురించి మిమ్మల్ని తెలియజేయడానికి SD Maid కు నోటిఫికేషన్లు పోస్ట్ చేయడానికి అనుమతించండి.</string>
     <string name="setup_notification_hint">నోటిఫికేషన్లు కొంచం మాత్రమే ఉపయోగిస్తాము 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ఈ ఫీచర్ అదనపు సెటప్ అంశాలను పూర్తి చేయడానికి అవసరం: %s</string>
     <string name="setup_acs_card_title">యక్షస్వాధీనత సెర్విస్</string>
     <string name="setup_acs_card_body">యక్షస్వాధీనత సెర్విస్ SD Maid కు మీ స్క్రీన్‌తో యంత్రకరణ కలిగి మరియు కష్టకరమైన కార్యాలను స్వయంచాలకంగా చేయడానికి అనుమతిస్తుంది, ఉదా. మెల్ల స్క్రీన్లలో \"క్యాషే క్లియర్\" చేయడం.</string>
     <string name="setup_acs_card_body2">SD Maid మీ సమ్మతి లేకుండా యక్షస్వాధీనత సెర్విస్‌ను ఉపయోగించదు, సక్రియంగా ఉన్నప్పుడు ఎల్లప్పుడూ కనిపించే (రద్దు చేయగల) సూచకని ప్రదర్శిస్తుంది మరియు సమాచారం సంగ్రహించడానికి దానిని ఉపయోగించదు.</string>

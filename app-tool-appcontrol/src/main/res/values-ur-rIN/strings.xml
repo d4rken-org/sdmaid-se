@@ -126,4 +126,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">سکرین ٹائم: %1$s بعد %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخری اپڈیٹ: %s</string>
     <string name="appcontrol_item_installedat_x_label">انسٹال کی تاریخ: %s</string>
+    <string name="shortcut_appcontrol_short">ایپ کنٹرول</string>
+    <string name="shortcut_appcontrol_long">انسٹال شدہ ایپس کا انتظام</string>
 </resources>

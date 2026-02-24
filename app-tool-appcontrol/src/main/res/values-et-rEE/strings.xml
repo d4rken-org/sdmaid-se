@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Ekraaniaeg: %1$s alates %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Viimati uuendatud: %s</string>
     <string name="appcontrol_item_installedat_x_label">Paigaldatud: %s</string>
+    <string name="shortcut_appcontrol_short">Rakenduste haldamine</string>
+    <string name="shortcut_appcontrol_long">Paigaldatud rakenduste haldamine</string>
 </resources>

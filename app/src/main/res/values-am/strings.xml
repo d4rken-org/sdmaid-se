@@ -151,7 +151,6 @@
     <string name="setup_notification_title">ማሳወቂያዎች</string>
     <string name="setup_notification_body">ኤስዲ ሜይድ ስለ ቀጣይ ተግባሮች ወይም አስፈላጊ ክስተቶች ለማሳወቅ ማሳወቂያዎችን እንዲለጥፍ ያስችሉ።</string>
     <string name="setup_notification_hint">ማሳወቂያዎች በጥንቃቄ ይጠቀማሉ 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
     <string name="setup_acs_card_title">የተደራሽነት አገልግሎት</string>
     <string name="setup_acs_card_body">የተደራሽነት አገልግሎት ኤስዲ ሜይድ ከስክሪንዎ ጋር እንዲግባባ እና ደካማ ድርጊቶችን እንዲያውቅ ያስችለዋል፤ ለምሳሌ በብዙ ስክሪኖች ላይ \"መሸጎጫ አጽዳ\" መጫን።</string>
     <string name="setup_acs_card_body2">ኤስዲ ሜይድ ያለእርስዎ ፈቃድ የተደራሽነት አገልግሎቱን አይጠቀምም፤ እንቅስቃሴ ሲኖረው ሁልጊዜ ግልጽ (ሊሰረዝ የሚችል) አመላካች ያሳያል እና መረጃ ለመሰብሰብ አይጠቀምበትም።</string>

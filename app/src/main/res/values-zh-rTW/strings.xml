@@ -147,7 +147,6 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">允許 SD 女僕張貼通知以通知您正在進行的作業和重要活動。</string>
     <string name="setup_notification_hint">儘量不會使用通知 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
     <string name="setup_acs_card_title">無障礙服務</string>
     <string name="setup_acs_card_body">無障礙服務允許 SD 女僕與您的畫面進行互動，並使乏味的動作自動化，例如在多個畫面上輕觸「清除快取」。</string>
     <string name="setup_acs_card_body2">未經您同意之下，SD 女僕不會使用無障礙服務，在啟用時將一律顯示為一個顯著的 (可取消) 指示器，並且不會用它來收集資訊。</string>

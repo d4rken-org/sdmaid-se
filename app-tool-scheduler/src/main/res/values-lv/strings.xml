@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Plānotājs</string>
+    <string name="scheduler_execution_label">Nākamā izpilde (aptuveni)</string>
+    <string name="scheduler_execution_last_label">Pēdējā izpilde</string>
+    <string name="scheduler_settings_label">Plānotājs</string>
+    <string name="scheduler_settings_summary">Pielāgot ar plānotāju saistītos iestatījumus.</string>
+    <string name="scheduler_new_schedule_action">Izveidot grafiku</string>
+    <string name="scheduler_schedule_name_label">Grafika nosaukums</string>
+    <string name="scheduler_schedule_toggle_enabled">Grafiks ir iespējots</string>
+    <string name="scheduler_schedule_toggle_disabled">Grafiks ir atspējots</string>
+    <string name="scheduler_edit_schedule_action">Rediģēt grafiku</string>
+    <string name="scheduler_schedule_time_label">Aptuvenais laiks</string>
+    <string name="scheduler_notification_channel_label">Plānotājs</string>
+    <string name="scheduler_notification_title">Plānotais uzdevums</string>
+    <string name="scheduler_notification_message">Izpilda: \"%s\"</string>
+</resources>

@@ -175,4 +175,9 @@
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
     <string name="setup_title">ਸੈਟਅੱਪ</string>
     <string name="exclusion_create_action">ਬਾਹਰੀਕਰਣ ਬਣਾਓ</string>
+    <string name="setup_feature_requires_additional_setup_x">ਇਸ ਫੀਚਰ ਲਈ ਵਾਧੂ ਸੈੱਟਅੱਪ ਆਈਟਮਾਂ ਨੂੰ ਪੂਰਾ ਕਰਨਾ ਜ਼ਰੂਰੀ ਹੈ: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">%d ਬਾਹਰੀਕਰਣ ਬਣਾਇਆ ਗਿਆ</item>
+        <item quantity="other">%d ਬਾਹਰੀਕਰਣ ਬਣਾਏ ਗਏ</item>
+    </plurals>
 </resources>

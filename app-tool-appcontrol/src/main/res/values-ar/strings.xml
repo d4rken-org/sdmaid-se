@@ -173,4 +173,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">وقت الشاشة: %1$s منذ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">آخر تحديث: %s</string>
     <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">أدر التطبيقات المثبتة</string>
 </resources>

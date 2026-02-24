@@ -148,7 +148,6 @@
     <string name="setup_notification_title">Arifa</string>
     <string name="setup_notification_body">Ruhusu SD Maid kutuma arifa kukujulisha kuhusu shughuli zinazoendelea au matukio muhimu.</string>
     <string name="setup_notification_hint">Arifa zinatumika kwa kiasi 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Kipengele hiki kinahitaji kukamilisha vipengele vya ziada vya usanidi: %s</string>
     <string name="setup_acs_card_title">Huduma ya ufikiaji</string>
     <string name="setup_acs_card_body">Huduma ya ufikiaji inaruhusu SD Maid kuingiliana na skrini yako na kutengeneza vitendo vya kuchosha kiotomatiki, k.m. kugonga \"Futa akiba\" kwenye skrini nyingi.</string>
     <string name="setup_acs_card_body2">SD Maid haitatumia huduma ya ufikiaji bila ridhaa yako, itaonyesha kila wakati kiashiria dhahiri (kinachoweza kufutwa) wakati inatumika na haitatumia kukusanya taarifa.</string>

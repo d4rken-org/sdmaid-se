@@ -156,7 +156,6 @@
     <string name="setup_notification_title">Obaveštenja</string>
     <string name="setup_notification_body">Дозволите СД Чистачу да поставља обавештења о текућим операцијама или важним догађајима.</string>
     <string name="setup_notification_hint">Обавештења се користе штедљиво 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ова функција захтева довршавање додатних ставки: %s</string>
     <string name="setup_acs_card_title">Услуга приступачности</string>
     <string name="setup_acs_card_body">Услуге приступачности дозвољавају SD Maid да манипулише вашим екраном и аутоматизује напорне радње, нпр. кликтање \"Обриши кеш\" на више екрана.</string>
     <string name="setup_acs_card_body2">СД Чистач неће користити услугу приступачности без вашег пристанка, увек ће приказивати истакнути (поништиви) индикатор док је активан и неће га користити за прикупљање информација.</string>

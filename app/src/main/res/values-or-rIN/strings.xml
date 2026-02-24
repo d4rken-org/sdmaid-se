@@ -151,7 +151,6 @@
     <string name="setup_notification_title">ଵିଜ୍ଞପ୍ତି</string>
     <string name="setup_notification_body">ଚାଲୁଥିବା କାର୍ଯ୍ୟ କିମ୍ବା ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ ଘଟଣା ବିଷୟରେ ଆପଣଙ୍କୁ ଜଣାଇବା ପାଇଁ SD Maid କୁ ବିଜ୍ଞପ୍ତି ପୋଷ୍ଟ କରିବାକୁ ଅନୁମତି ଦିଅନ୍ତୁ।</string>
     <string name="setup_notification_hint">ବିଜ୍ଞପ୍ତିଗୁଡିକ କମ ବ୍ୟବହାର କରାଯାଏ 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଅତିରିକ୍ତ ସେଟଅପ ଆଇଟମଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ଆବଶ୍ୟକ କରେ: %s</string>
     <string name="setup_acs_card_title">ଅଭିଗମ୍ୟତା ସେଵା</string>
     <string name="setup_acs_card_body">ଆକ୍ସେସିବିଲିଟି ସର୍ଭିସ SD Maid କୁ ଆପଣଙ୍କ ସ୍କ୍ରିନ ସହିତ ଇଣ୍ଟରାକ୍ଟ କରିବା ଏବଂ କ୍ଲାନ୍ତିକର କାର୍ଯ୍ୟଗୁଡିକ ସ୍ୱଚାଳିତ କରିବାକୁ ଅନୁମତି ଦିଏ, ଯେପରିକି ଏକାଧିକ ସ୍କ୍ରିନରେ \"Clear cache\" ଟ୍ୟାପ କରିବା।</string>
     <string name="setup_acs_card_body2">SD Maid ଆପଣଙ୍କ ସମ୍ମତି ବିନା ଆକ୍ସେସିବିଲିଟି ସର୍ଭିସ ବ୍ୟବହାର କରିବ ନାହିଁ, ସକ୍ରିୟ ଥିବା ସମୟରେ ସର୍ବଦା ଏକ ପ୍ରମୁଖ (ବାତିଲଯୋଗ୍ୟ) ସୂଚକ ପ୍ରଦର୍ଶନ କରିବ ଏବଂ ତଥ୍ୟ ସଂଗ୍ରହ କରିବା ପାଇଁ ଏହାକୁ ବ୍ୟବହାର କରିବ ନାହିଁ।</string>

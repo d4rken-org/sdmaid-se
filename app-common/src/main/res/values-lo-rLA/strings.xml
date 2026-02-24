@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">ເຈົ້າຂອງ</string>
     <string name="general_user_label_system">ລະບົບ</string>
     <string name="setup_title">ຕິດຕັ້ງ</string>
+    <string name="setup_feature_requires_additional_setup_x">ຄຸນສົມບັດນີ້ຕ້ອງການດໍາເນີນການຕັ້ງຄ່າເພີ່ມເຕີມໃຫ້ສໍາເລັດ: %s</string>
 </resources>

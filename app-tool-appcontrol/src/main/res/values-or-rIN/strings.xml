@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">ସ୍କ୍ରିନ୍ ସମୟ: %2$s ପରଠାରୁ %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">ଶେଷ ଅପଡେଟ୍: %s</string>
     <string name="appcontrol_item_installedat_x_label">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା: %s</string>
+    <string name="shortcut_appcontrol_short">ଆପ୍ ନିୟନ୍ତ୍ରଣ</string>
+    <string name="shortcut_appcontrol_long">ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ ପରିଚାଳନା କରନ୍ତୁ</string>
 </resources>

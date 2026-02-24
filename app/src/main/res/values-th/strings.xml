@@ -147,7 +147,6 @@
     <string name="setup_notification_title">การแจ้งเตือน</string>
     <string name="setup_notification_body">อนุญาตให้ SD Maid แจ้งเตือนเกี่ยวกับกิจกรรมที่กำลังทำหรือเรื่องสำคัญอื่นๆ</string>
     <string name="setup_notification_hint">แสดงการแจ้งเตือนเท่าที่จำเป็น 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">คุณสมบัตินี้ต้องการให้ทำการตั้งค่าเพิ่มเติมให้เสร็จสิ้น: %s</string>
     <string name="setup_acs_card_title">บริการเพื่อการเข้าถึง</string>
     <string name="setup_acs_card_body">บริการการเข้าถึงช่วยให้ SD Maid สามารถโต้ตอบกับหน้าจอของคุณและดำเนินการที่น่าเบื่อโดยอัตโนมัติ เช่น แตะ \"ล้างแคช\" ในหลายหน้าจอ</string>
     <string name="setup_acs_card_body2">SD Maid จะไม่ใช้บริการเพื่อการเข้าถึงโดยที่คุณไม่ยินยอม เมื่อใดที่ใช้จะแสดงตัวบ่งชี้อย่างชัดเจน (ยกเลิกได้) และจะไม่ใช้เพื่อเก็บรวบรวมข้อมูล</string>

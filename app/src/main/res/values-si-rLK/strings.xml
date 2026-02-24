@@ -142,7 +142,6 @@
     <string name="setup_notification_title">දැනුම්දීම්</string>
     <string name="setup_notification_body">චස්වොනන් සිදුවීම් සහ ප්‍රභර ගටණා ගැන ඔබව අවබොධ කිරීමට දැනුම්දීම් පොස්ට් කිරීමට SD Maid හට ඉඩ දෙන්න.</string>
     <string name="setup_notification_hint">දැනුම්දීම් ඉඤා අහිමියින් භාවිතා කරන්නේ 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">මෙම විශේෂාංගයට අමතර පිහිටුවීම් අයිතම් සම්පූර්ණ කිරීම අවශ්‍යය: %s</string>
     <string name="setup_acs_card_title">ඇන්ද්‍රිය පරිගැන්න සේවාව</string>
     <string name="setup_acs_card_body">ඇන්ද්‍රිය පරිගැන්න සේවාව SD Maid හට ඔබේ තිරය සහ වුඏාවි කයමන්, උදා. විවිධ තිරවල \"Clear cache\" ස්පර්ශ කිරීම, අහිමි කරන් සඳහා සක්‍රිය කළ ශඳි ඉඩ දේ.</string>
     <string name="setup_acs_card_body2">SD Maid ඔබේ සම්මතිය නොමැතිව ඇන්ද්‍රිය පරිගැන්න සේවාව භාවිතා නොකරනවා, සක්‍රිය වහිලාවේ සිටි සෑම විටම ප්‍රධාන (රද්ද් කළ හැකි) ඉශාරාවක් පෙන්වනනවා අතර තොරතුරු ගත කිරීමට එය භාවිතා නොකරනවා.</string>

@@ -118,7 +118,6 @@
     <string name="setup_notification_title">Hysbysiadau</string>
     <string name="setup_notification_body">Caniatáu i SD Maid bostio hysbysiadau i\'ch hysbysu am weithrediadau parhaus neu ddigwyddiadau pwysig.</string>
     <string name="setup_notification_hint">Mae hysbysiadau\'n cael eu defnyddio\'n gynnil 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Mae\'r nodwedd hon yn gofyn am gwblhau eitemau gosod ychwanegol: %s</string>
     <string name="setup_acs_card_title">Gwasanaeth hygyrchedd</string>
     <string name="setup_acs_card_body">Mae\'r gwasanaeth hygyrchedd yn caniatáu i SD Maid ryngweithio â\'ch sgrin ac awtomeiddio gweithredoedd diflas, e.e. tapio "Clirio cache" ar sgriniau lluosog.</string>
     <string name="setup_acs_card_body2">Ni fydd SD Maid yn defnyddio\'r gwasanaeth hygyrchedd heb eich caniatâd, bydd bob amser yn dangos dangosydd amlwg (y gellir ei ganslo) tra\'n weithredol ac ni fydd yn ei ddefnyddio i gasglu gwybodaeth.</string>

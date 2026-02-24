@@ -185,4 +185,5 @@
     <string name="general_user_label_owner">Īpašnieks</string>
     <string name="general_user_label_system">Sistēma</string>
     <string name="setup_title">Iestatīšana</string>
+    <string name="setup_feature_requires_additional_setup_x">Šī funkcija prasa papildu iestatīšanas darbību pabeigšanu: %s</string>
 </resources>

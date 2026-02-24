@@ -124,4 +124,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Isikhathi sesikrini: %1$s kusukela %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Kubuyekeziwe kokuqcina: %s</string>
     <string name="appcontrol_item_installedat_x_label">Kufakwe ngo: %s</string>
+    <string name="shortcut_appcontrol_short">Ukulawula Kohlelo</string>
+    <string name="shortcut_appcontrol_long">Phatha izinhlelo zokusebenza ezifakiwe</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Mpangaji</string>
+    <string name="scheduler_execution_label">Utekelezaji ujao (karibu)</string>
+    <string name="scheduler_execution_last_label">Utekelezaji wa mwisho</string>
+    <string name="scheduler_settings_label">Mpangaji</string>
+    <string name="scheduler_settings_summary">Rekebisha mipangilio inayohusiana na mpangaji.</string>
+    <string name="scheduler_new_schedule_action">Unda ratiba</string>
+    <string name="scheduler_schedule_name_label">Jina la ratiba</string>
+    <string name="scheduler_schedule_toggle_enabled">Ratiba imewashwa</string>
+    <string name="scheduler_schedule_toggle_disabled">Ratiba imezimwa</string>
+    <string name="scheduler_edit_schedule_action">Hariri ratiba</string>
+    <string name="scheduler_schedule_time_label">Muda wa takribani</string>
+    <string name="scheduler_schedule_repeat_label">Muda wa kurudia kwa siku</string>
+    <string name="scheduler_schedule_default_name">Ratiba ya msingi</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s karibu na %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Imepangwa kwa %s</string>
+    <string name="scheduler_schedule_last_at_x">Imetekelezwa mwisho mnamo %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Kila siku</item>
+        <item quantity="other">Kila siku %d</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Muda wa kurudia</string>
+    <string name="scheduler_inaccurate_execution_hint">Nyakati za utekelezaji zinazotarajiwa ni makadirio. Ratiba zinaweza kuchelewa au kuongezewa kasi ikiwa itahifadhi betri.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Hakuna ratiba zinazofanya kazi</string>
+    <string name="scheduler_setting_nopowersaving_title">Ruka wakati betri ni chini</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ikiwa kifaa kimo katika hali ya kuhifadhi nguvu, utekelezaji uliopangwa utarukwa.</string>
+    <string name="scheduler_setting_charging_title">Ruka wakati haijaunganishwa</string>
+    <string name="scheduler_setting_charging_summary">Ikiwa kifaa hakijaunganishwa, utekelezaji uliopangwa utarukwa.</string>
+    <string name="scheduler_setting_automation_title">Huduma ya ufikiaji</string>
+    <string name="scheduler_setting_automation_summary">Jumuisha vitendo vinavyotumia huduma ya ufikiaji. Hii inahitaji SD Maid iweze kuingiliana na skrini yako (yaani imefunguliwa) wakati kazi zinatekelezwa.</string>
+    <string name="scheduler_notification_channel_label">Mpangaji</string>
+    <string name="scheduler_notification_title">Kazi iliyopangwa</string>
+    <string name="scheduler_notification_message">Inatekeleza: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Mpangaji umemaliza</string>
+    <string name="scheduler_notification_result_success_message">Kazi zote zilizopangwa zimetekelezwa kwa mafanikio.</string>
+    <string name="scheduler_notification_result_failure_message">Baadhi ya kazi zilizopangwa zimeshindwa au zimekutana na makosa. Jaribu kuzitekeleza kwa mkono.</string>
+    <string name="scheduler_commands_after_schedule_label">Amri za baada ya ratiba</string>
+    <string name="scheduler_commands_after_schedule_desc">Amri za shell za Android ambazo zitatekelezwa mwishoni mwa ratiba.</string>
+    <string name="scheduler_battery_optimization_hint">Fikiria kuzima maboresho ya betri kwa SD Maid ikiwa unakutana na matatizo ya utekelezaji wa mandharinyuma.</string>
+</resources>

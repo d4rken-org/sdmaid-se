@@ -212,4 +212,13 @@
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Gosod</string>
     <string name="exclusion_create_action">Creu eithriad</string>
+    <string name="setup_feature_requires_additional_setup_x">Mae\'r nodwedd hon yn gofyn am gwblhau eitemau gosod ychwanegol: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="zero">%d eithriad wedi\'i greu</item>
+        <item quantity="one">Un eithriad wedi\'i greu</item>
+        <item quantity="two">%d eithriad wedi\'u creu</item>
+        <item quantity="few">%d eithriad wedi\'u creu</item>
+        <item quantity="many">%d eithriad wedi\'u creu</item>
+        <item quantity="other">%d o eithriadau wedi\'u creu</item>
+    </plurals>
 </resources>

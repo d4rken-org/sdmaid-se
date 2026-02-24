@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">స్క్రీన్ సమయం: %2$s నుండి %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">చివరిగా అప్‌డేట్ చేయబడింది: %s</string>
     <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
+    <string name="shortcut_appcontrol_short">యాప్ కంట్రోల్</string>
+    <string name="shortcut_appcontrol_long">ఇన్‌స్టాల్ చేసిన యాప్‌లను నిర్వహించండి</string>
 </resources>

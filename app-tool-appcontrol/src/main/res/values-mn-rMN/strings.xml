@@ -21,4 +21,6 @@
     <string name="appcontrol_export_title">Апп экспортлох</string>
     <string name="appcontrol_share_list_action">Жагсаалт хуваалцах</string>
     <string name="appcontrol_force_stop_action">Албадан зогсоох</string>
+    <string name="shortcut_appcontrol_short">Апп удирдлага</string>
+    <string name="shortcut_appcontrol_long">Суулгасан аппуудыг удирдах</string>
 </resources>

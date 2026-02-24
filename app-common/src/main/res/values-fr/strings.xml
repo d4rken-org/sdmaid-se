@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>
     <string name="exclusion_create_action">Créer une exclusion</string>
+    <string name="setup_feature_requires_additional_setup_x">Cette fonction nécessite de configurer des éléments supplémentaires : %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Une exclusion a été créée</item>
+        <item quantity="other">%d exclusions ont été créées</item>
+    </plurals>
 </resources>

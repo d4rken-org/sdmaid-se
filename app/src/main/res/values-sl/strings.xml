@@ -159,7 +159,6 @@
     <string name="setup_notification_title">Obvestila</string>
     <string name="setup_notification_body">Dovoli SD Maidu objavo obvestil, da vas obvesti o tekočih opravilih ali pomembnih dogodkih.</string>
     <string name="setup_notification_hint">Uporaba obvestila je zmerna.🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ta funkcija zahteva dokončanje dodatnih možnosti nastavitve: %s</string>
     <string name="setup_acs_card_title">Storitev dostopnosti</string>
     <string name="setup_acs_card_body">Storitev dostopnosti SD Maidu omogoča upravljanje z zaslonom s samodejnim opravljanjem dolgočasnih dejanj, npr. dotikanje gumba \"Počisti predpomnilnik\" na več zaslonih.</string>
     <string name="setup_acs_card_body2">SD Maid storitve dostopnosti ne bo uporabljal brez vašega soglasja, pri čemer bo med njeno dejavnostjo vedno prikazal vidni (opustljivi) kazalnik in je ne bo uporabljal za zbiranje podatkov.</string>

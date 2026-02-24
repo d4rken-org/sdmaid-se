@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Quraşdır</string>
     <string name="exclusion_create_action">İstisna yarat</string>
+    <string name="setup_feature_requires_additional_setup_x">Bu funksiya əlavə quraşdırma elementlərini tamamlamaq tələb edir: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bir istisna yaradıldı</item>
+        <item quantity="other">%d istisna yaradıldı</item>
+    </plurals>
 </resources>

@@ -22,4 +22,5 @@
     <string name="appcontrol_export_title">ئەپ هەناردە بکە</string>
     <string name="appcontrol_share_list_action">لیست هاوبەش بکە</string>
     <string name="appcontrol_force_stop_action">بە زۆر ڕابگرە</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
 </resources>

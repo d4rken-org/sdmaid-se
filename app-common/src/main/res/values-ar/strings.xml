@@ -219,4 +219,13 @@
     <string name="general_user_label_system">النظام</string>
     <string name="setup_title">الإعداد</string>
     <string name="exclusion_create_action">إنشاء استبعاد</string>
+    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="zero">لم يتم إنشاء أي استبعاد</item>
+        <item quantity="one">تم إنشاء استبعاد واحد</item>
+        <item quantity="two">تم إنشاء استبعادان اثنان</item>
+        <item quantity="few">تم إنشاء %d استبعادات</item>
+        <item quantity="many">تم إنشاء %d استبعادات</item>
+        <item quantity="other">تم إنشاء %d استبعادات</item>
+    </plurals>
 </resources>

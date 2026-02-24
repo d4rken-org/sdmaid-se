@@ -141,7 +141,6 @@
     <string name="setup_notification_title">نوٹیفکیشنز</string>
     <string name="setup_notification_body">SD Maid کو جاری عملیات یا اہم واقعات کے بارے میں آپ کو آگاہ کرنے کے لیے نوٹیفکیشن بھیجنے کی اجازت دیں۔</string>
     <string name="setup_notification_hint">نوٹیفکیشنز کا بہت کم استعمال ہوتا ہے 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
     <string name="setup_acs_card_title">رسائی سروس</string>
     <string name="setup_acs_card_body">رسائی سروس SD Maid کو آپ کی سکرین کے ساتھ بات چیت کرنے اور تھکا دینے والے کاموں کو خود کار بنانے کی اجازت دیتی ہے، جیسے متعدد سکرینوں پر \"کیش صاف کریں\" کو ٹیپ کرنا۔</string>
     <string name="setup_acs_card_body2">SD Maid آپ کی رضامندی کے بغیر رسائی سروس استعمال نہیں کرے گا، فعال ہونے پر ہمیشہ ایک بڑا (منسوخ کرنے کے قابل) اشارہ دکھائے گا اور معلومات جمع کرنے کے لیے اسے استعمال نہیں کرے گا۔</string>

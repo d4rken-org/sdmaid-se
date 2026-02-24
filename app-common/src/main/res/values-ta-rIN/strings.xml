@@ -175,4 +175,9 @@
     <string name="general_user_label_system">கணினி</string>
     <string name="setup_title">அமைப்பு</string>
     <string name="exclusion_create_action">விலக்கலை உருவாக்கு</string>
+    <string name="setup_feature_requires_additional_setup_x">இந்த அம்சத்திற்கு கூடுதல் அமைப்பு உருப்படிகளை முடித்தல் தேவை: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ஒரு விலக்கல் உருவாக்கப்பட்டது</item>
+        <item quantity="other">%d விலக்கல்கள் உருவாக்கப்பட்டன</item>
+    </plurals>
 </resources>

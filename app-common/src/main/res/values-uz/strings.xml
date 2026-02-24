@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Tizim</string>
     <string name="setup_title">Sozlash</string>
     <string name="exclusion_create_action">Chiqarishni yaratish</string>
+    <string name="setup_feature_requires_additional_setup_x">Ushbu xususiyat qo\'shimcha sozlash elementlarini tugallashni talab qiladi: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bitta chiqarish yaratildi</item>
+        <item quantity="other">%d chiqarish yaratildi</item>
+    </plurals>
 </resources>

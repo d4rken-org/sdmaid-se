@@ -128,4 +128,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Skjátími: %1$s síðan %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Síðast uppfært: %s</string>
     <string name="appcontrol_item_installedat_x_label">Uppsett: %s</string>
+    <string name="shortcut_appcontrol_short">Forritastjórnun</string>
+    <string name="shortcut_appcontrol_long">Stjórna uppsettum forritum</string>
 </resources>

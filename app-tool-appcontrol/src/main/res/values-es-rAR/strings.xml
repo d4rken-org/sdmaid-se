@@ -140,4 +140,6 @@ appcontrol_settings_module_sizing_enabled_label
 appcontrol_settings_module_sizing_enabled_label
 
 Archivo: Textos de la aplicación (aplicación principal)</string>
+    <string name="shortcut_appcontrol_short">Control de Apps</string>
+    <string name="shortcut_appcontrol_long">Administrar apps instaladas</string>
 </resources>

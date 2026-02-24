@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Cunfiguratzione</string>
     <string name="exclusion_create_action">Creare esclussione</string>
+    <string name="setup_feature_requires_additional_setup_x">Custa caraterìstica riekeret de cumpletare elementos additzionales de cunfiguratzione: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Una esclussione creada</item>
+        <item quantity="other">%d esclussiones creadas</item>
+    </plurals>
 </resources>

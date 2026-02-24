@@ -151,4 +151,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Čas zaslona: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Nazadnje posodobljeno: %s</string>
     <string name="appcontrol_item_installedat_x_label">Nameščeno dne: %s</string>
+    <string name="shortcut_appcontrol_short">Nadzor programov</string>
+    <string name="shortcut_appcontrol_long">Upravljaj z nameščenimi programi</string>
 </resources>

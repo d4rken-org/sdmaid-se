@@ -164,4 +164,8 @@
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
     <string name="exclusion_create_action">建立排除</string>
+    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d 個排除項目已建立</item>
+    </plurals>
 </resources>

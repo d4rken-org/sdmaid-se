@@ -118,4 +118,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%1$s，自從 %2$s 起</string>
     <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
     <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
+    <string name="shortcut_appcontrol_short">程式控制</string>
+    <string name="shortcut_appcontrol_long">管理已安裝的程式</string>
 </resources>

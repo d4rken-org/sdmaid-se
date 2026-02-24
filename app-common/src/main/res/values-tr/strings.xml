@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Kur</string>
     <string name="exclusion_create_action">Hariç tutma oluşturun</string>
+    <string name="setup_feature_requires_additional_setup_x">Bu özellik için ek kurulum öğelerinin tamamlanması gerekir: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bir hariç tutma oluşturuldu</item>
+        <item quantity="other">%d hariç tutma oluşturuldu</item>
+    </plurals>
 </resources>

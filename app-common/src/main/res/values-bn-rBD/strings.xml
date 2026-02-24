@@ -175,4 +175,9 @@
     <string name="general_user_label_system">সিস্টেম</string>
     <string name="setup_title">সেটআপ</string>
     <string name="exclusion_create_action">বর্জন তৈরি করুন</string>
+    <string name="setup_feature_requires_additional_setup_x">এই ফিচারটির জন্য বাড়তি সেটআপ সম্পূর্ণ করতে হবে: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">একটি বর্জন তৈরি করা হয়েছে</item>
+        <item quantity="other">%d বর্জন তৈরি করা হয়েছে</item>
+    </plurals>
 </resources>

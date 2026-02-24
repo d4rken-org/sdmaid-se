@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">အချိန်ဇယား ချိန်ညှိမှု</string>
+    <string name="scheduler_execution_label">နောက်ထပ် လုပ်ဆောင်မှု (ခန့်မှန်းချက်)</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">%d ရက်တိုင်း</item>
+    </plurals>
+</resources>

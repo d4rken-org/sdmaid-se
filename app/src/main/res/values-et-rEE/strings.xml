@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Teated</string>
     <string name="setup_notification_body">Luba SD Maidil anda märku enda toimetustest või tähtsatest sündmustest.</string>
     <string name="setup_notification_hint">Saadame vaid olulisi teateid 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Selleks on vaja seadistada põhjalikumalt: %s</string>
     <string name="setup_acs_card_title">Juurdepääsetavusteenus</string>
     <string name="setup_acs_card_body">Juurdepääsetavusteenus lubab SD Maidil toimetada ekraanil ja teie eest ära teha tüütuid tegevusi, nt puudutada mitu korda \"Tühjenda vahemälu\".</string>
     <string name="setup_acs_card_body2">SD Maid ei kasuta juurdepääsetavusteenust ilma loata, näitab toimetamise ajal alati märgatavat (tühistamisvõimalusega) teadet ja ei kogu sellega teavet.</string>

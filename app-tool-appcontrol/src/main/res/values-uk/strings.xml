@@ -151,4 +151,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Час використання екрана: %1$s з %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Останнє оновлення: %s</string>
     <string name="appcontrol_item_installedat_x_label">Встановлено: %s</string>
+    <string name="shortcut_appcontrol_short">Контроль додатків</string>
+    <string name="shortcut_appcontrol_long">Керувати встановленими додатками</string>
 </resources>

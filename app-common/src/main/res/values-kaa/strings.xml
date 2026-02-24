@@ -175,4 +175,5 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>
     <string name="exclusion_create_action">Shetlestiriw jaratıw</string>
+    <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
 </resources>

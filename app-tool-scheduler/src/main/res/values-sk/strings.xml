@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Plánovač</string>
+    <string name="scheduler_execution_label">Ďalšie spustenie (približne)</string>
+    <string name="scheduler_execution_last_label">Posledné spustenie</string>
+    <string name="scheduler_settings_label">Plánovač</string>
+    <string name="scheduler_settings_summary">Upravte nastavenia súvisiace s plánovačom.</string>
+    <string name="scheduler_new_schedule_action">Vytvoriť plán</string>
+    <string name="scheduler_schedule_name_label">Názov plánu</string>
+    <string name="scheduler_schedule_toggle_enabled">Plán je povolený</string>
+    <string name="scheduler_schedule_toggle_disabled">Plán je zakázaný</string>
+    <string name="scheduler_edit_schedule_action">Upraviť plán</string>
+    <string name="scheduler_schedule_time_label">Približný čas</string>
+    <string name="scheduler_schedule_repeat_label">Interval opakovania v dňoch</string>
+    <string name="scheduler_schedule_default_name">Predvolený plán</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s okolo %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Plánované na %s</string>
+    <string name="scheduler_schedule_last_at_x">Naposledy spustené o %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Denne</item>
+        <item quantity="few">Každé %d dni</item>
+        <item quantity="many">Každých %d dní</item>
+        <item quantity="other">Každých %d dní</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Interval opakovania</string>
+    <string name="scheduler_inaccurate_execution_hint">Očakávané časy spustenia sú približné. Plány sa môžu oneskoriť alebo urýchliť, ak sa tým šetrí batéria.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Žiadne aktívne plány</string>
+    <string name="scheduler_setting_nopowersaving_title">Preskočiť pri nízkom stave batérie</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ak je zariadenie v režime úspory energie, naplánované spustenie sa preskočí.</string>
+    <string name="scheduler_setting_charging_title">Preskočiť, keď sa nenabíja</string>
+    <string name="scheduler_setting_charging_summary">Ak sa zariadenie nenabíja, naplánované spustenie sa preskočí.</string>
+    <string name="scheduler_setting_automation_title">Služba dostupnosti</string>
+    <string name="scheduler_setting_automation_summary">Zahrňte akcie, ktoré používajú službu dostupnosti. To si vyžaduje, aby SD Maid mohla interagovať s vašou obrazovkou (je odomknutá) pri vykonávaní úloh.</string>
+    <string name="scheduler_notification_channel_label">Plánovač</string>
+    <string name="scheduler_notification_title">Naplánovaná úloha</string>
+    <string name="scheduler_notification_message">Prebieha: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Plánovač skončil</string>
+    <string name="scheduler_notification_result_success_message">Všetky naplánované úlohy prebehli úspešne.</string>
+    <string name="scheduler_notification_result_failure_message">Niektoré naplánované úlohy zlyhali alebo sa vyskytli chyby. Skúste ich spustiť manuálne.</string>
+    <string name="scheduler_commands_after_schedule_label">Príkazy po rozvrhu</string>
+    <string name="scheduler_commands_after_schedule_desc">Príkazy prostredia Android, ktoré sa vykonajú na konci plánu.</string>
+    <string name="scheduler_battery_optimization_hint">Ak máte problémy so spustením na pozadí, zvážte vypnutie optimalizácie batérie pre SD Maid.</string>
+</resources>

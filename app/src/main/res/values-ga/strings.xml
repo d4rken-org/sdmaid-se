@@ -117,7 +117,6 @@
     <string name="setup_notification_title">Fógraí</string>
     <string name="setup_notification_body">Ceadaigh do SD Maid fógraí a phostail chun tú a chur ar an eolas faoi oibríochtai leanachúcha nó imeachtai tábhachtacha.</string>
     <string name="setup_notification_hint">Tá fógraí in úsáid go tearc 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Téann an ghné seo ag teastail míreanna socrú breise a chríochnú: %s</string>
     <string name="setup_acs_card_title">Seirbhís inrochtaineachta</string>
     <string name="setup_acs_card_body">Ceadaíonn an tseirbhís inrochtaineachta do SD Maid idirghniúmh le do scailéan agus gníomhartha leadránacha a uathomatiú, m.sh. \"Glan taisce\" a thapáil ar scailéin iolracha.</string>
     <string name="setup_acs_state_enabled">Tá seirbhís inrochtaineachta cumasaithe</string>

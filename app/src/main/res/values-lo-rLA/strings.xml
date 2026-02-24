@@ -120,7 +120,6 @@
     <string name="setup_notification_title">ການແຈ້ງເຕືອນ</string>
     <string name="setup_notification_body">ອະນຸຍາດໃຫ້ SD Maid ສ່ງການແຈ້ງເຕືອນເພື່ອແຈ້ງໃຫ້ທ່ານທຫາບກ່ຽງການດໍາເນີນງານທີ່ກໍາລັງດໍາເນີນ ຫຼື ເຫດການສໍາຄັນ.</string>
     <string name="setup_notification_hint">ການແຈ້ງເຕືອນຈະແທບແຈ້ງໄດ້ເທົ່ານັ້ນ 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ຄຸນສົມບັດນີ້ຕ້ອງການດໍາເນີນການຕັ້ງຄ່າເພີ່ມເຕີມໃຫ້ສໍາເລັດ: %s</string>
     <string name="setup_acs_card_title">ບໍລິການເຂົ້າເຖິງໄດ້</string>
     <string name="setup_acs_card_body">ບໍລິການເຂົ້າເຖິງໄດ້ອະນຸຍາດໃຫ້ SD Maid ຕິດຕໍ່ກັບໜ້າຈໍຂອງທ່ານ ແລະ ທໍາກິຈກ໫ມທີ່ຫຍຸ່ງຍາກໂດຍອັດຕະໂນມັດ, ເຊ່ນ ການແຕະ \"ລ້າງເກັບຮັກສາຊົ່ວຄຣາວ\" ໃນໜ້າຈໍຫຼາຍໜ້າ.</string>
     <string name="setup_acs_card_body2">SD Maid ຈະບໍ່ໃຊ້ບໍລິການເຂົ້າເຖິງໄດ້ໂດຍບໍ່ມີການຍິນຍອມຈາກທ່ານ, ຈະແສດງຕົວຊີ້ບອກทີ່ເດັນຊັດ (ຍອກເລິກໄດ້) ເມື່ອກໍາລັງທໍາງານ ແລະ ຈະບໍ່ໃຊ້ມັນເພື່ອເກັບຮວບຮົມຂໍ້ມູນ.</string>

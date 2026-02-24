@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Järjestelmä</string>
     <string name="setup_title">Asennus</string>
     <string name="exclusion_create_action">Luo poikkeus</string>
+    <string name="setup_feature_requires_additional_setup_x">Tämä ominaisuus vaatii lisäasennuskohtien suorittamisen: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Yksi poikkeus luotu</item>
+        <item quantity="other">%d poikkeusta luotu</item>
+    </plurals>
 </resources>

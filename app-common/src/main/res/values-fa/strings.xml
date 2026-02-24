@@ -175,4 +175,9 @@
     <string name="general_user_label_system">سیستم</string>
     <string name="setup_title">راه‌اندازی</string>
     <string name="exclusion_create_action">ایجاد استثناء</string>
+    <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">یک استثناء ایجاد شد</item>
+        <item quantity="other">%d استثناء ایجاد شد</item>
+    </plurals>
 </resources>

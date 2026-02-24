@@ -141,7 +141,6 @@
     <string name="setup_notification_title">Notificatziones</string>
     <string name="setup_notification_body">Permitere a SD Maid de imbiare notificatziones pro t\'informare a subra de operatziones in cursu o eventos importantes.</string>
     <string name="setup_notification_hint">Is notificatziones benint impreadas cun moderatzione 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Custa caraterìstica riekeret de cumpletare elementos additzionales de cunfiguratzione: %s</string>
     <string name="setup_acs_card_title">Servitziu de atzessibilidade</string>
     <string name="setup_acs_card_body">Su servitziu de atzessibilidade permitit a SD Maid de interagire cun s\'ischermada tua e automatizare atziones isfàstighidas, pro es. tintighende \"Limpiai sa cache\" in ischermas múltiplas.</string>
     <string name="setup_acs_card_body2">SD Maid no at a impreare su servitziu de atzessibilidade chene su consensu tuo, at a mustrare semper un\'indicadore preminente (annullabile) mentras est ativu e no dd\'at a impreare pro recollere informatziones.</string>

@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Уведомления</string>
     <string name="setup_notification_body">Позволете на SD Maid да публикува уведомления, за да ви информира за текущи операции или важни събития.</string>
     <string name="setup_notification_hint">Уведомленията се използват ограничено 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Тази функция изисква завършване на допълнителни елементи за настройка: %s</string>
     <string name="setup_acs_card_title">Услуга за достъпност</string>
     <string name="setup_acs_card_body">Услугата за достъпност позволява на SD Maid да взаимодейства с вашия екран и да автоматизира досадни действия, напр. докосване на \"Изчистване на кеш\" на множество екрани.</string>
     <string name="setup_acs_card_body2">SD Maid няма да използва услугата за достъпност без вашето съгласие, винаги ще показва видим (отменяем) индикатор, докато е активна, и няма да я използва за събиране на информация.</string>

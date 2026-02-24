@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Mfumo</string>
     <string name="setup_title">Usanidi</string>
     <string name="exclusion_create_action">Unda kutengwa</string>
+    <string name="setup_feature_requires_additional_setup_x">Kipengele hiki kinahitaji kukamilisha vipengele vya ziada vya usanidi: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Kutengwa kumoja kumeundwa</item>
+        <item quantity="other">Kutengwa %d kumeundwa</item>
+    </plurals>
 </resources>

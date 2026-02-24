@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Ilmoitukset</string>
     <string name="setup_notification_body">Salli SD Maidin lähettää ilmoituksia tiedottaakseen meneillään olevista toiminnoista tai tärkeistä tapahtumista.</string>
     <string name="setup_notification_hint">Ilmoituksia käytetään säästeliäästi 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tämä ominaisuus vaatii lisäasennuskohtien suorittamisen: %s</string>
     <string name="setup_acs_card_title">Esteettömyyspalvelu</string>
     <string name="setup_acs_card_body">Esteettömyyspalvelu sallii SD Maidin olla vuorovaikutuksessa näyttösi kanssa ja automatisoida tylsiä toimintoja, esim. \"Tyhjennä välimuisti\" -painikkeen napauttaminen useilla näytöillä.</string>
     <string name="setup_acs_card_body2">SD Maid ei käytä esteettömyyspalvelua ilman lupaasi, näyttää aina näkyvän (peruutettavan) ilmaisimen ollessaan aktiivinen eikä käytä sitä tietojen keräämiseen.</string>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Tímasetjari</string>
+    <string name="scheduler_execution_label">Næsta keyrsla (um það bil)</string>
+    <string name="scheduler_execution_last_label">Síðasta keyrsla</string>
+    <string name="scheduler_settings_label">Tímasetjari</string>
+    <string name="scheduler_settings_summary">Stilltu stillingar tengdar tímasetjara.</string>
+    <string name="scheduler_new_schedule_action">Búa til tímaáætlun</string>
+    <string name="scheduler_schedule_name_label">Nafn tímaáætlunar</string>
+    <string name="scheduler_schedule_toggle_enabled">Tímaáætlun er virk</string>
+    <string name="scheduler_schedule_toggle_disabled">Tímaáætlun er óvirk</string>
+    <string name="scheduler_edit_schedule_action">Breyta tímaáætlun</string>
+    <string name="scheduler_schedule_time_label">Áætlaður tími</string>
+    <string name="scheduler_schedule_repeat_label">Endurtekningarbil í dögum</string>
+    <string name="scheduler_schedule_default_name">Sjálfgefin tímaáætlun</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s um %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Áætluð fyrir %s</string>
+    <string name="scheduler_schedule_last_at_x">Síðast keyrð %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Daglega</item>
+        <item quantity="other">Á %d daga fresti</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Endurtekningarbil</string>
+    <string name="scheduler_inaccurate_execution_hint">Áætlaðir keyrslutímar eru nálganir. Tímaáætlanir geta seinkað eða flýst ef það sparar rafhlöðu.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Engar virkar tímaáætlanir</string>
+    <string name="scheduler_setting_nopowersaving_title">Sleppa við litla rafhlöðu</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ef tækið er í orkusparnaðarstillingu verður áætlaðri keyrslu sleppt.</string>
+    <string name="scheduler_setting_charging_title">Sleppa þegar ekki í hleðslu</string>
+    <string name="scheduler_setting_charging_summary">Ef tækið er ekki í hleðslu verður áætlaðri keyrslu sleppt.</string>
+    <string name="scheduler_setting_automation_title">Aðgengisþjónusta</string>
+    <string name="scheduler_setting_automation_summary">Taka aðgerðir sem nota aðgengisþjónustu með. Þetta krefst þess að SD Maid geti samskipt við skjáinn þinn (þ.e. hann er opinn) þegar verkefnin eru keyrð.</string>
+    <string name="scheduler_notification_channel_label">Tímasetjari</string>
+    <string name="scheduler_notification_title">Áætlað verkefni</string>
+    <string name="scheduler_notification_message">Keyri: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Tímasetjari kláraður</string>
+    <string name="scheduler_notification_result_success_message">Öll áætluð verkefni voru keyrð.</string>
+    <string name="scheduler_notification_result_failure_message">Sum áætluð verkefni mistókust eða lentu í villum. Prófaðu að keyra þau handvirkt.</string>
+    <string name="scheduler_commands_after_schedule_label">Eftir-áætlunar skipanir</string>
+    <string name="scheduler_commands_after_schedule_desc">Android skeljar skipanir sem verða keyrðar eftir áætlun.</string>
+    <string name="scheduler_battery_optimization_hint">Íhugaðu að slökkva á rafhlöðufínstillingu fyrir SD Maid ef þú átt í vandræðum með bakgrunnskeyrslu.</string>
+</resources>

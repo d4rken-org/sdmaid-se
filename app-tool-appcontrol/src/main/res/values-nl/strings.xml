@@ -128,4 +128,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Schermtijd: %1$s sinds %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laatst bijgewerkt: %s</string>
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
+    <string name="shortcut_appcontrol_short">App-bediening</string>
+    <string name="shortcut_appcontrol_long">Geïnstalleerde apps beheren</string>
 </resources>

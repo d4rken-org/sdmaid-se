@@ -151,4 +151,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Doba používání obrazovky: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Poslední aktualizace: %s</string>
     <string name="appcontrol_item_installedat_x_label">Nainstalováno: %s</string>
+    <string name="shortcut_appcontrol_short">Ovládání aplikací</string>
+    <string name="shortcut_appcontrol_long">Správa nainstalovaných aplikací</string>
 </resources>

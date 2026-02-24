@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">スケジューラー</string>
+    <string name="scheduler_execution_label">次の実行 (概算)</string>
+    <string name="scheduler_execution_last_label">最後の実行</string>
+    <string name="scheduler_settings_label">スケジューラー</string>
+    <string name="scheduler_settings_summary">スケジューラ関連の設定を調整します。</string>
+    <string name="scheduler_new_schedule_action">スケジュールを作成</string>
+    <string name="scheduler_schedule_name_label">スケジュール名</string>
+    <string name="scheduler_schedule_toggle_enabled">スケジュールは有効です</string>
+    <string name="scheduler_schedule_toggle_disabled">スケジュールは無効です</string>
+    <string name="scheduler_edit_schedule_action">スケジュールを編集</string>
+    <string name="scheduler_schedule_time_label">おおよその時間</string>
+    <string name="scheduler_schedule_repeat_label">繰り返し間隔(日)</string>
+    <string name="scheduler_schedule_default_name">デフォルトのスケジュール</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s 周辺の %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s 用に計画</string>
+    <string name="scheduler_schedule_last_at_x">%s で最後に実行された</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">%d 日ごと</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">リピートの間隔</string>
+    <string name="scheduler_inaccurate_execution_hint">予期される実行時間は近似値です。バッテリーを節約するとスケジュールが遅延または迅速に変更されることがあります。</string>
+    <string name="scheduler_no_active_schedules_subtitle">アクティブなスケジュールはありません</string>
+    <string name="scheduler_setting_nopowersaving_title">低バッテリー時はスキップする</string>
+    <string name="scheduler_setting_nopowersaving_summary">デバイスが省電力モードの場合、スケジュールされた実行はスキップされます。</string>
+    <string name="scheduler_setting_charging_title">充電していないときにスキップ</string>
+    <string name="scheduler_setting_charging_summary">デバイスが充電されていない場合、スケジュールされた実行はスキップされます。</string>
+    <string name="scheduler_setting_automation_title">ユーザー補助サービス</string>
+    <string name="scheduler_setting_automation_summary">ユーザー補助サービスを使用するアクションを含めます。タスクが実行されるときに、SD Maidが画面と対話できるようにする必要があります。</string>
+    <string name="scheduler_notification_channel_label">スケジューラー</string>
+    <string name="scheduler_notification_title">スケジュールされたタスク</string>
+    <string name="scheduler_notification_message">実行中: \"%s\"</string>
+    <string name="scheduler_notification_result_title">スケジューラが完了しました</string>
+    <string name="scheduler_notification_result_success_message">すべてのスケジュールされたタスクが正常に実行されました。</string>
+    <string name="scheduler_notification_result_failure_message">スケジュールされたタスクの一部で失敗またはエラーが発生しました。手動で実行してください。</string>
+    <string name="scheduler_commands_after_schedule_label">ポストスケジュール コマンド</string>
+    <string name="scheduler_commands_after_schedule_desc">スケジュールの最後に実行される Android シェルコマンド。</string>
+    <string name="scheduler_battery_optimization_hint">SD Maidがバックグラウンドで正常に動作しない場合は、バッテリー最適化をオフにすることをご検討ください。</string>
+</resources>

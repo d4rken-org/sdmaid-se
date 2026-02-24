@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Kerfi</string>
     <string name="setup_title">Uppsetning</string>
     <string name="exclusion_create_action">Búa til útilokun</string>
+    <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ein útilokun búin til</item>
+        <item quantity="other">%d útilokanir búnar til</item>
+    </plurals>
 </resources>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">מתזמן</string>
+    <string name="scheduler_execution_label">הביצוע הבא (בערך)</string>
+    <string name="scheduler_execution_last_label">בוצע לאחרונה</string>
+    <string name="scheduler_settings_label">מתזמן</string>
+    <string name="scheduler_settings_summary">התאם הגדרות הקשורות למתזמן.</string>
+    <string name="scheduler_new_schedule_action">צור תזמון</string>
+    <string name="scheduler_schedule_name_label">שם תיזמון</string>
+    <string name="scheduler_schedule_toggle_enabled">תזמון מופעל</string>
+    <string name="scheduler_schedule_toggle_disabled">תזמון כבוי</string>
+    <string name="scheduler_edit_schedule_action">ערוך תיזמון</string>
+    <string name="scheduler_schedule_time_label">זמן משוער</string>
+    <string name="scheduler_schedule_repeat_label">חזור על מרווח בימים</string>
+    <string name="scheduler_schedule_default_name">תזמון ברירת מחדל</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s בסביבות %2$s</string>
+    <string name="scheduler_schedule_next_at_x">מתוכנן ל %s</string>
+    <string name="scheduler_schedule_last_at_x">בוצע לאחרונה ב-%s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">יומי</item>
+        <item quantity="two">כל %d ימים</item>
+        <item quantity="many">כל %d ימים</item>
+        <item quantity="other">כל %d ימים</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">מרווח בין חזרות</string>
+    <string name="scheduler_inaccurate_execution_hint">זמני הביצוע הצפויים הם בקירוב. תזמונים עשויים להתעכב או להקדים אם זה חוסך בסוללה.</string>
+    <string name="scheduler_no_active_schedules_subtitle">אין תזמונים פעילים</string>
+    <string name="scheduler_setting_nopowersaving_title">דלג אם הסוללה חלשה</string>
+    <string name="scheduler_setting_nopowersaving_summary">אם המכשיר נמצא במצב חיסכון בסוללה, ביצוע התזמון לא יבוצע.</string>
+    <string name="scheduler_setting_charging_title">דלג אם אין שינוי</string>
+    <string name="scheduler_setting_charging_summary">אם המכשיר לא מוטען, הביצוע המתוכנן ידולג.</string>
+    <string name="scheduler_setting_automation_title">שירות נגישות</string>
+    <string name="scheduler_setting_automation_summary">כלול פעולות המשתמשות בשירות נגישות. זה מחייב ש-SD Maid תוכל לקיים אינטראקציה עם המסך שלך (כלומר, שיהיה פתוח) כאשר המשימות מבוצעות.</string>
+    <string name="scheduler_notification_channel_label">מתזמן</string>
+    <string name="scheduler_notification_title">משימה מתוזמנת</string>
+    <string name="scheduler_notification_message">מבצע: \"%s\"</string>
+    <string name="scheduler_notification_result_title">תזמון הסתיים</string>
+    <string name="scheduler_notification_result_success_message">כל המשימות המתוזמנות פעלו בהצלחה.</string>
+    <string name="scheduler_notification_result_failure_message">חלק מהמשימות המתוזמנות נכשלו או נתקלו בשגיאות. נסה להפעיל אותם ידנית.</string>
+    <string name="scheduler_commands_after_schedule_label">פקודות לאחר תזמון</string>
+    <string name="scheduler_commands_after_schedule_desc">פקודות מעטפת אנדרואיד שיבוצעו בסוף התזמון.</string>
+    <string name="scheduler_battery_optimization_hint">שקול להשבית את אופטימיזציית הסוללה עבור SD Maid אם אתה נתקל בבעיות בביצוע ברקע.</string>
+</resources>

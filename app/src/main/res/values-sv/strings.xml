@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Aviseringar</string>
     <string name="setup_notification_body">Tillåt SD Maid att visa aviseringar för att informera dig om pågående åtgärder eller viktiga händelser.</string>
     <string name="setup_notification_hint">Aviseringar används sparsamt 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Denna funktion kräver att ytterligare inställningsobjekt slutförs: %s</string>
     <string name="setup_acs_card_title">Tillgänglighetstjänst</string>
     <string name="setup_acs_card_body">Tillgänglighetstjänsten tillåter SD Maid att interagera med din skärm och automatisera tråkiga åtgärder, t.ex. att trycka på \"Rensa cache\" på flera skärmar.</string>
     <string name="setup_acs_card_body2">SD Maid kommer inte använda tillgänglighetstjänsten utan ditt samtycke, kommer alltid visa en tydlig (avbrytbar) indikator när den är aktiv och kommer inte använda den för att samla information.</string>

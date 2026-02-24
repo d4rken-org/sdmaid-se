@@ -160,7 +160,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="setup_notification_title">התראות</string>
     <string name="setup_notification_body">אפשר ל-SD Maid לפרסם הודעות כדי ליידע אותך על פעולות מתמשכות או אירועים חשובים.</string>
     <string name="setup_notification_hint">השימוש בהתראות נעשה במשורה 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">תכונה זו דורשת השלמת פריטי הגדרה נוספים: %s</string>
     <string name="setup_acs_card_title">שירות נגישות</string>
     <string name="setup_acs_card_body">שירות הנגישות מאפשר ל-SD Maid לקיים אינטראקציה עם המסך שלך ולבצע אוטומטית פעולות מייגעות, למשל. הקשה על \"נקה מטמון\" במספר מסכים.</string>
     <string name="setup_acs_card_body2">SD Maid לא תשתמש בשירות הנגישות ללא הסכמתך, תמיד תציג מחוון בולט (ניתן לביטול) בזמן פעילות ולא תשתמש בו לאיסוף מידע.</string>

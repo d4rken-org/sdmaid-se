@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">時間表</string>
+    <string name="scheduler_execution_label">下次執行 (大約)</string>
+    <string name="scheduler_execution_last_label">上次執行</string>
+    <string name="scheduler_settings_label">時間表</string>
+    <string name="scheduler_settings_summary">調整與時間表相關的設定。</string>
+    <string name="scheduler_new_schedule_action">建立編排</string>
+    <string name="scheduler_schedule_name_label">編排名稱</string>
+    <string name="scheduler_schedule_toggle_enabled">編排已啟用</string>
+    <string name="scheduler_schedule_toggle_disabled">編排已停用</string>
+    <string name="scheduler_edit_schedule_action">編輯編排</string>
+    <string name="scheduler_schedule_time_label">大約時間</string>
+    <string name="scheduler_schedule_repeat_label">重複間隔 (天)</string>
+    <string name="scheduler_schedule_default_name">預設編排</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s 於 %2$s</string>
+    <string name="scheduler_schedule_next_at_x">計畫於 %s</string>
+    <string name="scheduler_schedule_last_at_x">上次執行於 %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">每 %d 天</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">重複間隔</string>
+    <string name="scheduler_inaccurate_execution_hint">預期的執行時間是近似值。如果能節約電力，編排可能會被延遲或加快。</string>
+    <string name="scheduler_no_active_schedules_subtitle">沒有已啟用的編排</string>
+    <string name="scheduler_setting_nopowersaving_title">低電量時跳過</string>
+    <string name="scheduler_setting_nopowersaving_summary">如果裝置處於電力節省模式，已編排的執行項目將會被跳過。</string>
+    <string name="scheduler_setting_charging_title">未充時跳過</string>
+    <string name="scheduler_setting_charging_summary">如果裝置未在充電，已編排的執行項目將會被跳過。</string>
+    <string name="scheduler_setting_automation_title">無障礙服務</string>
+    <string name="scheduler_setting_automation_summary">包含使用無障礙服務的動作。這需要在執行工作時 SD 女僕可以與您的畫面進行互動 (即它被解鎖)。</string>
+    <string name="scheduler_notification_channel_label">時間表</string>
+    <string name="scheduler_notification_title">已編排的工作</string>
+    <string name="scheduler_notification_message">正在執行：%s</string>
+    <string name="scheduler_notification_result_title">計劃任務已完成</string>
+    <string name="scheduler_notification_result_success_message">所有計劃任務已成功運行。</string>
+    <string name="scheduler_notification_result_failure_message">部分計劃任務失敗或遇到錯誤。請嘗試手動執行它們。</string>
+    <string name="scheduler_commands_after_schedule_label">排程後指令</string>
+    <string name="scheduler_commands_after_schedule_desc">將在排程結束時執行的 Android shell 指令。</string>
+    <string name="scheduler_battery_optimization_hint">此功能可能需要停用 SD 女僕的電池最佳化才能正常運作。</string>
+</resources>

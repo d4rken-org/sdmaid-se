@@ -149,7 +149,6 @@
     <string name="setup_notification_title">Izaziso</string>
     <string name="setup_notification_body">Vumela i-SD Maid ukuthi ithumele izaziso ukuze ikwazise ngemisebenzi eqhubekayo noma izehlakalo ezibalulekile.</string>
     <string name="setup_notification_hint">Izaziso zisetshenziswa kancane 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Lesi sici sidinga ukuqedela ezinye izinto zokusetshenziswa: %s</string>
     <string name="setup_acs_card_title">Insiza yokufinyelela</string>
     <string name="setup_acs_card_body">Insiza yokufinyelela ivumela i-SD Maid ukuthi ixhumane nesikrini sakho futhi izenzekelise izenzo ezikhathazayo, isib. ukuthepha \"Sula i-cache\" ezikriningi eziningi.</string>
     <string name="setup_acs_card_body2">I-SD Maid ngeke isebenzise insiza yokufinyelela ngaphandle kwemvume yakho, izohlala ibonisa isikhombisi esibalulekile (esingucanselwa) ngenkathi isebenza futhi ngeke ikusebenzise ukuqoqa ulwazi.</string>

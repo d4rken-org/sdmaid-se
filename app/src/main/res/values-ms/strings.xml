@@ -146,7 +146,6 @@
     <string name="setup_notification_title">Notifikasi</string>
     <string name="setup_notification_body">Benarkan SD Maid menyiarkan notifikasi untuk memaklumkan anda tentang operasi yang sedang berjalan atau acara penting.</string>
     <string name="setup_notification_hint">Notifikasi digunakan dengan berhati-hati 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ciri ini memerlukan persediaan tambahan: %s</string>
     <string name="setup_acs_card_title">Perkhidmatan aksesibiliti</string>
     <string name="setup_acs_card_body">Perkhidmatan kebolehaksesan membolehkan SD Maid berinteraksi dengan skrin anda dan mengautomasikan tindakan yang membosankan, cth. mengetik \"Kosongkan cache\" pada berbilang skrin.</string>
     <string name="setup_acs_card_body2">SD Maid tidak akan menggunakan perkhidmatan aksesibiliti tanpa kebenaran anda, akan sentiasa memaparkan penunjuk yang menonjol (boleh dibatalkan) semasa aktif dan tidak akan menggunakannya untuk mengumpul maklumat.</string>

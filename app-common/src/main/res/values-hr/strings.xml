@@ -186,4 +186,10 @@
     <string name="general_user_label_system">Sustav</string>
     <string name="setup_title">Postavljanje</string>
     <string name="exclusion_create_action">Stvori izuzetak</string>
+    <string name="setup_feature_requires_additional_setup_x">Ova značajka zahtijeva postavljanje dodatnih postavki: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Stvoren jedan izuzetak</item>
+        <item quantity="few">Stvorena %d izuzetka</item>
+        <item quantity="other">Stvoreno %d izuzetaka</item>
+    </plurals>
 </resources>

@@ -122,7 +122,6 @@
     <string name="setup_notification_title">Pranešimai</string>
     <string name="setup_notification_body">Leiskite \"SD Maid\" skelbti pranešimus, kad informuotumėte apie vykdomas operacijas ar svarbius įvykius.</string>
     <string name="setup_notification_hint">Pranešimai naudojami retai 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Šiai funkcijai reikia atlikti papildomus sąrankos elementus: %s</string>
     <string name="setup_acs_card_title">Prieunamumo paslauga</string>
     <string name="setup_acs_card_body">Prieinamumo paslauga leidžia \"SD Maid\" sąveikauti su ekranu ir automatizuoti nuobodžius veiksmus, pvz., bakstelėti \"Išvalyti talpyklą\" keliuose ekranuose.</string>
     <string name="setup_acs_card_body2">\"SD Maid\" nenaudos prieinamumo paslaugos be jūsų sutikimo, visada rodys matomą (atšaukiamą) indikatorių, kai ji bus aktyvi, ir nenaudos jos informacijai rinkti.</string>

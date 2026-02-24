@@ -175,4 +175,9 @@
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
     <string name="exclusion_create_action">Opret eksklusion</string>
+    <string name="setup_feature_requires_additional_setup_x">Denne funktion kræver yderligere opsætning: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Én eksklusion oprettet</item>
+        <item quantity="other">%d eksklusioner oprettet</item>
+    </plurals>
 </resources>

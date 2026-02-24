@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">වේලාව නිර්ණායක</string>
+    <string name="scheduler_execution_label">ඵං කාර්යාන්විතය (ආසන්න)</string>
+    <string name="scheduler_execution_last_label">වැධිම කාර්යාන්විතය</string>
+    <string name="scheduler_settings_label">වේලාව නිර්ණායක</string>
+    <string name="scheduler_settings_summary">වේලාව නිර්ණායකයට සම්බන්ධ සැකසීම් සමොයූජනය කරන්න.</string>
+    <string name="scheduler_new_schedule_action">වේලාව සාදන්න</string>
+    <string name="scheduler_schedule_name_label">වේලාවේ නම</string>
+    <string name="scheduler_schedule_toggle_enabled">වේලාව සක්‍රිය කර ඇත</string>
+    <string name="scheduler_schedule_toggle_disabled">වේලාව අබල කර ඇත</string>
+    <string name="scheduler_edit_schedule_action">වේලාව සංපාදනය කරන්න</string>
+    <string name="scheduler_schedule_time_label">ආසන්න වේලාව</string>
+    <string name="scheduler_schedule_repeat_label">දිනම අනුව සරටි අන්තරාලය</string>
+    <string name="scheduler_schedule_default_name">පෙරනිමි වේලාව</string>
+    <string name="scheduler_current_schedule_x_at_x">%2$s විට %1$s</string>
+    <string name="scheduler_schedule_next_at_x">%s සඳහා සෝඩනම් කර ඇත</string>
+    <string name="scheduler_schedule_last_at_x">%s හි වැධිමව කාර්යාන්විත කරන ලදී</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">සෑම %d දිනම</item>
+        <item quantity="other">සියලු %d දිනම</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">සරටි අන්තරාලය</string>
+    <string name="scheduler_inaccurate_execution_hint">පේක්ෂිත කාර්යාන්විත වේලා ආසන්න කාර්යය. බැටරිය හාමාකරන්න නම් වේලාව යැක් හැරීම හෝ ඵැන කරන්න පුළුවාන්.</string>
+    <string name="scheduler_no_active_schedules_subtitle">සක්‍රිය වේලාව නොමැත</string>
+    <string name="scheduler_setting_nopowersaving_title">අළ බැටරිය විට මකා හමන්න</string>
+    <string name="scheduler_setting_nopowersaving_summary">පිකරණය ඳක්ති හාමාකරණ උ්‍රියාවලි නම් වේලාව කාර්යාන්විතය මකා හැරයි.</string>
+    <string name="scheduler_setting_charging_title">ඪාඩ් නොවෙ විට මකා හමන්න</string>
+    <string name="scheduler_setting_charging_summary">පිකරණය ඪාඩ් නොවෙ නම් වේලාව කාර්යාන්විතය මකා හැරයි.</string>
+    <string name="scheduler_setting_automation_title">ප්‍රවේශ්‍යතා සේවාව</string>
+    <string name="scheduler_setting_automation_summary">ප්‍රවේශ්‍යතා සේවාව භාවිතා කරන කාර්ය ඇතුළත් කරන්න. මෙය සඳහා කාර්ය කාර්යාන්විත වෙන විට SD Maid ට ඔබේ තිරය සමග කාර්යාව කිරීමට හැකියාව (එ. එය ඵොඩකරු ඇවා නැත) ඇත යුතුය.</string>
+    <string name="scheduler_notification_channel_label">වේලාව නිර්ණායක</string>
+    <string name="scheduler_notification_title">වේලාව කාර්ය</string>
+    <string name="scheduler_notification_message">කාර්යාන්විත කරමින්: \"%s\"</string>
+    <string name="scheduler_notification_result_title">වේලාව නිර්ණායක සමාප්ත විය</string>
+    <string name="scheduler_notification_result_success_message">සියලු වේලාව කාර්ය ඪාවිතාවෙන් කාර්යාන්විත විය.</string>
+    <string name="scheduler_notification_result_failure_message">කදාචර වේලාව කාර්ය ඉඤාඵර විය හෝ ගැට්ටු ආහ්වාන කරෑය. එවා හස්තින් චාවිත කිරීමට උත්සාහ කරන්න.</string>
+    <string name="scheduler_commands_after_schedule_label">වේලාවෙන් පසු ඕදේශ</string>
+    <string name="scheduler_commands_after_schedule_desc">වේලාවක් අවසානයෙ කාර්යාන්විත වන Android shell ඕදේශ.</string>
+    <string name="scheduler_battery_optimization_hint">පෑළඳ කාර්යාන්විතය සමග සම්ස්යා අනුභව කරන්න නම් SD Maid සඳහා බැටරි ඔපඨමනය අබල කිරීම සලකන්න.</string>
+</resources>

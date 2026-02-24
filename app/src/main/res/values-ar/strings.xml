@@ -167,7 +167,6 @@
     <string name="setup_notification_title">الإشعارات</string>
     <string name="setup_notification_body">اسمح لـ SD Maid بنشر إشعارات لإبلاغك بالعمليات الجارية أو الأحداث المهمة.</string>
     <string name="setup_notification_hint">يتم استخدام الإخطارات باعتدال 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
     <string name="setup_acs_card_title">خدمة أمكانية الوصول</string>
     <string name="setup_acs_card_body">تسمح خدمة إمكانية الوصول لـ SD Maid بالتفاعل مع شاشتك وأتمتة الإجراءات المملة ، على سبيل المثال النقر على \"مسح ذاكرة التخزين المؤقت\" على شاشات متعددة.</string>
     <string name="setup_acs_card_body2">لن تستخدم SD Maid خدمة إمكانية الوصول دون موافقتك ، وستعرض دائمًا مؤشرًا بارزًا (قابل للإلغاء) أثناء النشاط ولن تستخدمه لجمع المعلومات.</string>

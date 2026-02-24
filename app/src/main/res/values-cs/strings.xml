@@ -159,7 +159,6 @@
     <string name="setup_notification_title">Oznámení</string>
     <string name="setup_notification_body">Umožněte aplikaci SD Maid zobrazovat oznámení, která vás informují o probíhajících operacích nebo důležitých událostech.</string>
     <string name="setup_notification_hint">Oznámení se používají střídmě 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
     <string name="setup_acs_card_title">Služba přístupnosti</string>
     <string name="setup_acs_card_body">Služba přístupnosti umožňuje aplikaci SD Maid interakci s obrazovkou a automatizaci zdlouhavých akcí, např. klepnutí na tlačítko \"Vymazat mezipaměť\" na vícero obrazovkách.</string>
     <string name="setup_acs_card_body2">Aplikace SD Maid nebude používat službu přístupnosti bez vašeho souhlasu. Bude vždy zobrazovat viditelný (zrušitelný) indikátor, když je aktivní, a nebude ji používat ke shromažďování informací.</string>

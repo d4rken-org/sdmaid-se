@@ -134,7 +134,6 @@
     <string name="setup_notification_title">அறிவிப்புகள்</string>
     <string name="setup_notification_body">நடந்து கொண்டிருக்கும் செயல்பாடுகள் அல்லது முக்கிய நிகழ்வுகள் பற்றி உங்களுக்கு தெரிவிக்க SD Maidக்கு அறிவிப்புகளை இடுவதற்கு அனுமதியளிக்கவும்.</string>
     <string name="setup_notification_hint">அறிவிப்புகள் மிதமாக பயன்படுத்தப்படுகின்றன 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">இந்த அம்சத்திற்கு கூடுதல் அமைப்பு உருப்படிகளை முடித்தல் தேவை: %s</string>
     <string name="setup_acs_card_title">அணுகல் சேவை</string>
     <string name="setup_acs_card_body">அணுகல் சேவை SD Maidக்கு உங்கள் திரையுடன் தொடர்பு கொள்ளவும் சலிப்பான செயல்களை தானியங்கியமாக்கவும் அனுமதிக்கிறது, எ.கா. பல திரைகளில் \"கேச் அழி\" என்பதை தட்டுதல்.</string>
     <string name="setup_acs_card_body2">SD Maid உங்கள் ஒப்புதல் இல்லாமல் அணுகல் சேவையைப் பயன்படுத்தாது, செயலில் இருக்கும்போது எப்போதும் தெளிவான (ரத்து செய்யக்கூடிய) குறிகாட்டியை காட்டும் மற்றும் தகவல் சேகரிக்க அதைப் பயன்படுத்தாது.</string>

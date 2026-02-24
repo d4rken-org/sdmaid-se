@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
     <string name="exclusion_create_action">Dala ukukhishwa</string>
+    <string name="setup_feature_requires_additional_setup_x">Lesi sici sidinga ukuqedela ezinye izinto zokusetshenziswa: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ukukhishwa okungu-%d kudalwe</item>
+        <item quantity="other">Ukukhishwa okungu-%d kudalwe</item>
+    </plurals>
 </resources>

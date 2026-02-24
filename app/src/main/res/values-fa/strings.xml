@@ -151,7 +151,6 @@
     <string name="setup_notification_title">اعلان ها</string>
     <string name="setup_notification_body">اجازه دهید SD Maid برای اطلاع‌رسانی درباره عملیات جاری یا رویدادهای مهم، اعلان‌ها ارسال کند.</string>
     <string name="setup_notification_hint">اعلان‌ها به‌صورت محدود استفاده می‌شوند 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
     <string name="setup_acs_card_title">سرویس دسترسی</string>
     <string name="setup_acs_card_body">خدمات دسترسی به SD Maid اجازه می‌دهد تا با صفحه نمایش شما تعامل کرده و اقدامات خسته‌کننده‌ای مانند لمس \"پاک کردن کش\" بر روی چندین صفحه را به صورت خودکار انجام دهد.</string>
     <string name="setup_acs_card_body2">SD Maid بدون رضایت شما از خدمات دسترسی استفاده نخواهد کرد، همواره یک نشانگر واضح (قابل لغو) هنگام فعال بودن نمایش می‌دهد و از آن برای جمع‌آوری اطلاعات استفاده نخواهد کرد.</string>

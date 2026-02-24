@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Varsler</string>
     <string name="setup_notification_body">Tillat SD Maid å legge ut varsler for å informere deg om pågående operasjoner eller viktige hendelser.</string>
     <string name="setup_notification_hint">Varsler brukes sparsomt 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
     <string name="setup_acs_card_title">Tilgjengelighetstjeneste</string>
     <string name="setup_acs_card_body">Tilgjengelighetstjenesten lar SD Maid samhandle med skjermen din og automatisere kjedelige handlinger, f.eks. trykke \"Tøm hurtigbuffer\" på flere skjermer.</string>
     <string name="setup_acs_card_body2">SD Maid vil ikke bruke tilgjengelighetstjenesten uten ditt samtykke, vil alltid vise en fremtredende (kansellerbar) indikator mens den er aktiv og vil ikke bruke den for å hente informasjon.</string>

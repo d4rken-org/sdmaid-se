@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavení</string>
     <string name="exclusion_create_action">Vytvořit výjimku</string>
+    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Vytvořena jedna výjimka</item>
+        <item quantity="few">Vytvořeny %d výjimky</item>
+        <item quantity="many">Vytvořeno %d výjimek</item>
+        <item quantity="other">Vytvořeno %d výjimek</item>
+    </plurals>
 </resources>

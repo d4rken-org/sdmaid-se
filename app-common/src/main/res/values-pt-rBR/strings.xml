@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuração</string>
     <string name="exclusion_create_action">Criar uma exceção</string>
+    <string name="setup_feature_requires_additional_setup_x">Esta função requer a conclusão de itens de configuração adicionais: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Uma exceção criada</item>
+        <item quantity="other">%d exceções criadas</item>
+    </plurals>
 </resources>

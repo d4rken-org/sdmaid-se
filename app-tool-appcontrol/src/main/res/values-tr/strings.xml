@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran süresi: %2$s\'den beri %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Son güncelleme: %s</string>
     <string name="appcontrol_item_installedat_x_label">Yüklenme zamanı: %s</string>
+    <string name="shortcut_appcontrol_short">Uygulama Kontrolü</string>
+    <string name="shortcut_appcontrol_long">Yüklü uygulamaları yönet</string>
 </resources>

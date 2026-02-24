@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">计划任务</string>
+    <string name="scheduler_execution_label">下次执行（预估）</string>
+    <string name="scheduler_execution_last_label">上次执行</string>
+    <string name="scheduler_settings_label">计划任务</string>
+    <string name="scheduler_settings_summary">调整计划任务相关的设置。</string>
+    <string name="scheduler_new_schedule_action">创建计划</string>
+    <string name="scheduler_schedule_name_label">计划名称</string>
+    <string name="scheduler_schedule_toggle_enabled">计划已启用</string>
+    <string name="scheduler_schedule_toggle_disabled">计划已禁用</string>
+    <string name="scheduler_edit_schedule_action">编辑计划</string>
+    <string name="scheduler_schedule_time_label">大约时间</string>
+    <string name="scheduler_schedule_repeat_label">重复间隔（天）</string>
+    <string name="scheduler_schedule_default_name">默认计划</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s 大约 %2$s</string>
+    <string name="scheduler_schedule_next_at_x">计划为 %s</string>
+    <string name="scheduler_schedule_last_at_x">上次执行时间：%s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">每 %d 天一次</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">重复间隔</string>
+    <string name="scheduler_inaccurate_execution_hint">预期执行时间是近似值。计划任务可能会为了保存电量而被推迟或提前。</string>
+    <string name="scheduler_no_active_schedules_subtitle">无活动计划</string>
+    <string name="scheduler_setting_nopowersaving_title">低电量时跳过</string>
+    <string name="scheduler_setting_nopowersaving_summary">如果您的设备处于省电模式，那么计划的操作将不会被执行。</string>
+    <string name="scheduler_setting_charging_title">仅在充电时执行</string>
+    <string name="scheduler_setting_charging_summary">如果设备不在充电，计划的任务将会不会被执行。</string>
+    <string name="scheduler_setting_automation_title">无障碍服务</string>
+    <string name="scheduler_setting_automation_summary">包含使用无障碍服务的操作，这要求SD Maid在执行任务时可以与您的屏幕交互（即它被解锁）。</string>
+    <string name="scheduler_notification_channel_label">计划任务</string>
+    <string name="scheduler_notification_title">计划任务</string>
+    <string name="scheduler_notification_message">正在执行: \"%s\"</string>
+    <string name="scheduler_notification_result_title">计划任务已完成</string>
+    <string name="scheduler_notification_result_success_message">所有计划任务均成功运行。</string>
+    <string name="scheduler_notification_result_failure_message">部分计划任务运行失败或遇到错误。请尝试手动运行。</string>
+    <string name="scheduler_commands_after_schedule_label">计划任务后命令</string>
+    <string name="scheduler_commands_after_schedule_desc">将在计划任务结束后执行的 Android shell 命令。</string>
+    <string name="scheduler_battery_optimization_hint">如果您遇到后台执行问题，请考虑禁用 SD Maid 电池优化。</string>
+</resources>

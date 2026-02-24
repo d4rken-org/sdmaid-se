@@ -122,7 +122,6 @@
     <string name="setup_notification_title">Jakinarazpenak</string>
     <string name="setup_notification_body">Baimendu SD Maid-i jakinarazpenak bidaltzea abian diren eragiketei edo gertaera garrantzitsuei buruzko informazioa emateko.</string>
     <string name="setup_notification_hint">Jakinarazpenak gutxitan erabiltzen dira 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Eginbide honek konfigurazio-elementu gehigarriak osatzea eskatzen du: %s</string>
     <string name="setup_acs_card_title">Irisgarritasun-zerbitzua</string>
     <string name="setup_acs_card_body">Irisgarritasun-zerbitzuak SD Maid-i zure pantailarekin elkarreragiten eta ekintza aspergarriak automatizatzen uzten dio, adib. \"Garbitu cache-a\" sakatzen pantaila askotan.</string>
     <string name="setup_acs_card_body2">SD Maid-ek ez du irisgarritasun-zerbitzua zure baimenik gabe erabiliko, beti erakutsiko du adierazle nabarmen (ezeztatzeko modukoa) aktibo dagoenean eta ez du informazioa biltzeko erabiliko.</string>

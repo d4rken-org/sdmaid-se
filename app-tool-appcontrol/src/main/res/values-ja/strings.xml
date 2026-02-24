@@ -118,4 +118,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">スクリーンタイム: %2$sから%1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">最終更新: %s</string>
     <string name="appcontrol_item_installedat_x_label">インストール日: %s</string>
+    <string name="shortcut_appcontrol_short">アプリを管理</string>
+    <string name="shortcut_appcontrol_long">インストールされたアプリを管理</string>
 </resources>

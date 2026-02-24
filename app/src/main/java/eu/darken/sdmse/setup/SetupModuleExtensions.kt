@@ -32,7 +32,7 @@ fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
         .make(
             fragment.requireView(),
             fragment.getString(
-                R.string.setup_feature_requires_additional_setup_x,
+                eu.darken.sdmse.common.R.string.setup_feature_requires_additional_setup_x,
                 this.joinToString(", ") { "\"${fragment.getString(it.labelRes)}\"" }
             ),
             Snackbar.LENGTH_LONG

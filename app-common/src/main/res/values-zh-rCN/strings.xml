@@ -164,4 +164,8 @@
     <string name="general_user_label_system">系统</string>
     <string name="setup_title">设置</string>
     <string name="exclusion_create_action">创建排除项</string>
+    <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">已创建 %d 个排除项。</item>
+    </plurals>
 </resources>

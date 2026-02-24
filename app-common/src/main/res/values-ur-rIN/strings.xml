@@ -175,4 +175,9 @@
     <string name="general_user_label_system">سسٹم</string>
     <string name="setup_title">سیٹ اپ</string>
     <string name="exclusion_create_action">استثنا بنائیں</string>
+    <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ایک استثنا بنایا گیا</item>
+        <item quantity="other">%d استثنائات بنائے گئے</item>
+    </plurals>
 </resources>

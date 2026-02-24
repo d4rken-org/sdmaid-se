@@ -164,4 +164,8 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Pengaturan</string>
     <string name="exclusion_create_action">Buat pengecualian</string>
+    <string name="setup_feature_requires_additional_setup_x">Fitur ini mengharuskan Anda untuk melengkapi item pengaturan tambahan: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d pengecualian telah dibuat</item>
+    </plurals>
 </resources>

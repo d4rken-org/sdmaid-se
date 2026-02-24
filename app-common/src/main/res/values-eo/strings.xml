@@ -172,4 +172,9 @@
     <string name="general_user_label_system">Sistemo</string>
     <string name="setup_title">Agordado</string>
     <string name="exclusion_create_action">Krei ekskluzivon</string>
+    <string name="setup_feature_requires_additional_setup_x">Ĉi tiu funkcio postulas kompletigi aldonajn agordajn erojn: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Unu ekskluzivo kreita</item>
+        <item quantity="other">%d ekskluzivoj kreitaj</item>
+    </plurals>
 </resources>

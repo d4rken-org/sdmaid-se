@@ -155,7 +155,6 @@
     <string name="setup_notification_title">Obavijesti</string>
     <string name="setup_notification_body">Dopustite SD Maidu da šalje obavijesti kako bi vas obavijestio o operacijama u tijeku ili važnim događajima.</string>
     <string name="setup_notification_hint">Obavijesti se štedljivo koriste 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ova značajka zahtijeva postavljanje dodatnih postavki: %s</string>
     <string name="setup_acs_card_title">Usluga pristupačnosti</string>
     <string name="setup_acs_card_body">Usluga pristupačnosti omogućuje SD Maidu interakciju s vašim zaslonom i automatiziranje zamornih radnji, npr. dodirom \"Izbriši predmemoriju\" na više zaslona.</string>
     <string name="setup_acs_card_body2">SD Maid neće koristiti uslugu pristupačnosti bez vašeg pristanka, uvijek će prikazati istaknuti (poništivi) indikator dok je aktivna i neće ju koristiti za prikupljanje informacija.</string>

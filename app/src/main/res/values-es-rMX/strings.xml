@@ -143,7 +143,6 @@
     <string name="setup_notification_title">Notificaciones</string>
     <string name="setup_notification_body">Permitir a SD Maid publicar notificaciones para informarte sobre operaciones en curso o eventos importantes.</string>
     <string name="setup_notification_hint">Las notificaciones se usan moderadamente 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Esta función requiere completar elementos de configuración adicionales: %s</string>
     <string name="setup_acs_card_title">Servicio de accesibilidad</string>
     <string name="setup_acs_card_body">El servicio de accesibilidad permite a SD Maid interactuar con tu pantalla y automatizar acciones tediosas, p. ej. tocar \"Limpiar caché\" en múltiples pantallas.</string>
     <string name="setup_acs_card_body2">SD Maid no usará el servicio de accesibilidad sin tu consentimiento, siempre mostrará un indicador prominente (cancelable) mientras esté activo y no lo usará para recopilar información.</string>

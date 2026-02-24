@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Systemowy</string>
     <string name="setup_title">Konfiguracja</string>
     <string name="exclusion_create_action">Utwórz wykluczenie</string>
+    <string name="setup_feature_requires_additional_setup_x">Funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Utworzono jedno wykluczenie</item>
+        <item quantity="few">Utworzono %d wykluczenia</item>
+        <item quantity="many">Utworzono %d wykluczeń</item>
+        <item quantity="other">Utworzono %d wykluczeń</item>
+    </plurals>
 </resources>

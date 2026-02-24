@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Harmonogram</string>
+    <string name="scheduler_execution_label">Następne wykonanie (w przybliżeniu)</string>
+    <string name="scheduler_execution_last_label">Ostatnie wykonanie</string>
+    <string name="scheduler_settings_label">Harmonogram</string>
+    <string name="scheduler_settings_summary">Dostosuj ustawienia związane z harmonogramem.</string>
+    <string name="scheduler_new_schedule_action">Utwórz harmonogram</string>
+    <string name="scheduler_schedule_name_label">Nazwa harmonogramu</string>
+    <string name="scheduler_schedule_toggle_enabled">Harmonogram jest włączony</string>
+    <string name="scheduler_schedule_toggle_disabled">Harmonogram jest wyłączony</string>
+    <string name="scheduler_edit_schedule_action">Edytuj harmonogram</string>
+    <string name="scheduler_schedule_time_label">Przybliżony czas</string>
+    <string name="scheduler_schedule_repeat_label">Częstotliwość powtarzania w dniach</string>
+    <string name="scheduler_schedule_default_name">Domyślny harmonogram</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s około %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Zaplanowane na %s</string>
+    <string name="scheduler_schedule_last_at_x">Ostatnio wykonane o %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Codziennie</item>
+        <item quantity="few">Co %d dni</item>
+        <item quantity="many">Co %d dni</item>
+        <item quantity="other">Co %d dni</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Częstotliwość powtarzania</string>
+    <string name="scheduler_inaccurate_execution_hint">Przewidywane czasy wykonania są przybliżone. Harmonogramy mogą zostać opóźnione lub przyspieszone, jeśli będzie to skutkowało oszczędzaniem baterii.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Brak aktywnych harmonogramów</string>
+    <string name="scheduler_setting_nopowersaving_title">Pomiń przy niskim stanie baterii</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jeśli telefon jest w trybie oszczędzania energii, zaplanowane wykonanie zostanie pominięte.</string>
+    <string name="scheduler_setting_charging_title">Pomiń, jeśli nie trwa ładowanie</string>
+    <string name="scheduler_setting_charging_summary">Jeśli urządzenie się nie ładuje, zaplanowane wykonywanie operacji zostanie pominięte.</string>
+    <string name="scheduler_setting_automation_title">Usługa ułatwień dostępu</string>
+    <string name="scheduler_setting_automation_summary">Dołącz akcje, które używają usługi ułatwień dostępu. Wymaga to, aby SD Maid mógł wchodzić w interakcje z twoim ekranem (tzn. gdy jest odblokowany), gdy zadania są wykonywane.</string>
+    <string name="scheduler_notification_channel_label">Harmonogram</string>
+    <string name="scheduler_notification_title">Zaplanowane zadanie</string>
+    <string name="scheduler_notification_message">Wykonywanie: „%s”</string>
+    <string name="scheduler_notification_result_title">Harmonogram zakończony</string>
+    <string name="scheduler_notification_result_success_message">Wszystkie zaplanowane zadania zostały pomyślnie uruchomione.</string>
+    <string name="scheduler_notification_result_failure_message">Niektóre zaplanowane zadania nie powiodły się lub wystąpiły błędy. Spróbuj uruchomić je ręcznie.</string>
+    <string name="scheduler_commands_after_schedule_label">Polecenia po harmonogramie</string>
+    <string name="scheduler_commands_after_schedule_desc">Polecenia powłoki Androida, które będą wykonywane na końcu harmonogramu.</string>
+    <string name="scheduler_battery_optimization_hint">Rozważ wyłączenie optymalizacji baterii dla SD Maid, jeśli wystąpią problemy z działaniem w tle.</string>
+</resources>

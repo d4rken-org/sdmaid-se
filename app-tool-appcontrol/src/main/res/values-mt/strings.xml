@@ -22,4 +22,5 @@
     <string name="appcontrol_export_title">Esporta app</string>
     <string name="appcontrol_share_list_action">Aqsam il-lista</string>
     <string name="appcontrol_force_stop_action">Waqqaf b\'forza</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
 </resources>

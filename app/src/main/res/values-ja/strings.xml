@@ -147,7 +147,6 @@
     <string name="setup_notification_title">通知</string>
     <string name="setup_notification_body">SDメイドが現在進行中の操作や重要なイベントについて通知するために通知を表示することを許可します。</string>
     <string name="setup_notification_hint">通知は控えめに使用されます 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">この機能は追加のセットアップアイテムを完了する必要があります： %s</string>
     <string name="setup_acs_card_title">ユーザー補助サービス</string>
     <string name="setup_acs_card_body">ユーザー補助機能により、SD Maidは画面にアクセスし面倒な作業を自動化できます。例: 複数の画面での「キャッシュを削除」のタップ。</string>
     <string name="setup_acs_card_body2">SD Maidは、ユーザーの同意なしにユーザー補助機能を使用しません。使用中は常に目立つ (キャンセル可能な) インジケーターを表示し、情報を収集するための使用をしません。</string>

@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Kennisgewings</string>
     <string name="setup_notification_body">Laat SD Maid toe om kennisgewings te plaas om jou in te lig oor voortgaande bewerkings of belangrike gebeure.</string>
     <string name="setup_notification_hint">Kennisgewings word spaarsamig gebruik 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Hierdie kenmerk vereis die voltooiing van addisionele opstelling items: %s</string>
     <string name="setup_acs_card_title">Toeganklikheid diens</string>
     <string name="setup_acs_card_body">Die toeganklikheid diens laat SD Maid toe om met jou skerm te interaksie en vervelige aksies te outomatiseer, bv. om \"Maak kas skoon\" op verskeie skerms te tik.</string>
     <string name="setup_acs_card_body2">SD Maid sal nie die toeganklikheid diens gebruik sonder jou toestemming nie, sal altyd \'n prominente (kanselleerbare) aanduider vertoon terwyl aktief en sal dit nie gebruik om inligting te versamel nie.</string>

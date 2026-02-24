@@ -159,7 +159,6 @@
     <string name="setup_notification_title">Powiadomienia</string>
     <string name="setup_notification_body">Zezwól SD Maid na wysyłanie powiadomień, informujących o trwających operacjach lub ważnych zdarzeniach.</string>
     <string name="setup_notification_hint">Powiadomienia będą rzadko używane 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
     <string name="setup_acs_card_title">Usługa ułatwień dostępu</string>
     <string name="setup_acs_card_body">Usługa ułatwień dostępu umożliwia SD Maid interakcję z ekranem i automatyzację żmudnych czynności, np. dotykając „Wyczyść pamięć podręczną” na wielu ekranach.</string>
     <string name="setup_acs_card_body2">SD Maid nie będzie korzystać z usługi ułatwień dostępu bez twojej zgody, zawsze wyświetli wyraźny (możliwy do anulowania) wskaźnik podczas działania i nie będzie jej używać do zbierania danych.</string>

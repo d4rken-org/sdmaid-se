@@ -116,4 +116,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s mula %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Huling na-update: %s</string>
     <string name="appcontrol_item_installedat_x_label">Na-install noong: %s</string>
+    <string name="shortcut_appcontrol_short">Kontrol ng App</string>
+    <string name="shortcut_appcontrol_long">Pamahalaan ang mga naka-install na app</string>
 </resources>

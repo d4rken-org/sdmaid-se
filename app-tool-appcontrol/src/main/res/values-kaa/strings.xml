@@ -104,4 +104,5 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran waqtı: %2$s baslap %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Aqırǵı jańalanǵan: %s</string>
     <string name="appcontrol_item_installedat_x_label">Ornatılǵan: %s</string>
+    <string name="shortcut_appcontrol_long">Ornatılǵan qollanbalardı basqarıw</string>
 </resources>

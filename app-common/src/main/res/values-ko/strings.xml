@@ -164,4 +164,8 @@
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
     <string name="exclusion_create_action">예외 생성</string>
+    <string name="setup_feature_requires_additional_setup_x">이 기능은 추가 설청 항목을 완료할 필요가 있습니다: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d개의 제외 생성됨</item>
+    </plurals>
 </resources>

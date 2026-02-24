@@ -159,7 +159,6 @@
     <string name="setup_notification_title">Upozornenia</string>
     <string name="setup_notification_body">Povoľte SD Maid uverejňovať upozornenia, ktoré vás budú informovať o prebiehajúcich operáciách alebo dôležitých udalostiach.</string>
     <string name="setup_notification_hint">Upozornenia sa používajú s mierou 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Táto funkcia vyžaduje dokončenie ďalších položiek nastavenia: %s</string>
     <string name="setup_acs_card_title">Služba dostupnosti</string>
     <string name="setup_acs_card_body">Služba dostupnosti umožňuje SD Maid interakciu s vašou obrazovkou a automatizáciu únavných akcií, napr. klepnutím na „Vymazať vyrovnávaciu pamäť“ na viacerých obrazovkách.</string>
     <string name="setup_acs_card_body2">SD Maid nebude používať službu dostupnosti bez vášho súhlasu, bude vždy zobrazovať výrazný (zrušiteľný) indikátor, keď je aktívny a nebude ho používať na zhromažďovanie informácií.</string>

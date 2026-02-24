@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">স্ক্রিন টাইম: %2$s থেকে %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">সর্বশেষ আপডেট হয়েছে: %s</string>
     <string name="appcontrol_item_installedat_x_label">ইনস্টল করা হয়েছে: %s</string>
+    <string name="shortcut_appcontrol_short">অ্যাপ নিয়ন্ত্রণ</string>
+    <string name="shortcut_appcontrol_long">ইনস্টল করা অ্যাপগুলি পরিচালনা করুন</string>
 </resources>

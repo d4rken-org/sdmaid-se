@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Njoftime</string>
     <string name="setup_notification_body">Lejo SD Maid të postojë njoftime për t\'ju informuar për operacione në vazhdim ose ngjarje të rëndësishme.</string>
     <string name="setup_notification_hint">Njoftimet përdoren me masë 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ky funksion kërkon plotësimin e artikujve shtesë të konfigurimit: %s</string>
     <string name="setup_acs_card_title">Shërbimi i aksesueshmërisë</string>
     <string name="setup_acs_card_body">Shërbimi i qasjes lejon SD Maid të ndërlidhet dhe ta përdorë ekranin juaj dhe të automatizojë veprimet e lodhshme, p.sh. duke shtypur \"Pastro cache\" në shumë ekrane dhe duke liruar memorien e tepërt dhe të panevojshme në ekrane të shumta.</string>
     <string name="setup_acs_card_body2">SD Maid nuk do të përdorë shërbimin e aksesueshmërisë pa pëlqimin tuaj, do të shfaqë gjithmonë një tregues të spikatur (të anulueshëm) kur është aktiv dhe nuk do ta përdorë atë për të mbledhur informacion.</string>

@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Bildschirmzeit: %1$s seit %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zuletzt aktualisiert: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installiert auf: %s</string>
+    <string name="shortcut_appcontrol_short">App Steuerung</string>
+    <string name="shortcut_appcontrol_long">Installierte Apps verwalten</string>
 </resources>

@@ -129,4 +129,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Χρόνος χρήσης οθόνης: %1$s από %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Τελευταία ενημέρωση: %s</string>
     <string name="appcontrol_item_installedat_x_label">Εγκαταστάθηκε σε: %s</string>
+    <string name="shortcut_appcontrol_short">Έλεγχος Εφαρμογής</string>
+    <string name="shortcut_appcontrol_long">Διαχείριση εγκατεστημένων εφαρμογών</string>
 </resources>

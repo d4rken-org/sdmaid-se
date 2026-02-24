@@ -93,4 +93,6 @@
         <item quantity="one">%d aplikaĵo estis haltigita</item>
         <item quantity="other">%d aplikaĵoj estis haltigitaj</item>
     </plurals>
+    <string name="shortcut_appcontrol_short">Aplikaĵa Kontrolo</string>
+    <string name="shortcut_appcontrol_long">Administri instalitajn aplikaĵojn</string>
 </resources>

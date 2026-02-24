@@ -175,4 +175,9 @@
     <string name="general_user_label_system">පද්ධතිය</string>
     <string name="setup_title">පිහිටුවීම</string>
     <string name="exclusion_create_action">බැහැර කිරීම සාදන්න</string>
+    <string name="setup_feature_requires_additional_setup_x">මෙම විශේෂාංගයට අමතර පිහිටුවීම් අයිතම් සම්පූර්ණ කිරීම අවශ්‍යය: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">%d බැහැර කිරීමක් සාදන ලදී</item>
+        <item quantity="other">%d බැහැර කිරීම් සාදන ලදී</item>
+    </plurals>
 </resources>

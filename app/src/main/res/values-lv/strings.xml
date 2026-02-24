@@ -151,7 +151,6 @@
     <string name="setup_notification_title">Paziņojumi</string>
     <string name="setup_notification_body">Ļaujiet SD Maid sūtīt paziņojumus, lai informētu par notiekošajām darbībām vai svarīgiem notikumiem.</string>
     <string name="setup_notification_hint">Paziņojumi tiek izmantoti taupīgi 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Šī funkcija prasa papildu iestatīšanas darbību pabeigšanu: %s</string>
     <string name="setup_acs_card_title">Pieejamības pakalpojums</string>
     <string name="setup_acs_card_body">Pieejamības pakalpojums ļauj SD Maid mijiedarboties ar jūsu ekrānu un automatizēt garlaicīgas darbības, piem. nospiest \"Notīrīt kešatmiņu\" vairākos ekrānos.</string>
     <string name="setup_acs_card_body2">SD Maid neizmantos pieejamības pakalpojumu bez jūsu piekrišanas, vienmēr rādīs pamanāmu (atceļamu) indikatoru, kamēr tas ir aktīvs, un neizmantos to informācijas vākšanai.</string>

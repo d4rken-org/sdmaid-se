@@ -118,4 +118,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">화면 시간: %2$s부터 %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">마지막 업데이트: %s</string>
     <string name="appcontrol_item_installedat_x_label">설치일: %s</string>
+    <string name="shortcut_appcontrol_short">앱 관리</string>
+    <string name="shortcut_appcontrol_long">설치된 앱 관리</string>
 </resources>

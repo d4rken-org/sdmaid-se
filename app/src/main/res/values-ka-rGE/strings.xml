@@ -151,7 +151,6 @@
     <string name="setup_notification_title">შეტყობინებები</string>
     <string name="setup_notification_body">მიეცით საშუალება SD Maid-ს გამოაქვეყნოს შეტყობინებები, რათა გაცნობოთ მიმდინარე ოპერაციების ან მნიშვნელოვანი მოვლენების შესახებ.</string>
     <string name="setup_notification_hint">შეტყობინებები გამოიყენება ზომიერად 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ამ ფუნქციას სჭირდება დამატებითი დაყენების ელემენტების დასრულება: %s</string>
     <string name="setup_acs_card_title">მარტივი წვდომის სერვისი</string>
     <string name="setup_acs_card_body">ხელმისაწვდომობის სერვისი საშუალებას აძლევს SD Maid-ს ურთიერთობა თქვენს ეკრანთან და მოსაწყენი მოქმედებების ავტომატიზაცია, მაგ. \"ქეშის გასუფთავების\" შეხება რამდენიმე ეკრანზე.</string>
     <string name="setup_acs_card_body2">SD Maid არ გამოიყენებს ხელმისაწვდომობის სერვისს თქვენი თანხმობის გარეშე, ყოველთვის აჩვენებს გამოჩენილ (გაუქმებულ) ინდიკატორს აქტიურობისას და არ გამოიყენებს მას ინფორმაციის შესაგროვებლად.</string>

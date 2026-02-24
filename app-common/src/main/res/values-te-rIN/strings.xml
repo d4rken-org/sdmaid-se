@@ -175,4 +175,9 @@
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>
     <string name="exclusion_create_action">బహిష్కరణను సృష్టించండి</string>
+    <string name="setup_feature_requires_additional_setup_x">ఈ ఫీచర్ అదనపు సెటప్ అంశాలను పూర్తి చేయడానికి అవసరం: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ఒక బహిష్కరణ సృష్టించబడింది</item>
+        <item quantity="other">%d బహిష్కరణలు సృష్టించబడినాయి</item>
+    </plurals>
 </resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Penjadwal</string>
+    <string name="scheduler_execution_label">Eksekusi selanjutnya (perkiraan)</string>
+    <string name="scheduler_execution_last_label">Eksekusi terakhir</string>
+    <string name="scheduler_settings_label">Penjadwal</string>
+    <string name="scheduler_settings_summary">Atur pengaturan penjadwal.</string>
+    <string name="scheduler_new_schedule_action">Buat jadwal</string>
+    <string name="scheduler_schedule_name_label">Nama jadwal</string>
+    <string name="scheduler_schedule_toggle_enabled">Jadwal diaktifkan</string>
+    <string name="scheduler_schedule_toggle_disabled">Jadwal dinonaktifkan</string>
+    <string name="scheduler_edit_schedule_action">Ubah jadwal</string>
+    <string name="scheduler_schedule_time_label">Waktu kisaran</string>
+    <string name="scheduler_schedule_repeat_label">Interval pengulangan dalam hari</string>
+    <string name="scheduler_schedule_default_name">Jadwal default</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s sekitar %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Direncanakan untuk %s</string>
+    <string name="scheduler_schedule_last_at_x">Terakhir diekskusi pada %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">Setiap %d hari</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Interval pengulangan</string>
+    <string name="scheduler_inaccurate_execution_hint">Waktu eksekusi yang diharapkan adalah perkiraan. Jadwal dapat ditunda atau dipercepat untuk menghemat baterai.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Tidak ada jadwal aktif</string>
+    <string name="scheduler_setting_nopowersaving_title">Lewati saat baterai lemah</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jika perangkat dalam mode hemat daya, jadwal pelaksanaan akan dilewati.</string>
+    <string name="scheduler_setting_charging_title">Lewati ketika tidak mengisi daya</string>
+    <string name="scheduler_setting_charging_summary">Jika perangkat tidak mengisi daya, jadwal tugas akan dilewati.</string>
+    <string name="scheduler_setting_automation_title">Layanan aksesibilitas</string>
+    <string name="scheduler_setting_automation_summary">Menyertakan tindakan yang menggunakan layanan aksesibilitas. Ini mengharuskan SD Maid untuk dapat berinteraksi dengan layar Anda (saat tidak terkunci) ketika tugas dieksekusi.</string>
+    <string name="scheduler_notification_channel_label">Penjadwal</string>
+    <string name="scheduler_notification_title">Tugas terjadwal</string>
+    <string name="scheduler_notification_message">Menjalankan: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Penjadwal selesai</string>
+    <string name="scheduler_notification_result_success_message">Semua tugas yang dijadwalkan berhasil dijalankan.</string>
+    <string name="scheduler_notification_result_failure_message">Beberapa tugas terjadwal gagal atau mengalami kesalahan. Cobalah menjalankannya secara manual.</string>
+    <string name="scheduler_commands_after_schedule_label">Perintah pasca-penjadwalan</string>
+    <string name="scheduler_commands_after_schedule_desc">Perintah shell Android yang akan dieksekusi pada akhir jadwal.</string>
+    <string name="scheduler_battery_optimization_hint">Pertimbangkan untuk menonaktifkan optimisasi baterai untuk SD Maid jika Anda mengalami masalah dengan penjalanan latar belakang.</string>
+</resources>

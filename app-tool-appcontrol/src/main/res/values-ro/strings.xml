@@ -138,4 +138,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
+    <string name="shortcut_appcontrol_short">Controlul Aplicațiilor</string>
+    <string name="shortcut_appcontrol_long">Gestionați aplicațiile instalate</string>
 </resources>

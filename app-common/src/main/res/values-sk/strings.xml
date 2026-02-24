@@ -197,4 +197,11 @@
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavenie</string>
     <string name="exclusion_create_action">Vytvorte vylúčenie</string>
+    <string name="setup_feature_requires_additional_setup_x">Táto funkcia vyžaduje dokončenie ďalších položiek nastavenia: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Jedno vylúčenie vytvorené</item>
+        <item quantity="few">%d vylúčenia vytvorené</item>
+        <item quantity="many">%d vylúčení vytvorených</item>
+        <item quantity="other">%d vylúčení vytvorených</item>
+    </plurals>
 </resources>

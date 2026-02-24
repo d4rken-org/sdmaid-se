@@ -129,4 +129,5 @@
     <string name="appcontrol_item_screentime_x_since_y_label">திரை நேரம்: %2$s இலிருந்து %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">கடைசியாக புதுப்பிக்கப்பட்டது: %s</string>
     <string name="appcontrol_item_installedat_x_label">நிறுவிய தேதி: %s</string>
+    <string name="shortcut_appcontrol_long">நிறுவப்பட்ட செயலிகளை நிர்வகி</string>
 </resources>

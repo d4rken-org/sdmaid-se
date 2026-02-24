@@ -147,7 +147,6 @@
     <string name="setup_notification_title">Tilkynningar</string>
     <string name="setup_notification_body">Leyfðu SD Maid að senda tilkynningar til að upplýsa þig um yfirstandandi aðgerðir eða mikilvæga atburði.</string>
     <string name="setup_notification_hint">Tilkynningar eru notaðar sparlega 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
     <string name="setup_acs_card_title">Aðgengisþjónusta</string>
     <string name="setup_acs_card_body">Aðgengisþjónustan gerir SD Maid kleift að eiga samskipti við skjáinn þinn og sjálfvirka leiðinleg verkefni, t.d. smella á \"Hreinsa skyndiminni\" á mörgum skjáum.</string>
     <string name="setup_acs_card_body2">SD Maid mun ekki nota aðgengisþjónustuna án samþykkis þíns, mun alltaf sýna áberandi vísbendingu á meðan hún er virk og mun ekki nota hana til að safna upplýsingum.</string>

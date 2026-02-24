@@ -175,4 +175,9 @@
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Настройка</string>
     <string name="exclusion_create_action">Създаване на изключение</string>
+    <string name="setup_feature_requires_additional_setup_x">Тази функция изисква завършване на допълнителни елементи за настройка: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Създадено е едно изключение</item>
+        <item quantity="other">Създадени са %d изключения</item>
+    </plurals>
 </resources>

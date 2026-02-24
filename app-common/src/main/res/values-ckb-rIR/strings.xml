@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">خاوەن</string>
     <string name="general_user_label_system">سیستەم</string>
     <string name="setup_title">ڕێکخستن</string>
+    <string name="setup_feature_requires_additional_setup_x">ئەم تایبەتمەندیە پێویستی بە تەواوکردنی بابەتەکانی ڕێکخستنی زیادە هەیە: %s</string>
 </resources>

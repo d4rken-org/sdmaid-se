@@ -140,4 +140,6 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Vrijeme upotrebe: %1$s od %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Zadnje ažuriranje: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalirano: %s</string>
+    <string name="shortcut_appcontrol_short">Kontrola aplikacija</string>
+    <string name="shortcut_appcontrol_long">Upravljanje instaliranim aplikacijama</string>
 </resources>

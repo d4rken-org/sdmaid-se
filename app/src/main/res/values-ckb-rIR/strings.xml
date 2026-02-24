@@ -123,7 +123,6 @@
     <string name="setup_notification_title">ئاگاداریەکان</string>
     <string name="setup_notification_body">ڕێگا بە SD Maid بدە ئاگاداری بنێرێت بۆ ئاگادارکردنەوەت دەربارەی کردارەکانی بەردەوام یان ڕووداوە گرنگەکان.</string>
     <string name="setup_notification_hint">ئاگاداریەکان بە کەمی بەکاردێن 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">ئەم تایبەتمەندیە پێویستی بە تەواوکردنی بابەتەکانی ڕێکخستنی زیادە هەیە: %s</string>
     <string name="setup_acs_card_title">خزمەتگوزاری دەستڕاگەیشتن</string>
     <string name="setup_acs_card_body">خزمەتگوزاری دەستڕاگەیشتن ڕێگا بە SD Maid دەدات کارلێکی لەگەڵ شاشەکەت بکات و کردارە ماندووکەرەکان خۆکار بکات، بۆ نموونە کرتە لەسەر \"سڕینەوەی کاش\" لە چەندین شاشەدا.</string>
     <string name="setup_acs_card_body2">SD Maid خزمەتگوزاری دەستڕاگەیشتن بەبێ ڕەزامەندیت بەکارناهێنێت، هەمیشە نیشانەیەکی بەرچاو (هەڵوەشاندنەوە) نیشان دەدات کاتێک چالاکە و بۆ کۆکردنەوەی زانیاری بەکاری ناهێنێت.</string>

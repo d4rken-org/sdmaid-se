@@ -128,7 +128,6 @@
     <string name="setup_notification_title">Mga notification</string>
     <string name="setup_notification_body">Payagan ang SD Maid na mag-post ng mga notification para bigyang-alam kayo tungkol sa mga kasalukuyang operasyon o mahahalagang pangyayari.</string>
     <string name="setup_notification_hint">Ginagamit nang maingat ang mga notification 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Ang feature na ito ay nangangailangan ng pagkumpleto ng mga karagdagang setup item: %s</string>
     <string name="setup_acs_card_body">Ang accessibility service ay nagbibigay-daan sa SD Maid na makipag-interact sa inyong screen at mag-automate ng mga nakakaboring na aksyon, hal. pag-tap ng \"Clear cache\" sa maraming screen.</string>
     <string name="setup_acs_card_body2">Hindi gagamitin ng SD Maid ang accessibility service nang walang inyong pahintulot, palaging magpapakita ng kitang-kita (pwedeng ma-cancel) na indicator habang aktibo at hindi ito gagamitin para mangolekta ng impormasyon.</string>
     <string name="setup_acs_state_enabled">Naka-enable ang accessibility service</string>

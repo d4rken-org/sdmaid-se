@@ -180,4 +180,9 @@
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>
     <string name="exclusion_create_action">Kizárás létrehozása</string>
+    <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Egy kizárás létrehozva</item>
+        <item quantity="other">%d kizárás létrehozva</item>
+    </plurals>
 </resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Programator</string>
+    <string name="scheduler_execution_label">Următoarea execuție (aproximativ)</string>
+    <string name="scheduler_execution_last_label">Ultima execuție</string>
+    <string name="scheduler_settings_label">Programator</string>
+    <string name="scheduler_settings_summary">Ajustați setările legate de planificator.</string>
+    <string name="scheduler_new_schedule_action">Creați un program</string>
+    <string name="scheduler_schedule_name_label">Numele programului</string>
+    <string name="scheduler_schedule_toggle_enabled">Programul este activat</string>
+    <string name="scheduler_schedule_toggle_disabled">Programul este dezactivat</string>
+    <string name="scheduler_edit_schedule_action">Editați programul</string>
+    <string name="scheduler_schedule_time_label">Timp aproximativ</string>
+    <string name="scheduler_schedule_repeat_label">Repetă intervalul în zile</string>
+    <string name="scheduler_schedule_default_name">Program implicit</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s în jurul lui %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Planificat pentru %s</string>
+    <string name="scheduler_schedule_last_at_x">Ultimul executat la %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Zilnic</item>
+        <item quantity="few">La fiecare %d zile</item>
+        <item quantity="other">La fiecare %d zile</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Repetă intervalul</string>
+    <string name="scheduler_inaccurate_execution_hint">Timpurile de execuție așteptați sunt aproximații. Programele pot fi întârziate sau accelerate dacă economisește bateria.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Niciun program activ</string>
+    <string name="scheduler_setting_nopowersaving_title">Treci peste când este bateria scăzută</string>
+    <string name="scheduler_setting_nopowersaving_summary">În cazul în care dispozitivul este în modul de economisire a energiei, execuția programată va fi omisă.</string>
+    <string name="scheduler_setting_charging_title">Omite când nu se încarcă</string>
+    <string name="scheduler_setting_charging_summary">Dacă dispozitivul nu se încarcă, execuția programată va fi omisă.</string>
+    <string name="scheduler_setting_automation_title">Serviciul de accesibilitate</string>
+    <string name="scheduler_setting_automation_summary">Include acțiuni care utilizează un serviciu de accesibilitate. Acest lucru necesită ca ajutorul SD să poată interacționa cu ecranul (adică, este deblocat) atunci când sarcinile sunt executate.</string>
+    <string name="scheduler_notification_channel_label">Programator</string>
+    <string name="scheduler_notification_title">Sarcina programată</string>
+    <string name="scheduler_notification_message">Executare: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Programator terminat</string>
+    <string name="scheduler_notification_result_success_message">Toate sarcinile programate au fost rulate cu succes.</string>
+    <string name="scheduler_notification_result_failure_message">Unele sarcini programate au eșuat sau au întâmpinat erori. Încercați să le rulați manual.</string>
+    <string name="scheduler_commands_after_schedule_label">Comenzi post-program</string>
+    <string name="scheduler_commands_after_schedule_desc">Comenzi Android shell care vor fi executate la sfârșitul unui program.</string>
+    <string name="scheduler_battery_optimization_hint">Luați în considerare dezactivarea optimizărilor bateriei pentru SD Maid dacă întâmpinați probleme cu execuția în fundal.</string>
+</resources>

@@ -159,7 +159,6 @@
     <string name="setup_notification_title">Уведомления</string>
     <string name="setup_notification_body">Разрешите SD Maid присылать уведомления, чтобы информировать Вас о текущих операциях или важных событиях.</string>
     <string name="setup_notification_hint">Уведомления используются редко 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Эта функция требует завершения дополнительных настроек: %s</string>
     <string name="setup_acs_card_title">Служба специальных возможностей</string>
     <string name="setup_acs_card_body">Служба специальных возможностей позволяет SD Maid взаимодействовать с Вашим экраном и автоматизировать утомительные действия, например, нажатие кнопки \"Очистить кэш\" на нескольких экранах.</string>
     <string name="setup_acs_card_body2">SD Maid не будет использовать службу специальных возможностей без Вашего согласия, всегда будет отображать её работу с возможностью отмены и не будет использовать её для сбора информации.</string>
