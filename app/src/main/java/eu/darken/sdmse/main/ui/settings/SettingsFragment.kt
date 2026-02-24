@@ -77,8 +77,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
             screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
         }
 
-        @Suppress("DEPRECATION")
-        ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressed() }
+        ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressedDispatcher.onBackPressed() }
 
         super.onViewCreated(view, savedInstanceState)
     }

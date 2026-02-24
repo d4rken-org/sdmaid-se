@@ -38,10 +38,11 @@ fun hasApiLevel(level: Int): Boolean = when {
     BuildWrap.VERSION.SDK_INT >= level -> true
     level == 34 && BuildWrap.VERSION.CODENAME == "UpsideDownCake" -> true
     level == 35 && BuildWrap.VERSION.CODENAME == "VanillaIceCream" -> true
+    level == 36 && BuildWrap.VERSION.CODENAME == "Baklava" -> true
     else -> false
 }
 
-const val UNTESTED_API = 36
+const val UNTESTED_API = 37
 
 inline fun <reified R> ifApiLevel(level: Int, block: () -> R): R? = if (hasApiLevel(level)) block() else null
 
