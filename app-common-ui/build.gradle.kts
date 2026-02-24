@@ -8,7 +8,7 @@ plugins {
 apply(plugin = "dagger.hilt.android.plugin")
 
 android {
-    namespace = "${projectConfig.packageName}.systemcleaner"
+    namespace = "${projectConfig.packageName}.common.ui"
 
     setupLibraryDefaults(projectConfig)
 
@@ -36,27 +36,21 @@ setupKotlinOptions()
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
-    implementation(project(":app-common-ui"))
-    implementation(project(":app-common-io"))
-    implementation(project(":app-common-pkgs"))
-    implementation(project(":app-common-root"))
-    implementation(project(":app-common-shell"))
-    implementation(project(":app-common-data"))
-    implementation(project(":app-common-exclusion"))
-    implementation(project(":app-common-setup"))
 
     addAndroidCore()
     addAndroidUI()
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.preference:preference-ktx:1.2.1")
+    implementation("androidx.recyclerview:recyclerview:1.4.0")
+    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
+    implementation("me.zhanghai.android.fastscroll:library:1.3.0")
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
-
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     addCoil()
+    addLottie()
 
     addTesting()
     testImplementation(project(":app-common-test"))

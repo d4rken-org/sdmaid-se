@@ -11,7 +11,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.getQuantityString2
-import eu.darken.sdmse.common.databinding.ViewPreferenceInputAgeBinding
+import eu.darken.sdmse.common.ui.databinding.ViewPreferenceInputAgeBinding
 import java.time.Duration
 
 class AgeInputDialog(

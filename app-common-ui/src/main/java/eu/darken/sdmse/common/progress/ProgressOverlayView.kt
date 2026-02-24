@@ -10,7 +10,7 @@ import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import eu.darken.sdmse.common.progress.Progress.Count
 import eu.darken.sdmse.common.ui.layoutInflator
-import eu.darken.sdmse.common.databinding.ViewProgressOverlayBinding
+import eu.darken.sdmse.common.ui.databinding.ViewProgressOverlayBinding
 
 class ProgressOverlayView @JvmOverloads constructor(
     context: Context,

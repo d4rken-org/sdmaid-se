@@ -13,11 +13,10 @@ import androidx.core.view.children
 import androidx.core.view.isInvisible
 import androidx.preference.CheckBoxPreference
 import androidx.preference.PreferenceViewHolder
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.common.ui.setEnabledStateRecursive
-import eu.darken.sdmse.common.databinding.ViewPreferenceCheckboxBadgeOverlayBinding
+import eu.darken.sdmse.common.ui.databinding.ViewPreferenceCheckboxBadgeOverlayBinding
 
 
 class BadgedCheckboxPreference @JvmOverloads constructor(
@@ -41,7 +40,7 @@ class BadgedCheckboxPreference @JvmOverloads constructor(
 
         val ogParent = holder.itemView as LinearLayout
 
-        val overlay = if (ogParent.findViewById<View>(R.id.badge_overlay) == null) {
+        val overlay = if (ogParent.findViewById<View>(eu.darken.sdmse.common.ui.R.id.badge_overlay) == null) {
             val ogChildren = ogParent.children.toList()
             ogChildren.onEach { ogParent.removeView(it) }
 
@@ -78,7 +77,7 @@ class BadgedCheckboxPreference @JvmOverloads constructor(
 
             ViewPreferenceCheckboxBadgeOverlayBinding.inflate(LayoutInflater.from(context), container, true)
         } else {
-            ViewPreferenceCheckboxBadgeOverlayBinding.bind(ogParent.findViewById(R.id.badge_overlay))
+            ViewPreferenceCheckboxBadgeOverlayBinding.bind(ogParent.findViewById(eu.darken.sdmse.common.ui.R.id.badge_overlay))
         }
 
         val underlayView = (ogParent.children.single() as ViewGroup).children.filter { it != overlay.root }.single()

@@ -197,6 +197,7 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
 
     implementation(project(":app-common"))
+    implementation(project(":app-common-ui"))
     testImplementation(project(":app-common-test"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-adb"))

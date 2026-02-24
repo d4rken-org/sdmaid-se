@@ -8,9 +8,8 @@ import androidx.annotation.StyleRes
 import androidx.core.view.children
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceViewHolder
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.databinding.ViewCaveatPreferenceViewBinding
+import eu.darken.sdmse.common.ui.databinding.ViewCaveatPreferenceViewBinding
 
 
 class CaveatPreferenceView @JvmOverloads constructor(
@@ -21,7 +20,7 @@ class CaveatPreferenceView @JvmOverloads constructor(
 ) : PreferenceGroup(context, attrs, defStyleAttr, defStyleRes) {
 
     init {
-        layoutResource = R.layout.view_caveat_preference_view
+        layoutResource = eu.darken.sdmse.common.ui.R.layout.view_caveat_preference_view
         isVisible = false
         isPersistent = false
     }

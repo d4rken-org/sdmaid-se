@@ -40,6 +40,7 @@ ksp {
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
     implementation(project(":app-common"))
+    implementation(project(":app-common-ui"))
     implementation(project(":app-common-io"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-root"))

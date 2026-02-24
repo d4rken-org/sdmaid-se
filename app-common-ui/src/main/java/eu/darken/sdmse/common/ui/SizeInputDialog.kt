@@ -10,7 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.widget.addTextChangedListener
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.slider.Slider
-import eu.darken.sdmse.common.databinding.ViewPreferenceInputSizeBinding
+import eu.darken.sdmse.common.ui.databinding.ViewPreferenceInputSizeBinding
 
 class SizeInputDialog(
     private val activity: Activity,

@@ -6,7 +6,6 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.preference.PreferenceGroup
 import androidx.preference.children
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.debug.logging.logTag
 
 
@@ -18,7 +17,7 @@ class CaveatPreferenceGroup @JvmOverloads constructor(
 ) : PreferenceGroup(context, attrs, defStyleAttr, defStyleRes) {
 
     init {
-        layoutResource = R.layout.view_caveat_preference_group
+        layoutResource = eu.darken.sdmse.common.ui.R.layout.view_caveat_preference_group
         isPersistent = false
     }
 
