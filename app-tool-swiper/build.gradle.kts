@@ -46,13 +46,20 @@ dependencies {
     implementation(project(":app-common-shell"))
     implementation(project(":app-common-data"))
     implementation(project(":app-common-exclusion"))
+    implementation(project(":app-common-setup"))
 
     addAndroidCore()
+    addAndroidUI()
     addDI()
     addCoroutines()
     addSerialization()
     addIO()
     addRoomDb()
+    addCoil()
+
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     addTesting()
     testImplementation(project(":app-common-test"))

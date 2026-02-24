@@ -194,6 +194,8 @@
     <string name="setup_feature_requires_additional_setup_x">This feature requires completing additional setup items: %s</string>
     <string name="upgrade_feature_requires_pro">Requires Pro</string>
 
+    <string name="exclusion_create_action">Create exclusion</string>
+
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">One exclusion created</item>
         <item quantity="other">%d exclusions created</item>
