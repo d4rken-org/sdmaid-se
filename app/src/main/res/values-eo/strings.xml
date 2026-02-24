@@ -183,40 +183,6 @@
     <string name="exclusion_show_defaults_action">Montri defaŭltojn</string>
     <string name="history_label">Historio</string>
     <string name="history_description">Kronologia listo de lastatempaj agoj kaj tuŝitaj datumoj.</string>
-    <string name="scheduler_label">Planilo</string>
-    <string name="scheduler_execution_label">Venonta plenumo (proksimume)</string>
-    <string name="scheduler_execution_last_label">Lasta plenumo</string>
-    <string name="scheduler_settings_label">Planilo</string>
-    <string name="scheduler_settings_summary">Ĝustigi planil-rilatajn agordojn.</string>
-    <string name="scheduler_new_schedule_action">Krei planon</string>
-    <string name="scheduler_schedule_name_label">Plana nomo</string>
-    <string name="scheduler_schedule_toggle_enabled">Plano estas ebligita</string>
-    <string name="scheduler_schedule_toggle_disabled">Plano estas malebligita</string>
-    <string name="scheduler_edit_schedule_action">Redakti planon</string>
-    <string name="scheduler_schedule_time_label">Proksimuma tempo</string>
-    <string name="scheduler_schedule_repeat_label">Ripeta intervalo en tagoj</string>
-    <string name="scheduler_schedule_default_name">Defaŭlta plano</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s ĉirkaŭ %2$s</string>
-    <string name="scheduler_schedule_next_at_x">Planita por %s</string>
-    <string name="scheduler_schedule_last_at_x">Laste plenumita je %s</string>
-    <string name="scheduler_schedule_repeat_interval">Ripeta intervalo</string>
-    <string name="scheduler_inaccurate_execution_hint">Atenditaj plenumaj tempoj estas proksimumaj. Planoj povas esti prokrastitaj aŭ rapidigitaj se tio ŝparas baterion.</string>
-    <string name="scheduler_no_active_schedules_subtitle">Neniuj aktivaj planoj</string>
-    <string name="scheduler_setting_nopowersaving_title">Preterpasi ĉe malalta baterio</string>
-    <string name="scheduler_setting_nopowersaving_summary">Se la aparato estas en energi-ŝpara reĝimo, la planita plenumo estos preterpaŝita.</string>
-    <string name="scheduler_setting_charging_title">Preterpasi kiam ne ŝargante</string>
-    <string name="scheduler_setting_charging_summary">Se la aparato ne ŝargiĝas, la planita plenumo estos preterpaŝita.</string>
-    <string name="scheduler_setting_automation_title">Alirebleca servo</string>
-    <string name="scheduler_setting_automation_summary">Inkluzivi agojn kiuj uzas alireblecan servon. Ĉi tio postulas ke SD Maid povu interagi kun via ekrano (t.e. ĝi estas malŝlosita) kiam la taskoj estas plenumitaj.</string>
-    <string name="scheduler_notification_channel_label">Planilo</string>
-    <string name="scheduler_notification_title">Planita tasko</string>
-    <string name="scheduler_notification_message">Plenumante: \"%s\"</string>
-    <string name="scheduler_notification_result_title">Planilo finita</string>
-    <string name="scheduler_notification_result_success_message">Ĉiuj planitaj taskoj rulis sukcese.</string>
-    <string name="scheduler_notification_result_failure_message">Kelkaj planitaj taskoj malsukcesis aŭ renkontis erarojn. Provu ruli ilin permane.</string>
-    <string name="scheduler_commands_after_schedule_label">Post-planaj komandoj</string>
-    <string name="scheduler_commands_after_schedule_desc">Android-ŝelaj komandoj kiuj estos plenumitaj je la fino de plano.</string>
-    <string name="scheduler_battery_optimization_hint">Konsideru malŝalti baterion optimumigojn por SD Maid se vi spertas problemojn kun fona plenumo.</string>
     <string name="updates_dashcard_title">Ĝisdatigo disponebla</string>
     <string name="updates_dashcard_body">Ĝisdatigo estas disponebla. Vi havas %1$s kaj la lasta versio estas %2$s.</string>
     <string name="translation_encourage_title">Traduki SD Maid</string>
@@ -257,14 +223,6 @@
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d tasko en vico</item>
         <item quantity="other">%d taskoj en vico</item>
-    </plurals>
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">Unu ekskluzivo kreita</item>
-        <item quantity="other">%d ekskluzivoj kreitaj</item>
-    </plurals>
-    <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="one">Ĉiutage</item>
-        <item quantity="other">Ĉiujn %d tagojn</item>
     </plurals>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s estis liberigita.</item>
@@ -314,8 +272,6 @@
     <string name="debug_card_pkgs_reload_action">Reŝargi aplikaĵojn</string>
     <string name="debug_card_root_test_action">Testi root</string>
     <string name="debug_card_shizuku_test_action">Testi Shizuku</string>
-    <string name="shortcut_appcontrol_short">Aplikaĵa Kontrolo</string>
-    <string name="shortcut_appcontrol_long">Administri instalitajn aplikaĵojn</string>
     <string name="shortcut_onetap_short">Skani + Forigi</string>
     <string name="shortcut_onetap_long">Skani kaj forigi en unu ago</string>
     <string name="shortcuts_settings_category">Mallongigoj</string>

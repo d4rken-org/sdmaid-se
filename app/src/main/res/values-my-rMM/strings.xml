@@ -146,16 +146,8 @@
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>
     <string name="data_area_public_storage_label">အများပြည်သူ သိုလှောင်မှု</string>
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="other">ဖယ်ထုတ်မှု %d ခု ဖန်တီးပြီး</item>
-    </plurals>
     <string name="history_label">မှတ်တမ်း</string>
     <string name="history_description">မကြာသေးမီက လုပ်ဆောင်ချက်များနှင့် ထိခိုက်ခံရသော ဒေတာများ၏ အချိန်စဉ် စာရင်း။</string>
-    <string name="scheduler_label">အချိန်ဇယား ချိန်ညှိမှု</string>
-    <string name="scheduler_execution_label">နောက်ထပ် လုပ်ဆောင်မှု (ခန့်မှန်းချက်)</string>
-    <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="other">%d ရက်တိုင်း</item>
-    </plurals>
     <string name="device_settings_category">စက်ပစ္စည်း</string>
     <string name="beta_version_indicator_desc">ကြိုတင်ဖြန့်ချိမှု ဗားရှင်းများသည် ပြိုင်ပွဲ မျက်နှာပြင်တွင် ရှည်သော ဖဲကြိုးလေး ပြသသည်။ ၎င်းတို့သည် မကြာခဏ အပ်ဒိတ် ပြုလုပ်ပြီး၊ လုပ်ဆောင်ချက်များ ပိုများနိုင်သော်လည်း ချွတ်ယွင်းချက်များလည်း ပိုများနိုင်သည်။</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>

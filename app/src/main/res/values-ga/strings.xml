@@ -134,7 +134,6 @@
     <string name="settings_category_filter">Scagán</string>
     <string name="settings_category_risklevel">Leibhéal rioscai</string>
     <string name="exclusion_tags_alltools">Gach uirlis</string>
-    <string name="scheduler_schedule_last_at_x">Ritheadh deireanach ag %s</string>
     <string name="picker_unsaved_confirmation_message">Caith athruithe ar lár?</string>
     <string name="setup_label">Socrú</string>
     <string name="setup_acs_card_body2">Ní úsáidfidh SD Maid an tseirbhís inrochtaineachta gan do thoiliú, taispeánfaidh sé táscaire feiceálach (inchealaithte) i gcónaí fad atá sé gníomhach agus ní úsáidfidh sé é chun faisnéis a bhailiú.</string>
@@ -186,39 +185,6 @@
     <string name="exclusion_show_defaults_action">Taispeáin réamhshocruithe</string>
     <string name="history_label">Stair</string>
     <string name="history_description">Liosta in ord cróineolaíoch de ghníomhartha le déanaí agus sonraí difear orthu.</string>
-    <string name="scheduler_label">Sceidealóir</string>
-    <string name="scheduler_execution_label">An chéad fhorghníomhú eile (thart ar)</string>
-    <string name="scheduler_execution_last_label">Forghníomhú deireanach</string>
-    <string name="scheduler_settings_label">Sceidealóir</string>
-    <string name="scheduler_settings_summary">Coigeartaigh socruithe a bhaineann leis an sceidealóir.</string>
-    <string name="scheduler_new_schedule_action">Cruthaigh sceideal</string>
-    <string name="scheduler_schedule_name_label">Ainm sceidil</string>
-    <string name="scheduler_schedule_toggle_enabled">Tá an sceideal cumasaithe</string>
-    <string name="scheduler_schedule_toggle_disabled">Tá an sceideal díchumasaithe</string>
-    <string name="scheduler_edit_schedule_action">Cuir sceideal in eagar</string>
-    <string name="scheduler_schedule_time_label">Am neasach</string>
-    <string name="scheduler_schedule_repeat_label">Eatramh athdhéanta i laethanta</string>
-    <string name="scheduler_schedule_default_name">Sceideal réamhshocraithe</string>
-    <string name="scheduler_current_schedule_x_at_x">%1$s thart ar %2$s</string>
-    <string name="scheduler_schedule_next_at_x">Pleanáilte do %s</string>
-    <string name="scheduler_schedule_repeat_interval">Eatramh athdhéanta</string>
-    <string name="scheduler_inaccurate_execution_hint">Is neasachán iad na hamanna forghníomhaithe ionchais. D\'fhéadfaí moill a chur ar sceidil nó iad a luathú má chaomhnaíonn sé ceallraí.</string>
-    <string name="scheduler_no_active_schedules_subtitle">Gan sceidil ghníomhacha</string>
-    <string name="scheduler_setting_nopowersaving_title">Ná déan má tá ceallraí íseal</string>
-    <string name="scheduler_setting_nopowersaving_summary">Má tá an gléas i mód coigilt cumhachta, ní dhéanfar an forghníomhú sceidealaithe.</string>
-    <string name="scheduler_setting_charging_title">Ná déan mura bhfuil sé ag luchtú</string>
-    <string name="scheduler_setting_charging_summary">Mura bhfuil an gléas ag luchtú, ní dhéanfar an forghníomhú sceidealaithe.</string>
-    <string name="scheduler_setting_automation_title">Seirbhís inrochtaineachta</string>
-    <string name="scheduler_setting_automation_summary">Cuir gníomhartha san áireamh a úsáideann seirbhís inrochtaineachta. Éilíonn sé seo gur féidir le SD Maid idirghníomhú le do scáileán (is é sin le rá, tá sé díghlasáilte) nuair a dhéantar na tascanna.</string>
-    <string name="scheduler_notification_channel_label">Sceidealóir</string>
-    <string name="scheduler_notification_title">Tasc sceidealaithe</string>
-    <string name="scheduler_notification_message">Ag forghníomhú: \"%s\"</string>
-    <string name="scheduler_notification_result_title">Sceidealóir críochnaithe</string>
-    <string name="scheduler_notification_result_success_message">Rith gach tasc sceidealaithe go rathúil.</string>
-    <string name="scheduler_notification_result_failure_message">Theip ar roinnt tascanna sceidealaithe nó tháinig earráidí orthu. Bain triail as iad a rith de láimh.</string>
-    <string name="scheduler_commands_after_schedule_label">Orduithe iar-sceidil</string>
-    <string name="scheduler_commands_after_schedule_desc">Orduithe blaosc Android a chuirfear i bhfeidhm ag deireadh sceidil.</string>
-    <string name="scheduler_battery_optimization_hint">Smaoinigh ar optamaithe ceallraí a dhíchumasú le haghaidh SD Maid má bhíonn fadhbanna agat le forghníomhú cúlra.</string>
     <string name="updates_dashcard_title">Nuashonrú ar fáil</string>
     <string name="updates_dashcard_body">Tá nuashonrú ar fáil. Tá %1$s agat agus is é %2$s an leagan is déanaí.</string>
     <string name="translation_encourage_title">Aistrigh SD Maid</string>
@@ -281,20 +247,6 @@
         <item quantity="few">%d thasc sa scuaine</item>
         <item quantity="many">%d dtasc sa scuaine</item>
         <item quantity="other">%d tasc sa scuaine</item>
-    </plurals>
-    <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">Cruthaíodh eisiamh amháin</item>
-        <item quantity="two">Cruthaíodh %d eisiamh</item>
-        <item quantity="few">Cruthaíodh %d eisiamh</item>
-        <item quantity="many">Cruthaíodh %d n-eisiamh</item>
-        <item quantity="other">Cruthaíodh %d eisiamh</item>
-    </plurals>
-    <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="one">Laethúil</item>
-        <item quantity="two">Gach %d lá</item>
-        <item quantity="few">Gach %d lá</item>
-        <item quantity="many">Gach %d lá</item>
-        <item quantity="other">Gach %d lá</item>
     </plurals>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Saoradh %s.</item>
@@ -362,8 +314,6 @@
     <string name="debug_card_pkgs_reload_action">Athlódáil aipeanna</string>
     <string name="debug_card_root_test_action">Tástáil root</string>
     <string name="debug_card_shizuku_test_action">Tástáil Shizuku</string>
-    <string name="shortcut_appcontrol_short">Rialú Aipe</string>
-    <string name="shortcut_appcontrol_long">Bainistigh aipeanna suiteáilte</string>
     <string name="shortcut_onetap_short">Scan + Scrios</string>
     <string name="shortcut_onetap_long">Scan agus scrios in aon ghníomh amháin</string>
     <string name="shortcuts_settings_category">Aicearraí</string>
