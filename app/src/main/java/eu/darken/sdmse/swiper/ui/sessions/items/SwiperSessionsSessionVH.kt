@@ -105,10 +105,11 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         scanProgress.isVisible = item.isScanning || item.isRefreshing
         when {
             item.isScanning -> {
-                // Scanning in progress
-                actionButton.text = getString(R.string.swiper_scanning_title)
-                actionButton.icon = null
-                actionButton.isEnabled = false
+                // Scanning in progress - show cancel button (disabled if already cancelling)
+                actionButton.text = getString(eu.darken.sdmse.common.R.string.general_cancel_action)
+                actionButton.setIconResource(R.drawable.ic_cancel)
+                actionButton.isEnabled = !item.isCancelling
+                actionButton.setOnClickListener { item.onCancel() }
             }
             item.isRefreshing -> {
                 // Refreshing lookups in progress
@@ -146,11 +147,13 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         val sessionWithStats: Swiper.SessionWithStats,
         val position: Int,
         val isScanning: Boolean,
+        val isCancelling: Boolean,
         val isRefreshing: Boolean,
         val onScan: () -> Unit,
         val onContinue: () -> Unit,
         val onRemove: () -> Unit,
         val onRename: () -> Unit,
+        val onCancel: () -> Unit,
     ) : SwiperSessionsAdapter.Item {
         override val stableId: Long = sessionWithStats.session.sessionId.hashCode().toLong()
     }

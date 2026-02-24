@@ -108,10 +108,12 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                         sessionWithStats = sessionWithStats,
                         position = position,
                         isScanning = state.isSessionScanning(sessionId),
+                        isCancelling = state.isSessionCancelling(sessionId),
                         isRefreshing = state.isSessionRefreshing(sessionId),
                         onScan = { vm.scanSession(sessionId) },
                         onContinue = { vm.continueSession(sessionId) },
                         onRemove = { showDiscardConfirmation(sessionId) },
+                        onCancel = { vm.cancelScan() },
                         onRename = {
                             showRenameDialog(
                                 sessionId,

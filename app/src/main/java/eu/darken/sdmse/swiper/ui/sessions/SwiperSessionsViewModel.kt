@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
@@ -29,6 +30,7 @@ class SwiperSessionsViewModel @Inject constructor(
 
     private val selectedPaths = MutableStateFlow<Set<APath>>(emptySet())
     private val scanningSessionId = MutableStateFlow<String?>(null)
+    private val cancellingSessionId = MutableStateFlow<String?>(null)
     private val refreshingSessionId = MutableStateFlow<String?>(null)
 
     val state = eu.darken.sdmse.common.flow.combine(
@@ -37,8 +39,9 @@ class SwiperSessionsViewModel @Inject constructor(
         selectedPaths,
         upgradeRepo.upgradeInfo.map { it?.isPro ?: false },
         scanningSessionId,
+        cancellingSessionId,
         refreshingSessionId,
-    ) { sessionsWithStats, progress, paths, isPro, scanningId, refreshingId ->
+    ) { sessionsWithStats, progress, paths, isPro, scanningId, cancellingId, refreshingId ->
         State(
             sessionsWithStats = sessionsWithStats,
             selectedPaths = paths,
@@ -46,6 +49,7 @@ class SwiperSessionsViewModel @Inject constructor(
             progress = progress,
             isPro = isPro,
             scanningSessionId = scanningId,
+            cancellingSessionId = cancellingId,
             refreshingSessionId = refreshingId,
         )
     }.asLiveData2()
@@ -86,11 +90,22 @@ class SwiperSessionsViewModel @Inject constructor(
             log(TAG, INFO) { "Scan result: $result" }
         } finally {
             scanningSessionId.value = null
+            cancellingSessionId.value = null
         }
+    }
+
+    fun cancelScan() {
+        log(TAG, INFO) { "cancelScan()" }
+        cancellingSessionId.value = scanningSessionId.value
+        taskManager.cancel(SDMTool.Type.SWIPER)
     }
 
     fun discardSession(sessionId: String) = launch {
         log(TAG, INFO) { "discardSession(sessionId=$sessionId)" }
+        if (scanningSessionId.value == sessionId) {
+            taskManager.cancel(SDMTool.Type.SWIPER)
+        }
+        // Suspends on toolLock until cancelled scan releases it
         swiper.discardSession(sessionId)
     }
 
@@ -106,6 +121,7 @@ class SwiperSessionsViewModel @Inject constructor(
         val progress: Progress.Data?,
         val isPro: Boolean,
         val scanningSessionId: String?,
+        val cancellingSessionId: String?,
         val refreshingSessionId: String?,
     ) {
         val canCreateNewSession: Boolean = isPro || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
@@ -113,6 +129,7 @@ class SwiperSessionsViewModel @Inject constructor(
         val freeSessionLimit: Int = SwiperSettings.FREE_VERSION_SESSION_LIMIT
 
         fun isSessionScanning(sessionId: String): Boolean = scanningSessionId == sessionId
+        fun isSessionCancelling(sessionId: String): Boolean = cancellingSessionId == sessionId
         fun isSessionRefreshing(sessionId: String): Boolean = refreshingSessionId == sessionId
     }
 

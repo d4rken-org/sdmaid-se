@@ -23,6 +23,8 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.db.SwipeItemEntity
 import eu.darken.sdmse.swiper.core.db.SwipeSessionEntity
+import kotlinx.coroutines.currentCoroutineContext
+import kotlinx.coroutines.ensureActive
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asFlow
@@ -32,6 +34,8 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.take
+import kotlin.coroutines.coroutineContext
 import java.time.Instant
 import java.util.UUID
 import javax.inject.Inject
@@ -92,11 +96,10 @@ class SwiperScanner @Inject constructor(
 
         var count = 0
         val files = mutableListOf<APathLookup<*>>()
+        val limitedFlow = if (options.itemLimit != null) searchFlow.take(options.itemLimit) else searchFlow
 
-        searchFlow.collect { lookup ->
-            if (options.itemLimit != null && count >= options.itemLimit) {
-                return@collect
-            }
+        limitedFlow.collect { lookup ->
+            currentCoroutineContext().ensureActive()
             count++
             files.add(lookup)
             updateProgressSecondary(lookup.userReadablePath)
