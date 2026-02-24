@@ -40,6 +40,10 @@ import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
 import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
+import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions
+import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
+import androidx.core.os.bundleOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
@@ -109,9 +113,9 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPkgExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
+                            navDirections(
+                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_pkgExclusionFragment,
+                                bundleOf("exclusionId" to exclusion.id, "initial" to null as PkgExclusionEditorOptions?)
                             ).navigate()
                         }
                     }
@@ -125,9 +129,9 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToPathExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
+                            navDirections(
+                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_pathExclusionFragment,
+                                bundleOf("exclusionId" to exclusion.id, "initial" to null as PathExclusionEditorOptions?)
                             ).navigate()
                         }
                     }
@@ -140,9 +144,9 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
-                                exclusionId = exclusion.id,
-                                initial = null
+                            navDirections(
+                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_segmentExclusionFragment,
+                                bundleOf("exclusionId" to exclusion.id, "initial" to null as SegmentExclusionEditorOptions?)
                             ).navigate()
                         }
                     }

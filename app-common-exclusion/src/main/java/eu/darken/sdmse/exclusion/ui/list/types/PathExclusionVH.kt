@@ -2,18 +2,21 @@ package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.exclusion.R
+import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.ExclusionListItemSegmentBinding
-import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionListItemPathBinding
+import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
-class SegmentExclusionVH(parent: ViewGroup) :
-    ExclusionListAdapter.BaseVH<SegmentExclusionVH.Item, ExclusionListItemSegmentBinding>(
-        R.layout.exclusion_list_item_segment,
+class PathExclusionVH(parent: ViewGroup) :
+    ExclusionListAdapter.BaseVH<PathExclusionVH.Item, ExclusionListItemPathBinding>(
+        R.layout.exclusion_list_item_path,
         parent
     ) {
+
     private var lastItem: Item? = null
     override val itemSelectionKey: String?
         get() = lastItem?.itemSelectionKey
@@ -22,21 +25,22 @@ class SegmentExclusionVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { ExclusionListItemSegmentBinding.bind(itemView) }
+    override val viewBinding = lazy { ExclusionListItemPathBinding.bind(itemView) }
 
-    override val onBindData: ExclusionListItemSegmentBinding.(
+    override val onBindData: ExclusionListItemPathBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        val excl = item.exclusion
-        primary.text = excl.label.get(context)
+        item.lookup?.let { icon.loadFilePreview(it) }
+        primary.text = item.exclusion.label.get(context)
         tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
-        override val exclusion: SegmentExclusion,
+        val lookup: APathLookup<*>?,
+        override val exclusion: PathExclusion,
         val onItemClick: (Item) -> Unit,
         override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {

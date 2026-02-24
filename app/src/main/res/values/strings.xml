@@ -263,33 +263,6 @@
     <string name="data_areas_description">Data areas represent locations on your device that are accessible to SD Maid. Different data areas may be available depending on your Android version and the permissions that have been granted.</string>
     <string name="data_areas_short_summary">Areas that SD Maid can access based on the currently granted permissions.</string>
 
-    <string name="exclusion_manager_title">Exclusion manager</string>
-    <string name="exclusion_manager_desc">Manage file and app exclusions.</string>
-    <string name="exclusion_explanation_body1">Exclude files and apps from SD Maid\'s operations.</string>
-    <string name="exclusion_add_new_hint">Add new exclusions by first letting SD Maid search and then using the context menu on the result you want to exclude.</string>
-    <string name="exclusion_create_action">Create exclusion</string>
-    <string name="exclusion_edit_action">Edit exclusion</string>
-    <string name="exclusion_type_package">App exclusion</string>
-    <string name="exclusion_type_path">Path exclusion</string>
-    <string name="exclusion_type_segment">Segment exclusion</string>
-    <string name="exclusion_tags_alltools">All tools</string>
-    <string name="exclusion_target_label">Exclusion target</string>
-    <string name="exclusion_editor_path_change_action">Tap to change path</string>
-    <string name="exclusion_option_allow_partial">Allow partial matches</string>
-    <string name="exclusion_option_ignore_casing">Ignore casing</string>
-    <string name="exclusion_editor_affected_tools_label">Affected tools</string>
-    <string name="exclusion_editor_path_explanation">A path exclusion prevents SD Maid from further processing any matching paths. This applies to files, folder and sub-folders.</string>
-    <string name="exclusion_editor_pkg_explanation">An app exclusion prevents SD Maid from processing any matching packages.</string>
-    <string name="exclusion_editor_segment_explanation">A segment based exclusion is similar to a path exclusion but allows for partial matches. Example: \"DCIM/Camera\" excludes \"/sdcard/DCIM/Camera/photo.png\".</string>
-    <string name="exclusion_editor_remove_confirmation_message">Remove this exclusion?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">You have unsaved changes!</string>
-    <string name="exclusion_reset_default_exclusions">Restore default exclusions</string>
-    <string name="exclusion_import_action">Import exclusions</string>
-    <string name="exclusion_export_action">Export exclusions</string>
-    <string name="exclusion_create_pkg_hint">Use the AppControl tool to create app exclusions.</string>
-    <string name="exclusion_create_path_hint">Use the StorageAnalyzer tool to create path exclusions.</string>
-    <string name="exclusion_show_defaults_action">Show defaults</string>
-
     <string name="history_label">History</string>
     <string name="history_description">A chronological list of recent actions and affected data.</string>
 

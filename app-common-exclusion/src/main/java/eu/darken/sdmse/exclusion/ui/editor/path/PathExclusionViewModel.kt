@@ -11,7 +11,6 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.DynamicStateFlow
-import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -32,9 +31,8 @@ class PathExclusionViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<PathExclusionFragmentArgs>()
-    private val initialOptions: PathExclusionEditorOptions? = navArgs.initial
-    private val identifier: ExclusionId = navArgs.exclusionId ?: PathExclusion.createId(initialOptions!!.targetPath)
+    private val initialOptions: PathExclusionEditorOptions? = handle["initial"]
+    private val identifier: ExclusionId = handle["exclusionId"] ?: PathExclusion.createId(initialOptions!!.targetPath)
 
     val events = SingleLiveEvent<PathEditorEvents>()
 

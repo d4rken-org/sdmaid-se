@@ -1,27 +1,30 @@
-package eu.darken.sdmse.exclusion.ui.editor.pkg
+package eu.darken.sdmse.exclusion.ui.editor.segment
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.isVisible
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
-import eu.darken.sdmse.common.coil.loadAppIcon
+import eu.darken.sdmse.common.files.joinSegments
+import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.ExclusionEditorPkgFragmentBinding
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionEditorSegmentFragmentBinding
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 
 
 @AndroidEntryPoint
-class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
+class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fragment) {
 
-    override val vm: PkgExclusionViewModel by viewModels()
-    override val ui: ExclusionEditorPkgFragmentBinding by viewBinding()
+    override val vm: SegmentExclusionViewModel by viewModels()
+    override val ui: ExclusionEditorSegmentFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -61,6 +64,16 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
             }
         }
 
+        ui.apply {
+            segmentsInput.addTextChangedListener {
+                vm.updateSegments(it?.toString() ?: "")
+            }
+        }
+
+        ui.optionAllowPartial.setOnClickListener { vm.toggleAllowPartial() }
+        ui.optionIgnoreCasing.setOnClickListener { vm.toggleIgnoreCase() }
+
+        var isInitial = true
         vm.state.observe2(ui) { state ->
             val exclusion = state.current
             toolbar.menu?.apply {
@@ -68,10 +81,21 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
                 findItem(R.id.menu_action_remove_exclusion)?.isVisible = state.canRemove
             }
 
-            state.pkg?.let { icon.loadAppIcon(it) }
+            if (isInitial) {
+                segmentsInput.setText(exclusion.segments.joinSegments())
+                isInitial = false
+            }
 
-            primary.text = exclusion.label.get(requireContext())
-            secondary.text = exclusion.pkgId.name
+            segmentsDisplay.apply {
+                var demo = exclusion.segments.joinSegments()
+                if (exclusion.allowPartial) demo = "*$demo*"
+                if (exclusion.ignoreCase) demo = demo.lowercase()
+                text = demo
+                isVisible = exclusion.segments.any { it.isNotEmpty() }
+            }
+
+            ui.optionAllowPartial.setChecked2(exclusion.allowPartial)
+            ui.optionIgnoreCasing.setChecked2(exclusion.ignoreCase)
 
             ui.toolsAll.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.GENERAL)
@@ -81,15 +105,27 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.CORPSEFINDER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.CORPSEFINDER) }
             }
+            ui.toolsSystemcleaner.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.SYSTEMCLEANER) }
+            }
             ui.toolsAppcleaner.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.APPCLEANER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.APPCLEANER) }
+            }
+            ui.toolsDeduplicator.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.DEDUPLICATOR)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.DEDUPLICATOR) }
+            }
+            ui.toolsSwiper.apply {
+                isChecked = exclusion.tags.contains(Exclusion.Tag.SWIPER)
+                setOnClickListener { vm.toggleTag(Exclusion.Tag.SWIPER) }
             }
         }
 
         vm.events.observe2 {
             when (it) {
-                is PkgExclusionEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is SegmentExclusionEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_remove_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_remove_action) { _, _ ->
                         vm.remove(confirmed = true)
@@ -98,7 +134,7 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
                     }
                 }.show()
 
-                is PkgExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is SegmentExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)

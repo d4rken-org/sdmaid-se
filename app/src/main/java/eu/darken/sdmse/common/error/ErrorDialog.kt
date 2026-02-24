@@ -5,8 +5,8 @@ import androidx.navigation.findNavController
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.WriteException
+import androidx.core.os.bundleOf
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
-import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionFragmentArgs
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupScreenOptions
 import eu.darken.sdmse.setup.labelRes
@@ -35,13 +35,14 @@ fun installErrorDialogCustomizer() {
             error is IncompleteSetupException -> error.toLocalizedError()
             error is WriteException && error.path != null -> {
                 error.localized(activity).copy(
-                    infoActionLabel = eu.darken.sdmse.R.string.exclusion_create_action.toCaString(),
+                    infoActionLabel = eu.darken.sdmse.common.exclusion.R.string.exclusion_create_action.toCaString(),
                     infoAction = { ctx ->
                         ctx.findNavController(eu.darken.sdmse.R.id.nav_host).navigate(
                             resId = eu.darken.sdmse.R.id.goToPathExclusionEditor,
-                            args = PathExclusionFragmentArgs(
-                                initial = PathExclusionEditorOptions(targetPath = error.path!!)
-                            ).toBundle()
+                            args = bundleOf(
+                                "initial" to PathExclusionEditorOptions(targetPath = error.path!!),
+                                "exclusionId" to null as String?,
+                            )
                         )
                     }
                 )

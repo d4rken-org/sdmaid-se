@@ -1,30 +1,29 @@
-package eu.darken.sdmse.exclusion.ui.editor.segment
+package eu.darken.sdmse.exclusion.ui.editor.path
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.OnBackPressedCallback
-import androidx.core.view.isVisible
-import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
-import eu.darken.sdmse.common.files.joinSegments
-import eu.darken.sdmse.common.setChecked2
+import eu.darken.sdmse.common.coil.loadFilePreview
+import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.ExclusionEditorSegmentFragmentBinding
+import androidx.core.os.bundleOf
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionEditorPathFragmentBinding
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 
 
 @AndroidEntryPoint
-class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fragment) {
+class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment) {
 
-    override val vm: SegmentExclusionViewModel by viewModels()
-    override val ui: ExclusionEditorSegmentFragmentBinding by viewBinding()
+    override val vm: PathExclusionViewModel by viewModels()
+    override val ui: ExclusionEditorPathFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -64,16 +63,8 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
             }
         }
 
-        ui.apply {
-            segmentsInput.addTextChangedListener {
-                vm.updateSegments(it?.toString() ?: "")
-            }
-        }
+        ui.targetCard.setOnClickListener { vm.editPath() }
 
-        ui.optionAllowPartial.setOnClickListener { vm.toggleAllowPartial() }
-        ui.optionIgnoreCasing.setOnClickListener { vm.toggleIgnoreCase() }
-
-        var isInitial = true
         vm.state.observe2(ui) { state ->
             val exclusion = state.current
             toolbar.menu?.apply {
@@ -81,21 +72,9 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                 findItem(R.id.menu_action_remove_exclusion)?.isVisible = state.canRemove
             }
 
-            if (isInitial) {
-                segmentsInput.setText(exclusion.segments.joinSegments())
-                isInitial = false
-            }
-
-            segmentsDisplay.apply {
-                var demo = exclusion.segments.joinSegments()
-                if (exclusion.allowPartial) demo = "*$demo*"
-                if (exclusion.ignoreCase) demo = demo.lowercase()
-                text = demo
-                isVisible = exclusion.segments.any { it.isNotEmpty() }
-            }
-
-            ui.optionAllowPartial.setChecked2(exclusion.allowPartial)
-            ui.optionIgnoreCasing.setChecked2(exclusion.ignoreCase)
+            state.lookup?.let { icon.loadFilePreview(it) }
+            primary.text = exclusion.label.get(requireContext())
+            secondary.text = exclusion.path.pathType.name
 
             ui.toolsAll.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.GENERAL)
@@ -125,7 +104,7 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
 
         vm.events.observe2 {
             when (it) {
-                is SegmentExclusionEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is PathEditorEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_remove_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_remove_action) { _, _ ->
                         vm.remove(confirmed = true)
@@ -134,7 +113,7 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                     }
                 }.show()
 
-                is SegmentExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is PathEditorEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
@@ -142,6 +121,23 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                     }
                 }.show()
+
+                is PathEditorEvents.LaunchPicker -> {
+                    findNavController().navigate(
+                        eu.darken.sdmse.common.R.id.goToPicker,
+                        bundleOf("request" to it.request)
+                    )
+                }
+            }
+        }
+
+        parentFragmentManager.setFragmentResultListener(
+            PathExclusionViewModel.PICKER_REQUEST_KEY,
+            viewLifecycleOwner
+        ) { _, result ->
+            val pickerResult = PickerResult.fromBundle(result)
+            pickerResult.selectedPaths.firstOrNull()?.let { newPath ->
+                vm.updatePath(newPath)
             }
         }
 

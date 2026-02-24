@@ -2,18 +2,18 @@ package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import eu.darken.sdmse.R
-import eu.darken.sdmse.common.coil.loadFilePreview
-import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.exclusion.R
+import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.ExclusionListItemPathBinding
-import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionListItemPackageBinding
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
-class PathExclusionVH(parent: ViewGroup) :
-    ExclusionListAdapter.BaseVH<PathExclusionVH.Item, ExclusionListItemPathBinding>(
-        R.layout.exclusion_list_item_path,
+class PackageExclusionVH(parent: ViewGroup) :
+    ExclusionListAdapter.BaseVH<PackageExclusionVH.Item, ExclusionListItemPackageBinding>(
+        R.layout.exclusion_list_item_package,
         parent
     ) {
 
@@ -25,26 +25,26 @@ class PathExclusionVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { ExclusionListItemPathBinding.bind(itemView) }
+    override val viewBinding = lazy { ExclusionListItemPackageBinding.bind(itemView) }
 
-    override val onBindData: ExclusionListItemPathBinding.(
+    override val onBindData: ExclusionListItemPackageBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        item.lookup?.let { icon.loadFilePreview(it) }
+        item.pkg?.let { icon.loadAppIcon(it) }
         primary.text = item.exclusion.label.get(context)
         tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
-        val lookup: APathLookup<*>?,
-        override val exclusion: PathExclusion,
+        val pkg: Pkg?,
+        override val exclusion: PkgExclusion,
         val onItemClick: (Item) -> Unit,
         override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {
-        override val stableId: Long = exclusion.hashCode().toLong()
+        override val stableId: Long = exclusion.id.hashCode().toLong()
         override val itemSelectionKey: String = exclusion.id
     }
 

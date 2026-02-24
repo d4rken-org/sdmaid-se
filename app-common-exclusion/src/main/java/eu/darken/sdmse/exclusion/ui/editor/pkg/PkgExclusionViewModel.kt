@@ -1,17 +1,15 @@
-package eu.darken.sdmse.exclusion.ui.editor.segment
+package eu.darken.sdmse.exclusion.ui.editor.pkg
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.flow.DynamicStateFlow
-import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.PkgRepo
+import eu.darken.sdmse.common.pkgs.get
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.current
@@ -19,36 +17,39 @@ import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
-import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import javax.inject.Inject
 
 
 @HiltViewModel
-class SegmentExclusionViewModel @Inject constructor(
+class PkgExclusionViewModel @Inject constructor(
     handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val exclusionManager: ExclusionManager,
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<SegmentExclusionFragmentArgs>()
-    private val initialOptions: SegmentExclusionEditorOptions? = navArgs.initial
-    private val identifier: ExclusionId? = navArgs.exclusionId
+    private val initialOptions: PkgExclusionEditorOptions? = handle["initial"]
+    private val identifier: ExclusionId = handle["exclusionId"] ?: PkgExclusion.createId(initialOptions!!.targetPkgId)
 
-    val events = SingleLiveEvent<SegmentExclusionEvents>()
+    val events = SingleLiveEvent<PkgExclusionEvents>()
 
     private val currentState = DynamicStateFlow(TAG, vmScope) {
-        val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as SegmentExclusion?
+        val origExclusion = exclusionManager.current().singleOrNull { it.id == identifier } as PkgExclusion?
 
         if (origExclusion == null && initialOptions == null) {
             throw IllegalArgumentException("Neither existing exclusion nor init options were available")
         }
 
-        val newExcl = origExclusion ?: INITIAL
+        val newExcl = origExclusion ?: PkgExclusion(
+            pkgId = initialOptions!!.targetPkgId,
+            tags = setOf(Exclusion.Tag.GENERAL),
+        )
 
         State(
             original = origExclusion,
             current = newExcl,
+            pkg = pkgRepo.get(newExcl.pkgId).firstOrNull(),
         )
     }
 
@@ -77,12 +78,7 @@ class SegmentExclusionViewModel @Inject constructor(
 
     fun save() = launch {
         log(TAG) { "save()" }
-        val snap = currentState.value()
-        snap.original?.id?.let {
-            log(TAG) { "save(): Segments (ID) changed, removing previous: $it" }
-            exclusionManager.remove(it)
-        }
-        exclusionManager.save(snap.current)
+        exclusionManager.save(currentState.value().current)
         popNavStack()
     }
 
@@ -92,7 +88,7 @@ class SegmentExclusionViewModel @Inject constructor(
         if (!snap.canRemove) return@launch
 
         if (!confirmed) {
-            events.postValue(SegmentExclusionEvents.RemoveConfirmation(snap.current))
+            events.postValue(PkgExclusionEvents.RemoveConfirmation(snap.current))
         } else {
             exclusionManager.remove(snap.current.id)
             popNavStack()
@@ -103,52 +99,23 @@ class SegmentExclusionViewModel @Inject constructor(
         log(TAG) { "cancel()" }
         val snap = currentState.value()
         if (snap.canSave && !confirmed) {
-            events.postValue(SegmentExclusionEvents.UnsavedChangesConfirmation(snap.current))
+            events.postValue(PkgExclusionEvents.UnsavedChangesConfirmation(snap.current))
         } else {
             popNavStack()
         }
     }
 
-    fun updateSegments(raw: String) = launch {
-        log(TAG, VERBOSE) { "updateSegments($raw)" }
-        currentState.updateBlocking {
-            val newCurrent = current.copy(segments = raw.toSegs())
-            copy(current = newCurrent)
-        }
-    }
-
-    fun toggleAllowPartial() = launch {
-        log(TAG, VERBOSE) { "toggleAllowPartial()" }
-        currentState.updateBlocking {
-            val newCurrent = current.copy(allowPartial = !current.allowPartial)
-            copy(current = newCurrent)
-        }
-    }
-
-    fun toggleIgnoreCase() = launch {
-        log(TAG, VERBOSE) { "toggleIgnoreCase()" }
-        currentState.updateBlocking {
-            val newCurrent = current.copy(ignoreCase = !current.ignoreCase)
-            copy(current = newCurrent)
-        }
-    }
-
     data class State(
-        val original: SegmentExclusion?,
-        val current: SegmentExclusion,
+        val original: PkgExclusion?,
+        val current: PkgExclusion,
+        val pkg: Pkg?,
     ) {
         val canRemove: Boolean = original != null
-        val canSave: Boolean = original != current && current != INITIAL
+        val canSave: Boolean = original != current
     }
 
     companion object {
-        private val TAG = logTag("Exclusion", "Editor", "Segment", "ViewModel")
-        private val INITIAL = SegmentExclusion(
-            segments = segs(""),
-            allowPartial = true,
-            ignoreCase = true,
-            tags = setOf(Exclusion.Tag.GENERAL),
-        )
+        private val TAG = logTag("Exclusion", "Editor", "Pkg", "ViewModel")
     }
 
 }

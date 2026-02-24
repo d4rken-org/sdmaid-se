@@ -17,8 +17,10 @@ import androidx.recyclerview.selection.SelectionTracker
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.exclusion.R
+import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.EdgeToEdgeHelper
+import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -29,7 +31,7 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.ExclusionListFragmentBinding
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionListFragmentBinding
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
 import javax.inject.Inject
 
@@ -134,7 +136,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                                 R.string.exclusion_create_pkg_hint,
                                 Toast.LENGTH_LONG
                             ).show()
-                            ExclusionListFragmentDirections.goToAppControlListFragment().navigate()
+                            findNavController().navigate(eu.darken.sdmse.common.R.id.goToAppControlListFragment)
                         }
 
                         1 -> {
@@ -143,12 +145,15 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                                 R.string.exclusion_create_path_hint,
                                 Toast.LENGTH_LONG
                             ).show()
-                            ExclusionListFragmentDirections.goToDeviceStorageFragment().navigate()
+                            findNavController().navigate(eu.darken.sdmse.common.R.id.goToDeviceStorageFragment)
                         }
 
-                        2 -> ExclusionListFragmentDirections.actionExclusionsListFragmentToSegmentExclusionFragment(
-                            exclusionId = null,
-                            initial = SegmentExclusionEditorOptions()
+                        2 -> navDirections(
+                            R.id.action_exclusionsListFragment_to_segmentExclusionFragment,
+                            bundleOf(
+                                "exclusionId" to null as String?,
+                                "initial" to SegmentExclusionEditorOptions()
+                            )
                         ).navigate()
                     }
                 }

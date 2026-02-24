@@ -1,4 +1,4 @@
-package eu.darken.sdmse.exclusion.ui.editor.path
+package eu.darken.sdmse.exclusion.ui.editor.pkg
 
 import android.os.Bundle
 import android.view.View
@@ -8,22 +8,20 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.MainDirections
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
-import eu.darken.sdmse.common.coil.loadFilePreview
-import eu.darken.sdmse.common.picker.PickerResult
+import eu.darken.sdmse.common.coil.loadAppIcon
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.ExclusionEditorPathFragmentBinding
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionEditorPkgFragmentBinding
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 
 
 @AndroidEntryPoint
-class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment) {
+class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
 
-    override val vm: PathExclusionViewModel by viewModels()
-    override val ui: ExclusionEditorPathFragmentBinding by viewBinding()
+    override val vm: PkgExclusionViewModel by viewModels()
+    override val ui: ExclusionEditorPkgFragmentBinding by viewBinding()
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -63,8 +61,6 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
             }
         }
 
-        ui.targetCard.setOnClickListener { vm.editPath() }
-
         vm.state.observe2(ui) { state ->
             val exclusion = state.current
             toolbar.menu?.apply {
@@ -72,9 +68,10 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                 findItem(R.id.menu_action_remove_exclusion)?.isVisible = state.canRemove
             }
 
-            state.lookup?.let { icon.loadFilePreview(it) }
+            state.pkg?.let { icon.loadAppIcon(it) }
+
             primary.text = exclusion.label.get(requireContext())
-            secondary.text = exclusion.path.pathType.name
+            secondary.text = exclusion.pkgId.name
 
             ui.toolsAll.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.GENERAL)
@@ -84,27 +81,15 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                 isChecked = exclusion.tags.contains(Exclusion.Tag.CORPSEFINDER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.CORPSEFINDER) }
             }
-            ui.toolsSystemcleaner.apply {
-                isChecked = exclusion.tags.contains(Exclusion.Tag.SYSTEMCLEANER)
-                setOnClickListener { vm.toggleTag(Exclusion.Tag.SYSTEMCLEANER) }
-            }
             ui.toolsAppcleaner.apply {
                 isChecked = exclusion.tags.contains(Exclusion.Tag.APPCLEANER)
                 setOnClickListener { vm.toggleTag(Exclusion.Tag.APPCLEANER) }
-            }
-            ui.toolsDeduplicator.apply {
-                isChecked = exclusion.tags.contains(Exclusion.Tag.DEDUPLICATOR)
-                setOnClickListener { vm.toggleTag(Exclusion.Tag.DEDUPLICATOR) }
-            }
-            ui.toolsSwiper.apply {
-                isChecked = exclusion.tags.contains(Exclusion.Tag.SWIPER)
-                setOnClickListener { vm.toggleTag(Exclusion.Tag.SWIPER) }
             }
         }
 
         vm.events.observe2 {
             when (it) {
-                is PathEditorEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is PkgExclusionEvents.RemoveConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_remove_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_remove_action) { _, _ ->
                         vm.remove(confirmed = true)
@@ -113,7 +98,7 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                     }
                 }.show()
 
-                is PathEditorEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
+                is PkgExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(R.string.exclusion_editor_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
@@ -121,20 +106,6 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
                     setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                     }
                 }.show()
-
-                is PathEditorEvents.LaunchPicker -> {
-                    MainDirections.goToPicker(it.request).navigate()
-                }
-            }
-        }
-
-        parentFragmentManager.setFragmentResultListener(
-            PathExclusionViewModel.PICKER_REQUEST_KEY,
-            viewLifecycleOwner
-        ) { _, result ->
-            val pickerResult = PickerResult.fromBundle(result)
-            pickerResult.selectedPaths.firstOrNull()?.let { newPath ->
-                vm.updatePath(newPath)
             }
         }
 

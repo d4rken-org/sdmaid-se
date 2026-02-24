@@ -2,21 +2,18 @@ package eu.darken.sdmse.exclusion.ui.list.types
 
 import android.view.ViewGroup
 import androidx.core.view.isVisible
-import eu.darken.sdmse.R
-import eu.darken.sdmse.common.coil.loadAppIcon
+import eu.darken.sdmse.common.exclusion.R
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.common.pkgs.Pkg
-import eu.darken.sdmse.databinding.ExclusionListItemPackageBinding
-import eu.darken.sdmse.exclusion.core.types.PkgExclusion
+import eu.darken.sdmse.common.exclusion.databinding.ExclusionListItemSegmentBinding
+import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListAdapter
 
 
-class PackageExclusionVH(parent: ViewGroup) :
-    ExclusionListAdapter.BaseVH<PackageExclusionVH.Item, ExclusionListItemPackageBinding>(
-        R.layout.exclusion_list_item_package,
+class SegmentExclusionVH(parent: ViewGroup) :
+    ExclusionListAdapter.BaseVH<SegmentExclusionVH.Item, ExclusionListItemSegmentBinding>(
+        R.layout.exclusion_list_item_segment,
         parent
     ) {
-
     private var lastItem: Item? = null
     override val itemSelectionKey: String?
         get() = lastItem?.itemSelectionKey
@@ -25,26 +22,25 @@ class PackageExclusionVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { ExclusionListItemPackageBinding.bind(itemView) }
+    override val viewBinding = lazy { ExclusionListItemSegmentBinding.bind(itemView) }
 
-    override val onBindData: ExclusionListItemPackageBinding.(
+    override val onBindData: ExclusionListItemSegmentBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
         lastItem = item
-        item.pkg?.let { icon.loadAppIcon(it) }
-        primary.text = item.exclusion.label.get(context)
+        val excl = item.exclusion
+        primary.text = excl.label.get(context)
         tagDefault.isVisible = item.isDefault
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
-        val pkg: Pkg?,
-        override val exclusion: PkgExclusion,
+        override val exclusion: SegmentExclusion,
         val onItemClick: (Item) -> Unit,
         override val isDefault: Boolean,
     ) : ExclusionListAdapter.Item {
-        override val stableId: Long = exclusion.id.hashCode().toLong()
+        override val stableId: Long = exclusion.hashCode().toLong()
         override val itemSelectionKey: String = exclusion.id
     }
 
