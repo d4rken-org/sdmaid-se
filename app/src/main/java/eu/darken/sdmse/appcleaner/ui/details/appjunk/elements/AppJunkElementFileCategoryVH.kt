@@ -44,7 +44,7 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
 
         collapseAction.apply {
             setIconResource(
-                if (item.isCollapsed) R.drawable.ic_expand_more else R.drawable.ic_expand_less
+                if (item.isCollapsed) eu.darken.sdmse.common.R.drawable.ic_expand_more else eu.darken.sdmse.common.R.drawable.ic_expand_less
             )
             setOnClickListener { item.onCollapseToggle() }
         }

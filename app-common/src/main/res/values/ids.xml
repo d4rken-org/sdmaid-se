@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common view IDs used by shared list/toolbar utilities -->
+    <item name="list" type="id" />
+    <item name="toolbar" type="id" />
+    <item name="action_select_all" type="id" />
+
+    <!-- Global navigation action IDs -->
+    <item name="goToExclusions" type="id" />
+    <item name="goToUpgradeFragment" type="id" />
+    <item name="goToReportsFragment" type="id" />
+    <item name="goToSwiperSessions" type="id" />
+</resources>

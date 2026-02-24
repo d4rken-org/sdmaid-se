@@ -8,7 +8,7 @@ import android.widget.ImageView
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.annotation.StyleableRes
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R
 
 fun ImageView.updateExpander(dependency: View) {
     val toggleRes = if (dependency.visibility == View.VISIBLE) {

@@ -13,11 +13,11 @@ import androidx.core.view.children
 import androidx.core.view.isInvisible
 import androidx.preference.CheckBoxPreference
 import androidx.preference.PreferenceViewHolder
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.common.ui.setEnabledStateRecursive
-import eu.darken.sdmse.databinding.ViewPreferenceCheckboxBadgeOverlayBinding
+import eu.darken.sdmse.common.databinding.ViewPreferenceCheckboxBadgeOverlayBinding
 
 
 class BadgedCheckboxPreference @JvmOverloads constructor(

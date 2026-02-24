@@ -8,10 +8,9 @@ import androidx.annotation.StyleRes
 import androidx.core.view.children
 import androidx.preference.PreferenceGroup
 import androidx.preference.PreferenceViewHolder
-import eu.darken.sdmse.R
-import eu.darken.sdmse.common.MimeTypes.Json.value
+import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.databinding.ViewCaveatPreferenceViewBinding
+import eu.darken.sdmse.common.databinding.ViewCaveatPreferenceViewBinding
 
 
 class CaveatPreferenceView @JvmOverloads constructor(

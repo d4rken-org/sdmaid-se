@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.google.android.material.appbar.MaterialToolbar
-import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.DividerItemDecoration2
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -166,7 +166,7 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
 
 private val TAG = logTag("ListSelection")
 
-internal fun <ItemT : SelectableItem> resolveSelection(
+fun <ItemT : SelectableItem> resolveSelection(
     tracker: SelectionTracker<String>,
     data: List<ItemT>,
     caller: String,
