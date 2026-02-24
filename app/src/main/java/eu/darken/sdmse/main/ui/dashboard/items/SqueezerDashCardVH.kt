@@ -1,4 +1,4 @@
-package eu.darken.sdmse.squeezer.ui
+package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.view.ViewGroup
 import androidx.core.view.isGone

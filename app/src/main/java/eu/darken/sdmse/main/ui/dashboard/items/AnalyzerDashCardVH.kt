@@ -1,4 +1,4 @@
-package eu.darken.sdmse.analyzer.ui
+package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R

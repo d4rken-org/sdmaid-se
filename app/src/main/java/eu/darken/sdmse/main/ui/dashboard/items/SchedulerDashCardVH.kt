@@ -1,4 +1,4 @@
-package eu.darken.sdmse.scheduler.ui
+package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.view.ViewGroup
 import androidx.core.view.isVisible

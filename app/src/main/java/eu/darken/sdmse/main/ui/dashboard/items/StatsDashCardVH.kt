@@ -1,4 +1,4 @@
-package eu.darken.sdmse.stats.ui
+package eu.darken.sdmse.main.ui.dashboard.items
 
 import android.text.Spannable
 import android.text.SpannableString
