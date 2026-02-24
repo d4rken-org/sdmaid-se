@@ -23,7 +23,12 @@ fun NavController.doNavigate(direction: NavDirections) {
         return
     }
     log(TAG, WARN) {
-        "Navigation dropped: ${direction.javaClass.simpleName} not found on ${curDest?.label ?: "null"}"
+        "Navigation dropped:" +
+            " action=${direction.javaClass.simpleName}" +
+            " (0x${Integer.toHexString(direction.actionId)})" +
+            " curDest=${curDest?.label ?: "null"}" +
+            " (${curDest?.id?.let { "0x${Integer.toHexString(it)}" } ?: "null"})" +
+            " graphSet=${isGraphSet()}"
     }
 }
 

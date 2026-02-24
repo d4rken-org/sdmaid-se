@@ -267,6 +267,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         super.onResume()
         val navController = findNavController()
         val curDest = navController.currentDestination
+        log(tag) { "onResume(): currentDestination=${curDest?.label} (${curDest?.id?.let { "0x${Integer.toHexString(it)}" } ?: "null"})" }
         if (curDest != null && curDest.id != R.id.dashboardFragment) {
             log(tag, WARN) { "Dashboard resumed but currentDestination is ${curDest.label}, recovering" }
             navController.popBackStack(R.id.dashboardFragment, false)
