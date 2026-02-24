@@ -4,7 +4,9 @@ import android.content.Context
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageManager
 import android.graphics.drawable.BitmapDrawable
+import android.os.storage.StorageManager
 import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.toDrawable
 import coil.ImageLoader
 import coil.decode.DataSource
 import coil.fetch.DrawableResult
@@ -29,6 +31,7 @@ import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.main.core.GeneralSettings
 import okio.buffer
+import kotlinx.coroutines.CancellationException
 import java.io.IOException
 import javax.inject.Inject
 
@@ -39,6 +42,7 @@ class PathPreviewFetcher @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val mimeTypeTool: MimeTypeTool,
     private val textPreviewRenderer: TextPreviewRenderer,
+    private val storageManager: StorageManager,
     private val data: APathLookup<*>,
     private val options: Options,
 ) : Fetcher {
@@ -95,12 +99,35 @@ class PathPreviewFetcher @Inject constructor(
                 } ?: fallbackIcon
             }
 
+            mimeType == "application/pdf" -> {
+                if (data.size > PDF_MAX_PREVIEW_SIZE) fallbackIcon
+                else renderPdfPreview() ?: fallbackIcon
+            }
+
             isTextFile(data) -> {
                 renderTextPreview() ?: fallbackIcon
             }
 
             else -> fallbackIcon
         }
+    }
+
+    private suspend fun renderPdfPreview(): DrawableResult? = try {
+        val handle = gatewaySwitch.file(data.lookedUp, readWrite = false)
+        val pfd = handle.toProxyPfd(storageManager)
+        // PdfRenderer takes ownership of the PFD and closes it
+        val bitmap = renderPdfFirstPage(pfd) ?: return null
+
+        DrawableResult(
+            drawable = bitmap.toDrawable(context.resources),
+            isSampled = true,
+            dataSource = DataSource.DISK,
+        )
+    } catch (e: CancellationException) {
+        throw e
+    } catch (e: Exception) {
+        log(TAG, WARN) { "PDF preview failed for ${data.lookedUp}: ${e.asLog()}" }
+        null
     }
 
     private suspend fun renderTextPreview(): DrawableResult? {
@@ -155,6 +182,7 @@ class PathPreviewFetcher @Inject constructor(
         private val gatewaySwitch: GatewaySwitch,
         private val mimeTypeTool: MimeTypeTool,
         private val textPreviewRenderer: TextPreviewRenderer,
+        private val storageManager: StorageManager,
     ) : Fetcher.Factory<APathLookup<*>> {
 
         override fun create(
@@ -168,6 +196,7 @@ class PathPreviewFetcher @Inject constructor(
             gatewaySwitch,
             mimeTypeTool,
             textPreviewRenderer,
+            storageManager,
             data,
             options,
         )
@@ -178,6 +207,7 @@ class PathPreviewFetcher @Inject constructor(
         private const val MAX_TEXT_READ_BYTES = 8192L
         private const val DEFAULT_SIZE_PX = 256
         private const val MAX_SIZE_PX = 512
+        private const val PDF_MAX_PREVIEW_SIZE = 50L * 1024 * 1024
 
         private val TEXT_EXTENSIONS = setOf(
             "txt", "text", "log",
