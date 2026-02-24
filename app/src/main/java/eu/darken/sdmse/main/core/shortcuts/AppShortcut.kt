@@ -7,6 +7,7 @@ import android.graphics.drawable.Icon
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.R as AppControlR
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 
 sealed class AppShortcut(
@@ -28,8 +29,8 @@ sealed class AppShortcut(
 
     data object AppControl : AppShortcut(
         id = "appcontrol",
-        shortLabel = R.string.shortcut_appcontrol_short,
-        longLabel = R.string.shortcut_appcontrol_long,
+        shortLabel = AppControlR.string.shortcut_appcontrol_short,
+        longLabel = AppControlR.string.shortcut_appcontrol_long,
         iconRes = R.drawable.ic_shortcut_apps
     ) {
         override fun createIntent(context: Context): Intent = Intent(context, ShortcutActivity::class.java).apply {

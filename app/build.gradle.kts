@@ -206,6 +206,7 @@ dependencies {
     implementation(project(":app-common-data"))
     implementation(project(":app-common-exclusion"))
     implementation(project(":app-common-automation"))
+    implementation(project(":app-common-setup"))
     implementation(project(":app-tool-corpsefinder"))
     implementation(project(":app-tool-systemcleaner"))
     implementation(project(":app-tool-appcleaner"))
