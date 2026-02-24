@@ -63,7 +63,7 @@ class PathPreviewFetcher @Inject constructor(
                 )
             }
 
-            mimeType == "application/octet-stream" && data.lookedUp.extension == "apk" && data.lookedUp is LocalPath -> {
+            data.lookedUp.extension == "apk" && data.lookedUp is LocalPath -> {
                 val file = data.lookedUp.asFile()
 
                 val iconDrawable = file
