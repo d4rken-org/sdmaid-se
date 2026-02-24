@@ -100,13 +100,13 @@ class SwiperSessionsViewModel @Inject constructor(
     fun cancelScan() {
         log(TAG, INFO) { "cancelScan()" }
         cancellingSessionId.value = scanningSessionId.value
-        taskManager.cancel(SDMTool.Type.SWIPER)
+        taskSubmitter.cancel(SDMTool.Type.SWIPER)
     }
 
     fun discardSession(sessionId: String) = launch {
         log(TAG, INFO) { "discardSession(sessionId=$sessionId)" }
         if (scanningSessionId.value == sessionId) {
-            taskManager.cancel(SDMTool.Type.SWIPER)
+            taskSubmitter.cancel(SDMTool.Type.SWIPER)
         }
         // Suspends on toolLock until cancelled scan releases it
         swiper.discardSession(sessionId)
