@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Eigandi</string>
     <string name="general_user_label_system">Kerfi</string>
     <string name="setup_title">Uppsetning</string>
+    <string name="exclusion_create_action">Búa til útilokun</string>
 </resources>

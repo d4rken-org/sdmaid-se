@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
     <string name="setup_title">הגדרה</string>
+    <string name="exclusion_create_action">צור החרגה</string>
 </resources>

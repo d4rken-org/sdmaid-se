@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Egasi</string>
     <string name="general_user_label_system">Tizim</string>
     <string name="setup_title">Sozlash</string>
+    <string name="exclusion_create_action">Chiqarishni yaratish</string>
 </resources>

@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Eienaar</string>
     <string name="general_user_label_system">Stelsel</string>
     <string name="setup_title">Opstelling</string>
+    <string name="exclusion_create_action">Skep uitsluiting</string>
 </resources>

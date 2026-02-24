@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Менеджер винятків</string>
+    <string name="exclusion_manager_desc">Керуйте винятками файлів і додатків.</string>
+    <string name="exclusion_explanation_body1">Виключити файли та додатки з операцій SD Maid.</string>
+    <string name="exclusion_add_new_hint">Додайте нові винятки, спочатку дозволивши SD Maid виконати пошук, а потім використовуючи контекстне меню на результаті, який ви хочете виключити.</string>
+    <string name="exclusion_create_action">Створити виняток</string>
+    <string name="exclusion_edit_action">Редагувати виняток</string>
+    <string name="exclusion_type_package">Виняток додатка</string>
+    <string name="exclusion_type_path">Виняток шляху</string>
+    <string name="exclusion_type_segment">Виняток сегмента</string>
+    <string name="exclusion_tags_alltools">Усі інструменти</string>
+    <string name="exclusion_target_label">Ціль винятку</string>
+    <string name="exclusion_editor_path_change_action">Натисніть, щоб змінити шлях</string>
+    <string name="exclusion_option_allow_partial">Дозволити часткові збіги</string>
+    <string name="exclusion_option_ignore_casing">Ігнорувати регістр</string>
+    <string name="exclusion_editor_affected_tools_label">Пошкоджені інструменти</string>
+    <string name="exclusion_editor_path_explanation">Виключення шляху запобігає подальшій обробці SD Maid будь-яких шляхів, що збігаються. Це стосується файлів, папок і підпапок.</string>
+    <string name="exclusion_editor_pkg_explanation">Виняток додатка не дозволяє SD Maid обробляти будь-які відповідні пакети.</string>
+    <string name="exclusion_editor_segment_explanation">Виняток на основі сегмента подібне до винятку на основі шляху, але допускає часткові збіги. Приклад: \"DCIM/Camera\" виключає \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Видалити виняток?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
+    <string name="exclusion_reset_default_exclusions">Відновити виключення за замовчуванням</string>
+    <string name="exclusion_import_action">Винятки для імпорту</string>
+    <string name="exclusion_export_action">Винятки для експорту</string>
+    <string name="exclusion_create_pkg_hint">Використовуйте інструмент \"Управління додатками\" для створення винятків для додатків.</string>
+    <string name="exclusion_create_path_hint">Використовуйте інструмент \"Аналізатор сховища\" для створення винятків шляхів.</string>
+    <string name="exclusion_show_defaults_action">Показати за замовчуванням</string>
+</resources>

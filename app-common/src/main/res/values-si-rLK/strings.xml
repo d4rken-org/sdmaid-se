@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">හිමිකරු</string>
     <string name="general_user_label_system">පද්ධතිය</string>
     <string name="setup_title">පිහිටුවීම</string>
+    <string name="exclusion_create_action">බැහැර කිරීම සාදන්න</string>
 </resources>

@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">యజమాని</string>
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>
+    <string name="exclusion_create_action">బహిష్కరణను సృష్టించండి</string>
 </resources>

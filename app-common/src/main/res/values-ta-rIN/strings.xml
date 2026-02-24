@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
     <string name="setup_title">அமைப்பு</string>
+    <string name="exclusion_create_action">விலக்கலை உருவாக்கு</string>
 </resources>

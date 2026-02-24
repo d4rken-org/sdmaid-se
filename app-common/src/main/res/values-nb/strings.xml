@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Eier</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Oppsett</string>
+    <string name="exclusion_create_action">Opprett ekskludering</string>
 </resources>

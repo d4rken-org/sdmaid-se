@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">బహిష్కరణ మ్యానేజర్</string>
+    <string name="exclusion_manager_desc">ఫైల్ మరియు యాప్ బహిష్కరణలను నిర్వహించండి.</string>
+    <string name="exclusion_explanation_body1">SD Maid ఆపరేషన్‌ల నుంచి ఫైల్‌లు మరియు యాప్‌లను బహిష్కరించండి.</string>
+    <string name="exclusion_add_new_hint">ముందు SD Maid ను వెతకడానికి అనుమతించి, ఆ తరువాత మీరు బహిష్కరించాలనుకునే ఫలితంలో కంటెక్స్ట్ మెనును ఉపయోగించి కొత్త బహిష్కరణలను చేర్చండి.</string>
+    <string name="exclusion_create_action">బహిష్కరణను సృష్టించండి</string>
+    <string name="exclusion_edit_action">బహిష్కరణను ఎడిట్ చేయండి</string>
+    <string name="exclusion_type_package">యాప్ బహిష్కరణ</string>
+    <string name="exclusion_type_path">పాథ్ బహిష్కరణ</string>
+    <string name="exclusion_type_segment">సెగ్మెంట్ బహిష్కరణ</string>
+    <string name="exclusion_tags_alltools">అన్ని టూల్‌లు</string>
+    <string name="exclusion_target_label">బహిష్కరణ లక్ష్యం</string>
+    <string name="exclusion_editor_path_change_action">పాథ్ మార్చడానికి నొక్కండి</string>
+    <string name="exclusion_option_allow_partial">భాగిక మిలికిలను అనుమతించండి</string>
+    <string name="exclusion_option_ignore_casing">కేసింగ్‌ను విడుదల చేయండి</string>
+    <string name="exclusion_editor_affected_tools_label">ప్రభావితమైన టూల్‌లు</string>
+    <string name="exclusion_editor_path_explanation">పాథ్ బహిష్కరణ SD Maid ను సరిపోలిక పాథ్‌లను మెలలగా ప్రోసెస్ చేయకుండా ఇంపేడ్ అవుతుంది. ఇది ఫైల్‌లు, ఫోల్డర్ మరియు సబ్-ఫోల్డర్‌లకు వర్తిస్తుంది.</string>
+    <string name="exclusion_editor_pkg_explanation">యాప్ బహిష్కరణ SD Maid ను సరిపోలిక ప్యాకేజీలను ప్రోసెస్ చేయకుండా ఇంపేడ్ అవుతుంది.</string>
+    <string name="exclusion_editor_segment_explanation">సెగ్మెంట్ ఆధారిత బహిష్కరణ పాథ్ బహిష్కరణ వలేనే ఉంది కానీ భాగిక మిలికిలను అనుమతిస్తుంది. ఉదాహరణ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\"ను బహిష్కరిస్తుంది.</string>
+    <string name="exclusion_editor_remove_confirmation_message">ఈ బహిష్కరణను తెగెయాలా?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
+    <string name="exclusion_reset_default_exclusions">డిఫాల్ట్ బహిష్కరణలను రిస్టోర్ చేయండి</string>
+    <string name="exclusion_import_action">బహిష్కరణలను ఇంపోర్ట్ చేయండి</string>
+    <string name="exclusion_export_action">బహిష్కరణలను ఎక్స్‌పోర్ట్ చేయండి</string>
+    <string name="exclusion_create_pkg_hint">యాప్ బహిష్కరణలను సృష్టించడానికి AppControl టూల్‌ను ఉపయోగించండి.</string>
+    <string name="exclusion_create_path_hint">పాథ్ బహిష్కరణలను సృష్టించడానికి StorageAnalyzer టూల్‌ను ఉపయోగించండి.</string>
+    <string name="exclusion_show_defaults_action">డిఫాల్ట్‌లను చూపించండి</string>
+</resources>

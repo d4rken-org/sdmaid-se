@@ -79,7 +79,6 @@
     <string name="settings_category_risklevel">ئاستی مەترسی</string>
     <string name="history_label">مێژوو</string>
     <string name="history_description">لیستێکی کاتیی کردارە نوێکان و داتای کاریگەربوو.</string>
-    <string name="exclusion_manager_title">بەڕێوەبەری دەرهێنان</string>
     <string name="data_areas_label">ناوچەکانی داتا</string>
     <string name="stats_label">مێژوو</string>
     <string name="stats_report_status_success">سەرکەوتوو</string>
@@ -100,8 +99,4 @@
     <string name="picker_home_action">ناوچەکانی داتا</string>
     <string name="stats_affected_paths_label">ڕێگا کاریگەربووەکان</string>
     <string name="stats_affected_pkgs_label">ئەپە کاریگەربووەکان</string>
-    <string name="exclusion_type_package">دەرهێنانی ئەپ</string>
-    <string name="exclusion_type_path">دەرهێنانی ڕێگا</string>
-    <string name="exclusion_type_segment">دەرهێنانی بەش</string>
-    <string name="exclusion_tags_alltools">هەموو ئامرازەکان</string>
 </resources>

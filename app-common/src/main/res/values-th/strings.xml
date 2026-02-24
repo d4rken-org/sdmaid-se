@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">เจ้าของ</string>
     <string name="general_user_label_system">ระบบ</string>
     <string name="setup_title">การตั้งค่า</string>
+    <string name="exclusion_create_action">สร้างการยกเว้น</string>
 </resources>

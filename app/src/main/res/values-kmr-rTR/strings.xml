@@ -97,8 +97,6 @@
     <string name="settings_category_risklevel">Asta xeterê</string>
     <string name="history_label">Dîrok</string>
     <string name="history_description">Lîsteya kronolojîk a çalakiyên dawî û daneyên bandorkirî.</string>
-    <string name="exclusion_manager_title">Birêvebirê îstîsnayan</string>
-    <string name="exclusion_manager_desc">Îstîsnayên pel û sepanan birêve bibin.</string>
     <string name="data_areas_label">Deverên daneyan</string>
     <string name="stats_label">Dîrok</string>
     <string name="stats_report_status_success">Serketî</string>
@@ -119,8 +117,4 @@
     <string name="picker_home_action">Deverên daneyan</string>
     <string name="stats_affected_paths_label">Rêyên bandorkirî</string>
     <string name="stats_affected_pkgs_label">Sepanên bandorkirî</string>
-    <string name="exclusion_type_package">Îstîsnaya sepanê</string>
-    <string name="exclusion_type_path">Îstîsnaya rêyê</string>
-    <string name="exclusion_type_segment">Îstîsnaya beşê</string>
-    <string name="exclusion_tags_alltools">Hemû amûr</string>
 </resources>

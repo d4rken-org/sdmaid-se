@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سیستم</string>
     <string name="setup_title">راه‌اندازی</string>
+    <string name="exclusion_create_action">ایجاد استثناء</string>
 </resources>

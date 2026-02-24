@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>
     <string name="setup_title">Konfiguracja</string>
+    <string name="exclusion_create_action">Utwórz wykluczenie</string>
 </resources>

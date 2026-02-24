@@ -179,4 +179,5 @@
     <string name="general_user_label_owner">Tulajdonos</string>
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>
+    <string name="exclusion_create_action">Kizárás létrehozása</string>
 </resources>

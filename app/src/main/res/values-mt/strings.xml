@@ -146,8 +146,6 @@
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
     <string name="history_label">Storja</string>
     <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>
-    <string name="exclusion_manager_title">Maniġer tal-esklużjonijiet</string>
-    <string name="exclusion_manager_desc">Immaniġġja esklużjonijiet ta\' fajls u apps.</string>
     <string name="data_areas_label">Żoni tad-data</string>
     <string name="stats_label">Storja</string>
     <string name="stats_report_status_success">Suċċess</string>
@@ -168,8 +166,4 @@
     <string name="picker_home_action">Żoni tad-data</string>
     <string name="stats_affected_paths_label">Paths affettwati</string>
     <string name="stats_affected_pkgs_label">Apps affettwati</string>
-    <string name="exclusion_type_package">Esklużjoni ta\' app</string>
-    <string name="exclusion_type_path">Esklużjoni ta\' path</string>
-    <string name="exclusion_type_segment">Esklużjoni ta\' segment</string>
-    <string name="exclusion_tags_alltools">L-għodod kollha</string>
 </resources>

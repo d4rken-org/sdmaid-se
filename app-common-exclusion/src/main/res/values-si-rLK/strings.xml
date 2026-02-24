@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">බැහැර කිරීම් මෙහෙයුම්</string>
+    <string name="exclusion_manager_desc">ගොනු සහ යෙදුම් බැහැර කිරීම් අනුශාසනය කරන්න.</string>
+    <string name="exclusion_explanation_body1">SD Maid ගේ මෙහෙයුම්වලින් ගොනු සහ යෙදුම් බැහැර කරන්න.</string>
+    <string name="exclusion_add_new_hint">මුලින් SD Maid සොයා ගෙන්න අතර ඔබ බැහැර කිරීමට අකමැති ප්‍රතිෆලයම පිළිබද මෙනුව භාවිතා කිරීමෙන් නව බැහැර කිරීම් ඇතුළත් කරන්න.</string>
+    <string name="exclusion_create_action">බැහැර කිරීම සාදන්න</string>
+    <string name="exclusion_edit_action">බැහැර කිරීම සංපාදනය කරන්න</string>
+    <string name="exclusion_type_package">යෙදුම් බැහැර කිරීම</string>
+    <string name="exclusion_type_path">මාර්ග බැහැර කිරීම</string>
+    <string name="exclusion_type_segment">පිපෙට් බැහැර කිරීම</string>
+    <string name="exclusion_tags_alltools">සියලු මෙවලම්</string>
+    <string name="exclusion_target_label">බැහැර කිරීමේ ලක්ෂ්‍ය</string>
+    <string name="exclusion_editor_path_change_action">මාර්ගය වෙනස් කිරීමට තට්ටු කරන්න</string>
+    <string name="exclusion_option_allow_partial">ඇංශික සමානතාවට ඉඩම දෙන්න</string>
+    <string name="exclusion_option_ignore_casing">සඩු බැහැර කරන්න</string>
+    <string name="exclusion_editor_affected_tools_label">පරිණාමය වෙන මෙවලම්</string>
+    <string name="exclusion_editor_path_explanation">මාර්ග බැහැර කිරීම SD Maid ගේ සමාන මාර්ග අමතර ප්‍රක්‍රියාකරණයෙන් මනා කරයි. මෙය ගොනු, ෆෝල්ඩර සහ මොෟ-ෆෝල්ඩර සඳහා පුළුවන් වේ.</string>
+    <string name="exclusion_editor_pkg_explanation">යෙදුම් බැහැර කිරීම SD Maid ගේ සමාන පකේජ ප්‍රක්‍රියාකරණයෙන් මනා කරයි.</string>
+    <string name="exclusion_editor_segment_explanation">පිපෙට් අනුව බැහැර කිරීම මාර්ග බැහැර කිරීමට සමාන නමුත් ඇංශික සමානතාවට ඉඩම දේ. උදාහරණ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" බැහැර කරයි.</string>
+    <string name="exclusion_editor_remove_confirmation_message">මෙම බැහැර කිරීම ඉවත් කරන්නද?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">ඔබ ට සංරක්ෂණය නොකු වෙනස්කම් ඇත!</string>
+    <string name="exclusion_reset_default_exclusions">පෙරනිමි බැහැර කිරීම් ප්‍රතිසාධනය කරන්න</string>
+    <string name="exclusion_import_action">බැහැර කිරීම් ආයාත කරන්න</string>
+    <string name="exclusion_export_action">බැහැර කිරීම් නිර්යාත කරන්න</string>
+    <string name="exclusion_create_pkg_hint">යෙදුම් බැහැර කිරීම් සාදන්න සඳහා AppControl මෙවලම භාවිතා කරන්න.</string>
+    <string name="exclusion_create_path_hint">මාර්ග බැහැර කිරීම් සාදන්න සඳහා StorageAnalyzer මෙවලම භාවිතා කරන්න.</string>
+    <string name="exclusion_show_defaults_action">පෙරනිමි පෙනන්න</string>
+</resources>

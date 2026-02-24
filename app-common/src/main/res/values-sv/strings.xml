@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Ägare</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Inställningar</string>
+    <string name="exclusion_create_action">Skapa uteslutning</string>
 </resources>

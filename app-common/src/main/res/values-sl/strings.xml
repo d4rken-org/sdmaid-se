@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Lastnik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Nastavi</string>
+    <string name="exclusion_create_action">Ustvari izjemo</string>
 </resources>

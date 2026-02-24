@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
+    <string name="exclusion_create_action">예외 생성</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_tags_alltools">Gach uirlis</string>
+    <string name="exclusion_manager_title">Bainisteoir eisiaimh</string>
+    <string name="exclusion_manager_desc">Bainistigh eisiaimh comhad agus aipeanna.</string>
+    <string name="exclusion_explanation_body1">Eisiataigh comhaid agus aipeanna ó oibríochtaí SD Maid.</string>
+    <string name="exclusion_add_new_hint">Cuir eisiaimh nua leis trí ligean do SD Maid cuardach ar dtús agus ansin an roghchlár comhthéacs a úsáid ar an toradh is mian leat a eisiamh.</string>
+    <string name="exclusion_create_action">Cruthaigh eisiamh</string>
+    <string name="exclusion_edit_action">Cuir eisiamh in eagar</string>
+    <string name="exclusion_type_package">Eisiamh aipe</string>
+    <string name="exclusion_type_path">Eisiamh conaire</string>
+    <string name="exclusion_type_segment">Eisiamh deighilte</string>
+    <string name="exclusion_target_label">Sprioc eisiaimh</string>
+    <string name="exclusion_editor_path_change_action">Tapáil chun conair a athrú</string>
+    <string name="exclusion_option_allow_partial">Ceadaigh meaitseálacha páirteacha</string>
+    <string name="exclusion_option_ignore_casing">Déan neamhaird ar chásáil</string>
+    <string name="exclusion_editor_affected_tools_label">Uirlisí difear orthu</string>
+    <string name="exclusion_editor_path_explanation">Coscann eisiamh conaire SD Maid ó aon chonairí meaitseála a phróiseáil a thuilleadh. Baineann sé seo le comhaid, fillteáin agus fo-fhillteáin.</string>
+    <string name="exclusion_editor_pkg_explanation">Coscann eisiamh aipe SD Maid ó aon phacáistí meaitseála a phróiseáil.</string>
+    <string name="exclusion_editor_segment_explanation">Tá eisiamh bunaithe ar dheighilt cosúil le heisiamh conaire ach ceadaíonn sé meaitseálacha páirteacha. Sampla: eisiatóidh \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Bain an eisiamh seo?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Tá athruithe neamhshábháilte agat!</string>
+    <string name="exclusion_reset_default_exclusions">Athchóirigh eisiaimh réamhshocraithe</string>
+    <string name="exclusion_import_action">Iompórtáil eisiaimh</string>
+    <string name="exclusion_export_action">Easpórtáil eisiaimh</string>
+    <string name="exclusion_create_pkg_hint">Úsáid an uirlis AppControl chun eisiaimh aipeanna a chruthú.</string>
+    <string name="exclusion_create_path_hint">Úsáid an uirlis StorageAnalyzer chun eisiaimh conaire a chruthú.</string>
+    <string name="exclusion_show_defaults_action">Taispeáin réamhshocruithe</string>
+</resources>

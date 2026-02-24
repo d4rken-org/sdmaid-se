@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Владелец</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Установка</string>
+    <string name="exclusion_create_action">Создать исключение</string>
 </resources>

@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavení</string>
+    <string name="exclusion_create_action">Vytvořit výjimku</string>
 </resources>

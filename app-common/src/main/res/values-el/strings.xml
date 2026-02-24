@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
     <string name="setup_title">Εγκατάσταση</string>
+    <string name="exclusion_create_action">Δημιουργία εξαίρεσης</string>
 </resources>

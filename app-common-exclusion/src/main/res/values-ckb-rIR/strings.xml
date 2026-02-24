@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_desc">Manage فایل and app exclusions.</string>
+    <string name="exclusion_explanation_body1">Exclude فایلs and apps from SD Maid\'s operations.</string>
+    <string name="exclusion_edit_action">دەستکاری exclusion</string>
+    <string name="exclusion_type_package">ئەپ exclusion</string>
+    <string name="exclusion_type_path">ڕێگا exclusion</string>
+    <string name="exclusion_editor_path_explanation">A path exclusion prevents SD Maid from further processing any matching paths. This applies to فایلs, folder and sub-folders.</string>
+    <string name="exclusion_editor_segment_explanation">A segment based exclusion is similar to a path exclusion but allows for partial matches. نموونە: \"DCIM/Camera\" excludes \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">لابردن this exclusion?</string>
+    <string name="exclusion_reset_default_exclusions">گەڕاندنەوە default exclusions</string>
+    <string name="exclusion_import_action">هاوردن exclusions</string>
+    <string name="exclusion_export_action">هەناردن exclusions</string>
+    <string name="exclusion_create_pkg_hint">Use the ئەپControl tool to create app exclusions.</string>
+    <string name="exclusion_create_path_hint">Use the ناحیەکانAnalyzer tool to create path exclusions.</string>
+    <string name="exclusion_show_defaults_action">نیشاندان defaults</string>
+</resources>

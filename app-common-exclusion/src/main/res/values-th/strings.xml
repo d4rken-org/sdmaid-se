@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">ตัวจัดการยกเว้น</string>
+    <string name="exclusion_manager_desc">จัดการการยกเว้นไฟล์และแอพ</string>
+    <string name="exclusion_explanation_body1">ยกเว้นไฟล์และแอพจากการดำเนินการของ SD Maid</string>
+    <string name="exclusion_add_new_hint">เพิ่มการยกเว้นใหม่โดยให้ SD Maid ค้นหาก่อน แล้วใช้เมนูบริบทกับผลลัพธ์ที่คุณต้องการยกเว้น</string>
+    <string name="exclusion_create_action">สร้างการยกเว้น</string>
+    <string name="exclusion_edit_action">แก้ไขการยกเว้น</string>
+    <string name="exclusion_type_package">การยกเว้นแอพ</string>
+    <string name="exclusion_type_path">การยกเว้นเส้นทาง</string>
+    <string name="exclusion_type_segment">การยกเว้นส่วน</string>
+    <string name="exclusion_tags_alltools">เครื่องมือทั้งหมด</string>
+    <string name="exclusion_target_label">เป้าหมายการยกเว้น</string>
+    <string name="exclusion_editor_path_change_action">แตะเพื่อเปลี่ยนเส้นทาง</string>
+    <string name="exclusion_option_allow_partial">อนุญาตให้ตรงบางส่วน</string>
+    <string name="exclusion_option_ignore_casing">ไม่สนใจตัวเล็กใหญ่-เล็ก</string>
+    <string name="exclusion_editor_affected_tools_label">เครื่องมือที่ได้รับผลกระทบ</string>
+    <string name="exclusion_editor_path_explanation">การยกเว้นเส้นทางจะป้องกันไม่ให้ SD Maid ดำเนินการกับเส้นทางที่ตรงกันต่อไป ใช้ได้กับไฟล์, โฟลเดอร์ และโฟลเดอร์ย่อย</string>
+    <string name="exclusion_editor_pkg_explanation">การยกเว้นแอพจะป้องกันไม่ให้ SD Maid ดำเนินการกับแพกเกจที่ตรงกัน</string>
+    <string name="exclusion_editor_segment_explanation">การยกเว้นแบบส่วนคล้ายกับการยกเว้นเส้นทาง แต่อนุญาตให้ตรงบางส่วนได้ ตัวอย่าง: \"DCIM/Camera\" ยกเว้น \"/sdcard/DCIM/Camera/photo.png\"</string>
+    <string name="exclusion_editor_remove_confirmation_message">ลบการยกเว้นนี้?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
+    <string name="exclusion_reset_default_exclusions">คืนการยกเว้นเริ่มต้น</string>
+    <string name="exclusion_import_action">นำเข้าการยกเว้น</string>
+    <string name="exclusion_export_action">ส่งออกการยกเว้น</string>
+    <string name="exclusion_create_pkg_hint">ใช้เครื่องมือ AppControl เพื่อสร้างการยกเว้นแอพ</string>
+    <string name="exclusion_create_path_hint">ใช้เครื่องมือ StorageAnalyzer เพื่อสร้างการยกเว้นเส้นทาง</string>
+    <string name="exclusion_show_defaults_action">แสดงค่าเริ่มต้น</string>
+</resources>

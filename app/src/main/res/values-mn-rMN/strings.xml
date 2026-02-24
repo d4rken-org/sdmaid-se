@@ -155,12 +155,6 @@
     <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
     <string name="data_areas_label">Өгөгдлийн бүсүүд</string>
     <string name="data_areas_short_summary">SD Maid-д одоогийн олгогдсон зөвшөөрлүүд дээр үндэслэн хандах боломжтой бүсүүд.</string>
-    <string name="exclusion_manager_title">Хасалтын менежер</string>
-    <string name="exclusion_manager_desc">Файл болон аппликешний хасалтуудыг удирдах.</string>
-    <string name="exclusion_type_package">Аппликешний хасалт</string>
-    <string name="exclusion_type_path">Замын хасалт</string>
-    <string name="exclusion_type_segment">Хэсгийн хасалт</string>
-    <string name="exclusion_tags_alltools">Бүх хэрэгслүүд</string>
     <string name="history_label">Түүх</string>
     <string name="history_description">Сүүлийн үйлдлүүд болон нөлөөлсөн өгөгдлийн цаг хугацааны жагсаалт.</string>
     <string name="updates_dashcard_title">Шинэчлэлт боломжтой</string>

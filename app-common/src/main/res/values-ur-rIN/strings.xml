@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
     <string name="setup_title">سیٹ اپ</string>
+    <string name="exclusion_create_action">استثنا بنائیں</string>
 </resources>

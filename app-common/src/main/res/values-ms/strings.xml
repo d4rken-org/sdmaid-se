@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Persediaan</string>
+    <string name="exclusion_create_action">Buat pengecualian</string>
 </resources>

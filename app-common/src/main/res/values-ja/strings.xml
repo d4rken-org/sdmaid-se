@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">オーナー</string>
     <string name="general_user_label_system">システム</string>
     <string name="setup_title">セットアップ</string>
+    <string name="exclusion_create_action">除外を作成</string>
 </resources>

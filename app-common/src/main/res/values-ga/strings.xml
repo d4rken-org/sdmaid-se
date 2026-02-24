@@ -191,4 +191,5 @@
     <string name="general_user_label_owner">Úinéir</string>
     <string name="general_user_label_system">Córas</string>
     <string name="setup_title">Socrú</string>
+    <string name="exclusion_create_action">Cruthaigh eisiamh</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Мениджър на изключения</string>
+    <string name="exclusion_manager_desc">Управление на изключения на файлове и приложения.</string>
+    <string name="exclusion_explanation_body1">Изключете файлове и приложения от операциите на SD Maid.</string>
+    <string name="exclusion_add_new_hint">Добавете нови изключения, като първо оставите SD Maid да търси и след това използвайте контекстното меню върху резултата, който искате да изключите.</string>
+    <string name="exclusion_create_action">Създаване на изключение</string>
+    <string name="exclusion_edit_action">Редактиране на изключение</string>
+    <string name="exclusion_type_package">Изключване на приложение</string>
+    <string name="exclusion_type_path">Изключване на път</string>
+    <string name="exclusion_type_segment">Изключване на сегмент</string>
+    <string name="exclusion_tags_alltools">Всички инструменти</string>
+    <string name="exclusion_target_label">Цел на изключване</string>
+    <string name="exclusion_editor_path_change_action">Докоснете за промяна на пътя</string>
+    <string name="exclusion_option_allow_partial">Разрешаване на частични съвпадения</string>
+    <string name="exclusion_option_ignore_casing">Игнориране на регистъра</string>
+    <string name="exclusion_editor_affected_tools_label">Засегнати инструменти</string>
+    <string name="exclusion_editor_path_explanation">Изключването на път предотвратява SD Maid от по-нататъшна обработка на всякакви съвпадащи пътища. Това се отнася за файлове, папки и подпапки.</string>
+    <string name="exclusion_editor_pkg_explanation">Изключването на приложение предотвратява SD Maid от обработка на всякакви съвпадащи пакети.</string>
+    <string name="exclusion_editor_segment_explanation">Изключването, базирано на сегмент, е подобно на изключването на път, но позволява частични съвпадения. Пример: \"DCIM/Camera\" изключва \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Премахване на това изключване?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Имате незапазени промени!</string>
+    <string name="exclusion_reset_default_exclusions">Възстановяване на изключенията по подразбиране</string>
+    <string name="exclusion_import_action">Импортиране на изключения</string>
+    <string name="exclusion_export_action">Експортиране на изключения</string>
+    <string name="exclusion_create_pkg_hint">Използвайте инструмента AppControl за създаване на изключения за приложения.</string>
+    <string name="exclusion_create_path_hint">Използвайте инструмента StorageAnalyzer за създаване на изключения за пътища.</string>
+    <string name="exclusion_show_defaults_action">Показване на стандартните</string>
+</resources>

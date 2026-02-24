@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Хасалтын менежер</string>
+    <string name="exclusion_manager_desc">Файл болон аппликешний хасалтуудыг удирдах.</string>
+    <string name="exclusion_type_package">Аппликешний хасалт</string>
+    <string name="exclusion_type_path">Замын хасалт</string>
+    <string name="exclusion_type_segment">Хэсгийн хасалт</string>
+    <string name="exclusion_tags_alltools">Бүх хэрэгслүүд</string>
+</resources>

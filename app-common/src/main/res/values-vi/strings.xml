@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>
+    <string name="exclusion_create_action">Tạo loại trừ</string>
 </resources>

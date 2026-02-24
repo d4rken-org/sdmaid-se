@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">விலக்கல் மேலாளர்</string>
+    <string name="exclusion_manager_desc">கோப்பு மற்றும் பயன்பாட்டு விலக்கல்களை நிர்வகிக்கவும்.</string>
+    <string name="exclusion_explanation_body1">கோப்புகள் மற்றும் பயன்பாடுகளை SD Maid இன் செயல்பாடுகளிலிருந்து விலக்கவும்.</string>
+    <string name="exclusion_add_new_hint">முதலில் SD Maid தேடவிட்டு, பின்னர் நீங்கள் விலக்க விரும்பும் முடிவில் சந்தர்ப்ப பட்டியைப் பயன்படுத்தி புதிய விலக்கல்களைச் சேர்க்கவும்.</string>
+    <string name="exclusion_create_action">விலக்கலை உருவாக்கு</string>
+    <string name="exclusion_edit_action">விலக்கலைத் தருணி</string>
+    <string name="exclusion_type_package">பயன்பாட்டு விலக்கல்</string>
+    <string name="exclusion_type_path">பாதை விலக்கல்</string>
+    <string name="exclusion_type_segment">பகுதி விலக்கல்</string>
+    <string name="exclusion_tags_alltools">அனைத்து கருவிகள்</string>
+    <string name="exclusion_target_label">விலக்கல் இலக்கு</string>
+    <string name="exclusion_editor_path_change_action">பாதையை மாற்ற தட்டவும்</string>
+    <string name="exclusion_option_allow_partial">பகுதி தொடர்புகளை அனுமதி</string>
+    <string name="exclusion_option_ignore_casing">எழுத்து விஷயத்தை கணக்கிலெடுக்காதெ</string>
+    <string name="exclusion_editor_affected_tools_label">பாதிக்கப்பட்ட கருவிகள்</string>
+    <string name="exclusion_editor_path_explanation">பாதை விலக்கல் எந்த பொருந்தும் பாதைகளையும் SD Maid மேலும் செயல்பாடிலிருந்து தடுக்கிறது. இது கோப்புகள், கோப்புறைகள் மற்றும் துணை கோப்புறைகளுக்கு பலன்செய்யும்.</string>
+    <string name="exclusion_editor_pkg_explanation">பயன்பாட்டு விலக்கல் எந்த பொருந்தும் பேக்கேஜ்களையும் SD Maid செயல்படுத்தாமல் தடுக்கிறது.</string>
+    <string name="exclusion_editor_segment_explanation">பகுதி அடிப்படையிலான விலக்கல் பாதை விலக்கல் போன்றது ஆனால் பகுதி தொடர்புகளை அனுமதிக்கிறது. உதாரணம்: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" இற்கு விலக்குகிறது.</string>
+    <string name="exclusion_editor_remove_confirmation_message">இந்த விலக்கலை அகற்றவா?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
+    <string name="exclusion_reset_default_exclusions">இயல்பு விலக்கல்களை மீட்டெடு</string>
+    <string name="exclusion_import_action">விலக்கல்களை இறற்றுமதி</string>
+    <string name="exclusion_export_action">விலக்கல்களை ஏற்றுமதி</string>
+    <string name="exclusion_create_pkg_hint">பயன்பாட்டு விலக்கல்களை உருவாக்க AppControl கருவியைப் பயன்படுத்தவும்.</string>
+    <string name="exclusion_create_path_hint">பாதை விலக்கல்களை உருவாக்க StorageAnalyzer கருவியைப் பயன்படுத்தவும்.</string>
+    <string name="exclusion_show_defaults_action">இயல்புகளைக் காட்டு</string>
+</resources>

@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">মালিক</string>
     <string name="general_user_label_system">সিস্টেম</string>
     <string name="setup_title">সেটআপ</string>
+    <string name="exclusion_create_action">বর্জন তৈরি করুন</string>
 </resources>

@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
+    <string name="exclusion_create_action">建立排除</string>
 </resources>

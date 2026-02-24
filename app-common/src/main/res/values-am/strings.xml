@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">ባለቤት</string>
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>
+    <string name="exclusion_create_action">ማስወገጃ ፍጠር</string>
 </resources>

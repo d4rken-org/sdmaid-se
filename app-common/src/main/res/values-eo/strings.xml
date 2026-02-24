@@ -171,4 +171,5 @@
     <string name="general_user_label_owner">Posedanto</string>
     <string name="general_user_label_system">Sistemo</string>
     <string name="setup_title">Agordado</string>
+    <string name="exclusion_create_action">Krei ekskluzivon</string>
 </resources>

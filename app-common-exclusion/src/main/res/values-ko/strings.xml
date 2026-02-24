@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">예외 관리자</string>
+    <string name="exclusion_manager_desc">파일과 앱 예외사항을 관리합니다.</string>
+    <string name="exclusion_explanation_body1">파일과 앱을 SD Maid의 활동으로부터 제외합니다.</string>
+    <string name="exclusion_add_new_hint">새로운 예외 사항을 추가하려면 먼저 탐색을 실행한 뒤 제외할 항목의 메뉴를 이용해주세요.</string>
+    <string name="exclusion_create_action">예외 생성</string>
+    <string name="exclusion_edit_action">예외 편집</string>
+    <string name="exclusion_type_package">앱 제외</string>
+    <string name="exclusion_type_path">경로 제외</string>
+    <string name="exclusion_type_segment">예외 구간</string>
+    <string name="exclusion_tags_alltools">모든 도구</string>
+    <string name="exclusion_target_label">예외 목표</string>
+    <string name="exclusion_editor_path_change_action">경로를 변경하려면 탭하세요</string>
+    <string name="exclusion_option_allow_partial">부분 매칭 허용</string>
+    <string name="exclusion_option_ignore_casing">대/소문자 무시</string>
+    <string name="exclusion_editor_affected_tools_label">영향받은 도구</string>
+    <string name="exclusion_editor_path_explanation">경로 제외는 SD Maid가 지정된 위치를 처리하지 못하도록 합니다. 이는 파일, 폴더 및 중첩된 폴더에 적용됩니다.</string>
+    <string name="exclusion_editor_pkg_explanation">앱 제외는 SD Maid가 해당하는 애플리케이션을 처리하는 것을 방지합니다.</string>
+    <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
+    <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
+    <string name="exclusion_reset_default_exclusions">기본 제외 항목 복원</string>
+    <string name="exclusion_import_action">가져오기 제외 항목</string>
+    <string name="exclusion_export_action">내보내기 제외 항목</string>
+    <string name="exclusion_create_pkg_hint">AppControl 도구를 이용해 앱 제외를 만드세요.</string>
+    <string name="exclusion_create_path_hint">StorageAnalyzer 도구를 이용해 경로 제외를 만드세요.</string>
+    <string name="exclusion_show_defaults_action">기본값 표시</string>
+</resources>

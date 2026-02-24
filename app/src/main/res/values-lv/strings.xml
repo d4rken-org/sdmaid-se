@@ -196,9 +196,6 @@
     <string name="data_areas_label">Datu zonas</string>
     <string name="data_areas_description">Datu zonas attēlo vietas jūsu ierīcē, kurām SD Maid var piekļūt. Dažādas datu zonas var būt pieejamas atkarībā no jūsu Android versijas un piešķirtajām atļaujām.</string>
     <string name="data_areas_short_summary">Zonas, kurām SD Maid var piekļūt, balstoties uz pašreiz piešķirtajām atļaujām.</string>
-    <string name="exclusion_manager_title">Izņēmumu pārvaldnieks</string>
-    <string name="exclusion_manager_desc">Pārvaldīt failu un lietotņu izņēmumus.</string>
-    <string name="exclusion_explanation_body1">Izslēgt failus un lietotnes no SD Maid darbībām.</string>
     <string name="history_label">Vēsture</string>
     <string name="history_description">Hronoloģisks pēdējo darbību un ietekmēto datu saraksts.</string>
     <string name="updates_dashcard_title">Atjauninājums pieejams</string>

@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Omistaja</string>
     <string name="general_user_label_system">Järjestelmä</string>
     <string name="setup_title">Asennus</string>
+    <string name="exclusion_create_action">Luo poikkeus</string>
 </resources>

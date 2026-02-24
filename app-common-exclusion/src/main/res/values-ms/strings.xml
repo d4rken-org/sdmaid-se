@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Pengurus pengecualian</string>
+    <string name="exclusion_manager_desc">Urus pengecualian fail dan aplikasi.</string>
+    <string name="exclusion_explanation_body1">Kecualikan fail dan aplikasi daripada operasi SD Maid.</string>
+    <string name="exclusion_add_new_hint">Tambahkan pengecualian baharu dengan terlebih dahulu membenarkan SD Maid mencari dan kemudian menggunakan menu konteks pada hasil yang ingin anda kecualikan.</string>
+    <string name="exclusion_create_action">Buat pengecualian</string>
+    <string name="exclusion_edit_action">Edit pengecualian</string>
+    <string name="exclusion_type_package">Pengecualian aplikasi</string>
+    <string name="exclusion_type_path">Pengecualian laluan</string>
+    <string name="exclusion_type_segment">Pengecualian segmen</string>
+    <string name="exclusion_tags_alltools">Semua alatan</string>
+    <string name="exclusion_target_label">Sasaran pengecualian</string>
+    <string name="exclusion_option_allow_partial">Benarkan padanan separa</string>
+    <string name="exclusion_option_ignore_casing">Abaikan selongsong</string>
+    <string name="exclusion_editor_affected_tools_label">Alatan yang terjejas</string>
+    <string name="exclusion_editor_path_explanation">Pengecualian laluan menghalang SD Maid daripada memproses lebih lanjut mana-mana laluan yang sepadan. Ini terpakai untuk fail, folder dan sub-folder.</string>
+    <string name="exclusion_editor_pkg_explanation">Pengecualian aplikasi menghalang SD Maid daripada memproses sebarang pakej yang sepadan.</string>
+    <string name="exclusion_editor_segment_explanation">Pengecualian berdasarkan segmen adalah serupa dengan pengecualian laluan tetapi membenarkan padanan separa. Contoh: \"DCIM/Camera\" tidak termasuk \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Alih keluar pengecualian ini?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
+    <string name="exclusion_reset_default_exclusions">Pulihkan pengecualian lalai</string>
+    <string name="exclusion_import_action">Import pengecualian</string>
+    <string name="exclusion_export_action">Eksport pengecualian</string>
+    <string name="exclusion_create_pkg_hint">Gunakan alat AppControl untuk membuat pengecualian aplikasi.</string>
+    <string name="exclusion_create_path_hint">Gunakan alat StorageAnalyzer untuk membuat pengecualian laluan.</string>
+    <string name="exclusion_show_defaults_action">Tunjukkan lalai</string>
+</resources>

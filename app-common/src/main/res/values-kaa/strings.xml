@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Iye</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>
+    <string name="exclusion_create_action">Shetlestiriw jaratıw</string>
 </resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">مدير الاستبعاد</string>
+    <string name="exclusion_manager_desc">إدارة استثناءات الملفات والتطبيقات.</string>
+    <string name="exclusion_explanation_body1">استبعاد الملفات والتطبيقات من عمليات SD Maid.</string>
+    <string name="exclusion_add_new_hint">أضف استثناءات جديدة عن طريق السماح أولاً لـ SD Maid بالبحث ثم استخدام قائمة السياق في النتيجة التي تريد استبعادها.</string>
+    <string name="exclusion_create_action">إنشاء استبعاد</string>
+    <string name="exclusion_edit_action">تعديل الاستبعاد</string>
+    <string name="exclusion_type_package">التطبيقات المستثناة</string>
+    <string name="exclusion_type_path">المسارات المستثناة</string>
+    <string name="exclusion_type_segment">استبعاد الجزء</string>
+    <string name="exclusion_tags_alltools">جميع الأدوات</string>
+    <string name="exclusion_target_label">الهدف المستبعد</string>
+    <string name="exclusion_editor_path_change_action">انقر لتغيير المسار</string>
+    <string name="exclusion_option_allow_partial">السماح بالتطابق الجزئي</string>
+    <string name="exclusion_option_ignore_casing">تجاهل الغلاف</string>
+    <string name="exclusion_editor_affected_tools_label">الأدوات المتأثرة</string>
+    <string name="exclusion_editor_path_explanation">يمنع استبعاد المسار SD Maid من مواصلة معالجة أي مسارات مطابقة. ينطبق هذا على الملفات والمجلدات والمجلدات الفرعية.</string>
+    <string name="exclusion_editor_pkg_explanation">يمنع استثناء التطبيق SD Maid من معالجة أي حزم مطابقة.</string>
+    <string name="exclusion_editor_segment_explanation">والاستبعاد القائم على الشريحة مماثل لاستبعاد المسار ولكنه يسمح بمطابقة جزئية. مثال: \"DCIM/Camera\" لا يشمل \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">إزالة هذا الاستبعاد؟</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
+    <string name="exclusion_reset_default_exclusions">استعادة الاستثناءات الإفتراضية</string>
+    <string name="exclusion_import_action">استيراد استثناءات</string>
+    <string name="exclusion_export_action">تصدير استثناءات</string>
+    <string name="exclusion_create_pkg_hint">استخدم أداة التحكم في التطبيقات لإنشاء استثناءات التطبيق.</string>
+    <string name="exclusion_create_path_hint">استخدم أداة \"محلل التخزين\" لإنشاء استثناءات المسار.</string>
+    <string name="exclusion_show_defaults_action">إظهار الافتراضي</string>
+</resources>

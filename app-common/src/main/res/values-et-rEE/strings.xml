@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Omanik</string>
     <string name="general_user_label_system">Süsteem</string>
     <string name="setup_title">Seadistamine</string>
+    <string name="exclusion_create_action">Loo erand</string>
 </resources>

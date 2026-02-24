@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Sahib</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Quraşdır</string>
+    <string name="exclusion_create_action">İstisna yarat</string>
 </resources>

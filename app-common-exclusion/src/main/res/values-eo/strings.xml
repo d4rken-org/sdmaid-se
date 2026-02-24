@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Ekskluziva administrilo</string>
+    <string name="exclusion_manager_desc">Administri dosierajn kaj aplikaĵajn ekskluzivajn.</string>
+    <string name="exclusion_explanation_body1">Ekskluzivi dosierojn kaj aplikaĵojn de la operacioj de SD Maid.</string>
+    <string name="exclusion_add_new_hint">Aldoni novajn ekskluzivajn per unue permesi al SD Maid serĉi kaj poste uzi la kuntekstan menuon sur la rezulto kiun vi volas ekskluzivi.</string>
+    <string name="exclusion_create_action">Krei ekskluzivon</string>
+    <string name="exclusion_edit_action">Redakti ekskluzivon</string>
+    <string name="exclusion_type_package">Aplikaĵa ekskluzivo</string>
+    <string name="exclusion_type_path">Voja ekskluzivo</string>
+    <string name="exclusion_type_segment">Segmenta ekskluzivo</string>
+    <string name="exclusion_tags_alltools">Ĉiuj iloj</string>
+    <string name="exclusion_target_label">Ekskluziva celo</string>
+    <string name="exclusion_option_allow_partial">Permesi partajn kongruojn</string>
+    <string name="exclusion_option_ignore_casing">Ignori usklecon</string>
+    <string name="exclusion_editor_affected_tools_label">Tuŝitaj iloj</string>
+    <string name="exclusion_editor_path_explanation">Voja ekskluzivo malhelpas SD Maid plue prilabori iujn ajn kongruajn vojojn. Ĉi tio validas por dosieroj, dosierujoj kaj subdosierujoj.</string>
+    <string name="exclusion_editor_pkg_explanation">Aplikaĵa ekskluzivo malhelpas SD Maid prilabori iujn ajn kongruajn pakaĵojn.</string>
+    <string name="exclusion_editor_segment_explanation">Segment-bazita ekskluzivo similas al voja ekskluzivo sed permesas partajn kongruojn. Ekzemplo: \"DCIM/Camera\" ekskluzivas \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Ĉu forigi ĉi tiun ekskluzivon?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Vi havas nekonservitajn ŝanĝojn!</string>
+    <string name="exclusion_reset_default_exclusions">Restarigi defaŭltajn ekskluzivajn</string>
+    <string name="exclusion_import_action">Importi ekskluzivajn</string>
+    <string name="exclusion_export_action">Eksporti ekskluzivajn</string>
+    <string name="exclusion_create_pkg_hint">Uzi la AplikaĵKontrolan ilon por krei aplikaĵajn ekskluzivajn.</string>
+    <string name="exclusion_create_path_hint">Uzi la StokadAnalizilon por krei vojajn ekskluzivajn.</string>
+    <string name="exclusion_show_defaults_action">Montri defaŭltojn</string>
+</resources>

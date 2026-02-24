@@ -211,4 +211,5 @@
     <string name="general_user_label_owner">Perchennog</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Gosod</string>
+    <string name="exclusion_create_action">Creu eithriad</string>
 </resources>

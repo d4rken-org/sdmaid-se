@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Meneja wa kutengwa</string>
+    <string name="exclusion_manager_desc">Dhibiti kutengwa kwa faili na programu.</string>
+    <string name="exclusion_explanation_body1">Tenga faili na programu kutoka shughuli za SD Maid.</string>
+    <string name="exclusion_add_new_hint">Ongeza kutengwa kupya kwa kwanza kuruhusu SD Maid kutafuta kisha kutumia menyu ya muktadha kwenye matokeo unayotaka kutenga.</string>
+    <string name="exclusion_create_action">Unda kutengwa</string>
+    <string name="exclusion_edit_action">Hariri kutengwa</string>
+    <string name="exclusion_type_package">Kutengwa kwa programu</string>
+    <string name="exclusion_type_path">Kutengwa kwa njia</string>
+    <string name="exclusion_type_segment">Kutengwa kwa kipande</string>
+    <string name="exclusion_tags_alltools">Zana zote</string>
+    <string name="exclusion_target_label">Lengo la kutengwa</string>
+    <string name="exclusion_editor_path_change_action">Gusa kubadilisha njia</string>
+    <string name="exclusion_option_allow_partial">Ruhusu vifaanisho vya kigeni</string>
+    <string name="exclusion_option_ignore_casing">Puuza uandishi wa herufi</string>
+    <string name="exclusion_editor_affected_tools_label">Zana zilizoathiriwa</string>
+    <string name="exclusion_editor_path_explanation">Kutengwa kwa njia kunazuia SD Maid kuchakata zaidi njia zozote zinazofanana. Hii inatumika kwa faili, folda na folda ndogo.</string>
+    <string name="exclusion_editor_pkg_explanation">Kutengwa kwa programu kunazuia SD Maid kuchakata vifurushi vyovyote vinavyofanana.</string>
+    <string name="exclusion_editor_segment_explanation">Kutengwa kunakotumachia kipande ni sawa na kutengwa kwa njia lakini kunaruhusu vifaanisho vya kigeni. Mfano: \"DCIM/Camera\" inatoa \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Ondoa kutengwa huku?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
+    <string name="exclusion_reset_default_exclusions">Rejesha kutengwa kwa msingi</string>
+    <string name="exclusion_import_action">Leta kutengwa</string>
+    <string name="exclusion_export_action">Hamisha kutengwa</string>
+    <string name="exclusion_create_pkg_hint">Tumia zana ya Udhibiti wa Programu kuunda kutengwa kwa programu.</string>
+    <string name="exclusion_create_path_hint">Tumia zana ya Kichambua Hifadhi kuunda kutengwa kwa njia.</string>
+    <string name="exclusion_show_defaults_action">Onyesha za msingi</string>
+</resources>

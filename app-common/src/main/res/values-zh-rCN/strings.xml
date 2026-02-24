@@ -163,4 +163,5 @@
     <string name="general_user_label_owner">所有者</string>
     <string name="general_user_label_system">系统</string>
     <string name="setup_title">设置</string>
+    <string name="exclusion_create_action">创建排除项</string>
 </resources>

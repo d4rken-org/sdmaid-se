@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Rheolwr eithriadau</string>
+    <string name="exclusion_manager_desc">Rheoli eithriadau ffeiliau ac apiau.</string>
+    <string name="exclusion_explanation_body1">Eithrio ffeiliau ac apiau o weithrediadau SD Maid.</string>
+    <string name="exclusion_add_new_hint">Ychwanegu eithriadau newydd trwy adael i SD Maid chwilio yn gyntaf ac yna defnyddio\'r ddewislen cyd-destun ar y canlyniad rydych am ei eithrio.</string>
+    <string name="exclusion_create_action">Creu eithriad</string>
+    <string name="exclusion_edit_action">Golygu eithriad</string>
+    <string name="exclusion_type_package">Eithriad ap</string>
+    <string name="exclusion_type_path">Eithriad llwybr</string>
+    <string name="exclusion_type_segment">Eithriad segment</string>
+    <string name="exclusion_tags_alltools">Pob offeryn</string>
+    <string name="exclusion_target_label">Targed eithrio</string>
+    <string name="exclusion_editor_path_change_action">Tapiwch i newid llwybr</string>
+    <string name="exclusion_option_allow_partial">Caniatáu cyfatebiadau rhannol</string>
+    <string name="exclusion_option_ignore_casing">Anwybyddu prif lythrennau</string>
+    <string name="exclusion_editor_affected_tools_label">Offer a effeithir</string>
+    <string name="exclusion_editor_path_explanation">Mae eithriad llwybr yn atal SD Maid rhag prosesu unrhyw lwybrau cyfatebol ymhellach. Mae hyn yn berthnasol i ffeiliau, ffolderi ac is-ffolderi.</string>
+    <string name="exclusion_editor_pkg_explanation">Mae eithriad ap yn atal SD Maid rhag prosesu unrhyw becynnau cyfatebol.</string>
+    <string name="exclusion_editor_segment_explanation">Mae eithriad wedi\'i seilio ar segment yn debyg i eithriad llwybr ond yn caniatáu cyfatebiadau rhannol. Enghraifft: Mae "DCIM/Camera" yn eithrio "/sdcard/DCIM/Camera/photo.png".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Tynnu\'r eithriad hwn?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
+    <string name="exclusion_reset_default_exclusions">Adfer eithriadau rhagosodedig</string>
+    <string name="exclusion_import_action">Mewnforio eithriadau</string>
+    <string name="exclusion_export_action">Allforio eithriadau</string>
+    <string name="exclusion_create_pkg_hint">Defnyddiwch yr offeryn Rheolaeth Apiau i greu eithriadau apiau.</string>
+    <string name="exclusion_create_path_hint">Defnyddiwch yr offeryn Dadansoddwr Storfa i greu eithriadau llwybr.</string>
+    <string name="exclusion_show_defaults_action">Dangos rhagosodiadau</string>
+</resources>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">除外管理</string>
+    <string name="exclusion_manager_desc">ファイルとアプリの除外を管理します。</string>
+    <string name="exclusion_explanation_body1">SD Maidの操作からファイルとアプリを除外します。</string>
+    <string name="exclusion_add_new_hint">SD Maid検索を許可してから、除外したい結果のコンテキストメニューを使用して新しい除外を追加します。</string>
+    <string name="exclusion_create_action">除外を作成</string>
+    <string name="exclusion_edit_action">除外を編集</string>
+    <string name="exclusion_type_package">除外アプリ</string>
+    <string name="exclusion_type_path">パスの除外</string>
+    <string name="exclusion_type_segment">セグメントの除外</string>
+    <string name="exclusion_tags_alltools">すべてのツール</string>
+    <string name="exclusion_target_label">除外対象</string>
+    <string name="exclusion_editor_path_change_action">タップしてパスを変更</string>
+    <string name="exclusion_option_allow_partial">部分一致を許可</string>
+    <string name="exclusion_option_ignore_casing">大文字小文字を無視</string>
+    <string name="exclusion_editor_affected_tools_label">影響を受けるツール</string>
+    <string name="exclusion_editor_path_explanation">パス除外はSD Maid が一致するパスをさらに処理することを防ぎます。これはファイル、フォルダ、サブフォルダに適用されます。</string>
+    <string name="exclusion_editor_pkg_explanation">アプリを除外すると、SDメイドは一致するパッケージを処理できなくなります。</string>
+    <string name="exclusion_editor_segment_explanation">セグメントベースの除外はパス除外に似ていますが、部分一致を許可します。例: \"DCIM/Camera\" は \"/sdcard/DCIM/Camera/photo.png\" を除外します。</string>
+    <string name="exclusion_editor_remove_confirmation_message">この除外を削除しますか？</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">保存されていない変更があります!</string>
+    <string name="exclusion_reset_default_exclusions">既定の除外を復元</string>
+    <string name="exclusion_import_action">除外をインポート</string>
+    <string name="exclusion_export_action">除外をエクスポート</string>
+    <string name="exclusion_create_pkg_hint">AppControl ツールを使用して、アプリケーションの除外を作成します。</string>
+    <string name="exclusion_create_path_hint">ストレージ解析ツールを使用して、パス除外を作成します。</string>
+    <string name="exclusion_show_defaults_action">デフォルトを表示</string>
+</resources>

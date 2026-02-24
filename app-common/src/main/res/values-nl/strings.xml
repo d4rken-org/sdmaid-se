@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
     <string name="setup_title">Instelling</string>
+    <string name="exclusion_create_action">Uitsluiting creëren</string>
 </resources>

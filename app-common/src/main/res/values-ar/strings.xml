@@ -218,4 +218,5 @@
     <string name="general_user_label_owner">المالك</string>
     <string name="general_user_label_system">النظام</string>
     <string name="setup_title">الإعداد</string>
+    <string name="exclusion_create_action">إنشاء استبعاد</string>
 </resources>

@@ -185,4 +185,5 @@
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Подешавање</string>
+    <string name="exclusion_create_action">Креирај искључење</string>
 </resources>

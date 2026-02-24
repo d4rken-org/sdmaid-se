@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Поставување</string>
+    <string name="exclusion_create_action">Создади исклучок</string>
 </resources>

@@ -173,4 +173,5 @@
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="exclusion_create_action">Gumawa ng exclusion</string>
 </resources>

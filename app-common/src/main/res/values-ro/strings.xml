@@ -185,4 +185,5 @@
     <string name="general_user_label_owner">Proprietar</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Parte de configurare</string>
+    <string name="exclusion_create_action">Creează excludere</string>
 </resources>

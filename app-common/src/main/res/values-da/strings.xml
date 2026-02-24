@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
+    <string name="exclusion_create_action">Opret eksklusion</string>
 </resources>

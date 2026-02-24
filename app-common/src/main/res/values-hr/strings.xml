@@ -185,4 +185,5 @@
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
     <string name="setup_title">Postavljanje</string>
+    <string name="exclusion_create_action">Stvori izuzetak</string>
 </resources>

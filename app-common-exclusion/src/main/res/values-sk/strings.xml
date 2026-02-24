@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Správca vylúčení</string>
+    <string name="exclusion_manager_desc">Spravujte vylúčenia súborov a aplikácií.</string>
+    <string name="exclusion_explanation_body1">Vylúčte súbory a aplikácie z operácií SD Maid.</string>
+    <string name="exclusion_add_new_hint">Pridajte nové vylúčenia tak, že najprv necháte SD Maid vyhľadať a potom použijete kontextové menu na výsledku, ktorý chcete vylúčiť.</string>
+    <string name="exclusion_create_action">Vytvorte vylúčenie</string>
+    <string name="exclusion_edit_action">Upraviť vylúčenie</string>
+    <string name="exclusion_type_package">Vylúčenie aplikácie</string>
+    <string name="exclusion_type_path">Vylúčenie cesty</string>
+    <string name="exclusion_type_segment">Vylúčenie segmentu</string>
+    <string name="exclusion_tags_alltools">Všetky nástroje</string>
+    <string name="exclusion_target_label">Cieľ vylúčenia</string>
+    <string name="exclusion_editor_path_change_action">Klepnutím zmeníte cestu</string>
+    <string name="exclusion_option_allow_partial">Povoliť čiastočné zhody</string>
+    <string name="exclusion_option_ignore_casing">Ignorovať veľkosť písmen</string>
+    <string name="exclusion_editor_affected_tools_label">Ovplyvnené nástroje</string>
+    <string name="exclusion_editor_path_explanation">Vylúčenie cesty bráni SD Maid v ďalšom spracovaní akýchkoľvek zodpovedajúcich ciest. Týka sa to súborov, priečinkov a podpriečinkov.</string>
+    <string name="exclusion_editor_pkg_explanation">Vylúčenie aplikácie bráni SD Maid v spracovaní akýchkoľvek zodpovedajúcich balíkov.</string>
+    <string name="exclusion_editor_segment_explanation">Vylúčenie na základe segmentu je podobné vylúčeniu cesty, ale umožňuje čiastočné zhody. Príklad: „DCIM/Camera“ nezahŕňa „/sdcard/DCIM/Camera/photo.png“.</string>
+    <string name="exclusion_editor_remove_confirmation_message">Odstrániť túto výnimku?</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Máte neuložené zmeny!</string>
+    <string name="exclusion_reset_default_exclusions">Obnoviť predvolené vylúčenia</string>
+    <string name="exclusion_import_action">Importovať vylúčenia</string>
+    <string name="exclusion_export_action">Exportovať vylúčenia</string>
+    <string name="exclusion_create_pkg_hint">Na vytvorenie vylúčení aplikácií použite nástroj Kontrola aplikácií.</string>
+    <string name="exclusion_create_path_hint">Na vytvorenie vylúčení ciest použite nástroj Analyzátor úložiska.</string>
+    <string name="exclusion_show_defaults_action">Zobraziť predvolené</string>
+</resources>

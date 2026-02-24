@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Proprietario</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configurazione</string>
+    <string name="exclusion_create_action">Crea esclusione</string>
 </resources>

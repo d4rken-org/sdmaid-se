@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">Umnikazi</string>
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
+    <string name="exclusion_create_action">Dala ukukhishwa</string>
 </resources>

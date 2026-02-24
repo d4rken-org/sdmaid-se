@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Налаштування</string>
+    <string name="exclusion_create_action">Створити виняток</string>
 </resources>

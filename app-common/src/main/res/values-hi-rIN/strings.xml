@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">सिस्टम</string>
     <string name="setup_title">व्यवस्थित</string>
+    <string name="exclusion_create_action">अपवर्जन बनाएँ</string>
 </resources>

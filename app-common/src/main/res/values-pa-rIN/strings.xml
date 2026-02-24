@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">ਮਾਲਕ</string>
     <string name="general_user_label_system">ਸਿਸਟਮ</string>
     <string name="setup_title">ਸੈਟਅੱਪ</string>
+    <string name="exclusion_create_action">ਬਾਹਰੀਕਰਣ ਬਣਾਓ</string>
 </resources>

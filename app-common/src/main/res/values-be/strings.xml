@@ -196,4 +196,5 @@
     <string name="general_user_label_owner">Уладальнік</string>
     <string name="general_user_label_system">Сістэма</string>
     <string name="setup_title">Наладжванне</string>
+    <string name="exclusion_create_action">Стварыць выключэнне</string>
 </resources>
