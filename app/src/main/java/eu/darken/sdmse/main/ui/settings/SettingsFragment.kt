@@ -11,18 +11,20 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.uix.Fragment2
+import eu.darken.sdmse.common.uix.ToolbarHost
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.SettingsFragmentBinding
 import kotlinx.parcelize.Parcelize
 
 @AndroidEntryPoint
 class SettingsFragment : Fragment2(R.layout.settings_fragment),
-    PreferenceFragmentCompat.OnPreferenceStartFragmentCallback {
+    PreferenceFragmentCompat.OnPreferenceStartFragmentCallback,
+    ToolbarHost {
 
     private val vm: SettingsViewModel by viewModels()
     private val ui: SettingsFragmentBinding by viewBinding()
 
-    val toolbar: Toolbar
+    override val toolbar: Toolbar
         get() = ui.toolbar
 
     private val screens = ArrayList<Screen>()

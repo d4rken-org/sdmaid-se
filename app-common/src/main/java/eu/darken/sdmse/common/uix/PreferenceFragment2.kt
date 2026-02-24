@@ -19,7 +19,6 @@ import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.main.ui.settings.SettingsFragment
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 
@@ -31,7 +30,7 @@ abstract class PreferenceFragment2 : PreferenceFragmentCompat() {
     abstract val preferenceFile: Int
 
     val toolbar: Toolbar
-        get() = (parentFragment as SettingsFragment).toolbar
+        get() = (parentFragment as ToolbarHost).toolbar
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         toolbar.menu.clear()

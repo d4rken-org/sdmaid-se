@@ -7,7 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
-import androidx.fragment.app.Fragment
+import androidx.fragment.app.DialogFragment
 import androidx.navigation.NavDirections
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -15,11 +15,12 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.doNavigate
 
 
-abstract class Fragment2(@LayoutRes val layoutRes: Int?) : Fragment(layoutRes ?: 0) {
+abstract class DialogFragment2(@LayoutRes val layoutRes: Int?) : DialogFragment(layoutRes ?: 0) {
 
     constructor() : this(null)
 
-    internal val tag: String =
+    @JvmField
+    protected val tag: String =
         logTag("Fragment", "${this.javaClass.simpleName}(${Integer.toHexString(hashCode())})")
 
     override fun onAttach(context: Context) {

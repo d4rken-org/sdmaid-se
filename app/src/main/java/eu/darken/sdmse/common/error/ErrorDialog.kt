@@ -1,13 +1,7 @@
 package eu.darken.sdmse.common.error
 
-import android.app.Activity
-import android.util.TypedValue
 import androidx.navigation.Navigation
 import androidx.navigation.findNavController
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
-import com.google.android.material.textview.MaterialTextView
-import eu.darken.sdmse.MainDirections
-import eu.darken.sdmse.common.R
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.WriteException
@@ -27,79 +21,33 @@ private fun IncompleteSetupException.toLocalizedError(): LocalizedError = Locali
             ${setupTypes.joinToString(",") { "'${ctx.getString(it.labelRes)}'" }}
         """.trimIndent()
     },
-    fixActionLabel = R.string.setup_title.toCaString(),
+    fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString(),
     fixAction = {
         val navController = Navigation.findNavController(it, eu.darken.sdmse.R.id.nav_host)
         val options = SetupScreenOptions(isOnboarding = true, typeFilter = setupTypes)
-        navController.navigate(MainDirections.goToSetup(options = options))
+        navController.navigate(eu.darken.sdmse.MainDirections.goToSetup(options = options))
     }
 )
 
-fun Throwable.asErrorDialogBuilder(
-    context: Activity
-): MaterialAlertDialogBuilder {
-    return MaterialAlertDialogBuilder(context).apply {
-        val error = this@asErrorDialogBuilder
-        val localizedError = when (error) {
-            is IncompleteSetupException -> error.toLocalizedError()
-            else -> error.localized(context)
-        }
-
-        setTitle(localizedError.label.get(context))
-
-        val messageView = MaterialTextView(context).apply {
-            text = localizedError.description.get(context)
-            setTextAppearance(com.google.android.material.R.style.TextAppearance_MaterialComponents_Caption)
-            setTextIsSelectable(true)
-
-            val paddingHorizontal = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, 24f, resources.displayMetrics
-            ).toInt()
-            val paddingVertical = TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP, 8f, resources.displayMetrics
-            ).toInt()
-            setPadding(
-                paddingHorizontal,
-                paddingVertical,
-                paddingHorizontal,
-                0,
-            )
-        }
-        setView(messageView)
-
-        if (localizedError.fixAction != null) {
-            setPositiveButton(
-                localizedError.fixActionLabel?.get(context) ?: context.getString(android.R.string.ok)
-            ) { _, _ ->
-                localizedError.fixAction!!.invoke(context)
-            }
-            setNegativeButton(R.string.general_cancel_action) { _, _ ->
-            }
-        } else {
-            setPositiveButton(android.R.string.ok) { _, _ ->
-            }
-        }
-
+fun installErrorDialogCustomizer() {
+    errorDialogCustomizer = { error, activity ->
         when {
-            localizedError.infoAction != null -> {
-                setNeutralButton(
-                    localizedError.infoActionLabel?.get(context)
-                        ?: context.getString(R.string.general_show_details_action)
-                ) { _, _ ->
-                    localizedError.infoAction!!.invoke(context)
-                }
+            error is IncompleteSetupException -> error.toLocalizedError()
+            error is WriteException && error.path != null -> {
+                error.localized(activity).copy(
+                    infoActionLabel = eu.darken.sdmse.R.string.exclusion_create_action.toCaString(),
+                    infoAction = { ctx ->
+                        ctx.findNavController(eu.darken.sdmse.R.id.nav_host).navigate(
+                            resId = eu.darken.sdmse.R.id.goToPathExclusionEditor,
+                            args = PathExclusionFragmentArgs(
+                                initial = PathExclusionEditorOptions(targetPath = error.path!!)
+                            ).toBundle()
+                        )
+                    }
+                )
             }
 
-            this@asErrorDialogBuilder is WriteException && path != null -> {
-                setNeutralButton(eu.darken.sdmse.R.string.exclusion_create_action) { _, _ ->
-                    context.findNavController(eu.darken.sdmse.R.id.nav_host).navigate(
-                        resId = eu.darken.sdmse.R.id.goToPathExclusionEditor,
-                        args = PathExclusionFragmentArgs(
-                            initial = PathExclusionEditorOptions(targetPath = path!!)
-                        ).toBundle()
-                    )
-                }
-            }
+            else -> null
         }
     }
 }

@@ -23,7 +23,8 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
     abstract val ui: ViewBinding
     abstract val vm: ViewModel3
 
-    internal val tag: String =
+    @JvmField
+    protected val tag: String =
         logTag("Fragment", "${this.javaClass.simpleName}(${Integer.toHexString(hashCode())})")
 
     override fun onAttach(context: Context) {

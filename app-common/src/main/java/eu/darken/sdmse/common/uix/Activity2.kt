@@ -9,7 +9,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 
 abstract class Activity2 : AppCompatActivity() {
-    internal val tag: String =
+    protected val tag: String =
         logTag("Activity", this.javaClass.simpleName + "(" + Integer.toHexString(hashCode()) + ")")
 
     override fun onCreate(savedInstanceState: Bundle?) {
