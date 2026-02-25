@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Sprzątacz aplikacji</string>
     <string name="appcleaner_explanation_short">Zbędne dane należące do konkretnych aplikacji.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publiczne domyślne pamięci podręczne</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne pod Androidem/dane w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>

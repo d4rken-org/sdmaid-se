@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Dọn dẹp hệ thống</string>
     <string name="systemcleaner_explanation_short">Dữ liệu thừa không thuộc về bất kỳ ứng dụng cụ thể nào.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">%d kết quả trùng khớp đã bị xóa</item>

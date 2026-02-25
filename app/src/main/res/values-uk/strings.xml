@@ -193,7 +193,6 @@
     <string name="debug_card_pkgs_reload_action">Перезавантажити додатки</string>
     <string name="debug_card_root_test_action">Тест root</string>
     <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
-    <string name="settings_category_tools_label">Інструменти</string>
     <string name="settings_category_filter">Фільтр</string>
     <string name="settings_category_risklevel">Рівень ризику</string>
     <string name="data_area_public_app_data_official_label">Загальнодоступні дані додатка за замовчуванням</string>
@@ -235,7 +234,6 @@
         <item quantity="many">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
         <item quantity="other">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
     </plurals>
-    <string name="stats_label">Історія</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s було звільнено.</item>
         <item quantity="few">%s було звільнено.</item>

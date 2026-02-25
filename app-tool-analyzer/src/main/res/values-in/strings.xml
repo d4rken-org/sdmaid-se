@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Penganalisis Penyimpanan</string>
     <string name="analyzer_explanation_short">Cari tahu apa yang menggunakan ruang di perangkat Anda.</string>
     <string name="analyzer_progress_scanning_device">Mencari perangkat penyimpanan</string>
     <string name="analyzer_progress_scanning_storage">Memindai penyimpanan</string>

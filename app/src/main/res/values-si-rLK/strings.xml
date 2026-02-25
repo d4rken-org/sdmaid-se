@@ -176,7 +176,6 @@
     <string name="debug_card_pkgs_reload_action">යෙදුම් නැවත පූරණය කරන්න</string>
     <string name="debug_card_root_test_action">Root පරීක්‍ෂාව</string>
     <string name="debug_card_shizuku_test_action">Shizuku පරීක්‍ෂාව</string>
-    <string name="settings_category_tools_label">මෙවලම්</string>
     <string name="settings_category_filter">පෙරණය</string>
     <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
     <string name="data_area_public_app_data_official_label">පෙරනිමි පොදු යෙදුම් දත්ත</string>
@@ -213,7 +212,6 @@
         <item quantity="one">SD Maid සමඟ වසරක් %1$d — නිදහස් කළ ඉඩ: %2$s. ඔබේ Android පිරිසිදුව තබමින්. #SDMaid\nත්‍රයි කරන්න: %3$s</item>
         <item quantity="other">SD Maid සමඟ වසර %1$d — නිදහස් කළ ඉඩ: %2$s. ඔබේ Android පිරිසිදුව තබමින්. #SDMaid\nත්‍රයි කරන්න: %3$s</item>
     </plurals>
-    <string name="stats_label">ඉතිහාසය</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s මුක්ත කර ඇත.</item>
         <item quantity="other">%s මුක්ත කර ඇත.</item>

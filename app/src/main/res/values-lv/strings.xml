@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Pārlādēt lietotnes</string>
     <string name="debug_card_root_test_action">Testēt root</string>
     <string name="debug_card_shizuku_test_action">Testēt Shizuku</string>
-    <string name="settings_category_tools_label">Rīki</string>
     <string name="settings_category_filter">Filtrs</string>
     <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
@@ -204,7 +203,6 @@
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
-    <string name="stats_label">Vēsture</string>
     <string name="stats_report_status_success">Veiksmīgi</string>
     <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
     <string name="stats_report_status_partial_failure">Neveiksmīgi</string>

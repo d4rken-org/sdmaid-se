@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Kaydırıcı</string>
-    <string name="swiper_tool_name">Kaydırıcı</string>
     <string name="swiper_tool_description">Klasörleri hızlıca düzenleyin — dosyaları saklamak, silmek veya atlamak için kaydırın.</string>
     <string name="swiper_dashcard_description">Belirli klasörleri dosya yöneticisinden daha hızlı düzenleyin — her dosyayı kaydırmanız yeterli.</string>
     <string name="swiper_start_action">Kaydırmaya başla</string>

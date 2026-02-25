@@ -174,4 +174,6 @@
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">प्रणाली</string>
     <string name="setup_title">सेटअप</string>
+    <string name="deduplicator_tool_name">डुप्लिकेट हटाउने उपकरण</string>
+    <string name="settings_category_tools_label">उपकरणहरू</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Opslag Analyzer</string>
     <string name="analyzer_explanation_short">Ontdek wat ruimte inneemt op je apparaat.</string>
     <string name="analyzer_progress_scanning_device">Zoeken naar opslagapparaten</string>
     <string name="analyzer_progress_scanning_storage">Scant opslag</string>

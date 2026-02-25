@@ -115,14 +115,14 @@ class SchedulerNotifications @Inject constructor(
                 .filter { it.error != null }
                 .map {
                     val toolNameId = when (it.task.type) {
-                        SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_tool_name
-                        SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name
-                        SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name
-                        SDMTool.Type.APPCONTROL -> eu.darken.sdmse.appcontrol.R.string.appcontrol_tool_name
-                        SDMTool.Type.ANALYZER -> eu.darken.sdmse.analyzer.R.string.analyzer_tool_name
-                        SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name
-SDMTool.Type.SQUEEZER -> eu.darken.sdmse.squeezer.R.string.squeezer_tool_name
-                        SDMTool.Type.SWIPER -> eu.darken.sdmse.swiper.R.string.swiper_tool_name
+                        SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.string.corpsefinder_tool_name
+                        SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.string.systemcleaner_tool_name
+                        SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.string.appcleaner_tool_name
+                        SDMTool.Type.APPCONTROL -> eu.darken.sdmse.common.R.string.appcontrol_tool_name
+                        SDMTool.Type.ANALYZER -> eu.darken.sdmse.common.R.string.analyzer_tool_name
+                        SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.string.deduplicator_tool_name
+                        SDMTool.Type.SQUEEZER -> eu.darken.sdmse.common.R.string.squeezer_tool_name
+                        SDMTool.Type.SWIPER -> eu.darken.sdmse.common.R.string.swiper_tool_name
                     }
                     context.getString(toolNameId) to it.error!!.localized(context).asText().get(context)
                 }

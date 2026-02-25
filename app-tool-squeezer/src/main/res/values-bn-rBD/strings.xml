@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">মিডিয়া স্কুইজ</string>
     <string name="squeezer_explanation_short">স্টোরেজ স্পেস বাঁচাতে ছবি সংকুচিত করুন।</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d ছবি পাওয়া গেছে</item>

@@ -180,4 +180,13 @@
         <item quantity="one">U krijua një përjashtim</item>
         <item quantity="other">%d përjashtime u krijuan</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Gjetës i mbeturinave</string>
+    <string name="systemcleaner_tool_name">Pastruesi i Sistemit</string>
+    <string name="appcleaner_tool_name">Pastrues i aplikacioneve</string>
+    <string name="deduplicator_tool_name">Fshirja e skedarëve duplikat</string>
+    <string name="appcontrol_tool_name">Kontroll i aplikacionit</string>
+    <string name="analyzer_tool_name">Analizuesi i magazinës</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Historiku</string>
+    <string name="settings_category_tools_label">Mjetet</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">لە فایلەکاندا هەڵبسوڕێ بۆ بڕیاردان لەسەر ئەوەی چی بهێڵیتەوە یان بیسڕیتەوە.</string>
     <string name="swiper_keep_action">بیهێڵەوە</string>
     <string name="swiper_skip_action">تێپەڕاندن</string>

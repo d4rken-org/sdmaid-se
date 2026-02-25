@@ -170,7 +170,6 @@
     <string name="debug_mode_explanation">Test seçeneklerini ve daha ayrıntılı çıktı almayı etkinleştir. Uygulama daha yavaş ve farklı bir şekilde çalışacak.</string>
     <string name="debug_bugreporter_label">Otomatik hata raporları</string>
     <string name="debug_bugreporter_summary">Uygulama çökmesi detayları gibi hataları otomatik olarak raporlar, böylece olası sebepleri bulup düzeltebilirim.</string>
-    <string name="settings_category_tools_label">Araçlar</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risk Seviyesi</string>
     <string name="data_area_public_app_data_official_label">Varsayılan genel uygulama verileri</string>
@@ -208,7 +207,6 @@
         <item quantity="one">SD Maid ile %1$d yıl — Boşaltılan alan: %2$s. Android cihazınızı temiz ve düzenli tutun. #SDMaid\nDeneyin: %3$s</item>
         <item quantity="other">SD Maid ile %1$d yıl — Boşaltılan alan: %2$s. Android cihazınızı temiz ve düzenli tutun. #SDMaid\nDeneyin: %3$s</item>
     </plurals>
-    <string name="stats_label">Geçmiş</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s serbest bırakıldı.</item>
         <item quantity="other">%s serbest bırakıldı.</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Kisafishi Mfumo</string>
     <string name="systemcleaner_explanation_short">Data zisizohitajika ambazo hazimilikiwi na programu yoyote maalum.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">Kifaanisho %d kimefutwa</item>

@@ -174,7 +174,6 @@
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
     <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
-    <string name="settings_category_tools_label">Hulpmiddelen</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risico niveau</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app gegevens</string>
@@ -212,7 +211,6 @@
         <item quantity="one">%1$d jaar met SD Maid — Ruimte vrijgemaakt: %2$s. Houd je Android schoon en opgeruimd. #SDMaid\nProbeer het: %3$s</item>
         <item quantity="other">%1$d jaar met SD Maid — Ruimte vrijgemaakt: %2$s. Houd je Android schoon en opgeruimd. #SDMaid\nProbeer het eens: %3$s</item>
     </plurals>
-    <string name="stats_label">Geschiedenis</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s is vrijgemaakt.</item>
         <item quantity="other">%s zijn vrijgemaakt.</item>

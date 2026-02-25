@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">অ্যাপগুলি পুনরায় লোড করুন</string>
     <string name="debug_card_root_test_action">রুট পরীক্ষা করুন</string>
     <string name="debug_card_shizuku_test_action">Shizuku পরীক্ষা করুন</string>
-    <string name="settings_category_tools_label">টুলস</string>
     <string name="settings_category_filter">পরিশ্রুতক</string>
     <string name="settings_category_risklevel">ঝুঁকির স্তর</string>
     <string name="data_area_public_app_data_official_label">ডিফল্ট পাবলিক অ্যাপ ডেটা</string>
@@ -223,7 +222,6 @@
         <item quantity="one">SD Maid-এর সাথে %1$d বছর — খালি জায়গা: %2$s। আপনার Android পরিষ্কার এবং পরিপাটি রাখা। #SDMaid\nএটি ব্যবহার করে দেখুন: %3$s</item>
         <item quantity="other">SD Maid ব্যবহার করে %1$d বছর — খালি জায়গা: %2$s। আপনার Android পরিষ্কার-পরিচ্ছন্ন রাখা। #SDMaid\nএটি ব্যবহার করে দেখুন: %3$s</item>
     </plurals>
-    <string name="stats_label">ইতিহাস</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s মুক্ত করা হয়েছে।</item>
         <item quantity="other">%s মুক্ত করা হয়েছে।</item>

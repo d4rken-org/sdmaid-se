@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
     <string name="debug_card_root_test_action">Rootをテスト</string>
     <string name="debug_card_shizuku_test_action">Shizukuをテスト</string>
-    <string name="settings_category_tools_label">ツール</string>
     <string name="settings_category_filter">フィルタ</string>
     <string name="settings_category_risklevel">リスクレベル</string>
     <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
@@ -217,7 +216,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">SD Maidと%1$d年 — 解放した容量: %2$s。Androidをきれいに保っています。#SDMaid\nお試しください: %3$s</item>
     </plurals>
-    <string name="stats_label">履歴</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%sが解放されました。</item>
     </plurals>

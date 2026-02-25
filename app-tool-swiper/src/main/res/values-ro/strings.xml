@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Glisare</string>
-    <string name="swiper_tool_name">Glisare</string>
     <string name="swiper_tool_description">Dezaglomerați folderele rapid — glisați fișierele pentru a păstra, șterge sau sări.</string>
     <string name="swiper_dashcard_description">Dezaglomerați foldere specifice mai rapid decât un explorator de fișiere — doar glisați fiecare fișier.</string>
     <string name="swiper_start_action">Începeți glisarea</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">ตัวทำความสะอาดแอพ</string>
     <string name="appcleaner_explanation_short">ข้อมูลที่สามารถลบทิ้งได้ของแอพเฉพาะ</string>
     <string name="appcleaner_filter_defaultcachespublic_label">แคชเริ่มต้นสาธารณะ</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">แคชแอพสาธารณะเริ่มต้น เข้าถึงได้ใน Android/data ใน Android รุ่นเก่า จะถูกลบเมื่อแตะ \"ล้างแคช\" ในการตั้งค่าระบบ</string>

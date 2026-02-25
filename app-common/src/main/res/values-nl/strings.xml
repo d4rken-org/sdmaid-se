@@ -180,4 +180,14 @@
         <item quantity="one">Eén uitsluiting is gemaakt</item>
         <item quantity="other">%d uitsluitingen gemaakt</item>
     </plurals>
+    <string name="corpsefinder_tool_name">LijkenZoeker</string>
+    <string name="systemcleaner_tool_name">SysteemReiniger</string>
+    <string name="appcleaner_tool_name">AppReiniger</string>
+    <string name="deduplicator_tool_name">Ontdubbelaar</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControle</string>
+    <string name="analyzer_tool_name">Opslag Analyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Geschiedenis</string>
+    <string name="settings_category_tools_label">Hulpmiddelen</string>
 </resources>

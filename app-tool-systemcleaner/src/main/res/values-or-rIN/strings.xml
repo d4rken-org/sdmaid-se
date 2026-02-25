@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">ସିଷ୍ଟମ୍ କ୍ଲିନର୍</string>
     <string name="systemcleaner_explanation_short">ଅତିରିକ୍ତ ତଥ୍ୟ ଯାହା କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍‌ର ନୁହଁ।</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d ମ୍ୟାଚ୍ ଡିଲିଟ୍ ହୋଇଛି</item>

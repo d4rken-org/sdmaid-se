@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">SistemTəmizləyicisi</string>
     <string name="systemcleaner_explanation_short">Heç bir xüsusi tətbiqə aid olmayan lazımsız məlumatlar.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d uyğunluq silindi</item>

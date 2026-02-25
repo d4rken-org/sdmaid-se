@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Pemilah</string>
-    <string name="swiper_tool_name">Pemilah</string>
     <string name="swiper_tool_description">Rapikan folder dengan cepat — geser file untuk menyimpan, menghapus, atau melewati.</string>
     <string name="swiper_dashcard_description">Rapikan folder tertentu lebih cepat dari penjelajah file — cukup geser setiap file.</string>
     <string name="swiper_start_action">Mulai memilah</string>

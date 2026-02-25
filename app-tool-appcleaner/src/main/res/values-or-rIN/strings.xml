@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">ଆପ୍‌କ୍ଲିନର</string>
     <string name="appcleaner_explanation_short">ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍‌ଗୁଡ଼ିକର ସମ୍ବନ୍ଧୀୟ ବ୍ୟୟଯୋଗ୍ୟ ତଥ୍ୟ।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ସାର୍ବଜନୀନ ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ଦ୍ରୁତିକା। ପୁରାତନ ଆଣ୍ଡ୍ରଏଡ୍ ସଂସ୍କରଣରେ Android/data ଅଧୀନରେ ଉପଲବ୍ଧ। ସିଷ୍ଟମ୍ ସେଟିଂରେ \"ଦ୍ରୁତିକା ସଫା କର\" ଟିପିବାବେଳେ ବିଲୋପ ହେଲା।</string>

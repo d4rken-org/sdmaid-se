@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Yaddaş Analizatoru</string>
     <string name="analyzer_explanation_short">Cihazınızda nəyin yer tutduğunu öyrənin.</string>
     <string name="analyzer_progress_scanning_device">Yaddaş cihazları axtarılır</string>
     <string name="analyzer_progress_scanning_storage">Yaddaş skan edilir</string>

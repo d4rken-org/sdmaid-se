@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Analizadore de Archìviu</string>
     <string name="analyzer_explanation_short">Ischire ite est ocupende ispàtziu in su dispositivu tuo.</string>
     <string name="analyzer_progress_scanning_device">Chirchende dispositivos de archìviu</string>
     <string name="analyzer_progress_scanning_storage">Iscansionende archìviu</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Analizator pohrane</string>
     <string name="analyzer_explanation_short">Saznajte što zauzima prostor na vašem uređaju.</string>
     <string name="analyzer_progress_scanning_device">Traženje uređaja za pohranu</string>
     <string name="analyzer_progress_scanning_storage">Skeniranje pohrane</string>

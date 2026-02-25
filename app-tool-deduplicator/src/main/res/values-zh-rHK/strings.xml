@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">複製器</string>
     <string name="deduplicator_explanation_short">查找設備上重複的數據。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">已刪除 %d 個重複項</item>

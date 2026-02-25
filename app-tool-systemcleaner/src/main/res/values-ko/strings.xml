@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">시스템 청소</string>
     <string name="systemcleaner_explanation_short">특정 앱에 소유되지 않은 불필요한 데이터입니다.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">%d개의 항목을 삭제했습니다</item>

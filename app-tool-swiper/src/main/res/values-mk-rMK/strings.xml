@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Расчистете папки брзо — лизгајте низ датотеки за задржување, бришење или прескокнување.</string>
     <string name="swiper_dashcard_description">Расчистете одредени папки побрзо од пребарувач на датотеки — само лизгајте секоја датотека.</string>
     <string name="swiper_start_action">Започнете лизгање</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">بزانە چی شوێنی لەسەر ئامرازەکەت دەگرێت.</string>
     <string name="analyzer_progress_scanning_device">بە دوای ئامرازی کۆگادا دەگەڕێت</string>
     <string name="analyzer_progress_scanning_storage">کۆگا سکان دەکرێت</string>

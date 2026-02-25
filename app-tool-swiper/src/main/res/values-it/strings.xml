@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Riordina le cartelle velocemente — scorri i file per tenerli, eliminarli o saltarli.</string>
     <string name="swiper_dashcard_description">Riordina cartelle specifiche più velocemente di un file manager — basta scorrere ogni file.</string>
     <string name="swiper_start_action">Inizia a scorrere</string>

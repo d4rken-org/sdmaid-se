@@ -4,7 +4,6 @@
     <string name="appcleaner_filter_advertisement_summary">Comhaid a bhaineann le fograiocht, m.sh. meáin taiscthe.</string>
     <string name="appcleaner_filter_bugreporting_label">Tuairisci fabht</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Ag cinneadh taiscthe doróchtana</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Sonraí inchaite a bhaineann le haipeanna ar leith.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Taiscí réamhshocraithe poiblí</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Taiscí réamhshocraithe poiblí aipeanna. In rochtain faoi Android/data ar leaganacha sean-Android. Scriostar nuair a bhrúnn tú "Glan taisce" i socruithe an chórais.</string>

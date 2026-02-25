@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">ArtıkBulucu</string>
     <string name="corpsefinder_explanation_short">Kaldırılmış uygulamalara ait veriler.</string>
     <string name="corpsefinder_settings_summary">Tarama filtrelerini ve risk seviyelerini ayarla.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Özel kalıntıları dahil et</string>

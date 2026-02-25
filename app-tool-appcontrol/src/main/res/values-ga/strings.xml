@@ -2,7 +2,6 @@
 <resources>
     <string name="appcontrol_app_forcestop_description">Stopann an aip. Coiscionn sé ó tosai sé féin go dtí go n-osclann tú é nó go n-athtosaênn an guthán.</string>
     <string name="appcontrol_item_installedat_x_label">Suiteála ag: %s</string>
-    <string name="appcontrol_tool_name">RialúApp</string>
     <string name="appcontrol_explanation_short">Aipeanna suiteáilte ar do ghléas.</string>
     <string name="appcontrol_toggle_app_selection_action">Scoránaigh aipeanna</string>
     <string name="appcontrol_toggle_app_enable_action">Cumasaigh aip</string>

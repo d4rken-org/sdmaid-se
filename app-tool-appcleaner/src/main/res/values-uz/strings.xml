@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Ilova tozalagich</string>
     <string name="appcleaner_explanation_short">Maxsus ilovalarning sarflanadigan ma\'lumotlari.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Umumiy standart keshlar</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standart umumiy ilova keshlari. Eski Android versiyalarida Android/data ostida kirish mumkin. Tizim sozlamalarida \"Keshni tozalash\" ni bosganda o\'chiriladi.</string>

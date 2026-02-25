@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Analyseur de mémoire</string>
     <string name="analyzer_explanation_short">Découvrir ce qui occupe de l’espace sur votre appareil.</string>
     <string name="analyzer_progress_scanning_device">Recherche de périphériques de stockage</string>
     <string name="analyzer_progress_scanning_storage">Analyse de la mémoire</string>

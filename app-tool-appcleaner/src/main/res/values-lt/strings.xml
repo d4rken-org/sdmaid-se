@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">\"AppCleaner\"</string>
     <string name="appcleaner_explanation_short">Naudotini duomenys, priklausantys konkrečioms programoms.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Viešoji numatytoji talpykla</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Numatytoji viešoji programėlių talpykla. Senesnėse Android versijose pasiekiama per Android/data. Ištrinama bakstelėjus Išvalyti talpyklą sistemos nustatymuose.</string>

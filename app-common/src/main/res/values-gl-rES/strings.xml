@@ -180,4 +180,8 @@
         <item quantity="one">Creouse unha exclusión</item>
         <item quantity="other">Creáronse %d exclusións</item>
     </plurals>
+    <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Historial</string>
+    <string name="settings_category_tools_label">Ferramentas</string>
 </resources>

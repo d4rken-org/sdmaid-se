@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Netejador d\'aplicacions</string>
     <string name="appcleaner_explanation_short">Dades prescindibles que pertanyen a aplicacions específiques.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Memòries cau públiques per defecte</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Memòries cau d\'aplicacions públiques per defecte. Accessible a Android/dades en versions antigues d\'Android. S\'elimina tocant «Esborra la memòria cau» a la configuració del sistema.</string>

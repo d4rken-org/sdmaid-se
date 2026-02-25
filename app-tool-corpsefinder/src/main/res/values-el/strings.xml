@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Εύρεση υπολειμμάτων</string>
     <string name="corpsefinder_explanation_short">Δεδομένα που ανήκουν σε εφαρμογές που έχουν ήδη καταργηθεί.</string>
     <string name="corpsefinder_settings_summary">Ρυθμίστε τα φίλτρα σάρωσης και τα επίπεδα κινδύνου.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Συμπεριλάβετε επιθυμητά υπολείμματα</string>

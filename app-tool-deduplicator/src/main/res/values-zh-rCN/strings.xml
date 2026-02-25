@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">去重工具</string>
     <string name="deduplicator_explanation_short">查找设备上的重复数据。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">已删除 %d 重复项</item>

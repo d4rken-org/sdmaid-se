@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">快速整理資料夾 — 滑動檔案以保留、刪除或跳過。</string>
     <string name="swiper_dashcard_description">比檔案管理員更快地整理特定資料夾 — 只需滑動每個檔案。</string>
     <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>

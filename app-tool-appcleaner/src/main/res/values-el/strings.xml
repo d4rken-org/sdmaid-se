@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Εκκαθάριση Εφαρμογών</string>
     <string name="appcleaner_explanation_short">Αναλώσιμα δεδομένα που ανήκουν σε συγκεκριμένες εφαρμογές.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Δημόσιες προεπιλεγμένες κρυφές μνήμες</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Προεπιλεγμένες δημόσιες κρυφές μνήμες εφαρμογών. Προσβάσιμο στο Android/Data σε παλαιότερες εκδόσεις Android. Διαγράφεται όταν πατάτε \"Εκκαθάριση προσωρινής μνήμης\" στις ρυθμίσεις συστήματος.</string>

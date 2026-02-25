@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">অ্যাপ পরিষ্কারক</string>
     <string name="appcleaner_explanation_short">নির্দিষ্ট অ্যাপের অন্তর্গত বাদ দেওয়ার উপযোগী ডেটা।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">পাবলিক ডিফল্ট ক্যাশ</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ডিফল্ট পাবলিক অ্যাপ ক্যাশ। পুরানো Android সংস্করণে Android/data অধীনে অ্যাক্সেসযোগ্য। সিস্টেম সেটিংসে \"ক্যাশ সাফ করুন\" ট্যাপ করার সময় মুছে ফেলা হয়েছে।</string>

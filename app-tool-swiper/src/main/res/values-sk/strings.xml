@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Rýchlo upracte priečinky — potiahnutím súborov ich ponechajte, odstráňte alebo preskočte.</string>
     <string name="swiper_dashcard_description">Upracte konkrétne priečinky rýchlejšie ako v správcovi súborov — stačí potiahnuť každý súbor.</string>
     <string name="swiper_start_action">Začať potiahnutie</string>

@@ -180,7 +180,6 @@
     <string name="debug_card_pkgs_reload_action">Muat semula aplikasi</string>
     <string name="debug_card_root_test_action">Uji root</string>
     <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
-    <string name="settings_category_tools_label">Alatan</string>
     <string name="settings_category_filter">Penyaring</string>
     <string name="settings_category_risklevel">Tahap risiko</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi awam lalai</string>
@@ -216,7 +215,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">%1$d tahun dengan SD Maid — Ruang dibebaskan: %2$s. Memastikan Android anda bersih dan kemas. #SDMaid\nCuba: %3$s</item>
     </plurals>
-    <string name="stats_label">Statistik</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s telah dibebaskan.</item>
     </plurals>

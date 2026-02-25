@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Ilovalarni qayta yuklash</string>
     <string name="debug_card_root_test_action">Root ni sinash</string>
     <string name="debug_card_shizuku_test_action">Shizuku ni sinash</string>
-    <string name="settings_category_tools_label">Vositalar</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Xavf darajasi</string>
     <string name="data_area_public_app_data_official_label">Standart ommaviy ilova ma\'lumotlari</string>
@@ -223,7 +222,6 @@
         <item quantity="one">SD Maid bilan %1$d yil — Bo\'shatilgan joy: %2$s. Android qurilmangizni toza va tartibli saqlash. #SDMaid\nSinab ko\'ring: %3$s</item>
         <item quantity="other">SD Maid bilan %1$d yil — Bo\'shatilgan joy: %2$s. Android qurilmangizni toza va tartibli saqlash. #SDMaid\nSinab ko\'ring: %3$s</item>
     </plurals>
-    <string name="stats_label">Tarix</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s bo\'shatildi.</item>
         <item quantity="other">%s bo\'shatildi.</item>

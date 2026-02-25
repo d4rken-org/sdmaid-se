@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Ачыстка сістэмы</string>
     <string name="systemcleaner_explanation_short">Лішнія даныя, якія не адносяцца да пэўнай праграмы.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">Выдалена %d супадзенне</item>

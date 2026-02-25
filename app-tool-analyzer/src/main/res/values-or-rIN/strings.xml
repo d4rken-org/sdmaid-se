@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">ଷ୍ଟୋରେଜ୍ ବିଶ୍ଳେଷକ</string>
     <string name="analyzer_explanation_short">ଜାଣନ୍ତୁ ଆପଣଙ୍କ ଡିଵାଇସ୍‌ରେ କ\'ଣ ଜାଗା ଖାଉଛି।</string>
     <string name="analyzer_progress_scanning_device">ଷ୍ଟୋରେଜ୍ ଉପକରଣ ଖୋଜୁଛି</string>
     <string name="analyzer_progress_scanning_storage">ଷ୍ଟୋରେଜ୍ ସ୍କ୍ୟାନ୍ କରୁଛି</string>

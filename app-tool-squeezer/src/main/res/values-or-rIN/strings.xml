@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">ମିଡିଆ ସ୍କ୍ୱିଜ୍</string>
     <string name="squeezer_explanation_short">ଷ୍ଟୋରେଜ୍ ସ୍ଥାନ ସଞ୍ଚୟ ପାଇଁ ଚିତ୍ର ସଙ୍କୋଚନ କରନ୍ତୁ।</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d ଚିତ୍ର ମିଳିଲା</item>

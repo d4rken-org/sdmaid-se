@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Recharger les applis</string>
     <string name="debug_card_root_test_action">Tester l’accès superutilisateur</string>
     <string name="debug_card_shizuku_test_action">Tester Shizuku</string>
-    <string name="settings_category_tools_label">Outils</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Niveau de risque</string>
     <string name="data_area_public_app_data_official_label">Données d’applis publiques par défaut</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d an avec SD Maid. Espace libéré : %2$s. Votre Android reste propre et bien rangé. #SDMaid\nEssayez la : %3$s</item>
         <item quantity="other">%1$d ans avec SD Maid. Espace libéré : %2$s. Votre Android reste propre et bien rangé. #SDMaid\nEssayez la : %3$s</item>
     </plurals>
-    <string name="stats_label">Historique</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s a été libéré.</item>
         <item quantity="other">%s ont été libérés.</item>

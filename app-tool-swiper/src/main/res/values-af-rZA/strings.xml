@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ruim vouers vinnig op — swiep deur lêers om te hou, verwyder of oor te slaan.</string>
     <string name="swiper_dashcard_description">Ruim spesifieke vouers vinniger op as \'n lêerverkenner — swiep net elke lêer.</string>
     <string name="swiper_start_action">Begin swiep</string>

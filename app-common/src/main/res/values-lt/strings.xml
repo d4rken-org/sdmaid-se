@@ -197,4 +197,8 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>
     <string name="setup_feature_requires_additional_setup_x">Šiai funkcijai reikia atlikti papildomus sąrankos elementus: %s</string>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">\"AppCleaner\"</string>
+    <string name="settings_category_tools_label">Įrankiai</string>
 </resources>

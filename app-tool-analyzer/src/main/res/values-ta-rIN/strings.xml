@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">சேமிப்பு பகுப்பாய்வாளர்</string>
     <string name="analyzer_explanation_short">உங்கள் சாதனத்தில் எது இடத்தை ஆக்ரமிக்கிறது என்று கண்டுபிடிக்கவும்.</string>
     <string name="analyzer_progress_scanning_device">சேமிப்பு சாதனங்களைத் தேடுகிறது</string>
     <string name="analyzer_progress_scanning_storage">சேமிப்பை ஸ்கான் செய்கிறது</string>

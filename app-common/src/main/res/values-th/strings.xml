@@ -168,4 +168,13 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">สร้างการยกเว้น %d รายการ</item>
     </plurals>
+    <string name="corpsefinder_tool_name">ค้นหาซากไฟล์</string>
+    <string name="systemcleaner_tool_name">ตัวทำความสะอาดระบบ</string>
+    <string name="appcleaner_tool_name">ตัวทำความสะอาดแอพ</string>
+    <string name="deduplicator_tool_name">ตัวค้นหาไฟล์ซ้ำ</string>
+    <string name="appcontrol_tool_name">ตัวควบคุมแอพ</string>
+    <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">ประวัติ</string>
+    <string name="settings_category_tools_label">เครื่องมือ</string>
 </resources>

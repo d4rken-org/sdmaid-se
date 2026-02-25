@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
     <string name="debug_card_root_test_action">Toets root</string>
     <string name="debug_card_shizuku_test_action">Toets Shizuku</string>
-    <string name="settings_category_tools_label">Gereedskap</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risiko vlak</string>
     <string name="data_area_public_app_data_official_label">Verstek openbare toepassing data</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d jaar met SD Maid — Vrygestelde ruimte: %2$s. Hou jou Android skoon en netjies. #SDMaid\nProbeer dit: %3$s</item>
         <item quantity="other">%1$d jaar met SD Maid — Vrygestelde ruimte: %2$s. Hou jou Android skoon en netjies. #SDMaid\nProbeer dit: %3$s</item>
     </plurals>
-    <string name="stats_label">Geskiedenis</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s is bevry.</item>
         <item quantity="other">%s is bevry.</item>

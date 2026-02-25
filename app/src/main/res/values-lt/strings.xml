@@ -146,7 +146,6 @@
     <string name="debug_mode_explanation">Įgalinkite testavimo parinktis ir daugiau verbalinės išvesties. Programėlė veiks lėčiau ir veiks kitaip.</string>
     <string name="debug_bugreporter_label">Automatiniai klaidų pranešimai</string>
     <string name="debug_bugreporter_summary">Automatiškai praneša apie problemas, pvz., išsamią informaciją apie programos gedimus, kad galėčiau išsiaiškinti priežastis ir jas ištaisyti.</string>
-    <string name="settings_category_tools_label">Įrankiai</string>
     <string name="settings_category_filter">Filtras</string>
     <string name="settings_category_risklevel">Rizikos lygis</string>
 </resources>

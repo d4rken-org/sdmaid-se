@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">ऐप स्वच्छक</string>
     <string name="appcleaner_explanation_short">विशिष्ट ऐप्स से संबंधित खर्च करने योग्य डेटा।</string>
     <string name="appcleaner_filter_defaultcachespublic_label">सार्वजनिक डिफ़ॉल्ट कैश</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">डिफ़ॉल्ट सार्वजनिक ऐप कैश। पुराने Android संस्करणों पर Android/data के तहत पहुंच योग्य। सिस्टम सेटिंग्स में \"कैश साफ़ करें\" टैप करने पर मिट जाते हैं।</string>

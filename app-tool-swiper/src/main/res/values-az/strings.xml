@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Sürüşdürücü</string>
-    <string name="swiper_tool_name">Sürüşdürücü</string>
     <string name="swiper_tool_description">Qovluqları tez səliqəyə salın — faylları saxlamaq, silmək və ya keçmək üçün sürüşdürün.</string>
     <string name="swiper_dashcard_description">Müəyyən qovluqları fayl menecerindən daha sürətli səliqəyə salın — sadəcə hər faylı sürüşdürün.</string>
     <string name="swiper_start_action">Sürüşdürməyə başla</string>

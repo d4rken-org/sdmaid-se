@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Esfregona</string>
-    <string name="swiper_tool_name">Esfregona</string>
     <string name="swiper_tool_description">Organize pastas rapidamente — deslize ficheiros para manter, apagar ou ignorar.</string>
     <string name="swiper_dashcard_description">Organize pastas específicas mais rápido do que um explorador de ficheiros — basta deslizar cada ficheiro.</string>
     <string name="swiper_start_action">Comece a limpar</string>

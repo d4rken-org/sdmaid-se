@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Разберете какво заема място на вашето устройство.</string>
     <string name="analyzer_progress_scanning_device">Търсене на устройства за хранилище</string>
     <string name="analyzer_progress_scanning_storage">Сканиране на хранилище</string>

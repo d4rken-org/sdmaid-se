@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppReiniger</string>
     <string name="appcleaner_explanation_short">Eenmalige gegevens van specifieke apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publieke standaard caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standaard openbare app-caches. Toegankelijk via Android/data op oudere Android-versies. Verwijderd wanneer je op \'Cache wissen\' tikt in de systeeminstellingen.</string>

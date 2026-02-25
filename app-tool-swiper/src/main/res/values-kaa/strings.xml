@@ -137,7 +137,6 @@
     <string name="swiper_help_title">Swiper qalay islaydi</string>
     <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Papkalardı tez retke keltiw -- faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań.</string>
     <string name="swiper_dashcard_description">Belgli papkalardı fayl menejerinen tezrek retke keltiriń -- hár fayldı sıypań.</string>
     <string name="swiper_sessions_description">Faylları 3 qádem menen tekserip shıǵıń:\n\n1. Skanerlew ushın papka tańlań\n2. Faylları saqlap qalıw, o\'shiriw yamasa o\'tiw ushın sıypań\n3. Tańlawlarıńızdı tekserip, tastıyıqlań\n\nSońǵı o\'shiriw túymesin baspaǵansha hesh nárse o\'shirilmeydi.</string>

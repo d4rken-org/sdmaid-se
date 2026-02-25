@@ -174,4 +174,5 @@
     <string name="general_user_label_owner">ഉടമ</string>
     <string name="general_user_label_system">സിസ്റ്റം</string>
     <string name="setup_title">സെറ്റപ്പ്</string>
+    <string name="settings_category_tools_label">ടൂളുകൾ</string>
 </resources>

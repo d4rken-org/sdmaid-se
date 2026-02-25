@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Apprenser</string>
     <string name="appcleaner_explanation_short">Overflødige data, der tilhører bestemte apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Offentlige standardcacher</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentlige app-cacher. Tilgængelig under Android/data på ældre Android-versioner. Slettes ved at trykke på \"Ryd cache\" i systemindstillingerne.</string>

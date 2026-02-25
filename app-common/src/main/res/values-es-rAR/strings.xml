@@ -180,4 +180,14 @@
         <item quantity="one">Una exclusión creada</item>
         <item quantity="other">Se han creado %d exclusiones</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Buscador de residuos</string>
+    <string name="systemcleaner_tool_name">Limpiador del sistema</string>
+    <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
+    <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">Control de aplicaciones</string>
+    <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Historial</string>
+    <string name="settings_category_tools_label">Herramientas</string>
 </resources>

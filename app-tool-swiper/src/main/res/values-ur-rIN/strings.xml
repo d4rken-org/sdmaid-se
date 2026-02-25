@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">فولڈرز جلدی صاف کریں — فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں۔</string>
     <string name="swiper_dashcard_description">فائل ایکسپلورر سے تیز مخصوص فولڈرز صاف کریں — بس ہر فائل سوائپ کریں۔</string>
     <string name="swiper_sessions_description">3 آسان مراحل میں فائلوں کا جائزہ لیں:\n\n1. اسکین کرنے کے لیے فولڈر چنیں\n2. فائلوں کو رکھنے، حذف کرنے یا چھوڑنے کے لیے سوائپ کریں\n3. اپنے انتخاب کا جائزہ لیں اور تصدیق کریں\n\nآخری حذف بٹن دبانے تک کچھ بھی نہیں ہٹایا جاتا۔</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Limpador de Aplicativos</string>
     <string name="appcleaner_explanation_short">Dados coletáveis pertencentes a aplicativos específicos.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Caches públicos padrão</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache padrão de aplicativos públicos. Acessível em Android/data em versões mais antigas do Android. Excluído ao clicar em \"Limpar cache\" nas configurações do sistema.</string>

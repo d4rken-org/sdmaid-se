@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">संग्रहणविश्लेषक</string>
     <string name="analyzer_explanation_short">पता करें कि आपके डिवाइस में क्या जगह ले रहा है।</string>
     <string name="analyzer_progress_scanning_device">संग्रहण उपकरणों की खोज की जा रही है</string>
     <string name="analyzer_progress_scanning_storage">स्कैनिंग संग्रहण</string>

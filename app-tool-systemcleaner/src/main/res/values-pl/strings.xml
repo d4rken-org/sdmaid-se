@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Sprzątacz systemu</string>
     <string name="systemcleaner_explanation_short">Zbędne dane, które nie należą do żadnej konkretnej aplikacji.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d dopasowanie zostało usunięte</item>

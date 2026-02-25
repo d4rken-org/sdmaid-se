@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Restfinner</string>
     <string name="corpsefinder_explanation_short">Data tilhørende apper som allerede er fjernet.</string>
     <string name="corpsefinder_settings_summary">Juster skannefiltre og risikonivåer.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Ønskelige rester</string>

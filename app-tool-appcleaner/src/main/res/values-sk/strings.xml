@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Čistič aplikácií</string>
     <string name="appcleaner_explanation_short">Nepotrebné dáta patriace konkrétnym aplikáciám.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Verejné predvolené vyrovnávacie pamäte</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Predvolená verejná vyrovnávacia pamäť aplikácií. Dostupné v systéme Android/data na starších verziách systému Android. Odstráni sa po klepnutí na „Vymazať vyrovnávaciu pamäť“ v systémových nastaveniach.</string>

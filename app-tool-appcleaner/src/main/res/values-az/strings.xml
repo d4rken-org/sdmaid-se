@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">TətbiqTəmizləyicisi</string>
     <string name="appcleaner_explanation_short">Xüsusi tətbiqlərə aid olan xərclənə bilən məlumatlar.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">İctimai standart keşlər</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standart ictimai tətbiq keşləri. Köhnə Android versiyalarında Android/data altında əlçatandır. Sistem parametrlərində \"Keşi təmizlə\" toxunduqda silinir.</string>

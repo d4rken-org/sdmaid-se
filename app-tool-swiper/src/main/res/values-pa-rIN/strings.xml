@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">ਸਵਾਈਪਰ</string>
-    <string name="swiper_tool_name">ਸਵਾਈਪਰ</string>
     <string name="swiper_tool_description">ਫੋਲਡਰ ਜਲਦੀ ਸਾਫ਼ ਕਰੋ — ਰੱਖਣ, ਮਿਟਾਉਣ ਜਾਂ ਛੱਡਣ ਲਈ ਫਾਈਲਾਂ ਸਵਾਈਪ ਕਰੋ।</string>
     <string name="swiper_dashcard_description">ਫਾਈਲ ਐਕਸਪਲੋਰਰ ਤੋਂ ਤੇਜ਼ ਖਾਸ ਫੋਲਡਰ ਸਾਫ਼ ਕਰੋ — ਬੱਸ ਹਰ ਫਾਈਲ ਸਵਾਈਪ ਕਰੋ।</string>
     <string name="swiper_start_action">ਸਵਾਈਪ ਕਰਨਾ ਸ਼ੁਰੂ ਕਰੋ</string>

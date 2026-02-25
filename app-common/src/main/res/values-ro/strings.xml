@@ -192,4 +192,14 @@
         <item quantity="few">%d excluderi create</item>
         <item quantity="other">Excluderi %d create</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Găsitor de cadavre</string>
+    <string name="systemcleaner_tool_name">Curățitor de sistem</string>
+    <string name="appcleaner_tool_name">Curățitor de aplicații</string>
+    <string name="deduplicator_tool_name">Curățitor de duplicate</string>
+    <string name="squeezer_tool_name">Împărțire media</string>
+    <string name="appcontrol_tool_name">Controlul Aplicațiilor</string>
+    <string name="analyzer_tool_name">Analizator de stocare</string>
+    <string name="swiper_tool_name">Glisare</string>
+    <string name="stats_label">Istoric</string>
+    <string name="settings_category_tools_label">Instrumente</string>
 </resources>

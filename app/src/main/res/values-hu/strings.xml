@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
     <string name="debug_card_root_test_action">Root tesztelése</string>
     <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
-    <string name="settings_category_tools_label">Eszközök</string>
     <string name="settings_category_filter">Szűrő</string>
     <string name="settings_category_risklevel">Kockázati szint</string>
     <string name="data_area_public_app_data_official_label">Alapértelmezett nyilvános alkalmazásadatok</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d éve az SD Maiddel — Felszabadított hely: %2$s. Android készülékemet tisztán és rendezetten tartja. #SDMaid\nPróbáld ki: %3$s</item>
         <item quantity="other">%1$d éve az SD Maiddel — Felszabadított hely: %2$s. Android készülékemet tisztán és rendezetten tartja. #SDMaid\nPróbáld ki: %3$s</item>
     </plurals>
-    <string name="stats_label">Előzmények</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s felszabadult.</item>
         <item quantity="other">%s felszabadult.</item>

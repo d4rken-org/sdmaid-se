@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Comprimir mídia</string>
     <string name="squeezer_explanation_short">Comprimir imagens para economizar espaço de armazenamento.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d imagem encontrada</item>

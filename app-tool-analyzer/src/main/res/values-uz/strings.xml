@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Qurilmangizda nimaning joy egallayotganini aniqlash.</string>
     <string name="analyzer_progress_scanning_device">Xotira qurilmalarini qidirish</string>
     <string name="analyzer_progress_scanning_storage">Xotirani skanerlash</string>

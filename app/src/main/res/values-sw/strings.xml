@@ -182,7 +182,6 @@
     <string name="debug_card_pkgs_reload_action">Pakia upya programu</string>
     <string name="debug_card_root_test_action">Jaribu root</string>
     <string name="debug_card_shizuku_test_action">Jaribu Shizuku</string>
-    <string name="settings_category_tools_label">Zana</string>
     <string name="settings_category_filter">Kichungi</string>
     <string name="settings_category_risklevel">Kiwango cha hatari</string>
     <string name="data_area_public_app_data_official_label">Data ya umma ya programu ya msingi</string>
@@ -220,7 +219,6 @@
         <item quantity="one">Mwaka %1$d na SD Maid — Nafasi iliyoachiliwa: %2$s. Inaweka Android yako safi na nadhifu. #SDMaid\nJaribu: %3$s</item>
         <item quantity="other">Miaka %1$d na SD Maid — Nafasi iliyoachiliwa: %2$s. Inaweka Android yako safi na nadhifu. #SDMaid\nJaribu: %3$s</item>
     </plurals>
-    <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s imefunguliwa.</item>
         <item quantity="other">%s zimefunguliwa.</item>

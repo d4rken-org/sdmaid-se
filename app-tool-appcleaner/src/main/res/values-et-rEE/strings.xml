@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Rakendusepuhastaja</string>
     <string name="appcleaner_explanation_short">Kindlatele rakendustele kuuluvad ja suurenevad rakendused.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Avalikud tavalised vahemälud</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Vanematel Androidi versioonides pääseb juurde kaustast Android/data. Kustutatakse, kui puudutatakse süsteemi sätetes \"Tühjenda vahemälu\".</string>

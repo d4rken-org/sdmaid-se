@@ -192,4 +192,14 @@
         <item quantity="few">Stvorena %d izuzetka</item>
         <item quantity="other">Stvoreno %d izuzetaka</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Tragač ostataka</string>
+    <string name="systemcleaner_tool_name">Čistač sustava</string>
+    <string name="appcleaner_tool_name">Čistač aplikacija</string>
+    <string name="deduplicator_tool_name">Deduplikator</string>
+    <string name="squeezer_tool_name">Kompresija medija</string>
+    <string name="appcontrol_tool_name">Kontrola aplikacija</string>
+    <string name="analyzer_tool_name">Analizator pohrane</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Povijest</string>
+    <string name="settings_category_tools_label">Alati</string>
 </resources>

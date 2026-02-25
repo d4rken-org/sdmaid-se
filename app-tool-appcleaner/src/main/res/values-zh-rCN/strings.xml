@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">应用清理</string>
     <string name="appcleaner_explanation_short">某些应用的可删除数据。</string>
     <string name="appcleaner_filter_defaultcachespublic_label">公共默认缓存</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">默认公共应用程序缓存。在旧版本的 Android 系统中，可以在 Android/data 下访问。在系统设置中点击“清除缓存”即可删除。</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Överflödig data som tillhör specifika appar.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Offentliga standardcache</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentliga app-cache. Tillgängliga under Android/data på äldre Android-versioner. Raderas när du trycker på \"Rensa cache\" i systeminställningarna.</string>

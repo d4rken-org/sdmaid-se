@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Fae òrdine in sas cartellas a sa lestra — iscorre is archìvios pro mantènnere, cantzellare o brincare.</string>
     <string name="swiper_dashcard_description">Fae òrdine in cartellas ispetzìficas prus a sa lestra de unu esploratore de archìvios — basta iscòrrere cada archìviu.</string>
     <string name="swiper_start_action">Cumintza a iscòrrere</string>

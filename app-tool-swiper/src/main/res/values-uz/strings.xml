@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">O‘chirish</string>
-    <string name="swiper_tool_name">O‘chirish</string>
     <string name="swiper_tool_description">Papkalarni tez tartibga keltiring — fayllarni saqlash, o\'chirish yoki o\'tkazish uchun suring.</string>
     <string name="swiper_dashcard_description">Muayyan papkalarni fayl boshqaruvchisidan tezroq tartibga keltiring — har bir faylni suring.</string>
     <string name="swiper_start_action">Surishni boshlash</string>

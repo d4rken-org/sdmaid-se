@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Data li tista\' tintrema li tappartjeni għal apps speċifiċi.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Caches pubbliċi standard</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Caches pubbliċi standard tal-apps. Aċċessibbli taħt Android/data fuq verżjonijiet eqdem ta\' Android. Jitħassru meta tagħfas \"Clear cache\" fis-settings tas-sistema.</string>

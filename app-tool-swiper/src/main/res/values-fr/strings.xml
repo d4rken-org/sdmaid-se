@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Balayeur</string>
-    <string name="swiper_tool_name">Balayeur</string>
     <string name="swiper_tool_description">Désencombrez rapidement vos dossiers : balayez vos fichiers pour les conserver, les supprimer ou les ignorer.</string>
     <string name="swiper_dashcard_description">Désencombrez des dossiers précis plus vite qu’avec un explorateur de fichiers : balayez simplement chaque fichier.</string>
     <string name="swiper_start_action">Commencer à balayer</string>

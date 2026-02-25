@@ -193,7 +193,6 @@
     <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
     <string name="debug_card_root_test_action">Otestovat root</string>
     <string name="debug_card_shizuku_test_action">Otestovat Shizuku</string>
-    <string name="settings_category_tools_label">Nástroje</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Úrovně rizika</string>
     <string name="data_area_public_app_data_official_label">Výchozí veřejná data aplikace</string>
@@ -235,7 +234,6 @@
         <item quantity="many">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
         <item quantity="other">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
     </plurals>
-    <string name="stats_label">Historie</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Bylo uvolněno %s.</item>
         <item quantity="few">Bylo uvolněno %s.</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Dados dispensáveis pertencentes a aplicativos específicos.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Caches padrão públicas</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache padrão de aplicativos públicos. Acessível ao Android/dados em versões mais antigas do Android. Apagado ao clicar em \"Limpar cache\" nas configurações do sistema.</string>

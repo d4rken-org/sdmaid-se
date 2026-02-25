@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Recarrega les aplicacions</string>
     <string name="debug_card_root_test_action">Prova el «root»</string>
     <string name="debug_card_shizuku_test_action">Prova el Shizuku</string>
-    <string name="settings_category_tools_label">Eines</string>
     <string name="settings_category_filter">Filtra</string>
     <string name="settings_category_risklevel">Nivell de risc</string>
     <string name="data_area_public_app_data_official_label">Dades públiques per defecte de l\'aplicació</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d any amb l\'SD Maid: espai alliberat: %2$s. Mantingueu el vostre Android net i ordenat. #SDMaid\nProveu-ho: %3$s</item>
         <item quantity="other">%1$d anys amb l\'SD Maid: espai alliberat: %2$s. Mantingueu el vostre Android net i ordenat. #SDMaid\nProveu-ho: %3$s</item>
     </plurals>
-    <string name="stats_label">Historial</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">S\'ha alliberat %s.</item>
         <item quantity="other">S\'han alliberat %s.</item>

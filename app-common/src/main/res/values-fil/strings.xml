@@ -179,4 +179,8 @@
         <item quantity="one">Isang exclusion ang nagawa</item>
         <item quantity="other">%d mga exclusion ang nagawa</item>
     </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Kasaysayan</string>
+    <string name="settings_category_tools_label">Mga Kagamitan</string>
 </resources>

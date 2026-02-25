@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">መተግበሪያዎችን እንደገና ጫን</string>
     <string name="debug_card_root_test_action">Root ፈትን</string>
     <string name="debug_card_shizuku_test_action">Shizuku ፈትን</string>
-    <string name="settings_category_tools_label">መሳሪያዎች</string>
     <string name="settings_category_filter">ማጣሪያ</string>
     <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
     <string name="data_area_public_app_data_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ውሂብ</string>
@@ -223,7 +222,6 @@
         <item quantity="one">ከSD Maid ጋር %1$d ዓመት — የተለቀቀ ቦታ: %2$s። Android-ዎን ንጹህና ሥርዓት ያለው ያደርጋል። #SDMaid\nይሞክሩ: %3$s</item>
         <item quantity="other">ከSD Maid ጋር %1$d ዓመታት — የተለቀቀ ቦታ: %2$s። Android-ዎን ንጹህና ሥርዓት ያለው ያደርጋል። #SDMaid\nይሞክሩ: %3$s</item>
     </plurals>
-    <string name="stats_label">ታሪክ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ተልቋል።</item>
         <item quantity="other">%s ተልቀዋል።</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Чистач апликација</string>
     <string name="appcleaner_explanation_short">Потрошни подаци који припадају одређеним апликацијама.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Подразумевани јавни кешови</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Подразумевани јавни кешови апликација. Приступачно под Android/data на старијим Android верзијама. Брише се када тапнете \"Обриши кеш\" у системским подешавањима.</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Svaidhpeáil trí chomhaid chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
     <string name="swiper_dashcard_description">Athbhreithnigh comhaid de láimh i bhfillteáin shonracha. Svaidhpeáil chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
     <string name="swiper_start_action">Tosaigh ag svaidhpeáil</string>

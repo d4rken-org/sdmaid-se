@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">ሚዲያ መጨመቂያ</string>
     <string name="squeezer_explanation_short">የማከማቻ ቦታ ለመቆጠብ ምስሎችን ይጨምቁ።</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d ምስል ተገኝቷል</item>

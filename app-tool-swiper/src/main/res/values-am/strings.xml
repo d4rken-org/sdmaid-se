@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">ማንሸራተቻ</string>
-    <string name="swiper_tool_name">ማንሸራተቻ</string>
     <string name="swiper_tool_description">ማህደሮችን በፍጥነት ያስተካክሉ — ፋይሎችን ለማስቀመጥ፣ ለመሰረዝ ወይም ለመዝለል ያንሸራትቱ።</string>
     <string name="swiper_dashcard_description">ከፋይል ገላጭ በፍጥነት ልዩ ማህደሮችን ያስተካክሉ — እያንዳንዱን ፋይል ብቻ ያንሸራትቱ።</string>
     <string name="swiper_start_action">ማንሸራተት ጀምር</string>

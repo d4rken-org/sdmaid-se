@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">మీడియా స్క్వీజ్</string>
     <string name="squeezer_explanation_short">స్టోరేజీ స్థలాన్ని ఆదా చేయడానికి చిత్రాలను కుదించండి.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d చిత్రం కనుగొనబడింది</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
     <string name="analyzer_explanation_short">ค้นหาสิ่งที่ใช้พื้นที่ในอุปกรณ์ของคุณ</string>
     <string name="analyzer_progress_scanning_device">ค้นหาอุปกรณ์จัดเก็บข้อมูล</string>
     <string name="analyzer_progress_scanning_storage">กำลังสแกนพื้นที่จัดเก็บ</string>

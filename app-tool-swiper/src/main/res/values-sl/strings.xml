@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Hitro pospravite mape — povlecite datoteke za ohranitev, izbris ali preskok.</string>
     <string name="swiper_dashcard_description">Pospravite posamezne mape hitreje kot z upraviteljem datotek — samo povlecite vsako datoteko.</string>
     <string name="swiper_start_action">Začni pregledovanje</string>

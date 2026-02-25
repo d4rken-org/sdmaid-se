@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">سیستەمپاکer</string>
     <string name="systemcleaner_filter_custom_label">دڵخواز filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Manage custom پاڵاوتنs</string>
     <string name="systemcleaner_filter_custom_manage_summary">Create, delete, import and export your custom پاڵاوتنs.</string>

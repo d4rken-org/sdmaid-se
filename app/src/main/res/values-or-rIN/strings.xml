@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">ଆପ୍ସ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="debug_card_root_test_action">Root ପରୀକ୍ଷା କରନ୍ତୁ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ପରୀକ୍ଷା କରନ୍ତୁ</string>
-    <string name="settings_category_tools_label">ଉପକରଣଗୁଡ଼ିକ</string>
     <string name="settings_category_filter">ଶୋଧକ</string>
     <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>
     <string name="data_area_public_app_data_official_label">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ତଥ୍ୟ</string>
@@ -223,7 +222,6 @@
         <item quantity="one">SD Maid ସହ %1$d ବର୍ଷ — ମୁକ୍ତ ସ୍ଥାନ: %2$s। ଆପଣଙ୍କ Android ସଫା ଏବଂ ଶୁଦ୍ଧ ରଖେ। #SDMaid\nଚେଷ୍ଟା କରନ୍ତୁ: %3$s</item>
         <item quantity="other">SD Maid ସହ %1$d ବର୍ଷ — ମୁକ୍ତ ସ୍ଥାନ: %2$s। ଆପଣଙ୍କ Android ସଫା ଏବଂ ଶୁଦ୍ଧ ରଖେ। #SDMaid\nଚେଷ୍ଟା କରନ୍ତୁ: %3$s</item>
     </plurals>
-    <string name="stats_label">ଇତିହାସ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ମୁକ୍ତ ହୋଇଛି।</item>
         <item quantity="other">%s ମୁକ୍ତ ହୋଇଛି।</item>

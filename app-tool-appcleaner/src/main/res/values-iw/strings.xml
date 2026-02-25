@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">מנקה אפליקציות</string>
     <string name="appcleaner_explanation_short">נתונים זמניים השייכים לאפליקציות ספציפיות.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">מטמון ברירת מחדל ציבורי</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">מטמון ברירת מחדל של אפליקציות ציבוריות. נגיש תחת Android/data בגרסאות אנדרואיד ישנות יותר. נמחק בעת הקשה על \"נקה מטמון\" בהגדרות המערכת.</string>

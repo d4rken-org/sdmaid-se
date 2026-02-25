@@ -137,7 +137,6 @@
     <string name="swiper_help_title">Hogyan működik a Swiper</string>
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Mappák gyors rendrakása — húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz.</string>
     <string name="swiper_dashcard_description">Mappák rendezése gyorsabban, mint egy fájlkezelővel — csak húzd az egyes fájlokat.</string>
     <string name="swiper_sessions_description">Fájlok áttekintése 3 egyszerű lépésben:\n\n1. Válassz egy mappát a kereséshez\n2. Húzd a fájlokat a megtartáshoz, törléshez vagy kihagyáshoz\n3. Tekintsd át a döntéseidet és erősítsd meg\n\nSemmi nem törlődik, amíg meg nem nyomod a végső törlés gombot.</string>

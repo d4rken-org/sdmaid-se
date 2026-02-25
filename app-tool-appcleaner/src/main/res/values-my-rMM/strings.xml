@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">အက်ပ် သန့်ရှင်းရေးကိရိယာ</string>
     <string name="appcleaner_explanation_short">သီးသန့် အက်ပ်များ၏ ဖျက်ပစ်နိုင်သော ဒေတာများ။</string>
     <string name="appcleaner_filter_defaultcachespublic_label">အများပြည်သူ မူလ ကက်ရှ်များ</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">မူလ အများပြည်သူ အက်ပ် ကက်ရှ်များ။ Android ဗားရှင်း ဟောင်းများတွင် Android/data အောက်တွင် အသုံးပြုနိုင်သည်။ စနစ် ဆက်တင်များတွင် \"ကက်ရှ် ဖြင့်ရှင်း\" နှိပ်သောအခါ ဖျက်ပစ်သည်။</string>

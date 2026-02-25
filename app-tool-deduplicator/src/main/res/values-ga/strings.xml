@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Dífhoilsitheoir</string>
     <string name="deduplicator_explanation_short">Aimsigh sonraí dúblacha ar do ghléas.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Déan \"Scrios iomlán\" indéanta</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Taispeáin roghanna a ligeann duit gach comhad i dtacar dúblachta a scriosadh ionas nach bhfágtar aon chomhad ar fágail.</string>

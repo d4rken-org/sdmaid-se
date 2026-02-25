@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">系統清理器</string>
     <string name="systemcleaner_explanation_short">不屬於任何特定應用程式的非必要資料。</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">已刪除 %d 個匹配項目</item>

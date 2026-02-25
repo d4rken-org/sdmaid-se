@@ -159,7 +159,6 @@
     <string name="debug_card_pkgs_reload_action">I-reload ang mga app</string>
     <string name="debug_card_root_test_action">I-test ang root</string>
     <string name="debug_card_shizuku_test_action">I-test ang Shizuku</string>
-    <string name="settings_category_tools_label">Mga Kagamitan</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="settings_category_risklevel">Antas ng panganib</string>
     <string name="data_areas_label">Mga data area</string>
@@ -192,7 +191,6 @@
         <item quantity="one">%1$d taon kasama ang SD Maid — Napalaya na espasyo: %2$s. Pinapanatiling malinis at maayos ang iyong Android. #SDMaid\nSubukan: %3$s</item>
         <item quantity="other">%1$d taon kasama ang SD Maid — Napalaya na espasyo: %2$s. Pinapanatiling malinis at maayos ang iyong Android. #SDMaid\nSubukan: %3$s</item>
     </plurals>
-    <string name="stats_label">Kasaysayan</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ay na-free.</item>
         <item quantity="other">%s ay na-free.</item>

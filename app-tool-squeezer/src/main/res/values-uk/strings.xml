@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Стиснення медіа</string>
     <string name="squeezer_explanation_short">Стискайте зображення, щоб заощадити місце на диску.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d зображення знайдено</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">メディア圧縮</string>
     <string name="squeezer_explanation_short">画像を圧縮してストレージ容量を節約します。</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="other">%d 枚の画像が見つかりました</item>

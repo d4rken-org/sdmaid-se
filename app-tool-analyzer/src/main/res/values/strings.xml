@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
     <string name="analyzer_progress_scanning_device">Searching for storage devices</string>
     <string name="analyzer_progress_scanning_storage">Scanning storage</string>

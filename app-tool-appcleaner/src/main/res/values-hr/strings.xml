@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Čistač aplikacija</string>
     <string name="appcleaner_explanation_short">Potrošni podaci koji pripadaju određenim aplikacijama.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Javne zadane predmemorije</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Zadane javne predmemorije aplikacija. Dostupno pod Android/data na starijim verzijama Androida. Izbrisano kada dodirnete \"Izbriši predmemoriju\" u postavkama sustava.</string>

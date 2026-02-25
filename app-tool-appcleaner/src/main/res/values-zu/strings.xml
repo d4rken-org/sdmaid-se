@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">I-AppCleaner</string>
     <string name="appcleaner_explanation_short">Idatha engasetshenziswa eyezinhlelo zokusebenza ezithile.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Ama-cache azenzakalelayo omphakathi</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Ama-cache azenzakalelayo wezinhlelo zokusebenza zomphakathi. Afikeleka ngaphansi kuka-Android/data kwizinguqulo ezindala ze-Android. Ayasuswa lapho uthepha \"Sula i-cache\" ezilungiselelweni zesistimu.</string>

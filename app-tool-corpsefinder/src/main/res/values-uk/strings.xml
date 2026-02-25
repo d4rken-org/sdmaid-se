@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Пошук рештків</string>
     <string name="corpsefinder_explanation_short">Дані, що належать вже видаленим додаткам.</string>
     <string name="corpsefinder_settings_summary">Налаштуйте фільтри сканування та рівні ризику.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Включити бажані залишки</string>

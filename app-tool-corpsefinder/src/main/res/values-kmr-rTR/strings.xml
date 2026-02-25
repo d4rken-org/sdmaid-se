@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Daneyên ku ji sepanên jêbirî ne.</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d bermahiya sepanê hat jêbirin</item>

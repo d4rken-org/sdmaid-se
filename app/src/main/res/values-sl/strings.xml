@@ -193,7 +193,6 @@
     <string name="debug_card_pkgs_reload_action">Ponovno naloži programe</string>
     <string name="debug_card_root_test_action">Preizkusi skrbniški dostop</string>
     <string name="debug_card_shizuku_test_action">Preizkusi Shizuku</string>
-    <string name="settings_category_tools_label">Orodja</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Raven tveganja</string>
     <string name="data_area_public_app_data_official_label">Privzeti javni programski podatki</string>
@@ -235,7 +234,6 @@
         <item quantity="few">%1$d leta z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
         <item quantity="other">%1$d let z SD Maidom — Sproščenega prostora: %2$s.  Ohranja vaš Android čist in urejen.   #SDMaid\nTry it: %3$s</item>
     </plurals>
-    <string name="stats_label">Zgodovina</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Sproščenih je bilo %s.</item>
         <item quantity="two">Sproščenih je bilo %s.</item>

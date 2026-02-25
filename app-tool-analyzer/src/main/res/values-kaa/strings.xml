@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Saqlaw orın analizatori</string>
     <string name="analyzer_explanation_short">Qurılmańızda orın iyelep turǵan nárselerdi anıqlaw.</string>
     <string name="analyzer_progress_scanning_device">Saqlaw qurılmaların izlew</string>
     <string name="analyzer_progress_scanning_storage">Saqlaw orındı skanerlew</string>

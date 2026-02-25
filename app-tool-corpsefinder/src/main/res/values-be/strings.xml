@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Смецце</string>
     <string name="corpsefinder_explanation_short">Даныя, якія належалі ўжо выдаленым праграмам.</string>
     <string name="corpsefinder_settings_summary">Наладзіць фільтры сканіравання і ўзроўні рызыкі.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Уключаць пажаданыя рэшткі</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">重複ファイル</string>
     <string name="deduplicator_explanation_short">お使いのデバイスの重複データを見つけます。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">重複ファイルを %d 個削除しました</item>

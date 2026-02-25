@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Приложения</string>
     <string name="appcleaner_explanation_short">Удаление ненужных данных приложений.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Публичный кэш по умолчанию</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Публичный кэш приложений по умолчанию. Доступен в разделе Android/data на старых версиях Android. Удаляется при нажатии кнопки \"Очистить кэш\" в системных настройках.</string>

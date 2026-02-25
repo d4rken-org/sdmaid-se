@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Kisafishi Programu</string>
     <string name="appcleaner_explanation_short">Data zinazoweza kutumika zinazomilikiwa na programu maalum.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Akiba za umma za msingi</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Akiba za umma za msingi za programu. Zinafikiwa chini ya Android/data katika matoleo ya zamani ya Android. Hufutwa unapogonga \"Futa akiba\" katika mipangilio ya mfumo.</string>

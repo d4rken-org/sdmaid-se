@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">డుప్లికేట్ రిమూవర్</string>
     <string name="deduplicator_explanation_short">మీ పరికరంలో డుప్లికేట్ డేటాని కనుగొనండి.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d డుప్లికేట్ తొలగించబడింది</item>

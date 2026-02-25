@@ -129,7 +129,6 @@
     <string name="dataarea_warningcard_reload_action">Athluchtaigh limistéir sonraí</string>
     <string name="debug_mode_label">Mód dífhabhtaithe</string>
     <string name="debug_bugreporter_label">Tuairisci fabht uathoibríocha</string>
-    <string name="settings_category_tools_label">Uirlisí</string>
     <string name="settings_category_filter">Scagán</string>
     <string name="settings_category_risklevel">Leibhéal rioscai</string>
     <string name="picker_unsaved_confirmation_message">Caith athruithe ar lár?</string>
@@ -190,7 +189,6 @@
         <item quantity="many">%1$d mbliana le SD Maid — Spás saoraithe: %2$s. Ag coinneáil do Android glan agus néata. #SDMaid\nBain triail as: %3$s</item>
         <item quantity="other">%1$d bliain le SD Maid — Spás saoraithe: %2$s. Ag coinneáil do Android glan agus néata. #SDMaid\nBain triail as: %3$s</item>
     </plurals>
-    <string name="stats_label">Stair</string>
     <string name="stats_report_status_success">Rath</string>
     <string name="stats_report_status_partial_success">Rath páirteach</string>
     <string name="stats_report_status_partial_failure">Teip</string>

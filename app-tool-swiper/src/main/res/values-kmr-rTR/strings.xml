@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Di nav pelan de bişopînin da ku biryar bidin çi bihêlin an jê bibin.</string>
     <string name="swiper_keep_action">Bihêle</string>
     <string name="swiper_skip_action">Derbas bike</string>

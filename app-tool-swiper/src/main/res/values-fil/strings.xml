@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Mabilis na linisin ang mga folder — mag-swipe ng mga file para itabi, burahin, o laktawan.</string>
     <string name="swiper_dashcard_description">Linisin ang mga tiyak na folder nang mas mabilis kaysa sa file explorer — i-swipe lang ang bawat file.</string>
     <string name="swiper_start_action">Magsimulang mag-swipe</string>

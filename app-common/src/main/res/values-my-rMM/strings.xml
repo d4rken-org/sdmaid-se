@@ -167,4 +167,9 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">ဖယ်ထုတ်မှု %d ခု ဖန်တီးပြီး</item>
     </plurals>
+    <string name="systemcleaner_tool_name">စနစ် သန့်ရှင်းရေးကိရိယာ</string>
+    <string name="appcleaner_tool_name">အက်ပ် သန့်ရှင်းရေးကိရိယာ</string>
+    <string name="appcontrol_tool_name">အက်ပ် ထိန်းချုပ်မှု</string>
+    <string name="stats_label">မှတ်တမ်း</string>
+    <string name="settings_category_tools_label">ကိရိယာများ</string>
 </resources>

@@ -180,4 +180,7 @@
         <item quantity="one">Ein útilokun búin til</item>
         <item quantity="other">%d útilokanir búnar til</item>
     </plurals>
+    <string name="swiper_tool_name">Strjúkari</string>
+    <string name="stats_label">Saga</string>
+    <string name="settings_category_tools_label">Verkfæri</string>
 </resources>

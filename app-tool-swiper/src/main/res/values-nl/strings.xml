@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ruim mappen snel op: blader door bestanden om ze te bewaren, te verwijderen of over te slaan.</string>
     <string name="swiper_dashcard_description">Ruim specifieke mappen sneller op dan met een bestandsverkenner: veeg gewoon over elk bestand.</string>
     <string name="swiper_start_action">Begin met vegen</string>

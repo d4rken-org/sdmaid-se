@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">I-StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Thola ukuthi yini ethatha isikhala kudivayisi yakho.</string>
     <string name="analyzer_progress_scanning_device">Kusesha amadivayisi esitoreji</string>
     <string name="analyzer_progress_scanning_storage">Kuskena isitoreji</string>

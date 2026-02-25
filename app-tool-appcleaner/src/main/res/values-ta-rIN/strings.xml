@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">பயன்பாட்டு சுத்தி</string>
     <string name="appcleaner_filter_defaultcachespublic_label">பொது இயல்பு கேச்கள்</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">இயல்பு பொது பயன்பாட்டு கேச்கள். பழைய Android பதிப்புகளில் Android/data கீழ் அணுகக்கூடியது. கணினி அமைப்புகளில் \"கேச் நீக்கு\" என்பதை தட்டும்போது நீக்கப்படும்.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">தனியார் இயல்பு கேச்கள்</string>

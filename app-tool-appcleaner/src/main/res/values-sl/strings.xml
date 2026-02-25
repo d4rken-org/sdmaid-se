@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Čistilec programov</string>
     <string name="appcleaner_explanation_short">Odvečni podatki posameznih programov.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Privzeti javni predpomnilniki</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Privzeti javni predpomnilniki programov.  Na starejših različicah Androidov dostopni preko Android/data.  Izbrišejo se z dotikom gumba \"Počisti predpomnilnik\" v sistemskih nastavitvah.</string>

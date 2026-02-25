@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Przesuwacz</string>
-    <string name="swiper_tool_name">Przesuwacz</string>
     <string name="swiper_tool_description">Szybko pozbądź się zbędnych folderów — przeglądaj pliki, aby je zachować, usunąć lub pominąć.</string>
     <string name="swiper_dashcard_description">Uporządkuj konkretne foldery szybciej niż eksplorator plików — po prostu przesuń każdy plik.</string>
     <string name="swiper_start_action">Zacznij przesuwać</string>

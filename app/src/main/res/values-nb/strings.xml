@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Last inn apper på nytt</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_tools_label">Verktøy</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Risikonivå</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d år med SD Maid — Frigjort plass: %2$s. Holder din Android ren og ryddig. #SDMaid\nPrøv det: %3$s</item>
         <item quantity="other">%1$d år med SD Maid — Frigjort plass: %2$s. Holder din Android ren og ryddig. #SDMaid\nPrøv det: %3$s</item>
     </plurals>
-    <string name="stats_label">Historie</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s har blitt frigjort.</item>
         <item quantity="other">%s har blitt frigjort.</item>

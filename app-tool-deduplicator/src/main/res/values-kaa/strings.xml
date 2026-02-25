@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Dublikatlardı tabıwshı</string>
     <string name="deduplicator_explanation_short">Qurılmańızda dublikat maǵlıwmatlardı tabıń.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">\"Barlıǵın öshiriw\" múmkinshiligin jarat</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikatlar toplamındaǵı barlıq fayllarıdı öshiriwge múmkinshilik beretuǵın optsiyalırdı kórsetiw, sonlıqtan hesh fayl qalmaydi.</string>

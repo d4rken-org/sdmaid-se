@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
     <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>
     <string name="analyzer_progress_scanning_storage">Анализ хранилища</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Непотребни податоци кои припаѓаат на конкретни апликации.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Јавни стандардни кешови</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Стандардни јавни кешови на апликации. Достапни под Android/data на постари верзии на Android. Се бришат при допирање \"Избриши кеш\" во системските поставки.</string>

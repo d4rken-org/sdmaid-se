@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AplikaĵPurigilo</string>
     <string name="appcleaner_explanation_short">Elspezebla datumoj apartenantaj al specifaj aplikaĵoj.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publikaj defaŭltaj kaŝmemoroj</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Defaŭltaj publikaj aplikaĵaj kaŝmemoroj. Alireblaj sub Android/data en pli malnovaj Android-versioj. Forigitaj kiam frapetante "Viŝi kaŝmemoron" en la sistemaj agordoj.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">應用清理器</string>
     <string name="appcleaner_explanation_short">屬於特定應用程式的無關緊要的檔案。</string>
     <string name="appcleaner_filter_defaultcachespublic_label">公用預設快取</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">預設公用應用程式快取。在較早的 Android 版本上可在 Android/data 下存取，在系統設定中輕觸「清除快取」時將會被刪除。</string>

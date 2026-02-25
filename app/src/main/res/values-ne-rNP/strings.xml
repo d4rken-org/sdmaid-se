@@ -103,7 +103,6 @@
     <string name="debug_mode_explanation">परीक्षण विकल्पहरू र अधिक विस्तृत आउटपुट सक्षम गर्नुहोस्। एप सुस्त चल्नेछ र फरक तरिकाले काम गर्नेछ।</string>
     <string name="debug_bugreporter_label">स्वचालित बग रिपोर्टहरू</string>
     <string name="debug_bugreporter_summary">स्वचालित रूपमा समस्याहरू रिपोर्ट गर्छ, जस्तै एप क्र्यासका विवरणहरू ताकि म किन भएको हो र यसलाई कसरी ठीक गर्ने भनेर पत्ता लगाउन सकूँ।</string>
-    <string name="settings_category_tools_label">उपकरणहरू</string>
     <string name="settings_category_filter">फिल्टर</string>
     <string name="settings_category_risklevel">जोखिम स्तर</string>
     <string name="data_area_public_app_data_official_label">पूर्वनिर्धारित सार्वजनिक app डेटा</string>

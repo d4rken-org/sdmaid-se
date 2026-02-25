@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Strjúkari</string>
-    <string name="swiper_tool_name">Strjúkari</string>
     <string name="swiper_tool_description">Hreinsaðu möppur hratt — strjúktu skrám til að halda, eyða eða sleppa.</string>
     <string name="swiper_dashcard_description">Hreinsaðu tilteknar möppur hraðar en skráavafri — strjúktu einfaldlega hverri skrá.</string>
     <string name="swiper_start_action">Byrja að strjúka</string>

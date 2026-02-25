@@ -209,7 +209,6 @@
     <string name="setup_notification_body">Allow SD Maid to post notifications to inform you about on-going operations or important events.</string>
     <string name="setup_notification_hint">Notifications are used sparingly 🤞</string>
 
-
     <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">The accessibility service allows SD Maid to interact with your screen and automate tedious actions, e.g. tapping \"Clear cache\" on multiple screens.</string>
     <string name="setup_acs_card_body2">SD Maid will not use the accessibility service without your consent, will always display a prominent (cancelable) indicator while active and will not use it to collect information.</string>
@@ -249,8 +248,6 @@
     <string name="debug_card_pkgs_reload_action">Reload apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-
-    <string name="settings_category_tools_label">Tools</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risk level</string>
 
@@ -297,8 +294,6 @@
         <item quantity="one">%1$d year with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
         <item quantity="other">%1$d years with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
     </plurals>
-
-    <string name="stats_label">History</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s has been freed.</item>
         <item quantity="other">%s have been freed.</item>

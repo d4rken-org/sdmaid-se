@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">TárhelyElemző</string>
     <string name="analyzer_explanation_short">Tudja meg, mi foglalja a helyet a készülékén.</string>
     <string name="analyzer_progress_scanning_device">Tárolóeszközök keresése</string>
     <string name="analyzer_progress_scanning_storage">Tárhely ellenőrzése</string>

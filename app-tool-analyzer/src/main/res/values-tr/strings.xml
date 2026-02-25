@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Depolama Analizcisi</string>
     <string name="analyzer_explanation_short">Cihazınızda neyin yer kapladığını öğrenin.</string>
     <string name="analyzer_progress_scanning_device">Depolama aygıtları aranıyor</string>
     <string name="analyzer_progress_scanning_storage">Depolama taranıyor</string>

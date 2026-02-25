@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Deslizador</string>
-    <string name="swiper_tool_name">Deslizador</string>
     <string name="swiper_tool_description">Organize suas pastas rapidamente — deslize para navegar entre os arquivos e selecione o que manter, excluir ou ignorar.</string>
     <string name="swiper_dashcard_description">Organize pastas específicas mais rapidamente do que com um explorador de arquivos — basta deslizar sobre cada arquivo.</string>
     <string name="swiper_start_action">Começar a deslizar</string>

@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
     <string name="debug_card_root_test_action">ทดสอบ root</string>
     <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
-    <string name="settings_category_tools_label">เครื่องมือ</string>
     <string name="settings_category_filter">ตัวกรอง</string>
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
     <string name="data_area_public_app_data_official_label">ข้อมูลแอพสาธารณะเริ่มต้น</string>
@@ -215,7 +214,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">%1$d ปีกับ SD Maid — พื้นที่ที่เพิ่มขึ้น: %2$s ดูแล Android ให้สะอาดเรียบร้อย #SDMaid\nลองใช้: %3$s</item>
     </plurals>
-    <string name="stats_label">ประวัติ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">ลบพื้นที่ได้ %s</item>
     </plurals>

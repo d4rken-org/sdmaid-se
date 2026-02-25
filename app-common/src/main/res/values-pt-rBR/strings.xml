@@ -180,4 +180,14 @@
         <item quantity="one">Uma exceção criada</item>
         <item quantity="other">%d exceções criadas</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Localizador de Cadáver</string>
+    <string name="systemcleaner_tool_name">Limpador do sistema</string>
+    <string name="appcleaner_tool_name">Limpador de Aplicativos</string>
+    <string name="deduplicator_tool_name">Desduplicador</string>
+    <string name="squeezer_tool_name">Compressor de Mídia</string>
+    <string name="appcontrol_tool_name">Gerenciamento de aplicativos</string>
+    <string name="analyzer_tool_name">Analisador de Armazenamento</string>
+    <string name="swiper_tool_name">Deslizador</string>
+    <string name="stats_label">Histórico</string>
+    <string name="settings_category_tools_label">Ferramentas</string>
 </resources>

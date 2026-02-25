@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Kitafuta Nakala</string>
     <string name="deduplicator_explanation_short">Tafuta data zilizokuwa nakala kwenye kifaa chako.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">Nakala %d imefutwa</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Sovellussiivooja</string>
     <string name="appcleaner_explanation_short">Sovelluksista väliaikaistiedostoja.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Julkiset välimuistit</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Julkisten sovellusten välimuistitiedostot.</string>

@@ -168,4 +168,14 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 個排除項目已建立</item>
     </plurals>
+    <string name="corpsefinder_tool_name">殘骸尋檢器</string>
+    <string name="systemcleaner_tool_name">系統清理器</string>
+    <string name="appcleaner_tool_name">應用清理器</string>
+    <string name="deduplicator_tool_name">複製器</string>
+    <string name="squeezer_tool_name">媒體壓縮</string>
+    <string name="appcontrol_tool_name">應用控制</string>
+    <string name="analyzer_tool_name">儲存分析器</string>
+    <string name="swiper_tool_name">滑動整理</string>
+    <string name="stats_label">歷史記錄</string>
+    <string name="settings_category_tools_label">工具</string>
 </resources>

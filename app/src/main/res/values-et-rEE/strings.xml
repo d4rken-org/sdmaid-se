@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Laadi rakendused uuesti</string>
     <string name="debug_card_root_test_action">Katseta juurpääsu</string>
     <string name="debug_card_shizuku_test_action">Katseta Shizukut</string>
-    <string name="settings_category_tools_label">Tööriistad</string>
     <string name="settings_category_filter">Filtreeri</string>
     <string name="settings_category_risklevel">Riskitase</string>
     <string name="data_area_public_app_data_official_label">Tavalised avalikud rakenduse andmed</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d aasta SD Maidiga. Vabastatud: %2$s. Android on puhtam. #SDMaid\nProovige seda: %3$s</item>
         <item quantity="other">%1$d aastat SD Maidiga. Vabastatud: %2$s. Android on puhtam. #SDMaid\nProovige seda: %3$s</item>
     </plurals>
-    <string name="stats_label">Ajalugu</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ruumi vabastati.</item>
         <item quantity="other">%s ruumi vabastati.</item>

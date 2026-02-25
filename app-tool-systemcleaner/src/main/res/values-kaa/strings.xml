@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Sistema</string>
     <string name="systemcleaner_explanation_short">Қандай да нақты қолданбаға тиеслі емес артық даталар.</string>
     <string name="systemcleaner_filter_custom_label">Arnawlı filtrler</string>
     <string name="systemcleaner_filter_custom_manage_label">Arnawlı filtrlerdi basqarıń</string>

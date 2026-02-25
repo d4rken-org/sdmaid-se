@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Tətbiqləri yenidən yüklə</string>
     <string name="debug_card_root_test_action">Root yoxla</string>
     <string name="debug_card_shizuku_test_action">Shizuku yoxla</string>
-    <string name="settings_category_tools_label">Alətlər</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risk səviyyəsi</string>
     <string name="data_area_public_app_data_official_label">Standart ictimai tətbiq məlumatları</string>
@@ -223,7 +222,6 @@
         <item quantity="one">SD Maid ilə %1$d il — Azad edilən sahə: %2$s. Android-inizi təmiz və səliqəli saxlayın. #SDMaid\nSınayın: %3$s</item>
         <item quantity="other">SD Maid ilə %1$d İllər — Azad edilən sahə: %2$s. Android-inizi təmiz və səliqəli saxlayın. #SDMaid\nSınayın: %3$s</item>
     </plurals>
-    <string name="stats_label">Tarix</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s azad edildi.</item>
         <item quantity="other">%s azad edildi.</item>

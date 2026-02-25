@@ -193,7 +193,6 @@
     <string name="debug_card_pkgs_reload_action">Przeładuj aplikacje</string>
     <string name="debug_card_root_test_action">Test roota</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_tools_label">Narzędzia</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Poziom ryzyka</string>
     <string name="data_area_public_app_data_official_label">Domyślne publiczne dane aplikacji</string>
@@ -237,7 +236,6 @@ Karol Szastok (K4r0lSz);</string>
         <item quantity="many">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
         <item quantity="other">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
     </plurals>
-    <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s zostało zwolnione.</item>
         <item quantity="few">%s zostały zwolnione.</item>

@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
     <string name="debug_card_root_test_action">루트 테스트</string>
     <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
-    <string name="settings_category_tools_label">도구</string>
     <string name="settings_category_filter">필터</string>
     <string name="settings_category_risklevel">위험 수준</string>
     <string name="data_area_public_app_data_official_label">기본 공개 앱 데이터</string>
@@ -217,7 +216,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">SD Maid와 함께한 %1$d년 — 확보한 공간: %2$s. Android를 깔끔하게 유지합니다. #SDMaid\n사용해 보세요: %3$s</item>
     </plurals>
-    <string name="stats_label">이력</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s가 확보되었습니다.</item>
     </plurals>

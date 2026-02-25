@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">స్టోరేజ్ ఎనలైజర్</string>
     <string name="analyzer_explanation_short">మీ పరికరంలో ఏది స్థలాన్ని ఆక్రమిస్తోందో కనుగొనండి.</string>
     <string name="analyzer_progress_scanning_device">స్టోరేజీ పరికరాల కోసం వెతుకుతోంది</string>
     <string name="analyzer_progress_scanning_storage">స్టోరేజీని స్కాన్ చేస్తోంది</string>

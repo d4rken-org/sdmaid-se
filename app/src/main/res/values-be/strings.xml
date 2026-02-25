@@ -193,7 +193,6 @@
     <string name="debug_card_pkgs_reload_action">Перазагрузіць праграмы</string>
     <string name="debug_card_root_test_action">Праверыць каранёвы доступ</string>
     <string name="debug_card_shizuku_test_action">Праверыць Shizuku</string>
-    <string name="settings_category_tools_label">Інструменты</string>
     <string name="settings_category_filter">Фільтр</string>
     <string name="settings_category_risklevel">Узровень рызыкі</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
@@ -235,7 +234,6 @@
         <item quantity="many">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
         <item quantity="other">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
     </plurals>
-    <string name="stats_label">Гісторыя</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s было вызвалена.</item>
         <item quantity="few">%s былі вызвалены.</item>

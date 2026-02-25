@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Data milik aplikasi yang telah dialih keluar.</string>
     <string name="corpsefinder_settings_summary">Laraskan penapis imbasan dan tahap risiko.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Sertakan sisa yang diingini</string>

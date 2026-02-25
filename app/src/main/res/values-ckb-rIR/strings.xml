@@ -150,7 +150,6 @@
     <string name="debug_mode_explanation">بژاردەکانی تاقیکردنەوە و دەرکەوتنی زیاتری وردبین چالاک بکە. ئەپەکە خاوتر کار دەکات و بە شێوەی جیاواز کار دەکات.</string>
     <string name="debug_bugreporter_label">راپۆرتی خۆکاری هەڵە</string>
     <string name="debug_bugreporter_summary">کێشەکان بە خۆکاری راپۆرت دەکات، بۆ نموونە وردەکاری دەربارەی کچانی ئەپەکە تا بتوانم بزانم بۆچی و چاکی بکەمەوە.</string>
-    <string name="settings_category_tools_label">ئامرازەکان</string>
     <string name="settings_category_filter">پاڵاوتن</string>
     <string name="settings_category_risklevel">مەترسی level</string>
     <string name="data_area_public_app_data_official_label">بنەڕەت public app data</string>

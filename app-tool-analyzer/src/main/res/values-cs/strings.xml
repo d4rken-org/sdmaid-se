@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Analyzátor úložiště</string>
     <string name="analyzer_explanation_short">Zjistěte, co zabírá místo ve vašem zařízení.</string>
     <string name="analyzer_progress_scanning_device">Vyhledávání úložných zařízení</string>
     <string name="analyzer_progress_scanning_storage">Skenování úložiště</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Ачыстка праграм</string>
     <string name="appcleaner_explanation_short">Непатрэбныя даныя, якія належаць пэўным праграмам.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Стандарты публічны кэш</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Стандарты публічны кэш праграм. Даступны ў раздзеле Android/data на старых версіях Android. Выдаляецца пры націсканні кнопкі \"Ачысціць кэш\" у сістэмных наладах.</string>

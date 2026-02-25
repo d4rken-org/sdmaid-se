@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
     <string name="debug_card_root_test_action">測試 Root</string>
     <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
-    <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">過濾器</string>
     <string name="settings_category_risklevel">風險層級</string>
     <string name="data_area_public_app_data_official_label">預設公用應用程式資料</string>
@@ -217,7 +216,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">與 SD Maid 相伴 %1$d 年 — 已釋放空間：%2$s。保持您的 Android 裝置整潔有序。#SDMaid\n試試看：%3$s</item>
     </plurals>
-    <string name="stats_label">歷史記錄</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">已釋放 %s。</item>
     </plurals>

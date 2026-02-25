@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">重载应用</string>
     <string name="debug_card_root_test_action">测试 Root</string>
     <string name="debug_card_shizuku_test_action">测试 Shizuku</string>
-    <string name="settings_category_tools_label">工具</string>
     <string name="settings_category_filter">筛选器</string>
     <string name="settings_category_risklevel">风险等级</string>
     <string name="data_area_public_app_data_official_label">默认公用应用数据</string>
@@ -217,7 +216,6 @@
     <plurals name="anniversary_share_text">
         <item quantity="other">SD Maid已为您服务%1$d年 — 释放空间 %2$s. 让您的桌面干净有序。#SDMaid\n试试它：%3$s</item>
     </plurals>
-    <string name="stats_label">历史</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">已释放 %s 空间。</item>
     </plurals>

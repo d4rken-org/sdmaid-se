@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
     <string name="debug_card_root_test_action">Kiểm tra root</string>
     <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
-    <string name="settings_category_tools_label">Công cụ</string>
     <string name="settings_category_filter">Bộ lọc</string>
     <string name="settings_category_risklevel">Mức độ rủi ro</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
@@ -219,7 +218,6 @@ TheNothingGuy</string>
     <plurals name="anniversary_share_text">
         <item quantity="other">%1$d năm với SD Maid — Không gian trống: %2$s. Giữ cho Android của bạn sạch sẽ và gọn gàng. #SDMaid\nHãy thử: %3$s</item>
     </plurals>
-    <string name="stats_label">Lịch sử</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s đã được giải phóng.</item>
     </plurals>

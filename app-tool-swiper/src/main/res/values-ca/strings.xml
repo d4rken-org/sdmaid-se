@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Escombrador</string>
-    <string name="swiper_tool_name">Escombrador</string>
     <string name="swiper_tool_description">Poseu ordre a les carpetes ràpidament: llisqueu els fitxers per mantenir-los, suprimir-los o ometre\'ls.</string>
     <string name="swiper_dashcard_description">Poseu ordre a carpetes específiques més ràpid que un explorador de fitxers: simplement llisqueu cada fitxer.</string>
     <string name="swiper_start_action">Comença a lliscar</string>

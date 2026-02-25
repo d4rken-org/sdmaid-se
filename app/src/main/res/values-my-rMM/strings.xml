@@ -139,7 +139,6 @@
     <string name="debug_mode_explanation">စမ်းသပ်ရွေးချယ်မှုများနှင့် ပိုမိုအသေးစိတ်ဖြစ်သော ရလဒ်များကို ဖွင့်ပါ။ အက်ပ်သည် ပိုနှေးကာ မတူညီစွာ လုပ်ဆောင်မည်။</string>
     <string name="debug_bugreporter_label">အလိုအလျောက် အမှားအစီရင်ခံစာများ</string>
     <string name="debug_bugreporter_summary">ပြဿနာများကို အလိုအလျောက် သတင်းပို့သည်၊ ဥပမာ အက်ပ် crash ဖြစ်မှုအသေးစိတ်များ၊ ကျွန်ုပ်က အဘယ်ကြောင့်ဖြစ်ကြောင်း ရှာဖွေပြီး ပြုပြင်နိုင်ရန်။</string>
-    <string name="settings_category_tools_label">ကိရိယာများ</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
@@ -152,7 +151,6 @@
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>
-    <string name="stats_label">မှတ်တမ်း</string>
     <string name="stats_report_status_success">အောင်မြင်မှု</string>
     <string name="stats_report_status_partial_success">တစ်စိတ်တစ်ပိုင်း အောင်မြင်မှု</string>
 </resources>

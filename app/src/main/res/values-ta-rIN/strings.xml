@@ -166,7 +166,6 @@
     <string name="debug_card_pkgs_reload_action">செயலிகளை மீளேற்று</string>
     <string name="debug_card_root_test_action">Root சோதனை</string>
     <string name="debug_card_shizuku_test_action">Shizuku சோதனை</string>
-    <string name="settings_category_tools_label">கருவிகள்</string>
     <string name="settings_category_filter">வடிப்பான்</string>
     <string name="settings_category_risklevel">ஆபத்து நிலை</string>
     <string name="data_area_public_app_data_official_label">இயல்பு பொது பயன்பாட்டு தரவு</string>
@@ -203,7 +202,6 @@
         <item quantity="one">SD Maid-உடன் %1$d ஆண்டு — விடுவிக்கப்பட்ட இடம்: %2$s. உங்கள் Android-ஐ சுத்தமாகவும் நேர்த்தியாகவும் வைத்திருக்கிறது. #SDMaid\nமுயற்சிக்கவும்: %3$s</item>
         <item quantity="other">SD Maid-உடன் %1$d ஆண்டுகள் — விடுவிக்கப்பட்ட இடம்: %2$s. உங்கள் Android-ஐ சுத்தமாகவும் நேர்த்தியாகவும் வைத்திருக்கிறது. #SDMaid\nமுயற்சிக்கவும்: %3$s</item>
     </plurals>
-    <string name="stats_label">வரலாறு</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s விடுவிக்கப்பட்டுள்ளது.</item>
         <item quantity="other">%s விடுவிக்கப்பட்டுள்ளன.</item>

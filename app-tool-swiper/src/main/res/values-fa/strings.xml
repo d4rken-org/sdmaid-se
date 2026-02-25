@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">پوشه‌ها را به سرعت مرتب کنید — فایل‌ها را بکشید تا نگه دارید، حذف کنید یا رد شوید.</string>
     <string name="swiper_dashcard_description">پوشه‌های خاص را سریع‌تر از مرورگر فایل مرتب کنید — فقط هر فایل را بکشید.</string>
     <string name="swiper_start_action">شروع کشیدن</string>

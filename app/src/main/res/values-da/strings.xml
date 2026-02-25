@@ -182,7 +182,6 @@
     <string name="debug_card_areas_reload_action">Genindlæs dataområder</string>
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_tools_label">Værktøjer</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risikoniveau</string>
     <string name="data_area_public_app_data_official_label">Standard offentlige app-data</string>
@@ -220,7 +219,6 @@
         <item quantity="one">%1$d år med SD Maid — Frigjort plads: %2$s. Holder din Android ren og ryddelig. #SDMaid\nPrøv det: %3$s</item>
         <item quantity="other">%1$d år med SD Maid — Frigjort plads: %2$s. Holder din Android ren og ryddelig. #SDMaid\nPrøv det: %3$s</item>
     </plurals>
-    <string name="stats_label">Historik</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s er blevet frigjort.</item>
         <item quantity="other">%s er blevet frigjort.</item>

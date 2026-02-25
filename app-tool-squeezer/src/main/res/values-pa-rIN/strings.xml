@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">ਮੀਡੀਆ ਸਕੁਈਜ਼</string>
     <string name="squeezer_explanation_short">ਸਟੋਰੇਜ ਬਚਾਉਣ ਲਈ ਤਸਵੀਰਾਂ ਨੂੰ ਕੰਪ੍ਰੈਸ ਕਰੋ।</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d ਤਸਵੀਰ ਮਿਲੀ</item>

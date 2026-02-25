@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">ਡੁਪਲੀਕੇਟਰ</string>
     <string name="deduplicator_explanation_short">ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਡੁਪਲੀਕੇਟ ਡੇਟਾ ਲੱਭੋ।</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d ਡੁਪਲੀਕੇਟ ਮਿਟਾਇਆ ਗਿਆ</item>

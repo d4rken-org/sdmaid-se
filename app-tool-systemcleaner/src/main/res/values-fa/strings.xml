@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">پاکسازی سیستم</string>
     <string name="systemcleaner_explanation_short">داده‌های اضافی که به هیچ برنامه خاصی تعلق ندارند.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d تطابق حذف شد.</item>

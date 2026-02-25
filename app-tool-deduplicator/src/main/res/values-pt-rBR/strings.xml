@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Desduplicador</string>
     <string name="deduplicator_explanation_short">Encontrar dados duplicados no seu dispositivo.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d item duplicado excluído</item>

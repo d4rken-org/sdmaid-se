@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">စနစ် သန့်ရှင်းရေးကိရိယာ</string>
     <string name="systemcleaner_explanation_short">သီးသန့် အက်ပ်တစ်ခုခုနှင့် မသက်ဆိုင်သော အပိုဒေတာများ။</string>
     <string name="systemcleaner_filter_custom_label">စိတ်ကြိုက် စစ်ထုတ်မှု</string>
     <string name="systemcleaner_filter_custom_manage_label">စိတ်ကြိုက် စစ်ထုတ်မှုများ စီမံခန့်ခွဲရန်</string>

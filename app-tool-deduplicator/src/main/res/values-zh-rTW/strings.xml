@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">除重程式</string>
     <string name="deduplicator_explanation_short">找出您裝置上的重複資料。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">已刪除 %d 個重複項目</item>

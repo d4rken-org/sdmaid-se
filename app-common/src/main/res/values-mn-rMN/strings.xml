@@ -174,4 +174,7 @@
     <string name="general_user_label_owner">Эзэмшигч</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Тохиргоо</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Түүх</string>
+    <string name="settings_category_tools_label">Хэрэгслүүд</string>
 </resources>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">ස්වයිපර්</string>
-    <string name="swiper_tool_name">ස්වයිපර්</string>
     <string name="swiper_tool_description">ෆෝල්ඩර ඉක්මනින් පිළිවෙළට සකසන්න — ගොනු තබාගැනීමට, මැකීමට හෝ මඟහැරීමට ස්වයිප් කරන්න.</string>
     <string name="swiper_dashcard_description">නිශ්චිත ෆෝල්ඩර ගොනු ගවේෂකයකට වඩා වේගයෙන් පිළිවෙළට සකසන්න — සෑම ගොනුවක්ම ස්වයිප් කරන්න.</string>
     <string name="swiper_start_action">ස්වයිප් කිරීම ආරම්භ කරන්න</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Vuốt</string>
     <string name="swiper_tool_description">Dọn dẹp thư mục nhanh chóng — vuốt tệp để giữ, xóa hoặc bỏ qua.</string>
     <string name="swiper_dashcard_description">Dọn dẹp các thư mục cụ thể nhanh hơn trình quản lý tệp — chỉ cần vuốt từng tệp.</string>
     <string name="swiper_start_action">Bắt đầu vuốt</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Systemrenser</string>
     <string name="systemcleaner_explanation_short">Overflødig data som ikke tilhører noen spesifikk app.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d match slettet</item>

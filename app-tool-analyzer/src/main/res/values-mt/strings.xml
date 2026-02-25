@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Skopri x\'qed jieħu spazju fuq l-apparat tiegħek.</string>
     <string name="analyzer_progress_scanning_device">Qed infittxu apparati tal-ħażna</string>
     <string name="analyzer_progress_scanning_storage">Qed tiskennja l-ħażna</string>

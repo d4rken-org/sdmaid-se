@@ -170,7 +170,6 @@
     <string name="debug_mode_explanation">Habilitar opciones de prueba y salida más detallada. La aplicación funcionará más lenta y tendrá comportamiento diferente.</string>
     <string name="debug_bugreporter_label">Reportes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Reporta automáticamente problemas, p. ej. detalles sobre cierres de aplicación para que pueda averiguar por qué y arreglarlo.</string>
-    <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
     <string name="data_area_public_app_data_official_label">Datos públicos predeterminados de aplicación</string>
@@ -208,7 +207,6 @@
         <item quantity="one">%1$d año con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$st</item>
         <item quantity="other">%1$d años con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$s</item>
     </plurals>
-    <string name="stats_label">Historial</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ha sido liberado.</item>
         <item quantity="other">%s han sido liberados.</item>

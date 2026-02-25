@@ -189,7 +189,6 @@
     <string name="debug_card_pkgs_reload_action">Ponovno učitaj aplikacije</string>
     <string name="debug_card_root_test_action">Testiraj root</string>
     <string name="debug_card_shizuku_test_action">Testiraj Shizuku</string>
-    <string name="settings_category_tools_label">Alati</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Razina rizika</string>
     <string name="data_area_public_app_data_official_label">Zadani javni podaci aplikacije</string>
@@ -229,7 +228,6 @@
         <item quantity="few">%1$d godine s SD Maidom — Oslobođen prostor: %2$s. Održava vaš Android čistim i urednim. #SDMaid\nIsprobajte: %3$s</item>
         <item quantity="other">%1$d godina s SD Maidom — Oslobođen prostor: %2$s. Održava vaš Android čistim i urednim. #SDMaid\nIsprobajte: %3$s</item>
     </plurals>
-    <string name="stats_label">Povijest</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s je oslobođeno.</item>
         <item quantity="few">%s su oslobođena.</item>

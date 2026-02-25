@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">দ্রুত ফোল্ডার গোছান — ফাইল সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান।</string>
     <string name="swiper_dashcard_description">ফাইল এক্সপ্লোরারের চেয়ে দ্রুত নির্দিষ্ট ফোল্ডার গোছান — শুধু প্রতিটি ফাইল সোয়াইপ করুন।</string>
     <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>

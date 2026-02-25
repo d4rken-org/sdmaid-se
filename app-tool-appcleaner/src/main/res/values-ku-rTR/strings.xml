@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">داتای ناپێویست کە هی ئەپە دیاریکراوەکانە.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">کاشی گشتی ستاندارد</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">کاشی تایبەتی ستاندارد</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Declutter folders fast — swipe through files to keep, delete, or skip.</string>
     <string name="swiper_dashcard_description">Declutter specific folders faster than a file explorer — just swipe each file.</string>
     <string name="swiper_start_action">Start swiping</string>

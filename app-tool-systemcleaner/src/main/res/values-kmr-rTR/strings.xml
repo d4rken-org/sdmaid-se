@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Daneyên zêde yên ku ne yê sepaneke taybet in.</string>
     <string name="systemcleaner_filter_logfiles_label">Pelên log ên pergalê</string>
     <string name="systemcleaner_filter_advertisements_label">Pelên reklaman</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">滑動整理</string>
-    <string name="swiper_tool_name">滑動整理</string>
     <string name="swiper_tool_description">快速整理資料夾 — 滑動檔案以保留、刪除或跳過。</string>
     <string name="swiper_dashcard_description">比檔案瀏覽器更快速地整理特定資料夾 — 只需滑動每個檔案。</string>
     <string name="swiper_start_action">開始滑動</string>

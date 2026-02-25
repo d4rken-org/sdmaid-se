@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">ตัวทำความสะอาดระบบ</string>
     <string name="systemcleaner_explanation_short">ข้อมูลที่ไม่จำเป็นและไม่เป็นของแอพใดเฉพาะ</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">ลบรายการที่ตรงกัน %d รายการ</item>

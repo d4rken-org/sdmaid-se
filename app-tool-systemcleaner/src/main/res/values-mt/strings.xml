@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Data żejda li ma tappartjenix għal ebda app speċifika.</string>
     <string name="systemcleaner_filter_custom_label">Filtru personalizzat</string>
     <string name="systemcleaner_filter_custom_manage_label">Immaniġġja filtri personalizzati</string>

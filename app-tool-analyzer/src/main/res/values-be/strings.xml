@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>
     <string name="analyzer_progress_scanning_device">Пошук запамінальных прылад</string>
     <string name="analyzer_progress_scanning_storage">Сканіраванне сховішча</string>

@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Recargar apps</string>
     <string name="debug_card_root_test_action">Probar root</string>
     <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
-    <string name="settings_category_tools_label">Herramientas</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
     <string name="data_area_public_app_data_official_label">Datos por defecto de la aplicación pública</string>
@@ -223,7 +222,6 @@
         <item quantity="one">¡Llevo %d año usando SD Maid SE para mantener mi dispositivo limpio y ordenado!</item>
         <item quantity="other">¡Llevo %d años usando SD Maid SE para mantener mi dispositivo limpio y ordenado!</item>
     </plurals>
-    <string name="stats_label">Historial</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s ha sido liberado.</item>
         <item quantity="other">%s han sido liberados.</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">앱 청소기</string>
     <string name="appcleaner_explanation_short">특정 앱과 관련된 제거 가능한 데이터</string>
     <string name="appcleaner_filter_defaultcachespublic_label">공개 기본 캐시</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">기본적인 공개 캐시입니다. 이전 버전의 안드로이드에서는 Android/data에서 접근할 수 있습니다. 시스템 설정에서 \"캐시 삭제\"를 누를 때 제거됩니다.</string>

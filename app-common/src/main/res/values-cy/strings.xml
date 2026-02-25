@@ -221,4 +221,14 @@
         <item quantity="many">%d eithriad wedi\'u creu</item>
         <item quantity="other">%d o eithriadau wedi\'u creu</item>
     </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">Glanhawr Apiau</string>
+    <string name="deduplicator_tool_name">Diddyblygydd</string>
+    <string name="squeezer_tool_name">Gwasgu Cyfryngau</string>
+    <string name="appcontrol_tool_name">Rheolaeth Apiau</string>
+    <string name="analyzer_tool_name">Dadansoddwr Storfa</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Hanes</string>
+    <string name="settings_category_tools_label">Offer</string>
 </resources>

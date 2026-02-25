@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="corpsefinder_explanation_short">Data wat behoort aan reeds verwyderde toepassings.</string>
     <string name="corpsefinder_settings_summary">Stel skandering filters en risiko vlakke af.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Sluit wenslike oorblyfsels in</string>

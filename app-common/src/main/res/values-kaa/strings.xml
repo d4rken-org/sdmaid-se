@@ -176,4 +176,11 @@
     <string name="setup_title">Ornatıw</string>
     <string name="exclusion_create_action">Shetlestiriw jaratıw</string>
     <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
+    <string name="systemcleaner_tool_name">Sistema</string>
+    <string name="appcleaner_tool_name">Қолданба тазалағыш</string>
+    <string name="deduplicator_tool_name">Dublikatlardı tabıwshı</string>
+    <string name="analyzer_tool_name">Saqlaw orın analizatori</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Tarıx</string>
+    <string name="settings_category_tools_label">Ásbaplar</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Sib data duplikata fuq l-apparat tiegħek.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplikat imħassar</item>

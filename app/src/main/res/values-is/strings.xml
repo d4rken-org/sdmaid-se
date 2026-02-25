@@ -181,7 +181,6 @@
     <string name="debug_card_pkgs_reload_action">Endurhlaða forrit</string>
     <string name="debug_card_root_test_action">Prófa root</string>
     <string name="debug_card_shizuku_test_action">Prófa Shizuku</string>
-    <string name="settings_category_tools_label">Verkfæri</string>
     <string name="settings_category_filter">Sía</string>
     <string name="settings_category_risklevel">Áhættustig</string>
     <string name="data_area_public_app_data_official_label">Sjálfgefin opinber forritagögn</string>
@@ -218,7 +217,6 @@
         <item quantity="one">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
         <item quantity="other">%1$d ár með SD Maid — Losað pláss: %2$s. Held Android hreinu og snyrtilegu. #SDMaid\nPrófaðu: %3$s</item>
     </plurals>
-    <string name="stats_label">Saga</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s hefur verið losað.</item>
         <item quantity="other">%s hafa verið losað.</item>

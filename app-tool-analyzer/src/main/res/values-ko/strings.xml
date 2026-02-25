@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">저장소 분석기</string>
     <string name="analyzer_explanation_short">무엇이 저장 공간을 차지하고 있는지 확인합니다.</string>
     <string name="analyzer_progress_scanning_device">저장 장치 검색 중</string>
     <string name="analyzer_progress_scanning_storage">저장 장치 스캔 중</string>

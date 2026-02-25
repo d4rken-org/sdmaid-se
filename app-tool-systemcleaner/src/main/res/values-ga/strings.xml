@@ -11,7 +11,6 @@
     <string name="systemcleaner_customfilter_editor_warning">Féadfaidh scagáin saincheaptha a bheith contarach. Seiceáil do thorthaí scanaidh roimh scriosadh!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Limistéir sonraí</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Srianta cíneail comhaid</string>
-    <string name="systemcleaner_tool_name">Glanóir Córais</string>
     <string name="systemcleaner_explanation_short">Sonraí breise nach mbaineann le haon aip ar leith.</string>
     <string name="systemcleaner_filter_custom_label">Scagaire saincheaptha</string>
     <string name="systemcleaner_filter_custom_manage_label">Bainistigh scagairí saincheaptha</string>

@@ -189,7 +189,6 @@
     <string name="debug_card_pkgs_reload_action">Reîncărcați aplicațiile</string>
     <string name="debug_card_root_test_action">Testați root</string>
     <string name="debug_card_shizuku_test_action">Testați Shizuku</string>
-    <string name="settings_category_tools_label">Instrumente</string>
     <string name="settings_category_filter">Filtre</string>
     <string name="settings_category_risklevel">Nivel de risc</string>
     <string name="data_area_public_app_data_official_label">Date implicite ale aplicațiilor publice</string>
@@ -229,7 +228,6 @@
         <item quantity="few">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
         <item quantity="other">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
     </plurals>
-    <string name="stats_label">Istoric</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s a fost eliberat.</item>
         <item quantity="few">%s au fost eliberați.</item>

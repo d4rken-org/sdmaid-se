@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">ডিডুপ্লিকেটর</string>
     <string name="deduplicator_explanation_short">আপনার ডিভাইসে ডুপ্লিকেট ডেটা খুঁজুন।</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d ডুপ্লিকেট মুছে ফেলা হয়েছে</item>

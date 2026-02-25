@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Pembersih Aplikasi</string>
     <string name="appcleaner_explanation_short">Data yang bisa dihapus milik aplikasi tertentu.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache publik bawaan</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache aplikasi publik bawaan. Dapat diakses di Android/data pada versi Android yang lebih lama. Dihapus saat mengetuk \"Hapus cache\" di pengaturan sistem.</string>

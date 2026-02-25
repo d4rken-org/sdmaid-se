@@ -168,4 +168,14 @@
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d pengecualian dibuat</item>
     </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Pendua</string>
+    <string name="squeezer_tool_name">Mampat Media</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">Penganalisis Storan</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Statistik</string>
+    <string name="settings_category_tools_label">Alatan</string>
 </resources>

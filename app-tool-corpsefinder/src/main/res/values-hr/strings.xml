@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Tragač ostataka</string>
     <string name="corpsefinder_explanation_short">Podaci koji pripadaju već uklonjenim aplikacijama.</string>
     <string name="corpsefinder_settings_summary">Prilagodite filtere skeniranja i razine rizika.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Uključi poželjne ostatke</string>

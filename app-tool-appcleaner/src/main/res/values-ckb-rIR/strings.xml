@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">ئەپپاکer</string>
     <string name="appcleaner_filter_defaultcachespublic_label">گشتی default caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">بنەڕەت public app caches. دەسیەڵاتible under Android/data on older Android versions. سڕینەوەd when tapping \"پاککردنەوە cache\" in the system settings.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">تایبەت default caches</string>

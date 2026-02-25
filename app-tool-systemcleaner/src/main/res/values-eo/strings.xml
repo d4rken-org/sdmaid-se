@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">SistemPurigilo</string>
     <string name="systemcleaner_explanation_short">Superflua datumoj kiuj ne apartenas al iu specifa aplikaĵo.</string>
     <string name="systemcleaner_filter_custom_label">Propra filtrilo</string>
     <string name="systemcleaner_filter_custom_manage_label">Administri proprajn filtrilojn</string>

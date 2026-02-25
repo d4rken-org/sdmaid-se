@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">پاکسازی برنامه</string>
     <string name="appcleaner_explanation_short">داده‌های مصرف‌شدنی متعلق به برنامه‌های خاص.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">کش‌های پیش‌فرض عمومی</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">پیش‌فرض کش‌های عمومی برنامه. در نسخه‌های قدیمی‌تر اندروید در مسیر Android/data قابل دسترسی هستند. با فشار دادن \"پاک کردن کش\" در تنظیمات سیستم حذف می‌شوند.</string>

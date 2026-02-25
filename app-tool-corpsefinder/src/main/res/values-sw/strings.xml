@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Kitafuta Mabaki</string>
     <string name="corpsefinder_explanation_short">Data zinazomilikiwa na programu zilizokwisha kuondolewa.</string>
     <string name="corpsefinder_settings_summary">Rekebisha vichungi vya uchunguzi na viwango vya hatari.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Jumuisha mabaki yanayotakiwa</string>

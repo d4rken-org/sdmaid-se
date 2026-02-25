@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Pulizia App</string>
     <string name="appcleaner_explanation_short">Dati inutili appartenenti a specifiche app.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cache pubbliche predefinite</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Cache pubbliche di app. Accessibili in vecchie versioni di Android attraverso il percorso Android/data. Eliminate quando si pulisce la cache nelle impostazioni di sistema dell\'app.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AlkalmazásTisztító</string>
     <string name="appcleaner_explanation_short">Felhasználható adatok, amelyek bizonyos alkalmazásokhoz tartoznak.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Nyilvános alapértelmezett gyorsítótárak</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Alapértelmezett nyilvános alkalmazások gyorsítótárai. Régebbi Android verziókban az Android/data alatt volt elérhető. Törlődik, ha a rendszerbeállításokban rákattint a \"Cache törlése\" lehetőségre.</string>

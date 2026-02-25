@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Ukucindezela Imidiya</string>
     <string name="squeezer_explanation_short">Cindezela izithombe ukonga isikhala sesitoreji.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d isithombe sitholakele</item>

@@ -141,13 +141,11 @@
     <string name="debug_mode_label">Modalità tad-debugging</string>
     <string name="debug_bugreporter_label">Rapporti awtomatiċi ta\' bugs</string>
     <string name="debug_card_title">Il-modalità tad-debugging hija attivata</string>
-    <string name="settings_category_tools_label">Għodod</string>
     <string name="settings_category_filter">Filtru</string>
     <string name="settings_category_risklevel">Livell ta\' riskju</string>
     <string name="history_label">Storja</string>
     <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>
     <string name="data_areas_label">Żoni tad-data</string>
-    <string name="stats_label">Storja</string>
     <string name="stats_report_status_success">Suċċess</string>
     <string name="stats_report_status_partial_success">Suċċess parzjali</string>
     <string name="stats_report_status_partial_failure">Falliment</string>

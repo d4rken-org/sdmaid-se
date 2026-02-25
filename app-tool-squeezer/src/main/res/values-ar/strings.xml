@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">ضغط الوسائط</string>
     <string name="squeezer_explanation_short">ضغط الصور لتوفير مساحة التخزين.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="zero">تم العثور على %d صور</item>

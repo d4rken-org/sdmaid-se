@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">डुप्लिकेटर</string>
     <string name="deduplicator_explanation_short">डुप्लिकेट फ़ाइलें</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d डुप्लिकेट मिटाया गया</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Glanhawr Apiau</string>
     <string name="appcleaner_explanation_short">Data gwariadwy sy\'n perthyn i apiau penodol.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Storfeydd cyhoeddus rhagosodedig</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Storfeydd apiau cyhoeddus rhagosodedig. Hygyrch o dan Android/data ar fersiynau Android hŷn. Yn cael eu dileu wrth dapio "Clirio storfa" yn y gosodiadau system.</string>

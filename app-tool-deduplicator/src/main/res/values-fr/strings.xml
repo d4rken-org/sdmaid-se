@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Déduplicateur</string>
     <string name="deduplicator_explanation_short">Trouver les données dupliquées présentes sur votre appareil.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d doublon a été supprimé</item>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">స్వైపర్</string>
-    <string name="swiper_tool_name">స్వైపర్</string>
     <string name="swiper_tool_description">ఫోల్డర్‌లను త్వరగా క్రమబద్ధం చేయండి — ఫైల్‌లను ఉంచడానికి, తొలగించడానికి లేదా దాటవేయడానికి స్వైప్ చేయండి.</string>
     <string name="swiper_dashcard_description">ఫైల్ ఎక్స్‌ప్లోరర్ కంటే వేగంగా నిర్దిష్ట ఫోల్డర్‌లను క్రమబద్ధం చేయండి — ప్రతి ఫైల్‌ను స్వైప్ చేయండి.</string>
     <string name="swiper_start_action">స్వైపింగ్ ప్రారంభించు</string>

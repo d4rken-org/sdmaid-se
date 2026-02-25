@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">منظف النظام</string>
     <string name="systemcleaner_explanation_short">تنظيف دقيق للبيانات التي لا تنتمي لأي تطبيق محدد.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="zero">تم حذف %d من المطابقة</item>

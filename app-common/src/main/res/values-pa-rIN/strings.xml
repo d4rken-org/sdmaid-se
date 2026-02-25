@@ -180,4 +180,11 @@
         <item quantity="one">%d ਬਾਹਰੀਕਰਣ ਬਣਾਇਆ ਗਿਆ</item>
         <item quantity="other">%d ਬਾਹਰੀਕਰਣ ਬਣਾਏ ਗਏ</item>
     </plurals>
+    <string name="deduplicator_tool_name">ਡੁਪਲੀਕੇਟਰ</string>
+    <string name="squeezer_tool_name">ਮੀਡੀਆ ਸਕੁਈਜ਼</string>
+    <string name="appcontrol_tool_name">ਐਪ ਕੰਟਰੋਲ</string>
+    <string name="analyzer_tool_name">ਸਟੋਰੇਜ ਵਿਸ਼ਲੇਸ਼ਕ</string>
+    <string name="swiper_tool_name">ਸਵਾਈਪਰ</string>
+    <string name="stats_label">ਇਤਿਹਾਸ</string>
+    <string name="settings_category_tools_label">ਸੰਦ</string>
 </resources>

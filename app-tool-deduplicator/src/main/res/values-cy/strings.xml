@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Diddyblygydd</string>
     <string name="deduplicator_explanation_short">Dod o hyd i ddata dyblyg ar eich dyfais.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Gwneud "Dileu popeth" yn bosibl</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Dangos opsiynau sy\'n caniatáu i chi ddileu\'r holl ffeiliau mewn set o ddyblygu fel nad oes ffeil ar ôl.</string>

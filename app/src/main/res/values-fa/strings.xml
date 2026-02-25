@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">بارگذاری دوباره برنامه‌ها</string>
     <string name="debug_card_root_test_action">تست روت</string>
     <string name="debug_card_shizuku_test_action">تست Shizuku</string>
-    <string name="settings_category_tools_label">ابزارها</string>
     <string name="settings_category_filter">فیلتر</string>
     <string name="settings_category_risklevel">سطح خطر</string>
     <string name="data_area_public_app_data_official_label">داده‌های پیش‌فرض عمومی برنامه</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d سال با خدمتکار SD — فضای آزاد شده: %2$s. اندروید شما را تمیز و مرتب نگه می‌دارد. #SDMaid\nامتحانش کنید: %3$s</item>
         <item quantity="other">%1$d سال با خدمتکار SD — فضای آزاد شده: %2$s. اندروید شما را تمیز و مرتب نگه می‌دارد. #SDMaid\nامتحانش کنید: %3$s</item>
     </plurals>
-    <string name="stats_label">تاریخچه</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">مقدار %s آزاد شده است.</item>
         <item quantity="other">مقدار %s آزاد شده است.</item>

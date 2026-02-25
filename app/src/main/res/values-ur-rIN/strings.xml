@@ -175,7 +175,6 @@
     <string name="debug_card_pkgs_reload_action">ایپس دوبارہ لوڈ کریں</string>
     <string name="debug_card_root_test_action">روٹ ٹیسٹ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ٹیسٹ</string>
-    <string name="settings_category_tools_label">ٹولز</string>
     <string name="settings_category_filter">فلٹر</string>
     <string name="settings_category_risklevel">خطرے کی سطح</string>
     <string name="data_area_public_app_data_official_label">ڈیفالٹ پبلک ایپ ڈیٹا</string>
@@ -213,7 +212,6 @@
         <item quantity="one">SD Maid کے ساتھ %1$d سال — خالی کی گئی جگہ: %2$s۔ آپ کے Android کو صاف ستھرا رکھتے ہوئے۔ #SDMaid\nآزمائیں: %3$s</item>
         <item quantity="other">SD Maid کے ساتھ %1$d سال — خالی کی گئی جگہ: %2$s۔ آپ کے Android کو صاف ستھرا رکھتے ہوئے۔ #SDMaid\nآزمائیں: %3$s</item>
     </plurals>
-    <string name="stats_label">عافیتاریخ</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s آزاد کیا گیا ہے۔</item>
         <item quantity="other">%s آزاد کیا گیا ہے۔</item>

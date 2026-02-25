@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">डुप्लिकेट हटाउने उपकरण</string>
     <string name="deduplicator_explanation_short">तपाईंको उपकरणमा डुप्लिकेट डेटा फेला पार्नुहोस्।</string>
     <string name="deduplicator_protection_deleteall_allowed_title">\"सबै मेटाउनुहोस्\" सम्भव बनाउनुहोस्</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">डुप्लिकेटहरूको सेटमा सबै फाइलहरू मेटाउन अनुमति दिने विकल्पहरू देखाउनुहोस् ताकि कुनै फाइल बाँकी नरहोस्।</string>

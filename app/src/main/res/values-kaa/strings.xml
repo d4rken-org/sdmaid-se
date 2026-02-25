@@ -175,7 +175,6 @@
     <string name="debug_card_pkgs_reload_action">Qollanbalardı qayta ju\'klew</string>
     <string name="debug_card_root_test_action">Root tekseriwi</string>
     <string name="debug_card_shizuku_test_action">Shizuku tekseriwi</string>
-    <string name="settings_category_tools_label">Ásbaplar</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="settings_category_risklevel">Qáwip dárejesi</string>
     <string name="data_area_public_app_data_official_label">Ádettegi ashıq baǵdarlama maǵlıwmatları</string>
@@ -212,7 +211,6 @@
         <item quantity="one">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
         <item quantity="other">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
     </plurals>
-    <string name="stats_label">Tarıx</string>
     <string name="stats_report_status_success">Tabıs</string>
     <string name="stats_report_status_partial_success">Ishinen tabıs</string>
     <string name="stats_report_status_partial_failure">Sátsizlik</string>

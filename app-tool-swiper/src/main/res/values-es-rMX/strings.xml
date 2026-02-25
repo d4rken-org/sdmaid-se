@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ordena carpetas rápido: desliza archivos para conservar, eliminar u omitir.</string>
     <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos: simplemente desliza cada archivo.</string>
     <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>

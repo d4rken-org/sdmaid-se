@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Дознајте што зафаќа простор на вашиот уред.</string>
     <string name="analyzer_progress_scanning_device">Пребарување складишни уреди</string>
     <string name="analyzer_progress_scanning_storage">Скенирање складирање</string>

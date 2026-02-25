@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">殘骸尋檢器</string>
     <string name="corpsefinder_explanation_short">屬於已移除應用程式的資料。</string>
     <string name="corpsefinder_settings_summary">調整掃描過濾器和風險層級。</string>
     <string name="corpsefinder_settings_risk_keeper_title">包含合理的殘餘項目</string>

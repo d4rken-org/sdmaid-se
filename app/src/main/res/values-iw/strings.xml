@@ -194,7 +194,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
     <string name="debug_card_root_test_action">בדוק root</string>
     <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
-    <string name="settings_category_tools_label">כלים</string>
     <string name="settings_category_filter">סינון</string>
     <string name="settings_category_risklevel">רמת סיכון</string>
     <string name="data_area_public_app_data_official_label">נתוני ברירת מחדל של אפליקציה ציבורית</string>
@@ -236,7 +235,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="many">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
         <item quantity="other">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
     </plurals>
-    <string name="stats_label">היסטוריה</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s שוחרר.</item>
         <item quantity="two">%s שוחררו.</item>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Svingu tra dosieroj por decidi kion konservi aŭ forigi.</string>
     <string name="swiper_dashcard_description">Mane revizii dosierojn en specifaj dosierujoj. Svingu por decidi kion konservi aŭ forigi.</string>
     <string name="swiper_start_action">Komenci svingadon</string>

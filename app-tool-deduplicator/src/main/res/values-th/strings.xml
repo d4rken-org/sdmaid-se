@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">ตัวค้นหาไฟล์ซ้ำ</string>
     <string name="deduplicator_explanation_short">ค้นหาข้อมูลที่ซ้ำกันในอุปกรณ์ของคุณ</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">ลบไฟล์ซ้ำ %d ไฟล์แล้ว</item>

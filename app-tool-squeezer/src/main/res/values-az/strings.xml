@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Media Sıxma</string>
     <string name="squeezer_explanation_short">Yaddaş yerindən qənaət etmək üçün şəkilləri sıxışdırın.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d şəkil tapıldı</item>

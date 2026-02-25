@@ -147,7 +147,6 @@
     <string name="debug_mode_explanation">ເປີດໃຊ້ທາງເລືອກທົດສອບ ແລະ ຜົນລັບທີ່ລະອຽດເພີ່ມເຕີມ. ແອັບຈະທໍາງານຊ້າລງ ແລະ ທໍາງານແຕກຕ່າງໄປ.</string>
     <string name="debug_bugreporter_label">ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດ</string>
     <string name="debug_bugreporter_summary">ລາຍງານບັນຫາອັດຕະໂນມັດ, ເຊ່ນ ລາຍລະອຽດເມື່ອແອັບຂັດຂ້ອງ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາສາເຫດ ແລະ ແກ້ໄຂໄດ້.</string>
-    <string name="settings_category_tools_label">ເຄື່ອງມື</string>
     <string name="settings_category_filter">ຕົວກໍງ</string>
     <string name="settings_category_risklevel">ລະດັບຄວາມເສີ່ຍງ</string>
 </resources>

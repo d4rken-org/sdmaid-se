@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Expendable data belonging to specific apps.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Public default caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Default public app caches. Accessible under Android/data on older Android versions. Deleted when tapping "Clear cache" in the system settings.</string>

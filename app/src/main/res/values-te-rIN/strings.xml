@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
     <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
     <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
-    <string name="settings_category_tools_label">టూల్స్</string>
     <string name="settings_category_filter">ఫిల్టర్</string>
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
     <string name="data_area_public_app_data_official_label">డిఫాల్ట్ పబ్లిక్ యాప్ డేటా</string>
@@ -223,7 +222,6 @@
         <item quantity="one">SD Maid తో %1$d సంవత్సరం — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
         <item quantity="other">SD Maid తో %1$d సంవత్సరాలు — ఖాళీ చేసిన స్థలం: %2$s. మీ Android ను శుభ్రంగా మరియు చక్కగా ఉంచడం. #SDMaid\nప్రయత్నించండి: %3$s</item>
     </plurals>
-    <string name="stats_label">చరిత్ర</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s విడుదల చేయబడింది.</item>
         <item quantity="other">%s విడుదల చేయబడినాయి.</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">فشرده‌سازی رسانه</string>
     <string name="squeezer_explanation_short">فشرده‌سازی تصاویر برای صرفه‌جویی در فضای ذخیره‌سازی.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d تصویر یافت شد</item>

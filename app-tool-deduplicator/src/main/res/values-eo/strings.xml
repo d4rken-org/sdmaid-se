@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Malduobligilo</string>
     <string name="deduplicator_explanation_short">Trovi duoblajn datumojn en via aparato.</string>
     <string name="deduplicator_protection_deleteall_allowed_title">Ebligi \"Forigi ĉiujn\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Montri opciojn kiuj permesas forigi ĉiujn dosierojn en aro da duoblaĵoj tiel ke neniu dosiero restas.</string>

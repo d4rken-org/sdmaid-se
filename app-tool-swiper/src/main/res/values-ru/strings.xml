@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Свайпер</string>
-    <string name="swiper_tool_name">Свайпер</string>
     <string name="swiper_tool_description">Быстро наведите порядок — проведите пальцем по файлам, чтобы сохранить, удалить или пропустить.</string>
     <string name="swiper_dashcard_description">Наведите порядок в выбранной папке быстрее чем в проводнике — просто проведите пальцем по файлу.</string>
     <string name="swiper_start_action">Начать свайп</string>

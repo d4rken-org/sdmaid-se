@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Čistič systému</string>
     <string name="systemcleaner_explanation_short">Nadbytočné údaje, ktoré nepatria do žiadnej konkrétnej aplikácie.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d zhoda odstránená</item>

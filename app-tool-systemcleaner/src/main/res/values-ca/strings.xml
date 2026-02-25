@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Netejador del sistema</string>
     <string name="systemcleaner_explanation_short">Dades superflues que no pertanyen a cap aplicació concreta.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">S\'ha suprimit %d coincidència</item>

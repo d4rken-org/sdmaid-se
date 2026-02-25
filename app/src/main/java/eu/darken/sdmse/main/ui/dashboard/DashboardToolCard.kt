@@ -25,20 +25,20 @@ class DashboardToolCard(parent: ViewGroup) :
 
         icon.setImageResource(
             when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> R.drawable.ghost
-                SDMTool.Type.SYSTEMCLEANER -> R.drawable.ic_baseline_view_list_24
-                SDMTool.Type.APPCLEANER -> R.drawable.ic_recycle
-                SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
-SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
+                SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.drawable.ghost
+                SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.drawable.ic_baseline_view_list_24
+                SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.drawable.ic_recycle
+                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.drawable.ic_content_duplicate_24
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
         title.setText(
             when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_tool_name
-                SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_tool_name
-                SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_tool_name
-                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_tool_name
-SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
+                SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.string.corpsefinder_tool_name
+                SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.string.systemcleaner_tool_name
+                SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.string.appcleaner_tool_name
+                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.string.deduplicator_tool_name
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
         description.apply {

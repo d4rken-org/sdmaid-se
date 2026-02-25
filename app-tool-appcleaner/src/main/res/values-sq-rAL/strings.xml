@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Pastrues i aplikacioneve</string>
     <string name="appcleaner_explanation_short">Të dhëna të shpenzueshme që i përkasin aplikacioneve specifike.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Memoriet e paracaktuara publike</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Memoria e paracaktuar e aplikacioneve publike. E aksesueshme nën Android/të dhënat në versionet më të vjetra të Android. Fshihet kur shtypni \"Pastro cache\" në cilësimet e sistemit.</string>

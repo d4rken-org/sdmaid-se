@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Uygulama Temizleyici</string>
     <string name="appcleaner_explanation_short">Belirli uygulamalara ait silinebilir veriler.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Genel varsayılan önbellekler</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Varsayılan genel uygulama önbellekleri. Eski Android sürümlerinde Android/data altından erişilebilir. Sistem ayarlarında \"Önbelleği temizle\" seçeneğine dokunulduğunda silinir.</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcontrol_tool_name">Менеджар</string>
     <string name="appcontrol_explanation_short">Усталяваныя на вашай прыладзе праграмы.</string>
     <plurals name="appcontrol_x_apps_detected_label">
         <item quantity="one">Знойдзена %d праграма</item>

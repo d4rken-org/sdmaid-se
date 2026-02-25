@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">აპლიკაციის გამწმენდი</string>
     <string name="appcleaner_explanation_short">დახარჯული მონაცემები, რომლებიც ეკუთვნის კონკრეტულ აპებს.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">საჯარო ნაგულისხმევი ქეშები</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ნაგულისხმევი საჯარო აპების ქეშები. ხელმისაწვდომია Android/data-ს ქვეშ Android-ის ძველ ვერსიებზე. იშლება სისტემურ პარამეტრებში \"ქეშის გასუფთავების\" დაჭერისას.</string>

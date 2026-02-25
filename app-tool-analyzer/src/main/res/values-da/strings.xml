@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Lageranalyse</string>
     <string name="analyzer_explanation_short">Find ud af, hvad der optager plads på din enhed.</string>
     <string name="analyzer_progress_scanning_device">Søger efter lagerenheder</string>
     <string name="analyzer_progress_scanning_storage">Scanner lager</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">フォルダを素早く整理 — ファイルをスワイプして保持、削除、スキップ。</string>
     <string name="swiper_dashcard_description">ファイルエクスプローラーより速く特定のフォルダを整理 — 各ファイルをスワイプするだけ。</string>
     <string name="swiper_start_action">スワイプを開始</string>

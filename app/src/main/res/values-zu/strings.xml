@@ -183,7 +183,6 @@
     <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
     <string name="debug_card_root_test_action">Hlola i-root</string>
     <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
-    <string name="settings_category_tools_label">Amathuluzi</string>
     <string name="settings_category_filter">Isihluzi</string>
     <string name="settings_category_risklevel">Izinga lengozi</string>
     <string name="data_area_public_app_data_official_label">Idatha yohlelo yomphakathi ezenzakalelayo</string>
@@ -220,7 +219,6 @@
         <item quantity="one">Unyaka ongu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
         <item quantity="other">Iminyaka engu-%1$d nge-SD Maid — Isikhala esikhululiwe: %2$s. Igcina i-Android yakho ihlanzekile. #SDMaid\nYizame: %3$s</item>
     </plurals>
-    <string name="stats_label">Umlando</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">I-%s ikhululiwe.</item>
         <item quantity="other">I-%s ikhululiwe.</item>

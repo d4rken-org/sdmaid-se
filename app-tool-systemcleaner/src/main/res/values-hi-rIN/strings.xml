@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">सिस्टम स्वच्छक</string>
     <string name="systemcleaner_explanation_short">अनावश्यक डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d सिस्टम जंक आइटम मिटाया गया</item>

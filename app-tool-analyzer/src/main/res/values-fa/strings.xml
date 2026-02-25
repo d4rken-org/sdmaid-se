@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">آنالایزر ذخیره‌سازی</string>
     <string name="analyzer_explanation_short">برای پیدا کردن اینکه چه چیزی فضای دستگاه شما را اشغال کرده است.</string>
     <string name="analyzer_progress_scanning_device">جستجو برای دستگاه های ذخیره‌سازی</string>
     <string name="analyzer_progress_scanning_storage">در حال جستجوی ذخیره‌سازی</string>

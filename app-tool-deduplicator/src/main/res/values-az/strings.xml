@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Dublikat silici</string>
     <string name="deduplicator_explanation_short">Cihazınızda dublikat məlumatları tapın.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d dublikat silindi</item>

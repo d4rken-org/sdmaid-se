@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Dọn dẹp ứng dụng</string>
     <string name="appcleaner_explanation_short">Dữ liệu có thể sử dụng được thuộc về các ứng dụng cụ thể.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Bộ nhớ đệm mặc định công khai</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Bộ nhớ đệm ứng dụng công khai mặc định. Có thể truy cập trong Android/data trên các phiên bản Android cũ hơn. Đã xóa khi nhấn \"Xóa bộ nhớ cache\" trong cài đặt hệ thống.</string>

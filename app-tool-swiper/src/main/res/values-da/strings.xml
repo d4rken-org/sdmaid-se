@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Ryd op i mapper hurtigt — stryg gennem filer for at beholde, slette eller springe over.</string>
     <string name="swiper_dashcard_description">Ryd op i bestemte mapper hurtigere end en filhåndtering — stryg bare hver fil.</string>
     <string name="swiper_start_action">Start strygning</string>

@@ -145,7 +145,6 @@
     <string name="debug_mode_explanation">Ebligi testajn opciojn kaj pli detaleman eligon. Aplikaĵo funkcios pli malrapide kaj kondutos malsame.</string>
     <string name="debug_bugreporter_label">Aŭtomataj cimo-raportoj</string>
     <string name="debug_bugreporter_summary">Aŭtomate raportas problemojn, ekz. detalojn pri aplikaĵaj kraŝoj por ke mi povu kompreni kial kaj ripari ĝin.</string>
-    <string name="settings_category_tools_label">Iloj</string>
     <string name="settings_category_filter">Filtrilo</string>
     <string name="settings_category_risklevel">Riska nivelo</string>
     <string name="data_area_public_app_data_official_label">Defaŭltaj publikaj aplikaĵaj datumoj</string>
@@ -172,7 +171,6 @@
     <string name="review_app_review_action">Recenzi</string>
     <string name="review_app_dismiss_action">Eble poste</string>
     <string name="review_app_body">Ĉu vi volus lasi recenzon al SD Maid? ❤️</string>
-    <string name="stats_label">Historio</string>
     <string name="stats_report_status_success">Sukceso</string>
     <string name="stats_report_status_partial_success">Parta sukceso</string>
     <string name="stats_report_status_partial_failure">Malsukceso</string>

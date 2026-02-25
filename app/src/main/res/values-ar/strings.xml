@@ -201,7 +201,6 @@
     <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
     <string name="debug_card_root_test_action">اختبار الجذر</string>
     <string name="debug_card_shizuku_test_action">اختبار شيزوكو</string>
-    <string name="settings_category_tools_label">الأدوات</string>
     <string name="settings_category_filter">المرشحات</string>
     <string name="settings_category_risklevel">مستوى المخاطرة</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
@@ -247,7 +246,6 @@
         <item quantity="many">%1$d سنة مع SD Maid — المساحة المحررة: %2$s. الحفاظ على نظافة جهاز Android. #SDMaid\nجربه: %3$s</item>
         <item quantity="other">%1$d سنة مع SD Maid — المساحة المحررة: %2$s. الحفاظ على نظافة جهاز Android. #SDMaid\nجربه: %3$s</item>
     </plurals>
-    <string name="stats_label">السجل</string>
     <plurals name="stats_dash_body_size">
         <item quantity="zero">تم تحرير %s.</item>
         <item quantity="one">تم تحرير %s.</item>

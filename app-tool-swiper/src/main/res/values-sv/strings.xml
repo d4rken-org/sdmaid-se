@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">Rensa mappar snabbt — svep genom filer för att behålla, ta bort eller hoppa över.</string>
     <string name="swiper_dashcard_description">Rensa specifika mappar snabbare än en filhanterare — svep bara varje fil.</string>
     <string name="swiper_start_action">Börja svepa</string>

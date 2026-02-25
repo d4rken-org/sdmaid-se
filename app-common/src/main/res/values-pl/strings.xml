@@ -204,4 +204,14 @@
         <item quantity="many">Utworzono %d wykluczeń</item>
         <item quantity="other">Utworzono %d wykluczeń</item>
     </plurals>
+    <string name="corpsefinder_tool_name">Wyszukiwarka pozostałości</string>
+    <string name="systemcleaner_tool_name">Sprzątacz systemu</string>
+    <string name="appcleaner_tool_name">Sprzątacz aplikacji</string>
+    <string name="deduplicator_tool_name">Usuwanie duplikatów</string>
+    <string name="squeezer_tool_name">Kompresja multimediów</string>
+    <string name="appcontrol_tool_name">Zarządzanie aplikacjami</string>
+    <string name="analyzer_tool_name">Analizator pamięci</string>
+    <string name="swiper_tool_name">Przesuwacz</string>
+    <string name="stats_label">Historia</string>
+    <string name="settings_category_tools_label">Narzędzia</string>
 </resources>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Dadansoddwr Storfa</string>
     <string name="analyzer_explanation_short">Darganfod beth sy\'n defnyddio lle ar eich dyfais.</string>
     <string name="analyzer_progress_scanning_device">Chwilio am ddyfeisiau storfa</string>
     <string name="analyzer_progress_scanning_storage">Sganio storfa</string>

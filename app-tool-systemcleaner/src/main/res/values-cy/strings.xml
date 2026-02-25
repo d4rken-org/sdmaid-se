@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="systemcleaner_explanation_short">Data diangen nad yw\'n perthyn i unrhyw ap penodol.</string>
     <string name="systemcleaner_filter_custom_label">Hidlydd personol</string>
     <string name="systemcleaner_filter_custom_manage_label">Rheoli hidlyddion personol</string>

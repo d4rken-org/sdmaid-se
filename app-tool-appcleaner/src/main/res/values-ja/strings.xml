@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">アプリクリーナー</string>
     <string name="appcleaner_explanation_short">特定のアプリに属する消耗品データ。</string>
     <string name="appcleaner_filter_defaultcachespublic_label">パブリックデフォルトキャッシュ</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">デフォルトの公開アプリキャッシュ。古いバージョンのAndroid/データでアクセスできます。システム設定で「キャッシュをクリア」をタップすると削除されます。</string>

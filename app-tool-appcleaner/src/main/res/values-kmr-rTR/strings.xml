@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">Daneyên ne hewce yên ku ji sepanên taybet in.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Pêşbirkên giştî yên standard</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Pêşbirkên taybet ên standard</string>

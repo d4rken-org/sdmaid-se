@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">ਸਟੋਰੇਜ ਵਿਸ਼ਲੇਸ਼ਕ</string>
     <string name="analyzer_explanation_short">ਪਤਾ ਲਗਾਓ ਕਿ ਤੁਹਾਡੇ ਡਿਵਾਈਸ \'ਤੇ ਕੀ ਥਾਂ ਲੈ ਰਿਹਾ ਹੈ।</string>
     <string name="analyzer_progress_scanning_device">ਸਟੋਰੇਜ ਡਿਵਾਈਸਾਂ ਦੀ ਖੋਜ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="analyzer_progress_scanning_storage">ਸਟੋਰੇਜ ਸਕੈਨ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>

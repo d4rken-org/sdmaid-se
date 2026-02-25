@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Змахнуць і выдаліць</string>
-    <string name="swiper_tool_name">Змахнуць і выдаліць</string>
     <string name="swiper_tool_description">Хутка навядзіце парадак у папках — правядзіце пальцам па файлах, каб захаваць, выдаліць або прапусціць.</string>
     <string name="swiper_dashcard_description">Навядзіце парадак у канкрэтных папках хутчэй, чым у файлавым менеджары — проста правядзіце пальцам па кожным файле.</string>
     <string name="swiper_start_action">Пачаць агляд</string>

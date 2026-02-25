@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">システムクリーナー</string>
     <string name="systemcleaner_explanation_short">特定のアプリに属していない過剰なデータ。</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="other">%d 件の項目を削除しました</item>

@@ -178,7 +178,6 @@
     <string name="debug_mode_explanation">Aktivizo opsionet e testimit dhe daljen më të hollësishme. Aplikacioni do të funksionojë më ngadalë dhe do të funksionojë ndryshe.</string>
     <string name="debug_bugreporter_label">Raportet automatike të gabimeve</string>
     <string name="debug_bugreporter_summary">Raporton automatikisht probleme, p.sh. detajet mbi dështimin e aplikacionit në mënyrë që të kuptoj pse dhe ta rregulloj atë.</string>
-    <string name="settings_category_tools_label">Mjetet</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
     <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
@@ -216,7 +215,6 @@
         <item quantity="one">%1$d vit me SD Maid — Hapësirë ​​e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
         <item quantity="other">%1$d vjet me SD Maid — Hapësirë ​​e liruar: %2$s. Duke e mbajtur Android-in tuaj të pastër dhe të rregullt. #SDMaid\nProvoje: %3$s</item>
     </plurals>
-    <string name="stats_label">Historiku</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s është liruar.</item>
         <item quantity="other">%s janë liruar.</item>

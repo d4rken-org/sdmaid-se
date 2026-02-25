@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">منظف التطبيقات</string>
     <string name="appcleaner_explanation_short">بيانات قابلة للاستهلاك تنتمي إلى تطبيقات محددة.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">مخابئ افتراضية عامة</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ذاكرة التخزين المؤقت للتطبيق العام الافتراضي. يمكن الوصول إليه ضمن Android / البيانات على إصدارات Android الأقدم. يتم حذفه عند النقر على \"مسح ذاكرة التخزين المؤقت\" في إعدادات النظام.</string>

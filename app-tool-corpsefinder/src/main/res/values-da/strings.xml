@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_tool_name">Ligfinder</string>
     <string name="corpsefinder_explanation_short">Data fra allerede fjernede apps.</string>
     <string name="corpsefinder_settings_summary">Juster scanningsfiltre og risikoniveauer.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Inkluder ønskværdige rester</string>

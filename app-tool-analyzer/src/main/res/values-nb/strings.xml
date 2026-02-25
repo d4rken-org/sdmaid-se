@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">Lagringsanalysator</string>
     <string name="analyzer_explanation_short">Finn ut hva som tar opp plass på enheten din.</string>
     <string name="analyzer_progress_scanning_device">Søker etter lagringsenheter</string>
     <string name="analyzer_progress_scanning_storage">Skanner lagring</string>

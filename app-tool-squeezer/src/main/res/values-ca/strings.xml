@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Compressió multimèdia</string>
     <string name="squeezer_explanation_short">Comprimiu imatges per estalviar espai d\'emmagatzematge.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">S\'ha trobat %d imatge</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_tool_name">Fáisceadh Meán</string>
     <string name="squeezer_explanation_short">Comhbhrúigh íomhánna chun spás stórála a shábháil.</string>
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">%d íomhá aimsithe</item>

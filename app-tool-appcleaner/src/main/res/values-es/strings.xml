@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
     <string name="appcleaner_explanation_short">Datos prescindibles pertenecientes a aplicaciones específicas.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Cachés públicas por defecto</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Las memorias caché de las aplicaciones públicas predeterminadas de Android. Accesibles en Android/data para las versiones antiguas de Android. Se eliminan al pulsar \"Borrar caché\" en los ajustes del sistema.</string>

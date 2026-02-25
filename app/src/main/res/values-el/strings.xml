@@ -185,7 +185,6 @@
     <string name="debug_card_pkgs_reload_action">Επαναφόρτωση εφαρμογών</string>
     <string name="debug_card_root_test_action">Δοκιμή root</string>
     <string name="debug_card_shizuku_test_action">Δοκιμή Shizuku</string>
-    <string name="settings_category_tools_label">Εργαλεία</string>
     <string name="settings_category_filter">Φίλτρο</string>
     <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
     <string name="data_area_public_app_data_official_label">Προεπιλεγμένα δημόσια δεδομένα εφαρμογής</string>
@@ -223,7 +222,6 @@
         <item quantity="one">%1$d χρόνος με το SD Maid — Απελευθερωμένος χώρος: %2$s. Διατηρεί το Android σας καθαρό και τακτοποιημένο. #SDMaid\nΔοκιμάστε το: %3$s</item>
         <item quantity="other">%1$d χρόνια με το SD Maid — Απελευθερωμένος χώρος: %2$s. Διατηρεί το Android σας καθαρό και τακτοποιημένο. #SDMaid\nΔοκιμάστε το: %3$s</item>
     </plurals>
-    <string name="stats_label">Ιστορικό</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s έχει απελευθερωθεί.</item>
         <item quantity="other">%s έχουν απελευθερωθεί.</item>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">Apprenser</string>
     <string name="appcleaner_explanation_short">Ubetydelig data tilhørende spesifikke apper.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Standard offentlige hurtigbuffere</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">Standard offentlige hurtigbuffere til apper. Tilgjengelig under Android/data på eldre Android-versjoner. Slettes når du trykker \"Tøm hurtigbuffer\" i systeminnstillingene.</string>

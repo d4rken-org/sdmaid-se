@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_tool_name">Penghapus Duplikat</string>
     <string name="deduplicator_explanation_short">Temukan data duplikat di perangkat Anda.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="other">%d duplikat dihapus</item>

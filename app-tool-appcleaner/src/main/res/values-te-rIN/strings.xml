@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">ప్రత్యేక యాప్‌లకు చెందిన ఖర్చు చేయగల డేటా.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">పబ్లిక్ డిఫాల్ట్ క్యాషేలు</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">డిఫాల్ట్ పబ్లిక్ యాప్ క్యాషేలు. పురాతన Android వెర్షన్లలో Android/data క్రింద ప్రాప్యమైనవి. సిస్టమ్ సెట్టింగ్స్‌లో \"క్యాషే క్లియర్\" టాప్ చేయినప్పుడు తొలగించబడుతుంది.</string>

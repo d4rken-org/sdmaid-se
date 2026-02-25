@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="appcleaner_explanation_short">ለተወሰኑ መተግበሪያዎች የሚያምር ወጪ ውሂብ።</string>
     <string name="appcleaner_filter_defaultcachespublic_label">ሕዝባዊ ነባሪ መሸፈኛዎች</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">ነባሪ ሕዝባዊ የመተግበሪያ መሸፈኛዎች። በቆሽቶ አንድሮይድ ስሪቶች ላይ በAndroid/data ሥር ሊደረስባቸው ይችላል። በሲስተም ቅንብሮች ውስጥ \"መሸፈኛ አጽዳ\"ን በመንካት ይሰረዛሉ።</string>

@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Vind uit wat ruimte opneem op jou toestel.</string>
     <string name="analyzer_progress_scanning_device">Soek vir berging toestelle</string>
     <string name="analyzer_progress_scanning_storage">Skandeer berging</string>

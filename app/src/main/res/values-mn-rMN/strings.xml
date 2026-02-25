@@ -150,7 +150,6 @@
     <string name="debug_card_pkgs_reload_action">Аппликешнүүдийг дахин ачаалах</string>
     <string name="debug_card_root_test_action">Root шалгах</string>
     <string name="debug_card_shizuku_test_action">Shizuku шалгах</string>
-    <string name="settings_category_tools_label">Хэрэгслүүд</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
     <string name="data_areas_label">Өгөгдлийн бүсүүд</string>
@@ -168,7 +167,6 @@
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа болов уу</string>
     <string name="review_app_body">SD Maid-д үнэлгээ үлдээхийг хүсэж байна уу? ❤️</string>
-    <string name="stats_label">Түүх</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s чөлөөлөгдсөн.</item>
         <item quantity="other">%s чөлөөлөгдсөн.</item>

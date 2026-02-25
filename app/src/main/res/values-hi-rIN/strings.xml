@@ -184,7 +184,6 @@
     <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
     <string name="debug_card_root_test_action">Root परीक्षण</string>
     <string name="debug_card_shizuku_test_action">Shizuku परीक्षण</string>
-    <string name="settings_category_tools_label">टूल</string>
     <string name="settings_category_filter">फ़िल्टर</string>
     <string name="settings_category_risklevel">जोखिम का स्तर</string>
     <string name="data_area_public_app_data_official_label">डिफ़ॉल्ट सार्वजनिक ऐप डेटा</string>
@@ -212,7 +211,6 @@
     <string name="review_app_review_action">समीक्षा करें</string>
     <string name="review_app_dismiss_action">शायद बाद में</string>
     <string name="review_app_body">क्या आप SD Maid को एक समीक्षा देना चाहेंगे? ❤️</string>
-    <string name="stats_label">इतिहास</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s मुक्त किया गया है।</item>
         <item quantity="other">%s मुक्त किए गए हैं।</item>

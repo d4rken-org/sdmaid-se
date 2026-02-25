@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">সিস্টেম ক্লিনার</string>
     <string name="systemcleaner_explanation_short">অতিরিক্ত ডেটা যা কোনো নির্দিষ্ট অ্যাপের অন্তর্গত নয়।</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d ম্যাচ মুছে ফেলা হয়েছে</item>

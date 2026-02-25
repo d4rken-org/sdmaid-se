@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_tool_name">Εκκαθάριση Συστήματος</string>
     <string name="systemcleaner_explanation_short">Περιττά δεδομένα που δεν ανήκουν σε καμία συγκεκριμένη εφαρμογή.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d αντιστοίχιση διαγράφηκε</item>

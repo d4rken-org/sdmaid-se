@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Pyyhkäisijä</string>
-    <string name="swiper_tool_name">Pyyhkäisijä</string>
     <string name="swiper_tool_description">Järjestä kansiot nopeasti — pyyhkäise tiedostoja säilyttääksesi, poistaaksesi tai ohittaaksesi.</string>
     <string name="swiper_dashcard_description">Järjestä tietyt kansiot nopeammin kuin tiedostonhallinnalla — pyyhkäise jokainen tiedosto.</string>
     <string name="swiper_start_action">Aloita pyyhkäisy</string>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_name">Swiper</string>
     <string name="swiper_tool_description">फ़ोल्डरों को जल्दी साफ करें — फ़ाइलों को रखने, हटाने या छोड़ने के लिए स्वाइप करें।</string>
     <string name="swiper_dashcard_description">फ़ाइल एक्सप्लोरर से तेज़ — बस हर फ़ाइल को स्वाइप करके विशिष्ट फ़ोल्डरों को व्यवस्थित करें।</string>
     <string name="swiper_start_action">स्वाइप शुरू करें</string>

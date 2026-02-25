@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Faigh amach cad atá ag glacadh spáis ar do ghléas.</string>
     <string name="analyzer_progress_scanning_device">Ag cuardach gléasanna stórála</string>
     <string name="analyzer_progress_scanning_storage">Stóráil á scanadh</string>
