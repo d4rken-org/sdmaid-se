@@ -21,11 +21,11 @@ class PreviewItemViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val args = PreviewItemFragmentArgs.fromSavedStateHandle(handle)
+    private val item: PreviewItem = handle["item"]!!
 
     val events = SingleLiveEvent<PreviewEvents>()
 
-    val state = flowOf(args.item)
+    val state = flowOf(item)
         .map { item ->
             val lookup = item.path.lookup(gatewaySwitch)
             State(lookup = lookup)

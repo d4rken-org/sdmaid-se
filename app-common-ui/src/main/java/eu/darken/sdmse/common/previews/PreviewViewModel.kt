@@ -17,8 +17,7 @@ class PreviewViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val args = PreviewFragmentArgs.fromSavedStateHandle(handle)
-    private val options = args.options
+    private val options: PreviewOptions = handle["options"]!!
     private val currentPosition = MutableStateFlow(options.position)
 
     val events = SingleLiveEvent<PreviewEvents>()

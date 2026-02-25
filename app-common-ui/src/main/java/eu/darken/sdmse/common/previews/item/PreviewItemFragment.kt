@@ -7,11 +7,11 @@ import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import coil.load
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.DialogFragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.PreviewItemFragmentBinding
+import eu.darken.sdmse.common.ui.R
+import eu.darken.sdmse.common.ui.databinding.PreviewItemFragmentBinding
 
 @AndroidEntryPoint
 class PreviewItemFragment : DialogFragment3(R.layout.preview_item_fragment) {

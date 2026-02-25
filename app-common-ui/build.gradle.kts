@@ -54,6 +54,7 @@ dependencies {
 
     addCoil()
     addLottie()
+    implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
     addTesting()
     testImplementation(project(":app-common-test"))

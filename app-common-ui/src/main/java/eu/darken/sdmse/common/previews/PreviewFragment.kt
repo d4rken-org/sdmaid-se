@@ -9,13 +9,13 @@ import androidx.core.view.isGone
 import androidx.fragment.app.viewModels
 import androidx.viewpager.widget.ViewPager.OnPageChangeListener
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.DialogFragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.PreviewFragmentBinding
+import eu.darken.sdmse.common.ui.R
+import eu.darken.sdmse.common.ui.databinding.PreviewFragmentBinding
 
 @AndroidEntryPoint
 class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
