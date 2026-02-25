@@ -45,8 +45,6 @@ dependencies {
     implementation(project(":app-common-automation"))
     implementation(project(":app-common-exclusion"))
     implementation(project(":app-common-setup"))
-    implementation(project(":app-tool-appcleaner"))
-
     addAndroidCore()
     addAndroidUI()
     addDI()

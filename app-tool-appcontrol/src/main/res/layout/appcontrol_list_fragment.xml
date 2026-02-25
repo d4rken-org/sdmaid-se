@@ -50,7 +50,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 tools:ignore="HardcodedText"
-                tools:listitem="@layout/appcleaner_list_item"
+                tools:listitem="@layout/appcontrol_list_item"
                 tools:visibility="visible" />
 
             <com.reddit.indicatorfastscroll.FastScrollerView

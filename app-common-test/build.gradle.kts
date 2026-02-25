@@ -11,10 +11,6 @@ android {
 
     setupModuleBuildTypes()
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     setupCompileOptions()
 
 
