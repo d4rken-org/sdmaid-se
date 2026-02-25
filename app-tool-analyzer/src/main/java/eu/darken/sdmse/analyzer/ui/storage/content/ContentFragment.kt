@@ -31,6 +31,8 @@ import eu.darken.sdmse.common.uix.Fragment3
 import kotlin.math.max
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.analyzer.databinding.AnalyzerContentFragmentBinding
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 @AndroidEntryPoint
 class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
@@ -155,8 +157,8 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
             toolbar.menu.findItem(R.id.action_toggle_layout_mode)?.setIcon(
                 when (state.layoutMode) {
-                    LayoutMode.LINEAR -> R.drawable.baseline_grid_view_24
-                    LayoutMode.GRID -> R.drawable.ic_baseline_view_list_24
+                    LayoutMode.LINEAR -> UiR.drawable.baseline_grid_view_24
+                    LayoutMode.GRID -> CommonR.drawable.ic_baseline_view_list_24
                 }
             )
 

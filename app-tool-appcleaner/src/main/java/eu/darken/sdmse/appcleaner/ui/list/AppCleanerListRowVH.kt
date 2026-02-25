@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.ui.performClickWithRipple
 import eu.darken.sdmse.appcleaner.databinding.AppcleanerListItemBinding
+import eu.darken.sdmse.common.ui.R as UiR
 
 class AppCleanerListRowVH(parent: ViewGroup) :
     AppCleanerListAdapter.BaseVH<AppCleanerListRowVH.Item, AppcleanerListItemBinding>(
@@ -59,8 +60,8 @@ class AppCleanerListRowVH(parent: ViewGroup) :
         detailsAction.apply {
             setIconResource(
                 when {
-                    junk.acsError != null -> R.drawable.ic_folder_alert_24
-                    else -> R.drawable.ic_folder_info_24
+                    junk.acsError != null -> UiR.drawable.ic_folder_alert_24
+                    else -> UiR.drawable.ic_folder_info_24
                 }
             )
             iconTint = when {

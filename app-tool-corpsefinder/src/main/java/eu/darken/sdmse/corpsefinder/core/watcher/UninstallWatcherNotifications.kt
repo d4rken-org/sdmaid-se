@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.corpsefinder.R
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class UninstallWatcherNotifications @Inject constructor(
@@ -51,7 +52,7 @@ class UninstallWatcherNotifications @Inject constructor(
             setChannelId(CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_DEFAULT
-            setSmallIcon(R.drawable.ic_notification_mascot_24)
+            setSmallIcon(UiR.drawable.ic_notification_mascot_24)
             setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
             setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
         }
@@ -112,7 +113,7 @@ class UninstallWatcherNotifications @Inject constructor(
             )
 
             val deleteAction = NotificationCompat.Action(
-                R.drawable.ic_delete,
+                UiR.drawable.ic_delete,
                 context.getString(eu.darken.sdmse.corpsefinder.R.string.corpsefinder_watcher_notification_delete_action),
                 deletePi
             )

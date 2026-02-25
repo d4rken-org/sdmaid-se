@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.DashboardToolCardBinding
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 class DashboardToolCard(parent: ViewGroup) :
     DashboardAdapter.BaseVH<DashboardToolCard.Item, DashboardToolCardBinding>(
@@ -25,10 +27,10 @@ class DashboardToolCard(parent: ViewGroup) :
 
         icon.setImageResource(
             when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.drawable.ghost
-                SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.drawable.ic_baseline_view_list_24
-                SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.drawable.ic_recycle
-                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.drawable.ic_content_duplicate_24
+                SDMTool.Type.CORPSEFINDER -> CommonR.drawable.ghost
+                SDMTool.Type.SYSTEMCLEANER -> CommonR.drawable.ic_baseline_view_list_24
+                SDMTool.Type.APPCLEANER -> CommonR.drawable.ic_recycle
+                SDMTool.Type.DEDUPLICATOR -> CommonR.drawable.ic_content_duplicate_24
                 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
@@ -100,7 +102,7 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
             if (item.showProRequirement) {
                 setIconResource(R.drawable.ic_baseline_stars_24)
             } else if (item.onDelete != null) {
-                setIconResource(R.drawable.ic_delete)
+                setIconResource(UiR.drawable.ic_delete)
             } else {
                 icon = null
             }

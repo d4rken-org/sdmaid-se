@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.swiper.databinding.SwiperProgressItemBinding
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.common.ui.R as UiR
 
 class ProgressPagerAdapter : ListAdapter<SwipeItem, ProgressPagerAdapter.ViewHolder>(DIFF_CALLBACK) {
 
@@ -80,7 +81,7 @@ class ProgressPagerAdapter : ListAdapter<SwipeItem, ProgressPagerAdapter.ViewHol
             when (item.decision) {
                 SwipeDecision.KEEP -> {
                     binding.decisionIcon.isVisible = true
-                    binding.decisionIcon.setImageResource(eu.darken.sdmse.swiper.R.drawable.ic_heart)
+                    binding.decisionIcon.setImageResource(UiR.drawable.ic_heart)
                     ViewCompat.setBackgroundTintList(
                         binding.decisionIcon,
                         ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
@@ -91,7 +92,7 @@ class ProgressPagerAdapter : ListAdapter<SwipeItem, ProgressPagerAdapter.ViewHol
                 }
                 SwipeDecision.DELETE -> {
                     binding.decisionIcon.isVisible = true
-                    binding.decisionIcon.setImageResource(eu.darken.sdmse.swiper.R.drawable.ic_delete)
+                    binding.decisionIcon.setImageResource(UiR.drawable.ic_delete)
                     ViewCompat.setBackgroundTintList(
                         binding.decisionIcon,
                         ColorStateList.valueOf(context.getColorForAttr(androidx.appcompat.R.attr.colorError)),

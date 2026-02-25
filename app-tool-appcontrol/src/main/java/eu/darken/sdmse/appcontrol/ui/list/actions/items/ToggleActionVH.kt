@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.appcontrol.databinding.AppcontrolActionToggleItemBinding
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class ToggleActionVH(parent: ViewGroup) :
@@ -24,11 +25,11 @@ class ToggleActionVH(parent: ViewGroup) :
         val appInfo = item.appInfo
 
         if (appInfo.pkg.isEnabled) {
-            icon.setImageResource(R.drawable.ic_snowflake_24)
+            icon.setImageResource(UiR.drawable.ic_snowflake_24)
             primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_disable_action)
             secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_disable_description)
         } else {
-            icon.setImageResource(R.drawable.ic_snowflake_off_24)
+            icon.setImageResource(UiR.drawable.ic_snowflake_off_24)
             primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_enable_action)
             secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_toggle_app_enable_description)
         }

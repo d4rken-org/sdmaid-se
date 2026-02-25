@@ -32,6 +32,7 @@ import eu.darken.sdmse.databinding.DashboardFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 @AndroidEntryPoint
 class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
@@ -185,7 +186,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
 
                 DashboardViewModel.BottomBarState.Action.WORKING_CANCELABLE -> {
-                    mainAction.setImageResource(R.drawable.ic_cancel)
+                    mainAction.setImageResource(UiR.drawable.ic_cancel)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         getColorForAttr(com.google.android.material.R.attr.colorOnTertiaryContainer)
                     )

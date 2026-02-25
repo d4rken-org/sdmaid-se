@@ -30,6 +30,7 @@ import eu.darken.sdmse.squeezer.ui.PreviewCompressionDialog
 import eu.darken.sdmse.squeezer.databinding.SqueezerListFragmentBinding
 import java.lang.Integer.max
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 @AndroidEntryPoint
 class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
@@ -143,8 +144,8 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
                     isVisible = state.progress == null
                     setIcon(
                         when (state.layoutMode) {
-                            LayoutMode.LINEAR -> R.drawable.baseline_grid_view_24
-                            LayoutMode.GRID -> R.drawable.baseline_list_alt_24
+                            LayoutMode.LINEAR -> UiR.drawable.baseline_grid_view_24
+                            LayoutMode.GRID -> UiR.drawable.baseline_list_alt_24
                         }
                     )
                 }

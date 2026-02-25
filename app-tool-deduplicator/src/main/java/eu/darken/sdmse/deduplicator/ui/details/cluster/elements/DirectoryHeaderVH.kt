@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.deduplicator.databinding.DeduplicatorClusterElementDirectoryHeaderBinding
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
 import eu.darken.sdmse.deduplicator.ui.details.cluster.DirectoryGroup
+import eu.darken.sdmse.common.R as CommonR
 
 
 class DirectoryHeaderVH(parent: ViewGroup) :
@@ -42,7 +43,7 @@ class DirectoryHeaderVH(parent: ViewGroup) :
 
         collapseAction.apply {
             setIconResource(
-                if (item.isCollapsed) eu.darken.sdmse.common.R.drawable.ic_expand_more else eu.darken.sdmse.common.R.drawable.ic_expand_less
+                if (item.isCollapsed) CommonR.drawable.ic_expand_more else CommonR.drawable.ic_expand_less
             )
             setOnClickListener { item.onCollapseToggle() }
         }

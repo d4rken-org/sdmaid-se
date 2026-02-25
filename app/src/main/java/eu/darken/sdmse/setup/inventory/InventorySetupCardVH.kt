@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.ui.setLeftIcon
 import eu.darken.sdmse.databinding.SetupInventoryItemBinding
 import eu.darken.sdmse.setup.SetupAdapter
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class InventorySetupCardVH(parent: ViewGroup) :
@@ -44,7 +45,7 @@ class InventorySetupCardVH(parent: ViewGroup) :
                 )
 
                 else -> setLeftIcon(
-                    R.drawable.ic_check_circle,
+                    UiR.drawable.ic_check_circle,
                     androidx.appcompat.R.attr.colorPrimary
                 )
             }

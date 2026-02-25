@@ -5,6 +5,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SetupModuleLoadingItemBinding
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class SetupModuleLoadingCardVH(parent: ViewGroup) :
@@ -28,7 +29,7 @@ class SetupModuleLoadingCardVH(parent: ViewGroup) :
                 SetupModule.Type.ROOT -> R.drawable.ic_root_24
                 SetupModule.Type.NOTIFICATION -> R.drawable.ic_notification_24
                 SetupModule.Type.SAF -> R.drawable.ic_saf
-                SetupModule.Type.STORAGE -> R.drawable.ic_sd_storage
+                SetupModule.Type.STORAGE -> UiR.drawable.ic_sd_storage
                 SetupModule.Type.INVENTORY -> CommonR.drawable.ic_apps
             }
         )

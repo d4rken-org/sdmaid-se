@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.swiper.databinding.SwiperSessionsSessionItemBinding
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.ui.sessions.SwiperSessionsAdapter
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 class SwiperSessionsSessionVH(parent: ViewGroup) :
     SwiperSessionsAdapter.BaseVH<SwiperSessionsSessionVH.Item, SwiperSessionsSessionItemBinding>(
@@ -107,7 +109,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             item.isScanning -> {
                 // Scanning in progress - show cancel button (disabled if already cancelling)
                 actionButton.text = getString(eu.darken.sdmse.common.R.string.general_cancel_action)
-                actionButton.setIconResource(eu.darken.sdmse.swiper.R.drawable.ic_cancel)
+                actionButton.setIconResource(UiR.drawable.ic_cancel)
                 actionButton.isEnabled = !item.isCancelling
                 actionButton.setOnClickListener { item.onCancel() }
             }
@@ -125,14 +127,14 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
                 } else {
                     getString(eu.darken.sdmse.swiper.R.string.swiper_start_action)
                 }
-                actionButton.setIconResource(R.drawable.ic_baseline_swipe_24)
+                actionButton.setIconResource(CommonR.drawable.ic_baseline_swipe_24)
                 actionButton.isEnabled = true
                 actionButton.setOnClickListener { item.onContinue() }
             }
             else -> {
                 // Not yet scanned
                 actionButton.text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
-                actionButton.setIconResource(R.drawable.ic_baseline_search_24)
+                actionButton.setIconResource(UiR.drawable.ic_baseline_search_24)
                 actionButton.isEnabled = true
                 actionButton.setOnClickListener { item.onScan() }
             }

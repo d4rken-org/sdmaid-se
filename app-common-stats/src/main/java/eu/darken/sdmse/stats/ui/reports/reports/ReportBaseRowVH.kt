@@ -10,6 +10,7 @@ import eu.darken.sdmse.main.core.iconRes
 import eu.darken.sdmse.main.core.labelRes
 import eu.darken.sdmse.stats.core.Report
 import java.time.Instant
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class ReportBaseRowVH(parent: ViewGroup) :
@@ -38,7 +39,7 @@ class ReportBaseRowVH(parent: ViewGroup) :
         when (report.status) {
             Report.Status.SUCCESS -> {
                 executionState.apply {
-                    setImageResource(R.drawable.ic_check_circle)
+                    setImageResource(UiR.drawable.ic_check_circle)
                     imageTintList = ColorStateList.valueOf(
                         getColorForAttr(androidx.appcompat.R.attr.colorPrimary)
                     )
@@ -60,7 +61,7 @@ class ReportBaseRowVH(parent: ViewGroup) :
 
             Report.Status.FAILURE -> {
                 executionState.apply {
-                    setImageResource(R.drawable.ic_alert_octagon_outline_24)
+                    setImageResource(UiR.drawable.ic_alert_octagon_outline_24)
                     imageTintList = ColorStateList.valueOf(
                         getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )

@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.scheduler.R
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class SchedulerNotifications @Inject constructor(
@@ -47,7 +48,7 @@ class SchedulerNotifications @Inject constructor(
         setChannelId(CHANNEL_ID)
         setContentIntent(openPi)
         priority = NotificationCompat.PRIORITY_LOW
-        setSmallIcon(R.drawable.ic_notification_mascot_24)
+        setSmallIcon(UiR.drawable.ic_notification_mascot_24)
         setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
         setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
     }

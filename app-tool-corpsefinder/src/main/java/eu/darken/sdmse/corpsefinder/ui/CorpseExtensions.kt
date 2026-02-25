@@ -16,6 +16,8 @@ import eu.darken.sdmse.corpsefinder.core.filter.PublicMediaCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.PublicObbCorpseFilter
 import eu.darken.sdmse.corpsefinder.core.filter.SdcardCorpseFilter
 import kotlin.reflect.KClass
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
 val <T : CorpseFilter> KClass<T>.labelRes: Int
@@ -37,16 +39,16 @@ val <T : CorpseFilter> KClass<T>.labelRes: Int
 @get:DrawableRes
 val <T : CorpseFilter> KClass<T>.iconRes: Int
     get() = when (this) {
-        SdcardCorpseFilter::class -> R.drawable.ic_sd_storage
-        PublicMediaCorpseFilter::class -> R.drawable.ic_sd_storage
-        PublicDataCorpseFilter::class -> R.drawable.ic_sd_storage
-        PublicObbCorpseFilter::class -> R.drawable.ic_game_controller_24
-        PrivateDataCorpseFilter::class -> R.drawable.ic_incognito_circle_24
-        DalvikCorpseFilter::class -> R.drawable.ic_turbine_24
-        ArtProfilesCorpseFilter::class -> R.drawable.ic_artboard_24
+        SdcardCorpseFilter::class -> UiR.drawable.ic_sd_storage
+        PublicMediaCorpseFilter::class -> UiR.drawable.ic_sd_storage
+        PublicDataCorpseFilter::class -> UiR.drawable.ic_sd_storage
+        PublicObbCorpseFilter::class -> UiR.drawable.ic_game_controller_24
+        PrivateDataCorpseFilter::class -> UiR.drawable.ic_incognito_circle_24
+        DalvikCorpseFilter::class -> UiR.drawable.ic_turbine_24
+        ArtProfilesCorpseFilter::class -> UiR.drawable.ic_artboard_24
         AppLibCorpseFilter::class -> eu.darken.sdmse.common.io.R.drawable.ic_baseline_local_library_24
-        AppSourceCorpseFilter::class -> eu.darken.sdmse.common.R.drawable.ic_app_extra_24
-        AppSourcePrivateCorpseFilter::class -> R.drawable.ic_folder_key_24
-        AppAsecFileCorpseFilter::class -> R.drawable.ic_folder_key_24
-        else -> R.drawable.ghost
+        AppSourceCorpseFilter::class -> CommonR.drawable.ic_app_extra_24
+        AppSourcePrivateCorpseFilter::class -> UiR.drawable.ic_folder_key_24
+        AppAsecFileCorpseFilter::class -> UiR.drawable.ic_folder_key_24
+        else -> CommonR.drawable.ghost
     }

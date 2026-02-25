@@ -2,15 +2,15 @@ package eu.darken.sdmse.common.files
 
 import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
-import eu.darken.sdmse.common.io.R
+import eu.darken.sdmse.common.R as CommonR
 
 @get:DrawableRes
 val FileType.iconRes: Int
     get() = when (this) {
-        FileType.DIRECTORY -> R.drawable.ic_folder
-        FileType.SYMBOLIC_LINK -> R.drawable.ic_file_link
-        FileType.FILE -> R.drawable.ic_file
-        FileType.UNKNOWN -> R.drawable.file_question
+        FileType.DIRECTORY -> CommonR.drawable.ic_folder
+        FileType.SYMBOLIC_LINK -> CommonR.drawable.ic_file_link
+        FileType.FILE -> CommonR.drawable.ic_file
+        FileType.UNKNOWN -> CommonR.drawable.file_question
     }
 
 @get:StringRes

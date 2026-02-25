@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.appcleaner.databinding.AppcleanerAppjunkElementFileCategoryBinding
 import kotlin.reflect.KClass
+import eu.darken.sdmse.common.R as CommonR
 
 
 class AppJunkElementFileCategoryVH(parent: ViewGroup) :
@@ -44,7 +45,7 @@ class AppJunkElementFileCategoryVH(parent: ViewGroup) :
 
         collapseAction.apply {
             setIconResource(
-                if (item.isCollapsed) eu.darken.sdmse.common.R.drawable.ic_expand_more else eu.darken.sdmse.common.R.drawable.ic_expand_less
+                if (item.isCollapsed) CommonR.drawable.ic_expand_more else CommonR.drawable.ic_expand_less
             )
             setOnClickListener { item.onCollapseToggle() }
         }

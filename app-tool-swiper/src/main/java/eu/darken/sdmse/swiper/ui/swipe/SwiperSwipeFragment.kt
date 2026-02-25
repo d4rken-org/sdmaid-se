@@ -30,6 +30,7 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 import kotlin.math.abs
+import eu.darken.sdmse.common.ui.R as UiR
 
 @AndroidEntryPoint
 class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
@@ -170,8 +171,8 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                     }
                 }
                 // Swap icons
-                deleteAction.setImageResource(R.drawable.ic_heart)
-                keepAction.setImageResource(R.drawable.ic_delete)
+                deleteAction.setImageResource(UiR.drawable.ic_heart)
+                keepAction.setImageResource(UiR.drawable.ic_delete)
                 // Swap labels
                 deleteLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
                 keepLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
@@ -203,8 +204,8 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                     }
                 }
                 // Normal icons
-                deleteAction.setImageResource(R.drawable.ic_delete)
-                keepAction.setImageResource(R.drawable.ic_heart)
+                deleteAction.setImageResource(UiR.drawable.ic_delete)
+                keepAction.setImageResource(UiR.drawable.ic_heart)
                 // Normal labels
                 deleteLabel.setText(eu.darken.sdmse.common.R.string.general_delete_action)
                 keepLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_keep_action)
@@ -304,14 +305,14 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
             if (state.showGestureOverlay) {
                 gestureOverlay.root.visibility = View.VISIBLE
                 if (state.swapDirections) {
-                    gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_heart)
+                    gestureOverlay.overlayLeftIcon.setImageResource(UiR.drawable.ic_heart)
                     gestureOverlay.overlayLeftLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_left_keep)
-                    gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_delete)
+                    gestureOverlay.overlayRightIcon.setImageResource(UiR.drawable.ic_delete)
                     gestureOverlay.overlayRightLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_right_delete)
                 } else {
-                    gestureOverlay.overlayLeftIcon.setImageResource(R.drawable.ic_delete)
+                    gestureOverlay.overlayLeftIcon.setImageResource(UiR.drawable.ic_delete)
                     gestureOverlay.overlayLeftLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_left_delete)
-                    gestureOverlay.overlayRightIcon.setImageResource(R.drawable.ic_heart)
+                    gestureOverlay.overlayRightIcon.setImageResource(UiR.drawable.ic_heart)
                     gestureOverlay.overlayRightLabel.setText(eu.darken.sdmse.swiper.R.string.swiper_gesture_overlay_right_keep)
                 }
                 val dismissOverlay = View.OnClickListener {

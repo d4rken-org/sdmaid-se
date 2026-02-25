@@ -8,6 +8,7 @@ import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.deduplicator.databinding.DeduplicatorArbiterConfigRowBinding
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class ArbiterCriteriumRowVH(parent: ViewGroup) :
@@ -77,12 +78,12 @@ class ArbiterCriteriumRowVH(parent: ViewGroup) :
 
     @DrawableRes
     private fun getIconForCriterium(criterium: ArbiterCriterium): Int = when (criterium) {
-        is ArbiterCriterium.DuplicateType -> R.drawable.ic_code_equal_box_24
-        is ArbiterCriterium.PreferredPath -> R.drawable.ic_folder_home_24
-        is ArbiterCriterium.MediaProvider -> R.drawable.ic_multimedia_24
+        is ArbiterCriterium.DuplicateType -> UiR.drawable.ic_code_equal_box_24
+        is ArbiterCriterium.PreferredPath -> UiR.drawable.ic_folder_home_24
+        is ArbiterCriterium.MediaProvider -> UiR.drawable.ic_multimedia_24
         is ArbiterCriterium.Location -> R.drawable.ic_sd_24
-        is ArbiterCriterium.Nesting -> R.drawable.ic_contain_24
-        is ArbiterCriterium.Modified -> R.drawable.ic_file_clock_outline_24
-        is ArbiterCriterium.Size -> R.drawable.ic_weight_24
+        is ArbiterCriterium.Nesting -> UiR.drawable.ic_contain_24
+        is ArbiterCriterium.Modified -> UiR.drawable.ic_file_clock_outline_24
+        is ArbiterCriterium.Size -> UiR.drawable.ic_weight_24
     }
 }

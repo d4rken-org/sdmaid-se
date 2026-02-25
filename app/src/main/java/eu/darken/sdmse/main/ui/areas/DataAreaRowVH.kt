@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.label
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DataAreasListItemBinding
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class DataAreaRowVH(parent: ViewGroup) :
@@ -21,7 +22,7 @@ class DataAreaRowVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         val area = item.area
-        icon.setImageResource(R.drawable.ic_sd_storage)
+        icon.setImageResource(UiR.drawable.ic_sd_storage)
         primary.text = area.type.label.get(context)
         secondary.text = area.path.userReadablePath.get(context)
     }

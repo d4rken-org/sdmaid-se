@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionAdapter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.appcontrol.databinding.AppcontrolActionExcludeItemBinding
 import eu.darken.sdmse.exclusion.core.types.Exclusion
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class ExcludeActionVH(parent: ViewGroup) :
@@ -22,11 +23,11 @@ class ExcludeActionVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         if (item.exclusion == null) {
-            icon.setImageResource(R.drawable.ic_shield_24)
+            icon.setImageResource(UiR.drawable.ic_shield_24)
             primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_add_title)
             secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_add_description)
         } else {
-            icon.setImageResource(R.drawable.ic_shield_edit_24)
+            icon.setImageResource(UiR.drawable.ic_shield_edit_24)
             primary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_edit_title)
             secondary.text = getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_app_exclude_edit_description)
         }

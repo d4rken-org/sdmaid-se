@@ -24,6 +24,7 @@ import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.swiper.databinding.SwiperStatusFragmentBinding
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import kotlin.math.abs
+import eu.darken.sdmse.common.ui.R as UiR
 
 @AndroidEntryPoint
 class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
@@ -216,7 +217,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             state.deletedCount > 0 && state.deleteCount == 0 -> ButtonState(
                 text = getString(eu.darken.sdmse.common.R.string.general_done_action),
                 enabled = state.canDone,
-                icon = R.drawable.ic_heart,
+                icon = UiR.drawable.ic_heart,
                 visible = true,
                 useErrorColor = false,
             )
@@ -228,7 +229,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
                     getString(eu.darken.sdmse.common.R.string.general_delete_action)
                 },
                 enabled = state.canFinalize,
-                icon = R.drawable.ic_baseline_delete_forever_24,
+                icon = UiR.drawable.ic_baseline_delete_forever_24,
                 visible = true,
                 useErrorColor = true,
             )
@@ -236,7 +237,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             state.keepCount > 0 -> ButtonState(
                 text = getString(eu.darken.sdmse.common.R.string.general_apply_action),
                 enabled = state.canFinalize,
-                icon = R.drawable.ic_done_24,
+                icon = UiR.drawable.ic_done_24,
                 visible = true,
                 useErrorColor = false,
             )
@@ -244,7 +245,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             else -> ButtonState(
                 text = "",
                 enabled = false,
-                icon = R.drawable.ic_done_24,
+                icon = UiR.drawable.ic_done_24,
                 visible = false,
                 useErrorColor = false,
             )

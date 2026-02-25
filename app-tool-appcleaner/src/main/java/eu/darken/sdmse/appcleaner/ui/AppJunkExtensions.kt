@@ -26,6 +26,8 @@ import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppBackupsFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppReceivedFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.WhatsAppSentFilter
 import kotlin.reflect.KClass
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 @get:StringRes
 val <T : ExpendablesFilter> KClass<T>.labelRes: Int
@@ -84,26 +86,26 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
 @get:DrawableRes
 val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
     get() = when (this) {
-        DefaultCachesPublicFilter::class -> eu.darken.sdmse.common.R.drawable.ic_baseline_format_list_bulleted_24
-        DefaultCachesPrivateFilter::class -> eu.darken.sdmse.common.R.drawable.ic_baseline_format_list_bulleted_24
-        HiddenFilter::class -> R.drawable.ic_hidden_file_24
-        ThumbnailsFilter::class -> R.drawable.ic_multimedia_24
-        CodeCacheFilter::class -> eu.darken.sdmse.common.R.drawable.ic_baseline_format_list_bulleted_24
-        AdvertisementFilter::class -> eu.darken.sdmse.common.R.drawable.ic_baseline_ads_click_24
-        BugReportingFilter::class -> R.drawable.ic_bug_report
-        AnalyticsFilter::class -> eu.darken.sdmse.common.R.drawable.ic_analytics_onsurface
-        GameFilesFilter::class -> R.drawable.ic_game_controller_24
-        OfflineCacheFilter::class -> R.drawable.ic_signal_off_24
-        RecycleBinsFilter::class -> eu.darken.sdmse.common.R.drawable.ic_recycle_bin_24
-        WebViewCacheFilter::class -> R.drawable.ic_chrome_24
-        ShortcutServiceFilter::class -> R.drawable.ic_image_multiple_24
-        WhatsAppBackupsFilter::class -> R.drawable.ic_whatsapp_24
-        WhatsAppReceivedFilter::class -> R.drawable.ic_whatsapp_24
-        WhatsAppSentFilter::class -> R.drawable.ic_whatsapp_24
-        TelegramFilter::class -> R.drawable.ic_chat_24
-        ThreemaFilter::class -> R.drawable.ic_chat_24
-        WeChatFilter::class -> R.drawable.ic_wechat_24
-        ViberFilter::class -> R.drawable.ic_chat_24
-        MobileQQFilter::class -> R.drawable.ic_qqchat_24
-        else -> R.drawable.file_question
+        DefaultCachesPublicFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
+        DefaultCachesPrivateFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
+        HiddenFilter::class -> UiR.drawable.ic_hidden_file_24
+        ThumbnailsFilter::class -> UiR.drawable.ic_multimedia_24
+        CodeCacheFilter::class -> CommonR.drawable.ic_baseline_format_list_bulleted_24
+        AdvertisementFilter::class -> CommonR.drawable.ic_baseline_ads_click_24
+        BugReportingFilter::class -> UiR.drawable.ic_bug_report
+        AnalyticsFilter::class -> CommonR.drawable.ic_analytics_onsurface
+        GameFilesFilter::class -> UiR.drawable.ic_game_controller_24
+        OfflineCacheFilter::class -> UiR.drawable.ic_signal_off_24
+        RecycleBinsFilter::class -> CommonR.drawable.ic_recycle_bin_24
+        WebViewCacheFilter::class -> UiR.drawable.ic_chrome_24
+        ShortcutServiceFilter::class -> UiR.drawable.ic_image_multiple_24
+        WhatsAppBackupsFilter::class -> UiR.drawable.ic_whatsapp_24
+        WhatsAppReceivedFilter::class -> UiR.drawable.ic_whatsapp_24
+        WhatsAppSentFilter::class -> UiR.drawable.ic_whatsapp_24
+        TelegramFilter::class -> UiR.drawable.ic_chat_24
+        ThreemaFilter::class -> UiR.drawable.ic_chat_24
+        WeChatFilter::class -> UiR.drawable.ic_wechat_24
+        ViberFilter::class -> UiR.drawable.ic_chat_24
+        MobileQQFilter::class -> UiR.drawable.ic_qqchat_24
+        else -> CommonR.drawable.file_question
     }

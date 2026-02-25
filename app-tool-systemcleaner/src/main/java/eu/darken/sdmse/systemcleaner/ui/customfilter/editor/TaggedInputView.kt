@@ -30,6 +30,7 @@ import eu.darken.sdmse.common.sieve.SieveCriterium
 import eu.darken.sdmse.common.ui.getString
 import eu.darken.sdmse.systemcleaner.databinding.ViewTaggedInputBinding
 import java.io.File
+import eu.darken.sdmse.common.ui.R as UiR
 
 class TaggedInputView @JvmOverloads constructor(
     context: Context,
@@ -327,17 +328,17 @@ class TaggedInputView @JvmOverloads constructor(
         @get:DrawableRes val iconRes: Int
             get() = when (criterium) {
                 is NameCriterium -> when (criterium.mode) {
-                    is NameCriterium.Mode.Contain -> R.drawable.ic_contain_24
-                    is NameCriterium.Mode.End -> R.drawable.ic_contain_end_24
-                    is NameCriterium.Mode.Equal -> R.drawable.ic_approximately_equal_24
-                    is NameCriterium.Mode.Start -> R.drawable.ic_contain_start_24
+                    is NameCriterium.Mode.Contain -> UiR.drawable.ic_contain_24
+                    is NameCriterium.Mode.End -> UiR.drawable.ic_contain_end_24
+                    is NameCriterium.Mode.Equal -> UiR.drawable.ic_approximately_equal_24
+                    is NameCriterium.Mode.Start -> UiR.drawable.ic_contain_start_24
                 }
 
                 is SegmentCriterium -> when (criterium.mode) {
-                    is SegmentCriterium.Mode.Contain -> R.drawable.ic_contain_24
-                    is SegmentCriterium.Mode.End -> R.drawable.ic_contain_end_24
-                    is SegmentCriterium.Mode.Equal -> R.drawable.ic_approximately_equal_24
-                    is SegmentCriterium.Mode.Start -> R.drawable.ic_contain_start_24
+                    is SegmentCriterium.Mode.Contain -> UiR.drawable.ic_contain_24
+                    is SegmentCriterium.Mode.End -> UiR.drawable.ic_contain_end_24
+                    is SegmentCriterium.Mode.Equal -> UiR.drawable.ic_approximately_equal_24
+                    is SegmentCriterium.Mode.Start -> UiR.drawable.ic_contain_start_24
                     is SegmentCriterium.Mode.Ancestor -> throw IllegalArgumentException("Ancestor not supported")
                     is SegmentCriterium.Mode.Specific -> throw IllegalArgumentException("Specific not supported")
                 }

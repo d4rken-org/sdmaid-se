@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.analyzer.databinding.AnalyzerDeviceVhBinding
 import kotlin.math.roundToInt
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class DeviceStorageItemVH(parent: ViewGroup) :
@@ -48,7 +49,7 @@ class DeviceStorageItemVH(parent: ViewGroup) :
             when (storage.hardware) {
                 DeviceStorage.Hardware.BUILT_IN -> R.drawable.ic_chip_24
                 DeviceStorage.Hardware.SDCARD -> R.drawable.ic_sd_24
-                DeviceStorage.Hardware.USB -> R.drawable.ic_usb_24
+                DeviceStorage.Hardware.USB -> UiR.drawable.ic_usb_24
             }
         )
 

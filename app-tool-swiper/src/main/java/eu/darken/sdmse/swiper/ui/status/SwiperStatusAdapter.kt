@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.swiper.databinding.SwiperStatusItemBinding
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
+import eu.darken.sdmse.common.ui.R as UiR
 
 class SwiperStatusAdapter :
     ModularAdapter<SwiperStatusAdapter.VH>(),
@@ -96,14 +97,14 @@ class SwiperStatusAdapter :
             when (swipeItem.decision) {
                 SwipeDecision.KEEP -> {
                     decisionIndicator.visibility = android.view.View.VISIBLE
-                    decisionIndicator.setImageResource(R.drawable.ic_heart)
+                    decisionIndicator.setImageResource(UiR.drawable.ic_heart)
                     decisionIndicator.imageTintList = android.content.res.ColorStateList.valueOf(
                         context.getColorForAttr(androidx.appcompat.R.attr.colorPrimary)
                     )
                 }
                 SwipeDecision.DELETE -> {
                     decisionIndicator.visibility = android.view.View.VISIBLE
-                    decisionIndicator.setImageResource(R.drawable.ic_delete)
+                    decisionIndicator.setImageResource(UiR.drawable.ic_delete)
                     decisionIndicator.imageTintList = android.content.res.ColorStateList.valueOf(
                         context.getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )
@@ -113,14 +114,14 @@ class SwiperStatusAdapter :
                 }
                 SwipeDecision.DELETED -> {
                     decisionIndicator.visibility = android.view.View.VISIBLE
-                    decisionIndicator.setImageResource(R.drawable.ic_heart)
+                    decisionIndicator.setImageResource(UiR.drawable.ic_heart)
                     decisionIndicator.imageTintList = android.content.res.ColorStateList.valueOf(
                         context.getColorForAttr(androidx.appcompat.R.attr.colorPrimary)
                     )
                 }
                 SwipeDecision.DELETE_FAILED -> {
                     decisionIndicator.visibility = android.view.View.VISIBLE
-                    decisionIndicator.setImageResource(R.drawable.ic_error_outline)
+                    decisionIndicator.setImageResource(UiR.drawable.ic_error_outline)
                     decisionIndicator.imageTintList = android.content.res.ColorStateList.valueOf(
                         context.getColorForAttr(androidx.appcompat.R.attr.colorError)
                     )

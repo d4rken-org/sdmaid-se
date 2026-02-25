@@ -44,6 +44,7 @@ import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.appcontrol.databinding.AppcontrolListFragmentBinding
 import eu.darken.sdmse.common.navigation.navDirections
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 @AndroidEntryPoint
 class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
@@ -292,7 +293,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             sortmodeScreentime.isVisible = state.allowSortScreenTime
 
             sortmodeDirection.setIconResource(
-                if (state.options.listSort.reversed) R.drawable.ic_sort_descending_24 else R.drawable.ic_sort_ascending_24
+                if (state.options.listSort.reversed) UiR.drawable.ic_sort_descending_24 else UiR.drawable.ic_sort_ascending_24
             )
             currentSortMode = state.options.listSort.mode
 

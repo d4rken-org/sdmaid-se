@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.ui.MainActivity
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class TaskWorkerNotifications @Inject constructor(
@@ -48,7 +49,7 @@ class TaskWorkerNotifications @Inject constructor(
             setChannelId(CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.ic_notification_mascot_24)
+            setSmallIcon(UiR.drawable.ic_notification_mascot_24)
             setOngoing(true)
             setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
             setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
