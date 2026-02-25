@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Creare filtru personalizadu</string>
     <string name="systemcleaner_customfilter_create_hint">Creare unu filtru personalizadu pro cantzellare documentos additzionales chi sunt únicos pro su dispositivu tuo e is casos de impreu.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bogare custu filtru?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Tenes cambiamentos no sarvados!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Eticheta de filtru</string>
     <string name="systemcleaner_customfilter_editor_warning">Is filtros personalizados podent èssere perigulosos. Controlla is risultados de iscansione prima de cantzellare!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Àreas de datos</string>

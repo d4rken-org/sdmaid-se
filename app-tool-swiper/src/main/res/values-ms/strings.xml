@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">Alamak!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
     <string name="swiper_gesture_overlay_dismiss">Ketik di mana-mana untuk mula</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
     <string name="swiper_gesture_overlay_left_delete">← Padam</string>
     <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
     <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
     <string name="swiper_gesture_overlay_right_delete">Padam →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Langkau</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
-    <string name="swiper_help_action">Bantuan</string>
     <string name="swiper_help_title">Cara Swiper berfungsi</string>
     <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
 </resources>

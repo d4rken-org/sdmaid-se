@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Hazırda işləyən müdaxilə edə biləcək tətbiqləri daxil et.</string>
     <string name="appcleaner_include_inaccessible_label">Əlçatmaz keşləri daxil et</string>
     <string name="appcleaner_include_inaccessible_summary">Birbaşa əlçatan olmayan, lakin sistem parametrləri vasitəsilə silinə bilən və əlçatanlıq xidməti istifadə edərək avtomatlaşdırıla bilən məlumatları daxil et.</string>
-    <string name="appcleaner_include_multiuser_label">Digər istifadəçiləri daxil et</string>
-    <string name="appcleaner_include_multiuser_summary">Bu cihazda digər istifadəçi profillərindən tətbiqləri daxil et.</string>
     <string name="appcleaner_include_minimumsize_label">Minimum ölçü</string>
     <string name="appcleaner_include_minimumsize_summary">Xərclənə bilən məlumatların cəmi minimumdan aşağı olan tətbiqləri keç.</string>
     <string name="appcleaner_include_minimumage_label">Minimum yaş</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d xərclənə bilən element tapıldı</item>
         <item quantity="other">%d xərclənə bilən element tapıldı</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>
     <string name="appcleaner_automation_title">AppCleaner avtomatlaşdırması</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standart keşlər təmizlənir…</string>
     <string name="appcleaner_automation_progress_open_settings">Parametrlər ekranı açılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Yaddaş\" girişi axtarılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Məlumatları təmizlə\" düyməsi axtarılır (açar sözlər: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keşi təmizlə\" düyməsi axtarılır (açar sözlər: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standart keşlər</string>
     <string name="appcleaner_item_caches_inaccessible_body">İctimai və şəxsi standart keşlər. Birbaşa əlçatan deyil, lakin dolayısı ilə silinə bilər (məsələn əlçatanlıq xidməti vasitəsilə).</string>
     <string name="appcleaner_automation_unavailable_title">Əlçatanlıq xidməti əlçatan deyil</string>

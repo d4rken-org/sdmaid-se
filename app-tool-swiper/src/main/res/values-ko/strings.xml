@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">앗!</string>
     <string name="swiper_stamp_undo_4">잠깐!</string>
     <string name="swiper_gesture_overlay_dismiss">아무 곳이나 탭하여 시작</string>
-    <string name="swiper_gesture_overlay_dismiss_action">확인</string>
     <string name="swiper_gesture_overlay_left_delete">← 삭제</string>
     <string name="swiper_gesture_overlay_right_keep">보관 →</string>
     <string name="swiper_gesture_overlay_left_keep">← 보관</string>
     <string name="swiper_gesture_overlay_right_delete">삭제 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ 건너뛰기</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 되돌리기</string>
-    <string name="swiper_help_action">도움말</string>
     <string name="swiper_help_title">Swiper 사용 방법</string>
     <string name="swiper_help_message">각 파일을 스와이프하여 결정하세요:\n\n← 왼쪽으로 스와이프: %1$s\n→ 오른쪽으로 스와이프: %2$s\n↑ 위로 스와이프: 건너뛰기\n↓ 아래로 스와이프: 되돌리기 (첫 스와이프 이후)\n\n하단 버튼을 사용할 수도 있습니다.\n\n완료되면 \"검토\"를 탭하여 모든 결정을 확인하세요. 검토 화면에서 확인하기 전까지는 아무것도 삭제되지 않습니다.</string>
 </resources>

@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">Oryginał</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresji</string>
     <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Rozumiem</string>
     <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
     <string name="squeezer_result_empty_message">Nie znaleziono kompresywnych obrazów.</string>

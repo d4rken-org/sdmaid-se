@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et grovt estimat av størrelsen til hver app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Finn ut om en app er (eller nylig var) aktiv.</string>
-    <string name="appcontrol_include_multiuser_label">Inkluder andre brukere</string>
-    <string name="appcontrol_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
     <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d app ble stoppet</item>
         <item quantity="other">%d apper ble stoppet</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
     <string name="appcontrol_automation_title">Appkontroll automatisering</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Tvinger avslutning…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ser etter \"Tving avslutning\"-knapp (nøkkelord: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arkiverer…</string>
     <string name="appcontrol_automation_progress_find_archive">Ser etter \"Arkiver\"-knapp (nøkkelord: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Gjenoppretter…</string>

@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ପ୍ରତ୍ୟେକ ଆପ୍ର ଆକାରର ଏକ ଆନୁମାନିକ ପରିମାଣ ପ୍ରାପ୍ତ କରନ୍ତୁ।</string>
     <string name="appcontrol_settings_module_activity_enabled_label">କାର୍ଯ୍ୟକଳାପ ନିର୍ଦ୍ଧାରଣ</string>
     <string name="appcontrol_settings_module_activity_enabled_description">ଏକ ଆପ୍ ସକ୍ରିୟ (କିମ୍ବା ସମ୍ପ୍ରତି ସକ୍ରିୟ ଥିଲା) କି ନାହିଁ ଜାଣନ୍ତୁ।</string>
-    <string name="appcontrol_include_multiuser_label">ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କୁ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="appcontrol_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଭୋକ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍ସ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="appcontrol_export_app_selection_action">ଆପ୍ ଗୁଡ଼ିକ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="appcontrol_export_title">ଆପ୍ ରପ୍ତାନି କରନ୍ତୁ</string>
     <string name="appcontrol_export_description">ଏହି ଆପ୍ର ଇନଷ୍ଟଲେସନ୍ ଫାଇଲ୍ ସେଭ୍ କରନ୍ତୁ। ଏଥିରେ ଆପ୍ ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ ନାହିଁ।</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d ଆପ୍ ବନ୍ଦ ହୋଇଛି</item>
         <item quantity="other">%d ଆପ୍ ବନ୍ଦ ହୋଇଛି</item>
     </plurals>
-    <string name="appcontrol_automation_loading">ଅଭିଗମ୍ୟତା ସେବା ମାଧ୍ୟମରେ ସ୍ୱୟଂଚାଳନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
     <string name="appcontrol_automation_title">AppControl ସ୍ୱୟଂଚାଳନ</string>
     <string name="appcontrol_automation_subtitle_force_stopping">ବଳପୂର୍ବକ ବନ୍ଦ କରୁଛି…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"ବଳପୂର୍ବକ ବନ୍ଦ\" ବଟନ୍ ଖୋଜୁଛି (କୀୱାର୍ଡ: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟକୁ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କୀୱାର୍ଡ: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">ଆର୍କାଇଭ୍ କରୁଛି…</string>
     <string name="appcontrol_automation_progress_find_archive">\"ଆର୍କାଇଭ୍\" ବଟନ୍ ଖୋଜୁଛି (ମୁଖ୍ୟ ଶବ୍ଦ: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">ପୁନଃସ୍ଥାପନ କରୁଛି…</string>

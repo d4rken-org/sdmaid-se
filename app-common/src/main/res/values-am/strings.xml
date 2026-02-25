@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">ባለቤት</string>
     <string name="general_user_label_system">ስርዓት</string>
     <string name="setup_title">ማዋቀሪያ</string>
-    <string name="exclusion_create_action">ማስወገጃ ፍጠር</string>
     <string name="setup_feature_requires_additional_setup_x">ይህ ባህሪ ተጨማሪ የማዋቀሪያ ንጥሎችን ማጠናቀቅ ይፈልጋል፦ %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">አንድ ማስወገጃ ተፈጠረ</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">ማንሸራተቻ</string>
     <string name="stats_label">ታሪክ</string>
     <string name="settings_category_tools_label">መሳሪያዎች</string>
+    <string name="general_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
+    <string name="general_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት།</string>
+    <string name="general_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
 </resources>

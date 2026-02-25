@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">สร้างตัวกรองกำหนดเอง</string>
     <string name="systemcleaner_customfilter_create_hint">สร้างตัวกรองกำหนดเองเพื่อลบไฟล์เพิ่มเติมที่เฉพาะสำหรับอุปกรณ์และการใช้งานของคุณ</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ลบตัวกรองนี้หรือไม่?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ชื่อตัวกรอง</string>
     <string name="systemcleaner_customfilter_editor_warning">ตัวกรองกำหนดเองอาจมีความเสี่ยง ตรวจสอบผลการสแกนก่อนลบ!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">พื้นที่ข้อมูล</string>

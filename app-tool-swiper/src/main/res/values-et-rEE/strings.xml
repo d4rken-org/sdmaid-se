@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Isver-susver!</string>
     <string name="swiper_stamp_undo_4">Pea hoogu!</string>
     <string name="swiper_gesture_overlay_dismiss">Alustamiseks puuduta kuhugi</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Selge</string>
     <string name="swiper_gesture_overlay_left_delete">← Kustuta</string>
     <string name="swiper_gesture_overlay_right_keep">Säilita →</string>
     <string name="swiper_gesture_overlay_left_keep">← Säilita</string>
     <string name="swiper_gesture_overlay_right_delete">Kustuta →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Jäta vahele</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Võta tagasi</string>
-    <string name="swiper_help_action">Abi</string>
     <string name="swiper_help_title">Kuidas Pühkija töötab</string>
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
 </resources>

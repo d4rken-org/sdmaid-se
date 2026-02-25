@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inclutìghere aplicatziones chi sunt in esecutzione chi podent causare interferentzia.</string>
     <string name="appcleaner_include_inaccessible_label">Inclutìghere cache inatzessìbiles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclutìghere datos chi no podent èssere atzessados diretamente ma podent èssere cantzellados a travessu de is impostatziones de sistema e automatizados impreende unu servitziu de atzessibilidade. </string>
-    <string name="appcleaner_include_multiuser_label">Inclutìghere àteros usuarios</string>
-    <string name="appcleaner_include_multiuser_summary">Inclutìghere aplicatziones dae àteros profiles de usuarios in custu dispositivu.</string>
     <string name="appcleaner_include_minimumsize_label">Mannària mínima</string>
     <string name="appcleaner_include_minimumsize_summary">Saltare aplicatziones in ue sa suma de datos ispentzìbiles est suta de su mínimu.</string>
     <string name="appcleaner_include_minimumage_label">Edade mínima</string>
@@ -63,14 +61,12 @@
         <item quantity="one">%d elementu ispentzìbile agatadu</item>
         <item quantity="other">%d elementos ispentzìbiles agatados</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Preparende automatizatzione a travessu de servitziu de atzessibilidade</string>
     <string name="appcleaner_automation_title">Automatizatzione AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpiadela de cache predefinidas…</string>
     <string name="appcleaner_automation_progress_open_settings">Abertura de ischermada de impostatziones (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Chirchende entrada \"Archìviu\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Chirchende butone \"Limpiai datos\" (faeddas crae: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Chirchende butone \"Limpiai cache\" (faeddas crae: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Proende de confirmaren s\'atzione antekerente (faeddas crae: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache predefinidas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache predefinidas púbblicas e privadas. No diretamente atzessìbiles, ma podent èssere cantzelladas indiretamente (pro es. a travessu de servitziu de atzessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Servitziu de atzessibilidade non disponìbile</string>

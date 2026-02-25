@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Créer un filtre personnalisé</string>
     <string name="systemcleaner_customfilter_create_hint">Créez un filtre personnalisé pour supprimer les fichiers supplémentaires propres à votre appareil et à vos cas d\'usage.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Supprimer ce filtre ?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
     <string name="systemcleaner_customfilter_editor_label_label">Étiquette de filtres</string>
     <string name="systemcleaner_customfilter_editor_warning">Les filtres personnalisés peuvent présenter des risques. Vérifiez les résultats de votre analyse avant de supprimer.</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Zones de données</string>

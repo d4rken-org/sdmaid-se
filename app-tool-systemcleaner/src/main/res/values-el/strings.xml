@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Δημιουργία προσαρμοσμένου φίλτρου</string>
     <string name="systemcleaner_customfilter_create_hint">Δημιουργήστε ένα προσαρμοσμένο φίλτρο για να διαγράψετε επιπλέον αρχεία που είναι μοναδικά για τη συσκευή σας και τις περιπτώσεις χρήσης.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Αφαίρεση αυτού του φίλτρου;</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Ετικέτα φίλτρου</string>
     <string name="systemcleaner_customfilter_editor_warning">Τα προσαρμοσμένα φίλτρα μπορεί να είναι επικίνδυνα. Ελέγξτε τα αποτελέσματα σάρωσης πριν διαγράψετε!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Περιοχές δεδομένων</string>

@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">ሰው ሰራሽ ማጣሪያ ፍጠር</string>
     <string name="systemcleaner_customfilter_create_hint">በመሣሪያዎና በአጠቃቀም ሁኔታዎ ልዩ የሆኑ ተጨማሪ ፋይሎችን ለመሰረዝ ሰው ሰራሽ ማጣሪያ ይፍጠሩ።</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ይህንን ማጣሪያ ያስወግዱ?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ያልተቀመጡ ለውጦች አለዎት!</string>
     <string name="systemcleaner_customfilter_editor_label_label">የማጣሪያ መለያ</string>
     <string name="systemcleaner_customfilter_editor_warning">ሰው ሰራሽ ማጣሪያዎች አደገኛ ሊሆኑ ይችላሉ። ከመሰረዝ በፊት የስካን ውጤቶችዎን ይመርምሩ!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">የውሂብ አካባቢዎች</string>

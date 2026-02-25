@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">एक ऐप अपवर्जन SD Maid को किसी भी मैचिंग पैकेज को प्रोसेस करने से रोकता है।</string>
     <string name="exclusion_editor_segment_explanation">खंड आधारित अपवर्जन पथ बहिष्करण के समान है लेकिन आंशिक मिलान की अनुमति देता है। उदाहरण: \"DCIM/Camera\" में \"/sdcard/DCIM/Camera/photo.png\" शामिल नहीं है।</string>
     <string name="exclusion_editor_remove_confirmation_message">इस अपवर्जन को निकालें?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">आपके परिवर्तन सहेजे नहीं गए हैं!</string>
     <string name="exclusion_reset_default_exclusions">डिफ़ॉल्ट बहिष्करण रीसेट करें</string>
     <string name="exclusion_import_action">बहिष्करण आयात करें</string>
     <string name="exclusion_export_action">बहिष्करण निर्यात करें</string>

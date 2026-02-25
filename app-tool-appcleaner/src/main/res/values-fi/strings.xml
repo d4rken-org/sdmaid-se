@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Sisällytä sovellukset, jotka ovat parhaillaan käynnissä ja voivat aiheuttaa häiriöitä.</string>
     <string name="appcleaner_include_inaccessible_label">Sisällytä saavuttamattomat välimuistit</string>
     <string name="appcleaner_include_inaccessible_summary">Sisällytä tiedot, joita ei voida käyttää suoraan, mutta jotka voidaan poistaa järjestelmäasetusten kautta ja automatisoida saavutettavuuspalvelua käyttäen.</string>
-    <string name="appcleaner_include_multiuser_label">Sisällytä muut käyttäjät</string>
-    <string name="appcleaner_include_multiuser_summary">Sisällytä muiden käyttäjien sovellukset.</string>
     <string name="appcleaner_include_minimumsize_label">Vähimmäiskoko</string>
     <string name="appcleaner_include_minimumsize_summary">Ohita sovellukset, joissa kulutettavien tietojen summa on alle vähimmäismäärän.</string>
     <string name="appcleaner_include_minimumage_label">Vähimmäisikä</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d kulutettava kohde löydetty</item>
         <item quantity="other">%d kulutettavaa kohdetta löydetty</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Ladataan automaattista siivousta</string>
     <string name="appcleaner_automation_title">Automaatio</string>
     <string name="appcleaner_automation_subtitle_default_caches">Oletusvälimuistit</string>
     <string name="appcleaner_automation_progress_open_settings">Avataan asetuksia</string>
     <string name="appcleaner_automation_progress_find_storage">Etsitään tallennustilan asetuksia</string>
     <string name="appcleaner_automation_progress_find_clear_data">Etsitään tietojen tyhjennysvalikkoa</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Etsitään välimuistin tyhjennysvalikkoa</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Etsitään OK-vahvistusta</string>
     <string name="appcleaner_item_caches_inaccessible_title">Oletusvälimuistit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Julkiset ja yksityiset oletusvälimuistit. Ei suoraan saavutettavissa, mutta voidaan poistaa epäsuorasti (esim. saavutettavuuspalvelun kautta).</string>
     <string name="appcleaner_automation_unavailable_title">Automaatio ei käytettävissä</string>

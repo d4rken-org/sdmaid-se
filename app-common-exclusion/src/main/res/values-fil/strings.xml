@@ -14,7 +14,6 @@
     <string name="exclusion_editor_pkg_explanation">Ang app exclusion ay pumipigil sa SD Maid na magproseso ng anumang tumugmang package.</string>
     <string name="exclusion_editor_segment_explanation">Ang segment based exclusion ay katulad ng path exclusion ngunit nagpapahintulot ng partial matches. Halimbawa: \"DCIM/Camera\" ay nag-exclude ng \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Alisin ang exclusion na ito?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago\!</string>
     <string name="exclusion_reset_default_exclusions">Ibalik ang default exclusions</string>
     <string name="exclusion_import_action">I-import ang mga exclusion</string>
     <string name="exclusion_export_action">I-export ang mga exclusion</string>

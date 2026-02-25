@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">O excludere a aplicației împiedică procesarea pachetelor care se potrivesc.</string>
     <string name="exclusion_editor_segment_explanation">O excludere bazată pe segment este similară unei excluderi a rutei, dar permite potriviri parţiale. Exemplu: \"DCIM/Camera\" exclude \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Eliminați această excludere?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ai modificări nesalvate!</string>
     <string name="exclusion_reset_default_exclusions">Restabilire excluderi implicite</string>
     <string name="exclusion_import_action">Excluderi de import</string>
     <string name="exclusion_export_action">Excluderi de export</string>

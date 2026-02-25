@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Voy!</string>
     <string name="swiper_stamp_undo_4">Kuting!</string>
     <string name="swiper_gesture_overlay_dismiss">Boshlash uchun istalgan joyga bosing</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Tushunarli</string>
     <string name="swiper_gesture_overlay_left_delete">← O\'chirish</string>
     <string name="swiper_gesture_overlay_right_keep">Saqlash →</string>
     <string name="swiper_gesture_overlay_left_keep">← Saqlash</string>
     <string name="swiper_gesture_overlay_right_delete">O\'chirish →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ O\'tkazish</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Qaytarish</string>
-    <string name="swiper_help_action">Yordam</string>
     <string name="swiper_help_title">Swiper qanday ishlaydi</string>
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
 </resources>

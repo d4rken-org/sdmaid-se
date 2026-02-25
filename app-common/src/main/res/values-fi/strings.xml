@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Omistaja</string>
     <string name="general_user_label_system">Järjestelmä</string>
     <string name="setup_title">Asennus</string>
-    <string name="exclusion_create_action">Luo poikkeus</string>
     <string name="setup_feature_requires_additional_setup_x">Tämä ominaisuus vaatii lisäasennuskohtien suorittamisen: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Yksi poikkeus luotu</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Pyyhkäisijä</string>
     <string name="stats_label">Historia</string>
     <string name="settings_category_tools_label">Työkalut</string>
+    <string name="general_include_multiuser_label">Sisällytä muut käyttäjät</string>
+    <string name="general_include_multiuser_summary">Sisällytä muiden käyttäjien sovellukset.</string>
+    <string name="general_unsaved_confirmation_message">Sinulla on tallentamattomia muutoksia!</string>
 </resources>

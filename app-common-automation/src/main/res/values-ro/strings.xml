@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid nu a putut arăta suprapunerea automatizării. Verificați permisiunile și încercați să reporniți dispozitivul.</string>
     <string name="automation_error_no_settings_title">Setări ecran indisponibil</string>
     <string name="automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
+    <string name="automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
 </resources>

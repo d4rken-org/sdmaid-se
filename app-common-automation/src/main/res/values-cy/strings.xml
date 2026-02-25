@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">Ni allai SD Maid ddangos y droshaen awtomeiddio. Gwiriwch ganiatadau a cheisiwch ailgychwyn eich dyfais.</string>
     <string name="automation_error_no_settings_title">Sgrin gosodiadau ddim ar gael</string>
     <string name="automation_error_no_settings_body">Nid oes gan yr ap system hwn sgrin gosodiadau. Nid yw clirio storfa trwy wasanaeth hygyrchedd yn bosibl. Eithrio fe i gyflymu clirio storfa.</string>
+    <string name="automation_loading">Paratoi awtomeiddio trwy wasanaeth hygyrchedd</string>
+    <string name="automation_progress_find_ok_confirmation">Ceisio cadarnhau gweithred flaenorol (allweddeiriau: %s)</string>
 </resources>

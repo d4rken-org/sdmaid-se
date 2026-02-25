@@ -80,8 +80,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Hár bir qosímshanıń shamamen kólemin alıw.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivlikti anıqlaw</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Qosímshanıń aktiv ekenligin (yamasa jaqında aktiv bolǵanın) anıqlaw.</string>
-    <string name="appcontrol_include_multiuser_label">Basqa paydalanıwshılardı qosıw</string>
-    <string name="appcontrol_include_multiuser_summary">Usı qurilmadaǵı basqa paydalanıwshı profillerinen qollanbalardı qosıw.</string>
     <string name="appcontrol_export_app_selection_action">Qosímshalardı eksportlaw</string>
     <string name="appcontrol_export_title">Qosímshanı eksportlaw</string>
     <string name="appcontrol_export_description">Usı qollanbanıń ornatıw faylların saqlap alıw. Bul qollanba maǵlıwmatların o\'z ishine almaydı.</string>
@@ -92,11 +90,9 @@
     <string name="appcontrol_force_stop_selection_action">Baǵdarlamalardı májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_action">Májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_confirm_title">Májbúrlep toqtatıwdı tastıyıqlaw</string>
-    <string name="appcontrol_automation_loading">Qoljetimlilik xızmetin paydalanıp avtomatlandırıwdı tayarlaw</string>
     <string name="appcontrol_automation_title">AppControl avtomatlandırıw</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Májbúrlep toqtatılıp atır…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Májbúrlep toqtatıw\" túymesin izlew (gilt sózler: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Aldıńǵı háreketti tastıyıqlawǵa háreket etilip atır (gilt sózler: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arxivlenip atır…</string>
     <string name="appcontrol_automation_progress_find_archive">\"Arxivlew\" tu\'ymesin izlew (ta\'riypler: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Tiklenip atır…</string>

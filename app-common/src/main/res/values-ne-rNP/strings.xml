@@ -176,4 +176,7 @@
     <string name="setup_title">सेटअप</string>
     <string name="deduplicator_tool_name">डुप्लिकेट हटाउने उपकरण</string>
     <string name="settings_category_tools_label">उपकरणहरू</string>
+    <string name="general_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
+    <string name="general_include_multiuser_summary">यस उपकरणका अन्य प्रयोगकर्ता प्रोफाइलहरूका एप्सहरू समावेश गर्नुहोस्।</string>
+    <string name="general_unsaved_confirmation_message">तपाईंसँग असेभ गरिएका परिवर्तनहरू छन्!</string>
 </resources>

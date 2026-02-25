@@ -56,11 +56,9 @@
     <string name="appcontrol_force_stop_selection_action">Perforte haltigi aplikaĵojn</string>
     <string name="appcontrol_force_stop_action">Perforte haltigi</string>
     <string name="appcontrol_force_stop_confirm_title">Konfirmi perforten haltigon</string>
-    <string name="appcontrol_automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
     <string name="appcontrol_automation_title">AplikaĵKontrola aŭtomatigo</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Perforte haltigante…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Serĉante butonon \"Perforte haltigi\" (ŝlosilvortoj: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Ekrantempo: %1$s ekde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Laste ĝisdatigita: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalita je: %s</string>

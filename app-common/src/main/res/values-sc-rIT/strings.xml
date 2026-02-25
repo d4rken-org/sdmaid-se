@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Propriedàriu</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Cunfiguratzione</string>
-    <string name="exclusion_create_action">Creare esclussione</string>
     <string name="setup_feature_requires_additional_setup_x">Custa caraterìstica riekeret de cumpletare elementos additzionales de cunfiguratzione: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Una esclussione creada</item>
@@ -184,4 +183,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Istòria</string>
     <string name="settings_category_tools_label">Ainas</string>
+    <string name="general_include_multiuser_label">Inclutìghere àteros usuarios</string>
+    <string name="general_include_multiuser_summary">Inclutìghere aplicatziones dae àteros profiles de usuarios in custu dispositivu.</string>
+    <string name="general_unsaved_confirmation_message">Tenes modìficas non sarvadas!</string>
 </resources>

@@ -111,11 +111,9 @@
         <item quantity="one">Uhlelo olu-%d lumisiwe</item>
         <item quantity="other">Izinhlelo zokusebenza ezingu-%d zimisiwe</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
     <string name="appcontrol_automation_title">Ukuzenzelela kwe-AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Kumisa ngamandla…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Kubheka inkinobho ethi \"Misa ngamandla\" (amagama angukhiye: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagama angukhiye: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Kubeka…</string>
     <string name="appcontrol_automation_progress_find_archive">Kubheka inkinobho ethi \"Beka\" (amagama angukhiye: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Kubuyisela…</string>

@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid konnte das Automatisierungs-Overlay nicht anzeigen. Überprüfe die Berechtigungen und versuche dein Gerät neu zu starten.</string>
     <string name="automation_error_no_settings_title">Einstellungsbildschirm nicht verfügbar</string>
     <string name="automation_error_no_settings_body">Diese System-App verfügt über keinen Einstellungsbildschirm. Das Leeren des Caches über den Bedienungshilfedienst ist nicht möglich. Erstelle eine Ausnahme für diese App, um das Cacheleeren zu beschleunigen.</string>
+    <string name="automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
+    <string name="automation_progress_find_ok_confirmation">Versucht die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
 </resources>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Уключэнне ў сканіраванне запушчаных у цяперашні час праграм, гэта мода ствараць перашкоды.</string>
     <string name="appcleaner_include_inaccessible_label">Уключаць недаступны кэш</string>
     <string name="appcleaner_include_inaccessible_summary">Уключна з данымі, да якіх нельга атрымаць прамы доступ, але якія можна выдаліць праз налады сістэмы і аўтаматызаваць з дапамогай службы спецыяльных магчымасцей. </string>
-    <string name="appcleaner_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
-    <string name="appcleaner_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
     <string name="appcleaner_include_minimumsize_label">Мінімальны памер</string>
     <string name="appcleaner_include_minimumsize_summary">Прапускаць праграмы, у якіх сума спажытых даных ніжэйшая за мінімум.</string>
     <string name="appcleaner_include_minimumage_label">Мінімальны час стварэння</string>
@@ -70,14 +68,12 @@
         <item quantity="many">Знойдзена %d непатрэбных элементаў</item>
         <item quantity="other">Знойдзена %d непатрэбных элементаў</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>
     <string name="appcleaner_automation_title">Аўтаматызацыя ачысткі праграм</string>
     <string name="appcleaner_automation_subtitle_default_caches">Ачыстка стандартнага кэшу…</string>
     <string name="appcleaner_automation_progress_open_settings">Адкрыццё экрана налад (ключавыя словы: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Пошук запісу \"Сховішча\" (ключавыя словы: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Пошук кнопкі \"Ачысціць даныя\" (ключавыя словы: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопкі \"Ачысціць кэш\" (ключавыя словы: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Стандартны кэш</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічны і прыватны стандартны кэш. Недаступны непасрэдна, але можа быць выдалены ўскосна (напрыклад, праз службу спецыяльных магчымасцей).</string>
     <string name="appcleaner_automation_unavailable_title">Служба спецыяльных магчымасцей недаступна</string>

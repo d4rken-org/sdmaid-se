@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inkluder apper som kjører nå og som kan forårsake forstyrrelser.</string>
     <string name="appcleaner_include_inaccessible_label">Inkluder utilgjengelige buffere</string>
     <string name="appcleaner_include_inaccessible_summary">Inkluder data som ikke kan nås direkte, men som kan slettes via systeminnstillinger og automatiseres ved hjelp av en tilgjengelighetstjeneste. </string>
-    <string name="appcleaner_include_multiuser_label">Inkluder andre brukere</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="appcleaner_include_minimumsize_label">Minste størrelse</string>
     <string name="appcleaner_include_minimumsize_summary">Hopp over apper der summen av ubetydelig data er under minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minste alder</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d ubetydelig element funnet</item>
         <item quantity="other">%d ubetydelige element funnet</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>
     <string name="appcleaner_automation_title">Apprenser automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Fjerner standard hurtigbuffere…</string>
     <string name="appcleaner_automation_progress_open_settings">Åpner innstillingsskjerm (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Søker etter \"Lagring\"-oppføring (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ser etter \"Fjern data\"-knapp (nøkkelord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ser etter \"Tøm hurtigbuffer\"-knapp (nøkkelord: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Prøver å bekrefte forrige handling (nøkkelord: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard hurtigbuffere</string>
     <string name="appcleaner_item_caches_inaccessible_body">Standard offentlige og private hurtigbuffere. Ikke direkte tilgjengelig, men kan slettes indirekte (f.eks. via tilgjengelighetstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgjengelighetstjeneste utilgjengelig</string>

@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation"> SD Maid را از پردازش هر پکیج تطابقی با برنامه مسثناء جلوگیری می‌کند.</string>
     <string name="exclusion_editor_segment_explanation">استثناء مبتنی بر بخش مشابه اما اجازه تطابق‌های جزئی را می‌دهد. مثال: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" را مستثنی می‌کند.</string>
     <string name="exclusion_editor_remove_confirmation_message">حذف این استثناء؟</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
     <string name="exclusion_reset_default_exclusions">بازگرداندن استثناءهای پیش‌فرض</string>
     <string name="exclusion_import_action">واردات استثناء</string>
     <string name="exclusion_export_action">صادرات استثناء</string>

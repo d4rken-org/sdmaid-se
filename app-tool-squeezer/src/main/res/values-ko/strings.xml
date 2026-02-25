@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">원본</string>
     <string name="squeezer_onboarding_compressed_label">압축 후</string>
     <string name="squeezer_onboarding_quality_label">품질: %d%%</string>
-    <string name="squeezer_onboarding_got_it">확인</string>
     <string name="squeezer_compare_action">비교 보기</string>
     <string name="squeezer_no_example_found">선택한 경로에서 이미지를 찾을 수 없습니다.</string>
     <string name="squeezer_result_empty_message">압축 가능한 이미지를 찾을 수 없습니다.</string>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">包含正在运行的应用，这可能造成干扰。</string>
     <string name="appcleaner_include_inaccessible_label">包含无法访问的缓存</string>
     <string name="appcleaner_include_inaccessible_summary">包含无法被直接访问的数据，但是这些数据可以通过系统设置删除，也可以通过无障碍服务自动处理。 </string>
-    <string name="appcleaner_include_multiuser_label">包含其他用户</string>
-    <string name="appcleaner_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
     <string name="appcleaner_include_minimumsize_label">最小文件大小</string>
     <string name="appcleaner_include_minimumsize_summary">当可删除数据总大小低于最低值时跳过应用。</string>
     <string name="appcleaner_include_minimumage_label">最短时间</string>
@@ -62,14 +60,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">找到了 %d 个可删除项</item>
     </plurals>
-    <string name="appcleaner_automation_loading">通过无障碍服务来配置自动化处理</string>
     <string name="appcleaner_automation_title">自动化应用清理</string>
     <string name="appcleaner_automation_subtitle_default_caches">清理默认缓存…</string>
     <string name="appcleaner_automation_progress_open_settings">打开设置界面（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_storage">正在搜索“存储”内容（关键词：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_data">正在查找“清除数据”按钮（关键字：%s）</string>
     <string name="appcleaner_automation_progress_find_clear_cache">正在查找“清除缓存”按钮（关键字：%s）</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">正在尝试确认先前的操作(关键词：%s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">默认缓存</string>
     <string name="appcleaner_item_caches_inaccessible_body">公共和私有默认缓存。无法直接访问，但可以间接删除(如通过无障碍服务）。</string>
     <string name="appcleaner_automation_unavailable_title">无障碍服务不可用</string>

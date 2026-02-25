@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Uwzględnia uruchomione aplikacje, które mogą powodować zakłócenia.</string>
     <string name="appcleaner_include_inaccessible_label">Uwzględnij niedostępne pamięci podręczne</string>
     <string name="appcleaner_include_inaccessible_summary">Uwzględnij dane, do których nie można bezpośrednio uzyskać dostępu, ale można je usunąć za pomocą ustawień systemowych i zautomatyzować za pomocą usługi ułatwień dostępu. </string>
-    <string name="appcleaner_include_multiuser_label">Uwzględnij innych użytkowników</string>
-    <string name="appcleaner_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcleaner_include_minimumsize_label">Minimalny rozmiar</string>
     <string name="appcleaner_include_minimumsize_summary">Pomiń aplikacje, gdzie suma danych jest poniżej minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimalny wiek</string>
@@ -70,14 +68,12 @@
         <item quantity="many">%d zbędnych elementów znaleziono</item>
         <item quantity="other">%d zbędnych elementów znaleziono</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcleaner_automation_title">Automatyzacja czyszczenia aplikacji</string>
     <string name="appcleaner_automation_subtitle_default_caches">Czyszczenie domyślnych pamięci podręcznych…</string>
     <string name="appcleaner_automation_progress_open_settings">Otwieranie ekranu ustawień (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Wyszukiwanie wpisu \"Pamięć\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Szukam przycisku \"Wyczyść dane\" (słowa kluczowe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Domyślne pamięci podręczne</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publiczne i prywatne domyślne pamięci podręczne. Nie są bezpośrednio dostępne, ale można je usunąć pośrednio (np. za pomocą usługi ułatwień dostępu).</string>
     <string name="appcleaner_automation_unavailable_title">Usługa ułatwień dostępu niedostępna</string>

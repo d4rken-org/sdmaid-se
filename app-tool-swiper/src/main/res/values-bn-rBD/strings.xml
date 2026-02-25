@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">উফ!</string>
     <string name="swiper_stamp_undo_4">দাঁড়ান!</string>
     <string name="swiper_gesture_overlay_dismiss">শুরু করতে যেকোনো জায়গায় ট্যাপ করুন</string>
-    <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
     <string name="swiper_gesture_overlay_left_delete">← মুছুন</string>
     <string name="swiper_gesture_overlay_right_keep">রাখুন →</string>
     <string name="swiper_gesture_overlay_left_keep">← রাখুন</string>
     <string name="swiper_gesture_overlay_right_delete">মুছুন →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ এড়িয়ে যান</string>
     <string name="swiper_gesture_overlay_down_undo">↓ পূর্বাবস্থা</string>
-    <string name="swiper_help_action">সাহায্য</string>
     <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
     <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
 </resources>

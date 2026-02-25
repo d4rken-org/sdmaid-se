@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi yang sedang berjalan yang boleh menyebabkan gangguan.</string>
     <string name="appcleaner_include_inaccessible_label">Sertakan cache yang tidak boleh diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Sertakan data yang tidak boleh diakses secara langsung tetapi boleh dipadamkan melalui tetapan sistem dan diautomatikkan menggunakan perkhidmatan aksesibiliti. </string>
-    <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
     <string name="appcleaner_include_minimumsize_label">Saiz minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Langkau aplikasi di mana jumlah data boleh dibelanjakan berada di bawah minimum.</string>
     <string name="appcleaner_include_minimumage_label">Umur minimum</string>
@@ -64,14 +62,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d item boleh dibelanjakan ditemui</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
     <string name="appcleaner_automation_title">Automasi AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Mengosongkan cache lalai…</string>
     <string name="appcleaner_automation_progress_open_settings">Membuka tetapan aplikasi</string>
     <string name="appcleaner_automation_progress_find_storage">Mencari butang storan</string>
     <string name="appcleaner_automation_progress_find_clear_data">Mencari butang kosongkan data</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Mencari butang kosongkan cache</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache lalai</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache lalai awam dan peribadi. Tidak boleh diakses secara langsung, tetapi boleh dipadamkan secara tidak langsung (cth. melalui perkhidmatan aksesibiliti).</string>
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>

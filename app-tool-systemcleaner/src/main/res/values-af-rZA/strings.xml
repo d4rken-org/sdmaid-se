@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Skep aangepaste filter</string>
     <string name="systemcleaner_customfilter_create_hint">Skep \'n aangepaste filter om ekstra lêers te skrap wat uniek is aan jou toestel en gebruik-gevalle.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Verwyder hierdie filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter etiket</string>
     <string name="systemcleaner_customfilter_editor_warning">Aangepaste filters kan riskant wees. Kontroleer jou skandering resultate voor skrapping!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Data-areas</string>

@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
     <string name="setup_title">დაყენება</string>
-    <string name="exclusion_create_action">გამონაკლისის შექმნა</string>
     <string name="setup_feature_requires_additional_setup_x">ამ ფუნქციას სჭირდება დამატებითი დაყენების ელემენტების დასრულება: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">%d ახალი გამონაკლისი</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ისტორია</string>
     <string name="settings_category_tools_label">ხელსაწყოები</string>
+    <string name="general_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
+    <string name="general_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
+    <string name="general_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
 </resources>

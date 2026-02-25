@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">ჩართეთ ამჟამად გაშვებული აპლიკაციები, რომლებმაც შეიძლება გამოიწვიოს ჩარევა.</string>
     <string name="appcleaner_include_inaccessible_label">მიუწვდომელი ქეშების ჩართვა</string>
     <string name="appcleaner_include_inaccessible_summary">ჩართეთ მონაცემები, რომლებზეც პირდაპირ წვდომა შეუძლებელია, მაგრამ მათი წაშლა შესაძლებელია სისტემის პარამეტრების მეშვეობით და ავტომატიზირებული წვდომის სერვისის გამოყენებით. </string>
-    <string name="appcleaner_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
-    <string name="appcleaner_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
     <string name="appcleaner_include_minimumsize_label">მინიმალური ზომა</string>
     <string name="appcleaner_include_minimumsize_summary">გამოტოვეთ აპები, სადაც დახარჯული მონაცემების ჯამი მინიმუმზე დაბალია.</string>
     <string name="appcleaner_include_minimumage_label">მინიმალური ასაკი</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d ელემენტი ნაპოვნია</item>
         <item quantity="other">%d ელემენტი ნაპოვნია</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
     <string name="appcleaner_automation_title">AppCleaner ავტომატიზაცია</string>
     <string name="appcleaner_automation_subtitle_default_caches">ნაგულისხმევი ქეშების გასუფთავება…</string>
     <string name="appcleaner_automation_progress_open_settings">პარამეტრების ეკრანის გახსნა (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"მეხსიერების\" ჩანაწერის ძიება (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"მონაცემების გასუფთავების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"ქეშის გასუფთავების\" ღილაკის ძიება (საკვანძო სიტყვები: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ნაგულისხმევი ქეშები</string>
     <string name="appcleaner_item_caches_inaccessible_body">საჯარო და კერძო ნაგულისხმევი ქეშები. არ არის პირდაპირ წვდომა, მაგრამ შეიძლება წაიშალოს არაპირდაპირი გზით (მაგ. ხელმისაწვდომობის სერვისის საშუალებით).</string>
     <string name="appcleaner_automation_unavailable_title">ხელმისაწვდომობის სერვისი მიუწვდომელია</string>

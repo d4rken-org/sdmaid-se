@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Добијте груба проценка на големината на секоја апликација.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Одреди активност</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Дознајте дали апликацијата е (или неодамна била) активна.</string>
-    <string name="appcontrol_include_multiuser_label">Вклучи други корисници</string>
-    <string name="appcontrol_include_multiuser_summary">Вклучи апликации од други кориснички профили на овој уред.</string>
     <string name="appcontrol_export_app_selection_action">Извези апликации</string>
     <string name="appcontrol_export_title">Извези апликација</string>
     <string name="appcontrol_export_description">Зачувајте ги инсталационите датотеки на оваа апликација. Ова не ги вклучува податоците на апликацијата.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d апликација е запрена</item>
         <item quantity="other">%d апликации се запрени</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Подготовка на автоматизација преку услуга за пристапност</string>
     <string name="appcontrol_automation_title">Автоматизација на AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Принудно запирање…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Барање копче \"Принудно запирање\" (клучни зборови: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Обид за потврда на претходната акција (клучни зборови: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Архивирање…</string>
     <string name="appcontrol_automation_progress_find_archive">Барање копче \"Архивирај\" (клучни зборови: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Обновување…</string>

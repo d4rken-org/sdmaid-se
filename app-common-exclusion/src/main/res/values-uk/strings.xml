@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Виняток додатка не дозволяє SD Maid обробляти будь-які відповідні пакети.</string>
     <string name="exclusion_editor_segment_explanation">Виняток на основі сегмента подібне до винятку на основі шляху, але допускає часткові збіги. Приклад: \"DCIM/Camera\" виключає \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Видалити виняток?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
     <string name="exclusion_reset_default_exclusions">Відновити виключення за замовчуванням</string>
     <string name="exclusion_import_action">Винятки для імпорту</string>
     <string name="exclusion_export_action">Винятки для експорту</string>

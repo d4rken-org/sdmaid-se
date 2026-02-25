@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Incluye las aplicaciones que se estén ejecutando en ese momento y que puedan causar interferencias.</string>
     <string name="appcleaner_include_inaccessible_label">Incluir las cachés inaccesibles</string>
     <string name="appcleaner_include_inaccessible_summary">Incluye datos a los que no se puede acceder directamente, pero que pueden eliminarse a través de la configuración del sistema y automatizarse mediante un servicio de accesibilidad. </string>
-    <string name="appcleaner_include_multiuser_label">Incluir a otros usuarios</string>
-    <string name="appcleaner_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>
     <string name="appcleaner_include_minimumsize_label">Tamaño mínimo</string>
     <string name="appcleaner_include_minimumsize_summary">Omite las aplicaciones cuya suma de datos prescindibles esté por debajo del mínimo.</string>
     <string name="appcleaner_include_minimumage_label">Edad mínima</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d elementos desechables encontrados</item>
         <item quantity="other">%d elementos desechables encontrados</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Preparando la automatización a través del servicio de accesibilidad</string>
     <string name="appcleaner_automation_title">Automatización de App Cleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Borrando las cachés predeterminadas…</string>
     <string name="appcleaner_automation_progress_open_settings">Abriendo pantalla de ajustes (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Buscando la entrada \"Almacenamiento\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Buscando el botón \"Borrar datos\" (palabras clave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Buscando el botón \"Borrar caché\" (palabras clave: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cachés predeterminadas</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cachés públicas y privadas por defecto. No son accesibles directamente, pero pueden eliminarse indirectamente (por ejemplo, a través del servicio de accesibilidad).</string>
     <string name="appcleaner_automation_unavailable_title">Servicio de accesibilidad no disponible</string>

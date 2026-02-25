@@ -60,7 +60,6 @@
     <string name="squeezer_onboarding_original_label">ਅਸਲ</string>
     <string name="squeezer_onboarding_compressed_label">ਕੰਪ੍ਰੈਸ਼ਨ ਤੋਂ ਬਾਅਦ</string>
     <string name="squeezer_onboarding_quality_label">ਗੁਣਵੱਤਾ: %d%%</string>
-    <string name="squeezer_onboarding_got_it">ਸਮਝ ਆ ਗਈ</string>
     <string name="squeezer_compare_action">ਤੁਲਨਾ ਦੇਖੋ</string>
     <string name="squeezer_no_example_found">ਚੁਣੇ ਮਾਰਗਾਂ ਵਿੱਚ ਕੋਈ ਤਸਵੀਰਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>
     <string name="squeezer_result_empty_message">ਕੋਈ ਕੰਪ੍ਰੈਸ ਹੋਣ ਯੋਗ ਤਸਵੀਰਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>

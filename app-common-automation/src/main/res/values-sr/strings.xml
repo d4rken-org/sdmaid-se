@@ -18,4 +18,6 @@
     <string name="automation_error_overlay_body">СД Чистач није могао приказати преклоп аутоматизације. Проверите дозволе и покушајте рестартовати уређај.</string>
     <string name="automation_error_no_settings_title">Екран подешавања недоступан</string>
     <string name="automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
+    <string name="automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
+    <string name="automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
 </resources>

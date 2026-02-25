@@ -2,4 +2,6 @@
 <resources>
     <string name="automation_error_no_settings_title">सेटिङ स्क्रिन उपलब्ध छैन</string>
     <string name="automation_error_no_settings_body">यस सिस्टम app मा कुनै सेटिङ स्क्रिन छैन। Accessibility service मार्फत cache सफा गर्न सम्भव छैन। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
+    <string name="automation_loading">पहुँच सेवा मार्फत स्वचालन तयार गर्दै</string>
+    <string name="automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
 </resources>

@@ -10,8 +10,6 @@
     <string name="appcleaner_include_runningapps_summary">தற்போது இயங்கும் பயன்பாடுகளை சேர்க்கவும், இது தடையை ஏற்படுத்தலாம்.</string>
     <string name="appcleaner_include_inaccessible_label">அணுக முடியாத கேச்களை சேர்க்கவும்</string>
     <string name="appcleaner_include_inaccessible_summary">நேரடியாக அணுக முடியாத மற்றும் கணினி அமைப்புகள் வழியாகவும் அணுகல் சேவையைப் பயன்படுத்தி தானியங்கியமாக்கவும் நீக்க முடியும் தரவை சேர்க்கவும். </string>
-    <string name="appcleaner_include_multiuser_label">மற்ற பயனர்களை சேர்க்கவும்</string>
-    <string name="appcleaner_include_multiuser_summary">இந்த சாதனத்திலுள்ள மற்ற பயனர் சுயவிவரங்களிலிருந்து பயன்பாடுகளை சேர்க்கவும்.</string>
     <string name="appcleaner_include_minimumsize_label">குறைந்தபட்ச அளவு</string>
     <string name="appcleaner_include_minimumsize_summary">செலவிடக்கூடிய தரவின் கூட்டுத்தொகை குறைந்தபட்சத்தை விட குறைவாக உள்ள பயன்பாடுகளை தவிர்க்கவும்.</string>
     <string name="appcleaner_include_minimumage_label">குறைந்தபட்ச வயது</string>
@@ -32,7 +30,6 @@
     <string name="appcleaner_filter_shortcutservice_label">செயலி குறுக்குவழி சின்னங்கள்</string>
     <string name="appcleaner_filter_shortcutservice_summary">செயலி குறுக்குவழிகள் மற்றும் பகிர்வு மெனுக்களுக்கான தற்காலிக சின்னங்கள்.</string>
     <string name="appcleaner_filter_telegram_label">Telegram ஊடக கோப்புகள்</string>
-    <string name="appcleaner_automation_loading">அணுகல் சேவை வழியாக தானியங்கியமாக்கத்தை தயார் செய்கிறது</string>
     <string name="appcleaner_automation_title">பயன்பாட்டு சுத்தி தானியங்கியமாக்கம்</string>
     <string name="appcleaner_item_caches_inaccessible_title">இயல்பு கேச்கள்</string>
     <string name="appcleaner_automation_unavailable_title">அணுகல் சேவை கிடைக்கவில்லை</string>

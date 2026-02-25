@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Besitzer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Einrichtung</string>
-    <string name="exclusion_create_action">Ausschluss erstellen</string>
     <string name="setup_feature_requires_additional_setup_x">Diese Funktion erfordert den Abschluss zusätzlicher Einrichtungsschritte: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Ein Ausschluss wurde erstellt</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Verlauf</string>
     <string name="settings_category_tools_label">Werkzeuge</string>
+    <string name="general_include_multiuser_label">Andere Benutzer einbeziehen</string>
+    <string name="general_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
+    <string name="general_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
 </resources>

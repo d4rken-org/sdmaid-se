@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
     <string name="automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
     <string name="automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
+    <string name="automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
+    <string name="automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
 </resources>

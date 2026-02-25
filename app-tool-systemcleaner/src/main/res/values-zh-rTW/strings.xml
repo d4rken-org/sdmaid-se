@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">建立自訂過濾器</string>
     <string name="systemcleaner_customfilter_create_hint">建立自訂過濾器以刪除適用於您裝置和使用情形的專屬額外檔案。</string>
     <string name="systemcleaner_editor_remove_confirmation_message">移除這個過濾器？</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
     <string name="systemcleaner_customfilter_editor_label_label">過濾器標籤</string>
     <string name="systemcleaner_customfilter_editor_warning">自訂過濾器存在風險，請在刪除前檢查您的掃描結果！</string>
     <string name="systemcleaner_customfilter_editor_areas_label">資料區域</string>

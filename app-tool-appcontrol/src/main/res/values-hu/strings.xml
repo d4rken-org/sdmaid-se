@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Egy körülbelüli méret megállapítása minden egyes appnak.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tevékenység megállapítása</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Nézze meg, hogy egy alkalmazás aktív (vagy nemrégiben volt-e) aktív.</string>
-    <string name="appcontrol_include_multiuser_label">Más felhasználók bevonása</string>
-    <string name="appcontrol_include_multiuser_summary">Az eszközön lévő más felhasználói profilok alkalmazásainak bevonása.</string>
     <string name="appcontrol_export_app_selection_action">Appok exportálása</string>
     <string name="appcontrol_export_title">App exportálása</string>
     <string name="appcontrol_export_description">Az alkalmazás telepítőfájljainak mentése. Az alkalmazásadatok nem tartoznak bele.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d alkalmazás leállt</item>
         <item quantity="other">%d alkalmazás leállt</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Automatizálás előkészítése az akadálymentesítési szolgáltatáson keresztül</string>
     <string name="appcontrol_automation_title">AlkalmazásTisztító automatizálás</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Kényszerített leállítás…</string>
     <string name="appcontrol_automation_progress_find_force_stop">„Leállítás kényszerítése” gomb keresése (kulcsszavak: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiválás…</string>
     <string name="appcontrol_automation_progress_find_archive">\"Archiválás\" gomb keresése (kulcsszavak: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Visszaállítás…</string>

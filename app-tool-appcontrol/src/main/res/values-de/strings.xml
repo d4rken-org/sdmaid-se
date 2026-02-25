@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Erhalte eine grobe Schätzung der Größe jeder App.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivität bestimmen</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Finde heraus, ob eine App aktiv ist (oder kürzlich aktiv war).</string>
-    <string name="appcontrol_include_multiuser_label">Andere Benutzer einbeziehen</string>
-    <string name="appcontrol_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcontrol_export_app_selection_action">Apps exportieren</string>
     <string name="appcontrol_export_title">App exportieren</string>
     <string name="appcontrol_export_description">Speicher die Installationsdateien der App. Das beinhaltet keine App-Daten.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d App wurde gestoppt</item>
         <item quantity="other">%d Apps wurden gestoppt</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcontrol_automation_title">AppControl Automatisierung</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Beenden erzwingen…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Suche nach \"Beenden erzwingen\" Button (Schlüsselwörter: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Versuche die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiviere…</string>
     <string name="appcontrol_automation_progress_find_archive">Suche nach \"Archivieren\"-Schaltfläche (Suchbegriffe: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Stelle wieder her…</string>

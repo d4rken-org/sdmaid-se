@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Unha exclusión de aplicación impide que SD Maid procese calquera paquete coincidente.</string>
     <string name="exclusion_editor_segment_explanation">Unha exclusión baseada en segmentos é similar a unha exclusión de ruta pero permite coincidencias parciais. Exemplo: \"DCIM/Camera\" exclúe \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Eliminar esta exclusión?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ten cambios sen gardar!</string>
     <string name="exclusion_reset_default_exclusions">Restaurar exclusións predeterminadas</string>
     <string name="exclusion_import_action">Importar exclusións</string>
     <string name="exclusion_export_action">Exportar exclusións</string>

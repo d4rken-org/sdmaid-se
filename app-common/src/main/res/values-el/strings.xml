@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
     <string name="setup_title">Εγκατάσταση</string>
-    <string name="exclusion_create_action">Δημιουργία εξαίρεσης</string>
     <string name="setup_feature_requires_additional_setup_x">Αυτή η λειτουργία απαιτεί την ολοκλήρωση πρόσθετων στοιχείων ρύθμισης: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Δημιουργήθηκε μία εξαίρεση</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Ιστορικό</string>
     <string name="settings_category_tools_label">Εργαλεία</string>
+    <string name="general_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
+    <string name="general_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="general_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
 </resources>

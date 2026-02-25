@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inkludi apps li bħalissa qed jaħdmu li jistgħu jikkawżaw interferenza.</string>
     <string name="appcleaner_include_inaccessible_label">Inkludi caches inaċċessibbli</string>
     <string name="appcleaner_include_inaccessible_summary">Inkludi data li ma tistax tiġi aċċessata direttament imma tista\' titħassar permezz tas-settings tas-sistema u tiġi awtomatizzata permezz ta\' servizz ta\' aċċessibilità. </string>
-    <string name="appcleaner_include_multiuser_label">Inkludi utenti oħra</string>
-    <string name="appcleaner_include_multiuser_summary">Inkludi apps minn profili ta\' utenti oħra fuq dan l-apparat.</string>
     <string name="appcleaner_include_minimumsize_label">Daqs minimu</string>
     <string name="appcleaner_include_minimumsize_summary">Aqbeż apps fejn is-somma ta\' data li tista\' titneħħa hija taħt il-minimu.</string>
     <string name="appcleaner_include_minimumage_label">Età minima</string>

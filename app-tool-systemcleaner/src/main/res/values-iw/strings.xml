@@ -68,7 +68,6 @@
     <string name="systemcleaner_customfilter_create_action">צור מסנן מותאם אישית</string>
     <string name="systemcleaner_customfilter_create_hint">צור מסנן מותאם אישית כדי למחוק קבצים נוספים ייחודיים למכשיר ולמקרי השימוש שלך.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">להסיר מסנן זה?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
     <string name="systemcleaner_customfilter_editor_label_label">תווית סינון</string>
     <string name="systemcleaner_customfilter_editor_warning">מסננים מותאמים אישית יכולים להיות מסוכנים. בדוק את תוצאות הסריקה שלך לפני המחיקה!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">אזורי נתונים</string>

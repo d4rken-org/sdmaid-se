@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">החרגת אפליקציה מונעת מ-SD Maid לעבד חבילות תואמות כלשהן.</string>
     <string name="exclusion_editor_segment_explanation">החרגה מבוססת פלחים דומה להחרגת נתיב אך מאפשרת התאמות חלקיות. דוגמה: \"DCIM/Camera\" אינו כולל את \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">האם להסיר את ההחרגה הזו?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
     <string name="exclusion_reset_default_exclusions">שחזר החרגות ברירת מחדל</string>
     <string name="exclusion_import_action">ייבוא חריגים</string>
     <string name="exclusion_export_action">ייצוא חריגים</string>

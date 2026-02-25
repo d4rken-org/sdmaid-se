@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid가 자동화 오버레이를 표시할 수 없었습니다. 권한을 확인하고 기기를 재부팅해 보세요.</string>
     <string name="automation_error_no_settings_title">설정 화면을 사용할 수 없음</string>
     <string name="automation_error_no_settings_body">이 시스템 앱에는 설정 화면이 없습니다. 접근성 서비스를 통한 캐시 지우기가 불가능합니다. 캐시 지우기 속도를 높이려면 제외하세요.</string>
+    <string name="automation_loading">접근성 서비스를 통한 자동화를 준비하고 있습니다</string>
+    <string name="automation_progress_find_ok_confirmation">이전 동작 확인을 시도하는 중 (키워드: %s)</string>
 </resources>

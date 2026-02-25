@@ -163,7 +163,6 @@
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Persediaan</string>
-    <string name="exclusion_create_action">Buat pengecualian</string>
     <string name="setup_feature_requires_additional_setup_x">Ciri ini memerlukan persediaan tambahan: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d pengecualian dibuat</item>
@@ -178,4 +177,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Statistik</string>
     <string name="settings_category_tools_label">Alatan</string>
+    <string name="general_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="general_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
+    <string name="general_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
 </resources>

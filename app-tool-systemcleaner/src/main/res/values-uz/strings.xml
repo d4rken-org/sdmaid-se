@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Maxsus filtr yaratish</string>
     <string name="systemcleaner_customfilter_create_hint">Qurilmangiz va foydalanish holatlaringizga xos qo\'shimcha fayllarni o\'chirish uchun maxsus filtr yarating.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bu filtrni olib tashlash kerakmi?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Sizda saqlanmagan o\'zgarishlar bor!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtr yorlig\'i</string>
     <string name="systemcleaner_customfilter_editor_warning">Maxsus filtrlar xavfli bo\'lishi mumkin. O\'chirishdan oldin skanerlash natijalarini tekshiring!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Ma\'lumot hududlari</string>

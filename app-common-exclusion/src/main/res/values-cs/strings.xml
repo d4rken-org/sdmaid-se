@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Aplikace ve výjimkách brání aplikaci SD Maid zpracovávat všechny shodné balíčky.</string>
     <string name="exclusion_editor_segment_explanation">Segmenty ve výjimkách jsou podobné jako cesty ve výjimkách, ale umožňují částečné shody. Např.: \"DCIM/Camera\" nezahrnuje \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstranit tuto výjimku?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
     <string name="exclusion_reset_default_exclusions">Obnovit výchozí výjimky</string>
     <string name="exclusion_import_action">Importovat výjimky</string>
     <string name="exclusion_export_action">Exportovat výjimky</string>

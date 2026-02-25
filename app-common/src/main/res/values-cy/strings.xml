@@ -211,7 +211,6 @@
     <string name="general_user_label_owner">Perchennog</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Gosod</string>
-    <string name="exclusion_create_action">Creu eithriad</string>
     <string name="setup_feature_requires_additional_setup_x">Mae\'r nodwedd hon yn gofyn am gwblhau eitemau gosod ychwanegol: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="zero">%d eithriad wedi\'i greu</item>
@@ -231,4 +230,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Hanes</string>
     <string name="settings_category_tools_label">Offer</string>
+    <string name="general_include_multiuser_label">Cynnwys defnyddwyr eraill</string>
+    <string name="general_include_multiuser_summary">Cynnwys apiau o broffiliau defnyddwyr eraill ar y ddyfais hon.</string>
+    <string name="general_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
 </resources>

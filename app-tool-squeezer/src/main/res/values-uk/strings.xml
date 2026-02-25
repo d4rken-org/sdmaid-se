@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">Оригінал</string>
     <string name="squeezer_onboarding_compressed_label">Після стиснення</string>
     <string name="squeezer_onboarding_quality_label">Якість: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Зрозуміло</string>
     <string name="squeezer_compare_action">Переглянути порівняння</string>
     <string name="squeezer_no_example_found">У вибраних шляхах не знайдено зображень.</string>
     <string name="squeezer_result_empty_message">Не знайдено стиснутих зображень.</string>

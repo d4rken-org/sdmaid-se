@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">मालिक</string>
     <string name="general_user_label_system">सिस्टम</string>
     <string name="setup_title">व्यवस्थित</string>
-    <string name="exclusion_create_action">अपवर्जन बनाएँ</string>
     <string name="setup_feature_requires_additional_setup_x">इस सुविधा के लिए अतिरिक्त सेटअप आइटम पूरे करने की आवश्यकता है: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">%d नया बहिष्करण</item>
@@ -189,4 +188,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">इतिहास</string>
     <string name="settings_category_tools_label">टूल</string>
+    <string name="general_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
+    <string name="general_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>
+    <string name="general_unsaved_confirmation_message">आपके परिवर्तन सहेजे नहीं गए हैं!</string>
 </resources>

@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">Terdapat kandungan tindihan yang menghalang SD Maid daripada berinteraksi dengan skrin. Tutup semua aplikasi tindihan.</string>
     <string name="automation_error_no_settings_title">Skrin tetapan tidak tersedia</string>
     <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak mempunyai skrin tetapan. Pembersihan cache melalui perkhidmatan kebolehcapaian tidak mungkin. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
+    <string name="automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
+    <string name="automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
 </resources>

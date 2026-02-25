@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Sovelluspoikkeus estää SD Maidia käsittelemästä vastaavia paketteja.</string>
     <string name="exclusion_editor_segment_explanation">Segmenttipohjainen poikkeus on samanlainen kuin polkupoikkeus, mutta sallii osittaiset osumat. Esimerkki: \"DCIM/Camera\" sulkee pois \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Poista tämä poikkeus?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sinulla on tallentamattomia muutoksia!</string>
     <string name="exclusion_reset_default_exclusions">Palauta oletuspoikkeukset</string>
     <string name="exclusion_import_action">Tuo poikkeukset</string>
     <string name="exclusion_export_action">Vie poikkeukset</string>

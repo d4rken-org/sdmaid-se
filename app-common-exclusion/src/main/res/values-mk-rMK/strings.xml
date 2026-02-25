@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Исклучок за апликација го спречува SD Maid од обработка на совпаднати пакети.</string>
     <string name="exclusion_editor_segment_explanation">Исклучок базиран на сегмент е сличен на исклучок за патека но дозволува делумни совпаѓања. Пример: \"DCIM/Camera\" исклучува \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Отстрани го овој исклучок?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате незачувани промени!</string>
     <string name="exclusion_reset_default_exclusions">Врати стандардни исклучоци</string>
     <string name="exclusion_import_action">Увези исклучоци</string>
     <string name="exclusion_export_action">Извези исклучоци</string>

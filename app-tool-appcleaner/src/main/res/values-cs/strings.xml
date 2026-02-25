@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Zahrnout právě běžící aplikace, což může způsobit jejich přerušení.</string>
     <string name="appcleaner_include_inaccessible_label">Zahrnout nepřístupné mezipaměti</string>
     <string name="appcleaner_include_inaccessible_summary">Zahrnout data, ke kterým nelze přistupovat přímo, ale lze je smazat prostřednictvím nastavení systému a automatizovaně pomocí služby přístupnosti. </string>
-    <string name="appcleaner_include_multiuser_label">Zahrnout další uživatele</string>
-    <string name="appcleaner_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
     <string name="appcleaner_include_minimumsize_label">Minimální velikost</string>
     <string name="appcleaner_include_minimumsize_summary">Přeskočit aplikace, u nichž je součet nepotřebných dat nižší než minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimální stáří</string>
@@ -70,14 +68,12 @@
         <item quantity="many">Nalezeno %d nepotřebných položek</item>
         <item quantity="other">Nalezeno %d nepotřebných položek</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
     <string name="appcleaner_automation_title">Automatizace Čističe aplikací</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čištění výchozích mezipamětí…</string>
     <string name="appcleaner_automation_progress_open_settings">Otevírání obrazovky nastavení (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Hledání položky \"Úložiště\" (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Hledání tlačítka \"Vyčistit data\" (klíčová slova: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Hledání tlačítka \"Vyčistit mezipaměť\" (klíčová slova: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Výchozí mezipaměti</string>
     <string name="appcleaner_item_caches_inaccessible_body">Veřejné a soukromé výchozí mezipaměti. Není přímo přístupná, ale může být smazána nepřímo (např. přes službu přístupnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Služba přístupnosti není dostupná</string>

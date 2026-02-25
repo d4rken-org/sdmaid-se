@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">ଏକ ଆପ୍ ବହିଷ୍କାର SD Maid କୁ କୌଣସି ମେଳ ଖାଉଥିବା ପ୍ୟାକେଜ୍ଗୁଡ଼ିକର ପ୍ରକ୍ରିୟାକରଣରୁ ବିରତ କରିଥାଏ।</string>
     <string name="exclusion_editor_segment_explanation">ଏକ ସେଗମେଣ୍ଟ ଆଧାରିତ ବହିଷ୍କାର ଏକ ପାଥ୍ ବହିଷ୍କାର ପରି କିନ୍ତୁ ଆଂଶିକ ମେଳ ପାଇଁ ଅନୁମତି ଦେଇଥାଏ। ଉଦାହରଣ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" କୁ ବହିଷ୍କାର କରେ।</string>
     <string name="exclusion_editor_remove_confirmation_message">ଏହି ବହିଷ୍କାର ହଟାଇବେ?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
     <string name="exclusion_reset_default_exclusions">ଡିଫଲ୍ଟ ବହିଷ୍କାର ପୁନଃସ୍ଥାପନା କରନ୍ତୁ</string>
     <string name="exclusion_import_action">ବହିଷ୍କାର ଆମଦାନୀ କରନ୍ତୁ</string>
     <string name="exclusion_export_action">ବହିଷ୍କାର ରପ୍ତାନୀ କରନ୍ତୁ</string>

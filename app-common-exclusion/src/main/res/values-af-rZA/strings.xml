@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">\'n Toepassing uitsluiting verhoed SD Maid om enige passende pakkette te verwerk.</string>
     <string name="exclusion_editor_segment_explanation">\'n Segment gebaseerde uitsluiting is soortgelyk aan \'n pad uitsluiting maar laat gedeeltelike ooreenkomste toe. Voorbeeld: \"DCIM/Camera\" sluit \"/sdcard/DCIM/Camera/photo.png\" uit.</string>
     <string name="exclusion_editor_remove_confirmation_message">Verwyder hierdie uitsluiting?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
     <string name="exclusion_reset_default_exclusions">Herstel verstek uitsluitings</string>
     <string name="exclusion_import_action">Voer uitsluitings in</string>
     <string name="exclusion_export_action">Voer uitsluitings uit</string>

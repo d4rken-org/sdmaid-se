@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Hangi iga rakenduse umbkaudne maht.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Kontrolli kasutamist</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Uudista, kas rakendus on (või hiljuti oli) kasutusel.</string>
-    <string name="appcontrol_include_multiuser_label">Kaasa teisi kasutajaid</string>
-    <string name="appcontrol_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendusi.</string>
     <string name="appcontrol_export_app_selection_action">Ekspordi rakendused</string>
     <string name="appcontrol_export_title">Ekspordi rakendus</string>
     <string name="appcontrol_export_description">Salvesta selle rakenduse paigaldusfailid. See ei hõlma rakenduse andmeid.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d rakendus peatati</item>
         <item quantity="other">%d rakendust peatati</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>
     <string name="appcontrol_automation_title">Rakendusehalduri automatiseerimine</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Sundpeatamine...</string>
     <string name="appcontrol_automation_progress_find_force_stop">Nupu „Sundpeata” otsimine (märksõnad: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Eelmise tegevuse kinnitamise üritamine (märksõnad: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arhiveerimine…</string>
     <string name="appcontrol_automation_progress_find_archive">Nupu „Arhiveeri“ otsimine (märksõnad: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Taastamine…</string>

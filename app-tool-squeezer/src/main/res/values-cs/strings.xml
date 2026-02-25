@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">Originál</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresi</string>
     <string name="squeezer_onboarding_quality_label">Kvalita: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Rozumím</string>
     <string name="squeezer_compare_action">Zobrazit porovnání</string>
     <string name="squeezer_no_example_found">Nenalezeny obrázky ve vybraných cestách.</string>
     <string name="squeezer_result_empty_message">Nenalezeny obrázky ke kompresi.</string>

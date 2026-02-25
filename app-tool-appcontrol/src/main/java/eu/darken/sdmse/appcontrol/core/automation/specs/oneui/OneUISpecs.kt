@@ -130,7 +130,7 @@ class OneUISpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm force stop for $pkg",
-                label = eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
+                label = eu.darken.sdmse.automation.R.string.automation_progress_find_ok_confirmation.toCaString(titleLbl + okLbl),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

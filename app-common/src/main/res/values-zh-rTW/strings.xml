@@ -163,7 +163,6 @@
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
     <string name="setup_title">安裝程式</string>
-    <string name="exclusion_create_action">建立排除</string>
     <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 個排除項目已建立</item>
@@ -178,4 +177,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">歷史記錄</string>
     <string name="settings_category_tools_label">工具</string>
+    <string name="general_include_multiuser_label">包含其他使用者</string>
+    <string name="general_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
+    <string name="general_unsaved_confirmation_message">您有未儲存的變更！</string>
 </resources>

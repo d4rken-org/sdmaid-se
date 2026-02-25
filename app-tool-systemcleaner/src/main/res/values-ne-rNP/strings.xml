@@ -54,7 +54,6 @@
     <string name="systemcleaner_customfilter_create_action">कस्टम फिल्टर सिर्जना गर्नुहोस्</string>
     <string name="systemcleaner_customfilter_create_hint">तपाईंको उपकरण र प्रयोग-स्थितिहरूमा अद्वितीय अतिरिक्त फाइलहरू मेटाउन कस्टम फिल्टर सिर्जना गर्नुहोस्।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">यो फिल्टर हटाउने?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">तपाईंसँग असेभ गरिएका परिवर्तनहरू छन्!</string>
     <string name="systemcleaner_customfilter_editor_label_label">फिल्टर लेबल</string>
     <string name="systemcleaner_customfilter_editor_warning">कस्टम फिल्टरहरू जोखिमपूर्ण हुन सक्छन्। मेटाउनु अघि तपाईंको स्क्यान परिणामहरू जाँच गर्नुहोस्!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">डेटा क्षेत्रहरू</string>

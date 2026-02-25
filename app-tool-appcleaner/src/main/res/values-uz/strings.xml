@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Hozirda ishlayotgan va aralashish keltirib chiqarishi mumkin bo\'lgan ilovalarni qo\'shish.</string>
     <string name="appcleaner_include_inaccessible_label">Kirish imkoni bo\'lmagan keshlarni qo\'shish</string>
     <string name="appcleaner_include_inaccessible_summary">To\'g\'ridan-to\'g\'ri kirish imkoni bo\'lmagan, lekin tizim sozlamalari orqali o\'chirilishi va kirish xizmati yordamida avtomatlashtirish mumkin bo\'lgan ma\'lumotlarni qo\'shish. </string>
-    <string name="appcleaner_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
-    <string name="appcleaner_include_multiuser_summary">Ushbu qurilmadagi boshqa foydalanuvchi profillaridagi ilovalarni qo\'shish.</string>
     <string name="appcleaner_include_minimumsize_label">Minimal hajm</string>
     <string name="appcleaner_include_minimumsize_summary">Sarflanadigan ma\'lumotlarning yig\'indisi minimaldan past bo\'lgan ilovalarni o\'tkazib yuborish.</string>
     <string name="appcleaner_include_minimumage_label">Minimal yosh</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d sarflash mumkin bo\'lgan element topildi</item>
         <item quantity="other">%d sarflash mumkin bo\'lgan element topildi</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
     <string name="appcleaner_automation_title">AppCleaner avtomatlashtirilishi</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standart keshlarni tozalash…</string>
     <string name="appcleaner_automation_progress_open_settings">Sozlamalar ekranini ochish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Xotira\" yozuvini qidirish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Ma\'lumotlarni tozalash\" tugmasini qidirish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keshni tozalash\" tugmasini qidirish (kalit so\'zlar: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standart keshlar</string>
     <string name="appcleaner_item_caches_inaccessible_body">Umumiy va shaxsiy standart keshlar. Bevosita kirish mumkin emas, lekin bilvosita o\'chirish mumkin (masalan, kirish xizmati orqali).</string>
     <string name="appcleaner_automation_unavailable_title">Kirish xizmati mavjud emas</string>

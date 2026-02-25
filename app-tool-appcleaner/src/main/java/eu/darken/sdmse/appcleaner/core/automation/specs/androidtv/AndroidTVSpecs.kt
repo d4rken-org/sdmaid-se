@@ -146,7 +146,7 @@ open class AndroidTVSpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm action for $pkg",
-                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(buttonLabels),
+                label = eu.darken.sdmse.automation.R.string.automation_progress_find_ok_confirmation.toCaString(buttonLabels),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

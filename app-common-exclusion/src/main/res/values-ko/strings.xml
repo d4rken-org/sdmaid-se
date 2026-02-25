@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">앱 제외는 SD Maid가 해당하는 애플리케이션을 처리하는 것을 방지합니다.</string>
     <string name="exclusion_editor_segment_explanation">세그멘트 기반 제외는 경로 제외와 비슷하지만 일부만 해당하는 경우도 적용됩니다. 예시: \"DCIM/Camera\" 를 제외하면 \"/sdcard/DCIM/Camera/photo.png\" 도 제외됩니다.</string>
     <string name="exclusion_editor_remove_confirmation_message">이 제외 항목을 삭제할까요?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
     <string name="exclusion_reset_default_exclusions">기본 제외 항목 복원</string>
     <string name="exclusion_import_action">가져오기 제외 항목</string>
     <string name="exclusion_export_action">내보내기 제외 항목</string>

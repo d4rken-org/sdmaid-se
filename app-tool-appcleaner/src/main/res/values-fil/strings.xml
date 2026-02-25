@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Isama ang mga app na kasalukuyang tumatakbo na maaaring magdulot ng interference.</string>
     <string name="appcleaner_include_inaccessible_label">Isama ang mga hindi ma-access na cache</string>
     <string name="appcleaner_include_inaccessible_summary">Isama ang data na hindi direktang ma-access pero maaaring matanggal sa pamamagitan ng system settings at ma-automate gamit ang accessibility service.</string>
-    <string name="appcleaner_include_multiuser_label">Isama ang ibang mga user</string>
-    <string name="appcleaner_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
     <string name="appcleaner_include_minimumsize_label">Minimum na laki</string>
     <string name="appcleaner_include_minimumsize_summary">Laktawan ang mga app kung ang kabuuan ng expendable data ay nasa ibaba ng minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimum na edad</string>
@@ -56,13 +54,11 @@
         <item quantity="one">%d expendable item na nakita</item>
         <item quantity="other">%d mga expendable item na nakita</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
     <string name="appcleaner_automation_subtitle_default_caches">Nagliligpit ng mga default cache…</string>
     <string name="appcleaner_automation_progress_open_settings">Binubuksan ang settings screen (mga keyword: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Naghahanap ng \"Storage\" entry (mga keyword: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Naghahanap ng \"Clear data\" button (mga keyword: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Naghahanap ng \"Clear cache\" button (mga keyword: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Sinusubukan na i-confirm ang nakaraang aksyon (mga keyword: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Mga default cache</string>
     <string name="appcleaner_item_caches_inaccessible_body">Mga public at private default cache. Hindi direktang ma-access, pero maaaring matanggal nang hindi direkta (hal. sa pamamagitan ng accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">Hindi available ang accessibility service</string>

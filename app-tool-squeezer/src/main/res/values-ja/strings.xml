@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">オリジナル</string>
     <string name="squeezer_onboarding_compressed_label">圧縮後</string>
     <string name="squeezer_onboarding_quality_label">品質：%d%%</string>
-    <string name="squeezer_onboarding_got_it">了解</string>
     <string name="squeezer_compare_action">比較を表示</string>
     <string name="squeezer_no_example_found">選択したパスに画像が見つかりません。</string>
     <string name="squeezer_result_empty_message">圧縮可能な画像が見つかりません。</string>

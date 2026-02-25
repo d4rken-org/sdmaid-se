@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inkluzivi aplikaĵojn kiuj nuntempe rulas kaj kiuj povas kaŭzi interferon.</string>
     <string name="appcleaner_include_inaccessible_label">Inkluzivi nealireblajn kaŝmemorojn</string>
     <string name="appcleaner_include_inaccessible_summary">Inkluzivi datumojn kiuj ne povas esti alireblaj rekte sed povas esti forigitaj per sistemaj agordoj kaj aŭtomatigitaj uzante alireblecan servon.</string>
-    <string name="appcleaner_include_multiuser_label">Inkluzivi aliajn uzantojn</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluzivi aplikaĵojn de aliaj uzantaj profiloj en ĉi tiu aparato.</string>
     <string name="appcleaner_include_minimumsize_label">Minimuma grandeco</string>
     <string name="appcleaner_include_minimumsize_summary">Preterpasi aplikaĵojn kie la sumo de elspezebla datumoj estas sub la minimumo.</string>
     <string name="appcleaner_include_minimumage_label">Minimuma aĝo</string>
@@ -56,14 +54,12 @@
     <string name="appcleaner_filter_qqchat_label">QQ-babilejo</string>
     <string name="appcleaner_filter_qqchat_summary">Senditaj aŭ ricevitaj dosieroj en QQ-babilaj konversacioj.</string>
     <string name="appcleaner_delete_all_confirmation_message">Ĉu forigi elspezeblajn erojn por ĉiuj aplikaĵoj?</string>
-    <string name="appcleaner_automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
     <string name="appcleaner_automation_title">AplikaĵPurigila aŭtomatigo</string>
     <string name="appcleaner_automation_subtitle_default_caches">Viŝante defaŭltajn kaŝmemorojn…</string>
     <string name="appcleaner_automation_progress_open_settings">Malfermante agordan ekranon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Serĉante "Stokado" enigon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Serĉante "Viŝi datumojn" butonon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Serĉante "Viŝi kaŝmemoron" butonon (ŝlosilvortoj: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Defaŭltaj kaŝmemoroj</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publikaj kaj privataj defaŭltaj kaŝmemoroj. Ne rekte alireblaj, sed povas esti forigitaj nerekte (ekz. per alirebleca servo).</string>
     <string name="appcleaner_automation_unavailable_title">Alirebleca servo nedisponebla</string>

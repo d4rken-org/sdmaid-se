@@ -60,7 +60,6 @@
     <string name="squeezer_onboarding_original_label">Originale</string>
     <string name="squeezer_onboarding_compressed_label">Pustis de sa cumpressione</string>
     <string name="squeezer_onboarding_quality_label">Calidade: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Cumprèndidu</string>
     <string name="squeezer_compare_action">Bide su paragone</string>
     <string name="squeezer_no_example_found">Peruna immàgine agatada in is caminos selecionados.</string>
     <string name="squeezer_result_empty_message">Peruna immàgine cumprimìbile agatada.</string>

@@ -171,7 +171,6 @@
     <string name="general_user_label_owner">Posedanto</string>
     <string name="general_user_label_system">Sistemo</string>
     <string name="setup_title">Agordado</string>
-    <string name="exclusion_create_action">Krei ekskluzivon</string>
     <string name="setup_feature_requires_additional_setup_x">Ĉi tiu funkcio postulas kompletigi aldonajn agordajn erojn: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Unu ekskluzivo kreita</item>
@@ -187,4 +186,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historio</string>
     <string name="settings_category_tools_label">Iloj</string>
+    <string name="general_include_multiuser_label">Inkluzivi aliajn uzantojn</string>
+    <string name="general_include_multiuser_summary">Inkluzivi aplikaĵojn de aliaj uzantaj profiloj en ĉi tiu aparato.</string>
+    <string name="general_unsaved_confirmation_message">Vi havas nekonservitajn ŝanĝojn!</string>
 </resources>

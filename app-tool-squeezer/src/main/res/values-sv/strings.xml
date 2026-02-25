@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Original</string>
     <string name="squeezer_onboarding_compressed_label">Efter komprimering</string>
     <string name="squeezer_onboarding_quality_label">Kvalitet: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Uppfattat</string>
     <string name="squeezer_compare_action">Visa jämförelse</string>
     <string name="squeezer_no_example_found">Inga bilder hittades i valda sökvägar.</string>
     <string name="squeezer_result_empty_message">Inga komprimerbara bilder hittades.</string>

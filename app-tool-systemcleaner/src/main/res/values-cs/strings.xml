@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Vytvořit vlastní filtr</string>
     <string name="systemcleaner_customfilter_create_hint">Vytvořte si vlastní filtr pro smazání dalších souborů, které jsou jedinečné pro vaše zařízení a případy použití.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Odstranit tento filtr?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Označení filtru</string>
     <string name="systemcleaner_customfilter_editor_warning">Vlastní filtry mohou být rizikové. Před odstraněním zkontrolujte výsledky skenování!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Oblasti dat</string>

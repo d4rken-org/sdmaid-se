@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">একটি অ্যাপ বর্জন SD Maid-কে যেকোনো মিলে যাওয়া প্যাকেজ প্রক্রিয়াকরণে বাধা দেয়।</string>
     <string name="exclusion_editor_segment_explanation">একটি সেগমেন্ট ভিত্তিক বর্জন একটি পথ বর্জনের অনুরূপ কিন্তু আংশিক মিলের জন্য অনুমতি দেয়। উদাহরণ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" বাদ দেওয়া।</string>
     <string name="exclusion_editor_remove_confirmation_message">এই বর্জন সরাবেন?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
     <string name="exclusion_reset_default_exclusions">ডিফল্ট বর্জন পুনরুদ্ধার করুন</string>
     <string name="exclusion_import_action">বর্জন ইমপোর্ট করুন</string>
     <string name="exclusion_export_action">এক্সপোর্ট এক্সক্লুশন</string>

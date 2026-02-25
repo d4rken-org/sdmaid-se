@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Xüsusi filter yarat</string>
     <string name="systemcleaner_customfilter_create_hint">Cihazınıza və istifadə hallarınıza xas olan əlavə faylları silmək üçün xüsusi filter yaradın.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bu filtri silinsinmi?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Saxlanılmamış dəyişiklikləriniz var!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter etiketi</string>
     <string name="systemcleaner_customfilter_editor_warning">Xüsusi filtrlər təhlükəli ola bilər. Silmədən əvvəl skan nəticələrinizi yoxlayın!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Məlumat sahələri</string>

@@ -91,8 +91,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Krijg een ruwe schatting van de grootte van elke app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Activiteit bepalen</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ontdek of een app actief is (of onlangs actief was).</string>
-    <string name="appcontrol_include_multiuser_label">Inclusief andere gebruikers</string>
-    <string name="appcontrol_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="appcontrol_export_app_selection_action">Apps exporteren</string>
     <string name="appcontrol_export_title">App exporteren</string>
     <string name="appcontrol_export_description">Sla de installatiebestanden van deze app op. Dit omvat geen app-gegevens.</string>
@@ -115,11 +113,9 @@
         <item quantity="one">%d app is gestopt</item>
         <item quantity="other">%d apps zijn gestopt</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
     <string name="appcontrol_automation_title">AppControl automatisering</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Geforceerd stoppen…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ik zoek naar de knop \'Geforceerd stoppen\' (trefwoorden: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiveren…</string>
     <string name="appcontrol_automation_progress_find_archive">Zoeken naar \"Archiveren\"-knop (trefwoorden: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Herstellen…</string>

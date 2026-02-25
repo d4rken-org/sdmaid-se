@@ -67,7 +67,6 @@
     <string name="systemcleaner_customfilter_create_action">Креирај прилагођени филтер</string>
     <string name="systemcleaner_customfilter_create_hint">Креирајте прилагођени филтер за брисање додатних датотека специфичних за ваш уређај и случајеве коришћења.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Уклонити овај филтер?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате несачуване измене!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Ознака филтера</string>
     <string name="systemcleaner_customfilter_editor_warning">Прилагођени филтери могу бити ризични. Проверите резултате скенирања пре брисања!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Области података</string>

@@ -185,7 +185,6 @@
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Систем</string>
     <string name="setup_title">Подешавање</string>
-    <string name="exclusion_create_action">Креирај искључење</string>
     <string name="setup_feature_requires_additional_setup_x">Ова функција захтева довршавање додатних ставки: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">%d искључење креирано</item>
@@ -202,4 +201,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Историја</string>
     <string name="settings_category_tools_label">Алати</string>
+    <string name="general_include_multiuser_label">Укључи остале кориснике</string>
+    <string name="general_include_multiuser_summary">Укључи апликације из осталих корисничких профила на овом уређају.</string>
+    <string name="general_unsaved_confirmation_message">Имате несачуване измене!</string>
 </resources>

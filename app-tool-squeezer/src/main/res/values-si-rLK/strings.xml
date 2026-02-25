@@ -60,7 +60,6 @@
     <string name="squeezer_onboarding_original_label">මුල්</string>
     <string name="squeezer_onboarding_compressed_label">සංකෝචනයෙන් පසුව</string>
     <string name="squeezer_onboarding_quality_label">ගුණත්වය: %d%%</string>
-    <string name="squeezer_onboarding_got_it">තේරුණා</string>
     <string name="squeezer_compare_action">සැසඳීම බලන්න</string>
     <string name="squeezer_no_example_found">තෝරාගත් මාර්ගවල රූප හමු නොවීය.</string>
     <string name="squeezer_result_empty_message">සංකෝචනය කළ හැකි රූප හමු නොවීය.</string>

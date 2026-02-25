@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Vključi programe, ki se trenutno izvajajo, kar lahko povzroči motnje.</string>
     <string name="appcleaner_include_inaccessible_label">Vključi nedostopne predpomnilnike</string>
     <string name="appcleaner_include_inaccessible_summary">Vključi podatke, ki niso neposredno dostopni, vendar jih je mogoče izbrisati v sistemskih nastavitvah, lahko tudi samodejno z uporabo storitve dostopnosti. </string>
-    <string name="appcleaner_include_multiuser_label">Vključi druge uporabnike</string>
-    <string name="appcleaner_include_multiuser_summary">Vključi programe iz drugih uporabniških profilov na napravi.</string>
     <string name="appcleaner_include_minimumsize_label">Najmanjša velikost</string>
     <string name="appcleaner_include_minimumsize_summary">Preskoči programe, kjer je vsota odvečnih podatkov pod najmanjšo vrednostjo.</string>
     <string name="appcleaner_include_minimumage_label">Najmanjša starost</string>
@@ -70,14 +68,12 @@
         <item quantity="few">Najdeni so bili %d-je odvečni predmeti.</item>
         <item quantity="other">Najdenih je bilo %d odvečnih predmetov.</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Pripravljanje samodejnih dejanj preko storitve dostopnosti</string>
     <string name="appcleaner_automation_title">Samodejna dejanja čistilca programov</string>
     <string name="appcleaner_automation_subtitle_default_caches">Čiščenje privzetih predpomnilnikov …</string>
     <string name="appcleaner_automation_progress_open_settings">Odpiranje zaslona z nastavitvami (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Iskanje vnosa \"Shranjevanje\" (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Iskanje gumba \"Počisti podatke\" (ključne besede: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Iskanje gumba \"Počisti predpomnilnik\" (ključne besede: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Prevzeti predpomnilniki</string>
     <string name="appcleaner_item_caches_inaccessible_body">Privzeti javni in zasebni predpomnilniki, ki niso neposredno dostopni, ampak se jih lahko posredno izbriše (npr. preko storitve dostopnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Storitev dostopnosti ni na voljo.</string>

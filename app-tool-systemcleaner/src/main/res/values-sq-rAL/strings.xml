@@ -62,7 +62,6 @@
     <string name="systemcleaner_customfilter_create_action">Krijo filtër të personalizuar</string>
     <string name="systemcleaner_customfilter_create_hint">Krijoni një filtër të personalizuar për të fshirë skedarë shtesë që janë unikë për pajisjen tuaj dhe rastet e përdorimit.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Të hiqet ky filtër?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Etiketa e filtrit</string>
     <string name="systemcleaner_customfilter_editor_warning">Filtrat e personalizuar mund të jenë të rrezikshëm. Kontrolloni rezultatet e skanimit përpara se t\'i fshini!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Zonat e të dhënave</string>

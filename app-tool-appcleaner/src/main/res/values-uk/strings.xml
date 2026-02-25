@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Включити запущені додатки, які можуть створювати перешкоди.</string>
     <string name="appcleaner_include_inaccessible_label">Включити недоступні кеші</string>
     <string name="appcleaner_include_inaccessible_summary">Включіть дані, до яких немає прямого доступу, але які можна видалити за допомогою системних налаштувань та автоматизувати за допомогою сервісу спеціальних можливостей. </string>
-    <string name="appcleaner_include_multiuser_label">Включити інших користувачів</string>
-    <string name="appcleaner_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
     <string name="appcleaner_include_minimumsize_label">Мінімальний розмір</string>
     <string name="appcleaner_include_minimumsize_summary">Пропускати додатки, де сума витратних даних менша за мінімальну.</string>
     <string name="appcleaner_include_minimumage_label">Мінімальний вік</string>
@@ -70,14 +68,12 @@
         <item quantity="many">Знайдено %d витратних матеріалів</item>
         <item quantity="other">Знайдено %d витратних матеріалів</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
     <string name="appcleaner_automation_title">Автоматизація очищення додатків</string>
     <string name="appcleaner_automation_subtitle_default_caches">Очищення кешу за умовчанням…</string>
     <string name="appcleaner_automation_progress_open_settings">Відкриття екрана налаштувань (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Пошук запису \"Сховище\" (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Пошук кнопки \"Очистити дані\" (ключові слова: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Пошук кнопки \"Очистити кеш\" (ключові слова: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кеш за умовчанням</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публічні та приватні кеші за умовчанням. Не доступні безпосередньо, але можуть бути видалені опосередковано (наприклад, через сервіс спеціальних можливостей).</string>
     <string name="appcleaner_automation_unavailable_title">Сервіс спеціальних можливостей недоступний</string>

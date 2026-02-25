@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Taka forrit sem eru í gangi sem gætu valdið truflun.</string>
     <string name="appcleaner_include_inaccessible_label">Taka óaðgengileg skyndiminni með</string>
     <string name="appcleaner_include_inaccessible_summary">Taka gögn sem ekki er hægt að nálgast beint en hægt er að eyða í gegnum kerfisstillingar og sjálfvirka með aðgengisþjónustu.</string>
-    <string name="appcleaner_include_multiuser_label">Taka aðra notendur með</string>
-    <string name="appcleaner_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
     <string name="appcleaner_include_minimumsize_label">Lágmarksstærð</string>
     <string name="appcleaner_include_minimumsize_summary">Sleppa forritum þar sem samtala óþarfa gagna er undir lágmarki.</string>
     <string name="appcleaner_include_minimumage_label">Lágmarksaldur</string>
@@ -63,14 +61,12 @@
         <item quantity="one">%d óþarfur hlutur fannst</item>
         <item quantity="other">%d óþarfir hlutir fundust</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
     <string name="appcleaner_automation_title">AppCleaner sjálfvirkni</string>
     <string name="appcleaner_automation_subtitle_default_caches">Hreinsa sjálfgefin skyndiminni…</string>
     <string name="appcleaner_automation_progress_open_settings">Opna stillingaskjá (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Leita að \"Geymsla\" færslu (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Leita að \"Hreinsa gögn\" hnapp (lykilorð: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Leita að \"Hreinsa skyndiminni\" hnapp (lykilorð: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Sjálfgefin skyndiminni</string>
     <string name="appcleaner_item_caches_inaccessible_body">Opinber og einka sjálfgefin skyndiminni. Ekki beint aðgengileg, en hægt er að eyða óbeint (t.d. í gegnum aðgengisþjónustu).</string>
     <string name="appcleaner_automation_unavailable_title">Aðgengisþjónusta ekki tiltæk</string>

@@ -122,14 +122,12 @@
     <string name="swiper_stamp_undo_3">Oj!</string>
     <string name="swiper_stamp_undo_4">Vänta!</string>
     <string name="swiper_gesture_overlay_dismiss">Tryck var som helst för att börja</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Uppfattat</string>
     <string name="swiper_gesture_overlay_left_delete">← Ta bort</string>
     <string name="swiper_gesture_overlay_right_keep">Behåll →</string>
     <string name="swiper_gesture_overlay_left_keep">← Behåll</string>
     <string name="swiper_gesture_overlay_right_delete">Ta bort →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Hoppa över</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Ångra</string>
-    <string name="swiper_help_action">Hjälp</string>
     <string name="swiper_help_title">Hur Swiper fungerar</string>
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
 </resources>

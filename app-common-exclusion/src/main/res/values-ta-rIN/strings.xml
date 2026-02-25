@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">பயன்பாட்டு விலக்கல் எந்த பொருந்தும் பேக்கேஜ்களையும் SD Maid செயல்படுத்தாமல் தடுக்கிறது.</string>
     <string name="exclusion_editor_segment_explanation">பகுதி அடிப்படையிலான விலக்கல் பாதை விலக்கல் போன்றது ஆனால் பகுதி தொடர்புகளை அனுமதிக்கிறது. உதாரணம்: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" இற்கு விலக்குகிறது.</string>
     <string name="exclusion_editor_remove_confirmation_message">இந்த விலக்கலை அகற்றவா?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
     <string name="exclusion_reset_default_exclusions">இயல்பு விலக்கல்களை மீட்டெடு</string>
     <string name="exclusion_import_action">விலக்கல்களை இறற்றுமதி</string>
     <string name="exclusion_export_action">விலக்கல்களை ஏற்றுமதி</string>

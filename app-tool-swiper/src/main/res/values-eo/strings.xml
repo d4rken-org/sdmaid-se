@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ho!</string>
     <string name="swiper_stamp_undo_4">Atendu!</string>
     <string name="swiper_gesture_overlay_dismiss">Tuŝu ie ajn por komenci</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Komprenite</string>
     <string name="swiper_gesture_overlay_left_delete">← Forigi</string>
     <string name="swiper_gesture_overlay_right_keep">Konservi →</string>
     <string name="swiper_gesture_overlay_left_keep">← Konservi</string>
     <string name="swiper_gesture_overlay_right_delete">Forigi →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preterpasi</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Malfari</string>
-    <string name="swiper_help_action">Helpo</string>
     <string name="swiper_help_title">Kiel Swiper funkcias</string>
     <string name="swiper_help_message">Svingu ĉiun dosieron por decidi:\n\n← Svingu maldekstren: %1$s\n→ Svingu dekstren: %2$s\n↑ Svingu supren: Preterpasi\n↓ Svingu malsupren: Malfari (post la unua svingo)\n\nVi ankaŭ povas uzi la butonojn ĉe la malsupro.\n\nKiam vi finis, tuŝu \"Revizio\" por vidi ĉiujn viajn decidojn. Nenio estas forigita ĝis vi konfirmas en la revizia ekrano.</string>
 </resources>

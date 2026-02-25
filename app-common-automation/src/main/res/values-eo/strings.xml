@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid ne povis montri la aŭtomatigan supermetaĵon. Kontrolu permesojn kaj provu reŝargi vian aparaton.</string>
     <string name="automation_error_no_settings_title">Agorda ekrano nedisponebla</string>
     <string name="automation_error_no_settings_body">Ĉi tiu sistema aplikaĵo ne havas agordan ekranon. Kaŝmemora viŝado per alirebleca servo ne eblas. Ekskluzivi ĝin por rapidigi kaŝmemoran viŝadon.</string>
+    <string name="automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
+    <string name="automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
 </resources>

@@ -74,7 +74,7 @@ class SqueezerOnboardingDialog @Inject constructor(
         val dialog: Dialog = MaterialAlertDialogBuilder(context).apply {
             setTitle(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_title)
             setView(binding.root)
-            setPositiveButton(eu.darken.sdmse.squeezer.R.string.squeezer_onboarding_got_it) { _, _ ->
+            setPositiveButton(eu.darken.sdmse.common.R.string.general_gotit_action) { _, _ ->
                 onDismiss()
             }
             setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->

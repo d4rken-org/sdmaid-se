@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Izuzimanje aplikacije sprječava SD Maid da obradi podudarajuće pakete.</string>
     <string name="exclusion_editor_segment_explanation">Izuzimanje na temelju segmenta slično je izuzimanju putanje, ali dopušta djelomična podudaranja. Primjer: \"DCIM/Camera\" izuzima \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Ukloniti ovaj izuzetak?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Imate nespremljene promjene!</string>
     <string name="exclusion_reset_default_exclusions">Vrati zadane izuzetke</string>
     <string name="exclusion_import_action">Uvezi izuzetke</string>
     <string name="exclusion_export_action">Izvezi izuzetke</string>

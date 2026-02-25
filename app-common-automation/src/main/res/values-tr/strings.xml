@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid otomasyon katmanını gösteremedi. İzinleri kontrol edin ve cihazınızı yeniden başlatmayı deneyin.</string>
     <string name="automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
     <string name="automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
+    <string name="automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
+    <string name="automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
 </resources>

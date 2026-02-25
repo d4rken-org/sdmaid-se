@@ -163,7 +163,6 @@
     <string name="general_user_label_owner">Người sở hữu</string>
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>
-    <string name="exclusion_create_action">Tạo loại trừ</string>
     <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">Đã tạo %d loại trừ</item>
@@ -178,4 +177,7 @@
     <string name="swiper_tool_name">Vuốt</string>
     <string name="stats_label">Lịch sử</string>
     <string name="settings_category_tools_label">Công cụ</string>
+    <string name="general_include_multiuser_label">Bao gồm những người dùng khác</string>
+    <string name="general_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
+    <string name="general_unsaved_confirmation_message">Bạn có các thay đổi chưa lưu!</string>
 </resources>

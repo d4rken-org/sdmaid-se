@@ -57,7 +57,6 @@
     <string name="systemcleaner_customfilter_create_action">Maqşıtlı filter jaratlıw</string>
     <string name="systemcleaner_customfilter_create_hint">Sizdiń qurilma hám paydalaniw shaǵlīınızğa arnalgan qosımsha fayllardı óltiriw ushın maqşıtlı filter jaratlıń.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">B̆ul filtertі shlı̆arw?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Saǵlanbagan ózgerislerdі bar!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter belgisі</string>
     <string name="systemcleaner_customfilter_editor_warning">Maqşıtlı filterler xáterli bolwı mümkin. Öltiriwdіn burin skanırlawy natïjelerdi tekseridі!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Maǵlıwmat saǵaları</string>

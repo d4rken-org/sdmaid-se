@@ -172,4 +172,5 @@
     <string name="appcontrol_tool_name">အက်ပ် ထိန်းချုပ်မှု</string>
     <string name="stats_label">မှတ်တမ်း</string>
     <string name="settings_category_tools_label">ကိရိယာများ</string>
+    <string name="general_unsaved_confirmation_message">သိမ်းမထားသေးသော ပြောင်းလဲမှုများ ရှိသည်!</string>
 </resources>

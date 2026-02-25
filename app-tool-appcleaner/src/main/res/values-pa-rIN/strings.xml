@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">ਉਹ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ ਜੋ ਵਰਤਮਾਨ ਵਿੱਚ ਚੱਲ ਰਹੀਆਂ ਹਨ ਜੋ ਦਖਲਅੰਦਾਜ਼ੀ ਦਾ ਕਾਰਨ ਬਣ ਸਕਦੀਆਂ ਹਨ।</string>
     <string name="appcleaner_include_inaccessible_label">ਅਪਹੁੰਚ ਕੈਸ਼ ਸ਼ਾਮਲ ਕਰੋ</string>
     <string name="appcleaner_include_inaccessible_summary">ਉਹ ਡੇਟਾ ਸ਼ਾਮਲ ਕਰੋ ਜਿਸ ਤੱਕ ਸਿੱਧੀ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ ਪਰ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਰਾਹੀਂ ਮਿਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ ਅਤੇ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਸਵੈਚਾਲਿਤ ਕੀਤਾ ਜਾ ਸਕਦਾ ਹੈ।</string>
-    <string name="appcleaner_include_multiuser_label">ਹੋਰ ਵਰਤੋਂਕਾਰ ਸ਼ਾਮਲ ਕਰੋ</string>
-    <string name="appcleaner_include_multiuser_summary">ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਹੋਰ ਵਰਤੋਂਕਾਰ ਪ੍ਰੋਫਾਈਲਾਂ ਤੋਂ ਐਪਾਂ ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="appcleaner_include_minimumsize_label">ਘੱਟੋ-ਘੱਟ ਆਕਾਰ</string>
     <string name="appcleaner_include_minimumsize_summary">ਉਹ ਐਪਾਂ ਛੱਡੋ ਜਿੱਥੇ ਖਰਚਯੋਗ ਡੇਟਾ ਦਾ ਜੋੜ ਘੱਟੋ-ਘੱਟ ਤੋਂ ਘੱਟ ਹੈ।</string>
     <string name="appcleaner_include_minimumage_label">ਘੱਟੋ-ਘੱਟ ਉਮਰ</string>
@@ -63,14 +61,12 @@
         <item quantity="one">%d ਖਰਚੇਯੋਗ ਆਈਟਮ ਮਿਲਿਆ</item>
         <item quantity="other">%d ਖਰਚੇਯੋਗ ਆਈਟਮਾਂ ਮਿਲੀਆਂ</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਸਵੈਚਾਲਨ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ</string>
     <string name="appcleaner_automation_title">AppCleaner ਸਵੈਚਾਲਨ</string>
     <string name="appcleaner_automation_subtitle_default_caches">ਮੂਲ ਕੈਸ਼ ਸਾਫ਼ ਕਰ ਰਿਹਾ ਹੈ…</string>
     <string name="appcleaner_automation_progress_open_settings">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਖੋਲ੍ਹ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ਸਟੋਰੇਜ\" ਐਂਟਰੀ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"ਡੇਟਾ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"ਕੈਸ਼ ਸਾਫ਼ ਕਰੋ\" ਬਟਨ ਲੱਭ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ਮੂਲ ਕੈਸ਼</string>
     <string name="appcleaner_item_caches_inaccessible_body">ਜਨਤਕ ਅਤੇ ਨਿੱਜੀ ਮੂਲ ਕੈਸ਼। ਸਿੱਧੇ ਤੌਰ \'ਤੇ ਪਹੁੰਚਯੋਗ ਨਹੀਂ, ਪਰ ਅਸਿੱਧੇ ਤੌਰ \'ਤੇ ਮਿਟਾਇਆ ਜਾ ਸਕਦਾ ਹੈ (ਜਿਵੇਂ ਕਿ ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ)।</string>
     <string name="appcleaner_automation_unavailable_title">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਉਪਲਬਧ ਨਹੀਂ</string>

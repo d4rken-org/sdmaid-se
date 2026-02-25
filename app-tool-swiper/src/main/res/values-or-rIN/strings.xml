@@ -126,14 +126,12 @@
     <string name="swiper_stamp_undo_3">ଓହୋ!</string>
     <string name="swiper_stamp_undo_4">ଅପେକ୍ଷା!</string>
     <string name="swiper_gesture_overlay_dismiss">ଆରମ୍ଭ କରିବାକୁ ଯେକୌଣସି ସ୍ଥାନରେ ଟ୍ୟାପ୍ କରନ୍ତୁ</string>
-    <string name="swiper_gesture_overlay_dismiss_action">ବୁଝିଲି</string>
     <string name="swiper_gesture_overlay_left_delete">← ବିଲୋପ</string>
     <string name="swiper_gesture_overlay_right_keep">ରଖନ୍ତୁ →</string>
     <string name="swiper_gesture_overlay_left_keep">← ରଖନ୍ତୁ</string>
     <string name="swiper_gesture_overlay_right_delete">ବିଲୋପ →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ ଛାଡ଼ନ୍ତୁ</string>
     <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
-    <string name="swiper_help_action">ସାହାଯ୍ୟ</string>
     <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
     <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
     <string name="swiper_label">Swiper</string>

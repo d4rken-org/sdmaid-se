@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">รวมแอพที่กำลังทำงานอยู่ซึ่งอาจก่อให้เกิดการรบกวน</string>
     <string name="appcleaner_include_inaccessible_label">รวมแคชที่เข้าถึงไม่ได้</string>
     <string name="appcleaner_include_inaccessible_summary">รวมข้อมูลที่ไม่สามารถเข้าถึงโดยตรงได้ แต่สามารถลบผ่านการตั้งค่าระบบและทำงานโดยอัตโนมัติโดยใช้บริการช่วยเหลือการเข้าถึง</string>
-    <string name="appcleaner_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
-    <string name="appcleaner_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
     <string name="appcleaner_include_minimumsize_label">ขนาดขั้นต่ำ</string>
     <string name="appcleaner_include_minimumsize_summary">ข้ามแอพที่มีผลรวมข้อมูลที่ลบได้ต่ำกว่าค่าขั้นต่ำ</string>
     <string name="appcleaner_include_minimumage_label">อายุขั้นต่ำ</string>
@@ -64,14 +62,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">พบรายการที่สามารถลบทิ้งได้ %d รายการ</item>
     </plurals>
-    <string name="appcleaner_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการช่วยเหลือการเข้าถึง</string>
     <string name="appcleaner_automation_title">การทำงานอัตโนมัติตัวทำความสะอาดแอพ</string>
     <string name="appcleaner_automation_subtitle_default_caches">กำลังล้างแคชเริ่มต้น…</string>
     <string name="appcleaner_automation_progress_open_settings">เปิดหน้าจอการตั้งค่า (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">ค้นหารายการ \"พื้นที่เก็บข้อมูล\" (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">มองหาปุ่ม \"ล้างข้อมูล\" (คำสำคัญ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">มองหาปุ่ม \"ล้างแคช\" (คำสำคัญ: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">พยายามยืนยันการกระทำก่อนหน้า (คำสำคัญ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">แคชเริ่มต้น</string>
     <string name="appcleaner_item_caches_inaccessible_body">แคชเริ่มต้นสาธารณะและส่วนตัว ไม่สามารถเข้าถึงโดยตรงได้ แต่สามารถลบโดยอ้อมได้ (เช่น ผ่านบริการช่วยเหลือการเข้าถึง)</string>
     <string name="appcleaner_automation_unavailable_title">บริการช่วยเหลือการเข้าถึงไม่พร้อมใช้งาน</string>

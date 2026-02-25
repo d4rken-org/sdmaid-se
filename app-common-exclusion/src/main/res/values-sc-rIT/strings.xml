@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Una esclussione de aplicatzione impedid a SD Maid de protzessare cale si siat pachetu currispondente.</string>
     <string name="exclusion_editor_segment_explanation">Una esclussione basada in segmentus est sìmile a una esclussione de caminu ma permitit currispondèntzias partziales. Esempru: \"DCIM/Camera\" escludet \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Bogare custa esclussione?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Tenes modìficas non sarvadas!</string>
     <string name="exclusion_reset_default_exclusions">Ripristinare esclussiones predefinidas</string>
     <string name="exclusion_import_action">Importare esclussiones</string>
     <string name="exclusion_export_action">Esportare esclussiones</string>

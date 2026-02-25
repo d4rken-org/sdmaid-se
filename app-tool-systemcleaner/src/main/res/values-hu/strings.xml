@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Egyedi szűrő létrehozása</string>
     <string name="systemcleaner_customfilter_create_hint">Hozz létre egyéni szűrőt az eszközödre és a felhasználási esetekre jellemző extra fájlok törléséhez.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Eltávolítod el ezt a szűrőt?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Nem mentett változtatásaid vannak!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Szűrőcímke</string>
     <string name="systemcleaner_customfilter_editor_warning">Az egyedi szűrők kockázatosak lehetnek. Törlés előtt ellenőrizd a keresési eredményeket!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Adatterületek</string>

@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Benutzerdefinierten Filter erstellen</string>
     <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die einzigartig für dein Gerät und deine Anwendungsfälle sind.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Diesen Filter entfernen?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du hast ungespeicherte Änderungen!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filterbezeichnung</string>
     <string name="systemcleaner_customfilter_editor_warning">Benutzerdefinierte Filter können riskant sein. Überprüfe Deine Suchergebnisse vor dem Löschen!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Datenbereiche</string>

@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Создать пользовательский фильтр</string>
     <string name="systemcleaner_customfilter_create_hint">Создайте пользовательский фильтр, чтобы удалить дополнительные файлы, уникальные для Вашего устройства и стиля использования.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Удалить этот фильтр?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Метка фильтра</string>
     <string name="systemcleaner_customfilter_editor_warning">Применение пользовательских фильтров может быть рискованным. Проверьте результаты сканирования перед удалением!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Области данных</string>

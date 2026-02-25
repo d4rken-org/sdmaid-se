@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Vent!</string>
     <string name="swiper_gesture_overlay_dismiss">Tryk hvor som helst for at starte</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Forstået</string>
     <string name="swiper_gesture_overlay_left_delete">← Slet</string>
     <string name="swiper_gesture_overlay_right_keep">Behold →</string>
     <string name="swiper_gesture_overlay_left_keep">← Behold</string>
     <string name="swiper_gesture_overlay_right_delete">Slet →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Spring over</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Fortryd</string>
-    <string name="swiper_help_action">Hjælp</string>
     <string name="swiper_help_title">Sådan fungerer Swiper</string>
     <string name="swiper_help_message">Stryg hver fil for at tage en beslutning:\n\n← Stryg til venstre: %1$s\n→ Stryg til højre: %2$s\n↑ Stryg op: Spring over\n↓ Stryg ned: Fortryd (efter første stryg)\n\nDu kan også bruge knapperne i bunden.\n\nNår du er færdig, tryk \"Gennemgå\" for at se alle dine beslutninger. Intet slettes, før du bekræfter på gennemgangsskærmen.</string>
 </resources>

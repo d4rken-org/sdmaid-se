@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Ägare</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Inställningar</string>
-    <string name="exclusion_create_action">Skapa uteslutning</string>
     <string name="setup_feature_requires_additional_setup_x">Denna funktion kräver att ytterligare inställningsobjekt slutförs: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">En uteslutning skapad</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historik</string>
     <string name="settings_category_tools_label">Verktyg</string>
+    <string name="general_include_multiuser_label">Inkludera andra användare</string>
+    <string name="general_include_multiuser_summary">Inkludera appar från andra användarprofiler på denna enhet.</string>
+    <string name="general_unsaved_confirmation_message">Du har osparade ändringar!</string>
 </resources>

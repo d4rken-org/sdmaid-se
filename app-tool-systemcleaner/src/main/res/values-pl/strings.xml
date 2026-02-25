@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Utwórz filtr użytkownika</string>
     <string name="systemcleaner_customfilter_create_hint">Utwórz filtr użytkownika, aby usunąć dodatkowe pliki, które są unikalne dla twojego urządzenia i konkretnego użytkowania.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Usunąć ten filtr?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Etykieta filtra</string>
     <string name="systemcleaner_customfilter_editor_warning">Filtry użytkownika mogą być niebezpieczne. Sprawdź wyniki skanowania przed usunięciem!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Obszary danych</string>

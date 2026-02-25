@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inkluder apps, der kører i øjeblikket, og kan forstyrre.</string>
     <string name="appcleaner_include_inaccessible_label">Inkluder utilgængelige cacher</string>
     <string name="appcleaner_include_inaccessible_summary">Inkluder data, der ikke kan tilgås direkte, men kan slettes via systemindstillinger og automatiseres med en tilgængelighedstjeneste.</string>
-    <string name="appcleaner_include_multiuser_label">Inkluder andre brugere</string>
-    <string name="appcleaner_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="appcleaner_include_minimumsize_label">Minimumsstørrelse</string>
     <string name="appcleaner_include_minimumsize_summary">Spring apps over, hvor mængden af brugbare data er under minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimumsalder</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d overflødigt element fundet</item>
         <item quantity="other">%d overflødige elementer fundet</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
     <string name="appcleaner_automation_title">Apprenser-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Rydder standardcacher…</string>
     <string name="appcleaner_automation_progress_open_settings">Åbner indstillingsskærm (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Søger efter \"Lager\" (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Leder efter knappen \"Ryd data\" (søgeord: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Leder efter knappen \"Ryd cache\" (søgeord: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standardcacher</string>
     <string name="appcleaner_item_caches_inaccessible_body">Offentlige og private standardcacher. Ikke direkte tilgængelige, men kan slettes indirekte (f.eks. via tilgængelighedstjeneste).</string>
     <string name="appcleaner_automation_unavailable_title">Tilgængelighedstjeneste utilgængelig</string>

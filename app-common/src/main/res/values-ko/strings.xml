@@ -163,7 +163,6 @@
     <string name="general_user_label_owner">소유자</string>
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
-    <string name="exclusion_create_action">예외 생성</string>
     <string name="setup_feature_requires_additional_setup_x">이 기능은 추가 설청 항목을 완료할 필요가 있습니다: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d개의 제외 생성됨</item>
@@ -178,4 +177,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">이력</string>
     <string name="settings_category_tools_label">도구</string>
+    <string name="general_include_multiuser_label">다른 유저 포함</string>
+    <string name="general_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
+    <string name="general_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
 </resources>

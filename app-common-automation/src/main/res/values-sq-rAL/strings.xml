@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid nuk mund të shfaqte mbivendosjen e automatizimit. Kontrolloni lejet dhe provoni të rindizni pajisjen tuaj.</string>
     <string name="automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
     <string name="automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
+    <string name="automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
+    <string name="automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
 </resources>

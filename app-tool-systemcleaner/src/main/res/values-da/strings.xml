@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">Opret brugerdefineret filter</string>
     <string name="systemcleaner_customfilter_create_hint">Opret et brugerdefineret filter for at slette ekstra filer, der er unikke for din enhed og dine brugssituationer.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Fjern dette filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filteretiket</string>
     <string name="systemcleaner_customfilter_editor_warning">Brugerdefinerede filtre kan være risikable. Tjek dine scanningsresultater før sletning!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Dataområder</string>

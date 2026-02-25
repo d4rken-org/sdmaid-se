@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Përfshi aplikacionet që po ekzekutohen aktualisht, të cilat mund të shkaktojnë ndërhyrje.</string>
     <string name="appcleaner_include_inaccessible_label">Përfshi cache të paarritshme</string>
     <string name="appcleaner_include_inaccessible_summary">Përfshi të dhëna që nuk mund të aksesohen drejtpërdrejt, por që mund të fshihen nëpërmjet cilësimeve të sistemit dhe të automatizohen duke përdorur një shërbim aksesueshmërie. </string>
-    <string name="appcleaner_include_multiuser_label">Përfshini përdorues të tjerë</string>
-    <string name="appcleaner_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
     <string name="appcleaner_include_minimumsize_label">Madhësia minimale</string>
     <string name="appcleaner_include_minimumsize_summary">Kapërceni aplikacionet ku shuma e të dhënave të shpenzueshme është nën minimumin.</string>
     <string name="appcleaner_include_minimumage_label">Mosha minimale</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d artikull i shpenzuar u gjet</item>
         <item quantity="other">%d artikuj të shpenzuar u gjetën</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="appcleaner_automation_title">Automatizimi i AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Po pastrohet memoria e paracaktuar…</string>
     <string name="appcleaner_automation_progress_open_settings">Hapja e ekranit të cilësimeve (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Duke kërkuar për hyrjen \"Storage\" (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Po kërkon butonin \"Pastro të dhënat\" (fjalë kyçe: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Duke kërkuar për butonin \"Pastro cache\" (fjalë kyçe: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache të paracaktuar</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memoriet e paracaktuara publike dhe private. Jo i aksesueshëm drejtpërdrejt, por mund të fshihet në mënyrë indirekte (p.sh. nëpërmjet shërbimit të aksesueshmërisë).</string>
     <string name="appcleaner_automation_unavailable_title">Shërbimi i aksesueshmërisë është i çaktivizuar</string>

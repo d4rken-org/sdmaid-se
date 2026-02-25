@@ -152,8 +152,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:contentDescription="@string/swiper_gesture_overlay_dismiss_action"
-            android:text="@string/swiper_gesture_overlay_dismiss_action" />
+            android:contentDescription="@string/general_gotit_action"
+            android:text="@string/general_gotit_action" />
 
     </LinearLayout>
 

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Συμπεριλάβετε εφαρμογές που εκτελούνται αυτήν τη στιγμή και ενδέχεται να προκαλέσουν παρεμβολές.</string>
     <string name="appcleaner_include_inaccessible_label">Συμπερίληψη μη προσβάσιμων κρυφών μνημών</string>
     <string name="appcleaner_include_inaccessible_summary">Συμπεριλάβετε δεδομένα που δεν είναι άμεσα προσβάσιμα αλλά μπορούν να διαγραφούν μέσω ρυθμίσεων συστήματος και να αυτοματοποιηθούν χρησιμοποιώντας μια υπηρεσία προσβασιμότητας. </string>
-    <string name="appcleaner_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
-    <string name="appcleaner_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
     <string name="appcleaner_include_minimumsize_label">Ελάχιστο μέγεθος</string>
     <string name="appcleaner_include_minimumsize_summary">Παράλειψη εφαρμογών όπου το άθροισμα των αναλώσιμων δεδομένων είναι κάτω από το ελάχιστο όριο.</string>
     <string name="appcleaner_include_minimumage_label">Ελάχιστη ηλικία</string>
@@ -66,14 +64,12 @@
         <item quantity="one">Βρέθηκε %d αναλώσιμο στοιχείο</item>
         <item quantity="other">Βρέθηκαν %d αναλώσιμα στοιχεία</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Προετοιμασία αυτοματισμού μέσω υπηρεσίας προσβασιμότητας</string>
     <string name="appcleaner_automation_title">Αυτοματοποίηση Εκκαθάρισης Εφαρμογών</string>
     <string name="appcleaner_automation_subtitle_default_caches">Εκκαθάριση προεπιλεγμένων προσωρινών μνημών…</string>
     <string name="appcleaner_automation_progress_open_settings">Άνοιγμα οθόνης ρυθμίσεων (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Αναζήτηση για καταχώρηση \"Αποθήκευση\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Αναζήτηση για το κουμπί \"Εκκαθάριση δεδομένων\" (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Αναζήτηση για το κουμπί \"Εκκαθάριση προσωρινής μνήμης\" (λέξεις-κλειδιά: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Προσπάθεια επιβεβαίωσης προηγούμενης ενέργειας (λέξεις-κλειδιά: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Προεπιλεγμένες κρυφές μνήμες</string>
     <string name="appcleaner_item_caches_inaccessible_body">Δημόσιες και ιδιωτικές προεπιλεγμένες κρυφές μνήμες. Δεν είναι άμεσα προσβάσιμο, αλλά μπορεί να διαγραφεί έμμεσα (π.χ. μέσω της υπηρεσίας προσβασιμότητας).</string>
     <string name="appcleaner_automation_unavailable_title">Η υπηρεσία προσβασιμότητας δεν είναι διαθέσιμη</string>

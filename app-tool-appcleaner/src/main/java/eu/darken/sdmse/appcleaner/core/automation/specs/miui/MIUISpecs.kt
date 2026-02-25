@@ -346,7 +346,7 @@ class MIUISpecs @Inject constructor(
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Confirm clear cache (security center plan) for $pkg",
-                label = R.string.appcleaner_automation_progress_find_ok_confirmation.toCaString(""),
+                label = eu.darken.sdmse.automation.R.string.automation_progress_find_ok_confirmation.toCaString(""),
                 windowCheck = windowCheck,
                 nodeAction = action,
             )

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Incluir apps que estão atualmente em execução, o que pode causar interferência.</string>
     <string name="appcleaner_include_inaccessible_label">Incluir caches inacessíveis</string>
     <string name="appcleaner_include_inaccessible_summary">Inclua dados que não podem ser acessados diretamente, mas podem ser excluídos através das configurações do sistema e automatizados usando um serviço de acessibilidade. </string>
-    <string name="appcleaner_include_multiuser_label">Incluir outros usuários</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir aplicativos de outros perfis de usuário neste dispositivo.</string>
     <string name="appcleaner_include_minimumsize_label">Tamanho mínimo</string>
     <string name="appcleaner_include_minimumsize_summary">Pular apps onde a soma de dados executáveis é inferior ao mínimo.</string>
     <string name="appcleaner_include_minimumage_label">Idade mínima</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d item inútil encontrado</item>
         <item quantity="other">%d itens inúteis encontrados</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Preparando automação por serviço de acessibilidade</string>
     <string name="appcleaner_automation_title">Automação do Limpador de Aplicativos</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpando os caches padrão…</string>
     <string name="appcleaner_automation_progress_open_settings">Abertura de tela de configurações (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Procurando por \"Armazenamento\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão público e privado. Não acessível diretamente, mas pode ser excluído indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>

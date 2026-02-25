@@ -98,8 +98,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
-    <string name="appcontrol_include_multiuser_label">Includeți alți utilizatori</string>
-    <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
     <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
@@ -125,11 +123,9 @@
         <item quantity="few">%d aplicații au fost oprite</item>
         <item quantity="other">%d aplicații au fost oprite</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="appcontrol_automation_title">Automatizare Controlul Aplicațiilor</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Oprirea forțată…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Se caută butonul „Oprire forțată” (cuvinte cheie: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Se arhivează…</string>
     <string name="appcontrol_automation_progress_find_archive">Se caută butonul \"Arhivați\" (cuvinte cheie: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Se restaurează…</string>

@@ -57,7 +57,6 @@
     <string name="systemcleaner_customfilter_create_action">මැනුවල් පෙරණ සැදීම</string>
     <string name="systemcleaner_customfilter_create_hint">ඔබේ උපකරණය සහ භාවිතාවට විශේෂ අමතර ගොනු මකාදැමීම සඳහා මැනුවල් පෙරණයක් සැදීම.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">මෙම පෙරණ ඉවත් කරන්නද?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ඔබ ඇද සකැසූම් නොකැරී වෙනස්කිරීම් ඇද!</string>
     <string name="systemcleaner_customfilter_editor_label_label">පෙරණ ලේබලය</string>
     <string name="systemcleaner_customfilter_editor_warning">මැනුවල් පෙරණ අවදානම් විය හැකිය. මකාදැමීමෙන් පුර ඔබේ ස්කැන් ප්‍රතිඵල පරීක්ෂා කරන්න!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">දත්ත ප්‍රදේශ</string>

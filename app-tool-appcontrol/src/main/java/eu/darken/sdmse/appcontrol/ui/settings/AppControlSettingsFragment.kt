@@ -56,10 +56,10 @@ class AppControlSettingsFragment : PreferenceFragment2() {
             includeOtherUsers.apply {
                 isPersistent = state.isPro
                 if (state.isPro) {
-                    setSummary(eu.darken.sdmse.appcontrol.R.string.appcontrol_include_multiuser_summary)
+                    setSummary(eu.darken.sdmse.common.R.string.general_include_multiuser_summary)
                 } else {
                     summary =
-                        "${getString(eu.darken.sdmse.appcontrol.R.string.appcontrol_include_multiuser_summary)}\n${getString(eu.darken.sdmse.common.R.string.upgrade_feature_requires_pro)}"
+                        "${getString(eu.darken.sdmse.common.R.string.general_include_multiuser_summary)}\n${getString(eu.darken.sdmse.common.R.string.upgrade_feature_requires_pro)}"
                 }
                 setOnPreferenceClickListener {
                     if (!state.isPro) {

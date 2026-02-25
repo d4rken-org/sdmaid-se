@@ -64,7 +64,6 @@
     <string name="systemcleaner_customfilter_create_action">कस्टम फ़िल्टर बनाएं</string>
     <string name="systemcleaner_customfilter_create_hint">आपके डिवाइस और उपयोग-मामलों के लिए अनूठी अतिरिक्त फ़ाइलों को मिटाने के लिए एक कस्टम फ़िल्टर बनाएं।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">इस फ़िल्टर को हटाएं?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">आपके पास असेव परिवर्तन हैं!</string>
     <string name="systemcleaner_customfilter_editor_label_label">फ़िल्टर लेबल</string>
     <string name="systemcleaner_customfilter_editor_warning">कस्टम फ़िल्टर जोखिम भरे हो सकते हैं। मिटाने से पहले अपने स्कैन परिणामों की जांच करें!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">डेटा क्षेत्र</string>

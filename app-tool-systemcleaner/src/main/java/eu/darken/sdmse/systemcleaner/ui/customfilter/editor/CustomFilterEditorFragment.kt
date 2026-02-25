@@ -241,7 +241,7 @@ class CustomFilterEditorFragment : Fragment3(R.layout.systemcleaner_customfilter
                 }.show()
 
                 is CustomFilterEditorEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(eu.darken.sdmse.systemcleaner.R.string.systemcleaner_editor_unsaved_confirmation_message)
+                    setMessage(eu.darken.sdmse.common.R.string.general_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }

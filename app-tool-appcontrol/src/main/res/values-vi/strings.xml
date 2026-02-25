@@ -84,8 +84,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Nhận ước tính sơ bộ về kích thước của từng ứng dụng.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Xác định hoạt động</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
-    <string name="appcontrol_include_multiuser_label">Bao gồm những người dùng khác</string>
-    <string name="appcontrol_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
     <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Dữ liệu này không bao gồm.</string>
@@ -105,11 +103,9 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d ứng dụng đã bị dừng</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcontrol_automation_title">Tự động điều khiến ứng dụng</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Đang buộc dừng…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Đang tìm nút \"Buộc dừng\" (từ khóa: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Đang lưu trữ…</string>
     <string name="appcontrol_automation_progress_find_archive">Đang tìm nút \"Lưu trữ\" (từ khóa: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Đang khôi phục…</string>

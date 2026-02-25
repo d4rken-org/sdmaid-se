@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Búa til sérsniðna síu</string>
     <string name="systemcleaner_customfilter_create_hint">Búðu til sérsniðna síu til að eyða aukaskrám sem eru sérstæk fyrir tækið þitt og notkunartilfelli.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Fjarlægja þessa síu?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Merki síu</string>
     <string name="systemcleaner_customfilter_editor_warning">Sérsniðnar síur geta verið áhættusamar. Athugaðu skönnunarniðurstöður áður en þú eyðir!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Gagnasvæði</string>

@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Выключэнне праграмы не дазваляе SD Maid апрацоўваць адпаведныя пакеты.</string>
     <string name="exclusion_editor_segment_explanation">Выключэнне на аснове сегмента падобна на выключэнне шляху, але дазваляе частковае супадзенне. Прыклад: \"DCIM/Camera\" выключае \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Выдаліць гэта выключэнне?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
     <string name="exclusion_reset_default_exclusions">Аднавіць выключэнні па змаўчанні</string>
     <string name="exclusion_import_action">Імпартаваць выключэнні</string>
     <string name="exclusion_export_action">Экспартаваць выключэнні</string>

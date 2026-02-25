@@ -185,7 +185,6 @@
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
     <string name="setup_title">Postavljanje</string>
-    <string name="exclusion_create_action">Stvori izuzetak</string>
     <string name="setup_feature_requires_additional_setup_x">Ova značajka zahtijeva postavljanje dodatnih postavki: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Stvoren jedan izuzetak</item>
@@ -202,4 +201,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Povijest</string>
     <string name="settings_category_tools_label">Alati</string>
+    <string name="general_include_multiuser_label">Uključi druge korisnike</string>
+    <string name="general_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
+    <string name="general_unsaved_confirmation_message">Imate nespremljene promjene!</string>
 </resources>

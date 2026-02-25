@@ -5,7 +5,6 @@
     <string name="squeezer_onboarding_original_label">मूल</string>
     <string name="squeezer_onboarding_compressed_label">संपीड़न के बाद</string>
     <string name="squeezer_onboarding_quality_label">गुणवत्ता: %d%%</string>
-    <string name="squeezer_onboarding_got_it">समझ गया</string>
     <string name="squeezer_compare_action">तुलना देखें</string>
     <string name="squeezer_no_example_found">चयनित पथों में कोई छवि नहीं मिली।</string>
     <string name="squeezer_result_empty_message">कोई संपीड़न योग्य छवि नहीं मिली।</string>

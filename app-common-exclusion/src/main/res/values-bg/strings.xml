@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Изключването на приложение предотвратява SD Maid от обработка на всякакви съвпадащи пакети.</string>
     <string name="exclusion_editor_segment_explanation">Изключването, базирано на сегмент, е подобно на изключването на път, но позволява частични съвпадения. Пример: \"DCIM/Camera\" изключва \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Премахване на това изключване?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате незапазени промени!</string>
     <string name="exclusion_reset_default_exclusions">Възстановяване на изключенията по подразбиране</string>
     <string name="exclusion_import_action">Импортиране на изключения</string>
     <string name="exclusion_export_action">Експортиране на изключения</string>

@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Oorspronklik</string>
     <string name="squeezer_onboarding_compressed_label">Na kompressie</string>
     <string name="squeezer_onboarding_quality_label">Kwaliteit: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Verstaan</string>
     <string name="squeezer_compare_action">Bekyk vergelyking</string>
     <string name="squeezer_no_example_found">Geen beelde gevind in gekose paaie nie.</string>
     <string name="squeezer_result_empty_message">Geen komprimeerbare beelde gevind nie.</string>

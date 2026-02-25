@@ -90,8 +90,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ہر ایپ کے سائز کا تخمینی اندازہ لگائیں۔</string>
     <string name="appcontrol_settings_module_activity_enabled_label">سرگرمی کا تعین</string>
     <string name="appcontrol_settings_module_activity_enabled_description">پتہ کریں کہ کیا ایپ فعال ہے (یا حال ہی میں تھی)۔</string>
-    <string name="appcontrol_include_multiuser_label">دوسرے صارفین شامل کریں</string>
-    <string name="appcontrol_include_multiuser_summary">اس ڈیوائس پر دوسرے صارف پروفائلز کی ایپس شامل کریں۔</string>
     <string name="appcontrol_export_app_selection_action">ایپس ایکسپورٹ کریں</string>
     <string name="appcontrol_export_title">ایپ ایکسپورٹ کریں</string>
     <string name="appcontrol_export_description">اس ایپ کی انسٹالیشن فائلیں محفوظ کریں۔ اس میں ایپ ڈیٹا شامل نہیں ہے۔</string>
@@ -114,11 +112,9 @@
         <item quantity="one">%d ایپ بند کیا گیا</item>
         <item quantity="other">%d ایپس بند کیے گئے</item>
     </plurals>
-    <string name="appcontrol_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
     <string name="appcontrol_automation_title">AppControl آٹومیشن</string>
     <string name="appcontrol_automation_subtitle_force_stopping">زبردستی بند کر رہے ہیں…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">آرکائیو ہو رہا ہے…</string>
     <string name="appcontrol_automation_progress_find_archive">\"آرکائیو\" بٹن تلاش کر رہا ہے (کلیدی الفاظ: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">بحال ہو رہا ہے…</string>

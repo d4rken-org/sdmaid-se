@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">اوہو!</string>
     <string name="swiper_stamp_undo_4">رکیں!</string>
     <string name="swiper_gesture_overlay_dismiss">شروع کرنے کے لیے کہیں بھی ٹیپ کریں</string>
-    <string name="swiper_gesture_overlay_dismiss_action">سمجھ آ گئی</string>
     <string name="swiper_gesture_overlay_left_delete">← حذف</string>
     <string name="swiper_gesture_overlay_right_keep">رکھیں →</string>
     <string name="swiper_gesture_overlay_left_keep">← رکھیں</string>
     <string name="swiper_gesture_overlay_right_delete">حذف →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ چھوڑیں</string>
     <string name="swiper_gesture_overlay_down_undo">↓ واپس</string>
-    <string name="swiper_help_action">مدد</string>
     <string name="swiper_help_title">Swiper کیسے کام کرتا ہے</string>
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
 </resources>

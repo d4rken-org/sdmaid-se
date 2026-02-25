@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">Az SD Maid nem tudta megjeleníteni az automatizálási átfedést. Ellenőrizze az engedélyeket és próbálja meg újraindítani az eszközt.</string>
     <string name="automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
     <string name="automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
+    <string name="automation_loading">Automatizálás előkészítése akadálymentesítési szolgáltatáson keresztül</string>
+    <string name="automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
 </resources>

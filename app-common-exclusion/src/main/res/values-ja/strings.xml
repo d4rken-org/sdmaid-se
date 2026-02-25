@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">アプリを除外すると、SDメイドは一致するパッケージを処理できなくなります。</string>
     <string name="exclusion_editor_segment_explanation">セグメントベースの除外はパス除外に似ていますが、部分一致を許可します。例: \"DCIM/Camera\" は \"/sdcard/DCIM/Camera/photo.png\" を除外します。</string>
     <string name="exclusion_editor_remove_confirmation_message">この除外を削除しますか？</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">保存されていない変更があります!</string>
     <string name="exclusion_reset_default_exclusions">既定の除外を復元</string>
     <string name="exclusion_import_action">除外をインポート</string>
     <string name="exclusion_export_action">除外をエクスポート</string>

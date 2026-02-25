@@ -147,14 +147,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Čekaj!</string>
     <string name="swiper_gesture_overlay_dismiss">Dodirnite bilo gdje za početak</string>
-    <string name="swiper_gesture_overlay_dismiss_action">U redu</string>
     <string name="swiper_gesture_overlay_left_delete">← Izbriši</string>
     <string name="swiper_gesture_overlay_right_keep">Zadrži →</string>
     <string name="swiper_gesture_overlay_left_keep">← Zadrži</string>
     <string name="swiper_gesture_overlay_right_delete">Izbriši →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preskoči</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Poništi</string>
-    <string name="swiper_help_action">Pomoć</string>
     <string name="swiper_help_title">Kako Swiper radi</string>
     <string name="swiper_help_message">Povucite svaku datoteku za donošenje odluke:\n\n← Povucite ulijevo: %1$s\n→ Povucite udesno: %2$s\n↑ Povucite prema gore: Preskoči\n↓ Povucite prema dolje: Poništi (nakon prvog povlačenja)\n\nMožete koristiti i gumbe na dnu.\n\nKada završite, dodirnite \"Pregled\" za prikaz svih vaših odluka. Ništa se ne briše dok ne potvrdite na zaslonu za pregled.</string>
 </resources>

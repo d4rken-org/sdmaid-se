@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Uma exceção de aplicativo impede que o SD Maid processe qualquer pacote correspondente.</string>
     <string name="exclusion_editor_segment_explanation">Uma exceção baseada em segmento é semelhante a uma exceção de caminho de pasta, mas permite correspondências parciais. Exemplo: \"DCIM/Camera\" exclui \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Remover essa exceção?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Você tem alterações não salvas!</string>
     <string name="exclusion_reset_default_exclusions">Restaurar as exclusões padrão</string>
     <string name="exclusion_import_action">Importar as exclusões</string>
     <string name="exclusion_export_action">Exportar as exclusões</string>

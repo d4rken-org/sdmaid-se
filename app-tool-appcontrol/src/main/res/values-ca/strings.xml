@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obteniu una estimació aproximada de la mida de cada aplicació.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determina l\'activitat</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Esbrineu si una aplicació està (o ha estat recentment) activa.</string>
-    <string name="appcontrol_include_multiuser_label">Inclou altres usuaris</string>
-    <string name="appcontrol_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="appcontrol_export_app_selection_action">Exporta les aplicacions</string>
     <string name="appcontrol_export_title">Exporta l\'aplicació</string>
     <string name="appcontrol_export_description">Desa els fitxers d\'instal·lació d\'aquesta aplicació. Això no inclou les dades de l\'aplicació.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">S\'ha aturat %d aplicació</item>
         <item quantity="other">S\'han aturat %d aplicacions</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
     <string name="appcontrol_automation_title">Automatització de l\'AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">S\'està forçant l\'aturada…</string>
     <string name="appcontrol_automation_progress_find_force_stop">S\'està buscant el botó «Força l\'aturada» (paraules clau: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">S\'està arxivant…</string>
     <string name="appcontrol_automation_progress_find_archive">S\'està buscant el botó «Arxiva» (paraules clau: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">S\'està restaurant…</string>

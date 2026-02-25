@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">Искључење апликације спречава СД Чистач да обрађује било које подударне пакете.</string>
     <string name="exclusion_editor_segment_explanation">Искључење засновано на сегменту је слично искључењу путање али дозвољава делимична подударања. Пример: \"DCIM/Camera\" искључује \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Уклонити ово искључење?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Имате несачуване измене!</string>
     <string name="exclusion_reset_default_exclusions">Врати подразумевана искључења</string>
     <string name="exclusion_import_action">Увези искључења</string>
     <string name="exclusion_export_action">Извези искључења</string>

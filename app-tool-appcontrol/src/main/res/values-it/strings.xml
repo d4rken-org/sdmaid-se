@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Ottieni una stima delle dimensioni di ogni app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Controllo attività</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Scopri se un\'app è in esecuzione (o se lo è stata di recente).</string>
-    <string name="appcontrol_include_multiuser_label">Includi altri utenti</string>
-    <string name="appcontrol_include_multiuser_summary">Includi le app di altri profili utente su questo dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Esporta applicazioni</string>
     <string name="appcontrol_export_title">Esporta app</string>
     <string name="appcontrol_export_description">Salva i file di installazione di questa app. I dati dell\'app non sono inclusi.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d app è stata arrestata</item>
         <item quantity="other">%d app sono state arrestate</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Allestendo automazioni con il servizio di accessibilità</string>
     <string name="appcontrol_automation_title">Automazione di AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Arresto in corso…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Cercando il bottone \"Arresto forzato\" (Parole chiave: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Cercando di confermare l\'azione precedente (parole chiave: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiviazione…</string>
     <string name="appcontrol_automation_progress_find_archive">Cercando il pulsante \"Archivia\" (parole chiave: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Ripristino…</string>

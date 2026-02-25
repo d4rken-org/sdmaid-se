@@ -66,7 +66,6 @@
     <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
     <string name="systemcleaner_customfilter_create_hint">Create a custom filter to delete extra files that are unique to your device and use-cases.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Remove this filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">You have unsaved changes!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
     <string name="systemcleaner_customfilter_editor_warning">Custom filters can be risky. Check your scan results before deleting!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Data areas</string>

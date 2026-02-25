@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Criar Filtro Personalizado</string>
     <string name="systemcleaner_customfilter_create_hint">Crie um filtro personalizado para apagar arquivos extras que são exclusivos do seu dispositivo e casos de uso.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Remover este filtro?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Alterações não guardadas!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Etiqueta do filtro</string>
     <string name="systemcleaner_customfilter_editor_warning">Filtros personalizados podem ser arriscados. Verifique os resultados da sua verificação antes de apagar!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Áreas de dados</string>

@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Pronari</string>
     <string name="general_user_label_system">Sistemi</string>
     <string name="setup_title">Konfigurim</string>
-    <string name="exclusion_create_action">Krijo përjashtim</string>
     <string name="setup_feature_requires_additional_setup_x">Ky funksion kërkon plotësimin e artikujve shtesë të konfigurimit: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">U krijua një përjashtim</item>
@@ -189,4 +188,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historiku</string>
     <string name="settings_category_tools_label">Mjetet</string>
+    <string name="general_include_multiuser_label">Përfshini përdorues të tjerë</string>
+    <string name="general_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
+    <string name="general_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
 </resources>

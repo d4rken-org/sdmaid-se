@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Ilova chiqarishi SD Maid ni mos keladigan paketlarni qayta ishlashdan to\'xtatadi.</string>
     <string name="exclusion_editor_segment_explanation">Segmentga asoslangan chiqarish yo\'l chiqarishiga o\'xshaydi, lekin qisman moslikka ruxsat beradi. Misol: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" ni chiqarib tashlaydi.</string>
     <string name="exclusion_editor_remove_confirmation_message">Ushbu chiqarishni olib tashlash kerakmi?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sizda saqlanmagan o\'zgarishlar bor!</string>
     <string name="exclusion_reset_default_exclusions">Standart chiqarishlarni qayta tiklash</string>
     <string name="exclusion_import_action">Chiqarishlarni import qilish</string>
     <string name="exclusion_export_action">Chiqarishlarni eksport qilish</string>

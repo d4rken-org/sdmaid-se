@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Incluir apps que estão atualmente em execução, o que pode causar interferência.</string>
     <string name="appcleaner_include_inaccessible_label">Incluir caches inacessíveis</string>
     <string name="appcleaner_include_inaccessible_summary">Inclua dados que não podem ser acessados diretamente, mas podem ser apagados através das configurações do sistema e automatizados usando um serviço de acessibilidade. </string>
-    <string name="appcleaner_include_multiuser_label">Incluir outros utilizadores</string>
-    <string name="appcleaner_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
     <string name="appcleaner_include_minimumsize_label">Tamanho mínimo</string>
     <string name="appcleaner_include_minimumsize_summary">Saltar apps onde a soma de dados dispensáveis é inferior ao mínimo.</string>
     <string name="appcleaner_include_minimumage_label">Antiguidade mínima</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d item dispensável encontrado</item>
         <item quantity="other">%d itens dispensáveis encontrados</item>
     </plurals>
-    <string name="appcleaner_automation_loading">A preparar automação através do serviço de acessibilidade</string>
     <string name="appcleaner_automation_title">Automação AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Limpando a cache padrão…</string>
     <string name="appcleaner_automation_progress_open_settings">Abrir menu de configurações (palavra-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">À procura de \"Armazenamento\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">À procura do botão \"Limpar dados\" (palavras-chave: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">A tentar confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão pública e privada. Não acessível diretamente, mas pode ser apagada indiretamente (por exemplo, via serviço de acessibilidade).</string>
     <string name="appcleaner_automation_unavailable_title">Serviço de acessibilidade indisponível</string>

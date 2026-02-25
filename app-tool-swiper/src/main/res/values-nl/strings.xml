@@ -129,14 +129,12 @@
     <string name="swiper_stamp_undo_3">Oeps!</string>
     <string name="swiper_stamp_undo_4">Wacht!</string>
     <string name="swiper_gesture_overlay_dismiss">Tik ergens om te beginnen</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Begrepen</string>
     <string name="swiper_gesture_overlay_left_delete">← Verwijderen</string>
     <string name="swiper_gesture_overlay_right_keep">Bewaren →</string>
     <string name="swiper_gesture_overlay_left_keep">← Bewaren</string>
     <string name="swiper_gesture_overlay_right_delete">Verwijderen →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Overslaan</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Ongedaan maken</string>
-    <string name="swiper_help_action">Help</string>
     <string name="swiper_help_title">Hoe Swiper werkt</string>
     <string name="swiper_help_message">Veeg over elk bestand om een beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na eerste veeg)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik op \"Controleren\" om al je beslissingen te zien. Er wordt niets verwijderd totdat je bevestigt op het controlescherm.</string>
 </resources>

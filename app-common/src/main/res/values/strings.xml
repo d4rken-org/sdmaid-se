@@ -194,7 +194,9 @@
     <string name="setup_feature_requires_additional_setup_x">This feature requires completing additional setup items: %s</string>
     <string name="upgrade_feature_requires_pro">Requires Pro</string>
 
-    <string name="exclusion_create_action">Create exclusion</string>
+    <string name="general_include_multiuser_label">Include other users</string>
+    <string name="general_include_multiuser_summary">Include apps from other user profiles on this device.</string>
+    <string name="general_unsaved_confirmation_message">You have unsaved changes!</string>
 
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">One exclusion created</item>

@@ -179,7 +179,6 @@
     <string name="general_user_label_owner">Tulajdonos</string>
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>
-    <string name="exclusion_create_action">Kizárás létrehozása</string>
     <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Egy kizárás létrehozva</item>
@@ -195,4 +194,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Előzmények</string>
     <string name="settings_category_tools_label">Eszközök</string>
+    <string name="general_include_multiuser_label">Egyéb felhasználók bevonása</string>
+    <string name="general_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
+    <string name="general_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
 </resources>

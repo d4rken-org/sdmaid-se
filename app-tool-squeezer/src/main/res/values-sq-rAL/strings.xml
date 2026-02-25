@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Origjinale</string>
     <string name="squeezer_onboarding_compressed_label">Pas kompresimit</string>
     <string name="squeezer_onboarding_quality_label">Cilësia: %d%%</string>
-    <string name="squeezer_onboarding_got_it">E kuptova</string>
     <string name="squeezer_compare_action">Shiko krahasimin</string>
     <string name="squeezer_no_example_found">Nuk u gjetën imazhe në shtegjet e zgjedhura.</string>
     <string name="squeezer_result_empty_message">Nuk u gjetën imazhe të kompresueshme.</string>

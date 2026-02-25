@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid avtomatlashtirish qatlamini ko\'rsata olmadi. Ruxsatlarni tekshiring va qurilmangizni qayta ishga tushirishga harakat qiling.</string>
     <string name="automation_error_no_settings_title">Sozlamalar ekrani mavjud emas</string>
     <string name="automation_error_no_settings_body">Ushbu tizim ilovasida sozlamalar ekrani yo\'q. Kirish xizmati orqali kesh tozalash mumkin emas. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
+    <string name="automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
+    <string name="automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
 </resources>

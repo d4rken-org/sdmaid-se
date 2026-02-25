@@ -15,8 +15,6 @@
     <string name="appcleaner_include_runningapps_summary">Cuir aipeanna atá ag rith faoi láthair san áireamh a d\'fhéadfadh cur isteach a dhéanamh.</string>
     <string name="appcleaner_include_inaccessible_label">Cuir taiscí neamhrochtana san áireamh</string>
     <string name="appcleaner_include_inaccessible_summary">Cuir sonraí nach féidir rochtain a fháil orthu go díreach san áireamh ach is féidir iad a scriosadh trí shocruithe an chórais agus a uathoibriú ag baint úsáide as seirbhís inrochtaineachta. </string>
-    <string name="appcleaner_include_multiuser_label">Cuir úsáideoirí eile san áireamh</string>
-    <string name="appcleaner_include_multiuser_summary">Cuir aipeanna ó phróifílí úsáideora eile ar an ngléas seo san áireamh.</string>
     <string name="appcleaner_include_minimumsize_label">Íosmhéid</string>
     <string name="appcleaner_include_minimumsize_summary">Gabh thar aipeanna ina bhfuil suim na sonraí inchaite faoin íosleibhéal.</string>
     <string name="appcleaner_include_minimumage_label">Íosaois</string>
@@ -57,14 +55,12 @@
     <string name="appcleaner_filter_qqchat_label">Comhrá QQ</string>
     <string name="appcleaner_filter_qqchat_summary">Comhaid a seoladh nó a fuarthas i gcomhráite QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Scrios míreanna inchaite do gach aip?</string>
-    <string name="appcleaner_automation_loading">Ag ullmhú uathoibrithe trí sheirbhís inrochtaineachta</string>
     <string name="appcleaner_automation_title">Uathoibriú AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Ag glanadh na dtaiscí réamhshocruithe…</string>
     <string name="appcleaner_automation_progress_open_settings">Ag oscailt scáileán na socruithe (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Ag cuardach do iontráil \"Stórála\" (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ag lorg cnaipe \"Glan sonraí\" (eochairfhocail: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ag lorg cnaipe \"Glan taisce\" (eochairfhocail: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Ag iarraidh an gníomh roimhe seo a dhearbhú (eochairfhocail: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Taiscí réamhshocruithe</string>
     <string name="appcleaner_item_caches_inaccessible_body">Taiscí réamhshocruithe poiblí agus príobháideacha. Ní féidir rochtain a fháil orthu go díreach, ach is féidir iad a scriosadh go hindíreach (m.sh. trí sheirbhís inrochtaineachta).</string>
     <string name="appcleaner_automation_unavailable_title">Seirbhís inrochtaineachta níl ar fáil</string>

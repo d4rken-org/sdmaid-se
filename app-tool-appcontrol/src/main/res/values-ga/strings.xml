@@ -51,8 +51,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Faigh meastachán garbh ar mhéid gach aipe.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Cinntigh gníomhaíocht</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Faigh amach an bhfuil aip gníomhach (nó go raibh le déanaí).</string>
-    <string name="appcontrol_include_multiuser_label">Cuimsigh úsáideoirí eile</string>
-    <string name="appcontrol_include_multiuser_summary">Cuimsigh aipeanna ó phróifílí úsáideoirí eile ar an ngléas seo.</string>
     <string name="appcontrol_export_app_selection_action">Easpórtáil aipeanna</string>
     <string name="appcontrol_export_title">Easpórtáil aip</string>
     <string name="appcontrol_export_description">Sábháil comhaid suiteála na haipe seo. Ní chuimsíonn sé seo sonraí na haipe.</string>
@@ -63,11 +61,9 @@
     <string name="appcontrol_force_stop_selection_action">Éignigh stop aipeanna</string>
     <string name="appcontrol_force_stop_action">Éignigh stop</string>
     <string name="appcontrol_force_stop_confirm_title">Deimhnigh éigniú stop</string>
-    <string name="appcontrol_automation_loading">Uathoibriú á ullmhú trí sheirbhís inrochtaineachta</string>
     <string name="appcontrol_automation_title">Uathoibriú AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Éigniú stop…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Ag lorg cnaipe \"Éignigh stop\" (eochairfhocail: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Ag iarraidh gníomh roimhe seo a dheimhniú (eochairfhocail: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Ag cartlannú…</string>
     <string name="appcontrol_automation_progress_find_archive">Ag lorg cnaipe \"Cartlannaigh\" (eochairfhocail: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Ag athchóiriú…</string>

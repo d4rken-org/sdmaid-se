@@ -196,7 +196,6 @@
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavenie</string>
-    <string name="exclusion_create_action">Vytvorte vylúčenie</string>
     <string name="setup_feature_requires_additional_setup_x">Táto funkcia vyžaduje dokončenie ďalších položiek nastavenia: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Jedno vylúčenie vytvorené</item>
@@ -214,4 +213,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">História</string>
     <string name="settings_category_tools_label">Nástroje</string>
+    <string name="general_include_multiuser_label">Zahrnúť ďalších používateľov</string>
+    <string name="general_include_multiuser_summary">Zahrnúť aplikácie z iných používateľských profilov na tomto zariadení.</string>
+    <string name="general_unsaved_confirmation_message">Máte neuložené zmeny!</string>
 </resources>

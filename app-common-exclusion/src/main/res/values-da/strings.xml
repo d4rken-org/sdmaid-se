@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">En app-eksklusion forhindrer SD Maid i at behandle matchende pakker.</string>
     <string name="exclusion_editor_segment_explanation">En segmentbaseret eksklusion minder om en stieksklusion, men tillader delvise matches. Eksempel: \"DCIM/Camera\" ekskluderer \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Fjern denne eksklusion?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
     <string name="exclusion_reset_default_exclusions">Gendan standardeksklusioner</string>
     <string name="exclusion_import_action">Importér eksklusioner</string>
     <string name="exclusion_export_action">Eksportér eksklusioner</string>

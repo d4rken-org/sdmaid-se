@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obteña unha estimación aproximada do tamaño de cada aplicación.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determinar actividade</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Descubra se unha aplicación está (ou estivo recentemente) activa.</string>
-    <string name="appcontrol_include_multiuser_label">Incluír outros usuarios</string>
-    <string name="appcontrol_include_multiuser_summary">Incluír aplicacións doutros perfís de usuario neste dispositivo.</string>
     <string name="appcontrol_export_app_selection_action">Exportar aplicacións</string>
     <string name="appcontrol_export_title">Exportar aplicación</string>
     <string name="appcontrol_export_description">Gardar os ficheiros de instalación desta aplicación. Isto non inclúe os datos da aplicación.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">Detívose %d aplicación</item>
         <item quantity="other">Detivéronse %d aplicacións</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Preparando automatización mediante o servizo de accesibilidade</string>
     <string name="appcontrol_automation_title">Automatización de AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Forzando detención…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Buscando o botón \"Forzar detención\" (palabras clave: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar a acción anterior (palabras clave: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arquivando…</string>
     <string name="appcontrol_automation_progress_find_archive">Buscando o botón \"Arquivar\" (palabras clave: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Restaurando…</string>

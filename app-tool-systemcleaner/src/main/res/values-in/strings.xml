@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">Buat filter khusus</string>
     <string name="systemcleaner_customfilter_create_hint">Buat filter khusus untuk menghapus file ekstra yang sesuai dengan perangkat dan kasus penggunaan Anda.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Hapus filter ini?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Anda punya perubahan yang belum tersimpan!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>
     <string name="systemcleaner_customfilter_editor_warning">Filter khusus bisa berisiko. Periksa hasil pemindaian sebelum dihapus!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Area data</string>

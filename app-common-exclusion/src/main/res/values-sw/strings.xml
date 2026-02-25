@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Kutengwa kwa programu kunazuia SD Maid kuchakata vifurushi vyovyote vinavyofanana.</string>
     <string name="exclusion_editor_segment_explanation">Kutengwa kunakotumachia kipande ni sawa na kutengwa kwa njia lakini kunaruhusu vifaanisho vya kigeni. Mfano: \"DCIM/Camera\" inatoa \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Ondoa kutengwa huku?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
     <string name="exclusion_reset_default_exclusions">Rejesha kutengwa kwa msingi</string>
     <string name="exclusion_import_action">Leta kutengwa</string>
     <string name="exclusion_export_action">Hamisha kutengwa</string>

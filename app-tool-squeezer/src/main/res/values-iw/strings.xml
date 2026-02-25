@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">מקור</string>
     <string name="squeezer_onboarding_compressed_label">לאחר דחיסה</string>
     <string name="squeezer_onboarding_quality_label">איכות: %d%%</string>
-    <string name="squeezer_onboarding_got_it">הבנתי</string>
     <string name="squeezer_compare_action">הצג השוואה</string>
     <string name="squeezer_no_example_found">לא נמצאו תמונות בנתיבים הנבחרים.</string>
     <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>

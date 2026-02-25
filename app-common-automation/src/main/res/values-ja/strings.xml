@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maidは自動化オーバーレイを表示できませんでした。権限を確認し、デバイスの再起動を試してください。</string>
     <string name="automation_error_no_settings_title">設定画面が利用できません</string>
     <string name="automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
+    <string name="automation_loading">ユーザー補助サービスによる自動化の準備</string>
+    <string name="automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
 </resources>

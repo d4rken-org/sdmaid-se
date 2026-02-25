@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid tidak dapat menampilkan overlay otomasi. Periksa izin dan coba reboot perangkat Anda.</string>
     <string name="automation_error_no_settings_title">Layar pengaturan tidak tersedia</string>
     <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
+    <string name="automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
+    <string name="automation_progress_find_ok_confirmation">Mencoba mengkonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
 </resources>

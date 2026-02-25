@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid kon nie die outomatisering oorlegger wys nie. Kontroleer toestemmings en probeer om jou toestel te herlaai.</string>
     <string name="automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
     <string name="automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
+    <string name="automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
+    <string name="automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
 </resources>

@@ -125,14 +125,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Prit!</string>
     <string name="swiper_gesture_overlay_dismiss">Prekni kudo për të filluar</string>
-    <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
     <string name="swiper_gesture_overlay_left_delete">← Fshi</string>
     <string name="swiper_gesture_overlay_right_keep">Mbaj →</string>
     <string name="swiper_gesture_overlay_left_keep">← Mbaj</string>
     <string name="swiper_gesture_overlay_right_delete">Fshi →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Kapërce</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
-    <string name="swiper_help_action">Ndihmë</string>
     <string name="swiper_help_title">Si funksionon Swiper</string>
     <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
     <string name="swiper_label">Swiper</string>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Include apps that are currently running which may cause interference.</string>
     <string name="appcleaner_include_inaccessible_label">Include inaccessible caches</string>
     <string name="appcleaner_include_inaccessible_summary">Include data that can\'t be accessed directly but can be deleted via system settings and automated using an accessibility service. </string>
-    <string name="appcleaner_include_multiuser_label">Include other users</string>
-    <string name="appcleaner_include_multiuser_summary">Include apps from other user profiles on this device.</string>
     <string name="appcleaner_include_minimumsize_label">Minimum size</string>
     <string name="appcleaner_include_minimumsize_summary">Skip apps where the sum of expendable data is below the minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimum age</string>
@@ -66,7 +64,6 @@
         <item quantity="one">%d expendable item found</item>
         <item quantity="other">%d expendable items found</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Preparing automation via accessibility service</string>
     <string name="appcleaner_automation_title">AppCleaner automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clearing default caches…</string>
 
@@ -74,7 +71,6 @@
     <string name="appcleaner_automation_progress_find_storage">Searching for \"Storage\" entry (keywords: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Looking for \"Clear data\" button (keywords: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Looking for \"Clear cache\" button (keywords: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
 
     <string name="appcleaner_item_caches_inaccessible_title">Default caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Public and private default caches. Not directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>

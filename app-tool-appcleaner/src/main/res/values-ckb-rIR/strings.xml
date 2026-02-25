@@ -5,7 +5,6 @@
     <string name="appcleaner_filter_defaultcachesprivate_label">تایبەت default caches</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">بنەڕەت private app caches. سڕینەوەd when tapping \"پاککردنەوە cache\" in the system settings.</string>
     <string name="appcleaner_include_inaccessible_summary">Include data that can\'t be accessed directly but can be deleted via system ڕێکخستنەکان and automated using an accessibility service. </string>
-    <string name="appcleaner_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
     <string name="appcleaner_include_minimumsize_label">کەمترین size</string>
     <string name="appcleaner_include_minimumage_label">کەمترین age</string>
     <string name="appcleaner_include_minimumage_summary">Skip فایلs that are younger than the minimum age.</string>

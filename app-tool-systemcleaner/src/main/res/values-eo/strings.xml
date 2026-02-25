@@ -55,7 +55,6 @@
     <string name="systemcleaner_customfilter_create_action">Krei propran filtrilon</string>
     <string name="systemcleaner_customfilter_create_hint">Krei propran filtrilon por forigi ekstrajn dosierojn unikajn por via aparato kaj uzkazoj.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Ĉu forigi ĉi tiun filtrilon?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Vi havas nekonservitajn ŝanĝojn!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtrila etikedo</string>
     <string name="systemcleaner_customfilter_editor_warning">Propraj filtriloj povas esti riskaj. Kontrolu viajn skanajn rezultojn antaŭ forigo!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Datumareoj</string>

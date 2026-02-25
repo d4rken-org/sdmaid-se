@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">ต้นฉบับ</string>
     <string name="squeezer_onboarding_compressed_label">หลังบีบอัด</string>
     <string name="squeezer_onboarding_quality_label">คุณภาพ: %d%%</string>
-    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
     <string name="squeezer_compare_action">ดูการเปรียบเทียบ</string>
     <string name="squeezer_no_example_found">ไม่พบรูปภาพในเส้นทางที่เลือก</string>
     <string name="squeezer_result_empty_message">ไม่พบรูปภาพที่บีบอัดได้</string>

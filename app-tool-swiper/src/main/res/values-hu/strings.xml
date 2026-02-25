@@ -126,14 +126,12 @@
     <string name="swiper_stamp_undo_3">Hoppá!</string>
     <string name="swiper_stamp_undo_4">Várj!</string>
     <string name="swiper_gesture_overlay_dismiss">Érintsd meg bárhol a kezdéshez</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Értem</string>
     <string name="swiper_gesture_overlay_left_delete">← Törlés</string>
     <string name="swiper_gesture_overlay_right_keep">Megtartás →</string>
     <string name="swiper_gesture_overlay_left_keep">← Megtartás</string>
     <string name="swiper_gesture_overlay_right_delete">Törlés →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Kihagyás</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Visszavonás</string>
-    <string name="swiper_help_action">Súgó</string>
     <string name="swiper_help_title">Hogyan működik a Swiper</string>
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
     <string name="swiper_label">Swiper</string>

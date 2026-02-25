@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">Izvirnik</string>
     <string name="squeezer_onboarding_compressed_label">Po stiskanju</string>
     <string name="squeezer_onboarding_quality_label">Kakovost: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Razumem</string>
     <string name="squeezer_compare_action">Prikaži primerjavo</string>
     <string name="squeezer_no_example_found">Na izbranih poteh ni najdenih slik.</string>
     <string name="squeezer_result_empty_message">Ni najdenih slik za stiskanje.</string>

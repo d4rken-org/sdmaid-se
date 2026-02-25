@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Firma!</string>
     <string name="swiper_gesture_overlay_dismiss">Toca in cale si siat logu pro cumintzare</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Cumpresu</string>
     <string name="swiper_gesture_overlay_left_delete">← Cantzella</string>
     <string name="swiper_gesture_overlay_right_keep">Mantèni →</string>
     <string name="swiper_gesture_overlay_left_keep">← Mantèni</string>
     <string name="swiper_gesture_overlay_right_delete">Cantzella →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Brinca</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
-    <string name="swiper_help_action">Agiudu</string>
     <string name="swiper_help_title">Comente funtzionat Swiper</string>
     <string name="swiper_help_message">Iscorre cada archìviu pro leare una detzisione:\n\n← Iscorre a manu manca: %1$s\n→ Iscorre a manu dereta: %2$s\n↑ Iscorre a susu: Brinca\n↓ Iscorre a josso: Annulla (a pustis de su primu iscorrimentu)\n\nPodes fintzas impreare is butones in bàsciu.\n\nCando as acabadu, toca \"Revisione\" pro bìdere totu is detzisiones tuas. No si cantzellat nudda fintzas a cando non lu cunfirmas in sa pàgina de revisione.</string>
 </resources>

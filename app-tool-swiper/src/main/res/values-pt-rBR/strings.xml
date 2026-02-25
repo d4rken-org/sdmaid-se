@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Espere!</string>
     <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para iniciar</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
     <string name="swiper_gesture_overlay_left_delete">← Excluir</string>
     <string name="swiper_gesture_overlay_right_keep">Manter →</string>
     <string name="swiper_gesture_overlay_left_keep">← Manter</string>
     <string name="swiper_gesture_overlay_right_delete">Excluir →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Ignorar</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
-    <string name="swiper_help_action">Ajuda</string>
     <string name="swiper_help_title">Como o deslizar funciona</string>
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
 </resources>

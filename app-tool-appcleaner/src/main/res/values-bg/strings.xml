@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Включване на приложения, които са в момента в действие, което може да причини смущения.</string>
     <string name="appcleaner_include_inaccessible_label">Включване на недостъпни кешове</string>
     <string name="appcleaner_include_inaccessible_summary">Включване на данни, които не могат да бъдат достъпени директно, но могат да бъдат изтрити чрез системни настройки и автоматизирани чрез услуга за достъпност.</string>
-    <string name="appcleaner_include_multiuser_label">Включване на други потребители</string>
-    <string name="appcleaner_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
     <string name="appcleaner_include_minimumsize_label">Минимален размер</string>
     <string name="appcleaner_include_minimumsize_summary">Пропускане на приложения, при които сумата от разходни данни е под минимума.</string>
     <string name="appcleaner_include_minimumage_label">Минимална възраст</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d разходен елемент намерен</item>
         <item quantity="other">%d разходни елемента намерени</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
     <string name="appcleaner_automation_title">AppCleaner автоматизация</string>
     <string name="appcleaner_automation_subtitle_default_caches">Изчистване на кешове по подразбиране…</string>
     <string name="appcleaner_automation_progress_open_settings">Отваряне на екран с настройки (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Търсене на запис \"Хранилище\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Търсене на бутон \"Изчистване на данни\" (ключови думи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Търсене на бутон \"Изчистване на кеш\" (ключови думи: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Кешове по подразбиране</string>
     <string name="appcleaner_item_caches_inaccessible_body">Публични и частни кешове по подразбиране. Не са директно достъпни, но могат да бъдат изтрити косвено (напр. чрез услуга за достъпност).</string>
     <string name="appcleaner_automation_unavailable_title">Услугата за достъпност не е налична</string>

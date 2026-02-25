@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ ਨਹੀਂ ਦਿਖਾ ਸਕਿਆ। ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ ਅਤੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
+    <string name="automation_loading">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਸਵੈਚਾਲਨ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
 </resources>

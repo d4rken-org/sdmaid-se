@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ay!</string>
     <string name="swiper_stamp_undo_4">Teka!</string>
     <string name="swiper_gesture_overlay_dismiss">I-tap kahit saan para magsimula</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Nakuha ko</string>
     <string name="swiper_gesture_overlay_left_delete">← Burahin</string>
     <string name="swiper_gesture_overlay_right_keep">Itabi →</string>
     <string name="swiper_gesture_overlay_left_keep">← Itabi</string>
     <string name="swiper_gesture_overlay_right_delete">Burahin →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Laktawan</string>
     <string name="swiper_gesture_overlay_down_undo">↓ I-undo</string>
-    <string name="swiper_help_action">Tulong</string>
     <string name="swiper_help_title">Paano gumagana ang Swiper</string>
     <string name="swiper_help_message">I-swipe ang bawat file para gumawa ng desisyon:\n\n← I-swipe pakaliwa: %1$s\n→ I-swipe pakanan: %2$s\n↑ I-swipe pataas: Laktawan\n↓ I-swipe pababa: I-undo (pagkatapos ng unang swipe)\n\nMaaari ka ring gumamit ng mga button sa ibaba.\n\nKapag tapos ka na, i-tap ang \"Suriin\" para makita ang lahat ng iyong desisyon. Walang nabubura hanggang hindi mo kinukumpirma sa review screen.</string>
 </resources>

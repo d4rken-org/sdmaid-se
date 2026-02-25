@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Derzeit ausgeführte Apps einbeziehen. Kann Störungen verursachen.</string>
     <string name="appcleaner_include_inaccessible_label">Unzugängliche Caches einbeziehen</string>
     <string name="appcleaner_include_inaccessible_summary">Daten einbeziehen, auf die nicht direkt zugegriffen werden kann, die jedoch über Systemeinstellungen gelöscht werde können, automatisiert mittels eines Bedienungshilfe-Services. </string>
-    <string name="appcleaner_include_multiuser_label">Andere Benutzer einbeziehen</string>
-    <string name="appcleaner_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
     <string name="appcleaner_include_minimumsize_label">Mindestgröße</string>
     <string name="appcleaner_include_minimumsize_summary">Apps auslassen, bei denen die Gesamtmenge entbehrlichen Daten unterhalb des Minimums liegt.</string>
     <string name="appcleaner_include_minimumage_label">Mindestalter</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d entbehrliches Objekt gefunden</item>
         <item quantity="other">%d entbehrliche Objekte gefunden</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Vorbereitung der Automatisierung über den Barrierefreiheitsdienst</string>
     <string name="appcleaner_automation_title">App-Reiniger-Automatisierung</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standard Caches löschen…</string>
     <string name="appcleaner_automation_progress_open_settings">Öffne Einstellungsbildschirm (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Suche nach \"Storage\"-Eintrag (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Suche nach \"Daten löschen\" Button (Schlüsselwörter: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Suche nach \"Cache löschen\"-Button (Schlüsselwörter: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Versucht die vorherige Aktion zu bestätigen (Schlüsselwörter: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standard-Caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Öffentliche und private Standardcaches. Nicht direkt zugänglich, kann aber indirekt gelöscht werden (z.B. über den Barrierefreiheitsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Barrierefreiheitsdienst nicht verfügbar</string>

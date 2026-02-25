@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Μια εξαίρεση εφαρμογής εμποδίζει το SD Maid από το να επεξεργαστεί τυχόν πακέτα που ταιριάζουν.</string>
     <string name="exclusion_editor_segment_explanation">Μια εξαίρεση με βάση το τμήμα είναι παρόμοια με μια εξαίρεση διαδρομής, αλλά επιτρέπει μερικές αντιστοιχίες. Παράδειγμα:\"DCIM/Camera\" αποκλείει \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Διαγραφή αυτής της εξαίρεσης;</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
     <string name="exclusion_reset_default_exclusions">Επαναφορά προεπιλεγμένων εξαιρέσεων</string>
     <string name="exclusion_import_action">Εισαγωγή εξαιρέσεων</string>
     <string name="exclusion_export_action">Εξαγωγή εξαιρέσεων</string>

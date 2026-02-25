@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få en grov uppskattning av varje apps storlek.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestäm aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ta reda på om en app är (eller nyligen var) aktiv.</string>
-    <string name="appcontrol_include_multiuser_label">Inkludera andra användare</string>
-    <string name="appcontrol_include_multiuser_summary">Inkludera appar från andra användarprofiler på denna enhet.</string>
     <string name="appcontrol_export_app_selection_action">Exportera appar</string>
     <string name="appcontrol_export_title">Exportera app</string>
     <string name="appcontrol_export_description">Spara denna apps installationsfiler. Detta inkluderar inte appdata.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d app stoppades</item>
         <item quantity="other">%d appar stoppades</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
     <string name="appcontrol_automation_title">AppControl automatisering</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Tvinga stoppar…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Letar efter knappen \"Tvinga stopp\" (nyckelord: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arkiverar…</string>
     <string name="appcontrol_automation_progress_find_archive">Letar efter \"Arkivera\"-knappen (nyckelord: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Återställer…</string>

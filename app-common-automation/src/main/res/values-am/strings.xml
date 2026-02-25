@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid የራሳዊነት መክተትን ማሳየት አልቻለም። ፈቃዶችን ይመርምሩና መሣሪያዎን ዳግም ማስጀመር ይሞክሩ።</string>
     <string name="automation_error_no_settings_title">የቅንብሮች ማያ አልተገኘም</string>
     <string name="automation_error_no_settings_body">ይህ የሲስተም መተግበሪያ ምንም የቅንብሮች ማያ የለውም። በተደራሽነት አገልግሎት መሸፈኛ ማጽዳት አይችልም። የመሸፈኛ ማጽዳት ፍጥነት ለመጨመር ያስወግዱት።</string>
+    <string name="automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
+    <string name="automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
 </resources>

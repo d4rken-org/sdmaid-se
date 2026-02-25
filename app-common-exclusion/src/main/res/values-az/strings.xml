@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Tətbiq istisnası SD Maid-in uyğun paketləri emal etməsinin qarşısını alır.</string>
     <string name="exclusion_editor_segment_explanation">Seqment əsaslı istisna yol istisnasına bənzəyir, lakin qismən uyğunluqlara imkan verir. Nümunə: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\"-ni istisna edir.</string>
     <string name="exclusion_editor_remove_confirmation_message">Bu istisna silinsinmi?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Saxlanılmamış dəyişiklikləriniz var!</string>
     <string name="exclusion_reset_default_exclusions">Standart istisnaları bərpa et</string>
     <string name="exclusion_import_action">İstisnaları idxal et</string>
     <string name="exclusion_export_action">İstisnaları ixrac et</string>

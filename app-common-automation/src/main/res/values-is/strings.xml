@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid gat ekki sýnt sjálfvirkniyfirlögn. Athugaðu leyfi og prófaðu að endurræsa tækið.</string>
     <string name="automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
     <string name="automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
+    <string name="automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
+    <string name="automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
 </resources>

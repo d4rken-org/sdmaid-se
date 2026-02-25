@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Şu anda çalışan ve karışıklığa neden olabilecek uygulamaları dahil edin.</string>
     <string name="appcleaner_include_inaccessible_label">Erişilemeyen önbellekleri dahil et</string>
     <string name="appcleaner_include_inaccessible_summary">Doğrudan erişilemeyen ancak sistem ayarları aracılığıyla silinebilen ve bir erişilebilirlik hizmeti kullanılarak otomatikleştirilebilen verileri dahil edin. </string>
-    <string name="appcleaner_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
-    <string name="appcleaner_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
     <string name="appcleaner_include_minimumsize_label">En küçük boyut</string>
     <string name="appcleaner_include_minimumsize_summary">Gereksiz veri toplamının minimum değerin altında olduğu uygulamaları atlayın.</string>
     <string name="appcleaner_include_minimumage_label">Asgari dosya yaşı</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d silinebilir öğe bulundu</item>
         <item quantity="other">%d silinebilir öğe bulundu</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>
     <string name="appcleaner_automation_title">Uygulama Temizleyici otomasyonu</string>
     <string name="appcleaner_automation_subtitle_default_caches">Varsayılan önbellekler temizleniyor…</string>
     <string name="appcleaner_automation_progress_open_settings">Ayarlar ekranı açılıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Depolama\" girişi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Verileri temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Önbelleği temizle\" düğmesi aranıyor (anahtar kelimeler: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Önceki eylem onaylanmaya çalışılıyor (anahtar kelimeler: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Varsayılan önbellekler</string>
     <string name="appcleaner_item_caches_inaccessible_body">Genel ve özel varsayılan önbellekler. Doğrudan erişilemez, ancak dolaylı olarak silinebilir (ör. erişilebilirlik hizmeti aracılığıyla).</string>
     <string name="appcleaner_automation_unavailable_title">Erişilebilirlik hizmeti kullanılamıyor</string>

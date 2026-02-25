@@ -67,7 +67,6 @@
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">После компресије</string>
     <string name="squeezer_onboarding_quality_label">Квалитет: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Разумем</string>
     <string name="squeezer_compare_action">Прегледај поређење</string>
     <string name="squeezer_no_example_found">Нису пронађене слике на изабраним путањама.</string>
     <string name="squeezer_result_empty_message">Нису пронађене слике за компресију.</string>

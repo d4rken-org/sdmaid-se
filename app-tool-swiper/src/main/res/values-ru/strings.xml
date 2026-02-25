@@ -164,14 +164,12 @@
     <string name="swiper_stamp_undo_3">Ой!</string>
     <string name="swiper_stamp_undo_4">Одну минуточку!</string>
     <string name="swiper_gesture_overlay_dismiss">Коснитесь экрана, чтобы начать</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Понятно</string>
     <string name="swiper_gesture_overlay_left_delete">← Удалить</string>
     <string name="swiper_gesture_overlay_right_keep">Сохранить →</string>
     <string name="swiper_gesture_overlay_left_keep">← Сохранить</string>
     <string name="swiper_gesture_overlay_right_delete">Удалить →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Пропустить</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Отменить</string>
-    <string name="swiper_help_action">Помощь</string>
     <string name="swiper_help_title">Как работает Свайпер</string>
     <string name="swiper_help_message">Проведите по каждому файлу, чтобы принять решение:\n\n← Проведите влево: %1$s\n→ Проведите вправо: %2$s\n↑ Проведите вверх: Пропустить\n↓ Проведите вниз: Отменить (после первого свайпа)\n\nТакже Вы можете использовать кнопки внизу.\n\nКогда Вы закончите, нажмите \"Обзор\" чтобы просмотреть все Ваши решения. Ничего не удалится, пока Вы не подтвердите это на экране обзора.</string>
 </resources>

@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Создади прилагоден филтер</string>
     <string name="systemcleaner_customfilter_create_hint">Создадете прилагоден филтер за бришење дополнителни датотеки уникатни за вашиот уред и употреба.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Отстрани го овој филтер?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате незачувани промени!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Етикета на филтер</string>
     <string name="systemcleaner_customfilter_editor_warning">Прилагодените филтри може да бидат опасни. Проверете ги резултатите од скенирањето пред бришење!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Области со податоци</string>

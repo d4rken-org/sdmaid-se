@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Izključen program SD Maidu preprečuje obdelavo ujemajočih se paketov.</string>
     <string name="exclusion_editor_segment_explanation">Izključitev dela poti je podobna izključitvi poti, vendar omogoča delna ujemanja.  Primer: \"DCIM/Camera\" izključi \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstrani to izjemo?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Spremembe še niso shranjene!</string>
     <string name="exclusion_reset_default_exclusions">Obnovi privzete izključitve</string>
     <string name="exclusion_import_action">Uvozi izključitve</string>
     <string name="exclusion_export_action">Izvozi izključitve</string>

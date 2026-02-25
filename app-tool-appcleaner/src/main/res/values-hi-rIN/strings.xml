@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">वर्तमान में चल रहे ऐप्‍स को शामिल करें जो हस्‍तक्षेप का कारण बनते हैं।</string>
     <string name="appcleaner_include_inaccessible_label">दुर्गम कैश शामिल करें</string>
     <string name="appcleaner_include_inaccessible_summary">ऐसा डेटा शामिल करें जिस तक सीधे पहुंचा नहीं जा सकता है लेकिन सिस्टम सेटिंग्स के माध्यम से मिटाया जा सकता है और अभिगम्यता सेवा का उपयोग करके स्वचालित रूप से मिटाया जा सकता है। </string>
-    <string name="appcleaner_include_multiuser_label">अन्य उपयोगकर्ताओं को शामिल करें</string>
-    <string name="appcleaner_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफ़ाइल के ऐप्स शामिल करें।</string>
     <string name="appcleaner_include_minimumsize_label">न्यूनतम आकार करें</string>
     <string name="appcleaner_include_minimumsize_summary">उन ऐप्स को छोड़ दें जहां खर्च करने योग्य डेटा का योग न्यूनतम से कम है।</string>
     <string name="appcleaner_include_minimumage_label">न्यूनतम आयु</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d उपभोज्य वस्तु मिली</item>
         <item quantity="other">%d उपभोज्य वस्तुएँ मिलीं</item>
     </plurals>
-    <string name="appcleaner_automation_loading">अभिगम्यता सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
     <string name="appcleaner_automation_title">ऐप स्वच्छक स्वचालन</string>
     <string name="appcleaner_automation_subtitle_default_caches">डिफ़ॉल्ट कैश साफ़ कर रहा है…</string>
     <string name="appcleaner_automation_progress_open_settings">सेटिंग्स खोली जा रही हैं</string>
     <string name="appcleaner_automation_progress_find_storage">संग्रहण सेटिंग्स ढूंढी जा रही हैं</string>
     <string name="appcleaner_automation_progress_find_clear_data">डेटा साफ़ करें बटन ढूंढा जा रहा है</string>
     <string name="appcleaner_automation_progress_find_clear_cache">कैश साफ़ करें बटन ढूंढा जा रहा है</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">पुष्टिकरण बटन ढूंढा जा रहा है</string>
     <string name="appcleaner_item_caches_inaccessible_title">डिफ़ॉल्ट कैश</string>
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक और निजी डिफ़ॉल्ट कैश। प्रत्यक्ष रूप से पहुंच योग्य नहीं है, लेकिन अप्रत्यक्ष रूप से हटाया जा सकता है (उदाहरण के लिए एक्सेसिबिलिटी सेवा के माध्यम से)।</string>
     <string name="appcleaner_automation_unavailable_title">एक्सेसबिलिटी सेवा अनुपलब्ध है</string>

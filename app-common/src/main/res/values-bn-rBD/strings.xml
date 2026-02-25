@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">মালিক</string>
     <string name="general_user_label_system">সিস্টেম</string>
     <string name="setup_title">সেটআপ</string>
-    <string name="exclusion_create_action">বর্জন তৈরি করুন</string>
     <string name="setup_feature_requires_additional_setup_x">এই ফিচারটির জন্য বাড়তি সেটআপ সম্পূর্ণ করতে হবে: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">একটি বর্জন তৈরি করা হয়েছে</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ইতিহাস</string>
     <string name="settings_category_tools_label">টুলস</string>
+    <string name="general_include_multiuser_label">অন্যান্য ব্যবহারকারীদের অন্তর্ভুক্ত করুন</string>
+    <string name="general_include_multiuser_summary">এই ডিভাইসে অন্যান্য ব্যবহারকারীর প্রোফাইল থেকে অ্যাপ্লিকেশানগুলি অন্তর্ভুক্ত করুন৷</string>
+    <string name="general_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
 </resources>

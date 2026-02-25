@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Укључи апликације које се тренутно извршавају што може довести до сметњи.</string>
     <string name="appcleaner_include_inaccessible_label">Укључи неприступачне кешове</string>
     <string name="appcleaner_include_inaccessible_summary">Укључи податке којима се не може приступити непосредно, али се могу обрисати преко системских подешавања и аутоматизовати коришћењем сервиса приступачности.</string>
-    <string name="appcleaner_include_multiuser_label">Укључи остале кориснике</string>
-    <string name="appcleaner_include_multiuser_summary">Укључи апликације из осталих корисничких профила на овом уређају.</string>
     <string name="appcleaner_include_minimumsize_label">Минимална величина</string>
     <string name="appcleaner_include_minimumsize_summary">Прескочи апликације код којих је збир потрошних података испод минимума.</string>
     <string name="appcleaner_include_minimumage_label">Минимална старост</string>
@@ -65,14 +63,12 @@
         <item quantity="few">%d потрошне ставке пронађене</item>
         <item quantity="other">%d потрошних ставки пронађено</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
     <string name="appcleaner_automation_title">Аутоматизација чистача апликација</string>
     <string name="appcleaner_automation_subtitle_default_caches">Брисање подразумеваних кешова…</string>
     <string name="appcleaner_automation_progress_open_settings">Отварање екрана подешавања (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Претрага \"Складиште\" уноса (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Претрага \"Обриши податке\" дугмета (кључне речи: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Претрага \"Обриши кеш\" дугмета (кључне речи: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Подразумевани кешови</string>
     <string name="appcleaner_item_caches_inaccessible_body">Јавни и приватни подразумевани кешови. Нису непосредно приступачни, али се могу обрисати непосредно (нпр. преко сервиса приступачности).</string>
     <string name="appcleaner_automation_unavailable_title">Сервис приступачности није доступан</string>

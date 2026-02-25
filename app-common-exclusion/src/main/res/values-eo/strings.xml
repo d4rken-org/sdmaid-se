@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">Aplikaĵa ekskluzivo malhelpas SD Maid prilabori iujn ajn kongruajn pakaĵojn.</string>
     <string name="exclusion_editor_segment_explanation">Segment-bazita ekskluzivo similas al voja ekskluzivo sed permesas partajn kongruojn. Ekzemplo: \"DCIM/Camera\" ekskluzivas \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Ĉu forigi ĉi tiun ekskluzivon?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Vi havas nekonservitajn ŝanĝojn!</string>
     <string name="exclusion_reset_default_exclusions">Restarigi defaŭltajn ekskluzivajn</string>
     <string name="exclusion_import_action">Importi ekskluzivajn</string>
     <string name="exclusion_export_action">Eksporti ekskluzivajn</string>

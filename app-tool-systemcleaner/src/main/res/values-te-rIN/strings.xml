@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">కస్టమ్ ఫిల్టర్‌ను సృష్టించండి</string>
     <string name="systemcleaner_customfilter_create_hint">మీ పరికరం మరియు ఉపయోగ సందర్భాలకు ప్రత్యేకమైన అదనపు ఫైల్లను తొలగించడానికి కస్టమ్ ఫిల్టర్‌ను సృష్టించండి.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ఈ ఫిల్టర్‌ను తీసివేయాలా?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">మీరు సేవ్ చేయని మార్పులను కలిగి ఉన్నారు!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ఫిల్టర్ లేబల్</string>
     <string name="systemcleaner_customfilter_editor_warning">కస్టమ్ ఫిల్టర్లు పరిభ్రమకరం అవవచ్చు. తొలగించడానికి ముందు మీ స్కాన్ ఫలితాలను తనిఖీ చేయండి!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">డేటా ఏరియాలు</string>

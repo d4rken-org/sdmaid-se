@@ -108,8 +108,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Uzyskaj przybliżony szacunkowy rozmiar każdej aplikacji.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Określ aktywność</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
-    <string name="appcontrol_include_multiuser_label">Uwzględnij innych użytkowników</string>
-    <string name="appcontrol_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
     <string name="appcontrol_export_description">Zachowuje pliki instalacyjne tej aplikacji. Nie obejmuje to danych aplikacji.</string>
@@ -138,11 +136,9 @@
         <item quantity="many">%d aplikacji zostało zatrzymanych</item>
         <item quantity="other">%d aplikacji zostało zatrzymanych</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcontrol_automation_title">Automatyzacja zarządzania aplikacjami</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Wymuszanie zatrzymania…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Szukam przycisku \"Wymuś zatrzymanie\" (słowa kluczowe: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archiwizacja…</string>
     <string name="appcontrol_automation_progress_find_archive">Szukam przycisku \"Wyczyść pamięć podręczną\" (słowa kluczowe: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Przywracanie…</string>

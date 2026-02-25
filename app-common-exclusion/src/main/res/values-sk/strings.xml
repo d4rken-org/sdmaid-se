@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Vylúčenie aplikácie bráni SD Maid v spracovaní akýchkoľvek zodpovedajúcich balíkov.</string>
     <string name="exclusion_editor_segment_explanation">Vylúčenie na základe segmentu je podobné vylúčeniu cesty, ale umožňuje čiastočné zhody. Príklad: „DCIM/Camera“ nezahŕňa „/sdcard/DCIM/Camera/photo.png“.</string>
     <string name="exclusion_editor_remove_confirmation_message">Odstrániť túto výnimku?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Máte neuložené zmeny!</string>
     <string name="exclusion_reset_default_exclusions">Obnoviť predvolené vylúčenia</string>
     <string name="exclusion_import_action">Importovať vylúčenia</string>
     <string name="exclusion_export_action">Exportovať vylúčenia</string>

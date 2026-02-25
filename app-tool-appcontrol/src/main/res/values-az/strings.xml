@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Hər tətbiqin ölçüsünün təxmini qiymətini əldə edin.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Fəaliyyəti müəyyən et</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Tətbiqin aktiv (və ya son vaxtlar) olduğunu öyrənin.</string>
-    <string name="appcontrol_include_multiuser_label">Digər istifadəçiləri daxil edin</string>
-    <string name="appcontrol_include_multiuser_summary">Bu cihazdakı digər istifadəçi profillərinə aid tətbiqləri daxil edin.</string>
     <string name="appcontrol_export_app_selection_action">Tətbiqləri ixrac et</string>
     <string name="appcontrol_export_title">Tətbiq ixrac et</string>
     <string name="appcontrol_export_description">Bu tətbiqin quraşdırma fayllarını yadda saxlayın. Bura tətbiq məlumatları daxil deyil.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d tətbiq dayandırıldı</item>
         <item quantity="other">%d tətbiq dayandırıldı</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>
     <string name="appcontrol_automation_title">AppControl avtomatlaşdırması</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Məcburi dayandırılır…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Məcburi dayandır\" düyməsi axtarılır (açar sözlər: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Əvvəlki hərəkəti təsdiq etməyə çalışır (açar sözlər: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arxivlənir…</string>
     <string name="appcontrol_automation_progress_find_archive">\"Arxivlə\" düyməsi axtarılır (açar sözlər: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Bərpa edilir…</string>

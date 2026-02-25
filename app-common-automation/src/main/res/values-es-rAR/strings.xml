@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid no pudo mostrar la superposición de automatización. Verificá los permisos e intentá reiniciar tu dispositivo.</string>
     <string name="automation_error_no_settings_title">Pantalla de configuración no disponible</string>
     <string name="automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Excluila para acelerar la limpieza de caché.</string>
+    <string name="automation_loading">Preparando la automatización a través del servicio de accesibilidad</string>
+    <string name="automation_progress_find_ok_confirmation">Intentando confirmar la acción anterior (palabras clave: %s)</string>
 </resources>

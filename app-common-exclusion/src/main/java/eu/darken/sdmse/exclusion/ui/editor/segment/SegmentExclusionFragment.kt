@@ -135,7 +135,7 @@ class SegmentExclusionFragment : Fragment3(R.layout.exclusion_editor_segment_fra
                 }.show()
 
                 is SegmentExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.exclusion_editor_unsaved_confirmation_message)
+                    setMessage(eu.darken.sdmse.common.R.string.general_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }

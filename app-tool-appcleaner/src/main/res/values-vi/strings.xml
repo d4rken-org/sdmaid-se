@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Bao gồm các ứng dụng hiện đang chạy có thể gây nhiễu.</string>
     <string name="appcleaner_include_inaccessible_label">Bao gồm các bộ đệm không thể truy cập</string>
     <string name="appcleaner_include_inaccessible_summary">Bao gồm dữ liệu không thể truy cập trực tiếp nhưng có thể xóa thông qua cài đặt hệ thống và tự động hóa bằng dịch vụ trợ năng. </string>
-    <string name="appcleaner_include_multiuser_label">Bao gồm những người dùng khác</string>
-    <string name="appcleaner_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
     <string name="appcleaner_include_minimumsize_label">Kích thước tối thiểu</string>
     <string name="appcleaner_include_minimumsize_summary">Bỏ qua các ứng dụng có dữ liệu nhỏ hơn kích thước tối thiểu.</string>
     <string name="appcleaner_include_minimumage_label">Thời gian tối thiểu</string>
@@ -64,14 +62,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">Đã tìm thấy %d mục có thể sử dụng được</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Chuẩn bị tự động hóa thông qua dịch vụ trợ năng</string>
     <string name="appcleaner_automation_title">Dọn dẹp ứng dụng tự động</string>
     <string name="appcleaner_automation_subtitle_default_caches">Đang xóa bộ nhớ cache mặc định…</string>
     <string name="appcleaner_automation_progress_open_settings">Đang mở màn hình cài đặt (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Đang tìm kiếm mục \"Bộ nhớ\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Đang tìm nút \"Xóa dữ liệu\" (từ khóa: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Đang tìm nút \"Xóa bộ nhớ cache\" (từ khóa: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Bộ nhớ đệm mặc định</string>
     <string name="appcleaner_item_caches_inaccessible_body">Bộ đệm mặc định công khai và riêng tư. Không thể truy cập trực tiếp, nhưng có thể bị xóa gián tiếp (ví dụ: thông qua dịch vụ trợ năng).</string>
     <string name="appcleaner_automation_unavailable_title">Dịch vụ trợ năng không khả dụng</string>

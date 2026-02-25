@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">কাস্টম ফিল্টার তৈরি করুন</string>
     <string name="systemcleaner_customfilter_create_hint">আপনার ডিভাইস এবং ব্যবহারের ক্ষেত্রে অনন্য অতিরিক্ত ফাইল মুছে ফেলার জন্য একটি কাস্টম ফিল্টার তৈরি করুন৷</string>
     <string name="systemcleaner_editor_remove_confirmation_message">এই ফিল্টার সরান?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
     <string name="systemcleaner_customfilter_editor_label_label">পরিশ্রুতকের নাম</string>
     <string name="systemcleaner_customfilter_editor_warning">কাস্টম ফিল্টার ঝুঁকিপূর্ণ হতে পারে। মুছে ফেলার আগে আপনার স্ক্যানের ফলাফল যাচাই করে নিন!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ডেটা এরিয়া</string>

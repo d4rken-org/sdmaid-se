@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid kunne ikke vise automatiseringsoverlejringen. Tjek tilladelserne, og prøv at genstarte din enhed.</string>
     <string name="automation_error_no_settings_title">Indstillingsskærm utilgængelig</string>
     <string name="automation_error_no_settings_body">Denne systemapp har ingen indstillingsskærm. Cache-rydning via tilgængelighedstjenesten er ikke mulig. Ekskluder den for at fremskynde cache-rydning.</string>
+    <string name="automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
+    <string name="automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
 </resources>

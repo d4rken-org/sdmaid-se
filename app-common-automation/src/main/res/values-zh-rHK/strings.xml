@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD 女僕無法顯示自動化覆蓋層。檢查權限並嘗試重新啟動您的裝置。</string>
     <string name="automation_error_no_settings_title">設定畫面不可用</string>
     <string name="automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
+    <string name="automation_loading">正在透過無障礙服務準備自動化工作</string>
+    <string name="automation_progress_find_ok_confirmation">嘗試確認先前動作（關鍵字：%s）</string>
 </resources>

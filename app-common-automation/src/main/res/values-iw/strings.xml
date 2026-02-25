@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid לא הצליח להציג את שכבת האוטומציה. בדוק את ההרשאות ונסה לאתחל את המכשיר.</string>
     <string name="automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
     <string name="automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
+    <string name="automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
+    <string name="automation_progress_find_ok_confirmation">מנסה לאשר פעולה קודמת (מילות מפתח: %s)</string>
 </resources>

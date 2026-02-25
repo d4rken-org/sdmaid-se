@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">କଷ୍ଟମ୍ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
     <string name="systemcleaner_customfilter_create_hint">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଏବଂ ବ୍ୟବହାର-କ୍ଷେତ୍ର ପାଇଁ ସ୍ୱତନ୍ତ୍ର ଅତିରିକ୍ତ ଫାଇଲ୍ ଡିଲିଟ୍ କରିବା ପାଇଁ ଏକ କଷ୍ଟମ୍ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରନ୍ତୁ।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ଏହି ଫିଲ୍ଟର୍ ଅପସାରଣ କରିବେ?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ଆପଣଙ୍କର ଅସଂରକ୍ଷିତ ପରିବର୍ତ୍ତନ ଅଛି!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ଫିଲ୍ଟର ଲେବଲ୍</string>
     <string name="systemcleaner_customfilter_editor_warning">କଷ୍ଟମ୍ ଫିଲ୍ଟରଗୁଡ଼ିକ ବିପଦଜନକ ହୋଇପାରେ। ଡିଲିଟ୍ କରିବା ପୂର୍ବରୁ ଆପଣଙ୍କର ସ୍କାନ୍ ଫଳାଫଳ ଯାଞ୍ଚ କରନ୍ତୁ!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ଡାଟା କ୍ଷେତ୍ରଗୁଡ଼ିକ</string>

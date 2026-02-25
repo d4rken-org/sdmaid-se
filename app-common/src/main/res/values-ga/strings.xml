@@ -191,7 +191,6 @@
     <string name="general_user_label_owner">Úinéir</string>
     <string name="general_user_label_system">Córas</string>
     <string name="setup_title">Socrú</string>
-    <string name="exclusion_create_action">Cruthaigh eisiamh</string>
     <string name="setup_feature_requires_additional_setup_x">Téann an ghné seo ag teastail míreanna socrú breise a chríochnú: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Cruthaíodh eisiamh amháin</item>
@@ -210,4 +209,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Stair</string>
     <string name="settings_category_tools_label">Uirlisí</string>
+    <string name="general_include_multiuser_label">Cuir úsáideoirí eile san áireamh</string>
+    <string name="general_include_multiuser_summary">Cuir aipeanna ó phróifílí úsáideora eile ar an ngléas seo san áireamh.</string>
+    <string name="general_unsaved_confirmation_message">Tá athruithe neamhshábháilte agat!</string>
 </resources>

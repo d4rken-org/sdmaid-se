@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">应用排除会阻止 SD Maid 处理匹配的安装包。</string>
     <string name="exclusion_editor_segment_explanation">基于分段的排除与路径排除类似，但允许部分匹配。例如：“DCIM/Camera”会排除“/sdcard/DCIM/Camera/photo.png”。</string>
     <string name="exclusion_editor_remove_confirmation_message">确定删除此排除项吗？</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">您有未保存的更改！</string>
     <string name="exclusion_reset_default_exclusions">恢复默认排除项</string>
     <string name="exclusion_import_action">导入排除项</string>
     <string name="exclusion_export_action">导出排除项</string>

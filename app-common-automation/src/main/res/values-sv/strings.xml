@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid kunde inte visa automatiseringsöverlagret. Kontrollera behörigheter och försök starta om din enhet.</string>
     <string name="automation_error_no_settings_title">Inställningsskärm otillgänglig</string>
     <string name="automation_error_no_settings_body">Denna systemapp har ingen inställningsskärm. Cache-rensning via tillgänglighetstjänst är inte möjlig. Uteslut den för att påskynda cache-rensning.</string>
+    <string name="automation_loading">Förbereder automatisering via tillgänglighetstjänst</string>
+    <string name="automation_progress_find_ok_confirmation">Försöker bekräfta föregående åtgärd (nyckelord: %s)</string>
 </resources>

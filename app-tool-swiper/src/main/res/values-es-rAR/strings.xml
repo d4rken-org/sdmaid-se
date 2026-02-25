@@ -126,14 +126,12 @@
     <string name="swiper_stamp_undo_3">¡Uy!</string>
     <string name="swiper_stamp_undo_4">¡Esperá!</string>
     <string name="swiper_gesture_overlay_dismiss">Tocá en cualquier lugar para empezar</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
     <string name="swiper_gesture_overlay_left_delete">← Eliminar</string>
     <string name="swiper_gesture_overlay_right_keep">Conservar →</string>
     <string name="swiper_gesture_overlay_left_keep">← Conservar</string>
     <string name="swiper_gesture_overlay_right_delete">Eliminar →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Saltar</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
-    <string name="swiper_help_action">Ayuda</string>
     <string name="swiper_help_title">Cómo funciona Swiper</string>
     <string name="swiper_help_message">Deslizá cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Saltar\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién podés usar los botones de abajo.\n\nCuando termines, tocá \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
     <string name="swiper_label">Swiper</string>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">අන්තර්විංශයට හේතු විය හැකි දැනට න්රියාත්මක වො යෙදුම් ඇතුල් කරන්න.</string>
     <string name="appcleaner_include_inaccessible_label">සම්පන්න විය නොහැකි කැශ් ඇතුල් කරන්න</string>
     <string name="appcleaner_include_inaccessible_summary">නෙරිත් සම්පන්න විය නොහැකි නමුත් පද්ධති සම්සා අරහා මකාදැමීමට හැකි සහ ඇන්ද්‍රිය පරිගැන්න සේවාව භාවිතා කර ස්වයංක්‍රියව කළ හැකි දත්ත ඇතුල් කරන්න. </string>
-    <string name="appcleaner_include_multiuser_label">ඉතර පරිශිලකයන් ඇතුල් කරන්න</string>
-    <string name="appcleaner_include_multiuser_summary">මෙම උපකරණයො ඉතර පරිශිලක වින් යෙදුම් ඇතුල් කරන්න.</string>
     <string name="appcleaner_include_minimumsize_label">අවම ප්‍රමාණය</string>
     <string name="appcleaner_include_minimumsize_summary">වියදම් කළ හැකි දත්ත සමං අවම මැටින් අඹු යෙදුම් මැඟ ඉන්න.</string>
     <string name="appcleaner_include_minimumage_label">අවම වයස</string>
@@ -62,14 +60,12 @@
         <item quantity="one">%d වියදම් කළ හැකි අයිතමක් සොයා ගනු ලැබීම</item>
         <item quantity="other">%d වියදම් කළ හැකි අයිතම සොයා ගනු ලැබීම</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ප්‍රවේශ්‍යතා සේවාව හරහා ස්වයංක්‍රියකරණය සූදානම් කරමින්</string>
     <string name="appcleaner_automation_title">AppCleaner ස්වයංක්‍රියකරණය</string>
     <string name="appcleaner_automation_subtitle_default_caches">පෙරනිමි කැශ් ඉවත් කරමින්…</string>
     <string name="appcleaner_automation_progress_open_settings">සැකසීම් තිරය විවෘත කරමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ආචයනය\" ප්‍රවේශය සොයමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"දත්ත ඉවත් කරන්න\" බොත්තම සොයමින් (මූල පද: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"කැශ් ඉවත් කරන්න\" බොත්තම සොයමින් (මූල පද: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">පෙර ක්‍රියාව තහවුරු කිරීමට උත්සාහ කරමින් (මූල පද: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">පෙරනිමි කැශ්</string>
     <string name="appcleaner_item_caches_inaccessible_body">පොදු සහ පුද්ගලික පෙරනිමි කැශ්. සෘජුව ප්‍රවේශ විය නොහැකි නමුත් වක්‍රව මකා දැමිය හැක (උදා. ප්‍රවේශ්‍යතා සේවාව හරහා).</string>
     <string name="appcleaner_automation_unavailable_title">ප්‍රවේශ්‍යතා සේවාව නොමැත</string>

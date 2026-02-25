@@ -54,7 +54,6 @@
     <string name="systemcleaner_customfilter_create_action">စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးရန်</string>
     <string name="systemcleaner_customfilter_create_hint">သင့် စက်ပစ္စည်းနှင့် အသုံးပြုမှု ပုံစံများအတွက် ထူးခြားသော အပို ဖိုင်များကို ဖျက်ရန် စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးပါ။</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ဤစစ်ထုတ်မှုကို ဖယ်ရှားမလား။</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">သိမ်းမထားသေးသော ပြောင်းလဲမှုများ ရှိသည်!</string>
     <string name="systemcleaner_customfilter_editor_label_label">စစ်ထုတ်မှု အညွှန်း</string>
     <string name="systemcleaner_customfilter_editor_warning">စိတ်ကြိုက် စစ်ထုတ်မှုများသည် အန္တရာယ်ရှိနိုင်သည်။ မဖျက်မီ သင်၏ စစ်ဆေးမှု ရလဒ်များကို စစ်ဆေးပါ!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ဒေတာ နယ်ပယ်များ</string>

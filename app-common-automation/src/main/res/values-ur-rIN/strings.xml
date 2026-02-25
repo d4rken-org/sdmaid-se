@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid آٹومیشن اوورلے نہیں دکھا سکا۔ اجازات چیک کریں اور اپنے ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
     <string name="automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
     <string name="automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
+    <string name="automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
+    <string name="automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
 </resources>

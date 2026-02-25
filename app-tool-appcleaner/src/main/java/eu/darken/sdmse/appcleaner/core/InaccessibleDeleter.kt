@@ -138,7 +138,7 @@ class InaccessibleDeleter @Inject constructor(
 
         if (useAutomation && remainingTargets.isNotEmpty()) {
             log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
-            updateProgressPrimary(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_loading)
+            updateProgressPrimary(eu.darken.sdmse.automation.R.string.automation_loading)
             updateProgressSecondary(CaString.EMPTY)
             updateProgressCount(Progress.Count.Indeterminate())
 

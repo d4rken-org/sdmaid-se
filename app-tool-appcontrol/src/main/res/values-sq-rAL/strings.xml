@@ -91,8 +91,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Merrni një vlerësim të përafërt të madhësisë së secilit aplikacion.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Përcaktoni aktivitetin</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Zbuloni nëse një aplikacion është (ose ka qenë kohët e fundit) aktiv.</string>
-    <string name="appcontrol_include_multiuser_label">Përfshini përdorues të tjerë</string>
-    <string name="appcontrol_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
     <string name="appcontrol_export_app_selection_action">Eksporto aplikacione</string>
     <string name="appcontrol_export_title">Eksporto aplikacion</string>
     <string name="appcontrol_export_description">Ruaj skedarët e instalimit të këtij aplikacioni. Kjo nuk përfshin të dhënat e aplikacionit.</string>
@@ -115,11 +113,9 @@
         <item quantity="one">%d aplikacion u ndërpre</item>
         <item quantity="other">%d aplikacione u ndërprenë</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>
     <string name="appcontrol_automation_title">Automatizimi i AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Ndalimi me forcë…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Duke kërkuar për butonin \"Ndalimi i detyruar\" (fjalë kyçe: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Po përpiqet të konfirmojë veprimin e mëparshëm (fjalë kyçe: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Duke arkivuar…</string>
     <string name="appcontrol_automation_progress_find_archive">Duke kërkuar butonin \"Arkivo\" (fjalëkyçe: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Duke rikthyer…</string>

@@ -14,6 +14,5 @@
     <string name="appcleaner_filter_qqchat_label">QQ စကားပြောဆိုမှု</string>
     <string name="appcleaner_filter_qqchat_summary">QQ စကားပြောဆိုမှုများတွင် ပို့သော သို့မဟုတ် လက်ခံသော ဖိုင်များ။</string>
     <string name="appcleaner_delete_all_confirmation_message">အက်ပ် အားလုံးအတွက် ဖျက်ပစ်နိုင်သော အရာများကို ဖျက်မလား။</string>
-    <string name="appcleaner_automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>
     <string name="appcleaner_automation_title">AppCleaner အလိုအလျောက် လုပ်ငန်း</string>
 </resources>

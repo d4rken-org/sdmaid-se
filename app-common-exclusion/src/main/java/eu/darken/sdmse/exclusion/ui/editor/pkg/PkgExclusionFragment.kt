@@ -99,7 +99,7 @@ class PkgExclusionFragment : Fragment3(R.layout.exclusion_editor_pkg_fragment) {
                 }.show()
 
                 is PkgExclusionEvents.UnsavedChangesConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.exclusion_editor_unsaved_confirmation_message)
+                    setMessage(eu.darken.sdmse.common.R.string.general_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }

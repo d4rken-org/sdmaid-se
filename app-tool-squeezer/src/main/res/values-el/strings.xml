@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Πρωτότυπο</string>
     <string name="squeezer_onboarding_compressed_label">Μετά τη συμπίεση</string>
     <string name="squeezer_onboarding_quality_label">Ποιότητα: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Κατάλαβα</string>
     <string name="squeezer_compare_action">Προβολή σύγκρισης</string>
     <string name="squeezer_no_example_found">Δεν βρέθηκαν εικόνες στις επιλεγμένες διαδρομές.</string>
     <string name="squeezer_result_empty_message">Δεν βρέθηκαν συμπιέσιμες εικόνες.</string>

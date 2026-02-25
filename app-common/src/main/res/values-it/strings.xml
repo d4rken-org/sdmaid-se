@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Proprietario</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configurazione</string>
-    <string name="exclusion_create_action">Crea esclusione</string>
     <string name="setup_feature_requires_additional_setup_x">Questa funzionalità richiede di completare ulteriori elementi di configurazione: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Un\'esclusione creata</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Cronologia</string>
     <string name="settings_category_tools_label">Strumenti</string>
+    <string name="general_include_multiuser_label">Includi gli altri utenti</string>
+    <string name="general_include_multiuser_summary">Includi app da altri profili utente su questo dispositivo.</string>
+    <string name="general_unsaved_confirmation_message">Ci sono modifiche non salvate!</string>
 </resources>

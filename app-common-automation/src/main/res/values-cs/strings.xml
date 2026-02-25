@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">Aplikace SD Maid nemůže zobrazit překrytí automatizace. Zkontrolujte oprávnění a zkuste restartovat zařízení.</string>
     <string name="automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
     <string name="automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
+    <string name="automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>
+    <string name="automation_progress_find_ok_confirmation">Pokus o potvrzení předchozí akce (klíčová slova: %s)</string>
 </resources>

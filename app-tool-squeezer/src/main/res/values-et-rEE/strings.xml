@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Algne</string>
     <string name="squeezer_onboarding_compressed_label">Pärast kokkupakkimist</string>
     <string name="squeezer_onboarding_quality_label">Kvaliteet: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Taipasin</string>
     <string name="squeezer_compare_action">Vaata võrdlust</string>
     <string name="squeezer_no_example_found">Valitud asukohtadest ei leitud ühtki pilti.</string>
     <string name="squeezer_result_empty_message">Ühtki kokkupakitud pilti ei leitud.</string>

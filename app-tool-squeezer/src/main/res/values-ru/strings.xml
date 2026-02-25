@@ -72,7 +72,6 @@
     <string name="squeezer_onboarding_original_label">Оригинал</string>
     <string name="squeezer_onboarding_compressed_label">После сжатия</string>
     <string name="squeezer_onboarding_quality_label">Качество: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Понятно</string>
     <string name="squeezer_compare_action">Сравнение</string>
     <string name="squeezer_no_example_found">В выбранных путях изображения не найдены.</string>
     <string name="squeezer_result_empty_message">Не найдено изображений, которые можно сжать.</string>

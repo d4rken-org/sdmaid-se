@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Създаване на персонализиран филтър</string>
     <string name="systemcleaner_customfilter_create_hint">Създайте персонализиран филтър за изтриване на допълнителни файлове, които са уникални за вашето устройство и случаи на употреба.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Премахване на този филтър?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате незапазени промени!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Етикет на филтъра</string>
     <string name="systemcleaner_customfilter_editor_warning">Персонализираните филтри могат да бъдат рискови. Проверете резултатите от сканирането преди изтриване!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Области с данни</string>

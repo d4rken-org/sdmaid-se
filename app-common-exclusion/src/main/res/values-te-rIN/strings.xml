@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">యాప్ బహిష్కరణ SD Maid ను సరిపోలిక ప్యాకేజీలను ప్రోసెస్ చేయకుండా ఇంపేడ్ అవుతుంది.</string>
     <string name="exclusion_editor_segment_explanation">సెగ్మెంట్ ఆధారిత బహిష్కరణ పాథ్ బహిష్కరణ వలేనే ఉంది కానీ భాగిక మిలికిలను అనుమతిస్తుంది. ఉదాహరణ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\"ను బహిష్కరిస్తుంది.</string>
     <string name="exclusion_editor_remove_confirmation_message">ఈ బహిష్కరణను తెగెయాలా?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
     <string name="exclusion_reset_default_exclusions">డిఫాల్ట్ బహిష్కరణలను రిస్టోర్ చేయండి</string>
     <string name="exclusion_import_action">బహిష్కరణలను ఇంపోర్ట్ చేయండి</string>
     <string name="exclusion_export_action">బహిష్కరణలను ఎక్స్‌పోర్ట్ చేయండి</string>

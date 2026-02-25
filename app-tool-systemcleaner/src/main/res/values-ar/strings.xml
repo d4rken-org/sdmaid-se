@@ -73,7 +73,6 @@
     <string name="systemcleaner_customfilter_create_action">إنشاء فلتر مخصص</string>
     <string name="systemcleaner_customfilter_create_hint">إنشاء فلتر مخصص لحذف الملفات الإضافية التي تختص بجهازك وحالات الاستخدام.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">إزالة هذا الفلتر ؟</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
     <string name="systemcleaner_customfilter_editor_label_label">تسمية الفلتر</string>
     <string name="systemcleaner_customfilter_editor_warning">الفلاتر المخصصة يمكن أن تكون محفوفة بالمخاطر. تحقق من نتائج الفحص الخاص بك قبل الحذف!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">مناطق البيانات</string>

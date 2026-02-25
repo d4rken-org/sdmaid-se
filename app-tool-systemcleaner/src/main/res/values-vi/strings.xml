@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">Tạo bộ lọc tùy chỉnh</string>
     <string name="systemcleaner_customfilter_create_hint">Tạo bộ lọc tùy chỉnh để xóa các tệp bổ sung dành riêng cho thiết bị và các trường hợp sử dụng của bạn.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Xóa bộ lọc này?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Bạn có thay đổi chưa lưu!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Nhãn bộ lọc</string>
     <string name="systemcleaner_customfilter_editor_warning">Bộ lọc tùy chỉnh có thể gặp rủi ro. Kiểm tra kết quả quét của bạn trước khi xóa!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Vùng dữ liệu</string>

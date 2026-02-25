@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">ਐਪ ਬਾਹਰੀਕਰਣ SD Maid ਨੂੰ ਕਿਸੇ ਵੀ ਮੇਲ ਖਾਂਦੇ ਪੈਕੇਜ ਦੀ ਪ੍ਰਕਿਰਿਆ ਤੋਂ ਰੋਕਦਾ ਹੈ।</string>
     <string name="exclusion_editor_segment_explanation">ਖੰਡ ਅਧਾਰਿਤ ਬਾਹਰੀਕਰਣ ਮਾਰਗ ਬਾਹਰੀਕਰਣ ਦੇ ਸਮਾਨ ਹੈ ਪਰ ਅੰਸ਼ਿਕ ਮੇਲ ਦੀ ਇਜਾਜ਼ਤ ਦਿੰਦਾ ਹੈ। ਉਦਾਹਰਨ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" ਨੂੰ ਬਾਹਰ ਰੱਖਦਾ ਹੈ।</string>
     <string name="exclusion_editor_remove_confirmation_message">ਕੀ ਇਸ ਬਾਹਰੀਕਰਣ ਨੂੰ ਹਟਾਉਣਾ ਹੈ?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੇਵ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
     <string name="exclusion_reset_default_exclusions">ਮੂਲ ਬਾਹਰੀਕਰਣ ਮੁੜ ਸਥਾਪਿਤ ਕਰੋ</string>
     <string name="exclusion_import_action">ਬਾਹਰੀਕਰਣ ਆਯਾਤ ਕਰੋ</string>
     <string name="exclusion_export_action">ਬਾਹਰੀਕਰਣ ਨਿਰਯਾਤ ਕਰੋ</string>

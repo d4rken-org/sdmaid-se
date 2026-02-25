@@ -16,4 +16,6 @@
     <string name="automation_error_overlay_body">SD Maid no at potu ammustrare sa sovrapositzinde de automatizatzione. Verifica is permissos e prova a torrare a incendere su dispositivu tuo.</string>
     <string name="automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
     <string name="automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
+    <string name="automation_loading">Preparende automatizatzione a travessu de servitziu de atzessibilidade</string>
+    <string name="automation_progress_find_ok_confirmation">Proende de confirmaren s\'atzione antekerente (faeddas crae: %s)</string>
 </resources>

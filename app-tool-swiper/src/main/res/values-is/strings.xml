@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Úps!</string>
     <string name="swiper_stamp_undo_4">Bíddu!</string>
     <string name="swiper_gesture_overlay_dismiss">Ýttu hvar sem er til að byrja</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Í lagi</string>
     <string name="swiper_gesture_overlay_left_delete">← Eyða</string>
     <string name="swiper_gesture_overlay_right_keep">Halda →</string>
     <string name="swiper_gesture_overlay_left_keep">← Halda</string>
     <string name="swiper_gesture_overlay_right_delete">Eyða →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Sleppa</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Afturkalla</string>
-    <string name="swiper_help_action">Hjálp</string>
     <string name="swiper_help_title">Hvernig Strjúkari virkar</string>
     <string name="swiper_help_message">Strjúktu hverri skrá til að taka ákvörðun:\n\n← Strjúktu til vinstri: %1$s\n→ Strjúktu til hægri: %2$s\n↑ Strjúktu upp: Sleppa\n↓ Strjúktu niður: Afturkalla (eftir fyrsta strjúk)\n\nÞú getur líka notað hnappana neðst.\n\nÞegar þú ert búin/n, ýttu á \"Yfirfara\" til að sjá allar ákvarðanir þínar. Ekkert er eytt fyrr en þú staðfestir á yfirferðarskjánum.</string>
 </resources>

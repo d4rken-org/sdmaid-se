@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Saa karkea arvio kunkin sovelluksen koosta.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Määritä aktiviteetti</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Selvitä onko sovellus (tai oli äskettäin) aktiivinen.</string>
-    <string name="appcontrol_include_multiuser_label">Sisällytä muut käyttäjät</string>
-    <string name="appcontrol_include_multiuser_summary">Sisällytä sovellukset muista tämän laitteen käyttäjäprofiileista.</string>
     <string name="appcontrol_export_app_selection_action">Vie sovellukset</string>
     <string name="appcontrol_export_title">Vie sovellus</string>
     <string name="appcontrol_export_description">Tallenna tämän sovelluksen asennustiedostot. Tämä ei sisällä sovellustietoja.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d sovellus pysäytettiin</item>
         <item quantity="other">%d sovellusta pysäytettiin</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>
     <string name="appcontrol_automation_title">AppControl-automaatio</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Pakotetaan pysäytys…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Etsitään \"Pakota pysäytys\" -painiketta (avainsanat: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arkistoidaan…</string>
     <string name="appcontrol_automation_progress_find_archive">Etsitään \"Arkistoi\"-painiketta (avainsanat: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Palautetaan…</string>

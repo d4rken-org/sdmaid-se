@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">Pengecualian aplikasi menghalang SD Maid daripada memproses sebarang pakej yang sepadan.</string>
     <string name="exclusion_editor_segment_explanation">Pengecualian berdasarkan segmen adalah serupa dengan pengecualian laluan tetapi membenarkan padanan separa. Contoh: \"DCIM/Camera\" tidak termasuk \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Alih keluar pengecualian ini?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
     <string name="exclusion_reset_default_exclusions">Pulihkan pengecualian lalai</string>
     <string name="exclusion_import_action">Import pengecualian</string>
     <string name="exclusion_export_action">Eksport pengecualian</string>

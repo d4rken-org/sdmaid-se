@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Unda kichungi maalum</string>
     <string name="systemcleaner_customfilter_create_hint">Unda kichungi maalum kufuta faili za ziada zinazohusiana na kifaa chako na matumizi yako.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Ondoa kichungi hiki?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Lebo ya kichungi</string>
     <string name="systemcleaner_customfilter_editor_warning">Vichungi maalum vinaweza kuwa hatari. Angalia matokeo ya uchunguzi kabla ya kufuta!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Maeneo ya data</string>

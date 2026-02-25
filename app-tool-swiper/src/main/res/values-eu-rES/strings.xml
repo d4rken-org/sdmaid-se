@@ -17,14 +17,12 @@
     <string name="swiper_stamp_undo_3">Aupa!</string>
     <string name="swiper_stamp_undo_4">Itxaron!</string>
     <string name="swiper_gesture_overlay_dismiss">Sakatu edonon hasteko</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Ulertuta</string>
     <string name="swiper_gesture_overlay_left_delete">← Ezabatu</string>
     <string name="swiper_gesture_overlay_right_keep">Gorde →</string>
     <string name="swiper_gesture_overlay_left_keep">← Gorde</string>
     <string name="swiper_gesture_overlay_right_delete">Ezabatu →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Saltatu</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Desegin</string>
-    <string name="swiper_help_action">Laguntza</string>
     <string name="swiper_help_title">Swiper nola funtzionatzen duen</string>
     <string name="swiper_help_message">Irristatu fitxategi bakoitza erabaki bat hartzeko:\n\n← Irristatu ezkerrera: %1$s\n→ Irristatu eskuinera: %2$s\n↑ Irristatu gora: Saltatu\n↓ Irristatu behera: Desegin (lehen irristadaren ondoren)\n\nBeheko botoiak ere erabil ditzakezu.\n\nBukatutakoan, sakatu \"Berrikusi\" zure erabaki guztiak ikusteko. Ezer ez da ezabatuko berrikusketa pantailan baieztatu arte.</string>
 </resources>

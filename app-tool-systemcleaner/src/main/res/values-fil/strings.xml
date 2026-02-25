@@ -57,7 +57,6 @@
     <string name="systemcleaner_customfilter_create_action">Gumawa ng custom filter</string>
     <string name="systemcleaner_customfilter_create_hint">Gumawa ng custom filter para tanggalin ang mga karagdagang file na natatangi sa inyong device at mga gamit.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tanggalin ang filter na ito?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Label ng filter</string>
     <string name="systemcleaner_customfilter_editor_warning">Ang mga custom filter ay maaaring mapanganib. Tingnan ang mga resulta ng scan bago mag-delete!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Mga data area</string>

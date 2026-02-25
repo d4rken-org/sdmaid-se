@@ -20,7 +20,6 @@
     <string name="exclusion_editor_segment_explanation">L\'esclusione di un segmento è simile all\'esclusione di percorso, ma consente di escludere percorsi simili parzialmente.
 Esempio: Il segmento \"DCIM/Camera\" escluderà anche \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Rimuovere questa esclusione?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Ci sono modifiche non salvate!</string>
     <string name="exclusion_reset_default_exclusions">Ripristina esclusioni predefinite</string>
     <string name="exclusion_import_action">Importa esclusioni</string>
     <string name="exclusion_export_action">Esporta esclusioni</string>

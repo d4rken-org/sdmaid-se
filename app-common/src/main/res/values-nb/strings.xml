@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Eier</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Oppsett</string>
-    <string name="exclusion_create_action">Opprett ekskludering</string>
     <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">En ekskludering opprettet</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historie</string>
     <string name="settings_category_tools_label">Verktøy</string>
+    <string name="general_include_multiuser_label">Inkluder andre brukere</string>
+    <string name="general_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
+    <string name="general_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
 </resources>

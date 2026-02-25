@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">Rất tiếc!</string>
     <string name="swiper_stamp_undo_4">Chờ chút!</string>
     <string name="swiper_gesture_overlay_dismiss">Chạm bất kỳ đâu để bắt đầu</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Đã hiểu</string>
     <string name="swiper_gesture_overlay_left_delete">← Xóa</string>
     <string name="swiper_gesture_overlay_right_keep">Giữ lại →</string>
     <string name="swiper_gesture_overlay_left_keep">← Giữ lại</string>
     <string name="swiper_gesture_overlay_right_delete">Xóa →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Bỏ qua</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Hoàn tác</string>
-    <string name="swiper_help_action">Trợ giúp</string>
     <string name="swiper_help_title">Cách Swiper hoạt động</string>
     <string name="swiper_help_message">Vuốt từng tệp để đưa ra quyết định:\n\n← Vuốt sang trái: %1$s\n→ Vuốt sang phải: %2$s\n↑ Vuốt lên: Bỏ qua\n↓ Vuốt xuống: Hoàn tác (sau lần vuốt đầu tiên)\n\nBạn cũng có thể sử dụng các nút ở phía dưới.\n\nKhi hoàn tất, nhấn \"Xem lại\" để xem tất cả quyết định của bạn. Không có gì bị xóa cho đến khi bạn xác nhận trên màn hình xem lại.</string>
 </resources>

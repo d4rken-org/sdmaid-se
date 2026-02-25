@@ -108,8 +108,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Получите приблизительную оценку размера каждого приложения.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определение активности</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Узнайте, активно ли приложение (или недавно было активно).</string>
-    <string name="appcontrol_include_multiuser_label">Включать других пользователей</string>
-    <string name="appcontrol_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
     <string name="appcontrol_export_description">Сохранение файлов установки этого приложения. Это не включает данные приложения.</string>
@@ -138,11 +136,9 @@
         <item quantity="many">Остановлено приложений: %d</item>
         <item quantity="other">Остановлено приложений: %d</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
     <string name="appcontrol_automation_title">Автоматизация AppControl</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Принудительное завершение…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Поиск кнопки \"Принудительное завершение\" (ключевые слова: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Архивация…</string>
     <string name="appcontrol_automation_progress_find_archive">Поиск кнопки \"Архивация\" (ключевые слова: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Восстановление…</string>

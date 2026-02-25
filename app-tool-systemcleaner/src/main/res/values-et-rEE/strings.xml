@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Loo enda koostatud filter</string>
     <string name="systemcleaner_customfilter_create_hint">Seadme ja kasutamise põhiste lisafailide kustutamiseks loo ise filter.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Eemalda see filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtri silt</string>
     <string name="systemcleaner_customfilter_editor_warning">Enda koostatud filtrid võivad olla ohtlikud. Enne kustutamist kontrolli skanni tulemusi.</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Andmekogud</string>

@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ</string>
     <string name="systemcleaner_customfilter_create_hint">ਵਾਧੂ ਫਾਇਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਲਈ ਇੱਕ ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ ਜੋ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਅਤੇ ਵਰਤੋਂ ਦੇ ਮਾਮਲਿਆਂ ਲਈ ਵਿਲੱਖਣ ਹਨ।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ਇਸ ਫਿਲਟਰ ਨੂੰ ਹਟਾਉਣਾ ਹੈ?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਨਾ-ਸੰਭਾਲੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ਫਿਲਟਰ ਲੇਬਲ</string>
     <string name="systemcleaner_customfilter_editor_warning">ਕਸਟਮ ਫਿਲਟਰ ਜੋਖਮ ਭਰੇ ਹੋ ਸਕਦੇ ਹਨ। ਮਿਟਾਉਣ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੇ ਸਕੈਨ ਨਤੀਜਿਆਂ ਦੀ ਜਾਂਚ ਕਰੋ!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ਡੇਟਾ ਖੇਤਰ</string>

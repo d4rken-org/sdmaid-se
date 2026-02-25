@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">යෙදුම් බැහැර කිරීම SD Maid ගේ සමාන පකේජ ප්‍රක්‍රියාකරණයෙන් මනා කරයි.</string>
     <string name="exclusion_editor_segment_explanation">පිපෙට් අනුව බැහැර කිරීම මාර්ග බැහැර කිරීමට සමාන නමුත් ඇංශික සමානතාවට ඉඩම දේ. උදාහරණ: \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\" බැහැර කරයි.</string>
     <string name="exclusion_editor_remove_confirmation_message">මෙම බැහැර කිරීම ඉවත් කරන්නද?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">ඔබ ට සංරක්ෂණය නොකු වෙනස්කම් ඇත!</string>
     <string name="exclusion_reset_default_exclusions">පෙරනිමි බැහැර කිරීම් ප්‍රතිසාධනය කරන්න</string>
     <string name="exclusion_import_action">බැහැර කිරීම් ආයාත කරන්න</string>
     <string name="exclusion_export_action">බැහැර කිරීම් නිර්යාත කරන්න</string>

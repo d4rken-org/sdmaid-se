@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Orijinal</string>
     <string name="squeezer_onboarding_compressed_label">Sıxışdırmadan sonra</string>
     <string name="squeezer_onboarding_quality_label">Keyfiyyət: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Anladım</string>
     <string name="squeezer_compare_action">Müqayisəyə bax</string>
     <string name="squeezer_no_example_found">Seçilmiş yollarda şəkil tapılmadı.</string>
     <string name="squeezer_result_empty_message">Sıxışdırıla bilən şəkil tapılmadı.</string>

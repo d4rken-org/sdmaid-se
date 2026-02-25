@@ -109,14 +109,12 @@
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
     <string name="swiper_gesture_overlay_dismiss">点击任意位置开始</string>
-    <string name="swiper_gesture_overlay_dismiss_action">知道了</string>
     <string name="swiper_gesture_overlay_left_delete">← 删除</string>
     <string name="swiper_gesture_overlay_right_keep">保留 →</string>
     <string name="swiper_gesture_overlay_left_keep">← 保留</string>
     <string name="swiper_gesture_overlay_right_delete">删除 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ 跳过</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
-    <string name="swiper_help_action">帮助</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
     <string name="swiper_label">Swiper</string>

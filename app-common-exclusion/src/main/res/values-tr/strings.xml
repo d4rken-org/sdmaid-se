@@ -20,7 +20,6 @@
     <string name="exclusion_editor_segment_explanation">Bölüm tabanlı hariç tutma, bir yolu hariç tutmaya benzer ancak kısmi eşleşmeleri mümkün kılar.
 Örneğin: \"DCIM/Camera\", \"/sdcard/DCIM/Camera/photo.png\"i hariç tutar.</string>
     <string name="exclusion_editor_remove_confirmation_message">Bu hariç tutma silinsin mi?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
     <string name="exclusion_reset_default_exclusions">Varsayılan dışlamaları geri yükle</string>
     <string name="exclusion_import_action">İstisnaları dışa aktar</string>
     <string name="exclusion_export_action">İstisnaları içe aktar</string>

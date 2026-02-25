@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سیستم</string>
     <string name="setup_title">راه‌اندازی</string>
-    <string name="exclusion_create_action">ایجاد استثناء</string>
     <string name="setup_feature_requires_additional_setup_x">برای این ویژگی نیاز به تکمیل اقلام تنظیمات اضافی است: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">یک استثناء ایجاد شد</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">تاریخچه</string>
     <string name="settings_category_tools_label">ابزارها</string>
+    <string name="general_include_multiuser_label">شامل کردن کاربران دیگر</string>
+    <string name="general_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
+    <string name="general_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
 </resources>

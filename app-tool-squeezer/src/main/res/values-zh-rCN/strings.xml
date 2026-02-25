@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">原始</string>
     <string name="squeezer_onboarding_compressed_label">压缩后</string>
     <string name="squeezer_onboarding_quality_label">质量：%d%%</string>
-    <string name="squeezer_onboarding_got_it">知道了</string>
     <string name="squeezer_compare_action">查看对比</string>
     <string name="squeezer_no_example_found">在所选路径中未找到图片。</string>
     <string name="squeezer_result_empty_message">未找到可压缩的图片。</string>

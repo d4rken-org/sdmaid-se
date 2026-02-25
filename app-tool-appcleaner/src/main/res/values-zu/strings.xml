@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Faka izinhlelo zokusebenza ezisebenza manje ezingadala ukuphazamiseka.</string>
     <string name="appcleaner_include_inaccessible_label">Faka ama-cache angatholakalayo</string>
     <string name="appcleaner_include_inaccessible_summary">Faka idatha engafinyeleki ngqo kodwa engasuswa ngezilungiselelo zesistimu futhi izenzekeliswe ngensiza yokufinyelela. </string>
-    <string name="appcleaner_include_multiuser_label">Faka abasebenzisi abanye</string>
-    <string name="appcleaner_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
     <string name="appcleaner_include_minimumsize_label">Usayizi omncane</string>
     <string name="appcleaner_include_minimumsize_summary">Yeqa izinhlelo zokusebenza lapho inani ledatha engasetshenziswa lingaphansi komncane.</string>
     <string name="appcleaner_include_minimumage_label">Iminyaka emincane</string>
@@ -66,14 +64,12 @@
         <item quantity="one">Into engasetshenziswa engu-%d itholiwe</item>
         <item quantity="other">Izinto ezingasetshenziswa ezingu-%d zitholiwe</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
     <string name="appcleaner_automation_title">Ukuzenzelela kwe-AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Kusula ama-cache azenzakalelayo…</string>
     <string name="appcleaner_automation_progress_open_settings">Kuvula isikrini sezilungiselelo (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Kusesha okufakwe okuthi \"Isitoreji\" (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Kubheka inkinobho ethi \"Sula idatha\" (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Kubheka inkinobho ethi \"Sula i-cache\" (amagatsha angukhiye: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagatsha angukhiye: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Ama-cache azenzakalelayo</string>
     <string name="appcleaner_item_caches_inaccessible_body">Ama-cache azenzakalelayo omphakathi nangasese. Awakwazi ukuwafinyelela ngqo, kodwa angasuswa ngokungangqo (isib. ngensiza yokufinyelela).</string>
     <string name="appcleaner_automation_unavailable_title">Insiza yokufinyelela ayitholakali</string>

@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid nije mogao prikazati preklapajući sadržaj automatizacije. Provjerite dopuštenja i pokušajte ponovno pokrenuti uređaj.</string>
     <string name="automation_error_no_settings_title">Zaslon postavki nedostupan</string>
     <string name="automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
+    <string name="automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>
+    <string name="automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
 </resources>

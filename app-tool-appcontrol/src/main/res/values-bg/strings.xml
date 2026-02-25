@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Получаване на груба оценка на размера на всяко приложение.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определяне на активност</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Разберете дали приложение е (или наскоро е било) активно.</string>
-    <string name="appcontrol_include_multiuser_label">Включване на други потребители</string>
-    <string name="appcontrol_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
     <string name="appcontrol_export_app_selection_action">Експортиране на приложения</string>
     <string name="appcontrol_export_title">Експортиране на приложение</string>
     <string name="appcontrol_export_description">Запазване на инсталационните файлове на това приложение. Не включва данните на приложението.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d приложение беше спряно</item>
         <item quantity="other">%d приложения бяха спрени</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
     <string name="appcontrol_automation_title">AppControl автоматизация</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Принудително спиране…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Търсене на бутон \"Принудително спиране\" (ключови думи: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Архивиране…</string>
     <string name="appcontrol_automation_progress_find_archive">Търсене на бутон \"Архивиране\" (ключови думи: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Възстановяване…</string>

@@ -180,4 +180,5 @@
     <string name="appcontrol_tool_name">ئەپControl</string>
     <string name="analyzer_tool_name">ناحیەکانAnalyzer</string>
     <string name="settings_category_tools_label">ئامرازەکان</string>
+    <string name="general_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
 </resources>

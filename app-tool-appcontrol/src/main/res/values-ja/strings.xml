@@ -84,8 +84,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">各アプリのサイズの大まかな推定値を取得します。</string>
     <string name="appcontrol_settings_module_activity_enabled_label">アクティビティの決定</string>
     <string name="appcontrol_settings_module_activity_enabled_description">アプリがアクティブであるか(または最近アクティブであったか)を確認します。</string>
-    <string name="appcontrol_include_multiuser_label">他のユーザーを含める</string>
-    <string name="appcontrol_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
     <string name="appcontrol_export_app_selection_action">アプリをエクスポート</string>
     <string name="appcontrol_export_title">アプリをエクスポート</string>
     <string name="appcontrol_export_description">このアプリのインストールファイルを保存します。アプリデータは含まれません。</string>
@@ -105,11 +103,9 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d個のアプリを停止しました</item>
     </plurals>
-    <string name="appcontrol_automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="appcontrol_automation_title">アプリコントロールの自動化</string>
     <string name="appcontrol_automation_subtitle_force_stopping">強制停止中...</string>
     <string name="appcontrol_automation_progress_find_force_stop">強制停止ボタンを探しています(キーワード: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">アーカイブ中…</string>
     <string name="appcontrol_automation_progress_find_archive">\"アーカイブ\" ボタンを探しています（キーワード：%s）</string>
     <string name="appcontrol_automation_subtitle_restoring">復元中…</string>

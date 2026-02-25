@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Fá grófan mat á stærð hvers forrits.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Ákvarða virkni</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Komast að því hvort forrit er (eða var nýlega) virkt.</string>
-    <string name="appcontrol_include_multiuser_label">Taka aðra notendur með</string>
-    <string name="appcontrol_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
     <string name="appcontrol_export_app_selection_action">Flytja forrit út</string>
     <string name="appcontrol_export_title">Flytja forrit út</string>
     <string name="appcontrol_export_description">Vista uppsetningarskrár þessa forrits. Þetta tekur ekki með forritagögn.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d forrit var stöðvað</item>
         <item quantity="other">%d forrit voru stöðvuð</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>
     <string name="appcontrol_automation_title">AppControl sjálfvirkni</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Þvinga stopp…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Leita að \"Þvinga stopp\" hnapp (lykilorð: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Reyni að staðfesta fyrri aðgerð (lykilorð: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Set í safn…</string>
     <string name="appcontrol_automation_progress_find_archive">Leita að \"Setja í safn\" hnapp (lykilorð: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Endurheimti…</string>

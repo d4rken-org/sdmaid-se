@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">사용자 정의 필터 만들기</string>
     <string name="systemcleaner_customfilter_create_hint">사용자 정의 필터를 만들어 장치 및 사용 사례에 고유한 추가 파일을 삭제할 수 있습니다.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">이 필터를 삭제하시겠습니까?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
     <string name="systemcleaner_customfilter_editor_label_label">필터 라벨</string>
     <string name="systemcleaner_customfilter_editor_warning">사용자 정의 필터는 위험할 수 있습니다. 삭제하기 전에 스캔 결과를 확인하세요!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">데이터 영역</string>

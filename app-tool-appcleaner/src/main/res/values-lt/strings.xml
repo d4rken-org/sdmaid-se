@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Įtraukti šiuo metu veikiančias programas, kurios gali trukdyti.</string>
     <string name="appcleaner_include_inaccessible_label">Įtraukti nepasiekiamas talpyklas</string>
     <string name="appcleaner_include_inaccessible_summary">Įtraukite duomenis, kurių negalima tiesiogiai pasiekti, bet kuriuos galima ištrinti naudojant sistemos nustatymus ir automatizuotai naudojant prieinamumo paslaugą.</string>
-    <string name="appcleaner_include_multiuser_label">Įtraukti kitus naudotojus</string>
-    <string name="appcleaner_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
     <string name="appcleaner_include_minimumsize_label">Minimalus dydis</string>
     <string name="appcleaner_include_minimumsize_summary">Praleisti programas, kurių naudotinų duomenų suma yra mažesnė už minimumą.</string>
     <string name="appcleaner_include_minimumage_label">Minimalus amžius</string>

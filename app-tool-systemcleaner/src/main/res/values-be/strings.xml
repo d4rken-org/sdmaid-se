@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Стварыць карыстальніцкі фільтр</string>
     <string name="systemcleaner_customfilter_create_hint">Стварыце карыстальніцкі фільтр для выдалення дадатковых файлаў і спосабаў выкарыстання, характэрных для вашай прылады.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Выдаліць гэты фільтр?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Метка фільтра</string>
     <string name="systemcleaner_customfilter_editor_warning">Выкарыстанне карыстальніцкіх фільтраў можа быць рызыкоўным. Праверце вынікі сканіравання перад выдаленнем!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Вобласці даных</string>

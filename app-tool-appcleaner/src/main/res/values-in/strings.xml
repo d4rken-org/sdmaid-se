@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Sertakan aplikasi yang sedang berjalan yang mungkin menyebabkan gangguan.</string>
     <string name="appcleaner_include_inaccessible_label">Sertakan cache yang tidak bisa diakses</string>
     <string name="appcleaner_include_inaccessible_summary">Menyertakan data yang tidak bisa diakses langsung namun dapat dihapus melalui pengaturan sistem dan diotomatisasi menggunakan layanan aksesibilitas. </string>
-    <string name="appcleaner_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcleaner_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
     <string name="appcleaner_include_minimumsize_label">Ukuran minimum</string>
     <string name="appcleaner_include_minimumsize_summary">Lewati aplikasi dimana jumlah data yang dapat dihapus di bawah batas minimum.</string>
     <string name="appcleaner_include_minimumage_label">Umur minimal</string>
@@ -64,14 +62,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d berkas yang bisa dihapus ditemukan</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
     <string name="appcleaner_automation_title">Otomatisasi Pembersih Aplikasi</string>
     <string name="appcleaner_automation_subtitle_default_caches">Menghapus cache bawaan…</string>
     <string name="appcleaner_automation_progress_open_settings">Membuka pengaturan (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Sedang mencari entri \"Penyimpanan\" (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Sedang mencari tombol \"Hapus data\" (kata kunci: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Mencari tombol \"Hapus cache\" (kata kunci: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencoba mengkonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache bawaan</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache bawaan privat dan publik. Tidak terakses secara langsung, namun bisa dihapus secara tidak langsung (cth. layanan aksesibilitas).</string>
     <string name="appcleaner_automation_unavailable_title">Layanan aksesibilitas tidak tersedia</string>

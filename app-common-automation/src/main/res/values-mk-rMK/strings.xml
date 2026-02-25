@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid не можеше да го прикаже преклопувањето за автоматизација. Проверете ги дозволите и обидете се да го рестартирате уредот.</string>
     <string name="automation_error_no_settings_title">Екранот за поставки е недостапен</string>
     <string name="automation_error_no_settings_body">Оваа системска апликација нема екран за поставки. Бришење кеш преку услуга за пристапност не е можно. Исклучете ја за побрзо бришење на кеш.</string>
+    <string name="automation_loading">Подготовка на автоматизација преку услуга за пристапност</string>
+    <string name="automation_progress_find_ok_confirmation">Обид за потврда на претходната акција (клучни зборови: %s)</string>
 </resources>

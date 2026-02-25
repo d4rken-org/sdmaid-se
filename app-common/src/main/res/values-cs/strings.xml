@@ -196,7 +196,6 @@
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
     <string name="setup_title">Nastavení</string>
-    <string name="exclusion_create_action">Vytvořit výjimku</string>
     <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Vytvořena jedna výjimka</item>
@@ -214,4 +213,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historie</string>
     <string name="settings_category_tools_label">Nástroje</string>
+    <string name="general_include_multiuser_label">Zahrnout další uživatele</string>
+    <string name="general_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
+    <string name="general_unsaved_confirmation_message">Máš neuložené změny!</string>
 </resources>

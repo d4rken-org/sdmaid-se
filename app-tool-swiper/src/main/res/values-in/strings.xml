@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Tunggu!</string>
     <string name="swiper_gesture_overlay_dismiss">Ketuk di mana saja untuk mulai</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
     <string name="swiper_gesture_overlay_left_delete">← Hapus</string>
     <string name="swiper_gesture_overlay_right_keep">Simpan →</string>
     <string name="swiper_gesture_overlay_left_keep">← Simpan</string>
     <string name="swiper_gesture_overlay_right_delete">Hapus →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Lewati</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
-    <string name="swiper_help_action">Bantuan</string>
     <string name="swiper_help_title">Cara kerja Pemilah</string>
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
 </resources>

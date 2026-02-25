@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid не можа да покаже покривката за автоматизация. Проверете разрешенията и опитайте да рестартирате устройството си.</string>
     <string name="automation_error_no_settings_title">Екранът с настройки не е наличен</string>
     <string name="automation_error_no_settings_body">Това системно приложение няма екран с настройки. Изчистването на кеш чрез услуга за достъпност не е възможно. Изключете го, за да ускорите изчистването на кеш.</string>
+    <string name="automation_loading">Подготвяне на автоматизация чрез услуга за достъпност</string>
+    <string name="automation_progress_find_ok_confirmation">Опит за потвърждаване на предишно действие (ключови думи: %s)</string>
 </resources>

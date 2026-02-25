@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">כלול אפליקציות שפועלות כעת שעלולות לגרום להפרעה.</string>
     <string name="appcleaner_include_inaccessible_label">כלול מטמונים בלתי נגישים</string>
     <string name="appcleaner_include_inaccessible_summary">כלול נתונים שלא ניתן לגשת אליהם ישירות אך ניתן למחוק אותם באמצעות הגדרות המערכת ואוטומטיות באמצעות שירות נגישות. </string>
-    <string name="appcleaner_include_multiuser_label">כלול משתמשים אחרים</string>
-    <string name="appcleaner_include_multiuser_summary">כלול אפליקציות מפרופילי משתמשים אחרים במכשיר זה.</string>
     <string name="appcleaner_include_minimumsize_label">גודל מינימלי</string>
     <string name="appcleaner_include_minimumsize_summary">דלג על אפליקציות שבהן סכום הנתונים הזמניים נמוך מהמינימום.</string>
     <string name="appcleaner_include_minimumage_label">גיל מינימלי</string>
@@ -70,14 +68,12 @@
         <item quantity="many">נמצאו %d פריטים זמניים</item>
         <item quantity="other">נמצאו %d פריטים זמניים</item>
     </plurals>
-    <string name="appcleaner_automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
     <string name="appcleaner_automation_title">אוטומציה של ניקוי אפליקציות</string>
     <string name="appcleaner_automation_subtitle_default_caches">מנקה מטמון ברירת מחדל...</string>
     <string name="appcleaner_automation_progress_open_settings">פתיחת מסך ההגדרות (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">מחפש ערך \"אחסון\" (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">מחפש את הלחצן \"נקה נתונים\" (מילות מפתח: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">מחפש כפתור \"נקה מטמון\" (מילות מפתח: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">מנסה לאשר פעולה קודמת (מילות מפתח: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">מטמון ברירת מחדל</string>
     <string name="appcleaner_item_caches_inaccessible_body">מטמון ברירת מחדל ציבורי ופרטי. לא נגיש ישירות, אבל ניתן למחוק בעקיפין (למשל באמצעות שירות נגישות).</string>
     <string name="appcleaner_automation_unavailable_title">שירות הנגישות לא זמין</string>

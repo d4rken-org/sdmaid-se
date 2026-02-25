@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid स्वचालन ओवरले नहीं दिखा सका। अनुमतियों की जांच करें और अपना डिवाइस रीबूट करने का प्रयास करें।</string>
     <string name="automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
     <string name="automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
+    <string name="automation_loading">अभिगम्यता सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
+    <string name="automation_progress_find_ok_confirmation">पुष्टिकरण बटन ढूंढा जा रहा है</string>
 </resources>

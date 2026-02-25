@@ -164,14 +164,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Počkať!</string>
     <string name="swiper_gesture_overlay_dismiss">Klepnutím kdekoľvek začnite</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
     <string name="swiper_gesture_overlay_left_delete">← Odstrániť</string>
     <string name="swiper_gesture_overlay_right_keep">Ponechať →</string>
     <string name="swiper_gesture_overlay_left_keep">← Ponechať</string>
     <string name="swiper_gesture_overlay_right_delete">Odstrániť →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preskočiť</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Späť</string>
-    <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_help_title">Ako funguje Swiper</string>
     <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
 </resources>

@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Ein App-Ausschluss verhindert, dass SD Maid passende Pakete verarbeitet.</string>
     <string name="exclusion_editor_segment_explanation">Ein segmentbasierter Ausschluss ähnelt einem Pfadausschluss, ermöglicht jedoch teilweise Übereinstimmungen. Beispiel: „DCIM/Camera“ schließt „/sdcard/DCIM/Camera/photo.png“ aus.</string>
     <string name="exclusion_editor_remove_confirmation_message">Diesen Ausschluss entfernen?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
     <string name="exclusion_reset_default_exclusions">Wiederherstellung der standardmäßigen Ausschlüsse</string>
     <string name="exclusion_import_action">Ausschlüsse importieren</string>
     <string name="exclusion_export_action">Ausschlüsse exportieren</string>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Include aplicații care rulează în prezent unde poate să provoace interferențe.</string>
     <string name="appcleaner_include_inaccessible_label">Include cache-uri inaccesibile</string>
     <string name="appcleaner_include_inaccessible_summary">Include date care nu pot fi accesate direct dar poate fi șters în setările de sistem și automatizat folosind serviciul de accesibilitate. </string>
-    <string name="appcleaner_include_multiuser_label">Include alți utilizatori</string>
-    <string name="appcleaner_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcleaner_include_minimumsize_label">Dimensiunea minimă</string>
     <string name="appcleaner_include_minimumsize_summary">Omiteți aplicațiile în care suma datelor consumabile este sub minimul selectat.</string>
     <string name="appcleaner_include_minimumage_label">Vârsta minimă</string>
@@ -68,14 +66,12 @@
         <item quantity="few">Au fost găsite %d articole consumabile</item>
         <item quantity="other">Au fost găsite %d articole consumabile</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>
     <string name="appcleaner_automation_title">Automatizare Curățitor de Aplicații</string>
     <string name="appcleaner_automation_subtitle_default_caches">Se curăță cache-ul implicit…</string>
     <string name="appcleaner_automation_progress_open_settings">Deschiderea ecranului de setări (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Se caută intrarea „Depozitare” (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Se caută butonul „Șterge datele” (cuvinte cheie: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Se caută butonul „Șterge memoria cache” (cuvinte cheie: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache Implicit</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache-uri implicite publice și private. Nu este accesibil direct, dar poate fi șters indirect (ex: prin serviciul de accesibilitate).</string>
     <string name="appcleaner_automation_unavailable_title">Serviciul de accesibilitate indisponibil</string>

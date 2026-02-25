@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid-მ ვერ აჩვენა ავტომატიზაციის ოვერლეი. შეამოწმეთ ნებართვები და სცადეთ მოწყობილობის გადატვირთვა.</string>
     <string name="automation_error_no_settings_title">პარამეტრების ეკრანი მიუწვდომელია</string>
     <string name="automation_error_no_settings_body">ამ სისტემურ აპს არ აქვს პარამეტრების ეკრანი. ქეშის გასუფთავება ხელმისაწვდომობის სერვისის საშუალებით შეუძლებელია. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
+    <string name="automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
+    <string name="automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
 </resources>

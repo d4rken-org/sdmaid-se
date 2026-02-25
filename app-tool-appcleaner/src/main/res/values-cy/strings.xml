@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Cynnwys apiau sy\'n rhedeg ar hyn o bryd a allai achosi ymyrraeth.</string>
     <string name="appcleaner_include_inaccessible_label">Cynnwys storfeydd anhygyrch</string>
     <string name="appcleaner_include_inaccessible_summary">Cynnwys data na ellir ei gyrchu\'n uniongyrchol ond y gellir ei ddileu trwy osodiadau\'r system a\'i awtomeiddio gan ddefnyddio gwasanaeth hygyrchedd.</string>
-    <string name="appcleaner_include_multiuser_label">Cynnwys defnyddwyr eraill</string>
-    <string name="appcleaner_include_multiuser_summary">Cynnwys apiau o broffiliau defnyddwyr eraill ar y ddyfais hon.</string>
     <string name="appcleaner_include_minimumsize_label">Maint lleiaf</string>
     <string name="appcleaner_include_minimumsize_summary">Hepgor apiau lle mae cyfanswm y data gwariadwy yn is na\'r lleiafswm.</string>
     <string name="appcleaner_include_minimumage_label">Oedran lleiaf</string>
@@ -56,14 +54,12 @@
     <string name="appcleaner_filter_qqchat_label">Sgwrs QQ</string>
     <string name="appcleaner_filter_qqchat_summary">Ffeiliau a anfonwyd neu a dderbyniwyd mewn sgyrsiau sgwrs QQ.</string>
     <string name="appcleaner_delete_all_confirmation_message">Dileu eitemau gwariadwy ar gyfer pob ap?</string>
-    <string name="appcleaner_automation_loading">Paratoi awtomeiddio trwy wasanaeth hygyrchedd</string>
     <string name="appcleaner_automation_title">Awtomeiddio Glanhawr Apiau</string>
     <string name="appcleaner_automation_subtitle_default_caches">Clirio storfeydd rhagosodedig…</string>
     <string name="appcleaner_automation_progress_open_settings">Agor sgrin gosodiadau (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Chwilio am gofnod "Storfa" (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Chwilio am fotwm "Clirio data" (allweddeiriau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Chwilio am fotwm "Clirio storfa" (allweddeiriau: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Ceisio cadarnhau gweithred flaenorol (allweddeiriau: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Storfeydd rhagosodedig</string>
     <string name="appcleaner_item_caches_inaccessible_body">Storfeydd rhagosodedig cyhoeddus a phreifat. Nid ydynt yn hygyrch yn uniongyrchol, ond gellir eu dileu\'n anuniongyrchol (e.e. trwy wasanaeth hygyrchedd).</string>
     <string name="appcleaner_automation_unavailable_title">Gwasanaeth hygyrchedd ddim ar gael</string>

@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Ejer</string>
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
-    <string name="exclusion_create_action">Opret eksklusion</string>
     <string name="setup_feature_requires_additional_setup_x">Denne funktion kræver yderligere opsætning: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Én eksklusion oprettet</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historik</string>
     <string name="settings_category_tools_label">Værktøjer</string>
+    <string name="general_include_multiuser_label">Inkluder andre brugere</string>
+    <string name="general_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
+    <string name="general_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
 </resources>

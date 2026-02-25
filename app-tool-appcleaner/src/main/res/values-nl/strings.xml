@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Voeg apps toe die momenteel actief zijn en storing veroorzaken.</string>
     <string name="appcleaner_include_inaccessible_label">Inclusief ontoegankelijke caches</string>
     <string name="appcleaner_include_inaccessible_summary">Voeg gegevens toe die niet direct toegankelijk zijn, maar wel kunnen worden verwijderd via systeeminstellingen en geautomatiseerd met behulp van een toegankelijkheidsservice. </string>
-    <string name="appcleaner_include_multiuser_label">Inclusief andere gebruikers</string>
-    <string name="appcleaner_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
     <string name="appcleaner_include_minimumsize_label">Minimale grootte</string>
     <string name="appcleaner_include_minimumsize_summary">Sla apps over waarbij de som van verbruiksgegevens onder het minimum ligt.</string>
     <string name="appcleaner_include_minimumage_label">Minimum leeftijd</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d vervangbaar item gevonden</item>
         <item quantity="other">%d vervangbare items gevonden</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Automatisering voorbereiden via toegankelijkheidsservice</string>
     <string name="appcleaner_automation_title">AppReiniger-automatisering</string>
     <string name="appcleaner_automation_subtitle_default_caches">Standaard cachegeheugen wissen…</string>
     <string name="appcleaner_automation_progress_open_settings">Instellingenscherm openen (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Zoeken naar item \"Opslag\" (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>

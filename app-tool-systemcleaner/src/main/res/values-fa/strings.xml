@@ -64,7 +64,6 @@
     <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
     <string name="systemcleaner_customfilter_create_hint">ایجاد فیلتر سفارشی برای حذف فایل‌های اضافی که به دستگاه و موارد استفاده شما منحصر به فرد هستند.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">حذف این فیلتر؟</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
     <string name="systemcleaner_customfilter_editor_label_label">برپسب فیلتر</string>
     <string name="systemcleaner_customfilter_editor_warning">فیلترهای سفارشی می‌توانند خطرناک باشند. نتایج اسکن خود را قبل از حذف بررسی کنید!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">حوزه های داده</string>

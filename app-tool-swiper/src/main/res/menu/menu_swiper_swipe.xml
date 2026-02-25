@@ -5,7 +5,7 @@
     <item
         android:id="@+id/action_help"
         android:icon="@drawable/ic_help_outline"
-        android:title="@string/swiper_help_action"
+        android:title="@string/general_help_action"
         app:showAsAction="ifRoom" />
 
     <item

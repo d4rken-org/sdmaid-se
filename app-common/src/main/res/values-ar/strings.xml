@@ -218,7 +218,6 @@
     <string name="general_user_label_owner">المالك</string>
     <string name="general_user_label_system">النظام</string>
     <string name="setup_title">الإعداد</string>
-    <string name="exclusion_create_action">إنشاء استبعاد</string>
     <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="zero">لم يتم إنشاء أي استبعاد</item>
@@ -238,4 +237,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">السجل</string>
     <string name="settings_category_tools_label">الأدوات</string>
+    <string name="general_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
+    <string name="general_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
+    <string name="general_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
 </resources>

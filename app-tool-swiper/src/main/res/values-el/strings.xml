@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ωχ!</string>
     <string name="swiper_stamp_undo_4">Περίμενε!</string>
     <string name="swiper_gesture_overlay_dismiss">Πατήστε οπουδήποτε για να ξεκινήσετε</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Κατάλαβα</string>
     <string name="swiper_gesture_overlay_left_delete">← Διαγραφή</string>
     <string name="swiper_gesture_overlay_right_keep">Διατήρηση →</string>
     <string name="swiper_gesture_overlay_left_keep">← Διατήρηση</string>
     <string name="swiper_gesture_overlay_right_delete">Διαγραφή →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Παράλειψη</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Αναίρεση</string>
-    <string name="swiper_help_action">Βοήθεια</string>
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
 </resources>

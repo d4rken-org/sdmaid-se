@@ -82,7 +82,6 @@
     <string name="squeezer_onboarding_original_label">الأصلية</string>
     <string name="squeezer_onboarding_compressed_label">بعد الضغط</string>
     <string name="squeezer_onboarding_quality_label">الجودة: %d%%</string>
-    <string name="squeezer_onboarding_got_it">فهمت</string>
     <string name="squeezer_compare_action">عرض المقارنة</string>
     <string name="squeezer_no_example_found">لم يتم العثور على صور في المسارات المحددة.</string>
     <string name="squeezer_result_empty_message">لم يتم العثور على صور قابلة للضغط.</string>

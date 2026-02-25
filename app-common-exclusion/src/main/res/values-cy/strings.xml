@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Mae eithriad ap yn atal SD Maid rhag prosesu unrhyw becynnau cyfatebol.</string>
     <string name="exclusion_editor_segment_explanation">Mae eithriad wedi\'i seilio ar segment yn debyg i eithriad llwybr ond yn caniatáu cyfatebiadau rhannol. Enghraifft: Mae "DCIM/Camera" yn eithrio "/sdcard/DCIM/Camera/photo.png".</string>
     <string name="exclusion_editor_remove_confirmation_message">Tynnu\'r eithriad hwn?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
     <string name="exclusion_reset_default_exclusions">Adfer eithriadau rhagosodedig</string>
     <string name="exclusion_import_action">Mewnforio eithriadau</string>
     <string name="exclusion_export_action">Allforio eithriadau</string>

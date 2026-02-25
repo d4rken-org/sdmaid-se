@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid ni mogel prikazati prekrivnega sloja avtomatizacije. Preverite dovoljenja in poskusite znova zagnati napravo.</string>
     <string name="automation_error_no_settings_title">Zaslon nastavitev ni na voljo</string>
     <string name="automation_error_no_settings_body">Ta sistemska aplikacija nima zaslona z nastavitvami. Čiščenje predpomnilnika prek storitve dostopnosti ni mogoče. Izključite jo za hitrejše čiščenje predpomnilnika.</string>
+    <string name="automation_loading">Pripravljanje samodejnih dejanj preko storitve dostopnosti</string>
+    <string name="automation_progress_find_ok_confirmation">Poizkušanje potrditve prejšnjega dejanja (ključne besede: %s)</string>
 </resources>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">干渉を引き起こす可能性のあるアプリを含めてください。</string>
     <string name="appcleaner_include_inaccessible_label">アクセスできないキャッシュを含める</string>
     <string name="appcleaner_include_inaccessible_summary">直接なアクセスはできませんが、ユーザー補助サービスを介して削除を自動化することができるデータを含めます。 </string>
-    <string name="appcleaner_include_multiuser_label">他のユーザーを含める</string>
-    <string name="appcleaner_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
     <string name="appcleaner_include_minimumsize_label">最小サイズ</string>
     <string name="appcleaner_include_minimumsize_summary">消費データの合計が最小値を下回るアプリをスキップします。</string>
     <string name="appcleaner_include_minimumage_label">変更拒否期間</string>
@@ -63,14 +61,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">%d 消耗品が見つかりました</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ユーザー補助サービスによる自動化の準備</string>
     <string name="appcleaner_automation_title">アプリクリーナーの自動化</string>
     <string name="appcleaner_automation_subtitle_default_caches">デフォルトキャッシュをクリアしています…</string>
     <string name="appcleaner_automation_progress_open_settings">設定画面を開く (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"ストレージ\" エントリを検索中 (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">「データを消去」ボタンを探しています (キーワード: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">「キャッシュをクリア」ボタンを探しています (キーワード: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">以前の操作を確認しようとしています(キーワード： %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">デフォルトキャッシュ</string>
     <string name="appcleaner_item_caches_inaccessible_body">パブリックおよびプライベートのデフォルトキャッシュ。直接アクセスできませんが、間接的に削除することができます (ユーザー補助サービスなど)。</string>
     <string name="appcleaner_automation_unavailable_title">ユーザー補助サービスは無効です。</string>

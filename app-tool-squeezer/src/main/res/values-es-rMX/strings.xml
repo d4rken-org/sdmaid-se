@@ -61,7 +61,6 @@
     <string name="squeezer_onboarding_message">La compresión de imágenes reduce el tamaño del archivo eliminando detalles visuales. Este proceso es irreversible - la calidad original no se puede restaurar.\n\nAquí tienes una vista previa de cómo se verán tus imágenes:</string>
     <string name="squeezer_onboarding_compressed_label">Después de la compresión</string>
     <string name="squeezer_onboarding_quality_label">Calidad: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Entendido</string>
     <string name="squeezer_compare_action">Ver comparación</string>
     <string name="squeezer_no_example_found">No se encontraron imágenes en las rutas seleccionadas.</string>
     <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>

@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">L’exclusion d’une appli empêche SD Maid de traiter les paquets correspondants.</string>
     <string name="exclusion_editor_segment_explanation">Une exclusion d’après le segment s’apparente à l’exclusion d’un chemin, mais permet des correspondances partielles. Par exemple, « DCIM/Camera » exclut « /sdcard/DCIM/Camera/photo.png ».</string>
     <string name="exclusion_editor_remove_confirmation_message">Supprimer cette exclusion ?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
     <string name="exclusion_reset_default_exclusions">Rétablir les exclusions par défaut</string>
     <string name="exclusion_import_action">Importer des exclusions</string>
     <string name="exclusion_export_action">Exporter les exclusions</string>

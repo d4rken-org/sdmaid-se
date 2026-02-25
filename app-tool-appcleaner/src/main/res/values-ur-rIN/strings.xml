@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">ایسے ایپس شامل کریں جو فی الوقت چل رہے ہیں جو مداخلت کا باعث بن سکتے ہیں۔</string>
     <string name="appcleaner_include_inaccessible_label">ناقابل رسائی کیشیز شامل کریں</string>
     <string name="appcleaner_include_inaccessible_summary">ایسا ڈیٹا شامل کریں جس تک براہ راست رسائی نہیں لیکن سسٹم سیٹنگز کے ذریعے ڈیلیٹ کیا جا سکتا ہے اور رسائی سروس کا استعمال کرکے خود کار بنایا جا سکتا ہے۔ </string>
-    <string name="appcleaner_include_multiuser_label">دوسرے صارفین شامل کریں</string>
-    <string name="appcleaner_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
     <string name="appcleaner_include_minimumsize_label">کم سے کم سائز</string>
     <string name="appcleaner_include_minimumsize_summary">ایسے ایپس چھوڑیں جہاں قابل حذف ڈیٹا کا مجموعہ کم سے کم سے کم ہے۔</string>
     <string name="appcleaner_include_minimumage_label">کم سے کم عمر</string>
@@ -62,14 +60,12 @@
         <item quantity="one">%d قابل حذف آئٹم ملا</item>
         <item quantity="other">%d قابل حذف آئٹمز ملے</item>
     </plurals>
-    <string name="appcleaner_automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
     <string name="appcleaner_automation_title">AppCleaner آٹومیشن</string>
     <string name="appcleaner_automation_subtitle_default_caches">ڈیفالٹ کیشیز صاف کر رہے ہیں…</string>
     <string name="appcleaner_automation_progress_open_settings">سیٹنگز سکرین کھول رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" انٹری تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" بٹن تلاش کر رہے ہیں (کلیدی الفاظ: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ڈیفالٹ کیشیز</string>
     <string name="appcleaner_item_caches_inaccessible_body">پبلک اور پرائیویٹ ڈیفالٹ کیشیز۔ براہ راست قابل رسائی نہیں، لیکن بالواسطہ ڈیلیٹ کیا جا سکتا ہے (جیسے رسائی سروس کے ذریعے)۔</string>
     <string name="appcleaner_automation_unavailable_title">رسائی سروس دستیاب نہیں</string>

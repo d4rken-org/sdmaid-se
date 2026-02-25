@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid অটোমেশন ওভারলে দেখাতে পারেনি। অনুমতি পরীক্ষা করে আপনার ডিভাইস রিবুট করার চেষ্টা করুন।</string>
     <string name="automation_error_no_settings_title">সেটিংস স্ক্রিন অনুপলব্ধ</string>
     <string name="automation_error_no_settings_body">এই সিস্টেম অ্যাপটিতে কোনও সেটিংস স্ক্রিন নেই। অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে ক্যাশ সাফ করা সম্ভব নয়। ক্যাশ সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
+    <string name="automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>
+    <string name="automation_progress_find_ok_confirmation">পূর্ববর্তী কর্ম নিশ্চিত করার চেষ্টা করা হচ্ছে (কীওয়ার্ড: %s)</string>
 </resources>

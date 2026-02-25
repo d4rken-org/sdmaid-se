@@ -67,7 +67,6 @@
     <string name="squeezer_onboarding_original_label">Originalno</string>
     <string name="squeezer_onboarding_compressed_label">Nakon kompresije</string>
     <string name="squeezer_onboarding_quality_label">Kvaliteta: %d%%</string>
-    <string name="squeezer_onboarding_got_it">U redu</string>
     <string name="squeezer_compare_action">Pogledaj usporedbu</string>
     <string name="squeezer_no_example_found">Nema slika u odabranim putanjama.</string>
     <string name="squeezer_result_empty_message">Nema slika za kompresiju.</string>

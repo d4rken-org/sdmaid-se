@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">การยกเว้นแอพจะป้องกันไม่ให้ SD Maid ดำเนินการกับแพกเกจที่ตรงกัน</string>
     <string name="exclusion_editor_segment_explanation">การยกเว้นแบบส่วนคล้ายกับการยกเว้นเส้นทาง แต่อนุญาตให้ตรงบางส่วนได้ ตัวอย่าง: \"DCIM/Camera\" ยกเว้น \"/sdcard/DCIM/Camera/photo.png\"</string>
     <string name="exclusion_editor_remove_confirmation_message">ลบการยกเว้นนี้?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
     <string name="exclusion_reset_default_exclusions">คืนการยกเว้นเริ่มต้น</string>
     <string name="exclusion_import_action">นำเข้าการยกเว้น</string>
     <string name="exclusion_export_action">ส่งออกการยกเว้น</string>

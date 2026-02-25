@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Ustvari filter po meri</string>
     <string name="systemcleaner_customfilter_create_hint">Ustvarite filter po meri za brisanje dodatnih datotek, ki so značilne samo za vašo napravo in primere uporabe.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Odstrani ta filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Spremembe še niso shranjene!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Oznaka filtra</string>
     <string name="systemcleaner_customfilter_editor_warning">Filtri po meri so lahko tvegani.  Pred izbrisom preverite rezultate pregleda!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Podatkovna področja</string>

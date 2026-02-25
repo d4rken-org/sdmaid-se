@@ -201,4 +201,7 @@
     <string name="systemcleaner_tool_name">SystemCleaner</string>
     <string name="appcleaner_tool_name">\"AppCleaner\"</string>
     <string name="settings_category_tools_label">Įrankiai</string>
+    <string name="general_include_multiuser_label">Įtraukti kitus naudotojus</string>
+    <string name="general_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
+    <string name="general_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
 </resources>

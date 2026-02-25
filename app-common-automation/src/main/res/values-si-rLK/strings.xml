@@ -9,4 +9,6 @@
     <string name="automation_error_overlay_body">SD Maid ට ස්වයංක්‍රියකරණ බහිරුවර පෙන්වීමට නොහැකි විය. අවසර බොන්න සහ ඔබේ පිකරණය නැවත ආරම්භ කිරීමට උත්සාහ කරන්න.</string>
     <string name="automation_error_no_settings_title">සැකසීම් තිරය නොමැත</string>
     <string name="automation_error_no_settings_body">මෙම පද්ධති යෙදුමේ සැකසීම් තිරයක් නොමැත. ප්‍රවේශ්‍යතා සේවාව හරහා කැශ් ඉවත් කිරීම නොහැකි ය. කැශ් ඉවත් කිරීම වේගවත් කිරීම සඳහා එය බැහැර කරන්න.</string>
+    <string name="automation_loading">ප්‍රවේශ්‍යතා සේවාව හරහා ස්වයංක්‍රියකරණය සූදානම් කරමින්</string>
+    <string name="automation_progress_find_ok_confirmation">පෙර ක්‍රියාව තහවුරු කිරීමට උත්සාහ කරමින් (මූල පද: %s)</string>
 </resources>

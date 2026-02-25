@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">Cipta penapis tersuai</string>
     <string name="systemcleaner_customfilter_create_hint">Tiada penapis tersuai</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Buang penapis tersuai ini?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Anda mempunyai perubahan yang tidak disimpan!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Label</string>
     <string name="systemcleaner_customfilter_editor_warning">Penapis tersuai adalah alat yang berkuasa. Gunakan dengan berhati-hati!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Kawasan</string>

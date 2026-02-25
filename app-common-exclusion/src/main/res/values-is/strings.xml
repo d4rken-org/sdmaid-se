@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Forritaútilokun kemur í veg fyrir að SD Maid vinni úr samsvörunarforritum.</string>
     <string name="exclusion_editor_segment_explanation">Hlutamiðuð útilokun er svipuð slóðarútilokun en leyfir hlutasamsvörun. Dæmi: \"DCIM/Camera\" útilokar \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Fjarlægja þessa útilokun?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
     <string name="exclusion_reset_default_exclusions">Endurheimta sjálfgefnar útilokanir</string>
     <string name="exclusion_import_action">Flytja inn útilokanir</string>
     <string name="exclusion_export_action">Flytja út útilokanir</string>

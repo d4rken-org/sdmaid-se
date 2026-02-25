@@ -77,7 +77,6 @@
     <string name="squeezer_onboarding_original_label">Bunaidh</string>
     <string name="squeezer_onboarding_compressed_label">Tar éis comhbhrú</string>
     <string name="squeezer_onboarding_quality_label">Cáilíocht: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Tuigim</string>
     <string name="squeezer_compare_action">Féach ar an gcomparáid</string>
     <string name="squeezer_no_example_found">Níor aimsíodh aon íomhánna sna cosáin roghnaithe.</string>
     <string name="squeezer_result_empty_message">Níor aimsíodh aon íomhánna inchomhbhrúite.</string>

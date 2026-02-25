@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">ఇద్దరు కార్యాచరణలో ఉన్న యాప్‌లను చేర్చండి, వాటి ఉపద్రవం అవవచ్చు.</string>
     <string name="appcleaner_include_inaccessible_label">ప్రాప్యం కాని క్యాషేలను చేర్చండి</string>
     <string name="appcleaner_include_inaccessible_summary">నేరుగా ప్రాప్యం కాని కానీ సిస్టమ్ సెట్టింగ్స్ ద్వారా తొలగించవచ్చు మరియు యక్షస్వాధీనత సెర్విస్ ఉపయోగించి స్వయంచాలకం చేయవచ్చు డేటాను చేర్చండి. </string>
-    <string name="appcleaner_include_multiuser_label">ఇతర వాడుకరులను చేర్చండి</string>
-    <string name="appcleaner_include_multiuser_summary">ఈ పరికరంలో ఇతర వాడుకరు ప్రొఫైల్ల నుండి యాప్‌లను చేర్చండి.</string>
     <string name="appcleaner_include_minimumsize_label">కనిష్ఠ పరిమాణం</string>
     <string name="appcleaner_include_minimumsize_summary">ఖర్చు చేయగల డేటా మొత్తం కనిష్ఠ కన్నా తక్కువగా ఉన్న యాప్‌లను విడ్డు వేయండి.</string>
     <string name="appcleaner_include_minimumage_label">కనిష్ఠ వయస్సు</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d వ్యయించదగిన అంశం కనుగొనబడింది</item>
         <item quantity="other">%d వ్యయించదగిన అంశాలు కనుగొనబడినాయి</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ప్రాప్యతా సేవ ద్వారా ఆటొమేషన్ కోసం సిద్ధం చేస్తోంది</string>
     <string name="appcleaner_automation_title">AppCleaner ఆటొమేషన్</string>
     <string name="appcleaner_automation_subtitle_default_caches">డిఫాల్ట్ క్యాషేలను క్లీర్ చేస్తోంది…</string>
     <string name="appcleaner_automation_progress_open_settings">సెట్టింగ్స్ స్క్రీన్ తెరుస్తోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" ఎంట్రి కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్‌లు: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ముందు క్రియను నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">డిఫాల్ట్ క్యాషేలు</string>
     <string name="appcleaner_item_caches_inaccessible_body">పబ్లిక్ మరియు ప్రైవేట్ డిఫాల్ట్ క్యాషేలు. నేరుగా ప్రాప్యత కాదు, కానీ పరోక్షంగా తొలగించవచ్చు (ఉదా. ప్రాప్యతా సేవ ద్వారా).</string>
     <string name="appcleaner_automation_unavailable_title">ప్రాప్యతా సేవ అనుపలబ్ధం</string>

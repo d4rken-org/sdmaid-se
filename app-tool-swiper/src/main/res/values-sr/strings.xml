@@ -143,14 +143,12 @@
     <string name="swiper_stamp_undo_3">Упс!</string>
     <string name="swiper_stamp_undo_4">Стани!</string>
     <string name="swiper_gesture_overlay_dismiss">Додирните било где да започнете</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Разумем</string>
     <string name="swiper_gesture_overlay_left_delete">← Обриши</string>
     <string name="swiper_gesture_overlay_right_keep">Задржи →</string>
     <string name="swiper_gesture_overlay_left_keep">← Задржи</string>
     <string name="swiper_gesture_overlay_right_delete">Обриши →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Прескочи</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Поништи</string>
-    <string name="swiper_help_action">Помоћ</string>
     <string name="swiper_help_title">Како ради Swiper</string>
     <string name="swiper_help_message">Превуците сваки фајл да донесете одлуку:\n\n← Превуците лево: %1$s\n→ Превуците десно: %2$s\n↑ Превуците горе: Прескочи\n↓ Превуците доле: Поништи (после првог превлачења)\n\nМожете користити и дугмад на дну.\n\nКада завршите, додирните \"Преглед\" да видите све своје одлуке. Ништа се не брише док не потврдите на екрану за преглед.</string>
     <string name="swiper_label">Swiper</string>

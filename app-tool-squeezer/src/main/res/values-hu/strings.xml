@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Eredeti</string>
     <string name="squeezer_onboarding_compressed_label">Tömörítés után</string>
     <string name="squeezer_onboarding_quality_label">Minőség: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Értem</string>
     <string name="squeezer_compare_action">Összehasonlítás megtekintése</string>
     <string name="squeezer_no_example_found">Nem található kép a kiválasztott útvonalakon.</string>
     <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>

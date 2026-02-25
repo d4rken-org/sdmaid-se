@@ -163,7 +163,6 @@
     <string name="general_user_label_owner">オーナー</string>
     <string name="general_user_label_system">システム</string>
     <string name="setup_title">セットアップ</string>
-    <string name="exclusion_create_action">除外を作成</string>
     <string name="setup_feature_requires_additional_setup_x">この機能は追加のセットアップアイテムを完了する必要があります： %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 除外が作成されました</item>
@@ -178,4 +177,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">履歴</string>
     <string name="settings_category_tools_label">ツール</string>
+    <string name="general_include_multiuser_label">他のユーザーを含める</string>
+    <string name="general_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
+    <string name="general_unsaved_confirmation_message">保存されていない変更があります!</string>
 </resources>

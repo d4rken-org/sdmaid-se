@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">Okwangiempela</string>
     <string name="squeezer_onboarding_compressed_label">Ngemuva kokucindezela</string>
     <string name="squeezer_onboarding_quality_label">Ikhwalithi: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
     <string name="squeezer_compare_action">Buka ukuqhathanisa</string>
     <string name="squeezer_no_example_found">Azikho izithombe ezitholakele ezindleleni ezikhethiwe.</string>
     <string name="squeezer_result_empty_message">Azikho izithombe ezicindezelekayo ezitholakele.</string>

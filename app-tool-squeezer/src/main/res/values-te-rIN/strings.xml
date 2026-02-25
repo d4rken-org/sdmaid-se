@@ -62,7 +62,6 @@
     <string name="squeezer_onboarding_original_label">అసలు</string>
     <string name="squeezer_onboarding_compressed_label">కుదింపు తర్వాత</string>
     <string name="squeezer_onboarding_quality_label">నాణ్యత: %d%%</string>
-    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
     <string name="squeezer_compare_action">పోలిక చూడండి</string>
     <string name="squeezer_no_example_found">ఎంచుకున్న పాథ్‌లలో చిత్రాలు కనుగొనబడలేదు.</string>
     <string name="squeezer_result_empty_message">కుదించగల చిత్రాలు కనుగొనబడలేదు.</string>

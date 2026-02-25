@@ -83,8 +83,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ได้การประมาณโครงขนาดของแต่ละแอพ</string>
     <string name="appcontrol_settings_module_activity_enabled_label">ตรวจสอบการใช้งาน</string>
     <string name="appcontrol_settings_module_activity_enabled_description">หาว่าแอพกำลังทำงานอยู่ (หรือเพิ่งทำงานเมื่อเร็วๆ นี้)</string>
-    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้อื่น</string>
-    <string name="appcontrol_include_multiuser_summary">รวมแอปจากโปรไฟล์ผู้ใช้อื่นบนอุปกรณ์นี้</string>
     <string name="appcontrol_export_app_selection_action">ส่งออกแอพ</string>
     <string name="appcontrol_export_title">ส่งออกแอพ</string>
     <string name="appcontrol_export_description">บันทึกไฟล์ติดตั้งของแอปนี้ ไม่รวมข้อมูลแอป</string>
@@ -104,11 +102,9 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">หยุดการทำงานแอพ %d แอพแล้ว</item>
     </plurals>
-    <string name="appcontrol_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
     <string name="appcontrol_automation_title">การควบคุมแอพอัตโนมัติ</string>
     <string name="appcontrol_automation_subtitle_force_stopping">กำลังบังคับให้หยุด...</string>
     <string name="appcontrol_automation_progress_find_force_stop">กำลังมองหาปุ่ม \"บังคับให้หยุด\" (คำสำคัญ: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">กำลังเก็บถาวร…</string>
     <string name="appcontrol_automation_progress_find_archive">กำลังมองหาปุ่ม \"เก็บถาวร\" (คำสำคัญ: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">กำลังกู้คืน…</string>

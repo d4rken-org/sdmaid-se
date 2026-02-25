@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Eigandi</string>
     <string name="general_user_label_system">Kerfi</string>
     <string name="setup_title">Uppsetning</string>
-    <string name="exclusion_create_action">Búa til útilokun</string>
     <string name="setup_feature_requires_additional_setup_x">Þessi eiginleiki krefst þess að viðbótar uppsetningarliðum sé lokið: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Ein útilokun búin til</item>
@@ -183,4 +182,7 @@
     <string name="swiper_tool_name">Strjúkari</string>
     <string name="stats_label">Saga</string>
     <string name="settings_category_tools_label">Verkfæri</string>
+    <string name="general_include_multiuser_label">Taka aðra notendur með</string>
+    <string name="general_include_multiuser_summary">Taka forrit frá öðrum notendaprófílum á þessu tæki.</string>
+    <string name="general_unsaved_confirmation_message">Þú átt óvistaðar breytingar!</string>
 </resources>

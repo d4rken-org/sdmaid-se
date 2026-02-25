@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Har bir ilovaning hajmini taxminiy aniqlash.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Faollikni aniqlash</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Ilova faol ekanligini (yoki yaqinda bo\'lganligini) aniqlash.</string>
-    <string name="appcontrol_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
-    <string name="appcontrol_include_multiuser_summary">Ushbu qurilmadagi boshqa foydalanuvchi profillaridagi ilovalarni qo\'shish.</string>
     <string name="appcontrol_export_app_selection_action">Ilovalarni eksport qilish</string>
     <string name="appcontrol_export_title">Ilovani eksport qilish</string>
     <string name="appcontrol_export_description">Ushbu ilovaning o\'rnatish fayllarini saqlash. Bu ilova ma\'lumotlarini o\'z ichiga olmaydi.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d ilova to\'xtatildi</item>
         <item quantity="other">%d ilova to\'xtatildi</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>
     <string name="appcontrol_automation_title">AppControl avtomatlashtirilishi</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Majburiy to\'xtatish…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Majburiy to\'xtatish\" tugmasini qidirish (kalit so\'zlar: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Oldingi harakatni tasdiqlashga harakat qilish (kalit so\'zlar: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arxivlanmoqda…</string>
     <string name="appcontrol_automation_progress_find_archive">\"Arxivlash\" tugmasi izlanmoqda (kalit so\'zlar: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Tiklanmoqda…</string>

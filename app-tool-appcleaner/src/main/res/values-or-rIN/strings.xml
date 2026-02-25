@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">ସମ୍ପ୍ରତି ଚାଲୁଥିବା ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ ଯାହା ବାଧା ସୃଷ୍ଟି କରିପାରେ।</string>
     <string name="appcleaner_include_inaccessible_label">ଅସୁଲଭ କ୍ୟାସ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
     <string name="appcleaner_include_inaccessible_summary">ସେହି ଡାଟା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ ଯାହା ସିଧାସଳଖ ଆକ୍ସେସ୍ କରାଯାଇପାରିବ ନାହିଁ କିନ୍ତୁ ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ମାଧ୍ୟମରେ ଡିଲିଟ୍ କରାଯାଇପାରିବ ଏବଂ ଆକ୍ସେସିବିଲିଟି ସେବା ବ୍ୟବହାର କରି ସ୍ବୟଂଚାଳିତ କରାଯାଇପାରିବ। </string>
-    <string name="appcleaner_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="appcleaner_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
     <string name="appcleaner_include_minimumsize_label">ସର୍ବନିମ୍ନ ଆକାର</string>
     <string name="appcleaner_include_minimumsize_summary">ସେହି ଆପ୍‌ଗୁଡ଼ିକ ଛାଡନ୍ତୁ ଯେଉଁଠାରେ ଖର୍ଚ୍ଚଯୋଗ୍ୟ ଡାଟାର ମୋଟ ସର୍ବନିମ୍ନଠାରୁ କମ୍।</string>
     <string name="appcleaner_include_minimumage_label">ସର୍ବନିମ୍ନ ବୟସ</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ମିଳିଛି</item>
         <item quantity="other">%d ଅନାବଶ୍ୟକ ଆଇଟମ୍ ମିଳିଛି</item>
     </plurals>
-    <string name="appcleaner_automation_loading">ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ ଅଟୋମେସନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
     <string name="appcleaner_automation_title">AppCleaner ଅଟୋମେସନ</string>
     <string name="appcleaner_automation_subtitle_default_caches">ଡିଫଲ୍ଟ ଦ୍ରୁତିକା ସଫେଇ ଚାଲିଛି…</string>
     <string name="appcleaner_automation_progress_open_settings">ସେଟିଂସ ସ୍କ୍ରିନ ଖୋଲୁଛି (କିୱର୍ଡ: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" ଏଣ୍ଟ୍ରି ଖୋଜୁଛି (କିୱର୍ଡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" ବଟନ ଖୋଜୁଛି (କିୱର୍ଡ: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" ବଟନ ଖୋଜୁଛି (କିୱର୍ଡ: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କିୱର୍ଡ: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">ଡିଫଲ୍ଟ ଦ୍ରୁତିକା</string>
     <string name="appcleaner_item_caches_inaccessible_body">ସାର୍ବଜନୀନ ଏବଂ ବ୍ୟକ୍ତିଗତ ଡିଫଲ୍ଟ କ୍ୟାଶ। ସିଧାସଳଖ ଆକ୍ସେସ କରାଯାଇପାରିବ ନାହିଁ, କିନ୍ତୁ ପରୋକ୍ଷରେ ଡିଲିଟ କରାଯାଇପାରିବ (ଯେପରିକି ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ)।</string>
     <string name="appcleaner_automation_unavailable_title">ଅଭିଗମ୍ୟତା ସେଵା ଅନୁପଲବ୍ଧ</string>

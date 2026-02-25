@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">კასტომ ფილტრის შექმნა</string>
     <string name="systemcleaner_customfilter_create_hint">შექმენით კასტომ ფილტრი დამატებითი ფაილების წასაშლელად, რომლებიც უნიკალურია თქვენი მოწყობილობისა და გამოყენების შემთხვევებისთვის.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ამოვშალოთ ეს ფილტრი?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
     <string name="systemcleaner_customfilter_editor_label_label">ფილტრის ეტიკეტი</string>
     <string name="systemcleaner_customfilter_editor_warning">კასტომ ფილტრები შეიძლება იყოს საშიში. შეამოწმეთ სკანირების შედეგები წაშლამდე!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">მონაცემთა ზონები</string>

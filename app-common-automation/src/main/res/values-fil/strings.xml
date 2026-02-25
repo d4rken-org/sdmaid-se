@@ -25,4 +25,6 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="automation_error_overlay_body">Hindi naipakita ng SD Maid ang automation overlay. I-check ang mga permission at subukang i-reboot ang inyong device.</string>
     <string name="automation_error_no_settings_title">Hindi available ang Settings screen</string>
     <string name="automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
+    <string name="automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
+    <string name="automation_progress_find_ok_confirmation">Sinusubukan na i-confirm ang nakaraang aksyon (mga keyword: %s)</string>
 </resources>

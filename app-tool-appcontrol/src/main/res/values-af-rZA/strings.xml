@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Kry \'n growwe skatting van elke toepassing se grootte.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bepaal aktiwiteit</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Vind uit of \'n toepassing is (of onlangs was) aktief.</string>
-    <string name="appcontrol_include_multiuser_label">Sluit ander gebruikers in</string>
-    <string name="appcontrol_include_multiuser_summary">Sluit toepassings van ander gebruikersprofiele op hierdie toestel in.</string>
     <string name="appcontrol_export_app_selection_action">Uitvoer toepassings</string>
     <string name="appcontrol_export_title">Uitvoer toepassing</string>
     <string name="appcontrol_export_description">Stoor hierdie toepassing se installasielêers. Dit sluit nie toepassingsdata in nie.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d toepassing was gestop</item>
         <item quantity="other">%d toepassings was gestop</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Berei outomatisering voor via toeganklikheid diens</string>
     <string name="appcontrol_automation_title">AppControl outomatisering</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Dwing stop…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Soek vir \"Dwing stop\" knoppie (sleutelwoorde: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Probeer om vorige aksie te bevestig (sleutelwoorde: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Argiveer…</string>
     <string name="appcontrol_automation_progress_find_archive">Soek na \"Argiveer\"-knoppie (sleutelwoorde: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Herstel…</string>

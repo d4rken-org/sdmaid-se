@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Az alkalmazás kizárásának megakadályozza, hogy az SD Maid feldolgozza a megfelelő csomagokat.</string>
     <string name="exclusion_editor_segment_explanation">A szegmens alapú kizárás hasonló az elérési útvonal kizárásához, de lehetővé teszi a részleges egyezéseket. Példa: A \"DCIM/Camera\" kizárja a \"/sdcard/DCIM/DCIM/Camera/photo.png\"-t.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eltávolítod a kizárást?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
     <string name="exclusion_reset_default_exclusions">Alapértelmezett kivételek visszaállítása</string>
     <string name="exclusion_import_action">Kivételek importálása</string>
     <string name="exclusion_export_action">Kivételek exportálása</string>

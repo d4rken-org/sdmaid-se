@@ -56,7 +56,6 @@
     <string name="systemcleaner_customfilter_create_action">Oħloq filtru personalizzat</string>
     <string name="systemcleaner_customfilter_create_hint">Oħloq filtru personalizzat biex tħassar fajls extra li huma uniċi għall-apparat u l-użu tiegħek.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tneħħi dan il-filtru?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Għandek bidliet mhux salvati!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Tikketta tal-filtru</string>
     <string name="systemcleaner_customfilter_editor_warning">Filtri personalizzati jistgħu jkunu riskjużi. Iċċekkja r-riżultati tal-iskannjar qabel ma tħassar!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Żoni tad-data</string>

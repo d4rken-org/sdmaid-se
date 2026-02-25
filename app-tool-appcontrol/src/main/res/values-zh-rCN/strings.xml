@@ -84,8 +84,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估计每个应用的大小。</string>
     <string name="appcontrol_settings_module_activity_enabled_label">活动识别</string>
     <string name="appcontrol_settings_module_activity_enabled_description">检查应用程序是否运行（或最近运行）。</string>
-    <string name="appcontrol_include_multiuser_label">包括其他用户</string>
-    <string name="appcontrol_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
     <string name="appcontrol_export_app_selection_action">导出应用</string>
     <string name="appcontrol_export_title">导出应用</string>
     <string name="appcontrol_export_description">保存此应用的安装文件（不包括应用数据）。</string>
@@ -105,11 +103,9 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">已停止 %d 个应用</item>
     </plurals>
-    <string name="appcontrol_automation_loading">通过无障碍服务来准备自动化操作</string>
     <string name="appcontrol_automation_title">自动化应用控制</string>
     <string name="appcontrol_automation_subtitle_force_stopping">正在强制停止…</string>
     <string name="appcontrol_automation_progress_find_force_stop">正在查找“强制停止”按钮（关键字：%s）</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">正在尝试确认先前的操作（关键词：%s）</string>
     <string name="appcontrol_automation_subtitle_archiving">正在存档…</string>
     <string name="appcontrol_automation_progress_find_archive">寻找\"存档\"按钮（关键词：%s）</string>
     <string name="appcontrol_automation_subtitle_restoring">正在恢复…</string>

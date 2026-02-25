@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">የእያንዳንዱ መተግበሪያ መጠን ግምታዊ ገመታ ያግኙ።</string>
     <string name="appcontrol_settings_module_activity_enabled_label">እንቅስቃሴን ወስን</string>
     <string name="appcontrol_settings_module_activity_enabled_description">መተግበሪያ ንቁ (ወይም በቅርቡ ነበር) እንደሆነ ያውቁ።</string>
-    <string name="appcontrol_include_multiuser_label">ሌሎች ተጠቃሚዎችን አካትት</string>
-    <string name="appcontrol_include_multiuser_summary">በዚህ መሣሪያ ላይ ከሌሎች የተጠቃሚ መገለጫዎች መተግበሪያዎችን አካትት።</string>
     <string name="appcontrol_export_app_selection_action">መተግበሪያዎችን ላክ</string>
     <string name="appcontrol_export_title">መተግበሪያ ላክ</string>
     <string name="appcontrol_export_description">የዚህን መተግበሪያ የመጫኛ ፋይሎች ያስቀምጡ። ይህ የመተግበሪያ ውሂብ አያካትትም።</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d መተግበሪያ ቆሟል</item>
         <item quantity="other">%d መተግበሪያዎች ቆመዋል</item>
     </plurals>
-    <string name="appcontrol_automation_loading">ራሳዊነትን በተደራሽነት አገልግሎት ዝግጁ በማድረግ ላይ</string>
     <string name="appcontrol_automation_title">AppControl ራሳዊነት</string>
     <string name="appcontrol_automation_subtitle_force_stopping">በግዳጅ በማቆም ላይ…</string>
     <string name="appcontrol_automation_progress_find_force_stop">ለ\"በግዳጅ አቁም\" ቁልፍ በመፈልግ ላይ (ቁልፍ ቃላት: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ቀደም ያለውን ተግባር ለማረጋገጥ እየሞከረ ነው (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">በማስቀመጥ ላይ…</string>
     <string name="appcontrol_automation_progress_find_archive">\"ማስቀመጥ\" ቁልፍ በመፈለግ ላይ (ቁልፍ ቃላት: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">በመመለስ ላይ…</string>

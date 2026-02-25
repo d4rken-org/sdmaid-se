@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">Skapa anpassat filter</string>
     <string name="systemcleaner_customfilter_create_hint">Skapa ett anpassat filter för att ta bort extra filer som är unika för din enhet och användningsfall.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Ta bort detta filter?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har osparade ändringar!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filteretikett</string>
     <string name="systemcleaner_customfilter_editor_warning">Anpassade filter kan vara riskfyllda. Kontrollera dina skanningsresultat innan du tar bort!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Dataområden</string>

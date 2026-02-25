@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">ମାଲିକ</string>
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>
-    <string name="exclusion_create_action">ବହିଷ୍କାର ସୃଷ୍ଟି କରନ୍ତୁ</string>
     <string name="setup_feature_requires_additional_setup_x">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଅତିରିକ୍ତ ସେଟଅପ ଆଇଟମଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ଆବଶ୍ୟକ କରେ: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">ଗୋଟିଏ ବାଦ ସୃଷ୍ଟି ହୋଇଛି</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ଇତିହାସ</string>
     <string name="settings_category_tools_label">ଉପକରଣଗୁଡ଼ିକ</string>
+    <string name="general_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="general_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="general_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
 </resources>

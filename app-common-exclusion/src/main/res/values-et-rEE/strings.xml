@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Rakenduse erand takistab SD Maidil töötlemast mistahes kattuvat paketti.</string>
     <string name="exclusion_editor_segment_explanation">Segmendil põhinev erand sarnaneb asukoha erandile, ent erinevus seisneb osalise leiu poolest. Näiteks \"DCIM/Camera\" kataloog eirab \"/sdcard/DCIM/Camera/photo.png\" faili.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eemaldada see erand?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
     <string name="exclusion_reset_default_exclusions">Taasta tavaerandid</string>
     <string name="exclusion_import_action">Impordi erandid</string>
     <string name="exclusion_export_action">Ekspordi erandid</string>

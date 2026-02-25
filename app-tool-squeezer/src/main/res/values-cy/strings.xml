@@ -82,7 +82,6 @@
     <string name="squeezer_onboarding_original_label">Gwreiddiol</string>
     <string name="squeezer_onboarding_compressed_label">Ar ôl cywasgu</string>
     <string name="squeezer_onboarding_quality_label">Ansawdd: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Deall</string>
     <string name="squeezer_compare_action">Gweld cymhariaeth</string>
     <string name="squeezer_no_example_found">Dim delweddau wedi\'u canfod yn y llwybrau a ddewiswyd.</string>
     <string name="squeezer_result_empty_message">Dim delweddau y gellir eu cywasgu wedi\'u canfod.</string>

@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">おっと！</string>
     <string name="swiper_stamp_undo_4">待って！</string>
     <string name="swiper_gesture_overlay_dismiss">どこかをタップして開始</string>
-    <string name="swiper_gesture_overlay_dismiss_action">了解</string>
     <string name="swiper_gesture_overlay_left_delete">← 削除</string>
     <string name="swiper_gesture_overlay_right_keep">保持 →</string>
     <string name="swiper_gesture_overlay_left_keep">← 保持</string>
     <string name="swiper_gesture_overlay_right_delete">削除 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ スキップ</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 元に戻す</string>
-    <string name="swiper_help_action">ヘルプ</string>
     <string name="swiper_help_title">Swiperの使い方</string>
     <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
 </resources>

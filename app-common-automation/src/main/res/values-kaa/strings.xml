@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid avtomatlashtırıw qatlamın kórsete almadı. Ruxsatnamalardy tekseriń hám qurılmańızdı qayta júkleń.</string>
     <string name="automation_error_no_settings_title">Parametrler ekranı jetimli emes</string>
     <string name="automation_error_no_settings_body">Bul sistema qosımshasında parametrler ekranı joq. Jetimlilik qullıǵı arqalı keş tazalaw múmkin emes. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
+    <string name="automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>
+    <string name="automation_progress_find_ok_confirmation">Aldıńǵı háreketin tastıyıqlaw ǵáreketi (gilt sözler: %s)</string>
 </resources>

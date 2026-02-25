@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">Níorbh fhéidir le SD Maid an forleagan uathoibrithe a thaispeáint. Seiceáil ceadanna agus déan iarracht do ghléas a atosú.</string>
     <string name="automation_error_no_settings_title">Scáileán socruithe níl ar fáil</string>
     <string name="automation_error_no_settings_body">Níl scáileán socruithe ag an aip chórais seo. Ní féidir taiscí a ghlanadh trí sheirbhís inrochtaineachta. Fág amach é chun glanadh na dtaiscí a luasú.</string>
+    <string name="automation_loading">Ag ullmhú uathoibrithe trí sheirbhís inrochtaineachta</string>
+    <string name="automation_progress_find_ok_confirmation">Ag iarraidh an gníomh roimhe seo a dhearbhú (eochairfhocail: %s)</string>
 </resources>

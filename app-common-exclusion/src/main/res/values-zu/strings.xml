@@ -18,7 +18,6 @@
     <string name="exclusion_editor_pkg_explanation">Ukukhishwa kohlelo kuvimbela i-SD Maid ekucubunguleni noma yimaphi amaphakheji afanayo.</string>
     <string name="exclusion_editor_segment_explanation">Ukukhishwa okusekelwe kusegimenti kufana nokukhishwa kwendlela kodwa kuvumela ukufana okungaphelele. Isibonelo: \"DCIM/Camera\" kukhipha \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Susa lokhu kukhishwa?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
     <string name="exclusion_reset_default_exclusions">Buyisela ukukhishwa okuzenzakalelayo</string>
     <string name="exclusion_import_action">Ngenisa ukukhishwa</string>
     <string name="exclusion_export_action">Khipha ukukhishwa</string>

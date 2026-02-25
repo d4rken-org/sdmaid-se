@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">Asli</string>
     <string name="squeezer_onboarding_compressed_label">Setelah kompresi</string>
     <string name="squeezer_onboarding_quality_label">Kualitas: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Mengerti</string>
     <string name="squeezer_compare_action">Lihat perbandingan</string>
     <string name="squeezer_no_example_found">Tidak ada gambar ditemukan di jalur yang dipilih.</string>
     <string name="squeezer_result_empty_message">Tidak ada gambar yang dapat dikompresi ditemukan.</string>

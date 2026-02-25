@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Inclou aplicacions que s\'estan executant actualment i que poden causar interferències.</string>
     <string name="appcleaner_include_inaccessible_label">Inclou memòries cau inaccessibles</string>
     <string name="appcleaner_include_inaccessible_summary">Inclou dades a les quals no es pot accedir directament, però que es poden suprimir mitjançant la configuració del sistema i automatitzar-les mitjançant un servei d\'accessibilitat. </string>
-    <string name="appcleaner_include_multiuser_label">Inclou altres usuaris</string>
-    <string name="appcleaner_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
     <string name="appcleaner_include_minimumsize_label">Grandària mínima</string>
     <string name="appcleaner_include_minimumsize_summary">Omet les aplicacions on la suma de dades prescindibles sigui inferior al mínim.</string>
     <string name="appcleaner_include_minimumage_label">Edat mínima</string>
@@ -66,14 +64,12 @@
         <item quantity="one">S\'ha trobat %d element prescindible</item>
         <item quantity="other">S\'han trobat %d articles prescindibles</item>
     </plurals>
-    <string name="appcleaner_automation_loading">S\'està preparant l\'automatització mitjançant el servei d\'accessibilitat</string>
     <string name="appcleaner_automation_title">Automatització del Netejador d\'aplicacions</string>
     <string name="appcleaner_automation_subtitle_default_caches">S\'estan esborrant les memòries cau per defecte…</string>
     <string name="appcleaner_automation_progress_open_settings">Obertura de la pantalla de configuració (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">S\'està cercant l\'entrada «Emmagatzematge» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">S\'està buscant el botó «Esborra les dades» (paraules clau: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">S\'està buscant el botó «Esborra la memòria cau» (paraules clau: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Memòries cau per defecte</string>
     <string name="appcleaner_item_caches_inaccessible_body">Memòries cau públiques i privades per defecte. No és accessible directament, però es pot suprimir indirectament (p. ex. mitjançant el servei d\'accessibilitat).</string>
     <string name="appcleaner_automation_unavailable_title">Servei d\'accessibilitat no disponible</string>

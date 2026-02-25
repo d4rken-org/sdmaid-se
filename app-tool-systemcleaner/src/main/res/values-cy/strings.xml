@@ -55,7 +55,6 @@
     <string name="systemcleaner_customfilter_create_action">Creu hidlydd personol</string>
     <string name="systemcleaner_customfilter_create_hint">Creu hidlydd personol i ddileu ffeiliau ychwanegol sy\'n unigryw i\'ch dyfais a\'ch achosion defnydd.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tynnu\'r hidlydd hwn?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Label hidlydd</string>
     <string name="systemcleaner_customfilter_editor_warning">Gall hidlyddion personol fod yn beryglus. Gwiriwch ganlyniadau\'ch sgan cyn dileu!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Ardaloedd data</string>

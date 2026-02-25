@@ -19,4 +19,5 @@
     <string name="automation_error_overlay_body">SD Maid தனியாக்க மேல்பதிவைக் காட்ட முடியவில்லை. அனுமதிகளைச் சரிபார்த்து உங்கள் சாதனத்தை மீண்டும் தொடங்க முயற்சிக்கவும்.</string>
     <string name="automation_error_no_settings_title">அமைப்புகள் திரை கிடைக்கவில்லை</string>
     <string name="automation_error_no_settings_body">இந்த கணினி பயன்பாட்டில் அமைப்புகள் திரை இல்லை. அணுகல் சேவை வழியாக கேச் அழிப்பு சாத்தியமில்லை. கேச் அழிப்பை விரைவுபடுத்த அதை விலக்கவும்.</string>
+    <string name="automation_loading">அணுகல் சேவை வழியாக தானியங்கியமாக்கத்தை தயார் செய்கிறது</string>
 </resources>

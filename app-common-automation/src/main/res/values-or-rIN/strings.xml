@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid ଅଟୋମେସନ୍ ଓଭରଲେ ଦେଖାଇପାରିଲା ନାହିଁ। ଅନୁମତି ଯାଞ୍ଚ କରନ୍ତୁ ଏବଂ ଆପଣଙ୍କ ଡିଭାଇସ୍ ରିବୁଟ୍ କରିବାକୁ ଚେଷ୍ଟା କରନ୍ତୁ।</string>
     <string name="automation_error_no_settings_title">ସେଟିଂସ ସ୍କ୍ରିନ ଉପଲବ୍ଧ ନାହିଁ</string>
     <string name="automation_error_no_settings_body">ଏହି ସିଷ୍ଟମ ଆପ୍‌ର କୌଣସି ସେଟିଂସ ସ୍କ୍ରିନ ନାହିଁ। ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ କ୍ୟାଶ ସଫା କରିବା ସମ୍ଭବ ନୁହେଁ। କ୍ୟାଶ ସଫା କରିବାର ଗତି ବଢ଼ାଇବା ପାଇଁ ଏହାକୁ ବାଦ ଦିଅନ୍ତୁ।</string>
+    <string name="automation_loading">ଆକ୍ସେସିବିଲିଟି ସେବା ମାଧ୍ୟମରେ ଅଟୋମେସନ ପ୍ରସ୍ତୁତ କରୁଛି</string>
+    <string name="automation_progress_find_ok_confirmation">ପୂର୍ବ କାର୍ଯ୍ୟ ନିଶ୍ଚିତ କରିବାକୁ ଚେଷ୍ଟା କରୁଛି (କିୱର୍ଡ: %s)</string>
 </resources>

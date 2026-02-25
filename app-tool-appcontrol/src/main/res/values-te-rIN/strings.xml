@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ప్రతి యాప్ పరిమాణం శ్రేణుల అందాజు తెలుసుకోండి.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">కార్యాచరణను నిర్ణయించండి</string>
     <string name="appcontrol_settings_module_activity_enabled_description">యాప్ సక్రియంగా ఉందే (లేదా ఇద్దరు సక్రియంగా ఉందే) అని తెలుసుకోండి.</string>
-    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
-    <string name="appcontrol_include_multiuser_summary">ఈ పరికరంలోని ఇతర వినియోగదారు ప్రొఫైల్‌ల నుండి యాప్‌లను చేర్చండి.</string>
     <string name="appcontrol_export_app_selection_action">యాప్‌లను ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="appcontrol_export_title">యాప్‌ని ఎక్స్‌పోర్ట్ చేయండి</string>
     <string name="appcontrol_export_description">ఈ యాప్ యొక్క ఇన్‌స్టాలేషన్ ఫైల్‌లను సేవ్ చేయండి. ఇందులో యాప్ డేటా చేర్చబడదు.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d యాప్ ఆపబడింది</item>
         <item quantity="other">%d యాప్‌లు ఆపబడినాయి</item>
     </plurals>
-    <string name="appcontrol_automation_loading">ప్రాప్యతా సేవ ద్వారా స్వయంచాలకతను సిద్ధం చేస్తోంది</string>
     <string name="appcontrol_automation_title">AppControl స్వయంచాలకత</string>
     <string name="appcontrol_automation_subtitle_force_stopping">బలవంతంగా ఆపుతోంది…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" బటన్ కోసం వెతుకుతోంది (కీవర్డ్లు: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">ఆర్కైవ్ చేస్తోంది…</string>
     <string name="appcontrol_automation_progress_find_archive">\"ఆర్కైవ్\" బటన్ కోసం చూస్తోంది (కీవర్డ్‌లు: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">పునరుద్ధరిస్తోంది…</string>

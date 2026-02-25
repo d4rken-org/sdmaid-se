@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Eienaar</string>
     <string name="general_user_label_system">Stelsel</string>
     <string name="setup_title">Opstelling</string>
-    <string name="exclusion_create_action">Skep uitsluiting</string>
     <string name="setup_feature_requires_additional_setup_x">Hierdie kenmerk vereis die voltooiing van addisionele opstelling items: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Een uitsluiting geskep</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Geskiedenis</string>
     <string name="settings_category_tools_label">Gereedskap</string>
+    <string name="general_include_multiuser_label">Sluit ander gebruikers in</string>
+    <string name="general_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
+    <string name="general_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
 </resources>

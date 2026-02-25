@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Wykluczenie aplikacji uniemożliwia SD Maid przetwarzanie pasujących pakietów.</string>
     <string name="exclusion_editor_segment_explanation">Wykluczenie na podstawie segmentu jest podobne do wykluczenia ścieżki, ale umożliwia dopasowanie częściowe. Przykład: „DCIM/Camera” wyklucza „/sdcard/DCIM/Camera/photo.png”.</string>
     <string name="exclusion_editor_remove_confirmation_message">Usunąć to wykluczenie?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
     <string name="exclusion_reset_default_exclusions">Przywróć domyślne wykluczenia</string>
     <string name="exclusion_import_action">Importuj wykluczenia</string>
     <string name="exclusion_export_action">Eksportuj wykluczenia</string>

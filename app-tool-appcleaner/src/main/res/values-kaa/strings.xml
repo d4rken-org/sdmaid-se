@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Қазир жумыс істеп атырған һәм тоскылшылық келтириўи мүмкин қолданбаларды қосыў.</string>
     <string name="appcleaner_include_inaccessible_label">Қол жетпейтин кешлерди қосыў</string>
     <string name="appcleaner_include_inaccessible_summary">Тикелей қол жетпейтин, бирақ система конфигурациясы арқылы жойылатын һәм қол жетимлілік қызмети арқылы автоматлаштырылатын мәліметлерди қосыў. </string>
-    <string name="appcleaner_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
-    <string name="appcleaner_include_multiuser_summary">Бул құрылғыдағы басқа пайдаланыўшы профильлеринің қолданбаларын қосыў.</string>
     <string name="appcleaner_include_minimumsize_label">Минимал көлем</string>
     <string name="appcleaner_include_minimumsize_summary">Жойылатын мәліметлердің соммасы минималдан төмен қолданбаларды өткизип жібериў.</string>
     <string name="appcleaner_include_minimumage_label">Минимал жас</string>
@@ -58,14 +56,12 @@
     <string name="appcleaner_filter_qqchat_label">QQ söylesuw</string>
     <string name="appcleaner_filter_qqchat_summary">QQ söylesuw söylesuвlerinde jiberilgen yamasa alıngan fayllar.</string>
     <string name="appcleaner_delete_all_confirmation_message">Barlıq qosımşalar ushın jok etetuğın zatlardı öşirip taslama?</string>
-    <string name="appcleaner_automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>
     <string name="appcleaner_automation_title">AppCleaner avtomatiyası</string>
     <string name="appcleaner_automation_subtitle_default_caches">Baslı keşlerdı tazalawda…</string>
     <string name="appcleaner_automation_progress_open_settings">Parametrler ekranın ashıw (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Saqlawsh\" jazıwın izlew (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Maǵlıwmatlardı tazalaw\" tugmesin izlew (gilt sözler: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Keşti tazalaw\" tugmesin izlew (gilt sözler: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Aldıńǵı háreketin tastıyıqlaw ǵáreketi (gilt sözler: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Baslı keşler</string>
     <string name="appcleaner_item_caches_inaccessible_body">Ashıq hám jeke baslı keşler. Tuwrıdan-tuwrı jetimli emes, biraq bilvosita öshiriwge boladı (mısalı, jetimlilik qullıǵı arqalı).</string>
     <string name="appcleaner_automation_unavailable_title">Jetimlilik qullıǵı jetimli emes</string>

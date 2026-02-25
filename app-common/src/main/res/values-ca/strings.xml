@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuració</string>
-    <string name="exclusion_create_action">Crea una exclusió</string>
     <string name="setup_feature_requires_additional_setup_x">Aquesta característica requereix completar elements de configuració addicionals: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">S\'ha creat una exclusió</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Escombrador</string>
     <string name="stats_label">Historial</string>
     <string name="settings_category_tools_label">Eines</string>
+    <string name="general_include_multiuser_label">Inclou altres usuaris</string>
+    <string name="general_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
+    <string name="general_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
 </resources>

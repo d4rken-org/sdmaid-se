@@ -113,14 +113,12 @@
     <string name="swiper_stamp_undo_3">糟糕！</string>
     <string name="swiper_stamp_undo_4">等等！</string>
     <string name="swiper_gesture_overlay_dismiss">點擊任意位置開始</string>
-    <string name="swiper_gesture_overlay_dismiss_action">了解</string>
     <string name="swiper_gesture_overlay_left_delete">← 刪除</string>
     <string name="swiper_gesture_overlay_right_keep">保留 →</string>
     <string name="swiper_gesture_overlay_left_keep">← 保留</string>
     <string name="swiper_gesture_overlay_right_delete">刪除 →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ 跳過</string>
     <string name="swiper_gesture_overlay_down_undo">↓ 復原</string>
-    <string name="swiper_help_action">說明</string>
     <string name="swiper_help_title">Swiper 使用方式</string>
     <string name="swiper_help_message">滑動每個檔案來做決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（第一次滑動後）\n\n您也可以使用底部的按鈕。\n\n完成後，點擊「檢閱」查看所有決定。在檢閱畫面確認之前，不會刪除任何內容。</string>
 </resources>

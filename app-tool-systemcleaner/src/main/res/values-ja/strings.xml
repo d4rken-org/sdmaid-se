@@ -63,7 +63,6 @@
     <string name="systemcleaner_customfilter_create_action">カスタムフィルタを作成</string>
     <string name="systemcleaner_customfilter_create_hint">カスタムフィルターを作成して、お使いのデバイスや使い方に固有の追加ファイルを削除します。</string>
     <string name="systemcleaner_editor_remove_confirmation_message">このフィルターを削除しますか？</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">保存していない変更があります！</string>
     <string name="systemcleaner_customfilter_editor_label_label">ラベルをフィルタ</string>
     <string name="systemcleaner_customfilter_editor_warning">カスタムフィルタは危険な場合があります。削除する前にスキャン結果を確認してください！</string>
     <string name="systemcleaner_customfilter_editor_areas_label">データ領域</string>

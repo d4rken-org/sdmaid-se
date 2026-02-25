@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Упс!</string>
     <string name="swiper_stamp_undo_4">Чекај!</string>
     <string name="swiper_gesture_overlay_dismiss">Допрете каде било за да почнете</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Разбирам</string>
     <string name="swiper_gesture_overlay_left_delete">← Избриши</string>
     <string name="swiper_gesture_overlay_right_keep">Задржи →</string>
     <string name="swiper_gesture_overlay_left_keep">← Задржи</string>
     <string name="swiper_gesture_overlay_right_delete">Избриши →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Прескокни</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Врати</string>
-    <string name="swiper_help_action">Помош</string>
     <string name="swiper_help_title">Како работи Swiper</string>
     <string name="swiper_help_message">Лизгајте секоја датотека за да донесете одлука:\n\n← Лизгајте лево: %1$s\n→ Лизгајте десно: %2$s\n↑ Лизгајте горе: Прескокни\n↓ Лизгајте долу: Врати (по првото лизгање)\n\nМожете исто така да ги користите копчињата на дното.\n\nКога ќе завршите, допрете \"Прегледај\" за да ги видите сите ваши одлуки. Ништо не се брише додека не потврдите на екранот за преглед.</string>
 </resources>

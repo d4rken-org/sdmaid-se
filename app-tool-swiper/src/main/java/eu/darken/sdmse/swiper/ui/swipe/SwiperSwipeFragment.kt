@@ -349,7 +349,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
     private fun showExcludeDialog(item: SwipeItem) {
         MaterialAlertDialogBuilder(requireContext())
-            .setTitle(eu.darken.sdmse.common.R.string.exclusion_create_action)
+            .setTitle(eu.darken.sdmse.common.exclusion.R.string.exclusion_create_action)
             .setMessage(getString(eu.darken.sdmse.swiper.R.string.swiper_exclude_confirmation_message, item.lookup.userReadablePath.get(requireContext())))
             .setPositiveButton(eu.darken.sdmse.common.R.string.general_exclude_action) { _, _ ->
                 vm.excludeAndRemove(item)

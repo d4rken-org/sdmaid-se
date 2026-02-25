@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid не удалось отобразить наложение автоматизации. Проверьте разрешения и попробуйте перезагрузить устройство.</string>
     <string name="automation_error_no_settings_title">Экран настроек недоступен</string>
     <string name="automation_error_no_settings_body">У этого системного приложения нет экрана настроек. Очистка кэша через службу специальных возможностей невозможна. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
+    <string name="automation_loading">Подготовка автоматизации через службу специальных возможностей</string>
+    <string name="automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
 </resources>

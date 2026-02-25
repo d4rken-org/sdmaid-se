@@ -57,7 +57,6 @@
     <string name="squeezer_onboarding_original_label">Bản gốc</string>
     <string name="squeezer_onboarding_compressed_label">Sau khi nén</string>
     <string name="squeezer_onboarding_quality_label">Chất lượng: %d%%</string>
-    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
     <string name="squeezer_compare_action">Xem so sánh</string>
     <string name="squeezer_no_example_found">Không tìm thấy hình ảnh nào trong các đường dẫn đã chọn.</string>
     <string name="squeezer_result_empty_message">Không tìm thấy hình ảnh nén nào.</string>

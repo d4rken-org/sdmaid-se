@@ -196,7 +196,6 @@
     <string name="general_user_label_owner">Уладальнік</string>
     <string name="general_user_label_system">Сістэма</string>
     <string name="setup_title">Наладжванне</string>
-    <string name="exclusion_create_action">Стварыць выключэнне</string>
     <string name="setup_feature_requires_additional_setup_x">Для гэтай функцыі неабходна наладзіць дадатковыя элементы: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Створана адно выключэнне</item>
@@ -214,4 +213,7 @@
     <string name="swiper_tool_name">Змахнуць і выдаліць</string>
     <string name="stats_label">Гісторыя</string>
     <string name="settings_category_tools_label">Інструменты</string>
+    <string name="general_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
+    <string name="general_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
+    <string name="general_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
 </resources>

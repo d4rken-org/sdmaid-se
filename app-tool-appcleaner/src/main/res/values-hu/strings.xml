@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Tartalmazza a jelenleg futó alkalmazásokat, amelyek interferenciát okozhatnak.</string>
     <string name="appcleaner_include_inaccessible_label">Tartalmazza a hozzáférhetetlen gyorsítótárakat</string>
     <string name="appcleaner_include_inaccessible_summary">Tartalmazzon olyan adatokat, amelyek közvetlenül nem érhetők el, de a rendszerbeállításokon keresztül törölhetők, és egy kisegítő szolgáltatás segítségével automatizálhatók. </string>
-    <string name="appcleaner_include_multiuser_label">Egyéb felhasználók bevonása</string>
-    <string name="appcleaner_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
     <string name="appcleaner_include_minimumsize_label">Minimális méret</string>
     <string name="appcleaner_include_minimumsize_summary">Hagyja ki azokat az alkalmazásokat, amelyekben a felhasználható adatok összege a minimum alatt van.</string>
     <string name="appcleaner_include_minimumage_label">Minimális kor</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d felhasználható elem található</item>
         <item quantity="other">%d elhasználható elemek találhatók</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Automatizálás előkészítése akadálymentesítési szolgáltatáson keresztül</string>
     <string name="appcleaner_automation_title">AlkalmazésTisztító automatizálás</string>
     <string name="appcleaner_automation_subtitle_default_caches">Alapértelmezett gyorsítótárak törlése…</string>
     <string name="appcleaner_automation_progress_open_settings">A beállítások képernyő megnyitása (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">„Tárhely” elem keresése (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">„Adatok törlése” gomb keresése (kulcsszavak: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">„Gyorsítótár törlése” gomb keresése (kulcsszavak: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Alapértelmezett gyorsítótárak</string>
     <string name="appcleaner_item_caches_inaccessible_body">Nyilvános és privát alapértelmezett gyorsítótárak. Közvetlenül nem elérhető, de közvetve törölhető (pl. akadálymentesítési szolgáltatáson keresztül).</string>
     <string name="appcleaner_automation_unavailable_title">A kisegítő lehetőségek szolgáltatása nem érhető el</string>

@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Proprietário</string>
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuração</string>
-    <string name="exclusion_create_action">Criar exclusão</string>
     <string name="setup_feature_requires_additional_setup_x">Esta funcionalidade requer completar itens de configuração adicional: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Uma exclusão criada</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Esfregona</string>
     <string name="stats_label">Histórico</string>
     <string name="settings_category_tools_label">Ferramentas</string>
+    <string name="general_include_multiuser_label">Incluir outros utilizadores</string>
+    <string name="general_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
+    <string name="general_unsaved_confirmation_message">Há alterações não guardadas!</string>
 </resources>

@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">스캔 과정에서 영향을 받을 수 있는 실행 중인 앱들을 포함합니다.</string>
     <string name="appcleaner_include_inaccessible_label">접근 불가한 캐시 포함</string>
     <string name="appcleaner_include_inaccessible_summary">직접 접근할 수는 없지만 시스템 설정과 접근성 권한을 이용해 삭제를 자동화할 수 있는 데이터를 포함합니다. </string>
-    <string name="appcleaner_include_multiuser_label">다른 유저 포함</string>
-    <string name="appcleaner_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
     <string name="appcleaner_include_minimumsize_label">최소 크기</string>
     <string name="appcleaner_include_minimumsize_summary">지정한 크기보다 작은 파일 건너뛰기.</string>
     <string name="appcleaner_include_minimumage_label">최소 기간</string>
@@ -64,14 +62,12 @@
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="other">임시 파일 %d개 감지</item>
     </plurals>
-    <string name="appcleaner_automation_loading">접근성 서비스를 통한 자동화를 준비하고 있습니다</string>
     <string name="appcleaner_automation_title">앱정리기 자동화</string>
     <string name="appcleaner_automation_subtitle_default_caches">기본 캐시를 정리하고 있습니다…</string>
     <string name="appcleaner_automation_progress_open_settings">설정 화면 여는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">“저장소” 항목 찾는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">“자료 삭제” 버튼 찾는 중 (키워드: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">“캐시 삭제” 버튼 찾는 중 (키워드: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">이전 동작 확인을 시도하는 중 (키워드: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">기본 캐시</string>
     <string name="appcleaner_item_caches_inaccessible_body">앱의 캐시 파일입니다. 직접적인 접근은 어렵지만, 접근성 서비스 등을 통해 간접적으로 지울 수 있습니다.</string>
     <string name="appcleaner_automation_unavailable_title">접근성 서비스를 사용할 수 없습니다.</string>

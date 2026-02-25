@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">Coscann eisiamh aipe SD Maid ó aon phacáistí meaitseála a phróiseáil.</string>
     <string name="exclusion_editor_segment_explanation">Tá eisiamh bunaithe ar dheighilt cosúil le heisiamh conaire ach ceadaíonn sé meaitseálacha páirteacha. Sampla: eisiatóidh \"DCIM/Camera\" \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">Bain an eisiamh seo?</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">Tá athruithe neamhshábháilte agat!</string>
     <string name="exclusion_reset_default_exclusions">Athchóirigh eisiaimh réamhshocraithe</string>
     <string name="exclusion_import_action">Iompórtáil eisiaimh</string>
     <string name="exclusion_export_action">Easpórtáil eisiaimh</string>

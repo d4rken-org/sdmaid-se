@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">SD Maid haikuweza kuonyesha uwekaji wa uotomatishaji. Angalia ruhusa na jaribu kuanzisha upya kifaa chako.</string>
     <string name="automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
     <string name="automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
+    <string name="automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
+    <string name="automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
 </resources>

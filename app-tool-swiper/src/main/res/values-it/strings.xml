@@ -130,14 +130,12 @@
     <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Aspetta!</string>
     <string name="swiper_gesture_overlay_dismiss">Tocca ovunque per iniziare</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Capito</string>
     <string name="swiper_gesture_overlay_left_delete">← Elimina</string>
     <string name="swiper_gesture_overlay_right_keep">Tieni →</string>
     <string name="swiper_gesture_overlay_left_keep">← Tieni</string>
     <string name="swiper_gesture_overlay_right_delete">Elimina →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Salta</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
-    <string name="swiper_help_action">Aiuto</string>
     <string name="swiper_help_title">Come funziona Swiper</string>
     <string name="swiper_help_message">Scorri ogni file per prendere una decisione:\n\n← Scorri a sinistra: %1$s\n→ Scorri a destra: %2$s\n↑ Scorri in alto: Salta\n↓ Scorri in basso: Annulla (dopo il primo scorrimento)\n\nPuoi anche usare i pulsanti in basso.\n\nQuando hai finito, tocca \"Revisione\" per vedere tutte le tue decisioni. Nulla viene eliminato finché non confermi nella schermata di revisione.</string>
 </resources>

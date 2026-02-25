@@ -65,7 +65,6 @@
     <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
     <string name="systemcleaner_customfilter_create_hint">اضافی فائلوں کو حذف کرنے کے لیے ایک کسٹم فلٹر بنائیں جو آپ کے ڈیوائس اور استعمال کے حالات کے لیے منفرد ہیں۔</string>
     <string name="systemcleaner_editor_remove_confirmation_message">یہ فلٹر ہٹائیں؟</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">آپ کے پاس غیر محفوظ تبدیلیاں ہیں!</string>
     <string name="systemcleaner_customfilter_editor_label_label">فلٹر لیبل</string>
     <string name="systemcleaner_customfilter_editor_warning">کسٹم فلٹرز خطرناک ہو سکتے ہیں۔ ڈیلیٹ کرنے سے پہلے اپنے سکین کے نتائج چیک کریں!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">ڈیٹا ایریاز</string>

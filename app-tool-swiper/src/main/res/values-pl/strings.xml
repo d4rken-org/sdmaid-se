@@ -164,14 +164,12 @@
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Czekaj!</string>
     <string name="swiper_gesture_overlay_dismiss">Dotknij w dowolnym miejscu, aby rozpocząć</string>
-    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
     <string name="swiper_gesture_overlay_left_delete">← Usuń</string>
     <string name="swiper_gesture_overlay_right_keep">Zachowaj →</string>
     <string name="swiper_gesture_overlay_left_keep">← Zachowaj</string>
     <string name="swiper_gesture_overlay_right_delete">Usuń →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Pomiń</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Cofnij</string>
-    <string name="swiper_help_action">Pomoc</string>
     <string name="swiper_help_title">Jak działa Przesuwacz</string>
     <string name="swiper_help_message">Przesuń każdy plik, aby podjąć decyzję:\n\n← Przesuń w lewo: %1$s\n→ Przesuń w prawo: %2$s\n↑ Przesuń w górę: Pomiń\n↓ Przesuń w dół: Cofnij (po pierwszym przesunięciu)\n\nMożesz również użyć przycisków na dole.\n\nPo zakończeniu dotknij „Przejrzyj”, aby zobaczyć wszystkie swoje decyzje. Nic nie zostanie usunięte, dopóki nie potwierdzisz na ekranie przeglądu.</string>
 </resources>

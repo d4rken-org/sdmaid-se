@@ -19,4 +19,6 @@
     <string name="automation_error_overlay_body">I-SD Maid ayikwazanga ukukhombisa isembeso sokuzenzelela. Hlola izimvume bese uzama ukuqalisa kabusha idivayisi yakho.</string>
     <string name="automation_error_no_settings_title">Isikrini sezilungiselelo asitholakali</string>
     <string name="automation_error_no_settings_body">Le nhlelo yesistimu ayinaso isikrini sezilungiselelo. Ukusula i-cache ngensiza yokufinyelela akukwazeki. Yikhiphe ukuze usheshise ukusula i-cache.</string>
+    <string name="automation_loading">Kulungiselela ukuzenzelela ngensiza yokufinyelela</string>
+    <string name="automation_progress_find_ok_confirmation">Kuzama ukuqinisekisa isenzo sangaphambilini (amagatsha angukhiye: %s)</string>
 </resources>

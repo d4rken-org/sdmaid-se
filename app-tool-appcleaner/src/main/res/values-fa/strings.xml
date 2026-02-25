@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">برنامه‌هایی که در حال حاضر در حال اجرا هستند و ممکن است تداخل ایجاد کنند را شامل کنید.</string>
     <string name="appcleaner_include_inaccessible_label">شامل کردن کش‌های غیرقابل‌دسترسی</string>
     <string name="appcleaner_include_inaccessible_summary">داده‌هایی را شامل کنید که نمی‌توان به طور مستقیم به آن‌ها دسترسی داشت اما می‌توان از طریق تنظیمات سیستم و با استفاده از یک سرویس دسترسی خودکار حذف کرد. </string>
-    <string name="appcleaner_include_multiuser_label">شامل کردن کاربران دیگر</string>
-    <string name="appcleaner_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
     <string name="appcleaner_include_minimumsize_label">حداقل اندازه</string>
     <string name="appcleaner_include_minimumsize_summary">برنامه‌هایی که مجموع داده‌های مصرف‌شدنی آن‌ها زیر حداقل است را نادیده بگیرید.</string>
     <string name="appcleaner_include_minimumage_label">حداقل سن</string>
@@ -66,14 +64,12 @@
         <item quantity="one">%d مورد قابل مصرف یافت شد</item>
         <item quantity="other">%d مورد قابل مصرف یافت شد</item>
     </plurals>
-    <string name="appcleaner_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
     <string name="appcleaner_automation_title">خودکارسازی پاک کننده برنامه</string>
     <string name="appcleaner_automation_subtitle_default_caches">پاک کردن حافظه‌های نهان پیش‌فرض…</string>
     <string name="appcleaner_automation_progress_open_settings">باز کردن صفحه تنظیمات (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">در حال جستجو برای دکمه \"Storage\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">در حال جستجو برای دکمه \"Clear data\" (کلید‌واژه: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">در حال جستجو برای دکمه \"Clear cache\" (کلید‌واژه: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">کش های پیش فرض</string>
     <string name="appcleaner_item_caches_inaccessible_body">حافظه‌های نهان پیش‌فرض عمومی و خصوصی. به‌طور مستقیم قابل دسترسی نیستند، اما می‌توان به‌طور غیرمستقیم آنها را حذف کرد (به عنوان مثال، از طریق سرویس دسترسی).</string>
     <string name="appcleaner_automation_unavailable_title">سرویس دسترسی در دسترس نیست</string>

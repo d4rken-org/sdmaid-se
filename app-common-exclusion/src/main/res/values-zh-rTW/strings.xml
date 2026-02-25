@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">應用程式排除可以防止 SD 女僕進一步處理任何相符的套件。</string>
     <string name="exclusion_editor_segment_explanation">基於區段的排除類似於路徑排除，但允許部分相符，例如：「DCIM/Camera」排除「/sdcard/DCIM/Camera/photo.png」。</string>
     <string name="exclusion_editor_remove_confirmation_message">移除這個排除？</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
     <string name="exclusion_reset_default_exclusions">還原預設排除</string>
     <string name="exclusion_import_action">匯入排除</string>
     <string name="exclusion_export_action">匯出排除</string>

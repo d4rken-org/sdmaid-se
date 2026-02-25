@@ -124,8 +124,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">احصل على تقدير تقريبي لحجم كل تطبيق.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">تحديد النشاط</string>
     <string name="appcontrol_settings_module_activity_enabled_description">اكتشف إذا كان التطبيق نشطاً (أو مؤخرًا).</string>
-    <string name="appcontrol_include_multiuser_label">ضم مستعملين آخرين</string>
-    <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
     <string name="appcontrol_export_app_selection_action">تصدير التطبيقات</string>
     <string name="appcontrol_export_title">تصدير التطبيق</string>
     <string name="appcontrol_export_description">حفظ ملفات التثبيت لهذا التطبيق. هذا لا يتضمن بيانات التطبيق.</string>
@@ -160,11 +158,9 @@
         <item quantity="many">إيقاف %d من التطبيقات</item>
         <item quantity="other">إيقاف %d من التطبيقات</item>
     </plurals>
-    <string name="appcontrol_automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
     <string name="appcontrol_automation_title">أتمتة التحكم بالتطبيقات</string>
     <string name="appcontrol_automation_subtitle_force_stopping">فرض إيقاف…</string>
     <string name="appcontrol_automation_progress_find_force_stop">البحث عن زر \"فرض التوقف\" (الكلمات الرئيسية: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">جارٍ الأرشفة…</string>
     <string name="appcontrol_automation_progress_find_archive">البحث عن زر \"أرشفة\" (الكلمات الرئيسية: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">جارٍ الاستعادة…</string>

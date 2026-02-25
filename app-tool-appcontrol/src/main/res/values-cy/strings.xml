@@ -50,8 +50,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Cael amcangyfrif bras o faint pob ap.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Pennu gweithgaredd</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Darganfod a yw ap yn weithgar (neu\'n ddiweddar wedi bod yn weithgar).</string>
-    <string name="appcontrol_include_multiuser_label">Cynnwys defnyddwyr eraill</string>
-    <string name="appcontrol_include_multiuser_summary">Cynnwys apiau o broffiliau defnyddwyr eraill ar y ddyfais hon.</string>
     <string name="appcontrol_export_app_selection_action">Allforio apiau</string>
     <string name="appcontrol_export_title">Allforio ap</string>
     <string name="appcontrol_export_description">Cadw ffeiliau gosod yr ap hwn. Nid yw hyn yn cynnwys data ap.</string>
@@ -62,11 +60,9 @@
     <string name="appcontrol_force_stop_selection_action">Gorfodi apiau i stopio</string>
     <string name="appcontrol_force_stop_action">Gorfodi i stopio</string>
     <string name="appcontrol_force_stop_confirm_title">Cadarnhau gorfodi i stopio</string>
-    <string name="appcontrol_automation_loading">Paratoi awtomeiddio trwy wasanaeth hygyrchedd</string>
     <string name="appcontrol_automation_title">Awtomeiddio Rheolaeth Apiau</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Gorfodi stopio…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Chwilio am fotwm "Gorfodi i stopio" (allweddeiriau: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Ceisio cadarnhau gweithred flaenorol (allweddeiriau: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Yn archifo…</string>
     <string name="appcontrol_automation_progress_find_archive">Chwilio am fotwm \"Archifo\" (allweddeiriau: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Yn adfer…</string>

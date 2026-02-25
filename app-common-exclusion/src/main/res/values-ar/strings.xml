@@ -19,7 +19,6 @@
     <string name="exclusion_editor_pkg_explanation">يمنع استثناء التطبيق SD Maid من معالجة أي حزم مطابقة.</string>
     <string name="exclusion_editor_segment_explanation">والاستبعاد القائم على الشريحة مماثل لاستبعاد المسار ولكنه يسمح بمطابقة جزئية. مثال: \"DCIM/Camera\" لا يشمل \"/sdcard/DCIM/Camera/photo.png\".</string>
     <string name="exclusion_editor_remove_confirmation_message">إزالة هذا الاستبعاد؟</string>
-    <string name="exclusion_editor_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
     <string name="exclusion_reset_default_exclusions">استعادة الاستثناءات الإفتراضية</string>
     <string name="exclusion_import_action">استيراد استثناءات</string>
     <string name="exclusion_export_action">تصدير استثناءات</string>

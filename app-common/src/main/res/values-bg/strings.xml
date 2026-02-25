@@ -174,7 +174,6 @@
     <string name="general_user_label_owner">Собственик</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Настройка</string>
-    <string name="exclusion_create_action">Създаване на изключение</string>
     <string name="setup_feature_requires_additional_setup_x">Тази функция изисква завършване на допълнителни елементи за настройка: %s</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Създадено е едно изключение</item>
@@ -190,4 +189,7 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">История</string>
     <string name="settings_category_tools_label">Инструменти</string>
+    <string name="general_include_multiuser_label">Включване на други потребители</string>
+    <string name="general_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
+    <string name="general_unsaved_confirmation_message">Имате незапазени промени!</string>
 </resources>

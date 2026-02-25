@@ -164,14 +164,12 @@
     <string name="swiper_stamp_undo_3">אופס!</string>
     <string name="swiper_stamp_undo_4">רגע!</string>
     <string name="swiper_gesture_overlay_dismiss">הקש בכל מקום כדי להתחיל</string>
-    <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
     <string name="swiper_gesture_overlay_left_delete">← מחק</string>
     <string name="swiper_gesture_overlay_right_keep">שמור →</string>
     <string name="swiper_gesture_overlay_left_keep">← שמור</string>
     <string name="swiper_gesture_overlay_right_delete">מחק →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ דלג</string>
     <string name="swiper_gesture_overlay_down_undo">↓ בטל</string>
-    <string name="swiper_help_action">עזרה</string>
     <string name="swiper_help_title">איך Swiper עובד</string>
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
 </resources>

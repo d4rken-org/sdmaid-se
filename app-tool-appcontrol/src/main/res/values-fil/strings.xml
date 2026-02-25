@@ -82,8 +82,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Makakuha ng tantyang laki ng bawat app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tukuyin ang aktibidad</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Alamin kung ang isang app ay aktibo (o kamakailang aktibo).</string>
-    <string name="appcontrol_include_multiuser_label">Isama ang ibang user</string>
-    <string name="appcontrol_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
     <string name="appcontrol_export_app_selection_action">I-export ang mga app</string>
     <string name="appcontrol_export_title">I-export ang app</string>
     <string name="appcontrol_export_description">I-save ang mga installation file ng app na ito. Hindi kasama ang app data.</string>
@@ -105,10 +103,8 @@
         <item quantity="one">%d app ay na-stop</item>
         <item quantity="other">%d mga app ay na-stop</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Nag-force stop…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Naghahanap ng \"Force stop\" button (keywords: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Sinusubukang kumpirmahin ang nakaraang aksyon (keywords: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Ina-archive…</string>
     <string name="appcontrol_automation_progress_find_archive">Hinahanap ang \"Archive\" button (mga keyword: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Ire-restore…</string>

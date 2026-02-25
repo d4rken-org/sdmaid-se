@@ -69,7 +69,6 @@
     <string name="systemcleaner_customfilter_create_action">Створити власний фільтр</string>
     <string name="systemcleaner_customfilter_create_hint">Створіть власний фільтр, щоб видалити зайві файли, які є унікальними для вашого пристрою та сценаріїв використання.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Видалити цей фільтр?</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
     <string name="systemcleaner_customfilter_editor_label_label">Фільтрувати мітку</string>
     <string name="systemcleaner_customfilter_editor_warning">Користувацькі фільтри можуть бути ризикованими. Перевірте результати сканування перед видаленням!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Області даних</string>

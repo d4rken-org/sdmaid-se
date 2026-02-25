@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et cirkaestimat af hver apps størrelse.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Find ud af, om en app er (eller for nylig har været) aktiv.</string>
-    <string name="appcontrol_include_multiuser_label">Inkluder andre brugere</string>
-    <string name="appcontrol_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
     <string name="appcontrol_export_app_selection_action">Eksportér apps</string>
     <string name="appcontrol_export_title">Eksportér app</string>
     <string name="appcontrol_export_description">Gem denne apps installationsfiler. Dette omfatter ikke appdata.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d app blev stoppet</item>
         <item quantity="other">%d apps blev stoppet</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Forbereder automatisering via tilgængelighedstjeneste</string>
     <string name="appcontrol_automation_title">Appkontrol-automatisering</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Tvinger stop…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Leder efter knappen \"Gennemtving stop\" (søgeord: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Forsøger at bekræfte tidligere handling (søgeord: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Arkiverer…</string>
     <string name="appcontrol_automation_progress_find_archive">Leder efter knappen \"Arkivér\" (søgeord: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Gendanner…</string>

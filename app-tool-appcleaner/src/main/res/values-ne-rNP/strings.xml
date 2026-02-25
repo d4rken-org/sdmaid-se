@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">हाल चलिरहेका एप्सहरू समावेश गर्नुहोस् जसले हस्तक्षेप गर्न सक्छ।</string>
     <string name="appcleaner_include_inaccessible_label">पहुँच नभएका क्यासहरू समावेश गर्नुहोस्</string>
     <string name="appcleaner_include_inaccessible_summary">प्रत्यक्ष पहुँच गर्न नसकिने तर प्रणाली सेटिङ मार्फत मेटाउन सकिने र पहुँच सेवा प्रयोग गरी स्वचालित गर्न सकिने डेटा समावेश गर्नुहोस्।</string>
-    <string name="appcleaner_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
-    <string name="appcleaner_include_multiuser_summary">यस उपकरणका अन्य प्रयोगकर्ता प्रोफाइलहरूका एप्सहरू समावेश गर्नुहोस्।</string>
     <string name="appcleaner_include_minimumsize_label">न्यूनतम आकार</string>
     <string name="appcleaner_include_minimumsize_summary">न्यूनतम भन्दा कम व्यय गर्न सकिने डेटाको योग भएका एप्सहरूलाई छोड्नुहोस्।</string>
     <string name="appcleaner_include_minimumage_label">न्यूनतम उमेर</string>
@@ -53,14 +51,12 @@
     <string name="appcleaner_filter_qqchat_label">QQ च्याट</string>
     <string name="appcleaner_filter_qqchat_summary">QQ च्याट कुराकानीमा पठाइएका वा प्राप्त फाइलहरू।</string>
     <string name="appcleaner_delete_all_confirmation_message">सबै एप्सहरूका लागि व्यय गर्न सकिने वस्तुहरू मेटाउने?</string>
-    <string name="appcleaner_automation_loading">पहुँच सेवा मार्फत स्वचालन तयार गर्दै</string>
     <string name="appcleaner_automation_title">AppCleaner स्वचालन</string>
     <string name="appcleaner_automation_subtitle_default_caches">पूर्वनिर्धारित क्यासहरू खाली गर्दै…</string>
     <string name="appcleaner_automation_progress_open_settings">सेटिङ स्क्रिन खोल्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">\"Storage\" प्रविष्टि खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">\"Clear data\" बटन खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">\"Clear cache\" बटन खोज्दै (किवर्डहरू: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">पूर्वनिर्धारित cache हरू</string>
     <string name="appcleaner_item_caches_inaccessible_body">सार्वजनिक र निजी पूर्वनिर्धारित cache हरू। प्रत्यक्ष रूपमा पहुँचयोग्य छैन, तर अप्रत्यक्ष रूपमा मेटाउन सकिन्छ (जस्तै accessibility service मार्फत)।</string>
     <string name="appcleaner_automation_unavailable_title">Accessibility service उपलब्ध छैन</string>

@@ -92,8 +92,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">ஒவ்வொரு பயன்பாட்டின் அளவின் தவறான அனுமானத்தைப் பெறவும்.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">செயல்பாடை நிர்ணயிக்கவும்</string>
     <string name="appcontrol_settings_module_activity_enabled_description">பயன்பாடு (அல்லது இறுதியாக) செயல்பட்டுக் கொண்டிருந்ததா என்று கண்டுபிடிக்கவும்.</string>
-    <string name="appcontrol_include_multiuser_label">பிற பயனர்களைச் சேர்</string>
-    <string name="appcontrol_include_multiuser_summary">இந்தச் சாதனத்தில் மற்ற பயனர் சுயவிவரங்களிலிருந்து செயலிகளைச் சேர்.</string>
     <string name="appcontrol_export_app_selection_action">பயன்பாடுகளை ஏற்றுமதி செய்</string>
     <string name="appcontrol_export_title">பயன்பாடை ஏற்றுமதி செய்</string>
     <string name="appcontrol_export_description">இந்தச் செயலியின் நிறுவல் கோப்புகளைச் சேமி. இது செயலி தரவை உள்ளடக்காது.</string>
@@ -116,11 +114,9 @@
         <item quantity="one">%d பயன்பாடு நிறுத்தப்பட்டது</item>
         <item quantity="other">%d பயன்பாடுகள் நிறுத்தப்பட்டன</item>
     </plurals>
-    <string name="appcontrol_automation_loading">அணுகல் சேவை வழியாக தனியாக்கத்தை தயார் செய்கிறது</string>
     <string name="appcontrol_automation_title">பயன்பாட்டு கட்டுப்பாடு தனியாக்கம்</string>
     <string name="appcontrol_automation_subtitle_force_stopping">வலையுள்ள நிறுத்துகிறது…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"வலையுள்ள நிறுத்தம்\" பொத்தானைத் தேடுகிறது (சாவி வார்த்தைகள்: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">முந்தைய செயலை உறுதிசெய்ய முயற்சிகிறது (சாவி வார்த்தைகள்: %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">காப்பகப்படுத்துகிறது…</string>
     <string name="appcontrol_automation_progress_find_archive">\"காப்பகம்\" பொத்தானைத் தேடுகிறது (முக்கிய சொற்கள்: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">மீட்டெடுக்கிறது…</string>

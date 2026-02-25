@@ -11,8 +11,6 @@
     <string name="appcleaner_include_runningapps_summary">Uključuje aplikacije koje su trenutačno pokrenute što može uzrokovati smetnje.</string>
     <string name="appcleaner_include_inaccessible_label">Uključi nedostupne predmemorije</string>
     <string name="appcleaner_include_inaccessible_summary">Uključuje podatke kojima se ne može izravno pristupiti, ali ih je moguće izbrisati putem postavki sustava i automatizirati pomoću usluge pristupačnosti.</string>
-    <string name="appcleaner_include_multiuser_label">Uključi druge korisnike</string>
-    <string name="appcleaner_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
     <string name="appcleaner_include_minimumsize_label">Minimalna veličina</string>
     <string name="appcleaner_include_minimumsize_summary">Preskoči aplikacije u kojima je zbroj potrošnih podataka ispod minimuma.</string>
     <string name="appcleaner_include_minimumage_label">Minimalna starost</string>
@@ -68,14 +66,12 @@
         <item quantity="few">Pronađene %d potrošne stavke</item>
         <item quantity="other">Pronađeno %d potrošnih stavki</item>
     </plurals>
-    <string name="appcleaner_automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>
     <string name="appcleaner_automation_title">Automatizacija čistača aplikacija</string>
     <string name="appcleaner_automation_subtitle_default_caches">Brisanje zadanih predmemorija…</string>
     <string name="appcleaner_automation_progress_open_settings">Otvaranje zaslona postavki (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Traženje unosa \"Pohrana\" (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Traženje gumba \"Obriši podatke\" (ključne riječi: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_cache">Traženje gumba \"Obriši predmemoriju\" (ključne riječi: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Pokušaj potvrde prethodne radnje (ključne riječi: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Zadane predmemorije</string>
     <string name="appcleaner_item_caches_inaccessible_body">Javne i privatne zadane predmemorije. Nisu izravno dostupne, ali se mogu neizravno izbrisati (npr. putem usluge pristupačnosti).</string>
     <string name="appcleaner_automation_unavailable_title">Usluga pristupačnosti nije dostupna</string>

@@ -83,8 +83,6 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Dapatkan anggaran kasar saiz setiap aplikasi.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Tentukan aktiviti</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Membolehkan pengumpulan maklumat penggunaan aplikasi</string>
-    <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada peranti ini.</string>
     <string name="appcontrol_export_app_selection_action">Eksport aplikasi terpilih</string>
     <string name="appcontrol_export_title">Eksport</string>
     <plurals name="appcontrol_export_result_message_x">
@@ -103,11 +101,9 @@
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d aplikasi telah dihentikan</item>
     </plurals>
-    <string name="appcontrol_automation_loading">Memuatkan...</string>
     <string name="appcontrol_automation_title">Automasi</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti aplikasi</string>
     <string name="appcontrol_automation_progress_find_force_stop">Mencari butang paksa berhenti</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcontrol_automation_subtitle_archiving">Mengarkib…</string>
     <string name="appcontrol_automation_progress_find_archive">Mencari butang \"Arkib\" (kata kunci: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Memulihkan…</string>
