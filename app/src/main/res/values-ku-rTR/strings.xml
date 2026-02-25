@@ -79,9 +79,6 @@
     <string name="history_label">مێژوو</string>
     <string name="history_description">لیستێکی کاتیی کردارە نوێکان و داتای کاریگەربوو.</string>
     <string name="data_areas_label">ناوچەکانی داتا</string>
-    <string name="stats_report_status_success">سەرکەوتوو</string>
-    <string name="stats_report_status_partial_success">سەرکەوتنی بەشی</string>
-    <string name="stats_report_status_partial_failure">شکست</string>
     <string name="updates_dashcard_title">نوێکاری بەردەستە</string>
     <string name="updates_dashcard_body">نوێکاریەک بەردەستە. تۆ %1$s ت هەیە و نوێترین وەشان %2$s ە.</string>
     <string name="translation_encourage_title">SD Maid وەربگێڕە</string>
@@ -92,6 +89,4 @@
     <string name="motd_setting_enabled_label">پەیامە گرنگەکان</string>
     <string name="updatecheck_setting_enabled_label">پشکنینی نوێکاری</string>
     <string name="shortcut_onetap_short">سکان + سڕینەوە</string>
-    <string name="stats_affected_paths_label">ڕێگا کاریگەربووەکان</string>
-    <string name="stats_affected_pkgs_label">ئەپە کاریگەربووەکان</string>
 </resources>

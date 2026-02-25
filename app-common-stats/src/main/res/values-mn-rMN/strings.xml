@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="stats_dash_body_size">
+    <item quantity="one">%s чөлөөлөгдсөн.</item>
+    <item quantity="other">%s чөлөөлөгдсөн.</item>
+    </plurals>
+    <string name="stats_report_status_success">Амжилттай</string>
+    <string name="stats_report_status_partial_success">Хэсэгчлэн амжилттай</string>
+    <string name="stats_report_status_partial_failure">Амжилтгүй</string>
+    <string name="stats_settings_desc">SD Maid-ийн статистик, тайлан болон өгөгдөл хадгалах хугацааг тохируулах.</string>
+    <string name="stats_settings_retention_category">Хадгалах хугацаа</string>
+    <string name="stats_settings_reset_all_label">Бүгдийг шинэчлэх</string>
+    <string name="stats_settings_reset_all_desc">Бүх тайланг устгаж, бүх статистикийг тэг болгох.</string>
+    <string name="stats_affected_paths_label">Нөлөөлсөн замууд</string>
+    <string name="stats_affected_pkgs_label">Нөлөөлсөн аппликешнүүд</string>
+</resources>

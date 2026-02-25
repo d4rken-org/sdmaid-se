@@ -6,6 +6,7 @@ import android.text.style.ForegroundColorSpan
 import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.stats.R as StatsR
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.StatsDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -26,7 +27,7 @@ class StatsDashCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         val (space, spaceQuantity) = ByteFormatter.formatSize(context, item.state.totalSpaceFreed)
         val spaceFormatted = getQuantityString(
-            R.plurals.stats_dash_body_size,
+            StatsR.plurals.stats_dash_body_size,
             spaceQuantity,
             space
         )
@@ -34,7 +35,7 @@ class StatsDashCardVH(parent: ViewGroup) :
         val processed = item.state.itemsProcessed.toString()
         val processedQuantity = item.state.itemsProcessed
         val processedFormatted = getQuantityString(
-            R.plurals.stats_dash_body_count,
+            StatsR.plurals.stats_dash_body_count,
             processedQuantity.toInt(),
             processed,
         )

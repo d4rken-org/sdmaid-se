@@ -235,37 +235,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
         <item quantity="many">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
         <item quantity="other">%1$d שנים עם SD Maid — מקום שהתפנה: %2$s. שומר על ה-Android שלך נקי ומסודר. #SDMaid\nנסה: %3$s</item>
     </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="one">%s שוחרר.</item>
-        <item quantity="two">%s שוחררו.</item>
-        <item quantity="many">%s שוחררו.</item>
-        <item quantity="other">%s שוחררו.</item>
-    </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">פריט %s עובד מאז שהתקנת את SD Maid במכשיר שלך.</item>
-        <item quantity="two">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
-        <item quantity="many">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
-        <item quantity="other">%s פריטים עובדו מאז שהתקנת את SD Maid במכשיר שלך.</item>
-    </plurals>
-    <string name="stats_report_status_success">הצליח</string>
-    <string name="stats_report_status_partial_success">הצלחה חלקית</string>
-    <string name="stats_report_status_partial_failure">כישלון</string>
-    <string name="stats_settings_desc">הגדר את הנתונים הסטטיסטיים, הדוחות ושמירת הנתונים של SD Maid.</string>
-    <string name="stats_settings_retention_category">תחזוקה</string>
-    <string name="stats_settings_retention_reports_label">דוחות כלליים</string>
-    <string name="stats_settings_retention_reports_desc">מספר הימים לפני מחיקת דוחות תפעול בסיסיים של SD Maid.</string>
-    <string name="stats_settings_retention_paths_label">מידע מפורט על נתיב</string>
-    <string name="stats_settings_retention_paths_desc">מספר הימים לשמירת פרטים לגבי נתיבים שהושפעו על ידי SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d יום</item>
-        <item quantity="two">%d ימים</item>
-        <item quantity="many">%d ימים</item>
-        <item quantity="other">%d ימים</item>
-    </plurals>
-    <string name="stats_settings_reset_all_label">איפוס הכל</string>
-    <string name="stats_settings_reset_all_desc">מחק את כל הדוחות והגדר את כל הנתונים הסטטיסטיים לאפס.</string>
-    <string name="stats_affected_paths_label">נתיבים מושפעים</string>
-    <string name="stats_affected_pkgs_label">יישומים מושפעים</string>
     <string name="shortcut_onetap_short">סריקה + מחיקה</string>
     <string name="shortcut_onetap_long">סריקה ומחיקה בפעולה אחת</string>
     <string name="shortcuts_settings_category">קיצורי דרך</string>

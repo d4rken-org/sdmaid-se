@@ -146,9 +146,6 @@
     <string name="history_label">Storja</string>
     <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>
     <string name="data_areas_label">Żoni tad-data</string>
-    <string name="stats_report_status_success">Suċċess</string>
-    <string name="stats_report_status_partial_success">Suċċess parzjali</string>
-    <string name="stats_report_status_partial_failure">Falliment</string>
     <string name="updates_dashcard_title">Aġġornament disponibbli</string>
     <string name="updates_dashcard_body">Hemm aġġornament disponibbli. Għandek %1$s u l-aħħar verżjoni hija %2$s.</string>
     <string name="translation_encourage_title">Ittraduċi SD Maid</string>
@@ -159,6 +156,4 @@
     <string name="motd_setting_enabled_label">Messaġġi importanti</string>
     <string name="updatecheck_setting_enabled_label">Iċċekkja għal aġġornamenti</string>
     <string name="shortcut_onetap_short">Iskennja + Ħassar</string>
-    <string name="stats_affected_paths_label">Paths affettwati</string>
-    <string name="stats_affected_pkgs_label">Apps affettwati</string>
 </resources>

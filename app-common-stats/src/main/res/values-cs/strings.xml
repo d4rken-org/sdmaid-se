@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="stats_dash_body_size">
+    <item quantity="one">Bylo uvolněno %s.</item>
+    <item quantity="few">Bylo uvolněno %s.</item>
+    <item quantity="many">Bylo uvolněno %s.</item>
+    <item quantity="other">Bylo uvolněno %s.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+    <item quantity="one">%s položka zpracována od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
+    <item quantity="few">%s položky zpracovány od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
+    <item quantity="many">%s položek zpracováno od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
+    <item quantity="other">%s položek zpracováno od doby, kdy jste nainstalovali SD Maid do svého zařízení.</item>
+    </plurals>
+    <string name="stats_report_status_success">Úspěch</string>
+    <string name="stats_report_status_partial_success">Částečný úspěch</string>
+    <string name="stats_report_status_partial_failure">Neúspěch</string>
+    <string name="stats_settings_desc">Nastavte statistiky, zprávy a uchování dat aplikace SD Maid.</string>
+    <string name="stats_settings_retention_category">Zachování</string>
+    <string name="stats_settings_retention_reports_label">Obecné zprávy</string>
+    <string name="stats_settings_retention_reports_desc">Počet dní před odstraněním základních zpráv o operacích v SD Maid.</string>
+    <string name="stats_settings_retention_paths_label">Podrobné informace o cestě</string>
+    <string name="stats_settings_retention_paths_desc">Počet dní k uchování podrobností o cestách ovlivněných aplikací SD Maid.</string>
+    <plurals name="stats_settings_retention_x_days">
+    <item quantity="one">%d den</item>
+    <item quantity="few">%d dny</item>
+    <item quantity="many">%d dnů</item>
+    <item quantity="other">%d dnů</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Obnovit vše</string>
+    <string name="stats_settings_reset_all_desc">Smazat všechna hlášení a nastavit všechny statistiky na nulu.</string>
+    <string name="stats_affected_paths_label">Ovlivněné cesty</string>
+    <string name="stats_affected_pkgs_label">Ovlivněné aplikace</string>
+</resources>

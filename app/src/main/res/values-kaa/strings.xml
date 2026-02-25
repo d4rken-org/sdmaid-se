@@ -211,19 +211,6 @@
         <item quantity="one">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
         <item quantity="other">SD Maid menen %1$d jıl — Bosatılǵan orın: %2$s. Android qurilmańızdı taza ha\'m ta\'rtipli uslap atır. #SDMaid\nSınap ko\'rin\': %3$s</item>
     </plurals>
-    <string name="stats_report_status_success">Tabıs</string>
-    <string name="stats_report_status_partial_success">Ishinen tabıs</string>
-    <string name="stats_report_status_partial_failure">Sátsizlik</string>
-    <string name="stats_settings_desc">SD Maid-tıŋ statistikası, esabatları hám maǵlıwmatlar saqlaw waqıtın konfiguraciyalaw.</string>
-    <string name="stats_settings_retention_category">Saqlaw waqıtı</string>
-    <string name="stats_settings_retention_reports_label">Umumiy esabatlar</string>
-    <string name="stats_settings_retention_reports_desc">SD Maid-tıŋ ásasiy operaciya esabatların óshiriw aldından kúnler sanı.</string>
-    <string name="stats_settings_retention_paths_label">Egjeyli jollar maǵlıwmatı</string>
-    <string name="stats_settings_retention_paths_desc">SD Maid tárápınan tásirleng̱en jollar haqqında egjeyliklerni saqlaw kúnler sanı.</string>
-    <string name="stats_settings_reset_all_label">Barlıg̱ın qayta ornatıw</string>
-    <string name="stats_settings_reset_all_desc">Barlıq esabatlardı óshiriw hám barlıq statistikalardı nólge ornatıw.</string>
-    <string name="stats_affected_paths_label">Tásirleng̱en jollar</string>
-    <string name="stats_affected_pkgs_label">Tásirleng̱en qosımshalar</string>
     <string name="shortcut_onetap_short">Skanerlew + O\'shiriw</string>
     <string name="shortcut_onetap_long">Bir a\'melde skanerlew ha\'m o\'shiriw</string>
     <string name="shortcuts_settings_category">Tezkor belgiler</string>

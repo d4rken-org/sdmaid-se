@@ -203,7 +203,4 @@
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
-    <string name="stats_report_status_success">Veiksmīgi</string>
-    <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
-    <string name="stats_report_status_partial_failure">Neveiksmīgi</string>
 </resources>

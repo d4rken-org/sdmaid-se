@@ -234,37 +234,6 @@
         <item quantity="many">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
         <item quantity="other">%1$d років з SD Maid — Звільнено місця: %2$s. Підтримка чистоти вашого Android. #SDMaid\nСпробуйте: %3$s</item>
     </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="one">%s було звільнено.</item>
-        <item quantity="few">%s було звільнено.</item>
-        <item quantity="many">%s було звільнено.</item>
-        <item quantity="other">%s було звільнено.</item>
-    </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s елемент оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
-        <item quantity="few">%s елементи оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
-        <item quantity="many">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
-        <item quantity="other">%s елементів оброблено з моменту запрошення SD Maid на ваш пристрій.</item>
-    </plurals>
-    <string name="stats_report_status_success">Успіх</string>
-    <string name="stats_report_status_partial_success">Частковий успіх</string>
-    <string name="stats_report_status_partial_failure">Невдача</string>
-    <string name="stats_settings_desc">Налаштуйте статистику, звіти та збереження даних у SD Maid.</string>
-    <string name="stats_settings_retention_category">Збереження</string>
-    <string name="stats_settings_retention_reports_label">Загальні звіти</string>
-    <string name="stats_settings_retention_reports_desc">Кількість днів до видалення основних звітів про роботу SD Maid.</string>
-    <string name="stats_settings_retention_paths_label">Детальна інформація про шлях</string>
-    <string name="stats_settings_retention_paths_desc">Кількість днів, протягом яких зберігається інформація про шляхи, на які вплинула SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d день</item>
-        <item quantity="few">%d дні</item>
-        <item quantity="many">%d днів</item>
-        <item quantity="other">%d днів</item>
-    </plurals>
-    <string name="stats_settings_reset_all_label">Скинути все</string>
-    <string name="stats_settings_reset_all_desc">Видаліть усі звіти та обнулить усю статистику.</string>
-    <string name="stats_affected_paths_label">Пошкоджені шляхи</string>
-    <string name="stats_affected_pkgs_label">Пошкоджені додатки</string>
     <string name="shortcut_onetap_short">Сканувати + Видалити</string>
     <string name="shortcut_onetap_long">Сканування та видалення однією дією</string>
     <string name="shortcuts_settings_category">Швидкі клавіші</string>

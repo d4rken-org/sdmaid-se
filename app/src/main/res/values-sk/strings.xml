@@ -234,37 +234,6 @@
         <item quantity="many">%1$d rokov s SD Maid — Uvoľnené miesto: %2$s. Udržiavanie vášho Androidu čistého a uprataného. #SDMaid\nVyskúšajte: %3$s</item>
         <item quantity="other">%1$d rokov s SD Maid — Uvoľnené miesto: %2$s. Udržiavanie vášho Androidu čistého a uprataného. #SDMaid\nVyskúšajte: %3$s</item>
     </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="one">%s bol uvoľnený.</item>
-        <item quantity="few">%s boli uvoľnené.</item>
-        <item quantity="many">%s bolo uvoľnených.</item>
-        <item quantity="other">%s bolo uvoľnených.</item>
-    </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s položka spracovaná od pozvania SD Maid na vaše zariadenie.</item>
-        <item quantity="few">%s položky spracované od pozvania SD Maid na vaše zariadenie.</item>
-        <item quantity="many">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
-        <item quantity="other">%s položiek spracovaných od pozvania SD Maid na vaše zariadenie.</item>
-    </plurals>
-    <string name="stats_report_status_success">Úspech</string>
-    <string name="stats_report_status_partial_success">Čiastočný úspech</string>
-    <string name="stats_report_status_partial_failure">Zlyhanie</string>
-    <string name="stats_settings_desc">Nakonfigurujte štatistiky, správy a uchovávanie údajov SD Maid.</string>
-    <string name="stats_settings_retention_category">Zachovanie</string>
-    <string name="stats_settings_retention_reports_label">Všeobecné správy</string>
-    <string name="stats_settings_retention_reports_desc">Počet dní pred odstránením základných správ o prevádzke SD Maid.</string>
-    <string name="stats_settings_retention_paths_label">Podrobné informácie o ceste</string>
-    <string name="stats_settings_retention_paths_desc">Počet dní uchovávania podrobností o cestách ovplyvnených službou SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d deň</item>
-        <item quantity="few">%d dni</item>
-        <item quantity="many">%d dní</item>
-        <item quantity="other">%d dní</item>
-    </plurals>
-    <string name="stats_settings_reset_all_label">Obnoviť všetko</string>
-    <string name="stats_settings_reset_all_desc">Odstráňte všetky prehľady a nastavte všetky štatistiky na nulu.</string>
-    <string name="stats_affected_paths_label">Ovplyvnené cesty</string>
-    <string name="stats_affected_pkgs_label">Ovplyvnené aplikácie</string>
     <string name="shortcut_onetap_short">Skenovať + Odstrániť</string>
     <string name="shortcut_onetap_long">Skenujte a odstráňte v jednej akcii</string>
     <string name="shortcuts_settings_category">Skratky</string>

@@ -97,9 +97,6 @@
     <string name="history_label">Dîrok</string>
     <string name="history_description">Lîsteya kronolojîk a çalakiyên dawî û daneyên bandorkirî.</string>
     <string name="data_areas_label">Deverên daneyan</string>
-    <string name="stats_report_status_success">Serketî</string>
-    <string name="stats_report_status_partial_success">Qismî serketî</string>
-    <string name="stats_report_status_partial_failure">Têkçûn</string>
     <string name="updates_dashcard_title">Nûvekirin heye</string>
     <string name="updates_dashcard_body">Nûvekirin heye. Guhertoya we %1$s e û guhertoya herî dawî %2$s e.</string>
     <string name="translation_encourage_title">SD Maid wergerînin</string>
@@ -110,6 +107,4 @@
     <string name="motd_setting_enabled_label">Peyamên girîng</string>
     <string name="updatecheck_setting_enabled_label">Kontrola nûvekirinan</string>
     <string name="shortcut_onetap_short">Bişopîne + Jê bibe</string>
-    <string name="stats_affected_paths_label">Rêyên bandorkirî</string>
-    <string name="stats_affected_pkgs_label">Sepanên bandorkirî</string>
 </resources>

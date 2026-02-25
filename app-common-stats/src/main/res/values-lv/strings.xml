@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="stats_report_status_success">Veiksmīgi</string>
+    <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
+    <string name="stats_report_status_partial_failure">Neveiksmīgi</string>
+</resources>

@@ -218,31 +218,6 @@
         <item quantity="one">%1$d ano con SD Maid — Espazo liberado: %2$s. Mantendo o teu Android limpo e ordenado. #SDMaid\nPróbao: %3$s</item>
         <item quantity="other">%1$d anos con SD Maid — Espazo liberado: %2$s. Mantendo o teu Android limpo e ordenado. #SDMaid\nPróbao: %3$s</item>
     </plurals>
-    <plurals name="stats_dash_body_size">
-        <item quantity="one">Liberouse %s.</item>
-        <item quantity="other">Liberáronse %s.</item>
-    </plurals>
-    <plurals name="stats_dash_body_count">
-        <item quantity="one">%s elemento procesado desde que convidou a SD Maid ao seu dispositivo.</item>
-        <item quantity="other">%s elementos procesados desde que convidou a SD Maid ao seu dispositivo.</item>
-    </plurals>
-    <string name="stats_report_status_success">Éxito</string>
-    <string name="stats_report_status_partial_success">Éxito parcial</string>
-    <string name="stats_report_status_partial_failure">Erro</string>
-    <string name="stats_settings_desc">Configurar as estatísticas, informes e retención de datos de SD Maid.</string>
-    <string name="stats_settings_retention_category">Retención</string>
-    <string name="stats_settings_retention_reports_label">Informes xerais</string>
-    <string name="stats_settings_retention_reports_desc">Número de días antes de eliminar os informes básicos de operacións de SD Maid.</string>
-    <string name="stats_settings_retention_paths_label">Información detallada de rutas</string>
-    <string name="stats_settings_retention_paths_desc">O número de días para conservar os detalles sobre as rutas afectadas por SD Maid.</string>
-    <plurals name="stats_settings_retention_x_days">
-        <item quantity="one">%d día</item>
-        <item quantity="other">%d días</item>
-    </plurals>
-    <string name="stats_settings_reset_all_label">Restablecer todo</string>
-    <string name="stats_settings_reset_all_desc">Eliminar todos os informes e establecer todas as estatísticas a cero.</string>
-    <string name="stats_affected_paths_label">Rutas afectadas</string>
-    <string name="stats_affected_pkgs_label">Aplicacións afectadas</string>
     <string name="shortcut_onetap_short">Escanear + Eliminar</string>
     <string name="shortcut_onetap_long">Escanear e eliminar nunha acción</string>
     <string name="shortcuts_settings_category">Atallos</string>

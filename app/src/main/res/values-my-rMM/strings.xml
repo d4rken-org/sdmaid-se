@@ -151,6 +151,4 @@
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>
-    <string name="stats_report_status_success">အောင်မြင်မှု</string>
-    <string name="stats_report_status_partial_success">တစ်စိတ်တစ်ပိုင်း အောင်မြင်မှု</string>
 </resources>
