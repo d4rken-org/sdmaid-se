@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">আপনাকে ধন্যবাদ</string>
     <string name="general_error_type_mismatch_msg">টাইপ মিলছে না: %1$s খুঁজেছেন, কিন্তু %2$s পেয়েছেন।</string>
     <string name="general_error_cant_access_msg">%s অ্যাক্সেস করা যাচ্ছে না।</string>
-    <string name="general_error_root_unavailable">রুট অ্যাক্সেস/প্রবেশাধিকার নেই।</string>
-    <string name="general_error_empty_result_msg">ফলাফল শূন্য় ছিল।</string>
-    <string name="general_error_no_compatible_app_found_msg">এই অনুরোধটি পরিচালনা করার জন্য কোনো সামঞ্জস্যপূর্ণ অ্যাপ পাওয়া যায়নি।</string>
+    <string name="general_error_root_unavailable">রুট অ্যাক্সেস/প্রবেশাধিকার নেই।</string>    <string name="general_error_no_compatible_app_found_msg">এই অনুরোধটি পরিচালনা করার জন্য কোনো সামঞ্জস্যপূর্ণ অ্যাপ পাওয়া যায়নি।</string>
     <string name="general_todo_msg">এই বৈশিষ্ট্যটি নিয়ে এখনও কাজ করা হচ্ছে এবং বর্তমানে উপলব্ধ নয়৷</string>
     <string name="general_share_action">ভাগাভাগি করুন</string>
     <string name="general_done_action">সম্পন্ন</string>
     <string name="general_apply_action">প্রয়োগ করুন</string>
-    <string name="general_copy_action">কপি বা অনুলিপি করুন</string>
-    <string name="general_wipe_action">মুছা</string>
-    <string name="general_cancel_action">বাতিল করুন</string>
+    <string name="general_copy_action">কপি বা অনুলিপি করুন</string>    <string name="general_cancel_action">বাতিল করুন</string>
     <string name="general_discard_action">বাতিল করুন</string>
     <string name="general_reset_action">রিসেট করুন</string>
     <string name="general_drag_handle_description">পুনর্বিন্যাস করতে টানুন</string>
-    <string name="general_save_action">সংরক্ষণ করুন</string>
-    <string name="general_thanks_action">ধন্যবাদ</string>
-    <string name="general_gotit_action">বুঝেছি</string>
+    <string name="general_save_action">সংরক্ষণ করুন</string>    <string name="general_gotit_action">বুঝেছি</string>
     <string name="general_fix_action">ঠিক করুন</string>
     <string name="general_set_up_action">সেট আপ করুন</string>
     <string name="general_edit_action">সম্পাদনা করুন</string>

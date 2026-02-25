@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Spas</string>
     <string name="general_error_type_mismatch_msg">Cure ne li hev dikin: %1$s dixwest, lê %2$s girt.</string>
     <string name="general_error_cant_access_msg">Nikare bigihîje %s.</string>
-    <string name="general_error_root_unavailable">Gihiştina root tune ye.</string>
-    <string name="general_error_empty_result_msg">Encam vala bû.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ji bo van daxwazên tu sepana lihevhatî nehat dîtin.</string>
+    <string name="general_error_root_unavailable">Gihiştina root tune ye.</string>    <string name="general_error_no_compatible_app_found_msg">Ji bo van daxwazên tu sepana lihevhatî nehat dîtin.</string>
     <string name="general_todo_msg">Ev taybetî hîn li ser kar e û niha tune ye.</string>
     <string name="general_share_action">Parve bike</string>
     <string name="general_done_action">Temam</string>
     <string name="general_apply_action">Bicîh bîne</string>
-    <string name="general_copy_action">Kopî bike</string>
-    <string name="general_wipe_action">Pak bike</string>
-    <string name="general_cancel_action">Betal bike</string>
+    <string name="general_copy_action">Kopî bike</string>    <string name="general_cancel_action">Betal bike</string>
     <string name="general_discard_action">Derxe</string>
     <string name="general_reset_action">Ji nû ve saz bike</string>
     <string name="general_drag_handle_description">Ji bo rêzkirinê bikişîne</string>
-    <string name="general_save_action">Tomar bike</string>
-    <string name="general_thanks_action">Spas</string>
-    <string name="general_gotit_action">Fehm kir</string>
+    <string name="general_save_action">Tomar bike</string>    <string name="general_gotit_action">Fehm kir</string>
     <string name="general_fix_action">Çak bike</string>
     <string name="general_set_up_action">Saz bike</string>
     <string name="general_edit_action">Biguherîne</string>

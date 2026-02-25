@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Дякую</string>
     <string name="general_error_type_mismatch_msg">Невідповідність типу: хотів %1$s, але отримав %2$s.</string>
     <string name="general_error_cant_access_msg">Неможливо отримати доступ до %s.</string>
-    <string name="general_error_root_unavailable">Root доступ недоступний.</string>
-    <string name="general_error_empty_result_msg">Результат був порожній.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не знайдено сумісного додатка для обробки цього запиту.</string>
+    <string name="general_error_root_unavailable">Root доступ недоступний.</string>    <string name="general_error_no_compatible_app_found_msg">Не знайдено сумісного додатка для обробки цього запиту.</string>
     <string name="general_todo_msg">Над цією функцією ще працюють і наразі вона недоступна.</string>
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
     <string name="general_apply_action">Застосувати</string>
-    <string name="general_copy_action">Копіювати</string>
-    <string name="general_wipe_action">Очистити</string>
-    <string name="general_cancel_action">Скасувати</string>
+    <string name="general_copy_action">Копіювати</string>    <string name="general_cancel_action">Скасувати</string>
     <string name="general_discard_action">Відмінити</string>
     <string name="general_reset_action">Скинути</string>
     <string name="general_drag_handle_description">Перетягніть, щоб змінити порядок</string>
-    <string name="general_save_action">Зберегти</string>
-    <string name="general_thanks_action">Дякую</string>
-    <string name="general_gotit_action">Зрозуміло</string>
+    <string name="general_save_action">Зберегти</string>    <string name="general_gotit_action">Зрозуміло</string>
     <string name="general_fix_action">Виправити</string>
     <string name="general_set_up_action">Налаштування</string>
     <string name="general_edit_action">Редагувати</string>

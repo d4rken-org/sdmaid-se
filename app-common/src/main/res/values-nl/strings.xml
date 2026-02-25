@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_error_type_mismatch_msg">Type komt niet overeen: %1$s gevraagd, maar %2$s gekregen.</string>
     <string name="general_error_cant_access_msg">Geen toegang tot %s.</string>
-    <string name="general_error_root_unavailable">Root toegang is niet beschikbaar.</string>
-    <string name="general_error_empty_result_msg">Het resultaat was leeg.</string>
-    <string name="general_error_no_compatible_app_found_msg">Er is geen compatibele app gevonden die dit verzoek kan verwerken.</string>
+    <string name="general_error_root_unavailable">Root toegang is niet beschikbaar.</string>    <string name="general_error_no_compatible_app_found_msg">Er is geen compatibele app gevonden die dit verzoek kan verwerken.</string>
     <string name="general_todo_msg">Aan deze functie wordt nog gewerkt en is momenteel niet beschikbaar.</string>
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_apply_action">Toepassen</string>
-    <string name="general_copy_action">Kopiëren</string>
-    <string name="general_wipe_action">Vegen</string>
-    <string name="general_cancel_action">Annuleren</string>
+    <string name="general_copy_action">Kopiëren</string>    <string name="general_cancel_action">Annuleren</string>
     <string name="general_discard_action">Weggooien</string>
     <string name="general_reset_action">Resetten</string>
     <string name="general_drag_handle_description">Sleep om te herordenen</string>
-    <string name="general_save_action">Opslaan</string>
-    <string name="general_thanks_action">Bedankt</string>
-    <string name="general_gotit_action">Begrepen</string>
+    <string name="general_save_action">Opslaan</string>    <string name="general_gotit_action">Begrepen</string>
     <string name="general_fix_action">Repareren</string>
     <string name="general_set_up_action">Instellen</string>
     <string name="general_edit_action">Bewerken</string>

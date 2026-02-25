@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Ви благодарам</string>
     <string name="general_error_type_mismatch_msg">Несовпаѓање на типот: Се бараше %1$s, но добив %2$s.</string>
     <string name="general_error_cant_access_msg">Не може да се пристапи до %s.</string>
-    <string name="general_error_root_unavailable">Пристапот до коренот е недостапен.</string>
-    <string name="general_error_empty_result_msg">Резултатот беше празен.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не е пронајдена компатибилна апликација за да се справи со ова барање.</string>
+    <string name="general_error_root_unavailable">Пристапот до коренот е недостапен.</string>    <string name="general_error_no_compatible_app_found_msg">Не е пронајдена компатибилна апликација за да се справи со ова барање.</string>
     <string name="general_todo_msg">На оваа функција сè уште се работи и моментално не е достапна.</string>
     <string name="general_share_action">Споделете</string>
     <string name="general_done_action">Готово</string>
     <string name="general_apply_action">Примени</string>
-    <string name="general_copy_action">Копирај</string>
-    <string name="general_wipe_action">Избриши</string>
-    <string name="general_cancel_action">Откажи</string>
+    <string name="general_copy_action">Копирај</string>    <string name="general_cancel_action">Откажи</string>
     <string name="general_discard_action">Отфрли</string>
     <string name="general_reset_action">Ресетирај</string>
     <string name="general_drag_handle_description">Повлечете за преуредување</string>
-    <string name="general_save_action">Зачувај</string>
-    <string name="general_thanks_action">Благодарност до</string>
-    <string name="general_gotit_action">Разбрав</string>
+    <string name="general_save_action">Зачувај</string>    <string name="general_gotit_action">Разбрав</string>
     <string name="general_fix_action">Поправки</string>
     <string name="general_set_up_action">Постави</string>
     <string name="general_edit_action">Уредување</string>

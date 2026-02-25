@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Баярлалаа</string>
     <string name="general_error_type_mismatch_msg">Төрөл тохирохгүй: %1$s хүссэн боловч %2$s авсан.</string>
     <string name="general_error_cant_access_msg">%s-д хандах боломжгүй.</string>
-    <string name="general_error_root_unavailable">Root эрх хүрэхгүй байна.</string>
-    <string name="general_error_empty_result_msg">Үр дүн хоосон байна.</string>
-    <string name="general_error_no_compatible_app_found_msg">Энэ хүсэлтийг боловсруулах тохиромжтой апп олдсонгүй.</string>
+    <string name="general_error_root_unavailable">Root эрх хүрэхгүй байна.</string>    <string name="general_error_no_compatible_app_found_msg">Энэ хүсэлтийг боловсруулах тохиромжтой апп олдсонгүй.</string>
     <string name="general_todo_msg">Энэ функц одоогоор боловсруулагдаж байгаа тул одоогоор боломжгүй байна.</string>
     <string name="general_share_action">Хуваалцах</string>
     <string name="general_done_action">Дууссан</string>
     <string name="general_apply_action">Хэрэглэх</string>
-    <string name="general_copy_action">Хуулах</string>
-    <string name="general_wipe_action">Арчих</string>
-    <string name="general_cancel_action">Цуцлах</string>
+    <string name="general_copy_action">Хуулах</string>    <string name="general_cancel_action">Цуцлах</string>
     <string name="general_discard_action">Хаях</string>
     <string name="general_reset_action">Дахин тохируулах</string>
     <string name="general_drag_handle_description">Дарааллыг өөрчлөхийн тулд чирнэ үү</string>
-    <string name="general_save_action">Хадгалах</string>
-    <string name="general_thanks_action">Баярлалаа</string>
-    <string name="general_gotit_action">Ойлголоо</string>
+    <string name="general_save_action">Хадгалах</string>    <string name="general_gotit_action">Ойлголоо</string>
     <string name="general_fix_action">Засах</string>
     <string name="general_set_up_action">Тохируулах</string>
     <string name="general_edit_action">Засах</string>

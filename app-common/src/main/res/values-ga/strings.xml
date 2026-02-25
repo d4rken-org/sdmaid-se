@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Go raibh maith agat</string>
     <string name="general_error_type_mismatch_msg">Míchomhoiriúnacht cineáil: Ag iarraidh %1$s, ach fuair mé %2$s.</string>
     <string name="general_error_cant_access_msg">Ní féidir rochtain a fháil ar %s.</string>
-    <string name="general_error_root_unavailable">Níl rochtain fréimhe ar fáil.</string>
-    <string name="general_error_empty_result_msg">Bhí an toradh folamh.</string>
-    <string name="general_error_no_compatible_app_found_msg">Níor aimsíodh aip chomhoiriúnach chun an iarratas seo a láimhseáil.</string>
+    <string name="general_error_root_unavailable">Níl rochtain fréimhe ar fáil.</string>    <string name="general_error_no_compatible_app_found_msg">Níor aimsíodh aip chomhoiriúnach chun an iarratas seo a láimhseáil.</string>
     <string name="general_todo_msg">Tá an ghné seo fós á hoibriú agus níl sí ar fáil faoi láthair.</string>
     <string name="general_share_action">Roinn</string>
     <string name="general_done_action">Déanta</string>
     <string name="general_apply_action">Cuir i bhfeidhm</string>
-    <string name="general_copy_action">Cóipeáil</string>
-    <string name="general_wipe_action">Glan</string>
-    <string name="general_cancel_action">Cealaigh</string>
+    <string name="general_copy_action">Cóipeáil</string>    <string name="general_cancel_action">Cealaigh</string>
     <string name="general_discard_action">Caith ar lár</string>
     <string name="general_reset_action">Athshocraigh</string>
     <string name="general_drag_handle_description">Tarraing chun athordú</string>
-    <string name="general_save_action">Sábháil</string>
-    <string name="general_thanks_action">Buíochas</string>
-    <string name="general_gotit_action">Tuigim</string>
+    <string name="general_save_action">Sábháil</string>    <string name="general_gotit_action">Tuigim</string>
     <string name="general_fix_action">Deisigh</string>
     <string name="general_set_up_action">Socraigh</string>
     <string name="general_edit_action">Cuir in eagar</string>

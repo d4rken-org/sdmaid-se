@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Ďakujem</string>
     <string name="general_error_type_mismatch_msg">Nezhoda typu: Chceli ste %1$s, ale dostali ste %2$s.</string>
     <string name="general_error_cant_access_msg">Nedá sa získať prístup k %s.</string>
-    <string name="general_error_root_unavailable">Prístup root nie je k dispozícii.</string>
-    <string name="general_error_empty_result_msg">Výsledok bol prázdny.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nenašla sa žiadna kompatibilná aplikácia na spracovanie tejto žiadosti.</string>
+    <string name="general_error_root_unavailable">Prístup root nie je k dispozícii.</string>    <string name="general_error_no_compatible_app_found_msg">Nenašla sa žiadna kompatibilná aplikácia na spracovanie tejto žiadosti.</string>
     <string name="general_todo_msg">Na tejto funkcii sa stále pracuje a momentálne nie je dostupná.</string>
     <string name="general_share_action">Zdieľať</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_apply_action">Použiť</string>
-    <string name="general_copy_action">Kopírovať</string>
-    <string name="general_wipe_action">Zmazať</string>
-    <string name="general_cancel_action">Zrušiť</string>
+    <string name="general_copy_action">Kopírovať</string>    <string name="general_cancel_action">Zrušiť</string>
     <string name="general_discard_action">Zrušiť</string>
     <string name="general_reset_action">Obnoviť</string>
     <string name="general_drag_handle_description">Potiahnutím zmeníte poradie</string>
-    <string name="general_save_action">Uložiť</string>
-    <string name="general_thanks_action">Vďaka</string>
-    <string name="general_gotit_action">Rozumiem</string>
+    <string name="general_save_action">Uložiť</string>    <string name="general_gotit_action">Rozumiem</string>
     <string name="general_fix_action">Opraviť</string>
     <string name="general_set_up_action">Nastaviť</string>
     <string name="general_edit_action">Upraviť</string>

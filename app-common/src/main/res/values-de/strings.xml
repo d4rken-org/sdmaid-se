@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
-    <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>
-    <string name="general_error_empty_result_msg">Das Ergebnis war leer.</string>
-    <string name="general_error_no_compatible_app_found_msg">Es wurde keine kompatible App gefunden, die diese Anfrage verarbeiten kann.</string>
+    <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>    <string name="general_error_no_compatible_app_found_msg">Es wurde keine kompatible App gefunden, die diese Anfrage verarbeiten kann.</string>
     <string name="general_todo_msg">An dieser Funktion wird noch gearbeitet und ist nicht verfügbar.</string>
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
     <string name="general_apply_action">Anwenden</string>
-    <string name="general_copy_action">Kopieren</string>
-    <string name="general_wipe_action">Wischen</string>
-    <string name="general_cancel_action">Abbrechen</string>
+    <string name="general_copy_action">Kopieren</string>    <string name="general_cancel_action">Abbrechen</string>
     <string name="general_discard_action">Verwerfen</string>
     <string name="general_reset_action">Zurücksetzen</string>
     <string name="general_drag_handle_description">Zum Neuanordnen ziehen</string>
-    <string name="general_save_action">Speichern</string>
-    <string name="general_thanks_action">Danke</string>
-    <string name="general_gotit_action">Verstanden</string>
+    <string name="general_save_action">Speichern</string>    <string name="general_gotit_action">Verstanden</string>
     <string name="general_fix_action">Beheben</string>
     <string name="general_set_up_action">Einrichtung</string>
     <string name="general_edit_action">Bearbeiten</string>

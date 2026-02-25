@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Takk fyrir</string>
     <string name="general_error_type_mismatch_msg">Tegund misræmi: Vildi %1$s, en fékk %2$s.</string>
     <string name="general_error_cant_access_msg">Get ekki nálgast %s.</string>
-    <string name="general_error_root_unavailable">Root aðgangur er ekki tiltækur.</string>
-    <string name="general_error_empty_result_msg">Niðurstaðan var tóm.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ekkert samhæft forrit fannst til að meðhöndla þessa beiðni.</string>
+    <string name="general_error_root_unavailable">Root aðgangur er ekki tiltækur.</string>    <string name="general_error_no_compatible_app_found_msg">Ekkert samhæft forrit fannst til að meðhöndla þessa beiðni.</string>
     <string name="general_todo_msg">Þessi eiginleiki er enn í vinnslu og ekki tiltækur eins og er.</string>
     <string name="general_share_action">Deila</string>
     <string name="general_done_action">Lokið</string>
     <string name="general_apply_action">Beita</string>
-    <string name="general_copy_action">Afrita</string>
-    <string name="general_wipe_action">Þurrka</string>
-    <string name="general_cancel_action">Hætta við</string>
+    <string name="general_copy_action">Afrita</string>    <string name="general_cancel_action">Hætta við</string>
     <string name="general_discard_action">Henda</string>
     <string name="general_reset_action">Endurstilla</string>
     <string name="general_drag_handle_description">Dragðu til að endurraða</string>
-    <string name="general_save_action">Vista</string>
-    <string name="general_thanks_action">Takk</string>
-    <string name="general_gotit_action">Ég skil</string>
+    <string name="general_save_action">Vista</string>    <string name="general_gotit_action">Ég skil</string>
     <string name="general_fix_action">Laga</string>
     <string name="general_set_up_action">Setja upp</string>
     <string name="general_edit_action">Breyta</string>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Dankon</string>
     <string name="general_error_type_mismatch_msg">Tipo-malkongruo: Volis %1$s, sed ricevis %2$s.</string>
     <string name="general_error_cant_access_msg">Ne povas aliri %s.</string>
-    <string name="general_error_root_unavailable">Radika aliro ne disponebla.</string>
-    <string name="general_error_empty_result_msg">La rezulto estis malplena.</string>
-    <string name="general_error_no_compatible_app_found_msg">Neniu kongrua aplikaĵo trovita por trakti ĉi tiun peton.</string>
+    <string name="general_error_root_unavailable">Radika aliro ne disponebla.</string>    <string name="general_error_no_compatible_app_found_msg">Neniu kongrua aplikaĵo trovita por trakti ĉi tiun peton.</string>
     <string name="general_todo_msg">Ĉi tiu funkcio ankoraŭ estas prilaborata kaj nuntempe ne disponebla.</string>
     <string name="general_share_action">Dividi</string>
     <string name="general_done_action">Preta</string>
     <string name="general_apply_action">Apliki</string>
-    <string name="general_copy_action">Kopii</string>
-    <string name="general_wipe_action">Viŝi</string>
-    <string name="general_cancel_action">Nuligi</string>
+    <string name="general_copy_action">Kopii</string>    <string name="general_cancel_action">Nuligi</string>
     <string name="general_discard_action">Forĵeti</string>
     <string name="general_reset_action">Rekomenci</string>
     <string name="general_drag_handle_description">Trenu por reordigi</string>
-    <string name="general_save_action">Konservi</string>
-    <string name="general_thanks_action">Dankoj</string>
-    <string name="general_gotit_action">Komprenis</string>
+    <string name="general_save_action">Konservi</string>    <string name="general_gotit_action">Komprenis</string>
     <string name="general_fix_action">Ripari</string>
     <string name="general_set_up_action">Agordi</string>
     <string name="general_edit_action">Redakti</string>

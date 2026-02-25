@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Გმადლობთ</string>
     <string name="general_error_type_mismatch_msg">ტიპის შეუსაბამობა: სურდა %1$s, მაგრამ მიიღო %2$s.</string>
     <string name="general_error_cant_access_msg">%s-ზე წვდომა შეუძლებელია.</string>
-    <string name="general_error_root_unavailable">Root წვდომა მიუწვდომელია.</string>
-    <string name="general_error_empty_result_msg">შედეგი ცარიელი იყო.</string>
-    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
+    <string name="general_error_root_unavailable">Root წვდომა მიუწვდომელია.</string>    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
     <string name="general_todo_msg">ამ ფუნქციაზე ჯერ კიდევ მუშაობს და ამჟამად მიუწვდომელია.</string>
     <string name="general_share_action">გააზიარება</string>
     <string name="general_done_action">შესრულებულია</string>
     <string name="general_apply_action">გამოყენება</string>
-    <string name="general_copy_action">კოპირება</string>
-    <string name="general_wipe_action">წაშლა</string>
-    <string name="general_cancel_action">გაუქმება</string>
+    <string name="general_copy_action">კოპირება</string>    <string name="general_cancel_action">გაუქმება</string>
     <string name="general_discard_action">უარყოფა</string>
     <string name="general_reset_action">გადატვირთვა</string>
     <string name="general_drag_handle_description">გადაათრიეთ გადასალაგებლად</string>
-    <string name="general_save_action">შენახვა</string>
-    <string name="general_thanks_action">მადლობა</string>
-    <string name="general_gotit_action">Გავიგე</string>
+    <string name="general_save_action">შენახვა</string>    <string name="general_gotit_action">Გავიგე</string>
     <string name="general_fix_action">შეკეთება</string>
     <string name="general_set_up_action">კონფიგურაცია</string>
     <string name="general_edit_action">რედაქტირება</string>

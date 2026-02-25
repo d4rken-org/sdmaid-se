@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Faleminderit</string>
     <string name="general_error_type_mismatch_msg">Mospërputhja e llojit: Kërkonte %1$s, por mori %2$s.</string>
     <string name="general_error_cant_access_msg">Nuk mund të qaset %s.</string>
-    <string name="general_error_root_unavailable">Qasja në rrënjë (Root) është e padisponueshme.</string>
-    <string name="general_error_empty_result_msg">Rezultati ishte bosh.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nuk u gjet asnjë aplikacion i përputhshëm për të trajtuar këtë kërkesë.</string>
+    <string name="general_error_root_unavailable">Qasja në rrënjë (Root) është e padisponueshme.</string>    <string name="general_error_no_compatible_app_found_msg">Nuk u gjet asnjë aplikacion i përputhshëm për të trajtuar këtë kërkesë.</string>
     <string name="general_todo_msg">Kjo veçori është ende duke u punuar dhe aktualisht e pa disponueshme.</string>
     <string name="general_share_action">Shpërndaj</string>
     <string name="general_done_action">U krye</string>
     <string name="general_apply_action">Apliko</string>
-    <string name="general_copy_action">Kopjo</string>
-    <string name="general_wipe_action">Zhduk</string>
-    <string name="general_cancel_action">Anulo</string>
+    <string name="general_copy_action">Kopjo</string>    <string name="general_cancel_action">Anulo</string>
     <string name="general_discard_action">Braktise</string>
     <string name="general_reset_action">Rivendos</string>
     <string name="general_drag_handle_description">Tërhiq për të rirenditur</string>
-    <string name="general_save_action">Ruaj</string>
-    <string name="general_thanks_action">Faleminderit</string>
-    <string name="general_gotit_action">E kuptova</string>
+    <string name="general_save_action">Ruaj</string>    <string name="general_gotit_action">E kuptova</string>
     <string name="general_fix_action">Rregulloe</string>
     <string name="general_set_up_action">Konfiguro</string>
     <string name="general_edit_action">Redakto</string>

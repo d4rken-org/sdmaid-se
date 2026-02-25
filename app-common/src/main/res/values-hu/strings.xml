@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_error_type_mismatch_msg">Típuseltérés: %1$s keresett, de %2$s lett.</string>
     <string name="general_error_cant_access_msg">A(z) %s nem érhető el.</string>
-    <string name="general_error_root_unavailable">A root hozzáférés nem érhető el.</string>
-    <string name="general_error_empty_result_msg">Az eredmény üres volt.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nem találtunk kompatibilis alkalmazást a kérés kezelésére.</string>
+    <string name="general_error_root_unavailable">A root hozzáférés nem érhető el.</string>    <string name="general_error_no_compatible_app_found_msg">Nem találtunk kompatibilis alkalmazást a kérés kezelésére.</string>
     <string name="general_todo_msg">Ezen a funkción még dolgoznak, és jelenleg nem érhető el.</string>
     <string name="general_share_action">Megosztás</string>
     <string name="general_done_action">Kész</string>
     <string name="general_apply_action">Alkalmaz</string>
-    <string name="general_copy_action">Másolás</string>
-    <string name="general_wipe_action">Törlés</string>
-    <string name="general_cancel_action">Mégsem</string>
+    <string name="general_copy_action">Másolás</string>    <string name="general_cancel_action">Mégsem</string>
     <string name="general_discard_action">Elvetés</string>
     <string name="general_reset_action">Visszaállítás</string>
     <string name="general_drag_handle_description">Húzza az átrendezéshez</string>
-    <string name="general_save_action">Mentés</string>
-    <string name="general_thanks_action">Köszönöm</string>
-    <string name="general_gotit_action">Megvan</string>
+    <string name="general_save_action">Mentés</string>    <string name="general_gotit_action">Megvan</string>
     <string name="general_fix_action">Javítás</string>
     <string name="general_set_up_action">Beállítás</string>
     <string name="general_edit_action">Szerkesztés</string>

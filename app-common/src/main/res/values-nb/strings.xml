@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_error_type_mismatch_msg">Type-avvik: Ønsket %1$s, men fikk %2$s.</string>
     <string name="general_error_cant_access_msg">Får ikke tilgang til %s.</string>
-    <string name="general_error_root_unavailable">Root-tilgang er utilgjengelig.</string>
-    <string name="general_error_empty_result_msg">Resultatet var tomt.</string>
-    <string name="general_error_no_compatible_app_found_msg">Fant ingen kompatibel app for å håndtere denne forespørselen.</string>
+    <string name="general_error_root_unavailable">Root-tilgang er utilgjengelig.</string>    <string name="general_error_no_compatible_app_found_msg">Fant ingen kompatibel app for å håndtere denne forespørselen.</string>
     <string name="general_todo_msg">Denne funksjonen jobbes fortsatt med, og er for øyeblikket ikke tilgjengelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
     <string name="general_apply_action">Bruk</string>
-    <string name="general_copy_action">Kopier</string>
-    <string name="general_wipe_action">Tøm</string>
-    <string name="general_cancel_action">Avbryt</string>
+    <string name="general_copy_action">Kopier</string>    <string name="general_cancel_action">Avbryt</string>
     <string name="general_discard_action">Forkast</string>
     <string name="general_reset_action">Tilbakestill</string>
     <string name="general_drag_handle_description">Dra for å endre rekkefølge</string>
-    <string name="general_save_action">Lagre</string>
-    <string name="general_thanks_action">Takk</string>
-    <string name="general_gotit_action">Forstått</string>
+    <string name="general_save_action">Lagre</string>    <string name="general_gotit_action">Forstått</string>
     <string name="general_fix_action">Reparer</string>
     <string name="general_set_up_action">Konfigurer</string>
     <string name="general_edit_action">Rediger</string>

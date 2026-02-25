@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Dziękuję ci</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
-    <string name="general_error_root_unavailable">Dostęp do roota jest niedostępny.</string>
-    <string name="general_error_empty_result_msg">Wynik był pusty.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nie znaleziono kompatybilnej aplikacji do obsługi tego żądania.</string>
+    <string name="general_error_root_unavailable">Dostęp do roota jest niedostępny.</string>    <string name="general_error_no_compatible_app_found_msg">Nie znaleziono kompatybilnej aplikacji do obsługi tego żądania.</string>
     <string name="general_todo_msg">Funkcja jest wciąż opracowywana i obecnie niedostępna.</string>
     <string name="general_share_action">Udostępnij</string>
     <string name="general_done_action">Gotowe</string>
     <string name="general_apply_action">Zastosuj</string>
-    <string name="general_copy_action">Kopiuj</string>
-    <string name="general_wipe_action">Wymaż</string>
-    <string name="general_cancel_action">Anuluj</string>
+    <string name="general_copy_action">Kopiuj</string>    <string name="general_cancel_action">Anuluj</string>
     <string name="general_discard_action">Odrzuć</string>
     <string name="general_reset_action">Resetuj</string>
     <string name="general_drag_handle_description">Przeciągnij, aby zmienić kolejność</string>
-    <string name="general_save_action">Zapisz</string>
-    <string name="general_thanks_action">Podziękowania</string>
-    <string name="general_gotit_action">Rozumiem</string>
+    <string name="general_save_action">Zapisz</string>    <string name="general_gotit_action">Rozumiem</string>
     <string name="general_fix_action">Napraw</string>
     <string name="general_set_up_action">Konfiguruj</string>
     <string name="general_edit_action">Edytuj</string>

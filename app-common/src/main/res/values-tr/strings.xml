@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_error_type_mismatch_msg">Biçim eşleşmiyor: İstenen %1$s fakat bulunan %2$s.</string>
     <string name="general_error_cant_access_msg">%s\'ye erişilemiyor.</string>
-    <string name="general_error_root_unavailable">Kök erişimi kullanılamıyor.</string>
-    <string name="general_error_empty_result_msg">Sonuç boştu.</string>
-    <string name="general_error_no_compatible_app_found_msg">Bu isteği karşılamak için uygun uygulama bulunamadı.</string>
+    <string name="general_error_root_unavailable">Kök erişimi kullanılamıyor.</string>    <string name="general_error_no_compatible_app_found_msg">Bu isteği karşılamak için uygun uygulama bulunamadı.</string>
     <string name="general_todo_msg">Bu özellik hâlâ geliştirme aşamasında olduğundan şu anda kullanılamıyor.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamamlandı</string>
     <string name="general_apply_action">Uygula</string>
-    <string name="general_copy_action">Kopyala</string>
-    <string name="general_wipe_action">Temizle</string>
-    <string name="general_cancel_action">İptal et</string>
+    <string name="general_copy_action">Kopyala</string>    <string name="general_cancel_action">İptal et</string>
     <string name="general_discard_action">Yoksay</string>
     <string name="general_reset_action">Sıfırla</string>
     <string name="general_drag_handle_description">Yeniden sıralamak için sürükleyin</string>
-    <string name="general_save_action">Kaydet</string>
-    <string name="general_thanks_action">Teşekkürler</string>
-    <string name="general_gotit_action">Anladım</string>
+    <string name="general_save_action">Kaydet</string>    <string name="general_gotit_action">Anladım</string>
     <string name="general_fix_action">Onar</string>
     <string name="general_set_up_action">Kur</string>
     <string name="general_edit_action">Düzenle</string>

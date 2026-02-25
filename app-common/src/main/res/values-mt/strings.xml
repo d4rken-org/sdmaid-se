@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Grazzi</string>
     <string name="general_error_type_mismatch_msg">Tip ma jaqbilx: Xtaq %1$s, imma ġie %2$s.</string>
     <string name="general_error_cant_access_msg">Ma nistax naċċessa %s.</string>
-    <string name="general_error_root_unavailable">Aċċess għall-għeruq mhux disponibbli.</string>
-    <string name="general_error_empty_result_msg">Ir-riżultat kien vojt.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ma nstab ebda app kompatibbli biex jimmaniġġja din it-talba.</string>
+    <string name="general_error_root_unavailable">Aċċess għall-għeruq mhux disponibbli.</string>    <string name="general_error_no_compatible_app_found_msg">Ma nstab ebda app kompatibbli biex jimmaniġġja din it-talba.</string>
     <string name="general_todo_msg">Din il-karatteristika għadha qed tiġi maħduma u għalissa mhix disponibbli.</string>
     <string name="general_share_action">Aqsam</string>
     <string name="general_done_action">Lest</string>
     <string name="general_apply_action">Applika</string>
-    <string name="general_copy_action">Ikkopja</string>
-    <string name="general_wipe_action">Imħassar</string>
-    <string name="general_cancel_action">Ikkanċella</string>
+    <string name="general_copy_action">Ikkopja</string>    <string name="general_cancel_action">Ikkanċella</string>
     <string name="general_discard_action">Armi</string>
     <string name="general_reset_action">Irrisettja</string>
     <string name="general_drag_handle_description">Iġbed biex tissortja mill-ġdid</string>
-    <string name="general_save_action">Issalva</string>
-    <string name="general_thanks_action">Grazzi</string>
-    <string name="general_gotit_action">Fhimt</string>
+    <string name="general_save_action">Issalva</string>    <string name="general_gotit_action">Fhimt</string>
     <string name="general_fix_action">Issewwi</string>
     <string name="general_set_up_action">Issettja</string>
     <string name="general_edit_action">Editja</string>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Incompatibilidade de Tipo: Procurado %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não é possível acessar %s.</string>
-    <string name="general_error_root_unavailable">Acesso root não disponível.</string>
-    <string name="general_error_empty_result_msg">Sem resultado.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nenhum aplicativo compatível encontrado para lidar com esta solicitação.</string>
+    <string name="general_error_root_unavailable">Acesso root não disponível.</string>    <string name="general_error_no_compatible_app_found_msg">Nenhum aplicativo compatível encontrado para lidar com esta solicitação.</string>
     <string name="general_todo_msg">Este recurso ainda está sendo trabalhado e atualmente não está disponível.</string>
     <string name="general_share_action">Compartilhar</string>
     <string name="general_done_action">Feito</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_wipe_action">Limpar</string>
-    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Reiniciar</string>
     <string name="general_drag_handle_description">Arraste para reordenar</string>
-    <string name="general_save_action">Salvar</string>
-    <string name="general_thanks_action">Obrigado</string>
-    <string name="general_gotit_action">Entendi</string>
+    <string name="general_save_action">Salvar</string>    <string name="general_gotit_action">Entendi</string>
     <string name="general_fix_action">Corrigir</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>

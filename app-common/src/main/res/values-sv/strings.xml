@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Tack</string>
     <string name="general_error_type_mismatch_msg">Typ som inte matchar: Ville ha %1$s, men fick %2$s.</string>
     <string name="general_error_cant_access_msg">Kan inte komma åt %s.</string>
-    <string name="general_error_root_unavailable">Rotåtkomst är inte tillgänglig.</string>
-    <string name="general_error_empty_result_msg">Resultatet var tomt.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ingen kompatibel app hittades för att hantera denna begäran.</string>
+    <string name="general_error_root_unavailable">Rotåtkomst är inte tillgänglig.</string>    <string name="general_error_no_compatible_app_found_msg">Ingen kompatibel app hittades för att hantera denna begäran.</string>
     <string name="general_todo_msg">Den här funktionen pågår fortfarande och är inte tillgänglig för närvarande.</string>
     <string name="general_share_action">Dela med sig</string>
     <string name="general_done_action">Gjort</string>
     <string name="general_apply_action">Tillämpa</string>
-    <string name="general_copy_action">Kopiera</string>
-    <string name="general_wipe_action">Torka</string>
-    <string name="general_cancel_action">Annullera</string>
+    <string name="general_copy_action">Kopiera</string>    <string name="general_cancel_action">Annullera</string>
     <string name="general_discard_action">Kassera</string>
     <string name="general_reset_action">Återställa</string>
     <string name="general_drag_handle_description">Dra för att ordna om</string>
-    <string name="general_save_action">Spara</string>
-    <string name="general_thanks_action">Tack</string>
-    <string name="general_gotit_action">Jag fattar</string>
+    <string name="general_save_action">Spara</string>    <string name="general_gotit_action">Jag fattar</string>
     <string name="general_fix_action">Fixa</string>
     <string name="general_set_up_action">Konfigurera</string>
     <string name="general_edit_action">Redigera</string>

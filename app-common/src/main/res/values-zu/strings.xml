@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Ngiyabonga</string>
     <string name="general_error_type_mismatch_msg">Uhlobo alufani: Belufuna %1$s, kodwa lwathola %2$s.</string>
     <string name="general_error_cant_access_msg">Ayikwazi ukufinyelela ku-%s.</string>
-    <string name="general_error_root_unavailable">Ukufinyelela kwe-root akutholakali.</string>
-    <string name="general_error_empty_result_msg">Umphumela bewungenalutho.</string>
-    <string name="general_error_no_compatible_app_found_msg">Akukho nhlelo yokusebenza evumelana nayo etholakele ukuze isingatha lesisicelo.</string>
+    <string name="general_error_root_unavailable">Ukufinyelela kwe-root akutholakali.</string>    <string name="general_error_no_compatible_app_found_msg">Akukho nhlelo yokusebenza evumelana nayo etholakele ukuze isingatha lesisicelo.</string>
     <string name="general_todo_msg">Lesi sici sisasebenza futhi njengamanje asitholakali.</string>
     <string name="general_share_action">Yabelana</string>
     <string name="general_done_action">Kwenziwe</string>
     <string name="general_apply_action">Sebenzisa</string>
-    <string name="general_copy_action">Kopisha</string>
-    <string name="general_wipe_action">Sula</string>
-    <string name="general_cancel_action">Yekisa</string>
+    <string name="general_copy_action">Kopisha</string>    <string name="general_cancel_action">Yekisa</string>
     <string name="general_discard_action">Lahla</string>
     <string name="general_reset_action">Setha kabusha</string>
     <string name="general_drag_handle_description">Hudula ukuze uhlele kabusha</string>
-    <string name="general_save_action">Londoloza</string>
-    <string name="general_thanks_action">Ngiyabonga</string>
-    <string name="general_gotit_action">Ngiyaqonda</string>
+    <string name="general_save_action">Londoloza</string>    <string name="general_gotit_action">Ngiyaqonda</string>
     <string name="general_fix_action">Lungisa</string>
     <string name="general_set_up_action">Setha</string>
     <string name="general_edit_action">Hlela</string>

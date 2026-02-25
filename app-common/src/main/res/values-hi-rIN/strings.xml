@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_error_type_mismatch_msg">बेमेल प्रकार: %1$s चाहता था, लेकिन %2$s प्राप्त हुआ।</string>
     <string name="general_error_cant_access_msg">%s तक नहीं पहुंच सकता.</string>
-    <string name="general_error_root_unavailable">रूट तक पहुंच अनुपलब्ध है।</string>
-    <string name="general_error_empty_result_msg">नतीजा खाली था।</string>
-    <string name="general_error_no_compatible_app_found_msg">इस अनुरोध को संभालने के लिए कोई संगत ऐप नहीं मिला।</string>
+    <string name="general_error_root_unavailable">रूट तक पहुंच अनुपलब्ध है।</string>    <string name="general_error_no_compatible_app_found_msg">इस अनुरोध को संभालने के लिए कोई संगत ऐप नहीं मिला।</string>
     <string name="general_todo_msg">इस फीचर पर अभी भी काम किया जा रहा है और फिलहाल यह उपलब्ध नहीं है।</string>
     <string name="general_share_action">शेयर करें</string>
     <string name="general_done_action">ठीक है</string>
     <string name="general_apply_action">लागू करें</string>
-    <string name="general_copy_action">कॉपी करें</string>
-    <string name="general_wipe_action">साफ करें</string>
-    <string name="general_cancel_action">रद्द करें</string>
+    <string name="general_copy_action">कॉपी करें</string>    <string name="general_cancel_action">रद्द करें</string>
     <string name="general_discard_action">खारिज करे</string>
     <string name="general_reset_action">रीसेट</string>
     <string name="general_drag_handle_description">क्रम बदलने के लिए खींचें</string>
-    <string name="general_save_action">सहेजे</string>
-    <string name="general_thanks_action">धन्यवाद</string>
-    <string name="general_gotit_action">समझ गया</string>
+    <string name="general_save_action">सहेजे</string>    <string name="general_gotit_action">समझ गया</string>
     <string name="general_fix_action">ठीक करें</string>
     <string name="general_set_up_action">सेट अप करें</string>
     <string name="general_edit_action">संपादन करें</string>

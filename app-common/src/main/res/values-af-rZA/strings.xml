@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Dankie</string>
     <string name="general_error_type_mismatch_msg">Tipe mispas: wou %1$s hê, maar het %2$s gekry.</string>
     <string name="general_error_cant_access_msg">Kan nie toegang tot %s kry nie.</string>
-    <string name="general_error_root_unavailable">Worteltoegang is nie beskikbaar nie.</string>
-    <string name="general_error_empty_result_msg">Die resultaat was leeg.</string>
-    <string name="general_error_no_compatible_app_found_msg">Geen versoenbare toepassing gevind om hierdie versoek te hanteer nie.</string>
+    <string name="general_error_root_unavailable">Worteltoegang is nie beskikbaar nie.</string>    <string name="general_error_no_compatible_app_found_msg">Geen versoenbare toepassing gevind om hierdie versoek te hanteer nie.</string>
     <string name="general_todo_msg">Daar word nog aan hierdie kenmerk gewerk en tans nie beskikbaar nie.</string>
     <string name="general_share_action">Deel</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_apply_action">Pas toe</string>
-    <string name="general_copy_action">Kopieer</string>
-    <string name="general_wipe_action">Vee uit</string>
-    <string name="general_cancel_action">Kanselleer</string>
+    <string name="general_copy_action">Kopieer</string>    <string name="general_cancel_action">Kanselleer</string>
     <string name="general_discard_action">Gooi weg</string>
     <string name="general_reset_action">Herstel</string>
     <string name="general_drag_handle_description">Sleep om te herrangskik</string>
-    <string name="general_save_action">Stoor</string>
-    <string name="general_thanks_action">Dankie</string>
-    <string name="general_gotit_action">Verstaan</string>
+    <string name="general_save_action">Stoor</string>    <string name="general_gotit_action">Verstaan</string>
     <string name="general_fix_action">Regstel</string>
     <string name="general_set_up_action">Stel op</string>
     <string name="general_edit_action">Redigeer</string>

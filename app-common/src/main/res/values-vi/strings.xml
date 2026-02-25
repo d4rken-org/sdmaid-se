@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>
     <string name="general_error_cant_access_msg">Không thể truy cập %s.</string>
-    <string name="general_error_root_unavailable">Quyền truy cập Root không khả dụng.</string>
-    <string name="general_error_empty_result_msg">Không có kết quả.</string>
-    <string name="general_error_no_compatible_app_found_msg">Không tìm thấy ứng dụng tương thích để xử lý yêu cầu này.</string>
+    <string name="general_error_root_unavailable">Quyền truy cập Root không khả dụng.</string>    <string name="general_error_no_compatible_app_found_msg">Không tìm thấy ứng dụng tương thích để xử lý yêu cầu này.</string>
     <string name="general_todo_msg">Tính năng này vẫn đang được phát triển và hiện không khả dụng.</string>
     <string name="general_share_action">Chia sẻ</string>
     <string name="general_done_action">Xong</string>
     <string name="general_apply_action">Áp dụng</string>
-    <string name="general_copy_action">Sao chép</string>
-    <string name="general_wipe_action">Làm sạch</string>
-    <string name="general_cancel_action">Hủy</string>
+    <string name="general_copy_action">Sao chép</string>    <string name="general_cancel_action">Hủy</string>
     <string name="general_discard_action">Bỏ qua</string>
     <string name="general_reset_action">Đặt lại</string>
     <string name="general_drag_handle_description">Kéo để sắp xếp lại</string>
-    <string name="general_save_action">Lưu</string>
-    <string name="general_thanks_action">Cảm ơn</string>
-    <string name="general_gotit_action">Đã hiểu</string>
+    <string name="general_save_action">Lưu</string>    <string name="general_gotit_action">Đã hiểu</string>
     <string name="general_fix_action">Sửa lỗi</string>
     <string name="general_set_up_action">Thiết lập</string>
     <string name="general_edit_action">Sửa</string>

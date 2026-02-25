@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">ଆପଣଙ୍କୁ ଧନ୍ୟଵାଦ</string>
     <string name="general_error_type_mismatch_msg">ପ୍ରକାର ଅସମତା: %1$s ଚାହୁଁଥିଲା, କିନ୍ତୁ %2$s ପାଇଲା।</string>
     <string name="general_error_cant_access_msg">%s କୁ ପହଞ୍ଚିପାରିବ ନାହିଁ।</string>
-    <string name="general_error_root_unavailable">ରୁଟ୍ ପରିଚୟ ଉପଲବ୍ଧ ନୁହେଁ।</string>
-    <string name="general_error_empty_result_msg">ଫଳାଫଳ ଖାଲି ପଡ଼ିଥିଲା।</string>
-    <string name="general_error_no_compatible_app_found_msg">ଏହି ଅନୁରୋଧକୁ ସମ୍ପାଦନା କରିବା ପାଇଁ କୌଣସି ସୁସଙ୍ଗତ ଆପ୍‌ ମିଳିଲା ନାହିଁ।</string>
+    <string name="general_error_root_unavailable">ରୁଟ୍ ପରିଚୟ ଉପଲବ୍ଧ ନୁହେଁ।</string>    <string name="general_error_no_compatible_app_found_msg">ଏହି ଅନୁରୋଧକୁ ସମ୍ପାଦନା କରିବା ପାଇଁ କୌଣସି ସୁସଙ୍ଗତ ଆପ୍‌ ମିଳିଲା ନାହିଁ।</string>
     <string name="general_todo_msg">ଏହି ସୁବିଧାଟି ଏବେ ବି କାମ ଚାଲିଛି ଏବଂ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନୁହେଁ।</string>
     <string name="general_share_action">ସାଝାକରିବା</string>
     <string name="general_done_action">ହେଲା</string>
     <string name="general_apply_action">ଲାଗୁ କରିବା</string>
-    <string name="general_copy_action">କପି କରିନେବା</string>
-    <string name="general_wipe_action">ପୋଛି ଦେବା</string>
-    <string name="general_cancel_action">ବାତିଲ୍ କର</string>
+    <string name="general_copy_action">କପି କରିନେବା</string>    <string name="general_cancel_action">ବାତିଲ୍ କର</string>
     <string name="general_discard_action">ପରିତ୍ୟାଗ କରିବା</string>
     <string name="general_reset_action">ପୁନଃସେଟ୍ କରିବା</string>
     <string name="general_drag_handle_description">ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ</string>
-    <string name="general_save_action">ସଞ୍ଚୟ କରିବା</string>
-    <string name="general_thanks_action">ଧନ୍ୟଵାଦ</string>
-    <string name="general_gotit_action">ବୁଝିଗଲି</string>
+    <string name="general_save_action">ସଞ୍ଚୟ କରିବା</string>    <string name="general_gotit_action">ବୁଝିଗଲି</string>
     <string name="general_fix_action">ସଜାଡ଼ିବା</string>
     <string name="general_set_up_action">ସେଟ୍ ଅପ୍ କରିବା</string>
     <string name="general_edit_action">ସମ୍ପାଦନା</string>

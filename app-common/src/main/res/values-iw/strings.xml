@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_error_type_mismatch_msg">אי התאמה של סוג: רצה %1$s, אבל קיבל %2$s.</string>
     <string name="general_error_cant_access_msg">לא מצליח לגשת ל-%s.</string>
-    <string name="general_error_root_unavailable">גישת root אינה זמינה.</string>
-    <string name="general_error_empty_result_msg">התוצאה הייתה ריקה.</string>
-    <string name="general_error_no_compatible_app_found_msg">לא נמצאה אפליקציה מתאימה לטיפול בבקשה כזו.</string>
+    <string name="general_error_root_unavailable">גישת root אינה זמינה.</string>    <string name="general_error_no_compatible_app_found_msg">לא נמצאה אפליקציה מתאימה לטיפול בבקשה כזו.</string>
     <string name="general_todo_msg">הפונקציה עדיין בעבודה ואינה זמינה כרגע.</string>
     <string name="general_share_action">שיתוף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_apply_action">החל</string>
-    <string name="general_copy_action">העתקה</string>
-    <string name="general_wipe_action">מחק</string>
-    <string name="general_cancel_action">ביטול</string>
+    <string name="general_copy_action">העתקה</string>    <string name="general_cancel_action">ביטול</string>
     <string name="general_discard_action">ביטול</string>
     <string name="general_reset_action">איפוס</string>
     <string name="general_drag_handle_description">גרור לשינוי סדר</string>
-    <string name="general_save_action">שמור</string>
-    <string name="general_thanks_action">תודה</string>
-    <string name="general_gotit_action">הבנתי</string>
+    <string name="general_save_action">שמור</string>    <string name="general_gotit_action">הבנתי</string>
     <string name="general_fix_action">תקן</string>
     <string name="general_set_up_action">הגדרה</string>
     <string name="general_edit_action">עריכה</string>

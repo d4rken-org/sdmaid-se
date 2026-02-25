@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_error_type_mismatch_msg">Pagkakaiba sa uri: %1$s ang hiniling, pero %2$s ang nakuha.</string>
     <string name="general_error_cant_access_msg">Hindi ma-access ang %s.</string>
-    <string name="general_error_root_unavailable">Hindi available ang root access.</string>
-    <string name="general_error_empty_result_msg">Walang laman ang resulta.</string>
-    <string name="general_error_no_compatible_app_found_msg">Walang nakitang compatible na app para sa request na ito.</string>
+    <string name="general_error_root_unavailable">Hindi available ang root access.</string>    <string name="general_error_no_compatible_app_found_msg">Walang nakitang compatible na app para sa request na ito.</string>
     <string name="general_todo_msg">Tinatrabaho pa at hindi pa kasalukuyang available ang feature na ito.</string>
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos na</string>
     <string name="general_apply_action">Ilapat</string>
-    <string name="general_copy_action">Kopyahin</string>
-    <string name="general_wipe_action">Linisin</string>
-    <string name="general_cancel_action">Kanselahin</string>
+    <string name="general_copy_action">Kopyahin</string>    <string name="general_cancel_action">Kanselahin</string>
     <string name="general_discard_action">Itapon</string>
     <string name="general_reset_action">I-reset</string>
     <string name="general_drag_handle_description">I-drag para baguhin ang ayos</string>
-    <string name="general_save_action">I-save</string>
-    <string name="general_thanks_action">Salamat</string>
-    <string name="general_gotit_action">Kuha ko</string>
+    <string name="general_save_action">I-save</string>    <string name="general_gotit_action">Kuha ko</string>
     <string name="general_fix_action">Ayusin</string>
     <string name="general_set_up_action">I-set up</string>
     <string name="general_edit_action">Baguhin</string>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">شکریہ</string>
     <string name="general_error_type_mismatch_msg">قسم میں بے میل: %1$s چاہیے تھی، لیکن %2$s ملا۔</string>
     <string name="general_error_cant_access_msg">%s تک رسائی نہیں ہو سکتی۔</string>
-    <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>
-    <string name="general_error_empty_result_msg">نتیجہ خالی تھا۔</string>
-    <string name="general_error_no_compatible_app_found_msg">اس درخواست کو سنبھالنے کے لیے کوئی مطابقت پزیر ایپ نہیں ملا۔</string>
+    <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>    <string name="general_error_no_compatible_app_found_msg">اس درخواست کو سنبھالنے کے لیے کوئی مطابقت پزیر ایپ نہیں ملا۔</string>
     <string name="general_todo_msg">یہ فیچر ابھی بھی بنایا جا رہا ہے اور فلحال دستیاب نہیں۔</string>
     <string name="general_share_action">شیئر کریں</string>
     <string name="general_done_action">مکمل</string>
     <string name="general_apply_action">لاگو کریں</string>
-    <string name="general_copy_action">کاپی</string>
-    <string name="general_wipe_action">صاف کریں</string>
-    <string name="general_cancel_action">منسوخ کریں</string>
+    <string name="general_copy_action">کاپی</string>    <string name="general_cancel_action">منسوخ کریں</string>
     <string name="general_discard_action">رد کریں</string>
     <string name="general_reset_action">ری سیٹ کریں</string>
     <string name="general_drag_handle_description">ترتیب بدلنے کے لیے گھسیٹیں</string>
-    <string name="general_save_action">محفوظ کریں</string>
-    <string name="general_thanks_action">شکریہ</string>
-    <string name="general_gotit_action">سمجھ گیا</string>
+    <string name="general_save_action">محفوظ کریں</string>    <string name="general_gotit_action">سمجھ گیا</string>
     <string name="general_fix_action">حل کریں</string>
     <string name="general_set_up_action">سیٹ اپ کریں</string>
     <string name="general_edit_action">تبدیلی کریں</string>

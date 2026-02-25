@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Ačiū</string>
     <string name="general_error_type_mismatch_msg">Tipo neatitikimas: norėjome %1$s, bet gavome %2$s.</string>
     <string name="general_error_cant_access_msg">Negalima pasiekti %s.</string>
-    <string name="general_error_root_unavailable">Šaknies prieiga nepasiekiama.</string>
-    <string name="general_error_empty_result_msg">Rezultatas buvo tuščias.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nerasta suderinama programa šiam užklausai apdoroti.</string>
+    <string name="general_error_root_unavailable">Šaknies prieiga nepasiekiama.</string>    <string name="general_error_no_compatible_app_found_msg">Nerasta suderinama programa šiam užklausai apdoroti.</string>
     <string name="general_todo_msg">Ši funkcija dar kuriama ir šiuo metu nepasiekiama.</string>
     <string name="general_share_action">Dalintis</string>
     <string name="general_done_action">Atlikta</string>
     <string name="general_apply_action">Taikyti</string>
-    <string name="general_copy_action">Kopijuoti</string>
-    <string name="general_wipe_action">Ištrinti</string>
-    <string name="general_cancel_action">Atšaukti</string>
+    <string name="general_copy_action">Kopijuoti</string>    <string name="general_cancel_action">Atšaukti</string>
     <string name="general_discard_action">Atmesti</string>
     <string name="general_reset_action">Atstatyti</string>
     <string name="general_drag_handle_description">Vilkite, kad pertvarkytumėte</string>
-    <string name="general_save_action">Išsaugoti</string>
-    <string name="general_thanks_action">Ačiū</string>
-    <string name="general_gotit_action">Supratau</string>
+    <string name="general_save_action">Išsaugoti</string>    <string name="general_gotit_action">Supratau</string>
     <string name="general_fix_action">Taisyti</string>
     <string name="general_set_up_action">Nustatyti</string>
     <string name="general_edit_action">Redaguoti</string>

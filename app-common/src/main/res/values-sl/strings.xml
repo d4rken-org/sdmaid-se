@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Hvala!</string>
     <string name="general_error_type_mismatch_msg">Neujemanje vrste: zahtevano %1$s, dobljeno %2$s.</string>
     <string name="general_error_cant_access_msg">Dostop do %s ni mogoč.</string>
-    <string name="general_error_root_unavailable">Skrbniški dostop ni na voljo.</string>
-    <string name="general_error_empty_result_msg">Ni rezultata.</string>
-    <string name="general_error_no_compatible_app_found_msg">Za obdelavo te zahteve ni bilo mogoče najti združljivega programa.</string>
+    <string name="general_error_root_unavailable">Skrbniški dostop ni na voljo.</string>    <string name="general_error_no_compatible_app_found_msg">Za obdelavo te zahteve ni bilo mogoče najti združljivega programa.</string>
     <string name="general_todo_msg">Ta funkcija je še v pripravi in trenutno ni na voljo.</string>
     <string name="general_share_action">Deli</string>
     <string name="general_done_action">Končano</string>
     <string name="general_apply_action">Uporabi</string>
-    <string name="general_copy_action">Kopiraj</string>
-    <string name="general_wipe_action">Počisti</string>
-    <string name="general_cancel_action">Prekliči</string>
+    <string name="general_copy_action">Kopiraj</string>    <string name="general_cancel_action">Prekliči</string>
     <string name="general_discard_action">Zavrzi</string>
     <string name="general_reset_action">Ponastavi</string>
     <string name="general_drag_handle_description">Povlecite za prerazporeditev</string>
-    <string name="general_save_action">Shrani</string>
-    <string name="general_thanks_action">Zahvale</string>
-    <string name="general_gotit_action">Razumem!</string>
+    <string name="general_save_action">Shrani</string>    <string name="general_gotit_action">Razumem!</string>
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Nastavi</string>
     <string name="general_edit_action">Uredi</string>

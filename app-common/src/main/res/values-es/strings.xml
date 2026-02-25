@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">No coinciden: quería %1$s, pero obtuve %2$s.</string>
     <string name="general_error_cant_access_msg">Sin acceso a %s.</string>
-    <string name="general_error_root_unavailable">Sin permiso Root.</string>
-    <string name="general_error_empty_result_msg">El resultado estaba vacío.</string>
-    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
+    <string name="general_error_root_unavailable">Sin permiso Root.</string>    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
     <string name="general_todo_msg">Esta característica está en desarrollo y aún no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Realizado</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_wipe_action">Limpiar</string>
-    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Ignorar</string>
     <string name="general_reset_action">Restablecer</string>
     <string name="general_drag_handle_description">Arrastrar para reordenar</string>
-    <string name="general_save_action">Guardar</string>
-    <string name="general_thanks_action">Gracias</string>
-    <string name="general_gotit_action">Entiendo</string>
+    <string name="general_save_action">Guardar</string>    <string name="general_gotit_action">Entiendo</string>
     <string name="general_fix_action">Reparar</string>
     <string name="general_set_up_action">Establecer</string>
     <string name="general_edit_action">Editar</string>

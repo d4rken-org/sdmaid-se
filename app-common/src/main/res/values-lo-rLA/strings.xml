@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">ຂອບໃຈ</string>
     <string name="general_error_type_mismatch_msg">ປະເພດບໍ່ກົງກັນ: ຕ້ອງການ %1$s, ແຕ່ໄດ້ %2$s.</string>
     <string name="general_error_cant_access_msg">ບໍ່ສາມາດເຂົ້າເຖິງ %s ໄດ້.</string>
-    <string name="general_error_root_unavailable">ການເຂົ້າເຖິງ root ບໍ່ມີ.</string>
-    <string name="general_error_empty_result_msg">ຜົນໄດ້ບໍ່ມີຫຍັງ.</string>
-    <string name="general_error_no_compatible_app_found_msg">ບໍ່ພົບແອັບທີ່ເຂົ້າກັນໄດ້ເພື່ອຈັດການຄຳຮ້ອງຂໍນີ້.</string>
+    <string name="general_error_root_unavailable">ການເຂົ້າເຖິງ root ບໍ່ມີ.</string>    <string name="general_error_no_compatible_app_found_msg">ບໍ່ພົບແອັບທີ່ເຂົ້າກັນໄດ້ເພື່ອຈັດການຄຳຮ້ອງຂໍນີ້.</string>
     <string name="general_todo_msg">ຄຸນສົມບັດນີ້ຍັງຢູ່ໃນການພັດທະນາ ແລະ ປະຈຸບັນບໍ່ມີ.</string>
     <string name="general_share_action">ແບ່ງປັນ</string>
     <string name="general_done_action">ເສັດສິ້ນ</string>
     <string name="general_apply_action">ນຳໃຊ້</string>
-    <string name="general_copy_action">ສຳເນົາ</string>
-    <string name="general_wipe_action">ລຶບລ້າງ</string>
-    <string name="general_cancel_action">ຍົກເລີກ</string>
+    <string name="general_copy_action">ສຳເນົາ</string>    <string name="general_cancel_action">ຍົກເລີກ</string>
     <string name="general_discard_action">ທິ້ງ</string>
     <string name="general_reset_action">ຣີເຊັດ</string>
     <string name="general_drag_handle_description">ລາກເພື່ອຈັດລຳດັບໃໝ່</string>
-    <string name="general_save_action">ບັນທຶກ</string>
-    <string name="general_thanks_action">ຂອບໃຈ</string>
-    <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
+    <string name="general_save_action">ບັນທຶກ</string>    <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
     <string name="general_fix_action">ແກ້ໄຂ</string>
     <string name="general_set_up_action">ຕິດຕັ້ງ</string>
     <string name="general_edit_action">ແກ້ໄຂ</string>

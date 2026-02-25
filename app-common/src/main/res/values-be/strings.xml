@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_error_type_mismatch_msg">Неадпаведнасць тыпу: мае быць %1$s, але па факце %2$s.</string>
     <string name="general_error_cant_access_msg">Няма доступу %s.</string>
-    <string name="general_error_root_unavailable">Адсутнічае каранёвы доступ.</string>
-    <string name="general_error_empty_result_msg">Пусты рэзультат.</string>
-    <string name="general_error_no_compatible_app_found_msg">Для апрацоўкі гэтага запыту не знойдзена сумяшчальных праграм.</string>
+    <string name="general_error_root_unavailable">Адсутнічае каранёвы доступ.</string>    <string name="general_error_no_compatible_app_found_msg">Для апрацоўкі гэтага запыту не знойдзена сумяшчальных праграм.</string>
     <string name="general_todo_msg">Гэтая функцыя яшчэ знаходзіцца ў стадыі распрацоўкі і пакуль яна недаступна.</string>
     <string name="general_share_action">Падзяліцца</string>
     <string name="general_done_action">Гатова</string>
     <string name="general_apply_action">Ужыць</string>
-    <string name="general_copy_action">Скапіраваць</string>
-    <string name="general_wipe_action">Ачысціць</string>
-    <string name="general_cancel_action">Скасаваць</string>
+    <string name="general_copy_action">Скапіраваць</string>    <string name="general_cancel_action">Скасаваць</string>
     <string name="general_discard_action">Адхіліць</string>
     <string name="general_reset_action">Скінуць</string>
     <string name="general_drag_handle_description">Перацягніце, каб змяніць парадак</string>
-    <string name="general_save_action">Захаваць</string>
-    <string name="general_thanks_action">Падзякі</string>
-    <string name="general_gotit_action">Зразумела</string>
+    <string name="general_save_action">Захаваць</string>    <string name="general_gotit_action">Зразумела</string>
     <string name="general_fix_action">Выправіць</string>
     <string name="general_set_up_action">Наладжванне</string>
     <string name="general_edit_action">Рэдагаваць</string>

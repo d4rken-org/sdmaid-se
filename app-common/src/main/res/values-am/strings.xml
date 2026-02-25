@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">አመሰግናለሁ</string>
     <string name="general_error_type_mismatch_msg">አይነት አለመጣጣም፡ %1$s ይፈልጋል፣ ግን %2$s አገኘሁ።</string>
     <string name="general_error_cant_access_msg">%s ላይ መድረስ አልችልም።</string>
-    <string name="general_error_root_unavailable">የሩት መዳረሻ የለም።</string>
-    <string name="general_error_empty_result_msg">ውጤቱ ባዶ ነበር።</string>
-    <string name="general_error_no_compatible_app_found_msg">ይህንን ጥያቄ ለማስኬድ ተስማሚ መተግበሪያ አልተገኘም።</string>
+    <string name="general_error_root_unavailable">የሩት መዳረሻ የለም።</string>    <string name="general_error_no_compatible_app_found_msg">ይህንን ጥያቄ ለማስኬድ ተስማሚ መተግበሪያ አልተገኘም።</string>
     <string name="general_todo_msg">ይህ ባህሪ አሁንም በስራ ላይ ነው እና አሁን አይገኝም።</string>
     <string name="general_share_action">ማካፈል</string>
     <string name="general_done_action">ተከናውኗል</string>
     <string name="general_apply_action">ተግብር</string>
-    <string name="general_copy_action">ቅዳ</string>
-    <string name="general_wipe_action">ማጽዳት</string>
-    <string name="general_cancel_action">ሰርዝ</string>
+    <string name="general_copy_action">ቅዳ</string>    <string name="general_cancel_action">ሰርዝ</string>
     <string name="general_discard_action">ትው</string>
     <string name="general_reset_action">እንደገና አዋቅር</string>
     <string name="general_drag_handle_description">እንደገና ለማስቀመጥ ጎትት</string>
-    <string name="general_save_action">አስቀምጥ</string>
-    <string name="general_thanks_action">አመሰግናለሁ</string>
-    <string name="general_gotit_action">ገባኝ</string>
+    <string name="general_save_action">አስቀምጥ</string>    <string name="general_gotit_action">ገባኝ</string>
     <string name="general_fix_action">ጥግኙ</string>
     <string name="general_set_up_action">አዋቅር</string>
     <string name="general_edit_action">አርትዕ</string>

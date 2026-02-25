@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_error_type_mismatch_msg">Несоответствие: хотели %1$s, а получили %2$s.</string>
     <string name="general_error_cant_access_msg">Нет доступа к %s.</string>
-    <string name="general_error_root_unavailable">Рут-доступ отсутствует.</string>
-    <string name="general_error_empty_result_msg">Пустой результат.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не найдено подходящего приложения для обработки этого запроса.</string>
+    <string name="general_error_root_unavailable">Рут-доступ отсутствует.</string>    <string name="general_error_no_compatible_app_found_msg">Не найдено подходящего приложения для обработки этого запроса.</string>
     <string name="general_todo_msg">Эта функция находится в стадии разработки и в настоящее время недоступна.</string>
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
     <string name="general_apply_action">Применить</string>
-    <string name="general_copy_action">Копировать</string>
-    <string name="general_wipe_action">Стереть</string>
-    <string name="general_cancel_action">Отменить</string>
+    <string name="general_copy_action">Копировать</string>    <string name="general_cancel_action">Отменить</string>
     <string name="general_discard_action">Отказаться</string>
     <string name="general_reset_action">Сброс</string>
     <string name="general_drag_handle_description">Перетащите, чтобы изменить порядок</string>
-    <string name="general_save_action">Сохранить</string>
-    <string name="general_thanks_action">Спасибо</string>
-    <string name="general_gotit_action">Понятно</string>
+    <string name="general_save_action">Сохранить</string>    <string name="general_gotit_action">Понятно</string>
     <string name="general_fix_action">Исправить</string>
     <string name="general_set_up_action">Установка</string>
     <string name="general_edit_action">Редактировать</string>

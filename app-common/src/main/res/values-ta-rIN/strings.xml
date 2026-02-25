@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_error_type_mismatch_msg">வகை பொருந்தவில்லை: %1$s விரும்பினார், ஆனால் %2$s கிடைத்தது.</string>
     <string name="general_error_cant_access_msg">%s ஐ அணுக முடியவில்லை.</string>
-    <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>
-    <string name="general_error_empty_result_msg">முடிவு காலியாக இருந்தது.</string>
-    <string name="general_error_no_compatible_app_found_msg">இந்த கோரிக்கையைக் கையாள பொருந்தக்கூடிய பயன்பாடு எதுவும் காணப்படவில்லை.</string>
+    <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>    <string name="general_error_no_compatible_app_found_msg">இந்த கோரிக்கையைக் கையாள பொருந்தக்கூடிய பயன்பாடு எதுவும் காணப்படவில்லை.</string>
     <string name="general_todo_msg">இந்த அம்சம் இன்னும் பணிக்கப்பட்டு வருகிறது மற்றும் தற்போது கிடைக்கவில்லை.</string>
     <string name="general_share_action">பகிர்</string>
     <string name="general_done_action">முடிந்தது</string>
     <string name="general_apply_action">செயல்படுத்து</string>
-    <string name="general_copy_action">நகலெடு</string>
-    <string name="general_wipe_action">துடை</string>
-    <string name="general_cancel_action">ரத்து செய்</string>
+    <string name="general_copy_action">நகலெடு</string>    <string name="general_cancel_action">ரத்து செய்</string>
     <string name="general_discard_action">நிராகரி</string>
     <string name="general_reset_action">மீட்டமை</string>
     <string name="general_drag_handle_description">மறுவரிசைப்படுத்த இழுக்கவும்</string>
-    <string name="general_save_action">சேமி</string>
-    <string name="general_thanks_action">நன்றி</string>
-    <string name="general_gotit_action">புரிந்தது</string>
+    <string name="general_save_action">சேமி</string>    <string name="general_gotit_action">புரிந்தது</string>
     <string name="general_fix_action">சரிசெய்</string>
     <string name="general_set_up_action">அமைக்கவும்</string>
     <string name="general_edit_action">திருத்து</string>

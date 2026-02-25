@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Rahmat</string>
     <string name="general_error_type_mismatch_msg">Turdagi nomuvofiqlik: %1$s kerak edi, lekin %2$s olindi.</string>
     <string name="general_error_cant_access_msg">%s ga kirish mumkin emas.</string>
-    <string name="general_error_root_unavailable">Root kirish imkoni yo\'q.</string>
-    <string name="general_error_empty_result_msg">Natija bo\'sh edi.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ushbu so\'rovni amalga oshirish uchun mos dastur topilmadi.</string>
+    <string name="general_error_root_unavailable">Root kirish imkoni yo\'q.</string>    <string name="general_error_no_compatible_app_found_msg">Ushbu so\'rovni amalga oshirish uchun mos dastur topilmadi.</string>
     <string name="general_todo_msg">Ushbu xususiyat hali ishlab chiqilmoqda va hozircha mavjud emas.</string>
     <string name="general_share_action">Ulashish</string>
     <string name="general_done_action">Tayyor</string>
     <string name="general_apply_action">Qo\'llash</string>
-    <string name="general_copy_action">Nusxalash</string>
-    <string name="general_wipe_action">Tozalash</string>
-    <string name="general_cancel_action">Bekor qilish</string>
+    <string name="general_copy_action">Nusxalash</string>    <string name="general_cancel_action">Bekor qilish</string>
     <string name="general_discard_action">Rad etish</string>
     <string name="general_reset_action">Qayta o\'rnatish</string>
     <string name="general_drag_handle_description">Tartibni o\'zgartirish uchun torting</string>
-    <string name="general_save_action">Saqlash</string>
-    <string name="general_thanks_action">Rahmat</string>
-    <string name="general_gotit_action">Tushundim</string>
+    <string name="general_save_action">Saqlash</string>    <string name="general_gotit_action">Tushundim</string>
     <string name="general_fix_action">Tuzatish</string>
     <string name="general_set_up_action">O\'rnatish</string>
     <string name="general_edit_action">Tahrirlash</string>

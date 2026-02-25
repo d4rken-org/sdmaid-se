@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
     <string name="general_error_cant_access_msg">無法存取 %s。</string>
-    <string name="general_error_root_unavailable">Root 存取無法使用。</string>
-    <string name="general_error_empty_result_msg">結果是空白的。</string>
-    <string name="general_error_no_compatible_app_found_msg">找不到相容的應用程式來處理此請求。</string>
+    <string name="general_error_root_unavailable">Root 存取無法使用。</string>    <string name="general_error_no_compatible_app_found_msg">找不到相容的應用程式來處理此請求。</string>
     <string name="general_todo_msg">此功能仍在改善中，目前無法使用。</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_apply_action">套用</string>
-    <string name="general_copy_action">複製</string>
-    <string name="general_wipe_action">抹除</string>
-    <string name="general_cancel_action">取消</string>
+    <string name="general_copy_action">複製</string>    <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">捨棄</string>
     <string name="general_reset_action">重設</string>
     <string name="general_drag_handle_description">拖曳以重新排序</string>
-    <string name="general_save_action">儲存</string>
-    <string name="general_thanks_action">感謝</string>
-    <string name="general_gotit_action">瞭解了</string>
+    <string name="general_save_action">儲存</string>    <string name="general_gotit_action">瞭解了</string>
     <string name="general_fix_action">修正</string>
     <string name="general_set_up_action">設定</string>
     <string name="general_edit_action">編輯</string>

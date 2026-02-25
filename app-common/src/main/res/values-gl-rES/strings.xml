@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Grazas</string>
     <string name="general_error_type_mismatch_msg">Desacordo de tipo: Quería %1$s, pero obtívose %2$s.</string>
     <string name="general_error_cant_access_msg">Non se pode acceder a %s.</string>
-    <string name="general_error_root_unavailable">O acceso root non está dispoñible.</string>
-    <string name="general_error_empty_result_msg">O resultado estaba baleiro.</string>
-    <string name="general_error_no_compatible_app_found_msg">Non se atopou ningunha aplicación compatible para xestionar esta solicitude.</string>
+    <string name="general_error_root_unavailable">O acceso root non está dispoñible.</string>    <string name="general_error_no_compatible_app_found_msg">Non se atopou ningunha aplicación compatible para xestionar esta solicitude.</string>
     <string name="general_todo_msg">Esta función aínda está en desenvolvemento e actualmente non está dispoñible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Feito</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_wipe_action">Limpar</string>
-    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Reiniciar</string>
     <string name="general_drag_handle_description">Arrastra para reordenar</string>
-    <string name="general_save_action">Gardar</string>
-    <string name="general_thanks_action">Grazas</string>
-    <string name="general_gotit_action">Entendido</string>
+    <string name="general_save_action">Gardar</string>    <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Arranxar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>

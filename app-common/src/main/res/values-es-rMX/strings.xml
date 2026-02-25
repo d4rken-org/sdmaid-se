@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Error tipográfico: Querías %1$s, pero obtuviste %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
-    <string name="general_error_root_unavailable">El acceso Root no está disponible.</string>
-    <string name="general_error_empty_result_msg">Sin resultados.</string>
-    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
+    <string name="general_error_root_unavailable">El acceso Root no está disponible.</string>    <string name="general_error_no_compatible_app_found_msg">No se ha encontrado ninguna aplicación compatible para gestionar esta solicitud.</string>
     <string name="general_todo_msg">Esta función está aún en fase de desarrollo y actualmente no está disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_wipe_action">Limpiar</string>
-    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Restablecer</string>
     <string name="general_drag_handle_description">Arrastra para reordenar</string>
-    <string name="general_save_action">Guardar</string>
-    <string name="general_thanks_action">Gracias</string>
-    <string name="general_gotit_action">Entendido</string>
+    <string name="general_save_action">Guardar</string>    <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Arreglar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>

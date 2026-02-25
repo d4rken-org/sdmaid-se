@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Diolch</string>
     <string name="general_error_type_mismatch_msg">Anghydwedd math: Eisiau %1$s, ond cael %2$s.</string>
     <string name="general_error_cant_access_msg">Methu cael mynediad at %s.</string>
-    <string name="general_error_root_unavailable">Nid yw mynediad gwraidd ar gael.</string>
-    <string name="general_error_empty_result_msg">Roedd y canlyniad yn wag.</string>
-    <string name="general_error_no_compatible_app_found_msg">Heb ddod o hyd i ap cyfatebol i drin y cais hwn.</string>
+    <string name="general_error_root_unavailable">Nid yw mynediad gwraidd ar gael.</string>    <string name="general_error_no_compatible_app_found_msg">Heb ddod o hyd i ap cyfatebol i drin y cais hwn.</string>
     <string name="general_todo_msg">Mae\'r nodwedd hon yn dal i gael ei gweithio arni ac nid yw ar gael ar hyn o bryd.</string>
     <string name="general_share_action">Rhannu</string>
     <string name="general_done_action">Wedi gorffen</string>
     <string name="general_apply_action">Cymhwyso</string>
-    <string name="general_copy_action">Copïo</string>
-    <string name="general_wipe_action">Sychu</string>
-    <string name="general_cancel_action">Canslo</string>
+    <string name="general_copy_action">Copïo</string>    <string name="general_cancel_action">Canslo</string>
     <string name="general_discard_action">Taflu</string>
     <string name="general_reset_action">Ailosod</string>
     <string name="general_drag_handle_description">Llusgwch i ail-drefnu</string>
-    <string name="general_save_action">Cadw</string>
-    <string name="general_thanks_action">Diolch</string>
-    <string name="general_gotit_action">Deall</string>
+    <string name="general_save_action">Cadw</string>    <string name="general_gotit_action">Deall</string>
     <string name="general_fix_action">Trwsio</string>
     <string name="general_set_up_action">Gosod</string>
     <string name="general_edit_action">Golygu</string>

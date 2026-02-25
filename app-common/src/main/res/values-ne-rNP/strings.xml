@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">धन्यवाद</string>
     <string name="general_error_type_mismatch_msg">प्रकार मेल खाएन: %1$s चाहिएको थियो, तर %2$s पाइयो।</string>
     <string name="general_error_cant_access_msg">%s पहुँच गर्न सकिएन।</string>
-    <string name="general_error_root_unavailable">रूट पहुँच उपलब्ध छैन।</string>
-    <string name="general_error_empty_result_msg">परिणाम खाली थियो।</string>
-    <string name="general_error_no_compatible_app_found_msg">यो अनुरोधलाई ह्यान्डल गर्न मिल्ने कुनै एप फेला परेन।</string>
+    <string name="general_error_root_unavailable">रूट पहुँच उपलब्ध छैन।</string>    <string name="general_error_no_compatible_app_found_msg">यो अनुरोधलाई ह्यान्डल गर्न मिल्ने कुनै एप फेला परेन।</string>
     <string name="general_todo_msg">यो सुविधा अझै काम भइरहेको छ र हाल उपलब्ध छैन।</string>
     <string name="general_share_action">साझेदारी गर्नुहोस्</string>
     <string name="general_done_action">सकियो</string>
     <string name="general_apply_action">लागू गर्नुहोस्</string>
-    <string name="general_copy_action">प्रतिलिपि</string>
-    <string name="general_wipe_action">सफा गर्नुहोस्</string>
-    <string name="general_cancel_action">रद्द गर्नुहोस्</string>
+    <string name="general_copy_action">प्रतिलिपि</string>    <string name="general_cancel_action">रद्द गर्नुहोस्</string>
     <string name="general_discard_action">छोड्नुहोस्</string>
     <string name="general_reset_action">रिसेट गर्नुहोस्</string>
     <string name="general_drag_handle_description">पुन: क्रमबद्ध गर्न तान्नुहोस्</string>
-    <string name="general_save_action">सेभ गर्नुहोस्</string>
-    <string name="general_thanks_action">धन्यवाद</string>
-    <string name="general_gotit_action">बुझे</string>
+    <string name="general_save_action">सेभ गर्नुहोस्</string>    <string name="general_gotit_action">बुझे</string>
     <string name="general_fix_action">ठिक गर्नुहोस्</string>
     <string name="general_set_up_action">सेटअप गर्नुहोस्</string>
     <string name="general_edit_action">सम्पादन गर्नुहोस्</string>

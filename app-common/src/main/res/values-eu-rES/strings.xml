@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Eskerrik asko</string>
     <string name="general_error_type_mismatch_msg">Mota desadostasuna: %1$s nahi zen, baina %2$s lortu da.</string>
     <string name="general_error_cant_access_msg">Ezin da %s atzitu.</string>
-    <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>
-    <string name="general_error_empty_result_msg">Emaitza hutsik zegoen.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ez da eskaera hau kudeatzeko aplikazio bateragarririk aurkitu.</string>
+    <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>    <string name="general_error_no_compatible_app_found_msg">Ez da eskaera hau kudeatzeko aplikazio bateragarririk aurkitu.</string>
     <string name="general_todo_msg">Eginbide hau oraindik lanean dago eta une honetan ez dago eskuragarri.</string>
     <string name="general_share_action">Partekatu</string>
     <string name="general_done_action">Eginda</string>
     <string name="general_apply_action">Aplikatu</string>
-    <string name="general_copy_action">Kopiatu</string>
-    <string name="general_wipe_action">Garbitu</string>
-    <string name="general_cancel_action">Utzi</string>
+    <string name="general_copy_action">Kopiatu</string>    <string name="general_cancel_action">Utzi</string>
     <string name="general_discard_action">Baztertu</string>
     <string name="general_reset_action">Berrezarri</string>
     <string name="general_drag_handle_description">Arrastatu berrordenatzeko</string>
-    <string name="general_save_action">Gorde</string>
-    <string name="general_thanks_action">Esker</string>
-    <string name="general_gotit_action">Ulertuta</string>
+    <string name="general_save_action">Gorde</string>    <string name="general_gotit_action">Ulertuta</string>
     <string name="general_fix_action">Konpondu</string>
     <string name="general_set_up_action">Konfiguratu</string>
     <string name="general_edit_action">Editatu</string>

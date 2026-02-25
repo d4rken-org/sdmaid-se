@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Gratzie</string>
     <string name="general_error_type_mismatch_msg">Tipu non coìntzidente: Chèriat %1$s, ma apo retzìu %2$s.</string>
     <string name="general_error_cant_access_msg">Non si podet atzèdere a %s.</string>
-    <string name="general_error_root_unavailable">S\'atzessu root non est disponìbile.</string>
-    <string name="general_error_empty_result_msg">Su resurtadu est bòidu.</string>
-    <string name="general_error_no_compatible_app_found_msg">Non s\'est agatada peruna aplicatzione compatìbile pro gestire custa rechesta.</string>
+    <string name="general_error_root_unavailable">S\'atzessu root non est disponìbile.</string>    <string name="general_error_no_compatible_app_found_msg">Non s\'est agatada peruna aplicatzione compatìbile pro gestire custa rechesta.</string>
     <string name="general_todo_msg">Custa funtzionalidade est ancora in travàglio e non est pro issa disponìbile.</string>
     <string name="general_share_action">Cumpartire</string>
     <string name="general_done_action">Acabadu</string>
     <string name="general_apply_action">Aplicare</string>
-    <string name="general_copy_action">Copiare</string>
-    <string name="general_wipe_action">Ispollidare</string>
-    <string name="general_cancel_action">Annullare</string>
+    <string name="general_copy_action">Copiare</string>    <string name="general_cancel_action">Annullare</string>
     <string name="general_discard_action">Iscartare</string>
     <string name="general_reset_action">Torrare a impostare</string>
     <string name="general_drag_handle_description">Isbuda pro torrare a ordinare</string>
-    <string name="general_save_action">Sarvare</string>
-    <string name="general_thanks_action">Gratzie</string>
-    <string name="general_gotit_action">Apat cumprèndiu</string>
+    <string name="general_save_action">Sarvare</string>    <string name="general_gotit_action">Apat cumprèndiu</string>
     <string name="general_fix_action">Currigere</string>
     <string name="general_set_up_action">Impostare</string>
     <string name="general_edit_action">Modificare</string>

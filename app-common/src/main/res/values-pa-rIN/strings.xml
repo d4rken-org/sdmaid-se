@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">ਮਿਹਰਬਾਨੀ</string>
     <string name="general_error_type_mismatch_msg">ਕਿਸਮ ਬੇਮੇਲ: %1$s ਚਾਹੁੰਦਾ ਸੀ, ਪਰ %2$s ਪ੍ਰਾਪਤ ਹੋਇਆ।</string>
     <string name="general_error_cant_access_msg">%s ਤੱਕ ਪਹੁੰਚ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕੀ।</string>
-    <string name="general_error_root_unavailable">ਰੂਟ ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
-    <string name="general_error_empty_result_msg">ਨਤੀਜਾ ਖਾਲੀ ਸੀ।</string>
-    <string name="general_error_no_compatible_app_found_msg">ਇਸ ਬੇਨਤੀ ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਕੋਈ ਮੇਚਲੀ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
+    <string name="general_error_root_unavailable">ਰੂਟ ਪਹੁੰਚ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>    <string name="general_error_no_compatible_app_found_msg">ਇਸ ਬੇਨਤੀ ਨੂੰ ਸੰਭਾਲਣ ਲਈ ਕੋਈ ਮੇਚਲੀ ਐਪ ਨਹੀਂ ਲੱਭੀ।</string>
     <string name="general_todo_msg">ਇਸ ਵਿਸ਼ੇਸ਼ਤਾ \'ਤੇ ਅਜੇ ਵੀ ਕੰਮ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ ਅਤੇ ਫਿਲਹਾਲ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।</string>
     <string name="general_share_action">ਸਾਂਝਾ ਕਰੋ</string>
     <string name="general_done_action">ਮੁਕੰਮਲ</string>
     <string name="general_apply_action">ਲਾਗੂ ਕਰੋ</string>
-    <string name="general_copy_action">ਕਾਪੀ ਕਰੋ</string>
-    <string name="general_wipe_action">ਪੂੰਝੋ</string>
-    <string name="general_cancel_action">ਰੱਦ ਕਰੋ</string>
+    <string name="general_copy_action">ਕਾਪੀ ਕਰੋ</string>    <string name="general_cancel_action">ਰੱਦ ਕਰੋ</string>
     <string name="general_discard_action">ਖ਼ਾਰਜ ਕਰੋ</string>
     <string name="general_reset_action">ਰੀਸੈਟ ਕਰੋ</string>
     <string name="general_drag_handle_description">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ</string>
-    <string name="general_save_action">ਸਾਂਭੋ</string>
-    <string name="general_thanks_action">ਮਿਹਰਬਾਨੀ</string>
-    <string name="general_gotit_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
+    <string name="general_save_action">ਸਾਂਭੋ</string>    <string name="general_gotit_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
     <string name="general_fix_action">ਠੀਕ ਕਰੋ</string>
     <string name="general_set_up_action">ਸਥਾਪਿਤ ਕਰੋ</string>
     <string name="general_edit_action">ਸੋਧੋ</string>

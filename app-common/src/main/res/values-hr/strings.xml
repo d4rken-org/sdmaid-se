@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_error_type_mismatch_msg">Neslaganje tipa: Traženo %1$s, ali dobiveno %2$s.</string>
     <string name="general_error_cant_access_msg">Nije moguće pristupiti %s.</string>
-    <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>
-    <string name="general_error_empty_result_msg">Rezultat je bio prazan.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
+    <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>    <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
     <string name="general_todo_msg">Na ovoj značajci se još uvijek radi i trenutno nije dostupna.</string>
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
     <string name="general_apply_action">Primijeni</string>
-    <string name="general_copy_action">Kopiraj</string>
-    <string name="general_wipe_action">Izbriši</string>
-    <string name="general_cancel_action">Otkaži</string>
+    <string name="general_copy_action">Kopiraj</string>    <string name="general_cancel_action">Otkaži</string>
     <string name="general_discard_action">Odbaci</string>
     <string name="general_reset_action">Ponovno postavi</string>
     <string name="general_drag_handle_description">Povuci za premještanje</string>
-    <string name="general_save_action">Spremi</string>
-    <string name="general_thanks_action">Hvala</string>
-    <string name="general_gotit_action">U redu</string>
+    <string name="general_save_action">Spremi</string>    <string name="general_gotit_action">U redu</string>
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Postavi</string>
     <string name="general_edit_action">Uredi</string>
