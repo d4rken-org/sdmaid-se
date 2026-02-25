@@ -65,10 +65,10 @@ class AutomationManager @Inject constructor(
         }
     }
 
-    private val serviceHolder = MutableStateFlow(AutomationService.instance)
-    val currentService: Flow<AutomationService?> = serviceHolder
+    private val serviceHolder = MutableStateFlow<AutomationServiceHandle?>(null)
+    val currentService: Flow<AutomationServiceHandle?> = serviceHolder
 
-    internal fun setCurrentService(service: AutomationService?) {
+    internal fun setCurrentService(service: AutomationServiceHandle?) {
         log(TAG) { "setCurrentService($service)" }
         serviceHolder.value = service
     }
@@ -133,7 +133,7 @@ class AutomationManager @Inject constructor(
 
     suspend fun canSelfEnable() = Permission.WRITE_SECURE_SETTINGS.isGranted(context)
 
-    private suspend fun startService(): AutomationService {
+    private suspend fun startService(): AutomationServiceHandle {
         log(TAG, VERBOSE) { "startService()" }
         var service = serviceHolder.value
 
@@ -254,7 +254,7 @@ class AutomationManager @Inject constructor(
     }
 
     data class ServiceWrapper(
-        private val service: AutomationService,
+        private val service: AutomationServiceHandle,
     ) {
         @Suppress("UNCHECKED_CAST")
         suspend fun <R> submit(task: AutomationTask): R = service.submit(task) as R

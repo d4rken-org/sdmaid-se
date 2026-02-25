@@ -24,7 +24,7 @@ class SetupModuleLoadingCardVH(parent: ViewGroup) :
         icon.setImageResource(
             when (item.state.type) {
                 SetupModule.Type.USAGE_STATS -> CommonR.drawable.ic_chartbox_24
-                SetupModule.Type.AUTOMATION -> R.drawable.ic_baseline_accessibility_new_24
+                SetupModule.Type.AUTOMATION -> UiR.drawable.ic_baseline_accessibility_new_24
                 SetupModule.Type.SHIZUKU -> R.drawable.ic_shizuku_24
                 SetupModule.Type.ROOT -> R.drawable.ic_root_24
                 SetupModule.Type.NOTIFICATION -> R.drawable.ic_notification_24

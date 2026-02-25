@@ -39,13 +39,21 @@ dependencies {
     implementation(project(":app-common-io"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-shell"))
+    implementation(project(":app-common-ui"))
+    implementation(project(":app-common-data"))
+    implementation(project(":app-common-setup"))
 
     addAndroidCore()
+    addAndroidUI()
     addDI()
     addCoroutines()
     addSerialization()
     addIO()
 
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
+
     addTesting()
     testImplementation(project(":app-common-test"))
+    testImplementation("org.robolectric:robolectric:4.16")
 }

@@ -10,12 +10,10 @@ import android.view.accessibility.AccessibilityEvent
 import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.toNodeInfo
-import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
@@ -31,9 +29,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.isValidAndroidEntryPoint
+import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.setup.automation.AutomationSetupModule
+import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.automation.mightBeRestrictedDueToSideload
 import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.CoroutineScope
@@ -62,11 +61,12 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import java.util.UUID
 import javax.inject.Inject
+import javax.inject.Named
 import kotlin.coroutines.resume
 
 @Keep
 @AndroidEntryPoint
-class AutomationService : AccessibilityService(), AutomationHost, Progress.Host, Progress.Client {
+class AutomationService : AccessibilityService(), AutomationHost, AutomationServiceHandle, Progress.Host, Progress.Client {
 
     @Inject lateinit var dispatcher: DispatcherProvider
     private val serviceScope: CoroutineScope by lazy { CoroutineScope(dispatcher.Default + SupervisorJob()) }
@@ -77,7 +77,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var automationManager: AutomationManager
-    @Inject lateinit var automationSetupModule: AutomationSetupModule
+    @Inject @Named("automation") lateinit var automationSetupModule: SetupModule
     @Inject lateinit var screenState: ScreenState
 
     private lateinit var windowManager: WindowManager
@@ -345,7 +345,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
     private var currentTask = MutableStateFlow<Pair<AutomationTask, Job>?>(null)
     private val taskLock = Mutex()
 
-    suspend fun submit(task: AutomationTask): AutomationTask.Result = taskLock.withLock {
+    override suspend fun submit(task: AutomationTask): AutomationTask.Result = taskLock.withLock {
         val id = task.hashCode()
         log(TAG, INFO) { "submit($id): $task" }
 
@@ -355,7 +355,9 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         }
 
         controlView = withContext(dispatcher.Main) {
-            AutomationControlView(ContextThemeWrapper(this@AutomationService, R.style.AppTheme)).apply {
+            AutomationControlView(
+                ContextThemeWrapper(this@AutomationService, eu.darken.sdmse.common.ui.R.style.AppTheme)
+            ).apply {
                 setCancelListener {
                     serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
                     currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
@@ -414,7 +416,7 @@ class AutomationService : AccessibilityService(), AutomationHost, Progress.Host,
         deferred.await().also { log(TAG) { "submit($id): Result available: $it" } }
     }
 
-    fun cancelTask(): Boolean {
+    override fun cancelTask(): Boolean {
         log(TAG) { "cancelTask()" }
         val (task, job) = currentTask.value ?: return false
         log(TAG, INFO) { "cancelTask(): Canceling $task" }

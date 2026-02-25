@@ -8,11 +8,11 @@ import androidx.annotation.AttrRes
 import androidx.annotation.StyleRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.view.isVisible
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.ui.R
+import eu.darken.sdmse.common.ui.databinding.ViewMascotBinding
 import eu.darken.sdmse.common.ui.layoutInflator
-import eu.darken.sdmse.databinding.ViewMascotBinding
 import java.time.LocalDate
 import java.time.Month
 import java.time.temporal.ChronoUnit
