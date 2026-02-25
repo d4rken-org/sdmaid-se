@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Замуудыг сонгох</string>
+    <string name="picker_selected_paths_title">Сонгогдсон замууд</string>
+    <string name="picker_home_action">Өгөгдлийн бүсүүд</string>
+</resources>

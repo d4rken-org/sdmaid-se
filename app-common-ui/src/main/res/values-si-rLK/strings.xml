@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">මාර්ග සේලකරන්න</string>
+    <string name="picker_selected_paths_title">සේලකර ගත් මාර්ග</string>
+    <string name="picker_unsaved_confirmation_message">වෙනස්කම් පරික්ෂා කරන්නද?</string>
+    <string name="picker_home_action">දත්ත ප්‍රදේශ</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d මාර්ගය සේල කර ඇත</item>
+    <item quantity="other">%d මාර්ග සේල කර ඇත</item>
+    </plurals>
+</resources>

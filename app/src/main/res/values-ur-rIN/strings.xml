@@ -237,14 +237,6 @@
     <string name="stats_settings_reset_all_desc">تمام رپورٹس حذف کریں اور تمام شماریات صفر پر رکھیں۔</string>
     <string name="stats_affected_paths_label">متاثر پاتھز</string>
     <string name="stats_affected_pkgs_label">متاثر ایپس</string>
-    <string name="picker_select_paths_title">پاتھز منتخب کریں</string>
-    <string name="picker_selected_paths_title">منتخب پاتھز</string>
-    <string name="picker_unsaved_confirmation_message">تبدیلیاں رد کریں؟</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d پاتھ منتخب</item>
-        <item quantity="other">%d پاتھز منتخب</item>
-    </plurals>
-    <string name="picker_home_action">ڈیٹا ایریاز</string>
     <string name="shortcut_onetap_short">اسکین + حذف</string>
     <string name="shortcut_onetap_long">ایک عمل میں اسکین اور حذف</string>
     <string name="shortcuts_settings_category">شارٹ کٹس</string>

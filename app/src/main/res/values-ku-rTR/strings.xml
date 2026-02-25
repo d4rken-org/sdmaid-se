@@ -92,9 +92,6 @@
     <string name="motd_setting_enabled_label">پەیامە گرنگەکان</string>
     <string name="updatecheck_setting_enabled_label">پشکنینی نوێکاری</string>
     <string name="shortcut_onetap_short">سکان + سڕینەوە</string>
-    <string name="picker_select_paths_title">ڕێگاکان هەڵبژێرە</string>
-    <string name="picker_selected_paths_title">ڕێگا هەڵبژێردراوەکان</string>
-    <string name="picker_home_action">ناوچەکانی داتا</string>
     <string name="stats_affected_paths_label">ڕێگا کاریگەربووەکان</string>
     <string name="stats_affected_pkgs_label">ئەپە کاریگەربووەکان</string>
 </resources>

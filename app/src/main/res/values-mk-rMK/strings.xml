@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Избриши ги сите извештаи и постави ги сите статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати патеки</string>
     <string name="stats_affected_pkgs_label">Засегнати апликации</string>
-    <string name="picker_select_paths_title">Изберете патеки</string>
-    <string name="picker_selected_paths_title">Избрани патеки</string>
-    <string name="picker_unsaved_confirmation_message">Отфрли промени?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d патека избрана</item>
-        <item quantity="other">%d патеки избрани</item>
-    </plurals>
-    <string name="picker_home_action">Области со податоци</string>
     <string name="shortcut_onetap_short">Скенирај + Избриши</string>
     <string name="shortcut_onetap_long">Скенирај и избриши со една акција</string>
     <string name="shortcuts_settings_category">Кратенки</string>

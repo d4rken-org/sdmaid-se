@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Suprimeix tots els informes i posa totes les estadístiques a zero.</string>
     <string name="stats_affected_paths_label">Rutes afectades</string>
     <string name="stats_affected_pkgs_label">Aplicacions afectades</string>
-    <string name="picker_select_paths_title">Seleccioneu la ruta</string>
-    <string name="picker_selected_paths_title">Rutes seleccionades</string>
-    <string name="picker_unsaved_confirmation_message">Voleu descartar els canvis?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">Ruta seleccionada: %d</item>
-        <item quantity="other">Rutes seleccionades: %d</item>
-    </plurals>
-    <string name="picker_home_action">Àrees de dades</string>
     <string name="shortcut_onetap_short">Escaneja + Suprimeix</string>
     <string name="shortcut_onetap_long">Escaneja i suprimeix en una sola acció</string>
     <string name="shortcuts_settings_category">Dreceres</string>

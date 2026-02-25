@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Excluir todos os relatórios e definir todas as estatísticas para zero.</string>
     <string name="stats_affected_paths_label">Caminhos afetados</string>
     <string name="stats_affected_pkgs_label">Apps afetados</string>
-    <string name="picker_select_paths_title">Selecionar os caminhos</string>
-    <string name="picker_selected_paths_title">Caminhos selecionados</string>
-    <string name="picker_unsaved_confirmation_message">Descartar as alterações?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d caminho selecionado</item>
-        <item quantity="other">%d caminhos selecionados</item>
-    </plurals>
-    <string name="picker_home_action">Áreas de dados</string>
     <string name="shortcut_onetap_short">Escanear + Excluir</string>
     <string name="shortcut_onetap_long">Escanear e excluir em uma ação</string>
     <string name="shortcuts_settings_category">Atalhos</string>

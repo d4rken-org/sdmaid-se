@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">경로 선택</string>
+    <string name="picker_selected_paths_title">선택된 경로</string>
+    <string name="picker_unsaved_confirmation_message">변경사항을 취소하시겠습니까?</string>
+    <string name="picker_home_action">데이터 영역</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">%d개 경로가 선택됨</item>
+    </plurals>
+</resources>

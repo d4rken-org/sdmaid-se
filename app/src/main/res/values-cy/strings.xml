@@ -197,10 +197,6 @@
     <string name="stats_settings_reset_all_desc">Dileu pob adroddiad a gosod pob ystadegyn i sero.</string>
     <string name="stats_affected_paths_label">Llwybrau a effeithiwyd</string>
     <string name="stats_affected_pkgs_label">Apiau a effeithiwyd</string>
-    <string name="picker_select_paths_title">Dewis llwybrau</string>
-    <string name="picker_selected_paths_title">Llwybrau a ddewiswyd</string>
-    <string name="picker_unsaved_confirmation_message">Gwaredu newidiadau?</string>
-    <string name="picker_home_action">Ardaloedd data</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="zero">%d tasg gweithredol</item>
         <item quantity="one">%d tasg gweithredol</item>
@@ -240,14 +236,6 @@
         <item quantity="few">%d diwrnod</item>
         <item quantity="many">%d diwrnod</item>
         <item quantity="other">%d o ddyddiau</item>
-    </plurals>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="zero">%d llwybr wedi\'i ddewis</item>
-        <item quantity="one">%d llwybr wedi\'i ddewis</item>
-        <item quantity="two">%d lwybr wedi\'u dewis</item>
-        <item quantity="few">%d llwybr wedi\'u dewis</item>
-        <item quantity="many">%d llwybr wedi\'u dewis</item>
-        <item quantity="other">%d o lwybrau wedi\'u dewis</item>
     </plurals>
     <string name="dashboard_card_config_title">Cardiau dangosfwrdd</string>
     <string name="dashboard_card_config_desc">Ffurfweddu pa gardiau sy\'n cael eu dangos a\'u trefn</string>

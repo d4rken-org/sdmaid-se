@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Επιλέξτε διαδρομές</string>
+    <string name="picker_selected_paths_title">Επιλεγμένες διαδρομές</string>
+    <string name="picker_unsaved_confirmation_message">Απόρριψη αλλαγών;</string>
+    <string name="picker_home_action">Περιοχές δεδομένων</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">Επιλέχθηκε %d διαδρομή</item>
+    <item quantity="other">Επιλέχθηκαν %d διαδρομές</item>
+    </plurals>
+</resources>

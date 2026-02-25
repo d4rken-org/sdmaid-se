@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">అన్ని రిపోర్ట్‌లను తొలగించి అన్ని గణాంకాలను శూన్యానికి సెట్ చేయండి.</string>
     <string name="stats_affected_paths_label">ప్రభావితమైన పాథ్‌లు</string>
     <string name="stats_affected_pkgs_label">ప్రభావితమైన యాప్‌లు</string>
-    <string name="picker_select_paths_title">పాథ్‌లను ఎంచుకోండి</string>
-    <string name="picker_selected_paths_title">ఎంచుకొన్న పాథ్‌లు</string>
-    <string name="picker_unsaved_confirmation_message">మార్పులను వదిలివేయాలా?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d పాథ్ ఎంచుకొబడింది</item>
-        <item quantity="other">%d పాథ్‌లు ఎంచుకొబడినాయి</item>
-    </plurals>
-    <string name="picker_home_action">డేటా ప్రాంతాలు</string>
     <string name="shortcut_onetap_short">స్కాన్ + తొలగించు</string>
     <string name="shortcut_onetap_long">ఒక చర్యలో స్కాన్ మరియు తొలగింపు</string>
     <string name="shortcuts_settings_category">షార్ట్‌కట్‌లు</string>

@@ -265,16 +265,6 @@
     <string name="stats_settings_reset_all_desc">Izbriši vsa poročila in nastavi vso statistiko na nične vrednosti.</string>
     <string name="stats_affected_paths_label">Obravnavane poti</string>
     <string name="stats_affected_pkgs_label">Obravnavani programi</string>
-    <string name="picker_select_paths_title">Izberite poti</string>
-    <string name="picker_selected_paths_title">Izbrane poti</string>
-    <string name="picker_unsaved_confirmation_message">Zavrzi spremembe?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">Izbrana je bila %d pot.</item>
-        <item quantity="two">Izbrani sta je bili %d poti.</item>
-        <item quantity="few">Izbrane so bile %d poti.</item>
-        <item quantity="other">Izbranih je bilo %d poti.</item>
-    </plurals>
-    <string name="picker_home_action">Podatkovna področja</string>
     <string name="shortcut_onetap_short">Preglej + Izbriši</string>
     <string name="shortcut_onetap_long">Preglej in izbriši z eno potezo.</string>
     <string name="shortcuts_settings_category">Bližnjice</string>

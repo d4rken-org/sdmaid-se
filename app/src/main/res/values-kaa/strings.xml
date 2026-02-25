@@ -224,10 +224,6 @@
     <string name="stats_settings_reset_all_desc">Barlıq esabatlardı óshiriw hám barlıq statistikalardı nólge ornatıw.</string>
     <string name="stats_affected_paths_label">Tásirleng̱en jollar</string>
     <string name="stats_affected_pkgs_label">Tásirleng̱en qosımshalar</string>
-    <string name="picker_select_paths_title">Jollar saylaw</string>
-    <string name="picker_selected_paths_title">Saylag̱an jollar</string>
-    <string name="picker_unsaved_confirmation_message">Ózgerisler tashlaw?</string>
-    <string name="picker_home_action">Ma\'lumot sahalar</string>
     <string name="shortcut_onetap_short">Skanerlew + O\'shiriw</string>
     <string name="shortcut_onetap_long">Bir a\'melde skanerlew ha\'m o\'shiriw</string>
     <string name="shortcuts_settings_category">Tezkor belgiler</string>

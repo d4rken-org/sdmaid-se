@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Poista kaikki raportit ja aseta kaikki tilastot nollaan.</string>
     <string name="stats_affected_paths_label">Vaikutetut polut</string>
     <string name="stats_affected_pkgs_label">Vaikutetut sovellukset</string>
-    <string name="picker_select_paths_title">Valitse polut</string>
-    <string name="picker_selected_paths_title">Valitut polut</string>
-    <string name="picker_unsaved_confirmation_message">Hylätäänkö muutokset?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d polku valittu</item>
-        <item quantity="other">%d polkua valittu</item>
-    </plurals>
-    <string name="picker_home_action">Tietoalueet</string>
     <string name="shortcut_onetap_short">Skannaa + Poista</string>
     <string name="shortcut_onetap_long">Skannaa ja poista yhdellä toimella</string>
     <string name="shortcuts_settings_category">Pikanäppäimet</string>

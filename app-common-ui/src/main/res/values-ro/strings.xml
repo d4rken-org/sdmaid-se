@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Selectați căi</string>
+    <string name="picker_selected_paths_title">Căile selectate</string>
+    <string name="picker_unsaved_confirmation_message">Renunțați la modificări?</string>
+    <string name="picker_home_action">Zone de date</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d cale selectată</item>
+    <item quantity="few">%d căi selectate</item>
+    <item quantity="other">%d căi selectate</item>
+    </plurals>
+</resources>

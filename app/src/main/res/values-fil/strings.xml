@@ -216,14 +216,6 @@
     <string name="stats_settings_reset_all_desc">Burahin ang lahat ng report at i-set ang lahat ng statistics sa zero.</string>
     <string name="stats_affected_paths_label">Mga naapektuhang path</string>
     <string name="stats_affected_pkgs_label">Mga naapektuhang app</string>
-    <string name="picker_select_paths_title">Pumili ng mga path</string>
-    <string name="picker_selected_paths_title">Mga napiling path</string>
-    <string name="picker_unsaved_confirmation_message">Itapon ang mga pagbabago?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d path na napili</item>
-        <item quantity="other">%d mga path na napili</item>
-    </plurals>
-    <string name="picker_home_action">Mga data area</string>
     <string name="shortcut_onetap_short">Scan + Burahin</string>
     <string name="shortcut_onetap_long">Mag-scan at mag-delete sa isang aksyon</string>
     <string name="shortcuts_settings_category">Mga Shortcut</string>

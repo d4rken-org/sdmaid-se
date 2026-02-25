@@ -243,14 +243,6 @@
     <string name="stats_settings_reset_all_desc">ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ ਮਿਟਾਓ ਅਤੇ ਸਾਰੇ ਅੰਕੜੇ ਜ਼ੀਰੋ \'ਤੇ ਸੈੱਟ ਕਰੋ।</string>
     <string name="stats_affected_paths_label">ਪ੍ਰਭਾਵਿਤ ਮਾਰਗ</string>
     <string name="stats_affected_pkgs_label">ਪ੍ਰਭਾਵਿਤ ਐਪਾਂ</string>
-    <string name="picker_select_paths_title">ਮਾਰਗ ਚੁਣੋ</string>
-    <string name="picker_selected_paths_title">ਚੁਣੇ ਗਏ ਮਾਰਗ</string>
-    <string name="picker_unsaved_confirmation_message">ਕੀ ਤਬਦੀਲੀਆਂ ਰੱਦ ਕਰਨੀਆਂ ਹਨ?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d ਮਾਰਗ ਚੁਣਿਆ ਗਿਆ</item>
-        <item quantity="other">%d ਮਾਰਗ ਚੁਣੇ ਗਏ</item>
-    </plurals>
-    <string name="picker_home_action">ਡਾਟਾ ਖੇਤਰ</string>
     <string name="shortcut_onetap_short">ਸਕੈਨ + ਮਿਟਾਓ</string>
     <string name="shortcut_onetap_long">ਇੱਕ ਕਾਰਵਾਈ ਵਿੱਚ ਸਕੈਨ ਅਤੇ ਮਿਟਾਓ</string>
     <string name="shortcuts_settings_category">ਸ਼ਾਰਟਕੱਟ</string>

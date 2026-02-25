@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Elekti vojojn</string>
+    <string name="picker_selected_paths_title">Elektitaj vojoj</string>
+    <string name="picker_unsaved_confirmation_message">Ĉu forĵeti ŝanĝojn?</string>
+    <string name="picker_home_action">Datumareoj</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d vojo elektita</item>
+    <item quantity="other">%d vojoj elektitaj</item>
+    </plurals>
+</resources>

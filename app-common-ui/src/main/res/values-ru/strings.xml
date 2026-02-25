@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Выберите пути</string>
+    <string name="picker_selected_paths_title">Выбранные пути</string>
+    <string name="picker_unsaved_confirmation_message">Отменить изменения?</string>
+    <string name="picker_home_action">Области данных</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">Выбрано путей: %d</item>
+    <item quantity="few">Выбрано путей: %d</item>
+    <item quantity="many">Выбрано путей: %d</item>
+    <item quantity="other">Выбрано путей: %d</item>
+    </plurals>
+</resources>

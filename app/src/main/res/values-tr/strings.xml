@@ -232,14 +232,6 @@
     <string name="stats_settings_reset_all_desc">Tüm raporları sil ve tüm istatistikleri sıfırla.</string>
     <string name="stats_affected_paths_label">Etkilenen dizinler</string>
     <string name="stats_affected_pkgs_label">Etkilenen uygulamalar</string>
-    <string name="picker_select_paths_title">Yolları seçin</string>
-    <string name="picker_selected_paths_title">Seçilen yollar</string>
-    <string name="picker_unsaved_confirmation_message">Değişiklikler yok sayılsın mı?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d yolu seçildi</item>
-        <item quantity="other">%d yolları seçildi</item>
-    </plurals>
-    <string name="picker_home_action">Veri alanları</string>
     <string name="shortcut_onetap_short">Tara + Sil</string>
     <string name="shortcut_onetap_long">Tek bir işlemle tarayın ve silin</string>
     <string name="shortcuts_settings_category">Kısayollar</string>

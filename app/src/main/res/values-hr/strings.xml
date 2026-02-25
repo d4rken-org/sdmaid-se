@@ -256,15 +256,6 @@
     <string name="stats_settings_reset_all_desc">Izbriši sve izvještaje i postavi sve statistike na nulu.</string>
     <string name="stats_affected_paths_label">Pogođene putanje</string>
     <string name="stats_affected_pkgs_label">Pogođene aplikacije</string>
-    <string name="picker_select_paths_title">Odaberi putanje</string>
-    <string name="picker_selected_paths_title">Odabrane putanje</string>
-    <string name="picker_unsaved_confirmation_message">Odbaciti promjene?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d odabrana putanja</item>
-        <item quantity="few">%d odabrane putanje</item>
-        <item quantity="other">%d odabranih putanja</item>
-    </plurals>
-    <string name="picker_home_action">Područja podataka</string>
     <string name="shortcut_onetap_short">Skeniraj + Izbriši</string>
     <string name="shortcut_onetap_long">Skeniraj i izbriši jednom radnjom</string>
     <string name="shortcuts_settings_category">Prečaci</string>

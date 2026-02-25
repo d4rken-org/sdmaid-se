@@ -257,15 +257,6 @@
     <string name="stats_settings_reset_all_desc">Обриши све извештаје и постави све статистике на нулу.</string>
     <string name="stats_affected_paths_label">Погођене путање</string>
     <string name="stats_affected_pkgs_label">Погођене апликације</string>
-    <string name="picker_select_paths_title">Изаберите путање</string>
-    <string name="picker_selected_paths_title">Изабране путање</string>
-    <string name="picker_unsaved_confirmation_message">Одбацити измене?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d путања изабрана</item>
-        <item quantity="few">%d путање изабране</item>
-        <item quantity="other">%d путања изабрано</item>
-    </plurals>
-    <string name="picker_home_action">Области података</string>
     <string name="shortcut_onetap_short">Скенирај + Обриши</string>
     <string name="shortcut_onetap_long">Скенирање и брисање у једној акцији</string>
     <string name="shortcuts_settings_category">Пречице</string>

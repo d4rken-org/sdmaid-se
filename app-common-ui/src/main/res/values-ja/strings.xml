@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">パスを選択</string>
+    <string name="picker_selected_paths_title">選択されたパス</string>
+    <string name="picker_unsaved_confirmation_message">変更を破棄しますか？</string>
+    <string name="picker_home_action">データ領域</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">%d個のパスが選択されました</item>
+    </plurals>
+</resources>

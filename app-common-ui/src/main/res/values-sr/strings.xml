@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Изаберите путање</string>
+    <string name="picker_selected_paths_title">Изабране путање</string>
+    <string name="picker_unsaved_confirmation_message">Одбацити измене?</string>
+    <string name="picker_home_action">Области података</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d путања изабрана</item>
+    <item quantity="few">%d путање изабране</item>
+    <item quantity="other">%d путања изабрано</item>
+    </plurals>
+</resources>

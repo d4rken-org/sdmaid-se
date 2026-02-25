@@ -168,5 +168,4 @@
     <string name="stats_settings_retention_reports_desc">ژمارە of days before deleting basic SD Maid operation reports.</string>
     <string name="stats_settings_reset_all_label">ڕیسێت all</string>
     <string name="stats_settings_reset_all_desc">سڕینەوە all reports and set all statistics to zero.</string>
-    <string name="picker_home_action">داتا areas</string>
 </resources>

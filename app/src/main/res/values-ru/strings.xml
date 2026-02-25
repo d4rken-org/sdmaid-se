@@ -265,16 +265,6 @@
     <string name="stats_settings_reset_all_desc">Удалить все отчеты и обнулить статистику.</string>
     <string name="stats_affected_paths_label">Затрагиваемые пути</string>
     <string name="stats_affected_pkgs_label">Затрагиваемые приложения</string>
-    <string name="picker_select_paths_title">Выберите пути</string>
-    <string name="picker_selected_paths_title">Выбранные пути</string>
-    <string name="picker_unsaved_confirmation_message">Отменить изменения?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">Выбрано путей: %d</item>
-        <item quantity="few">Выбрано путей: %d</item>
-        <item quantity="many">Выбрано путей: %d</item>
-        <item quantity="other">Выбрано путей: %d</item>
-    </plurals>
-    <string name="picker_home_action">Области данных</string>
     <string name="shortcut_onetap_short">Сканирование + Удаление</string>
     <string name="shortcut_onetap_long">Сканирование и удаление одним нажатием</string>
     <string name="shortcuts_settings_category">Ярлыки</string>

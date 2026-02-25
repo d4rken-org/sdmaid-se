@@ -238,13 +238,6 @@
     <string name="stats_settings_reset_all_desc">모든 보고서를 삭제하고 모든 통계를 0으로 설정합니다.</string>
     <string name="stats_affected_paths_label">영향을 받은 경로</string>
     <string name="stats_affected_pkgs_label">영향을 받은 앱</string>
-    <string name="picker_select_paths_title">경로 선택</string>
-    <string name="picker_selected_paths_title">선택된 경로</string>
-    <string name="picker_unsaved_confirmation_message">변경사항을 취소하시겠습니까?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">%d개 경로가 선택됨</item>
-    </plurals>
-    <string name="picker_home_action">데이터 영역</string>
     <string name="shortcut_onetap_short">스캔 + 삭제</string>
     <string name="shortcut_onetap_long">한 번에 스캔하고 삭제</string>
     <string name="shortcuts_settings_category">바로가기</string>

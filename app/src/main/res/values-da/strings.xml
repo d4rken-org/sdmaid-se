@@ -244,14 +244,6 @@
     <string name="stats_settings_reset_all_desc">Slet alle rapporter, og nulstil alle statistikker.</string>
     <string name="stats_affected_paths_label">Påvirkede stier</string>
     <string name="stats_affected_pkgs_label">Påvirkede apps</string>
-    <string name="picker_select_paths_title">Vælg stier</string>
-    <string name="picker_selected_paths_title">Valgte stier</string>
-    <string name="picker_unsaved_confirmation_message">Kassér ændringer?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d sti valgt</item>
-        <item quantity="other">%d stier valgt</item>
-    </plurals>
-    <string name="picker_home_action">Dataområder</string>
     <string name="shortcut_onetap_short">Scan + Slet</string>
     <string name="shortcut_onetap_long">Scan og slet i én handling</string>
     <string name="shortcuts_settings_category">Genveje</string>

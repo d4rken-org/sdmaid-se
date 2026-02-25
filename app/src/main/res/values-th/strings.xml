@@ -236,13 +236,6 @@
     <string name="stats_settings_reset_all_desc">ลบรายงานทั้งหมดและตั้งค่าสถิติทั้งหมดเป็นศูนย์</string>
     <string name="stats_affected_paths_label">เส้นทางที่ได้รับผลกระทบ</string>
     <string name="stats_affected_pkgs_label">แอพที่ได้รับผลกระทบ</string>
-    <string name="picker_select_paths_title">เลือกเส้นทาง</string>
-    <string name="picker_selected_paths_title">เส้นทางที่เลือก</string>
-    <string name="picker_unsaved_confirmation_message">ยกเลิกการเปลี่ยนแปลง?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">เลือกเส้นทาง %d เส้นทาง</item>
-    </plurals>
-    <string name="picker_home_action">พื้นที่ข้อมูล</string>
     <string name="shortcut_onetap_short">สแกน + ลบ</string>
     <string name="shortcut_onetap_long">สแกนและลบในคราวเดียว</string>
     <string name="shortcuts_settings_category">ทางลัด</string>

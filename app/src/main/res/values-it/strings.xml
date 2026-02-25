@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Cancella tutti i report e imposta tutte le statistiche a zero.</string>
     <string name="stats_affected_paths_label">Percorsi interessati</string>
     <string name="stats_affected_pkgs_label">App interessate</string>
-    <string name="picker_select_paths_title">Seleziona percorsi</string>
-    <string name="picker_selected_paths_title">Percorsi selezionati</string>
-    <string name="picker_unsaved_confirmation_message">Annullare le modifiche?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d percorso selezionati</item>
-        <item quantity="other">%d percorsi selezionati</item>
-    </plurals>
-    <string name="picker_home_action">Aree di dati</string>
     <string name="shortcut_onetap_short">Scansione + Elimina</string>
     <string name="shortcut_onetap_long">Scansione ed eliminazione in un\'unica azione</string>
     <string name="shortcuts_settings_category">Scorciatoie</string>

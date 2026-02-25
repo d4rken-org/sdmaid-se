@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Изтриване на всички отчети и задаване на всички статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати пътища</string>
     <string name="stats_affected_pkgs_label">Засегнати приложения</string>
-    <string name="picker_select_paths_title">Избиране на пътища</string>
-    <string name="picker_selected_paths_title">Избрани пътища</string>
-    <string name="picker_unsaved_confirmation_message">Отхвърляне на промените?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d път избран</item>
-        <item quantity="other">%d пътища избрани</item>
-    </plurals>
-    <string name="picker_home_action">Области с данни</string>
     <string name="shortcut_onetap_short">Сканиране + Изтриване</string>
     <string name="shortcut_onetap_long">Сканиране и изтриване с едно действие</string>
     <string name="shortcuts_settings_category">Бързи клавиши</string>

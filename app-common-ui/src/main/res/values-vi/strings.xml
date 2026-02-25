@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Chọn đường dẫn</string>
+    <string name="picker_selected_paths_title">Chọn đường dẫn</string>
+    <string name="picker_unsaved_confirmation_message">Huỷ bỏ thay đổi?</string>
+    <string name="picker_home_action">Vùng dữ liệu</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">%d đường dẫn đã chọn</item>
+    </plurals>
+</resources>

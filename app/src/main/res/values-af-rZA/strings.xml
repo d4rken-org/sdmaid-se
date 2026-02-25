@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Skrap alle verslae en stel alle statistieke op nul.</string>
     <string name="stats_affected_paths_label">Geaffekteerde paaie</string>
     <string name="stats_affected_pkgs_label">Geaffekteerde toepassings</string>
-    <string name="picker_select_paths_title">Kies paaie</string>
-    <string name="picker_selected_paths_title">Gekiesde paaie</string>
-    <string name="picker_unsaved_confirmation_message">Gooi veranderinge weg?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d pad gekies</item>
-        <item quantity="other">%d paaie gekies</item>
-    </plurals>
-    <string name="picker_home_action">Data-areas</string>
     <string name="shortcut_onetap_short">Skandeer + Verwyder</string>
     <string name="shortcut_onetap_long">Skandeer en verwyder in een aksie</string>
     <string name="shortcuts_settings_category">Kortpaaie</string>

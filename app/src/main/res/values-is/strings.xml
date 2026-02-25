@@ -242,14 +242,6 @@
     <string name="stats_settings_reset_all_desc">Eyða öllum skýrslum og núllstilla allar tölfræði.</string>
     <string name="stats_affected_paths_label">Slóðir sem urðu fyrir áhrifum</string>
     <string name="stats_affected_pkgs_label">Forrit sem urðu fyrir áhrifum</string>
-    <string name="picker_select_paths_title">Velja slóðir</string>
-    <string name="picker_selected_paths_title">Valdar slóðir</string>
-    <string name="picker_unsaved_confirmation_message">Fleygja breytingum?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d slóð valin</item>
-        <item quantity="other">%d slóðir valdar</item>
-    </plurals>
-    <string name="picker_home_action">Gagnasvæði</string>
     <string name="shortcut_onetap_short">Skanna + Eyða</string>
     <string name="shortcut_onetap_long">Skanna og eyða í einni aðgerð</string>
     <string name="shortcuts_settings_category">Flýtileiðir</string>

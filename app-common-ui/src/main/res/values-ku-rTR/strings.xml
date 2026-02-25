@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ڕێگاکان هەڵبژێرە</string>
+    <string name="picker_selected_paths_title">ڕێگا هەڵبژێردراوەکان</string>
+    <string name="picker_home_action">ناوچەکانی داتا</string>
+</resources>

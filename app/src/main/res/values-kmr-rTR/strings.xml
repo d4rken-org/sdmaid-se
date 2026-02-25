@@ -110,9 +110,6 @@
     <string name="motd_setting_enabled_label">Peyamên girîng</string>
     <string name="updatecheck_setting_enabled_label">Kontrola nûvekirinan</string>
     <string name="shortcut_onetap_short">Bişopîne + Jê bibe</string>
-    <string name="picker_select_paths_title">Rêyên hilbijêrin</string>
-    <string name="picker_selected_paths_title">Rêyên bijartî</string>
-    <string name="picker_home_action">Deverên daneyan</string>
     <string name="stats_affected_paths_label">Rêyên bandorkirî</string>
     <string name="stats_affected_pkgs_label">Sepanên bandorkirî</string>
 </resources>

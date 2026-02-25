@@ -159,9 +159,6 @@
     <string name="motd_setting_enabled_label">Messaġġi importanti</string>
     <string name="updatecheck_setting_enabled_label">Iċċekkja għal aġġornamenti</string>
     <string name="shortcut_onetap_short">Iskennja + Ħassar</string>
-    <string name="picker_select_paths_title">Agħżel paths</string>
-    <string name="picker_selected_paths_title">Paths magħżula</string>
-    <string name="picker_home_action">Żoni tad-data</string>
     <string name="stats_affected_paths_label">Paths affettwati</string>
     <string name="stats_affected_pkgs_label">Apps affettwati</string>
 </resources>

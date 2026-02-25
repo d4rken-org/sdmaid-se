@@ -3,13 +3,13 @@ package eu.darken.sdmse.common.picker
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import coil.dispose
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.label
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.databinding.CommonPickerItemBinding
+import eu.darken.sdmse.common.ui.R
+import eu.darken.sdmse.common.ui.databinding.CommonPickerItemBinding
 
 
 class PickerItemVH(parent: ViewGroup) :

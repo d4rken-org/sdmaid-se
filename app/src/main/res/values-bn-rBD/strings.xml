@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>
     <string name="stats_affected_paths_label">প্রভাবিত পাথ</string>
     <string name="stats_affected_pkgs_label">প্রভাবিত অ্যাপস</string>
-    <string name="picker_select_paths_title">পথ নির্বাচন করুন</string>
-    <string name="picker_selected_paths_title">নির্বাচিত পথ</string>
-    <string name="picker_unsaved_confirmation_message">পরিবর্তনগুলি বাতিল করবেন?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%dটি পথ নির্বাচিত হয়েছে</item>
-        <item quantity="other">%dটি পথ নির্বাচিত হয়েছে</item>
-    </plurals>
-    <string name="picker_home_action">ডেটা এলাকা</string>
     <string name="shortcut_onetap_short">স্ক্যান + মুছুন</string>
     <string name="shortcut_onetap_long">এক ক্রিয়ায় স্ক্যান করুন এবং মুছুন</string>
     <string name="shortcuts_settings_category">শর্টকাট</string>

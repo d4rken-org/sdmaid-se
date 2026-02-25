@@ -238,13 +238,6 @@
     <string name="stats_settings_reset_all_desc">Hapus semua laporan dan atur ulang semua statistik ke nol.</string>
     <string name="stats_affected_paths_label">Jalur terpengaruh</string>
     <string name="stats_affected_pkgs_label">Aplikasi terpengaruh</string>
-    <string name="picker_select_paths_title">Pilih jalur</string>
-    <string name="picker_selected_paths_title">Jalur yang dipilih</string>
-    <string name="picker_unsaved_confirmation_message">Buang perubahan?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">%d jalur dipilih</item>
-    </plurals>
-    <string name="picker_home_action">Area data</string>
     <string name="shortcut_onetap_short">Pindai + Hapus</string>
     <string name="shortcut_onetap_long">Pindai dan hapus dalam satu tindakan</string>
     <string name="shortcuts_settings_category">Pintasan</string>

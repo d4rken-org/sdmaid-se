@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">ସମସ୍ତ ରିପୋର୍ଟ ଡିଲିଟ୍ କରନ୍ତୁ ଏବଂ ସମସ୍ତ ପରିସଂଖ୍ୟାନ ଶୂନ୍ୟରେ ସେଟ୍ କରନ୍ତୁ।</string>
     <string name="stats_affected_paths_label">ପ୍ରଭାବିତ ପଥ</string>
     <string name="stats_affected_pkgs_label">ପ୍ରଭାବିତ ଆପ୍</string>
-    <string name="picker_select_paths_title">ପଥ ଚୟନ କରନ୍ତୁ</string>
-    <string name="picker_selected_paths_title">ଚୟନିତ ପଥ</string>
-    <string name="picker_unsaved_confirmation_message">ପରିବର୍ତ୍ତନଗୁଡ଼ିକ ପରିତ୍ୟାଗ କରିବେ?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d ପଥ ମନୋନୀତ</item>
-        <item quantity="other">%d ପଥ ମନୋନୀତ</item>
-    </plurals>
-    <string name="picker_home_action">ଡାଟା କ୍ଷେତ୍ର</string>
     <string name="shortcut_onetap_short">ସ୍କାନ୍ + ଡିଲିଟ୍</string>
     <string name="shortcut_onetap_long">ଏକ କାର୍ଯ୍ୟରେ ସ୍କାନ୍ ଏବଂ ଡିଲିଟ୍ କରନ୍ତୁ</string>
     <string name="shortcuts_settings_category">ସର୍ଟକଟ୍</string>

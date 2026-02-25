@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Roghnaigh cosáin</string>
+    <string name="picker_selected_paths_title">Cosáin roghnaithe</string>
+    <string name="picker_unsaved_confirmation_message">Caith athruithe ar lár?</string>
+    <string name="picker_home_action">Limistéir sonraí</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d chosán roghnaithe</item>
+    <item quantity="two">%d chosán roghnaithe</item>
+    <item quantity="few">%d chosán roghnaithe</item>
+    <item quantity="many">%d gcosán roghnaithe</item>
+    <item quantity="other">%d cosán roghnaithe</item>
+    </plurals>
+</resources>

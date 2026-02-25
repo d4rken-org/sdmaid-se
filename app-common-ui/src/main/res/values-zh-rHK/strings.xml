@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">選擇路徑</string>
+    <string name="picker_selected_paths_title">已選擇的路徑</string>
+    <string name="picker_unsaved_confirmation_message">放棄變更？</string>
+    <string name="picker_home_action">資料區域</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">已選擇 %d 個路徑</item>
+    </plurals>
+</resources>

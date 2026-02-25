@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">حذف همه گزارش‌ها و تنظیم همه آمارها به صفر.</string>
     <string name="stats_affected_paths_label">مسیرهای تحت تأثیر</string>
     <string name="stats_affected_pkgs_label">برنامه‌های تحت تأثیر</string>
-    <string name="picker_select_paths_title">انتخاب مسیر‌ها</string>
-    <string name="picker_selected_paths_title">مسیر‌های انتخابی</string>
-    <string name="picker_unsaved_confirmation_message">صرف نظر از تغییرات؟</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d مسیر انتخابی</item>
-        <item quantity="other">%d مسیر انتخابی</item>
-    </plurals>
-    <string name="picker_home_action">مناطق داده</string>
     <string name="shortcut_onetap_short">اسکن + حذف</string>
     <string name="shortcut_onetap_long">اسکن و حذف یکجا</string>
     <string name="shortcuts_settings_category">میانبر‌ها</string>

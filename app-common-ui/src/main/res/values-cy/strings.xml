@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Dewis llwybrau</string>
+    <string name="picker_selected_paths_title">Llwybrau a ddewiswyd</string>
+    <string name="picker_unsaved_confirmation_message">Gwaredu newidiadau?</string>
+    <string name="picker_home_action">Ardaloedd data</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="zero">%d llwybr wedi\'i ddewis</item>
+    <item quantity="one">%d llwybr wedi\'i ddewis</item>
+    <item quantity="two">%d lwybr wedi\'u dewis</item>
+    <item quantity="few">%d llwybr wedi\'u dewis</item>
+    <item quantity="many">%d llwybr wedi\'u dewis</item>
+    <item quantity="other">%d o lwybrau wedi\'u dewis</item>
+    </plurals>
+</resources>

@@ -15,7 +15,6 @@ import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.bottomsheet.BottomSheetBehavior
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -27,7 +26,8 @@ import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.databinding.CommonPickerFragmentBinding
+import eu.darken.sdmse.common.ui.R
+import eu.darken.sdmse.common.ui.databinding.CommonPickerFragmentBinding
 import kotlin.math.roundToInt
 
 @AndroidEntryPoint

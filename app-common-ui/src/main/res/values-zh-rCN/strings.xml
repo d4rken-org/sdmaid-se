@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">选择路径</string>
+    <string name="picker_selected_paths_title">已选中路径</string>
+    <string name="picker_unsaved_confirmation_message">放弃更改？</string>
+    <string name="picker_home_action">数据区域</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">已选中 %d 个路径</item>
+    </plurals>
+</resources>

@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Az összes jelentés törlése és az összes statisztika nullára állítása.</string>
     <string name="stats_affected_paths_label">Érintett útvonalak</string>
     <string name="stats_affected_pkgs_label">Érintett alkalmazások</string>
-    <string name="picker_select_paths_title">Útvonal kiválasztása</string>
-    <string name="picker_selected_paths_title">Kiválasztott útvonalak</string>
-    <string name="picker_unsaved_confirmation_message">Elveted a változtatásokat?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d kiválasztott útvonal</item>
-        <item quantity="other">%d kiválasztott útvonal</item>
-    </plurals>
-    <string name="picker_home_action">Adatterületek</string>
     <string name="shortcut_onetap_short">Keresés + Törlés</string>
     <string name="shortcut_onetap_long">Keresés és törlés egy lépésben</string>
     <string name="shortcuts_settings_category">Parancsikonok</string>

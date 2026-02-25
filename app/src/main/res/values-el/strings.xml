@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
     <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>
     <string name="stats_affected_pkgs_label">Επηρεαζόμενες εφαρμογές</string>
-    <string name="picker_select_paths_title">Επιλέξτε διαδρομές</string>
-    <string name="picker_selected_paths_title">Επιλεγμένες διαδρομές</string>
-    <string name="picker_unsaved_confirmation_message">Απόρριψη αλλαγών;</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">Επιλέχθηκε %d διαδρομή</item>
-        <item quantity="other">Επιλέχθηκαν %d διαδρομές</item>
-    </plurals>
-    <string name="picker_home_action">Περιοχές δεδομένων</string>
     <string name="shortcut_onetap_short">Σάρωση + Διαγραφή</string>
     <string name="shortcut_onetap_long">Σάρωση και διαγραφή με μία ενέργεια</string>
     <string name="shortcuts_settings_category">Συντομεύσεις</string>

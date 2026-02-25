@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Выберыце шляхі</string>
+    <string name="picker_selected_paths_title">Выбраныя шляхі</string>
+    <string name="picker_unsaved_confirmation_message">Адхіліць змены?</string>
+    <string name="picker_home_action">Вобласці даных</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">Выбраны %d шлях</item>
+    <item quantity="few">Выбрана %d шляхі</item>
+    <item quantity="many">Выбрана %d шляхоў</item>
+    <item quantity="other">Выбрана %d шляхоў</item>
+    </plurals>
+</resources>

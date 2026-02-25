@@ -236,14 +236,6 @@
     <string name="stats_settings_reset_all_desc">सभी रिपोर्ट मिटाएं और सभी आंकड़े शून्य पर सेट करें।</string>
     <string name="stats_affected_paths_label">प्रभावित पथ</string>
     <string name="stats_affected_pkgs_label">प्रभावित ऐप्स</string>
-    <string name="picker_select_paths_title">पथ चुनें</string>
-    <string name="picker_selected_paths_title">चयनित पथ</string>
-    <string name="picker_unsaved_confirmation_message">परिवर्तन छोड़ें?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d पथ चयनित</item>
-        <item quantity="other">%d पथ चयनित</item>
-    </plurals>
-    <string name="picker_home_action">डेटा क्षेत्र</string>
     <string name="shortcut_onetap_short">स्कैन + हटाएं</string>
     <string name="shortcut_onetap_long">एक क्रिया में स्कैन और हटाएं</string>
     <string name="shortcuts_settings_category">शॉर्टकट</string>

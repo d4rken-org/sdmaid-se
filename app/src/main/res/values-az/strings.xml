@@ -247,14 +247,6 @@
     <string name="stats_settings_reset_all_desc">Bütün hesabatları silin və bütün statistikaları sıfıra qoyun.</string>
     <string name="stats_affected_paths_label">Təsirlənən yollar</string>
     <string name="stats_affected_pkgs_label">Təsirlənən tətbiqlər</string>
-    <string name="picker_select_paths_title">Yolları seç</string>
-    <string name="picker_selected_paths_title">Seçilmiş yollar</string>
-    <string name="picker_unsaved_confirmation_message">Dəyişiklikləri atılsınmı?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d yol seçildi</item>
-        <item quantity="other">%d yol seçildi</item>
-    </plurals>
-    <string name="picker_home_action">Məlumat sahələri</string>
     <string name="shortcut_onetap_short">Axtar + Sil</string>
     <string name="shortcut_onetap_long">Tək toxunuşla axtar et və sil</string>
     <string name="shortcuts_settings_category">Qısayollar</string>

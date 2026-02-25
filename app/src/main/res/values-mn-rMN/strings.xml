@@ -180,9 +180,6 @@
     <string name="stats_settings_reset_all_desc">Бүх тайланг устгаж, бүх статистикийг тэг болгох.</string>
     <string name="stats_affected_paths_label">Нөлөөлсөн замууд</string>
     <string name="stats_affected_pkgs_label">Нөлөөлсөн аппликешнүүд</string>
-    <string name="picker_select_paths_title">Замуудыг сонгох</string>
-    <string name="picker_selected_paths_title">Сонгогдсон замууд</string>
-    <string name="picker_home_action">Өгөгдлийн бүсүүд</string>
     <string name="shortcut_onetap_short">Сканнердах + Устгах</string>
     <string name="shortcut_onetap_long">Нэг үйлдлээр сканнердаж устгах</string>
     <string name="shortcuts_settings_category">Товчлолууд</string>

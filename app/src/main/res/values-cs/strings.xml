@@ -265,16 +265,6 @@
     <string name="stats_settings_reset_all_desc">Smazat všechna hlášení a nastavit všechny statistiky na nulu.</string>
     <string name="stats_affected_paths_label">Ovlivněné cesty</string>
     <string name="stats_affected_pkgs_label">Ovlivněné aplikace</string>
-    <string name="picker_select_paths_title">Vybrat cesty</string>
-    <string name="picker_selected_paths_title">Vybrané cesty</string>
-    <string name="picker_unsaved_confirmation_message">Zahodit změny?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">Vybrána %d cesta</item>
-        <item quantity="few">Vybrány %d cesty</item>
-        <item quantity="many">Vybráno %d cest</item>
-        <item quantity="other">Vybráno %d cest</item>
-    </plurals>
-    <string name="picker_home_action">Oblasti dat</string>
     <string name="shortcut_onetap_short">Skenovat + smazat</string>
     <string name="shortcut_onetap_long">Skenování a mazání v jedné akci</string>
     <string name="shortcuts_settings_category">Zkratky</string>

@@ -244,14 +244,6 @@
     <string name="stats_settings_reset_all_desc">Futa ripoti zote na weka takwimu zote kuwa sifuri.</string>
     <string name="stats_affected_paths_label">Njia zilizoathiriwa</string>
     <string name="stats_affected_pkgs_label">Programu zilizoathiriwa</string>
-    <string name="picker_select_paths_title">Chagua njia</string>
-    <string name="picker_selected_paths_title">Njia zilizochaguliwa</string>
-    <string name="picker_unsaved_confirmation_message">Tupa mabadiliko?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">njia %d imechaguliwa</item>
-        <item quantity="other">njia %d zimechaguliwa</item>
-    </plurals>
-    <string name="picker_home_action">Maeneo ya data</string>
     <string name="shortcut_onetap_short">Tafuta + Futa</string>
     <string name="shortcut_onetap_long">Tafuta na futa kwa kitendo kimoja</string>
     <string name="shortcuts_settings_category">Mikato</string>

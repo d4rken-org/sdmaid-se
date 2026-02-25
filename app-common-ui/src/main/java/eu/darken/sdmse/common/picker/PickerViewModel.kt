@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.flow.replayingShare
-import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.awaitCancellation
@@ -35,8 +34,7 @@ class PickerViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<PickerFragmentArgs>()
-    private val request = navArgs.request
+    private val request: PickerRequest = handle["request"]!!
 
     private val selectedItems = MutableStateFlow(emptyList<APathLookup<*>>())
     private val navigationState = MutableStateFlow<List<PickerItem>?>(null)

@@ -320,15 +320,6 @@
     <string name="stats_affected_paths_label">Affected paths</string>
     <string name="stats_affected_pkgs_label">Affected apps</string>
 
-    <string name="picker_select_paths_title">Select paths</string>
-    <string name="picker_selected_paths_title">Selected paths</string>
-    <string name="picker_unsaved_confirmation_message">Discard changes?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d path selected</item>
-        <item quantity="other">%d paths selected</item>
-    </plurals>
-    <string name="picker_home_action">Data areas</string>
-
     <string name="shortcut_onetap_short">Scan + Delete</string>
     <string name="shortcut_onetap_long">Scan and delete in one action</string>
 

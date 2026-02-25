@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">בחר נתיבים</string>
+    <string name="picker_selected_paths_title">נתיבים נבחרים</string>
+    <string name="picker_unsaved_confirmation_message">לבטל שינויים?</string>
+    <string name="picker_home_action">אזורי נתונים</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">נבחר נתיב %d</item>
+    <item quantity="two">נבחרו %d נתיבים</item>
+    <item quantity="many">נבחרו %d נתיבים</item>
+    <item quantity="other">נבחרו %d נתיבים</item>
+    </plurals>
+</resources>

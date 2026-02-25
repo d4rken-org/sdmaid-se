@@ -238,13 +238,6 @@
     <string name="stats_settings_reset_all_desc">レポートをすべて削除し、統計をリセットします。</string>
     <string name="stats_affected_paths_label">操作対象パス</string>
     <string name="stats_affected_pkgs_label">操作対象のアプリ</string>
-    <string name="picker_select_paths_title">パスを選択</string>
-    <string name="picker_selected_paths_title">選択されたパス</string>
-    <string name="picker_unsaved_confirmation_message">変更を破棄しますか？</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">%d個のパスが選択されました</item>
-    </plurals>
-    <string name="picker_home_action">データ領域</string>
     <string name="shortcut_onetap_short">スキャン + 削除</string>
     <string name="shortcut_onetap_long">スキャンと削除を一括実行</string>
     <string name="shortcuts_settings_category">ショートカット</string>

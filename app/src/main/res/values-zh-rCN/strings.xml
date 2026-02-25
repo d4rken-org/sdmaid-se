@@ -238,13 +238,6 @@
     <string name="stats_settings_reset_all_desc">删除所有报告并将所有统计数据归零。</string>
     <string name="stats_affected_paths_label">受影响的路径</string>
     <string name="stats_affected_pkgs_label">受影响的应用</string>
-    <string name="picker_select_paths_title">选择路径</string>
-    <string name="picker_selected_paths_title">已选中路径</string>
-    <string name="picker_unsaved_confirmation_message">放弃更改？</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="other">已选中 %d 个路径</item>
-    </plurals>
-    <string name="picker_home_action">数据区域</string>
     <string name="shortcut_onetap_short">扫描 + 删除</string>
     <string name="shortcut_onetap_long">一键扫描并删除</string>
     <string name="shortcuts_settings_category">快捷键</string>

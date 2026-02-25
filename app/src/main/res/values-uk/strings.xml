@@ -265,16 +265,6 @@
     <string name="stats_settings_reset_all_desc">Видаліть усі звіти та обнулить усю статистику.</string>
     <string name="stats_affected_paths_label">Пошкоджені шляхи</string>
     <string name="stats_affected_pkgs_label">Пошкоджені додатки</string>
-    <string name="picker_select_paths_title">Виберіть шляхи</string>
-    <string name="picker_selected_paths_title">Вибрані шляхи</string>
-    <string name="picker_unsaved_confirmation_message">Скасувати зміни?</string>
-    <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d шлях вибрано</item>
-        <item quantity="few">%d шляхи вибрано</item>
-        <item quantity="many">%d шляхів вибрано</item>
-        <item quantity="other">%d шляхів вибрано</item>
-    </plurals>
-    <string name="picker_home_action">Області даних</string>
     <string name="shortcut_onetap_short">Сканувати + Видалити</string>
     <string name="shortcut_onetap_long">Сканування та видалення однією дією</string>
     <string name="shortcuts_settings_category">Швидкі клавіші</string>
