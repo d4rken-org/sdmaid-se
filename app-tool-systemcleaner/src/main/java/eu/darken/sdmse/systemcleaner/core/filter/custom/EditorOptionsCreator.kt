@@ -1,8 +1,13 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
 import android.content.Context
+import android.os.Parcelable
+import dagger.Binds
+import dagger.Module
 import dagger.Reusable
+import dagger.hilt.InstallIn
 import dagger.hilt.android.qualifiers.ApplicationContext
+import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -10,6 +15,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.FilterEditorOptionsCreator
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.forensics.identifyArea
@@ -22,9 +28,9 @@ import javax.inject.Inject
 class EditorOptionsCreator @Inject constructor(
     @ApplicationContext private val context: Context,
     private val fileForensics: FileForensics,
-) {
+) : FilterEditorOptionsCreator {
 
-    suspend fun createOptions(targets: Set<APathLookup<*>>): CustomFilterEditorOptions {
+    override suspend fun createOptions(targets: Set<APathLookup<*>>): Parcelable {
         log(TAG, VERBOSE) { "Determining options for ${targets.size} targets:\n${targets.joinToString("\n")}" }
 
         val areaInfos = targets.mapNotNull { target ->
@@ -69,6 +75,12 @@ class EditorOptionsCreator @Inject constructor(
             pathCriteria = pathCriteria,
             saveAsEnabled = true,
         ).also { log(TAG, INFO) { "Editor options are : $it" } }
+    }
+
+    @InstallIn(SingletonComponent::class)
+    @Module
+    abstract class DIM {
+        @Binds abstract fun bindFilterEditorOptionsCreator(impl: EditorOptionsCreator): FilterEditorOptionsCreator
     }
 
     companion object {

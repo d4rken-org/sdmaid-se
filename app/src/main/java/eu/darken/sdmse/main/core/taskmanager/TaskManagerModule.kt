@@ -13,4 +13,8 @@ abstract class TaskManagerModule {
     @Binds
     @Singleton
     abstract fun taskSubmitter(taskManager: TaskManager): TaskSubmitter
+
+    @Binds
+    @Singleton
+    abstract fun schedulerTaskFactory(impl: SchedulerTaskFactoryImpl): SchedulerTaskFactory
 }

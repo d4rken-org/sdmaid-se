@@ -46,10 +46,6 @@ dependencies {
     implementation(project(":app-common-shell"))
     implementation(project(":app-common-automation"))
 
-    implementation(project(":app-tool-corpsefinder"))
-    implementation(project(":app-tool-systemcleaner"))
-    implementation(project(":app-tool-appcleaner"))
-
     addAndroidCore()
     addAndroidUI()
     addWorkerManager()

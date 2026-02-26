@@ -7,11 +7,9 @@ import androidx.work.ForegroundInfo
 import androidx.work.WorkerParameters
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
-import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -27,11 +25,10 @@ import eu.darken.sdmse.automation.core.errors.AutomationSchedulerException
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
-import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.main.core.taskmanager.SchedulerTaskFactory
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.setup.SetupHealerSource
-import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.SupervisorJob
@@ -50,8 +47,8 @@ class SchedulerWorker @AssistedInject constructor(
     @Assisted private val params: WorkerParameters,
     dispatcherProvider: DispatcherProvider,
     private val taskSubmitter: TaskSubmitter,
+    private val schedulerTaskFactory: SchedulerTaskFactory,
     private val schedulerManager: SchedulerManager,
-    private val schedulerSettings: SchedulerSettings,
     private val schedulerNotifications: SchedulerNotifications,
     private val setupHealer: SetupHealerSource,
     private val rootManager: RootManager,
@@ -138,18 +135,12 @@ class SchedulerWorker @AssistedInject constructor(
     }
 
     private suspend fun doDoWork(schedule: Schedule) {
-        val tasks = mutableListOf<SDMTool.Task>()
-
-        if (schedule.useCorpseFinder) {
-            tasks.add(CorpseFinderSchedulerTask(schedule.id))
+        val enabledTools = buildSet {
+            if (schedule.useCorpseFinder) add(SDMTool.Type.CORPSEFINDER)
+            if (schedule.useSystemCleaner) add(SDMTool.Type.SYSTEMCLEANER)
+            if (schedule.useAppCleaner) add(SDMTool.Type.APPCLEANER)
         }
-        if (schedule.useSystemCleaner) {
-            tasks.add(SystemCleanerSchedulerTask(schedule.id))
-        }
-        if (schedule.useAppCleaner) {
-            val useAutomation = schedulerSettings.useAutomation.value()
-            tasks.add(AppCleanerSchedulerTask(schedule.id, useAutomation = useAutomation))
-        }
+        val tasks = schedulerTaskFactory.createTasks(schedule.id, enabledTools)
 
         delay(1000)
 

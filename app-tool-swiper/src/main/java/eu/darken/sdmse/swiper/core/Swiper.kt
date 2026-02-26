@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.SwiperSessionCreator
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -55,7 +56,7 @@ class Swiper @Inject constructor(
     private val sessionDao: SwipeSessionDao,
     private val itemDao: SwipeItemDao,
     private val upgradeRepo: UpgradeRepo,
-) : SDMTool, Progress.Client {
+) : SDMTool, Progress.Client, SwiperSessionCreator {
 
     override val type: SDMTool.Type = SDMTool.Type.SWIPER
 
@@ -366,7 +367,7 @@ class Swiper @Inject constructor(
         itemDao.deleteItem(itemId)
     }
 
-    suspend fun createSession(paths: Set<APath>): String = toolLock.withLock {
+    override suspend fun createSession(paths: Set<APath>): String = toolLock.withLock {
         log(TAG, INFO) { "createSession(paths=$paths)" }
         val sessionId = java.util.UUID.randomUUID().toString()
         val now = Instant.now()
@@ -434,6 +435,7 @@ class Swiper @Inject constructor(
     @Module
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: Swiper): SDMTool
+        @Binds abstract fun swiperSessionCreator(mod: Swiper): SwiperSessionCreator
     }
 
     companion object {

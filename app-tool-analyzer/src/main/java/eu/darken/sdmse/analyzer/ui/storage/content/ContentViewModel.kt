@@ -35,8 +35,8 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
-import eu.darken.sdmse.swiper.core.Swiper
-import eu.darken.sdmse.systemcleaner.core.filter.custom.EditorOptionsCreator
+import eu.darken.sdmse.common.files.FilterEditorOptionsCreator
+import eu.darken.sdmse.common.files.SwiperSessionCreator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
@@ -53,9 +53,9 @@ class ContentViewModel @Inject constructor(
     private val analyzerSettings: AnalyzerSettings,
     private val viewIntentTool: ViewIntentTool,
     private val exclusionManager: ExclusionManager,
-    private val editorOptionsCreator: EditorOptionsCreator,
+    private val filterEditorOptionsCreator: FilterEditorOptionsCreator,
     private val upgradeRepo: UpgradeRepo,
-    private val swiper: Swiper,
+    private val swiperSessionCreator: SwiperSessionCreator,
 ) : ViewModel3(dispatcherProvider) {
 
     private val targetStorageId: StorageId = handle.get<StorageId>("storageId")!!
@@ -267,7 +267,7 @@ class ContentViewModel @Inject constructor(
             .mapNotNull { it.lookup }
             .toSet()
 
-        val options = editorOptionsCreator.createOptions(targets)
+        val options = filterEditorOptionsCreator.createOptions(targets)
         navDirections(
             eu.darken.sdmse.common.R.id.goToCustomFilterEditor,
             bundleOf("initial" to options)
@@ -296,7 +296,7 @@ class ContentViewModel @Inject constructor(
             return@launch
         }
 
-        val sessionId = swiper.createSession(paths)
+        val sessionId = swiperSessionCreator.createSession(paths)
         log(TAG) { "createSwiperSession(): Created session $sessionId with ${paths.size} paths" }
         events.postValue(ContentItemEvents.SwiperSessionCreated(sessionId, paths.size))
     }
