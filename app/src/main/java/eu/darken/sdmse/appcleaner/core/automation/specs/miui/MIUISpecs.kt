@@ -35,6 +35,7 @@ import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
+import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -65,10 +66,13 @@ import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.flow.debounce
 import kotlinx.coroutines.flow.distinctUntilChanged
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 
 @Reusable
@@ -316,21 +320,37 @@ class MIUISpecs @Inject constructor(
         // Clear cache?
         // -> Cancel        -> Ok
         run {
-            val windowCheck = windowCheck { _, root ->
-                if (root.pkgId != SETTINGS_PKG_MIUI) return@windowCheck false
-                root.crawl().map { it.node }.any { subNode ->
-                    // This is required to relax the match on the dialog texts
-                    // Otherwise it could detect the clear cache button as match
-                    if (!subNode.idContains("id/alertTitle")) return@any false
-                    return@any when {
-                        subNode.textMatchesAny(dialogTitles) -> true
-                        subNode.textMatchesAny(dialogTitles.map { it.replace("?", "") }) -> true
-                        subNode.textMatchesAny(dialogTitles.map { "$it?" }) -> true
-                        subNode.textEndsWithAny(clearCacheLabels.map { "$it?" }) -> true
-                        subNode.textEndsWithAny(clearCacheLabels) -> true
-                        else -> false
-                    }
+            val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
+                // Some MIUI versions skip this dialog and clear cache immediately
+                // Redmi/gust_global/gust:13/TP1A.220624.014/V14.0.6.0.TGPMIXN:user/release-keys
+                val dialogRoot = withTimeoutOrNull(3.seconds) {
+                    host.events
+                        .mapNotNull { host.windowRoot() }
+                        .filter { root ->
+                            if (root.pkgId != SETTINGS_PKG_MIUI) return@filter false
+                            root.crawl().map { it.node }.any { subNode ->
+                                // This is required to relax the match on the dialog texts
+                                // Otherwise it could detect the clear cache button as match
+                                if (!subNode.idContains("id/alertTitle")) return@any false
+                                when {
+                                    subNode.textMatchesAny(dialogTitles) -> true
+                                    subNode.textMatchesAny(dialogTitles.map { it.replace("?", "") }) -> true
+                                    subNode.textMatchesAny(dialogTitles.map { "$it?" }) -> true
+                                    subNode.textEndsWithAny(clearCacheLabels.map { "$it?" }) -> true
+                                    subNode.textEndsWithAny(clearCacheLabels) -> true
+                                    else -> false
+                                }
+                            }
+                        }
+                        .first()
                 }
+                if (dialogRoot == null) {
+                    throw PlanAbortException(
+                        message = "Confirmation dialog not found. Cache was likely cleared without confirmation.",
+                        treatAsSuccess = true,
+                    )
+                }
+                dialogRoot
             }
 
             val action: suspend StepContext.() -> Boolean = action@{
