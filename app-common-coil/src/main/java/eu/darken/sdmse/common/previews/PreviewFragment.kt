@@ -14,8 +14,8 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.DialogFragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.common.ui.R
-import eu.darken.sdmse.common.ui.databinding.PreviewFragmentBinding
+import eu.darken.sdmse.common.coil.R
+import eu.darken.sdmse.common.coil.databinding.PreviewFragmentBinding
 
 @AndroidEntryPoint
 class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
@@ -26,7 +26,7 @@ class PreviewFragment : DialogFragment3(R.layout.preview_fragment) {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        setStyle(STYLE_NO_FRAME, R.style.DialogTheme)
+        setStyle(STYLE_NO_FRAME, eu.darken.sdmse.common.ui.R.style.DialogTheme)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

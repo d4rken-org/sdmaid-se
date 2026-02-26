@@ -198,6 +198,8 @@ dependencies {
 
     implementation(project(":app-common"))
     implementation(project(":app-common-ui"))
+    implementation(project(":app-common-coil"))
+    implementation(project(":app-common-picker"))
     implementation(project(":app-common-stats"))
     testImplementation(project(":app-common-test"))
     implementation(project(":app-common-root"))

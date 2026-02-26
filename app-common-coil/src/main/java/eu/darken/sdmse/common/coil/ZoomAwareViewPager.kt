@@ -1,4 +1,4 @@
-package eu.darken.sdmse.common.ui
+package eu.darken.sdmse.common.coil
 
 import android.content.Context
 import android.util.AttributeSet

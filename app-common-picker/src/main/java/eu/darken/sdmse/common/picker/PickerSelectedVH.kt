@@ -4,8 +4,8 @@ import android.view.ViewGroup
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.iconRes
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.common.ui.R
-import eu.darken.sdmse.common.ui.databinding.CommonPickerSelectedItemBinding
+import eu.darken.sdmse.common.picker.R
+import eu.darken.sdmse.common.picker.databinding.CommonPickerSelectedItemBinding
 
 
 class PickerSelectedVH(parent: ViewGroup) :

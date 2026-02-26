@@ -26,8 +26,8 @@ import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.navigation.popBackStack
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import eu.darken.sdmse.common.ui.R
-import eu.darken.sdmse.common.ui.databinding.CommonPickerFragmentBinding
+import eu.darken.sdmse.common.picker.R
+import eu.darken.sdmse.common.picker.databinding.CommonPickerFragmentBinding
 import kotlin.math.roundToInt
 
 @AndroidEntryPoint
@@ -130,7 +130,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
             selectedAdapter,
             horizontalDividers = true,
         )
-        ui.selectedSecondary.text = requireContext().getQuantityString2(R.plurals.picker_selected_paths_subtitle, 0)
+        ui.selectedSecondary.text = requireContext().getQuantityString2(eu.darken.sdmse.common.ui.R.plurals.picker_selected_paths_subtitle, 0)
 
         vm.state.observe2(ui) { state ->
             log(TAG) { "updating with new state: $state" }
@@ -139,16 +139,16 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
 
             toolbar.setNavigationIcon(
                 if (state.current == null) {
-                    R.drawable.ic_baseline_close_24
+                    eu.darken.sdmse.common.ui.R.drawable.ic_baseline_close_24
                 } else {
-                    R.drawable.ic_baseline_arrow_back_24
+                    eu.darken.sdmse.common.ui.R.drawable.ic_baseline_arrow_back_24
                 }
             )
 
             if (state.progress == null) pickerAdapter.update(state.items)
 
             selectedSecondary.text = requireContext().getQuantityString2(
-                R.plurals.picker_selected_paths_subtitle,
+                eu.darken.sdmse.common.ui.R.plurals.picker_selected_paths_subtitle,
                 state.selected.size,
             )
             if (state.progress == null) selectedAdapter.update(state.selected)
@@ -164,7 +164,7 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
         vm.events.observe2 { event ->
             when (event) {
                 PickerEvent.ExitConfirmation -> MaterialAlertDialogBuilder(requireContext()).apply {
-                    setMessage(R.string.picker_unsaved_confirmation_message)
+                    setMessage(eu.darken.sdmse.common.ui.R.string.picker_unsaved_confirmation_message)
                     setPositiveButton(eu.darken.sdmse.common.R.string.general_discard_action) { _, _ ->
                         vm.cancel(confirmed = true)
                     }

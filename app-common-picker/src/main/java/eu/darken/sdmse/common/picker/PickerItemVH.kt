@@ -8,8 +8,8 @@ import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.lists.binding
-import eu.darken.sdmse.common.ui.R
-import eu.darken.sdmse.common.ui.databinding.CommonPickerItemBinding
+import eu.darken.sdmse.common.picker.R
+import eu.darken.sdmse.common.picker.databinding.CommonPickerItemBinding
 
 
 class PickerItemVH(parent: ViewGroup) :
@@ -28,7 +28,7 @@ class PickerItemVH(parent: ViewGroup) :
 
         contentIcon.apply {
             if (item.parent == null) {
-                setImageResource(R.drawable.ic_folder_home_24)
+                setImageResource(eu.darken.sdmse.common.ui.R.drawable.ic_folder_home_24)
             } else {
                 dispose()
                 loadFilePreview(item.lookup)
