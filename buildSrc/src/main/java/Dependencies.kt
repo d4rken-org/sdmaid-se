@@ -44,6 +44,9 @@ private fun DependencyHandler.testRuntimeOnly(dependencyNotation: Any): Dependen
 private fun DependencyHandler.debugImplementation(dependencyNotation: Any): Dependency? =
     add("debugImplementation", dependencyNotation)
 
+private fun DependencyHandler.api(dependencyNotation: Any): Dependency? =
+    add("api", dependencyNotation)
+
 fun DependencyHandlerScope.addDI() {
     implementation("com.google.dagger:dagger:${Versions.Dagger.core}")
     implementation("com.google.dagger:dagger-android:${Versions.Dagger.core}")
@@ -80,10 +83,16 @@ fun DependencyHandlerScope.addCoroutines() {
     }
 }
 
+private const val COIL_VERSION = "2.7.0"
+
 fun DependencyHandlerScope.addCoil() {
-    val version = "2.7.0"
-    implementation("io.coil-kt:coil:$version")
-    implementation("io.coil-kt:coil-video:$version")
+    implementation("io.coil-kt:coil:$COIL_VERSION")
+    implementation("io.coil-kt:coil-video:$COIL_VERSION")
+}
+
+fun DependencyHandlerScope.addCoilApi() {
+    api("io.coil-kt:coil:$COIL_VERSION")
+    implementation("io.coil-kt:coil-video:$COIL_VERSION")
 }
 
 fun DependencyHandlerScope.addLottie() {
@@ -97,8 +106,14 @@ fun DependencyHandlerScope.addSerialization() {
     ksp("com.squareup.moshi:moshi-kotlin-codegen:$version")
 }
 
+private const val OKIO_VERSION = "3.16.4"
+
 fun DependencyHandlerScope.addIO() {
-    implementation("com.squareup.okio:okio:3.16.4")
+    implementation("com.squareup.okio:okio:$OKIO_VERSION")
+}
+
+fun DependencyHandlerScope.addIOApi() {
+    api("com.squareup.okio:okio:$OKIO_VERSION")
 }
 
 fun DependencyHandlerScope.addRetrofit() {

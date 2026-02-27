@@ -224,7 +224,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
     addRetrofit()
 
     "gplayImplementation"("com.android.billingclient:billing:8.3.0")
@@ -244,7 +243,6 @@ dependencies {
 
     implementation("io.github.z4kn4fein:semver:3.0.0")
 
-    addCoil()
     addLottie()
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")

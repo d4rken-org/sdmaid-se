@@ -48,7 +48,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")

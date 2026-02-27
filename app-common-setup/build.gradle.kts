@@ -42,7 +42,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
 
     addTesting()
     testImplementation(project(":app-common-test"))

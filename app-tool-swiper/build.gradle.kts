@@ -42,6 +42,7 @@ dependencies {
     implementation(project(":app-common"))
     implementation(project(":app-common-ui"))
     implementation(project(":app-common-io"))
+    implementation(project(":app-common-coil"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-shell"))
@@ -54,9 +55,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
     addRoomDb()
-    addCoil()
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")

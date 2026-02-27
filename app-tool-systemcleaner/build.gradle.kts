@@ -38,6 +38,7 @@ dependencies {
     implementation(project(":app-common"))
     implementation(project(":app-common-ui"))
     implementation(project(":app-common-io"))
+    implementation(project(":app-common-coil"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-shell"))
@@ -50,14 +51,11 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
     implementation("androidx.documentfile:documentfile:1.1.0")
-
-    addCoil()
 
     addTesting()
     testImplementation(project(":app-common-test"))

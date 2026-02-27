@@ -47,8 +47,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
-    addCoil()
+    addIOApi()
 
     addTesting()
     testImplementation(project(":app-common-test"))

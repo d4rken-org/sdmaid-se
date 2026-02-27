@@ -41,7 +41,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
 
     addTesting()
 

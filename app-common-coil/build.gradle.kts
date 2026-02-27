@@ -45,7 +45,7 @@ dependencies {
     addAndroidUI()
     addDI()
     addCoroutines()
-    addCoil()
+    addCoilApi()
 
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
