@@ -14,6 +14,7 @@ import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.common.contentDescMatches
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.isClickyButton
@@ -201,14 +202,31 @@ class AOSPSpecs @Inject constructor(
             return true
         }
 
-        delay(250)
-        val postSnapshot = takeStorageSnapshot(sizeParser)
-        return when (compareSnapshots(preSnapshot, postSnapshot)) {
-            DeltaResult.SUCCESS -> { log(tag, INFO) { "Delta[$source]: values decreased" }; true }
-            DeltaResult.SKIP_SUCCESS -> { log(tag, INFO) { "Delta[$source]: cache already zero" }; true }
-            DeltaResult.NO_CHANGE -> { log(tag, WARN) { "Delta[$source]: no change, retrying" }; false }
-            DeltaResult.INCONCLUSIVE -> { log(tag, WARN) { "Delta[$source]: inconclusive, retrying" }; false }
+        // Retry snapshot comparison: the Settings UI may take a few hundred ms to update
+        // accessibility node values after the click (observed ~340ms on Android 17 beta).
+        val maxAttempts = 3
+        val retryDelayMs = 250L
+        for (attempt in 1..maxAttempts) {
+            delay(retryDelayMs)
+            val postSnapshot = takeStorageSnapshot(sizeParser)
+            when (compareSnapshots(preSnapshot, postSnapshot)) {
+                DeltaResult.SUCCESS -> {
+                    log(tag, INFO) { "Delta[$source]: values decreased (attempt=$attempt)" }
+                    return true
+                }
+                DeltaResult.SKIP_SUCCESS -> {
+                    log(tag, INFO) { "Delta[$source]: cache already zero (attempt=$attempt)" }
+                    return true
+                }
+                DeltaResult.NO_CHANGE -> {
+                    log(tag, WARN) { "Delta[$source]: no change (attempt=$attempt/$maxAttempts)" }
+                }
+                DeltaResult.INCONCLUSIVE -> {
+                    log(tag, WARN) { "Delta[$source]: inconclusive (attempt=$attempt/$maxAttempts)" }
+                }
+            }
         }
+        return false
     }
 
     @SuppressLint("InlinedApi")
@@ -223,6 +241,11 @@ class AOSPSpecs @Inject constructor(
             return false
         }
 
+        val dpadDown: suspend () -> Boolean = if (canInjectInput) {
+            { inputInjector.inject(InputInjector.Event.DpadDown); true }
+        } else {
+            { host.service.performGlobalAction(AccessibilityService.GLOBAL_ACTION_DPAD_DOWN) }
+        }
         val dpadRight: suspend () -> Boolean = if (canInjectInput) {
             { inputInjector.inject(InputInjector.Event.DpadRight); true }
         } else {
@@ -271,6 +294,8 @@ class AOSPSpecs @Inject constructor(
         run {
             val fastBootstrapped = bootstrapAnchor("quick-try")
             if (fastBootstrapped) {
+                dpadDown()
+                delay(stepDelayMs)
                 val moved = dpadRight()
                 if (moved) {
                     delay(stepDelayMs)
@@ -324,6 +349,9 @@ class AOSPSpecs @Inject constructor(
                 log(tag, INFO) { "Focus not on anchor in cycle $cycle, attempting DPAD traversal anyway" }
             }
 
+            dpadDown()
+            delay(stepDelayMs)
+
             var stalledSteps = 0
             var lastSignature: String? = null
 
@@ -363,14 +391,6 @@ class AOSPSpecs @Inject constructor(
                     if (focused.viewIdResourceName == anchorId) {
                         anchorHits++
                         log(tag, INFO) { "entity_header_content hit #$anchorHits (cycle=$cycle step=$stepIdx)" }
-                        if (anchorHits >= 2) {
-                            log(tag, INFO) { "Pressing DPAD_CENTER on presumed Clear cache (anchor hit #$anchorHits)" }
-                            val clicked = if (Bugs.isDryRun) true else dpadCenter()
-                            log(tag, INFO) { "DPAD_CENTER result=$clicked (source=anchor-hit-$anchorHits)" }
-                            if (!clicked) return false
-                            if (validateWithDelta("anchor-hit-$anchorHits", preSnapshot, sizeParser)) return true
-                            break // Delta validation failed, try next cycle
-                        }
                     }
                 }
 
@@ -401,6 +421,8 @@ class AOSPSpecs @Inject constructor(
                     return false
                 }
 
+                dpadDown()
+                delay(stepDelayMs)
                 repeat(rightSteps) {
                     dpadRight()
                     delay(stepDelayMs)
@@ -460,7 +482,17 @@ class AOSPSpecs @Inject constructor(
             val canInjectInput = inputInjector.canInject()
             log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
+            // https://github.com/d4rken-org/sdmaid-se/issues/2056
+            val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
+            val useDpadFallback = hasApiLevel(36) && isGoogle
+            log(TAG, INFO) {
+                "isGoogle=$isGoogle, useDpadFallback=$useDpadFallback (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
+            }
+
+            var nodeActionAttempts = 0
+            var dpadExhausted = false
             val nodeAction: suspend StepContext.() -> Boolean = action@{
+                val attempt = nodeActionAttempts++
                 val candidate = findClearCacheCandidate(clearCacheButtonLabels)
 
                 if (candidate != null) {
@@ -472,15 +504,19 @@ class AOSPSpecs @Inject constructor(
                     log(tag, WARN) { "Could not resolve clickable target from: $candidate" }
                 }
 
-                // https://github.com/d4rken-org/sdmaid-se/issues/2056
-                val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
-                val isBetaBuild = BuildWrap.PRODUCT?.contains("_beta", ignoreCase = true) == true
-                val useA16DpadWorkaround = hasApiLevel(36) && isGoogle && isBetaBuild
-                log(tag, INFO) {
-                    "isGoogle=$isGoogle, isBetaBuild=$isBetaBuild, useA16DpadWorkaround=$useA16DpadWorkaround (MANUFACTURER=${BuildWrap.MANUFACTOR}, PRODUCT=${BuildWrap.PRODUCT})"
-                }
-                if (useA16DpadWorkaround) {
+                // DPAD fallback: try text search a few times first for AOSP ROMs with accessible buttons,
+                // then fall back to DPAD navigation. tryClickViaFocusNavigation calls waitForLayoutStability
+                // internally, so we don't need many retries here to wait for the screen to load.
+                val dpadMinAttempts = 2
+                if (useDpadFallback && dpadExhausted) {
+                    throw StepAbortException("DPAD exhausted, clear-cache button not reachable (attempt=$attempt)")
+                } else if (useDpadFallback && attempt >= dpadMinAttempts) {
+                    log(tag, INFO) { "DPAD fallback triggered (attempt=$attempt)" }
                     if (tryClickViaFocusNavigation(clearCacheButtonLabels, canInjectInput)) return@action true
+                    dpadExhausted = true
+                    log(tag, WARN) { "DPAD fallback exhausted, won't retry" }
+                } else if (useDpadFallback) {
+                    log(tag) { "Skipping DPAD fallback (attempt=$attempt < $dpadMinAttempts)" }
                 }
 
                 false

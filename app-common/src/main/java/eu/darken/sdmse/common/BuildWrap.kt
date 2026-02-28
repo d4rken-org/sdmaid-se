@@ -39,6 +39,7 @@ fun hasApiLevel(level: Int): Boolean = when {
     level == 34 && BuildWrap.VERSION.CODENAME == "UpsideDownCake" -> true
     level == 35 && BuildWrap.VERSION.CODENAME == "VanillaIceCream" -> true
     level == 36 && BuildWrap.VERSION.CODENAME == "Baklava" -> true
+    level == 37 && BuildWrap.VERSION.CODENAME == "CinnamonBun" -> true
     else -> false
 }
 

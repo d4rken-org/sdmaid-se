@@ -4,6 +4,7 @@ import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.errors.StepAbortException
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.device.DeviceDetective
@@ -168,7 +169,20 @@ abstract class BaseAppCleanerSpecTest<S : AppCleanerSpecGenerator, L : Any> : Ba
                     tag = "test",
                     stepAttempts = 0,
                 )
-                actionResult = step.nodeAction?.invoke(stepContext) ?: false
+                val nodeAction = step.nodeAction
+                if (nodeAction != null) {
+                    try {
+                        for (i in 0 until 10) {
+                            val result = nodeAction.invoke(stepContext)
+                            if (result) {
+                                actionResult = true
+                                break
+                            }
+                        }
+                    } catch (_: StepAbortException) {
+                        actionResult = false
+                    }
+                }
             }
             Unit
         }
