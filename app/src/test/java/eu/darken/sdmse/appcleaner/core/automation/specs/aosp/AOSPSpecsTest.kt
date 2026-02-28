@@ -21,6 +21,7 @@ import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.TestACSNodeInfo
 
@@ -49,6 +50,13 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         every { labels.getStorageEntryStatic(any()) } returns setOf("Storage")
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
         every { labels.getClearCacheStatic(any()) } returns setOf("Clear cache")
+    }
+
+    @BeforeEach
+    fun aospSetup() {
+        mockkObject(BuildWrap)
+        every { BuildWrap.MANUFACTOR } returns "TestOEM"
+        every { BuildWrap.PRODUCT } returns "test_product"
     }
 
     @AfterEach

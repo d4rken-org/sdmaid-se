@@ -66,6 +66,14 @@ class HasApiLevelTest : BaseTest() {
     }
 
     @Test
+    fun `detects API 37 via CinnamonBun codename on preview device`() {
+        every { BuildWrap.VERSION.SDK_INT } returns 36
+        every { BuildWrap.VERSION.CODENAME } returns "CinnamonBun"
+
+        hasApiLevel(37) shouldBe true
+    }
+
+    @Test
     fun `Baklava codename does not match wrong API level`() {
         every { BuildWrap.VERSION.SDK_INT } returns 35
         every { BuildWrap.VERSION.CODENAME } returns "Baklava"

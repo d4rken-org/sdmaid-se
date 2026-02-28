@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
+import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.automation.ui.AutomationControlView
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -364,7 +365,12 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
                 }
                 alpha = 0f
                 log(TAG) { "submit($id): Adding controlView" }
-                windowManager.addView(this, overlayParams)
+                try {
+                    windowManager.addView(this, overlayParams)
+                } catch (e: WindowManager.BadTokenException) {
+                    log(TAG, ERROR) { "submit($id): Failed to add controlView: ${e.asLog()}" }
+                    throw AutomationOverlayException(e)
+                }
             }
         }
 
