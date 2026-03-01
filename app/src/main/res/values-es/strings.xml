@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Tarjetas del panel</string>
     <string name="dashboard_card_config_desc">Configura qué tarjetas se muestran y el orden</string>
     <string name="dashboard_card_config_header_title">Arrastra para reordenar, conmuta para mostrar/ocultar</string>
-    <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo del registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>

@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Cartões de painel</string>
     <string name="dashboard_card_config_desc">Configurar quais cartões são exibidos e sua ordem</string>
     <string name="dashboard_card_config_header_title">Arraste para reordenar, alterne para mostrar/ocultar</string>
-    <string name="debug_notification_channel_label">Notificações de depuração</string>
     <string name="debug_debuglog_file_label">Arquivo de log gravado</string>
     <string name="debug_debuglog_recording_progress">Gravando log de depuração</string>
     <string name="debug_debuglog_record_action">Gravar log de depuração</string>

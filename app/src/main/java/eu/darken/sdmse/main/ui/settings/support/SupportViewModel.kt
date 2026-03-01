@@ -22,7 +22,12 @@ class SupportViewModel @Inject constructor(
     private val recorderModule: RecorderModule,
 ) : ViewModel3(dispatcherProvider) {
 
+    sealed interface SupportEvents {
+        data class ShowShortRecordingWarning(val durationSeconds: Long) : SupportEvents
+    }
+
     val clipboardEvent = SingleLiveEvent<String>()
+    val events = SingleLiveEvent<SupportEvents>()
 
     val isRecording = recorderModule.state.map { it.isRecording }.asLiveData2()
 
@@ -53,6 +58,17 @@ class SupportViewModel @Inject constructor(
 
     fun stopDebugLog() = launch {
         log(TAG) { "stopDebugLog()" }
+        when (val result = recorderModule.requestStopRecorder()) {
+            is RecorderModule.StopResult.TooShort -> {
+                events.postValue(SupportEvents.ShowShortRecordingWarning(result.durationSeconds))
+            }
+            is RecorderModule.StopResult.Stopped -> {}
+            is RecorderModule.StopResult.NotRecording -> {}
+        }
+    }
+
+    fun confirmStopDebugLog() = launch {
+        log(TAG) { "confirmStopDebugLog()" }
         recorderModule.stopRecorder()
     }
 

@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">Bi lêdana bişkoja çalakiyê ya dashboard-ê lêgerîn û jêbirinê ji bo hemû amûran dest pê bikin, bêyî pejirandinên zêde.</string>
     <string name="dashboard_settings_oneclick_tools_title">Amûrên Yek-Lêdan</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kîjan amûr divê di operasyonên yek-lêdanê de bên tê de kirin?</string>
-    <string name="debug_notification_channel_label">Agahdariyên debug</string>
     <string name="debug_debuglog_file_label">Pelê log\'ê ya tomarkirî</string>
     <string name="debug_debuglog_recording_progress">Log\'a debug tê tomarkirin</string>
     <string name="debug_debuglog_record_action">Log\'a debug tomar bike</string>

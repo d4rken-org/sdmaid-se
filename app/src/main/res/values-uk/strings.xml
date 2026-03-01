@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Картки панелі інструментів</string>
     <string name="dashboard_card_config_desc">Налаштуйте, які картки відображатимуться та їхній порядок</string>
     <string name="dashboard_card_config_header_title">Перетягніть, щоб змінити порядок, перемикайте, щоб показати/приховати</string>
-    <string name="debug_notification_channel_label">Сповіщення про налагодження</string>
     <string name="debug_debuglog_file_label">Записаний файл журналу</string>
     <string name="debug_debuglog_recording_progress">Запис журналу налагодження</string>
     <string name="debug_debuglog_record_action">Записати журнал налагодження</string>

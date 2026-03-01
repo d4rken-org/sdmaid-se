@@ -38,4 +38,6 @@ sealed interface DashboardEvents {
 
     data object SqueezerSetup : DashboardEvents
 
+    data class ShowShortRecordingWarning(val durationSeconds: Long) : DashboardEvents
+
 }

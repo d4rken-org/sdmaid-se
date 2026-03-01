@@ -13,6 +13,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ClipboardHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
+import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
@@ -56,6 +57,17 @@ class SupportFragment : PreferenceFragment2() {
                     clipboardHelper.copyToClipboard(installId)
                 }
                 .show()
+        }
+
+        vm.events.observe2(this) { event ->
+            when (event) {
+                is SupportViewModel.SupportEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
+                    context = requireContext(),
+                    durationSeconds = event.durationSeconds,
+                    onContinue = {},
+                    onStopAnyway = { vm.confirmStopDebugLog() },
+                ).show()
+            }
         }
 
         vm.isRecording.observe2(this) { isRecording ->

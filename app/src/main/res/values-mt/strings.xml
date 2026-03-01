@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Karti tad-dashboard</string>
     <string name="dashboard_card_config_desc">Ikkonfigura liema karti jidhru u l-ordni tagħhom</string>
     <string name="dashboard_card_config_header_title">Iġbed biex tirranġa, aqleb biex turi/taħbi</string>
-    <string name="debug_notification_channel_label">Notifiki ta\' debugging</string>
     <string name="debug_debuglog_file_label">Fajl ta\' log irrekordjat</string>
     <string name="debug_debuglog_recording_progress">Qed jirrekordja l-log tad-debugging</string>
     <string name="debug_debuglog_record_action">Irrekordja log tad-debugging</string>

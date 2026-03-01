@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Karty v panelu nástrojů</string>
     <string name="dashboard_card_config_desc">Nakonfigurujte, které karty se zobrazují a v jakém pořadí</string>
     <string name="dashboard_card_config_header_title">Přetažením přeskupit, přepnout pro zobrazení/skrytí</string>
-    <string name="debug_notification_channel_label">Oznámení o ladění</string>
     <string name="debug_debuglog_file_label">Zaznamenaný soubor záznamu</string>
     <string name="debug_debuglog_recording_progress">Zaznamenávání soubor záznamu</string>
     <string name="debug_debuglog_record_action">Zaznamenat soubor záznamu</string>

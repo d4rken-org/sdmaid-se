@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kontrolekaarte</string>
     <string name="dashboard_card_config_desc">Stel in watter kaarte gewys word en hul volgorde</string>
     <string name="dashboard_card_config_header_title">Sleep om te herrangskik, wissel om te wys/verberg</string>
-    <string name="debug_notification_channel_label">Ontfout kennisgewings</string>
     <string name="debug_debuglog_file_label">Opgenome loglêer</string>
     <string name="debug_debuglog_recording_progress">Neem ontfout log op</string>
     <string name="debug_debuglog_record_action">Neem ontfout log op</string>

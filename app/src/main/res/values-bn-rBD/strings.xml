@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">ড্যাশবোর্ড কার্ড</string>
     <string name="dashboard_card_config_desc">কোন কার্ডগুলি দেখানো হবে এবং তাদের ক্রম কনফিগার করুন</string>
     <string name="dashboard_card_config_header_title">পুনঃক্রম করতে টেনে আনুন, দেখান/লুকাতে টগল করুন</string>
-    <string name="debug_notification_channel_label">ডিবাগ নোটিফিকেশন</string>
     <string name="debug_debuglog_file_label">রেকর্ড করা লগ ফাইল</string>
     <string name="debug_debuglog_recording_progress">রেকর্ডিং ডিবাগ লগ</string>
     <string name="debug_debuglog_record_action">ডিবাগ লগ রেকর্ড করুন</string>
