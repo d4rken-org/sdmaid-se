@@ -20,6 +20,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
+import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.uix.Fragment3
@@ -160,6 +161,13 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
                 is SupportContactFormEvents.ShowError -> {
                     Snackbar.make(requireView(), event.messageRes, Snackbar.LENGTH_LONG).show()
                 }
+
+                is SupportContactFormEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
+                    context = requireContext(),
+                    durationSeconds = event.durationSeconds,
+                    onContinue = {},
+                    onStopAnyway = { vm.confirmStopRecording() },
+                ).show()
             }
         }
 

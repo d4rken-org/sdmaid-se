@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">டாஷ்போர்டு கார்டுகள்</string>
     <string name="dashboard_card_config_desc">எந்த கார்டுகள் காட்டப்படும் மற்றும் அவற்றின் வரிசையை அமைக்கவும்</string>
     <string name="dashboard_card_config_header_title">மறுவரிசைப்படுத்த இழுக்கவும், காட்ட/மறைக்க மாற்றவும்</string>
-    <string name="debug_notification_channel_label">பிழைத்திருத்த அறிவிப்புகள்</string>
     <string name="debug_debuglog_file_label">பதிவு செய்யப்பட்ட பதிவு கோப்பு</string>
     <string name="debug_debuglog_recording_progress">பிழைத்திருத்த பதிவை பதிவு செய்கிறது</string>
     <string name="debug_debuglog_record_action">பிழைத்திருத்த பதிவை பதிவு செய்</string>

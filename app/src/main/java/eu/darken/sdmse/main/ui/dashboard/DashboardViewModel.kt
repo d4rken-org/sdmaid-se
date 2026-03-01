@@ -597,7 +597,15 @@ class DashboardViewModel @Inject constructor(
                     state = it,
                     onToggleRecording = {
                         if (it.isRecording) {
-                            launch { recorderModule.stopRecorder() }
+                            launch {
+                                when (val result = recorderModule.requestStopRecorder()) {
+                                    is RecorderModule.StopResult.TooShort -> {
+                                        events.postValue(DashboardEvents.ShowShortRecordingWarning(result.durationSeconds))
+                                    }
+                                    is RecorderModule.StopResult.Stopped -> {}
+                                    is RecorderModule.StopResult.NotRecording -> {}
+                                }
+                            }
                         } else {
                             launch { recorderModule.startRecorder() }
                         }
@@ -824,6 +832,10 @@ class DashboardViewModel @Inject constructor(
     fun showSqueezer() {
         log(TAG, INFO) { "showSqueezerDetails()" }
         DashboardFragmentDirections.actionDashboardFragmentToSqueezerListFragment().navigate()
+    }
+
+    fun confirmStopRecording() = launch {
+        recorderModule.stopRecorder()
     }
 
     fun undoSetupHide() = launch {

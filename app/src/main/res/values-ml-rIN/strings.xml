@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">ഡാഷ്ബോർഡ് കാർഡുകൾ</string>
     <string name="dashboard_card_config_desc">ഏത് കാർഡുകൾ കാണിക്കണമെന്നും അവയുടെ ക്രമവും കൊൺഫിഗർ ചെയ്യുക</string>
     <string name="dashboard_card_config_header_title">പുനർക്രമീകരിക്കാൻ വലിച്ചിടുക, കാണിക്കാൻ/മറയ്ക്കാൻ ടോഗ്ഗൽ ചെയ്യുക</string>
-    <string name="debug_notification_channel_label">ഡീബഗ് അറിയിപ്പുകൾ</string>
     <string name="debug_debuglog_file_label">രേഖപ്പെടുത്തിയ ലോഗ് ഫയൽ</string>
     <string name="debug_debuglog_recording_progress">ഡീബഗ് ലോഗ് രേഖപ്പെടുത്തുന്നു</string>
     <string name="debug_debuglog_record_action">ഡീബഗ് ലോഗ് രേഖപ്പെടുത്തുക</string>

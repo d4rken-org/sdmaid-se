@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">დაფის ბარათები</string>
     <string name="dashboard_card_config_desc">მოარგეთ რომელი ბარათები გამოჩნდეს და მათი თანმიმდევრობა</string>
     <string name="dashboard_card_config_header_title">გადაათრიეთ გადასალაგებლად, გადართეთ საჩვენებლად/დასამალად</string>
-    <string name="debug_notification_channel_label">გამართვის შეტყობინებები</string>
     <string name="debug_debuglog_file_label">ჩაწერილი ჟურნალის ფაილი</string>
     <string name="debug_debuglog_recording_progress">გამართვის ჟურნალის ჩაწერა</string>
     <string name="debug_debuglog_record_action">გამართვის ჟურნალის ჩაწერა</string>

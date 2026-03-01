@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
@@ -256,6 +257,13 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 is DashboardEvents.SqueezerSetup -> {
                     DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
                 }
+
+                is DashboardEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
+                    context = requireContext(),
+                    durationSeconds = event.durationSeconds,
+                    onContinue = {},
+                    onStopAnyway = { vm.confirmStopRecording() },
+                ).show()
 
             }
         }

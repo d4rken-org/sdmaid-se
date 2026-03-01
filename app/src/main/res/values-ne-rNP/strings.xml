@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">ड्यासबोर्ड कार्डहरू</string>
     <string name="dashboard_card_config_desc">कुन कार्डहरू देखाइन्छन् र तिनीहरूको क्रम कन्फिगर गर्नुहोस्</string>
     <string name="dashboard_card_config_header_title">पुनः क्रमबद्ध गर्न ड्र्याग गर्नुहोस्, देखाउन/लुकाउन टगल गर्नुहोस्</string>
-    <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
     <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
     <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>
     <string name="debug_debuglog_record_action">डिबग लग रेकर्ड गर्नुहोस्</string>

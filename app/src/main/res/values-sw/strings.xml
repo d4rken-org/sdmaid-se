@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kadi za dashibodi</string>
     <string name="dashboard_card_config_desc">Sanidi kadi zipi zinaonyeshwa na mpangilio wao</string>
     <string name="dashboard_card_config_header_title">Buruta kupanga upya, geuza kuonyesha/kuficha</string>
-    <string name="debug_notification_channel_label">Arifa za marekebisho</string>
     <string name="debug_debuglog_file_label">Faili la rekodi lililoandikwa</string>
     <string name="debug_debuglog_recording_progress">Inaandika rekodi ya marekebisho</string>
     <string name="debug_debuglog_record_action">Andika rekodi ya marekebisho</string>

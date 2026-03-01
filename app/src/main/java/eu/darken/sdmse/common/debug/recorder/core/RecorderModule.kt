@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
+import android.os.SystemClock
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -17,13 +18,13 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.getPackageInfo
-import eu.darken.sdmse.common.startServiceCompat
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -79,6 +80,7 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
+                        val isResuming = debugSettings.recorderPath.value() != null
                         val logDir = debugSettings.recorderPath.value()?.let {
                             log(TAG) { "Continuing existing log: $it" }
                             File(it)
@@ -93,11 +95,11 @@ class RecorderModule @Inject constructor(
 
                         logInfos()
 
-                        context.startServiceCompat(Intent(context, RecorderService::class.java))
-
                         copy(
                             recorder = newRecorder,
                             currentLogDir = logDir,
+                            // null for resumed recordings → skips duration check, never "too short"
+                            recordingStartedAtMillis = if (isResuming) null else SystemClock.elapsedRealtime(),
                         )
                     } else if (!shouldRecord && isRecording) {
                         log(TAG) { "Stopping log recorder for: $currentLogDir" }
@@ -108,13 +110,18 @@ class RecorderModule @Inject constructor(
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
 
-                        val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        try {
+                            val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
+                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                            }
+                            context.startActivity(intent)
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed to launch RecorderActivity: ${e.asLog()}" }
                         }
-                        context.startActivity(intent)
 
                         copy(
                             recorder = null,
+                            recordingStartedAtMillis = null,
                         )
                     } else {
                         this
@@ -168,6 +175,24 @@ class RecorderModule @Inject constructor(
         return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
     }
 
+    suspend fun requestStopRecorder(): StopResult {
+        val currentState = internalState.value()
+        if (!currentState.isRecording) return StopResult.NotRecording
+
+        val startedAt = currentState.recordingStartedAtMillis
+        if (startedAt != null) {
+            val elapsedMs = SystemClock.elapsedRealtime() - startedAt
+            val elapsedSeconds = elapsedMs / 1000
+            if (elapsedSeconds < MIN_RECORDING_SECONDS) {
+                log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
+                return StopResult.TooShort(elapsedSeconds)
+            }
+        }
+
+        val logDir = stopRecorder() ?: return StopResult.NotRecording
+        return StopResult.Stopped(logDir)
+    }
+
     suspend fun stopRecorder(): File? {
         val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
@@ -215,10 +240,17 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
     }
 
+    sealed class StopResult {
+        data class TooShort(val durationSeconds: Long) : StopResult()
+        data class Stopped(val logDir: File) : StopResult()
+        data object NotRecording : StopResult()
+    }
+
     data class State(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
+        val recordingStartedAtMillis: Long? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
@@ -227,5 +259,6 @@ class RecorderModule @Inject constructor(
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "force_debug_run"
+        private const val MIN_RECORDING_SECONDS = 5L
     }
 }

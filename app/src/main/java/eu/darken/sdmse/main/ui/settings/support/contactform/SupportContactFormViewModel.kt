@@ -152,6 +152,16 @@ class SupportContactFormViewModel @Inject constructor(
     }
 
     fun stopRecording() = launch {
+        when (val result = recorderModule.requestStopRecorder()) {
+            is RecorderModule.StopResult.TooShort -> {
+                events.postValue(SupportContactFormEvents.ShowShortRecordingWarning(result.durationSeconds))
+            }
+            is RecorderModule.StopResult.Stopped -> {}
+            is RecorderModule.StopResult.NotRecording -> {}
+        }
+    }
+
+    fun confirmStopRecording() = launch {
         recorderModule.stopRecorder()
     }
 

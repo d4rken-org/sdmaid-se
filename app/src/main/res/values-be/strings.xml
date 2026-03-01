@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Карткі панэлі інструментаў</string>
     <string name="dashboard_card_config_desc">Наладжванне адлюстравання картак і іх парадку</string>
     <string name="dashboard_card_config_header_title">Перацягніце для змянення парадку, пераключыце для адлюстравання/схавання</string>
-    <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
     <string name="debug_debuglog_file_label">Запісаны файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запіс журнала адладкі</string>
     <string name="debug_debuglog_record_action">Запісаць журнал адладкі</string>

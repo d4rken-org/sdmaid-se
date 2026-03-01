@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_desc">Configure which cards are shown and their order</string>
     <string name="dashboard_card_config_header_title">Drag to reorder, toggle to show/hide</string>
 
-    <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
@@ -25,6 +24,10 @@
         <item quantity="other">%1$d files ready (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
+    <string name="debug_debuglog_short_recording_title">Very short recording</string>
+    <string name="debug_debuglog_short_recording_desc">You only recorded for %1$d seconds. Debug logs are recordings, not snapshots — reproduce the issue while recording is active for the log to be useful.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continue recording</string>
+    <string name="debug_debuglog_short_recording_stop_action">Stop anyway</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
