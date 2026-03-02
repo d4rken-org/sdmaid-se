@@ -171,8 +171,10 @@ internal fun <ItemT : SelectableItem> resolveSelection(
     data: List<ItemT>,
     caller: String,
 ): List<ItemT> {
-    val resolved = tracker.selection.mapNotNull { key -> data.firstOrNull { it.itemSelectionKey == key } }
-    val staleCount = tracker.selection.size() - resolved.size
+    val selectionKeys = tracker.selection.toList()
+    val dataByKey = data.associateBy { it.itemSelectionKey }
+    val resolved = selectionKeys.mapNotNull { key -> dataByKey[key] }
+    val staleCount = selectionKeys.size - resolved.size
     if (staleCount > 0) log(TAG, WARN) { "$caller: $staleCount stale selection keys" }
     return resolved
 }
