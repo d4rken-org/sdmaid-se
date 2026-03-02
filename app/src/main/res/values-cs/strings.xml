@@ -1139,7 +1139,7 @@
         <item quantity="one">Pokračovat v relaci před %1$d dnem (%2$d%% dokončeno)</item>
         <item quantity="few">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
         <item quantity="many">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
-        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d% % dokončeno)</item>
+        <item quantity="other">Pokračovat v relaci před %1$d dny (%2$d%% dokončeno)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
         <item quantity="one">%d relace</item>
