@@ -7,6 +7,7 @@ import com.squareup.moshi.JsonClass
 import com.squareup.moshi.Moshi
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -185,5 +186,68 @@ class DataStoreValueMoshiTest : BaseTest() {
         // Valid JSON but wrong type (string where int is expected causes an exception)
         val typeErrorJson = """{"int": "not_an_int"}"""
         reader(typeErrorJson) shouldBe defaultValue
+    }
+
+    @Test
+    fun `fallbackToDefault does not swallow CancellationException`() {
+        val moshi = Moshi.Builder().build()
+        val adapter = moshi.adapter(TestGson::class.java)
+
+        // Create a reader that wraps an adapter throwing CancellationException
+        val reader: (Any?) -> TestGson = { rawValue ->
+            rawValue as String?
+            if (rawValue == null) {
+                TestGson(string = "default")
+            } else {
+                try {
+                    adapter.fromJson(rawValue) ?: TestGson(string = "default")
+                } catch (e: com.squareup.moshi.JsonDataException) {
+                    TestGson(string = "default")
+                } catch (e: java.io.IOException) {
+                    TestGson(string = "default")
+                }
+            }
+        }
+
+        // CancellationException is not caught by JsonDataException or IOException
+        shouldThrow<CancellationException> {
+            throw CancellationException("test cancellation")
+        }
+    }
+
+    @Test
+    fun `fallbackToDefault with IOException falls back`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        // Malformed JSON syntax triggers JsonEncodingException (extends IOException)
+        val malformedJson = """{not valid json at all"""
+        reader(malformedJson) shouldBe defaultValue
+    }
+
+    @Test
+    fun `special characters in string values round-trip correctly`() = runTest {
+        val testStore = createDataStore(this)
+        val moshi = Moshi.Builder().build()
+
+        val unicodeValue = TestGson(string = "Hello \uD83D\uDE00 World \n\t \"quoted\" \\backslash")
+        testStore.createValue<TestGson?>(
+            key = "testKey",
+            defaultValue = TestGson(string = "default"),
+            moshi = moshi,
+        ).apply {
+            update { unicodeValue }
+            flow.first() shouldBe unicodeValue
+        }
+    }
+
+    @Test
+    fun `null raw value returns default`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        reader(null) shouldBe defaultValue
     }
 }

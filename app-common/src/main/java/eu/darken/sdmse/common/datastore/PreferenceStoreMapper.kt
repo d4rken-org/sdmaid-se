@@ -6,6 +6,11 @@ open class PreferenceStoreMapper(
     private vararg val dataStoreValues: DataStoreValue<*>
 ) : PreferenceDataStore() {
 
+    init {
+        val duplicates = dataStoreValues.groupBy { it.keyName }.filter { it.value.size > 1 }.keys
+        require(duplicates.isEmpty()) { "Duplicate DataStoreValue keys: $duplicates" }
+    }
+
     @Suppress("UNCHECKED_CAST")
     private inline fun <reified T> byKey(key: String): DataStoreValue<T> {
         val dataStore = dataStoreValues.singleOrNull { it.keyName == key }

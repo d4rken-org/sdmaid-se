@@ -78,13 +78,13 @@ inline fun <reified T : Any?> DataStore<Preferences>.createValue(
 
 
 @Suppress("UNCHECKED_CAST")
-inline fun <reified T> basicKey(key: String, defaultValue: T): Preferences.Key<T> = when (defaultValue) {
-    is Boolean? -> booleanPreferencesKey(key) as Preferences.Key<T>
-    is String? -> stringPreferencesKey(key) as Preferences.Key<T>
-    is Int? -> intPreferencesKey(key) as Preferences.Key<T>
-    is Long? -> longPreferencesKey(key) as Preferences.Key<T>
-    is Float? -> floatPreferencesKey(key) as Preferences.Key<T>
-    else -> throw NotImplementedError()
+inline fun <reified T> basicKey(key: String, defaultValue: T): Preferences.Key<T> = when (T::class) {
+    Boolean::class -> booleanPreferencesKey(key) as Preferences.Key<T>
+    String::class -> stringPreferencesKey(key) as Preferences.Key<T>
+    Int::class -> intPreferencesKey(key) as Preferences.Key<T>
+    Long::class -> longPreferencesKey(key) as Preferences.Key<T>
+    Float::class -> floatPreferencesKey(key) as Preferences.Key<T>
+    else -> throw NotImplementedError("Unsupported type: ${T::class}")
 }
 
 inline fun <reified T> basicReader(

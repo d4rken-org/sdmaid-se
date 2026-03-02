@@ -3,10 +3,12 @@ package eu.darken.sdmse.common.datastore
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.core.stringPreferencesKey
+import com.squareup.moshi.JsonDataException
 import com.squareup.moshi.Moshi
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import java.io.IOException
 
 inline fun <reified T> moshiReader(
     moshi: Moshi,
@@ -21,9 +23,13 @@ inline fun <reified T> moshiReader(
         } else if (fallbackToDefault) {
             try {
                 adapter.fromJson(rawValue) ?: defaultValue
-            } catch (e: Exception) {
+            } catch (e: JsonDataException) {
                 val tag = logTag("DataStore", "Value", "Moshi")
                 log(tag, ERROR) { "Failed to parse JSON, using default: ${e.message}" }
+                defaultValue
+            } catch (e: IOException) {
+                val tag = logTag("DataStore", "Value", "Moshi")
+                log(tag, ERROR) { "Failed to read JSON, using default: ${e.message}" }
                 defaultValue
             }
         } else {
