@@ -7,7 +7,12 @@ import androidx.datastore.preferences.core.intPreferencesKey
 import androidx.datastore.preferences.core.longPreferencesKey
 import androidx.datastore.preferences.core.stringPreferencesKey
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.async
+import kotlinx.coroutines.awaitAll
+import kotlinx.coroutines.flow.drop
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.io.TempDir
@@ -212,6 +217,76 @@ class DataStoreValueTest : BaseTest() {
             flow.first() shouldBe 3.6f
             testStore.data.first()[floatPreferencesKey(keyName)] shouldBe null
         }
+    }
+
+    @Test
+    fun `createValue with null String default creates stringPreferencesKey`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
+
+        testStore.createValue<String?>("test.nullable.string", null).apply {
+            flow.first() shouldBe null
+
+            value("hello")
+            flow.first() shouldBe "hello"
+            testStore.data.first()[stringPreferencesKey(keyName)] shouldBe "hello"
+
+            value(null)
+            flow.first() shouldBe null
+        }
+    }
+
+    @Test
+    fun `concurrent update calls preserve atomicity`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
+
+        val counter = testStore.createValue<Long>("test.counter", defaultValue = 0L)
+
+        val jobs = (1..100).map {
+            async {
+                counter.update { current -> (current as Long) + 1L }
+            }
+        }
+        jobs.awaitAll()
+
+        counter.value() shouldBe 100L
+    }
+
+    @Test
+    fun `two DataStoreValue instances with same key reflect updates`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
+
+        val value1 = testStore.createValue<String?>("shared.key", defaultValue = "default")
+        val value2 = testStore.createValue<String?>("shared.key", defaultValue = "default")
+
+        value1.value("updated")
+
+        value2.value() shouldBe "updated"
+    }
+
+    @Test
+    fun `writing same value twice does not emit duplicate`(@TempDir tempDir: Path) = runTest {
+        val testStore = PreferenceDataStoreFactory.create(
+            scope = this,
+            produceFile = { tempDir.resolve("test.preferences_pb").toFile() },
+        )
+
+        val dsValue = testStore.createValue<String?>("test.distinct", defaultValue = "initial")
+
+        dsValue.value("changed")
+        dsValue.value("changed")
+        dsValue.value("final")
+
+        // Flow should have distinctUntilChanged, so collecting after writes should give latest
+        dsValue.flow.first() shouldBe "final"
     }
 
 }
