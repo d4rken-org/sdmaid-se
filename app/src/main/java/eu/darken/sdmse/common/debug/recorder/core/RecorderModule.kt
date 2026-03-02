@@ -5,7 +5,6 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
-import android.os.SystemClock
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -35,7 +34,11 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.withContext
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.attribute.BasicFileAttributes
+import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -46,7 +49,7 @@ import javax.inject.Singleton
 class RecorderModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    dispatcherProvider: DispatcherProvider,
+    private val dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val sdmId: SDMId,
     private val debugSettings: DebugSettings,
@@ -80,7 +83,6 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
-                        val isResuming = debugSettings.recorderPath.value() != null
                         val logDir = debugSettings.recorderPath.value()?.let {
                             log(TAG) { "Continuing existing log: $it" }
                             File(it)
@@ -98,8 +100,6 @@ class RecorderModule @Inject constructor(
                         copy(
                             recorder = newRecorder,
                             currentLogDir = logDir,
-                            // null for resumed recordings → skips duration check, never "too short"
-                            recordingStartedAtMillis = if (isResuming) null else SystemClock.elapsedRealtime(),
                         )
                     } else if (!shouldRecord && isRecording) {
                         log(TAG) { "Stopping log recorder for: $currentLogDir" }
@@ -121,7 +121,6 @@ class RecorderModule @Inject constructor(
 
                         copy(
                             recorder = null,
-                            recordingStartedAtMillis = null,
                         )
                     } else {
                         this
@@ -179,18 +178,24 @@ class RecorderModule @Inject constructor(
         val currentState = internalState.value()
         if (!currentState.isRecording) return StopResult.NotRecording
 
-        val startedAt = currentState.recordingStartedAtMillis
-        if (startedAt != null) {
-            val elapsedMs = SystemClock.elapsedRealtime() - startedAt
-            val elapsedSeconds = elapsedMs / 1000
-            if (elapsedSeconds < MIN_RECORDING_SECONDS) {
-                log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
-                return StopResult.TooShort(elapsedSeconds)
+        val logDir = currentState.currentLogDir
+        if (logDir != null) {
+            try {
+                val attrs = withContext(dispatcherProvider.IO) {
+                    Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
+                }
+                val elapsedSeconds = Duration.between(attrs.creationTime().toInstant(), Instant.now()).seconds
+                if (elapsedSeconds < MIN_RECORDING_SECONDS) {
+                    log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
+                    return StopResult.TooShort(elapsedSeconds)
+                }
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
             }
         }
 
-        val logDir = stopRecorder() ?: return StopResult.NotRecording
-        return StopResult.Stopped(logDir)
+        val stoppedDir = stopRecorder() ?: return StopResult.NotRecording
+        return StopResult.Stopped(stoppedDir)
     }
 
     suspend fun stopRecorder(): File? {
@@ -250,7 +255,6 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
-        val recordingStartedAtMillis: Long? = null,
     ) {
         val isRecording: Boolean
             get() = recorder != null
