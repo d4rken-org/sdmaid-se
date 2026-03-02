@@ -3,7 +3,10 @@ package eu.darken.sdmse.common.datastore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonClass
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.JsonWriter
 import com.squareup.moshi.Moshi
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -16,6 +19,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
+import java.lang.reflect.Type
 
 class DataStoreValueMoshiTest : BaseTest() {
 
@@ -190,28 +194,27 @@ class DataStoreValueMoshiTest : BaseTest() {
 
     @Test
     fun `fallbackToDefault does not swallow CancellationException`() {
-        val moshi = Moshi.Builder().build()
-        val adapter = moshi.adapter(TestGson::class.java)
+        val factory = object : JsonAdapter.Factory {
+            override fun create(type: Type, annotations: Set<Annotation>, moshi: Moshi): JsonAdapter<*>? {
+                if (type == TestGson::class.java) {
+                    return object : JsonAdapter<TestGson>() {
+                        override fun fromJson(reader: JsonReader): TestGson {
+                            throw CancellationException("simulated cancellation")
+                        }
 
-        // Create a reader that wraps an adapter throwing CancellationException
-        val reader: (Any?) -> TestGson = { rawValue ->
-            rawValue as String?
-            if (rawValue == null) {
-                TestGson(string = "default")
-            } else {
-                try {
-                    adapter.fromJson(rawValue) ?: TestGson(string = "default")
-                } catch (e: com.squareup.moshi.JsonDataException) {
-                    TestGson(string = "default")
-                } catch (e: java.io.IOException) {
-                    TestGson(string = "default")
+                        override fun toJson(writer: JsonWriter, value: TestGson?) = Unit
+                    }
                 }
+                return null
             }
         }
 
-        // CancellationException is not caught by JsonDataException or IOException
+        val moshi = Moshi.Builder().add(factory).build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
         shouldThrow<CancellationException> {
-            throw CancellationException("test cancellation")
+            reader("""{"string":"test"}""")
         }
     }
 
