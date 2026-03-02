@@ -21,6 +21,10 @@ import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.attribute.BasicFileAttributes
+import java.time.Duration
+import java.time.Instant
 import javax.inject.Inject
 
 @HiltViewModel
@@ -45,6 +49,15 @@ class RecorderViewModel @Inject constructor(
     init {
         launch {
             if (sessionPath == null) throw IllegalStateException("No recorded path found")
+
+            val recordingDuration = try {
+                val attrs = Files.readAttributes(sessionPath.toPath(), BasicFileAttributes::class.java)
+                Duration.between(attrs.creationTime().toInstant(), Instant.now())
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to read session dir creation time: $e" }
+                null
+            }
+            stater.updateBlocking { copy(recordingDuration = recordingDuration) }
 
             log(TAG) { "Getting log files in dir: $sessionPath" }
             val logFiles = sessionPath.listFiles() ?: throw IllegalStateException("No log files found")
@@ -115,6 +128,7 @@ class RecorderViewModel @Inject constructor(
         val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
         val compressedFile: File? = null,
         val compressedSize: Long? = null,
+        val recordingDuration: Duration? = null,
         val isWorking: Boolean = true,
     )
 
