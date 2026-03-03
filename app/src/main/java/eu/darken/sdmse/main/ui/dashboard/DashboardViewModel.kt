@@ -494,7 +494,7 @@ class DashboardViewModel @Inject constructor(
 
     private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
         recorderModule.state,
-        debugCardProvider.create(this),
+        debugCardProvider.create(this) { events.postValue(it) },
         titleCardItem,
         upgradeInfo,
         updateInfo,

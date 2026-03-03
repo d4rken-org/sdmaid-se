@@ -264,6 +264,20 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     onStopAnyway = { vm.confirmStopRecording() },
                 ).show()
 
+                is DashboardEvents.ShowUnknownFolders -> {
+                    val header = "Scanned ${event.scannedCount} dirs, skipped ${event.skippedCount}"
+                    val body = if (event.unknownPaths.isEmpty()) {
+                        "No unknown folders found."
+                    } else {
+                        "Found ${event.unknownPaths.size} unknown folder(s):\n\n${event.unknownPaths.joinToString("\n")}"
+                    }
+                    MaterialAlertDialogBuilder(requireContext()).apply {
+                        setTitle("Unknown Folders")
+                        setMessage("$header\n\n$body")
+                        setPositiveButton(android.R.string.ok) { _, _ -> }
+                    }.show()
+                }
+
             }
         }
 

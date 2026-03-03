@@ -110,6 +110,13 @@
                 android:textColor="?colorOnSecondaryContainer" />
 
             <com.google.android.material.button.MaterialButton
+                android:id="@+id/unknown_folders_action"
+                style="@style/Widget.Material3.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Check unknown folders" />
+
+            <com.google.android.material.button.MaterialButton
                 android:id="@+id/test_action"
                 style="@style/Widget.Material3.Button.OutlinedButton"
                 android:layout_width="match_parent"
