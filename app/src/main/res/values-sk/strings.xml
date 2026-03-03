@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Karty ovládacieho panela</string>
     <string name="dashboard_card_config_desc">Nakonfigurujte, ktoré karty sa zobrazujú a ich poradie</string>
     <string name="dashboard_card_config_header_title">Ťahaním zmeníte poradie, prepínačom zobrazíte/skryjete</string>
-    <string name="debug_notification_channel_label">Oznámenia ladenia</string>
     <string name="debug_debuglog_file_label">Zaznamenaný súbor denníka</string>
     <string name="debug_debuglog_recording_progress">Zaznamenáva sa denník ladenia</string>
     <string name="debug_debuglog_record_action">Zaznamenajte denník ladenia</string>

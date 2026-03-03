@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">การ์ดแดชบอร์ด</string>
     <string name="dashboard_card_config_desc">กำหนดค่าการ์ดที่จะแสดงและลำดับ</string>
     <string name="dashboard_card_config_header_title">ลากเพื่อเรียงลำดับ, สลับเพื่อแสดง/ซ่อน</string>
-    <string name="debug_notification_channel_label">การแจ้งเตือนการดีบัค</string>
     <string name="debug_debuglog_file_label">ไฟล์บันทึกที่จัดเก็บไว้</string>
     <string name="debug_debuglog_recording_progress">จัดเก็บบันทึกการดีบัค</string>
     <string name="debug_debuglog_record_action">จัดเก็บบันทึกการดีบัค</string>

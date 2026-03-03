@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">대시보드 카드</string>
     <string name="dashboard_card_config_desc">표시할 카드와 순서를 구성합니다</string>
     <string name="dashboard_card_config_header_title">드래그하여 재정렬, 토글하여 표시/숨기기</string>
-    <string name="debug_notification_channel_label">디버그 알림</string>
     <string name="debug_debuglog_file_label">기록한 로그 파일</string>
     <string name="debug_debuglog_recording_progress">디버그 로그 기록 중</string>
     <string name="debug_debuglog_record_action">디버그 로그 녹화하기</string>

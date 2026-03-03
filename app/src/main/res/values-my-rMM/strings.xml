@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Dashboard ကဒ်များ</string>
     <string name="dashboard_card_config_desc">ညည့်ကဒ်များ နှင့် ၎င်းတို့ အစီအစဥ်ကို ရွေးချယ်ခြင်း။</string>
     <string name="dashboard_card_config_header_title">ခေါ်ဆောင်ခြင်းဖြင့် အစီအစဥ်ပြုလုပ်ခြင်း၊ အဖွင့်အပိတ်ကို ပြသခြင်း/ဝှက်ခြင်း</string>
-    <string name="debug_notification_channel_label">အမှားရှာဖွေမှု အကြောင်းကြားချက်များ</string>
     <string name="debug_debuglog_file_label">မှတ်တမ်းတင်ထားသော log ဖိုင်</string>
     <string name="debug_debuglog_recording_progress">debug log ကို မှတ်တမ်းတင်နေသည်</string>
     <string name="debug_debuglog_record_action">debug log မှတ်တမ်းတင်ပါ</string>
