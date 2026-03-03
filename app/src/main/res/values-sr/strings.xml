@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Картице контролне табле</string>
     <string name="dashboard_card_config_desc">Подесите које картице се приказују и њихов редослед</string>
     <string name="dashboard_card_config_header_title">Превуците за промену редоследа, укључите/искључите приказ</string>
+    <string name="debug_notification_channel_label">Обавештења о отклањању грешака</string>
     <string name="debug_debuglog_file_label">Снимљена датотека евиденције</string>
     <string name="debug_debuglog_recording_progress">Снимање дневника за отклањање грешака</string>
     <string name="debug_debuglog_record_action">Снимите дневник отклањања грешака</string>

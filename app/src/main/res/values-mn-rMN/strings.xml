@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Хяналтын самбарын картууд</string>
     <string name="dashboard_card_config_desc">Ямар картууд харагдах, тэдгээрийн дарааллыг тохируулна</string>
     <string name="dashboard_card_config_header_title">Дарааллыг өөрчлөхийн тулд чирнэ үү, харуулах/нуухын тулд сэлгэнэ үү</string>
+    <string name="debug_notification_channel_label">Дебаг мэдэгдэл</string>
     <string name="debug_debuglog_file_label">Бичсэн лог файл</string>
     <string name="debug_debuglog_recording_progress">Дебаг лог бичиж байна</string>
     <string name="debug_debuglog_record_action">Дебаг лог бичих</string>
@@ -184,7 +185,7 @@
     <string name="setup_notification_title">Мэдэгдэл</string>
     <string name="setup_notification_body">SD Maid-д явагдаж буй үйлдлүүд эсвэл чухал үйл явдлуудын талаар мэдэгдэл илгээхийг зөвшөөрнө үү.</string>
     <string name="setup_notification_hint">Мэдэгдэлүүд сайн ойлгомжтойгоор ашиглагддаг 🤞</string>
-    <string name="setup_feature_requires_additional_setup_x">Энэ функц нь нэмэлт тохиргоо шаарддаг.</string>
+    <string name="setup_feature_requires_additional_setup_x">Энэ функц нь нэмэлт тохиргооны зүйлсийг дуусгахыг шаарддаг: %s</string>
     <string name="setup_acs_card_title">Хүртээмжийн үйлчилгээ</string>
     <string name="setup_acs_card_body">Хүртээмжийн үйлчилгээ нь SD Maid-д таны дэлгэцтэй харилцаж, уйтгартай үйлдлүүдийг автоматжуулахыг зөвшөөрдөг, жишээ нь олон дэлгэц дээр \"Кэш цэвэрлэх\"-г дарах.</string>
     <string name="setup_acs_card_body2">SD Maid нь таны зөвшөөрөлгүй хүрэлцээний үйлчилгүүнийг ашиглахгүй, идэвхтэй байхдаа үргэлж мэдээлэх хоосон үзүүлэлтийг харуулах болно, мөн мэдээллийг цуглуулахын тулд үүнийг ашиглахгүй.</string>

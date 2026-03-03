@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Stjórnborðsspjöld</string>
     <string name="dashboard_card_config_desc">Stilla hvaða spjöld eru sýnd og röð þeirra</string>
     <string name="dashboard_card_config_header_title">Dragðu til að endurraða, smelltu til að sýna/fela</string>
+    <string name="debug_notification_channel_label">Villuleit tilkynningar</string>
     <string name="debug_debuglog_file_label">Skráð annáll skrá</string>
     <string name="debug_debuglog_recording_progress">Skrái villuleit annál</string>
     <string name="debug_debuglog_record_action">Skrá villuleit annál</string>

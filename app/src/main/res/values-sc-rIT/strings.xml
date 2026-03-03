@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Cartas de su pannellu</string>
     <string name="dashboard_card_config_desc">Cunfigura cales cartas si mustrant e s\'òrdine insoro</string>
     <string name="dashboard_card_config_header_title">Traga pro torrare a ordinare, cumuda pro mustrare/cuare</string>
+    <string name="debug_notification_channel_label">Notificatziones de debug</string>
     <string name="debug_debuglog_file_label">Documentu de registru registradu</string>
     <string name="debug_debuglog_recording_progress">Registrende su registru de debug</string>
     <string name="debug_debuglog_record_action">Registrare su registru de debug</string>

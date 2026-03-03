@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">የዳሽቦርድ ካርዶች</string>
     <string name="dashboard_card_config_desc">የትኞቹ ካርዶች እንደሚታዩና ቅደም ተከተላቸውን ያዋቅሩ</string>
     <string name="dashboard_card_config_header_title">እንደገና ለማዘዝ ይጎትቱ፣ ለማሳየት/ለመደበቅ ይቀያይሩ</string>
+    <string name="debug_notification_channel_label">የመለያ ማስታወቂያዎች</string>
     <string name="debug_debuglog_file_label">የተቀዳ ምዝግብ ማስታወሻ ፋይል</string>
     <string name="debug_debuglog_recording_progress">የመለያ ምዝግብ ማስታወሻ በመቅዳት ላይ</string>
     <string name="debug_debuglog_record_action">የመለያ ምዝግብ ማስታወሻ ቅዳ</string>

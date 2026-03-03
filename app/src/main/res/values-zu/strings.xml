@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Amakhadi ebhodi lokuphatha</string>
     <string name="dashboard_card_config_desc">Lungisa ukuthi yimaphi amakhadi aboniswa nokuhlela kwawo</string>
     <string name="dashboard_card_config_header_title">Hudula ukuhlela kabusha, guqula ukubonisa/ukufihla</string>
+    <string name="debug_notification_channel_label">Izaziso zokulungisa amaphutha</string>
     <string name="debug_debuglog_file_label">Ifayela lomvala olurekhodewe</string>
     <string name="debug_debuglog_recording_progress">Kurekhoda umvala wokulungisa amaphutha</string>
     <string name="debug_debuglog_record_action">Rekhoda umvala wokulungisa amaphutha</string>

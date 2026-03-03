@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Tarjetas del panel</string>
     <string name="dashboard_card_config_desc">Configurá qué tarjetas se muestran y su orden</string>
     <string name="dashboard_card_config_header_title">Arrastrá para reordenar, activá/desactivá para mostrar/ocultar</string>
+    <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando el registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
@@ -194,7 +195,7 @@
     <string name="setup_acs_state_ondemand">El servicio se lanzará bajo demanda</string>
     <string name="setup_acs_state_stopped">El Servicio de accesibilidad está detenido</string>
     <string name="setup_acs_state_stopped_hint">El servicio está activado, pero no se está ejecutando. Desactivalo/activalo o reiniciá tu dispositivo. Comprobá que SD Maid no está siendo \"optimizado\" por el sistema.</string>
-    <string name="setup_acs_state_stopped_hint_miui">Si el servicio sigue siendo detenido después de un tiempo, intentá activando la opción \"Inicio automático\" para SD Maid en los ajustes del sistema.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Si el servicio sigue siendo detenido después de un tiempo, intentá activando la opción \"Inicio automático\"\ para SD Maid en los ajustes del sistema.</string>
     <string name="setup_acs_consent_positive_action">Activar servicio y permitir acceso</string>
     <string name="setup_acs_consent_negative_action">No usar el Servicio de accesibilidad</string>
     <string name="setup_acs_allow_hint">El acceso directo o botón de accesibilidad para SD Maid SE está habilitado. Abrí la configuración de Accesibilidad de tu dispositivo y deshabiitá la opción de acceso directo/botón para evitar un ícono no deseado en el borde de la pantalla.</string>

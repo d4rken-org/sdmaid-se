@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">ड्यासबोर्ड कार्डहरू</string>
     <string name="dashboard_card_config_desc">कुन कार्डहरू देखाइन्छन् र तिनीहरूको क्रम कन्फिगर गर्नुहोस्</string>
     <string name="dashboard_card_config_header_title">पुनः क्रमबद्ध गर्न ड्र्याग गर्नुहोस्, देखाउन/लुकाउन टगल गर्नुहोस्</string>
+    <string name="debug_notification_channel_label">डिबग सूचनाहरू</string>
     <string name="debug_debuglog_file_label">रेकर्ड गरिएको लग फाइल</string>
     <string name="debug_debuglog_recording_progress">डिबग लग रेकर्ड गर्दै</string>
     <string name="debug_debuglog_record_action">डिबग लग रेकर्ड गर्नुहोस्</string>
@@ -609,7 +610,7 @@
     <string name="squeezer_compress_confirmation_message">यसले मूल छविहरूलाई संकुचित संस्करणहरूसँग प्रतिस्थापन गर्नेछ। यो कार्य पूर्ववत गर्न सकिँदैन।</string>
     <string name="squeezer_history_title">संकुचन इतिहास</string>
     <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d वस्तु (%2$s)</item>
+        <item quantity="one">1 वस्तु (%2$s)</item>
         <item quantity="other">%1$d वस्तुहरू (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">कुनै संकुचन इतिहास छैन</string>
@@ -1026,11 +1027,11 @@
     <string name="swiper_retry_action">पुनः प्रयास गर्नुहोस्</string>
     <string name="swiper_delete_confirmation_title">फाइलहरू मेटाउने?</string>
     <plurals name="swiper_delete_confirmation_message">
-        <item quantity="one">यसले %1$d फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
+        <item quantity="one">यसले 1 फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
         <item quantity="other">यसले %1$d फाइलहरू (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
-        <item quantity="one">%d अनिर्णीत वस्तु पछिको समीक्षाको लागि बाँकी रहनेछ।</item>
+        <item quantity="one">1 अनिर्णीत वस्तु पछिको समीक्षाको लागि बाँकी रहनेछ।</item>
         <item quantity="other">%d अनिर्णीत वस्तुहरू पछिको समीक्षाको लागि बाँकी रहनेछन्।</item>
     </plurals>
     <string name="swiper_delete_x_action">%1$d मेटाउनुहोस्</string>
@@ -1044,7 +1045,7 @@
     <string name="swiper_discard_session_confirmation_message">सबै निर्णयहरू हराउनेछन्। के तपाईं निश्चित हुनुहुन्छ?</string>
     <string name="swiper_no_preview_available">पूर्वावलोकन उपलब्ध छैन</string>
     <plurals name="swiper_dashcard_session_context">
-        <item quantity="one">%1$d दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
+        <item quantity="one">1 दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
         <item quantity="other">%1$d दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
@@ -1060,11 +1061,11 @@
     <string name="swiper_sessions_empty_hint">फोल्डर चयन गर्न + ट्याप गर्नुहोस् र स्वाइप गर्न सुरु गर्नुहोस्</string>
     <string name="swiper_sessions_upgrade_body">यी सीमाहरू हटाउन र विकास समर्थन गर्न अपग्रेड गर्नुहोस्। निःशुल्क संस्करण सीमित छ:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
-        <item quantity="one">प्रति सत्र %d फाइल</item>
+        <item quantity="one">प्रति सत्र 1 फाइल</item>
         <item quantity="other">प्रति सत्र %d फाइलहरू</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
-        <item quantity="one">%d सत्र</item>
+        <item quantity="one">1 सत्र</item>
         <item quantity="other">%d सत्रहरू</item>
     </plurals>
     <string name="swiper_session_default_label">सत्र #%d</string>

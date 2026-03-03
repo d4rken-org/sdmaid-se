@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Карты инструментов</string>
     <string name="dashboard_card_config_desc">Настройка отображения карт и их порядка</string>
     <string name="dashboard_card_config_header_title">Перетащите для изменения порядка, переключите, чтобы показать/скрыть</string>
+    <string name="debug_notification_channel_label">Отладочные уведомления</string>
     <string name="debug_debuglog_file_label">Записанный файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>
     <string name="debug_debuglog_record_action">Запись журнала отладки</string>

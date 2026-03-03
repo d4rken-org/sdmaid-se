@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">کارت‌های داشبورد</string>
     <string name="dashboard_card_config_desc">پیکربندی کنید که کدام کارت‌ها نمایش داده شوند و ترتیب آنها چگونه باشد</string>
     <string name="dashboard_card_config_header_title">برای مرتب‌سازی بکشید، برای نمایش/پنهان کردن، کلید را تغییر دهید</string>
+    <string name="debug_notification_channel_label">اعلانهای اشکال زدایی</string>
     <string name="debug_debuglog_file_label">فایل گزارش خطا ظبط شده</string>
     <string name="debug_debuglog_recording_progress">در حال ظبط کردن گزارش خطا</string>
     <string name="debug_debuglog_record_action">ضبط کردن فایل گزارش خطا</string>
