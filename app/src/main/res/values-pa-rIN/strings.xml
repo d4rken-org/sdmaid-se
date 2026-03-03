@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">ਡੈਸ਼ਬੋਰਡ ਕਾਰਡ</string>
     <string name="dashboard_card_config_desc">ਸੰਰਚਿਤ ਕਰੋ ਕਿ ਕਿਹੜੇ ਕਾਰਡ ਦਿਖਾਏ ਜਾਣ ਅਤੇ ਉਹਨਾਂ ਦਾ ਕ੍ਰਮ</string>
     <string name="dashboard_card_config_header_title">ਕ੍ਰਮ ਬਦਲਣ ਲਈ ਘਸੀਟੋ, ਦਿਖਾਉਣ/ਲੁਕਾਉਣ ਲਈ ਟੌਗਲ ਕਰੋ</string>
-    <string name="debug_notification_channel_label">ਡੀਬੱਗ ਸੂਚਨਾਵਾਂ</string>
     <string name="debug_debuglog_file_label">ਰਿਕਾਰਡ ਕੀਤੀ ਲੌਗ ਫਾਈਲ</string>
     <string name="debug_debuglog_recording_progress">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="debug_debuglog_record_action">ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡ ਕਰੋ</string>

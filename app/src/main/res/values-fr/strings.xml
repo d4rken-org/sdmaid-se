@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Cartes du tableau de bord</string>
     <string name="dashboard_card_config_desc">Configurer les cartes affichées et leur ordre d’affichage</string>
     <string name="dashboard_card_config_header_title">Faites-les glisser pour les réorganiser. Affichez ou cachez-les</string>
-    <string name="debug_notification_channel_label">Notifications de débogage</string>
     <string name="debug_debuglog_file_label">Fichier journal enregistré</string>
     <string name="debug_debuglog_recording_progress">Enregistrement du journal de débogage</string>
     <string name="debug_debuglog_record_action">Enregistrer le journal de débogage</string>
