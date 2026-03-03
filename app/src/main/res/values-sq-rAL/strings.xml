@@ -667,7 +667,7 @@
     <string name="appcontrol_app_exclude_edit_description">Ky aplikacion aktualisht është i përjashtuar nga një ose më shumë mjete.</string>
     <string name="appcontrol_tag_user">Përdoruesi</string>
     <string name="appcontrol_tag_active">Aktiv së fundmi</string>
-    <string name="appcontrol_tag_apk_base"></string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pako</string>
     <string name="appcontrol_tag_system">Sistemi</string>
     <string name="appcontrol_tag_archived">Arkivuar</string>
