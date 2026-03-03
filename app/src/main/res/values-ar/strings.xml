@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">بطاقات لوحة التحكم</string>
     <string name="dashboard_card_config_desc">تكوين البطاقات المعروضة وترتيبها</string>
     <string name="dashboard_card_config_header_title">اسحب لإعادة الترتيب، بدّل للإظهار/الإخفاء</string>
+    <string name="debug_notification_channel_label">إشعار التطوير</string>
     <string name="debug_debuglog_file_label">الكتابة إلى ملف السجل</string>
     <string name="debug_debuglog_recording_progress">تسجيل سجل التصحيح</string>
     <string name="debug_debuglog_record_action">تسجيل سجل التصحيح</string>

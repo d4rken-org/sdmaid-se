@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Karty panelu głównego</string>
     <string name="dashboard_card_config_desc">Skonfiguruj, które karty są wyświetlane i w jakiej kolejności</string>
     <string name="dashboard_card_config_header_title">Przeciągnij, aby zmienić kolejność, przełącz, aby pokazać/ukryć</string>
+    <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
     <string name="debug_debuglog_file_label">Zapisany plik dziennika</string>
     <string name="debug_debuglog_recording_progress">Rejestrowanie dziennika debugowania</string>
     <string name="debug_debuglog_record_action">Rejestruj dziennik debugowania</string>

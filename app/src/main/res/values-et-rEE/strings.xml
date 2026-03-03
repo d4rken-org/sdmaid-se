@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Töölaua jaotised</string>
     <string name="dashboard_card_config_desc">Seadistage kuvatavad jaotised ja nende järjekord</string>
     <string name="dashboard_card_config_header_title">Järjestuse muutmiseks lohistage, kuvamiseks/peitmiseks puudutage</string>
+    <string name="debug_notification_channel_label">Vigade parandamise teated</string>
     <string name="debug_debuglog_file_label">Salvestatud logifail</string>
     <string name="debug_debuglog_recording_progress">Silumislogi salvestamine</string>
     <string name="debug_debuglog_record_action">Salvesta silumislogi</string>

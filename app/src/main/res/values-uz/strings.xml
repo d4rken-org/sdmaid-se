@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Boshqaruv paneli kartalari</string>
     <string name="dashboard_card_config_desc">Qaysi kartalar ko\'rsatilishi va ularning tartibini sozlash</string>
     <string name="dashboard_card_config_header_title">Tartibni o\'zgartirish uchun surish, ko\'rsatish/yashirish uchun almashtirish</string>
+    <string name="debug_notification_channel_label">Nosozliklarni tuzatish bildirishlari</string>
     <string name="debug_debuglog_file_label">Yozib olingan jurnal fayli</string>
     <string name="debug_debuglog_recording_progress">Nosozliklarni tuzatish jurnali yozilmoqda</string>
     <string name="debug_debuglog_record_action">Nosozliklarni tuzatish jurnalini yozish</string>

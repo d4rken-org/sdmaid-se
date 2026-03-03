@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">کارتەکانی داشبۆرد</string>
     <string name="dashboard_card_config_desc">سازکارکردنی کام کارتەکان نیشان دەدرێن و ڕێزبەندییان</string>
     <string name="dashboard_card_config_header_title">بەڕبهێنان بۆ ڕێزکردنەوە، تۆگڵ بکە بۆ نیشاندان/شاردنەوە</string>
+    <string name="debug_notification_channel_label">ئاگاداری چاکسازی</string>
     <string name="debug_debuglog_file_label">فایلی تۆمارکراوی لۆگ</string>
     <string name="debug_debuglog_recording_progress">تۆمارکردنی لۆگی چاکسازی</string>
     <string name="debug_debuglog_record_action">تۆمارکردنی لۆگی چاکسازی</string>

@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Карти на таблото</string>
     <string name="dashboard_card_config_desc">Настройте кои карти се показват и реда им</string>
     <string name="dashboard_card_config_header_title">Плъзнете за пренареждане, превключете за показване/скриване</string>
+    <string name="debug_notification_channel_label">Уведомления за отстраняване на грешки</string>
     <string name="debug_debuglog_file_label">Записан лог файл</string>
     <string name="debug_debuglog_recording_progress">Записване на дебъг лог</string>
     <string name="debug_debuglog_record_action">Записване на дебъг лог</string>

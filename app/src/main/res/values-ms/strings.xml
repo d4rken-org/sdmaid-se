@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Kad papan pemuka</string>
     <string name="dashboard_card_config_desc">Konfigurasi kad yang ditunjukkan dan susunannya</string>
     <string name="dashboard_card_config_header_title">Seret untuk susun semula, togol untuk tunjuk/sembunyi</string>
+    <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
     <string name="debug_debuglog_recording_progress">Merakam log nyahpepijat</string>
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
@@ -441,11 +442,11 @@
     <string name="appcleaner_automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
     <string name="appcleaner_automation_title">Automasi AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Mengosongkan cache lalai…</string>
-    <string name="appcleaner_automation_progress_open_settings">Membuka tetapan aplikasi (kata kunci: %s)</string>
-    <string name="appcleaner_automation_progress_find_storage">Mencari butang storan (kata kunci: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_data">Mencari butang kosongkan data (kata kunci: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Mencari butang kosongkan cache (kata kunci: %s)</string>
-    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencari butang pengesahan (kata kunci: %s)</string>
+    <string name="appcleaner_automation_progress_open_settings">Membuka tetapan aplikasi</string>
+    <string name="appcleaner_automation_progress_find_storage">Mencari butang storan</string>
+    <string name="appcleaner_automation_progress_find_clear_data">Mencari butang kosongkan data</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Mencari butang kosongkan cache</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcleaner_item_caches_inaccessible_title">Cache lalai</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache lalai awam dan peribadi. Tidak boleh diakses secara langsung, tetapi boleh dipadamkan secara tidak langsung (cth. melalui perkhidmatan aksesibiliti).</string>
     <string name="appcleaner_automation_unavailable_title">Perkhidmatan aksesibiliti tidak tersedia</string>
@@ -727,8 +728,8 @@
     <string name="appcontrol_automation_loading">Memuatkan...</string>
     <string name="appcontrol_automation_title">Automasi</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Memaksa berhenti aplikasi</string>
-    <string name="appcontrol_automation_progress_find_force_stop">Mencari butang paksa berhenti (kata kunci: %s)</string>
-    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan (kata kunci: %s)</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Mencari butang paksa berhenti</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
     <string name="appcontrol_automation_subtitle_archiving">Mengarkib…</string>
     <string name="appcontrol_automation_progress_find_archive">Mencari butang \"Arkib\" (kata kunci: %s)</string>
     <string name="appcontrol_automation_subtitle_restoring">Memulihkan…</string>
