@@ -63,7 +63,6 @@ class SupportFragment : PreferenceFragment2() {
             when (event) {
                 is SupportViewModel.SupportEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
                     context = requireContext(),
-                    durationSeconds = event.durationSeconds,
                     onContinue = {},
                     onStopAnyway = { vm.confirmStopDebugLog() },
                 ).show()

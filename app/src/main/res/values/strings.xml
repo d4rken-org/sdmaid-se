@@ -25,7 +25,7 @@
     </plurals>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
     <string name="debug_debuglog_short_recording_title">Very short recording</string>
-    <string name="debug_debuglog_short_recording_desc">You only recorded for %1$d seconds. Debug logs are recordings, not snapshots — reproduce the issue while recording is active for the log to be useful.</string>
+    <string name="debug_debuglog_short_recording_desc">The recording was very short. Debug logs are recordings, not snapshots — reproduce the issue while recording is active for the log to be useful.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continue recording</string>
     <string name="debug_debuglog_short_recording_stop_action">Stop anyway</string>
 
@@ -120,7 +120,7 @@
 
     <string name="support_contact_label">Contact developer</string>
     <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
-    <string name="support_contact_welcome">I read every message myself and do my best to reply. Since I handle development, bug fixes, and support on my own, it can take a little time. Thanks for your patience.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it can take a little time. Thanks for your patience.</string>
     <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
     <string name="support_contact_category_label">Category</string>
     <string name="support_contact_category_bug_label">Bug report</string>

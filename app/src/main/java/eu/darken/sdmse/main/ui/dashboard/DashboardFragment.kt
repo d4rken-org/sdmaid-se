@@ -260,7 +260,6 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
                 is DashboardEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
                     context = requireContext(),
-                    durationSeconds = event.durationSeconds,
                     onContinue = {},
                     onStopAnyway = { vm.confirmStopRecording() },
                 ).show()

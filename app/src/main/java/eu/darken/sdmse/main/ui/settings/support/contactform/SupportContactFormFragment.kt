@@ -164,7 +164,6 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
 
                 is SupportContactFormEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
                     context = requireContext(),
-                    durationSeconds = event.durationSeconds,
                     onContinue = {},
                     onStopAnyway = { vm.confirmStopRecording() },
                 ).show()
