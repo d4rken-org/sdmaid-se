@@ -74,8 +74,10 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
             savedInstanceState.getParcelableArrayList<Screen>(BKEY_SCREEN_INFOS)?.let {
                 screens.addAll(it)
             }
-            screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
         }
+
+        // Always restore toolbar title from current screen state (handles NavComponent view recreation)
+        screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
 
         ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressedDispatcher.onBackPressed() }
 
