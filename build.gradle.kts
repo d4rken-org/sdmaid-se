@@ -1,6 +1,6 @@
 plugins {
     id("projectConfig")
-    id("com.google.devtools.ksp") version "2.3.5" apply false
+    id("com.google.devtools.ksp") version "2.3.6" apply false
 }
 
 buildscript {
