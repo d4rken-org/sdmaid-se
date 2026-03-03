@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Instrumentpanelkort</string>
     <string name="dashboard_card_config_desc">Konfigurera vilka kort som visas och deras ordning</string>
     <string name="dashboard_card_config_header_title">Dra för att ändra ordning, växla för att visa/dölja</string>
+    <string name="debug_notification_channel_label">Felsök aviseringar</string>
     <string name="debug_debuglog_file_label">Sparad loggfil</string>
     <string name="debug_debuglog_recording_progress">Spelar in felsökningslogg</string>
     <string name="debug_debuglog_record_action">Spela in felsökningslogg</string>

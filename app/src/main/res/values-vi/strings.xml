@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Bảng điều khiển</string>
     <string name="dashboard_card_config_desc">Định cấu hình thẻ nào được hiển thị và thứ tự của chúng</string>
     <string name="dashboard_card_config_header_title">Kéo để sắp xếp lại, bật,/tắt để hiển thị/ẩn</string>
+    <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
     <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
     <string name="debug_debuglog_recording_progress">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
@@ -123,7 +124,7 @@
         <item quantity="other">%1$d / %2$d từ</item>
     </plurals>
     <string name="support_contact_debuglog_label">Nhật ký gỡ lỗi</string>
-    <string name="support_contact_debuglog_zip_error">Không thể nén nhật ký gỡ lỗi</string>
+    <string name="support_contact_debuglog_zip_error">Thất bại khi nén nhật ký gỡ lỗi</string>
     <string name="support_contact_debuglog_picker_hint">Đính kèm nhật ký gỡ lỗi hiện có, hoặc ghi lại một nhật ký mới.</string>
     <string name="support_contact_debuglog_picker_empty">Không tìm thấy nhật ký gỡ lỗi nào. Hãy ghi lại một nhật ký trước.</string>
     <string name="support_contact_send_action">Mở ứng dụng email</string>

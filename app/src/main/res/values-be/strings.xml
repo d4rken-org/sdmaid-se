@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Карткі панэлі інструментаў</string>
     <string name="dashboard_card_config_desc">Наладжванне адлюстравання картак і іх парадку</string>
     <string name="dashboard_card_config_header_title">Перацягніце для змянення парадку, пераключыце для адлюстравання/схавання</string>
+    <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
     <string name="debug_debuglog_file_label">Запісаны файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запіс журнала адладкі</string>
     <string name="debug_debuglog_record_action">Запісаць журнал адладкі</string>
@@ -1081,7 +1082,7 @@
     <string name="swiper_dashcard_description">Навядзіце парадак у канкрэтных папках хутчэй, чым у файлавым менеджары — проста правядзіце пальцам па кожным файле.</string>
     <string name="swiper_start_action">Пачаць агляд</string>
     <string name="swiper_continue_action">Працягнуць сесію</string>
-    <string name="swiper_sessions_description">Праглядзіце файлы ў 3 простыя крокі:\n\n1. Абярыце папку для сканіравання\n2. Правядзіце пальцам па файлах, каб захаваць, выдаліць або прапусціць\n3. Праглядзіце свае рашэнні і пацвердзіце\n\nНічога не выдаляецца, пакуль вы не націснеце канчатковую кнопку выдалення.</string>
+    <string name="swiper_sessions_description">Праглядзіце файлы ў 3 простыя крокі:\n\n1. Выберыце папку для сканіравання\n2. Правядзіце пальцам па файлах, каб захаваць, выдаліць або прапусціць\n3. Праглядзіце свае рашэнні і пацвердзіце\n\nНічога не выдаляецца, пакуль вы не націснеце канчатковую кнопку выдалення.</string>
     <string name="swiper_select_folders_action">Выбраць папкі</string>
     <string name="swiper_scanning_title">Сканіраванне…</string>
     <plurals name="swiper_result_x_items_found">

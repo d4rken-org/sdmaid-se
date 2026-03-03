@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">ダッシュボードカード</string>
     <string name="dashboard_card_config_desc">表示するカードとその順序を設定</string>
     <string name="dashboard_card_config_header_title">ドラッグで並べ替え、トグルで表示/非表示</string>
+    <string name="debug_notification_channel_label">デバッグの通知</string>
     <string name="debug_debuglog_file_label">記録されたログファイル</string>
     <string name="debug_debuglog_recording_progress">デバッグログの記録中</string>
     <string name="debug_debuglog_record_action">デバッグログの記録</string>

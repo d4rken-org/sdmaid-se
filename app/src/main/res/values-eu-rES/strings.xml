@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Paneleko txartelak</string>
     <string name="dashboard_card_config_desc">Konfiguratu zein txartel agertzen diren eta haien ordena</string>
     <string name="dashboard_card_config_header_title">Arrastatu berrordenatzeko, txandakatu erakusteko/ezkutatzeko</string>
+    <string name="debug_notification_channel_label">Arazketa-jakinarazpenak</string>
     <string name="debug_debuglog_file_label">Erregistratutako erregistro-fitxategia</string>
     <string name="debug_debuglog_recording_progress">Arazketa-erregistroa grabatzea</string>
     <string name="debug_debuglog_record_action">Arazketa-erregistroa grabatu</string>

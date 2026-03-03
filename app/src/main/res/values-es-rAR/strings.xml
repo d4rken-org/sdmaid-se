@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Tarjetas del panel</string>
     <string name="dashboard_card_config_desc">Configurá qué tarjetas se muestran y su orden</string>
     <string name="dashboard_card_config_header_title">Arrastrá para reordenar, activá/desactivá para mostrar/ocultar</string>
+    <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo de registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando el registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar un registro de depuración</string>
@@ -941,8 +942,8 @@ Archivo: Textos de la aplicación (aplicación principal)</string>
     <string name="anniversary_card_title">Feliz aniversario de SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Con vos desde %s</string>
     <plurals name="anniversary_card_body">
-        <item quantity="one">¡%d año juntos! Gracias por ser parte de esta aventura.</item>
-        <item quantity="other">¡%d años juntos! Gracias por ser parte de esta aventura.</item>
+        <item quantity="one">¡%1$d año juntos! Gracias por confiar en SD Maid para mantener a tu Android limpio y ordenado. Espacio liberado: %2$s</item>
+        <item quantity="other">¡%1$d años juntos! Tu dispositivo se mantiene limpio y ordenado con SD Maid. Espacio liberado: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Compartí tu aniversario de SD Maid</string>
     <plurals name="anniversary_share_text">

@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Картице контролне табле</string>
     <string name="dashboard_card_config_desc">Подесите које картице се приказују и њихов редослед</string>
     <string name="dashboard_card_config_header_title">Превуците за промену редоследа, укључите/искључите приказ</string>
+    <string name="debug_notification_channel_label">Обавештења о отклањању грешака</string>
     <string name="debug_debuglog_file_label">Снимљена датотека евиденције</string>
     <string name="debug_debuglog_recording_progress">Снимање дневника за отклањање грешака</string>
     <string name="debug_debuglog_record_action">Снимите дневник отклањања грешака</string>
@@ -171,7 +172,8 @@
     <string name="setup_root_state_waiting_label">Чекање приступа суперкориснику.</string>
     <string name="setup_root_enable_root_use_label">Користи \"суперкорисник\" приступ ако је доступан</string>
     <string name="setup_root_disable_root_use_label">Немој користити \"супекорисник\" приступ</string>
-    <string name="setup_root_card_body2">Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
+    <string name="setup_root_card_body2">Доступно једино не уре
+Доступно само на \"суперкорисник\" уређајима. Ако нисте извршили ову измену, ваш уређај нема \"суперкорисника\" и ово подешавање нема ефекта.</string>
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дозволи да SD Maid користи Shizuku где је могуће да побољша резултате и омогући функције.</string>
     <string name="setup_shizuku_card_body2">Ово подешавање нема утицаја ако апликација Shizuku није инсталирана на вашем уређају.</string>

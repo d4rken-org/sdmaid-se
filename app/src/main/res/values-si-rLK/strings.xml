@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">උපකරණ පුවරු කාඩ්පත්</string>
     <string name="dashboard_card_config_desc">පෙන්වන කාඩ්පත් සහ ඒවායේ පිළිවෙල වින්‍යාස කරන්න</string>
     <string name="dashboard_card_config_header_title">නැවත පිළිවෙලට සකස් කිරීමට ඇදගෙන යන්න, පෙන්වීමට/සැඟවීමට ටොගල් කරන්න</string>
+    <string name="debug_notification_channel_label">දෝෂ නිරාකරණ දැනුම්දීම්</string>
     <string name="debug_debuglog_file_label">රේඛගත කරන ලද ලොග් ගොනුව</string>
     <string name="debug_debuglog_recording_progress">දෝෂ නිරාකරණ ලොගය රේඛගත කරමින්</string>
     <string name="debug_debuglog_record_action">දෝෂ නිරාකරණ ලොගය රේඛගත කරන්න</string>

@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Kartat e panelit</string>
     <string name="dashboard_card_config_desc">Konfiguroni cilat karta shfaqen dhe renditja e tyre</string>
     <string name="dashboard_card_config_header_title">Zvarritni për të rirenditur, ndërroni për të shfaqur/fshehur</string>
+    <string name="debug_notification_channel_label">Njoftime për rezultatet</string>
     <string name="debug_debuglog_file_label">Skedari i regjistrit të regjistruar</string>
     <string name="debug_debuglog_recording_progress">Inçizimi i regjistrit të korrigjimit</string>
     <string name="debug_debuglog_record_action">Inçizimi i regjistrit të korrigjimit</string>
@@ -667,7 +668,7 @@
     <string name="appcontrol_app_exclude_edit_description">Ky aplikacion aktualisht është i përjashtuar nga një ose më shumë mjete.</string>
     <string name="appcontrol_tag_user">Përdoruesi</string>
     <string name="appcontrol_tag_active">Aktiv së fundmi</string>
-    <string name="appcontrol_tag_apk_base"></string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pako</string>
     <string name="appcontrol_tag_system">Sistemi</string>
     <string name="appcontrol_tag_archived">Arkivuar</string>
