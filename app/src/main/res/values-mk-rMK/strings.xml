@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Картички на контролната табла</string>
     <string name="dashboard_card_config_desc">Конфигурирајте кои картички се прикажани и нивниот редослед</string>
     <string name="dashboard_card_config_header_title">Повлечете за преуредување, вклучете/исклучете за прикажување/скривање</string>
-    <string name="debug_notification_channel_label">Известувања за дебагирање</string>
     <string name="debug_debuglog_file_label">Снимена дневничка датотека</string>
     <string name="debug_debuglog_recording_progress">Снимање на дневник за дебагирање</string>
     <string name="debug_debuglog_record_action">Сними дневник за дебагирање</string>

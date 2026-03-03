@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Targetes del tauler</string>
     <string name="dashboard_card_config_desc">Configureu quines targetes es mostren i el seu ordre</string>
     <string name="dashboard_card_config_header_title">Arrossegueu per reordenar, commuteu per mostrar/amagar</string>
-    <string name="debug_notification_channel_label">Notificacions de depuració</string>
     <string name="debug_debuglog_file_label">Fitxer de registre desat</string>
     <string name="debug_debuglog_recording_progress">Gravació del registre de depuració</string>
     <string name="debug_debuglog_record_action">Desa el registre de depuració</string>

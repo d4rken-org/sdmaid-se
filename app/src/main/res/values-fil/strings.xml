@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Mga card ng dashboard</string>
     <string name="dashboard_card_config_desc">I-configure kung aling mga card ang ipinapakita at ang pagkakasunod-sunod nila</string>
     <string name="dashboard_card_config_header_title">I-drag upang i-reorder, toggle upang ipakita/itago</string>
-    <string name="debug_notification_channel_label">Mga notipikasyon pang-debug</string>
     <string name="debug_debuglog_file_label">Naitala ang log file</string>
     <string name="debug_debuglog_recording_progress">Nagta-tala ng debug log</string>
     <string name="debug_debuglog_record_action">Itala ang debug log</string>
