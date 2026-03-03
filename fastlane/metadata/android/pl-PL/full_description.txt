@@ -3,7 +3,7 @@
 Nikt nie jest doskonały, nawet Android.
 
 * Aplikacje, które już usunąłeś, pozostawiają po sobie jakieś ślady.
-* Logi, raporty o awariach i inne niepotrzebne pliki są tworzone na bieżąco.
+* Dzienniki, raporty o awariach i inne niepotrzebne pliki są tworzone na bieżąco.
 * W twojej pamięci gromadzone są pliki i foldery, których nie rozpoznajesz.
 * Duplikaty zdjęć w galerii.
 
