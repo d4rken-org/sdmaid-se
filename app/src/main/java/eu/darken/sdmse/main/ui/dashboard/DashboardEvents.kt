@@ -40,4 +40,10 @@ sealed interface DashboardEvents {
 
     data object ShowShortRecordingWarning : DashboardEvents
 
+    data class ShowUnknownFolders(
+        val unknownPaths: List<String>,
+        val scannedCount: Int,
+        val skippedCount: Int,
+    ) : DashboardEvents
+
 }
