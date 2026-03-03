@@ -32,7 +32,8 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     @Parcelize
     data class Screen(
         val fragmentClass: String,
-        val screenTitle: String?
+        val screenTitle: String?,
+        val screenSubtitle: String? = null,
     ) : Parcelable
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -76,8 +77,10 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
             savedInstanceState.getParcelableArrayList<Screen>(BKEY_SCREEN_INFOS)?.let {
                 screens.addAll(it)
             }
-            screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
         }
+
+        // Always restore toolbar title from current screen state (handles NavComponent view recreation)
+        screens.lastOrNull()?.let { setCurrentScreenInfo(it) }
 
         ui.toolbar.setNavigationOnClickListener { requireActivity().onBackPressedDispatcher.onBackPressed() }
 
@@ -92,7 +95,8 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     override fun onPreferenceStartFragment(caller: PreferenceFragmentCompat, pref: Preference): Boolean {
         val screenInfo = Screen(
             fragmentClass = pref.fragment!!,
-            screenTitle = pref.title?.toString()
+            screenTitle = pref.title?.toString(),
+            screenSubtitle = ui.toolbar.title?.toString(),
         )
 
         val args = Bundle().apply {
@@ -123,6 +127,7 @@ class SettingsFragment : Fragment2(R.layout.settings_fragment),
     private fun setCurrentScreenInfo(info: Screen) {
         ui.toolbar.apply {
             title = info.screenTitle
+            subtitle = info.screenSubtitle
         }
     }
 

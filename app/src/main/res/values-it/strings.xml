@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Schede della dashboard</string>
     <string name="dashboard_card_config_desc">Configura quali schede vengono mostrate e il loro ordine</string>
     <string name="dashboard_card_config_header_title">Trascina per riordinare, attiva/disattiva per mostrare/nascondere</string>
-    <string name="debug_notification_channel_label">Notifiche di debug</string>
     <string name="debug_debuglog_file_label">File di log registrato</string>
     <string name="debug_debuglog_recording_progress">Registrando log di debug</string>
     <string name="debug_debuglog_record_action">Registra log di debug</string>

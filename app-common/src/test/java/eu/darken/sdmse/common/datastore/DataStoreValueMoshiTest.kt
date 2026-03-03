@@ -3,10 +3,14 @@ package eu.darken.sdmse.common.datastore
 import androidx.datastore.preferences.core.PreferenceDataStoreFactory
 import androidx.datastore.preferences.core.stringPreferencesKey
 import com.squareup.moshi.Json
+import com.squareup.moshi.JsonAdapter
 import com.squareup.moshi.JsonClass
+import com.squareup.moshi.JsonReader
+import com.squareup.moshi.JsonWriter
 import com.squareup.moshi.Moshi
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.runTest
@@ -15,6 +19,7 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 import java.io.File
+import java.lang.reflect.Type
 
 class DataStoreValueMoshiTest : BaseTest() {
 
@@ -185,5 +190,67 @@ class DataStoreValueMoshiTest : BaseTest() {
         // Valid JSON but wrong type (string where int is expected causes an exception)
         val typeErrorJson = """{"int": "not_an_int"}"""
         reader(typeErrorJson) shouldBe defaultValue
+    }
+
+    @Test
+    fun `fallbackToDefault does not swallow CancellationException`() {
+        val factory = object : JsonAdapter.Factory {
+            override fun create(type: Type, annotations: Set<Annotation>, moshi: Moshi): JsonAdapter<*>? {
+                if (type == TestGson::class.java) {
+                    return object : JsonAdapter<TestGson>() {
+                        override fun fromJson(reader: JsonReader): TestGson {
+                            throw CancellationException("simulated cancellation")
+                        }
+
+                        override fun toJson(writer: JsonWriter, value: TestGson?) = Unit
+                    }
+                }
+                return null
+            }
+        }
+
+        val moshi = Moshi.Builder().add(factory).build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        shouldThrow<CancellationException> {
+            reader("""{"string":"test"}""")
+        }
+    }
+
+    @Test
+    fun `fallbackToDefault with IOException falls back`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        // Malformed JSON syntax triggers JsonEncodingException (extends IOException)
+        val malformedJson = """{not valid json at all"""
+        reader(malformedJson) shouldBe defaultValue
+    }
+
+    @Test
+    fun `special characters in string values round-trip correctly`() = runTest {
+        val testStore = createDataStore(this)
+        val moshi = Moshi.Builder().build()
+
+        val unicodeValue = TestGson(string = "Hello \uD83D\uDE00 World \n\t \"quoted\" \\backslash")
+        testStore.createValue<TestGson?>(
+            key = "testKey",
+            defaultValue = TestGson(string = "default"),
+            moshi = moshi,
+        ).apply {
+            update { unicodeValue }
+            flow.first() shouldBe unicodeValue
+        }
+    }
+
+    @Test
+    fun `null raw value returns default`() {
+        val moshi = Moshi.Builder().build()
+        val defaultValue = TestGson(string = "default")
+        val reader = moshiReader(moshi, defaultValue, fallbackToDefault = true)
+
+        reader(null) shouldBe defaultValue
     }
 }

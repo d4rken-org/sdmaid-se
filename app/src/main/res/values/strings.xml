@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_desc">Configure which cards are shown and their order</string>
     <string name="dashboard_card_config_header_title">Drag to reorder, toggle to show/hide</string>
 
-    <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
@@ -21,10 +20,14 @@
     <string name="debug_debuglog_screen_session_path_label">Session Path</string>
     <string name="debug_debuglog_screen_log_files_label">Log Files</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s)</item>
-        <item quantity="other">%1$d files ready (%2$s)</item>
+        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
+        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
+    <string name="debug_debuglog_short_recording_title">Very short recording</string>
+    <string name="debug_debuglog_short_recording_desc">The recording was very short. Debug logs are recordings, not snapshots — reproduce the issue while recording is active for the log to be useful.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continue recording</string>
+    <string name="debug_debuglog_short_recording_stop_action">Stop anyway</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>
@@ -117,7 +120,7 @@
 
     <string name="support_contact_label">Contact developer</string>
     <string name="support_contact_desc">Fill out a form to send the developer an email.</string>
-    <string name="support_contact_welcome">I read every message myself and do my best to reply. Since I handle development, bug fixes, and support on my own, it can take a little time. Thanks for your patience.</string>
+    <string name="support_contact_welcome">I read every message myself and do my best to reply, but since I work on this alone, it can take a little time. Thanks for your patience.</string>
     <string name="support_contact_footer">Your message will be sent via email. Device and setup information is attached automatically. You can attach screenshots or a video to the email. Some parts of the email will be in English so the developer can easily understand it.</string>
     <string name="support_contact_category_label">Category</string>
     <string name="support_contact_category_bug_label">Bug report</string>

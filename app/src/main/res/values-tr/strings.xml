@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Panel kartları</string>
     <string name="dashboard_card_config_desc">Hangi kartların gösterileceğini ve sıralarını yapılandırın</string>
     <string name="dashboard_card_config_header_title">Sıralamak için sürükleyin, göstermek/gizlemek için değiştirin</string>
-    <string name="debug_notification_channel_label">Hata ayıklama bildirimleri</string>
     <string name="debug_debuglog_file_label">Kaydedilmiş günlük dosyası</string>
     <string name="debug_debuglog_recording_progress">Hata ayıklama günlüğü kaydediliyor</string>
     <string name="debug_debuglog_record_action">Hata ayıklama günlüğünü kaydet</string>

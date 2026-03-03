@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Informācijas paneļa kartes</string>
     <string name="dashboard_card_config_desc">Konfigurēt, kuras kartes tiek rādītas un to kārtību</string>
     <string name="dashboard_card_config_header_title">Velciet, lai pārkārtotu, pārslēdziet, lai rādītu/slēptu</string>
-    <string name="debug_notification_channel_label">Atkļūdošanas paziņojumi</string>
     <string name="debug_debuglog_file_label">Ierakstītais žurnāla fails</string>
     <string name="debug_debuglog_recording_progress">Ieraksta atkļūdošanas žurnālu</string>
     <string name="debug_debuglog_record_action">Ierakstīt atkļūdošanas žurnālu</string>

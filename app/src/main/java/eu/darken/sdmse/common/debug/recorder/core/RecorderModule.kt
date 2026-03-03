@@ -17,13 +17,13 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.DebugSettings
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.getPackageInfo
-import eu.darken.sdmse.common.startServiceCompat
 import eu.darken.sdmse.main.core.CurriculumVitae
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -34,7 +34,11 @@ import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.plus
+import kotlinx.coroutines.withContext
 import java.io.File
+import java.nio.file.Files
+import java.nio.file.attribute.BasicFileAttributes
+import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -45,7 +49,7 @@ import javax.inject.Singleton
 class RecorderModule @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    dispatcherProvider: DispatcherProvider,
+    private val dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val sdmId: SDMId,
     private val debugSettings: DebugSettings,
@@ -93,8 +97,6 @@ class RecorderModule @Inject constructor(
 
                         logInfos()
 
-                        context.startServiceCompat(Intent(context, RecorderService::class.java))
-
                         copy(
                             recorder = newRecorder,
                             currentLogDir = logDir,
@@ -108,13 +110,20 @@ class RecorderModule @Inject constructor(
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
 
-                        val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
-                            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        if (!suppressActivityLaunch) {
+                            try {
+                                val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
+                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                }
+                                context.startActivity(intent)
+                            } catch (e: Exception) {
+                                log(TAG, WARN) { "Failed to launch RecorderActivity: ${e.asLog()}" }
+                            }
                         }
-                        context.startActivity(intent)
 
                         copy(
                             recorder = null,
+                            suppressActivityLaunch = false,
                         )
                     } else {
                         this
@@ -168,10 +177,34 @@ class RecorderModule @Inject constructor(
         return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
     }
 
-    suspend fun stopRecorder(): File? {
+    suspend fun requestStopRecorder(launchResultScreen: Boolean = true): StopResult {
+        val currentState = internalState.value()
+        if (!currentState.isRecording) return StopResult.NotRecording
+
+        val logDir = currentState.currentLogDir
+        if (logDir != null) {
+            try {
+                val attrs = withContext(dispatcherProvider.IO) {
+                    Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
+                }
+                val elapsedSeconds = Duration.between(attrs.creationTime().toInstant(), Instant.now()).seconds
+                if (elapsedSeconds < MIN_RECORDING_SECONDS) {
+                    log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
+                    return StopResult.TooShort
+                }
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
+            }
+        }
+
+        val stoppedDir = stopRecorder(launchResultScreen) ?: return StopResult.NotRecording
+        return StopResult.Stopped(stoppedDir)
+    }
+
+    suspend fun stopRecorder(launchResultScreen: Boolean = true): File? {
         val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
-            copy(shouldRecord = false)
+            copy(shouldRecord = false, suppressActivityLaunch = !launchResultScreen)
         }
         internalState.flow.filter { !it.isRecording }.first()
         return currentPath
@@ -215,10 +248,17 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "Update history: ${curriculumVitae.history.firstOrNull()}" }
     }
 
+    sealed class StopResult {
+        data object TooShort : StopResult()
+        data class Stopped(val logDir: File) : StopResult()
+        data object NotRecording : StopResult()
+    }
+
     data class State(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
+        internal val suppressActivityLaunch: Boolean = false,
     ) {
         val isRecording: Boolean
             get() = recorder != null
@@ -227,5 +267,6 @@ class RecorderModule @Inject constructor(
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "force_debug_run"
+        private const val MIN_RECORDING_SECONDS = 5L
     }
 }

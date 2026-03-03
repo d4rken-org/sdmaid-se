@@ -64,6 +64,13 @@ class DebugCardVH(parent: ViewGroup) :
         }
         shizukuTestAction.setOnClickListener { item.onTestShizuku() }
 
+        unknownFoldersAction.apply {
+            isVisible = BuildConfigWrap.DEBUG
+            setOnClickListener { item.onCheckUnknownFolders() }
+            isEnabled = !item.isCheckingUnknownFolders
+            text = if (item.isCheckingUnknownFolders) "Checking…" else "Check unknown folders"
+        }
+
         testAction.setOnClickListener { item.onRunTest() }
         testAction.isVisible = BuildConfigWrap.DEBUG
         logviewAction.isVisible = BuildConfigWrap.DEBUG
@@ -91,6 +98,8 @@ class DebugCardVH(parent: ViewGroup) :
         val onViewLog: () -> Unit,
         val onAcsDebug: () -> Unit,
         val acsTask: AutomationTask?,
+        val onCheckUnknownFolders: () -> Unit,
+        val isCheckingUnknownFolders: Boolean,
     ) : DashboardAdapter.Item {
         override val stableId: Long = this.javaClass.hashCode().toLong()
     }

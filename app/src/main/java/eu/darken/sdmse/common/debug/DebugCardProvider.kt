@@ -7,13 +7,23 @@ import eu.darken.sdmse.automation.core.debug.DebugTask
 import eu.darken.sdmse.common.adb.AdbSettings
 import eu.darken.sdmse.common.adb.service.AdbServiceClient
 import eu.darken.sdmse.common.adb.shizuku.ShizukuManager
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.forensics.FileForensics
 import eu.darken.sdmse.common.navigation.navVia
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.root.RootManager
@@ -23,6 +33,7 @@ import eu.darken.sdmse.common.sharedresource.runSessionAction
 import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.ui.dashboard.DashboardEvents
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import kotlinx.coroutines.CancellationException
@@ -50,19 +61,23 @@ class DebugCardProvider @Inject constructor(
     private val shellOps: ShellOps,
     private val shizukuClient: AdbServiceClient,
     private val automation: AutomationManager,
+    private val fileForensics: FileForensics,
+    private val gatewaySwitch: GatewaySwitch,
 ) {
 
     private val rootTestState = MutableStateFlow<RootTestResult?>(null)
     private val shizukuTestState = MutableStateFlow<ShizukuTestResult?>(null)
+    private val isCheckingFolders = MutableStateFlow(false)
 
-    fun create(vm: ViewModel3) = combine(
+    fun create(vm: ViewModel3, onShowEvent: (DashboardEvents) -> Unit = {}) = combine(
         debugSettings.isDebugMode.flow.distinctUntilChanged(),
         debugSettings.isTraceMode.flow.distinctUntilChanged(),
         debugSettings.isDryRunMode.flow.distinctUntilChanged(),
         rootTestState,
         shizukuTestState,
         automation.currentTask,
-    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask ->
+        isCheckingFolders,
+    ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask, checkingFolders ->
         if (!isDebug) return@combine null
         DebugCardVH.Item(
             isDryRunEnabled = isDryRun,
@@ -164,7 +179,110 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             acsTask = acsTask,
+            isCheckingUnknownFolders = checkingFolders,
+            onCheckUnknownFolders = {
+                if (checkingFolders) return@Item
+                vm.launch {
+                    checkUnknownFolders(vm, onShowEvent)
+                }
+            },
         )
+    }
+
+    private suspend fun checkUnknownFolders(vm: ViewModel3, onShowEvent: (DashboardEvents) -> Unit) {
+        isCheckingFolders.value = true
+        try {
+            val unknownPaths = mutableListOf<String>()
+            var scannedCount = 0
+            var skippedCount = 0
+
+            gatewaySwitch.sharedResource.get().use {
+                val areas = dataAreaManager.currentAreas().filter { it.type == DataArea.Type.SDCARD }
+                val multipleAreas = areas.size > 1
+
+                val skipSubpaths = setOf("Android/data", "Android/media", "Android/obb")
+
+                for (area in areas) {
+                    val depth1Dirs = try {
+                        gatewaySwitch.lookupFiles(area.path).filter { it.isDirectory }
+                    } catch (e: CancellationException) {
+                        throw e
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to list ${area.path}: ${e.asLog()}" }
+                        skippedCount++
+                        continue
+                    }
+
+                    val candidates = mutableListOf<Pair<String, eu.darken.sdmse.common.files.APath>>()
+
+                    for (dir in depth1Dirs) {
+                        val dirName = dir.lookedUp.path.substringAfterLast('/')
+
+                        // Add depth-1 candidate
+                        candidates.add(dirName to dir.lookedUp)
+
+                        // Get depth-2 children
+                        val depth2Dirs = try {
+                            gatewaySwitch.lookupFiles(dir.lookedUp).filter { it.isDirectory }
+                        } catch (e: CancellationException) {
+                            throw e
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed to list ${dir.lookedUp}: ${e.asLog()}" }
+                            skippedCount++
+                            continue
+                        }
+
+                        for (child in depth2Dirs) {
+                            val subpath = "$dirName/${child.lookedUp.path.substringAfterLast('/')}"
+                            if (subpath in skipSubpaths) continue
+                            candidates.add(subpath to child.lookedUp)
+                        }
+                    }
+
+                    for ((displaySubpath, path) in candidates) {
+                        scannedCount++
+                        try {
+                            val ownerInfo = fileForensics.findOwners(path)
+                            if (ownerInfo == null || ownerInfo.owners.isEmpty()) {
+                                val displayPath = if (multipleAreas) {
+                                    "${area.path.path}/$displaySubpath"
+                                } else {
+                                    displaySubpath
+                                }
+                                unknownPaths.add(displayPath)
+                            }
+                        } catch (e: CancellationException) {
+                            throw e
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed findOwners for $path: ${e.asLog()}" }
+                            skippedCount++
+                        }
+                    }
+                }
+            }
+
+            log(TAG, INFO) { "Unknown folders check: scanned=$scannedCount, skipped=$skippedCount, unknown=${unknownPaths.size}" }
+            if (unknownPaths.size > 200) {
+                log(TAG, WARN) { "Full unknown list (${unknownPaths.size}):\n${unknownPaths.joinToString("\n")}" }
+            }
+
+            withContext(dispatcherProvider.Main) {
+                onShowEvent(
+                    DashboardEvents.ShowUnknownFolders(
+                        unknownPaths = unknownPaths.take(200),
+                        scannedCount = scannedCount,
+                        skippedCount = skippedCount,
+                    )
+                )
+            }
+        } catch (e: CancellationException) {
+            throw e
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "checkUnknownFolders failed: ${e.asLog()}" }
+            withContext(dispatcherProvider.Main) { vm.errorEvents.value = e }
+        } finally {
+            isCheckingFolders.value = false
+        }
     }
 
     data class RootTestResult(

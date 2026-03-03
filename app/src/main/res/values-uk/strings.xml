@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="dashboard_delete_all_message">Видалити результати в усіх інструментах?</string>
-    <string name="dashboard_settings_category">Панель керування</string>
+    <string name="dashboard_settings_category">Панель інструментів</string>
     <string name="dashboard_motd_title">Повідомлення від розробника</string>
     <string name="dashboard_settings_oneclick_title">Режим одним дотиком</string>
     <string name="dashboard_settings_oneclick_summary">Почніть сканування та видалення для всіх інструментів, натиснувши кнопку дії на інформаційній панелі, без додаткових підтверджень.</string>
@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Картки панелі інструментів</string>
     <string name="dashboard_card_config_desc">Налаштуйте, які картки відображатимуться та їхній порядок</string>
     <string name="dashboard_card_config_header_title">Перетягніть, щоб змінити порядок, перемикайте, щоб показати/приховати</string>
-    <string name="debug_notification_channel_label">Сповіщення про налагодження</string>
     <string name="debug_debuglog_file_label">Записаний файл журналу</string>
     <string name="debug_debuglog_recording_progress">Запис журналу налагодження</string>
     <string name="debug_debuglog_record_action">Записати журнал налагодження</string>

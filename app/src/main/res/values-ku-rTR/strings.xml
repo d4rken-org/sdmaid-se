@@ -7,7 +7,6 @@
     <string name="dashboard_settings_oneclick_summary">سکان و سڕینەوە بۆ هەموو ئامرازەکان بە لێدانی دوگمەی کردار لە داشبۆرد دەست پێ بکە، بێ پشتڕاستکردنەوەی زیاتر.</string>
     <string name="dashboard_settings_oneclick_tools_title">ئامرازەکانی یەک لێدان</string>
     <string name="dashboard_settings_oneclick_tools_desc">کام ئامرازەکان دەبێت لە کارەکانی یەک لێدان هەبن؟</string>
-    <string name="debug_notification_channel_label">ئاگاداریەکانی دیباگ</string>
     <string name="debug_debuglog_file_label">فایلی لۆگی تۆمارکراو</string>
     <string name="debug_debuglog_recording_progress">تۆمارکردنی لۆگی دیباگ</string>
     <string name="debug_debuglog_record_action">لۆگی دیباگ تۆمار بکە</string>

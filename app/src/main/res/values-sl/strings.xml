@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kartice nadzorne plošče</string>
     <string name="dashboard_card_config_desc">Nastavite, katere kartice so prikazane in njihov vrstni red</string>
     <string name="dashboard_card_config_header_title">Povlecite za prerazporeditev, preklopite za prikaz/skritje</string>
-    <string name="debug_notification_channel_label">Obvestila o razhroščevanju</string>
     <string name="debug_debuglog_file_label">Posneta datoteka dnevnika</string>
     <string name="debug_debuglog_recording_progress">Snemanje dnevnika razhroščevanja</string>
     <string name="debug_debuglog_record_action">Posnemi dnevnik razhroščevanja</string>

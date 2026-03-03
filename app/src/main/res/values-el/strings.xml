@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Κάρτες πίνακα εργαλείων</string>
     <string name="dashboard_card_config_desc">Ρύθμιση των καρτών που εμφανίζονται και της σειράς τους</string>
     <string name="dashboard_card_config_header_title">Σύρετε για αναδιάταξη, εναλλαγή για εμφάνιση/απόκρυψη</string>
-    <string name="debug_notification_channel_label">Ειδοποιήσεις εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_file_label">Αρχείο καταγραφής</string>
     <string name="debug_debuglog_recording_progress">Καταγραφή αρχεία εντοπισμού σφαλμάτων</string>
     <string name="debug_debuglog_record_action">Καταγραφή αρχείου εντοπισμού σφαλμάτων</string>

@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Carduri de bord</string>
     <string name="dashboard_card_config_desc">Configurați ce carduri sunt afișate și ordinea acestora</string>
     <string name="dashboard_card_config_header_title">Trageți pentru a reordona, comutați pentru a arăta/ascunde</string>
-    <string name="debug_notification_channel_label">Notificări de depanare</string>
     <string name="debug_debuglog_file_label">Fișier de jurnal înregistrat</string>
     <string name="debug_debuglog_recording_progress">Înregistrează jurnalul de depanare</string>
     <string name="debug_debuglog_record_action">Înregistrează jurnalul de depanare</string>

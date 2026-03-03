@@ -92,11 +92,18 @@ class RecorderActivity : Activity2() {
                 val sizeText = state.compressedSize?.let {
                     Formatter.formatShortFileSize(this@RecorderActivity, it)
                 } ?: "?"
+                val durationText = state.recordingDuration?.let { d ->
+                    val totalSeconds = d.seconds
+                    val minutes = totalSeconds / 60
+                    val seconds = totalSeconds % 60
+                    if (minutes > 0) "${minutes}m ${seconds}s" else "${seconds}s"
+                } ?: "?"
                 text = resources.getQuantityString(
                     R.plurals.debug_debuglog_screen_log_files_ready,
                     state.logEntries.size,
                     state.logEntries.size,
-                    sizeText
+                    sizeText,
+                    durationText,
                 )
             }
             adapter.update(state.logEntries)

@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Хяналтын самбарын картууд</string>
     <string name="dashboard_card_config_desc">Ямар картууд харагдах, тэдгээрийн дарааллыг тохируулна</string>
     <string name="dashboard_card_config_header_title">Дарааллыг өөрчлөхийн тулд чирнэ үү, харуулах/нуухын тулд сэлгэнэ үү</string>
-    <string name="debug_notification_channel_label">Дебаг мэдэгдэл</string>
     <string name="debug_debuglog_file_label">Бичсэн лог файл</string>
     <string name="debug_debuglog_recording_progress">Дебаг лог бичиж байна</string>
     <string name="debug_debuglog_record_action">Дебаг лог бичих</string>

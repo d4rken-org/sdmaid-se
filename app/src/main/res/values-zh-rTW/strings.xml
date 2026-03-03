@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">儀表板卡片</string>
     <string name="dashboard_card_config_desc">設定顯示哪些卡片及其順序</string>
     <string name="dashboard_card_config_header_title">拖曳以重新排序，切換以顯示/隱藏</string>
-    <string name="debug_notification_channel_label">偵錯通知</string>
     <string name="debug_debuglog_file_label">已記錄的記錄檔案</string>
     <string name="debug_debuglog_recording_progress">正在記錄偵錯記錄</string>
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>

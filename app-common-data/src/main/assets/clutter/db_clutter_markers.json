@@ -2100,7 +2100,7 @@
   "pkgs": ["name.markus.droesser.tapeatalkpro"],
   "mrks": [{"loc": "SDCARD", "path": "tapeatalk_records", "flags": ["keeper"]}]
 }, {
-  "pkgs": ["name.markus.droesser.tapeatalk"],
+  "pkgs": ["name.markus.droesser.tapeatalk", "name.markus.droesser.tapeatalkpro"],
   "mrks": [{"loc": "SDCARD", "path": "tapeatalk_records", "flags": ["keeper"]}]
 }, {
   "pkgs": ["cc.dict.dictcc"],
@@ -3932,8 +3932,8 @@
   "pkgs": ["com.qblogic.jokes.dashboard"],
   "mrks": [{"loc": "SDCARD", "path": "kamena"}]
 }, {
-  "pkgs": ["com.majedev.superbeam"],
-  "mrks": [{"loc": "SDCARD", "path": "SuperBeam"}]
+  "pkgs": ["com.majedev.superbeam", "com.majedev.superbeampro", "com.livio.superbeam"],
+  "mrks": [{"loc": "SDCARD", "path": "SuperBeam", "flags": ["keeper"]}]
 }, {
   "pkgs": ["pl.neptis.yanosik.mobi.android"],
   "mrks": [{"loc": "SDCARD", "path": "yanosik-new"}]
@@ -4055,7 +4055,8 @@
 	{"loc": "SDCARD", "path": "DCIM/Facebook", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "com.facebook.katana"},
 	{"loc": "SDCARD", "path": ".facebook_cache"},
-	{"loc": "SDCARD", "path": "Pictures/Facebook", "flags": ["keeper"]}
+	{"loc": "SDCARD", "path": "Pictures/Facebook", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Facebook", "flags": ["keeper"]}
   ]
 }, {
   "pkgs": ["cloudtv.dayframe"],
@@ -4844,8 +4845,11 @@
   "pkgs": ["net.momodalo.app.vimtouch"],
   "mrks": [{"loc": "SDCARD", "path": ".vimrc"}]
 }, {
-  "pkgs": ["nextapp.fx"],
-  "mrks": [{"loc": "SDCARD", "path": ".FX"}]
+  "pkgs": ["nextapp.fx", "nextapp.fx.rk"],
+  "mrks": [
+	{"loc": "SDCARD", "path": ".FX"},
+	{"loc": "SDCARD", "path": "FXBackup", "flags": ["keeper"]}
+  ]
 }, {
   "pkgs": ["nextapp.systempanel.r1"],
   "mrks": [{"loc": "SDCARD", "path": ".SystemPanel"}]
@@ -5488,6 +5492,9 @@
   "pkgs": ["org.telegram.messenger", "org.telegram.plus", "org.telegram.messenger.web"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Telegram", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Audio", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Documents", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Video", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "Pictures/Telegram", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "Plus", "flags": ["common", "keeper"]}
   ]
@@ -5581,7 +5588,8 @@
   "pkgs": ["com.touchtype.swiftkey"],
   "mrks": [
 	{"loc": "PUBLIC_DATA", "path": "com.touchtype.swiftkey.tmp"},
-	{"loc": "PUBLIC_DATA", "path": "com.touchtype.swiftkey.tcl.phone"}
+	{"loc": "PUBLIC_DATA", "path": "com.touchtype.swiftkey.tcl.phone"},
+	{"loc": "SDCARD", "path": "swiftkey"}
   ]
 }, {
   "pkgs": ["com.sec.android.app.music", "com.samsung.music"],
@@ -7223,7 +7231,10 @@
   "mrks": [{"loc": "PUBLIC_DATA", "path": "com.square_enix.FFVI"}]
 }, {
   "pkgs": ["nz.mega.android", "mega.privacy.android.app"],
-  "mrks": [{"loc": "SDCARD", "path": "MEGA", "flags": ["keeper"]}]
+  "mrks": [
+	{"loc": "SDCARD", "path": "MEGA", "flags": ["keeper", "common"]},
+	{"loc": "SDCARD", "path": "MegaManager", "flags": ["keeper"]}
+  ]
 }, {
   "pkgs": ["com.weather.Weather"],
   "mrks": [
@@ -8047,7 +8058,8 @@
   "pkgs": ["com.mxtech.videoplayer.ad", "com.mxtech.videoplayer.pro"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Subtitles", "flags": ["common", "keeper"]},
-	{"loc": "SDCARD", "path": ".ColombiaMedia"}
+	{"loc": "SDCARD", "path": ".ColombiaMedia"},
+	{"loc": "SDCARD", "path": "MXShare"}
   ]
 }, {
   "pkgs": ["com.halo.wifikey.wifilocating"],
@@ -8651,6 +8663,9 @@
 }, {
   "pkgs": ["com.sec.android.app.camera", "com.google.android.GoogleCamera", "com.android.camera"],
   "mrks": [{"loc": "SDCARD", "path": "DCIM/Camera", "flags": ["keeper", "common"]}]
+}, {
+  "pkgs": ["com.sec.android.app.camera"],
+  "mrks": [{"loc": "SDCARD", "path": "InstaCamera", "flags": ["keeper", "common"]}]
 }, {
   "pkgs": [
 	"com.parrot.freeflight",
@@ -12606,5 +12621,38 @@
 	{"loc": "APP_APP", "path": "preinstall_history"},
 	{"loc": "APP_APP", "path": "preinstall_package_path"}
   ]
+}, {
+  "pkgs": ["com.ace.ex.file.manager"],
+  "mrks": [{"loc": "SDCARD", "path": ".aceself"}]
+}, {
+  "pkgs": ["com.duckduckgo.mobile.android"],
+  "mrks": [{"loc": "SDCARD", "path": "Download/DuckDuckGo"}]
+}, {
+  "pkgs": ["org.xbmc.kodi"],
+  "mrks": [{"loc": "SDCARD", "path": "xbmc_env.properties"}]
+}, {
+  "pkgs": ["com.stevesoltys.seedvault"],
+  "mrks": [{"loc": "SDCARD", "path": ".SeedVaultAndroidBackup", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["org.smarttube.beta", "org.smarttube.stable", "app.smarttube", "app.smarttube.fdroid", "com.teamsmart.videomanager.tv"],
+  "mrks": [{"loc": "SDCARD", "path": "Backup", "flags": ["keeper", "common"]}]
+}, {
+  "pkgs": ["com.dropbox.android"],
+  "mrks": [{"loc": "SDCARD", "path": "dropbox", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.kober.headsetbutton", "com.kober.headset"],
+  "mrks": [{"loc": "SDCARD", "path": "headset", "flags": ["common"]}]
+}, {
+  "pkgs": ["com.netqin.ps", "com.nqmobile.antivirus20"],
+  "mrks": [{"loc": "SDCARD", "path": "SystemAndroid"}]
+}, {
+  "pkgs": ["com.notecryptpro", "com.notecrypt"],
+  "mrks": [{"loc": "SDCARD", "path": "NoteCrypt", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["com.snoggdoggler.android.applications.doggcatcher.v1_0", "com.snoggdoggler.android.applications.doggcatcher.premium"],
+  "mrks": [{"loc": "SDCARD", "path": "DoggCatcher", "flags": ["keeper"]}]
+}, {
+  "pkgs": ["moe.shizuku.privileged.api"],
+  "mrks": [{"loc": "SDCARD", "path": "Shizuku"}]
 }
 ]

@@ -7,7 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">Pradėkite visų įrankių nuskaitymą ir ištrynimą bakstelėdami prietaisų skydelio veiksmo mygtuką, jokių papildomų patvirtinimų.</string>
     <string name="dashboard_settings_oneclick_tools_title">Vieno bakstelėjimo įrankiai</string>
     <string name="dashboard_settings_oneclick_tools_desc">Kurie įrankiai turėtų būti įtraukti į vieno bakstelėjimo operaciją?</string>
-    <string name="debug_notification_channel_label">Derinimo pranešimai</string>
+    <string name="dashboard_card_config_title">Prietaisų skydelio kortelės</string>
+    <string name="dashboard_card_config_desc">Konfigūruokite, kurios kortelės rodomos ir jų tvarka</string>
+    <string name="dashboard_card_config_header_title">Vilkite, jei norite keisti tvarką, nustatykite, jei norite rodyti/slėpti</string>
     <string name="debug_debuglog_file_label">Įrašytas žurnalo failas</string>
     <string name="debug_debuglog_recording_progress">Derinimo žurnalo įrašymas</string>
     <string name="debug_debuglog_record_action">Įrašyti derinimo žurnalą</string>

@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">ଡ୍ୟାସବୋର୍ଡ କାର୍ଡଗୁଡିକ</string>
     <string name="dashboard_card_config_desc">କେଉଁ କାର୍ଡ ଦେଖାଯିବ ଏବଂ ସେମାନଙ୍କ କ୍ରମ ବିନ୍ୟାସ କରନ୍ତୁ</string>
     <string name="dashboard_card_config_header_title">ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ, ଦେଖାଇବା/ଲୁଚାଇବା ପାଇଁ ଟୋଗଲ୍ କରନ୍ତୁ</string>
-    <string name="debug_notification_channel_label">ଡିବଗ୍ ବିଜ୍ଞପ୍ତିଗୁଡିକ</string>
     <string name="debug_debuglog_file_label">ରେକର୍ଡ କରାଯାଇଥିବା ଲଗ୍ ଫାଇଲ୍</string>
     <string name="debug_debuglog_recording_progress">ଡିବଗ୍ ଲଗ୍ ରେକର୍ଡ କରୁଛି</string>
     <string name="debug_debuglog_record_action">ଡିବଗ୍ ଲଗ୍ ରେକର୍ଡ କରନ୍ତୁ</string>

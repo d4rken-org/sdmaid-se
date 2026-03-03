@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Irányítópult kártyák</string>
     <string name="dashboard_card_config_desc">Állítsd be, mely kártyák jelenjenek meg és milyen sorrendben</string>
     <string name="dashboard_card_config_header_title">Húzd az átrendezéshez, kapcsold be/ki a megjelenítéshez/elrejtéshez</string>
-    <string name="debug_notification_channel_label">Hibakeresési értesítések</string>
     <string name="debug_debuglog_file_label">Rögzített naplófájl</string>
     <string name="debug_debuglog_recording_progress">Hibakeresési napló rögzítése</string>
     <string name="debug_debuglog_record_action">Hibakeresési napló rögzítése</string>

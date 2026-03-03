@@ -7,7 +7,9 @@
     <string name="dashboard_settings_oneclick_summary">ဒက်ရှ်ဘုတ်၏ လုပ်ဆောင်ချက်ခလုတ်ကို နှိပ်ခြင်းဖြင့် ကိရိယာအားလုံးအတွက် စကင်န်ဖတ်ခြင်းနှင့် ဖျက်ခြင်းတို့ကို စတင်ပါ၊ အပိုအတည်ပြုချက်မရှိပါ။</string>
     <string name="dashboard_settings_oneclick_tools_title">တစ်ခါနှိပ် ကိရိယာများ</string>
     <string name="dashboard_settings_oneclick_tools_desc">တစ်ခါနှိပ် လုပ်ဆောင်မှုများတွင် မည်သည့်ကိရိယာများကို ထည့်သွင်းရမည်နည်း?</string>
-    <string name="debug_notification_channel_label">အမှားရှာဖွေမှု အကြောင်းကြားချက်များ</string>
+    <string name="dashboard_card_config_title">Dashboard ကဒ်များ</string>
+    <string name="dashboard_card_config_desc">ညည့်ကဒ်များ နှင့် ၎င်းတို့ အစီအစဥ်ကို ရွေးချယ်ခြင်း။</string>
+    <string name="dashboard_card_config_header_title">ခေါ်ဆောင်ခြင်းဖြင့် အစီအစဥ်ပြုလုပ်ခြင်း၊ အဖွင့်အပိတ်ကို ပြသခြင်း/ဝှက်ခြင်း</string>
     <string name="debug_debuglog_file_label">မှတ်တမ်းတင်ထားသော log ဖိုင်</string>
     <string name="debug_debuglog_recording_progress">debug log ကို မှတ်တမ်းတင်နေသည်</string>
     <string name="debug_debuglog_record_action">debug log မှတ်တမ်းတင်ပါ</string>

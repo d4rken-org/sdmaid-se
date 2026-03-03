@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Basqarma paneli kartalary</string>
     <string name="dashboard_card_config_desc">Qaysy kartalar ko\'rsetiletuǵynyn ha\'m ta\'rtibin sazlan\'</string>
     <string name="dashboard_card_config_header_title">Ta\'rtibin o\'zgertiwshi ushin su\'yren\', ko\'rsetiw/jasyryw ushin almastyryn\'</string>
-    <string name="debug_notification_channel_label">Buzılıwlardı ońlaw bildiriw xatları</string>
     <string name="debug_debuglog_file_label">Jazıp alınǵan jurnal faylı</string>
     <string name="debug_debuglog_recording_progress">Buzılıwlardı ońlaw jurnalı jazıwı</string>
     <string name="debug_debuglog_record_action">Buzılıwlardı ońlaw jurnalın jazıp alındı</string>

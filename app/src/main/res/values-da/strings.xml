@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kontrolpanelkort</string>
     <string name="dashboard_card_config_desc">Konfigurer hvilke kort der vises og deres rækkefølge</string>
     <string name="dashboard_card_config_header_title">Træk for at ændre rækkefølge, slå til/fra for at vise/skjule</string>
-    <string name="debug_notification_channel_label">Fejlfindingsmeddelelser</string>
     <string name="debug_debuglog_file_label">Logfil optaget</string>
     <string name="debug_debuglog_recording_progress">Optager fejlfindingslog</string>
     <string name="debug_debuglog_record_action">Optag fejlfindingslog</string>

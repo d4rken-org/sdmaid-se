@@ -102,7 +102,7 @@
             app:summary="v?.?.?">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="https://github.com/d4rken-org/sdmaid-se/releases" />
+                android:data="https://sdmse.darken.eu/changelog" />
         </eu.darken.sdmse.common.preferences.IntentPreference>
 
         <Preference

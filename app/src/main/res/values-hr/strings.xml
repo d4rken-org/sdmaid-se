@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kartice nadzorne ploče</string>
     <string name="dashboard_card_config_desc">Konfigurirajte koje će se kartice prikazivati ​​i njihov redoslijed</string>
     <string name="dashboard_card_config_header_title">Povucite za promjenu redoslijeda, prebacite za prikaz/skrivanje</string>
-    <string name="debug_notification_channel_label">Obavijesti o otklanjanju pogrešaka</string>
     <string name="debug_debuglog_file_label">Snimljena datoteka zapisnika</string>
     <string name="debug_debuglog_recording_progress">Snimanje zapisnika za otklanjanje pogrešaka</string>
     <string name="debug_debuglog_record_action">Snimi zapisnik za otklanjanje pogrešaka</string>

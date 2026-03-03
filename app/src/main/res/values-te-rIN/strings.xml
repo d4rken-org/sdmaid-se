@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">డ్యాష్‌బోర్డ్ కార్డ్‌లు</string>
     <string name="dashboard_card_config_desc">ఏ కార్డ్‌లు చూపించాలో మరియు వాటి క్రమాన్ని కాన్ఫిగర్ చేయండి</string>
     <string name="dashboard_card_config_header_title">క్రమం మార్చడానికి డ్రాగ్ చేయండి, చూపించడానికి/దాచడానికి టోగుల్ చేయండి</string>
-    <string name="debug_notification_channel_label">డీబగ్ నోటిఫికేషన్లు</string>
     <string name="debug_debuglog_file_label">రికార్డ్ చేయబడిన లాగ్ ఫైల్</string>
     <string name="debug_debuglog_recording_progress">డీబగ్ లాగ్ రికార్డ్ చేస్తోంది</string>
     <string name="debug_debuglog_record_action">డీబగ్ లాగ్ రికార్డ్ చేయండి</string>
