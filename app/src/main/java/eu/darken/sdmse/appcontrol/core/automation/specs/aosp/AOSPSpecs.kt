@@ -15,7 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNearestTo
+import eu.darken.sdmse.automation.core.common.stepper.findClickableSibling
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -100,7 +100,7 @@ class AOSPSpecs @Inject constructor(
                 // Force stop may consist of a button (no text)) and a textview (unclickable), same layout as everything else
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
+                    target = findClickableSibling(node = candidate)
                     if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
                 }
 
@@ -182,7 +182,7 @@ class AOSPSpecs @Inject constructor(
 
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
+                    target = findClickableSibling(node = candidate)
                     if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
                 }
 
@@ -234,7 +234,7 @@ class AOSPSpecs @Inject constructor(
 
                 if (target == null && hasApiLevel(35)) {
                     log(TAG, WARN) { "No clickable parent found for $candidate" }
-                    target = findNearestTo(node = candidate) { it.isClickable }
+                    target = findClickableSibling(node = candidate)
                     if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
                 }
 

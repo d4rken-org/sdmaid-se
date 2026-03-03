@@ -31,8 +31,9 @@ import eu.darken.sdmse.automation.core.common.stepper.waitForLayoutStability
 import eu.darken.sdmse.automation.core.common.textMatches
 import eu.darken.sdmse.automation.core.input.InputInjector
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.automation.core.common.stepper.clickGesture
+import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
 import eu.darken.sdmse.automation.core.specs.windowLauncherDefaultSettings
@@ -462,6 +463,27 @@ class AOSPSpecs @Inject constructor(
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = storageFinder(this) ?: return@action false
+                log(TAG) { "Storage entry target: $target" }
+                when {
+                    hasApiLevel(35) -> {
+                        val mapped = findClickableParent(maxNesting = 3, node = target)
+                        if (mapped != null) {
+                            clickNormal(node = mapped)
+                        } else {
+                            log(TAG, WARN) { "No clickable parent (API 35+), trying gesture..." }
+                            clickGesture(node = target)
+                        }
+                    }
+
+                    else -> {
+                        val mapped = findClickableParent(maxNesting = 6, node = target) ?: return@action false
+                        clickNormal(node = mapped)
+                    }
+                }
+            }
+
             val step = AutomationStep(
                 source = tag,
                 descriptionInternal = "Storage entry",
@@ -469,7 +491,7 @@ class AOSPSpecs @Inject constructor(
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick(finder = storageFinder),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
