@@ -1,0 +1,12 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context="eu.darken.sdmse.main.ui.MainActivity">
+    <item
+        android:id="@+id/menu_item_twitter"
+        android:icon="@drawable/ic_twitter"
+        android:orderInCategory="100"
+        android:tooltipText="Twitter"
+        android:title="Twitter"
+        app:showAsAction="always" />
+</menu>
