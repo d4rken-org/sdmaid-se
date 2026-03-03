@@ -5488,6 +5488,9 @@
   "pkgs": ["org.telegram.messenger", "org.telegram.plus", "org.telegram.messenger.web"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Telegram", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Audio", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Documents", "flags": ["keeper"]},
+	{"loc": "SDCARD", "path": "Telegram Video", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "Pictures/Telegram", "flags": ["keeper"]},
 	{"loc": "SDCARD", "path": "Plus", "flags": ["common", "keeper"]}
   ]
@@ -8047,7 +8050,8 @@
   "pkgs": ["com.mxtech.videoplayer.ad", "com.mxtech.videoplayer.pro"],
   "mrks": [
 	{"loc": "SDCARD", "path": "Subtitles", "flags": ["common", "keeper"]},
-	{"loc": "SDCARD", "path": ".ColombiaMedia"}
+	{"loc": "SDCARD", "path": ".ColombiaMedia"},
+	{"loc": "SDCARD", "path": "MXShare"}
   ]
 }, {
   "pkgs": ["com.halo.wifikey.wifilocating"],
@@ -12609,5 +12613,14 @@
 }, {
   "pkgs": ["com.ace.ex.file.manager"],
   "mrks": [{"loc": "SDCARD", "path": ".aceself"}]
+}, {
+  "pkgs": ["com.duckduckgo.mobile.android"],
+  "mrks": [{"loc": "SDCARD", "path": "Download/DuckDuckGo"}]
+}, {
+  "pkgs": ["org.xbmc.kodi"],
+  "mrks": [{"loc": "SDCARD", "path": "xbmc_env.properties"}]
+}, {
+  "pkgs": ["com.stevesoltys.seedvault"],
+  "mrks": [{"loc": "SDCARD", "path": ".SeedVaultAndroidBackup", "flags": ["keeper"]}]
 }
 ]
