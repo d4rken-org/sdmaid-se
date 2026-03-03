@@ -12606,5 +12606,8 @@
 	{"loc": "APP_APP", "path": "preinstall_history"},
 	{"loc": "APP_APP", "path": "preinstall_package_path"}
   ]
+}, {
+  "pkgs": ["com.ace.ex.file.manager"],
+  "mrks": [{"loc": "SDCARD", "path": ".aceself"}]
 }
 ]
