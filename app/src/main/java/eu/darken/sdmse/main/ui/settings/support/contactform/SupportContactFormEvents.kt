@@ -6,5 +6,5 @@ import androidx.annotation.StringRes
 sealed class SupportContactFormEvents {
     data class OpenEmail(val intent: Intent) : SupportContactFormEvents()
     data class ShowError(@StringRes val messageRes: Int) : SupportContactFormEvents()
-    data class ShowShortRecordingWarning(val durationSeconds: Long) : SupportContactFormEvents()
+    data object ShowShortRecordingWarning : SupportContactFormEvents()
 }

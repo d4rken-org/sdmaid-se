@@ -110,17 +110,20 @@ class RecorderModule @Inject constructor(
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
 
-                        try {
-                            val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
-                                addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                        if (!suppressActivityLaunch) {
+                            try {
+                                val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
+                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                                }
+                                context.startActivity(intent)
+                            } catch (e: Exception) {
+                                log(TAG, WARN) { "Failed to launch RecorderActivity: ${e.asLog()}" }
                             }
-                            context.startActivity(intent)
-                        } catch (e: Exception) {
-                            log(TAG, WARN) { "Failed to launch RecorderActivity: ${e.asLog()}" }
                         }
 
                         copy(
                             recorder = null,
+                            suppressActivityLaunch = false,
                         )
                     } else {
                         this
@@ -174,7 +177,7 @@ class RecorderModule @Inject constructor(
         return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
     }
 
-    suspend fun requestStopRecorder(): StopResult {
+    suspend fun requestStopRecorder(launchResultScreen: Boolean = true): StopResult {
         val currentState = internalState.value()
         if (!currentState.isRecording) return StopResult.NotRecording
 
@@ -187,21 +190,21 @@ class RecorderModule @Inject constructor(
                 val elapsedSeconds = Duration.between(attrs.creationTime().toInstant(), Instant.now()).seconds
                 if (elapsedSeconds < MIN_RECORDING_SECONDS) {
                     log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
-                    return StopResult.TooShort(elapsedSeconds)
+                    return StopResult.TooShort
                 }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
             }
         }
 
-        val stoppedDir = stopRecorder() ?: return StopResult.NotRecording
+        val stoppedDir = stopRecorder(launchResultScreen) ?: return StopResult.NotRecording
         return StopResult.Stopped(stoppedDir)
     }
 
-    suspend fun stopRecorder(): File? {
+    suspend fun stopRecorder(launchResultScreen: Boolean = true): File? {
         val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
-            copy(shouldRecord = false)
+            copy(shouldRecord = false, suppressActivityLaunch = !launchResultScreen)
         }
         internalState.flow.filter { !it.isRecording }.first()
         return currentPath
@@ -246,7 +249,7 @@ class RecorderModule @Inject constructor(
     }
 
     sealed class StopResult {
-        data class TooShort(val durationSeconds: Long) : StopResult()
+        data object TooShort : StopResult()
         data class Stopped(val logDir: File) : StopResult()
         data object NotRecording : StopResult()
     }
@@ -255,6 +258,7 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
+        internal val suppressActivityLaunch: Boolean = false,
     ) {
         val isRecording: Boolean
             get() = recorder != null

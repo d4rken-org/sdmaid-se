@@ -152,17 +152,27 @@ class SupportContactFormViewModel @Inject constructor(
     }
 
     fun stopRecording() = launch {
-        when (val result = recorderModule.requestStopRecorder()) {
+        when (val result = recorderModule.requestStopRecorder(launchResultScreen = false)) {
             is RecorderModule.StopResult.TooShort -> {
-                events.postValue(SupportContactFormEvents.ShowShortRecordingWarning(result.durationSeconds))
+                events.postValue(SupportContactFormEvents.ShowShortRecordingWarning)
             }
-            is RecorderModule.StopResult.Stopped -> {}
+            is RecorderModule.StopResult.Stopped -> zipAndAutoSelect(result.logDir)
             is RecorderModule.StopResult.NotRecording -> {}
         }
     }
 
     fun confirmStopRecording() = launch {
-        recorderModule.stopRecorder()
+        val logDir = recorderModule.stopRecorder(launchResultScreen = false) ?: return@launch
+        zipAndAutoSelect(logDir)
+    }
+
+    private suspend fun zipAndAutoSelect(logDir: File) {
+        debugLogZipper.zipAndGetUri(logDir)
+        val sessions = scanLogSessions()
+        val newZip = File(logDir.parentFile, "${logDir.name}.zip")
+        logPickerStater.updateBlocking {
+            copy(sessions = sessions, selectedZip = newZip)
+        }
     }
 
     fun send() = launch {

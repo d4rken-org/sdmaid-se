@@ -598,9 +598,9 @@ class DashboardViewModel @Inject constructor(
                     onToggleRecording = {
                         if (it.isRecording) {
                             launch {
-                                when (val result = recorderModule.requestStopRecorder()) {
+                                when (recorderModule.requestStopRecorder()) {
                                     is RecorderModule.StopResult.TooShort -> {
-                                        events.postValue(DashboardEvents.ShowShortRecordingWarning(result.durationSeconds))
+                                        events.postValue(DashboardEvents.ShowShortRecordingWarning)
                                     }
                                     is RecorderModule.StopResult.Stopped -> {}
                                     is RecorderModule.StopResult.NotRecording -> {}
