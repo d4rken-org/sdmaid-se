@@ -35,13 +35,13 @@ Opslagbeheer kan complex zijn met apps, media, systeembestanden en andere bestan
 
 Dubbele downloads, foto's verzonden via sociale media of gewoon vergelijkbare foto's van dezelfde scène: na verloop van tijd kunnen kopieën zich ophopen. Het hulpprogramma "Deduplicator" vindt bestanden die precies hetzelfde of vergelijkbaar zijn en helpt je extra kopieën te verwijderen.
 
-👆 Opruimen met een veeg
+👆 Ruim op met één veegbeweging
 
-Kies een map en ga bestanden één voor één door met eenvoudige vegen om te bewaren, verwijderen of overslaan. De "Swiper"-tool laat u alle beslissingen bekijken voordat er iets wordt verwijderd, en u kunt een sessie opslaan om later verder te gaan.
+Selecteer een map en blader één voor één door de bestanden met eenvoudige veegbewegingen om ze te bewaren, te verwijderen of over te slaan. De "Swiper"-tool laat u alle beslissingen bekijken voordat er iets wordt verwijderd, en u kunt een sessie opslaan om later verder te gaan.
 
-🗜️ Ruimte besparen zonder foto's te verwijderen
+🗜️ Bespaar ruimte zonder foto's te verwijderen
 
-Foto's kunnen veel opslagruimte innemen, maar u wilt ze niet altijd verwijderen. De "Media Squeeze"-tool comprimeert uw afbeeldingen met instelbare kwaliteitsinstellingen om ruimte vrij te maken terwijl u uw foto's behoudt.
+Foto's kunnen veel opslagruimte in beslag nemen, maar je wilt ze niet altijd verwijderen. De "Media Squeeze"-tool comprimeert je afbeeldingen met instelbare kwaliteitsinstellingen om ruimte vrij te maken terwijl je je foto's behoudt.
 
 Deze app is advertentievrij. Voor sommige functies is een betaalde upgrade vereist.
 
