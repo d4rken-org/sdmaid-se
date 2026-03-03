@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kartat e panelit</string>
     <string name="dashboard_card_config_desc">Konfiguroni cilat karta shfaqen dhe renditja e tyre</string>
     <string name="dashboard_card_config_header_title">Zvarritni për të rirenditur, ndërroni për të shfaqur/fshehur</string>
-    <string name="debug_notification_channel_label">Njoftime për rezultatet</string>
     <string name="debug_debuglog_file_label">Skedari i regjistrit të regjistruar</string>
     <string name="debug_debuglog_recording_progress">Inçizimi i regjistrit të korrigjimit</string>
     <string name="debug_debuglog_record_action">Inçizimi i regjistrit të korrigjimit</string>

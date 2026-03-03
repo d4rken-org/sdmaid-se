@@ -10,7 +10,6 @@
     <string name="dashboard_card_config_title">Kad papan pemuka</string>
     <string name="dashboard_card_config_desc">Konfigurasi kad yang ditunjukkan dan susunannya</string>
     <string name="dashboard_card_config_header_title">Seret untuk susun semula, togol untuk tunjuk/sembunyi</string>
-    <string name="debug_notification_channel_label">Pemberitahuan nyahpepijat</string>
     <string name="debug_debuglog_file_label">Fail log yang direkodkan</string>
     <string name="debug_debuglog_recording_progress">Merakam log nyahpepijat</string>
     <string name="debug_debuglog_record_action">Rekod log nyahpepijat</string>
