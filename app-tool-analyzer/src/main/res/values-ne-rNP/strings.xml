@@ -31,4 +31,18 @@
     <string name="analyzer_storage_content_app_extra_description">यस app ले पूर्वनिर्धारित paths बाहिर राखेको अतिरिक्त डेटा, जस्तै फोटोहरू वा डाउनलोडहरू।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">यो app ले \"%2$s\" मा %1$s ओगटेको छ।</string>
     <string name="analyzer_app_details_app_is_archived">यो app संग्रहित गरिएको छ।</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper सत्र सिर्जना गर्नुहोस्</string>
+    <string name="analyzer_storage_content_type_app_label">एपहरू</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s उपलब्ध</item>
+        <item quantity="other">%s उपलब्ध</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s प्रयोग गरिएको</item>
+        <item quantity="other">%s प्रयोग गरिएको</item>
+    </plurals>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper सत्र %d वस्तुसंग सिर्जना गरियो</item>
+        <item quantity="other">Swiper सत्र %d वस्तुहरूसंग सिर्जना गरियो</item>
+    </plurals>
 </resources>

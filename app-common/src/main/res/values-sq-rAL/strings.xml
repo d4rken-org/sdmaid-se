@@ -185,4 +185,5 @@
     <string name="general_include_multiuser_label">Përfshini përdorues të tjerë</string>
     <string name="general_include_multiuser_summary">Përfshi aplikacione nga profile të tjera përdoruesish në këtë pajisje.</string>
     <string name="general_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
 </resources>

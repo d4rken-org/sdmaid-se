@@ -71,4 +71,9 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Dosje</string>
+    <string name="deduplicator_keep_prefer_paths_title">Prefero ruajtjen në</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kur vendoset cilin dublikat të ruhet, prefero mbajtjen e skedarëve në këto vendndodhje.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nuk ka vendndodhje të konfiguruara</string>
+    <string name="deduplicator_arbiter_title">Strategjia e fshirjes</string>
+    <string name="deduplicator_arbiter_summary">Konfiguro cilët skedarë ruhen dhe cilët fshihen.</string>
 </resources>

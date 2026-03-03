@@ -38,4 +38,23 @@
     <string name="corpsefinder_owner_unknown">अज्ञात मालिक</string>
     <string name="corpsefinder_corpse_hint_keeper">यो वस्तुमा त्यसको मालिक अनइन्स्टल भएको भएतापनि तपाईंले राख्न चाहनुभएको डेटा हुन सक्छ, जस्तै फोटो वा ब्याकअप।</string>
     <string name="corpsefinder_corpse_hint_common">यो वस्तुको धेरै सामान्य नाम छ र यो अझै स्थापित एप्सको हुन सक्छ जुन SD Maid लाई थाहा छैन।</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART प्रोफाइलहरू</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART प्रोफाइलहरू Android द्वारा अनुप्रयोग कार्यक्षमता अनुकूलन गर्न प्रयोग गरिन्छ।</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s अनइन्स्टल गरेपछि %1$d अवशेष फेला परेको।</item>
+        <item quantity="other">%2$s अनइन्स्टल गरेपछि %1$d अवशेषहरू फेला परेका।</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">सफाई सफल (%1$s): %2$s खाली गरिएको र %3$d वस्तु हटाइएको।</item>
+        <item quantity="other">सफाई सफल (%1$s): %2$s खाली गरिएको र %3$d वस्तुहरू हटाइएका।</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d अनुप्रयोग अवशेष मेटाइयो</item>
+        <item quantity="other">%d अनुप्रयोग अवशेषहरू मेटाइए</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d अनुप्रयोग अवशेष पत्ता लगाइएको</item>
+        <item quantity="other">%d अनुप्रयोग अवशेषहरू पत्ता लगाइएका</item>
+    </plurals>
 </resources>

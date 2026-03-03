@@ -82,4 +82,5 @@
         <item quantity="other">At least %d days old</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for JPEG files</string>
+    <string name="squeezer_onboarding_got_it">Got it</string>
 </resources>

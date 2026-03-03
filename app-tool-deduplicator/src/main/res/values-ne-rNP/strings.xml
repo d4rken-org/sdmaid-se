@@ -26,4 +26,54 @@
     <string name="deduplicator_details_cluster_title">डुप्लिकेटहरूको सेट</string>
     <string name="deduplicator_matches_exact_label">सटीक प्रतिहरू</string>
     <string name="deduplicator_matches_similar_label">समान फाइलहरू</string>
+    <string name="deduplicator_keep_prefer_paths_title">मा राख्न प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_keep_prefer_paths_summary">कुन डुप्लिकेट राख्ने भनी निर्णय गर्दा, यी स्थानहरूमा फाइलहरू राख्न प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">कुनै स्थान कन्फिगर गरिएको छैन</string>
+    <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल ह्यास</string>
+    <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताहरू विश्लेषण गरेर र पर्सेप्चुअल ह्यास मानहरू तुलना गरेर मिल्दोजुल्दो फाइलहरू फेला पार्नुहोस्। ⚠️ समानता-आधारित पहिचानमा म्यानुअल सत्यापन आवश्यक पर्ने गलत सकारात्मक परिणामहरू समावेश हुन सक्छ।</string>
+    <string name="deduplicator_arbiter_title">मेटाउने रणनीति</string>
+    <string name="deduplicator_arbiter_summary">कुन फाइलहरू राखिन्छन् र कुन मेटाइन्छन् भनी कन्फिगर गर्नुहोस्।</string>
+    <string name="deduplicator_arbiter_explanation">डुप्लिकेटहरू मेटाउँदा, SD Maid कुन फाइल राख्ने भनी क्रमानुसार प्रत्येक मापदण्ड जाँच गरेर निर्णय गर्छ। स्पष्ट विजेता उत्पन्न गर्ने पहिलो मापदण्डले परिणाम निर्धारण गर्छ। पुनः क्रमबद्ध गर्न ड्र्याग गर्नुहोस्, मोड परिवर्तन गर्न ट्याप गर्नुहोस्।</string>
+    <string name="deduplicator_arbiter_select_mode_title">मोड चयन गर्नुहोस्</string>
+    <string name="deduplicator_arbiter_configure_paths_action">पाथहरू कन्फिगर गर्नुहोस्…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">डुप्लिकेट प्रकार</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">समान फाइलहरूभन्दा सटीक मिलानलाई प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">मिडिया अनुक्रमण</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">मिडिया प्रदायकद्वारा फाइलहरू अनुक्रमित छन् कि छैनन् भनी विचार गर्नुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_location_title">भण्डारण स्थान</string>
+    <string name="deduplicator_arbiter_criterium_location_description">आन्तरिक वा बाह्य भण्डारणमा रहेका फाइलहरूलाई प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">फोल्डर गहिराई</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">उथलो वा गहिरो फोल्डर संरचनामा रहेका फाइलहरूलाई प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">परिवर्तन मिति</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">परिवर्तन समयको आधारमा पुरानो वा नयाँ फाइलहरूलाई प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_size_title">फाइल आकार</string>
+    <string name="deduplicator_arbiter_criterium_size_description">आकार फरक हुँदा ठूलो वा सानो फाइलहरूलाई प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">पसन्दीदा स्थानहरू</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">तपाईंको कन्फिगर गरिएका पसन्दीदा स्थानहरूमा फाइलहरू राख्नुहोस्।</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">सटीक मिलानलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">समान फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">अनुक्रमित फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">अनुक्रमित नगरिएका फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">आन्तरिक भण्डारणलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">बाह्य भण्डारणलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">उथलो फोल्डरहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">गहिरो फोल्डरहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">पुरानो फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">नयाँ फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ठूला फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">साना फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_view_mode_groups_label">समूहहरू</string>
+    <string name="deduplicator_view_mode_directories_label">फोल्डरहरू</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d नकल मेटाइयो</item>
+        <item quantity="other">%d नकलहरू मेटाइए</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d डुप्लिकेट सेट फेला पर्यो</item>
+        <item quantity="other">%d डुप्लिकेट सेटहरू फेला पर्यो</item>
+    </plurals>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s डुप्लिकेटले ओगटेको छ</item>
+        <item quantity="other">%s डुप्लिकेटले ओगटेका छन्</item>
+    </plurals>
 </resources>

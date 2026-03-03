@@ -92,4 +92,14 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Kufizoni rezultatet bazuar në moshën e skedarit (koha e modifikimit të fundit). Lëreni pa vendosur për të përputhur çdo moshë.</string>
     <string name="systemcleaner_customfilter_import_action">Importoni filtër të ri</string>
     <string name="systemcleaner_customfilter_export_action">Eksporto filtrin e zgjedhur</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Skedarë instalimi që nuk nevojiten më bazuar në versionet e aplikacioneve të instaluara.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Përfshi të njëjtin version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Synoni gjithashtu skedarët APK që përputhen me versionin e instaluar. Çaktivizo për të hequr vetëm versionet më të vjetra.</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Kufizime madhësie</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Madhësia minimale</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Madhësia maksimale</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Kufizime moshe</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Mosha minimale</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Mosha maksimale</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Ke ndryshime të paruajtura!</string>
 </resources>

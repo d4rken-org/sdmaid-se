@@ -25,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">Użyj narzędzia Zarządzanie aplikacjami, aby utworzyć wykluczenia aplikacji.</string>
     <string name="exclusion_create_path_hint">Użyj narzędzia Analizator pamięci do utworzenia wykluczeń ścieżek.</string>
     <string name="exclusion_show_defaults_action">Pokaż domyślne</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
 </resources>

@@ -172,4 +172,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Скасаваць</string>
     <string name="swiper_help_title">Як працуе Swiper</string>
     <string name="swiper_help_message">Правядзіце пальцам па кожным файле, каб прыняць рашэнне:\n\n← Правесці ўлева: %1$s\n→ Правесці ўправа: %2$s\n↑ Правесці ўверх: Прапусціць\n↓ Правесці ўніз: Скасаваць (пасля першага правядзення)\n\nВы таксама можаце выкарыстоўваць кнопкі ўнізе.\n\nКалі скончыце, дакраніцеся \"Агляд\", каб убачыць усе вашы рашэнні. Нічога не выдаляецца, пакуль вы не пацвердзіце на экране агляду.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Зразумела</string>
+    <string name="swiper_help_action">Даведка</string>
 </resources>

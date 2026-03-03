@@ -71,4 +71,9 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
     <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
+    <string name="deduplicator_keep_prefer_paths_title">Bij voorkeur bewaren in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Geef bij het bepalen welk duplicaat behouden wordt de voorkeur aan bestanden op deze locaties.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Geen locaties geconfigureerd</string>
+    <string name="deduplicator_arbiter_title">Verwijderingsstrategie</string>
+    <string name="deduplicator_arbiter_summary">Configureer welke bestanden worden bewaard en welke worden verwijderd.</string>
 </resources>

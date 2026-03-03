@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">समय सारणी</string>
+    <string name="scheduler_execution_label">अर्को कार्यान्वयन (लगभग)</string>
+    <string name="scheduler_execution_last_label">अन्तिम कार्यान्वयन</string>
+    <string name="scheduler_settings_label">समय सारणी</string>
+    <string name="scheduler_settings_summary">समय सारणी संबन्धित सेटिङ्गहरू समायोजन गर्नुहोस्।</string>
+    <string name="scheduler_new_schedule_action">समय सारणी सिर्जना गर्नुहोस्</string>
+    <string name="scheduler_schedule_name_label">समय सारणी नाम</string>
+    <string name="scheduler_schedule_toggle_enabled">समय सारणी सक्षम छ</string>
+    <string name="scheduler_schedule_toggle_disabled">समय सारणी अक्षम छ</string>
+    <string name="scheduler_edit_schedule_action">समय सारणी सम्पादन गर्नुहोस्</string>
+    <string name="scheduler_schedule_time_label">लगभग समय</string>
+    <string name="scheduler_schedule_repeat_label">दिनमा दोहोर्याउने अन्तराल</string>
+    <string name="scheduler_schedule_default_name">पूर्वनिर्धारित समय सारणी</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s लगभग %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s को लागि योजना गरिएको</string>
+    <string name="scheduler_schedule_last_at_x">%s मा अन्तिम कार्यान्वयन</string>
+    <string name="scheduler_schedule_repeat_interval">दोहोरिने अन्तराल</string>
+    <string name="scheduler_inaccurate_execution_hint">अपेक्षित कार्यान्वयन समय लगभग हो। ब्याटरी बचाउनको लागि समय सारणी ढिलो वा छिटो हुन सक्छ।</string>
+    <string name="scheduler_no_active_schedules_subtitle">कुनै पनि सक्रिय समय सारणी छैन</string>
+    <string name="scheduler_setting_nopowersaving_title">कम ब्याटरीमा छोड्नुहोस्</string>
+    <string name="scheduler_setting_nopowersaving_summary">यदि डिभाइस पावर-सेभिङ मोडमा छ भने अनुसूचित कार्यान्वयन छोडिनेछ।</string>
+    <string name="scheduler_setting_charging_title">चार्ज नहुँदा छोड्नुहोस्</string>
+    <string name="scheduler_setting_charging_summary">यदि डिभाइस चार्ज हुँदैन भने अनुसूचित कार्यान्वयन छोडिनेछ।</string>
+    <string name="scheduler_setting_automation_title">पहुँचयोग्यता सेवा</string>
+    <string name="scheduler_setting_automation_summary">पहुँचयोग्यता सेवा प्रयोग गर्ने कार्यहरू समावेश गर्नुहोस्। यसको लागि SD Maid ले कार्यहरू चलाइँदा तपाईंको स्क्रिन (अर्थात् यो अनलक गरिएको) को साथ अन्तरक्रिया गर्न सक्षम हुनु आवश्यक छ।</string>
+    <string name="scheduler_notification_channel_label">शेड्युलर</string>
+    <string name="scheduler_notification_title">अनुसूचित कार्य</string>
+    <string name="scheduler_notification_message">कार्यान्वयन गरिँदैछ: \"%s\"</string>
+    <string name="scheduler_notification_result_title">शेड्युलर सम्पन्न भयो</string>
+    <string name="scheduler_notification_result_success_message">सबै अनुसूचित कार्यहरू सफलतापूर्वक चलाइए।</string>
+    <string name="scheduler_notification_result_failure_message">केही अनुसूचित कार्यहरू विफल भयो वा त्रुटिहरूको सामना गरियो। तिनलाई म्यानुअली चलाउने प्रयास गर्नुहोस्।</string>
+    <string name="scheduler_commands_after_schedule_label">अनुसूचन-पश्चात आदेशहरू</string>
+    <string name="scheduler_commands_after_schedule_desc">Android शेल आदेशहरू जो अनुसूचनको अन्तमा कार्यान्वयन हुनेछन्।</string>
+    <string name="scheduler_battery_optimization_hint">यदि तपाईंले पृष्ठभूमि कार्यान्वयनमा समस्या अनुभव गर्नुहुन्छ भने SD Maid को लागि ब्याटरी अनुकूलन अक्षम गर्न विचार गर्नुहोस्।</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">दैनिक</item>
+        <item quantity="other">हरेक %d दिन</item>
+    </plurals>
+</resources>

@@ -82,4 +82,5 @@
         <item quantity="other">Të paktën %d ditë të vjetra</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Kursime të vlerësuara ~%d%% për skedarët JPEG</string>
+    <string name="squeezer_onboarding_got_it">E kuptova</string>
 </resources>

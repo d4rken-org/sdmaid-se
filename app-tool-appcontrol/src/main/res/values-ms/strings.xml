@@ -113,4 +113,10 @@
     <string name="appcontrol_item_installedat_x_label">Dipasang pada: %s</string>
     <string name="shortcut_appcontrol_short">Kawalan Aplikasi</string>
     <string name="shortcut_appcontrol_long">Urus aplikasi yang dipasang</string>
+    <string name="appcontrol_app_forcestop_description">Hentikan aplikasi. Cegah ia daripada memulai sendiri sehingga anda membukanya atau peranti dimulakan semula.</string>
+    <string name="appcontrol_export_description">Simpan fail pemasangan aplikasi ini. Ini tidak termasuk data aplikasi.</string>
+    <string name="appcontrol_automation_loading">Memuatkan...</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Mencari butang pengesahan (kata kunci: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="appcontrol_include_multiuser_summary">Sertakan aplikasi dari profil pengguna lain pada peranti ini.</string>
 </resources>

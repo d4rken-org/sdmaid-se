@@ -94,4 +94,5 @@
         <item quantity="other">Co najmniej %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Szacowane oszczędności ~%d%% dla plików JPEG</string>
+    <string name="squeezer_onboarding_got_it">Rozumiem</string>
 </resources>

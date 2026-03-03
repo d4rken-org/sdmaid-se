@@ -172,4 +172,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Vrať zpět</string>
     <string name="swiper_help_title">Jak funguje Swiper</string>
     <string name="swiper_help_message">Přejeďte prstem po každém souboru a rozhodněte se:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zrušit (po prvním přejetí)\n\nMůžete také použít tlačítka v dolní části.\n\nAž budete hotovi, klepněte na \"Posoudit\" a zobrazte všechna svá rozhodnutí. Nic se nesmaže, dokud nepotvrdíte na obrazovce s přehledem.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
+    <string name="swiper_help_action">Pomoc</string>
 </resources>

@@ -54,4 +54,80 @@
     <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" बटन खोज्दै (किवर्डहरू: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">स्क्रिन समय: %2$s देखि %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">अन्तिम अपडेट: %s</string>
+    <string name="appcontrol_app_forcestop_description">अनुप्रयोग रोक्नुहोस्। जबसम्म तपाईंले यसलाई खोल्नुभएन वा डिभाइस पुनः बुट नभएसम्म यसलाई आफैं सुरु हुनबाट रोक्नुहोस्।</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">बन्डल</string>
+    <string name="appcontrol_tag_debug">डिबग</string>
+    <string name="appcontrol_list_sortmode_packagename_label">प्याकेज नाम</string>
+    <string name="appcontrol_archive_action">संग्रह</string>
+    <string name="appcontrol_archive_selection_action">अनुप्रयोग संग्रह गर्नुहोस्</string>
+    <string name="appcontrol_archive_description">अनुप्रयोग डेटा पछि पुनर्स्थापनको लागि राख्दै ठाउँ खाली गर्न संग्रह गर्नुहोस्।</string>
+    <string name="appcontrol_progress_archiving_app">अनुप्रयोग संग्रहण गरिरहेको छ…</string>
+    <string name="appcontrol_archive_confirmation_title">संग्रह पुष्टि गर्नुहोस्</string>
+    <string name="appcontrol_restore_action">पुनर्स्थापना</string>
+    <string name="appcontrol_restore_selection_action">अनुप्रयोग पुनर्स्थापना गर्नुहोस्</string>
+    <string name="appcontrol_restore_description">संग्रहित अनुप्रयोग पूर्ण रूपमा स्थापित अवस्थामा पुनर्स्थापना गर्नुहोस्। अनुप्रयोग डेटा संरक्षित छ।</string>
+    <string name="appcontrol_progress_restoring_app">अनुप्रयोग पुनर्स्थापन गरिरहेको छ…</string>
+    <string name="appcontrol_restore_confirmation_title">पुनर्स्थापना पुष्टि गर्नुहोस्</string>
+    <string name="appcontrol_app_sizes_apk_label">अनुप्रयोग</string>
+    <string name="appcontrol_app_sizes_cache_label">क्यास</string>
+    <string name="appcontrol_export_description">यस अनुप्रयोगका स्थापना फाइलहरू सुरक्षित गर्नुहोस्। यसमा अनुप्रयोग डेटा समावेश छैन।</string>
+    <string name="appcontrol_share_list_action">सूची साझा गर्नुहोस्</string>
+    <string name="appcontrol_share_list_title">मेरा अनुप्रयोगहरू</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE मार्फत साझा गरिएको</string>
+    <string name="appcontrol_automation_subtitle_archiving">संग्रह गरिँदै…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"संग्रह\" बटन खोज्दै (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">पुनर्स्थापना गरिँदै…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"पुनर्स्थापना\" बटन खोज्दै (कीवर्ड: %s)</string>
+    <string name="appcontrol_item_installedat_x_label">यसमा स्थापित: %s</string>
+    <string name="shortcut_appcontrol_short">अनुप्रयोग नियन्त्रण</string>
+    <string name="shortcut_appcontrol_long">स्थापित अनुप्रयोगहरू व्यवस्थापन गर्नुहोस्</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d अनुप्रयोग पत्ता लगाइयो</item>
+        <item quantity="other">%d अनुप्रयोगहरू पत्ता लगाइए</item>
+    </plurals>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d अनुप्रयोग अनइन्स्टल गरियो</item>
+        <item quantity="other">%d अनुप्रयोगहरू अनइन्स्टल गरियो</item>
+    </plurals>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d अनुप्रयोग संग्रह गर्नुहुन्छ?</item>
+        <item quantity="other">%d अनुप्रयोगहरू संग्रह गर्नुहुन्छ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d अनुप्रयोग संग्रहित</item>
+        <item quantity="other">%d अनुप्रयोगहरू संग्रहित</item>
+    </plurals>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d अनुप्रयोग पुनर्स्थापना गर्नुहुन्छ?</item>
+        <item quantity="other">%d अनुप्रयोगहरू पुनर्स्थापना गर्नुहुन्छ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d अनुप्रयोग पुनर्स्थापित</item>
+        <item quantity="other">%d अनुप्रयोगहरू पुनर्स्थापित</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d अनुप्रयोगको सक्षम/असक्षम अवस्था परिवर्तन गर्ने?</item>
+        <item quantity="other">%d अनुप्रयोगहरूको सक्षम/असक्षम अवस्था परिवर्तन गर्ने?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d अनुप्रयोग टगल गरियो</item>
+        <item quantity="other">%d अनुप्रयोगहरू टगल गरियो</item>
+    </plurals>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d अनुप्रयोग निर्यात गरियो</item>
+        <item quantity="other">%d अनुप्रयोगहरू निर्यात गरियो</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d अनुप्रयोग जबर्जस्ती बन्द गर्ने?</item>
+        <item quantity="other">%d अनुप्रयोगहरू जबर्जस्ती बन्द गर्ने?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d अनुप्रयोग रोकियो</item>
+        <item quantity="other">%d अनुप्रयोगहरू रोकियो</item>
+    </plurals>
+    <string name="appcontrol_automation_loading">Accessibility service मार्फत स्वचालन तयार गर्दै</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
+    <string name="appcontrol_include_multiuser_label">अन्य प्रयोगकर्ताहरू समावेश गर्नुहोस्</string>
+    <string name="appcontrol_include_multiuser_summary">यस डिभाइसमा अन्य प्रयोगकर्ता प्रोफाइलहरूबाट अनुप्रयोगहरू समावेश गर्नुहोस्।</string>
 </resources>

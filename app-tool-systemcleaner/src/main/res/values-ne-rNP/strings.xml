@@ -82,4 +82,24 @@
     <string name="systemcleaner_customfilter_editor_livesearch_label">लाइभ खोज</string>
     <string name="systemcleaner_customfilter_import_action">नयाँ फिल्टर आयात गर्नुहोस्</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फिल्टर निर्यात गर्नुहोस्</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">स्थापित अनुप्रयोग संस्करणहरूमा आधारित अब आवश्यक नपरेका सेटअप फाइलहरू।</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">समान संस्करण समावेश गर्नुहोस्</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">स्थापित संस्करणसँग मेल खाने APK फाइलहरूलाई पनि लक्ष्य गर्नुहोस्। पुराना संस्करणहरू मात्र हटाउन अक्षम गर्नुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_size_label">आकार प्रतिबन्धहरू</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">न्यूनतम आकार</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">अधिकतम आकार</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">फाइल आकारमा आधारित मेलहरू सीमित गर्नुहोस्। कुनै पनि आकारसँग मेल खान अनिर्धारित छोड्नुहोस्।</string>
+    <string name="systemcleaner_customfilter_editor_age_label">उमेर प्रतिबन्धहरू</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">न्यूनतम उमेर</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">अधिकतम उमेर</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">फाइल उमेर (अन्तिम परिवर्तन समय) मा आधारित मेलहरू सीमित गर्नुहोस्। कुनै पनि उमेरसँग मेल खान अनिर्धारित छोड्नुहोस्।</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d मिलान मेटाइयो</item>
+        <item quantity="other">%d मिलानहरू मेटाइए</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d फिल्टर मेल खाएको</item>
+        <item quantity="other">%d फिल्टर मेल खाएका</item>
+    </plurals>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">तपाईंसँग असेभ गरिएका परिवर्तनहरू छन्!</string>
 </resources>

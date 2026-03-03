@@ -82,4 +82,5 @@
         <item quantity="other">Minstens %d dagen oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geschatte ~%d%% besparing voor JPEG-bestanden</string>
+    <string name="squeezer_onboarding_got_it">Begrepen</string>
 </resources>

@@ -21,4 +21,6 @@
     <string name="automation_error_no_settings_body">Deze systeem-app heeft geen instellingenscherm. Cache wissen via de toegankelijkheidsservice is niet mogelijk. Sluit de app uit om het cachegeheugen sneller te kunnen wissen.</string>
     <string name="automation_loading">Automatisering voorbereiden via toegankelijkheidsservice</string>
     <string name="automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
+    <string name="automation_error_scheduler_title">Geplande automatisering mislukt</string>
+    <string name="automation_error_scheduler_body">Een geplande taak probeerde gebruik te maken van de toegankelijkheidsservice, maar deze was niet beschikbaar. Als je deze service niet nodig hebt, schakel je de optie \'Toegankelijkheidsservice\' uit in de plannerinstellingen.</string>
 </resources>
