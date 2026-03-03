@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Dashboard Karten</string>
     <string name="dashboard_card_config_desc">Lege fest, welche Karten angezeigt werden und in welcher Reihenfolge</string>
     <string name="dashboard_card_config_header_title">Ziehen, um die Reihenfolge zu ändern, ein-/ausschalten zum Anzeigen oder Ausblenden</string>
+    <string name="debug_notification_channel_label">Debug-Benachrichtigungen</string>
     <string name="debug_debuglog_file_label">Aufgezeichnete Protokolldatei</string>
     <string name="debug_debuglog_recording_progress">Debug-Protokoll wird aufgezeichnet</string>
     <string name="debug_debuglog_record_action">Debug-Protokoll aufzeichnen</string>

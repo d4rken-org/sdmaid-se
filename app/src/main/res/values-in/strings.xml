@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Kartu dasbor</string>
     <string name="dashboard_card_config_desc">Sesuaikan kartu mana yang ditampilkan dan urutannya</string>
     <string name="dashboard_card_config_header_title">Seret untuk mengurutkan, alihkan untuk menampilkan/menyembunyikan</string>
+    <string name="debug_notification_channel_label">Notifikasi debug</string>
     <string name="debug_debuglog_file_label">File log yang direkam</string>
     <string name="debug_debuglog_recording_progress">Merekam jejak debug</string>
     <string name="debug_debuglog_record_action">Rekam log debug</string>

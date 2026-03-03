@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">ڈیش بورڈ کارڈز</string>
     <string name="dashboard_card_config_desc">دکھائے جانے والے کارڈز اور ان کی ترتیب مقرر کریں</string>
     <string name="dashboard_card_config_header_title">ترتیب بدلنے کے لیے گھسیٹیں، دکھانے/چھپانے کے لیے ٹوگل کریں</string>
+    <string name="debug_notification_channel_label">ڈیبگ نوٹیفکیشنز</string>
     <string name="debug_debuglog_file_label">ریکارڈ شدہ لاگ فائل</string>
     <string name="debug_debuglog_recording_progress">ڈیبگ لاگ ریکارڈ کر رہا ہے</string>
     <string name="debug_debuglog_record_action">ڈیبگ لاگ ریکارڈ کریں</string>

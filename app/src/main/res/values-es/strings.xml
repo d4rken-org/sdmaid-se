@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Tarjetas del panel</string>
     <string name="dashboard_card_config_desc">Configura qué tarjetas se muestran y el orden</string>
     <string name="dashboard_card_config_header_title">Arrastra para reordenar, conmuta para mostrar/ocultar</string>
+    <string name="debug_notification_channel_label">Notificaciones de depuración</string>
     <string name="debug_debuglog_file_label">Archivo del registro grabado</string>
     <string name="debug_debuglog_recording_progress">Grabando registro de depuración</string>
     <string name="debug_debuglog_record_action">Grabar el registro de depuración</string>
@@ -102,11 +103,11 @@
     <string name="discord_description">Un lugar donde pasar el rato y preguntar.</string>
     <string name="support_contact_label">Contactar con el desarrollador</string>
     <string name="support_contact_desc">Rellena un formulario para enviar un correo electrónico al desarrollador.</string>
-    <string name="support_contact_welcome">Leo personalmente cada mensaje y hago todo lo posible por responder. Como me encargo yo solo del desarrollo, las correcciones de errores y el soporte, puede llevar algún tiempo. Gracias por tu paciencia.</string>
-    <string name="support_contact_footer">Tu mensaje se enviará por correo electrónico. La información del dispositivo y la configuración se adjunta automáticamente. Puedes adjuntar capturas de pantalla o un vídeo al correo. Algunas partes del correo estarán en inglés para que el desarrollador pueda entenderlo fácilmente.</string>
+    <string name="support_contact_welcome">Yo mismo leo todos los mensajes y hago todo lo posible por responder. Como manejo el desarrollo, la corrección de errores y el soporte técnico por mi cuenta, puede llevar un poco de tiempo. Gracias por tu paciencia.</string>
+    <string name="support_contact_footer">Tu mensaje se enviará por correo electrónico. La información del dispositivo y de la configuración se adjunta automáticamente. Puedes adjuntar capturas de pantalla o un vídeo al correo electrónico. Algunas partes del correo electrónico estarán en inglés para que el desarrollador pueda entenderlo fácilmente.</string>
     <string name="support_contact_category_label">Categoría</string>
-    <string name="support_contact_category_bug_label">Informe de error</string>
-    <string name="support_contact_category_feature_label">Solicitud de función</string>
+    <string name="support_contact_category_bug_label">Informe de un error</string>
+    <string name="support_contact_category_feature_label">Solicitud de una función</string>
     <string name="support_contact_category_question_label">Pregunta</string>
     <string name="support_contact_tool_label">Herramienta relacionada</string>
     <string name="support_contact_tool_appcleaner_label">Limpiador de aplicaciones</string>
@@ -118,7 +119,7 @@
     <string name="support_contact_tool_scheduler_label">Programador</string>
     <string name="support_contact_tool_general_label">General</string>
     <string name="support_contact_description_label">Descripción</string>
-    <string name="support_contact_description_bug_hint">Describe qué ocurrió y cómo reproducir el problema. Por favor, sé específico (mínimo 20 palabras).</string>
+    <string name="support_contact_description_bug_hint">Describe lo que sucedió y cómo reproducir el problema. Por favor, sé específico (mínimo 20 palabras).</string>
     <string name="support_contact_description_feature_hint">Describe la función que te gustaría ver. Por favor, sé específico (mínimo 20 palabras).</string>
     <string name="support_contact_description_question_hint">Describe tu pregunta en detalle. Por favor, sé específico (mínimo 20 palabras).</string>
     <string name="support_contact_expected_label">Comportamiento esperado</string>

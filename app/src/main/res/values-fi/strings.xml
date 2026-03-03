@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Kojelaudan kortit</string>
     <string name="dashboard_card_config_desc">Määritä näytettävät kortit ja niiden järjestys</string>
     <string name="dashboard_card_config_header_title">Vedä järjestääksesi, vaihda näyttääksesi/piilottaaksesi</string>
+    <string name="debug_notification_channel_label">Virheenkorjausilmoitukset</string>
     <string name="debug_debuglog_file_label">Tallennettu lokitiedosto</string>
     <string name="debug_debuglog_recording_progress">Tallennetaan virheenkorjauslokia</string>
     <string name="debug_debuglog_record_action">Tallenna virheenkorjausloki</string>

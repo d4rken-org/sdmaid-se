@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Tarxetas do panel</string>
     <string name="dashboard_card_config_desc">Configura que tarxetas se mostran e a súa orde</string>
     <string name="dashboard_card_config_header_title">Arrastra para reordenar, alterna para mostrar/ocultar</string>
+    <string name="debug_notification_channel_label">Notificacións de depuración</string>
     <string name="debug_debuglog_file_label">Ficheiro de rexistro gravado</string>
     <string name="debug_debuglog_recording_progress">Gravando rexistro de depuración</string>
     <string name="debug_debuglog_record_action">Gravar rexistro de depuración</string>

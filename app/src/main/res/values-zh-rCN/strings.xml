@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">控制面板卡片</string>
     <string name="dashboard_card_config_desc">配置显示哪些卡片及其顺序</string>
     <string name="dashboard_card_config_header_title">拖动以重新排序，切换以显示/隐藏</string>
+    <string name="debug_notification_channel_label">Debug 通知</string>
     <string name="debug_debuglog_file_label">已记录的日志文件</string>
     <string name="debug_debuglog_recording_progress">正在记录 Debug 日志</string>
     <string name="debug_debuglog_record_action">记录 Debug 日志</string>

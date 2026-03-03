@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Məlumat paneli kartları</string>
     <string name="dashboard_card_config_desc">Hansı kartların göstəriləcəyini və onların ardıcıllığını tənzimləyin</string>
     <string name="dashboard_card_config_header_title">Yerdəyişmə üçün sürükləyin, göstərmək/gizlətmək üçün keçid edin</string>
+    <string name="debug_notification_channel_label">Xəta aşkarlama funksiyasının bildirişləri</string>
     <string name="debug_debuglog_file_label">Qeydə alınmış xəta aşkarlama faylı</string>
     <string name="debug_debuglog_recording_progress">Xəta aşkarlama funksiyası (debug log) işləyir</string>
     <string name="debug_debuglog_record_action">Xəta aşkarlama funksiyasını işə sal</string>

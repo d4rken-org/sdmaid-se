@@ -10,6 +10,7 @@
     <string name="dashboard_card_config_title">Karty panelu głównego</string>
     <string name="dashboard_card_config_desc">Skonfiguruj, które karty są wyświetlane i w jakiej kolejności</string>
     <string name="dashboard_card_config_header_title">Przeciągnij, aby zmienić kolejność, przełącz, aby pokazać/ukryć</string>
+    <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
     <string name="debug_debuglog_file_label">Zapisany plik dziennika</string>
     <string name="debug_debuglog_recording_progress">Rejestrowanie dziennika debugowania</string>
     <string name="debug_debuglog_record_action">Rejestruj dziennik debugowania</string>
@@ -94,7 +95,7 @@
     <string name="issue_tracker_label">Narzędzie do śledzenia problemów</string>
     <string name="support_installid_label">ID instalacji</string>
     <string name="support_installid_desc">Automatyczne raporty błędów są anonimowe. Podaj swoje ID instalacji, jeśli programista musi znaleźć twój raport błędów.</string>
-    <string name="support_debuglog_label">Log debugowania</string>
+    <string name="support_debuglog_label">Dziennik debugowania</string>
     <string name="support_debuglog_desc">Zapisuj wszystko, co aplikacja robi, do pliku tekstowego, który można udostępnić.</string>
     <string name="support_debuglog_folder_label">Folder dziennika debugowania</string>
     <plurals name="support_debuglog_folder_desc">
@@ -103,11 +104,11 @@
         <item quantity="many">%1$d plików korzysta z %2$s</item>
         <item quantity="other">%1$d plików korzysta z %2$s</item>
     </plurals>
-    <string name="support_debuglog_folder_empty_desc">Brak zapisanych logów debugowania</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">Usunąć wszystkie logi debugowania?</string>
+    <string name="support_debuglog_folder_empty_desc">Brak zapisanych dzienników debugowania</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Usunąć wszystkie dzienniki debugowania?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Spowoduje to trwałe usunięcie wszystkich przechowywanych sesji logów debugowania. Tej akcji nie można cofnąć.</string>
     <string name="discord_label">Discord</string>
-    <string name="discord_description">Miejsce do spędzania czasu i zadawania pytań.</string>
+    <string name="discord_description">Miejsce do rozmów i zadawania pytań.</string>
     <string name="support_contact_label">Kontakt z programistą</string>
     <string name="support_contact_desc">Wypełnij formularz, aby wysłać wiadomość e-mail do programisty.</string>
     <string name="support_contact_welcome">Osobiście czytam każdą wiadomość i staram się odpowiadać. Ponieważ sam zajmuję się rozwojem, naprawianiem błędów i wsparciem, może to chwilę potrwać. Dziękuję za cierpliwość.</string>
@@ -147,7 +148,7 @@
     <string name="settings_acknowledgements_label">Podziękowania</string>
     <string name="settings_acknowledgements_category_translations_title">Tłumaczenia</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Kto to przetłumaczył?</string>
-    <string name="settings_acknowledgements_category_thanks_title">Dzięki</string>
+    <string name="settings_acknowledgements_category_thanks_title">Podziękowania</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Szczególne podziękowania dla naszych przyjaciół.</string>
     <string name="settings_acknowledgements_category_licenses_title">Licencje</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Oprogramowanie używane przez SD Maid.</string>
@@ -282,16 +283,16 @@
     <string name="corpsefinder_filter_app2sd_summary">Dane przeniesione na zewnętrzną pamięć przez modyfikacje App2Sd.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
-        <item quantity="one">Usunięto %d pozostałość aplikacji</item>
-        <item quantity="few">Usunięto %d pozostałości aplikacji</item>
-        <item quantity="many">Usunięto %d pozostałości aplikacji</item>
-        <item quantity="other">Usunięto %d pozostałości aplikacji</item>
+        <item quantity="one">Usunięto %d pozostałość po aplikacji</item>
+        <item quantity="few">Usunięto %d pozostałości po aplikacji</item>
+        <item quantity="many">Usunięto %d pozostałości po aplikacjach</item>
+        <item quantity="other">Usunięto %d pozostałości po aplikacjach</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d pozostałość po aplikacji wykryta</item>
-        <item quantity="few">%d pozostałości po aplikacji wykryte</item>
-        <item quantity="many">%d pozostałości po aplikacjach wykryto</item>
-        <item quantity="other">%d pozostałości po aplikacjach wykryto</item>
+        <item quantity="one">Wykryto %d pozostałość po aplikacji</item>
+        <item quantity="few">Wykryto %d pozostałości po aplikacji</item>
+        <item quantity="many">Wykryto %d pozostałości po aplikacjach</item>
+        <item quantity="other">Wykryto %d pozostałości po aplikacjach</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Usunąć wszystkie pozostałości po aplikacjach?</string>
     <string name="corpsefinder_owners_label">Właściciele</string>
@@ -302,22 +303,22 @@
     <string name="systemcleaner_tool_name">Sprzątanie systemu</string>
     <string name="systemcleaner_explanation_short">Zbędne dane, które nie należą do żadnej konkretnej aplikacji.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d dopasowanie zostało usunięte</item>
-        <item quantity="few">%d dopasowania zostały usunięte</item>
-        <item quantity="many">%d dopasowań zostało usuniętych</item>
-        <item quantity="other">%d dopasowań zostało usuniętych</item>
+        <item quantity="one">Usunięto %d dopasowanie</item>
+        <item quantity="few">Usunięto %d dopasowania</item>
+        <item quantity="many">Usunięto %d dopasowań</item>
+        <item quantity="other">Usunięto %d dopasowań</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">%d dopasowanie filtra</item>
-        <item quantity="few">%d dopasowania filtrów</item>
-        <item quantity="many">%d dopasowań filtrów</item>
-        <item quantity="other">%d dopasowań filtrów</item>
+        <item quantity="one">Dopasowany %d filtr</item>
+        <item quantity="few">Dopasowane %d filtry</item>
+        <item quantity="many">Dopasowanych %d filtrów</item>
+        <item quantity="other">Dopasowanych %d filtrów</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Filtr niestandardowy</string>
     <string name="systemcleaner_filter_custom_manage_label">Zarządzaj filtrami niestandardowymi</string>
     <string name="systemcleaner_filter_custom_manage_summary">Twórz, usuwaj, importuj i eksportuj własne filtry.</string>
-    <string name="systemcleaner_filter_logfiles_label">Pliki logów systemowych</string>
-    <string name="systemcleaner_filter_logfiles_summary">Pliki logu systemowego i usług systemowych (np. *.log) w różnych lokalizacjach.</string>
+    <string name="systemcleaner_filter_logfiles_label">Pliki dzienników systemowych</string>
+    <string name="systemcleaner_filter_logfiles_summary">Pliki dziennika systemowego i usług systemowych (np. *.log) w różnych lokalizacjach.</string>
     <string name="systemcleaner_filter_packagecaches_label">Pamięć podręczna instalatora</string>
     <string name="systemcleaner_filter_packagecaches_summary">Buforowane dane związane z zainstalowanymi aplikacjami, które są używane przez zarządzanie pakietami systemu.</string>
     <string name="systemcleaner_filter_advertisements_label">Pliki reklam</string>
@@ -472,10 +473,10 @@
         <item quantity="other">Usunięto %d zbędnych elementów</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
-        <item quantity="one">%d zbędny element znaleziony</item>
-        <item quantity="few">%d zbędne elementy znalezione</item>
-        <item quantity="many">%d zbędnych elementów znaleziono</item>
-        <item quantity="other">%d zbędnych elementów znaleziono</item>
+        <item quantity="one">Znaleziono %d zbędny element</item>
+        <item quantity="few">Znaleziono %d zbędne elementy</item>
+        <item quantity="many">Znaleziono %d zbędnych elementów</item>
+        <item quantity="other">Znaleziono %d zbędnych elementów</item>
     </plurals>
     <string name="appcleaner_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcleaner_automation_title">Automatyzacja czyszczenia aplikacji</string>
@@ -511,16 +512,16 @@
     <string name="deduplicator_tool_name">Usuwanie duplikatów</string>
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d duplikat usunięty</item>
-        <item quantity="few">%d duplikaty usunięte</item>
-        <item quantity="many">%d duplikatów usuniętych</item>
-        <item quantity="other">%d duplikatów usuniętych</item>
+        <item quantity="one">Usunięto %d duplikat</item>
+        <item quantity="few">Usunięto %d duplikaty</item>
+        <item quantity="many">Usunięto %d duplikatów</item>
+        <item quantity="other">Usunięto %d duplikatów</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">Znaleziono %d duplikat elementu</item>
-        <item quantity="few">Znaleziono %d duplikaty elementu</item>
-        <item quantity="many">Znaleziono %d duplikatów elementu</item>
-        <item quantity="other">Znaleziono %d duplikatów elementu</item>
+        <item quantity="one">Znaleziono %d duplikat</item>
+        <item quantity="few">Znaleziono %d duplikaty</item>
+        <item quantity="many">Znaleziono %d duplikatów</item>
+        <item quantity="other">Znaleziono %d duplikatów</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Zezwól na \"Usuń wszystko\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Pokaż opcje, które pozwalają usunąć wszystkie pliki w zestawie duplikatów, aby żaden plik nie został pozostawiony.</string>
@@ -594,10 +595,10 @@
     <string name="squeezer_tool_name">Kompresja multimediów</string>
     <string name="squeezer_explanation_short">Kompresuj obrazy, aby zaoszczędzić miejsce.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d obraz znaleziony</item>
-        <item quantity="few">%d obrazów znaleziono</item>
-        <item quantity="many">%d obrazów znaleziono</item>
-        <item quantity="other">%d obraz znaleziony</item>
+        <item quantity="one">Znaleziono %d obraz</item>
+        <item quantity="few">Znaleziono %d obrazy</item>
+        <item quantity="many">Znaleziono %d obrazów</item>
+        <item quantity="other">Znaleziono %d obrazów</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">%s może zostać zwolniony</item>
@@ -606,16 +607,16 @@
         <item quantity="other">%s może zostać zwolnione</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d obraz skompresowany</item>
-        <item quantity="few">%d obrazy skompresowane</item>
-        <item quantity="many">%d obrazów skompresowanych</item>
-        <item quantity="other">%d obrazów skompresowanych</item>
+        <item quantity="one">%d skompresowany obraz</item>
+        <item quantity="few">%d skompresowane obrazy</item>
+        <item quantity="many">%d skompresowanych obrazów</item>
+        <item quantity="other">%d skompresowanych obrazów</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d obraz wybrany</item>
-        <item quantity="few">%d obrazy wybrane</item>
-        <item quantity="many">%d obrazów wybranych</item>
-        <item quantity="other">%d obrazów wybranych</item>
+        <item quantity="one">Wybrano %d obraz</item>
+        <item quantity="few">Wybrano %d obrazy</item>
+        <item quantity="many">Wybrano %d obrazów</item>
+        <item quantity="other">Wybrano %d obrazów</item>
     </plurals>
     <string name="squeezer_search_locations_title">Lokalizacje wyszukiwania</string>
     <string name="squeezer_search_locations_default_summary">Foldery aparatu (domyślnie)</string>
@@ -667,9 +668,9 @@
     <string name="squeezer_onboarding_got_it">Rozumiem</string>
     <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
-    <string name="squeezer_result_empty_message">Nie znaleziono kompresywnych obrazów.</string>
+    <string name="squeezer_result_empty_message">Nie znaleziono skompresowanych obrazów.</string>
     <string name="squeezer_setup_warning">Kompresja trwale zmniejsza jakość obrazu, aby zapisać miejsce na dysku. Tej operacji nie można cofnąć. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
-    <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar pliku obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
+    <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar plików obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
     <string name="squeezer_setup_paths_title">Lokalizacje wyszukiwania</string>
     <string name="squeezer_setup_paths_default">Wybierz foldery do przeszukania</string>
     <string name="squeezer_setup_quality_title">Kompresja jakości</string>
@@ -690,10 +691,10 @@
     <string name="appcontrol_tool_name">Zarządzanie aplikacjami</string>
     <string name="appcontrol_explanation_short">Aplikacje zainstalowane na twoim urządzeniu.</string>
     <plurals name="appcontrol_x_apps_detected_label">
-        <item quantity="one">%d aplikacja wykryta</item>
-        <item quantity="few">%d aplikacje wykryte</item>
-        <item quantity="many">%d aplikacji wykryto</item>
-        <item quantity="other">%d aplikacji wykryto</item>
+        <item quantity="one">Wykryto %d aplikację</item>
+        <item quantity="few">Wykryto %d aplikacje</item>
+        <item quantity="many">Wykryto %d aplikacji</item>
+        <item quantity="other">Wykryto %d aplikacji</item>
     </plurals>
     <string name="appcontrol_toggle_app_selection_action">Przełącz aplikacje</string>
     <string name="appcontrol_toggle_app_enable_action">Włącz aplikację</string>
@@ -736,10 +737,10 @@
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względu na wydajność. Aby uzyskać dokładniejsze dane, użyj narzędzia Analizowanie pamięci.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
-        <item quantity="one">%d aplikacja została odinstalowana</item>
-        <item quantity="few">%d aplikacje zostały odinstalowane</item>
-        <item quantity="many">%d aplikacji zostało odinstalowanych</item>
-        <item quantity="other">%d aplikacji zostało odinstalowanych</item>
+        <item quantity="one">Odinstalowano %d aplikację</item>
+        <item quantity="few">Odinstalowano %d aplikacje</item>
+        <item quantity="many">Odinstalowano %d aplikacji</item>
+        <item quantity="other">Odinstalowano %d aplikacji</item>
     </plurals>
     <string name="appcontrol_archive_action">Archiwizuj</string>
     <string name="appcontrol_archive_selection_action">Archiwizuj aplikacje</string>
@@ -748,15 +749,15 @@
     <string name="appcontrol_archive_confirmation_title">Potwierdź archiwizację</string>
     <plurals name="appcontrol_archive_confirmation_x">
         <item quantity="one">Zarchiwizować %d aplikację?</item>
-        <item quantity="few">Zarchiwizować %d aplikacji?</item>
-        <item quantity="many">Zarchiwizować %d aplikacje?</item>
-        <item quantity="other">Zarchiwizować %d aplikacje?</item>
+        <item quantity="few">Zarchiwizować %d aplikacje?</item>
+        <item quantity="many">Zarchiwizować %d aplikacji?</item>
+        <item quantity="other">Zarchiwizować %d aplikacji?</item>
     </plurals>
     <plurals name="appcontrol_archive_result_x">
-        <item quantity="one">%d aplikacja zarchiwizowana</item>
-        <item quantity="few">%d aplikacji zarchiwizowano</item>
-        <item quantity="many">%d aplikacji zarchiwizowano</item>
-        <item quantity="other">%d aplikacji zarchiwizowanych</item>
+        <item quantity="one">Zarchiwizowano %d aplikację</item>
+        <item quantity="few">Zarchiwizowano %d aplikacje</item>
+        <item quantity="many">Zarchiwizowano %d aplikacji</item>
+        <item quantity="other">Zarchiwizowano %d aplikacji</item>
     </plurals>
     <string name="appcontrol_restore_action">Przywróć</string>
     <string name="appcontrol_restore_selection_action">Przywróć aplikacje</string>
@@ -770,10 +771,10 @@
         <item quantity="other">Przywrócić %d aplikacji?</item>
     </plurals>
     <plurals name="appcontrol_restore_result_x">
-        <item quantity="one">%d aplikacja przywrócona</item>
-        <item quantity="few">%d aplikacje przywrócono</item>
-        <item quantity="many">%d aplikacji przywrócono</item>
-        <item quantity="other">%d aplikacji przywrócone</item>
+        <item quantity="one">Przywrócono %d aplikację</item>
+        <item quantity="few">Przywrócono %d aplikacje</item>
+        <item quantity="many">Przywrócono %d aplikacji</item>
+        <item quantity="other">Przywrócono %d aplikacji</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">Rozmiar aplikacji</string>
     <string name="appcontrol_app_sizes_apk_label">Aplikacje</string>
@@ -802,10 +803,10 @@
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
     <string name="appcontrol_export_description">Zachowuje pliki instalacyjne tej aplikacji. Nie obejmuje to danych aplikacji.</string>
     <plurals name="appcontrol_export_result_message_x">
-        <item quantity="one">%d aplikacja została wyeksportowana</item>
-        <item quantity="few">%d aplikacje zostały wyeksportowane</item>
-        <item quantity="many">%d aplikacji zostało wyeksportowanych</item>
-        <item quantity="other">%d aplikacji zostało wyeksportowanych</item>
+        <item quantity="one">Wyeksportowano %d aplikację</item>
+        <item quantity="few">Wyeksportowano %d aplikacje</item>
+        <item quantity="many">Wyeksportowano %d aplikacji</item>
+        <item quantity="other">Wyeksportowano %d aplikacji</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Eksportowanie %s</string>
     <string name="appcontrol_share_list_action">Udostępnij listę</string>
@@ -821,10 +822,10 @@
         <item quantity="other">Wymusić zatrzymanie %d aplikacji?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
-        <item quantity="one">%d aplikacja została zatrzymana</item>
-        <item quantity="few">%d aplikacje zostały zatrzymane</item>
-        <item quantity="many">%d aplikacji zostało zatrzymanych</item>
-        <item quantity="other">%d aplikacji zostało zatrzymanych</item>
+        <item quantity="one">Zatrzymano %d aplikację</item>
+        <item quantity="few">Zatrzymano %d aplikacje</item>
+        <item quantity="many">Zatrzymano %d aplikacji</item>
+        <item quantity="other">Zatrzymano %d aplikacji</item>
     </plurals>
     <string name="appcontrol_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcontrol_automation_title">Automatyzacja zarządzania aplikacjami</string>
@@ -861,9 +862,9 @@
     <string name="analyzer_content_access_opaque">Brak bezpośredniego dostępu</string>
     <string name="analyzer_content_create_swiper_session_action">Utwórz sesję Przesuwacza</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Sesja Przesuwacza została utworzona z elementu %d</item>
-        <item quantity="few">Sesja Przesuwacza została utworzona z %d elementów</item>
-        <item quantity="many">Sesja Przesuwacza została utworzona z %d elementów</item>
+        <item quantity="one">Sesja Przesuwacza utworzona z %d elementu</item>
+        <item quantity="few">Sesja Przesuwacza utworzona z %d elementów</item>
+        <item quantity="many">Sesja Przesuwacza utworzona z %d elementów</item>
         <item quantity="other">Sesja Przesuwacza utworzona z %d elementów</item>
     </plurals>
     <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>
@@ -923,7 +924,7 @@
     <string name="exclusion_create_pkg_hint">Użyj narzędzia Zarządzanie aplikacjami, aby utworzyć wykluczenia aplikacji.</string>
     <string name="exclusion_create_path_hint">Użyj narzędzia Analiza pamięci do utworzenia wykluczeń ścieżek.</string>
     <plurals name="exclusion_x_new_exclusions">
-        <item quantity="one">Utworzono jedno wykluczenie</item>
+        <item quantity="one">Utworzono %d wykluczenie</item>
         <item quantity="few">Utworzono %d wykluczenia</item>
         <item quantity="many">Utworzono %d wykluczeń</item>
         <item quantity="other">Utworzono %d wykluczeń</item>
@@ -1058,10 +1059,10 @@ Karol Szastok (K4r0lSz);</string>
     <string name="picker_selected_paths_title">Wybrane ścieżki</string>
     <string name="picker_unsaved_confirmation_message">Odrzucić zmiany?</string>
     <plurals name="picker_selected_paths_subtitle">
-        <item quantity="one">%d wybrana ścieżka</item>
-        <item quantity="few">%d wybrane ścieżki</item>
-        <item quantity="many">%d wybranych ścieżek</item>
-        <item quantity="other">%d wybranych ścieżek</item>
+        <item quantity="one">Wybrano %d ścieżkę</item>
+        <item quantity="few">Wybrano %d ścieżki</item>
+        <item quantity="many">Wybrano %d ścieżek</item>
+        <item quantity="other">Wybrano %d ścieżek</item>
     </plurals>
     <string name="picker_home_action">Obszary danych</string>
     <string name="area_type_sdcard_label">Pamięć publiczna</string>
@@ -1087,16 +1088,16 @@ Karol Szastok (K4r0lSz);</string>
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
-        <item quantity="one">%d element znaleziony</item>
-        <item quantity="few">%d elementy znaleziono</item>
-        <item quantity="many">%d elementów znaleziono</item>
-        <item quantity="other">%d elementów znaleziono</item>
+        <item quantity="one">Znaleziono %d element</item>
+        <item quantity="few">Znaleziono %d elementy</item>
+        <item quantity="many">Znaleziono %d elementów</item>
+        <item quantity="other">Znaleziono %d elementów</item>
     </plurals>
     <plurals name="swiper_result_x_items_deleted">
-        <item quantity="one">%d element usunięty</item>
-        <item quantity="few">%d elementy usunięto</item>
-        <item quantity="many">%d elementów usunięto</item>
-        <item quantity="other">%d elementów usunięto</item>
+        <item quantity="one">Usunięto %d element</item>
+        <item quantity="few">Usunięto %d elementy</item>
+        <item quantity="many">Usunięto %d elementów</item>
+        <item quantity="other">Usunięto %d elementów</item>
     </plurals>
     <plurals name="swiper_result_x_items_failed">
         <item quantity="one">%d element nie powiódł się</item>
@@ -1150,10 +1151,10 @@ Karol Szastok (K4r0lSz);</string>
         <item quantity="other">%d sesji</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
-        <item quantity="one">%d niepotwierdzony element</item>
-        <item quantity="few">%d niepotwierdzone elementy</item>
-        <item quantity="many">%d niepotwierdzonych elementów</item>
-        <item quantity="other">%d niepotwierdzonych elementów</item>
+        <item quantity="one">Niepotwierdzono %d elementu</item>
+        <item quantity="few">Niepotwierdzono %d elementy</item>
+        <item quantity="many">Niepotwierdzono %d elementów</item>
+        <item quantity="other">Niepotwierdzono %d elementów</item>
     </plurals>
     <string name="swiper_session_timestamps">Utworzono %1$s, ostatnia aktywność %2$s</string>
     <string name="swiper_session_remove_action">Usuń sesję</string>
@@ -1181,7 +1182,7 @@ Karol Szastok (K4r0lSz);</string>
         <item quantity="one">%d do zachowania</item>
         <item quantity="few">%d do zachowania</item>
         <item quantity="many">%d do zachowania</item>
-        <item quantity="other">%d aby zachować</item>
+        <item quantity="other">%d do zachowania</item>
     </plurals>
     <plurals name="swiper_session_status_to_delete">
         <item quantity="one">%d do usunięcia</item>
