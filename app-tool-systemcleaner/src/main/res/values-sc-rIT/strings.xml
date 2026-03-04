@@ -84,6 +84,7 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">Su caminu cuntenet faedda crae</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Su caminu acabbat cun faedda crae</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Su caminu est eguale a sa faedda crae</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Modalidade de cumparatzione de su nùmene</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Su nòmene cumintzat cun faedda crae</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Su nòmene cuntenet faedda crae</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Su nòmene acabbat cun faedda crae</string>
@@ -100,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Lìmita is currespondèntzias segundu s\'edade de s\'archìviu (ùrtima modìfica). Lassa sena cunfigurare pro currespòndere a calisisiat edade.</string>
     <string name="systemcleaner_customfilter_import_action">Importare filtru nou</string>
     <string name="systemcleaner_customfilter_export_action">Esportare filtru seletzionadu</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Tenes cambiamentos no sarvados!</string>
 </resources>

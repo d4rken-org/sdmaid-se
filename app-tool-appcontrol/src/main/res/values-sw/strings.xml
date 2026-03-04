@@ -17,14 +17,15 @@
     <string name="appcontrol_app_launch_title">Zindua programu</string>
     <string name="appcontrol_app_launch_description">Zindua shughuli kuu ya programu hii.</string>
     <string name="appcontrol_app_forcestop_title">Simamisha kwa nguvu</string>
+    <string name="appcontrol_app_forcestop_description">Simamisha programu. Izuie isijianzishe yenyewe hadi uifungue au kifaa kianzishwe upya.</string>
     <string name="appcontrol_app_uninstall_description">Ondoa programu hii kutoka kifaa chako.</string>
     <string name="appcontrol_app_exclude_add_title">Tenga programu</string>
     <string name="appcontrol_app_exclude_add_description">Tenga programu hii kutoka shughuli nyingine katika SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Hariri kutengwa</string>
     <string name="appcontrol_app_exclude_edit_description">Programu hii kwa sasa imetengwa kutoka zana moja au zaidi.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Mtumiaji</string>
     <string name="appcontrol_tag_active">Zimekuwa zinafanya kazi hivi karibuni</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundla</string>
     <string name="appcontrol_tag_system">Mfumo</string>
     <string name="appcontrol_tag_archived">Imehifadhiwa</string>
@@ -32,7 +33,7 @@
     <string name="appcontrol_tag_not_installed">Haijasakinishwa</string>
     <string name="appcontrol_tag_enabled">Imewashwa</string>
     <string name="appcontrol_tag_disabled">Imezimwa</string>
-    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_tag_debug">Utatuzi</string>
     <string name="appcontrol_progress_enabling_package">Inawasha programu</string>
     <string name="appcontrol_progress_disabling_package">Inazima programu</string>
     <string name="appcontrol_list_filteroptions_label">Chaguo za kichungi</string>
@@ -125,4 +126,8 @@
     <string name="appcontrol_item_installedat_x_label">Ilisakinishwa: %s</string>
     <string name="shortcut_appcontrol_short">Udhibiti wa Programu</string>
     <string name="shortcut_appcontrol_long">Simamia programu zilizosakinishwa</string>
+    <string name="appcontrol_automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Inajaribu kuthibitisha kitendo cha awali (maneno muhimu: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Jumuisha watumiaji wengine</string>
+    <string name="appcontrol_include_multiuser_summary">Jumuisha programu kutoka kwa wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
 </resources>

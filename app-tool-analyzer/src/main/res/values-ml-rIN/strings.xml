@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">നിങ്ങളുടെ ഉപകരണത്തിൽ എന്ത് സ്ഥലം തിന്നുന്നു എന്ന് അറിയുക.</string>
+    <string name="analyzer_progress_scanning_device">സ്റ്റോറേജ് ഉപകരണങ്ങൾ തിരയുന്നു</string>
+    <string name="analyzer_progress_scanning_storage">സ്റ്റോറേജ് സ്കാൻ ചെയ്യുന്നു</string>
+    <string name="analyzer_progress_scanning_apps">ആപ്പുകൾ സ്കാൻ ചെയ്യുന്നു</string>
+    <string name="analyzer_progress_scanning_userfiles">ഉപയോക്താവിന്റെ ഫയലുകൾ തിരയുന്നു</string>
+    <string name="analyzer_progress_scanning_system">സിസ്റ്റം ഡേറ്റ സ്കാൻ ചെയ്യുന്നു</string>
+    <string name="analyzer_device_storage_title">ഉപകരണ സ്റ്റോറേജ്</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s ലഭ്യമാണ്</item>
+        <item quantity="other">%s ലഭ്യമാണ്</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ഉപയോഗിക്കുന്നു</item>
+        <item quantity="other">%s ഉപയോഗിക്കുന്നു</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">നേരിട്ടുള്ള ആക്സസ് ലഭ്യമല്ല</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper സെഷൻ സൃഷ്ടിക്കുക</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d ഇനം ഉൾകൊണ്ട് Swiper സെഷൻ സൃഷ്ടിച്ചു</item>
+        <item quantity="other">%d ഇനങ്ങളും ഉൾകൊണ്ട് Swiper സെഷൻ സൃഷ്ടിച്ചു</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">പ്രാഥമിക സ്റ്റോറേജ്</string>
+    <string name="analyzer_storage_type_primary_description">നിങ്ങളുടെ ഉപകരണത്തിന്റെ പ്രാഥമിക സ്റ്റോറേജ്. ആന്തരിക SD കാർഡ്, ആപ്പുകൾക്കായി സ്വകാര്യ സ്റ്റോറേജ്, സിസ്റ്റം ഡേറ്റ എന്നിവ ഇതിൽ അടങ്ങുന്നു.</string>
+    <string name="analyzer_storage_type_secondary_title">ദ്വിതീയ സ്റ്റോറേജ്</string>
+    <string name="analyzer_storage_type_secondary_description">ഒരു ദ്വിതീയ സ്റ്റോറേജ്, സാധാരണമായി ഠിർഞ്ഞേടുക്കാവുന്ന SD കാർഡ്. മീഡിയ ഫയലുകൾപ്പും ഇത് പിംതുണ്ണ ആപ്പുകളിൽ നിന്നുള്ള ഡേറ്റയും ഇതിൽ അടങ്ങുന്നു.</string>
+    <string name="analyzer_storage_type_tertiary_title">പോർട്ടെബിൽ സ്റ്റോറേജ്</string>
+    <string name="analyzer_storage_type_tertiary_description">ഒരു പോർട്ടെബിൽ സ്റ്റോറേജ്, ഉദാ. USB പോർട്ടിൽ പ്ലഗ് ചെയ്ത ഒരു ഫ്ലാഷ് ഡ്രൈവ്.</string>
+    <string name="analyzer_storage_content_title">സ്റ്റോറേജ് ഉള്ളടക്കം</string>
+    <string name="analyzer_storage_content_type_app_label">ആപ്പുകൾ</string>
+    <string name="analyzer_storage_content_type_app_description">ഇന്സ്റ്റോൾ ചെയ്ത ആപ്പുകൾം അവയുടെ ഡേറ്റയും ഉപയോഗിക്കുന്ന സ്ഥലം (അതായത് ആപ്ലിക്കേഷൻ ഫയലുകൾ, ഡേറ്റ, ക്യാഷ്ക്കുകൾ).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">അനുമതികൾ വിട്ടുപോയിട്ടുണ്ട്</string>
+    <string name="analyzer_storage_content_type_media_label">ഉപയോക്താവിന്റെ ഫയലുകൾ</string>
+    <string name="analyzer_storage_content_type_media_description">ക്യാപ്ചർ ചെയ്ത ചിത്രങ്ങൾ, റെക്കർഡ് ചെയ്ത വീഡിയോകൾ അഥവാ ഡൗൺലോഡ് ചെയ്ത ഡേറ്റ. ഓരോ ഉൾപ്പ് നിർദിഷ്ട ആപ്പിന് സ്വന്തമല്ലാത്ത ഡേറ്റ.</string>
+    <string name="analyzer_storage_content_type_system_label">സിസ്റ്റം ഡേറ്റ</string>
+    <string name="analyzer_storage_content_type_system_description">സിസ്റ്റം ആപ്പുകൾം സിസ്റ്റം ഡേറ്റയും. ഈ ഉപകരണത്തിൽ പല ഉപയോക്തൃ അക്കൗണ്ടുകൾ സെറ്റ് ചെയ്തിട്ടുണ്ടെങ്കിൽ, മറ്റ ഉപയോക്താകളിൽ നിന്നുള്ള ആപ്പുകൾം ഡേറ്റയും.</string>
+    <string name="analyzer_storage_content_app_code_label">ആപ്പ് കോഡ്</string>
+    <string name="analyzer_storage_content_app_code_description">ആപ്ലിക്കേഷൻ ഫയലുകൾ, ലൈബ്രറികൾ, റിസോർസുകൾ. ആപ്പ് അനിന്സ്റ്റോൾ ചെയ്ത് അഥവാ ആർക്കൈവ് ചെയ്ത് ഈ സ്ഥലം ശൂന്യമാക്കാം (പുതിയ Android പതിപ്പിൽ ലഭ്യം).</string>
+    <string name="analyzer_storage_content_app_data_label">ആപ്പ് ഡേറ്റ</string>
+    <string name="analyzer_storage_content_app_data_description">ഡേറ്റ, കാർയക്ഷമതാ അടവുകൾം ക്യാഷ്ക്കുകൾ.</string>
+    <string name="analyzer_storage_content_app_media_label">ആപ്പ് മീഡിയ</string>
+    <string name="analyzer_storage_content_app_media_description">ഈ ആപ്പിൽ നിന്നുള്ള മീഡിയ ഫയലുകൾ, ഉദാ. ലഭിച്ച WhatsApp ഫോട്ടോകൾ.</string>
+    <string name="analyzer_storage_content_app_extra_label">അധിക ആപ്പ് ഫയലുകൾ</string>
+    <string name="analyzer_storage_content_app_extra_description">ഈ ആപ്പ് ഡിഫോർൽട് പാതകൾക്കു പുറത്ത് സ്ഥാപിച്ച അധിക ഡേറ്റ, ഉദാ. ഫോട്ടോകൾ അഥവാ ഡൗൺലോഡുകൾ.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ഈ ആപ്പ് \"%2$s\"-ൽ %1$s ഉപയോഗിക്കുന്നു.</string>
+    <string name="analyzer_app_details_app_is_archived">ഈ ആപ്പ് ആർക്കൈവ് ചെയ്തിട്ടുണ്ട്.</string>
+</resources>

@@ -65,7 +65,7 @@
     <string name="squeezer_setup_paths_title">検索場所</string>
     <string name="squeezer_setup_paths_default">検索するフォルダを選択</string>
     <string name="squeezer_setup_quality_title">圧縮品質</string>
-    <string name="squeezer_setup_age_title">最小年齢</string>
+    <string name="squeezer_setup_age_title">変更拒否期間</string>
     <string name="squeezer_setup_age_none">制限なし（すべてのファイルを含む）</string>
     <string name="squeezer_setup_start_action">スキャン開始</string>
     <string name="squeezer_quality_hint_very_low">40%未満の品質では使用不能な画像が生成される場合があります。</string>
@@ -76,4 +76,5 @@
         <item quantity="other">少なくとも %d 日以上</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEGファイルの推定節約率 約 %d%%</string>
+    <string name="squeezer_onboarding_got_it">わかりました。</string>
 </resources>

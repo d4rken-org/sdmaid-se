@@ -20,10 +20,10 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">유지</string>
     <string name="swiper_skip_action">건너뛰기</string>
-    <string name="swiper_review_action">검토</string>
+    <string name="swiper_review_action">리뷰</string>
     <string name="swiper_status_title">결정 검토</string>
     <string name="swiper_status_action_keep_selected">선택 항목 유지</string>
-    <string name="swiper_status_action_delete_selected">선택 항목 삭제</string>
+    <string name="swiper_status_action_delete_selected">선택한 항목 삭제</string>
     <string name="swiper_status_action_reset_selected">선택 항목 초기화</string>
     <string name="swiper_decision_undecided">미결정</string>
     <string name="swiper_retry_action">다시 시도</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ 되돌리기</string>
     <string name="swiper_help_title">Swiper 사용 방법</string>
     <string name="swiper_help_message">각 파일을 스와이프하여 결정하세요:\n\n← 왼쪽으로 스와이프: %1$s\n→ 오른쪽으로 스와이프: %2$s\n↑ 위로 스와이프: 건너뛰기\n↓ 아래로 스와이프: 되돌리기 (첫 스와이프 이후)\n\n하단 버튼을 사용할 수도 있습니다.\n\n완료되면 \"검토\"를 탭하여 모든 결정을 확인하세요. 검토 화면에서 확인하기 전까지는 아무것도 삭제되지 않습니다.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">확인</string>
+    <string name="swiper_help_action">도움</string>
 </resources>

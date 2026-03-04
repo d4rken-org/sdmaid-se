@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">Czy na pewno chcesz usunąć wyniki we wszystkich narzędziach?</string>
+    <string name="dashboard_delete_all_message">Usunąć wyniki we wszystkich narzędziach?</string>
     <string name="dashboard_settings_category">Panel główny</string>
     <string name="dashboard_motd_title">Wiadomość od programisty</string>
     <string name="dashboard_settings_oneclick_title">Tryb jednego dotknięcia</string>
-    <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi, dotykając przycisku akcji na pulpicie nawigacyjnym, bez dodatkowych potwierdzeń.</string>
+    <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi jednym dotknięciem przycisku akcji na pulpicie, bez dodatkowych potwierdzeń.</string>
     <string name="dashboard_settings_oneclick_tools_title">Narzędzia jednego dotknięcia</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Które narzędzia powinny być zawarte w operacjach jednego dotknięcia?</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Które narzędzia należy uwzględnić w operacjach realizowanych jednym dotknięciem?</string>
     <string name="dashboard_card_config_title">Karty panelu głównego</string>
     <string name="dashboard_card_config_desc">Skonfiguruj, które karty są wyświetlane i w jakiej kolejności</string>
     <string name="dashboard_card_config_header_title">Przeciągnij, aby zmienić kolejność, przełącz, aby pokazać/ukryć</string>
@@ -26,9 +26,9 @@
         <item quantity="other">%1$d plików gotowych (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ta funkcja rejestruje wszystkie działania aplikacji do pliku, który można udostępniać. Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Udostępniaj go tylko zaufanym podmiotom (np. programiście rozwiązującym problem).</string>
-    <string name="debug_debuglog_short_recording_title">Bardzo krótkie rejestrowanie</string>
-    <string name="debug_debuglog_short_recording_desc">Rejestrowanie było bardzo krótkie. Dzienniki debugowania to nagrania, a nie zrzuty - odtwórz problem, gdy rejestrowanie jest aktywne, aby dziennik był przydatny.</string>
-    <string name="debug_debuglog_short_recording_continue_action">Kontynuuj rejestrowanie</string>
+    <string name="debug_debuglog_short_recording_title">Bardzo krótkie nagranie</string>
+    <string name="debug_debuglog_short_recording_desc">Nagranie było bardzo krótkie. Dzienniki debugowania to nagrania, a nie migawki — odtwórz problem podczas nagrywania, aby dziennik był przydatny.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Kontynuuj nagrywanie</string>
     <string name="debug_debuglog_short_recording_stop_action">Zatrzymaj mimo to</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
@@ -49,7 +49,7 @@
     <string name="onboarding_welcome_title">Witaj</string>
     <string name="onboarding_welcome_body1">SD Maid SE zarządza plikami, aplikacjami i pamięcią urządzenia.</string>
     <string name="onboarding_welcome_body2">Zyskaj miejsce w pamięci, sprzątając po innych aplikacjach. Usuń zbędne pliki i pozostałości danych.</string>
-    <string name="onboarding_welcome_body_beta">To wersja beta (testowa). Zachowaj poczucie humoru i plan awaryjny. Prosimy o zgłaszanie napotkanych problemów.</string>
+    <string name="onboarding_welcome_body_beta">To jest wersja beta (testowa). Zachowaj poczucie humoru i plan awaryjny. Prosimy o zgłaszanie napotkanych problemów.</string>
     <string name="onboarding_welcome_continue_action">Kontynuuj</string>
     <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (tj. SD Maid 2) to następca SD Maid (tj. SD Maid 1). Jest to nowa aplikacja zoptymalizowana dla nowszych wersji Androida.</string>
@@ -103,7 +103,7 @@
     <string name="support_debuglog_folder_label">Folder dziennika debugowania</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d plik korzysta z %2$s</item>
-        <item quantity="few">%1$d pliki korzystają z %2$s</item>
+        <item quantity="few">%1$d pliki korzysta z %2$s</item>
         <item quantity="many">%1$d plików korzysta z %2$s</item>
         <item quantity="other">%1$d plików korzysta z %2$s</item>
     </plurals>
@@ -149,7 +149,7 @@
     <string name="support_contact_no_email_app">Nie znaleziono aplikacji do obsługi e-maili na tym urządzeniu.</string>
     <string name="changelog_label">Lista zmian</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
-    <string name="settings_acknowledgements_category_translations_title">Tłumaczenia</string>
+    <string name="settings_acknowledgements_category_translations_title">Tłumacze</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Kto to przetłumaczył?</string>
     <string name="settings_acknowledgements_category_thanks_title">Podziękowania</string>
     <string name="settings_acknowledgements_category_thanks_subtitle">Szczególne podziękowania dla naszych przyjaciół.</string>
@@ -263,17 +263,17 @@ Karol Szastok (K4r0lSz);</string>
     <string name="anniversary_card_title">Udanej rocznicy SD Maid ❤️</string>
     <string name="anniversary_card_install_date">Razem z tobą od %s</string>
     <plurals name="anniversary_card_body">
-        <item quantity="one">Już %1$d rok razem. Dziękujemy za ufanie do SD Maid na utrzymanie twojego Androida w dobrym stanie i porządku. Uwolniono: %2$s</item>
-        <item quantity="few">Już %1$d lata razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
-        <item quantity="many">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
-        <item quantity="other">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="one">Już %1$d rok razem. Dziękuję za zaufanie SD Maid, które pomoże Ci utrzymać porządek na twoim Androidzie. Zwolnione miejsce: %2$s</item>
+        <item quantity="few">Już %1$d lata razem. Dziękuję za zaufanie SD Maid, które pomoże Ci utrzymać porządek na twoim Androidzie. Zwolnione miejsce: %2$s</item>
+        <item quantity="many">Już %1$d lat razem. Dziękuję za zaufanie SD Maid, które pomoże Ci utrzymać porządek na twoim Androidzie. Zwolnione miejsce: %2$s</item>
+        <item quantity="other">Już %1$d lat razem. Dziękuję za zaufanie SD Maid, które pomoże Ci utrzymać porządek na twoim Androidzie. Zwolnione miejsce: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Udostępnij swoją rocznicę SD Maid</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d rok razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
-        <item quantity="few">%1$d lata razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
-        <item quantity="many">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
-        <item quantity="other">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="one">%1$d rok z SD Maid — Zwolnione miejsce: %2$s. Utrzymujemy twój Android w czystości i porządku. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="few">%1$d lata z SD Maid — Zwolnione miejsce: %2$s. Utrzymujemy twój Android w czystości i porządku. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="many">%1$d lat z SD Maid — Zwolnione miejsce: %2$s. Utrzymujemy twój Android w czystości i porządku. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="other">%1$d lat z SD Maid — Zwolnione miejsce: %2$s. Utrzymujemy twój Android w czystości i porządku. #SDMaid\nWypróbuj: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Skanuj + Usuń</string>
     <string name="shortcut_onetap_long">Skanuj i usuń w jednej akcji</string>

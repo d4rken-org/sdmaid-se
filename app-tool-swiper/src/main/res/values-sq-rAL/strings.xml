@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
+    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
     <string name="swiper_start_action">Fillo rrëshqitjen</string>
     <string name="swiper_continue_action">Vazhdo sesionin</string>
+    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
     <string name="swiper_select_folders_action">Zgjidhni dosjet</string>
     <string name="swiper_scanning_title">Duke skanuar…</string>
     <plurals name="swiper_result_x_items_found">
@@ -19,10 +23,10 @@
     <string name="swiper_item_position">#%1$d nga %2$d</string>
     <string name="swiper_keep_action">Mbaj</string>
     <string name="swiper_skip_action">Kapërce</string>
-    <string name="swiper_review_action">Rishiko</string>
+    <string name="swiper_review_action">Rishikimi</string>
     <string name="swiper_status_title">Rishiko vendimet</string>
     <string name="swiper_status_action_keep_selected">Mbaj të zgjedhurat</string>
-    <string name="swiper_status_action_delete_selected">Fshi të zgjedhurat</string>
+    <string name="swiper_status_action_delete_selected">Fshij të zgjedhurin</string>
     <string name="swiper_status_action_reset_selected">Rivendos të zgjedhurat</string>
     <string name="swiper_decision_undecided">I pavendosur</string>
     <string name="swiper_retry_action">Riprovo</string>
@@ -107,7 +111,7 @@
     <string name="swiper_sessions_header_title">Gati për të pastruar?</string>
     <string name="swiper_sessions_suggestions_label">Filloni me:</string>
     <string name="swiper_sessions_suggestion_downloads">Dosja e shkarkimeve</string>
-    <string name="swiper_sessions_suggestion_screenshots">Fotografitë e ekranit</string>
+    <string name="swiper_sessions_suggestion_screenshots">Pamjet e ekranit</string>
     <string name="swiper_sessions_suggestion_camera">Ruli i kamerës</string>
     <string name="swiper_stamp_keep_1">Mbaj!</string>
     <string name="swiper_stamp_keep_2">Bukur!</string>
@@ -118,6 +122,7 @@
     <string name="swiper_stamp_delete_3">Mbeturinë!</string>
     <string name="swiper_stamp_delete_4">Fshi!</string>
     <string name="swiper_stamp_skip_1">Kapërce!</string>
+    <string name="swiper_stamp_skip_2">Eh!</string>
     <string name="swiper_stamp_skip_3">Më vonë!</string>
     <string name="swiper_stamp_skip_4">Ndoshta!</string>
     <string name="swiper_stamp_undo_1">Zhbëj!</string>
@@ -133,9 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Zhbëj</string>
     <string name="swiper_help_title">Si funksionon Swiper</string>
     <string name="swiper_help_message">Rrëshqitni çdo skedar për të marrë një vendim:\n\n← Rrëshqitni majtas: %1$s\n→ Rrëshqitni djathtas: %2$s\n↑ Rrëshqitni lart: Kapërce\n↓ Rrëshqitni poshtë: Zhbëj (pas rrëshqitjes së parë)\n\nMund të përdorni gjithashtu butonat në fund.\n\nKur të keni mbaruar, prekni \"Rishiko\" për të parë të gjitha vendimet tuaja. Asgjë nuk fshihet derisa të konfirmoni në ekranin e rishikimit.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Pastroni dosjet shpejt — rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer.</string>
-    <string name="swiper_dashcard_description">Pastroni dosje specifike më shpejt se me një eksplorues skedarësh — thjesht rrëshqitni çdo skedar.</string>
-    <string name="swiper_sessions_description">Rishikoni skedarët në 3 hapa të thjeshtë:\n\n1. Zgjidhni një dosje për të skanuar\n2. Rrëshqitni skedarët për t\'i mbajtur, fshirë ose kapërcyer\n3. Rishikoni zgjedhjet tuaja dhe konfirmoni\n\nAsgjë nuk hiqet derisa të prekni butonin përfundimtar të fshirjes.</string>
-    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_gesture_overlay_dismiss_action">E kuptova</string>
+    <string name="swiper_help_action">Ndihmë</string>
 </resources>

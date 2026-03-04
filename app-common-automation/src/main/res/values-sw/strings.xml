@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid haikukamilisha hatua zote ndani ya muda uliowekwa. Ikiwa hii inaendelea kutokea, huenda ninahitaji kurekebishia programu kwa kifaa chako. Angalia masasisho au niwasiliane nami ili niweze kurekebisha.</string>
     <string name="automation_error_overlay_title">Uwekaji wa uotomatishaji</string>
     <string name="automation_error_overlay_body">SD Maid haikuweza kuonyesha uwekaji wa uotomatishaji. Angalia ruhusa na jaribu kuanzisha upya kifaa chako.</string>
+    <string name="automation_error_scheduler_title">Uendeshaji wa moja kwa moja uliopangwa umeshindwa</string>
+    <string name="automation_error_scheduler_body">Kazi iliyopangwa ilijaribu kutumia huduma ya ufikiaji, lakini haikupatikana. Ikiwa huhitaji hii, zima chaguo la \"Huduma ya ufikiaji\" katika mipangilio ya kipanga ratiba.</string>
     <string name="automation_error_no_settings_title">Skrini ya mipangilio haipatikani</string>
     <string name="automation_error_no_settings_body">Programu hii ya mfumo haina skrini ya mipangilio. Kufuta akiba kupitia huduma ya ufikiaji haiwezekani. Itenga ili kuharakisha ufutaji wa akiba.</string>
     <string name="automation_loading">Inaandaa uotomatishaji kupitia huduma ya ufikiaji</string>

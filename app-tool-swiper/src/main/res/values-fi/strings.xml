@@ -23,7 +23,7 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">Säilytä</string>
     <string name="swiper_skip_action">Ohita</string>
-    <string name="swiper_review_action">Tarkista</string>
+    <string name="swiper_review_action">Arvostele</string>
     <string name="swiper_status_title">Tarkista päätökset</string>
     <string name="swiper_status_action_keep_selected">Säilytä valitut</string>
     <string name="swiper_status_action_delete_selected">Poista valitut</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Kumoa</string>
     <string name="swiper_help_title">Miten Pyyhkäisijä toimii</string>
     <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
+    <string name="swiper_help_action">Ohje</string>
 </resources>

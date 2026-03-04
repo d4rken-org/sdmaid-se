@@ -82,4 +82,5 @@
         <item quantity="other">Vähintään %d päivää vanha</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Arvioitu ~%d%% säästö JPEG-tiedostoille</string>
+    <string name="squeezer_onboarding_got_it">Selvä</string>
 </resources>

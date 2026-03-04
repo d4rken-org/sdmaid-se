@@ -21,7 +21,9 @@
     <string name="deduplicator_skip_uncommon_title">Laktawan ang mga hindi karaniwang uri ng file</string>
     <string name="deduplicator_skip_uncommon_description">Isama lang ang mga karaniwang media file, dokumento at archive.</string>
     <string name="deduplicator_detection_method_label">Paraan ng pagtukoy</string>
+    <string name="deduplicator_detection_method_checksum_title">Checksum ng nilalaman</string>
     <string name="deduplicator_detection_method_checksum_summary">Tukuyin ang mga duplicate sa pamamagitan ng pagkakalkula ng mga checksum para sa mga file. Ang mga file na may magkatugang checksum ay may eksaktong magkaparehong nilalaman.</string>
+    <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
     <string name="deduplicator_detection_method_phash_summary">Hanapin ang mga katulad na file sa pamamagitan ng pagsusuri ng mga content feature at paghahambing ng perceptual hash values. ⚠️ Ang similarity-based detection ay maaaring magsama ng mga false positive na nangangailangan ng manu-manong verification.</string>
     <string name="deduplicator_occupied_space_label">Ginamit na storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
@@ -30,6 +32,7 @@
     </plurals>
     <string name="deduplicator_file_size_label">Laki ng file</string>
     <string name="deduplicator_average_size_label">Average na laki</string>
+    <string name="deduplicator_cluster_x_label">Cluster %s</string>
     <string name="deduplicator_delete_confirmation_message">Burahin ang lahat maliban sa isang kopya sa lahat ng set ng mga doble na file?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Burahin ang lahat maliban sa isang kopya sa set na ito ng mga doble na file?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Burahin ang lahat ng file sa set na ito ng mga doble na file? Walang maiiwan!</string>
@@ -47,6 +50,7 @@
     <string name="deduplicator_arbiter_configure_paths_action">I-configure ang mga path…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Uri ng duplicate</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Mas gusto ang eksaktong mga tugma kaysa sa mga katulad na file.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Pag-index ng media</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Isaalang-alang kung ang mga file ay naka-index ng media provider.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Lokasyon ng storage</string>
     <string name="deduplicator_arbiter_criterium_location_description">Mas gusto ang mga file sa internal o external storage.</string>

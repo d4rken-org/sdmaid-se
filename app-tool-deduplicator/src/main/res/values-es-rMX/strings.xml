@@ -13,6 +13,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Mostrar opciones que te permiten eliminar todos los archivos en un conjunto de duplicados para que no quede ningún archivo.</string>
     <string name="deduplicator_search_locations_title">Ubicaciones de búsqueda</string>
     <string name="deduplicator_search_locations_all_summary">Todas las áreas accesibles</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferir conservar en</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Al decidir qué duplicado conservar, se prefiere conservar archivos en estas ubicaciones.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">No hay ubicaciones configuradas</string>
     <string name="deduplicator_skip_minsize_title">Tamaño mínimo</string>
     <string name="deduplicator_skip_minsize_description">Omitir archivos que estén por debajo del tamaño mínimo.</string>
     <string name="deduplicator_skip_uncommon_title">Omitir tipos de archivo poco comunes</string>
@@ -40,7 +43,14 @@
     <string name="deduplicator_details_cluster_title">Conjunto de duplicados</string>
     <string name="deduplicator_matches_exact_label">Copias exactas</string>
     <string name="deduplicator_matches_similar_label">Archivos similares</string>
+    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
+    <string name="deduplicator_arbiter_summary">Configura qué archivos se conservan y cuáles se eliminan.</string>
     <string name="deduplicator_arbiter_explanation">Al eliminar duplicados, SD Maid decide qué archivo conservar verificando cada criterio en orden. El primer criterio que produzca un ganador claro determina el resultado. Arrastra para reordenar, toca para cambiar el modo.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir copias exactas sobre archivos similares.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación multimedia</string>
     <string name="deduplicator_arbiter_criterium_media_provider_description">Considerar si los archivos están indexados por el proveedor de medios.</string>
     <string name="deduplicator_arbiter_criterium_location_title">Ubicación de almacenamiento</string>
     <string name="deduplicator_arbiter_criterium_location_description">Preferir archivos en almacenamiento interno o externo.</string>
@@ -66,11 +76,4 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferir archivos más pequeños</string>
     <string name="deduplicator_view_mode_groups_label">Grupos</string>
     <string name="deduplicator_view_mode_directories_label">Carpetas</string>
-    <string name="deduplicator_arbiter_title">Estrategia de eliminación</string>
-    <string name="deduplicator_arbiter_summary">Configura qué archivos se conservan y cuáles se eliminan.</string>
-    <string name="deduplicator_arbiter_select_mode_title">Seleccionar modo</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
-    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir copias exactas sobre archivos similares.</string>
-    <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación multimedia</string>
 </resources>

@@ -15,10 +15,15 @@
     <string name="appcleaner_include_minimumsize_summary">Laktawan ang mga app kung ang kabuuan ng expendable data ay nasa ibaba ng minimum.</string>
     <string name="appcleaner_include_minimumage_label">Minimum na edad</string>
     <string name="appcleaner_include_minimumage_summary">Laktawan ang mga file na mas bata pa sa minimum na edad.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Pagtuklas ng operating system</string>
     <string name="appcleaner_automation_romtype_detection_summary">Ang accessibility-based na automation ay maaaring hindi gumana kung hindi naitama ng SD Maid ang inyong OS. Gamitin ang setting na ito para ma-override ang detected na OS.</string>
+    <string name="appcleaner_filter_codecache_label">Cache ng code</string>
     <string name="appcleaner_filter_codecache_summary">JVM code cache. Mga block ng bytecode na na-compile sa native code.</string>
+    <string name="appcleaner_filter_advertisement_label">Data ng advertisement</string>
     <string name="appcleaner_filter_advertisement_summary">Mga file na nauugnay sa mga advertisement, hal. naka-cache na media.</string>
+    <string name="appcleaner_filter_bugreporting_label">Pag-uulat ng bug</string>
     <string name="appcleaner_filter_bugreporting_summary">Data na nauugnay sa bug reporting, hal. mga error log o crash dump.</string>
+    <string name="appcleaner_filter_analytics_label">Analytics</string>
     <string name="appcleaner_filter_analytics_summary">Data na nauugnay sa analytics, hal. naka-cache na stats para sa mga ni-tap ninyo sa isang app.</string>
     <string name="appcleaner_filter_hiddencaches_label">Mga nakatagong cache</string>
     <string name="appcleaner_filter_hiddencaches_summary">Mga general purpose na cache na nakaimbak sa labas ng abot ng system.</string>
@@ -26,6 +31,7 @@
     <string name="appcleaner_filter_thumbnails_summary">Mga thumbnail na larawan ng preview ng mga image, video at audio.</string>
     <string name="appcleaner_filter_gamefiles_label">Mga game file</string>
     <string name="appcleaner_filter_gamefiles_summary">Mga game-related na resource na ire-reload ng laro sa susunod na launch kung kinakailangan.</string>
+    <string name="appcleaner_filter_offlinecache_label">Cache offline</string>
     <string name="appcleaner_filter_offlinecache_summary">Mga file na nakaimbak para gamitin kapag offline, hal. mga map tile.</string>
     <string name="appcleaner_filter_recyclebins_label">Mga recycle bin</string>
     <string name="appcleaner_filter_recyclebins_summary">Mga file na na-delete na pero nilagay sa special na folder para ma-restore.</string>
@@ -41,9 +47,13 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Mga file na naipadala mula sa WhatsApp sa iba.</string>
     <string name="appcleaner_filter_telegram_label">Mga Telegram media file</string>
     <string name="appcleaner_filter_telegram_summary">Mga file na natanggap o naipadala sa pamamagitan ng Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Mga file na natanggap sa pamamagitan ng Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Mga file na naipadala o natanggap sa mga conversation at WeChat moment.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Mga naka-cache na media file na ina-download ulit kapag tinignan sa chat.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
     <string name="appcleaner_filter_qqchat_summary">Mga file na naipadala o natanggap sa mga QQ chat conversation.</string>
     <string name="appcleaner_delete_all_confirmation_message">Tanggalin ang mga expendable na item para sa lahat ng app?</string>
     <plurals name="appcleaner_result_x_items_deleted">
@@ -54,6 +64,7 @@
         <item quantity="one">%d expendable item na nakita</item>
         <item quantity="other">%d mga expendable item na nakita</item>
     </plurals>
+    <string name="appcleaner_automation_title">Automation ng AppCleaner</string>
     <string name="appcleaner_automation_subtitle_default_caches">Nagliligpit ng mga default cache…</string>
     <string name="appcleaner_automation_progress_open_settings">Binubuksan ang settings screen (mga keyword: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Naghahanap ng \"Storage\" entry (mga keyword: %s)</string>
@@ -63,6 +74,7 @@
     <string name="appcleaner_item_caches_inaccessible_body">Mga public at private default cache. Hindi direktang ma-access, pero maaaring matanggal nang hindi direkta (hal. sa pamamagitan ng accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">Hindi available ang accessibility service</string>
     <string name="appcleaner_automation_unavailable_body">Ang paglilinis ng mga hindi ma-access na cache ay nangangailangan ng accessibility service ng SD Maid, pero hindi ito available. Kung ayaw ninyong gamitin ito: I-disable ang opsyong \"Include inaccessible caches\".</string>
+    <string name="appcleaner_junk_userprofile_label">Gumagamit</string>
     <string name="appcleaner_delete_confirmation_message_x">Tanggalin ang mga expendable na file para sa %s?</string>
     <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
         <item quantity="one">Burahin ang mga expendable file para sa %d napiling app?</item>
@@ -77,4 +89,10 @@
     <string name="appcleaner_forcestop_before_clearing_label">Force-stop bago i-clear</string>
     <string name="appcleaner_forcestop_before_clearing_summary">I-force-stop ang mga app bago i-clear ang kanilang cache. Maaari itong makatulong sa pag-clear ng cache ng ilang app, ngunit maaaring magdulot ng maling pagkilos ng mga app at mangailangan ng manu-manong pag-restart.</string>
     <string name="appcleaner_progress_force_stopping">Finoforce-stop ang mga app…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Hindi available ang Settings screen</string>
+    <string name="appcleaner_automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Sinusubukan na i-confirm ang nakaraang aksyon (mga keyword: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Isama ang ibang mga user</string>
+    <string name="appcleaner_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
 </resources>

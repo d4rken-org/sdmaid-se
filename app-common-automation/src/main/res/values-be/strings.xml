@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid не выканала ўсе этапы ў вызначаны тэрмін. Калі гэта будзе працягвацца, магчыма спатрэбіцца наладжванне праграмы для вашай прылады. Праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог гэта выправіць.</string>
     <string name="automation_error_overlay_title">Накладанне аўтаматызацыі</string>
     <string name="automation_error_overlay_body">SD Maid не атрымалася паказаць накладанне аўтаматызацыі. Праверце дазволы і паспрабуйце перазагрузіць прыладу.</string>
+    <string name="automation_error_scheduler_title">Запланаваная аўтаматызацыя не ўдалася</string>
+    <string name="automation_error_scheduler_body">Запланаванае заданне паспрабавала выкарыстаць службу даступнасці, але яна была недаступная. Калі вам гэта не патрэбна, адключыце опцыю «Служба даступнасці» ў налядах планавальніка.</string>
     <string name="automation_error_no_settings_title">Экран налад недаступны</string>
     <string name="automation_error_no_settings_body">Гэта сістэмная праграма не мае экрана налад. Ачыстка кэшу праз службу спецыяльных магчымасцей немагчымая. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
     <string name="automation_loading">Падрыхтоўка аўтаматызацыі праз службу спецыяльных магчымасцей</string>

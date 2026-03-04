@@ -29,6 +29,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de la captura de pantalla</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima de las capturas de pantalla para ser consideradas para su eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs inútiles</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de instalación que ya no son necesarios según las versiones de las apps instaladas.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir la misma versión</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También apunta a archivos APK que coinciden con la versión instalada. Desactiva para eliminar solo versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">Archivos temporales que se crean al transferir datos entre dispositivos Android.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Archivos Linux</string>
@@ -88,6 +91,15 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">El nombre es igual a palabra clave</string>
     <string name="systemcleaner_customfilter_last_edit">Última edición: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Búsqueda en vivo</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Restricciones de tamaño</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Tamaño mínimo</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Tamaño máximo</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limitar coincidencias según el tamaño del archivo. Dejar sin establecer para coincidir con cualquier tamaño.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Restricciones de antigüedad</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Antigüedad mínima</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Antigüedad máxima</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (última modificación). Dejar sin establecer para coincidir con cualquier antigüedad.</string>
     <string name="systemcleaner_customfilter_import_action">Importar nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar filtro seleccionado</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
 </resources>

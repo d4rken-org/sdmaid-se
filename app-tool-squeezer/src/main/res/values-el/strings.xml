@@ -82,4 +82,5 @@
         <item quantity="other">Τουλάχιστον %d ημέρες παλιό</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Εκτιμώμενη ~%d%% εξοικονόμηση για αρχεία JPEG</string>
+    <string name="squeezer_onboarding_got_it">Το κατάλαβα</string>
 </resources>

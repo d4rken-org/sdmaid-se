@@ -11,6 +11,12 @@
     <string name="appcleaner_include_runningapps_summary">Одоогоор ажиллаж байгаа, саад учруулж болох аппуудыг оруулах.</string>
     <string name="appcleaner_include_inaccessible_label">Хандах боломжгүй кэшүүдийг оруулах</string>
     <string name="appcleaner_include_inaccessible_summary">Шууд хандах боломжгүй боловч системийн тохиргоогоор устгах боломжтой, хүртээмжийн үйлчилгээгээр автоматжуулах боломжтой өгөгдлийг оруулах.</string>
+    <string name="appcleaner_include_minimumsize_label">Деэд хэмжээ</string>
+    <string name="appcleaner_include_minimumsize_summary">Зарцлаж болох өгөгдөллийн нийлбэр дээд хэмжээас бага буйуу болсон аппуудыг алгасах.</string>
+    <string name="appcleaner_include_minimumage_label">Деэд нас</string>
+    <string name="appcleaner_include_minimumage_summary">Деэд наснаас залуу файлуудыг алгасах.</string>
+    <string name="appcleaner_automation_romtype_detection_label">Үйлдлийн системийг таних</string>
+    <string name="appcleaner_automation_romtype_detection_summary">SD Maid таны үйлдлийн системийг зөв танихгүй бол хандалтын дэвсэн автоматжуулалт бүтэлж чадаж болно. Танисан үйлдлийн системийг дараалахад энэ тохиргоог ашигла.</string>
     <string name="appcleaner_filter_codecache_label">Кодын кэш</string>
     <string name="appcleaner_filter_codecache_summary">JVM кодын кэш. Байткодыг натив код руу хөрвүүлсэн блокууд.</string>
     <string name="appcleaner_filter_advertisement_label">Зарын өгөгдөл</string>
@@ -29,6 +35,10 @@
     <string name="appcleaner_filter_offlinecache_summary">Офлайн үед ашиглахаар хадгалагдсан файлууд, жишээ нь газрын зургийн хавтанцарууд.</string>
     <string name="appcleaner_filter_recyclebins_label">Хогийн сав</string>
     <string name="appcleaner_filter_recyclebins_summary">Устгагдсан боловч сэргээх боломж олгохын тулд тусгай фолдерт байрлуулсан файлууд.</string>
+    <string name="appcleaner_filter_webview_label">Webview файлууд</string>
+    <string name="appcleaner_filter_webview_summary">Аппуудын дотоод ашигладаг Webview жуурцаас кэшлэгдсэн файлууд.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Аппын товчлолын дүрс дүрсүүд</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Аппын товчлол болон хүвааны цэсттэй дүрс дүрсүүд.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp нөөцлөлтүүд</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp нөөцлөлтүүдийн нэмэлт хуулбаруудыг устгаж зөвхөн хамгийн сүүлийнхийг хадгалах.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp-аар хүмүүсээс хүлээн авсан файлууд.</string>
@@ -37,6 +47,14 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp-аар бусдад илгээсэн файлууд.</string>
     <string name="appcleaner_filter_telegram_label">Telegram медиа файлууд</string>
     <string name="appcleaner_filter_telegram_summary">Telegram-аар хүлээн авсан эсвэл илгээсэн файлууд.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
+    <string name="appcleaner_filter_threema_summary">Threema-гаар хүлээсэн файлууд.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
+    <string name="appcleaner_filter_wechat_summary">WeChat ярилцаа болон агуулга илгэсэн бую файлууд.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
+    <string name="appcleaner_filter_viber_summary">Чатаар үзэхэд дахин татаж авах кэшлэгдсэн медиа файлууд.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ чат</string>
+    <string name="appcleaner_filter_qqchat_summary">QQ чатын ярилцаанд илгэсэн бую файлууд.</string>
     <string name="appcleaner_delete_all_confirmation_message">Бүх аппуудын шаардлагагүй зүйлсийг устгах уу?</string>
     <plurals name="appcleaner_result_x_items_deleted">
         <item quantity="one">%d шаардлагагүй зүйл устгагдсан</item>
@@ -46,4 +64,35 @@
         <item quantity="one">%d шаардлагагүй зүйл олдсон</item>
         <item quantity="other">%d шаардлагагүй зүйл олдсон</item>
     </plurals>
+    <string name="appcleaner_automation_title">AppCleaner автоматжуулалт</string>
+    <string name="appcleaner_automation_subtitle_default_caches">Үндсэн кэшүүдийг цэвхлэж байна…</string>
+    <string name="appcleaner_automation_progress_open_settings">Тохиргооны дэлгэц нээж байна (үг үеүд: %s)</string>
+    <string name="appcleaner_automation_progress_find_storage">\"Санах ой\" цэс хайж байна (үг үеүд: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_data">\"Datа цэвхлэх\" товч хайж байна (үг үеүд: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">\"Kэш цэвхлэх\" товч хайж байна (үг үеүд: %s)</string>
+    <string name="appcleaner_item_caches_inaccessible_title">Үндсэн кэшүүд</string>
+    <string name="appcleaner_item_caches_inaccessible_body">Нийтлэг ба хувийн үндсэн кэшүүд. Шууд шуусаар хүргэхгүй боловч шуудгаар устгаж болно (жишээ нь: хандалтын үйлчилгээгээр).</string>
+    <string name="appcleaner_automation_unavailable_title">Хандалтын үйлчилгээ боломжгүй</string>
+    <string name="appcleaner_automation_unavailable_body">Хүртэх боломжгүй кэш цэвхлэхд SD Maid-ийн хандалтын үйлчилгээ шаардлагатай боловч боломжгүй байв. Ашиглахгүй бол \"Хүртэх боломжгүй кэшүүдийг оруулах\" сонгоог идэвхгүй болго.</string>
+    <string name="appcleaner_junk_userprofile_label">Хэрэглэгч</string>
+    <string name="appcleaner_delete_confirmation_message_x">%s-ийн зарцлаж болох файлуудыг устгах уу?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>
+        <item quantity="other">Сонгосон %d аппын зарцлаж болох файлуудыг устгах уу?</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Shizuku ашиглаад кэш устгаж байна</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Хүртэх боломжгүй кэшүүдийг тодорхойлж байна</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Кэш цэвхлэх боломжгүй</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Систем энэ аппын \"Kэш цэвхлэх\" товчийг идэвхгүй болгосон. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Системийн апп буруу тохируулагдсан</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS-ийн Аюлгуулалт апп (com.miui.securitycenter) дэ Хэрэглэгчийн статистикийн зөвшөөрөл (GET_USAGE_STATS) алгасн. Энэ нь аппын дэлгэцтэйг \"Datа цэвхлэх\" болон хандалтын үйлчилгээгээр кэш цэвхлэх зэрэг ажиллахгүй болгодог. Бүрэн функционалийг сэргээхийн тулд зөвшөөрлийг олго.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Цэвхлэхийн өмнө хүчээр зогсоох</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Кэш цэвхлэхийн өмнө аппуудыг хүчээр зогсоох. Деэр зарим аппуудын кэшийг цэвхлэхд туслах боловч аппууд буруу ажиллах болон гар дахин эхлүүлэх шаардлагатай.</string>
+    <string name="appcleaner_progress_force_stopping">Аппуудыг хүчээр зогсоож байна…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
+    <string name="appcleaner_automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Өмнөх үйлдлийг баталгаажуулахыг оролдож байна (үг үеүд: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Бусад хэрэглэгчдийг оруулах</string>
+    <string name="appcleaner_include_multiuser_summary">Энэ төхөөрөмж дээрх бусад хэрэглэгчийн профайлаас аппуудыг оруулах.</string>
 </resources>

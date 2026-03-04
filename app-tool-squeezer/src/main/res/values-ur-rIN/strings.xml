@@ -82,4 +82,5 @@
         <item quantity="other">کم از کم %d دن پرانی</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG فائلوں کے لیے تخمینی ~%d%% بچت</string>
+    <string name="squeezer_onboarding_got_it">سمجھ گیا</string>
 </resources>

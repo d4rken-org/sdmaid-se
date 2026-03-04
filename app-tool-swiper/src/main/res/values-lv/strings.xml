@@ -1,8 +1,135 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Ātri kārtŋ mapes — veļciet failus, lai saglabātu, dzēstu vai izlaistu.</string>
+    <string name="swiper_dashcard_description">Ātri sākārtojiet konkrētas mapes ātrāk nekā failu pārlūkprogrammā — vienkopši veiciet faila veikumu.</string>
+    <string name="swiper_start_action">Sākt velkšanu</string>
+    <string name="swiper_continue_action">Turpināt sesiju</string>
+    <string name="swiper_sessions_description">Pārskatiet failus 3 vienkopas soļos:\n\n1. Izvēlieties mapi skenēšanai\n2. Veiciet velkšanu caur failiem, lai saglabātu, dzēstu vai izlaistu\n3. Pārskatiet savas izveles un apstipriniet\n\nNekas netiek noņemts, līddz pieskaraties galvenajām dzēšanas pogai.</string>
+    <string name="swiper_select_folders_action">Atlasīt mapes</string>
+    <string name="swiper_scanning_title">Skenēšana…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="zero">%d vienibas atrastas</item>
+        <item quantity="one">%d vienība atrasta</item>
+        <item quantity="other">%d vienibas atrastas</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="zero">%d vienibas dzēstas</item>
+        <item quantity="one">%d vienība dzēsta</item>
+        <item quantity="other">%d vienibas dzēstas</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="zero">%d vienibas neizdevās</item>
+        <item quantity="one">%d vienība neizdevās</item>
+        <item quantity="other">%d vienibas neizdevās</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d no %2$d</string>
     <string name="swiper_keep_action">Paturēt</string>
     <string name="swiper_skip_action">Izlaist</string>
+    <string name="swiper_review_action">Pārskats</string>
+    <string name="swiper_status_title">Pārskatīt lēmumus</string>
+    <string name="swiper_status_action_keep_selected">Saglabāt atlasītos</string>
+    <string name="swiper_status_action_delete_selected">Dzēst izvēlētos</string>
+    <string name="swiper_status_action_reset_selected">Atiestatīt atlasītos</string>
+    <string name="swiper_decision_undecided">Neizlemts</string>
+    <string name="swiper_retry_action">Mēģināt vēlreiz</string>
     <string name="swiper_delete_confirmation_title">Dzēst failus?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="zero">Tas neatgriezeniski dzēsts %1$d failus (%2$s). Šo darbību nav iespējams atcelt.</item>
+        <item quantity="one">Tas neatgriezeniski dzēst %1$d failu (%2$s). Šo darbību nav iespējams atcelt.</item>
+        <item quantity="other">Tas neatgriezeniski dzēsts %1$d failus (%2$s). Šo darbību nav iespējams atcelt.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="zero">%d neizlemtas vienibas paliks vēlākai pārbaudei.</item>
+        <item quantity="one">%d neizlemta vieniba paliks vēlākai pārbaudei.</item>
+        <item quantity="other">%d neizlemtas vienibas paliks vēlākai pārbaudei.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Dzēst %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Mainīt velkšanas virzienus</string>
+    <string name="swiper_settings_swap_directions_summary">Velciet pa kreisi, lai saglabātu, pa labi, lai dzēstu.</string>
+    <string name="swiper_settings_show_details_title">Rādīt faila informāciju</string>
+    <string name="swiper_settings_show_details_summary">Rādīt faila nosaukumu, izmēru un datumu velkšanas ekrānā.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptiskā atgriezeniskā saite</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrēt, pieņemot lēmumus par saglabāšanu vai dzēšanu.</string>
+    <string name="swiper_discard_session_confirmation_title">Atcelt sesiju?</string>
+    <string name="swiper_discard_session_confirmation_message">Visi lēmumi tiks zaudeti. Vai esat pārliecināts?</string>
+    <string name="swiper_no_preview_available">Priekšskatījums nav pieejams</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="zero">Turpināt sesiju no %1$d dienām atpakal (%2$d%% pabeigts)</item>
+        <item quantity="one">Turpināt sesiju no %1$d dienas atpakal (%2$d%% pabeigts)</item>
+        <item quantity="other">Turpināt sesiju no %1$d dienām atpakal (%2$d%% pabeigts)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="zero">%d sesijas</item>
+        <item quantity="one">%d sesija</item>
+        <item quantity="other">%d sesijas</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="zero">%d neizlemtas vienibas</item>
+        <item quantity="one">%d neizlemta vieniba</item>
+        <item quantity="other">%d neizlemtas vienibas</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Izveidots %1$s, pēdējā darbība %2$s</string>
+    <string name="swiper_session_remove_action">Noņemt sesiju</string>
+    <string name="swiper_sessions_empty_hint">Pieskarieties +, lai atlasītu mapi un sāktu velkšanu</string>
+    <string name="swiper_sessions_upgrade_body">Jauniniet, lai noņemtu šos ierobezojumus un atbalstītu izstrādi. Bezmaksas versija ir ierobezota ar:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="zero">%d faili uz sesiju</item>
+        <item quantity="one">%d fails uz sesiju</item>
+        <item quantity="other">%d faili uz sesiju</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="zero">%d sesijas</item>
+        <item quantity="one">%d sesija</item>
+        <item quantity="other">%d sesijas</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesija #%d</string>
+    <string name="swiper_session_rename_title">Pārdēvēt sesiju</string>
+    <string name="swiper_session_rename_hint">Ievadiet šīs sesijas nosaukumu</string>
+    <string name="swiper_sessions_current_sessions">Pašreizējās sesijas</string>
+    <string name="swiper_session_paths_label">Ceļi</string>
+    <string name="swiper_session_status_label">Stāvoklis</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="zero">%d saglabāt</item>
+        <item quantity="one">%d saglabāt</item>
+        <item quantity="other">%d saglabāt</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="zero">%d dzēst</item>
+        <item quantity="one">%d dzēst</item>
+        <item quantity="other">%d dzēst</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="zero">%d neizlemts</item>
+        <item quantity="one">%d neizlemts</item>
+        <item quantity="other">%d neizlemts</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="zero">%d jau saglabāts</item>
+        <item quantity="one">%d jau saglabāts</item>
+        <item quantity="other">%d jau saglabāts</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="zero">%d jau dzēsts</item>
+        <item quantity="one">%d jau dzēsts</item>
+        <item quantity="other">%d jau dzēsts</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="zero">%d saglabāts</item>
+        <item quantity="one">%d saglabāts</item>
+        <item quantity="other">%d saglabāts</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="zero">%d dzēsts</item>
+        <item quantity="one">%d dzēsts</item>
+        <item quantity="other">%d dzēsts</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Izslēgt \"%1$s\" no Swiper skenēšanas?</string>
+    <string name="swiper_sessions_header_title">Gatavs kārtot?</string>
+    <string name="swiper_sessions_suggestions_label">Mēģiniet sākt ar:</string>
+    <string name="swiper_sessions_suggestion_downloads">Lejupielāžu mape</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekrānuzņēmumi</string>
+    <string name="swiper_sessions_suggestion_camera">Kameras ruļļis</string>
     <string name="swiper_stamp_keep_1">Paturēt!</string>
     <string name="swiper_stamp_keep_2">Jauki!</string>
     <string name="swiper_stamp_keep_3">Jā!</string>
@@ -19,4 +146,24 @@
     <string name="swiper_stamp_undo_2">Atpakaļ!</string>
     <string name="swiper_stamp_undo_3">Ups!</string>
     <string name="swiper_stamp_undo_4">Pagaidi!</string>
+    <string name="swiper_gesture_overlay_dismiss">Pieskarieties jebkur, lai sāktu</string>
+    <string name="swiper_gesture_overlay_left_delete">← Dzēst</string>
+    <string name="swiper_gesture_overlay_right_keep">Paturēt →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Paturēt</string>
+    <string name="swiper_gesture_overlay_right_delete">Dzēst →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Izlaist</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Atsaukt</string>
+    <string name="swiper_help_title">Kā darbojas Swiper</string>
+    <string name="swiper_help_message">Velciet katru failu, lai pieņemtu lēmumu:
+
+← Velciet pa kreisi: %1$s
+→ Velciet pa labi: %2$s
+↑ Velciet uz augšu: Izlaist
+↓ Velciet uz leju: Atcelt (pēc pirmā vilkšanas)
+
+Varat arī izmantot pogas apakšā.
+
+Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Sapratu</string>
+    <string name="swiper_help_action">Palīdzība</string>
 </resources>

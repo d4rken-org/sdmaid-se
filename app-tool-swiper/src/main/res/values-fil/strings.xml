@@ -26,7 +26,7 @@
     <string name="swiper_review_action">Suriin</string>
     <string name="swiper_status_title">Suriin ang mga desisyon</string>
     <string name="swiper_status_action_keep_selected">Itabi ang napili</string>
-    <string name="swiper_status_action_delete_selected">I-delete ang napili</string>
+    <string name="swiper_status_action_delete_selected">I-delete ang mga napili</string>
     <string name="swiper_status_action_reset_selected">I-reset ang napili</string>
     <string name="swiper_decision_undecided">Hindi pa napagpasyahan</string>
     <string name="swiper_retry_action">Subukan muli</string>
@@ -54,8 +54,8 @@
         <item quantity="other">Ipagpatuloy ang session mula %1$d araw na ang nakalipas (%2$d%% tapos na)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
-        <item quantity="one">%d session</item>
-        <item quantity="other">%d mga session</item>
+        <item quantity="one">%d sesyon</item>
+        <item quantity="other">%d mga sesyon</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">%d hindi pa napagpasyahang item</item>
@@ -70,10 +70,10 @@
         <item quantity="other">%d mga file bawat session</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
-        <item quantity="one">%d session</item>
-        <item quantity="other">%d mga session</item>
+        <item quantity="one">%d sesyon</item>
+        <item quantity="other">%d mga sesyon</item>
     </plurals>
-    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_default_label">Sesyon #%d</string>
     <string name="swiper_session_rename_title">I-rename ang session</string>
     <string name="swiper_session_rename_hint">Maglagay ng pangalan para sa session na ito</string>
     <string name="swiper_sessions_current_sessions">Mga kasalukuyang session</string>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">Handa nang mag-declutter?</string>
     <string name="swiper_sessions_suggestions_label">Subukang magsimula sa:</string>
     <string name="swiper_sessions_suggestion_downloads">Folder ng mga download</string>
-    <string name="swiper_sessions_suggestion_screenshots">Mga Screenshot</string>
+    <string name="swiper_sessions_suggestion_screenshots">Mga screenshot</string>
     <string name="swiper_sessions_suggestion_camera">Camera roll</string>
     <string name="swiper_stamp_keep_1">Itabi!</string>
     <string name="swiper_stamp_keep_2">Ganda!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ I-undo</string>
     <string name="swiper_help_title">Paano gumagana ang Swiper</string>
     <string name="swiper_help_message">I-swipe ang bawat file para gumawa ng desisyon:\n\n← I-swipe pakaliwa: %1$s\n→ I-swipe pakanan: %2$s\n↑ I-swipe pataas: Laktawan\n↓ I-swipe pababa: I-undo (pagkatapos ng unang swipe)\n\nMaaari ka ring gumamit ng mga button sa ibaba.\n\nKapag tapos ka na, i-tap ang \"Suriin\" para makita ang lahat ng iyong desisyon. Walang nabubura hanggang hindi mo kinukumpirma sa review screen.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Kuha ko</string>
+    <string name="swiper_help_action">Tulong</string>
 </resources>

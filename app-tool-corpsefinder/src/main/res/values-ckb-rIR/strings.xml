@@ -2,21 +2,37 @@
 <resources>
     <string name="corpsefinder_explanation_short">داتا belonging to already removed apps.</string>
     <string name="corpsefinder_settings_summary">Adjust scan پاڵاوتنs and risk levels.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">ماوەکانی خواستراو تێبگرە</string>
     <string name="corpsefinder_settings_risk_keeper_summary">فایلs that you might want to keep, even if the app is uninstalled, e.g. photos you took or backups you created.</string>
+    <string name="corpsefinder_settings_risk_common_title">ناوی باوەکان تێبگرە</string>
     <string name="corpsefinder_settings_risk_common_summary">داتا with commonly used names, e.g. a folder \"نەخێرtes\" is owned by too many unknown apps.</string>
     <string name="corpsefinder_watcher_title">لابردنی دامەزراندن watcher</string>
     <string name="corpsefinder_watcher_summary">خۆکارmatically scan for remnants when an app removed.</string>
     <string name="corpsefinder_watcher_autodelete_title">خۆکارmatic deletion</string>
     <string name="corpsefinder_watcher_autodelete_summary">خۆکارmatically delete any remnants related to the uninstalled app.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d ماوە دۆزرایەوە پاش دامەزراندنەوەی %2$s.</item>
+        <item quantity="other">%1$d ماوە دۆزرایەوە پاش دامەزراندنەوەی %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">پاککردنەوە سەرکەوتوو بوو (%1$s): %2$s ئازادکرا و %3$d بابەت لابرا.</item>
+        <item quantity="other">پاککردنەوە سەرکەوتوو بوو (%1$s): %2$s ئازادکرا و %3$d بابەت لابرا.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">سڕینەوە remnants</string>
     <string name="corpsefinder_filter_publicmedia_label">گشتی media</string>
     <string name="corpsefinder_filter_publicmedia_summary">گشتی media files, e.g. files received via messenger apps.</string>
+    <string name="corpsefinder_filter_publicobb_label">سەرچاوەکانی OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">سەرچاوەی زیادەی ئەپ، بۆ نموونە داراییەکانی یاری.</string>
     <string name="corpsefinder_filter_publicdata_label">گشتی app data</string>
     <string name="corpsefinder_filter_publicdata_summary">نەخێرn-sensitive app data, e.g. map caches.</string>
+    <string name="corpsefinder_filter_sdcard_label">کارتی SD</string>
     <string name="corpsefinder_filter_sdcard_summary">گشتی public storage, internal and external (e.g. SD cards).</string>
     <string name="corpsefinder_filter_privatedata_label">تایبەت app data</string>
     <string name="corpsefinder_filter_privatedata_summary">تایبەت app data, e.g. credentials, app settings but also browser caches.</string>
+    <string name="corpsefinder_filter_dalvik_label">کاشی Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">کاشd app execution data.</string>
+    <string name="corpsefinder_filter_artprofiles_label">پڕۆفایلەکانی ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">پڕۆفایلەکانی ART لەلایەن ئەندڕۆیدەوە بەکاردەهێنرێن بۆ باشترکردنی کارایی ئەپ.</string>
     <string name="corpsefinder_filter_applib_label">ئەپ libraries</string>
     <string name="corpsefinder_filter_applib_summary">ئەپ related library data.</string>
     <string name="corpsefinder_filter_appsource_label">ئەپ sources</string>
@@ -27,7 +43,18 @@
     <string name="corpsefinder_filter_appasec_summary">ڕمزکراو app resources, e.g. game assets.</string>
     <string name="corpsefinder_filter_app2sd_summary">داتا moved to external storage by ئەپ2Sd mods.</string>
     <string name="corpsefinder_filter_app2sd_label">ئەپ2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ماوەی ئەپ سڕایەوە</item>
+        <item quantity="other">%d ماوەی ئەپ سڕایەوە</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ماوەی ئەپ دۆزرایەوە</item>
+        <item quantity="other">%d ماوەی ئەپ دۆزرایەوە</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">سڕینەوە all app remnants?</string>
+    <string name="corpsefinder_owners_label">خاوەنەکان</string>
     <string name="corpsefinder_corpse_hints_label">نەخێرtice</string>
     <string name="corpsefinder_owner_unknown">نەناسراو owner</string>
+    <string name="corpsefinder_corpse_hint_keeper">ئەم بابەتە لەوانەیە داتای داگیرساندنت تێدابێت سەرەڕای ئەوەی خاوەنەکەی دامەزراندنەوە کرایەوە، بۆ نموونە وێنەکان یان پاڵپشتی.</string>
+    <string name="corpsefinder_corpse_hint_common">ئەم بابەتە ناوی زۆر باوی هەیە و لەوانەیە بەلونگی ئەپەکانی دامەزراوی ببێت کە SD Maid نازانێت.</string>
 </resources>

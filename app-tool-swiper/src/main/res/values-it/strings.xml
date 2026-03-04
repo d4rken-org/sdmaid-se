@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d di %2$d</string>
     <string name="swiper_keep_action">Tieni</string>
     <string name="swiper_skip_action">Salta</string>
-    <string name="swiper_review_action">Rivedi</string>
+    <string name="swiper_review_action">Recensione</string>
     <string name="swiper_status_title">Rivedi decisioni</string>
     <string name="swiper_status_action_keep_selected">Tieni selezionati</string>
-    <string name="swiper_status_action_delete_selected">Elimina selezionati</string>
+    <string name="swiper_status_action_delete_selected">Elimina selezionato</string>
     <string name="swiper_status_action_reset_selected">Reimposta selezionati</string>
     <string name="swiper_decision_undecided">Indeciso</string>
     <string name="swiper_retry_action">Riprova</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Annulla</string>
     <string name="swiper_help_title">Come funziona Swiper</string>
     <string name="swiper_help_message">Scorri ogni file per prendere una decisione:\n\n← Scorri a sinistra: %1$s\n→ Scorri a destra: %2$s\n↑ Scorri in alto: Salta\n↓ Scorri in basso: Annulla (dopo il primo scorrimento)\n\nPuoi anche usare i pulsanti in basso.\n\nQuando hai finito, tocca \"Revisione\" per vedere tutte le tue decisioni. Nulla viene eliminato finché non confermi nella schermata di revisione.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Fatto</string>
+    <string name="swiper_help_action">Aiuto</string>
 </resources>

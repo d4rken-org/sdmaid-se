@@ -11,6 +11,7 @@
     <string name="exclusion_type_segment">Ukukhishwa kwesegimenti</string>
     <string name="exclusion_tags_alltools">Wonke amathuluzi</string>
     <string name="exclusion_target_label">Inhloso yokukhishwa</string>
+    <string name="exclusion_editor_path_change_action">Thepha ukushintsha indlela</string>
     <string name="exclusion_option_allow_partial">Vumela ukufana okungaphelele</string>
     <string name="exclusion_option_ignore_casing">Ziba amagama amakhulu namancane</string>
     <string name="exclusion_editor_affected_tools_label">Amathuluzi athintekile</string>
@@ -24,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">Sebenzisa ithuluzi le-AppControl ukudala ukukhishwa kohlelo.</string>
     <string name="exclusion_create_path_hint">Sebenzisa ithuluzi le-StorageAnalyzer ukudala ukukhishwa kwendlela.</string>
     <string name="exclusion_show_defaults_action">Bonisa okuzenzakalelayo</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
 </resources>

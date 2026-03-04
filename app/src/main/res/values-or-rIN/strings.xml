@@ -24,6 +24,10 @@
         <item quantity="other">%1$d ଫାଇଲ୍‌ଗୁଡିକ ପ୍ରସ୍ତୁତ (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଆପ୍‌ର ସମସ୍ତ କାର୍ଯ୍ୟକଳାପକୁ ଏକ ସାଝାଯୋଗ୍ୟ ଫାଇଲ୍‌ରେ ରେକର୍ଡ କରେ। ସୃଷ୍ଟି ହୋଇଥିବା ଫାଇଲ୍‌ରେ ସମ୍ବେଦନଶୀଳ ତଥ୍ୟ ରହିଛି (ଯେପରିକି ଫାଇଲ୍ ନାମ ଏବଂ ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସ)। କେବଳ ବିଶ୍ୱସ୍ତ ଦଳଗୁଡିକ ସହିତ ଏହାକୁ ସାଝା କରନ୍ତୁ (ଯେପରିକି ଏକ ସମସ୍ୟାର ସମାଧାନ କରୁଥିବା ଡେଭେଲପର)।</string>
+    <string name="debug_debuglog_short_recording_title">ଅତ୍ୟନ୍ତ ସ୍ୱଳ୍ପ ରେକର୍ଡିଂ</string>
+    <string name="debug_debuglog_short_recording_desc">ରେକର୍ଡିଂ ଅତ୍ୟନ୍ତ ସ୍ୱଳ୍ପ ଥିଲା। ଡିବଗ୍ ଲଗ୍ ହେଉଛି ରେକର୍ଡିଂ, ସ୍ନ୍ୟାପସଟ୍ ନୁହେଁ — ଲଗ୍ ଉପଯୋଗୀ ହେବା ପାଇଁ ରେକର୍ଡିଂ ସକ୍ରିୟ ଥିବାବେଳେ ସମସ୍ୟାଟି ପୁନଃ ତ୍ୱରିତ କରନ୍ତୁ।</string>
+    <string name="debug_debuglog_short_recording_continue_action">ରେକର୍ଡିଂ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="debug_debuglog_short_recording_stop_action">ତଥାପି ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="tasks_activity_notification_channel_label">ସକ୍ରିୟ କାର୍ଯ୍ୟଗୁଡିକ</string>
     <string name="tasks_activity_working_notification_title">SD Maid କାମ କରୁଅଛି</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">ଏହା ସମସ୍ତ ଗଚ୍ଛିତ ଡିବଗ୍ ଲଗ୍ ସେସନ୍‌ଗୁଡିକୁ ସ୍ଥାୟୀ ଭାବରେ ଡିଲିଟ୍ କରିବ। ଏହି କାର୍ଯ୍ୟ ପ୍ରତ୍ୟାବର୍ତ୍ତନ ଯୋଗ୍ୟ ନୁହେଁ।</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">ଘୁରାଘୁରି କରିବା ଓ ପ୍ରଶ୍ନ ପଚାରିବା ପାଇଁ ଏକ ସ୍ଥାନ।</string>
+    <string name="support_contact_label">ଡେଭଲପରଙ୍କୁ ସଂଯୋଗ କରନ୍ତୁ</string>
+    <string name="support_contact_desc">ଡେଭଲପରଙ୍କୁ ଏକ ଇମେଲ ପଠାଇବା ପାଇଁ ଏକ ଫର୍ମ ପୂରଣ କରନ୍ତୁ।</string>
+    <string name="support_contact_welcome">ମୁଁ ପ୍ରତ୍ୟେକ ବାର୍ତ୍ତା ନିଜେ ପଢ଼ି ଉତ୍ତର ଦେବାକୁ ଯଥାସାଧ୍ୟ ଚେଷ୍ଟା କରେ, କିନ୍ତୁ ଏକାକୀ କାର୍ଯ୍ୟ କରୁଥିବାରୁ ଟିକିଏ ସମୟ ଲାଗିପାରେ। ଆପଣଙ୍କ ଧୈର୍ଯ୍ୟ ପାଇଁ ଧନ୍ୟବାଦ।</string>
+    <string name="support_contact_footer">ଆପଣଙ୍କ ବାର୍ତ୍ତା ଇମେଲ ମାଧ୍ୟମରେ ପଠାଯିବ। ଡିଭାଇସ ଏବଂ ସଂସ୍ଥାପନ ସୂଚନା ସ୍ୱୟଂଚାଳିତ ଭାବେ ଯୋଡ଼ା ଯାଏ। ଆପଣ ଇମେଲ ସହ ସ୍କ୍ରିନଶଟ ବା ଭିଡ଼ିଓ ସଂଲଗ୍ନ କରିପାରିବେ। ଇମେଲର କିଛି ଅଂଶ ଇଂରାଜୀରେ ରହିବ ଯାହା ଡେଭଲପର ସହଜରେ ବୁଝିପାରିବେ।</string>
+    <string name="support_contact_category_label">ବିଭାଗ</string>
+    <string name="support_contact_category_bug_label">ବଗ ରିପୋର୍ଟ</string>
+    <string name="support_contact_category_feature_label">ଫିଚର ଅନୁରୋଧ</string>
+    <string name="support_contact_category_question_label">ପ୍ରଶ୍ନ</string>
+    <string name="support_contact_tool_label">ସମ୍ପର୍କିତ ଟୁଲ</string>
+    <string name="support_contact_tool_appcleaner_label">ଆପ୍‌କ୍ଲିନର</string>
+    <string name="support_contact_tool_corpsefinder_label">ଶଵ_ସନ୍ଧାନକାରୀ</string>
+    <string name="support_contact_tool_systemcleaner_label">ସିଷ୍ଟମ୍ କ୍ଲିନର୍</string>
+    <string name="support_contact_tool_deduplicator_label">ଡୁପ୍ଲିକେଟ ରିମୋଭର</string>
+    <string name="support_contact_tool_analyzer_label">ଆନାଲାଇଜର</string>
+    <string name="support_contact_tool_appcontrol_label">ଆପ୍‌_ନିୟନ୍ତ୍ରଣ</string>
+    <string name="support_contact_tool_scheduler_label">ନିର୍ଦ୍ଧାରଣକାରୀ</string>
+    <string name="support_contact_tool_general_label">ସାଧାରଣ</string>
+    <string name="support_contact_description_label">ବିବରଣୀ</string>
+    <string name="support_contact_description_bug_hint">କ\'ଣ ଘଟିଲା ଏବଂ ସମସ୍ୟାଟି ପୁନଃ ସୃଷ୍ଟି କରିବାର ଉପାୟ ବର୍ଣ୍ଣନା କରନ୍ତୁ। ଦୟାକରି ନିର୍ଦ୍ଦିଷ୍ଟ ହୁଅନ୍ତୁ (ସର୍ବନିମ୍ନ ୨୦ ଶବ୍ଦ)।</string>
+    <string name="support_contact_description_feature_hint">ଆପଣ ଯେଉଁ ଫିଚର ଦେଖିବାକୁ ଚାହୁଁଛନ୍ତି ତାହା ବର୍ଣ୍ଣନା କରନ୍ତୁ। ଦୟାକରି ନିର୍ଦ୍ଦିଷ୍ଟ ହୁଅନ୍ତୁ (ସର୍ବନିମ୍ନ ୨୦ ଶବ୍ଦ)।</string>
+    <string name="support_contact_description_question_hint">ଆପଣଙ୍କ ପ୍ରଶ୍ନ ବିସ୍ତାରରେ ବର୍ଣ୍ଣନା କରନ୍ତୁ। ଦୟାକରି ନିର୍ଦ୍ଦିଷ୍ଟ ହୁଅନ୍ତୁ (ସର୍ବନିମ୍ନ ୨୦ ଶବ୍ଦ)।</string>
+    <string name="support_contact_expected_label">ଆଶା କରା ଯାଉଥିବା ଆଚରଣ</string>
+    <string name="support_contact_expected_hint">ଆପଣ କ\'ଣ ହେବ ବୋଲି ଆଶା କରିଥିଲେ ତାହା ବର୍ଣ୍ଣନା କରନ୍ତୁ (ସର୍ବନିମ୍ନ ୧୦ ଶବ୍ଦ)।</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ଶବ୍ଦ</item>
+        <item quantity="other">%1$d / %2$d ଶବ୍ଦ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ଡିବଗ ଲଗ</string>
+    <string name="support_contact_debuglog_zip_error">ଡିବଗ ଲଗ ସଂକୋଚ ବିଫଳ ହେଲା</string>
+    <string name="support_contact_debuglog_picker_hint">ଏକ ବିଦ୍ୟମାନ ଡିବଗ ଲଗ ସଂଲଗ୍ନ କରନ୍ତୁ, ବା ଏକ ନୂଆ ରେକର୍ଡ କରନ୍ତୁ।</string>
+    <string name="support_contact_debuglog_picker_empty">କୌଣସି ଡିବଗ ଲଗ ମିଳିଲା ନାହିଁ। ପ୍ରଥମେ ଏକ ରେକର୍ଡ କରନ୍ତୁ।</string>
+    <string name="support_contact_send_action">ଇମେଲ ଆପ୍ ଖୋଲନ୍ତୁ</string>
+    <string name="support_contact_no_email_app">ଏହି ଡିଭାଇସରେ କୌଣସି ଇମେଲ ଆପ୍ ମିଳିଲା ନାହିଁ।</string>
     <string name="changelog_label">ପରିବର୍ତ୍ତନ ପୋଥି</string>
     <string name="settings_acknowledgements_label">ସ୍ୱୀକୃତି</string>
     <string name="settings_acknowledgements_category_translations_title">ଅନୁବାଦ</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">ପରୀକ୍ଷା ବିକଳ୍ପ ଏବଂ ଅଧିକ ବିସ୍ତୃତ ଆଉଟପୁଟ୍ ସକ୍ଷମ କରନ୍ତୁ। ଆପ୍ ଧୀର ଗତିରେ ଚାଲିବ ଏବଂ ଭିନ୍ନ ଭାବରେ କାର୍ଯ୍ୟ କରିବ।</string>
     <string name="debug_bugreporter_label">ସ୍ୱୟଂଚାଳିତ ବଗ୍ ରିପୋର୍ଟ</string>
     <string name="debug_bugreporter_summary">ସ୍ୱୟଂଚାଳିତ ଭାବରେ ସମସ୍ୟାଗୁଡ଼ିକୁ ରିପୋର୍ଟ କରେ, ଯଥା ଆପ୍ କ୍ରାସ୍ ର ବିବରଣୀ ଯାହାଦ୍ୱାରା ମୁଁ କାରଣ ଜାଣି ଏହାକୁ ଠିକ୍ କରିପାରିବି।</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ଡିବଗ୍ ମୋଡ୍ ସକ୍ଷମ ହୋଇଛି</string>
     <string name="debug_card_trace_mode_label">ଟ୍ରେସ୍ ମୋଡ୍ ସକ୍ଷମ କରନ୍ତୁ</string>
     <string name="debug_card_dryrun_mode_label">ଡ୍ରାଇ-ରନ୍ ମୋଡ୍ (ଡିଲିଟ୍ ଅକ୍ଷମ କରନ୍ତୁ)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_title">ଏକ-ଟ୍ୟାପ୍ ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_summary">ଆପ୍ ଆଇକନ୍ ଦୀର୍ଘ-ଦବାଇବା ସମୟରେ \"ସ୍କାନ୍ + ଡିଲିଟ୍\" ସର୍ଟକଟ୍ ଦେଖାନ୍ତୁ। ଏକ-ଟ୍ୟାପ୍ ଡ୍ୟାସବୋର୍ଡ ସହ ସମାନ ଟୁଲ୍ ବ୍ୟବହାର କରେ।</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

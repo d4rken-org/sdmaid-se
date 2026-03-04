@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">អ្នកត្រូវការបញ្ចូនជ័រម្រសិ​នេះ​អាចដាក់ជូន SD Maid អាចក្ស្រើន​កិចចករត្តិកម្ម​ដែល​នឹងត្រូវ​ការ​ឈាត់ផ្តាតជ័រ​នៀយ​អ្នក​ប្រើ​ត្រួវ​ដែល​ប្រគឪន​កំណាល​កម្មវិធី (ឧ. ការលុប cache)។\n\nនឹងត្រួវ​ជា​អ្នក​ឳនាំ​ SD Maid អាចបើក​ការតᦲងចំ​កម្មវិធី​នឹម្នយក់ \n
+ SD Maid នឹង​បិនិត្យ​បង្ហាញ​ញគាន់​ពេល​កំពុង​ប្រើ​សើវាកម្ម​នេះ នឹង​ផ្តល់​ឌ្នាក​សកល់​ស្វី​សម្រាប់​អ្នក​បែក​បញ្ឆប់​ការ​ញា᝹់​នឹម្នយ​ងាយទាន់។\n\nមិន​មាន​កិចចករត្តិ​ត្រួវ​បាន​សម្រងមួន​ការ​អនុញ្ញាត​ពី​អ្នកជាក់មួន។ សើវាកម្ម​នេះ​អាច​បិក​បាន​ម្តង​ពេល​ណា​​ជាមួន​នៃ​ឌ្នាក​នេះទេត។</string>
+    <string name="automation_screenoverlay_explanation">SD Maid កំពុង​ទាក​ត្រង់នឹង​ឧបករណ៍​របស់​អ្នក។ កិចច​ប្រើ​ប្រើ​អ្នក​មិន​អាច​ប្រើ​អ្នក​ប្រើ​ឡៃគ្នាន​ត្រង់នៅ​ការពេលដែល​ការ​ដំណើរការ​ចប់។ សូម​រយហា​ដ្ល​ការ​ដំណើរការ​ចប់​ ប្រនែ​លុប​វា។</string>
+    <string name="automation_active_title">SD Maid កំពុងធ្វើការ</string>
+    <string name="automation_error_no_consent_title">កំហុស​អុត្តោម៉ុន</string>
+    <string name="automation_error_no_consent_body">សើវាកម្ម​ត្រូវហើត​ទេត។ បំពេញ​ការរៀបចំ​ នឹង​អនុញ្ញាត។</string>
+    <string name="automation_error_not_enabled_title">សើវាកម្ម​មិន​ត្រួវ​បាន​ដាក់ស្រួច</string>
+    <string name="automation_error_not_enabled_body">សើវាកម្ម​ត្រូវហើត​ត្រួវ​បាន​បិក​ទអត់។ សូម​ដាក់ស្រួច​ម្តង​វិញ។</string>
+    <string name="automation_error_not_running_title">សើវាកម្ម​មិន​ត្រួវ​កំពុងដែលរឹក</string>
+    <string name="automation_error_not_running_body">សើវាកម្ម​ត្រូវហើត​មិន​ត្រួវ​ដែលរឹក។ សូម​ល័ង​ហ្រើ្រអ្នក​ប័ក​ឡើ​ត្រើម។</string>
+    <string name="automation_error_screen_unavailable_title">ប័តា​មិន​អាចប្រើ​ប្រាស់​បានទេ</string>
+    <string name="automation_error_screen_unavailable_body">ការដែលការ​ត្រួវ​បាន​បិតប័ត្ត​ត្រង់នៅ​ប័តា​មិន​អាចព័ត័​បាន​ (ឧ. ប័តា​បិតប័ត្ត​បាន​ទអត់ ប័តា​កំពុង​ប្រើ​អ្នក​បាន​កំហាន់​នៀះ​ឣនកថ័ត់)។</string>
+    <string name="automation_error_compatibility_title">ការ​សមរសម្រួល​អុត្តោម៉ុន</string>
+    <string name="automation_error_compatibility_body">SD Maid មិន​អាច​ស្វែង​លាយអោត​ប័តា​ត្រួវ​បាន។ ប័តា​នេះ​សឹបត​កើតឡើង​ឤឲត​ ភាសា​នឹង​របស់​អ្នក​អាច​មិន​ត្រួវ​បាន​គ័ន​សម្រួល។ ប្រក​ការ​ដែលឯប​កើតឡើង​នៃ​ឤឲត​ ប័តា​ស្រួល​អ្នក​នឹង​អាច​មិន​ត្រួវ​បាន​គ័ន​ត័ម់បញ់​សម្រួល។ សូម​តរវជ​ប្រើ​ការ​ដែលឯប​ស័ក់​ណា​នឹង​ត្រូវការ​ដែលឯប​ហើយ​ឤឲត។</string>
+    <string name="automation_error_timeout_title">ហើតុ​អុត្តោម៉ុន</string>
+    <string name="automation_error_timeout_body">SD Maid មិន​បំចប់​ជ\u17d0រ​ទាក​ក្នុង​រយៈពេល​កំណត់។ ប័តា​នេះ​សឹបត​កើតឡើង​ ឤឲត​ឥ​មិន​ត្រួវ​គ័ន​សម្រួល​ស្រាប់​ញាំ។ ប្រក​ការ​ដែលឯប​ស័ក់​ណា​ ខ្ញុំ​នឹង​ត្រូវការ​ដែលឯប​ហើយ​ឤឲត។</string>
+    <string name="automation_error_overlay_title">វិល​ហើភ​អុត្តោម៉ុន</string>
+    <string name="automation_error_overlay_body">SD Maid មិន​អាច​បង្ហាញ​វិល​ហើភ​អុត្តោម៉ុន​បានទេ។ ត្រជត់​សិទ្ធិ​នឹង​ល័ង​ហ្រើ្រអ្នក​បាន​ឡើ។</string>
+    <string name="automation_error_scheduler_title">ការ​ដែលឯប​តាម​កំណត់​ប្រើការ​ប្រើ​បានបរាជយ</string>
+    <string name="automation_error_scheduler_body">ការដែលឯប​តាម​កំណត់​ប្រើ​ប្រើ​សើវាកម្ម​ត្រូវហើត ប៉ុន្តែ​វា​មិន​អាច​រក​បាន។ ប័តា​អ្នក​មិន​ផ្តល់​ត្រូវការ​នេះ​សូម​បិត​ជម្រើស​∠1780ារ​សើវាកម្ម​ត្រូវហើត∡​នៅ​ក្នុង​ការដែលឯប។</string>
+    <string name="automation_error_no_settings_title">ប័តា​តាម​ការ​កំណត់​មិន​អាច​ព័ត័​បានទេ</string>
+    <string name="automation_error_no_settings_body">កម្មវិធី​ព័ត័​នេះ​មិន​មាន​ប័តា​ការ​កំណត់។ ការលុបកែវិល្ត​តាម​រយៈពេល​សើវាកម្ម​ត្រូវហើត​មិន​អាច​កើតឡើង​បានទេ។ ដកចេញ​ដែល​ដើម្បី​ឡើន​ការលុប​កែវិល្ត​បន្លើន។</string>
+    <string name="automation_loading">កំពុង​ប្រើការ​អុត្តោម៉ុន​តាមរយៈពេល​សើវាកម្ម​ត្រូវហើត</string>
+    <string name="automation_progress_find_ok_confirmation">កំពុង​ប្រើការ​បញ្ជាក់​ការ​ដែល​ម័ញ​កំផ័ត់ (ថ្នាកកព្ចៀ​ៈ %s)</string>
+</resources>

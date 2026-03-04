@@ -93,10 +93,10 @@
     <string name="appcontrol_app_sizes_cache_label">Кэш</string>
     <string name="appcontrol_toggle_confirmation_title">Подтверждение действия</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
-        <item quantity="one">Изменить вкл/откл состояние %d прил.?</item>
-        <item quantity="few">Изменить вкл/откл состояние %d прил.?</item>
-        <item quantity="many">Изменить вкл/откл состояние %d прил.?</item>
-        <item quantity="other">Изменить вкл/откл состояние %d прил.?</item>
+        <item quantity="one">Изменить состояние включения/отключения %d приложения?</item>
+        <item quantity="few">Изменить состояния включения/отключения %d приложений?</item>
+        <item quantity="many">Изменить состояния включения/отключения %d приложений?</item>
+        <item quantity="other">Изменить состояния включения/отключения %d приложений?</item>
     </plurals>
     <plurals name="appcontrol_toggle_result_message_x">
         <item quantity="one">Выключено приложений: %d</item>

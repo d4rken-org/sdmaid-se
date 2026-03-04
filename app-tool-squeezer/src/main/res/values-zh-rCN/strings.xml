@@ -65,7 +65,7 @@
     <string name="squeezer_setup_paths_title">搜索位置</string>
     <string name="squeezer_setup_paths_default">选择要搜索的文件夹</string>
     <string name="squeezer_setup_quality_title">压缩质量</string>
-    <string name="squeezer_setup_age_title">最小年龄</string>
+    <string name="squeezer_setup_age_title">最短时间</string>
     <string name="squeezer_setup_age_none">无限制（包含所有文件）</string>
     <string name="squeezer_setup_start_action">开始扫描</string>
     <string name="squeezer_quality_hint_very_low">质量低于 40% 可能会产生无法使用的图片。</string>
@@ -76,4 +76,5 @@
         <item quantity="other">至少 %d 天前</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 文件预估可节省约 %d%%</string>
+    <string name="squeezer_onboarding_got_it">明白</string>
 </resources>

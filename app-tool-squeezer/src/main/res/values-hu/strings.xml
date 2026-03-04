@@ -17,7 +17,7 @@
         <item quantity="one">%d kép kiválasztva</item>
         <item quantity="other">%d kép kiválasztva</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Keresési helyek</string>
+    <string name="squeezer_search_locations_title">Helyek keresése</string>
     <string name="squeezer_search_locations_default_summary">Kamera mappák (alapértelmezett)</string>
     <string name="squeezer_min_size_title">Minimális fájlméret</string>
     <string name="squeezer_min_size_description">Az ennél kisebb képek kihagyása.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Nem található tömöríthető kép.</string>
     <string name="squeezer_setup_warning">A tömörítés véglegesen csökkenti a képminőséget a tárhely megtakarítása érdekében. Ez nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
     <string name="squeezer_setup_explanation">A Média Squeeze csökkenti a képfájlok méretét a tárhely felszabadításához. Ez véglegesen csökkenti a képminőséget és nem vonható vissza. Gondosan ellenőrizd a beállításokat az indítás előtt.</string>
-    <string name="squeezer_setup_paths_title">Keresési helyek</string>
+    <string name="squeezer_setup_paths_title">Helyek keresése</string>
     <string name="squeezer_setup_paths_default">Válassz mappákat a kereséshez</string>
     <string name="squeezer_setup_quality_title">Tömörítési minőség</string>
     <string name="squeezer_setup_age_title">Minimális kor</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Legalább %d napos</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Becsült ~%d%% megtakarítás JPEG fájlokhoz</string>
+    <string name="squeezer_onboarding_got_it">Megvan</string>
 </resources>

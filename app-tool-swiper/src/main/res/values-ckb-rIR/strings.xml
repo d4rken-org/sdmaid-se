@@ -1,5 +1,118 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">فۆڵدەرەکان خێرا ڕاپاڵ بکە — بە فایلەکان سوایپ بکە بۆ نگەداشتن، سڕینەوە، یان تێپەڕاندن.</string>
+    <string name="swiper_dashcard_description">فۆڵدەرەکانی دیاریکراو خێراتر لە گەڕانکراتی فایل ڕاپاڵ بکە — تەنها هەر فایلێک سوایپ بکە.</string>
+    <string name="swiper_start_action">سوایپ دەستپێبکە</string>
+    <string name="swiper_continue_action">بەردەوامبوونی سێشن</string>
+    <string name="swiper_sessions_description">فایلەکان لە 3 قەدەمی سادەدا بپشکنەوە:\n\n1. فۆڵدەرێک هەڵبژێرە بۆ سکانکردن\n2. بە فایلەکان سوایپ بکە بۆ نگەداشتن، سڕینەوە، یان تێپەڕاندن\n3. هەڵبژاردنەکانت بپشکنەوە و پشتڕاست بکەرەوە\n\nهیچ شتێک لابردنی نابێت تاوەکو دوگمەی سڕینەوەی دوایین دەیتەپێنی.</string>
+    <string name="swiper_select_folders_action">فۆڵدەرەکان هەڵبژێرە</string>
+    <string name="swiper_scanning_title">سکانکردن…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d بابەت دۆزرایەوە</item>
+        <item quantity="other">%d بابەت دۆزرایەوە</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d بابەت سڕایەوە</item>
+        <item quantity="other">%d بابەت سڕایەوە</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d بابەت سەرنەکەوت</item>
+        <item quantity="other">%d بابەت سەرنەکەوتن</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d لە %2$d</string>
+    <string name="swiper_keep_action">پاراستن</string>
+    <string name="swiper_skip_action">تێپەڕاندن</string>
+    <string name="swiper_review_action">پێداچوونەوە</string>
+    <string name="swiper_status_title">بڕیارەکانی پێداچوونەوە</string>
+    <string name="swiper_status_action_keep_selected">پاراستنی هەڵبژێردراوەکان</string>
+    <string name="swiper_status_action_delete_selected">سڕینەوەی هەڵبژێردراوەکان</string>
+    <string name="swiper_status_action_reset_selected">ڕیسێتکردنی هەڵبژێردراوەکان</string>
+    <string name="swiper_decision_undecided">بڕیارنەدراو</string>
+    <string name="swiper_retry_action">هەوڵدانەوە</string>
+    <string name="swiper_delete_confirmation_title">فایلەکان بسڕیتەوە؟</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">ئەمە بەردەوام %1$d فایل (%2$s) دەسڕێتەوە. ئەم کردارە ناگەڕێتەوە.</item>
+        <item quantity="other">ئەمە بەردەوام %1$d فایل (%2$s) دەسڕێتەوە. ئەم کردارە ناگەڕێتەوە.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d مادەی بڕیارنەدراو دەمێنێتەوە بۆ پێداچوونەوەی دواتر.</item>
+        <item quantity="other">%d مادەی بڕیارنەدراو دەمێنێتەوە بۆ پێداچوونەوەی دواتر.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">سڕینەوەی %1$d</string>
+    <string name="swiper_settings_swap_directions_title">گۆڕینی ئاراستەی سواپ</string>
+    <string name="swiper_settings_swap_directions_summary">چەپ بکێشە بۆ پاراستن، ڕاست بۆ سڕینەوە.</string>
+    <string name="swiper_settings_show_details_title">نیشاندانی وردەکاریەکانی فایل</string>
+    <string name="swiper_settings_show_details_summary">ناو، قەبارە و بەرواری فایل لە شاشەی سواپ نیشان بدە.</string>
+    <string name="swiper_settings_haptic_feedback_title">بەرگرتنی هەستی</string>
+    <string name="swiper_settings_haptic_feedback_summary">لەرزاندن کاتێ بڕیاری پاراستن یان سڕینەوە دەدرێت.</string>
+    <string name="swiper_discard_session_confirmation_title">دانیشتن بەتاڵ بکرێت؟</string>
+    <string name="swiper_discard_session_confirmation_message">هەموو بڕیارەکان دەچنە دەست. دڵنیایت؟</string>
+    <string name="swiper_no_preview_available">پێشبینی بەردەست نییە</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">بەردەوامکردنی دانیشتن لە %1$d ڕۆژ پێش ئێستا (%2$d%% تەواوبووە)</item>
+        <item quantity="other">بەردەوامکردنی دانیشتن لە %1$d ڕۆژ پێش ئێستا (%2$d%% تەواوبووە)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d دانیشتن</item>
+        <item quantity="other">%d دانیشتن</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d مادەی بڕیارنەدراو</item>
+        <item quantity="other">%d مادەی بڕیارنەدراو</item>
+    </plurals>
+    <string name="swiper_session_timestamps">دروستکراوە لە %1$s، دوایین چالاکی %2$s</string>
+    <string name="swiper_session_remove_action">لابردنی دانیشتن</string>
+    <string name="swiper_sessions_empty_hint">+ بکە بۆ هەڵبژاردنی پووشپەڕێک و دەستپێکردنی سواپ</string>
+    <string name="swiper_sessions_upgrade_body">بگۆڕە بۆ لابردنی ئەم سنورانە و پشتگیری گەشەپێدان. وەشانی خۆڕایی سنوردارە بە:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d فایل بۆ هەر دانیشتنێک</item>
+        <item quantity="other">%d فایل بۆ هەر دانیشتنێک</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d دانیشتن</item>
+        <item quantity="other">%d دانیشتن</item>
+    </plurals>
+    <string name="swiper_session_default_label">دانیشتن #%d</string>
+    <string name="swiper_session_rename_title">ناوگۆڕینی دانیشتن</string>
+    <string name="swiper_session_rename_hint">ناوێک بنووسە بۆ ئەم دانیشتنە</string>
+    <string name="swiper_sessions_current_sessions">دانیشتنە ئێستاکان</string>
+    <string name="swiper_session_paths_label">ڕێگاکان</string>
+    <string name="swiper_session_status_label">بارودۆخ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d بۆ پاراستن</item>
+        <item quantity="other">%d بۆ پاراستن</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d بۆ سڕینەوە</item>
+        <item quantity="other">%d بۆ سڕینەوە</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d بڕیارنەدراو</item>
+        <item quantity="other">%d بڕیارنەدراو</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d پێشتر پارێزراو</item>
+        <item quantity="other">%d پێشتر پارێزراو</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d پێشتر سڕاوەتەوە</item>
+        <item quantity="other">%d پێشتر سڕاوەتەوە</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d پارێزراو</item>
+        <item quantity="other">%d پارێزراو</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d سڕاوەتەوە</item>
+        <item quantity="other">%d سڕاوەتەوە</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">دەرخستنی \"%1$s\" لە شیکاری سواپەر؟</string>
+    <string name="swiper_sessions_header_title">ئامادەیت بۆ ڕێکخستن؟</string>
+    <string name="swiper_sessions_suggestions_label">هەوڵبدە لەم شوێنانە دەست پێبکەیت:</string>
+    <string name="swiper_sessions_suggestion_downloads">پووشپەڕەی داگرتنەکان</string>
+    <string name="swiper_sessions_suggestion_screenshots">ئەکرانگرەکان</string>
+    <string name="swiper_sessions_suggestion_camera">ڕووڵی کامێرا</string>
     <string name="swiper_stamp_keep_1">هێشتنەوە!</string>
     <string name="swiper_stamp_keep_2">باشە!</string>
     <string name="swiper_stamp_keep_3">بەڵێ!</string>
@@ -25,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ گەڕانەوە</string>
     <string name="swiper_help_title">چۆن Swiper کاردەکات</string>
     <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
+    <string name="swiper_help_action">یارمەتی</string>
 </resources>

@@ -70,7 +70,7 @@
     <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
     <string name="squeezer_setup_paths_default">Seleccioná carpetas para buscar</string>
     <string name="squeezer_setup_quality_title">Calidad de compresión</string>
-    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
+    <string name="squeezer_setup_age_title">Edad mínima</string>
     <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
     <string name="squeezer_setup_start_action">Iniciar escaneo</string>
     <string name="squeezer_quality_hint_very_low">La calidad por debajo del 40%% puede crear imágenes inutilizables.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Al menos %d días de antigüedad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
+    <string name="squeezer_onboarding_got_it">Entendido</string>
 </resources>

@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">ഇതിനകം നീക്കം ചെയ്ത ആപ്പുകൾക്ക് അനുബന്ധമായ ഡേറ്റ.</string>
+    <string name="corpsefinder_settings_summary">സ്‌കാൻ ഫിർത്തറുകളും അപകടസാധ്യത നിലകളും ക്രമീകരിക്കുക.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">ആഗ്രഹനീയ അവശിഷ്ടങ്ങൾ ഉൾപ്പെടുത്തുക</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">ആപ്പ് അൺഇൻസ്‌റോൾ ചെയ്‍തിരിക്കുന്നെങ്കിലും നിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന ഫയലുകൾ, ഉദാ: നിങ്ങൾ എടുത്ത ഫോട്ടോകൾ അല്ലെങ്കിൽ നിർമ്മിച്ച ബാക്കപ്പുകൾ.</string>
+    <string name="corpsefinder_settings_risk_common_title">പൊതുവായ പേരുകൾ ഉൾപ്പെടുത്തുക</string>
+    <string name="corpsefinder_settings_risk_common_summary">പൊതുവായി ഉപയോഗിക്കുന്ന പേരുകളുള്ള ഡേറ്റ, ഉദാ: \"Notes\" ഫോൾഡർ ഒരുപാട് അജ്ഞാത ആപ്പുകൾ ഉടമകളാണ്.</string>
+    <string name="corpsefinder_watcher_title">അൺഇൻസ്‌റോൾ നിരീക്ഷകൻ</string>
+    <string name="corpsefinder_watcher_summary">ഒരു ആപ്പ് നീക്കം ചെയ്യുമ്പോൾ അവശിഷ്ടങ്ങൾക്കായി സ്വയം സ്‌കാൻ ചെയ്യുക.</string>
+    <string name="corpsefinder_watcher_autodelete_title">സ്വയംക്രിയ ഡിലീഷൻ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">അൺഇൻസ്‌റോൾ ചെയ്ത ആപ്പുമായി ബന്ധപ്പെട്ട അവശിഷ്ടങ്ങൾ സ്വയം ഡിലീറ്റ് ചെയ്യുക.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s അൺഇൻസ്‌റോൾ ചെയ്ത ശേഷം %1$d അവശിഷ്ടം കണ്ടെത്തി.</item>
+        <item quantity="other">%2$s അൺഇൻസ്‌റോൾ ചെയ്ത ശേഷം %1$d അവശിഷ്ടങ്ങൾ കണ്ടെത്തി.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">ക്ലീനപ്പ് വിജയകരം (%1$s): %2$s മോചിപ്പിക്കുകയും %3$d ഇനം നീക്കം ചെയ്യുകയും ചെയ്തു.</item>
+        <item quantity="other">ക്ലീനപ്പ് വിജയകരം (%1$s): %2$s മോചിപ്പിക്കുകയും %3$d ഇനങ്ങൾ നീക്കം ചെയ്യുകയും ചെയ്തു.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">അവശിഷ്ടങ്ങൾ ഡിലീറ്റ് ചെയ്യുക</string>
+    <string name="corpsefinder_filter_publicmedia_label">പൊതു മീഡിയ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">പൊതു മീഡിയ ഫയലുകൾ, ഉദാ: മെസഞ്ഞർ ആപ്പുകൾ വഴി ലഭിച്ച ഫയലുകൾ.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB റിസോഴ്‌സുകൾ</string>
+    <string name="corpsefinder_filter_publicobb_summary">അധിക ആപ്പ് റിസോഴ്‌സുകൾ, ഉദാ: ഗെയ്ം അസറ്റുകൾ.</string>
+    <string name="corpsefinder_filter_publicdata_label">പൊതു ആപ്പ് ഡേറ്റ</string>
+    <string name="corpsefinder_filter_publicdata_summary">സെൻസിറീവ് അല്ലാത്ത ആപ്പ് ഡേറ്റ, ഉദാ: മാപ്പ് ക്യാഷുകൾ.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD കാർഡ്</string>
+    <string name="corpsefinder_filter_sdcard_summary">പൊതുവായ പൊതു സ്റ്റോറേജ്, ആന്തരികവും ബാഹ്യവും (ഉദാ: SD കാർഡുകൾ).</string>
+    <string name="corpsefinder_filter_privatedata_label">സ്വകാർയ ആപ്പ് ഡേറ്റ</string>
+    <string name="corpsefinder_filter_privatedata_summary">സ്വകാർയ ആപ്പ് ഡേറ്റ, ഉദാ: ക്രെഡൻഷ്യലുകൾ, ആപ്പ് ക്രമീകരണങ്ങൾ, ബ്രൗസർ ക്യാഷുകൾ.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik ക്യാഷ്</string>
+    <string name="corpsefinder_filter_dalvik_summary">ക്യാഷ് ചെയ്ത ആപ്പ് എക്‍സിക്യൂഷൻ ഡേറ്റ.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART പ്രൊഫൈലുകൾ</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ആപ്പ് പ്രകടനം ഓപ്റ്റിമൈസ് ചെയ്യാൻ Android ART പ്രൊഫൈലുകൾ ഉപയോഗിക്കുന്നു.</string>
+    <string name="corpsefinder_filter_applib_label">ആപ്പ് ലൈബ്രറികൾ</string>
+    <string name="corpsefinder_filter_applib_summary">ആപ്പ് ബന്ധിത ലൈബ്രറി ഡേറ്റ.</string>
+    <string name="corpsefinder_filter_appsource_label">ആപ്പ് സോഴ്‌സുകൾ</string>
+    <string name="corpsefinder_filter_appsource_summary">ആപ്പ് ഇൻസ്റലേഷൻ ഡേറ്റ, അതായത് APK-കൾ പോകുന്നിടം.</string>
+    <string name="corpsefinder_filter_appsource_private_label">സ്വകാർയ ആപ്പ് സോഴ്‌സുകൾ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">നിയന്ത്രിത ആപ്പ് ഇൻസ്റലേഷൻ ഡേറ്റ, ഉദാ: സംരക്ഷിത മൂന്നാം കക്ഷി ആപ്പുകൾ.</string>
+    <string name="corpsefinder_filter_appasec_label">എൻക്രിപ്റ് ചെയ്ത ആപ്പ് റിസോഴ്‌സുകൾ</string>
+    <string name="corpsefinder_filter_appasec_summary">എൻക്രിപ്റ് ചെയ്ത ആപ്പ് റിസോഴ്‌സുകൾ, ഉദാ: ഗെയ്ം അസറ്റുകൾ.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd മോഡുകൾ ബാഹ്യ സ്റ്റോറേജിലേക്ക് മാറ്റിയ ഡേറ്റ.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ആപ്പ് അവശിഷ്ടം ഡിലീറ്റ് ചെയ്തു</item>
+        <item quantity="other">%d ആപ്പ് അവശിഷ്ടങ്ങൾ ഡിലീറ്റ് ചെയ്തു</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ആപ്പ് അവശിഷ്ടം കണ്ടെത്തി</item>
+        <item quantity="other">%d ആപ്പ് അവശിഷ്ടങ്ങൾ കണ്ടെത്തി</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">എല്ലാ ആപ്പ് അവശിഷ്ടങ്ങളും ഡിലീറ്റ് ചെയ്യണോ?</string>
+    <string name="corpsefinder_owners_label">ഉടമകൾ</string>
+    <string name="corpsefinder_corpse_hints_label">അറിയിപ്പ്</string>
+    <string name="corpsefinder_owner_unknown">അജ്ഞാത ഉടമ</string>
+    <string name="corpsefinder_corpse_hint_keeper">ഇതിന്റെ ഉടമ അൺഇൻസ്‌റ്റോൾ ചെയ്‌തിരിക്കുന്നെങ്കിലും, ഈ ഇനത്തിൽ നിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന ഡേറ്റ ഉണ്ടായിരിക്കാം, ഉദാ: ഫോട്ടോകൾ അല്ലെങ്കിൽ ബാക്കപ്പുകൾ.</string>
+    <string name="corpsefinder_corpse_hint_common">ഈ ഇനത്തിന് വളരെ പൊതുവായ പേരുണ്ട്, ഇത് SD Maid-ന് അറിയാത്ത ഇൻസ്‌റ്റോൾ ചെയ്ത ആപ്പുകൾക്ക് ഉള്ളതായിരിക്കാം.</string>
+</resources>

@@ -21,8 +21,8 @@
 Örneğin: \"DCIM/Camera\", \"/sdcard/DCIM/Camera/photo.png\"i hariç tutar.</string>
     <string name="exclusion_editor_remove_confirmation_message">Bu hariç tutma silinsin mi?</string>
     <string name="exclusion_reset_default_exclusions">Varsayılan dışlamaları geri yükle</string>
-    <string name="exclusion_import_action">İstisnaları içe aktar</string>
-    <string name="exclusion_export_action">İstisnaları dışa aktar</string>
+    <string name="exclusion_import_action">Dışlamaları içe aktar</string>
+    <string name="exclusion_export_action">Dışlamaları dışa aktar</string>
     <string name="exclusion_create_pkg_hint">Uygulama Kontrolü aracını kullanarak uygulamalar için hariç tutmalar oluşturun.</string>
     <string name="exclusion_create_path_hint">Yol hariç tutmaları oluşturmak için Depolama Analizcisi\'ni kullan.</string>
     <string name="exclusion_show_defaults_action">Varsayılanları göster</string>

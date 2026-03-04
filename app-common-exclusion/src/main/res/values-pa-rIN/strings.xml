@@ -11,6 +11,7 @@
     <string name="exclusion_type_segment">ਖੰਡ ਬਾਹਰੀਕਰਣ</string>
     <string name="exclusion_tags_alltools">ਸਾਰੇ ਟੂਲ</string>
     <string name="exclusion_target_label">ਬਾਹਰੀਕਰਣ ਟਾਰਗੇਟ</string>
+    <string name="exclusion_editor_path_change_action">ਮਾਰਗ ਬਦਲਣ ਲਈ ਟੈਪ ਕਰੋ</string>
     <string name="exclusion_option_allow_partial">ਅੰਸ਼ਿਕ ਮੇਲ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ</string>
     <string name="exclusion_option_ignore_casing">ਕੇਸਿੰਗ ਨੂੰ ਅਣਦੇਖਾ ਕਰੋ</string>
     <string name="exclusion_editor_affected_tools_label">ਪ੍ਰਭਾਵਿਤ ਟੂਲ</string>
@@ -24,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">ਐਪ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ AppControl ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="exclusion_create_path_hint">ਮਾਰਗ ਬਾਹਰੀਕਰਣ ਬਣਾਉਣ ਲਈ StorageAnalyzer ਟੂਲ ਦੀ ਵਰਤੋਂ ਕਰੋ।</string>
     <string name="exclusion_show_defaults_action">ਮੂਲ ਦਿਖਾਓ</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">ਤੁਹਾਡੇ ਕੋਲ ਅਣਸੇਵ ਕੀਤੀਆਂ ਤਬਦੀਲੀਆਂ ਹਨ!</string>
 </resources>

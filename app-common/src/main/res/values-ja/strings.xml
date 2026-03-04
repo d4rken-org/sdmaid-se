@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ありがとうごさいます</string>
     <string name="general_error_type_mismatch_msg">タイプ不一致: %1$sを期待しましたが、 %2$s が得られました。</string>
     <string name="general_error_cant_access_msg">%sにアクセスできません。</string>
-    <string name="general_error_root_unavailable">Rootアクセスは利用できません。</string>    <string name="general_error_no_compatible_app_found_msg">このリクエストを処理する互換性のあるアプリが見つかりませんでした。</string>
+    <string name="general_error_root_unavailable">Rootアクセスは利用できません。</string>
+    <string name="general_error_no_compatible_app_found_msg">このリクエストを処理する互換性のあるアプリが見つかりませんでした。</string>
     <string name="general_todo_msg">この機能は実行中か現在利用できません。</string>
     <string name="general_share_action">共有</string>
     <string name="general_done_action">完了</string>
     <string name="general_apply_action">適用</string>
-    <string name="general_copy_action">コピー</string>    <string name="general_cancel_action">キャンセル</string>
+    <string name="general_copy_action">コピー</string>
+    <string name="general_cancel_action">キャンセル</string>
     <string name="general_discard_action">破棄する</string>
     <string name="general_reset_action">リセット</string>
     <string name="general_drag_handle_description">ドラッグして並べ替え</string>
-    <string name="general_save_action">保存</string>    <string name="general_gotit_action">わかりました。</string>
+    <string name="general_save_action">保存</string>
+    <string name="general_gotit_action">わかりました。</string>
     <string name="general_fix_action">修正</string>
     <string name="general_set_up_action">設定</string>
     <string name="general_edit_action">編集</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">システム</string>
     <string name="setup_title">セットアップ</string>
     <string name="setup_feature_requires_additional_setup_x">この機能は追加のセットアップアイテムを完了する必要があります： %s</string>
+    <string name="upgrade_feature_requires_pro">Proが必要</string>
+    <string name="general_include_multiuser_label">他のユーザーを含める</string>
+    <string name="general_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
+    <string name="general_unsaved_confirmation_message">保存していない変更があります！</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d 除外が作成されました</item>
     </plurals>
@@ -171,7 +178,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">履歴</string>
     <string name="settings_category_tools_label">ツール</string>
-    <string name="general_include_multiuser_label">他のユーザーを含める</string>
-    <string name="general_include_multiuser_summary">このデバイスの他のユーザープロファイルのアプリを含めます。</string>
-    <string name="general_unsaved_confirmation_message">保存されていない変更があります!</string>
 </resources>

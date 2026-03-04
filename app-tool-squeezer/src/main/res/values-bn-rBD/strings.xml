@@ -82,4 +82,5 @@
         <item quantity="other">অন্তত %d দিন পুরনো</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ফাইলের জন্য আনুমানিক ~%d%% সাশ্রয়</string>
+    <string name="squeezer_onboarding_got_it">বুঝেছি</string>
 </resources>

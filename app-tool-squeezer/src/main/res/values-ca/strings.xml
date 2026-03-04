@@ -70,7 +70,7 @@
     <string name="squeezer_setup_paths_title">Cerca ubicacions</string>
     <string name="squeezer_setup_paths_default">Seleccioneu les carpetes per cercar</string>
     <string name="squeezer_setup_quality_title">Qualitat de compressió</string>
-    <string name="squeezer_setup_age_title">Antiguitat mínim</string>
+    <string name="squeezer_setup_age_title">Edat mínima</string>
     <string name="squeezer_setup_age_none">Sense límit (inclou tots els fitxers)</string>
     <string name="squeezer_setup_start_action">Comença la cerca</string>
     <string name="squeezer_quality_hint_very_low">Una qualitat inferior al 40% pot crear imatges inutilitzables.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Almenys %d dies d\'antiguitat</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estalvi estimat d\'un %d%% per a fitxers JPEG</string>
+    <string name="squeezer_onboarding_got_it">Entesos</string>
 </resources>

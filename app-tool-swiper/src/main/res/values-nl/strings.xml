@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d van %2$d</string>
     <string name="swiper_keep_action">Bewaren</string>
     <string name="swiper_skip_action">Overslaan</string>
-    <string name="swiper_review_action">Bekijken</string>
+    <string name="swiper_review_action">Beoordeling</string>
     <string name="swiper_status_title">Beslissingen bekijken</string>
     <string name="swiper_status_action_keep_selected">Geselecteerde bewaren</string>
-    <string name="swiper_status_action_delete_selected">Geselecteerde verwijderen</string>
+    <string name="swiper_status_action_delete_selected">Verwijder geselecteerde</string>
     <string name="swiper_status_action_reset_selected">Geselecteerde resetten</string>
     <string name="swiper_decision_undecided">Onbeslist</string>
     <string name="swiper_retry_action">Opnieuw proberen</string>
@@ -123,6 +123,7 @@
     <string name="swiper_stamp_delete_4">Verwijderen!</string>
     <string name="swiper_stamp_skip_1">Overslaan!</string>
     <string name="swiper_stamp_skip_2">Mwah!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
     <string name="swiper_stamp_skip_4">Misschien!</string>
     <string name="swiper_stamp_undo_1">Ongedaan!</string>
     <string name="swiper_stamp_undo_2">Terug!</string>
@@ -136,5 +137,7 @@
     <string name="swiper_gesture_overlay_up_skip">↑ Overslaan</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Ongedaan maken</string>
     <string name="swiper_help_title">Hoe Swiper werkt</string>
-    <string name="swiper_help_message">Veeg over elk bestand om een beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na eerste veeg)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik op \"Controleren\" om al je beslissingen te zien. Er wordt niets verwijderd totdat je bevestigt op het controlescherm.</string>
+    <string name="swiper_help_message">Veeg over elk bestand om een ​​beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na de eerste veegbeweging)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik je op \'Beoordelen\' om al je beslissingen te bekijken. Niets wordt verwijderd totdat je bevestigt op het beoordelingsscherm.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Begrepen</string>
+    <string name="swiper_help_action">Help</string>
 </resources>

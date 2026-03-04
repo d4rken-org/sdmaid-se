@@ -7,7 +7,7 @@
     <string name="exclusion_create_action">Krijo përjashtim</string>
     <string name="exclusion_edit_action">Redakto përjashtimin</string>
     <string name="exclusion_type_package">Përjashtimi i aplikacionit</string>
-    <string name="exclusion_type_path">Përjashtimi i shtegjit</string>
+    <string name="exclusion_type_path">Përjashtim rruge</string>
     <string name="exclusion_type_segment">Përjashtimi i segmentit</string>
     <string name="exclusion_tags_alltools">Të gjitha mjetet</string>
     <string name="exclusion_target_label">Objektivi i përjashtimit</string>

@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid het nie alle stappe binne die tydlimiet voltooi nie. As dit aanhou gebeur, moet ek dalk die toepassing vir jou toestel aanpas. Kyk vir opdaterings of kontak my sodat ek dit kan regmaak.</string>
     <string name="automation_error_overlay_title">Outomatisering oorlegger</string>
     <string name="automation_error_overlay_body">SD Maid kon nie die outomatisering oorlegger wys nie. Kontroleer toestemmings en probeer om jou toestel te herlaai.</string>
+    <string name="automation_error_scheduler_title">Geskeduleerde outomatisering het misluk</string>
+    <string name="automation_error_scheduler_body">\'n Geskeduleerde taak het probeer om die toeganklikheidsdiens te gebruik, maar dit was nie beskikbaar nie. As jy dit nie nodig het nie, skakel die opsie \"Toeganklikheidsdiens\" in die skeduleringsinstellings af.</string>
     <string name="automation_error_no_settings_title">Instellings skerm nie beskikbaar nie</string>
     <string name="automation_error_no_settings_body">Hierdie stelsel toepassing het geen instellings skerm nie. Kas skoonmaak via toeganklikheid diens is nie moontlik nie. Sluit dit uit om kas skoonmaak te versnel.</string>
     <string name="automation_loading">Berei outomatisering voor via toeganklikheid diens</string>

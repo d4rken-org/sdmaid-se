@@ -14,8 +14,11 @@
     <string name="automation_error_compatibility_title">Компатибилност аутоматизације</string>
     <string name="automation_error_compatibility_body">СД Чистач није успео да разуме распоред екрана. Ако се ово наставља, ваш језик или подешавање можда нису потпуно подржани. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
     <string name="automation_error_timeout_title">Истек времена аутоматизације</string>
+    <string name="automation_error_timeout_body">SD Maid није завршио све кораке у предвиђеном времену. Ако се ово понавља, можда ћу морати да прилагодим апликацију за ваш уређај. Проверите ажурирања или ме контактирајте да бих то поправио.</string>
     <string name="automation_error_overlay_title">Преклоп аутоматизације</string>
     <string name="automation_error_overlay_body">СД Чистач није могао приказати преклоп аутоматизације. Проверите дозволе и покушајте рестартовати уређај.</string>
+    <string name="automation_error_scheduler_title">Заказана аутоматизација није успела</string>
+    <string name="automation_error_scheduler_body">Заказани задатак је покушао да користи сервис приступачности, али није био доступан. Ако вам ово није потребно, онемогућите опцију „Сервис приступачности“ у подешавањима планера.</string>
     <string name="automation_error_no_settings_title">Екран подешавања недоступан</string>
     <string name="automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
     <string name="automation_loading">Припремање аутоматизације преко сервиса приступачности</string>

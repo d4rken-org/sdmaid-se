@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid belgilangan vaqt ichida barcha bosqichlarni bajarmadi. Agar bu davom etsa, men qurilmangiz uchun ilovani sozlashim kerak bo\'lishi mumkin. Yangilanishlarni tekshiring yoki men buni tuzatishim uchun men bilan bog\'laning.</string>
     <string name="automation_error_overlay_title">Avtomatlashtirish qatlami</string>
     <string name="automation_error_overlay_body">SD Maid avtomatlashtirish qatlamini ko\'rsata olmadi. Ruxsatlarni tekshiring va qurilmangizni qayta ishga tushirishga harakat qiling.</string>
+    <string name="automation_error_scheduler_title">Rejalashtirilgan avtomatlashtirish muvaffaqiyatsiz bo\'ldi</string>
+    <string name="automation_error_scheduler_body">Rejalashtirilgan vazifa imkoniyat xizmatidan foydalanmoqchi bo\'ldi, lekin u mavjud emas edi. Agar bu sizga kerak bo\'lmasa, rejalashtiruvchi sozlamalarida \"Imkoniyat xizmati\" opsiyasini o\'chiring.</string>
     <string name="automation_error_no_settings_title">Sozlamalar ekrani mavjud emas</string>
     <string name="automation_error_no_settings_body">Ushbu tizim ilovasida sozlamalar ekrani yo\'q. Kirish xizmati orqali kesh tozalash mumkin emas. Kesh tozalashni tezlashtirish uchun uni chiqarib tashlang.</string>
     <string name="automation_loading">Kirish xizmati orqali avtomatlashtirish tayyorlanmoqda</string>

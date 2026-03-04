@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d از %2$d</string>
     <string name="swiper_keep_action">حفظ</string>
     <string name="swiper_skip_action">رد</string>
-    <string name="swiper_review_action">بررسی</string>
+    <string name="swiper_review_action">مرور</string>
     <string name="swiper_status_title">بررسی تصمیم‌ها</string>
     <string name="swiper_status_action_keep_selected">حفظ انتخاب شده</string>
-    <string name="swiper_status_action_delete_selected">حذف انتخاب شده</string>
+    <string name="swiper_status_action_delete_selected">حذف انتخاب شده‌‌‌‌‌‌ها</string>
     <string name="swiper_status_action_reset_selected">بازنشانی انتخاب شده</string>
     <string name="swiper_decision_undecided">تصمیم‌نگرفته</string>
     <string name="swiper_retry_action">تلاش مجدد</string>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">آماده مرتب‌سازی هستید؟</string>
     <string name="swiper_sessions_suggestions_label">با اینها شروع کنید:</string>
     <string name="swiper_sessions_suggestion_downloads">پوشه دانلودها</string>
-    <string name="swiper_sessions_suggestion_screenshots">تصاویر صفحه</string>
+    <string name="swiper_sessions_suggestion_screenshots">عکس‌های صفحه</string>
     <string name="swiper_sessions_suggestion_camera">رول دوربین</string>
     <string name="swiper_stamp_keep_1">حفظ!</string>
     <string name="swiper_stamp_keep_2">عالی!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ بازگشت</string>
     <string name="swiper_help_title">نحوه کار Swiper</string>
     <string name="swiper_help_message">هر فایل را بکشید تا تصمیم بگیرید:\n\n← کشیدن به چپ: %1$s\n→ کشیدن به راست: %2$s\n↑ کشیدن به بالا: رد شدن\n↓ کشیدن به پایین: بازگشت (پس از اولین کشیدن)\n\nهمچنین می‌توانید از دکمه‌های پایین استفاده کنید.\n\nوقتی کارتان تمام شد، روی \"بررسی\" ضربه بزنید تا همه تصمیم‌هایتان را ببینید. تا زمانی که در صفحه بررسی تأیید نکنید، هیچ چیز حذف نمی‌شود.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">فهمیدم</string>
+    <string name="swiper_help_action">کمک</string>
 </resources>

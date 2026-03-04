@@ -5,11 +5,16 @@
         <item quantity="one">%d match na nabura</item>
         <item quantity="other">%d mga match na nabura</item>
     </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d tugma sa filter</item>
+        <item quantity="other">%d mga tugma sa filter</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">Pasadya na Salaan</string>
     <string name="systemcleaner_filter_custom_manage_label">Pamahalaan ang mga custom filter</string>
     <string name="systemcleaner_filter_custom_manage_summary">Gumawa, tanggalin, mag-import at mag-export ng inyong mga custom filter.</string>
     <string name="systemcleaner_filter_logfiles_label">Mga system log file</string>
     <string name="systemcleaner_filter_logfiles_summary">Mga system at system service log file (hal. *.log) sa iba\'t ibang lokasyon.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Cache ng installer</string>
     <string name="systemcleaner_filter_packagecaches_summary">Naka-cache na data na nauugnay sa mga naka-install na app na ginagamit ng package management ng system.</string>
     <string name="systemcleaner_filter_advertisements_label">Ad files</string>
     <string name="systemcleaner_filter_advertisements_summary">Mga files na nagawa o para sa patalastas.</string>
@@ -41,11 +46,13 @@
     <string name="systemcleaner_filter_tempfiles_summary">System-related na pansamantalang file, karaniwang panandaliang cache para sa mga aktibong operasyon.</string>
     <string name="systemcleaner_filter_analytics_label">Mga analytics file</string>
     <string name="systemcleaner_filter_analytics_summary">Data na nauugnay sa analytics at bug tracking.</string>
+    <string name="systemcleaner_filter_downloadcache_label">Cache ng download</string>
     <string name="systemcleaner_filter_downloadcache_summary">System cache folder na ginagamit para sa iba\'t ibang bagay (hal. OTA update).</string>
     <string name="systemcleaner_filter_localtmp_label">Mga lokal na pansamantalang file</string>
     <string name="systemcleaner_filter_localtmp_summary">System-related na pansamantalang file (hal. mula sa Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">Mga system log file</string>
     <string name="systemcleaner_filter_datalogger_summary">System service specific na log file.</string>
+    <string name="systemcleaner_filter_logdropbox_label">Log drop box</string>
     <string name="systemcleaner_filter_logdropbox_summary">Lugar para sa system na maglagay ng mga log file.</string>
     <string name="systemcleaner_filter_recenttasks_label">Mga kamakailang gawain</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data na nauugnay sa kasaysayan ng mga gawain sa task switcher ng system.</string>
@@ -54,6 +61,7 @@
     <string name="systemcleaner_filter_usagestats_label">Mga usage stats</string>
     <string name="systemcleaner_filter_usagestats_summary">Mga file na nauugnay sa application usage stats.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Tanggalin ang lahat ng laman ng filter?</string>
+    <string name="systemcleaner_customfilter_label">Custom na filter</string>
     <string name="systemcleaner_customfilter_create_action">Gumawa ng custom filter</string>
     <string name="systemcleaner_customfilter_create_hint">Gumawa ng custom filter para tanggalin ang mga karagdagang file na natatangi sa inyong device at mga gamit.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tanggalin ang filter na ito?</string>
@@ -82,6 +90,7 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Pangalan ay nagtatapos sa keyword</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Pangalan ay katumbas ng keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Huling edit: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">Live na paghahanap</string>
     <string name="systemcleaner_customfilter_editor_size_label">Mga limitasyon sa sukat</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Pinakamaliit na sukat</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Pinakamataas na sukat</string>
@@ -92,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitahan ang mga resulta batay sa edad ng file (huling pagbabago). Hayaang walang setting upang tumugma sa anumang edad.</string>
     <string name="systemcleaner_customfilter_import_action">Mag-import ng bagong filter</string>
     <string name="systemcleaner_customfilter_export_action">I-export ang napilingi na filter</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago!</string>
 </resources>

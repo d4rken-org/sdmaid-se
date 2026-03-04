@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Gracias</string>
     <string name="general_error_type_mismatch_msg">Ocurrió una discordancia: Se quiso %1$s, pero se obtuvo %2$s.</string>
     <string name="general_error_cant_access_msg">No se puede acceder a %s.</string>
-    <string name="general_error_root_unavailable">El acceso al root no está disponible.</string>    <string name="general_error_no_compatible_app_found_msg">No se han encontrado aplicaciones para concretar tu solicitud.</string>
+    <string name="general_error_root_unavailable">El acceso al root no está disponible.</string>
+    <string name="general_error_no_compatible_app_found_msg">No se han encontrado aplicaciones para concretar tu solicitud.</string>
     <string name="general_todo_msg">Todavía se está trabajando en esta función y por el momento no se encuentra disponible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Hecho</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>
+    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Resetear</string>
     <string name="general_drag_handle_description">Arrastrá para reordenar</string>
-    <string name="general_save_action">Guardar</string>    <string name="general_gotit_action">Entendido</string>
+    <string name="general_save_action">Guardar</string>
+    <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Reparar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ajustes</string>
     <string name="setup_feature_requires_additional_setup_x">Esta función requiere completar algunas configuraciones adicionales: %s</string>
+    <string name="upgrade_feature_requires_pro">Requiere Pro</string>
+    <string name="general_include_multiuser_label">Incluir a otros usuarios</string>
+    <string name="general_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>
+    <string name="general_unsaved_confirmation_message">¡Tenés cambios sin guardar!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Una exclusión creada</item>
         <item quantity="other">Se han creado %d exclusiones</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historial</string>
     <string name="settings_category_tools_label">Herramientas</string>
-    <string name="general_include_multiuser_label">Incluir a otros usuarios</string>
-    <string name="general_include_multiuser_summary">Incluye aplicaciones de otros perfiles de usuario de este dispositivo.</string>
-    <string name="general_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
 </resources>

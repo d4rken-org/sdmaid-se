@@ -94,4 +94,5 @@
         <item quantity="other">Starih vsaj %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Predviden ~%d%% prihranek za datoteke JPEG</string>
+    <string name="squeezer_onboarding_got_it">Razumem!</string>
 </resources>

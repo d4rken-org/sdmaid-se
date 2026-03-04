@@ -9,12 +9,12 @@
     <string name="analyzer_device_storage_title">Pamięć urządzenia</string>
     <plurals name="analyzer_space_available">
         <item quantity="one">%s dostępna</item>
-        <item quantity="few">%s dostępna</item>
-        <item quantity="many">%s dostępna</item>
-        <item quantity="other">%s dostępna</item>
+        <item quantity="few">%s dostępne</item>
+        <item quantity="many">%s dostępnych</item>
+        <item quantity="other">%s dostępnych</item>
     </plurals>
     <plurals name="analyzer_space_used">
-        <item quantity="one">%s używanych</item>
+        <item quantity="one">%s używana</item>
         <item quantity="few">%s używane</item>
         <item quantity="many">%s używanych</item>
         <item quantity="other">%s używanych</item>
@@ -23,8 +23,8 @@
     <string name="analyzer_content_create_swiper_session_action">Utwórz sesję Przesuwacza</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Sesja Przesuwacza utworzona z %d elementu</item>
-        <item quantity="few">Sesja Przesuwacza została utworzona z %d elementów</item>
-        <item quantity="many">Sesja Swiper została utworzona z %d elementów</item>
+        <item quantity="few">Sesja Przesuwacza utworzona z %d elementów</item>
+        <item quantity="many">Sesja Przesuwacza utworzona z %d elementów</item>
         <item quantity="other">Sesja Przesuwacza utworzona z %d elementów</item>
     </plurals>
     <string name="analyzer_storage_type_primary_title">Pamięć podstawowa</string>

@@ -17,7 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid நேர வரம்பிற்குள் அனைத்து படிகளையும் முடிக்கவில்லை. இது தொடர்ந்து நடந்தால், உங்கள் சாதனத்திற்காக பயன்பாட்டைச் சரிசெய்ய வேண்டியிருக்கலாம். புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதைச் சரிசெய்ய எனக்கு தெரியப்படுத்தவும்.</string>
     <string name="automation_error_overlay_title">தனியாக்க மேல்பதிவு</string>
     <string name="automation_error_overlay_body">SD Maid தனியாக்க மேல்பதிவைக் காட்ட முடியவில்லை. அனுமதிகளைச் சரிபார்த்து உங்கள் சாதனத்தை மீண்டும் தொடங்க முயற்சிக்கவும்.</string>
+    <string name="automation_error_scheduler_title">திட்டமிட்ட தானியங்கி செயல்பாடு தோல்வியடைந்தது</string>
+    <string name="automation_error_scheduler_body">திட்டமிட்ட பணி அக்செஸிபிலிட்டி சேவையைப் பயன்படுத்த முயற்சித்தது, ஆனால் அது கிடைக்கவில்லை. உங்களுக்கு இது தேவையில்லையெனில், திட்டமிட்டவரின் அமைப்புகளில் â€அக்செஸிபிலிட்டி சேவைâ€ விருப்பத்தை உப்யோகப்படுத்தாதே செய்யுங்கள்.</string>
     <string name="automation_error_no_settings_title">அமைப்புகள் திரை கிடைக்கவில்லை</string>
     <string name="automation_error_no_settings_body">இந்த கணினி பயன்பாட்டில் அமைப்புகள் திரை இல்லை. அணுகல் சேவை வழியாக கேச் அழிப்பு சாத்தியமில்லை. கேச் அழிப்பை விரைவுபடுத்த அதை விலக்கவும்.</string>
-    <string name="automation_loading">அணுகல் சேவை வழியாக தானியங்கியமாக்கத்தை தயார் செய்கிறது</string>
+    <string name="automation_loading">அணுகல் சேவை வழியாக தனியாக்கத்தை தயார் செய்கிறது</string>
+    <string name="automation_progress_find_ok_confirmation">முந்தைய செயலை உறுதிசெய்ய முயற்சிகிறது (சாவி வார்த்தைகள்: %s)</string>
 </resources>

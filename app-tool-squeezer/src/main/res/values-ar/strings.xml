@@ -33,7 +33,7 @@
         <item quantity="many">تم تحديد %d صورة</item>
         <item quantity="other">تم تحديد %d صورة</item>
     </plurals>
-    <string name="squeezer_search_locations_title">مواقع البحث</string>
+    <string name="squeezer_search_locations_title">أماكن البحث</string>
     <string name="squeezer_search_locations_default_summary">مجلدات الكاميرا (افتراضي)</string>
     <string name="squeezer_min_size_title">الحد الأدنى لحجم الملف</string>
     <string name="squeezer_min_size_description">تخطي الصور الأصغر من هذا الحجم.</string>
@@ -87,10 +87,10 @@
     <string name="squeezer_result_empty_message">لم يتم العثور على صور قابلة للضغط.</string>
     <string name="squeezer_setup_warning">الضغط يقلل جودة الصورة بشكل دائم لتوفير مساحة التخزين. لا يمكن التراجع عن ذلك. راجع إعداداتك بعناية قبل البدء.</string>
     <string name="squeezer_setup_explanation">ضغط الوسائط يقلل حجم ملفات الصور لتحرير مساحة التخزين. هذا يقلل جودة الصورة بشكل دائم ولا يمكن التراجع عنه. راجع إعداداتك بعناية قبل البدء.</string>
-    <string name="squeezer_setup_paths_title">مواقع البحث</string>
+    <string name="squeezer_setup_paths_title">أماكن البحث</string>
     <string name="squeezer_setup_paths_default">اختر المجلدات للبحث</string>
     <string name="squeezer_setup_quality_title">جودة الضغط</string>
-    <string name="squeezer_setup_age_title">الحد الأدنى للعمر</string>
+    <string name="squeezer_setup_age_title">الحد الأدنى للسن</string>
     <string name="squeezer_setup_age_none">بدون حد (تضمين جميع الملفات)</string>
     <string name="squeezer_setup_start_action">بدء الفحص</string>
     <string name="squeezer_quality_hint_very_low">الجودة أقل من 40% قد تنتج صورًا غير قابلة للاستخدام.</string>
@@ -106,4 +106,5 @@
         <item quantity="other">عمرها %d يوم على الأقل</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">توفير مقدر ~%d%% لملفات JPEG</string>
+    <string name="squeezer_onboarding_got_it">عُلم</string>
 </resources>

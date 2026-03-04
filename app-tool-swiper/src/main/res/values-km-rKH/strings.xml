@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">រាត់ថតយ្វាក់ ― ស្វើបត្រឹកឯកសារដើម្បីរក្សា លុប អ្វីលឹចលញ។</string>
+    <string name="swiper_dashcard_description">រាត់ថតាស្ថានចិត្តនានឋែមវិនិច្ឆ័យកំពុងភ្នាហើលើបជាង ― ស្វើបត្រឹកឯកសារនិមួយ។</string>
+    <string name="swiper_start_action">ចំឡើងស្វើប</string>
+    <string name="swiper_continue_action">បន្ត្ឡើងសម័អត់</string>
+    <string name="swiper_sessions_description">ស្វែងឯកសារច្រើន 3 ជ្រៃកសាមាញ៖\n\n1. ជ្រើសថតដើម្បីសស័រវិនិច្ឆ័យ\n2. ស្វើបត្រឹកឯកសារដើម្បីរក្សា លុប អ្វីលឹចលញ\n3. ស្វែងជម្រើសរបស់អ្នក និងបញ្ជាក់\n\nមិនមានឯកសារត្រូវលុបរើត្រូវបានផ័ឡកតម្ទែលុបត់លុបចុង។</string>
+    <string name="swiper_select_folders_action">ជ្រើសថត</string>
+    <string name="swiper_scanning_title">សស័រវិនិច្ឆ័យ…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">ឯកថន្ទ់ %d ត្រូវបានរក</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">ឯកថន្ទ់ %d ត្រូវបានលុប</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">ឯកថន្ទ់ %d ប័កបល់</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ពី %2$d</string>
+    <string name="swiper_keep_action">រក្សា</string>
+    <string name="swiper_skip_action">លឹចលញ</string>
+    <string name="swiper_review_action">ស្វែង</string>
+    <string name="swiper_status_title">ស្វែងជម្រើស</string>
+    <string name="swiper_status_action_keep_selected">រក្សាដែលបានជ្រើស</string>
+    <string name="swiper_status_action_delete_selected">លុបធាតុដែលបានរើស</string>
+    <string name="swiper_status_action_reset_selected">ស្ទើរដែលបានជ្រើស</string>
+    <string name="swiper_decision_undecided">មិនត្រូវបានសម្រេច</string>
+    <string name="swiper_retry_action">ស្កើនម្តង</string>
+    <string name="swiper_delete_confirmation_title">លុបឯកសារ?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">នេឣនឹងលុបឯកសារ %1$d (%2$s) ផ័ល់ប័វត់។ ការប័ក័វត់នេឣមិនអាចត្រលប់វិញបាន។</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d ឯកថន្ទ់ដែលមិនបានសម្រេចនឹងនៅសល់សម្រាប់ស្វែងបន្ថែម។</item>
+    </plurals>
+    <string name="swiper_delete_x_action">លុប %1$d</string>
+    <string name="swiper_settings_swap_directions_title">បន្ថែកទិស្វើប</string>
+    <string name="swiper_settings_swap_directions_summary">ស្វើបស្តាំដើម្បីរក្សា ស្វើបស្តាំត្វែដើម្បីលុប។</string>
+    <string name="swiper_settings_show_details_title">បង្ហាញតិត្តឯកសារ</string>
+    <string name="swiper_settings_show_details_summary">បង្ហាញឈ្មំឯកសារ ទំហំ និងកាលបរិច្ឆើតក្កនៅហន្តៀស្វើប។</string>
+    <string name="swiper_settings_haptic_feedback_title">សម្លូងសម្ជាប់កំពឹង</string>
+    <string name="swiper_settings_haptic_feedback_summary">សម្លូងនៅពេលសម្រេចជម្រើសរក្សា អ្វីលុប។</string>
+    <string name="swiper_discard_session_confirmation_title">លុបបន្ថែយសម័អត់?</string>
+    <string name="swiper_discard_session_confirmation_message">ជម្រើសតាងអស់នឹងត្រូវបានបាត់។ តើអ្នកពិតជា?</string>
+    <string name="swiper_no_preview_available">មិនមានការមើលពាក្ស័ល់ត្រូវបាន</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">បន្ត្ឡើងសម័អត់ពី %1$d ថ្ង័មុន (%2$d%% រក្ច)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d សម័អត់</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d ឯកថន្ទ់ដែលមិនបានសម្រេច</item>
+    </plurals>
+    <string name="swiper_session_timestamps">បង្កើតឡើ %1$s អកម្មពិតបន្ថែម %2$s</string>
+    <string name="swiper_session_remove_action">ដកសម័អត់</string>
+    <string name="swiper_sessions_empty_hint">ចុច + ដើម្បីជ្រើសថត និងចំឡើងស្វើប</string>
+    <string name="swiper_sessions_upgrade_body">អឱបគ័ឡដើម្បីដកទំហំកំណត់ត្រង់នេ។។។ និងគាអិនានការបត់ស្ថាបនាការបង្កើត។ វៀរសន់បន្ថ័យការឡ់ត្រូវបានកំណត់ត្រង់ជាក់តែ៖</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">%d ឯកសារក្នុងមួយសម័អត់</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d សម័អត់</item>
+    </plurals>
+    <string name="swiper_session_default_label">សម័អត់ #%d</string>
+    <string name="swiper_session_rename_title">បន្ទែសម័អត់ម្តង</string>
+    <string name="swiper_session_rename_hint">អ្នកប័ត់ឈ្មំសម្រាប់សម័អត់នេ</string>
+    <string name="swiper_sessions_current_sessions">សម័អត់បច្ចុប្បន្ន</string>
+    <string name="swiper_session_paths_label">ផ្លូវ</string>
+    <string name="swiper_session_status_label">ស្ថានភាព</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d ដើម្បីរក្សា</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d ដើម្បីលុប</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d មិនបានសម្រេច</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d ត្រូវបានរក្សាហើយ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d ត្រូវបានលុបហើយ</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d ត្រូវបានរក្សា</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d ត្រូវបានលុប</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">ដកលែម \"%1$s\" ចេញបីការសស័រវិនិច្ឆ័យរបស់ Swiper?</string>
+    <string name="swiper_sessions_header_title">រើបរបស់ដើម្បីរាត់ថត?</string>
+    <string name="swiper_sessions_suggestions_label">ស្វែងចំឡើងត្រឹក៖</string>
+    <string name="swiper_sessions_suggestion_downloads">ថតដញ្ចូល</string>
+    <string name="swiper_sessions_suggestion_screenshots">រូបហេតកំអន់</string>
+    <string name="swiper_sessions_suggestion_camera">រូបត្រកាមេរា</string>
+    <string name="swiper_stamp_keep_1">រក្សា័!</string>
+    <string name="swiper_stamp_keep_2">ល័!</string>
+    <string name="swiper_stamp_keep_3">បាត់!</string>
+    <string name="swiper_stamp_keep_4">រក្សាទុក!</string>
+    <string name="swiper_stamp_delete_1">ទេ!</string>
+    <string name="swiper_stamp_delete_2">ឋឣ!</string>
+    <string name="swiper_stamp_delete_3">ស័ម្ភេឋ់!</string>
+    <string name="swiper_stamp_delete_4">លុប!</string>
+    <string name="swiper_stamp_skip_1">លឹចលញ!</string>
+    <string name="swiper_stamp_skip_2">ឡ់ឡ័!</string>
+    <string name="swiper_stamp_skip_3">បន្តែយ័!</string>
+    <string name="swiper_stamp_skip_4">អាច!</string>
+    <string name="swiper_stamp_undo_1">ត្រលប់វិញ!</string>
+    <string name="swiper_stamp_undo_2">ត្រលប់!</string>
+    <string name="swiper_stamp_undo_3">អ័!</string>
+    <string name="swiper_stamp_undo_4">័ត!</string>
+    <string name="swiper_gesture_overlay_dismiss">ចុចណាន្តដើម្បីចំឡើង</string>
+    <string name="swiper_gesture_overlay_left_delete">← លុប</string>
+    <string name="swiper_gesture_overlay_right_keep">រក្សា →</string>
+    <string name="swiper_gesture_overlay_left_keep">← រក្សា</string>
+    <string name="swiper_gesture_overlay_right_delete">លុប →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ លឹចលញ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ត្រលប់វិញ</string>
+    <string name="swiper_help_title">Swiper ត្រូវបានដំឡើរ្ការយ័ង\u1798័ច</string>
+    <string name="swiper_help_message">ស្វើបឯកសារនិមួយដើម្បីសម្រេចជម្រើស៖\n\n← ស្វើបស្តាំ៖ %1$s\n→ ស្វើបស្តាំត្វែ៖ %2$s\n↑ ស្វើបឡើ៖ លឹចលញ\n↓ ស្វើបចុ៖ ត្រលប់វិញ ប័កស្វើបដំបូង\n\nអ្នកអាចប្រើបរស់បុត្តនៅខាងក្រោមផង់ដោយ។\n\nនៅពេលអ្នករួចៅ ចុច “ស្វែង” ដើម្បីមើលជម្រើសតាងអស់។ មិនមានឯកសារត្រូវលុបរើត្រូវបានបញ្ជាក់នៅហន្តៀស្វែង។</string>
+    <string name="swiper_gesture_overlay_dismiss_action">យល់ហើយ</string>
+    <string name="swiper_help_action">ជំនួយ</string>
+</resources>

@@ -15,7 +15,19 @@
     <string name="debug_debuglog_record_action">Arazketa-erregistroa grabatu</string>
     <string name="debug_debuglog_stop_action">Grabaketa geldiarazi</string>
     <string name="debug_debuglog_sensitive_information_message">Sortutako fitxategiak informazio sentikorra du (adibidez, fitxategi-izenak eta instalatutako aplikazioak). Konfiantzazko alderdiekin bakarrik partekatu.</string>
+    <string name="debug_debuglog_screen_title">Arazketa erregistroa</string>
+    <string name="debug_debuglog_screen_discard_action">Baztertu</string>
+    <string name="debug_debuglog_screen_session_path_label">Saioa Bidearen bidea</string>
+    <string name="debug_debuglog_screen_log_files_label">Erregistro fitxategiak</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fitxategi prest (%2$s) · %3$s</item>
+        <item quantity="other">%1$d fitxategi prest (%2$s) · %3$s</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Eginbide honek aplikazioak egiten dituen guztiak partekagarria den fitxategi batean grabatzen ditu. Sortutako fitxategiak informazio sentikorra dauka (adib. fitxategi-izenak eta instalatutako aplikazioak). Soilik pertsona fidagarriekin partekatu (adib. arazo bat konpontzen ari den garatzaile batekin).</string>
+    <string name="debug_debuglog_short_recording_title">Grabaketa oso laburra</string>
+    <string name="debug_debuglog_short_recording_desc">Grabaketa oso laburra izan zen. Arazketa-erregistroak grabaketak dira, ez argazkiak — erreproduzitu arazoa grabaketa aktibo dagoen bitartean erregistroa baliagarria izan dadin.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Jarraitu grabatzen</string>
+    <string name="debug_debuglog_short_recording_stop_action">Gelditu hala ere</string>
     <string name="tasks_activity_notification_channel_label">Zeregin aktiboak</string>
     <string name="tasks_activity_working_notification_title">SD Maid lanean dabil</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -33,6 +45,7 @@
     <string name="onboarding_welcome_body2">Lortu biltegiratze-lekua beste aplikazioen atzean garbitzean. Ezabatu gastu daitezkeen fitxategiak eta kendu geratzen diren datuak.</string>
     <string name="onboarding_welcome_body_beta">Hau beta (probak) bertsio bat da. Jarraitu barregarritasun zentzuarekin eta babeskopia-plan batekin. Mesedez, jakinarazi topatzen dituzun arazoak.</string>
     <string name="onboarding_welcome_continue_action">Jarraitu</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 bezala ere ezaguna) SD Maid-en (SD Maid 1 bezala ere ezaguna) ondorengoa da. Android modernorako optimizatutako aplikazio berria.</string>
     <string name="onboarding_versus_body2">Bere aurrekariaren arkitektura 7 urte baino zaharragoa da eta ez da Android bertsio berrien erronkentzat diseinatuta. Garapen jarraitzeko diseinu berri bat beharrezkoa zen.</string>
     <string name="onboarding_versus_body3">Kontsidera ezazu SD Maid SE-ra aldatzea emaitza hobeak lortzeko.</string>
@@ -67,6 +80,7 @@
     <string name="ui_theme_style_setting_label">Gai estiloa</string>
     <string name="ui_theme_style_setting_explanation">Aplikazioari gaia jartzean erabiltzen den kolore-estiloa.</string>
     <string name="ui_theme_style_default_label">Lehenetsia</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Fitxategi-aurrebistak</string>
     <string name="ui_previews_summary">Erakutsi fitxategi-aurrebistak tresna guztietan (adib. irudi eta bideo miniaturak).</string>
     <string name="ui_language_override_label">Aplikazioaren hizkuntza</string>
@@ -80,9 +94,57 @@
     <string name="support_installid_desc">Akats-txosten automatikoak anonimoak dira. Partekatu zure instalazio IDa garatzaileak zure akats-txostenak aurkitu behar baditu.</string>
     <string name="support_debuglog_label">Arazketa-erregistroa</string>
     <string name="support_debuglog_desc">Grabatu aplikazioak egiten duen guztia parteka dezakezun testu-fitxategi batean.</string>
+    <string name="support_debuglog_folder_label">Arazketa erregistroaren karpeta</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d fitxategi %2$s erabiliz</item>
+        <item quantity="other">%1$d fitxategi %2$s erabiliz</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Ez dago arazketa erregistrorik gordeta</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Ezabatu arazketa erregistro guztiak?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Honek gordeta dauden arazketa erregistro saio guztiak betirako ezabatuko ditu. Ekintza hau ezin da desegin.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Ibiltzeko eta galderak egiteko lekua.</string>
+    <string name="support_contact_label">Harremanetan jarri garatzailearekin</string>
+    <string name="support_contact_desc">Bete formulario bat garatzaileari posta elektroniko bat bidaltzeko.</string>
+    <string name="support_contact_welcome">Mezu bakoitza neuk irakurtzen dut eta ahalik eta ondoen erantzuten saiatzen naiz, baina bakarrik lan egiten dudanez, denbora pixka bat har dezake. Eskerrik asko zure pazientziagatik.</string>
+    <string name="support_contact_footer">Zure mezua posta elektronikoaren bidez bidaliko da. Gailuaren eta konfigurazio-informazioa automatikoki eransten da. Pantaila-argazkiak edo bideo bat erantsi diezaiokezu posta elektronikoari. Posta elektronikoaren zati batzuk ingelesez idatzita egongo dira, garatzaileak erraz uler ditzan.</string>
+    <string name="support_contact_category_label">Kategoria</string>
+    <string name="support_contact_category_bug_label">Akats-txostena</string>
+    <string name="support_contact_category_feature_label">Funtzio-eskaera</string>
+    <string name="support_contact_category_question_label">Galdera</string>
+    <string name="support_contact_tool_label">Erlazionatutako tresna</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Orokorra</string>
+    <string name="support_contact_description_label">Deskribapena</string>
+    <string name="support_contact_description_bug_hint">Deskribatu zer gertatu zen eta nola erreproduzitu arazoa. Mesedez, zehaztu (gutxienez 20 hitz).</string>
+    <string name="support_contact_description_feature_hint">Deskribatu ikusi nahi zenukeen funtzioa. Mesedez, zehaztu (gutxienez 20 hitz).</string>
+    <string name="support_contact_description_question_hint">Deskribatu zure galdera xehetasunez. Mesedez, zehaztu (gutxienez 20 hitz).</string>
+    <string name="support_contact_expected_label">Espero den portaera</string>
+    <string name="support_contact_expected_hint">Deskribatu zer gertatzea espero zenuen (gutxienez 10 hitz).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d hitz</item>
+        <item quantity="other">%1$d / %2$d hitz</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Arazketa-erregistroa</string>
+    <string name="support_contact_debuglog_zip_error">Huts egin du arazketa-egunkaria konprimitzean</string>
+    <string name="support_contact_debuglog_picker_hint">Erantsi lehendik dagoen arazketa-egunkari bat, edo grabatu berri bat.</string>
+    <string name="support_contact_debuglog_picker_empty">Ez da arazketa-egunkariarik aurkitu. Grabatu bat lehenengo.</string>
+    <string name="support_contact_send_action">Ireki posta elektronikoaren aplikazioa</string>
+    <string name="support_contact_no_email_app">Ez da posta elektronikoaren aplikaziorik aurkitu gailu honetan.</string>
     <string name="changelog_label">Aldaketa-erregistroa</string>
     <string name="settings_acknowledgements_label">Aitorpenak</string>
+    <string name="settings_acknowledgements_category_translations_title">Itzulpenak</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Nork itzuli du hau?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Eskerrik asko</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Bereziki eskerrak gure lagunei.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lizentziak</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maidek erabilitako softwarea.</string>
     <string name="setup_label">Konfigurazioa</string>
     <string name="setup_incomplete_card_title">Konfigurazioa ez da osatu</string>
     <string name="setup_incomplete_card_body">Amaitu SD Maid-en konfigurazioa emaitza hobeak lortzeko.</string>
@@ -108,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">Erabili root sarbidea eskuragarri badago</string>
     <string name="setup_root_disable_root_use_label">Ez erabili root sarbidea</string>
     <string name="setup_root_card_body2">Soilik root duten gailuetan erabilgarri. Aldaketa hau egin ez baduzu, orduan zure gailua ez dago root-etuta eta ezarpen honek ez du eraginik.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid-ek Shizuku erabili behar du eskuragarri badago? Shizuku-k datu gehigarrietarako sarbidea eman dezake root baimenik gabe.</string>
     <string name="setup_shizuku_card_body2">Zure gailuan Shizuku instalatuta ez badago, ezarpen honek ez du eraginik</string>
     <string name="setup_shizuku_card_root_info">Shizuku root sarbidearekin konbinatuta ez du eginbide gehigarririk gaitzen, baina fidagarritasuna hobetzen du. SD Maid-ek babeskopia metodo gisa erabiliko du.</string>
@@ -151,6 +214,57 @@
     <string name="debug_mode_explanation">Gaitu proba-aukerak eta irteera xeheagoa. Aplikazioa motelago ibiliko da eta modu ezberdinean funtzionatuko du.</string>
     <string name="debug_bugreporter_label">Akats-txosten automatikoa</string>
     <string name="debug_bugreporter_summary">Automatikoki jakinarazten ditu arazoak, adib. aplikazioaren kraskaduren xehetasunak, zergatia aurkitu eta konpon dezadan.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Arazketa modua gaituta dago</string>
+    <string name="debug_card_trace_mode_label">Gaitu traza modua</string>
+    <string name="debug_card_dryrun_mode_label">Simulazio modua (desgaitu ezabapena)</string>
+    <string name="debug_card_areas_reload_action">Birkargatu datu-eremuak</string>
+    <string name="debug_card_pkgs_reload_action">Birkargatu aplikazioak</string>
+    <string name="debug_card_root_test_action">Testa root</string>
+    <string name="debug_card_shizuku_test_action">Testa Shizuku</string>
     <string name="settings_category_filter">Iragazkia</string>
     <string name="settings_category_risklevel">Arrisku-maila</string>
+    <string name="data_area_public_app_data_official_label">Lehenetsitako datu publikoak aplikazioagatik</string>
+    <string name="data_area_public_app_assets_official_label">Aplikazioen aktibo publikoak lehenetsi gisara</string>
+    <string name="data_area_public_storage_label">Biltegi publikoa</string>
+    <string name="data_area_sdcard_label">SD txartela</string>
+    <string name="data_areas_label">Datu-areak</string>
+    <string name="data_areas_description">Datu-areak zure gailuan SD Maidak atzitu ditzakeen tokiak dira. Android bertsioa eta emandako baimenak kontuan hartuta, datu-area desberdinak egon daitezke.</string>
+    <string name="data_areas_short_summary">SD Maidak gaur emandako baimen horien arabera atzitu ditzakeen areak.</string>
+    <string name="history_label">Historia</string>
+    <string name="history_description">Denbora- ordenean, azken ekintzak eta eragin dituzten datuak.</string>
+    <string name="updates_dashcard_title">Eguneratzea eskuragarri</string>
+    <string name="updates_dashcard_body">Eguneratzea eskuragarri. %1$s dituzu eta azken bertsioa %2$s da.</string>
+    <string name="translation_encourage_title">SD Maida itzuli</string>
+    <string name="translation_encourage_body">SD Maida boluntarioek itzultzen dute. Itzulpena, berrikusketa edo zuzentzaile lana egingo bazenu, eskerrak!</string>
+    <string name="translation_translators_title">Bertsio hau honela itzuli du</string>
+    <string name="translation_translators_people">Pertsona1;Pertsona2(aukerakoa@email.com)</string>
+    <string name="motd_setting_enabled_label">Mezu garrantzitsuak</string>
+    <string name="motd_setting_enabled_explanation">Baimendu SD Maidi garatzailearen mezu garrantzitsuak bilatzea.</string>
+    <string name="updatecheck_setting_enabled_label">Eguneraketa bilaketa</string>
+    <string name="updatecheck_setting_enabled_explanation">Baimendu SD Maidi eguneraketen bilaketa egitea bertsio berriagoa dagoen jakiteko.</string>
+    <string name="device_settings_category">Gailua</string>
+    <string name="beta_version_indicator_desc">Aurreikustirako bertsioak litzara bat erakusten dute hasierako pantailan. Behin-behinean eguneratzen dira, ezaugarri gehiago izan ditzakete, baina akatse gehiago ere izan ditzakete.</string>
+    <string name="review_app_review_action">Iritzia</string>
+    <string name="review_app_dismiss_action">Agian geroago</string>
+    <string name="review_app_body">Iritzia uzten diozu SD Maid-ri? ❤️</string>
+    <string name="anniversary_card_title">SD Maiden urteurrea zorionean ❤️</string>
+    <string name="anniversary_card_install_date">%s-tik zurekin</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Dagoeneko %1$d urte batera. Eskerrik asko SD Maidi zure Android garbi eta txukun mantentzen fidatzeagatik. Askatutako espazioa: %2$s</item>
+        <item quantity="other">%1$d urte sendo. Zure gailua garbi eta txukun mantentzen SD Maidekin. Askatutako espazioa: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Partekatu zure SD Maiden urteurrea</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid
+Probatu: %3$s</item>
+        <item quantity="other">%1$d urte SD Maidekin — Askatutako espazioa: %2$s. Zure Android garbi eta txukun mantentzen. #SDMaid
+Probatu: %3$s</item>
+    </plurals>
+    <string name="shortcut_onetap_short">Bilatu + Ezabatu</string>
+    <string name="shortcut_onetap_long">Bilatu eta ezabatu ekintza bakarrean</string>
+    <string name="shortcuts_settings_category">Lasterbideak</string>
+    <string name="shortcuts_onetap_enabled_title">Lasterbidea pultsazio bakarrera</string>
+    <string name="shortcuts_onetap_enabled_summary">Erakutsi \"Bilatu + Ezabatu\" lasterbidea aplikazioaren ikonoa luzean sakatzerakoan. Atala txokirako paila berberak erabiltzen ditu.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

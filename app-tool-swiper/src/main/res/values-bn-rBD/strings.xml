@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">দ্রুত ফোল্ডার গোছান — ফাইল সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান।</string>
     <string name="swiper_dashcard_description">ফাইল এক্সপ্লোরারের চেয়ে দ্রুত নির্দিষ্ট ফোল্ডার গোছান — শুধু প্রতিটি ফাইল সোয়াইপ করুন।</string>
-    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_start_action">সোয়াইপ শুরু করুন</string>
     <string name="swiper_continue_action">সেশন চালিয়ে যান</string>
+    <string name="swiper_sessions_description">৩টি সহজ ধাপে ফাইল পর্যালোচনা করুন:\n\n১. স্ক্যান করতে একটি ফোল্ডার বেছে নিন\n২. ফাইলগুলি সোয়াইপ করে রাখুন, মুছুন বা এড়িয়ে যান\n৩. আপনার পছন্দগুলি পর্যালোচনা করুন এবং নিশ্চিত করুন\n\nচূড়ান্ত মুছুন বোতামে ট্যাপ না করা পর্যন্ত কিছুই সরানো হবে না।</string>
     <string name="swiper_select_folders_action">ফোল্ডার নির্বাচন করুন</string>
     <string name="swiper_scanning_title">স্ক্যান করা হচ্ছে…</string>
     <plurals name="swiper_result_x_items_found">
@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">রাখুন</string>
     <string name="swiper_skip_action">এড়িয়ে যান</string>
-    <string name="swiper_review_action">পর্যালোচনা</string>
+    <string name="swiper_review_action">পর্যালোচনা করুন</string>
     <string name="swiper_status_title">সিদ্ধান্ত পর্যালোচনা</string>
     <string name="swiper_status_action_keep_selected">নির্বাচিত রাখুন</string>
-    <string name="swiper_status_action_delete_selected">নির্বাচিত মুছুন</string>
+    <string name="swiper_status_action_delete_selected">নির্বাচিত অংশ মুছুন</string>
     <string name="swiper_status_action_reset_selected">নির্বাচিত রিসেট করুন</string>
     <string name="swiper_decision_undecided">অনির্ধারিত</string>
     <string name="swiper_retry_action">পুনরায় চেষ্টা</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ পূর্বাবস্থা</string>
     <string name="swiper_help_title">Swiper কিভাবে কাজ করে</string>
     <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
+    <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
+    <string name="swiper_help_action">সহায়তা</string>
 </resources>

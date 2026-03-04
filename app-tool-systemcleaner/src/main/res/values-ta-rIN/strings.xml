@@ -32,6 +32,7 @@
     <string name="systemcleaner_filter_superfluosapks_summary">நிறுவப்பட்ட செயலி பதிப்புகளின் அடிப்படையில் தேவையில்லாத நிறுவல் கோப்புகள்.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">அதே பதிப்பைச் சேர்</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">நிறுவப்பட்ட பதிப்புடன் பொருந்தும் APK கோப்புகளையும் இலக்காகக் கொள். பழைய பதிப்புகளை மட்டும் நீக்க முடக்கவும்.</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR கோப்பைகள்</string>
     <string name="systemcleaner_filter_lostdir_summary">Android சாதனங்களுக்கிடையே தரவை மாற்றும்போது உருவாக்கப்படும் தற்காலிக கோப்புகள்.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux கோப்புகள்</string>
     <string name="systemcleaner_filter_linuxfiles_summary">சேமிப்பகம் Linux கணினியுடன் இணைக்கப்படும்போது உருவாக்கப்படும் கோப்புகள் மற்றும் அடைவுகள்.</string>
@@ -100,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">கோப்பு வயது (கடைசி மாற்றிய நேரம்) அடிப்படையில் பொருத்தங்களை வரம்பிடு. எந்த வயதிலும் பொருத்த அமைக்காமல் விடவும்.</string>
     <string name="systemcleaner_customfilter_import_action">புதிய வடிகட்டியை இறக்குமதி செய்</string>
     <string name="systemcleaner_customfilter_export_action">தேர்ந்தெடுத்த வடிகட்டியை ஏற்றுமதி செய்</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
 </resources>

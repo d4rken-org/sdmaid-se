@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid ने समय सीमा के भीतर सभी चरण पूरे नहीं किए। यदि यह होता रहता है, तो मुझे आपके डिवाइस के लिए ऐप को समायोजित करने की आवश्यकता हो सकती है। अपडेट की जांच करें या मुझसे संपर्क करें ताकि मैं इसे ठीक कर सकूं।</string>
     <string name="automation_error_overlay_title">स्वचालन ओवरले</string>
     <string name="automation_error_overlay_body">SD Maid स्वचालन ओवरले नहीं दिखा सका। अनुमतियों की जांच करें और अपना डिवाइस रीबूट करने का प्रयास करें।</string>
+    <string name="automation_error_scheduler_title">निर्धारित स्वचालन विफल हुआ</string>
+    <string name="automation_error_scheduler_body">एक निर्धारित कार्य ने एक्सेसिबिलिटी सेवा का उपयोग करने का प्रयास किया, लेकिन यह उपलब्ध नहीं थी। यदि आपको इसकी आवश्यकता नहीं है, तो शेड्यूलर सेटिंग में \"एक्सेसिबिलिटी सेवा\" विकल्प को अक्षम करें।</string>
     <string name="automation_error_no_settings_title">सेटिंग्स स्क्रीन उपलब्ध नहीं</string>
     <string name="automation_error_no_settings_body">इस सिस्टम ऐप की कोई सेटिंग्स स्क्रीन नहीं है। पहुंच सेवा के माध्यम से कैश साफ़ करना संभव नहीं है। कैश साफ़ करने की गति बढ़ाने के लिए इसे बाहर करें।</string>
-    <string name="automation_loading">अभिगम्यता सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
-    <string name="automation_progress_find_ok_confirmation">पुष्टिकरण बटन ढूंढा जा रहा है</string>
+    <string name="automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
+    <string name="automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
 </resources>

@@ -24,6 +24,10 @@
         <item quantity="other">%1$d ఫైల్‌లు సిద్ధం (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">ఈ ఫీచర్ యాప్ చేస్తున్న ప్రతిదీ పంచుకోగల ఫైల్‌లో రికార్డ్ చేస్తుంది. సృష్టించబడిన ఫైల్‌లో సున్నితమైన సమాచారం ఉంది (ఉదా. ఫైల్ పేర్లు మరియు ఇన్‌స్టాల్ చేయబడిన యాప్‌లు). దీన్ని విశ్వసనీయ పక్షాలతో మాత్రమే పంచుకోండి (ఉదా. సమస్యను పరిష్కరించే డెవలపర్).</string>
+    <string name="debug_debuglog_short_recording_title">చాలా చిన్న రికార్డింగ్</string>
+    <string name="debug_debuglog_short_recording_desc">రికార్డింగ్ చాలా చిన్నది. డీబగ్ లాగ్‌లు రికార్డింగ్‌లు, స్నాప్‌షాట్‌లు కాదు — లాగ్ ఉపయోగకరంగా ఉండాలంటే రికార్డింగ్ యాక్టివ్‌గా ఉన్నప్పుడు సమస్యను పునరావృతం చేయండి.</string>
+    <string name="debug_debuglog_short_recording_continue_action">రికార్డింగ్ కొనసాగించు</string>
+    <string name="debug_debuglog_short_recording_stop_action">అయినా ఆపు</string>
     <string name="tasks_activity_notification_channel_label">సక్రియ కార్యాలు</string>
     <string name="tasks_activity_working_notification_title">SD Maid పని చేస్తోంది</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">ఇది నిల్వ చేయబడిన అన్ని డీబగ్ లాగ్ సెషన్‌లను శాశ్వతంగా తొలగిస్తుంది. ఈ చర్యను రద్దు చేయలేరు.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">ప్రశ్నలు అడగడానికి మరియు సమయం గడపడానికి స్థలం.</string>
+    <string name="support_contact_label">డెవలపర్‌ని సంప్రదించండి</string>
+    <string name="support_contact_desc">డెవలపర్‌కు ఇమెయిల్ పంపడానికి ఒక ఫారమ్ పూరించండి.</string>
+    <string name="support_contact_welcome">ప్రతి సందేశాన్ని నేనే చదువుతాను మరియు బదులివ్వడానికి నా వంతు కృషి చేస్తాను, కానీ నేను దీన్ని ఒంటరిగా చేస్తున్నందున, కొంచెం సమయం పట్టవచ్చు. మీ సహనానికి ధన్యవాదాలు.</string>
+    <string name="support_contact_footer">మీ సందేశం ఇమెయిల్ ద్వారా పంపబడుతుంది. పరికర మరియు సెటప్ సమాచారం స్వయంచాలకంగా జోడించబడుతుంది. మీరు స్క్రీన్‌షాట్‌లు లేదా వీడియోను ఇమెయిల్‌కు జోడించవచ్చు. డెవలపర్ సులభంగా అర్థం చేసుకోవడానికి ఇమెయిల్‌లోని కొన్ని భాగాలు ఆంగ్లంలో ఉంటాయి.</string>
+    <string name="support_contact_category_label">వర్గం</string>
+    <string name="support_contact_category_bug_label">బగ్ నివేదిక</string>
+    <string name="support_contact_category_feature_label">ఫీచర్ అభ్యర్థన</string>
+    <string name="support_contact_category_question_label">ప్రశ్న</string>
+    <string name="support_contact_tool_label">సంబంధిత సాధనం</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">డుప్లికేట్ రిమూవర్</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">శెడ్యూలర్</string>
+    <string name="support_contact_tool_general_label">సాధారణ</string>
+    <string name="support_contact_description_label">వివరణ</string>
+    <string name="support_contact_description_bug_hint">ఏమి జరిగిందో మరియు సమస్యను తిరిగి ఎలా పునరుత్పత్తి చేయాలో వివరించండి. దయచేసి నిర్దిష్టంగా ఉండండి (కనీసం 20 పదాలు).</string>
+    <string name="support_contact_description_feature_hint">మీరు చూడాలనుకునే ఫీచర్‌ను వివరించండి. దయచేసి నిర్దిష్టంగా ఉండండి (కనీసం 20 పదాలు).</string>
+    <string name="support_contact_description_question_hint">మీ ప్రశ్నను వివరంగా వివరించండి. దయచేసి నిర్దిష్టంగా ఉండండి (కనీసం 20 పదాలు).</string>
+    <string name="support_contact_expected_label">అంచనా వేసిన ప్రవర్తన</string>
+    <string name="support_contact_expected_hint">మీరు ఏమి జరగాలని అంచనా వేసారో వివరించండి (కనీసం 10 పదాలు).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d పదం</item>
+        <item quantity="other">%1$d / %2$d పదాలు</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">డిబగ్ లాగ్</string>
+    <string name="support_contact_debuglog_zip_error">డీబగ్ లాగ్‌ను కంప్రెస్ చేయడం విఫలమైంది</string>
+    <string name="support_contact_debuglog_picker_hint">ఇప్పటికే ఉన్న డీబగ్ లాగ్‌ను జోడించండి, లేదా కొత్తదాన్ని రికార్డ్ చేయండి.</string>
+    <string name="support_contact_debuglog_picker_empty">డీబగ్ లాగ్‌లు ఏవీ కనుగొనబడలేదు. ముందు ఒకటి రికార్డ్ చేయండి.</string>
+    <string name="support_contact_send_action">ఇమెయిల్ యాప్ తెరవండి</string>
+    <string name="support_contact_no_email_app">ఈ పరికరంలో ఇమెయిల్ యాప్ కనుగొనబడలేదు.</string>
     <string name="changelog_label">మార్పుల లాగ్</string>
     <string name="settings_acknowledgements_label">అంగీకారాలు</string>
     <string name="settings_acknowledgements_category_translations_title">అనువాదాలు</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">టెస్ట్ ఆప్షన్లు మరియు కూడా విస్తృత అవుట్‌పుట్‌ను ప్రారంభించండి. యాప్ మందగా కార్యాచరణ చేస్తుంది మరియు వేరేవిధంగా పరివర్తన చేస్తుంది.</string>
     <string name="debug_bugreporter_label">స్వయంచాలిత బగ్ రిపోర్ట్లు</string>
     <string name="debug_bugreporter_summary">సమస్యలను స్వయంచాలకంగా రిపోర్ట్ చేస్తుంది, ఉదా. యాప్ క్రాష్ వివరాలు నేను ఎందుకే చేశాను మరియు దానిని ఎలా సరిచేయాలను తెలుసుకునే వివరాలు.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">డీబగ్ మోడ్ ఎనేబుల్ చేయబడింది</string>
     <string name="debug_card_trace_mode_label">ట్రేస్ మోడ్ ఎనేబుల్ చేయండి</string>
     <string name="debug_card_dryrun_mode_label">డ్రై-రన్ మోడ్ (తొలగింపును నిలిపివేయి)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">షార్ట్‌కట్‌లు</string>
     <string name="shortcuts_onetap_enabled_title">వన్-టాప్ షార్ట్‌కట్</string>
     <string name="shortcuts_onetap_enabled_summary">యాప్ ఐకాన్‌ను ఎక్కువసేపు నొక్కినప్పుడు \"స్కాన్ + తొలగించు\" షార్ట్‌కట్‌ను చూపించు. వన్-టాప్ డ్యాష్‌బోర్డ్ వలె అదే టూల్స్ ఉపయోగిస్తుంది.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

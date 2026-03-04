@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">ຫນ່ວຍເກັບຂໍ້ມູລສາທາລະນະ</string>
+    <string name="area_type_public_media_label">ສື່ສາທາລະນະຂອງແອັບ</string>
+    <string name="area_type_public_data_label">ຂໍ້ມູນແອັບສາຘາລະນະ</string>
+    <string name="area_type_public_obb_label">ຊັບພະຍາກອນສາທາລະນະຂອງແອັບ</string>
+    <string name="area_type_private_data_label">ຂໍ້ມູລສ່ວນຕົວຂອງແອັບ</string>
+    <string name="area_type_portable_label">ຫນ່ວຍເກັບຂໍ້ມູລແບບພາຍຼ</string>
+</resources>

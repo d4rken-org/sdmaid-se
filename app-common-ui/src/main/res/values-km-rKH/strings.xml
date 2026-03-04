@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ជ្រើសព័ត្រូ</string>
+    <string name="picker_selected_paths_title">ព័ត្រូដែលបានជ្រើស</string>
+    <string name="picker_unsaved_confirmation_message">លើក់ចោលការប័រើស៱</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">បានជ្រើសព័ត្រូ %d</item>
+    </plurals>
+    <string name="picker_home_action">ត្រងតវ័ភបល័យ</string>
+</resources>

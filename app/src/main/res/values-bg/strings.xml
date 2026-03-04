@@ -24,6 +24,10 @@
         <item quantity="other">%1$d файла са готови (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Тази функция записва всичко, което прави приложението, в споделим файл. Генерираният файл съдържа чувствителна информация (напр. имена на файлове и инсталирани приложения). Споделяйте го само с доверени страни (напр. разработчик, който решава проблем).</string>
+    <string name="debug_debuglog_short_recording_title">Много кратък запис</string>
+    <string name="debug_debuglog_short_recording_desc">Записът беше много кратък. Дневниците за отстраняване на грешки са записи, а не моментни снимки — възпроизведете проблема, докато записът е активен, за да бъде полезен дневникът.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Продължи записа</string>
+    <string name="debug_debuglog_short_recording_stop_action">Спри въпреки това</string>
     <string name="tasks_activity_notification_channel_label">Активни задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работи</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Това ще изтрие окончателно всички съхранени сесии на дебъг логове. Това действие не може да бъде отменено.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Място за провеждане на време и задаване на въпроси.</string>
+    <string name="support_contact_label">Свържи се с разработчика</string>
+    <string name="support_contact_desc">Попълнете формуляр, за да изпратите имейл на разработчика.</string>
+    <string name="support_contact_welcome">Аз лично чета всяко съобщение и правя всичко възможно да отговоря, но тъй като работя сам, може да отнеме малко повече време. Благодаря за търпението.</string>
+    <string name="support_contact_footer">Вашето съобщение ще бъде изпратено по имейл. Информацията за устройството и настройките се прикачва автоматично. Можете да прикачите екранни снимки или видео към имейла. Някои части от имейла ще бъдат на английски, за да може разработчикът лесно да го разбере.</string>
+    <string name="support_contact_category_label">Категория</string>
+    <string name="support_contact_category_bug_label">Доклад за грешка</string>
+    <string name="support_contact_category_feature_label">Искане за функция</string>
+    <string name="support_contact_category_question_label">Въпрос</string>
+    <string name="support_contact_tool_label">Свързан инструмент</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Общи</string>
+    <string name="support_contact_description_label">Описание</string>
+    <string name="support_contact_description_bug_hint">Опишете какво се е случило и как да се възпроизведе проблемът. Моля, бъдете конкретни (минимум 20 думи).</string>
+    <string name="support_contact_description_feature_hint">Опишете функцията, която бихте искали да видите. Моля, бъдете конкретни (минимум 20 думи).</string>
+    <string name="support_contact_description_question_hint">Опишете подробно въпроса си. Моля, бъдете конкретни (минимум 20 думи).</string>
+    <string name="support_contact_expected_label">Очаквано поведение</string>
+    <string name="support_contact_expected_hint">Опишете какво сте очаквали да се случи (минимум 10 думи).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d дума</item>
+        <item quantity="other">%1$d / %2$d думи</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Дневник за отстраняване на грешки</string>
+    <string name="support_contact_debuglog_zip_error">Неуспешно компресиране на дневника за отстраняване на грешки</string>
+    <string name="support_contact_debuglog_picker_hint">Прикачете съществуващ дневник за отстраняване на грешки или запишете нов.</string>
+    <string name="support_contact_debuglog_picker_empty">Не са намерени дневници за отстраняване на грешки. Първо запишете един.</string>
+    <string name="support_contact_send_action">Отвори имейл приложение</string>
+    <string name="support_contact_no_email_app">На това устройство не е намерено имейл приложение.</string>
     <string name="changelog_label">Списък на промените</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
     <string name="settings_acknowledgements_category_translations_title">Преводи</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Активирайте тестови опции и по-подробен изход. Приложението ще работи по-бавно и ще се държи различно.</string>
     <string name="debug_bugreporter_label">Автоматичен доклад за грешки</string>
     <string name="debug_bugreporter_summary">Автоматично докладва проблеми, напр. подробности за сривове на приложението, за да мога да разбера защо и да го поправя.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режимът за отстраняване на грешки е активиран</string>
     <string name="debug_card_trace_mode_label">Активиране на режим за проследяване</string>
     <string name="debug_card_dryrun_mode_label">Пробен режим (без изтриване)</string>
@@ -200,7 +238,7 @@
     <string name="translation_encourage_title">Преведете SD Maid</string>
     <string name="translation_encourage_body">SD Maid се превежда от доброволци. Превод, преглед или корекция, вашата помощ се оценява!</string>
     <string name="translation_translators_title">Тази версия е преведена от</string>
-    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="translation_translators_people">Машинен превод</string>
     <string name="motd_setting_enabled_label">Важни съобщения</string>
     <string name="motd_setting_enabled_explanation">Позволете на SD Maid да проверява за важни съобщения от разработчика.</string>
     <string name="updatecheck_setting_enabled_label">Проверка за актуализации</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Бързи клавиши</string>
     <string name="shortcuts_onetap_enabled_title">Бърз клавиш с едно докосване</string>
     <string name="shortcuts_onetap_enabled_summary">Показване на бърз клавиш \"Сканиране + Изтриване\" при дълго натискане на иконата на приложението. Използва същите инструменти като таблото с едно докосване.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

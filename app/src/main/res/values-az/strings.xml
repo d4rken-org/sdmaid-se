@@ -24,6 +24,10 @@
         <item quantity="other">%1$d fayl hazırdır (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Bu funksiya tətbiqin etdiyi hər şeyi paylaşıla bilən fayla qeyd edir. Yaradılan fayl həssas məlumatlar ehtiva edir (məsələn fayl adları və quraşdırılmış tətbiqlər). Onu yalnız etibarlı tərəflərlə paylaşın (məsələn problemi həll edən tərtibatçı).</string>
+    <string name="debug_debuglog_short_recording_title">Çox qısa yazı</string>
+    <string name="debug_debuglog_short_recording_desc">Yazı çox qısa idi. Sazlama jurnalları anlıq görüntülər deyil, yazılardır — jurnal faydalı olsun deyə problem aktiv yazı zamanı yenidən göstərilməlidir.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Yazmağa davam et</string>
+    <string name="debug_debuglog_short_recording_stop_action">Hər halda dayandır</string>
     <string name="tasks_activity_notification_channel_label">Aktiv tapşırıqlar</string>
     <string name="tasks_activity_working_notification_title">SD Maid işləyir</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Bu, saxlanılan bütün sazlama jurnalı sessiyalarını birdəfəlik siləcək. Bu əməliyyat geri qaytarıla bilməz.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Vaxt keçirmək və suallar vermək üçün yer.</string>
+    <string name="support_contact_label">Tərtibatçıya müraciət edin</string>
+    <string name="support_contact_desc">Tərtibatçıya e-poçt göndərmək üçün formu doldurun.</string>
+    <string name="support_contact_welcome">Hər mesajı özüm oxuyur və cavab verməyə çalışıram, lakin bunu tək etdiyim üçün biraz vaxt apara bilər. Səbriniz üçün təşəkkür edirik.</string>
+    <string name="support_contact_footer">Mesajınız e-poçt vasitəsilə göndəriləcək. Cihaz və quraşdırma məlumatları avtomatik olaraq əlavə edilir. E-poçta ekran görüntüləri və ya video əlavə edə bilərsiniz. E-poçtun bəzi hissələri ingilis dilində olacaq ki, tərtibatçı asanlıqla başa düşsün.</string>
+    <string name="support_contact_category_label">Kateqoriya</string>
+    <string name="support_contact_category_bug_label">Xəta bildirişi</string>
+    <string name="support_contact_category_feature_label">Xüsusiyyət tələbi</string>
+    <string name="support_contact_category_question_label">Sual</string>
+    <string name="support_contact_tool_label">Əlaqəli alət</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Ümumi</string>
+    <string name="support_contact_description_label">Təsvir</string>
+    <string name="support_contact_description_bug_hint">Nə baş verdiyini və problemi necə təkrarlamağı təsvir edin. Xahiş edirəm konkret olun (minimum 20 söz).</string>
+    <string name="support_contact_description_feature_hint">Görmək istədiyiniz xüsusiyyəti təsvir edin. Xahiş edirəm konkret olun (minimum 20 söz).</string>
+    <string name="support_contact_description_question_hint">Sualınızı ətraflı təsvir edin. Xahiş edirəm konkret olun (minimum 20 söz).</string>
+    <string name="support_contact_expected_label">Gözlənilən davranış</string>
+    <string name="support_contact_expected_hint">Nə baş verməsini gözlədiyinizi təsvir edin (minimum 10 söz).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d söz</item>
+        <item quantity="other">%1$d / %2$d söz</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Sazlama jurnalı</string>
+    <string name="support_contact_debuglog_zip_error">Sazlama jurnalını sıxşatma alınmadı</string>
+    <string name="support_contact_debuglog_picker_hint">Mövcud sazlama jurnalı əlavə edin və ya yeni birini qeyd edin.</string>
+    <string name="support_contact_debuglog_picker_empty">Sazlama jurnalı tapılmadı. Əvvəlcə birini qeyd edin.</string>
+    <string name="support_contact_send_action">E-poçt tətbiqini açın</string>
+    <string name="support_contact_no_email_app">Bu cihazda e-poçt tətbiqi tapılmadı.</string>
     <string name="changelog_label">Dəyişikliklər</string>
     <string name="settings_acknowledgements_label">Təşəkkürlər</string>
     <string name="settings_acknowledgements_category_translations_title">Tərcümələr</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Test seçimlərini və daha ətraflı çıxışı aktivləşdir. Tətbiq daha yavaş işləyəcək və fərqli çalışacaq.</string>
     <string name="debug_bugreporter_label">Avtomatik xəta hesabatı</string>
     <string name="debug_bugreporter_summary">Problemləri avtomatik bildirir, məsələn, tətbiq çökmələri haqqında təfərrüatları, beləliklə səbəbini anlaya və düzəldə bilərəm.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Sazlama rejimi aktivdir</string>
     <string name="debug_card_trace_mode_label">İzləmə rejimini aktivləşdir</string>
     <string name="debug_card_dryrun_mode_label">Sınaq rejimi (silməni deaktiv et)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Qısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tək toxunuşlu qısayol</string>
     <string name="shortcuts_onetap_enabled_summary">Tətbiq nişanına ikonuna uzun basdıqda \"Skan et + Sil\" qısayolunu göstər. Tək toxunuşlu idarə panelindəki eyni alətlərdən istifadə edir.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

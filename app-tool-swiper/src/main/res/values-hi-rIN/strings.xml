@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">रखें</string>
     <string name="swiper_skip_action">छोड़ें</string>
-    <string name="swiper_review_action">समीक्षा</string>
+    <string name="swiper_review_action">समीक्षा करें</string>
     <string name="swiper_status_title">निर्णयों की समीक्षा करें</string>
     <string name="swiper_status_action_keep_selected">चयनित रखें</string>
-    <string name="swiper_status_action_delete_selected">चयनित हटाएं</string>
+    <string name="swiper_status_action_delete_selected">चयनित को मिटाएं</string>
     <string name="swiper_status_action_reset_selected">चयनित रीसेट करें</string>
     <string name="swiper_decision_undecided">अनिर्णीत</string>
     <string name="swiper_retry_action">पुनः प्रयास</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत करें</string>
     <string name="swiper_help_title">Swiper कैसे काम करता है</string>
     <string name="swiper_help_message">प्रत्येक फ़ाइल पर निर्णय लेने के लिए स्वाइप करें:\n\n← बाएं स्वाइप करें: %1$s\n→ दाएं स्वाइप करें: %2$s\n↑ ऊपर स्वाइप करें: छोड़ें\n↓ नीचे स्वाइप करें: पूर्ववत करें (पहले स्वाइप के बाद)\n\nआप नीचे दिए गए बटनों का भी उपयोग कर सकते हैं।\n\nजब आप कर लें, तो अपने सभी निर्णय देखने के लिए \"समीक्षा\" पर टैप करें। समीक्षा स्क्रीन पर पुष्टि करने तक कुछ भी हटाया नहीं जाता।</string>
+    <string name="swiper_gesture_overlay_dismiss_action">समझ गया</string>
+    <string name="swiper_help_action">सहायता</string>
 </resources>

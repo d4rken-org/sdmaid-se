@@ -31,7 +31,9 @@
     <string name="squeezer_quality_warning_low">Calidades prus bascias podent càusare artefatos visìbiles.</string>
     <string name="squeezer_quality_warning_high">Calidade meda arta dat isparagnos mìnimos de ispàtziu.</string>
     <string name="squeezer_types_category_label">Gèneres de immàgine</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Inclùe immàgines JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Inclùe immàgines WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">Brinca is cumprimidas in antis</string>
     <string name="squeezer_skip_compressed_description">Brinca is immàgines chi SD Maid at giai cumprimidu.</string>
@@ -80,4 +82,5 @@
         <item quantity="other">A su mancu %d dies de edade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Isparagnu istimadu de ~%d%% pro archìvios JPEG</string>
+    <string name="squeezer_onboarding_got_it">Apat cumprèndiu</string>
 </resources>

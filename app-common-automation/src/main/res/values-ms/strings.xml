@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">Operasi telah dihentikan kerana masa tamat telah luput. Cuba lagi atau lumpuhkan automasi.</string>
     <string name="automation_error_overlay_title">Kandungan tindihan</string>
     <string name="automation_error_overlay_body">Terdapat kandungan tindihan yang menghalang SD Maid daripada berinteraksi dengan skrin. Tutup semua aplikasi tindihan.</string>
+    <string name="automation_error_scheduler_title">Automasi berjadual gagal</string>
+    <string name="automation_error_scheduler_body">Tugas berjadual cuba menggunakan perkhidmatan kebolehcapaian, tetapi ia tidak tersedia. Jika anda tidak memerlukannya, lumpuhkan pilihan \"Perkhidmatan kebolehcapaian\" dalam tetapan penjadual.</string>
     <string name="automation_error_no_settings_title">Skrin tetapan tidak tersedia</string>
     <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak mempunyai skrin tetapan. Pembersihan cache melalui perkhidmatan kebolehcapaian tidak mungkin. Kecualikan ia untuk mempercepatkan pembersihan cache.</string>
-    <string name="automation_loading">Menyediakan automasi melalui perkhidmatan aksesibiliti</string>
+    <string name="automation_loading">Memuatkan...</string>
     <string name="automation_progress_find_ok_confirmation">Mencari butang pengesahan</string>
 </resources>

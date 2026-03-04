@@ -23,6 +23,8 @@ Walang gagawing aksyon nang walang nauunang approval ng user. Maaaring ma-disabl
     <string name="automation_error_timeout_body">Hindi nakumpleto ng SD Maid ang lahat ng hakbang sa loob ng time limit. Kung patuloy itong mangyayari, maaaring kailangan kong mag-adjust ng app para sa inyong device. Mag-check ng mga update o makipag-ugnayan sa akin para maayos ko ito.</string>
     <string name="automation_error_overlay_title">Overlay ng automation</string>
     <string name="automation_error_overlay_body">Hindi naipakita ng SD Maid ang automation overlay. I-check ang mga permission at subukang i-reboot ang inyong device.</string>
+    <string name="automation_error_scheduler_title">Nabigo ang naka-iskedyul na automation</string>
+    <string name="automation_error_scheduler_body">Sinubukan ng isang naka-iskedyul na gawain na gamitin ang accessibility service, ngunit hindi ito available. Kung hindi mo ito kailangan, i-disable ang opsyong \"Accessibility service\" sa mga setting ng scheduler.</string>
     <string name="automation_error_no_settings_title">Hindi available ang Settings screen</string>
     <string name="automation_error_no_settings_body">Ang system app na ito ay walang settings screen. Ang cache clearing sa pamamagitan ng accessibility service ay hindi posible. I-exclude ito para mapabilis ang cache clearing.</string>
     <string name="automation_loading">Naghahanda ng automation sa pamamagitan ng accessibility service</string>

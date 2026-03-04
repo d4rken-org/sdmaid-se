@@ -33,6 +33,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Ekrano nuotraukų amžius</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimalus ekrano nuotraukų amžius, kad jos būtų svarstomas trynimui.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Nereikalingi APK</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Diegimo failai, kurie nebereikalingi remiantis įdiegtomis programų versijomis.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Įtraukti tą pačią versiją</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Taip pat nukreipti APK failus, atitinkančius įdiegtają versiją. Išjungti, kad būtų pašalinamos tik senosios versijos.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR aplankai</string>
     <string name="systemcleaner_filter_lostdir_summary">Laikinieji failai, kurie sukuriami perduodant duomenis iš vieno Android prietaiso į kitą.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux failai</string>
@@ -92,6 +95,15 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Pavadinimas lygus raktažodžiui</string>
     <string name="systemcleaner_customfilter_last_edit">Paskutinis redagavimas: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Tiesioginė paieška</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Dydžių apribojimai</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimalus dydis</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimalus dydis</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Apriboti atitikmenis pagal failo dydį. Palikite neprieštarautinai, kad atitiktų bet kokį dydį.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Amžiaus apribojimai</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimalus amžius</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimalus amžius</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Apriboti atitikmenis pagal failo amžių (paskutinio pakeitimo laikas). Palikite neprieštarautinai, kad atitiktų bet kokį amžių.</string>
     <string name="systemcleaner_customfilter_import_action">Importuoti naują filtrą</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuoti pasirinktą filtrą</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
 </resources>

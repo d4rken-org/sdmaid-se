@@ -82,4 +82,5 @@
         <item quantity="other">కనీసం %d రోజులు పాతవి</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ఫైల్‌లకు అంచనా ~%d%% ఆదా</string>
+    <string name="squeezer_onboarding_got_it">అర్థమైంది</string>
 </resources>

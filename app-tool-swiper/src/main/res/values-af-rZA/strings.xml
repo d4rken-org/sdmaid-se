@@ -26,7 +26,7 @@
     <string name="swiper_review_action">Hersien</string>
     <string name="swiper_status_title">Hersien besluite</string>
     <string name="swiper_status_action_keep_selected">Hou gekose</string>
-    <string name="swiper_status_action_delete_selected">Verwyder gekose</string>
+    <string name="swiper_status_action_delete_selected">Skrap geselekteerde</string>
     <string name="swiper_status_action_reset_selected">Herstel gekose</string>
     <string name="swiper_decision_undecided">Onbeslis</string>
     <string name="swiper_retry_action">Probeer weer</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Ontdoen</string>
     <string name="swiper_help_title">Hoe Swiper werk</string>
     <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
+    <string name="swiper_help_action">Hulp</string>
 </resources>

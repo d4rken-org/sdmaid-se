@@ -24,6 +24,10 @@
         <item quantity="other">ගොනු %1$d සූදානම් (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">මෙම විශේෂාංගය යෙදුම කරන සියල්ල බෙදාගත හැකි ගොනුවකට රේඛගත කරයි. ජනනය කරන ලද ගොනුවේ සංවේදී තොරතුරු (උදා. ගොනු නම් සහ ස්ථාපිත යෙදුම්) අඩංගු වේ. විශ්වාසදායක පාර්ශ්වයන් සමඟ පමණක් බෙදාගන්න (උදා. ගැටලුවක් විසඳන සංවර්ධකයෙකු).</string>
+    <string name="debug_debuglog_short_recording_title">ඉතා කෙටි පටිගත කිරීමක්</string>
+    <string name="debug_debuglog_short_recording_desc">පටිගත කිරීම ඉතා කෙටි විය. Debug logs යනු ස්නැප්ෂොට් නොව පටිගත කිරීම් — ලොගය ප්‍රයෝජනවත් වීමට නම් පටිගත කිරීම සක්‍රිය ව ඇති අතරතුර ගැටළුව නැවත ඇති කරන්න.</string>
+    <string name="debug_debuglog_short_recording_continue_action">පටිගත කිරීම දිගටම කරන්න</string>
+    <string name="debug_debuglog_short_recording_stop_action">කෙසේ හෝ නවත්වන්න</string>
     <string name="tasks_activity_notification_channel_label">සක්‍රිය කාර්යයන්</string>
     <string name="tasks_activity_working_notification_title">SD Maid ක්‍රියාත්මක වෙමින්</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">වෙනත් යෙදුම් පිටුපස පිරිසිදු කිරීමෙන් ආචයන ඉඩ ලබාගන්න. වියදම් කළ හැකි ගොනු මකා ඉතිරි දත්ත ඉවත් කරන්න.</string>
     <string name="onboarding_welcome_body_beta">මෙය beta (පරීක්ෂණ) ගොඩනැගීමකි. හාස්‍යමය හැඟීමක් සහ උපස්ථ සැලසුමක් සහිතව ඉදිරියට යන්න. ඔබට මුහුණ දෙන ගැටලු වාර්තා කරන්න.</string>
     <string name="onboarding_welcome_continue_action">ඉදිරියට</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (SD Maid 2 ලෙසද හඳුන්වනු ලබයි) SD Maid (SD Maid 1 ලෙසද හඳුන්වනු ලබයි) හි අනුප්‍රාප්තිකයා වේ. නවීන Android සඳහා ප්‍රශස්ත කරන ලද නව යෙදුමකි.</string>
     <string name="onboarding_versus_body2">එහි පූර්වගාමියාගේ ගෘහ නිර්මාණ ශිල්පය වසර 7කට වඩා පැරණි වන අතර නවීන Android අනුවාදවල අභියෝගයන් සඳහා සැලසුම් කර නොමැත. සංවර්ධනය ඉදිරියට ගෙන යාම සඳහා සම්පූර්ණ ප්‍රතිසැකසුමක් අවශ්‍ය විය.</string>
     <string name="onboarding_versus_body3">වැඩි දියුණු ප්‍රතිඵල සඳහා SD Maid SE වෙත මාරුවීම සලකා බලන්න.</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">තේමා මෝදය</string>
     <string name="ui_theme_style_setting_explanation">යෙදුම තේමා කිරීමේදී භාවිතා කරන වර්ණ මෝදය.</string>
     <string name="ui_theme_style_default_label">පෙරනිමි</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ගොනු පූර්ව දසුන්</string>
     <string name="ui_previews_summary">සියලුම මෙවලම්වල ගොනු පූර්ව දසුන් පෙන්වන්න (උදා. රූප සහ වීඩියෝ සිඟිති රූප).</string>
     <string name="ui_language_override_label">යෙදුම් භාෂාව</string>
@@ -98,8 +104,47 @@
     <string name="support_debuglog_folder_delete_confirmation_message">මෙය ගබඩා කළ සියලුම නිදොස්කරණ ලොග සැසි ස්ථිරවම මකනු ඇත. මෙම ක්‍රියාව පසුගමනය කළ නොහැක.</string>
     <string name="discord_label">ඩිස්කෝඩ්</string>
     <string name="discord_description">සැරිසැරීමට සහ ප්‍රශ්න ඇසීමට තැනක්.</string>
+    <string name="support_contact_label">සංවර්ධකයා අමතන්න</string>
+    <string name="support_contact_desc">සංවර්ධකයාට ඊමේල් යැවීමට පෝරමයක් පුරවන්න.</string>
+    <string name="support_contact_welcome">මම ලිපි සියල්ල ම කියවා හැකි ඉක්මනින් පිළිතුරු දීමට උත්සාහ කරමි, නමුත් මම මෙය තනිව කරන නිසා, ටිකක් කාලය ගත විය හැක. ඔබේ ඉවසීමට ස්තූතියි.</string>
+    <string name="support_contact_footer">ඔබේ පණිවිඩය ඊමේල් හරහා යවනු ලැබේ. උපාංගය සහ සැකසුම් තොරතුරු ස්වයංක්‍රීයව අමුණා ඇත. ඔබට ස්ක්‍රීන්ශොට් හෝ වීඩියෝ ඊමේල් එකට අමුණාගත හැකිය. ඊමේල් එකේ සමහර කොටස් ඉංග්‍රීසියෙන් වනු ඇත, එවිට සංවර්ධකයාට පහසුවෙන් තේරුම් ගත හැකිය.</string>
+    <string name="support_contact_category_label">ප්‍රවර්ගය</string>
+    <string name="support_contact_category_bug_label">දෝෂ වාර්තාව</string>
+    <string name="support_contact_category_feature_label">විශේෂාංග ඉල්ලීම</string>
+    <string name="support_contact_category_question_label">ප්‍රශ්නය</string>
+    <string name="support_contact_tool_label">සම්බන්ධිත මෙවලම</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">වේලාව නිර්ණායක</string>
+    <string name="support_contact_tool_general_label">සාමාන්‍ය</string>
+    <string name="support_contact_description_label">විස්තරය</string>
+    <string name="support_contact_description_bug_hint">සිදු වූ දේය සහ ගැටොලුව නැවත ඇති කරන ආකාරය විස්තර කරන්න. කරුණාකර නිශ්චිත වන්න (අවම වශයෙන් වචන් 20ක්).</string>
+    <string name="support_contact_description_feature_hint">ඔබ දැකීමට කැමි විශේෂාංගය විස්තර කරන්න. කරුණාකර නිශ්චිත වන්න (අවම වශයෙන් වචන් 20ක්).</string>
+    <string name="support_contact_description_question_hint">ඔබේ ප්‍රශ්නය සවිස්තරව විස්තර කරන්න. කරුණාකර නිශ්චිත වන්න (අවම වශයෙන් වචන් 20ක්).</string>
+    <string name="support_contact_expected_label">අපේක්ෂිත හැසිරීම</string>
+    <string name="support_contact_expected_hint">ඔබ සිදු වනු ඇතැයයි අපේක්ෂා කොල දේය විස්තර කරන්න (අවම වශයෙන් වචන් 10ක්).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d වචනය</item>
+        <item quantity="other">%1$d / %2$d වචන්</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">දෝෂ නිරාකරණ ලොගය</string>
+    <string name="support_contact_debuglog_zip_error">නිදොස් කිරීමේ ලොගය සම්පීඩනය කිරීමට අසමත විය</string>
+    <string name="support_contact_debuglog_picker_hint">පවතින නිදොස් කිරීමේ ලොගයක් අමුණන්න, නැතහොත් නව එකක් පටිගත කරන්න.</string>
+    <string name="support_contact_debuglog_picker_empty">නිදොස් කිරීමේ ලොග් හමු නොවිණ. මුලින්ම එකක් පටිගත කරන්න.</string>
+    <string name="support_contact_send_action">ඊමේල් යෙදුම විවරුත කරන්න</string>
+    <string name="support_contact_no_email_app">මේ උපාංගයේ ඊමේල් යෙදුමක් හමු නොවිණ.</string>
     <string name="changelog_label">වෙනස්කම් සටහන</string>
     <string name="settings_acknowledgements_label">පිළිගැනීම්</string>
+    <string name="settings_acknowledgements_category_translations_title">පරිවර්තන</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">මෙය පරිවර්තනය කරන ලද්දේ කවුද?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ස්තූතියි</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">අපගේ මිතුරුවරුන්ට විශේෂ ස්තූති.</string>
+    <string name="settings_acknowledgements_category_licenses_title">බලපත්‍ර</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid විසින් භාවිතා කරන ලද මෘදුකාංග.</string>
     <string name="setup_label">පිහිටුවීම</string>
     <string name="setup_incomplete_card_title">පිහිටුවීම අසම්පූර්ණයි</string>
     <string name="setup_incomplete_card_body">වඩා හොඳ ප්‍රතිඵල ලබාගැනීම සඳහා SD Maid හි පිහිටුවීම සම්පූර්ණ කරන්න.</string>
@@ -125,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">ලබා ගත හැකි නම් මූල ප්‍රවේශය භාවිතා කරන්න</string>
     <string name="setup_root_disable_root_use_label">මූල ප්‍රවේශය භාවිතා නොකරන්න</string>
     <string name="setup_root_card_body2">මූල උපකරණවලම පමණක් ලබා ගැනීම. ඔබ මෙම වෙනස් කිරීම නැති නම්, ඔබේ උපකරණය මූල අකාර නවැත අතර මෙම සෆකසිමට පිහිෆාවක් නැත.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ප්‍රතිඵල වැඩිදියුදු කිරීම සහ විශේෂාංග සක්‍රිය කිරීම සඳහා හැකි ෠ාන්වලම Shizuku භාවිතා කිරීමට SD Maid හට ඉඩ දෙන්න.</string>
     <string name="setup_shizuku_card_body2">ඔබේ උපකරණයො Shizuku යෙදුම පිහිටුවා නැති නම් මෙම සෆකසිමට පිහිෆාවක් නැත.</string>
     <string name="setup_shizuku_card_root_info">මූල ප්‍රවේශය සහ මිළෙන් වු Shizuku අමතර විශේෂාංග සක්‍රිය නොකරනවා නමුත් නිර්බරතාවය වැඩිදියුදු කරයි. SD Maid එය පසුක් රිටි පද්ධතියක් ලෙස භාවිතා කළ ඉම.</string>
@@ -168,6 +214,7 @@
     <string name="debug_mode_explanation">පරීක්ෂණ විකල්ප සහ වැඩි විස්තරාත්මක පිටපත් සක්‍රිය කරන්න. යෙදුම අහිමියින් න්රියාත්මක වෛ අතර වෙනසාකාරයක් ක්‍රියා කළ ඉම.</string>
     <string name="debug_bugreporter_label">ස්වයංක්‍රිය දොෂ වාර්තා</string>
     <string name="debug_bugreporter_summary">ස්වයංක්‍රියව ගැටලු වාර්තා කරයි, උදා. යෙදුම කොළින් පිළිබිම ගැන විශේෂ සෙහෙන් එය එකක සහ නිවැරදි කිරීමට අමක රිථිදැන්නේ පසේ.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">නිදොස්කරණ ප්‍රකාරය සක්‍රියයි</string>
     <string name="debug_card_trace_mode_label">ලුහුබැඳීමේ ප්‍රකාරය සක්‍රිය කරන්න</string>
     <string name="debug_card_dryrun_mode_label">පරීක්‍ෂණ ප්‍රකාරය (මැකීම අක්‍රිය)</string>
@@ -191,6 +238,7 @@
     <string name="translation_encourage_title">SD Maid බාෂාන්තර කරන්න</string>
     <string name="translation_encourage_body">SD Maid ස්වේච්චා සේවකයන් විසින් බාෂාන්තර කර ඇත. බාෂාන්තරය, පුනරීක්ෂණය හෝ රුඟරිටය කිරීම, ඔබේ සහායතාව පුගණ!</string>
     <string name="translation_translators_title">මෙම අනුවාදය පරිවර්තනය කර ඇත්තේ</string>
+    <string name="translation_translators_people">දයක්රිය පරිවර්තනය</string>
     <string name="motd_setting_enabled_label">වැදගත් පණිවිඩ</string>
     <string name="motd_setting_enabled_explanation">සංවර්ධකයාගෙන් වැදගත් පණිවිඩ සඳහා SD Maid පරීක්ෂා කිරීමට ඉඩ දෙන්න.</string>
     <string name="updatecheck_setting_enabled_label">යාවත්කාලීන පරීක්ෂාව</string>
@@ -216,4 +264,5 @@
     <string name="shortcuts_settings_category">කෙටිමං</string>
     <string name="shortcuts_onetap_enabled_title">එක්-තට්ටු කෙටිමඟ</string>
     <string name="shortcuts_onetap_enabled_summary">යෙදුම් අයිකනය දිගු ඔබා ගෙන \"පරිලෝකනය + මකන්න\" කෙටිමඟ පෙන්වන්න. එක්-තට්ටු උපකරණ පුවරුව හා සමාන මෙවලම් භාවිත කරයි.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

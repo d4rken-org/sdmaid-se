@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid bütün addımları vaxt məhdudiyyəti daxilində tamamlamadı. Bu davam edərsə, tətbiqi cihazınız üçün tənzimləmək lazım ola bilər. Yeniləmələri yoxlayın və ya düzəltməyim üçün mənə müraciət edin.</string>
     <string name="automation_error_overlay_title">Avtomatlaşdırma örtüyü</string>
     <string name="automation_error_overlay_body">SD Maid avtomatlaşdırma örtüyünü göstərə bilmədi. İcazələri yoxlayın və cihazınızı yenidən başlatmağı cəhd edin.</string>
+    <string name="automation_error_scheduler_title">Planlaşdırılmış avtomatlaşdırma uğursuz oldu</string>
+    <string name="automation_error_scheduler_body">Planlaşdırılmış tapşırıq əlçatanlıq xidmətindən istifadə etməyə cəhd etdi, lakin o mövcud deyildi. Buna ehtiyacınız yoxdursa, planlayıcı parametrlərindəki \"Əlçatanlıq xidməti\" seçimini deaktiv edin.</string>
     <string name="automation_error_no_settings_title">Parametrlər ekranı əlçatan deyil</string>
     <string name="automation_error_no_settings_body">Bu sistem tətbiqinin heç bir parametrlər ekranı yoxdur. Əlçatanlıq xidməti vasitəsilə keş təmizləmə mümkün deyil. Keş təmizləmə sürətini artırmaq üçün onu istisna edin.</string>
     <string name="automation_loading">Əlçatanlıq xidməti vasitəsilə avtomatlaşdırma hazırlanır</string>

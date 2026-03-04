@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Eskerrik asko</string>
     <string name="general_error_type_mismatch_msg">Mota desadostasuna: %1$s nahi zen, baina %2$s lortu da.</string>
     <string name="general_error_cant_access_msg">Ezin da %s atzitu.</string>
-    <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>    <string name="general_error_no_compatible_app_found_msg">Ez da eskaera hau kudeatzeko aplikazio bateragarririk aurkitu.</string>
+    <string name="general_error_root_unavailable">Root sarbidea ez dago eskuragarri.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ez da eskaera hau kudeatzeko aplikazio bateragarririk aurkitu.</string>
     <string name="general_todo_msg">Eginbide hau oraindik lanean dago eta une honetan ez dago eskuragarri.</string>
     <string name="general_share_action">Partekatu</string>
     <string name="general_done_action">Eginda</string>
     <string name="general_apply_action">Aplikatu</string>
-    <string name="general_copy_action">Kopiatu</string>    <string name="general_cancel_action">Utzi</string>
+    <string name="general_copy_action">Kopiatu</string>
+    <string name="general_cancel_action">Utzi</string>
     <string name="general_discard_action">Baztertu</string>
     <string name="general_reset_action">Berrezarri</string>
     <string name="general_drag_handle_description">Arrastatu berrordenatzeko</string>
-    <string name="general_save_action">Gorde</string>    <string name="general_gotit_action">Ulertuta</string>
+    <string name="general_save_action">Gorde</string>
+    <string name="general_gotit_action">Ulertuta</string>
     <string name="general_fix_action">Konpondu</string>
     <string name="general_set_up_action">Konfiguratu</string>
     <string name="general_edit_action">Editatu</string>
@@ -169,5 +172,22 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Konfigurazioa</string>
     <string name="setup_feature_requires_additional_setup_x">Eginbide honek konfigurazio-elementu gehigarriak osatzea eskatzen du: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro bertsioa behar da</string>
+    <string name="general_include_multiuser_label">Sartu beste erabiltzaileak</string>
+    <string name="general_include_multiuser_summary">Sartu gailu honetako beste erabiltzaile-profiletako aplikazioak.</string>
+    <string name="general_unsaved_confirmation_message">Gorde gabeko aldaketak dituzu!</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Salbuespen bat sortua</item>
+        <item quantity="other">%d salbuespen sortua</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Historia</string>
     <string name="settings_category_tools_label">Erramintak</string>
 </resources>

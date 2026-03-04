@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid-მ ვერ დაასრულა ყველა ნაბიჯი დროის ლიმიტში. თუ ეს გრძელდება, შესაძლოა დამჭირდეს აპის მორგება თქვენი მოწყობილობისთვის. შეამოწმეთ განახლებები ან დამიკავშირდით, რათა შევასწორო.</string>
     <string name="automation_error_overlay_title">ავტომატიზაციის ოვერლეი</string>
     <string name="automation_error_overlay_body">SD Maid-მ ვერ აჩვენა ავტომატიზაციის ოვერლეი. შეამოწმეთ ნებართვები და სცადეთ მოწყობილობის გადატვირთვა.</string>
+    <string name="automation_error_scheduler_title">დაგეგმილი ავტომატიზაცია ვერ შესრულდა</string>
+    <string name="automation_error_scheduler_body">დაგეგმილმა ამოცანამ სცადა მიმწვდომობის სერვისის გამოყენება, მაგრამ ის მიუწვდომელი იყო. თუ ეს არ გჭირდებათ, გამორთეთ \"მიმწვდომობის სერვისი\" პარამეტრი განრიგის პარამეტრებში.</string>
     <string name="automation_error_no_settings_title">პარამეტრების ეკრანი მიუწვდომელია</string>
     <string name="automation_error_no_settings_body">ამ სისტემურ აპს არ აქვს პარამეტრების ეკრანი. ქეშის გასუფთავება ხელმისაწვდომობის სერვისის საშუალებით შეუძლებელია. გამორიცხეთ ის ქეშის გასუფთავების დასაჩქარებლად.</string>
-    <string name="automation_loading">ავტომატიზაციის მომზადება მარტივი წვდომის სერვისის საშუალებით</string>
+    <string name="automation_loading">ავტომატიზაციის მომზადება ხელმისაწვდომობის სერვისის საშუალებით</string>
     <string name="automation_progress_find_ok_confirmation">წინა მოქმედების დადასტურების მცდელობა (საკვანძო სიტყვები: %s)</string>
 </resources>

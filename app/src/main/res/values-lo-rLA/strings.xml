@@ -15,7 +15,18 @@
     <string name="debug_debuglog_record_action">ບັນທຶກບັນທຶກດີບັກ</string>
     <string name="debug_debuglog_stop_action">ຢຸດການບັນທຶກ</string>
     <string name="debug_debuglog_sensitive_information_message">ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ຊື່ໄຟລ໌ ແລະ ແອັບທີ່ຕິດຕັ້ງ). ແບ່ງປັນກັບພາກສ່ວນທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ.</string>
+    <string name="debug_debuglog_screen_title">ບັນທຶກ Debug</string>
+    <string name="debug_debuglog_screen_discard_action">ຍົກເລີກ</string>
+    <string name="debug_debuglog_screen_session_path_label">ເສັ້ນທາງວາລະສະຕອນ</string>
+    <string name="debug_debuglog_screen_log_files_label">ໄຟລ໌ Log</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ໄຟລ໌ພ້ອມແລ້ວ (%2$s) · %3$s</item>
+    </plurals>
     <string name="settings_debuglog_explanation">ຄຸນສົມບັດນີ້ບັນທຶກທຸກສິ່ງທີ່ແອັບກຳລັງເຮັດໃສ່ໄຟລ໌ທີ່ສາມາດແບ່ງປັນໄດ້. ໄຟລ໌ທີ່ສ້າງຂຶ້ນມີຂໍ້ມູນທີ່ລະອຽດອ່ອນ (ເຊັ່ນ: ຊື່ໄຟລ໌ ແລະ ແອັບທີ່ຕິດຕັ້ງ). ແບ່ງປັນກັບພາກສ່ວນທີ່ເຊື່ອຖືໄດ້ເທົ່ານັ້ນ (ເຊັ່ນ: ນັກພັດທະນາທີ່ແກ້ໄຂບັນຫາ).</string>
+    <string name="debug_debuglog_short_recording_title">ການບັນທຶກສັ້ນຫຼາຍ</string>
+    <string name="debug_debuglog_short_recording_desc">ການບັນທຶກສັ້ນຫຼາຍ. ບັນທຶກດີບັກແມ່ນການບັນທຶກ, ບໍ່ແມ່ນສະແນບຊັອດ — ສ້າງບັນຫາຄືນໃໝ່ຂະນະທີ່ການບັນທຶກກຳລັງໃຊ້ງານຢູ່ເພື່ອໃຫ້ບັນທຶກມີປະໂຫຍດ.</string>
+    <string name="debug_debuglog_short_recording_continue_action">ສືບຕໍ່ການບັນທຶກ</string>
+    <string name="debug_debuglog_short_recording_stop_action">ຢຸດຢ່າງໃດກໍຕາມ</string>
     <string name="tasks_activity_notification_channel_label">ໜ້າວຽກທີ່ກຳລັງດຳເນີນການ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ກຳລັງເຮັດວຽກ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -31,6 +42,7 @@
     <string name="onboarding_welcome_body2">ໄດ້ຮັບພື້ນທີ່ເກັບຮັກສາໂດຍການທຳຄວາມສະອາດຫລັງຈາກແອັບອື່ນໆ. ລຶບໄຟລ໌ທີ່ບໍ່ຈຳເປັນ ແລະ ເອົາຂໍ້ມູນທີ່ເຫຼືອອອກ.</string>
     <string name="onboarding_welcome_body_beta">ນີ້ແມ່ນສ້າງເບຕ້າ (ທົດສອບ). ດຳເນີນຕໍ່ດ້ວຍໄວຍາກອນແຫ່ງອາລົມຂັນ ແລະ ແຜນສຳຮອງ. ກະລຸນາລາຍງານບັນຫາທີ່ທ່ານພົບ.</string>
     <string name="onboarding_welcome_continue_action">ສືບຕໍ່</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ຄື SD Maid 2) ແມ່ນຜູ້ສືບທອດຂອງ SD Maid (ຄື SD Maid 1). ແອັບໃໝ່ທີ່ປັບປຸງສຳລັບ Android ທີ່ທັນສະໄໝ.</string>
     <string name="onboarding_versus_body2">ສະຖາປັດຕະຍະກຳຂອງບັນພະບູລຸດມີອາຍຸເກີນ 7 ປີແລ້ວ ແລະ ບໍ່ໄດ້ຖືກອອກແບບສຳລັບສິ່ງທ້າທາຍຂອງ Android ເວີຊັນໃໝ່. ການອອກແບບໃໝ່ທັງໝົດແມ່ນຈຳເປັນເພື່ອສືບຕໍ່ການພັດທະນາ.</string>
     <string name="onboarding_versus_body3">ພິຈາລະນາເປັນ SD Maid SE ເພື່ອຜົນລັບທີ່ດີກວ່າ.</string>
@@ -65,6 +77,7 @@
     <string name="ui_theme_style_setting_label">ແບບຫົວຂໍ້</string>
     <string name="ui_theme_style_setting_explanation">ແບບສີທີ່ໃຊ້ເມື່ອກໍານົດຫົວຂໍ້ແອັບ.</string>
     <string name="ui_theme_style_default_label">ເລີ່ມຕົ້ນ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ການສະແດງລ່ວງໜ້າຂອງໄຟລ໌</string>
     <string name="ui_previews_summary">ສະແດງການສະແດງລ່ວງໜ້າຂອງໄຟລ໌ໃນເຄື່ອງມືທັງໝົດ (ເຊັ່ນ: ຮູບພາບ ແລະ ວິດີໂອ thumbnail).</string>
     <string name="ui_language_override_label">ພາສາແອັບ</string>
@@ -78,9 +91,55 @@
     <string name="support_installid_desc">ບົດລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດແມ່ນບໍ່ເປີດເຜີຍຊື່. ແບ່ງປັນ ID ຕິດຕັ້ງຂອງທ່ານຖ້າ developer ຕ້ອງການຊອກຫາບົດລາຍງານຂໍ້ຜິດພາດຂອງທ່ານ.</string>
     <string name="support_debuglog_label">ບັນທຶກ debug</string>
     <string name="support_debuglog_desc">ບັນທຶກທຸກສິ່ງທີ່ແອັບກໍາລັງເຮັດໃສ່ໄຟລ໌ຂໍ້ຄວາມທີ່ທ່ານສາມາດແບ່ງປັນໄດ້.</string>
+    <string name="support_debuglog_folder_label">ໂຟນເດີບັນທຶກ debug</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d ໄຟລ໌ໃຊ້ %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">ບໍ່ມີບັນທຶກ debug ເກັບໄວ້</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">ລຶບບັນທຶກ debug ທັງໝົດບໍ?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ອັນນີ້ຈະຖາວອນລຶບເຊສຊັ່ນບັນທຶກ debug ທີ່ເກັບໄວ້ທັງໝົດ. ບໍ່ສາມາດຍົກເລີກການດຳເນີນການນີ້ໄດ້.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ສະຖານທີ່ສໍາລັບພັກຜ່ອນແລະຖາມຄໍາຖາມ.</string>
+    <string name="support_contact_label">ຕິດຕໍ່ນັກພັດທະນາ</string>
+    <string name="support_contact_desc">ຕື່ມແບບຟອມເພື່ອສົ່ງອີເມວຫາຜູ້ພັດທະນາ.</string>
+    <string name="support_contact_welcome">ຂ້ອຍອ່ານທຸກຂໍ້ຄວາມດ້ວຍຕົວເອງແລະພະຍາຍາມຕອບໃຫ້ດີທີ່ສຸດ, ແຕ່ເນື່ອງຈາກຂ້ອຍເຮັດວຽກຄົນດຽວ, ມັນອາດໃຊ້ເວລາໜ້ອຍໜຶ່ງ. ຂອບໃຈທີ່ອົດທົນ.</string>
+    <string name="support_contact_footer">ຂໍ້ຄວາມຂອງທ່ານຈະຖືກສົ່ງທາງອີເມວ. ຂໍ້ມູນອຸປະກອນ ແລະ ການຕັ້ງຄ່າຈະຖືກຕິດຄັດໂດຍອັດຕະໂນມັດ. ທ່ານສາມາດຕິດຮູບໜ້າຈໍ ຫຼື ວິດີໂອຕໍ່ກັບອີເມວ. ບາງສ່ວນຂອງອີເມວຈະເປັນພາສາອັງກິດເພື່ອໃຫ້ຜູ້ພັດທະນາເຂົ້າໃຈງ່າຍ.</string>
+    <string name="support_contact_category_label">ໝວດໝູ່</string>
+    <string name="support_contact_category_bug_label">ລາຍງານຂໍ້ຜິດພາດ</string>
+    <string name="support_contact_category_feature_label">ຂໍຄຸນສົມບັດໃໝ່</string>
+    <string name="support_contact_category_question_label">ຄຳຖາມ</string>
+    <string name="support_contact_tool_label">ເຄື່ອງມືທີ່ກ່ຽວຂ້ອງ</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">ທົ່ວໄປ</string>
+    <string name="support_contact_description_label">ຄຳອະທິບາຍ</string>
+    <string name="support_contact_description_bug_hint">ອະທິບາຍສິ່ງທີ່ເກີດຂຶ້ນ ແລະ ວິທີທຳຊໍ້າບັນຫາ. ກະລຸນາລະບຸຍ່າງຊັດເຈນ (ຍ່າງໜ້ອຍ 20 ຄຳ).</string>
+    <string name="support_contact_description_feature_hint">ອະທິບາຍຄຸນສົມບັດທີ່ທ່ານຍາກເຫັນ. ກະລຸນາລະບຸຍ່າງຊັດເຈນ (ຍ່າງໜ້ອຍ 20 ຄຳ).</string>
+    <string name="support_contact_description_question_hint">ອະທິບາຍຄຳຖາມຂອງທ່ານຍ່າງລະອີດ. ກະລຸນາລະບຸຍ່າງຊັດເຈນ (ຍ່າງໜ້ອຍ 20 ຄຳ).</string>
+    <string name="support_contact_expected_label">ພຶດຕິກຳທີ່ຄາດຫວັງ</string>
+    <string name="support_contact_expected_hint">ອະທິບາຍສິ່ງທີ່ທ່ານຄາດຫວັງວ່າຈະເກີດຂຶ້ນ (ຍ່າງໜ້ອຍ 10 ຄຳ).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d ຄຳ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ບັນທຶກ debug</string>
+    <string name="support_contact_debuglog_zip_error">ການບີບອັດບັນທຶກດີບັກລ້ມເຫລວ</string>
+    <string name="support_contact_debuglog_picker_hint">ຕິດຄັດບັນທຶກດີບັກທີ່ມີຍູ່, ຫຼື ບັນທຶກໃໝ່.</string>
+    <string name="support_contact_debuglog_picker_empty">ບໍພົບບັນທຶກດີບັກ. ກະລຸນາບັນທຶກກ່ອນ.</string>
+    <string name="support_contact_send_action">ເປີດແອັບອີເມວ</string>
+    <string name="support_contact_no_email_app">ບໍພົບແອັບອີເມວໃນອຸປະກອນນີ້.</string>
     <string name="changelog_label">ບັນຊີການປ່ຽນແປງ</string>
     <string name="settings_acknowledgements_label">ການຮັບຮູ້</string>
+    <string name="settings_acknowledgements_category_translations_title">ການແປພາສາ</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ໃຜແປ້ສະບັບນີ້?</string>
+    <string name="settings_acknowledgements_category_thanks_title">ຂອບໃຈ</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ຂອບໃຈພິເສດຕໍ່ເພື່ອນທີ່ຮັກແພງຂອງພວກເຮົາ</string>
+    <string name="settings_acknowledgements_category_licenses_title">ໃບອະນຸຍາດ</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">ຊອບແວທີ່ໃຊ້ໂດຍ SD Maid</string>
     <string name="setup_label">ຕິດຕັ້ງ</string>
     <string name="setup_incomplete_card_title">ການຕິດຕັ້ງບໍ່ສໍາເລັດ</string>
     <string name="setup_incomplete_card_body">ສໍາເລັດການຕິດຕັ້ງ SD Maid ເພື່ອໃຫ້ໄດ້ຜົນລັບທີ່ດີກວ່າ.</string>
@@ -106,6 +165,7 @@
     <string name="setup_root_enable_root_use_label">ໃຊ້ການເຂົ້າເຖິງ Root ຖ້າເປັນໄດ້</string>
     <string name="setup_root_disable_root_use_label">ບໍ່ໃຊ້ການເຂົ້າເຖິງ Root</string>
     <string name="setup_root_card_body2">ມີໃຫ້ເຉພາະໃນອຸປະກອນທີ່ຖືກ Root ເທົ່ານັ້ນ. ຖ້າທ່ານບໍ່ໄດ້ສົ່ງແກ້ໄຂນີ້, ອຸປະກອນຂອງທ່ານຍັງບໍ່ໄດ້ຖືກ Root ແລະ ການຕັ້ງຄ່ານີ້ຈະບໍ່ມີຜົນ.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ອະນຸຍາດໃຫ້ SD Maid ໃຊ້ Shizuku ທີ່ເປັນໄດ້ເພື່ອປັບປຸງຜົນລັບ ແລະ ເປີດໃຊ້ງານຄຸນສົມບັດ.</string>
     <string name="setup_shizuku_card_body2">ການຕັ້ງຄ່ານີ້ຈະບໍ່ມີຜົນຖ້າແອັບ Shizuku ບໍ່ໄດ້ຕັ້ງຄ່າໃນອຸປະກອນຂອງທ່ານ.</string>
     <string name="setup_shizuku_card_root_info">Shizuku ກັບການເຂົ້າເຖິງ Root ຈະບໍ່ເປີດໃຊ້ຄຸນສົມບັດເພີ່ມເຕີມ, ແຕ່ຈະຊ່ວຍປັບປຸງຄວາມເຊື່ອຖືອໄດ້. SD Maid ຈະໃຊ້ມັນເປັນວິທີສຳຮອງ.</string>
@@ -149,6 +209,54 @@
     <string name="debug_mode_explanation">ເປີດໃຊ້ທາງເລືອກທົດສອບ ແລະ ຜົນລັບທີ່ລະອຽດເພີ່ມເຕີມ. ແອັບຈະທໍາງານຊ້າລງ ແລະ ທໍາງານແຕກຕ່າງໄປ.</string>
     <string name="debug_bugreporter_label">ລາຍງານຂໍ້ຜິດພາດອັດຕະໂນມັດ</string>
     <string name="debug_bugreporter_summary">ລາຍງານບັນຫາອັດຕະໂນມັດ, ເຊ່ນ ລາຍລະອຽດເມື່ອແອັບຂັດຂ້ອງ ເພື່ອໃຫ້ຂ້ອຍສາມາດຫາສາເຫດ ແລະ ແກ້ໄຂໄດ້.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">ໂຫມດ debug ເປີດໃຊ້ແລ້ວ</string>
+    <string name="debug_card_trace_mode_label">ເປີດໃຊ້ໂຫມດຕິດຕາມ</string>
+    <string name="debug_card_dryrun_mode_label">ໂຫມດ dry-run (ປິດໃຊ້ການລຶບ)</string>
+    <string name="debug_card_areas_reload_action">ໂຫລດຂໍ້ມູນພື້ນທີ່ໃໝ່</string>
+    <string name="debug_card_pkgs_reload_action">ໂຫລດ apps ໃໝ່</string>
+    <string name="debug_card_root_test_action">ທົດສອບ root</string>
+    <string name="debug_card_shizuku_test_action">ທົດສອບ Shizuku</string>
     <string name="settings_category_filter">ຕົວກໍງ</string>
     <string name="settings_category_risklevel">ລະດັບຄວາມເສີ່ຍງ</string>
+    <string name="data_area_public_app_data_official_label">ຂໍ້ມູນແອັບຯສາທາລະນະມາດຕະຖານ</string>
+    <string name="data_area_public_app_assets_official_label">ຊັບພະຍາກອນແອັບຯລະບົບຕາມຄ່າເລີ່ມຕົ້ນ</string>
+    <string name="data_area_public_storage_label">ບ່ອນເກັບຮັກສາສາທາລະນະ</string>
+    <string name="data_area_sdcard_label">SD card</string>
+    <string name="data_areas_label">ບຣິເວນຂໍ້ມູນ</string>
+    <string name="data_areas_description">ບຣິເວນຂໍ້ມູນເປັນຕົວແທນຂອງສະຖານທີ່ໃນອຸປະກອນຂອງທ່ານທີ່ SD Maid ສາມາດເຂົ້າເຖິງໄດ້. ບຣິເວນຕ່າງໆອາດຈະມີໃນຂອບເຂດຂຶ້ນກັບລຸ້ນ Android ຂອງທ່ານ ແລະ ການອະນຸຍາດທີ່ໄດ້ຮັບ.</string>
+    <string name="data_areas_short_summary">ບຣິເວນທີ່ SD Maid ສາມາດເຂົ້າເຖິງໄດ້ໂດຍອີງໃສ່ການອະນຸຍາດທີ່ໃຫ້ໄວ້ໃນປະຈຸບັນ.</string>
+    <string name="history_label">ປະຫວັດ</string>
+    <string name="history_description">ບັນຊີລາຍຊື່ຕາມເວລາຂອງການດຳເນີນການ ແລະ ຂໍ້ມູນທີ່ໄດ້ຮັບຜົນກະທົບ.</string>
+    <string name="updates_dashcard_title">ມີການອັບເດດ</string>
+    <string name="updates_dashcard_body">ມີການອັບເດດ ທ່ານມີ %1$s ແລະ ເວີຊັນລ້າສຸດແມ່ນ %2$s.</string>
+    <string name="translation_encourage_title">ແປ SD Maid</string>
+    <string name="translation_encourage_body">SD Maid ຖືກແປໂດຍອາສາສະຫມັກ. ການແປ, ການທົບທວນ ຫຼື ການກວດກາຊອບ, ຄວາມຊ່ວຍເຫຼືອຂອງທ່ານນັ້ນໄດ້ຮັບການຊົມເຊີມ!</string>
+    <string name="translation_translators_title">ເວີຊັນນີ້ຖືກແປໂດຍ</string>
+    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="motd_setting_enabled_label">ຂໍ້ຄວາມທີ່ສໍາຄັນ</string>
+    <string name="motd_setting_enabled_explanation">ອະນຸຍາດໃຫ້ SD Maid ກວດສອບຂໍ້ຄວາມທີ່ສໍາຄັນຈາກຜູ້ພັດທະນາ.</string>
+    <string name="updatecheck_setting_enabled_label">ກວດສອບການອັບເດດ</string>
+    <string name="updatecheck_setting_enabled_explanation">ອະນຸຍາດໃຫ້ SD Maid ກວດສອບການອັບເດດເພື່ອໃຫ້ທ່ານຮູ້ວ່າມີເວີຊັນທີ່ໃໝ່ກວ່າທີ່ມີຢູ່ຫຼືບໍ່.</string>
+    <string name="device_settings_category">ອຸປະກອນ</string>
+    <string name="beta_version_indicator_desc">ເວີຊັນກ່ອນອອກເສີມສະແດງລົບົ້ວຂະຫນາດນ້ອຍໃນຫນ້າເລີ່ມຕົ້ນ ພວກມັນໄດ້ຮັບການອັບເດດຫຼາຍເທື່ອ, ອາດມີຄຸນສົມບັດເພີ່ມເຕີມ, ແຕ່ອາດມີຂໍ້ຜິດພາດຫຼາຍກວ່າເກົ່າ</string>
+    <string name="review_app_review_action">ທົບທວນ</string>
+    <string name="review_app_dismiss_action">ບາງທີຫລັງຈາກນີ້</string>
+    <string name="review_app_body">ທ່ານຕ້ອງການປ່ອຍຄວາມເຫັນໃຫ້ SD Maid ບໍ່? ❤️</string>
+    <string name="anniversary_card_title">ວັນທີ່ຄົບລາຠ SD Maid ປະສາ ❤️</string>
+    <string name="anniversary_card_install_date">ກັນທ່ານນັ້ນຕັ້ງແຕ່ %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">%1$d ປີທີ່ແຂງແຮງ. ອຸປະກອນຂອງທ່ານສະອາດແລະເປັນລະບຽບກັບ SD Maid. ພື້ນທີ່ທີ່ເສລີ: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">ແບ່ງປັນວັນຄ້າຍ SD Maid ຂອງທ່ານ</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d ປີກັບ SD Maid — ພື້ນທີ່ທີ່ເສລີ: %2$s. ຮັກສາ Android ຂອງທ່ານໃຫ້ສະອາດແລະເປັນລະບຽບ. #SDMaid
+ລອງ: %3$s</item>
+    </plurals>
+    <string name="shortcut_onetap_short">ສະແກນ + ລົບ</string>
+    <string name="shortcut_onetap_long">ສະແກນ ແລະ ລົບໃນການກະທໍາດຽວ</string>
+    <string name="shortcuts_settings_category">ທາງລັດ</string>
+    <string name="shortcuts_onetap_enabled_title">ທາງລັດກົດດຽວ</string>
+    <string name="shortcuts_onetap_enabled_summary">ສະແດງທາງລັດ \"ສະແກນ + ລົບ\" ເມື່ອກົດທີ່ຕົວະປະກອບເສີມຂອງແອັບຯນານ ໃຊ້ເຄື່ອງມືອັນດຽວກັນກັບdashboard ກົດດຽວ</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -17,7 +17,7 @@
         <item quantity="one">%d Bild ausgewählt</item>
         <item quantity="other">%d Bilder ausgewählt</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Suchstandorte</string>
+    <string name="squeezer_search_locations_title">Suchorte</string>
     <string name="squeezer_search_locations_default_summary">Kameraordner (Standard)</string>
     <string name="squeezer_min_size_title">Mindestdateigröße</string>
     <string name="squeezer_min_size_description">Bilder kleiner als diese Größe überspringen.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Keine komprimierbaren Bilder gefunden.</string>
     <string name="squeezer_setup_warning">Komprimierung reduziert dauerhaft die Bildqualität, um Speicherplatz zu sparen. Dies kann nicht rückgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig vor dem Start.</string>
     <string name="squeezer_setup_explanation">Medienkomprimierung reduziert die Dateigröße von Bildern, um Speicherplatz freizugeben. Dies reduziert dauerhaft die Bildqualität und kann nicht rückgängig gemacht werden. Überprüfe deine Einstellungen sorgfältig vor dem Start.</string>
-    <string name="squeezer_setup_paths_title">Suchstandorte</string>
+    <string name="squeezer_setup_paths_title">Suchorte</string>
     <string name="squeezer_setup_paths_default">Ordner zum Durchsuchen auswählen</string>
     <string name="squeezer_setup_quality_title">Komprimierungsqualität</string>
     <string name="squeezer_setup_age_title">Mindestalter</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Mindestens %d Tage alt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Geschätzte ~%d%% Ersparnis für JPEG-Dateien</string>
+    <string name="squeezer_onboarding_got_it">Verstanden</string>
 </resources>

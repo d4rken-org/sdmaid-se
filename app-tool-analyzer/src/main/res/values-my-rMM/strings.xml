@@ -1,11 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="analyzer_explanation_short">သင့့်ကိရိယာပေါ်ရှိ မည်သည့်က နေရာယုနေသည်ကို ရှာဖွေပါ။</string>
+    <string name="analyzer_progress_scanning_device">သိုလှောင်မှုကိရိယာများ ရှာဖွေနေသည်</string>
+    <string name="analyzer_progress_scanning_storage">သိုလှောင်မှု စကင်ဖတ်နေသည်</string>
+    <string name="analyzer_progress_scanning_apps">အပ်ပ်များ စကင်ဖတ်နေသည်</string>
+    <string name="analyzer_progress_scanning_userfiles">အသုံးပြုဖိုင်များ ရှာဖွေနေသည်</string>
+    <string name="analyzer_progress_scanning_system">စနစ်ဒေတာ စကင်ဖတ်နေသည်</string>
+    <string name="analyzer_device_storage_title">ကိရိယာ သိုလှောင်မှု</string>
     <plurals name="analyzer_space_available">
         <item quantity="other">%s ရရှိနိုင်သည်</item>
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="other">%s အသုံးပြုပြီး</item>
     </plurals>
+    <string name="analyzer_content_access_opaque">တိုက်ရိုက် ဝင်ရောက်ခွင့် မရှိပါ</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper session ဖန်တီးပါ</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">%d ခု ပါဝင်သော Swiper session ဖန်တီးပြီးပြီ</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">ပင်မ သိုလှောင်မှု</string>
+    <string name="analyzer_storage_type_primary_description">သင့့်ကိရိယာတာ် ပင်မ သိုလှောင်မှု။ အတွင်း SD ကတ်၊ အပ်ပ်များအတွက် ကိုယ်ပိုင်သိုလှောင်မှုနှင့် စနစ်ဒေတာတို့ ပါဝင်သည်။</string>
+    <string name="analyzer_storage_type_secondary_title">ဒုတိယ သိုလှောင်မှု</string>
+    <string name="analyzer_storage_type_secondary_description">ဒုတိယ သိုလှောင်မှု၊ ပုံမှန် ဖယ်ရှားနိုင်သော SD ကတ်။ မီဒီယာဖိုင်များနှင့် ထောက်ပံ့ပိုးသော အပ်ပ်များတာ် ဒေတာ ပါဝင်သည်။</string>
+    <string name="analyzer_storage_type_tertiary_title">သယ်ဆောင်နိုင်သော သိုလှောင်မှု</string>
+    <string name="analyzer_storage_type_tertiary_description">သယ်ဆောင်နိုင်သော သိုလှောင်မှု၊ ဥပမာ - USB port တွင် တပ်ဆင်ထားသော flash drive။</string>
+    <string name="analyzer_storage_content_title">သိုလှောင်မှု အကြောင်အရာ</string>
+    <string name="analyzer_storage_content_type_app_label">အပ်ပ်များ</string>
+    <string name="analyzer_storage_content_type_app_description">ထည့်သွင်းထားသော အပ်ပ်များနှင့် ဒေတာ (application ဖိုင်များ၊ ဒေတာနှင့် cache များ) မှ လွှမ်းမိုးသော နေရာ။</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ခွင့်ပြုချက်များ ပျောက်ဆုံးနေသည်</string>
+    <string name="analyzer_storage_content_type_media_label">အသုံးပြုသူဖိုင်များ</string>
+    <string name="analyzer_storage_content_type_media_description">ရိုကူးထားသော ပုံများ၊ ဗီဒီယာများ သို့မဟုတ် ဒော်င်လုဒ်ဆွဲးထားသော ဒေတာ။ တိကျသောအပ်ပ်တစ်ခုနှင့် မဆက်နွှေသော မည်သည့့်ဒေတာမဆို။</string>
+    <string name="analyzer_storage_content_type_system_label">စနစ်ဒေတာ</string>
+    <string name="analyzer_storage_content_type_system_description">စနစ်အပ်ပ်များနှင့် စနစ်ဒေတာ။ ဤကိရိယာတွင် အသုံးပြု အကောင်အည်းများစွာ သတ်မှတ်ထားလျှင် အခြားအသုံးပြုသူများမှ အပ်ပ်များနှင့် ဒေတာ။</string>
+    <string name="analyzer_storage_content_app_code_label">အပ်ပ် ကုဒ်</string>
+    <string name="analyzer_storage_content_app_code_description">Application ဖိုင်များ၊ library များနှင့် အရင်းအမြစ်များ။ ဤနေရာကို အပ်ပ်ကို ဖြုတ်ချပြီး သို့မဟုတ် မြှုပ်သိမ်းခြင်းဖြင့် (Android ဗားရှင်းအသစ်တွင် ရနိုင်သည်) ရှင်းလင်းနိုင်သည်။</string>
+    <string name="analyzer_storage_content_app_data_label">အပ်ပ် ဒေတာ</string>
+    <string name="analyzer_storage_content_app_data_description">ဒေတာ၊ ဆက်တင်နှင့် cache များ။</string>
+    <string name="analyzer_storage_content_app_media_label">အပ်ပ် မီဒီယာ</string>
     <string name="analyzer_storage_content_app_media_description">ဤအက်ပ်မှ မီဒီယာ ဖိုင်များ၊ ဥပမာ - လက်ခံရရှိသော WhatsApp ဓာတ်ပုံများ။</string>
     <string name="analyzer_storage_content_app_extra_label">အပို အက်ပ် ဖိုင်များ</string>
     <string name="analyzer_storage_content_app_extra_description">ဤအက်ပ်သည် မူလ လမ်းကြောင်းများ အပြင်ဘက်တွင် ထားရှိထားသော အပို ဒေတာ၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် ဒေါင်းလုဒ်များ။</string>

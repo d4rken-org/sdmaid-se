@@ -23,6 +23,10 @@
         <item quantity="other">%1$d fail sedia (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ciri ini merekodkan semua yang dilakukan aplikasi ke dalam fail yang boleh dikongsi. Fail yang dijana mengandungi maklumat sensitif (cth. nama fail dan aplikasi yang dipasang). Kongsi hanya dengan pihak yang dipercayai (cth. pembangun yang menyelesaikan masalah).</string>
+    <string name="debug_debuglog_short_recording_title">Rakaman sangat pendek</string>
+    <string name="debug_debuglog_short_recording_desc">Rakaman ini sangat pendek. Log nyahpepijat adalah rakaman, bukan tangkapan skrin — hasilkan semula masalah semasa rakaman aktif agar log berguna.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Teruskan rakaman</string>
+    <string name="debug_debuglog_short_recording_stop_action">Hentikan juga</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -73,6 +77,7 @@
     <string name="ui_theme_style_setting_label">Gaya tema</string>
     <string name="ui_theme_style_setting_explanation">Gaya warna yang digunakan semasa menema aplikasi.</string>
     <string name="ui_theme_style_default_label">Lalai</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Pratonton fail</string>
     <string name="ui_previews_summary">Paparkan pratonton fail dalam semua alatan (cth. imej kecil dan video).</string>
     <string name="ui_language_override_label">Ganti bahasa</string>
@@ -95,6 +100,38 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Ini akan memadam secara kekal semua sesi log nyahpepijat yang disimpan. Tindakan ini tidak boleh dibatalkan.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat melepak dan bertanya soalan.</string>
+    <string name="support_contact_label">Hubungi pembangun</string>
+    <string name="support_contact_desc">Isi borang untuk menghantar e-mel kepada pembangun.</string>
+    <string name="support_contact_welcome">Saya sendiri membaca setiap mesej dan berusaha sebaik mungkin untuk membalas, tetapi memandangkan saya bekerja berseorangan, mungkin mengambil sedikit masa. Terima kasih atas kesabaran anda.</string>
+    <string name="support_contact_footer">Mesej anda akan dihantar melalui e-mel. Maklumat peranti dan persediaan dilampirkan secara automatik. Anda boleh melampirkan tangkapan skrin atau video ke e-mel. Beberapa bahagian e-mel akan menggunakan bahasa Inggeris supaya pembangun dapat memahaminya dengan mudah.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_bug_label">Laporan pepijat</string>
+    <string name="support_contact_category_feature_label">Permintaan ciri</string>
+    <string name="support_contact_category_question_label">Soalan</string>
+    <string name="support_contact_tool_label">Alat berkaitan</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Penganalisis</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Penjadual</string>
+    <string name="support_contact_tool_general_label">Umum</string>
+    <string name="support_contact_description_label">Penerangan</string>
+    <string name="support_contact_description_bug_hint">Huraikan apa yang berlaku dan cara untuk mengeluarkan semula isu tersebut. Sila berikan butiran yang jelas (minimum 20 patah perkataan).</string>
+    <string name="support_contact_description_feature_hint">Huraikan ciri yang anda ingin lihat. Sila berikan butiran yang jelas (minimum 20 patah perkataan).</string>
+    <string name="support_contact_description_question_hint">Huraikan soalan anda secara terperinci. Sila berikan butiran yang jelas (minimum 20 patah perkataan).</string>
+    <string name="support_contact_expected_label">Tingkah laku yang dijangkakan</string>
+    <string name="support_contact_expected_hint">Huraikan apa yang anda jangkakan berlaku (minimum 10 patah perkataan).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d perkataan</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log nyahpepijat</string>
+    <string name="support_contact_debuglog_zip_error">Gagal memampatkan log nyahpepijat</string>
+    <string name="support_contact_debuglog_picker_hint">Lampirkan log nyahpepijat sedia ada, atau rekod yang baharu.</string>
+    <string name="support_contact_debuglog_picker_empty">Tiada log nyahpepijat ditemui. Rekod satu dahulu.</string>
+    <string name="support_contact_send_action">Buka apl e-mel</string>
+    <string name="support_contact_no_email_app">Tiada apl e-mel ditemui pada peranti ini.</string>
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Ucapan terima kasih</string>
     <string name="settings_acknowledgements_category_translations_title">Terjemahan</string>
@@ -172,6 +209,7 @@
     <string name="debug_mode_explanation">Dayakan pilihan ujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih perlahan dan berprestasi berbeza.</string>
     <string name="debug_bugreporter_label">Laporan pepijat automatik</string>
     <string name="debug_bugreporter_summary">Melaporkan isu secara automatik, cth. butiran tentang aplikasi ranap supaya saya dapat mengetahui sebabnya serta membetulkannya.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mod nyahpepijat diaktifkan</string>
     <string name="debug_card_trace_mode_label">Aktifkan mod jejak</string>
     <string name="debug_card_dryrun_mode_label">Mod larian kering (nyahaktif pemadaman)</string>
@@ -219,4 +257,5 @@
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan satu ketik</string>
     <string name="shortcuts_onetap_enabled_summary">Tunjukkan pintasan \"Imbas + Padam\" apabila menekan lama ikon aplikasi. Menggunakan alat yang sama seperti papan pemuka satu ketik.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

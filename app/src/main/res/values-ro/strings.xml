@@ -25,6 +25,10 @@
         <item quantity="other">%1$d fișiere gata (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, numele fișierelor și aplicațiilor instalate). Distribuiți-l numai persoanelor de încredere (de exemplu, unui dezvoltator care depanează o problemă).</string>
+    <string name="debug_debuglog_short_recording_title">Înregistrare foarte scurtă</string>
+    <string name="debug_debuglog_short_recording_desc">Înregistrarea a fost foarte scurtă. Jurnalele de depanare sunt Înregistrări, nu instantanee — reproduceți problema în timp ce Înregistrarea este activă pentru ca jurnalul să fie util.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuați Înregistrarea</string>
+    <string name="debug_debuglog_short_recording_stop_action">Opriți oricum</string>
     <string name="tasks_activity_notification_channel_label">Sarcini active</string>
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -104,6 +108,40 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Acest lucru va șterge definitiv toate sesiunile jurnalului de depanare stocate. Această acțiune nu poate fi anulată.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un loc în care să stai și să pui întrebări.</string>
+    <string name="support_contact_label">Contactează dezvoltatorul</string>
+    <string name="support_contact_desc">Completează un formular pentru a trimite un email dezvoltatorului.</string>
+    <string name="support_contact_welcome">Citesc fiecare mesaj personal și fac tot posibilul să răspund, dar deoarece lucrez singur la aceasta, poate dura puțin. Mulțumesc pentru răbdarea dumneavoastră.</string>
+    <string name="support_contact_footer">Mesajul tău va fi trimis prin email. Informațiile despre dispozitiv și configurare sunt atașate automat. Poți atașa capturi de ecran sau un videoclip la email. Unele părți ale emailului vor fi în engleză pentru ca dezvoltatorul să le înțeleagă ușor.</string>
+    <string name="support_contact_category_label">Categorie</string>
+    <string name="support_contact_category_bug_label">Raport de eroare</string>
+    <string name="support_contact_category_feature_label">Cerere de funcționalitate</string>
+    <string name="support_contact_category_question_label">Întrebare</string>
+    <string name="support_contact_tool_label">Instrument asociat</string>
+    <string name="support_contact_tool_appcleaner_label">Curățitor de aplicații</string>
+    <string name="support_contact_tool_corpsefinder_label">Găsitor de cadavre</string>
+    <string name="support_contact_tool_systemcleaner_label">Curățitor de sistem</string>
+    <string name="support_contact_tool_deduplicator_label">Curățitor de duplicate</string>
+    <string name="support_contact_tool_analyzer_label">Analizor</string>
+    <string name="support_contact_tool_appcontrol_label">Controlul Aplicațiilor</string>
+    <string name="support_contact_tool_scheduler_label">Programator</string>
+    <string name="support_contact_tool_general_label">General</string>
+    <string name="support_contact_description_label">Descriere</string>
+    <string name="support_contact_description_bug_hint">Descrie ce s-a întâmplat și cum se poate reproduce problema. Te rugăm să fii specific (minimum 20 de cuvinte).</string>
+    <string name="support_contact_description_feature_hint">Descrie funcționalitatea pe care ai dori să o vezi. Te rugăm să fii specific (minimum 20 de cuvinte).</string>
+    <string name="support_contact_description_question_hint">Descrie întrebarea ta în detaliu. Te rugăm să fii specific (minimum 20 de cuvinte).</string>
+    <string name="support_contact_expected_label">Comportamentul așteptat</string>
+    <string name="support_contact_expected_hint">Descrie ce te așteptai să se întâmple (minimum 10 cuvinte).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d cuvânt</item>
+        <item quantity="few">%1$d / %2$d cuvinte</item>
+        <item quantity="other">%1$d / %2$d de cuvinte</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Jurnal de depanare</string>
+    <string name="support_contact_debuglog_zip_error">Comprimarea jurnalului de depanare a eșuat</string>
+    <string name="support_contact_debuglog_picker_hint">Atașează un jurnal de depanare existent sau înregistrează unul nou.</string>
+    <string name="support_contact_debuglog_picker_empty">Nu au fost găsite jurnale de depanare. Înregistrează unul mai întâi.</string>
+    <string name="support_contact_send_action">Deschide aplicația de email</string>
+    <string name="support_contact_no_email_app">Nu a fost găsită nicio aplicație de email pe acest dispozitiv.</string>
     <string name="changelog_label">Jurnal de schimbări</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
     <string name="settings_acknowledgements_category_translations_title">Traduceri</string>
@@ -181,6 +219,7 @@
     <string name="debug_mode_explanation">Activează opțiuni de test și ieșire mai detaliată. Aplicația va rula încet și va performa diferit.</string>
     <string name="debug_bugreporter_label">Rapoarte de jurnal automat</string>
     <string name="debug_bugreporter_summary">Raportează automat probleme, ex: detalii la oprirea neașteptată a aplicației ca să știu de ce și a rezolva.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modul depanare este activat</string>
     <string name="debug_card_trace_mode_label">Activați modul de urmărire</string>
     <string name="debug_card_dryrun_mode_label">Modul de funcționare uscată (dezactivare ștergere)</string>
@@ -232,4 +271,5 @@
     <string name="shortcuts_settings_category">Scurtături</string>
     <string name="shortcuts_onetap_enabled_title">Comandă rapidă cu o singură atingere</string>
     <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

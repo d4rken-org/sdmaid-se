@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="deduplicator_explanation_short">Qurılmańızda dublikat maǵlıwmatlardı tabıń.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d dublikat óśirip tastandı</item>
+        <item quantity="other">%d dublikat óśirip tastandı</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d dublikat toplamasi tabdı</item>
+        <item quantity="other">%d dublikat toplamalari tabdı</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"Barlıǵın öshiriw\" múmkinshiligin jarat</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Dublikatlar toplamındaǵı barlıq fayllarıdı öshiriwge múmkinshilik beretuǵın optsiyalırdı kórsetiw, sonlıqtan hesh fayl qalmaydi.</string>
     <string name="deduplicator_search_locations_title">Izlew orınları</string>
@@ -18,6 +26,10 @@
     <string name="deduplicator_detection_method_phash_title">Qabıllaw xeshi</string>
     <string name="deduplicator_detection_method_phash_summary">Mazmun o\'zgesheliklerdi taldaw ha\'m perseptual xesh qıymatların salıstırıw arqalı uqsas faylları tabın\'. ⚠️ Uqsaslıqqa tiykarlanǵan anıqlaw jalǵan pozitiflerdı o\'z ishine alıwı mu\'mkin, qoldan tekseriwdi talap etedi.</string>
     <string name="deduplicator_occupied_space_label">Bándelgen saqlawsh</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s dublikatlları iyelep turır</item>
+        <item quantity="other">%s dublikatlları iyelep turır</item>
+    </plurals>
     <string name="deduplicator_file_size_label">Fayl kólemi</string>
     <string name="deduplicator_average_size_label">Ortasha kólem</string>
     <string name="deduplicator_cluster_x_label">Klaster %s</string>

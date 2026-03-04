@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">ຄົ້ນຫາສິ່ງທີ່ໃຊ້ພື້ນທີ່ໃນອຸປະກອນຂອງທ່ານ.</string>
+    <string name="analyzer_progress_scanning_device">ກຳລັງຄົ້ນຫາອຸປະກອນຈັດເກັບข້ອມູນ</string>
+    <string name="analyzer_progress_scanning_storage">ກຳລັງສະແກນການເກັບຂ້ອມູນ</string>
+    <string name="analyzer_progress_scanning_apps">ກຳລັງສະແກນแອບ</string>
+    <string name="analyzer_progress_scanning_userfiles">ກຳລັງຄົ້ນຫາໄຟລ໌ຂອງຜູ້ໃຊ້</string>
+    <string name="analyzer_progress_scanning_system">ກຳລັງສະແກນຂ້ອມູນຣະບົ</string>
+    <string name="analyzer_device_storage_title">ພື້ນທີ່ເກັບຂ້ອມູນອຸປະກອນ</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s ໃຊ້ໄດ້</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s ຖືກໃຊ້ແລ້ວ</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">ໄມ່ມີການໃຊ້ງານໂດຍຕຍງ</string>
+    <string name="analyzer_content_create_swiper_session_action">ສ້າງເ໊ງະການ Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">ສ້າງເງາການ Swiper ດ້ວຍ %d ລາຍການ</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">ພື້ນທີ່ເກັບຂ້ອມູນຫລັກ</string>
+    <string name="analyzer_storage_type_primary_description">ພື້ນທີ່ເກັບຂ້ອມູນຫລັກຂອງອຸປະກອນ. ປະກອບດ້ວຍ SD card ພາຍໃນ, ພື້ນທີ່ສ່ວນຕົວສໍາລັບແອບ ແລະຂ້ອມູນລະບົ.</string>
+    <string name="analyzer_storage_type_secondary_title">ພື້ນທີ່ເກັບຂ້ອມູນຮອງ</string>
+    <string name="analyzer_storage_type_secondary_description">ພື້ນທີ່ເກັບຂ້ອມູນຮອງ, ປົກກະຕິແມ່ນ SD card ທີ່ຖອດອອກໄດ້. ປະກອບດ້ວຍໄຟລ໌ສື່ ແລະຂ້ອມູນຈາກແອບທີ່ຮອງຮັບ.</string>
+    <string name="analyzer_storage_type_tertiary_title">ພື້ນທີ່ເກັບຂ້ອມູນພາກນໍາພາ</string>
+    <string name="analyzer_storage_type_tertiary_description">ພື້ນທີ່ເກັບຂ້ອມູນພາກນໍາພາ, ເຊັ່ນ flash drive ທີ່ເຊື່ອມຕໍ່ກັບພອກຕ໌ USB ຂອງທ່ານ.</string>
+    <string name="analyzer_storage_content_title">ເນື້ອຫາຂອງພື້ນທີ່ເກັບຂ້ອມູນ</string>
+    <string name="analyzer_storage_content_type_app_label">ແອບ</string>
+    <string name="analyzer_storage_content_type_app_description">ພື້ນທີ່ທີ່ຖືກໃຊ້ໂດຍແອບທີ່ຕິດຕັ້ງ ແລະຂ້ອມູນ (ຄືອ ໄຟລ໌ແອບ, ຂ້ອມູນ ແລະເກັບຂ້ອມູນຊົ່ວຄາວ).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">ຂາດສິທຘິ່</string>
+    <string name="analyzer_storage_content_type_media_label">ໄຟລ໌ຂອງຜູ້ໃຊ້</string>
+    <string name="analyzer_storage_content_type_media_description">ພາບຖ່າຍຮູປ, ວິດີໂອທີ່ຊຶກໞ່ ຫຣືອຂ້ອມູນທີ່ດາວນໄອດ້. ຂ້ອມູນໃດໆທີ່ໄມ່ວ່າລະກັບແອບທີ່ເຈາະຈອງ.</string>
+    <string name="analyzer_storage_content_type_system_label">ຂ້ອມູນລະບົ</string>
+    <string name="analyzer_storage_content_type_system_description">ແອບລະບົ ແລະຂ້ອມູນລະບົ. ແອບ ແລະຂ້ອມູນຈາກຜູ້ໃຊ້ອື່ນ, ຖ້າມີບັນຊີຜູ້ໃຊ້ຫລາຍບັຍຊີຖືກຕັ້ງແຕ່ງໃນອຸປະກອນນີ້.</string>
+    <string name="analyzer_storage_content_app_code_label">ໂຄດໂປໂກລແອບ</string>
+    <string name="analyzer_storage_content_app_code_description">ໄຟລ໌ແອບ, ໄລບຣະລີ ແລະທລະພາກອະ. ພື້ນທີ່ນີ່ສາມາຖຖືກຄືນເດຟດ້ວຍການຖອນຕິດຕັ້ງແອບ ຫຣືອເກັບໄວ້ໃນຕຸ (Android ວັນໃໝ່ຮອງຮັບ).</string>
+    <string name="analyzer_storage_content_app_data_label">ຂ້ອມູນແອບ</string>
+    <string name="analyzer_storage_content_app_data_description">ຂ້ອມູນ, ການຕັ້ງຄ່າ ແລະເກັບຂ້ອມູນຊົ່ວຄາວ.</string>
+    <string name="analyzer_storage_content_app_media_label">ສື່ອແອບ</string>
+    <string name="analyzer_storage_content_app_media_description">ໄຟລ໌ສື່ອຈາກແອບນີ້, ເຊ່ນ ຣູບ WhatsApp ທີ່ໄດ້ຮັບ.</string>
+    <string name="analyzer_storage_content_app_extra_label">ໄຟລ໌ແອບເພີ່ມເຕີມ</string>
+    <string name="analyzer_storage_content_app_extra_description">ຂ້ອມູນເພີ່ມເຕີມທີ່ແອບນີ້ໄດ້ວາງນອກເສ້ນທາງເພີ່ມເຕີມ, ເຊ່ນ ຣູບຖ່າຍ ຫຣືອການດາວນໄອດ້.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">ແອບນີ້ໃຊ້ພື້ນທີ່ %1$s ທີ່ \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">ແອບນີ້ຖືກເກັບໄວ້ໃນຕຸແລ້ວ.</string>
+</resources>

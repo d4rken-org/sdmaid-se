@@ -15,9 +15,26 @@
     <string name="debug_debuglog_record_action">debug log မှတ်တမ်းတင်ပါ</string>
     <string name="debug_debuglog_stop_action">ဖမ်ယူခြင်းကို ရပ်ပါ</string>
     <string name="debug_debuglog_sensitive_information_message">ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ။</string>
+    <string name="debug_debuglog_screen_title">ဒီဘတ်ဂ်လုံ</string>
+    <string name="debug_debuglog_screen_discard_action">စွန့်ပစ်သည်</string>
+    <string name="debug_debuglog_screen_session_path_label">အစီအစဥ်လမ်းကြောင်း</string>
+    <string name="debug_debuglog_screen_log_files_label">မှတ်တမ်းဖိုင်များ</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d ဖိုင်များ အသင့်ဖြစ်နေသည် (%2$s) · %3$s</item>
+    </plurals>
     <string name="settings_debuglog_explanation">ဤ feature သည် အက်ပ်လုပ်နေသမျှကို မျှဝေနိုင်သော ဖိုင်တွင် မှတ်တမ်းတင်သည်။ ထုတ်လုပ်ထားသော ဖိုင်တွင် အရေးကြီးသော အချက်အလက်များ (ဥပမာ- ဖိုင်အမည်များနှင့် တပ်ဆင်ထားသော အက်ပ်များ) ပါဝင်သည်။ ယုံကြည်ရသော ကုမ္ပဏီများနှင့်သာ မျှဝေပါ (ဥပမာ- ပြဿနာဖြေရှင်းနေသော developer)။</string>
+    <string name="debug_debuglog_short_recording_title">အသံဖမ်းချိန် အလွန်တိုပါသည်</string>
+    <string name="debug_debuglog_short_recording_desc">အသံဖမ်းချိန် အလွန်တိုနေသည်။ Debug မှတ်တမ်းများသည် ဓာတ်ပုံမဟုတ်ဘဲ အသံဖမ်းချက်များဖြစ်သည် — မှတ်တမ်းထောက်ကူဖြစ်ရန် အသံဖမ်းနေစဉ် ပြဿနာကို ပြန်ဖော်ထုတ်ပါ။</string>
+    <string name="debug_debuglog_short_recording_continue_action">အသံဖမ်းဆက်လုပ်မည်</string>
+    <string name="debug_debuglog_short_recording_stop_action">မည်သို့ပင်ဆိုစေ ရပ်မည်</string>
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
+    <plurals name="tasks_activity_active_notification_message">
+        <item quantity="other">%d တာဝန်အသက်ဝင်နေသော</item>
+    </plurals>
+    <plurals name="tasks_activity_queued_notification_message">
+        <item quantity="other">%d တာဝန်တန်းစီနေသော</item>
+    </plurals>
     <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
     <string name="onboarding_welcome_title">ကြိုဆိုပါသည်</string>
@@ -25,6 +42,7 @@
     <string name="onboarding_welcome_body2">အခြားအက်ပ်များ၏နောက်တွင် သန့်ရှင်းရေးလုပ်ခြင်းဖြင့် သိမ်းဆည်းမှုနေရာရပါ။ မလိုအပ်သောဖိုင်များကို ဖျက်ပြီး ကျန်ရှိနေသောဒေတာများကို ဖယ်ရှားပါ။</string>
     <string name="onboarding_welcome_body_beta">ဤသည်မှာ beta (စမ်းသပ်) တည်ဆောက်မှုတစ်ခုဖြစ်သည်။ ရယ်မောမှုသဘောထားနှင့် အရန်အစီအစဉ်ဖြင့် ဆက်လက်လုပ်ဆောင်ပါ။ တွေ့ကြုံရသော ပြဿနာများကို သတင်းပို့ပါ။</string>
     <string name="onboarding_welcome_continue_action">ဆက်လက်လုပ်ဆောင်ပါ</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (ဆိုလိုသည်မှာ SD Maid 2) သည် SD Maid (ဆိုလိုသည်မှာ SD Maid 1) ၏ဆက်ခံသူဖြစ်သည်။ ခေတ်မီ Android အတွက် အကောင်းဆုံးဖြစ်အောင် ပြုလုပ်ထားသော အက်ပ်အသစ်။</string>
     <string name="onboarding_versus_body2">၎င်း၏ ယခင်ဗားရှင်း၏ architecture သည် ၇ နှစ်ကျော်ဟောင်းပြီး Android ဗားရှင်းအသစ်များ၏ စိန်ခေါ်မှုများအတွက် ဒီဇိုင်းမပြုလုပ်ထားပါ။ ဖွံ့ဖြိုးတိုးတက်မှုကို ဆက်လက်လုပ်ဆောင်ရန် အပြည့်အဝ ပြန်လည်ဒီဇိုင်းပြုလုပ်ရန် လိုအပ်သည်။</string>
     <string name="onboarding_versus_body3">ပိုမိုကောင်းမွန်သော ရလဒ်များအတွက် SD Maid SE သို့ ပြောင်းလဲခြင်းကို စဉ်းစားပါ။</string>
@@ -59,6 +77,7 @@
     <string name="ui_theme_style_setting_label">ပုံစံ ပုံရုပ်</string>
     <string name="ui_theme_style_setting_explanation">အက်ပ်ကို ပုံစံပြုလုပ်သောအခါ အသုံးပြုသော အရောင် ပုံရုပ်။</string>
     <string name="ui_theme_style_default_label">မူလ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ဖိုင် ကြိုကြည့်ခြင်းများ</string>
     <string name="ui_previews_summary">ကိရိယာအားလုံးတွင် ဖိုင် ကြိုကြည့်ခြင်းများကို ပြသပါ (ဥပမာ- ပုံနှင့် ဗီဒီယို thumbnail များ)။</string>
     <string name="ui_language_override_label">အက်ပ် ဘာသာစကား</string>
@@ -67,12 +86,60 @@
     <string name="settings_support_description">စာရွက်စာတန်းများ ဖတ်ရှုခြင်း၊ ပြဿနာများ သတင်းပို့ခြင်း၊ အခြားသူများနှင့် စကားပြောခြင်း သို့မဟုတ် debug log များ မှတ်တမ်းတင်ခြင်း။</string>
     <string name="documentation_label">စာရွက်စာတန်းများ</string>
     <string name="issue_tracker_description">Bug report များနှင့် feature တောင်းဆိုမှုများအတွက် အများပြည်သူ issue tracker။</string>
+    <string name="issue_tracker_label">ပြဿနာခွဲခြင်းကိရိယာ</string>
     <string name="support_installid_label">တပ်ဆင်မှု ID</string>
     <string name="support_installid_desc">အလိုအလျှောက် အမှား report များသည် အမည်မသိဖြစ်သည်။ Developer သည် သင့် အမှား report များကို ရှာဖွေရန် လိုအပ်ပါက သင့် တပ်ဆင်မှု ID ကို မျှဝေပါ။</string>
+    <string name="support_debuglog_label">ဒီဘတ်ဂ်မှတ်တမ်း</string>
     <string name="support_debuglog_desc">အက်ပ်လုပ်နေသမျှကို သင်မျှဝေနိုင်သော စာသား ဖိုင်တွင် မှတ်တမ်းတင်ပါ။</string>
+    <string name="support_debuglog_folder_label">Debug မှတ်တမ်း ဖိုလ်ဒါ</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="other">%1$d ဖိုင်များ %2$s ကိုအသုံးပြုနေသည်</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc"> သိမ်းဆည်းထားသော debug မှတ်တမ်းများ မရှိသည်</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">debug မှတ်တမ်းအားလုံး ဖျက်ရန် လိုအပ်သနည်း။</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">ဤသည် သိမ်းဆည်းထားသော debug မှတ်တမ်းများအားလုံးကို အပြီးဖျက်သည်။ ဤလုပ်ဆောင်ချက်ကို ပြန်လည်ပြုလုပ်၍မရနိုင်သည်။</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">လှည့်လည်နေရန်နှင့် မေးခွန်းများ မေးရန် နေရာ။</string>
+    <string name="support_contact_label">ဆော့ဖ်ဝဲရေးသားသူထံ ဆက်သွယ်ရန်</string>
+    <string name="support_contact_desc">ဆော့ဖ်ဝဲရေးသားသူထံ အီးမေးလ် ပို့ရန် ဖောင်တစ်ခု ဖြည့်သွင်းပါ။</string>
+    <string name="support_contact_welcome">မက်ဆေ့ချ်တိုင်းကို ကိုယ်တိုင်ဖတ်ပြီး တတ်နိုင်သမျှ ပြန်ဖြေရန် ကြိုးစားသည်၊ သို့သော် တစ်ယောက်တည်း လုပ်နေသောကြောင့် အနည်းငယ် အချိန်ကြာနိုင်သည်။ သည်းခံပေးသည့်အတွက် ကျေးဇူးတင်သည်။</string>
+    <string name="support_contact_footer">သင်၏ မက်ဆေ့ချ်ကို အီးမေးလ်မှတစ်ဆင့် ပို့မည်ဖြစ်သည်။ စက်နှင့် ဆက်တင်အချက်အလက်များကို အလိုအလျောက် ပူးတွဲပါသည်။ ဓာတ်ပုံများ သို့မဟုတ် ဗီဒီယိုတစ်ခုကို အီးမေးလ်နှင့် ပူးတွဲနိုင်ပါသည်။ ဆော့ဖ်ဝဲရေးသားသူ လွယ်ကူစွာ နားလည်နိုင်ရန် အီးမေးလ်၏ အချို့အပိုင်းများ အင်္ဂလိပ်ဘာသာဖြင့် ဖြစ်မည်ဖြစ်သည်။</string>
+    <string name="support_contact_category_label">အမျိုးအစား</string>
+    <string name="support_contact_category_bug_label">ချွတ်ယွင်းချက် အစီရင်ခံစာ</string>
+    <string name="support_contact_category_feature_label">အင်္ဂါရပ် တောင်းဆိုချက်</string>
+    <string name="support_contact_category_question_label">မေးခွန်း</string>
+    <string name="support_contact_tool_label">သက်ဆိုင်သောကိရိယာ</string>
+    <string name="support_contact_tool_appcleaner_label">အက်ပ် သန့်ရှင်းရေးကိရိယာ</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">စနစ် သန့်ရှင်းရေးကိရိယာ</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">အက်ပ် ထိန်းချုပ်မှု</string>
+    <string name="support_contact_tool_scheduler_label">အချိန်ဇယား ချိန်ညှိမှု</string>
+    <string name="support_contact_tool_general_label">ယေဘူယျ</string>
+    <string name="support_contact_description_label">ဖော်ပြချက်</string>
+    <string name="support_contact_description_bug_hint">မည်သည့်အရာ ဖြစ်ပျက်ခဲ့သည်နှင့် ပြဿနာကို မည်ကဲ့သို့ ပြန်ဆောင်ပြနိုင်သည်ကို ဖော်ပြပါ။ ကျေးဇူးပြု၍ တိကျစွာ ဖော်ပြပါ (အနည်းဆုံး စကားလုံး ၂၀)။</string>
+    <string name="support_contact_description_feature_hint">သင် မြင်လိုသော အင်္ဂါရပ်ကို ဖော်ပြပါ။ ကျေးဇူးပြု၍ တိကျစွာ ဖော်ပြပါ (အနည်းဆုံး စကားလုံး ၂၀)။</string>
+    <string name="support_contact_description_question_hint">သင်၏ မေးခွန်းကို အသေးစိတ် ဖော်ပြပါ။ ကျေးဇူးပြု၍ တိကျစွာ ဖော်ပြပါ (အနည်းဆုံး စကားလုံး ၂၀)။</string>
+    <string name="support_contact_expected_label">မျှော်မှန်းသော အပြုအမူ</string>
+    <string name="support_contact_expected_hint">မည်သည့်အရာ ဖြစ်မည်ဟု မျှော်မှန်းခဲ့သည်ကို ဖော်ပြပါ (အနည်းဆုံး စကားလုံး ၁၀)။</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d စကားလုံး</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ချွတ်ယွင်းချက်ပြင်ဆင်ခြင်းမှတ်တမ်း</string>
+    <string name="support_contact_debuglog_zip_error">ဒီဘတ်ဂ်မှတ်တမ်းကို ချုံ့မရပါ</string>
+    <string name="support_contact_debuglog_picker_hint">ရှိပြီးသော ဒီဘတ်ဂ်မှတ်တမ်းကို ပူးတွဲပါ၊ သို့မဟုတ် အသစ်တစ်ခု မှတ်တမ်းတင်ပါ။</string>
+    <string name="support_contact_debuglog_picker_empty">ဒီဘတ်ဂ်မှတ်တမ်း မတွေ့ပါ။ ဦးစွာ တစ်ခု မှတ်တမ်းတင်ပါ။</string>
+    <string name="support_contact_send_action">အီးမေးလ်အက်ပ် ဖွင့်ရန်</string>
+    <string name="support_contact_no_email_app">ဤစက်တွင် အီးမေးလ်အက်ပ် မတွေ့ပါ။</string>
     <string name="changelog_label">ပြောင်းလဲမှုများ စာရင်း</string>
     <string name="settings_acknowledgements_label">ကျေးဇူးတင်ကြမ်း</string>
+    <string name="settings_acknowledgements_category_translations_title">ဘာသာ ပြန်လည်ဆောင်ရွက်မှု</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">ဘာသာ ပြန်လည်ဆောင်ရွက်ခဲ့သူ ဘယ်သူများ ဖြစ်သနည်း။</string>
+    <string name="settings_acknowledgements_category_thanks_title">ကျေးဇူးတင်ပါသည်</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ကျွနုပ်တို့၏ သူငယ်ခင်သူများအား အထူးကျေးဇူးတင်ပါသည်။</string>
+    <string name="settings_acknowledgements_category_licenses_title">လိုင်စင်များ</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid မှ အသုံးပြုသော ဆော့ဖ်ဝဲ။</string>
     <string name="setup_label">တပ်ဆင်မှု</string>
     <string name="setup_incomplete_card_title">တပ်ဆင်မှု မပြီးမြောက်သေးပါ</string>
     <string name="setup_incomplete_card_body">ပိုကောင်းသောရလဒ်များရရှိရန် SD Maid ၏ တပ်ဆင်မှုကို ပြီးမြောက်အောင်လုပ်ပါ။</string>
@@ -98,6 +165,7 @@
     <string name="setup_root_enable_root_use_label">ရရှိနိုင်ပါက root ဝင်ရောက်ခွင့်ကို အသုံးပြုရန်</string>
     <string name="setup_root_disable_root_use_label">Root ဝင်ရောက်ခွင့်ကို မသုံးရန်</string>
     <string name="setup_root_card_body2">Root လုပ်ထားသောကိရိယာများတွင်သာ ရရှိနိုင်သည်။ သင်ကဤပြုပြင်မှုကို မလုပ်ခဲ့ပါက သင့်ကိရိယာသည် root မလုပ်ထားပါ၊ ဤဆက်တင်သည် အကျိုးသက်ရောက်မှုမရှိပါ။</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ရလဒ်များကို မြှင့်တင်ရန်နှင့် အင်္ဂါရပ်များကို ဖွင့်ရန် SD Maid ကို ဖြစ်နိုင်သော နေရာများတွင် Shizuku ကို အသုံးပြုခွင့်ပေးပါ။</string>
     <string name="setup_shizuku_card_body2">Shizuku အက်ပ်ကို သင့်ကိရိယာတွင် တပ်ဆင်မထားပါက ဤဆက်တင်သည် အကျိုးသက်ရောက်မှုမရှိပါ။</string>
     <string name="setup_shizuku_card_root_info">Shizuku ကို root ဝင်ရောက်ခွင့်နှင့် ပေါင်းစပ်ခြင်းသည် နောက်ထပ်အင်္ဂါရပ်များကို ဖွင့်မပေးပါ၊ သို့သော် ယုံကြည်စိတ်ချရမှုကို မြှင့်တင်ပေးသည်။ SD Maid သည် ၎င်းကို အရန်နည်းလမ်းအဖြစ် အသုံးပြုမည်။</string>
@@ -141,16 +209,53 @@
     <string name="debug_mode_explanation">စမ်းသပ်ရွေးချယ်မှုများနှင့် ပိုမိုအသေးစိတ်ဖြစ်သော ရလဒ်များကို ဖွင့်ပါ။ အက်ပ်သည် ပိုနှေးကာ မတူညီစွာ လုပ်ဆောင်မည်။</string>
     <string name="debug_bugreporter_label">အလိုအလျောက် အမှားအစီရင်ခံစာများ</string>
     <string name="debug_bugreporter_summary">ပြဿနာများကို အလိုအလျောက် သတင်းပို့သည်၊ ဥပမာ အက်ပ် crash ဖြစ်မှုအသေးစိတ်များ၊ ကျွန်ုပ်က အဘယ်ကြောင့်ဖြစ်ကြောင်း ရှာဖွေပြီး ပြုပြင်နိုင်ရန်။</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug မုံဒ်ကို အသုံးပြုထားသည်</string>
+    <string name="debug_card_trace_mode_label">Trace မုံဒ်ကို အသုံးပြုခြင်း</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run မုံဒ် (ဖျက်မှုအားပိတ်ခြင်း)</string>
+    <string name="debug_card_areas_reload_action">ဒေတာ အလယ်အလတ်များကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
+    <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
+    <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>
+    <string name="debug_card_shizuku_test_action">Shizuku စမ်းသည်</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>
     <string name="data_area_public_storage_label">အများပြည်သူ သိုလှောင်မှု</string>
+    <string name="data_area_sdcard_label">SD ကဒ်</string>
+    <string name="data_areas_label">ဒေတာနေရာများ</string>
+    <string name="data_areas_description">ဒေတာနေရာများသည် SD Maid အသုံးပြုနိုင်သည့် ကိရိယာပေါ်ရှိ တည်နေရာများကို ကိုယ်စားပြုသည်။ Android ဗားရှင်း နှင့် ပေးထားသည့် ခွင့်ပြုချက်များပေါ်မူတည်၍ မတူညီသည့် ဒေတာနေရာများ ရနိုင်သည်။</string>
+    <string name="data_areas_short_summary">SD Maid သည် လက်ရှိ ပြည့်စုံသည့် ခွင့်ပြုချက်ပေါ်အခြန်ချမ့် သုံးမြုနိုင်သည့် နေရာများ။</string>
     <string name="history_label">မှတ်တမ်း</string>
     <string name="history_description">မကြာသေးမီက လုပ်ဆောင်ချက်များနှင့် ထိခိုက်ခံရသော ဒေတာများ၏ အချိန်စဉ် စာရင်း။</string>
+    <string name="updates_dashcard_title">အပ်ဒိတ်ရနိုင်သည်</string>
+    <string name="updates_dashcard_body">အပ်ဒိတ်ရနိုင်သည်။ သင်သည် %1$s ရှိပြီး နောက်ဆုံးဗားရှင်း %2$s ဖြစ်သည်။</string>
+    <string name="translation_encourage_title">SD Maid ကို ဘာသာပြန်ဆိုရန်</string>
+    <string name="translation_encourage_body">SD Maid ကို စေတနာ ဝါဒီများမှ ဘာသာပြန်ဆိုသည်။ ဘာသာပြန်ဆိုခြင်း၊ သုံးသပ်ခြင်း သို့မဟုတ် ပြုပြင်စစ်ဆေးခြင်း၊ သင်၏ အကူအညီကို တန်ဖိုးထားပါသည်</string>
+    <string name="translation_translators_title">ဤဗားရှင်းကို ဘာသာပြန်ဆိုသူ</string>
+    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
+    <string name="motd_setting_enabled_label">အရေးကြီးသောသတင်းများ</string>
+    <string name="motd_setting_enabled_explanation">SD Maid သည် ဖန်တီးသူမှ အရေးကြီးသောသတင်းများ စစ်ဆေးရန် ခွင့်ပြုပါ။</string>
+    <string name="updatecheck_setting_enabled_label">အဆင့်မြှင့်တင်ခြင်းကို စစ်ဆေးပါ</string>
+    <string name="updatecheck_setting_enabled_explanation">SD Maid သည် အဆင့်မြှင့်တင်ခြင်းများကို စစ်ဆေးရန် ခွင့်ပြုပါ ၊ ထို့ကြောင့် ပိုသစ်သော version မရှိနိုင်ခြင်းကို သိရှိနိုင်ပါသည်။</string>
     <string name="device_settings_category">စက်ပစ္စည်း</string>
     <string name="beta_version_indicator_desc">ကြိုတင်ဖြန့်ချိမှု ဗားရှင်းများသည် ပြိုင်ပွဲ မျက်နှာပြင်တွင် ရှည်သော ဖဲကြိုးလေး ပြသသည်။ ၎င်းတို့သည် မကြာခဏ အပ်ဒိတ် ပြုလုပ်ပြီး၊ လုပ်ဆောင်ချက်များ ပိုများနိုင်သော်လည်း ချွတ်ယွင်းချက်များလည်း ပိုများနိုင်သည်။</string>
     <string name="review_app_review_action">သုံးသပ်ချက် ပေးရန်</string>
     <string name="review_app_dismiss_action">နောက်ပိုင်းမှ</string>
     <string name="review_app_body">SD Maid အတွက် သုံးသပ်ချက် ချန်ထားလိုပါသလား။️ ❤️</string>
+    <string name="anniversary_card_title">SD Maid အထုံးအဝါစည်ပွဲ ၎င်းဖြစ်ပါသည် ❤️</string>
+    <string name="anniversary_card_install_date">သင်ထံ %s မှစ၍ အတူရှိသည်</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">%1$d နှစ် အားကောင်း။ သင်၏ ကိရိယာသည် SD Maid ဖြင့် ရှင်းလင်းပြီး စုစည်းထားသည်။ လွှတ်ပြုခြင်းအနေအထားရှိသည်: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">သင်၏ SD Maid အထုံးအဝါစည်ပွဲ ၎င်းပိုင်းခွဲခြင်း</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d နှစ် SD Maid ဖြင့်အတူ — လွှတ်ပြုခြင်းအနေအထားရှိသည်: %2$s။ သင်၏ Android ကိရိယာကိုရှင်းလင်းပြီး စုစည်းထားခြင်း။ #SDMaid\nစမ်းသပ်ကြည့်ပါ: %3$s</item>
+    </plurals>
+    <string name="shortcut_onetap_short">စကင်+ဖျက်သည်</string>
+    <string name="shortcut_onetap_long">တစ်ခြင်းအလုပ်ခွင်းဖြင့် စကင်နှင့်ဖျက်သည်</string>
+    <string name="shortcuts_settings_category">ခင်ဗျား</string>
+    <string name="shortcuts_onetap_enabled_title">တစ်ချက်သုံးတိုက်ခင်ဗျား</string>
+    <string name="shortcuts_onetap_enabled_summary">အပ်ပလီကေးရှင်း icon ကို အရှည်ကြာ တိုက်နယ်သည့်အခါ \"စကင်န်လုပ် + ဖျက်\" အတိုကောက် ပွင့်လင်းပြသပါ။ အဆင့်တစ်ခုထဲ dashboard ဖြင့်အလားတူ tool များအသုံးပြုသည်။</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

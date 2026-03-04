@@ -1,26 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">Таны төхөөрөмж дээр суулгагдсан аппликешнүүд.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d апп илрэвчилсэн</item>
+        <item quantity="other">%d апп илрэвчилсэн</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Аппуудыг хүчийхийг эргүүлэх</string>
     <string name="appcontrol_toggle_app_enable_action">Апп идэвхжүүлэх</string>
     <string name="appcontrol_toggle_app_disable_action">Апп идэвхгүй болгох</string>
+    <string name="appcontrol_toggle_app_enable_description">Аппыг идэвхжүүлэх нь ажиллах боломж олгож хэрэв апп үйл хүсэгдсэн бол лончер дахь харагдах болно.</string>
+    <string name="appcontrol_toggle_app_disable_description">Аппыг идэвхгүй болгох нь ажиллахаас сэргэж цэснүүдээс нууцна. Өгөгдөл алдагдахгүй.</string>
     <string name="appcontrol_appstore_open_title">Аппын дэлгүүрт нээх</string>
+    <string name="appcontrol_appstore_open_description">Энэ аппыг суулагдсан апп дэлгүүрт нээж байх.</string>
     <string name="appcontrol_systemsettings_open_title">Тохиргоо харуулах</string>
+    <string name="appcontrol_systemsettings_open_description">Энэ аппын төхөөрөмжийн системийн тохиргоог нээж байх.</string>
     <string name="appcontrol_app_launch_title">Апп нээх</string>
+    <string name="appcontrol_app_launch_description">Энэ аппын үндсэн үйл явцыг ажиллуулах.</string>
     <string name="appcontrol_app_forcestop_title">Албадан зогсоох</string>
+    <string name="appcontrol_app_forcestop_description">Аппыг зогсоох. Та өөрь нээж байх эсвэл төхөөрөмж дахин эхлүүлэх хүртэл өөрөо манаагүй болгохыг сэргийлнэ.</string>
+    <string name="appcontrol_app_uninstall_description">Энэ аппыг төхөөрөмжээсээ устгах.</string>
+    <string name="appcontrol_app_exclude_add_title">Аппыг үл хамаарах</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid дахь бусад үйлдлээс энэ аппыг үл хамаарах.</string>
+    <string name="appcontrol_app_exclude_edit_title">Үл хамааралтыг засах</string>
+    <string name="appcontrol_app_exclude_edit_description">Энэ апп одоо нэг ах багажаас үл хамаарагдсан байна.</string>
     <string name="appcontrol_tag_user">Хэрэглэгч</string>
+    <string name="appcontrol_tag_active">Сүүлдээ идэвх байсан</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Богц</string>
     <string name="appcontrol_tag_system">Систем</string>
+    <string name="appcontrol_tag_archived">Архивлагдсан</string>
+    <string name="appcontrol_tag_uninstalled">Зөвхөн өгөгдөл</string>
+    <string name="appcontrol_tag_not_installed">Суулагдаагүй</string>
     <string name="appcontrol_tag_enabled">Идэвхтэй</string>
     <string name="appcontrol_tag_disabled">Идэвхгүй</string>
+    <string name="appcontrol_tag_debug">Дибаг</string>
+    <string name="appcontrol_progress_enabling_package">Аппыг идэвхжүүлж байна</string>
+    <string name="appcontrol_progress_disabling_package">Аппыг идэвхгүй болгож байна</string>
+    <string name="appcontrol_list_filteroptions_label">Шүүгах сонгоо</string>
     <string name="appcontrol_list_sortmode_name_label">Аппын нэр</string>
     <string name="appcontrol_list_sortmode_updated_label">Сүүлд шинэчлэгдсэн</string>
     <string name="appcontrol_list_sortmode_installed_label">Анх суулгасан</string>
     <string name="appcontrol_list_sortmode_packagename_label">Пакетын нэр</string>
     <string name="appcontrol_list_sortmode_size_label">Хэмжээ</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Дэлгэцийн цаг</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Гүйцэтгийн шалтгаараас аппын хэмжээг төсөөлдөж тооцолдого. Илүү нарийн өгөгдөлд StorageAnalyzer багажийг ашигла.</string>
+    <string name="appcontrol_progress_uninstalling_app">Аппыг устгаж байна</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d апп устгагдсан</item>
+        <item quantity="other">%d апп устгагдсан</item>
+    </plurals>
     <string name="appcontrol_archive_action">Архивлах</string>
+    <string name="appcontrol_archive_selection_action">Аппуудыг архивлах</string>
+    <string name="appcontrol_archive_description">Дараа сэргээхийн тулд аппын өгөгдөлийг хадгалаад архивлаж зайг чөлөөлэх.</string>
+    <string name="appcontrol_progress_archiving_app">Аппыг архивлаж байна…</string>
+    <string name="appcontrol_archive_confirmation_title">Архивлалтыг баталгаажуулах</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d аппыг архивлах уу?</item>
+        <item quantity="other">%d аппыг архивлах уу?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d апп архивлагдсан</item>
+        <item quantity="other">%d апп архивлагдсан</item>
+    </plurals>
     <string name="appcontrol_restore_action">Сэргээх</string>
+    <string name="appcontrol_restore_selection_action">Аппуудыг сэргээх</string>
+    <string name="appcontrol_restore_description">Архивласан аппыг бүрэн суулагдсан төлөвөд сэргээх. Аппын өгөгдөл хадгалагдана.</string>
+    <string name="appcontrol_progress_restoring_app">Аппыг сэргэж байна…</string>
+    <string name="appcontrol_restore_confirmation_title">Сэргээхийг баталгаажуулах</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d апп сэргээх уң?</item>
+        <item quantity="other">%d апп сэргээх уң?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d апп сэргээгдсэн</item>
+        <item quantity="other">%d апп сэргээгдсэн</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Аппын хэмжээ</string>
+    <string name="appcontrol_app_sizes_apk_label">Апп</string>
+    <string name="appcontrol_app_sizes_data_label">Өгөгдөл</string>
+    <string name="appcontrol_app_sizes_cache_label">Кэш</string>
+    <string name="appcontrol_toggle_confirmation_title">Үйлдлийг баталгаажуулах</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d аппын идэвхтэй/идэвхгүй төлөвийг өөрчлөх үү?</item>
+        <item quantity="other">%d аппын идэвхтэй/идэвхгүй төлөвүүдийг өөрчлөх үү?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d апп тохируулагдсан</item>
+        <item quantity="other">%d апп тохируулагдсан</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Хэмжээг тодорхойлох</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Аппуудын хэмжээний ойролцоо тооцоог гаргах.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Идэвхийг тодорхойлох</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Апп идэвхтэй байсан эсвэл саяхан идэвхтэй байсан эсэхийг шалгах.</string>
+    <string name="appcontrol_export_app_selection_action">Аппуудыг экспортлох</string>
     <string name="appcontrol_export_title">Апп экспортлох</string>
+    <string name="appcontrol_export_description">Энэ аппын суулгах файлуудыг хадгалах. Апп өгөгдөл ороогүй.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d апп экспортлогдсон</item>
+        <item quantity="other">%d апп экспортлогдсон</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s экспортлож байна</string>
     <string name="appcontrol_share_list_action">Жагсаалт хуваалцах</string>
+    <string name="appcontrol_share_list_title">Миний аппууд</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE-ээр дамжуулан хуваалцсан</string>
+    <string name="appcontrol_force_stop_selection_action">Аппуудыг хүчээр зогсоох</string>
     <string name="appcontrol_force_stop_action">Албадан зогсоох</string>
+    <string name="appcontrol_force_stop_confirm_title">Хүчээр зогсоохыг баталгаажуулах</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d аппыг хүчээр зогсоох уң?</item>
+        <item quantity="other">%d аппыг хүчээр зогсоох уң?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d апп зогсоогдсон</item>
+        <item quantity="other">%d апп зогсоогдсон</item>
+    </plurals>
+    <string name="appcontrol_automation_title">AppControl автоматжилалалт</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Хүчээр зогсоож байна…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\'Хүчээр зогсоох\' товчыг хайж байна (үг үеъ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Архивчлаж байна…</string>
+    <string name="appcontrol_automation_progress_find_archive">\'Архив\' товчыг хайж байна (үг үеъ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Сэргээж байна…</string>
+    <string name="appcontrol_automation_progress_find_restore">\'Сэргээх\' товчыг хайж байна (үг үеъ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Дэлгэцээний цаг: %2$s-аас %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Сүүлийн шинэчлэлт: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Суулгасан огно: %s</string>
     <string name="shortcut_appcontrol_short">Апп удирдлага</string>
     <string name="shortcut_appcontrol_long">Суулгасан аппуудыг удирдах</string>
+    <string name="appcontrol_automation_loading">Хүртэмж уншлах учрыг ашиглалтын автоматжилалалтыг бэлтгэж байна</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Өмнөх үйлдлийг баталгаажуулахыг оролдож байна (үг үеъ: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Бусад хэрэглэгчдийг оруулах</string>
+    <string name="appcontrol_include_multiuser_summary">Энэ төхөөрийн бусад хэрэглэгчдийн аппуудыг оруулах.</string>
 </resources>

@@ -25,6 +25,10 @@
         <item quantity="other">%1$d datoteka spremno (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ova značajka bilježi sve što aplikacija radi u datoteku koja se može dijeliti. Generirana datoteka sadrži osjetljive informacije (npr. nazive datoteka i instalirane aplikacije). Dijelite je samo s pouzdanim stranama (npr. programerom koji rješava problem).</string>
+    <string name="debug_debuglog_short_recording_title">Vrlo kratko snimanje</string>
+    <string name="debug_debuglog_short_recording_desc">Snimanje je bilo vrlo kratko. Debug zapisi su snimanja, a ne snimke — reproducirajte problem dok je snimanje aktivno kako bi zapis bio koristan.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Nastavi snimanje</string>
+    <string name="debug_debuglog_short_recording_stop_action">Zaustavi svejedno</string>
     <string name="tasks_activity_notification_channel_label">Aktivni zadaci</string>
     <string name="tasks_activity_working_notification_title">SD Maid radi</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -104,6 +108,40 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Ovo će trajno izbrisati sve pohranjene sesije zapisnika za otklanjanje pogrešaka. Ova radnja se ne može poništiti.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Mjesto za druženje i postavljanje pitanja.</string>
+    <string name="support_contact_label">Kontaktiraj programera</string>
+    <string name="support_contact_desc">Ispuni obrazac za slanje e-maila programeru.</string>
+    <string name="support_contact_welcome">Svaku poruku osobno čitam i trudim se odgovoriti, ali budući da na ovome radim sam, može potrajati malo dulje. Hvala na strpljenju.</string>
+    <string name="support_contact_footer">Vaša poruka bit će poslana e-mailom. Informacije o uređaju i postavkama priložene su automatski. Možete priložiti snimke zaslona ili videozapis uz e-mail. Neki dijelovi e-maila bit će na engleskom jeziku kako bi programer lakše razumio sadržaj.</string>
+    <string name="support_contact_category_label">Kategorija</string>
+    <string name="support_contact_category_bug_label">Prijava greške</string>
+    <string name="support_contact_category_feature_label">Zahtjev za značajku</string>
+    <string name="support_contact_category_question_label">Pitanje</string>
+    <string name="support_contact_tool_label">Povezani alat</string>
+    <string name="support_contact_tool_appcleaner_label">Čistač aplikacija</string>
+    <string name="support_contact_tool_corpsefinder_label">Tragač ostataka</string>
+    <string name="support_contact_tool_systemcleaner_label">Čistač sustava</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplikator</string>
+    <string name="support_contact_tool_analyzer_label">Analizator</string>
+    <string name="support_contact_tool_appcontrol_label">Kontrola aplikacija</string>
+    <string name="support_contact_tool_scheduler_label">Planer</string>
+    <string name="support_contact_tool_general_label">Općenito</string>
+    <string name="support_contact_description_label">Opis</string>
+    <string name="support_contact_description_bug_hint">Opišite što se dogodilo i kako reproducirati problem. Budite konkretni (najmanje 20 riječi).</string>
+    <string name="support_contact_description_feature_hint">Opišite značajku koju biste žljeli vidjeti. Budite konkretni (najmanje 20 riječi).</string>
+    <string name="support_contact_description_question_hint">Opišite svoje pitanje detaljno. Budite konkretni (najmanje 20 riječi).</string>
+    <string name="support_contact_expected_label">Očekivano ponašanje</string>
+    <string name="support_contact_expected_hint">Opišite što ste očekivali da se dogodi (najmanje 10 riječi).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d riječ</item>
+        <item quantity="few">%1$d / %2$d riječi</item>
+        <item quantity="other">%1$d / %2$d riječi</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Zapisnik za otklanjanje pogrešaka</string>
+    <string name="support_contact_debuglog_zip_error">Komprimiranje dnevnika za otklanjanje pogrešaka nije uspjelo</string>
+    <string name="support_contact_debuglog_picker_hint">Priložite postojeći dnevnik za otklanjanje pogrešaka ili snimite novi.</string>
+    <string name="support_contact_debuglog_picker_empty">Nisu pronađeni dnevnici za otklanjanje pogrešaka. Najprije snimite jedan.</string>
+    <string name="support_contact_send_action">Otvori aplikaciju e-pošte</string>
+    <string name="support_contact_no_email_app">Na ovom uređaju nije pronađena aplikacija za e-poštu.</string>
     <string name="changelog_label">Dnevnik promjena</string>
     <string name="settings_acknowledgements_label">Priznanja</string>
     <string name="settings_acknowledgements_category_translations_title">Prijevodi</string>
@@ -181,6 +219,7 @@
     <string name="debug_mode_explanation">Omogućite testne opcije i opširniji opis pogrešaka. Aplikacija će raditi sporije i drugačije.</string>
     <string name="debug_bugreporter_label">Automatska izvješća o greškama</string>
     <string name="debug_bugreporter_summary">Automatski prijavljuje probleme, npr. pojedinosti o rušenju aplikacije kako bih mogao shvatiti zašto i popraviti to.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Način otklanjanja pogrešaka je omogućen</string>
     <string name="debug_card_trace_mode_label">Omogući način praćenja</string>
     <string name="debug_card_dryrun_mode_label">Probni način rada (onemogući brisanje)</string>
@@ -232,4 +271,5 @@
     <string name="shortcuts_settings_category">Prečaci</string>
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

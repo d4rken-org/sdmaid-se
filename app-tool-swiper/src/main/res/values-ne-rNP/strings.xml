@@ -5,69 +5,15 @@
     <string name="swiper_dashcard_description">फाइल एक्सप्लोरर भन्दा द्रुत विशिष्ट फोल्डरहरू व्यवस्थित गर्नुहोस् — प्रत्येक फाइल स्वाइप गर्नुहोस्।</string>
     <string name="swiper_start_action">स्वाइप गर्न सुरु गर्नुहोस्</string>
     <string name="swiper_continue_action">सत्र जारी राख्नुहोस्</string>
+    <string name="swiper_sessions_description">3 सरल चरणहरूमा फाइलहरू समीक्षा गर्नुहोस्:
+
+1. स्क्यान गर्न फोल्डर चयन गर्नुहोस्
+2. राख्न, हटाउन वा छोड्न फाइलहरू स्वाइप गर्नुहोस्
+3. आफ्नो चयनहरू समीक्षा गर्नुहोस् र पुष्टि गर्नुहोस्
+
+तपाइँले अन्तिम मेटाउनु बटन ट्याप नगरेसम्म केही हटाइँदैन।</string>
     <string name="swiper_select_folders_action">फोल्डर चयन गर्नुहोस्</string>
     <string name="swiper_scanning_title">स्क्यान गरिँदै…</string>
-    <string name="swiper_item_position">#%1$d को %2$d</string>
-    <string name="swiper_keep_action">राख्नुहोस्</string>
-    <string name="swiper_skip_action">छोड्नुहोस्</string>
-    <string name="swiper_review_action">समीक्षा गर्नुहोस्</string>
-    <string name="swiper_status_title">निर्णयहरूको समीक्षा गर्नुहोस्</string>
-    <string name="swiper_status_action_keep_selected">चयनित राख्नुहोस्</string>
-    <string name="swiper_status_action_delete_selected">चयनित मेटाउनुहोस्</string>
-    <string name="swiper_status_action_reset_selected">चयनित रिसेट गर्नुहोस्</string>
-    <string name="swiper_decision_undecided">अनिर्णीत</string>
-    <string name="swiper_retry_action">पुनः प्रयास गर्नुहोस्</string>
-    <string name="swiper_delete_confirmation_title">फाइलहरू मेटाउने?</string>
-    <string name="swiper_delete_x_action">%1$d मेटाउनुहोस्</string>
-    <string name="swiper_settings_swap_directions_title">स्वाइप दिशा फेरबदल गर्नुहोस्</string>
-    <string name="swiper_settings_swap_directions_summary">राख्न बायाँ स्वाइप गर्नुहोस्, मेटाउन दायाँ स्वाइप गर्नुहोस्।</string>
-    <string name="swiper_settings_show_details_title">फाइलको विवरण देखाउनुहोस्</string>
-    <string name="swiper_settings_show_details_summary">स्वाइप स्क्रिनमा फाइलको नाम, आकार र मिति प्रदर्शन गर्नुहोस्।</string>
-    <string name="swiper_settings_haptic_feedback_title">ह्याप्टिक प्रतिक्रिया</string>
-    <string name="swiper_settings_haptic_feedback_summary">राख्ने वा मेटाउने निर्णय गर्दा कम्पन गर्नुहोस्।</string>
-    <string name="swiper_discard_session_confirmation_title">सत्र त्याग गर्ने?</string>
-    <string name="swiper_discard_session_confirmation_message">सबै निर्णयहरू हराउनेछन्। के तपाईं निश्चित हुनुहुन्छ?</string>
-    <string name="swiper_no_preview_available">पूर्वावलोकन उपलब्ध छैन</string>
-    <string name="swiper_session_timestamps">%1$s मा सिर्जित, अन्तिम गतिविधि %2$s</string>
-    <string name="swiper_session_remove_action">सत्र हटाउनुहोस्</string>
-    <string name="swiper_sessions_empty_hint">फोल्डर चयन गर्न + ट्याप गर्नुहोस् र स्वाइप गर्न सुरु गर्नुहोस्</string>
-    <string name="swiper_sessions_upgrade_body">यी सीमाहरू हटाउन र विकास समर्थन गर्न अपग्रेड गर्नुहोस्। निःशुल्क संस्करण सीमित छ:</string>
-    <string name="swiper_session_default_label">सत्र #%d</string>
-    <string name="swiper_session_rename_title">सत्रको नाम परिवर्तन गर्नुहोस्</string>
-    <string name="swiper_session_rename_hint">यस सत्रको लागि नाम प्रविष्ट गर्नुहोस्</string>
-    <string name="swiper_sessions_current_sessions">वर्तमान सत्रहरू</string>
-    <string name="swiper_session_paths_label">पथहरू</string>
-    <string name="swiper_session_status_label">स्थिति</string>
-    <string name="swiper_exclude_confirmation_message">Swiper स्क्यानबाट \"%1$s\" लाई बहिष्कृत गर्नुहोस्?</string>
-    <string name="swiper_sessions_header_title">सफा गर्न तयार हुनुहुन्छ?</string>
-    <string name="swiper_sessions_suggestions_label">यसबाट सुरु गर्न कोशिस गर्नुहोस्:</string>
-    <string name="swiper_sessions_suggestion_downloads">डाउनलोड फोल्डर</string>
-    <string name="swiper_sessions_suggestion_screenshots">स्क्रिनशटहरू</string>
-    <string name="swiper_sessions_suggestion_camera">क्यामेरा रोल</string>
-    <string name="swiper_stamp_keep_1">राख्नुहोस्!</string>
-    <string name="swiper_stamp_keep_2">राम्रो!</string>
-    <string name="swiper_stamp_keep_3">हो!</string>
-    <string name="swiper_stamp_keep_4">संरक्षण गर्नुहोस्!</string>
-    <string name="swiper_stamp_delete_1">होइन!</string>
-    <string name="swiper_stamp_delete_2">बिदा!</string>
-    <string name="swiper_stamp_delete_3">फेलाउनुहोस्!</string>
-    <string name="swiper_stamp_delete_4">हटाउनुहोस्!</string>
-    <string name="swiper_stamp_skip_1">छोडिनुहोस्!</string>
-    <string name="swiper_stamp_skip_2">ठीकै छ!</string>
-    <string name="swiper_stamp_skip_3">पछि!</string>
-    <string name="swiper_stamp_skip_4">सायद!</string>
-    <string name="swiper_stamp_undo_1">पूर्ववत गर्नुहोस्!</string>
-    <string name="swiper_stamp_undo_2">पछाडि!</string>
-    <string name="swiper_stamp_undo_3">अरे!</string>
-    <string name="swiper_stamp_undo_4">पर्खनुहोस्!</string>
-    <string name="swiper_gesture_overlay_dismiss">सुरु गर्न कुनै ठाउँमा ट्याप गर्नुहोस्</string>
-    <string name="swiper_gesture_overlay_left_delete">← मेटाउनुहोस्</string>
-    <string name="swiper_gesture_overlay_right_keep">राख्नुहोस् →</string>
-    <string name="swiper_gesture_overlay_left_keep">← राख्नुहोस्</string>
-    <string name="swiper_gesture_overlay_right_delete">मेटाउनुहोस् →</string>
-    <string name="swiper_gesture_overlay_up_skip">↑ छोड्नुहोस्</string>
-    <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत गर्नुहोस्</string>
-    <string name="swiper_help_title">Swiper कसरी काम गर्छ</string>
     <plurals name="swiper_result_x_items_found">
         <item quantity="one">%d वस्तु फेला पर्यो</item>
         <item quantity="other">%d वस्तुहरू फेला परिए</item>
@@ -80,6 +26,17 @@
         <item quantity="one">%d वस्तु असफल</item>
         <item quantity="other">%d वस्तुहरू असफल</item>
     </plurals>
+    <string name="swiper_item_position">#%1$d को %2$d</string>
+    <string name="swiper_keep_action">राख्नुहोस्</string>
+    <string name="swiper_skip_action">छोड्नुहोस्</string>
+    <string name="swiper_review_action">समीक्षा गर्नुहोस्</string>
+    <string name="swiper_status_title">निर्णयहरूको समीक्षा गर्नुहोस्</string>
+    <string name="swiper_status_action_keep_selected">चयनित राख्नुहोस्</string>
+    <string name="swiper_status_action_delete_selected">चयन गरिएको मेटाउनुहोस्</string>
+    <string name="swiper_status_action_reset_selected">चयनित रिसेट गर्नुहोस्</string>
+    <string name="swiper_decision_undecided">अनिर्णीत</string>
+    <string name="swiper_retry_action">पुनः प्रयास गर्नुहोस्</string>
+    <string name="swiper_delete_confirmation_title">फाइलहरू मेटाउने?</string>
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">यसले 1 फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
         <item quantity="other">यसले %1$d फाइलहरू (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
@@ -88,6 +45,16 @@
         <item quantity="one">1 अनिर्णीत वस्तु पछिको समीक्षाको लागि बाँकी रहनेछ।</item>
         <item quantity="other">%d अनिर्णीत वस्तुहरू पछिको समीक्षाको लागि बाँकी रहनेछन्।</item>
     </plurals>
+    <string name="swiper_delete_x_action">%1$d मेटाउनुहोस्</string>
+    <string name="swiper_settings_swap_directions_title">स्वाइप दिशा फेरबदल गर्नुहोस्</string>
+    <string name="swiper_settings_swap_directions_summary">राख्न बायाँ स्वाइप गर्नुहोस्, मेटाउन दायाँ स्वाइप गर्नुहोस्।</string>
+    <string name="swiper_settings_show_details_title">फाइलको विवरण देखाउनुहोस्</string>
+    <string name="swiper_settings_show_details_summary">स्वाइप स्क्रिनमा फाइलको नाम, आकार र मिति प्रदर्शन गर्नुहोस्।</string>
+    <string name="swiper_settings_haptic_feedback_title">ह्याप्टिक प्रतिक्रिया</string>
+    <string name="swiper_settings_haptic_feedback_summary">राख्ने वा मेटाउने निर्णय गर्दा कम्पन गर्नुहोस्।</string>
+    <string name="swiper_discard_session_confirmation_title">सत्र त्याग गर्ने?</string>
+    <string name="swiper_discard_session_confirmation_message">सबै निर्णयहरू हराउनेछन्। के तपाईं निश्चित हुनुहुन्छ?</string>
+    <string name="swiper_no_preview_available">पूर्वावलोकन उपलब्ध छैन</string>
     <plurals name="swiper_dashcard_session_context">
         <item quantity="one">1 दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
         <item quantity="other">%1$d दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
@@ -100,6 +67,10 @@
         <item quantity="one">%d अनिर्णीत वस्तु</item>
         <item quantity="other">%d अनिर्णीत वस्तुहरू</item>
     </plurals>
+    <string name="swiper_session_timestamps">%1$s मा सिर्जित, अन्तिम गतिविधि %2$s</string>
+    <string name="swiper_session_remove_action">सत्र हटाउनुहोस्</string>
+    <string name="swiper_sessions_empty_hint">फोल्डर चयन गर्न + ट्याप गर्नुहोस् र स्वाइप गर्न सुरु गर्नुहोस्</string>
+    <string name="swiper_sessions_upgrade_body">यी सीमाहरू हटाउन र विकास समर्थन गर्न अपग्रेड गर्नुहोस्। निःशुल्क संस्करण सीमित छ:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">प्रति सत्र 1 फाइल</item>
         <item quantity="other">प्रति सत्र %d फाइलहरू</item>
@@ -108,6 +79,12 @@
         <item quantity="one">1 सत्र</item>
         <item quantity="other">%d सत्रहरू</item>
     </plurals>
+    <string name="swiper_session_default_label">सत्र #%d</string>
+    <string name="swiper_session_rename_title">सत्रको नाम परिवर्तन गर्नुहोस्</string>
+    <string name="swiper_session_rename_hint">यस सत्रको लागि नाम प्रविष्ट गर्नुहोस्</string>
+    <string name="swiper_sessions_current_sessions">वर्तमान सत्रहरू</string>
+    <string name="swiper_session_paths_label">पथहरू</string>
+    <string name="swiper_session_status_label">स्थिति</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d राख्ने</item>
         <item quantity="other">%d राख्ने</item>
@@ -136,15 +113,36 @@
         <item quantity="one">%d मेटाइएको</item>
         <item quantity="other">%d मेटाइएका</item>
     </plurals>
-    <string name="swiper_gesture_overlay_dismiss_action">बुझें</string>
-    <string name="swiper_help_action">मदत</string>
-    <string name="swiper_sessions_description">3 सरल चरणहरूमा फाइलहरू समीक्षा गर्नुहोस्:
-
-1. स्क्यान गर्न फोल्डर चयन गर्नुहोस्
-2. राख्न, हटाउन वा छोड्न फाइलहरू स्वाइप गर्नुहोस्
-3. आफ्नो चयनहरू समीक्षा गर्नुहोस् र पुष्टि गर्नुहोस्
-
-तपाइँले अन्तिम मेटाउनु बटन ट्याप नगरेसम्म केही हटाइँदैन।</string>
+    <string name="swiper_exclude_confirmation_message">Swiper स्क्यानबाट \"%1$s\" लाई बहिष्कृत गर्नुहोस्?</string>
+    <string name="swiper_sessions_header_title">सफा गर्न तयार हुनुहुन्छ?</string>
+    <string name="swiper_sessions_suggestions_label">यसबाट सुरु गर्न कोशिस गर्नुहोस्:</string>
+    <string name="swiper_sessions_suggestion_downloads">डाउनलोड फोल्डर</string>
+    <string name="swiper_sessions_suggestion_screenshots">स्क्रिनसटहरू</string>
+    <string name="swiper_sessions_suggestion_camera">क्यामेरा रोल</string>
+    <string name="swiper_stamp_keep_1">राख्नुहोस्!</string>
+    <string name="swiper_stamp_keep_2">राम्रो!</string>
+    <string name="swiper_stamp_keep_3">हो!</string>
+    <string name="swiper_stamp_keep_4">संरक्षण गर्नुहोस्!</string>
+    <string name="swiper_stamp_delete_1">होइन!</string>
+    <string name="swiper_stamp_delete_2">बिदा!</string>
+    <string name="swiper_stamp_delete_3">फेलाउनुहोस्!</string>
+    <string name="swiper_stamp_delete_4">हटाउनुहोस्!</string>
+    <string name="swiper_stamp_skip_1">छोडिनुहोस्!</string>
+    <string name="swiper_stamp_skip_2">ठीकै छ!</string>
+    <string name="swiper_stamp_skip_3">पछि!</string>
+    <string name="swiper_stamp_skip_4">सायद!</string>
+    <string name="swiper_stamp_undo_1">पूर्ववत गर्नुहोस्!</string>
+    <string name="swiper_stamp_undo_2">पछाडि!</string>
+    <string name="swiper_stamp_undo_3">अरे!</string>
+    <string name="swiper_stamp_undo_4">पर्खनुहोस्!</string>
+    <string name="swiper_gesture_overlay_dismiss">सुरु गर्न कुनै ठाउँमा ट्याप गर्नुहोस्</string>
+    <string name="swiper_gesture_overlay_left_delete">← मेटाउनुहोस्</string>
+    <string name="swiper_gesture_overlay_right_keep">राख्नुहोस् →</string>
+    <string name="swiper_gesture_overlay_left_keep">← राख्नुहोस्</string>
+    <string name="swiper_gesture_overlay_right_delete">मेटाउनुहोस् →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ छोड्नुहोस्</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ पूर्ववत गर्नुहोस्</string>
+    <string name="swiper_help_title">Swiper कसरी काम गर्छ</string>
     <string name="swiper_help_message">प्रत्येक फाइल स्वाइप गरेर निर्णय लिनुहोस्:
 
 ← बायाँ स्वाइप: %1$s
@@ -155,4 +153,6 @@
 तपाइँ तलको बटनहरू पनि प्रयोग गर्न सक्नुहुन्छ।
 
 जब तपाइँ सकिनुहुन्छ, आफ्ना सबै निर्णयहरू हेर्न \"समीक्षा\" ट्याप गर्नुहोस्। समीक्षा स्क्रिनमा तपाइँले पुष्टि नगरेसम्म केही मेटाइँदैन।</string>
+    <string name="swiper_gesture_overlay_dismiss_action">बुझे</string>
+    <string name="swiper_help_action">मद्दत</string>
 </resources>

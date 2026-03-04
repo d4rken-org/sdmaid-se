@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Raxmet</string>
     <string name="general_error_type_mismatch_msg">Túr mas kelmeýdi: %1$s qáledi, biraq %2$s aldı.</string>
     <string name="general_error_cant_access_msg">%s-qa kiriw múmkin emes.</string>
-    <string name="general_error_root_unavailable">Root qatnaswı joq.</string>    <string name="general_error_no_compatible_app_found_msg">Bul ótinishti islew ushın úýlesetiń baǵdarlama tabılmadı.</string>
+    <string name="general_error_root_unavailable">Root qatnaswı joq.</string>
+    <string name="general_error_no_compatible_app_found_msg">Bul ótinishti islew ushın úýlesetiń baǵdarlama tabılmadı.</string>
     <string name="general_todo_msg">Bul mümkinshilik áli islenip atır hám házir joq.</string>
     <string name="general_share_action">Bólisiw</string>
     <string name="general_done_action">Tayar</string>
     <string name="general_apply_action">Qollanıw</string>
-    <string name="general_copy_action">Kóshirip alıw</string>    <string name="general_cancel_action">Biykarlaw</string>
+    <string name="general_copy_action">Kóshirip alıw</string>
+    <string name="general_cancel_action">Biykarlaw</string>
     <string name="general_discard_action">Bıykarlaw</string>
     <string name="general_reset_action">Qayta ornatıw</string>
     <string name="general_drag_handle_description">Tartıplew ushın sırǵatıń</string>
-    <string name="general_save_action">Saqlaw</string>    <string name="general_gotit_action">Túsinikli</string>
+    <string name="general_save_action">Saqlaw</string>
+    <string name="general_gotit_action">Túsinikli</string>
     <string name="general_fix_action">Ońlaw ushın</string>
     <string name="general_set_up_action">Ornatıw</string>
     <string name="general_edit_action">Ózgeris kiritiw</string>
@@ -169,14 +172,22 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Ornatıw</string>
     <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro talab etiledi</string>
+    <string name="general_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
+    <string name="general_include_multiuser_summary">Бул құрылғыдағы басқа пайдаланыўшы профильлеринің қолданбаларын қосыў.</string>
+    <string name="general_unsaved_confirmation_message">Saqlanbaǵan ózgerislerińiz bar!</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">1 shıǵarıp taslaw jaratıldı</item>
+        <item quantity="other">%d shıǵarıp taslaw jaratıldı</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
     <string name="systemcleaner_tool_name">Sistema</string>
     <string name="appcleaner_tool_name">Қолданба тазалағыш</string>
     <string name="deduplicator_tool_name">Dublikatlardı tabıwshı</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
     <string name="analyzer_tool_name">Saqlaw orın analizatori</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Tarıx</string>
     <string name="settings_category_tools_label">Ásbaplar</string>
-    <string name="general_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
-    <string name="general_include_multiuser_summary">Бул құрылғыдағы басқа пайдаланыўшы профильлеринің қолданбаларын қосыў.</string>
-    <string name="general_unsaved_confirmation_message">Saqlanbaǵan ózgerislerińiz bar!</string>
 </resources>

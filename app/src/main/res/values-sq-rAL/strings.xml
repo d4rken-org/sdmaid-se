@@ -24,6 +24,10 @@
         <item quantity="other">%1$d skedarë gati (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Kjo veçori regjistron çdo gjë që bën aplikacioni në një skedar të ndarshëm. Skedari i gjeneruar përmban informacion të ndjeshëm (p.sh. emrat e skedarëve dhe aplikacionet e instaluara). Ndajeni vetëm me palë të besuara (p.sh. një zhvillues që po zgjidh një problem).</string>
+    <string name="debug_debuglog_short_recording_title">Regjistrim shumë i shkurtër</string>
+    <string name="debug_debuglog_short_recording_desc">Regjistrimi ishte shumë i shkurtër. Regjistrat e korrigjimit janë regjistrime, jo fotografi — riprodho problemin ndërkohë që regjistrimi është aktiv për të qenë i dobishëm.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Vazhdo regjistrimin</string>
+    <string name="debug_debuglog_short_recording_stop_action">Ndalo gjithsesi</string>
     <string name="tasks_activity_notification_channel_label">Detyra aktive</string>
     <string name="tasks_activity_working_notification_title">SD Maid po punon</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Kjo do të fshijë përgjithmonë të gjitha sesionet e regjistrit të korrigjimit të ruajtura. Ky veprim nuk mund të zhbëhet.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Një vend për t\'u ndenjur dhe për të bërë pyetje.</string>
+    <string name="support_contact_label">Kontakto zhvilluesin</string>
+    <string name="support_contact_desc">Plotëso një formular për t\'i dërguar zhvilluesit një email.</string>
+    <string name="support_contact_welcome">I lexoj vetë të gjitha mesazhet dhe bëj çmos të përgjigjem, por meqë punoj vetëm për këtë, mund të marrë pak kohë. Faleminderit për durimin tuaj.</string>
+    <string name="support_contact_footer">Mesazhi juaj do të dërgohet me email. Informacioni i pajisjes dhe i konfigurimit bashkëngjitet automatikisht. Mund t\'i bashkëngjitni pamjet e ekranit ose një video emailit. Disa pjesë të emailit do të jenë në anglisht që zhvilluesi ta kuptojë lehtësisht.</string>
+    <string name="support_contact_category_label">Kategoria</string>
+    <string name="support_contact_category_bug_label">Raport gabimi</string>
+    <string name="support_contact_category_feature_label">Kërkesë funksioni</string>
+    <string name="support_contact_category_question_label">Pyetje</string>
+    <string name="support_contact_tool_label">Mjeti i lidhur</string>
+    <string name="support_contact_tool_appcleaner_label">Pastrues i aplikacioneve</string>
+    <string name="support_contact_tool_corpsefinder_label">Gjetës i mbeturinave</string>
+    <string name="support_contact_tool_systemcleaner_label">Pastruesi i Sistemit</string>
+    <string name="support_contact_tool_deduplicator_label">Fshirja e skedarëve duplikat</string>
+    <string name="support_contact_tool_analyzer_label">Analizuesi</string>
+    <string name="support_contact_tool_appcontrol_label">Kontroll i aplikacionit</string>
+    <string name="support_contact_tool_scheduler_label">Programuesi</string>
+    <string name="support_contact_tool_general_label">Gjenerik</string>
+    <string name="support_contact_description_label">Përshkrim</string>
+    <string name="support_contact_description_bug_hint">Përshkruani çfarë ndodhi dhe si të riprodhoni problemin. Jini specifik (minimum 20 fjalë).</string>
+    <string name="support_contact_description_feature_hint">Përshkruani funksionin që do të dëshironit të shihni. Jini specifik (minimum 20 fjalë).</string>
+    <string name="support_contact_description_question_hint">Përshkruani pyetjen tuaj në detaje. Jini specifik (minimum 20 fjalë).</string>
+    <string name="support_contact_expected_label">Sjellja e pritshme</string>
+    <string name="support_contact_expected_hint">Përshkruani çfarë prisnit të ndodhte (minimum 10 fjalë).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d fjalë</item>
+        <item quantity="other">%1$d / %2$d fjalë</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Regjistër diagnostikimesh</string>
+    <string name="support_contact_debuglog_zip_error">Dështoi kompresimi i regjistrit të korrigjimit</string>
+    <string name="support_contact_debuglog_picker_hint">Bashkëngjitni një regjistrin korrigjimi ekzistues ose regjistroni një të ri.</string>
+    <string name="support_contact_debuglog_picker_empty">Nuk u gjet asnjë regjistër korrigjimi. Regjistroni një të pari.</string>
+    <string name="support_contact_send_action">Hap aplikacionin e emailit</string>
+    <string name="support_contact_no_email_app">Nuk u gjet asnjë aplikacion emaili në këtë pajisje.</string>
     <string name="changelog_label">Trungu i ndryshimeve</string>
     <string name="settings_acknowledgements_label">Falënderime</string>
     <string name="settings_acknowledgements_category_translations_title">Përkthime</string>
@@ -177,6 +214,14 @@
     <string name="debug_mode_explanation">Aktivizo opsionet e testimit dhe daljen më të hollësishme. Aplikacioni do të funksionojë më ngadalë dhe do të funksionojë ndryshe.</string>
     <string name="debug_bugreporter_label">Raportet automatike të gabimeve</string>
     <string name="debug_bugreporter_summary">Raporton automatikisht probleme, p.sh. detajet mbi dështimin e aplikacionit në mënyrë që të kuptoj pse dhe ta rregulloj atë.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Mënyra e korrigjimit është aktivizuar</string>
+    <string name="debug_card_trace_mode_label">Aktivizo mënyrën e gjurmimit</string>
+    <string name="debug_card_dryrun_mode_label">Mënyrë provë (çaktivizo fshirjen)</string>
+    <string name="debug_card_areas_reload_action">Ringarko zonat e të dhênave</string>
+    <string name="debug_card_pkgs_reload_action">Ringarko aplikacionet</string>
+    <string name="debug_card_root_test_action">Testo root</string>
+    <string name="debug_card_shizuku_test_action">Testo Shizuku</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Niveli i rrezikut</string>
     <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
@@ -219,4 +264,5 @@
     <string name="shortcuts_settings_category">Shkurtica</string>
     <string name="shortcuts_onetap_enabled_title">Shkurtica me një të klikuar</string>
     <string name="shortcuts_onetap_enabled_summary">Shfaq shkurtoren \"Skano + Fshij\" kur shtyp gjatë ikonën e aplikacionit. Përdor të njëjtat mjete si paneli me një prekje.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

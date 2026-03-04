@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maidは時間制限内にすべての手順を完了できませんでした。これが続く場合、お使いのデバイス用にアプリを調整する必要があるかもしれません。更新を確認するか、修正できるよう私にご連絡ください。</string>
     <string name="automation_error_overlay_title">自動化オーバーレイ</string>
     <string name="automation_error_overlay_body">SD Maidは自動化オーバーレイを表示できませんでした。権限を確認し、デバイスの再起動を試してください。</string>
+    <string name="automation_error_scheduler_title">スケジュールされた自動化が失敗しました</string>
+    <string name="automation_error_scheduler_body">スケジュールされたタスクがアクセシビリティサービスを使用しようとしましたが、利用できませんでした。これが不要な場合は、スケジューラー設定の「アクセシビリティサービス」オプションを無効にしてください。</string>
     <string name="automation_error_no_settings_title">設定画面が利用できません</string>
     <string name="automation_error_no_settings_body">このシステムアプリには設定画面がありません。アクセシビリティサービスによるキャッシュクリアはできません。キャッシュクリアの高速化のため除外してください。</string>
     <string name="automation_loading">ユーザー補助サービスによる自動化の準備</string>

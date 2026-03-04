@@ -47,8 +47,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Documentos imbiados dae WhatsApp a àteros.</string>
     <string name="appcleaner_filter_telegram_label">Documentos de media Telegram</string>
     <string name="appcleaner_filter_telegram_summary">Documentos retzidos o imbiados a travessu de Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Documentos retzidos a travessu de Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Documentos imbiados o retzidos in conversatziones e momentos WeChat.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Documentos de media in cache chi benint iscarrigados torra cando bistos in chat.</string>
     <string name="appcleaner_filter_qqchat_label">Chat QQ</string>
     <string name="appcleaner_filter_qqchat_summary">Documentos imbiados o retzidos in conversatziones de chat QQ.</string>
@@ -86,4 +89,10 @@
     <string name="appcleaner_forcestop_before_clearing_label">Firma a fortza prima de sa limpesa</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Firma a fortza is aplicatziones prima de limpiare sa memòria temporànea insoro. Podet agiudare a limpiare sa memòria de àteras aplicatziones, ma podet càusare cumportamentos anòmalos e netzessitare unu torrada a aviare manuale.</string>
     <string name="appcleaner_progress_force_stopping">Firmende a fortza is aplicatziones…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
+    <string name="appcleaner_automation_loading">Preparende automatizatzione a travessu de servitziu de atzessibilidade</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Proende de confirmaren s\'atzione antekerente (faeddas crae: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Inclutìghere àteros usuarios</string>
+    <string name="appcleaner_include_multiuser_summary">Inclutìghere aplicatziones dae àteros profiles de usuarios in custu dispositivu.</string>
 </resources>

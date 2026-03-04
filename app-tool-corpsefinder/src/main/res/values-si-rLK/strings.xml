@@ -10,6 +10,14 @@
     <string name="corpsefinder_watcher_summary">යෙදුමක් ඉවත් කැරීම විට ස්වයංක්‍රියව ඇතිරි සංශොධනය කරන්න.</string>
     <string name="corpsefinder_watcher_autodelete_title">ස්වයංක්‍රිය මකාදම</string>
     <string name="corpsefinder_watcher_autodelete_summary">අසථාපනය කැරී යෙදුමට සම්බන්ධිත වු අමුරුම ඇතිරිම ස්වයංක්‍රියව මකා දමන්න.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d ස්තාවරයකු %2$s අස්තාපනය කිරීමෛන් පසු හමු විය.</item>
+        <item quantity="other">%1$d ස්තාවරයන් %2$s අස්තාපනය කිරීමෛන් පසු හමු විය.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">පිළිසකර සාර්තකයි (%1$s): %2$s නිදහස් කර %3$d අයිතමයක් ඉවත් කළේය.</item>
+        <item quantity="other">පිළිසකර සාර්තකයි (%1$s): %2$s නිදහස් කර %3$d අයිතම ඉවත් කළේය.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">ඇතිරි මකා දමන්න</string>
     <string name="corpsefinder_filter_publicmedia_label">පොදු මැඩියා</string>
     <string name="corpsefinder_filter_publicmedia_summary">පොදු මැඩියා ගොනු, උදා. සන්දේශ යෙදුම් අරහා ලබා ගත ගොනු.</string>
@@ -34,6 +42,15 @@
     <string name="corpsefinder_filter_appasec_label">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්</string>
     <string name="corpsefinder_filter_appasec_summary">එන්ක්‍රිප්ට් කැරී යෙදුම් සම්පත්, උදා. ගෙම් ඉඛින්.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd mods අරහා බැහිර ආචයනයට හැරී දත්ත.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d යෙදුම් අවශේෂයක් මකා දමන ලදී</item>
+        <item quantity="other">%d යෙදුම් අවශේෂ මකා දමන ලදී</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d යෙදුම් අවශේෂයක් සොයා ගන්නා ලදී</item>
+        <item quantity="other">%d යෙදුම් අවශේෂ සොයා ගන්නා ලදී</item>
+    </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">සියලුම යෙදුම් ඇතිරි මකා දමන්නද?</string>
     <string name="corpsefinder_owners_label">මාලිකාන්</string>
     <string name="corpsefinder_corpse_hints_label">සෑහන්</string>

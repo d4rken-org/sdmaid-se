@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid nedokončil všetky kroky v časovom limite. Ak sa to stále deje, možno budem musieť upraviť aplikáciu pre vaše zariadenie. Skontrolujte aktualizácie alebo ma kontaktujte, aby som to mohol opraviť.</string>
     <string name="automation_error_overlay_title">Prekrytie automatizácie</string>
     <string name="automation_error_overlay_body">SD Maid nedokázal zobraziť prekrytie automatizácie. Skontrolujte povolenia a skúste reštartovať zariadenie.</string>
+    <string name="automation_error_scheduler_title">Plánovaná automatizácia zlyhala</string>
+    <string name="automation_error_scheduler_body">Plánovaná úloha sa pokúsila použiť službu dostupnosti, ale nebola dostupná. Ak to nepotrebujete, vypnite možnosť \"Služba dostupnosti\" v nastaveniach plánovača.</string>
     <string name="automation_error_no_settings_title">Obrazovka nastavení nie je k dispozícii</string>
     <string name="automation_error_no_settings_body">Táto systémová aplikácia nemá obrazovku nastavení. Vymazanie vyrovnávacej pamäte cez službu prístupnosti nie je možné. Vylúčte ju na zrýchlenie vymazávania vyrovnávacej pamäte.</string>
     <string name="automation_loading">Príprava automatizácie prostredníctvom služby dostupnosti</string>

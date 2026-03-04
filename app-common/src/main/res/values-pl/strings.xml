@@ -138,7 +138,7 @@
         <item quantity="other">%d niepowodzeń</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
-        <item quantity="one">%s może zostać zwolnione</item>
+        <item quantity="one">%s może zostać zwolniony</item>
         <item quantity="few">%s może zostać zwolnione</item>
         <item quantity="many">%s może zostać zwolnionych</item>
         <item quantity="other">%s może zostać zwolnionych</item>
@@ -179,7 +179,7 @@
         <item quantity="other">%d godzin</item>
     </plurals>
     <plurals name="result_x_files">
-        <item quantity="one">plik %s</item>
+        <item quantity="one">%s plik</item>
         <item quantity="few">%s pliki</item>
         <item quantity="many">%s plików</item>
         <item quantity="other">%s plików</item>

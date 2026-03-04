@@ -26,7 +26,7 @@
     <string name="swiper_review_action">Αξιολόγηση</string>
     <string name="swiper_status_title">Αξιολόγηση αποφάσεων</string>
     <string name="swiper_status_action_keep_selected">Διατήρηση επιλεγμένων</string>
-    <string name="swiper_status_action_delete_selected">Διαγραφή επιλεγμένων</string>
+    <string name="swiper_status_action_delete_selected">Διαγραφή επιλεγμένου</string>
     <string name="swiper_status_action_reset_selected">Επαναφορά επιλεγμένων</string>
     <string name="swiper_decision_undecided">Αναποφάσιστο</string>
     <string name="swiper_retry_action">Επανάληψη</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Αναίρεση</string>
     <string name="swiper_help_title">Πώς λειτουργεί το Swiper</string>
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Το κατάλαβα</string>
+    <string name="swiper_help_action">Βοήθεια</string>
 </resources>

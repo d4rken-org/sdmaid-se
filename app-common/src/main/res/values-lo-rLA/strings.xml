@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ຂອບໃຈ</string>
     <string name="general_error_type_mismatch_msg">ປະເພດບໍ່ກົງກັນ: ຕ້ອງການ %1$s, ແຕ່ໄດ້ %2$s.</string>
     <string name="general_error_cant_access_msg">ບໍ່ສາມາດເຂົ້າເຖິງ %s ໄດ້.</string>
-    <string name="general_error_root_unavailable">ການເຂົ້າເຖິງ root ບໍ່ມີ.</string>    <string name="general_error_no_compatible_app_found_msg">ບໍ່ພົບແອັບທີ່ເຂົ້າກັນໄດ້ເພື່ອຈັດການຄຳຮ້ອງຂໍນີ້.</string>
+    <string name="general_error_root_unavailable">ການເຂົ້າເຖິງ root ບໍ່ມີ.</string>
+    <string name="general_error_no_compatible_app_found_msg">ບໍ່ພົບແອັບທີ່ເຂົ້າກັນໄດ້ເພື່ອຈັດການຄຳຮ້ອງຂໍນີ້.</string>
     <string name="general_todo_msg">ຄຸນສົມບັດນີ້ຍັງຢູ່ໃນການພັດທະນາ ແລະ ປະຈຸບັນບໍ່ມີ.</string>
     <string name="general_share_action">ແບ່ງປັນ</string>
     <string name="general_done_action">ເສັດສິ້ນ</string>
     <string name="general_apply_action">ນຳໃຊ້</string>
-    <string name="general_copy_action">ສຳເນົາ</string>    <string name="general_cancel_action">ຍົກເລີກ</string>
+    <string name="general_copy_action">ສຳເນົາ</string>
+    <string name="general_cancel_action">ຍົກເລີກ</string>
     <string name="general_discard_action">ທິ້ງ</string>
     <string name="general_reset_action">ຣີເຊັດ</string>
     <string name="general_drag_handle_description">ລາກເພື່ອຈັດລຳດັບໃໝ່</string>
-    <string name="general_save_action">ບັນທຶກ</string>    <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
+    <string name="general_save_action">ບັນທຶກ</string>
+    <string name="general_gotit_action">ເຂົ້າໃຈແລ້ວ</string>
     <string name="general_fix_action">ແກ້ໄຂ</string>
     <string name="general_set_up_action">ຕິດຕັ້ງ</string>
     <string name="general_edit_action">ແກ້ໄຂ</string>
@@ -158,5 +161,21 @@
     <string name="general_user_label_system">ລະບົບ</string>
     <string name="setup_title">ຕິດຕັ້ງ</string>
     <string name="setup_feature_requires_additional_setup_x">ຄຸນສົມບັດນີ້ຕ້ອງການດໍາເນີນການຕັ້ງຄ່າເພີ່ມເຕີມໃຫ້ສໍາເລັດ: %s</string>
+    <string name="upgrade_feature_requires_pro">ຕ້ອງການ Pro</string>
+    <string name="general_include_multiuser_label">ລວມຜູ້ໃຊ້ອື່ນ</string>
+    <string name="general_include_multiuser_summary">ລວມແອັບຈາກໂປຣໄຟລ໌ຜູ້ໃຊ້ອື່ນໃນອຸປະກອນນີ້.</string>
+    <string name="general_unsaved_confirmation_message">ທ່ານມີການປ່ຽນແປງທີ່ຍັງບໍ່ໄດ້ບັນທຶກ!</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d ການຍົກເວັ້ນຖືກສ້າງແລ້ວ</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">ປະຫວັດ</string>
     <string name="settings_category_tools_label">ເຄື່ອງມື</string>
 </resources>

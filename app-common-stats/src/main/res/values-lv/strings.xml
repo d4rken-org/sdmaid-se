@@ -1,6 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <plurals name="stats_dash_body_size">
+        <item quantity="zero">%s ir atbrīvots.</item>
+        <item quantity="one">%s ir atbrīvots.</item>
+        <item quantity="other">%s ir atbrīvoti.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="zero">%s vienumi apstrādāti, kopš ielūdzat SD Maid savā ierīcē.</item>
+        <item quantity="one">%s vienums apstrādāts, kopš ielūdzat SD Maid savā ierīcē.</item>
+        <item quantity="other">%s vienumi apstrādāti, kopš ielūdzat SD Maid savā ierīcē.</item>
+    </plurals>
     <string name="stats_report_status_success">Veiksmīgi</string>
     <string name="stats_report_status_partial_success">Daļēji veiksmīgi</string>
     <string name="stats_report_status_partial_failure">Neveiksmīgi</string>
+    <string name="stats_settings_desc">Konfigurējiet SD Maid statistiku, atskaites un datu saglabāšanu.</string>
+    <string name="stats_settings_retention_category">Saglabāšana</string>
+    <string name="stats_settings_retention_reports_label">Vispārīgās atskaites</string>
+    <string name="stats_settings_retention_reports_desc">Dienu skaits pirms pamata SD Maid darbības atskaišu dzēšanas.</string>
+    <string name="stats_settings_retention_paths_label">Sīkā ceļa informācija</string>
+    <string name="stats_settings_retention_paths_desc">Dienu skaits, cik ilgi pārdotālī saglabāt informāciju par SD Maid ietekmotajiem ceļiem.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="zero">%d dienas</item>
+        <item quantity="one">%d diena</item>
+        <item quantity="other">%d dienas</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Atiestatīt visu</string>
+    <string name="stats_settings_reset_all_desc">Dzēst visas atskaites un iestatīt visu statistiku uz nulli.</string>
+    <string name="stats_affected_paths_label">Ietekmētie ceļi</string>
+    <string name="stats_affected_pkgs_label">Ietekmētās lietotnes</string>
 </resources>

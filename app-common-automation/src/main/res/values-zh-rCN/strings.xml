@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid 未能在时间限制内完成所有步骤。 如果这种情况多次发生，开发者可能需要为您的设备调整应用程序。 检查应用更新或联系开发者，以便开发者能够修复它。</string>
     <string name="automation_error_overlay_title">自动操作叠加层</string>
     <string name="automation_error_overlay_body">SD Maid 无法显示自动操作叠加层。检查权限问题并尝试重启您的设备。</string>
+    <string name="automation_error_scheduler_title">计划自动化任务失败</string>
+    <string name="automation_error_scheduler_body">某个计划任务尝试使用无障碍服务，但该服务不可用。如果您不需要此功能，请在计划程序设置中禁用“无障碍服务”选项。</string>
     <string name="automation_error_no_settings_title">设置屏幕不可用</string>
     <string name="automation_error_no_settings_body">该系统应用没有设置界面。无法通过无障碍服务清除缓存。请手动将该应用添加到排除列表。</string>
-    <string name="automation_loading">通过无障碍服务来配置自动化处理</string>
+    <string name="automation_loading">通过无障碍服务来准备自动化操作</string>
     <string name="automation_progress_find_ok_confirmation">正在尝试确认先前的操作(关键词：%s)</string>
 </resources>

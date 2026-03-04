@@ -18,6 +18,8 @@
  acontecer, talvez precise ajustar o aplicativo para o seu dispositivo. Verifique se há atualizações ou entre em contato comigo para que eu possa corrigi-lo.</string>
     <string name="automation_error_overlay_title">Erro de automação</string>
     <string name="automation_error_overlay_body">O SD Maid não pôde mostrar a sobreposição de automação. Verifique as permissões e tente reiniciar o seu dispositivo.</string>
+    <string name="automation_error_scheduler_title">Falha na automatização agendada</string>
+    <string name="automation_error_scheduler_body">Uma tarefa agendada tentou utilizar o serviço de acessibilidade, mas este não estava disponível. Se não precisar disto, desative a opção \"Serviço de acessibilidade\" nas definições do agendador.</string>
     <string name="automation_error_no_settings_title">Tela de configurações indisponível</string>
     <string name="automation_error_no_settings_body">Esta app do sistema não tem tela de configurações. A limpeza de cache através do serviço de acessibilidade não é possível. Crie uma exclusão para esta app.</string>
     <string name="automation_loading">A preparar automação através do serviço de acessibilidade</string>

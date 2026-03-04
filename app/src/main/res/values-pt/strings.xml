@@ -24,6 +24,10 @@
         <item quantity="other">%1$d arquivos prontos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Este recurso grava tudo o que a aplicação está a fazer num arquivo partilhável. O arquivo criado contém informações confidenciais (por exemplo,. nome dos arquivos e aplicações instaladas). Partilhe apenas com destinatários confiáveis (por exemplo, um programador que possa resolver problemas).</string>
+    <string name="debug_debuglog_short_recording_title">Gravação muito curta</string>
+    <string name="debug_debuglog_short_recording_desc">A gravação foi muito curta. Os registos de depuração são gravações, não capturas instantâneas — reproduza o problema enquanto a gravação está ativa para que o registo seja útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar a gravar</string>
+    <string name="debug_debuglog_short_recording_stop_action">Parar mesmo assim</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está em execução</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Isto irá apagar permanentemente todas as sessões de depuração armazenadas. Esta ação não pode ser desfeita.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para estar e fazer perguntas.</string>
+    <string name="support_contact_label">Contactar o programador</string>
+    <string name="support_contact_desc">Preencha um formulário para enviar um e-mail ao programador.</string>
+    <string name="support_contact_welcome">Leio cada mensagem pessoalmente e faço o meu melhor para responder, mas como trabalho nisto sozinho, pode demorar algum tempo. Obrigado pela sua paciência.</string>
+    <string name="support_contact_footer">A sua mensagem será enviada por e-mail. As informações do dispositivo e da configuração são anexadas automaticamente. Pode anexar capturas de ecrã ou um vídeo ao e-mail. Algumas partes do e-mail estarão em inglês para que o programador o possa compreender facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_bug_label">Relatório de erro</string>
+    <string name="support_contact_category_feature_label">Pedido de funcionalidade</string>
+    <string name="support_contact_category_question_label">Pergunta</string>
+    <string name="support_contact_tool_label">Ferramenta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">Encontrar resíduos</string>
+    <string name="support_contact_tool_systemcleaner_label">Limpeza de sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Des-duplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analisador</string>
+    <string name="support_contact_tool_appcontrol_label">Controlo de aplicações</string>
+    <string name="support_contact_tool_scheduler_label">Agenda</string>
+    <string name="support_contact_tool_general_label">Geral</string>
+    <string name="support_contact_description_label">Descrição</string>
+    <string name="support_contact_description_bug_hint">Descreva o que aconteceu e como reproduzir o problema. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_description_feature_hint">Descreva a funcionalidade que gostaria de ver. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_description_question_hint">Descreva a sua pergunta em detalhe. Por favor seja específico (mínimo 20 palavras).</string>
+    <string name="support_contact_expected_label">Comportamento esperado</string>
+    <string name="support_contact_expected_hint">Descreva o que esperava que acontecesse (mínimo 10 palavras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palavra</item>
+        <item quantity="other">%1$d / %2$d palavras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registo de depuração</string>
+    <string name="support_contact_debuglog_zip_error">Falha ao comprimir o registo de depuração</string>
+    <string name="support_contact_debuglog_picker_hint">Anexe um registo de depuração existente ou grave um novo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nenhum registo de depuração encontrado. Grave um primeiro.</string>
+    <string name="support_contact_send_action">Abrir aplicação de e-mail</string>
+    <string name="support_contact_no_email_app">Nenhuma aplicação de e-mail encontrada neste dispositivo.</string>
     <string name="changelog_label">Registo de alterações</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
     <string name="settings_acknowledgements_category_translations_title">Traduções</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Habilite opções de teste e com mais detalhes. O aplicativo irá correr mais devagar e com desempenho diferente.</string>
     <string name="debug_bugreporter_label">Relatórios de erro automáticos</string>
     <string name="debug_bugreporter_summary">Relata problemas automaticamente, por exemplo, detalhes sobre o aplicativo falhas para que eu possa descobrir porquê e corrigi-lo.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modo de depuração está ativado</string>
     <string name="debug_card_trace_mode_label">Habilitar modo de rastreamento</string>
     <string name="debug_card_dryrun_mode_label">Modo de execução vazia (desabilita apagar)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Atalhos</string>
     <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"varrer + apagar\" pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas de um toque.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

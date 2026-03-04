@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid no completó todos los pasos dentro del tiempo límite. Si esto sigue ocurriendo, quizás tenga que adaptar la aplicación a su dispositivo. Busque actualizaciones o contácteme para solucionarlo.</string>
     <string name="automation_error_overlay_title">Superposición de automatización</string>
     <string name="automation_error_overlay_body">SD Maid no pudo mostrar la superposición de automatización. Verifique los permisos e intente reiniciar el dispositivo.</string>
+    <string name="automation_error_scheduler_title">Error en automatización programada</string>
+    <string name="automation_error_scheduler_body">Una tarea programada intentó usar el servicio de accesibilidad, pero no estaba disponible. Si no lo necesitas, desactiva la opción \"Servicio de accesibilidad\" en la configuración del programador.</string>
     <string name="automation_error_no_settings_title">Pantalla de configuración no disponible</string>
     <string name="automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
     <string name="automation_loading">Preparando automatización a través del servicio de accesibilidad</string>

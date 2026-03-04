@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Köszönöm</string>
     <string name="general_error_type_mismatch_msg">Típuseltérés: %1$s keresett, de %2$s lett.</string>
     <string name="general_error_cant_access_msg">A(z) %s nem érhető el.</string>
-    <string name="general_error_root_unavailable">A root hozzáférés nem érhető el.</string>    <string name="general_error_no_compatible_app_found_msg">Nem találtunk kompatibilis alkalmazást a kérés kezelésére.</string>
+    <string name="general_error_root_unavailable">A root hozzáférés nem érhető el.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nem találtunk kompatibilis alkalmazást a kérés kezelésére.</string>
     <string name="general_todo_msg">Ezen a funkción még dolgoznak, és jelenleg nem érhető el.</string>
     <string name="general_share_action">Megosztás</string>
     <string name="general_done_action">Kész</string>
     <string name="general_apply_action">Alkalmaz</string>
-    <string name="general_copy_action">Másolás</string>    <string name="general_cancel_action">Mégsem</string>
+    <string name="general_copy_action">Másolás</string>
+    <string name="general_cancel_action">Mégsem</string>
     <string name="general_discard_action">Elvetés</string>
     <string name="general_reset_action">Visszaállítás</string>
     <string name="general_drag_handle_description">Húzza az átrendezéshez</string>
-    <string name="general_save_action">Mentés</string>    <string name="general_gotit_action">Megvan</string>
+    <string name="general_save_action">Mentés</string>
+    <string name="general_gotit_action">Megvan</string>
     <string name="general_fix_action">Javítás</string>
     <string name="general_set_up_action">Beállítás</string>
     <string name="general_edit_action">Szerkesztés</string>
@@ -174,6 +177,10 @@
     <string name="general_user_label_system">Rendszer</string>
     <string name="setup_title">Beállítás</string>
     <string name="setup_feature_requires_additional_setup_x">Ez a funkció további beállítások elvégzését igényli: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro szükséges</string>
+    <string name="general_include_multiuser_label">Egyéb felhasználók bevonása</string>
+    <string name="general_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
+    <string name="general_unsaved_confirmation_message">Nem mentett változtatásaid vannak!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Egy kizárás létrehozva</item>
         <item quantity="other">%d kizárás létrehozva</item>
@@ -188,7 +195,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Előzmények</string>
     <string name="settings_category_tools_label">Eszközök</string>
-    <string name="general_include_multiuser_label">Egyéb felhasználók bevonása</string>
-    <string name="general_include_multiuser_summary">Alkalmazások felvétele más felhasználói profilokból ezen az eszközön.</string>
-    <string name="general_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
 </resources>

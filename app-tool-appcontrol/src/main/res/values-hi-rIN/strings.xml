@@ -17,6 +17,7 @@
     <string name="appcontrol_app_launch_title">ऐप खोलें</string>
     <string name="appcontrol_app_launch_description">इस ऐप की प्राथमिक गतिविधि चालू करें</string>
     <string name="appcontrol_app_forcestop_title">बलपूर्वक रोकें</string>
+    <string name="appcontrol_app_forcestop_description">एप को रोकें। इसे तब तक स्वयं शुरू होने से रोकें जब तक आप इसे न खोलें या डिवाइस पुनः शुरू न हो।</string>
     <string name="appcontrol_app_uninstall_description">इस ऐप को अपने डिवाइस से अनइंस्टॉल करें।</string>
     <string name="appcontrol_app_exclude_add_title">बहिष्कृत ऐप्स</string>
     <string name="appcontrol_app_exclude_add_description">SD मेड में अन्य कार्यों से इस ऐप को बाहर करें।</string>
@@ -24,6 +25,7 @@
     <string name="appcontrol_app_exclude_edit_description">इस ऐप को वर्तमान में एक या अधिक टूल से बाहर रखा गया है।</string>
     <string name="appcontrol_tag_user">उपयोगकर्ता</string>
     <string name="appcontrol_tag_active">सक्रिय</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">बंडल</string>
     <string name="appcontrol_tag_system">सिस्टम</string>
     <string name="appcontrol_tag_archived">संग्रहीत</string>
@@ -31,6 +33,7 @@
     <string name="appcontrol_tag_not_installed">इंस्टॉल नहीं</string>
     <string name="appcontrol_tag_enabled">सक्षम</string>
     <string name="appcontrol_tag_disabled">अक्षम</string>
+    <string name="appcontrol_tag_debug">डीबग</string>
     <string name="appcontrol_progress_enabling_package">ऐप सक्षम हो रहा है</string>
     <string name="appcontrol_progress_disabling_package">ऐप अक्षम हो रहा है</string>
     <string name="appcontrol_list_filteroptions_label">फ़िल्टर विकल्प</string>
@@ -45,6 +48,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d ऐप अनइंस्टॉल किया गया</item>
         <item quantity="other">%d ऐप्स अनइंस्टॉल किए गए</item>
+    </plurals>
+    <string name="appcontrol_archive_action">संग्रह</string>
+    <string name="appcontrol_archive_selection_action">एप्स संग्रहीत करें</string>
+    <string name="appcontrol_archive_description">एप डेटा बाद में पुनर्स्थापना के लिए रखते हुए स्थान खाली करने के लिए संग्रहीत करें।</string>
+    <string name="appcontrol_progress_archiving_app">एप संग्रहीत हो रहा है…</string>
+    <string name="appcontrol_archive_confirmation_title">संग्रह की पुष्टि करें</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d एप संग्रहीत करें?</item>
+        <item quantity="other">%d एप्स संग्रहीत करें?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d एप संग्रहीत किया गया</item>
+        <item quantity="other">%d एप्स संग्रहीत किए गए</item>
+    </plurals>
+    <string name="appcontrol_restore_action">पुनर्स्थापित करें</string>
+    <string name="appcontrol_restore_selection_action">एप्स पुनर्स्थापित करें</string>
+    <string name="appcontrol_restore_description">संग्रहीत एप को पूरी तरह इंस्टॉल स्थिति में पुनर्स्थापित करें। एप डेटा सुरक्षित रहता है।</string>
+    <string name="appcontrol_progress_restoring_app">एप पुनर्स्थापित हो रहा है…</string>
+    <string name="appcontrol_restore_confirmation_title">पुनर्स्थापना की पुष्टि करें</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d एप पुनर्स्थापित करें?</item>
+        <item quantity="other">%d एप्स पुनर्स्थापित करें?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d एप पुनर्स्थापित किया गया</item>
+        <item quantity="other">%d एप्स पुनर्स्थापित किए गए</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">ऐप का आकार</string>
     <string name="appcontrol_app_sizes_apk_label">ऐप</string>
@@ -65,11 +94,15 @@
     <string name="appcontrol_settings_module_activity_enabled_description">ऐप गतिविधि और स्क्रीन समय की जानकारी दिखाएं।</string>
     <string name="appcontrol_export_app_selection_action">ऐप्स निर्यात करें</string>
     <string name="appcontrol_export_title">ऐप निर्यात करें</string>
+    <string name="appcontrol_export_description">इस एप की इंस्टॉलेशन फ़ाइलें सहेजें। इसमें एप डेटा शामिल नहीं है।</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d ऐप निर्यात किया गया</item>
         <item quantity="other">%d ऐप्स निर्यात किए गए</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">%s निर्यात किया जा रहा है</string>
+    <string name="appcontrol_share_list_action">सूची साझा करें</string>
+    <string name="appcontrol_share_list_title">मेरे एप्स</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE के माध्यम से साझा किया गया</string>
     <string name="appcontrol_force_stop_selection_action">ऐप्स को बलपूर्वक रोकें</string>
     <string name="appcontrol_force_stop_action">बलपूर्वक रोकें</string>
     <string name="appcontrol_force_stop_confirm_title">बलपूर्वक रोकने की पुष्टि करें</string>
@@ -84,8 +117,17 @@
     <string name="appcontrol_automation_title">AppControl स्वचालन</string>
     <string name="appcontrol_automation_subtitle_force_stopping">बलपूर्वक रोका जा रहा है…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"बलपूर्वक रोकें\" बटन ढूंढा जा रहा है (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">संग्रहीत हो रहा है…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"संग्रह\" बटन ढूंढ रहे हैं (कीवर्ड: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">पुनर्स्थापित हो रहा है…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"पुनर्स्थापित करें\" बटन ढूंढ रहे हैं (कीवर्ड: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">स्क्रीन समय: %2$s से %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">अंतिम अद्यतन: %s</string>
+    <string name="appcontrol_item_installedat_x_label">इंस्टॉल किया गया: %s</string>
     <string name="shortcut_appcontrol_short">ऐप नियंत्रण</string>
     <string name="shortcut_appcontrol_long">स्थापित ऐप्स प्रबंधित करें</string>
+    <string name="appcontrol_automation_loading">पहुंच सेवा के माध्यम से स्वचालन तैयार किया जा रहा है</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">पिछली कार्रवाई की पुष्टि करने का प्रयास (कीवर्ड: %s)</string>
+    <string name="appcontrol_include_multiuser_label">अन्य उपयोगकर्ता शामिल करें</string>
+    <string name="appcontrol_include_multiuser_summary">इस डिवाइस पर अन्य उपयोगकर्ता प्रोफाइल के एप्स शामिल करें।</string>
 </resources>

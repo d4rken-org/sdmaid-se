@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-        <item quantity="one">%s zostało zwolnione.</item>
-        <item quantity="few">%s zostały zwolnione.</item>
-        <item quantity="many">%s zostało zwolnionych.</item>
-        <item quantity="other">%s zostało zwolnionych.</item>
+        <item quantity="one">Zwolniono %s</item>
+        <item quantity="few">Zwolniono %s</item>
+        <item quantity="many">Zwolniono %s</item>
+        <item quantity="other">Zwolniono %s</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-        <item quantity="one">%s element został przetworzony od momentu zaproszenia SD Maid do twojego urządzenia.</item>
-        <item quantity="few">%s elementy zostały przetworzone od momentu zaproszenia SD Maid do twojego urządzenia.</item>
-        <item quantity="many">%s elementów zostało przetworzonych od momentu zaproszenia SD Maid do twojego urządzenia.</item>
-        <item quantity="other">%s elementów zostało przetworzonych od momentu zaproszenia SD Maid do twojego urządzenia.</item>
+        <item quantity="one">Przetworzono %s element od momentu zaproszenia SD Maid do twojego urządzenia.</item>
+        <item quantity="few">Przetworzono %s elementy od momentu zaproszenia SD Maid do twojego urządzenia.</item>
+        <item quantity="many">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
+        <item quantity="other">Przetworzono %s elementów od momentu zaproszenia SD Maid do twojego urządzenia.</item>
     </plurals>
     <string name="stats_report_status_success">Zakończono pomyślnie</string>
     <string name="stats_report_status_partial_success">Częściowy sukces</string>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">ຕັວຈັດການການທ່ອນຂ້າມ</string>
+    <string name="exclusion_manager_desc">ຈັດການການທ່ອນຂ້າມໄຟລ໌ ແວແອັບ.</string>
+    <string name="exclusion_explanation_body1">ທ່ອນຂ້າມໄຟລ໌ ແວແອັບຈາກການດຳເນີນງານຂອງ SD Maid.</string>
+    <string name="exclusion_add_new_hint">ເພິ່ມການທ່ອນຂ້າມໃຫມ່ໂດຍກ່ອນອະນຸຍາດເພື່ອ໊່ວຄ້ນຫາ ຈາກນັ້ນໃຊ້ເມນູ Context ບນຜລລັບທີ່ຕ້ອງການທ່ອນຂ້າມ.</string>
+    <string name="exclusion_create_action">ສ້າງການທ່ອນຂ້າມ</string>
+    <string name="exclusion_edit_action">ແກ້ໄຂການທ່ອນຂ້າມ</string>
+    <string name="exclusion_type_package">ການທ່ອນຂ້າມແອັບ</string>
+    <string name="exclusion_type_path">ການທ່ອນຂ້າມທາງ</string>
+    <string name="exclusion_type_segment">ການທ່ອນຂ້າມສ່ວນ</string>
+    <string name="exclusion_tags_alltools">ທຸກເຄື່ອງມື</string>
+    <string name="exclusion_target_label">ເປ້າຫມາຍການທ່ອນຂ້າມ</string>
+    <string name="exclusion_editor_path_change_action">ກດເພື່ອ຺່ນທາງ</string>
+    <string name="exclusion_option_allow_partial">ອະນຸຍາດການຈັບຄູ່ບາງສ່ວນ</string>
+    <string name="exclusion_option_ignore_casing">ບໍ່ຄຳນຶງຕັວພິມພ໌ບນ-ລ່າງ</string>
+    <string name="exclusion_editor_affected_tools_label">ເຄື່ອງມືທີ່ໄດ້ຮັບຜລກະທົບ</string>
+    <string name="exclusion_editor_path_explanation">ການທ່ອນຂ້າມທາງປ້ອງກັນ SD Maid ຈາກການປະລົງຜລທາງທີ່ຕຼງກັນ. ເທົ່ງໄຊ້ກັບໄຟລ໌ ໂຟນເດີ ແວໂຟນເດີຍ່ອຍ.</string>
+    <string name="exclusion_editor_pkg_explanation">ການທ່ອນຂ້າມແອັບປ້ອງກັນ SD Maid ຈາກການປະລົງຜລພັກເກດທີ່ຕຼງກັນ.</string>
+    <string name="exclusion_editor_segment_explanation">ການທ່ອນຂ້າມຕາມສ່ວນມີຄວາມຄ້າຍກັບການທ່ອນຂ້າມທາງ ແຕ່ອະນຸຍາດການຈັບຄູ່ບາງສ່ວນ. ຕັວອໍນ: \"DCIM/Camera\" ທ່ອນຂ້າມ \"/sdcard/DCIM/Camera/photo.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">ລົບການທ່ອນຂ້າມນີ້ຫຼື?</string>
+    <string name="exclusion_reset_default_exclusions">ຄືນຄ່າການທ່ອນຂ້າມເຣີ່ມຕ້ນ</string>
+    <string name="exclusion_import_action">ນໍາເຂ້ການທ່ອນຂ້າມ</string>
+    <string name="exclusion_export_action">ສ່ອອກການທ່ອນຂ້າມ</string>
+    <string name="exclusion_create_pkg_hint">ໃຊ້ເຄື່ອງມື AppControl ເພື່ອສ້າງການທ່ອນຂ້າມແອັບ.</string>
+    <string name="exclusion_create_path_hint">ໃຊ້ເຄື່ອງມື StorageAnalyzer ເພື່ອສ້າງການທ່ອນຂ້າມທາງ.</string>
+    <string name="exclusion_show_defaults_action">ແສດງຄ່າເຣີ່ມຕ້ນ</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">ທ່ານມີການ຺່ນທີ່ຍັງບໍ່ຖືກບັນທຶກ!</string>
+</resources>

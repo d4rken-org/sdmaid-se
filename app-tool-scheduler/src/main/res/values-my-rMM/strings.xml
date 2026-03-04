@@ -2,7 +2,39 @@
 <resources>
     <string name="scheduler_label">အချိန်ဇယား ချိန်ညှိမှု</string>
     <string name="scheduler_execution_label">နောက်ထပ် လုပ်ဆောင်မှု (ခန့်မှန်းချက်)</string>
+    <string name="scheduler_execution_last_label">နောဆုံး အလုပ်ဆောင်ချသည်</string>
+    <string name="scheduler_settings_label">အချိန်ဇယား ချိန်ညှိမှု</string>
+    <string name="scheduler_settings_summary">စကင်ဖတ်မှတ် ဆပ်ရှားများကို ချန်ဆွဲပြန်ဆွဲရန်။</string>
+    <string name="scheduler_new_schedule_action">ဆုံးဆေး ဖျစ်ချရန်</string>
+    <string name="scheduler_schedule_name_label">ဆုံးဆေးအမည့်</string>
+    <string name="scheduler_schedule_toggle_enabled">ဆုံးဆေးကို ဖွစ်ချပြီးသည်</string>
+    <string name="scheduler_schedule_toggle_disabled">ဆုံးဆေးကို ပိဤက်ချပြီးသည်</string>
+    <string name="scheduler_edit_schedule_action">ဆုံးဆေးကို ပြင်န်ဆွဲရန်</string>
+    <string name="scheduler_schedule_time_label">ခန့်မှန်းအချား</string>
+    <string name="scheduler_schedule_repeat_label">ရက်တွင် ပြန်ပြန်ဆွဲအချား</string>
+    <string name="scheduler_schedule_default_name">မူရင်း ဆုံးဆေး</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s လျမ်း %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s အတွက် စကင်ဖတ်ပြမည့်မြေးပြီးသည်</string>
+    <string name="scheduler_schedule_last_at_x">%s တွင် နောဆုံး အလုပ်ဆောင်ချပြီးသည်</string>
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="other">%d ရက်တိုင်း</item>
     </plurals>
+    <string name="scheduler_schedule_repeat_interval">ပြန်ပြန်ဆွဲချား</string>
+    <string name="scheduler_inaccurate_execution_hint">ခန့်မှန်းအလုပ်ဆောင်ချအချားများသည် ခန့်မှန်း ချန့်အအကြေးအချားသားများအပိုဆုံးဆေးများ။ ဘုးတေရဪ သိုထားထုတ်ချပြီးသောဆုံးဆေးများကို နောက်ချများ သိုမရှိပြီးသည်။</string>
+    <string name="scheduler_no_active_schedules_subtitle">ဆုံးဆေး အလုပ်ဆောင်ချများ မရှိပါ</string>
+    <string name="scheduler_setting_nopowersaving_title">ဘုးတေရဪ နည်းပါးသည် ကျော်ပြန်ဆွဲရန်</string>
+    <string name="scheduler_setting_nopowersaving_summary">ကရိုးသည်း ဘုးတေရဪ သပြောက်မှတွင် ရှိပါက ဆုံးဆေးကိုအလုပ်ဆောင်ချကို ကျော်ပြန်ဆွဲမည်။</string>
+    <string name="scheduler_setting_charging_title">ချုံးမှုတွင်မရှိပါက ကျော်ပြန်ဆွဲရန်</string>
+    <string name="scheduler_setting_charging_summary">ကရိုးသည်း ချုံးမှုနေစ်သည်က ဆုံးဆေးကိုအလုပ်ဆောင်ချကို ကျော်ပြန်ဆွဲမည်။</string>
+    <string name="scheduler_setting_automation_title">အသုံးပြုရလွယ်ကူမှုဝန်ဆောင်မှု</string>
+    <string name="scheduler_setting_automation_summary">Accessibility service အသုံးသော အလုပ်ဆောင်ချများကို ထည့်သွင်းရန်။ ဤလုပ်ဆောင်ချများကို အလုပ်ဆောင်ချသောတွင် SD Maid သည်း သင်မ်းစကᒰ (တည့်းဤက်သည်) ခြင်းခြင်းနိုင်အသုံးသည်။</string>
+    <string name="scheduler_notification_channel_label">အချိန်ဇယား ချိန်ညှိမှု</string>
+    <string name="scheduler_notification_title">ဆုံးဆေးခြယ်စိုး</string>
+    <string name="scheduler_notification_message">အလုပ်ဆောင်ချနေစ်သည်: \"%s\"</string>
+    <string name="scheduler_notification_result_title">ဆုံးဆေးပြီးသောသည်</string>
+    <string name="scheduler_notification_result_success_message">ဆုံးဆေးခြယ်စိုးများအားလုံး အအကြေးများ ပြမည့်ပြမည့် အလုပ်ဆောင်ချပြီးသည်။</string>
+    <string name="scheduler_notification_result_failure_message">ဆုံးဆေးခြယ်စိုးများအချား အချားများ မအစားတွေနေရာပြီးသည် သိုမရှိပါ။ ကိုယ်ကိုယ် အလုပ်ဆောင်ချပြမည့်တွက်အသုံးချသည်။</string>
+    <string name="scheduler_commands_after_schedule_label">ဆုံးဆေးပြီးသော အမှတ်ချစိုး</string>
+    <string name="scheduler_commands_after_schedule_desc">ဆုံးဆေးပြီးသောက် ဆုံးဆေးတွင် အလုပ်ဆောင်ချမည်သော Android shell ခြစ်ချများ။</string>
+    <string name="scheduler_battery_optimization_hint">နောက်ချတွင် ပြပြီးသော ပြည့်ဟာများရှိပါက SD Maid အတွက် ဘုးတေရဪ အဆေးခြသည်ကို ပိဤက်ချခြင်းမှပြမေကြချသည်။</string>
 </resources>

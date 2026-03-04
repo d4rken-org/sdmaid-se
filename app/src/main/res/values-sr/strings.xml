@@ -25,6 +25,10 @@
         <item quantity="other">%1$d датотека спремно (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ова функција снима све што апликација ради у датотеку коју можете поделити. Генерисана датотека садржи осетљиве информације (нпр. имена датотека и инсталиране апликације). Делите је само са поузданим странама (нпр. програмером који решава проблем).</string>
+    <string name="debug_debuglog_short_recording_title">Веома кратко снимање</string>
+    <string name="debug_debuglog_short_recording_desc">Снимање је било веома кратко. Дебаг логови су снимци, не снимке стања — репродукујте проблем док је снимање активно да би лог био користан.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Настави снимање</string>
+    <string name="debug_debuglog_short_recording_stop_action">Заустави свеједно</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -104,6 +108,40 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Ово ће трајно обрисати све сачуване сесије дневника отклањања грешака. Ова акција се не може поништити.</string>
     <string name="discord_label">Дискорд</string>
     <string name="discord_description">Место за дружење и постављање питања.</string>
+    <string name="support_contact_label">Контактирај програмера</string>
+    <string name="support_contact_desc">Попуните образац да пошаљете поруку програмеру е-поштом.</string>
+    <string name="support_contact_welcome">Сам читам сваку поруку и дајем све од себе да одговорим, али пошто радим на овоме сам, може потрајати мало. Хвала на стрпљењу.</string>
+    <string name="support_contact_footer">Ваша порука биће послата е-поштом. Информације о уређају и подешавањима аутоматски се прилажу. Можете приложити снимке екрана или видео уз е-пошту. Неки делови е-поште биће на енглеском да би програмер лако разумео.</string>
+    <string name="support_contact_category_label">Категорија</string>
+    <string name="support_contact_category_bug_label">Пријава грешке</string>
+    <string name="support_contact_category_feature_label">Захтев за функцију</string>
+    <string name="support_contact_category_question_label">Питање</string>
+    <string name="support_contact_tool_label">Повезани алат</string>
+    <string name="support_contact_tool_appcleaner_label">Чистач апликација</string>
+    <string name="support_contact_tool_corpsefinder_label">Проналазач Остатака</string>
+    <string name="support_contact_tool_systemcleaner_label">Системски чистач</string>
+    <string name="support_contact_tool_deduplicator_label">Уклањалац дупликата</string>
+    <string name="support_contact_tool_analyzer_label">Анализатор</string>
+    <string name="support_contact_tool_appcontrol_label">Контрола апликација</string>
+    <string name="support_contact_tool_scheduler_label">Распоређивач</string>
+    <string name="support_contact_tool_general_label">Oпште</string>
+    <string name="support_contact_description_label">Опис</string>
+    <string name="support_contact_description_bug_hint">Опишите шта се догодило и како да се проблем репродукује. Будите конкретни (минимум 20 речи).</string>
+    <string name="support_contact_description_feature_hint">Опишите функцију коју бисте желели да видите. Будите конкретни (минимум 20 речи).</string>
+    <string name="support_contact_description_question_hint">Детаљно опишите своје питање. Будите конкретни (минимум 20 речи).</string>
+    <string name="support_contact_expected_label">Очекивано понашање</string>
+    <string name="support_contact_expected_hint">Опишите шта сте очекивали да се деси (минимум 10 речи).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d реч</item>
+        <item quantity="few">%1$d / %2$d речи</item>
+        <item quantity="other">%1$d / %2$d речи</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Извештај о грешкама</string>
+    <string name="support_contact_debuglog_zip_error">Компресовање дневника за отклањање грешака није успело</string>
+    <string name="support_contact_debuglog_picker_hint">Прикачите постојећи дневник за отклањање грешака или снимите нови.</string>
+    <string name="support_contact_debuglog_picker_empty">Нису пронађени дневници за отклањање грешака. Прво снимите један.</string>
+    <string name="support_contact_send_action">Отвори апликацију за е-пошту</string>
+    <string name="support_contact_no_email_app">На овом уређају није пронађена апликација за е-пошту.</string>
     <string name="changelog_label">Дневник измена</string>
     <string name="settings_acknowledgements_label">Признања</string>
     <string name="settings_acknowledgements_category_translations_title">Преводи</string>
@@ -182,6 +220,7 @@
     <string name="debug_mode_explanation">Омогућите тест опције и детаљнији излаз. Апликација ће радити спорије и радити другачије.</string>
     <string name="debug_bugreporter_label">Аутоматски извештаји о грешкама</string>
     <string name="debug_bugreporter_summary">Аутоматски пријављује проблеме, нпр. детаље о паду апликације како би могао да схватим зашто и да то поправим.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Режим за отклањање грешака је укључен</string>
     <string name="debug_card_trace_mode_label">Укључи режим праћења</string>
     <string name="debug_card_dryrun_mode_label">Пробни режим (онемогући брисање)</string>
@@ -233,4 +272,5 @@
     <string name="shortcuts_settings_category">Пречице</string>
     <string name="shortcuts_onetap_enabled_title">Пречица једним кликом</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи пречицу \"Скенирај + Обриши\" при дугом притиску на иконицу апликације. Користи исте алатке као контролна табла једним кликом.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

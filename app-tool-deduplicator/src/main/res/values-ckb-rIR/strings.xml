@@ -1,15 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="deduplicator_explanation_short">داتای دووبارە لە ئامێرەکەت بدۆزەرەوە.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d دووبارەیەک سڕایەوە</item>
+        <item quantity="other">%d دووبارە سڕایەوە</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d کۆمەلی دووبارە دۆزرایەوە</item>
+        <item quantity="other">%d کۆمەلی دووبارە دۆزرایەوە</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Make \"سڕینەوە all\" possible</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">نیشاندان options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">گەڕان locations</string>
+    <string name="deduplicator_search_locations_all_summary">هەموو ناوچەکانی دەستگەیشتراو</string>
+    <string name="deduplicator_keep_prefer_paths_title">پێشتر نگەداشتن لە</string>
+    <string name="deduplicator_keep_prefer_paths_summary">لە کاتی بڕیاردانەوە کام دووبارە نگەبداریت، پێشتر فایلەکان لەم شوێنانەدا نگەبدارە.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">هیچ شوێنێک ڕێکخستن نەکراوە</string>
     <string name="deduplicator_skip_minsize_title">کەمترین size</string>
     <string name="deduplicator_skip_minsize_description">Skip فایلs that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon فایل types</string>
     <string name="deduplicator_skip_uncommon_description">Only include common media فایلs, documents and archives.</string>
+    <string name="deduplicator_detection_method_label">ڕێگای دۆزینەوە</string>
     <string name="deduplicator_detection_method_checksum_title">ناوەڕۆک checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. فایلs with matching checksums have the exact same content.</string>
+    <string name="deduplicator_detection_method_phash_title">هاشی هەستبردنی</string>
+    <string name="deduplicator_detection_method_phash_summary">فایلی هاوشێوە بدۆزەرەوە بە شیکردنەوەی تایبەتمەندییەکانی ناوەڕۆک و بەراوردکردنی بەهاکانی هاشی هەستبردنی. ⚠️ دۆزینەوەی بنەماتی هاوشێوەیی لەوانەیە هەڵەی دروستی تێدابێت کە پشکنینی دەستی پێویستە.</string>
+    <string name="deduplicator_occupied_space_label">ئەمبارەی پڕکراو</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s لەلایەن دووبارەکانەوە پڕکراوە</item>
+        <item quantity="other">%s لەلایەن دووبارەکانەوە پڕکراون</item>
+    </plurals>
     <string name="deduplicator_file_size_label">فایل size</string>
+    <string name="deduplicator_average_size_label">قەبارەی مامناوەند</string>
+    <string name="deduplicator_cluster_x_label">کلاستەر %s</string>
     <string name="deduplicator_delete_confirmation_message">سڕینەوە all but one copy in all sets of duplicate files?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">سڕینەوە all but one copy in this set of duplicate files?</string>
     <string name="deduplicator_delete_single_set_keep_none_confirmation_message">سڕینەوە all files in this set of duplicate files? نەخێر file is left over!</string>
@@ -17,5 +40,40 @@
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">سڕینەوە all files in each selected set of duplicate files? نەخێر file is left over!</string>
     <string name="deduplicator_delete_all_toggle_msg">سڕینەوە all copies. نەخێر file is left over!</string>
     <string name="deduplicator_progress_comparing_files">Comparing فایلs</string>
+    <string name="deduplicator_details_cluster_title">کۆمەلی دووبارەکان</string>
+    <string name="deduplicator_matches_exact_label">کۆپیەکانی تەواو</string>
     <string name="deduplicator_matches_similar_label">Similar فایلs</string>
+    <string name="deduplicator_arbiter_title">ستراتیژی سڕینەوە</string>
+    <string name="deduplicator_arbiter_summary">ڕێکبخە کام فایلەکان نگەدەدرێن و کامیان سڕێتەوە.</string>
+    <string name="deduplicator_arbiter_explanation">لە کاتی سڕینەوەی دووبارەکان، SD Maid بڕیار دەدات کام فایل نگەبداریت بە پشکنینی هەر پێوانەیک بە ریزەوە. یەکەم پێوانەی کە بەرکەوتنی ئاشکراکراو دروست دەکات ئەنجامەکە دیاری دەکات. بکێشە بۆ ڕیزبەندین، دەست بدە بۆ گۆڕینی دۆخ.</string>
+    <string name="deduplicator_arbiter_select_mode_title">دۆخ هەڵبژێرە</string>
+    <string name="deduplicator_arbiter_configure_paths_action">ڕیگاکان ڕێکبخە…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">جۆری دووبارە</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">لۆکاڵمەندییەی تەواو پێشتر بگرە لەسەر فایلە هاوشێوەکان.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">ئیندێکسکردنی میدیا</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">لەبەرچاوبگرە ئایا فایلەکان لەلایەن دابینکەری میدیاەوە ئیندێکسکراون.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">شوێنی ئەمبارکردن</string>
+    <string name="deduplicator_arbiter_criterium_location_description">فایلەکانی ئەمبارەی ناوەکی یان دەرەکی پێشتر بگرە.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">قووڵایی فۆڵدەر</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">فایلەکانی ساختەمانی فۆڵدەری کەمتر قووڵ یان قووڵتر پێشتر بگرە.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ڕێکەوتی گۆڕانکاری</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">فایلە کۆنتر یان نوێتر بنەرخێنە بنەماتی کاتی گۆڕانکاری.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">فایل size</string>
+    <string name="deduplicator_arbiter_criterium_size_description">فایلە گەورەتر یان بچووکتر پێشتر بگرە کاتێک قەبارەکان جیاواز بن.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">شوێنە پێشتربردراوەکان</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">فایلەکان لە شوێنە پێشتربردراوە ڕێکخستراوەکانت نگەبدارە.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">لۆکاڵمەندییەکانی تەواو پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">فایلە هاوشێوەکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">فایلە ئیندێکسکراوەکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">فایلە ئیندێکسنەکراوەکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ئەمبارەی ناوەکی پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ئەمبارەی دەرەکی پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">فۆڵدەرەکانی کەمتر قووڵ پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">فۆڵدەرەکانی قووڵتر پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">فایلە کۆنەکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">فایلە نوێکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">فایلە گەورەکان پێشتر بگرە</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">فایلە بچووکەکان پێشتر بگرە</string>
+    <string name="deduplicator_view_mode_groups_label">کۆمەڵەکان</string>
+    <string name="deduplicator_view_mode_directories_label">بوخچەکان</string>
 </resources>

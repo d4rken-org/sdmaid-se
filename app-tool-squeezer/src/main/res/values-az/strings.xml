@@ -82,4 +82,5 @@
         <item quantity="other">Ən azı %d gün köhnə</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG faylları üçün təxmini ~%d%% qənaət</string>
+    <string name="squeezer_onboarding_got_it">Başa düşdüm</string>
 </resources>

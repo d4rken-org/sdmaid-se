@@ -26,6 +26,10 @@
         <item quantity="other">%1$d файлаў гатова (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Гэта функцыя запісвае ўсё, што робіць праграма, у файл, якім можна падзяліцца. Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі (напрыклад, з распрацоўшчыкам для вырашэння вашай праблемы).</string>
+    <string name="debug_debuglog_short_recording_title">Вельмі кароткі запіс</string>
+    <string name="debug_debuglog_short_recording_desc">Запіс быў вельмі кароткім. Журналы адладкі — гэта запісы, а не здымкі экрана — прайдзіце праблему падчас актыўнага запісу, каб журнал быў карысным.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Працягнуць запіс</string>
+    <string name="debug_debuglog_short_recording_stop_action">Усё роўна спыніць</string>
     <string name="tasks_activity_notification_channel_label">Актыўныя задачы</string>
     <string name="tasks_activity_working_notification_title">SD Maid працуе</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -108,6 +112,41 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Усе журналы адладкі будуць назаўсёды выдалены. Гэта дзеянне немагчыма скасаваць.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Месца, дзе можна пагутарыць і задаць пытанні.</string>
+    <string name="support_contact_label">Звязацца з распрацоўшчыкам</string>
+    <string name="support_contact_desc">Запоўніце форму, каб адправіць распрацоўшчыку электронны ліст.</string>
+    <string name="support_contact_welcome">Я сам чытаю кожнае паведамленне і стараюся адказваць, але паколькі я працую над гэтым адзін, гэта можа заняць крыху часу. Дзякуй за вашу цярпенне.</string>
+    <string name="support_contact_footer">Ваша паведамленне будзе адпраўлена па электроннай пошце. Інфармацыя аб прыладзе і наладах дадаецца аўтаматычна. Вы можаце дадаць скрыншоты або відэа да ліста. Некаторыя часткі ліста будуць на англійскай мове, каб распрацоўшчык мог лёгка іх зразумець.</string>
+    <string name="support_contact_category_label">Катэгорыя</string>
+    <string name="support_contact_category_bug_label">Паведамленне аб памылцы</string>
+    <string name="support_contact_category_feature_label">Запыт на функцыю</string>
+    <string name="support_contact_category_question_label">Пытанне</string>
+    <string name="support_contact_tool_label">Звязаны інструмент</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Загальнае</string>
+    <string name="support_contact_description_label">Апісанне</string>
+    <string name="support_contact_description_bug_hint">Апішыце, што адбылася і як узнаваць праблему. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
+    <string name="support_contact_description_feature_hint">Апішыце функцыю, якую вы хацелі б бачыць. Калі ласка, будьце дакладнымі (mінімум 20 слоў).</string>
+    <string name="support_contact_description_question_hint">Апішыце ваш пытанне дакладна. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
+    <string name="support_contact_expected_label">Ачаканая павёдацьмасць</string>
+    <string name="support_contact_expected_hint">Апішыце, чаго вы ачакалі (мінімум 10 слоў).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d слова</item>
+        <item quantity="few">%1$d / %2$d славы</item>
+        <item quantity="many">%1$d / %2$d слоў</item>
+        <item quantity="other">%1$d / %2$d слова</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Журнал адладкі</string>
+    <string name="support_contact_debuglog_zip_error">Памылка сціскання журнала адладкі</string>
+    <string name="support_contact_debuglog_picker_hint">Дадайце існуючы журнал адладкі або запішыце новы.</string>
+    <string name="support_contact_debuglog_picker_empty">Журналы адладкі не знойдзены. Сначатку запішыце новы.</string>
+    <string name="support_contact_send_action">Адкрыць праграму электроннай пошты</string>
+    <string name="support_contact_no_email_app">На гэтай прыладзе не знойдзена праграма электроннай пошты.</string>
     <string name="changelog_label">Журнал змяненняў</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
     <string name="settings_acknowledgements_category_translations_title">Пераклады</string>
@@ -185,6 +224,7 @@
     <string name="debug_mode_explanation">Уключыць эксперыментальныя параметры і больш падрабязны вывад даных. Праграма будзе працаваць павольней, і яе прадукцыйнасць можа змяніцца.</string>
     <string name="debug_bugreporter_label">Аўтаматычныя справаздачы аб памылках</string>
     <string name="debug_bugreporter_summary">Аўтаматычна паведамляць пра праблемы, напрыклад, падрабязную інфармацыю аб збоях праграмы, каб я мог высветліць, чаму адбылася памылка.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Уключаны рэжым адладкі</string>
     <string name="debug_card_trace_mode_label">Уключыць рэжым адладкі</string>
     <string name="debug_card_dryrun_mode_label">Тэставы рэжым (адключэнне выдалення)</string>
@@ -239,7 +279,4 @@
     <string name="shortcuts_onetap_enabled_title">Хуткі ярлык</string>
     <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
     <!-- Shorter versions for side-by-side display -->
-    <!-- Swiper stamp variations (Tinder-style labels) -->
-    <!-- Swiper gesture overlay -->
-    <!-- Swiper help dialog -->
 </resources>

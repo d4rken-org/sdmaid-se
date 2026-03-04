@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid barlıq qádemlerdi belgilengen waqıt ishinde tamamlay almadı. Eger bul qayta-qayta bolıp tursa, men qosımshany qurılmańızǵa moslastırıwım kerek bolıwı múmkin. Jańalanıwlardı tekseriń yamasa maǵan xabar beriń, men bul máselen sheshiw.</string>
     <string name="automation_error_overlay_title">Avtomatlashtırıw qatlamı</string>
     <string name="automation_error_overlay_body">SD Maid avtomatlashtırıw qatlamın kórsete almadı. Ruxsatnamalardy tekseriń hám qurılmańızdı qayta júkleń.</string>
+    <string name="automation_error_scheduler_title">Jaдwallangıan avtomatlasтırıw ámelsiz boldi</string>
+    <string name="automation_error_scheduler_body">Jaдwallangıan wazıypa ádewsillik xizmetinen paydalanmaı urindı, biraq ol jetkerleksiz edi. Bul kerekli bolmasa, jallaw baplamalaríndagı \"Ádewsillik xizmeti\" tańlamansi taslaw.</string>
     <string name="automation_error_no_settings_title">Parametrler ekranı jetimli emes</string>
     <string name="automation_error_no_settings_body">Bul sistema qosımshasında parametrler ekranı joq. Jetimlilik qullıǵı arqalı keş tazalaw múmkin emes. Keş tazalawdı tezletiw ushın onı shetletip qoyıń.</string>
     <string name="automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>

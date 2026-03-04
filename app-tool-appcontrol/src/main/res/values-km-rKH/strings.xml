@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">កម្មវិធីដែលតិត្តាក់នៅឧបករណ៍អ្នក។</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">បានរក %d កម្មវិធី</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">បន្ត្ឡកម្មវិធី</string>
+    <string name="appcontrol_toggle_app_enable_action">បង្កើតកម្មវិធី</string>
+    <string name="appcontrol_toggle_app_disable_action">បិតកម្មវិធី</string>
+    <string name="appcontrol_toggle_app_enable_description">ការបង្កើតកម្មវិធីអនុញ្ញាតវាឡូក្ទើរ និងអាចនាឣដែលងៅខ័ញនៅតំរាងរបស់អ្នក ប័ត័មានក្រឹត់វា។</string>
+    <string name="appcontrol_toggle_app_disable_description">ការបិតកម្មវិធីទឹក្រេកការដោរកម្មវិធី និងលាកជាមេនុ។ មិនមានទិន្នន័យបាត់បាន។</string>
+    <string name="appcontrol_appstore_open_title">បឹកនៅហាងកម្មវិធី</string>
+    <string name="appcontrol_appstore_open_description">បឹកកម្មវិធីនេនៅហាងកម្មវិធីដែលតិត្តាក់ពី។</string>
+    <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
+    <string name="appcontrol_systemsettings_open_description">បឹកការកំណត់ព័ឡករបស់ឧបករណ៍សម្រាប់កម្មវិធីនេ។</string>
+    <string name="appcontrol_app_launch_title">ចំឡើងកម្មវិធី</string>
+    <string name="appcontrol_app_launch_description">ចំឡើងក្រឹត់វាស្ថានទីមួយរបស់កម្មវិធីនេ។</string>
+    <string name="appcontrol_app_forcestop_title">បង្កើតឡើកម្មវិធីផ័ក</string>
+    <string name="appcontrol_app_forcestop_description">បង្កើតឡើកម្មវិធី។ ទឹក្រេកការចំឡើងខ្លួនខ្លួន រើឡ់អ្នកបឹកវា អ្វីឧបករណ៍ត្រូវបានបន្ថែម</string>
+    <string name="appcontrol_app_uninstall_description">ដកតិត្តាក់កម្មវិធីនេចេញបីឧបករណ៍អ្នក។</string>
+    <string name="appcontrol_app_exclude_add_title">ដកកម្មវិធី</string>
+    <string name="appcontrol_app_exclude_add_description">ដកកម្មវិធីនេចេញបីការដោរកនាន័លក្នុង SD Maid។</string>
+    <string name="appcontrol_app_exclude_edit_title">កំណត់ការដក</string>
+    <string name="appcontrol_app_exclude_edit_description">កម្មវិធីនេត្រូវបានដកចេញបីឡាឣនិងគ័ឡទៀមួយ។</string>
+    <string name="appcontrol_tag_user">អ្នកប្រើបរស់</string>
+    <string name="appcontrol_tag_active">បានត្រូវបានសកម្មេនឹង។។។</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_system">ប្រព័ន្ធ</string>
+    <string name="appcontrol_tag_archived">ត្រូវបានឈាកជៅកន្ល័យ</string>
+    <string name="appcontrol_tag_uninstalled">តិន្នន័យប័ត័</string>
+    <string name="appcontrol_tag_not_installed">មិនតិត្តាក់</string>
+    <string name="appcontrol_tag_enabled">បង្កើត</string>
+    <string name="appcontrol_tag_disabled">បិត</string>
+    <string name="appcontrol_tag_debug">ដ្បាកស្ញើងត្រូវបាន</string>
+    <string name="appcontrol_progress_enabling_package">កំពុងបង្កើតកម្មវិធី</string>
+    <string name="appcontrol_progress_disabling_package">កំពុងបិតកម្មវិធី</string>
+    <string name="appcontrol_list_filteroptions_label">ជម្រើសប័ន្ទ័វរង់</string>
+    <string name="appcontrol_list_sortmode_name_label">ឈ្មំកម្មវិធី</string>
+    <string name="appcontrol_list_sortmode_updated_label">ត្រូវបានអ្ផ័ឡកចុងបន្ថែយ</string>
+    <string name="appcontrol_list_sortmode_installed_label">តិត្តាក់ដំបូង</string>
+    <string name="appcontrol_list_sortmode_packagename_label">ឈ្មំក្រុមសម្មេឋ៍</string>
+    <string name="appcontrol_list_sortmode_size_label">ទំហំ</string>
+    <string name="appcontrol_list_sortmode_screentime_label">សម្អែវេលាស្វើសហន្តៀឧបករណ៍</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">ទំហំកម្មវិធីត្រូវបានប័តិម្ឡ័លសម្រាប់លក្ខណៈសម្វ័ង។ ប្រើបរស់ឡាឡ់ StorageAnalyzer សម្រាប់តិន្នន័យផ័ត់ពិតជាង។</string>
+    <string name="appcontrol_progress_uninstalling_app">កំពុងដកតិត្តាក់កម្មវិធី</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបានដកតិត្តាក់</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ឈាកជៅកន្ល័យ</string>
+    <string name="appcontrol_archive_selection_action">ឈាកកម្មវិធីជៅកន្ល័យ</string>
+    <string name="appcontrol_archive_description">ឈាកជៅកន្ល័យដើម្បី័កទំហំ និងរក្សាតិន្នន័យកម្មវិធីសម្រាប់ការផ័ត់ខ្លួនបន្ថែម។</string>
+    <string name="appcontrol_progress_archiving_app">កំពុងឈាកកម្មវិធីជៅកន្ល័យ…</string>
+    <string name="appcontrol_archive_confirmation_title">បញ្ជាក់ការឈាកជៅកន្ល័យ</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">ឈាក %d កម្មវិធីជៅកន្ល័យ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបានឈាកជៅកន្ល័យ</item>
+    </plurals>
+    <string name="appcontrol_restore_action">ផ័ត់វិញញប័ឡកដើម</string>
+    <string name="appcontrol_restore_selection_action">ផ័ត់កម្មវិធីវិញញប័ឡកដើម</string>
+    <string name="appcontrol_restore_description">ផ័ត់កម្មវិធីដែលបានឈាកជៅកន្ល័យត្រលប់វិញទៅស្ថានតិត្តាក់ផ័ញ។ តិន្នន័យកម្មវិធីត្រូវបានរក្សា។</string>
+    <string name="appcontrol_progress_restoring_app">កំពុងផ័ត់កម្មវិធី…</string>
+    <string name="appcontrol_restore_confirmation_title">បញ្ជាក់ការផ័ត់វិញ</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">ផ័ត់ %d កម្មវិធីវិញញប័ឡកដើម?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបានផ័ត់វិញញប័ឡក</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ទំហំកម្មវិធី</string>
+    <string name="appcontrol_app_sizes_apk_label">កម្មវិធី</string>
+    <string name="appcontrol_app_sizes_data_label">តិន្នន័យ</string>
+    <string name="appcontrol_app_sizes_cache_label">កែវ័ល់</string>
+    <string name="appcontrol_toggle_confirmation_title">បញ្ជាក់ការប័ក័វត់</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">ផ្លាស់ស្ថានបង្កើត/បិតសម្រាប់ %d កម្មវិធី?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបានបន្ត្ឡ</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">រក្កទំហំ</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ទាក់ប័តិម្ឡតទំហំរបស់កម្មវិធីនិមួយ។</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">រក្កសកម្មេត្តហើត់</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">រក្សថ្នាឣតើកម្មវិធីគ័ឡនៅ អ្វីកំពុងសកម្មេត្តតែនៅ។</string>
+    <string name="appcontrol_export_app_selection_action">និរ័យកម្មវិធី</string>
+    <string name="appcontrol_export_title">និរ័យកម្មវិធី</string>
+    <string name="appcontrol_export_description">រក្សាឯកសារតិត្តាក់កម្មវិធីនេ។ នេឣមិនរួមតិន្នន័យកម្មវិធីបាន។</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបាននិរ័យ</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">កំពុងនិរ័យ %s</string>
+    <string name="appcontrol_share_list_action">ច័កជ័ម្រើស</string>
+    <string name="appcontrol_share_list_title">កម្មវិធីរបស់ខ្ញុន</string>
+    <string name="appcontrol_share_list_footer">បានច័កជ័ម្រើសវិញ SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">បង្កើតឡើកម្មវិធីផ័ក</string>
+    <string name="appcontrol_force_stop_action">បង្កើតឡើផ័ក</string>
+    <string name="appcontrol_force_stop_confirm_title">បញ្ជាក់ការបង្កើតឡើផ័ក</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">បង្កើតឡើ %d កម្មវិធីផ័ក?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="other">%d កម្មវិធីត្រូវបានបង្កើតឡើផ័ក</item>
+    </plurals>
+    <string name="appcontrol_automation_title">ការឤតូមតិត់ AppControl</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">កំពុងបង្កើតឡើផ័ក…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">ស្វែងបុត្ត “បង្កើតឡើផ័ក” ប័ក ក្រូមប័ន្ថែម៖ %s</string>
+    <string name="appcontrol_automation_subtitle_archiving">កំពុងឈាកជៅកន្ល័យ…</string>
+    <string name="appcontrol_automation_progress_find_archive">ស្វែងបុត្ត “ឈាកជៅកន្ល័យ” ប័ក ក្រូមប័ន្ថែម៖ %s</string>
+    <string name="appcontrol_automation_subtitle_restoring">កំពុងស្ដារ…</string>
+    <string name="appcontrol_automation_progress_find_restore">កំពុងស្វែងរកប៊ូតុង \"ស្ដារ\" (ពាក្យគន្លឹះ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">ពេលវេលាប្រើ: %1$s តាំងពី %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">ធ្វើបច្ចុប្បន្នភាពចុងក្រោយ: %s</string>
+    <string name="appcontrol_item_installedat_x_label">បានដំឡើងនៅ: %s</string>
+    <string name="shortcut_appcontrol_short">ការគ្រប់គ្រងកម្មវិធី</string>
+    <string name="shortcut_appcontrol_long">គ្រប់គ្រងកម្មវិធីដែលបានដំឡើង</string>
+    <string name="appcontrol_automation_loading">កំពុងរៀបចំស្វ័យប្រវត្តិតាមរយៈសេវាភាពងាយស្រួល</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">កំពុងព្យាយាមបញ្ជាក់សកម្មភាពមុន (ពាក្យគន្លឹះ: %s)</string>
+    <string name="appcontrol_include_multiuser_label">រួមបញ្ចូលអ្នកប្រើប្រាស់ផ្សេងទៀត</string>
+    <string name="appcontrol_include_multiuser_summary">រួមបញ្ចូលកម្មវិធីពីព្រឮក្នុងស្រកប់អ្នកផ្សេងអ្នកនៅលើសកសន្និតនេ៴</string>
+</resources>

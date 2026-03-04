@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">Brzo počistite mape — prevlačite datoteke da zadržite, izbrišete ili preskočite.</string>
     <string name="swiper_dashcard_description">Počistite određene mape brže nego s upraviteljem datotekama — samo prevucite svaku datoteku.</string>
-    <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_start_action">Počni prevlačiti</string>
     <string name="swiper_continue_action">Nastavi sesiju</string>
+    <string name="swiper_sessions_description">Pregledajte datoteke u 3 jednostavna koraka:\n\n1. Odaberite mapu za skeniranje\n2. Prevucite datoteke za zadržavanje, brisanje ili preskakanje\n3. Pregledajte svoje izbore i potvrdite\n\nNišta se ne briše dok ne dodirnete konačni gumb za brisanje.</string>
     <string name="swiper_select_folders_action">Odaberite mape</string>
     <string name="swiper_scanning_title">Skeniranje…</string>
     <plurals name="swiper_result_x_items_found">
@@ -26,7 +26,7 @@
     <string name="swiper_item_position">#%1$d od %2$d</string>
     <string name="swiper_keep_action">Zadrži</string>
     <string name="swiper_skip_action">Preskoči</string>
-    <string name="swiper_review_action">Pregled</string>
+    <string name="swiper_review_action">Ocijeni</string>
     <string name="swiper_status_title">Pregled odluka</string>
     <string name="swiper_status_action_keep_selected">Zadrži odabrano</string>
     <string name="swiper_status_action_delete_selected">Izbriši odabrano</string>
@@ -88,7 +88,7 @@
     <string name="swiper_session_rename_hint">Unesite naziv za ovu sesiju</string>
     <string name="swiper_sessions_current_sessions">Trenutne sesije</string>
     <string name="swiper_session_paths_label">Putanje</string>
-    <string name="swiper_session_status_label">Status</string>
+    <string name="swiper_session_status_label">Stanje</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d za zadržati</item>
         <item quantity="few">%d za zadržati</item>
@@ -155,4 +155,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Poništi</string>
     <string name="swiper_help_title">Kako Swiper radi</string>
     <string name="swiper_help_message">Povucite svaku datoteku za donošenje odluke:\n\n← Povucite ulijevo: %1$s\n→ Povucite udesno: %2$s\n↑ Povucite prema gore: Preskoči\n↓ Povucite prema dolje: Poništi (nakon prvog povlačenja)\n\nMožete koristiti i gumbe na dnu.\n\nKada završite, dodirnite \"Pregled\" za prikaz svih vaših odluka. Ništa se ne briše dok ne potvrdite na zaslonu za pregled.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">U redu</string>
+    <string name="swiper_help_action">Pomoć</string>
 </resources>

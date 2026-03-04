@@ -1,36 +1,133 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">ئەپs installed on your device.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d ئەپ دۆزراوەتەوە</item>
+        <item quantity="other">%d ئەپ دۆزراوەتەوە</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">گۆڕینی بارودۆخی ئەپەکان</string>
     <string name="appcontrol_toggle_app_enable_action">چالاککردن app</string>
     <string name="appcontrol_toggle_app_disable_action">ناچالاککردن app</string>
+    <string name="appcontrol_toggle_app_enable_description">چالاکردنی ئەپێک ڕێگەی پێدەدات کارانی بکات و لەوانەیە لە لاگزەرەکەت دیاری بکرێت ئەگەر چالاکییەکی هەبێت.</string>
+    <string name="appcontrol_toggle_app_disable_description">ناچالاکردنی ئەپێک ڕێگەی لەپێوە دەگێرێت کار بکات و لە مێنیوەکان شاری دەکاتەوە. داتایەک لەدەست نادرێت.</string>
     <string name="appcontrol_appstore_open_title">کراوە in app store</string>
     <string name="appcontrol_appstore_open_description">کراوە this app in the app store it was installed from.</string>
     <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
     <string name="appcontrol_systemsettings_open_description">کراوە your device\'s system settings for this app.</string>
+    <string name="appcontrol_app_launch_title">کردنەوەی ئەپ</string>
+    <string name="appcontrol_app_launch_description">چالاکییە سەرەکییەکەی ئەم ئەپە بکەوە.</string>
+    <string name="appcontrol_app_forcestop_title">داپۆشینی بەهێز</string>
+    <string name="appcontrol_app_forcestop_description">ئەپ دابگرە. ڕێگەی لەوە بگرە خۆی دەستپێبکات تا ئەوکاتە تۆ بیکەیتەوە یان ئامێرەکە دووبارە دەستپێبکات.</string>
     <string name="appcontrol_app_uninstall_description">لابردنی دامەزراندن this app from your device.</string>
+    <string name="appcontrol_app_exclude_add_title">دەرکردنی ئەپ</string>
+    <string name="appcontrol_app_exclude_add_description">ئەم ئەپە لە کردارەکانی تری SD Maid دەربکە.</string>
     <string name="appcontrol_app_exclude_edit_title">دەستکاری exclusion</string>
+    <string name="appcontrol_app_exclude_edit_description">ئەم ئەپە ئێستا لە یەک یان زیاتر لە ئامرازەکان دەرکراوە.</string>
+    <string name="appcontrol_tag_user">بەکارهێنەر</string>
     <string name="appcontrol_tag_active">نوێly active</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">بەستە</string>
     <string name="appcontrol_tag_system">سیستەم</string>
     <string name="appcontrol_tag_archived">ئەرشیفd</string>
     <string name="appcontrol_tag_uninstalled">داتا Only</string>
     <string name="appcontrol_tag_not_installed">نەخێرt installed</string>
     <string name="appcontrol_tag_enabled">چالاکە</string>
     <string name="appcontrol_tag_disabled">ناچالاکە</string>
+    <string name="appcontrol_tag_debug">دیباگ</string>
+    <string name="appcontrol_progress_enabling_package">چالاکردنی ئەپ</string>
+    <string name="appcontrol_progress_disabling_package">ناچالاکردنی ئەپ</string>
     <string name="appcontrol_list_filteroptions_label">پاڵاوتن options</string>
     <string name="appcontrol_list_sortmode_name_label">ئەپ name</string>
     <string name="appcontrol_list_sortmode_updated_label">دوایین updated</string>
     <string name="appcontrol_list_sortmode_installed_label">یەکەم installed</string>
     <string name="appcontrol_list_sortmode_packagename_label">پاکێجname</string>
     <string name="appcontrol_list_sortmode_size_label">قەبارە</string>
+    <string name="appcontrol_list_sortmode_screentime_label">کاتی شاشە</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">ئەپ sizes are estimated for performance reasons. Use the ناحیەکانAnalyzer tool for more accurate data.</string>
     <string name="appcontrol_progress_uninstalling_app">لابردنی دامەزراندنing app</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ئەپ لادرایەوە</item>
+        <item quantity="other">%d ئەپ لادرایەوە</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ئەرشیف</string>
+    <string name="appcontrol_archive_selection_action">ئەپەکان ئەرشیف بکە</string>
+    <string name="appcontrol_archive_description">ئەرشیفبکە بۆ ئازادکردنی شوێن لەکاتێکدا داتای ئەپ پارێز دەکرێت بۆ گەڕاندنەوەی داهاتوو.</string>
+    <string name="appcontrol_progress_archiving_app">ئەرشیفکردنی ئەپ…</string>
+    <string name="appcontrol_archive_confirmation_title">دڵنیاکردنەوەی ئەرشیف</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ئەپ ئەرشیف بکرێت؟</item>
+        <item quantity="other">%d ئەپ ئەرشیف بکرێت؟</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ئەپ ئەرشیفکرا</item>
+        <item quantity="other">%d ئەپ ئەرشیفکرا</item>
+    </plurals>
+    <string name="appcontrol_restore_action">گەڕاندنەوە</string>
+    <string name="appcontrol_restore_selection_action">ئەپەکان گەڕاندنەوە</string>
+    <string name="appcontrol_restore_description">ئەپی ئەرشیفکراو بگەڕێنەوە بۆ بارودۆخی دامەزراوە تەواو. داتای ئەپ پارێزراوە.</string>
+    <string name="appcontrol_progress_restoring_app">گەڕاندنەوەی ئەپ…</string>
+    <string name="appcontrol_restore_confirmation_title">دڵنیاکردنەوەی گەڕاندنەوە</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ئەپ بگەڕێنەوە؟</item>
+        <item quantity="other">%d ئەپ بگەڕێنەوە؟</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ئەپ گەڕاندرایەوە</item>
+        <item quantity="other">%d ئەپ گەڕاندرایەوە</item>
+    </plurals>
     <string name="appcontrol_app_sizes_title">ئەپ size</string>
     <string name="appcontrol_app_sizes_apk_label">ئەپ</string>
     <string name="appcontrol_app_sizes_data_label">داتا</string>
     <string name="appcontrol_app_sizes_cache_label">کاش</string>
+    <string name="appcontrol_toggle_confirmation_title">دڵنیاکردنەوەی کردار</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">بارودۆخی چالاک/ناچالاکی %d ئەپ بگۆڕدرێت؟</item>
+        <item quantity="other">بارودۆخی چالاک/ناچالاکی %d ئەپ بگۆڕدرێت؟</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ئەپ گۆڕایەوە</item>
+        <item quantity="other">%d ئەپ گۆڕایەوە</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">قەبارەکان دیاربکە</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">خەمڵاندنێکی خام بگرە لە قەبارەی هەر ئەپێک.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">چالاکی دیاربکە</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">ڕووندەربکە ئایا ئەپێک چالاکە (یان بە نزیکەیی چالاک بووە).</string>
     <string name="appcontrol_export_app_selection_action">هەناردن apps</string>
     <string name="appcontrol_export_title">هەناردن app</string>
+    <string name="appcontrol_export_description">فایلەکانی دامەزراندنی ئەم ئەپە پاشەکەوت بکە. ئەمە داتای ئەپ لەخۆ ناگرێت.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ئەپ هەناردەکرا</item>
+        <item quantity="other">%d ئەپ هەناردەکرا</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">هەناردنing %s</string>
+    <string name="appcontrol_share_list_action">هاوبەشکردنی لیست</string>
+    <string name="appcontrol_share_list_title">ئەپەکانم</string>
+    <string name="appcontrol_share_list_footer">هاوبەش کراوە لە ڕێگەی SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">داپۆشینی بەهێزی ئەپەکان</string>
+    <string name="appcontrol_force_stop_action">داپۆشینی بەهێز</string>
+    <string name="appcontrol_force_stop_confirm_title">دڵنیاکردنەوەی داپۆشینی بەهێز</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ئەپ بەهێز دابپۆشرێت؟</item>
+        <item quantity="other">%d ئەپ بەهێز دابپۆشرێت؟</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ئەپ وەستاندرا</item>
+        <item quantity="other">%d ئەپ وەستاندرا</item>
+    </plurals>
     <string name="appcontrol_automation_title">ئەپControl automation</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">داپۆشینی بەهێز…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">بەدوای دوگمەی \"داپۆشینی بەهێز\" دەگەڕێت (کلیلە وشەکان: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">ئەرشیفکردن…</string>
+    <string name="appcontrol_automation_progress_find_archive">بەدوای دوگمەی \"ئەرشیف\" دەگەڕێت (کلیلە وشەکان: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">گەڕاندنەوە…</string>
+    <string name="appcontrol_automation_progress_find_restore">بەدوای دوگمەی \"گەڕاندنەوە\" دەگەڕێت (کلیلە وشەکان: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">کاتی شاشە: %1$s لە %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">دوایین updated: %s</string>
+    <string name="appcontrol_item_installedat_x_label">دامەزراوە لە: %s</string>
+    <string name="shortcut_appcontrol_short">کۆنترۆڵی ئەپ</string>
+    <string name="shortcut_appcontrol_long">بەڕەوانی ئەپە دامەزراوەکان</string>
+    <string name="appcontrol_automation_loading">ئامادەکردنی ئۆتۆماسیۆن لە ڕێگەی خزمەتگوزاری دەستپێگەیشتن</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">هەوڵی دڵنیاکردنەوەی کردارە پێشووەکە دەدات (کلیلە وشەکان: %s)</string>
+    <string name="appcontrol_include_multiuser_label">بەکارهێنەرانی تری تێبگرە</string>
+    <string name="appcontrol_include_multiuser_summary">ئەپەکانی پرۆفایلی بەکارهێنەرانی تر لەم ئامێرە تێبگرە.</string>
 </resources>

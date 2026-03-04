@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Jenis tidak sepadan: Inginkan %1$s, tetapi mendapat %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
-    <string name="general_error_root_unavailable">Akses Root tidak tersedia.</string>    <string name="general_error_no_compatible_app_found_msg">Tiada aplikasi yang sesuai untuk melaksanakan permintaan ini.</string>
+    <string name="general_error_root_unavailable">Akses Root tidak tersedia.</string>
+    <string name="general_error_no_compatible_app_found_msg">Tiada aplikasi yang sesuai untuk melaksanakan permintaan ini.</string>
     <string name="general_todo_msg">Ciri ini masih diusahakan dan tidak tersedia pada masa ini.</string>
     <string name="general_share_action">Kongsi</string>
     <string name="general_done_action">Selesai</string>
     <string name="general_apply_action">Gunakan</string>
-    <string name="general_copy_action">Salinan</string>    <string name="general_cancel_action">Batal</string>
+    <string name="general_copy_action">Salinan</string>
+    <string name="general_cancel_action">Batal</string>
     <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Tetapkan semula</string>
     <string name="general_drag_handle_description">Seret untuk menyusun semula</string>
-    <string name="general_save_action">Simpan</string>    <string name="general_gotit_action">Faham</string>
+    <string name="general_save_action">Simpan</string>
+    <string name="general_gotit_action">Faham</string>
     <string name="general_fix_action">Baiki</string>
     <string name="general_set_up_action">Sediakan</string>
     <string name="general_edit_action">Edit</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Persediaan</string>
     <string name="setup_feature_requires_additional_setup_x">Ciri ini memerlukan persediaan tambahan: %s</string>
+    <string name="upgrade_feature_requires_pro">Memerlukan Pro</string>
+    <string name="general_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="general_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
+    <string name="general_unsaved_confirmation_message">Anda mempunyai perubahan yang tidak disimpan!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d pengecualian dibuat</item>
     </plurals>
@@ -171,7 +178,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Statistik</string>
     <string name="settings_category_tools_label">Alatan</string>
-    <string name="general_include_multiuser_label">Sertakan pengguna lain</string>
-    <string name="general_include_multiuser_summary">Sertakan aplikasi daripada profil pengguna lain pada peranti ini.</string>
-    <string name="general_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
 </resources>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">จัดระเบียบโฟลเดอร์อย่างรวดเร็ว -- ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม</string>
+    <string name="swiper_dashcard_description">จัดระเบียบโฟลเดอร์เฉพาะได้เร็วกว่าตัวจัดการไฟล์ -- แค่ปัดแต่ละไฟล์</string>
     <string name="swiper_start_action">เริ่มปัด</string>
     <string name="swiper_continue_action">ดำเนินเซสชันต่อ</string>
+    <string name="swiper_sessions_description">ตรวจสอบไฟล์ใน 3 ขั้นตอนง่ายๆ:\n\n1. เลือกโฟลเดอร์ที่จะสแกน\n2. ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม\n3. ตรวจสอบตัวเลือกของคุณและยืนยัน\n\nจะไม่มีอะไรถูกลบจนกว่าคุณจะแตะปุ่มลบสุดท้าย</string>
     <string name="swiper_select_folders_action">เลือกโฟลเดอร์</string>
     <string name="swiper_scanning_title">กำลังสแกน…</string>
     <plurals name="swiper_result_x_items_found">
@@ -16,7 +20,7 @@
     <string name="swiper_item_position">#%1$d จาก %2$d</string>
     <string name="swiper_keep_action">เก็บ</string>
     <string name="swiper_skip_action">ข้าม</string>
-    <string name="swiper_review_action">ตรวจสอบ</string>
+    <string name="swiper_review_action">รีวิว</string>
     <string name="swiper_status_title">ตรวจสอบการตัดสินใจ</string>
     <string name="swiper_status_action_keep_selected">เก็บที่เลือก</string>
     <string name="swiper_status_action_delete_selected">ลบที่เลือก</string>
@@ -117,8 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ เลิกทำ</string>
     <string name="swiper_help_title">วิธีใช้ Swiper</string>
     <string name="swiper_help_message">ปัดไฟล์แต่ละรายการเพื่อตัดสินใจ:\n\n← ปัดซ้าย: %1$s\n→ ปัดขวา: %2$s\n↑ ปัดขึ้น: ข้าม\n↓ ปัดลง: เลิกทำ (หลังจากปัดครั้งแรก)\n\nคุณยังสามารถใช้ปุ่มด้านล่างได้\n\nเมื่อเสร็จแล้ว แตะ \"ตรวจสอบ\" เพื่อดูการตัดสินใจทั้งหมดของคุณ จะไม่มีอะไรถูกลบจนกว่าคุณจะยืนยันในหน้าตรวจสอบ</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">จัดระเบียบโฟลเดอร์อย่างรวดเร็ว -- ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม</string>
-    <string name="swiper_dashcard_description">จัดระเบียบโฟลเดอร์เฉพาะได้เร็วกว่าตัวจัดการไฟล์ -- แค่ปัดแต่ละไฟล์</string>
-    <string name="swiper_sessions_description">ตรวจสอบไฟล์ใน 3 ขั้นตอนง่ายๆ:\n\n1. เลือกโฟลเดอร์ที่จะสแกน\n2. ปัดผ่านไฟล์เพื่อเก็บ ลบ หรือข้าม\n3. ตรวจสอบตัวเลือกของคุณและยืนยัน\n\nจะไม่มีอะไรถูกลบจนกว่าคุณจะแตะปุ่มลบสุดท้าย</string>
+    <string name="swiper_gesture_overlay_dismiss_action">เข้าใจแล้ว</string>
+    <string name="swiper_help_action">ช่วยเหลือ</string>
 </resources>

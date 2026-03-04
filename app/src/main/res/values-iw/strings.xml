@@ -26,6 +26,10 @@
         <item quantity="other">%1$d קבצים מוכנים (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">תכונה זו מתעדת את כל מה שהאפליקציה עושה לקובץ שניתן לשתף. הקובץ שנוצר מכיל מידע רגיש (למשל שמות קבצים ואפליקציות מותקנות). שתף אותו רק עם גורמים מהימנים (למשל מפתח שפותר בעיה).</string>
+    <string name="debug_debuglog_short_recording_title">הקלטה קצרה מאוד</string>
+    <string name="debug_debuglog_short_recording_desc">ההקלטה הייתה קצרה מאוד. יומני באגים הם הקלטות, לא תמונות מצב — שחזר את הבעיה בזמן שההקלטה פעילה כדי שהיומן יהיה שימושי.</string>
+    <string name="debug_debuglog_short_recording_continue_action">המשך הקלטה</string>
+    <string name="debug_debuglog_short_recording_stop_action">עצור בכל זאת</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
     <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -108,6 +112,41 @@
     <string name="support_debuglog_folder_delete_confirmation_message">פעולה זו תמחק לצמיתות את כל הפעלות יומני ניפוי השגיאות המאוחסנות. לא ניתן לבטל פעולה זו.</string>
     <string name="discord_label">דיסקורד</string>
     <string name="discord_description">מקום לבלות בו ולשאול שאלות.</string>
+    <string name="support_contact_label">צור קשר עם המפתח</string>
+    <string name="support_contact_desc">מלא טופס כדי לשלוח למפתח אימייל.</string>
+    <string name="support_contact_welcome">אני קורא כל הודעה בעצמי ועושה כמיטב יכולתי להשיב, אבל מאחר שאני עובד על זה לבד, זה עלול לקחת קצת זמן. תודה על הסבלנות.</string>
+    <string name="support_contact_footer">הודעתך תישלח בדוא\"ל. מידע על המכשיר וההגדרות מצורף באופן אוטומטי. ניתן לצרף צילומי מסך או סרטון לדוא\"ל. חלק מהדוא\"ל יהיה באנגלית כדי שהמפתח יוכל להבין אותו בקלות.</string>
+    <string name="support_contact_category_label">קטגוריה</string>
+    <string name="support_contact_category_bug_label">דיווח על באג</string>
+    <string name="support_contact_category_feature_label">בקשת תכונה</string>
+    <string name="support_contact_category_question_label">שאלה</string>
+    <string name="support_contact_tool_label">כלי קשור</string>
+    <string name="support_contact_tool_appcleaner_label">מנקה אפליקציות</string>
+    <string name="support_contact_tool_corpsefinder_label">איתור קבצים \"מתים\"</string>
+    <string name="support_contact_tool_systemcleaner_label">מנקה מערכת</string>
+    <string name="support_contact_tool_deduplicator_label">מסיר כפילות</string>
+    <string name="support_contact_tool_analyzer_label">מנתח</string>
+    <string name="support_contact_tool_appcontrol_label">בקרת אפליקציה</string>
+    <string name="support_contact_tool_scheduler_label">מתזמן</string>
+    <string name="support_contact_tool_general_label">כללי</string>
+    <string name="support_contact_description_label">תיאור</string>
+    <string name="support_contact_description_bug_hint">תאר מה קרה וכיצד לשחזר את הבעיה. אנא היה ספציפי (מינימום 20 מילים).</string>
+    <string name="support_contact_description_feature_hint">תאר את התכונה שתרצה לראות. אנא היה ספציפי (מינימום 20 מילים).</string>
+    <string name="support_contact_description_question_hint">תאר את שאלתך בפירוט. אנא היה ספציפי (מינימום 20 מילים).</string>
+    <string name="support_contact_expected_label">התנהגות צפויה</string>
+    <string name="support_contact_expected_hint">תאר מה ציפיתשיקרה (מינימום 10 מילים).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d מילה</item>
+        <item quantity="two">%1$d / %2$d מילים</item>
+        <item quantity="many">%1$d / %2$d מילים</item>
+        <item quantity="other">%1$d / %2$d מילים</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">יומן באגים</string>
+    <string name="support_contact_debuglog_zip_error">הדחיסה של יומן הניפוי שגיאות נכשלה</string>
+    <string name="support_contact_debuglog_picker_hint">צרף יומן ניפוי שגיאות קיים, או הקלט חדש.</string>
+    <string name="support_contact_debuglog_picker_empty">לא נמצאו יומני ניפוי שגיאות. הקלט אחד תחילה.</string>
+    <string name="support_contact_send_action">פתח אפליקציית דוא\"ל</string>
+    <string name="support_contact_no_email_app">לא נמצאה אפליקציית דוא\"ל במכשיר זה.</string>
     <string name="changelog_label">יומן שינויים</string>
     <string name="settings_acknowledgements_label">תודות</string>
     <string name="settings_acknowledgements_category_translations_title">תרגומים</string>
@@ -186,6 +225,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_mode_explanation">מפעיל אפשרויות בדיקה ופלט מפורט יותר. האפליקציה תפעל לאט יותר ובצורה שונה מהרגיל.</string>
     <string name="debug_bugreporter_label">דוחות קריסה אוטומטים</string>
     <string name="debug_bugreporter_summary">דיווח אוטומטית על בעיות, למשל. פרטים על קריסת האפליקציה כדי שאוכל להבין מה צריך לתקן.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">מצב ניפוי שגיאות מופעל</string>
     <string name="debug_card_trace_mode_label">הפעל מצב מעקב</string>
     <string name="debug_card_dryrun_mode_label">מצב ניסיון (בטל מחיקה)</string>
@@ -239,4 +279,5 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="shortcuts_settings_category">קיצורי דרך</string>
     <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
     <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

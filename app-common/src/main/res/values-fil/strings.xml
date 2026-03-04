@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Salamat</string>
     <string name="general_error_type_mismatch_msg">Pagkakaiba sa uri: %1$s ang hiniling, pero %2$s ang nakuha.</string>
     <string name="general_error_cant_access_msg">Hindi ma-access ang %s.</string>
-    <string name="general_error_root_unavailable">Hindi available ang root access.</string>    <string name="general_error_no_compatible_app_found_msg">Walang nakitang compatible na app para sa request na ito.</string>
+    <string name="general_error_root_unavailable">Hindi available ang root access.</string>
+    <string name="general_error_no_compatible_app_found_msg">Walang nakitang compatible na app para sa request na ito.</string>
     <string name="general_todo_msg">Tinatrabaho pa at hindi pa kasalukuyang available ang feature na ito.</string>
     <string name="general_share_action">Ibahagi</string>
     <string name="general_done_action">Tapos na</string>
     <string name="general_apply_action">Ilapat</string>
-    <string name="general_copy_action">Kopyahin</string>    <string name="general_cancel_action">Kanselahin</string>
+    <string name="general_copy_action">Kopyahin</string>
+    <string name="general_cancel_action">Kanselahin</string>
     <string name="general_discard_action">Itapon</string>
     <string name="general_reset_action">I-reset</string>
     <string name="general_drag_handle_description">I-drag para baguhin ang ayos</string>
-    <string name="general_save_action">I-save</string>    <string name="general_gotit_action">Kuha ko</string>
+    <string name="general_save_action">I-save</string>
+    <string name="general_gotit_action">Kuha ko</string>
     <string name="general_fix_action">Ayusin</string>
     <string name="general_set_up_action">I-set up</string>
     <string name="general_edit_action">Baguhin</string>
@@ -167,16 +170,24 @@
     <string name="general_error_ipc_deadobject_description">Ang koneksyon sa isang kritikal na serbisyo (hal. Magisk, Shizuku, o iba pang serbisyo sa antas ng sistema) ay hindi inaasahang naputol. Mangyaring i-reboot ang iyong device. Kung magpapatuloy ang isyu, suriin ang mga update o makipag-ugnayan sa akin upang maayos ito.</string>
     <string name="general_user_label_owner">May-ari</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Pag-setup</string>
     <string name="setup_feature_requires_additional_setup_x">Ang feature na ito ay nangangailangan ng pagkumpleto ng mga karagdagang setup item: %s</string>
+    <string name="upgrade_feature_requires_pro">Nangangailangan ng Pro</string>
+    <string name="general_include_multiuser_label">Isama ang ibang mga user</string>
+    <string name="general_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
+    <string name="general_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago\!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Isang exclusion ang nagawa</item>
         <item quantity="other">%d mga exclusion ang nagawa</item>
     </plurals>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Kasaysayan</string>
     <string name="settings_category_tools_label">Mga Kagamitan</string>
-    <string name="general_include_multiuser_label">Isama ang ibang mga user</string>
-    <string name="general_include_multiuser_summary">Isama ang mga app mula sa ibang user profile sa device na ito.</string>
-    <string name="general_unsaved_confirmation_message">May mga hindi pa na-save na pagbabago\!</string>
 </resources>

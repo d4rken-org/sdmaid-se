@@ -23,7 +23,7 @@
     <string name="swiper_item_position">#%1$d af %2$d</string>
     <string name="swiper_keep_action">Behold</string>
     <string name="swiper_skip_action">Spring over</string>
-    <string name="swiper_review_action">Gennemgå</string>
+    <string name="swiper_review_action">Bedøm</string>
     <string name="swiper_status_title">Gennemgå beslutninger</string>
     <string name="swiper_status_action_keep_selected">Behold valgte</string>
     <string name="swiper_status_action_delete_selected">Slet valgte</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Fortryd</string>
     <string name="swiper_help_title">Sådan fungerer Swiper</string>
     <string name="swiper_help_message">Stryg hver fil for at tage en beslutning:\n\n← Stryg til venstre: %1$s\n→ Stryg til højre: %2$s\n↑ Stryg op: Spring over\n↓ Stryg ned: Fortryd (efter første stryg)\n\nDu kan også bruge knapperne i bunden.\n\nNår du er færdig, tryk \"Gennemgå\" for at se alle dine beslutninger. Intet slettes, før du bekræfter på gennemgangsskærmen.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Forstået</string>
+    <string name="swiper_help_action">Hjælp</string>
 </resources>

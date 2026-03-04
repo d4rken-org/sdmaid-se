@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">رتّب المجلدات بسرعة — مرر الملفات للاحتفاظ أو الحذف أو التخطي.</string>
     <string name="swiper_dashcard_description">رتّب مجلدات محددة أسرع من مستكشف الملفات — فقط مرر كل ملف.</string>
-    <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_start_action">ابدأ التمرير</string>
     <string name="swiper_continue_action">متابعة الجلسة</string>
+    <string name="swiper_sessions_description">راجع الملفات في 3 خطوات بسيطة:\n\n1. اختر مجلدًا للفحص\n2. مرر الملفات للاحتفاظ أو الحذف أو التخطي\n3. راجع اختياراتك وأكد\n\nلن يتم حذف أي شيء حتى تنقر على زر الحذف النهائي.</string>
     <string name="swiper_select_folders_action">اختر المجلدات</string>
     <string name="swiper_scanning_title">جارٍ الفحص…</string>
     <plurals name="swiper_result_x_items_found">
@@ -38,7 +38,7 @@
     <string name="swiper_review_action">مراجعة</string>
     <string name="swiper_status_title">مراجعة القرارات</string>
     <string name="swiper_status_action_keep_selected">الاحتفاظ بالمحدد</string>
-    <string name="swiper_status_action_delete_selected">حذف المحدد</string>
+    <string name="swiper_status_action_delete_selected">حذف المُحدد</string>
     <string name="swiper_status_action_reset_selected">إعادة تعيين المحدد</string>
     <string name="swiper_decision_undecided">لم يُقرر</string>
     <string name="swiper_retry_action">إعادة المحاولة</string>
@@ -179,7 +179,7 @@
     <string name="swiper_sessions_header_title">مستعد للتنظيف؟</string>
     <string name="swiper_sessions_suggestions_label">جرّب البدء بـ:</string>
     <string name="swiper_sessions_suggestion_downloads">مجلد التنزيلات</string>
-    <string name="swiper_sessions_suggestion_screenshots">لقطات الشاشة</string>
+    <string name="swiper_sessions_suggestion_screenshots">لقطات الشّاشة</string>
     <string name="swiper_sessions_suggestion_camera">ألبوم الكاميرا</string>
     <string name="swiper_stamp_keep_1">احتفظ!</string>
     <string name="swiper_stamp_keep_2">رائع!</string>
@@ -206,4 +206,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ تراجع</string>
     <string name="swiper_help_title">كيف يعمل Swiper</string>
     <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">عُلم</string>
+    <string name="swiper_help_action">مساعدة</string>
 </resources>

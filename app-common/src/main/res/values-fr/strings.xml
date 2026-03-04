@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Merci</string>
     <string name="general_error_type_mismatch_msg">Incompatibilité de type : %1$s désiré, mais %2$s obtenu.</string>
     <string name="general_error_cant_access_msg">Impossible d’accéder à %s.</string>
-    <string name="general_error_root_unavailable">Il n’y a pas d’accès racine.</string>    <string name="general_error_no_compatible_app_found_msg">Aucune appli compatible n’a été trouvée pour traiter cette demande.</string>
+    <string name="general_error_root_unavailable">Il n’y a pas d’accès racine.</string>
+    <string name="general_error_no_compatible_app_found_msg">Aucune appli compatible n’a été trouvée pour traiter cette demande.</string>
     <string name="general_todo_msg">Cette fonction en cours de développement n’est pas proposée pour l’instant.</string>
     <string name="general_share_action">Partager</string>
     <string name="general_done_action">Terminé</string>
     <string name="general_apply_action">Appliquer</string>
-    <string name="general_copy_action">Copier</string>    <string name="general_cancel_action">Annuler</string>
+    <string name="general_copy_action">Copier</string>
+    <string name="general_cancel_action">Annuler</string>
     <string name="general_discard_action">Abandonner</string>
     <string name="general_reset_action">Réinitialiser</string>
     <string name="general_drag_handle_description">Faire glisser pour réorganiser</string>
-    <string name="general_save_action">Enregistrer</string>    <string name="general_gotit_action">J’ai compris</string>
+    <string name="general_save_action">Enregistrer</string>
+    <string name="general_gotit_action">J’ai compris</string>
     <string name="general_fix_action">Corriger</string>
     <string name="general_set_up_action">Configurer</string>
     <string name="general_edit_action">Modifier</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>
     <string name="setup_feature_requires_additional_setup_x">Cette fonction nécessite de configurer des éléments supplémentaires : %s</string>
+    <string name="upgrade_feature_requires_pro">Nécessite Pro</string>
+    <string name="general_include_multiuser_label">Inclure d’autres utilisateurs</string>
+    <string name="general_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
+    <string name="general_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Une exclusion a été créée</item>
         <item quantity="other">%d exclusions ont été créées</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Balayeur</string>
     <string name="stats_label">Historique</string>
     <string name="settings_category_tools_label">Outils</string>
-    <string name="general_include_multiuser_label">Inclure les autres utilisateurs</string>
-    <string name="general_include_multiuser_summary">Inclure les applis d’autres profils d’utilisateurs sur cet appareil.</string>
-    <string name="general_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
 </resources>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">شكراً لك</string>
     <string name="general_error_type_mismatch_msg">نوع عدم المطابقة: المطلوب %1$s، ولكن حصلت على %2$s.</string>
     <string name="general_error_cant_access_msg">لا يمكن الوصول ل%s.</string>
-    <string name="general_error_root_unavailable">صَلاحِيَة الجذر(الروت) غير متوفرة.</string>    <string name="general_error_no_compatible_app_found_msg">لم يتم العثور على تطبيق متوافق لمعالجة هذا الطلب.</string>
+    <string name="general_error_root_unavailable">صَلاحِيَة الجذر(الروت) غير متوفرة.</string>
+    <string name="general_error_no_compatible_app_found_msg">لم يتم العثور على تطبيق متوافق لمعالجة هذا الطلب.</string>
     <string name="general_todo_msg">ما زالت هذه المَيزية قيد العمل وهي غير متوفرة حاليًا.</string>
     <string name="general_share_action">مشاركة</string>
     <string name="general_done_action">تم</string>
     <string name="general_apply_action">تطبيق</string>
-    <string name="general_copy_action">نسخ</string>    <string name="general_cancel_action">إلغاء</string>
+    <string name="general_copy_action">نسخ</string>
+    <string name="general_cancel_action">إلغاء</string>
     <string name="general_discard_action">تجاهل</string>
     <string name="general_reset_action">إعادة ضبط</string>
     <string name="general_drag_handle_description">اسحب لإعادة الترتيب</string>
-    <string name="general_save_action">حفظ</string>    <string name="general_gotit_action">عُلم</string>
+    <string name="general_save_action">حفظ</string>
+    <string name="general_gotit_action">عُلم</string>
     <string name="general_fix_action">إصلاح</string>
     <string name="general_set_up_action">الإعداد</string>
     <string name="general_edit_action">تعديل</string>
@@ -213,12 +216,16 @@
     <string name="general_user_label_system">النظام</string>
     <string name="setup_title">الإعداد</string>
     <string name="setup_feature_requires_additional_setup_x">تتطلب هذه الميزة إكمال عناصر إعداد إضافية: %s</string>
+    <string name="upgrade_feature_requires_pro">يتطلب النسخة الاحترافية</string>
+    <string name="general_include_multiuser_label">ضم مستعملين آخرين</string>
+    <string name="general_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
+    <string name="general_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="zero">لم يتم إنشاء أي استبعاد</item>
         <item quantity="one">تم إنشاء استبعاد واحد</item>
         <item quantity="two">تم إنشاء استبعادان اثنان</item>
-        <item quantity="few">تم إنشاء %d استبعادات</item>
-        <item quantity="many">تم إنشاء %d استبعادات</item>
+        <item quantity="few">لم يتم إنشاء أي استبعاد</item>
+        <item quantity="many">لم يتم إنشاء أي استبعاد</item>
         <item quantity="other">تم إنشاء %d استبعادات</item>
     </plurals>
     <string name="corpsefinder_tool_name">العثور على الملفات المتبقية</string>
@@ -231,7 +238,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">السجل</string>
     <string name="settings_category_tools_label">الأدوات</string>
-    <string name="general_include_multiuser_label">اشمل المتسخدمين الآخرين</string>
-    <string name="general_include_multiuser_summary">اشمل التطبيقات من الملفات الشخصية للمستخدمين الآخرين على هذا الجهاز.</string>
-    <string name="general_unsaved_confirmation_message">لديك تغييرات غير محفوظة!</string>
 </resources>

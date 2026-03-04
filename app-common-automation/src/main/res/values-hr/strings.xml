@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid nije dovršio sve korake unutar vremenskog ograničenja. Ako se ovo nastavi događati, možda ću morati prilagoditi aplikaciju za vaš uređaj. Provjerite ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
     <string name="automation_error_overlay_title">Preklapajući sadržaj automatizacije</string>
     <string name="automation_error_overlay_body">SD Maid nije mogao prikazati preklapajući sadržaj automatizacije. Provjerite dopuštenja i pokušajte ponovno pokrenuti uređaj.</string>
+    <string name="automation_error_scheduler_title">Zakazana automatizacija nije uspjela</string>
+    <string name="automation_error_scheduler_body">Zakazani zadatak pokušao je koristiti uslugu pristupačnosti, ali ona nije bila dostupna. Ako vam to nije potrebno, onemogućite opciju \"Usluga pristupačnosti\" u postavkama raspoređivača.</string>
     <string name="automation_error_no_settings_title">Zaslon postavki nedostupan</string>
     <string name="automation_error_no_settings_body">Ova sistemska aplikacija nema zaslon postavki. Čišćenje predmemorije putem usluge pristupačnosti nije moguće. Izuzmite ju za ubrzavanje čišćenja predmemorije.</string>
     <string name="automation_loading">Priprema automatizacije putem usluge pristupačnosti</string>

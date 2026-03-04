@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Ngiyabonga</string>
     <string name="general_error_type_mismatch_msg">Uhlobo alufani: Belufuna %1$s, kodwa lwathola %2$s.</string>
     <string name="general_error_cant_access_msg">Ayikwazi ukufinyelela ku-%s.</string>
-    <string name="general_error_root_unavailable">Ukufinyelela kwe-root akutholakali.</string>    <string name="general_error_no_compatible_app_found_msg">Akukho nhlelo yokusebenza evumelana nayo etholakele ukuze isingatha lesisicelo.</string>
+    <string name="general_error_root_unavailable">Ukufinyelela kwe-root akutholakali.</string>
+    <string name="general_error_no_compatible_app_found_msg">Akukho nhlelo yokusebenza evumelana nayo etholakele ukuze isingatha lesisicelo.</string>
     <string name="general_todo_msg">Lesi sici sisasebenza futhi njengamanje asitholakali.</string>
     <string name="general_share_action">Yabelana</string>
     <string name="general_done_action">Kwenziwe</string>
     <string name="general_apply_action">Sebenzisa</string>
-    <string name="general_copy_action">Kopisha</string>    <string name="general_cancel_action">Yekisa</string>
+    <string name="general_copy_action">Kopisha</string>
+    <string name="general_cancel_action">Yekisa</string>
     <string name="general_discard_action">Lahla</string>
     <string name="general_reset_action">Setha kabusha</string>
     <string name="general_drag_handle_description">Hudula ukuze uhlele kabusha</string>
-    <string name="general_save_action">Londoloza</string>    <string name="general_gotit_action">Ngiyaqonda</string>
+    <string name="general_save_action">Londoloza</string>
+    <string name="general_gotit_action">Ngiyaqonda</string>
     <string name="general_fix_action">Lungisa</string>
     <string name="general_set_up_action">Setha</string>
     <string name="general_edit_action">Hlela</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Isistimu</string>
     <string name="setup_title">Ukusetshenziswa</string>
     <string name="setup_feature_requires_additional_setup_x">Lesi sici sidinga ukuqedela ezinye izinto zokusetshenziswa: %s</string>
+    <string name="upgrade_feature_requires_pro">Idinga i-Pro</string>
+    <string name="general_include_multiuser_label">Faka abasebenzisi abanye</string>
+    <string name="general_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
+    <string name="general_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Ukukhishwa okungu-%d kudalwe</item>
         <item quantity="other">Ukukhishwa okungu-%d kudalwe</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Umlando</string>
     <string name="settings_category_tools_label">Amathuluzi</string>
-    <string name="general_include_multiuser_label">Faka abasebenzisi abanye</string>
-    <string name="general_include_multiuser_summary">Faka izinhlelo zokusebenza ezivela kumaprofile amanye abasebenzisi kule divayisi.</string>
-    <string name="general_unsaved_confirmation_message">Unezinguquko ongazigcinanga!</string>
 </resources>

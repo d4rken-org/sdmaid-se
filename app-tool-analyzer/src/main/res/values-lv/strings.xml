@@ -1,8 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="analyzer_explanation_short">Noskaidrojiet, kas aizņem vietu jūsu ierīcē.</string>
+    <string name="analyzer_progress_scanning_device">Tiek meklētas krātuves ierīces</string>
+    <string name="analyzer_progress_scanning_storage">Krātuves skenēšana</string>
+    <string name="analyzer_progress_scanning_apps">Lietotnes skenēšana</string>
+    <string name="analyzer_progress_scanning_userfiles">Lietotāja failu meklēšana</string>
+    <string name="analyzer_progress_scanning_system">Sistēmas datu skenēšana</string>
     <string name="analyzer_device_storage_title">Ierīces krātuve</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="zero">%s pieejams</item>
+        <item quantity="one">%s pieejams</item>
+        <item quantity="other">%s pieejami</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="zero">%s izmantots</item>
+        <item quantity="one">%s izmantots</item>
+        <item quantity="other">%s izmantoti</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Tiešā piekļuve nav pieejama</string>
+    <string name="analyzer_content_create_swiper_session_action">Izveidot Swiper sesiju</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="zero">Swiper sesija izveidota ar %d vienibām</item>
+        <item quantity="one">Swiper sesija izveidota ar %d vienību</item>
+        <item quantity="other">Swiper sesija izveidota ar %d vienibām</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Primārā krātuve</string>
+    <string name="analyzer_storage_type_primary_description">Jūsu ierīces primārā krātuve. Satur iekšējo SD karti, lietotnes privāto krātuvi un sistēmas datus.</string>
+    <string name="analyzer_storage_type_secondary_title">Sekundārā krātuve</string>
+    <string name="analyzer_storage_type_secondary_description">Sekundārā krātuve, parāsti nōninamā SD karte. Satur multivides failus un datus no lietotnēm, kas to atbalsta.</string>
+    <string name="analyzer_storage_type_tertiary_title">Pārnosāmā krātuve</string>
+    <string name="analyzer_storage_type_tertiary_description">Pārnosāmā krātuve, piem., zibatmiņa, kas pievienota USB portam.</string>
+    <string name="analyzer_storage_content_title">Krātuves saturs</string>
+    <string name="analyzer_storage_content_type_app_label">Lietotnes</string>
+    <string name="analyzer_storage_content_type_app_description">Instalēto lietotnes un to datu aizņemtais vieta (t.i., lietotnes faili, dati un kešatmiņas).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Trūkst atļauju</string>
+    <string name="analyzer_storage_content_type_media_label">Lietotāja faili</string>
+    <string name="analyzer_storage_content_type_media_description">Uzfotografēti attēli, ieņemti video vai lejupielādēti dati. Jebkuri dati, kas nepieder konkrētai lietotnei.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistēmas dati</string>
+    <string name="analyzer_storage_content_type_system_description">Sistēmas lietotnes un sistēmas dati. Citu lietotāju lietotnes un dati, ja šajā ierīcē ir uzstādīti vairāki lietotāja konti.</string>
+    <string name="analyzer_storage_content_app_code_label">Lietotnes kods</string>
+    <string name="analyzer_storage_content_app_code_description">Lietotnes faili, bibliotēkas un resursi. Šo vietu var atbrīvot, atinstalējot lietotni vai arhivējot to (pieejams jaunākās Android versijās).</string>
+    <string name="analyzer_storage_content_app_data_label">Lietotnes dati</string>
+    <string name="analyzer_storage_content_app_data_description">Dati, iestatījumi un kešatmiņas.</string>
+    <string name="analyzer_storage_content_app_media_label">Lietotnes multivide</string>
+    <string name="analyzer_storage_content_app_media_description">Multivides faili no šīs lietotnes, piem., saņemtie WhatsApp fotoattēli.</string>
+    <string name="analyzer_storage_content_app_extra_label">Papildu lietotnes faili</string>
+    <string name="analyzer_storage_content_app_extra_description">Papildu dati, ko šī lietotne ir ievietojusi ārpus noklusušās ceļu, piem., fotoattēli vai lejupielādes.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
 </resources>

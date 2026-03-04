@@ -2,7 +2,7 @@
 <resources>
     <string name="appcleaner_explanation_short">Zbędne dane należące do konkretnych aplikacji.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Publiczne domyślne pamięci podręczne</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne pod Androidem/dane w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Domyślne publiczne pamięci podręczne aplikacji. Dostępne w Android/data w starszych wersjach Androida. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Prywatne domyślne pamięci podręczne</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">Domyślne prywatne pamięci podręczne aplikacji. Usunięte po dotknięciu opcji „Wyczyść pamięć podręczną” w ustawieniach systemu.</string>
     <string name="appcleaner_include_systemapps_label">Uwzględnij aplikacje systemowe</string>
@@ -42,7 +42,7 @@
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
-    <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane WhatsApp</string>
+    <string name="appcleaner_filter_whatsapp_received_label">Pliki otrzymane przez WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_label">Pliki wysłane przez WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_sent_summary">Pliki wysłane przez WhatsApp do innych osób.</string>
     <string name="appcleaner_filter_telegram_label">Pliki multimedialne Telegram</string>
@@ -50,7 +50,7 @@
     <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Pliki odebrane za pomocą Threema.</string>
     <string name="appcleaner_filter_wechat_label">WeChat</string>
-    <string name="appcleaner_filter_wechat_summary">Wysłane lub otrzymane pliki w konwersacjach WeChat oraz WeChat moments.</string>
+    <string name="appcleaner_filter_wechat_summary">Wysłane lub otrzymane pliki w rozmowach WeChat oraz WeChat moments.</string>
     <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Pliki multimedialne zapisane w pamięci podręcznej, które są ponownie pobierane podczas przeglądania na czacie.</string>
     <string name="appcleaner_filter_qqchat_label">Czat QQ</string>
@@ -60,7 +60,7 @@
         <item quantity="one">Usunięto %d zbędny element</item>
         <item quantity="few">Usunięto %d zbędne elementy</item>
         <item quantity="many">Usunięto %d zbędnych elementów</item>
-        <item quantity="other">Usunięto %d zbędny element</item>
+        <item quantity="other">Usunięto %d zbędnych elementów</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Znaleziono %d zbędny element</item>
@@ -86,16 +86,16 @@
         <item quantity="many">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
         <item quantity="other">Usunąć zbędne pliki dla %d wybranych aplikacji?</item>
     </plurals>
-    <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie danych podręcznych, które wykorzystuje Shizuku</string>
+    <string name="appcleaner_progress_shizuku_deleting_caches">Usuwanie pamięci podręcznej, którą wykorzystuje Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Określanie niedostępnych pamięci podręcznych</string>
-    <string name="appcleaner_automation_error_locked_appcache_title">Oczyszczanie pamięci podręcznej niedostępne</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Wyklucz go, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Czyszczenie pamięci podręcznej niedostępne</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">System wyłączył przycisk \"Wyczyść pamięć podręczną\" dla tej aplikacji. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplikacja systemowa nieprawidłowo skonfigurowana</string>
-    <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niedostępne. Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Panel sterowania systemu HyperOS (com.miui.securitycenter) nie posiada uprawnień do statystyki użytkowania (GET_USAGE_STATS). Funkcja \"Wyczyść dane\" w szczegółach aplikacji oraz czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niedostępna Udziel uprawnień do przywrócenia pełnej funkcjonalności.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Wymuś zatrzymanie przed wyczyszczeniem</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie się aplikacji i wymagać ręcznego restartu.</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Wymuś zatrzymanie aplikacji przed wyczyszczeniem ich pamięci podręcznej. Może to pomóc w wyczyszczeniu pamięci podręcznej niektórych aplikacji, ale może powodować błędne zachowanie aplikacji i wymagać ręcznego restartu.</string>
     <string name="appcleaner_progress_force_stopping">Wymuszanie zatrzymania…</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu nie jest możliwa. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu jest niemożliwe. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="appcleaner_automation_error_no_settings_title">Ekran ustawień niedostępny</string>
     <string name="appcleaner_automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>

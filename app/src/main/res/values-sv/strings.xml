@@ -24,6 +24,10 @@
         <item quantity="other">%1$d filer redo (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Denna funktion registrerar allt appen gör i en delbar fil. Den genererade filen innehåller känslig information (t.ex. filnamn och installerade appar). Dela den endast med betrodda parter (t.ex. en utvecklare som felsöker ett problem).</string>
+    <string name="debug_debuglog_short_recording_title">Mycket kort inspelning</string>
+    <string name="debug_debuglog_short_recording_desc">Inspelningen var mycket kort. Felsökningsloggar är inspelningar, inte ögonblicksbilder — återskapa problemet medan inspelningen är aktiv för att loggen ska vara användbar.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Fortsätt spela in</string>
+    <string name="debug_debuglog_short_recording_stop_action">Stoppa ändå</string>
     <string name="tasks_activity_notification_channel_label">Aktiva uppgifter</string>
     <string name="tasks_activity_working_notification_title">SD Maid fungerar</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Detta kommer permanent ta bort alla lagrade felsökningsloggsessioner. Denna åtgärd kan inte ångras.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">En plats att hänga på och ställa frågor.</string>
+    <string name="support_contact_label">Kontakta utvecklaren</string>
+    <string name="support_contact_desc">Fyll i ett formulär för att skicka ett e-postmeddelande till utvecklaren.</string>
+    <string name="support_contact_welcome">Jag läser varje meddelande själv och gör mitt bästa för att svara, men eftersom jag arbetar med detta ensam kan det ta lite tid. Tack för ditt tålamod.</string>
+    <string name="support_contact_footer">Ditt meddelande skickas via e-post. Enhets- och konfigurationsinformation bifogas automatiskt. Du kan bifoga skärmdumpar eller en video till e-postmeddelandet. Vissa delar av e-postmeddelandet kommer att vara på engelska så att utvecklaren lätt kan förstå det.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_bug_label">Felrapport</string>
+    <string name="support_contact_category_feature_label">Funktionsförfrågan</string>
+    <string name="support_contact_category_question_label">Fråga</string>
+    <string name="support_contact_tool_label">Relaterat verktyg</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Schemaläggare</string>
+    <string name="support_contact_tool_general_label">Allmänt</string>
+    <string name="support_contact_description_label">Beskrivning</string>
+    <string name="support_contact_description_bug_hint">Beskriv vad som hände och hur man återskapar problemet. Var specifik (minst 20 ord).</string>
+    <string name="support_contact_description_feature_hint">Beskriv funktionen du vill se. Var specifik (minst 20 ord).</string>
+    <string name="support_contact_description_question_hint">Beskriv din fråga i detalj. Var specifik (minst 20 ord).</string>
+    <string name="support_contact_expected_label">Förväntat beteende</string>
+    <string name="support_contact_expected_hint">Beskriv vad du förväntade dig skulle hända (minst 10 ord).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ord</item>
+        <item quantity="other">%1$d / %2$d ord</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Felsökningslogg</string>
+    <string name="support_contact_debuglog_zip_error">Det gick inte att komprimera felsökningsloggen</string>
+    <string name="support_contact_debuglog_picker_hint">Bifoga en befintlig felsökningslogg eller spela in en ny.</string>
+    <string name="support_contact_debuglog_picker_empty">Inga felsökningsloggar hittades. Spela in en först.</string>
+    <string name="support_contact_send_action">Öppna e-postapp</string>
+    <string name="support_contact_no_email_app">Ingen e-postapp hittades på den här enheten.</string>
     <string name="changelog_label">Ändringslogg</string>
     <string name="settings_acknowledgements_label">Tack till</string>
     <string name="settings_acknowledgements_category_translations_title">Översättningar</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Aktivera testalternativ och mer detaljerad utdata. Appen kommer att köra långsammare och fungera annorlunda.</string>
     <string name="debug_bugreporter_label">Automatiska buggrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterar automatiskt problem, t.ex. detaljer om appkrascher så att jag kan förstå varför och fixa det.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Felsökningsläge är aktiverat</string>
     <string name="debug_card_trace_mode_label">Aktivera spårningsläge</string>
     <string name="debug_card_dryrun_mode_label">Torrkörning (inaktivera borttagning)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Genvägar</string>
     <string name="shortcuts_onetap_enabled_title">En-tryck genväg</string>
     <string name="shortcuts_onetap_enabled_summary">Visa \"Skanna + Ta bort\" genväg vid långtryck på appikonen. Använder samma verktyg som en-tryck instrumentpanel.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

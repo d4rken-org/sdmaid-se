@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid tidak menyelesaikan semua langkah dalam batas waktu. Jika ini terus terjadi, saya mungkin perlu menyesuaikan aplikasi untuk perangkat Anda. Periksa pembaruan atau hubungi saya agar saya dapat memperbaikinya.</string>
     <string name="automation_error_overlay_title">Overlay otomasi</string>
     <string name="automation_error_overlay_body">SD Maid tidak dapat menampilkan overlay otomasi. Periksa izin dan coba reboot perangkat Anda.</string>
+    <string name="automation_error_scheduler_title">Otomatisasi terjadwal gagal</string>
+    <string name="automation_error_scheduler_body">Tugas terjadwal mencoba menggunakan layanan aksesibilitas, tetapi tidak tersedia. Jika Anda tidak memerlukan ini, nonaktifkan opsi \"Layanan aksesibilitas\" di pengaturan penjadwal.</string>
     <string name="automation_error_no_settings_title">Layar pengaturan tidak tersedia</string>
     <string name="automation_error_no_settings_body">Aplikasi sistem ini tidak memiliki layar pengaturan. Penghapusan cache melalui layanan aksesibilitas tidak memungkinkan. Kecualikan untuk mempercepat penghapusan cache.</string>
     <string name="automation_loading">Menyiapkan otomatisasi melalui layanan aksesibilitas</string>
-    <string name="automation_progress_find_ok_confirmation">Mencoba mengkonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
+    <string name="automation_progress_find_ok_confirmation">Mencoba mengonfirmasi tindakan sebelumnya (kata kunci: %s)</string>
 </resources>

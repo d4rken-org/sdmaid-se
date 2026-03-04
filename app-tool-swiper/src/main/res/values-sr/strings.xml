@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Брзо средите фасцикле — превуците фајлове да задржите, обришете или прескочите.</string>
+    <string name="swiper_dashcard_description">Средите одређене фасцикле брже него у менаџеру фајлова — само превуците сваки фајл.</string>
     <string name="swiper_start_action">Почни превлачење</string>
     <string name="swiper_continue_action">Настави сесију</string>
+    <string name="swiper_sessions_description">Прегледајте фајлове у 3 једноставна корака:\n\n1. Изаберите фасциклу за скенирање\n2. Превуците фајлове да задржите, обришете или прескочите\n3. Прегледајте своје одлуке и потврдите\n\nНишта се не уклања док не додирнете коначно дугме за брисање.</string>
     <string name="swiper_select_folders_action">Изаберите фасцикле</string>
     <string name="swiper_scanning_title">Скенирање…</string>
     <plurals name="swiper_result_x_items_found">
@@ -22,10 +26,10 @@
     <string name="swiper_item_position">#%1$d од %2$d</string>
     <string name="swiper_keep_action">Задржи</string>
     <string name="swiper_skip_action">Прескочи</string>
-    <string name="swiper_review_action">Прегледај</string>
+    <string name="swiper_review_action">Оцени</string>
     <string name="swiper_status_title">Прегледај одлуке</string>
     <string name="swiper_status_action_keep_selected">Задржи изабрано</string>
-    <string name="swiper_status_action_delete_selected">Обриши изабрано</string>
+    <string name="swiper_status_action_delete_selected">Обриши изабране</string>
     <string name="swiper_status_action_reset_selected">Ресетуј изабрано</string>
     <string name="swiper_decision_undecided">Неодлучено</string>
     <string name="swiper_retry_action">Покушај поново</string>
@@ -151,8 +155,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Поништи</string>
     <string name="swiper_help_title">Како ради Swiper</string>
     <string name="swiper_help_message">Превуците сваки фајл да донесете одлуку:\n\n← Превуците лево: %1$s\n→ Превуците десно: %2$s\n↑ Превуците горе: Прескочи\n↓ Превуците доле: Поништи (после првог превлачења)\n\nМожете користити и дугмад на дну.\n\nКада завршите, додирните \"Преглед\" да видите све своје одлуке. Ништа се не брише док не потврдите на екрану за преглед.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Брзо средите фасцикле — превуците фајлове да задржите, обришете или прескочите.</string>
-    <string name="swiper_dashcard_description">Средите одређене фасцикле брже него у менаџеру фајлова — само превуците сваки фајл.</string>
-    <string name="swiper_sessions_description">Прегледајте фајлове у 3 једноставна корака:\n\n1. Изаберите фасциклу за скенирање\n2. Превуците фајлове да задржите, обришете или прескочите\n3. Прегледајте своје одлуке и потврдите\n\nНишта се не уклања док не додирнете коначно дугме за брисање.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Разумем</string>
+    <string name="swiper_help_action">Помоћ</string>
 </resources>

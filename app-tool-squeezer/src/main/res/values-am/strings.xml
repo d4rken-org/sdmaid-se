@@ -82,4 +82,5 @@
         <item quantity="other">ቢያንስ %d ቀናት የቆየ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ለJPEG ፋይሎች የሚገመት ~%d%% ቁጠባ</string>
+    <string name="squeezer_onboarding_got_it">ገባኝ</string>
 </resources>

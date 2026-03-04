@@ -2,5 +2,10 @@
 <resources>
     <string name="picker_select_paths_title">Замуудыг сонгох</string>
     <string name="picker_selected_paths_title">Сонгогдсон замууд</string>
+    <string name="picker_unsaved_confirmation_message">Өөрчлөлтүүдийг цуцлах уң?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d шлях сонгогдсон</item>
+        <item quantity="other">%d шлях сонгогдсон</item>
+    </plurals>
     <string name="picker_home_action">Өгөгдлийн бүсүүд</string>
 </resources>

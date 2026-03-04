@@ -16,6 +16,11 @@
         <item quantity="other">%s उपयोग में</item>
     </plurals>
     <string name="analyzer_content_access_opaque">कोई सीधी पहुँच उपलब्ध नहीं है</string>
+    <string name="analyzer_content_create_swiper_session_action">Swiper सत्र बनाएं</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">%d आइटम के साथ Swiper सत्र बनाया गया</item>
+        <item quantity="other">%d आइटम के साथ Swiper सत्र बनाया गया</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">प्रारंभिक संग्रहण</string>
     <string name="analyzer_storage_type_primary_description">मुख्य आंतरिक संग्रहण स्थान।</string>
     <string name="analyzer_storage_type_secondary_title">माध्यमिक संग्रहण</string>

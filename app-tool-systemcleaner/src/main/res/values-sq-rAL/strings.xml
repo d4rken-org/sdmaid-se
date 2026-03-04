@@ -70,7 +70,7 @@
     <string name="systemcleaner_customfilter_editor_areas_label">Zonat e të dhënave</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Nëse nuk zgjidhet asnjë zonë, atëherë të gjitha zonat e aksesueshme të të dhënave do të skanohen dhe përputhen.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">Kufizimet e llojit të skedarit</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Skedarët</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_files_label">Skedarë</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dosjet</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Nëse nuk zgjidhet asnjë lloj, atëherë të gjitha llojet do të përputhen.</string>
     <string name="systemcleaner_customfilter_editor_path_label">Kriteriumi i rrugës</string>

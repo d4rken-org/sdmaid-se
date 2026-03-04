@@ -24,6 +24,10 @@
         <item quantity="other">%1$d ਫਾਈਲਾਂ ਤਿਆਰ (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">ਇਹ ਫੀਚਰ ਐਪ ਦੀ ਹਰ ਗਤਿਵਿਧੀ ਨੂੰ ਇੱਕ ਸਾਂਝੀ ਕੀਤੀ ਜਾ ਸਕਣ ਵਾਲੀ ਫਾਇਲ ਵਿੱਚ ਰਿਕਾਰਡ ਕਰਦਾ ਹੈ। ਤਿਆਰ ਕੀਤੀ ਗਈ ਫਾਇਲ ਵਿੱਚ ਸੰਵੇਦਨਸ਼ੀਲ ਜਾਣਕਾਰੀ (ਜਿਵੇਂ ਫਾਇਲ ਨਾਮ ਅਤੇ ਸਥਾਪਿਤ ਐਪਾਂ) ਸ਼ਾਮਲ ਹੈ। ਇਸਨੂੰ ਸਿਰਫ਼ ਭਰੋਸੇਮੰਦ ਧਿਰਾਂ (ਜਿਵੇਂ ਕਿ ਸਮੱਸਿਆ ਦਾ ਹੱਲ ਲੱਭਣ ਵਾਲੇ ਡਿਵੈਲਪਰ) ਨਾਲ ਸਾਂਝਾ ਕਰੋ।</string>
+    <string name="debug_debuglog_short_recording_title">ਬਹੁਤ ਛੋਟੀ ਰਿਕਾਰਡਿੰਗ</string>
+    <string name="debug_debuglog_short_recording_desc">ਰਿਕਾਰਡਿੰਗ ਬਹੁਤ ਛੋਟੀ ਸੀ। ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡਿੰਗਾਂ ਹਨ, ਸਨੈਪਸ਼ਾਟ ਨਹੀਂ — ਲੌਗ ਉਪਯੋਗੀ ਹੋਣ ਲਈ ਰਿਕਾਰਡਿੰਗ ਚੱਲਦੇ ਸਮੇਂ ਸਮੱਸਿਆ ਦੁਬਾਰਾ ਪੈਦਾ ਕਰੋ।</string>
+    <string name="debug_debuglog_short_recording_continue_action">ਰਿਕਾਰਡਿੰਗ ਜਾਰੀ ਰੱਖੋ</string>
+    <string name="debug_debuglog_short_recording_stop_action">ਫਿਰ ਵੀ ਰੋਕੋ</string>
     <string name="tasks_activity_notification_channel_label">ਸਰਗਰਮ ਕੰਮ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -76,6 +80,7 @@
     <string name="ui_theme_style_setting_label">ਥੀਮ ਸਟਾਈਲ</string>
     <string name="ui_theme_style_setting_explanation">ਐਪ ਨੂੰ ਥੀਮ ਕਰਦੇ ਸਮੇਂ ਵਰਤਿਆ ਜਾਣ ਵਾਲਾ ਰੰਗ ਸਟਾਈਲ।</string>
     <string name="ui_theme_style_default_label">ਮੂਲ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">ਫਾਈਲ ਪ੍ਰੀਵਿਊ</string>
     <string name="ui_previews_summary">ਸਾਰੇ ਟੂਲਸ ਵਿੱਚ ਫਾਈਲ ਪ੍ਰੀਵਿਊ ਦਿਖਾਓ (ਜਿਵੇਂ ਚਿੱਤਰ ਅਤੇ ਵੀਡੀਓ ਥੰਬਨੇਲ)।</string>
     <string name="ui_language_override_label">ਐਪ ਭਾਸ਼ਾ</string>
@@ -97,7 +102,41 @@
     <string name="support_debuglog_folder_empty_desc">ਕੋਈ ਡੀਬੱਗ ਲੌਗ ਸੁਰੱਖਿਅਤ ਨਹੀਂ ਹਨ</string>
     <string name="support_debuglog_folder_delete_confirmation_title">ਸਾਰੇ ਡੀਬੱਗ ਲੌਗ ਮਿਟਾਉਣੇ ਹਨ?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">ਇਹ ਸਾਰੇ ਸੁਰੱਖਿਅਤ ਡੀਬੱਗ ਲੌਗ ਸੈਸ਼ਨਾਂ ਨੂੰ ਪੱਕੇ ਤੌਰ \'ਤੇ ਮਿਟਾ ਦੇਵੇਗਾ। ਇਹ ਕਾਰਵਾਈ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ।</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ਘੁੰਮਣ ਅਤੇ ਸਵਾਲ ਪੁੱਛਣ ਲਈ ਜਗ੍ਹਾ।</string>
+    <string name="support_contact_label">ਡਿਵੈਲਪਰ ਨਾਲ ਸੰਪਰਕ ਕਰੋ</string>
+    <string name="support_contact_desc">ਡਿਵੈਲਪਰ ਨੂੰ ਈਮੇਲ ਭੇਜਣ ਲਈ ਫਾਰਮ ਭਰੋ।</string>
+    <string name="support_contact_welcome">ਮੈਂ ਹਰ ਸੁਨੇਹਾ ਆਪ ਪੜ੍ਹਦਾ ਹਾਂ ਅਤੇ ਜਵਾਬ ਦੇਣ ਦੀ ਪੂਰੀ ਕੋਸ਼ਿਸ਼ ਕਰਦਾ ਹਾਂ, ਪਰ ਕਿਉਂਕਿ ਮੈਂ ਇਹ ਇਕੱਲਾ ਕਰਦਾ ਹਾਂ, ਇਸ ਲਈ ਥੋੜਾ ਸਮਾਂ ਲੱਗ ਸਕਦਾ ਹੈ। ਤੁਹਾਡੀ ਧੀਰਜ ਲਈ ਧੰਨਵਾਦ।</string>
+    <string name="support_contact_footer">ਤੁਹਾਡਾ ਸੁਨੇਹਾ ਈਮੇਲ ਰਾਹੀਂ ਭੇਜਿਆ ਜਾਵੇਗਾ। ਡਿਵਾਈਸ ਅਤੇ ਸੈੱਟਅੱਪ ਜਾਣਕਾਰੀ ਆਪਣੇ ਆਪ ਜੋੜੀ ਜਾਂਦੀ ਹੈ। ਤੁਸੀਂ ਈਮੇਲ ਨਾਲ ਸਕ੍ਰੀਨਸ਼ਾਟ ਜਾਂ ਵੀਡੀਓ ਜੋੜ ਸਕਦੇ ਹੋ। ਈਮੇਲ ਦੇ ਕੁਝ ਹਿੱਸੇ ਅੰਗਰੇਜ਼ੀ ਵਿੱਚ ਹੋਣਗੇ ਤਾਂ ਜੋ ਡਿਵੈਲਪਰ ਆਸਾਨੀ ਨਾਲ ਸਮਝ ਸਕੇ।</string>
+    <string name="support_contact_category_label">ਸ਼੍ਰੇਣੀ</string>
+    <string name="support_contact_category_bug_label">ਬੱਗ ਰਿਪੋਰਟ</string>
+    <string name="support_contact_category_feature_label">ਫੀਚਰ ਬੇਨਤੀ</string>
+    <string name="support_contact_category_question_label">ਸਵਾਲ</string>
+    <string name="support_contact_tool_label">ਸੰਬੰਧਿਤ ਟੂਲ</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">ਡੁਪਲੀਕੇਟਰ</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">ਐਪ ਕੰਟਰੋਲ</string>
+    <string name="support_contact_tool_scheduler_label">ਸ਼ੈਡਿਊਲਰ</string>
+    <string name="support_contact_tool_general_label">ਆਮ</string>
+    <string name="support_contact_description_label">ਵੇਰਵਾ</string>
+    <string name="support_contact_description_bug_hint">ਦੱਸੋ ਕੀ ਹੋਇਆ ਅਤੇ ਸਮੱਸਿਆ ਨੂੰ ਦੁਬਾਰਾ ਕਿਵੇਂ ਪੈਦਾ ਕਰਨਾ ਹੈ। ਕਿਰਪਾ ਕਰਕੇ ਵਿਸਥਾਰ ਨਾਲ ਦੱਸੋ (ਘੱਟੋ-ਘੱਟ 20 ਸ਼ਬਦ)।</string>
+    <string name="support_contact_description_feature_hint">ਉਹ ਫੀਚਰ ਦੱਸੋ ਜੋ ਤੁਸੀਂ ਦੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ। ਕਿਰਪਾ ਕਰਕੇ ਵਿਸਥਾਰ ਨਾਲ ਦੱਸੋ (ਘੱਟੋ-ਘੱਟ 20 ਸ਼ਬਦ)।</string>
+    <string name="support_contact_description_question_hint">ਆਪਣਾ ਸਵਾਲ ਵਿਸਥਾਰ ਨਾਲ ਦੱਸੋ। ਕਿਰਪਾ ਕਰਕੇ ਖਾਸ ਰਹੋ (ਘੱਟੋ-ਘੱਟ 20 ਸ਼ਬਦ)।</string>
+    <string name="support_contact_expected_label">ਅਪੇਖਿਤ ਵਿਵਹਾਰ</string>
+    <string name="support_contact_expected_hint">ਦੱਸੋ ਕੀ ਹੋਣ ਦੀ ਉਮੀਦ ਸੀ (ਘੱਟੋ-ਘੱਟ 10 ਸ਼ਬਦ)।</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ਸ਼ਬਦ</item>
+        <item quantity="other">%1$d / %2$d ਸ਼ਬਦ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ਡੀਬੱਗ ਲੌਗ</string>
+    <string name="support_contact_debuglog_zip_error">ਡੀਬੱਗ ਲੌਗ ਸੰਕੁਚਿਤ ਕਰਨ ਵਿੱਚ ਅਸਫਲ</string>
+    <string name="support_contact_debuglog_picker_hint">ਕੋਈ ਮੌਜੂਦਾ ਡੀਬੱਗ ਲੌਗ ਜੋੜੋ, ਜਾਂ ਨਵਾਂ ਰਿਕਾਰਡ ਕਰੋ।</string>
+    <string name="support_contact_debuglog_picker_empty">ਕੋਈ ਡੀਬੱਗ ਲੌਗ ਨਹੀਂ ਮਿਲੀ। ਪਹਿਲਾਂ ਇੱਕ ਰਿਕਾਰਡ ਕਰੋ।</string>
+    <string name="support_contact_send_action">ਈਮੇਲ ਐਪ ਖੋਲ੍ਹੋ</string>
+    <string name="support_contact_no_email_app">ਇਸ ਡਿਵਾਈਸ ਤੇ ਕੋਈ ਈਮੇਲ ਐਪ ਨਹੀਂ ਮਿਲੀ।</string>
     <string name="changelog_label">ਤਬਦੀਲੀ ਲੌਗ</string>
     <string name="settings_acknowledgements_label">ਆਭਾਰ</string>
     <string name="settings_acknowledgements_category_translations_title">ਅਨੁਵਾਦ</string>
@@ -131,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">ਜੇ ਉਪਲਬਧ ਹੈ ਤਾਂ root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਕਰੋ</string>
     <string name="setup_root_disable_root_use_label">Root ਪਹੁੰਚ ਦੀ ਵਰਤੋਂ ਨਾ ਕਰੋ</string>
     <string name="setup_root_card_body2">ਸਿਰਫ਼ ਰੂਟ ਕੀਤੇ ਡਿਵਾਈਸਾਂ \'ਤੇ ਉਪਲਬਧ ਹੈ। ਜੇਕਰ ਤੁਸੀਂ ਇਹ ਸੋਧ ਨਹੀਂ ਕੀਤੀ ਹੈ, ਤਾਂ ਤੁਹਾਡਾ ਡਿਵਾਈਸ ਰੂਟ ਨਹੀਂ ਹੈ ਅਤੇ ਇਸ ਸੈਟਿੰਗ ਦਾ ਕੋਈ ਪ੍ਰਭਾਵ ਨਹੀਂ ਹੈ।</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">ਕੀ SD Maid ਨੂੰ Shizuku ਦੀ ਵਰਤੋਂ ਕਰਨੀ ਚਾਹੀਦੀ ਹੈ ਜੇ ਇਹ ਉਪਲਬਧ ਹੈ? Shizuku root ਇਜਾਜ਼ਤਾਂ ਤੋਂ ਬਿਨਾਂ ਵਾਧੂ ਡੇਟਾ ਤੱਕ ਪਹੁੰਚ ਪ੍ਰਦਾਨ ਕਰ ਸਕਦਾ ਹੈ।</string>
     <string name="setup_shizuku_card_body2">ਜੇ ਤੁਹਾਡੇ ਯੰਤਰ ਤੇ Shizuku ਇੰਸਟਾਲ ਨਹੀਂ ਹੈ ਤਾਂ ਇਸ ਸੈਟਿੰਗ ਦਾ ਕੋਈ ਪ੍ਰਭਾਵ ਨਹੀਂ ਹੈ</string>
     <string name="setup_shizuku_card_root_info">ਰੂਟ ਐਕਸੈਸ ਦੇ ਨਾਲ Shizuku ਵਾਧੂ ਫੀਚਰਾਂ ਨੂੰ ਸਮਰੱਥ ਨਹੀਂ ਕਰਦਾ, ਪਰ ਇਹ ਭਰੋਸੇਯੋਗਤਾ ਵਿੱਚ ਸੁਧਾਰ ਕਰਦਾ ਹੈ। SD Maid ਇਸਨੂੰ ਫਾਲਬੈਕ ਵਿਧੀ ਵਜੋਂ ਵਰਤੇਗਾ।</string>
@@ -174,6 +214,7 @@
     <string name="debug_mode_explanation">ਟੈਸਟ ਵਿਕਲਪਾਂ ਅਤੇ ਵਧੇਰੇ ਵਿਸਤ੍ਰਿਤ ਆਉਟਪੁੱਟ ਨੂੰ ਸਮਰੱਥ ਕਰੋ। ਐਪ ਹੌਲੀ ਚੱਲੇਗੀ ਅਤੇ ਵੱਖਰੇ ਢੰਗ ਨਾਲ ਪ੍ਰਦਰਸ਼ਨ ਕਰੇਗੀ।</string>
     <string name="debug_bugreporter_label">ਆਟੋਮੈਟਿਕ ਬੱਗ ਰਿਪੋਰਟ</string>
     <string name="debug_bugreporter_summary">ਸਮੱਸਿਆਵਾਂ ਨੂੰ ਆਪਣੇ ਆਪ ਰਿਪੋਰਟ ਕਰਦਾ ਹੈ, ਜਿਵੇਂ ਕਿ ਐਪ ਕਰੈਸ਼ਾਂ ਦੇ ਵੇਰਵੇ ਤਾਂ ਜੋ ਮੈਂ ਕਾਰਨ ਪਤਾ ਲਗਾ ਸਕਾਂ ਅਤੇ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ਡੀਬੱਗ ਮੋਡ ਚਾਲੂ ਹੈ</string>
     <string name="debug_card_trace_mode_label">ਟ੍ਰੇਸ ਮੋਡ ਚਾਲੂ ਕਰੋ</string>
     <string name="debug_card_dryrun_mode_label">ਡ੍ਰਾਈ-ਰਨ ਮੋਡ (ਮਿਟਾਉਣਾ ਬੰਦ ਕਰੋ)</string>
@@ -197,6 +238,7 @@
     <string name="translation_encourage_title">SD Maid ਦਾ ਅਨੁਵਾਦ ਕਰੋ</string>
     <string name="translation_encourage_body">SD Maid ਦਾ ਅਨੁਵਾਦ ਸਵੈਸੇਵਕਾਂ ਦੁਆਰਾ ਕੀਤਾ ਜਾਂਦਾ ਹੈ। ਅਨੁਵਾਦ, ਸਮੀਖਿਆ ਜਾਂ ਪਰੂਫਰੀਡਿੰਗ, ਤੁਹਾਡੀ ਮਦਦ ਦੀ ਸ਼ਲਾਘਾ ਕੀਤੀ ਜਾਂਦੀ ਹੈ!</string>
     <string name="translation_translators_title">ਇਸ ਵਰਜਨ ਦਾ ਅਨੁਵਾਦ ਕੀਤਾ ਗਿਆ ਹੈ</string>
+    <string name="translation_translators_people">ਮਸ਼ੀਨੀ ਅਨੁਵਾਦ</string>
     <string name="motd_setting_enabled_label">ਮਹੱਤਵਪੂਰਨ ਸੰਦੇਸ਼</string>
     <string name="motd_setting_enabled_explanation">SD Maid ਨੂੰ ਡਿਵੈਲਪਰ ਤੋਂ ਮਹੱਤਵਪੂਰਨ ਸੰਦੇਸ਼ ਚੈੱਕ ਕਰਨ ਦੀ ਇਜਾਜ਼ਤ ਦਿਓ।</string>
     <string name="updatecheck_setting_enabled_label">ਅੱਪਡੇਟ ਚੈੱਕ</string>
@@ -222,4 +264,5 @@
     <string name="shortcuts_settings_category">ਸ਼ਾਰਟਕੱਟ</string>
     <string name="shortcuts_onetap_enabled_title">ਇੱਕ-ਟੈਪ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="shortcuts_onetap_enabled_summary">ਐਪ ਆਈਕਨ ਨੂੰ ਦੇਰ ਤੱਕ ਦਬਾਉਣ \'ਤੇ \"ਸਕੈਨ + ਮਿਟਾਓ\" ਸ਼ਾਰਟਕੱਟ ਦਿਖਾਓ। ਇੱਕ-ਟੈਪ ਡੈਸ਼ਬੋਰਡ ਵਾਂਗ ਹੀ ਔਜ਼ਾਰ ਵਰਤਦਾ ਹੈ।</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

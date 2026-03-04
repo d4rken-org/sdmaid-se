@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
+    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
     <string name="swiper_start_action">开始滑动</string>
     <string name="swiper_continue_action">继续会话</string>
+    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
     <string name="swiper_select_folders_action">选择文件夹</string>
     <string name="swiper_scanning_title">正在扫描…</string>
     <plurals name="swiper_result_x_items_found">
@@ -16,7 +20,7 @@
     <string name="swiper_item_position">第 %1$d 个，共 %2$d 个</string>
     <string name="swiper_keep_action">保留</string>
     <string name="swiper_skip_action">跳过</string>
-    <string name="swiper_review_action">审查</string>
+    <string name="swiper_review_action">评论</string>
     <string name="swiper_status_title">审查决定</string>
     <string name="swiper_status_action_keep_selected">保留所选</string>
     <string name="swiper_status_action_delete_selected">删除所选</string>
@@ -117,8 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ 撤销</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑动每个文件来做出决定：\n\n← 向左滑动：%1$s\n→ 向右滑动：%2$s\n↑ 向上滑动：跳过\n↓ 向下滑动：撤销（首次滑动后）\n\n您也可以使用底部的按钮。\n\n完成后，点击\"审查\"查看所有决定。在审查页面确认之前不会删除任何内容。</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">快速整理文件夹——滑动文件来保留、删除或跳过。</string>
-    <string name="swiper_dashcard_description">比文件管理器更快地整理指定文件夹——只需滑动每个文件。</string>
-    <string name="swiper_sessions_description">通过 3 个简单步骤审查文件：\n\n1. 选择要扫描的文件夹\n2. 滑动文件来保留、删除或跳过\n3. 审查您的选择并确认\n\n在您点击最终的删除按钮之前，不会删除任何内容。</string>
+    <string name="swiper_gesture_overlay_dismiss_action">明白</string>
+    <string name="swiper_help_action">帮助</string>
 </resources>

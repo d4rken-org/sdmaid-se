@@ -3,4 +3,27 @@
     <string name="exclusion_manager_title">Izņēmumu pārvaldnieks</string>
     <string name="exclusion_manager_desc">Pārvaldīt failu un lietotņu izņēmumus.</string>
     <string name="exclusion_explanation_body1">Izslēgt failus un lietotnes no SD Maid darbībām.</string>
+    <string name="exclusion_add_new_hint">Pievienojiet jaunus izslēgumus, vispirms ļaujot SD Maid meklēt, un pēc tam izmantojiet konteksta izvēlni uz rezultāta, ko vēlaties izslēgt.</string>
+    <string name="exclusion_create_action">Izveidot izslēgumu</string>
+    <string name="exclusion_edit_action">Rediģēt izslēgumu</string>
+    <string name="exclusion_type_package">Lietotnes izslēgums</string>
+    <string name="exclusion_type_path">Ceļa izslēgums</string>
+    <string name="exclusion_type_segment">Segmenta izslēgums</string>
+    <string name="exclusion_tags_alltools">Visi rīki</string>
+    <string name="exclusion_target_label">Izslēguma mērķis</string>
+    <string name="exclusion_editor_path_change_action">Pieskarieties, lai mainītu ceļu</string>
+    <string name="exclusion_option_allow_partial">Atļauties daļējās atbilsmes</string>
+    <string name="exclusion_option_ignore_casing">Ignorēt lielo/mazo burtu</string>
+    <string name="exclusion_editor_affected_tools_label">Ietekmētie rīki</string>
+    <string name="exclusion_editor_path_explanation">Ceļa izslēgums nelauj SD Maid tālāk apstrādāt nevienu atbilstošu ceļu. Tas attiecas uz failiem, mapēm un apmapes.</string>
+    <string name="exclusion_editor_pkg_explanation">Lietotnes izslēgums nelauj SD Maid apstrādāt nevienu atbilstošu pakotni.</string>
+    <string name="exclusion_editor_segment_explanation">Segmenta izslēgums ir līdzīgs ceļa izslēgumam, bet atļauj daļējās atbilsmes. Piemērs: \"DCIM/Camera\" izslēdz \"/sdcard/DCIM/Camera/foto.png\".</string>
+    <string name="exclusion_editor_remove_confirmation_message">Noņemt šo izslēgumu?</string>
+    <string name="exclusion_reset_default_exclusions">Atjaunot noklusejuma izslēgumus</string>
+    <string name="exclusion_import_action">Importēt izslēgumus</string>
+    <string name="exclusion_export_action">Eksportēt izslēgumus</string>
+    <string name="exclusion_create_pkg_hint">Izmantojiet AppControl rīku, lai izveidotu lietotnes izslēgumus.</string>
+    <string name="exclusion_create_path_hint">Izmantojiet StorageAnalyzer rīku, lai izveidotu ceļa izslēgumus.</string>
+    <string name="exclusion_show_defaults_action">Rādīt noklusejumus</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Jums ir nesaglabātas izmaiņas!</string>
 </resources>

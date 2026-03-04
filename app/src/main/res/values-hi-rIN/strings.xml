@@ -24,6 +24,10 @@
         <item quantity="other">%1$d फ़ाइलें तैयार (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">यह सुविधा वह सब कुछ रिकॉर्ड करती है जो साझा करने योग्य एक ऐप द्वारा बनाई जाती है। बनाई गई फ़ाइल में संवेदनशील जानकारी होती है (जैसे फ़ाइल नाम और इंस्टॉल किए गए ऐप्स)। इसे केवल विश्वसनीय पार्टियों के साथ साझा करें (उदाहरण के लिए एक डेवलपर को जो ऐसे किसी समस्या का निवारण कर रहा है)।</string>
+    <string name="debug_debuglog_short_recording_title">बहुत छोटी रिकॉर्डिंग</string>
+    <string name="debug_debuglog_short_recording_desc">रिकॉर्डिंग बहुत छोटी थी। डीबग लॉग रिकॉर्डिंग होते हैं, स्नैपशॉट नहीं — लॉग उपयोगी बनाने के लिए रिकॉर्डिंग सक्रिय रहते हुए समस्या को दोहराएं।</string>
+    <string name="debug_debuglog_short_recording_continue_action">रिकॉर्डिंग जारी रखें</string>
+    <string name="debug_debuglog_short_recording_stop_action">फिर भी रोकें</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्य</string>
     <string name="tasks_activity_working_notification_title">SD मेड काम कर रही है</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">यह सभी संग्रहीत डिबग लॉग सत्रों को स्थायी रूप से हटा देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">घूमने और सवाल पूछने की जगह।</string>
+    <string name="support_contact_label">डेवलपर से संपर्क करें</string>
+    <string name="support_contact_desc">डेवलपर को ईमेल भेजने के लिए एक फ़ॉर्म भरें।</string>
+    <string name="support_contact_welcome">मैं हर संदेश खुद पढ़ता हूं और उत्तर देने की पूरी कोशिश करता हूं, लेकिन चूंकि मैं इस पर अकेले काम करता हूं, इसमें थोड़ा समय लग सकता है। आपकी सहनशीलता के लिए धन्यवाद।</string>
+    <string name="support_contact_footer">आपका संदेश ईमेल द्वारा भेजा जाएगा। डिवाइस और सेटअप जानकारी स्वचालित रूप से जुड़ जाती है। आप ईमेल में स्क्रीनशॉट या वीडियो भी जोड़ सकते हैं। ईमेल के कुछ हिस्से अंग्रेज़ी में होंगे ताकि डेवलपर उन्हें आसानी से समझ सके।</string>
+    <string name="support_contact_category_label">श्रेणी</string>
+    <string name="support_contact_category_bug_label">बग रिपोर्ट</string>
+    <string name="support_contact_category_feature_label">फ़ीचर अनुरोध</string>
+    <string name="support_contact_category_question_label">प्रश्न</string>
+    <string name="support_contact_tool_label">संबंधित टूल</string>
+    <string name="support_contact_tool_appcleaner_label">ऐप स्वच्छक</string>
+    <string name="support_contact_tool_corpsefinder_label">अवशेष अन्वेषक</string>
+    <string name="support_contact_tool_systemcleaner_label">सिस्टम स्वच्छक</string>
+    <string name="support_contact_tool_deduplicator_label">डुप्लिकेटर</string>
+    <string name="support_contact_tool_analyzer_label">विश्लेषक</string>
+    <string name="support_contact_tool_appcontrol_label">ऐप नियंत्रक</string>
+    <string name="support_contact_tool_scheduler_label">शेड्यूलर</string>
+    <string name="support_contact_tool_general_label">सामान्य</string>
+    <string name="support_contact_description_label">विवरण</string>
+    <string name="support_contact_description_bug_hint">बताएं कि क्या हुआ और समस्या को दोबारा कैसे उत्पन्न करें। कृपया विशिष्ट रहें (न्यूनतम 20 शब्द)।</string>
+    <string name="support_contact_description_feature_hint">वह फ़ीचर बताएं जो आप देखना चाहते हैं। कृपया विशिष्ट रहें (न्यूनतम 20 शब्द)।</string>
+    <string name="support_contact_description_question_hint">अपना प्रश्न विस्तार से बताएं। कृपया विशिष्ट रहें (न्यूनतम 20 शब्द)।</string>
+    <string name="support_contact_expected_label">अपेक्षित व्यवहार</string>
+    <string name="support_contact_expected_hint">बताएं कि आप क्या होने की उम्मीद कर रहे थे (न्यूनतम 10 शब्द)।</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d शब्द</item>
+        <item quantity="other">%1$d / %2$d शब्द</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">डीबग लॉग</string>
+    <string name="support_contact_debuglog_zip_error">डीबग लॉग को संपीड़ित करने में विफल</string>
+    <string name="support_contact_debuglog_picker_hint">कोई मौजूदा डीबग लॉग संलग्न करें, या नया रिकॉर्ड करें।</string>
+    <string name="support_contact_debuglog_picker_empty">कोई डीबग लॉग नहीं मिला। पहले एक रिकॉर्ड करें।</string>
+    <string name="support_contact_send_action">ईमेल एप खोलें</string>
+    <string name="support_contact_no_email_app">इस डिवाइस पर कोई ईमेल एप नहीं मिला।</string>
     <string name="changelog_label">परिवर्तनीयकरण</string>
     <string name="settings_acknowledgements_label">स्वीकृतियाँ</string>
     <string name="settings_acknowledgements_category_translations_title">अनुवाद</string>
@@ -133,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">यदि उपलब्ध है तब रूट तक पहुंच का उपयोग करें</string>
     <string name="setup_root_disable_root_use_label">रूट तक पहुंच का उपयोग न करें</string>
     <string name="setup_root_card_body2">केवल रूट किए गए उपकरणों पर उपलब्ध है। यदि आपने यह संशोधन नहीं किया है, तो आपका डिवाइस रूट नहीं किया गया है और इस सेटिंग का कोई प्रभाव नहीं पड़ता है।</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid को परिणामों में सुधार और सुविधाओं को सक्षम करने के लिए जहां संभव हो Shizuku का उपयोग करने की अनुमति दें।</string>
     <string name="setup_shizuku_card_body2">यदि आपके डिवाइस पर Shizuku ऐप सेट अप नहीं है तो इस सेटिंग का कोई प्रभाव नहीं है।</string>
     <string name="setup_shizuku_card_root_info">रूट एक्सेस के साथ Shizuku अतिरिक्त सुविधाएं सक्षम नहीं करता है, लेकिन यह विश्वसनीयता में सुधार करता है। SD Maid इसे फॉलबैक विधि के रूप में उपयोग करेगा।</string>
@@ -176,6 +214,7 @@
     <string name="debug_mode_explanation">परीक्षण विकल्प और अधिक वर्बोज़ आउटपुट सक्षम करें। ऐप धीमी गति से चलेगा और अलग तरह से प्रदर्शन करेगा।</string>
     <string name="debug_bugreporter_label">स्वचालित त्रुटी रिपोर्ट</string>
     <string name="debug_bugreporter_summary">स्वचालित रूप से मुद्दों की रिपोर्ट करता है, जैसे ऐप पर विवरण क्रैश हो जाता है, इसलिए मैं इसका पता लगा सकता हूं और इसे ठीक कर सकता हूं।</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">डिबग मोड सक्षम है</string>
     <string name="debug_card_trace_mode_label">ट्रेस मोड सक्षम करें</string>
     <string name="debug_card_dryrun_mode_label">ड्राई-रन मोड (हटाना अक्षम करें)</string>
@@ -210,9 +249,23 @@
     <string name="review_app_review_action">समीक्षा करें</string>
     <string name="review_app_dismiss_action">शायद बाद में</string>
     <string name="review_app_body">क्या आप SD Maid को एक समीक्षा देना चाहेंगे? ❤️</string>
+    <string name="anniversary_card_title">Happy SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_install_date">%s से आपके साथ</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">पहले से ही %1$d साल एक साथ। SD Maid को अपने Android को स्वच्छ और व्यवस्थित रखने के लिए विश्वास देने के लिए धन्यवाद। मुक्त की गई जगह: %2$s</item>
+        <item quantity="other">%1$d साल मजबूत। SD Maid के साथ आपका डिवाइस स्वच्छ और व्यवस्थित रहता है। मुक्त की गई जगह: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">अपना SD Maid वर्षगांठ शेयर करें</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
+इसे आजमाएं: %3$s</item>
+        <item quantity="other">SD Maid के साथ %1$d साल — मुक्त की गई जगह: %2$s। अपने Android को स्वच्छ और व्यवस्थित रखना। #SDMaid
+इसे आजमाएं: %3$s</item>
+    </plurals>
     <string name="shortcut_onetap_short">स्कैन + हटाएं</string>
     <string name="shortcut_onetap_long">एक क्रिया में स्कैन और हटाएं</string>
     <string name="shortcuts_settings_category">शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_title">वन-टैप शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_summary">ऐप आइकन को देर तक दबाने पर \"स्कैन + हटाएं\" शॉर्टकट दिखाएं। वन-टैप डैशबोर्ड के समान टूल का उपयोग करता है।</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -70,7 +70,7 @@
     <string name="squeezer_setup_paths_title">Arama konumları</string>
     <string name="squeezer_setup_paths_default">Aranacak klasörleri seçin</string>
     <string name="squeezer_setup_quality_title">Sıkıştırma kalitesi</string>
-    <string name="squeezer_setup_age_title">Minimum yaş</string>
+    <string name="squeezer_setup_age_title">Asgari dosya yaşı</string>
     <string name="squeezer_setup_age_none">Sınır yok (tüm dosyaları dahil et)</string>
     <string name="squeezer_setup_start_action">Taramayı Başlat</string>
     <string name="squeezer_quality_hint_very_low">%40\'ın altındaki kalite kullanılamaz resimler oluşturabilir.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">En az %d gün eski</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG dosyaları için tahmini ~%d%% tasarruf</string>
+    <string name="squeezer_onboarding_got_it">Anladım</string>
 </resources>

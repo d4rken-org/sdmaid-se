@@ -30,5 +30,5 @@
     <string name="stats_settings_reset_all_label">Скинути все</string>
     <string name="stats_settings_reset_all_desc">Видаліть усі звіти та обнулить усю статистику.</string>
     <string name="stats_affected_paths_label">Задіяні шляхи</string>
-    <string name="stats_affected_pkgs_label">Задіяні додатки</string>
+    <string name="stats_affected_pkgs_label">Задіяні програми</string>
 </resources>

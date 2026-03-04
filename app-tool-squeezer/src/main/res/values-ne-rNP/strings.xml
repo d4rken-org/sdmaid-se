@@ -1,6 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="squeezer_explanation_short">भण्डारण स्थान बचाउन छविहरू संकुचित गर्नुहोस्।</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d छवि फेला पर्यो</item>
+        <item quantity="other">%d छविहरू फेला परिए</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s बचाउन सकिन्छ</item>
+        <item quantity="other">~%s बचाउन सकिन्छ</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d छवि संकुचित गरियो</item>
+        <item quantity="other">%d छविहरू संकुचित गरिए</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d छवि चयन गरियो</item>
+        <item quantity="other">%d छविहरू चयन गरिए</item>
+    </plurals>
     <string name="squeezer_search_locations_title">खोज स्थानहरू</string>
     <string name="squeezer_search_locations_default_summary">क्यामेरा फोल्डरहरू (पूर्वनिर्धारित)</string>
     <string name="squeezer_min_size_title">न्यूनतम फाइल आकार</string>
@@ -34,6 +50,10 @@
     <string name="squeezer_compress_confirmation_title">छविहरू संकुचित गर्नुहोस्?</string>
     <string name="squeezer_compress_confirmation_message">यसले मूल छविहरूलाई संकुचित संस्करणहरूसँग प्रतिस्थापन गर्नेछ। यो कार्य पूर्ववत गर्न सकिँदैन।</string>
     <string name="squeezer_history_title">संकुचन इतिहास</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">1 वस्तु (%2$s)</item>
+        <item quantity="other">%1$d वस्तुहरू (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">कुनै संकुचन इतिहास छैन</string>
     <string name="squeezer_history_clear_title">संकुचन इतिहास सफा गर्नुहोस्</string>
     <string name="squeezer_history_clear_message">यसले पहिले संकुचित छविहरूलाई फिरि संकुचित गर्न अनुमति दिनेछ। छविहरू आफैं प्रभावित हुँदैनन्।</string>
@@ -57,30 +77,10 @@
     <string name="squeezer_quality_hint_low">कम गुणस्तरले अधिक स्थान बचाउँछ तर दृश्यमान कलाकृतिहरू निम्त्याउन सक्छ।</string>
     <string name="squeezer_quality_hint_high">अत्यधिक उच्च गुणस्तरले न्यूनतम स्थान बचत प्रदान गर्छ।</string>
     <string name="squeezer_quality_hint_normal">सन्तुलित गुणस्तर र स्थान बचत।</string>
-    <string name="squeezer_estimated_savings_percent">JPEG फाइलहरूको लागि अनुमानित ~%d%% बचत</string>
-    <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d छवि फेला पर्यो</item>
-        <item quantity="other">%d छविहरू फेला परिए</item>
-    </plurals>
-    <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s बचाउन सकिन्छ</item>
-        <item quantity="other">~%s बचाउन सकिन्छ</item>
-    </plurals>
-    <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d छवि संकुचित गरियो</item>
-        <item quantity="other">%d छविहरू संकुचित गरिए</item>
-    </plurals>
-    <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d छवि चयन गरियो</item>
-        <item quantity="other">%d छविहरू चयन गरिए</item>
-    </plurals>
-    <plurals name="squeezer_history_summary">
-        <item quantity="one">1 वस्तु (%2$s)</item>
-        <item quantity="other">%1$d वस्तुहरू (%2$s)</item>
-    </plurals>
     <plurals name="squeezer_min_age_x_days">
         <item quantity="one">कम्तिमा %d दिन पुरानो</item>
         <item quantity="other">कम्तिमा %d दिन पुरानो</item>
     </plurals>
+    <string name="squeezer_estimated_savings_percent">JPEG फाइलहरूको लागि अनुमानित ~%d%% बचत</string>
     <string name="squeezer_onboarding_got_it">ठिक छ</string>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">ຜູ້ໃຊ້ທີ່ມີຄວາມຕ້ອງການການເຂ້າຫາພິເສສາມາຖເປີດໃຊ້ບໍລິການນີ້ເພື່ອໃຫ້ SD Maid ທຳໃຫ້ໜ້າທີ່ຕ້ອງການການໂຕ້ຕອບຜູ້ໃຊ້ດ້ວຍຕົນເອງທີ່ໜ້າເບື່ອເປັນອັດຕະໂນມັດ (ເຊ່ນ: ການລຶ້ cache).
+
+ຕົວຢ່າງ: ຖ້າທ່ານສັ່ງໃຫ້ SD Maid ຍຸດຫຼາຍແອັບ, SD Maid ສາມາຖໃຊ້ບໍລິການນີ້ເພື່ອເປີດໜ້າຈອການຕັ້ງຄ່າຂອງແຕ່ລະແອັບ, ຊອກຫາປຸ່ມ \'Force Stop\' ແລ້ວກົດມັນ.
+
+SD Maid ຈະສະແດງໃຫ້ເຫັນຢ່າງຊັດເຈນສະເຫມໃເມື່ອໃຊ້ບໍລິການນີ້ ແລະສ້າງວິທີທີ່ງ່າຍສຳຫລັບຜູ້ໃຊ້ໃນການຍົກເລີກການໂຕ້ຕອບໃດາທັນທີ.
+
+ຈະບໍ່ມີການດຳເນີນການໃດາໂດຍບໍ່ໄດ້ຮັບການອະນຸມັດຈາກຜູ້ໃຊ້ລ່ວງໜ້າ. ບໍລິການນີ້ສາມາຖປິດໃຊ້ງານໄດ້ຕາມໃຈໂດຍບໍ່ມີຜົນກະທົບໃດາ.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid ກຳລັງໂຕ້ຕອບກັບອຸປະກອນຂອງທ່ານ. ບໍ່ສາມາຖໃຊ້ໜ້າຈອໃນເວລາດຽວກັນໄດ້. ລໍຖ້າຈນກ່ວາການດຳເນີນງານສຳເລີດຫລືອຍົກເລີກ.</string>
+    <string name="automation_active_title">SD Maid ກຳລັງເຮັດວຽກ</string>
+    <string name="automation_error_no_consent_title">ຂໍ້ຜິດພາດການອັດຕະໂນມັດ</string>
+    <string name="automation_error_no_consent_body">ບໍລິການການເຂ້າຫາຍັງບໍ່ໄດ້ຕັ້ງຄ່າ. ສຳເລີດການຕັ້ງຄ່າແລ້ວໃຫ້ຄວາມຍິນຍອມ.</string>
+    <string name="automation_error_not_enabled_title">ບໍລິການຍັງບໍ່ໄດ້ເປີດໃຊ້</string>
+    <string name="automation_error_not_enabled_body">ບໍລິການການເຂ້າຫາຖືກປິດ. ເປີດໃຊ້ຄືນໃໝ່.</string>
+    <string name="automation_error_not_running_title">ບໍລິການບໍ່ກຳລັງໃຊ້ງານ</string>
+    <string name="automation_error_not_running_body">ບໍລິການການເຂ້າຫາບໍ່ກຳລັງໃຊ້ງານ. ລອງ reboot ອຸປະກອນ.</string>
+    <string name="automation_error_screen_unavailable_title">ໜ້າຈອບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
+    <string name="automation_error_screen_unavailable_body">ການດຳເນີນງານຖືກຍົກເລີກເນື່ອງຈາກໜ້າຈອບໍ່ສາມາຖໃຊ້ງານໄດ້ (ເຊ່ນ: ໜ້າຈອດັບຫລືອ lockscreen ເປີດໃຊ້ງານ).</string>
+    <string name="automation_error_compatibility_title">ຄວາມເຂ້າກັນໄດ້ຂອງການອັດຕະໂນມັດ</string>
+    <string name="automation_error_compatibility_body">SD Maid ບໍ່ສາມາຖລະບຸຮູບແບບໜ້າຈອໄດ້. ຖ້ານີ້ຍັງເກີດຂຶ້ນ, ພາສາຫລືອການຕັ້ງຄ່າຂອງທ່ານອາດຍັງບໍ່ຮອງຮັບຍ່າງສົມບູນ. ກວດສອບການອັບເດດຫລືອຕິດຕໍ່ຂ້ອຍເພື່ອໃຫ້ຂ້ອຍສາມາຖແກ້ໄຂ.</string>
+    <string name="automation_error_timeout_title">ໜມ້ເວລາການອັດຕະໂນມັດ</string>
+    <string name="automation_error_timeout_body">SD Maid ບໍ່ສຳເລີດທຸກຂັ້ນຕອນພາຍໃນໄລຍະເວລາ. ຖ້ານີ້ຍັງເກີດຂຶ້ນ, ຂ້ອຍອາດຈຳເປັນຕ້ອງປັບແຕ່ງແອັບສຳຫລັບອຸປະກອນຂອງທ່ານ. ກວດສອບການອັບເດດຫລືອຕິດຕໍ່ຂ້ອຍເພື່ອໃຫ້ຂ້ອຍສາມາຖແກ້ໄຂ.</string>
+    <string name="automation_error_overlay_title">ຊ່ອງຊ້ອນທັບການອັດຕະໂນມັດ</string>
+    <string name="automation_error_overlay_body">SD Maid ບໍ່ສາມາຖສະແດງຊ່ອງຊ້ອນທັບການອັດຕະໂນມັດໄດ້. ກວດສອບສິດທິ່ຕ່າງາງ ແລ້ວລອງ reboot ອຸປະກອນຂອງທ່ານ.</string>
+    <string name="automation_error_scheduler_title">ການອັດຕະໂນມັດທີ່ຕັ້ງເວລາລ້ມເຫລວ</string>
+    <string name="automation_error_scheduler_body">ໜ້າທີ່ຕັ້ງເວລາໄດ້ພະຍາຍາມໃຊ້ບໍລິການການເຂ້າຫາ, ແຕ່ບໍ່ສາມາຖໃຊ້ງານໄດ້. ຖ້າທ່ານບໍ່ຕ້ອງການນີ້, ປິດໃຊ້ຕົວເລືອກ \"ບໍລິການການເຂ້າຫາ\" ໃນການຕັ້ງຄ່າ scheduler.</string>
+    <string name="automation_error_no_settings_title">ໜ້າຈອການຕັ້ງຄ່າບໍ່ສາມາຖໃຊ້ງານໄດ້</string>
+    <string name="automation_error_no_settings_body">ແອັບລະບົບນີ້ບໍ່ມີໜ້າຈອການຕັ້ງຄ່າ. ການລ້າງ cache ຜ່ານບໍລິການການເຂ້າຫາບໍ່ສາມາຖທຳໄດ້. ຍົກເວັ້ນມັນເພື່ອເລ່ງການລ້າງ cache.</string>
+    <string name="automation_loading">ກຳລັງກະກຽມການອັດຕະໂນມັດຜ່ານບໍລິການການເຂ້າຫາ</string>
+    <string name="automation_progress_find_ok_confirmation">ພະຍາຍາມຍືນຍັນການດຳເນີນງານກ່ອນໜ້າ (ຄຳສຳຄັນ: %s)</string>
+</resources>

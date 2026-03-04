@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଶୀଘ୍ର ସଫା କରନ୍ତୁ — ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
+    <string name="swiper_dashcard_description">ଏକ ଫାଇଲ୍ ଏକ୍ସପ୍ଲୋରରଠାରୁ ଅଧିକ ଶୀଘ୍ର ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ସଫା କରନ୍ତୁ — କେବଳ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
     <string name="swiper_start_action">ସ୍ୱାଇପ୍ ଆରମ୍ଭ କରନ୍ତୁ</string>
     <string name="swiper_continue_action">ସେସନ୍ ଜାରି ରଖନ୍ତୁ</string>
+    <string name="swiper_sessions_description">୩ଟି ସରଳ ପଦକ୍ଷେପରେ ଫାଇଲ୍ ସମୀକ୍ଷା କରନ୍ତୁ:\n\n1. ସ୍କାନ୍ କରିବାକୁ ଏକ ଫୋଲ୍ଡର ବାଛନ୍ତୁ\n2. ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ\n3. ଆପଣଙ୍କ ବାଛନା ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ\n\nଆପଣ ଶେଷ ବିଲୋପ ବଟନ୍ ଟ୍ୟାପ୍ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
     <string name="swiper_select_folders_action">ଫୋଲ୍ଡର ଚୟନ କରନ୍ତୁ</string>
     <string name="swiper_scanning_title">ସ୍କାନ୍ କରୁଛି…</string>
     <plurals name="swiper_result_x_items_found">
@@ -22,7 +26,7 @@
     <string name="swiper_review_action">ସମୀକ୍ଷା</string>
     <string name="swiper_status_title">ନିଷ୍ପତ୍ତି ସମୀକ୍ଷା</string>
     <string name="swiper_status_action_keep_selected">ଚୟନିତ ରଖନ୍ତୁ</string>
-    <string name="swiper_status_action_delete_selected">ଚୟନିତ ଡିଲିଟ୍ କରନ୍ତୁ</string>
+    <string name="swiper_status_action_delete_selected">ମନୋନୀତ ବିଲୋପ କରିବା</string>
     <string name="swiper_status_action_reset_selected">ଚୟନିତ ପୁନଃସେଟ୍ କରନ୍ତୁ</string>
     <string name="swiper_decision_undecided">ଅନିଷ୍ପତ୍ତିତ</string>
     <string name="swiper_retry_action">ପୁନଃଚେଷ୍ଟା</string>
@@ -107,7 +111,7 @@
     <string name="swiper_sessions_header_title">ସଫା କରିବାକୁ ପ୍ରସ୍ତୁତ?</string>
     <string name="swiper_sessions_suggestions_label">ଏଥିରୁ ଆରମ୍ଭ କରି ଚେଷ୍ଟା କରନ୍ତୁ:</string>
     <string name="swiper_sessions_suggestion_downloads">ଡାଉନଲୋଡ ଫୋଲ୍ଡର</string>
-    <string name="swiper_sessions_suggestion_screenshots">ସ୍କ୍ରୀନସଟ୍</string>
+    <string name="swiper_sessions_suggestion_screenshots">ସ୍କ୍ରିନସଟ୍</string>
     <string name="swiper_sessions_suggestion_camera">କ୍ୟାମେରା ରୋଲ୍</string>
     <string name="swiper_stamp_keep_1">ରଖନ୍ତୁ!</string>
     <string name="swiper_stamp_keep_2">ଭଲ!</string>
@@ -134,8 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ ପ୍ରତ୍ୟାବର୍ତ୍ତନ</string>
     <string name="swiper_help_title">Swiper କିପରି କାମ କରେ</string>
     <string name="swiper_help_message">ନିଷ୍ପତ୍ତି ନେବାକୁ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ:\n\n← ବାମକୁ ସ୍ୱାଇପ୍: %1$s\n→ ଡାହାଣକୁ ସ୍ୱାଇପ୍: %2$s\n↑ ଉପରକୁ ସ୍ୱାଇପ୍: ଛାଡ଼ନ୍ତୁ\n↓ ତଳକୁ ସ୍ୱାଇପ୍: ପ୍ରତ୍ୟାବର୍ତ୍ତନ (ପ୍ରଥମ ସ୍ୱାଇପ୍ ପରେ)\n\nଆପଣ ତଳେ ଥିବା ବଟନ୍ ମଧ୍ୟ ବ୍ୟବହାର କରିପାରିବେ।\n\nସମାପ୍ତ ହେଲେ, ଆପଣଙ୍କ ସମସ୍ତ ନିଷ୍ପତ୍ତି ଦେଖିବାକୁ \"ସମୀକ୍ଷା\" ଟ୍ୟାପ୍ କରନ୍ତୁ। ସମୀକ୍ଷା ସ୍କ୍ରିନରେ ନିଶ୍ଚିତ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ଶୀଘ୍ର ସଫା କରନ୍ତୁ — ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="swiper_dashcard_description">ଏକ ଫାଇଲ୍ ଏକ୍ସପ୍ଲୋରରଠାରୁ ଅଧିକ ଶୀଘ୍ର ନିର୍ଦ୍ଦିଷ୍ଟ ଫୋଲ୍ଡରଗୁଡ଼ିକୁ ସଫା କରନ୍ତୁ — କେବଳ ପ୍ରତ୍ୟେକ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ।</string>
-    <string name="swiper_sessions_description">୩ଟି ସରଳ ପଦକ୍ଷେପରେ ଫାଇଲ୍ ସମୀକ୍ଷା କରନ୍ତୁ:\n\n1. ସ୍କାନ୍ କରିବାକୁ ଏକ ଫୋଲ୍ଡର ବାଛନ୍ତୁ\n2. ରଖିବା, ବିଲୋପ କରିବା, କିମ୍ବା ଛାଡ଼ିବାକୁ ଫାଇଲ୍ ସ୍ୱାଇପ୍ କରନ୍ତୁ\n3. ଆପଣଙ୍କ ବାଛନା ସମୀକ୍ଷା କରନ୍ତୁ ଏବଂ ନିଶ୍ଚିତ କରନ୍ତୁ\n\nଆପଣ ଶେଷ ବିଲୋପ ବଟନ୍ ଟ୍ୟାପ୍ ନ କରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବିଲୋପ ହେବ ନାହିଁ।</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ବୁଝିଗଲି</string>
+    <string name="swiper_help_action">ସାହାଯ୍ୟ</string>
 </resources>

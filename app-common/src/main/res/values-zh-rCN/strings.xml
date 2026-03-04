@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">感谢</string>
     <string name="general_error_type_mismatch_msg">类型不匹配：目标 %1$s ，却得到 %2$s 。</string>
     <string name="general_error_cant_access_msg">无法访问 %s 。</string>
-    <string name="general_error_root_unavailable">无法获取 Root 权限</string>    <string name="general_error_no_compatible_app_found_msg">未找到兼容的应用来处理此请求</string>
+    <string name="general_error_root_unavailable">无法获取 Root 权限</string>
+    <string name="general_error_no_compatible_app_found_msg">未找到兼容的应用来处理此请求</string>
     <string name="general_todo_msg">此功能仍在开发中，暂不可用</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_apply_action">应用</string>
-    <string name="general_copy_action">复制</string>    <string name="general_cancel_action">取消</string>
+    <string name="general_copy_action">复制</string>
+    <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">放弃</string>
     <string name="general_reset_action">重置</string>
     <string name="general_drag_handle_description">拖动以重新排序</string>
-    <string name="general_save_action">保存</string>    <string name="general_gotit_action">明白</string>
+    <string name="general_save_action">保存</string>
+    <string name="general_gotit_action">明白</string>
     <string name="general_fix_action">修复</string>
     <string name="general_set_up_action">设置</string>
     <string name="general_edit_action">编辑</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">系统</string>
     <string name="setup_title">设置</string>
     <string name="setup_feature_requires_additional_setup_x">使用此功能前需要额外设置： %s</string>
+    <string name="upgrade_feature_requires_pro">需要专业版</string>
+    <string name="general_include_multiuser_label">包括其他用户</string>
+    <string name="general_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
+    <string name="general_unsaved_confirmation_message">您有未保存的更改！</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">已创建 %d 个排除项。</item>
     </plurals>
@@ -171,7 +178,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">历史</string>
     <string name="settings_category_tools_label">工具</string>
-    <string name="general_include_multiuser_label">包含其他用户</string>
-    <string name="general_include_multiuser_summary">包含此设备上其他用户配置文件的应用。</string>
-    <string name="general_unsaved_confirmation_message">您有未保存的更改！</string>
 </resources>

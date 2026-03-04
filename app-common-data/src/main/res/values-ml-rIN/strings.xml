@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">പൊതു സ്റ്റോറേജ്</string>
+    <string name="area_type_public_media_label">പൊതു ആപ്പ് മീഡിയ</string>
+    <string name="area_type_public_data_label">പൊതു ആപ്പ് ഡേറ്റ</string>
+    <string name="area_type_public_obb_label">പൊതു ആപ്പ് റിസോഴ്‌സുകൾ</string>
+    <string name="area_type_private_data_label">സ്വകാർയ ആപ്പ് ഡേറ്റ</string>
+    <string name="area_type_portable_label">പോർട്ടബിൾ സ്റ്റോറേജ്</string>
+</resources>

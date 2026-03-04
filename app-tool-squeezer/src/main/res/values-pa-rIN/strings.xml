@@ -17,7 +17,7 @@
         <item quantity="one">%d ਤਸਵੀਰ ਚੁਣੀ ਗਈ</item>
         <item quantity="other">%d ਤਸਵੀਰਾਂ ਚੁਣੀਆਂ ਗਈਆਂ</item>
     </plurals>
-    <string name="squeezer_search_locations_title">ਖੋਜ ਟਿਕਾਣੇ</string>
+    <string name="squeezer_search_locations_title">ਖੋਜ ਸਥਾਨ</string>
     <string name="squeezer_search_locations_default_summary">ਕੈਮਰਾ ਫੋਲਡਰ (ਮੂਲ)</string>
     <string name="squeezer_min_size_title">ਘੱਟੋ-ਘੱਟ ਫਾਈਲ ਆਕਾਰ</string>
     <string name="squeezer_min_size_description">ਇਸ ਆਕਾਰ ਤੋਂ ਛੋਟੀਆਂ ਤਸਵੀਰਾਂ ਛੱਡੋ।</string>
@@ -31,7 +31,9 @@
     <string name="squeezer_quality_warning_low">ਘੱਟ ਗੁਣਵੱਤਾ ਦਿਖਾਈ ਦੇਣ ਵਾਲੀਆਂ ਖਾਮੀਆਂ ਪੈਦਾ ਕਰ ਸਕਦੀ ਹੈ।</string>
     <string name="squeezer_quality_warning_high">ਬਹੁਤ ਉੱਚੀ ਗੁਣਵੱਤਾ ਘੱਟ ਥਾਂ ਬਚਾਉਂਦੀ ਹੈ।</string>
     <string name="squeezer_types_category_label">ਤਸਵੀਰ ਕਿਸਮਾਂ</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG ਤਸਵੀਰਾਂ (.jpg, .jpeg) ਸ਼ਾਮਲ ਕਰੋ।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP ਤਸਵੀਰਾਂ (.webp) ਸ਼ਾਮਲ ਕਰੋ।</string>
     <string name="squeezer_skip_compressed_title">ਪਹਿਲਾਂ ਕੰਪ੍ਰੈਸ ਕੀਤੀਆਂ ਛੱਡੋ</string>
     <string name="squeezer_skip_compressed_description">SD Maid ਦੁਆਰਾ ਪਹਿਲਾਂ ਹੀ ਕੰਪ੍ਰੈਸ ਕੀਤੀਆਂ ਤਸਵੀਰਾਂ ਛੱਡੋ।</string>
@@ -65,7 +67,7 @@
     <string name="squeezer_result_empty_message">ਕੋਈ ਕੰਪ੍ਰੈਸ ਹੋਣ ਯੋਗ ਤਸਵੀਰਾਂ ਨਹੀਂ ਮਿਲੀਆਂ।</string>
     <string name="squeezer_setup_warning">ਕੰਪ੍ਰੈਸ਼ਨ ਸਟੋਰੇਜ ਬਚਾਉਣ ਲਈ ਤਸਵੀਰ ਦੀ ਗੁਣਵੱਤਾ ਸਥਾਈ ਤੌਰ \'ਤੇ ਘਟਾਉਂਦੀ ਹੈ। ਇਹ ਵਾਪਸ ਨਹੀਂ ਕੀਤੀ ਜਾ ਸਕਦੀ। ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਧਿਆਨ ਨਾਲ ਦੇਖੋ।</string>
     <string name="squeezer_setup_explanation">ਮੀਡੀਆ ਸਕੁਈਜ਼ ਸਟੋਰੇਜ ਖਾਲੀ ਕਰਨ ਲਈ ਤਸਵੀਰਾਂ ਦਾ ਫਾਈਲ ਆਕਾਰ ਘਟਾਉਂਦਾ ਹੈ। ਇਹ ਸਥਾਈ ਤੌਰ \'ਤੇ ਤਸਵੀਰ ਦੀ ਗੁਣਵੱਤਾ ਘਟਾਉਂਦਾ ਹੈ ਅਤੇ ਵਾਪਸ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਦਾ। ਸ਼ੁਰੂ ਕਰਨ ਤੋਂ ਪਹਿਲਾਂ ਆਪਣੀਆਂ ਸੈਟਿੰਗਾਂ ਧਿਆਨ ਨਾਲ ਦੇਖੋ।</string>
-    <string name="squeezer_setup_paths_title">ਖੋਜ ਟਿਕਾਣੇ</string>
+    <string name="squeezer_setup_paths_title">ਖੋਜ ਸਥਾਨ</string>
     <string name="squeezer_setup_paths_default">ਖੋਜਣ ਲਈ ਫੋਲਡਰ ਚੁਣੋ</string>
     <string name="squeezer_setup_quality_title">ਕੰਪ੍ਰੈਸ਼ਨ ਗੁਣਵੱਤਾ</string>
     <string name="squeezer_setup_age_title">ਘੱਟੋ-ਘੱਟ ਉਮਰ</string>
@@ -80,4 +82,5 @@
         <item quantity="other">ਘੱਟੋ-ਘੱਟ %d ਦਿਨ ਪੁਰਾਣੀ</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ਫਾਈਲਾਂ ਲਈ ਅੰਦਾਜ਼ਨ ~%d%% ਬੱਚਤ</string>
+    <string name="squeezer_onboarding_got_it">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
 </resources>

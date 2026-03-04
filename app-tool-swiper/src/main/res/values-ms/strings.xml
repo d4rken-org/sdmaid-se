@@ -20,7 +20,7 @@
     <string name="swiper_item_position">#%1$d daripada %2$d</string>
     <string name="swiper_keep_action">Simpan</string>
     <string name="swiper_skip_action">Langkau</string>
-    <string name="swiper_review_action">Semak</string>
+    <string name="swiper_review_action">Ulas aplikasi</string>
     <string name="swiper_status_title">Semak keputusan</string>
     <string name="swiper_status_action_keep_selected">Simpan yang dipilih</string>
     <string name="swiper_status_action_delete_selected">Padam yang dipilih</string>
@@ -101,7 +101,7 @@
     <string name="swiper_stamp_keep_3">Ya!</string>
     <string name="swiper_stamp_keep_4">Kekal!</string>
     <string name="swiper_stamp_delete_1">Tidak!</string>
-    <string name="swiper_stamp_delete_2">Bye!</string>
+    <string name="swiper_stamp_delete_2">Selamat tinggal!</string>
     <string name="swiper_stamp_delete_3">Sampah!</string>
     <string name="swiper_stamp_delete_4">Padam!</string>
     <string name="swiper_stamp_skip_1">Langkau!</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
     <string name="swiper_help_title">Cara Swiper berfungsi</string>
     <string name="swiper_help_message">Leret setiap fail untuk membuat keputusan:\n\n← Leret ke kiri: %1$s\n→ Leret ke kanan: %2$s\n↑ Leret ke atas: Langkau\n↓ Leret ke bawah: Batal (selepas leretan pertama)\n\nAnda juga boleh menggunakan butang di bahagian bawah.\n\nApabila selesai, ketik \"Semak\" untuk melihat semua keputusan anda. Tiada apa yang dipadam sehingga anda mengesahkan pada skrin semakan.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Faham</string>
+    <string name="swiper_help_action">Bantu</string>
 </resources>

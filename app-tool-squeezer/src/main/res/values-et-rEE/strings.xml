@@ -82,4 +82,5 @@
         <item quantity="other">Vähemalt %d päeva vana</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Umbes %d%% sääst JPEG failide puhul</string>
+    <string name="squeezer_onboarding_got_it">Selge!</string>
 </resources>

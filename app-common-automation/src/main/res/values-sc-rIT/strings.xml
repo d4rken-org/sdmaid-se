@@ -4,8 +4,11 @@
     <string name="automation_screenoverlay_explanation">SD Maid est interaghende cun su dispositivu tuo. No est possìbile impreare s\'ischermada in su matessi tempus. Aspeta fintzas a chi s\'operatzione siat finida o annulla·la.</string>
     <string name="automation_active_title">SD Maid est trabalende</string>
     <string name="automation_error_no_consent_title">Errore de automatizatzione</string>
+    <string name="automation_error_no_consent_body">Su servìtziu de accessibilidade no est configuradu. Cumpleta sa configuratzione e dai su consèntidu.</string>
     <string name="automation_error_not_enabled_title">Su servitziu no est abilitadu</string>
+    <string name="automation_error_not_enabled_body">Su servìtziu de accessibilidade est disabilitadu. Abilitalo de noe.</string>
     <string name="automation_error_not_running_title">Su servitziu no est eseguende</string>
+    <string name="automation_error_not_running_body">Su servìtziu de accessibilidade no est in funtzionamentu. Prova a ripartire su dispositivu.</string>
     <string name="automation_error_screen_unavailable_title">Ischermada non disponìbile</string>
     <string name="automation_error_screen_unavailable_body">S\'operatzione est istada interrotta ca s\'ischermada est diventada non disponìbile (es. ischermada istudada o ischermada de blocu ativa).</string>
     <string name="automation_error_compatibility_title">Cumpatibilidade de automatizatzione</string>
@@ -14,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid no at cumpletu totu is passos intro de su lìmite de tempus. Si custu sighit a sutzèdere, devet agiu¬zare s\'aplicatzione pro su dispositivu tuo. Verifica pro agiornamentos o cuntata·mene a mie ca devo currigere.</string>
     <string name="automation_error_overlay_title">Sovrapositzinde de automatizatzione</string>
     <string name="automation_error_overlay_body">SD Maid no at potu ammustrare sa sovrapositzinde de automatizatzione. Verifica is permissos e prova a torrare a incendere su dispositivu tuo.</string>
+    <string name="automation_error_scheduler_title">S\'automatizatzione programmada at fallidu</string>
+    <string name="automation_error_scheduler_body">Una tarèa programmada at provadu a usare su servìtziu de accessibilidade, ma non fiat disponi»le. Si non ti bisòngiat custu, disabilita s\'optzione \"Servìtziu de accessibilidade\" in sas impostatziones de su programadore.</string>
     <string name="automation_error_no_settings_title">Ischermada de impostatziones non disponìbile</string>
     <string name="automation_error_no_settings_body">Custa aplicatzione de sistema no tenet ischermada de impostatziones. Sa limpiadela de cache a travessu de servitziu de atzessibilidade no est possìbile. Esclude·dda pro isvelterrire sa limpiadela de cache.</string>
-    <string name="automation_loading">Preparende automatizatzione a travessu de servitziu de atzessibilidade</string>
-    <string name="automation_progress_find_ok_confirmation">Proende de confirmaren s\'atzione antekerente (faeddas crae: %s)</string>
+    <string name="automation_loading">Preparende s\'automatizatzione tràmite su servitziu de atzessibilidade</string>
+    <string name="automation_progress_find_ok_confirmation">Provende a cunfirmare s\'atzione in antis (faeddos crae: %s)</string>
 </resources>

@@ -47,8 +47,11 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">Датотеке послате са WhatsApp осталима.</string>
     <string name="appcleaner_filter_telegram_label">Telegram медијске датотеке</string>
     <string name="appcleaner_filter_telegram_summary">Датотеке примљене или послате преко Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">Датотеке примљене преко Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Послате или примљене датотеке у разговорима и WeChat тренуцима.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">Кеширане медијске датотеке које се поново преузимају када се прикажу у чету.</string>
     <string name="appcleaner_filter_qqchat_label">QQ чет</string>
     <string name="appcleaner_filter_qqchat_summary">Послате или примљене датотеке у QQ чет разговорима.</string>
@@ -89,4 +92,10 @@
     <string name="appcleaner_forcestop_before_clearing_label">Принудно заустави пре чишћења</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Принудно заустави апликације пре чишћења њиховог кеша. Може помоћи у чишћењу кеша неких апликација, али може проузроковати неисправно понашање апликација које захтевају ручно покретање.</string>
     <string name="appcleaner_progress_force_stopping">Принудно заустављање апликација…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Ова системска апликација нема екран подешавања. Брисање кеша преко сервиса приступачности није могуће. Искључите је да убрзате брисање кеша.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Екран подешавања недоступан</string>
+    <string name="appcleaner_automation_loading">Припремање аутоматизације преко сервиса приступачности</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Покушава потврду претходне акције (кључне речи: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Укључи остале кориснике</string>
+    <string name="appcleaner_include_multiuser_summary">Укључи апликације из осталих корисничких профила на овом уређају.</string>
 </resources>

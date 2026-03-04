@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">Jakin ezazu zer hartzen duen lekua zure gailuan.</string>
+    <string name="analyzer_progress_scanning_device">Biltegiratze-gailuak bilatzen</string>
+    <string name="analyzer_progress_scanning_storage">Biltegiratzea eskaneatzen</string>
+    <string name="analyzer_progress_scanning_apps">Aplikazioak eskaneatzen</string>
+    <string name="analyzer_progress_scanning_userfiles">Erabiltzaile-fitxategiak bilatzen</string>
+    <string name="analyzer_progress_scanning_system">Sistema-datuak eskaneatzen</string>
+    <string name="analyzer_device_storage_title">Gailuaren biltegiratzea</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s erabilgarri</item>
+        <item quantity="other">%s erabilgarri</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s erabilia</item>
+        <item quantity="other">%s erabilia</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Ez dago zuzeneko sarbiderik erabilgarri</string>
+    <string name="analyzer_content_create_swiper_session_action">Sortu Swiper saioa</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper saioa sortu da %d elementurekin</item>
+        <item quantity="other">Swiper saioa sortu da %d elementurekin</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Lehen mailako biltegiratzea</string>
+    <string name="analyzer_storage_type_primary_description">Zure gailuaren lehen mailako biltegiratzea. Barne SD txartela, aplikazioen biltegiratzea pribatua eta sistema-datuak ditu.</string>
+    <string name="analyzer_storage_type_secondary_title">Bigarren mailako biltegiratzea</string>
+    <string name="analyzer_storage_type_secondary_description">Bigarren mailako biltegiratzea, normalean kengarria den SD txartel bat. Multimedia-fitxategiak eta hori onartzen duten aplikazioen datuak ditu.</string>
+    <string name="analyzer_storage_type_tertiary_title">Biltegiratzea eramangarria</string>
+    <string name="analyzer_storage_type_tertiary_description">Biltegiratzea eramangarria, adibidez, USB atakara konektatutako flash unitate bat.</string>
+    <string name="analyzer_storage_content_title">Biltegiratzearen edukia</string>
+    <string name="analyzer_storage_content_type_app_label">Aplikazioak</string>
+    <string name="analyzer_storage_content_type_app_description">Instalatutako aplikazioek eta haien datuek hartutako lekua (hau da, aplikazio-fitxategiak, datuak eta cacheak).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Baimenak falta dira</string>
+    <string name="analyzer_storage_content_type_media_label">Erabiltzaile-fitxategiak</string>
+    <string name="analyzer_storage_content_type_media_description">Ateratako argazkiak, grabatutako bideoak edo deskargatutako datuak. Aplikazio zehatz bati ez dagokion edozein datu.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistema-datuak</string>
+    <string name="analyzer_storage_content_type_system_description">Sistema-aplikazioak eta sistema-datuak. Beste erabiltzaileen aplikazioak eta datuak, gailu honetan hainbat erabiltzaile-kontu konfiguratuta badaude.</string>
+    <string name="analyzer_storage_content_app_code_label">Aplikazioaren kodea</string>
+    <string name="analyzer_storage_content_app_code_description">Aplikazio-fitxategiak, liburutegiak eta baliabideak. Leku hau askatu daiteke aplikazioa desinstalatu edo artxibatuz (Android bertsio berrietan erabilgarri).</string>
+    <string name="analyzer_storage_content_app_data_label">Aplikazioaren datuak</string>
+    <string name="analyzer_storage_content_app_data_description">Datuak, ezarpenak eta cacheak.</string>
+    <string name="analyzer_storage_content_app_media_label">Aplikazioaren multimedia</string>
+    <string name="analyzer_storage_content_app_media_description">Aplikazio honen multimedia-fitxategiak, adibidez, jasotako WhatsApp argazkiak.</string>
+    <string name="analyzer_storage_content_app_extra_label">Aplikazioaren fitxategi gehigarriak</string>
+    <string name="analyzer_storage_content_app_extra_description">Aplikazio honek bide lehenetsietatik kanpo jarri dituen datu gehigarriak, adibidez, argazkiak edo deskargak.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Aplikazio honek %1$s hartzen du \"%2$s\"-n.</string>
+    <string name="analyzer_app_details_app_is_archived">Aplikazio hau artxibatuta dago.</string>
+</resources>

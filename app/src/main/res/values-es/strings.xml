@@ -24,6 +24,10 @@
         <item quantity="other">%1$d archivos listos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza (por ejemplo, un desarrollador que solucione un problema).</string>
+    <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
+    <string name="debug_debuglog_short_recording_desc">La grabación fue muy corta. Los registros de depuración son grabaciones, no instantáneas — reproduce el problema mientras la grabación está activa para que el registro sea útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar grabando</string>
+    <string name="debug_debuglog_short_recording_stop_action">Detener de todas formas</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -90,12 +94,12 @@
     <string name="support_installid_desc">Los informes de errores automáticos son anónimos. Comparte tu identificador de la instalación si el desarrollador necesita encontrar tus informes de errores.</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puedas compartir.</string>
-    <string name="support_debuglog_folder_label">Carpeta de registros de depuración</string>
+    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d archivo usando %2$s</item>
         <item quantity="other">%1$d archivos usando %2$s</item>
     </plurals>
-    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
+    <string name="support_debuglog_folder_empty_desc">Sin registros de depuración guardados</string>
     <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
@@ -210,13 +214,14 @@
     <string name="debug_mode_explanation">Habilite las opciones de prueba y una salida más detallada. La aplicación se ejecutará más lentamente y funcionará de manera diferente.</string>
     <string name="debug_bugreporter_label">Informes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Informa automáticamente de los fallos, por ejemplo, de los detalles de los bloqueos de la aplicación para que pueda averiguar el por qué y solucionarlos.</string>
-    <string name="debug_card_title">El modo de depuración está habilitado</string>
-    <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
-    <string name="debug_card_dryrun_mode_label">Modo de ejecución en seco (desactivar eliminación)</string>
-    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
-    <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
-    <string name="debug_card_root_test_action">Probar root</string>
-    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El modo de depuración está activado</string>
+    <string name="debug_card_trace_mode_label">Activar el modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de simulación (desactivar la eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar las áreas de los datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar las aplicaciones</string>
+    <string name="debug_card_root_test_action">Probar el modo root</string>
+    <string name="debug_card_shizuku_test_action">Probar con Shizuku</string>
     <string name="settings_category_filter">Filtrar</string>
     <string name="settings_category_risklevel">Nivel del riesgo</string>
     <string name="data_area_public_app_data_official_label">Datos públicos por defecto de la aplicación</string>
@@ -259,4 +264,5 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo a un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Escanear + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

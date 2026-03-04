@@ -24,6 +24,10 @@
         <item quantity="other">%1$d fayl tayyor (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Bu xususiyat ilovaning barcha faoliyatini baham ko\'rish mumkin bo\'lgan faylga yozadi. Yaratilgan fayl maxfiy ma\'lumotlarni o\'z ichiga oladi (masalan, fayl nomlari va o\'rnatilgan ilovalar). Uni faqat ishonchli tomonlar bilan baham ko\'ring (masalan, muammoni hal qilayotgan ishlab chiqaruvchi).</string>
+    <string name="debug_debuglog_short_recording_title">Juda qisqa yozuv</string>
+    <string name="debug_debuglog_short_recording_desc">Yozuv juda qisqa bo\'ldi. Debug jurnallari — bu yozuvlar, emas rasmlar — jurnal foydali bo\'lishi uchun yozuv faol bo\'lganida muammoni takrorlang.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Yozuvni davom ettirish</string>
+    <string name="debug_debuglog_short_recording_stop_action">Baribir to\'xtatish</string>
     <string name="tasks_activity_notification_channel_label">Faol vazifalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid ishlayapti</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Bu barcha saqlangan xatolik log sessiyalarini butunlay o\'chiradi. Bu amalni qaytarib bo\'lmaydi.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Muloqot qilish va savollar berish uchun joy.</string>
+    <string name="support_contact_label">Dasturchi bilan bog\'lanish</string>
+    <string name="support_contact_desc">Dasturchiga elektron pochta yuborish uchun shaklni to\'ldiring.</string>
+    <string name="support_contact_welcome">Men har bir xabarni o\'zim o\'qiyman va javob berishga harakat qilaman, lekin buni yolg\'iz qilganimda, biroz vaqt ketishi mumkin. Sabr-toqatingiz uchun rahmat.</string>
+    <string name="support_contact_footer">Xabaringiz elektron pochta orqali yuboriladi. Qurilma va sozlamalar haqidagi ma\'lumotlar avtomatik ravishda biriktiriladi. Elektron pochtaga skrinshotlar yoki video qo\'shishingiz mumkin. Pochtaning ba\'zi qismlari ingliz tilida bo\'ladi, shunda dasturchi uni osongina tushunishi mumkin.</string>
+    <string name="support_contact_category_label">Kategoriya</string>
+    <string name="support_contact_category_bug_label">Xato hisoboti</string>
+    <string name="support_contact_category_feature_label">Xususiyat so\'rovi</string>
+    <string name="support_contact_category_question_label">Savol</string>
+    <string name="support_contact_tool_label">Tegishli vosita</string>
+    <string name="support_contact_tool_appcleaner_label">Ilova tozalagich</string>
+    <string name="support_contact_tool_corpsefinder_label">Qoldiqlarni topuvchi</string>
+    <string name="support_contact_tool_systemcleaner_label">Tizim tozalagich</string>
+    <string name="support_contact_tool_deduplicator_label">Takrorlovchi</string>
+    <string name="support_contact_tool_analyzer_label">Analizator</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Rejalashtiruvchi</string>
+    <string name="support_contact_tool_general_label">Umumiy</string>
+    <string name="support_contact_description_label">Tavsif</string>
+    <string name="support_contact_description_bug_hint">Nima sodir bo\'lganini va muammoni qanday takrorlashni tasvirlab bering. Iltimos, aniq bo\'ling (kamida 20 ta so\'z).</string>
+    <string name="support_contact_description_feature_hint">Siz ko\'rishni xohlagan xususiyatni tasvirlab bering. Iltimos, aniq bo\'ling (kamida 20 ta so\'z).</string>
+    <string name="support_contact_description_question_hint">Savolingizni batafsil tasvirlab bering. Iltimos, aniq bo\'ling (kamida 20 ta so\'z).</string>
+    <string name="support_contact_expected_label">Kutilgan xatti-harakat</string>
+    <string name="support_contact_expected_hint">Nima bo\'lishini kutganingizni tasvirlab bering (kamida 10 ta so\'z).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d so\'z</item>
+        <item quantity="other">%1$d / %2$d so\'z</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Debug jurnal</string>
+    <string name="support_contact_debuglog_zip_error">Debug jurnalini siqib bo\'lmadi</string>
+    <string name="support_contact_debuglog_picker_hint">Mavjud debug jurnalini biriktiring yoki yangisini yozib oling.</string>
+    <string name="support_contact_debuglog_picker_empty">Debug jurnallari topilmadi. Avval birini yozib oling.</string>
+    <string name="support_contact_send_action">Elektron pochta ilovasini ochish</string>
+    <string name="support_contact_no_email_app">Bu qurilmada elektron pochta ilovasi topilmadi.</string>
     <string name="changelog_label">O\'zgarishlar jurnali</string>
     <string name="settings_acknowledgements_label">Minnatdorchilik</string>
     <string name="settings_acknowledgements_category_translations_title">Tarjimalar</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Sinov variantlarini va batafsil natijalarni yoqish. Ilova sekinroq ishlaydi va boshqacha ishlaydi.</string>
     <string name="debug_bugreporter_label">Avtomatik xato hisobotlari</string>
     <string name="debug_bugreporter_summary">Muammolarni avtomatik hisobot qiladi, masalan, ilova ishlamay qolishi haqidagi tafsilotlar, shuning uchun men nima sababdan ekanligini aniqlay olaman va uni tuzataman.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Xatoliklarni tuzatish rejimi yoqilgan</string>
     <string name="debug_card_trace_mode_label">Iz rejimini yoqish</string>
     <string name="debug_card_dryrun_mode_label">Sinov rejimi (o\'chirishni o\'chirish)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Yorliqlar</string>
     <string name="shortcuts_onetap_enabled_title">Bir bosish yorlig\'i</string>
     <string name="shortcuts_onetap_enabled_summary">Ilova belgisini uzoq bosganda \"Skanerlash + O\'chirish\" yorlig\'ini ko\'rsatish. Bir bosishli boshqaruv paneli bilan bir xil vositalardan foydalanadi.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

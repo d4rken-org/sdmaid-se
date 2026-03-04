@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid ei suorittanut kaikkia vaiheita aikarajan sisällä. Jos tämä jatkuu, minun täytyy ehkä säätää sovellusta laitteellesi. Tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
     <string name="automation_error_overlay_title">Automaation peittokuva</string>
     <string name="automation_error_overlay_body">SD Maid ei voinut näyttää automaation peittokuvaa. Tarkista käyttöoikeudet ja yritä käynnistää laitteesi uudelleen.</string>
+    <string name="automation_error_scheduler_title">Ajoitettu automaatio epäonnistui</string>
+    <string name="automation_error_scheduler_body">Ajoitettu tehtävä yritti käyttää esteettömyyspalvelua, mutta se ei ollut käytettävissä. Jos et tarvitse tätä, poista käytöstä \"Esteettömyyspalvelu\"-vaihtoehto ajastimen asetuksista.</string>
     <string name="automation_error_no_settings_title">Asetuksia ei löytynyt</string>
     <string name="automation_error_no_settings_body">Sovelluksen asetuksia ei löytynyt automaattista siivousta varten.</string>
-    <string name="automation_loading">Ladataan automaattista siivousta</string>
-    <string name="automation_progress_find_ok_confirmation">Etsitään OK-vahvistusta</string>
+    <string name="automation_loading">Valmistellaan automaatiota saavutettavuuspalvelun kautta</string>
+    <string name="automation_progress_find_ok_confirmation">Yritetään vahvistaa edellinen toiminto (avainsanat: %s)</string>
 </resources>

@@ -24,6 +24,10 @@
         <item quantity="other">%1$d archìvios prontos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Custa caraterìstica registrat totu su chi s\'aplicatzione est faghende in unu documentu chi podet èssere cumpartidu. Su documentu generadu cuntenet informatziones sensìbiles (es. nòmenes de documentos e aplicatziones installadas). Cumpartie·ddu petzi cun partes de fidùtzia (es. unu isviluppadore chi est risolvende unu problema).</string>
+    <string name="debug_debuglog_short_recording_title">Registratzione meda curta</string>
+    <string name="debug_debuglog_short_recording_desc">Sa registratzione est istada meda curta. Sos log de debug sunt registratziones, no instantàneas — reproduxi su problema mentres sa registratzione est ativa pro chi su log siat ùtile.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continua sa registratzione</string>
+    <string name="debug_debuglog_short_recording_stop_action">Ferma igualmente</string>
     <string name="tasks_activity_notification_channel_label">Traballos ativos</string>
     <string name="tasks_activity_working_notification_title">SD Maid est trabalende</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">Ottenere ispàtziu de archìviu limpende a pustis de àteras aplicatziones. Cantzellare documentos chi si podent ispentzare e bogare datos chi abarrant.</string>
     <string name="onboarding_welcome_body_beta">Custa est una versione beta (de proa). Andare innantis cun sensu de umor e unu piano de resèrvia. Pro praghere, raporta is problemas chi incontras.</string>
     <string name="onboarding_welcome_continue_action">Continuare</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (o semmo SD Maid 2) est s\'erede de SD Maid (o semmo SD Maid 1). Una aplicatzione noa, otimizada pro Android moderno.</string>
     <string name="onboarding_versus_body2">S\'architetura de s\'antecessore suo tenet prus de 7 annos e no est istada progetada pro is isfidas de is versiones noas de Android. Una riprogetatzione cumpleta est istada netzessària pro continuare su isviluppu.</string>
     <string name="onboarding_versus_body3">Cunsidera de cambiare a SD Maid SE pro risultados mègius.</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">Istile de tema</string>
     <string name="ui_theme_style_setting_explanation">S\'istile de colore impreau pro s\'aspetu de s\'aplicaçione.</string>
     <string name="ui_theme_style_default_label">Predeterminàu</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Anteprimas de archivios</string>
     <string name="ui_previews_summary">Mustra anteprimas de archivios in totu sos ainas (e.g. miniaturinas de imàgines e video).</string>
     <string name="ui_language_override_label">Limba de s\'aplicaçione</string>
@@ -96,9 +102,49 @@
     <string name="support_debuglog_folder_empty_desc">Perunu registru de debug serbadu</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Cantzellare totu is registros de debug?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Custu at a cantzellare in manera permanente totu is sessiones de registru de debug serbadas. Custa atzione non si podet annullare.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Unu logu pro si riunire e faghere preguntas.</string>
+    <string name="support_contact_label">Contata su sviluppadore</string>
+    <string name="support_contact_desc">Cumpila unu formulàriu pro mandare un\'email a su sviluppadore.</string>
+    <string name="support_contact_welcome">Leo ogni messàgiu deo etotu e faghe su mellus pro rispòndere, ma poiché trabàgio deo solu, podet bisòngere de unu pagu de tempus. Gràtzias pro sa paghièntzia tua.</string>
+    <string name="support_contact_footer">Su messàgiu tuo at a èssere mandadu via email. Sas informatzionis de su dispositivu e de sa cunfiguratzione so allegradu automàticament. Podes allacciare screenshot o unu video a s\'email. Calicuna parte de s\'email at a èssere in inglesu pro chi su sviluppadore la potzat cumprèndere fàcilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_bug_label">Sinnalazione de bugheddas</string>
+    <string name="support_contact_category_feature_label">Pedida de funtzionalidade</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_tool_label">Strumentu collegadu</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Programmadore</string>
+    <string name="support_contact_tool_general_label">Generale</string>
+    <string name="support_contact_description_label">Descritzione</string>
+    <string name="support_contact_description_bug_hint">Descrivi s\'acontèssidu e comente reproduzire su problema. Sii esplìtzitu (mìnimu 20 paràulas).</string>
+    <string name="support_contact_description_feature_hint">Descrivi sa funtzionalidade chi boles bidere. Sii esplìtzitu (mìnimu 20 paràulas).</string>
+    <string name="support_contact_description_question_hint">Descrivi sa pregunta tua in detàlliu. Sii esplìtzitu (mìnimu 20 paràulas).</string>
+    <string name="support_contact_expected_label">Cumportamentu prevídidu</string>
+    <string name="support_contact_expected_hint">Descrivi su chi ti aspettaias chi atzertaret (mìnimu 10 paràulas).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d paràula</item>
+        <item quantity="other">%1$d / %2$d paràulas</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log de debug</string>
+    <string name="support_contact_debuglog_zip_error">Fallidu su compressamentu de su registru de debug</string>
+    <string name="support_contact_debuglog_picker_hint">Allegara unu registru de debug esistente, o registra unu nou.</string>
+    <string name="support_contact_debuglog_picker_empty">No si son atopados registros de debug. Registra·nde unu prima.</string>
+    <string name="support_contact_send_action">Abri s\'aplicatzione de email</string>
+    <string name="support_contact_no_email_app">Non si est atopada nessuna aplicatzione de email in custu dispositivu.</string>
     <string name="changelog_label">Registru de cambiamentos</string>
     <string name="settings_acknowledgements_label">Arregonoschentos</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduziones</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Chi at traduttu custa?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Gràtzias</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Gràtzias spetziales a is amigos nostros.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licèntzias</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software impreadu de SD Maid.</string>
     <string name="setup_label">Cunfiguratzione</string>
     <string name="setup_incomplete_card_title">Cunfiguratzione incumpleta</string>
     <string name="setup_incomplete_card_body">Cumpletare sa cunfiguratzione de SD Maid pro ottenner mègius risultados.</string>
@@ -124,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">Impreare s\'atzessu root si est disponìbile</string>
     <string name="setup_root_disable_root_use_label">Non impreare s\'atzessu root</string>
     <string name="setup_root_card_body2">Disponibile petzi in dispositivos cun root. Si no as fatu custa modifica, tando su dispositivu tuo no tenet root e custa impostatzione no tenet efetu.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permitere a SD Maid de impreare Shizuku cando est possìbile pro megiorare is risultados e abilitare caraterìsticas.</string>
     <string name="setup_shizuku_card_body2">Custa impostatzione no tenet efetu si s\'aplicatzione Shizuku no est cunfigurada in su dispositivu tuo.</string>
     <string name="setup_shizuku_card_root_info">Shizuku in cumbinatzione cun s\'atzessu root no abilitat caraterìsticas additzionales, ma megiorat s\'affidabilidade. SD Maid dd\'at a impreare comente mètodu de riserva.</string>
@@ -167,6 +214,7 @@
     <string name="debug_mode_explanation">Abilitare optziones de test e produtzione prus verbosa. S\'aplicatzione at a funtzionare prus a su largu e si at a comportare in manera diferente.</string>
     <string name="debug_bugreporter_label">Rapòrtos de errores automàticos</string>
     <string name="debug_bugreporter_summary">Raportat automàticamente is problemas, pro es. detallios subra de is colassos de s\'aplicatzione pro chi mì potza ischire ca dda·nde benit e dd\'aggiudare.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Su modu de debug est ativadu</string>
     <string name="debug_card_trace_mode_label">Ativa su modu de trassa</string>
     <string name="debug_card_dryrun_mode_label">Modu de prova (disativa sa cantzelladura)</string>
@@ -216,4 +264,5 @@
     <string name="shortcuts_settings_category">Iscurtzadas</string>
     <string name="shortcuts_onetap_enabled_title">Iscurtzada de unu tocu</string>
     <string name="shortcuts_onetap_enabled_summary">Mustra s\'iscurtzada \"Chirca + Cantzella\" cando si prèmit a longu s\'icone de s\'aplicatzione. Impitat is matessi istrumentos de su pannellu de unu tocu.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

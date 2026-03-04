@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ధన్యవాదాలు</string>
     <string name="general_error_type_mismatch_msg">రకం సరిపోలేదు: %1$s కావాలి, కానీ %2$s వచ్చింది.</string>
     <string name="general_error_cant_access_msg">%s ని యాక్సెస్ చేయలేకపోయింది.</string>
-    <string name="general_error_root_unavailable">రూట్ యాక్సెస్ అందుబాటులో లేదు.</string>    <string name="general_error_no_compatible_app_found_msg">ఈ అభ్యర్థనను నిర్వహించడానికి అనుకూలమైన యాప్ కనుగొనబడలేదు.</string>
+    <string name="general_error_root_unavailable">రూట్ యాక్సెస్ అందుబాటులో లేదు.</string>
+    <string name="general_error_no_compatible_app_found_msg">ఈ అభ్యర్థనను నిర్వహించడానికి అనుకూలమైన యాప్ కనుగొనబడలేదు.</string>
     <string name="general_todo_msg">ఈ ఫీచర్ ఇంకా పని చేయబడుతూంది మరియు ప్రస్తుతం అందుబాటులో లేదు.</string>
     <string name="general_share_action">భాగస్వామ్యం</string>
     <string name="general_done_action">పూర్తయింది</string>
     <string name="general_apply_action">అమలు చేయండి</string>
-    <string name="general_copy_action">కాపీ</string>    <string name="general_cancel_action">రద్దు చేయండి</string>
+    <string name="general_copy_action">కాపీ</string>
+    <string name="general_cancel_action">రద్దు చేయండి</string>
     <string name="general_discard_action">విస్మరించండి</string>
     <string name="general_reset_action">రీసెట్ చేయండి</string>
     <string name="general_drag_handle_description">పునఃక్రమీకరించడానికి లాగండి</string>
-    <string name="general_save_action">సేవ్ చేయండి</string>    <string name="general_gotit_action">అర్థమైంది</string>
+    <string name="general_save_action">సేవ్ చేయండి</string>
+    <string name="general_gotit_action">అర్థమైంది</string>
     <string name="general_fix_action">పరిష్కరించండి</string>
     <string name="general_set_up_action">సెటప్ చేయండి</string>
     <string name="general_edit_action">సవరించండి</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">సిస్టమ్</string>
     <string name="setup_title">సెటప్</string>
     <string name="setup_feature_requires_additional_setup_x">ఈ ఫీచర్ అదనపు సెటప్ అంశాలను పూర్తి చేయడానికి అవసరం: %s</string>
+    <string name="upgrade_feature_requires_pro">ప్రో అవసరం</string>
+    <string name="general_include_multiuser_label">ఇతర వాడుకరులను చేర్చండి</string>
+    <string name="general_include_multiuser_summary">ఈ పరికరంలో ఇతర వాడుకరు ప్రొఫైల్ల నుండి యాప్‌లను చేర్చండి.</string>
+    <string name="general_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">ఒక బహిష్కరణ సృష్టించబడింది</item>
         <item quantity="other">%d బహిష్కరణలు సృష్టించబడినాయి</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">స్వైపర్</string>
     <string name="stats_label">చరిత్ర</string>
     <string name="settings_category_tools_label">టూల్స్</string>
-    <string name="general_include_multiuser_label">ఇతర వాడుకరులను చేర్చండి</string>
-    <string name="general_include_multiuser_summary">ఈ పరికరంలో ఇతర వాడుకరు ప్రొఫైల్ల నుండి యాప్‌లను చేర్చండి.</string>
-    <string name="general_unsaved_confirmation_message">మీ దగ్గర సేవ్ చేయలేదు మార్పులు ఉన్నాయి!</string>
 </resources>

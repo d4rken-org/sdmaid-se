@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid не ги заврши сите чекори во временскиот рок. Ако ова продолжи да се случува, можеби ќе треба да ја прилагодам апликацијата за вашиот уред. Проверете за ажурирања или контактирајте ме за да го поправам.</string>
     <string name="automation_error_overlay_title">Преклопување на автоматизацијата</string>
     <string name="automation_error_overlay_body">SD Maid не можеше да го прикаже преклопувањето за автоматизација. Проверете ги дозволите и обидете се да го рестартирате уредот.</string>
+    <string name="automation_error_scheduler_title">Закажаната автоматизација не успеа</string>
+    <string name="automation_error_scheduler_body">Закажана задача се обиде да ја користи услугата за пристапност, но не беше достапна. Ако не ви е потребно ова, оневозможете ја опцијата \"Услуга за пристапност\" во поставките на распоредувачот.</string>
     <string name="automation_error_no_settings_title">Екранот за поставки е недостапен</string>
     <string name="automation_error_no_settings_body">Оваа системска апликација нема екран за поставки. Бришење кеш преку услуга за пристапност не е можно. Исклучете ја за побрзо бришење на кеш.</string>
     <string name="automation_loading">Подготовка на автоматизација преку услуга за пристапност</string>

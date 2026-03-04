@@ -94,4 +94,5 @@
         <item quantity="other">Aspoň %d dní starých</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pre súbory JPEG</string>
+    <string name="squeezer_onboarding_got_it">Rozumiem</string>
 </resources>

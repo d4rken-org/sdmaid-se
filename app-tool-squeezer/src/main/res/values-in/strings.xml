@@ -13,7 +13,7 @@
     <plurals name="squeezer_preview_x_images">
         <item quantity="other">%d gambar dipilih</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Lokasi penyimpanan</string>
+    <string name="squeezer_search_locations_title">Lokasi pencarian</string>
     <string name="squeezer_search_locations_default_summary">Folder kamera (bawaan)</string>
     <string name="squeezer_min_size_title">Ukuran file minimum</string>
     <string name="squeezer_min_size_description">Lewati gambar yang lebih kecil dari ukuran ini.</string>
@@ -65,7 +65,7 @@
     <string name="squeezer_setup_paths_title">Lokasi pencarian</string>
     <string name="squeezer_setup_paths_default">Pilih folder untuk dicari</string>
     <string name="squeezer_setup_quality_title">Kualitas kompresi</string>
-    <string name="squeezer_setup_age_title">Umur minimum</string>
+    <string name="squeezer_setup_age_title">Umur minimal</string>
     <string name="squeezer_setup_age_none">Tanpa batas (sertakan semua file)</string>
     <string name="squeezer_setup_start_action">Mulai Pemindaian</string>
     <string name="squeezer_quality_hint_very_low">Kualitas di bawah 40% dapat menghasilkan gambar yang tidak dapat digunakan.</string>
@@ -76,4 +76,5 @@
         <item quantity="other">Minimal %d hari</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Perkiraan ~%d%% penghematan untuk file JPEG</string>
+    <string name="squeezer_onboarding_got_it">Mengerti</string>
 </resources>

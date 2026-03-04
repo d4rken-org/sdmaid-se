@@ -24,6 +24,10 @@
         <item quantity="other">%1$d fichiers sont prêts (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Cette fonction enregistre les actions de l’appli dans un fichier partageable. Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance (p. ex. un développeur qui cherche à résoudre un problème).</string>
+    <string name="debug_debuglog_short_recording_title">Enregistrement très court</string>
+    <string name="debug_debuglog_short_recording_desc">L\'enregistrement était très court. Les journaux de débogage sont des enregistrements, pas des instantanés — reproduisez le problème pendant que l\'enregistrement est actif pour que le journal soit utile.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuer l\'enregistrement</string>
+    <string name="debug_debuglog_short_recording_stop_action">Arrêter quand même</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
     <string name="tasks_activity_working_notification_title">SD Maid travaille</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -210,6 +214,7 @@
     <string name="debug_mode_explanation">Activer des options de test et une sortie plus détaillée. L’appli fonctionnera plus lentement et différemment.</string>
     <string name="debug_bugreporter_label">Relevés de bogues automatiques</string>
     <string name="debug_bugreporter_summary">Signale automatiquement les problèmes, p. ex. les détails sur les plantages de l’appli, afin que je puisse en déterminer la cause et y remédier.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Le mode de débogage est activé</string>
     <string name="debug_card_trace_mode_label">Activer le mode de traçage</string>
     <string name="debug_card_dryrun_mode_label">Mode simulation (désactiver la suppression)</string>
@@ -259,4 +264,5 @@
     <string name="shortcuts_settings_category">Raccourcis</string>
     <string name="shortcuts_onetap_enabled_title">Raccourci à accès direct</string>
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

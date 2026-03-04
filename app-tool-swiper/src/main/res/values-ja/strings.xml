@@ -23,7 +23,7 @@
     <string name="swiper_review_action">レビュー</string>
     <string name="swiper_status_title">決定をレビュー</string>
     <string name="swiper_status_action_keep_selected">選択を保持</string>
-    <string name="swiper_status_action_delete_selected">選択を削除</string>
+    <string name="swiper_status_action_delete_selected">選択したものを削除</string>
     <string name="swiper_status_action_reset_selected">選択をリセット</string>
     <string name="swiper_decision_undecided">未決定</string>
     <string name="swiper_retry_action">再試行</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ 元に戻す</string>
     <string name="swiper_help_title">Swiperの使い方</string>
     <string name="swiper_help_message">各ファイルをスワイプして判断してください:\n\n← 左にスワイプ: %1$s\n→ 右にスワイプ: %2$s\n↑ 上にスワイプ: スキップ\n↓ 下にスワイプ: 元に戻す（最初のスワイプ後）\n\n下部のボタンも使用できます。\n\n完了したら、「レビュー」をタップしてすべての判断を確認してください。レビュー画面で確認するまで何も削除されません。</string>
+    <string name="swiper_gesture_overlay_dismiss_action">わかりました。</string>
+    <string name="swiper_help_action">ヘルプ</string>
 </resources>

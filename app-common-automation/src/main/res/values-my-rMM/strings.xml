@@ -1,8 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="automation_accessibility_service_description">အထူးဝင်ရောက်ခွင့် လိုအပ်ချက်ရှိသော အသုံးပြုသူများသည် SD Maid က လုပ်ငန်းများကို အလိုအလျောက် ဆောင်ရွက်နိုင်ရန် ဤဝန်ဆောင်မှုကို ဖွင့်နိုင်သည် (ဥပမာ - cache ဖျက်ခြင်း)။
+
+ဥပမာ - SD Maid ကို အပ်ပ်များစွာ ရပ်ရန် ညွှန်ကြားလျှင် SD Maid သည် ဤဝန်ဆောင်မှုကို အသုံးပြုကာ အပ်ပ်တိုင်း၏ ဆက်တင်မျက်နှာပြင်ကို ဖွင့်ကာ \'အတင်းရပ်\' ခလုတ်ကို ရှာ၍ နှိပ်နိုင်သည်။
+
+SD Maid သည် ဤဝန်ဆောင်မှုကို အသုံးပြုစဉ် အမြဲ ထင်ရှားစွာ ပြသ၍ အသုံးပြုသူ မည်သည့်လုပ်ဆောင်မှုကိုမဆို ချက်ချင်း ပယ်ဖျက်နိုင်သော နည်းလမ်းကို ပေးသည်။
+
+ကြိုတင် အသုံးပြုသူ ခွင့်ပြုချက်မရဘဲ မည်သည့် လုပ်ဆောင်မှုမျှ မပြုလုပ်ပါ။ ဤဝန်ဆောင်မှုကို ဘယ်အချိန်မဆို မကောင်းသောဆိုးကျိုးမရှိဘဲ ပိတ်နိုင်သည်။</string>
+    <string name="automation_screenoverlay_explanation">SD Maid သည် သင့်စက်ကိရိယာနှင့် အပြန်အလှန် ဆောင်ရွက်နေသည်။ တစ်ချိန်တည်းတွင် မျက်နှာပြင်ကို အသုံးပြုနိုင်မည်မဟုတ်ပါ။ လုပ်ဆောင်မှု ပြီးဆုံးသည်အထိ စောင့်ဆိုင်းပါ သို့မဟုတ် ပယ်ဖျက်ပါ။</string>
+    <string name="automation_active_title">SD Maid လုပ်ဆောင်နေသည်</string>
+    <string name="automation_error_no_consent_title">အလိုအလျောက်လုပ်ဆောင်မှု အမှား</string>
+    <string name="automation_error_no_consent_body">အဝင်ရောက်ဝန်ဆောင်မှု သတ်မှတ်မထားပါ။ သတ်မှတ်ခြင်းကို ပြီးဆုံးစေ၍ သဘောတူညီချက် ပေးပါ။</string>
+    <string name="automation_error_not_enabled_title">ဝန်ဆောင်မှု မဖွင့်ထားပါ</string>
+    <string name="automation_error_not_enabled_body">အဝင်ရောက်ဝန်ဆောင်မှု ပိတ်ထားသည်။ ထပ်မံ ဖွင့်ပါ။</string>
+    <string name="automation_error_not_running_title">ဝန်ဆောင်မှု မလည်ပတ်နေပါ</string>
+    <string name="automation_error_not_running_body">အဝင်ရောက်ဝန်ဆောင်မှု မလည်ပတ်နေပါ။ စက်ကို ပြန်ဖွင့်ကြည့်ပါ။</string>
+    <string name="automation_error_screen_unavailable_title">မျက်နှာပြင် ရနိုင်မည်မဟုတ်</string>
+    <string name="automation_error_screen_unavailable_body">မျက်နှာပြင် ရနိုင်မည်မဟုတ်သောကြောင့် လုပ်ဆောင်မှု ရပ်ဆိုင်းခဲ့သည် (ဥပမာ - မျက်နှာပြင်ပိတ် သို့မဟုတ် လော့ခ်မျက်နှာပြင် ဖွင့်ထားသည်)။</string>
+    <string name="automation_error_compatibility_title">အလိုအလျောက် လုပ်ဆောင်မှု လိုက်ဖက်ညီမှု</string>
+    <string name="automation_error_compatibility_body">SD Maid သည် မျက်နှာပြင်အပြင်အဆင်ကို မရှာဖွေနိုင်ခဲ့ပါ။ ဤအဖြစ်မျိုး ဆက်ဖြစ်နေပါက သင့်ဘာသာစကား သို့မဟုတ် ဆက်တင်ကို အပြည့်အဝ ထောက်ပံ့မထားနိုင်ဖြစ်နိုင်သည်။ အပ်ဒိတ် စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ကို ဆက်သွယ်ပါ။</string>
     <string name="automation_error_timeout_title">အလိုအလျောက်လုပ်ငန်း အချိန်ကုန်ခြင်း</string>
     <string name="automation_error_timeout_body">SD Maid သည် အချိန်ကန့်သတ်ချက်အတွင်း အဆင့်များ အားလုံးကို မပြီးစီးနိုင်ပါ။ ဤအခြေအနေ ဆက်လက် ဖြစ်ပေါ်ပါက၊ သင့်စက်အတွက် အက်ပ်ကို ချိန်ညှိရန် လိုအပ်နိုင်သည်။ အပ်ဒိတ်များ စစ်ဆေးပါ သို့မဟုတ် ကျွန်ုပ်ထံ ဆက်သွယ်ပြီး ပြင်ဆင်စေပါ။</string>
     <string name="automation_error_overlay_title">အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်</string>
     <string name="automation_error_overlay_body">SD Maid သည် အလိုအလျောက်လုပ်ငန်း ထပ်ဆင့်ကို မပြသနိုင်ပါ။ ခွင့်ပြုချက်များ စစ်ဆေးပြီး သင့်စက်ကို ပြန်လည်စတင်ကြည့်ပါ။</string>
+    <string name="automation_error_scheduler_title">အချိန်ဇယားချထားသော အလိုအလျောက်လုပ်ဆောင်မှု မအောင်မြင်ပါ</string>
+    <string name="automation_error_scheduler_body">အချိန်ဇယားချထားသော တာဝန်တစ်ခု အဝင်ရောက်ဝန်ဆောင်မှုကို အသုံးပြုရန် ကြိုးစားသော်လည်း ရနိုင်မည်မဟုတ်ခဲ့ပါ။ ဤအချက် မလိုအပ်ပါက scheduler ဆက်တင်မှ \"Accessibility service\" ရွေးချယ်မှုကို ပိတ်ပါ။</string>
+    <string name="automation_error_no_settings_title">ဆက်တင်မျက်နှာပြင် ရနိုင်မည်မဟုတ်</string>
+    <string name="automation_error_no_settings_body">ဤစနစ်အပ်ပ်တွင် ဆက်တင်မျက်နှာပြင် မရှိပါ။ အဝင်ရောက်ဝန်ဆောင်မှုမှတဆင့် cache ရှင်းလင်းခြင်း မဖြစ်နိုင်ပါ။ cache ရှင်းလင်းမှု မြန်ဆန်စေရန် ဤအပ်ပ်ကို ဖယ်ထုတ်ပါ။</string>
     <string name="automation_loading">accessibility ဝန်ဆောင်မှု မှတစ်ဆင့် အလိုအလျောက် လုပ်ငန်း ပြင်ဆင်နေသည်...</string>
+    <string name="automation_progress_find_ok_confirmation">ယခ်ပင်လုပ်ဆောင်မှုကို အတည်ပြုရန် ကြိုးစားသည် (သော့ချက်စကားများ - %s)</string>
 </resources>

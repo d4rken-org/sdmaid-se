@@ -9,4 +9,52 @@
     <string name="corpsefinder_watcher_title">Desinstalazio-behatzailea</string>
     <string name="corpsefinder_watcher_summary">Automatikoki eskaneatu hondarrak aplikazio bat kentzen denean.</string>
     <string name="corpsefinder_watcher_autodelete_title">Ezabaketa automatikoa</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Ezabatu automatikoki desinstalatu den aplikazioarekin lotutako hondar guztiak.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s desinstalatu ondoren %1$d hondarra aurkitu da.</item>
+        <item quantity="other">%2$s desinstalatu ondoren %1$d hondarra aurkitu dira.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Garbiketa arrakastatsua (%1$s): %2$s askatuta eta %3$d elementu kenduta.</item>
+        <item quantity="other">Garbiketa arrakastatsua (%1$s): %2$s askatuta eta %3$d elementu kenduta.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Ezabatu hondarrak</string>
+    <string name="corpsefinder_filter_publicmedia_label">Multimedia publikoa</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Multimedia-fitxategi publikoak, adibidez, mezularitza-aplikazioen bidez jasotako fitxategiak.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB baliabideak</string>
+    <string name="corpsefinder_filter_publicobb_summary">Aplikazioaren baliabide gehigarriak, adibidez, joko-aktiboak.</string>
+    <string name="corpsefinder_filter_publicdata_label">Aplikazioaren datu publikoak</string>
+    <string name="corpsefinder_filter_publicdata_summary">Sentikortasun baxuko aplikazio-datuak, adibidez, mapa-cacheak.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD txartela</string>
+    <string name="corpsefinder_filter_sdcard_summary">Biltegiratzea publiko orokorra, barne eta kanpokoa (adibidez, SD txartelak).</string>
+    <string name="corpsefinder_filter_privatedata_label">Aplikazioaren datu pribatuak</string>
+    <string name="corpsefinder_filter_privatedata_summary">Aplikazioaren datu pribatuak, adibidez, kredentzialak, aplikazioaren ezarpenak eta nabigatzailearen cacheak.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cachea</string>
+    <string name="corpsefinder_filter_dalvik_summary">Cachean gordeta dagoen aplikazioaren exekuzio-datuak.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profilak</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profilak Androidek erabiltzen ditu aplikazioaren errendimendua optimizatzeko.</string>
+    <string name="corpsefinder_filter_applib_label">Aplikazioen liburutegiak</string>
+    <string name="corpsefinder_filter_applib_summary">Aplikazioarekin lotutako liburutegi-datuak.</string>
+    <string name="corpsefinder_filter_appsource_label">Aplikazioen iturriak</string>
+    <string name="corpsefinder_filter_appsource_summary">Aplikazioaren instalazio-datuak, hau da, APKak non gordetzen diren.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Aplikazioaren iturburu pribatuak</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Mugatutako aplikazio-instalazio datuak, adibidez, babestutako hirugarrenen aplikazioak.</string>
+    <string name="corpsefinder_filter_appasec_label">Aplikazioaren baliabide enkriptatuak</string>
+    <string name="corpsefinder_filter_appasec_summary">Aplikazioaren baliabide enkriptatuak, adibidez, joko-aktiboak.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd modek kanpoko biltegiratzeara mugitutako datuak.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d aplikazio-hondarra ezabatu da</item>
+        <item quantity="other">%d aplikazio-hondarra ezabatu dira</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d aplikazio-hondarra aurkitu da</item>
+        <item quantity="other">%d aplikazio-hondarra aurkitu dira</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Ezabatu aplikazio-hondarra guztiak?</string>
+    <string name="corpsefinder_owners_label">Jabeak</string>
+    <string name="corpsefinder_corpse_hints_label">Oharra</string>
+    <string name="corpsefinder_owner_unknown">Jabe ezezaguna</string>
+    <string name="corpsefinder_corpse_hint_keeper">Elementu honek jabea desinstalatu den arren gorde nahi dituzun datuak izan ditzake, adibidez, argazkiak edo babeskopiak.</string>
+    <string name="corpsefinder_corpse_hint_common">Elementu honek izen oso arrunta du eta SD Maid-ek ezagutzen ez dituen oraindik instalatutako aplikazioei egon daiteke.</string>
 </resources>

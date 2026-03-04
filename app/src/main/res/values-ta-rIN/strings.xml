@@ -24,6 +24,10 @@
         <item quantity="other">%1$d கோப்புகள் தயார் (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">இந்த அம்சம் பயன்பாடு செய்யும் அனைத்தையும் பகிரக்கூடிய கோப்பில் பதிவு செய்கிறது. உருவாக்கப்பட்ட கோப்பில் முக்கியமான தகவல்கள் உள்ளன (எ.கா. கோப்பு பெயர்கள் மற்றும் நிறுவப்பட்ட பயன்பாடுகள்). நம்பகமானவர்களுடன் மட்டுமே பகிரவும் (எ.கா. சிக்கலைத் தீர்க்கும் உருவாக்குநர்).</string>
+    <string name="debug_debuglog_short_recording_title">மிகவும் குறுகிய பதிவு</string>
+    <string name="debug_debuglog_short_recording_desc">பதிவு மிகவும் குறுகியதாக இருந்தது. பிழை பதிவுகள் பதிவுகளாகும், ஸ்னாப்ஷாட்கள் அல்ல — பதிவு செயலில் இருக்கும்போது சிக்கலை மீண்டும் உருவாக்கவும், இல்லையெனில் பதிவு பயனுள்ளதாக இருக்காது.</string>
+    <string name="debug_debuglog_short_recording_continue_action">பதிவை தொடரவும்</string>
+    <string name="debug_debuglog_short_recording_stop_action">எப்படியும் நிறுத்தவும்</string>
     <string name="tasks_activity_notification_channel_label">செயலில் உள்ள பணிகள்</string>
     <string name="tasks_activity_working_notification_title">SD Maid வேலை செய்கிறது</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">மற்ற பயன்பாடுகளின் பின்னால் சுத்தம் செய்வதன் மூலம் சேமிப்பக இடத்தைப் பெறுங்கள். செலவிடக்கூடிய கோப்புகளை நீக்கி மீதமுள்ள தரவை அகற்றவும்.</string>
     <string name="onboarding_welcome_body_beta">இது ஒரு பீட்டா (சோதனை) உருவாக்கம். நகைச்சுவை உணர்வு மற்றும் மாற்று திட்டத்துடன் தொடரவும். நீங்கள் சந்திக்கும் சிக்கல்களைப் புகாரளிக்கவும்.</string>
     <string name="onboarding_welcome_continue_action">தொடரவும்</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (அதாவது SD Maid 2) என்பது SD Maid (அதாவது SD Maid 1) இன் வாரிசு ஆகும். நவீன Android க்காக உகந்ததாக்கப்பட்ட ஒரு புதிய பயன்பாடு.</string>
     <string name="onboarding_versus_body2">அதன் முன்னாலின் கட்டமைப்பு 7 வருடங்களுக்கு மேல் பழமையானது மற்றும் புதிய Android பதிப்புகளின் சவால்களுக்காக வடிவமைக்கப்படவில்லை. தொடர்ச்சியான மேம்பாட்டிற்கு முழுமையான மறுவடிவமைப்பு அவசியமாக இருந்தது.</string>
     <string name="onboarding_versus_body3">மேம்பட்ட முடிவுகளுக்காக SD Maid SE க்கு மாறுவதை பரிசீலிக்கவும்.</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">தீம் போக்கு</string>
     <string name="ui_theme_style_setting_explanation">பயன்பாட்டில் தீம் அமைக்க பயன்படுத்தப்படும் நிற போக்கு.</string>
     <string name="ui_theme_style_default_label">இயல்புநிலை</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">கோப்பு முன்னோட்டம்</string>
     <string name="ui_previews_summary">எல்லா கருவிகளிலும் கோப்பு முன்னோட்டங்களை காட்டவும் (உதாரணத்திற்கு பட மற்றும் video thumbnails).</string>
     <string name="ui_language_override_label">பயன்பாட்டின் மொழி</string>
@@ -83,7 +89,10 @@
     <string name="settings_support_description">ஆவணங்களை படிக்கவும், பிழைகளை அறிக்க செய்யவும், மற்றவர்களுடன் உரையாடவும் அல்லது debug logs ஐ பதிவு செய்யவும்.</string>
     <string name="documentation_label">ஆவணம்</string>
     <string name="issue_tracker_description">Bug reports மற்றும் feature requests க்கான ஒரு பொது issue tracker.</string>
+    <string name="issue_tracker_label">சிக்கல் திரக்கர்</string>
+    <string name="support_installid_label">நிறுவல் ID</string>
     <string name="support_installid_desc">தானியங்கி பிழை அறிக்கைகள் அடயாளம் இல்லாதவை. Developer உங்கள் பிழை அறிக்கைகளை கண்டபிடிக்க வேண்டுமானால் உங்கள் install ID ஐ பகிர்ந்து கொள்ளவும்.</string>
+    <string name="support_debuglog_label">Debug பதிவு</string>
     <string name="support_debuglog_desc">பயன்பாடு செய்யும் எல்லாத்தையும் நீங்கள் பகிருவதற்கு கூடிய ஒரு text file இல் பதிவு செய்வது.</string>
     <string name="support_debuglog_folder_label">பிழைத்திருத்த பதிவு கோப்புறை</string>
     <plurals name="support_debuglog_folder_desc">
@@ -93,12 +102,53 @@
     <string name="support_debuglog_folder_empty_desc">சேமிக்கப்பட்ட பிழைத்திருத்த பதிவுகள் இல்லை</string>
     <string name="support_debuglog_folder_delete_confirmation_title">அனைத்து பிழைத்திருத்த பதிவுகளையும் நீக்கவா?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">இது சேமிக்கப்பட்ட அனைத்து பிழைத்திருத்த பதிவு அமர்வுகளையும் நிரந்தரமாக நீக்கும். இந்தச் செயலை மீட்க இயலாது.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">ஒன்றாக இருக்கவும் கேள்விகள் கேட்கவும் ஒரு இடம்.</string>
+    <string name="support_contact_label">டெவலப்பரை தொடர்பு கொள்ளுங்கள்</string>
+    <string name="support_contact_desc">டெவலப்பருக்கு மின்னஞ்சல் அனுப்ப ஒரு படிவத்தை நிரப்பவும்.</string>
+    <string name="support_contact_welcome">நான் ஒவ்வொரு செய்தியையும் நானே படிக்கிறேன், பதிலளிக்க என்னால் முடிந்த அளவு முயற்சி செய்கிறேன், ஆனால் நான் தனியாக வேலை செய்வதால், சற்று நேரம் ஆகலாம். உங்கள் பொறுமைக்கு நன்றி.</string>
+    <string name="support_contact_footer">உங்கள் செய்தி மின்னஞ்சல் வழியாக அனுப்பப்படும். சாதன மற்றும் அமைப்பு தகவல்கள் தானாகவே இணைக்கப்படும். நீங்கள் ஸ்கிரீன்ஷாட்கள் அல்லது வீடியோவை மின்னஞ்சலில் இணைக்கலாம். மின்னஞ்சலின் சில பகுதிகள் ஆங்கிலத்தில் இருக்கும், இதனால் டெவலப்பர் அதை எளிதாக புரிந்துகொள்ளலாம்.</string>
+    <string name="support_contact_category_label">வகை</string>
+    <string name="support_contact_category_bug_label">பிழை அறிக்கை</string>
+    <string name="support_contact_category_feature_label">அம்சம் கோரிக்கை</string>
+    <string name="support_contact_category_question_label">கேள்வி</string>
+    <string name="support_contact_tool_label">தொடர்புடைய கருவி</string>
+    <string name="support_contact_tool_appcleaner_label">பயன்பாட்டு சுத்தி</string>
+    <string name="support_contact_tool_corpsefinder_label">மிச்சம் கண்டுபிடிப்பான்</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">நகல் நீக்கி</string>
+    <string name="support_contact_tool_analyzer_label">ஆய்வாளர்</string>
+    <string name="support_contact_tool_appcontrol_label">பயன்பாட்டு கட்டுப்பாடு</string>
+    <string name="support_contact_tool_scheduler_label">தேதி நிர்ணாயகர்</string>
+    <string name="support_contact_tool_general_label">பொது</string>
+    <string name="support_contact_description_label">விவரம்</string>
+    <string name="support_contact_description_bug_hint">என்ன நடந்தது மற்றும் சிக்கலை எப்படி மீண்டும் உருவாக்குவது என்று விவரிக்கவும். தயவுசெய்து குறிப்பிட்டு கூறுங்கள் (குறைந்தது 20 வார்த்தைகள்).</string>
+    <string name="support_contact_description_feature_hint">நீங்கள் பார்க்க விரும்பும் அம்சத்தை விவரிக்கவும். தயவுசெய்து குறிப்பிட்டு கூறுங்கள் (குறைந்தது 20 வார்த்தைகள்).</string>
+    <string name="support_contact_description_question_hint">உங்கள் கேள்வியை விரிவாக விவரிக்கவும். தயவுசெய்து குறிப்பிட்டு கூறுங்கள் (குறைந்தது 20 வார்த்தைகள்).</string>
+    <string name="support_contact_expected_label">எதிர்பார்க்கப்பட்ட நடவடிக்கை</string>
+    <string name="support_contact_expected_hint">என்ன நடக்கும் என்று நீங்கள் எதிர்பார்த்தீர்கள் என்பதை விவரிக்கவும் (குறைந்தது 10 வார்த்தைகள்).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d வார்த்தை</item>
+        <item quantity="other">%1$d / %2$d வார்த்தைகள்</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">பிழைத்திருத்த பதிவு</string>
+    <string name="support_contact_debuglog_zip_error">பிழை பதிவை சுருக்க முடியவில்லை</string>
+    <string name="support_contact_debuglog_picker_hint">ஏற்கனவே உள்ள பிழை பதிவை இணைக்கவும் அல்லது புதியதை பதிவு செய்யவும்.</string>
+    <string name="support_contact_debuglog_picker_empty">பிழை பதிவுகள் எதுவும் கிடைக்கவில்லை. முதலில் ஒன்றை பதிவு செய்யவும்.</string>
+    <string name="support_contact_send_action">மின்னஞ்சல் பயன்பாட்டை திறக்கவும்</string>
+    <string name="support_contact_no_email_app">இந்த சாதனத்தில் மின்னஞ்சல் பயன்பாடு எதுவும் கிடைக்கவில்லை.</string>
     <string name="changelog_label">மாற்றங்கள் பதிவு</string>
     <string name="settings_acknowledgements_label">நன்றி அறிவிப்புகள்</string>
+    <string name="settings_acknowledgements_category_translations_title">மொழிபெயர்ப்புகள்</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">இதை யார் மொழிபெயர்த்தார்?</string>
+    <string name="settings_acknowledgements_category_thanks_title">நன்றி</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">எங்கள் நண்பர்களுக்கு சிறப்பு நன்றி.</string>
+    <string name="settings_acknowledgements_category_licenses_title">உரிமங்கள்</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid ஆல் பயன்படுத்தப்படும் மென்பொருள்.</string>
     <string name="setup_label">அமைப்பு</string>
     <string name="setup_incomplete_card_title">அமைப்பு முடிக்கவில்லை</string>
     <string name="setup_incomplete_card_body">சிறந்த முடிவுகளைப் பெற SD Maid\'இன் அமைப்பை முடிக்கவும்.</string>
+    <string name="setup_incomplete_card_healing_in_progress_body">SD Maid அமைப்பு சிக்கல்களை சரிசெய்ய முயற்சிக்கிறது.</string>
     <string name="setup_incomplete_card_dismiss_action">நிராகரி</string>
     <string name="setup_incomplete_card_continue_action">அமைப்பை தொடரவும்</string>
     <string name="setup_forcedshow_summary">ஏற்கனவே முடிந்த உருப்படிகளுடன் அமைப்பு திரையை மீண்டும் காட்டவும்.</string>
@@ -120,9 +170,13 @@
     <string name="setup_root_enable_root_use_label">கிடைத்தால் ரூட் அணுகலைப் பயன்படுத்தவும்</string>
     <string name="setup_root_disable_root_use_label">ரூட் அணுகலைப் பயன்படுத்த வேண்டாம்</string>
     <string name="setup_root_card_body2">ரூட் செய்யப்பட்ட சாதனங்களில் மட்டுமே கிடைக்கும். நீங்கள் இந்த மாற்றத்தைச் செய்யவில்லை என்றால், உங்கள் சாதனம் ரூட் செய்யப்படவில்லை மற்றும் இந்த அமைப்பு எந்த விளைவையும் ஏற்படுத்தாது.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">முடிவுகளை மேம்படுத்தவும் அம்சங்களை இயக்கவும் சாத்தியமான இடங்களில் Shizuku ஐப் பயன்படுத்த SD Maid ஐ அனுமதிக்கவும்.</string>
     <string name="setup_shizuku_card_body2">உங்கள் சாதனத்தில் Shizuku பயன்பாடு அமைக்கப்படவில்லை என்றால் இந்த அமைப்பு எந்த விளைவையும் ஏற்படுத்தாது.</string>
     <string name="setup_shizuku_card_root_info">ரூட் அணுகலுடன் இணைந்த Shizuku கூடுதல் அம்சங்களை இயக்காது, ஆனால் அது நம்பகத்தன்மையை மேம்படுத்துகிறது. SD Maid அதை மாற்று முறையாகப் பயன்படுத்தும்.</string>
+    <string name="setup_shizuku_state_ready_label">Shizuku உடன் இணைப்பு தயாரம் உள்ளது.</string>
+    <string name="setup_shizuku_state_waiting_label">Shizuku உடன் இணைப்பிற்காக காத்திருக்கிறது.</string>
+    <string name="setup_shizuku_enable_shizuku_use_label">கிடைத்தால் Shizuku ஐ பயன்படுத்தவும்</string>
     <string name="setup_shizuku_disable_shizuku_use_label">Shizuku ஐப் பயன்படுத்த வேண்டாம்</string>
     <string name="setup_dismiss_hint">அமைப்புகள் பட்டி வழியாக அமைப்பு திரையை மீண்டும் கண்டுபிடிக்கலாம்.</string>
     <string name="setup_permission_granted_label">அனுமதி வழங்கப்பட்டது</string>
@@ -152,12 +206,15 @@
     <string name="setup_inventory_card_title">பயன்பாட்டு பட்டியல்</string>
     <string name="setup_inventory_card_body">எந்த நிறுவப்பட்ட பயன்பாடுகளுக்கும் சொந்தமில்லாத கோப்புகளைக் கண்டுபிடிக்க உங்களிடம் எந்த பயன்பாடுகள் உள்ளன என்பதை SD Maid தெரிந்து கொள்ள வேண்டும்.</string>
     <string name="setup_inventory_card_extra">\"பயன்பாட்டு பட்டியல்\" அல்லது \"அனைத்து பொதிகளையும் விசாரி\" எனும் அனுமதியைத் தேடவும்.</string>
+    <string name="setup_inventory_invalid_message">கணினி நிறுவப்பட்ட பயன்பாடுகளின் தவறான பட்டியலை வழங்கியுள்ளது (எ.கா. மிகக் குறைவாக அல்லது சில காணாமல் போயிருந்தன). கணினி அமைப்புகளுக்குச் சென்று SD Maid ஐ \"பயன்பாட்டு பட்டியல்\" அணுக அனுமதிக்கவும்.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid ஸ்கேன் செய்யக்கூடிய எந்த தரவு பகுதிகளையும் கண்டுபிடிக்கவில்லை. நீங்கள் அமைப்பை முடித்துவிட்டீர்களா?</string>
     <string name="dataarea_warningcard_label">தரவு பகுதிகள்</string>
     <string name="dataarea_warningcard_reload_action">தரவு பகுதிகளை மீண்டும் ஏற்று</string>
     <string name="debug_mode_label">பிழைதிருத்த நிலை</string>
+    <string name="debug_mode_explanation">சோதனை விருப்பங்களை இயக்கி மேலும் விரிவான வெளியீட்டைப் பெறுங்கள். அப்ஸ் மெதுவாகவும் வேறுவிதமாகவும் இயங்கும்.</string>
     <string name="debug_bugreporter_label">தானியங்கி பிழை அறிக்கைகள்</string>
     <string name="debug_bugreporter_summary">சிக்கல்களை தானியங்கியாக அறிக்கையிடுகிறது, எ.கா. பயன்பாடு செயலிழப்பு விவரங்கள், இதனால் நான் காரணத்தை கண்டுபிடித்து சரிசெய்ய முடியும்.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">பிழைத்திருத்த பயன்முறை இயக்கப்பட்டுள்ளது</string>
     <string name="debug_card_trace_mode_label">தடமறிதல் பயன்முறையை இயக்கு</string>
     <string name="debug_card_dryrun_mode_label">சோதனை ஓட்ட பயன்முறை (நீக்குதலை முடக்கு)</string>
@@ -181,6 +238,7 @@
     <string name="translation_encourage_title">SD Maid இற்கு மொழிபெயர்க்கவும்</string>
     <string name="translation_encourage_body">SD Maid தனிச்செவகர்களால் மொழிபெயர்க்கப்படுகிறது. மொழிபெயர்ப்பு, மார்வு அல்லது திருத்தம், உங்கள் உதவி பட்டபடும்!</string>
     <string name="translation_translators_title">இந்த வெர்ஷன் மொழிபெயர்க்கப்பட்டது</string>
+    <string name="translation_translators_people">இயந்திர மொழிபெயர்ப்பு</string>
     <string name="motd_setting_enabled_label">முக்கிய செய்திகள்</string>
     <string name="motd_setting_enabled_explanation">உருவாக்குநரிலிருந்து முக்கிய செய்திகளைச் சரிபார்க்க SD Maid அனுமதிக்கவும்.</string>
     <string name="updatecheck_setting_enabled_label">புதுப்பிப்பு சரிபார்ப்பு</string>
@@ -206,4 +264,5 @@
     <string name="shortcuts_settings_category">குறுக்குவழிகள்</string>
     <string name="shortcuts_onetap_enabled_title">ஒரு-தட்டு குறுக்குவழி</string>
     <string name="shortcuts_onetap_enabled_summary">செயலி சின்னத்தை நீண்ட நேரம் அழுத்தும் போது \"ஸ்கேன் + நீக்கு\" குறுக்குவழியைக் காட்டு. ஒரு-தட்டு டாஷ்போர்டின் அதே கருவிகளைப் பயன்படுத்துகிறது.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

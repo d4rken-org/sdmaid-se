@@ -70,7 +70,7 @@
     <string name="squeezer_setup_paths_title">Izindawo zokusesha</string>
     <string name="squeezer_setup_paths_default">Khetha amafolda okuseshwa</string>
     <string name="squeezer_setup_quality_title">Ikhwalithi yokucindezela</string>
-    <string name="squeezer_setup_age_title">Ubudala obuncane</string>
+    <string name="squeezer_setup_age_title">Iminyaka emincane</string>
     <string name="squeezer_setup_age_none">Akukho umkhawulo (faka wonke amafayela)</string>
     <string name="squeezer_setup_start_action">Qala Ukusesha</string>
     <string name="squeezer_quality_hint_very_low">Ikhwalithi engaphansi kuka-40% ingadala izithombe ezingasebenziseki.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Okungenani izinsuku ezingu-%d</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Kulinganiswa ~%d%% ukonga kwamafayela e-JPEG</string>
+    <string name="squeezer_onboarding_got_it">Ngiyaqonda</string>
 </resources>
