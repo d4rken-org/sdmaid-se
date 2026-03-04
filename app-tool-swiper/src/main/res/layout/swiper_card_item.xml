@@ -193,6 +193,17 @@
 
                 </LinearLayout>
 
+                <!-- Open externally button: top-left corner -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/open_external_action"
+                    style="@style/Widget.Material3.Button.IconButton.Filled.Tonal"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top|start"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/swiper_open_externally_action"
+                    app:icon="@drawable/ic_open_in_new_24" />
+
                 <!-- Preview button: top-right corner -->
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/preview_action"

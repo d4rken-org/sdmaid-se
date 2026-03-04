@@ -11,6 +11,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.swiper.R
 import androidx.core.os.bundleOf
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -32,6 +33,7 @@ class SwiperSwipeViewModel @Inject constructor(
     private val swiper: Swiper,
     private val settings: SwiperSettings,
     private val exclusionManager: ExclusionManager,
+    private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val sessionId: String = requireNotNull(handle.get<String>("sessionId")) { "sessionId argument is required" }
@@ -229,6 +231,16 @@ class SwiperSwipeViewModel @Inject constructor(
     fun dismissGestureOverlay() = launch {
         log(TAG, INFO) { "dismissGestureOverlay()" }
         settings.hasShownGestureOverlay.value(true)
+    }
+
+    fun openExternally(item: SwipeItem) = launch {
+        log(TAG, INFO) { "openExternally(${item.lookup.lookedUp})" }
+        val intent = viewIntentTool.create(item.lookup)
+        if (intent != null) {
+            events.postValue(SwiperSwipeEvents.OpenExternally(intent))
+        } else {
+            events.postValue(SwiperSwipeEvents.ShowOpenNotSupported)
+        }
     }
 
     fun excludeAndRemove(item: SwipeItem) = launch {

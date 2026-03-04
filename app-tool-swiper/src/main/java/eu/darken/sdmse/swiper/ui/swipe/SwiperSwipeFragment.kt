@@ -1,5 +1,6 @@
 package eu.darken.sdmse.swiper.ui.swipe
 
+import android.content.ActivityNotFoundException
 import android.content.res.ColorStateList
 import android.graphics.Canvas
 import android.os.Bundle
@@ -13,11 +14,13 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.EdgeToEdgeHelper
+import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -106,6 +109,10 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                     args = bundleOf("options" to options),
                 )
             }
+
+            override fun onOpenExternallyClick(item: SwipeItem) {
+                vm.openExternally(item)
+            }
         }
 
         // Progress pager setup
@@ -152,6 +159,22 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
 
                 SwiperSwipeEvents.TriggerHapticFeedback -> {
                     ui.root.performHapticFeedback(HapticFeedbackConstants.CONFIRM)
+                }
+
+                is SwiperSwipeEvents.OpenExternally -> {
+                    try {
+                        startActivity(event.intent)
+                    } catch (e: ActivityNotFoundException) {
+                        e.asErrorDialogBuilder(requireActivity()).show()
+                    }
+                }
+
+                SwiperSwipeEvents.ShowOpenNotSupported -> {
+                    Snackbar.make(
+                        ui.root,
+                        R.string.swiper_open_externally_not_supported,
+                        Snackbar.LENGTH_SHORT,
+                    ).show()
                 }
             }
         }
