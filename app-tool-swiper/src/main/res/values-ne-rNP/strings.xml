@@ -81,15 +81,15 @@
         <item quantity="other">%d वस्तुहरू असफल</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message">
-        <item quantity="one">यसले %1$d फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
+        <item quantity="one">यसले 1 फाइल (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
         <item quantity="other">यसले %1$d फाइलहरू (%2$s) स्थायी रूपमा हटाउनेछ। यो कार्य अपरिवर्तनीय छ।</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
-        <item quantity="one">%d अनिर्णीत वस्तु पछिको समीक्षाको लागि बाँकी रहनेछ।</item>
+        <item quantity="one">1 अनिर्णीत वस्तु पछिको समीक्षाको लागि बाँकी रहनेछ।</item>
         <item quantity="other">%d अनिर्णीत वस्तुहरू पछिको समीक्षाको लागि बाँकी रहनेछन्।</item>
     </plurals>
     <plurals name="swiper_dashcard_session_context">
-        <item quantity="one">%1$d दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
+        <item quantity="one">1 दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
         <item quantity="other">%1$d दिन अघिको सत्र जारी राख्नुहोस् (%2$d%% समाप्त)</item>
     </plurals>
     <plurals name="swiper_dashcard_x_sessions">
@@ -101,11 +101,11 @@
         <item quantity="other">%d अनिर्णीत वस्तुहरू</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_files_limit">
-        <item quantity="one">प्रति सत्र %d फाइल</item>
+        <item quantity="one">प्रति सत्र 1 फाइल</item>
         <item quantity="other">प्रति सत्र %d फाइलहरू</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
-        <item quantity="one">%d सत्र</item>
+        <item quantity="one">1 सत्र</item>
         <item quantity="other">%d सत्रहरू</item>
     </plurals>
     <plurals name="swiper_session_status_to_keep">

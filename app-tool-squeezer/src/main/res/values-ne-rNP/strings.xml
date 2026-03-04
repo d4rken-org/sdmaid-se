@@ -75,7 +75,7 @@
         <item quantity="other">%d छविहरू चयन गरिए</item>
     </plurals>
     <plurals name="squeezer_history_summary">
-        <item quantity="one">%1$d वस्तु (%2$s)</item>
+        <item quantity="one">1 वस्तु (%2$s)</item>
         <item quantity="other">%1$d वस्तुहरू (%2$s)</item>
     </plurals>
     <plurals name="squeezer_min_age_x_days">

@@ -37,7 +37,7 @@
     <string name="systemcleaner_filter_macfiles_label">Berkas Mac</string>
     <string name="systemcleaner_filter_macfiles_summary">File dan folder yang dibuat ketika menjelajahi penyimpanan menggunakan aplikasi Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Berkas Windows</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">"\"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung.\""</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Data yang dapat dibuat oleh Windows file explorer pada penyimpanan yang terhubung."</string>
     <string name="systemcleaner_filter_thumbnails_label">Gambar pratinjau</string>
     <string name="systemcleaner_filter_thumbnails_summary">Tampilan cache gambar dan video.</string>
     <string name="systemcleaner_filter_tempfiles_label">File sementara sistem</string>

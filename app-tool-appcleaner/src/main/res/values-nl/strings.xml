@@ -69,7 +69,7 @@
     <string name="appcleaner_automation_progress_open_settings">Instellingenscherm openen (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Zoeken naar item \"Opslag\" (trefwoorden: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Gegevens wissen\' (trefwoorden: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Ik zoek naar de knop \'Cache wissen\' (trefwoorden: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Standaard caches</string>
     <string name="appcleaner_item_caches_inaccessible_body">Publieke en private standaardcaches. Niet direct toegankelijk, maar wel indirect te verwijderen (bijv. via toegankelijkheidsdienst).</string>
     <string name="appcleaner_automation_unavailable_title">Toegankelijkheidsservice niet beschikbaar</string>
