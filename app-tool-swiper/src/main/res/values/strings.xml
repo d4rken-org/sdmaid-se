@@ -141,5 +141,5 @@
     <string name="swiper_gesture_overlay_dismiss_action">Got it</string>
     <string name="swiper_help_action">Help</string>
     <string name="swiper_open_externally_action">Open in external app</string>
-    <string name="swiper_open_externally_not_supported">Can\'t open this file — only locally stored files are supported</string>
+
 </resources>

@@ -172,7 +172,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                 SwiperSwipeEvents.ShowOpenNotSupported -> {
                     Snackbar.make(
                         ui.root,
-                        R.string.swiper_open_externally_not_supported,
+                        eu.darken.sdmse.common.R.string.general_error_no_compatible_app_found_msg,
                         Snackbar.LENGTH_SHORT,
                     ).show()
                 }
