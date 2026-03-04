@@ -457,7 +457,7 @@
     <string name="appcleaner_automation_progress_open_settings">Abertura de tela de configurações (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_storage">Procurando por \"Armazenamento\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_clear_data">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
-    <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar dados\" (palavras-chave: %s)</string>
+    <string name="appcleaner_automation_progress_find_clear_cache">Procurando pelo botão \"Limpar cache\" (palavras-chave: %s)</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Tentando confirmar a ação anterior (palavras-chave: %s)</string>
     <string name="appcleaner_item_caches_inaccessible_title">Caches padrão</string>
     <string name="appcleaner_item_caches_inaccessible_body">Cache padrão público e privado. Não acessível diretamente, mas pode ser excluído indiretamente (por exemplo, via serviço de acessibilidade).</string>

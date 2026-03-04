@@ -169,7 +169,7 @@
     <string name="setup_saf_missing_app_error">Program Documents UI ni na voljo.  To je vgrajeni sistemski program in bi moral biti na voljo na vseh napravah z Androidom.</string>
     <string name="setup_manage_storage_card_title">Upravljaj s shrambo</string>
     <string name="setup_manage_storage_card_body">Dovolite SD Maidu, da upravlja s shrambo.</string>
-    <string name="setup_manage_storage_card_body2">Osnovni dostop do javne shrambe, npr. \"Download/\" in \"DSIM/\", vendar ne vedno \"Android/data\".</string>
+    <string name="setup_manage_storage_card_body2">Osnovni dostop do javne shrambe, npr. \"Download/\" in \"DCIM/\", vendar ne vedno \"Android/data\".</string>
     <string name="setup_root_card_title">Skrbniški dostop</string>
     <string name="setup_root_card_body">Ali naj SD Maid uporablja skrbniško dostop, če je na voljo.  Skrbniški dostop se uporablja za pregledovanje dodatnih sistemskih map in zasebnih programskih podatkov.</string>
     <string name="setup_root_state_ready_label">Skrbniški dostop je pripravljen.</string>
