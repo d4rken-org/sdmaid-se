@@ -34,7 +34,7 @@ class SwiperSwipeViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val sessionId: String = handle.get<String>("sessionId")!!
+    private val sessionId: String = requireNotNull(handle.get<String>("sessionId")) { "sessionId argument is required" }
     private val startIndex: Int = handle.get<Int>("startIndex") ?: -1
 
     private val currentIndexOverride = MutableStateFlow<Int?>(
@@ -223,7 +223,7 @@ class SwiperSwipeViewModel @Inject constructor(
 
     fun navigateToStatus() {
         log(TAG, INFO) { "navigateToStatus()" }
-        navDirections(R.id.action_swiperSwipeFragmentToSwiperStatusFragment, bundleOf("sessionId" to sessionId)).navigate()
+        navDirections(R.id.action_swiperSwipeFragment_to_swiperStatusFragment, bundleOf("sessionId" to sessionId)).navigate()
     }
 
     fun dismissGestureOverlay() = launch {
