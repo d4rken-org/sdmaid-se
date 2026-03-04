@@ -719,7 +719,7 @@
     <string name="appcontrol_force_stop_action">Buộc dừng</string>
     <string name="appcontrol_force_stop_confirm_title">Xác nhận buộc dừng</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="other">Buộc dừng%d ứng dụng?</item>
+        <item quantity="other">Buộc dừng %d ứng dụng?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">%d ứng dụng đã bị dừng</item>
@@ -745,7 +745,7 @@
     <string name="analyzer_progress_scanning_system">Đang quét dữ liệu hệ thống</string>
     <string name="analyzer_device_storage_title">Bộ nhớ thiết bị</string>
     <plurals name="analyzer_space_available">
-        <item quantity="other">%skhả dụng</item>
+        <item quantity="other">%s khả dụng</item>
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="other">%s đã dùng</item>

@@ -308,10 +308,10 @@
         <item quantity="other">Usunięto %d dopasowań</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
-        <item quantity="one">Dopasowany %d filtr</item>
-        <item quantity="few">Dopasowane %d filtry</item>
-        <item quantity="many">Dopasowanych %d filtrów</item>
-        <item quantity="other">Dopasowanych %d filtrów</item>
+        <item quantity="one">Dopasowano %d filtr</item>
+        <item quantity="few">Dopasowano %d filtry</item>
+        <item quantity="many">Dopasowano %d filtrów</item>
+        <item quantity="other">Dopasowano %d filtrów</item>
     </plurals>
     <string name="systemcleaner_filter_custom_label">Filtr niestandardowy</string>
     <string name="systemcleaner_filter_custom_manage_label">Zarządzaj filtrami niestandardowymi</string>
