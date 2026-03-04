@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Свайпер</string>
-    <string name="swiper_tool_description">Быстро наведите порядок — проведите пальцем по файлам, чтобы сохранить, удалить или пропустить.</string>
+    <string name="swiper_tool_description">Быстро наведите порядок — смахивайте файлы, чтобы сохранить, удалить или пропустить.</string>
     <string name="swiper_dashcard_description">Наведите порядок в выбранной папке быстрее чем в проводнике — просто проведите пальцем по файлу.</string>
     <string name="swiper_start_action">Начать свайп</string>
     <string name="swiper_continue_action">Продолжить сессию</string>
@@ -171,7 +171,7 @@
     <string name="swiper_gesture_overlay_up_skip">↑ Пропустить</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Отменить</string>
     <string name="swiper_help_title">Как работает Свайпер</string>
-    <string name="swiper_help_message">Проведите по каждому файлу, чтобы принять решение:\n\n← Проведите влево: %1$s\n→ Проведите вправо: %2$s\n↑ Проведите вверх: Пропустить\n↓ Проведите вниз: Отменить (после первого свайпа)\n\nТакже Вы можете использовать кнопки внизу.\n\nКогда Вы закончите, нажмите \"Обзор\" чтобы просмотреть все Ваши решения. Ничего не удалится, пока Вы не подтвердите это на экране обзора.</string>
+    <string name="swiper_help_message">Проведите по каждому файу, чтобы принять решение:\n\n← Проведите влево: %1$s\n→ Проведите вправо: %2$s\n↑ Проведите вверх: Пропустить\n↓ Проведите вниз: Отменить (после первого свайпа)\n\nТакже Вы можете использовать кнопки внизу.\n\nКогда Вы закончите, нажмите \"Обзор\" чтобы просмотреть все Ваши решения. Ничего не удалится, пока Вы не подтвердите это на экране обзора.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Понятно</string>
     <string name="swiper_help_action">Помощь</string>
 </resources>

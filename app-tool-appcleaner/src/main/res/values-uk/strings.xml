@@ -60,12 +60,12 @@
         <item quantity="one">%d зайвий елемент видалено</item>
         <item quantity="few">%d зайвих елементи видалено</item>
         <item quantity="many">%d зайвих елементів видалено</item>
-        <item quantity="other">%d зайвих елементів видалено</item>
+        <item quantity="other">Видалено %d витратних матеріалів</item>
     </plurals>
     <plurals name="appcleaner_result_x_items_found">
         <item quantity="one">Знайдено %d витратний матеріал</item>
         <item quantity="few">Знайдено %d витратні матеріали</item>
-        <item quantity="many">Знайдено %d витратних матеріалів</item>
+        <item quantity="many">Знайдено %d витратні матеріали</item>
         <item quantity="other">Знайдено %d витратних матеріалів</item>
     </plurals>
     <string name="appcleaner_automation_title">Автоматизація очищення додатків</string>
@@ -95,4 +95,10 @@
     <string name="appcleaner_forcestop_before_clearing_label">Примусове зупинення перед очищенням</string>
     <string name="appcleaner_forcestop_before_clearing_summary">Примусово зупиніть додатки перед очищенням їх кешу. Це може допомогти очистити кеш деяких додатків, але може призвести до неправильної роботи додатків і вимагати ручного перезапуску.</string>
     <string name="appcleaner_progress_force_stopping">Примусове зупинення додатків…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Цей системний додаток не має екрана налаштувань. Очищення кешу за допомогою служби доступності неможливе. Вимкніть її, щоб пришвидшити очищення кешу.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Екран налаштувань недоступний</string>
+    <string name="appcleaner_automation_loading">Підготовка автоматизації через сервіс спеціальних можливостей</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Спроба підтвердити попередню дію (ключові слова: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Включити інших користувачів</string>
+    <string name="appcleaner_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
 </resources>

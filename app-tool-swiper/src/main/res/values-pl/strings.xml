@@ -9,22 +9,22 @@
     <string name="swiper_select_folders_action">Wybierz foldery</string>
     <string name="swiper_scanning_title">Skanowanie…</string>
     <plurals name="swiper_result_x_items_found">
-        <item quantity="one">%d element znaleziony</item>
-        <item quantity="few">%d elementy znaleziono</item>
-        <item quantity="many">%d elementów znaleziono</item>
-        <item quantity="other">%d elementów znaleziono</item>
+        <item quantity="one">Znaleziono %d element</item>
+        <item quantity="few">Znaleziono %d elementy</item>
+        <item quantity="many">Znaleziono %d elementów</item>
+        <item quantity="other">%d elementów znalezionych</item>
     </plurals>
     <plurals name="swiper_result_x_items_deleted">
-        <item quantity="one">%d element usunięty</item>
-        <item quantity="few">%d elementy usunięto</item>
-        <item quantity="many">%d elementów usunięto</item>
+        <item quantity="one">Usunięto %d element</item>
+        <item quantity="few">Usunięto %d elementy</item>
+        <item quantity="many">Usunięto %d elementów</item>
         <item quantity="other">%d elementów usunięto</item>
     </plurals>
     <plurals name="swiper_result_x_items_failed">
         <item quantity="one">%d element nie powiódł się</item>
-        <item quantity="few">%d elementy nie powiodły się</item>
-        <item quantity="many">%d elementów nie powiodło się</item>
-        <item quantity="other">%d elementów nie powiodło się</item>
+        <item quantity="few">%d elementów nie powiodło się</item>
+        <item quantity="many">%d elementy nie powiodły się</item>
+        <item quantity="other">%d elementy nie powiodły się</item>
     </plurals>
     <string name="swiper_item_position">%1$d z %2$d</string>
     <string name="swiper_keep_action">Zachowaj</string>
@@ -40,8 +40,8 @@
     <plurals name="swiper_delete_confirmation_message">
         <item quantity="one">Spowoduje to trwałe usunięcie pliku %1$d (%2$s). Tej czynności nie można cofnąć.</item>
         <item quantity="few">Spowoduje to trwałe usunięcie %1$d pliki (%2$s). Tej czynności nie można cofnąć.</item>
-        <item quantity="many">Spowoduje to trwałe usunięcie %1$d plików (%2$s). Tej czynności nie można cofnąć.</item>
-        <item quantity="other">Spowoduje to trwałe usunięcie %1$d plików (%2$s). Tej czynności nie można cofnąć.</item>
+        <item quantity="many">Spowoduje to trwałe usunięcie %1$d pliki (%2$s). Tej czynności nie można cofnąć.</item>
+        <item quantity="other">Spowoduje to trwałe usunięcie %1$d pliki (%2$s). Tej czynności nie można cofnąć.</item>
     </plurals>
     <plurals name="swiper_delete_confirmation_message_partial_undecided">
         <item quantity="one">%d niepotwierdzony element zostanie pozostawiony do późniejszego przejrzenia.</item>
@@ -72,10 +72,10 @@
         <item quantity="other">%d sesji</item>
     </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
-        <item quantity="one">%d niepotwierdzony element</item>
-        <item quantity="few">%d niepotwierdzone elementy</item>
-        <item quantity="many">%d niepotwierdzonych elementów</item>
-        <item quantity="other">%d niepotwierdzonych elementów</item>
+        <item quantity="one">Niepotwierdzono %d elementu</item>
+        <item quantity="few">Niepotwierdzono %d elementy</item>
+        <item quantity="many">Niepotwierdzono %d elementów</item>
+        <item quantity="other">Niepotwierdzono %d elementy</item>
     </plurals>
     <string name="swiper_session_timestamps">Utworzono %1$s, ostatnia aktywność %2$s</string>
     <string name="swiper_session_remove_action">Usuń sesję</string>
@@ -83,15 +83,15 @@
     <string name="swiper_sessions_upgrade_body">Uaktualnij, aby usunąć te limity i wesprzeć rozwój. Wersja darmowa jest ograniczona do:</string>
     <plurals name="swiper_sessions_upgrade_files_limit">
         <item quantity="one">%d plik na sesję</item>
-        <item quantity="few">%d pliki na sesję</item>
-        <item quantity="many">%d plików na sesję</item>
-        <item quantity="other">%d plików na sesję</item>
+        <item quantity="few">%d plików na sesję</item>
+        <item quantity="many">%d pliki na sesję</item>
+        <item quantity="other">%d pliki na sesję</item>
     </plurals>
     <plurals name="swiper_sessions_upgrade_sessions_limit">
         <item quantity="one">%d sesja</item>
-        <item quantity="few">%d sesje</item>
-        <item quantity="many">%d sesji</item>
-        <item quantity="other">%d sesji</item>
+        <item quantity="few">%d sesji</item>
+        <item quantity="many">%d sesje</item>
+        <item quantity="other">%d sesje</item>
     </plurals>
     <string name="swiper_session_default_label">Sesja #%d</string>
     <string name="swiper_session_rename_title">Zmień nazwę sesji</string>
@@ -103,7 +103,7 @@
         <item quantity="one">%d do zachowania</item>
         <item quantity="few">%d do zachowania</item>
         <item quantity="many">%d do zachowania</item>
-        <item quantity="other">%d aby zachować</item>
+        <item quantity="other">%d do zachowania</item>
     </plurals>
     <plurals name="swiper_session_status_to_delete">
         <item quantity="one">%d do usunięcia</item>
@@ -112,31 +112,31 @@
         <item quantity="other">%d do usunięcia</item>
     </plurals>
     <plurals name="swiper_session_status_undecided">
-        <item quantity="one">%d niepotwierdzony</item>
+        <item quantity="one">%d niepotwierdzonych</item>
         <item quantity="few">%d niepotwierdzone</item>
         <item quantity="many">%d niepotwierdzonych</item>
-        <item quantity="other">%d niepotwierdzonych</item>
+        <item quantity="other">%d niepotwierdzony</item>
     </plurals>
     <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d jest już zachowany</item>
-        <item quantity="few">%d są już zachowane</item>
+        <item quantity="one">%d jest już zachowanych</item>
+        <item quantity="few">%d jest już zachowany</item>
         <item quantity="many">%d jest już zachowanych</item>
         <item quantity="other">%d jest już zachowanych</item>
     </plurals>
     <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d został już usunięty</item>
+        <item quantity="one">%d zostało już usuniętych</item>
         <item quantity="few">%d zostały już usunięte</item>
         <item quantity="many">%d zostało już usuniętych</item>
         <item quantity="other">%d zostało już usuniętych</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
-        <item quantity="one">%d zachowany</item>
-        <item quantity="few">%d zachowane</item>
+        <item quantity="one">%d zachowanych</item>
+        <item quantity="few">%d zachowanych</item>
         <item quantity="many">%d zachowanych</item>
         <item quantity="other">%d zachowanych</item>
     </plurals>
     <plurals name="swiper_session_status_deleted">
-        <item quantity="one">%d usunięty</item>
+        <item quantity="one">%d usuniętych</item>
         <item quantity="few">%d usunięte</item>
         <item quantity="many">%d usuniętych</item>
         <item quantity="other">%d usuniętych</item>

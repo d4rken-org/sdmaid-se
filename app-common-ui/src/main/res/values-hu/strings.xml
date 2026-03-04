@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Útvonal kiválasztása</string>
     <string name="picker_selected_paths_title">Kiválasztott útvonalak</string>
     <string name="picker_unsaved_confirmation_message">Elveted a változtatásokat?</string>
-    <string name="picker_home_action">Adatterületek</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d kiválasztott útvonal</item>
-    <item quantity="other">%d kiválasztott útvonal</item>
+        <item quantity="one">%d kiválasztott útvonal</item>
+        <item quantity="other">%d kiválasztott útvonal</item>
     </plurals>
+    <string name="picker_home_action">Adatterületek</string>
 </resources>

@@ -26,7 +26,7 @@
     <string name="swiper_review_action">ਸਮੀਖਿਆ</string>
     <string name="swiper_status_title">ਫੈਸਲਿਆਂ ਦੀ ਸਮੀਖਿਆ ਕਰੋ</string>
     <string name="swiper_status_action_keep_selected">ਚੁਣੇ ਹੋਏ ਰੱਖੋ</string>
-    <string name="swiper_status_action_delete_selected">ਚੁਣੇ ਹੋਏ ਮਿਟਾਓ</string>
+    <string name="swiper_status_action_delete_selected">ਚੁਣੇ ਮਿਟਾਓ</string>
     <string name="swiper_status_action_reset_selected">ਚੁਣੇ ਹੋਏ ਰੀਸੈੱਟ ਕਰੋ</string>
     <string name="swiper_decision_undecided">ਅਣ-ਫੈਸਲਾ</string>
     <string name="swiper_retry_action">ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ ਵਾਪਸ</string>
     <string name="swiper_help_title">ਸਵਾਈਪਰ ਕਿਵੇਂ ਕੰਮ ਕਰਦਾ ਹੈ</string>
     <string name="swiper_help_message">ਫੈਸਲਾ ਲੈਣ ਲਈ ਹਰ ਫਾਈਲ ਸਵਾਈਪ ਕਰੋ:\n\n← ਖੱਬੇ ਸਵਾਈਪ: %1$s\n→ ਸੱਜੇ ਸਵਾਈਪ: %2$s\n↑ ਉੱਪਰ ਸਵਾਈਪ: ਛੱਡੋ\n↓ ਹੇਠਾਂ ਸਵਾਈਪ: ਵਾਪਸ (ਪਹਿਲੇ ਸਵਾਈਪ ਤੋਂ ਬਾਅਦ)\n\nਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ ਵੀ ਵਰਤ ਸਕਦੇ ਹੋ।\n\nਜਦੋਂ ਤੁਸੀਂ ਮੁਕੰਮਲ ਕਰ ਲਵੋ, ਆਪਣੇ ਸਾਰੇ ਫੈਸਲੇ ਦੇਖਣ ਲਈ \"ਸਮੀਖਿਆ\" \'ਤੇ ਟੈਪ ਕਰੋ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਸਮੀਖਿਆ ਸਕ੍ਰੀਨ \'ਤੇ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰਦੇ ਕੁਝ ਵੀ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
+    <string name="swiper_help_action">ਮਦਦ</string>
 </resources>

@@ -76,4 +76,5 @@
         <item quantity="other">Ít nhất %d ngày tuổi</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ước tính tiết kiệm khoảng %d%% cho các tệp JPEG</string>
+    <string name="squeezer_onboarding_got_it">Hiểu rồi</string>
 </resources>

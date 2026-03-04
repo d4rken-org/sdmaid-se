@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Pumili ng mga path</string>
     <string name="picker_selected_paths_title">Mga napiling path</string>
     <string name="picker_unsaved_confirmation_message">Itapon ang mga pagbabago?</string>
-    <string name="picker_home_action">Mga data area</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d path na napili</item>
-    <item quantity="other">%d mga path na napili</item>
+        <item quantity="one">%d path na napili</item>
+        <item quantity="other">%d mga path na napili</item>
     </plurals>
+    <string name="picker_home_action">Mga data area</string>
 </resources>

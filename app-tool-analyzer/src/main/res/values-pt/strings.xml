@@ -13,7 +13,7 @@
     </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="one">%s utilizado</item>
-        <item quantity="other">%s utilizados</item>
+        <item quantity="other">%s utilizado</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Nenhum acesso direto disponível</string>
     <string name="analyzer_content_create_swiper_session_action">Criar sessão Swiper</string>

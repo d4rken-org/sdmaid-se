@@ -94,4 +94,5 @@
         <item quantity="other">По крайней мере %d дн.</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Приблизительно ~%d%% экономия для JPEG-файлов</string>
+    <string name="squeezer_onboarding_got_it">Понятно</string>
 </resources>

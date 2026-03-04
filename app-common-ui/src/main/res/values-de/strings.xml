@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Pfade auswählen</string>
     <string name="picker_selected_paths_title">Ausgewählte Pfade</string>
     <string name="picker_unsaved_confirmation_message">Änderungen verwerfen?</string>
-    <string name="picker_home_action">Datenbereiche</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d Pfad ausgewählt</item>
-    <item quantity="other">%d Pfade ausgewählt</item>
+        <item quantity="one">%d Pfad ausgewählt</item>
+        <item quantity="other">%d Pfade ausgewählt</item>
     </plurals>
+    <string name="picker_home_action">Datenbereiche</string>
 </resources>

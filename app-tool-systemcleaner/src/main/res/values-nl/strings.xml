@@ -29,6 +29,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Schermafbeelding Leeftijd</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumleeftijd waarop schermafbeeldingen in aanmerking komen voor verwijdering.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overbodige APK\'s</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die niet langer nodig zijn op basis van geïnstalleerde app-versies.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Dezelfde versie opnemen</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ook APK-bestanden targeten die overeenkomen met de geïnstalleerde versie. Uitschakelen om alleen oudere versies te verwijderen.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mappen</string>
     <string name="systemcleaner_filter_lostdir_summary">Tijdelijke bestanden die worden gemaakt bij de overdracht van gegevens tussen Android-apparaten.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux bestanden</string>
@@ -88,18 +91,15 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Naam is gelijk aan trefwoord</string>
     <string name="systemcleaner_customfilter_last_edit">Laatste bewerking: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live zoeken</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultaten op basis van bestandsgrootte. Laat onbeperkt om elke grootte te matchen.</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
-    <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
-    <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Installatiebestanden die niet langer nodig zijn op basis van geïnstalleerde app-versies.</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Dezelfde versie opnemen</string>
-    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Ook APK-bestanden targeten die overeenkomen met de geïnstalleerde versie. Uitschakelen om alleen oudere versies te verwijderen.</string>
     <string name="systemcleaner_customfilter_editor_size_label">Groottelimieten</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimumgrootte</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximumgrootte</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Beperk resultaten op basis van bestandsgrootte. Laat onbeperkt om elke grootte te matchen.</string>
     <string name="systemcleaner_customfilter_editor_age_label">Leeftijdslimieten</string>
     <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimumleeftijd</string>
     <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximumleeftijd</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Beperk resultaten op basis van bestandsleeftijd (laatste wijzigingstijd). Laat onbeperkt om elke leeftijd te matchen.</string>
+    <string name="systemcleaner_customfilter_import_action">Importeer nieuw filter</string>
+    <string name="systemcleaner_customfilter_export_action">Geselecteerde filter exporteren</string>
     <string name="systemcleaner_editor_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
 </resources>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s har blitt frigjort.</item>
-    <item quantity="other">%s har blitt frigjort.</item>
+        <item quantity="one">%s har blitt frigjort.</item>
+        <item quantity="other">%s har blitt frigjort.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">%s element har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
-    <item quantity="other">%s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
+        <item quantity="one">%s element har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
+        <item quantity="other">%s elementer har blitt behandlet siden du inviterte SD Maid til enheten din.</item>
     </plurals>
     <string name="stats_report_status_success">Vellykket</string>
     <string name="stats_report_status_partial_success">Delvis vellykket</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Detaljert bane-informasjon</string>
     <string name="stats_settings_retention_paths_desc">Antall dager detaljer om baner berørt av SD Maid skal beholdes.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d dag</item>
-    <item quantity="other">%d dager</item>
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dager</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Tilbakestill alt</string>
     <string name="stats_settings_reset_all_desc">Slett alle rapporter og sett all statistikk til null.</string>

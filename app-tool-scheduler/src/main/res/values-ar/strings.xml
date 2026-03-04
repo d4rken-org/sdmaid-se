@@ -17,7 +17,7 @@
     <string name="scheduler_schedule_next_at_x">مجدول لـ %s</string>
     <string name="scheduler_schedule_last_at_x">أخز تنفيذ له في %s</string>
     <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="zero">يومي</item>
+        <item quantity="zero">كل %d ايام</item>
         <item quantity="one">يوميا</item>
         <item quantity="two">كل يومين</item>
         <item quantity="few">بعض الايام</item>

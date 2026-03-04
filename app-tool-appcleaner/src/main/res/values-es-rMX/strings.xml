@@ -86,7 +86,13 @@
     <string name="appcleaner_automation_error_locked_appcache_body">El sistema ha desactivado el botón \"Limpiar caché\" para esta aplicación. Exclúyela para acelerar la limpieza del caché.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicación del sistema mal configurada</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">La aplicación de Seguridad de HyperOS (com.miui.securitycenter) carece del permiso de Estadísticas de Uso (GET_USAGE_STATS). Esto interrumpe funciones como \"Limpiar Datos\" en detalles de aplicación y limpieza de caché a través de accesibilidad. Otorga el permiso para restaurar la funcionalidad completa.</string>
-    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
     <string name="appcleaner_forcestop_before_clearing_label">Forzar detención antes de limpiar</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Forzar la detención de aplicaciones antes de limpiar su caché. Puede ayudar a limpiar el caché de algunas aplicaciones, pero puede causar mal funcionamiento y requerir reinicio manual.</string>
     <string name="appcleaner_progress_force_stopping">Forzando detención de aplicaciones…</string>
+    <string name="appcleaner_automation_error_no_settings_body">Esta aplicación del sistema no tiene pantalla de configuración. La limpieza de caché a través del servicio de accesibilidad no es posible. Exclúyela para acelerar la limpieza del caché.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Pantalla de configuración no disponible</string>
+    <string name="appcleaner_automation_loading">Preparando automatización a través del servicio de accesibilidad</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">Intentando confirmar acción anterior (palabras clave: %s)</string>
+    <string name="appcleaner_include_multiuser_label">Incluir otros usuarios</string>
+    <string name="appcleaner_include_multiuser_summary">Incluir aplicaciones de otros perfiles de usuario en este dispositivo.</string>
 </resources>

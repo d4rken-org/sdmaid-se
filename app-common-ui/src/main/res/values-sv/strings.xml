@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Välj sökvägar</string>
     <string name="picker_selected_paths_title">Valda sökvägar</string>
     <string name="picker_unsaved_confirmation_message">Kassera ändringar?</string>
-    <string name="picker_home_action">Dataområden</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d sökväg vald</item>
-    <item quantity="other">%d sökvägar valda</item>
+        <item quantity="one">%d sökväg vald</item>
+        <item quantity="other">%d sökvägar valda</item>
     </plurals>
+    <string name="picker_home_action">Dataområden</string>
 </resources>

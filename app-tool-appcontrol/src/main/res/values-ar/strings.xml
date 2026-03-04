@@ -5,8 +5,8 @@
         <item quantity="zero">%d تطبيق محدد</item>
         <item quantity="one">%d تطبيق محدد</item>
         <item quantity="two">%d تطبيق محدد</item>
-        <item quantity="few">%d تطبيقات محددة</item>
-        <item quantity="many">%d تطبيقات محددة</item>
+        <item quantity="few">%d تطبيق محدد</item>
+        <item quantity="many">%d تطبيق محدد</item>
         <item quantity="other">%d تطبيقات محددة</item>
     </plurals>
     <string name="appcontrol_toggle_app_selection_action">اختيار التطبيقات</string>
@@ -170,4 +170,8 @@
     <string name="appcontrol_item_installedat_x_label">مثبت في: %s</string>
     <string name="shortcut_appcontrol_short">App Control</string>
     <string name="shortcut_appcontrol_long">أدر التطبيقات المثبتة</string>
+    <string name="appcontrol_automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
+    <string name="appcontrol_include_multiuser_label">ضم مستعملين آخرين</string>
+    <string name="appcontrol_include_multiuser_summary">قم بتضمين تطبيقات من ملفات تعريف المستخدمين الأخرى على هذا الجهاز.</string>
 </resources>

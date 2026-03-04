@@ -26,6 +26,10 @@
         <item quantity="other">%1$d plików gotowych (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Ta funkcja rejestruje wszystkie działania aplikacji do pliku, który można udostępniać. Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Udostępniaj go tylko zaufanym podmiotom (np. programiście rozwiązującym problem).</string>
+    <string name="debug_debuglog_short_recording_title">Bardzo krótkie rejestrowanie</string>
+    <string name="debug_debuglog_short_recording_desc">Rejestrowanie było bardzo krótkie. Dzienniki debugowania to nagrania, a nie zrzuty - odtwórz problem, gdy rejestrowanie jest aktywne, aby dziennik był przydatny.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Kontynuuj rejestrowanie</string>
+    <string name="debug_debuglog_short_recording_stop_action">Zatrzymaj mimo to</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -75,7 +79,7 @@
     <string name="general_settings_desc">Ogólne ustawienia wpływające na całą aplikację.</string>
     <string name="settings_category_ui_label">Interfejs użytkownika</string>
     <string name="ui_theme_mode_setting_label">Tryb motywu</string>
-    <string name="ui_theme_mode_setting_explanation">Tryb, w jakim używana jest aplikacja (np. w nocy lub dzień).</string>
+    <string name="ui_theme_mode_setting_explanation">Tryb, w jakim używana jest aplikacja (np. ciemny lub jasny).</string>
     <string name="ui_theme_mode_dark_label">Ciemny</string>
     <string name="ui_theme_mode_light_label">Jasny</string>
     <string name="ui_theme_mode_system_label">Systemowy</string>
@@ -205,13 +209,13 @@
     <string name="setup_acs_state_stopped_hint_miui">Jeśli usługa jest ciągle wyłączana po pewnym czasie, spróbuj włączyć opcję „Autostart” dla SD Maid w ustawieniach systemowych.</string>
     <string name="setup_acs_consent_positive_action">Włącz usługę i udziel dostępu</string>
     <string name="setup_acs_consent_negative_action">Nie używaj usługi ułatwień dostępu</string>
-    <string name="setup_acs_allow_hint">Jeśli widzisz małą ikonkę na krawędzi ekranu, to przypadkowo włączono opcję \"skrót\".</string>
+    <string name="setup_acs_allow_hint">Skrót lub przycisk ułatwień dostępu dla SD Maid SE jest włączony. Otwórz ustawienia ułatwień dostępu w urządzeniu i wyłącz opcję skrótu/przycisku, aby uniknąć niechcianej ikony na krawędzi ekranu.</string>
     <string name="setup_acs_disallow_hint">Jeśli zmienisz zdanie, możesz ponownie zmienić tę opcję, przechodząc do ustawień i ponownie uruchamiając konfigurację.</string>
     <string name="setup_acs_appops_restriction_title">Ograniczone ustawienia</string>
     <string name="setup_acs_appops_restriction_body">Nie można włączyć usługi ułatwień dostępu dla SD Maid? W Androidzie 13+ mogą być stosowane ograniczenia dla aplikacji niezainstalowanych za pośrednictwem Google Play. Zmień te ograniczenia za pomocą strony szczegółów systemowych dla SD Maid. Opcja znajduje się w menu kontekstowym w prawym górnym rogu.</string>
     <string name="setup_inventory_card_title">Zasobnik aplikacji</string>
     <string name="setup_inventory_card_body">SD Maid musi wiedzieć, których aplikacji potrzebujesz, aby znaleźć pliki, które nie należą do żadnej zainstalowanej aplikacji.</string>
-    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie \"Lista aplikacji\" lub \"Zapytaj o wszystkie pakiety\".</string>
+    <string name="setup_inventory_card_extra">Szukaj uprawnień o nazwie Lista aplikacji lub Zapytaj o wszystkie pakiety.</string>
     <string name="setup_inventory_invalid_message">System dostarczył nieprawidłową listę zainstalowanych aplikacji (np. zbyt małą lub niektóre z nich nie działały). Przejdź do ustawień systemu i zezwól aplikacji SD Maid na dostęp do „Listy aplikacji”.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid nie znalazło żadnych obszarów danych, które można przeskanować. Czy konfiguracja została ukończona?</string>
     <string name="dataarea_warningcard_label">Obszary danych</string>
@@ -220,6 +224,7 @@
     <string name="debug_mode_explanation">Włącz opcje testowania i bardziej szczegółowy wynik. Aplikacja będzie działać wolniej i zachowywać się inaczej.</string>
     <string name="debug_bugreporter_label">Automatyczne raporty błędów</string>
     <string name="debug_bugreporter_summary">Automatycznie zgłasza problemy, m.in. szczegóły dotyczące awarii aplikacji, więc mogę dowiedzieć się, dlaczego i to naprawić.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Tryb debugowania jest włączony</string>
     <string name="debug_card_trace_mode_label">Włącz tryb śledzenia</string>
     <string name="debug_card_dryrun_mode_label">Tryb testowy (wyłącz usuwanie)</string>
@@ -276,7 +281,4 @@ Karol Szastok (K4r0lSz);</string>
     <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
     <!-- Shorter versions for side-by-side display -->
-    <!-- Swiper stamp variations (Tinder-style labels) -->
-    <!-- Swiper gesture overlay -->
-    <!-- Swiper help dialog -->
 </resources>

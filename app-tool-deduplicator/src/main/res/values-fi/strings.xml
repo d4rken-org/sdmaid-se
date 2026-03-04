@@ -58,7 +58,7 @@
     <string name="deduplicator_arbiter_criterium_nesting_description">Suosi tiedostoja matalammissa tai syvemmissä kansiorakenteissa.</string>
     <string name="deduplicator_arbiter_criterium_modified_title">Muokkauspäivä</string>
     <string name="deduplicator_arbiter_criterium_modified_description">Suosi vanhempia tai uudempia tiedostoja muokkausajan perusteella.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Tiedostokoko</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Tiedoston koko</string>
     <string name="deduplicator_arbiter_criterium_size_description">Suosi suurempia tai pienempiä tiedostoja kun koot eroavat.</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_title">Suositut sijainnit</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_description">Säilytä tiedostot määritetyissä suosituissa sijainneissa.</string>

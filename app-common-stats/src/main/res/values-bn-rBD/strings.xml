@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s মুক্ত করা হয়েছে।</item>
-    <item quantity="other">%s মুক্ত করা হয়েছে।</item>
+        <item quantity="one">%s মুক্ত করা হয়েছে।</item>
+        <item quantity="other">%s মুক্ত করা হয়েছে।</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">আপনার ডিভাইসে SD Maid আমন্ত্রণ জানানোর পর থেকে %s আইটেমটি প্রক্রিয়া করা হয়েছে।</item>
-    <item quantity="other">আপনার ডিভাইসে SD Maid-কে আমন্ত্রণ জানানোর পর থেকে %sটি আইটেম প্রক্রিয়া করা হয়েছে।</item>
+        <item quantity="one">আপনার ডিভাইসে SD Maid আমন্ত্রণ জানানোর পর থেকে %s আইটেমটি প্রক্রিয়া করা হয়েছে।</item>
+        <item quantity="other">আপনার ডিভাইসে SD Maid-কে আমন্ত্রণ জানানোর পর থেকে %sটি আইটেম প্রক্রিয়া করা হয়েছে।</item>
     </plurals>
     <string name="stats_report_status_success">সাফল্য</string>
     <string name="stats_report_status_partial_success">আংশিক সাফল্য</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">বিস্তারিত পথ তথ্য</string>
     <string name="stats_settings_retention_paths_desc">SD Maid দ্বারা প্রভাবিত পথ সম্পর্কে বিশদ বিবরণ রাখার দিনের সংখ্যা।</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d দিন</item>
-    <item quantity="other">%d দিন</item>
+        <item quantity="one">%d দিন</item>
+        <item quantity="other">%d দিন</item>
     </plurals>
     <string name="stats_settings_reset_all_label">সব পুনরায় সেট করুন</string>
     <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>

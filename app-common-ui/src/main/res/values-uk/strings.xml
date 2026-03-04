@@ -3,11 +3,11 @@
     <string name="picker_select_paths_title">Виберіть шляхи</string>
     <string name="picker_selected_paths_title">Вибрані шляхи</string>
     <string name="picker_unsaved_confirmation_message">Скасувати зміни?</string>
-    <string name="picker_home_action">Області даних</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d шлях вибрано</item>
-    <item quantity="few">%d шляхи вибрано</item>
-    <item quantity="many">%d шляхів вибрано</item>
-    <item quantity="other">%d шляхів вибрано</item>
+        <item quantity="one">%d шлях вибрано</item>
+        <item quantity="few">%d шляхи вибрано</item>
+        <item quantity="many">%d шляхів вибрано</item>
+        <item quantity="other">%d шляхів вибрано</item>
     </plurals>
+    <string name="picker_home_action">Області даних</string>
 </resources>

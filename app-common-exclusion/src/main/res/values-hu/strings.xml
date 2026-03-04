@@ -17,7 +17,7 @@
     <string name="exclusion_editor_affected_tools_label">Érintett eszközök</string>
     <string name="exclusion_editor_path_explanation">Az elérési útvonal kizárása megakadályozza, hogy az SD Maid tovább feldolgozza az egyező elérési utakat. Ez vonatkozik a fájlokra, mappákra és almappákra.</string>
     <string name="exclusion_editor_pkg_explanation">Az alkalmazás kizárásának megakadályozza, hogy az SD Maid feldolgozza a megfelelő csomagokat.</string>
-    <string name="exclusion_editor_segment_explanation">A szegmens alapú kizárás hasonló az elérési útvonal kizárásához, de lehetővé teszi a részleges egyezéseket. Példa: A \"DCIM/Camera\" kizárja a \"/sdcard/DCIM/DCIM/Camera/photo.png\"-t.</string>
+    <string name="exclusion_editor_segment_explanation">A szegmens alapú kizárás hasonló az elérési útvonal kizárásához, de lehetővé teszi a részleges egyezéseket. Példa: A \"DCIM/Camera\" kizárja a \"/sdcard/DCIM/Camera/photo.png\"-t.</string>
     <string name="exclusion_editor_remove_confirmation_message">Eltávolítod a kizárást?</string>
     <string name="exclusion_reset_default_exclusions">Alapértelmezett kivételek visszaállítása</string>
     <string name="exclusion_import_action">Kivételek importálása</string>
@@ -25,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">Használd az AppVezérlő eszközt az alkalmazások kizárásának létrehozásához.</string>
     <string name="exclusion_create_path_hint">Használd a TárhelyElemző eszközt az elérési útvonal-kizárások létrehozásához.</string>
     <string name="exclusion_show_defaults_action">Alapértelmezések megjelenítése</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Meg nem mentett változtatásaid vannak!</string>
 </resources>

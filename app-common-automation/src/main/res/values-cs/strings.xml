@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">Aplikace SD Maid nedokončila všechny kroky v časovém limitu. Pokud se to bude opakovat, možná bude nutné aplikaci pro vaše zařízení upravit. Zkontrolujte aktualizace nebo mě kontaktujte, abych to mohl opravit.</string>
     <string name="automation_error_overlay_title">Překrytí automatizace</string>
     <string name="automation_error_overlay_body">Aplikace SD Maid nemůže zobrazit překrytí automatizace. Zkontrolujte oprávnění a zkuste restartovat zařízení.</string>
+    <string name="automation_error_scheduler_title">Plánovaná automatizace selhala</string>
+    <string name="automation_error_scheduler_body">Plánovaná úloha se pokusila použít službu usnadnění přístupu, ale ta nebyla k dispozici. Pokud tuto funkci nepotřebujete, deaktivujte možnost \"Služba usnadnění přístupu\" v nastavení plánovače.</string>
     <string name="automation_error_no_settings_title">Obrazovka nastavení není k dispozici</string>
     <string name="automation_error_no_settings_body">Tato systémová aplikace nemá žádnou obrazovku nastavení. Vyčištění mezipaměti pomocí služby usnadnění přístupu není možné. Vylučte aplikaci pro urychlení vyčištění mezipaměti.</string>
     <string name="automation_loading">Příprava automatizace prostřednictvím služby přístupnosti</string>

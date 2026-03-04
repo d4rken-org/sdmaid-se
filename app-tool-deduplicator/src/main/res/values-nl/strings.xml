@@ -13,6 +13,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Opties weergeven waarmee je alle bestanden in een set duplicaten kunt verwijderen, zodat er geen bestand overblijft.</string>
     <string name="deduplicator_search_locations_title">Zoek locaties</string>
     <string name="deduplicator_search_locations_all_summary">Alle toegankelijke gebieden</string>
+    <string name="deduplicator_keep_prefer_paths_title">Bij voorkeur bewaren in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Geef bij het bepalen welk duplicaat behouden wordt de voorkeur aan bestanden op deze locaties.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Geen locaties geconfigureerd</string>
     <string name="deduplicator_skip_minsize_title">Minimale afmeting</string>
     <string name="deduplicator_skip_minsize_description">Bestanden overslaan die kleiner zijn dan de minimale grootte.</string>
     <string name="deduplicator_skip_uncommon_title">Sla ongebruikelijke bestandstypen over</string>
@@ -40,6 +43,8 @@
     <string name="deduplicator_details_cluster_title">Set dubbele exemplaren</string>
     <string name="deduplicator_matches_exact_label">Exacte kopieën</string>
     <string name="deduplicator_matches_similar_label">Gelijkaardige bestanden</string>
+    <string name="deduplicator_arbiter_title">Verwijderingsstrategie</string>
+    <string name="deduplicator_arbiter_summary">Configureer welke bestanden worden bewaard en welke worden verwijderd.</string>
     <string name="deduplicator_arbiter_explanation">Bij het verwijderen van duplicaten beslist SD Maid welk bestand behouden wordt door elk criterium op volgorde te controleren. Het eerste criterium dat een duidelijke winnaar oplevert, bepaalt het resultaat. Sleep om de volgorde te wijzigen, tik om de modus te wijzigen.</string>
     <string name="deduplicator_arbiter_select_mode_title">Selecteer modus</string>
     <string name="deduplicator_arbiter_configure_paths_action">Paden configureren…</string>
@@ -71,9 +76,4 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
     <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
-    <string name="deduplicator_keep_prefer_paths_title">Bij voorkeur bewaren in</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Geef bij het bepalen welk duplicaat behouden wordt de voorkeur aan bestanden op deze locaties.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Geen locaties geconfigureerd</string>
-    <string name="deduplicator_arbiter_title">Verwijderingsstrategie</string>
-    <string name="deduplicator_arbiter_summary">Configureer welke bestanden worden bewaard en welke worden verwijderd.</string>
 </resources>

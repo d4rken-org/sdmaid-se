@@ -92,19 +92,19 @@
         <item quantity="other">%d sans décision</item>
     </plurals>
     <plurals name="swiper_session_status_already_kept">
-        <item quantity="one">%d déjà conservé</item>
+        <item quantity="one">%d déjà conservés</item>
         <item quantity="other">%d déjà conservés</item>
     </plurals>
     <plurals name="swiper_session_status_already_deleted">
-        <item quantity="one">%d déjà supprimé</item>
+        <item quantity="one">%d déjà supprimés</item>
         <item quantity="other">%d déjà supprimés</item>
     </plurals>
     <plurals name="swiper_session_status_kept">
-        <item quantity="one">%d conservé</item>
+        <item quantity="one">%d conservés</item>
         <item quantity="other">%d conservés</item>
     </plurals>
     <plurals name="swiper_session_status_deleted">
-        <item quantity="one">%d supprimé</item>
+        <item quantity="one">%d supprimés</item>
         <item quantity="other">%d supprimés</item>
     </plurals>
     <string name="swiper_exclude_confirmation_message">Exclure « %1$s » des analyses du Balayeur ?</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Annuler</string>
     <string name="swiper_help_title">Fonctionnement du Balayeur</string>
     <string name="swiper_help_message">Balayez chaque fichier pour prendre une décision :\n\n← Balayer vers la gauche : %1$s\n→ Balayer vers la droite : %2$s\n↑ Balayer vers le haut : Ignorer\n↓ Balayer vers le bas : Annuler (après le premier balayage)\n\nVous pouvez aussi utiliser les boutons situés en bas.\n\nQuand vous avez terminé, touchez « Examiner » pour afficher vos décisions. Rien n’est supprimé tant que vous ne confirmez pas sur l’écran de révision.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">J’ai compris</string>
+    <string name="swiper_help_action">Aide</string>
 </resources>

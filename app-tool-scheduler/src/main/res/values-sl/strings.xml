@@ -19,7 +19,7 @@
     <plurals name="scheduler_schedule_repeat_x_days">
         <item quantity="one">Dnevno</item>
         <item quantity="two">Vsake %d dni</item>
-        <item quantity="few">Vsake %d dni</item>
+        <item quantity="few">Vsakih %d dni</item>
         <item quantity="other">Vsakih %d dni</item>
     </plurals>
     <string name="scheduler_schedule_repeat_interval">Razmik ponovitev</string>

@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">L\'SD Maid no ha completat tots els passos dins del límit de temps. Si això continua passant, potser hauré d\'ajustar l\'aplicació per al vostre dispositiu. Comproveu si hi ha actualitzacions o contacteu amb mi perquè ho pugui solucionar.</string>
     <string name="automation_error_overlay_title">Superposició d\'automatització</string>
     <string name="automation_error_overlay_body">L\'SD Maid no ha pogut mostrar la superposició d\'automatització. Comproveu els permisos i proveu de reiniciar el dispositiu.</string>
+    <string name="automation_error_scheduler_title">Ha fallat l\'automatització programada</string>
+    <string name="automation_error_scheduler_body">Una tasca programada ha intentat utilitzar el servei d\'accessibilitat, però no estava disponible. Si no ho necessiteu, desactiveu l\'opció «Servei d\'accessibilitat» a la configuració del programador.</string>
     <string name="automation_error_no_settings_title">La pantalla de configuració no està disponible</string>
     <string name="automation_error_no_settings_body">Aquesta aplicació del sistema no té cap pantalla de configuració. No és possible esborrar la memòria cau mitjançant el servei d\'accessibilitat. Excloeu-la per accelerar l\'esborrat de la memòria cau.</string>
-    <string name="automation_loading">S\'està preparant l\'automatització mitjançant el servei d\'accessibilitat</string>
+    <string name="automation_loading">Preparant l\'automatització mitjançant servei d\'accessibilitat</string>
     <string name="automation_progress_find_ok_confirmation">S\'està intentant confirmar l\'acció anterior (paraules clau: %s)</string>
 </resources>

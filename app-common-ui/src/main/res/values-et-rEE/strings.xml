@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Vali asukohad</string>
     <string name="picker_selected_paths_title">Valitud asukohad</string>
     <string name="picker_unsaved_confirmation_message">Loobu muudatustest?</string>
-    <string name="picker_home_action">Andmekogud</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d asukoht valitud</item>
-    <item quantity="other">%d asukohta valitud</item>
+        <item quantity="one">%d asukoht valitud</item>
+        <item quantity="other">%d asukohta valitud</item>
     </plurals>
+    <string name="picker_home_action">Andmekogud</string>
 </resources>

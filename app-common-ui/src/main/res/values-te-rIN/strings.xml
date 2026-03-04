@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">పాథ్‌లను ఎంచుకోండి</string>
     <string name="picker_selected_paths_title">ఎంచుకొన్న పాథ్‌లు</string>
     <string name="picker_unsaved_confirmation_message">మార్పులను వదిలివేయాలా?</string>
-    <string name="picker_home_action">డేటా ప్రాంతాలు</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d పాథ్ ఎంచుకొబడింది</item>
-    <item quantity="other">%d పాథ్‌లు ఎంచుకొబడినాయి</item>
+        <item quantity="one">%d పాథ్ ఎంచుకొబడింది</item>
+        <item quantity="other">%d పాథ్‌లు ఎంచుకొబడినాయి</item>
     </plurals>
+    <string name="picker_home_action">డేటా ప్రాంతాలు</string>
 </resources>

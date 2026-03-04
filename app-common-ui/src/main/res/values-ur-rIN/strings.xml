@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">پاتھز منتخب کریں</string>
     <string name="picker_selected_paths_title">منتخب پاتھز</string>
     <string name="picker_unsaved_confirmation_message">تبدیلیاں رد کریں؟</string>
-    <string name="picker_home_action">ڈیٹا ایریاز</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d پاتھ منتخب</item>
-    <item quantity="other">%d پاتھز منتخب</item>
+        <item quantity="one">%d پاتھ منتخب</item>
+        <item quantity="other">%d پاتھز منتخب</item>
     </plurals>
+    <string name="picker_home_action">ڈیٹا ایریاز</string>
 </resources>

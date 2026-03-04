@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s er blevet frigjort.</item>
-    <item quantity="other">%s er blevet frigjort.</item>
+        <item quantity="one">%s er blevet frigjort.</item>
+        <item quantity="other">%s er blevet frigjort.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">%s element behandlet siden du bragte SD Maid til din enhed.</item>
-    <item quantity="other">%s elementer behandlet siden du bragte SD Maid til din enhed.</item>
+        <item quantity="one">%s element behandlet siden du bragte SD Maid til din enhed.</item>
+        <item quantity="other">%s elementer behandlet siden du bragte SD Maid til din enhed.</item>
     </plurals>
     <string name="stats_report_status_success">Succes</string>
     <string name="stats_report_status_partial_success">Delvis succes</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Detaljerede oplysninger om sti</string>
     <string name="stats_settings_retention_paths_desc">Antal dage at gemme oplysninger om stier påvirket af SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d dag</item>
-    <item quantity="other">%d dage</item>
+        <item quantity="one">%d dag</item>
+        <item quantity="other">%d dage</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Nulstil alle</string>
     <string name="stats_settings_reset_all_desc">Slet alle rapporter, og nulstil alle statistikker.</string>

@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Velg søkestier</string>
     <string name="picker_selected_paths_title">Valgte søkestier</string>
     <string name="picker_unsaved_confirmation_message">Forkaste endringer?</string>
-    <string name="picker_home_action">Dataområder</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d bane valgt</item>
-    <item quantity="other">%d baner valgt</item>
+        <item quantity="one">%d bane valgt</item>
+        <item quantity="other">%d baner valgt</item>
     </plurals>
+    <string name="picker_home_action">Dataområder</string>
 </resources>

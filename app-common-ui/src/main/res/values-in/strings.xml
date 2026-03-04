@@ -3,8 +3,8 @@
     <string name="picker_select_paths_title">Pilih jalur</string>
     <string name="picker_selected_paths_title">Jalur yang dipilih</string>
     <string name="picker_unsaved_confirmation_message">Buang perubahan?</string>
-    <string name="picker_home_action">Area data</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="other">%d jalur dipilih</item>
+        <item quantity="other">%d jalur dipilih</item>
     </plurals>
+    <string name="picker_home_action">Area data</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="other">ลบพื้นที่ได้ %s</item>
+        <item quantity="other">ลบพื้นที่ได้ %s</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="other">ดำเนินการ %s รายการตั้งแต่คุณเชิญ SD Maid มายังอุปกรณ์</item>
+        <item quantity="other">ดำเนินการ %s รายการตั้งแต่คุณเชิญ SD Maid มายังอุปกรณ์</item>
     </plurals>
     <string name="stats_report_status_success">สำเร็จ</string>
     <string name="stats_report_status_partial_success">สำเร็จบางส่วน</string>
@@ -16,7 +16,7 @@
     <string name="stats_settings_retention_paths_label">ข้อมูลเส้นทางรายละเอียด</string>
     <string name="stats_settings_retention_paths_desc">จำนวนวันที่จะเก็บรายละเอียดเกี่ยวกับเส้นทางที่ได้รับผลกระทบโดย SD Maid</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="other">%d วัน</item>
+        <item quantity="other">%d วัน</item>
     </plurals>
     <string name="stats_settings_reset_all_label">รีเซ็ตทั้งหมด</string>
     <string name="stats_settings_reset_all_desc">ลบรายงานทั้งหมดและตั้งค่าสถิติทั้งหมดเป็นศูนย์</string>

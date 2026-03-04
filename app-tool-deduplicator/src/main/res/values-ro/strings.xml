@@ -61,7 +61,7 @@
     <string name="deduplicator_arbiter_criterium_nesting_description">Preferați fișierele în structuri de foldere mai puțin adânci sau mai adânci.</string>
     <string name="deduplicator_arbiter_criterium_modified_title">Data modificării</string>
     <string name="deduplicator_arbiter_criterium_modified_description">Preferați fișierele mai vechi sau mai noi în funcție de timpul de modificare.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Dimensiune fișier</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Dimensiune fişier</string>
     <string name="deduplicator_arbiter_criterium_size_description">Preferați fișierele mai mari sau mai mici atunci când dimensiunile diferă.</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_title">Locațiile preferate</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_description">Păstrați fișierele în locațiile preferate configurate.</string>
@@ -78,4 +78,5 @@
     <string name="deduplicator_arbiter_mode_prefer_larger">Preferați fișierele mari</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Preferați fișierele mici</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
+    <string name="deduplicator_view_mode_directories_label">Foldere</string>
 </resources>

@@ -1,10 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="deduplicator_explanation_short">तपाईंको उपकरणमा डुप्लिकेट डेटा फेला पार्नुहोस्।</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d नकल मेटाइयो</item>
+        <item quantity="other">%d नकलहरू मेटाइए</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d डुप्लिकेट सेट फेला पर्यो</item>
+        <item quantity="other">%d डुप्लिकेट सेटहरू फेला पर्यो</item>
+    </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">\"सबै मेटाउनुहोस्\" सम्भव बनाउनुहोस्</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">डुप्लिकेटहरूको सेटमा सबै फाइलहरू मेटाउन अनुमति दिने विकल्पहरू देखाउनुहोस् ताकि कुनै फाइल बाँकी नरहोस्।</string>
     <string name="deduplicator_search_locations_title">खोज स्थानहरू</string>
     <string name="deduplicator_search_locations_all_summary">सबै पहुँचयोग्य क्षेत्रहरू</string>
+    <string name="deduplicator_keep_prefer_paths_title">मा राख्न प्राथमिकता दिनुहोस्</string>
+    <string name="deduplicator_keep_prefer_paths_summary">कुन डुप्लिकेट राख्ने भनी निर्णय गर्दा, यी स्थानहरूमा फाइलहरू राख्न प्राथमिकता दिनुहोस्।</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">कुनै स्थान कन्फिगर गरिएको छैन</string>
     <string name="deduplicator_skip_minsize_title">न्यूनतम साइज</string>
     <string name="deduplicator_skip_minsize_description">न्यूनतम साइजभन्दा सानो भएका फाइलहरूलाई छोड्नुहोस्।</string>
     <string name="deduplicator_skip_uncommon_title">असामान्य फाइल प्रकारहरू छोड्नुहोस्</string>
@@ -12,7 +23,13 @@
     <string name="deduplicator_detection_method_label">पत्ता लगाउने विधि</string>
     <string name="deduplicator_detection_method_checksum_title">सामग्री checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">फाइलहरूका लागि checksum गणना गरेर डुप्लिकेटहरू पत्ता लगाउनुहोस्। मिल्दो checksum भएका फाइलहरूमा एकदमै उस्तै सामग्री हुन्छ।</string>
+    <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल ह्यास</string>
+    <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताहरू विश्लेषण गरेर र पर्सेप्चुअल ह्यास मानहरू तुलना गरेर मिल्दोजुल्दो फाइलहरू फेला पार्नुहोस्। ⚠️ समानता-आधारित पहिचानमा म्यानुअल सत्यापन आवश्यक पर्ने गलत सकारात्मक परिणामहरू समावेश हुन सक्छ।</string>
     <string name="deduplicator_occupied_space_label">कब्जा गरिएको भण्डारण</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="one">%s डुप्लिकेटले ओगटेको छ</item>
+        <item quantity="other">%s डुप्लिकेटले ओगटेका छन्</item>
+    </plurals>
     <string name="deduplicator_file_size_label">फाइल साइज</string>
     <string name="deduplicator_average_size_label">औसत साइज</string>
     <string name="deduplicator_cluster_x_label">समूह %s</string>
@@ -26,11 +43,6 @@
     <string name="deduplicator_details_cluster_title">डुप्लिकेटहरूको सेट</string>
     <string name="deduplicator_matches_exact_label">सटीक प्रतिहरू</string>
     <string name="deduplicator_matches_similar_label">समान फाइलहरू</string>
-    <string name="deduplicator_keep_prefer_paths_title">मा राख्न प्राथमिकता दिनुहोस्</string>
-    <string name="deduplicator_keep_prefer_paths_summary">कुन डुप्लिकेट राख्ने भनी निर्णय गर्दा, यी स्थानहरूमा फाइलहरू राख्न प्राथमिकता दिनुहोस्।</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">कुनै स्थान कन्फिगर गरिएको छैन</string>
-    <string name="deduplicator_detection_method_phash_title">पर्सेप्चुअल ह्यास</string>
-    <string name="deduplicator_detection_method_phash_summary">सामग्री विशेषताहरू विश्लेषण गरेर र पर्सेप्चुअल ह्यास मानहरू तुलना गरेर मिल्दोजुल्दो फाइलहरू फेला पार्नुहोस्। ⚠️ समानता-आधारित पहिचानमा म्यानुअल सत्यापन आवश्यक पर्ने गलत सकारात्मक परिणामहरू समावेश हुन सक्छ।</string>
     <string name="deduplicator_arbiter_title">मेटाउने रणनीति</string>
     <string name="deduplicator_arbiter_summary">कुन फाइलहरू राखिन्छन् र कुन मेटाइन्छन् भनी कन्फिगर गर्नुहोस्।</string>
     <string name="deduplicator_arbiter_explanation">डुप्लिकेटहरू मेटाउँदा, SD Maid कुन फाइल राख्ने भनी क्रमानुसार प्रत्येक मापदण्ड जाँच गरेर निर्णय गर्छ। स्पष्ट विजेता उत्पन्न गर्ने पहिलो मापदण्डले परिणाम निर्धारण गर्छ। पुनः क्रमबद्ध गर्न ड्र्याग गर्नुहोस्, मोड परिवर्तन गर्न ट्याप गर्नुहोस्।</string>
@@ -64,16 +76,4 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">साना फाइलहरूलाई प्राथमिकता दिनुहोस्</string>
     <string name="deduplicator_view_mode_groups_label">समूहहरू</string>
     <string name="deduplicator_view_mode_directories_label">फोल्डरहरू</string>
-    <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d नकल मेटाइयो</item>
-        <item quantity="other">%d नकलहरू मेटाइए</item>
-    </plurals>
-    <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">%d डुप्लिकेट सेट फेला पर्यो</item>
-        <item quantity="other">%d डुप्लिकेट सेटहरू फेला पर्यो</item>
-    </plurals>
-    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
-        <item quantity="one">%s डुप्लिकेटले ओगटेको छ</item>
-        <item quantity="other">%s डुप्लिकेटले ओगटेका छन्</item>
-    </plurals>
 </resources>

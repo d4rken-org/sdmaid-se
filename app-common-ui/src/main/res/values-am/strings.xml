@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">መንገዶችን ምረጥ</string>
     <string name="picker_selected_paths_title">የተመረጡ መንገዶች</string>
     <string name="picker_unsaved_confirmation_message">ለውጦችን ትተዋለህ?</string>
-    <string name="picker_home_action">የውሂብ አካባቢዎች</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d መንገድ ተመርጧል</item>
-    <item quantity="other">%d መንገዶች ተመርጠዋል</item>
+        <item quantity="one">%d መንገድ ተመርጧል</item>
+        <item quantity="other">%d መንገዶች ተመርጠዋል</item>
     </plurals>
+    <string name="picker_home_action">የውሂብ አካባቢዎች</string>
 </resources>

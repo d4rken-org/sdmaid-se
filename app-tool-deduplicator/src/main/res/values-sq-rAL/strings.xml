@@ -13,6 +13,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Trego opsionet që ju lejojnë të fshini të gjithë skedarët në një grup dublikate në mënyrë që të mos mbetet asnjë skedar.</string>
     <string name="deduplicator_search_locations_title">Vendet e kërkimit</string>
     <string name="deduplicator_search_locations_all_summary">Të gjitha zonat e qasshme</string>
+    <string name="deduplicator_keep_prefer_paths_title">Prefero ruajtjen në</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Kur vendoset cilin dublikat të ruhet, prefero mbajtjen e skedarëve në këto vendndodhje.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">Nuk ka vendndodhje të konfiguruara</string>
     <string name="deduplicator_skip_minsize_title">Madhësia minimale</string>
     <string name="deduplicator_skip_minsize_description">Kapërceni skedarët që janë nën madhësinë minimale.</string>
     <string name="deduplicator_skip_uncommon_title">Kapërceni llojet e pazakonta të skedarëve</string>
@@ -40,6 +43,8 @@
     <string name="deduplicator_details_cluster_title">Set duplikatesh</string>
     <string name="deduplicator_matches_exact_label">Kopje ekzakte</string>
     <string name="deduplicator_matches_similar_label">Skedarë të ngjashëm</string>
+    <string name="deduplicator_arbiter_title">Strategjia e fshirjes</string>
+    <string name="deduplicator_arbiter_summary">Konfiguro cilët skedarë ruhen dhe cilët fshihen.</string>
     <string name="deduplicator_arbiter_explanation">Kur fshini dublikatat, SD Maid vendos se cilin skedar ta mbajë duke kontrolluar çdo kriter sipas radhës. Kriteri i parë që jep një fitues të qartë përcakton rezultatin. Tërhiqni për të rirenditur, prekni për të ndryshuar modalitetin.</string>
     <string name="deduplicator_arbiter_select_mode_title">Zgjidhni modalitetin</string>
     <string name="deduplicator_arbiter_configure_paths_action">Konfiguro shtegjet…</string>
@@ -71,9 +76,4 @@
     <string name="deduplicator_arbiter_mode_prefer_smaller">Prefero skedarët më të vegjël</string>
     <string name="deduplicator_view_mode_groups_label">Grupe</string>
     <string name="deduplicator_view_mode_directories_label">Dosje</string>
-    <string name="deduplicator_keep_prefer_paths_title">Prefero ruajtjen në</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Kur vendoset cilin dublikat të ruhet, prefero mbajtjen e skedarëve në këto vendndodhje.</string>
-    <string name="deduplicator_keep_prefer_paths_none_summary">Nuk ka vendndodhje të konfiguruara</string>
-    <string name="deduplicator_arbiter_title">Strategjia e fshirjes</string>
-    <string name="deduplicator_arbiter_summary">Konfiguro cilët skedarë ruhen dhe cilët fshihen.</string>
 </resources>

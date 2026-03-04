@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Seleziona percorsi</string>
     <string name="picker_selected_paths_title">Percorsi selezionati</string>
     <string name="picker_unsaved_confirmation_message">Annullare le modifiche?</string>
-    <string name="picker_home_action">Aree di dati</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d percorso selezionati</item>
-    <item quantity="other">%d percorsi selezionati</item>
+        <item quantity="one">%d percorso selezionati</item>
+        <item quantity="other">%d percorsi selezionati</item>
     </plurals>
+    <string name="picker_home_action">Aree di dati</string>
 </resources>

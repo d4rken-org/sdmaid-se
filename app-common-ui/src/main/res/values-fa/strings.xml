@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">انتخاب مسیر‌ها</string>
     <string name="picker_selected_paths_title">مسیر‌های انتخابی</string>
     <string name="picker_unsaved_confirmation_message">صرف نظر از تغییرات؟</string>
-    <string name="picker_home_action">مناطق داده</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d مسیر انتخابی</item>
-    <item quantity="other">%d مسیر انتخابی</item>
+        <item quantity="one">%d مسیر انتخابی</item>
+        <item quantity="other">%d مسیر انتخابی</item>
     </plurals>
+    <string name="picker_home_action">مناطق داده</string>
 </resources>

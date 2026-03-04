@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Afturkalla</string>
     <string name="swiper_help_title">Hvernig Strjúkari virkar</string>
     <string name="swiper_help_message">Strjúktu hverri skrá til að taka ákvörðun:\n\n← Strjúktu til vinstri: %1$s\n→ Strjúktu til hægri: %2$s\n↑ Strjúktu upp: Sleppa\n↓ Strjúktu niður: Afturkalla (eftir fyrsta strjúk)\n\nÞú getur líka notað hnappana neðst.\n\nÞegar þú ert búin/n, ýttu á \"Yfirfara\" til að sjá allar ákvarðanir þínar. Ekkert er eytt fyrr en þú staðfestir á yfirferðarskjánum.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Ég skil</string>
+    <string name="swiper_help_action">Hjálp</string>
 </resources>

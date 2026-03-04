@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
-    <item quantity="other">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
+        <item quantity="one">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
+        <item quantity="other">%s ਮੁਕਤ ਕੀਤਾ ਗਿਆ ਹੈ।</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">ਜਦੋਂ ਤੋਂ ਤੁਸੀਂ SD Maid ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ \'ਤੇ ਸੱਦਿਆ ਹੈ ਤਦੋਂ ਤੋਂ %s ਆਈਟਮ ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਗਿਆ।</item>
-    <item quantity="other">ਜਦੋਂ ਤੋਂ ਤੁਸੀਂ SD Maid ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ \'ਤੇ ਸੱਦਿਆ ਹੈ ਤਦੋਂ ਤੋਂ %s ਆਈਟਮਾਂ ਪ੍ਰੋਸੈਸ ਕੀਤੀਆਂ ਗਈਆਂ।</item>
+        <item quantity="one">ਜਦੋਂ ਤੋਂ ਤੁਸੀਂ SD Maid ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ \'ਤੇ ਸੱਦਿਆ ਹੈ ਤਦੋਂ ਤੋਂ %s ਆਈਟਮ ਪ੍ਰੋਸੈਸ ਕੀਤਾ ਗਿਆ।</item>
+        <item quantity="other">ਜਦੋਂ ਤੋਂ ਤੁਸੀਂ SD Maid ਨੂੰ ਆਪਣੇ ਡਿਵਾਈਸ \'ਤੇ ਸੱਦਿਆ ਹੈ ਤਦੋਂ ਤੋਂ %s ਆਈਟਮਾਂ ਪ੍ਰੋਸੈਸ ਕੀਤੀਆਂ ਗਈਆਂ।</item>
     </plurals>
     <string name="stats_report_status_success">ਸਫਲਤਾ</string>
     <string name="stats_report_status_partial_success">ਅੰਸ਼ਿਕ ਸਫਲਤਾ</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">ਵਿਸਤ੍ਰਿਤ ਮਾਰਗ ਜਾਣਕਾਰੀ</string>
     <string name="stats_settings_retention_paths_desc">SD Maid ਦੁਆਰਾ ਪ੍ਰਭਾਵਿਤ ਮਾਰਗਾਂ ਬਾਰੇ ਵੇਰਵੇ ਰੱਖਣ ਲਈ ਦਿਨਾਂ ਦੀ ਗਿਣਤੀ।</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d ਦਿਨ</item>
-    <item quantity="other">%d ਦਿਨ</item>
+        <item quantity="one">%d ਦਿਨ</item>
+        <item quantity="other">%d ਦਿਨ</item>
     </plurals>
     <string name="stats_settings_reset_all_label">ਸਭ ਰੀਸੈੱਟ ਕਰੋ</string>
     <string name="stats_settings_reset_all_desc">ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ ਮਿਟਾਓ ਅਤੇ ਸਾਰੇ ਅੰਕੜੇ ਜ਼ੀਰੋ \'ਤੇ ਸੈੱਟ ਕਰੋ।</string>

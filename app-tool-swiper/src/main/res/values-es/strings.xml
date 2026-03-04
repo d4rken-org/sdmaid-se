@@ -26,7 +26,7 @@
     <string name="swiper_review_action">Revisar</string>
     <string name="swiper_status_title">Revisar decisiones</string>
     <string name="swiper_status_action_keep_selected">Conservar seleccionados</string>
-    <string name="swiper_status_action_delete_selected">Eliminar seleccionados</string>
+    <string name="swiper_status_action_delete_selected">Eliminar las selecciones</string>
     <string name="swiper_status_action_reset_selected">Restablecer seleccionados</string>
     <string name="swiper_decision_undecided">Sin decidir</string>
     <string name="swiper_retry_action">Reintentar</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <string name="swiper_help_title">Cómo funciona el Limpiador</string>
     <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Deslizar a la izquierda: %1$s\n→ Deslizar a la derecha: %2$s\n↑ Deslizar hacia arriba: Omitir\n↓ Deslizar hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. No se elimina nada hasta que confirmes en la pantalla de revisión.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entiendo</string>
+    <string name="swiper_help_action">Ayuda</string>
 </resources>

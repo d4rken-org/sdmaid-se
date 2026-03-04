@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Yolları seçin</string>
     <string name="picker_selected_paths_title">Seçilen yollar</string>
     <string name="picker_unsaved_confirmation_message">Değişiklikler yok sayılsın mı?</string>
-    <string name="picker_home_action">Veri alanları</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d yolu seçildi</item>
-    <item quantity="other">%d yolları seçildi</item>
+        <item quantity="one">%d yolu seçildi</item>
+        <item quantity="other">%d yolları seçildi</item>
     </plurals>
+    <string name="picker_home_action">Veri alanları</string>
 </resources>

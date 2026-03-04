@@ -26,7 +26,7 @@
     <string name="swiper_review_action">සමාලෝචනය</string>
     <string name="swiper_status_title">තීරණ සමාලෝචනය</string>
     <string name="swiper_status_action_keep_selected">තෝරාගත්තවා තබාගන්න</string>
-    <string name="swiper_status_action_delete_selected">තෝරාගත්තවා මකන්න</string>
+    <string name="swiper_status_action_delete_selected">තෝරාගත් ඒවා මකන්න</string>
     <string name="swiper_status_action_reset_selected">තෝරාගත්තවා යළි පිහිටුවන්න</string>
     <string name="swiper_decision_undecided">තීරණය නොකළ</string>
     <string name="swiper_retry_action">නැවත උත්සාහ</string>
@@ -78,7 +78,7 @@
     <string name="swiper_session_rename_hint">මෙම සැසිය සඳහා නමක් ඇතුළත් කරන්න</string>
     <string name="swiper_sessions_current_sessions">වත්මන් සැසි</string>
     <string name="swiper_session_paths_label">මාර්ග</string>
-    <string name="swiper_session_status_label">තත්ත්වය</string>
+    <string name="swiper_session_status_label">තත්වය</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d තබා ගැනීමට</item>
         <item quantity="other">%d තබා ගැනීමට</item>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">පිළිවෙළට සකස් කිරීමට සූදානම්ද?</string>
     <string name="swiper_sessions_suggestions_label">මෙයින් ආරම්භ කරන්න:</string>
     <string name="swiper_sessions_suggestion_downloads">බාගැනීම් ෆෝල්ඩරය</string>
-    <string name="swiper_sessions_suggestion_screenshots">තිර රූ</string>
+    <string name="swiper_sessions_suggestion_screenshots">තිර රූප</string>
     <string name="swiper_sessions_suggestion_camera">කැමරා රෝලය</string>
     <string name="swiper_stamp_keep_1">තබාගන්න!</string>
     <string name="swiper_stamp_keep_2">හොඳයි!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ අස් කරන්න</string>
     <string name="swiper_help_title">ස්වයිපර් ක්‍රියා කරන ආකාරය</string>
     <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
+    <string name="swiper_help_action">උදව්</string>
 </resources>

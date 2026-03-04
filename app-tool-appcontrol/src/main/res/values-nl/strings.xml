@@ -33,6 +33,7 @@
     <string name="appcontrol_tag_not_installed">Niet geïnstalleerd</string>
     <string name="appcontrol_tag_enabled">Ingeschakeld</string>
     <string name="appcontrol_tag_disabled">Uitgeschakeld</string>
+    <string name="appcontrol_tag_debug">Foutopsporing</string>
     <string name="appcontrol_progress_enabling_package">App inschakelen</string>
     <string name="appcontrol_progress_disabling_package">App uitschakelen</string>
     <string name="appcontrol_list_filteroptions_label">Filter opties</string>
@@ -125,7 +126,6 @@
     <string name="appcontrol_item_installedat_x_label">Geïnstalleerd op: %s</string>
     <string name="shortcut_appcontrol_short">App-bediening</string>
     <string name="shortcut_appcontrol_long">Geïnstalleerde apps beheren</string>
-    <string name="appcontrol_tag_debug">Foutopsporing</string>
     <string name="appcontrol_automation_loading">Voorbereiden van automatisering via toegankelijkheidsdienst</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Probeert eerdere actie te bevestigen (trefwoorden: %s)</string>
     <string name="appcontrol_include_multiuser_label">Inclusief andere gebruikers</string>
