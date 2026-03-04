@@ -8,13 +8,13 @@
     <string name="analyzer_progress_scanning_system">Skenovanie systémových údajov</string>
     <string name="analyzer_device_storage_title">Úložisko zariadenia</string>
     <plurals name="analyzer_space_available">
-        <item quantity="one">%s dostupná</item>
+        <item quantity="one">%s dostupných</item>
         <item quantity="few">%s dostupné</item>
         <item quantity="many">%s dostupných</item>
         <item quantity="other">%s dostupných</item>
     </plurals>
     <plurals name="analyzer_space_used">
-        <item quantity="one">%s použitá</item>
+        <item quantity="one">%s použitých</item>
         <item quantity="few">%s použité</item>
         <item quantity="many">%s použitých</item>
         <item quantity="other">%s použitých</item>

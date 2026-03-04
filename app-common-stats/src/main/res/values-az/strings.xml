@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s azad edildi.</item>
-    <item quantity="other">%s azad edildi.</item>
+        <item quantity="one">%s azad edildi.</item>
+        <item quantity="other">%s azad edildi.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
-    <item quantity="other">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
+        <item quantity="one">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
+        <item quantity="other">SD Maid-i cihazınıza dəvət etdiyiniz vaxtdan bəri %s element işləndi.</item>
     </plurals>
     <string name="stats_report_status_success">Uğur</string>
     <string name="stats_report_status_partial_success">Qismən uğur</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Ətraflı yol məlumatı</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tərəfindən təsirlənən yollar barədə təfərrüatları saxlamaq üçün günlərin sayı.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d gün</item>
-    <item quantity="other">%d gün</item>
+        <item quantity="one">%d gün</item>
+        <item quantity="other">%d gün</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Hamısını sıfırla</string>
     <string name="stats_settings_reset_all_desc">Bütün hesabatları silin və bütün statistikaları sıfıra qoyun.</string>

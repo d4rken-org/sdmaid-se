@@ -10,11 +10,11 @@
         <item quantity="other">تم حذف %d من المتكررة</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="zero">تم العثور على مجموعة %d مكررة</item>
+        <item quantity="zero">تم العثور على %d مجموعة مكررة</item>
         <item quantity="one">تم العثور على مجموعة %d مكررة</item>
-        <item quantity="two">تم العثور على مجموعة %d مكررة</item>
-        <item quantity="few">تم العثور على مجموعة %d مكررة</item>
-        <item quantity="many">تم العثور على مجموعة %d مكررة</item>
+        <item quantity="two">تم العثور على %d مجموعة مكررة</item>
+        <item quantity="few">تم العثور على %d مجموعة مكررة</item>
+        <item quantity="many">تم العثور على %d مجموعة مكررة</item>
         <item quantity="other">تم العثور على %d مجموعة مكررة</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">تمكين \"حذف الكل\"</string>
@@ -87,5 +87,5 @@
     <string name="deduplicator_arbiter_mode_prefer_larger">تفضيل الملفات الأكبر</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">تفضيل الملفات الأصغر</string>
     <string name="deduplicator_view_mode_groups_label">مجموعات</string>
-    <string name="deduplicator_view_mode_directories_label">مجلدات</string>
+    <string name="deduplicator_view_mode_directories_label">المجلدات</string>
 </resources>

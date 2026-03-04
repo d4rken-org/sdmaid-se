@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid lõpetas ajavahemikus vaid osad etapid. Niiviisi jätkates peaksin võib-olla kohandama rakendust teie seadme järgi. Selle lahendamiseks kontrollige uuenduste olemasolu või suhelge minuga.</string>
     <string name="automation_error_overlay_title">Automatiseerimise ülekate</string>
     <string name="automation_error_overlay_body">SD Maid ei suutnud kuvada automatiseerimise ülekatet. Kontrollige lube ja üritage taaskäivitada oma seade.</string>
+    <string name="automation_error_scheduler_title">Ajastatud isetegevus nurjus</string>
+    <string name="automation_error_scheduler_body">Ajastatud toiming üritas kasutada juurdepääsetavuse teenust, kuid see polnud saadaval. Kui sa seda ei vaja, keela ajastaja seadetes valik „Juurdepääsetavuse teenus“.</string>
     <string name="automation_error_no_settings_title">Seadete ekraan juurdepääsmatu</string>
     <string name="automation_error_no_settings_body">Sellel süsteemirakendusel puudub seadete ekraan. Juurdepääsu teenuse kaudu pole võimalik tühjendada vahemälu. Kiiremaks vahemälu tühjendamiseks jätke see vahele.</string>
     <string name="automation_loading">Automatiseerimise ettevalmistamine juurdepääsetavusteenuse kaudu</string>

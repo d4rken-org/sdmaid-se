@@ -94,4 +94,5 @@
         <item quantity="other">Alespoň %d dnů staré</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Odhadovaná úspora ~%d%% pro JPEG soubory</string>
+    <string name="squeezer_onboarding_got_it">Rozumím</string>
 </resources>

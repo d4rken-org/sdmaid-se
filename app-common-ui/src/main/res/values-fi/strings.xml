@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Valitse polut</string>
     <string name="picker_selected_paths_title">Valitut polut</string>
     <string name="picker_unsaved_confirmation_message">Hylätäänkö muutokset?</string>
-    <string name="picker_home_action">Tietoalueet</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d polku valittu</item>
-    <item quantity="other">%d polkua valittu</item>
+        <item quantity="one">%d polku valittu</item>
+        <item quantity="other">%d polkua valittu</item>
     </plurals>
+    <string name="picker_home_action">Tietoalueet</string>
 </resources>

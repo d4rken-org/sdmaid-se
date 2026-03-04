@@ -12,7 +12,7 @@
         <item quantity="other">%s Disponible</item>
     </plurals>
     <plurals name="analyzer_space_used">
-        <item quantity="one">%s En uso</item>
+        <item quantity="one">%s en uso</item>
         <item quantity="other">%s en uso</item>
     </plurals>
     <string name="analyzer_content_access_opaque">No hay acceso directo disponible</string>

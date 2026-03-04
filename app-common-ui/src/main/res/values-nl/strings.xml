@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Selecteer paden</string>
     <string name="picker_selected_paths_title">Geselecteerde paden</string>
     <string name="picker_unsaved_confirmation_message">Wijzigingen weggooien?</string>
-    <string name="picker_home_action">Datagebieden</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d pad geselecteerd</item>
-    <item quantity="other">%d paden geselecteerd</item>
+        <item quantity="one">%d pad geselecteerd</item>
+        <item quantity="other">%d paden geselecteerd</item>
     </plurals>
+    <string name="picker_home_action">Datagebieden</string>
 </resources>

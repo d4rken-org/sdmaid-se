@@ -16,6 +16,10 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s लगभग %2$s</string>
     <string name="scheduler_schedule_next_at_x">%s को लागि योजना गरिएको</string>
     <string name="scheduler_schedule_last_at_x">%s मा अन्तिम कार्यान्वयन</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">दैनिक</item>
+        <item quantity="other">हरेक %d दिन</item>
+    </plurals>
     <string name="scheduler_schedule_repeat_interval">दोहोरिने अन्तराल</string>
     <string name="scheduler_inaccurate_execution_hint">अपेक्षित कार्यान्वयन समय लगभग हो। ब्याटरी बचाउनको लागि समय सारणी ढिलो वा छिटो हुन सक्छ।</string>
     <string name="scheduler_no_active_schedules_subtitle">कुनै पनि सक्रिय समय सारणी छैन</string>
@@ -34,8 +38,4 @@
     <string name="scheduler_commands_after_schedule_label">अनुसूचन-पश्चात आदेशहरू</string>
     <string name="scheduler_commands_after_schedule_desc">Android शेल आदेशहरू जो अनुसूचनको अन्तमा कार्यान्वयन हुनेछन्।</string>
     <string name="scheduler_battery_optimization_hint">यदि तपाईंले पृष्ठभूमि कार्यान्वयनमा समस्या अनुभव गर्नुहुन्छ भने SD Maid को लागि ब्याटरी अनुकूलन अक्षम गर्न विचार गर्नुहोस्।</string>
-    <plurals name="scheduler_schedule_repeat_x_days">
-        <item quantity="one">दैनिक</item>
-        <item quantity="other">हरेक %d दिन</item>
-    </plurals>
 </resources>

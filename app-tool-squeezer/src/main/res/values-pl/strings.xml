@@ -2,28 +2,28 @@
 <resources>
     <string name="squeezer_explanation_short">Kompresuj obrazy, aby zaoszczędzić miejsce.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d obraz znaleziony</item>
-        <item quantity="few">%d obrazów znaleziono</item>
-        <item quantity="many">%d obrazów znaleziono</item>
+        <item quantity="one">Znaleziono %d obraz</item>
+        <item quantity="few">Znaleziono %d obrazy</item>
+        <item quantity="many">Znaleziono %d obrazy</item>
         <item quantity="other">%d obraz znaleziony</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">%s może zostać zwolniony</item>
-        <item quantity="few">%s może zostać zwolnione</item>
-        <item quantity="many">%s może zostać zwolnione</item>
-        <item quantity="other">%s może zostać zwolnione</item>
+        <item quantity="few">%s może zostać zwolniony</item>
+        <item quantity="many">%s może zostać zwolniony</item>
+        <item quantity="other">%s może zostać zwolniony</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d obraz skompresowany</item>
-        <item quantity="few">%d obrazy skompresowane</item>
-        <item quantity="many">%d obrazów skompresowanych</item>
+        <item quantity="one">%d skompresowany obraz</item>
+        <item quantity="few">%d skompresowane obrazy</item>
+        <item quantity="many">%d skompresowanych obrazów</item>
         <item quantity="other">%d obrazów skompresowanych</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d obraz wybrany</item>
-        <item quantity="few">%d obrazy wybrane</item>
-        <item quantity="many">%d obrazów wybranych</item>
-        <item quantity="other">%d obrazów wybranych</item>
+        <item quantity="one">Wybrano %d obraz</item>
+        <item quantity="few">Wybrano %d obrazy</item>
+        <item quantity="many">Wybrano %d obrazów</item>
+        <item quantity="other">Wybrano %d obrazów</item>
     </plurals>
     <string name="squeezer_search_locations_title">Lokalizacje wyszukiwania</string>
     <string name="squeezer_search_locations_default_summary">Foldery aparatu (domyślnie)</string>
@@ -60,9 +60,9 @@
     <string name="squeezer_history_title">Historia kompresji</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
-        <item quantity="few">%1$d elementy (%2$s)</item>
-        <item quantity="many">%1$d elementów (%2$s)</item>
-        <item quantity="other">%1$d elementów (%2$s)</item>
+        <item quantity="few">%1$d elementów (%2$s)</item>
+        <item quantity="many">%1$d elementy (%2$s)</item>
+        <item quantity="other">%1$d elementy (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">Brak historii kompresji</string>
     <string name="squeezer_history_clear_title">Wyczyść historię kompresji</string>
@@ -74,9 +74,9 @@
     <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>
     <string name="squeezer_compare_action">Zobacz porównanie</string>
     <string name="squeezer_no_example_found">Nie znaleziono obrazów w wybranych ścieżkach.</string>
-    <string name="squeezer_result_empty_message">Nie znaleziono kompresywnych obrazów.</string>
+    <string name="squeezer_result_empty_message">Nie znaleziono skompresowanych obrazów.</string>
     <string name="squeezer_setup_warning">Kompresja trwale zmniejsza jakość obrazu, aby zapisać miejsce na dysku. Tej operacji nie można cofnąć. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
-    <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar pliku obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
+    <string name="squeezer_setup_explanation">Kompresowanie multimediów zmniejsza rozmiar plików obrazów, aby zwolnić miejsce na dysku. To trwale zmniejsza jakość obrazu i nie może być cofnięte. Przejrzyj swoje ustawienia ostrożnie przed rozpoczęciem.</string>
     <string name="squeezer_setup_paths_title">Lokalizacje wyszukiwania</string>
     <string name="squeezer_setup_paths_default">Wybierz foldery do przeszukania</string>
     <string name="squeezer_setup_quality_title">Kompresja jakości</string>

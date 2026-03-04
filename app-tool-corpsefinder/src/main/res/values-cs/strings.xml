@@ -50,7 +50,7 @@
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d pozůstatek aplikace smazán</item>
         <item quantity="few">%d pozůstatky aplikace smazány</item>
-        <item quantity="many">%d pozůstatků aplikace smazáno</item>
+        <item quantity="many">%d pozůstatky aplikace smazány</item>
         <item quantity="other">%d pozůstatků aplikace smazáno</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">

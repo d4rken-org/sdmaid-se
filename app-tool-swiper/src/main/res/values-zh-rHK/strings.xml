@@ -20,10 +20,10 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">保留</string>
     <string name="swiper_skip_action">跳過</string>
-    <string name="swiper_review_action">檢視</string>
+    <string name="swiper_review_action">評論</string>
     <string name="swiper_status_title">檢視決定</string>
     <string name="swiper_status_action_keep_selected">保留所選</string>
-    <string name="swiper_status_action_delete_selected">刪除所選</string>
+    <string name="swiper_status_action_delete_selected">刪除已選取的項目</string>
     <string name="swiper_status_action_reset_selected">重設所選</string>
     <string name="swiper_decision_undecided">未決定</string>
     <string name="swiper_retry_action">重試</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ 復原</string>
     <string name="swiper_help_title">Swiper 使用方法</string>
     <string name="swiper_help_message">滑動每個檔案作出決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（首次滑動後）\n\n你也可以使用底部的按鈕。\n\n完成後，輕觸「檢視」查看所有決定。在確認畫面上確認之前，不會刪除任何內容。</string>
+    <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
+    <string name="swiper_help_action">說明</string>
 </resources>

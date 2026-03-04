@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Kies paaie</string>
     <string name="picker_selected_paths_title">Gekiesde paaie</string>
     <string name="picker_unsaved_confirmation_message">Gooi veranderinge weg?</string>
-    <string name="picker_home_action">Data-areas</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d pad gekies</item>
-    <item quantity="other">%d paaie gekies</item>
+        <item quantity="one">%d pad gekies</item>
+        <item quantity="other">%d paaie gekies</item>
     </plurals>
+    <string name="picker_home_action">Data-areas</string>
 </resources>

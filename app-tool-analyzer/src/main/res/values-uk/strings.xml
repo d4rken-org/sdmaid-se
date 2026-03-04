@@ -8,16 +8,16 @@
     <string name="analyzer_progress_scanning_system">Сканування системних даних</string>
     <string name="analyzer_device_storage_title">Сховище пристрою</string>
     <plurals name="analyzer_space_available">
-        <item quantity="one">%s доступно</item>
+        <item quantity="one">%s доступних</item>
         <item quantity="few">%s доступні</item>
         <item quantity="many">%s доступних</item>
-        <item quantity="other">%s доступно</item>
+        <item quantity="other">%s доступних</item>
     </plurals>
     <plurals name="analyzer_space_used">
-        <item quantity="one">Використано %s</item>
+        <item quantity="one">Використаних %s</item>
         <item quantity="few">Використані %s</item>
         <item quantity="many">Використаних %s</item>
-        <item quantity="other">Використано %s</item>
+        <item quantity="other">Використаних %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Прямий доступ недоступний</string>
     <string name="analyzer_content_create_swiper_session_action">Створити сесію Swiper</string>

@@ -3,8 +3,8 @@
     <string name="picker_select_paths_title">Pilih laluan</string>
     <string name="picker_selected_paths_title">Laluan dipilih</string>
     <string name="picker_unsaved_confirmation_message">Anda mempunyai perubahan yang tidak disimpan!</string>
-    <string name="picker_home_action">Rumah</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="other">%d laluan dipilih</item>
+        <item quantity="other">%d laluan dipilih</item>
     </plurals>
+    <string name="picker_home_action">Rumah</string>
 </resources>

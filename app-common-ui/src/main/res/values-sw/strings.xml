@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Chagua njia</string>
     <string name="picker_selected_paths_title">Njia zilizochaguliwa</string>
     <string name="picker_unsaved_confirmation_message">Tupa mabadiliko?</string>
-    <string name="picker_home_action">Maeneo ya data</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">njia %d imechaguliwa</item>
-    <item quantity="other">njia %d zimechaguliwa</item>
+        <item quantity="one">njia %d imechaguliwa</item>
+        <item quantity="other">njia %d zimechaguliwa</item>
     </plurals>
+    <string name="picker_home_action">Maeneo ya data</string>
 </resources>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="other">%s 已被釋放。</item>
+        <item quantity="other">%s 已被釋放。</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="other">自從您邀請 SD Maid 到您的裝置以來，已處理 %s 項目。</item>
+        <item quantity="other">自從您邀請 SD Maid 到您的裝置以來，已處理 %s 項目。</item>
     </plurals>
     <string name="stats_report_status_success">成功</string>
     <string name="stats_report_status_partial_success">部分成功</string>
@@ -16,7 +16,7 @@
     <string name="stats_settings_retention_paths_label">路徑詳細資料</string>
     <string name="stats_settings_retention_paths_desc">保留 SD Maid 影響路徑詳細資料的天數。</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="other">%d 天</item>
+        <item quantity="other">%d 天</item>
     </plurals>
     <string name="stats_settings_reset_all_label">全部重設</string>
     <string name="stats_settings_reset_all_desc">刪除所有報告並將所有統計數據歸零。</string>

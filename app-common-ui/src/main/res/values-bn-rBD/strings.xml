@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">পথ নির্বাচন করুন</string>
     <string name="picker_selected_paths_title">নির্বাচিত পথ</string>
     <string name="picker_unsaved_confirmation_message">পরিবর্তনগুলি বাতিল করবেন?</string>
-    <string name="picker_home_action">ডেটা এলাকা</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%dটি পথ নির্বাচিত হয়েছে</item>
-    <item quantity="other">%dটি পথ নির্বাচিত হয়েছে</item>
+        <item quantity="one">%dটি পথ নির্বাচিত হয়েছে</item>
+        <item quantity="other">%dটি পথ নির্বাচিত হয়েছে</item>
     </plurals>
+    <string name="picker_home_action">ডেটা এলাকা</string>
 </resources>

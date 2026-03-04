@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d ከ%2$d</string>
     <string name="swiper_keep_action">ያስቀምጡ</string>
     <string name="swiper_skip_action">ይዝለሉ</string>
-    <string name="swiper_review_action">ይገምግሙ</string>
+    <string name="swiper_review_action">ግምገማ</string>
     <string name="swiper_status_title">ውሳኔዎችን ይገምግሙ</string>
     <string name="swiper_status_action_keep_selected">የተመረጡትን ያስቀምጡ</string>
-    <string name="swiper_status_action_delete_selected">የተመረጡትን ይሰርዙ</string>
+    <string name="swiper_status_action_delete_selected">የተመረጡትን ሰርዝ</string>
     <string name="swiper_status_action_reset_selected">የተመረጡትን ዳግም ያቀናብሩ</string>
     <string name="swiper_decision_undecided">ያልተወሰነ</string>
     <string name="swiper_retry_action">እንደገና ይሞክሩ</string>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">ለማጽዳት ዝግጁ ነዎት?</string>
     <string name="swiper_sessions_suggestions_label">በዚህ ለመጀመር ይሞክሩ:</string>
     <string name="swiper_sessions_suggestion_downloads">ማውረጃ ማህደር</string>
-    <string name="swiper_sessions_suggestion_screenshots">ስክሪንሾቶች</string>
+    <string name="swiper_sessions_suggestion_screenshots">የማያ ገጽ ልወጣዎች</string>
     <string name="swiper_sessions_suggestion_camera">ካሜራ ጥቅል</string>
     <string name="swiper_stamp_keep_1">አስቀምጥ!</string>
     <string name="swiper_stamp_keep_2">ጥሩ!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ መልስ</string>
     <string name="swiper_help_title">ማንሸራተቻ እንዴት እንደሚሰራ</string>
     <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
+    <string name="swiper_help_action">እርዳታ</string>
 </resources>

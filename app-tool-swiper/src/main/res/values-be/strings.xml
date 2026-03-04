@@ -29,10 +29,10 @@
     <string name="swiper_item_position">#%1$d з %2$d</string>
     <string name="swiper_keep_action">Пакінуць</string>
     <string name="swiper_skip_action">Прапусціць</string>
-    <string name="swiper_review_action">Агляд</string>
+    <string name="swiper_review_action">Водгук</string>
     <string name="swiper_status_title">Агляд рашэнняў</string>
     <string name="swiper_status_action_keep_selected">Пакінуць выбраным</string>
-    <string name="swiper_status_action_delete_selected">Выдаліць выбранае</string>
+    <string name="swiper_status_action_delete_selected">Выдаліць выбраныя</string>
     <string name="swiper_status_action_reset_selected">Скінуць выбранае</string>
     <string name="swiper_decision_undecided">Без рашэння</string>
     <string name="swiper_retry_action">Паўтарыць</string>
@@ -145,7 +145,7 @@
     <string name="swiper_sessions_header_title">Гатовыя пазбавіцца ад лішняга?</string>
     <string name="swiper_sessions_suggestions_label">Паспрабуйце пачаць з:</string>
     <string name="swiper_sessions_suggestion_downloads">Папкі загрузак</string>
-    <string name="swiper_sessions_suggestion_screenshots">Здымкаў экрана</string>
+    <string name="swiper_sessions_suggestion_screenshots">Здымкі экрана</string>
     <string name="swiper_sessions_suggestion_camera">Галерэі камеры</string>
     <string name="swiper_stamp_keep_1">Пакінуць!</string>
     <string name="swiper_stamp_keep_2">Выдатна!</string>
@@ -173,5 +173,5 @@
     <string name="swiper_help_title">Як працуе Swiper</string>
     <string name="swiper_help_message">Правядзіце пальцам па кожным файле, каб прыняць рашэнне:\n\n← Правесці ўлева: %1$s\n→ Правесці ўправа: %2$s\n↑ Правесці ўверх: Прапусціць\n↓ Правесці ўніз: Скасаваць (пасля першага правядзення)\n\nВы таксама можаце выкарыстоўваць кнопкі ўнізе.\n\nКалі скончыце, дакраніцеся \"Агляд\", каб убачыць усе вашы рашэнні. Нічога не выдаляецца, пакуль вы не пацвердзіце на экране агляду.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Зразумела</string>
-    <string name="swiper_help_action">Даведка</string>
+    <string name="swiper_help_action">Дапамога</string>
 </resources>

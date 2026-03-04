@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="zero">تم تحرير %s.</item>
-    <item quantity="one">تم تحرير %s.</item>
-    <item quantity="two">تم تحرير %s.</item>
-    <item quantity="few">تم تحرير %s.</item>
-    <item quantity="many">تم تحرير %s.</item>
-    <item quantity="other">%s تم تحريره.</item>
+        <item quantity="zero">تم تحرير %s.</item>
+        <item quantity="one">تم تحرير %s.</item>
+        <item quantity="two">تم تحرير %s.</item>
+        <item quantity="few">تم تحرير %s.</item>
+        <item quantity="many">تم تحرير %s.</item>
+        <item quantity="other">%s تم تحريره.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="zero">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
-    <item quantity="one">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
-    <item quantity="two">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
-    <item quantity="few">تم معالجة %s عناصر منذ دعوة SD Maid إلى جهازك.</item>
-    <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
-    <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="zero">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="one">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="two">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="few">تم معالجة %s عناصر منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="many">تم معالجة %s عنصراً منذ دعوة SD Maid إلى جهازك.</item>
+        <item quantity="other">تم معالجة %s عنصر منذ دعوة SD Maid إلى جهازك.</item>
     </plurals>
     <string name="stats_report_status_success">تم بنجاح</string>
     <string name="stats_report_status_partial_success">تم بنجاح جزئي</string>
@@ -26,12 +26,12 @@
     <string name="stats_settings_retention_paths_label">معلومات المسار التفصيلية</string>
     <string name="stats_settings_retention_paths_desc">عدد الأيام اللازمة للاحتفاظ بتفاصيل حول المسارات المتأثرة بـ SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="zero">%d أيام</item>
-    <item quantity="one">%d يوم</item>
-    <item quantity="two">%d يومان</item>
-    <item quantity="few">%d أيام</item>
-    <item quantity="many">%d أيام</item>
-    <item quantity="other">%d أيام</item>
+        <item quantity="zero">%d أيام</item>
+        <item quantity="one">%d يوم</item>
+        <item quantity="two">%d يومان</item>
+        <item quantity="few">%d أيام</item>
+        <item quantity="many">%d أيام</item>
+        <item quantity="other">%d أيام</item>
     </plurals>
     <string name="stats_settings_reset_all_label">إعادة تعيين الكل</string>
     <string name="stats_settings_reset_all_desc">حذف كافة التقارير وتعيين كافة الإحصائيات وتصفيرها.</string>

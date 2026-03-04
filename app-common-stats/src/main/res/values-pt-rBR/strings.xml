@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s foi liberado.</item>
-    <item quantity="other">%s foram liberados.</item>
+        <item quantity="one">%s foi liberado.</item>
+        <item quantity="other">%s foram liberados.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">%s itens processados desde que você instalou o SD Maid no seu dispositivo.</item>
-    <item quantity="other">%s itens processados desde que você instalou o SD Maid no seu dispositivo.</item>
+        <item quantity="one">%s itens processados desde que você instalou o SD Maid no seu dispositivo.</item>
+        <item quantity="other">%s itens processados desde que você instalou o SD Maid no seu dispositivo.</item>
     </plurals>
     <string name="stats_report_status_success">Com sucesso</string>
     <string name="stats_report_status_partial_success">Com sucesso parcial</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Informações detalhadas do caminho</string>
     <string name="stats_settings_retention_paths_desc">Número de dias para manter os detalhes sobre os caminhos afetados pelo SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d dia</item>
-    <item quantity="other">%d dias</item>
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dias</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Restaurar tudo</string>
     <string name="stats_settings_reset_all_desc">Excluir todos os relatórios e definir todas as estatísticas para zero.</string>

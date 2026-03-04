@@ -2,16 +2,16 @@
 <resources>
     <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
-        <item quantity="one">%d duplikat usunięty</item>
-        <item quantity="few">%d duplikaty usunięte</item>
-        <item quantity="many">%d duplikatów usuniętych</item>
-        <item quantity="other">%d duplikatów usuniętych</item>
+        <item quantity="one">Usunięto %d duplikat</item>
+        <item quantity="few">Usunięto %d duplikaty</item>
+        <item quantity="many">Usunięto %d duplikatów</item>
+        <item quantity="other">%d duplikat usunięty</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
-        <item quantity="one">Znaleziono %d duplikat elementu</item>
-        <item quantity="few">Znaleziono %d duplikaty elementu</item>
-        <item quantity="many">Znaleziono %d duplikatów elementu</item>
-        <item quantity="other">Znaleziono %d duplikatów elementu</item>
+        <item quantity="one">Znaleziono %d duplikat</item>
+        <item quantity="few">Znaleziono %d duplikaty</item>
+        <item quantity="many">Znaleziono %d duplikatów</item>
+        <item quantity="other">Znaleziono %d duplikatów</item>
     </plurals>
     <string name="deduplicator_protection_deleteall_allowed_title">Zezwól na \"Usuń wszystko\"</string>
     <string name="deduplicator_protection_deleteall_allowed_summary">Pokaż opcje, które pozwalają usunąć wszystkie pliki w zestawie duplikatów, aby żaden plik nie został pozostawiony.</string>

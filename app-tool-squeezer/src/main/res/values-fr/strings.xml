@@ -82,4 +82,5 @@
         <item quantity="other">Au moins %d jours</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Économie probable de %d %% pour les fichiers JPEG</string>
+    <string name="squeezer_onboarding_got_it">J’ai compris</string>
 </resources>

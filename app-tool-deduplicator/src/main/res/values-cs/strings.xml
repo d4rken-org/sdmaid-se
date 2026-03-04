@@ -4,7 +4,7 @@
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">%d duplikát smazán</item>
         <item quantity="few">%d duplikáty smazány</item>
-        <item quantity="many">%d duplikátů smazáno</item>
+        <item quantity="many">%d duplikáty smazány</item>
         <item quantity="other">%d duplikátů smazáno</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">

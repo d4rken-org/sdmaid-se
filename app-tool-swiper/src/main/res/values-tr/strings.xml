@@ -23,7 +23,7 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">Sakla</string>
     <string name="swiper_skip_action">Atla</string>
-    <string name="swiper_review_action">İncele</string>
+    <string name="swiper_review_action">Değerlendir</string>
     <string name="swiper_status_title">Kararları incele</string>
     <string name="swiper_status_action_keep_selected">Seçilenleri sakla</string>
     <string name="swiper_status_action_delete_selected">Seçilenleri sil</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <string name="swiper_help_title">Swiper nasıl çalışır</string>
     <string name="swiper_help_message">Her dosyayı kaydırarak bir karar verin:\n\n← Sola kaydırma: %1$s\n→ Sağa kaydırma: %2$s\n↑ Yukarı kaydırma: Atla\n↓ Aşağı kaydırma: Geri al (ilk kaydırmadan sonra)\n\nAlttaki düğmeleri de kullanabilirsiniz.\n\nİşiniz bittiğinde, tüm kararlarınızı görmek için \"İncele\"ye dokunun. İnceleme ekranında onaylayana kadar hiçbir şey silinmez.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
+    <string name="swiper_help_action">Yardım</string>
 </resources>

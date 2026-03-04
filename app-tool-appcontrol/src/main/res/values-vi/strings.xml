@@ -115,4 +115,7 @@
     <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
     <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
     <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Bao gồm những người dùng khác</string>
+    <string name="appcontrol_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
 </resources>

@@ -58,7 +58,7 @@
     <string name="deduplicator_arbiter_criterium_nesting_description">Предпочитане на файлове в по-плитки или по-дълбоки структури от папки.</string>
     <string name="deduplicator_arbiter_criterium_modified_title">Дата на модификация</string>
     <string name="deduplicator_arbiter_criterium_modified_description">Предпочитане на по-стари или по-нови файлове по време на модификация.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Размер на файла</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Размер на файл</string>
     <string name="deduplicator_arbiter_criterium_size_description">Предпочитане на по-големи или по-малки файлове, когато размерите се различават.</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_title">Предпочитани местоположения</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_description">Запазване на файлове в конфигурираните предпочитани местоположения.</string>

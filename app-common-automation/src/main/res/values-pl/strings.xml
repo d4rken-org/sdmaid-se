@@ -17,10 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid nie wykonał wszystkich kroków w wyznaczonym czasie. Jeśli problem będzie się powtarzał, być może będzie trzeba dostosować aplikację do twojego urządzenia. Sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
     <string name="automation_error_overlay_title">Nakładka automatyzacji</string>
     <string name="automation_error_overlay_body">SD Maid nie mógł wyświetlić nakładki automatyzacji. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
+    <string name="automation_error_scheduler_title">Zaplanowana automatyzacja nie powiodła się</string>
+    <string name="automation_error_scheduler_body">Zaplanowane zadanie próbowało użyć usługi ułatwień dostępu, ale była niedostępna. Jeśli jej nie potrzebujesz, wyłącz opcję „Usługa ułatwień dostępu” w ustawieniach harmonogramu.</string>
     <string name="automation_error_no_settings_title">Ekran ustawień niedostępny</string>
     <string name="automation_error_no_settings_body">Ta aplikacja systemowa nie ma ekranu ustawień. Czyszczenie pamięci podręcznej za pomocą usługi ułatwień dostępu nie jest możliwa. Wyklucz ją, aby przyspieszyć czyszczenie pamięci podręcznej.</string>
     <string name="automation_loading">Przygotowywanie automatyzacji za pomocą usługi ułatwień dostępu</string>
     <string name="automation_progress_find_ok_confirmation">Próba potwierdzenia poprzedniej akcji (słowa kluczowe: %s)</string>
-    <string name="automation_error_scheduler_title">Zaplanowana automatyzacja nie powiodła się</string>
-    <string name="automation_error_scheduler_body">Zaplanowane zadanie próbowało użyć usługi ułatwień dostępu, ale była niedostępna. Jeśli jej nie potrzebujesz, wyłącz opcję „Usługa ułatwień dostępu” w ustawieniach harmonogramu.</string>
 </resources>

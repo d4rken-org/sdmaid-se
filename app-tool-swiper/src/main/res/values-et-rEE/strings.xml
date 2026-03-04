@@ -23,10 +23,10 @@
     <string name="swiper_item_position">%1$d / %2$d-st</string>
     <string name="swiper_keep_action">Säilita</string>
     <string name="swiper_skip_action">Jäta vahele</string>
-    <string name="swiper_review_action">Vaata üle</string>
+    <string name="swiper_review_action">Arvustus</string>
     <string name="swiper_status_title">Kontrolli otsuseid</string>
     <string name="swiper_status_action_keep_selected">Säilita valitud</string>
-    <string name="swiper_status_action_delete_selected">Kustuta valitud</string>
+    <string name="swiper_status_action_delete_selected">Kustuta märgitud</string>
     <string name="swiper_status_action_reset_selected">Lähtesta valitud</string>
     <string name="swiper_decision_undecided">Otsustamata</string>
     <string name="swiper_retry_action">Proovi uuesti</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Võta tagasi</string>
     <string name="swiper_help_title">Kuidas Pühkija töötab</string>
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Selge!</string>
+    <string name="swiper_help_action">Abi</string>
 </resources>

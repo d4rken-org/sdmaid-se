@@ -20,10 +20,10 @@
     <string name="swiper_item_position">#%1$d dari %2$d</string>
     <string name="swiper_keep_action">Simpan</string>
     <string name="swiper_skip_action">Lewati</string>
-    <string name="swiper_review_action">Tinjau</string>
+    <string name="swiper_review_action">Pratinjau</string>
     <string name="swiper_status_title">Tinjau keputusan</string>
     <string name="swiper_status_action_keep_selected">Simpan terpilih</string>
-    <string name="swiper_status_action_delete_selected">Hapus terpilih</string>
+    <string name="swiper_status_action_delete_selected">Hapus yang dipilih</string>
     <string name="swiper_status_action_reset_selected">Atur ulang pilihan</string>
     <string name="swiper_decision_undecided">Belum diputuskan</string>
     <string name="swiper_retry_action">Coba lagi</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Batal</string>
     <string name="swiper_help_title">Cara kerja Pemilah</string>
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
+    <string name="swiper_help_action">Bantuan</string>
 </resources>

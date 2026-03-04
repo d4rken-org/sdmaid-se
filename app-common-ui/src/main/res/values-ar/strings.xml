@@ -3,13 +3,13 @@
     <string name="picker_select_paths_title">حدد المسار</string>
     <string name="picker_selected_paths_title">المسارات المحددة</string>
     <string name="picker_unsaved_confirmation_message">تجاهل التغييرات؟</string>
-    <string name="picker_home_action">مناطق البيانات</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="zero">تم تحديد المسار %d</item>
-    <item quantity="one">تم تحديد المسار %d</item>
-    <item quantity="two">تم تحديد المسار %d</item>
-    <item quantity="few">تم تحديد المسار %d</item>
-    <item quantity="many">تم تحديد المسار %d</item>
-    <item quantity="other">تم تحديد مسارات %d</item>
+        <item quantity="zero">تم تحديد المسار %d</item>
+        <item quantity="one">تم تحديد المسار %d</item>
+        <item quantity="two">تم تحديد المسار %d</item>
+        <item quantity="few">تم تحديد المسار %d</item>
+        <item quantity="many">تم تحديد المسار %d</item>
+        <item quantity="other">تم تحديد مسارات %d</item>
     </plurals>
+    <string name="picker_home_action">مناطق البيانات</string>
 </resources>

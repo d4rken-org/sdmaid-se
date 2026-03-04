@@ -78,7 +78,7 @@
     <string name="swiper_session_rename_hint">Bu sessiya üçün ad daxil edin</string>
     <string name="swiper_sessions_current_sessions">Mövcud sessiyalar</string>
     <string name="swiper_session_paths_label">Yollar</string>
-    <string name="swiper_session_status_label">Status</string>
+    <string name="swiper_session_status_label">Vəziyyət</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d saxlanacaq</item>
         <item quantity="other">%d saxlanacaq</item>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Geri al</string>
     <string name="swiper_help_title">Swiper necə işləyir</string>
     <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Başa düşdüm</string>
+    <string name="swiper_help_action">Kömək</string>
 </resources>

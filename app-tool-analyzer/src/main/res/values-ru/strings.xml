@@ -23,7 +23,7 @@
     <string name="analyzer_content_create_swiper_session_action">Создать сессию Свайпер</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">Сессия Свайпер создана с помощью %d элемента</item>
-        <item quantity="few">Сессия Свайпер создана с помощью %d элем.</item>
+        <item quantity="few">Сессия Swiper создана с помощью %d элем.</item>
         <item quantity="many">Сессия Свайпер создана с помощью %d элем.</item>
         <item quantity="other">Сессия Свайпер создана с помощью %d элем.</item>
     </plurals>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">S\'ha alliberat %s.</item>
-    <item quantity="other">S\'han alliberat %s.</item>
+        <item quantity="one">S\'ha alliberat %s.</item>
+        <item quantity="other">S\'han alliberat %s.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">S\'ha processat %s element des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
-    <item quantity="other">S\'han processat %s elements des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
+        <item quantity="one">S\'ha processat %s element des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
+        <item quantity="other">S\'han processat %s elements des que vau instal·lar l\'SD Maid al vostre dispositiu.</item>
     </plurals>
     <string name="stats_report_status_success">Èxit</string>
     <string name="stats_report_status_partial_success">Èxit parcial</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Informació detallada de la ruta</string>
     <string name="stats_settings_retention_paths_desc">El nombre de dies per conservar els detalls de les rutes afectades per l\'SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d dia</item>
-    <item quantity="other">%d dies</item>
+        <item quantity="one">%d dia</item>
+        <item quantity="other">%d dies</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Reinicia-ho tot</string>
     <string name="stats_settings_reset_all_desc">Suprimeix tots els informes i posa totes les estadístiques a zero.</string>

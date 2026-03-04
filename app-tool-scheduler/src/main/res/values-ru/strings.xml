@@ -20,7 +20,7 @@
         <item quantity="one">Ежедневно</item>
         <item quantity="few">Каждые %d дн.</item>
         <item quantity="many">Каждые %d дн.</item>
-        <item quantity="other">Каждые %d дн.</item>
+        <item quantity="other">Каждые %d дней</item>
     </plurals>
     <string name="scheduler_schedule_repeat_interval">Интервал повторения</string>
     <string name="scheduler_inaccurate_execution_hint">Ожидаемое время выполнения является приблизительным. Расписание может быть отложено или запущено раньше, если это позволяет экономить заряд батареи.</string>

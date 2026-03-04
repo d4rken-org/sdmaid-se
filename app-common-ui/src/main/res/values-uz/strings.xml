@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Yo\'llarni tanlash</string>
     <string name="picker_selected_paths_title">Tanlangan yo\'llar</string>
     <string name="picker_unsaved_confirmation_message">O\'zgarishlarni rad etish kerakmi?</string>
-    <string name="picker_home_action">Ma\'lumotlar sohalari</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d yo\'l tanlandi</item>
-    <item quantity="other">%d yo\'l tanlandi</item>
+        <item quantity="one">%d yo\'l tanlandi</item>
+        <item quantity="other">%d yo\'l tanlandi</item>
     </plurals>
+    <string name="picker_home_action">Ma\'lumotlar sohalari</string>
 </resources>

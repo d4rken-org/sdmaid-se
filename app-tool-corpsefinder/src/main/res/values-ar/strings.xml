@@ -11,19 +11,19 @@
     <string name="corpsefinder_watcher_autodelete_title">حذف تلقائي</string>
     <string name="corpsefinder_watcher_autodelete_summary">حذف أي بقايا ذات صلة بالتطبيق غير المثبت تلقائياً.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="zero">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="zero">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
         <item quantity="one">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
-        <item quantity="two">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
-        <item quantity="few">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
-        <item quantity="many">%1$d بقايا وجدت بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="two">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="few">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
+        <item quantity="many">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
         <item quantity="other">تم العثور على %1$d بقايا بعد إلغاء تثبيت %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
-        <item quantity="zero">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="zero">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
         <item quantity="one">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
-        <item quantity="two">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
-        <item quantity="few">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
-        <item quantity="many">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d عنصر.</item>
+        <item quantity="two">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
+        <item quantity="few">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
+        <item quantity="many">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
         <item quantity="other">تم تنظيف بنجاح (%1$s): تم تحرير %2$s وإزالة %3$d من العناصر.</item>
     </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">حذف الملفات المتبقية</string>
@@ -60,11 +60,11 @@
         <item quantity="other">تم حذف %d من بقايا التطبيق</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="zero">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="zero">%d بقايا تطبيق اكتشفت</item>
         <item quantity="one">%d من التطبيقات المتبقية اكتشفت</item>
-        <item quantity="two">%d من التطبيقات المتبقية اكتشفت</item>
-        <item quantity="few">%d من التطبيقات المتبقية اكتشفت</item>
-        <item quantity="many">%d من التطبيقات المتبقية اكتشفت</item>
+        <item quantity="two">%d بقايا تطبيق اكتشفت</item>
+        <item quantity="few">%d بقايا تطبيق اكتشفت</item>
+        <item quantity="many">%d بقايا تطبيق اكتشفت</item>
         <item quantity="other">%d بقايا تطبيق اكتشفت</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">حذف جميع بقايا التطبيق؟</string>

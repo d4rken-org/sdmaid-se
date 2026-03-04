@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Khetha izindlela</string>
     <string name="picker_selected_paths_title">Izindlela ezikhethiwe</string>
     <string name="picker_unsaved_confirmation_message">Lahla izinguquko?</string>
-    <string name="picker_home_action">Izindawo zedatha</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">Indlela engu-%d ikhethiwe</item>
-    <item quantity="other">Izindlela ezingu-%d zikhethiwe</item>
+        <item quantity="one">Indlela engu-%d ikhethiwe</item>
+        <item quantity="other">Izindlela ezingu-%d zikhethiwe</item>
     </plurals>
+    <string name="picker_home_action">Izindawo zedatha</string>
 </resources>

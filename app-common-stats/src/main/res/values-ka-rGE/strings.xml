@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s ზომა</item>
-    <item quantity="other">%s ზომა</item>
+        <item quantity="one">%s ზომა</item>
+        <item quantity="other">%s ზომა</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
-    <item quantity="other">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
+        <item quantity="one">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
+        <item quantity="other">%s ელემენტი დამუშავებულია მას შემდეგ, რაც SD Maid მოიწვიეთ თქვენს მოწყობილობაზე.</item>
     </plurals>
     <string name="stats_report_status_success">წარმატება</string>
     <string name="stats_report_status_partial_success">ნაწილობრივი წარმატება</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">გზის დეტალური ინფორმაცია</string>
     <string name="stats_settings_retention_paths_desc">დღეების რაოდენობა SD Maid-ის მიერ დაზარალებული გზების დეტალების შესანახად.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d დღე</item>
-    <item quantity="other">%d დღე</item>
+        <item quantity="one">%d დღე</item>
+        <item quantity="other">%d დღე</item>
     </plurals>
     <string name="stats_settings_reset_all_label">ყველაფრის გადაყენება</string>
     <string name="stats_settings_reset_all_desc">ყველა ანგარიშის წაშლა და ყველა სტემატისტიკის ნულზე დაყენება.</string>

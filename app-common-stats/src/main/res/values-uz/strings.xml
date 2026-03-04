@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s bo\'shatildi.</item>
-    <item quantity="other">%s bo\'shatildi.</item>
+        <item quantity="one">%s bo\'shatildi.</item>
+        <item quantity="other">%s bo\'shatildi.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
-    <item quantity="other">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
+        <item quantity="one">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
+        <item quantity="other">SD Maid ni qurilmangizga taklif qilganingizdan beri %s element qayta ishlandi.</item>
     </plurals>
     <string name="stats_report_status_success">Muvaffaqiyat</string>
     <string name="stats_report_status_partial_success">Qisman muvaffaqiyat</string>
@@ -18,8 +18,8 @@
     <string name="stats_settings_retention_paths_label">Batafsil yo\'l ma\'lumotlari</string>
     <string name="stats_settings_retention_paths_desc">SD Maid tomonidan ta\'sirlangan yo\'llar haqida tafsilotlarni saqlash uchun kunlar soni.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d kun</item>
-    <item quantity="other">%d kuns</item>
+        <item quantity="one">%d kun</item>
+        <item quantity="other">%d kun</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Hammasini qayta o\'rnatish</string>
     <string name="stats_settings_reset_all_desc">Barcha hisobotlarni o\'chirish va barcha statistikalarni nolga o\'rnatish.</string>

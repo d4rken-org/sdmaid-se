@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">Изберете патеки</string>
     <string name="picker_selected_paths_title">Избрани патеки</string>
     <string name="picker_unsaved_confirmation_message">Отфрли промени?</string>
-    <string name="picker_home_action">Области со податоци</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d патека избрана</item>
-    <item quantity="other">%d патеки избрани</item>
+        <item quantity="one">%d патека избрана</item>
+        <item quantity="other">%d патеки избрани</item>
     </plurals>
+    <string name="picker_home_action">Области со податоци</string>
 </resources>

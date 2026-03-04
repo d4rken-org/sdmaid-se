@@ -3,9 +3,9 @@
     <string name="picker_select_paths_title">பாதைகளைத் தேர்ந்தெடுக்கவும்</string>
     <string name="picker_selected_paths_title">தேர்ந்தெடுக்கப்பட்ட பாதைகள்</string>
     <string name="picker_unsaved_confirmation_message">மாற்றங்களை நீக்கவா?</string>
-    <string name="picker_home_action">தரவு பகுதிகள்</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d பாதை தேர்ந்தெடுக்கப்பட்டுள்ளது</item>
-    <item quantity="other">%d பாதைகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
+        <item quantity="one">%d பாதை தேர்ந்தெடுக்கப்பட்டுள்ளது</item>
+        <item quantity="other">%d பாதைகள் தேர்ந்தெடுக்கப்பட்டுள்ளன</item>
     </plurals>
+    <string name="picker_home_action">தரவு பகுதிகள்</string>
 </resources>

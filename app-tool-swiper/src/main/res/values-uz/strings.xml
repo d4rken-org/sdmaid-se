@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">Tartibga keltirishga tayyormisiz?</string>
     <string name="swiper_sessions_suggestions_label">Quyidagilardan boshlang:</string>
     <string name="swiper_sessions_suggestion_downloads">Yuklamalar papkasi</string>
-    <string name="swiper_sessions_suggestion_screenshots">Ekran rasmlari</string>
+    <string name="swiper_sessions_suggestion_screenshots">Skrinshot</string>
     <string name="swiper_sessions_suggestion_camera">Kamera suratlari</string>
     <string name="swiper_stamp_keep_1">Saqlash!</string>
     <string name="swiper_stamp_keep_2">Ajoyib!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Qaytarish</string>
     <string name="swiper_help_title">Swiper qanday ishlaydi</string>
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Tushundim</string>
+    <string name="swiper_help_action">Yordam</string>
 </resources>

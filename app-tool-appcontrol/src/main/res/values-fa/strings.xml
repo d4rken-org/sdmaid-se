@@ -29,7 +29,7 @@
     <string name="appcontrol_tag_apk_bundle">باندل</string>
     <string name="appcontrol_tag_system">سیستم</string>
     <string name="appcontrol_tag_archived">آرشیو شده</string>
-    <string name="appcontrol_tag_uninstalled">فقط تاریخ</string>
+    <string name="appcontrol_tag_uninstalled">فقط داده</string>
     <string name="appcontrol_tag_not_installed">نصب نشده</string>
     <string name="appcontrol_tag_enabled">فعال</string>
     <string name="appcontrol_tag_disabled">غیرفعال</string>
@@ -93,7 +93,7 @@
     <string name="appcontrol_settings_module_activity_enabled_label">تعیین فعالیت‌ها</string>
     <string name="appcontrol_settings_module_activity_enabled_description">پیدا کردن اینکه آیا یک برنامه فعال است (یا اخیراً فعال بوده است).</string>
     <string name="appcontrol_export_app_selection_action">صادرات برنامه‌ها</string>
-    <string name="appcontrol_export_title">واردات برنامه‌ها</string>
+    <string name="appcontrol_export_title">صادرات برنامه</string>
     <string name="appcontrol_export_description">فایل‌های نصب این برنامه را ذخیره کنید. این شامل داده‌های برنامه نمی‌شود.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d برنامه صادر شد</item>
@@ -126,4 +126,8 @@
     <string name="appcontrol_item_installedat_x_label">نصب شده در: %s</string>
     <string name="shortcut_appcontrol_short">کنترل برنامه</string>
     <string name="shortcut_appcontrol_long">مدیریت برنامه‌های نصبی</string>
+    <string name="appcontrol_automation_loading">در حال آماده‌سازی خودکارسازی از طریق سرویس دسترسی</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">در حال تلاش برای تأیید عمل قبلی (کلید واژه‌ها: %s)</string>
+    <string name="appcontrol_include_multiuser_label">شامل کردن کاربران دیگر</string>
+    <string name="appcontrol_include_multiuser_summary">برنامه‌های موجود در نمایه‌های دیگر کاربران در این دستگاه را شامل کنید.</string>
 </resources>

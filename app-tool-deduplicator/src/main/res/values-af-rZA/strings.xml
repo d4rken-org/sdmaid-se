@@ -58,7 +58,7 @@
     <string name="deduplicator_arbiter_criterium_nesting_description">Verkies lêers in vlakker of dieper vouerstrukture.</string>
     <string name="deduplicator_arbiter_criterium_modified_title">Wysigingsdatum</string>
     <string name="deduplicator_arbiter_criterium_modified_description">Verkies ouer of nuwer lêers op grond van wysigingstyd.</string>
-    <string name="deduplicator_arbiter_criterium_size_title">Lêergrootte</string>
+    <string name="deduplicator_arbiter_criterium_size_title">Lêer grootte</string>
     <string name="deduplicator_arbiter_criterium_size_description">Verkies groter of kleiner lêers wanneer groottes verskil.</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_title">Voorkeurliggings</string>
     <string name="deduplicator_arbiter_criterium_preferred_path_description">Hou lêers in jou opgestelde voorkeurliggings.</string>
@@ -75,5 +75,5 @@
     <string name="deduplicator_arbiter_mode_prefer_larger">Verkies groter lêers</string>
     <string name="deduplicator_arbiter_mode_prefer_smaller">Verkies kleiner lêers</string>
     <string name="deduplicator_view_mode_groups_label">Groepe</string>
-    <string name="deduplicator_view_mode_directories_label">Vouers</string>
+    <string name="deduplicator_view_mode_directories_label">Gidse</string>
 </resources>

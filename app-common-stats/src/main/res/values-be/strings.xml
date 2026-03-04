@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <plurals name="stats_dash_body_size">
-    <item quantity="one">%s было вызвалена.</item>
-    <item quantity="few">%s былі вызвалены.</item>
-    <item quantity="many">%s было вызвалена.</item>
-    <item quantity="other">%s было вызвалена.</item>
+        <item quantity="one">%s было вызвалена.</item>
+        <item quantity="few">%s былі вызвалены.</item>
+        <item quantity="many">%s было вызвалена.</item>
+        <item quantity="other">%s было вызвалена.</item>
     </plurals>
     <plurals name="stats_dash_body_count">
-    <item quantity="one">%s элемент апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
-    <item quantity="few">%s элементы апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
-    <item quantity="many">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
-    <item quantity="other">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="one">%s элемент апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="few">%s элементы апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="many">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="other">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
     </plurals>
     <string name="stats_report_status_success">Паспяхова</string>
     <string name="stats_report_status_partial_success">Частковы поспех</string>
@@ -22,10 +22,10 @@
     <string name="stats_settings_retention_paths_label">Падрабязная інфармацыя аб шляху</string>
     <string name="stats_settings_retention_paths_desc">Колькасць дзён для захоўвання звестак аб шляхах, на якія ўплывае SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
-    <item quantity="one">%d дзень</item>
-    <item quantity="few">%d дні</item>
-    <item quantity="many">%d дзён</item>
-    <item quantity="other">%d дзён</item>
+        <item quantity="one">%d дзень</item>
+        <item quantity="few">%d дні</item>
+        <item quantity="many">%d дзён</item>
+        <item quantity="other">%d дзён</item>
     </plurals>
     <string name="stats_settings_reset_all_label">Скінуць усё</string>
     <string name="stats_settings_reset_all_desc">Выдаліць усе справаздачы і абнуліць усю статыстыку.</string>

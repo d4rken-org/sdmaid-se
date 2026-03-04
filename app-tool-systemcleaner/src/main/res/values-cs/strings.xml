@@ -105,4 +105,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Omezit shodu podle stáří souboru (naposledy upraveno). Pro jakékoliv stáří nenastavujte.</string>
     <string name="systemcleaner_customfilter_import_action">Importovat nový filtr</string>
     <string name="systemcleaner_customfilter_export_action">Exportovat vybraný filtr</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
 </resources>

@@ -3,11 +3,11 @@
     <string name="picker_select_paths_title">Vybrať cesty</string>
     <string name="picker_selected_paths_title">Vybrané cesty</string>
     <string name="picker_unsaved_confirmation_message">Zahodiť zmeny?</string>
-    <string name="picker_home_action">Dátové oblasti</string>
     <plurals name="picker_selected_paths_subtitle">
-    <item quantity="one">%d cesta vybraná</item>
-    <item quantity="few">%d cesty vybrané</item>
-    <item quantity="many">%d ciest vybraných</item>
-    <item quantity="other">%d ciest vybraných</item>
+        <item quantity="one">%d cesta vybraná</item>
+        <item quantity="few">%d cesty vybrané</item>
+        <item quantity="many">%d ciest vybraných</item>
+        <item quantity="other">%d ciest vybraných</item>
     </plurals>
+    <string name="picker_home_action">Dátové oblasti</string>
 </resources>
