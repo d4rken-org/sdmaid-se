@@ -140,4 +140,6 @@
     <string name="swiper_help_message">Swipe each file to make a decision:\n\n← Swipe left: %1$s\n→ Swipe right: %2$s\n↑ Swipe up: Skip\n↓ Swipe down: Undo (after first swipe)\n\nYou can also use the buttons at the bottom.\n\nWhen you\'re done, tap \"Review\" to see all your decisions. Nothing is deleted until you confirm on the review screen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Got it</string>
     <string name="swiper_help_action">Help</string>
+    <string name="swiper_open_externally_action">Open in external app</string>
+
 </resources>

@@ -34,6 +34,7 @@ class SwipeCardView @JvmOverloads constructor(
         fun onSwipeDown()
         fun onSwipeProgress(progress: Float, direction: SwipeDirection?)
         fun onPreviewClick(item: SwipeItem) {}
+        fun onOpenExternallyClick(item: SwipeItem) {}
     }
 
     private val binding: SwiperCardItemBinding = SwiperCardItemBinding.inflate(LayoutInflater.from(context), this, true)
@@ -97,6 +98,9 @@ class SwipeCardView @JvmOverloads constructor(
         clipToPadding = false
         binding.previewAction.setOnClickListener {
             currentItem?.let { swipeListener?.onPreviewClick(it) }
+        }
+        binding.openExternalAction.setOnClickListener {
+            currentItem?.let { swipeListener?.onOpenExternallyClick(it) }
         }
     }
 
@@ -295,36 +299,40 @@ class SwipeCardView @JvmOverloads constructor(
         }
     }
 
-    private var isTouchingPreviewButton = false
+    private var isTouchingActionButton = false
 
     override fun onInterceptTouchEvent(ev: MotionEvent): Boolean {
         when (ev.action) {
             MotionEvent.ACTION_DOWN -> {
-                isTouchingPreviewButton = isTouchOnPreviewButton(ev)
-                if (isTouchingPreviewButton) return false
+                isTouchingActionButton = isTouchOnActionButton(ev)
+                if (isTouchingActionButton) return false
             }
             MotionEvent.ACTION_UP, MotionEvent.ACTION_CANCEL -> {
-                if (isTouchingPreviewButton) {
-                    isTouchingPreviewButton = false
+                if (isTouchingActionButton) {
+                    isTouchingActionButton = false
                     return false
                 }
             }
             else -> {
-                // For ACTION_MOVE etc., don't intercept if we started on button
-                if (isTouchingPreviewButton) return false
+                if (isTouchingActionButton) return false
             }
         }
         return true
     }
 
-    private fun isTouchOnPreviewButton(ev: MotionEvent): Boolean {
-        val button = binding.previewAction
-        val location = IntArray(2)
-        button.getLocationOnScreen(location)
+    private val actionButtons by lazy {
+        listOf(binding.previewAction, binding.openExternalAction)
+    }
+
+    private fun isTouchOnActionButton(ev: MotionEvent): Boolean {
         val x = ev.rawX
         val y = ev.rawY
-        return x >= location[0] && x <= location[0] + button.width &&
-            y >= location[1] && y <= location[1] + button.height
+        val location = IntArray(2)
+        return actionButtons.any { button ->
+            button.getLocationOnScreen(location)
+            x >= location[0] && x <= location[0] + button.width &&
+                y >= location[1] && y <= location[1] + button.height
+        }
     }
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
