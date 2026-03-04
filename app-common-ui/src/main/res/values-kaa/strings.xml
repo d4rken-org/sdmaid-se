@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Jollar saylaw</string>
+    <string name="picker_selected_paths_title">Saylag̱an jollar</string>
+    <string name="picker_unsaved_confirmation_message">Ózgerisler tashlaw?</string>
+    <string name="picker_home_action">Ma\'lumot sahalar</string>
+</resources>

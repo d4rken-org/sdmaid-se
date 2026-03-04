@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Bedankt</string>
     <string name="general_error_type_mismatch_msg">Type komt niet overeen: %1$s gevraagd, maar %2$s gekregen.</string>
     <string name="general_error_cant_access_msg">Geen toegang tot %s.</string>
-    <string name="general_error_root_unavailable">Root toegang is niet beschikbaar.</string>
-    <string name="general_error_empty_result_msg">Het resultaat was leeg.</string>
-    <string name="general_error_no_compatible_app_found_msg">Er is geen compatibele app gevonden die dit verzoek kan verwerken.</string>
+    <string name="general_error_root_unavailable">Root toegang is niet beschikbaar.</string>    <string name="general_error_no_compatible_app_found_msg">Er is geen compatibele app gevonden die dit verzoek kan verwerken.</string>
     <string name="general_todo_msg">Aan deze functie wordt nog gewerkt en is momenteel niet beschikbaar.</string>
     <string name="general_share_action">Delen</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_apply_action">Toepassen</string>
-    <string name="general_copy_action">Kopiëren</string>
-    <string name="general_wipe_action">Vegen</string>
-    <string name="general_cancel_action">Annuleren</string>
+    <string name="general_copy_action">Kopiëren</string>    <string name="general_cancel_action">Annuleren</string>
     <string name="general_discard_action">Weggooien</string>
     <string name="general_reset_action">Resetten</string>
     <string name="general_drag_handle_description">Sleep om te herordenen</string>
-    <string name="general_save_action">Opslaan</string>
-    <string name="general_thanks_action">Bedankt</string>
-    <string name="general_gotit_action">Begrepen</string>
+    <string name="general_save_action">Opslaan</string>    <string name="general_gotit_action">Begrepen</string>
     <string name="general_fix_action">Repareren</string>
     <string name="general_set_up_action">Instellen</string>
     <string name="general_edit_action">Bewerken</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">De verbinding met een kritieke service (bijv. Magisk, Shizuku of andere services op systeemniveau) is onverwacht verbroken. Start je apparaat opnieuw op. Als het probleem aanhoudt, controleer dan op updates of neem contact met mij op zodat ik het kan oplossen.</string>
     <string name="general_user_label_owner">Eigenaar</string>
     <string name="general_user_label_system">Systeem</string>
+    <string name="setup_title">Instelling</string>
+    <string name="setup_feature_requires_additional_setup_x">Voor deze functie zijn aanvullende installatie-items vereist: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Eén uitsluiting is gemaakt</item>
+        <item quantity="other">%d uitsluitingen gemaakt</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">LijkenZoeker</string>
+    <string name="systemcleaner_tool_name">SysteemReiniger</string>
+    <string name="appcleaner_tool_name">AppReiniger</string>
+    <string name="deduplicator_tool_name">Ontdubbelaar</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControle</string>
+    <string name="analyzer_tool_name">Opslag Analyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Geschiedenis</string>
+    <string name="settings_category_tools_label">Hulpmiddelen</string>
+    <string name="general_include_multiuser_label">Inclusief andere gebruikers</string>
+    <string name="general_include_multiuser_summary">Apps van andere gebruikersprofielen opnemen op dit apparaat.</string>
+    <string name="general_unsaved_confirmation_message">Je hebt niet opgeslagen wijzigingen!</string>
 </resources>

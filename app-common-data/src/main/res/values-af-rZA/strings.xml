@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Openbare berging</string>
+    <string name="area_type_public_media_label">Openbare toepassing media</string>
+    <string name="area_type_public_data_label">Openbare toepassing data</string>
+    <string name="area_type_public_obb_label">Openbare toepassing hulpbronne</string>
+    <string name="area_type_private_data_label">Private toepassing data</string>
+    <string name="area_type_portable_label">Draagbare berging</string>
+</resources>

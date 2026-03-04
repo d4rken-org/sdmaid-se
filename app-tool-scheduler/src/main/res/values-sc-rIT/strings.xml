@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Programmadore</string>
+    <string name="scheduler_execution_label">Prosìzima esecutzione (approssimada)</string>
+    <string name="scheduler_execution_last_label">Ùrtima esecutzione</string>
+    <string name="scheduler_settings_label">Programmadore</string>
+    <string name="scheduler_settings_summary">Agiustare impostatziones connessas a su programmadore.</string>
+    <string name="scheduler_new_schedule_action">Creare programmadura</string>
+    <string name="scheduler_schedule_name_label">Nòmene de programmadura</string>
+    <string name="scheduler_schedule_toggle_enabled">Programmadura abilitada</string>
+    <string name="scheduler_schedule_toggle_disabled">Programmadura disabilitada</string>
+    <string name="scheduler_edit_schedule_action">Modificare programmadura</string>
+    <string name="scheduler_schedule_time_label">Ora approssimada</string>
+    <string name="scheduler_schedule_repeat_label">Intervallu de ripetitzide in dies</string>
+    <string name="scheduler_schedule_default_name">Programmadura predefinida</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s intoru a %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Programadu pro %s</string>
+    <string name="scheduler_schedule_last_at_x">Ùrtimu eseguidu a %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Cada die</item>
+        <item quantity="other">Cada %d dies</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Intervallu de ripetitzide</string>
+    <string name="scheduler_inaccurate_execution_hint">Is oras de esecutzione ispetadas sunt approssimatziones. Is programmaduras podent èssere ritardadas o antìtzipadas si cusservat sa baterìa.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Peruna programmadura ativa</string>
+    <string name="scheduler_setting_nopowersaving_title">Saltare cun baterìa iscarra</string>
+    <string name="scheduler_setting_nopowersaving_summary">Si su dispositivu est in modalidade de risparmiu de energia, s\'esecutzione programmada at a èssere saltada.</string>
+    <string name="scheduler_setting_charging_title">Saltare cando no est carrighende</string>
+    <string name="scheduler_setting_charging_summary">Si su dispositivu no est carrighende, s\'esecutzione programmada at a èssere saltada.</string>
+    <string name="scheduler_setting_automation_title">Servitziu de atzessibilidade</string>
+    <string name="scheduler_setting_automation_summary">Inclui atziones chi impreant unu servitziu de atzessibilidade. Custu richì²dit chi SD Maid diat pòdere interagire cun s\'ischermada tua (id est, chi siat isblocada) cando is tareas benit eseguidas.</string>
+    <string name="scheduler_notification_channel_label">Programmadore</string>
+    <string name="scheduler_notification_title">Tarea programmada</string>
+    <string name="scheduler_notification_message">Eseguende: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Programmadore finidu</string>
+    <string name="scheduler_notification_result_success_message">Totu is tareas programmadas sunt eseguidas cun sutzessu.</string>
+    <string name="scheduler_notification_result_failure_message">Calchìzas tareas programmadas sunt falladas o ant agatadu errores. Prova a is eseguire manualmente.</string>
+    <string name="scheduler_commands_after_schedule_label">Comandos a pustis de sa programmadura</string>
+    <string name="scheduler_commands_after_schedule_desc">Comandos de shell de Android chi ant a èssere eseguidos a sa fine de una programmadura.</string>
+    <string name="scheduler_battery_optimization_hint">Cunsidera de disabilitare is otìmizatziones de baterìa pro SD Maid si esperimentas problemas cun s\'esecutzione in frundu.</string>
+</resources>

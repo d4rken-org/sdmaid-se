@@ -20,6 +20,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.ui.MainActivity
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class TaskWorkerNotifications @Inject constructor(
@@ -48,14 +49,14 @@ class TaskWorkerNotifications @Inject constructor(
             setChannelId(CHANNEL_ID)
             setContentIntent(openPi)
             priority = NotificationCompat.PRIORITY_LOW
-            setSmallIcon(R.drawable.ic_notification_mascot_24)
+            setSmallIcon(UiR.drawable.ic_notification_mascot_24)
             setOngoing(true)
             setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
             setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
         }
     }
 
-    fun getBuilder(state: TaskManager.State?): NotificationCompat.Builder {
+    fun getBuilder(state: TaskSubmitter.State?): NotificationCompat.Builder {
         if (state == null) {
             return builder.apply {
                 setStyle(null)
@@ -83,9 +84,9 @@ class TaskWorkerNotifications @Inject constructor(
         }
     }
 
-    fun getNotification(state: TaskManager.State?): Notification = getBuilder(state).build()
+    fun getNotification(state: TaskSubmitter.State?): Notification = getBuilder(state).build()
 
-    fun getForegroundInfo(state: TaskManager.State?): ForegroundInfo = getBuilder(state).toForegroundInfo()
+    fun getForegroundInfo(state: TaskSubmitter.State?): ForegroundInfo = getBuilder(state).toForegroundInfo()
 
     private fun NotificationCompat.Builder.toForegroundInfo(): ForegroundInfo = if (hasApiLevel(29)) {
         @Suppress("NewApi")

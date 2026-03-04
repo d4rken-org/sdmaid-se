@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ਮਾਰਗ ਚੁਣੋ</string>
+    <string name="picker_selected_paths_title">ਚੁਣੇ ਗਏ ਮਾਰਗ</string>
+    <string name="picker_unsaved_confirmation_message">ਕੀ ਤਬਦੀਲੀਆਂ ਰੱਦ ਕਰਨੀਆਂ ਹਨ?</string>
+    <string name="picker_home_action">ਡਾਟਾ ਖੇਤਰ</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d ਮਾਰਗ ਚੁਣਿਆ ਗਿਆ</item>
+    <item quantity="other">%d ਮਾਰਗ ਚੁਣੇ ਗਏ</item>
+    </plurals>
+</resources>

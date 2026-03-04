@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ପଥ ଚୟନ କରନ୍ତୁ</string>
+    <string name="picker_selected_paths_title">ଚୟନିତ ପଥ</string>
+    <string name="picker_unsaved_confirmation_message">ପରିବର୍ତ୍ତନଗୁଡ଼ିକ ପରିତ୍ୟାଗ କରିବେ?</string>
+    <string name="picker_home_action">ଡାଟା କ୍ଷେତ୍ର</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d ପଥ ମନୋନୀତ</item>
+    <item quantity="other">%d ପଥ ମନୋନୀତ</item>
+    </plurals>
+</resources>

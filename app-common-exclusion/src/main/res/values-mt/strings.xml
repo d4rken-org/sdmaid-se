@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Maniġer tal-esklużjonijiet</string>
+    <string name="exclusion_manager_desc">Immaniġġja esklużjonijiet ta\' fajls u apps.</string>
+    <string name="exclusion_type_package">Esklużjoni ta\' app</string>
+    <string name="exclusion_type_path">Esklużjoni ta\' path</string>
+    <string name="exclusion_type_segment">Esklużjoni ta\' segment</string>
+    <string name="exclusion_tags_alltools">L-għodod kollha</string>
+</resources>

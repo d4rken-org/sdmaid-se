@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">תודה רבה</string>
     <string name="general_error_type_mismatch_msg">אי התאמה של סוג: רצה %1$s, אבל קיבל %2$s.</string>
     <string name="general_error_cant_access_msg">לא מצליח לגשת ל-%s.</string>
-    <string name="general_error_root_unavailable">גישת root אינה זמינה.</string>
-    <string name="general_error_empty_result_msg">התוצאה הייתה ריקה.</string>
-    <string name="general_error_no_compatible_app_found_msg">לא נמצאה אפליקציה מתאימה לטיפול בבקשה כזו.</string>
+    <string name="general_error_root_unavailable">גישת root אינה זמינה.</string>    <string name="general_error_no_compatible_app_found_msg">לא נמצאה אפליקציה מתאימה לטיפול בבקשה כזו.</string>
     <string name="general_todo_msg">הפונקציה עדיין בעבודה ואינה זמינה כרגע.</string>
     <string name="general_share_action">שיתוף</string>
     <string name="general_done_action">בוצע</string>
     <string name="general_apply_action">החל</string>
-    <string name="general_copy_action">העתקה</string>
-    <string name="general_wipe_action">מחק</string>
-    <string name="general_cancel_action">ביטול</string>
+    <string name="general_copy_action">העתקה</string>    <string name="general_cancel_action">ביטול</string>
     <string name="general_discard_action">ביטול</string>
     <string name="general_reset_action">איפוס</string>
     <string name="general_drag_handle_description">גרור לשינוי סדר</string>
-    <string name="general_save_action">שמור</string>
-    <string name="general_thanks_action">תודה</string>
-    <string name="general_gotit_action">הבנתי</string>
+    <string name="general_save_action">שמור</string>    <string name="general_gotit_action">הבנתי</string>
     <string name="general_fix_action">תקן</string>
     <string name="general_set_up_action">הגדרה</string>
     <string name="general_edit_action">עריכה</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
     <string name="general_user_label_owner">בעלים</string>
     <string name="general_user_label_system">מערכת</string>
+    <string name="setup_title">הגדרה</string>
+    <string name="setup_feature_requires_additional_setup_x">תכונה זו דורשת השלמת פריטי הגדרה נוספים: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">נוצרה החרגה אחת</item>
+        <item quantity="two">נוצרו %d החרגות</item>
+        <item quantity="many">נוצרו %d החרגות</item>
+        <item quantity="other">נוצרו %d החרגות</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">איתור קבצים \"מתים\"</string>
+    <string name="systemcleaner_tool_name">מנקה מערכת</string>
+    <string name="appcleaner_tool_name">מנקה אפליקציות</string>
+    <string name="deduplicator_tool_name">מסיר כפילות</string>
+    <string name="squeezer_tool_name">דחיסת מדיה</string>
+    <string name="appcontrol_tool_name">בקרת אפליקציה</string>
+    <string name="analyzer_tool_name">מנתח אחסון</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">היסטוריה</string>
+    <string name="settings_category_tools_label">כלים</string>
+    <string name="general_include_multiuser_label">כלול משתמשים אחרים</string>
+    <string name="general_include_multiuser_summary">כלול אפליקציות מפרופילי משתמשים אחרים במכשיר זה.</string>
+    <string name="general_unsaved_confirmation_message">יש לך שינויים לא שמורים!</string>
 </resources>

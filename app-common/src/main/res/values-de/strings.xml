@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Danke</string>
     <string name="general_error_type_mismatch_msg">Falscher Typ: Wollte %1$s, aber erhielt %2$s.</string>
     <string name="general_error_cant_access_msg">Zugriff auf %s nicht möglich.</string>
-    <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>
-    <string name="general_error_empty_result_msg">Das Ergebnis war leer.</string>
-    <string name="general_error_no_compatible_app_found_msg">Es wurde keine kompatible App gefunden, die diese Anfrage verarbeiten kann.</string>
+    <string name="general_error_root_unavailable">Root-Zugriff ist nicht verfügbar.</string>    <string name="general_error_no_compatible_app_found_msg">Es wurde keine kompatible App gefunden, die diese Anfrage verarbeiten kann.</string>
     <string name="general_todo_msg">An dieser Funktion wird noch gearbeitet und ist nicht verfügbar.</string>
     <string name="general_share_action">Teilen</string>
     <string name="general_done_action">Fertig</string>
     <string name="general_apply_action">Anwenden</string>
-    <string name="general_copy_action">Kopieren</string>
-    <string name="general_wipe_action">Wischen</string>
-    <string name="general_cancel_action">Abbrechen</string>
+    <string name="general_copy_action">Kopieren</string>    <string name="general_cancel_action">Abbrechen</string>
     <string name="general_discard_action">Verwerfen</string>
     <string name="general_reset_action">Zurücksetzen</string>
     <string name="general_drag_handle_description">Zum Neuanordnen ziehen</string>
-    <string name="general_save_action">Speichern</string>
-    <string name="general_thanks_action">Danke</string>
-    <string name="general_gotit_action">Verstanden</string>
+    <string name="general_save_action">Speichern</string>    <string name="general_gotit_action">Verstanden</string>
     <string name="general_fix_action">Beheben</string>
     <string name="general_set_up_action">Einrichtung</string>
     <string name="general_edit_action">Bearbeiten</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z.B. Magisk, Shizuku oder anderen System-Level-Diensten) wurde unerwartet verloren. Bitte starten Sie Ihr Gerät neu. Wenn das Problem weiterhin besteht, prüfen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
     <string name="general_user_label_owner">Besitzer</string>
     <string name="general_user_label_system">System</string>
+    <string name="setup_title">Einrichtung</string>
+    <string name="setup_feature_requires_additional_setup_x">Diese Funktion erfordert den Abschluss zusätzlicher Einrichtungsschritte: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Ein Ausschluss wurde erstellt</item>
+        <item quantity="other">%d Ausschlüsse erstellt</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Leichenfinder</string>
+    <string name="systemcleaner_tool_name">System-Reiniger</string>
+    <string name="appcleaner_tool_name">App-Reiniger</string>
+    <string name="deduplicator_tool_name">Duplikat-Entferner</string>
+    <string name="squeezer_tool_name">Medienkomprimierung</string>
+    <string name="appcontrol_tool_name">App-Kontrolle</string>
+    <string name="analyzer_tool_name">Speicheranalyse</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Verlauf</string>
+    <string name="settings_category_tools_label">Werkzeuge</string>
+    <string name="general_include_multiuser_label">Andere Benutzer einbeziehen</string>
+    <string name="general_include_multiuser_summary">Apps von anderen Benutzerprofilen auf diesem Gerät einbeziehen.</string>
+    <string name="general_unsaved_confirmation_message">Sie haben ungespeicherte Änderungen!</string>
 </resources>

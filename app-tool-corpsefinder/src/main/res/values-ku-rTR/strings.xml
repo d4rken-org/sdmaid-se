@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">داتایی کە هی ئەپە سڕاوەکانە.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d پاشماوەی ئەپ سڕایەوە</item>
+        <item quantity="other">%d پاشماوەی ئەپ سڕانەوە</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d پاشماوەی ئەپ دۆزرایەوە</item>
+        <item quantity="other">%d پاشماوەی ئەپ دۆزرانەوە</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">هەموو پاشماوەکانی ئەپ بسڕیتەوە؟</string>
+    <string name="corpsefinder_filter_publicmedia_label">مێدیای گشتی</string>
+    <string name="corpsefinder_filter_publicobb_label">سەرچاوەکانی OBB</string>
+    <string name="corpsefinder_filter_publicdata_label">داتای گشتی ئەپ</string>
+    <string name="corpsefinder_filter_sdcard_label">کارتی SD</string>
+    <string name="corpsefinder_filter_privatedata_label">داتای تایبەتی ئەپ</string>
+    <string name="corpsefinder_filter_dalvik_label">کاشی Dalvik</string>
+    <string name="corpsefinder_filter_artprofiles_label">پرۆفایلەکانی ART</string>
+    <string name="corpsefinder_filter_applib_label">کتێبخانەکانی ئەپ</string>
+    <string name="corpsefinder_filter_appsource_label">سەرچاوەکانی ئەپ</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <string name="corpsefinder_owners_label">خاوەنەکان</string>
+    <string name="corpsefinder_owner_unknown">خاوەنی نەناسراو</string>
+</resources>

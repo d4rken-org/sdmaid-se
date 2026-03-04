@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="action_swiperStatusFragmentToSwiperSwipeFragment" type="id" />
+    <item name="action_swiperSwipeFragmentToSwiperStatusFragment" type="id" />
+    <item name="action_swiperSessionsFragmentToSwiperSwipeFragment" type="id" />
+</resources>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">நன்றி</string>
     <string name="general_error_type_mismatch_msg">வகை பொருந்தவில்லை: %1$s விரும்பினார், ஆனால் %2$s கிடைத்தது.</string>
     <string name="general_error_cant_access_msg">%s ஐ அணுக முடியவில்லை.</string>
-    <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>
-    <string name="general_error_empty_result_msg">முடிவு காலியாக இருந்தது.</string>
-    <string name="general_error_no_compatible_app_found_msg">இந்த கோரிக்கையைக் கையாள பொருந்தக்கூடிய பயன்பாடு எதுவும் காணப்படவில்லை.</string>
+    <string name="general_error_root_unavailable">Root அணுகல் கிடைக்கவில்லை.</string>    <string name="general_error_no_compatible_app_found_msg">இந்த கோரிக்கையைக் கையாள பொருந்தக்கூடிய பயன்பாடு எதுவும் காணப்படவில்லை.</string>
     <string name="general_todo_msg">இந்த அம்சம் இன்னும் பணிக்கப்பட்டு வருகிறது மற்றும் தற்போது கிடைக்கவில்லை.</string>
     <string name="general_share_action">பகிர்</string>
     <string name="general_done_action">முடிந்தது</string>
     <string name="general_apply_action">செயல்படுத்து</string>
-    <string name="general_copy_action">நகலெடு</string>
-    <string name="general_wipe_action">துடை</string>
-    <string name="general_cancel_action">ரத்து செய்</string>
+    <string name="general_copy_action">நகலெடு</string>    <string name="general_cancel_action">ரத்து செய்</string>
     <string name="general_discard_action">நிராகரி</string>
     <string name="general_reset_action">மீட்டமை</string>
     <string name="general_drag_handle_description">மறுவரிசைப்படுத்த இழுக்கவும்</string>
-    <string name="general_save_action">சேமி</string>
-    <string name="general_thanks_action">நன்றி</string>
-    <string name="general_gotit_action">புரிந்தது</string>
+    <string name="general_save_action">சேமி</string>    <string name="general_gotit_action">புரிந்தது</string>
     <string name="general_fix_action">சரிசெய்</string>
     <string name="general_set_up_action">அமைக்கவும்</string>
     <string name="general_edit_action">திருத்து</string>
@@ -173,4 +167,21 @@
     <string name="general_error_ipc_deadobject_description">முக்கியமான சேவைக்கான இணைப்பு (உதா. Magisk, Shizuku, அல்லது பிற கணினி-நிலை சேவைகள்) எதிர்பாராதவிதமாக இழக்கப்பட்டது. உங்கள் சாதனத்தை மறுதொடக்கம் செய்யவும். சிக்கல் தொடர்ந்தால், புதுப்பிப்புகளைச் சரிபார்க்கவும் அல்லது அதை சரிசெய்வதற்காக என்னைத் தொடர்பு கொள்ளவும்.</string>
     <string name="general_user_label_owner">உரிமையாளர்</string>
     <string name="general_user_label_system">கணினி</string>
+    <string name="setup_title">அமைப்பு</string>
+    <string name="setup_feature_requires_additional_setup_x">இந்த அம்சத்திற்கு கூடுதல் அமைப்பு உருப்படிகளை முடித்தல் தேவை: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ஒரு விலக்கல் உருவாக்கப்பட்டது</item>
+        <item quantity="other">%d விலக்கல்கள் உருவாக்கப்பட்டன</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">மிச்சம் கண்டுபிடிப்பான்</string>
+    <string name="appcleaner_tool_name">பயன்பாட்டு சுத்தி</string>
+    <string name="deduplicator_tool_name">நகல் நீக்கி</string>
+    <string name="appcontrol_tool_name">பயன்பாட்டு கட்டுப்பாடு</string>
+    <string name="analyzer_tool_name">சேமிப்பு பகுப்பாய்வாளர்</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">வரலாறு</string>
+    <string name="settings_category_tools_label">கருவிகள்</string>
+    <string name="general_include_multiuser_label">மற்ற பயனர்களை சேர்க்கவும்</string>
+    <string name="general_include_multiuser_summary">இந்த சாதனத்திலுள்ள மற்ற பயனர் சுயவிவரங்களிலிருந்து பயன்பாடுகளை சேர்க்கவும்.</string>
+    <string name="general_unsaved_confirmation_message">உங்களிடம் சேமிக்கப்படாத மாற்றங்கள் உள்ளன!</string>
 </resources>

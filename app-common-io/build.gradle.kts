@@ -15,7 +15,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         aidl = true
     }
 
@@ -48,7 +47,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
+    addIOApi()
 
     addTesting()
     testImplementation(project(":app-common-test"))

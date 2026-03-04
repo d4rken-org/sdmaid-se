@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_explanation_short">Daneyên ne hewce yên ku ji sepanên taybet in.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">Pêşbirkên giştî yên standard</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">Pêşbirkên taybet ên standard</string>
+    <string name="appcleaner_include_systemapps_label">Sepanên pergalê tê de bikin</string>
+    <string name="appcleaner_include_runningapps_label">Sepanên ku dixebitin tê de bikin</string>
+    <string name="appcleaner_include_inaccessible_label">Pêşbirkên negihîştî tê de bikin</string>
+    <string name="appcleaner_filter_codecache_label">Pêşbirka kodê</string>
+    <string name="appcleaner_filter_advertisement_label">Daneyên reklaman</string>
+    <string name="appcleaner_filter_bugreporting_label">Raportkirina xeletiyan</string>
+    <string name="appcleaner_filter_analytics_label">Analîtîk</string>
+    <string name="appcleaner_filter_hiddencaches_label">Pêşbirkên veşartî</string>
+    <string name="appcleaner_filter_thumbnails_label">Wêneyên piçûk ên medyayê</string>
+    <string name="appcleaner_filter_gamefiles_label">Pelên lîstikan</string>
+    <string name="appcleaner_filter_offlinecache_label">Pêşbirka bê torê</string>
+    <string name="appcleaner_filter_recyclebins_label">Tenişteyên çopê</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp kopiyên piştgirî</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp pelên wergirandî</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp pelên şandî</string>
+    <string name="appcleaner_filter_telegram_label">Telegram pelên medyayê</string>
+    <string name="appcleaner_delete_all_confirmation_message">Tiştên ne hewce ji bo hemû sepanan jê bibin?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d tiştê ne hewce hat jêbirin</item>
+        <item quantity="other">%d tiştên ne hewce hatin jêbirin</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d tiştê ne hewce hat dîtin</item>
+        <item quantity="other">%d tiştên ne hewce hatin dîtin</item>
+    </plurals>
+</resources>

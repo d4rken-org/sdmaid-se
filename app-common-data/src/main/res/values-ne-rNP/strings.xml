@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">सार्वजनिक भण्डारण</string>
+    <string name="area_type_public_media_label">सार्वजनिक अनुप्रयोग मिडिया</string>
+    <string name="area_type_public_data_label">सार्वजनिक अनुप्रयोग डेटा</string>
+    <string name="area_type_public_obb_label">सार्वजनिक अनुप्रयोग संसाधनहरू</string>
+    <string name="area_type_private_data_label">निजी अनुप्रयोग डेटा</string>
+    <string name="area_type_portable_label">पोर्टेबल भण्डारण</string>
+</resources>

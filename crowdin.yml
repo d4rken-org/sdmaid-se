@@ -13,16 +13,20 @@
         "sc": "sc-rIT",
         "sq": "sq-rAL",
         "ar": "ar",
+        "af": "af-rZA",
         "am": "am",
         "az": "az",
         "be": "be",
         "bn": "bn-rBD",
         "bg": "bg",
         "ca": "ca",
+        "ckb": "ckb-rIR",
         "cs": "cs",
+        "cy": "cy",
         "da": "da",
         "de": "de",
         "el": "el",
+        "eo": "eo",
         "es-ES": "es",
         "es-AR": "es-rAR",
         "es-MX": "es-rMX",
@@ -33,7 +37,9 @@
         "fil": "fil",
         "fi": "fi",
         "fr": "fr",
+        "ga": "ga",
         "gl": "gl-rES",
+        "hi": "hi-rIN",
         "hr": "hr",
         "hu": "hu",
         "is": "is",
@@ -42,21 +48,28 @@
         "he": "iw",
         "ja": "ja",
         "ka": "ka-rGE",
+        "kaa": "kaa",
         "km": "km-rKH",
+        "kmr": "kmr-rTR",
         "kn": "kn-rIN",
         "ko": "ko",
+        "ku": "ku-rTR",
         "ky": "ky-rKG",
         "lt": "lt",
         "lv": "lv",
         "lo": "lo-rLA",
         "ms": "ms",
+        "mk": "mk-rMK",
         "ml-IN": "ml-rIN",
         "mn": "mn-rMN",
         "mr": "mr-rIN",
+        "mt": "mt",
         "my": "my-rMM",
         "ne-NP": "ne-rNP",
         "nl": "nl",
         "no": "nb",
+        "or": "or-rIN",
+        "pa-IN": "pa-rIN",
         "pl": "pl",
         "pt-PT": "pt",
         "pt-BR": "pt-rBR",
@@ -105,6 +118,90 @@
     "source": "/app-common-pkgs/src/main/res/values/strings.xml",
     "dest": "/strings-app-common-pkgs.xml",
     "translation": "/app-common-pkgs/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-automation/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-automation.xml",
+    "translation": "/app-common-automation/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-data/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-data.xml",
+    "translation": "/app-common-data/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-appcleaner/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-appcleaner.xml",
+    "translation": "/app-tool-appcleaner/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-corpsefinder/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-corpsefinder.xml",
+    "translation": "/app-tool-corpsefinder/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-deduplicator/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-deduplicator.xml",
+    "translation": "/app-tool-deduplicator/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-analyzer/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-analyzer.xml",
+    "translation": "/app-tool-analyzer/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-squeezer/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-squeezer.xml",
+    "translation": "/app-tool-squeezer/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-swiper/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-swiper.xml",
+    "translation": "/app-tool-swiper/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-appcontrol/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-appcontrol.xml",
+    "translation": "/app-tool-appcontrol/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-systemcleaner/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-systemcleaner.xml",
+    "translation": "/app-tool-systemcleaner/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-exclusion/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-exclusion.xml",
+    "translation": "/app-common-exclusion/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-ui/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-ui.xml",
+    "translation": "/app-common-ui/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-common-stats/src/main/res/values/strings.xml",
+    "dest": "/strings-app-common-stats.xml",
+    "translation": "/app-common-stats/src/main/res/values-%android_code%/strings.xml",
+    #    "update_option" : "update_without_changes",
+    "languages_mapping": *stringmapping
+  }, {
+    "source": "/app-tool-scheduler/src/main/res/values/strings.xml",
+    "dest": "/strings-app-tool-scheduler.xml",
+    "translation": "/app-tool-scheduler/src/main/res/values-%android_code%/strings.xml",
     #    "update_option" : "update_without_changes",
     "languages_mapping": *stringmapping
   }, {

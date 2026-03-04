@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Birêvebirê îstîsnayan</string>
+    <string name="exclusion_manager_desc">Îstîsnayên pel û sepanan birêve bibin.</string>
+    <string name="exclusion_type_package">Îstîsnaya sepanê</string>
+    <string name="exclusion_type_path">Îstîsnaya rêyê</string>
+    <string name="exclusion_type_segment">Îstîsnaya beşê</string>
+    <string name="exclusion_tags_alltools">Hemû amûr</string>
+</resources>

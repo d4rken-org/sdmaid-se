@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">Cihazınızda quraşdırılmış tətbiqlər.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d tətbiq aşkar edildi</item>
+        <item quantity="other">%d tətbiq aşkar edildi</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Tətbiqləri dəyiş</string>
+    <string name="appcontrol_toggle_app_enable_action">Tətbiqi aktiv et</string>
+    <string name="appcontrol_toggle_app_disable_action">Tətbiqi deaktiv et</string>
+    <string name="appcontrol_toggle_app_enable_description">Tətbiqi aktivləşdirmək onun işləməsinə imkan verir və əgər fəaliyyəti varsa başladıcınızda görünməsini təmin edir.</string>
+    <string name="appcontrol_toggle_app_disable_description">Tətbiqi deaktivləşdirmək onun işləməsini maneə edir və menyulardan gizlədir. Heç bir məlumat itkisi yoxdur.</string>
+    <string name="appcontrol_appstore_open_title">Tətbiq mağazasında aç</string>
+    <string name="appcontrol_appstore_open_description">Bu tətbiqi quraşdırıldığı tətbiq mağazasında açın.</string>
+    <string name="appcontrol_systemsettings_open_title">Parametrləri göstər</string>
+    <string name="appcontrol_systemsettings_open_description">Bu tətbiq üçün cihazınızın sistem parametrlərini açın.</string>
+    <string name="appcontrol_app_launch_title">Tətbiqi işə sal</string>
+    <string name="appcontrol_app_launch_description">Bu tətbiqin əsas fəaliyyətini işə salın.</string>
+    <string name="appcontrol_app_forcestop_title">Məcburi dayandır</string>
+    <string name="appcontrol_app_forcestop_description">Tətbiqi dayandırın. Siz tətbiqi açana və ya cihaz yenidən başladılana qədər onun öz-özünə işə düşməsinin qarşısını alın.</string>
+    <string name="appcontrol_app_uninstall_description">Bu tətbiqi cihazınızdan silin.</string>
+    <string name="appcontrol_app_exclude_add_title">Tətbiqi istisna et</string>
+    <string name="appcontrol_app_exclude_add_description">Bu tətbiqi SD Maid-in digər əməliyyatlarından istisna et.</string>
+    <string name="appcontrol_app_exclude_edit_title">İstisnanı redaktə et</string>
+    <string name="appcontrol_app_exclude_edit_description">Bu tətbiq hazırda bir və ya daha çox alətdən istisna edilib.</string>
+    <string name="appcontrol_tag_user">İstifadəçi</string>
+    <string name="appcontrol_tag_active">Son aktiv</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paket</string>
+    <string name="appcontrol_tag_system">Sistem</string>
+    <string name="appcontrol_tag_archived">Arxivləndi</string>
+    <string name="appcontrol_tag_uninstalled">Yalnız məlumat</string>
+    <string name="appcontrol_tag_not_installed">Quraşdırılmayıb</string>
+    <string name="appcontrol_tag_enabled">Aktiv</string>
+    <string name="appcontrol_tag_disabled">Deaktiv</string>
+    <string name="appcontrol_tag_debug">Sazlama</string>
+    <string name="appcontrol_progress_enabling_package">Tətbiq aktiv edilir</string>
+    <string name="appcontrol_progress_disabling_package">Tətbiq deaktiv edilir</string>
+    <string name="appcontrol_list_filteroptions_label">Filter seçimləri</string>
+    <string name="appcontrol_list_sortmode_name_label">Tətbiq adı</string>
+    <string name="appcontrol_list_sortmode_updated_label">Son yeniləndi</string>
+    <string name="appcontrol_list_sortmode_installed_label">İlk quraşdırıldı</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Paket adı</string>
+    <string name="appcontrol_list_sortmode_size_label">Ölçü</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Ekran vaxtı</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Tətbiq ölçüləri performans səbəbləri üçün təxmin edilir. Daha dəqiq məlumat üçün StorageAnalyzer alətindən istifadə edin.</string>
+    <string name="appcontrol_progress_uninstalling_app">Tətbiq silinir</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d tətbiq silindi</item>
+        <item quantity="other">%d tətbiq silindi</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Arxivlə</string>
+    <string name="appcontrol_archive_selection_action">Tətbiqləri arxivlə</string>
+    <string name="appcontrol_archive_description">Tətbiq məlumatlarını sonradan bərpa etmək üçün saxlayaraq yer azad etmək üçün arxivləyin.</string>
+    <string name="appcontrol_progress_archiving_app">Tətbiq arxivlənir…</string>
+    <string name="appcontrol_archive_confirmation_title">Arxivləməni təsdiqləyin</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d tətbiq arxivlənsin?</item>
+        <item quantity="other">%d tətbiq arxivlənsin?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d tətbiq arxivləndi</item>
+        <item quantity="other">%d tətbiq arxivləndi</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Bərpa et</string>
+    <string name="appcontrol_restore_selection_action">Tətbiqləri bərpa et</string>
+    <string name="appcontrol_restore_description">Arxivlənmiş tətbiqi tam quraşdırılmış vəziyyətə bərpa edin. Tətbiq məlumatları qorunur.</string>
+    <string name="appcontrol_progress_restoring_app">Tətbiq bərpa edilir…</string>
+    <string name="appcontrol_restore_confirmation_title">Bərpanı təsdiqləyin</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d tətbiq bərpa edilsin?</item>
+        <item quantity="other">%d tətbiq bərpa edilsin?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d tətbiq bərpa edildi</item>
+        <item quantity="other">%d tətbiq bərpa edildi</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Tətbiq ölçüsü</string>
+    <string name="appcontrol_app_sizes_apk_label">Tətbiq</string>
+    <string name="appcontrol_app_sizes_data_label">Məlumat</string>
+    <string name="appcontrol_app_sizes_cache_label">Keş</string>
+    <string name="appcontrol_toggle_confirmation_title">Hərəkəti təsdiq et</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d tətbiqin aktiv/deaktiv vəziyyəti dəyişilsinmi?</item>
+        <item quantity="other">%d tətbiqin aktiv/deaktiv vəziyyətləri dəyişilsinmi?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d tətbiq dəyişdirildi</item>
+        <item quantity="other">%d tətbiq dəyişdirildi</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Ölçüləri müəyyən et</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Hər tətbiqin ölçüsünün təxmini qiymətini əldə edin.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Fəaliyyəti müəyyən et</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Tətbiqin aktiv (və ya son vaxtlar) olduğunu öyrənin.</string>
+    <string name="appcontrol_export_app_selection_action">Tətbiqləri ixrac et</string>
+    <string name="appcontrol_export_title">Tətbiq ixrac et</string>
+    <string name="appcontrol_export_description">Bu tətbiqin quraşdırma fayllarını yadda saxlayın. Bura tətbiq məlumatları daxil deyil.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d tətbiq ixrac edildi</item>
+        <item quantity="other">%d tətbiq ixrac edildi</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ixrac edilir</string>
+    <string name="appcontrol_share_list_action">Siyahını paylaş</string>
+    <string name="appcontrol_share_list_title">Tətbiqlərim</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE vasitəsilə paylaşılıb</string>
+    <string name="appcontrol_force_stop_selection_action">Tətbiqləri məcburi dayandır</string>
+    <string name="appcontrol_force_stop_action">Məcburi dayandır</string>
+    <string name="appcontrol_force_stop_confirm_title">Məcburi dayanmanı təsdiq et</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d tətbiqi məcburi dayandıraq?</item>
+        <item quantity="other">%d tətbiqi məcburi dayandıraq?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d tətbiq dayandırıldı</item>
+        <item quantity="other">%d tətbiq dayandırıldı</item>
+    </plurals>
+    <string name="appcontrol_automation_title">AppControl avtomatlaşdırması</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Məcburi dayandırılır…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Məcburi dayandır\" düyməsi axtarılır (açar sözlər: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Arxivlənir…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Arxivlə\" düyməsi axtarılır (açar sözlər: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Bərpa edilir…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Bərpa et\" düyməsi axtarılır (açar sözlər: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Ekran vaxtı: %2$s-dən bəri %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Son yeniləndi: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Quraşdırılma tarixi: %s</string>
+    <string name="shortcut_appcontrol_short">Tətbiq İdarəetməsi</string>
+    <string name="shortcut_appcontrol_long">Quraşdırılmış tətbiqləri idarə et</string>
+</resources>

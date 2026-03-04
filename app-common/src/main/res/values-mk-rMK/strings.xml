@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Ви благодарам</string>
     <string name="general_error_type_mismatch_msg">Несовпаѓање на типот: Се бараше %1$s, но добив %2$s.</string>
     <string name="general_error_cant_access_msg">Не може да се пристапи до %s.</string>
-    <string name="general_error_root_unavailable">Пристапот до коренот е недостапен.</string>
-    <string name="general_error_empty_result_msg">Резултатот беше празен.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не е пронајдена компатибилна апликација за да се справи со ова барање.</string>
+    <string name="general_error_root_unavailable">Пристапот до коренот е недостапен.</string>    <string name="general_error_no_compatible_app_found_msg">Не е пронајдена компатибилна апликација за да се справи со ова барање.</string>
     <string name="general_todo_msg">На оваа функција сè уште се работи и моментално не е достапна.</string>
     <string name="general_share_action">Споделете</string>
     <string name="general_done_action">Готово</string>
     <string name="general_apply_action">Примени</string>
-    <string name="general_copy_action">Копирај</string>
-    <string name="general_wipe_action">Избриши</string>
-    <string name="general_cancel_action">Откажи</string>
+    <string name="general_copy_action">Копирај</string>    <string name="general_cancel_action">Откажи</string>
     <string name="general_discard_action">Отфрли</string>
     <string name="general_reset_action">Ресетирај</string>
     <string name="general_drag_handle_description">Повлечете за преуредување</string>
-    <string name="general_save_action">Зачувај</string>
-    <string name="general_thanks_action">Благодарност до</string>
-    <string name="general_gotit_action">Разбрав</string>
+    <string name="general_save_action">Зачувај</string>    <string name="general_gotit_action">Разбрав</string>
     <string name="general_fix_action">Поправки</string>
     <string name="general_set_up_action">Постави</string>
     <string name="general_edit_action">Уредување</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Врската со критична услуга (на пр. Magisk, Shizuku или други услуги на системско ниво) неочекувано беше изгубена. Ве молиме рестартирајте го вашиот уред. Ако проблемот продолжи, проверете за ажурирања или контактирајте ме за да го поправам.</string>
     <string name="general_user_label_owner">Сопственик</string>
     <string name="general_user_label_system">Систем</string>
+    <string name="setup_title">Поставување</string>
+    <string name="setup_feature_requires_additional_setup_x">Оваа функција бара завршување на дополнителни ставки за поставување: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Еден исклучок создаден</item>
+        <item quantity="other">%d исклучоци создадени</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">Системски Чистач</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Дедупликатор</string>
+    <string name="squeezer_tool_name">Медиа Компресор</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Историја</string>
+    <string name="settings_category_tools_label">Алатки</string>
+    <string name="general_include_multiuser_label">Вклучи други корисници</string>
+    <string name="general_include_multiuser_summary">Вклучи апликации од други кориснички профили на овој уред.</string>
+    <string name="general_unsaved_confirmation_message">Имате незачувани промени!</string>
 </resources>

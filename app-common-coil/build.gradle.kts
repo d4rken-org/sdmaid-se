@@ -1,0 +1,57 @@
+plugins {
+    id("com.android.library")
+    id("kotlin-parcelize")
+    id("com.google.devtools.ksp")
+    id("projectConfig")
+}
+
+apply(plugin = "dagger.hilt.android.plugin")
+
+android {
+    namespace = "${projectConfig.packageName}.common.coil"
+
+    setupLibraryDefaults(projectConfig)
+
+    setupModuleBuildTypes()
+
+    buildFeatures {
+        viewBinding = true
+    }
+
+    setupCompileOptions()
+
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+        tasks.withType<Test> {
+            useJUnitPlatform()
+            setupTests()
+        }
+    }
+}
+
+setupKotlinOptions()
+
+dependencies {
+    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
+    implementation(project(":app-common"))
+    implementation(project(":app-common-ui"))
+    implementation(project(":app-common-io"))
+    implementation(project(":app-common-data"))
+    implementation(project(":app-common-pkgs"))
+
+    addAndroidCore()
+    addAndroidUI()
+    addDI()
+    addCoroutines()
+    addCoilApi()
+
+    implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
+
+    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
+    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
+
+    addTesting()
+    testImplementation(project(":app-common-test"))
+}

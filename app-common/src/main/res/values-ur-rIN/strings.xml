@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">شکریہ</string>
     <string name="general_error_type_mismatch_msg">قسم میں بے میل: %1$s چاہیے تھی، لیکن %2$s ملا۔</string>
     <string name="general_error_cant_access_msg">%s تک رسائی نہیں ہو سکتی۔</string>
-    <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>
-    <string name="general_error_empty_result_msg">نتیجہ خالی تھا۔</string>
-    <string name="general_error_no_compatible_app_found_msg">اس درخواست کو سنبھالنے کے لیے کوئی مطابقت پزیر ایپ نہیں ملا۔</string>
+    <string name="general_error_root_unavailable">Root رسائی دستیاب نہیں۔</string>    <string name="general_error_no_compatible_app_found_msg">اس درخواست کو سنبھالنے کے لیے کوئی مطابقت پزیر ایپ نہیں ملا۔</string>
     <string name="general_todo_msg">یہ فیچر ابھی بھی بنایا جا رہا ہے اور فلحال دستیاب نہیں۔</string>
     <string name="general_share_action">شیئر کریں</string>
     <string name="general_done_action">مکمل</string>
     <string name="general_apply_action">لاگو کریں</string>
-    <string name="general_copy_action">کاپی</string>
-    <string name="general_wipe_action">صاف کریں</string>
-    <string name="general_cancel_action">منسوخ کریں</string>
+    <string name="general_copy_action">کاپی</string>    <string name="general_cancel_action">منسوخ کریں</string>
     <string name="general_discard_action">رد کریں</string>
     <string name="general_reset_action">ری سیٹ کریں</string>
     <string name="general_drag_handle_description">ترتیب بدلنے کے لیے گھسیٹیں</string>
-    <string name="general_save_action">محفوظ کریں</string>
-    <string name="general_thanks_action">شکریہ</string>
-    <string name="general_gotit_action">سمجھ گیا</string>
+    <string name="general_save_action">محفوظ کریں</string>    <string name="general_gotit_action">سمجھ گیا</string>
     <string name="general_fix_action">حل کریں</string>
     <string name="general_set_up_action">سیٹ اپ کریں</string>
     <string name="general_edit_action">تبدیلی کریں</string>
@@ -173,4 +167,17 @@
     <string name="general_error_ipc_deadobject_description">اہم سروس (جیسے Magisk، Shizuku، یا دیگر سسٹم لیول سروسز) کے ساتھ کنکشن غیر متوقع طور پر ضائع ہو گیا ہے۔ براہ کرم اپنی ڈیوائس ری اسٹارٹ کریں۔ اگر مسئلہ برقرار رہتا ہے، تو اپ ڈیٹس کی جانچ کریں یا اسے حل کرنے کے لیے مجھ سے رابطہ کریں۔</string>
     <string name="general_user_label_owner">مالک</string>
     <string name="general_user_label_system">سسٹم</string>
+    <string name="setup_title">سیٹ اپ</string>
+    <string name="setup_feature_requires_additional_setup_x">اس فیچر کے لیے اضافی سیٹ اپ اجزاء کی تکمیل درکار ہے: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">ایک استثنا بنایا گیا</item>
+        <item quantity="other">%d استثنائات بنائے گئے</item>
+    </plurals>
+    <string name="squeezer_tool_name">میڈیا سکویز</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">عافیتاریخ</string>
+    <string name="settings_category_tools_label">ٹولز</string>
+    <string name="general_include_multiuser_label">دوسرے صارفین شامل کریں</string>
+    <string name="general_include_multiuser_summary">اس ڈیوائس پر دوسرے یوزر پروفائلز کے ایپس شامل کریں۔</string>
+    <string name="general_unsaved_confirmation_message">آپ کی غیر محفوظ تبدیلیاں ہیں!</string>
 </resources>

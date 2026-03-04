@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Планировчик</string>
+    <string name="scheduler_execution_label">Следващо изпълнение (приблизително)</string>
+    <string name="scheduler_execution_last_label">Последно изпълнение</string>
+    <string name="scheduler_settings_label">Планировчик</string>
+    <string name="scheduler_settings_summary">Регулиране на настройки, свързани с планировчика.</string>
+    <string name="scheduler_new_schedule_action">Създаване на график</string>
+    <string name="scheduler_schedule_name_label">Име на график</string>
+    <string name="scheduler_schedule_toggle_enabled">Графикът е активиран</string>
+    <string name="scheduler_schedule_toggle_disabled">Графикът е деактивиран</string>
+    <string name="scheduler_edit_schedule_action">Редактиране на график</string>
+    <string name="scheduler_schedule_time_label">Приблизително време</string>
+    <string name="scheduler_schedule_repeat_label">Интервал на повторение в дни</string>
+    <string name="scheduler_schedule_default_name">График по подразбиране</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s около %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Планирано за %s</string>
+    <string name="scheduler_schedule_last_at_x">Последно изпълнено на %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Ежедневно</item>
+        <item quantity="other">На всеки %d дни</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Интервал на повторение</string>
+    <string name="scheduler_inaccurate_execution_hint">Очакваните времена за изпълнение са приблизителни. Графиците могат да бъдат забавени или ускорени, ако това пести батерия.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Няма активни графици</string>
+    <string name="scheduler_setting_nopowersaving_title">Пропускане при слаба батерия</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ако устройството е в режим на пестене на енергия, планираното изпълнение ще бъде пропуснато.</string>
+    <string name="scheduler_setting_charging_title">Пропускане, когато не се зарежда</string>
+    <string name="scheduler_setting_charging_summary">Ако устройството не се зарежда, планираното изпълнение ще бъде пропуснато.</string>
+    <string name="scheduler_setting_automation_title">Услуга за достъпност</string>
+    <string name="scheduler_setting_automation_summary">Включване на действия, които използват услуга за достъпност. Това изисква SD Maid да може да взаимодейства с вашия екран (т.е. да е отключен) когато задачите се изпълняват.</string>
+    <string name="scheduler_notification_channel_label">Планировчик</string>
+    <string name="scheduler_notification_title">Планирана задача</string>
+    <string name="scheduler_notification_message">Изпълнява се: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Планировчикът завърши</string>
+    <string name="scheduler_notification_result_success_message">Всички планирани задачи се изпълниха успешно.</string>
+    <string name="scheduler_notification_result_failure_message">Някои планирани задачи се провалиха или срещнаха грешки. Опитайте да ги стартирате ръчно.</string>
+    <string name="scheduler_commands_after_schedule_label">Команди след график</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell команди, които ще бъдат изпълнени в края на график.</string>
+    <string name="scheduler_battery_optimization_hint">Помислете за деактивиране на оптимизациите на батерията за SD Maid, ако срещате проблеми с изпълнението на заден план.</string>
+</resources>

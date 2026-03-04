@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Распоредувач</string>
+    <string name="scheduler_execution_label">Следно извршување (приближно)</string>
+    <string name="scheduler_execution_last_label">Последно извршување</string>
+    <string name="scheduler_settings_label">Распоредувач</string>
+    <string name="scheduler_settings_summary">Прилагодете ги поставките поврзани со распоредувачот.</string>
+    <string name="scheduler_new_schedule_action">Создади распоред</string>
+    <string name="scheduler_schedule_name_label">Име на распоред</string>
+    <string name="scheduler_schedule_toggle_enabled">Распоредот е вклучен</string>
+    <string name="scheduler_schedule_toggle_disabled">Распоредот е исклучен</string>
+    <string name="scheduler_edit_schedule_action">Уреди распоред</string>
+    <string name="scheduler_schedule_time_label">Приближно време</string>
+    <string name="scheduler_schedule_repeat_label">Интервал на повторување во денови</string>
+    <string name="scheduler_schedule_default_name">Стандарден распоред</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s околу %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Планирано за %s</string>
+    <string name="scheduler_schedule_last_at_x">Последно извршено во %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Дневно</item>
+        <item quantity="other">На секои %d дена</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Интервал на повторување</string>
+    <string name="scheduler_inaccurate_execution_hint">Очекуваните времиња на извршување се приближни. Распоредите може да бидат одложени или забрзани заради заштеда на батерија.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Нема активни распореди</string>
+    <string name="scheduler_setting_nopowersaving_title">Прескокни при слаба батерија</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ако уредот е во режим за заштеда на енергија, закажаното извршување ќе биде прескокнато.</string>
+    <string name="scheduler_setting_charging_title">Прескокни кога не се полни</string>
+    <string name="scheduler_setting_charging_summary">Ако уредот не се полни, закажаното извршување ќе биде прескокнато.</string>
+    <string name="scheduler_setting_automation_title">Услуга за пристапност</string>
+    <string name="scheduler_setting_automation_summary">Вклучи акции кои користат услуга за пристапност. Ова бара SD Maid да може да комуницира со вашиот екран (пр. да е отклучен) кога задачите се извршуваат.</string>
+    <string name="scheduler_notification_channel_label">Распоредувач</string>
+    <string name="scheduler_notification_title">Закажана задача</string>
+    <string name="scheduler_notification_message">Извршување: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Распоредувачот заврши</string>
+    <string name="scheduler_notification_result_success_message">Сите закажани задачи се извршија успешно.</string>
+    <string name="scheduler_notification_result_failure_message">Некои закажани задачи не успеаја или наидоа на грешки. Обидете се да ги извршите рачно.</string>
+    <string name="scheduler_commands_after_schedule_label">Команди по распоред</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell команди кои ќе се извршат на крајот од распоредот.</string>
+    <string name="scheduler_battery_optimization_hint">Размислете за исклучување на оптимизацијата на батеријата за SD Maid ако имате проблеми со извршување во заднина.</string>
+</resources>

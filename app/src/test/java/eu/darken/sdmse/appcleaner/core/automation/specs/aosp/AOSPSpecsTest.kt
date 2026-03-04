@@ -40,7 +40,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
         deviceDetective = deviceDetective,
         aospLabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
         inputInjector = inputInjector,
     )

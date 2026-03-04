@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Dziękuję ci</string>
     <string name="general_error_type_mismatch_msg">Niezgodność typów: Wymagany %1$s, ale otrzymano %2$s.</string>
     <string name="general_error_cant_access_msg">Nie można uzyskać dostępu do %s.</string>
-    <string name="general_error_root_unavailable">Dostęp do roota jest niedostępny.</string>
-    <string name="general_error_empty_result_msg">Wynik był pusty.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nie znaleziono kompatybilnej aplikacji do obsługi tego żądania.</string>
+    <string name="general_error_root_unavailable">Dostęp do roota jest niedostępny.</string>    <string name="general_error_no_compatible_app_found_msg">Nie znaleziono kompatybilnej aplikacji do obsługi tego żądania.</string>
     <string name="general_todo_msg">Funkcja jest wciąż opracowywana i obecnie niedostępna.</string>
     <string name="general_share_action">Udostępnij</string>
     <string name="general_done_action">Gotowe</string>
     <string name="general_apply_action">Zastosuj</string>
-    <string name="general_copy_action">Kopiuj</string>
-    <string name="general_wipe_action">Wymaż</string>
-    <string name="general_cancel_action">Anuluj</string>
+    <string name="general_copy_action">Kopiuj</string>    <string name="general_cancel_action">Anuluj</string>
     <string name="general_discard_action">Odrzuć</string>
     <string name="general_reset_action">Resetuj</string>
     <string name="general_drag_handle_description">Przeciągnij, aby zmienić kolejność</string>
-    <string name="general_save_action">Zapisz</string>
-    <string name="general_thanks_action">Podziękowania</string>
-    <string name="general_gotit_action">Rozumiem</string>
+    <string name="general_save_action">Zapisz</string>    <string name="general_gotit_action">Rozumiem</string>
     <string name="general_fix_action">Napraw</string>
     <string name="general_set_up_action">Konfiguruj</string>
     <string name="general_edit_action">Edytuj</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">Połączenie z usługą krytyczną (np. Magisk, Shizuku, lub innymi usługami na poziomie systemowym) zostało niespodziewanie utracone. Uruchom ponownie urządzenie. Jeśli problem będzie się powtarzał, sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
     <string name="general_user_label_owner">Właściciel</string>
     <string name="general_user_label_system">Systemowy</string>
+    <string name="setup_title">Konfiguracja</string>
+    <string name="setup_feature_requires_additional_setup_x">Funkcja wymaga ukończenia dodatkowych elementów konfiguracji: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Utworzono jedno wykluczenie</item>
+        <item quantity="few">Utworzono %d wykluczenia</item>
+        <item quantity="many">Utworzono %d wykluczeń</item>
+        <item quantity="other">Utworzono %d wykluczeń</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Wyszukiwarka pozostałości</string>
+    <string name="systemcleaner_tool_name">Sprzątacz systemu</string>
+    <string name="appcleaner_tool_name">Sprzątacz aplikacji</string>
+    <string name="deduplicator_tool_name">Usuwanie duplikatów</string>
+    <string name="squeezer_tool_name">Kompresja multimediów</string>
+    <string name="appcontrol_tool_name">Zarządzanie aplikacjami</string>
+    <string name="analyzer_tool_name">Analizator pamięci</string>
+    <string name="swiper_tool_name">Przesuwacz</string>
+    <string name="stats_label">Historia</string>
+    <string name="settings_category_tools_label">Narzędzia</string>
+    <string name="general_include_multiuser_label">Uwzględnij innych użytkowników</string>
+    <string name="general_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
+    <string name="general_unsaved_confirmation_message">Masz niezapisane zmiany!</string>
 </resources>

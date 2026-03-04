@@ -26,7 +26,7 @@ class ColorOSSpecsTest : BaseAppCleanerSpecTest<ColorOSSpecs, ColorOSLabels>() {
         deviceDetective = deviceDetective,
         colorOSLabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
     )
 

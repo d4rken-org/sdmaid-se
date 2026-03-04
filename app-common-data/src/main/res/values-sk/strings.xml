@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Verejné úložisko</string>
+    <string name="area_type_public_media_label">Verejné médiá aplikácií</string>
+    <string name="area_type_public_data_label">Verejné údaje aplikácií</string>
+    <string name="area_type_public_obb_label">Verejné zdroje aplikácií</string>
+    <string name="area_type_private_data_label">Súkromné údaje aplikácií</string>
+    <string name="area_type_portable_label">Prenosné úložisko</string>
+</resources>

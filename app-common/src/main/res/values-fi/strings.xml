@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Kiitos</string>
     <string name="general_error_type_mismatch_msg">Tyyppiristiriita: Haluttiin %1$s, mutta saatiin %2$s.</string>
     <string name="general_error_cant_access_msg">Ei voi käyttää %s.</string>
-    <string name="general_error_root_unavailable">Root-käyttöoikeus ei ole saatavilla.</string>
-    <string name="general_error_empty_result_msg">Tulos oli tyhjä.</string>
-    <string name="general_error_no_compatible_app_found_msg">Yhteensopivaa sovellusta ei löytynyt tämän pyynnön käsittelyyn.</string>
+    <string name="general_error_root_unavailable">Root-käyttöoikeus ei ole saatavilla.</string>    <string name="general_error_no_compatible_app_found_msg">Yhteensopivaa sovellusta ei löytynyt tämän pyynnön käsittelyyn.</string>
     <string name="general_todo_msg">Tätä ominaisuutta kehitetään vielä eikä se ole tällä hetkellä saatavilla.</string>
     <string name="general_share_action">Jaa</string>
     <string name="general_done_action">Valmis</string>
     <string name="general_apply_action">Käytä</string>
-    <string name="general_copy_action">Kopioi</string>
-    <string name="general_wipe_action">Tyhjennä</string>
-    <string name="general_cancel_action">Peruuta</string>
+    <string name="general_copy_action">Kopioi</string>    <string name="general_cancel_action">Peruuta</string>
     <string name="general_discard_action">Hylkää</string>
     <string name="general_reset_action">Nollaa</string>
     <string name="general_drag_handle_description">Vedä järjestääksesi uudelleen</string>
-    <string name="general_save_action">Tallenna</string>
-    <string name="general_thanks_action">Kiitos</string>
-    <string name="general_gotit_action">Selvä</string>
+    <string name="general_save_action">Tallenna</string>    <string name="general_gotit_action">Selvä</string>
     <string name="general_fix_action">Korjaa</string>
     <string name="general_set_up_action">Aseta</string>
     <string name="general_edit_action">Muokkaa</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Yhteys kriittiseen palveluun (esim. Magisk, Shizuku tai muut järjestelmätason palvelut) katkesi odottamattomasti. Käynnistä laitteesi uudelleen. Jos ongelma jatkuu, tarkista päivitykset tai ota yhteyttä minuun, jotta voin korjata sen.</string>
     <string name="general_user_label_owner">Omistaja</string>
     <string name="general_user_label_system">Järjestelmä</string>
+    <string name="setup_title">Asennus</string>
+    <string name="setup_feature_requires_additional_setup_x">Tämä ominaisuus vaatii lisäasennuskohtien suorittamisen: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Yksi poikkeus luotu</item>
+        <item quantity="other">%d poikkeusta luotu</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Tähteiden etsijä</string>
+    <string name="systemcleaner_tool_name">Järjestelmäsiivooja</string>
+    <string name="appcleaner_tool_name">Sovellussiivooja</string>
+    <string name="deduplicator_tool_name">Kaksoiskappaleiden poistaja</string>
+    <string name="squeezer_tool_name">Median tiivistys</string>
+    <string name="appcontrol_tool_name">Sovellushallinta</string>
+    <string name="analyzer_tool_name">Analysoi</string>
+    <string name="swiper_tool_name">Pyyhkäisijä</string>
+    <string name="stats_label">Historia</string>
+    <string name="settings_category_tools_label">Työkalut</string>
+    <string name="general_include_multiuser_label">Sisällytä muut käyttäjät</string>
+    <string name="general_include_multiuser_summary">Sisällytä muiden käyttäjien sovellukset.</string>
+    <string name="general_unsaved_confirmation_message">Sinulla on tallentamattomia muutoksia!</string>
 </resources>

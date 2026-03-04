@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Děkuji</string>
     <string name="general_error_type_mismatch_msg">Neshoda: Požadováno %1$s, ale obdrženo %2$s.</string>
     <string name="general_error_cant_access_msg">Nelze získat přístup k %s.</string>
-    <string name="general_error_root_unavailable">Přístup root není k dispozici.</string>
-    <string name="general_error_empty_result_msg">Výsledek byl prázdný.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nebyla nalezena žádná kompatibilní aplikace, která by tento požadavek zpracovala.</string>
+    <string name="general_error_root_unavailable">Přístup root není k dispozici.</string>    <string name="general_error_no_compatible_app_found_msg">Nebyla nalezena žádná kompatibilní aplikace, která by tento požadavek zpracovala.</string>
     <string name="general_todo_msg">Na této funkci se stále pracuje a v současné době není k dispozici.</string>
     <string name="general_share_action">Sdílet</string>
     <string name="general_done_action">Hotovo</string>
     <string name="general_apply_action">Použít</string>
-    <string name="general_copy_action">Kopírovat</string>
-    <string name="general_wipe_action">Smazat</string>
-    <string name="general_cancel_action">Zrušit</string>
+    <string name="general_copy_action">Kopírovat</string>    <string name="general_cancel_action">Zrušit</string>
     <string name="general_discard_action">Zrušit</string>
     <string name="general_reset_action">Obnovit</string>
     <string name="general_drag_handle_description">Přesuňte tažením</string>
-    <string name="general_save_action">Uložit</string>
-    <string name="general_thanks_action">Poděkování</string>
-    <string name="general_gotit_action">Rozumím</string>
+    <string name="general_save_action">Uložit</string>    <string name="general_gotit_action">Rozumím</string>
     <string name="general_fix_action">Opravit</string>
     <string name="general_set_up_action">Nastavit</string>
     <string name="general_edit_action">Upravit</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">Připojení ke kritické službě (např. Magisk, Shizuku nebo jiné služby na úrovni systému) bylo neočekávaně ztraceno. Restartujte prosím zařízení. Pokud problém přetrvává, zkontrolujte aktualizace nebo se mi ozvěte, abych ho mohl vyřešit.</string>
     <string name="general_user_label_owner">Vlastník</string>
     <string name="general_user_label_system">Systém</string>
+    <string name="setup_title">Nastavení</string>
+    <string name="setup_feature_requires_additional_setup_x">Tato funkce vyžaduje dokončení dalších položek nastavení: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Vytvořena jedna výjimka</item>
+        <item quantity="few">Vytvořeny %d výjimky</item>
+        <item quantity="many">Vytvořeno %d výjimek</item>
+        <item quantity="other">Vytvořeno %d výjimek</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Hledač mrtvol</string>
+    <string name="systemcleaner_tool_name">Čistič systému</string>
+    <string name="appcleaner_tool_name">Čistič aplikací</string>
+    <string name="deduplicator_tool_name">Odstraňovač duplikátů</string>
+    <string name="squeezer_tool_name">Zmáčknutí médií</string>
+    <string name="appcontrol_tool_name">Správce aplikací</string>
+    <string name="analyzer_tool_name">Analyzátor úložiště</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Historie</string>
+    <string name="settings_category_tools_label">Nástroje</string>
+    <string name="general_include_multiuser_label">Zahrnout další uživatele</string>
+    <string name="general_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
+    <string name="general_unsaved_confirmation_message">Máš neuložené změny!</string>
 </resources>

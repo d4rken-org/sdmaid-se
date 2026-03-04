@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Izberite poti</string>
+    <string name="picker_selected_paths_title">Izbrane poti</string>
+    <string name="picker_unsaved_confirmation_message">Zavrzi spremembe?</string>
+    <string name="picker_home_action">Podatkovna področja</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">Izbrana je bila %d pot.</item>
+    <item quantity="two">Izbrani sta je bili %d poti.</item>
+    <item quantity="few">Izbrane so bile %d poti.</item>
+    <item quantity="other">Izbranih je bilo %d poti.</item>
+    </plurals>
+</resources>

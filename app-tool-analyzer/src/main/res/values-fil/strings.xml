@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">Alamin kung ano ang kumukuha ng space sa inyong device.</string>
+    <string name="analyzer_progress_scanning_device">Naghahanap ng mga storage device</string>
+    <string name="analyzer_progress_scanning_storage">Nag-scan ng storage</string>
+    <string name="analyzer_progress_scanning_apps">Nag-scan ng mga app</string>
+    <string name="analyzer_progress_scanning_userfiles">Naghahanap ng mga user file</string>
+    <string name="analyzer_progress_scanning_system">Nag-scan ng system data</string>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s ginagamit</item>
+        <item quantity="other">%s ginagamit</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Walang direktang access na available</string>
+    <string name="analyzer_content_create_swiper_session_action">Gumawa ng Swiper session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Nagawa ang Swiper session na may %d item</item>
+        <item quantity="other">Nagawa ang Swiper session na may %d mga item</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_description">Ang primary storage ng inyong device. Naglalaman ng internal SD card, private storage para sa mga app at system data.</string>
+    <string name="analyzer_storage_type_secondary_description">Isang secondary storage, karaniwang removable SD card. Naglalaman ng mga media file at data mula sa mga app na sumusuporta dito.</string>
+    <string name="analyzer_storage_type_tertiary_description">Isang portable storage, halimbawa flash drive na nakakabit sa inyong USB port.</string>
+    <string name="analyzer_storage_content_type_app_label">Mga app</string>
+    <string name="analyzer_storage_content_type_app_description">Space na ginagamit ng mga naka-install na app at kanilang data (ibig sabihin application files, data at caches).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Kulang ang mga permission</string>
+    <string name="analyzer_storage_content_type_media_label">Mga user file</string>
+    <string name="analyzer_storage_content_type_media_description">Mga nakuhang larawan, naka-record na video o na-download na data. Anumang data na hindi kabilang sa isang tukoy na app.</string>
+    <string name="analyzer_storage_content_type_system_description">Mga system app at system data. Mga app at data mula sa ibang mga user, kung may mga user account na naka-set sa device na ito.</string>
+    <string name="analyzer_storage_content_app_code_description">Mga application file, library at resource. Ang space na ito ay maaaring ma-free sa pamamagitan ng pag-uninstall ng app o pag-archive nito (available sa mas bagong Android version).</string>
+    <string name="analyzer_storage_content_app_data_description">Data, mga setting at cache.</string>
+    <string name="analyzer_storage_content_app_media_description">Mga media file mula sa app na ito, halimbawa nakuhang WhatsApp photos.</string>
+    <string name="analyzer_storage_content_app_extra_label">Extra na app file</string>
+    <string name="analyzer_storage_content_app_extra_description">Extra na data na inilagay ng app na ito sa labas ng default paths, halimbawa mga photo o download.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ang app na ito ay sumusukat ng %1$s sa \"%2$s\".</string>
+    <string name="analyzer_app_details_app_is_archived">Ang app na ito ay naka-archive.</string>
+</resources>

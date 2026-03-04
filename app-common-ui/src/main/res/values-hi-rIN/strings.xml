@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">पथ चुनें</string>
+    <string name="picker_selected_paths_title">चयनित पथ</string>
+    <string name="picker_unsaved_confirmation_message">परिवर्तन छोड़ें?</string>
+    <string name="picker_home_action">डेटा क्षेत्र</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d पथ चयनित</item>
+    <item quantity="other">%d पथ चयनित</item>
+    </plurals>
+</resources>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Hvala vam</string>
     <string name="general_error_type_mismatch_msg">Neslaganje tipa: Traženo %1$s, ali dobiveno %2$s.</string>
     <string name="general_error_cant_access_msg">Nije moguće pristupiti %s.</string>
-    <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>
-    <string name="general_error_empty_result_msg">Rezultat je bio prazan.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
+    <string name="general_error_root_unavailable">Root pristup nije dostupan.</string>    <string name="general_error_no_compatible_app_found_msg">Nije pronađena kompatibilna aplikacija za obradu ovog zahtjeva.</string>
     <string name="general_todo_msg">Na ovoj značajci se još uvijek radi i trenutno nije dostupna.</string>
     <string name="general_share_action">Dijeli</string>
     <string name="general_done_action">Gotovo</string>
     <string name="general_apply_action">Primijeni</string>
-    <string name="general_copy_action">Kopiraj</string>
-    <string name="general_wipe_action">Izbriši</string>
-    <string name="general_cancel_action">Otkaži</string>
+    <string name="general_copy_action">Kopiraj</string>    <string name="general_cancel_action">Otkaži</string>
     <string name="general_discard_action">Odbaci</string>
     <string name="general_reset_action">Ponovno postavi</string>
     <string name="general_drag_handle_description">Povuci za premještanje</string>
-    <string name="general_save_action">Spremi</string>
-    <string name="general_thanks_action">Hvala</string>
-    <string name="general_gotit_action">U redu</string>
+    <string name="general_save_action">Spremi</string>    <string name="general_gotit_action">U redu</string>
     <string name="general_fix_action">Popravi</string>
     <string name="general_set_up_action">Postavi</string>
     <string name="general_edit_action">Uredi</string>
@@ -184,4 +178,24 @@
     <string name="general_error_ipc_deadobject_description">Veza s kritičnom uslugom (npr. Magisk, Shizuku ili druge usluge na razini sustava) neočekivano je izgubljena. Ponovno pokrenite uređaj. Ako se problem nastavi, provjerite ima li ažuriranja ili me kontaktirajte kako bih to mogao popraviti.</string>
     <string name="general_user_label_owner">Vlasnik</string>
     <string name="general_user_label_system">Sustav</string>
+    <string name="setup_title">Postavljanje</string>
+    <string name="setup_feature_requires_additional_setup_x">Ova značajka zahtijeva postavljanje dodatnih postavki: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Stvoren jedan izuzetak</item>
+        <item quantity="few">Stvorena %d izuzetka</item>
+        <item quantity="other">Stvoreno %d izuzetaka</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Tragač ostataka</string>
+    <string name="systemcleaner_tool_name">Čistač sustava</string>
+    <string name="appcleaner_tool_name">Čistač aplikacija</string>
+    <string name="deduplicator_tool_name">Deduplikator</string>
+    <string name="squeezer_tool_name">Kompresija medija</string>
+    <string name="appcontrol_tool_name">Kontrola aplikacija</string>
+    <string name="analyzer_tool_name">Analizator pohrane</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Povijest</string>
+    <string name="settings_category_tools_label">Alati</string>
+    <string name="general_include_multiuser_label">Uključi druge korisnike</string>
+    <string name="general_include_multiuser_summary">Uključuje aplikacije iz drugih korisničkih profila na ovom uređaju.</string>
+    <string name="general_unsaved_confirmation_message">Imate nespremljene promjene!</string>
 </resources>

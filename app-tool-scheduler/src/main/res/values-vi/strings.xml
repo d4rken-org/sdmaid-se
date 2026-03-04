@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Lịch trình</string>
+    <string name="scheduler_execution_label">Lần thực thi tiếp theo (xấp xỉ)</string>
+    <string name="scheduler_execution_last_label">Lần thực thi cuối</string>
+    <string name="scheduler_settings_label">Lịch trình</string>
+    <string name="scheduler_settings_summary">Điều chỉnh cài đặt liên quan đến lịch trình.</string>
+    <string name="scheduler_new_schedule_action">Tạo lịch trình</string>
+    <string name="scheduler_schedule_name_label">Tên lịch trình</string>
+    <string name="scheduler_schedule_toggle_enabled">Lịch trình đã bật</string>
+    <string name="scheduler_schedule_toggle_disabled">Lịch trình đã tắt</string>
+    <string name="scheduler_edit_schedule_action">Sửa lịch trình</string>
+    <string name="scheduler_schedule_time_label">Thời gian xấp xỉ</string>
+    <string name="scheduler_schedule_repeat_label">Lặp lại khoảng thời gian trong ngày</string>
+    <string name="scheduler_schedule_default_name">Lịch trình mặc định</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s khoảng %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Đã đặt lịch vào %s</string>
+    <string name="scheduler_schedule_last_at_x">Lần thực thi cuối vào %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">Mỗi %d ngày</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Khoảng lặp lại</string>
+    <string name="scheduler_inaccurate_execution_hint">Thời gian thực hiện dự kiến ​​là xấp xỉ. Lịch trình có thể bị trì hoãn hoặc tăng tốc nếu nó tiết kiệm pin.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Không có lịch trình hoạt động</string>
+    <string name="scheduler_setting_nopowersaving_title">Bỏ qua khi pin yếu</string>
+    <string name="scheduler_setting_nopowersaving_summary">Nếu thiết bị ở chế độ tiết kiệm năng lượng, quá trình thực hiện theo lịch trình sẽ bị bỏ qua.</string>
+    <string name="scheduler_setting_charging_title">Bỏ qua khi không sạc</string>
+    <string name="scheduler_setting_charging_summary">Nếu thiết bị không sạc, việc thực hiện theo lịch trình sẽ bị bỏ qua.</string>
+    <string name="scheduler_setting_automation_title">Dịch vụ trợ năng</string>
+    <string name="scheduler_setting_automation_summary">Bao gồm các hành động sử dụng dịch vụ trợ năng. Điều này yêu cầu SD Maid có thể tương tác với màn hình của bạn (tức là màn hình đã được mở khóa) khi các tác vụ được thực thi.</string>
+    <string name="scheduler_notification_channel_label">Lịch trình</string>
+    <string name="scheduler_notification_title">Hoạt động theo lịch trình</string>
+    <string name="scheduler_notification_message">Đang thực thi: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Lch trình đã hoàn tất</string>
+    <string name="scheduler_notification_result_success_message">Tất cả các tác vụ theo lịch trình đã chạy thành công.</string>
+    <string name="scheduler_notification_result_failure_message">Một số tác vụ đã lên lịch không thành công hoặc gặp lỗi. Hãy thử chạy chúng bằng tay.</string>
+    <string name="scheduler_commands_after_schedule_label">Các lệnh sau lịch trình</string>
+    <string name="scheduler_commands_after_schedule_desc">Các lệnh shell của Android sẽ được thực thi khi kết thúc lịch trình.</string>
+    <string name="scheduler_battery_optimization_hint">Hãy cân nhắc việc tắt tính năng tối ưu hóa pin cho SD Maid nếu bạn gặp sự cố khi thực thi ở chế độ nền.</string>
+</resources>

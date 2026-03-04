@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Swajpja minn fajls biex tiddeċiedi x\'żżomm jew tħassar.</string>
+    <string name="swiper_keep_action">Żomm</string>
+    <string name="swiper_skip_action">Aqbeż</string>
+    <string name="swiper_review_action">Irrevedi</string>
+    <string name="swiper_dashcard_description">Irrevedi fajls manwalment f\'folders speċifiċi. Swajpja biex tiddeċiedi x\'żżomm jew tħassar.</string>
+    <string name="swiper_start_action">Ibda swajpja</string>
+    <string name="swiper_continue_action">Kompli sessjoni</string>
+    <string name="swiper_select_folders_action">Agħżel folders</string>
+    <string name="swiper_scanning_title">Qed tiskennja…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d oġġett misjub</item>
+        <item quantity="other">%d oġġetti misjuba</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d oġġett imħassar</item>
+        <item quantity="other">%d oġġetti mħassra</item>
+    </plurals>
+    <string name="swiper_status_title">Irrevedi deċiżjonijiet</string>
+    <string name="swiper_status_action_keep_selected">Żomm magħżula</string>
+    <string name="swiper_status_action_delete_selected">Ħassar magħżula</string>
+    <string name="swiper_status_action_reset_selected">Irrisettja magħżula</string>
+    <string name="swiper_decision_undecided">Mhux deċiż</string>
+    <string name="swiper_retry_action">Erġa\' pprova</string>
+    <string name="swiper_delete_confirmation_title">Tħassar fajls?</string>
+    <string name="swiper_no_preview_available">L-ebda preview disponibbli</string>
+    <string name="swiper_sessions_header_title">Lest biex tirranġa?</string>
+    <string name="swiper_sessions_suggestions_label">Ipprova ibda b\':</string>
+    <string name="swiper_sessions_suggestion_downloads">Folder tad-downloads</string>
+    <string name="swiper_sessions_suggestion_screenshots">Screenshots</string>
+    <string name="swiper_sessions_suggestion_camera">Ritratti tal-kamera</string>
+    <string name="swiper_stamp_keep_1">Żomm!</string>
+    <string name="swiper_stamp_keep_2">Tajjeb!</string>
+    <string name="swiper_stamp_keep_3">Iva!</string>
+    <string name="swiper_stamp_keep_4">Salva!</string>
+    <string name="swiper_stamp_delete_1">Le!</string>
+    <string name="swiper_stamp_delete_2">Saħħa!</string>
+    <string name="swiper_stamp_delete_3">Żibel!</string>
+    <string name="swiper_stamp_delete_4">Ħassar!</string>
+    <string name="swiper_stamp_skip_1">Aqbeż!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Aktar tard!</string>
+    <string name="swiper_stamp_skip_4">Forsi!</string>
+    <string name="swiper_stamp_undo_1">Undo!</string>
+    <string name="swiper_stamp_undo_2">Lura!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Stenna!</string>
+</resources>

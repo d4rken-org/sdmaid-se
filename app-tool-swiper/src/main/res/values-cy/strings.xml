@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Sweipiwch drwy ffeiliau i benderfynu beth i\'w gadw neu\'i ddileu.</string>
+    <string name="swiper_dashcard_description">Adolygwch ffeiliau â llaw mewn ffolderi penodol. Sweipiwch i benderfynu beth i\'w gadw neu\'i ddileu.</string>
+    <string name="swiper_start_action">Dechrau sweipio</string>
+    <string name="swiper_continue_action">Parhau â\'r sesiwn</string>
+    <string name="swiper_sessions_description">Mae rhai ffeiliau angen penderfyniad dynol. Sweipiwch drwy eitemau a dewiswch beth i\'w gadw neu\'i ddileu. Sgipiwch unrhyw beth nad ydych yn sicr amdano. Mae\'r offeryn hwn yn gadael i chi adolygu ffolderi penodol â llaw, a dim byd yn cael ei ddileu hyd nes y byddwch yn cadarnhau.</string>
+    <string name="swiper_select_folders_action">Dewis ffolderi</string>
+    <string name="swiper_scanning_title">Sganio…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="zero">%d eitem wedi\'u canfod</item>
+        <item quantity="one">%d eitem wedi\'i chanfod</item>
+        <item quantity="two">%d eitem wedi\'u canfod</item>
+        <item quantity="few">%d eitem wedi\'u canfod</item>
+        <item quantity="many">%d eitem wedi\'u canfod</item>
+        <item quantity="other">%d o eitemau wedi\'u canfod</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="zero">%d eitem wedi\'u dileu</item>
+        <item quantity="one">%d eitem wedi\'i dileu</item>
+        <item quantity="two">%d eitem wedi\'u dileu</item>
+        <item quantity="few">%d eitem wedi\'u dileu</item>
+        <item quantity="many">%d eitem wedi\'u dileu</item>
+        <item quantity="other">%d o eitemau wedi\'u dileu</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="zero">%d eitem wedi methu</item>
+        <item quantity="one">%d eitem wedi methu</item>
+        <item quantity="two">%d eitem wedi methu</item>
+        <item quantity="few">%d eitem wedi methu</item>
+        <item quantity="many">%d eitem wedi methu</item>
+        <item quantity="other">%d o eitemau wedi methu</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d o %2$d</string>
+    <string name="swiper_keep_action">Cadw</string>
+    <string name="swiper_skip_action">Sgipio</string>
+    <string name="swiper_review_action">Adolygu</string>
+    <string name="swiper_status_title">Adolygu penderfyniadau</string>
+    <string name="swiper_status_action_keep_selected">Cadw\'r rhai a ddewiswyd</string>
+    <string name="swiper_status_action_delete_selected">Dileu\'r rhai a ddewiswyd</string>
+    <string name="swiper_status_action_reset_selected">Ailosod y rhai a ddewiswyd</string>
+    <string name="swiper_decision_undecided">Heb benderfynu</string>
+    <string name="swiper_retry_action">Ailgeisio</string>
+    <string name="swiper_delete_confirmation_title">Dileu ffeiliau?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="zero">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="one">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="two">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="few">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="many">Bydd hyn yn dileu %1$d ffeil (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+        <item quantity="other">Bydd hyn yn dileu %1$d o ffeiliau (%2$s) yn barhaol. Ni ellir dadwneud y weithred hon.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="zero">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="one">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="two">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="few">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="many">Bydd %d eitem heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+        <item quantity="other">Bydd %d o eitemau heb benderfynu yn aros ar gyfer adolygiad diweddarach.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Dileu %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Cyfnewid cyfeiriadau sweipio</string>
+    <string name="swiper_settings_swap_directions_summary">Sweipiwch i\'r chwith i gadw, i\'r dde i ddileu.</string>
+    <string name="swiper_settings_show_details_title">Dangos manylion ffeil</string>
+    <string name="swiper_settings_show_details_summary">Dangos enw ffeil, maint a dyddiad ar y sgrin sweipio.</string>
+    <string name="swiper_settings_haptic_feedback_title">Adborth haptig</string>
+    <string name="swiper_settings_haptic_feedback_summary">Dirgrynu wrth wneud penderfyniadau cadw neu ddileu.</string>
+    <string name="swiper_discard_session_confirmation_title">Taflu\'r sesiwn?</string>
+    <string name="swiper_discard_session_confirmation_message">Bydd pob penderfyniad yn cael ei golli. Ydych chi\'n sicr?</string>
+    <string name="swiper_no_preview_available">Dim rhagolwg ar gael</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="zero">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="one">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="two">Parhau â sesiwn o %1$d ddiwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="few">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="many">Parhau â sesiwn o %1$d diwrnod yn ôl (%2$d%% wedi\'i gwblhau)</item>
+        <item quantity="other">Parhau â sesiwn o %1$d o ddyddiau yn ôl (%2$d%% wedi\'i gwblhau)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="zero">%d sesiwn</item>
+        <item quantity="one">%d sesiwn</item>
+        <item quantity="two">%d sesiwn</item>
+        <item quantity="few">%d sesiwn</item>
+        <item quantity="many">%d sesiwn</item>
+        <item quantity="other">%d o sesiynau</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="zero">%d eitem heb benderfynu</item>
+        <item quantity="one">%d eitem heb benderfynu</item>
+        <item quantity="two">%d eitem heb benderfynu</item>
+        <item quantity="few">%d eitem heb benderfynu</item>
+        <item quantity="many">%d eitem heb benderfynu</item>
+        <item quantity="other">%d o eitemau heb benderfynu</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Crëwyd %1$s, gweithgaredd diwethaf %2$s</string>
+    <string name="swiper_session_remove_action">Tynnu sesiwn</string>
+    <string name="swiper_sessions_empty_hint">Tapiwch + i ddewis ffolder a dechrau sweipio</string>
+    <string name="swiper_sessions_upgrade_body">Uwchraddiwch i dynnu\'r terfynau hyn a chefnogi datblygiad. Mae\'r fersiwn am ddim wedi\'i gyfyngu i:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="zero">%d ffeil fesul sesiwn</item>
+        <item quantity="one">%d ffeil fesul sesiwn</item>
+        <item quantity="two">%d ffeil fesul sesiwn</item>
+        <item quantity="few">%d ffeil fesul sesiwn</item>
+        <item quantity="many">%d ffeil fesul sesiwn</item>
+        <item quantity="other">%d o ffeiliau fesul sesiwn</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="zero">%d sesiwn</item>
+        <item quantity="one">%d sesiwn</item>
+        <item quantity="two">%d sesiwn</item>
+        <item quantity="few">%d sesiwn</item>
+        <item quantity="many">%d sesiwn</item>
+        <item quantity="other">%d o sesiynau</item>
+    </plurals>
+    <string name="swiper_session_default_label">Sesiwn #%d</string>
+    <string name="swiper_session_rename_title">Ailenwi sesiwn</string>
+    <string name="swiper_session_rename_hint">Rhowch enw ar gyfer y sesiwn hwn</string>
+    <string name="swiper_sessions_current_sessions">Sesiynau presennol</string>
+    <string name="swiper_session_paths_label">Llwybrau</string>
+    <string name="swiper_session_status_label">Statws</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="zero">%d i\'w gadw</item>
+        <item quantity="one">%d i\'w gadw</item>
+        <item quantity="two">%d i\'w cadw</item>
+        <item quantity="few">%d i\'w cadw</item>
+        <item quantity="many">%d i\'w cadw</item>
+        <item quantity="other">%d i\'w cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="zero">%d i\'w dileu</item>
+        <item quantity="one">%d i\'w dileu</item>
+        <item quantity="two">%d i\'w dileu</item>
+        <item quantity="few">%d i\'w dileu</item>
+        <item quantity="many">%d i\'w dileu</item>
+        <item quantity="other">%d i\'w dileu</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="zero">%d heb benderfynu</item>
+        <item quantity="one">%d heb benderfynu</item>
+        <item quantity="two">%d heb benderfynu</item>
+        <item quantity="few">%d heb benderfynu</item>
+        <item quantity="many">%d heb benderfynu</item>
+        <item quantity="other">%d heb benderfynu</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="zero">%d eisoes wedi\'u cadw</item>
+        <item quantity="one">%d eisoes wedi\'i gadw</item>
+        <item quantity="two">%d eisoes wedi\'u cadw</item>
+        <item quantity="few">%d eisoes wedi\'u cadw</item>
+        <item quantity="many">%d eisoes wedi\'u cadw</item>
+        <item quantity="other">%d eisoes wedi\'u cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="zero">%d eisoes wedi\'u dileu</item>
+        <item quantity="one">%d eisoes wedi\'i ddileu</item>
+        <item quantity="two">%d eisoes wedi\'u dileu</item>
+        <item quantity="few">%d eisoes wedi\'u dileu</item>
+        <item quantity="many">%d eisoes wedi\'u dileu</item>
+        <item quantity="other">%d eisoes wedi\'u dileu</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="zero">%d wedi\'u cadw</item>
+        <item quantity="one">%d wedi\'i gadw</item>
+        <item quantity="two">%d wedi\'u cadw</item>
+        <item quantity="few">%d wedi\'u cadw</item>
+        <item quantity="many">%d wedi\'u cadw</item>
+        <item quantity="other">%d wedi\'u cadw</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="zero">%d wedi\'u dileu</item>
+        <item quantity="one">%d wedi\'i ddileu</item>
+        <item quantity="two">%d wedi\'u dileu</item>
+        <item quantity="few">%d wedi\'u dileu</item>
+        <item quantity="many">%d wedi\'u dileu</item>
+        <item quantity="other">%d wedi\'u dileu</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Eithrio \"%1$s\" o sganiau Swiper?</string>
+    <string name="swiper_sessions_header_title">Yn barod i dacluso?</string>
+    <string name="swiper_sessions_suggestions_label">Rhowch gynnig ar ddechrau gyda:</string>
+    <string name="swiper_sessions_suggestion_downloads">Ffolder lawrlwytho</string>
+    <string name="swiper_sessions_suggestion_screenshots">Sgrinluniau</string>
+    <string name="swiper_sessions_suggestion_camera">Rholyn camera</string>
+    <string name="swiper_stamp_keep_1">Cadw!</string>
+    <string name="swiper_stamp_keep_2">Neis!</string>
+    <string name="swiper_stamp_keep_3">Ie!</string>
+    <string name="swiper_stamp_keep_4">Arbed!</string>
+    <string name="swiper_stamp_delete_1">Na!</string>
+    <string name="swiper_stamp_delete_2">Hwyl!</string>
+    <string name="swiper_stamp_delete_3">Sbwriel!</string>
+    <string name="swiper_stamp_delete_4">Dileu!</string>
+    <string name="swiper_stamp_skip_1">Sgipio!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Wedyn!</string>
+    <string name="swiper_stamp_skip_4">Efallai!</string>
+    <string name="swiper_stamp_undo_1">Dadwneud!</string>
+    <string name="swiper_stamp_undo_2">Nôl!</string>
+    <string name="swiper_stamp_undo_3">Wps!</string>
+    <string name="swiper_stamp_undo_4">Aros!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tapiwch unrhyw le i ddechrau</string>
+    <string name="swiper_gesture_overlay_left_delete">← Dileu</string>
+    <string name="swiper_gesture_overlay_right_keep">Cadw →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Cadw</string>
+    <string name="swiper_gesture_overlay_right_delete">Dileu →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Sgipio</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Dadwneud</string>
+    <string name="swiper_help_title">Sut mae Swiper yn gweithio</string>
+    <string name="swiper_help_message">Sweipiwch bob ffeil i wneud penderfyniad:\n\n← Sweipio i\'r chwith: %1$s\n→ Sweipio i\'r dde: %2$s\n↑ Sweipio i fyny: Sgipio\n↓ Sweipio i lawr: Dadwneud (ar ôl y sweipio cyntaf)\n\nGallwch hefyd ddefnyddio\'r botymau ar y gwaelod.\n\nPan fyddwch chi\'n barod, tapiwch \"Adolygu\" i weld eich holl benderfyniadau. Ni fydd unrhyw beth yn cael ei ddileu nes i chi gadarnhau ar y sgrin adolygu.</string>
+</resources>

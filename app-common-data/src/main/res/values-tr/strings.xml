@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Genel Depolama</string>
+    <string name="area_type_public_media_label">Genel uygulama medyası</string>
+    <string name="area_type_public_data_label">Genel uygulama verileri</string>
+    <string name="area_type_public_obb_label">Genel uygulama kaynakları</string>
+    <string name="area_type_private_data_label">Özel uygulama verileri</string>
+    <string name="area_type_portable_label">Taşınabilir depolama</string>
+</resources>

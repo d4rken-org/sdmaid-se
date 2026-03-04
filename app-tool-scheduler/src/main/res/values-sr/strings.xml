@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Распоређивач</string>
+    <string name="scheduler_execution_label">Следеће извршавање (оквирно)</string>
+    <string name="scheduler_execution_last_label">Последње извршавање</string>
+    <string name="scheduler_settings_label">Распоређивач</string>
+    <string name="scheduler_settings_summary">Подесите поставке распоређивача.</string>
+    <string name="scheduler_new_schedule_action">Креирај распоред</string>
+    <string name="scheduler_schedule_name_label">Назив распореда</string>
+    <string name="scheduler_schedule_toggle_enabled">Распоред је омогућен</string>
+    <string name="scheduler_schedule_toggle_disabled">Распоред је онемогућен</string>
+    <string name="scheduler_edit_schedule_action">Уреди распоред</string>
+    <string name="scheduler_schedule_time_label">Оквирно време</string>
+    <string name="scheduler_schedule_repeat_label">Интервал понављања у данима</string>
+    <string name="scheduler_schedule_default_name">Подразумевани распоред</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s око %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Планирано за %s</string>
+    <string name="scheduler_schedule_last_at_x">Последње извршено %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Сваки %d дан</item>
+        <item quantity="few">Свака %d дана</item>
+        <item quantity="other">Сваких %d дана</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Интервал понављања</string>
+    <string name="scheduler_inaccurate_execution_hint">Очекивана времена извршавања су приближна. Распореди могу бити одложени или убрзани ако то штеди батерију.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Нема активних распореда</string>
+    <string name="scheduler_setting_nopowersaving_title">Прескочи при слабој батерији</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ако је уређај у режиму штедења енергије, планирано извршавање ће бити прескочено.</string>
+    <string name="scheduler_setting_charging_title">Прескочи када се не пуни</string>
+    <string name="scheduler_setting_charging_summary">Ако се уређај не пуни, планирано извршавање ће бити прескочено.</string>
+    <string name="scheduler_setting_automation_title">Сервис приступачности</string>
+    <string name="scheduler_setting_automation_summary">Укључи акције које користе сервис приступачности. Ово захтева да СД Чистач може да интерагује са вашим екраном (тј. да је откључан) када се задаци извршавају.</string>
+    <string name="scheduler_notification_channel_label">Распоређивач</string>
+    <string name="scheduler_notification_title">Заказан задатак</string>
+    <string name="scheduler_notification_message">Извршавање: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Распоређивач завршен</string>
+    <string name="scheduler_notification_result_success_message">Сви заказани задаци су успешно покренути.</string>
+    <string name="scheduler_notification_result_failure_message">Неки заказани задаци су неуспешни или су наишли на грешке. Покушајте их покренути ручно.</string>
+    <string name="scheduler_commands_after_schedule_label">Команде након распореда</string>
+    <string name="scheduler_commands_after_schedule_desc">Андроид shell команде које ће бити извршене на крају распореда.</string>
+    <string name="scheduler_battery_optimization_hint">Размотрите искључивање оптимизације батерије за СД Чистач ако имате проблеме са извршавањем у позадини.</string>
+</resources>

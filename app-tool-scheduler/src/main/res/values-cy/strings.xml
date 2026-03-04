@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Amserlenydd</string>
+    <string name="scheduler_execution_label">Gweithrediad nesaf (yn fras)</string>
+    <string name="scheduler_execution_last_label">Gweithrediad diwethaf</string>
+    <string name="scheduler_settings_label">Amserlenydd</string>
+    <string name="scheduler_settings_summary">Addasu gosodiadau sy\'n gysylltiedig â\'r amserlenydd.</string>
+    <string name="scheduler_new_schedule_action">Creu amserlen</string>
+    <string name="scheduler_schedule_name_label">Enw amserlen</string>
+    <string name="scheduler_schedule_toggle_enabled">Mae\'r amserlen wedi\'i galluogi</string>
+    <string name="scheduler_schedule_toggle_disabled">Mae\'r amserlen wedi\'i hanalluogi</string>
+    <string name="scheduler_edit_schedule_action">Golygu amserlen</string>
+    <string name="scheduler_schedule_time_label">Amser bras</string>
+    <string name="scheduler_schedule_repeat_label">Cyfnod ailadrodd mewn dyddiau</string>
+    <string name="scheduler_schedule_default_name">Amserlen rhagosodedig</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s o gwmpas %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Wedi\'i gynllunio ar gyfer %s</string>
+    <string name="scheduler_schedule_last_at_x">Gweithredwyd diwethaf am %s</string>
+    <string name="scheduler_schedule_repeat_interval">Cyfnod ailadrodd</string>
+    <string name="scheduler_inaccurate_execution_hint">Mae amseroedd gweithredu disgwyliedig yn frasamcanion. Gall amserlenni gael eu gohirio neu eu cyflymu os yw\'n arbed batri.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Dim amserlenni gweithredol</string>
+    <string name="scheduler_setting_nopowersaving_title">Hepgor pan fydd y batri\'n isel</string>
+    <string name="scheduler_setting_nopowersaving_summary">Os yw\'r ddyfais mewn modd arbed pŵer, bydd y gweithrediad a amserlenni yn cael ei hepgor.</string>
+    <string name="scheduler_setting_charging_title">Hepgor pan nad yw\'n gwefru</string>
+    <string name="scheduler_setting_charging_summary">Os nad yw\'r ddyfais yn gwefru, bydd y gweithrediad a amserlenni yn cael ei hepgor.</string>
+    <string name="scheduler_setting_automation_title">Gwasanaeth hygyrchedd</string>
+    <string name="scheduler_setting_automation_summary">Cynnwys gweithredoedd sy\'n defnyddio gwasanaeth hygyrchedd. Mae hyn yn gofyn bod SD Maid yn gallu rhyngweithio â\'ch sgrin (h.y. ei bod wedi\'i datgloi) pan fydd y tasgau\'n cael eu gweithredu.</string>
+    <string name="scheduler_notification_channel_label">Amserlenydd</string>
+    <string name="scheduler_notification_title">Tasg wedi\'i hamserlennu</string>
+    <string name="scheduler_notification_message">Gweithredu: "%s"</string>
+    <string name="scheduler_notification_result_title">Amserlenydd wedi gorffen</string>
+    <string name="scheduler_notification_result_success_message">Rhedodd pob tasg a amserlenni yn llwyddiannus.</string>
+    <string name="scheduler_notification_result_failure_message">Methodd rhai tasgau a amserlenni neu daro ar wallau. Ceisiwch eu rhedeg â llaw.</string>
+    <string name="scheduler_commands_after_schedule_label">Gorchmynion ôl-amserlen</string>
+    <string name="scheduler_commands_after_schedule_desc">Gorchmynion cragen Android a fydd yn cael eu gweithredu ar ddiwedd amserlen.</string>
+    <string name="scheduler_battery_optimization_hint">Ystyriwch analluogi optimeiddiiadau batri ar gyfer SD Maid os ydych yn cael problemau gyda gweithrediad cefndir.</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="zero">Bob %d diwrnod</item>
+        <item quantity="one">Bob dydd</item>
+        <item quantity="two">Bob %d ddiwrnod</item>
+        <item quantity="few">Bob %d diwrnod</item>
+        <item quantity="many">Bob %d diwrnod</item>
+        <item quantity="other">Bob %d diwrnod</item>
+    </plurals>
+</resources>

@@ -2,8 +2,10 @@ package eu.darken.sdmse.setup
 
 import android.view.ViewGroup
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.SetupModuleLoadingItemBinding
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class SetupModuleLoadingCardVH(parent: ViewGroup) :
@@ -21,14 +23,14 @@ class SetupModuleLoadingCardVH(parent: ViewGroup) :
     ) -> Unit = binding { item ->
         icon.setImageResource(
             when (item.state.type) {
-                SetupModule.Type.USAGE_STATS -> R.drawable.ic_chartbox_24
-                SetupModule.Type.AUTOMATION -> R.drawable.ic_baseline_accessibility_new_24
+                SetupModule.Type.USAGE_STATS -> CommonR.drawable.ic_chartbox_24
+                SetupModule.Type.AUTOMATION -> UiR.drawable.ic_baseline_accessibility_new_24
                 SetupModule.Type.SHIZUKU -> R.drawable.ic_shizuku_24
                 SetupModule.Type.ROOT -> R.drawable.ic_root_24
                 SetupModule.Type.NOTIFICATION -> R.drawable.ic_notification_24
                 SetupModule.Type.SAF -> R.drawable.ic_saf
-                SetupModule.Type.STORAGE -> R.drawable.ic_sd_storage
-                SetupModule.Type.INVENTORY -> R.drawable.ic_apps
+                SetupModule.Type.STORAGE -> UiR.drawable.ic_sd_storage
+                SetupModule.Type.INVENTORY -> CommonR.drawable.ic_apps
             }
         )
         title.setText(

@@ -3,11 +3,13 @@ package eu.darken.sdmse.setup.automation
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.ui.setLeftIcon
 import eu.darken.sdmse.databinding.SetupAutomationItemBinding
 import eu.darken.sdmse.setup.SetupAdapter
+import eu.darken.sdmse.common.ui.R as UiR
 
 
 class AutomationSetupCardVH(parent: ViewGroup) :
@@ -28,16 +30,16 @@ class AutomationSetupCardVH(parent: ViewGroup) :
 
             when {
                 state.isServiceEnabled -> setLeftIcon(
-                    R.drawable.ic_check_circle,
+                    UiR.drawable.ic_check_circle,
                     androidx.appcompat.R.attr.colorPrimary
                 )
 
                 state.canSelfEnable -> setLeftIcon(
-                    R.drawable.ic_baseline_access_time_filled_24,
+                    CommonR.drawable.ic_baseline_access_time_filled_24,
                     com.google.android.material.R.attr.colorSecondary
                 )
 
-                else -> setLeftIcon(R.drawable.ic_cancel, androidx.appcompat.R.attr.colorError)
+                else -> setLeftIcon(UiR.drawable.ic_cancel, androidx.appcompat.R.attr.colorError)
             }
 
             setTextColor(
@@ -74,12 +76,12 @@ class AutomationSetupCardVH(parent: ViewGroup) :
 
             when {
                 state.isServiceRunning -> setLeftIcon(
-                    R.drawable.ic_check_circle,
+                    UiR.drawable.ic_check_circle,
                     androidx.appcompat.R.attr.colorPrimary
                 )
 
                 else -> setLeftIcon(
-                    R.drawable.ic_cancel,
+                    UiR.drawable.ic_cancel,
                     androidx.appcompat.R.attr.colorError
                 )
             }

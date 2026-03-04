@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Дзякуй</string>
     <string name="general_error_type_mismatch_msg">Неадпаведнасць тыпу: мае быць %1$s, але па факце %2$s.</string>
     <string name="general_error_cant_access_msg">Няма доступу %s.</string>
-    <string name="general_error_root_unavailable">Адсутнічае каранёвы доступ.</string>
-    <string name="general_error_empty_result_msg">Пусты рэзультат.</string>
-    <string name="general_error_no_compatible_app_found_msg">Для апрацоўкі гэтага запыту не знойдзена сумяшчальных праграм.</string>
+    <string name="general_error_root_unavailable">Адсутнічае каранёвы доступ.</string>    <string name="general_error_no_compatible_app_found_msg">Для апрацоўкі гэтага запыту не знойдзена сумяшчальных праграм.</string>
     <string name="general_todo_msg">Гэтая функцыя яшчэ знаходзіцца ў стадыі распрацоўкі і пакуль яна недаступна.</string>
     <string name="general_share_action">Падзяліцца</string>
     <string name="general_done_action">Гатова</string>
     <string name="general_apply_action">Ужыць</string>
-    <string name="general_copy_action">Скапіраваць</string>
-    <string name="general_wipe_action">Ачысціць</string>
-    <string name="general_cancel_action">Скасаваць</string>
+    <string name="general_copy_action">Скапіраваць</string>    <string name="general_cancel_action">Скасаваць</string>
     <string name="general_discard_action">Адхіліць</string>
     <string name="general_reset_action">Скінуць</string>
     <string name="general_drag_handle_description">Перацягніце, каб змяніць парадак</string>
-    <string name="general_save_action">Захаваць</string>
-    <string name="general_thanks_action">Падзякі</string>
-    <string name="general_gotit_action">Зразумела</string>
+    <string name="general_save_action">Захаваць</string>    <string name="general_gotit_action">Зразумела</string>
     <string name="general_fix_action">Выправіць</string>
     <string name="general_set_up_action">Наладжванне</string>
     <string name="general_edit_action">Рэдагаваць</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">Падключэнне да важнай службы (напрыклад, Magisk, Shizuku або іншымі службамі сістэмнага ўзроўню) было нечакана страчана. Перазагрузіце прыладу. Калі праблема не знікне, праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог яе выправіць.</string>
     <string name="general_user_label_owner">Уладальнік</string>
     <string name="general_user_label_system">Сістэма</string>
+    <string name="setup_title">Наладжванне</string>
+    <string name="setup_feature_requires_additional_setup_x">Для гэтай функцыі неабходна наладзіць дадатковыя элементы: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створана адно выключэнне</item>
+        <item quantity="few">Створана %d выключэння</item>
+        <item quantity="many">Створана %d выключэнняў</item>
+        <item quantity="other">Створана %d выключэнняў</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Смецце</string>
+    <string name="systemcleaner_tool_name">Ачыстка сістэмы</string>
+    <string name="appcleaner_tool_name">Ачыстка праграм</string>
+    <string name="deduplicator_tool_name">Дэдуплікатар</string>
+    <string name="squeezer_tool_name">Сцісканне медыя</string>
+    <string name="appcontrol_tool_name">Менеджар</string>
+    <string name="analyzer_tool_name">Аналіз сховішча</string>
+    <string name="swiper_tool_name">Змахнуць і выдаліць</string>
+    <string name="stats_label">Гісторыя</string>
+    <string name="settings_category_tools_label">Інструменты</string>
+    <string name="general_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
+    <string name="general_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
+    <string name="general_unsaved_confirmation_message">У вас ёсць незахаваныя змяненні!</string>
 </resources>

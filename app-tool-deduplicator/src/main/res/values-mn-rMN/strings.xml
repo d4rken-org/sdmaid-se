@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">Төхөөрөмж дээрх давхардсан өгөгдлийг олох.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d давхардал устгагдсан</item>
+        <item quantity="other">%d давхардал устгагдсан</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d давхардлын бүлэг олдсон</item>
+        <item quantity="other">%d давхардлын бүлэг олдсон</item>
+    </plurals>
+    <string name="deduplicator_search_locations_title">Хайлтын байршлууд</string>
+    <string name="deduplicator_search_locations_all_summary">Бүх хандах боломжтой бүсүүд</string>
+    <string name="deduplicator_detection_method_label">Илрүүлэх арга</string>
+    <string name="deduplicator_detection_method_checksum_title">Агуулгын хяналтын нийлбэр</string>
+    <string name="deduplicator_detection_method_checksum_summary">Файлуудад хяналтын нийлбэр тооцоолж давхардлыг тодорхойлох. Тааралдсан хяналтын нийлбэртэй файлууд яг ижил агуулгатай.</string>
+    <string name="deduplicator_detection_method_phash_title">Хүртэхүйн хэш</string>
+    <string name="deduplicator_detection_method_phash_summary">Агуулгын шинж чанарыг дүн шинжилгээ хийж, хүртэхүйн хэш утгуудыг харьцуулж ижил файлуудыг олох.</string>
+    <string name="deduplicator_delete_confirmation_message">Давхардсан файлуудын бүх бүлэгт нэг хуулбараас бусдыг устгах уу?</string>
+    <string name="deduplicator_progress_comparing_files">Файлуудыг харьцуулж байна</string>
+    <string name="deduplicator_view_mode_groups_label">Бүлгүүд</string>
+    <string name="deduplicator_view_mode_directories_label">Фолдерууд</string>
+</resources>

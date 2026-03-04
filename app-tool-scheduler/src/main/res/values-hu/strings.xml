@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Ütemező</string>
+    <string name="scheduler_execution_label">Következő végrehajtás (körülbelül)</string>
+    <string name="scheduler_execution_last_label">Utolsó végrehajtás</string>
+    <string name="scheduler_settings_label">Ütemező</string>
+    <string name="scheduler_settings_summary">Módosítsa az ütemezővel kapcsolatos beállításokat.</string>
+    <string name="scheduler_new_schedule_action">Ütemezés létrehozása</string>
+    <string name="scheduler_schedule_name_label">Ütemezés neve</string>
+    <string name="scheduler_schedule_toggle_enabled">Az ütemezés engedélyezve van</string>
+    <string name="scheduler_schedule_toggle_disabled">Az ütemezés le van tiltva</string>
+    <string name="scheduler_edit_schedule_action">Ütemezés szerkesztése</string>
+    <string name="scheduler_schedule_time_label">Hozzávetőleges idő</string>
+    <string name="scheduler_schedule_repeat_label">Ismétlődési időköz napokban mérve</string>
+    <string name="scheduler_schedule_default_name">Alapértelmezett ütemezés</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s körül %2$s</string>
+    <string name="scheduler_schedule_next_at_x">A tervezett időpont: %s</string>
+    <string name="scheduler_schedule_last_at_x">Utoljára végrehajtva: %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Naponta</item>
+        <item quantity="other">Minden %d nap</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Ismétlődési időköz</string>
+    <string name="scheduler_inaccurate_execution_hint">A várható végrehajtási idők hozzávetőlegesek. Az ütemezések késhetnek vagy felgyorsulhatnak, ha kíméli az akkumulátort.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Nincs aktív ütemezés</string>
+    <string name="scheduler_setting_nopowersaving_title">Ugrás alacsony akkumulátor töltöttségi szint esetén</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ha az eszköz energiatakarékos módban van, az ütemezett végrehajtás kimarad.</string>
+    <string name="scheduler_setting_charging_title">Kihagyás, ha nem tölt</string>
+    <string name="scheduler_setting_charging_summary">Ha az eszköz nem töltődik, az ütemezett végrehajtás kimarad.</string>
+    <string name="scheduler_setting_automation_title">Kisegítő lehetőségek</string>
+    <string name="scheduler_setting_automation_summary">Tartalmazza az akadálymentesítési szolgáltatást használó műveleteket. Ehhez az szükséges, hogy az SD Maid a feladatok végrehajtásakor interakcióba léphessen a képernyővel (azaz az fel legyen oldva).</string>
+    <string name="scheduler_notification_channel_label">Ütemező</string>
+    <string name="scheduler_notification_title">Ütemezett terv</string>
+    <string name="scheduler_notification_message">Végrehajtás: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Az ütemező végzett</string>
+    <string name="scheduler_notification_result_success_message">Minden ütemezett feladat sikeresen futtatva.</string>
+    <string name="scheduler_notification_result_failure_message">Néhány ütemezett feladat meghiúsult vagy hibákat észlelt. Próbálja meg manuálisan futtatni őket.</string>
+    <string name="scheduler_commands_after_schedule_label">Ütemezés utáni parancsok</string>
+    <string name="scheduler_commands_after_schedule_desc">Android rendszerhéjparancsok, amelyek az ütemezés végén kerülnek végrehajtásra.</string>
+    <string name="scheduler_battery_optimization_hint">Fontold meg az SD Maid akkumulátor-optimalizálás kikapcsolását, ha a háttérben történő végrehajtással kapcsolatos problémákat tapasztalsz.</string>
+</resources>

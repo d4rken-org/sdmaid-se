@@ -19,6 +19,7 @@ import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
+import eu.darken.sdmse.common.ui.R as UiR
 
 @Keep
 @AndroidEntryPoint
@@ -71,8 +72,8 @@ class SupportFragment : PreferenceFragment2() {
 
         vm.isRecording.observe2(this) { isRecording ->
             debugLogPref.setIcon(
-                if (isRecording) R.drawable.ic_cancel
-                else R.drawable.ic_bug_report
+                if (isRecording) UiR.drawable.ic_cancel
+                else UiR.drawable.ic_bug_report
             )
             debugLogPref.setTitle(
                 if (isRecording) R.string.debug_debuglog_stop_action

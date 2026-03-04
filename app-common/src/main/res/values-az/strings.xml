@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Təşəkkür edirəm</string>
     <string name="general_error_type_mismatch_msg">Tip uyğunsuzluğu: %1$s istənilir, amma %2$s alındı.</string>
     <string name="general_error_cant_access_msg">%s-ə giriş edilə bilmir.</string>
-    <string name="general_error_root_unavailable">Root girişi mövcud deyil.</string>
-    <string name="general_error_empty_result_msg">Nəticə boş idi.</string>
-    <string name="general_error_no_compatible_app_found_msg">Bu sorğunu idarə etmək üçün uyğun proqram tapılmadı.</string>
+    <string name="general_error_root_unavailable">Root girişi mövcud deyil.</string>    <string name="general_error_no_compatible_app_found_msg">Bu sorğunu idarə etmək üçün uyğun proqram tapılmadı.</string>
     <string name="general_todo_msg">Bu xüsusiyyət hələ işlənir və hazırda mövcud deyil.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Hazır</string>
     <string name="general_apply_action">Tətbiq et</string>
-    <string name="general_copy_action">Kopyala</string>
-    <string name="general_wipe_action">Silin</string>
-    <string name="general_cancel_action">Ləğv et</string>
+    <string name="general_copy_action">Kopyala</string>    <string name="general_cancel_action">Ləğv et</string>
     <string name="general_discard_action">Rədd et</string>
     <string name="general_reset_action">Sıfırla</string>
     <string name="general_drag_handle_description">Yenidən sıralamaq üçün sürükləyin</string>
-    <string name="general_save_action">Saxla</string>
-    <string name="general_thanks_action">Təşəkkürlər</string>
-    <string name="general_gotit_action">Başa düşdüm</string>
+    <string name="general_save_action">Saxla</string>    <string name="general_gotit_action">Başa düşdüm</string>
     <string name="general_fix_action">Düzəlt</string>
     <string name="general_set_up_action">Quraşdır</string>
     <string name="general_edit_action">Redaktə et</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Kritik xidmətlə (məsələn, Magisk, Shizuku və ya digər sistem səviyyəli xidmətlər) əlaqə gözlənilmədən kəsildi. Zəhmət olmasa cihazınızı yenidən başladın. Problem davam edərsə, yeniləmələri yoxlayın və ya problemi həll etməyim üçün mənə müraciət edin.</string>
     <string name="general_user_label_owner">Sahib</string>
     <string name="general_user_label_system">Sistem</string>
+    <string name="setup_title">Quraşdır</string>
+    <string name="setup_feature_requires_additional_setup_x">Bu funksiya əlavə quraşdırma elementlərini tamamlamaq tələb edir: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bir istisna yaradıldı</item>
+        <item quantity="other">%d istisna yaradıldı</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">QalıqAxtaran</string>
+    <string name="systemcleaner_tool_name">SistemTəmizləyicisi</string>
+    <string name="appcleaner_tool_name">TətbiqTəmizləyicisi</string>
+    <string name="deduplicator_tool_name">Dublikat silici</string>
+    <string name="squeezer_tool_name">Media Sıxma</string>
+    <string name="appcontrol_tool_name">Tətbiqİdarəsi</string>
+    <string name="analyzer_tool_name">Yaddaş Analizatoru</string>
+    <string name="swiper_tool_name">Sürüşdürücü</string>
+    <string name="stats_label">Tarix</string>
+    <string name="settings_category_tools_label">Alətlər</string>
+    <string name="general_include_multiuser_label">Digər istifadəçiləri daxil et</string>
+    <string name="general_include_multiuser_summary">Bu cihazda digər istifadəçi profillərindən tətbiqləri daxil et.</string>
+    <string name="general_unsaved_confirmation_message">Saxlanılmamış dəyişiklikləriniz var!</string>
 </resources>

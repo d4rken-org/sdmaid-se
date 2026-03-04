@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">Li ser amûra xwe daneyên dubare bibînin.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="one">%d dubare hat jêbirin</item>
+        <item quantity="other">%d dubare hatin jêbirin</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="one">%d koma dubareyan hat dîtin</item>
+        <item quantity="other">%d komên dubareyan hatin dîtin</item>
+    </plurals>
+    <string name="deduplicator_search_locations_title">Cihên lêgerînê</string>
+    <string name="deduplicator_detection_method_label">Rêbaza tespîtkirinê</string>
+    <string name="deduplicator_delete_confirmation_message">Di hemû komên pelên dubare de ji bilî yek kopî jê bibin?</string>
+    <string name="deduplicator_progress_comparing_files">Pel tên berhevkirin</string>
+    <string name="deduplicator_view_mode_groups_label">Kom</string>
+    <string name="deduplicator_view_mode_directories_label">Peldank</string>
+</resources>

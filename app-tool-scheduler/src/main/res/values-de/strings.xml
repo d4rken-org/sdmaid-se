@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Planer</string>
+    <string name="scheduler_execution_label">Nächste Ausführung (ungefähr)</string>
+    <string name="scheduler_execution_last_label">Letzte Ausführung</string>
+    <string name="scheduler_settings_label">Planer</string>
+    <string name="scheduler_settings_summary">Planerbezogene Einstellungen anpassen.</string>
+    <string name="scheduler_new_schedule_action">Zeitplan erstellen</string>
+    <string name="scheduler_schedule_name_label">Zeitplan-Name</string>
+    <string name="scheduler_schedule_toggle_enabled">Zeitplan ist aktiviert</string>
+    <string name="scheduler_schedule_toggle_disabled">Zeitplan ist deaktiviert</string>
+    <string name="scheduler_edit_schedule_action">Zeitplan bearbeiten</string>
+    <string name="scheduler_schedule_time_label">Ungefähre Zeit</string>
+    <string name="scheduler_schedule_repeat_label">Wiederholungsintervall in Tagen</string>
+    <string name="scheduler_schedule_default_name">Standardzeitplan</string>
+    <string name="scheduler_current_schedule_x_at_x">\"%1$s gegen %2$s\"</string>
+    <string name="scheduler_schedule_next_at_x">Geplant für %s</string>
+    <string name="scheduler_schedule_last_at_x">Zuletzt ausgeführt um %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Täglich</item>
+        <item quantity="other">Alle %d Tage</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Wiederholungsintervall</string>
+    <string name="scheduler_inaccurate_execution_hint">Die voraussichtichen Ausführungszeiten sind Näherungswerte. Zeitpläne können verschoben oder vorgezogen werden, wenn dies die Batterie schont.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Keine aktiven Zeitpläne</string>
+    <string name="scheduler_setting_nopowersaving_title">Bei schwacher Batterie überspringen</string>
+    <string name="scheduler_setting_nopowersaving_summary">Befindet sich das Gerät im Energiesparmodus, wird die geplante Ausführung übersprungen.</string>
+    <string name="scheduler_setting_charging_title">Auslassen, wenn nicht geladen wird</string>
+    <string name="scheduler_setting_charging_summary">Wenn das Gerät nicht aufgeladen wird, wird die geplante Ausführung übersprungen.</string>
+    <string name="scheduler_setting_automation_title">Barrierefreiheitsdienst</string>
+    <string name="scheduler_setting_automation_summary">Schließen Sie Aktionen ein, die einen Barrierefreiheitsdienst nutzen. Dies erfordert, dass SD Maid mit Ihrem Bildschirm interagieren kann (d.h. er ist entsperrt), wenn die Aufgaben ausgeführt werden.</string>
+    <string name="scheduler_notification_channel_label">Zeitplaner</string>
+    <string name="scheduler_notification_title">Geplante Aufgabe</string>
+    <string name="scheduler_notification_message">Ausführen: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Planer beendet</string>
+    <string name="scheduler_notification_result_success_message">Alle geplanten Aufgaben wurden erfolgreich ausgeführt.</string>
+    <string name="scheduler_notification_result_failure_message">Einige geplante Aufgaben sind fehlgeschlagen oder es sind Fehler aufgetreten. Versuchen Sie, sie manuell auszuführen.</string>
+    <string name="scheduler_commands_after_schedule_label">Befehle nach Zeitplan</string>
+    <string name="scheduler_commands_after_schedule_desc">Androide Shell-Befehle, die am Ende eines Zeitplans ausgeführt werden.</string>
+    <string name="scheduler_battery_optimization_hint">Erwäge die Deaktivierung der Batterieoptimierungen für SD Maid, wenn bei der Hintergrundausführung Probleme auftreten.</string>
+</resources>

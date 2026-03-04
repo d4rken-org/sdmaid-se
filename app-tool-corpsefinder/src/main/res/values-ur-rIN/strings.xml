@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">پہلے سے ہٹائے گئے ایپس سے تعلق رکھنے والا ڈیٹا۔</string>
+    <string name="corpsefinder_settings_summary">اسکین فلٹرز اور خطرے کی سطح کو ایڈجسٹ کریں۔</string>
+    <string name="corpsefinder_settings_risk_keeper_title">مرغوب بقایا شامل کریں</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">ایسی فائلیں جنہیں آپ رکھنا چاہیںگے، حتیٰ کہ ایپ انانسٹال ہو گیا ہو، جیسے آپ کے کھینچے گئے فوٹوز یا بنائے گئے بیک اپس۔</string>
+    <string name="corpsefinder_settings_risk_common_title">عام نام شامل کریں</string>
+    <string name="corpsefinder_settings_risk_common_summary">عام طور پر استعمال ہونے والے ناموں والا ڈیٹا، جیسے ایک فولڈر \"نوٹس\" جو بہت سے نامعلوم ایپس کا ہے۔</string>
+    <string name="corpsefinder_watcher_title">انانسٹال واچر</string>
+    <string name="corpsefinder_watcher_summary">جب کوئی ایپ ہٹائی جائے تو خود کار طور پر بقایا کا اسکین کریں۔</string>
+    <string name="corpsefinder_watcher_autodelete_title">خود کار ڈیلیٹ</string>
+    <string name="corpsefinder_watcher_autodelete_summary">انانسٹال شدہ ایپ سے متعلق کوئی بھی بقایا خود کار طور پر حذف کریں۔</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملا۔</item>
+        <item quantity="other">%2$s کو انانسٹال کرنے کے بعد %1$d بقایا ملے۔</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹم ہٹایا۔</item>
+        <item quantity="other">صفائی کامیاب (%1$s): %2$s آزاد کیا اور %3$d آئٹمز ہٹائے۔</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">بقایا ڈیلیٹ کریں</string>
+    <string name="corpsefinder_filter_publicmedia_label">پبلک میڈیا</string>
+    <string name="corpsefinder_filter_publicmedia_summary">پبلک میڈیا فائلیں، جیسے میسنجر ایپس کے ذریعے موصولہ فائلیں۔</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB ریسورس</string>
+    <string name="corpsefinder_filter_publicobb_summary">اضافی ایپ ریسورس، جیسے گیم کے اثاث۔</string>
+    <string name="corpsefinder_filter_publicdata_label">پبلک ایپ ڈیٹا</string>
+    <string name="corpsefinder_filter_publicdata_summary">غیر حساس ایپ ڈیٹا، جیسے نقشے کے کیشیز۔</string>
+    <string name="corpsefinder_filter_sdcard_label">SD کارڈ</string>
+    <string name="corpsefinder_filter_sdcard_summary">عام پبلک اسٹوریج، اندرونی اور بیرونی (جیسے SD کارڈز)۔</string>
+    <string name="corpsefinder_filter_privatedata_label">پرائیویٹ ایپ ڈیٹا</string>
+    <string name="corpsefinder_filter_privatedata_summary">پرائیویٹ ایپ ڈیٹا، جیسے اسناد، ایپ سیٹنگز اور براؤزر کیشیز۔</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik کیش</string>
+    <string name="corpsefinder_filter_dalvik_summary">کیش شدہ ایپ ایکزیکیوشن ڈیٹا۔</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART پروفائلز</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART پروفائلز Android کی جانب سے ایپ کی کارکردگی بہتر بنانے کے لیے استعمال ہوتے ہیں۔</string>
+    <string name="corpsefinder_filter_applib_label">ایپ لائبریریز</string>
+    <string name="corpsefinder_filter_applib_summary">ایپ سے متعلق لائبریری ڈیٹا۔</string>
+    <string name="corpsefinder_filter_appsource_label">ایپ سورس</string>
+    <string name="corpsefinder_filter_appsource_summary">ایپ انسٹالیشن ڈیٹا، یعنی جہاں APK جاتے ہیں۔</string>
+    <string name="corpsefinder_filter_appsource_private_label">پرائیویٹ ایپ سورس</string>
+    <string name="corpsefinder_filter_appsource_private_summary">محدود ایپ انسٹالیشن ڈیٹا، جیسے محفوظ تھرڈ پارٹی ایپس۔</string>
+    <string name="corpsefinder_filter_appasec_label">اینکرپٹیڈ ایپ ریسورس</string>
+    <string name="corpsefinder_filter_appasec_summary">اینکرپٹیڈ ایپ ریسورس، جیسے گیم کے اثاث۔</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd موڈز کے ذریعے بیرونی اسٹوریج میں منتقل کیا گیا ڈیٹا۔</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d ایپ بقایا ڈیلیٹ ہوا</item>
+        <item quantity="other">%d ایپ بقایا ڈیلیٹ ہوئے</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d ایپ بقایا دریافت</item>
+        <item quantity="other">%d ایپ بقایا دریافت</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">تمام ایپ بقایا ڈیلیٹ کریں؟</string>
+    <string name="corpsefinder_owners_label">مالکان</string>
+    <string name="corpsefinder_corpse_hints_label">نوٹس</string>
+    <string name="corpsefinder_owner_unknown">نامعلوم مالک</string>
+    <string name="corpsefinder_corpse_hint_keeper">اس آئٹم میں ایسا ڈیٹا ہو سکتا ہے جسے آپ رکھنا چاہیں حالانکہ اس کا مالک انانسٹال ہو گیا ہے، جیسے فوٹوز یا بیک اپس۔</string>
+    <string name="corpsefinder_corpse_hint_common">اس آئٹم کا بہت عام نام ہے اور یہ ابھی بھی انسٹال شدہ ایپس سے تعلق رکھ سکتا ہے جن کے بارے میں SD Maid کو علم نہیں۔</string>
+</resources>

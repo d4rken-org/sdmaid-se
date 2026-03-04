@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="systemcleaner_explanation_short">Lieki dati, kas nepieder nevienai konkrētai lietotnei.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="zero">%d atbilstību dzēsts</item>
+        <item quantity="one">%d atbilstība dzēsta</item>
+        <item quantity="other">%d atbilstības dzēstas</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="zero">%d filtra atbilstību</item>
+        <item quantity="one">%d filtra atbilstība</item>
+        <item quantity="other">%d filtra atbilstības</item>
+    </plurals>
+    <string name="systemcleaner_filter_custom_label">Pielāgots filtrs</string>
+    <string name="systemcleaner_filter_custom_manage_label">Pārvaldīt pielāgotos filtrus</string>
+    <string name="systemcleaner_filter_custom_manage_summary">Izveidot, dzēst, importēt un eksportēt pielāgotos filtrus.</string>
+    <string name="systemcleaner_filter_logfiles_label">Sistēmas žurnāla faili</string>
+    <string name="systemcleaner_filter_logfiles_summary">Sistēmas un sistēmas pakalpojumu žurnāla faili (piem. *.log) dažādās vietās.</string>
+    <string name="systemcleaner_filter_advertisements_label">Reklāmu faili</string>
+    <string name="systemcleaner_filter_advertisements_summary">Faili, kas izveidoti reklāmām vai ar to palīdzību.</string>
+    <string name="systemcleaner_filter_anr_label">ANR kļūdas</string>
+    <string name="systemcleaner_filter_anr_summary">Izsekojumi no \'lietotne nereaģē\' notikumiem.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Tukšas mapes</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Tukšas mapes visā ierīcē. Ligzdotajām mapēm var būt nepieciešami vairāki piegājieni.</string>
+    <string name="systemcleaner_filter_screenshots_label">Ekrānuzņēmumi</string>
+    <string name="systemcleaner_filter_screenshots_summary">Ekrānuzņēmumi, kas vecāki par %s, no vairākām lietotnēm un vietām.</string>
+    <string name="systemcleaner_filter_trashed_label">Izmestie faili</string>
+    <string name="systemcleaner_filter_trashed_summary">Faili atkritumu tvertnēs no dažādām lietotnēm un vietām, kas atzīmēti dzēšanai, bet vēl nav neatgriezeniski noņemti.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Ekrānuzņēmumu vecums</string>
+    <string name="systemcleaner_filter_screenshots_age_summary">Minimālais vecums ekrānuzņēmumiem, lai tie tiktu apsvērti dzēšanai.</string>
+    <string name="systemcleaner_filter_superfluosapks_label">Liekie APK faili</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Instalācijas faili, kas vairs nav nepieciešami, balstoties uz instalēto lietotņu versijām.</string>
+    <string name="systemcleaner_filter_lostdir_label">LOST.DIR mapes</string>
+    <string name="systemcleaner_filter_lostdir_summary">Pagaidu faili, kas tiek izveidoti, pārsūtot datus starp Android ierīcēm.</string>
+    <string name="systemcleaner_filter_linuxfiles_label">Linux faili</string>
+    <string name="systemcleaner_filter_linuxfiles_summary">Faili un mapes, kas tiek izveidoti, kad krātuve ir pievienota Linux datoram.</string>
+    <string name="systemcleaner_filter_macfiles_label">Mac faili</string>
+    <string name="systemcleaner_filter_macfiles_summary">Faili un mapes, kas tiek izveidoti, pārlūkojot krātuvi ar Apple Finder lietotni.</string>
+    <string name="systemcleaner_filter_windowsfiles_label">Windows faili</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Dati, ko Windows failu pārlūks var izveidot pievienotā krātuvē."</string>
+    <string name="systemcleaner_filter_thumbnails_label">Sīktēli</string>
+    <string name="systemcleaner_filter_thumbnails_summary">Kešoti priekšskatījumi attēliem un video.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Pagaidu sistēmas faili</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Ar sistēmu saistīti pagaidu faili, parasti īslaicīgas kešatmiņas aktīvām darbībām.</string>
+    <string name="systemcleaner_filter_analytics_label">Analītikas faili</string>
+    <string name="systemcleaner_filter_analytics_summary">Dati, kas saistīti ar analītiku un kļūdu izsekošanu.</string>
+    <string name="systemcleaner_delete_all_confirmation_message">Dzēst visu filtru saturu?</string>
+    <string name="systemcleaner_customfilter_label">Pielāgots filtrs</string>
+    <string name="systemcleaner_customfilter_create_action">Izveidot pielāgotu filtru</string>
+    <string name="systemcleaner_customfilter_import_action">Importēt jaunu filtru</string>
+    <string name="systemcleaner_customfilter_export_action">Eksportēt atlasīto filtru</string>
+</resources>

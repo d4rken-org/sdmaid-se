@@ -14,10 +14,6 @@ android {
 
     setupModuleBuildTypes()
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     setupCompileOptions()
 
 
@@ -44,7 +40,6 @@ dependencies {
     addAndroidCore()
     addDI()
     addCoroutines()
-    addIO()
 
     addTesting()
     testImplementation(project(":app-common-test"))

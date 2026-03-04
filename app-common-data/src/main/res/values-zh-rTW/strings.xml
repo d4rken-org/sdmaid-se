@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">公共儲存空間</string>
+    <string name="area_type_public_media_label">公共應用程式媒體</string>
+    <string name="area_type_public_data_label">公共應用程式資料</string>
+    <string name="area_type_public_obb_label">公共應用程式資源</string>
+    <string name="area_type_private_data_label">私人應用程式資料</string>
+    <string name="area_type_portable_label">可攜式儲存空間</string>
+</resources>

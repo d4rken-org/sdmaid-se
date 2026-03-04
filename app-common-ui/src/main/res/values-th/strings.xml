@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">เลือกเส้นทาง</string>
+    <string name="picker_selected_paths_title">เส้นทางที่เลือก</string>
+    <string name="picker_unsaved_confirmation_message">ยกเลิกการเปลี่ยนแปลง?</string>
+    <string name="picker_home_action">พื้นที่ข้อมูล</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="other">เลือกเส้นทาง %d เส้นทาง</item>
+    </plurals>
+</resources>

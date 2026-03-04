@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="squeezer_explanation_short">Comhbhrúigh íomhánna chun spás stórála a shábháil.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d íomhá aimsithe</item>
+        <item quantity="two">%d íomhá aimsithe</item>
+        <item quantity="few">%d íomhá aimsithe</item>
+        <item quantity="many">%d n-íomhá aimsithe</item>
+        <item quantity="other">%d íomhá aimsithe</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">is féidir ~%s a shábháil</item>
+        <item quantity="two">is féidir ~%s a shábháil</item>
+        <item quantity="few">is féidir ~%s a shábháil</item>
+        <item quantity="many">is féidir ~%s a shábháil</item>
+        <item quantity="other">is féidir ~%s a shábháil</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d íomhá comhbhrúite</item>
+        <item quantity="two">%d íomhá comhbhrúite</item>
+        <item quantity="few">%d íomhá comhbhrúite</item>
+        <item quantity="many">%d n-íomhá comhbhrúite</item>
+        <item quantity="other">%d íomhá comhbhrúite</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d íomhá roghnaithe</item>
+        <item quantity="two">%d íomhá roghnaithe</item>
+        <item quantity="few">%d íomhá roghnaithe</item>
+        <item quantity="many">%d n-íomhá roghnaithe</item>
+        <item quantity="other">%d íomhá roghnaithe</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Suímh chuardaigh</string>
+    <string name="squeezer_search_locations_default_summary">Fillteáin ceamara (réamhshocrú)</string>
+    <string name="squeezer_min_size_title">Méid íosta comhaid</string>
+    <string name="squeezer_min_size_description">Scipeáil íomhánna níos lú ná an méid seo.</string>
+    <string name="squeezer_min_age_title">Aois íosta comhaid</string>
+    <string name="squeezer_min_age_description">Ní chuimsítear ach íomhánna níos sine ná an aois seo.</string>
+    <string name="squeezer_compression_settings_label">Socruithe comhbhrúite</string>
+    <string name="squeezer_quality_label">Cáilíocht</string>
+    <string name="squeezer_quality_title">Cáilíocht comhbhrúite</string>
+    <string name="squeezer_quality_description">Ciallaíonn cáilíocht níos ísle méid comhaid níos lú ach cáilíocht íomhá laghdaithe.</string>
+    <string name="squeezer_quality_example_format">Sampla: íomhá %1$s → sábhálann ~%2$s ag %3$d%% cáilíocht</string>
+    <string name="squeezer_quality_warning_low">D\'fhéadfadh cáilíocht níos ísle déantáin infheicthe a chruthú.</string>
+    <string name="squeezer_quality_warning_high">Soláthraíonn cáilíocht an-ard coigilteas spáis íosta.</string>
+    <string name="squeezer_types_category_label">Cineálacha íomhá</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Cuimsigh íomhánna JPEG (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Cuimsigh íomhánna WebP (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Scipeáil cinn chomhbhrúite cheana</string>
+    <string name="squeezer_skip_compressed_description">Scipeáil íomhánna a comhbhrúíodh cheana ag SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Scríobh marcóir EXIF</string>
+    <string name="squeezer_exif_marker_description">Cuir marcóir le réimse nóta tráchta úsáideora EXIF na híomhá chun athchomhbhrú a chosc fiú má ghlantar an stair chomhbhrú.</string>
+    <string name="squeezer_estimated_savings_format">~%s coigilteas</string>
+    <string name="squeezer_no_savings_expected">Coigilteas teoranta</string>
+    <string name="squeezer_current_size_format">Méid: %s</string>
+    <string name="squeezer_compress_action">Comhbhrúigh</string>
+    <string name="squeezer_compress_all_action">Comhbhrúigh gach ceann</string>
+    <string name="squeezer_preview_dialog_title">Dearbhaigh comhbhrú</string>
+    <string name="squeezer_preview_total_size">Méid iomlán</string>
+    <string name="squeezer_preview_estimated_savings">Coigilteas measta</string>
+    <string name="squeezer_compress_confirmation_title">Comhbhrúigh íomhánna?</string>
+    <string name="squeezer_compress_confirmation_message">Cuirfidh sé seo leaganacha comhbhrúite in ionad na n-íomhánna bunaidh. Ní féidir an gníomh seo a chealú.</string>
+    <string name="squeezer_history_title">Stair chomhbhrúite</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d mír (%2$s)</item>
+        <item quantity="two">%1$d mhír (%2$s)</item>
+        <item quantity="few">%1$d mhír (%2$s)</item>
+        <item quantity="many">%1$d mír (%2$s)</item>
+        <item quantity="other">%1$d mír (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Gan stair chomhbhrúite</string>
+    <string name="squeezer_history_clear_title">Glan stair chomhbhrúite</string>
+    <string name="squeezer_history_clear_message">Ligfidh sé seo d\'íomhánna a comhbhrúíodh cheana a bheith comhbhrúite arís. Ní dhéantar difear do na híomhánna féin.</string>
+    <string name="squeezer_onboarding_title">Faoi chomhbhrú íomhá</string>
+    <string name="squeezer_onboarding_message">Laghdaíonn comhbhrú íomhá méid an chomhaid trí mhionsonraí amhairc a bhaint. Ní féidir an próiseas seo a aisiompú - ní féidir an cháilíocht bhunaidh a athchóiriú.\n\nSeo réamhamharc ar conas a bheidh do chuid íomhánna:</string>
+    <string name="squeezer_onboarding_original_label">Bunaidh</string>
+    <string name="squeezer_onboarding_compressed_label">Tar éis comhbhrú</string>
+    <string name="squeezer_onboarding_quality_label">Cáilíocht: %d%%</string>
+    <string name="squeezer_compare_action">Féach ar an gcomparáid</string>
+    <string name="squeezer_no_example_found">Níor aimsíodh aon íomhánna sna cosáin roghnaithe.</string>
+    <string name="squeezer_result_empty_message">Níor aimsíodh aon íomhánna inchomhbhrúite.</string>
+    <string name="squeezer_setup_warning">Laghdaíonn comhbhrú cáilíocht íomhá go buan chun spás stórála a shábháil. Ní féidir é seo a chealú. Déan do chuid socruithe a athbhreithniú go cúramach sula dtosaíonn tú.</string>
+    <string name="squeezer_setup_explanation">Laghdaíonn Media Squeeze méid comhaid íomhá chun spás stórála a shaoradh. Laghdaíonn sé seo cáilíocht íomhá go buan agus ní féidir é a chealú. Déan do chuid socruithe a athbhreithniú go cúramach sula dtosaíonn tú.</string>
+    <string name="squeezer_setup_paths_title">Suímh chuardaigh</string>
+    <string name="squeezer_setup_paths_default">Roghnaigh fillteáin le cuardach</string>
+    <string name="squeezer_setup_quality_title">Cáilíocht comhbhrú</string>
+    <string name="squeezer_setup_age_title">Aois íosta</string>
+    <string name="squeezer_setup_age_none">Gan teorainn (gach comhad a chur san áireamh)</string>
+    <string name="squeezer_setup_start_action">Tosaigh scanadh</string>
+    <string name="squeezer_quality_hint_very_low">D\'fhéadfadh cáilíocht faoi bhun 40%% íomhánna neamhúsáideacha a chruthú.</string>
+    <string name="squeezer_quality_hint_low">Sábhálann cáilíocht níos ísle níos mó spáis ach d\'fhéadfadh sí saobhadh infheicthe a chruthú.</string>
+    <string name="squeezer_quality_hint_high">Soláthraíonn cáilíocht an-ard coigilteas íosta spáis.</string>
+    <string name="squeezer_quality_hint_normal">Cáilíocht chothrom agus coigilteas spáis.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">%d lá ar a laghad d\'aois</item>
+        <item quantity="two">%d lá ar a laghad d\'aois</item>
+        <item quantity="few">%d lá ar a laghad d\'aois</item>
+        <item quantity="many">%d lá ar a laghad d\'aois</item>
+        <item quantity="other">%d lá ar a laghad d\'aois</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Coigilteas measta ~%d%% do chomhaid JPEG</string>
+</resources>

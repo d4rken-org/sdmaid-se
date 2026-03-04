@@ -14,10 +14,6 @@ android {
 
     setupModuleBuildTypes()
 
-    buildFeatures {
-        viewBinding = true
-    }
-
     setupCompileOptions()
 
     testOptions {
@@ -38,13 +34,11 @@ dependencies {
     testImplementation(project(":app-common-test"))
 
     addAndroidCore()
-    addAndroidUI()
     addDI()
     addCoroutines()
     addSerialization()
     addIO()
     addTesting()
 
-    addCoil()
-    addLottie()
+    implementation("io.github.z4kn4fein:semver:3.0.0")
 }

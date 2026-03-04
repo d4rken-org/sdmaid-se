@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Javna shramba</string>
+    <string name="area_type_public_media_label">Javne predstavne datoteke</string>
+    <string name="area_type_public_data_label">Javni programski podatki</string>
+    <string name="area_type_public_obb_label">Javni programski viri</string>
+    <string name="area_type_private_data_label">Zasebni programski podatki</string>
+    <string name="area_type_portable_label">Prenosna pomnilniška naprava</string>
+</resources>

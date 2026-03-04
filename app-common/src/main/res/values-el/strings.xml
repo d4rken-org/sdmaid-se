@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Σας ευχαριστώ</string>
     <string name="general_error_type_mismatch_msg">Αναντιστοιχία τύπου: Αναμενόταν %1$s, αλλά εμφανίστηκε %2$s.</string>
     <string name="general_error_cant_access_msg">Δεν είναι δυνατή η πρόσβαση στο %s.</string>
-    <string name="general_error_root_unavailable">Η πρόσβαση root δεν είναι διαθέσιμη.</string>
-    <string name="general_error_empty_result_msg">Δεν υπήρξε αποτέλεσμα.</string>
-    <string name="general_error_no_compatible_app_found_msg">Δεν βρέθηκε συμβατή εφαρμογή να χειριστεί αυτό το αίτημα.</string>
+    <string name="general_error_root_unavailable">Η πρόσβαση root δεν είναι διαθέσιμη.</string>    <string name="general_error_no_compatible_app_found_msg">Δεν βρέθηκε συμβατή εφαρμογή να χειριστεί αυτό το αίτημα.</string>
     <string name="general_todo_msg">Αυτή η δυνατότητα είναι ακόμα υπό επεξεργασία και δεν είναι διαθέσιμη προς το παρόν.</string>
     <string name="general_share_action">Κοινοποίηση</string>
     <string name="general_done_action">Τέλος</string>
     <string name="general_apply_action">Εφαρμογή</string>
-    <string name="general_copy_action">Αντιγραφή</string>
-    <string name="general_wipe_action">Σβήσιμο</string>
-    <string name="general_cancel_action">Ακύρωση</string>
+    <string name="general_copy_action">Αντιγραφή</string>    <string name="general_cancel_action">Ακύρωση</string>
     <string name="general_discard_action">Απόρριψη</string>
     <string name="general_reset_action">Επαναφορά</string>
     <string name="general_drag_handle_description">Σύρετε για αναδιάταξη</string>
-    <string name="general_save_action">Αποθήκευση</string>
-    <string name="general_thanks_action">Ευχαριστούμε</string>
-    <string name="general_gotit_action">Το κατάλαβα</string>
+    <string name="general_save_action">Αποθήκευση</string>    <string name="general_gotit_action">Το κατάλαβα</string>
     <string name="general_fix_action">Διόρθωση</string>
     <string name="general_set_up_action">Ρύθμιση</string>
     <string name="general_edit_action">Επεξεργασία</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Η σύνδεση με μια κρίσιμη υπηρεσία (π.χ. Magisk, Shizuku ή άλλες υπηρεσίες σε επίπεδο συστήματος) χάθηκε απροσδόκητα. Επανεκκινήστε τη συσκευή σας. Εάν το πρόβλημα επιμένει, ελέγξτε για ενημερώσεις ή επικοινωνήστε μαζί μου για να το διορθώσω.</string>
     <string name="general_user_label_owner">Κάτοχος</string>
     <string name="general_user_label_system">Σύστημα</string>
+    <string name="setup_title">Εγκατάσταση</string>
+    <string name="setup_feature_requires_additional_setup_x">Αυτή η λειτουργία απαιτεί την ολοκλήρωση πρόσθετων στοιχείων ρύθμισης: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Δημιουργήθηκε μία εξαίρεση</item>
+        <item quantity="other">Δημιουργήθηκαν %d εξαιρέσεις</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Εύρεση υπολειμμάτων</string>
+    <string name="systemcleaner_tool_name">Εκκαθάριση Συστήματος</string>
+    <string name="appcleaner_tool_name">Εκκαθάριση Εφαρμογών</string>
+    <string name="deduplicator_tool_name">Αποδιπλοποιητής</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">Έλεγχος Εφαρμογών</string>
+    <string name="analyzer_tool_name">Αναλυτής Αποθηκευτικού Χώρου</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Ιστορικό</string>
+    <string name="settings_category_tools_label">Εργαλεία</string>
+    <string name="general_include_multiuser_label">Συμπερίληψη άλλων χρηστών</string>
+    <string name="general_include_multiuser_summary">Συμπερίληψη εφαρμογών από άλλα προφίλ χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="general_unsaved_confirmation_message">Έχετε μη αποθηκευμένες αλλαγές!</string>
 </resources>

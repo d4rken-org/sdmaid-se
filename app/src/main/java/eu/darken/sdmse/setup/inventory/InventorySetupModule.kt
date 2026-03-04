@@ -29,6 +29,7 @@ import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onStart
 import java.time.Instant
 import javax.inject.Inject
+import javax.inject.Named
 import javax.inject.Singleton
 
 @Singleton
@@ -111,6 +112,7 @@ class InventorySetupModule @Inject constructor(
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: InventorySetupModule): SetupModule
+        @Binds @Named("inventory") abstract fun named(mod: InventorySetupModule): SetupModule
     }
 
     companion object {

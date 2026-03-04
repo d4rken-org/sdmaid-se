@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">Datos apertèntos a aplicatziones ja bogadas.</string>
+    <string name="corpsefinder_settings_summary">Agiustare is filtros de iscansione e is livellos de riscutu.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Inclutìghere is abarramentos desiderables</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Documentos chi fortzis cheres mantenner, puru si s\'aplicatzione est disinstallada, pro es. fotos chi as pigadu o copia de resèrvia chi as creadu.</string>
+    <string name="corpsefinder_settings_risk_common_title">Inclutìghere nòmenes cumunes</string>
+    <string name="corpsefinder_settings_risk_common_summary">Datos cun nòmenes cumunitzhente impreados, pro es. una cartella \"Notas\" apertènet a tropu aplicatziones disconnotas.</string>
+    <string name="corpsefinder_watcher_title">Osservadore de disinstallatzione</string>
+    <string name="corpsefinder_watcher_summary">Iscansiare automàticamente pro abarramentos cando una aplicatzione benit bogada.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Cantzelladura automàtica</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Cantzellare automàticamente cale si siat abarramento connotu a s\'aplicatzione disinstallada.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%1$d abarramento agatadu a pustis de disinstallare %2$s.</item>
+        <item quantity="other">%1$d abarramentos agatados a pustis de disinstallare %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Limpiadela cumpletada cun èssidu (%1$s): Liberados %2$s e bogados %3$d elementu.</item>
+        <item quantity="other">Limpiadela cumpletada cun èssidu (%1$s): Liberados %2$s e bogados %3$d elementos.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Cantzellare abarramentos</string>
+    <string name="corpsefinder_filter_publicmedia_label">Media púbblic</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Documentos de media púbblic, pro es. documentos retzidos a travessu de aplicatziones de messagìa.</string>
+    <string name="corpsefinder_filter_publicobb_label">Risursas OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">Risursas additzionales de aplicatziones, pro es. assets de jogo.</string>
+    <string name="corpsefinder_filter_publicdata_label">Datos púbblicos de aplicatziones</string>
+    <string name="corpsefinder_filter_publicdata_summary">Datos de aplicatziones no sensìbiles, pro es. cache de mapas.</string>
+    <string name="corpsefinder_filter_sdcard_label">Ischeda SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">Archìviu púbblic generale, internu e esternu (pro es. ischedas SD).</string>
+    <string name="corpsefinder_filter_privatedata_label">Datos privados de aplicatziones</string>
+    <string name="corpsefinder_filter_privatedata_summary">Datos privados de aplicatziones, pro es. credentziales, impostatziones de aplicatziones ma fintzas cache de navigadore.</string>
+    <string name="corpsefinder_filter_dalvik_label">Cache Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">Datos de esecutzione de aplicatziones in cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profilos ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Is profilos ART sunt impitados dae Android pro otimizare su rendimentu de is aplicatziones.</string>
+    <string name="corpsefinder_filter_applib_label">Librerìa de aplicatziones</string>
+    <string name="corpsefinder_filter_applib_summary">Datos de librerìas connessas a aplicatziones.</string>
+    <string name="corpsefinder_filter_appsource_label">Orìgines de aplicatziones</string>
+    <string name="corpsefinder_filter_appsource_summary">Datos de installatzione de aplicatziones, est a nàrrere in ue andant is APK.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Orìgines privadas de aplicatziones</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Datos de installatzione de aplicatziones limitados, pro es. aplicatziones de tèrtzas partes protetas.</string>
+    <string name="corpsefinder_filter_appasec_label">Risursas de aplicatziones criptadas</string>
+    <string name="corpsefinder_filter_appasec_summary">Risursas de aplicatziones criptadas, pro es. assets de jogo.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Datos movidos a archìviu esternu dae mods App2SD.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d abarramento de aplicatzione cantzelladu</item>
+        <item quantity="other">%d abarramentos de aplicatziones cantzellados</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d abarramento de aplicatzione iscobèrtu</item>
+        <item quantity="other">%d abarramentos de aplicatziones iscobèrtos</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Cantzellare totu is abarramentos de aplicatziones?</string>
+    <string name="corpsefinder_owners_label">Propietarios</string>
+    <string name="corpsefinder_corpse_hints_label">Avisu</string>
+    <string name="corpsefinder_owner_unknown">Propietariu disconnotu</string>
+    <string name="corpsefinder_corpse_hint_keeper">Custu elementu podet cuntenner datos chi cheres mantenner mancai su propietariu suo seghet disinstalladu, pro es. fotos o copias de resèrvia.</string>
+    <string name="corpsefinder_corpse_hint_common">Custu elementu tenet unu nòmene meda cumune e dda podet apertènere a aplicatziones galu installadas chi SD Maid no connet.</string>
+</resources>

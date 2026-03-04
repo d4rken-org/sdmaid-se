@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Programador</string>
+    <string name="scheduler_execution_label">Propera execució (aproximadament)</string>
+    <string name="scheduler_execution_last_label">Última execució</string>
+    <string name="scheduler_settings_label">Programador</string>
+    <string name="scheduler_settings_summary">Ajusteu la configuració relacionada amb el programador.</string>
+    <string name="scheduler_new_schedule_action">Crea una programació</string>
+    <string name="scheduler_schedule_name_label">Nom de la programació</string>
+    <string name="scheduler_schedule_toggle_enabled">La programació està activada</string>
+    <string name="scheduler_schedule_toggle_disabled">La programació està desactivada</string>
+    <string name="scheduler_edit_schedule_action">Edita la programació</string>
+    <string name="scheduler_schedule_time_label">Temps aproximat</string>
+    <string name="scheduler_schedule_repeat_label">Repeteix l\'interval en dies</string>
+    <string name="scheduler_schedule_default_name">Programació per defecte</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s al voltant %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Planificat per a %s</string>
+    <string name="scheduler_schedule_last_at_x">Última execució a les %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">A diari</item>
+        <item quantity="other">Cada %d dies</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Repetició de l\'interval</string>
+    <string name="scheduler_inaccurate_execution_hint">Els temps d\'execució previstos són aproximats. Les programacions es poden retardar o accelerar si s\'estalvia bateria.</string>
+    <string name="scheduler_no_active_schedules_subtitle">No hi ha programacions activades</string>
+    <string name="scheduler_setting_nopowersaving_title">Omet amb bateria baixa</string>
+    <string name="scheduler_setting_nopowersaving_summary">Si el dispositiu està en mode d\'estalvi d\'energia, s\'ignorarà l\'execució programada.</string>
+    <string name="scheduler_setting_charging_title">Omet quan no es carrega</string>
+    <string name="scheduler_setting_charging_summary">Si el dispositiu no s\'està carregant, s\'ignorarà l\'execució programada.</string>
+    <string name="scheduler_setting_automation_title">Servei d\'accessibilitat</string>
+    <string name="scheduler_setting_automation_summary">Inclou accions que utilitzen un servei d\'accessibilitat. Això requereix que l\'SD Maid pugui interactuar amb la vostra pantalla (p. ex. està desbloquejada) quan s\'executen les tasques.</string>
+    <string name="scheduler_notification_channel_label">Programador</string>
+    <string name="scheduler_notification_title">Tasca programada</string>
+    <string name="scheduler_notification_message">Executant: «%s»</string>
+    <string name="scheduler_notification_result_title">El programador ha finalitat</string>
+    <string name="scheduler_notification_result_success_message">Totes les tasques programades s\'han executat correctament.</string>
+    <string name="scheduler_notification_result_failure_message">Algunes tasques programades han fallat o han trobat errors. Proveu d\'executar-les manualment.</string>
+    <string name="scheduler_commands_after_schedule_label">Ordres posteriors a la programació</string>
+    <string name="scheduler_commands_after_schedule_desc">Ordres del shell d\'Android que s\'executaran al final d\'una programació.</string>
+    <string name="scheduler_battery_optimization_hint">Considereu desactivar les optimitzacions de la bateria per a l\'SD Maid si teniu problemes amb l\'execució en segon pla.</string>
+</resources>

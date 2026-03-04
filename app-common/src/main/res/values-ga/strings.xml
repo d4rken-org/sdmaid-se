@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">SD Maid SE</string>
-
     <string name="slogan_message_0">Ag do sheirbhís.</string>
     <string name="slogan_message_1">Glan agus néata.</string>
     <string name="slogan_message_2">Ag cosc ar mhíshlacht.</string>
@@ -11,27 +10,19 @@
     <string name="slogan_message_6">Bearta, imigh leat!</string>
     <string name="slogan_message_7">Spás saor, áit shona.</string>
     <string name="slogan_message_8">Ní thabharfaidh mé suas ort riamh.</string>
-
     <string name="general_thank_you_label">Go raibh maith agat</string>
-
     <string name="general_error_type_mismatch_msg">Míchomhoiriúnacht cineáil: Ag iarraidh %1$s, ach fuair mé %2$s.</string>
     <string name="general_error_cant_access_msg">Ní féidir rochtain a fháil ar %s.</string>
-    <string name="general_error_root_unavailable">Níl rochtain fréimhe ar fáil.</string>
-    <string name="general_error_empty_result_msg">Bhí an toradh folamh.</string>
-    <string name="general_error_no_compatible_app_found_msg">Níor aimsíodh aip chomhoiriúnach chun an iarratas seo a láimhseáil.</string>
+    <string name="general_error_root_unavailable">Níl rochtain fréimhe ar fáil.</string>    <string name="general_error_no_compatible_app_found_msg">Níor aimsíodh aip chomhoiriúnach chun an iarratas seo a láimhseáil.</string>
     <string name="general_todo_msg">Tá an ghné seo fós á hoibriú agus níl sí ar fáil faoi láthair.</string>
     <string name="general_share_action">Roinn</string>
     <string name="general_done_action">Déanta</string>
     <string name="general_apply_action">Cuir i bhfeidhm</string>
-    <string name="general_copy_action">Cóipeáil</string>
-    <string name="general_wipe_action">Glan</string>
-    <string name="general_cancel_action">Cealaigh</string>
+    <string name="general_copy_action">Cóipeáil</string>    <string name="general_cancel_action">Cealaigh</string>
     <string name="general_discard_action">Caith ar lár</string>
     <string name="general_reset_action">Athshocraigh</string>
     <string name="general_drag_handle_description">Tarraing chun athordú</string>
-    <string name="general_save_action">Sábháil</string>
-    <string name="general_thanks_action">Buíochas</string>
-    <string name="general_gotit_action">Tuigim</string>
+    <string name="general_save_action">Sábháil</string>    <string name="general_gotit_action">Tuigim</string>
     <string name="general_fix_action">Deisigh</string>
     <string name="general_set_up_action">Socraigh</string>
     <string name="general_edit_action">Cuir in eagar</string>
@@ -80,7 +71,6 @@
     <string name="general_sort_options_label">Roghanna sórtála</string>
     <string name="general_sort_reverse_action">Mód sórtála droim ar ais</string>
     <string name="general_tag_filter_label">Scag de réir clibeanna</string>
-
     <string name="general_result_success_message">D\'éirigh leis an oibríocht</string>
     <string name="general_result_failure_message">Theip ar an oibríocht</string>
     <plurals name="general_result_x_space_freed">
@@ -89,7 +79,6 @@
         <item quantity="many">Spás %s saortha.</item>
         <item quantity="other">Spás %s saortha.</item>
     </plurals>
-
     <string name="general_options_label">Roghanna</string>
     <string name="general_details_label">Sonraí</string>
     <string name="general_view_action">Féach</string>
@@ -100,7 +89,6 @@
     <string name="general_show_details_action">Taispeáin sonraí</string>
     <string name="general_show_all_action">Taispeáin gach rud</string>
     <string name="general_toggle_layout_mode">Athraigh mód amhairc</string>
-
     <string name="general_delete_confirmation_title">Deimhnigh scriosadh</string>
     <string name="general_delete_confirmation_message_x">Scrios \"%s\"?</string>
     <string name="general_delete_confirmation_message_selected_x_items">Scrios na %d míreanna roghnaithe?</string>
@@ -110,7 +98,6 @@
         <item quantity="many">Scriosadh %d mír.</item>
         <item quantity="other">Scriosadh %d mír.</item>
     </plurals>
-
     <string name="general_remove_action">Bain</string>
     <string name="general_remove_selected_action">Bain na rudaí roghnaithe</string>
     <plurals name="general_remove_success_x_items">
@@ -119,14 +106,11 @@
         <item quantity="many">Baineadh %d mír</item>
         <item quantity="other">Baineadh %d mír</item>
     </plurals>
-
     <string name="general_root_required_label">Fréamh riachtanach</string>
     <string name="general_root_required_message">Tá gléas fréamhaithe riachtanach</string>
-
     <string name="general_search_action">Cuardaigh</string>
     <string name="general_scan_device_action">Scanáil an gléas</string>
     <string name="general_open_system_settings_action">Oscail socruithe an chórais</string>
-
     <plurals name="result_x_items">
         <item quantity="one">%s mhír</item>
         <item quantity="few">%s mhír</item>
@@ -158,28 +142,21 @@
     <string name="general_grant_access_action">Tabhair rochtain</string>
     <string name="general_enable_service_action">Cumasaigh seirbhís</string>
     <string name="general_undo_action">Cealaigh</string>
-
     <string name="general_list_select_all_action">Roghnaigh gach rud</string>
-
     <string name="general_path_label">Cosán</string>
     <string name="general_type_label">Cineál</string>
     <string name="general_size_label">Méid</string>
     <string name="general_exclude_action">Eisiagh</string>
     <string name="general_exclude_selected_action">Eisiagh na rudaí roghnaithe</string>
-
     <string name="general_device_label">Gléas</string>
-
     <string name="general_settings_title">Socruithe</string>
     <string name="general_help_title">Cabhair</string>
-
     <string name="file_type_symbolic_link">Nasc</string>
     <string name="file_type_directory">Eolaire</string>
     <string name="file_type_file">Comhad</string>
     <string name="file_type_unknown">Anaithnid</string>
-
     <string name="general_progress_ready">Réidh</string>
     <string name="general_progress_done">Déanta</string>
-
     <string name="general_rom_type_auto_label">Uathoibríoch (réamhshocrú)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d lá</item>
@@ -207,4 +184,26 @@
     <string name="general_error_ipc_deadobject_description">Cailleadh ceangal le seirbhís ríthábhachtach (m.sh. Magisk, Shizuku, nó seirbhísí córas-leibhéal eile) go tobann. Atosaigh do ghléas le do thoil. Má leanann an fhadhb, seiceáil le haghaidh nuashonruithe nó déan teagmháil liom chun í a shocrú.</string>
     <string name="general_user_label_owner">Úinéir</string>
     <string name="general_user_label_system">Córas</string>
+    <string name="setup_title">Socrú</string>
+    <string name="setup_feature_requires_additional_setup_x">Téann an ghné seo ag teastail míreanna socrú breise a chríochnú: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Cruthaíodh eisiamh amháin</item>
+        <item quantity="two">Cruthaíodh %d eisiamh</item>
+        <item quantity="few">Cruthaíodh %d eisiamh</item>
+        <item quantity="many">Cruthaíodh %d n-eisiamh</item>
+        <item quantity="other">Cruthaíodh %d eisiamh</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">Glanóir Córais</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Dífhoilsitheoir</string>
+    <string name="squeezer_tool_name">Fáisceadh Meán</string>
+    <string name="appcontrol_tool_name">RialúApp</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Stair</string>
+    <string name="settings_category_tools_label">Uirlisí</string>
+    <string name="general_include_multiuser_label">Cuir úsáideoirí eile san áireamh</string>
+    <string name="general_include_multiuser_summary">Cuir aipeanna ó phróifílí úsáideora eile ar an ngléas seo san áireamh.</string>
+    <string name="general_unsaved_confirmation_message">Tá athruithe neamhshábháilte agat!</string>
 </resources>

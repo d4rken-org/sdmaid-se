@@ -6,6 +6,8 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.DashboardCardConfigRowBinding
+import eu.darken.sdmse.main.core.iconRes
+import eu.darken.sdmse.main.core.labelRes
 
 class DashboardCardConfigRowVH(parent: ViewGroup) :
     DashboardCardConfigAdapter.BaseVH<DashboardCardConfigAdapter.CardItem, DashboardCardConfigRowBinding>(

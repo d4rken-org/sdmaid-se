@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.databinding.DashboardToolCardBinding
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.common.R as CommonR
 
 class DashboardToolCard(parent: ViewGroup) :
     DashboardAdapter.BaseVH<DashboardToolCard.Item, DashboardToolCardBinding>(
@@ -25,29 +27,29 @@ class DashboardToolCard(parent: ViewGroup) :
 
         icon.setImageResource(
             when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> R.drawable.ghost
-                SDMTool.Type.SYSTEMCLEANER -> R.drawable.ic_baseline_view_list_24
-                SDMTool.Type.APPCLEANER -> R.drawable.ic_recycle
-                SDMTool.Type.DEDUPLICATOR -> R.drawable.ic_content_duplicate_24
-SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
+                SDMTool.Type.CORPSEFINDER -> CommonR.drawable.ghost
+                SDMTool.Type.SYSTEMCLEANER -> CommonR.drawable.ic_baseline_view_list_24
+                SDMTool.Type.APPCLEANER -> CommonR.drawable.ic_recycle
+                SDMTool.Type.DEDUPLICATOR -> CommonR.drawable.ic_content_duplicate_24
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
         title.setText(
             when (item.toolType) {
-                SDMTool.Type.CORPSEFINDER -> R.string.corpsefinder_tool_name
-                SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_tool_name
-                SDMTool.Type.APPCLEANER -> R.string.appcleaner_tool_name
-                SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
-SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
+                SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.string.corpsefinder_tool_name
+                SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.string.systemcleaner_tool_name
+                SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.string.appcleaner_tool_name
+                SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.string.deduplicator_tool_name
+                SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
             }
         )
         description.apply {
             setText(
                 when (item.toolType) {
-                    SDMTool.Type.CORPSEFINDER -> R.string.corpsefinder_explanation_short
-                    SDMTool.Type.SYSTEMCLEANER -> R.string.systemcleaner_explanation_short
-                    SDMTool.Type.APPCLEANER -> R.string.appcleaner_explanation_short
-                    SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_explanation_short
+                    SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.corpsefinder.R.string.corpsefinder_explanation_short
+                    SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.systemcleaner.R.string.systemcleaner_explanation_short
+                    SDMTool.Type.APPCLEANER -> eu.darken.sdmse.appcleaner.R.string.appcleaner_explanation_short
+                    SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.deduplicator.R.string.deduplicator_explanation_short
 SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.Type.SWIPER -> 0
                 }
             )
@@ -100,7 +102,7 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
             if (item.showProRequirement) {
                 setIconResource(R.drawable.ic_baseline_stars_24)
             } else if (item.onDelete != null) {
-                setIconResource(R.drawable.ic_delete)
+                setIconResource(UiR.drawable.ic_delete)
             } else {
                 icon = null
             }

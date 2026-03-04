@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">بەڕێوەبەری دەرهێنان</string>
+    <string name="exclusion_type_package">دەرهێنانی ئەپ</string>
+    <string name="exclusion_type_path">دەرهێنانی ڕێگا</string>
+    <string name="exclusion_type_segment">دەرهێنانی بەش</string>
+    <string name="exclusion_tags_alltools">هەموو ئامرازەکان</string>
+</resources>

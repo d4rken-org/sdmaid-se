@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Rêyên hilbijêrin</string>
+    <string name="picker_selected_paths_title">Rêyên bijartî</string>
+    <string name="picker_home_action">Deverên daneyan</string>
+</resources>

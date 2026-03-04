@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_active_title">SD Maid کار دەکات</string>
+    <string name="automation_error_no_consent_title">هەڵەی ئۆتۆماتیکی</string>
+    <string name="automation_error_not_enabled_title">خزمەتگوزاری چالاک نییە</string>
+    <string name="automation_error_not_running_title">خزمەتگوزاری کار ناکات</string>
+</resources>

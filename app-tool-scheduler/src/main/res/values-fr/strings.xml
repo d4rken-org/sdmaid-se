@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Programmateur</string>
+    <string name="scheduler_execution_label">Prochaine exécution (approximativement)</string>
+    <string name="scheduler_execution_last_label">Dernière exécution</string>
+    <string name="scheduler_settings_label">Programmateur</string>
+    <string name="scheduler_settings_summary">Régler les paramètres liés au programmateur.</string>
+    <string name="scheduler_new_schedule_action">Créer une programmation</string>
+    <string name="scheduler_schedule_name_label">Nom de la programmation</string>
+    <string name="scheduler_schedule_toggle_enabled">La programmation est activée</string>
+    <string name="scheduler_schedule_toggle_disabled">La programmation est désactivée</string>
+    <string name="scheduler_edit_schedule_action">Modifier la programmation</string>
+    <string name="scheduler_schedule_time_label">Temps approximatif</string>
+    <string name="scheduler_schedule_repeat_label">Intervalle de répétition en jours</string>
+    <string name="scheduler_schedule_default_name">Programmation par défaut</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s vers %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Programmé pour %s</string>
+    <string name="scheduler_schedule_last_at_x">Dernière exécution à %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Quotidien</item>
+        <item quantity="other">Tous les %d jours</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Intervalle de répétition</string>
+    <string name="scheduler_inaccurate_execution_hint">Les temps d’exécution prévus sont approximatifs. Les programmations pourraient être retardées ou devancées si cela économise la batterie.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Aucune programmation n’est active</string>
+    <string name="scheduler_setting_nopowersaving_title">Ignorer si la batterie faible</string>
+    <string name="scheduler_setting_nopowersaving_summary">Si l’appareil est en mode d’économie d’énergie, l’exécution programmée sera ignorée.</string>
+    <string name="scheduler_setting_charging_title">Ignorer si l’appareil n’est pas en charge</string>
+    <string name="scheduler_setting_charging_summary">Si l’appareil n’est pas en charge l’exécution programmée sera ignorée.</string>
+    <string name="scheduler_setting_automation_title">Service d’accessibilité</string>
+    <string name="scheduler_setting_automation_summary">Inclure les actions qui utilisent un service d’accessibilité. Quand les tâches sont exécutées, SD Maid doit pouvoir interagir avec votre écran (il doit être déverrouillé).</string>
+    <string name="scheduler_notification_channel_label">Programmateur</string>
+    <string name="scheduler_notification_title">Tâche programmée</string>
+    <string name="scheduler_notification_message">Exécution : %s</string>
+    <string name="scheduler_notification_result_title">Le programmateur a terminé</string>
+    <string name="scheduler_notification_result_success_message">Toutes vos tâches programmées ont été effectuées correctement.</string>
+    <string name="scheduler_notification_result_failure_message">Certaines tâches ont échoué ou des erreurs sont survenues. Tentez de les effectuer manuellement.</string>
+    <string name="scheduler_commands_after_schedule_label">Commandes postprogrammation</string>
+    <string name="scheduler_commands_after_schedule_desc">Commandes de l’interpréteur de commandes Android qui seront exécutées en fin de programmation.</string>
+    <string name="scheduler_battery_optimization_hint">Envisagez de désactiver les optimisations de la batterie pour SD Maid si vous rencontrez des problèmes d’exécution en arrière-plan.</string>
+</resources>

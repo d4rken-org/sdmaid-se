@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Gràcies</string>
     <string name="general_error_type_mismatch_msg">Error tipogràfic: volíeu %1$s, però heu obtingut %2$s.</string>
     <string name="general_error_cant_access_msg">No es pot accedir a %s.</string>
-    <string name="general_error_root_unavailable">L\'accés «root» no està disponible.</string>
-    <string name="general_error_empty_result_msg">El resultat estava buit.</string>
-    <string name="general_error_no_compatible_app_found_msg">No s\'ha trobat cap aplicació compatible per gestionar aquesta sol·licitud.</string>
+    <string name="general_error_root_unavailable">L\'accés «root» no està disponible.</string>    <string name="general_error_no_compatible_app_found_msg">No s\'ha trobat cap aplicació compatible per gestionar aquesta sol·licitud.</string>
     <string name="general_todo_msg">Aquesta funció encara s\'està desenvolupant i actualment no està disponible.</string>
     <string name="general_share_action">Comparteix</string>
     <string name="general_done_action">Fet</string>
     <string name="general_apply_action">Aplica</string>
-    <string name="general_copy_action">Copia</string>
-    <string name="general_wipe_action">Neteja</string>
-    <string name="general_cancel_action">Cancel·la</string>
+    <string name="general_copy_action">Copia</string>    <string name="general_cancel_action">Cancel·la</string>
     <string name="general_discard_action">Descarta</string>
     <string name="general_reset_action">Restableix</string>
     <string name="general_drag_handle_description">Arrossegueu per reordenar</string>
-    <string name="general_save_action">Desa</string>
-    <string name="general_thanks_action">Gràcies</string>
-    <string name="general_gotit_action">Entesos</string>
+    <string name="general_save_action">Desa</string>    <string name="general_gotit_action">Entesos</string>
     <string name="general_fix_action">Arregla</string>
     <string name="general_set_up_action">Configura</string>
     <string name="general_edit_action">Edita</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">La connexió a un servei crític (per exemple, Magisk, Shizuku o altres serveis en l\'àmbit del sistema) s\'ha perdut inesperadament. Reinicieu el dispositiu. Si el problema persisteix, comproveu si hi ha actualitzacions o poseu-vos en contacte amb mi perquè ho pugui solucionar.</string>
     <string name="general_user_label_owner">Propietari</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Configuració</string>
+    <string name="setup_feature_requires_additional_setup_x">Aquesta característica requereix completar elements de configuració addicionals: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">S\'ha creat una exclusió</item>
+        <item quantity="other">S\'han creat %d exclusions</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Cercador de brossa</string>
+    <string name="systemcleaner_tool_name">Netejador del sistema</string>
+    <string name="appcleaner_tool_name">Netejador d\'aplicacions</string>
+    <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="squeezer_tool_name">Compressió multimèdia</string>
+    <string name="appcontrol_tool_name">Control d\'aplicacions</string>
+    <string name="analyzer_tool_name">Analitzador d\'emmagatzematge</string>
+    <string name="swiper_tool_name">Escombrador</string>
+    <string name="stats_label">Historial</string>
+    <string name="settings_category_tools_label">Eines</string>
+    <string name="general_include_multiuser_label">Inclou altres usuaris</string>
+    <string name="general_include_multiuser_summary">Inclou aplicacions d\'altres perfils d\'usuari en aquest dispositiu.</string>
+    <string name="general_unsaved_confirmation_message">Hi ha canvis sense desar!</string>
 </resources>

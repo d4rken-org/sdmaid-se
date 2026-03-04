@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Јавно складиште</string>
+    <string name="area_type_public_media_label">Јавни медији апликација</string>
+    <string name="area_type_public_data_label">Јавни подаци апликација</string>
+    <string name="area_type_public_obb_label">Јавни ресурси апликација</string>
+    <string name="area_type_private_data_label">Приватни подаци апликација</string>
+    <string name="area_type_portable_label">Преносно складиште</string>
+</resources>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">İctimai yaddaş</string>
+    <string name="area_type_public_media_label">İctimai tətbiq mediası</string>
+    <string name="area_type_public_data_label">İctimai tətbiq məlumatları</string>
+    <string name="area_type_public_obb_label">İctimai tətbiq resursları</string>
+    <string name="area_type_private_data_label">Şəxsi tətbiq məlumatları</string>
+    <string name="area_type_portable_label">Portativ yaddaş</string>
+</resources>

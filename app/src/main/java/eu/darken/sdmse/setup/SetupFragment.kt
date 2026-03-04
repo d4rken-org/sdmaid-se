@@ -87,7 +87,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
-            if (vm.screenOptions.isOnboarding) setNavigationIcon(R.drawable.ic_baseline_close_24)
+            if (vm.screenOptions.isOnboarding) setNavigationIcon(eu.darken.sdmse.common.ui.R.drawable.ic_baseline_close_24)
             setNavigationOnClickListener { vm.navback() }
             setOnMenuItemClickListener {
                 when (it.itemId) {

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcleaner_explanation_short">Тодорхой аппликешнүүдийн шаардлагагүй өгөгдөл.</string>
+    <string name="appcleaner_filter_defaultcachespublic_label">Нийтийн үндсэн кэшүүд</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Нийтийн үндсэн аппликешний кэшүүд. Хуучин Android хувилбарууд дээр Android/data доор хандах боломжтой. Системийн тохиргоонд \"Кэш цэвэрлэх\" товчийг дарахад устгагддаг.</string>
+    <string name="appcleaner_filter_defaultcachesprivate_label">Хувийн үндсэн кэшүүд</string>
+    <string name="appcleaner_filter_defaultcachesprivate_summary">Хувийн үндсэн аппликешний кэшүүд. Системийн тохиргоонд \"Кэш цэвэрлэх\" товчийг дарахад устгагддаг.</string>
+    <string name="appcleaner_include_systemapps_label">Системийн аппуудыг оруулах</string>
+    <string name="appcleaner_include_systemapps_summary">Системийн аппуудыг сканнингд оруулах.</string>
+    <string name="appcleaner_include_runningapps_label">Ажиллаж байгаа аппуудыг оруулах</string>
+    <string name="appcleaner_include_runningapps_summary">Одоогоор ажиллаж байгаа, саад учруулж болох аппуудыг оруулах.</string>
+    <string name="appcleaner_include_inaccessible_label">Хандах боломжгүй кэшүүдийг оруулах</string>
+    <string name="appcleaner_include_inaccessible_summary">Шууд хандах боломжгүй боловч системийн тохиргоогоор устгах боломжтой, хүртээмжийн үйлчилгээгээр автоматжуулах боломжтой өгөгдлийг оруулах.</string>
+    <string name="appcleaner_filter_codecache_label">Кодын кэш</string>
+    <string name="appcleaner_filter_codecache_summary">JVM кодын кэш. Байткодыг натив код руу хөрвүүлсэн блокууд.</string>
+    <string name="appcleaner_filter_advertisement_label">Зарын өгөгдөл</string>
+    <string name="appcleaner_filter_advertisement_summary">Зар сурталчилгаатай холбоотой файлууд, жишээ нь кэшлэгдсэн медиа.</string>
+    <string name="appcleaner_filter_bugreporting_label">Алдааны мэдэгдэл</string>
+    <string name="appcleaner_filter_bugreporting_summary">Алдааны мэдэгдэлтэй холбоотой өгөгдөл, жишээ нь алдааны логууд эсвэл гацалтын дамп.</string>
+    <string name="appcleaner_filter_analytics_label">Аналитик</string>
+    <string name="appcleaner_filter_analytics_summary">Аналитиктай холбоотой өгөгдөл, жишээ нь аппд юу дарсныг хянах кэшлэгдсэн статистик.</string>
+    <string name="appcleaner_filter_hiddencaches_label">Нууц кэшүүд</string>
+    <string name="appcleaner_filter_hiddencaches_summary">Системийн хүрэх боломжгүй газар хадгалагдсан ерөнхий зориулалтын кэшүүд.</string>
+    <string name="appcleaner_filter_thumbnails_label">Медиа өнгөц зургууд</string>
+    <string name="appcleaner_filter_thumbnails_summary">Зураг, видео болон аудио урьдчилсан өнгөц зургууд.</string>
+    <string name="appcleaner_filter_gamefiles_label">Тоглоомын файлууд</string>
+    <string name="appcleaner_filter_gamefiles_summary">Тоглоомтой холбоотой нөөцүүд, тоглоом дараагийн удаа нээгдэхэд шаардлагатай бол дахин татаж авна.</string>
+    <string name="appcleaner_filter_offlinecache_label">Офлайн кэш</string>
+    <string name="appcleaner_filter_offlinecache_summary">Офлайн үед ашиглахаар хадгалагдсан файлууд, жишээ нь газрын зургийн хавтанцарууд.</string>
+    <string name="appcleaner_filter_recyclebins_label">Хогийн сав</string>
+    <string name="appcleaner_filter_recyclebins_summary">Устгагдсан боловч сэргээх боломж олгохын тулд тусгай фолдерт байрлуулсан файлууд.</string>
+    <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp нөөцлөлтүүд</string>
+    <string name="appcleaner_filter_whatsapp_backups_summary">WhatsApp нөөцлөлтүүдийн нэмэлт хуулбаруудыг устгаж зөвхөн хамгийн сүүлийнхийг хадгалах.</string>
+    <string name="appcleaner_filter_whatsapp_received_summary">WhatsApp-аар хүмүүсээс хүлээн авсан файлууд.</string>
+    <string name="appcleaner_filter_whatsapp_received_label">WhatsApp хүлээн авсан файлууд</string>
+    <string name="appcleaner_filter_whatsapp_sent_label">WhatsApp илгээсэн файлууд</string>
+    <string name="appcleaner_filter_whatsapp_sent_summary">WhatsApp-аар бусдад илгээсэн файлууд.</string>
+    <string name="appcleaner_filter_telegram_label">Telegram медиа файлууд</string>
+    <string name="appcleaner_filter_telegram_summary">Telegram-аар хүлээн авсан эсвэл илгээсэн файлууд.</string>
+    <string name="appcleaner_delete_all_confirmation_message">Бүх аппуудын шаардлагагүй зүйлсийг устгах уу?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d шаардлагагүй зүйл устгагдсан</item>
+        <item quantity="other">%d шаардлагагүй зүйл устгагдсан</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d шаардлагагүй зүйл олдсон</item>
+        <item quantity="other">%d шаардлагагүй зүйл олдсон</item>
+    </plurals>
+</resources>

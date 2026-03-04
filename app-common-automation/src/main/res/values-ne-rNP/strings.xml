@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_error_no_settings_title">सेटिङ स्क्रिन उपलब्ध छैन</string>
+    <string name="automation_error_no_settings_body">यस सिस्टम app मा कुनै सेटिङ स्क्रिन छैन। Accessibility service मार्फत cache सफा गर्न सम्भव छैन। Cache सफा गर्ने काम छिटो बनाउन यसलाई बहिष्कार गर्नुहोस्।</string>
+    <string name="automation_loading">पहुँच सेवा मार्फत स्वचालन तयार गर्दै</string>
+    <string name="automation_progress_find_ok_confirmation">अघिल्लो कार्य पुष्टि गर्न कोशिस गर्दै (किवर्डहरू: %s)</string>
+    <string name="automation_accessibility_service_description">विशेष पहुँचयोग्यता आवश्यकता भएका प्रयोगकर्ताहरूले यो सेवा सक्षम गरी SD Maid लाई त्यो कार्यहरू स्वचालित गर्न अनुमति दिन सक्छन् जो अन्यथा थकाउने म्यानुअल प्रयोगकर्ता अन्तरक्रिया आवश्यक हुन्छ (जस्तै क्यास हटाउने)।\n\nउदाहरण: यदि तपाईंले SD Maid लाई धेरै अनुप्रयोगहरू रोक्न निर्देश दिनुहुन्छ भने SD Maid ले प्रत्येक अनुप्रयोगको सेटिङ स्क्रिन खोल्न, \'Force Stop\' बटन खोज्न र यसलाई ट्याप गर्न यो सेवा प्रयोग गर्न सक्छ।\n\nSD Maid ले यो सेवा प्रयोग गरिँदा सधैं स्पष्ट रूपमा देखाउनेछ र प्रयोगकर्तालाई कुनै पनि अन्तरक्रिया तुरन्त रद्द गर्न सजिलो तरिका प्रदान गर्नेछ।\n\nपूर्व प्रयोगकर्ता अनुमोदन बिना कुनै कार्य गरिने छैन। यो सेवा कुनै पनि प्रतिकूल प्रभाव बिना जुनसुकै पुनः अक्षम गर्न सकिन्छ।</string>
+    <string name="automation_screenoverlay_explanation">SD Maid तपाईंको उपकरणसंग अन्तरक्रिया गरिरहेको छ। एकै समयमा स्क्रिन प्रयोग गर्न सम्भव छैन। संचालन समाप्त नभएसम्म प्रतीक्षा गर्नुहोस् वा यसलाई रद्द गर्नुहोस्।</string>
+    <string name="automation_active_title">SD Maid काम गरिरहेको छ</string>
+    <string name="automation_error_no_consent_title">स्वचालन त्रुटि</string>
+    <string name="automation_error_no_consent_body">पहुँचयोग्यता सेवा सेटअप गरिएको छैन। सेटअप पूरा गर्नुहोस् र सहमति दिनुहोस्।</string>
+    <string name="automation_error_not_enabled_title">सेवा सक्षम गरिएको छैन</string>
+    <string name="automation_error_not_enabled_body">पहुँचयोग्यता सेवा अक्षम छ। यसलाई फेरि सक्षम गर्नुहोस्।</string>
+    <string name="automation_error_not_running_title">सेवा चलिरहेको छैन</string>
+    <string name="automation_error_not_running_body">पहुँचयोग्यता सेवा चलिरहेको छैन। उपकरण रिबुट गर्ने प्रयास गर्नुहोस्।</string>
+    <string name="automation_error_screen_unavailable_title">स्क्रिन उपलब्ध छैन</string>
+    <string name="automation_error_screen_unavailable_body">स्क्रिन उपलब्ध नहुँदा (जस्तै डिस्प्ले बन्द वा लकस्क्रिन सक्रिय) कारण कार्य रद्द गरिएको।</string>
+    <string name="automation_error_compatibility_title">स्वचालन अनुकूलता</string>
+    <string name="automation_error_compatibility_body">SD Maid स्क्रिन लेआउट पत्ता लगाउन सकेन। यदि यो चलिरहन्छ भने, तपाईंको भाषा वा सेटअप पूर्ण रूपमा समर्थित नहुन सक्छ। अपडेटहरूको लागि जाँच गर्नुहोस् वा यसलाई ठीक गर्न मलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="automation_error_timeout_title">स्वचालन समय सीमा</string>
+    <string name="automation_error_timeout_body">SD Maid समय सीमा भित्र सबै चरणहरू पूरा गर्न सकेन। यदि यो चलिरहन्छ भने, मैले तपाईंको डिभाइसको लागि अनुप्रयोग समायोजन गर्नुपर्न सक्छ। अपडेटहरूको लागि जाँच गर्नुहोस् वा यसलाई ठीक गर्न मलाई सम्पर्क गर्नुहोस्।</string>
+    <string name="automation_error_overlay_title">स्वचालन ओभरले</string>
+    <string name="automation_error_overlay_body">SD Maid स्वचालन ओभरले देखाउन सकेन। अनुमतिहरू जाँच गर्नुहोस् र आफ्नो डिभाइस पुनः बुट गर्ने प्रयास गर्नुहोस्।</string>
+    <string name="automation_error_scheduler_title">तैयारी किएको स्वचालितकरण सफल भएन</string>
+    <string name="automation_error_scheduler_body">एउटा तैयारी गरिएको कार्यले प्रवेशयोग्यता सेवा प्रयोग गर्न खोज्यो, तर उपलब्ध थिएन। यदि तपाईंलाई यो चाहिनन, ते स्केड्युलर सेटिङमा \"प्रवेशयोग्यता सेवा\" विकल्प अक्षम गर्नुहोस्।</string>
+</resources>

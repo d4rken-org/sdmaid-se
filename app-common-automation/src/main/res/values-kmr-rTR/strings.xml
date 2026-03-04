@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_active_title">SD Maid dixebite</string>
+    <string name="automation_error_no_consent_title">Xeletiya otomasyonê</string>
+    <string name="automation_error_not_enabled_title">Servîs ne çalak e</string>
+    <string name="automation_error_not_running_title">Servîs naxebite</string>
+</resources>

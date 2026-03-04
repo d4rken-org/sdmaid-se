@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Obrigado</string>
     <string name="general_error_type_mismatch_msg">Disparidade: desejava %1$s, mas obtive %2$s.</string>
     <string name="general_error_cant_access_msg">Não foi possível aceder a %s.</string>
-    <string name="general_error_root_unavailable">Acesso root indisponível.</string>
-    <string name="general_error_empty_result_msg">O resultado estava vazio.</string>
-    <string name="general_error_no_compatible_app_found_msg">Nenhum aplicativo compatível encontrado para lidar com esta solicitação.</string>
+    <string name="general_error_root_unavailable">Acesso root indisponível.</string>    <string name="general_error_no_compatible_app_found_msg">Nenhum aplicativo compatível encontrado para lidar com esta solicitação.</string>
     <string name="general_todo_msg">Esta funcionalidade está em desenvolvimento e ainda não está disponível.</string>
     <string name="general_share_action">Partilha</string>
     <string name="general_done_action">Concluído</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>
-    <string name="general_wipe_action">Limpar</string>
-    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Repor</string>
     <string name="general_drag_handle_description">Arrastar para reordenar</string>
-    <string name="general_save_action">Guardar</string>
-    <string name="general_thanks_action">Obrigado</string>
-    <string name="general_gotit_action">Entendido</string>
+    <string name="general_save_action">Guardar</string>    <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Corrigir</string>
     <string name="general_set_up_action">Definir</string>
     <string name="general_edit_action">Editar</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">A conexão com um serviço crítico (por exemplo, Magisk, Shizuku, ou outros serviços ao nível do sistema) foi inesperadamente perdida. Por favor, reinicie o seu dispositivo. Se o problema persistir, verifique se há atualizações ou entre em contacto comigo para que possa corrigi-lo.</string>
     <string name="general_user_label_owner">Proprietário</string>
     <string name="general_user_label_system">Sistema</string>
+    <string name="setup_title">Configuração</string>
+    <string name="setup_feature_requires_additional_setup_x">Esta funcionalidade requer completar itens de configuração adicional: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Uma exclusão criada</item>
+        <item quantity="other">%d exclusões criadas</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Encontrar resíduos</string>
+    <string name="systemcleaner_tool_name">Limpeza de sistema</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Des-duplicador</string>
+    <string name="squeezer_tool_name">Comprimir mídia</string>
+    <string name="appcontrol_tool_name">Controlo de aplicações</string>
+    <string name="analyzer_tool_name">Analisador de armazenamento</string>
+    <string name="swiper_tool_name">Esfregona</string>
+    <string name="stats_label">Histórico</string>
+    <string name="settings_category_tools_label">Ferramentas</string>
+    <string name="general_include_multiuser_label">Incluir outros utilizadores</string>
+    <string name="general_include_multiuser_summary">Incluir apps de outros perfis de utilizador neste dispositivo.</string>
+    <string name="general_unsaved_confirmation_message">Há alterações não guardadas!</string>
 </resources>

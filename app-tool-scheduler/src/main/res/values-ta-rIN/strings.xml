@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">தேதி நிர்ணாயகர்</string>
+    <string name="scheduler_execution_label">அடுத்த நிறைவேற்றம் (தகராறு)</string>
+    <string name="scheduler_execution_last_label">கடைசி நிறைவேற்றம்</string>
+    <string name="scheduler_settings_label">தேதி நிர்ணாயகர்</string>
+    <string name="scheduler_settings_summary">தேதி நிர்ணாயகர் தொடர்பான அமைப்புகளைச் சரிசெய்யவும்.</string>
+    <string name="scheduler_new_schedule_action">தேதியை உருவாக்கு</string>
+    <string name="scheduler_schedule_name_label">தேதி பெயர்</string>
+    <string name="scheduler_schedule_toggle_enabled">தேதி இயக்கப்பட்டுள்ளது</string>
+    <string name="scheduler_schedule_toggle_disabled">தேதி முடக்கப்பட்டுள்ளது</string>
+    <string name="scheduler_edit_schedule_action">தேதியைத் தருணி</string>
+    <string name="scheduler_schedule_time_label">தகராறு நேரம்</string>
+    <string name="scheduler_schedule_repeat_label">நாட்களில் மீண்டும் இடைவெளி</string>
+    <string name="scheduler_schedule_default_name">இயல்பு தேதி</string>
+    <string name="scheduler_current_schedule_x_at_x">%2$s இல் %1$s</string>
+    <string name="scheduler_schedule_next_at_x">%s இற்கு திட்டமிடப்பட்டுள்ளது</string>
+    <string name="scheduler_schedule_last_at_x">%s இல் கடைசியாக நிறைவேற்றப்பட்டது</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">நாளைந்தொறும்</item>
+        <item quantity="other">ஒவ்வொரு %d நாட்களிலும்</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">மீண்டும் இடைவெளி</string>
+    <string name="scheduler_inaccurate_execution_hint">எதிர்பார்க்கப்படும் நிறைவேற்ற நேரங்கள் தகராறுகளாகும். பாட்டரியை பாதுகாக்கினால் தேதிகள் தாமதமாகலாம் அல்லது விரைவாகலாம்.</string>
+    <string name="scheduler_no_active_schedules_subtitle">செயலிலுள்ள தேதிகள் இல்லை</string>
+    <string name="scheduler_setting_nopowersaving_title">குறைந்த பாட்டரியில் தவிர்</string>
+    <string name="scheduler_setting_nopowersaving_summary">சாதனம் சக்தி-சேமிப்பு முறையில் இருந்தால், திட்டமிடப்பட்ட நிறைவேற்றம் தவிர்க்கப்படும்.</string>
+    <string name="scheduler_setting_charging_title">சார்ஜ் செய்யாதபோது தவிர்</string>
+    <string name="scheduler_setting_charging_summary">சாதனம் சார்ஜ் செய்யவில்லை என்றால், திட்டமிடப்பட்ட நிறைவேற்றம் தவிர்க்கப்படும்.</string>
+    <string name="scheduler_setting_automation_title">அணுகல் சேவை</string>
+    <string name="scheduler_setting_automation_summary">அணுகல் சேவையைப் பயன்படுத்தும் செயல்களைச் சேர்க்கவும். பணிகள் நிறைவேற்றப்படுமோது SD Maid உங்கள் திரையுடன் தொடர்பு கொள்ள முடியவேண்டும் (அதாவது அது பூட்டப்படவில்லை).</string>
+    <string name="scheduler_notification_channel_label">தேதி நிர்ணாயகர்</string>
+    <string name="scheduler_notification_title">திட்டமிடப்பட்ட பணி</string>
+    <string name="scheduler_notification_message">நிறைவேற்றுகிறது: \"%s\"</string>
+    <string name="scheduler_notification_result_title">தேதி நிர்ணாயகர் முடிந்தது</string>
+    <string name="scheduler_notification_result_success_message">அனைத்து திட்டமிடப்பட்ட பணிகளும் வெற்றிகரமாக இயங்கின.</string>
+    <string name="scheduler_notification_result_failure_message">சில திட்டமிடப்பட்ட பணிகள் தோல்வியடைந்தன அல்லது பிழைகளைச் சந்தித்தன. அவற்றை கையால் இயக்க முயற்சிக்கவும்.</string>
+    <string name="scheduler_commands_after_schedule_label">தேதியின் பின் கட்டளைகள்</string>
+    <string name="scheduler_commands_after_schedule_desc">தேதியின் அந்திம ஆளாக நிறைவேற்றப்படும் Android கெல் கட்டளைகள்.</string>
+    <string name="scheduler_battery_optimization_hint">பின்னணி நிறைவேற்றத்தில் சிக்கல்களைச் சந்தித்தால் SD Maid இன் பாட்டரி மேலேற்றத்தை முடக்குவதைக் கருதில் கொள்ளவும்.</string>
+</resources>

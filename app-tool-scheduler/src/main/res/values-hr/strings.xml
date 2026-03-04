@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Planer</string>
+    <string name="scheduler_execution_label">Sljedeće izvršenje (približno)</string>
+    <string name="scheduler_execution_last_label">Zadnje izvršenje</string>
+    <string name="scheduler_settings_label">Planer</string>
+    <string name="scheduler_settings_summary">Podesite postavke povezane s planerom.</string>
+    <string name="scheduler_new_schedule_action">Stvorite raspored</string>
+    <string name="scheduler_schedule_name_label">Naziv rasporeda</string>
+    <string name="scheduler_schedule_toggle_enabled">Raspored je omogućen</string>
+    <string name="scheduler_schedule_toggle_disabled">Raspored je onemogućen</string>
+    <string name="scheduler_edit_schedule_action">Uredi raspored</string>
+    <string name="scheduler_schedule_time_label">Približno vrijeme</string>
+    <string name="scheduler_schedule_repeat_label">Interval ponavljanja u danima</string>
+    <string name="scheduler_schedule_default_name">Zadani raspored</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s oko %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Planirano za %s</string>
+    <string name="scheduler_schedule_last_at_x">Zadnji put izvršeno u %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Dnevno</item>
+        <item quantity="few">Svaka %d dana</item>
+        <item quantity="other">Svakih %d dana</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Interval ponavljanja</string>
+    <string name="scheduler_inaccurate_execution_hint">Očekivana vremena izvršenja su približna. Rasporedi se mogu odgoditi ili ubrzati ako se time štedi baterija.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Nema aktivnih rasporeda</string>
+    <string name="scheduler_setting_nopowersaving_title">Preskoči pri niskoj bateriji</string>
+    <string name="scheduler_setting_nopowersaving_summary">Ako je uređaj u načinu rada za uštedu energije, planirano izvršenje će biti preskočeno.</string>
+    <string name="scheduler_setting_charging_title">Preskoči kada se ne puni</string>
+    <string name="scheduler_setting_charging_summary">Ako se uređaj ne puni, planirano izvršenje će biti preskočeno.</string>
+    <string name="scheduler_setting_automation_title">Usluga pristupačnosti</string>
+    <string name="scheduler_setting_automation_summary">Uključi radnje koje koriste uslugu pristupačnosti. To zahtijeva da SD Maid može komunicirati s vašim zaslonom (tj. da je otključan) kada se zadaci izvršavaju.</string>
+    <string name="scheduler_notification_channel_label">Planer</string>
+    <string name="scheduler_notification_title">Zakazani zadatak</string>
+    <string name="scheduler_notification_message">Izvršavanje: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Planer završen</string>
+    <string name="scheduler_notification_result_success_message">Svi zakazani zadaci su uspješno izvršeni.</string>
+    <string name="scheduler_notification_result_failure_message">Neki zakazani zadaci nisu uspješni ili su naišli na greške. Pokušajte ih pokrenuti ručno.</string>
+    <string name="scheduler_commands_after_schedule_label">Naredbe nakon rasporeda</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell naredbe koje će se izvršiti na kraju rasporeda.</string>
+    <string name="scheduler_battery_optimization_hint">Razmislite o onemogućavanju optimizacije baterije za SD Maid ako imate problema s pozadinskim izvršavanjem.</string>
+</resources>

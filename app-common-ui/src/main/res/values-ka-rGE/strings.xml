@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">გზების არჩევა</string>
+    <string name="picker_selected_paths_title">არჩეული გზები</string>
+    <string name="picker_unsaved_confirmation_message">ცვლილებების უარყოფა?</string>
+    <string name="picker_home_action">მონაცემთა ზონები</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d გზა არჩეულია</item>
+    <item quantity="other">%d გზა არჩეულია</item>
+    </plurals>
+</resources>

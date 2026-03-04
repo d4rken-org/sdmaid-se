@@ -51,8 +51,8 @@ class MotdRepo @Inject constructor(
         }
         try {
             val newMotd = endpoint.getMotd(locales.primary)
-                ?.takeIf { it.motd.minimumVersion == null || BuildConfigWrap.VERSION_CODE >= it.motd.minimumVersion }
-                ?.takeIf { it.motd.maximumVersion == null || BuildConfigWrap.VERSION_CODE <= it.motd.maximumVersion }
+                ?.takeIf { val min = it.motd.minimumVersion; min == null || BuildConfigWrap.VERSION_CODE >= min }
+                ?.takeIf { val max = it.motd.maximumVersion; max == null || BuildConfigWrap.VERSION_CODE <= max }
 
             settings.lastMotd.value(newMotd)
             log(TAG) { "New MOTD is $newMotd" }

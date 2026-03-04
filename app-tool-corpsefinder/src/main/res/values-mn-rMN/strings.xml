@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">Аль хэдийн устгасан аппликешнүүдийн өгөгдөл.</string>
+    <string name="corpsefinder_settings_summary">Сканнингийн шүүлтүүр болон эрсдэлийн түвшинг тохируулах.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Хадгалах хэрэгтэй үлдэгдлүүдийг оруулах</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Апп устгагдсан ч хадгалахыг хүсэж болох файлууд, жишээ нь авсан зурагнууд эсвэл үүсгэсэн нөөцлөлтүүд.</string>
+    <string name="corpsefinder_settings_risk_common_title">Нийтлэг нэрсийг оруулах</string>
+    <string name="corpsefinder_settings_risk_common_summary">Нийтлэг ашиглагддаг нэртэй өгөгдөл, жишээ нь \"Notes\" фолдер хэт олон тодорхойгүй аппликешнд хамаардаг.</string>
+    <string name="corpsefinder_watcher_title">Устгалтын хянагч</string>
+    <string name="corpsefinder_watcher_summary">Апп устгагдсан үед үлдэгдлийг автоматаар сканнердах.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Автомат устгалт</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Устгагдсан аппликешнтай холбоотой аливаа үлдэгдлийг автоматаар устгах.</string>
+    <string name="corpsefinder_watcher_notification_delete_action">Үлдэгдлийг устгах</string>
+    <string name="corpsefinder_filter_publicmedia_label">Нийтийн медиа</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Нийтийн медиа файлууд, жишээ нь мессенжер аппуудаар хүлээн авсан файлууд.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB нөөцүүд</string>
+    <string name="corpsefinder_filter_publicobb_summary">Нэмэлт аппликешний нөөцүүд, жишээ нь тоглоомын хөрөнгүүд.</string>
+    <string name="corpsefinder_filter_publicdata_label">Нийтийн аппликешний өгөгдөл</string>
+    <string name="corpsefinder_filter_publicdata_summary">Эмзэг бус аппликешний өгөгдөл, жишээ нь газрын зургийн кэш.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD карт</string>
+    <string name="corpsefinder_filter_sdcard_summary">Ерөнхий нийтийн хадгалах сан, дотоод болон гадаад (жишээ нь SD карт).</string>
+    <string name="corpsefinder_filter_privatedata_label">Хувийн аппликешний өгөгдөл</string>
+    <string name="corpsefinder_filter_privatedata_summary">Хувийн аппликешний өгөгдөл, жишээ нь нэвтрэх мэдээлэл, аппын тохиргоо мөн хөтчийн кэш.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik кэш</string>
+    <string name="corpsefinder_filter_dalvik_summary">Кэшлэгдсэн аппликешний гүйцэтгэлийн өгөгдөл.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART профайлууд</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART профайлуудыг Android аппликешний гүйцэтгэлийг оновчлоход ашигладаг.</string>
+    <string name="corpsefinder_filter_applib_label">Аппликешний сангууд</string>
+    <string name="corpsefinder_filter_applib_summary">Аппликешнтай холбоотой сангийн өгөгдөл.</string>
+    <string name="corpsefinder_filter_appsource_label">Аппликешний эх үүсвэр</string>
+    <string name="corpsefinder_filter_appsource_summary">Аппликешний суулгалтын өгөгдөл, APK файлуудын байрлал.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Хувийн аппликешний эх үүсвэр</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Хязгаарлагдсан аппликешний суулгалтын өгөгдөл, жишээ нь хамгаалагдсан гуравдагч аппууд.</string>
+    <string name="corpsefinder_filter_appasec_label">Шифрлэгдсэн аппликешний нөөцүүд</string>
+    <string name="corpsefinder_filter_appasec_summary">Шифрлэгдсэн аппликешний нөөцүүд, жишээ нь тоглоомын хөрөнгүүд.</string>
+    <string name="corpsefinder_filter_app2sd_summary">App2Sd модификацаар гадаад хадгалах сан руу зөөгдсөн өгөгдөл.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="one">%d аппликешний үлдэгдэл устгагдсан</item>
+        <item quantity="other">%d аппликешний үлдэгдэл устгагдсан</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="one">%d аппликешний үлдэгдэл олдсон</item>
+        <item quantity="other">%d аппликешний үлдэгдэл олдсон</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Бүх аппликешний үлдэгдлийг устгах уу?</string>
+    <string name="corpsefinder_owners_label">Эзэмшигчид</string>
+    <string name="corpsefinder_corpse_hints_label">Анхааруулга</string>
+    <string name="corpsefinder_owner_unknown">Тодорхойгүй эзэмшигч</string>
+    <string name="corpsefinder_corpse_hint_keeper">Энэ зүйл нь эзэмшигч нь устгагдсан ч хадгалахыг хүсэж болох өгөгдөл агуулж болно, жишээ нь зурагнууд эсвэл нөөцлөлтүүд.</string>
+    <string name="corpsefinder_corpse_hint_common">Энэ зүйл маш нийтлэг нэртэй бөгөөд SD Maid-д мэдэгдэхгүй суулгагдсан аппуудад хамаарч болно.</string>
+</resources>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">Dagoeneko kendutako aplikazioen datuak.</string>
+    <string name="corpsefinder_settings_summary">Doitu eskaneatze-iragazkiak eta arriskua-mailak.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Sartu nahiago ditugun hondarrak</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Gorde nahi dituzun fitxategiak, aplikazioa desinstalatu arren, adib. atera dituzun argazkiak edo sortu dituzun babeskopiak.</string>
+    <string name="corpsefinder_settings_risk_common_title">Sartu izen arruntak</string>
+    <string name="corpsefinder_settings_risk_common_summary">Ohiko izenak dituzten datuak, adib. \"Oharrak\" karpeta aplikazio ezezagun gehiegik daukate jabetzan.</string>
+    <string name="corpsefinder_watcher_title">Desinstalazio-behatzailea</string>
+    <string name="corpsefinder_watcher_summary">Automatikoki eskaneatu hondarrak aplikazio bat kentzen denean.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Ezabaketa automatikoa</string>
+</resources>

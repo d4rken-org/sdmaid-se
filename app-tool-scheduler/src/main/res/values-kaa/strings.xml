@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Reje dúziwshi</string>
+    <string name="scheduler_execution_label">Keyingi orınlanıw (shama menen)</string>
+    <string name="scheduler_execution_last_label">Aqırǵı orınlanıw</string>
+    <string name="scheduler_settings_label">Reje dúziwshi</string>
+    <string name="scheduler_settings_summary">Reje dúziwshi menen baylanıslı sazlamalardı túzetiw.</string>
+    <string name="scheduler_new_schedule_action">Reje jaratıw</string>
+    <string name="scheduler_schedule_name_label">Reje atı</string>
+    <string name="scheduler_schedule_toggle_enabled">Reje qosılǵan</string>
+    <string name="scheduler_schedule_toggle_disabled">Reje óshirilgen</string>
+    <string name="scheduler_edit_schedule_action">Rejeni ózgertiw</string>
+    <string name="scheduler_schedule_time_label">Shama menen waqıt</string>
+    <string name="scheduler_schedule_repeat_label">Qaytalanatugın aralıq kúnlerde</string>
+    <string name="scheduler_schedule_default_name">Ádepki reje</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s shama menen %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s úshin josparlangan</string>
+    <string name="scheduler_schedule_last_at_x">Aqırğı ret %s waqıtta ótkizilgen</string>
+    <string name="scheduler_schedule_repeat_interval">Qaytalaw aralığı</string>
+    <string name="scheduler_inaccurate_execution_hint">Kútilip turğan ótkiziw waqıtları jaqın sandılar. Batareyanı únemdeş úshin josparlawlar keshiktiriliw yáki tezletiliw múmkin.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Aktiv josparlawlar joq</string>
+    <string name="scheduler_setting_nopowersaving_title">Batareya az bolsa ótkeriw</string>
+    <string name="scheduler_setting_nopowersaving_summary">Eger qurilma quwat únemdeş rejiminde bolsa, josparlangan ótkiziw ótkeriliwine boladı.</string>
+    <string name="scheduler_setting_charging_title">Zaryadlanbaytug̱an waqıtta ötkeriw</string>
+    <string name="scheduler_setting_charging_summary">Eger qurilma zaryadlanbaytug̱an bolsa, josparlangan ótkiziw ótkeriliwine boladı.</string>
+    <string name="scheduler_setting_automation_title">Qoljetimlilik xizmeti</string>
+    <string name="scheduler_setting_automation_summary">Qoljetimlilik xizmetin paydalanag̱an ámellerdi qosa. Bıl tapshırıqlar orınlang̱an waqıtta SD Maid siziŋ ekran menen árekettesiw úśin (yag̱nıy aşılgan bolwı shart).</string>
+    <string name="scheduler_notification_channel_label">Keste</string>
+    <string name="scheduler_notification_title">Josparlangan tapshırw</string>
+    <string name="scheduler_notification_message">Orınlang̱an: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Josparlaushı tamamlandı</string>
+    <string name="scheduler_notification_result_success_message">Barlıq josparlangan tapshırıqlar tabıslı orınlandı.</string>
+    <string name="scheduler_notification_result_failure_message">Bazi josparlangan tapshırıqlar sátsiz bolıp yáki qateler keszikti. Olarıń qoldan orınlag̱anıŋızın sinag̱ıŋ.</string>
+    <string name="scheduler_commands_after_schedule_label">Josparlaw keŋinen buyrıqlar</string>
+    <string name="scheduler_commands_after_schedule_desc">Josparlaw axırında orınlanag̱an Android shell buyrıqları.</string>
+    <string name="scheduler_battery_optimization_hint">Fondag̱ı orınlaw menen máséleler bolsa, SD Maid úśin batareya optimizaciyasın óshiriwdi qarastırıŋ.</string>
+</resources>

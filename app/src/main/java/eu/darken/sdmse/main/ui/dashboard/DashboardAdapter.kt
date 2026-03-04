@@ -5,8 +5,6 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import dagger.hilt.android.scopes.ActivityScoped
-import eu.darken.sdmse.analyzer.ui.AnalyzerDashCardVH
-import eu.darken.sdmse.appcontrol.ui.AppControlDashCardVH
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
 import eu.darken.sdmse.common.lists.BindableVH
 import eu.darken.sdmse.common.lists.differ.AsyncDiffer
@@ -24,11 +22,13 @@ import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.AnalyzerDashCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.AppControlDashCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.SchedulerDashCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.SqueezerDashCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.StatsDashCardVH
+import eu.darken.sdmse.main.ui.dashboard.items.SwiperDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
-import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
-import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
-import eu.darken.sdmse.stats.ui.StatsDashCardVH
-import eu.darken.sdmse.swiper.ui.SwiperDashCardVH
 import javax.inject.Inject
 
 @ActivityScoped

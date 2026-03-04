@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Ruajtja publike</string>
+    <string name="area_type_public_media_label">Media e aplikacionit publik</string>
+    <string name="area_type_public_data_label">Të dhënat e aplikacionit publik</string>
+    <string name="area_type_public_obb_label">Burimet e aplikacionit publik</string>
+    <string name="area_type_private_data_label">Të dhënat e aplikacionit privat</string>
+    <string name="area_type_portable_label">Ruajtja e lëvizshme</string>
+</resources>

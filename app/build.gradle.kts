@@ -178,10 +178,6 @@ androidComponents {
     }
 }
 
-ksp {
-    arg("room.schemaLocation", "$projectDir/schemas")
-}
-
 setupKotlinOptions()
 
 afterEvaluate {
@@ -197,17 +193,33 @@ dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")
 
     implementation(project(":app-common"))
+    implementation(project(":app-common-ui"))
+    implementation(project(":app-common-coil"))
+    implementation(project(":app-common-picker"))
+    implementation(project(":app-common-stats"))
     testImplementation(project(":app-common-test"))
     implementation(project(":app-common-root"))
     implementation(project(":app-common-adb"))
     implementation(project(":app-common-io"))
     implementation(project(":app-common-pkgs"))
     implementation(project(":app-common-shell"))
+    implementation(project(":app-common-data"))
+    implementation(project(":app-common-exclusion"))
+    implementation(project(":app-common-automation"))
+    implementation(project(":app-common-setup"))
+    implementation(project(":app-tool-corpsefinder"))
+    implementation(project(":app-tool-systemcleaner"))
+    implementation(project(":app-tool-appcleaner"))
+    implementation(project(":app-tool-deduplicator"))
+    implementation(project(":app-tool-squeezer"))
+    implementation(project(":app-tool-analyzer"))
+    implementation(project(":app-tool-swiper"))
+    implementation(project(":app-tool-appcontrol"))
+    implementation(project(":app-tool-scheduler"))
 
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
     addRetrofit()
 
     "gplayImplementation"("com.android.billingclient:billing:8.3.0")
@@ -227,7 +239,6 @@ dependencies {
 
     implementation("io.github.z4kn4fein:semver:3.0.0")
 
-    addCoil()
     addLottie()
 
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.2.0")

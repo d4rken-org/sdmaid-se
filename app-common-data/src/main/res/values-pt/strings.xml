@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Armazenamento público</string>
+    <string name="area_type_public_media_label">Mídia pública</string>
+    <string name="area_type_public_data_label">Mídia pública</string>
+    <string name="area_type_public_obb_label">Recursos de aplicações públicos</string>
+    <string name="area_type_private_data_label">Dados de apps privados</string>
+    <string name="area_type_portable_label">Armazenamento portátil</string>
+</resources>

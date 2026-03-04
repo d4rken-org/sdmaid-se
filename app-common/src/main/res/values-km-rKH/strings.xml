@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">អរគុណ</string>
     <string name="general_error_type_mismatch_msg">ប្រភេទមិនត្រូវគ្នា៖ ចង់បាន %1$s ប៉ុន្តែបានទទួល %2$s។</string>
     <string name="general_error_cant_access_msg">មិនអាចអាក់សេស %s បាន។</string>
-    <string name="general_error_root_unavailable">អាក់សេសឬស មិនអាចប្រើបានទេ។</string>
-    <string name="general_error_empty_result_msg">លទ្ធផលគឺទទេស្អាត។</string>
-    <string name="general_error_no_compatible_app_found_msg">រកមិនឃើញកម្មវិធីដែលឆបគ្នាក្នុងការដោះស្រាយសំណើនេះទេ។</string>
+    <string name="general_error_root_unavailable">អាក់សេសឬស មិនអាចប្រើបានទេ។</string>    <string name="general_error_no_compatible_app_found_msg">រកមិនឃើញកម្មវិធីដែលឆបគ្នាក្នុងការដោះស្រាយសំណើនេះទេ។</string>
     <string name="general_todo_msg">មុខងារនេះនៅកំពុងដំណើរការ ហើយបច្ចុប្បន្នមិនទាន់មានទេ។</string>
     <string name="general_share_action">ចែករំលែក</string>
     <string name="general_done_action">រួចរាល់</string>
     <string name="general_apply_action">អនុវត្ត</string>
-    <string name="general_copy_action">ចម្លង</string>
-    <string name="general_wipe_action">លុបជម្រះ</string>
-    <string name="general_cancel_action">បោះបង់</string>
+    <string name="general_copy_action">ចម្លង</string>    <string name="general_cancel_action">បោះបង់</string>
     <string name="general_discard_action">លះបង់</string>
     <string name="general_reset_action">កំណត់ឡើងវិញ</string>
     <string name="general_drag_handle_description">អូសដើម្បីតម្រៀបឡើងវិញ</string>
-    <string name="general_save_action">រក្សាទុក</string>
-    <string name="general_thanks_action">អរគុណ</string>
-    <string name="general_gotit_action">យល់ហើយ</string>
+    <string name="general_save_action">រក្សាទុក</string>    <string name="general_gotit_action">យល់ហើយ</string>
     <string name="general_fix_action">ជួសជុល</string>
     <string name="general_set_up_action">រៀបចំ</string>
     <string name="general_edit_action">កែសម្រួល</string>
@@ -162,4 +156,5 @@
     <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មដែលមានហានិភ័យ(ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) អាចនឹងត្រូវបានបាត់បង់ដោយស្មានមិនដល់។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន សូមពិនិត្យការអាប់ដេត ឬទាក់ទងមកខ្ញុំ ដូច្នេះខ្ញុំអាចជួសជុលវាបាន។</string>
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
+    <string name="settings_category_tools_label">ឧបករណ៍</string>
 </resources>

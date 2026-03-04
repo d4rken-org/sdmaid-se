@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="corpsefinder_explanation_short">Dati, kas pieder jau noņemtām lietotnēm.</string>
+    <string name="corpsefinder_settings_summary">Pielāgot skenēšanas filtrus un riska līmeņus.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Iekļaut vēlamos atlikumus</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Faili, kurus jūs varētu vēlēties paturēt, pat ja lietotne ir atinstalēta, piem. fotoattēli vai dublējumkopijas.</string>
+    <string name="corpsefinder_settings_risk_common_title">Iekļaut parastos nosaukumus</string>
+    <string name="corpsefinder_settings_risk_common_summary">Dati ar bieži izmantotiem nosaukumiem, piem. mape \"Notes\" pieder pārāk daudzām nezināmām lietotnēm.</string>
+    <string name="corpsefinder_watcher_title">Atinstalēšanas uzraugs</string>
+    <string name="corpsefinder_watcher_summary">Automātiski skenēt atlikumus, kad lietotne tiek noņemta.</string>
+    <string name="corpsefinder_watcher_autodelete_title">Automātiska dzēšana</string>
+    <string name="corpsefinder_watcher_autodelete_summary">Automātiski dzēst visus atlikumus, kas saistīti ar atinstalēto lietotni.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="zero">%1$d atlikumu atrasts pēc %2$s atinstalēšanas.</item>
+        <item quantity="one">%1$d atlikums atrasts pēc %2$s atinstalēšanas.</item>
+        <item quantity="other">%1$d atlikumi atrasti pēc %2$s atinstalēšanas.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="zero">Tīrīšana veiksmīga (%1$s): Atbrīvoti %2$s un noņemti %3$d vienumu.</item>
+        <item quantity="one">Tīrīšana veiksmīga (%1$s): Atbrīvoti %2$s un noņemts %3$d vienums.</item>
+        <item quantity="other">Tīrīšana veiksmīga (%1$s): Atbrīvoti %2$s un noņemti %3$d vienumi.</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">Dzēst atlikumus</string>
+    <string name="corpsefinder_filter_publicmedia_label">Publiskie mediji</string>
+    <string name="corpsefinder_filter_publicmedia_summary">Publiskie mediju faili, piem. faili, kas saņemti caur ziņapmaiņas lietotnēm.</string>
+    <string name="corpsefinder_filter_publicobb_label">OBB resursi</string>
+    <string name="corpsefinder_filter_publicobb_summary">Papildu lietotņu resursi, piem. spēļu aktīvi.</string>
+    <string name="corpsefinder_filter_publicdata_label">Publiskie lietotņu dati</string>
+    <string name="corpsefinder_filter_publicdata_summary">Nejutīgi lietotņu dati, piem. karšu kešatmiņas.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD karte</string>
+    <string name="corpsefinder_filter_sdcard_summary">Vispārējā publiskā krātuve, iekšējā un ārējā (piem. SD kartes).</string>
+    <string name="corpsefinder_filter_privatedata_label">Privātie lietotņu dati</string>
+    <string name="corpsefinder_filter_privatedata_summary">Privātie lietotņu dati, piem. akreditācijas dati, lietotnes iestatījumi, bet arī pārlūka kešatmiņas.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik kešatmiņa</string>
+    <string name="corpsefinder_filter_dalvik_summary">Kešotie lietotņu izpildes dati.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profili</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profilus Android izmanto lietotņu veiktspējas optimizēšanai.</string>
+    <string name="corpsefinder_filter_applib_label">Lietotņu bibliotēkas</string>
+    <string name="corpsefinder_filter_applib_summary">Ar lietotnēm saistīti bibliotēku dati.</string>
+    <string name="corpsefinder_filter_appsource_label">Lietotņu avoti</string>
+    <string name="corpsefinder_filter_appsource_summary">Lietotņu instalācijas dati, t.i., kur nonāk APK faili.</string>
+    <string name="corpsefinder_filter_appsource_private_label">Privātie lietotņu avoti</string>
+    <string name="corpsefinder_filter_appsource_private_summary">Ierobežoti instalācijas dati, piem. aizsargātas trešo pušu lietotnes.</string>
+    <string name="corpsefinder_filter_appasec_label">Šifrēti lietotņu resursi</string>
+    <string name="corpsefinder_filter_appasec_summary">Šifrēti lietotņu resursi, piem. spēļu aktīvi.</string>
+    <string name="corpsefinder_filter_app2sd_summary">Dati, kas pārvietoti uz ārējo krātuvi, izmantojot App2Sd modifikācijas.</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="zero">%d lietotņu atlikumu dzēsts</item>
+        <item quantity="one">%d lietotnes atlikums dzēsts</item>
+        <item quantity="other">%d lietotņu atlikumi dzēsti</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="zero">%d lietotņu atlikumu atklāts</item>
+        <item quantity="one">%d lietotnes atlikums atklāts</item>
+        <item quantity="other">%d lietotņu atlikumi atklāti</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">Dzēst visus lietotņu atlikumus?</string>
+    <string name="corpsefinder_owners_label">Īpašnieki</string>
+    <string name="corpsefinder_corpse_hints_label">Piezīme</string>
+    <string name="corpsefinder_owner_unknown">Nezināms īpašnieks</string>
+    <string name="corpsefinder_corpse_hint_keeper">Šis vienums var saturēt datus, kurus vēlaties paturēt, lai gan tā īpašnieks ir atinstalēts, piem. fotoattēlus vai dublējumkopijas.</string>
+    <string name="corpsefinder_corpse_hint_common">Šim vienumam ir ļoti parasts nosaukums, un tas varētu piederēt joprojām instalētām lietotnēm, kuras SD Maid nepazīst.</string>
+</resources>

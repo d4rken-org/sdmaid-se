@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Rejalashtiruvchi</string>
+    <string name="scheduler_execution_label">Keyingi bajarilish (taxminan)</string>
+    <string name="scheduler_execution_last_label">Oxirgi bajarilish</string>
+    <string name="scheduler_settings_label">Rejalashtiruvchi</string>
+    <string name="scheduler_settings_summary">Rejalashtiruvchi bilan bog\'liq sozlamalarni sozlash.</string>
+    <string name="scheduler_new_schedule_action">Rejani yaratish</string>
+    <string name="scheduler_schedule_name_label">Reja nomi</string>
+    <string name="scheduler_schedule_toggle_enabled">Reja yoqilgan</string>
+    <string name="scheduler_schedule_toggle_disabled">Reja o\'chirilgan</string>
+    <string name="scheduler_edit_schedule_action">Rejani tahrirlash</string>
+    <string name="scheduler_schedule_time_label">Taxminiy vaqt</string>
+    <string name="scheduler_schedule_repeat_label">Kunlardagi takrorlash oralig\'i</string>
+    <string name="scheduler_schedule_default_name">Standart reja</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s %2$s atrofida</string>
+    <string name="scheduler_schedule_next_at_x">%s uchun rejalashtirilgan</string>
+    <string name="scheduler_schedule_last_at_x">%s da oxirgi marta bajarildi</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Kundalik</item>
+        <item quantity="other">Har %d kunda</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Takrorlash oralig\'i</string>
+    <string name="scheduler_inaccurate_execution_hint">Kutilgan bajarilish vaqtlari taxminiydir. Batareyani tejash uchun rejalar kechiktirilishi yoki tezlashtirilishi mumkin.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Faol rejalar yo\'q</string>
+    <string name="scheduler_setting_nopowersaving_title">Kam batareyada o\'tkazib yuborish</string>
+    <string name="scheduler_setting_nopowersaving_summary">Agar qurilma quvvat tejash rejimida bo\'lsa, rejalashtirilgan bajarilish o\'tkazib yuboriladi.</string>
+    <string name="scheduler_setting_charging_title">Quvvat olmayotganda o\'tkazib yuborish</string>
+    <string name="scheduler_setting_charging_summary">Agar qurilma quvvat olmayotgan bo\'lsa, rejalashtirilgan bajarilish o\'tkazib yuboriladi.</string>
+    <string name="scheduler_setting_automation_title">Kirish xizmati</string>
+    <string name="scheduler_setting_automation_summary">Kirish xizmatidan foydalanadigan harakatlarni qo\'shing. Bu vazifalar bajarilganda SD Maid ekraningiz bilan o\'zaro aloqada bo\'lishini talab qiladi (ya\'ni u qulfdan chiqarilgan).</string>
+    <string name="scheduler_notification_channel_label">Rejalashtiruvchi</string>
+    <string name="scheduler_notification_title">Rejalashtirilgan vazifa</string>
+    <string name="scheduler_notification_message">Bajarilmoqda: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Rejalashtiruvchi tugallandi</string>
+    <string name="scheduler_notification_result_success_message">Barcha rejalashtirilgan vazifalar muvaffaqiyatli bajarildi.</string>
+    <string name="scheduler_notification_result_failure_message">Ba\'zi rejalashtirilgan vazifalar muvaffaqiyatsiz tugadi yoki xatolarga duch keldi. Ularni qo\'lda ishga tushirishga harakat qiling.</string>
+    <string name="scheduler_commands_after_schedule_label">Reja-keyingi buyruqlar</string>
+    <string name="scheduler_commands_after_schedule_desc">Reja oxirida bajariladigan Android shell buyruqlari.</string>
+    <string name="scheduler_battery_optimization_hint">Agar fon bajarilishida muammolarga duch kelsangiz, SD Maid uchun batareya optimallashtirishlarini o\'chirishni ko\'rib chiqing.</string>
+</resources>

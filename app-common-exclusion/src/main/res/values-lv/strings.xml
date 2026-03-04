@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="exclusion_manager_title">Izņēmumu pārvaldnieks</string>
+    <string name="exclusion_manager_desc">Pārvaldīt failu un lietotņu izņēmumus.</string>
+    <string name="exclusion_explanation_body1">Izslēgt failus un lietotnes no SD Maid darbībām.</string>
+</resources>

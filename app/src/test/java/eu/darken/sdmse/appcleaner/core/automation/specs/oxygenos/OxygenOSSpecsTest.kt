@@ -26,7 +26,7 @@ class OxygenOSSpecsTest : BaseAppCleanerSpecTest<OxygenOSSpecs, OxygenOSLabels>(
         deviceDetective = deviceDetective,
         oxygenOSLabels = labels,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
     )
 

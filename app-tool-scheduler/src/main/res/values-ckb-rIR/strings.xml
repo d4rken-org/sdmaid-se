@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_execution_label">دواتر execution (approximately)</string>
+    <string name="scheduler_execution_last_label">دوایین execution</string>
+    <string name="scheduler_settings_summary">Adjust scheduler related ڕێکخستنەکان.</string>
+    <string name="scheduler_edit_schedule_action">دەستکاری schedule</string>
+    <string name="scheduler_schedule_time_label">ئەپroximate time</string>
+    <string name="scheduler_schedule_default_name">بنەڕەت schedule</string>
+    <string name="scheduler_schedule_last_at_x">دوایین executed at %s</string>
+    <string name="scheduler_no_active_schedules_subtitle">نەخێر active schedules</string>
+    <string name="scheduler_setting_automation_title">دەسیەڵاتibility service</string>
+    <string name="scheduler_notification_result_failure_message">Some scheduled tasks failed or encountered هەڵەs. Try running them manually.</string>
+</resources>

@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Svingu tra dosieroj por decidi kion konservi aŭ forigi.</string>
+    <string name="swiper_dashcard_description">Mane revizii dosierojn en specifaj dosierujoj. Svingu por decidi kion konservi aŭ forigi.</string>
+    <string name="swiper_start_action">Komenci svingadon</string>
+    <string name="swiper_continue_action">Daŭrigi seancon</string>
+    <string name="swiper_sessions_description">Kelkaj dosieroj bezonas homan decidon. Svingu tra eroj kaj elektu kion konservi aŭ forigi. Preterpasu tion pri kio vi ne certas. Ĉi tiu ilo ebligas mane revizii specifajn dosierujojn, kaj nenio estas forigita ĝis vi konfirmas.</string>
+    <string name="swiper_select_folders_action">Elekti dosierujojn</string>
+    <string name="swiper_scanning_title">Skanante…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d ero trovita</item>
+        <item quantity="other">%d eroj trovitaj</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d ero forigita</item>
+        <item quantity="other">%d eroj forigitaj</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d ero malsukcesa</item>
+        <item quantity="other">%d eroj malsukcesaj</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d el %2$d</string>
+    <string name="swiper_keep_action">Konservi</string>
+    <string name="swiper_skip_action">Preterpasi</string>
+    <string name="swiper_review_action">Revizii</string>
+    <string name="swiper_status_title">Revizii decidojn</string>
+    <string name="swiper_status_action_keep_selected">Konservi elektitajn</string>
+    <string name="swiper_status_action_delete_selected">Forigi elektitajn</string>
+    <string name="swiper_status_action_reset_selected">Restarigi elektitajn</string>
+    <string name="swiper_decision_undecided">Nedecidita</string>
+    <string name="swiper_retry_action">Reprovi</string>
+    <string name="swiper_delete_confirmation_title">Ĉu forigi dosierojn?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Ĉi tio porĉiame forigos %1$d dosieron (%2$s). Ĉi tiu ago ne estas malfarebla.</item>
+        <item quantity="other">Ĉi tio porĉiame forigos %1$d dosierojn (%2$s). Ĉi tiu ago ne estas malfarebla.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d nedecidita ero restos por posta revizio.</item>
+        <item quantity="other">%d nedecititaj eroj restos por posta revizio.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Forigi %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Interŝanĝi svingajn direktojn</string>
+    <string name="swiper_settings_swap_directions_summary">Svingu maldekstren por konservi, dekstren por forigi.</string>
+    <string name="swiper_settings_show_details_title">Montri dosierajn detalojn</string>
+    <string name="swiper_settings_show_details_summary">Montri dosieran nomon, grandecon kaj daton sur la svinga ekrano.</string>
+    <string name="swiper_settings_haptic_feedback_title">Tuŝa reago</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibri ĉe decidoj de konservi aŭ forigi.</string>
+    <string name="swiper_discard_session_confirmation_title">Ĉu forĵeti seancon?</string>
+    <string name="swiper_discard_session_confirmation_message">Ĉiuj decidoj perdiĝos. Ĉu vi certas?</string>
+    <string name="swiper_no_preview_available">Neniu antaŭrigardo disponebla</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Daŭrigi seancon de antaŭ %1$d tago (%2$d%% finita)</item>
+        <item quantity="other">Daŭrigi seancon de antaŭ %1$d tagoj (%2$d%% finita)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d seanco</item>
+        <item quantity="other">%d seancoj</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d nedecidita ero</item>
+        <item quantity="other">%d nedecititaj eroj</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Kreita %1$s, lasta aktiveco %2$s</string>
+    <string name="swiper_session_remove_action">Forigi seancon</string>
+    <string name="swiper_sessions_empty_hint">Tuŝu + por elekti dosierujon kaj komenci svingadon</string>
+    <string name="swiper_sessions_upgrade_body">Ĝisdatigu por forigi ĉi tiujn limojn kaj subteni disvolvadon. La senpaga versio estas limigita al:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d dosiero po seanco</item>
+        <item quantity="other">%d dosieroj po seanco</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d seanco</item>
+        <item quantity="other">%d seancoj</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seanco #%d</string>
+    <string name="swiper_session_rename_title">Renomi seancon</string>
+    <string name="swiper_session_rename_hint">Enigu nomon por ĉi tiu seanco</string>
+    <string name="swiper_sessions_current_sessions">Aktualaj seancoj</string>
+    <string name="swiper_session_paths_label">Vojoj</string>
+    <string name="swiper_session_status_label">Stato</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d konservenda</item>
+        <item quantity="other">%d konservendaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d forigenda</item>
+        <item quantity="other">%d forigendaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d nedecidita</item>
+        <item quantity="other">%d nedecititaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d jam konservita</item>
+        <item quantity="other">%d jam konservitaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d jam forigita</item>
+        <item quantity="other">%d jam forigitaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d konservita</item>
+        <item quantity="other">%d konservitaj</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d forigita</item>
+        <item quantity="other">%d forigitaj</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Ĉu ekskludi \"%1$s\" de Swiper-skanadoj?</string>
+    <string name="swiper_sessions_header_title">Ĉu preta por ordigi?</string>
+    <string name="swiper_sessions_suggestions_label">Provu komenci per:</string>
+    <string name="swiper_sessions_suggestion_downloads">Elŝuta dosierujo</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekrankopioj</string>
+    <string name="swiper_sessions_suggestion_camera">Kamera rulaĵo</string>
+    <string name="swiper_stamp_keep_1">Konservu!</string>
+    <string name="swiper_stamp_keep_2">Bela!</string>
+    <string name="swiper_stamp_keep_3">Jes!</string>
+    <string name="swiper_stamp_keep_4">Savu!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Adiaŭ!</string>
+    <string name="swiper_stamp_delete_3">Rubo!</string>
+    <string name="swiper_stamp_delete_4">Forigu!</string>
+    <string name="swiper_stamp_skip_1">Preterpasu!</string>
+    <string name="swiper_stamp_skip_2">Nu!</string>
+    <string name="swiper_stamp_skip_3">Poste!</string>
+    <string name="swiper_stamp_skip_4">Eble!</string>
+    <string name="swiper_stamp_undo_1">Malfaru!</string>
+    <string name="swiper_stamp_undo_2">Reen!</string>
+    <string name="swiper_stamp_undo_3">Ho!</string>
+    <string name="swiper_stamp_undo_4">Atendu!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tuŝu ie ajn por komenci</string>
+    <string name="swiper_gesture_overlay_left_delete">← Forigi</string>
+    <string name="swiper_gesture_overlay_right_keep">Konservi →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Konservi</string>
+    <string name="swiper_gesture_overlay_right_delete">Forigi →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Preterpasi</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Malfari</string>
+    <string name="swiper_help_title">Kiel Swiper funkcias</string>
+    <string name="swiper_help_message">Svingu ĉiun dosieron por decidi:\n\n← Svingu maldekstren: %1$s\n→ Svingu dekstren: %2$s\n↑ Svingu supren: Preterpasi\n↓ Svingu malsupren: Malfari (post la unua svingo)\n\nVi ankaŭ povas uzi la butonojn ĉe la malsupro.\n\nKiam vi finis, tuŝu \"Revizio\" por vidi ĉiujn viajn decidojn. Nenio estas forigita ĝis vi konfirmas en la revizia ekrano.</string>
+</resources>

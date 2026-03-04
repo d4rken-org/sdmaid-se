@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Isihlelakuthi</string>
+    <string name="scheduler_execution_label">Ukwenziwa okulandelayo (cishe)</string>
+    <string name="scheduler_execution_last_label">Ukwenziwa kokugcina</string>
+    <string name="scheduler_settings_label">Isihlelakuthi</string>
+    <string name="scheduler_settings_summary">Lungisa izilungiselelo ezihlobene nesihlelakuthi.</string>
+    <string name="scheduler_new_schedule_action">Dala uhlelo</string>
+    <string name="scheduler_schedule_name_label">Igama lohlelo</string>
+    <string name="scheduler_schedule_toggle_enabled">Uhlelo lunikwe amandla</string>
+    <string name="scheduler_schedule_toggle_disabled">Uhlelo lukhubazekile</string>
+    <string name="scheduler_edit_schedule_action">Hlela uhlelo</string>
+    <string name="scheduler_schedule_time_label">Isikhathi esicishe</string>
+    <string name="scheduler_schedule_repeat_label">Isikhathi sokuphinda ngezinsuku</string>
+    <string name="scheduler_schedule_default_name">Uhlelo oluzenzakalelayo</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s cishe ngo-%2$s</string>
+    <string name="scheduler_schedule_next_at_x">Kuhlelwe ngo-%s</string>
+    <string name="scheduler_schedule_last_at_x">Kwenziwe kokuqcina ngo-%s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Njalo ezinsukwini ezingu-%d</item>
+        <item quantity="other">Njalo ezinsukwini ezingu-%d</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Isikhathi sokuphinda</string>
+    <string name="scheduler_inaccurate_execution_hint">Izikhathi zokwenza ezilindelekile zilinganisela. Izinhlelo zingase ziphuziswe noma zisheshiswe uma kulondoloza ibhethri.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Azikho izinhlelo ezisebenzayo</string>
+    <string name="scheduler_setting_nopowersaving_title">Yeqa uma ibhethri iphansi</string>
+    <string name="scheduler_setting_nopowersaving_summary">Uma idivayisi isemodi yokonga amandla, ukwenziwa okuhleliwe kuzoyeqwa.</string>
+    <string name="scheduler_setting_charging_title">Yeqa uma kungashajwa</string>
+    <string name="scheduler_setting_charging_summary">Uma idivayisi ingashaji, ukwenziwa okuhleliwe kuzoyeqwa.</string>
+    <string name="scheduler_setting_automation_title">Insiza yokufinyelela</string>
+    <string name="scheduler_setting_automation_summary">Faka izenzo ezisebenzisa insiza yokufinyelela. Lokhu kudinga ukuthi i-SD Maid ikwazi ukuxhumana nesikrini sakho (okusho ukuthi sivuliwe) lapho imisebenzi yenziwa.</string>
+    <string name="scheduler_notification_channel_label">Isihlelakuthi</string>
+    <string name="scheduler_notification_title">Umsebenzi ohleliwe</string>
+    <string name="scheduler_notification_message">Kuyenziwa: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Isihlelakuthi siqediwe</string>
+    <string name="scheduler_notification_result_success_message">Yonke imisebenzi ehleliwe iqhubekile ngempumelelo.</string>
+    <string name="scheduler_notification_result_failure_message">Eminye imisebenzi ehleliwe yehlulekile noma yahlangabezana namaphutha. Zama ukuyiqhuba mathupha.</string>
+    <string name="scheduler_commands_after_schedule_label">Imiyalo yangemva kohlelo</string>
+    <string name="scheduler_commands_after_schedule_desc">Imiyalo ye-Android shell ezokwenziwa ekugcineni kohlelo.</string>
+    <string name="scheduler_battery_optimization_hint">Cabanga ngokukhubaza ukulungiswa kwebhethri kwe-SD Maid uma uhlangabezana nezinkinga zokwenza ngemuva.</string>
+</resources>

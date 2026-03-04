@@ -141,9 +141,6 @@
             android:id="@+id/action_settingsContainerFragment_to_exclusionsListFragment"
             app:destination="@id/exclusionsListFragment" />
         <action
-            android:id="@+id/action_settingsContainerFragment_to_customFilterListFragment"
-            app:destination="@id/customFilterListFragment" />
-        <action
             android:id="@+id/action_settingsContainerFragment_to_supportContactFormFragment"
             app:destination="@id/supportContactFormFragment" />
     </fragment>
@@ -152,6 +149,10 @@
         android:id="@+id/supportContactFormFragment"
         android:name="eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFragment"
         tools:layout="@layout/support_contact_form_fragment" />
+
+    <action
+        android:id="@+id/goToCustomFilterList"
+        app:destination="@id/customFilterListFragment" />
 
     <action
         android:id="@+id/goToUpgradeFragment"
@@ -456,7 +457,7 @@
         <argument
             android:name="initial"
             android:defaultValue="@null"
-            app:argType="eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorOptions"
+            app:argType="eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterEditorOptions"
             app:nullable="true" />
         <argument
             android:name="identifier"

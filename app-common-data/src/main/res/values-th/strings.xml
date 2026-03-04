@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">พื้นที่จัดเก็บสาธารณะ</string>
+    <string name="area_type_public_media_label">มีเดียแอพสาธารณะ</string>
+    <string name="area_type_public_data_label">ข้อมูลแอพสาธารณะ</string>
+    <string name="area_type_public_obb_label">ทรัพยากรแอพสาธารณะ</string>
+    <string name="area_type_private_data_label">ข้อมูลแอพส่วนตัว</string>
+    <string name="area_type_portable_label">พื้นที่จัดเก็บแบบพกพา</string>
+</resources>

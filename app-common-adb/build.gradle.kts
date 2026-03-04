@@ -15,7 +15,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         aidl = true
     }
 
@@ -42,7 +41,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addIO()
 
     addTesting()
 

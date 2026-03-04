@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Seleccioneu la ruta</string>
+    <string name="picker_selected_paths_title">Rutes seleccionades</string>
+    <string name="picker_unsaved_confirmation_message">Voleu descartar els canvis?</string>
+    <string name="picker_home_action">Àrees de dades</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">Ruta seleccionada: %d</item>
+    <item quantity="other">Rutes seleccionades: %d</item>
+    </plurals>
+</resources>

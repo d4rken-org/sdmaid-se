@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Odaberi putanje</string>
+    <string name="picker_selected_paths_title">Odabrane putanje</string>
+    <string name="picker_unsaved_confirmation_message">Odbaciti promjene?</string>
+    <string name="picker_home_action">Područja podataka</string>
+    <plurals name="picker_selected_paths_subtitle">
+    <item quantity="one">%d odabrana putanja</item>
+    <item quantity="few">%d odabrane putanje</item>
+    <item quantity="other">%d odabranih putanja</item>
+    </plurals>
+</resources>

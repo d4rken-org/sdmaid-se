@@ -47,7 +47,7 @@ class QualityInputDialog(
             val inputFormatted = Formatter.formatShortFileSize(context, exampleInputSize)
             val savingsFormatted = Formatter.formatShortFileSize(context, estimatedSavings)
             exampleText.text = context.getString(
-                R.string.squeezer_quality_example_format,
+                eu.darken.sdmse.squeezer.R.string.squeezer_quality_example_format,
                 inputFormatted,
                 savingsFormatted,
                 quality

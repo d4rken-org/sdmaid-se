@@ -64,7 +64,7 @@ class HyperOsSpecsTest : BaseAppCleanerSpecTest<HyperOsSpecs, HyperOsLabels>() {
         aospLabels = aospLabels,
         deviceAdminManager = deviceAdminManager,
         storageEntryFinder = storageEntryFinder,
-        generalSettings = generalSettings,
+        romTypeProvider = romTypeProvider,
         stepper = stepper,
         animationTool = animationTool,
     )

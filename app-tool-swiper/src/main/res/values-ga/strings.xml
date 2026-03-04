@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Svaidhpeáil trí chomhaid chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
+    <string name="swiper_dashcard_description">Athbhreithnigh comhaid de láimh i bhfillteáin shonracha. Svaidhpeáil chun cinneadh a dhéanamh cad a choinnítear nó a scriostar.</string>
+    <string name="swiper_start_action">Tosaigh ag svaidhpeáil</string>
+    <string name="swiper_continue_action">Lean ar aghaidh leis an seisiún</string>
+    <string name="swiper_sessions_description">Teastaíonn cinneadh daonna ó roinnt comhad. Svaidhpeáil trí mhíreanna agus roghnaigh cad a choinnítear nó a scriostar. Scipeáil aon rud nach bhfuil tú cinnte faoi. Ligeann an uirlis seo duit fillteáin shonracha a athbhreithniú de láimh, agus ní bhaintear aon rud go dtí go ndearbhaíonn tú.</string>
+    <string name="swiper_select_folders_action">Roghnaigh fillteáin</string>
+    <string name="swiper_scanning_title">Ag scanadh…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d mhír aimsíodh</item>
+        <item quantity="two">%d mhír aimsíodh</item>
+        <item quantity="few">%d mhír aimsíodh</item>
+        <item quantity="many">%d mír aimsíodh</item>
+        <item quantity="other">%d mír aimsíodh</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d mhír scriosta</item>
+        <item quantity="two">%d mhír scriosta</item>
+        <item quantity="few">%d mhír scriosta</item>
+        <item quantity="many">%d mír scriosta</item>
+        <item quantity="other">%d mír scriosta</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d mhír theipthe</item>
+        <item quantity="two">%d mhír theipthe</item>
+        <item quantity="few">%d mhír theipthe</item>
+        <item quantity="many">%d mír theipthe</item>
+        <item quantity="other">%d mír theipthe</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d as %2$d</string>
+    <string name="swiper_keep_action">Coinnigh</string>
+    <string name="swiper_skip_action">Scipeáil</string>
+    <string name="swiper_review_action">Athbhreithnigh</string>
+    <string name="swiper_status_title">Athbhreithnigh cinntí</string>
+    <string name="swiper_status_action_keep_selected">Coinnigh roghnaithe</string>
+    <string name="swiper_status_action_delete_selected">Scrios roghnaithe</string>
+    <string name="swiper_status_action_reset_selected">Athshocraigh roghnaithe</string>
+    <string name="swiper_decision_undecided">Neamhchinntithe</string>
+    <string name="swiper_retry_action">Bain triail eile as</string>
+    <string name="swiper_delete_confirmation_title">Scrios comhaid?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="two">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="few">Scriosfaidh sé seo %1$d chomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="many">Scriosfaidh sé seo %1$d gcomhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+        <item quantity="other">Scriosfaidh sé seo %1$d comhad (%2$s) go buan. Ní féidir an gníomh seo a chealú.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="two">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="few">Fanfaidh %d mhír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="many">Fanfaidh %d mír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+        <item quantity="other">Fanfaidh %d mír neamhchinntithe le haghaidh athbhreithnithe níos déanaí.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Scrios %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Malartaigh treoracha svaidhpeála</string>
+    <string name="swiper_settings_swap_directions_summary">Svaidhpeáil ar chlé chun coinneáil, ar dheis chun scriosadh.</string>
+    <string name="swiper_settings_show_details_title">Taispeáin mionsonraí comhaid</string>
+    <string name="swiper_settings_show_details_summary">Taispeáin ainm comhaid, méid agus dáta ar an scáileán svaidhpeála.</string>
+    <string name="swiper_settings_haptic_feedback_title">Aiseolas haisteach</string>
+    <string name="swiper_settings_haptic_feedback_summary">Crith agus cinntí coinneála nó scriosaidh á ndéanamh.</string>
+    <string name="swiper_discard_session_confirmation_title">Diúscair an seisiún?</string>
+    <string name="swiper_discard_session_confirmation_message">Caillfear gach cinneadh. An bhfuil tú cinnte?</string>
+    <string name="swiper_no_preview_available">Níl réamhamharc ar fáil</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="two">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="few">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="many">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+        <item quantity="other">Lean ar aghaidh le seisiún ó %1$d lá ó shin (%2$d%% críochnaithe)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d seisiún</item>
+        <item quantity="two">%d sheisiún</item>
+        <item quantity="few">%d sheisiún</item>
+        <item quantity="many">%d seisiún</item>
+        <item quantity="other">%d seisiún</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d mhír neamhchinntithe</item>
+        <item quantity="two">%d mhír neamhchinntithe</item>
+        <item quantity="few">%d mhír neamhchinntithe</item>
+        <item quantity="many">%d mír neamhchinntithe</item>
+        <item quantity="other">%d mír neamhchinntithe</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Cruthaithe %1$s, gníomhaíocht dheireanach %2$s</string>
+    <string name="swiper_session_remove_action">Bain seisiún</string>
+    <string name="swiper_sessions_empty_hint">Tapáil + chun fillteán a roghnú agus tosú ag svaidhpeáil</string>
+    <string name="swiper_sessions_upgrade_body">Uasghrádaigh chun na teorainneacha seo a bhaint agus forbairt a thacú. Tá an leagan saor in aisce teoranta do:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="two">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="few">%d chomhad in aghaidh an tseisiúin</item>
+        <item quantity="many">%d gcomhad in aghaidh an tseisiúin</item>
+        <item quantity="other">%d comhad in aghaidh an tseisiúin</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d seisiún</item>
+        <item quantity="two">%d sheisiún</item>
+        <item quantity="few">%d sheisiún</item>
+        <item quantity="many">%d seisiún</item>
+        <item quantity="other">%d seisiún</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seisiún #%d</string>
+    <string name="swiper_session_rename_title">Athainmnigh seisiún</string>
+    <string name="swiper_session_rename_hint">Iontráil ainm don seisiún seo</string>
+    <string name="swiper_sessions_current_sessions">Seisiúin reatha</string>
+    <string name="swiper_session_paths_label">Cosáin</string>
+    <string name="swiper_session_status_label">Stádas</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d le coinneáil</item>
+        <item quantity="two">%d le coinneáil</item>
+        <item quantity="few">%d le coinneáil</item>
+        <item quantity="many">%d le coinneáil</item>
+        <item quantity="other">%d le coinneáil</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d le scriosadh</item>
+        <item quantity="two">%d le scriosadh</item>
+        <item quantity="few">%d le scriosadh</item>
+        <item quantity="many">%d le scriosadh</item>
+        <item quantity="other">%d le scriosadh</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d neamhchinntithe</item>
+        <item quantity="two">%d neamhchinntithe</item>
+        <item quantity="few">%d neamhchinntithe</item>
+        <item quantity="many">%d neamhchinntithe</item>
+        <item quantity="other">%d neamhchinntithe</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d coinnithe cheana</item>
+        <item quantity="two">%d choinnithe cheana</item>
+        <item quantity="few">%d choinnithe cheana</item>
+        <item quantity="many">%d gcoinnithe cheana</item>
+        <item quantity="other">%d coinnithe cheana</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d scriosta cheana</item>
+        <item quantity="two">%d scriosta cheana</item>
+        <item quantity="few">%d scriosta cheana</item>
+        <item quantity="many">%d scriosta cheana</item>
+        <item quantity="other">%d scriosta cheana</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d coinnithe</item>
+        <item quantity="two">%d choinnithe</item>
+        <item quantity="few">%d choinnithe</item>
+        <item quantity="many">%d gcoinnithe</item>
+        <item quantity="other">%d coinnithe</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d scriosta</item>
+        <item quantity="two">%d scriosta</item>
+        <item quantity="few">%d scriosta</item>
+        <item quantity="many">%d scriosta</item>
+        <item quantity="other">%d scriosta</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Eisiaigh \"%1$s\" ó scanta Swiper?</string>
+    <string name="swiper_sessions_header_title">Réidh le slachtú?</string>
+    <string name="swiper_sessions_suggestions_label">Bain triail as tosú le:</string>
+    <string name="swiper_sessions_suggestion_downloads">Fillteán íoslódálacha</string>
+    <string name="swiper_sessions_suggestion_screenshots">Gabhálacha scáileáin</string>
+    <string name="swiper_sessions_suggestion_camera">Rolla ceamara</string>
+    <string name="swiper_stamp_keep_1">Coinnigh!</string>
+    <string name="swiper_stamp_keep_2">Go deas!</string>
+    <string name="swiper_stamp_keep_3">Sea!</string>
+    <string name="swiper_stamp_keep_4">Sábháil!</string>
+    <string name="swiper_stamp_delete_1">Ná!</string>
+    <string name="swiper_stamp_delete_2">Slán!</string>
+    <string name="swiper_stamp_delete_3">Bruscar!</string>
+    <string name="swiper_stamp_delete_4">Scrios!</string>
+    <string name="swiper_stamp_skip_1">Scipeáil!</string>
+    <string name="swiper_stamp_skip_2">Hmm!</string>
+    <string name="swiper_stamp_skip_3">Ar ball!</string>
+    <string name="swiper_stamp_skip_4">B\'fhéidir!</string>
+    <string name="swiper_stamp_undo_1">Cealaigh!</string>
+    <string name="swiper_stamp_undo_2">Siar!</string>
+    <string name="swiper_stamp_undo_3">Úps!</string>
+    <string name="swiper_stamp_undo_4">Fan!</string>
+    <string name="swiper_gesture_overlay_dismiss">Tapáil áit ar bith chun tosú</string>
+    <string name="swiper_gesture_overlay_left_delete">← Scrios</string>
+    <string name="swiper_gesture_overlay_right_keep">Coinnigh →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Coinnigh</string>
+    <string name="swiper_gesture_overlay_right_delete">Scrios →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Scipeáil</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Cealaigh</string>
+    <string name="swiper_help_title">Conas a oibríonn Swiper</string>
+    <string name="swiper_help_message">Svaidhpeáil gach comhad chun cinneadh a dhéanamh:\n\n← Svaidhpeáil ar chlé: %1$s\n→ Svaidhpeáil ar dheis: %2$s\n↑ Svaidhpeáil suas: Scipeáil\n↓ Svaidhpeáil síos: Cealaigh (tar éis an chéad svaidhpeáil)\n\nIs féidir leat na cnaipí ag an mbun a úsáid freisin.\n\nNuair atá tú réidh, tapáil \"Athbhreithniú\" chun do chinntí go léir a fheiceáil. Ní scriostar aon rud go dtí go ndearbhaíonn tú ar an scáileán athbhreithnithe.</string>
+</resources>

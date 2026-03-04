@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Спасибо</string>
     <string name="general_error_type_mismatch_msg">Несоответствие: хотели %1$s, а получили %2$s.</string>
     <string name="general_error_cant_access_msg">Нет доступа к %s.</string>
-    <string name="general_error_root_unavailable">Рут-доступ отсутствует.</string>
-    <string name="general_error_empty_result_msg">Пустой результат.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не найдено подходящего приложения для обработки этого запроса.</string>
+    <string name="general_error_root_unavailable">Рут-доступ отсутствует.</string>    <string name="general_error_no_compatible_app_found_msg">Не найдено подходящего приложения для обработки этого запроса.</string>
     <string name="general_todo_msg">Эта функция находится в стадии разработки и в настоящее время недоступна.</string>
     <string name="general_share_action">Поделиться</string>
     <string name="general_done_action">Готово</string>
     <string name="general_apply_action">Применить</string>
-    <string name="general_copy_action">Копировать</string>
-    <string name="general_wipe_action">Стереть</string>
-    <string name="general_cancel_action">Отменить</string>
+    <string name="general_copy_action">Копировать</string>    <string name="general_cancel_action">Отменить</string>
     <string name="general_discard_action">Отказаться</string>
     <string name="general_reset_action">Сброс</string>
     <string name="general_drag_handle_description">Перетащите, чтобы изменить порядок</string>
-    <string name="general_save_action">Сохранить</string>
-    <string name="general_thanks_action">Спасибо</string>
-    <string name="general_gotit_action">Понятно</string>
+    <string name="general_save_action">Сохранить</string>    <string name="general_gotit_action">Понятно</string>
     <string name="general_fix_action">Исправить</string>
     <string name="general_set_up_action">Установка</string>
     <string name="general_edit_action">Редактировать</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">Соединение с необходимой службой (например, Magisk, Shizuku или другой службой системного уровня) потеряно. Пожалуйста, перезагрузите Ваше устройство. Если проблема не исчезает, проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
     <string name="general_user_label_owner">Владелец</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Установка</string>
+    <string name="setup_feature_requires_additional_setup_x">Эта функция требует завершения дополнительных настроек: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Создано одно исключение</item>
+        <item quantity="few">Создано исключений: %d</item>
+        <item quantity="many">Создано исключений: %d</item>
+        <item quantity="other">Создано исключений: %d</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Мусор</string>
+    <string name="systemcleaner_tool_name">Система</string>
+    <string name="appcleaner_tool_name">Приложения</string>
+    <string name="deduplicator_tool_name">Дедупликатор</string>
+    <string name="squeezer_tool_name">Сжатие медиа</string>
+    <string name="appcontrol_tool_name">Менеджер</string>
+    <string name="analyzer_tool_name">Анализ памяти</string>
+    <string name="swiper_tool_name">Свайпер</string>
+    <string name="stats_label">История</string>
+    <string name="settings_category_tools_label">Инструменты</string>
+    <string name="general_include_multiuser_label">Включать других пользователей</string>
+    <string name="general_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
+    <string name="general_unsaved_confirmation_message">У Вас есть несохранённые изменения!</string>
 </resources>

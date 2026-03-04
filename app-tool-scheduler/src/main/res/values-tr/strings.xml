@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Zamanlayıcı</string>
+    <string name="scheduler_execution_label">Sonraki yürütme (yaklaşık olarak)</string>
+    <string name="scheduler_execution_last_label">Son yürütme</string>
+    <string name="scheduler_settings_label">Zamanlayıcı</string>
+    <string name="scheduler_settings_summary">Zamanlayıcıyla ilgili ayarları yapın.</string>
+    <string name="scheduler_new_schedule_action">Program oluştur</string>
+    <string name="scheduler_schedule_name_label">Program adı</string>
+    <string name="scheduler_schedule_toggle_enabled">Program etkin</string>
+    <string name="scheduler_schedule_toggle_disabled">Program devre dışı</string>
+    <string name="scheduler_edit_schedule_action">Programı düzenle</string>
+    <string name="scheduler_schedule_time_label">Yaklaşık zaman</string>
+    <string name="scheduler_schedule_repeat_label">Gün cinsinden tekrar aralığı</string>
+    <string name="scheduler_schedule_default_name">Varsayılan program</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s civarında %2$s</string>
+    <string name="scheduler_schedule_next_at_x">%s için planlandı</string>
+    <string name="scheduler_schedule_last_at_x">Son çalıştırma %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Günlük</item>
+        <item quantity="other">%d günde bir</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Tekrar aralığı</string>
+    <string name="scheduler_inaccurate_execution_hint">Beklenen yürütme süreleri yaklaşık değerlerdir. Pil tasarrufu sağlarsa programlar ertelenebilir veya hızlandırılabilir.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Etkin program yok</string>
+    <string name="scheduler_setting_nopowersaving_title">Düşük pilde atla</string>
+    <string name="scheduler_setting_nopowersaving_summary">Telefon güç tasarrufu modundaysa programlanan yürütme atlanır.</string>
+    <string name="scheduler_setting_charging_title">Şarj olmazken atla</string>
+    <string name="scheduler_setting_charging_summary">Cihaz şarj olmuyorsa, zamanlanmış yürütme atlanacaktır.</string>
+    <string name="scheduler_setting_automation_title">Erişilebilirlik hizmeti</string>
+    <string name="scheduler_setting_automation_summary">Erişilebilirlik hizmetini kullanan eylemleri dahil edin. Bu, görevler yürütüldüğünde SD Maid\'in ekranınızla etkileşime girebilmesini (yani ekran kilidinin açık olmasını) gerektirir.</string>
+    <string name="scheduler_notification_channel_label">Zamanlayıcı</string>
+    <string name="scheduler_notification_title">Planlanmış görev</string>
+    <string name="scheduler_notification_message">Yürütülüyor: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Zamanlayıcı tamamlandı</string>
+    <string name="scheduler_notification_result_success_message">Tüm zamanlanmış görevler başarıyla çalıştı.</string>
+    <string name="scheduler_notification_result_failure_message">Bazı zamanlanmış görevler başarısız oldu veya hatalarla karşılaştı. Bunları manuel olarak çalıştırmayı deneyin.</string>
+    <string name="scheduler_commands_after_schedule_label">Program sonrası komutlar</string>
+    <string name="scheduler_commands_after_schedule_desc">Bir zamanlamanın sonunda çalıştırılacak Android shell komutları.</string>
+    <string name="scheduler_battery_optimization_hint">Uygulamanın arka planda çalışmasıyla ilgili sorunlar yaşıyorsanız SD Maid için batarya optimizasyonlarını kapatmayı deneyebilirsiniz.</string>
+</resources>

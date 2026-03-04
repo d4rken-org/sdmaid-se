@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">ସାର୍ବଜନୀନ ଷ୍ଟୋରେଜ୍</string>
+    <string name="area_type_public_media_label">ସାର୍ବଜନୀନ ଆପ୍ ମିଡିଆ</string>
+    <string name="area_type_public_data_label">ସାର୍ବଜନୀନ ଆପ୍ ଡାଟା</string>
+    <string name="area_type_public_obb_label">ସାର୍ବଜନୀନ ଆପ୍ ଉତ୍ସ</string>
+    <string name="area_type_private_data_label">ବ୍ୟକ୍ତିଗତ ଆପ୍ ଡାଟା</string>
+    <string name="area_type_portable_label">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+</resources>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Dankie</string>
     <string name="general_error_type_mismatch_msg">Tipe mispas: wou %1$s hê, maar het %2$s gekry.</string>
     <string name="general_error_cant_access_msg">Kan nie toegang tot %s kry nie.</string>
-    <string name="general_error_root_unavailable">Worteltoegang is nie beskikbaar nie.</string>
-    <string name="general_error_empty_result_msg">Die resultaat was leeg.</string>
-    <string name="general_error_no_compatible_app_found_msg">Geen versoenbare toepassing gevind om hierdie versoek te hanteer nie.</string>
+    <string name="general_error_root_unavailable">Worteltoegang is nie beskikbaar nie.</string>    <string name="general_error_no_compatible_app_found_msg">Geen versoenbare toepassing gevind om hierdie versoek te hanteer nie.</string>
     <string name="general_todo_msg">Daar word nog aan hierdie kenmerk gewerk en tans nie beskikbaar nie.</string>
     <string name="general_share_action">Deel</string>
     <string name="general_done_action">Klaar</string>
     <string name="general_apply_action">Pas toe</string>
-    <string name="general_copy_action">Kopieer</string>
-    <string name="general_wipe_action">Vee uit</string>
-    <string name="general_cancel_action">Kanselleer</string>
+    <string name="general_copy_action">Kopieer</string>    <string name="general_cancel_action">Kanselleer</string>
     <string name="general_discard_action">Gooi weg</string>
     <string name="general_reset_action">Herstel</string>
     <string name="general_drag_handle_description">Sleep om te herrangskik</string>
-    <string name="general_save_action">Stoor</string>
-    <string name="general_thanks_action">Dankie</string>
-    <string name="general_gotit_action">Verstaan</string>
+    <string name="general_save_action">Stoor</string>    <string name="general_gotit_action">Verstaan</string>
     <string name="general_fix_action">Regstel</string>
     <string name="general_set_up_action">Stel op</string>
     <string name="general_edit_action">Redigeer</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Die verbinding na \'n kritieke diens (bv. Magisk, Shizuku, of ander stelsel-vlak dienste) is onverwags verloor. Herlaai asseblief jou toestel. As die probleem voortduur, kontroleer vir opdaterings of kontak my sodat ek dit kan regstel.</string>
     <string name="general_user_label_owner">Eienaar</string>
     <string name="general_user_label_system">Stelsel</string>
+    <string name="setup_title">Opstelling</string>
+    <string name="setup_feature_requires_additional_setup_x">Hierdie kenmerk vereis die voltooiing van addisionele opstelling items: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Een uitsluiting geskep</item>
+        <item quantity="other">%d uitsluitings geskep</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Geskiedenis</string>
+    <string name="settings_category_tools_label">Gereedskap</string>
+    <string name="general_include_multiuser_label">Sluit ander gebruikers in</string>
+    <string name="general_include_multiuser_summary">Sluit toepassings van ander gebruiker profiele op hierdie toestel in.</string>
+    <string name="general_unsaved_confirmation_message">Jy het ongestoorde veranderinge!</string>
 </resources>

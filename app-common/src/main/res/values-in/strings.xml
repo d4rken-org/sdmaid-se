@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Terima kasih</string>
     <string name="general_error_type_mismatch_msg">Ketidakcocokan jenis: Menginginkan %1$s, tapi mendapatkan %2$s.</string>
     <string name="general_error_cant_access_msg">Tidak dapat mengakses %s.</string>
-    <string name="general_error_root_unavailable">Akses root tidak tersedia.</string>
-    <string name="general_error_empty_result_msg">Hasilnya kosong.</string>
-    <string name="general_error_no_compatible_app_found_msg">Tidak menemukan aplikasi yang kompatibel untuk menangani permintaan ini.</string>
+    <string name="general_error_root_unavailable">Akses root tidak tersedia.</string>    <string name="general_error_no_compatible_app_found_msg">Tidak menemukan aplikasi yang kompatibel untuk menangani permintaan ini.</string>
     <string name="general_todo_msg">Fitur ini masih dalam pengerjaan dan belum tersedia saat ini.</string>
     <string name="general_share_action">Bagikan</string>
     <string name="general_done_action">Selesai</string>
     <string name="general_apply_action">Terapkan</string>
-    <string name="general_copy_action">Salin</string>
-    <string name="general_wipe_action">Bersihkan</string>
-    <string name="general_cancel_action">Batal</string>
+    <string name="general_copy_action">Salin</string>    <string name="general_cancel_action">Batal</string>
     <string name="general_discard_action">Buang</string>
     <string name="general_reset_action">Atur ulang</string>
     <string name="general_drag_handle_description">Seret untuk mengurutkan ulang</string>
-    <string name="general_save_action">Simpan</string>
-    <string name="general_thanks_action">Terima kasih</string>
-    <string name="general_gotit_action">Mengerti</string>
+    <string name="general_save_action">Simpan</string>    <string name="general_gotit_action">Mengerti</string>
     <string name="general_fix_action">Memperbaiki</string>
     <string name="general_set_up_action">Atur</string>
     <string name="general_edit_action">Ubah</string>
@@ -162,4 +156,22 @@
     <string name="general_error_ipc_deadobject_description">Koneksi ke layanan penting (misalnya Magisk, Shizuku, atau layanan tingkat sistem lainnya) terputus secara tidak terduga. Silakan mulai ulang perangkat Anda. Jika masalah masih berlanjut, periksa pembaruan atau hubungi saya agar bisa memperbaikinya.</string>
     <string name="general_user_label_owner">Pemilik</string>
     <string name="general_user_label_system">Sistem</string>
+    <string name="setup_title">Pengaturan</string>
+    <string name="setup_feature_requires_additional_setup_x">Fitur ini mengharuskan Anda untuk melengkapi item pengaturan tambahan: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d pengecualian telah dibuat</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">PencariMayat</string>
+    <string name="systemcleaner_tool_name">Pembersih Sistem</string>
+    <string name="appcleaner_tool_name">Pembersih Aplikasi</string>
+    <string name="deduplicator_tool_name">Penghapus Duplikat</string>
+    <string name="squeezer_tool_name">Optimasi Media</string>
+    <string name="appcontrol_tool_name">Pengendali Aplikasi</string>
+    <string name="analyzer_tool_name">Penganalisis Penyimpanan</string>
+    <string name="swiper_tool_name">Pemilah</string>
+    <string name="stats_label">Riwayat</string>
+    <string name="settings_category_tools_label">Peralatan</string>
+    <string name="general_include_multiuser_label">Sertakan pengguna lain</string>
+    <string name="general_include_multiuser_summary">Sertakan aplikasi-aplikasi dari profil pengguna lain pada perangkat ini.</string>
+    <string name="general_unsaved_confirmation_message">Anda memiliki perubahan yang belum tersimpan!</string>
 </resources>

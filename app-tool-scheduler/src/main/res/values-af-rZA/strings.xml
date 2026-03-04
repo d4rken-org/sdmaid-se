@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Skeduleerder</string>
+    <string name="scheduler_execution_label">Volgende uitvoering (ongeveer)</string>
+    <string name="scheduler_execution_last_label">Laaste uitvoering</string>
+    <string name="scheduler_settings_label">Skeduleerder</string>
+    <string name="scheduler_settings_summary">Stel skeduleerder verwante instellings af.</string>
+    <string name="scheduler_new_schedule_action">Skep skedule</string>
+    <string name="scheduler_schedule_name_label">Skedule naam</string>
+    <string name="scheduler_schedule_toggle_enabled">Skedule is geaktiveer</string>
+    <string name="scheduler_schedule_toggle_disabled">Skedule is gedeaktiveer</string>
+    <string name="scheduler_edit_schedule_action">Wysig skedule</string>
+    <string name="scheduler_schedule_time_label">Benaderde tyd</string>
+    <string name="scheduler_schedule_repeat_label">Herhaal interval in dae</string>
+    <string name="scheduler_schedule_default_name">Verstek skedule</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s omtrent %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Beplan vir %s</string>
+    <string name="scheduler_schedule_last_at_x">Laas uitgevoer by %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Daagliks</item>
+        <item quantity="other">Elke %d dae</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Herhaal interval</string>
+    <string name="scheduler_inaccurate_execution_hint">Verwagte uitvoering tye is benaderings. Skedules mag vertraag of vervroeg word as dit battery bespaar.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Geen aktiewe skedules nie</string>
+    <string name="scheduler_setting_nopowersaving_title">Slaan oor op lae battery</string>
+    <string name="scheduler_setting_nopowersaving_summary">As die toestel in krag-besparing modus is, sal die geskeduleerde uitvoering oorgeslaan word.</string>
+    <string name="scheduler_setting_charging_title">Slaan oor wanneer nie laai nie</string>
+    <string name="scheduler_setting_charging_summary">As die toestel nie laai nie, sal die geskeduleerde uitvoering oorgeslaan word.</string>
+    <string name="scheduler_setting_automation_title">Toeganklikheid diens</string>
+    <string name="scheduler_setting_automation_summary">Sluit aksies in wat \'n toeganklikheid diens gebruik. Dit vereis dat SD Maid met jou skerm kan interaksie (d.w.s. dit is ontsluit) wanneer die take uitgevoer word.</string>
+    <string name="scheduler_notification_channel_label">Skeduleerder</string>
+    <string name="scheduler_notification_title">Geskeduleerde taak</string>
+    <string name="scheduler_notification_message">Voer uit: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Skeduleerder klaar</string>
+    <string name="scheduler_notification_result_success_message">Alle geskeduleerde take het suksesvol geloop.</string>
+    <string name="scheduler_notification_result_failure_message">Sommige geskeduleerde take het gefaal of foute ondervind. Probeer om hulle handmatig te loop.</string>
+    <string name="scheduler_commands_after_schedule_label">Post-skedule opdragte</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell opdragte wat aan die einde van \'n skedule uitgevoer sal word.</string>
+    <string name="scheduler_battery_optimization_hint">Oorweeg om battery optimiserings vir SD Maid te deaktiveer as jy probleme met agtergrond uitvoering ondervind.</string>
+</resources>

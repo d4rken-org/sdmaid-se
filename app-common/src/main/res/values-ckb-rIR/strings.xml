@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">سوپاس</string>
     <string name="general_error_type_mismatch_msg">ناتەبایی جۆر: %1$s دەویسترا، بەڵام %2$s بەدەستهات.</string>
     <string name="general_error_cant_access_msg">ناتوانرێت دەستڕاگەیشتن بە %s بکرێت.</string>
-    <string name="general_error_root_unavailable">دەستڕاگەیشتنی ڕووت بەردەست نییە.</string>
-    <string name="general_error_empty_result_msg">ئەنجامەکە بەتاڵ بوو.</string>
-    <string name="general_error_no_compatible_app_found_msg">هیچ ئەپێکی گونجاو بۆ مامەڵەکردن لەگەڵ ئەم داواکارییە نەدۆزرایەوە.</string>
+    <string name="general_error_root_unavailable">دەستڕاگەیشتنی ڕووت بەردەست نییە.</string>    <string name="general_error_no_compatible_app_found_msg">هیچ ئەپێکی گونجاو بۆ مامەڵەکردن لەگەڵ ئەم داواکارییە نەدۆزرایەوە.</string>
     <string name="general_todo_msg">ئەم تایبەتمەندییە هێشتا لەسەری کاردەکرێت و لە ئێستادا بەردەست نییە.</string>
     <string name="general_share_action">هاوبەشکردن</string>
     <string name="general_done_action">تەواو بوو</string>
     <string name="general_apply_action">جێبەجێکردن</string>
-    <string name="general_copy_action">کۆپیکردن</string>
-    <string name="general_wipe_action">سڕینەوە</string>
-    <string name="general_cancel_action">پاشگەزبوونەوە</string>
+    <string name="general_copy_action">کۆپیکردن</string>    <string name="general_cancel_action">پاشگەزبوونەوە</string>
     <string name="general_discard_action">فڕێدان</string>
     <string name="general_reset_action">ڕیستکردنەوە</string>
     <string name="general_drag_handle_description">ڕاکێشان بۆ ڕیزکردنەوە</string>
-    <string name="general_save_action">پاشەکەوتکردن</string>
-    <string name="general_thanks_action">سوپاس</string>
-    <string name="general_gotit_action">تێگەیشتم</string>
+    <string name="general_save_action">پاشەکەوتکردن</string>    <string name="general_gotit_action">تێگەیشتم</string>
     <string name="general_fix_action">چاککردن</string>
     <string name="general_set_up_action">دامەزراندن</string>
     <string name="general_edit_action">دەستکاریکردن</string>
@@ -173,4 +167,12 @@
     <string name="general_error_ipc_deadobject_description">پەیوەندی بە خزمەتگوزارییەکی گرنگەوە (بۆ نموونە ماجیسک، شیزوکو، یان خزمەتگوزارییەکانی ئاستی سیستەمی دیکە) بە شێوەیەکی چاوەڕواننەکراو پچڕا. تکایە ئامێرەکەت ڕیستارت بکە. ئەگەر کێشەکە بەردەوام بوو، نوێکردنەوەکان بپشکنە یان پەیوەندیم پێوە بکە تا بتوانم چاکی بکەمەوە.</string>
     <string name="general_user_label_owner">خاوەن</string>
     <string name="general_user_label_system">سیستەم</string>
+    <string name="setup_title">ڕێکخستن</string>
+    <string name="setup_feature_requires_additional_setup_x">ئەم تایبەتمەندیە پێویستی بە تەواوکردنی بابەتەکانی ڕێکخستنی زیادە هەیە: %s</string>
+    <string name="systemcleaner_tool_name">سیستەمپاکer</string>
+    <string name="appcleaner_tool_name">ئەپپاکer</string>
+    <string name="appcontrol_tool_name">ئەپControl</string>
+    <string name="analyzer_tool_name">ناحیەکانAnalyzer</string>
+    <string name="settings_category_tools_label">ئامرازەکان</string>
+    <string name="general_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
 </resources>

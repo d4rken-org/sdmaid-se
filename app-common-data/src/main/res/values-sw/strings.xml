@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Hifadhi ya umma</string>
+    <string name="area_type_public_media_label">Vyombo vya umma vya programu</string>
+    <string name="area_type_public_data_label">Data ya umma ya programu</string>
+    <string name="area_type_public_obb_label">Rasilimali za umma za programu</string>
+    <string name="area_type_private_data_label">Data ya kibinafsi ya programu</string>
+    <string name="area_type_portable_label">Hifadhi ya kubeba</string>
+</resources>

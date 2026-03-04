@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Uzantoj kun specialaj alireblecaj bezonoj povas ebligi ĉi tiun servon por permesi al SD Maid aŭtomatigi taskojn kiuj alie postulus tedajn manlabor-uzantajn interagojn (ekz. kaŝmemora forigo).\n\nEkzemplo: Se vi instruas SD Maid haltigi plurajn aplikaĵojn, tiam SD Maid povas uzi ĉi tiun servon por malfermi ĉiu aplikaĵan agordan ekranon, trovi la butonon \'Perforte Haltigi\' kaj frapeti ĝin.\n\nSD Maid ĉiam elstare montros kiam uzante ĉi tiun servon kaj provizos facilan manieron por la uzanto nuligi iun ajn interagon tuj.\n\nNeniuj agoj estos plenumitaj sen antaŭa uzanta aprobo. Ĉi tiu servo povas esti malebligita denove iam ajn sen malfavoraj efikoj.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid interagas kun via aparato. Ne eblas uzi la ekranon samtempe. Atendu ĝis la operacio estas finita aŭ nuligi ĝin.</string>
+    <string name="automation_active_title">SD Maid laboras</string>
+    <string name="automation_error_no_consent_title">Aŭtomatiga eraro</string>
+    <string name="automation_error_no_consent_body">Alirebleca servo ne estas agordita. Kompletigu la agordon kaj donu konsenton.</string>
+    <string name="automation_error_not_enabled_title">Servo ne estas ebligita</string>
+    <string name="automation_error_not_enabled_body">Alirebleca servo estas malebligita. Ŝaltu ĝin denove.</string>
+    <string name="automation_error_not_running_title">Servo ne rulas</string>
+    <string name="automation_error_not_running_body">Alirebleca servo ne rulas. Provu reŝargi la aparaton.</string>
+    <string name="automation_error_screen_unavailable_title">Ekrano nedisponebla</string>
+    <string name="automation_error_screen_unavailable_body">La operacio estis ĉesigita ĉar la ekrano fariĝis nedisponebla (ekz. ekrano malŝaltita aŭ ŝlosekrano aktiva).</string>
+    <string name="automation_error_compatibility_title">Aŭtomatiga kongrueco</string>
+    <string name="automation_error_compatibility_body">SD Maid ne povis eltrovi la ekranan aranĝon. Se ĉi tio daŭre okazas, via lingvo aŭ agordaro eble ne estas plene subtenata. Kontrolu ĝisdatigojn aŭ kontaktu min por ke mi povu ripari ĝin.</string>
+    <string name="automation_error_timeout_title">Aŭtomatiga tempolimo</string>
+    <string name="automation_error_timeout_body">SD Maid ne kompletigis ĉiujn paŝojn ene de la tempolimo. Se ĉi tio daŭre okazas, mi eble bezonas ĝustigi la aplikaĵon por via aparato. Kontrolu ĝisdatigojn aŭ kontaktu min por ke mi povu ripari ĝin.</string>
+    <string name="automation_error_overlay_title">Aŭtomatiga supermetaĵo</string>
+    <string name="automation_error_overlay_body">SD Maid ne povis montri la aŭtomatigan supermetaĵon. Kontrolu permesojn kaj provu reŝargi vian aparaton.</string>
+    <string name="automation_error_no_settings_title">Agorda ekrano nedisponebla</string>
+    <string name="automation_error_no_settings_body">Ĉi tiu sistema aplikaĵo ne havas agordan ekranon. Kaŝmemora viŝado per alirebleca servo ne eblas. Ekskluzivi ĝin por rapidigi kaŝmemoran viŝadon.</string>
+    <string name="automation_loading">Preparante aŭtomatigon per alirebleca servo</string>
+    <string name="automation_progress_find_ok_confirmation">Provante konfirmi antaŭan agon (ŝlosilvortoj: %s)</string>
+</resources>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">ตัวจัดตารางเวลา</string>
+    <string name="scheduler_execution_label">การทำงานครั้งถัดไป (โดยประมาณ)</string>
+    <string name="scheduler_execution_last_label">การทำงานครั้งล่าสุด</string>
+    <string name="scheduler_settings_label">ตัวจัดตารางเวลา</string>
+    <string name="scheduler_settings_summary">ปรับการตั้งค่าที่เกี่ยวข้องกับตัวจัดตารางเวลา</string>
+    <string name="scheduler_new_schedule_action">สร้างตารางเวลา</string>
+    <string name="scheduler_schedule_name_label">ชื่อตารางเวลา</string>
+    <string name="scheduler_schedule_toggle_enabled">ตารางเวลาถูกเปิดใช้งาน</string>
+    <string name="scheduler_schedule_toggle_disabled">ตารางเวลาถูกปิดใช้งาน</string>
+    <string name="scheduler_edit_schedule_action">แก้ไขตารางเวลา</string>
+    <string name="scheduler_schedule_time_label">เวลาโดยประมาณ</string>
+    <string name="scheduler_schedule_repeat_label">ช่วงเวลาการทำซ้ำเป็นวัน</string>
+    <string name="scheduler_schedule_default_name">ตารางเวลาเริ่มต้น</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s ประมาณ %2$s</string>
+    <string name="scheduler_schedule_next_at_x">วางแผนไว้สำหรับ %s</string>
+    <string name="scheduler_schedule_last_at_x">ทำงานครั้งล่าสุดเมื่อ %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">ทุก %d วัน</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">ช่วงเวลาการทำซ้ำ</string>
+    <string name="scheduler_inaccurate_execution_hint">เวลาที่คาดว่าจะทำงานเป็นเพียงการประมาณ ตารางเวลาอาจถูกเลื่อนหรือเร่งขึ้นหากช่วยประหยัดแบตเตอรี่</string>
+    <string name="scheduler_no_active_schedules_subtitle">ไม่มีตารางเวลาที่ใช้งานอยู่</string>
+    <string name="scheduler_setting_nopowersaving_title">ข้ามเมื่อแบตเตอรี่ต่ำ</string>
+    <string name="scheduler_setting_nopowersaving_summary">หากอุปกรณ์อยู่ในโหมดประหยัดพลังงาน การทำงานตามตารางจะถูกข้าม</string>
+    <string name="scheduler_setting_charging_title">ข้ามเมื่อไม่ได้ชาร์จ</string>
+    <string name="scheduler_setting_charging_summary">หากอุปกรณ์ไม่ได้ชาร์จ การทำงานตามตารางจะถูกข้าม</string>
+    <string name="scheduler_setting_automation_title">บริการความสามารถในการเข้าถึง</string>
+    <string name="scheduler_setting_automation_summary">รวมการดำเนินการที่ใช้บริการความสามารถในการเข้าถึง ต้องการให้ SD Maid สามารถโต้ตอบกับหน้าจอได้ (คือ ไม่ถูกล็อก) เมื่อทำงาน</string>
+    <string name="scheduler_notification_channel_label">ตัวจัดตารางเวลา</string>
+    <string name="scheduler_notification_title">งานตามตาราง</string>
+    <string name="scheduler_notification_message">กำลังทำงาน: \"%s\"</string>
+    <string name="scheduler_notification_result_title">ตัวจัดตารางเวลาเสร็จสิ้น</string>
+    <string name="scheduler_notification_result_success_message">งานตามตารางทั้งหมดทำงานสำเร็จ</string>
+    <string name="scheduler_notification_result_failure_message">งานตามตารางบางงานล้มเหลวหรือพบข้อผิดพลาด ลองทำงานด้วยตนเอง</string>
+    <string name="scheduler_commands_after_schedule_label">คำสั่งหลังตาราง</string>
+    <string name="scheduler_commands_after_schedule_desc">คำสั่ง Android shell ที่จะถูกทำงานเมื่อสิ้นสุดตาราง</string>
+    <string name="scheduler_battery_optimization_hint">พิจารณาปิดการปรับปรุงแบตเตอรี่สำหรับ SD Maid หากคุณพบปัญหาการทำงานในพื้นหลัง</string>
+</resources>

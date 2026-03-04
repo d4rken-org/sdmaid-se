@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Გმადლობთ</string>
     <string name="general_error_type_mismatch_msg">ტიპის შეუსაბამობა: სურდა %1$s, მაგრამ მიიღო %2$s.</string>
     <string name="general_error_cant_access_msg">%s-ზე წვდომა შეუძლებელია.</string>
-    <string name="general_error_root_unavailable">Root წვდომა მიუწვდომელია.</string>
-    <string name="general_error_empty_result_msg">შედეგი ცარიელი იყო.</string>
-    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
+    <string name="general_error_root_unavailable">Root წვდომა მიუწვდომელია.</string>    <string name="general_error_no_compatible_app_found_msg">ამ მოთხოვნის დასამუშავებლად თავსებადი აპლიკაცია ვერ მოიძებნა.</string>
     <string name="general_todo_msg">ამ ფუნქციაზე ჯერ კიდევ მუშაობს და ამჟამად მიუწვდომელია.</string>
     <string name="general_share_action">გააზიარება</string>
     <string name="general_done_action">შესრულებულია</string>
     <string name="general_apply_action">გამოყენება</string>
-    <string name="general_copy_action">კოპირება</string>
-    <string name="general_wipe_action">წაშლა</string>
-    <string name="general_cancel_action">გაუქმება</string>
+    <string name="general_copy_action">კოპირება</string>    <string name="general_cancel_action">გაუქმება</string>
     <string name="general_discard_action">უარყოფა</string>
     <string name="general_reset_action">გადატვირთვა</string>
     <string name="general_drag_handle_description">გადაათრიეთ გადასალაგებლად</string>
-    <string name="general_save_action">შენახვა</string>
-    <string name="general_thanks_action">მადლობა</string>
-    <string name="general_gotit_action">Გავიგე</string>
+    <string name="general_save_action">შენახვა</string>    <string name="general_gotit_action">Გავიგე</string>
     <string name="general_fix_action">შეკეთება</string>
     <string name="general_set_up_action">კონფიგურაცია</string>
     <string name="general_edit_action">რედაქტირება</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">კავშირი კრიტიკულ სერვისთან (მაგ. Magisk, Shizuku, ან სხვა სისტემის დონის სერვისები) მოულოდნელად დაიკარგა. გთხოვთ გადატვირთოთ თქვენი მოწყობილობა. თუ პრობლემა გრძელდება, შეამოწმეთ განახლებები ან დამიკავშირდით, რომ შევასწოროთ.</string>
     <string name="general_user_label_owner">მფლობელი</string>
     <string name="general_user_label_system">სისტემა</string>
+    <string name="setup_title">დაყენება</string>
+    <string name="setup_feature_requires_additional_setup_x">ამ ფუნქციას სჭირდება დამატებითი დაყენების ელემენტების დასრულება: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">%d ახალი გამონაკლისი</item>
+        <item quantity="other">%d ახალი გამონაკლისი</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">აპლიკაციის გამწმენდი</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">მედია შეკუმშვა</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">ისტორია</string>
+    <string name="settings_category_tools_label">ხელსაწყოები</string>
+    <string name="general_include_multiuser_label">ჩართეთ სხვა მომხმარებლები</string>
+    <string name="general_include_multiuser_summary">ჩართეთ აპები სხვა მომხმარებლის პროფილებიდან ამ მოწყობილობაზე.</string>
+    <string name="general_unsaved_confirmation_message">თქვენ გაქვთ შეუნახავი ცვლილებები!</string>
 </resources>

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_execution_label">ቀጣይ አፈጻጸም (ግምታዊ)</string>
+    <string name="scheduler_execution_last_label">የመጨረሻ አፈጻጸም</string>
+    <string name="scheduler_settings_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_settings_summary">ከመርሃ ግብር አዘጋጅ ጋር የተያያዙ ቅንብሮችን ማስተካከል።</string>
+    <string name="scheduler_new_schedule_action">መርሃ ግብር ፍጠር</string>
+    <string name="scheduler_schedule_name_label">የመርሃ ግብር ስም</string>
+    <string name="scheduler_schedule_toggle_enabled">መርሃ ግብር ተችሏል</string>
+    <string name="scheduler_schedule_toggle_disabled">መርሃ ግብር ተሰናክሏል</string>
+    <string name="scheduler_edit_schedule_action">መርሃ ግብር አርም</string>
+    <string name="scheduler_schedule_time_label">ግምታዊ ጊዜ</string>
+    <string name="scheduler_schedule_repeat_label">በቀኖች ውስጥ የመድገሚያ ክፍተት</string>
+    <string name="scheduler_schedule_default_name">ነባሪ መርሃ ግብር</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s በ%2$s አካባቢ</string>
+    <string name="scheduler_schedule_next_at_x">ለ%s ታቅዷል</string>
+    <string name="scheduler_schedule_last_at_x">በመጨረሻ ተሠርቷል በ%s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">ዕለታዊ</item>
+        <item quantity="other">በየ%d ቀኖች</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">የመድገሚያ ክፍተት</string>
+    <string name="scheduler_inaccurate_execution_hint">የሚጠበቁ የአፈጻጸም ጊዜዎች ግምታዊ ናቸው። ባትሪን ለመቆጠብ ከሆነ መርሃ ግብሮች ሊዘገዩ ወይም ሊፋጠኑ ይችላሉ።</string>
+    <string name="scheduler_no_active_schedules_subtitle">ንቁ መርሃ ግብሮች የሉም</string>
+    <string name="scheduler_setting_nopowersaving_title">በዝቅተኛ ባትሪ ላይ ዝለል</string>
+    <string name="scheduler_setting_nopowersaving_summary">መሣሪያው በኃይል-ማቆጠቢያ ሁነታ ውስጥ ከሆነ የታቀደው አፈጻጸም ይዘለላል።</string>
+    <string name="scheduler_setting_charging_title">በማይሞላበት ጊዜ ዝለል</string>
+    <string name="scheduler_setting_charging_summary">መሣሪያው በማይሞላበት ጊዜ የታቀደው አፈጻጸም ይዘለላል።</string>
+    <string name="scheduler_setting_automation_title">ተደራሽነት አገልግሎት</string>
+    <string name="scheduler_setting_automation_summary">ተደራሽነት አገልግሎት የሚጠቀሙ ተግባራትን አካትት። ይህ SD Maid ተግባራቱ በሚሠሩበት ጊዜ ከማያዎ ጋር መገናኘት እንዲችል (ማለትም ያልተቆለፈ) ይጠይቃል።</string>
+    <string name="scheduler_notification_channel_label">መርሃ ግብር አዘጋጅ</string>
+    <string name="scheduler_notification_title">የታቀደ ተግባር</string>
+    <string name="scheduler_notification_message">በአፈጻጸም ላይ: \"%s\"</string>
+    <string name="scheduler_notification_result_title">መርሃ ግብር አዘጋጅ ተጠናቅቋል</string>
+    <string name="scheduler_notification_result_success_message">ሁሉም የታቀዱ ተግባራት በተሳካ ሁኔታ ተሠርተዋል።</string>
+    <string name="scheduler_notification_result_failure_message">አንዳንድ የታቀዱ ተግባራት ተሳሽተዋል ወይም ስህተቶች አጋጥመዋቸዋል። በእጅ ማስኬድ ይሞክሩ።</string>
+    <string name="scheduler_commands_after_schedule_label">ከመርሃ-ግብር በኋላ ትዕዛዞች</string>
+    <string name="scheduler_commands_after_schedule_desc">በመርሃ ግብር መጨረሻ ላይ የሚከናወኑ የአንድሮይድ ሼል ትዕዛዞች።</string>
+    <string name="scheduler_battery_optimization_hint">የበስተጀርባ አፈጻጸም ችግሮች ካጋጠሙዎት ለSD Maid ባትሪ ማሻሻያዎችን ማሰናከል ያስቡበት።</string>
+</resources>

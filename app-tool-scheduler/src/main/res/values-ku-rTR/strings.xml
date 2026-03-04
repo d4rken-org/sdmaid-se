@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">خشتەبەند</string>
+    <string name="scheduler_execution_label">جێبەجێکردنی داهاتوو (بە نزیکەیی)</string>
+    <string name="scheduler_execution_last_label">دوایین جێبەجێکردن</string>
+    <string name="scheduler_new_schedule_action">خشتەبەندێک دروست بکە</string>
+    <string name="scheduler_schedule_name_label">ناوی خشتەبەند</string>
+    <string name="scheduler_schedule_toggle_enabled">خشتەبەند چالاکە</string>
+    <string name="scheduler_schedule_toggle_disabled">خشتەبەند ناچالاکە</string>
+    <string name="scheduler_schedule_time_label">کاتی نزیکەیی</string>
+    <string name="scheduler_schedule_default_name">خشتەبەندی بنەڕەت</string>
+    <string name="scheduler_no_active_schedules_subtitle">هیچ خشتەبەندی چالاک نییە</string>
+    <string name="scheduler_notification_channel_label">خشتەبەند</string>
+    <string name="scheduler_notification_title">ئەرکی خشتەبەندکراو</string>
+    <string name="scheduler_notification_result_title">خشتەبەند تەواو بوو</string>
+    <string name="scheduler_notification_result_success_message">هەموو ئەرکە خشتەبەندکراوەکان بە سەرکەوتوویی جێبەجێ کران.</string>
+    <string name="scheduler_notification_result_failure_message">هەندێک ئەرکی خشتەبەندکراو سەرنەکەوتن یان ڕووبەڕووی هەڵە بوونەوە. بە دەستی هەوڵ بدەرەوە.</string>
+</resources>

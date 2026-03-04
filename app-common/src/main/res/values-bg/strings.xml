@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Благодаря</string>
     <string name="general_error_type_mismatch_msg">Несъответствие на типа: Искаше се %1$s, но получи %2$s.</string>
     <string name="general_error_cant_access_msg">Не може да се достъпи %s.</string>
-    <string name="general_error_root_unavailable">Root достъпът не е наличен.</string>
-    <string name="general_error_empty_result_msg">Резултатът беше празен.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не е намерено съвместимо приложение за обработка на тази заявка.</string>
+    <string name="general_error_root_unavailable">Root достъпът не е наличен.</string>    <string name="general_error_no_compatible_app_found_msg">Не е намерено съвместимо приложение за обработка на тази заявка.</string>
     <string name="general_todo_msg">Тази функция все още се разработва и в момента не е достъпна.</string>
     <string name="general_share_action">Споделяне</string>
     <string name="general_done_action">Готово</string>
     <string name="general_apply_action">Приложи</string>
-    <string name="general_copy_action">Копиране</string>
-    <string name="general_wipe_action">Изтриване</string>
-    <string name="general_cancel_action">Отказ</string>
+    <string name="general_copy_action">Копиране</string>    <string name="general_cancel_action">Отказ</string>
     <string name="general_discard_action">Отхвърляне</string>
     <string name="general_reset_action">Нулиране</string>
     <string name="general_drag_handle_description">Плъзнете за пренареждане</string>
-    <string name="general_save_action">Запазване</string>
-    <string name="general_thanks_action">Благодаря</string>
-    <string name="general_gotit_action">Разбрах</string>
+    <string name="general_save_action">Запазване</string>    <string name="general_gotit_action">Разбрах</string>
     <string name="general_fix_action">Поправяне</string>
     <string name="general_set_up_action">Настройване</string>
     <string name="general_edit_action">Редактиране</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Връзката с критична услуга (напр. Magisk, Shizuku или други услуги на системно ниво) беше неочаквано загубена. Моля, рестартирайте устройството си. Ако проблемът продължи, проверете за актуализации или се свържете с мен, за да го поправя.</string>
     <string name="general_user_label_owner">Собственик</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Настройка</string>
+    <string name="setup_feature_requires_additional_setup_x">Тази функция изисква завършване на допълнителни елементи за настройка: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Създадено е едно изключение</item>
+        <item quantity="other">Създадени са %d изключения</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">История</string>
+    <string name="settings_category_tools_label">Инструменти</string>
+    <string name="general_include_multiuser_label">Включване на други потребители</string>
+    <string name="general_include_multiuser_summary">Включване на приложения от други потребителски профили на това устройство.</string>
+    <string name="general_unsaved_confirmation_message">Имате незапазени промени!</string>
 </resources>

@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">謝謝您</string>
     <string name="general_error_type_mismatch_msg">類型不相符：想要 %1$s，但卻是 %2$s。</string>
     <string name="general_error_cant_access_msg">無法存取 %s。</string>
-    <string name="general_error_root_unavailable">Root 存取無法使用。</string>
-    <string name="general_error_empty_result_msg">結果是空白的。</string>
-    <string name="general_error_no_compatible_app_found_msg">找不到可以處理此要求的相容應用程式。</string>
+    <string name="general_error_root_unavailable">Root 存取無法使用。</string>    <string name="general_error_no_compatible_app_found_msg">找不到可以處理此要求的相容應用程式。</string>
     <string name="general_todo_msg">此功能仍在改善中，目前無法使用。</string>
     <string name="general_share_action">分享</string>
     <string name="general_done_action">完成</string>
     <string name="general_apply_action">套用</string>
-    <string name="general_copy_action">複製</string>
-    <string name="general_wipe_action">抹除</string>
-    <string name="general_cancel_action">取消</string>
+    <string name="general_copy_action">複製</string>    <string name="general_cancel_action">取消</string>
     <string name="general_discard_action">捨棄</string>
     <string name="general_reset_action">重設</string>
     <string name="general_drag_handle_description">拖曳以重新排序</string>
-    <string name="general_save_action">儲存</string>
-    <string name="general_thanks_action">感謝</string>
-    <string name="general_gotit_action">瞭解了</string>
+    <string name="general_save_action">儲存</string>    <string name="general_gotit_action">瞭解了</string>
     <string name="general_fix_action">修正</string>
     <string name="general_set_up_action">設定</string>
     <string name="general_edit_action">編輯</string>
@@ -162,4 +156,22 @@
     <string name="general_error_ipc_deadobject_description">關鍵服務（例如 Magisk、Shizuku 或其他系統層級服務）的連線意外中斷。請重新啟動您的裝置。如果問題持續發生，請檢查是否有可用更新，或聯絡我以協助修復問題。</string>
     <string name="general_user_label_owner">擁有者</string>
     <string name="general_user_label_system">系統</string>
+    <string name="setup_title">安裝程式</string>
+    <string name="setup_feature_requires_additional_setup_x">此功能需要完成額外的安裝程式項目：%s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">%d 個排除項目已建立</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">殘骸尋檢器</string>
+    <string name="systemcleaner_tool_name">系統清理器</string>
+    <string name="appcleaner_tool_name">應用清理器</string>
+    <string name="deduplicator_tool_name">除重程式</string>
+    <string name="squeezer_tool_name">媒體壓縮</string>
+    <string name="appcontrol_tool_name">應用控制</string>
+    <string name="analyzer_tool_name">儲存分析器</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">歷史記錄</string>
+    <string name="settings_category_tools_label">工具</string>
+    <string name="general_include_multiuser_label">包含其他使用者</string>
+    <string name="general_include_multiuser_summary">包含來自這部裝置上其他使用者設定檔的應用程式。</string>
+    <string name="general_unsaved_confirmation_message">您有未儲存的變更！</string>
 </resources>

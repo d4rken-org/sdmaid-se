@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Дякую</string>
     <string name="general_error_type_mismatch_msg">Невідповідність типу: хотів %1$s, але отримав %2$s.</string>
     <string name="general_error_cant_access_msg">Неможливо отримати доступ до %s.</string>
-    <string name="general_error_root_unavailable">Root доступ недоступний.</string>
-    <string name="general_error_empty_result_msg">Результат був порожній.</string>
-    <string name="general_error_no_compatible_app_found_msg">Не знайдено сумісного додатка для обробки цього запиту.</string>
+    <string name="general_error_root_unavailable">Root доступ недоступний.</string>    <string name="general_error_no_compatible_app_found_msg">Не знайдено сумісного додатка для обробки цього запиту.</string>
     <string name="general_todo_msg">Над цією функцією ще працюють і наразі вона недоступна.</string>
     <string name="general_share_action">Поділитися</string>
     <string name="general_done_action">Виконано</string>
     <string name="general_apply_action">Застосувати</string>
-    <string name="general_copy_action">Копіювати</string>
-    <string name="general_wipe_action">Очистити</string>
-    <string name="general_cancel_action">Скасувати</string>
+    <string name="general_copy_action">Копіювати</string>    <string name="general_cancel_action">Скасувати</string>
     <string name="general_discard_action">Відмінити</string>
     <string name="general_reset_action">Скинути</string>
     <string name="general_drag_handle_description">Перетягніть, щоб змінити порядок</string>
-    <string name="general_save_action">Зберегти</string>
-    <string name="general_thanks_action">Дякую</string>
-    <string name="general_gotit_action">Зрозуміло</string>
+    <string name="general_save_action">Зберегти</string>    <string name="general_gotit_action">Зрозуміло</string>
     <string name="general_fix_action">Виправити</string>
     <string name="general_set_up_action">Налаштування</string>
     <string name="general_edit_action">Редагувати</string>
@@ -195,4 +189,25 @@
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
+    <string name="setup_title">Налаштування</string>
+    <string name="setup_feature_requires_additional_setup_x">Ця функція вимагає виконання додаткових елементів налаштування: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Створено один виняток</item>
+        <item quantity="few">Створено %d винятки</item>
+        <item quantity="many">Створено %d винятків</item>
+        <item quantity="other">Створено %d винятків</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Пошук рештків</string>
+    <string name="systemcleaner_tool_name">Очищувач системи</string>
+    <string name="appcleaner_tool_name">Очищувач додатків</string>
+    <string name="deduplicator_tool_name">Дублікати</string>
+    <string name="squeezer_tool_name">Стиснення медіа</string>
+    <string name="appcontrol_tool_name">Управління додатками</string>
+    <string name="analyzer_tool_name">Аналізатор сховища</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Історія</string>
+    <string name="settings_category_tools_label">Інструменти</string>
+    <string name="general_include_multiuser_label">Включити інших користувачів</string>
+    <string name="general_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
+    <string name="general_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
 </resources>

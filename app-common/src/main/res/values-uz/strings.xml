@@ -13,22 +13,16 @@
     <string name="general_thank_you_label">Rahmat</string>
     <string name="general_error_type_mismatch_msg">Turdagi nomuvofiqlik: %1$s kerak edi, lekin %2$s olindi.</string>
     <string name="general_error_cant_access_msg">%s ga kirish mumkin emas.</string>
-    <string name="general_error_root_unavailable">Root kirish imkoni yo\'q.</string>
-    <string name="general_error_empty_result_msg">Natija bo\'sh edi.</string>
-    <string name="general_error_no_compatible_app_found_msg">Ushbu so\'rovni amalga oshirish uchun mos dastur topilmadi.</string>
+    <string name="general_error_root_unavailable">Root kirish imkoni yo\'q.</string>    <string name="general_error_no_compatible_app_found_msg">Ushbu so\'rovni amalga oshirish uchun mos dastur topilmadi.</string>
     <string name="general_todo_msg">Ushbu xususiyat hali ishlab chiqilmoqda va hozircha mavjud emas.</string>
     <string name="general_share_action">Ulashish</string>
     <string name="general_done_action">Tayyor</string>
     <string name="general_apply_action">Qo\'llash</string>
-    <string name="general_copy_action">Nusxalash</string>
-    <string name="general_wipe_action">Tozalash</string>
-    <string name="general_cancel_action">Bekor qilish</string>
+    <string name="general_copy_action">Nusxalash</string>    <string name="general_cancel_action">Bekor qilish</string>
     <string name="general_discard_action">Rad etish</string>
     <string name="general_reset_action">Qayta o\'rnatish</string>
     <string name="general_drag_handle_description">Tartibni o\'zgartirish uchun torting</string>
-    <string name="general_save_action">Saqlash</string>
-    <string name="general_thanks_action">Rahmat</string>
-    <string name="general_gotit_action">Tushundim</string>
+    <string name="general_save_action">Saqlash</string>    <string name="general_gotit_action">Tushundim</string>
     <string name="general_fix_action">Tuzatish</string>
     <string name="general_set_up_action">O\'rnatish</string>
     <string name="general_edit_action">Tahrirlash</string>
@@ -173,4 +167,23 @@
     <string name="general_error_ipc_deadobject_description">Muhim xizmat (masalan, Magisk, Shizuku yoki boshqa tizim darajasidagi xizmatlar) bilan aloqa kutilmaganda uzildi. Iltimos, qurilmangizni qayta ishga tushiring. Agar muammo davom etsa, yangilanishlarni tekshiring yoki uni tuzatish uchun men bilan bog\'laning.</string>
     <string name="general_user_label_owner">Egasi</string>
     <string name="general_user_label_system">Tizim</string>
+    <string name="setup_title">Sozlash</string>
+    <string name="setup_feature_requires_additional_setup_x">Ushbu xususiyat qo\'shimcha sozlash elementlarini tugallashni talab qiladi: %s</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Bitta chiqarish yaratildi</item>
+        <item quantity="other">%d chiqarish yaratildi</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">Qoldiqlarni topuvchi</string>
+    <string name="systemcleaner_tool_name">Tizim tozalagich</string>
+    <string name="appcleaner_tool_name">Ilova tozalagich</string>
+    <string name="deduplicator_tool_name">Takrorlovchi</string>
+    <string name="squeezer_tool_name">Media Siqish</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">O‘chirish</string>
+    <string name="stats_label">Tarix</string>
+    <string name="settings_category_tools_label">Vositalar</string>
+    <string name="general_include_multiuser_label">Boshqa foydalanuvchilarni qo\'shish</string>
+    <string name="general_include_multiuser_summary">Ushbu qurilmadagi boshqa foydalanuvchi profillaridagi ilovalarni qo\'shish.</string>
+    <string name="general_unsaved_confirmation_message">Sizda saqlanmagan o\'zgarishlar bor!</string>
 </resources>

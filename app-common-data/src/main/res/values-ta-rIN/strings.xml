@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">பொது சேமிப்பு</string>
+    <string name="area_type_public_media_label">பொது பயன்பாட்டு ஊடகம்</string>
+    <string name="area_type_public_data_label">பொது பயன்பாட்டு தரவு</string>
+    <string name="area_type_public_obb_label">பொது பயன்பாட்டு வளங்கள்</string>
+    <string name="area_type_private_data_label">தனிப்பட்ட பயன்பாட்டு தரவு</string>
+    <string name="area_type_portable_label">கையடக்க சேமிப்பு</string>
+</resources>
