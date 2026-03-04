@@ -68,7 +68,7 @@ class AppCleanerListViewModel @Inject constructor(
     fun showDetails(item: AppCleanerListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(${item.junk.identifier})" }
         navDirections(
-            R.id.action_appCleanerListFragment_to_appCleanerDetailsFragment,
+            R.id.action_appCleanerListFragment_to_appCleanerDetailsFragment2,
             bundleOf("identifier" to item.junk.identifier)
         ).navigate()
     }

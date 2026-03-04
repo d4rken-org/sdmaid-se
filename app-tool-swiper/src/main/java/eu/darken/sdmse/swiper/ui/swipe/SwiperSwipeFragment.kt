@@ -145,7 +145,9 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 SwiperSwipeEvents.NavigateToSessions -> {
-                    findNavController().popBackStack(eu.darken.sdmse.common.R.id.swiperSessionsFragment, inclusive = false)
+                    if (!findNavController().popBackStack(eu.darken.sdmse.common.R.id.swiperSessionsFragment, inclusive = false)) {
+                        findNavController().popBackStack()
+                    }
                 }
 
                 SwiperSwipeEvents.TriggerHapticFeedback -> {

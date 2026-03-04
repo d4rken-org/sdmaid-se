@@ -87,7 +87,7 @@ class SwiperStatusViewModel @Inject constructor(
         val currentPosition = currentItems.indexOfFirst { it.id == itemId }
         if (currentPosition < 0) return
         navDirections(
-            R.id.action_swiperStatusFragmentToSwiperSwipeFragment,
+            R.id.action_swiperStatusFragment_to_swiperSwipeFragment,
             bundleOf("sessionId" to sessionId, "startIndex" to currentPosition),
         ).navigate()
     }

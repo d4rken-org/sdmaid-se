@@ -82,7 +82,7 @@ class SwiperSessionsViewModel @Inject constructor(
         } else {
             log(TAG) { "Cache hit for session $sessionId, skipping refresh" }
         }
-        navDirections(R.id.action_swiperSessionsFragmentToSwiperSwipeFragment, bundleOf("sessionId" to sessionId)).navigate()
+        navDirections(R.id.action_swiperSessionsFragment_to_swiperSwipeFragment, bundleOf("sessionId" to sessionId)).navigate()
     }
 
     fun scanSession(sessionId: String) = launch {
