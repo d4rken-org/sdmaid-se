@@ -6,6 +6,7 @@ import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
@@ -29,12 +30,15 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
         ui.toolbar.setupWithNavController(findNavController())
 
         ui.upgradeGithubSponsorsAction.setOnClickListener {
-            Toast.makeText(
-                requireContext(),
-                R.string.upgrade_screen_thanks_toast,
-                Toast.LENGTH_LONG,
-            ).show()
             vm.goGithubSponsors()
+        }
+
+        vm.snackbarEvents.observe2 { stringRes ->
+            Snackbar.make(requireView(), stringRes, Snackbar.LENGTH_LONG).show()
+        }
+
+        vm.toastEvents.observe2 { stringRes ->
+            Toast.makeText(requireContext(), stringRes, Toast.LENGTH_LONG).show()
         }
 
         vm.state.observe2 {
@@ -44,4 +48,18 @@ class UpgradeFragment : Fragment3(R.layout.upgrade_fragment) {
         super.onViewCreated(view, savedInstanceState)
     }
 
+    private var wentToBackground = false
+
+    override fun onStop() {
+        super.onStop()
+        wentToBackground = true
+    }
+
+    override fun onResume() {
+        super.onResume()
+        if (wentToBackground) {
+            wentToBackground = false
+            vm.checkSponsorReturn()
+        }
+    }
 }
