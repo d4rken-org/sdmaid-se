@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">Ordena carpetas rápido: desliza archivos para conservar, eliminar u omitir.</string>
     <string name="swiper_dashcard_description">Ordena carpetas específicas más rápido que un explorador de archivos: simplemente desliza cada archivo.</string>
-    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>
     <string name="swiper_start_action">Empezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisa archivos en 3 sencillos pasos:\n\n1. Elige una carpeta para escanear\n2. Desliza los archivos para conservar, eliminar u omitir\n3. Revisa tus opciones y confirma\n\nNada se elimina hasta que toques el botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar carpetas</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d de %2$d</string>
     <string name="swiper_keep_action">Conservar</string>
     <string name="swiper_skip_action">Omitir</string>
-    <string name="swiper_review_action">Revisar</string>
+    <string name="swiper_review_action">Reseñar</string>
     <string name="swiper_status_title">Revisar decisiones</string>
     <string name="swiper_status_action_keep_selected">Conservar seleccionados</string>
-    <string name="swiper_status_action_delete_selected">Eliminar seleccionados</string>
+    <string name="swiper_status_action_delete_selected">Borrar seleccionados</string>
     <string name="swiper_status_action_reset_selected">Restablecer seleccionados</string>
     <string name="swiper_decision_undecided">Indeciso</string>
     <string name="swiper_retry_action">Reintentar</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Deshacer</string>
     <string name="swiper_help_title">Cómo funciona Swiper</string>
     <string name="swiper_help_message">Desliza cada archivo para tomar una decisión:\n\n← Desliza a la izquierda: %1$s\n→ Desliza a la derecha: %2$s\n↑ Desliza hacia arriba: Omitir\n↓ Desliza hacia abajo: Deshacer (después del primer deslizamiento)\n\nTambién puedes usar los botones de la parte inferior.\n\nCuando termines, toca \"Revisar\" para ver todas tus decisiones. Nada se elimina hasta que confirmes en la pantalla de revisión.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_help_action">Ayuda</string>
 </resources>

@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid nu a parcurs toți pașii în termenul limită. Dacă acest lucru continuă să se întâmple, ar putea fi necesar să ajustați aplicația pentru dispozitivul dvs. Verificați dacă există actualizări sau contactați-mă pentru a le putea repara.</string>
     <string name="automation_error_overlay_title">Suprapunere automată</string>
     <string name="automation_error_overlay_body">SD Maid nu a putut arăta suprapunerea automatizării. Verificați permisiunile și încercați să reporniți dispozitivul.</string>
+    <string name="automation_error_scheduler_title">Automatizarea programată a eșuat</string>
+    <string name="automation_error_scheduler_body">O sarcină programată a încercat să utilizeze serviciul de accesibilitate, dar acesta era indisponibil. Dacă nu aveți nevoie de aceasta, dezactivați opțiunea „Serviciu de accesibilitate” în setările programatorului.</string>
     <string name="automation_error_no_settings_title">Setări ecran indisponibil</string>
     <string name="automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
     <string name="automation_loading">Pregătirea automatizării prin serviciul de accesibilitate</string>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ଆପଣଙ୍କୁ ଧନ୍ୟଵାଦ</string>
     <string name="general_error_type_mismatch_msg">ପ୍ରକାର ଅସମତା: %1$s ଚାହୁଁଥିଲା, କିନ୍ତୁ %2$s ପାଇଲା।</string>
     <string name="general_error_cant_access_msg">%s କୁ ପହଞ୍ଚିପାରିବ ନାହିଁ।</string>
-    <string name="general_error_root_unavailable">ରୁଟ୍ ପରିଚୟ ଉପଲବ୍ଧ ନୁହେଁ।</string>    <string name="general_error_no_compatible_app_found_msg">ଏହି ଅନୁରୋଧକୁ ସମ୍ପାଦନା କରିବା ପାଇଁ କୌଣସି ସୁସଙ୍ଗତ ଆପ୍‌ ମିଳିଲା ନାହିଁ।</string>
+    <string name="general_error_root_unavailable">ରୁଟ୍ ପରିଚୟ ଉପଲବ୍ଧ ନୁହେଁ।</string>
+    <string name="general_error_no_compatible_app_found_msg">ଏହି ଅନୁରୋଧକୁ ସମ୍ପାଦନା କରିବା ପାଇଁ କୌଣସି ସୁସଙ୍ଗତ ଆପ୍‌ ମିଳିଲା ନାହିଁ।</string>
     <string name="general_todo_msg">ଏହି ସୁବିଧାଟି ଏବେ ବି କାମ ଚାଲିଛି ଏବଂ ବର୍ତ୍ତମାନ ଉପଲବ୍ଧ ନୁହେଁ।</string>
     <string name="general_share_action">ସାଝାକରିବା</string>
     <string name="general_done_action">ହେଲା</string>
     <string name="general_apply_action">ଲାଗୁ କରିବା</string>
-    <string name="general_copy_action">କପି କରିନେବା</string>    <string name="general_cancel_action">ବାତିଲ୍ କର</string>
+    <string name="general_copy_action">କପି କରିନେବା</string>
+    <string name="general_cancel_action">ବାତିଲ୍ କର</string>
     <string name="general_discard_action">ପରିତ୍ୟାଗ କରିବା</string>
     <string name="general_reset_action">ପୁନଃସେଟ୍ କରିବା</string>
     <string name="general_drag_handle_description">ପୁନଃକ୍ରମ ପାଇଁ ଟାଣନ୍ତୁ</string>
-    <string name="general_save_action">ସଞ୍ଚୟ କରିବା</string>    <string name="general_gotit_action">ବୁଝିଗଲି</string>
+    <string name="general_save_action">ସଞ୍ଚୟ କରିବା</string>
+    <string name="general_gotit_action">ବୁଝିଗଲି</string>
     <string name="general_fix_action">ସଜାଡ଼ିବା</string>
     <string name="general_set_up_action">ସେଟ୍ ଅପ୍ କରିବା</string>
     <string name="general_edit_action">ସମ୍ପାଦନା</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">ସିସ୍ଟମ୍</string>
     <string name="setup_title">ସେଟଅପ</string>
     <string name="setup_feature_requires_additional_setup_x">ଏହି ବୈଶିଷ୍ଟ୍ୟ ଅତିରିକ୍ତ ସେଟଅପ ଆଇଟମଗୁଡିକ ସମ୍ପୂର୍ଣ୍ଣ କରିବା ଆବଶ୍ୟକ କରେ: %s</string>
+    <string name="upgrade_feature_requires_pro">ପ୍ରୋ ଆବଶ୍ୟକ</string>
+    <string name="general_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
+    <string name="general_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
+    <string name="general_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">ଗୋଟିଏ ବାଦ ସୃଷ୍ଟି ହୋଇଛି</item>
         <item quantity="other">%d ବାଦ ସୃଷ୍ଟି ହୋଇଛି</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ଇତିହାସ</string>
     <string name="settings_category_tools_label">ଉପକରଣଗୁଡ଼ିକ</string>
-    <string name="general_include_multiuser_label">ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ</string>
-    <string name="general_include_multiuser_summary">ଏହି ଡିଭାଇସରେ ଅନ୍ୟ ଉପଯୋଗକର୍ତ୍ତା ପ୍ରୋଫାଇଲରୁ ଆପ୍‌ଗୁଡ଼ିକ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ।</string>
-    <string name="general_unsaved_confirmation_message">ଆପଣଙ୍କର ସେଭ୍ ହୋଇନଥିବା ପରିବର୍ତ୍ତନ ଅଛି!</string>
 </resources>

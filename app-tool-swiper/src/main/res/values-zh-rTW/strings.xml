@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">快速整理資料夾 — 滑動檔案以保留、刪除或跳過。</string>
     <string name="swiper_dashcard_description">比檔案管理員更快地整理特定資料夾 — 只需滑動每個檔案。</string>
-    <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_start_action">開始滑動</string>
     <string name="swiper_continue_action">繼續工作階段</string>
+    <string name="swiper_sessions_description">透過 3 個簡單步驟檢閱檔案：\n\n1. 選取要掃描的資料夾\n2. 滑動檔案以保留、刪除或跳過\n3. 檢閱您的選擇並確認\n\n在您點擊最終的刪除按鈕之前，不會移除任何內容。</string>
     <string name="swiper_select_folders_action">選取資料夾</string>
     <string name="swiper_scanning_title">正在掃描…</string>
     <plurals name="swiper_result_x_items_found">
@@ -20,10 +20,10 @@
     <string name="swiper_item_position">第 %1$d 個，共 %2$d 個</string>
     <string name="swiper_keep_action">保留</string>
     <string name="swiper_skip_action">跳過</string>
-    <string name="swiper_review_action">檢閱</string>
+    <string name="swiper_review_action">評論</string>
     <string name="swiper_status_title">檢閱決定</string>
     <string name="swiper_status_action_keep_selected">保留所選</string>
-    <string name="swiper_status_action_delete_selected">刪除所選</string>
+    <string name="swiper_status_action_delete_selected">刪除已選取的項目</string>
     <string name="swiper_status_action_reset_selected">重設所選</string>
     <string name="swiper_decision_undecided">未決定</string>
     <string name="swiper_retry_action">重試</string>
@@ -94,7 +94,7 @@
     <string name="swiper_sessions_header_title">準備好整理了嗎？</string>
     <string name="swiper_sessions_suggestions_label">嘗試從以下開始：</string>
     <string name="swiper_sessions_suggestion_downloads">下載資料夾</string>
-    <string name="swiper_sessions_suggestion_screenshots">螢幕截圖</string>
+    <string name="swiper_sessions_suggestion_screenshots">截圖</string>
     <string name="swiper_sessions_suggestion_camera">相機膠卷</string>
     <string name="swiper_stamp_keep_1">保留！</string>
     <string name="swiper_stamp_keep_2">讚！</string>
@@ -121,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ 復原</string>
     <string name="swiper_help_title">Swiper 使用方式</string>
     <string name="swiper_help_message">滑動每個檔案來做決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（第一次滑動後）\n\n您也可以使用底部的按鈕。\n\n完成後，點擊「檢閱」查看所有決定。在檢閱畫面確認之前，不會刪除任何內容。</string>
+    <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
+    <string name="swiper_help_action">說明</string>
 </resources>

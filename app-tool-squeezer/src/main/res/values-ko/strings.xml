@@ -76,4 +76,5 @@
         <item quantity="other">최소 %d일 경과</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 파일에 대해 ~%d%% 절약 예상</string>
+    <string name="squeezer_onboarding_got_it">확인</string>
 </resources>

@@ -24,6 +24,10 @@
         <item quantity="other">%1$d archivos listos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo compartible. El archivo generado contiene información sensible (p. ej., nombres de archivos y aplicaciones instaladas). Solo compártelo con partes de confianza (p. ej., un desarrollador resolviendo un problema).</string>
+    <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
+    <string name="debug_debuglog_short_recording_desc">La grabación fue muy corta. Los registros de depuración son grabaciones, no capturas — reproduce el problema mientras la grabación está activa para que el registro sea útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar grabando</string>
+    <string name="debug_debuglog_short_recording_stop_action">Detener de todos modos</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -90,8 +94,49 @@
     <string name="support_installid_desc">Los informes de errores automáticos son anónimos. Comparta su identificador de la instalación si el desarrollador necesita encontrar sus informes de errores.</string>
     <string name="support_debuglog_label">Registro de depuración</string>
     <string name="support_debuglog_desc">Registra todo lo que hace la aplicación en un archivo de texto que puede compartir.</string>
+    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d archivo usando %2$s</item>
+        <item quantity="other">%1$d archivos usando %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar donde pasar el rato y preguntar.</string>
+    <string name="support_contact_label">Contactar al desarrollador</string>
+    <string name="support_contact_desc">Llena un formulario para enviarle un correo electrónico al desarrollador.</string>
+    <string name="support_contact_welcome">Leo cada mensaje personalmente y hago mi mejor esfuerzo para responder, pero como trabajo en esto solo, puede tomar un poco de tiempo. Gracias por tu paciencia.</string>
+    <string name="support_contact_footer">Tu mensaje se enviará por correo electrónico. La información del dispositivo y la configuración se adjunta automáticamente. Puedes adjuntar capturas de pantalla o un video al correo. Algunas partes del correo estarán en inglés para que el desarrollador pueda entenderlo fácilmente.</string>
+    <string name="support_contact_category_label">Categoría</string>
+    <string name="support_contact_category_bug_label">Reporte de error</string>
+    <string name="support_contact_category_feature_label">Solicitud de función</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_tool_label">Herramienta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">Limpiador de Aplicaciones</string>
+    <string name="support_contact_tool_corpsefinder_label">Buscador de cadáveres</string>
+    <string name="support_contact_tool_systemcleaner_label">Limpiador de Sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analizador</string>
+    <string name="support_contact_tool_appcontrol_label">Control de Aplicaciones</string>
+    <string name="support_contact_tool_scheduler_label">Programador</string>
+    <string name="support_contact_tool_general_label">General</string>
+    <string name="support_contact_description_label">Descripción</string>
+    <string name="support_contact_description_bug_hint">Describe qué ocurrió y cómo reproducir el problema. Por favor sé específico (mínimo 20 palabras).</string>
+    <string name="support_contact_description_feature_hint">Describe la función que te gustaría ver. Por favor sé específico (mínimo 20 palabras).</string>
+    <string name="support_contact_description_question_hint">Describe tu pregunta en detalle. Por favor sé específico (mínimo 20 palabras).</string>
+    <string name="support_contact_expected_label">Comportamiento esperado</string>
+    <string name="support_contact_expected_hint">Describe qué esperabas que ocurriera (mínimo 10 palabras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palabra</item>
+        <item quantity="other">%1$d / %2$d palabras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registro de depuración</string>
+    <string name="support_contact_debuglog_zip_error">Error al comprimir el registro de depuración</string>
+    <string name="support_contact_debuglog_picker_hint">Adjunta un registro de depuración existente o graba uno nuevo.</string>
+    <string name="support_contact_debuglog_picker_empty">No se encontraron registros de depuración. Graba uno primero.</string>
+    <string name="support_contact_send_action">Abrir aplicación de correo</string>
+    <string name="support_contact_no_email_app">No se encontró ninguna aplicación de correo en este dispositivo.</string>
     <string name="changelog_label">Historial de cambios</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
     <string name="settings_acknowledgements_category_translations_title">Traducción</string>
@@ -169,6 +214,14 @@
     <string name="debug_mode_explanation">Habilitar opciones de prueba y salida más detallada. La aplicación funcionará más lenta y tendrá comportamiento diferente.</string>
     <string name="debug_bugreporter_label">Reportes automáticos de errores</string>
     <string name="debug_bugreporter_summary">Reporta automáticamente problemas, p. ej. detalles sobre cierres de aplicación para que pueda averiguar por qué y arreglarlo.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">El modo de depuración está activado</string>
+    <string name="debug_card_trace_mode_label">Activar modo de rastreo</string>
+    <string name="debug_card_dryrun_mode_label">Modo de prueba (desactivar eliminación)</string>
+    <string name="debug_card_areas_reload_action">Recargar áreas de datos</string>
+    <string name="debug_card_pkgs_reload_action">Recargar aplicaciones</string>
+    <string name="debug_card_root_test_action">Probar root</string>
+    <string name="debug_card_shizuku_test_action">Probar Shizuku</string>
     <string name="settings_category_filter">Filtro</string>
     <string name="settings_category_risklevel">Nivel de riesgo</string>
     <string name="data_area_public_app_data_official_label">Datos públicos predeterminados de aplicación</string>
@@ -211,12 +264,5 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Muestra el acceso directo «Buscar + Eliminar» al pulsar prolongadamente el icono de la aplicación. Utiliza las mismas herramientas que el panel de un solo toque.</string>
-    <string name="support_debuglog_folder_label">Carpeta del registro de depuración</string>
-    <plurals name="support_debuglog_folder_desc">
-        <item quantity="one">%1$d archivo usando %2$s</item>
-        <item quantity="other">%1$d archivos usando %2$s</item>
-    </plurals>
-    <string name="support_debuglog_folder_empty_desc">No hay registros de depuración almacenados</string>
-    <string name="support_debuglog_folder_delete_confirmation_title">¿Eliminar todos los registros de depuración?</string>
-    <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

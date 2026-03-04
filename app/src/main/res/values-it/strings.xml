@@ -24,6 +24,10 @@
         <item quantity="other">%1$d file pronti (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Questa funzione registra tutte le attività dell\'app in un file condivisibile. Questo file conterrà informazioni sensibile (es. i nomi dei file e la lista delle app installate nel dispositivo). Condividetelo solo con persone fidate (es. lo sviluppatore per la risoluzione di problemi).</string>
+    <string name="debug_debuglog_short_recording_title">Registrazione molto breve</string>
+    <string name="debug_debuglog_short_recording_desc">La registrazione è stata molto breve. I log di debug sono registrazioni, non istantanee — riproduci il problema mentre la registrazione è attiva affinché il log sia utile.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continua a registrare</string>
+    <string name="debug_debuglog_short_recording_stop_action">Interrompi comunque</string>
     <string name="tasks_activity_notification_channel_label">Processi attivi</string>
     <string name="tasks_activity_working_notification_title">SD Maid è in esecuzione</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Questo eliminerà permanentemente tutte le sessioni di log di debug archiviate. Questa azione non può essere annullata.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un posto dove aprirsi e fare domande.</string>
+    <string name="support_contact_label">Contatta lo sviluppatore</string>
+    <string name="support_contact_desc">Compila un modulo per inviare un\'email allo sviluppatore.</string>
+    <string name="support_contact_welcome">Leggo personalmente ogni messaggio e faccio del mio meglio per rispondere, ma poiché lavoro da solo, potrebbe volerci un po\' di tempo. Grazie per la pazienza.</string>
+    <string name="support_contact_footer">Il tuo messaggio verrà inviato tramite email. Le informazioni sul dispositivo e sulla configurazione vengono allegate automaticamente. Puoi allegare screenshot o un video all\'email. Alcune parti dell\'email saranno in inglese in modo che lo sviluppatore possa capirla facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_bug_label">Segnalazione di bug</string>
+    <string name="support_contact_category_feature_label">Richiesta di funzionalità</string>
+    <string name="support_contact_category_question_label">Domanda</string>
+    <string name="support_contact_tool_label">Strumento correlato</string>
+    <string name="support_contact_tool_appcleaner_label">Pulizia App</string>
+    <string name="support_contact_tool_corpsefinder_label">Resti delle applicazioni</string>
+    <string name="support_contact_tool_systemcleaner_label">Pulitore di sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicatore</string>
+    <string name="support_contact_tool_analyzer_label">Analizzatore</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Pianificatore</string>
+    <string name="support_contact_tool_general_label">Generale</string>
+    <string name="support_contact_description_label">Descrizione</string>
+    <string name="support_contact_description_bug_hint">Descrivi cosa è successo e come riprodurre il problema. Sii specifico (minimo 20 parole).</string>
+    <string name="support_contact_description_feature_hint">Descrivi la funzionalità che vorresti vedere. Sii specifico (minimo 20 parole).</string>
+    <string name="support_contact_description_question_hint">Descrivi la tua domanda in dettaglio. Sii specifico (minimo 20 parole).</string>
+    <string name="support_contact_expected_label">Comportamento atteso</string>
+    <string name="support_contact_expected_hint">Descrivi cosa ti aspettavi che accadesse (minimo 10 parole).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d parola</item>
+        <item quantity="other">%1$d / %2$d parole</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log di debug</string>
+    <string name="support_contact_debuglog_zip_error">Impossibile comprimere il log di debug</string>
+    <string name="support_contact_debuglog_picker_hint">Allega un log di debug esistente, o registrarne uno nuovo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nessun log di debug trovato. Registrarne uno prima.</string>
+    <string name="support_contact_send_action">Apri app email</string>
+    <string name="support_contact_no_email_app">Nessuna app email trovata su questo dispositivo.</string>
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Ringraziamenti</string>
     <string name="settings_acknowledgements_category_translations_title">Traduzioni</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Abilita le opzioni di test e output più dettagliato. L\'app verrà eseguita più lentamente e performerà diversamente.</string>
     <string name="debug_bugreporter_label">Segnalazioni di bug automatiche</string>
     <string name="debug_bugreporter_summary">Segnala automaticamente i problemi, ad esempio i dettagli sui crash dell\'app in modo da poter capire perché e correggerlo nei prossimi aggiornamenti.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">La modalità debug è attivata</string>
     <string name="debug_card_trace_mode_label">Abilita modalità traccia</string>
     <string name="debug_card_dryrun_mode_label">Modalità prova (disabilita eliminazione)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Scorciatoie</string>
     <string name="shortcuts_onetap_enabled_title">Scorciatoia singolo tocco</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la scorciatoia \"Scansione + Elimina\" quando si tiene premuta l\'icona dell\'app. Usa gli stessi strumenti della dashboard singolo tocco.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

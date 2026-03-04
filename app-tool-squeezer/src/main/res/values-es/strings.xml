@@ -17,7 +17,7 @@
         <item quantity="one">%d imagen seleccionada</item>
         <item quantity="other">%d imágenes seleccionadas</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Ubicaciones de búsqueda</string>
+    <string name="squeezer_search_locations_title">Buscar ubicaciones</string>
     <string name="squeezer_search_locations_default_summary">Carpetas de cámara (predeterminado)</string>
     <string name="squeezer_min_size_title">Tamaño mínimo del archivo</string>
     <string name="squeezer_min_size_description">Omitir imágenes más pequeñas que este tamaño.</string>
@@ -67,10 +67,10 @@
     <string name="squeezer_result_empty_message">No se encontraron imágenes comprimibles.</string>
     <string name="squeezer_setup_warning">La compresión reduce permanentemente la calidad de imagen para ahorrar espacio. No se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
     <string name="squeezer_setup_explanation">La compresión de medios reduce el tamaño de las imágenes para liberar espacio. Esto reduce permanentemente la calidad y no se puede deshacer. Revisa tus ajustes cuidadosamente antes de comenzar.</string>
-    <string name="squeezer_setup_paths_title">Ubicaciones de búsqueda</string>
+    <string name="squeezer_setup_paths_title">Buscar ubicaciones</string>
     <string name="squeezer_setup_paths_default">Seleccionar carpetas a buscar</string>
     <string name="squeezer_setup_quality_title">Calidad de compresión</string>
-    <string name="squeezer_setup_age_title">Antigüedad mínima</string>
+    <string name="squeezer_setup_age_title">Antigüedad</string>
     <string name="squeezer_setup_age_none">Sin límite (incluir todos los archivos)</string>
     <string name="squeezer_setup_start_action">Iniciar escaneo</string>
     <string name="squeezer_quality_hint_very_low">Calidad por debajo del 40% puede crear imágenes inutilizables.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Al menos %d días de antigüedad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Ahorro estimado de ~%d%% para archivos JPEG</string>
+    <string name="squeezer_onboarding_got_it">Entiendo</string>
 </resources>

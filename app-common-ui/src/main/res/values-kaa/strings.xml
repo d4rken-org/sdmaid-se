@@ -3,5 +3,9 @@
     <string name="picker_select_paths_title">Jollar saylaw</string>
     <string name="picker_selected_paths_title">Saylag̱an jollar</string>
     <string name="picker_unsaved_confirmation_message">Ózgerisler tashlaw?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d jol tańlandı</item>
+        <item quantity="other">%d jol tańlandı</item>
+    </plurals>
     <string name="picker_home_action">Ma\'lumot sahalar</string>
 </resources>

@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid ไม่สามารถทำขั้นตอนทั้งหมดได้ภายในขอบเวลาที่กำหนด หากปัญหานี้ยังคงเกิดขึ้นต่อไป ผมอาจต้องปรับแอพสำหรับอุปกรณ์ของคุณ ตรวจสอบการอัปเดตหรือติดต่อผมเพื่อให้ผมแก้ไข</string>
     <string name="automation_error_overlay_title">เลเยอร์การทำงานอัตโนมัติ</string>
     <string name="automation_error_overlay_body">SD Maid ไม่สามารถแสดงเลเยอร์การทำงานอัตโนมัติได้ ตรวจสอบสิทธิ์และลองรีสตาร์ทอุปกรณ์</string>
+    <string name="automation_error_scheduler_title">การทำงานอัตโนมัติตามกำหนดการล้มเหลว</string>
+    <string name="automation_error_scheduler_body">งานที่กำหนดเวลาไว้พยายามใช้บริการการช่วยเหลือการเข้าถึง แต่ไม่พร้อมใช้งาน หากคุณไม่ต้องการสิ่งนี้ ให้ปิดใช้งานตัวเลือก \"บริการการช่วยเหลือการเข้าถึง\" ในการตั้งค่าตัวกำหนดเวลา</string>
     <string name="automation_error_no_settings_title">ไม่มีหน้าจอการตั้งค่า</string>
     <string name="automation_error_no_settings_body">แอพระบบนี้ไม่มีหน้าจอการตั้งค่า ไม่สามารถล้างแคชผ่านบริการช่วยเหลือการเข้าถึงได้ ยกเว้นเพื่อเร่งการล้างแคช</string>
-    <string name="automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการช่วยเหลือการเข้าถึง</string>
-    <string name="automation_progress_find_ok_confirmation">พยายามยืนยันการกระทำก่อนหน้า (คำสำคัญ: %s)</string>
+    <string name="automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
+    <string name="automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
 </resources>

@@ -27,6 +27,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">螢幕截圖被考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">根據已安裝應用程式版本而不再需要的安裝檔案。</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">包含相同版本</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">也包括與已安裝版本相符的 APK 檔案。停用以只移除舊版本。</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR 資料夾</string>
@@ -98,4 +99,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">根據檔案年齡（最後修改時間）限制符合項目。留空以符合任何年齡。</string>
     <string name="systemcleaner_customfilter_import_action">匯入新過濾器</string>
     <string name="systemcleaner_customfilter_export_action">匯出選取的過濾器</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">您有未儲存的變更！</string>
 </resources>

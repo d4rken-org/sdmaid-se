@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">အများပြည်သူ သိုလှောင်မှု</string>
+    <string name="area_type_public_media_label">အများပြည်သူ အပ်ပ်မီဒီယာ</string>
+    <string name="area_type_public_data_label">အများပြည်သူ အက်ပ်ဒေတာ</string>
+    <string name="area_type_public_obb_label">အများပြည်သူ အပ်ပ်အရင်းအမြစ်များ</string>
+    <string name="area_type_private_data_label">ပုဂ္ဂလိက အက်ပ်ဒေတာ</string>
+    <string name="area_type_portable_label">သယ်ဆောင်နိုင်သော သိုလှောင့်မှု</string>
+</resources>

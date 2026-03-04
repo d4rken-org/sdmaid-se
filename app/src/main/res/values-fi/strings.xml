@@ -24,6 +24,10 @@
         <item quantity="other">%1$d tiedostoa valmiina (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Tämä ominaisuus tallentaa kaiken sovelluksen tekemän jaettavaan tiedostoon. Luotu tiedosto sisältää arkaluontoisia tietoja (esim. tiedostonimet ja asennetut sovellukset). Jaa se vain luotettujen tahojen kanssa (esim. kehittäjä, joka selvittää ongelmaa).</string>
+    <string name="debug_debuglog_short_recording_title">Hyvin lyhyt tallennus</string>
+    <string name="debug_debuglog_short_recording_desc">Tallennus oli hyvin lyhyt. Virheenkorjauslokit ovat tallennuksia, eivät tilannekuvia — toista ongelma tallennuksen ollessa aktiivinen, jotta loki olisi hyödyllinen.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Jatka tallennusta</string>
+    <string name="debug_debuglog_short_recording_stop_action">Pysäytä joka tapauksessa</string>
     <string name="tasks_activity_notification_channel_label">Aktiiviset tehtävät</string>
     <string name="tasks_activity_working_notification_title">SD Maid työskentelee</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Tämä poistaa pysyvästi kaikki tallennetut virheenkorjausloki-istunnot. Tätä toimintoa ei voi kumota.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Paikka missä hengailla ja kysyä kysymyksiä.</string>
+    <string name="support_contact_label">Ota yhteyttä kehittäjään</string>
+    <string name="support_contact_desc">Täytä lomake lähettääksesi kehittäjälle sähköpostia.</string>
+    <string name="support_contact_welcome">Luen jokaisen viestin itse ja teen parhaani vastatakseni, mutta koska työskentelen tämän parissa yksin, se voi viedä hetken. Kiitos kärsivällisyydestäsi.</string>
+    <string name="support_contact_footer">Viestisi lähetetään sähköpostilla. Laite- ja asetustiedot liitetään automaattisesti. Voit liittää sähköpostiin kuvakaappauksia tai videon. Osa sähköpostista on englanniksi, jotta kehittäjä ymmärtää sen helposti.</string>
+    <string name="support_contact_category_label">Kategoria</string>
+    <string name="support_contact_category_bug_label">Virheilmoitus</string>
+    <string name="support_contact_category_feature_label">Ominaisuuspyyntö</string>
+    <string name="support_contact_category_question_label">Kysymys</string>
+    <string name="support_contact_tool_label">Liittyvä työkalu</string>
+    <string name="support_contact_tool_appcleaner_label">Sovellussiivooja</string>
+    <string name="support_contact_tool_corpsefinder_label">Tähteiden etsijä</string>
+    <string name="support_contact_tool_systemcleaner_label">Järjestelmäsiivooja</string>
+    <string name="support_contact_tool_deduplicator_label">Kaksoiskappaleiden poistaja</string>
+    <string name="support_contact_tool_analyzer_label">Analysaattori</string>
+    <string name="support_contact_tool_appcontrol_label">Sovellushallinta</string>
+    <string name="support_contact_tool_scheduler_label">Ajastin</string>
+    <string name="support_contact_tool_general_label">Yleiset</string>
+    <string name="support_contact_description_label">Kuvaus</string>
+    <string name="support_contact_description_bug_hint">Kuvaile mitä tapahtui ja miten toistaa ongelma. Ole tarkka (vähintään 20 sanaa).</string>
+    <string name="support_contact_description_feature_hint">Kuvaile ominaisuutta, jonka haluaisit nähdä. Ole tarkka (vähintään 20 sanaa).</string>
+    <string name="support_contact_description_question_hint">Kuvaile kysymyksesi yksityiskohtaisesti. Ole tarkka (vähintään 20 sanaa).</string>
+    <string name="support_contact_expected_label">Odotettu toiminta</string>
+    <string name="support_contact_expected_hint">Kuvaile mitä odotit tapahtuvan (vähintään 10 sanaa).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d sana</item>
+        <item quantity="other">%1$d / %2$d sanaa</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Virheenkorjausloki</string>
+    <string name="support_contact_debuglog_zip_error">Virhelokia ei voitu pakata</string>
+    <string name="support_contact_debuglog_picker_hint">Liitä olemassa oleva virheloki tai tallenna uusi.</string>
+    <string name="support_contact_debuglog_picker_empty">Virhelokeja ei löydy. Tallenna ensin yksi.</string>
+    <string name="support_contact_send_action">Avaa sähköpostiohjelma</string>
+    <string name="support_contact_no_email_app">Tässä laitteessa ei ole sähköpostiohjelmaa.</string>
     <string name="changelog_label">Muutosloki</string>
     <string name="settings_acknowledgements_label">Kiitokset</string>
     <string name="settings_acknowledgements_category_translations_title">Käännökset</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Ota käyttöön testiasetukset ja yksityiskohtaisempi tuloste. Sovellus toimii hitaammin ja käyttäytyy eri tavalla.</string>
     <string name="debug_bugreporter_label">Automaattiset virheraportit</string>
     <string name="debug_bugreporter_summary">Raportoi automaattisesti ongelmista, esim. tiedot sovelluksen kaatumisista, jotta voin selvittää miksi ja korjata sen.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Virheenkorjaustila on käytössä</string>
     <string name="debug_card_trace_mode_label">Ota jäljitystila käyttöön</string>
     <string name="debug_card_dryrun_mode_label">Testiajon tila (poistaminen pois käytöstä)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Pikanäppäimet</string>
     <string name="shortcuts_onetap_enabled_title">Yhden napautuksen pikakuvake</string>
     <string name="shortcuts_onetap_enabled_summary">Näytä \"Skannaa + Poista\" -pikakuvake painamalla sovelluskuvaketta pitkään. Käyttää samoja työkaluja kuin yhden napautuksen kojelauta.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

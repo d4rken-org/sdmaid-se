@@ -82,4 +82,5 @@
         <item quantity="other">Minst %d dager gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimert ~%d%% besparelse for JPEG-filer</string>
+    <string name="squeezer_onboarding_got_it">Forstått</string>
 </resources>

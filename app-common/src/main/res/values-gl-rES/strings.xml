@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Grazas</string>
     <string name="general_error_type_mismatch_msg">Desacordo de tipo: Quería %1$s, pero obtívose %2$s.</string>
     <string name="general_error_cant_access_msg">Non se pode acceder a %s.</string>
-    <string name="general_error_root_unavailable">O acceso root non está dispoñible.</string>    <string name="general_error_no_compatible_app_found_msg">Non se atopou ningunha aplicación compatible para xestionar esta solicitude.</string>
+    <string name="general_error_root_unavailable">O acceso root non está dispoñible.</string>
+    <string name="general_error_no_compatible_app_found_msg">Non se atopou ningunha aplicación compatible para xestionar esta solicitude.</string>
     <string name="general_todo_msg">Esta función aínda está en desenvolvemento e actualmente non está dispoñible.</string>
     <string name="general_share_action">Compartir</string>
     <string name="general_done_action">Feito</string>
     <string name="general_apply_action">Aplicar</string>
-    <string name="general_copy_action">Copiar</string>    <string name="general_cancel_action">Cancelar</string>
+    <string name="general_copy_action">Copiar</string>
+    <string name="general_cancel_action">Cancelar</string>
     <string name="general_discard_action">Descartar</string>
     <string name="general_reset_action">Reiniciar</string>
     <string name="general_drag_handle_description">Arrastra para reordenar</string>
-    <string name="general_save_action">Gardar</string>    <string name="general_gotit_action">Entendido</string>
+    <string name="general_save_action">Gardar</string>
+    <string name="general_gotit_action">Entendido</string>
     <string name="general_fix_action">Arranxar</string>
     <string name="general_set_up_action">Configurar</string>
     <string name="general_edit_action">Editar</string>
@@ -169,15 +172,22 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Configuración</string>
     <string name="setup_feature_requires_additional_setup_x">Esta funcionalidade require completar elementos de configuración adicionais: %s</string>
+    <string name="upgrade_feature_requires_pro">Require Pro</string>
+    <string name="general_include_multiuser_label">Incluír outros usuarios</string>
+    <string name="general_include_multiuser_summary">Incluír aplicacións doutros perfís de usuario neste dispositivo.</string>
+    <string name="general_unsaved_confirmation_message">Ten cambios sen gardar!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Creouse unha exclusión</item>
         <item quantity="other">Creáronse %d exclusións</item>
     </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
     <string name="deduplicator_tool_name">Deduplicador</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historial</string>
     <string name="settings_category_tools_label">Ferramentas</string>
-    <string name="general_include_multiuser_label">Incluír outros usuarios</string>
-    <string name="general_include_multiuser_summary">Incluír aplicacións doutros perfís de usuario neste dispositivo.</string>
-    <string name="general_unsaved_confirmation_message">Ten cambios sen gardar!</string>
 </resources>

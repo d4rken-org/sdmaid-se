@@ -55,9 +55,9 @@
     <string name="systemcleaner_filter_localtmp_label">Místní dočasné soubory</string>
     <string name="systemcleaner_filter_localtmp_summary">Dočasné systémové soubory (např. z Android Studio).</string>
     <string name="systemcleaner_filter_datalogger_label">Soubory systémových záznamů</string>
-    <string name="systemcleaner_filter_datalogger_summary">Specifické soubory systémových záznamů.</string>
-    <string name="systemcleaner_filter_logdropbox_label">Schránka se záznamy</string>
-    <string name="systemcleaner_filter_logdropbox_summary">Místo, do které systém ukládá soubory se záznamy.</string>
+    <string name="systemcleaner_filter_datalogger_summary">Specifické soubory systémových logů.</string>
+    <string name="systemcleaner_filter_logdropbox_label">Schránka s logy</string>
+    <string name="systemcleaner_filter_logdropbox_summary">Místo, do které systém ukládá soubory s logy.</string>
     <string name="systemcleaner_filter_recenttasks_label">Nedávné úlohy</string>
     <string name="systemcleaner_filter_recenttasks_summary">Data týkající se historie úloh v systémovém přepínači úloh.</string>
     <string name="systemcleaner_filter_tombstones_label">Pozůstatky pádu systému</string>
@@ -105,5 +105,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Omezit shodu podle stáří souboru (naposledy upraveno). Pro jakékoliv stáří nenastavujte.</string>
     <string name="systemcleaner_customfilter_import_action">Importovat nový filtr</string>
     <string name="systemcleaner_customfilter_export_action">Exportovat vybraný filtr</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Máš neuložené změny!</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Máte neuložené změny!</string>
 </resources>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Tak</string>
     <string name="general_error_type_mismatch_msg">Typen matcher ikke: Ønskede %1$s, men fik %2$s.</string>
     <string name="general_error_cant_access_msg">Kan ikke tilgå %s.</string>
-    <string name="general_error_root_unavailable">Root-adgang er utilgængelig.</string>    <string name="general_error_no_compatible_app_found_msg">Ingen kompatibel app fundet til at håndtere denne anmodning.</string>
+    <string name="general_error_root_unavailable">Root-adgang er utilgængelig.</string>
+    <string name="general_error_no_compatible_app_found_msg">Ingen kompatibel app fundet til at håndtere denne anmodning.</string>
     <string name="general_todo_msg">Denne funktion er stadig under udvikling og er ikke tilgængelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Færdig</string>
     <string name="general_apply_action">Anvend</string>
-    <string name="general_copy_action">Kopiér</string>    <string name="general_cancel_action">Annuller</string>
+    <string name="general_copy_action">Kopiér</string>
+    <string name="general_cancel_action">Annuller</string>
     <string name="general_discard_action">Kassér</string>
     <string name="general_reset_action">Nulstil</string>
     <string name="general_drag_handle_description">Træk for at omarrangere</string>
-    <string name="general_save_action">Gem</string>    <string name="general_gotit_action">Forstået</string>
+    <string name="general_save_action">Gem</string>
+    <string name="general_gotit_action">Forstået</string>
     <string name="general_fix_action">Fix</string>
     <string name="general_set_up_action">Opsæt</string>
     <string name="general_edit_action">Rediger</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Opsætning</string>
     <string name="setup_feature_requires_additional_setup_x">Denne funktion kræver yderligere opsætning: %s</string>
+    <string name="upgrade_feature_requires_pro">Kræver Pro</string>
+    <string name="general_include_multiuser_label">Inkluder andre brugere</string>
+    <string name="general_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
+    <string name="general_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Én eksklusion oprettet</item>
         <item quantity="other">%d eksklusioner oprettet</item>
@@ -177,13 +184,10 @@
     <string name="systemcleaner_tool_name">Systemrenser</string>
     <string name="appcleaner_tool_name">Apprenser</string>
     <string name="deduplicator_tool_name">Duplikationsfjerner</string>
-    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_tool_name">Medie-komprimering</string>
     <string name="appcontrol_tool_name">AppControl</string>
     <string name="analyzer_tool_name">Lageranalyse</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historik</string>
     <string name="settings_category_tools_label">Værktøjer</string>
-    <string name="general_include_multiuser_label">Inkluder andre brugere</string>
-    <string name="general_include_multiuser_summary">Inkluder apps fra andre brugerprofiler på denne enhed.</string>
-    <string name="general_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
 </resources>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Irisgarritasun-behar bereziak dituzten erabiltzaileek zerbitzu hau gaitu dezakete SD Maid-i eskuz egin beharko lituzkeen zereginak automatizatzeko aukera emateko (adibidez, cachea ezabatzea).
+
+Adibidea: SD Maid-i hainbat aplikazio gelditzeko agintzen badiozu, SD Maid-ek zerbitzu hau erabil dezake aplikazio bakoitzaren ezarpen-pantaila irekitzeko, \'Behartu Gelditzera\' botoia bilatzeko eta bertan sakatzeko.
+
+SD Maid-ek beti nabarian erakutsiko du zerbitzu hau erabiltzen ari denean eta erabiltzaileari edozein interakzio berehala bertan behera uzteko bide erraza eskainiko dio.
+
+Ez da inolako ekintzarik egingo erabiltzailearen aldez aurreko onespenaren gabe. Zerbitzu hau edozein unetan desgaitu daiteke ondorio kaltegarririk gabe.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid zure gailuarekin elkarreragiten ari da. Ezin da pantaila aldi berean erabili. Itxaron eragiketa amaitu arte edo utzi bertan behera.</string>
+    <string name="automation_active_title">SD Maid lanean dabil</string>
+    <string name="automation_error_no_consent_title">Automatizazio-errorea</string>
+    <string name="automation_error_no_consent_body">Irisgarritasun-zerbitzua ez dago konfiguratuta. Osatu konfigurazioa eta eman baimena.</string>
+    <string name="automation_error_not_enabled_title">Zerbitzua ez dago gaituta</string>
+    <string name="automation_error_not_enabled_body">Irisgarritasun-zerbitzua desgaituta dago. Gaitu berriz.</string>
+    <string name="automation_error_not_running_title">Zerbitzua ez dago martxan</string>
+    <string name="automation_error_not_running_body">Irisgarritasun-zerbitzua ez dago martxan. Saiatu gailua berrabiarazten.</string>
+    <string name="automation_error_screen_unavailable_title">Pantaila erabilgarri ez</string>
+    <string name="automation_error_screen_unavailable_body">Eragiketa bertan behera utzi da pantaila erabilgarri ez zegoelako (adibidez, pantaila itzalita edo blokeo-pantaila aktibo).</string>
+    <string name="automation_error_compatibility_title">Automatizazio-bateragarritasuna</string>
+    <string name="automation_error_compatibility_body">SD Maid-ek ezin izan du pantailaren diseinua ulertu. Hau behin eta berriz gertatzen bada, agian zure hizkuntza edo konfigurazioa ez dago guztiz onartuta. Egiaztatu eguneratzeak edo jarri nirekin harremanetan konpon dezadan.</string>
+    <string name="automation_error_timeout_title">Automatizazio-denbora-muga</string>
+    <string name="automation_error_timeout_body">SD Maid-ek ez ditu urrats guztiak denbora-mugaren barruan osatu. Hau behin eta berriz gertatzen bada, agian aplikazioa zure gailurako egokitu beharko dut. Egiaztatu eguneratzeak edo jarri nirekin harremanetan konpon dezadan.</string>
+    <string name="automation_error_overlay_title">Automatizazio-gainjartzea</string>
+    <string name="automation_error_overlay_body">SD Maid-ek ezin izan du automatizazio-gainjartzea erakutsi. Egiaztatu baimenak eta saiatu gailua berrabiarazten.</string>
+    <string name="automation_error_scheduler_title">Programatutako automatizazioak huts egin du</string>
+    <string name="automation_error_scheduler_body">Programatutako zeregin batek irisgarritasun-zerbitzua erabiltzen saiatu da, baina erabilgarri ez zegoen. Ez baduzu hau behar, desgaitu \"Irisgarritasun-zerbitzua\" aukera programatzailearen ezarpenetan.</string>
+    <string name="automation_error_no_settings_title">Ezarpen-pantaila erabilgarri ez</string>
+    <string name="automation_error_no_settings_body">Sistema-aplikazio honek ez du ezarpen-pantailarik. Cachea garbitzea irisgarritasun-zerbitzuaren bidez ez da posible. Baztertu azkartasuna areagotzeko cachea garbitzerakoan.</string>
+    <string name="automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
+    <string name="automation_progress_find_ok_confirmation">Aurreko ekintza bermatzen saiatzen (gako-hitzak: %s)</string>
+</resources>

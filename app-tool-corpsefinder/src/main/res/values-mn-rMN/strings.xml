@@ -10,6 +10,14 @@
     <string name="corpsefinder_watcher_summary">Апп устгагдсан үед үлдэгдлийг автоматаар сканнердах.</string>
     <string name="corpsefinder_watcher_autodelete_title">Автомат устгалт</string>
     <string name="corpsefinder_watcher_autodelete_summary">Устгагдсан аппликешнтай холбоотой аливаа үлдэгдлийг автоматаар устгах.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="one">%2$s устгасаны дараа %1$d үлдэгдэл байв.</item>
+        <item quantity="other">%2$s устгасаны дараа %1$d үлдэгдэл байв.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="one">Цэвхлэлт амжилтай (%1$s): %2$s чөлөөлж %3$d зүйл устгав.</item>
+        <item quantity="other">Цэвхлэлт амжилтай (%1$s): %2$s чөлөөлж %3$d зүйл устгав.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">Үлдэгдлийг устгах</string>
     <string name="corpsefinder_filter_publicmedia_label">Нийтийн медиа</string>
     <string name="corpsefinder_filter_publicmedia_summary">Нийтийн медиа файлууд, жишээ нь мессенжер аппуудаар хүлээн авсан файлууд.</string>
@@ -34,6 +42,7 @@
     <string name="corpsefinder_filter_appasec_label">Шифрлэгдсэн аппликешний нөөцүүд</string>
     <string name="corpsefinder_filter_appasec_summary">Шифрлэгдсэн аппликешний нөөцүүд, жишээ нь тоглоомын хөрөнгүүд.</string>
     <string name="corpsefinder_filter_app2sd_summary">App2Sd модификацаар гадаад хадгалах сан руу зөөгдсөн өгөгдөл.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <plurals name="corpsefinder_result_x_corpses_deleted">
         <item quantity="one">%d аппликешний үлдэгдэл устгагдсан</item>
         <item quantity="other">%d аппликешний үлдэгдэл устгагдсан</item>

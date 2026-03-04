@@ -24,6 +24,10 @@
         <item quantity="other">%1$d ficheiros listos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta funcionalidade grava todo o que fai a aplicación nun ficheiro compartible. O ficheiro xerado contén información sensible (p. ex. nomes de ficheiros e aplicacións instaladas). Compártao só con partes de confianza (p. ex. un desenvolvedor solucionando un problema).</string>
+    <string name="debug_debuglog_short_recording_title">Gravación moi curta</string>
+    <string name="debug_debuglog_short_recording_desc">A gravación foi moi curta. Os rexistros de depuración son gravacións, non instantáneas — reproduce o problema mentres a gravación está activa para que o rexistro sexa útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar a gravación</string>
+    <string name="debug_debuglog_short_recording_stop_action">Deter de todos os xeitos</string>
     <string name="tasks_activity_notification_channel_label">Tarefas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está traballando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">Gaña espazo de almacenamento limpando tras outras aplicacións. Elimina ficheiros prescindibles e remove datos residuais.</string>
     <string name="onboarding_welcome_body_beta">Esta é unha versión beta (de proba). Procede con sentido do humor e un plan de seguranza. Por favor, informa dos problemas que atopes.</string>
     <string name="onboarding_welcome_continue_action">Continuar</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (alias SD Maid 2) é o sucesor de SD Maid (alias SD Maid 1). Unha aplicación nova, optimizada para Android moderno.</string>
     <string name="onboarding_versus_body2">A arquitectura da súa predecesora ten máis de 7 anos e non foi deseñada para os desafíos das versións máis novas de Android. Era necesario un redeseño completo para continuar o desenvolvemento.</string>
     <string name="onboarding_versus_body3">Considera cambiar a SD Maid SE para mellorar os resultados.</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">Estilo de tema</string>
     <string name="ui_theme_style_setting_explanation">O estilo de cor usado para tematizar a aplicación.</string>
     <string name="ui_theme_style_default_label">Predeterminado</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Vistas previas de ficheiros</string>
     <string name="ui_previews_summary">Mostrar vistas previas de ficheiros en todas as ferramentas (p. ex. miniaturas de imaxes e vídeos).</string>
     <string name="ui_language_override_label">Idioma da aplicación</string>
@@ -96,7 +102,41 @@
     <string name="support_debuglog_folder_empty_desc">Non hai rexistros de depuración gardados</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Eliminar todos os rexistros de depuración?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Isto eliminará permanentemente todas as sesións de rexistro de depuración gardadas. Esta acción non se pode desfacer.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar para pasar o rato e facer preguntas.</string>
+    <string name="support_contact_label">Contactar co programador</string>
+    <string name="support_contact_desc">Enche un formulario para enviarlle un correo electrónico ao programador.</string>
+    <string name="support_contact_welcome">Leo cada mensaxe persoalmente e fago o posible por responder, pero como traballo só nisto, pode levar algo de tempo. Grazas pola túa paciencia.</string>
+    <string name="support_contact_footer">A túa mensaxe enviarase por correo electrónico. A información do dispositivo e da configuración achégase automaticamente. Podes engadir capturas de pantalla ou un vídeo ao correo. Algunhas partes do correo estarán en inglés para que o programador poida entendelo facilmente.</string>
+    <string name="support_contact_category_label">Categoría</string>
+    <string name="support_contact_category_bug_label">Informe de erros</string>
+    <string name="support_contact_category_feature_label">Solicitude de funcionalidade</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_tool_label">Ferramenta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analizador</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Programador</string>
+    <string name="support_contact_tool_general_label">Xeral</string>
+    <string name="support_contact_description_label">Descripción</string>
+    <string name="support_contact_description_bug_hint">Describe o que ocorreu e como reproducir o problema. Por favor, sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_description_feature_hint">Describe a funcionalidade que che gustaría ver. Por favor, sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_description_question_hint">Describe a túa pregunta en detalle. Por favor, sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_expected_label">Comportamento esperado</string>
+    <string name="support_contact_expected_hint">Describe o que esperabas que ocorrese (mínimo 10 palabras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palabra</item>
+        <item quantity="other">%1$d / %2$d palabras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Rexistro de depuración</string>
+    <string name="support_contact_debuglog_zip_error">Fallou a compresión do rexistro de depuración</string>
+    <string name="support_contact_debuglog_picker_hint">Adxunta un rexistro de depuración existente ou grava un novo.</string>
+    <string name="support_contact_debuglog_picker_empty">Non se atoparon rexistros de depuración. Grava un primeiro.</string>
+    <string name="support_contact_send_action">Abrir a aplicación de correo</string>
+    <string name="support_contact_no_email_app">Non se atopou ningunha aplicación de correo neste dispositivo.</string>
     <string name="changelog_label">Rexistro de cambios</string>
     <string name="settings_acknowledgements_label">Recoñecementos</string>
     <string name="settings_acknowledgements_category_translations_title">Traducións</string>
@@ -130,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">Usar acceso root se está dispoñible</string>
     <string name="setup_root_disable_root_use_label">Non usar acceso root</string>
     <string name="setup_root_card_body2">Só dispoñible en dispositivos con root. Se non fixeches esta modificación, entón o teu dispositivo non ten root e esta configuración non ten efecto.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Permite a SD Maid usar Shizuku onde sexa posible para mellorar os resultados e habilitar funcionalidades.</string>
     <string name="setup_shizuku_card_body2">Esta configuración non ten efecto se a aplicación Shizuku non está configurada no teu dispositivo.</string>
     <string name="setup_shizuku_card_root_info">Shizuku en combinación co acceso root non habilita funcionalidades adicionais, pero mellora a fiabilidade. SD Maid usarao como método de respaldo.</string>
@@ -173,6 +214,7 @@
     <string name="debug_mode_explanation">Habilitar opcións de proba e saída máis detallada. A aplicación executarase máis lentamente e funcionará de forma diferente.</string>
     <string name="debug_bugreporter_label">Informes automáticos de erros</string>
     <string name="debug_bugreporter_summary">Informa automaticamente de problemas, por exemplo, detalles sobre as fallos da aplicación para que poida descubrir por que ocorren e correxilos.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">O modo de depuración está activado</string>
     <string name="debug_card_trace_mode_label">Activar modo de rastrexo</string>
     <string name="debug_card_dryrun_mode_label">Modo de proba (desactivar eliminación)</string>
@@ -222,4 +264,5 @@
     <string name="shortcuts_settings_category">Atallos</string>
     <string name="shortcuts_onetap_enabled_title">Atallo dun toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar o atallo \"Escanear + Eliminar\" ao manter premida a icona da aplicación. Usa as mesmas ferramentas que o panel dun toque.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

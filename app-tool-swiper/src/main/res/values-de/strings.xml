@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d von %2$d</string>
     <string name="swiper_keep_action">Behalten</string>
     <string name="swiper_skip_action">Überspringen</string>
-    <string name="swiper_review_action">Überprüfen</string>
+    <string name="swiper_review_action">Bewerten</string>
     <string name="swiper_status_title">Entscheidungen überprüfen</string>
     <string name="swiper_status_action_keep_selected">Ausgewählte behalten</string>
-    <string name="swiper_status_action_delete_selected">Ausgewählte löschen</string>
+    <string name="swiper_status_action_delete_selected">Ausgewähltes löschen</string>
     <string name="swiper_status_action_reset_selected">Ausgewählte zurücksetzen</string>
     <string name="swiper_decision_undecided">Unentschieden</string>
     <string name="swiper_retry_action">Erneut versuchen</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Rückgängig</string>
     <string name="swiper_help_title">So funktioniert Swiper</string>
     <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wisch)\n\nDu kannst auch die Schaltflächen unten verwenden.\n\nWenn du fertig bist, tippe auf \"Überprüfen\", um alle deine Entscheidungen zu sehen. Es wird nichts gelöscht, bis du auf dem Überprüfungsbildschirm bestätigst.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
+    <string name="swiper_help_action">Hilfe</string>
 </resources>

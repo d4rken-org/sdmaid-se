@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">ຕັວຈັດຕາຣາງເວລາ</string>
+    <string name="scheduler_execution_label">ການເດີນງານຖັດບໍດເປັນເວລາ (ປະມານ)</string>
+    <string name="scheduler_execution_last_label">ການເດີນງານລ່າສຸດ</string>
+    <string name="scheduler_settings_label">ຕັວຈັດຕາຣາງເວລາ</string>
+    <string name="scheduler_settings_summary">ປຣັບການຕັ້ງຄ່າທີ່ເກີ່ຍວຂໍງກັບຕັວຈັດຕາຣາງເວລາ.</string>
+    <string name="scheduler_new_schedule_action">ສ້າງຕາຣາງເວລາ</string>
+    <string name="scheduler_schedule_name_label">ຊື່ອຕາຣາງເວລາ</string>
+    <string name="scheduler_schedule_toggle_enabled">ຕາຣາງເວລາເອິດໃຊ້ງານແລ້ວ</string>
+    <string name="scheduler_schedule_toggle_disabled">ຕາຣາງເວລາຖືກປິດໃຊ້ງານແລ້ວ</string>
+    <string name="scheduler_edit_schedule_action">ແກ້ໄຂຕາຣາງເວລາ</string>
+    <string name="scheduler_schedule_time_label">ເວລາປະມານ</string>
+    <string name="scheduler_schedule_repeat_label">ຊ່ວງເວລາຊ້ຳໃນວັນ</string>
+    <string name="scheduler_schedule_default_name">ຕາຣາງເວລາເຣີ່ມຕ້ນ</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s ປະມານ %2$s</string>
+    <string name="scheduler_schedule_next_at_x">ວາງແຜນສຳລັບ %s</string>
+    <string name="scheduler_schedule_last_at_x">ເດີນງານລ່າສຸດເວລາ %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="other">ທຸກ %d ວັນ</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">ຊ່ວງທີ່ຊ້ຳ</string>
+    <string name="scheduler_inaccurate_execution_hint">ເວລາເດີນງານທີ່ຄາດฮື້ວເປັນການປະມານ. ຕາຣາງເວລາອາດລ່າຊ້າ ຫຼື ເລ່ອນຖ້າມັນຊ່ວຍປະຫຍັດແບດເຕອີ.</string>
+    <string name="scheduler_no_active_schedules_subtitle">ບໍ່ມີຕາຣາງເວລາທີ່ເອິດໃຊ້ງານ</string>
+    <string name="scheduler_setting_nopowersaving_title">ຂ້າມເມື່ອເຕ຺າເທົ່າຕ່ຳ</string>
+    <string name="scheduler_setting_nopowersaving_summary">ຖ້າອຸປະກອນອະຍູ່ໃນຮູບແບບປະຫຍັດພັນງານເຕ຺າ, ການເດີນງານຕາຣາງເວລາຈະຖືກຂ້າມ.</string>
+    <string name="scheduler_setting_charging_title">ຂ້າມເມື່ອບໍ່ກຳລັງຊາຊ໇</string>
+    <string name="scheduler_setting_charging_summary">ຖ້າອຸປະກອນບໍ່ກຳລັງຊາຊ໇, ການເດີນງານຕາຣາງເວລາຈະຖືກຂ້າມ.</string>
+    <string name="scheduler_setting_automation_title">ບໍລິການເຂົ້າເຖິງໄດ້</string>
+    <string name="scheduler_setting_automation_summary">ຣວມການກະທົບທີ່ໃຊ້ບໍລິການ Accessibility. ຕ້ອງການໃຫ້ SD Maid ສາມາດໂຕ້ຕອບສະນອງກັບຫນ້າຈອຂອງທ່ານ (ຄືອ: ປະກົດເປິດ) ເວລາງານຖືກທໍາງານ.</string>
+    <string name="scheduler_notification_channel_label">ຕັວຈັດຕາຣາງເວລາ</string>
+    <string name="scheduler_notification_title">ງານທີ່ຖືກວາງເວລາ</string>
+    <string name="scheduler_notification_message">ກຳລັງທໍາງານ: \"%s\"</string>
+    <string name="scheduler_notification_result_title">ຕັວຈັດຕາຣາງເວລາສຳເລີດແລ້ວ</string>
+    <string name="scheduler_notification_result_success_message">ງານຕາຣາງເວລາທັງຫມົດທໍາງານສຳເລີດ.</string>
+    <string name="scheduler_notification_result_failure_message">ງານຕາຣາງເວລາບາງอັນລ້ວເຫລວ ຫຼືພົບຂໍ້ຜິດພາດ. ລອງທໍາງານດ້ວຍຕນເອງ.</string>
+    <string name="scheduler_commands_after_schedule_label">ຄໍາສັ່ງຫຼັງຕາຣາງເວລາ</string>
+    <string name="scheduler_commands_after_schedule_desc">ຄໍາສັ່ງ Android shell ທີ່ຈະຖືກທໍາງານໃນຕອນສິ້ນສຸດຂອງຕາຣາງເວລາ.</string>
+    <string name="scheduler_battery_optimization_hint">ຄວຣປິດການອະນຸຖານອອປຕິໃໂຊ່ນແບດເຕອີສຳລັບ SD Maid ຖ້າທ່ານພົບປັຍຫາກັບການທໍາງານໃນພື້ນຫລັງ.</string>
+</resources>

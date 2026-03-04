@@ -21,7 +21,7 @@
         <item quantity="few">%d imagini selectate</item>
         <item quantity="other">%d imagini selectate</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Locații căutate</string>
+    <string name="squeezer_search_locations_title">Căutați locații</string>
     <string name="squeezer_search_locations_default_summary">Folderul de galerie (implicit)</string>
     <string name="squeezer_min_size_title">Dimensiunea minimă a fișierului</string>
     <string name="squeezer_min_size_description">Săriți peste imagini mai mici decât această dimensiune.</string>
@@ -72,10 +72,10 @@
     <string name="squeezer_result_empty_message">Nu s-au găsit imagini compresibile.</string>
     <string name="squeezer_setup_warning">Compresia reduce permanent calitatea imaginii pentru a economisi spațiu de stocare. Acest lucru nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
     <string name="squeezer_setup_explanation">Presarea media reduce dimensiunea fișierului de imagini pentru a elibera spațiul de stocare. Acest lucru reduce permanent calitatea imaginii și nu poate fi anulat. Examinați cu atenție setările înainte de a începe.</string>
-    <string name="squeezer_setup_paths_title">Locațiile de căutare</string>
+    <string name="squeezer_setup_paths_title">Căutați locații</string>
     <string name="squeezer_setup_paths_default">Selectați foldere pentru căutare</string>
     <string name="squeezer_setup_quality_title">Calitatea compresiei</string>
-    <string name="squeezer_setup_age_title">Vârstă minimă</string>
+    <string name="squeezer_setup_age_title">Vârsta minimă</string>
     <string name="squeezer_setup_age_none">Fără limită (includeți toate fișierele)</string>
     <string name="squeezer_setup_start_action">Porniți scanarea</string>
     <string name="squeezer_quality_hint_very_low">Calitatea sub 40% poate crea imagini inutilizabile.</string>
@@ -88,4 +88,5 @@
         <item quantity="other">Cel puțin %d zile vechime</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Se estimează că ~%d%% economii pentru fișierele JPEG</string>
+    <string name="squeezer_onboarding_got_it">Am înțeles</string>
 </resources>

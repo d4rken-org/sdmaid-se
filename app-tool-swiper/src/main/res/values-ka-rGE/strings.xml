@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d / %2$d</string>
     <string name="swiper_keep_action">შენახვა</string>
     <string name="swiper_skip_action">გამოტოვება</string>
-    <string name="swiper_review_action">გადახედვა</string>
+    <string name="swiper_review_action">მიმოხილვა</string>
     <string name="swiper_status_title">გადაწყვეტილებების გადახედვა</string>
     <string name="swiper_status_action_keep_selected">არჩეულის შენახვა</string>
-    <string name="swiper_status_action_delete_selected">არჩეულის წაშლა</string>
+    <string name="swiper_status_action_delete_selected">მონიშნულის წაშლა</string>
     <string name="swiper_status_action_reset_selected">არჩეულის გადაყენება</string>
     <string name="swiper_decision_undecided">გადაუწყვეტელი</string>
     <string name="swiper_retry_action">ხელახლა ცდა</string>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">მზად ხართ მოსაწესრიგებლად?</string>
     <string name="swiper_sessions_suggestions_label">სცადეთ დაიწყოთ:</string>
     <string name="swiper_sessions_suggestion_downloads">ჩამოტვირთვების საქაღალდე</string>
-    <string name="swiper_sessions_suggestion_screenshots">ეკრანის ანაბეჭდები</string>
+    <string name="swiper_sessions_suggestion_screenshots">სქრინშოტები</string>
     <string name="swiper_sessions_suggestion_camera">კამერის გალერეა</string>
     <string name="swiper_stamp_keep_1">შენახვა!</string>
     <string name="swiper_stamp_keep_2">კარგი!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ გაუქმება</string>
     <string name="swiper_help_title">როგორ მუშაობს Swiper</string>
     <string name="swiper_help_message">გადაფურცლეთ თითოეული ფაილი გადაწყვეტილების მისაღებად:\n\n← გადაფურცლეთ მარცხნივ: %1$s\n→ გადაფურცლეთ მარჯვნივ: %2$s\n↑ გადაფურცლეთ ზემოთ: გამოტოვება\n↓ გადაფურცლეთ ქვემოთ: გაუქმება (პირველი გადაფურცვლის შემდეგ)\n\nასევე შეგიძლიათ გამოიყენოთ ღილაკები ბოლოში.\n\nდასრულების შემდეგ, შეეხეთ \"მიმოხილვას\" ყველა გადაწყვეტილების სანახავად. არაფერი წაიშლება, სანამ მიმოხილვის ეკრანზე არ დაადასტურებთ.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Გავიგე</string>
+    <string name="swiper_help_action">დახმარება</string>
 </resources>

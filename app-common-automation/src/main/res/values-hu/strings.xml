@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">Az SD Maid nem fejezett be minden lépést az időkorláton belül. Ha ez továbbra is előfordul, lehet, hogy módosítanom kell az alkalmazást az eszközéhez. Ellenőrizze a frissítéseket vagy lépjen kapcsolatba velem, hogy meg tudjam javítani.</string>
     <string name="automation_error_overlay_title">Automatizálási átfedés</string>
     <string name="automation_error_overlay_body">Az SD Maid nem tudta megjeleníteni az automatizálási átfedést. Ellenőrizze az engedélyeket és próbálja meg újraindítani az eszközt.</string>
+    <string name="automation_error_scheduler_title">Az ütemezett automatizálás sikertelen</string>
+    <string name="automation_error_scheduler_body">Egy ütemezett feladat megpróbálta használni az akadálymentességi szolgáltatást, de az nem volt elérhető. Ha erre nincs szüksége, tiltsa le az \"Akadálymentességi szolgáltatás\" lehetőséget az ütemező beállításaiban.</string>
     <string name="automation_error_no_settings_title">Beállítások képernyő nem érhető el</string>
     <string name="automation_error_no_settings_body">Ennek a rendszeralkalmazásnak nincs beállítások képernyője. A gyorsítótár törlése az akadálymentesítési szolgáltatáson keresztül nem lehetséges. Zárja ki a gyorsítótár törlésének felgyorsításához.</string>
-    <string name="automation_loading">Automatizálás előkészítése akadálymentesítési szolgáltatáson keresztül</string>
+    <string name="automation_loading">Automatizálás előkészítése az akadálymentesítési szolgáltatáson keresztül</string>
     <string name="automation_progress_find_ok_confirmation">Az előző művelet megerősítésének kísérlete (kulcsszavak: %s)</string>
 </resources>

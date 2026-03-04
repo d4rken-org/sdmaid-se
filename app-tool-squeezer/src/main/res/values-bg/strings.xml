@@ -17,7 +17,7 @@
         <item quantity="one">%d изображение избрано</item>
         <item quantity="other">%d изображения избрани</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Местоположения за търсене</string>
+    <string name="squeezer_search_locations_title">Места за търсене</string>
     <string name="squeezer_search_locations_default_summary">Папки на камерата (по подразбиране)</string>
     <string name="squeezer_min_size_title">Минимален размер на файла</string>
     <string name="squeezer_min_size_description">Пропускане на изображения по-малки от този размер.</string>
@@ -29,9 +29,9 @@
     <string name="squeezer_quality_description">По-ниско качество означава по-малък размер на файла, но намалено качество на изображението.</string>
     <string name="squeezer_quality_example_format">Пример: %1$s изображение → спестява ~%2$s при %3$d%% качество</string>
     <string name="squeezer_quality_warning_low">По-ниските качества могат да причинят видими артефакти.</string>
-    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_quality_warning_high">Много високото качество осигурява минимални спестявания на място.</string>
     <string name="squeezer_types_category_label">Типове изображения</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Включване на JPEG изображения (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Включване на WebP изображения (.webp).</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Не са намерени компресируеми изображения.</string>
     <string name="squeezer_setup_warning">Компресията трайно намалява качеството на изображенията, за да спести място за съхранение. Това не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
     <string name="squeezer_setup_explanation">Media Squeeze намалява размера на файловете с изображения, за да освободи място за съхранение. Това трайно намалява качеството на изображенията и не може да бъде отменено. Прегледайте внимателно настройките си преди да започнете.</string>
-    <string name="squeezer_setup_paths_title">Местоположения за търсене</string>
+    <string name="squeezer_setup_paths_title">Места за търсене</string>
     <string name="squeezer_setup_paths_default">Изберете папки за търсене</string>
     <string name="squeezer_setup_quality_title">Качество на компресия</string>
     <string name="squeezer_setup_age_title">Минимална възраст</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Поне %d дни стар</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Очаквани ~%d%% спестявания за JPEG файлове</string>
+    <string name="squeezer_onboarding_got_it">Разбрах</string>
 </resources>

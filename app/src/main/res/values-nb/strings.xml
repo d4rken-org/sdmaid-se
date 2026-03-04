@@ -24,6 +24,10 @@
         <item quantity="other">%1$d filer klar (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
+    <string name="debug_debuglog_short_recording_title">Veldig kort opptak</string>
+    <string name="debug_debuglog_short_recording_desc">Opptaket var veldig kort. Feilsøkingslogger er opptak, ikke øyeblikksbilder — reproduser problemet mens opptaket er aktivt for at loggen skal være nyttig.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Fortsett opptak</string>
+    <string name="debug_debuglog_short_recording_stop_action">Stopp uansett</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Dette vil permanent slette alle lagrede feilsøkingslogger. Denne handlingen kan ikke angres.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted å henge og stille spørsmål.</string>
+    <string name="support_contact_label">Kontakt utvikleren</string>
+    <string name="support_contact_desc">Fyll ut et skjema for å sende utvikleren en e-post.</string>
+    <string name="support_contact_welcome">Jeg leser hver melding selv og gjør mitt beste for å svare, men siden jeg jobber med dette alene, kan det ta litt tid. Takk for tålmodigheten.</string>
+    <string name="support_contact_footer">Meldingen din vil bli sendt via e-post. Enhets- og oppsettsinformasjon legges ved automatisk. Du kan legge ved skjermbilder eller en video i e-posten. Noen deler av e-posten vil være på engelsk slik at utvikleren enkelt kan forstå den.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_bug_label">Feilrapport</string>
+    <string name="support_contact_category_feature_label">Funksjonsforespørsel</string>
+    <string name="support_contact_category_question_label">Spørsmål</string>
+    <string name="support_contact_tool_label">Relatert verktøy</string>
+    <string name="support_contact_tool_appcleaner_label">Apprenser</string>
+    <string name="support_contact_tool_corpsefinder_label">Restfinner</string>
+    <string name="support_contact_tool_systemcleaner_label">Systemrenser</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplisering</string>
+    <string name="support_contact_tool_analyzer_label">Analysator</string>
+    <string name="support_contact_tool_appcontrol_label">Appkontroll</string>
+    <string name="support_contact_tool_scheduler_label">Planlegger</string>
+    <string name="support_contact_tool_general_label">Generelt</string>
+    <string name="support_contact_description_label">Beskrivelse</string>
+    <string name="support_contact_description_bug_hint">Beskriv hva som skjedde og hvordan problemet kan reproduseres. Vær spesifikk (minimum 20 ord).</string>
+    <string name="support_contact_description_feature_hint">Beskriv funksjonen du ønsker å se. Vær spesifikk (minimum 20 ord).</string>
+    <string name="support_contact_description_question_hint">Beskriv spørsmålet ditt i detalj. Vær spesifikk (minimum 20 ord).</string>
+    <string name="support_contact_expected_label">Forventet atferd</string>
+    <string name="support_contact_expected_hint">Beskriv hva du forventet skulle skje (minimum 10 ord).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ord</item>
+        <item quantity="other">%1$d / %2$d ord</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Feilsøkingslogg</string>
+    <string name="support_contact_debuglog_zip_error">Klarte ikke å komprimere feilsøkingsloggen</string>
+    <string name="support_contact_debuglog_picker_hint">Legg ved en eksisterende feilsøkingslogg, eller ta opp en ny.</string>
+    <string name="support_contact_debuglog_picker_empty">Ingen feilsøkingslogger funnet. Ta opp én først.</string>
+    <string name="support_contact_send_action">Åpne e-postapp</string>
+    <string name="support_contact_no_email_app">Ingen e-postapp funnet på denne enheten.</string>
     <string name="changelog_label">Endringslogg</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
     <string name="settings_acknowledgements_category_translations_title">Oversettelser</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Aktiver test-alternativer og mer detaljerte data. Appen vil kjøre saktere og yte annerledes.</string>
     <string name="debug_bugreporter_label">Automatiske feilrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterer problemer automatisk, f.eks. detaljer om app-krasjer slik at jeg kan finne ut hvorfor og fikse det.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Feilsøkingsmodus er aktivert</string>
     <string name="debug_card_trace_mode_label">Aktiver sporingsmodus</string>
     <string name="debug_card_dryrun_mode_label">Testkjøring (deaktiver sletting)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Snarveier</string>
     <string name="shortcuts_onetap_enabled_title">Ett-trykk snarvei</string>
     <string name="shortcuts_onetap_enabled_summary">Vis \"Skann + Slett\" snarvei når app-ikonet holdes inne. Bruker samme verktøy som ett-trykk kontrollpanel.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

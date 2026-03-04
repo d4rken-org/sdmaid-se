@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid non ha completato tutti i passaggi entro il limite di tempo. Se continua a succedere, potrei dover adattare l\'app per il tuo dispositivo. Controlla gli aggiornamenti o contattami così posso risolverlo.</string>
     <string name="automation_error_overlay_title">Overlay automazione</string>
     <string name="automation_error_overlay_body">SD Maid non è riuscito a mostrare l\'overlay di automazione. Controlla i permessi e prova a riavviare il dispositivo.</string>
+    <string name="automation_error_scheduler_title">Automazione pianificata non riuscita</string>
+    <string name="automation_error_scheduler_body">Un\'attività pianificata ha tentato di utilizzare il servizio di accessibilità, ma non era disponibile. Se non ne hai bisogno, disabilita l\'opzione \"Servizio di accessibilità\" nelle impostazioni del pianificatore.</string>
     <string name="automation_error_no_settings_title">Schermata impostazioni non disponibile</string>
     <string name="automation_error_no_settings_body">Questa app di sistema non ha una schermata delle impostazioni. La cancellazione della cache tramite servizio di accessibilità non è possibile. Escludila per velocizzare la cancellazione della cache.</string>
-    <string name="automation_loading">Il servizio di accessibilità sta preparando l\'automazione</string>
-    <string name="automation_progress_find_ok_confirmation">Tentativo di confermare l\'azione precedente (parole chiave: %s)</string>
+    <string name="automation_loading">Allestendo automazioni con il servizio di accessibilità</string>
+    <string name="automation_progress_find_ok_confirmation">Cercando di confermare l\'azione precedente (parole chiave: %s)</string>
 </resources>

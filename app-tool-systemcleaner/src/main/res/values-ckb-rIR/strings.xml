@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="systemcleaner_explanation_short">داتای زیادی کە بە هیچ ئەپێکی تایبەت پەیوەندی نییە.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d لێکدانەوە سڕاوەتەوە</item>
+        <item quantity="other">%d لێکدانەوە سڕاوەتەوە</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d لێکدانەوەی فیلتەر</item>
+        <item quantity="other">%d لێکدانەوەی فیلتەر</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">دڵخواز filter</string>
     <string name="systemcleaner_filter_custom_manage_label">Manage custom پاڵاوتنs</string>
     <string name="systemcleaner_filter_custom_manage_summary">Create, delete, import and export your custom پاڵاوتنs.</string>
@@ -10,11 +19,20 @@
     <string name="systemcleaner_filter_advertisements_label">Ad فایلs</string>
     <string name="systemcleaner_filter_advertisements_summary">فایلs that have been created for or by advertisements.</string>
     <string name="systemcleaner_filter_anr_label">ANR هەڵەs</string>
+    <string name="systemcleaner_filter_anr_summary">شوپانی رووداوە \'کارپێکردنی بەرنامەکە وەڵامی نادەدات\'.</string>
     <string name="systemcleaner_filter_emptydirectories_label">واڵا folders</string>
     <string name="systemcleaner_filter_emptydirectories_summary">واڵا folders from all over the device. Nested folders may require multiple passes.</string>
+    <string name="systemcleaner_filter_screenshots_label">ئەکرانگرەکان</string>
+    <string name="systemcleaner_filter_screenshots_summary">ئەکرانگرەکانی کۆنتر لە %s لە ئەپ و شوێنە جۆراوجۆرەکانەوە.</string>
     <string name="systemcleaner_filter_trashed_label">Trashed فایلs</string>
     <string name="systemcleaner_filter_trashed_summary">فایلs in recycle bins from various apps and locations that are marked for deletion but not yet permanently removed.</string>
+    <string name="systemcleaner_filter_screenshots_age_label">تەمەنی ئەکرانگرە</string>
     <string name="systemcleaner_filter_screenshots_age_summary">کەمترین age for screenshots to be considered for deletion.</string>
+    <string name="systemcleaner_filter_superfluosapks_label">فایلە APKیە زیادییەکان</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">فایلەکانی دامەزراندن کە دیگە پێویست نین بەپێی وەشانی ئەپە دامەزراوەکان.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">هەمان وەشان تێبگرە</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">هەروەها فایلە APKییەکانی کە وەشانی دامەزراوەکە لەگەڵدایە ئامانج بگرە. ناچالاکبکە بۆ تەنها لابردنی وەشانە کۆنەکان.</string>
+    <string name="systemcleaner_filter_lostdir_label">پووشپەڕەکانی LOST.DIR</string>
     <string name="systemcleaner_filter_lostdir_summary">کاتی files that are created when transferring data between Android devices.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux فایلs</string>
     <string name="systemcleaner_filter_linuxfiles_summary">فایلs and folders that are created when storage has been connected to a linux computer.</string>
@@ -22,6 +40,7 @@
     <string name="systemcleaner_filter_macfiles_summary">فایلs and folders that are created when browsing storage with ئەپle\'s finder app.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows فایلs</string>
     <string name="systemcleaner_filter_windowsfiles_summary">"داتا that the Windows file explorer can create on connected storage."</string>
+    <string name="systemcleaner_filter_thumbnails_label">وێنەکانی بچووکەکەر</string>
     <string name="systemcleaner_filter_thumbnails_summary">کاشd previews for images and videos.</string>
     <string name="systemcleaner_filter_tempfiles_label">کاتی system files</string>
     <string name="systemcleaner_filter_tempfiles_summary">سیستەم related temporary files, usually short lived caches for active operations.</string>
@@ -49,12 +68,17 @@
     <string name="systemcleaner_customfilter_editor_label_label">پاڵاوتن label</string>
     <string name="systemcleaner_customfilter_editor_warning">دڵخواز filters can be risky. Check your scan results before deleting!</string>
     <string name="systemcleaner_customfilter_editor_areas_label">داتا areas</string>
+    <string name="systemcleaner_customfilter_editor_areas_explanation">ئەگەر هیچ ناوچەیەک هەڵنەبژێردرێت، ئەوا هەموو ناوچەکانی داتا دەشکرێتەوە و دەگونجێت.</string>
     <string name="systemcleaner_customfilter_editor_filetypes_label">فایل type restrictions</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">فایلەکان</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">بوخچەکان</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_hint">ئەگەر هیچ جۆرێک هەڵنەبژێردرێت، ئەوا هەموو جۆرەکان دەگونجێن.</string>
     <string name="systemcleaner_customfilter_editor_path_label">ڕێگا criteria</string>
     <string name="systemcleaner_customfilter_editor_path_explanation">The target path needs to match at least one entry (e.g. \"داگرتنs/oldapks/game-\"). Long press entries for more options.</string>
     <string name="systemcleaner_customfilter_editor_name_label">ناو criteria</string>
+    <string name="systemcleaner_customfilter_editor_name_explanation">ناوی ئامانجەکە دەبێت لانی کەم یەکێک لە کلیلە وشەکان تێدا بێت (بۆ نموونە \"-پسوولە\"). داگرتنی درێژ بکە بۆ زیاتر بژاردەکان.</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_label">دەرخستنەکان</string>
+    <string name="systemcleaner_customfilter_editor_exclusions_explanation">ئەنجامەکە دەردەکرێت ئەگەر ڕێگاکە لەگەڵ هیچ تۆمارێک بگونجێت (بۆ نموونە \"DCIM\"). داگرتنی درێژ بکە بۆ زیاتر بژاردەکان.</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_label">ڕێگا comparison mode</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_start_label">ڕێگا starts with keyword</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_contains_label">ڕێگا contains keyword</string>
@@ -66,6 +90,16 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">ناو ends with keyword</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">ناو is equal to keyword</string>
     <string name="systemcleaner_customfilter_last_edit">دوایین edit: %s</string>
+    <string name="systemcleaner_customfilter_editor_livesearch_label">گەڕانی زیندوو</string>
+    <string name="systemcleaner_customfilter_editor_size_label">سنورداریەکانی قەبارە</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">کەمترین قەبارە</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">زۆرترین قەبارە</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">لێکدانەوەکان سنووردار بکە بەپێی قەبارەی فایل. بەتاڵ بهێڵەوە بۆ گونجاندن لەگەڵ هەر قەبارەیک.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">سنورداریەکانی تەمەن</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">کەمترین تەمەن</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">زۆرترین تەمەن</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">لێکدانەوەکان سنووردار بکە بەپێی تەمەنی فایل (کاتی دوایین گۆڕان). بەتاڵ بهێڵەوە بۆ گونجاندن لەگەڵ هەر تەمەنێک.</string>
     <string name="systemcleaner_customfilter_import_action">هاوردن new filter</string>
     <string name="systemcleaner_customfilter_export_action">هەناردن selected filter</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">گۆڕانکارییە پاشەکەوت نەکراوەکانت هەن!</string>
 </resources>

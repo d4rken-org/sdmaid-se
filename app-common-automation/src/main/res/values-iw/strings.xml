@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid לא השלימה את כל השלבים בתוך מגבלת הזמן. אם זה ממשיך לקרות, ייתכן שאצטרך להתאים את האפליקציה למכשיר שלך. בדוק אם יש עדכונים או צור איתי קשר כדי שאוכל לתקן את זה.</string>
     <string name="automation_error_overlay_title">שכבת-על אוטומציה</string>
     <string name="automation_error_overlay_body">SD Maid לא הצליח להציג את שכבת האוטומציה. בדוק את ההרשאות ונסה לאתחל את המכשיר.</string>
+    <string name="automation_error_scheduler_title">אוטומציה מתוזמנת נכשלה</string>
+    <string name="automation_error_scheduler_body">משימה מתוזמנת ניסתה להשתמש בשירות הנגישות, אך הוא לא היה זמין. אם אינך זקוק לכך, השבת את האפשרות \"שירות נגישות\" בהגדרות המתזמן.</string>
     <string name="automation_error_no_settings_title">מסך ההגדרות אינו זמין</string>
     <string name="automation_error_no_settings_body">לאפליקציית מערכת זו אין מסך הגדרות. ניקוי מטמון באמצעות שירות נגישות אינו אפשרי. יש להחריג אותה כדי להאיץ את ניקוי המטמון.</string>
     <string name="automation_loading">מכין אוטומציה באמצעות שירות נגישות</string>
-    <string name="automation_progress_find_ok_confirmation">מנסה לאשר פעולה קודמת (מילות מפתח: %s)</string>
+    <string name="automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
 </resources>

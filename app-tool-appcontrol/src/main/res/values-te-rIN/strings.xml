@@ -126,4 +126,8 @@
     <string name="appcontrol_item_installedat_x_label">ఇన్‌స్టాల్ చేసిన తేదీ: %s</string>
     <string name="shortcut_appcontrol_short">యాప్ కంట్రోల్</string>
     <string name="shortcut_appcontrol_long">ఇన్‌స్టాల్ చేసిన యాప్‌లను నిర్వహించండి</string>
+    <string name="appcontrol_automation_loading">ప్రాప్యతా సేవ ద్వారా స్వయంచాలకతను సిద్ధం చేస్తోంది</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ముందు కార్యాన్ని నిర్ధారించడానికి ప్రయత్నిస్తోంది (కీవర్డ్లు: %s)</string>
+    <string name="appcontrol_include_multiuser_label">ఇతర వినియోగదారులను చేర్చు</string>
+    <string name="appcontrol_include_multiuser_summary">ఈ పరికరంలోని ఇతర వినియోగదారు ప్రొఫైల్‌ల యాప్‌లను చేర్చు.</string>
 </resources>

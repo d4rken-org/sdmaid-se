@@ -39,7 +39,7 @@
     <string name="systemcleaner_filter_macfiles_label">Mac датотеки</string>
     <string name="systemcleaner_filter_macfiles_summary">Датотеки и папки создадени при прегледување на складирањето со Apple Finder.</string>
     <string name="systemcleaner_filter_windowsfiles_label">Windows датотеки</string>
-    <string name="systemcleaner_filter_windowsfiles_summary">Податоци кои Windows Explorer може да ги создаде на поврзано складирање.</string>
+    <string name="systemcleaner_filter_windowsfiles_summary">"Податоци кои Windows Explorer може да ги создаде на поврзано складирање."</string>
     <string name="systemcleaner_filter_thumbnails_label">Сликички</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кеширани прегледи за слики и видеа.</string>
     <string name="systemcleaner_filter_tempfiles_label">Привремени системски датотеки</string>
@@ -101,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Ограничи совпаѓања врз основа на старост на датотека (време на последна промена). Оставете го непоставено за совпаѓање на било која старост.</string>
     <string name="systemcleaner_customfilter_import_action">Увези нов филтер</string>
     <string name="systemcleaner_customfilter_export_action">Извези избран филтер</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Имате незачувани промени!</string>
 </resources>

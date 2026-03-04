@@ -11,6 +11,7 @@
     <string name="exclusion_type_segment">खंड अपवर्जन</string>
     <string name="exclusion_tags_alltools">सभी टूल</string>
     <string name="exclusion_target_label">अपवर्जन लक्ष्य</string>
+    <string name="exclusion_editor_path_change_action">पथ बदलने के लिए टैप करें</string>
     <string name="exclusion_option_allow_partial">आंशिक मिलान की अनुमति दें</string>
     <string name="exclusion_option_ignore_casing">आवरण पर ध्यान न दें</string>
     <string name="exclusion_editor_affected_tools_label">प्रभावित उपकरण</string>
@@ -24,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">ऐप अपवर्जन बनाने के लिए AppControl टूल का उपयोग करें।</string>
     <string name="exclusion_create_path_hint">पथ अपवर्जन बनाने के लिए StorageAnalyzer टूल का उपयोग करें।</string>
     <string name="exclusion_show_defaults_action">डिफ़ॉल्ट दिखाएं</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">आपके परिवर्तन सहेजे नहीं गए हैं!</string>
 </resources>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">ຈັດໂຟນເດີອຍ່າງວ່ອງໄວ — ສົບໄຟລ໌ເພື່ອເກັບ, ລົບ, ຫຣືອຂ້າມ.</string>
+    <string name="swiper_dashcard_description">ຈັດໂຟນເດີທີ່ລະອີຊວ່ອງໄວກວ່າຕັວທໍ່ໂຟນເດີ — ສົບແຕ່ລະໄຟລ໌.</string>
+    <string name="swiper_start_action">ເລີ່ມສົບ</string>
+    <string name="swiper_continue_action">ຕໍ່ເງາການ</string>
+    <string name="swiper_sessions_description">ຕຣວຈສອບໄຟລ໌ດ້ວຍ 3 ຂັ້ນຕອນງ່າຍດາຍ:\n\n1. ເລືອກໂຟນເດີເພື່ອສະແກນ\n2. ສົບໄຟລ໌ເພື່ອເກັບ, ລົບ, ຫຣືອຂ້າມ\n3. ຕຣວຈສອບການເລືອກขອງທ່ານ ແລະຍືນຍັນ\n\nໄມ່ມີສິ່ງໃດຖືກລົບจນກວ່າທ່ານກດປຸ່ມລົບສຸດທ້າຍ.</string>
+    <string name="swiper_select_folders_action">ເລືອກໂຟນເດີ</string>
+    <string name="swiper_scanning_title">ກຳລັງສະແກນ…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">ພົບ %d ລາຍການ</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">ລົບ %d ລາຍການແລ້ວ</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d ລາຍການລ້ວເຫລວ</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d ຈາກ %2$d</string>
+    <string name="swiper_keep_action">ເກັບໄວ້</string>
+    <string name="swiper_skip_action">ຂ້າມ</string>
+    <string name="swiper_review_action">ຕຣວຈສອບ</string>
+    <string name="swiper_status_title">ຕຣວຈສອບການຕັດສິນໃຈ</string>
+    <string name="swiper_status_action_keep_selected">ເກັບທີ່ເລືອກ</string>
+    <string name="swiper_status_action_delete_selected">ລຶບທີ່ເລືອກ</string>
+    <string name="swiper_status_action_reset_selected">ຮີບອົດທີ່ເລືອກ</string>
+    <string name="swiper_decision_undecided">ຍັງເປີນຕັດສິນໃຈໄມ່ໄດ້</string>
+    <string name="swiper_retry_action">ລອງແຜນໃໝ່</string>
+    <string name="swiper_delete_confirmation_title">ລົບໄຟລ໌?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">ການນີ້ຈະລົບ %1$d ໄຟລ໌ (%2$s) ອຍ່າງຖາວນີรະພົ. ການກະທຳນີ້ໄມ່ສາມາຖຍ້ອນຄືນໄດ້.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d ລາຍການທີ່ຍັງຕັດສິນໃຈໄມ່ໄດ້ຈະເຫລືອໄວ້ສຳຫລັບການຕຣວຈສອບຘືເວລາ.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">ລົບ %1$d</string>
+    <string name="swiper_settings_swap_directions_title">ສົບສັບທິດອອກ</string>
+    <string name="swiper_settings_swap_directions_summary">ສົບຊ້າຍເພື່ອເກັບ, ຂວາເພື່ອລົບ.</string>
+    <string name="swiper_settings_show_details_title">ແສດງລາຍລະອີຊໄຟລ໌</string>
+    <string name="swiper_settings_show_details_summary">ແສດງຊື່ອໄຟລ໌, ຂນາດ ແລະວັນທີ່ບນຫນ້າສົບ.</string>
+    <string name="swiper_settings_haptic_feedback_title">ການສັ່ນສະດຸດ້ວຍການສັ່ນໄຫວ</string>
+    <string name="swiper_settings_haptic_feedback_summary">ສັ່ນໄຫວເມື່ອຕັດສິນໃຈເກັບຫຣືອລົບ.</string>
+    <string name="swiper_discard_session_confirmation_title">ຊົ່ວ່າຈະຮົງເງາການ?</string>
+    <string name="swiper_discard_session_confirmation_message">ການຕັດສິນໃຈທັງຫມດຈະສູນຫາຍ. ທ່ານແນໃຈບໍ?</string>
+    <string name="swiper_no_preview_available">ໄມ່ມີການຕັວອຍ່າງ</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">ຕໍ່ເງາການຈາກ %1$d ວັນທີ່ແລ້ວ (%2$d%% ສຳເລັດ)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d ເງາການ</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d ລາຍການທີ່ຍັງຕັດສິນໃຈໄມ່ໄດ້</item>
+    </plurals>
+    <string name="swiper_session_timestamps">ສ້າງ %1$s, ກິຈຈາກລ່າສຸດ %2$s</string>
+    <string name="swiper_session_remove_action">ລົບເງາການ</string>
+    <string name="swiper_sessions_empty_hint">ກດ + ເພື່ອເລືອກໂຟນເດີ ແລະເລີ່ມສົບ</string>
+    <string name="swiper_sessions_upgrade_body">ຸບເກດເພື່ອລົບຂ້ອຈຳກັດເຫລ່ານີ້ ແລະສນັບສນຸນການພັດທະນາ. ວະນະຟຣີຖືກຈຳກັດໃຫ້:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">%d ໄຟລ໌ຕໍ່ເງາການ</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d ເງາການ</item>
+    </plurals>
+    <string name="swiper_session_default_label">ເງາການ #%d</string>
+    <string name="swiper_session_rename_title">ເປລີ່ນຊື່ອເງາການ</string>
+    <string name="swiper_session_rename_hint">ປ້ອນຊື່ອສຳຫລັບເງາການນີ້</string>
+    <string name="swiper_sessions_current_sessions">ເງາການປັຈຈຸບັນ</string>
+    <string name="swiper_session_paths_label">ເສ້ນທາງ</string>
+    <string name="swiper_session_status_label">ສະຖານະ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d ທີ່ຈະເກັບ</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d ທີ່ຈະລົບ</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d ຍັງຕັດສິນໃຈໄມ່ໄດ້</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d ເກັບໄວ້ແລ້ວ</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d ລົບໄປແລ້ວ</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d ເກັບໄວ້</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d ລົບໄປແລ້ວ</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">ກຳຈັດ \"%1$s\" ອອກຈາກການສະແກນ Swiper?</string>
+    <string name="swiper_sessions_header_title">ພ້ອມຈັດການລະອີຊວະ?</string>
+    <string name="swiper_sessions_suggestions_label">ລອງເລີ່ມດ້ວຍ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ໂຟນເດີດາວນໄອດ້</string>
+    <string name="swiper_sessions_suggestion_screenshots">ຮູປຫນ້າຈອ</string>
+    <string name="swiper_sessions_suggestion_camera">ມ້ວນຠູປກາແມ່ລາ</string>
+    <string name="swiper_stamp_keep_1">ເກັບ!</string>
+    <string name="swiper_stamp_keep_2">ແຈ່ວ!</string>
+    <string name="swiper_stamp_keep_3">ໃຊ່!</string>
+    <string name="swiper_stamp_keep_4">ບັນທຶກ!</string>
+    <string name="swiper_stamp_delete_1">ໄມ່!</string>
+    <string name="swiper_stamp_delete_2">ແລ້ວ!</string>
+    <string name="swiper_stamp_delete_3">ຂຍະ!</string>
+    <string name="swiper_stamp_delete_4">ລຶບ!</string>
+    <string name="swiper_stamp_skip_1">ຂ້າມ!</string>
+    <string name="swiper_stamp_skip_2">ເຟີ!</string>
+    <string name="swiper_stamp_skip_3">ຕົວຫລັງ!</string>
+    <string name="swiper_stamp_skip_4">ອາດ!</string>
+    <string name="swiper_stamp_undo_1">ຍົກເລີກ!</string>
+    <string name="swiper_stamp_undo_2">ຖອຍຫລັງ!</string>
+    <string name="swiper_stamp_undo_3">ອຸ້!</string>
+    <string name="swiper_stamp_undo_4">ຣອ!</string>
+    <string name="swiper_gesture_overlay_dismiss">ກດທີ່ໃດກ່ອນເລີ່ມ</string>
+    <string name="swiper_gesture_overlay_left_delete">← ລຶບ</string>
+    <string name="swiper_gesture_overlay_right_keep">ເກັບ →</string>
+    <string name="swiper_gesture_overlay_left_keep">← ເກັບ</string>
+    <string name="swiper_gesture_overlay_right_delete">ລຶບ →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ ຂ້າມ</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ ຍົກເລີກ</string>
+    <string name="swiper_help_title">Swiper ທຳງານໄດ້ໂດຍວິຘີໃດ</string>
+    <string name="swiper_help_message">ສົບແຕ່ລະໄຟລ໌ເພື່ອຕັດສິນໃຈ:\n\n← ສົບຊ້າຍ: %1$s\n→ ສົບຂວາ: %2$s\n↑ ສົບຂຶ້ນ: ຂ້າມ\n↓ ສົບລງ: ຍ້ອນຄືນ (ຫລັງຈາກສົບແລ້ວ)\n\nທ່ານສາມາຖໃຊ້ປຸ່ມດ້ານລ່າງດ້ວຍ.\n\nເມື່ອສຳເລັດແລ້ວ, ກດ \"ຕຣວຈສອບ\" ເພື່ອດູການຕັດສິນໃຈທັງຫມດ. ໄມ່ມີສິ່ງໃດຖືກລົບຈນກວ່າທ່ານຍືນຍັນບນຫນ້າຕຣວຈສອບ.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">ເຂົ້າໃຈແລ້ວ</string>
+    <string name="swiper_help_action">ຊ່ວຍເຫຼືອ</string>
+</resources>

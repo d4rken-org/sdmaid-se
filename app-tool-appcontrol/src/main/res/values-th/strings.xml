@@ -16,14 +16,15 @@
     <string name="appcontrol_app_launch_title">เปิดแอพ</string>
     <string name="appcontrol_app_launch_description">เปิดกิจกรรมหลักของแอพนี้</string>
     <string name="appcontrol_app_forcestop_title">บังคับให้หยุด</string>
+    <string name="appcontrol_app_forcestop_description">หยุดแอป ป้องกันไม่ให้เริ่มตัวเองจนกว่าคุณจะเปิดหรืออุปกรณ์ถูกรีบต</string>
     <string name="appcontrol_app_uninstall_description">ถอนการติดตั้งแอพนี้ออกจากอุปกรณ์</string>
     <string name="appcontrol_app_exclude_add_title">ยกเว้นแอพ</string>
     <string name="appcontrol_app_exclude_add_description">ยกเว้นแอพนี้จากการดำเนินการอื่นๆ ใน SD Maid</string>
     <string name="appcontrol_app_exclude_edit_title">แก้ไขการยกเว้น</string>
     <string name="appcontrol_app_exclude_edit_description">แอพนี้ถูกยกเว้นจากเครื่องมือหนึ่งหรือมากกว่า</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">ผู้ใช้</string>
     <string name="appcontrol_tag_active">ใช้งานเมื่อเร็วๆ นี้</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">แบนดิล</string>
     <string name="appcontrol_tag_system">ระบบ</string>
     <string name="appcontrol_tag_archived">ถูกเก็บไว้</string>
@@ -114,4 +115,8 @@
     <string name="appcontrol_item_installedat_x_label">ติดตั้งเมื่อ: %s</string>
     <string name="shortcut_appcontrol_short">ควบคุมแอป</string>
     <string name="shortcut_appcontrol_long">จัดการแอปที่ติดตั้ง</string>
+    <string name="appcontrol_automation_loading">เตรียมการทำงานอัตโนมัติผ่านบริการความสามารถในการเข้าถึง</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">พยายามยืนยันการดำเนินการก่อนหน้า (คำสำคัญ: %s)</string>
+    <string name="appcontrol_include_multiuser_label">รวมผู้ใช้คนอื่น</string>
+    <string name="appcontrol_include_multiuser_summary">รวมแอปพลิเคชันจากโปรไฟล์ผู้ใช้คนอื่นในอุปกรณ์นี้</string>
 </resources>

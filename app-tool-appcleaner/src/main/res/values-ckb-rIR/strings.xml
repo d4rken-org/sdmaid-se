@@ -1,25 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="appcleaner_explanation_short">داتای خەرجکراوە کە پەیوەندیی بە ئەپەکانی دیاریکراو هەیە.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">گشتی default caches</string>
     <string name="appcleaner_filter_defaultcachespublic_summary">بنەڕەت public app caches. دەسیەڵاتible under Android/data on older Android versions. سڕینەوەd when tapping \"پاککردنەوە cache\" in the system settings.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">تایبەت default caches</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">بنەڕەت private app caches. سڕینەوەd when tapping \"پاککردنەوە cache\" in the system settings.</string>
+    <string name="appcleaner_include_systemapps_label">ئەپەکانی سیستەم تێبگرە</string>
+    <string name="appcleaner_include_systemapps_summary">ئەپەکانی سیستەم لە سکانەکەدا تێبگرە.</string>
+    <string name="appcleaner_include_runningapps_label">ئەپە کارەکردووەکان تێبگرە</string>
+    <string name="appcleaner_include_runningapps_summary">ئەپەکانی کارەکردوو تێبگرە کە لەوانەیە ڕووداوی هەستبدات.</string>
+    <string name="appcleaner_include_inaccessible_label">کاشەکانی نەگەیشتراو تێبگرە</string>
     <string name="appcleaner_include_inaccessible_summary">Include data that can\'t be accessed directly but can be deleted via system ڕێکخستنەکان and automated using an accessibility service. </string>
     <string name="appcleaner_include_minimumsize_label">کەمترین size</string>
+    <string name="appcleaner_include_minimumsize_summary">ئەپەکان بگوێزرێنەوە کە کۆی داتای خەرجکراوەی لەژێر کەمترین ڕادەیە.</string>
     <string name="appcleaner_include_minimumage_label">کەمترین age</string>
     <string name="appcleaner_include_minimumage_summary">Skip فایلs that are younger than the minimum age.</string>
+    <string name="appcleaner_automation_romtype_detection_label">دۆزینەوەی سیستەمی کارپێکردن</string>
     <string name="appcleaner_automation_romtype_detection_summary">دەسیەڵاتibility based automation may fail if SD Maid doesn\'t detect your OS correctly. Use this setting to override the detected OS.</string>
+    <string name="appcleaner_filter_codecache_label">کاشی کۆد</string>
+    <string name="appcleaner_filter_codecache_summary">کاشی کۆدی JVM. بلۆکەکانی بایتکۆد کۆمپایڵکراون بۆ کۆدی خاوەن.</string>
+    <string name="appcleaner_filter_advertisement_label">داتای ڕێکلام</string>
     <string name="appcleaner_filter_advertisement_summary">فایلs related to advertisements, e.g. cached media.</string>
+    <string name="appcleaner_filter_bugreporting_label">ڕاپۆرتکردنی هەڵە</string>
     <string name="appcleaner_filter_bugreporting_summary">Bug reporting related data, e.g. هەڵە logs or crash dumps.</string>
+    <string name="appcleaner_filter_analytics_label">ئەنالیتیکس</string>
+    <string name="appcleaner_filter_analytics_summary">داتای پەیوەندیدار بە ئەنالیتیکسەوە، بۆ نموونە ئامارە کاشکراوەکان بۆ ئەوەی دەیتەپێتەوە لە ئەپێکدا.</string>
+    <string name="appcleaner_filter_hiddencaches_label">کاشەکانی شاراوە</string>
     <string name="appcleaner_filter_hiddencaches_summary">گشتی purpose caches stored outside of the system\'s reach.</string>
     <string name="appcleaner_filter_thumbnails_label">میدیا thumbnails</string>
     <string name="appcleaner_filter_thumbnails_summary">وێنە, video and audio preview thumbnail pictures.</string>
     <string name="appcleaner_filter_gamefiles_label">Game فایلs</string>
+    <string name="appcleaner_filter_gamefiles_summary">سەرچاوەکانی پەیوەندیدار بە یاریەوە کە یاریەکە لە دەستپێکردنی داهاتوودا دووبارەی بارەوە دەکات ئەگەر پێویست بوو.</string>
     <string name="appcleaner_filter_offlinecache_label">دەرهێڵ cache</string>
     <string name="appcleaner_filter_offlinecache_summary">فایلs stored for use when offline, e.g. map tiles.</string>
+    <string name="appcleaner_filter_recyclebins_label">سەبەتەی ئەخساوەکان</string>
     <string name="appcleaner_filter_recyclebins_summary">فایلs that have been deleted but put into a special folder to allow to restore them.</string>
     <string name="appcleaner_filter_webview_label">Webview فایلs</string>
     <string name="appcleaner_filter_webview_summary">فایلs cached by Webview instances used within apps.</string>
+    <string name="appcleaner_filter_shortcutservice_label">ئایکۆنەکانی کورتبڕی ئەپ</string>
+    <string name="appcleaner_filter_shortcutservice_summary">ئایکۆنە کاشکراوەکان بۆ کورتبڕیەکانی ئەپ و مێنووکانی هاوبەشکردن.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Whatsئەپ backups</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">سڕینەوە extra copies of Whatsئەپ backups and only keep the latest.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">فایلs you received from people via Whatsئەپ.</string>
@@ -28,11 +47,23 @@
     <string name="appcleaner_filter_whatsapp_sent_summary">فایلs sent from Whatsئەپ to others.</string>
     <string name="appcleaner_filter_telegram_label">Telegram media فایلs</string>
     <string name="appcleaner_filter_telegram_summary">فایلs received or send through Telegram.</string>
+    <string name="appcleaner_filter_threema_label">Threema</string>
     <string name="appcleaner_filter_threema_summary">فایلs received through Threema.</string>
+    <string name="appcleaner_filter_wechat_label">WeChat</string>
     <string name="appcleaner_filter_wechat_summary">Sent or received فایلs in conversations and WeChat moments.</string>
+    <string name="appcleaner_filter_viber_label">Viber</string>
     <string name="appcleaner_filter_viber_summary">کاشd media files that are downloaded again when viewed in chat.</string>
+    <string name="appcleaner_filter_qqchat_label">QQ chat</string>
     <string name="appcleaner_filter_qqchat_summary">Sent or received فایلs in QQ chat conversations.</string>
     <string name="appcleaner_delete_all_confirmation_message">سڕینەوە expendable items for all apps?</string>
+    <plurals name="appcleaner_result_x_items_deleted">
+        <item quantity="one">%d بابەتی خەرجکراوە سڕایەوە</item>
+        <item quantity="other">%d بابەتی خەرجکراوە سڕایەوە</item>
+    </plurals>
+    <plurals name="appcleaner_result_x_items_found">
+        <item quantity="one">%d بابەتی خەرجکراوە دۆزرایەوە</item>
+        <item quantity="other">%d بابەتی خەرجکراوە دۆزرایەوە</item>
+    </plurals>
     <string name="appcleaner_automation_title">ئەپپاکer automation</string>
     <string name="appcleaner_automation_subtitle_default_caches">پاککردنەوەing default caches…</string>
     <string name="appcleaner_automation_progress_open_settings">کراوەing settings screen (keywords: %s)</string>
@@ -43,9 +74,25 @@
     <string name="appcleaner_item_caches_inaccessible_body">گشتی and private default caches. نەخێرt directly accessible, but can be deleted indirectly (e.g. via accessibility service).</string>
     <string name="appcleaner_automation_unavailable_title">دەسیەڵاتibility service unavailable</string>
     <string name="appcleaner_automation_unavailable_body">پاککردنەوەing inaccessible caches requires SD Maid\'s accessibility service, but it was unavailable. If you don\'t want to use it: ناچالاککردن the option \"Include inaccessible caches\".</string>
+    <string name="appcleaner_junk_userprofile_label">بەکارهێنەر</string>
     <string name="appcleaner_delete_confirmation_message_x">سڕینەوە expendable files for %s?</string>
+    <plurals name="appcleaner_delete_confirmation_message_selected_x_items">
+        <item quantity="one">فایلە خەرجکراوەکان بۆ %d ئەپی دیاریکراو بسڕێتەوە؟</item>
+        <item quantity="other">فایلە خەرجکراوەکان بۆ %d ئەپی دیاریکراو بسڕێتەوە؟</item>
+    </plurals>
+    <string name="appcleaner_progress_shizuku_deleting_caches">سڕینەوەی کاشەکان بە بەکارهێنانی Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">دیاریکردنی کاشەکانی نەگەیشتراو</string>
     <string name="appcleaner_automation_error_locked_appcache_title">پاککردنەوە cache unavailable</string>
     <string name="appcleaner_automation_error_locked_appcache_body">The system has disabled the \"پاککردنەوە cache\" button for this app. Exclude it to speed up cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">سیستەم app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s ئاسایش app (com.miui.securitycenter) is missing the بەکارهێنان Stats permission (GET_USAGE_STATS). This breaks features like \"پاککردنەوە داتا\" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">بەهێزبوونی وەستانی پێش سڕینەوە</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">بەهێز ئەپەکان بوەستێنە پێش سڕینەوەی کاشەیان. دەتوانێت هاری سڕینەوەی کاشەکانی هەندێ ئەپ بکات، بەڵام لەوانەیە ئەپەکان خراپ بخاتە کارەوە و پێویستی بە دەستی دووبارەکردنەوە هەبێت.</string>
+    <string name="appcleaner_progress_force_stopping">بەهێزبوونی وەستانی ئەپەکان…</string>
+    <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. کاش clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
+    <string name="appcleaner_automation_error_no_settings_title">ڕێکخستنەکان screen unavailable</string>
+    <string name="appcleaner_automation_loading">ئامادەکردنی ئۆتۆماتیزاسیون لە ڕێگەی خزمەتگوزاری دەستپێگەیشتنەوە</string>
+    <string name="appcleaner_automation_progress_find_ok_confirmation">هەوڵدەدرێت کردارەکەی پێشوو پشتڕاست بکرێتەوە (کلیلەکان: %s)</string>
+    <string name="appcleaner_include_multiuser_label">بەکارهێنەرانی دیکەش تێبگرە</string>
+    <string name="appcleaner_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
 </resources>

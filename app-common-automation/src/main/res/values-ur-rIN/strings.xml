@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid نے مقررہ وقت کی حد میں تمام مراحل مکمل نہیں کیے۔ اگر یہ مسلسل ہوتا رہے، تو مجھے آپ کے ڈیوائس کے لیے ایپ کو اڈجسٹ کرنے کی ضرورت ہو سکتی ہے۔ اپڈیٹس تلاش کریں یا مجھ سے رابطہ کریں تاکہ میں اسے ٹھیک کر سکوں۔</string>
     <string name="automation_error_overlay_title">آٹومیشن اوورلے</string>
     <string name="automation_error_overlay_body">SD Maid آٹومیشن اوورلے نہیں دکھا سکا۔ اجازات چیک کریں اور اپنے ڈیوائس کو ری بوٹ کرنے کی کوشش کریں۔</string>
+    <string name="automation_error_scheduler_title">شیڈول آٹومیشن ناکام ہوگئی</string>
+    <string name="automation_error_scheduler_body">ایک شیڈول شدہ ٹاسک نے ایکسیسیبلٹی سرویس استعمال کرنے کی کوشش کی، لیکن یہ دستیاب نہیں تھی۔ اگر آپ کو اس کی ضرورت نہیں، تو شیڈولر سیٹنگز میں «ایکسیسیبلٹی سرویس» آپشن کو غیر فعال کریں۔</string>
     <string name="automation_error_no_settings_title">سیٹنگز سکرین دستیاب نہیں</string>
     <string name="automation_error_no_settings_body">اس سسٹم ایپ کی کوئی سیٹنگز سکرین نہیں ہے۔ رسائی سروس کے ذریعے کیش صفائی ممکن نہیں۔ کیش صفائی کی رفتار بڑھانے کے لیے اسے خارج کریں۔</string>
     <string name="automation_loading">رسائی سروس کے ذریعے آٹومیشن تیار کر رہے ہیں</string>
-    <string name="automation_progress_find_ok_confirmation">پچھلے عمل کی تصدیق کرنے کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
+    <string name="automation_progress_find_ok_confirmation">پچھلی کارروائی کی تصدیق کی کوشش کر رہے ہیں (کلیدی الفاظ: %s)</string>
 </resources>

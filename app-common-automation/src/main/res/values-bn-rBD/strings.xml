@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid নির্ধারিত সময়ের মধ্যে সব ধাপ সম্পন্ন করতে পারেনি। যদি এটি চলতে থাকে, তাহলে আপনার ডিভাইসের জন্য অ্যাপটি সামঞ্জস্য করতে হতে পারে। আপডেটের জন্য চেক করুন অথবা আমার সাথে যোগাযোগ করুন যাতে আমি এটি ঠিক করতে পারি।</string>
     <string name="automation_error_overlay_title">অটোমেশন ওভারলে</string>
     <string name="automation_error_overlay_body">SD Maid অটোমেশন ওভারলে দেখাতে পারেনি। অনুমতি পরীক্ষা করে আপনার ডিভাইস রিবুট করার চেষ্টা করুন।</string>
+    <string name="automation_error_scheduler_title">নির্ধারিত অটোমেশন ব্যর্থ হয়েছে</string>
+    <string name="automation_error_scheduler_body">একটি নির্ধারিত কাজ অ্যাক্সেসিবিলিটি সার্ভিস ব্যবহার করার চেষ্টা করেছিল, কিন্তু এটি অনুপলব্ধ ছিল। যদি আপনার এটির প্রয়োজন না হয়, তাহলে শিডিউলার সেটিংসে \"অ্যাক্সেসিবিলিটি সার্ভিস\" বিকল্পটি অক্ষম করুন।</string>
     <string name="automation_error_no_settings_title">সেটিংস স্ক্রিন অনুপলব্ধ</string>
     <string name="automation_error_no_settings_body">এই সিস্টেম অ্যাপটিতে কোনও সেটিংস স্ক্রিন নেই। অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে ক্যাশ সাফ করা সম্ভব নয়। ক্যাশ সাফ করার গতি বাড়ানোর জন্য এটি বাদ দিন।</string>
     <string name="automation_loading">অ্যাক্সেসিবিলিটি পরিষেবার মাধ্যমে অটোমেশন প্রস্তুত করা হচ্ছে</string>

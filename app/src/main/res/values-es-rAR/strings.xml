@@ -24,6 +24,10 @@
         <item quantity="other">%1$d archivos listos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con terceros de confianza (por ejemplo, un desarrollador que soluciona un problema).</string>
+    <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
+    <string name="debug_debuglog_short_recording_desc">La grabación fue muy corta. Los registros de depuración son grabaciones, no instantáneas — reproduce el problema mientras la grabación está activa para que el registro sea útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar grabando</string>
+    <string name="debug_debuglog_short_recording_stop_action">Detener de todos modos</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Esto eliminará permanentemente todas las sesiones de registro de depuración almacenadas. Esta acción no se puede deshacer.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Un lugar para pasar el rato y hacer preguntas.</string>
+    <string name="support_contact_label">Contactar al desarrollador</string>
+    <string name="support_contact_desc">Completá un formulario para enviarle un email al desarrollador.</string>
+    <string name="support_contact_welcome">Leo cada mensaje personalmente y hago lo posible por responder, pero como trabajo solo en esto, puede llevar un poco de tiempo. Gracias por tu paciencia.</string>
+    <string name="support_contact_footer">Tu mensaje se enviará por email. La información del dispositivo y la configuración se adjunta automáticamente. Podés adjuntar capturas de pantalla o un video al email. Algunas partes del email estarán en inglés para que el desarrollador pueda entenderlo fácilmente.</string>
+    <string name="support_contact_category_label">Categoría</string>
+    <string name="support_contact_category_bug_label">Reporte de error</string>
+    <string name="support_contact_category_feature_label">Solicitud de función</string>
+    <string name="support_contact_category_question_label">Pregunta</string>
+    <string name="support_contact_tool_label">Herramienta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">Limpiador de aplicaciones</string>
+    <string name="support_contact_tool_corpsefinder_label">Buscador de residuos</string>
+    <string name="support_contact_tool_systemcleaner_label">Limpiador del sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analizador</string>
+    <string name="support_contact_tool_appcontrol_label">Control de aplicaciones</string>
+    <string name="support_contact_tool_scheduler_label">Planificador</string>
+    <string name="support_contact_tool_general_label">General</string>
+    <string name="support_contact_description_label">Descripción</string>
+    <string name="support_contact_description_bug_hint">Describí qué ocurrió y cómo reproducir el problema. Sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_description_feature_hint">Describí la función que te gustaría ver. Sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_description_question_hint">Describí tu pregunta en detalle. Sé específico/a (mínimo 20 palabras).</string>
+    <string name="support_contact_expected_label">Comportamiento esperado</string>
+    <string name="support_contact_expected_hint">Describí qué esperabas que sucediera (mínimo 10 palabras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palabra</item>
+        <item quantity="other">%1$d / %2$d palabras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Registro de depuración</string>
+    <string name="support_contact_debuglog_zip_error">No se pudo comprimir el registro de depuración</string>
+    <string name="support_contact_debuglog_picker_hint">Adjuntá un registro de depuración existente, o grabá uno nuevo.</string>
+    <string name="support_contact_debuglog_picker_empty">No se encontraron registros de depuración. Grabá uno primero.</string>
+    <string name="support_contact_send_action">Abrir app de email</string>
+    <string name="support_contact_no_email_app">No se encontró ninguna app de email en este dispositivo.</string>
     <string name="changelog_label">Registro de cambios</string>
     <string name="settings_acknowledgements_label">Agradecimientos</string>
     <string name="settings_acknowledgements_category_translations_title">Traducciones</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Habilita las opciones de prueba y una salida más detallada. La aplicación se ejecutará más lentamente y funcionará de manera diferente.</string>
     <string name="debug_bugreporter_label">Reportes de errores automáticos</string>
     <string name="debug_bugreporter_summary">Automáticamente reporta problemas, por ejemplo, detalles en los crasheos de la app así puedo averiguar el porqué y arreglarlo.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">El modo de depuración está habilitado</string>
     <string name="debug_card_trace_mode_label">Habilitar modo de rastreo</string>
     <string name="debug_card_dryrun_mode_label">Modo de prueba (deshabilitar eliminación)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Accesos directos</string>
     <string name="shortcuts_onetap_enabled_title">Acceso directo de un toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar acceso directo \"Escanear + Eliminar\" al mantener presionado el ícono de la app. Usa las mismas herramientas que el panel de un toque.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

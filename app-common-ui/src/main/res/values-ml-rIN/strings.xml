@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">പാതുകൾ തിരഞ്ഞെടുക്കുക</string>
+    <string name="picker_selected_paths_title">തിരഞ്ഞെടുക്കപ്പെട്ട പാതുകൾ</string>
+    <string name="picker_unsaved_confirmation_message">മാറ്റങ്ങൾ ഉപേക്ഷിക്കണോ?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">%d പാത് തിരഞ്ഞെടുക്കപ്പെട്ടു</item>
+        <item quantity="other">%d പാതുകൾ തിരഞ്ഞെടുക്കപ്പെട്ടു</item>
+    </plurals>
+    <string name="picker_home_action">ഡേറ്റ മേഖലകൾ</string>
+</resources>

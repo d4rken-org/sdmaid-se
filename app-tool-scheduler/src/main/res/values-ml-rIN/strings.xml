@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">ഷെഡ്യൂർ</string>
+    <string name="scheduler_execution_label">അടുത്ത എക്സിക്യൂഷൻ (ഏക്സ്ഥൂലം)</string>
+    <string name="scheduler_execution_last_label">അവസാന എക്സിക്യൂഷൻ</string>
+    <string name="scheduler_settings_label">ഷെഡ്യൂർ</string>
+    <string name="scheduler_settings_summary">ഷെഡ്യൂർ സംബന്ധമായ ക്രമീകരണങ്ങൾ ക്രമീകരിക്കുക.</string>
+    <string name="scheduler_new_schedule_action">ഷെഡ്യൂർ സൃഷ്ടിക്കുക</string>
+    <string name="scheduler_schedule_name_label">ഷെഡ്യൂൾ നാമം</string>
+    <string name="scheduler_schedule_toggle_enabled">ഷെഡ്യൂൾ പ്രവർത്തനക്ഷമമാണ്</string>
+    <string name="scheduler_schedule_toggle_disabled">ഷെഡ്യൂൾ നിഷ്ക്രിയമാണ്</string>
+    <string name="scheduler_edit_schedule_action">ഷെഡ്യൂൾ എഡിറ്റ് ചെയ്യുക</string>
+    <string name="scheduler_schedule_time_label">ഏകദേശ സമയം</string>
+    <string name="scheduler_schedule_repeat_label">ദിവസങ്ങളിൽ ആവർത്തന ഇടവേള</string>
+    <string name="scheduler_schedule_default_name">ഡിഫോൾട്ട് ഷെഡ്യൂൾ</string>
+    <string name="scheduler_current_schedule_x_at_x">%2$s ഏകദേശം %1$s</string>
+    <string name="scheduler_schedule_next_at_x">%s-നായി ആസൂത്രണം ചെയ്തത്</string>
+    <string name="scheduler_schedule_last_at_x">%s-ൽ അവസാനമായി നടപ്പിലാക്കി</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">ഒരു ദിവസം ഒരിക്കൽ</item>
+        <item quantity="other">എല്ലാ %d ദിവസവും</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">ആവർത്തന ഇടവേള</string>
+    <string name="scheduler_inaccurate_execution_hint">പ്രതീക്ഷിക്കുന്ന എക്സിക്യൂഷൻ സമയങ്ങൾ ഏകദേശമാണ്. ബാറ്ററി ലാഭിക്കാൻ ഷെഡ്യൂളുകൾ വൈകുകയോ ത്വരിതപ്പെടുകയോ ചെയ്തേക്കാം.</string>
+    <string name="scheduler_no_active_schedules_subtitle">സജീവ ഷെഡ്യൂളുകൾ ഇല്ല</string>
+    <string name="scheduler_setting_nopowersaving_title">ബാറ്ററി കുറവായിരിക്കുമ്പോൾ ഒഴിവാക്കുക</string>
+    <string name="scheduler_setting_nopowersaving_summary">ഉപകരണം പവർ-സേവിംഗ് മോഡിലാണെങ്കിൽ, ഷെഡ്യൂൾ ചെയ്ത എക്സിക്യൂഷൻ ഒഴിവാക്കും.</string>
+    <string name="scheduler_setting_charging_title">ചാർജ് ചെയ്യുന്നില്ലെങ്കിൽ ഒഴിവാക്കുക</string>
+    <string name="scheduler_setting_charging_summary">ഉപകരണം ചാർജ് ചെയ്യുന്നില്ലെങ്കിൽ, ഷെഡ്യൂൾ ചെയ്ത എക്സിക്യൂഷൻ ഒഴിവാക്കും.</string>
+    <string name="scheduler_setting_automation_title">ആക്സസിബിലിറ്റി സേവനം</string>
+    <string name="scheduler_setting_automation_summary">ആക്സസിബിലിറ്റി സേവനം ഉപയോഗിക്കുന്ന ക്രിയകൾ ഉൾപ്പെടുക്കുക. ടാസ്ക്കുകൾ നടപ്പിലാക്കുമ്പോൾ SD Maid-ന് നിങ്ങളുടെ സ്ക്രീനുമായി ഇന്ററാക്ട് ചെയ്യാൻ കഴിയയണം (അത്. അൻലോക് ചെയ്തിരിക്കണം).</string>
+    <string name="scheduler_notification_channel_label">ഷെഡ്യൂർ</string>
+    <string name="scheduler_notification_title">ഷെഡ്യൂർ ചെയ്ത ടാസ്ക്</string>
+    <string name="scheduler_notification_message">നടപ്പിലാക്കുന്നു: “%s”</string>
+    <string name="scheduler_notification_result_title">ഷെഡ്യൂർ പൂർത്തിയായി</string>
+    <string name="scheduler_notification_result_success_message">ഷെഡ്യൂർ ചെയ്ത എല്ലാ ടാസ്ക്കുകളും വിജയകരമായി പൂർത്തിയായി.</string>
+    <string name="scheduler_notification_result_failure_message">ചില ഷെഡ്യൂർ ടാസ്ക്കുകൾ പരാജയപ്പെടുകയോ പിശകുകൾ നേരിടുകയോ ചെയ്തു. അവ കൈയാർ നടത്തി പരീക്ഷിക്കുക.</string>
+    <string name="scheduler_commands_after_schedule_label">ഷെഡ്യൂർ ശേഷം കമാന്ഡുകൾ</string>
+    <string name="scheduler_commands_after_schedule_desc">ഷെഡ്യൂർ അവസാനിക്കുമ്പോൾ നടപ്പിലാക്കുന്ന Android ഷെൽ കമാന്ഡുകൾ.</string>
+    <string name="scheduler_battery_optimization_hint">പശ്ചാത്തല എക്സിക്യൂഷനിൽ പ്രശ്നങ്ങൾ അനുഭവിക്കുന്നുവെങ്കിൽ SD Maid-ന്റെ ബാറ്ററി ഓപ്ടിമൈസേഷൻ പ്രവർത്തനരഹിതമാക്കുന്നത് പരിഗണിക്കുക.</string>
+</resources>

@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid nuk përfundoi të gjitha hapat brenda kufirit kohor. Nëse kjo vazhdon të ndodhë, mund të duhet të rregulloj aplikacionin për pajisjen tuaj. Kontrolloni për përditësime ose kontaktoni me mua që të mund ta rregulloj.</string>
     <string name="automation_error_overlay_title">Mbivendosja e automatizimit</string>
     <string name="automation_error_overlay_body">SD Maid nuk mund të shfaqte mbivendosjen e automatizimit. Kontrolloni lejet dhe provoni të rindizni pajisjen tuaj.</string>
+    <string name="automation_error_scheduler_title">Automatizimi i planifikuar dështoi</string>
+    <string name="automation_error_scheduler_body">Një detyrë e planifikuar u përpoq të përdorte shërbimin e aksesueshmërisë, por nuk ishte i disponueshëm. Nëse nuk keni nevojë për këtë, çaktivizoni opsionin \"Shërbimi i aksesueshmërisë\" në cilësimet e planifikuesit.</string>
     <string name="automation_error_no_settings_title">Ekrani i cilësimeve nuk është i disponueshëm</string>
     <string name="automation_error_no_settings_body">Ky aplikacion sistemi nuk ka ekran cilësimesh. Pastrimi i cache-it përmes shërbimit të aksesueshmërisë nuk është i mundur. Përjashtojeni për të përshpejtuar pastrimin e cache-it.</string>
     <string name="automation_loading">Përgatitja e automatizimit nëpërmjet shërbimit të aksesueshmërisë</string>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Atlāsīt ceľus</string>
+    <string name="picker_selected_paths_title">Atlāsītie ceļi</string>
+    <string name="picker_unsaved_confirmation_message">Atmet izmaiņas?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="zero">%d ceļi atlasīti</item>
+        <item quantity="one">%d ceļš atlasīts</item>
+        <item quantity="other">%d ceļi atlasīti</item>
+    </plurals>
+    <string name="picker_home_action">Datu apgabali</string>
+</resources>

@@ -3,9 +3,9 @@
     <string name="swiper_label">Swiper</string>
     <string name="swiper_tool_description">Rydd opp i mapper raskt — sveip gjennom filer for å beholde, slette eller hoppe over.</string>
     <string name="swiper_dashcard_description">Rydd opp i bestemte mapper raskere enn en filutforsker — bare sveip hver fil.</string>
-    <string name="swiper_sessions_description">Gå gjennom filer i 3 enkle trinn:\n\n1. Velg en mappe å skanne\n2. Sveip gjennom filer for å beholde, slette eller hoppe over\n3. Gjennomgå valgene dine og bekreft\n\nIngenting fjernes før du trykker den endelige sletteknappen.</string>
     <string name="swiper_start_action">Start sveipingen</string>
     <string name="swiper_continue_action">Fortsett økt</string>
+    <string name="swiper_sessions_description">Gå gjennom filer i 3 enkle trinn:\n\n1. Velg en mappe å skanne\n2. Sveip gjennom filer for å beholde, slette eller hoppe over\n3. Gjennomgå valgene dine og bekreft\n\nIngenting fjernes før du trykker den endelige sletteknappen.</string>
     <string name="swiper_select_folders_action">Velg mapper</string>
     <string name="swiper_scanning_title">Skanner…</string>
     <plurals name="swiper_result_x_items_found">
@@ -23,7 +23,7 @@
     <string name="swiper_item_position">#%1$d av %2$d</string>
     <string name="swiper_keep_action">Behold</string>
     <string name="swiper_skip_action">Hopp over</string>
-    <string name="swiper_review_action">Gjennomgå</string>
+    <string name="swiper_review_action">Anmeldelse</string>
     <string name="swiper_status_title">Gjennomgå avgjørelser</string>
     <string name="swiper_status_action_keep_selected">Behold valgte</string>
     <string name="swiper_status_action_delete_selected">Slett valgte</string>
@@ -127,7 +127,7 @@
     <string name="swiper_stamp_skip_4">Kanskje!</string>
     <string name="swiper_stamp_undo_1">Angre!</string>
     <string name="swiper_stamp_undo_2">Tilbake!</string>
-    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_3">Oisann!</string>
     <string name="swiper_stamp_undo_4">Vent!</string>
     <string name="swiper_gesture_overlay_dismiss">Trykk hvor som helst for å starte</string>
     <string name="swiper_gesture_overlay_left_delete">← Slett</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Angre</string>
     <string name="swiper_help_title">Slik fungerer Swiper</string>
     <string name="swiper_help_message">Sveip over hver fil for å ta en avgjørelse:\n\n← Sveip til venstre: %1$s\n→ Sveip til høyre: %2$s\n↑ Sveip opp: Hopp over\n↓ Sveip ned: Angre (etter første sveip)\n\nDu kan også bruke knappene nederst.\n\nNår du er ferdig, trykk \"Gjennomgå\" for å se alle avgjørelsene dine. Ingenting slettes før du bekrefter på gjennomgangsskjermen.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Forstått</string>
+    <string name="swiper_help_action">Hjelp</string>
 </resources>

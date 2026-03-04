@@ -3,4 +3,24 @@
     <string name="automation_accessibility_service_description">Lietotāji ar īpašām pieejamības vajadzībām var iespējot šo pakalpojumu, lai ļautu SD Maid automatizēt uzdevumus, kas citādi prasītu garlaicīgu manuālu mijiedarbību (piem. kešatmiņas dzēšanu).\n\nPiemērs: Ja jūs dodat SD Maid norādījumu apturēt vairākas lietotnes, tad SD Maid var izmantot šo pakalpojumu, lai atvērtu katras lietotnes iestatījumu ekrānu, atrastu pogu \'Piespiedu apturēšana\' un to nospiestu.\n\nSD Maid vienmēr pamanāmi rādīs, kad šis pakalpojums tiek izmantots, un nodrošinās vienkāršu veidu, kā lietotājs var nekavējoties atcelt jebkuru mijiedarbību.\n\nNeviena darbība netiks veikta bez iepriekšējas lietotāja piekrišanas. Šo pakalpojumu var atspējot jebkurā laikā bez nelabvēlīgām sekām.</string>
     <string name="automation_screenoverlay_explanation">SD Maid mijiedarbojas ar jūsu ierīci. Nav iespējams vienlaicīgi izmantot ekrānu. Gaidiet, līdz darbība ir pabeigta, vai atceliet to.</string>
     <string name="automation_active_title">SD Maid strādā</string>
+    <string name="automation_error_no_consent_title">Automātizācijas kļūda</string>
+    <string name="automation_error_no_consent_body">Pieejamības pakalpojums nav iestatīts. Pabeidziet iestatīšanu un sniedziet piekrišanu.</string>
+    <string name="automation_error_not_enabled_title">Pakalpojums nav iespējots</string>
+    <string name="automation_error_not_enabled_body">Pieejamības pakalpojums ir atspējots. Ieslēdziet to vēlreiz.</string>
+    <string name="automation_error_not_running_title">Pakalpojums nedarbojas</string>
+    <string name="automation_error_not_running_body">Pieejamības pakalpojums nedarbojas. Mēģiniet pārstartēt ierīci.</string>
+    <string name="automation_error_screen_unavailable_title">Ekrāns nav pieejams</string>
+    <string name="automation_error_screen_unavailable_body">Darbība tika pārtraukta, jo ekrāns kļuva nepieejams (piem., displejs izslēgts vai bloķēšanas ekrāns aktīvs).</string>
+    <string name="automation_error_compatibility_title">Automātizācijas saderība</string>
+    <string name="automation_error_compatibility_body">SD Maid nespēja noskaidrot ekrāna izklāstu. Ja tas turpinās, jūsu valoda vai iestatījumi, iespējams, netiek pilnībā atbalstīti. Pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to varētu novērst.</string>
+    <string name="automation_error_timeout_title">Automātizācijas noilgums</string>
+    <string name="automation_error_timeout_body">SD Maid nepabeiga visus soļus noteiktajā laika limitā. Ja tas turpinās, iespējams, būs jāpielago lietotne jūsu ierīcei. Pārbaudiet atjauninājumus vai sazinieties ar mani, lai es to varētu novērst.</string>
+    <string name="automation_error_overlay_title">Automātizācijas pārklojums</string>
+    <string name="automation_error_overlay_body">SD Maid nevarēja parādīt automātizācijas pārklojumu. Pārbaudiet atļaujas un mēģiniet pārstartēt ierīci.</string>
+    <string name="automation_error_scheduler_title">Ieplānotā automātizācija neizdevās</string>
+    <string name="automation_error_scheduler_body">Ieplānots uzdevums mēģināja izmantot pieejamības pakalpojumu, taču tas nebija pieejams. Ja tas jums nav vajadzīgs, atspējojiet opciju \"Pieejamības pakalpojums\" plānotāja iestatījumos.</string>
+    <string name="automation_error_no_settings_title">Iestatījumu ekrāns nav pieejams</string>
+    <string name="automation_error_no_settings_body">Šai sistēmas lietotnei nav iestatījumu ekrāna. Kešatmiņas notīrīšana, izmantojot pieejamības pakalpojumu, nav iespējama. Izslēdziet to, lai paātrinātu kešatmiņas notīrīšanu.</string>
+    <string name="automation_loading">Tiek sagatavota automātizācija, izmantojot pieejamības pakalpojumu</string>
+    <string name="automation_progress_find_ok_confirmation">Mēģina apstiprināt iepriekšējo darbību (atslēgvārdi: %s)</string>
 </resources>

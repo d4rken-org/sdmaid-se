@@ -23,9 +23,9 @@
     <string name="appcontrol_app_exclude_add_description">Bul qosímshanı SD Maidtıń basqa ámellerinen shetlew.</string>
     <string name="appcontrol_app_exclude_edit_title">Shetlewdi ózgertiw</string>
     <string name="appcontrol_app_exclude_edit_description">Bul qosímsha házirgi waqıtta bir yamasa birneshe quraldan shetlengen.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Paydalanıwshı</string>
     <string name="appcontrol_tag_active">Jaqında aktiv</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Toplam</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arxivlengen</string>
@@ -45,6 +45,10 @@
     <string name="appcontrol_list_sortmode_screentime_label">Ekran waqtı</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Qosímsha kólemleri ónimdilik maqsetinde shamamen esaplanǵan. Anıǵıraq maǵlıwmatlar ushın StorageAnalyzer quralın paydalanıń.</string>
     <string name="appcontrol_progress_uninstalling_app">Qosímsha óshiriliw</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ilova o’chirildı</item>
+        <item quantity="other">%d ilova o’chirildı</item>
+    </plurals>
     <string name="appcontrol_archive_action">Arxivlew</string>
     <string name="appcontrol_archive_selection_action">Qollanbalardı arxivlew</string>
     <string name="appcontrol_archive_description">Keyin tiklaw ushin qollanba maǵlıwmatların saqlap, orın bosatıw ushin arxivlew.</string>
@@ -76,6 +80,14 @@
     <string name="appcontrol_app_sizes_data_label">Maǵlıwmat</string>
     <string name="appcontrol_app_sizes_cache_label">Kesh</string>
     <string name="appcontrol_toggle_confirmation_title">Háreketin tastıyıqlaw</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ilovaniń qosılgan/óshirip qoyilgan hálin ózgertiw?</item>
+        <item quantity="other">%d ilova ushın qosılgan/óshirip qoyilgan hállerdi ózgertiw?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ilova ko’chirildı</item>
+        <item quantity="other">%d ilova ko’chirildı</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">Kólemlerdi anıqlaw</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">Hár bir qosímshanıń shamamen kólemin alıw.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Aktivlikti anıqlaw</string>
@@ -83,6 +95,10 @@
     <string name="appcontrol_export_app_selection_action">Qosímshalardı eksportlaw</string>
     <string name="appcontrol_export_title">Qosímshanı eksportlaw</string>
     <string name="appcontrol_export_description">Usı qollanbanıń ornatıw faylların saqlap alıw. Bul qollanba maǵlıwmatların o\'z ishine almaydı.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ilova eksportlandı</item>
+        <item quantity="other">%d ilova eksportlandı</item>
+    </plurals>
     <string name="appcontrol_progress_exporting_x">%s eksportlanıwda</string>
     <string name="appcontrol_share_list_action">Dizimdi bo\'lisiw</string>
     <string name="appcontrol_share_list_title">Meniń qollanbalarm</string>
@@ -90,6 +106,14 @@
     <string name="appcontrol_force_stop_selection_action">Baǵdarlamalardı májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_action">Májbúrlep toqtatıw</string>
     <string name="appcontrol_force_stop_confirm_title">Májbúrlep toqtatıwdı tastıyıqlaw</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ilovani májbüriy to’xtatilsinba?</item>
+        <item quantity="other">%d ilovani májbüriy to’xtatilsinba?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ilova to’xtatildı</item>
+        <item quantity="other">%d ilova to’xtatildı</item>
+    </plurals>
     <string name="appcontrol_automation_title">AppControl avtomatlandırıw</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Májbúrlep toqtatılıp atır…</string>
     <string name="appcontrol_automation_progress_find_force_stop">\"Májbúrlep toqtatıw\" túymesin izlew (gilt sózler: %s)</string>
@@ -100,5 +124,10 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Ekran waqtı: %2$s baslap %1$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Aqırǵı jańalanǵan: %s</string>
     <string name="appcontrol_item_installedat_x_label">Ornatılǵan: %s</string>
+    <string name="shortcut_appcontrol_short">Ilova Basparlawi</string>
     <string name="shortcut_appcontrol_long">Ornatılǵan qollanbalardı basqarıw</string>
+    <string name="appcontrol_automation_loading">Qoljetimlilik xızmetin paydalanıp avtomatlandırıwdı tayarlaw</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Aldıńǵı háreketti tastıyıqlawǵa háreket etilip atır (gilt sózler: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Basqa paydalanıwshılardı qosıw</string>
+    <string name="appcontrol_include_multiuser_summary">Usbu qurilmadagi basqa paydalanıwshı profillerindegi ilovaları qosıw.</string>
 </resources>

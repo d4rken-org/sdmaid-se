@@ -98,7 +98,7 @@
     <string name="swiper_session_rename_hint">Введіть назву для цієї сесії</string>
     <string name="swiper_sessions_current_sessions">Поточні сесії</string>
     <string name="swiper_session_paths_label">Шляхи</string>
-    <string name="swiper_session_status_label">Статус</string>
+    <string name="swiper_session_status_label">Стан</string>
     <plurals name="swiper_session_status_to_keep">
         <item quantity="one">%d для збереження</item>
         <item quantity="few">%d для збереження</item>
@@ -172,4 +172,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Скасувати</string>
     <string name="swiper_help_title">Як працює Swiper</string>
     <string name="swiper_help_message">Проведіть по кожному файлу, щоб прийняти рішення:\n\n← Проведіть вліво: %1$s\n→ Проведіть вправо: %2$s\n↑ Проведіть вгору: Пропустити\n↓ Проведіть вниз: Скасувати (після першого свайпу)\n\nВи також можете використовувати кнопки внизу.\n\nКоли закінчите, натисніть \"Огляд\", щоб переглянути всі рішення. Нічого не видаляється, поки ви не підтвердите на екрані перегляду.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Зрозуміло</string>
+    <string name="swiper_help_action">Допомога</string>
 </resources>

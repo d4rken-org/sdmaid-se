@@ -25,6 +25,10 @@
         <item quantity="other">%1$d faili gatavi (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Šī funkcija ieraksta visu, ko lietotne dara, koplietojamā failā. Izveidotais fails satur sensitīvu informāciju (piem. failu nosaukumus un instalētās lietotnes). Dalieties tikai ar uzticamām pusēm (piem. izstrādātāju, kas risina problēmu).</string>
+    <string name="debug_debuglog_short_recording_title">ļoti īss ieraksts</string>
+    <string name="debug_debuglog_short_recording_desc">Ieraksts bija ļoti īss. Atklāšanas režīma žurnāli ir ieraksti, nevis momentuznēmumi — reproducējiet problēmu ierakstīšanas laikā, lai žurnāls būtu noderīgs.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Turpināt ierakstīšanu</string>
+    <string name="debug_debuglog_short_recording_stop_action">Beigt ierakstīšanu</string>
     <string name="tasks_activity_notification_channel_label">Aktīvie uzdevumi</string>
     <string name="tasks_activity_working_notification_title">SD Maid strādā</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -44,6 +48,7 @@
     <string name="onboarding_welcome_body2">Iegūstiet krātuves vietu, sakopjot pēc citām lietotnēm. Dzēsiet izlietojamus failus un noņemiet atlikušos datus.</string>
     <string name="onboarding_welcome_body_beta">Šī ir beta (testēšanas) versija. Turpiniet ar humora izjūtu un rezerves plānu. Lūdzu, ziņojiet par problēmām, ar kurām saskariesties.</string>
     <string name="onboarding_welcome_continue_action">Turpināt</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (t.i., SD Maid 2) ir SD Maid (t.i., SD Maid 1) pēctece. Jauna lietotne, optimizēta mūsdienu Android ierīcēm.</string>
     <string name="onboarding_versus_body2">Tās priekšgājēja arhitektūra ir vairāk nekā 7 gadus veca un nav paredzēta jaunāko Android versiju izaicinājumiem. Pilnīga pārprojektēšana bija nepieciešama, lai turpinātu attīstību.</string>
     <string name="onboarding_versus_body3">Apsveriet pārslēgšanos uz SD Maid SE labāku rezultātu sasniegšanai.</string>
@@ -78,6 +83,7 @@
     <string name="ui_theme_style_setting_label">Motīva stils</string>
     <string name="ui_theme_style_setting_explanation">Krāsu stils, ko izmanto lietotnes motīvam.</string>
     <string name="ui_theme_style_default_label">Noklusējuma</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Failu priekšskatījumi</string>
     <string name="ui_previews_summary">Rādīt failu priekšskatījumus visos rīkos (piemēram, attēlu un video sīktēlus).</string>
     <string name="ui_language_override_label">Lietotnes valoda</string>
@@ -100,7 +106,42 @@
     <string name="support_debuglog_folder_empty_desc">Nav saglabātu atkļūdošanas žurnālu</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Dzēst visus atkļūdošanas žurnālus?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Tas neatgriezeniski dzēsīs visus saglabātos atkļūdošanas žurnālus. Šo darbību nevar atsaukt.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Vieta, kur pavadīt laiku un uzdot jautājumus.</string>
+    <string name="support_contact_label">Sazināties ar izstrādātāju</string>
+    <string name="support_contact_desc">Aizpildiet veidlapu, lai nosūtītu izstrādātājam e-pastu.</string>
+    <string name="support_contact_welcome">Es pats lasu katru ziņojumu un daru visu iespējamo, lai atbildētu, taču, tā kā strādāju vienpersoniski, tas var nedaudz aizkavēties. Paldies par jūsu pacietību.</string>
+    <string name="support_contact_footer">Jūsu ziņa tiks nosūtīta pa e-pastu. Informācija par ierīci un iestatījumiem tiek pievienota automātiski. Varat pievienot ekrānuzņēmumus vai video e-pastam. Dažas e-pasta daļas būs angļu valodā, lai izstrādātājs varētu tās viegli saprast.</string>
+    <string name="support_contact_category_label">Kategorija</string>
+    <string name="support_contact_category_bug_label">Kļūdas ziņojums</string>
+    <string name="support_contact_category_feature_label">Funkcijas pieprasījums</string>
+    <string name="support_contact_category_question_label">Jautājums</string>
+    <string name="support_contact_tool_label">Saistītais rīks</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analizators</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Vispārīgi</string>
+    <string name="support_contact_description_label">Apraksts</string>
+    <string name="support_contact_description_bug_hint">Aprakstiet, kas notika un kā atražot problēmu. Lūdzu, esiet konkrēts (minimālais vārdu skaits — 20).</string>
+    <string name="support_contact_description_feature_hint">Aprakstiet funkciju, kuru vēlaties redzēt. Lūdzu, esiet konkrēts (minimālais vārdu skaits — 20).</string>
+    <string name="support_contact_description_question_hint">Aprakstiet savu jautājumu sīkāk. Lūdzu, esiet konkrēts (minimālais vārdu skaits — 20).</string>
+    <string name="support_contact_expected_label">Paredzāmā uzvedība</string>
+    <string name="support_contact_expected_hint">Aprakstiet, ko gaidījāt notiekam (minimālais vārdu skaits — 10).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="zero">%1$d / %2$d vārdu</item>
+        <item quantity="one">%1$d / %2$d vārds</item>
+        <item quantity="other">%1$d / %2$d vārdi</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Atkļūdošanas žurnāls</string>
+    <string name="support_contact_debuglog_zip_error">Neizdevās saspiegt atkļūdošanas žurnālu</string>
+    <string name="support_contact_debuglog_picker_hint">Pievienojiet esošu atkļūdošanas žurnālu vai ierakstiet jaunu.</string>
+    <string name="support_contact_debuglog_picker_empty">Atkļūdošanas žurnāli nav atrasti. Vispirms ierakstiet vienu.</string>
+    <string name="support_contact_send_action">Atvērt e-pasta lietotni</string>
+    <string name="support_contact_no_email_app">Šajā ierīcē nav atrasta e-pasta lietotne.</string>
     <string name="changelog_label">Izmaiņu žurnāls</string>
     <string name="settings_acknowledgements_label">Atzinības</string>
     <string name="settings_acknowledgements_category_translations_title">Tulkojumi</string>
@@ -134,6 +175,7 @@
     <string name="setup_root_enable_root_use_label">Izmantot root piekļuvi, ja pieejama</string>
     <string name="setup_root_disable_root_use_label">Neizmantot root piekļuvi</string>
     <string name="setup_root_card_body2">Pieejams tikai ierīcēs ar root piekļuvi. Ja neesat veicis šo modifikāciju, jūsu ierīcei nav root un šim iestatījumam nav efekta.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Ļaujiet SD Maid izmantot Shizuku, kur iespējams, lai uzlabotu rezultātus un iespējotu funkcijas.</string>
     <string name="setup_shizuku_card_body2">Šim iestatījumam nav efekta, ja Shizuku lietotne nav iestatīta jūsu ierīcē.</string>
     <string name="setup_shizuku_card_root_info">Shizuku kombinācijā ar root piekļuvi neiespējo papildu funkcijas, bet uzlabo uzticamību. SD Maid izmantos to kā rezerves metodi.</string>
@@ -177,6 +219,7 @@
     <string name="debug_mode_explanation">Ieslēgt testa opcijas un detalizētāku izvadi. Lietotne strādās lēnāk un darbosies atšķirīgi.</string>
     <string name="debug_bugreporter_label">Automātiskie kļūdu ziņojumi</string>
     <string name="debug_bugreporter_summary">Automātiski ziņo par problēmām, piem. lietotnes avārijas detaļas, lai es varētu noskaidrot iemeslu un to novērst.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Atkļūdošanas režīms ir ieslēgts</string>
     <string name="debug_card_trace_mode_label">Ieslēgt izsekošanas režīmu</string>
     <string name="debug_card_dryrun_mode_label">Izmēģinājuma režīms (atspējot dzēšanu)</string>
@@ -199,7 +242,37 @@
     <string name="updates_dashcard_body">Ir pieejams atjauninājums. Jums ir %1$s un jaunākā versija ir %2$s.</string>
     <string name="translation_encourage_title">Tulkot SD Maid</string>
     <string name="translation_encourage_body">SD Maid tulko brīvprātīgie. Tulkošana, pārskatīšana vai korektūra — jūsu palīdzība ir novērtēta!</string>
+    <string name="translation_translators_title">Šo versiju tulkoja</string>
+    <string name="translation_translators_people">Persona1;Persona2(neobligāti@e-pasts.lv)</string>
+    <string name="motd_setting_enabled_label">Svarīgi ziņojumi</string>
+    <string name="motd_setting_enabled_explanation">Atļaut SD Maid pārbaudīt svarīgus ziņojumus no izstrādātāja.</string>
+    <string name="updatecheck_setting_enabled_label">Atjauninājuma pārbaude</string>
+    <string name="updatecheck_setting_enabled_explanation">Atļaut SD Maid pārbaudīt atjauninājumus, lai informētu jūs, ja ir pieejama jaunāka versija.</string>
+    <string name="device_settings_category">Ierīce</string>
+    <string name="beta_version_indicator_desc">Priekšlaiduma versijas sākumekrānā parāda nelielu lenti. Tās tiek atjauninātrās biežāk, var būt vairāk funkciju, bet varētu būt arī vairāk kļūdu.</string>
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
+    <string name="anniversary_card_title">Laimyīga SD Maid gadadiena ❤️</string>
+    <string name="anniversary_card_install_date">Ar jums kopš %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="zero">%1$d gadu stiprība. Jūsu ierīce paliek tīra un sakārtota ar SD Maid. Atbrīvotā vieta: %2$s</item>
+        <item quantity="one">%1$d gads stiprības. Jūsu ierīce paliek tīra un sakārtota ar SD Maid. Atbrīvotā vieta: %2$s</item>
+        <item quantity="other">%1$d gadi stiprības. Jūsu ierīce paliek tīra un sakārtota ar SD Maid. Atbrīvotā vieta: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Dalīties ar savu SD Maid gadadienu</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="zero">%1$d gadu ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
+Mēģiniet: %3$s</item>
+        <item quantity="one">%1$d gads ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
+Mēģiniet: %3$s</item>
+        <item quantity="other">%1$d gadi ar SD Maid — Atbrīvotā vieta: %2$s. Turpinājums jūsu Android tīrumam un kārtībai. #SDMaid
+Mēģiniet: %3$s</item>
+    </plurals>
+    <string name="shortcut_onetap_short">Skenēt + Dzēst</string>
+    <string name="shortcut_onetap_long">Skenēt un dzēst vienā darbībā</string>
+    <string name="shortcuts_settings_category">Ātrceļi</string>
+    <string name="shortcuts_onetap_enabled_title">Viena pieskariēn vieta ātrceļu</string>
+    <string name="shortcuts_onetap_enabled_summary">Rādīt \"Skenēt + Dzēst\" ātrceļu, ilgi nospiežot programmas ikonu. Izmanto tās pašas rīkus kā vienreizējā informācijas paneļa darbība.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

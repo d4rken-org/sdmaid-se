@@ -29,6 +29,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">سن عکس صفحه</string>
     <string name="systemcleaner_filter_screenshots_age_summary">حداقل سن برای اسکرین‌شات‌ها که برای حذف شدن در نظر گرفته می‌شود.</string>
     <string name="systemcleaner_filter_superfluosapks_label">فایل های نصبی اضافی</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">فایل‌های نصب که بر اساس نسخه‌های نصب‌شده برنامه دیگر نیازی به آن‌ها نیست.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">شامل نسخه مشابه</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">فایل‌های APK که با نسخه نصب شده مطابقت دارند نیز هدف قرار بگیرند. غیرفعال کنید تا فقط نسخه‌های قدیمی‌تر حذف شوند.</string>
     <string name="systemcleaner_filter_lostdir_label">پوشه‌های LOST.DIR</string>
@@ -100,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">محدود کردن نتایج بر اساس سن فایل (آخرین زمان تغییر). برای تطبیق هر سنی خالی بگذارید.</string>
     <string name="systemcleaner_customfilter_import_action">واردات فیلتر جدید</string>
     <string name="systemcleaner_customfilter_export_action">صادرات فیلتر انتخاب شده</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">شما تغییرات ذخیره نشده‌ای دارید!</string>
 </resources>

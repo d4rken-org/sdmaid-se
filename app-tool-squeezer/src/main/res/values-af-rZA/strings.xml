@@ -17,7 +17,7 @@
         <item quantity="one">%d beeld gekies</item>
         <item quantity="other">%d beelde gekies</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Soekliggings</string>
+    <string name="squeezer_search_locations_title">Soek liggings</string>
     <string name="squeezer_search_locations_default_summary">Kameravouers (verstek)</string>
     <string name="squeezer_min_size_title">Minimum lêergrootte</string>
     <string name="squeezer_min_size_description">Slaan beelde kleiner as hierdie grootte oor.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Geen komprimeerbare beelde gevind nie.</string>
     <string name="squeezer_setup_warning">Kompressie verminder beeldkwaliteit permanent om bergingsruimte te bespaar. Dit kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
     <string name="squeezer_setup_explanation">Media Squeeze verminder die lêergrootte van beelde om bergingsruimte vry te maak. Dit verminder beeldkwaliteit permanent en kan nie ongedaan gemaak word nie. Hersien jou instellings noukeurig voor jy begin.</string>
-    <string name="squeezer_setup_paths_title">Soekliggings</string>
+    <string name="squeezer_setup_paths_title">Soek liggings</string>
     <string name="squeezer_setup_paths_default">Kies vouers om te soek</string>
     <string name="squeezer_setup_quality_title">Kompressiekwaliteit</string>
     <string name="squeezer_setup_age_title">Minimum ouderdom</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Ten minste %d dae oud</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Beraamde ~%d%% besparing vir JPEG-lêers</string>
+    <string name="squeezer_onboarding_got_it">Verstaan</string>
 </resources>

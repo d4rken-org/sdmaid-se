@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">പ്രത്യേക ആക്‍സസിബിലിറ്റി ആവശ്യങ്ങളുള്ള ഉപയോക്താക്കൾക്ക് ഈ സേവനം പ്രവർത്തനക്ഷമമാക്കി SD Maid-ന് ടാസ്‌ക്കുകൾ ഓട്ടോമേറ്റ് ചെയ്യാൻ അനുവദിക്കാം, അല്ലാത്തപ്പക്ഷം മടുപ്പിക്കുന്ന മാനുവൽ ഉപയോക്തൃ ഇടപ്പെടൽ ആവശ്യമായിരിക്കും (ഉദാ: ക്യാഷ് ഡിലീഷൻ).\n\nഉദാഹരണം: നിരവധി ആപ്പുകൾ നിർത്താൻ നിർദേശിച്ചാൽ SD Maid ഈ സേവനം ഉപയോഗിച്ച് ഓരോ ആപ്പിന്റെ ക്രമീകരണ സ്‌ക്രീൻ തുറന്ന്, \'Force Stop\' ബട്ടൻ കണ്ടെത്തി ടാപ്പ് ചെയ്യും.\n\nSD Maid ഈ സേവനം ഉപയോഗിക്കുമ്പോൾ എല്ലായ്‌പ്പോഴും പ്രമുഖമായി കാണിക്കുകയും ഉടൻ ഏത് ഇടപ്പെടലും റദ്ദ് ചെയ്യാൻ ഉപയോക്താവിന് എളുപ്പ മാർഗം നൽകുകയും ചെയ്യും.\n\nമുൻ ഉപയോക്തൃ അനുമതി ഇല്ലാതെ ഒരു പ്രവർത്തനവും നടക്കില്ല. ഈ സേവനം ഏത് സമയത്തും പ്രതികൂല ഫലങ്ങള് കൂടാതെ വീണ്ടും പ്രവർത്തനരഹിതമാക്കാം.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid നിങ്ങളുടെ ഉപകരണവുമായി സംവദിക്കുന്നു. ഒരേ സമയം സ്‌ക്രീൻ ഉപയോഗിക്കാൻ കഴിയില്ല. ഓപ്പറേഷൻ പൂർത്തിയാകുന്നത് വരെ കാത്തിരിക്കുക അല്ലെങ്കിൽ റദ്ദ് ചെയ്യുക.</string>
+    <string name="automation_active_title">SD Maid പ്രവർത്തിക്കുന്നു</string>
+    <string name="automation_error_no_consent_title">ഓട്ടോമേഷൻ പിശക്</string>
+    <string name="automation_error_no_consent_body">ആക്‍സസിബിലിറ്റി സേവനം സജ്ജീകരിച്ചിട്ടില്ല. സജ്ജീകരണം പൂർത്തിയാക്കി സമ്മതം നൽകുക.</string>
+    <string name="automation_error_not_enabled_title">സേവനം പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല</string>
+    <string name="automation_error_not_enabled_body">ആക്‍സസിബിലിറ്റി സേവനം പ്രവർത്തനരഹിതമാക്കിയിരിക്കുന്നു. വീണ്ടും ഓണാക്കുക.</string>
+    <string name="automation_error_not_running_title">സേവനം പ്രവർത്തിക്കുന്നില്ല</string>
+    <string name="automation_error_not_running_body">ആക്‍സസിബിലിറ്റി സേവനം പ്രവർത്തിക്കുന്നില്ല. ഉപകരണം പുനരാരംഭിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="automation_error_screen_unavailable_title">സ്ക്രീൻ ലഭ്യമല്ല</string>
+    <string name="automation_error_screen_unavailable_body">സ്‌ക്രീൻ ലഭ്യമല്ലാതായതിനാൽ ഓപ്പറേഷൻ നിർത്തലാക്കി (ഉദാ: ഡിസ്‌പ്ലേ ഓഫ് അല്ലെങ്കിൽ ലോക്ക്‌സ്‌ക്രീൻ സജീവം).</string>
+    <string name="automation_error_compatibility_title">ഓട്ടോമേഷൻ അനുയോജ്യത</string>
+    <string name="automation_error_compatibility_body">SD Maid-ന് സ്‌ക്രീൻ ലേഓട്ട് തിരിച്ചറിയാൻ കഴിഞ്ഞില്ല. ഇത് തുടർന്നും സംഭവിക്കുന്നുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഭാഷ അല്ലെങ്കിൽ സജ്ജീകരണം പൂർണ്ണമായി പിന്തുണരപ്പെടുന്നില്ലായിരിക്കാം. അപ്‍ഡേറ്റ് പരിശോധിക്കുക അല്ലെങ്കിൽ ഞങ്ങളെ ബന്ധപ്പെടുക.</string>
+    <string name="automation_error_timeout_title">ഓട്ടോമേഷൻ ടൈംഓട്ട്</string>
+    <string name="automation_error_timeout_body">SD Maid നിശ്ചിത സമയ പരിധിക്കുള്ളിൽ എല്ലാ ഘട്ടങ്ങളും പൂർത്തിയാക്കിയില്ല. ഇത് തുടർന്നും സംഭവിക്കുന്നുണ്ടെങ്കിൽ, നിങ്ങളുടെ ഉപകരണത്തിനനുസരിച്ച് ആപ്പ് ക്രമീകരിക്കേണ്ടിവരും. അപ്‍ഡേറ്റ് പരിശോധിക്കുക അല്ലെങ്കിൽ ഞങ്ങളെ ബന്ധപ്പെടുക.</string>
+    <string name="automation_error_overlay_title">ഓട്ടോമേഷൻ ഓവർലേ</string>
+    <string name="automation_error_overlay_body">SD Maid-ന് ഓട്ടോമേഷൻ ഓവർലേ കാണിക്കാൻ കഴിഞ്ഞില്ല. അനുമതികൾ പരിശോധിച്ച് ഉപകരണം പുനരാരംഭിക്കാൻ ശ്രമിക്കുക.</string>
+    <string name="automation_error_scheduler_title">ഷെഡ്യൂൾ ചെയ്ത ഓട്ടോമേഷൻ പരാജയപ്പെട്ടു</string>
+    <string name="automation_error_scheduler_body">ഒരു ഷെഡ്യൂൾ ചെയ്ത ടാസ്‌ക് ആക്‍സസിബിലിറ്റി സേവനം ഉപയോഗിക്കാൻ ശ്രമിച്ചു, പക്ഷേ അത് ലഭ്യമല്ലായിരുന്നു. ഇത് ആവശ്യമില്ലെങ്കിൽ, ഷെഡ്യൂർപ്പർ ക്രമീകരണങ്ങളിൽ «ആക്‍സസിബിലിറ്റി സേവനം» ഓപ്ഷൻ പ്രവർത്തനരഹിതമാക്കുക.</string>
+    <string name="automation_error_no_settings_title">ക്രമീകരണ സ്‌ക്രീൻ ലഭ്യമല്ല</string>
+    <string name="automation_error_no_settings_body">ഈ സിസ്റം ആപ്പിന് ക്രമീകരണ സ്‌ക്രീൻ ഇല്ല. ആക്‍സസിബിലിറ്റി സേവനം വഴി ക്യാഷ് മായ്ക്കൽ സാധ്യമല്ല. ക്യാഷ് മായ്ക്കൽ വേഗത്തിലാക്കാൻ ഇത് ഒഴിവാക്കുക.</string>
+    <string name="automation_loading">ആക്‍സസിബിലിറ്റി സേവനം വഴി ഓട്ടോമേഷൻ തയ്യാറാക്കുന്നു</string>
+    <string name="automation_progress_find_ok_confirmation">മുൻ പ്രവർത്തനം സ്ഥിരീകരിക്കാൻ ശ്രമിക്കുന്നു (കീവേഡുകൾ: %s)</string>
+</resources>

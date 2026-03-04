@@ -15,6 +15,7 @@
     <string name="debug_debuglog_record_action">Itala ang debug log</string>
     <string name="debug_debuglog_stop_action">Itigil ang pagta-tala</string>
     <string name="debug_debuglog_sensitive_information_message">Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo.</string>
+    <string name="debug_debuglog_screen_title">Debug Log</string>
     <string name="debug_debuglog_screen_discard_action">Itapon</string>
     <string name="debug_debuglog_screen_session_path_label">Path ng Session</string>
     <string name="debug_debuglog_screen_log_files_label">Mga Log File</string>
@@ -23,6 +24,10 @@
         <item quantity="other">%1$d mga file na handa (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Naitala ng feature na ito ang lahat ng ginagawa ng app sa isang file na maaaring ibahagi. Naglalaman ng sensitibong impormasyon ang nalikhang file (hal. pangalan ng mga file at mga naka-install na app). Ibahagi lamang ito sa mga pinagkakatiwalaan mo (hal. developer na nag-aayos ng problema).</string>
+    <string name="debug_debuglog_short_recording_title">Napakaikling rekording</string>
+    <string name="debug_debuglog_short_recording_desc">Napakaikli ng rekording. Ang mga debug log ay mga rekording, hindi mga snapshot — kailangan mong i-reproduce ang isyu habang aktibo ang rekording para maging kapaki-pakinabang ang log.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Ituloy ang rekording</string>
+    <string name="debug_debuglog_short_recording_stop_action">Itigil na rin</string>
     <string name="tasks_activity_notification_channel_label">Mga aktibong gawain</string>
     <string name="tasks_activity_working_notification_title">Nagtatrabaho ang SD Maid</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -60,13 +65,22 @@
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_category_other_label">Iba</string>
+    <string name="settings_category_filter_generic">Generic na filter</string>
+    <string name="settings_category_filter_specific">Specific na filter</string>
     <string name="settings_sponsor_development_title">Mag-sponsor ng development</string>
     <string name="settings_sponsor_development_summary">Maging patron at gawing posible ang patuloy na development.</string>
+    <string name="general_settings_label">Pangkalahatan</string>
     <string name="general_settings_desc">Mga pangkalahatang pagbabago na nakakaapekto sa buong app.</string>
+    <string name="settings_category_ui_label">User interface</string>
+    <string name="ui_theme_mode_setting_label">Tema mode</string>
     <string name="ui_theme_mode_setting_explanation">Ang mode na ginagamit sa pag-theme ng app (hal. gabi o araw).</string>
     <string name="ui_theme_mode_dark_label">Dilim</string>
     <string name="ui_theme_mode_light_label">Liwanag</string>
+    <string name="ui_theme_mode_system_label">System</string>
+    <string name="ui_theme_style_setting_label">Estilo ng tema</string>
     <string name="ui_theme_style_setting_explanation">Ang color style na ginagamit sa pag-theme ng app.</string>
+    <string name="ui_theme_style_default_label">Default</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Mga preview ng file</string>
     <string name="ui_previews_summary">Ipakita ang mga preview ng file sa lahat ng tools (hal. mga thumbnail ng larawan at video).</string>
     <string name="ui_language_override_label">Wika ng app</string>
@@ -78,7 +92,9 @@
     <string name="issue_tracker_label">Issue tracker</string>
     <string name="support_installid_label">Install ID</string>
     <string name="support_installid_desc">Ang mga awtomatikong error report ay walang pangalan. Ibahagi ang inyong install ID kung kailangan ng developer na hanapin ang inyong mga error report.</string>
+    <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">I-record ang lahat ng ginagawa ng app sa isang text file na maaari ninyong ibahagi.</string>
+    <string name="support_debuglog_folder_label">Debug log folder</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d file na gumagamit ng %2$s</item>
         <item quantity="other">%1$d mga file na gumagamit ng %2$s</item>
@@ -88,7 +104,48 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Permanenteng mabubura ang lahat ng nakaimbak na debug log sessions. Hindi na maaaring ibalik ang aksyon na ito.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Lugar kung saan makipag usap at mag tanong.</string>
+    <string name="support_contact_label">Makipag-ugnayan sa developer</string>
+    <string name="support_contact_desc">Punan ang isang form para magpadala ng email sa developer.</string>
+    <string name="support_contact_welcome">Binabasa ko ang bawat mensahe nang personal at ginagawa ko ang aking makakaya para sumagot, ngunit dahil nag-iisa lang akong nagtatrabaho dito, maaaring tumagal ng kaunti. Salamat sa iyong pasensya.</string>
+    <string name="support_contact_footer">Ang iyong mensahe ay ipapadala sa pamamagitan ng email. Ang impormasyon ng device at setup ay awtomatikong ilalakip. Maaari kang maglakip ng mga screenshot o video sa email. Ang ilang bahagi ng email ay nasa Ingles para madaling maunawaan ng developer.</string>
+    <string name="support_contact_category_label">Kategorya</string>
+    <string name="support_contact_category_bug_label">Ulat ng bug</string>
+    <string name="support_contact_category_feature_label">Kahilingan ng feature</string>
+    <string name="support_contact_category_question_label">Tanong</string>
+    <string name="support_contact_tool_label">Kaugnay na tool</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Pangkalahatan</string>
+    <string name="support_contact_description_label">Paglalarawan</string>
+    <string name="support_contact_description_bug_hint">Ilarawan ang nangyari at kung paano muling likhain ang isyu. Maging tiyak (minimum 20 salita).</string>
+    <string name="support_contact_description_feature_hint">Ilarawan ang feature na nais mong makita. Maging tiyak (minimum 20 salita).</string>
+    <string name="support_contact_description_question_hint">Ilarawan ang iyong tanong nang detalyado. Maging tiyak (minimum 20 salita).</string>
+    <string name="support_contact_expected_label">Inaasahang gawi</string>
+    <string name="support_contact_expected_hint">Ilarawan ang inaasahan mong mangyayari (minimum 10 salita).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d salita</item>
+        <item quantity="other">%1$d / %2$d salita</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Debug log</string>
+    <string name="support_contact_debuglog_zip_error">Nabigo ang pag-compress ng debug log</string>
+    <string name="support_contact_debuglog_picker_hint">Maglakip ng kasalukuyang debug log, o mag-record ng bago.</string>
+    <string name="support_contact_debuglog_picker_empty">Walang nahanap na debug log. Mag-record muna.</string>
+    <string name="support_contact_send_action">Buksan ang email app</string>
+    <string name="support_contact_no_email_app">Walang email app na nahanap sa device na ito.</string>
+    <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Mga pagkilala</string>
+    <string name="settings_acknowledgements_category_translations_title">Mga Pagsasalin</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Sino ang nag-translate nito?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Salamat</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Espesyal na pasasalamat sa aming mga kaibigan.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Mga Lisensya</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software na ginagamit ng SD Maid.</string>
+    <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Hindi pa tapos ang setup</string>
     <string name="setup_incomplete_card_body">Tapusin ang setup ng SD Maid para sa mas magandang resulta.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">Sinusubukan ng SD Maid na ayusin ang mga isyu sa setup.</string>
@@ -98,10 +155,12 @@
     <string name="setup_checking_card_body">Sinusuri ang pagkakatapos ng setup at functionality.</string>
     <string name="general_error_setup_require_label">Hindi pa tapos ang setup</string>
     <string name="general_error_setup_require_msg">Kailangan pa ng karagdagang setup para magamit ang feature na ito. Tapusin ang mga natitirang hakbang sa setup.</string>
+    <string name="setup_saf_card_title">Storage access framework</string>
     <string name="setup_saf_card_body">Pagbutihin ang mga resulta sa pamamagitan ng pagbibigay ng access sa SD Maid sa mga karagdagang lugar.</string>
     <string name="setup_saf_card_body2">Sa karamihan ng mga kaso, magbubukas ang window na may tamang path na nakapili na. Magiging berde ang mga entry kapag nabigyan ng access.</string>
     <string name="setup_saf_error_wrong_path">Pinili mo ang maling Path</string>
     <string name="setup_saf_missing_app_error">Ang Documents UI app ay hindi makita. Kabilang yan sa System apps at laging mayroon yan sa halos lahat ng Android devices.</string>
+    <string name="setup_manage_storage_card_title">Pamahalaan ang storage</string>
     <string name="setup_manage_storage_card_body">Payagan ang SD Maid na pamahalaan ang inyong storage.</string>
     <string name="setup_manage_storage_card_body2">Basic na access sa public storage, hal. \"Download/\" at \"DCIM/\", pero hindi palaging \"Android/data\".</string>
     <string name="setup_root_card_title">Access sa root</string>
@@ -111,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">Gamitin ang Root access pag mayroon</string>
     <string name="setup_root_disable_root_use_label">Wag gamitin ang Root access</string>
     <string name="setup_root_card_body2">Available lamang sa mga rooted na device. Kung hindi ninyo ginawa ang modification na ito, hindi rooted ang inyong device at walang epekto ang setting na ito.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Payagan ang SD Maid na gamitin ang Shizuku kung posible para pagbutihin ang mga resulta at paganahin ang mga feature.</string>
     <string name="setup_shizuku_card_body2">Walang epekto ang setting na ito kung hindi naka-setup ang Shizuku app sa inyong device.</string>
     <string name="setup_shizuku_card_root_info">Ang Shizuku na pinagsama sa root access ay hindi nagbibigay ng karagdagang features, pero pinapagbuti nito ang reliability. Gagamitin ito ng SD Maid bilang fallback method.</string>
@@ -127,6 +187,7 @@
     <string name="setup_notification_title">Mga notification</string>
     <string name="setup_notification_body">Payagan ang SD Maid na mag-post ng mga notification para bigyang-alam kayo tungkol sa mga kasalukuyang operasyon o mahahalagang pangyayari.</string>
     <string name="setup_notification_hint">Ginagamit nang maingat ang mga notification 🤞</string>
+    <string name="setup_acs_card_title">Accessibility service</string>
     <string name="setup_acs_card_body">Ang accessibility service ay nagbibigay-daan sa SD Maid na makipag-interact sa inyong screen at mag-automate ng mga nakakaboring na aksyon, hal. pag-tap ng \"Clear cache\" sa maraming screen.</string>
     <string name="setup_acs_card_body2">Hindi gagamitin ng SD Maid ang accessibility service nang walang inyong pahintulot, palaging magpapakita ng kitang-kita (pwedeng ma-cancel) na indicator habang aktibo at hindi ito gagamitin para mangolekta ng impormasyon.</string>
     <string name="setup_acs_state_enabled">Naka-enable ang accessibility service</string>
@@ -142,15 +203,18 @@
     <string name="setup_acs_disallow_hint">Kung magbabago ang inyong isip, maaari ninyong baguhin ulit ang option na ito sa pamamagitan ng pagpunta sa settings at pag-restart ng setup.</string>
     <string name="setup_acs_appops_restriction_title">Nakatakdang Settings</string>
     <string name="setup_acs_appops_restriction_body">Hindi ma-enable ang accessibility service ng SD Maid? Maaaring mag-apply ng mga restriction ang Android 13+ sa mga app na hindi na-install sa pamamagitan ng Google Play. Alisin ang mga restriction na ito mula sa detail page ng system para sa SD Maid. Nasa context menu sa taas na kanang sulok ang option.</string>
+    <string name="setup_inventory_card_title">Inventory ng app</string>
     <string name="setup_inventory_card_body">Kailangan ng SD Maid na malaman kung anong mga app ang mayroon kayo para mahanap ang mga file na hindi kabilang sa anumang naka-install na app.</string>
     <string name="setup_inventory_card_extra">Hanapin ang permission na tinatawag na \"App list\" o \"Query all packages\".</string>
     <string name="setup_inventory_invalid_message">Nagbigay ang system ng hindi wastong listahan ng mga naka-install na app (hal. masyadong kaunti o may nawawala). Pumunta sa system settings at payagan ang SD Maid na ma-access ang \"App list\".</string>
     <string name="dataarea_warningcard_empty_message">Walang nahanap na data area na pwedeng i-scan ang SD Maid. Natapos ba ninyo ang setup?</string>
     <string name="dataarea_warningcard_label">Mga data area</string>
     <string name="dataarea_warningcard_reload_action">I-reload ang mga data area</string>
+    <string name="debug_mode_label">Debug mode</string>
     <string name="debug_mode_explanation">I-enable ang mga test option at mas detalyadong output. Mas mabagal tatakbo ang app at iba ang performance.</string>
     <string name="debug_bugreporter_label">Awtomatikong bug reports</string>
     <string name="debug_bugreporter_summary">Awtomatikong nag-rereport ng mga isyu, hal. mga detalye tungkol sa app crash para malaman ko kung bakit at maayos ko.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Naka-enable ang debug mode</string>
     <string name="debug_card_trace_mode_label">I-enable ang trace mode</string>
     <string name="debug_card_dryrun_mode_label">Dry-run mode (i-disable ang pag-delete)</string>
@@ -160,6 +224,10 @@
     <string name="debug_card_shizuku_test_action">I-test ang Shizuku</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="settings_category_risklevel">Antas ng panganib</string>
+    <string name="data_area_public_app_data_official_label">Mga default na public app data</string>
+    <string name="data_area_public_app_assets_official_label">Mga default na public app assets</string>
+    <string name="data_area_public_storage_label">Public storage</string>
+    <string name="data_area_sdcard_label">SD card</string>
     <string name="data_areas_label">Mga data area</string>
     <string name="data_areas_description">Ang mga data area ay kumakatawan sa mga lokasyon sa inyong device na accessible sa SD Maid. Maaaring magkakaibang data area ang makakagamit depende sa inyong Android version at mga permission na naibigay.</string>
     <string name="data_areas_short_summary">Mga area na ma-access ng SD Maid base sa kasalukuyang mga permission na naibigay.</string>
@@ -170,6 +238,7 @@
     <string name="translation_encourage_title">I-translate ang SD Maid</string>
     <string name="translation_encourage_body">Ang SD Maid ay isinalin ng mga boluntaryo. Translation, review o proofreading, pinahahalagahan ang inyong tulong\!</string>
     <string name="translation_translators_title">Ang version na ito ay isinalin nina</string>
+    <string name="translation_translators_people">Makina na Pagsasalin</string>
     <string name="motd_setting_enabled_label">Mga mahalagang mensahe</string>
     <string name="motd_setting_enabled_explanation">Payagan ang SD Maid na mag-check ng mga mahalagang mensahe mula sa developer.</string>
     <string name="updatecheck_setting_enabled_label">Pag-check ng update</string>
@@ -195,4 +264,5 @@
     <string name="shortcuts_settings_category">Mga Shortcut</string>
     <string name="shortcuts_onetap_enabled_title">One-tap na shortcut</string>
     <string name="shortcuts_onetap_enabled_summary">Ipakita ang \"Scan + Delete\" shortcut kapag matagal na pinindot ang app icon. Gumagamit ng parehong mga tool tulad ng one-tap dashboard.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

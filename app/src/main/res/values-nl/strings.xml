@@ -24,6 +24,10 @@
         <item quantity="other">%1$d bestanden gereed (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Deze functie registreert alles wat de app doet in een deelbaar bestand. Het gegenereerde bestand bevat gevoelige informatie (bijv. bestandsnamen en geïnstalleerde apps). Deel het alleen met vertrouwde partijen (bijv. een ontwikkelaar die een probleem oplost).</string>
+    <string name="debug_debuglog_short_recording_title">Zeer korte opname</string>
+    <string name="debug_debuglog_short_recording_desc">De opname was zeer kort. Foutopsporingslogs zijn opnames, geen momentopnames — reproduceer het probleem terwijl de opname actief is om de log bruikbaar te maken.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Doorgaan met opnemen</string>
+    <string name="debug_debuglog_short_recording_stop_action">Toch stoppen</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -90,10 +94,14 @@
     <string name="support_installid_desc">Automatische foutmeldingen zijn anoniem. Deel je installatie-ID als de ontwikkelaar je foutmeldingen moet vinden.</string>
     <string name="support_debuglog_label">Foutopsporingslogboek</string>
     <string name="support_debuglog_desc">Noteer alles wat de app doet in een tekstbestand dat je kunt delen.</string>
+    <string name="support_debuglog_folder_label">Map voor foutopsporingslogboeken</string>
     <plurals name="support_debuglog_folder_desc">
         <item quantity="one">%1$d bestand gebruikt %2$s</item>
         <item quantity="other">%1$d bestanden gebruiken %2$s</item>
     </plurals>
+    <string name="support_debuglog_folder_empty_desc">Geen foutopsporingslogboeken opgeslagen</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Alle foutopsporingslogboeken verwijderen?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Dit zal alle opgeslagen foutopsporingslogsessies permanent verwijderen. Deze actie kan niet ongedaan worden gemaakt.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Een plek om rond te hangen en vragen te stellen.</string>
     <string name="support_contact_label">Ontwikkelaar contacteren</string>
@@ -206,6 +214,14 @@
     <string name="debug_mode_explanation">Testopties en uitgebreidere uitvoer inschakelen. App zal trager werken en anders presteren.</string>
     <string name="debug_bugreporter_label">Automatische foutmeldingen</string>
     <string name="debug_bugreporter_summary">Meldt automatisch problemen, bijv. details over de app-crashes, zodat ik erachter kan komen waarom en het kan repareren.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Foutopsporingsmodus is ingeschakeld</string>
+    <string name="debug_card_trace_mode_label">Traceermodus inschakelen</string>
+    <string name="debug_card_dryrun_mode_label">Droogloopsmodus (verwijdering uitschakelen)</string>
+    <string name="debug_card_areas_reload_action">Gegevensgebieden opnieuw laden</string>
+    <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
+    <string name="debug_card_root_test_action">Root testen</string>
+    <string name="debug_card_shizuku_test_action">Shizuku testen</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risico niveau</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app gegevens</string>
@@ -248,4 +264,5 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

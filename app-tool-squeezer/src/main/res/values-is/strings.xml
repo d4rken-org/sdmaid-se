@@ -82,4 +82,5 @@
         <item quantity="other">A.m.k. %d daga gamalt</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Áætlaður ~%d%% sparnaður fyrir JPEG skrár</string>
+    <string name="squeezer_onboarding_got_it">Ég skil</string>
 </resources>

@@ -25,7 +25,7 @@
         <item quantity="many">נבחרו %d תמונות</item>
         <item quantity="other">נבחרו %d תמונות</item>
     </plurals>
-    <string name="squeezer_search_locations_title">מיקומי חיפוש</string>
+    <string name="squeezer_search_locations_title">חיפוש מיקומים</string>
     <string name="squeezer_search_locations_default_summary">תיקיות מצלמה (ברירת מחדל)</string>
     <string name="squeezer_min_size_title">גודל קובץ מינימלי</string>
     <string name="squeezer_min_size_description">דלג על תמונות קטנות מגודל זה.</string>
@@ -77,7 +77,7 @@
     <string name="squeezer_result_empty_message">לא נמצאו תמונות לדחיסה.</string>
     <string name="squeezer_setup_warning">דחיסה מפחיתה לצמיתות את איכות התמונה כדי לחסוך שטח אחסון. לא ניתן לבטל פעולה זו. בדוק היטב את ההגדרות לפני ההתחלה.</string>
     <string name="squeezer_setup_explanation">Media Squeeze מקטין את גודל קבצי התמונות כדי לפנות שטח אחסון. פעולה זו מפחיתה לצמיתות את איכות התמונה ולא ניתן לבטלה. בדוק היטב את ההגדרות לפני ההתחלה.</string>
-    <string name="squeezer_setup_paths_title">מיקומי חיפוש</string>
+    <string name="squeezer_setup_paths_title">חיפוש מיקומים</string>
     <string name="squeezer_setup_paths_default">בחר תיקיות לחיפוש</string>
     <string name="squeezer_setup_quality_title">איכות דחיסה</string>
     <string name="squeezer_setup_age_title">גיל מינימלי</string>
@@ -94,4 +94,5 @@
         <item quantity="other">לפחות %d ימים</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">חיסכון משוער של ~%d%% עבור קבצי JPEG</string>
+    <string name="squeezer_onboarding_got_it">הבנתי</string>
 </resources>

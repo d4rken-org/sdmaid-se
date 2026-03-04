@@ -10,10 +10,47 @@
     <string name="corpsefinder_watcher_summary">ສແກນຫາຄວາມທີ່ເຫຼືອອັດຕະໂນມັດເມື່ອແອັບຖືກລຶບອອກ.</string>
     <string name="corpsefinder_watcher_autodelete_title">ການລຶບອັດຕະໂນມັດ</string>
     <string name="corpsefinder_watcher_autodelete_summary">ລຶບຄວາມທີ່ເຫຼືອທີ່ເກີ່ຍວຂ້ອງກັບແອັບທີ່ຖືກຖອນອອກອັດຕະໂນມັດ.</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">%1$d ສ່ວນທີ່ຍັງຄ້າງຢູ່ພົບຫລັງຈາກຖອນ %2$s.</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">ການທຳຄວາມສະອາດສຳເລີດ (%1$s): ປົດປ່ອຍ %2$s ແລະລຶ້ %3$d ລາຍການ.</item>
+    </plurals>
     <string name="corpsefinder_watcher_notification_delete_action">ລຶບຄວາມທີ່ເຫຼືອ</string>
     <string name="corpsefinder_filter_publicmedia_label">ສື່ເຜີ່ຢພາບສາຘາລະນະ</string>
     <string name="corpsefinder_filter_publicmedia_summary">ໄຟລໄສື່ເຜີ່ຢພາບສາຘາລະນະ, ເຊ່ນ ໄຟລໄທີ່ໄດ້ຮັບຜ່ານແອັບຂໍ້ຄວາມ.</string>
     <string name="corpsefinder_filter_publicobb_label">ທຸນ OBB</string>
     <string name="corpsefinder_filter_publicobb_summary">ທຸນເພີ່ມເຕີມຂອງແອັບ, ເຊ່ນ ຂໍ້ມູນເກມ.</string>
     <string name="corpsefinder_filter_publicdata_label">ຂໍ້ມູນແອັບສາຘາລະນະ</string>
+    <string name="corpsefinder_filter_publicdata_summary">ຂໍ້ມູລແອັບทີ່ບໍ່ລະອຽດອ່ອນ, ເຊ່ນ: cache ແຜນທີ່.</string>
+    <string name="corpsefinder_filter_sdcard_label">SD card</string>
+    <string name="corpsefinder_filter_sdcard_summary">ຫນ່ວຍເກັບຂໍ້ມູລສາທາລະນະທົ່ວໄປ, ພາຍໃນ ແລະພາຍນອກ (ເຊ່ນ: SD card).</string>
+    <string name="corpsefinder_filter_privatedata_label">ຂໍ້ມູລສ່ວນຕົວຂອງແອັບ</string>
+    <string name="corpsefinder_filter_privatedata_summary">ຂໍ້ມູລສ່ວນຕົວຂອງແອັບ, ເຊ່ນ: ຂໍ້ມູລການຍືນຍັນຕົວຕົນ, ການຕັ້ງຄ່າແອັບ ແຕ່ຍັງລວມ cache browser.</string>
+    <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
+    <string name="corpsefinder_filter_dalvik_summary">ຂໍ້ມູລການດຳເນີນງານແອັບทີ່ cached.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiles</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profiles ຖືກໃຊ້ໂດຍ Android ເພື່ອເພີ່ມປະສິດທິພາບຂອງແອັບ.</string>
+    <string name="corpsefinder_filter_applib_label">ໄລບ້ຳລີຂອງແອັບ</string>
+    <string name="corpsefinder_filter_applib_summary">ຂໍ້ມູລໄລບ້ຳລີທີ່ກ່ຽວຂ້ອງກັບແອັບ.</string>
+    <string name="corpsefinder_filter_appsource_label">ແຫລ່ງທີ່ມາຂອງແອັບ</string>
+    <string name="corpsefinder_filter_appsource_summary">ຂໍ້ມູລການຕິດຕັ້ງແອັບ, ນັ້ນຄືບ່ອນທີ່ APK ໄປ.</string>
+    <string name="corpsefinder_filter_appsource_private_label">ແຫລ່ງທີ່ມາຂອງແອັບສ່ວນຕົວ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">ຂໍ້ມູລການຕິດຕັ້ງແອັບທີ່ຈຳກັດ, ເຊ່ນ: ແອັບຂອງບຸກຄົນທີສາมທີ່ປ້ອງກັນ.</string>
+    <string name="corpsefinder_filter_appasec_label">ຊັບພະຍາກອນແອັບทີ່ເຂ້າລະຫັດ</string>
+    <string name="corpsefinder_filter_appasec_summary">ຊັບພະຍາກອນແອັບทີ່ເຂ້າລະຫັດ, ເຊ່ນ: assets ເກມ.</string>
+    <string name="corpsefinder_filter_app2sd_summary">ຂໍ້ມູລທີ່ຍ້າຍໄປຫາ storage ພາຍນອກໂດຍ App2SD mods.</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">%d ສ່ວນທີ່ຍັງຄ້າງຂອງແອັບຖືກລຶ້</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">%d ສ່ວນທີ່ຍັງຄ້າງຂອງແອັບຖືກຄ້ນພົບ</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">ລຶ້ທຸກສ່ວນທີ່ຍັງຄ້າງຂອງແອັບ?</string>
+    <string name="corpsefinder_owners_label">ເຈ້າຂອງ</string>
+    <string name="corpsefinder_corpse_hints_label">ໜ້າຍເຫດ</string>
+    <string name="corpsefinder_owner_unknown">ເຈ້າຂອງທີ່ບໍ່ຮູ້</string>
+    <string name="corpsefinder_corpse_hint_keeper">ລາຍການນີ້ອາດມີຂໍ້ມູລທີ່ທ່ານຕ້ອງການເກັບໄວ້ ເຖິງວ່າເຈ້າຂອງຈະຖອນການຕິດຕັ້ງ, ເຊ່ນ: ຮູບຖ່າຍ ຫລືອ ການສຳຮອງ.</string>
+    <string name="corpsefinder_corpse_hint_common">ລາຍການນີ້ມີຊື່ທີ່ທົ່ວໄປຫຼາຍ ແລະອາດເປັນຂອງແອັບทີ່ຍັງຕິດຕັ້ງຢູ່ທີ່ SD Maid ບໍ່ຮູ້ຈັກ.</string>
 </resources>

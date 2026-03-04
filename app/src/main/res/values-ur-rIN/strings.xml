@@ -24,6 +24,10 @@
         <item quantity="other">%1$d فائلز تیار (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">یہ فیچر ایپ کی تمام کارروائیوں کو ایک شیئر کرنے والی فائل میں ریکارڈ کرتا ہے۔ بنایا گیا فائل حساس معلومات پر مشتمل ہے (جیسے فائل نام اور انسٹال شدہ ایپس)۔ صرف قابل اعتماد افراد کے ساتھ شیئر کریں (جیسے کسی مسئلے کو حل کرنے والا ڈیولپر)۔</string>
+    <string name="debug_debuglog_short_recording_title">بہت مختصر ریکارڈنگ</string>
+    <string name="debug_debuglog_short_recording_desc">ریکارڈنگ بہت مختصر تھی۔ ڈیبگ لاگز ریکارڈنگز ہیں، اسنیپ شاٹس نہیں — لاگ کو مفید بنانے کے لیے ریکارڈنگ فعال ہونے کے دوران مسئلہ دوبارہ پیش کریں۔</string>
+    <string name="debug_debuglog_short_recording_continue_action">ریکارڈنگ جاری رکھیں</string>
+    <string name="debug_debuglog_short_recording_stop_action">پھر بھی روکیں</string>
     <string name="tasks_activity_notification_channel_label">فعال کام</string>
     <string name="tasks_activity_working_notification_title">SD Maid کام کر رہا ہے</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">دوسرے ایپس کے پیچھے صفائی کرکے اسٹوریج کی جگہ حاصل کریں۔ غیر ضروری فائلوں کو حذف کریں اور بقایا ڈیٹا کو ہٹا دیں۔</string>
     <string name="onboarding_welcome_body_beta">یہ بیٹا (ٹیسٹنگ) بلڈ ہے۔ مزاحیہ انداز میں اور بیک اپ پلان کے ساتھ آگے بڑھیں۔ کرپیا آپ کو جو مسائل کا سامنا ہو ان کی رپورٹ کریں۔</string>
     <string name="onboarding_welcome_continue_action">جاری رکھیں</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (یعنی SD Maid 2) SD Maid (یعنی SD Maid 1) کا جانشین ہے۔ یہ ایک نئی ایپ ہے جو جدید Android کے لیے بہتر بنائی گئی ہے۔</string>
     <string name="onboarding_versus_body2">اس کے پیشرو کا ڈھانچہ 7 سال سے زیادہ پرانا ہے اور نئے Android ورژن کے چیلنجز کے لیے ڈیزائن نہیں کیا گیا تھا۔ ترقی جاری رکھنے کے لیے مکمل نئے انداز میں ڈیزائن کرنا ضروری تھا۔</string>
     <string name="onboarding_versus_body3">بہتر نتائج کے لیے SD Maid SE کی طرف تبدیل ہونے پر غور کریں۔</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">تھیم اسٹائل</string>
     <string name="ui_theme_style_setting_explanation">ایپ کی تھیمنگ کے لیے استعمال ہونے والا رنگ اسٹائل۔</string>
     <string name="ui_theme_style_default_label">ڈیفالٹ</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">فائل پیش نظارہ</string>
     <string name="ui_previews_summary">تمام ٹولز میں فائل پیش نظارہ دکھائیں (جیسے تصویری اور ویڈیو تھمب نیلز)۔</string>
     <string name="ui_language_override_label">ایپ کی زبان</string>
@@ -96,9 +102,49 @@
     <string name="support_debuglog_folder_empty_desc">کوئی ڈیبگ لاگ محفوظ نہیں</string>
     <string name="support_debuglog_folder_delete_confirmation_title">تمام ڈیبگ لاگز حذف کریں؟</string>
     <string name="support_debuglog_folder_delete_confirmation_message">یہ تمام محفوظ ڈیبگ لاگ سیشنز کو مستقل طور پر حذف کر دے گا۔ یہ عمل واپس نہیں ہو سکتا۔</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">گفتگو کرنے اور سوالات پوچھنے کی جگہ۔</string>
+    <string name="support_contact_label">ڈویلپر سے رابطہ کریں</string>
+    <string name="support_contact_desc">ڈویلپر کو ای میل بھیجنے کے لیے ایک فارم پُر کریں۔</string>
+    <string name="support_contact_welcome">میں خود ہر پیغام پڑھتا ہوں اور جواب دینے کی پوری کوشش کرتا ہوں، لیکن چونکہ میں یہ کام اکیلے کر رہا ہوں، اس میں تھوڑا وقت لگ سکتا ہے۔ آپ کے صبر کا شکریہ۔</string>
+    <string name="support_contact_footer">آپ کا پیغام ای میل کے ذریعے بھیجا جائے گا۔ ڈیوائس اور سیٹ اپ کی معلومات خودبخود منسلک ہو جاتی ہیں۔ آپ ای میل میں اسکرین شاٹ یا ویڈیو بھی منسلک کر سکتے ہیں۔ ای میل کے کچھ حصے انگریزی میں ہوں گے تاکہ ڈویلپر آسانی سے سمجھ سکے۔</string>
+    <string name="support_contact_category_label">زمرہ</string>
+    <string name="support_contact_category_bug_label">بگ رپورٹ</string>
+    <string name="support_contact_category_feature_label">فیچر کی درخواست</string>
+    <string name="support_contact_category_question_label">سوال</string>
+    <string name="support_contact_tool_label">متعلقہ ٹول</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">شیڈیولر</string>
+    <string name="support_contact_tool_general_label">عمومی</string>
+    <string name="support_contact_description_label">تفصیل</string>
+    <string name="support_contact_description_bug_hint">بتائیں کیا ہوا اور مسئلہ دوبارہ پیدا کرنے کا طریقہ لکھیں۔ براہ کرم تفصیل سے بتائیں (کم از کم ۲۰ الفاظ)۔</string>
+    <string name="support_contact_description_feature_hint">وہ فیچر بیان کریں جو آپ دیکھنا چاہتے ہیں۔ براہ کرم تفصیل سے لکھیں (کم از کم ۲۰ الفاظ)۔</string>
+    <string name="support_contact_description_question_hint">اپنا سوال تفصیل سے بیان کریں۔ براہ کرم مخصوص رہیں (کم از کم ۲۰ الفاظ)۔</string>
+    <string name="support_contact_expected_label">متوقع رویہ</string>
+    <string name="support_contact_expected_hint">بیان کریں کہ آپ کیا ہونے کی توقع رکھتے تھے (کم از کم ۱۰ الفاظ)۔</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d لفظ</item>
+        <item quantity="other">%1$d / %2$d الفاظ</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">ڈیبگ لاگ</string>
+    <string name="support_contact_debuglog_zip_error">ڈیبگ لاگ کو کمپریس کرنے میں ناکامیہوئی</string>
+    <string name="support_contact_debuglog_picker_hint">کوئی موجودہ ڈیبگ لاگ منسلک کریں، یا نیا ریکارڈ کریں۔</string>
+    <string name="support_contact_debuglog_picker_empty">کوئی ڈیبگ لاگ نہیں ملی۔ پہلے ایک ریکارڈ کریں۔</string>
+    <string name="support_contact_send_action">ای میل ایپ کھولیں</string>
+    <string name="support_contact_no_email_app">اس ڈیوائس پر کوئی ای میل ایپ نہیں ملی۔</string>
     <string name="changelog_label">تبدیلیوں کی فہرست</string>
     <string name="settings_acknowledgements_label">تسلیم و تشکر</string>
+    <string name="settings_acknowledgements_category_translations_title">ترجمے</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">اس کا ترجمہ کس نے کیا؟</string>
+    <string name="settings_acknowledgements_category_thanks_title">شکریہ</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">ہمارے دوستوں کو خصوصی شکریہ۔</string>
+    <string name="settings_acknowledgements_category_licenses_title">لائسنسز</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid کے ذریعے استعمال شدہ سافٹ ویئر۔</string>
     <string name="setup_label">سیٹ اپ</string>
     <string name="setup_incomplete_card_title">سیٹ اپ نامکمل ہے</string>
     <string name="setup_incomplete_card_body">بہتر نتائج حاصل کرنے کے لیے SD Maid کا سیٹ اپ مکمل کریں۔</string>
@@ -124,6 +170,7 @@
     <string name="setup_root_enable_root_use_label">اگر دستیاب ہے تو روٹ رسائی استعمال کریں</string>
     <string name="setup_root_disable_root_use_label">روٹ رسائی استعمال نہ کریں</string>
     <string name="setup_root_card_body2">صرف روٹ شدہ ڈیوائسیز پر دستیاب۔ اگر آپ نے یہ تبدیلی نہیں کی، تو آپ کا ڈیوائس روٹ شدہ نہیں ہے اور اس سیٹنگ کا کوئی اثر نہیں۔</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid کو نتائج بہتر بنانے اور فیچرز فعال کرنے کے لیے جہاں ممکن ہو Shizuku استعمال کرنے کی اجازت دیں۔</string>
     <string name="setup_shizuku_card_body2">اگر آپ کے ڈیوائس پر Shizuku ایپ نہیں ہے تو اس سیٹنگ کا کوئی اثر نہیں۔</string>
     <string name="setup_shizuku_card_root_info">روٹ رسائی کے ساتھ Shizuku کا امتزاج اضافی فیچرز فعال نہیں کرتا، لیکن یہ قابلیت بہتر بناتا ہے۔ SD Maid اسے فال بیک طریقہ کے طور پر استعمال کرے گا۔</string>
@@ -167,6 +214,7 @@
     <string name="debug_mode_explanation">ٹیسٹ آپشنز اور زیادہ تفصیلی آؤٹ پٹ فعال کریں۔ ایپ سست چلے گا اور مختلف عمل کرے گا۔</string>
     <string name="debug_bugreporter_label">خود کار بگ رپورٹس</string>
     <string name="debug_bugreporter_summary">خود کار طور پر مسائل کی رپورٹ کرتا ہے، جیسے ایپ کریش کی تفصیلات تاکہ میں اس کی وجہ معلوم کر سکوں اور اسے ٹھیک کر سکوں۔</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">ڈیبگ موڈ فعال ہے</string>
     <string name="debug_card_trace_mode_label">ٹریس موڈ فعال کریں</string>
     <string name="debug_card_dryrun_mode_label">ڈرائی رن موڈ (حذف غیر فعال)</string>
@@ -216,4 +264,5 @@
     <string name="shortcuts_settings_category">شارٹ کٹس</string>
     <string name="shortcuts_onetap_enabled_title">ون ٹیپ شارٹ کٹ</string>
     <string name="shortcuts_onetap_enabled_summary">ایپ آئیکن کو دیر تک دبانے پر \"اسکین + حذف\" شارٹ کٹ دکھائیں۔ ون ٹیپ ڈیش بورڈ جیسے ٹولز استعمال کرتا ہے۔</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

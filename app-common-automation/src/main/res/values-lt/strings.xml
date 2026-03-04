@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Vartotojai su ypatingais prieinamumo poreikiais gali įjungti šią paslaugą, kad leistų SD Maid automatizuoti užduočius, kurios kitu atveju reikalauja varginančių rankinių veiksmų (pvz. talpyklos išvalymas).\n\nPavyzdys: Jei nurodysite SD Maid sustabdyti kelias programas, SD Maid gali naudoti šią paslaugą, kad atvertų kiekvienos programos nustatymų ekraną, rastų mygtuką „Priverstinis sustabdymas“ ir jį paspaus.\n\nSD Maid visada aiškiai rodo, kai naudojama ši paslauga, ir suteikia galimybę vartotojui bet kuriuo metu nedelsiant atšaukti bet kokią sąveiką.\n\nJokių veiksmų nebus atliekama be išankstinio vartotojo patvirtinimo. Ši paslauga gali būti bet kada išjungta be neigiama pasekmiu.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid sąveikauja su jūsų įrenginiu. Ekrano naudoti tuo pačiu metu neįmanoma. Palaukite, kol operacija baigsis, arba ją atšaukite.</string>
+    <string name="automation_active_title">SD Maid veikia</string>
+    <string name="automation_error_no_consent_title">Automatizavimo klaida</string>
+    <string name="automation_error_no_consent_body">Prieinamumo paslauga nesukonfigūruota. Užbaikite sąranką ir duokite sutikimusi.</string>
+    <string name="automation_error_not_enabled_title">Paslauga neįjungta</string>
+    <string name="automation_error_not_enabled_body">Prieinamumo paslauga išjungta. Įjunkite ją iš naujo.</string>
+    <string name="automation_error_not_running_title">Paslauga neveikia</string>
+    <string name="automation_error_not_running_body">Prieinamumo paslauga neveikia. Pabandykite paleisti įrenginį iš naujo.</string>
+    <string name="automation_error_screen_unavailable_title">Ekranas nepasiekiamas</string>
+    <string name="automation_error_screen_unavailable_body">Operacija buvo nutraukta, nes ekranas tapo nepasiekiamas (pvz. ekranas išjungtas arba užraktas ekranas aktyvus).</string>
+    <string name="automation_error_compatibility_title">Automatizavimo suderinamumas</string>
+    <string name="automation_error_compatibility_body">SD Maid nepavyko atskirti ekrano išdėstymo. Jei tai kartojasi, jūsų kalba arba sankūra gali būti ne viskai palaikoma. Patikrinkite atnaujinimus arba susisiekite su manimi, kad galėčiau tai pataisyti.</string>
+    <string name="automation_error_timeout_title">Automatizavimo laiko limitas</string>
+    <string name="automation_error_timeout_body">SD Maid nebaigė visų žingsnnių per laiko limitą. Jei tai kartojasi, gali reikėti pritaikyti programą jūsų įrenginiui. Patikrinkite atnaujinimus arba susisiekite su manimi, kad galėčiau tai pataisyti.</string>
+    <string name="automation_error_overlay_title">Automatizavimo perdanga</string>
+    <string name="automation_error_overlay_body">SD Maid nepavyko parodyti automatizavimo perdangos. Patikrinkite leidimus ir pabandykite paleisti įrenginį iš naujo.</string>
+    <string name="automation_error_scheduler_title">Sųlytas automatizavimas nepavyko</string>
+    <string name="automation_error_scheduler_body">Sūlyta užduotis bandė naudoti prieinamumo paslaugą, tačiau ji buvo nepasiekiama. Jei to nereikia, išjunkite parinktį „Prieinamumo paslauga“ planavimo nustatymuose.</string>
+    <string name="automation_error_no_settings_title">Nustatymų ekranas nepasiekiamas</string>
+    <string name="automation_error_no_settings_body">Ši sistemos programa neturi nustatymų ekrano. Talpyklos valymas per prieinamumo paslaugą negalimas. Pašalinkite ją iš sąrašo, kad paspartintumėte talpyklos valymą.</string>
+    <string name="automation_loading">Rupošiamas automatizavimas per prieinamumo paslaugą</string>
+    <string name="automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veikmą (raktinis žodis: %s)</string>
+</resources>

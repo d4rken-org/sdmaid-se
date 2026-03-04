@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ເລືອກທາງ</string>
+    <string name="picker_selected_paths_title">ທາງທີ່ເລືອກໄວ້</string>
+    <string name="picker_unsaved_confirmation_message">ປະໄວ້ການ຺່ນ?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d ທາງຖືກເລືອກ</item>
+    </plurals>
+    <string name="picker_home_action">ພື້ນທີ່ຂໍ້ມູນ</string>
+</resources>

@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="systemcleaner_explanation_short">သီးသန့် အက်ပ်တစ်ခုခုနှင့် မသက်ဆိုင်သော အပိုဒေတာများ။</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="other">%d ကိုက်ဖက်ချပြီးသည်</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="other">%d ဆပ်ရှား ကိုက်ခြင်းများ</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">စိတ်ကြိုက် စစ်ထုတ်မှု</string>
     <string name="systemcleaner_filter_custom_manage_label">စိတ်ကြိုက် စစ်ထုတ်မှုများ စီမံခန့်ခွဲရန်</string>
     <string name="systemcleaner_filter_custom_manage_summary">သင်၏ စိတ်ကြိုက် စစ်ထုတ်မှုများကို ဖန်တီး၊ ဖျက်၊ တင်သွင်းနှင့် တင်ပို့ပါ။</string>
@@ -21,6 +27,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">မျက်နှာပြင်ဓာတ်ပုံ သက်တမ်း</string>
     <string name="systemcleaner_filter_screenshots_age_summary">ဖျက်ရန် ထည့်သွင်းစဉ်းစားမည့် မျက်နှာပြင်ဓာတ်ပုံများအတွက် အနည်းဆုံး သက်တမ်း။</string>
     <string name="systemcleaner_filter_superfluosapks_label">အပို APK များ</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">တပ်ဆိုင်ချပြီးသော အကြေးဗီးများအပို အလိုက်အပိုင်မရှိတောက်အကြေး စကင်ဖတ်ဖိုင်များ။</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">တစ်လည်းဗီးကို ထည့်သွင်းရန်</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">တပ်ဆိုင်ချပြီးသောဗီးနှင််ကိုက်သော APK ဖိုင်များကိုသို သွားသွားချရန်။ အမြဲတမ်းဗီးများကိုသာပေ ဖက်ချလိုက်ပါလျှော့ ပိဤက်ချရန်။</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR ဖိုင်တွဲများ</string>
     <string name="systemcleaner_filter_lostdir_summary">Android စက်ပစ္စည်းများကြား ဒေတာ လွှဲပြောင်းစဉ် ဖန်တီးသော ယာယီ ဖိုင်များ။</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux ဖိုင်များ</string>
@@ -80,6 +89,15 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">အမည်သည် အဓိကစကားလုံးနှင့် တူညီသည်</string>
     <string name="systemcleaner_customfilter_last_edit">နောက်ဆုံး ပြင်ဆင်ချက် - %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">တိုက်ရိုက် ရှာဖွေမှု</string>
+    <string name="systemcleaner_customfilter_editor_size_label">အရွယ်အစားကန့်သတ်ချများ</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">အနည်းဆုံးအရွယ်အစား</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">အမြောဆုံးအရွယ်အစား</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">ဖိုင်အရွယ်အစားအပို ကိုက်ခြင်းကို ကန့်သတ်ချရန်။ အရွယ်အစားမပြုကို ကိုက်ခြေနိုင် ပြမ်းလုံရန်။</string>
+    <string name="systemcleaner_customfilter_editor_age_label">အနောသက်တမ်း ကန့်သတ်ချများ</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">အနည်းဆုံးအနောသက်တမ်း</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">အမြောဆုံးအနောသက်တမ်း</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">ဖိုင်အနောသက်တမ်း (နောဆုံးပြစကင်းချနောက်များ)အပို ကိုက်ခြင်းကို ကန့်သတ်ချရန်။ အနောသက်တမ်းမပြုကို ကိုက်ခြေနိုင် ပြမ်းလုံရန်။</string>
     <string name="systemcleaner_customfilter_import_action">စစ်ထုတ်မှု အသစ် တင်သွင်းရန်</string>
     <string name="systemcleaner_customfilter_export_action">ရွေးချယ်ထားသော စစ်ထုတ်မှု တင်ပို့ရန်</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">သိမ်းမထားသေးသော ပြောင်းလဲမှုများ ရှိသည်!</string>
 </resources>

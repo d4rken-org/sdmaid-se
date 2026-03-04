@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid lauk ekki öllum skrefum innan tímamarka. Ef þetta gerist áfram gæti þurft að aðlaga forritið að tækinu þínu. Athugaðu uppfærslur eða hafðu samband við mig svo ég geti lagað það.</string>
     <string name="automation_error_overlay_title">Sjálfvirkniyfirlögn</string>
     <string name="automation_error_overlay_body">SD Maid gat ekki sýnt sjálfvirkniyfirlögn. Athugaðu leyfi og prófaðu að endurræsa tækið.</string>
+    <string name="automation_error_scheduler_title">Áætlுð sjálfvirkni mistókst</string>
+    <string name="automation_error_scheduler_body">Áætlað verkefni reyndi að nota aðgengisþJónustuna, en hún var ekki tiltæk. Ef þú þarft ekki þetta, slökktu á valkostinum \"ÁðgengisþJónusta\" í stillingum tímasetningarinnar.</string>
     <string name="automation_error_no_settings_title">Stillingaskjár ekki tiltækur</string>
     <string name="automation_error_no_settings_body">Þetta kerfisforrit hefur engan stillingaskjá. Hreinsun skyndiminnis í gegnum aðgengisþjónustu er ekki möguleg. Útilokaðu það til að flýta hreinsun skyndiminnis.</string>
     <string name="automation_loading">Undirbý sjálfvirkni í gegnum aðgengisþjónustu</string>

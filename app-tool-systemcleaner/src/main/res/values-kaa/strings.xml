@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="systemcleaner_explanation_short">Қандай да нақты қолданбаға тиеслі емес артық даталар.</string>
+    <plurals name="systemcleaner_result_x_items_deleted">
+        <item quantity="one">%d sáykes óśirip tastandı</item>
+        <item quantity="other">%d sáykes óśirip tastandı</item>
+    </plurals>
+    <plurals name="systemcleaner_result_x_items_found">
+        <item quantity="one">%d filtr sáykesligi</item>
+        <item quantity="other">%d filtr sáykes lıklerı</item>
+    </plurals>
     <string name="systemcleaner_filter_custom_label">Arnawlı filtrler</string>
     <string name="systemcleaner_filter_custom_manage_label">Arnawlı filtrlerdi basqarıń</string>
     <string name="systemcleaner_filter_custom_manage_summary">Өзіңіздің өзгеше фильтрлерін құру, ошыру, импорт һәм экспорт ету.</string>
@@ -93,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Fayl jasılıǵına (aqırǵı o\'zgertiw waqtı) tiykarlanıp na\'tiyjelerin sheklew. Qa\'legen jasılıqqa uyqas keliw ushin sazlanbastan qaldırın\'.</string>
     <string name="systemcleaner_customfilter_import_action">Жаңа сүзгиди импорт етиў</string>
     <string name="systemcleaner_customfilter_export_action">Таңдалған сүзгиди экспорт етиў</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Saǵlanbagan ózgerislerdі bar!</string>
 </resources>

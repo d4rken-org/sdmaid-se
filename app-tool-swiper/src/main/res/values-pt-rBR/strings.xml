@@ -23,7 +23,7 @@
     <string name="swiper_item_position">#%1$d de %2$d</string>
     <string name="swiper_keep_action">Manter</string>
     <string name="swiper_skip_action">Pular</string>
-    <string name="swiper_review_action">Revisar</string>
+    <string name="swiper_review_action">Avaliar</string>
     <string name="swiper_status_title">Revisar decisões</string>
     <string name="swiper_status_action_keep_selected">Manter selecionados</string>
     <string name="swiper_status_action_delete_selected">Excluir selecionados</string>
@@ -111,7 +111,7 @@
     <string name="swiper_sessions_header_title">Pronto para organizar?</string>
     <string name="swiper_sessions_suggestions_label">Tente começar com:</string>
     <string name="swiper_sessions_suggestion_downloads">Pasta de Downloads</string>
-    <string name="swiper_sessions_suggestion_screenshots">Capturas de tela</string>
+    <string name="swiper_sessions_suggestion_screenshots">Capturas de Tela</string>
     <string name="swiper_sessions_suggestion_camera">Rolo da câmera</string>
     <string name="swiper_stamp_keep_1">Manter!</string>
     <string name="swiper_stamp_keep_2">Legal!</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
     <string name="swiper_help_title">Como o deslizar funciona</string>
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
+    <string name="swiper_help_action">Ajuda</string>
 </resources>

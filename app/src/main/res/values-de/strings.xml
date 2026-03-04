@@ -24,6 +24,10 @@
         <item quantity="other">%1$d Dateien bereit (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
+    <string name="debug_debuglog_short_recording_title">Sehr kurze Aufzeichnung</string>
+    <string name="debug_debuglog_short_recording_desc">Die Aufzeichnung war sehr kurz. Debug-Protokolle sind Aufzeichnungen, keine Momentaufnahmen — reproduziere das Problem während die Aufzeichnung aktiv ist, damit das Protokoll nützlich ist.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Aufzeichnung fortsetzen</string>
+    <string name="debug_debuglog_short_recording_stop_action">Trotzdem stoppen</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Dadurch werden alle gespeicherten Debug-Log-Sitzungen dauerhaft gelöscht. Diese Aktion kann nicht rückgängig gemacht werden.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Ein Ort zum Verweilen und Fragen stellen.</string>
+    <string name="support_contact_label">Entwickler kontaktieren</string>
+    <string name="support_contact_desc">Fülle ein Formular aus, um dem Entwickler eine E-Mail zu senden.</string>
+    <string name="support_contact_welcome">Ich lese jede Nachricht selbst und gebe mein Bestes zu antworten, aber da ich alleine daran arbeite, kann es etwas Zeit in Anspruch nehmen. Danke für deine Geduld.</string>
+    <string name="support_contact_footer">Deine Nachricht wird per E-Mail gesendet. Geräte- und Einrichtungsinformationen werden automatisch angehängt. Du kannst Screenshots oder ein Video an die E-Mail anhängen. Einige Teile der E-Mail werden auf Englisch sein, damit der Entwickler sie leicht verstehen kann.</string>
+    <string name="support_contact_category_label">Kategorie</string>
+    <string name="support_contact_category_bug_label">Fehlerbericht</string>
+    <string name="support_contact_category_feature_label">Funktionsanfrage</string>
+    <string name="support_contact_category_question_label">Frage</string>
+    <string name="support_contact_tool_label">Zugehöriges Werkzeug</string>
+    <string name="support_contact_tool_appcleaner_label">App-Reiniger</string>
+    <string name="support_contact_tool_corpsefinder_label">Leichenfinder</string>
+    <string name="support_contact_tool_systemcleaner_label">System-Reiniger</string>
+    <string name="support_contact_tool_deduplicator_label">Duplikat-Entferner</string>
+    <string name="support_contact_tool_analyzer_label">Analysator</string>
+    <string name="support_contact_tool_appcontrol_label">App-Kontrolle</string>
+    <string name="support_contact_tool_scheduler_label">Zeitplaner</string>
+    <string name="support_contact_tool_general_label">Allgemein</string>
+    <string name="support_contact_description_label">Beschreibung</string>
+    <string name="support_contact_description_bug_hint">Beschreibe, was passiert ist und wie das Problem reproduziert werden kann. Bitte sei präzise (mindestens 20 Wörter).</string>
+    <string name="support_contact_description_feature_hint">Beschreibe die Funktion, die du dir wünschst. Bitte sei präzise (mindestens 20 Wörter).</string>
+    <string name="support_contact_description_question_hint">Beschreibe deine Frage im Detail. Bitte sei präzise (mindestens 20 Wörter).</string>
+    <string name="support_contact_expected_label">Erwartetes Verhalten</string>
+    <string name="support_contact_expected_hint">Beschreibe, was du erwartet hast (mindestens 10 Wörter).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d Wort</item>
+        <item quantity="other">%1$d / %2$d Wörter</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Debug-Protokoll</string>
+    <string name="support_contact_debuglog_zip_error">Debug-Protokoll konnte nicht komprimiert werden</string>
+    <string name="support_contact_debuglog_picker_hint">Hänge ein vorhandenes Debug-Protokoll an oder nehme ein neues auf.</string>
+    <string name="support_contact_debuglog_picker_empty">Keine Debug-Protokolle gefunden. Zuerst eines aufnehmen.</string>
+    <string name="support_contact_send_action">E-Mail-App öffnen</string>
+    <string name="support_contact_no_email_app">Keine E-Mail-App auf diesem Gerät gefunden.</string>
     <string name="changelog_label">Änderungsprotokoll</string>
     <string name="settings_acknowledgements_label">Danksagungen</string>
     <string name="settings_acknowledgements_category_translations_title">Übersetzungen</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Aktiviert Testoptionen und eine ausführlichere Test-Log-Ausgabe. Die App wird langsamer laufen und kann sich anders verhalten.</string>
     <string name="debug_bugreporter_label">Automatische Fehlerberichte</string>
     <string name="debug_bugreporter_summary">Meldet automatisch Probleme - z. B. Details zu den App-Abstürzen - damit ich sie verstehen und beheben kann.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Debug-Modus ist aktiviert</string>
     <string name="debug_card_trace_mode_label">Trace-Modus aktivieren</string>
     <string name="debug_card_dryrun_mode_label">Testlauf-Modus (Löschen deaktivieren)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Verknüpfungen</string>
     <string name="shortcuts_onetap_enabled_title">Ein-Tipp-Verknüpfung</string>
     <string name="shortcuts_onetap_enabled_summary">Zeige \"Scan + Löschen\"-Verknüpfung bei langem Drücken des App-Symbols. Verwendet die gleichen Werkzeuge wie Ein-Tipp-Dashboard.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

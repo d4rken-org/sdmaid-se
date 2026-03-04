@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ස්තූතියි</string>
     <string name="general_error_type_mismatch_msg">වර්ගයේ නොගැලපීම: %1$s අවශ්‍ය වූ නමුත් %2$s ලැබුණි.</string>
     <string name="general_error_cant_access_msg">%s වෙත ප්‍රවේශ වීමට නොහැක.</string>
-    <string name="general_error_root_unavailable">Root ප්‍රවේශය නොමැත.</string>    <string name="general_error_no_compatible_app_found_msg">මෙම ඉල්ලීම හසුරුවන්නට ගැලපෙන යෙදුමක් හමු නොවීය.</string>
+    <string name="general_error_root_unavailable">Root ප්‍රවේශය නොමැත.</string>
+    <string name="general_error_no_compatible_app_found_msg">මෙම ඉල්ලීම හසුරුවන්නට ගැලපෙන යෙදුමක් හමු නොවීය.</string>
     <string name="general_todo_msg">මෙම විශේෂාංගය තවමත් වැඩ කරමින් පවතින අතර දැනට නොමැත.</string>
     <string name="general_share_action">බෙදාගන්න</string>
     <string name="general_done_action">කළා</string>
     <string name="general_apply_action">යොදන්න</string>
-    <string name="general_copy_action">පිටපත් කරන්න</string>    <string name="general_cancel_action">අවලංගු කරන්න</string>
+    <string name="general_copy_action">පිටපත් කරන්න</string>
+    <string name="general_cancel_action">අවලංගු කරන්න</string>
     <string name="general_discard_action">ඉවතලන්න</string>
     <string name="general_reset_action">නැවත සකසන්න</string>
     <string name="general_drag_handle_description">නැවත පිළිවෙළට සැකසීමට ඇදගන්න</string>
-    <string name="general_save_action">සුරකින්න</string>    <string name="general_gotit_action">තේරුණා</string>
+    <string name="general_save_action">සුරකින්න</string>
+    <string name="general_gotit_action">තේරුණා</string>
     <string name="general_fix_action">නිවැරදි කරන්න</string>
     <string name="general_set_up_action">සකසන්න</string>
     <string name="general_edit_action">සංස්කරණය කරන්න</string>
@@ -169,14 +172,22 @@
     <string name="general_user_label_system">පද්ධතිය</string>
     <string name="setup_title">පිහිටුවීම</string>
     <string name="setup_feature_requires_additional_setup_x">මෙම විශේෂාංගයට අමතර පිහිටුවීම් අයිතම් සම්පූර්ණ කිරීම අවශ්‍යය: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro අවශ්‍ය වේ</string>
+    <string name="general_include_multiuser_label">ඉතර පරිශිලකයන් ඇතුල් කරන්න</string>
+    <string name="general_include_multiuser_summary">මෙම උපකරණයො ඉතර පරිශිලක වින් යෙදුම් ඇතුල් කරන්න.</string>
+    <string name="general_unsaved_confirmation_message">ඔබ ට සංරක්ෂණය නොකු වෙනස්කම් ඇත!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">%d බැහැර කිරීමක් සාදන ලදී</item>
         <item quantity="other">%d බැහැර කිරීම් සාදන ලදී</item>
     </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="swiper_tool_name">ස්වයිපර්</string>
     <string name="stats_label">ඉතිහාසය</string>
     <string name="settings_category_tools_label">මෙවලම්</string>
-    <string name="general_include_multiuser_label">ඉතර පරිශිලකයන් ඇතුල් කරන්න</string>
-    <string name="general_include_multiuser_summary">මෙම උපකරණයො ඉතර පරිශිලක වින් යෙදුම් ඇතුල් කරන්න.</string>
-    <string name="general_unsaved_confirmation_message">ඔබ ට සංරක්ෂණය නොකු වෙනස්කම් ඇත!</string>
 </resources>

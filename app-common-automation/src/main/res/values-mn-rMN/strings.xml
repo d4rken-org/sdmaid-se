@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="automation_accessibility_service_description">Тусгай хандалтын хэрэгцээтэй хэрэглэгчид SD Maid-д өөрийн биеэр хийх шаардлагатай байсан ажлуудыг автоматжуулах боломж олгохын тулд энэ үйлчилгээг идэвхжүүлж болно (жишээ нь: кэш устгах).\n\nЖишээ: Хэрэв та SD Maid-д олон аппыг зогсоохыг тушаавал SD Maid энэ үйлчилгээгээр дамжуулан тус бүрийн аппын тохиргооны дэлгэц нээж, \'Хүчээр зогсоох\' товчийг олж дарна.\n\nSD Maid энэ үйлчилгээг ашиглаж байгаа үед үргэлж тодоор харуулж, хэрэглэгчид хүссэн үедээ хэрэглэлийг цуцлах боломжийг хялбараар олгоно.\n\nХэрэглэгчийн урьдчилсан зөвшөөрөлгүйгээр ямар ч үйлдэл хийгдэхгүй. Энэ үйлчилгээг хэзээ ч сөрөг үр дагаваргүйгээр дахин идэвхгүй болгож болно.</string>
+    <string name="automation_screenoverlay_explanation">SD Maid таны төхөөрөмжтэй харилцаж байна. Дэлгэцийг нэгэн зэрэг ашиглах боломжгүй. Үйлдэл дуусах хүртэл хүлээх эсвэл цуцлах.</string>
+    <string name="automation_active_title">SD Maid ажиллаж байна</string>
+    <string name="automation_error_no_consent_title">Автоматжуулалтын алдаа</string>
+    <string name="automation_error_no_consent_body">Хандалтын үйлчилгээ тохируулаагүй байна. Тохиргоог дуусгаж зөвшөөрөл өгнө үү.</string>
+    <string name="automation_error_not_enabled_title">Үйлчилгээ идэвхгүй байна</string>
+    <string name="automation_error_not_enabled_body">Хандалтын үйлчилгээ идэвхгүй болсон. Дахин асаана уу.</string>
+    <string name="automation_error_not_running_title">Үйлчилгээ ажиллахгүй байна</string>
+    <string name="automation_error_not_running_body">Хандалтын үйлчилгээ ажиллахгүй байна. Төхөөрөмжийг дахин эхлүүлж үзнэ үү.</string>
+    <string name="automation_error_screen_unavailable_title">Дэлгэц боломжгүй</string>
+    <string name="automation_error_screen_unavailable_body">Дэлгэц боломжгүй болсон тул үйлдэл цуцлагдсан (жишээ нь: дэлгэц унтарсан эсвэл түгжээний дэлгэц идэвхтэй).</string>
+    <string name="automation_error_compatibility_title">Автоматжуулалтын нийцтэй байдал</string>
+    <string name="automation_error_compatibility_body">SD Maid дэлгэцийн бүтцийг тодорхойлж чадсангүй. Хэрэв энэ байнга тохиолдвол таны хэл эсвэл тохиргоо бүрэн дэмжигдэхгүй байж болно. Шинэчлэлт хайх эсвэл надтай холбогдоно уу.</string>
+    <string name="automation_error_timeout_title">Автоматжуулалтын хугацаа дууссан</string>
+    <string name="automation_error_timeout_body">SD Maid бүх алхамыг цагийн хязаарт дуусгаагүй байна. Хэрэв энэ байнга тохиолдвол таны төхөөрөмжийн тулд аппыг тохируулах шаардлагатай байж болно. Шинэчлэлт хайх эсвэл надтай холбогдоно уу.</string>
+    <string name="automation_error_overlay_title">Автоматжуулалтын давхцалга</string>
+    <string name="automation_error_overlay_body">SD Maid автоматжуулалтын давхцалгыг харуулахад амжилсангүй. Зөвшөөрлийг шалгаад төхөөрөмжийг дахин эхлүүлээрэй үзнэ үү.</string>
+    <string name="automation_error_scheduler_title">Төлөвлөгөөт автоматжуулалт амжилсангүй</string>
+    <string name="automation_error_scheduler_body">Төлөвлөгөөт даалал хандалтын үйлчилгээ ашиглахыг оролдсон боловч үйлчилгээ ажиллахгүй байв. Хэрэв энэ шаардлагагүй бол төлөвлөгчийн тохиргоонд \"Хандалтын үйлчилгээ\" сонгоог идэвхгүй болго.</string>
+    <string name="automation_error_no_settings_title">Тохиргооны дэлгэц боломжгүй</string>
+    <string name="automation_error_no_settings_body">Энэ системийн апп тохиргооны дэлгэцгүй. Хандалтын үйлчилгээгээр кэш цэвхлэх боломжгүй. Кэш цэвхлэхийг түргэшнүүлэхийн тулд үүндэс хас.</string>
+    <string name="automation_loading">Хандалтын үйлчилгээгээр автоматжуулалт бэлтгэж байна</string>
+    <string name="automation_progress_find_ok_confirmation">Өмнөх үйлдлийг баталгаажуулахыг оролдож байна (үг үеүд: %s)</string>
+</resources>

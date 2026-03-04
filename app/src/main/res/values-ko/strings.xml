@@ -23,6 +23,10 @@
         <item quantity="other">%1$d개 파일 준비됨 (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">이 기능은 앱이 수행하는 모든 작업을 공유 가능한 파일에 기록합니다. 생성된 파일에는 민감한 정보(예: 파일 이름 및 설치된 앱)가 포함됩니다. 신뢰할 수 있는 당사자(예: 문제를 해결하는 개발자)와만 공유하세요.</string>
+    <string name="debug_debuglog_short_recording_title">매우 짧은 녹화</string>
+    <string name="debug_debuglog_short_recording_desc">녹화가 매우 짧았습니다. 디버그 로그는 녹화이지 스냅샷이 아닙니다 — 로그가 유용하려면 녹화가 활성화된 상태에서 문제를 재현하세요.</string>
+    <string name="debug_debuglog_short_recording_continue_action">계속 녹화</string>
+    <string name="debug_debuglog_short_recording_stop_action">그래도 중지</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -96,6 +100,38 @@
     <string name="support_debuglog_folder_delete_confirmation_message">저장된 모든 디버그 로그 세션이 영구적으로 삭제됩니다. 이 작업은 취소할 수 없습니다.</string>
     <string name="discord_label">디스코드</string>
     <string name="discord_description">다른 사람들과 대화를 나누거나 질문할 수 있는 곳입니다.</string>
+    <string name="support_contact_label">개발자에게 문의</string>
+    <string name="support_contact_desc">양식을 작성하여 개발자에게 이메일을 보내세요.</string>
+    <string name="support_contact_welcome">모든 메시지를 직접 읽고 최선을 다해 답변하지만, 혼자 작업하기 때문에 시간이 조금 걸릴 수 있습니다. 기다려 주셔서 감사합니다.</string>
+    <string name="support_contact_footer">메시지는 이메일로 전송됩니다. 기기 및 설정 정보가 자동으로 첨부됩니다. 스크린샷이나 동영상을 이메일에 첨부할 수 있습니다. 이메일의 일부는 개발자가 쉽게 이해할 수 있도록 영어로 작성됩니다.</string>
+    <string name="support_contact_category_label">카테고리</string>
+    <string name="support_contact_category_bug_label">버그 신고</string>
+    <string name="support_contact_category_feature_label">기능 요청</string>
+    <string name="support_contact_category_question_label">질문</string>
+    <string name="support_contact_tool_label">관련 도구</string>
+    <string name="support_contact_tool_appcleaner_label">앱 청소기</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">시스템 청소</string>
+    <string name="support_contact_tool_deduplicator_label">중복 파일 제거기</string>
+    <string name="support_contact_tool_analyzer_label">분석기</string>
+    <string name="support_contact_tool_appcontrol_label">앱제어</string>
+    <string name="support_contact_tool_scheduler_label">예약관리자</string>
+    <string name="support_contact_tool_general_label">일반</string>
+    <string name="support_contact_description_label">설명</string>
+    <string name="support_contact_description_bug_hint">무슨 일이 있었고 문제를 어떻게 재현할 수 있는지 설명해 주세요. 구체적으로 작성해 주세요 (최소 20단어).</string>
+    <string name="support_contact_description_feature_hint">원하시는 기능을 설명해 주세요. 구체적으로 작성해 주세요 (최소 20단어).</string>
+    <string name="support_contact_description_question_hint">질문을 자세히 설명해 주세요. 구체적으로 작성해 주세요 (최소 20단어).</string>
+    <string name="support_contact_expected_label">예상 동작</string>
+    <string name="support_contact_expected_hint">예상했던 결과를 설명해 주세요 (최소 10단어).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d 단어</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">디버그 로그</string>
+    <string name="support_contact_debuglog_zip_error">디버그 로그 압축 실패</string>
+    <string name="support_contact_debuglog_picker_hint">기존 디버그 로그를 첨부하거나 새로 녹화하세요.</string>
+    <string name="support_contact_debuglog_picker_empty">디버그 로그가 없습니다. 먼저 녹화하세요.</string>
+    <string name="support_contact_send_action">이메일 앱 열기</string>
+    <string name="support_contact_no_email_app">이 기기에 이메일 앱이 없습니다.</string>
     <string name="changelog_label">업데이트 내역</string>
     <string name="settings_acknowledgements_label">감사의 말</string>
     <string name="settings_acknowledgements_category_translations_title">번역</string>
@@ -173,6 +209,7 @@
     <string name="debug_mode_explanation">실험적 설정을 활성화하고 더 자세한 정보를 출력합니다. 앱이 느려지거나 다르게 작동할 수 있습니다.</string>
     <string name="debug_bugreporter_label">자동 버그 제보</string>
     <string name="debug_bugreporter_summary">앱이 강제 종료되는 등의 문제가 있을 때 자동으로 이를 보고합니다.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">디버그 모드가 활성화됨</string>
     <string name="debug_card_trace_mode_label">추적 모드 활성화</string>
     <string name="debug_card_dryrun_mode_label">테스트 모드 (삭제 비활성화)</string>
@@ -220,4 +257,5 @@
     <string name="shortcuts_settings_category">바로가기</string>
     <string name="shortcuts_onetap_enabled_title">원탭 바로가기</string>
     <string name="shortcuts_onetap_enabled_summary">앱 아이콘을 길게 눌렀을 때 \"스캔 + 삭제\" 바로가기를 표시합니다. 원탭 대시보드와 동일한 도구를 사용합니다.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

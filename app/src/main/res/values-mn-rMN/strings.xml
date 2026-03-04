@@ -24,6 +24,10 @@
         <item quantity="other">%1$d файл бэлэн (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Энэ функц нь аппликешний бүх үйлдлийг хуваалцах боломжтой файлд бичдэг. Үүсгэсэн файл нь эмзэг мэдээлэл агуулдаг (жишээ нь файлын нэр, суулгасан аппликешн). Зөвхөн итгэмжлэгдсэн талуудтай хуваалцана уу (жишээ нь асуудлыг шийдэж байгаа хөгжүүлэгч).</string>
+    <string name="debug_debuglog_short_recording_title">Маш богино бичлэг</string>
+    <string name="debug_debuglog_short_recording_desc">Бичлэг маш богино байв. Дибаг лог нь агшин зургийн орлуулга биш, бичлэг юм — логийг ашигтай болгохын тулд бичлэг идэвхтэй байх үед асуудлыг давтан гаргана уу.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Бичлэгийг үргэлжлүүлэх</string>
+    <string name="debug_debuglog_short_recording_stop_action">Яаралтай зогсоох</string>
     <string name="tasks_activity_notification_channel_label">Идэвхтэй даалгаврууд</string>
     <string name="tasks_activity_working_notification_title">SD Maid ажиллаж байна</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -41,6 +45,7 @@
     <string name="onboarding_welcome_body2">Бусад аппликешний ард цэвэрлэгээ хийж хадгалах орон зай олоорой. Хэрэггүй файлуудыг устгаж, үлдсэн өгөгдлийг арилгаарай.</string>
     <string name="onboarding_welcome_body_beta">Энэ бол бета (туршилтын) хувилбар юм. Хошин шогийн сэтгэлгээ, нөөц төлөвлөгөөтэй үргэлжлүүлээрэй. Тохиолдсон асуудлуудыг мэдэггэрэй.</string>
     <string name="onboarding_welcome_continue_action">Үргэлжлүүлэх</string>
+    <string name="onboarding_versus_title">SD Maid / SD Maid SE</string>
     <string name="onboarding_versus_body1">SD Maid SE (өөрөөр хэлбэл SD Maid 2) нь SD Maid (өөрөөр хэлбэл SD Maid 1)-ийн өв залгамжлагч юм. Орчин үеийн Android-д зориулсан шинэ апп.</string>
     <string name="onboarding_versus_body2">Өмнөх хувилбарын архитектур нь 7 жилээс дээш настай бөгөөд шинэ Android хувилбаруудын сорилтод зориулж хийгдээгүй байна. Хөгжүүлэлтийг үргэлжлүүлэхийн тулд бүрэн дахин зохион байгуулах шаардлагатай байсан.</string>
     <string name="onboarding_versus_body3">Илүү сайн үр дүнгийн тулд SD Maid SE руу шилжихийг бодоорой.</string>
@@ -75,6 +80,7 @@
     <string name="ui_theme_style_setting_label">Загварын хэв маяг</string>
     <string name="ui_theme_style_setting_explanation">Аппликешний загварыг тохируулахад ашиглах өнгөний хэв маяг.</string>
     <string name="ui_theme_style_default_label">Стандарт</string>
+    <string name="ui_theme_style_materialyou_label">Material You</string>
     <string name="ui_previews_title">Файлын урьдчилсан харагдац</string>
     <string name="ui_previews_summary">Бүх хэрэгсэлд файлын урьдчилсан харагдацыг харуулах (жишээ нь зураг, видеоны өнгөц зураг).</string>
     <string name="ui_language_override_label">Аппликешний хэл</string>
@@ -88,7 +94,49 @@
     <string name="support_installid_desc">Автомат алдааны тайлан нэргүй байдаг. Хөгжүүлэгч таны алдааны тайланг олох шаардлагатай бол суулгалтын ID-г хуваалцана уу.</string>
     <string name="support_debuglog_label">Дебаг лог</string>
     <string name="support_debuglog_desc">Аппликешний бүх үйлдлийг хуваалцах боломжтой текст файлд бичих.</string>
+    <string name="support_debuglog_folder_label">Дибаг логын хавтас</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d файл %2$s ашиглаж байна</item>
+        <item quantity="other">%1$d файл %2$s ашиглаж байна</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">Дибаг лог хадгалаагүй</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Бүх дибаг логыг устгах уу?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">Энэ нь хадгалагдсан бүх дибаг логын сессийг бүрмөсөн устгана. Энэ үйлдлийг буцаах боломжгүй.</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Хөндлөнгөөр ярилцах, асуулт асуух газар.</string>
+    <string name="support_contact_label">Хөгжүүлэгчтэй холбоо барих</string>
+    <string name="support_contact_desc">Хөгжүүлэгчид и-мэйл илгээхийн тулд маягт бөглөнө үү.</string>
+    <string name="support_contact_welcome">Би бүх мессежийг өөрөө уншиж, хариулахдаа чадах чинээгээ хичээдэг, гэхдээ ганцаараа ажилладаг болохоор хэсэг хугацаа шаардагдаж болно. Тэвчээртэй байсанд баярлалаа.</string>
+    <string name="support_contact_footer">Таны мессеж и-мэйлээр илгээгдэх болно. Төхөөрөмж болон тохиргооны мэдээлэл автоматаар хавсаргагдана. И-мэйлд дэлгэцийн агшин эсвэл видео хавсаргаж болно. И-мэйлийн зарим хэсэг нь хөгжүүлэгч ойлгоход хялбар байхын тулд англи хэлээр байх болно.</string>
+    <string name="support_contact_category_label">Ангилал</string>
+    <string name="support_contact_category_bug_label">Алдааны мэдэгдэл</string>
+    <string name="support_contact_category_feature_label">Онцлог хүсэлт</string>
+    <string name="support_contact_category_question_label">Асуулт</string>
+    <string name="support_contact_tool_label">Холбоотой хэрэгсэл</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
+    <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
+    <string name="support_contact_tool_systemcleaner_label">SystemCleaner</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplicator</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Scheduler</string>
+    <string name="support_contact_tool_general_label">Ерөнхий</string>
+    <string name="support_contact_description_label">Тайлбар</string>
+    <string name="support_contact_description_bug_hint">Юу болсон, асуудлыг хэрхэн давтах талаар тайлбарлана уу. Тодорхой байх шаардлагатай (доод тал нь 20 үг).</string>
+    <string name="support_contact_description_feature_hint">Харахыг хүсэж буй онцлогоо тайлбарлана уу. Тодорхой байх шаардлагатай (доод тал нь 20 үг).</string>
+    <string name="support_contact_description_question_hint">Асуултаа дэлгэрэнгүй тайлбарлана уу. Тодорхой байх шаардлагатай (доод тал нь 20 үг).</string>
+    <string name="support_contact_expected_label">Хүлээгдэж буй үйлдэл</string>
+    <string name="support_contact_expected_hint">Юу болохыг хүлээж байсан талаараа тайлбарлана уу (доод тал нь 10 үг).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d үг</item>
+        <item quantity="other">%1$d / %2$d үг</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Дибаг лог</string>
+    <string name="support_contact_debuglog_zip_error">Дебаг логийг шахаж чадсангүй</string>
+    <string name="support_contact_debuglog_picker_hint">Одоо байгаа дебаг логийг хавсаргах эсвэл шинийг бичлэг хийнэ үү.</string>
+    <string name="support_contact_debuglog_picker_empty">Дебаг лог олдсонгүй. Эхлээд нэгийг бичлэг хийнэ үү.</string>
+    <string name="support_contact_send_action">И-мэйл аппыг нээх</string>
+    <string name="support_contact_no_email_app">Энэ төхөөрөмжид и-мэйл апп олдсонгүй.</string>
     <string name="changelog_label">Өөрчлөлтийн бүртгэл</string>
     <string name="settings_acknowledgements_label">Талархал</string>
     <string name="settings_acknowledgements_category_translations_title">Орчуулга</string>
@@ -109,15 +157,23 @@
     <string name="general_error_setup_require_msg">Энэ боломжийг ашиглахын тулд нэмэлт тохиргоо шаардлагатай. Үлдсэн тохиргооны алхмуудыг гүйцэтгэнэ үү.</string>
     <string name="setup_saf_card_title">Хадгалах сангийн хандалтын хүрээ</string>
     <string name="setup_saf_card_body">SD Maid-д нэмэлт бүсүүдэд хандалт олгож үр дүнг сайжруулна уу.</string>
+    <string name="setup_saf_card_body2">Ихэнх тохиолдолд цонх зөв замтай нээгдэх болно. Доступын эрхийг олгосны дараа оруулгууд ногоон болно.</string>
+    <string name="setup_saf_error_wrong_path">Та буруу зам сонгосон байна</string>
+    <string name="setup_saf_missing_app_error">Documents UI апп үйлэ ажиллагаагүй байна. Энэ нь суулгагдсан системийн апп бөгөөд бүх Android төхөөрөмжид байх ёстой.</string>
     <string name="setup_manage_storage_card_title">Хадгалах санг удирдах</string>
     <string name="setup_manage_storage_card_body">SD Maid-д таны хадгалах санг удирдахыг зөвшөөрнө үү.</string>
+    <string name="setup_manage_storage_card_body2">Нийтийн сэвсэгт үндсэн доступ, жишээлбэл \"Download/\" ба \"DCIM/\", гэхдээ үргэлж \"Android/data\" биш.</string>
     <string name="setup_root_card_title">Root хандалт</string>
     <string name="setup_root_card_body">SD Maid root хандалт байгаа бол ашиглах уу? Root хандалтаар нэмэлт системийн фолдер болон хувийн аппликешний өгөгдлийг шалгах боломжтой.</string>
     <string name="setup_root_state_ready_label">Root хандалт бэлэн байна.</string>
     <string name="setup_root_state_waiting_label">Root хандалтыг хүлээж байна.</string>
     <string name="setup_root_enable_root_use_label">Боломжтой бол root хандалт ашиглах</string>
     <string name="setup_root_disable_root_use_label">Root хандалт ашиглахгүй</string>
+    <string name="setup_root_card_body2">Зөвхөн root эрхтэй төхөөрөмжид боломжтой. Хэрэв та энэ өөрчлөлтийг хийсэн биш бол таны төхөөрөмж root эрхгүй бөгөөд энэ тохиргоо ямар ч нөлөө үзүүлэхгүй.</string>
+    <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">SD Maid-д Shizuku-г боломжтой газар ашиглахыг зөвшөөрч үр дүнг сайжруулж, боломжуудыг идэвхжүүлнэ үү.</string>
+    <string name="setup_shizuku_card_body2">Хэрэв Shizuku програм таны төхөөрөмжид тохиргуулагдаагүй бол энэ тохиргоо ямар ч нөлөө үзүүлэхгүй.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku нь root хандалттай хамт ашиглахад нэмэлт функц нэмэжгүй боловч найдвартай байдлыг сайжруулдаг. SD Maid үүнийг оролцоо арга болгон ашиглана.</string>
     <string name="setup_shizuku_state_ready_label">Shizuku холболт бэлэн байна.</string>
     <string name="setup_shizuku_state_waiting_label">Shizuku-тай холбогдохыг хүлээж байна.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Боломжтой бол Shizuku ашиглах</string>
@@ -127,16 +183,30 @@
     <string name="setup_permission_error_label">Зөвшөөрлийн алдаа</string>
     <string name="setup_usagestats_title">Хэрэглээний статистик</string>
     <string name="setup_usagestats_body">Хэрэглээний статистикийн зөвшөөрөл нь аппликешний нэмэлт мэдээлэлд хандах боломж олгодог. SD Maid үүнийг нэмэлт кэшийн хэмжээг тодорхойлоход ашигладаг.</string>
+    <string name="setup_usagestats_hint">Хүрэлцээний үйлчилгүүнийг ашигладаг кэш устгахын тулд шаардлагатай.</string>
     <string name="setup_notification_title">Мэдэгдэл</string>
     <string name="setup_notification_body">SD Maid-д явагдаж буй үйлдлүүд эсвэл чухал үйл явдлуудын талаар мэдэгдэл илгээхийг зөвшөөрнө үү.</string>
     <string name="setup_notification_hint">Мэдэгдэлүүд сайн ойлгомжтойгоор ашиглагддаг 🤞</string>
-
     <string name="setup_acs_card_title">Хүртээмжийн үйлчилгээ</string>
     <string name="setup_acs_card_body">Хүртээмжийн үйлчилгээ нь SD Maid-д таны дэлгэцтэй харилцаж, уйтгартай үйлдлүүдийг автоматжуулахыг зөвшөөрдөг, жишээ нь олон дэлгэц дээр \"Кэш цэвэрлэх\"-г дарах.</string>
+    <string name="setup_acs_card_body2">SD Maid нь таны зөвшөөрөлгүй хүрэлцээний үйлчилгүүнийг ашиглахгүй, идэвхтэй байхдаа үргэлж мэдээлэх хоосон үзүүлэлтийг харуулах болно, мөн мэдээллийг цуглуулахын тулд үүнийг ашиглахгүй.</string>
     <string name="setup_acs_state_enabled">Хүртээмжийн үйлчилгээ идэвхжсэн</string>
     <string name="setup_acs_state_disabled">Хүртээмжийн үйлчилгээ идэвхгүй болсон</string>
     <string name="setup_acs_state_running">Хүртээмжийн үйлчилгээ ажиллаж байна</string>
+    <string name="setup_acs_state_ondemand">Үйлчилгүүг шаардлагын дагууд эхлүүлэнэ</string>
     <string name="setup_acs_state_stopped">Хүртээмжийн үйлчилгээ зогссон</string>
+    <string name="setup_acs_state_stopped_hint">Үйлчилгүү идэвхжүүлсэн боловч ажиллаж байхгүй байна. Үүнийг унтраах/асаах эсвэл төхөөрөмжийг дахин эхлүүлээрэй. SD Maid системийн «оновчлолт» дотоод орсохгүй гэдэг шалгаарай.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Хэрэв үйлчилгүүн хэсэгчилэн идэвхгүй болж байвал системийн тохиргоонд SD Maid-ийн \"Автоматаар эхлүүлэх\" сонголтыг идэвхжүүлэхийг оролдоно уу.</string>
+    <string name="setup_acs_consent_positive_action">Үйлчилгүүнийг идэвхжүүлэх ба доступын эрхийг олгох</string>
+    <string name="setup_acs_consent_negative_action">Хүрэлцээний үйлчилгүүнийг бүү ашигла</string>
+    <string name="setup_acs_allow_hint">SD Maid SE-н хандалтын товчлол эсвэл товчлуур идэвхжсэн байна. Дэлгэцийн ирмэгт хүсээгүй дүрс тэмдэг гарахаас урьдчилан сэргийлэхийн тулд төхөөрөмжийн Хандалтын тохиргоог нээж, товчлол/товчлуурын сонголтыг идэвхгүй болгоно уу.</string>
+    <string name="setup_acs_disallow_hint">Хэрэв та бодлоо өөрчилсөн бол энэ сонголтыг дахин нааш өөрчилөхийн тулд тохиргоонд орж цэргүүлэхийг эхлүүлэх боломжтой.</string>
+    <string name="setup_acs_appops_restriction_title">Хязгаарлагдсан тохиргоо</string>
+    <string name="setup_acs_appops_restriction_body">SD Maid-ийн хүрэлцээний үйлчилгүүнийг идэвхжүүлэх боломжгүй юу? Android 13+ нь Google Play-ээр суулгаагүй апп-ынд хязгаарлалт үзүүлж болно. SD Maid-ийн системийн дэлгэцийн хаалганаас эдгээр хязгаарлалтыг арилгана уу. Сонголт нь баруун дээд буланд байгаа контекст цэсэнд байна.</string>
+    <string name="setup_inventory_card_title">Апп-ын жагсаалт</string>
+    <string name="setup_inventory_card_body">SD Maid нь суулгагдсан апп-д харьяалахгүй файлуудыг олохын тулд тань апп-уудыг чьнь мэдэх шаардлагатай.</string>
+    <string name="setup_inventory_card_extra">\"Апп жагсаалт\" эсвэл \"Бүх пакетийг асуух\" гэдэг ерхийг хайна уу.</string>
+    <string name="setup_inventory_invalid_message">Систем суулгасан апп-уудын буруу жагсаалт өгсөн (жш. хэтэрхий цөөн эсвэл дутуу). Системийн тохиргоог нээж SD Maid-д \"Апп жагсаалт\" руу нэвтрэх эрх өгөөрөй.</string>
     <string name="dataarea_warningcard_empty_message">SD Maid сканнердах боломжтой өгөгдлийн бүс олсонгүй. Та тохиргоог дуусгасан уу?</string>
     <string name="dataarea_warningcard_label">Өгөгдлийн бүсүүд</string>
     <string name="dataarea_warningcard_reload_action">Өгөгдлийн бүсүүдийг дахин ачаалах</string>
@@ -144,6 +214,7 @@
     <string name="debug_mode_explanation">Туршилтын сонголтууд болон илүү дэлгэрэнгүй гаралтыг идэвхжүүлэх. Апп удаан ажиллаж, өөр арга замаар ажиллана.</string>
     <string name="debug_bugreporter_label">Автомат алдааны тайлан</string>
     <string name="debug_bugreporter_summary">Асуудлыг автоматаар мэдэгдэх, жишээ нь апп гацсан дэлгэрэнгүй мэдээллийг илгээх.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Дебаг горим идэвхжсэн</string>
     <string name="debug_card_trace_mode_label">Мөрдлөгийн горим идэвхжүүлэх</string>
     <string name="debug_card_dryrun_mode_label">Туршилтын горим (устгалтыг идэвхгүй болгох)</string>
@@ -153,7 +224,12 @@
     <string name="debug_card_shizuku_test_action">Shizuku шалгах</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
     <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
+    <string name="data_area_public_app_data_official_label">Өгдөмжийн нийтийн аппын өгөгдөл</string>
+    <string name="data_area_public_app_assets_official_label">Үндсэн нийтийн програмын хөрөнгүүд</string>
+    <string name="data_area_public_storage_label">Нийтийн хадгалалт</string>
+    <string name="data_area_sdcard_label">SD карт</string>
     <string name="data_areas_label">Өгөгдлийн бүсүүд</string>
+    <string name="data_areas_description">Өгөгдөлийн мужууд нь SD Maid-д хүртэх төхөөрөмжийн байршлуудыг төлөөлөдгүүд. Таны Днг Android хувилбар болон олгосон зөвшөөрөлүүдээс хамаарч өгөгдөлийн чиг мужууд боломжтой байна.</string>
     <string name="data_areas_short_summary">SD Maid-д одоогийн олгогдсон зөвшөөрлүүд дээр үндэслэн хандах боломжтой бүсүүд.</string>
     <string name="history_label">Түүх</string>
     <string name="history_description">Сүүлийн үйлдлүүд болон нөлөөлсөн өгөгдлийн цаг хугацааны жагсаалт.</string>
@@ -161,16 +237,32 @@
     <string name="updates_dashcard_body">Шинэчлэлт боломжтой байна. Таны хувилбар %1$s, хамгийн сүүлийн хувилбар %2$s.</string>
     <string name="translation_encourage_title">SD Maid-г орчуулах</string>
     <string name="translation_encourage_body">SD Maid-г сайн дурынхан орчуулдаг. Орчуулга, хянан засвар, тусламжаа үзүүлэхэд таатай байна!</string>
+    <string name="translation_translators_title">Энэ хувилбарыг орчуулсан</string>
+    <string name="translation_translators_people">Person1;Person2(optional@email.com)</string>
     <string name="motd_setting_enabled_label">Чухал мессежүүд</string>
     <string name="motd_setting_enabled_explanation">SD Maid-д хөгжүүлэгчийн чухал мессежүүдийг шалгахыг зөвшөөрөх.</string>
     <string name="updatecheck_setting_enabled_label">Шинэчлэлт шалгах</string>
     <string name="updatecheck_setting_enabled_explanation">SD Maid-д шинэчлэлт шалгахыг зөвшөөрч, шинэ хувилбар боломжтой бол мэдэгдэх.</string>
+    <string name="device_settings_category">Төхөөрөмж</string>
+    <string name="beta_version_indicator_desc">Урьдчилсан гаралтын хувилбарууд эхлэлийн дэлгэцэнд жижигхэн тууз харуулдаг. Тэдгээр илүү олон удаа шинэчлэгддэг, илүү функцтай байж болох ч, илүү алдаатай ч байж болно.</string>
     <string name="review_app_review_action">Үнэлгээ</string>
     <string name="review_app_dismiss_action">Дараа болов уу</string>
     <string name="review_app_body">SD Maid-д үнэлгээ үлдээхийг хүсэж байна уу? ❤️</string>
+    <string name="anniversary_card_title">SD Maid-ийн ойн баяр мөндөөна ❤️</string>
+    <string name="anniversary_card_install_date">%s-аас эхлэн тантай хамт</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Аль хэдийн %1$d жил хамт. Android-аа цэвцэлгэн, эмхитэй байлгахад SD Maid-д итгэл байрлалаа. Чөлөөлөгдсөн зай: %2$s</item>
+        <item quantity="other">%1$d жил хамтаараа. Тань төхөөрөмж SD Maid-ийн тусламжтайгаар цэвцэлгэн, эмхитэй байна. Чөлөөлөгдсөн зай: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Тань SD Maid-ийн ойн баярыг хуваалцах</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">SD Maid-тай %1$d жил — Чөлөөлөгдсөн зай: %2$s. Android-аа цэвцэлгэн, эмхитэй байлгаж байна. #SDMaid\nТуршлаарай: %3$s</item>
+        <item quantity="other">SD Maid-тай %1$d жил — Чөлөөлөгдсөн зай: %2$s. Android-аа цэвцэлгэн, эмхитэй байлгаж байна. #SDMaid\nТуршлаарай: %3$s</item>
+    </plurals>
     <string name="shortcut_onetap_short">Сканнердах + Устгах</string>
     <string name="shortcut_onetap_long">Нэг үйлдлээр сканнердаж устгах</string>
     <string name="shortcuts_settings_category">Товчлолууд</string>
     <string name="shortcuts_onetap_enabled_title">Нэг товшилтын товчлол</string>
     <string name="shortcuts_onetap_enabled_summary">Аппын дүрсийг удаан дарахад \"Сканнердах + Устгах\" товчлолыг харуулна. Нэг товшилтын хяналтын самбартай ижил хэрэгслүүдийг ашигладаг.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

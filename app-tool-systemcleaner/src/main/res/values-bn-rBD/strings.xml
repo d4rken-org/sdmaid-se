@@ -92,8 +92,14 @@
     <string name="systemcleaner_customfilter_last_edit">সর্বশেষ সম্পাদন: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">লাইভ সার্চ</string>
     <string name="systemcleaner_customfilter_editor_size_label">আকার সীমাবদ্ধতা</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">ন্যূনতম আকার</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">সর্বোচ্চ আকার</string>
     <string name="systemcleaner_customfilter_editor_size_explanation">ফাইলের আকারের উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো আকারের সাথে মেলাতে সেট না করা রাখুন।</string>
+    <string name="systemcleaner_customfilter_editor_age_label">বয়সের সীমাবদ্ধতা</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">ন্যূনতম বয়স</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">সর্বোচ্চ বয়স</string>
     <string name="systemcleaner_customfilter_editor_age_explanation">ফাইলের বয়সের (শেষ পরিবর্তনের সময়) উপর ভিত্তি করে ফলাফল সীমিত করুন। যেকোনো বয়সের সাথে মেলাতে সেট না করা রাখুন।</string>
     <string name="systemcleaner_customfilter_import_action">নতুন ফিল্টার ইমপোর্ট করুন</string>
     <string name="systemcleaner_customfilter_export_action">নির্বাচিত ফিল্টার এক্সপোর্ট করুন</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">আপনার পরিবর্তনগুলো সংরক্ষণ করা হয়নি!</string>
 </resources>

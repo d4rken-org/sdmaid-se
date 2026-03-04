@@ -1,5 +1,38 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="deduplicator_explanation_short">သင့့်ကိရိယာပေါ်ရှိ ထပ်တူဒေတာများ ရှာပါ။</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d ခု ထပ်တူများ ဖျက်ပြီးပြီ</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d ထပ်တူ အစုအဖွဲ့ တွေ့ရှိသည်</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">\"အားလုံး ဖျက်ခြင်း\" ဖြစ်နိုင်အောင် လုပ်ပါ</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">ထပ်တူများ အစုတစ်ခုရှိ ဖိုင်အားလုံး ဖျက်နိုင်သော ရွေးချယ်များ ပြသပါ။</string>
+    <string name="deduplicator_search_locations_title">ရှာဖွေသောနေရာများ</string>
+    <string name="deduplicator_search_locations_all_summary">ဝင်ရောက်နိုင်သော နေရာအားလုံး</string>
+    <string name="deduplicator_keep_prefer_paths_title">ထိန်းသိမ်းနေရာ ဥးစားပေးပါ</string>
+    <string name="deduplicator_keep_prefer_paths_summary">မည်သည့့် ထပ်တူကို ထိန်းသိမ်းမဟုတ် ဆုံးဖြစ်ရာတွင် ဤနေရာများတွင် ဖိုင်များ ထိန်းသိမ်းရန် ဥးစားပေးပါ။</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">နေရာများ သတ်မှတ်မထားပါ</string>
+    <string name="deduplicator_skip_minsize_title">အနည်းဆုံး အရွယ်အစား</string>
+    <string name="deduplicator_skip_minsize_description">အနည်းဆုံး အရွယ်အစားထက် သေးသော ဖိုင်များကို ကျောပါ။</string>
+    <string name="deduplicator_skip_uncommon_title">ဆန်ပြားသော ဖိုင်အမျိုးအစားများ ကျောပါ</string>
+    <string name="deduplicator_skip_uncommon_description">ပုံမှန် မီဒီယာဖိုင်များ၊ စာတမ်းများနှင့် မြှုပ်သိမ်းဖိုင်များသာ ထည့်သွင်းပါ။</string>
+    <string name="deduplicator_detection_method_label">သစ်ဆေးသောနည်းလမ်း</string>
+    <string name="deduplicator_detection_method_checksum_title">အကြောင်အရာ checksum</string>
+    <string name="deduplicator_detection_method_checksum_summary">ဖိုင်များတာ် အမှား checksum တွက်ချက်ခြင်းဖြင့် ထပ်တူများ ဆုံးဖြစ်ပါ။ ကိုက်ညိသော checksum ရှိသော ဖိုင်များသည် အတိအကျ တူညီသော အကြောင်အရာ ရှိသည်။</string>
+    <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
+    <string name="deduplicator_detection_method_phash_summary">အကြောင်အရာ လက္ခနာများ ခွဲခြမ်းစိတ်ဖြာပြီး perceptual hash တန်ဖိုးများ နှိုးယှေစ်ကာ ဆင်တူသော ဖိုင်များ ရှာပါ။ ⚠️ ဆင်တူမှုအပေါ် အခှပြု သစ်ဆေးခြင်းတွင် လက်ဖြင့် သစ်ဆေးရမည့်သော မှားယွင်းသော ရလဒ်များ ပါဝင်နိုင်သည်။</string>
+    <string name="deduplicator_occupied_space_label">လွှမ်းမိုးထားသော သိုလှောင့်မှု</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s ကို ထပ်တူများက လွှမ်းမိုးထေသည်</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ဖိုင်အရွယ်အစား</string>
+    <string name="deduplicator_average_size_label">ပျမ်မျှ အရွယ်အစား</string>
+    <string name="deduplicator_cluster_x_label">Cluster %s</string>
+    <string name="deduplicator_delete_confirmation_message">ထပ်တူဖိုင်များ အစုအဖွဲ့အားလုံးတွင် တစ်ခုမှလွဲး အားလုံး ဖျက်မည်လား?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">ဤ ထပ်တူဖိုင်များ အစုတွင် တစ်ခုမှလွဲး အားလုံး ဖျက်မည်လား?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ဤ ထပ်တူဖိုင်များ အစုရှိ ဖိုင်အားလုံး ဖျက်မည်လား? မည်သည့့်ဖိုင်မျှ မကျန်ပါ!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီတွင် မိတ္တူ တစ်ခုမှလွဲ၍ အားလုံးကို ဖျက်မလား။</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ရွေးချယ်ထားသော ပွားသော ဖိုင်များ အစုတစ်စုချင်းစီရှိ ဖိုင် အားလုံးကို ဖျက်မလား။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
     <string name="deduplicator_delete_all_toggle_msg">မိတ္တူ အားလုံး ဖျက်ပါ။ မည်သည့် ဖိုင်မျှ ကျန်ရစ်မည် မဟုတ်ပါ\!</string>
@@ -7,4 +40,37 @@
     <string name="deduplicator_details_cluster_title">ပွားသော ဖိုင်များ အစု</string>
     <string name="deduplicator_matches_exact_label">တိကျသော မိတ္တူများ</string>
     <string name="deduplicator_matches_similar_label">ဆင်တူသော ဖိုင်များ</string>
+    <string name="deduplicator_arbiter_title">ဖျက်သောနည်းလမ်း</string>
+    <string name="deduplicator_arbiter_summary">မည်သည့်ဖိုင်များ ထိန်းသိမ်းပြီး မည်သည့်ဖိုင်များ ဖျက်မည်ကို သတ်မှတ်ပါ။</string>
+    <string name="deduplicator_arbiter_explanation">ထပ်တူများ ဖျက်ရာတွင် SD Maid သည် မည်သည့်ဖိုင် ထိန်းသိမ်းမည်ကို စံနှုန်းတစ်ခုချင်းစီ စစ်ဆေးကာ ဆုံးဖြတ်သည်။ ရှင်းလင်းသော အနိုင်ရသူ ထွက်ပေါ်သော ပထမ စံနှုန်းက ရလဒ်ကို ဆုံးဖြတ်သည်။ အစဉ်ပြောင်းရန် ဆွဲပါ၊ မုဒ်ပြောင်းရန် တို့ပါ။</string>
+    <string name="deduplicator_arbiter_select_mode_title">မုဒ် ရွေးချယ်ပါ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">လမ်းကြောင်းများ သတ်မှတ်ပါ…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ထပ်တူ အမျိုးအစား</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ဆင်တူသောဖိုင်များထက် အတိအကျ ကိုက်ညီသောဖိုင်များကို ဦးစားပေးပါ။</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">မီဒီယာ အညွှန်းကိန်းထည့်ခြင်း</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ဖိုင်များကို မီဒီယာပံ့ပိုးသူက အညွှန်းကိန်းထည့်ထားသလား စဉ်းစားပါ။</string>
+    <string name="deduplicator_arbiter_criterium_location_title">သိုလှောင်မှုနေရာ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">အတွင်းပိုင်း သို့မဟုတ် အပြင်ပိုင်း သိုလှောင်မှုရှိ ဖိုင်များကို ဦးစားပေးပါ။</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ဖိုဒာ အနက်</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ဖိုဒာဖွဲ့စညးပုံ နက်သော သို့မဟုတ် ရှေးသောနေရာတွင် ဖိုင်များကို ဦးစားပေးပါ။</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ပြင်ဆင်သောရက်</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ပြင်ဆင်ချိန်အပေါ် အခှပြုဆုံးဖြစ်၍ နောက်သော သို့မဟုတ် အသစ်သောဖိုင်များကို ဦးစားပေးပါ။</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ဖိုင်အရွယ်အစား</string>
+    <string name="deduplicator_arbiter_criterium_size_description">အရွယ်အစားများ မတူလျှင် ကြီသော သို့မဟုတ် သေးသောဖိုင်များကို ဦးစားပေးပါ။</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ဦးစားပေးသောနေရာများ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">သတ်မှတ်ထားသော ဦးစားပေးသောနေရာများတွင် ဖိုင်များ ထိန်းသိမ်းပါ။</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">အတိအကျ ကိုက်ညီမှုကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ဆင်တူသောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">အညွှန်းကိန်းထည့်ထားသောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">အညွှန်းကိန်းမထည့်ထားသောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">အတွင်းပိုင်း သိုလှောင်မှုကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">အပြင်ပိုင်း သိုလှောင်မှုကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ရှေးသောဖိုဒာများကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">နက်သောဖိုဒာများကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">နောက်သောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">အသစ်သောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ကြီသောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">သေးသောဖိုင်များကို ဦးစားပေးပါ</string>
+    <string name="deduplicator_view_mode_groups_label">အုပ်စုများ</string>
+    <string name="deduplicator_view_mode_directories_label">ဖိုင်တွဲများ</string>
 </resources>

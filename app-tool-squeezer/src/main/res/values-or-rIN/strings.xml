@@ -82,4 +82,5 @@
         <item quantity="other">ଅତିକମରେ %d ଦିନ ପୁରୁଣା</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ଫାଇଲ୍ ପାଇଁ ଆନୁମାନିକ ~%d%% ସଞ୍ଚୟ</string>
+    <string name="squeezer_onboarding_got_it">ବୁଝିଗଲି</string>
 </resources>

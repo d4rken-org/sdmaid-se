@@ -76,4 +76,5 @@
         <item quantity="other">至少 %d 天</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG 檔案預計可節省約 %d%%</string>
+    <string name="squeezer_onboarding_got_it">瞭解了</string>
 </resources>

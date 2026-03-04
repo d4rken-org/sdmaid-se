@@ -16,6 +16,10 @@
     <string name="scheduler_current_schedule_x_at_x">%1$s shama menen %2$s</string>
     <string name="scheduler_schedule_next_at_x">%s úshin josparlangan</string>
     <string name="scheduler_schedule_last_at_x">Aqırğı ret %s waqıtta ótkizilgen</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Hár küni</item>
+        <item quantity="other">Hár %d kúnde</item>
+    </plurals>
     <string name="scheduler_schedule_repeat_interval">Qaytalaw aralığı</string>
     <string name="scheduler_inaccurate_execution_hint">Kútilip turğan ótkiziw waqıtları jaqın sandılar. Batareyanı únemdeş úshin josparlawlar keshiktiriliw yáki tezletiliw múmkin.</string>
     <string name="scheduler_no_active_schedules_subtitle">Aktiv josparlawlar joq</string>

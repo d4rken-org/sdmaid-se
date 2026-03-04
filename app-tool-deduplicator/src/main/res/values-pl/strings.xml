@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="deduplicator_explanation_short">Znajdź zduplikowane dane na swoim urządzeniu.</string>
+    <string name="deduplicator_explanation_short">Znajdź duplikaty danych na swoim urządzeniu.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
         <item quantity="one">Usunięto %d duplikat</item>
         <item quantity="few">Usunięto %d duplikaty</item>
         <item quantity="many">Usunięto %d duplikatów</item>
-        <item quantity="other">%d duplikat usunięty</item>
+        <item quantity="other">Usunięto %d duplikatów</item>
     </plurals>
     <plurals name="deduplicator_result_x_clusters_found">
         <item quantity="one">Znaleziono %d duplikat</item>
@@ -17,22 +17,22 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Pokaż opcje, które pozwalają usunąć wszystkie pliki w zestawie duplikatów, aby żaden plik nie został pozostawiony.</string>
     <string name="deduplicator_search_locations_title">Lokalizacje wyszukiwania</string>
     <string name="deduplicator_search_locations_all_summary">Wszystkie dostępne obszary</string>
-    <string name="deduplicator_keep_prefer_paths_title">Preferuj trzymanie w</string>
-    <string name="deduplicator_keep_prefer_paths_summary">Przy podejmowaniu decyzji o tym, które duplikaty zachować, wolą przechowywać pliki w tych lokalizacjach.</string>
+    <string name="deduplicator_keep_prefer_paths_title">Preferuj przechowywanie w</string>
+    <string name="deduplicator_keep_prefer_paths_summary">Decydując, który duplikat zachować, najlepiej jest przechowywać pliki w tych lokalizacjach.</string>
     <string name="deduplicator_keep_prefer_paths_none_summary">Brak skonfigurowanych lokalizacji</string>
     <string name="deduplicator_skip_minsize_title">Minimalny rozmiar</string>
     <string name="deduplicator_skip_minsize_description">Pomiń pliki poniżej minimalnego rozmiaru.</string>
     <string name="deduplicator_skip_uncommon_title">Pomiń niestandardowe typy plików</string>
-    <string name="deduplicator_skip_uncommon_description">Obejmie tylko znany typy plików multimedialnych, dokumentów i archiw.</string>
+    <string name="deduplicator_skip_uncommon_description">Uwzględnij tylko popularne pliki multimedialne, dokumenty i archiwa.</string>
     <string name="deduplicator_detection_method_label">Metoda wykrywania</string>
     <string name="deduplicator_detection_method_checksum_title">Suma kontrolna zawartości</string>
     <string name="deduplicator_detection_method_checksum_summary">Określ duplikaty, obliczając sumy kontrolne dla plików. Pliki z pasującymi sumami kontrolnymi mają dokładnie taką samą zawartość.</string>
-    <string name="deduplicator_detection_method_phash_title">Percepcyjny hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki, analizując funkcje zawartości i porównując percepcyjne wartości haszujące⚠️ Podobne wykrywanie może zawierać fałszywe pozytywne elementy wymagające ręcznej weryfikacji.</string>
+    <string name="deduplicator_detection_method_phash_title">Percepcyjny skrót</string>
+    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki, analizując cechy treści i porównując percepcyjne wartości skrótów. ⚠️ Wykrywanie na podstawie podobieństwa może obejmować fałszywe alarmy wymagające ręcznej weryfikacji.</string>
     <string name="deduplicator_occupied_space_label">Zajęta pamięć</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s jest zajęty przez duplikaty</item>
-        <item quantity="few">%s są zajęte przez duplikaty</item>
+        <item quantity="few">%s jest zajęte przez duplikaty</item>
         <item quantity="many">%s jest zajętych przez duplikaty</item>
         <item quantity="other">%s jest zajętych przez duplikaty</item>
     </plurals>
@@ -41,7 +41,7 @@
     <string name="deduplicator_cluster_x_label">Klaster %s</string>
     <string name="deduplicator_delete_confirmation_message">Usunąć wszystkie pliki oprócz jednej kopii?</string>
     <string name="deduplicator_delete_single_set_confirmation_message">Usunąć wszystkie oprócz jednej kopii w tym zestawie duplikatów?</string>
-    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Usunąć wszystkie pliki w tym zestawie zduplikowanych plików? Nie pozostanie żaden plik!</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">Usunąć wszystkie pliki w tym zestawie duplikatów plików? Nie pozostanie żaden plik!</string>
     <string name="deduplicator_delete_multiple_sets_confirmation_message">Usunąć wszystkie oprócz jednej kopii w każdym wybranym zestawie duplikatów?</string>
     <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">Usunąć wszystkie pliki w każdym wybranym zestawie duplikatów? Nie pozostanie żaden plik!</string>
     <string name="deduplicator_delete_all_toggle_msg">Usuwanie wszystkich kopii. Nie pozostanie żaden plik!</string>

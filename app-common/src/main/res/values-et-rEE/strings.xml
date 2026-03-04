@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Aitäh</string>
     <string name="general_error_type_mismatch_msg">Trükiviga: tahtsite %1$s, kuid kirjutasite %2$s.</string>
     <string name="general_error_cant_access_msg">Ei pääse juurde %s.</string>
-    <string name="general_error_root_unavailable">Juurpääsu pole saadaval.</string>    <string name="general_error_no_compatible_app_found_msg">Seda päringut tegevat rakendust ei leitud.</string>
+    <string name="general_error_root_unavailable">Juurpääsu pole saadaval.</string>
+    <string name="general_error_no_compatible_app_found_msg">Seda päringut tegevat rakendust ei leitud.</string>
     <string name="general_todo_msg">Seda võimalust alles luuakse ja praegu pole see saadaval.</string>
     <string name="general_share_action">Jaga</string>
     <string name="general_done_action">Valmis</string>
     <string name="general_apply_action">Rakenda</string>
-    <string name="general_copy_action">Kopeeri</string>    <string name="general_cancel_action">Katkesta</string>
+    <string name="general_copy_action">Kopeeri</string>
+    <string name="general_cancel_action">Katkesta</string>
     <string name="general_discard_action">Loobu</string>
     <string name="general_reset_action">Taasta</string>
     <string name="general_drag_handle_description">Järjekorra muutmiseks lohista</string>
-    <string name="general_save_action">Salvesta</string>    <string name="general_gotit_action">Selge!</string>
+    <string name="general_save_action">Salvesta</string>
+    <string name="general_gotit_action">Selge!</string>
     <string name="general_fix_action">Paranda</string>
     <string name="general_set_up_action">Seadista</string>
     <string name="general_edit_action">Muuda</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Süsteem</string>
     <string name="setup_title">Seadistamine</string>
     <string name="setup_feature_requires_additional_setup_x">Selleks on vaja seadistada põhjalikumalt: %s</string>
+    <string name="upgrade_feature_requires_pro">Nõuab Pro versiooni</string>
+    <string name="general_include_multiuser_label">Kaasa teisi kasutajaid</string>
+    <string name="general_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendusi.</string>
+    <string name="general_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Loodi üks erand</item>
         <item quantity="other">Loodi %d erandit</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Pühkija</string>
     <string name="stats_label">Ajalugu</string>
     <string name="settings_category_tools_label">Tööriistad</string>
-    <string name="general_include_multiuser_label">Sh teised kasutajad</string>
-    <string name="general_include_multiuser_summary">Kaasa selle seadme teiste kasutajaprofiilide rakendused.</string>
-    <string name="general_unsaved_confirmation_message">Muudatused pole salvestatud!</string>
 </resources>

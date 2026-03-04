@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="squeezer_explanation_short">स्टोरेज स्थान बचाने के लिए छवियों को संपीड़ित करें।</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d छवि मिली</item>
+        <item quantity="other">%d छवियाँ मिलीं</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s बचाया जा सकता है</item>
+        <item quantity="other">~%s बचाया जा सकता है</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d छवि संपीड़ित की गई</item>
+        <item quantity="other">%d छवियाँ संपीड़ित की गईं</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d छवि चुनी गई</item>
+        <item quantity="other">%d छवियाँ चुनी गईं</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">खोज स्थान</string>
+    <string name="squeezer_search_locations_default_summary">कैमरा फ़ोल्डर (डिफ़ॉल्ट)</string>
+    <string name="squeezer_min_size_title">न्यूनतम फ़ाइल आकार</string>
+    <string name="squeezer_min_size_description">इस आकार से छोटी छवियों को छोड़ें।</string>
+    <string name="squeezer_min_age_title">न्यूनतम फ़ाइल आयु</string>
+    <string name="squeezer_min_age_description">केवल इस आयु से पुरानी छवियों को शामिल करें।</string>
+    <string name="squeezer_compression_settings_label">संपीड़न सेटिंग</string>
+    <string name="squeezer_quality_label">गुणवत्ता</string>
+    <string name="squeezer_quality_title">संपीड़न गुणवत्ता</string>
+    <string name="squeezer_quality_description">कम गुणवत्ता का मतलब छोटा फ़ाइल आकार है लेकिन छवि गुणवत्ता कम होती है।</string>
+    <string name="squeezer_quality_example_format">उदाहरण: %1$s छवि → %3$d%% गुणवत्ता पर ~%2$s बचाता है</string>
+    <string name="squeezer_quality_warning_low">कम गुणवत्ता में दृश्य आर्टिफ़ैक्ट हो सकते हैं।</string>
+    <string name="squeezer_quality_warning_high">बहुत उच्च गुणवत्ता से स्थान की बचत न्यूनतम होती है।</string>
+    <string name="squeezer_types_category_label">छवि प्रकार</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">JPEG छवियाँ शामिल करें (.jpg, .jpeg)।</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">WebP छवियाँ शामिल करें (.webp)।</string>
+    <string name="squeezer_skip_compressed_title">पहले से संपीड़ित को छोड़ें</string>
+    <string name="squeezer_skip_compressed_description">उन छवियों को छोड़ें जो पहले से SD Maid द्वारा संपीड़ित की जा चुकी हैं।</string>
+    <string name="squeezer_exif_marker_title">EXIF मार्कर लिखें</string>
+    <string name="squeezer_exif_marker_description">संपीड़न इतिहास साफ़ होने पर भी पुनः-संपीड़न रोकने के लिए छवि के EXIF उपयोगकर्ता टिप्पणी फ़ील्ड में एक मार्कर जोड़ें।</string>
+    <string name="squeezer_estimated_savings_format">~%s की बचत</string>
+    <string name="squeezer_no_savings_expected">सीमित बचत</string>
+    <string name="squeezer_current_size_format">आकार: %s</string>
+    <string name="squeezer_compress_action">संपीड़ित करें</string>
+    <string name="squeezer_compress_all_action">सभी को संपीड़ित करें</string>
+    <string name="squeezer_preview_dialog_title">संपीड़न की पुष्टि करें</string>
+    <string name="squeezer_preview_total_size">कुल आकार</string>
+    <string name="squeezer_preview_estimated_savings">अनुमानित बचत</string>
+    <string name="squeezer_compress_confirmation_title">छवियाँ संपीड़ित करें?</string>
+    <string name="squeezer_compress_confirmation_message">यह मूल छवियों को संपीड़ित संस्करणों से बदल देगा। यह क्रिया पूर्ववत नहीं की जा सकती।</string>
+    <string name="squeezer_history_title">संपीड़न इतिहास</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d आइटम (%2$s)</item>
+        <item quantity="other">%1$d आइटम (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">कोई संपीड़न इतिहास नहीं</string>
+    <string name="squeezer_history_clear_title">संपीड़न इतिहास साफ़ करें</string>
+    <string name="squeezer_history_clear_message">यह पहले से संपीड़ित छवियों को फिर से संपीड़ित करने की अनुमति देगा। छवियाँ स्वयं प्रभावित नहीं होती हैं।</string>
     <string name="squeezer_onboarding_title">छवि संपीड़न के बारे में</string>
     <string name="squeezer_onboarding_message">छवि संपीड़न दृश्य विवरण हटाकर फ़ाइल आकार कम करता है। यह प्रक्रिया अपरिवर्तनीय है - मूल गुणवत्ता पुनर्स्थापित नहीं की जा सकती।\n\nयहां आपकी छवियों का पूर्वावलोकन है:</string>
     <string name="squeezer_onboarding_original_label">मूल</string>
@@ -25,4 +82,5 @@
         <item quantity="other">कम से कम %d दिन पुरानी</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG फ़ाइलों के लिए अनुमानित ~%d%% बचत</string>
+    <string name="squeezer_onboarding_got_it">समझ गया</string>
 </resources>

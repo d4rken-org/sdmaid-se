@@ -23,6 +23,10 @@
         <item quantity="other">%1$d file siap (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Fitur ini mencatat semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dibuat berisi informasi sensitif (misalnya nama file dan aplikasi yang terpasang). Bagikan hanya kepada pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
+    <string name="debug_debuglog_short_recording_title">Rekaman sangat singkat</string>
+    <string name="debug_debuglog_short_recording_desc">Rekaman sangat singkat. Log debug adalah rekaman aktivitas, bukan snapshot — ulangi masalah saat perekaman sedang aktif agar log berguna.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Lanjutkan perekaman</string>
+    <string name="debug_debuglog_short_recording_stop_action">Tetap hentikan</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -96,6 +100,38 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Ini akan menghapus semua sesi log debug yang tersimpan secara permanen. Tindakan ini tidak dapat dibatalkan.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Tempat nongkrong dan tanya-tanya.</string>
+    <string name="support_contact_label">Hubungi pengembang</string>
+    <string name="support_contact_desc">Isi formulir untuk mengirim email ke pengembang.</string>
+    <string name="support_contact_welcome">Saya membaca setiap pesan sendiri dan berusaha sebaik mungkin untuk membalas, tetapi karena saya mengerjakan ini sendirian, mungkin butuh sedikit waktu. Terima kasih atas kesabaran Anda.</string>
+    <string name="support_contact_footer">Pesan akan dikirim via email dengan informasi perangkat dan pengaturan yang dilampirkan otomatis. Anda dapat menambahkan tangkapan layar atau video. Sebagian isi email akan berbahasa Inggris agar mudah dipahami pengembang.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_bug_label">Laporan bug</string>
+    <string name="support_contact_category_feature_label">Permintaan fitur</string>
+    <string name="support_contact_category_question_label">Pertanyaan</string>
+    <string name="support_contact_tool_label">Alat terkait</string>
+    <string name="support_contact_tool_appcleaner_label">Pembersih Aplikasi</string>
+    <string name="support_contact_tool_corpsefinder_label">PencariMayat</string>
+    <string name="support_contact_tool_systemcleaner_label">Pembersih Sistem</string>
+    <string name="support_contact_tool_deduplicator_label">Penghapus Duplikat</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">Pengendali Aplikasi</string>
+    <string name="support_contact_tool_scheduler_label">Penjadwal</string>
+    <string name="support_contact_tool_general_label">Umum</string>
+    <string name="support_contact_description_label">Deskripsi</string>
+    <string name="support_contact_description_bug_hint">Jelaskan apa yang terjadi dan cara mereproduksi masalah. Harap spesifik (minimal 20 kata).</string>
+    <string name="support_contact_description_feature_hint">Jelaskan fitur yang ingin Anda lihat. Harap spesifik (minimal 20 kata).</string>
+    <string name="support_contact_description_question_hint">Jelaskan pertanyaan Anda secara rinci. Harap spesifik (minimal 20 kata).</string>
+    <string name="support_contact_expected_label">Perilaku yang diharapkan</string>
+    <string name="support_contact_expected_hint">Jelaskan apa yang Anda harapkan terjadi (minimal 10 kata).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="other">%1$d / %2$d kata</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Catatan debug</string>
+    <string name="support_contact_debuglog_zip_error">Gagal mengompresi log debug</string>
+    <string name="support_contact_debuglog_picker_hint">Lampirkan log debug yang sudah ada, atau rekam yang baru.</string>
+    <string name="support_contact_debuglog_picker_empty">Tidak ada log debug yang ditemukan. Rekam terlebih dahulu.</string>
+    <string name="support_contact_send_action">Buka aplikasi email</string>
+    <string name="support_contact_no_email_app">Tidak ada aplikasi email yang ditemukan di perangkat ini.</string>
     <string name="changelog_label">Catatan perubahan</string>
     <string name="settings_acknowledgements_label">Penghargaan</string>
     <string name="settings_acknowledgements_category_translations_title">Terjemahan</string>
@@ -173,6 +209,7 @@
     <string name="debug_mode_explanation">Aktifkan opsi pengujian dan lebih banyak keluaran verbose. Aplikasi akan berjalan lebih lambat dan bekerja secara berbeda.</string>
     <string name="debug_bugreporter_label">Laporan bug otomatis</string>
     <string name="debug_bugreporter_summary">Melaporkan masalah secara otomatis, seperti detail aplikasi saat tidak merespons sehingga saya dapat dengan cepat menemukan dan memperbaikinya.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Mode debug diaktifkan</string>
     <string name="debug_card_trace_mode_label">Aktifkan mode pelacakan</string>
     <string name="debug_card_dryrun_mode_label">Mode uji coba (nonaktifkan penghapusan)</string>
@@ -220,4 +257,5 @@
     <string name="shortcuts_settings_category">Pintasan</string>
     <string name="shortcuts_onetap_enabled_title">Pintasan sekali ketuk</string>
     <string name="shortcuts_onetap_enabled_summary">Tampilkan pintasan \"Pindai + Hapus\" saat menekan lama ikon aplikasi. Menggunakan alat yang sama seperti dasbor sekali ketuk.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

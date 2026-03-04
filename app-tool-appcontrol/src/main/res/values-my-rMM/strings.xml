@@ -1,15 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="appcontrol_explanation_short">အက်ပ်များကို ထိန်းချုပ်ရန်နှင့် ကြီးကြပ်ရန်။</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="other">%d အကြေး လျှောသားတွေးပုံသည်</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">အကြေးများ ဖွစ်ချရန်</string>
+    <string name="appcontrol_toggle_app_enable_action">အကြေးကို ဖွစ်ချရန်</string>
+    <string name="appcontrol_toggle_app_disable_action">အကြေးကို ပိဤက်ချရန်</string>
+    <string name="appcontrol_toggle_app_enable_description">အကြေးကို ဖွစ်ချခြင်းသည် အအကြေး အလုပ်ဆောင်ချက်ပြီးနိုင်သောဆ activity ရှိပါက ပြက်ည်က်သော launcher တွင် ပြသောည်ပါ။</string>
+    <string name="appcontrol_toggle_app_disable_description">အကြေးကို ပိဤက်ချခြင်းသည် အအကြေးကို အလုပ်ဆောင်ချကို တါးကန်ကာသားမန့် ဆေးကွတ်များမှ ဖစ်ပေးမြန့်ပါ။ တဪဖိုင်ဆုံးဆေး မရှိပါ။</string>
+    <string name="appcontrol_appstore_open_title">အကြေးဆိုင်နေရာတွင် ဖွစ်ချရန်</string>
+    <string name="appcontrol_appstore_open_description">ဤအကြေးကို ဤအကြေးကို တပ်ဆိုင်ချသော အကြေးဆိုင်တွင် ဖွစ်ချရန်။</string>
+    <string name="appcontrol_systemsettings_open_title">ဆက်တင်များ ပြသောသောရန်</string>
+    <string name="appcontrol_systemsettings_open_description">ဤအကြေးကို ဆက်တင်အတွက် သင်မ်းဆိုင် သမ်း ဖွစ်ချရန်။</string>
+    <string name="appcontrol_app_launch_title">အကြေးကို ဖွစ်ချရန်</string>
+    <string name="appcontrol_app_launch_description">ဤအကြေးတွင် ပြဘိုဆုံး activity ကို ဖွစ်ချရန်။</string>
+    <string name="appcontrol_app_forcestop_title">အကြေးကို အကြေးတပ်စတင်ပါ</string>
+    <string name="appcontrol_app_forcestop_description">အကြေးကို တါးကန်ပါ။ သင်မ်း ဖွစ်ချလိုက်တိုင် မရနိုင်မခွန် သိုဖွစ်ချပါက အကြေးကို ကိုယ်ကိုယ် အလုပ်ဆောင်ကို တါးကန်ကြေတာရန်။</string>
+    <string name="appcontrol_app_uninstall_description">ဤအကြေးကို သင်မ်းဆိုင်မှ ဖက်ချရန်။</string>
+    <string name="appcontrol_app_exclude_add_title">အကြေးကို ဖယ်ထုတ်ရန်</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid တွင် အအကြေးကို အခြအနေရာ လုပ်ဆောင်ချများမှ ဖယ်ထုတ်ရန်။</string>
+    <string name="appcontrol_app_exclude_edit_title">ဖယ်ထုတ်ခြင်း ပြင်န်ဆွဲရန်</string>
+    <string name="appcontrol_app_exclude_edit_description">ဤအကြေးကို ယခင်က ကရိုးကကြေးတစ်ခု သိုလျှော့သည် ဖယ်ထုတ်ပြီးသည်။</string>
+    <string name="appcontrol_tag_user">အသုံးသပြ</string>
+    <string name="appcontrol_tag_active">မကြောက အသုံးဆက်သော</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
+    <string name="appcontrol_tag_system">စနစ်</string>
+    <string name="appcontrol_tag_archived">စဆေသားချပြီးသည်</string>
+    <string name="appcontrol_tag_uninstalled">တဪဖိုင်နေရာသားပေ</string>
+    <string name="appcontrol_tag_not_installed">တပ်ဆိုင်မချလိုက်ပါ</string>
+    <string name="appcontrol_tag_enabled">ဖွစ်ချပြီးသည်</string>
+    <string name="appcontrol_tag_disabled">ပိဤက်ချပြီးသည်</string>
+    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_progress_enabling_package">အကြေးကို ဖွစ်ချနေစ်သည်</string>
+    <string name="appcontrol_progress_disabling_package">အကြေးကို ပိဤက်ချနေစ်သည်</string>
+    <string name="appcontrol_list_filteroptions_label">ဆပ်ရှားများ</string>
+    <string name="appcontrol_list_sortmode_name_label">အကြေးအမည့်အသေး</string>
+    <string name="appcontrol_list_sortmode_updated_label">နောဆုံး အဆေးပြန်စာက်</string>
+    <string name="appcontrol_list_sortmode_installed_label">ပထမည့်က တပ်ဆိုင်ချသည်က</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Package အမည့်</string>
+    <string name="appcontrol_list_sortmode_size_label">အရွယ်အစား</string>
+    <string name="appcontrol_list_sortmode_screentime_label">စကᒰမှအပြပ်ချသောအချား</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">အကြေးအရွယ်အစားများကို စကင်ᄀောင်းသော ခန့်မှန်းပြမည့်တွက်များသာမှု ခန့်မှန်းပြမည့်တွက်များသည်။ ပိုအနက်အခြေအနေရာအတွက် အသုံး StorageAnalyzer ကြေးဆိုင်တွဲကို အသုံးချသည်။</string>
+    <string name="appcontrol_progress_uninstalling_app">အကြေးကို ဖက်ချတစ်ချနေစ်သည်</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="other">%d အကြေး ဖက်ချတစ်ချပြီးသည်</item>
+    </plurals>
+    <string name="appcontrol_archive_action">စဆေသားချရန်</string>
+    <string name="appcontrol_archive_selection_action">အကြေးများ စဆေသားချရန်</string>
+    <string name="appcontrol_archive_description">နောက်ဆုံးဆေး အကြေးတဪဖိုင်ကို ပြန်ပြန်ဆွဲမရှိနိုင် မေှှာချပြက်စဆေသားချရန်။</string>
+    <string name="appcontrol_progress_archiving_app">အကြေးကို စဆေသားချနေစ်သည်…</string>
+    <string name="appcontrol_archive_confirmation_title">စဆေသားချခြင်း အတည်ပြုရန်</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="other">%d အကြေး စဆေသားချမည်လား?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="other">%d အကြေး စဆေသားချပြီးသည်</item>
+    </plurals>
+    <string name="appcontrol_restore_action">ပြန်လာန်ရန်</string>
+    <string name="appcontrol_restore_selection_action">အကြေးများ ပြန်လာန်ရန်</string>
+    <string name="appcontrol_restore_description">စဆေသားချပြီးသောအကြေးကို တပ်ဆိုင်ချသောအခြေအနေရာသိုပြန်လာန်ရန်။ အကြေးတဪဖိုင်ကို သိုထားသွားရှိပါ။</string>
+    <string name="appcontrol_progress_restoring_app">အကြေးကို ပြန်လာန်နေစ်သည်…</string>
+    <string name="appcontrol_restore_confirmation_title">ပြန်လာန်ခြင်း အတည်ပြုရန်</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="other">%d အကြေး ပြန်လာန်မည်လား?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="other">%d အကြေး ပြန်လာန်ပြီးသည်</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">အကြေးအရွယ်အစား</string>
+    <string name="appcontrol_app_sizes_apk_label">အကြေး</string>
     <string name="appcontrol_app_sizes_data_label">ဒေတာ</string>
     <string name="appcontrol_app_sizes_cache_label">ကက်ရှ်</string>
     <string name="appcontrol_toggle_confirmation_title">လုပ်ဆောင်ချက် အတည်ပြုပါ</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="other">%d အကြေး ဖွစ်ချ/ပိဤက်ချ အခြေအနေရာကို ပြမ်းလား?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="other">%d အကြေး ဖွစ်ချ/ပိဤက်ချ ချုံးနေစ်သည်</item>
+    </plurals>
     <string name="appcontrol_settings_module_sizing_enabled_label">အရွယ်အစားများ သတ်မှတ်ရန်</string>
     <string name="appcontrol_settings_module_sizing_enabled_description">အက်ပ်တစ်ခုချင်းစီ၏ အရွယ်အစား ခန့်မှန်းချက် ရယူပါ။</string>
     <string name="appcontrol_settings_module_activity_enabled_label">လုပ်ဆောင်မှု သတ်မှတ်ရန်</string>
     <string name="appcontrol_settings_module_activity_enabled_description">အက်ပ် တစ်ခုသည် လှုပ်ရှားသည် (သို့မဟုတ် မကြာသေးမီက လှုပ်ရှားခဲ့သည်) ရှာဖွေပါ။</string>
     <string name="appcontrol_export_app_selection_action">အက်ပ်များ တင်ပို့ရန်</string>
+    <string name="appcontrol_export_title">အကြေးကို ထုတ်လုပ်ချရန်</string>
+    <string name="appcontrol_export_description">ဤအကြေးတွင် တပ်ဆိုင်ချသောဖိုင်များကို သိုထားသွားကိုထုတ်လုပ်ရန်။ ဤလုပ်ဆောင်ချကို အကြေးတဪဖိုင်ကို ပါလေစပါ။</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="other">%d အကြေး ထုတ်လုပ်ပြီးသည်</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s ကို ထုတ်လုပ်နေစ်သည်</string>
+    <string name="appcontrol_share_list_action">စာရင်းကို သိုထားလုးရန်</string>
+    <string name="appcontrol_share_list_title">ကျော်မ်း အကြေးများ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE မှတဆိုင် သိုထားလုးသည်</string>
+    <string name="appcontrol_force_stop_selection_action">အကြေးများကို အကြေးတပ်စတင်ပါ</string>
+    <string name="appcontrol_force_stop_action">အကြေးတပ်စတင်ပါ</string>
+    <string name="appcontrol_force_stop_confirm_title">အကြေးတပ်စတင်ခြင်း အတည်ပြုရန်</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="other">%d အကြေး အကြေးတပ်စတင်မည်လား?</item>
+    </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="other">အက်ပ် %d ခုများကို ရပ်တန့်ခဲ့သည်</item>
     </plurals>
+    <string name="appcontrol_automation_title">AppControl အလုပ်ဆောင်ချမှု</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">အကြေးတပ်စတင်နေစ်သည်…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" ခြောက် (%s ဆုံးလုးများ) ကို ရှာဖွေနေစ်သည်</string>
+    <string name="appcontrol_automation_subtitle_archiving">စဆေသားချနေစ်သည်…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Archive\" ခြောက် (%s ဆုံးလုးများ) ကို ရှာဖွေနေစ်သည်</string>
+    <string name="appcontrol_automation_subtitle_restoring">ပြန်လာန်နေစ်သည်…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Restore\" ခြောက် (%s ဆုံးလုးများ) ကို ရှာဖွေနေစ်သည်</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">စကᒰမှအပြပ်ချသောအချား: %1$s မှ အစ်ခု %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">နောဆုံး အဆေးပြန်စာက်: %s</string>
+    <string name="appcontrol_item_installedat_x_label">တပ်ဆိုင်ချသောတမ်း: %s</string>
+    <string name="shortcut_appcontrol_short">အကြေးခြစ်ချရန်</string>
+    <string name="shortcut_appcontrol_long">တပ်ဆိုင်ချပြီးသော အကြေးများကို စိုးချရန်</string>
+    <string name="appcontrol_automation_loading">Accessibility service မှတဆိုင် အလုပ်ဆောင်ချမှုကို ပြင်န်ဆွဲပြင်န်းသည်</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">ယခင်က လုပ်ဆောင်ချကို အတည်ပြုပြီးသည် (%s ဆုံးလုးများ)</string>
+    <string name="appcontrol_include_multiuser_label">အခြအနေရာ အသုံးသပြများကို ထည့်သွင်းရန်</string>
+    <string name="appcontrol_include_multiuser_summary">ဤကရိုးသည်း အခြအနေရာ အသုံးပြိုဉ်ဖိုင်များကို ထည့်သွင်းရန်။</string>
 </resources>

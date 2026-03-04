@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">Zure gailuan instalatutako aplikazioak.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d aplikazio detektatu da</item>
+        <item quantity="other">%d aplikazio detektatu dira</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Aldatu aplikazioak</string>
+    <string name="appcontrol_toggle_app_enable_action">Gaitu aplikazioa</string>
+    <string name="appcontrol_toggle_app_disable_action">Desgaitu aplikazioa</string>
+    <string name="appcontrol_toggle_app_enable_description">Aplikazio bat gaitzeak exekutatzeko aukera ematen dio eta zure abiaraztailean ikus daiteke jarduera bat badu.</string>
+    <string name="appcontrol_toggle_app_disable_description">Aplikazio bat desgaitzeak exekutatzea eragozten du eta menutik ezkutatzen du. Ez da daturik galtzen.</string>
+    <string name="appcontrol_appstore_open_title">Ireki aplikazio-dendan</string>
+    <string name="appcontrol_appstore_open_description">Ireki aplikazio hau instalatu zen aplikazio-dendan.</string>
+    <string name="appcontrol_systemsettings_open_title">Erakutsi ezarpenak</string>
+    <string name="appcontrol_systemsettings_open_description">Ireki zure gailuaren sistema-ezarpenak aplikazio honetarako.</string>
+    <string name="appcontrol_app_launch_title">Abiarazi aplikazioa</string>
+    <string name="appcontrol_app_launch_description">Abiarazi aplikazio honen jarduera nagusia.</string>
+    <string name="appcontrol_app_forcestop_title">Behartuta gelditu</string>
+    <string name="appcontrol_app_forcestop_description">Gelditu aplikazioa. Eragotzi bere burua abiarazten ireki edo gailua berrabiarazi arte.</string>
+    <string name="appcontrol_app_uninstall_description">Desinstalatu aplikazio hau zure gailutik.</string>
+    <string name="appcontrol_app_exclude_add_title">Baztertu aplikazioa</string>
+    <string name="appcontrol_app_exclude_add_description">Baztertu aplikazio hau SD Maid-eko beste eragiketatik.</string>
+    <string name="appcontrol_app_exclude_edit_title">Editatu salbuespena</string>
+    <string name="appcontrol_app_exclude_edit_description">Aplikazio hau une honetan tresna bat edo gehiagotatik baztertuta dago.</string>
+    <string name="appcontrol_tag_user">Erabiltzailea</string>
+    <string name="appcontrol_tag_active">Duela gutxi aktibo</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paketea</string>
+    <string name="appcontrol_tag_system">Sistema</string>
+    <string name="appcontrol_tag_archived">Artxibatuta</string>
+    <string name="appcontrol_tag_uninstalled">Datuak soilik</string>
+    <string name="appcontrol_tag_not_installed">Ez dago instalatuta</string>
+    <string name="appcontrol_tag_enabled">Gaituta</string>
+    <string name="appcontrol_tag_disabled">Desgaituta</string>
+    <string name="appcontrol_tag_debug">Arazketa</string>
+    <string name="appcontrol_progress_enabling_package">Aplikazioa gaitzen</string>
+    <string name="appcontrol_progress_disabling_package">Aplikazioa desgaitzen</string>
+    <string name="appcontrol_list_filteroptions_label">Iragazki-aukerak</string>
+    <string name="appcontrol_list_sortmode_name_label">Aplikazioaren izena</string>
+    <string name="appcontrol_list_sortmode_updated_label">Azken eguneratzea</string>
+    <string name="appcontrol_list_sortmode_installed_label">Lehen instalazioa</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Pakete-izena</string>
+    <string name="appcontrol_list_sortmode_size_label">Tamaina</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Pantaila-denbora</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Aplikazioen tamainak estimatuta daude errendimendu arrazoengatik. Erabili StorageAnalyzer tresna datu zehatzagoak lortzeko.</string>
+    <string name="appcontrol_progress_uninstalling_app">Aplikazioa desinstalatzend</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d aplikazio desinstalatu da</item>
+        <item quantity="other">%d aplikazio desinstalatu dira</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Artxibatu</string>
+    <string name="appcontrol_archive_selection_action">Artxibatu aplikazioak</string>
+    <string name="appcontrol_archive_description">Artxibatu espazio libratzeko aplikazioaren datuak gordeta gerora berreskuratzeko.</string>
+    <string name="appcontrol_progress_archiving_app">Aplikazioa artxibatzen…</string>
+    <string name="appcontrol_archive_confirmation_title">Baieztatu artxiboa</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Artxibatu %d aplikazio?</item>
+        <item quantity="other">Artxibatu %d aplikazio?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d aplikazio artxibatu da</item>
+        <item quantity="other">%d aplikazio artxibatu dira</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Berreskuratu</string>
+    <string name="appcontrol_restore_selection_action">Berreskuratu aplikazioak</string>
+    <string name="appcontrol_restore_description">Berreskuratu artxibatutako aplikazioa instalatutako egoera osora. Aplikazioaren datuak gordeta geratzen dira.</string>
+    <string name="appcontrol_progress_restoring_app">Aplikazioa berreskuratzen…</string>
+    <string name="appcontrol_restore_confirmation_title">Baieztatu berreskuraketa</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Berreskuratu %d aplikazio?</item>
+        <item quantity="other">Berreskuratu %d aplikazio?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d aplikazio berreskuratu da</item>
+        <item quantity="other">%d aplikazio berreskuratu dira</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Aplikazioaren tamaina</string>
+    <string name="appcontrol_app_sizes_apk_label">Aplikazioa</string>
+    <string name="appcontrol_app_sizes_data_label">Datuak</string>
+    <string name="appcontrol_app_sizes_cache_label">Cachea</string>
+    <string name="appcontrol_toggle_confirmation_title">Baieztatu ekintza</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Aldatu %d aplikazioaren gaituta/desgaituta egoera?</item>
+        <item quantity="other">Aldatu %d aplikazioren gaituta/desgaituta egoera?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d aplikazio aldatu da</item>
+        <item quantity="other">%d aplikazio aldatu dira</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Zehaztu tamainak</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Lortu aplikazio bakoitzaren tamainaren gutxi gorabeherako estimazioa.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Zehaztu jarduera</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Jakin ea aplikazioa aktibo dagoen (edo duela gutxi aktibo egon den).</string>
+    <string name="appcontrol_export_app_selection_action">Esportatu aplikazioak</string>
+    <string name="appcontrol_export_title">Esportatu aplikazioa</string>
+    <string name="appcontrol_export_description">Gorde aplikazio honen instalazio-fitxategiak. Ez ditu aplikazioaren datuak biltzen.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d aplikazio esportatu da</item>
+        <item quantity="other">%d aplikazio esportatu dira</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s esportatzen</string>
+    <string name="appcontrol_share_list_action">Partekatu zerrenda</string>
+    <string name="appcontrol_share_list_title">Nire aplikazioak</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE bidez partekatuta</string>
+    <string name="appcontrol_force_stop_selection_action">Behartuta gelditu aplikazioak</string>
+    <string name="appcontrol_force_stop_action">Behartuta gelditu</string>
+    <string name="appcontrol_force_stop_confirm_title">Baieztatu behartuta geldiaraztea</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Behartuta gelditu %d aplikazio?</item>
+        <item quantity="other">Behartuta gelditu %d aplikazio?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d aplikazio gelditu da</item>
+        <item quantity="other">%d aplikazio gelditu dira</item>
+    </plurals>
+    <string name="appcontrol_automation_title">AppControl automatizazioa</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Behartuta geldiarazten…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Behartuta gelditu\" botoia bilatzen (gako-hitzak: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Artxibatzen…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Artxibatu\" botoia bilatzen (gako-hitzak: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Berreskuratzen…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Berreskuratu\" botoia bilatzen (gako-hitzak: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Pantaila-denbora: %1$s %2$s-etik</string>
+    <string name="appcontrol_item_lastupdate_x_label">Azken eguneratzea: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalatuta: %s</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Kudeatu instalatutako aplikazioak</string>
+    <string name="appcontrol_automation_loading">Automatizazioa prestatzen irisgarritasun-zerbitzuaren bidez</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Aurreko ekintza baieztatzen saiatzen (gako-hitzak: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Sartu beste erabiltzaileak</string>
+    <string name="appcontrol_include_multiuser_summary">Sartu gailuko beste erabiltzaile-profiletako aplikazioak.</string>
+</resources>

@@ -23,10 +23,10 @@
     <string name="swiper_item_position">%1$d de %2$d</string>
     <string name="swiper_keep_action">Manter</string>
     <string name="swiper_skip_action">Ignorar</string>
-    <string name="swiper_review_action">Rever</string>
+    <string name="swiper_review_action">Revisão</string>
     <string name="swiper_status_title">Rever decisões</string>
     <string name="swiper_status_action_keep_selected">Manter selecionados</string>
-    <string name="swiper_status_action_delete_selected">Eliminar selecionados</string>
+    <string name="swiper_status_action_delete_selected">Apagar seleção</string>
     <string name="swiper_status_action_reset_selected">Redefinir selecionado</string>
     <string name="swiper_decision_undecided">Não decidido</string>
     <string name="swiper_retry_action">Tentar novamente</string>
@@ -122,12 +122,12 @@
     <string name="swiper_stamp_delete_3">Lixo!</string>
     <string name="swiper_stamp_delete_4">Apagar!</string>
     <string name="swiper_stamp_skip_1">Ignorar!</string>
-    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_2">Bah!</string>
     <string name="swiper_stamp_skip_3">Mais tarde!</string>
     <string name="swiper_stamp_skip_4">Talvez!</string>
     <string name="swiper_stamp_undo_1">Desfazer!</string>
     <string name="swiper_stamp_undo_2">Voltar!</string>
-    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_3">Ops!</string>
     <string name="swiper_stamp_undo_4">Aguarde!</string>
     <string name="swiper_gesture_overlay_dismiss">Toque em qualquer lugar para começar</string>
     <string name="swiper_gesture_overlay_left_delete">← Apagar</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Desfazer</string>
     <string name="swiper_help_title">Como funciona o Swiper</string>
     <string name="swiper_help_message">Deslize cada ficheiro para tomar uma decisão:\n\n← Deslizar para a esquerda: %1$s\n→ Deslizar para a direita: %2$s\n↑ Deslizar para cima: Ignorar\n↓ Deslizar para baixo: Desfazer (após o primeiro deslize)\n\nTambém pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Rever\" para ver todas as suas decisões. Nada é apagado até confirmar no ecrã de revisão.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_help_action">Ajuda</string>
 </resources>

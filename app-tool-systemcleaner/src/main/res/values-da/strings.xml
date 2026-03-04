@@ -29,7 +29,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Skærmbilledalder</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimumsalder for, at skærmbilleder tages i betragtning til sletning.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Overflødige APK\'er</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Opsætningsfiler der ikke længere er nødvendige baseret på installerede appversioner.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Inkluder samme version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Mål også APK-filer der matcher den installerede version. Deaktiver for kun at fjerne ældre versioner.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR-mapper</string>
     <string name="systemcleaner_filter_lostdir_summary">Midlertidige filer, der oprettes, når der overføres data mellem Android-enheder.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux-filer</string>
@@ -92,7 +94,12 @@
     <string name="systemcleaner_customfilter_editor_size_label">Størrelses begrænsninger</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimumsstørrelse</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimal størrelse</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Begræns matches baseret på filstørrelse. Lad stå tomt for at matche enhver størrelse.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Aldersrestriktioner</string>
     <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimumsalder</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimal alder</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Begræns matches baseret på filers alder (sidst ændret tidspunkt). Lad stå tomt for at matche enhver alder.</string>
     <string name="systemcleaner_customfilter_import_action">Importér nyt filter</string>
     <string name="systemcleaner_customfilter_export_action">Eksportér valgt filter</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Du har ikke-gemte ændringer!</string>
 </resources>

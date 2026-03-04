@@ -1,5 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">ဖိုင်များကို သိုထားမရှုပြန်ဆွဲ ဖိုင်ဖိုင်ကို swipe လုပြီးထားလုးခြင်းများ သိုထားလုးဆေးတွေးသည်။</string>
+    <string name="swiper_dashcard_description">ဖိုင်သွေးမှုသမ်းခြေး ဖိုင်မှေက်ကြည့်မှု ဖိုင်သွေးကို ဖိုင်လိုက်ဆွဲ swipe လုပြီးရုံရုံခှာမှည့်သည်။</string>
+    <string name="swiper_start_action">Swipe စတင်ရန်</string>
+    <string name="swiper_continue_action">သှားရှား ဆက်ရန်</string>
+    <string name="swiper_sessions_description">ဖိုင်များကို လျှော့ချ အဆင့်မြားဆေး စိုးဂဏေစားနှင််:\n\n1. သက်ဖတ်ရန်ဖိုင်တွဲကို ရွေးချယ်ပါ\n2. ဖိုင်ဖိုင်ကို သိုထားနှင််ခြင်းများ သိုထားသွားကြေားများ swipe လုပြီးပါ\n3. သင်မ်းခြယ်များကို ဆေးသပြောက်ပါ\n\nအခုောဆုံးဖည့်ယဖက်ကို နေစ်မှမဪ ဖိုင်များကို မဖက်မအချားပါ။</string>
+    <string name="swiper_select_folders_action">ဖိုင်တွဲများ ရွေးချယ်ပါ</string>
+    <string name="swiper_scanning_title">စကင်ဖတ်နေစ်သည်…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="other">%d ခု တွေးပုံသည်</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="other">%d ခု ဖက်ချလိုက်ပြီးပြီးသည်</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="other">%d ခု မအစားနေရာချသည်</item>
+    </plurals>
+    <string name="swiper_item_position">%2$d ခု အနက် #%1$d</string>
+    <string name="swiper_keep_action">သိုထားလုးကို ဆေးလိုက်ပါ</string>
+    <string name="swiper_skip_action">ကျော်ပြန်ပါ</string>
+    <string name="swiper_review_action">သုံးသပ်ချက် ပေးရန်</string>
+    <string name="swiper_status_title">ဆုံးပြေဆုံးခြင်းများ သုံးသပြည်ပါ</string>
+    <string name="swiper_status_action_keep_selected">ရွေးချယ်ပြီးသောကို ဆေးလိုက်ပါ</string>
+    <string name="swiper_status_action_delete_selected">ရွေးချယ်ထားသည်ကို ဖျက်ပါ</string>
+    <string name="swiper_status_action_reset_selected">ရွေးချယ်ပြီးသောကို အသစ်သန်ပြန်ပါ</string>
+    <string name="swiper_decision_undecided">ဆုံးပြေဆုံးမခြယ်ပြီး</string>
+    <string name="swiper_retry_action">ချုမ်းကြိုးပြန်ပါ</string>
+    <string name="swiper_delete_confirmation_title">ဖိုင်များ ဖက်ချလိုက်မည်လား?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="other">ဤလုပ်ဆောင်ချက်သည် %1$d ဖိုင် (%2$s) ကို အမြဲတမ်းဖက်ချလိုက်မည်။ ဤလုပ်ဆောင်ချက်ကို နောက်ပြန်ဆွဲ၍မရပါ။</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်သောခုများသည် နောက်ကျော်သုံးဖေအတွက် ကျန်ပါတ်မှုသည်။</item>
+    </plurals>
+    <string name="swiper_delete_x_action">%1$d ကို ဖက်ချလိုက်ပါ</string>
+    <string name="swiper_settings_swap_directions_title">Swipe အလြာအဆြာ လဲစပြပြန်ပါ</string>
+    <string name="swiper_settings_swap_directions_summary">သိုထားလုးကို ဆေးလိုက်ရန်ဆေး ဘ်နတ်ကိုအလြာဆေး ဆေးလိုက်ပါ၍ နတ်ကိုအလြာ ဖက်ချပါ။</string>
+    <string name="swiper_settings_show_details_title">ဖိုင်အသေးအစားကို ပြသောသောရန်</string>
+    <string name="swiper_settings_show_details_summary">Swipe စကᒰနေရာတွင် ဖိုင်အမည့်၏ အရွယ်အစားနှင်် ဖိုင်သောတာရက်များကို ပြသောဆည်ဆည်ရန်။</string>
+    <string name="swiper_settings_haptic_feedback_title">ခုံးခ်ခုံး အကြေးပြန်ပြန်</string>
+    <string name="swiper_settings_haptic_feedback_summary">သိုထားလုးများ သိုထားသွား ခြင်းခြင်းသည်လုးကို ခုံးခ်ခုံးချသည်။</string>
+    <string name="swiper_discard_session_confirmation_title">သှားရှားကို ဖယ်ချပါလား?</string>
+    <string name="swiper_discard_session_confirmation_message">ဆုံးပြေဆုံးများအားထေက်ပျောသွားမည်။ သခြေပါလား?</string>
+    <string name="swiper_no_preview_available">အင်ဂါ ပြသောသောမရှိပါ</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="other">%1$d ရက်က သှားရှားကို ဆက်ပြန်ပါ (%2$d%% ပြီးသား)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="other">%d သှားရှား</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်သောခု</item>
+    </plurals>
+    <string name="swiper_session_timestamps">%1$s တွင် ဖျစ်ချပြီးဆေး၏ သိုထားလုပြမည့်ဆျောက် %2$s</string>
+    <string name="swiper_session_remove_action">သှားရှားကို ဖယ်ချလိုက်ပါ</string>
+    <string name="swiper_sessions_empty_hint">ဖိုင်တွဲ ရွေးချယ်ပါလျှော့ + ကို နှိပြစ်ပြီး Swipe စတင်ရန်</string>
+    <string name="swiper_sessions_upgrade_body">ဤကန့်သတ်ချများကို ဖယ်ရန်လျှော့ အဆက်အမွေးပြန်ပါ။ အမည့်အသား အသုံးမပြုသည် အလိုက်အပိုင်ကို:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="other">သှားရှားတစ်ခုလျှော့ %d ဖိုင်</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="other">%d သှားရှား</item>
+    </plurals>
+    <string name="swiper_session_default_label">သှားရှား #%d</string>
+    <string name="swiper_session_rename_title">သှားရှားကို အမည့်အသေးပဲပြဲးရန်</string>
+    <string name="swiper_session_rename_hint">ဤသှားရှားအတွက် အမည့်အသေးတစ်ခု ထည့်သွင်းပါ</string>
+    <string name="swiper_sessions_current_sessions">လက်ရှိပြီးသော သှားရှားများ</string>
+    <string name="swiper_session_paths_label">ပောထ်များ</string>
+    <string name="swiper_session_status_label">အခြေအနေ</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="other">%d ခု ဆေးလိုက်ရန်</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="other">%d ခု ဖက်ချရန်</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="other">%d ဆုံးပြေဆုံးမခြယ်</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="other">%d ခု သိုထားလိုက်ပြီး</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="other">%d ခု ဖယ်ချလိုက်ပြီး</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="other">%d ခု သိုထားပြီး</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="other">%d ခု ဖယ်ချပြီး</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Swiper စကင်မှ \"%1$s\" ကို ဖယ်ထုတ်မည်လား?</string>
+    <string name="swiper_sessions_header_title">အသပ်ရပ်ပြင်ဆင်ရန် အဆင်သင့်ဖြစ်ပြီလား?</string>
+    <string name="swiper_sessions_suggestions_label">ဤနေရာစတင်ပါ:</string>
+    <string name="swiper_sessions_suggestion_downloads">ဒောင့်လိုက် ဖိုင်တွဲ</string>
+    <string name="swiper_sessions_suggestion_screenshots">မျက်နှာပြင် ဓာတ်ပုံများ</string>
+    <string name="swiper_sessions_suggestion_camera">ကမေရာသက်ဖိုင်တွဲ</string>
     <string name="swiper_stamp_keep_1">သိမ်း!</string>
     <string name="swiper_stamp_keep_2">ကောင်း!</string>
     <string name="swiper_stamp_keep_3">ဟုတ်!</string>
@@ -25,4 +121,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ ပြန်ယူမည်</string>
     <string name="swiper_help_title">Swiper အလုပ်လုပ်ပုံ</string>
     <string name="swiper_help_message">ဖိုင်တစ်ခုစီကို ပွတ်ဆွဲပြီး ဆုံးဖြတ်ပါ:\n\n← ဘယ်ဘက်သို့ ပွတ်ဆွဲ: %1$s\n→ ညာဘက်သို့ ပွတ်ဆွဲ: %2$s\n↑ အပေါ်သို့ ပွတ်ဆွဲ: ကျော်မည်\n↓ အောက်သို့ ပွတ်ဆွဲ: ပြန်ယူမည် (ပထမ ပွတ်ဆွဲပြီးနောက်)\n\nအောက်ခြေ ခလုတ်များကိုလည်း သုံးနိုင်ပါသည်။\n\nပြီးသွားသောအခါ \"ပြန်စစ်\" ကို တို့ပြီး သင့်ဆုံးဖြတ်ချက်များ အားလုံးကို ကြည့်ပါ။ ပြန်စစ်သည့် မျက်နှာပြင်တွင် အတည်ပြုသည့်အထိ ဘာမျှ မဖျက်ပါ။</string>
+    <string name="swiper_gesture_overlay_dismiss_action">နား လည်ပါပြီ</string>
+    <string name="swiper_help_action">အကူအညီ</string>
 </resources>

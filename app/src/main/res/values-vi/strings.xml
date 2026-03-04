@@ -23,6 +23,10 @@
         <item quantity="other">%1$d tệp đã sẵn sàng (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ ứng dụng đang làm vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
+    <string name="debug_debuglog_short_recording_title">Ghi âm rất ngắn</string>
+    <string name="debug_debuglog_short_recording_desc">Bản ghi âm quá ngắn. Nhật ký gỡ lỗi là bản ghi âm, không phải ảnh chụp — hãy tái tạo sự cố trong khi đang ghi âm để nhật ký có ích.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Tiếp tục ghi âm</string>
+    <string name="debug_debuglog_short_recording_stop_action">Vẫn dừng lại</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -205,6 +209,7 @@
     <string name="debug_mode_explanation">Kích hoạt các tùy chọn kiểm tra và đầu ra dài dòng hơn. Ứng dụng sẽ chạy chậm hơn và hoạt động khác đi.</string>
     <string name="debug_bugreporter_label">Báo cáo lỗi tự động</string>
     <string name="debug_bugreporter_summary">Tự động báo cáo sự cố, ví dụ: chi tiết về sự cố ứng dụng để tôi có thể tìm ra lý do và khắc phục sự cố.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Chế độ gỡ lỗi đã được kích hoạt</string>
     <string name="debug_card_trace_mode_label">Bật chế độ dò tìm dấu vết</string>
     <string name="debug_card_dryrun_mode_label">Chế độ chạy thử (tắt chức năng xóa)</string>
@@ -254,4 +259,5 @@ TheNothingGuy</string>
     <string name="shortcuts_settings_category">Phím tắt</string>
     <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

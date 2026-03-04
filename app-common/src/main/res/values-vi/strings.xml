@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Cảm ơn bạn</string>
     <string name="general_error_type_mismatch_msg">Kiểu không khớp: Muốn %1$s, nhưng đã có %2$s.</string>
     <string name="general_error_cant_access_msg">Không thể truy cập %s.</string>
-    <string name="general_error_root_unavailable">Quyền truy cập Root không khả dụng.</string>    <string name="general_error_no_compatible_app_found_msg">Không tìm thấy ứng dụng tương thích để xử lý yêu cầu này.</string>
+    <string name="general_error_root_unavailable">Quyền truy cập Root không khả dụng.</string>
+    <string name="general_error_no_compatible_app_found_msg">Không tìm thấy ứng dụng tương thích để xử lý yêu cầu này.</string>
     <string name="general_todo_msg">Tính năng này vẫn đang được phát triển và hiện không khả dụng.</string>
     <string name="general_share_action">Chia sẻ</string>
     <string name="general_done_action">Xong</string>
     <string name="general_apply_action">Áp dụng</string>
-    <string name="general_copy_action">Sao chép</string>    <string name="general_cancel_action">Hủy</string>
+    <string name="general_copy_action">Sao chép</string>
+    <string name="general_cancel_action">Hủy</string>
     <string name="general_discard_action">Bỏ qua</string>
     <string name="general_reset_action">Đặt lại</string>
     <string name="general_drag_handle_description">Kéo để sắp xếp lại</string>
-    <string name="general_save_action">Lưu</string>    <string name="general_gotit_action">Đã hiểu</string>
+    <string name="general_save_action">Lưu</string>
+    <string name="general_gotit_action">Đã hiểu</string>
     <string name="general_fix_action">Sửa lỗi</string>
     <string name="general_set_up_action">Thiết lập</string>
     <string name="general_edit_action">Sửa</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">Hệ thống</string>
     <string name="setup_title">Thiết lập</string>
     <string name="setup_feature_requires_additional_setup_x">Tính năng này yêu cầu hoàn thành các mục thiết lập bổ sung: %s</string>
+    <string name="upgrade_feature_requires_pro">Yêu cầu Pro</string>
+    <string name="general_include_multiuser_label">Bao gồm những người dùng khác</string>
+    <string name="general_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
+    <string name="general_unsaved_confirmation_message">Bạn có thay đổi chưa lưu!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">Đã tạo %d loại trừ</item>
     </plurals>
@@ -171,7 +178,4 @@
     <string name="swiper_tool_name">Vuốt</string>
     <string name="stats_label">Lịch sử</string>
     <string name="settings_category_tools_label">Công cụ</string>
-    <string name="general_include_multiuser_label">Bao gồm những người dùng khác</string>
-    <string name="general_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
-    <string name="general_unsaved_confirmation_message">Bạn có các thay đổi chưa lưu!</string>
 </resources>

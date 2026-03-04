@@ -76,4 +76,5 @@
         <item quantity="other">อย่างน้อย %d วัน</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">ประมาณ ~%d%% สำหรับไฟล์ JPEG</string>
+    <string name="squeezer_onboarding_got_it">เข้าใจแล้ว</string>
 </resources>

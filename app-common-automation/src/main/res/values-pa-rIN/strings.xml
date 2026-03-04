@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">SD Maid ਨੇ ਸਮਾਂ ਸੀਮਾ ਦੇ ਅੰਦਰ ਸਾਰੇ ਪੜਾਅ ਪੂਰੇ ਨਹੀਂ ਕੀਤੇ। ਜੇ ਇਹ ਹੁੰਦਾ ਰਿਹਾ ਤਾਂ ਹੋ ਸਕਦਾ ਹੈ ਮੈਨੂੰ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਲਈ ਐਪ ਨੂੰ ਅਡਜਸਟ ਕਰਨਾ ਪਵੇ। ਅੱਪਡੇਟ ਲਈ ਚੈੱਕ ਕਰੋ ਜਾਂ ਮੇਰੇ ਨਾਲ ਸੰਪਰਕ ਕਰੋ ਤਾਂ ਜੋ ਮੈਂ ਇਸਨੂੰ ਠੀਕ ਕਰ ਸਕਾਂ।</string>
     <string name="automation_error_overlay_title">ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ</string>
     <string name="automation_error_overlay_body">SD Maid ਆਟੋਮੇਸ਼ਨ ਓਵਰਲੇ ਨਹੀਂ ਦਿਖਾ ਸਕਿਆ। ਇਜਾਜ਼ਤਾਂ ਚੈੱਕ ਕਰੋ ਅਤੇ ਆਪਣੇ ਡਿਵਾਈਸ ਨੂੰ ਰੀਬੂਟ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="automation_error_scheduler_title">ਨਿਰਧਾਰਿਤ ਆਟੋਮੇਸ਼ਨ ਅਸਫਲ ਹੋਈ</string>
+    <string name="automation_error_scheduler_body">ਇੱਕ ਨਿਰਧਾਰਿਤ ਕੰਮ ਨੇ ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਵਰਤਣ ਦੀ ਕੋਸ਼ਿਸ਼ ਕੀਤੀ, ਪਰ ਇਹ ਉਪਲਬਧ ਨਹੀਂ ਸੀ। ਜੇ ਤੁਹਾਨੂੰ ਇਸਦੀ ਲੋੜ ਨਹੀਂ, ਤਾਂ ਸ਼ਡਿਊਲਰ ਸੈਟਿੰਗਾਂ ਵਿੱਚ \"ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ\" ਵਿਕਲਪ ਅਯੋਗ ਕਰੋ।</string>
     <string name="automation_error_no_settings_title">ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਉਪਲਬਧ ਨਹੀਂ</string>
     <string name="automation_error_no_settings_body">ਇਸ ਸਿਸਟਮ ਐਪ ਵਿੱਚ ਕੋਈ ਸੈਟਿੰਗਾਂ ਸਕ੍ਰੀਨ ਨਹੀਂ ਹੈ। ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਕੈਸ਼ ਸਾਫ਼ ਕਰਨਾ ਸੰਭਵ ਨਹੀਂ ਹੈ। ਕੈਸ਼ ਸਾਫ਼ ਕਰਨ ਨੂੰ ਤੇਜ਼ ਕਰਨ ਲਈ ਇਸਨੂੰ ਬਾਹਰ ਕੱਢੋ।</string>
-    <string name="automation_loading">ਐਕਸੈਸਿਬਿਲਿਟੀ ਸੇਵਾ ਰਾਹੀਂ ਸਵੈਚਾਲਨ ਤਿਆਰ ਕਰ ਰਿਹਾ ਹੈ</string>
+    <string name="automation_loading">ਪਹੁੰਚਯੋਗਤਾ ਸੇਵਾ ਰਾਹੀਂ ਆਟੋਮੇਸ਼ਨ ਤਿਆਰ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ</string>
     <string name="automation_progress_find_ok_confirmation">ਪਿਛਲੀ ਕਾਰਵਾਈ ਦੀ ਪੁਸ਼ਟੀ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰ ਰਿਹਾ ਹੈ (ਕੀਵਰਡ: %s)</string>
 </resources>

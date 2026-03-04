@@ -82,4 +82,5 @@
         <item quantity="other">குறைந்தது %d நாட்கள் பழமையானது</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG கோப்புகளுக்கு மதிப்பிடப்பட்ட ~%d%% மிச்சம்</string>
+    <string name="squeezer_onboarding_got_it">புரிந்தது</string>
 </resources>

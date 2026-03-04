@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Teşekkürler</string>
     <string name="general_error_type_mismatch_msg">Biçim eşleşmiyor: İstenen %1$s fakat bulunan %2$s.</string>
     <string name="general_error_cant_access_msg">%s\'ye erişilemiyor.</string>
-    <string name="general_error_root_unavailable">Kök erişimi kullanılamıyor.</string>    <string name="general_error_no_compatible_app_found_msg">Bu isteği karşılamak için uygun uygulama bulunamadı.</string>
+    <string name="general_error_root_unavailable">Kök erişimi kullanılamıyor.</string>
+    <string name="general_error_no_compatible_app_found_msg">Bu isteği karşılamak için uygun uygulama bulunamadı.</string>
     <string name="general_todo_msg">Bu özellik hâlâ geliştirme aşamasında olduğundan şu anda kullanılamıyor.</string>
     <string name="general_share_action">Paylaş</string>
     <string name="general_done_action">Tamamlandı</string>
     <string name="general_apply_action">Uygula</string>
-    <string name="general_copy_action">Kopyala</string>    <string name="general_cancel_action">İptal et</string>
+    <string name="general_copy_action">Kopyala</string>
+    <string name="general_cancel_action">İptal et</string>
     <string name="general_discard_action">Yoksay</string>
     <string name="general_reset_action">Sıfırla</string>
     <string name="general_drag_handle_description">Yeniden sıralamak için sürükleyin</string>
-    <string name="general_save_action">Kaydet</string>    <string name="general_gotit_action">Anladım</string>
+    <string name="general_save_action">Kaydet</string>
+    <string name="general_gotit_action">Anladım</string>
     <string name="general_fix_action">Onar</string>
     <string name="general_set_up_action">Kur</string>
     <string name="general_edit_action">Düzenle</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Kur</string>
     <string name="setup_feature_requires_additional_setup_x">Bu özellik için ek kurulum öğelerinin tamamlanması gerekir: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro Gerektirir</string>
+    <string name="general_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
+    <string name="general_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
+    <string name="general_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Bir hariç tutma oluşturuldu</item>
         <item quantity="other">%d hariç tutma oluşturuldu</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Kaydırıcı</string>
     <string name="stats_label">Geçmiş</string>
     <string name="settings_category_tools_label">Araçlar</string>
-    <string name="general_include_multiuser_label">Diğer kullanıcıları dahil edin</string>
-    <string name="general_include_multiuser_summary">Bu cihazdaki diğer kullanıcı profillerinden uygulamaları dahil edin.</string>
-    <string name="general_unsaved_confirmation_message">Kaydedilmemiş değişiklikleriniz var!</string>
 </resources>

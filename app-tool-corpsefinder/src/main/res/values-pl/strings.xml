@@ -11,10 +11,10 @@
     <string name="corpsefinder_watcher_autodelete_title">Automatyczne usuwanie</string>
     <string name="corpsefinder_watcher_autodelete_summary">Automatycznie usuwa wszystkie pozostałe elementy związane z odinstalowaną aplikacją.</string>
     <plurals name="corpsefinder_watcher_notification_scan_result">
-        <item quantity="one">%1$d pozostałość została znaleziona po odinstalowaniu %2$s.</item>
-        <item quantity="few">%1$d pozostałości zostały znalezione po odinstalowaniu %2$s.</item>
-        <item quantity="many">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
-        <item quantity="other">%1$d pozostałości zostało znalezionych po odinstalowaniu %2$s.</item>
+        <item quantity="one">Znaleziono %1$d pozostałość po odinstalowaniu %2$s.</item>
+        <item quantity="few">Znaleziono %1$d pozostałości po odinstalowaniu %2$s.</item>
+        <item quantity="many">Znaleziono %1$d pozostałości po odinstalowaniu %2$s.</item>
+        <item quantity="other">Znaleziono %1$d pozostałości po odinstalowaniu %2$s.</item>
     </plurals>
     <plurals name="corpsefinder_watcher_notification_delete_result">
         <item quantity="one">Pomyślnie wyczyszczono (%1$s): Zwolniono %2$s i usunięto %3$d element.</item>
@@ -54,15 +54,15 @@
         <item quantity="other">Usunięto %d pozostałości aplikacji</item>
     </plurals>
     <plurals name="corpsefinder_result_x_corpses_found">
-        <item quantity="one">%d pozostałość po aplikacji wykryta</item>
-        <item quantity="few">%d pozostałości po aplikacji wykryte</item>
-        <item quantity="many">%d pozostałości po aplikacjach wykryto</item>
-        <item quantity="other">%d pozostałości po aplikacjach wykryto</item>
+        <item quantity="one">Wykryto %d pozostałość po aplikacji</item>
+        <item quantity="few">Wykryto %d pozostałości po aplikacji</item>
+        <item quantity="many">Wykryto %d pozostałości po aplikacjach</item>
+        <item quantity="other">Wykryto %d pozostałości po aplikacjach</item>
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Usunąć wszystkie pozostałości po aplikacjach?</string>
     <string name="corpsefinder_owners_label">Właściciele</string>
     <string name="corpsefinder_corpse_hints_label">Uwaga</string>
     <string name="corpsefinder_owner_unknown">Nieznany właściciel</string>
-    <string name="corpsefinder_corpse_hint_keeper">Ten przedmiot może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
-    <string name="corpsefinder_corpse_hint_common">Ten przedmiot ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
+    <string name="corpsefinder_corpse_hint_keeper">Ten element może zawierać dane, które chcesz zachować, mimo że jego właściciel został odinstalowany, np. zdjęcia lub kopie zapasowe.</string>
+    <string name="corpsefinder_corpse_hint_common">Ten element ma bardzo powszechną nazwę i może należeć do zainstalowanych aplikacji, których SD Maid nie zna.</string>
 </resources>

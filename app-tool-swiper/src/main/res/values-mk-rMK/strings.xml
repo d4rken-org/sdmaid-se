@@ -26,7 +26,7 @@
     <string name="swiper_review_action">Прегледај</string>
     <string name="swiper_status_title">Прегледај одлуки</string>
     <string name="swiper_status_action_keep_selected">Задржи избрани</string>
-    <string name="swiper_status_action_delete_selected">Избриши избрани</string>
+    <string name="swiper_status_action_delete_selected">Избришете го избраното</string>
     <string name="swiper_status_action_reset_selected">Ресетирај избрани</string>
     <string name="swiper_decision_undecided">Неодлучено</string>
     <string name="swiper_retry_action">Обиди се повторно</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Врати</string>
     <string name="swiper_help_title">Како работи Swiper</string>
     <string name="swiper_help_message">Лизгајте секоја датотека за да донесете одлука:\n\n← Лизгајте лево: %1$s\n→ Лизгајте десно: %2$s\n↑ Лизгајте горе: Прескокни\n↓ Лизгајте долу: Врати (по првото лизгање)\n\nМожете исто така да ги користите копчињата на дното.\n\nКога ќе завршите, допрете \"Прегледај\" за да ги видите сите ваши одлуки. Ништо не се брише додека не потврдите на екранот за преглед.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Разбрав</string>
+    <string name="swiper_help_action">Помош</string>
 </resources>

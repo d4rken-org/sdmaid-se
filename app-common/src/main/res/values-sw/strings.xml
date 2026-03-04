@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Asante</string>
     <string name="general_error_type_mismatch_msg">Aina haifanani: Ilitarajia %1$s, lakini ilipata %2$s.</string>
     <string name="general_error_cant_access_msg">Haiwezi kufikia %s.</string>
-    <string name="general_error_root_unavailable">Ufikiaji wa root haupatikani.</string>    <string name="general_error_no_compatible_app_found_msg">Hakuna programu inayofaa kupatikana kushughulikia ombi hili.</string>
+    <string name="general_error_root_unavailable">Ufikiaji wa root haupatikani.</string>
+    <string name="general_error_no_compatible_app_found_msg">Hakuna programu inayofaa kupatikana kushughulikia ombi hili.</string>
     <string name="general_todo_msg">Kipengele hiki bado kinatengenezwa na kwa sasa hakipatikani.</string>
     <string name="general_share_action">Shiriki</string>
     <string name="general_done_action">Imekamilika</string>
     <string name="general_apply_action">Tekeleza</string>
-    <string name="general_copy_action">Nakili</string>    <string name="general_cancel_action">Ghairi</string>
+    <string name="general_copy_action">Nakili</string>
+    <string name="general_cancel_action">Ghairi</string>
     <string name="general_discard_action">Tupa</string>
     <string name="general_reset_action">Weka upya</string>
     <string name="general_drag_handle_description">Buruta ili kupanga upya</string>
-    <string name="general_save_action">Hifadhi</string>    <string name="general_gotit_action">Nimeelewa</string>
+    <string name="general_save_action">Hifadhi</string>
+    <string name="general_gotit_action">Nimeelewa</string>
     <string name="general_fix_action">Rekebisha</string>
     <string name="general_set_up_action">Sanidi</string>
     <string name="general_edit_action">Hariri</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">Mfumo</string>
     <string name="setup_title">Usanidi</string>
     <string name="setup_feature_requires_additional_setup_x">Kipengele hiki kinahitaji kukamilisha vipengele vya ziada vya usanidi: %s</string>
+    <string name="upgrade_feature_requires_pro">Inahitaji Pro</string>
+    <string name="general_include_multiuser_label">Jumuisha watumiaji wengine</string>
+    <string name="general_include_multiuser_summary">Jumuisha programu kutoka wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
+    <string name="general_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Kutengwa kumoja kumeundwa</item>
         <item quantity="other">Kutengwa %d kumeundwa</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historia</string>
     <string name="settings_category_tools_label">Zana</string>
-    <string name="general_include_multiuser_label">Jumuisha watumiaji wengine</string>
-    <string name="general_include_multiuser_summary">Jumuisha programu kutoka wasifu wa watumiaji wengine kwenye kifaa hiki.</string>
-    <string name="general_unsaved_confirmation_message">Una mabadiliko ambayo hayajahifadhiwa!</string>
 </resources>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Tusen takk</string>
     <string name="general_error_type_mismatch_msg">Type-avvik: Ønsket %1$s, men fikk %2$s.</string>
     <string name="general_error_cant_access_msg">Får ikke tilgang til %s.</string>
-    <string name="general_error_root_unavailable">Root-tilgang er utilgjengelig.</string>    <string name="general_error_no_compatible_app_found_msg">Fant ingen kompatibel app for å håndtere denne forespørselen.</string>
+    <string name="general_error_root_unavailable">Root-tilgang er utilgjengelig.</string>
+    <string name="general_error_no_compatible_app_found_msg">Fant ingen kompatibel app for å håndtere denne forespørselen.</string>
     <string name="general_todo_msg">Denne funksjonen jobbes fortsatt med, og er for øyeblikket ikke tilgjengelig.</string>
     <string name="general_share_action">Del</string>
     <string name="general_done_action">Ferdig</string>
     <string name="general_apply_action">Bruk</string>
-    <string name="general_copy_action">Kopier</string>    <string name="general_cancel_action">Avbryt</string>
+    <string name="general_copy_action">Kopier</string>
+    <string name="general_cancel_action">Avbryt</string>
     <string name="general_discard_action">Forkast</string>
     <string name="general_reset_action">Tilbakestill</string>
     <string name="general_drag_handle_description">Dra for å endre rekkefølge</string>
-    <string name="general_save_action">Lagre</string>    <string name="general_gotit_action">Forstått</string>
+    <string name="general_save_action">Lagre</string>
+    <string name="general_gotit_action">Forstått</string>
     <string name="general_fix_action">Reparer</string>
     <string name="general_set_up_action">Konfigurer</string>
     <string name="general_edit_action">Rediger</string>
@@ -169,6 +172,10 @@
     <string name="general_user_label_system">System</string>
     <string name="setup_title">Oppsett</string>
     <string name="setup_feature_requires_additional_setup_x">Denne funksjonen krever fullføring av flere konfigureringselementer: %s</string>
+    <string name="upgrade_feature_requires_pro">Krever Pro</string>
+    <string name="general_include_multiuser_label">Inkluder andre brukere</string>
+    <string name="general_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
+    <string name="general_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">En ekskludering opprettet</item>
         <item quantity="other">%d ekskluderinger opprettet</item>
@@ -183,7 +190,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historie</string>
     <string name="settings_category_tools_label">Verktøy</string>
-    <string name="general_include_multiuser_label">Inkluder andre brukere</string>
-    <string name="general_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
-    <string name="general_unsaved_confirmation_message">Du har endringer som ikke er lagret!</string>
 </resources>

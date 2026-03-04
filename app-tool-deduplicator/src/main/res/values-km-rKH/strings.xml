@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">រក​ដ័តា​សែសែ​នៅ​ឧបករណ៍​របស់​អ្នក។</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">លុប​ច័ន្នំ​សែសែ​ចំនួន %d</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">រក​ក្នុង​សែសែ​ចំនួន %d</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">អាច​∠លុបតែងហអ់∡​បាន</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">បង្ហាញ​ជម្រើស​ដែល​អាច​លុប​កំពិល័​តែងហអ់​នៅ​ក្នុង​សែសែ​នឹង​មិន​មាន​កំពិល័​នើស។</string>
+    <string name="deduplicator_search_locations_title">តំបង់​ស័ក់</string>
+    <string name="deduplicator_search_locations_all_summary">តំបង់​ត័ម់តំបង់​ដែល​អាច​ចូល​បាន</string>
+    <string name="deduplicator_keep_prefer_paths_title">ចង់​រក្សាទុក​នៅ</string>
+    <string name="deduplicator_keep_prefer_paths_summary">នៅ​ពេល​សម្រច​ចំនួន​សែសែ​ដែល​ត្រូវ​រក្សាទុក ផ្តល់​រក្សា​កំពិល័​នៅ​តំបង់​នេះ។</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">មិន​មាន​តំបង់​ដែល​ត័ម់​ស័ក់</string>
+    <string name="deduplicator_skip_minsize_title">ទម្ហើន​តែច​ប្រៀម្បុន់</string>
+    <string name="deduplicator_skip_minsize_description">លឹចថ្នក​កំពិល័​ដែល​ព័ត័​តែច​ប្រៀម្បុន់។</string>
+    <string name="deduplicator_skip_uncommon_title">លឹចថ្នក​ប្រើ​ប្រាស់​ប្រើ​កម្មវិធី​សាមាញ្ញ​ឤឲតៃ</string>
+    <string name="deduplicator_skip_uncommon_description">រួម​បញ្ចូល​សឺីដាង​សឺីដាង ទ័កសារ នឹង​សម្ឤារ់​តែច​តែច​សាមាញ្ញ។</string>
+    <string name="deduplicator_detection_method_label">វិធី​ស័ក់​ត័ម់</string>
+    <string name="deduplicator_detection_method_checksum_title">ឡើ​ចន្ល​ម៉ួល​ប៉័ដ</string>
+    <string name="deduplicator_detection_method_checksum_summary">កំណត់​សែសែ​ដោយ​ការ​ឡើ​ចន្ល​ម៉ួល​ប៉័ដ​សម្រួល​កំពិល័។ កំពិល័​ដែល​មាន​ចន្ល​​ម៉ួល​ប៉័ដ​ដឹក​គ្នា​មាន​និយម​ដឹក​គ្នា។</string>
+    <string name="deduplicator_detection_method_phash_title">ឡើ​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​</string>
+    <string name="deduplicator_detection_method_phash_summary">រក​កំពិល័​ដែល​​ស័ក់ញ្ញ​ដោយ​ការ​វិជ័យ​ព័ត័​ នឹង​ប្រើប្រាស់​ហាស​​ប៉័ដ​ក្នុង​ចន្ល​។ ⚠️ ការស័ក់​ដោយ​᠀អិន​អាច​មាន​កំហុស​ប៉ុន្តែ​ត្រូវការ​បញ្ជាក់​ដែល​ត្រូវ​ការ​បញ្ជាក់​ដោយ​ដែលឯបនើ។</string>
+    <string name="deduplicator_occupied_space_label">ទាក​ស្តោរេជ​បាន​ប្រើ​ប្រាស់</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s ត្រួវ​បាន​ប្រើ​ប្រាស់​ដោយ​សែសែ</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ទម្ហើន​កំពិល័</string>
+    <string name="deduplicator_average_size_label">ទម្ហើន​មីត្យភាគ</string>
+    <string name="deduplicator_cluster_x_label">ក្លួម %s</string>
+    <string name="deduplicator_delete_confirmation_message">លុប​កំពិល័​ថ័ល​នើស​ក្នុង​សែសែ​តែងហអ់៴</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">លុប​កំពិល័​ថ័ល​នើស​ក្នុង​សែសែ​នេះ៴</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">លុប​កំពិល័​តែងហអ់​នៅ​ក្នុង​សែសែ​នេះ៴ មិន​មាន​កំពិល័​នើស​តើស!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">លុប​កំពិល័​ថ័ល​នើស​ក្នុង​សែសែ​ជ័រ​ជ័រ​ដែល​បាន​ជ្រើស៴</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">លុប​កំពិល័​តែងហអ់​នៅ​ក្នុង​សែសែ​ជ័រ​ជ័រ​ដែល​បាន​ជ្រើស៴ មិន​មាន​កំពិល័​នើស​តើស!</string>
+    <string name="deduplicator_delete_all_toggle_msg">លុប​ចំនួន​តែងហអ់។ មិន​មាន​កំពិល័​នើស​តើស!</string>
+    <string name="deduplicator_progress_comparing_files">កំពុង​ប្រើប្រាស់​កំពិល័</string>
+    <string name="deduplicator_details_cluster_title">សែសែ​ដែល​ជ័រ​ជ័រ</string>
+    <string name="deduplicator_matches_exact_label">ចំនួន​កឹប​​ដឹក​គ្នា</string>
+    <string name="deduplicator_matches_similar_label">ឯកសារដែលស្រដៀងគ្នា</string>
+    <string name="deduplicator_arbiter_title">យុទ្ធសាស្ត្រលុប</string>
+    <string name="deduplicator_arbiter_summary">កំណត់រចនាសម្ព័ន្ធឯកសារណាត្រូវរក្សា និងឯកសារណាត្រូវលុប។</string>
+    <string name="deduplicator_arbiter_explanation">នៅពេលលុបឯកសារស្ទួន SD Maid សម្រេចថាឯកសារណាត្រូវរក្សាដោយពិនិត្យលក្ខណៈវិនិច្ឆ័យនីមួយៗជាលំដាប់។ លក្ខណៈវិនិច្ឆ័យដំបូងដែលផ្តល់អ្នកឈ្នះច្បាស់ជាងគេ ជាអ្នកកំណត់លទ្ធផល។ អូសដើម្បីរៀបចំឡើងវិញ ចុចដើម្បីផ្លាស់ប្តូរទម្រង់។</string>
+    <string name="deduplicator_arbiter_select_mode_title">ជ្រើសរើសទម្រង់</string>
+    <string name="deduplicator_arbiter_configure_paths_action">កំណត់រចនាសម្ព័ន្ធផ្លូវ…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ប្រភេទស្ទួន</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ពេញចិត្តលើការផ្គូផ្គងដ៏ពិតប្រាកដជាង ឯកសារស្រដៀងគ្នា។</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">លិបិក្រមមេឌៀ</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ពិចារណាថាតើឯកសារត្រូវបានបង្កើតលិបិក្រមដោយអ្នកផ្តល់មេឌៀ។</string>
+    <string name="deduplicator_arbiter_criterium_location_title">តំណែរក្សាទែនៅក្នុង</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ពេញចិត្តឯកសារនៅហិវ័រត់ចម្ពហិវ័រខាងក្រោម។</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">កំណែឯកសអ្ឡូង</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ពេញចិត្តឯកសារនៅស្ថាប័ត័ឯកសអ្ឡូង សស័របកច្រើន អ្ឡូងជ្រើសឈ្រើក អ្ឡូងជ្រើស័ក្រៅន។</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">កាលបរិច្ឆើតក្ក</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ពេញចិត្តឯកសារចាស់អ្ណិ អ្ឡូងថ្មីប័ត ដោយយឹកសម្រាប់កាលបរិច្ឆើតក្ក។</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ទំហានឯកសារ</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ពេញចិត្តឯកសារធ្មឹន អ្ឡូងតូច នៅពេលតំហានខ្សែគ្នា</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">តំណែស្ថានត្រូវចិត្ត</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">រក្សឯកសារនៅតំណែស្ថានត្រូវចិត្តដែលអ្នកបានកំណត់។</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ពេញចិត្តការផ្គូផ្គងដ៏ពិតប្រាកដជាង</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ពេញចិត្តឯកសារស្រដៀងគ្នា</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ពេញចិត្តឯកសារដែលបានបង្កើតលិបិក្រម</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ពេញចិត្តឯកសារដែលមិនបានបង្កើតលិបិក្រម</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ពេញចិត្តហិវ័រត់ចម្ព</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ពេញចិត្តហិវ័រខាងក្រោម</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ពេញចិត្តឯកសអ្ឡូងសស័របកច្រើន</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ពេញចិត្តឯកសអ្ឡូងជ្រើសក្រៅន</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ពេញចិត្តឯកសារចាស់អ្ណិ</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ពេញចិត្តឯកសារថ្មីប័ត</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ពេញចិត្តឯកសារធំ</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ពេញចិត្តឯកសារតូច</string>
+    <string name="deduplicator_view_mode_groups_label">ក្រុម</string>
+    <string name="deduplicator_view_mode_directories_label">ថត</string>
+</resources>

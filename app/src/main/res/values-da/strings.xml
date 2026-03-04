@@ -24,6 +24,10 @@
         <item quantity="other">%1$d filer klar (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Denne funktion registrerer alt, appen gør, i en delbar fil. Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med betroede parter (f.eks. en udvikler, der foretager fejlfinding).</string>
+    <string name="debug_debuglog_short_recording_title">Meget kort optagelse</string>
+    <string name="debug_debuglog_short_recording_desc">Optagelsen var meget kort. Fejllogfiler er optagelser, ikke øjebliksbilleder — genskab problemet mens optagelsen er aktiv, for at loggen er nyttig.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Fortsæt optagelse</string>
+    <string name="debug_debuglog_short_recording_stop_action">Stop alligevel</string>
     <string name="tasks_activity_notification_channel_label">Aktive opgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbejder</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Dette vil permanent slette alle gemte fejlfindingslogsessioner. Denne handling kan ikke fortrydes.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Et sted at hænge ud og stille spørgsmål.</string>
+    <string name="support_contact_label">Kontakt udvikleren</string>
+    <string name="support_contact_desc">Udfyld en formular for at sende udvikleren en e-mail.</string>
+    <string name="support_contact_welcome">Jeg læser selv hver besked og gør mit bedste for at svare, men da jeg arbejder på dette alene, kan det tage lidt tid. Tak for din tålmodighed.</string>
+    <string name="support_contact_footer">Din besked vil blive sendt via e-mail. Enheds- og opsætningsoplysninger vedhæftes automatisk. Du kan vedhæfte skærmbilleder eller en video til e-mailen. Nogle dele af e-mailen vil være på engelsk, så udvikleren nemt kan forstå det.</string>
+    <string name="support_contact_category_label">Kategori</string>
+    <string name="support_contact_category_bug_label">Fejlrapport</string>
+    <string name="support_contact_category_feature_label">Funktionsønske</string>
+    <string name="support_contact_category_question_label">Spørgsmål</string>
+    <string name="support_contact_tool_label">Relateret værktøj</string>
+    <string name="support_contact_tool_appcleaner_label">Apprenser</string>
+    <string name="support_contact_tool_corpsefinder_label">Ligfinder</string>
+    <string name="support_contact_tool_systemcleaner_label">Systemrenser</string>
+    <string name="support_contact_tool_deduplicator_label">Duplikationsfjerner</string>
+    <string name="support_contact_tool_analyzer_label">Analyzer</string>
+    <string name="support_contact_tool_appcontrol_label">AppControl</string>
+    <string name="support_contact_tool_scheduler_label">Planlægger</string>
+    <string name="support_contact_tool_general_label">Generel</string>
+    <string name="support_contact_description_label">Beskrivelse</string>
+    <string name="support_contact_description_bug_hint">Beskriv hvad der skete, og hvordan problemet kan genskabes. Vær venligst specifik (minimum 20 ord).</string>
+    <string name="support_contact_description_feature_hint">Beskriv den funktion, du gerne vil se. Vær venligst specifik (minimum 20 ord).</string>
+    <string name="support_contact_description_question_hint">Beskriv dit spørgsmål i detaljer. Vær venligst specifik (minimum 20 ord).</string>
+    <string name="support_contact_expected_label">Forventet adfærd</string>
+    <string name="support_contact_expected_hint">Beskriv hvad du forventede ville ske (minimum 10 ord).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d ord</item>
+        <item quantity="other">%1$d / %2$d ord</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Fejlfindingslog</string>
+    <string name="support_contact_debuglog_zip_error">Kunne ikke komprimere fejllog</string>
+    <string name="support_contact_debuglog_picker_hint">Vedhæft en eksisterende fejllog, eller optag en ny.</string>
+    <string name="support_contact_debuglog_picker_empty">Ingen fejllogs fundet. Optag en først.</string>
+    <string name="support_contact_send_action">Åbn e-mail-app</string>
+    <string name="support_contact_no_email_app">Ingen e-mail-app fundet på denne enhed.</string>
     <string name="changelog_label">Ændringslog</string>
     <string name="settings_acknowledgements_label">Anerkendelser</string>
     <string name="settings_acknowledgements_category_translations_title">Oversættelser</string>
@@ -177,9 +214,13 @@
     <string name="debug_mode_explanation">Aktivér testindstillinger og mere detaljeret output. Appen vil køre langsommere og opføre sig anderledes.</string>
     <string name="debug_bugreporter_label">Automatiske fejlrapporter</string>
     <string name="debug_bugreporter_summary">Rapporterer automatisk problemer, f.eks. detaljer om appnedbrud, så jeg kan finde ud af hvorfor og rette det.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Fejlfindingstilstand er aktiveret</string>
+    <string name="debug_card_trace_mode_label">Aktivér sporingstilstand</string>
+    <string name="debug_card_dryrun_mode_label">Testtilstand (deaktivér sletning)</string>
     <string name="debug_card_areas_reload_action">Genindlæs dataområder</string>
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
+    <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
     <string name="settings_category_filter">Filter</string>
     <string name="settings_category_risklevel">Risikoniveau</string>
@@ -223,4 +264,5 @@
     <string name="shortcuts_settings_category">Genveje</string>
     <string name="shortcuts_onetap_enabled_title">Ettryksgenvej</string>
     <string name="shortcuts_onetap_enabled_summary">Vis \"Scan + Slet\"-genvejen ved langt tryk på app-ikonet. Bruger de samme værktøjer som ettryks-kontrolpanelet.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">ขอบคุณ</string>
     <string name="general_error_type_mismatch_msg">ประเภทไม่ตรงกัน: ต้องการ %1$s แต่ได้รับ %2$s</string>
     <string name="general_error_cant_access_msg">ไม่สามารถเข้าถึง %s</string>
-    <string name="general_error_root_unavailable">การเข้าถึง Root ไม่พร้อมใช้งาน</string>    <string name="general_error_no_compatible_app_found_msg">ไม่พบแอปที่เข้ากันได้สำหรับการประมวลผลคำขอนี้</string>
+    <string name="general_error_root_unavailable">การเข้าถึง Root ไม่พร้อมใช้งาน</string>
+    <string name="general_error_no_compatible_app_found_msg">ไม่พบแอปที่เข้ากันได้สำหรับการประมวลผลคำขอนี้</string>
     <string name="general_todo_msg">ฟีเจอร์นี้ยังอยู่ในระหว่างการพัฒนาและยังไม่พร้อมใช้งาน</string>
     <string name="general_share_action">แชร์</string>
     <string name="general_done_action">เสร็จสิ้น</string>
     <string name="general_apply_action">นำไปใช้</string>
-    <string name="general_copy_action">คัดลอก</string>    <string name="general_cancel_action">ยกเลิก</string>
+    <string name="general_copy_action">คัดลอก</string>
+    <string name="general_cancel_action">ยกเลิก</string>
     <string name="general_discard_action">ทิ้ง</string>
     <string name="general_reset_action">รีเซ็ต</string>
     <string name="general_drag_handle_description">ลากเพื่อจัดเรียงใหม่</string>
-    <string name="general_save_action">บันทึก</string>    <string name="general_gotit_action">เข้าใจแล้ว</string>
+    <string name="general_save_action">บันทึก</string>
+    <string name="general_gotit_action">เข้าใจแล้ว</string>
     <string name="general_fix_action">แก้ไข</string>
     <string name="general_set_up_action">ตั้งค่า</string>
     <string name="general_edit_action">แก้ไข</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">ระบบ</string>
     <string name="setup_title">การตั้งค่า</string>
     <string name="setup_feature_requires_additional_setup_x">คุณสมบัตินี้ต้องการให้ทำการตั้งค่าเพิ่มเติมให้เสร็จสิ้น: %s</string>
+    <string name="upgrade_feature_requires_pro">ต้องการ Pro</string>
+    <string name="general_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
+    <string name="general_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
+    <string name="general_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">สร้างการยกเว้น %d รายการ</item>
     </plurals>
@@ -165,12 +172,10 @@
     <string name="systemcleaner_tool_name">ตัวทำความสะอาดระบบ</string>
     <string name="appcleaner_tool_name">ตัวทำความสะอาดแอพ</string>
     <string name="deduplicator_tool_name">ตัวค้นหาไฟล์ซ้ำ</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
     <string name="appcontrol_tool_name">ตัวควบคุมแอพ</string>
     <string name="analyzer_tool_name">ตัววิเคราะห์พื้นที่จัดเก็บ</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ประวัติ</string>
     <string name="settings_category_tools_label">เครื่องมือ</string>
-    <string name="general_include_multiuser_label">รวมผู้ใช้คนอื่นๆ</string>
-    <string name="general_include_multiuser_summary">รวมถึงแอพจากผู้ใช้คนอื่นๆ ในอุปกรณ์นี้</string>
-    <string name="general_unsaved_confirmation_message">คุณมีการเปลี่ยนแปลงที่ยังไม่ได้บันทึก!</string>
 </resources>

@@ -10,7 +10,7 @@
     <string name="exclusion_type_path">Asukoha erand</string>
     <string name="exclusion_type_segment">Segmendi erand</string>
     <string name="exclusion_tags_alltools">Kõik tööriistad</string>
-    <string name="exclusion_target_label">Exclusion target</string>
+    <string name="exclusion_target_label">Välistuse sihtmärk</string>
     <string name="exclusion_editor_path_change_action">Asukoha muutmiseks puuduta</string>
     <string name="exclusion_option_allow_partial">Kõik osalised leiud</string>
     <string name="exclusion_option_ignore_casing">Eira tähesuurust</string>

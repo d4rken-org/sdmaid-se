@@ -11,6 +11,7 @@
     <string name="exclusion_type_segment">Pengecualian segmen</string>
     <string name="exclusion_tags_alltools">Semua alatan</string>
     <string name="exclusion_target_label">Sasaran pengecualian</string>
+    <string name="exclusion_editor_path_change_action">Ketik untuk tukar laluan</string>
     <string name="exclusion_option_allow_partial">Benarkan padanan separa</string>
     <string name="exclusion_option_ignore_casing">Abaikan selongsong</string>
     <string name="exclusion_editor_affected_tools_label">Alatan yang terjejas</string>
@@ -24,4 +25,5 @@
     <string name="exclusion_create_pkg_hint">Gunakan alat AppControl untuk membuat pengecualian aplikasi.</string>
     <string name="exclusion_create_path_hint">Gunakan alat StorageAnalyzer untuk membuat pengecualian laluan.</string>
     <string name="exclusion_show_defaults_action">Tunjukkan lalai</string>
+    <string name="exclusion_editor_unsaved_confirmation_message">Anda mempunyai pertukaran yang belum disimpan!</string>
 </resources>

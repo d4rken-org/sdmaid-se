@@ -82,4 +82,5 @@
         <item quantity="other">Kamida %d kunlik</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG fayllar uchun taxminan ~%d%% tejash</string>
+    <string name="squeezer_onboarding_got_it">Tushundim</string>
 </resources>

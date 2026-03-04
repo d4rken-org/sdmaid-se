@@ -88,4 +88,5 @@
         <item quantity="other">Najmanje %d dana stara</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Procjenjena ušteda od ~%d%% za JPEG datoteke</string>
+    <string name="squeezer_onboarding_got_it">U redu</string>
 </resources>

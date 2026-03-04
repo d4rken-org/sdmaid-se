@@ -29,6 +29,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">Antigüedad de capturas</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Antigüedad mínima para que las capturas de pantalla sean consideradas para eliminación.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APKs superfluos</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Archivos de configuración que ya no son necesarios según las versiones de las aplicaciones instaladas.</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Incluir misma versión</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">También incluir archivos APK que coincidan con la versión instalada. Deshabilitá para solo eliminar versiones anteriores.</string>
     <string name="systemcleaner_filter_lostdir_label">Carpetas LOST.DIR</string>
@@ -100,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limitar coincidencias según la antigüedad del archivo (fecha de última modificación). Dejá vacío para coincidir con cualquier antigüedad.</string>
     <string name="systemcleaner_customfilter_import_action">Importar un nuevo filtro</string>
     <string name="systemcleaner_customfilter_export_action">Exportar el filtro seleccionado</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">¡Tenés cambios sin guardar!</string>
 </resources>

@@ -31,7 +31,9 @@
     <string name="squeezer_quality_warning_low">අඩු ගුණත්වයන්හි දෘශ්‍ය අවශේෂ ඇති විය හැක.</string>
     <string name="squeezer_quality_warning_high">ඉතා ඉහළ ගුණත්වය අවම ඉඩ ඉතිරිකිරීම් සපයයි.</string>
     <string name="squeezer_types_category_label">රූප වර්ග</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">JPEG රූප (.jpg, .jpeg) ඇතුළත් කරන්න.</string>
+    <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">WebP රූප (.webp) ඇතුළත් කරන්න.</string>
     <string name="squeezer_skip_compressed_title">කලින් සංකෝචනය කළ ඒවා මඟ හරින්න</string>
     <string name="squeezer_skip_compressed_description">SD Maid විසින් දැනටමත් සංකෝචනය කර ඇති රූප මඟ හරින්න.</string>
@@ -80,4 +82,5 @@
         <item quantity="other">අවම දින %d ක් පැරණි</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ගොනු සඳහා ඇස්තමේන්තු ~%d%% ඉතිරි</string>
+    <string name="squeezer_onboarding_got_it">තේරුණා</string>
 </resources>

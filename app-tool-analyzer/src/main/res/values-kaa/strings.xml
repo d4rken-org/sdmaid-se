@@ -7,6 +7,14 @@
     <string name="analyzer_progress_scanning_userfiles">Paydalanıwshı faylların izlew</string>
     <string name="analyzer_progress_scanning_system">Sistema maǵlıwmatların skanerlew</string>
     <string name="analyzer_device_storage_title">Qurılma saqlaw orını</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s boś turır</item>
+        <item quantity="other">%s boś turır</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s paydalanilgan</item>
+        <item quantity="other">%s paydalanilgan</item>
+    </plurals>
     <string name="analyzer_content_access_opaque">Tuwrıdan-tuwrı kirisiw múmkin emes</string>
     <string name="analyzer_content_create_swiper_session_action">Swiper sessiyasın jaratıw</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">

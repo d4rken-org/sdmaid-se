@@ -82,4 +82,5 @@
         <item quantity="other">Најмалку %d дена стара</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Проценета ~%d%% заштеда за JPEG датотеки</string>
+    <string name="squeezer_onboarding_got_it">Разбрав</string>
 </resources>

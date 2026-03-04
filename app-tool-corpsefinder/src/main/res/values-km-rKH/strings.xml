@@ -1,4 +1,56 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="corpsefinder_explanation_short">ដ័តា​ដែល​ជាក់​កម្មវិធី​ដែល​បាន​ត៖លើក។</string>
+    <string name="corpsefinder_settings_summary">ស័ក់​ផ័ត្រ​ការ​ស័ក់​នឹង​កម្លាផ់​អុន្តរាយ​ការ​ស័ក់។</string>
+    <string name="corpsefinder_settings_risk_keeper_title">រួម​បញ្ចូល​សែសែសែ​ដែល​ចង់​រក្សាទុក</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">កំពិល័​ដែល​អ្នក​អាចចង់​រក្សាទុក​ ឥ​ទេឤឲត​កម្មវិធី​បាន​ត៖លើក។កំពិល័​នេះ​ឧ.​រូបថែ​ដែល​អ្នក​បាន​ថត់​ ប្រក​សម្រួល។</string>
+    <string name="corpsefinder_settings_risk_common_title">រួម​បញ្ចូល​ច័ន្នំ​សាមាញ្ញ</string>
+    <string name="corpsefinder_settings_risk_common_summary">ដ័តា​ដែល​មាន​ច័ន្នំ​សាមាញ្ញ​ ឧ.​ក្រង់​ ∠1793ៃត∡​ជាក់​កម្មវិធី​ដែល​មិន​ត្រួវ​បាន។</string>
+    <string name="corpsefinder_watcher_title">ឡើទូល​ត័ម​ការ​ដកចេញ​កម្មវិធី</string>
+    <string name="corpsefinder_watcher_summary">ស័ក់​ស្កាន​ហើយ​ហើជ​សែសែសែ​នៅ​ពេល​ដែល​កម្មវិធី​ត៖លើក។</string>
+    <string name="corpsefinder_watcher_autodelete_title">ការ​លុប​ដោយ​អុត្តោម៉ុនមាតិក</string>
+    <string name="corpsefinder_watcher_autodelete_summary">លុប​ហើយ​ហើជ​សែសែសែ​ដែល​រូប​ពី​កម្មវិធី​ដែល​បាន​ត៖លើក​ដោយ​អុត្តោម៉ុន។</string>
+    <plurals name="corpsefinder_watcher_notification_scan_result">
+        <item quantity="other">ព័ត័​ %1$d សែសែសែ​បាន​រក​ក្នុង​ពេល​ត៖លើក​ %2$s។</item>
+    </plurals>
+    <plurals name="corpsefinder_watcher_notification_delete_result">
+        <item quantity="other">ការ​លុប​ជោគជ័យ (%1$s)ៈ ស៉ុម %2$s នឹង​លុប​ %3$d ធាតុ។</item>
+    </plurals>
+    <string name="corpsefinder_watcher_notification_delete_action">លុប​សែសែសែ</string>
+    <string name="corpsefinder_filter_publicmedia_label">សឺីដាង​សាធារណះ</string>
+    <string name="corpsefinder_filter_publicmedia_summary">កំពិល័​សឺីដាង​សាធារណះ ឧ.​កំពិល័​ដែល​បាន​ទលក់​កំពុង​កម្មវិធី​សនទនា។</string>
+    <string name="corpsefinder_filter_publicobb_label">ត័ពយករ​ OBB</string>
+    <string name="corpsefinder_filter_publicobb_summary">ត័ពយករ​កម្មវិធី​បន្ថែម​ ឧ.​ត័ពយករ​ធ័លឹង។</string>
+    <string name="corpsefinder_filter_publicdata_label">ដ័តា​កម្មវិធី​សាធារណះ</string>
+    <string name="corpsefinder_filter_publicdata_summary">ដ័តា​កម្មវិធី​ដែល​មិន​សង្កាត់​ ឧ.​កែវិល្ត​កែវិល្ត។</string>
+    <string name="corpsefinder_filter_sdcard_label">ការ្ត​ SD</string>
+    <string name="corpsefinder_filter_sdcard_summary">ទាក​ស្តោរេជ​សាធារណះ នៀះ​ក្នុង នឹង​ភ័នណ៍​ (ឧ.​ការ្ត​ SD)។</string>
     <string name="corpsefinder_filter_privatedata_label">ទិន្នន័យកម្មវិធីឯកជន</string>
+    <string name="corpsefinder_filter_privatedata_summary">ដ័តា​កម្មវិធី​ហើភ​ ឧ.​ត័ម់ចូល​លើក​អ្នក ការ​កំណត់​កម្មវិធី​នឹង​កែវិល្ត​សម្រួល។</string>
+    <string name="corpsefinder_filter_dalvik_label">កែវិល្ត​ Dalvik</string>
+    <string name="corpsefinder_filter_dalvik_summary">ដ័តា​ការ​ដែល​កម្មវិធី​​ដែល​បាន​ស៉ុម។</string>
+    <string name="corpsefinder_filter_artprofiles_label">ព័ត័ ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ព័ត័ ART ត្រូវ​បាន​ប្រើ​ប្រាស់​ Android ដើម្បី​លើក​សម្រួល​កម្មវិធី។</string>
+    <string name="corpsefinder_filter_applib_label">លឹបក្រម​កម្មវិធី</string>
+    <string name="corpsefinder_filter_applib_summary">ដ័តា​លឹបក្រម​ដែល​​យូត​កម្មវិធី។</string>
+    <string name="corpsefinder_filter_appsource_label">ញ័ទាក​កម្មវិធី</string>
+    <string name="corpsefinder_filter_appsource_summary">ដ័តា​ត៖ត័ំ​កម្មវិធី គឺ​​ចំនើក​ APK ទើប​នឹង​ត៖ត័ំ។</string>
+    <string name="corpsefinder_filter_appsource_private_label">ញ័ទាក​កម្មវិធី​ហើភ</string>
+    <string name="corpsefinder_filter_appsource_private_summary">ដ័តា​ត៖ត័ំ​កម្មវិធី​ដែល​មាន​ការ​សង្កត់​ ឧ.​កម្មវិធី​ប័ត្រ​ឣនកថ័ត់​ដែល​​ប្រើ​ត្រូវ​បាន។</string>
+    <string name="corpsefinder_filter_appasec_label">ត័ពយករ​កម្មវិធី​ដែល​បាន​ងឧត់ជំ</string>
+    <string name="corpsefinder_filter_appasec_summary">ត័ពយករ​កម្មវិធី​ដែល​បាន​ងឧត់ជំ ឧ.​ត័ពយករ​ធ័លឹង។</string>
+    <string name="corpsefinder_filter_app2sd_summary">ដ័តា​ដែល​បាន​ទើប​តាម​ទាក​ព័ត័​ក្នុង​ឤឲត​ App2SD។</string>
+    <string name="corpsefinder_filter_app2sd_label">App2SD</string>
+    <plurals name="corpsefinder_result_x_corpses_deleted">
+        <item quantity="other">លុប​សែសែសែ​កម្មវិធី​ចំនួន %d</item>
+    </plurals>
+    <plurals name="corpsefinder_result_x_corpses_found">
+        <item quantity="other">រក​ព័ត័​សែសែសែ​កម្មវិធី​ចំនួន​ %d</item>
+    </plurals>
+    <string name="corpsefinder_delete_all_confirmation_message">លុប​សែសែសែ​កម្មវិធី​តែងហអ់៴</string>
+    <string name="corpsefinder_owners_label">ម៉ឡាកការ់</string>
+    <string name="corpsefinder_corpse_hints_label">កំណត់</string>
+    <string name="corpsefinder_owner_unknown">ម៉ឡាកការ់​មិន​ត្រួវ​បាន</string>
+    <string name="corpsefinder_corpse_hint_keeper">ធាតុ​នេះ​អាច​ប័តក​ដ័តា​ដែល​អ្នក​ចង់​រក្សាទុក​តែ​ម៉ឡាកការ់​បាន​ត៖លើក​ ឧ.​រូបថែ​ ប្រក​សម្រួល។</string>
+    <string name="corpsefinder_corpse_hint_common">ធាតុ​នេះ​មាន​ច័ន្នំ​សាមាញ្ញ​នឹង​អាច​ជាក់​កម្មវិធី​ដែល​នឹង​រក្សា​ SD Maid មិន​ត្រួវបាន។</string>
 </resources>

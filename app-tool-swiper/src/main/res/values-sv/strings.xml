@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d av %2$d</string>
     <string name="swiper_keep_action">Behåll</string>
     <string name="swiper_skip_action">Hoppa över</string>
-    <string name="swiper_review_action">Granska</string>
+    <string name="swiper_review_action">Recensera</string>
     <string name="swiper_status_title">Granska beslut</string>
     <string name="swiper_status_action_keep_selected">Behåll valda</string>
-    <string name="swiper_status_action_delete_selected">Ta bort valda</string>
+    <string name="swiper_status_action_delete_selected">Radera valda</string>
     <string name="swiper_status_action_reset_selected">Återställ valda</string>
     <string name="swiper_decision_undecided">Obestämt</string>
     <string name="swiper_retry_action">Försök igen</string>
@@ -53,6 +53,10 @@
         <item quantity="one">Fortsätt session från %1$d dag sedan (%2$d%% klart)</item>
         <item quantity="other">Fortsätt session från %1$d dagar sedan (%2$d%% klart)</item>
     </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessioner</item>
+    </plurals>
     <plurals name="swiper_dashcard_x_undecided_items">
         <item quantity="one">%d obestämt objekt</item>
         <item quantity="other">%d obestämda objekt</item>
@@ -65,9 +69,13 @@
         <item quantity="one">%d fil per session</item>
         <item quantity="other">%d filer per session</item>
     </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessioner</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_session_rename_title">Byt namn på session</string>
     <string name="swiper_session_rename_hint">Ange ett namn för denna session</string>
-    <string name="swiper_session_default_label">Session #%d</string>
     <string name="swiper_sessions_current_sessions">Aktuella sessioner</string>
     <string name="swiper_session_paths_label">Sökvägar</string>
     <string name="swiper_session_status_label">Status</string>
@@ -130,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Ångra</string>
     <string name="swiper_help_title">Hur Swiper fungerar</string>
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Jag fattar</string>
+    <string name="swiper_help_action">Hjälp</string>
 </resources>

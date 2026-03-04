@@ -29,7 +29,7 @@
     <string name="swiper_item_position">#%1$d מתוך %2$d</string>
     <string name="swiper_keep_action">שמור</string>
     <string name="swiper_skip_action">דלג</string>
-    <string name="swiper_review_action">סקור</string>
+    <string name="swiper_review_action">סקירה</string>
     <string name="swiper_status_title">סקור החלטות</string>
     <string name="swiper_status_action_keep_selected">שמור נבחרים</string>
     <string name="swiper_status_action_delete_selected">מחק נבחרים</string>
@@ -172,4 +172,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ בטל</string>
     <string name="swiper_help_title">איך Swiper עובד</string>
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
+    <string name="swiper_help_action">עזרה</string>
 </resources>

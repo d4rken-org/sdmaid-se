@@ -25,12 +25,15 @@
     <string name="appcontrol_app_exclude_edit_description">Custa aplicatzione est correnteménte esclusa dae una o prus ainas.</string>
     <string name="appcontrol_tag_user">Usuàriu</string>
     <string name="appcontrol_tag_active">Recenteménte ativu</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Bundle</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archivadu</string>
     <string name="appcontrol_tag_uninstalled">Datos petzi</string>
     <string name="appcontrol_tag_not_installed">No installadu</string>
     <string name="appcontrol_tag_enabled">Abilitadu</string>
     <string name="appcontrol_tag_disabled">Disabilitadu</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Abilitende aplicatzione</string>
     <string name="appcontrol_progress_disabling_package">Disabilitende aplicatzione</string>
     <string name="appcontrol_list_filteroptions_label">Optziones de filtru</string>
@@ -75,6 +78,7 @@
     <string name="appcontrol_app_sizes_title">Mannària de aplicatzione</string>
     <string name="appcontrol_app_sizes_apk_label">Aplicatzione</string>
     <string name="appcontrol_app_sizes_data_label">Datos</string>
+    <string name="appcontrol_app_sizes_cache_label">Cache</string>
     <string name="appcontrol_toggle_confirmation_title">Confirmarre atzione</string>
     <plurals name="appcontrol_toggle_confirmation_message_x">
         <item quantity="one">Cambiare s\'istadu abilitadu/disabilitadu de %d aplicatzione?</item>
@@ -120,5 +124,10 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Tempus de ischermada: %1$s dae %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Ùrtimu agiornamentu: %s</string>
     <string name="appcontrol_item_installedat_x_label">Installadu su: %s</string>
+    <string name="shortcut_appcontrol_short">Controllu Apps</string>
     <string name="shortcut_appcontrol_long">Gesti is aplicatziones installadas</string>
+    <string name="appcontrol_automation_loading">Preparende s\'automatizatzione tràmite su servitziu de atzessibilidade</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Provende a cunfirmare s\'atzione in antis (faeddos crae: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Includi àteros utentes</string>
+    <string name="appcontrol_include_multiuser_summary">Includi apps dae àteros profìlos de utente in custu dispositivu.</string>
 </resources>

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Hlanza amafolda ngokushesha — swayipha amafayela ukuze ugcine, ususe, noma uyeqe.</string>
+    <string name="swiper_dashcard_description">Hlanza amafolda athile ngokushesha kunesiphequluli samafayela — swayipha nje ifayela ngalinye.</string>
     <string name="swiper_start_action">Qala ukuswayipha</string>
     <string name="swiper_continue_action">Qhubeka neseshini</string>
+    <string name="swiper_sessions_description">Buyekeza amafayela ngezinyathelo ezi-3 ezilula:\n\n1. Khetha ifolda ozoyiskena\n2. Swayipha amafayela ukuze ugcine, ususe, noma uyeqe\n3. Buyekeza ukukhetha kwakho bese uqinisekisa\n\nAkukho okususwayo kuze kube uthepha inkinobho yokugcina yokususa.</string>
     <string name="swiper_select_folders_action">Khetha amafolda</string>
     <string name="swiper_scanning_title">Kuyasesha…</string>
     <plurals name="swiper_result_x_items_found">
@@ -107,7 +111,7 @@
     <string name="swiper_sessions_header_title">Ulungele ukuhlanza?</string>
     <string name="swiper_sessions_suggestions_label">Zama ukuqala nge:</string>
     <string name="swiper_sessions_suggestion_downloads">Ifolda Yokulandwe</string>
-    <string name="swiper_sessions_suggestion_screenshots">Izithombe-skrini</string>
+    <string name="swiper_sessions_suggestion_screenshots">Izithombe zesikrini</string>
     <string name="swiper_sessions_suggestion_camera">Izithombe zekhamera</string>
     <string name="swiper_stamp_keep_1">Gcina!</string>
     <string name="swiper_stamp_keep_2">Kuhle!</string>
@@ -134,8 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Hlehlisa</string>
     <string name="swiper_help_title">Indlela i-Swiper esebenza ngayo</string>
     <string name="swiper_help_message">Swayipha ifayela ngalinye ukuze uthathe isinqumo:\n\n← Swayipha kwesokunxele: %1$s\n→ Swayipha kwesokudla: %2$s\n↑ Swayipha phezulu: Yeqa\n↓ Swayipha phansi: Hlehlisa (ngemva kokuswayipha kokuqala)\n\nUngasebenzisa nezinkinobho ezingezansi.\n\nUma uqedile, thepha \"Buyekeza\" ukuze ubone zonke izinqumo zakho. Akukho okususwayo kuze kube uqinisekisa kusikrini sokubuyekeza.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Hlanza amafolda ngokushesha — swayipha amafayela ukuze ugcine, ususe, noma uyeqe.</string>
-    <string name="swiper_dashcard_description">Hlanza amafolda athile ngokushesha kunesiphequluli samafayela — swayipha nje ifayela ngalinye.</string>
-    <string name="swiper_sessions_description">Buyekeza amafayela ngezinyathelo ezi-3 ezilula:\n\n1. Khetha ifolda ozoyiskena\n2. Swayipha amafayela ukuze ugcine, ususe, noma uyeqe\n3. Buyekeza ukukhetha kwakho bese uqinisekisa\n\nAkukho okususwayo kuze kube uthepha inkinobho yokugcina yokususa.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Ngiyaqonda</string>
+    <string name="swiper_help_action">Usizo</string>
 </resources>

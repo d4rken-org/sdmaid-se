@@ -70,7 +70,7 @@
     <string name="squeezer_setup_paths_title">Sökplatser</string>
     <string name="squeezer_setup_paths_default">Välj mappar att söka i</string>
     <string name="squeezer_setup_quality_title">Komprimeringskvalitet</string>
-    <string name="squeezer_setup_age_title">Lägsta ålder</string>
+    <string name="squeezer_setup_age_title">Minsta ålder</string>
     <string name="squeezer_setup_age_none">Ingen gräns (inkludera alla filer)</string>
     <string name="squeezer_setup_start_action">Starta skanning</string>
     <string name="squeezer_quality_hint_very_low">Kvalitet under 40% kan skapa oanvändbara bilder.</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Minst %d dagar gammal</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Uppskattad ~%d%% besparing för JPEG-filer</string>
+    <string name="squeezer_onboarding_got_it">Jag fattar</string>
 </resources>

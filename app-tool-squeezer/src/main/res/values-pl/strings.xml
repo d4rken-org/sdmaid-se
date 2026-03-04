@@ -4,20 +4,20 @@
     <plurals name="squeezer_result_x_images_found">
         <item quantity="one">Znaleziono %d obraz</item>
         <item quantity="few">Znaleziono %d obrazy</item>
-        <item quantity="many">Znaleziono %d obrazy</item>
-        <item quantity="other">%d obraz znaleziony</item>
+        <item quantity="many">Znaleziono %d obrazów</item>
+        <item quantity="other">Znaleziono %d obrazów</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">%s może zostać zwolniony</item>
-        <item quantity="few">%s może zostać zwolniony</item>
-        <item quantity="many">%s może zostać zwolniony</item>
-        <item quantity="other">%s może zostać zwolniony</item>
+        <item quantity="one">~%s może zostać zwolniony</item>
+        <item quantity="few">~%s może zostać zwolnione</item>
+        <item quantity="many">~%s może zostać zwolnionych</item>
+        <item quantity="other">~%s może zostać zwolnionych</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
         <item quantity="one">%d skompresowany obraz</item>
         <item quantity="few">%d skompresowane obrazy</item>
         <item quantity="many">%d skompresowanych obrazów</item>
-        <item quantity="other">%d obrazów skompresowanych</item>
+        <item quantity="other">%d skompresowanych obrazów </item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">Wybrano %d obraz</item>
@@ -60,15 +60,15 @@
     <string name="squeezer_history_title">Historia kompresji</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d element (%2$s)</item>
-        <item quantity="few">%1$d elementów (%2$s)</item>
-        <item quantity="many">%1$d elementy (%2$s)</item>
-        <item quantity="other">%1$d elementy (%2$s)</item>
+        <item quantity="few">%1$d elementy (%2$s)</item>
+        <item quantity="many">%1$d elementów (%2$s)</item>
+        <item quantity="other">%1$d elementów (%2$s)</item>
     </plurals>
     <string name="squeezer_history_empty">Brak historii kompresji</string>
     <string name="squeezer_history_clear_title">Wyczyść historię kompresji</string>
     <string name="squeezer_history_clear_message">Pozwoli to ponownie skompresować wcześniej skompresowane obrazy. Same obrazy nie są naruszone.</string>
     <string name="squeezer_onboarding_title">O kompresji obrazów</string>
-    <string name="squeezer_onboarding_message">Kompresja obrazu zmniejsza rozmiar pliku, usuwając szczegóły wizualne. Ten proces jest nieodwracalny - oryginalna jakość nie może być przywrócona.\n\nOto podgląd jak będą wyglądać Twoje obrazy:</string>
+    <string name="squeezer_onboarding_message">Kompresja obrazu zmniejsza rozmiar pliku, usuwając szczegóły wizualne. Ten proces jest nieodwracalny - oryginalna jakość nie może być przywrócona.\n\nOto podgląd jak będą wyglądać twoje obrazy:</string>
     <string name="squeezer_onboarding_original_label">Oryginał</string>
     <string name="squeezer_onboarding_compressed_label">Po kompresji</string>
     <string name="squeezer_onboarding_quality_label">Jakość: %d%%</string>

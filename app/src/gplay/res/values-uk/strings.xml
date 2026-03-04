@@ -5,7 +5,7 @@
     <string name="upgrade_feature_requires_pro">Потрібен SD Maid SE Pro</string>
     <string name="upgrades_dashcard_title">Оновити SD Maid SE</string>
     <string name="upgrades_dashcard_body">SD Maid SE Pro пропонує кращі результати, більше функцій та опцій для досвідчених користувачів.</string>
-    <string name="upgrades_dashcard_upgrade_action">Апґрейд</string>
+    <string name="upgrades_dashcard_upgrade_action">Оновлення</string>
     <string name="upgrades_gplay_unavailable_error_title">Google Play недоступний</string>
     <string name="upgrades_gplay_unavailable_error_description">SD Maid не може підключитися до Google Play. Чи встановлено та оновлено Google Play? Ви ввійшли до свого облікового запису Google? Спробуйте очистити кеш додатку Google Play і перезавантажити пристрій.</string>
     <string name="upgrades_gplay_billing_error_label">Проблема з Google Play</string>
@@ -25,13 +25,13 @@
     <string name="upgrade_screen_how_body">Ви можете вибрати між одноразовою покупкою та дешевшою річною підпискою.\nПідписка починається з безкоштовної 14-денної пробної версії, після чого з вас стягуватиметься плата раз на рік. Пробну версію та підписку можна скасувати в будь-який час.\nОдні й ті ж функції, тільки різні моделі ціноутворення.</string>
     <string name="upgrade_screen_subscription_trial_action">Розпочати безкоштовний 14-денний пробний період</string>
     <string name="upgrade_screen_subscription_action">Підписатися</string>
-    <string name="upgrade_screen_subscription_action_hint">Вартість підписки - %s на рік.</string>
+    <string name="upgrade_screen_subscription_action_hint">Вартість підписки становить %s на рік.</string>
     <string name="upgrade_screen_iap_action">Одноразова покупка</string>
-    <string name="upgrade_screen_iap_action_hint">Одноразова покупка коштує %s.</string>
+    <string name="upgrade_screen_iap_action_hint">Вартість одноразової покупки становить %s.</string>
     <string name="upgrade_screen_thanks_toast">Ви найкращі! ❤️</string>
     <string name="upgrade_screen_restore_purchase_action">Відновити покупку</string>
-    <string name="upgrade_screen_restore_purchase_message">Ваше оновлення дійсне на всіх пристроях з тим самим обліковим записом Google.</string>
+    <string name="upgrade_screen_restore_purchase_message">Ваше оновлення дійсне для всіх пристроїв, зареєстрованих в одному обліковому записі Google.</string>
     <string name="upgrade_screen_restore_troubleshooting_msg">Поради щодо усунення несправностей у разі нерозпізнаних оновлень:</string>
-    <string name="upgrade_screen_restore_sync_patience_hint">Синхронізація Play Store може зайняти деякий час. Спробуйте перезавантажитися, очистити кеш Google Play або просто почекати.</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Синхронізація Play Store може зайняти деякий час. Спробуйте перезавантажити, очистити кеш Google Play або просто почекати.</string>
     <string name="upgrade_screen_restore_multiaccount_hint">Кілька облікових записів можуть заплутати Google Play. Вийдіть з інших облікових записів або встановлюйте через вебсайт Google Play, який примушує асоціювати їх з певним обліковим записом.</string>
 </resources>

@@ -17,7 +17,7 @@
         <item quantity="one">%d immagine selezionata</item>
         <item quantity="other">%d immagini selezionate</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Posizioni di ricerca</string>
+    <string name="squeezer_search_locations_title">Percorsi di ricerca</string>
     <string name="squeezer_search_locations_default_summary">Cartelle fotocamera (predefinito)</string>
     <string name="squeezer_min_size_title">Dimensione minima del file</string>
     <string name="squeezer_min_size_description">Ignora le immagini più piccole di questa dimensione.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Nessuna immagine comprimibile trovata.</string>
     <string name="squeezer_setup_warning">La compressione riduce permanentemente la qualità delle immagini per risparmiare spazio. Non può essere annullata. Controlla attentamente le impostazioni prima di iniziare.</string>
     <string name="squeezer_setup_explanation">Media Squeeze riduce la dimensione dei file immagine per liberare spazio. Questo riduce permanentemente la qualità delle immagini e non può essere annullato. Controlla attentamente le impostazioni prima di iniziare.</string>
-    <string name="squeezer_setup_paths_title">Posizioni di ricerca</string>
+    <string name="squeezer_setup_paths_title">Percorsi di ricerca</string>
     <string name="squeezer_setup_paths_default">Seleziona le cartelle da cercare</string>
     <string name="squeezer_setup_quality_title">Qualità di compressione</string>
     <string name="squeezer_setup_age_title">Età minima</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Almeno %d giorni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Risparmio stimato ~%d%% per file JPEG</string>
+    <string name="squeezer_onboarding_got_it">Fatto</string>
 </resources>

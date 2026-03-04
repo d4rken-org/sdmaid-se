@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Ordena cartafoles rapidamente -- pasa o dedo polos ficheiros para gardar, eliminar ou saltar.</string>
+    <string name="swiper_dashcard_description">Ordena cartafoles específicos máis rápido que cun explorador de ficheiros -- simplemente pasa o dedo en cada ficheiro.</string>
     <string name="swiper_start_action">Comezar a deslizar</string>
     <string name="swiper_continue_action">Continuar sesión</string>
+    <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
     <string name="swiper_select_folders_action">Seleccionar cartafoles</string>
     <string name="swiper_scanning_title">Escaneando…</string>
     <plurals name="swiper_result_x_items_found">
@@ -19,7 +23,7 @@
     <string name="swiper_item_position">#%1$d de %2$d</string>
     <string name="swiper_keep_action">Gardar</string>
     <string name="swiper_skip_action">Saltar</string>
-    <string name="swiper_review_action">Revisar</string>
+    <string name="swiper_review_action">Valorar</string>
     <string name="swiper_status_title">Revisar decisións</string>
     <string name="swiper_status_action_keep_selected">Gardar seleccionados</string>
     <string name="swiper_status_action_delete_selected">Eliminar seleccionados</string>
@@ -134,8 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Desfacer</string>
     <string name="swiper_help_title">Como funciona Swiper</string>
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
-    <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Ordena cartafoles rapidamente -- pasa o dedo polos ficheiros para gardar, eliminar ou saltar.</string>
-    <string name="swiper_dashcard_description">Ordena cartafoles específicos máis rápido que cun explorador de ficheiros -- simplemente pasa o dedo en cada ficheiro.</string>
-    <string name="swiper_sessions_description">Revisa ficheiros en 3 sinxelos pasos:\n\n1. Escolle un cartafol para escanear\n2. Pasa o dedo polos ficheiros para gardar, eliminar ou saltar\n3. Revisa as túas eleccións e confirma\n\nNon se elimina nada ata que toques o botón final de eliminar.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
+    <string name="swiper_help_action">Axuda</string>
 </resources>

@@ -29,6 +29,7 @@
     <string name="systemcleaner_filter_screenshots_age_label">स्क्रीनशॉट की आयु</string>
     <string name="systemcleaner_filter_screenshots_age_summary">स्क्रीनशॉट को मिटाने के लिए विचार करने के लिए न्यूनतम आयु।</string>
     <string name="systemcleaner_filter_superfluosapks_label">अत्यधिक APKs</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">इंस्टॉल किए गए एप संस्करणों के आधार पर अब आवश्यक नहीं रहे सेटअप फ़ाइलें।</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_label">समान संस्करण शामिल करें</string>
     <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">स्थापित संस्करण से मेल खाने वाली APK फ़ाइलों को भी लक्षित करें। केवल पुराने संस्करण हटाने के लिए अक्षम करें।</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR फोल्डर</string>
@@ -100,4 +101,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">फ़ाइल आयु (अंतिम संशोधित समय) के आधार पर मिलान सीमित करें। किसी भी आयु से मिलान के लिए खाली छोड़ें।</string>
     <string name="systemcleaner_customfilter_import_action">नया फ़िल्टर आयात करें</string>
     <string name="systemcleaner_customfilter_export_action">चयनित फ़िल्टर निर्यात करें</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">आपके पास असेव परिवर्तन हैं!</string>
 </resources>

@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">감사합니다</string>
     <string name="general_error_type_mismatch_msg">형식 오류: %1$s 을(를) 예상했으나, %2$s 을(를) 받음.</string>
     <string name="general_error_cant_access_msg">%s 를 접근할 수 없습니다.</string>
-    <string name="general_error_root_unavailable">루트 권한이 없습니다.</string>    <string name="general_error_no_compatible_app_found_msg">이 요청을 처리할 수 있는 앱을 찾지 못했습니다.</string>
+    <string name="general_error_root_unavailable">루트 권한이 없습니다.</string>
+    <string name="general_error_no_compatible_app_found_msg">이 요청을 처리할 수 있는 앱을 찾지 못했습니다.</string>
     <string name="general_todo_msg">이 기능은 아직 제작중이며, 아직 준비되지 않았습니다.</string>
     <string name="general_share_action">공유</string>
     <string name="general_done_action">완료</string>
     <string name="general_apply_action">적용</string>
-    <string name="general_copy_action">복사</string>    <string name="general_cancel_action">취소</string>
+    <string name="general_copy_action">복사</string>
+    <string name="general_cancel_action">취소</string>
     <string name="general_discard_action">취소</string>
     <string name="general_reset_action">초기화</string>
     <string name="general_drag_handle_description">끌어서 순서 변경</string>
-    <string name="general_save_action">저장</string>    <string name="general_gotit_action">확인</string>
+    <string name="general_save_action">저장</string>
+    <string name="general_gotit_action">확인</string>
     <string name="general_fix_action">해결</string>
     <string name="general_set_up_action">설정하기</string>
     <string name="general_edit_action">수정</string>
@@ -158,6 +161,10 @@
     <string name="general_user_label_system">시스템</string>
     <string name="setup_title">설정하기</string>
     <string name="setup_feature_requires_additional_setup_x">이 기능은 추가 설청 항목을 완료할 필요가 있습니다: %s</string>
+    <string name="upgrade_feature_requires_pro">Pro 필요</string>
+    <string name="general_include_multiuser_label">다른 유저 포함</string>
+    <string name="general_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
+    <string name="general_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="other">%d개의 제외 생성됨</item>
     </plurals>
@@ -171,7 +178,4 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">이력</string>
     <string name="settings_category_tools_label">도구</string>
-    <string name="general_include_multiuser_label">다른 유저 포함</string>
-    <string name="general_include_multiuser_summary">다른 유저들의 앱에서도 청소하기.</string>
-    <string name="general_unsaved_confirmation_message">저장하지 않은 변경사항이 있습니다!</string>
 </resources>

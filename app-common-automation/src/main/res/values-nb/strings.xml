@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid fullførte ikke alle stegene innen tidsfristen. Hvis dette fortsetter å skje, må jeg kanskje justere appen for enheten din. Se etter oppdateringer eller kontakt meg så jeg kan fikse det.</string>
     <string name="automation_error_overlay_title">Automatiseringsoverlegg</string>
     <string name="automation_error_overlay_body">SD Maid kunne ikke vise automatiseringsoverlegget. Sjekk tillatelsene og prøv å starte enheten på nytt.</string>
+    <string name="automation_error_scheduler_title">Planlagt automatisering mislyktes</string>
+    <string name="automation_error_scheduler_body">En planlagt oppgave prøvde å bruke tilgjengelighetstjenesten, men den var utilgjengelig. Hvis du ikke trenger dette, deaktiver alternativet \"Tilgjengelighetstjeneste\" i planleggerinnstillingene.</string>
     <string name="automation_error_no_settings_title">Innstillingsskjermen er utilgjengelig</string>
     <string name="automation_error_no_settings_body">Denne systemappen har ingen innstillingsskjerm. Det er ikke mulig å tømme hurtigbufferen via tilgjengelighetstjenesten. Ekskluder den for raskere tømming av hurtigbufferen.</string>
     <string name="automation_loading">Forbereder automatisering via tilgjengelighetstjeneste</string>

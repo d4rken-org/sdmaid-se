@@ -24,6 +24,10 @@
         <item quantity="other">%1$d arquivos prontos (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Este recurso grava tudo o que o app está fazendo em um arquivo compartilhável. O arquivo gerado contém informações confidenciais (por exemplo,  nomes de arquivos e apps instalados). Compartilhe apenas com partes confiáveis (por exemplo, uma solução de problemas para um desenvolvedor).</string>
+    <string name="debug_debuglog_short_recording_title">Gravação muito curta</string>
+    <string name="debug_debuglog_short_recording_desc">A gravação foi muito curta. Logs de depuração são gravações, não instantâneos — reproduza o problema enquanto a gravação estiver ativa para que o log seja útil.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Continuar gravação</string>
+    <string name="debug_debuglog_short_recording_stop_action">Parar mesmo assim</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">O SD Maid está trabalhando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Isto irá apagar permanentemente todas as sessões de depuração armazenadas. Esta ação não pode ser desfeita.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Um lugar para entrar e fazer perguntas.</string>
+    <string name="support_contact_label">Contatar desenvolvedor</string>
+    <string name="support_contact_desc">Preencha um formulário para enviar um e-mail ao desenvolvedor.</string>
+    <string name="support_contact_welcome">Eu leio cada mensagem pessoalmente e faço o meu melhor para responder, mas como trabalho sozinho nisso, pode levar um tempo. Obrigado pela sua paciência.</string>
+    <string name="support_contact_footer">Sua mensagem será enviada por e-mail. Informações do dispositivo e da configuração são anexadas automaticamente. Você pode anexar capturas de tela ou um vídeo ao e-mail. Algumas partes do e-mail estarão em inglês para que o desenvolvedor possa entendê-lo facilmente.</string>
+    <string name="support_contact_category_label">Categoria</string>
+    <string name="support_contact_category_bug_label">Relatório de bug</string>
+    <string name="support_contact_category_feature_label">Solicitação de recurso</string>
+    <string name="support_contact_category_question_label">Pergunta</string>
+    <string name="support_contact_tool_label">Ferramenta relacionada</string>
+    <string name="support_contact_tool_appcleaner_label">Limpador de Aplicativos</string>
+    <string name="support_contact_tool_corpsefinder_label">Localizador de Cadáver</string>
+    <string name="support_contact_tool_systemcleaner_label">Limpador do sistema</string>
+    <string name="support_contact_tool_deduplicator_label">Desduplicador</string>
+    <string name="support_contact_tool_analyzer_label">Analisador</string>
+    <string name="support_contact_tool_appcontrol_label">Gerenciamento de aplicativos</string>
+    <string name="support_contact_tool_scheduler_label">Agendador</string>
+    <string name="support_contact_tool_general_label">Gerais</string>
+    <string name="support_contact_description_label">Descrição</string>
+    <string name="support_contact_description_bug_hint">Descreva o que aconteceu e como reproduzir o problema. Seja específico (mínimo de 20 palavras).</string>
+    <string name="support_contact_description_feature_hint">Descreva o recurso que você gostaria de ver. Seja específico (mínimo de 20 palavras).</string>
+    <string name="support_contact_description_question_hint">Descreva sua pergunta em detalhes. Seja específico (mínimo de 20 palavras).</string>
+    <string name="support_contact_expected_label">Comportamento esperado</string>
+    <string name="support_contact_expected_hint">Descreva o que você esperava que acontecesse (mínimo de 10 palavras).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d palavra</item>
+        <item quantity="other">%1$d / %2$d palavras</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Log de debug</string>
+    <string name="support_contact_debuglog_zip_error">Falha ao compactar o log de depuração</string>
+    <string name="support_contact_debuglog_picker_hint">Anexe um log de depuração existente ou grave um novo.</string>
+    <string name="support_contact_debuglog_picker_empty">Nenhum log de depuração encontrado. Grave um primeiro.</string>
+    <string name="support_contact_send_action">Abrir aplicativo de e-mail</string>
+    <string name="support_contact_no_email_app">Nenhum aplicativo de e-mail encontrado neste dispositivo.</string>
     <string name="changelog_label">Atualizações</string>
     <string name="settings_acknowledgements_label">Agradecimentos</string>
     <string name="settings_acknowledgements_category_translations_title">Traduções</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Habilite opções de teste e saída mais detalhada. O aplicativo será executado mais lentamente e terá um desempenho diferente.</string>
     <string name="debug_bugreporter_label">Relatórios automáticos de erros</string>
     <string name="debug_bugreporter_summary">Automaticamente relata problemas, por exemplo, detalhes sobre falhas do aplicativo para eu poder descobrir o motivo e corrigi-lo.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Modo de depuração ativado</string>
     <string name="debug_card_trace_mode_label">Habilitar modo de rastreamento</string>
     <string name="debug_card_dryrun_mode_label">Modo de execução seca (desabilitar exclusão)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Atalhos</string>
     <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"Escanear + Excluir\" ao pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas que um toque.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

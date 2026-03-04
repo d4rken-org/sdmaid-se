@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">ပောထ်များ ရွေးချယ်ပါ</string>
+    <string name="picker_selected_paths_title">ရွေးချယ်ပြီးသော ပောထ်များ</string>
+    <string name="picker_unsaved_confirmation_message">ပြင်န်ဆွဲများကို ဖယ်ချမည်လား?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="other">%d ပောထ် ရွေးချယ်ပြီးသည်</item>
+    </plurals>
+    <string name="picker_home_action">တဪဖိုင်နေရာများ</string>
+</resources>

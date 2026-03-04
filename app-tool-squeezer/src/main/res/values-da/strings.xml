@@ -17,7 +17,7 @@
         <item quantity="one">%d billede valgt</item>
         <item quantity="other">%d billeder valgt</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Søgeplacering</string>
+    <string name="squeezer_search_locations_title">Søgeplaceringer</string>
     <string name="squeezer_search_locations_default_summary">Kameramapper (standard)</string>
     <string name="squeezer_min_size_title">Minimum filstørrelse</string>
     <string name="squeezer_min_size_description">Spring billeder over, der er mindre end denne størrelse.</string>
@@ -27,8 +27,8 @@
     <string name="squeezer_quality_label">Kvalitet</string>
     <string name="squeezer_quality_title">Kompressions kvalitet</string>
     <string name="squeezer_quality_description">Lavere kvalitet betyder mindre filstørrelse, men reduceret billedkvalitet.</string>
-    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
     <string name="squeezer_quality_example_format">Eksempel: %1$s billede → sparer ~%2$s ved %3$d%% kvalitet</string>
+    <string name="squeezer_quality_warning_low">Lavere kvaliteter kan forårsage synlige artefakter.</string>
     <string name="squeezer_quality_warning_high">Meget høj kvalitet giver minimal pladsbesparelser.</string>
     <string name="squeezer_types_category_label">Billedtyper</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Ingen komprimerbare billeder fundet.</string>
     <string name="squeezer_setup_warning">Komprimering reducerer permanent billedkvaliteten for at spare lagerplads. Dette kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
     <string name="squeezer_setup_explanation">Media Squeeze reducerer filstørrelsen af billeder for at frigøre lagerplads. Dette reducerer permanent billedkvaliteten og kan ikke fortrydes. Gennemgå dine indstillinger omhyggeligt, før du starter.</string>
-    <string name="squeezer_setup_paths_title">Søgeplacering</string>
+    <string name="squeezer_setup_paths_title">Søgeplaceringer</string>
     <string name="squeezer_setup_paths_default">Vælg mapper at søge i</string>
     <string name="squeezer_setup_quality_title">Komprimeringskvalitet</string>
     <string name="squeezer_setup_age_title">Minimumsalder</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Mindst %d dage gammel</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimeret ~%d%% besparelse for JPEG-filer</string>
+    <string name="squeezer_onboarding_got_it">Forstået</string>
 </resources>

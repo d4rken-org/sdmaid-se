@@ -50,6 +50,10 @@
     <string name="squeezer_compress_confirmation_title">I-compress ang mga larawan?</string>
     <string name="squeezer_compress_confirmation_message">Papalitan nito ang mga orihinal na larawan ng mga na-compress na bersyon. Hindi na maaaring ibalik ang aksyon na ito.</string>
     <string name="squeezer_history_title">History ng compression</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d mga item (%2$s)</item>
+    </plurals>
     <string name="squeezer_history_empty">Walang history ng compression</string>
     <string name="squeezer_history_clear_title">I-clear ang history ng compression</string>
     <string name="squeezer_history_clear_message">Papayagan nitong ma-compress muli ang mga dating na-compress na larawan. Hindi maaapektuhan ang mga larawan mismo.</string>
@@ -78,4 +82,5 @@
         <item quantity="other">Hindi bababa sa %d araw na edad</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Tinatayang ~%d%% na matitipid para sa mga JPEG file</string>
+    <string name="squeezer_onboarding_got_it">Kuha ko</string>
 </resources>

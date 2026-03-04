@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">អរគុណ</string>
     <string name="general_error_type_mismatch_msg">ប្រភេទមិនត្រូវគ្នា៖ ចង់បាន %1$s ប៉ុន្តែបានទទួល %2$s។</string>
     <string name="general_error_cant_access_msg">មិនអាចអាក់សេស %s បាន។</string>
-    <string name="general_error_root_unavailable">អាក់សេសឬស មិនអាចប្រើបានទេ។</string>    <string name="general_error_no_compatible_app_found_msg">រកមិនឃើញកម្មវិធីដែលឆបគ្នាក្នុងការដោះស្រាយសំណើនេះទេ។</string>
+    <string name="general_error_root_unavailable">អាក់សេសឬស មិនអាចប្រើបានទេ។</string>
+    <string name="general_error_no_compatible_app_found_msg">រកមិនឃើញកម្មវិធីដែលឆបគ្នាក្នុងការដោះស្រាយសំណើនេះទេ។</string>
     <string name="general_todo_msg">មុខងារនេះនៅកំពុងដំណើរការ ហើយបច្ចុប្បន្នមិនទាន់មានទេ។</string>
     <string name="general_share_action">ចែករំលែក</string>
     <string name="general_done_action">រួចរាល់</string>
     <string name="general_apply_action">អនុវត្ត</string>
-    <string name="general_copy_action">ចម្លង</string>    <string name="general_cancel_action">បោះបង់</string>
+    <string name="general_copy_action">ចម្លង</string>
+    <string name="general_cancel_action">បោះបង់</string>
     <string name="general_discard_action">លះបង់</string>
     <string name="general_reset_action">កំណត់ឡើងវិញ</string>
     <string name="general_drag_handle_description">អូសដើម្បីតម្រៀបឡើងវិញ</string>
-    <string name="general_save_action">រក្សាទុក</string>    <string name="general_gotit_action">យល់ហើយ</string>
+    <string name="general_save_action">រក្សាទុក</string>
+    <string name="general_gotit_action">យល់ហើយ</string>
     <string name="general_fix_action">ជួសជុល</string>
     <string name="general_set_up_action">រៀបចំ</string>
     <string name="general_edit_action">កែសម្រួល</string>
@@ -156,5 +159,23 @@
     <string name="general_error_ipc_deadobject_description">ការតភ្ជាប់ទៅសេវាកម្មដែលមានហានិភ័យ(ឧ. Magisk, Shizuku ឬសេវាកម្មកម្រិតប្រព័ន្ធផ្សេងទៀត) អាចនឹងត្រូវបានបាត់បង់ដោយស្មានមិនដល់។ សូមចាប់ផ្តើមឧបករណ៍របស់អ្នកឡើងវិញ។ ប្រសិនបើបញ្ហានៅតែបន្តកើតមាន សូមពិនិត្យការអាប់ដេត ឬទាក់ទងមកខ្ញុំ ដូច្នេះខ្ញុំអាចជួសជុលវាបាន។</string>
     <string name="general_user_label_owner">ម្ចាស់</string>
     <string name="general_user_label_system">ប្រព័ន្ធ</string>
+    <string name="setup_title">រៀបចំ</string>
+    <string name="setup_feature_requires_additional_setup_x">មុខ​ងារ​នេះ​ត្រូវ​ការ​បំពេញ​ធាតុ​ការ​រៀបចំ​បន្ថែម​ទៀត​ៈ %s</string>
+    <string name="upgrade_feature_requires_pro">ត្រូវការ Pro</string>
+    <string name="general_include_multiuser_label">រួម​បញ្ចូល​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត</string>
+    <string name="general_include_multiuser_summary">រួម​បញ្ចូល​កម្ម​វិធី​ពី​ប្រ​វត្តិ​រូប​អ្នក​ប្រើ​ប្រាស់​ផ្សេង​ទៀត​នៅ​ឧបករណ៍​នេះ។</string>
+    <string name="general_unsaved_confirmation_message">អ្នក​មាន​ការ​ផ្លាស់​ប្ដូរ​ដែល​មិន​ទាន់​រក្សា​ទុក!</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="other">បង្កើតការដកចេញចំនួន %d</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">ប្រវត្តិ</string>
     <string name="settings_category_tools_label">ឧបករណ៍</string>
 </resources>

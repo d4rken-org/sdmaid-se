@@ -23,10 +23,10 @@
     <string name="swiper_item_position">#%1$d de %2$d</string>
     <string name="swiper_keep_action">Mantén</string>
     <string name="swiper_skip_action">Omet</string>
-    <string name="swiper_review_action">Revisa</string>
+    <string name="swiper_review_action">Revisió</string>
     <string name="swiper_status_title">Revisió de les decisions</string>
     <string name="swiper_status_action_keep_selected">Mantén la selecció</string>
-    <string name="swiper_status_action_delete_selected">Suprimeix la selecció</string>
+    <string name="swiper_status_action_delete_selected">Suprimeix els seleccionats</string>
     <string name="swiper_status_action_reset_selected">Restableix la selecció</string>
     <string name="swiper_decision_undecided">Indecís</string>
     <string name="swiper_retry_action">Reintenta</string>
@@ -138,4 +138,6 @@
     <string name="swiper_gesture_overlay_down_undo">↓ Desfés</string>
     <string name="swiper_help_title">Com funciona l\'escombrador</string>
     <string name="swiper_help_message">Llisqueu cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
+    <string name="swiper_help_action">Ajuda</string>
 </resources>

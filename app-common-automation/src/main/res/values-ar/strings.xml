@@ -17,8 +17,10 @@
     <string name="automation_error_timeout_body">لم يكمل SD Maid جميع الخطوات ضمن الحد الزمني. إذا استمر هذا في الحدوث، قد أحتاج إلى تعديل التطبيق لجهازك. تحقق من التحديثات أو تواصل معي حتى أتمكن من إصلاحه.</string>
     <string name="automation_error_overlay_title">تراكب الأتمتة</string>
     <string name="automation_error_overlay_body">لم يتمكن SD Maid من إظهار تراكب الأتمتة. تحقق من الأذونات وحاول إعادة تشغيل جهازك.</string>
+    <string name="automation_error_scheduler_title">فشل الأتمتة المجدولة</string>
+    <string name="automation_error_scheduler_body">حاولت مهمة مجدولة استخدام خدمة إمكانية الوصول، لكنها لم تكن متاحة. إذا لم تكن بحاجة إلى ذلك، فقم بتعطيل خيار \"خدمة إمكانية الوصول\" في إعدادات المجدول.</string>
     <string name="automation_error_no_settings_title">شاشة الإعدادات غير متاحة</string>
     <string name="automation_error_no_settings_body">هذا التطبيق النظام ليس له شاشة إعدادات. مسح ذاكرة التخزين المؤقت عبر خدمة إمكانية الوصول غير ممكن. استثنه لتسريع مسح ذاكرة التخزين المؤقت.</string>
-    <string name="automation_loading">تحضير الأتمتة عبر خدمة الوصول</string>
+    <string name="automation_loading">إعداد التشغيل الآلي عن طريق خدمة الوصول</string>
     <string name="automation_progress_find_ok_confirmation">محاولة لتأكيد الإجراء السابق (الكلمات الرئيسية: %s)</string>
 </resources>

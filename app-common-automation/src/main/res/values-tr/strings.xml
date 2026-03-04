@@ -17,6 +17,8 @@
     <string name="automation_error_timeout_body">SD Maid tüm adımları zaman sınırı içinde tamamlamadı. Bu durum devam ederse, uygulamayı cihazınız için ayarlamam gerekebilir. Güncellemeleri kontrol edin veya bana ulaşın, böylece düzeltebilirim.</string>
     <string name="automation_error_overlay_title">Otomasyon katmanı</string>
     <string name="automation_error_overlay_body">SD Maid otomasyon katmanını gösteremedi. İzinleri kontrol edin ve cihazınızı yeniden başlatmayı deneyin.</string>
+    <string name="automation_error_scheduler_title">Zamanlanmış otomasyon başarısız oldu</string>
+    <string name="automation_error_scheduler_body">Bir zamanlanmış görev erişilebilirlik servisini kullanmaya çalıştı ama servis mevcut değildi. Erişilebilirlik servisine ihtiyacın yoksa zamanlama ayarlarından \"Erişilebilirlik servisi\" ayarını devre dışı bırak.</string>
     <string name="automation_error_no_settings_title">Ayarlar ekranı kullanılamıyor</string>
     <string name="automation_error_no_settings_body">Bu sistem uygulamasının ayarlar ekranı yok. Erişilebilirlik hizmeti aracılığıyla önbellek temizleme mümkün değil. Önbellek temizlemeyi hızlandırmak için bunu hariç tutun.</string>
     <string name="automation_loading">Erişilebilirlik hizmeti aracılığıyla otomasyon hazırlanıyor</string>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">നിങ്ങളുടെ ഉപകരണത്തിൽ ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">%d ആപ്പ് കണ്ടെത്തി</item>
+        <item quantity="other">%d ആപ്പുകൾ കണ്ടെത്തി</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">ആപ്പുകൾ ടോഗിൾ ചെയ്യുക</string>
+    <string name="appcontrol_toggle_app_enable_action">ആപ്പ് പ്രവർത്തനക്ഷമമാക്കുക</string>
+    <string name="appcontrol_toggle_app_disable_action">ആപ്പ് നിഷ്ക്രിയമാക്കുക</string>
+    <string name="appcontrol_toggle_app_enable_description">ഒരു ആപ്പ് പ്രവർത്തനക്ഷമമാക്കുന്നത് അത് പ്രവർത്തിക്കാൻ അനുവദിക്കുകയും, ഒരു ആക്റ്റിവിറ്റി ഉണ്ടെങ്കിൽ ലോഞ്ചറിൽ ദൃശ്യമാക്കുകയും ചെയ്യാം.</string>
+    <string name="appcontrol_toggle_app_disable_description">ഒരു ആപ്പ് നിഷ്ക്രിയമാക്കുന്നത് അത് പ്രവർത്തിക്കുന്നതിൽ നിന്ന് തടയുകയും മെനുകളിൽ നിന്ന് മറയ്ക്കുകയും ചെയ്യും. ഡേറ്റ നഷ്ടമില്ല.</string>
+    <string name="appcontrol_appstore_open_title">ആപ്പ് സ്റ്റോറിൽ തുറക്കുക</string>
+    <string name="appcontrol_appstore_open_description">ഈ ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പ് സ്റ്റോറിൽ ഇത് തുറക്കുക.</string>
+    <string name="appcontrol_systemsettings_open_title">ക്രമീകരണങ്ങൾ കാണിക്കുക</string>
+    <string name="appcontrol_systemsettings_open_description">ഈ ആപ്പിനായി ഉപകരണത്തിന്റെ സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കുക.</string>
+    <string name="appcontrol_app_launch_title">ആപ്പ് സമാരംഭിക്കുക</string>
+    <string name="appcontrol_app_launch_description">ഈ ആപ്പിന്റെ പ്രാഥമിക ആക്റിവിറ്റി സമാരംഭിക്കുക.</string>
+    <string name="appcontrol_app_forcestop_title">ഫോർസ് സ്റ്റോപ്പ്</string>
+    <string name="appcontrol_app_forcestop_description">ആപ്പ് നിര്ത്തുക. ഉപകരണം റീബൂട് ചെയ്യുന്നത് \u0d35രെ കിആപ്പ് തുറക്കുന്നത് വരെ സ്വയം ആരംഭിക്കുന്നതിൽ നിന്ന് തടയുക.</string>
+    <string name="appcontrol_app_uninstall_description">ഈ ആപ്പ് ഉപകരണത്തിൽ നിന്ന് അൻ ഇൻസ്റ്റാൾ ചെയ്യുക.</string>
+    <string name="appcontrol_app_exclude_add_title">ആപ്പ് ഒഴിവാക്കുക</string>
+    <string name="appcontrol_app_exclude_add_description">SD Maid-ലെ മറ്റ് പ്രവർത്തനങ്ങളിൽ നിന്ന് ഈ ആപ്പിനെ ഒഴിവാക്കുക.</string>
+    <string name="appcontrol_app_exclude_edit_title">ഒഴിവാക്കൽ എഡിറ്റ് ചെയ്യുക</string>
+    <string name="appcontrol_app_exclude_edit_description">ഈ ആപ്പ് കുറഞ്ഞത് ഒരു യമലാ ടൂളുകളിൽ നിൻന്നു ഒഴിവാക്കപ്പെട്ടിരിക്കുന്നു.</string>
+    <string name="appcontrol_tag_user">ഉപയോക്താവ്</string>
+    <string name="appcontrol_tag_active">ഗീചകാലത്തിൽ സക്രിയമായിരുന്നത്</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">ബംഡൽ</string>
+    <string name="appcontrol_tag_system">സിസ്റ്റം</string>
+    <string name="appcontrol_tag_archived">ആർക്കൈവ് ചെയ്തത്</string>
+    <string name="appcontrol_tag_uninstalled">ഡേറ്റ മാത്രം</string>
+    <string name="appcontrol_tag_not_installed">ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>
+    <string name="appcontrol_tag_enabled">പ്രവർത്തനക്ഷമമാക്കി</string>
+    <string name="appcontrol_tag_disabled">നിഷ്ക്രിയമാക്കി</string>
+    <string name="appcontrol_tag_debug">ഡീബഗ്</string>
+    <string name="appcontrol_progress_enabling_package">ആപ്പ് പ്രവർത്തനക്ഷമമാക്കുന്നു</string>
+    <string name="appcontrol_progress_disabling_package">ആപ്പ് നിഷ്ക്രിയമാക്കുന്നു</string>
+    <string name="appcontrol_list_filteroptions_label">ഫിൽടർ ഓപ്ഷൻസ്</string>
+    <string name="appcontrol_list_sortmode_name_label">ആപ്പ് പേര്</string>
+    <string name="appcontrol_list_sortmode_updated_label">അവസാനം അപ്ഡേറ്റ് ചെയ്തത്</string>
+    <string name="appcontrol_list_sortmode_installed_label">ആദ്യമായി ഇൻസ്റ്റാൾ ചെയ്തത്</string>
+    <string name="appcontrol_list_sortmode_packagename_label">പാക്കേജ്നാമ്</string>
+    <string name="appcontrol_list_sortmode_size_label">വലിപ്പം</string>
+    <string name="appcontrol_list_sortmode_screentime_label">സ്ക്രീൻ സമയം</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">ആപ്പ് വലിപ്പങ്ങൾ പ്രകടനകാരണങ്ങൾക്കായി കണക്കാക്കല്പിക്കപ്പെടുന്നു. കൂടുതൽ കൃത്യമായ ഡേറ്റക്കായി StorageAnalyzer ടൂൾ ഉപയോഗിക്കുക.</string>
+    <string name="appcontrol_progress_uninstalling_app">ആപ്പ് അൻ ഇൻസ്റ്റാൾ ചെയ്യുന്നു</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d ആപ്പ് അൻഇൻസ്റ്റാൾ ചെയ്തു</item>
+        <item quantity="other">%d ആപ്പുകൾ അൻഇൻസ്റ്റാൾ ചെയ്തു</item>
+    </plurals>
+    <string name="appcontrol_archive_action">ആർക്കൈവ്</string>
+    <string name="appcontrol_archive_selection_action">ആപ്പുകൾ ആർക്കൈവ് ചെയ്യുക</string>
+    <string name="appcontrol_archive_description">ആപ്പ് ഡേറ്റ രക്ഷിച്ച് സ്ഥലം ഖാലിയാക്കാൻ ആർക്കൈവ് ചെയ്യുക.</string>
+    <string name="appcontrol_progress_archiving_app">ആപ്പ് ആർക്കൈവ് ചെയ്യുന്നു…</string>
+    <string name="appcontrol_archive_confirmation_title">ആർക്കൈവ് സ്ഥിരീകരിക്കുക</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">%d ആപ്പ് ആർക്കൈവ് ചെയ്യണോ?</item>
+        <item quantity="other">%d ആപ്പുകൾ ആർക്കൈവ് ചെയ്യണോ?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d ആപ്പ് ആർക്കൈവ് ചെയ്തു</item>
+        <item quantity="other">%d ആപ്പുകൾ ആർക്കൈവ് ചെയ്തു</item>
+    </plurals>
+    <string name="appcontrol_restore_action">പുനඃസ്ഥാപിക്കുക</string>
+    <string name="appcontrol_restore_selection_action">ആപ്പുകൾ പുനඃസ്ഥാപിക്കുക</string>
+    <string name="appcontrol_restore_description">ആർക്കൈവ് ചെയ്ത ആപ്പ് പൂർണ്ണമായി ഇൻസ്റ്റാൾ ചെയ്ത അവസ്ഥയിലേക്ക് പുനඃസ്ഥാപിക്കുക. ആപ്പ് ഡേറ്റ സൂക്ഷിക്കപ്പെടും.</string>
+    <string name="appcontrol_progress_restoring_app">ആപ്പ് പുനඃസ്ഥാപിക്കുന്നു…</string>
+    <string name="appcontrol_restore_confirmation_title">പുനඃസ്ഥാപനം സ്ഥിരീകരിക്കുക</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">%d ആപ്പ് പുനඃസ്ഥാപിക്കണോ?</item>
+        <item quantity="other">%d ആപ്പുകൾ പുനඃസ്ഥാപിക്കണോ?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d ആപ്പ് പുനඃസ്ഥാപിക്കപ്പെട്ടു</item>
+        <item quantity="other">%d ആപ്പുകൾ പുനඃസ്ഥാപിക്കപ്പെട്ടു</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">ആപ്പ് വലിപ്പം</string>
+    <string name="appcontrol_app_sizes_apk_label">ആപ്പ്</string>
+    <string name="appcontrol_app_sizes_data_label">ഡേറ്റ</string>
+    <string name="appcontrol_app_sizes_cache_label">ക്യാഷ്</string>
+    <string name="appcontrol_toggle_confirmation_title">പ്രവൃത്തി സ്ഥിരീകരിക്കുക</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">%d ആപ്പിന്റെ പ്രവർത്തന/നിഷ്ക്രിയ നില മാറ്റണോ?</item>
+        <item quantity="other">%d ആപ്പുകളുടെ പ്രവർത്തന/നിഷ്ക്രിയ നില മാറ്റണോ?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d ആപ്പ് ടോഗിൾ ചെയ്തു</item>
+        <item quantity="other">%d ആപ്പുകൾ ടോഗിൾ ചെയ്തു</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">വലിപ്പം നിർണ്ണയിക്കുക</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">ഓരോ ആപ്പിന്റെയും ഏകദേശ വലിപ്പം ലഭ്യമാക്കുക.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">പ്രവർത്തനം നിർണ്ണയിക്കുക</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">ഒരു ആപ്പ് സക്രിയമാണോ (അർവാ അടുത്തകാലത്ത് ആയിരുന്നോ) എന്ന് കണ്ടെത്തുക.</string>
+    <string name="appcontrol_export_app_selection_action">ആപ്പുകൾ എക്സ്പോർട്ട് ചെയ്യുക</string>
+    <string name="appcontrol_export_title">ആപ്പ് എക്സ്പോർട്ട് ചെയ്യുക</string>
+    <string name="appcontrol_export_description">ഈ ആപ്പിന്റെ ഇൻസ്റ്റലേഷൻ ഫയലുകൾ സൂക്ഷിക്കുക. ആപ്പ് ഡേറ്റ ഉൾപ്പെടുന്നില്ല.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d ആപ്പ് എക്സ്പോർട്ട് ചെയ്തു</item>
+        <item quantity="other">%d ആപ്പുകൾ എക്സ്പോർട്ട് ചെയ്തു</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">%s എക്സ്പോർട്ട് ചെയ്യുന്നു</string>
+    <string name="appcontrol_share_list_action">ലിസ്റ്റ് ഷേർ ചെയ്യുക</string>
+    <string name="appcontrol_share_list_title">എന്റെ ആപ്പുകൾ</string>
+    <string name="appcontrol_share_list_footer">SD Maid SE വഴി ഷേർ ചെയ്തത്</string>
+    <string name="appcontrol_force_stop_selection_action">ആപ്പുകൾ ഫോർസ് സ്റ്റോപ്പ് ചെയ്യുക</string>
+    <string name="appcontrol_force_stop_action">ഫോർസ് സ്റ്റോപ്പ്</string>
+    <string name="appcontrol_force_stop_confirm_title">ഫോർസ് സ്റ്റോപ്പ് സ്ഥിരീകരിക്കുക</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">%d ആപ്പ് ഫോർസ് സ്റ്റോപ്പ് ചെയ്യണോ?</item>
+        <item quantity="other">%d ആപ്പുകൾ ഫോർസ് സ്റ്റോപ്പ് ചെയ്യണോ?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d ആപ്പ് നിര്ത്തപ്പെട്ടു</item>
+        <item quantity="other">%d ആപ്പുകൾ നിര്ത്തപ്പെട്ടു</item>
+    </plurals>
+    <string name="appcontrol_automation_title">AppControl ഓടോമേഷൻ</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">ഫോർസ് സ്റ്റോപ്പ് ചെയ്യുന്നു…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">\"Force stop\" ബട്ടൻ തെടുക്കുന്നു (കീവർഡുകൾ: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">ആർക്കൈവ് ചെയ്യുന്നു…</string>
+    <string name="appcontrol_automation_progress_find_archive">\"Archive\" ബട്ടൻ തെടുക്കുന്നു (കീവർഡുകൾ: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">പുനඃസ്ഥാപിക്കുന്നു…</string>
+    <string name="appcontrol_automation_progress_find_restore">\"Restore\" ബട്ടൻ തെടുക്കുന്നു (കീവർഡുകൾ: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">സ്ക്രീൻ സമയം: %2$s മുതൽ %1$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">അവസാനം അപ്ഡേറ്റ്: %s</string>
+    <string name="appcontrol_item_installedat_x_label">ഇൻസ്റ്റാൾ ചെയ്തത്: %s</string>
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പുകൾ മാനേജ് ചെയ്യുക</string>
+    <string name="appcontrol_automation_loading">ആക്സസിബിലിറ്റി സർവീസ് വഴി ഓടോമേഷൻ തയാറാക്കുന്നു</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">മുൻപിന്നതെ പ്രവൃത്തി സ്ഥിരീകരിക്കാൻ ശ്രമിക്കുന്നു (കീവർഡുകൾ: %s)</string>
+    <string name="appcontrol_include_multiuser_label">മറ്റ് ഉപയോക്താക്കളെ ഉൾപ്പെടുത്തുക</string>
+    <string name="appcontrol_include_multiuser_summary">ഈ ഉപകരണത്തിലെ മറ്റ് ഉപയോക്തൃ പ്രൊഫൈലുകളിലെ ആപ്പുകൾ ഉൾപ്പെടുത്തുക.</string>
+</resources>

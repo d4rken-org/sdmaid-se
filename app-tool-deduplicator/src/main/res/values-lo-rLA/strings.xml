@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="deduplicator_explanation_short">ຊອກຫາຂໍ້ມູລທີ່ຊ້ຳກັນໃນອຸປະກອນຂອງທ່ານ.</string>
+    <plurals name="deduplicator_result_x_clusters_processed">
+        <item quantity="other">%d ສຳເນົາທີ່ຊ້າກັນຖືກລຶ້</item>
+    </plurals>
+    <plurals name="deduplicator_result_x_clusters_found">
+        <item quantity="other">%d ຊຸດສຳເນົາທີ່ຊ້າກັນພົບ</item>
+    </plurals>
+    <string name="deduplicator_protection_deleteall_allowed_title">ເຮັດໃຫ້ \"ລຶ້ທັງໜມດ\" ເປັນໄປໄດ້</string>
+    <string name="deduplicator_protection_deleteall_allowed_summary">ສະແດງຕົວເລືອກທີ່ອະນຸຍາດໃຫ້ທ່ານລຶ້ໄຟລ໌ທັງໜມດໃນຊຸດສຳເນົາທີ່ຊ້າກັນ ເພື່ອໃຫ້ບໍ່ມີໄຟລ໌ເຫລືອ.</string>
+    <string name="deduplicator_search_locations_title">ສະຖານທີ່ຄ້ນຫາ</string>
+    <string name="deduplicator_search_locations_all_summary">ທຸກພື້ນທີ່ທີ່ເຂ້າຫາໄດ້</string>
+    <string name="deduplicator_keep_prefer_paths_title">ໃຫ້ຄວາມສຳຄັນໃນການເກັບໄວ້ໃນ</string>
+    <string name="deduplicator_keep_prefer_paths_summary">ເມື່ອຕັດສິນໃຈວ່າຈະເກັບສຳເນົາທີ່ຊ້າໃດ, ໃຫ້ຄວາມສຳຄັນໃນການເກັບໄຟລ໌ໃນສະຖານທີ່ເຫລ່ານີ້.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">ບໍ່ໄດ້ຕັ້ງຄ່າສະຖານທີ່</string>
+    <string name="deduplicator_skip_minsize_title">ຂະໜາດຕ່ຳສຸດ</string>
+    <string name="deduplicator_skip_minsize_description">ຂ້າມໄຟລ໌ທີ່ຢູ່ຕ່ຳກ່ວາຂະໜາດຕ່ຳສຸດ.</string>
+    <string name="deduplicator_skip_uncommon_title">ຂ້າມປະເພດໄຟລ໌ทີ່ບໍ່ທົ່ວໄປ</string>
+    <string name="deduplicator_skip_uncommon_description">ລວມເຊພາະໄຟລ໌ສື່ທົ່ວໄປ, ເອກະສານ ແລະໄຟລ໌ archive.</string>
+    <string name="deduplicator_detection_method_label">ວິທີການກວດຫາ</string>
+    <string name="deduplicator_detection_method_checksum_title">Checksum ເນື້ຫາ</string>
+    <string name="deduplicator_detection_method_checksum_summary">ກຳນົດສຳເນົາทີ່ຊ້າກັນໂດຍການຄຳນວນ checksum ຂອງໄຟລ໌. ໄຟລ໌ທີ່ checksum ກົງກັນມີເນື້ຫາດຽວກັນ.</string>
+    <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
+    <string name="deduplicator_detection_method_phash_summary">ຊອກຫາໄຟລ໌ທີ່ຄ້າຍກັນໂດຍການວິເຄາະຄຸນລັກຂອງເນື້ຫາ ແລະປຽບທຽຍຄ່າ perceptual hash. ⚠️ ການກວດຫາທີ່ອ້າງໃສ່ຄວາມຄ້າຍກັນ ອາດລວມຜົນບວກທີ່ຜິດຕ້ອງການກວດສອບດ້ວຍຕົນເອງ.</string>
+    <string name="deduplicator_occupied_space_label">ຫນ່ວຍເກັບຂໍ້ມູລທີ່ຖືກໃຊ້</string>
+    <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
+        <item quantity="other">%s ຖືກໃຊ້ໂດຍສຳເນົາທີ່ຊ້າ</item>
+    </plurals>
+    <string name="deduplicator_file_size_label">ຂະໜາດໄຟລ໌</string>
+    <string name="deduplicator_average_size_label">ຂະໜາດສະເລ່ຍ</string>
+    <string name="deduplicator_cluster_x_label">Cluster %s</string>
+    <string name="deduplicator_delete_confirmation_message">ລຶ້ທຸກສຳເນົາ ຍົກເວັ້ນໜຶ່ງ ໃນທຸກຊຸດຂອງໄຟລ໌ทີ່ຊ້າກັນ?</string>
+    <string name="deduplicator_delete_single_set_confirmation_message">ລຶ້ທຸກສຳເນົາ ຍົກເວັ້ນໜຶ່ງ ໃນຊຸດໄຟລ໌ทີ່ຊ້າກັນນີ້?</string>
+    <string name="deduplicator_delete_single_set_keep_none_confirmation_message">ລຶ້ໄຟລ໌ທັງໜມດໃນຊຸດໄຟລ໌ทີ່ຊ້າກັນນີ້? ບໍ່ມີໄຟລ໌ເຫລືອ!</string>
+    <string name="deduplicator_delete_multiple_sets_confirmation_message">ລຶ້ທຸກສຳເນົາ ຍົກເວັ້ນໜຶ່ງ ໃນແຕ່ລະຊຸດทີ່ເລືອກຂອງໄຟລ໌ทີ່ຊ້າກັນ?</string>
+    <string name="deduplicator_delete_multiple_sets_keep_none_confirmation_message">ລຶ້ໄຟລ໌ທັງໜມດໃນແຕ່ລະຊຸດທີ່ເລືອກຂອງໄຟລ໌ທີ່ຊ້າກັນ? ບໍ່ມີໄຟລ໌ເຫລືອ!</string>
+    <string name="deduplicator_delete_all_toggle_msg">ລຶ້ທຸກສຳເນົາ. ບໍ່ມີໄຟລ໌ເຫລືອ!</string>
+    <string name="deduplicator_progress_comparing_files">ກຳລັງປຽບທຽຍໄຟລ໌</string>
+    <string name="deduplicator_details_cluster_title">ຊຸດຂອງສຳເນົາทີ່ຊ້າກັນ</string>
+    <string name="deduplicator_matches_exact_label">ສຳເນົາທີ່ຖືກຕ້ອງ</string>
+    <string name="deduplicator_matches_similar_label">ໄຟລ໌ທີ່ຄ້າຍກັນ</string>
+    <string name="deduplicator_arbiter_title">ຍຸດທະສາດການລຶ້</string>
+    <string name="deduplicator_arbiter_summary">ຕັ້ງຄ່າວ່າໄຟລ໌ໃດຖືກເກັບ ແລະໄຟລ໌ໃດຖືກລຶ້.</string>
+    <string name="deduplicator_arbiter_explanation">ເມື່ອລຶ້ສຳເນົາທີ່ຊ້າ, SD Maid ຕັດສິນໃຈວ່າໄຟລ໌ໃດຈະຮັກສາ ໂດຍການກວດສອບເງື່ອນໄຂແຕ່ລະຂໍ້ຕາມລຳດັບ. ເງື່ອນໄຂທຳອິດທີ່ຜະລິດຜູ້ຊະນະທີ່ຊັດເຈນ ຈຶ່ງກຳນົດຜົນ. ລາກເພື່ອລຽງຄືນໃໝ່, ກົດເພື່ອປ່ຽນໂໝດ.</string>
+    <string name="deduplicator_arbiter_select_mode_title">ເລືອກໂໝດ</string>
+    <string name="deduplicator_arbiter_configure_paths_action">ຕັ້ງຄ່າ paths…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">ປະເພດສຳເນົາทີ່ຊ້າ</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">ໃຫ້ຄວາມສຳຄັນໃນສຳເນົາทີ່ກົງທີ່ສຸດກ່ວາໄຟລ໌ທີ່ຄ້າຍກັນ.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">ການດັດຊະນີສື່</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">ພິຈາລະນາວ່າໄຟລ໌ຖືກດັດຊະນີໂດຍ media provider ຫລືອບໍ່.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">ສະຖານທີ່ຈັດເກັບ</string>
+    <string name="deduplicator_arbiter_criterium_location_description">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ໃນ storage ພາຍໃນ ຫລືອ ພາຍນອກ.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">ຄວາມເລີກຂອງໂຟນເດີ</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ໃນໂຄງສ້າງໂຟນເດີທີ່ຕື້ ຫລືອ ເລີກກ່ວາ.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">ວັນທີ່ດັດແກ້</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ເກ່າ ຫລືອ ໃໝ່ ໂດຍອ້າງໃສ່ເວລາດັດແກ້.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">ຂະໜາດໄຟລ໌</string>
+    <string name="deduplicator_arbiter_criterium_size_description">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ທີ່ໃຫຍ່ ຫລືອ ນ້ອຍ ເມື່ອຂະໜາດຕ່າງກັນ.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">ສະຖານທີ່ທີ່ຕ້ອງການ</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">ຮັກສາໄຟລ໌ໃນສະຖານທີ່ທີ່ຕ້ອງການທີ່ຕັ້ງຄ່າໄວ້.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">ໃຫ້ຄວາມສຳຄັນສຳເນົາทີ່ກົງ</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ທີ່ຄ້າຍກັນ</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ทີ່ຖືກດັດຊະນີ</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">ໃຫ້ຄວາມສຳຄັນໄຟລ໌ทີ່ບໍ່ຖືກດັດຊະນີ</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">ໃຫ້ຄວາມສຳຄັນ storage ພາຍໃນ</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">ຕ້ອງການໜ່ວຍຄວາມຈຳພາຍນອກ</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">ຕ້ອງການໂຟນເດີລະດັບຕື້ນ</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">ຕ້ອງການໂຟນເດີລະດັບເລິກ</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">ຕ້ອງການໄຟລ໌ເກົ່າກວ່າ</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">ຕ້ອງການໄຟລ໌ໃໝ່ກວ່າ</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">ຕ້ອງການໄຟລ໌ທີ່ໃຫຍ່ກວ່າ</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">ຕ້ອງການໄຟລ໌ທີ່ນ້ອຍກວ່າ</string>
+    <string name="deduplicator_view_mode_groups_label">ກຸ່ມ</string>
+    <string name="deduplicator_view_mode_directories_label">ໂຟນເດີ</string>
+</resources>

@@ -24,6 +24,10 @@
         <item quantity="other">%1$d αρχεία έτοιμα (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Αυτή η λειτουργία καταγράφει όλα όσα κάνει η εφαρμογή σε ένα κοινόχρηστο αρχείο. Το αρχείο που δημιουργείται περιέχει ευαίσθητες πληροφορίες (π. χ.. ονόματα αρχείων και εγκατεστημένες εφαρμογές). Μοιραστείτε το μόνο με αξιόπιστα μέρη (π.χ. σε έναν προγραμματιστή για να διορθώσει προβλήματα και σφάλματα σε ένα ζήτημα).</string>
+    <string name="debug_debuglog_short_recording_title">Πολύ σύντομη εγγραφή</string>
+    <string name="debug_debuglog_short_recording_desc">Η εγγραφή ήταν πολύ σύντομη. Τα αρχεία καταγραφής εντοπισμού σφαλμάτων είναι εγγραφές, όχι στιγμιότυπα — αναπαράγετε το πρόβλημα ενώ η εγγραφή είναι ενεργή για να είναι χρήσιμο το αρχείο.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Συνέχεια εγγραφής</string>
+    <string name="debug_debuglog_short_recording_stop_action">Διακοπή ούτως ή άλλως</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -100,6 +104,39 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Αυτό θα διαγράψει οριστικά όλες τις αποθηκευμένες συνεδρίες καταγραφής σφαλμάτων. Αυτή η ενέργεια δεν μπορεί να αναιρεθεί.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Ένα μέρος για να κάνεις παρέα και να κάνεις ερωτήσεις.</string>
+    <string name="support_contact_label">Επικοινωνία με τον προγραμματιστή</string>
+    <string name="support_contact_desc">Συμπληρώστε μια φόρμα για να στείλετε email στον προγραμματιστή.</string>
+    <string name="support_contact_welcome">Διαβάζω κάθε μήνυμα προσωπικά και κάνω ό,τι μπορώ για να απαντήσω, αλλά επειδή εργάζομαι σε αυτό μόνος μου, μπορεί να χρειαστεί λίγος χρόνος. Σας ευχαριστώ για την υπομονή σας.</string>
+    <string name="support_contact_footer">Το μήνυμά σας θα αποσταλεί μέσω email. Οι πληροφορίες συσκευής και ρύθμισης επισυνάπτονται αυτόματα. Μπορείτε να επισυνάψετε στιγμιότυπα οθόνης ή βίντεο στο email. Ορισμένα μέρη του email θα είναι στα αγγλικά ώστε ο προγραμματιστής να το κατανοεί εύκολα.</string>
+    <string name="support_contact_category_label">Κατηγορία</string>
+    <string name="support_contact_category_bug_label">Αναφορά σφάλματος</string>
+    <string name="support_contact_category_feature_label">Αίτημα λειτουργίας</string>
+    <string name="support_contact_category_question_label">Ερώτηση</string>
+    <string name="support_contact_tool_label">Σχετικό εργαλείο</string>
+    <string name="support_contact_tool_appcleaner_label">Εκκαθάριση Εφαρμογών</string>
+    <string name="support_contact_tool_corpsefinder_label">Εύρεση υπολειμμάτων</string>
+    <string name="support_contact_tool_systemcleaner_label">Εκκαθάριση Συστήματος</string>
+    <string name="support_contact_tool_deduplicator_label">Αποδιπλοποιητής</string>
+    <string name="support_contact_tool_analyzer_label">Αναλυτής</string>
+    <string name="support_contact_tool_appcontrol_label">Έλεγχος Εφαρμογών</string>
+    <string name="support_contact_tool_scheduler_label">Χρονοδιάγραμμα</string>
+    <string name="support_contact_tool_general_label">Γενικά</string>
+    <string name="support_contact_description_label">Περιγραφή</string>
+    <string name="support_contact_description_bug_hint">Περιγράψτε τι συνέβη και πώς να αναπαραχθεί το πρόβλημα. Παρακαλώ να είστε συγκεκριμένοι (τουλάχιστον 20 λέξεις).</string>
+    <string name="support_contact_description_feature_hint">Περιγράψτε τη λειτουργία που θα θέλατε να δείτε. Παρακαλώ να είστε συγκεκριμένοι (τουλάχιστον 20 λέξεις).</string>
+    <string name="support_contact_description_question_hint">Περιγράψτε λεπτομερώς την ερώτησή σας. Παρακαλώ να είστε συγκεκριμένοι (τουλάχιστον 20 λέξεις).</string>
+    <string name="support_contact_expected_label">Αναμενόμενη συμπεριφορά</string>
+    <string name="support_contact_expected_hint">Περιγράψτε τι περιμένατε να συμβεί (τουλάχιστον 10 λέξεις).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d λέξη</item>
+        <item quantity="other">%1$d / %2$d λέξεις</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Αρχείο καταγραφής σφαλμάτων</string>
+    <string name="support_contact_debuglog_zip_error">Αποτυχία συμπίεσης αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
+    <string name="support_contact_debuglog_picker_hint">Επισυνάψτε ένα υπάρχον αρχείο καταγραφής εντοπισμού σφαλμάτων ή εγγράψτε ένα νέο.</string>
+    <string name="support_contact_debuglog_picker_empty">Δεν βρέθηκαν αρχεία καταγραφής εντοπισμού σφαλμάτων. Εγγράψτε ένα πρώτα.</string>
+    <string name="support_contact_send_action">Ανοίξτε εφαρμογή email</string>
+    <string name="support_contact_no_email_app">Δεν βρέθηκε εφαρμογή email σε αυτή τη συσκευή.</string>
     <string name="changelog_label">Αρχείο αλλαγών</string>
     <string name="settings_acknowledgements_label">Ευχαριστίες</string>
     <string name="settings_acknowledgements_category_translations_title">Μεταφράσεις</string>
@@ -177,6 +214,7 @@
     <string name="debug_mode_explanation">Ενεργοποιήστε τις επιλογές δοκιμής και πιο λεπτομερές output. Η εφαρμογή θα λειτουργεί πιο αργά και θα έχει διαφορετική απόδοση.</string>
     <string name="debug_bugreporter_label">Αυτόματες αναφορές σφαλμάτων</string>
     <string name="debug_bugreporter_summary">Αναφέρει αυτόματα ζητήματα, π.χ. λεπτομέρειες σχετικά με τα σφάλματα της εφαρμογής, ώστε να μπορώ να καταλάβω γιατί και να το διορθώσω.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Η λειτουργία εντοπισμού σφαλμάτων είναι ενεργοποιημένη</string>
     <string name="debug_card_trace_mode_label">Ενεργοποίηση λειτουργίας ανίχνευσης</string>
     <string name="debug_card_dryrun_mode_label">Δοκιμαστική λειτουργία (απενεργοποίηση διαγραφής)</string>
@@ -226,4 +264,5 @@
     <string name="shortcuts_settings_category">Συντομεύσεις</string>
     <string name="shortcuts_onetap_enabled_title">Συντόμευση ενός πατήματος</string>
     <string name="shortcuts_onetap_enabled_summary">Εμφάνιση συντόμευσης \"Σάρωση + Διαγραφή\" όταν πατάτε παρατεταμένα το εικονίδιο της εφαρμογής. Χρησιμοποιεί τα ίδια εργαλεία με τον πίνακα ενός πατήματος.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

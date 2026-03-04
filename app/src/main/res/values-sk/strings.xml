@@ -26,6 +26,10 @@
         <item quantity="other">%1$d súborov pripravených (%2$s)</item>
     </plurals>
     <string name="settings_debuglog_explanation">Táto funkcia zaznamenáva všetko, čo aplikácia robí, do zdieľaného súboru. Vygenerovaný súbor obsahuje citlivé informácie (napr. názvy súborov a nainštalované aplikácie). Zdieľajte ho iba s dôveryhodnými stranami (napr. vývojár, ktorý rieši problém).</string>
+    <string name="debug_debuglog_short_recording_title">Veľmi krátke nahrávanie</string>
+    <string name="debug_debuglog_short_recording_desc">Nahrávanie bolo veľmi krátke. Denníky ladenia sú nahrávky, nie snímky — reprodukujte problém počas aktívneho nahrávania, aby bol záznam užitočný.</string>
+    <string name="debug_debuglog_short_recording_continue_action">Pokračovať v nahrávaní</string>
+    <string name="debug_debuglog_short_recording_stop_action">Zastaviť aj tak</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -108,6 +112,41 @@
     <string name="support_debuglog_folder_delete_confirmation_message">Toto natrvalo odstráni všetky uložené relácie denníkov ladenia. Túto akciu nie je možné vrátiť späť.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">Miesto, kde sa môžete stretnúť a klásť otázky.</string>
+    <string name="support_contact_label">Kontaktovať vývojára</string>
+    <string name="support_contact_desc">Vyplňte formulár a pošlite vývojárovi e-mail.</string>
+    <string name="support_contact_welcome">Každú správu čítam osobne a robím všetko pre to, aby som odpovedal, ale keďže na tom pracujem sám, môže to chvíľu trvať. Ďakujem za trpezlivosť.</string>
+    <string name="support_contact_footer">Vaša správa bude odoslaná e-mailom. Informácie o zariadení a nastaveniach sú priložené automaticky. K e-mailu môžete priložiť snímky obrazovky alebo video. Niektoré časti e-mailu budú v angličtine, aby im vývojár ľahko porozumel.</string>
+    <string name="support_contact_category_label">Kategória</string>
+    <string name="support_contact_category_bug_label">Hlásenie chyby</string>
+    <string name="support_contact_category_feature_label">Požiadavka na funkciu</string>
+    <string name="support_contact_category_question_label">Otázka</string>
+    <string name="support_contact_tool_label">Súvisiaci nástroj</string>
+    <string name="support_contact_tool_appcleaner_label">Čistič aplikácií</string>
+    <string name="support_contact_tool_corpsefinder_label">Hľadač mŕtvol</string>
+    <string name="support_contact_tool_systemcleaner_label">Čistič systému</string>
+    <string name="support_contact_tool_deduplicator_label">Deduplikátor</string>
+    <string name="support_contact_tool_analyzer_label">Analyzátor</string>
+    <string name="support_contact_tool_appcontrol_label">Kontrola aplikácií</string>
+    <string name="support_contact_tool_scheduler_label">Plánovač</string>
+    <string name="support_contact_tool_general_label">Všeobecné</string>
+    <string name="support_contact_description_label">Popis</string>
+    <string name="support_contact_description_bug_hint">Opíšte, čo sa stalo a ako problém reprodukovať. Buďte konkrétni (minimálne 20 slóv).</string>
+    <string name="support_contact_description_feature_hint">Opíšte funkciu, ktorú by ste chceli vidieť. Buďte konkrétni (minimálne 20 slóv).</string>
+    <string name="support_contact_description_question_hint">Opíšte svoju otázku podrobne. Buďte konkrétni (minimálne 20 slóv).</string>
+    <string name="support_contact_expected_label">Očakávané správanie</string>
+    <string name="support_contact_expected_hint">Opíšte, čo ste očakávali (minimálne 10 slóv).</string>
+    <plurals name="support_contact_word_count">
+        <item quantity="one">%1$d / %2$d slovo</item>
+        <item quantity="few">%1$d / %2$d slová</item>
+        <item quantity="many">%1$d / %2$d slova</item>
+        <item quantity="other">%1$d / %2$d slov</item>
+    </plurals>
+    <string name="support_contact_debuglog_label">Denník ladenia</string>
+    <string name="support_contact_debuglog_zip_error">Zlyhalo komprimovanie denníka ladenia</string>
+    <string name="support_contact_debuglog_picker_hint">Priložte existujúci denník ladenia alebo zaznamenajte nový.</string>
+    <string name="support_contact_debuglog_picker_empty">Nenašli sa žiadne denníky ladenia. Najprv nejaký zaznamenajte.</string>
+    <string name="support_contact_send_action">Otvoriť e-mailovú aplikáciu</string>
+    <string name="support_contact_no_email_app">Na tomto zariadení sa nenašla žiadna e-mailová aplikácia.</string>
     <string name="changelog_label">Zoznam zmien</string>
     <string name="settings_acknowledgements_label">Poďakovanie</string>
     <string name="settings_acknowledgements_category_translations_title">Preklady</string>
@@ -185,6 +224,7 @@
     <string name="debug_mode_explanation">Povoľte možnosti testovania a podrobnejší výstup. Aplikácia pobeží pomalšie a bude fungovať inak.</string>
     <string name="debug_bugreporter_label">Automatické hlásenia chýb</string>
     <string name="debug_bugreporter_summary">Automaticky hlási problémy, napr. podrobnosti o zlyhaní aplikácie, aby som mohol zistiť prečo a opraviť to.</string>
+    <!-- Debug card (dashboard) -->
     <string name="debug_card_title">Režim ladenia je povolený</string>
     <string name="debug_card_trace_mode_label">Povoliť režim trasovanie</string>
     <string name="debug_card_dryrun_mode_label">Režim suchého behu (zakázať mazanie)</string>
@@ -238,4 +278,5 @@
     <string name="shortcuts_settings_category">Skratky</string>
     <string name="shortcuts_onetap_enabled_title">Skratka jedným klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobraziť skratku „Skenovať + Odstrániť“ pri dlhom stlačení ikony aplikácie. Používa rovnaké nástroje ako ovládací panel s jedným klepnutím.</string>
+    <!-- Shorter versions for side-by-side display -->
 </resources>

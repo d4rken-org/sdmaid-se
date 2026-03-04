@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">ស្វែងយល់ពីអ្វីដែលកំពុងប្រើប្រាស់ទំហំក្នុងឧបករណ៍របស់អ្នក។</string>
+    <string name="analyzer_progress_scanning_device">ស្វែងរកឧបករណ៍ផ្ទុក</string>
+    <string name="analyzer_progress_scanning_storage">ស្កេនទំហំផ្ទុក</string>
+    <string name="analyzer_progress_scanning_apps">ស្កេនកម្មវិធី</string>
+    <string name="analyzer_progress_scanning_userfiles">ស្វែងរកឯកសាររបស់អ្នកប្រើ</string>
+    <string name="analyzer_progress_scanning_system">ស្កេនទិន្នន័យប្រព័ន្ធ</string>
+    <string name="analyzer_device_storage_title">ឧបករណ៍តំហំផ័ឡក</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="other">%s នៅសល់</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="other">%s បានប្រើបរស់</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">មិនមានច្រើនត្រច្បាស់ត្រង់</string>
+    <string name="analyzer_content_create_swiper_session_action">បង្កើតសម័អត់ Swiper</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="other">សម័អត់ Swiper ត្រូវបានបង្កើតជាមួយ %d ឯកថន្ទ់</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">តំហំផ័ឡកស្ថានទីមួយ</string>
+    <string name="analyzer_storage_type_primary_description">តំហំផ័ឡកស្ថានទីមួយអ្នក្រឹត់របស់អ្នក។ រួមបាន SD កាត់ពេកស្ថានទីមួយ ក្រុមតំហំផ័ឡកស្វ័ងសម្រាប់កម្មវិធី និងតិន្នន័យប្រព័ន្ធ។</string>
+    <string name="analyzer_storage_type_secondary_title">តំហំផ័ឡកស្ថានទីបន្ថែម</string>
+    <string name="analyzer_storage_type_secondary_description">តំហំផ័ឡកស្ថានទីបន្ថែម ជាបកតិជាយជាកាត់ SD ដែលដោនចើញបាន។ រួមបានឯកសារមេឌៀ និងតិន្នន័យពីកម្មវិធីដែលថ្នាក់វា។</string>
+    <string name="analyzer_storage_type_tertiary_title">តំហំផ័ឡកត្រចឹឡត្រង់</string>
+    <string name="analyzer_storage_type_tertiary_description">តំហំផ័ឡកត្រចឹឡត្រង់ ដូចជា flash drive ដែលផ័ឡកឫយ់ USB អ្នក។</string>
+    <string name="analyzer_storage_content_title">មាតិកាត់តំហំផ័ឡក</string>
+    <string name="analyzer_storage_content_type_app_label">កម្មវិធី</string>
+    <string name="analyzer_storage_content_type_app_description">ទំហំទឹកដោយកម្មវិធីដែលបានតិត្តាក់ និងតិន្នន័យរបស់វា លានប្រើបរស់ឯកសារកម្មវិធី តិន្នន័យ និងកែវ័ល់។</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">អនុញ្ញាតបាត់ខួនមិនគ្រប់</string>
+    <string name="analyzer_storage_content_type_media_label">ឯកសាររបស់អ្នកប្រើ</string>
+    <string name="analyzer_storage_content_type_media_description">រូបត្សរេកែលបានថត់ វិឌិឥដែលបានថត់ អ្វីទិន្នន័យដែលបានដញ្ចូល។ តិន្នន័យណាតាញដែលមិនស្នាហ់ដល់កម្មវិធីបន្នឹក្រូមណា។</string>
+    <string name="analyzer_storage_content_type_system_label">តិន្នន័យប្រព័ន្ធ</string>
+    <string name="analyzer_storage_content_type_system_description">កម្មវិធីប្រព័ន្ធ និងតិន្នន័យប្រព័ន្ធ។ កម្មវិធី និងតិន្នន័យពីអ្នកប្រើផសេងតីតែ ប័ត័បានកំណត់គណនីអ្នកប្រើជាច្រើននៅឧបករណ៍នេ។</string>
+    <string name="analyzer_storage_content_app_code_label">សង្កើតកម្មវិធី</string>
+    <string name="analyzer_storage_content_app_code_description">ឯកសារកម្មវិធី ប័ន្ទាក និងសម្ភអ្ល។ ស្ថានទែនេហើឡ់ឯនល័យដោយការដកតិត្តាក់កម្មវិធី អ្វីដកទែនក្រឹត់វា អ្ល័នង់ឯកសារវា បន្ថែមនៅវៀរសន់ Android ថ្មីប័ត។</string>
+    <string name="analyzer_storage_content_app_data_label">តិន្នន័យកម្មវិធី</string>
+    <string name="analyzer_storage_content_app_data_description">តិន្នន័យ ការកំណត់ និងកែវ័ល់។</string>
+    <string name="analyzer_storage_content_app_media_label">មេឌៀកម្មវិធី</string>
+    <string name="analyzer_storage_content_app_media_description">ឯកសារមេឌៀពីកម្មវិធីនេ។ ដូចជា រូបដែលបានទកស្សង WhatsApp។</string>
+    <string name="analyzer_storage_content_app_extra_label">ឯកសារកម្មវិធីបន្ថែម</string>
+    <string name="analyzer_storage_content_app_extra_description">តិន្នន័យបន្ថែមដែលកម្មវិធីនេបានដាកចេញចេញពីឡប់ដែលកំណត់តំព័ឡកឌ័ត់ប័ក ដូចជា រូបថត់ អ្វីតមកម្មវិធីដញ្ចូល។</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">កម្មវិធីនេកំពុង %1$s នៅលើ \"%2$s\"។</string>
+    <string name="analyzer_app_details_app_is_archived">កម្មវិធីនេត្រូវបានឈាកជៅកន្ល័យ។</string>
+</resources>

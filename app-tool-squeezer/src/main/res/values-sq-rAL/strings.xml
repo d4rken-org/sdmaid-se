@@ -17,7 +17,7 @@
         <item quantity="one">%d imazh i zgjedhur</item>
         <item quantity="other">%d imazhe të zgjedhura</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Vendndodhjet e kërkimit</string>
+    <string name="squeezer_search_locations_title">Vendet e kërkimit</string>
     <string name="squeezer_search_locations_default_summary">Dosjet e kamerës (parazgjedhur)</string>
     <string name="squeezer_min_size_title">Madhësia minimale e skedarit</string>
     <string name="squeezer_min_size_description">Kapërce imazhet më të vogla se kjo madhësi.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Nuk u gjetën imazhe të kompresueshme.</string>
     <string name="squeezer_setup_warning">Kompresimi zvogëlon përgjithmonë cilësinë e imazhit për të kursyer hapësirë ​​ruajtëse. Kjo nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
     <string name="squeezer_setup_explanation">Media Squeeze zvogëlon madhësinë e skedarëve të imazheve për të liruar hapësirë ​​ruajtëse. Kjo zvogëlon përgjithmonë cilësinë e imazhit dhe nuk mund të zhbëhet. Rishikoni cilësimet tuaja me kujdes para se të filloni.</string>
-    <string name="squeezer_setup_paths_title">Vendndodhjet e kërkimit</string>
+    <string name="squeezer_setup_paths_title">Vendet e kërkimit</string>
     <string name="squeezer_setup_paths_default">Zgjidhni dosjet për të kërkuar</string>
     <string name="squeezer_setup_quality_title">Cilësia e kompresimit</string>
     <string name="squeezer_setup_age_title">Mosha minimale</string>

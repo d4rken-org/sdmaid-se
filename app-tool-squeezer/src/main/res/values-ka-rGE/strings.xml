@@ -82,4 +82,5 @@
         <item quantity="other">სულ მცირე %d დღის</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">JPEG ფაილებისთვის სავარაუდოდ ~%d%% დაზოგვა</string>
+    <string name="squeezer_onboarding_got_it">Გავიგე</string>
 </resources>

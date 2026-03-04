@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Ordutegia</string>
+    <string name="scheduler_execution_label">Hurrengo exekuzioa (gutxi gorabehera)</string>
+    <string name="scheduler_execution_last_label">Azken exekuzioa</string>
+    <string name="scheduler_settings_label">Ordutegia</string>
+    <string name="scheduler_settings_summary">Egokitu ordutegiari lotutako ezarpenak.</string>
+    <string name="scheduler_new_schedule_action">Sortu ordutegia</string>
+    <string name="scheduler_schedule_name_label">Ordutegiaren izena</string>
+    <string name="scheduler_schedule_toggle_enabled">Ordutegia gaituta dago</string>
+    <string name="scheduler_schedule_toggle_disabled">Ordutegia desgaituta dago</string>
+    <string name="scheduler_edit_schedule_action">Editatu ordutegia</string>
+    <string name="scheduler_schedule_time_label">Denbora gutxi gorabeherako</string>
+    <string name="scheduler_schedule_repeat_label">Errepikapen-tartea egunetan</string>
+    <string name="scheduler_schedule_default_name">Ordutegia lehenetsia</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s %2$s inguruan</string>
+    <string name="scheduler_schedule_next_at_x">%s-rako planifikatuta</string>
+    <string name="scheduler_schedule_last_at_x">Azken exekuzioa %s-n</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Egunero</item>
+        <item quantity="other">Egunero %d</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Errepikapen-tartea</string>
+    <string name="scheduler_inaccurate_execution_hint">Espero diren exekuzio-denborak gutxi gorabeherakoak dira. Ordenagailuak bateria aurrezteko moduan badago, ordutegiak atzeratu edo aurreratu daitezke.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Ez dago ordutegirik aktibo</string>
+    <string name="scheduler_setting_nopowersaving_title">Saltatu bateria baxuarekin</string>
+    <string name="scheduler_setting_nopowersaving_summary">Gailua energia-aurrezte moduan badago, planifikatutako exekuzioa saltatuko da.</string>
+    <string name="scheduler_setting_charging_title">Saltatu kargatzen ez denean</string>
+    <string name="scheduler_setting_charging_summary">Gailua kargatzen ez badago, planifikatutako exekuzioa saltatuko da.</string>
+    <string name="scheduler_setting_automation_title">Irisgarritasun-zerbitzua</string>
+    <string name="scheduler_setting_automation_summary">Sartu irisgarritasun-zerbitzua erabiltzen duten ekintzak. Honek SD Maid-ek zure pantailarekin elkarreragin dezan eskatzen du (adib. desblokeatuta) atazak exekutatzen direnean.</string>
+    <string name="scheduler_notification_channel_label">Ordutegia</string>
+    <string name="scheduler_notification_title">Planifikatutako ataza</string>
+    <string name="scheduler_notification_message">Exekutatzen: \"%s\"</string>
+    <string name="scheduler_notification_result_title">Ordutegia amaituta</string>
+    <string name="scheduler_notification_result_success_message">Planifikatutako ataza guztiak arrakastaz exekutatu dira.</string>
+    <string name="scheduler_notification_result_failure_message">Planifikatutako ataza batzuek huts egin dute edo erroreak jaso dituzte. Saiatu eskuz exekutatzen.</string>
+    <string name="scheduler_commands_after_schedule_label">Ordutegiaren osteko komandoak</string>
+    <string name="scheduler_commands_after_schedule_desc">Android shell komandoak ordutegiaren amaieran exekutatuko direnak.</string>
+    <string name="scheduler_battery_optimization_hint">Kontuan izan bateria-optimizazioak SD Maid-entzat desgaitzea atzeko planoan exekuzioan arazoak badituzu.</string>
+</resources>

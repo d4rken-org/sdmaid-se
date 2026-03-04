@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="area_type_sdcard_label">Viešoji atmintis</string>
+    <string name="area_type_public_media_label">Viešoji programos laikmena</string>
+    <string name="area_type_public_data_label">Viešieji programėlės duomenys</string>
+    <string name="area_type_public_obb_label">Viešieji programos ištekliai</string>
+    <string name="area_type_private_data_label">Privatūs programėlės duomenys</string>
+    <string name="area_type_portable_label">Keliū laikmenų atmintis</string>
+</resources>

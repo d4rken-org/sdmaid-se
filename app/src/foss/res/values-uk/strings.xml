@@ -2,17 +2,17 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">Потрібно SD Maid SE FOSS</string>
+    <string name="upgrade_feature_requires_pro">Потрібен SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Оновлення SD Maid SE</string>
-    <string name="upgrades_dashcard_body">Розблокуйте додаткові можливості та станьте меценатом, щоб підтримати подальший розвиток додатка!</string>
-    <string name="upgrades_dashcard_upgrade_action">Апґрейд</string>
+    <string name="upgrades_dashcard_body">Розблокуйте додаткові функції та станьте спонсором, щоб підтримати подальший розвиток!</string>
+    <string name="upgrades_dashcard_upgrade_action">Оновлення</string>
     <string name="upgrade_screen_title">Покращити SD Maid</string>
     <string name="upgrade_screen_preamble">SD Maid не має реклами й не продає дані користувачів. Подальший розвиток можливий лише завдяки вам.</string>
     <string name="upgrade_screen_how_title">Як допомогти</string>
     <string name="upgrade_screen_how_body">Стань меценатом і спонсором розробки! Торкніться кнопки нижче, щоб активувати всі додаткові функції та відкрити мій профіль спонсорів GitHub.</string>
-    <string name="upgrade_screen_why_title">Це нагадує 🪄</string>
+    <string name="upgrade_screen_why_title">Це викликає уяву 🪄</string>
     <string name="upgrade_screen_why_body">• Функція видалення додатків 💯\n• Заплановані операції ⏰\n• Додаткові опції для всіх інструментів ⚙️\n• Ваші власні правила видалення ✍️\n• Вмотивований розробник 🧙\nі багато іншого…</string>
-    <string name="upgrade_screen_sponsor_action">Підтримати розробку</string>
+    <string name="upgrade_screen_sponsor_action">Розвиток спонсорів</string>
     <string name="upgrade_screen_sponsor_action_hint">Альтернативою є реклама, аналітика та Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Дякуємо за підтримку розробки з відкритим кодом ❤️</string>
 </resources>

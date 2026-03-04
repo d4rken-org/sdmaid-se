@@ -17,7 +17,7 @@
         <item quantity="one">%d imagem selecionada</item>
         <item quantity="other">%d imagens selecionadas</item>
     </plurals>
-    <string name="squeezer_search_locations_title">Pesquisar Localizações</string>
+    <string name="squeezer_search_locations_title">Pesquisar localizações</string>
     <string name="squeezer_search_locations_default_summary">Pastas da câmera (padrão)</string>
     <string name="squeezer_min_size_title">Tamanho mínimo do arquivo</string>
     <string name="squeezer_min_size_description">Pular imagens menores que este tamanho.</string>
@@ -67,7 +67,7 @@
     <string name="squeezer_result_empty_message">Nenhuma imagem comprimida encontrada.</string>
     <string name="squeezer_setup_warning">Compressão reduz permanentemente a qualidade de imagem para economizar espaço de armazenamento. Isto não pode ser desfeito. Reveja as configurações cuidadosamente antes de iniciar.</string>
     <string name="squeezer_setup_explanation">Compressão de mídia reduz o tamanho das imagens para liberar espaço de armazenamento. Isto reduz permanentemente a qualidade da imagem e não pode ser desfeito. Reveja as configurações cuidadosamente antes de iniciar.</string>
-    <string name="squeezer_setup_paths_title">Localizações a analisar</string>
+    <string name="squeezer_setup_paths_title">Pesquisar localizações</string>
     <string name="squeezer_setup_paths_default">Selecionar pastas para pesquisar</string>
     <string name="squeezer_setup_quality_title">Qualidade da Compressão</string>
     <string name="squeezer_setup_age_title">Antiguidade mínima</string>
@@ -82,4 +82,5 @@
         <item quantity="other">Pelo menos %d dias de idade</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Estimado ~%d%% poupança para arquivos JPEG</string>
+    <string name="squeezer_onboarding_got_it">Entendido</string>
 </resources>

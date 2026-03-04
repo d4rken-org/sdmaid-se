@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Mulțumesc</string>
     <string name="general_error_type_mismatch_msg">Nepotrivire de tip: Am vrut %1$s, dar am primit %2$s.</string>
     <string name="general_error_cant_access_msg">Nu se poate accesa %s.</string>
-    <string name="general_error_root_unavailable">Accesul la root nu este disponibil.</string>    <string name="general_error_no_compatible_app_found_msg">Nu s-a găsit nicio aplicație compatibilă care să gestioneze această cerere.</string>
+    <string name="general_error_root_unavailable">Accesul la root nu este disponibil.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nu s-a găsit nicio aplicație compatibilă care să gestioneze această cerere.</string>
     <string name="general_todo_msg">Această funcție este încă în lucru și nu este disponibilă în prezent.</string>
     <string name="general_share_action">Partajează</string>
     <string name="general_done_action">Terminat</string>
     <string name="general_apply_action">Aplicați</string>
-    <string name="general_copy_action">Copiază</string>    <string name="general_cancel_action">Anulează</string>
+    <string name="general_copy_action">Copiază</string>
+    <string name="general_cancel_action">Anulează</string>
     <string name="general_discard_action">Renunță</string>
     <string name="general_reset_action">Resetează</string>
     <string name="general_drag_handle_description">Trage pentru a reordona</string>
-    <string name="general_save_action">Salvează</string>    <string name="general_gotit_action">Am înțeles</string>
+    <string name="general_save_action">Salvează</string>
+    <string name="general_gotit_action">Am înțeles</string>
     <string name="general_fix_action">Repară</string>
     <string name="general_set_up_action">Configurare</string>
     <string name="general_edit_action">Editează</string>
@@ -180,6 +183,10 @@
     <string name="general_user_label_system">Sistem</string>
     <string name="setup_title">Parte de configurare</string>
     <string name="setup_feature_requires_additional_setup_x">Această caracteristică necesită completarea elementelor adiționale de configurare: %s</string>
+    <string name="upgrade_feature_requires_pro">Necesită Pro</string>
+    <string name="general_include_multiuser_label">Includeți alți utilizatori</string>
+    <string name="general_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
+    <string name="general_unsaved_confirmation_message">Ai modificări nesalvate!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">O singură excludere creată</item>
         <item quantity="few">%d excluderi create</item>
@@ -195,7 +202,4 @@
     <string name="swiper_tool_name">Glisare</string>
     <string name="stats_label">Istoric</string>
     <string name="settings_category_tools_label">Instrumente</string>
-    <string name="general_include_multiuser_label">Include alți utilizatori</string>
-    <string name="general_include_multiuser_summary">Include aplicații de la alte profiluri de utilizator pe acest dispozitiv.</string>
-    <string name="general_unsaved_confirmation_message">Ai modificări nesalvate!</string>
 </resources>

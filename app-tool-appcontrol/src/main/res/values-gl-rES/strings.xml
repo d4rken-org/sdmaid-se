@@ -23,9 +23,9 @@
     <string name="appcontrol_app_exclude_add_description">Excluír esta aplicación doutras operacións en SD Maid.</string>
     <string name="appcontrol_app_exclude_edit_title">Editar exclusión</string>
     <string name="appcontrol_app_exclude_edit_description">Esta aplicación está actualmente excluída dunha ou máis ferramentas.</string>
-    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_user">Usuario</string>
     <string name="appcontrol_tag_active">Activa recentemente</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paquete</string>
     <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arquivada</string>
@@ -33,7 +33,7 @@
     <string name="appcontrol_tag_not_installed">Non instalada</string>
     <string name="appcontrol_tag_enabled">Activada</string>
     <string name="appcontrol_tag_disabled">Desactivada</string>
-    <string name="appcontrol_tag_debug">Debug</string>
+    <string name="appcontrol_tag_debug">Depuración</string>
     <string name="appcontrol_progress_enabling_package">Activando aplicación</string>
     <string name="appcontrol_progress_disabling_package">Desactivando aplicación</string>
     <string name="appcontrol_list_filteroptions_label">Opcións de filtro</string>
@@ -124,5 +124,10 @@
     <string name="appcontrol_item_screentime_x_since_y_label">Tempo de pantalla: %1$s desde %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Última actualización: %s</string>
     <string name="appcontrol_item_installedat_x_label">Instalada o: %s</string>
+    <string name="shortcut_appcontrol_short">Control de aplicacións</string>
     <string name="shortcut_appcontrol_long">Xestionar aplicacións instaladas</string>
+    <string name="appcontrol_automation_loading">Preparando automatización mediante o servizo de accesibilidade</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Intentando confirmar a acción anterior (palabras clave: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Incluír outros usuarios</string>
+    <string name="appcontrol_include_multiuser_summary">Incluír aplicacións doutros perfís de usuario neste dispositivo.</string>
 </resources>

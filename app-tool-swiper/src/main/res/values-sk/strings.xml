@@ -29,10 +29,10 @@
     <string name="swiper_item_position">#%1$d z %2$d</string>
     <string name="swiper_keep_action">Ponechať</string>
     <string name="swiper_skip_action">Preskočiť</string>
-    <string name="swiper_review_action">Skontrolovať</string>
+    <string name="swiper_review_action">Ohodnotiť</string>
     <string name="swiper_status_title">Skontrolovať rozhodnutia</string>
     <string name="swiper_status_action_keep_selected">Ponechať vybrané</string>
-    <string name="swiper_status_action_delete_selected">Odstrániť vybrané</string>
+    <string name="swiper_status_action_delete_selected">Zmazať vybrané</string>
     <string name="swiper_status_action_reset_selected">Obnoviť vybrané</string>
     <string name="swiper_decision_undecided">Nerozhodnuté</string>
     <string name="swiper_retry_action">Skúsiť znova</string>
@@ -171,5 +171,7 @@
     <string name="swiper_gesture_overlay_up_skip">↑ Preskočiť</string>
     <string name="swiper_gesture_overlay_down_undo">↓ Späť</string>
     <string name="swiper_help_title">Ako funguje Swiper</string>
-    <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
+    <string name="swiper_help_message">Potiahnutím každého súboru urobte rozhodnutie:\n\n← Potiahnite doľava: %1$s\n→ Potiahnite doprava: %2$s\n↑ Potiahnite hore: Preskočiť\n↓ Potiahnite dole: Späť (po prvom potiahnutí)\n\nMôžete tiež použiť tlačidlá v spodnej časti.\n\nKeď skončíte, klepnite na „Skontrolovať\" pre zobrazenie všetkých rozhodnutí. Nič sa neodstráni, kým to nepotvrdíte na obrazovke kontroly.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
+    <string name="swiper_help_action">Pomoc</string>
 </resources>
