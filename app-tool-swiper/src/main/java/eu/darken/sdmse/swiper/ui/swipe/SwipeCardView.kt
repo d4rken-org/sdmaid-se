@@ -12,7 +12,9 @@ import android.widget.FrameLayout
 import androidx.core.view.isVisible
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.dpToPx
+import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.databinding.SwiperCardItemBinding
+import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.SwipeDecision
 import eu.darken.sdmse.swiper.core.SwipeItem
 import kotlin.math.abs
@@ -196,6 +198,33 @@ class SwipeCardView @JvmOverloads constructor(
     }
 
     private fun bindFrontCard(item: SwipeItem?, fadeInWhenReady: Boolean) {
+        // File type chip
+        if (item != null) {
+            val ext = item.lookup.name.substringAfterLast('.', "").lowercase()
+            if (ext.isNotEmpty()) {
+                val displayExt = if (ext.length > 6) ext.take(6) else ext
+                binding.fileTypeChip.text = displayExt.uppercase()
+                binding.fileTypeChip.isVisible = true
+            } else {
+                binding.fileTypeChip.text = "FILE"
+                binding.fileTypeChip.isVisible = true
+            }
+
+            // Update no-preview icon based on file type category
+            val category = FileTypeCategory.fromExtension(ext)
+            val iconRes = when (category) {
+                FileTypeCategory.IMAGES -> R.drawable.ic_file_type_image_24
+                FileTypeCategory.VIDEOS -> R.drawable.ic_file_type_video_24
+                FileTypeCategory.AUDIO -> R.drawable.ic_file_type_audio_24
+                FileTypeCategory.DOCUMENTS -> R.drawable.ic_file_type_document_24
+                FileTypeCategory.ARCHIVES -> R.drawable.ic_file_type_archive_24
+                null -> eu.darken.sdmse.common.R.drawable.ic_file
+            }
+            binding.fileTypeIcon.setImageResource(iconRes)
+        } else {
+            binding.fileTypeChip.isVisible = false
+        }
+
         // Copy pre-loaded image from back card as immediate placeholder
         // This avoids the black flash while waiting for async load
         if (fadeInWhenReady && item != null) {

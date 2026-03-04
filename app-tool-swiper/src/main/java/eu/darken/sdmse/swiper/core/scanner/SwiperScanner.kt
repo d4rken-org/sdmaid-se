@@ -20,6 +20,7 @@ import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
+import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.db.SwipeItemEntity
 import eu.darken.sdmse.swiper.core.db.SwipeSessionEntity
@@ -56,6 +57,7 @@ class SwiperScanner @Inject constructor(
     data class Options(
         val paths: Set<APath>,
         val itemLimit: Int?,
+        val fileTypeFilter: FileTypeFilter = FileTypeFilter.EMPTY,
     )
 
     data class Result(
@@ -93,6 +95,13 @@ class SwiperScanner @Inject constructor(
             .flowOn(dispatcherProvider.IO)
             .buffer(1024)
             .filter { it.isFile }
+            .let { flow ->
+                if (options.fileTypeFilter.isEmpty) flow
+                else flow.filter { lookup ->
+                    val ext = lookup.name.substringAfterLast('.', "").lowercase()
+                    options.fileTypeFilter.matchesExtension(ext)
+                }
+            }
 
         var count = 0
         val files = mutableListOf<APathLookup<*>>()

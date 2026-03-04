@@ -1,14 +1,5 @@
 <resources>
 
-    <style name="BaseCardItem" parent="Widget.Material3.CardView.Elevated">
-        <item name="android:layout_marginVertical">8dp</item>
-        <item name="android:layout_marginHorizontal">8dp</item>
-    </style>
-
-    <style name="BaseScreen">
-        <item name="android:background">?attr/colorSurface</item>
-    </style>
-
     <style name="DashboardCardButton.Filled" parent="SDMButton.Icon.Filled">
         <item name="android:paddingHorizontal">20dp</item>
         <item name="iconPadding">4dp</item>
@@ -27,9 +18,6 @@
     <style name="DashboardCardButton.Flat" parent="SDMButton.Icon">
         <item name="android:paddingHorizontal">20dp</item>
         <item name="iconPadding">4dp</item>
-    </style>
-
-    <style name="BaseRecyclerList">
     </style>
 
     <style name="DefaultListItemContainer">
@@ -173,64 +161,5 @@
         <item name="flow_wrapMode">chain2</item>
     </style>
 
-    <style name="PreviewRoundedBox">
-        <item name="cornerFamily">rounded</item>
-        <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="PreviewRoundedBox.Small">
-        <item name="cornerSize">8dp</item>
-    </style>
-
-    <style name="PreviewRoundedBox.Medium">
-        <item name="cornerSize">16dp</item>
-    </style>
-
-    <style name="PreviewRoundedBox.Large">
-        <item name="cornerSize">32dp</item>
-    </style>
-
-    <style name="SDMToolbar" parent="Widget.Material3.Toolbar">
-        <item name="android:minHeight">?actionBarSize</item>
-        <item name="navigationContentDescription">Navigate back</item>
-        <item name="statusBarScrim">?colorSurfaceVariant</item>
-        <item name="contentScrim">?colorSurfaceVariant</item>
-    </style>
-
-    <style name="SDMAppBar" parent="Widget.Material3.AppBarLayout">
-
-    </style>
-
-    <style name="SDMButton" parent="Widget.Material3.Button">
-        <item name="backgroundTint">@color/sdm_button_bg_tint</item>
-    </style>
-
-    <style name="SDMButton.Icon" parent="Widget.Material3.Button.IconButton" />
-
-    <style name="SDMButton.Icon.Outlined" parent="Widget.Material3.Button.IconButton.Outlined">
-
-    </style>
-
-    <style name="SDMButton.Icon.Filled" parent="Widget.Material3.Button.IconButton.Filled">
-        <item name="backgroundTint">@color/sdm_button_bg_tint</item>
-    </style>
-
-    <style name="SDMButton.Icon.Filled.Tonal" parent="Widget.Material3.Button.IconButton.Filled.Tonal">
-
-    </style>
-
-    <style name="SDMButton.Outlined" parent="Widget.Material3.Button.OutlinedButton">
-
-    </style>
-
-    <style name="SDMButton.Text" parent="Widget.Material3.Button.TextButton">
-
-    </style>
-
-    <style name="SDMButton.Tonal" parent="Widget.Material3.Button.TonalButton">
-        <item name="backgroundTint">@color/sdm_button_bg_tint_tonal</item>
-        <item name="android:textColor">?colorOnSecondary</item>
-        <item name="iconTint">?colorOnSecondary</item>
-    </style>
 
 </resources>

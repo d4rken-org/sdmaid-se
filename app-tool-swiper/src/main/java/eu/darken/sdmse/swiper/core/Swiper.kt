@@ -160,19 +160,25 @@ class Swiper @Inject constructor(
 
         // Determine paths and sessionId
         val taskSessionId = task.sessionId
+        val existingSession: SwipeSessionEntity?
         val (paths, sessionId) = if (taskSessionId != null) {
             // Scanning existing session
             val session = sessionDao.getSession(taskSessionId)
                 ?: throw IllegalArgumentException("Session not found: $taskSessionId")
+            existingSession = session
             session.sourcePaths.toSet() to taskSessionId
         } else {
             // Creating new session (backward compatibility)
+            existingSession = null
             task.paths!! to null
         }
+
+        val fileTypeFilter = existingSession?.fileTypeFilter ?: FileTypeFilter.EMPTY
 
         val scanOptions = SwiperScanner.Options(
             paths = paths,
             itemLimit = itemLimit,
+            fileTypeFilter = fileTypeFilter,
         )
 
         val scanResult = scanner.get().withProgress(this) {
@@ -185,10 +191,12 @@ class Swiper @Inject constructor(
             clearCacheForSession(sessionId)
             itemDao.deleteItemsForSession(sessionId)
 
-            // Update session entity with new scan results
-            val updatedSession = scanResult.session.copy(
-                sessionId = sessionId,
+            // Update session entity with new scan results, preserving existing fields
+            val updatedSession = existingSession!!.copy(
+                totalItems = scanResult.session.totalItems,
                 state = SessionState.READY,
+                lastModifiedAt = Instant.now(),
+                currentIndex = 0,
             )
             sessionDao.update(updatedSession)
 
@@ -198,8 +206,11 @@ class Swiper @Inject constructor(
 
             // Populate cache with lookups - retrieve inserted items to get their auto-generated IDs
             val insertedItems = itemDao.getItemsForSessionSync(sessionId)
-            insertedItems.forEachIndexed { index, entity ->
-                lookupCache[entity.id] = scanResult.lookups[index]
+            check(insertedItems.size == scanResult.lookups.size) {
+                "Inserted items (${insertedItems.size}) != scan lookups (${scanResult.lookups.size})"
+            }
+            insertedItems.forEach { entity ->
+                lookupCache[entity.id] = scanResult.lookups[entity.itemIndex]
             }
             log(TAG, INFO) { "performScan(): Populated cache with ${insertedItems.size} lookups" }
 
@@ -216,8 +227,11 @@ class Swiper @Inject constructor(
 
             // Populate cache with lookups - retrieve inserted items to get their auto-generated IDs
             val insertedItems = itemDao.getItemsForSessionSync(scanResult.session.sessionId)
-            insertedItems.forEachIndexed { index, entity ->
-                lookupCache[entity.id] = scanResult.lookups[index]
+            check(insertedItems.size == scanResult.lookups.size) {
+                "Inserted items (${insertedItems.size}) != scan lookups (${scanResult.lookups.size})"
+            }
+            insertedItems.forEach { entity ->
+                lookupCache[entity.id] = scanResult.lookups[entity.itemIndex]
             }
             log(TAG, INFO) { "performScan(): Populated cache with ${insertedItems.size} lookups" }
 
@@ -368,6 +382,7 @@ class Swiper @Inject constructor(
     }
 
     override suspend fun createSession(paths: Set<APath>): String = toolLock.withLock {
+        require(paths.isNotEmpty()) { "Cannot create session with empty paths" }
         log(TAG, INFO) { "createSession(paths=$paths)" }
         val sessionId = java.util.UUID.randomUUID().toString()
         val now = Instant.now()
@@ -383,6 +398,16 @@ class Swiper @Inject constructor(
         sessionDao.insert(session)
         log(TAG, INFO) { "Created session: $sessionId" }
         sessionId
+    }
+
+    suspend fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = toolLock.withLock {
+        log(TAG, INFO) { "updateSessionFilter(sessionId=$sessionId, filter=$filter)" }
+        val session = sessionDao.getSession(sessionId) ?: return@withLock
+        if (session.state != SessionState.CREATED) {
+            log(TAG, WARN) { "Cannot change filter for session in state ${session.state}" }
+            return@withLock
+        }
+        sessionDao.update(session.copy(fileTypeFilter = filter.takeUnless { it.isEmpty }))
     }
 
     fun getItemsForSession(sessionId: String): Flow<List<SwipeItem>> {
@@ -416,13 +441,10 @@ class Swiper @Inject constructor(
         }
     }
 
-    private fun clearCacheForSession(sessionId: String) {
-        // Remove all cache entries for items in this session
-        // Note: This is a simple implementation - for better performance,
-        // we could maintain a sessionId -> itemIds mapping
-        val keysToRemove = lookupCache.keys.toList()
-        keysToRemove.forEach { lookupCache.remove(it) }
-        log(TAG) { "Cleared lookup cache for session $sessionId" }
+    private suspend fun clearCacheForSession(sessionId: String) {
+        val sessionItemIds = itemDao.getItemsForSessionSync(sessionId).map { it.id }.toSet()
+        sessionItemIds.forEach { lookupCache.remove(it) }
+        log(TAG) { "Cleared ${sessionItemIds.size} lookup cache entries for session $sessionId" }
     }
 
     data class State(

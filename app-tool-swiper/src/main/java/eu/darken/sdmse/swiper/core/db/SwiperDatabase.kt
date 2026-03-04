@@ -2,6 +2,8 @@ package eu.darken.sdmse.swiper.core.db
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
@@ -25,6 +27,8 @@ class SwiperDatabaseModule {
     ): SwiperRoomDb = Room.databaseBuilder(context, SwiperRoomDb::class.java, "swiper.db").apply {
         addTypeConverter(APathTypeConverter(moshi))
         addTypeConverter(APathListTypeConverter(moshi))
+        addTypeConverter(FileTypeFilterConverter(moshi))
+        addMigrations(MIGRATION_1_2)
     }.build()
 
     @Provides
@@ -37,5 +41,11 @@ class SwiperDatabaseModule {
 
     companion object {
         internal val TAG = logTag("Swiper", "Database")
+
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL("ALTER TABLE swipe_sessions ADD COLUMN file_type_filter TEXT DEFAULT NULL")
+            }
+        }
     }
 }

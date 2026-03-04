@@ -93,6 +93,21 @@
 
         </LinearLayout>
 
+        <!-- Filter summary -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/filter_summary"
+            style="@style/TextAppearance.Material3.BodySmall"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paths_container"
+            tools:text="Filtered: Images, Videos"
+            tools:visibility="visible" />
+
         <!-- Status Section -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/status_label"
@@ -104,7 +119,7 @@
             android:textColor="?attr/colorOnSurfaceVariant"
             android:visibility="gone"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/paths_container"
+            app:layout_constraintTop_toBottomOf="@id/filter_summary"
             tools:visibility="visible" />
 
         <LinearLayout
@@ -226,6 +241,21 @@
 
         </LinearLayout>
 
+        <!-- No matching files message -->
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/no_matching_files"
+            style="@style/TextAppearance.Material3.BodyMedium"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/swiper_session_no_matching_files"
+            android:textColor="?attr/colorOnSurfaceVariant"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/stats_container"
+            tools:visibility="gone" />
+
         <LinearLayout
             android:id="@+id/progress_container"
             android:layout_width="0dp"
@@ -258,13 +288,29 @@
 
         <LinearLayout
             android:id="@+id/action_container"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:gravity="center_vertical"
             android:orientation="horizontal"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/progress_container">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/filter_action"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/general_filter_action"
+                android:visibility="gone"
+                app:icon="@drawable/ic_filter_list_24"
+                tools:visibility="visible" />
+
+            <Space
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_weight="1" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
                 android:id="@+id/scan_progress"

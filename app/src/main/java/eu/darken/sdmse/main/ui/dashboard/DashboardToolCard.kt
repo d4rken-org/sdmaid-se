@@ -100,7 +100,7 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
             setOnClickListener { item.onDelete?.invoke() }
             setText(eu.darken.sdmse.common.R.string.general_delete_action)
             if (item.showProRequirement) {
-                setIconResource(R.drawable.ic_baseline_stars_24)
+                setIconResource(UiR.drawable.ic_baseline_stars_24)
             } else if (item.onDelete != null) {
                 setIconResource(UiR.drawable.ic_delete)
             } else {

@@ -157,7 +157,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
 
                 DashboardViewModel.BottomBarState.Action.DELETE -> {
-                    mainAction.setImageResource(R.drawable.ic_baseline_delete_sweep_24)
+                    mainAction.setImageResource(UiR.drawable.ic_baseline_delete_sweep_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
                     )

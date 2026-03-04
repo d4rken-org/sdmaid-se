@@ -9,6 +9,9 @@ import eu.darken.sdmse.swiper.R
 import androidx.core.view.isGone
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.swiper.databinding.SwiperSessionsSessionItemBinding
+import eu.darken.sdmse.common.getColorForAttr
+import eu.darken.sdmse.swiper.core.FileTypeCategory
+import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.ui.sessions.SwiperSessionsAdapter
 import eu.darken.sdmse.common.ui.R as UiR
@@ -63,11 +66,36 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             pathsContainer.addView(pathView)
         }
 
+        // Filter summary
+        val filter = session.fileTypeFilter
+        if (!filter.isEmpty) {
+            val parts = mutableListOf<String>()
+            filter.categories.sortedBy { it.ordinal }.forEach { category ->
+                val name = when (category) {
+                    FileTypeCategory.IMAGES -> getString(R.string.swiper_file_type_category_images)
+                    FileTypeCategory.VIDEOS -> getString(R.string.swiper_file_type_category_videos)
+                    FileTypeCategory.AUDIO -> getString(R.string.swiper_file_type_category_audio)
+                    FileTypeCategory.DOCUMENTS -> getString(R.string.swiper_file_type_category_documents)
+                    FileTypeCategory.ARCHIVES -> getString(R.string.swiper_file_type_category_archives)
+                }
+                parts.add(name)
+            }
+            filter.customExtensions.sorted().forEach { ext -> parts.add(".$ext") }
+            filterSummary.text = getString(R.string.swiper_file_type_filter_summary, parts.joinToString(", "))
+            filterSummary.isVisible = true
+        } else {
+            filterSummary.isVisible = false
+        }
+
         // Stats - only show after scan
         val isScanned = sessionWithStats.isScanned
-        statusLabel.isVisible = isScanned
-        statsContainer.isVisible = isScanned
-        progressContainer.isVisible = isScanned
+        val noMatchingFiles = isScanned && session.totalItems == 0
+        noMatchingFiles.let { noMatch ->
+            this.noMatchingFiles.isVisible = noMatch
+        }
+        statusLabel.isVisible = isScanned && !noMatchingFiles
+        statsContainer.isVisible = isScanned && !noMatchingFiles
+        progressContainer.isVisible = isScanned && !noMatchingFiles
 
         if (isScanned) {
             // Progress bar
@@ -103,6 +131,23 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         removeAction.isVisible = true
         removeAction.setOnClickListener { item.onRemove() }
 
+        // Filter button - visible before scan or when scan found no matches
+        val showFilter = !item.isScanning && !item.isRefreshing &&
+            (session.state == SessionState.CREATED || noMatchingFiles)
+        filterAction.isVisible = showFilter
+        if (showFilter) {
+            filterAction.setOnClickListener { item.onFilter() }
+            val hasActiveFilter = !filter.isEmpty
+            val tintAttr = if (hasActiveFilter) {
+                androidx.appcompat.R.attr.colorPrimary
+            } else {
+                com.google.android.material.R.attr.colorOnSurfaceVariant
+            }
+            val tint = android.content.res.ColorStateList.valueOf(context.getColorForAttr(tintAttr))
+            filterAction.iconTint = tint
+            filterAction.setTextColor(tint)
+        }
+
         // Action button - four states: not scanned, scanning, refreshing, scanned
         scanProgress.isVisible = item.isScanning || item.isRefreshing
         when {
@@ -131,6 +176,13 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
                 actionButton.isEnabled = true
                 actionButton.setOnClickListener { item.onContinue() }
             }
+            isScanned && session.totalItems == 0 -> {
+                // Scan complete but no matching files
+                actionButton.text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
+                actionButton.setIconResource(UiR.drawable.ic_baseline_search_24)
+                actionButton.isEnabled = true
+                actionButton.setOnClickListener { item.onScan() }
+            }
             else -> {
                 // Not yet scanned
                 actionButton.text = getString(eu.darken.sdmse.common.R.string.general_scan_action)
@@ -140,9 +192,10 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             }
         }
 
-        // Card click - opens session when scanned
-        root.setOnClickListener { if (isScanned) item.onContinue() }
-        root.isClickable = isScanned
+        // Card click - opens session when scanned and has items
+        val canContinue = isScanned && session.totalItems > 0
+        root.setOnClickListener { if (canContinue) item.onContinue() }
+        root.isClickable = canContinue
     }
 
     data class Item(
@@ -156,6 +209,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         val onRemove: () -> Unit,
         val onRename: () -> Unit,
         val onCancel: () -> Unit,
+        val onFilter: () -> Unit,
     ) : SwiperSessionsAdapter.Item {
         override val stableId: Long = sessionWithStats.session.sessionId.hashCode().toLong()
     }

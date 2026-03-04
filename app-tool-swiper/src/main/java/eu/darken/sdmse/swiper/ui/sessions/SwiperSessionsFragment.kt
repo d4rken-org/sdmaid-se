@@ -7,6 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
@@ -15,7 +16,10 @@ import eu.darken.sdmse.common.navigation.navDirections
 import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.lists.differ.update
+import eu.darken.sdmse.swiper.core.FileTypeCategory
+import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
@@ -121,6 +125,12 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                                 displayLabel,
                             )
                         },
+                        onFilter = {
+                            showFileTypeFilterDialog(
+                                sessionId,
+                                sessionWithStats.session.fileTypeFilter,
+                            )
+                        },
                     )
                 )
             }
@@ -194,6 +204,55 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                 updateSaveButton()
             }
         })
+    }
+
+    private fun showFileTypeFilterDialog(sessionId: String, currentFilter: FileTypeFilter) {
+        val dialogView = LayoutInflater.from(requireContext())
+            .inflate(R.layout.swiper_file_type_filter_dialog, null)
+
+        val checkImages = dialogView.findViewById<MaterialCheckBox>(R.id.category_images)
+        val checkVideos = dialogView.findViewById<MaterialCheckBox>(R.id.category_videos)
+        val checkAudio = dialogView.findViewById<MaterialCheckBox>(R.id.category_audio)
+        val checkDocuments = dialogView.findViewById<MaterialCheckBox>(R.id.category_documents)
+        val checkArchives = dialogView.findViewById<MaterialCheckBox>(R.id.category_archives)
+        val customInput = dialogView.findViewById<TextInputEditText>(R.id.custom_extensions_input)
+
+        // Subtitle taps toggle their checkbox
+        dialogView.findViewById<View>(R.id.category_images_subtitle).setOnClickListener { checkImages.toggle() }
+        dialogView.findViewById<View>(R.id.category_videos_subtitle).setOnClickListener { checkVideos.toggle() }
+        dialogView.findViewById<View>(R.id.category_audio_subtitle).setOnClickListener { checkAudio.toggle() }
+        dialogView.findViewById<View>(R.id.category_documents_subtitle).setOnClickListener { checkDocuments.toggle() }
+        dialogView.findViewById<View>(R.id.category_archives_subtitle).setOnClickListener { checkArchives.toggle() }
+
+        // Pre-populate from current filter
+        checkImages.isChecked = FileTypeCategory.IMAGES in currentFilter.categories
+        checkVideos.isChecked = FileTypeCategory.VIDEOS in currentFilter.categories
+        checkAudio.isChecked = FileTypeCategory.AUDIO in currentFilter.categories
+        checkDocuments.isChecked = FileTypeCategory.DOCUMENTS in currentFilter.categories
+        checkArchives.isChecked = FileTypeCategory.ARCHIVES in currentFilter.categories
+        if (currentFilter.customExtensions.isNotEmpty()) {
+            customInput.setText(currentFilter.customExtensions.sorted().joinToString(", "))
+        }
+
+        MaterialAlertDialogBuilder(requireContext()).apply {
+            setTitle(R.string.swiper_file_type_filter_title)
+            setView(dialogView)
+            setPositiveButton(R.string.swiper_file_type_filter_apply_action) { _, _ ->
+                val categories = mutableSetOf<FileTypeCategory>()
+                if (checkImages.isChecked) categories.add(FileTypeCategory.IMAGES)
+                if (checkVideos.isChecked) categories.add(FileTypeCategory.VIDEOS)
+                if (checkAudio.isChecked) categories.add(FileTypeCategory.AUDIO)
+                if (checkDocuments.isChecked) categories.add(FileTypeCategory.DOCUMENTS)
+                if (checkArchives.isChecked) categories.add(FileTypeCategory.ARCHIVES)
+
+                val customText = customInput.text?.toString().orEmpty()
+                val customExtensions = FileTypeFilter.parseCustomExtensions(customText)
+
+                val filter = FileTypeFilter(categories, customExtensions)
+                vm.updateSessionFilter(sessionId, filter)
+            }
+            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
+        }.show()
     }
 
     companion object {

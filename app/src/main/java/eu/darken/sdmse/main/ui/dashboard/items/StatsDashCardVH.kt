@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.stats.R as StatsR
+import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.databinding.StatsDashboardItemBinding
 import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
@@ -61,7 +62,7 @@ class StatsDashCardVH(parent: ViewGroup) :
         }
         viewAction.apply {
             if (item.showProRequirement) {
-                setIconResource(R.drawable.ic_baseline_stars_24)
+                setIconResource(UiR.drawable.ic_baseline_stars_24)
             } else {
                 icon = null
             }
