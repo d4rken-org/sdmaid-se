@@ -131,6 +131,25 @@
 
                 </LinearLayout>
 
+                <!-- File type chip: bottom-left corner -->
+                <com.google.android.material.textview.MaterialTextView
+                    android:id="@+id/file_type_chip"
+                    style="@style/TextAppearance.Material3.LabelSmall"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom|start"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/bg_notch_bottom_end"
+                    android:maxEms="6"
+                    android:maxLines="1"
+                    android:paddingHorizontal="6dp"
+                    android:paddingVertical="2dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:visibility="gone"
+                    tools:text="JPG"
+                    tools:visibility="visible" />
+
                 <!-- File info overlay at bottom -->
                 <LinearLayout
                     android:id="@+id/file_info_overlay"

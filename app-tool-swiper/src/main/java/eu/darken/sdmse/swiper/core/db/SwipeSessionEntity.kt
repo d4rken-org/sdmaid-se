@@ -4,6 +4,7 @@ import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SwipeSession
 import java.time.Instant
@@ -22,6 +23,7 @@ data class SwipeSessionEntity(
     @ColumnInfo(name = "label") val label: String? = null,
     @ColumnInfo(name = "kept_count") val keptCount: Int = 0,
     @ColumnInfo(name = "deleted_count") val deletedCount: Int = 0,
+    @ColumnInfo(name = "file_type_filter") val fileTypeFilter: FileTypeFilter? = null,
 ) {
     fun toModel() = SwipeSession(
         sessionId = sessionId,
@@ -34,6 +36,7 @@ data class SwipeSessionEntity(
         label = label,
         keptCount = keptCount,
         deletedCount = deletedCount,
+        fileTypeFilter = fileTypeFilter ?: FileTypeFilter.EMPTY,
     )
 
     companion object {
@@ -48,6 +51,7 @@ data class SwipeSessionEntity(
             label = session.label,
             keptCount = session.keptCount,
             deletedCount = session.deletedCount,
+            fileTypeFilter = session.fileTypeFilter.takeUnless { it.isEmpty },
         )
     }
 }

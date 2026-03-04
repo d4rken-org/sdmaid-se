@@ -15,6 +15,7 @@ import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.swiper.R
 import androidx.core.os.bundleOf
+import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
 import eu.darken.sdmse.swiper.core.tasks.SwiperScanTask
@@ -66,6 +67,11 @@ class SwiperSessionsViewModel @Inject constructor(
         log(TAG, INFO) { "createSession(paths=$paths)" }
         if (paths.isEmpty()) return@launch
         swiper.createSession(paths)
+    }
+
+    fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = launch {
+        log(TAG, INFO) { "updateSessionFilter(sessionId=$sessionId, filter=$filter)" }
+        swiper.updateSessionFilter(sessionId, filter)
     }
 
     fun continueSession(sessionId: String) = launch {

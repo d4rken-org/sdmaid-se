@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.room.InstantConverter
         SwipeSessionEntity::class,
         SwipeItemEntity::class,
     ],
-    version = 1,
+    version = 2,
     exportSchema = true,
 )
 @TypeConverters(
@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.room.InstantConverter
     SessionStateConverter::class,
     APathTypeConverter::class,
     APathListTypeConverter::class,
+    FileTypeFilterConverter::class,
 )
 abstract class SwiperRoomDb : RoomDatabase() {
     abstract fun sessions(): SwipeSessionDao

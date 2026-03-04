@@ -14,4 +14,5 @@ data class SwipeSession(
     val label: String? = null,
     val keptCount: Int = 0,
     val deletedCount: Int = 0,
+    val fileTypeFilter: FileTypeFilter = FileTypeFilter.EMPTY,
 )
