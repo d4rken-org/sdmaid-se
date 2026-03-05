@@ -86,10 +86,8 @@ class ImageProcessor @Inject constructor(
                 val saved = processImage(image, quality)
                 successful.add(image)
 
-                if (!Bugs.isDryRun) {
-                    val contentHash = historyDatabase.computeContentHash(image.path)
-                    historyDatabase.recordCompression(contentHash)
-                }
+                val contentHash = historyDatabase.computeContentHash(image.path)
+                historyDatabase.recordCompression(contentHash)
 
                 if (saved > 0) {
                     totalSaved += saved
