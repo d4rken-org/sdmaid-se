@@ -9,10 +9,21 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.uix.ViewModel3
-import kotlinx.coroutines.flow.*
+import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.flatMapLatest
+import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.take
+import java.time.Duration
+import java.time.Instant
+import kotlin.time.Duration.Companion.hours
 import javax.inject.Inject
 
 @HiltViewModel
@@ -20,6 +31,8 @@ class DeviceStorageViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val analyzer: Analyzer,
+    private val spaceHistoryRepo: SpaceHistoryRepo,
+    private val upgradeRepo: UpgradeRepo,
 ) : ViewModel3(dispatcherProvider) {
 
     init {
@@ -30,16 +43,24 @@ class DeviceStorageViewModel @Inject constructor(
             .launchInViewModel()
     }
 
-
     val state = combine(
         analyzer.data,
         analyzer.progress,
-    ) { data, progress ->
+        intervalFlow(1.hours).flatMapLatest {
+            spaceHistoryRepo.getAllHistory(Instant.now() - Duration.ofDays(7))
+        },
+        upgradeRepo.upgradeInfo.map { it.isPro },
+    ) { data, progress, snapshots, isPro ->
+        val snapshotsByStorage = snapshots.groupBy { it.storageId }
 
         State(
             storages = data.storages.map { storage ->
                 DeviceStorageItemVH.Item(
                     storage = storage,
+                    snapshots = snapshotsByStorage[storage.id.externalId.toString()]
+                        .orEmpty()
+                        .sortedBy { it.recordedAt },
+                    isPro = isPro,
                     onItemClicked = {
                         if (storage.setupIncomplete) {
                             navDirections(eu.darken.sdmse.common.R.id.goToSetup).navigate()
@@ -49,7 +70,17 @@ class DeviceStorageViewModel @Inject constructor(
                                 bundleOf("storageId" to it.storage.id)
                             ).navigate()
                         }
-                    }
+                    },
+                    onTrendClicked = { item ->
+                        if (isPro) {
+                            navDirections(
+                                eu.darken.sdmse.common.R.id.goToSpaceHistoryFragment,
+                                bundleOf("storageId" to item.storage.id.externalId.toString())
+                            )
+                        } else {
+                            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment)
+                        }.navigate()
+                    },
                 )
             },
             progress = progress,
