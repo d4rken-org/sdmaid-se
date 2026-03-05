@@ -1,7 +1,6 @@
 package eu.darken.sdmse.common.debug.recorder.core
 
 import android.content.Context
-import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
@@ -21,7 +20,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.getPackageInfo
 import eu.darken.sdmse.main.core.CurriculumVitae
@@ -110,20 +108,9 @@ class RecorderModule @Inject constructor(
                             log(TAG, ERROR) { "Failed to delete trigger file" }
                         }
 
-                        if (!suppressActivityLaunch) {
-                            try {
-                                val intent = RecorderActivity.getLaunchIntent(context, currentLogDir!!.path).apply {
-                                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                                }
-                                context.startActivity(intent)
-                            } catch (e: Exception) {
-                                log(TAG, WARN) { "Failed to launch RecorderActivity: ${e.asLog()}" }
-                            }
-                        }
-
                         copy(
                             recorder = null,
-                            suppressActivityLaunch = false,
+                            currentLogDir = null,
                         )
                     } else {
                         this
@@ -177,7 +164,7 @@ class RecorderModule @Inject constructor(
         return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
     }
 
-    suspend fun requestStopRecorder(launchResultScreen: Boolean = true): StopResult {
+    suspend fun requestStopRecorder(): StopResult {
         val currentState = internalState.value()
         if (!currentState.isRecording) return StopResult.NotRecording
 
@@ -197,18 +184,20 @@ class RecorderModule @Inject constructor(
             }
         }
 
-        val stoppedDir = stopRecorder(launchResultScreen) ?: return StopResult.NotRecording
+        val stoppedDir = stopRecorder() ?: return StopResult.NotRecording
         return StopResult.Stopped(stoppedDir)
     }
 
-    suspend fun stopRecorder(launchResultScreen: Boolean = true): File? {
+    suspend fun stopRecorder(): File? {
         val currentPath = internalState.value().currentLogDir ?: return null
         internalState.updateBlocking {
-            copy(shouldRecord = false, suppressActivityLaunch = !launchResultScreen)
+            copy(shouldRecord = false)
         }
         internalState.flow.filter { !it.isRecording }.first()
         return currentPath
     }
+
+    suspend fun getCurrentLogDir(): File? = internalState.value().currentLogDir
 
     fun getLogDirectories(): List<File> {
         val dirs = mutableListOf<File>()
@@ -258,7 +247,6 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
-        internal val suppressActivityLaunch: Boolean = false,
     ) {
         val isRecording: Boolean
             get() = recorder != null

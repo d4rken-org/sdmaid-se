@@ -143,7 +143,15 @@
         <action
             android:id="@+id/action_settingsContainerFragment_to_supportContactFormFragment"
             app:destination="@id/supportContactFormFragment" />
+        <action
+            android:id="@+id/action_settingsContainerFragment_to_debugLogSessionsDialog"
+            app:destination="@id/debugLogSessionsDialog" />
     </fragment>
+
+    <dialog
+        android:id="@+id/debugLogSessionsDialog"
+        android:name="eu.darken.sdmse.main.ui.settings.support.sessions.DebugLogSessionsDialog"
+        tools:layout="@layout/debug_log_sessions_dialog" />
 
     <fragment
         android:id="@+id/supportContactFormFragment"

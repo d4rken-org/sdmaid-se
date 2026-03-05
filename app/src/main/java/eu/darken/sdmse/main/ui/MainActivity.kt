@@ -11,7 +11,6 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.navigation.findNavController
 import eu.darken.sdmse.common.theming.Theming
@@ -36,8 +35,6 @@ class MainActivity : Activity2() {
     @Inject lateinit var shortcutManager: ShortcutManager
 
     var showSplashScreen = true
-
-    @Inject lateinit var recorderModule: RecorderModule
 
     override fun onCreate(savedInstanceState: Bundle?) {
         log(tag) { "onCreate(restoringState=${savedInstanceState != null})" }

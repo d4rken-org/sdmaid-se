@@ -16,10 +16,14 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
-import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
+import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.map
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
@@ -34,10 +38,11 @@ class RecorderViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val webpageTool: WebpageTool,
     private val debugLogZipper: DebugLogZipper,
+    private val sessionManager: DebugLogSessionManager,
 ) : ViewModel3(dispatcherProvider) {
 
     private val sessionPath = handle.get<String>(RecorderActivity.RECORD_PATH)?.let { File(it) }
-    private val zipPath = sessionPath?.let { File(it.parentFile, "${it.name}.zip") }
+    private val sessionId = sessionPath?.name
 
     private val stater = DynamicStateFlow(TAG, vmScope) {
         State(logDir = sessionPath)
@@ -48,7 +53,7 @@ class RecorderViewModel @Inject constructor(
 
     init {
         launch {
-            if (sessionPath == null) throw IllegalStateException("No recorded path found")
+            if (sessionPath == null || sessionId == null) throw IllegalStateException("No recorded path found")
 
             val recordingDuration = try {
                 val attrs = Files.readAttributes(sessionPath.toPath(), BasicFileAttributes::class.java)
@@ -70,18 +75,27 @@ class RecorderViewModel @Inject constructor(
             entries = entries.map { entry -> entry.copy(size = entry.path.length()) }.sortedByDescending { it.size }
             stater.updateBlocking { copy(logEntries = entries) }
 
-            log(TAG) { "Compressing log files..." }
-            val uri = debugLogZipper.zipAndGetUri(sessionPath)
-            val zipFile = zipPath ?: throw IllegalStateException("No zip path found")
-            val zippedSize = zipFile.length()
-            log(TAG) { "Zip file created ${zippedSize}B at $zipFile" }
-            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize, isWorking = false) }
+            // Wait for session to be zipped (either already finished or in progress)
+            log(TAG) { "Waiting for session $sessionId to finish zipping..." }
+            val finishedSession = sessionManager.sessions
+                .map { sessions -> sessions.filterIsInstance<DebugLogSession.Finished>().find { it.id == sessionId } }
+                .filter { it != null }
+                .first()!!
+
+            log(TAG) { "Zip file created ${finishedSession.compressedSize}B at ${finishedSession.zipFile}" }
+            stater.updateBlocking {
+                copy(
+                    compressedFile = finishedSession.zipFile,
+                    compressedSize = finishedSession.compressedSize,
+                    isWorking = false,
+                )
+            }
         }
     }
 
     fun share() = launch {
-        if (sessionPath == null) throw IllegalStateException("sessionPath is null")
-        val uri = debugLogZipper.zipAndGetUri(sessionPath)
+        val zipFile = stater.value().compressedFile ?: throw IllegalStateException("No compressed file available")
+        val uri = debugLogZipper.getUriForZip(zipFile)
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             putExtra(Intent.EXTRA_STREAM, uri)
@@ -107,18 +121,15 @@ class RecorderViewModel @Inject constructor(
     }
 
     fun keep() = launch {
-        sessionPath?.deleteRecursively()
         popNavStack()
     }
 
     fun discard() = launch {
         stater.updateBlocking { copy(isWorking = true) }
 
-        sessionPath?.deleteAll()
-        if (sessionPath?.exists() == true) log(TAG, WARN) { "Failed to delete $sessionPath" }
-
-        zipPath?.delete()
-        if (zipPath?.exists() == true) log(TAG, WARN) { "Failed to delete $zipPath" }
+        if (sessionId != null) {
+            sessionManager.delete(sessionId)
+        }
 
         popNavStack()
     }

@@ -14,13 +14,16 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.map
 import kotlinx.parcelize.Parcelize
 import java.io.File
 import javax.inject.Inject
@@ -31,7 +34,7 @@ class SupportContactFormViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val emailTool: EmailTool,
     private val upgradeRepo: UpgradeRepo,
-    private val recorderModule: RecorderModule,
+    private val sessionManager: DebugLogSessionManager,
     private val debugLogZipper: DebugLogZipper,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -43,13 +46,53 @@ class SupportContactFormViewModel @Inject constructor(
 
     val state = currentState.asLiveData2()
 
-    private val logPickerStater = DynamicStateFlow(TAG, vmScope) {
-        LogPickerState(sessions = scanLogSessions())
+    private val selectedZip = MutableStateFlow<File?>(null)
+    private val pendingSessionId = MutableStateFlow<String?>(null)
+
+    init {
+        // Auto-select: when a pending session finishes zipping, select its zip
+        launch {
+            sessionManager.sessions.collect { sessions ->
+                val pending = pendingSessionId.value ?: return@collect
+                val finished = sessions.filterIsInstance<DebugLogSession.Finished>().find { it.id == pending }
+                if (finished != null) {
+                    pendingSessionId.value = null
+                    selectedZip.value = finished.zipFile
+                }
+            }
+        }
     }
-    val logPickerState = logPickerStater.asLiveData2()
+
+    val logPickerState = combine(
+        sessionManager.sessions,
+        selectedZip,
+    ) { sessions, selected ->
+        val isRecording = sessions.any { it is DebugLogSession.Recording }
+        val isZipping = sessions.any { it is DebugLogSession.Zipping }
+        val finishedSessions = sessions.filterIsInstance<DebugLogSession.Finished>()
+
+        // Validate selection still exists
+        val validatedSelection = selected?.takeIf { sel ->
+            finishedSessions.any { it.zipFile == sel }
+        }
+
+        LogPickerState(
+            isRecording = isRecording,
+            isZipping = isZipping,
+            sessions = finishedSessions.map { session ->
+                LogSessionItem(
+                    zipFile = session.zipFile,
+                    size = session.compressedSize,
+                    lastModified = session.createdAt.toEpochMilli(),
+                )
+            },
+            selectedZip = validatedSelection,
+        )
+    }.asLiveData2()
 
     data class LogPickerState(
         val isRecording: Boolean = false,
+        val isZipping: Boolean = false,
         val sessions: List<LogSessionItem> = emptyList(),
         val selectedZip: File? = null,
     )
@@ -59,18 +102,6 @@ class SupportContactFormViewModel @Inject constructor(
         val size: Long,
         val lastModified: Long,
     )
-
-    init {
-        recorderModule.state
-            .onEach { recState ->
-                val sessions = scanLogSessions()
-                logPickerStater.updateBlocking {
-                    val selected = selectedZip?.takeIf { sel -> sessions.any { it.zipFile == sel } }
-                    copy(isRecording = recState.isRecording, sessions = sessions, selectedZip = selected)
-                }
-            }
-            .launchIn(vmScope)
-    }
 
     @Parcelize
     data class State(
@@ -114,69 +145,42 @@ class SupportContactFormViewModel @Inject constructor(
         updateState { copy(expectedBehavior = text) }
     }
 
-    private fun scanLogSessions(): List<LogSessionItem> {
-        return recorderModule.getLogDirectories()
-            .flatMap { parent -> parent.listFiles()?.filter { it.extension == "zip" } ?: emptyList() }
-            .map { zip ->
-                LogSessionItem(
-                    zipFile = zip,
-                    size = zip.length(),
-                    lastModified = zip.lastModified(),
-                )
-            }
-            .sortedByDescending { it.lastModified }
-    }
-
-    fun refreshLogSessions() = launch {
-        val sessions = scanLogSessions()
-        logPickerStater.updateBlocking {
-            val selected = selectedZip?.takeIf { sel -> sessions.any { it.zipFile == sel } }
-            copy(sessions = sessions, selectedZip = selected)
-        }
+    fun refreshLogSessions() {
+        sessionManager.refresh()
     }
 
     fun selectLogSession(zipFile: File) = launch {
-        logPickerStater.updateBlocking {
-            copy(selectedZip = if (selectedZip == zipFile) null else zipFile)
-        }
+        selectedZip.value = if (selectedZip.value == zipFile) null else zipFile
     }
 
-    fun deleteLogSession(zipFile: File) = launch {
-        zipFile.delete()
-        File(zipFile.parentFile, zipFile.nameWithoutExtension).deleteRecursively()
-        refreshLogSessions()
+    fun deleteLogSession(zipFile: File) {
+        val sessionId = zipFile.nameWithoutExtension
+        sessionManager.delete(sessionId)
     }
 
     fun startRecording() = launch {
-        recorderModule.startRecorder()
+        sessionManager.startRecording()
     }
 
     fun stopRecording() = launch {
-        when (val result = recorderModule.requestStopRecorder(launchResultScreen = false)) {
+        when (val result = sessionManager.requestStopRecording()) {
             is RecorderModule.StopResult.TooShort -> {
                 events.postValue(SupportContactFormEvents.ShowShortRecordingWarning)
             }
-            is RecorderModule.StopResult.Stopped -> zipAndAutoSelect(result.logDir)
+            is RecorderModule.StopResult.Stopped -> {
+                pendingSessionId.value = result.logDir.name
+            }
             is RecorderModule.StopResult.NotRecording -> {}
         }
     }
 
     fun confirmStopRecording() = launch {
-        val logDir = recorderModule.stopRecorder(launchResultScreen = false) ?: return@launch
-        zipAndAutoSelect(logDir)
-    }
-
-    private suspend fun zipAndAutoSelect(logDir: File) {
-        debugLogZipper.zipAndGetUri(logDir)
-        val sessions = scanLogSessions()
-        val newZip = File(logDir.parentFile, "${logDir.name}.zip")
-        logPickerStater.updateBlocking {
-            copy(sessions = sessions, selectedZip = newZip)
-        }
+        val logDir = sessionManager.forceStopRecording() ?: return@launch
+        pendingSessionId.value = logDir.name
     }
 
     fun send() = launch {
-        val pickerState = logPickerStater.value()
+        val pickerState = logPickerState.value ?: return@launch
         if (pickerState.isRecording) return@launch
 
         updateState { copy(isSending = true) }
