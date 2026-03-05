@@ -15,7 +15,6 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.sharedresource.KeepAlive
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.stats.core.StatsRepo
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.CoroutineStart
@@ -29,7 +28,6 @@ import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.Semaphore
@@ -50,7 +48,6 @@ class TaskManager @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val tools: Set<@JvmSuppressWildcards SDMTool>,
     private val taskWorkerControl: TaskWorkerControl,
-    private val statsRepo: StatsRepo,
 ) : TaskSubmitter {
 
     private val sharedResource = SharedResource.createKeepAlive(TAG, appScope)
@@ -245,13 +242,6 @@ class TaskManager @Inject constructor(
         }
 
         job.invokeOnCompletion { log(TAG, VERBOSE) { "Task completion: ${taskEntries.value[taskId]}" } }
-
-        taskEntries
-            .mapNotNull { it[taskId] }
-            .filter { it.isComplete }
-            .take(1)
-            .onEach { statsRepo.report(it.toPublic()) }
-            .launchIn(appScope)
 
         withContext(NonCancellable) {
             // Any task causes the taskmanager to stay "alive" and with it any depending resources

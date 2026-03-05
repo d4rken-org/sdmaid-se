@@ -99,14 +99,43 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
-            android:layout_marginBottom="16dp"
+            android:layout_marginBottom="8dp"
             android:textColor="?colorError"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@id/available"
+            app:layout_constraintBottom_toTopOf="@id/trend_container"
             app:layout_constraintEnd_toEndOf="@id/secondary"
             app:layout_constraintStart_toStartOf="@id/secondary"
             app:layout_constraintTop_toBottomOf="@id/secondary"
             tools:text="@string/analyzer_storage_content_type_app_setup_incomplete_hint" />
+
+        <LinearLayout
+            android:id="@+id/trend_container"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical"
+            android:visibility="gone"
+            app:layout_constraintBottom_toTopOf="@id/available"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/progress"
+            app:layout_constraintTop_toBottomOf="@id/tertiary"
+            tools:visibility="visible">
+
+            <eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryChartView
+                android:id="@+id/trend_chart"
+                android:layout_width="match_parent"
+                android:layout_height="80dp"
+                app:isCompact="true" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/trend_delta"
+                style="@style/TextAppearance.Material3.LabelSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                tools:text="+1.2 GB in 7d" />
+        </LinearLayout>
 
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/available"
@@ -121,6 +150,7 @@
             app:layout_constraintEnd_toStartOf="@id/capacity"
             app:layout_constraintHorizontal_chainStyle="spread_inside"
             app:layout_constraintStart_toEndOf="@id/progress"
+            app:layout_constraintTop_toBottomOf="@id/trend_container"
             app:layout_constraintVertical_bias="1.0"
             tools:text="13.59 GB available" />
 

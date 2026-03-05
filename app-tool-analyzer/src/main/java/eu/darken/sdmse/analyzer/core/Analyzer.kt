@@ -46,6 +46,7 @@ import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
+import eu.darken.sdmse.stats.core.SpaceTracker
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -66,6 +67,7 @@ class Analyzer @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     @Named("inventory") private val appInventorySetupModule: SetupModule,
     private val mediaStoreTool: MediaStoreTool,
+    private val spaceTracker: SpaceTracker,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
@@ -144,6 +146,13 @@ class Analyzer @Inject constructor(
         val storages = scanner.withProgress(this) { scan() }
 
         storageDevices.value = storages
+        spaceTracker.recordSnapshot(storages.map {
+            SpaceTracker.StorageSnapshot(
+                storageId = it.id.externalId.toString(),
+                spaceFree = it.spaceFree,
+                spaceCapacity = it.spaceCapacity,
+            )
+        }.toSet())
 
         return DeviceStorageScanTask.Result(itemCount = storages.size)
     }
