@@ -17,7 +17,4 @@ build/
 .kotlin/sessions
 .kotlin/errors
 
-# Claude Code
-.claude/settings.local.json
-.claude/tmp/
 /fastlane/README.md
