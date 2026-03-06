@@ -127,6 +127,29 @@ class StorageSnapshotDeltaTest : BaseTest() {
     }
 
     @Test
+    fun `parseable to unparseable is SUCCESS (Japanese zero-byte scenario)`() {
+        // Real values from issue #2276 debug log (Pixel 10 Pro XL, Android 16, Japanese locale)
+        // Settings app displays "0 byte" after clearing cache, which SizeParser can't parse
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(313000000, "313 MB"),
+                StorageSnapshot.ParsedSize(1530000000, "1.53 GB"),
+                StorageSnapshot.ParsedSize(180000000, "180 MB"),
+                StorageSnapshot.ParsedSize(2030000000, "2.03 GB"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(313000000, "313 MB"),
+                StorageSnapshot.ParsedSize(1530000000, "1.53 GB"),
+                StorageSnapshot.ParsedSize(null, "0 byte"),
+                StorageSnapshot.ParsedSize(1850000000, "1.85 GB"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
+    }
+
+    @Test
     fun `both null at same position is INCONCLUSIVE`() {
         val snapshot = StorageSnapshot(
             listOf(
