@@ -29,6 +29,8 @@ import eu.darken.sdmse.common.updater.UpdateService
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
+import eu.darken.sdmse.stats.core.SpaceTracker
+import eu.darken.sdmse.stats.core.TaskStatsCoordinator
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
@@ -54,6 +56,8 @@ open class App : Application(), Configuration.Provider {
     @Inject lateinit var coilTempFiles: CoilTempFiles
     @Inject lateinit var memoryMonitor: MemoryMonitor
     @Inject lateinit var shortcutManager: ShortcutManager
+    @Inject lateinit var spaceTracker: SpaceTracker
+    @Inject lateinit var taskStatsCoordinator: TaskStatsCoordinator
 
     private val logCatLogger = LogCatLogger()
 
@@ -103,6 +107,8 @@ open class App : Application(), Configuration.Provider {
         curriculumVitae.updateAppLaunch()
 
         shortcutManager.initialize()
+        taskStatsCoordinator.start()
+        appScope.launch { spaceTracker.recordSnapshot() }
 
         val oldHandler = Thread.getDefaultUncaughtExceptionHandler()
         Thread.setDefaultUncaughtExceptionHandler { thread, throwable ->

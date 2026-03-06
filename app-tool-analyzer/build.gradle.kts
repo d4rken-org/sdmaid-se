@@ -45,6 +45,7 @@ dependencies {
     implementation(project(":app-common-data"))
     implementation(project(":app-common-exclusion"))
     implementation(project(":app-common-setup"))
+    implementation(project(":app-common-stats"))
 
     addAndroidCore()
     addAndroidUI()
