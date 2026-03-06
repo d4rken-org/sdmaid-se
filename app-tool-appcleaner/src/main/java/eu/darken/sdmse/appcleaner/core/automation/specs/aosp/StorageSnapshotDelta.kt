@@ -10,12 +10,19 @@ internal fun compareSnapshots(pre: StorageSnapshot, post: StorageSnapshot): Delt
     if (pre.values.isEmpty() || post.values.isEmpty()) return DeltaResult.INCONCLUSIVE
     if (pre.values.size != post.values.size) return DeltaResult.INCONCLUSIVE
 
-    val pairs = pre.values.zip(post.values).mapNotNull { (a, b) ->
+    val zipped = pre.values.zip(post.values)
+
+    // When a pre-value was parseable but the post-value at the same position is not, this typically
+    // means the value went to zero in a locale/format that SizeParser can't handle (e.g., "0 o" in
+    // French). Treating this as a decrease avoids burning through DPAD retry timeouts.
+    val hasDroppedValue = zipped.any { (a, b) -> a.bytes != null && b.bytes == null }
+
+    val pairs = zipped.mapNotNull { (a, b) ->
         if (a.bytes != null && b.bytes != null) a.bytes to b.bytes else null
     }
-    if (pairs.isEmpty()) return DeltaResult.INCONCLUSIVE
+    if (pairs.isEmpty() && !hasDroppedValue) return DeltaResult.INCONCLUSIVE
 
-    if (pairs.any { (before, after) -> after < before }) return DeltaResult.SUCCESS
+    if (hasDroppedValue || pairs.any { (before, after) -> after < before }) return DeltaResult.SUCCESS
 
     if (pre.values.any { it.bytes == 0L }) return DeltaResult.SKIP_SUCCESS
 

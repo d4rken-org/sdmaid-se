@@ -30,19 +30,32 @@ class SizeParser(private val context: Context) {
                 val (unit, mult) = extractUnit(Formatter::formatShortFileSize, size, fallback)
                 put(unit, mult)
             }
-            // Long-form units via ICU MeasureFormat (same formatter Settings app uses)
-            val measureFormat = MeasureFormat.getInstance(locale, MeasureFormat.FormatWidth.WIDE)
+            // Units via ICU MeasureFormat (same formatter Settings app uses)
+            // WIDE gives full names (e.g., "octets"), SHORT/NARROW give abbreviations (e.g., "o" in French)
             val measureUnits = listOf(
                 MeasureUnit.BYTE to 1L,
                 MeasureUnit.KILOBYTE to 1_000L,
                 MeasureUnit.MEGABYTE to 1_000_000L,
                 MeasureUnit.GIGABYTE to 1_000_000_000L,
             )
-            for ((measureUnit, multiplier) in measureUnits) {
-                for (probeSize in listOf(0, 1, 2, 5)) {
-                    val formatted = measureFormat.format(Measure(probeSize.toDouble(), measureUnit))
-                    val unit = unitRegex.find(formatted)?.value ?: continue
-                    put(unit.uppercase(), multiplier)
+            val formatWidths = listOf(
+                MeasureFormat.FormatWidth.WIDE,
+                MeasureFormat.FormatWidth.SHORT,
+                MeasureFormat.FormatWidth.NARROW,
+            )
+            for (width in formatWidths) {
+                val measureFormat = MeasureFormat.getInstance(locale, width)
+                for ((measureUnit, multiplier) in measureUnits) {
+                    for (probeSize in listOf(0, 1, 2, 5)) {
+                        val formatted = measureFormat.format(Measure(probeSize.toDouble(), measureUnit))
+                        val unit = unitRegex.find(formatted)?.value ?: continue
+                        val key = unit.uppercase()
+                        val existing = get(key)
+                        if (existing != null && existing != multiplier) {
+                            log { "Unit collision: '$key' existing=${existing} vs new=$multiplier (width=$width)" }
+                        }
+                        put(key, multiplier)
+                    }
                 }
             }
         }.also { log { "Size lookup map: $it" } }
