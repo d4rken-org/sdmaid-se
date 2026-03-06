@@ -165,6 +165,10 @@ class AOSPSpecs @Inject constructor(
         return true
     }
 
+    // Snapshots capture storage size values from the Settings UI for delta comparison.
+    // Unparseable rows are preserved as ParsedSize(null, raw) so that snapshot sizes remain
+    // stable across pre/post comparisons. This matters when cache clears to a locale-specific
+    // zero format that SizeParser can't handle (e.g., "0 o" in French).
     private suspend fun StepContext.takeStorageSnapshot(sizeParser: SizeParser?): StorageSnapshot {
         if (sizeParser == null) {
             log(tag, WARN) { "takeStorageSnapshot(): SizeParser unavailable" }
@@ -178,7 +182,6 @@ class AOSPSpecs @Inject constructor(
             val parsed = runCatching { sizeParser.parse(raw) }.getOrNull()
             if (parsed == null) {
                 log(tag, WARN) { "takeStorageSnapshot(): failed to parse '$raw'" }
-                return@mapNotNull null
             }
             StorageSnapshot.ParsedSize(parsed, raw)
         }.toList()
@@ -186,6 +189,10 @@ class AOSPSpecs @Inject constructor(
         return StorageSnapshot(values)
     }
 
+    // Delta validation compares storage snapshots taken before and after a click to detect
+    // whether cache was actually cleared. This is critical for DPAD fallback where we can't
+    // directly observe button state. Values may become unparseable after clearing (e.g.,
+    // "238 Mo" → "0 o" in French) — compareSnapshots treats this as a decrease.
     private suspend fun StepContext.validateWithDelta(
         source: String,
         preSnapshot: StorageSnapshot,
@@ -481,6 +488,10 @@ class AOSPSpecs @Inject constructor(
             val canInjectInput = inputInjector.canInject()
             log(TAG, INFO) { "InputInjector available? (canInjectInput=$canInjectInput)" }
 
+            // On Android 16+ Pixel devices, "Clear cache" and "Clear storage" buttons are marked
+            // as NAF (Not Accessibility Focusable), making them invisible to the accessibility service.
+            // DPAD navigation works around this by using keyboard-style navigation (DOWN, RIGHT, CENTER)
+            // from the entity_header_content anchor to blindly click the invisible button.
             // https://github.com/d4rken-org/sdmaid-se/issues/2056
             val isGoogle = BuildWrap.MANUFACTOR.equals("Google", ignoreCase = true)
             val useDpadFallback = hasApiLevel(36) && isGoogle

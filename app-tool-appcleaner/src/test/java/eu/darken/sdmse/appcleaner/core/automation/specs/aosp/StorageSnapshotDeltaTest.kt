@@ -106,6 +106,55 @@ class StorageSnapshotDeltaTest : BaseTest() {
     }
 
     @Test
+    fun `parseable to unparseable is SUCCESS (French zero-byte scenario)`() {
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57,34 ko"),
+                StorageSnapshot.ParsedSize(1160000, "1,16 Mo"),
+                StorageSnapshot.ParsedSize(143000, "143 ko"),
+                StorageSnapshot.ParsedSize(238000000, "238 Mo"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(57340, "57,34 ko"),
+                StorageSnapshot.ParsedSize(1160000, "1,16 Mo"),
+                StorageSnapshot.ParsedSize(143000, "143 ko"),
+                StorageSnapshot.ParsedSize(null, "0 o"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.SUCCESS
+    }
+
+    @Test
+    fun `both null at same position is INCONCLUSIVE`() {
+        val snapshot = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(null, "???"),
+                StorageSnapshot.ParsedSize(null, "???"),
+            )
+        )
+        compareSnapshots(snapshot, snapshot) shouldBe DeltaResult.INCONCLUSIVE
+    }
+
+    @Test
+    fun `null to parseable is not treated as decrease`() {
+        val pre = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(null, "???"),
+                StorageSnapshot.ParsedSize(5000, "5 kB"),
+            )
+        )
+        val post = StorageSnapshot(
+            listOf(
+                StorageSnapshot.ParsedSize(1000, "1 kB"),
+                StorageSnapshot.ParsedSize(5000, "5 kB"),
+            )
+        )
+        compareSnapshots(pre, post) shouldBe DeltaResult.NO_CHANGE
+    }
+
+    @Test
     fun `returns INCONCLUSIVE when pre is empty`() {
         val pre = StorageSnapshot(emptyList())
         val post = StorageSnapshot(
