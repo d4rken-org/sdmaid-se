@@ -78,7 +78,7 @@ class UpgradeViewModel @Inject constructor(
 
     companion object {
         private const val KEY_SPONSOR_PRESSED_AT = "sponsor_pressed_at"
-        private const val SPONSOR_DELAY_MS = 10_000L
+        private const val SPONSOR_DELAY_MS = 5_000L
         private val TAG = logTag("Upgrade", "ViewModel")
     }
 }
