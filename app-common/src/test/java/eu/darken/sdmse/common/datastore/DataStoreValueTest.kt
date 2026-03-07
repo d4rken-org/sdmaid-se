@@ -35,7 +35,6 @@ class DataStoreValueTest : BaseTest() {
             keyName shouldBe "testKey"
 
             flow.first() shouldBe "default"
-            valueBlocking shouldBe "default"
             value() shouldBe "default"
             testStore.data.first()[stringPreferencesKey(keyName)] shouldBe null
 
@@ -44,7 +43,6 @@ class DataStoreValueTest : BaseTest() {
                 "newvalue"
             } shouldBe DataStoreValue.Updated("default", "newvalue")
 
-            valueBlocking shouldBe "newvalue"
             flow.first() shouldBe "newvalue"
             value() shouldBe "newvalue"
             testStore.data.first()[stringPreferencesKey(keyName)] shouldBe "newvalue"

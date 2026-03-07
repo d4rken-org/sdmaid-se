@@ -2,7 +2,7 @@ package eu.darken.sdmse.deduplicator.core
 
 import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -11,7 +11,9 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class DeduplicatorSettingsSerializationTest : BaseTest() {
-    private val moshi = SerializationAppModule().moshi()
+    private val moshi = SerializationIOModule().moshi().newBuilder().apply {
+        add(ArbiterCriterium.MOSHI_FACTORY)
+    }.build()
 
     @Test
     fun `ArbiterCriterium DuplicateType serialization`() {

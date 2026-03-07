@@ -51,6 +51,7 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
+    testImplementation(project(":app-common-coil"))
     testImplementation("org.robolectric:robolectric:4.16")
     testImplementation("androidx.test.ext:junit:1.3.0")
 }
