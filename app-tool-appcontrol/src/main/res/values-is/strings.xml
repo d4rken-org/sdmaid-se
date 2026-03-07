@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Óvirkjun forrits kemur í veg fyrir að það keyri og felur það úr valmyndum. Engin gögn tapast.</string>
     <string name="appcontrol_appstore_open_title">Opna í forritaverslun</string>
     <string name="appcontrol_appstore_open_description">Opna þetta forrit í forritaversluninni sem það var sett upp frá.</string>
-    <string name="appcontrol_systemsettings_open_title">Sýna stillingar</string>
     <string name="appcontrol_systemsettings_open_description">Opna kerfisstillingar tækisins fyrir þetta forrit.</string>
     <string name="appcontrol_app_launch_title">Ræsa forrit</string>
     <string name="appcontrol_app_launch_description">Ræsa aðalvirkni þessa forrits.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Nýlega virkt</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Búnt</string>
-    <string name="appcontrol_tag_system">Kerfi</string>
     <string name="appcontrol_tag_archived">Safnað</string>
     <string name="appcontrol_tag_uninstalled">Aðeins gögn</string>
     <string name="appcontrol_tag_not_installed">Ekki uppsett</string>

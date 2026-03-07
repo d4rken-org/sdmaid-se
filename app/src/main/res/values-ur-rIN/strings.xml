@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">پرائیویسی پالیسی</string>
     <string name="settings_privacy_policy_desc">ڈیٹا کو ذمہ داری سے سنبھالنا۔</string>
     <string name="settings_category_other_label">دیگر</string>
-    <string name="settings_category_filter_generic">عمومی فلٹر</string>
-    <string name="settings_category_filter_specific">مخصوص فلٹر</string>
     <string name="settings_sponsor_development_title">ڈیولپمنٹ کو سپانسر کریں</string>
     <string name="settings_sponsor_development_summary">سرپرست بنیں اور مسلسل ترقی کو ممکن بنائیں۔</string>
     <string name="general_settings_label">عمومی</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">ایپس دوبارہ لوڈ کریں</string>
     <string name="debug_card_root_test_action">روٹ ٹیسٹ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ٹیسٹ</string>
-    <string name="settings_category_filter">فلٹر</string>
-    <string name="settings_category_risklevel">خطرے کی سطح</string>
     <string name="data_area_public_app_data_official_label">ڈیفالٹ پبلک ایپ ڈیٹا</string>
     <string name="data_area_public_app_assets_official_label">ڈیفالٹ پبلک ایپ ایسیٹس</string>
     <string name="data_area_public_storage_label">پبلک اسٹوریج</string>

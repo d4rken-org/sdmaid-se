@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Aplikazioen erabilera-estatistikei lotutako fitxategiak.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Ezabatu iragazkiaren eduki guztia?</string>
     <string name="systemcleaner_customfilter_label">Iragazki pertsonalizatua</string>
-    <string name="systemcleaner_customfilter_create_action">Sortu iragazki pertsonalizatua</string>
     <string name="systemcleaner_customfilter_create_hint">Sortu iragazki pertsonalizatu bat zure gailuari eta erabilera-kasuei dagozkien fitxategi gehigarriak ezabatzeko.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Kendu iragazki hau?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Iragazki-etiketa</string>

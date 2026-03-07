@@ -49,7 +49,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Hapus semua sisa aplikasi?</string>
     <string name="corpsefinder_owners_label">Pemilik</string>
-    <string name="corpsefinder_corpse_hints_label">Catatan</string>
     <string name="corpsefinder_owner_unknown">Pemilik tak dikenal</string>
     <string name="corpsefinder_corpse_hint_keeper">Berkas ini mungkin mengandung data yang ingin Anda simpan walau dihapus oleh pemiliknya, cth. foto atau cadangan.</string>
     <string name="corpsefinder_corpse_hint_common">Berkas ini memiliki nama yang umum dan kemungkinan masih berkaitan dengan aplikasi yang terpasang yang tidak diketahui oleh SD Maid.</string>

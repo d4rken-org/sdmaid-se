@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">គោលការណ៍ឯកជនភាព</string>
     <string name="settings_privacy_policy_desc">ការដោះស្រាយទិន្នន័យដោយមានការទទួលខុសត្រូវ។</string>
     <string name="settings_category_other_label">ដទៃ</string>
-    <string name="settings_category_filter_generic">តម្រង ទូទៅ</string>
-    <string name="settings_category_filter_specific">តម្រង ដែលមានលក្ខណៈវិសេស</string>
     <string name="settings_sponsor_development_title">ឧបត្ថម្ភការអភិវឌ្ឍន៍</string>
     <string name="settings_sponsor_development_summary">ក្លាយជាស្ថានីយ និងធានាផលិតកម្មបន្ត។</string>
     <string name="general_settings_label">ជាទូទៅ</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">ផ្តុកកម្មវិធីនិងវិញនិង</string>
     <string name="debug_card_root_test_action">សាកល្បង root</string>
     <string name="debug_card_shizuku_test_action">សាកល្បង Shizuku</string>
-    <string name="settings_category_filter">តម្រង</string>
-    <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="data_area_public_app_data_official_label">ទិន្នន័យសាធារណៈកម្មវិធីលំនាំដើម</string>
     <string name="data_area_public_app_assets_official_label">ទ្រព្យសម្បត្តិកម្មវិធីសាធារណៈលំនាំដើម</string>
     <string name="data_area_public_storage_label">ឧបករណ៍ផ្ទុកសាធារណៈ</string>

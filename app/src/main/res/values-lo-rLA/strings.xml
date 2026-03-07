@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</string>
     <string name="settings_privacy_policy_desc">ການຈັດການຂໍ້ມູນຢ່າງມີຄວາມຮັບຜິດຊອບ.</string>
     <string name="settings_category_other_label">ອື່ນໆ</string>
-    <string name="settings_category_filter_generic">ຕົວຕອງທົ່ວໄປ</string>
-    <string name="settings_category_filter_specific">ຕົວຕອງສະເພາະ</string>
     <string name="settings_sponsor_development_title">ສະໜັບສະໜູນການພັດທະນາ</string>
     <string name="settings_sponsor_development_summary">ເປັນຜູ້ອຸປະຖໍາແລະເຮັດໃຫ້ການພັດທະນາສືບຕໍ່ໄດ້.</string>
     <string name="general_settings_label">ທົ່ວໄປ</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">ໂຫລດ apps ໃໝ່</string>
     <string name="debug_card_root_test_action">ທົດສອບ root</string>
     <string name="debug_card_shizuku_test_action">ທົດສອບ Shizuku</string>
-    <string name="settings_category_filter">ຕົວກໍງ</string>
-    <string name="settings_category_risklevel">ລະດັບຄວາມເສີ່ຍງ</string>
     <string name="data_area_public_app_data_official_label">ຂໍ້ມູນແອັບຯສາທາລະນະມາດຕະຖານ</string>
     <string name="data_area_public_app_assets_official_label">ຊັບພະຍາກອນແອັບຯລະບົບຕາມຄ່າເລີ່ມຕົ້ນ</string>
     <string name="data_area_public_storage_label">ບ່ອນເກັບຮັກສາສາທາລະນະ</string>

@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Zakázanie aplikácie zabráni jej spusteniu a skryje ju v ponukách. Nedochádza k strate údajov.</string>
     <string name="appcontrol_appstore_open_title">Otvoriť v obchode s aplikáciami</string>
     <string name="appcontrol_appstore_open_description">Otvorte túto aplikáciu v obchode s aplikáciami, z ktorého bola nainštalovaná.</string>
-    <string name="appcontrol_systemsettings_open_title">Zobraziť nastavenia</string>
     <string name="appcontrol_systemsettings_open_description">Otvorte systémové nastavenia zariadenia pre túto aplikáciu.</string>
     <string name="appcontrol_app_launch_title">Spustiť aplikáciu</string>
     <string name="appcontrol_app_launch_description">Spustite hlavnú aktivitu tejto aplikácie.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Nedávno aktívne</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Balík</string>
-    <string name="appcontrol_tag_system">Systém</string>
     <string name="appcontrol_tag_archived">Archivované</string>
     <string name="appcontrol_tag_uninstalled">Iba údaje</string>
     <string name="appcontrol_tag_not_installed">Nie je nainštalovaná</string>

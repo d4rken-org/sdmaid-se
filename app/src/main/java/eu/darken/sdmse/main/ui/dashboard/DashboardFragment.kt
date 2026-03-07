@@ -147,7 +147,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
 
             when (state.actionState) {
                 DashboardViewModel.BottomBarState.Action.SCAN -> {
-                    mainAction.setImageResource(R.drawable.ic_layer_search_24)
+                    mainAction.setImageResource(UiR.drawable.ic_layer_search_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         getColorForAttr(com.google.android.material.R.attr.colorOnPrimaryContainer)
                     )
@@ -167,7 +167,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
 
                 DashboardViewModel.BottomBarState.Action.ONECLICK -> {
-                    mainAction.setImageResource(R.drawable.ic_delete_alert_24)
+                    mainAction.setImageResource(UiR.drawable.ic_delete_alert_24)
                     mainAction.imageTintList = ColorStateList.valueOf(
                         requireContext().getColorForAttr(com.google.android.material.R.attr.colorOnError)
                     )

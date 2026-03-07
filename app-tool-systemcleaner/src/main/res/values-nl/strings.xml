@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Bestanden met betrekking tot gebruiksstatistieken van applicaties.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle filterinhoud verwijderen?</string>
     <string name="systemcleaner_customfilter_label">Aangepast filter</string>
-    <string name="systemcleaner_customfilter_create_action">Maak een aangepast filter</string>
     <string name="systemcleaner_customfilter_create_hint">Maak een aangepast filter om extra bestanden te verwijderen die uniek zijn voor je apparaat en gebruiksscenario\'s.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Deze filter verwijderen?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter label</string>

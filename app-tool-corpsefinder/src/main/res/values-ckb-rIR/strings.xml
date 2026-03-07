@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">سڕینەوە all app remnants?</string>
     <string name="corpsefinder_owners_label">خاوەنەکان</string>
-    <string name="corpsefinder_corpse_hints_label">نەخێرtice</string>
     <string name="corpsefinder_owner_unknown">نەناسراو owner</string>
     <string name="corpsefinder_corpse_hint_keeper">ئەم بابەتە لەوانەیە داتای داگیرساندنت تێدابێت سەرەڕای ئەوەی خاوەنەکەی دامەزراندنەوە کرایەوە، بۆ نموونە وێنەکان یان پاڵپشتی.</string>
     <string name="corpsefinder_corpse_hint_common">ئەم بابەتە ناوی زۆر باوی هەیە و لەوانەیە بەلونگی ئەپەکانی دامەزراوی ببێت کە SD Maid نازانێت.</string>

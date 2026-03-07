@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Disabilitende una aplicatzione dd\'impedit de funtzionare e dda cuat dae is menùs. Non b\'est perda de datos.</string>
     <string name="appcontrol_appstore_open_title">Aberrer in app store</string>
     <string name="appcontrol_appstore_open_description">Aberrer custa aplicatzione in s\'app store dae ue est istada installada.</string>
-    <string name="appcontrol_systemsettings_open_title">Mustrare impostatziones</string>
     <string name="appcontrol_systemsettings_open_description">Aberrer is impostatziones de sistema de su dispositivu tuo pro custa aplicatzione.</string>
     <string name="appcontrol_app_launch_title">Abiare aplicatzione</string>
     <string name="appcontrol_app_launch_description">Abiare s\'atividà printzipale de custa aplicatzione.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Recenteménte ativu</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archivadu</string>
     <string name="appcontrol_tag_uninstalled">Datos petzi</string>
     <string name="appcontrol_tag_not_installed">No installadu</string>

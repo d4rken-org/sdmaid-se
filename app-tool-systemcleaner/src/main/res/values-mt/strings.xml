@@ -53,7 +53,6 @@
     <string name="systemcleaner_filter_windowsfiles_label">Fajls Windows</string>
     <string name="systemcleaner_filter_windowsfiles_summary">Data li l-Windows file explorer jista\' joħloq fuq ħażna konnessa.</string>
     <string name="systemcleaner_customfilter_label">Filtru personalizzat</string>
-    <string name="systemcleaner_customfilter_create_action">Oħloq filtru personalizzat</string>
     <string name="systemcleaner_customfilter_create_hint">Oħloq filtru personalizzat biex tħassar fajls extra li huma uniċi għall-apparat u l-użu tiegħek.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Tneħħi dan il-filtru?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Tikketta tal-filtru</string>

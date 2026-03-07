@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">ଗୋପନୀୟତା ନୀତି</string>
     <string name="settings_privacy_policy_desc">ଦାୟିତ୍ୱପୂର୍ଣ୍ଣ ଭାବରେ ତଥ୍ୟ ପରିଚାଳନା କରିବା।</string>
     <string name="settings_category_other_label">ଅନ୍ୟ</string>
-    <string name="settings_category_filter_generic">ସାଧାରଣ ଫିଲ୍ଟର</string>
-    <string name="settings_category_filter_specific">ନିର୍ଦ୍ଦିଷ୍ଟ ଫିଲ୍ଟର</string>
     <string name="settings_sponsor_development_title">ବିକାଶକୁ ପ୍ରାୟୋଜନ କରନ୍ତୁ</string>
     <string name="settings_sponsor_development_summary">ଏକ ପ୍ୟାଟ୍ରନ୍ ହୁଅନ୍ତୁ ଏବଂ ନିରନ୍ତର ବିକାଶକୁ ସମ୍ଭବ କରନ୍ତୁ।</string>
     <string name="general_settings_label">ସାଧାରଣ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">ଆପ୍ସ ପୁନଃଲୋଡ୍ କରନ୍ତୁ</string>
     <string name="debug_card_root_test_action">Root ପରୀକ୍ଷା କରନ୍ତୁ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ପରୀକ୍ଷା କରନ୍ତୁ</string>
-    <string name="settings_category_filter">ଶୋଧକ</string>
-    <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>
     <string name="data_area_public_app_data_official_label">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ତଥ୍ୟ</string>
     <string name="data_area_public_app_assets_official_label">ଡିଫଲ୍ଟ ସାର୍ବଜନୀନ ଆପ୍ ସମ୍ପଦ</string>
     <string name="data_area_public_storage_label">ସାର୍ବଜନୀନ ଷ୍ଟୋରେଜ୍</string>

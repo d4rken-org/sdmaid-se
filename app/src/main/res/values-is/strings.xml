@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Friðhelgisstefna</string>
     <string name="settings_privacy_policy_desc">Ábyrgð meðhöndlun gagna.</string>
     <string name="settings_category_other_label">Annað</string>
-    <string name="settings_category_filter_generic">Almennt sía</string>
-    <string name="settings_category_filter_specific">Sérstök sía</string>
     <string name="settings_sponsor_development_title">Styrkja þróun</string>
     <string name="settings_sponsor_development_summary">Vertu bakhjarl og gerðu áframhaldandi þróun mögulega.</string>
     <string name="general_settings_label">Almennt</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Endurhlaða forrit</string>
     <string name="debug_card_root_test_action">Prófa root</string>
     <string name="debug_card_shizuku_test_action">Prófa Shizuku</string>
-    <string name="settings_category_filter">Sía</string>
-    <string name="settings_category_risklevel">Áhættustig</string>
     <string name="data_area_public_app_data_official_label">Sjálfgefin opinber forritagögn</string>
     <string name="data_area_public_app_assets_official_label">Sjálfgefnar opinberar auðlindir forrita</string>
     <string name="data_area_public_storage_label">Opinber geymsla</string>

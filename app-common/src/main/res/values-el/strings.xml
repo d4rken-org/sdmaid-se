@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
     <string name="general_sort_reverse_action">Αντιστροφή λειτουργίας ταξινόμησης</string>
     <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
+    <string name="general_tag_system">Σύστημα</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>
     <string name="general_result_failure_message">Η λειτουργία απέτυχε</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Ιστορικό</string>
     <string name="settings_category_tools_label">Εργαλεία</string>
+    <string name="general_hints_label">Προσοχή</string>
+    <string name="settings_category_filter_generic">Γενικό φίλτρο</string>
+    <string name="settings_category_filter_specific">Συγκεκριμένο φίλτρο</string>
+    <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
+    <string name="settings_category_filter">Φίλτρο</string>
+    <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
+    <string name="systemcleaner_customfilter_create_action">Δημιουργία προσαρμοσμένου φίλτρου</string>
 </resources>

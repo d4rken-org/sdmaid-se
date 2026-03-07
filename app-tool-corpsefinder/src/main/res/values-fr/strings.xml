@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Supprimer tous les résidus d’applis ?</string>
     <string name="corpsefinder_owners_label">Propriétaires</string>
-    <string name="corpsefinder_corpse_hints_label">Avis</string>
     <string name="corpsefinder_owner_unknown">Propriétaire inconnu</string>
     <string name="corpsefinder_corpse_hint_keeper">Cet élément pourrait contenir des données que vous souhaitez conserver malgré la désinstallation de l’appli propriétaire, p. ex. des photos ou des sauvegardes.</string>
     <string name="corpsefinder_corpse_hint_common">Le nom de cet élément est très courant et pourrait appartenir à des applis encore installées que SD Maid ne connaît pas.</string>

@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Patakaran sa Pagkapribado</string>
     <string name="settings_privacy_policy_desc">Responsableng hinaawakan ang datos.</string>
     <string name="settings_category_other_label">Iba</string>
-    <string name="settings_category_filter_generic">Generic na filter</string>
-    <string name="settings_category_filter_specific">Specific na filter</string>
     <string name="settings_sponsor_development_title">Mag-sponsor ng development</string>
     <string name="settings_sponsor_development_summary">Maging patron at gawing posible ang patuloy na development.</string>
     <string name="general_settings_label">Pangkalahatan</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">I-reload ang mga app</string>
     <string name="debug_card_root_test_action">I-test ang root</string>
     <string name="debug_card_shizuku_test_action">I-test ang Shizuku</string>
-    <string name="settings_category_filter">Salaan</string>
-    <string name="settings_category_risklevel">Antas ng panganib</string>
     <string name="data_area_public_app_data_official_label">Mga default na public app data</string>
     <string name="data_area_public_app_assets_official_label">Mga default na public app assets</string>
     <string name="data_area_public_storage_label">Public storage</string>

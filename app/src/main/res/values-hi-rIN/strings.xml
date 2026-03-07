@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">निजता नीति</string>
     <string name="settings_privacy_policy_desc">डेटा को जिम्मेदारी से संभालना।</string>
     <string name="settings_category_other_label">अन्य</string>
-    <string name="settings_category_filter_generic">सामान्य फ़िल्टर</string>
-    <string name="settings_category_filter_specific">विशिष्ट फ़िल्टर</string>
     <string name="settings_sponsor_development_title">विकास को प्रायोजक करें</string>
     <string name="settings_sponsor_development_summary">एक संरक्षक बनें और निरंतर विकास को संभव बनाएं।</string>
     <string name="general_settings_label">सामान्य</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">ऐप्स पुनः लोड करें</string>
     <string name="debug_card_root_test_action">Root परीक्षण</string>
     <string name="debug_card_shizuku_test_action">Shizuku परीक्षण</string>
-    <string name="settings_category_filter">फ़िल्टर</string>
-    <string name="settings_category_risklevel">जोखिम का स्तर</string>
     <string name="data_area_public_app_data_official_label">डिफ़ॉल्ट सार्वजनिक ऐप डेटा</string>
     <string name="data_area_public_app_assets_official_label">डिफ़ॉल्ट सार्वजनिक ऐप संपत्ति</string>
     <string name="data_area_public_storage_label">सार्वजनिक संग्रहण</string>

@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">একটি অ্যাপ নিষ্ক্রিয় করলে তা এটিকে চলতে বাধা দেয় এবং এটি মেনু থেকে লুকিয়ে রাখে। এতে কোনো ডাটা মুছে যায় না।</string>
     <string name="appcontrol_appstore_open_title">অ্যাপ স্টোরে খুলুন</string>
     <string name="appcontrol_appstore_open_description">এই অ্যাপটি যে অ্যাপ স্টোর থেকে ইনস্টল করা হয়েছিল সেখানে খুলুন।</string>
-    <string name="appcontrol_systemsettings_open_title">সেটিংস দেখান</string>
     <string name="appcontrol_systemsettings_open_description">এই অ্যাপের জন্য আপনার ডিভাইসের সিস্টেম সেটিংস খুলুন।</string>
     <string name="appcontrol_app_launch_title">অ্যাপ চালু করুন</string>
     <string name="appcontrol_app_launch_description">এই অ্যাপটির প্রাথমিক কার্যকলাপ চালু করুন।</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">সম্প্রতি সক্রিয়</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">বান্ডল</string>
-    <string name="appcontrol_tag_system">সিস্টেম</string>
     <string name="appcontrol_tag_archived">আর্কাইভ</string>
     <string name="appcontrol_tag_uninstalled">শুধুমাত্র ডেটা</string>
     <string name="appcontrol_tag_not_installed">ইনস্টল করা নেই</string>

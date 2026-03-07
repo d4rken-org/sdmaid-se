@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Bütün tətbiq qalıqları silinsinmi?</string>
     <string name="corpsefinder_owners_label">Sahiblər</string>
-    <string name="corpsefinder_corpse_hints_label">Bildiriş</string>
     <string name="corpsefinder_owner_unknown">Naməlum sahib</string>
     <string name="corpsefinder_corpse_hint_keeper">Bu element sahıbi silinməsinə baxmayaraq saxlamaq istəyə biləcəyiniz məlumatları əhatə edə bilər, məsələn, şəkillər və ya yedekləmələr.</string>
     <string name="corpsefinder_corpse_hint_common">Bu elementin çox ümumi adı var və SD Maid-in tanımadığı hələ də quraşdırılmış tətbiqlərə aid ola bilər.</string>

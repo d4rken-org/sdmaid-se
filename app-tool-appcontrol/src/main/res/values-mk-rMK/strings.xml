@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Исклучувањето на апликацијата ја спречува да работи и ја крие од менијата. Нема загуба на податоци.</string>
     <string name="appcontrol_appstore_open_title">Отвори во продавница</string>
     <string name="appcontrol_appstore_open_description">Отворете ја оваа апликација во продавницата од која е инсталирана.</string>
-    <string name="appcontrol_systemsettings_open_title">Прикажи поставки</string>
     <string name="appcontrol_systemsettings_open_description">Отворете ги системските поставки за оваа апликација.</string>
     <string name="appcontrol_app_launch_title">Стартувај апликација</string>
     <string name="appcontrol_app_launch_description">Стартувај ја примарната активност на оваа апликација.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Скоро активна</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">Систем</string>
     <string name="appcontrol_tag_archived">Архивирана</string>
     <string name="appcontrol_tag_uninstalled">Само податоци</string>
     <string name="appcontrol_tag_not_installed">Не е инсталирана</string>

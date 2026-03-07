@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">एप्लिकेसन प्रयोग तथ्याङ्कसँग सम्बन्धित फाइलहरू।</string>
     <string name="systemcleaner_delete_all_confirmation_message">सबै फिल्टर सामग्रीहरू मेटाउने?</string>
     <string name="systemcleaner_customfilter_label">कस्टम फिल्टर</string>
-    <string name="systemcleaner_customfilter_create_action">कस्टम फिल्टर सिर्जना गर्नुहोस्</string>
     <string name="systemcleaner_customfilter_create_hint">तपाईंको उपकरण र प्रयोग-स्थितिहरूमा अद्वितीय अतिरिक्त फाइलहरू मेटाउन कस्टम फिल्टर सिर्जना गर्नुहोस्।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">यो फिल्टर हटाउने?</string>
     <string name="systemcleaner_customfilter_editor_label_label">फिल्टर लेबल</string>

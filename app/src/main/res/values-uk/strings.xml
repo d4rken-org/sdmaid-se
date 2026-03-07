@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">Політика конфіденційності</string>
     <string name="settings_privacy_policy_desc">Відповідальне поводження з даними.</string>
     <string name="settings_category_other_label">Інше</string>
-    <string name="settings_category_filter_generic">Загальний фільтр</string>
-    <string name="settings_category_filter_specific">Спеціальний фільтр</string>
     <string name="settings_sponsor_development_title">Підтримати розробку</string>
     <string name="settings_sponsor_development_summary">Станьте спонсором і зробіть можливим подальший розвиток.</string>
     <string name="general_settings_label">Загальне</string>
@@ -232,8 +230,6 @@
     <string name="debug_card_pkgs_reload_action">Перезавантажити додатки</string>
     <string name="debug_card_root_test_action">Тест root</string>
     <string name="debug_card_shizuku_test_action">Тест Shizuku</string>
-    <string name="settings_category_filter">Фільтр</string>
-    <string name="settings_category_risklevel">Рівень ризику</string>
     <string name="data_area_public_app_data_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_app_assets_official_label">Загальнодоступні дані додатка за замовчуванням</string>
     <string name="data_area_public_storage_label">Загальне сховище</string>

@@ -64,7 +64,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Faili, kas saistīti ar lietojumpūces lietojuma statistiku.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Dzēst visu filtru saturu?</string>
     <string name="systemcleaner_customfilter_label">Pielāgots filtrs</string>
-    <string name="systemcleaner_customfilter_create_action">Izveidot pielāgotu filtru</string>
     <string name="systemcleaner_customfilter_create_hint">Izveidojiet pielāgotu filtru, lai dzēstu papildu failus, kas ir specifiki jūsu ierīcei un lietojuma gadījumiem.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Noņemt šo filtru?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtra nosaukums</string>

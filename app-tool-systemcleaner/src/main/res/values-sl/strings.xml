@@ -66,7 +66,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Datoteke, ki so povezane s statistiko uporabe programov.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Izbriši celotno vsebino filtra?</string>
     <string name="systemcleaner_customfilter_label">Filter po meri</string>
-    <string name="systemcleaner_customfilter_create_action">Ustvari filter po meri</string>
     <string name="systemcleaner_customfilter_create_hint">Ustvarite filter po meri za brisanje dodatnih datotek, ki so značilne samo za vašo napravo in primere uporabe.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Odstrani ta filter?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Oznaka filtra</string>

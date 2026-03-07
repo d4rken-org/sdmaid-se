@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Fitxers relacionats amb les estadístiques d\'ús d\'aplicacions.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Voleu suprimir tots els continguts del filtre?</string>
     <string name="systemcleaner_customfilter_label">Filtre personalitzat</string>
-    <string name="systemcleaner_customfilter_create_action">Crea un filtre personalitzat</string>
     <string name="systemcleaner_customfilter_create_hint">Creeu un filtre personalitzat per suprimir fitxers addicionals exclusius del vostre dispositiu i casos d\'ús.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Voleu suprimir aquest filtre?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtra etiquetes</string>

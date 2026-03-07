@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Aplikazio bat desgaitzeak exekutatzea eragozten du eta menutik ezkutatzen du. Ez da daturik galtzen.</string>
     <string name="appcontrol_appstore_open_title">Ireki aplikazio-dendan</string>
     <string name="appcontrol_appstore_open_description">Ireki aplikazio hau instalatu zen aplikazio-dendan.</string>
-    <string name="appcontrol_systemsettings_open_title">Erakutsi ezarpenak</string>
     <string name="appcontrol_systemsettings_open_description">Ireki zure gailuaren sistema-ezarpenak aplikazio honetarako.</string>
     <string name="appcontrol_app_launch_title">Abiarazi aplikazioa</string>
     <string name="appcontrol_app_launch_description">Abiarazi aplikazio honen jarduera nagusia.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Duela gutxi aktibo</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paketea</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Artxibatuta</string>
     <string name="appcontrol_tag_uninstalled">Datuak soilik</string>
     <string name="appcontrol_tag_not_installed">Ez dago instalatuta</string>

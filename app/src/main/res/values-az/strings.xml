@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Gizlilik siyasəti</string>
     <string name="settings_privacy_policy_desc">Məlumatları məsuliyyətlə idarə etmək.</string>
     <string name="settings_category_other_label">Digər</string>
-    <string name="settings_category_filter_generic">Ümumi filter</string>
-    <string name="settings_category_filter_specific">Xüsusi filter</string>
     <string name="settings_sponsor_development_title">İnkişafı dəstəklə</string>
     <string name="settings_sponsor_development_summary">Patrona çevrilin və davamlı inkişafı mümkün edin.</string>
     <string name="general_settings_label">Ümumi</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Tətbiqləri yenidən yüklə</string>
     <string name="debug_card_root_test_action">Root yoxla</string>
     <string name="debug_card_shizuku_test_action">Shizuku yoxla</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risk səviyyəsi</string>
     <string name="data_area_public_app_data_official_label">Standart ictimai tətbiq məlumatları</string>
     <string name="data_area_public_app_assets_official_label">Standart ictimai tətbiq aktivləri</string>
     <string name="data_area_public_storage_label">İctimai yaddaş</string>

@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ໄຟລ໌ທີ່ເກີ່ຍວກັບສຖິຕິການໃຊ້ງານແອັບພລິເຄຊັນ.</string>
     <string name="systemcleaner_delete_all_confirmation_message">ລົບສິ່ງທີ່ອະນຸພາດທັງຫມົດຫຼື?</string>
     <string name="systemcleaner_customfilter_label">ຕັວກ໭ງກອນໃຊ້ງານ</string>
-    <string name="systemcleaner_customfilter_create_action">ສ້າງຕັວກ໭ງກອນໃຊ້ງານ</string>
     <string name="systemcleaner_customfilter_create_hint">ສ້າງຕັວກ໭ງກອນໃຊ້ງານທີ່ກຳຫນດເອງເພື່ອລົບໄຟລ໌ເພິ່ມເຕີມທີ່ສະເພາະກັບອຸປະກອນ ແວການໃຊ້ງານຂອງທ່ານ.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ລົບຕັວກ໭ງນີ້ຫຼື?</string>
     <string name="systemcleaner_customfilter_editor_label_label">ລາຍການຕັວກ໭ງ</string>

@@ -77,8 +77,6 @@
     <string name="settings_privacy_policy_label">سياسة الخصوصية</string>
     <string name="settings_privacy_policy_desc">التعامل مع البيانات بمسؤولية.</string>
     <string name="settings_category_other_label">أخرى</string>
-    <string name="settings_category_filter_generic">مرشح عام</string>
-    <string name="settings_category_filter_specific">مرشح خاص</string>
     <string name="settings_sponsor_development_title">ادعم التطوير</string>
     <string name="settings_sponsor_development_summary">كن راعيًا واجعل التطوير المستمر ممكنًا.</string>
     <string name="general_settings_label">عام</string>
@@ -242,8 +240,6 @@
     <string name="debug_card_pkgs_reload_action">إعادة تحميل التطبيقات</string>
     <string name="debug_card_root_test_action">اختبار الجذر</string>
     <string name="debug_card_shizuku_test_action">اختبار شيزوكو</string>
-    <string name="settings_category_filter">المرشحات</string>
-    <string name="settings_category_risklevel">مستوى المخاطرة</string>
     <string name="data_area_public_app_data_official_label">بيانات التطبيق العامة الافتراضية</string>
     <string name="data_area_public_app_assets_official_label">أصول التطبيق العامة الافتراضية</string>
     <string name="data_area_public_storage_label">التخزين العام</string>

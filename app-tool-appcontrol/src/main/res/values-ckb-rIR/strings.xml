@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">ناچالاکردنی ئەپێک ڕێگەی لەپێوە دەگێرێت کار بکات و لە مێنیوەکان شاری دەکاتەوە. داتایەک لەدەست نادرێت.</string>
     <string name="appcontrol_appstore_open_title">کراوە in app store</string>
     <string name="appcontrol_appstore_open_description">کراوە this app in the app store it was installed from.</string>
-    <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
     <string name="appcontrol_systemsettings_open_description">کراوە your device\'s system settings for this app.</string>
     <string name="appcontrol_app_launch_title">کردنەوەی ئەپ</string>
     <string name="appcontrol_app_launch_description">چالاکییە سەرەکییەکەی ئەم ئەپە بکەوە.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">نوێly active</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">بەستە</string>
-    <string name="appcontrol_tag_system">سیستەم</string>
     <string name="appcontrol_tag_archived">ئەرشیفd</string>
     <string name="appcontrol_tag_uninstalled">داتا Only</string>
     <string name="appcontrol_tag_not_installed">نەخێرt installed</string>

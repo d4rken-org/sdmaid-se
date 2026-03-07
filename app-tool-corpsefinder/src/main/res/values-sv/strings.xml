@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Ta bort alla appkvarlevor?</string>
     <string name="corpsefinder_owners_label">Ägare</string>
-    <string name="corpsefinder_corpse_hints_label">Observera</string>
     <string name="corpsefinder_owner_unknown">Okänd ägare</string>
     <string name="corpsefinder_corpse_hint_keeper">Detta objekt kan innehålla data du vill behålla trots att dess ägare är avinstallerad, t.ex. foton eller säkerhetskopior.</string>
     <string name="corpsefinder_corpse_hint_common">Detta objekt har ett mycket vanligt namn och kan tillhöra fortfarande installerade appar som SD Maid inte känner till.</string>

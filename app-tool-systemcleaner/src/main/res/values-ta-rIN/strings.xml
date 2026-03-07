@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">பயன்பாட்டு பயன்பாட்டு புள்ளிவிவரங்களுடன் தொடர்புடைய கோப்புகள்.</string>
     <string name="systemcleaner_delete_all_confirmation_message">அனைத்து வடிகட்டி உள்ளடக்கங்களையும் நீக்கவா?</string>
     <string name="systemcleaner_customfilter_label">தனிப்பயன் வடிகட்டி</string>
-    <string name="systemcleaner_customfilter_create_action">தனிப்பயன் வடிகட்டியை உருவாக்கு</string>
     <string name="systemcleaner_customfilter_create_hint">உங்கள் சாதனம் மற்றும் பயன்பாடுகளுக்கு தனித்துவமான கூடுதல் கோப்புகளை நீக்க தனிப்பயன் வடிகட்டியை உருவாக்கவும்.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">இந்த வடிகட்டியை அகற்றவா?</string>
     <string name="systemcleaner_customfilter_editor_label_label">வடிகட்டி சீட்டு</string>

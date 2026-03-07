@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Деактивирането на приложение го предотвратява от работа и го скрива от менютата. Няма загуба на данни.</string>
     <string name="appcontrol_appstore_open_title">Отваряне в магазин за приложения</string>
     <string name="appcontrol_appstore_open_description">Отворете това приложение в магазина за приложения, от който е инсталирано.</string>
-    <string name="appcontrol_systemsettings_open_title">Показване на настройки</string>
     <string name="appcontrol_systemsettings_open_description">Отворете системните настройки на устройството за това приложение.</string>
     <string name="appcontrol_app_launch_title">Стартиране на приложение</string>
     <string name="appcontrol_app_launch_description">Стартиране на основната активност на това приложение.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Наскоро активно</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_archived">Архивирано</string>
     <string name="appcontrol_tag_uninstalled">Само данни</string>
     <string name="appcontrol_tag_not_installed">Не е инсталирано</string>

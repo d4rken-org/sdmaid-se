@@ -1,10 +1,5 @@
 <resources>
 
-    <style name="DashboardCardButton.Filled" parent="SDMButton.Icon.Filled">
-        <item name="android:paddingHorizontal">20dp</item>
-        <item name="iconPadding">4dp</item>
-    </style>
-
     <style name="DashboardCardButton.Filled.Tonal" parent="SDMButton.Icon.Filled.Tonal">
         <item name="android:paddingHorizontal">20dp</item>
         <item name="iconPadding">4dp</item>
@@ -56,11 +51,6 @@
         <item name="android:layout_height">40dp</item>
         <item name="android:layout_width">40dp</item>
         <item name="android:contentDescription">Preview image</item>
-    </style>
-
-    <style name="ListItemIconSecondary">
-        <item name="android:layout_height">24dp</item>
-        <item name="android:layout_width">24dp</item>
     </style>
 
     <style name="SmallListItemPrimary" parent="TextAppearance.Material3.BodyLarge">
@@ -134,31 +124,6 @@
         <item name="android:lines">1</item>
         <item name="android:ellipsize">end</item>
         <item name="android:singleLine">true</item>
-    </style>
-
-    <style name="AppControlTagStyle" parent="TextAppearance.Material3.LabelSmall">
-        <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_height">wrap_content</item>
-        <item name="android:layout_gravity">center</item>
-        <item name="android:layout_marginLeft">2dp</item>
-        <item name="android:layout_marginStart">2dp</item>
-        <item name="android:ellipsize">marquee</item>
-        <item name="android:marqueeRepeatLimit">marquee_forever</item>
-        <item name="android:singleLine">true</item>
-        <item name="android:layout_weight">1</item>
-        <item name="android:fontFamily">sans-serif</item>
-        <item name="android:gravity">center</item>
-        <item name="android:textSize">12sp</item>
-    </style>
-
-    <style name="AppControlTagContainerFlow">
-        <item name="flow_horizontalBias">0</item>
-        <item name="flow_horizontalGap">2dp</item>
-        <item name="flow_horizontalStyle">packed</item>
-        <item name="flow_verticalBias">0</item>
-        <item name="flow_verticalGap">2dp</item>
-        <item name="flow_verticalStyle">packed</item>
-        <item name="flow_wrapMode">chain2</item>
     </style>
 
 

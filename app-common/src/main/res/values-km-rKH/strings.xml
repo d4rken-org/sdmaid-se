@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">ជម្រើសនៃតម្រៀប</string>
     <string name="general_sort_reverse_action">ម៉ូតតម្រៀបបញ្ច្រាស</string>
     <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
+    <string name="general_tag_system">ប្រព័ន្ធ</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>
     <string name="general_result_failure_message">ប្រតិបត្តិការបរាជ័យ</string>
     <plurals name="general_result_x_space_freed">
@@ -178,4 +179,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ប្រវត្តិ</string>
     <string name="settings_category_tools_label">ឧបករណ៍</string>
+    <string name="general_hints_label">កំណត់</string>
+    <string name="settings_category_filter_generic">តម្រង ទូទៅ</string>
+    <string name="settings_category_filter_specific">តម្រង ដែលមានលក្ខណៈវិសេស</string>
+    <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
+    <string name="settings_category_filter">តម្រង</string>
+    <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
+    <string name="systemcleaner_customfilter_create_action">បង្កើតប័ណ័តសកម្មត្រងបញ្ជា</string>
 </resources>

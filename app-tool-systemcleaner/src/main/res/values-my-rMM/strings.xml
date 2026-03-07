@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">အက်ပလီကေးရှင်း အသုံးပြုမှု စာရင်းဇယားများနှင့် ဆက်စပ်သော ဖိုင်များ။</string>
     <string name="systemcleaner_delete_all_confirmation_message">စစ်ထုတ်မှု အကြောင်းအရာ အားလုံး ဖျက်မလား။</string>
     <string name="systemcleaner_customfilter_label">စိတ်ကြိုက် စစ်ထုတ်မှု</string>
-    <string name="systemcleaner_customfilter_create_action">စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးရန်</string>
     <string name="systemcleaner_customfilter_create_hint">သင့် စက်ပစ္စည်းနှင့် အသုံးပြုမှု ပုံစံများအတွက် ထူးခြားသော အပို ဖိုင်များကို ဖျက်ရန် စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးပါ။</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ဤစစ်ထုတ်မှုကို ဖယ်ရှားမလား။</string>
     <string name="systemcleaner_customfilter_editor_label_label">စစ်ထုတ်မှု အညွှန်း</string>

@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">Pravilnik o zasebnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno ravnanje s podatki.</string>
     <string name="settings_category_other_label">Drugo</string>
-    <string name="settings_category_filter_generic">Splošni filter</string>
-    <string name="settings_category_filter_specific">Določeni filter</string>
     <string name="settings_sponsor_development_title">Podpri razvoj</string>
     <string name="settings_sponsor_development_summary">Postanite pokrovitelj in omogočite nadaljnji razvoj.</string>
     <string name="general_settings_label">Splošno</string>
@@ -232,8 +230,6 @@
     <string name="debug_card_pkgs_reload_action">Ponovno naloži programe</string>
     <string name="debug_card_root_test_action">Preizkusi skrbniški dostop</string>
     <string name="debug_card_shizuku_test_action">Preizkusi Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Raven tveganja</string>
     <string name="data_area_public_app_data_official_label">Privzeti javni programski podatki</string>
     <string name="data_area_public_app_assets_official_label">Privzeta javna programska sredstva</string>
     <string name="data_area_public_storage_label">Javna shramba</string>

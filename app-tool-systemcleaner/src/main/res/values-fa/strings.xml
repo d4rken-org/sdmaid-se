@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">فایل‌های مربوط به آمار استفاده از برنامه‌ها.</string>
     <string name="systemcleaner_delete_all_confirmation_message">همه محتوای فیلترها حذف شوند؟</string>
     <string name="systemcleaner_customfilter_label">فیلتر سفارشی</string>
-    <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
     <string name="systemcleaner_customfilter_create_hint">ایجاد فیلتر سفارشی برای حذف فایل‌های اضافی که به دستگاه و موارد استفاده شما منحصر به فرد هستند.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">حذف این فیلتر؟</string>
     <string name="systemcleaner_customfilter_editor_label_label">برپسب فیلتر</string>

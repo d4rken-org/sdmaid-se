@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">禁用应用可阻止其运行并将其从桌面中隐藏。该过程不会丢失数据。</string>
     <string name="appcontrol_appstore_open_title">在应用商店中打开</string>
     <string name="appcontrol_appstore_open_description">在安装该应用的应用市场中打开此应用。</string>
-    <string name="appcontrol_systemsettings_open_title">显示设置</string>
     <string name="appcontrol_systemsettings_open_description">打开此应用在设备中的系统设置。</string>
     <string name="appcontrol_app_launch_title">启动应用</string>
     <string name="appcontrol_app_launch_description">启动此应用的主要活动。</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">刚刚运行</string>
     <string name="appcontrol_tag_apk_base">APK 完整包</string>
     <string name="appcontrol_tag_apk_bundle">AAB 分包</string>
-    <string name="appcontrol_tag_system">系统</string>
     <string name="appcontrol_tag_archived">已存档</string>
     <string name="appcontrol_tag_uninstalled">仅数据</string>
     <string name="appcontrol_tag_not_installed">未安装</string>

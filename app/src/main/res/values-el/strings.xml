@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Πολιτική απορρήτου</string>
     <string name="settings_privacy_policy_desc">Υπεύθυνη διαχείριση δεδομένων.</string>
     <string name="settings_category_other_label">Άλλο</string>
-    <string name="settings_category_filter_generic">Γενικό φίλτρο</string>
-    <string name="settings_category_filter_specific">Συγκεκριμένο φίλτρο</string>
     <string name="settings_sponsor_development_title">Χορήγησε τη δημιουργία</string>
     <string name="settings_sponsor_development_summary">Γίνετε μέρος patron και κάντε δυνατή τη συνεχή ανάπτυξη.</string>
     <string name="general_settings_label">Γενικά</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Επαναφόρτωση εφαρμογών</string>
     <string name="debug_card_root_test_action">Δοκιμή root</string>
     <string name="debug_card_shizuku_test_action">Δοκιμή Shizuku</string>
-    <string name="settings_category_filter">Φίλτρο</string>
-    <string name="settings_category_risklevel">Επίπεδο κινδύνου</string>
     <string name="data_area_public_app_data_official_label">Προεπιλεγμένα δημόσια δεδομένα εφαρμογής</string>
     <string name="data_area_public_app_assets_official_label">Προεπιλεγμένα δημόσια στοιχεία εφαρμογών</string>
     <string name="data_area_public_storage_label">Δημόσιος αποθηκευτικός χώρος</string>

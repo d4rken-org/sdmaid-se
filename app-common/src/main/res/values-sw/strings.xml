@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Chaguo za kupanga</string>
     <string name="general_sort_reverse_action">Hali ya kupanga kinyume</string>
     <string name="general_tag_filter_label">Chuja kwa lebo</string>
+    <string name="general_tag_system">Mfumo</string>
     <string name="general_result_success_message">Imekamilika kwa mafanikio</string>
     <string name="general_result_failure_message">Uendeshaji umeshindwa</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historia</string>
     <string name="settings_category_tools_label">Zana</string>
+    <string name="general_hints_label">Ilani</string>
+    <string name="settings_category_filter_generic">Kichujio cha ujumla</string>
+    <string name="settings_category_filter_specific">Kichujio maalum</string>
+    <string name="settings_category_risklevel">Kiwango cha hatari</string>
+    <string name="settings_category_filter">Kichungi</string>
+    <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
+    <string name="systemcleaner_customfilter_create_action">Unda kichungi maalum</string>
 </resources>

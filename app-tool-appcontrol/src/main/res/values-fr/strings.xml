@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Désactiver une appli l’empêche de s’exécuter et la fait disparaître des menus. Aucune données n’est perdue.</string>
     <string name="appcontrol_appstore_open_title">Ouvrir dans le magasin d’applications</string>
     <string name="appcontrol_appstore_open_description">Ouvrir cette appli dans le magasin d’applications où vous l’avez installée.</string>
-    <string name="appcontrol_systemsettings_open_title">Afficher les paramètres</string>
     <string name="appcontrol_systemsettings_open_description">Ouvrir les paramètres système de votre appareil pour cette appli.</string>
     <string name="appcontrol_app_launch_title">Lancer l’appli</string>
     <string name="appcontrol_app_launch_description">Lancer l’activité principale de cette appli.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Active récemment</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paquet d’appli</string>
-    <string name="appcontrol_tag_system">Système</string>
     <string name="appcontrol_tag_archived">Archivées</string>
     <string name="appcontrol_tag_uninstalled">Données seulement</string>
     <string name="appcontrol_tag_not_installed">N’est pas installée</string>

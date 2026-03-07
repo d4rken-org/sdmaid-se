@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Privaatsusteatis</string>
     <string name="settings_privacy_policy_desc">Andmete vastutustundlik haldamine.</string>
     <string name="settings_category_other_label">Muu</string>
-    <string name="settings_category_filter_generic">Tavafilter</string>
-    <string name="settings_category_filter_specific">Erifilter</string>
     <string name="settings_sponsor_development_title">Toetage arendamist</string>
     <string name="settings_sponsor_development_summary">Toetage arendamise jätkumist.</string>
     <string name="general_settings_label">Üldine</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Laadi rakendused uuesti</string>
     <string name="debug_card_root_test_action">Katseta juurpääsu</string>
     <string name="debug_card_shizuku_test_action">Katseta Shizukut</string>
-    <string name="settings_category_filter">Filtreeri</string>
-    <string name="settings_category_risklevel">Riskitase</string>
     <string name="data_area_public_app_data_official_label">Tavalised avalikud rakenduse andmed</string>
     <string name="data_area_public_app_assets_official_label">Rakenduse avalikud tavaandmed</string>
     <string name="data_area_public_storage_label">Avalik mälu</string>

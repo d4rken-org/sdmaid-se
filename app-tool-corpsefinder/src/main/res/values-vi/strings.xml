@@ -49,7 +49,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Xóa tất cả phần còn lại của ứng dụng?</string>
     <string name="corpsefinder_owners_label">Chủ sở hữu</string>
-    <string name="corpsefinder_corpse_hints_label">Ghi chú</string>
     <string name="corpsefinder_owner_unknown">Chủ sở hữu không xác định</string>
     <string name="corpsefinder_corpse_hint_keeper">Mục này có thể chứa dữ liệu bạn muốn giữ mặc dù chủ sở hữu của nó đã bị gỡ cài đặt, ví dụ: ảnh hoặc bản sao lưu.</string>
     <string name="corpsefinder_corpse_hint_common">Mục này có một tên rất phổ biến và có thể thuộc về các ứng dụng vẫn được cài đặt mà SD Maid không biết.</string>

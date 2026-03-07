@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">အကြေးကို ပိဤက်ချခြင်းသည် အအကြေးကို အလုပ်ဆောင်ချကို တါးကန်ကာသားမန့် ဆေးကွတ်များမှ ဖစ်ပေးမြန့်ပါ။ တဪဖိုင်ဆုံးဆေး မရှိပါ။</string>
     <string name="appcontrol_appstore_open_title">အကြေးဆိုင်နေရာတွင် ဖွစ်ချရန်</string>
     <string name="appcontrol_appstore_open_description">ဤအကြေးကို ဤအကြေးကို တပ်ဆိုင်ချသော အကြေးဆိုင်တွင် ဖွစ်ချရန်။</string>
-    <string name="appcontrol_systemsettings_open_title">ဆက်တင်များ ပြသောသောရန်</string>
     <string name="appcontrol_systemsettings_open_description">ဤအကြေးကို ဆက်တင်အတွက် သင်မ်းဆိုင် သမ်း ဖွစ်ချရန်။</string>
     <string name="appcontrol_app_launch_title">အကြေးကို ဖွစ်ချရန်</string>
     <string name="appcontrol_app_launch_description">ဤအကြေးတွင် ပြဘိုဆုံး activity ကို ဖွစ်ချရန်။</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">မကြောက အသုံးဆက်သော</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">စနစ်</string>
     <string name="appcontrol_tag_archived">စဆေသားချပြီးသည်</string>
     <string name="appcontrol_tag_uninstalled">တဪဖိုင်နေရာသားပေ</string>
     <string name="appcontrol_tag_not_installed">တပ်ဆိုင်မချလိုက်ပါ</string>

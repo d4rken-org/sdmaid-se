@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Slet alle app-rester?</string>
     <string name="corpsefinder_owners_label">Ejere</string>
-    <string name="corpsefinder_corpse_hints_label">Bemærkning</string>
     <string name="corpsefinder_owner_unknown">Ukendt ejer</string>
     <string name="corpsefinder_corpse_hint_keeper">Dette element kan indeholde data, du vil beholde, selvom dets ejer er blevet afinstalleret, f.eks. fotos eller sikkerhedskopier.</string>
     <string name="corpsefinder_corpse_hint_common">Dette element har et meget almindeligt navn og kan tilhøre apps, der stadig er installeret, men som SD Maid ikke kender.</string>

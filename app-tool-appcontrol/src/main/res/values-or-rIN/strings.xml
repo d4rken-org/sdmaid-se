@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">ଆପ୍ ଅକ୍ଷମ କରିବା ଦ୍ୱାରା ଏହା ଚଲାଯିବାକୁ ବାରଣ କରେ ଏବଂ ମେନୁରୁ ଲୁଚାଇ ଦିଏ। କୌଣସି ଡାଟା ହାନି ହୁଏ ନାହିଁ।</string>
     <string name="appcontrol_appstore_open_title">ଆପ୍ ଷ୍ଟୋରରେ ଖୋଲନ୍ତୁ</string>
     <string name="appcontrol_appstore_open_description">ଯେଉଁ ଆପ୍ ଷ୍ଟୋରରୁ ଏହା ଇନଷ୍ଟଲ ହୋଇଥିଲା ସେହି ଆପ୍ ଷ୍ଟୋରରେ ଏହି ଆପ୍ କୁ ଖୋଲନ୍ତୁ।</string>
-    <string name="appcontrol_systemsettings_open_title">ସେଟିଂ ଦେଖାଅ</string>
     <string name="appcontrol_systemsettings_open_description">ଏହି ଆପ୍ ପାଇଁ ଆପଣଙ୍କ ଡିଭାଇସର ସିଷ୍ଟମ୍ ସେଟିଂସ୍ ଖୋଲନ୍ତୁ।</string>
     <string name="appcontrol_app_launch_title">ଆପ୍ ଲଞ୍ଚ କରନ୍ତୁ</string>
     <string name="appcontrol_app_launch_description">ଏହି ଆପ୍ର ପ୍ରାଥମିକ ଆକ୍ଟିଭିଟି ଲଞ୍ଚ କରନ୍ତୁ।</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">ସମ୍ପ୍ରତି ସକ୍ରିୟ</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ବଣ୍ଡଲ୍</string>
-    <string name="appcontrol_tag_system">ସିଷ୍ଟମ୍</string>
     <string name="appcontrol_tag_archived">ଆର୍କାଇଭ୍ଡ</string>
     <string name="appcontrol_tag_uninstalled">କେବଳ ଡାଟା</string>
     <string name="appcontrol_tag_not_installed">ଇନଷ୍ଟଲ୍ ହୋଇନାହିଁ</string>

@@ -61,7 +61,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Izbriši vse ostanke programov?</string>
     <string name="corpsefinder_owners_label">Lastniki</string>
-    <string name="corpsefinder_corpse_hints_label">Obvestilo</string>
     <string name="corpsefinder_owner_unknown">Neznan lastnik</string>
     <string name="corpsefinder_corpse_hint_keeper">Ta predmet lahko vsebuje podatke, ki bi jih želeli obdržati, čeprav se njihov lastnik odstranja, npr. fotografije ali varnostne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ta predmet ima zelo pogosto ime in bi lahko pripadal nameščenim programom, katere SD Maid ne pozna.</string>

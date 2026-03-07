@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Rakenduse kasutusstatistikaga seotud failid.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Kustutada kogu filtri sisu?</string>
     <string name="systemcleaner_customfilter_label">Enda koostatud filter</string>
-    <string name="systemcleaner_customfilter_create_action">Loo enda koostatud filter</string>
     <string name="systemcleaner_customfilter_create_hint">Seadme ja kasutamise põhiste lisafailide kustutamiseks loo ise filter.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Eemalda see filter?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filtri silt</string>

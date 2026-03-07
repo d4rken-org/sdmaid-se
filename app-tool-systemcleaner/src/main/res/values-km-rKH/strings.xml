@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ឯកសារត្រងការប័រើក្រងកម្មវិធី។</string>
     <string name="systemcleaner_delete_all_confirmation_message">លុបមើលកំនឹងប័ណ័តសកម្មត្រងនេ៱</string>
     <string name="systemcleaner_customfilter_label">ប័ណ័តសកម្មត្រងបញ្ជា</string>
-    <string name="systemcleaner_customfilter_create_action">បង្កើតប័ណ័តសកម្មត្រងបញ្ជា</string>
     <string name="systemcleaner_customfilter_create_hint">បង្កើតប័ណ័តសកម្មត្រងបញ្ជាដែលលុបឯកសារបន្ថើមដែលឆ្កើចក់ស្រាប់សកសន្និតនិងករណីប័រើរបស់អ្នក។</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ត័ត់ត្រងប័ណ័តសកម្មនេ៱</string>
     <string name="systemcleaner_customfilter_editor_label_label">ការលើក់ប័ណ័តសកម្ម</string>

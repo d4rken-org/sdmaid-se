@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Ao desativar um aplicativo, impede-o de executar e o oculta dos menus. Não há perda de dados.</string>
     <string name="appcontrol_appstore_open_title">Abrir na App Store</string>
     <string name="appcontrol_appstore_open_description">Abra este aplicativo na loja de aplicativos a partir da qual ele foi instalado.</string>
-    <string name="appcontrol_systemsettings_open_title">Mostrar configurações</string>
     <string name="appcontrol_systemsettings_open_description">Abra as configurações do sistema do seu dispositivo para este aplicativo.</string>
     <string name="appcontrol_app_launch_title">Iniciar aplicativo</string>
     <string name="appcontrol_app_launch_description">Iniciar atividade primária deste aplicativo.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Recentemente ativo</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pacote</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Arquivado</string>
     <string name="appcontrol_tag_uninstalled">Apenas os dados</string>
     <string name="appcontrol_tag_not_installed">Não instalado</string>

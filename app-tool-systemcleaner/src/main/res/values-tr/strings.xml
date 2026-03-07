@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Uygulama kullanım istatistikleriyle ilgili dosyalar.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Filtrelenen tüm içerikler silinsin mi?</string>
     <string name="systemcleaner_customfilter_label">Özel filtre</string>
-    <string name="systemcleaner_customfilter_create_action">Özel filtre oluştur</string>
     <string name="systemcleaner_customfilter_create_hint">Cihazınıza ve kullanım durumlarınıza özgü ekstra dosyaları silmek için özel bir filtre oluştur.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bu filtreyi sil?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Etiket filtrele</string>

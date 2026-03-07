@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Política de privacidade</string>
     <string name="settings_privacy_policy_desc">Responsabilidade de lidar com dados.</string>
     <string name="settings_category_other_label">Outro</string>
-    <string name="settings_category_filter_generic">Filtro genérico</string>
-    <string name="settings_category_filter_specific">Filtro específico</string>
     <string name="settings_sponsor_development_title">Desenvolvimento de patrocinadores</string>
     <string name="settings_sponsor_development_summary">Torne-se um patrono e torne possível o desenvolvimento contínuo.</string>
     <string name="general_settings_label">Geral</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Recarregar aplicações</string>
     <string name="debug_card_root_test_action">Teste raiz</string>
     <string name="debug_card_shizuku_test_action">Test o Shizuku</string>
-    <string name="settings_category_filter">Filtro</string>
-    <string name="settings_category_risklevel">Nível de risco</string>
     <string name="data_area_public_app_data_official_label">Dados públicos padrão dos aplicativos</string>
     <string name="data_area_public_app_assets_official_label">Dados públicos padrão dos aplicativos</string>
     <string name="data_area_public_storage_label">Armazenamento público</string>

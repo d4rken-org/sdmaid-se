@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Alkalmazáshasználati statisztikákkal kapcsolatos fájlok.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Az összes szűrőtartalom törlése?</string>
     <string name="systemcleaner_customfilter_label">Egyedi szűrő</string>
-    <string name="systemcleaner_customfilter_create_action">Egyedi szűrő létrehozása</string>
     <string name="systemcleaner_customfilter_create_hint">Hozz létre egyéni szűrőt az eszközödre és a felhasználási esetekre jellemző extra fájlok törléséhez.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Eltávolítod el ezt a szűrőt?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Szűrőcímke</string>

@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Ilovani o\'chirish uning ishlashini to\'xtatadi va uni menyulardan yashiradi. Ma\'lumotlar yo\'qolmaydi.</string>
     <string name="appcontrol_appstore_open_title">Ilova do\'konida ochish</string>
     <string name="appcontrol_appstore_open_description">Ushbu ilovani o\'rnatilgan ilova do\'konida ochish.</string>
-    <string name="appcontrol_systemsettings_open_title">Sozlamalarni ko\'rsatish</string>
     <string name="appcontrol_systemsettings_open_description">Ushbu ilova uchun qurilmangizning tizim sozlamalarini ochish.</string>
     <string name="appcontrol_app_launch_title">Ilovani ishga tushirish</string>
     <string name="appcontrol_app_launch_description">Ushbu ilovaning asosiy faoliyatini ishga tushirish.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Yaqinda faol</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">To\'plam</string>
-    <string name="appcontrol_tag_system">Tizim</string>
     <string name="appcontrol_tag_archived">Arxivlangan</string>
     <string name="appcontrol_tag_uninstalled">Faqat ma\'lumotlar</string>
     <string name="appcontrol_tag_not_installed">O\'rnatilmagan</string>

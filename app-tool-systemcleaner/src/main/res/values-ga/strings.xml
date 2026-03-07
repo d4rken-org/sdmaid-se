@@ -56,7 +56,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Comhaid a bhaineann le staitisticí úsáide feidhmchláir.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Scrios gach ábhar scagaire?</string>
     <string name="systemcleaner_customfilter_label">Scagaire saincheaptha</string>
-    <string name="systemcleaner_customfilter_create_action">Cruthaigh scagaire saincheaptha</string>
     <string name="systemcleaner_customfilter_create_hint">Cruthaigh scagaire saincheaptha chun comhaid bhreise a scriosadh atá ar leith do do ghléas agus do chásanna úsáide.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bain an scagaire seo?</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Mura roghnaítear aon limistéar, ansin déanfar scanadh agus meaitseáil ar gach limistéar sonraí inrochtana.</string>

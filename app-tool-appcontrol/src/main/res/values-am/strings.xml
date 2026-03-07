@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">መተግበሪያን ማሰናከል እንዳይሄድ ይከላከለዋል እንዲሁም ከዝርዝሮች ይደብቀዋል። ምንም የውሂብ ብክነት የለም።</string>
     <string name="appcontrol_appstore_open_title">በመተግበሪያ መደብር ውስጥ ክፈት</string>
     <string name="appcontrol_appstore_open_description">ይህንን መተግበሪያ ከተጫነበት መተግበሪያ መደብር ውስጥ ይክፈቱ።</string>
-    <string name="appcontrol_systemsettings_open_title">ቅንብሮችን አሳይ</string>
     <string name="appcontrol_systemsettings_open_description">ለዚህ መተግበሪያ የመሣሪያዎን የሲስተም ቅንብሮች ይክፈቱ።</string>
     <string name="appcontrol_app_launch_title">መተግበሪያን ያስጀምሩ</string>
     <string name="appcontrol_app_launch_description">የዚህ መተግበሪያ ዋና ተግባር ያስጀምሩ።</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">በቅርቡ ንቁ</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ጥቅል</string>
-    <string name="appcontrol_tag_system">ሲስተም</string>
     <string name="appcontrol_tag_archived">ተደርሷል</string>
     <string name="appcontrol_tag_uninstalled">ውሂብ ብቻ</string>
     <string name="appcontrol_tag_not_installed">አልተጫነም</string>

@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Вимкнення додатка зупиняє його запуск і приховує з меню. При цьому дані не втрачаються.</string>
     <string name="appcontrol_appstore_open_title">Відкрити в магазині додатків</string>
     <string name="appcontrol_appstore_open_description">Відкрийте цей додаток в магазині додатків, звідки він був встановлений.</string>
-    <string name="appcontrol_systemsettings_open_title">Показати налаштування</string>
     <string name="appcontrol_systemsettings_open_description">Відкрийте системні налаштування вашого пристрою для цього додатку.</string>
     <string name="appcontrol_app_launch_title">Запустити додаток</string>
     <string name="appcontrol_app_launch_description">Запустіть основну активність цього додатка.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Нещодавно активний</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
-    <string name="appcontrol_tag_system">Системна</string>
     <string name="appcontrol_tag_archived">Заархівовано</string>
     <string name="appcontrol_tag_uninstalled">Тільки дані</string>
     <string name="appcontrol_tag_not_installed">Не встановлено</string>

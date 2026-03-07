@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">ການປິດແອບປ້ອງກັນການທຳງານແລະຊ່ອນຈາກເມນູ. ໄມ່ມີການສູນເສີຂ້ອມູນ.</string>
     <string name="appcontrol_appstore_open_title">ເປີດໃນຮ້ານແອບ</string>
     <string name="appcontrol_appstore_open_description">ເປີດແອບນີ້ໃນຮ້ານແອບທີ່ຕິດຕັ້ງແອບຈາກ.</string>
-    <string name="appcontrol_systemsettings_open_title">ແສດງການຕັ້ງຄ່າ</string>
     <string name="appcontrol_systemsettings_open_description">ເປີດການຕັ້ງຄ່າລະບົຂອງອຸປະກອນສຳຫລັບແອບນີ້.</string>
     <string name="appcontrol_app_launch_title">ເປີດແອບ</string>
     <string name="appcontrol_app_launch_description">ເປີດກິຈຈະກຳຫລັກຂອງແອບນີ້.</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">ໃຊ້ງານລ່າສຸດແນວນີ້</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">ລະບົບ</string>
     <string name="appcontrol_tag_archived">ເກັບໄວ້ໃນຕຸ</string>
     <string name="appcontrol_tag_uninstalled">ໂດຍເພଵ່ອຂ້ອມູນເທ່ານັ້ນ</string>
     <string name="appcontrol_tag_not_installed">ໄມ່ໄດ້ຕິດຕັ້ງ</string>

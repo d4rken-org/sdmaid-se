@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Lêers verwant aan toepassing gebruik stats.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Skrap alle filter inhoud?</string>
     <string name="systemcleaner_customfilter_label">Aangepaste filter</string>
-    <string name="systemcleaner_customfilter_create_action">Skep aangepaste filter</string>
     <string name="systemcleaner_customfilter_create_hint">Skep \'n aangepaste filter om ekstra lêers te skrap wat uniek is aan jou toestel en gebruik-gevalle.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Verwyder hierdie filter?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filter etiket</string>

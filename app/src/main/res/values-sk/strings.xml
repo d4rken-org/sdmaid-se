@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">Zásady ochrany osobných údajov</string>
     <string name="settings_privacy_policy_desc">Zodpovedné zaobchádzanie s údajmi.</string>
     <string name="settings_category_other_label">Iné</string>
-    <string name="settings_category_filter_generic">Všeobecný filter</string>
-    <string name="settings_category_filter_specific">Špecifický filter</string>
     <string name="settings_sponsor_development_title">Sponzorovaný vývoj</string>
     <string name="settings_sponsor_development_summary">Staňte sa patrónom a umožnite ďalší rozvoj.</string>
     <string name="general_settings_label">Všeobecné</string>
@@ -232,8 +230,6 @@
     <string name="debug_card_pkgs_reload_action">Znovu načítať aplikácie</string>
     <string name="debug_card_root_test_action">Otestovať root</string>
     <string name="debug_card_shizuku_test_action">Otestovať Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Úroveň rizika</string>
     <string name="data_area_public_app_data_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_app_assets_official_label">Predvolené verejné údaje aplikácie</string>
     <string name="data_area_public_storage_label">Verejné úložisko</string>

@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">அனைத்து பயன்பாட்டு மிச்சங்களையும் நீக்கவா?</string>
     <string name="corpsefinder_owners_label">உரிமையாளர்கள்</string>
-    <string name="corpsefinder_corpse_hints_label">அறிவிப்பு</string>
     <string name="corpsefinder_owner_unknown">தெரியாத உரிமையாளர்</string>
     <string name="corpsefinder_corpse_hint_keeper">இந்த உருப்படியின் உரிமையாளர் நீக்கப்பட்டிருந்தாலும் நீங்கள் வைத்துக்கொள்ளக் கருதும் தரவு இருக்கலாம், எ.கா. புகைப்படங்கள் அல்லது காப்புப்பிரதிகள்.</string>
     <string name="corpsefinder_corpse_hint_common">இந்த உருப்படிக்கு மிகவும் பொதுவான பெயர் உள்ளது மற்றும் SD Maid க்கு தெரியாத நிறுவப்பட்ட பயன்பாடுகளுக்கு சொந்தமானதாக இருக்கலாம்.</string>

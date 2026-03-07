@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Faili zinazohusiana na takwimu za matumizi ya programu.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Futa yaliyomo yote ya kichungi?</string>
     <string name="systemcleaner_customfilter_label">Kichungi maalum</string>
-    <string name="systemcleaner_customfilter_create_action">Unda kichungi maalum</string>
     <string name="systemcleaner_customfilter_create_hint">Unda kichungi maalum kufuta faili za ziada zinazohusiana na kifaa chako na matumizi yako.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Ondoa kichungi hiki?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Lebo ya kichungi</string>

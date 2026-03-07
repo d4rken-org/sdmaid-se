@@ -9,5 +9,5 @@
     android:textColor="?colorOnError"
     android:backgroundTint="?colorError"
     app:iconTint="?colorOnError"
-    android:text="@string/appcontrol_tag_system"
+    android:text="@string/general_tag_system"
     android:visibility="gone" />

@@ -49,7 +49,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">ลบซากแอพทั้งหมดหรือไม่?</string>
     <string name="corpsefinder_owners_label">เจ้าของ</string>
-    <string name="corpsefinder_corpse_hints_label">ข้อสังเกต</string>
     <string name="corpsefinder_owner_unknown">ไม่ทราบเจ้าของ</string>
     <string name="corpsefinder_corpse_hint_keeper">รายการนี้อาจมีข้อมูลที่คุณต้องการเก็บไว้แม้ว่าเจ้าของจะถูกถอนการติดตั้งไปแล้ว เช่น รูปภาพหรือไฟล์สำรอง</string>
     <string name="corpsefinder_corpse_hint_common">ไฟล์นี้มีชื่อแบบที่พบได้ทั่วไปและอาจเป็นข้อมูลของแอพที่ยังติดตั้งอยู่ในเครื่องซึ่ง SD Maid ไม่รู้จัก</string>

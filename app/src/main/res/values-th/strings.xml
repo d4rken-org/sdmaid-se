@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">นโยบายความเป็นส่วนตัว</string>
     <string name="settings_privacy_policy_desc">จัดการข้อมูลอย่างมีความรับผิดชอบ</string>
     <string name="settings_category_other_label">อื่นๆ</string>
-    <string name="settings_category_filter_generic">ตัวกรองทั่วไป</string>
-    <string name="settings_category_filter_specific">ตัวกรองเจาะจง</string>
     <string name="settings_sponsor_development_title">ผู้สนับสนุนการพัฒนา</string>
     <string name="settings_sponsor_development_summary">เชิญร่วมสนับสนุนเพื่อทำให้การพัฒนาดำเนินต่อไป</string>
     <string name="general_settings_label">ทั่วไป</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">โหลดแอปใหม่</string>
     <string name="debug_card_root_test_action">ทดสอบ root</string>
     <string name="debug_card_shizuku_test_action">ทดสอบ Shizuku</string>
-    <string name="settings_category_filter">ตัวกรอง</string>
-    <string name="settings_category_risklevel">ระดับความเสี่ยง</string>
     <string name="data_area_public_app_data_official_label">ข้อมูลแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_app_assets_official_label">ทรัพยากรแอพสาธารณะเริ่มต้น</string>
     <string name="data_area_public_storage_label">พื้นที่จัดเก็บสาธารณะ</string>

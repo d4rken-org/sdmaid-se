@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Fail yang berkaitan dengan statistik penggunaan aplikasi.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Padamkan semua kandungan penapis?</string>
     <string name="systemcleaner_customfilter_label">Penapis tersuai</string>
-    <string name="systemcleaner_customfilter_create_action">Cipta penapis tersuai</string>
     <string name="systemcleaner_customfilter_create_hint">Tiada penapis tersuai</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Buang penapis tersuai ini?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Label</string>

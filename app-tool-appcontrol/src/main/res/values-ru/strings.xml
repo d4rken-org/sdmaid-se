@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Отключение приложения предотвращает его запуск и скрывает его из меню. Потери данных не происходит.</string>
     <string name="appcontrol_appstore_open_title">Открыть в магазине приложений</string>
     <string name="appcontrol_appstore_open_description">Открытие этого приложения в магазине, из которого оно было установлено.</string>
-    <string name="appcontrol_systemsettings_open_title">Показать настройки</string>
     <string name="appcontrol_systemsettings_open_description">Открыть системные настройки для этого приложения.</string>
     <string name="appcontrol_app_launch_title">Запустить приложение</string>
     <string name="appcontrol_app_launch_description">Запуск главной активности этого приложения.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Последние активные</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Комплект</string>
-    <string name="appcontrol_tag_system">Система</string>
     <string name="appcontrol_tag_archived">Архив</string>
     <string name="appcontrol_tag_uninstalled">Только данные</string>
     <string name="appcontrol_tag_not_installed">Не установлено</string>

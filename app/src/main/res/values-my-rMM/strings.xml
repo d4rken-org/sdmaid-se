@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">ကိုယ်ပိုင်လုံခြုံမှု မူဝါဒ</string>
     <string name="settings_privacy_policy_desc">ဒေတာကို တာဝန်ယူစွာ ကိုင်တွယ်ခြင်း။</string>
     <string name="settings_category_other_label">အခြား</string>
-    <string name="settings_category_filter_generic">ယေဘူယျ filter</string>
-    <string name="settings_category_filter_specific">သီးခြား filter</string>
     <string name="settings_sponsor_development_title">ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပါ</string>
     <string name="settings_sponsor_development_summary">ပံ့ပိုးသူ ဖြစ်လာပြီး ဆက်လက်ဖွံ့ဖြိုးတိုးတက်မှုကို ဖြစ်နိုင်အောင် ပြုလုပ်ပါ။</string>
     <string name="general_settings_label">ယေဘူယျ</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">အပ်ပလီကေးရှင်းများကို ပြန်လည်ဆန်းစစ်ခြင်း</string>
     <string name="debug_card_root_test_action">ရုံးနှင့်စမ်းသည်</string>
     <string name="debug_card_shizuku_test_action">Shizuku စမ်းသည်</string>
-    <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
-    <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="data_area_public_app_data_official_label">မူလ အများပြည်သူ အက်ပ် ဒေတာ</string>
     <string name="data_area_public_app_assets_official_label">မူလ အများပြည်သူ အက်ပ် ပစ္စည်းများ</string>
     <string name="data_area_public_storage_label">အများပြည်သူ သိုလှောင်မှု</string>

@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Alle app-restanten verwijderen?</string>
     <string name="corpsefinder_owners_label">Eigenaars</string>
-    <string name="corpsefinder_corpse_hints_label">Kennisgeving</string>
     <string name="corpsefinder_owner_unknown">Onbekende eigenaar</string>
     <string name="corpsefinder_corpse_hint_keeper">Dit item bevat mogelijk gegevens die je wilt behouden ondanks dat de eigenaar is verwijderd, bijv. foto\'s of back-ups.</string>
     <string name="corpsefinder_corpse_hint_common">Dit item heeft een veel voorkomende naam en zou kunnen behoren tot nog steeds geïnstalleerde apps die SD Maid niet kent.</string>

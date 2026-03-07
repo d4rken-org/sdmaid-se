@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">ସମସ୍ତ ଆପ୍ ଅବଶିଷ୍ଟାଂଶ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="corpsefinder_owners_label">ମାଲିକମାନେ</string>
-    <string name="corpsefinder_corpse_hints_label">ସୂଚନା</string>
     <string name="corpsefinder_owner_unknown">ଅଜଣା ମାଲିକ</string>
     <string name="corpsefinder_corpse_hint_keeper">ଏହି ଆଇଟମ୍ ରେ ଏପରି ଡାଟା ଥାଇପାରେ ଯାହାକୁ ଆପଣ ଏହାର ମାଲିକ ଅନଇନଷ୍ଟଲ୍ ହେଲେ ମଧ୍ୟ ରଖିବାକୁ ଚାହିଁପାରନ୍ତି, ଯଥା ଫଟୋ କିମ୍ବା ବ୍ୟାକଅପ୍।</string>
     <string name="corpsefinder_corpse_hint_common">ଏହି ଆଇଟମ୍ ର ଏକ ବହୁତ ସାଧାରଣ ନାମ ଅଛି ଏବଂ ଏହା SD Maid ଜାଣିନଥିବା ଇନଷ୍ଟଲ୍ ହୋଇଥିବା ଆପ୍ସର ହୋଇପାରେ।</string>

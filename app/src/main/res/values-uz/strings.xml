@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Maxfiylik siyosati</string>
     <string name="settings_privacy_policy_desc">Ma\'lumotlar bilan mas\'uliyat bilan ishlash.</string>
     <string name="settings_category_other_label">Boshqa</string>
-    <string name="settings_category_filter_generic">Umumiy filtr</string>
-    <string name="settings_category_filter_specific">Maxsus filtr</string>
     <string name="settings_sponsor_development_title">Rivojlanishni homiylik qilish</string>
     <string name="settings_sponsor_development_summary">Homiy bo\'ling va davomiy rivojlanishni davom ettirishga yordam bering.</string>
     <string name="general_settings_label">Umumiy</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Ilovalarni qayta yuklash</string>
     <string name="debug_card_root_test_action">Root ni sinash</string>
     <string name="debug_card_shizuku_test_action">Shizuku ni sinash</string>
-    <string name="settings_category_filter">Filtr</string>
-    <string name="settings_category_risklevel">Xavf darajasi</string>
     <string name="data_area_public_app_data_official_label">Standart ommaviy ilova ma\'lumotlari</string>
     <string name="data_area_public_app_assets_official_label">Standart ommaviy ilova aktivlari</string>
     <string name="data_area_public_storage_label">Ommaviy xotira</string>

@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Kustutada kõik rakenduse jäägid?</string>
     <string name="corpsefinder_owners_label">Omanikud</string>
-    <string name="corpsefinder_corpse_hints_label">Teade</string>
     <string name="corpsefinder_owner_unknown">Teadmata omanik</string>
     <string name="corpsefinder_corpse_hint_keeper">See võib sisaldada hoiustamist väärt andmeid, olgugi et selle omanik eemaldatakse, nt pilte või varundusi.</string>
     <string name="corpsefinder_corpse_hint_common">Sellel on levinud nimi ja see võib kuuluda praegu paigaldatud rakendustele, mida SD Maid ei tea.</string>

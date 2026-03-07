@@ -13,7 +13,6 @@
     <string name="systemcleaner_filter_macfiles_label">Pelên Mac</string>
     <string name="systemcleaner_filter_windowsfiles_label">Pelên Windows</string>
     <string name="systemcleaner_customfilter_label">Parzûna taybet</string>
-    <string name="systemcleaner_customfilter_create_action">Parzûna taybet biafirînin</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d lihevhatin hat jêbirin</item>
         <item quantity="other">%d lihevhatin hatin jêbirin</item>

@@ -64,7 +64,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Fișiere legate de statisticile de utilizare a aplicației.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Ștergi tot conținutul filtrului?</string>
     <string name="systemcleaner_customfilter_label">Filtru personalizat</string>
-    <string name="systemcleaner_customfilter_create_action">Crează filtru personalizat</string>
     <string name="systemcleaner_customfilter_create_hint">Creaţi un filtru personalizat pentru a şterge fişiere suplimentare care sunt unice pentru dispozitiv şi cazuri de utilizare.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Eliminați acest filtru?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Eticheta filtrului</string>

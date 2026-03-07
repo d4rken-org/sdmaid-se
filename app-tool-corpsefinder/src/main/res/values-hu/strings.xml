@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Törli az összes alkalmazás maradványt?</string>
     <string name="corpsefinder_owners_label">Tulajdonosok</string>
-    <string name="corpsefinder_corpse_hints_label">Értesítés</string>
     <string name="corpsefinder_owner_unknown">Ismeretlen tulajdonos</string>
     <string name="corpsefinder_corpse_hint_keeper">Ez az elem tartalmazhat olyan adatokat, amelyeket meg szeretne őrizni annak ellenére, hogy a tulajdonosát eltávolították, pl. fényképeket vagy biztonsági másolatokat.</string>
     <string name="corpsefinder_corpse_hint_common">Ennek az elemnek nagyon gyakori a neve, és olyan még telepített alkalmazásokhoz tartozhat, amelyeket az SD Maid nem ismer.</string>

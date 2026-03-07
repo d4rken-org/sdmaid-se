@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">የግላዊነት ፖሊሲ</string>
     <string name="settings_privacy_policy_desc">ውሂቡን በኃላፊነት መያዝ።</string>
     <string name="settings_category_other_label">ሌላ</string>
-    <string name="settings_category_filter_generic">አጠቃላይ ማጣሪያ</string>
-    <string name="settings_category_filter_specific">ልዩ ማጣሪያ</string>
     <string name="settings_sponsor_development_title">ልማትን ስፖንሰር አድርግ</string>
     <string name="settings_sponsor_development_summary">ፓትሮን ሁንና ቀጣይነት ያለው ልማት ይቻል እንዲሆን አድርግ።</string>
     <string name="general_settings_label">አጠቃላይ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">መተግበሪያዎችን እንደገና ጫን</string>
     <string name="debug_card_root_test_action">Root ፈትን</string>
     <string name="debug_card_shizuku_test_action">Shizuku ፈትን</string>
-    <string name="settings_category_filter">ማጣሪያ</string>
-    <string name="settings_category_risklevel">የአደጋ ደረጃ</string>
     <string name="data_area_public_app_data_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ውሂብ</string>
     <string name="data_area_public_app_assets_official_label">ነባሪ ሕዝባዊ የመተግበሪያ ንብረቶች</string>
     <string name="data_area_public_storage_label">ሕዝባዊ ማጠራቀሚያ</string>

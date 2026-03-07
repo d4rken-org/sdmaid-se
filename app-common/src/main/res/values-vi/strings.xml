@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Tùy chọn sắp xếp</string>
     <string name="general_sort_reverse_action">Chế độ sắp xếp ngược</string>
     <string name="general_tag_filter_label">Bộ lọc theo thẻ</string>
+    <string name="general_tag_system">Hệ thống</string>
     <string name="general_result_success_message">Thao tác thành công</string>
     <string name="general_result_failure_message">Thao tác thất bại</string>
     <plurals name="general_result_x_space_freed">
@@ -178,4 +179,11 @@
     <string name="swiper_tool_name">Vuốt</string>
     <string name="stats_label">Lịch sử</string>
     <string name="settings_category_tools_label">Công cụ</string>
+    <string name="general_hints_label">Ghi chú</string>
+    <string name="settings_category_filter_generic">Bộ lọc chung</string>
+    <string name="settings_category_filter_specific">Bộ lọc cụ thể</string>
+    <string name="settings_category_risklevel">Mức độ rủi ro</string>
+    <string name="settings_category_filter">Bộ lọc</string>
+    <string name="appcontrol_systemsettings_open_title">Hiển thị cài đặt</string>
+    <string name="systemcleaner_customfilter_create_action">Tạo bộ lọc tùy chỉnh</string>
 </resources>

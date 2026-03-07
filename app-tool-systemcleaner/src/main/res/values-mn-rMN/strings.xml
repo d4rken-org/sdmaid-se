@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Аппликацийн хэрэглэлтийн статистиктай холбогдсон файлууд.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Бүх шүүлтүүрийн агуулгыг устгах уу?</string>
     <string name="systemcleaner_customfilter_label">Тусгай шүүлтүүр</string>
-    <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
     <string name="systemcleaner_customfilter_create_hint">Тань төхөөр ба хэрэглэлтийн хэв цэвд үлдсэн өсрөх файлуудыг устгахын хувийн шүүгээгч үүсгээрэй.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Энэ шүүгээгчийг устгах уң?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Шүүгээгчийн шошиглол</string>

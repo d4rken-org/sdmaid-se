@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Ukukhubaza uhlelo kuvimbela ukusebenza kwalo futhi lukufihla emamenyu. Alukho ukulahlekelwa yidatha.</string>
     <string name="appcontrol_appstore_open_title">Vula esitolo sezinhlelo zokusebenza</string>
     <string name="appcontrol_appstore_open_description">Vula lolu hlelo esitolo sezinhlelo zokusebenza lufakwe kuso.</string>
-    <string name="appcontrol_systemsettings_open_title">Bonisa izilungiselelo</string>
     <string name="appcontrol_systemsettings_open_description">Vula izilungiselelo zesistimu zedivayisi yakho zale nhlelo.</string>
     <string name="appcontrol_app_launch_title">Qalisa uhlelo</string>
     <string name="appcontrol_app_launch_description">Qalisa umsebenzi oyinhloko wale nhlelo.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Isebenze kamuva</string>
     <string name="appcontrol_tag_apk_base">I-APK</string>
     <string name="appcontrol_tag_apk_bundle">Iqembu</string>
-    <string name="appcontrol_tag_system">Isistimu</string>
     <string name="appcontrol_tag_archived">Kubhokisiwe</string>
     <string name="appcontrol_tag_uninstalled">Idatha Kuphela</string>
     <string name="appcontrol_tag_not_installed">Akufakwanga</string>

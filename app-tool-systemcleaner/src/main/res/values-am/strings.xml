@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ከመተግበሪያ አጠቃቀም ስታቲስቲክ ጋር የተያያዙ ፋይሎች።</string>
     <string name="systemcleaner_delete_all_confirmation_message">ሁሉንም የማጣሪያ ይዘቶች ይሰረዙ?</string>
     <string name="systemcleaner_customfilter_label">ሰው ሰራሽ ማጣሪያ</string>
-    <string name="systemcleaner_customfilter_create_action">ሰው ሰራሽ ማጣሪያ ፍጠር</string>
     <string name="systemcleaner_customfilter_create_hint">በመሣሪያዎና በአጠቃቀም ሁኔታዎ ልዩ የሆኑ ተጨማሪ ፋይሎችን ለመሰረዝ ሰው ሰራሽ ማጣሪያ ይፍጠሩ።</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ይህንን ማጣሪያ ያስወግዱ?</string>
     <string name="systemcleaner_customfilter_editor_label_label">የማጣሪያ መለያ</string>

@@ -8,7 +8,6 @@
     <string name="appcontrol_toggle_app_disable_description">Malebligi aplikaĵon malhelpas ĝin ruli kaj kaŝas ĝin de menuoj. Ne estas datumperdo.</string>
     <string name="appcontrol_appstore_open_title">Malfermi en aplikaĵvendejo</string>
     <string name="appcontrol_appstore_open_description">Malfermi ĉi tiun aplikaĵon en la aplikaĵvendejo de kie ĝi estis instalita.</string>
-    <string name="appcontrol_systemsettings_open_title">Montri agordojn</string>
     <string name="appcontrol_systemsettings_open_description">Malfermi la sistemajn agordojn de via aparato por ĉi tiu aplikaĵo.</string>
     <string name="appcontrol_app_launch_title">Lanĉi aplikaĵon</string>
     <string name="appcontrol_app_launch_description">Lanĉi la ĉefan agadon de ĉi tiu aplikaĵo.</string>
@@ -23,7 +22,6 @@
     <string name="appcontrol_tag_active">Laste aktiva</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Fasko</string>
-    <string name="appcontrol_tag_system">Sistemo</string>
     <string name="appcontrol_tag_archived">Arkivita</string>
     <string name="appcontrol_tag_uninstalled">Nur datumoj</string>
     <string name="appcontrol_tag_not_installed">Ne instalita</string>

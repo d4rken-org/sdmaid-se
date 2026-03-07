@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Изтриване на всички остатъци от приложения?</string>
     <string name="corpsefinder_owners_label">Собственици</string>
-    <string name="corpsefinder_corpse_hints_label">Забележка</string>
     <string name="corpsefinder_owner_unknown">Неизвестен собственик</string>
     <string name="corpsefinder_corpse_hint_keeper">Този елемент може да съдържа данни, които искате да запазите, въпреки че собственикът му е деинсталиран, напр. снимки или резервни копия.</string>
     <string name="corpsefinder_corpse_hint_common">Този елемент има много често срещано име и може да принадлежи на все още инсталирани приложения, които SD Maid не знае.</string>

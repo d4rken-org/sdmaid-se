@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Sovelluksen käyttötilastoihin liittyvät tiedostot.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Poista kaikki suodattimen sisältö?</string>
     <string name="systemcleaner_customfilter_label">Mukautettu suodatin</string>
-    <string name="systemcleaner_customfilter_create_action">Luo mukautettu suodatin</string>
     <string name="systemcleaner_customfilter_create_hint">Luo mukautettu suodatin poistaaksesi ylimääräisiä tiedostoja, jotka ovat ainutlaatuisia laitteellesi ja käyttötapauksillesi.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Poista tämä suodatin?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Suodattimen otsikko</string>

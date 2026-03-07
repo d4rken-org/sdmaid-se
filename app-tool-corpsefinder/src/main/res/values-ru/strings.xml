@@ -61,7 +61,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Удалить все остатки приложения?</string>
     <string name="corpsefinder_owners_label">Владельцы</string>
-    <string name="corpsefinder_corpse_hints_label">Примечание</string>
     <string name="corpsefinder_owner_unknown">Неизвестный владелец</string>
     <string name="corpsefinder_corpse_hint_keeper">Этот элемент может содержать данные, которые Вы хотите сохранить, несмотря на удаление его владельца, например, фотографии или резервные копии.</string>
     <string name="corpsefinder_corpse_hint_common">Этот элемент имеет очень распространенное название и может принадлежать все ещё установленным приложениям, о которых SD Maid не знает.</string>

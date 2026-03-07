@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">აპლიკაციის გამოყენების სტატისტიკასთან დაკავშირებული ფაილები.</string>
     <string name="systemcleaner_delete_all_confirmation_message">წაშალოთ ფილტრის ყველა შიგთავსი?</string>
     <string name="systemcleaner_customfilter_label">კასტომ ფილტრი</string>
-    <string name="systemcleaner_customfilter_create_action">კასტომ ფილტრის შექმნა</string>
     <string name="systemcleaner_customfilter_create_hint">შექმენით კასტომ ფილტრი დამატებითი ფაილების წასაშლელად, რომლებიც უნიკალურია თქვენი მოწყობილობისა და გამოყენების შემთხვევებისთვის.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ამოვშალოთ ეს ფილტრი?</string>
     <string name="systemcleaner_customfilter_editor_label_label">ფილტრის ეტიკეტი</string>

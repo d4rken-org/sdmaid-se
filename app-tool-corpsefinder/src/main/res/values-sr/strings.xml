@@ -57,7 +57,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Обрисати све остатке апликација?</string>
     <string name="corpsefinder_owners_label">Власници</string>
-    <string name="corpsefinder_corpse_hints_label">Напомена</string>
     <string name="corpsefinder_owner_unknown">Непознат власник</string>
     <string name="corpsefinder_corpse_hint_keeper">Ова ставка може садржавати податке које желите да задржите упркос томе што је њен власник деинсталиран, нпр. фотографије или резервне копије.</string>
     <string name="corpsefinder_corpse_hint_common">Ова ставка има веома уобичајено име и може припадати још увек инсталираним апликацијама које СД Чистач не зна.</string>

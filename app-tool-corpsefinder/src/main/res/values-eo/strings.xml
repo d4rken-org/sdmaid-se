@@ -35,7 +35,6 @@
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_delete_all_confirmation_message">Ĉu forigi ĉiujn aplikaĵajn restaĵojn?</string>
     <string name="corpsefinder_owners_label">Posedantoj</string>
-    <string name="corpsefinder_corpse_hints_label">Avizo</string>
     <string name="corpsefinder_owner_unknown">Nekonata posedanto</string>
     <string name="corpsefinder_corpse_hint_keeper">Ĉi tiu ero povas enhavi datumojn kiujn vi volas konservi malgraŭ ke ĝia posedanto estas malinstalita, ekz. fotoj aŭ sekurkopioj.</string>
     <string name="corpsefinder_corpse_hint_common">Ĉi tiu ero havas tre komunan nomon kaj povus aparteni al ankoraŭ instalitaj aplikaĵoj kiujn SD Maid ne konas.</string>

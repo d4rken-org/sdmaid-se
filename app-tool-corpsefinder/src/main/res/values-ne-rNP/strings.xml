@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">सबै एप अवशेषहरू मेटाउने?</string>
     <string name="corpsefinder_owners_label">मालिकहरू</string>
-    <string name="corpsefinder_corpse_hints_label">सूचना</string>
     <string name="corpsefinder_owner_unknown">अज्ञात मालिक</string>
     <string name="corpsefinder_corpse_hint_keeper">यो वस्तुमा त्यसको मालिक अनइन्स्टल भएको भएतापनि तपाईंले राख्न चाहनुभएको डेटा हुन सक्छ, जस्तै फोटो वा ब्याकअप।</string>
     <string name="corpsefinder_corpse_hint_common">यो वस्तुको धेरै सामान्य नाम छ र यो अझै स्थापित एप्सको हुन सक्छ जुन SD Maid लाई थाहा छैन।</string>

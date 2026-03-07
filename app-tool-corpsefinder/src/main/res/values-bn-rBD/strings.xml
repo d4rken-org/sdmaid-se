@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">সমস্ত অ্যাপের অবশিষ্টাংশ মুছবেন?</string>
     <string name="corpsefinder_owners_label">Owners</string>
-    <string name="corpsefinder_corpse_hints_label">বিজ্ঞপ্তি</string>
     <string name="corpsefinder_owner_unknown">অজানা মালিক</string>
     <string name="corpsefinder_corpse_hint_keeper">এই আইটেমটির মালিকের আনইনস্টল হওয়া সত্ত্বেও আপনি যে ডেটা রাখতে চান তা থাকতে পারে, যেমন ফটো বা ব্যাকআপ।</string>
     <string name="corpsefinder_corpse_hint_common">এই আইটেমটির একটি খুব সাধারণ নাম রয়েছে এবং এটি এখনও ইনস্টল করা অ্যাপগুলির অন্তর্গত হতে পারে যা SD Maid জানে না৷</string>

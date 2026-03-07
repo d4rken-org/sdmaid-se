@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Политика за приватност</string>
     <string name="settings_privacy_policy_desc">Одговорно ракување со податоци.</string>
     <string name="settings_category_other_label">Друго</string>
-    <string name="settings_category_filter_generic">Општ филтер</string>
-    <string name="settings_category_filter_specific">Специфичен филтер</string>
     <string name="settings_sponsor_development_title">Спонзорирајте го развојот</string>
     <string name="settings_sponsor_development_summary">Станете покровител и овозможете продолжување на развојот.</string>
     <string name="general_settings_label">Општо</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Повторно вчитај апликации</string>
     <string name="debug_card_root_test_action">Тестирај root</string>
     <string name="debug_card_shizuku_test_action">Тестирај Shizuku</string>
-    <string name="settings_category_filter">Филтер</string>
-    <string name="settings_category_risklevel">Ниво на ризик</string>
     <string name="data_area_public_app_data_official_label">Стандардни јавни податоци на апликации</string>
     <string name="data_area_public_app_assets_official_label">Стандардни јавни ресурси на апликации</string>
     <string name="data_area_public_storage_label">Јавно складирање</string>

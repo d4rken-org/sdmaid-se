@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Opsionet e renditjes</string>
     <string name="general_sort_reverse_action">Modaliteti i renditjes së kundërt</string>
     <string name="general_tag_filter_label">Filtro sipas etiketave</string>
+    <string name="general_tag_system">Sistemi</string>
     <string name="general_result_success_message">Operation successful</string>
     <string name="general_result_failure_message">Operacioni dështoi</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historiku</string>
     <string name="settings_category_tools_label">Mjetet</string>
+    <string name="general_hints_label">Paralajmërim</string>
+    <string name="settings_category_filter_generic">Filtër gjenerik</string>
+    <string name="settings_category_filter_specific">Filtër specifik</string>
+    <string name="settings_category_risklevel">Niveli i rrezikut</string>
+    <string name="settings_category_filter">Filtro</string>
+    <string name="appcontrol_systemsettings_open_title">Shfaq rregullime</string>
+    <string name="systemcleaner_customfilter_create_action">Krijo filtër të personalizuar</string>
 </resources>

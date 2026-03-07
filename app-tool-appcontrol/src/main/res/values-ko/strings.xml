@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">앱을 사용 중지하면 런처 등의 곳에서 숨기고 실행을 방지합니다. 데이터는 유실되지 않습니다.</string>
     <string name="appcontrol_appstore_open_title">앱 스토어에서 열기</string>
     <string name="appcontrol_appstore_open_description">앱을 설치한 앱 스토어에서 이 앱을 엽니다.</string>
-    <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
     <string name="appcontrol_systemsettings_open_description">이 앱의 시스템 설정으로 이동합니다.</string>
     <string name="appcontrol_app_launch_title">앱 실행하기</string>
     <string name="appcontrol_app_launch_description">이 앱을 실행합니다.</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">최근에 사용됨</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">번들</string>
-    <string name="appcontrol_tag_system">시스템</string>
     <string name="appcontrol_tag_archived">보관됨</string>
     <string name="appcontrol_tag_uninstalled">데이터만</string>
     <string name="appcontrol_tag_not_installed">설치되지 않음</string>

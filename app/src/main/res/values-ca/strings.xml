@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Política de privadesa</string>
     <string name="settings_privacy_policy_desc">Tractament responsable de les dades.</string>
     <string name="settings_category_other_label">Altres</string>
-    <string name="settings_category_filter_generic">Filtre genèric</string>
-    <string name="settings_category_filter_specific">Filtre específic</string>
     <string name="settings_sponsor_development_title">Desenvolupament del patrocinador</string>
     <string name="settings_sponsor_development_summary">Convertiu-vos en mecenes i feu possible el desenvolupament constant de l\'aplicació.</string>
     <string name="general_settings_label">General</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Recarrega les aplicacions</string>
     <string name="debug_card_root_test_action">Prova el «root»</string>
     <string name="debug_card_shizuku_test_action">Prova el Shizuku</string>
-    <string name="settings_category_filter">Filtra</string>
-    <string name="settings_category_risklevel">Nivell de risc</string>
     <string name="data_area_public_app_data_official_label">Dades públiques per defecte de l\'aplicació</string>
     <string name="data_area_public_app_assets_official_label">Recursos d\'aplicacions públiques per defecte</string>
     <string name="data_area_public_storage_label">Emmagatzematge públic</string>

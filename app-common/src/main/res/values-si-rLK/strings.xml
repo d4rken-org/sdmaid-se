@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">වර්ග විකල්ප</string>
     <string name="general_sort_reverse_action">ප්‍රතිලෝම වර්ග ක්‍රමය</string>
     <string name="general_tag_filter_label">ටැග අනුව පෙරන්න</string>
+    <string name="general_tag_system">පද්ධති</string>
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>
     <string name="general_result_failure_message">ක්‍රියාව අසාර්ථක විය</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">ස්වයිපර්</string>
     <string name="stats_label">ඉතිහාසය</string>
     <string name="settings_category_tools_label">මෙවලම්</string>
+    <string name="general_hints_label">සෑහන්</string>
+    <string name="settings_category_filter_generic">සාමාන්‍ය පෙරණය</string>
+    <string name="settings_category_filter_specific">විශේෂිත පෙරණය</string>
+    <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
+    <string name="settings_category_filter">පෙරණය</string>
+    <string name="appcontrol_systemsettings_open_title">සැකසීම් පෙනන්න</string>
+    <string name="systemcleaner_customfilter_create_action">මැනුවල් පෙරණ සැදීම</string>
 </resources>

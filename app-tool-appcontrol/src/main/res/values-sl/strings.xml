@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Onemogočanje programa prepreči njegovo izvajanje in ga skrije z menijev.  Podatki se ne izgubijo.</string>
     <string name="appcontrol_appstore_open_title">Odpri v trgovini programov</string>
     <string name="appcontrol_appstore_open_description">Odpri program v trgovini programov, iz katere je bil nameščen.</string>
-    <string name="appcontrol_systemsettings_open_title">Prikaži nastavitve</string>
     <string name="appcontrol_systemsettings_open_description">Odpri sistemske nastavitve tega programa.</string>
     <string name="appcontrol_app_launch_title">Zaženi program</string>
     <string name="appcontrol_app_launch_description">Zaženi glavno dejavnost tega programa.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Nedavno dejavno</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Skupina</string>
-    <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arhivirano</string>
     <string name="appcontrol_tag_uninstalled">Samo podatki</string>
     <string name="appcontrol_tag_not_installed">Ni nameščeno</string>

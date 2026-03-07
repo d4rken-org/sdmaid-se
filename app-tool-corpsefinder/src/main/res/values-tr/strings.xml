@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Tüm uygulama kalıntıları silinsin mi?</string>
     <string name="corpsefinder_owners_label">Sahipler</string>
-    <string name="corpsefinder_corpse_hints_label">Dikkat</string>
     <string name="corpsefinder_owner_unknown">Bilinmeyen sahip</string>
     <string name="corpsefinder_corpse_hint_keeper">Bu öge sahibi kaldırılmış olsa da, silmek istemeyebileceğin veriler içeriyor olabilir; fotoğraflar ya da yedekler gibi.</string>
     <string name="corpsefinder_corpse_hint_common">Bu öge çok yaygın bir isme sahip, bu yüzden SD Maid\'in haberinin olmadığı, hâlâ yüklü bir uygulamaya ait olabilir.</string>

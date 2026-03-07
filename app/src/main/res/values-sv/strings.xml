@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Sekretesspolicy</string>
     <string name="settings_privacy_policy_desc">Hantering av uppgifter på ett ansvarsfullt sätt.</string>
     <string name="settings_category_other_label">Övriga</string>
-    <string name="settings_category_filter_generic">Generellt filter</string>
-    <string name="settings_category_filter_specific">Specifikt filter</string>
     <string name="settings_sponsor_development_title">Sponsra utveckling</string>
     <string name="settings_sponsor_development_summary">Bli en beskyddare och gör fortsatt utveckling möjlig.</string>
     <string name="general_settings_label">Allmänt</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Ladda om appar</string>
     <string name="debug_card_root_test_action">Testa root</string>
     <string name="debug_card_shizuku_test_action">Testa Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Riskivå</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
     <string name="data_area_public_app_assets_official_label">Standard offentliga apptillgångar</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>

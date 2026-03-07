@@ -69,7 +69,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">حذف جميع بقايا التطبيق؟</string>
     <string name="corpsefinder_owners_label">المالكون</string>
-    <string name="corpsefinder_corpse_hints_label">تنويه</string>
     <string name="corpsefinder_owner_unknown">مالك غير معروف</string>
     <string name="corpsefinder_corpse_hint_keeper">قد يحتوي هذا العنصر على بيانات تريد الاحتفاظ بها بالرغم من إلغاء تثبيت مالكها ، على سبيل المثال الصور أو النسخ الاحتياطية.</string>
     <string name="corpsefinder_corpse_hint_common">هذا العنصر له اسم شائع جدًا ويمكن أن ينتمي إلى التطبيقات التي لا تزال مثبتة والتي لا يعرفها SD Maid.</string>

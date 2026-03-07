@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">سیاسەتی تایبەتمەندی</string>
     <string name="settings_privacy_policy_desc">مامەڵەکردن لەگەڵ داتا بە بەرپرسیارێتییەوە.</string>
     <string name="settings_category_other_label">هی تر</string>
-    <string name="settings_category_filter_generic">پاڵاوتنی گشتی</string>
-    <string name="settings_category_filter_specific">پاڵاوتنی تایبەت</string>
     <string name="settings_sponsor_development_title">پاڵپشتی پەرەپێدان</string>
     <string name="settings_sponsor_development_summary">ببە بە پاڵپشت و پەرەپێدانی بەردەوام بکە ئەگەرەگمێن.</string>
     <string name="general_settings_label">گشتی</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">دوبارە بارکردنی بەرنامەکان</string>
     <string name="debug_card_root_test_action">تاقیکردنەوەی ڕووت</string>
     <string name="debug_card_shizuku_test_action">تاقیکردنەوەی Shizuku</string>
-    <string name="settings_category_filter">پاڵاوتن</string>
-    <string name="settings_category_risklevel">مەترسی level</string>
     <string name="data_area_public_app_data_official_label">بنەڕەت public app data</string>
     <string name="data_area_public_app_assets_official_label">بنەڕەت public app assets</string>
     <string name="data_area_public_storage_label">گشتی storage</string>

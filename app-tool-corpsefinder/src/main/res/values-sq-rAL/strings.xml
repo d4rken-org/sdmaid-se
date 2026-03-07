@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Të fshihen të gjitha mbetjet e aplikacioneve?</string>
     <string name="corpsefinder_owners_label">Pronarët</string>
-    <string name="corpsefinder_corpse_hints_label">Paralajmërim</string>
     <string name="corpsefinder_owner_unknown">Pronar i panjohur</string>
     <string name="corpsefinder_corpse_hint_keeper">Ky artikull mund të përmbajë të dhëna që dëshironi t\'i ruani pavarësisht se pronari i tij është çinstaluar, p.sh. foto ose kopje rezervë.</string>
     <string name="corpsefinder_corpse_hint_common">Ky artikull ka një emër shumë të zakonshëm dhe mund t\'u përkasë aplikacioneve ende të instaluara që SD Maid nuk i njeh.</string>

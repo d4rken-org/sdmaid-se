@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Tietosuojakäytäntö</string>
     <string name="settings_privacy_policy_desc">Vastuullinen tietojen käsittely.</string>
     <string name="settings_category_other_label">Muut</string>
-    <string name="settings_category_filter_generic">Yleinen suodatin</string>
-    <string name="settings_category_filter_specific">Erityinen suodatin</string>
     <string name="settings_sponsor_development_title">Sponsoroi kehitystä</string>
     <string name="settings_sponsor_development_summary">Tule sponsoriksi ja mahdollista jatkuva kehitys.</string>
     <string name="general_settings_label">Yleiset</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Lataa sovellukset uudelleen</string>
     <string name="debug_card_root_test_action">Testaa pääkäyttäjä</string>
     <string name="debug_card_shizuku_test_action">Testaa Shizuku</string>
-    <string name="settings_category_filter">Suodatin</string>
-    <string name="settings_category_risklevel">Riskitaso</string>
     <string name="data_area_public_app_data_official_label">Oletusarvoisen julkisen sovelluksen tiedot</string>
     <string name="data_area_public_app_assets_official_label">Oletusarvoisen julkisen sovelluksen resurssit</string>
     <string name="data_area_public_storage_label">Julkinen tallennustila</string>

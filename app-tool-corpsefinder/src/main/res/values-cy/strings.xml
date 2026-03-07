@@ -35,7 +35,6 @@
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_delete_all_confirmation_message">Dileu pob gweddillion ap?</string>
     <string name="corpsefinder_owners_label">Perchnogion</string>
-    <string name="corpsefinder_corpse_hints_label">Rhybudd</string>
     <string name="corpsefinder_owner_unknown">Perchennog anhysbys</string>
     <string name="corpsefinder_corpse_hint_keeper">Gallai\'r eitem hon gynnwys data rydych am ei gadw er bod ei berchennog wedi\'i ddadosod, e.e. lluniau neu gopïau wrth gefn.</string>
     <string name="corpsefinder_corpse_hint_common">Mae gan yr eitem hon enw cyffredin iawn a gallai berthyn i apiau sydd dal wedi\'u gosod nad yw SD Maid yn eu hadnabod.</string>

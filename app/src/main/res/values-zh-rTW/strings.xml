@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">隱私權政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
     <string name="settings_category_other_label">其他</string>
-    <string name="settings_category_filter_generic">一般過濾器</string>
-    <string name="settings_category_filter_specific">指定過濾器</string>
     <string name="settings_sponsor_development_title">贊助開發</string>
     <string name="settings_sponsor_development_summary">成為贊助者，使持續開發成為可能。</string>
     <string name="general_settings_label">一般</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
     <string name="debug_card_root_test_action">測試 Root</string>
     <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
-    <string name="settings_category_filter">過濾器</string>
-    <string name="settings_category_risklevel">風險層級</string>
     <string name="data_area_public_app_data_official_label">預設公用應用程式資料</string>
     <string name="data_area_public_app_assets_official_label">預設公用應用程式資產</string>
     <string name="data_area_public_storage_label">公用儲存空間</string>

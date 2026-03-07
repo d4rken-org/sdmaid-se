@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">Палітыка канфідэнцыяльнасці</string>
     <string name="settings_privacy_policy_desc">Адказнае абыходжанне з данымі.</string>
     <string name="settings_category_other_label">Іншае</string>
-    <string name="settings_category_filter_generic">Агульны фільтр</string>
-    <string name="settings_category_filter_specific">Спецыяльны фільтр</string>
     <string name="settings_sponsor_development_title">Падтрымаць распрацоўку</string>
     <string name="settings_sponsor_development_summary">Станьце спонсарам і зрабіце магчымай далейшую распрацоўку.</string>
     <string name="general_settings_label">Агульныя</string>
@@ -232,8 +230,6 @@
     <string name="debug_card_pkgs_reload_action">Перазагрузіць праграмы</string>
     <string name="debug_card_root_test_action">Праверыць каранёвы доступ</string>
     <string name="debug_card_shizuku_test_action">Праверыць Shizuku</string>
-    <string name="settings_category_filter">Фільтр</string>
-    <string name="settings_category_risklevel">Узровень рызыкі</string>
     <string name="data_area_public_app_data_official_label">Стандартныя публічныя даныя праграмы</string>
     <string name="data_area_public_app_assets_official_label">Стандартныя публічныя рэсурсы праграмы</string>
     <string name="data_area_public_storage_label">Агульная памяць</string>

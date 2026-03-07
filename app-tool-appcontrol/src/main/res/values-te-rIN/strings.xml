@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">యాప్‌ను రద్దు చేయడం అది పనిచేయడానికి ఇంపేడ్ అవుతుంది మరియు దీనిని మెనుల నుంచి దాచిపేస్తుంది. డేటా నష్టం ఉందు.</string>
     <string name="appcontrol_appstore_open_title">యాప్ స్టోర్‌లో తెరవండి</string>
     <string name="appcontrol_appstore_open_description">ఈ యాప్‌ను ఇన్‌స్టాల్ చేసిన యాప్ స్టోర్‌లో తెరవండి.</string>
-    <string name="appcontrol_systemsettings_open_title">సెట్టింగ్స్ చూపించండి</string>
     <string name="appcontrol_systemsettings_open_description">ఈ యాప్ కోసం మీ పరికరం సిస్టం సెట్టింగ్స్ తెరవండి.</string>
     <string name="appcontrol_app_launch_title">యాప్‌ను లాంచ్ చేయండి</string>
     <string name="appcontrol_app_launch_description">ఈ యాప్ ప్రాధాన ఆక్టివిటీని లాంచ్ చేయండి.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">ఇక్కడ సక్రియం</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">బండల్</string>
-    <string name="appcontrol_tag_system">సిస్టం</string>
     <string name="appcontrol_tag_archived">ఆర్కైవ్ చేయబడిన</string>
     <string name="appcontrol_tag_uninstalled">డేటా మాత్రమే</string>
     <string name="appcontrol_tag_not_installed">ఇన్‌స్టాల్ చేయలేదు</string>

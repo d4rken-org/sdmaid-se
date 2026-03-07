@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Sovelluksen poistaminen käytöstä estää sitä toimimasta ja piilottaa sen valikoista. Tietoja ei menetetä.</string>
     <string name="appcontrol_appstore_open_title">Avaa sovelluskaupassa</string>
     <string name="appcontrol_appstore_open_description">Avaa tämä sovellus sovelluskaupassa, josta se asennettiin.</string>
-    <string name="appcontrol_systemsettings_open_title">Näytä asetukset</string>
     <string name="appcontrol_systemsettings_open_description">Avaa laitteesi järjestelmäasetukset tälle sovellukselle.</string>
     <string name="appcontrol_app_launch_title">Käynnistä sovellus</string>
     <string name="appcontrol_app_launch_description">Käynnistä tämän sovelluksen pääaktiviteetti.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Äskettäin aktiivinen</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paketti</string>
-    <string name="appcontrol_tag_system">Järjestelmä</string>
     <string name="appcontrol_tag_archived">Arkistoitu</string>
     <string name="appcontrol_tag_uninstalled">Vain tiedot</string>
     <string name="appcontrol_tag_not_installed">Ei asennettu</string>
