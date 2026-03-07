@@ -70,3 +70,30 @@ jobs:
             **/build/test-results/**/*.xml
             **/build/reports/tests/**/*
           retention-days: 1
+
+  test-library-modules:
+    name: Library unit tests
+    strategy:
+      fail-fast: false
+      matrix:
+        task: [ testCommonModules, testToolModules ]
+    runs-on: ubuntu-22.04
+    timeout-minutes: 20
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
+      - name: Setup project and build environment
+        uses: ./.github/actions/common-setup
+
+      - name: Test library modules
+        run: ./gradlew ${{ matrix.task }}
+
+      - name: Upload test results
+        uses: actions/upload-artifact@v4.6.2
+        if: always()
+        with:
+          name: test-results-${{ matrix.task }}
+          path: |
+            **/build/test-results/**/*.xml
+            **/build/reports/tests/**/*
+          retention-days: 1

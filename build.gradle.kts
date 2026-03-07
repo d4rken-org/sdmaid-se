@@ -27,3 +27,13 @@ allprojects {
 tasks.register("clean").configure {
     delete("build")
 }
+
+tasks.register("testToolModules") {
+    description = "Run unit tests for all app-tool-* library modules"
+    dependsOn(subprojects.filter { it.name.startsWith("app-tool") }.map { ":${it.name}:testDebugUnitTest" })
+}
+
+tasks.register("testCommonModules") {
+    description = "Run unit tests for all app-common-* library modules"
+    dependsOn(subprojects.filter { it.name.startsWith("app-common") }.map { ":${it.name}:testDebugUnitTest" })
+}
