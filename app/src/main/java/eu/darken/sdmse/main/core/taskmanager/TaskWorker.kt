@@ -25,6 +25,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.mapLatest
 import kotlinx.coroutines.flow.onEach
+import eu.darken.sdmse.common.hasApiLevel
 import kotlinx.coroutines.withTimeoutOrNull
 
 @HiltWorker
@@ -75,6 +76,12 @@ class TaskWorker @AssistedInject constructor(
             finishedWithError = true
             Result.failure(inputData)
         } else {
+            if (hasApiLevel(31)) {
+                @Suppress("NewApi")
+                log(TAG, WARN) { "Worker cancelled, stopReason=$stopReason" }
+            } else {
+                log(TAG, WARN) { "Worker cancelled" }
+            }
             Result.success()
         }
     } finally {

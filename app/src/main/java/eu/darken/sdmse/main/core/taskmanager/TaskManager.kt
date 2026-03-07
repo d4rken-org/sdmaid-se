@@ -33,10 +33,14 @@ import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.TimeoutCancellationException
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.sync.withPermit
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
 import java.time.Instant
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.hours
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -189,7 +193,14 @@ class TaskManager @Inject constructor(
         val entry: TaskEntry = tempEntry ?: throw IllegalStateException("Can't find task $taskId")
 
         val tool = entry.tool
-        val result = tool.useRes { tool.submit(entry.task) }
+        val timeout = getTaskTimeout(entry.task.type)
+        val result = try {
+            withTimeout(timeout) {
+                tool.useRes { tool.submit(entry.task) }
+            }
+        } catch (e: TimeoutCancellationException) {
+            throw TaskTimeoutException(entry.task.type, timeout)
+        }
 
         val stop = System.currentTimeMillis()
         log(TAG) { "execute() after ${stop - start}ms: $result : $tempEntry" }
@@ -289,6 +300,17 @@ class TaskManager @Inject constructor(
                     }
             }
         }
+    }
+
+    private fun getTaskTimeout(type: SDMTool.Type): Duration = when (type) {
+        SDMTool.Type.APPCLEANER -> 4.hours
+        SDMTool.Type.CORPSEFINDER -> 4.hours
+        SDMTool.Type.SYSTEMCLEANER -> 4.hours
+        SDMTool.Type.DEDUPLICATOR -> 6.hours
+        SDMTool.Type.ANALYZER -> 4.hours
+        SDMTool.Type.APPCONTROL -> 2.hours
+        SDMTool.Type.SQUEEZER -> 4.hours
+        SDMTool.Type.SWIPER -> 2.hours
     }
 
     companion object {
