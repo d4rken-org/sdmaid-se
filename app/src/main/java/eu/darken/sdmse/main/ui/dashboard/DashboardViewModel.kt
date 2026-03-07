@@ -26,8 +26,12 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
+import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
+import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.flow.intervalFlow
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -109,6 +113,7 @@ import kotlin.time.Duration.Companion.seconds
 
 @HiltViewModel
 class DashboardViewModel @Inject constructor(
+    @ApplicationContext private val context: android.content.Context,
     dispatcherProvider: DispatcherProvider,
     private val areaManager: DataAreaManager,
     private val taskManager: TaskManager,
@@ -128,7 +133,7 @@ class DashboardViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     schedulerManager: SchedulerManager,
     private val updateService: UpdateService,
-    private val recorderModule: RecorderModule,
+    private val sessionManager: DebugLogSessionManager,
     private val motdRepo: MotdRepo,
     private val releaseManager: ReleaseManager,
     private val reviewTool: ReviewTool,
@@ -493,7 +498,7 @@ class DashboardViewModel @Inject constructor(
     ) { _, config -> config }
 
     private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
-        recorderModule.state,
+        sessionManager.sessions,
         debugCardProvider.create(this) { events.postValue(it) },
         titleCardItem,
         upgradeInfo,
@@ -515,7 +520,7 @@ class DashboardViewModel @Inject constructor(
         swiperItem,
         easterEggTriggered,
         cardConfigWithRefresh,
-    ) { recorderState: RecorderModule.State,
+    ) { sessions: List<DebugLogSession>,
         debugItem: DebugCardVH.Item?,
         titleInfo: TitleCardVH.Item,
         upgradeInfo: UpgradeRepo.Info?,
@@ -589,30 +594,33 @@ class DashboardViewModel @Inject constructor(
             }
             ?.run { items.add(this) }
 
-        recorderState
-            .takeIf { it.isRecording || debugItem != null }
-            ?.let {
-                val item = DebugRecorderCardVH.Item(
-                    webpageTool = webpageTool,
-                    state = it,
-                    onToggleRecording = {
-                        if (it.isRecording) {
-                            launch {
-                                when (recorderModule.requestStopRecorder()) {
-                                    is RecorderModule.StopResult.TooShort -> {
-                                        events.postValue(DashboardEvents.ShowShortRecordingWarning)
-                                    }
-                                    is RecorderModule.StopResult.Stopped -> {}
-                                    is RecorderModule.StopResult.NotRecording -> {}
+        val recordingSession = sessions.filterIsInstance<DebugLogSession.Recording>().firstOrNull()
+        val isRecording = recordingSession != null
+        if (isRecording || debugItem != null) {
+            val item = DebugRecorderCardVH.Item(
+                webpageTool = webpageTool,
+                isRecording = isRecording,
+                currentLogDir = recordingSession?.logDir,
+                onToggleRecording = {
+                    if (isRecording) {
+                        launch {
+                            when (val result = sessionManager.requestStopRecording()) {
+                                is RecorderModule.StopResult.TooShort -> {
+                                    events.postValue(DashboardEvents.ShowShortRecordingWarning)
                                 }
+                                is RecorderModule.StopResult.Stopped -> {
+                                    launchRecorderActivity(result.logDir)
+                                }
+                                is RecorderModule.StopResult.NotRecording -> {}
                             }
-                        } else {
-                            launch { recorderModule.startRecorder() }
                         }
+                    } else {
+                        launch { sessionManager.startRecording() }
                     }
-                )
-                if (it.isRecording) items.add(1, item) else items.add(item)
-            }
+                }
+            )
+            if (isRecording) items.add(1, item) else items.add(item)
+        }
 
         debugItem?.let { items.add(it) }
 
@@ -835,7 +843,15 @@ class DashboardViewModel @Inject constructor(
     }
 
     fun confirmStopRecording() = launch {
-        recorderModule.stopRecorder()
+        val logDir = sessionManager.forceStopRecording() ?: return@launch
+        launchRecorderActivity(logDir)
+    }
+
+    private fun launchRecorderActivity(logDir: java.io.File) {
+        val intent = RecorderActivity.getLaunchIntent(context, logDir.path).apply {
+            addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
+        }
+        events.postValue(DashboardEvents.OpenIntent(intent))
     }
 
     fun undoSetupHide() = launch {

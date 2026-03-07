@@ -183,6 +183,7 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
         val pickerState = vm.logPickerState.value
         ui.sendButton.isEnabled = state?.canSend == true
             && pickerState?.isRecording != true
+            && pickerState?.isZipping != true
         ui.debugLogCard.isVisible = state?.isBug == true
     }
 
