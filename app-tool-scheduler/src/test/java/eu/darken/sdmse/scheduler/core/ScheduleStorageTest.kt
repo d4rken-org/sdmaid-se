@@ -2,7 +2,7 @@ package eu.darken.sdmse.scheduler.core
 
 import android.content.Context
 import eu.darken.sdmse.common.files.core.local.deleteAll
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -30,7 +30,7 @@ class ScheduleStorageTest : BaseTest() {
     private fun create() = ScheduleStorage(
         context = context,
         dispatcherProvider = TestDispatcherProvider(),
-        moshi = SerializationAppModule().moshi()
+        moshi = SerializationIOModule().moshi()
     )
 
     @Test

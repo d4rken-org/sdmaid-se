@@ -2,7 +2,7 @@ package eu.darken.sdmse.squeezer.core
 
 import com.squareup.moshi.Moshi
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -16,7 +16,7 @@ class SqueezerSettingsTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        moshi = SerializationAppModule().moshi()
+        moshi = SerializationIOModule().moshi()
     }
 
     @Test

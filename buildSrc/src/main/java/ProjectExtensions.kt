@@ -110,9 +110,15 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
 }
 
 fun Test.setupTests() {
-    maxHeapSize = "2048m"
-    maxParallelForks = 2
+    val isCI = System.getenv("CI") != null
+    maxHeapSize = if (isCI) "1536m" else "2048m"
+    maxParallelForks = if (isCI) 1 else 2
     forkEvery = 100
+    failOnNoDiscoveredTests.set(false)
+
+    // Kotest is used only for assertions (shouldBe), not as a test runner.
+    // Disable autoscan to avoid slow classpath scanning on large dependency graphs.
+    jvmArgs("-Dkotest.framework.classpath.scanning.autoscan.disable=true")
 
     testLogging {
         events(

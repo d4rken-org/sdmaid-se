@@ -58,4 +58,6 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
+    testImplementation("org.robolectric:robolectric:4.16")
+    testImplementation("androidx.test.ext:junit:1.3.0")
 }
