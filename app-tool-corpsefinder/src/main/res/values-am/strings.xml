@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">ሁሉንም የመተግበሪያ ቀሪዎች ይሰረዙ?</string>
     <string name="corpsefinder_owners_label">ባለቤቶች</string>
-    <string name="corpsefinder_corpse_hints_label">ማስታወሻ</string>
     <string name="corpsefinder_owner_unknown">ያልታወቀ ባለቤት</string>
     <string name="corpsefinder_corpse_hint_keeper">ይህ ንጥል ባለቤቱ ባይጫንም ማቆየት የሚፈልጉት ውሂብ ሊይዝ ይችላል፣ ለምሳሌ ፎቶዎች ወይም መጠባበቂያዎች።</string>
     <string name="corpsefinder_corpse_hint_common">ይህ ንጥል በጣም የተለመደ ስም ያለው ሲሆን አሁንም ለተጫኑ የSD Maid ማያውቋቸው መተግበሪያዎች ሊሆን ይችላል።</string>

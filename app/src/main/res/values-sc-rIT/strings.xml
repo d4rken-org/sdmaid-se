@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Polìtica de riservadesa</string>
     <string name="settings_privacy_policy_desc">Gestimentu responsàbile de sos datos.</string>
     <string name="settings_category_other_label">Àteru</string>
-    <string name="settings_category_filter_generic">Filtru genèricu</string>
-    <string name="settings_category_filter_specific">Filtru ispetzìficu</string>
     <string name="settings_sponsor_development_title">Isponsoriza su isvilupu</string>
     <string name="settings_sponsor_development_summary">Benni patronu e faghe possìbile su isvilupu cuntinuu.</string>
     <string name="general_settings_label">Generale</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Torra a carrigare is aplicatziones</string>
     <string name="debug_card_root_test_action">Prova root</string>
     <string name="debug_card_shizuku_test_action">Prova Shizuku</string>
-    <string name="settings_category_filter">Filtru</string>
-    <string name="settings_category_risklevel">Livellu de riscutu</string>
     <string name="data_area_public_app_data_official_label">Datos públicos de aplicatzione predefinidos</string>
     <string name="data_area_public_app_assets_official_label">Risursas públicas de aplicatzione predefinidas</string>
     <string name="data_area_public_storage_label">Archìviu púbblicu</string>

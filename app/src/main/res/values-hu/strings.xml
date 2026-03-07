@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Adatvédelmi irányelvek</string>
     <string name="settings_privacy_policy_desc">Az adatok felelősségteljes kezelése.</string>
     <string name="settings_category_other_label">Egyéb</string>
-    <string name="settings_category_filter_generic">Általános szűrő</string>
-    <string name="settings_category_filter_specific">Specifikus szűrő</string>
     <string name="settings_sponsor_development_title">Támogatói fejlesztés</string>
     <string name="settings_sponsor_development_summary">Légy patron és segítsd a folyamatos fejlesztést.</string>
     <string name="general_settings_label">Általános</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Alkalmazások újratöltése</string>
     <string name="debug_card_root_test_action">Root tesztelése</string>
     <string name="debug_card_shizuku_test_action">Shizuku tesztelése</string>
-    <string name="settings_category_filter">Szűrő</string>
-    <string name="settings_category_risklevel">Kockázati szint</string>
     <string name="data_area_public_app_data_official_label">Alapértelmezett nyilvános alkalmazásadatok</string>
     <string name="data_area_public_app_assets_official_label">Alapértelmezett nyilvános alkalmazáseszközök</string>
     <string name="data_area_public_storage_label">Nyilvános tároló</string>

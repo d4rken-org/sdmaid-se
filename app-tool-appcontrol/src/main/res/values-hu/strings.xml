@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Egy alkalmazás letiltása megakadályozza annak futását, és elrejti a menükből. Nincs adatvesztés.</string>
     <string name="appcontrol_appstore_open_title">Nyissa meg az App Store-ban</string>
     <string name="appcontrol_appstore_open_description">Nyissa meg ezt az alkalmazást abban az alkalmazásboltban, ahonnan telepítette.</string>
-    <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
     <string name="appcontrol_systemsettings_open_description">Nyissa meg eszköze rendszerbeállításait ehhez az alkalmazáshoz.</string>
     <string name="appcontrol_app_launch_title">Alkalmazás indítása</string>
     <string name="appcontrol_app_launch_description">Indítsa el az alkalmazás elsődleges tevékenységét.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Nemrég aktív</string>
     <string name="appcontrol_tag_apk_base">App</string>
     <string name="appcontrol_tag_apk_bundle">Csomag</string>
-    <string name="appcontrol_tag_system">Rendszer</string>
     <string name="appcontrol_tag_archived">Archiválva</string>
     <string name="appcontrol_tag_uninstalled">Csak adatok</string>
     <string name="appcontrol_tag_not_installed">Nincs telepítve</string>

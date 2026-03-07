@@ -57,7 +57,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Dzēst visus lietotņu atlikumus?</string>
     <string name="corpsefinder_owners_label">Īpašnieki</string>
-    <string name="corpsefinder_corpse_hints_label">Piezīme</string>
     <string name="corpsefinder_owner_unknown">Nezināms īpašnieks</string>
     <string name="corpsefinder_corpse_hint_keeper">Šis vienums var saturēt datus, kurus vēlaties paturēt, lai gan tā īpašnieks ir atinstalēts, piem. fotoattēlus vai dublējumkopijas.</string>
     <string name="corpsefinder_corpse_hint_common">Šim vienumam ir ļoti parasts nosaukums, un tas varētu piederēt joprojām instalētām lietotnēm, kuras SD Maid nepazīst.</string>

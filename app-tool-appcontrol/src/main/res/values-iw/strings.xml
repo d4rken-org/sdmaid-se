@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">השבתת אפליקציה מונעת ממנה לפעול ומסתירה אותה מתפריטים. אין אובדן נתונים.</string>
     <string name="appcontrol_appstore_open_title">פתח בחנות האפליקציות</string>
     <string name="appcontrol_appstore_open_description">פתח את האפליקציה הזו בחנות האפליקציות ממנה היא הותקנה.</string>
-    <string name="appcontrol_systemsettings_open_title">הגדרות האפליקציה</string>
     <string name="appcontrol_systemsettings_open_description">פתח את הגדרות המערכת לאפליקציה זו.</string>
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_app_launch_description">פתח את המסך העיקרי של אפליקציה זו.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">פעילות אחרונה</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">חבילה</string>
-    <string name="appcontrol_tag_system">מערכת</string>
     <string name="appcontrol_tag_archived">בארכיון</string>
     <string name="appcontrol_tag_uninstalled">נתונים בלבד</string>
     <string name="appcontrol_tag_not_installed">לא מותקן</string>

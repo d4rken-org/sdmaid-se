@@ -70,7 +70,6 @@
     <string name="systemcleaner_filter_usagestats_summary">الملفات المتعلقة بإحصائيات استخدام التطبيق.</string>
     <string name="systemcleaner_delete_all_confirmation_message">هل تريد حذف كافة محتويات المرشح؟</string>
     <string name="systemcleaner_customfilter_label">فلتر خاص</string>
-    <string name="systemcleaner_customfilter_create_action">إنشاء فلتر مخصص</string>
     <string name="systemcleaner_customfilter_create_hint">إنشاء فلتر مخصص لحذف الملفات الإضافية التي تختص بجهازك وحالات الاستخدام.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">إزالة هذا الفلتر ؟</string>
     <string name="systemcleaner_customfilter_editor_label_label">تسمية الفلتر</string>

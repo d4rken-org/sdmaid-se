@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">යෙදුමක් අබල කිරීම එය චාවිත වීමෙන් මනා කර මෙනුවලින් එය අ෉ුව කරයි. දත්ත ආකාරයක් නොමැත.</string>
     <string name="appcontrol_appstore_open_title">යෙදුම් කට්ටලයම විවෘත කරන්න</string>
     <string name="appcontrol_appstore_open_description">මෙම යෙදුම ස්ථාපනය කු යෙදුම් කට්ටලයම විවෘත කරන්න.</string>
-    <string name="appcontrol_systemsettings_open_title">සැකසීම් පෙනන්න</string>
     <string name="appcontrol_systemsettings_open_description">මෙම යෙදුම සඳහා ඔබේ පිකරණයේ පද්ධති සැකසීම් විවෘත කරන්න.</string>
     <string name="appcontrol_app_launch_title">යෙදුම ආරම්භ කරන්න</string>
     <string name="appcontrol_app_launch_description">මෙම යෙදුමේ මුලික ක්‍රියාකාරිත්වය ආරම්භ කරන්න.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">සමීප කාලයම සක්‍රිය</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">පද්ධති</string>
     <string name="appcontrol_tag_archived">ආරකිව කඩ</string>
     <string name="appcontrol_tag_uninstalled">දත්ත පමණක්</string>
     <string name="appcontrol_tag_not_installed">ස්ථාපිත නොවෙ</string>

@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Als je een app uitschakelt, wordt deze niet uitgevoerd en wordt deze verborgen voor menu\'s. Er is geen gegevensverlies.</string>
     <string name="appcontrol_appstore_open_title">Openen in appstore</string>
     <string name="appcontrol_appstore_open_description">Open deze app in de app store van waaruit deze is geïnstalleerd.</string>
-    <string name="appcontrol_systemsettings_open_title">Toon instellingen</string>
     <string name="appcontrol_systemsettings_open_description">Open de systeeminstellingen van je apparaat voor deze app.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start de primaire activiteit van deze app.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Sinds kort actief</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundel</string>
-    <string name="appcontrol_tag_system">Systeem</string>
     <string name="appcontrol_tag_archived">Gearchiveerd</string>
     <string name="appcontrol_tag_uninstalled">Alleen data</string>
     <string name="appcontrol_tag_not_installed">Niet geïnstalleerd</string>

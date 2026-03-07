@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Das Deaktivieren einer App verhindert, dass sie ausgeführt wird, und blendet sie in den Menüs aus. Es gibt keinen Datenverlust.</string>
     <string name="appcontrol_appstore_open_title">Im App Store öffnen</string>
     <string name="appcontrol_appstore_open_description">Öffne diese App in dem App Store, aus dem sie installiert wurde.</string>
-    <string name="appcontrol_systemsettings_open_title">Einstellungen anzeigen</string>
     <string name="appcontrol_systemsettings_open_description">Öffne die Systemeinstellungen Deines Geräts für diese App.</string>
     <string name="appcontrol_app_launch_title">App starten</string>
     <string name="appcontrol_app_launch_description">Starte die primäre Aktivität dieser App.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Kürzlich aktiv</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bündel</string>
-    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Archiviert</string>
     <string name="appcontrol_tag_uninstalled">Nur Daten</string>
     <string name="appcontrol_tag_not_installed">Nicht installiert</string>

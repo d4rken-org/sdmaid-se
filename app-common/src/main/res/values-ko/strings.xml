@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
     <string name="general_tag_filter_label">태그별로 필터</string>
+    <string name="general_tag_system">시스템</string>
     <string name="general_result_success_message">작업 성공</string>
     <string name="general_result_failure_message">작업 실패</string>
     <plurals name="general_result_x_space_freed">
@@ -178,4 +179,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">이력</string>
     <string name="settings_category_tools_label">도구</string>
+    <string name="general_hints_label">주의</string>
+    <string name="settings_category_filter_generic">일반 필터</string>
+    <string name="settings_category_filter_specific">특정 필터</string>
+    <string name="settings_category_risklevel">위험 수준</string>
+    <string name="settings_category_filter">필터</string>
+    <string name="appcontrol_systemsettings_open_title">설정 보이기</string>
+    <string name="systemcleaner_customfilter_create_action">사용자 정의 필터 만들기</string>
 </resources>

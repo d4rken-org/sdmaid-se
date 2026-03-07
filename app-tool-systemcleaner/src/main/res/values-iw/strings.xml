@@ -66,7 +66,6 @@
     <string name="systemcleaner_filter_usagestats_summary">קבצים הקשורים לסטטיסטיקות השימוש באפליקציה.</string>
     <string name="systemcleaner_delete_all_confirmation_message">למחוק את כל תוכן המסנן?</string>
     <string name="systemcleaner_customfilter_label">סינון מותאם אישית</string>
-    <string name="systemcleaner_customfilter_create_action">צור מסנן מותאם אישית</string>
     <string name="systemcleaner_customfilter_create_hint">צור מסנן מותאם אישית כדי למחוק קבצים נוספים ייחודיים למכשיר ולמקרי השימוש שלך.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">להסיר מסנן זה?</string>
     <string name="systemcleaner_customfilter_editor_label_label">תווית סינון</string>

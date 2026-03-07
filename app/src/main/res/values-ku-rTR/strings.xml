@@ -73,8 +73,6 @@
     <string name="debug_mode_label">دۆخی دیباگ</string>
     <string name="debug_bugreporter_label">ڕاپۆرتەکانی هەڵەی ئۆتۆماتیکی</string>
     <string name="debug_card_title">دۆخی دیباگ چالاکە</string>
-    <string name="settings_category_filter">فلتەر</string>
-    <string name="settings_category_risklevel">ئاستی مەترسی</string>
     <string name="history_label">مێژوو</string>
     <string name="history_description">لیستێکی کاتیی کردارە نوێکان و داتای کاریگەربوو.</string>
     <string name="data_areas_label">ناوچەکانی داتا</string>

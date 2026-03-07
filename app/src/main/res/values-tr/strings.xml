@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Gizlilik politikası</string>
     <string name="settings_privacy_policy_desc">Veriler sorumlu bir şekilde işlenir.</string>
     <string name="settings_category_other_label">Diğer</string>
-    <string name="settings_category_filter_generic">Genel filtre</string>
-    <string name="settings_category_filter_specific">Özel filtre</string>
     <string name="settings_sponsor_development_title">Sponsor</string>
     <string name="settings_sponsor_development_summary">Devamlı geliştirmeyi mümkün kılmak için destekçi ol.</string>
     <string name="general_settings_label">Genel</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Uygulamaları yeniden yükle</string>
     <string name="debug_card_root_test_action">Root\'u test et</string>
     <string name="debug_card_shizuku_test_action">Shizuku\'yu test et</string>
-    <string name="settings_category_filter">Filtre</string>
-    <string name="settings_category_risklevel">Risk Seviyesi</string>
     <string name="data_area_public_app_data_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_app_assets_official_label">Varsayılan genel uygulama verileri</string>
     <string name="data_area_public_storage_label">Genel Depolama</string>

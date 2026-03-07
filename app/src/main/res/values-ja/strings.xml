@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">プライバシーポリシー</string>
     <string name="settings_privacy_policy_desc">責任を持ってデータを扱います。</string>
     <string name="settings_category_other_label">その他</string>
-    <string name="settings_category_filter_generic">一般フィルタ</string>
-    <string name="settings_category_filter_specific">特定フィルタ</string>
     <string name="settings_sponsor_development_title">開発支援者</string>
     <string name="settings_sponsor_development_summary">パトロンになって継続的な開発を支援する。</string>
     <string name="general_settings_label">一般</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">アプリを再読み込み</string>
     <string name="debug_card_root_test_action">Rootをテスト</string>
     <string name="debug_card_shizuku_test_action">Shizukuをテスト</string>
-    <string name="settings_category_filter">フィルタ</string>
-    <string name="settings_category_risklevel">リスクレベル</string>
     <string name="data_area_public_app_data_official_label">デフォルトのパブリックアプリデータ</string>
     <string name="data_area_public_app_assets_official_label">デフォルトのパブリックアプリアセット</string>
     <string name="data_area_public_storage_label">パブリックストレージ</string>

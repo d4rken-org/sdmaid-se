@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">क्रमबद्ध विकल्पहरू</string>
     <string name="general_sort_reverse_action">उल्टो क्रमबद्ध मोड</string>
     <string name="general_tag_filter_label">ट्यागहरूद्वारा फिल्टर गर्नुहोस्</string>
+    <string name="general_tag_system">सिस्टम</string>
     <string name="general_result_success_message">सफलतापूर्वक सम्पन्न</string>
     <string name="general_result_failure_message">कार्य असफल</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">इतिहास</string>
     <string name="settings_category_tools_label">उपकरणहरू</string>
+    <string name="general_hints_label">सूचना</string>
+    <string name="settings_category_filter_generic">सामान्य फिल्टर</string>
+    <string name="settings_category_filter_specific">विशिष्ट फिल्टर</string>
+    <string name="settings_category_risklevel">जोखिम स्तर</string>
+    <string name="settings_category_filter">फिल्टर</string>
+    <string name="appcontrol_systemsettings_open_title">सेटिङहरू देखाउनुहोस्</string>
+    <string name="systemcleaner_customfilter_create_action">कस्टम फिल्टर सिर्जना गर्नुहोस्</string>
 </resources>

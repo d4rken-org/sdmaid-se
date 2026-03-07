@@ -68,8 +68,6 @@
     <string name="settings_privacy_policy_label">Privātuma politika</string>
     <string name="settings_privacy_policy_desc">Atbildīga datu apstrāde.</string>
     <string name="settings_category_other_label">Cits</string>
-    <string name="settings_category_filter_generic">Vispārīgs filtrs</string>
-    <string name="settings_category_filter_specific">Specifisks filtrs</string>
     <string name="settings_sponsor_development_title">Sponsorēt izstrādi</string>
     <string name="settings_sponsor_development_summary">Kļūstiet par patronu un padariet turpmāku izstrādi iespējamu.</string>
     <string name="general_settings_label">Vispārīgi</string>
@@ -227,8 +225,6 @@
     <string name="debug_card_pkgs_reload_action">Pārlādēt lietotnes</string>
     <string name="debug_card_root_test_action">Testēt root</string>
     <string name="debug_card_shizuku_test_action">Testēt Shizuku</string>
-    <string name="settings_category_filter">Filtrs</string>
-    <string name="settings_category_risklevel">Riska līmenis</string>
     <string name="data_area_public_app_data_official_label">Noklusējuma publiskie lietotņu dati</string>
     <string name="data_area_public_app_assets_official_label">Noklusējuma publiskie lietotņu aktīvi</string>
     <string name="data_area_public_storage_label">Publiskā krātuve</string>

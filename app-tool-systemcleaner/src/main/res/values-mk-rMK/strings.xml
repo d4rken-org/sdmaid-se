@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Датотеки поврзани со статистиката на користење на апликации.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Избриши ја целата содржина на филтерот?</string>
     <string name="systemcleaner_customfilter_label">Прилагоден филтер</string>
-    <string name="systemcleaner_customfilter_create_action">Создади прилагоден филтер</string>
     <string name="systemcleaner_customfilter_create_hint">Создадете прилагоден филтер за бришење дополнителни датотеки уникатни за вашиот уред и употреба.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Отстрани го овој филтер?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Етикета на филтер</string>

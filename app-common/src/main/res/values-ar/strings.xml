@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">خيارات الفرز</string>
     <string name="general_sort_reverse_action">وضع الفرز العكسي</string>
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>
+    <string name="general_tag_system">النظام</string>
     <string name="general_result_success_message">تمت المهمة بنجاح</string>
     <string name="general_result_failure_message">فشلت المهمة</string>
     <plurals name="general_result_x_space_freed">
@@ -238,4 +239,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">السجل</string>
     <string name="settings_category_tools_label">الأدوات</string>
+    <string name="general_hints_label">تنويه</string>
+    <string name="settings_category_filter_generic">مرشح عام</string>
+    <string name="settings_category_filter_specific">مرشح خاص</string>
+    <string name="settings_category_risklevel">مستوى المخاطرة</string>
+    <string name="settings_category_filter">المرشحات</string>
+    <string name="appcontrol_systemsettings_open_title">عرض الإعدادات</string>
+    <string name="systemcleaner_customfilter_create_action">إنشاء فلتر مخصص</string>
 </resources>

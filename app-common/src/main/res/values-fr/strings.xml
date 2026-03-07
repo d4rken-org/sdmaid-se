@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Options de tri</string>
     <string name="general_sort_reverse_action">Mode de tri inversé</string>
     <string name="general_tag_filter_label">Filtrer par étiquettes</string>
+    <string name="general_tag_system">Système</string>
     <string name="general_result_success_message">L’opération est réussie</string>
     <string name="general_result_failure_message">Échec de l’opération</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Balayeur</string>
     <string name="stats_label">Historique</string>
     <string name="settings_category_tools_label">Outils</string>
+    <string name="general_hints_label">Avis</string>
+    <string name="settings_category_filter_generic">Filtre générique</string>
+    <string name="settings_category_filter_specific">Filtre spécifique</string>
+    <string name="settings_category_risklevel">Niveau de risque</string>
+    <string name="settings_category_filter">Filtre</string>
+    <string name="appcontrol_systemsettings_open_title">Afficher les paramètres</string>
+    <string name="systemcleaner_customfilter_create_action">Créer un filtre personnalisé</string>
 </resources>

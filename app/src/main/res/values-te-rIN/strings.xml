@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">గోప్యతా విధానం</string>
     <string name="settings_privacy_policy_desc">డేటాను బాధ్యతగా నిర్వహించడం.</string>
     <string name="settings_category_other_label">ఇతర</string>
-    <string name="settings_category_filter_generic">సాధారణ ఫిల్టర్</string>
-    <string name="settings_category_filter_specific">నిర్దిష్ట ఫిల్టర్</string>
     <string name="settings_sponsor_development_title">అభివృద్ధికు మద్దతు</string>
     <string name="settings_sponsor_development_summary">పాట్రన్ అవ్వండి మరియు నిరంతర అభివృద్ధిని సాధ్యం చేయండి.</string>
     <string name="general_settings_label">సాధారణ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">యాప్‌లను రీలోడ్ చేయండి</string>
     <string name="debug_card_root_test_action">రూట్ పరీక్షించు</string>
     <string name="debug_card_shizuku_test_action">Shizuku పరీక్షించు</string>
-    <string name="settings_category_filter">ఫిల్టర్</string>
-    <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
     <string name="data_area_public_app_data_official_label">డిఫాల్ట్ పబ్లిక్ యాప్ డేటా</string>
     <string name="data_area_public_app_assets_official_label">డిఫాల్ట్ పబ్లిక్ యాప్ ఆసెట్‌లు</string>
     <string name="data_area_public_storage_label">పబ్లిక్ స్టోరేజీ</string>

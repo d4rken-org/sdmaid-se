@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Datenschutz-Bestimmungen</string>
     <string name="settings_privacy_policy_desc">Verantwortungsvoller Umgang mit Daten.</string>
     <string name="settings_category_other_label">Sonstiges</string>
-    <string name="settings_category_filter_generic">Allgemeine Filter</string>
-    <string name="settings_category_filter_specific">Spezifische Filter</string>
     <string name="settings_sponsor_development_title">Fördere Entwicklung</string>
     <string name="settings_sponsor_development_summary">Werde Förderer und ermögliche die weitere Entwicklung.</string>
     <string name="general_settings_label">Allgemein</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Apps neu laden</string>
     <string name="debug_card_root_test_action">Root testen</string>
     <string name="debug_card_shizuku_test_action">Shizuku testen</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risikostufe</string>
     <string name="data_area_public_app_data_official_label">Standardmäßige öffentliche App-Daten</string>
     <string name="data_area_public_app_assets_official_label">Standardmäßige öffentliche App-Ressourcen</string>
     <string name="data_area_public_storage_label">Öffentlicher Speicher</string>

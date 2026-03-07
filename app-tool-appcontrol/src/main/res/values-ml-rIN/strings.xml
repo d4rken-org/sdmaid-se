@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">ഒരു ആപ്പ് നിഷ്ക്രിയമാക്കുന്നത് അത് പ്രവർത്തിക്കുന്നതിൽ നിന്ന് തടയുകയും മെനുകളിൽ നിന്ന് മറയ്ക്കുകയും ചെയ്യും. ഡേറ്റ നഷ്ടമില്ല.</string>
     <string name="appcontrol_appstore_open_title">ആപ്പ് സ്റ്റോറിൽ തുറക്കുക</string>
     <string name="appcontrol_appstore_open_description">ഈ ആപ്പ് ഇൻസ്റ്റാൾ ചെയ്ത ആപ്പ് സ്റ്റോറിൽ ഇത് തുറക്കുക.</string>
-    <string name="appcontrol_systemsettings_open_title">ക്രമീകരണങ്ങൾ കാണിക്കുക</string>
     <string name="appcontrol_systemsettings_open_description">ഈ ആപ്പിനായി ഉപകരണത്തിന്റെ സിസ്റ്റം ക്രമീകരണങ്ങൾ തുറക്കുക.</string>
     <string name="appcontrol_app_launch_title">ആപ്പ് സമാരംഭിക്കുക</string>
     <string name="appcontrol_app_launch_description">ഈ ആപ്പിന്റെ പ്രാഥമിക ആക്റിവിറ്റി സമാരംഭിക്കുക.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">ഗീചകാലത്തിൽ സക്രിയമായിരുന്നത്</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ബംഡൽ</string>
-    <string name="appcontrol_tag_system">സിസ്റ്റം</string>
     <string name="appcontrol_tag_archived">ആർക്കൈവ് ചെയ്തത്</string>
     <string name="appcontrol_tag_uninstalled">ഡേറ്റ മാത്രം</string>
     <string name="appcontrol_tag_not_installed">ഇൻസ്റ്റാൾ ചെയ്തിട്ടില്ല</string>

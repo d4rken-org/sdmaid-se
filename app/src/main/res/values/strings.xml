@@ -72,8 +72,6 @@
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
     <string name="settings_category_other_label">Other</string>
 
-    <string name="settings_category_filter_generic">Generic filter</string>
-    <string name="settings_category_filter_specific">Specific filter</string>
     <string name="settings_sponsor_development_title">Sponsor development</string>
     <string name="settings_sponsor_development_summary">Become a patron and make continued development possible.</string>
 
@@ -251,8 +249,6 @@
     <string name="debug_card_pkgs_reload_action">Reload apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risk level</string>
 
     <string name="data_area_public_app_data_official_label">Default public app data</string>
     <string name="data_area_public_app_assets_official_label">Default public app assets</string>

@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Amafayela ahlobene nezibalo zokusetshenziswa kohlelo.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Susa yonke imisebenzi yezihluzi?</string>
     <string name="systemcleaner_customfilter_label">Isihluzi sangasese</string>
-    <string name="systemcleaner_customfilter_create_action">Dala isihluzi sangasese</string>
     <string name="systemcleaner_customfilter_create_hint">Dala isihluzi sangasese ukususa amafayela engeziwe akhethekile kudivayisi yakho nezimo zokusetshenziswa.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Susa lesi sihluzi?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Ilebula yesihluzi</string>

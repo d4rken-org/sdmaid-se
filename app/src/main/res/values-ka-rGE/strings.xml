@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Კონფიდენციალურობის პოლიტიკა</string>
     <string name="settings_privacy_policy_desc">მონაცემების პასუხისმგებლობით დამუშავება.</string>
     <string name="settings_category_other_label">სხვა</string>
-    <string name="settings_category_filter_generic">ზოგადი ფილტრი</string>
-    <string name="settings_category_filter_specific">სპეციფიკური ფილტრი</string>
     <string name="settings_sponsor_development_title">სპონსორის განვითარება</string>
     <string name="settings_sponsor_development_summary">გახდი მფარველი და განაგრძე განვითარება შესაძლებელი.</string>
     <string name="general_settings_label">ზოგადი</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">აპების გადატვირთვა</string>
     <string name="debug_card_root_test_action">Root-ის ტესტი</string>
     <string name="debug_card_shizuku_test_action">Shizuku-ს ტესტი</string>
-    <string name="settings_category_filter">ფილტრი</string>
-    <string name="settings_category_risklevel">რისკის დონე</string>
     <string name="data_area_public_app_data_official_label">ნაგულისხმევი საჯარო აპის მონაცემები</string>
     <string name="data_area_public_app_assets_official_label">ნაგულისხმევი საჯარო აპის ვარგონები</string>
     <string name="data_area_public_storage_label">საჯარო მეხსიერება</string>

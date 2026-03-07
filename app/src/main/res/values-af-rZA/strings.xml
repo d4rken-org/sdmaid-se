@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Privaatheid beleid</string>
     <string name="settings_privacy_policy_desc">Hanteer data verantwoordelik.</string>
     <string name="settings_category_other_label">Ander</string>
-    <string name="settings_category_filter_generic">Generiese filter</string>
-    <string name="settings_category_filter_specific">Spesifieke filter</string>
     <string name="settings_sponsor_development_title">Borg ontwikkeling</string>
     <string name="settings_sponsor_development_summary">Word \'n beskermheer en maak voortgesette ontwikkeling moontlik.</string>
     <string name="general_settings_label">Algemeen</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Herlaai toepassings</string>
     <string name="debug_card_root_test_action">Toets root</string>
     <string name="debug_card_shizuku_test_action">Toets Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risiko vlak</string>
     <string name="data_area_public_app_data_official_label">Verstek openbare toepassing data</string>
     <string name="data_area_public_app_assets_official_label">Verstek openbare toepassing bates</string>
     <string name="data_area_public_storage_label">Openbare berging</string>

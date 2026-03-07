@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Susa zonke izinsalela zohlelo?</string>
     <string name="corpsefinder_owners_label">Abanikazi</string>
-    <string name="corpsefinder_corpse_hints_label">Isaziso</string>
     <string name="corpsefinder_owner_unknown">Umnikazi ongaziwa</string>
     <string name="corpsefinder_corpse_hint_keeper">Le nto ingase iqukethe idatha ofuna ukuyigcina naphezu komnikazi wayo esuliwe, isibonelo, izithombe noma amasipala.</string>
     <string name="corpsefinder_corpse_hint_common">Le nto inegama elivamile kakhulu futhi ingase ibe ngeyezinhlelo ezisafakiwe i-SD Maid engazaziyo.</string>

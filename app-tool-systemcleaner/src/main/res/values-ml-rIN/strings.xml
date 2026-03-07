@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ആപ്പ് ഉപയോഗ സ്റാറ്റ്സ്കുമായി ബന്ധപ്പെട്ട ഫയലുകൾ.</string>
     <string name="systemcleaner_delete_all_confirmation_message">എല്ലാ ഫിൽടർ ഉളൽലടക്കം ഇല്ലാതാക്കണോ?</string>
     <string name="systemcleaner_customfilter_label">കസ്റ്റം ഫിൽടർ</string>
-    <string name="systemcleaner_customfilter_create_action">കസ്റ്റം ഫിൽടർ സൃഷ്ടിക്കുക</string>
     <string name="systemcleaner_customfilter_create_hint">നിങ്ങളുടെ ഉപകരണത്തിനും ഉപയോഗ കേസുകൾക്കും പ്രത്യേകമായ അധിക ഫയലുകൾ ഇല്ലാതാക്കാൻ ഒരു കസ്റ്റം ഫിൽടർ സൃഷ്ടിക്കുക.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ഈ ഫിൽടർ നീക്കണോ?</string>
     <string name="systemcleaner_customfilter_editor_label_label">ഫിൽടർ ലേബൽ</string>

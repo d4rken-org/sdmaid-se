@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Privacybeleid</string>
     <string name="settings_privacy_policy_desc">Verantwoord met gegevens omgaan.</string>
     <string name="settings_category_other_label">Andere</string>
-    <string name="settings_category_filter_generic">Algemene filter</string>
-    <string name="settings_category_filter_specific">Specifieke filter</string>
     <string name="settings_sponsor_development_title">Sponsor ontwikkeling</string>
     <string name="settings_sponsor_development_summary">Word beschermheer en maak verdere ontwikkeling mogelijk.</string>
     <string name="general_settings_label">Algemeen</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Apps opnieuw laden</string>
     <string name="debug_card_root_test_action">Root testen</string>
     <string name="debug_card_shizuku_test_action">Shizuku testen</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risico niveau</string>
     <string name="data_area_public_app_data_official_label">Standaard openbare app gegevens</string>
     <string name="data_area_public_app_assets_official_label">Standaard openbare app-items</string>
     <string name="data_area_public_storage_label">Openbare opslag</string>

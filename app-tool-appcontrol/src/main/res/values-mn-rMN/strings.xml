@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Аппыг идэвхгүй болгох нь ажиллахаас сэргэж цэснүүдээс нууцна. Өгөгдөл алдагдахгүй.</string>
     <string name="appcontrol_appstore_open_title">Аппын дэлгүүрт нээх</string>
     <string name="appcontrol_appstore_open_description">Энэ аппыг суулагдсан апп дэлгүүрт нээж байх.</string>
-    <string name="appcontrol_systemsettings_open_title">Тохиргоо харуулах</string>
     <string name="appcontrol_systemsettings_open_description">Энэ аппын төхөөрөмжийн системийн тохиргоог нээж байх.</string>
     <string name="appcontrol_app_launch_title">Апп нээх</string>
     <string name="appcontrol_app_launch_description">Энэ аппын үндсэн үйл явцыг ажиллуулах.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Сүүлдээ идэвх байсан</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Богц</string>
-    <string name="appcontrol_tag_system">Систем</string>
     <string name="appcontrol_tag_archived">Архивлагдсан</string>
     <string name="appcontrol_tag_uninstalled">Зөвхөн өгөгдөл</string>
     <string name="appcontrol_tag_not_installed">Суулагдаагүй</string>

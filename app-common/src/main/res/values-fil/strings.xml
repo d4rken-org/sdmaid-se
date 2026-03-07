@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Mga opsyon sa pagkakasunod-sunod</string>
     <string name="general_sort_reverse_action">Baligtarin ang pagkakaayos</string>
     <string name="general_tag_filter_label">Salain ayon sa tag</string>
+    <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Matagumpay ang operasyon</string>
     <string name="general_result_failure_message">Palpak ang operasyon</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Kasaysayan</string>
     <string name="settings_category_tools_label">Mga Kagamitan</string>
+    <string name="general_hints_label">Paunawa</string>
+    <string name="settings_category_filter_generic">Generic na filter</string>
+    <string name="settings_category_filter_specific">Specific na filter</string>
+    <string name="settings_category_risklevel">Antas ng panganib</string>
+    <string name="settings_category_filter">Salaan</string>
+    <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>
+    <string name="systemcleaner_customfilter_create_action">Gumawa ng custom filter</string>
 </resources>

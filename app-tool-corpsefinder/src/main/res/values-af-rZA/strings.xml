@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Skrap alle toepassing oorblyfsels?</string>
     <string name="corpsefinder_owners_label">Eienaars</string>
-    <string name="corpsefinder_corpse_hints_label">Kennisgewing</string>
     <string name="corpsefinder_owner_unknown">Onbekende eienaar</string>
     <string name="corpsefinder_corpse_hint_keeper">Hierdie item mag data bevat wat jy wil hou ten spyte van dit se eienaar wat gedeïnstalleer is, bv. foto\'s of rugsteune.</string>
     <string name="corpsefinder_corpse_hint_common">Hierdie item het \'n baie algemene naam en kan behoort aan nog geïnstalleerde toepassings wat SD Maid nie ken nie.</string>

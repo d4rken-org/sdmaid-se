@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Fichiers liés aux statistiques d’utilisation des applis.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Supprimer tout le contenu du filtre ?</string>
     <string name="systemcleaner_customfilter_label">Filtre personnalisé</string>
-    <string name="systemcleaner_customfilter_create_action">Créer un filtre personnalisé</string>
     <string name="systemcleaner_customfilter_create_hint">Créez un filtre personnalisé pour supprimer les fichiers supplémentaires propres à votre appareil et à vos cas d\'usage.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Supprimer ce filtre ?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Étiquette de filtres</string>

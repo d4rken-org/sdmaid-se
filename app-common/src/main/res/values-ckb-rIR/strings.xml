@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">بژاردەکانی ڕێکخستن</string>
     <string name="general_sort_reverse_action">شێوازی ڕێکخستنی پێچەوانە</string>
     <string name="general_tag_filter_label">پاڵاوتن بەپێی تاگەکان</string>
+    <string name="general_tag_system">سیستەم</string>
     <string name="general_result_success_message">کارپێکردن سەرکەوتوو بوو</string>
     <string name="general_result_failure_message">کارپێکردن شکستی هێنا</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">مێژوو</string>
     <string name="settings_category_tools_label">ئامرازەکان</string>
+    <string name="general_hints_label">نەخێرtice</string>
+    <string name="settings_category_filter_generic">پاڵاوتنی گشتی</string>
+    <string name="settings_category_filter_specific">پاڵاوتنی تایبەت</string>
+    <string name="settings_category_risklevel">مەترسی level</string>
+    <string name="settings_category_filter">پاڵاوتن</string>
+    <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
+    <string name="systemcleaner_customfilter_create_action">Create custom پاڵاوتن</string>
 </resources>

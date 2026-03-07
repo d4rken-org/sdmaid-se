@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Privatlivspolitik</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarligt.</string>
     <string name="settings_category_other_label">Andet</string>
-    <string name="settings_category_filter_generic">Generelt filter</string>
-    <string name="settings_category_filter_specific">Specifikt filter</string>
     <string name="settings_sponsor_development_title">Sponsorudvikling</string>
     <string name="settings_sponsor_development_summary">Bliv en patron, og gør fortsat udvikling muligt.</string>
     <string name="general_settings_label">Generel</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Genindlæs apps</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Risikoniveau</string>
     <string name="data_area_public_app_data_official_label">Standard offentlige app-data</string>
     <string name="data_area_public_app_assets_official_label">Standardaktiver til offentlige apps</string>
     <string name="data_area_public_storage_label">Offentligt lager</string>

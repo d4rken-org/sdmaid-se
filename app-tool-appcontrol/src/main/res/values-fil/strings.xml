@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Ang pag-disable ng isang app ay pumipigil dito na tumakbo at natatago ito sa mga menu. Walang mawawalang data.</string>
     <string name="appcontrol_appstore_open_title">Buksan sa app store</string>
     <string name="appcontrol_appstore_open_description">Buksan ang app na ito sa app store kung saan ito naka-install.</string>
-    <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>
     <string name="appcontrol_systemsettings_open_description">Buksan ang system settings ng inyong device para sa app na ito.</string>
     <string name="appcontrol_app_launch_title">I-launch ang app</string>
     <string name="appcontrol_app_launch_description">I-launch ang pangunahing activity ng app na ito.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Kamakailang aktibo</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Naka-archive</string>
     <string name="appcontrol_tag_uninstalled">Data Lamang</string>
     <string name="appcontrol_tag_not_installed">Hindi naka-install</string>

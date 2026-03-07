@@ -13,7 +13,6 @@
     <string name="appcontrol_toggle_app_disable_description">Dezactivând o aplicație previne de a rula și ascunde din meniuri. Nu există date pierdute.</string>
     <string name="appcontrol_appstore_open_title">Deschide în magazinul de aplicații</string>
     <string name="appcontrol_appstore_open_description">Deschide această aplicație în magazinul de aplicații de unde a fost instalat(ă).</string>
-    <string name="appcontrol_systemsettings_open_title">Arată setările</string>
     <string name="appcontrol_systemsettings_open_description">Deschide setările de sistem al dispozitivului tău pentru această aplicație.</string>
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
@@ -28,7 +27,6 @@
     <string name="appcontrol_tag_active">Activ recent</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pachet</string>
-    <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arhivat</string>
     <string name="appcontrol_tag_uninstalled">Numai date</string>
     <string name="appcontrol_tag_not_installed">Neinstalat</string>

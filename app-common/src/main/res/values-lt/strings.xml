@@ -198,4 +198,10 @@
     <string name="general_include_multiuser_label">Įtraukti kitus naudotojus</string>
     <string name="general_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
     <string name="general_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
+    <string name="general_hints_label">Pranešimas</string>
+    <string name="settings_category_filter_generic">Bendrasis filtras</string>
+    <string name="settings_category_filter_specific">Specifinis filtras</string>
+    <string name="settings_category_risklevel">Rizikos lygis</string>
+    <string name="settings_category_filter">Filtras</string>
+    <string name="systemcleaner_customfilter_create_action">Sukurti pasirinktinį filtrą</string>
 </resources>

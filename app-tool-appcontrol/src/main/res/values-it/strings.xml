@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Disabilitare un\'app ne impedisce l\'esecuzione e la nasconde dai menù. Non c\'è perdita di dati.</string>
     <string name="appcontrol_appstore_open_title">Visualizza l\'app nello store</string>
     <string name="appcontrol_appstore_open_description">Apri questa app nello store da cui è stata installata.</string>
-    <string name="appcontrol_systemsettings_open_title">Visualizza impostazioni</string>
     <string name="appcontrol_systemsettings_open_description">Apri le impostazioni di sistema del tuo dispositivo per questa app.</string>
     <string name="appcontrol_app_launch_title">Avvia app</string>
     <string name="appcontrol_app_launch_description">Apre l\'applicazione.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Recentemente attivo</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pacchetto</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_archived">Archiviato</string>
     <string name="appcontrol_tag_uninstalled">Solo Dati</string>
     <string name="appcontrol_tag_not_installed">Non installato</string>

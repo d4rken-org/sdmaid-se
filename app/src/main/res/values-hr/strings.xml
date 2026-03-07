@@ -68,8 +68,6 @@
     <string name="settings_privacy_policy_label">Politika privatnosti</string>
     <string name="settings_privacy_policy_desc">Odgovorno postupanje s podacima.</string>
     <string name="settings_category_other_label">Ostalo</string>
-    <string name="settings_category_filter_generic">Generički filter</string>
-    <string name="settings_category_filter_specific">Specifični filter</string>
     <string name="settings_sponsor_development_title">Podržite razvoj</string>
     <string name="settings_sponsor_development_summary">Postanite pokrovitelj i omogućite daljnji razvoj.</string>
     <string name="general_settings_label">Općenito</string>
@@ -227,8 +225,6 @@
     <string name="debug_card_pkgs_reload_action">Ponovno učitaj aplikacije</string>
     <string name="debug_card_root_test_action">Testiraj root</string>
     <string name="debug_card_shizuku_test_action">Testiraj Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Razina rizika</string>
     <string name="data_area_public_app_data_official_label">Zadani javni podaci aplikacije</string>
     <string name="data_area_public_app_assets_official_label">Zadani javni resursi aplikacije</string>
     <string name="data_area_public_storage_label">Javna pohrana</string>

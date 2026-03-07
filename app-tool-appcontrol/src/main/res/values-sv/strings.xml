@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Att inaktivera en app förhindrar den från att köra och döljer den från menyer. Det finns ingen dataförlust.</string>
     <string name="appcontrol_appstore_open_title">Öppna i appbutik</string>
     <string name="appcontrol_appstore_open_description">Öppna denna app i appbutiken den installerades från.</string>
-    <string name="appcontrol_systemsettings_open_title">Visa inställningar</string>
     <string name="appcontrol_systemsettings_open_description">Öppna din enhets systeminställningar för denna app.</string>
     <string name="appcontrol_app_launch_title">Starta app</string>
     <string name="appcontrol_app_launch_description">Starta denna apps primära aktivitet.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Nyligen aktiv</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bunt</string>
-    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Arkiverad</string>
     <string name="appcontrol_tag_uninstalled">Endast data</string>
     <string name="appcontrol_tag_not_installed">Inte installerad</string>

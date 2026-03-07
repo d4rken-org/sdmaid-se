@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Opcions d\'ordenació</string>
     <string name="general_sort_reverse_action">Mode d\'ordenació inversa</string>
     <string name="general_tag_filter_label">Filtra per etiquetes</string>
+    <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operació realitzada amb èxit</string>
     <string name="general_result_failure_message">Operació fallida</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Escombrador</string>
     <string name="stats_label">Historial</string>
     <string name="settings_category_tools_label">Eines</string>
+    <string name="general_hints_label">Avís</string>
+    <string name="settings_category_filter_generic">Filtre genèric</string>
+    <string name="settings_category_filter_specific">Filtre específic</string>
+    <string name="settings_category_risklevel">Nivell de risc</string>
+    <string name="settings_category_filter">Filtra</string>
+    <string name="appcontrol_systemsettings_open_title">Mostra la configuració</string>
+    <string name="systemcleaner_customfilter_create_action">Crea un filtre personalitzat</string>
 </resources>

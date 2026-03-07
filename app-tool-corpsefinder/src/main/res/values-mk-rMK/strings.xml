@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Избриши ги сите остатоци од апликации?</string>
     <string name="corpsefinder_owners_label">Сопственици</string>
-    <string name="corpsefinder_corpse_hints_label">Забелешка</string>
     <string name="corpsefinder_owner_unknown">Непознат сопственик</string>
     <string name="corpsefinder_corpse_hint_keeper">Оваа ставка може да содржи податоци кои сакате да ги задржите и покрај тоа што нејзиниот сопственик е деинсталиран, пр. фотографии или резервни копии.</string>
     <string name="corpsefinder_corpse_hint_common">Оваа ставка има многу вообичаено име и може да припаѓа на сè уште инсталирани апликации кои SD Maid не ги познава.</string>

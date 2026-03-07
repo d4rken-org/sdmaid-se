@@ -61,8 +61,6 @@
     <string name="settings_privacy_policy_label">Politika tal-privatezza</string>
     <string name="settings_privacy_policy_desc">Immaniġġjar data b\'responsabbiltà.</string>
     <string name="settings_category_other_label">Oħrajn</string>
-    <string name="settings_category_filter_generic">Filtru ġeneriku</string>
-    <string name="settings_category_filter_specific">Filtru speċifiku</string>
     <string name="settings_sponsor_development_title">Sponsorja l-iżvilupp</string>
     <string name="settings_sponsor_development_summary">Sir patrun u agħmel l-iżvilupp kontinwu possibbli.</string>
     <string name="general_settings_label">Ġenerali</string>
@@ -140,8 +138,6 @@
     <string name="debug_mode_label">Modalità tad-debugging</string>
     <string name="debug_bugreporter_label">Rapporti awtomatiċi ta\' bugs</string>
     <string name="debug_card_title">Il-modalità tad-debugging hija attivata</string>
-    <string name="settings_category_filter">Filtru</string>
-    <string name="settings_category_risklevel">Livell ta\' riskju</string>
     <string name="history_label">Storja</string>
     <string name="history_description">Lista kronoloġika ta\' azzjonijiet riċenti u data affettwata.</string>
     <string name="data_areas_label">Żoni tad-data</string>

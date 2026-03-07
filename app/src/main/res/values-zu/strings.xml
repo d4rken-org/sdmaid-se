@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Inqubomgomo yobumfihlo</string>
     <string name="settings_privacy_policy_desc">Ukuphatha idatha ngokufanele.</string>
     <string name="settings_category_other_label">Okunye</string>
-    <string name="settings_category_filter_generic">Isihlunga esijwayelekile</string>
-    <string name="settings_category_filter_specific">Isihlunga esikhethekile</string>
     <string name="settings_sponsor_development_title">Xhasa ukuthuthukiswa</string>
     <string name="settings_sponsor_development_summary">Yiba umxhasi wenze ukuqhubeka nokuthuthukiswa kube nokwenzeka.</string>
     <string name="general_settings_label">Okujwayelekile</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Layisha kabusha izinhlelo zokusebenza</string>
     <string name="debug_card_root_test_action">Hlola i-root</string>
     <string name="debug_card_shizuku_test_action">Hlola i-Shizuku</string>
-    <string name="settings_category_filter">Isihluzi</string>
-    <string name="settings_category_risklevel">Izinga lengozi</string>
     <string name="data_area_public_app_data_official_label">Idatha yohlelo yomphakathi ezenzakalelayo</string>
     <string name="data_area_public_app_assets_official_label">Izinsiza zohlelo zomphakathi ezizenzakalelayo</string>
     <string name="data_area_public_storage_label">Isitoreji somphakathi</string>

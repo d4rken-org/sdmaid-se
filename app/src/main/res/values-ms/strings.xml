@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">Dasar privasi</string>
     <string name="settings_privacy_policy_desc">Mengendalikan data secara bertanggungjawab.</string>
     <string name="settings_category_other_label">Lain-lain</string>
-    <string name="settings_category_filter_generic">Penapis generik</string>
-    <string name="settings_category_filter_specific">Penapis spesifik</string>
     <string name="settings_sponsor_development_title">Pembangunan penaja</string>
     <string name="settings_sponsor_development_summary">Menjadi penaung dan menjadikan pembangunan berterusan mungkin.</string>
     <string name="general_settings_label">Umum</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">Muat semula aplikasi</string>
     <string name="debug_card_root_test_action">Uji root</string>
     <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
-    <string name="settings_category_filter">Penyaring</string>
-    <string name="settings_category_risklevel">Tahap risiko</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi awam lalai</string>
     <string name="data_area_public_app_assets_official_label">Aset aplikasi awam</string>
     <string name="data_area_public_storage_label">Storan awam</string>

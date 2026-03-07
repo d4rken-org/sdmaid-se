@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Filer relatert til bruksstatistikk for applikasjon.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Vil du slette alt filterinnhold?</string>
     <string name="systemcleaner_customfilter_label">Egendefinert filter</string>
-    <string name="systemcleaner_customfilter_create_action">Opprett egendefinert filter</string>
     <string name="systemcleaner_customfilter_create_hint">Opprett egendefinert filter for å slette ekstra filer som er unike for din enhet og bruksområder.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Vil du fjerne dette filteret?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filteretikett</string>

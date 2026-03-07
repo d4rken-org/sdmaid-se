@@ -57,7 +57,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Izbrisati sve ostatke aplikacija?</string>
     <string name="corpsefinder_owners_label">Vlasnici</string>
-    <string name="corpsefinder_corpse_hints_label">Napomena</string>
     <string name="corpsefinder_owner_unknown">Nepoznat vlasnik</string>
     <string name="corpsefinder_corpse_hint_keeper">Ova stavka može sadržavati podatke koje želite zadržati iako je njen vlasnik deinstaliran, npr. fotografije ili sigurnosne kopije.</string>
     <string name="corpsefinder_corpse_hint_common">Ova stavka ima vrlo uobičajeno ime i mogla bi pripadati još instaliranim aplikacijama koje SD Maid ne poznaje.</string>

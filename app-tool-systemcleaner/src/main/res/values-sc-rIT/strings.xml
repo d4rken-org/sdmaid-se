@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Documentos connessas a is istàtcias de impreu de aplicatziones.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Cantzellare totu is cuntendos de filtru?</string>
     <string name="systemcleaner_customfilter_label">Filtru personalizadu</string>
-    <string name="systemcleaner_customfilter_create_action">Creare filtru personalizadu</string>
     <string name="systemcleaner_customfilter_create_hint">Creare unu filtru personalizadu pro cantzellare documentos additzionales chi sunt únicos pro su dispositivu tuo e is casos de impreu.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Bogare custu filtru?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Eticheta de filtru</string>

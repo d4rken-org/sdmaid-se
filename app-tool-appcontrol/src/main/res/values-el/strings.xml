@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Η απενεργοποίηση μιας εφαρμογής εμποδίζει την εκτέλεση και την αποκρύπτει από τα μενού. Δεν υπάρχει απώλεια δεδομένων.</string>
     <string name="appcontrol_appstore_open_title">Άνοιγμα στο app store</string>
     <string name="appcontrol_appstore_open_description">Ανοίξτε αυτήν την εφαρμογή στο κατάστημα εφαρμογών από το οποίο εγκαταστάθηκε.</string>
-    <string name="appcontrol_systemsettings_open_title">Εμφάνιση ρυθμίσεων</string>
     <string name="appcontrol_systemsettings_open_description">Ανοίξτε τις ρυθμίσεις συστήματος της συσκευής σας για αυτήν την εφαρμογή.</string>
     <string name="appcontrol_app_launch_title">Εκκίνηση εφαρμογής</string>
     <string name="appcontrol_app_launch_description">Εκκίνηση της κύριας δραστηριότητας αυτής της εφαρμογής.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Πρόσφατα ενεργό</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Πακέτο</string>
-    <string name="appcontrol_tag_system">Σύστημα</string>
     <string name="appcontrol_tag_archived">Αρχειοθετημένο</string>
     <string name="appcontrol_tag_uninstalled">Μόνο Δεδομένα</string>
     <string name="appcontrol_tag_not_installed">Δεν έχει εγκατασταθεί</string>

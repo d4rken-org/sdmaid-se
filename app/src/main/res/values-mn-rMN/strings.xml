@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Нууцлалын бодлого</string>
     <string name="settings_privacy_policy_desc">Өгөгдлийг хариуцлагатай зохицуулах.</string>
     <string name="settings_category_other_label">Бусад</string>
-    <string name="settings_category_filter_generic">Ерөнхий шүүлтүүр</string>
-    <string name="settings_category_filter_specific">Тусгай шүүлтүүр</string>
     <string name="settings_sponsor_development_title">Хөгжүүлэлтийг дэмжих</string>
     <string name="settings_sponsor_development_summary">Ивээн тэтгэгч болж үргэлжилсэн хөгжүүлэлтийг боломжтой болгоорой.</string>
     <string name="general_settings_label">Ерөнхий</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Аппликешнүүдийг дахин ачаалах</string>
     <string name="debug_card_root_test_action">Root шалгах</string>
     <string name="debug_card_shizuku_test_action">Shizuku шалгах</string>
-    <string name="settings_category_filter">Шүүлтүүр</string>
-    <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
     <string name="data_area_public_app_data_official_label">Өгдөмжийн нийтийн аппын өгөгдөл</string>
     <string name="data_area_public_app_assets_official_label">Үндсэн нийтийн програмын хөрөнгүүд</string>
     <string name="data_area_public_storage_label">Нийтийн хадгалалт</string>

@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Параметри сортування</string>
     <string name="general_sort_reverse_action">Зворотне сортування</string>
     <string name="general_tag_filter_label">Фільтрувати за тегами</string>
+    <string name="general_tag_system">Системна</string>
     <string name="general_result_success_message">Операція успішна</string>
     <string name="general_result_failure_message">Операція не вдалася</string>
     <plurals name="general_result_x_space_freed">
@@ -214,4 +215,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Історія</string>
     <string name="settings_category_tools_label">Інструменти</string>
+    <string name="general_hints_label">Примітка</string>
+    <string name="settings_category_filter_generic">Загальний фільтр</string>
+    <string name="settings_category_filter_specific">Спеціальний фільтр</string>
+    <string name="settings_category_risklevel">Рівень ризику</string>
+    <string name="settings_category_filter">Фільтр</string>
+    <string name="appcontrol_systemsettings_open_title">Показати налаштування</string>
+    <string name="systemcleaner_customfilter_create_action">Створити власний фільтр</string>
 </resources>

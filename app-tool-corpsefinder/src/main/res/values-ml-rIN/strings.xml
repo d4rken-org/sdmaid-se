@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">എല്ലാ ആപ്പ് അവശിഷ്ടങ്ങളും ഡിലീറ്റ് ചെയ്യണോ?</string>
     <string name="corpsefinder_owners_label">ഉടമകൾ</string>
-    <string name="corpsefinder_corpse_hints_label">അറിയിപ്പ്</string>
     <string name="corpsefinder_owner_unknown">അജ്ഞാത ഉടമ</string>
     <string name="corpsefinder_corpse_hint_keeper">ഇതിന്റെ ഉടമ അൺഇൻസ്‌റ്റോൾ ചെയ്‌തിരിക്കുന്നെങ്കിലും, ഈ ഇനത്തിൽ നിങ്ങൾ സൂക്ഷിക്കാൻ ആഗ്രഹിക്കുന്ന ഡേറ്റ ഉണ്ടായിരിക്കാം, ഉദാ: ഫോട്ടോകൾ അല്ലെങ്കിൽ ബാക്കപ്പുകൾ.</string>
     <string name="corpsefinder_corpse_hint_common">ഈ ഇനത്തിന് വളരെ പൊതുവായ പേരുണ്ട്, ഇത് SD Maid-ന് അറിയാത്ത ഇൻസ്‌റ്റോൾ ചെയ്ത ആപ്പുകൾക്ക് ഉള്ളതായിരിക്കാം.</string>

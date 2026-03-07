@@ -57,7 +57,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Ștergeți toate resturile aplicațiilor?</string>
     <string name="corpsefinder_owners_label">Proprietarii</string>
-    <string name="corpsefinder_corpse_hints_label">Înștiințare</string>
     <string name="corpsefinder_owner_unknown">Propietar necunoscut</string>
     <string name="corpsefinder_corpse_hint_keeper">Acest articol poate conține date pe care doriți să le păstrați, deși proprietarul său este dezinstalat, ex: fotografii sau copii de rezervă.</string>
     <string name="corpsefinder_corpse_hint_common">Acest articol are un nume foarte comun și ar putea aparține unor aplicații încă instalate pe care SD Maid nu le cunoaște.</string>

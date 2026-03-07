@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Адключэнне праграмы перашкаджае яе запуску і хавае з меню. Даныя не губляюцца.</string>
     <string name="appcontrol_appstore_open_title">Адкрыць у краме праграм</string>
     <string name="appcontrol_appstore_open_description">Адкрыць гэту праграму ў краме праграм, з якой яна была ўсталявана.</string>
-    <string name="appcontrol_systemsettings_open_title">Паказаць налады</string>
     <string name="appcontrol_systemsettings_open_description">Адкрыць сістэмныя налады прылады для гэтай праграмы.</string>
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Апошнія актыўныя</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
-    <string name="appcontrol_tag_system">Сістэма</string>
     <string name="appcontrol_tag_archived">У архіве</string>
     <string name="appcontrol_tag_uninstalled">Толькі даныя</string>
     <string name="appcontrol_tag_not_installed">Не ўсталявана</string>

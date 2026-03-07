@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">アプリを無効にすると、メニューから非表示になります。データ損失はありません。</string>
     <string name="appcontrol_appstore_open_title">アプリストアを開く</string>
     <string name="appcontrol_appstore_open_description">インストールされたアプリストアでこのアプリを開きます。</string>
-    <string name="appcontrol_systemsettings_open_title">設定を表示</string>
     <string name="appcontrol_systemsettings_open_description">このアプリのデバイスのシステム設定を開きます。</string>
     <string name="appcontrol_app_launch_title">アプリを起動</string>
     <string name="appcontrol_app_launch_description">このアプリのプライマリアクティビティを起動します。</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">最近の活動</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">バンドル</string>
-    <string name="appcontrol_tag_system">システム</string>
     <string name="appcontrol_tag_archived">アーカイブ済み</string>
     <string name="appcontrol_tag_uninstalled">データのみ</string>
     <string name="appcontrol_tag_not_installed">インストールされていません</string>

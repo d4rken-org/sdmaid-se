@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ایپلیکیشن کے استعمال کے شماریات سے متعلق فائلیں۔</string>
     <string name="systemcleaner_delete_all_confirmation_message">تمام فلٹر کنٹینٹس ڈیلیٹ کریں؟</string>
     <string name="systemcleaner_customfilter_label">کسٹم فلٹر</string>
-    <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
     <string name="systemcleaner_customfilter_create_hint">اضافی فائلوں کو حذف کرنے کے لیے ایک کسٹم فلٹر بنائیں جو آپ کے ڈیوائس اور استعمال کے حالات کے لیے منفرد ہیں۔</string>
     <string name="systemcleaner_editor_remove_confirmation_message">یہ فلٹر ہٹائیں؟</string>
     <string name="systemcleaner_customfilter_editor_label_label">فلٹر لیبل</string>

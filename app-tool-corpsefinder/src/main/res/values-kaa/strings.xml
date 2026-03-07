@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Barlıq qosımsha qaldıqları óshirilsinbe?</string>
     <string name="corpsefinder_owners_label">Iyeleri</string>
-    <string name="corpsefinder_corpse_hints_label">Esletpe</string>
     <string name="corpsefinder_owner_unknown">Iyesi belgisiz</string>
     <string name="corpsefinder_corpse_hint_keeper">Бұл элемент сахибі ошырылған болса да, сіз сақтағыңыз келетін даталарды қамти алады, мысалы, суреттер немесе резервтік көшірмелер.</string>
     <string name="corpsefinder_corpse_hint_common">Бұл элементтің өте көп кездесетін аты бар һәм ол SD Maid білмейтін әлі де орнатылған қолданбаларға тиеслі болуы мүмкін.</string>

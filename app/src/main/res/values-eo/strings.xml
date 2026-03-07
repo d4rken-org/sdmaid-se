@@ -42,8 +42,6 @@
     <string name="settings_privacy_policy_label">Privateca politiko</string>
     <string name="settings_privacy_policy_desc">Traktante datumojn respondece.</string>
     <string name="settings_category_other_label">Alia</string>
-    <string name="settings_category_filter_generic">Ĝenerala filtrilo</string>
-    <string name="settings_category_filter_specific">Specifa filtrilo</string>
     <string name="settings_sponsor_development_title">Sponsori evoluigon</string>
     <string name="settings_sponsor_development_summary">Fariĝu patrono kaj ebligu daŭran evoluigon.</string>
     <string name="general_settings_label">Ĝenerala</string>
@@ -144,8 +142,6 @@
     <string name="debug_mode_explanation">Ebligi testajn opciojn kaj pli detaleman eligon. Aplikaĵo funkcios pli malrapide kaj kondutos malsame.</string>
     <string name="debug_bugreporter_label">Aŭtomataj cimo-raportoj</string>
     <string name="debug_bugreporter_summary">Aŭtomate raportas problemojn, ekz. detalojn pri aplikaĵaj kraŝoj por ke mi povu kompreni kial kaj ripari ĝin.</string>
-    <string name="settings_category_filter">Filtrilo</string>
-    <string name="settings_category_risklevel">Riska nivelo</string>
     <string name="data_area_public_app_data_official_label">Defaŭltaj publikaj aplikaĵaj datumoj</string>
     <string name="data_area_public_app_assets_official_label">Defaŭltaj publikaj aplikaĵaj rimedoj</string>
     <string name="data_area_public_storage_label">Publika stokado</string>

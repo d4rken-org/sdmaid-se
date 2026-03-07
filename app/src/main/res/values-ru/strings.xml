@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">Политика конфиденциальности</string>
     <string name="settings_privacy_policy_desc">Ответственность за обращение с данными.</string>
     <string name="settings_category_other_label">Прочее</string>
-    <string name="settings_category_filter_generic">Общий фильтр</string>
-    <string name="settings_category_filter_specific">Особый фильтр</string>
     <string name="settings_sponsor_development_title">Поддержать разработку</string>
     <string name="settings_sponsor_development_summary">Станьте спонсором и сделайте возможной дальнейшую разработку.</string>
     <string name="general_settings_label">Общее</string>
@@ -232,8 +230,6 @@
     <string name="debug_card_pkgs_reload_action">Перезагрузка приложений</string>
     <string name="debug_card_root_test_action">Проверка root</string>
     <string name="debug_card_shizuku_test_action">Проверка Shizuku</string>
-    <string name="settings_category_filter">Фильтр</string>
-    <string name="settings_category_risklevel">Уровень риска</string>
     <string name="data_area_public_app_data_official_label">Публичные данные приложений по умолчанию</string>
     <string name="data_area_public_app_assets_official_label">Публичные данные приложений по умолчанию</string>
     <string name="data_area_public_storage_label">Публичное хранилище</string>

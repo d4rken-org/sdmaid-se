@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ଆପ୍ଲିକେସନ୍ ବ୍ୟବହାର ପରିସଂଖ୍ୟାନ ସମ୍ବନ୍ଧୀୟ ଫାଇଲ୍।</string>
     <string name="systemcleaner_delete_all_confirmation_message">ସମସ୍ତ ଫିଲ୍ଟର୍ ବିଷୟବସ୍ତୁ ଡିଲିଟ୍ କରିବେ?</string>
     <string name="systemcleaner_customfilter_label">କଷ୍ଟମ୍ ଫିଲ୍ଟର୍</string>
-    <string name="systemcleaner_customfilter_create_action">କଷ୍ଟମ୍ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରନ୍ତୁ</string>
     <string name="systemcleaner_customfilter_create_hint">ଆପଣଙ୍କ ଡିଭାଇସ୍ ଏବଂ ବ୍ୟବହାର-କ୍ଷେତ୍ର ପାଇଁ ସ୍ୱତନ୍ତ୍ର ଅତିରିକ୍ତ ଫାଇଲ୍ ଡିଲିଟ୍ କରିବା ପାଇଁ ଏକ କଷ୍ଟମ୍ ଫିଲ୍ଟର୍ ସୃଷ୍ଟି କରନ୍ତୁ।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ଏହି ଫିଲ୍ଟର୍ ଅପସାରଣ କରିବେ?</string>
     <string name="systemcleaner_customfilter_editor_label_label">ଫିଲ୍ଟର ଲେବଲ୍</string>

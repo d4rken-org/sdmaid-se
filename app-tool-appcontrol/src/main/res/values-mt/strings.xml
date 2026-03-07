@@ -4,11 +4,9 @@
     <string name="appcontrol_toggle_app_enable_action">Attiva app</string>
     <string name="appcontrol_toggle_app_disable_action">Disattiva app</string>
     <string name="appcontrol_appstore_open_title">Iftaħ fil-ħanut</string>
-    <string name="appcontrol_systemsettings_open_title">Uri settings</string>
     <string name="appcontrol_app_launch_title">Ibda app</string>
     <string name="appcontrol_app_forcestop_title">Waqqaf b\'forza</string>
     <string name="appcontrol_tag_user">Utent</string>
-    <string name="appcontrol_tag_system">Sistema</string>
     <string name="appcontrol_tag_enabled">Attivat</string>
     <string name="appcontrol_tag_disabled">Disattivat</string>
     <string name="appcontrol_list_sortmode_name_label">Isem tal-app</string>

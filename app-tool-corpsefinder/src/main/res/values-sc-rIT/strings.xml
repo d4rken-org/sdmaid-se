@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Cantzellare totu is abarramentos de aplicatziones?</string>
     <string name="corpsefinder_owners_label">Propietarios</string>
-    <string name="corpsefinder_corpse_hints_label">Avisu</string>
     <string name="corpsefinder_owner_unknown">Propietariu disconnotu</string>
     <string name="corpsefinder_corpse_hint_keeper">Custu elementu podet cuntenner datos chi cheres mantenner mancai su propietariu suo seghet disinstalladu, pro es. fotos o copias de resèrvia.</string>
     <string name="corpsefinder_corpse_hint_common">Custu elementu tenet unu nòmene meda cumune e dda podet apertènere a aplicatziones galu installadas chi SD Maid no connet.</string>

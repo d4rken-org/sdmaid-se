@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Dateien mit Bezug zu App-Nutzungsstatistiken.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Alle Filterinhalte löschen?</string>
     <string name="systemcleaner_customfilter_label">Benutzerdefinierter Filter</string>
-    <string name="systemcleaner_customfilter_create_action">Benutzerdefinierten Filter erstellen</string>
     <string name="systemcleaner_customfilter_create_hint">Erstelle einen benutzerdefinierten Filter, um zusätzliche Dateien zu löschen, die einzigartig für dein Gerät und deine Anwendungsfälle sind.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Diesen Filter entfernen?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Filterbezeichnung</string>

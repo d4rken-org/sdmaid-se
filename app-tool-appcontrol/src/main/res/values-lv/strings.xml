@@ -13,7 +13,6 @@
     <string name="appcontrol_toggle_app_disable_description">Lietotnes atspējošana nelauj tai darboties un paslēpj to no izvēlnēm. Dati netiek zaudēti.</string>
     <string name="appcontrol_appstore_open_title">Atvērt lietotniņu vekalā</string>
     <string name="appcontrol_appstore_open_description">Atveriet šo lietotni tā lietotniņu vekalā, no kura tā tika instalēta.</string>
-    <string name="appcontrol_systemsettings_open_title">Rādīt iestatījumus</string>
     <string name="appcontrol_systemsettings_open_description">Atveriet savā ierīcī sistēmas iestatījumus šai lietotnei.</string>
     <string name="appcontrol_app_launch_title">Palaist lietotni</string>
     <string name="appcontrol_app_launch_description">Palaist šīs lietotnes galveno aktivitāti.</string>
@@ -28,7 +27,6 @@
     <string name="appcontrol_tag_active">Nesen aktīvs</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Komplekts</string>
-    <string name="appcontrol_tag_system">Sistēma</string>
     <string name="appcontrol_tag_archived">Arhivēts</string>
     <string name="appcontrol_tag_uninstalled">Tikai dati</string>
     <string name="appcontrol_tag_not_installed">Nav instalēts</string>

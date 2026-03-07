@@ -13,7 +13,6 @@
     <string name="appcontrol_toggle_app_disable_description">Онемогућавање апликације спречава је да ради и скрива је из менија. Нема губитка података.</string>
     <string name="appcontrol_appstore_open_title">Отвори у продавници апликација</string>
     <string name="appcontrol_appstore_open_description">Отвори ову апликацију у продавници апликација из које је инсталирана.</string>
-    <string name="appcontrol_systemsettings_open_title">Прикажи подешавања</string>
     <string name="appcontrol_systemsettings_open_description">Отвори системска подешавања вашег уређаја за ову апликацију.</string>
     <string name="appcontrol_app_launch_title">Покрени апликацију</string>
     <string name="appcontrol_app_launch_description">Покрени примарну активност ове апликације.</string>
@@ -28,7 +27,6 @@
     <string name="appcontrol_tag_active">Недавно активна</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Пакет</string>
-    <string name="appcontrol_tag_system">Систем</string>
     <string name="appcontrol_tag_archived">Архивирано</string>
     <string name="appcontrol_tag_uninstalled">Само подаци</string>
     <string name="appcontrol_tag_not_installed">Није инсталирано</string>

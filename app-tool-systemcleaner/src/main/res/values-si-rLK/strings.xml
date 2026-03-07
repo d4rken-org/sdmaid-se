@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">යෙදුම් භාවිත සංඛ්යාලේැනට සම්බන්ධ ගොනු.</string>
     <string name="systemcleaner_delete_all_confirmation_message">සියලුම පෙරණ අන්තර්ගත මකා දමන්නද?</string>
     <string name="systemcleaner_customfilter_label">මැනුවල් පෙරණ</string>
-    <string name="systemcleaner_customfilter_create_action">මැනුවල් පෙරණ සැදීම</string>
     <string name="systemcleaner_customfilter_create_hint">ඔබේ උපකරණය සහ භාවිතාවට විශේෂ අමතර ගොනු මකාදැමීම සඳහා මැනුවල් පෙරණයක් සැදීම.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">මෙම පෙරණ ඉවත් කරන්නද?</string>
     <string name="systemcleaner_customfilter_editor_label_label">පෙරණ ලේබලය</string>

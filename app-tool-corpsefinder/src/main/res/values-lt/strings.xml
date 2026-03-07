@@ -31,7 +31,6 @@
     <string name="corpsefinder_filter_app2sd_summary">Duomenys perkelti į išorinę saugyklą naudojant \"App2Sd\" modifikacijas.</string>
     <string name="corpsefinder_filter_app2sd_label">App2SD</string>
     <string name="corpsefinder_owners_label">Savininkai</string>
-    <string name="corpsefinder_corpse_hints_label">Pranešimas</string>
     <string name="corpsefinder_owner_unknown">Nežinomas savininkas</string>
     <string name="corpsefinder_corpse_hint_keeper">Šiame elemente gali būti duomenų, kuriuos norite išsaugoti, nepaisant to, kad jo savininkas buvo pašalintas, pvz., nuotraukų arba atsarginių kopijų.</string>
     <string name="corpsefinder_corpse_hint_common">Šis elementas turi labai įprastą pavadinimą ir gali priklausyti vis dar įdiegtoms programoms, kurių \"SD Maid\" nežino.</string>

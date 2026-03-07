@@ -61,7 +61,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">למחוק את כל שאריות האפליקציה?</string>
     <string name="corpsefinder_owners_label">בעלים</string>
-    <string name="corpsefinder_corpse_hints_label">הודעה</string>
     <string name="corpsefinder_owner_unknown">בעלים לא ידוע</string>
     <string name="corpsefinder_corpse_hint_keeper">פריט זה עשוי להכיל נתונים שברצונך לשמור למרות שהבעלים שלו הוסר, למשל. תמונות או גיבויים.</string>
     <string name="corpsefinder_corpse_hint_common">לפריט זה יש שם נפוץ מאוד ויכול להיות שייך לאפליקציות שעדיין מותקנות ש-SD Maid לא מכיר.</string>

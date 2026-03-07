@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">همه باقی‌مانده‌های برنامه حذف شود؟</string>
     <string name="corpsefinder_owners_label">صاحبان</string>
-    <string name="corpsefinder_corpse_hints_label">اطلاعیه</string>
     <string name="corpsefinder_owner_unknown">مالک نامشخص</string>
     <string name="corpsefinder_corpse_hint_keeper">این مورد ممکن است حاوی داده‌هایی باشد که می‌خواهید نگه دارید حتی با اینکه مالک آن حذف شده است، به عنوان مثال، عکس‌ها یا پشتیبان‌ها.</string>
     <string name="corpsefinder_corpse_hint_common">این مورد دارای نام بسیار رایجی است و ممکن است متعلق به برنامه‌هایی باشد که هنوز نصب هستند و SD Maid آن‌ها را نمی‌شناسد.</string>

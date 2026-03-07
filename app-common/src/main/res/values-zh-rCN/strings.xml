@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">排序选项</string>
     <string name="general_sort_reverse_action">反向排序模式</string>
     <string name="general_tag_filter_label">按标签排序</string>
+    <string name="general_tag_system">系统</string>
     <string name="general_result_success_message">操作成功</string>
     <string name="general_result_failure_message">操作失败</string>
     <plurals name="general_result_x_space_freed">
@@ -178,4 +179,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">历史</string>
     <string name="settings_category_tools_label">工具</string>
+    <string name="general_hints_label">注意</string>
+    <string name="settings_category_filter_generic">通用筛选器</string>
+    <string name="settings_category_filter_specific">特定过滤器</string>
+    <string name="settings_category_risklevel">风险等级</string>
+    <string name="settings_category_filter">筛选器</string>
+    <string name="appcontrol_systemsettings_open_title">显示设置</string>
+    <string name="systemcleaner_customfilter_create_action">创建自定义过滤器</string>
 </resources>

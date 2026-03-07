@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Politika e privatësisë</string>
     <string name="settings_privacy_policy_desc">Trajtimi i të dhënave me përgjegjësi.</string>
     <string name="settings_category_other_label">Tjetër</string>
-    <string name="settings_category_filter_generic">Filtër gjenerik</string>
-    <string name="settings_category_filter_specific">Filtër specifik</string>
     <string name="settings_sponsor_development_title">Zhvillimi i sponsorëve</string>
     <string name="settings_sponsor_development_summary">Bëhuni një mbrojtës dhe bëni të mundur zhvillimin e vazhdueshëm.</string>
     <string name="general_settings_label">Gjenerik</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Ringarko aplikacionet</string>
     <string name="debug_card_root_test_action">Testo root</string>
     <string name="debug_card_shizuku_test_action">Testo Shizuku</string>
-    <string name="settings_category_filter">Filtro</string>
-    <string name="settings_category_risklevel">Niveli i rrezikut</string>
     <string name="data_area_public_app_data_official_label">Të dhënat e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_app_assets_official_label">Asetet e parazgjedhura të aplikacionit publik</string>
     <string name="data_area_public_storage_label">Magazina publike</string>

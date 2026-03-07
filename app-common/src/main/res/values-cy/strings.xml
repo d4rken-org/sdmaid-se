@@ -71,6 +71,7 @@
     <string name="general_sort_options_label">Opsiynau trefnu</string>
     <string name="general_sort_reverse_action">Modd trefnu gwrthdroi</string>
     <string name="general_tag_filter_label">Hidlo yn ôl tagiau</string>
+    <string name="general_tag_system">System</string>
     <string name="general_result_success_message">Llwyddodd y weithred</string>
     <string name="general_result_failure_message">Methodd y weithred</string>
     <plurals name="general_result_x_space_freed">
@@ -227,4 +228,11 @@
     <string name="general_include_multiuser_label">Cynnwys defnyddwyr eraill</string>
     <string name="general_include_multiuser_summary">Cynnwys apiau o broffiliau defnyddwyr eraill ar y ddyfais hon.</string>
     <string name="general_unsaved_confirmation_message">Mae gennych newidiadau heb eu cadw!</string>
+    <string name="general_hints_label">Rhybudd</string>
+    <string name="settings_category_filter_generic">Hidlydd generig</string>
+    <string name="settings_category_filter_specific">Hidlydd penodol</string>
+    <string name="settings_category_risklevel">Lefel risg</string>
+    <string name="settings_category_filter">Hidlydd</string>
+    <string name="appcontrol_systemsettings_open_title">Dangos gosodiadau</string>
+    <string name="systemcleaner_customfilter_create_action">Creu hidlydd personol</string>
 </resources>

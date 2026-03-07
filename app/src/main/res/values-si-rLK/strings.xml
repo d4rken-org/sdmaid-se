@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">පෞද්ගලිකත්ව ප්‍රතිපත්තිය</string>
     <string name="settings_privacy_policy_desc">දත්ත වගකීමෙන් හැසිරවීම.</string>
     <string name="settings_category_other_label">වෙනත්</string>
-    <string name="settings_category_filter_generic">සාමාන්‍ය පෙරණය</string>
-    <string name="settings_category_filter_specific">විශේෂිත පෙරණය</string>
     <string name="settings_sponsor_development_title">සංවර්ධනයට අනුග්‍රාහකත්වය</string>
     <string name="settings_sponsor_development_summary">අනුග්‍රාහකයෙකු වන්න සහ අඛණ්ඩ සංවර්ධනය සුළු කරන්න.</string>
     <string name="general_settings_label">සාමාන්‍ය</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">යෙදුම් නැවත පූරණය කරන්න</string>
     <string name="debug_card_root_test_action">Root පරීක්‍ෂාව</string>
     <string name="debug_card_shizuku_test_action">Shizuku පරීක්‍ෂාව</string>
-    <string name="settings_category_filter">පෙරණය</string>
-    <string name="settings_category_risklevel">අවදානම් මට්ටම</string>
     <string name="data_area_public_app_data_official_label">පෙරනිමි පොදු යෙදුම් දත්ත</string>
     <string name="data_area_public_app_assets_official_label">පෙරනිමි පොදු යෙදුම් සම්පත්</string>
     <string name="data_area_public_storage_label">පොදු ආචයනය</string>

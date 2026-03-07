@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">सभी ऐप अवशेषों को मिटाएं?</string>
     <string name="corpsefinder_owners_label">स्वामियों</string>
-    <string name="corpsefinder_corpse_hints_label">सूचना</string>
     <string name="corpsefinder_owner_unknown">अज्ञात स्वामी</string>
     <string name="corpsefinder_corpse_hint_keeper">इस आइटम में वह डेटा हो सकता है जिसे आप इसके स्वामी के द्वारा हटाए जाने के बावजूद रखना चाहते हैं, जैसे कि फोटो या बैकअप।</string>
     <string name="corpsefinder_corpse_hint_common">इस आइटम का एक बहुत ही सामान्य नाम है और यह अभी भी स्थापित किए गए ऐप्स से संबंधित हो सकता है जिसे SD मेड नहीं जानती।</string>

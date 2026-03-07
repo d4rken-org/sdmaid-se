@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Poista kaikki sovelluksen jäänteet?</string>
     <string name="corpsefinder_owners_label">Omistajat</string>
-    <string name="corpsefinder_corpse_hints_label">Huomautus</string>
     <string name="corpsefinder_owner_unknown">Tuntematon omistaja</string>
     <string name="corpsefinder_corpse_hint_keeper">Tämä kohde saattaa sisältää tietoja, jotka haluat säilyttää huolimatta siitä, että sen omistaja on poistettu, esim. valokuvia tai varmuuskopioita.</string>
     <string name="corpsefinder_corpse_hint_common">Tällä kohteella on hyvin yleinen nimi ja se voi kuulua vielä asennettuihin sovelluksiin, joita SD Maid ei tunne.</string>

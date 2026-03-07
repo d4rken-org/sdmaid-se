@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">క్రమబద్ధీకరణ ఎంపికలు</string>
     <string name="general_sort_reverse_action">రివర్స్ సార్ట్ మోడ్</string>
     <string name="general_tag_filter_label">ట్యాగ్‌ల ద్వారా ఫిల్టర్ చేయండి</string>
+    <string name="general_tag_system">సిస్టం</string>
     <string name="general_result_success_message">విజయవంతంగా పూర్తయింది</string>
     <string name="general_result_failure_message">ఆపరేషన్ విఫలమైంది</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">స్వైపర్</string>
     <string name="stats_label">చరిత్ర</string>
     <string name="settings_category_tools_label">టూల్స్</string>
+    <string name="general_hints_label">గమనిక</string>
+    <string name="settings_category_filter_generic">సాధారణ ఫిల్టర్</string>
+    <string name="settings_category_filter_specific">నిర్దిష్ట ఫిల్టర్</string>
+    <string name="settings_category_risklevel">రిస్క్ లెవల్</string>
+    <string name="settings_category_filter">ఫిల్టర్</string>
+    <string name="appcontrol_systemsettings_open_title">సెట్టింగ్స్ చూపించండి</string>
+    <string name="systemcleaner_customfilter_create_action">కస్టమ్ ఫిల్టర్‌ను సృష్టించండి</string>
 </resources>

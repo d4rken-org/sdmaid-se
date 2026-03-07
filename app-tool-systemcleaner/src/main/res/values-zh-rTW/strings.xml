@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">與應用程式使用量統計資料相關的檔案。</string>
     <string name="systemcleaner_delete_all_confirmation_message">刪除所有過濾器內容？</string>
     <string name="systemcleaner_customfilter_label">自訂過濾器</string>
-    <string name="systemcleaner_customfilter_create_action">建立自訂過濾器</string>
     <string name="systemcleaner_customfilter_create_hint">建立自訂過濾器以刪除適用於您裝置和使用情形的專屬額外檔案。</string>
     <string name="systemcleaner_editor_remove_confirmation_message">移除這個過濾器？</string>
     <string name="systemcleaner_customfilter_editor_label_label">過濾器標籤</string>

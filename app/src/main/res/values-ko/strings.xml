@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">개인정보보호정책</string>
     <string name="settings_privacy_policy_desc">개인정보를 책임지고 다룹니다.</string>
     <string name="settings_category_other_label">기타</string>
-    <string name="settings_category_filter_generic">일반 필터</string>
-    <string name="settings_category_filter_specific">특정 필터</string>
     <string name="settings_sponsor_development_title">개발 후원하기</string>
     <string name="settings_sponsor_development_summary">개발자의 Patron이 되어 개발 진행을 지원하세요.</string>
     <string name="general_settings_label">일반</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">앱 새로고침</string>
     <string name="debug_card_root_test_action">루트 테스트</string>
     <string name="debug_card_shizuku_test_action">Shizuku 테스트</string>
-    <string name="settings_category_filter">필터</string>
-    <string name="settings_category_risklevel">위험 수준</string>
     <string name="data_area_public_app_data_official_label">기본 공개 앱 데이터</string>
     <string name="data_area_public_app_assets_official_label">기본 공개 앱 자산</string>
     <string name="data_area_public_storage_label">공개 저장소</string>

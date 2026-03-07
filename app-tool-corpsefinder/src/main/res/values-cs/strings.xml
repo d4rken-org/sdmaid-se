@@ -61,7 +61,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Smazat všechny pozůstatky aplikace?</string>
     <string name="corpsefinder_owners_label">Vlastníci</string>
-    <string name="corpsefinder_corpse_hints_label">Oznámení</string>
     <string name="corpsefinder_owner_unknown">Neznámý vlastník</string>
     <string name="corpsefinder_corpse_hint_keeper">Tato položka může obsahovat data, která chcete zachovat, přestože byl její vlastník odinstalován, např. fotografie nebo zálohy.</string>
     <string name="corpsefinder_corpse_hint_common">Tato položka má velmi běžný název a mohla by patřit k dosud nainstalovaným aplikacím, které SD Maid nezná.</string>

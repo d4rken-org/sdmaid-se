@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Opzioni di ordinamento</string>
     <string name="general_sort_reverse_action">Inverti modalità di ordinamento</string>
     <string name="general_tag_filter_label">Filtra per tags</string>
+    <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operazione riuscita</string>
     <string name="general_result_failure_message">Operazione non riuscita</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Cronologia</string>
     <string name="settings_category_tools_label">Strumenti</string>
+    <string name="general_hints_label">Avviso</string>
+    <string name="settings_category_filter_generic">Filtro generico</string>
+    <string name="settings_category_filter_specific">Filtro specifico</string>
+    <string name="settings_category_risklevel">Livello di rischio</string>
+    <string name="settings_category_filter">Filtro</string>
+    <string name="appcontrol_systemsettings_open_title">Visualizza impostazioni</string>
+    <string name="systemcleaner_customfilter_create_action">Crea filtro personalizzato</string>
 </resources>

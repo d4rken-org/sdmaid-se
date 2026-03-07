@@ -10,7 +10,6 @@
     <string name="appcontrol_toggle_app_disable_description">Cuireann díchumasú aipe cosc uirthi ó rith agus folaíonn sé ó roghchláir í. Ní chailltear sonraí ar bith.</string>
     <string name="appcontrol_appstore_open_title">Oscail sa siopa aipeanna</string>
     <string name="appcontrol_appstore_open_description">Oscail an aip seo sa siopa aipeanna ar suiteáladh uaidh í.</string>
-    <string name="appcontrol_systemsettings_open_title">Taispeáin socruithe</string>
     <string name="appcontrol_systemsettings_open_description">Oscail socruithe córais do ghléis don aip seo.</string>
     <string name="appcontrol_app_launch_title">Lainseáil aip</string>
     <string name="appcontrol_app_launch_description">Lainseáil príomhghníomhaíocht na haipe seo.</string>
@@ -24,7 +23,6 @@
     <string name="appcontrol_tag_active">Gníomhach le déanaí</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Burla</string>
-    <string name="appcontrol_tag_system">Córas</string>
     <string name="appcontrol_tag_archived">Cartlannaithe</string>
     <string name="appcontrol_tag_uninstalled">Sonraí Amháin</string>
     <string name="appcontrol_tag_not_installed">Gan suiteáil</string>

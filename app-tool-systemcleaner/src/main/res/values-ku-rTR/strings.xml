@@ -13,7 +13,6 @@
     <string name="systemcleaner_filter_macfiles_label">فایلەکانی Mac</string>
     <string name="systemcleaner_filter_windowsfiles_label">فایلەکانی Windows</string>
     <string name="systemcleaner_customfilter_label">فلتەری تایبەت</string>
-    <string name="systemcleaner_customfilter_create_action">فلتەری تایبەت دروست بکە</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d هاوتا سڕایەوە</item>
         <item quantity="other">%d هاوتا سڕانەوە</item>

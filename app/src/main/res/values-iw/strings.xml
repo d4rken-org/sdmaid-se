@@ -71,8 +71,6 @@
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
     <string name="settings_category_other_label">אחר</string>
-    <string name="settings_category_filter_generic">פילטר כללי</string>
-    <string name="settings_category_filter_specific">פילטר ספציפי</string>
     <string name="settings_sponsor_development_title">פיתוח חסות</string>
     <string name="settings_sponsor_development_summary">הפוך לפטרון ואפשר את המשך הפיתוח.</string>
     <string name="general_settings_label">כללי</string>
@@ -233,8 +231,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="debug_card_pkgs_reload_action">טען מחדש אפליקציות</string>
     <string name="debug_card_root_test_action">בדוק root</string>
     <string name="debug_card_shizuku_test_action">בדוק Shizuku</string>
-    <string name="settings_category_filter">סינון</string>
-    <string name="settings_category_risklevel">רמת סיכון</string>
     <string name="data_area_public_app_data_official_label">נתוני ברירת מחדל של אפליקציה ציבורית</string>
     <string name="data_area_public_app_assets_official_label">נכסי ברירת מחדל של אפליקציה ציבורית</string>
     <string name="data_area_public_storage_label">אחסון ציבורי</string>

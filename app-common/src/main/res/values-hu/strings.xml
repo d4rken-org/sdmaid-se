@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">Rendezési lehetőségek</string>
     <string name="general_sort_reverse_action">Fordított rendezési mód</string>
     <string name="general_tag_filter_label">Szűrés címkék szerint</string>
+    <string name="general_tag_system">Rendszer</string>
     <string name="general_result_success_message">A művelet sikeres</string>
     <string name="general_result_failure_message">A művelet nem sikerült</string>
     <plurals name="general_result_x_space_freed">
@@ -195,4 +196,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Előzmények</string>
     <string name="settings_category_tools_label">Eszközök</string>
+    <string name="general_hints_label">Értesítés</string>
+    <string name="settings_category_filter_generic">Általános szűrő</string>
+    <string name="settings_category_filter_specific">Specifikus szűrő</string>
+    <string name="settings_category_risklevel">Kockázati szint</string>
+    <string name="settings_category_filter">Szűrő</string>
+    <string name="appcontrol_systemsettings_open_title">Beállítások megjelenítése</string>
+    <string name="systemcleaner_customfilter_create_action">Egyedi szűrő létrehozása</string>
 </resources>

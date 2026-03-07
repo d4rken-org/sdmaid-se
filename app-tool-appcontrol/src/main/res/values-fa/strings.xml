@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">غیرفعال کردن یک برنامه مانع از اجرا شدن آن می‌شود و آن را از لیست‌ها مخفی می‌کند. هیچ گونه از دست دادن داده‌ای رخ نمی‌دهد.</string>
     <string name="appcontrol_appstore_open_title">باز کردن در فروشگاه برنامه</string>
     <string name="appcontrol_appstore_open_description">این برنامه را در فروشگاه برنامه‌ای که از آن نصب شده باز کنید.</string>
-    <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
     <string name="appcontrol_systemsettings_open_description">تنظیمات سیستم دستگاه خود را برای این برنامه باز کنید.</string>
     <string name="appcontrol_app_launch_title">اجرای برنامه</string>
     <string name="appcontrol_app_launch_description">فعالیت اصلی این برنامه را راه‌اندازی کنید.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">فعالیت اخیر</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">باندل</string>
-    <string name="appcontrol_tag_system">سیستم</string>
     <string name="appcontrol_tag_archived">آرشیو شده</string>
     <string name="appcontrol_tag_uninstalled">فقط داده</string>
     <string name="appcontrol_tag_not_installed">نصب نشده</string>

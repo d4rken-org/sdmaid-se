@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">隐私政策</string>
     <string name="settings_privacy_policy_desc">以负责任的态度来处理数据。</string>
     <string name="settings_category_other_label">其他</string>
-    <string name="settings_category_filter_generic">通用筛选器</string>
-    <string name="settings_category_filter_specific">特定过滤器</string>
     <string name="settings_sponsor_development_title">赞助开发</string>
     <string name="settings_sponsor_development_summary">赞助可促进应用的持续开发。</string>
     <string name="general_settings_label">常规</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">重载应用</string>
     <string name="debug_card_root_test_action">测试 Root</string>
     <string name="debug_card_shizuku_test_action">测试 Shizuku</string>
-    <string name="settings_category_filter">筛选器</string>
-    <string name="settings_category_risklevel">风险等级</string>
     <string name="data_area_public_app_data_official_label">默认公用应用数据</string>
     <string name="data_area_public_app_assets_official_label">默认公用应用数据</string>
     <string name="data_area_public_storage_label">公共存储</string>

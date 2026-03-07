@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">ਪਰਦੇਦਾਰੀ ਨੀਤੀ</string>
     <string name="settings_privacy_policy_desc">ਡੇਟਾ ਨੂੰ ਜ਼ਿੰਮੇਵਾਰੀ ਨਾਲ ਸੰਭਾਲ ਰਿਹਾ ਹੈ।</string>
     <string name="settings_category_other_label">ਹੋਰ</string>
-    <string name="settings_category_filter_generic">ਆਮ ਫਿਲਟਰ</string>
-    <string name="settings_category_filter_specific">ਖ਼ਾਸ ਫਿਲਟਰ</string>
     <string name="settings_sponsor_development_title">ਡਿਵੈਲਪਮੈਂਟ ਸਪਾਂਸਰ ਕਰੋ</string>
     <string name="settings_sponsor_development_summary">ਇੱਕ ਸਰਪ੍ਰਸਤ ਬਣੋ ਅਤੇ ਨਿਰੰਤਰ ਵਿਕਾਸ ਨੂੰ ਸੰਭਵ ਬਣਾਓ।</string>
     <string name="general_settings_label">ਆਮ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">ਐਪਾਂ ਦੁਬਾਰਾ ਲੋਡ ਕਰੋ</string>
     <string name="debug_card_root_test_action">Root ਟੈਸਟ ਕਰੋ</string>
     <string name="debug_card_shizuku_test_action">Shizuku ਟੈਸਟ ਕਰੋ</string>
-    <string name="settings_category_filter">ਫਿਲਟਰ</string>
-    <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>
     <string name="data_area_public_app_data_official_label">ਮੂਲ ਜਨਤਕ ਐਪ ਡਾਟਾ</string>
     <string name="data_area_public_app_assets_official_label">ਮੂਲ ਜਨਤਕ ਐਪ ਸੰਪੱਤੀਆਂ</string>
     <string name="data_area_public_storage_label">ਜਨਤਕ ਸਟੋਰੇਜ</string>

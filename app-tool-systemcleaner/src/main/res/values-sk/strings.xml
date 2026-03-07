@@ -66,7 +66,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Súbory súvisiace so štatistikami používania aplikácie.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Vymazať celý obsah filtra?</string>
     <string name="systemcleaner_customfilter_label">Vlastný filter</string>
-    <string name="systemcleaner_customfilter_create_action">Vytvoriť vlastný filter</string>
     <string name="systemcleaner_customfilter_create_hint">Vytvorte si vlastný filter na odstránenie ďalších súborov, ktoré sú jedinečné pre vaše zariadenie a prípady použitia.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Odstrániť tento filter?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Označenie filtra</string>

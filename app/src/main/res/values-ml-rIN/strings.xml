@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">സ്വകാര്യതാ നയം</string>
     <string name="settings_privacy_policy_desc">ഡാറ്റ ഉത്തരവാദിത്തത്തോടെ കൈകാര്യം ചെയ്യുന്നു.</string>
     <string name="settings_category_other_label">മറ്റുള്ളവ</string>
-    <string name="settings_category_filter_generic">ജനറിക് ഫിൽട്ടർ</string>
-    <string name="settings_category_filter_specific">സ്പെസിഫിക് ഫിൽട്ടർ</string>
     <string name="settings_sponsor_development_title">വികസനം സ്പോൺസർ ചെയ്യുക</string>
     <string name="settings_sponsor_development_summary">പ്രണയിയാകുകയും തുടർ വികസനം സാധ്യമാക്കുകയും ചെയ്യുക.</string>
     <string name="general_settings_label">പൊതുവായ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">ആപ്പുകൾ വീണ്ടും ലോഡ് ചെയ്യുക</string>
     <string name="debug_card_root_test_action">രൂട് പരീക്ഷിക്കുക</string>
     <string name="debug_card_shizuku_test_action">Shizuku പരീക്ഷിക്കുക</string>
-    <string name="settings_category_filter">ഫിൽട്ടർ</string>
-    <string name="settings_category_risklevel">റിസ്ക് ലെവൽ</string>
     <string name="data_area_public_app_data_official_label">ഡിഫോൾട്ട് പൊതു ആപ്പ് ഡേറ്റ</string>
     <string name="data_area_public_app_assets_official_label">സ്ഥിരസ്ഥിതി പൊതു ആപ്പ് അസറ്റുകൾ</string>
     <string name="data_area_public_storage_label">പൊതു സ്‌റ്റോറേജ്</string>

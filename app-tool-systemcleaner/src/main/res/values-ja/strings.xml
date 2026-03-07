@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">アプリケーションの使用統計に関連するファイル。</string>
     <string name="systemcleaner_delete_all_confirmation_message">すべてのフィルタの内容を削除しますか？</string>
     <string name="systemcleaner_customfilter_label">カスタムフィルタ</string>
-    <string name="systemcleaner_customfilter_create_action">カスタムフィルタを作成</string>
     <string name="systemcleaner_customfilter_create_hint">カスタムフィルターを作成して、お使いのデバイスや使い方に固有の追加ファイルを削除します。</string>
     <string name="systemcleaner_editor_remove_confirmation_message">このフィルターを削除しますか？</string>
     <string name="systemcleaner_customfilter_editor_label_label">ラベルをフィルタ</string>

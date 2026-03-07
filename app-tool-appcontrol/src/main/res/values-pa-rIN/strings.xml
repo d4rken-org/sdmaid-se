@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">ਐਪ ਨੂੰ ਅਸਮਰੱਥ ਕਰਨਾ ਇਸਨੂੰ ਚੱਲਣ ਤੋਂ ਰੋਕਦਾ ਹੈ ਅਤੇ ਇਸਨੂੰ ਮੀਨੂ ਤੋਂ ਲੁਕਾ ਦਿੰਦਾ ਹੈ। ਕੋਈ ਡਾਟਾ ਦਾ ਨੁਕਸਾਨ ਨਹੀਂ ਹੁੰਦਾ।</string>
     <string name="appcontrol_appstore_open_title">ਐਪ ਸਟੋਰ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>
     <string name="appcontrol_appstore_open_description">ਇਸ ਐਪ ਨੂੰ ਉਸ ਐਪ ਸਟੋਰ ਵਿੱਚ ਖੋਲ੍ਹੋ ਜਿੱਥੋਂ ਇਹ ਸਥਾਪਿਤ ਕੀਤੀ ਗਈ ਸੀ।</string>
-    <string name="appcontrol_systemsettings_open_title">ਸੈਟਿੰਗਾਂ ਦਿਖਾਓ</string>
     <string name="appcontrol_systemsettings_open_description">ਇਸ ਐਪ ਲਈ ਆਪਣੇ ਡਿਵਾਈਸ ਦੀਆਂ ਸਿਸਟਮ ਸੈਟਿੰਗਾਂ ਖੋਲ੍ਹੋ।</string>
     <string name="appcontrol_app_launch_title">ਐਪ ਚਲਾਓ</string>
     <string name="appcontrol_app_launch_description">ਇਸ ਐਪ ਦੀ ਮੁੱਖ ਗਤੀਵਿਧੀ ਨੂੰ ਚਲਾਓ।</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">ਹਾਲ ਹੀ ਵਿੱਚ ਸਰਗਰਮ</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">ਬੰਡਲ</string>
-    <string name="appcontrol_tag_system">ਸਿਸਟਮ</string>
     <string name="appcontrol_tag_archived">ਸੰਗ੍ਰਹਿਤ</string>
     <string name="appcontrol_tag_uninstalled">ਕੇਵਲ ਡਾਟਾ</string>
     <string name="appcontrol_tag_not_installed">ਸਥਾਪਿਤ ਨਹੀਂ</string>

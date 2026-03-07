@@ -60,7 +60,6 @@
     <string name="systemcleaner_filter_usagestats_summary">与应用使用情况统计信息有关的文件。</string>
     <string name="systemcleaner_delete_all_confirmation_message">删除所有筛选器内容？</string>
     <string name="systemcleaner_customfilter_label">自定义过滤器</string>
-    <string name="systemcleaner_customfilter_create_action">创建自定义过滤器</string>
     <string name="systemcleaner_customfilter_create_hint">创建一个专属于您的设备和使用情况的自定义过滤器来删除额外文件。</string>
     <string name="systemcleaner_editor_remove_confirmation_message">是否删除过滤器？</string>
     <string name="systemcleaner_customfilter_editor_label_label">过滤标签</string>

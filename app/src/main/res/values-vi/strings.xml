@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
     <string name="settings_privacy_policy_desc">Xử lý dữ liệu có trách nhiệm.</string>
     <string name="settings_category_other_label">Khác</string>
-    <string name="settings_category_filter_generic">Bộ lọc chung</string>
-    <string name="settings_category_filter_specific">Bộ lọc cụ thể</string>
     <string name="settings_sponsor_development_title">Nhà tài trợ phát triển</string>
     <string name="settings_sponsor_development_summary">Trở thành người bảo trợ để tiếp tục phát triển.</string>
     <string name="general_settings_label">Tổng quan</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">Tải lại các ứng dụng</string>
     <string name="debug_card_root_test_action">Kiểm tra root</string>
     <string name="debug_card_shizuku_test_action">Kiểm tra Shizuku</string>
-    <string name="settings_category_filter">Bộ lọc</string>
-    <string name="settings_category_risklevel">Mức độ rủi ro</string>
     <string name="data_area_public_app_data_official_label">Dữ liệu ứng dụng công khai mặc định</string>
     <string name="data_area_public_app_assets_official_label">Nội dung ứng dụng công khai mặc định</string>
     <string name="data_area_public_storage_label">Lưu trữ công khai</string>

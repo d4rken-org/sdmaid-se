@@ -4,11 +4,9 @@
     <string name="appcontrol_toggle_app_enable_action">ئەپ چالاک بکە</string>
     <string name="appcontrol_toggle_app_disable_action">ئەپ ناچالاک بکە</string>
     <string name="appcontrol_appstore_open_title">لە فرۆشگا بکەرەوە</string>
-    <string name="appcontrol_systemsettings_open_title">ڕێکخستنەکان نیشان بدە</string>
     <string name="appcontrol_app_launch_title">ئەپ بکەرەوە</string>
     <string name="appcontrol_app_forcestop_title">بە زۆر ڕابگرە</string>
     <string name="appcontrol_tag_user">بەکارهێنەر</string>
-    <string name="appcontrol_tag_system">سیستەم</string>
     <string name="appcontrol_tag_enabled">چالاک</string>
     <string name="appcontrol_tag_disabled">ناچالاک</string>
     <string name="appcontrol_list_sortmode_name_label">ناوی ئەپ</string>

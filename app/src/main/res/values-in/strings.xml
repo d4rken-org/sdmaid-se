@@ -62,8 +62,6 @@
     <string name="settings_privacy_policy_label">Kebijakan privasi</string>
     <string name="settings_privacy_policy_desc">Menangani data secara bertanggung jawab.</string>
     <string name="settings_category_other_label">Lainnya</string>
-    <string name="settings_category_filter_generic">Filter umum</string>
-    <string name="settings_category_filter_specific">Filter khusus</string>
     <string name="settings_sponsor_development_title">Pengembangan sponsor</string>
     <string name="settings_sponsor_development_summary">Menjadi pelindung dan membuat pengembangan berkelanjutan menjadi mungkin.</string>
     <string name="general_settings_label">Umum</string>
@@ -217,8 +215,6 @@
     <string name="debug_card_pkgs_reload_action">Muat ulang aplikasi</string>
     <string name="debug_card_root_test_action">Uji root</string>
     <string name="debug_card_shizuku_test_action">Uji Shizuku</string>
-    <string name="settings_category_filter">Filter</string>
-    <string name="settings_category_risklevel">Tingkat risiko</string>
     <string name="data_area_public_app_data_official_label">Data aplikasi publik bawaan</string>
     <string name="data_area_public_app_assets_official_label">Aset aplikasi publik bawaan</string>
     <string name="data_area_public_storage_label">Penyimpanan publik</string>

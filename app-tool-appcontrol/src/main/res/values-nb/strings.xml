@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Deaktivering av en app forhindrer den i å kjøre og skjuler den fra menyene. Det er ingen tap av data.</string>
     <string name="appcontrol_appstore_open_title">Åpne i appbutikken</string>
     <string name="appcontrol_appstore_open_description">Åpne denne appen i appbutikken den ble installert fra.</string>
-    <string name="appcontrol_systemsettings_open_title">Vis innstillinger</string>
     <string name="appcontrol_systemsettings_open_description">Åpne enhetens systeminnstillinger for denne appen.</string>
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Nylig aktiv</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pakke</string>
-    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Arkivert</string>
     <string name="appcontrol_tag_uninstalled">Kun data</string>
     <string name="appcontrol_tag_not_installed">Ikke installert</string>

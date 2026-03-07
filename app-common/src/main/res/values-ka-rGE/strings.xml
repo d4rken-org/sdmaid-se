@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">დალაგების ვარიანტები</string>
     <string name="general_sort_reverse_action">დალაგების რევერსიული რეჟიმი</string>
     <string name="general_tag_filter_label">ტეგების მიხედვით ფილტრაცია</string>
+    <string name="general_tag_system">სისტემა</string>
     <string name="general_result_success_message">ოპერაცია წარმატებული</string>
     <string name="general_result_failure_message">ოპერაცია ვერ შესრულდა</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ისტორია</string>
     <string name="settings_category_tools_label">ხელსაწყოები</string>
+    <string name="general_hints_label">შენიშვნა</string>
+    <string name="settings_category_filter_generic">ზოგადი ფილტრი</string>
+    <string name="settings_category_filter_specific">სპეციფიკური ფილტრი</string>
+    <string name="settings_category_risklevel">რისკის დონე</string>
+    <string name="settings_category_filter">ფილტრი</string>
+    <string name="appcontrol_systemsettings_open_title">პარამეტრების ჩვენება</string>
+    <string name="systemcleaner_customfilter_create_action">კასტომ ფილტრის შექმნა</string>
 </resources>

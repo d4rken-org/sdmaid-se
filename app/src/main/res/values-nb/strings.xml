@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
     <string name="settings_category_other_label">Andre</string>
-    <string name="settings_category_filter_generic">Generelt filter</string>
-    <string name="settings_category_filter_specific">Spesifikt filter</string>
     <string name="settings_sponsor_development_title">Støtt utviklingen</string>
     <string name="settings_sponsor_development_summary">Bli en patron og gjør videre utvikling mulig.</string>
     <string name="general_settings_label">Generelt</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Last inn apper på nytt</string>
     <string name="debug_card_root_test_action">Test root</string>
     <string name="debug_card_shizuku_test_action">Test Shizuku</string>
-    <string name="settings_category_filter">Filtre</string>
-    <string name="settings_category_risklevel">Risikonivå</string>
     <string name="data_area_public_app_data_official_label">Standard offentlig appdata</string>
     <string name="data_area_public_app_assets_official_label">Standard offentlige appressurser</string>
     <string name="data_area_public_storage_label">Offentlig lagring</string>

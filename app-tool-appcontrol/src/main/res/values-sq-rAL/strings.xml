@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Çaktivizimi i një aplikacioni e pengon atë të funksionojë dhe e fsheh atë nga menytë. Nuk ka humbje të të dhënave.</string>
     <string name="appcontrol_appstore_open_title">Hap App Store</string>
     <string name="appcontrol_appstore_open_description">Hape këtë aplikacion në dyqanin e aplikacioneve ku është instaluar.</string>
-    <string name="appcontrol_systemsettings_open_title">Shfaq rregullime</string>
     <string name="appcontrol_systemsettings_open_description">Hap cilësimet e sistemit të pajisjes për këtë aplikacion.</string>
     <string name="appcontrol_app_launch_title">Nis aplikacionin</string>
     <string name="appcontrol_app_launch_description">Nis aktivitetin kryesor të këtij aplikacioni.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Aktiv së fundmi</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pako</string>
-    <string name="appcontrol_tag_system">Sistemi</string>
     <string name="appcontrol_tag_archived">Arkivuar</string>
     <string name="appcontrol_tag_uninstalled">Vetëm të dhëna</string>
     <string name="appcontrol_tag_not_installed">Nuk është instaluar</string>

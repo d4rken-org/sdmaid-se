@@ -66,7 +66,6 @@
     <string name="systemcleaner_filter_usagestats_summary">Файлы, связанные со статистикой использования приложений.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Удалить все содержимое фильтра?</string>
     <string name="systemcleaner_customfilter_label">Пользовательский фильтр</string>
-    <string name="systemcleaner_customfilter_create_action">Создать пользовательский фильтр</string>
     <string name="systemcleaner_customfilter_create_hint">Создайте пользовательский фильтр, чтобы удалить дополнительные файлы, уникальные для Вашего устройства и стиля использования.</string>
     <string name="systemcleaner_editor_remove_confirmation_message">Удалить этот фильтр?</string>
     <string name="systemcleaner_customfilter_editor_label_label">Метка фильтра</string>

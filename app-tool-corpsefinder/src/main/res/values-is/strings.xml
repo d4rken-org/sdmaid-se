@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">Eyða öllum forritaleifum?</string>
     <string name="corpsefinder_owners_label">Eigendur</string>
-    <string name="corpsefinder_corpse_hints_label">Athugasemd</string>
     <string name="corpsefinder_owner_unknown">Óþekktur eigandi</string>
     <string name="corpsefinder_corpse_hint_keeper">Þessi hlutur gæti innihaldið gögn sem þú vilt halda þrátt fyrir að eigandinn hafi verið fjarlægður, t.d. myndir eða afrit.</string>
     <string name="corpsefinder_corpse_hint_common">Þessi hlutur ber mjög algengt nafn og gæti tilheyrt forritum sem enn eru uppsett en SD Maid þekkir ekki.</string>

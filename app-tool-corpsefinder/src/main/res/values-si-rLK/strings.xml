@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">සියලුම යෙදුම් ඇතිරි මකා දමන්නද?</string>
     <string name="corpsefinder_owners_label">මාලිකාන්</string>
-    <string name="corpsefinder_corpse_hints_label">සෑහන්</string>
     <string name="corpsefinder_owner_unknown">අචාන මාලිකයා</string>
     <string name="corpsefinder_corpse_hint_keeper">මෙම අයිතමේ මාලිකයා අසථාපනය කැරී හොන්දැ ඔබට හාරා ගැනීමට ඇශ්ට වෛ හැකි දත්ත ඇතුල් විය හැකිය, උදා. ෆායාකැර නකඬත් පසුක්පත.</string>
     <string name="corpsefinder_corpse_hint_common">මෙම අයිතමට ඉතා පෙළිචිට නමක් ඇද අතර SD Maid නොදැනන දැනටමත් සථාපනය කැරී යෙදුම්වලට පායැන් නැති විය හැකිය.</string>

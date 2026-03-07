@@ -13,7 +13,6 @@
     <string name="appcontrol_toggle_app_disable_description">Onemogućavanje aplikacije sprječava njeno pokretanje i skriva je u izbornicima. Nema gubitka podataka.</string>
     <string name="appcontrol_appstore_open_title">Otvori u trgovini aplikacija</string>
     <string name="appcontrol_appstore_open_description">Otvara ovu aplikaciju u trgovini aplikacija iz koje je instalirana.</string>
-    <string name="appcontrol_systemsettings_open_title">Prikaži postavke</string>
     <string name="appcontrol_systemsettings_open_description">Otvara postavke sustava vašeg uređaja za ovu aplikaciju.</string>
     <string name="appcontrol_app_launch_title">Pokreni aplikaciju</string>
     <string name="appcontrol_app_launch_description">Pokreće primarnu aktivnost ove aplikacije.</string>
@@ -28,7 +27,6 @@
     <string name="appcontrol_tag_active">Nedavno aktivno</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paket</string>
-    <string name="appcontrol_tag_system">Sustav</string>
     <string name="appcontrol_tag_archived">Arhivirano</string>
     <string name="appcontrol_tag_uninstalled">Samo podaci</string>
     <string name="appcontrol_tag_not_installed">Nije instalirano</string>

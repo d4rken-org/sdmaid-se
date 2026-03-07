@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Qupiyalıq siyasatı</string>
     <string name="settings_privacy_policy_desc">Maǵlıwmatlarǵa juwapkershilik penen qayta islew.</string>
     <string name="settings_category_other_label">Basqa</string>
-    <string name="settings_category_filter_generic">Ulıwmalıq filtr</string>
-    <string name="settings_category_filter_specific">Arnawlı filtr</string>
     <string name="settings_sponsor_development_title">Qáwender rawajlanıw</string>
     <string name="settings_sponsor_development_summary">Qáwender bolıń hám turaqlı rawajlanıwǵa járdem beriń.</string>
     <string name="general_settings_label">Ulıwmalıq</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Qollanbalardı qayta ju\'klew</string>
     <string name="debug_card_root_test_action">Root tekseriwi</string>
     <string name="debug_card_shizuku_test_action">Shizuku tekseriwi</string>
-    <string name="settings_category_filter">Filtr</string>
-    <string name="settings_category_risklevel">Qáwip dárejesi</string>
     <string name="data_area_public_app_data_official_label">Ádettegi ashıq baǵdarlama maǵlıwmatları</string>
     <string name="data_area_public_app_assets_official_label">Ádettegi ashıq baǵdarlama aktivleri</string>
     <string name="data_area_public_storage_label">Ashıq saqlaw orını</string>

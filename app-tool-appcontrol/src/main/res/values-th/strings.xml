@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">การปิดใช้งานแอพจะป้องกันไม่ให้แอพทำงานและซ่อนจากเมนู ไม่มีการสูญเสียข้อมูล</string>
     <string name="appcontrol_appstore_open_title">เปิดในร้านแอพ</string>
     <string name="appcontrol_appstore_open_description">เปิดแอพนี้ในร้านแอพที่ดาวน์โหลดมา</string>
-    <string name="appcontrol_systemsettings_open_title">แสดงการตั้งค่า</string>
     <string name="appcontrol_systemsettings_open_description">เปิดการตั้งค่าระบบของอุปกรณ์สำหรับแอพนี้</string>
     <string name="appcontrol_app_launch_title">เปิดแอพ</string>
     <string name="appcontrol_app_launch_description">เปิดกิจกรรมหลักของแอพนี้</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">ใช้งานเมื่อเร็วๆ นี้</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">แบนดิล</string>
-    <string name="appcontrol_tag_system">ระบบ</string>
     <string name="appcontrol_tag_archived">ถูกเก็บไว้</string>
     <string name="appcontrol_tag_uninstalled">ข้อมูลเท่านั้น</string>
     <string name="appcontrol_tag_not_installed">ไม่ได้ติดตั้ง</string>

@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Rakenduse keelamine takistab sel töötamast ja peidab selle menüüdest. Andmed säilivad.</string>
     <string name="appcontrol_appstore_open_title">Ava rakenduste poes</string>
     <string name="appcontrol_appstore_open_description">Avage rakendus poes, kust selle paigaldasite.</string>
-    <string name="appcontrol_systemsettings_open_title">Näita seadeid</string>
     <string name="appcontrol_systemsettings_open_description">Avage seadme süsteemi seaded selle rakenduse jaoks.</string>
     <string name="appcontrol_app_launch_title">Käivita rakendus</string>
     <string name="appcontrol_app_launch_description">Käivita selle rakenduse peamine tegevus.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Hiljuti aktiivne</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pakk</string>
-    <string name="appcontrol_tag_system">Süsteem</string>
     <string name="appcontrol_tag_archived">Arhiveeritud</string>
     <string name="appcontrol_tag_uninstalled">Ainult andmed</string>
     <string name="appcontrol_tag_not_installed">Paigaldamata</string>

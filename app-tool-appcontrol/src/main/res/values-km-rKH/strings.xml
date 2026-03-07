@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">ការបិតកម្មវិធីទឹក្រេកការដោរកម្មវិធី និងលាកជាមេនុ។ មិនមានទិន្នន័យបាត់បាន។</string>
     <string name="appcontrol_appstore_open_title">បឹកនៅហាងកម្មវិធី</string>
     <string name="appcontrol_appstore_open_description">បឹកកម្មវិធីនេនៅហាងកម្មវិធីដែលតិត្តាក់ពី។</string>
-    <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
     <string name="appcontrol_systemsettings_open_description">បឹកការកំណត់ព័ឡករបស់ឧបករណ៍សម្រាប់កម្មវិធីនេ។</string>
     <string name="appcontrol_app_launch_title">ចំឡើងកម្មវិធី</string>
     <string name="appcontrol_app_launch_description">ចំឡើងក្រឹត់វាស្ថានទីមួយរបស់កម្មវិធីនេ។</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">បានត្រូវបានសកម្មេនឹង។។។</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">ប្រព័ន្ធ</string>
     <string name="appcontrol_tag_archived">ត្រូវបានឈាកជៅកន្ល័យ</string>
     <string name="appcontrol_tag_uninstalled">តិន្នន័យប័ត័</string>
     <string name="appcontrol_tag_not_installed">មិនតិត្តាក់</string>

@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">தனியுரிமை கொள்கை</string>
     <string name="settings_privacy_policy_desc">தகவலை பொறுப்புடனுடன் கைகாளவது.</string>
     <string name="settings_category_other_label">மற்றவை</string>
-    <string name="settings_category_filter_generic">பொது அரிப்பு</string>
-    <string name="settings_category_filter_specific">திறந்த அரிப்பு</string>
     <string name="settings_sponsor_development_title">மேம்பாட்டை வழங்கவும்</string>
     <string name="settings_sponsor_development_summary">ஒரு patron ஆகி தொடர் மேம்பாட்டை சாத்தியமாக்கவும்.</string>
     <string name="general_settings_label">பொது</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">செயலிகளை மீளேற்று</string>
     <string name="debug_card_root_test_action">Root சோதனை</string>
     <string name="debug_card_shizuku_test_action">Shizuku சோதனை</string>
-    <string name="settings_category_filter">வடிப்பான்</string>
-    <string name="settings_category_risklevel">ஆபத்து நிலை</string>
     <string name="data_area_public_app_data_official_label">இயல்பு பொது பயன்பாட்டு தரவு</string>
     <string name="data_area_public_app_assets_official_label">இயல்பு பொது பயன்பாட்டு சொல்வங்கள்</string>
     <string name="data_area_public_storage_label">பொது சேமிப்பு</string>

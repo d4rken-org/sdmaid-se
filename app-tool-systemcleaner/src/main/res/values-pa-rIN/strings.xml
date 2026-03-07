@@ -62,7 +62,6 @@
     <string name="systemcleaner_filter_usagestats_summary">ਐਪਲੀਕੇਸ਼ਨ ਵਰਤੋਂ ਅੰਕੜਿਆਂ ਨਾਲ ਸੰਬੰਧਿਤ ਫਾਇਲਾਂ।</string>
     <string name="systemcleaner_delete_all_confirmation_message">ਸਾਰੀ ਫਿਲਟਰ ਸਮੱਗਰੀ ਮਿਟਾਉਣੀ ਹੈ?</string>
     <string name="systemcleaner_customfilter_label">ਕਸਟਮ ਫਿਲਟਰ</string>
-    <string name="systemcleaner_customfilter_create_action">ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ</string>
     <string name="systemcleaner_customfilter_create_hint">ਵਾਧੂ ਫਾਇਲਾਂ ਨੂੰ ਮਿਟਾਉਣ ਲਈ ਇੱਕ ਕਸਟਮ ਫਿਲਟਰ ਬਣਾਓ ਜੋ ਤੁਹਾਡੇ ਡਿਵਾਈਸ ਅਤੇ ਵਰਤੋਂ ਦੇ ਮਾਮਲਿਆਂ ਲਈ ਵਿਲੱਖਣ ਹਨ।</string>
     <string name="systemcleaner_editor_remove_confirmation_message">ਇਸ ਫਿਲਟਰ ਨੂੰ ਹਟਾਉਣਾ ਹੈ?</string>
     <string name="systemcleaner_customfilter_editor_label_label">ਫਿਲਟਰ ਲੇਬਲ</string>

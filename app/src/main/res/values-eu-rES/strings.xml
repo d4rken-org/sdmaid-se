@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">Pribatutasun-politika</string>
     <string name="settings_privacy_policy_desc">Datuak erantzunkidetasunez kudeatzea.</string>
     <string name="settings_category_other_label">Bestelakoak</string>
-    <string name="settings_category_filter_generic">Iragazki generikoa</string>
-    <string name="settings_category_filter_specific">Iragazki zehatza</string>
     <string name="settings_sponsor_development_title">Garapen babestailetu</string>
     <string name="settings_sponsor_development_summary">Bihur zaitez babesle eta egin garapen jarraitua posible.</string>
     <string name="general_settings_label">Orokorra</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">Birkargatu aplikazioak</string>
     <string name="debug_card_root_test_action">Testa root</string>
     <string name="debug_card_shizuku_test_action">Testa Shizuku</string>
-    <string name="settings_category_filter">Iragazkia</string>
-    <string name="settings_category_risklevel">Arrisku-maila</string>
     <string name="data_area_public_app_data_official_label">Lehenetsitako datu publikoak aplikazioagatik</string>
     <string name="data_area_public_app_assets_official_label">Aplikazioen aktibo publikoak lehenetsi gisara</string>
     <string name="data_area_public_storage_label">Biltegi publikoa</string>

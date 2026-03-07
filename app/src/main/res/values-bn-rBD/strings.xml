@@ -65,8 +65,6 @@
     <string name="settings_privacy_policy_label">গোপনীয়তার নীতিমালা</string>
     <string name="settings_privacy_policy_desc">দায়িত্বের সাথে ডেটা পরিচালনা করা।</string>
     <string name="settings_category_other_label">অন্যান্য</string>
-    <string name="settings_category_filter_generic">জেনেরিক ফিল্টার</string>
-    <string name="settings_category_filter_specific">নির্দিষ্ট ফিল্টার</string>
     <string name="settings_sponsor_development_title">স্পনসর ডেভলপমেন্ট</string>
     <string name="settings_sponsor_development_summary">একজন পৃষ্ঠপোষক হয়ে উঠুন এবং অব্যাহত উন্নয়ন সম্ভবপর করে তুলুন।</string>
     <string name="general_settings_label">সাধারণ</string>
@@ -222,8 +220,6 @@
     <string name="debug_card_pkgs_reload_action">অ্যাপগুলি পুনরায় লোড করুন</string>
     <string name="debug_card_root_test_action">রুট পরীক্ষা করুন</string>
     <string name="debug_card_shizuku_test_action">Shizuku পরীক্ষা করুন</string>
-    <string name="settings_category_filter">পরিশ্রুতক</string>
-    <string name="settings_category_risklevel">ঝুঁকির স্তর</string>
     <string name="data_area_public_app_data_official_label">ডিফল্ট পাবলিক অ্যাপ ডেটা</string>
     <string name="data_area_public_app_assets_official_label">ডিফল্ট পাবলিক অ্যাপ সম্পদ</string>
     <string name="data_area_public_storage_label">পাবলিক স্টোরেজ</string>

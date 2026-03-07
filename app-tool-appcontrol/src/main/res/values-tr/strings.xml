@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Bir uygulamayı devre dışı bırakmak, çalışmasını engeller ve menülerden gizler. Veri kaybı yoktur.</string>
     <string name="appcontrol_appstore_open_title">Uygulama mağazasında aç</string>
     <string name="appcontrol_appstore_open_description">Bu uygulamayı, yüklendiği uygulama mağazasında açın.</string>
-    <string name="appcontrol_systemsettings_open_title">Ayarları göster</string>
     <string name="appcontrol_systemsettings_open_description">Bu uygulama için cihazınızın sistem ayarlarını açın.</string>
     <string name="appcontrol_app_launch_title">Uygulamayı başlat</string>
     <string name="appcontrol_app_launch_description">Bu uygulamanın birincil etkinliğini başlat.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Yakın zamanda aktif</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Paket</string>
-    <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Arşivlenmiş</string>
     <string name="appcontrol_tag_uninstalled">Sadece Veri</string>
     <string name="appcontrol_tag_not_installed">Yüklü değil</string>

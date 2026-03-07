@@ -14,7 +14,6 @@
     <string name="appcontrol_toggle_app_disable_description">Wyłączenie aplikacji uniemożliwia jej uruchomienie i ukrywa ją w menu. Nie ma utraty danych.</string>
     <string name="appcontrol_appstore_open_title">Otwórz w sklepie z aplikacjami</string>
     <string name="appcontrol_appstore_open_description">Otwórz tę aplikację w sklepie, z którego została zainstalowana.</string>
-    <string name="appcontrol_systemsettings_open_title">Pokaż ustawienia</string>
     <string name="appcontrol_systemsettings_open_description">Otwórz ustawienia systemowe twojego urządzenia dla tej aplikacji.</string>
     <string name="appcontrol_app_launch_title">Uruchom aplikację</string>
     <string name="appcontrol_app_launch_description">Uruchom podstawową aktywność tej aplikacji.</string>
@@ -29,7 +28,6 @@
     <string name="appcontrol_tag_active">Ostatnio aktywny</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Pakiet</string>
-    <string name="appcontrol_tag_system">System</string>
     <string name="appcontrol_tag_archived">Zarchiwizowane</string>
     <string name="appcontrol_tag_uninstalled">Tylko dane</string>
     <string name="appcontrol_tag_not_installed">Nie zainstalowano</string>

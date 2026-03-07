@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Deaktivering van \'n toepassing verhoed dit om te loop en versteek dit van menus. Daar is geen data verlies nie.</string>
     <string name="appcontrol_appstore_open_title">Maak oop in toepassing winkel</string>
     <string name="appcontrol_appstore_open_description">Maak hierdie toepassing oop in die toepassing winkel waarvanaf dit geïnstalleer was.</string>
-    <string name="appcontrol_systemsettings_open_title">Wys instellings</string>
     <string name="appcontrol_systemsettings_open_description">Maak jou toestel se stelsel instellings oop vir hierdie toepassing.</string>
     <string name="appcontrol_app_launch_title">Lanseer toepassing</string>
     <string name="appcontrol_app_launch_description">Lanseer hierdie toepassing se primêre aktiwiteit.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Onlangs aktief</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bondel</string>
-    <string name="appcontrol_tag_system">Stelsel</string>
     <string name="appcontrol_tag_archived">Geargiveer</string>
     <string name="appcontrol_tag_uninstalled">Slegs Data</string>
     <string name="appcontrol_tag_not_installed">Nie geïnstalleer nie</string>

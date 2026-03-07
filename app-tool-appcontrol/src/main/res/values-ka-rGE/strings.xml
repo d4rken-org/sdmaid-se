@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">აპის გათიშვა ხელს უშლის მის გაშვებას და მალავს მენიუებიდან. მონაცემების დაკარგვა არ ხდება.</string>
     <string name="appcontrol_appstore_open_title">აპ მაღაზიაში გახსნა</string>
     <string name="appcontrol_appstore_open_description">ამ აპის გახსნა აპ მაღაზიაში, საიდანაც ის დაინსტალირდა.</string>
-    <string name="appcontrol_systemsettings_open_title">პარამეტრების ჩვენება</string>
     <string name="appcontrol_systemsettings_open_description">ამ აპის სისტემური პარამეტრების გახსნა თქვენს მოწყობილობაზე.</string>
     <string name="appcontrol_app_launch_title">აპის გაშვება</string>
     <string name="appcontrol_app_launch_description">ამ აპის ძირითადი აქტივობის გაშვება.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">ახლახანს აქტიური</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">სისტემა</string>
     <string name="appcontrol_tag_archived">დაარქივებული</string>
     <string name="appcontrol_tag_uninstalled">მხოლოდ მონაცემები</string>
     <string name="appcontrol_tag_not_installed">არ არის დაინსტალირებული</string>

@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">گزینه‌های مرتب‌سازی</string>
     <string name="general_sort_reverse_action">حالت مرتب سازی معکوس</string>
     <string name="general_tag_filter_label">فیلتر بر اساس برچسب</string>
+    <string name="general_tag_system">سیستم</string>
     <string name="general_result_success_message">عملیات موفق</string>
     <string name="general_result_failure_message">عملیات انجام نشد</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">تاریخچه</string>
     <string name="settings_category_tools_label">ابزارها</string>
+    <string name="general_hints_label">اطلاعیه</string>
+    <string name="settings_category_filter_generic">فیلتر کلی</string>
+    <string name="settings_category_filter_specific">فیلتر خاص</string>
+    <string name="settings_category_risklevel">سطح خطر</string>
+    <string name="settings_category_filter">فیلتر</string>
+    <string name="appcontrol_systemsettings_open_title">نمایش تنظیمات</string>
+    <string name="systemcleaner_customfilter_create_action">ایجاد فیلتر سفارشی</string>
 </resources>

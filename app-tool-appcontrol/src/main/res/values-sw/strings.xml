@@ -12,7 +12,6 @@
     <string name="appcontrol_toggle_app_disable_description">Kuzima programu kunazuia isiendeshe na kuificha kutoka menyu. Hakuna upotevu wa data.</string>
     <string name="appcontrol_appstore_open_title">Fungua katika duka la programu</string>
     <string name="appcontrol_appstore_open_description">Fungua programu hii katika duka la programu lililoitumiwa kusakinisha.</string>
-    <string name="appcontrol_systemsettings_open_title">Onyesha mipangilio</string>
     <string name="appcontrol_systemsettings_open_description">Fungua mipangilio ya mfumo wa kifaa chako kwa programu hii.</string>
     <string name="appcontrol_app_launch_title">Zindua programu</string>
     <string name="appcontrol_app_launch_description">Zindua shughuli kuu ya programu hii.</string>
@@ -27,7 +26,6 @@
     <string name="appcontrol_tag_active">Zimekuwa zinafanya kazi hivi karibuni</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundla</string>
-    <string name="appcontrol_tag_system">Mfumo</string>
     <string name="appcontrol_tag_archived">Imehifadhiwa</string>
     <string name="appcontrol_tag_uninstalled">Data Tu</string>
     <string name="appcontrol_tag_not_installed">Haijasakinishwa</string>

@@ -11,7 +11,6 @@
     <string name="appcontrol_toggle_app_disable_description">Menyahdayakan aplikasi mencegahnya daripada berjalan dan menyembunyikannya daripada menu. Tiada kehilangan data.</string>
     <string name="appcontrol_appstore_open_title">Buka di gedung aplikasi</string>
     <string name="appcontrol_appstore_open_description">Buka aplikasi ini dalam gedung aplikasi tempat ia dipasang.</string>
-    <string name="appcontrol_systemsettings_open_title">Tunjukkan tetapan</string>
     <string name="appcontrol_systemsettings_open_description">Buka tetapan sistem peranti anda untuk aplikasi ini.</string>
     <string name="appcontrol_app_launch_title">Lancarkan aplikasi</string>
     <string name="appcontrol_app_launch_description">Lancarkan aktiviti utama aplikasi ini.</string>
@@ -26,7 +25,6 @@
     <string name="appcontrol_tag_active">Baru-baru ini aktif</string>
     <string name="appcontrol_tag_apk_base">APK</string>
     <string name="appcontrol_tag_apk_bundle">Bundle</string>
-    <string name="appcontrol_tag_system">Sistem</string>
     <string name="appcontrol_tag_archived">Diarkibkan</string>
     <string name="appcontrol_tag_uninstalled">Data sahaja</string>
     <string name="appcontrol_tag_not_installed">Tidak dipasang</string>

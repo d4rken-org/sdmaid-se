@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">అన్ని యాప్ అవశేషాలను తొలగించాలా?</string>
     <string name="corpsefinder_owners_label">స్వామ్యులు</string>
-    <string name="corpsefinder_corpse_hints_label">గమనిక</string>
     <string name="corpsefinder_owner_unknown">తెలియని స్వామి</string>
     <string name="corpsefinder_corpse_hint_keeper">ఈ అంశం దాని స్వామి అనిన్‌స్టాల్ చేయబడినా మీరు ఉంచుకోవలసిన డేటాను కలిగి ఉండవచ్చు, ఉదా. ఫోటోలు లేదా బ్యాకప్లు.</string>
     <string name="corpsefinder_corpse_hint_common">ఈ అంశం చాలా సాధారణ పేరును కలిగి ఉంది మరియు SD Maid కు తెలియని ఇన్నూ ఇన్‌స్టాల్ చేయబడిన యాప్‌లకు చెందవచ్చు.</string>

@@ -49,7 +49,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">အက်ပ် အကြွင်းအကျန် အားလုံး ဖျက်မလား။</string>
     <string name="corpsefinder_owners_label">ပိုင်ရှင်များ</string>
-    <string name="corpsefinder_corpse_hints_label">အသိပေးချက်</string>
     <string name="corpsefinder_owner_unknown">မသိသော ပိုင်ရှင်</string>
     <string name="corpsefinder_corpse_hint_keeper">ဤအရာသည် ပိုင်ရှင် အက်ပ်ကို ဖြုတ်ထားသော်လည်း သိမ်းထားလိုသော ဒေတာများ ပါဝင်နိုင်သည်၊ ဥပမာ - ဓာတ်ပုံများ သို့မဟုတ် အရန်သိမ်းဆည်းမှုများ။</string>
     <string name="corpsefinder_corpse_hint_common">ဤအရာသည် အလွန်အသုံးများသော အမည်ရှိပြီး SD Maid မသိသော ထည့်သွင်းထားဆဲ အက်ပ်များ၏ ပိုင်ဆိုင်မှု ဖြစ်နိုင်သည်။</string>

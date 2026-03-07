@@ -74,6 +74,7 @@
     <string name="general_sort_options_label">ترتیب کے اختیارات</string>
     <string name="general_sort_reverse_action">ریورس سارٹ موڈ</string>
     <string name="general_tag_filter_label">ٹیگز کے ذریعے فلٹر کریں</string>
+    <string name="general_tag_system">سسٹم</string>
     <string name="general_result_success_message">کامیابی سے مکمل</string>
     <string name="general_result_failure_message">آپریشن ناکام</string>
     <plurals name="general_result_x_space_freed">
@@ -190,4 +191,11 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">عافیتاریخ</string>
     <string name="settings_category_tools_label">ٹولز</string>
+    <string name="general_hints_label">نوٹس</string>
+    <string name="settings_category_filter_generic">عمومی فلٹر</string>
+    <string name="settings_category_filter_specific">مخصوص فلٹر</string>
+    <string name="settings_category_risklevel">خطرے کی سطح</string>
+    <string name="settings_category_filter">فلٹر</string>
+    <string name="appcontrol_systemsettings_open_title">سیٹنگز دکھائیں</string>
+    <string name="systemcleaner_customfilter_create_action">کسٹم فلٹر بنائیں</string>
 </resources>

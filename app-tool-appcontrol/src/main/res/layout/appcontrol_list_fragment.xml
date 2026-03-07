@@ -264,7 +264,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
-                    android:text="@string/appcontrol_tag_system"
+                    android:text="@string/general_tag_system"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toEndOf="@id/tag_filter_system_icon"
                     app:layout_constraintTop_toBottomOf="@id/tag_filter_user_switch" />

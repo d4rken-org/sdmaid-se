@@ -53,7 +53,6 @@
     </plurals>
     <string name="corpsefinder_delete_all_confirmation_message">تمام ایپ بقایا ڈیلیٹ کریں؟</string>
     <string name="corpsefinder_owners_label">مالکان</string>
-    <string name="corpsefinder_corpse_hints_label">نوٹس</string>
     <string name="corpsefinder_owner_unknown">نامعلوم مالک</string>
     <string name="corpsefinder_corpse_hint_keeper">اس آئٹم میں ایسا ڈیٹا ہو سکتا ہے جسے آپ رکھنا چاہیں حالانکہ اس کا مالک انانسٹال ہو گیا ہے، جیسے فوٹوز یا بیک اپس۔</string>
     <string name="corpsefinder_corpse_hint_common">اس آئٹم کا بہت عام نام ہے اور یہ ابھی بھی انسٹال شدہ ایپس سے تعلق رکھ سکتا ہے جن کے بارے میں SD Maid کو علم نہیں۔</string>
