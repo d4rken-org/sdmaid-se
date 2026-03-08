@@ -28,6 +28,18 @@
     <string name="debug_debuglog_short_recording_desc">The recording was very short. Debug logs are recordings, not snapshots — reproduce the issue while recording is active for the log to be useful.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continue recording</string>
     <string name="debug_debuglog_short_recording_stop_action">Stop anyway</string>
+    <string name="debug_debuglog_screen_failed_title">Session Failed</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">The debug log file was empty. Try recording again and reproduce the issue while recording.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">The debug log file is missing. The recording may have been interrupted.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">The compressed archive is corrupted. Try recording again.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Compression failed. Check available storage and try again.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Compressing…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Failed: empty log</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Failed: missing log</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Failed: corrupt archive</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Failed: compression error</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Delete this debug log session?</string>
+    <string name="debug_debuglog_sessions_stop_action">Stop</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
     <string name="tasks_activity_working_notification_title">SD Maid is working</string>

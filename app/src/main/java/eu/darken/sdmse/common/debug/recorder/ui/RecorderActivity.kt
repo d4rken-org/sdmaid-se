@@ -10,13 +10,13 @@ import android.text.style.URLSpan
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
-import androidx.core.view.isGone
 import androidx.core.view.isInvisible
 import androidx.core.view.isVisible
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -32,7 +32,7 @@ class RecorderActivity : Activity2() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (intent.getStringExtra(RECORD_PATH) == null) {
+        if (intent.getStringExtra(EXTRA_SESSION_ID) == null) {
             finish()
             return
         }
@@ -79,13 +79,35 @@ class RecorderActivity : Activity2() {
         }
 
         vm.state.observe2 { state ->
-            ui.loadingIndicator.isGone = !state.isWorking
-            ui.shareAction.isInvisible = state.isWorking
-            ui.keepAction.isInvisible = state.isWorking
+            val isZipping = state.isZipping
+            val isFailed = state.isFailed
+            val isShareable = state.compressedFile != null && !isFailed
+            val isDeletable = !isZipping
+
+            ui.loadingIndicator.isVisible = isZipping
+            ui.shareAction.isVisible = isShareable
+            ui.shareAction.isInvisible = isZipping && !isFailed
+            ui.closeAction.isVisible = true
+            ui.deleteAction.isEnabled = isDeletable
+            ui.deleteAction.alpha = if (isDeletable) 1.0f else 0.3f
+
+            // Failed state card
+            ui.failedCard.isVisible = isFailed
+            if (isFailed) {
+                ui.failedReason.setText(
+                    when (state.failedReason) {
+                        DebugLogSession.Failed.Reason.EMPTY_LOG -> R.string.debug_debuglog_screen_failed_empty_log_desc
+                        DebugLogSession.Failed.Reason.MISSING_LOG -> R.string.debug_debuglog_screen_failed_missing_log_desc
+                        DebugLogSession.Failed.Reason.CORRUPT_ZIP -> R.string.debug_debuglog_screen_failed_corrupt_zip_desc
+                        DebugLogSession.Failed.Reason.ZIP_FAILED -> R.string.debug_debuglog_screen_failed_zip_error_desc
+                        null -> R.string.debug_debuglog_screen_failed_zip_error_desc
+                    }
+                )
+            }
 
             ui.recordingPath.text = state.logDir?.let { "${it.path}/" } ?: "?"
 
-            ui.logFilesHeader.isVisible = !state.isWorking && state.logEntries.isNotEmpty()
+            ui.logFilesHeader.isVisible = state.logEntries.isNotEmpty()
             ui.fileCountBadge.text = state.logEntries.size.toString()
 
             ui.listCaption.apply {
@@ -120,18 +142,18 @@ class RecorderActivity : Activity2() {
             setText(sp, TextView.BufferType.SPANNABLE)
         }
 
-        ui.keepAction.setOnClickListener { vm.keep() }
-        ui.cancelAction.setOnClickListener { vm.discard() }
+        ui.closeAction.setOnClickListener { vm.close() }
+        ui.deleteAction.setOnClickListener { vm.delete() }
     }
 
     companion object {
         internal val TAG = logTag("Debug", "Log", "RecorderActivity")
-        const val RECORD_PATH = "logPath"
+        const val EXTRA_SESSION_ID = "sessionId"
 
-        fun getLaunchIntent(context: Context, path: String): Intent {
-            val intent = Intent(context, RecorderActivity::class.java)
-            intent.putExtra(RECORD_PATH, path)
-            return intent
+        fun getLaunchIntent(context: Context, sessionId: String): Intent {
+            return Intent(context, RecorderActivity::class.java).apply {
+                putExtra(EXTRA_SESSION_ID, sessionId)
+            }
         }
     }
 }
