@@ -25,11 +25,11 @@ class DebugLogSessionsViewModel @Inject constructor(
         val sessions: List<DebugLogSession> = emptyList(),
     )
 
-    fun delete(sessionId: String) {
+    fun delete(sessionId: String) = launch {
         sessionManager.delete(sessionId)
     }
 
-    fun deleteAll() {
+    fun deleteAll() = launch {
         sessionManager.deleteAll()
     }
 

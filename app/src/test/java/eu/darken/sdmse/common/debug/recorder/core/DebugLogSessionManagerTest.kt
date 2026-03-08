@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.debug.recorder.core
 
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
@@ -71,10 +72,11 @@ class DebugLogSessionManagerTest : BaseTest() {
 
     /** Mock that actually creates the zip file, preventing infinite auto-zip loops */
     private fun mockZipperCreatesFile() {
-        coEvery { debugLogZipper.zipAndGetUri(any()) } answers {
+        every { debugLogZipper.zip(any()) } answers {
             val logDir = firstArg<File>()
-            File(logDir.parentFile, "${logDir.name}.zip").writeBytes(ByteArray(50))
-            mockk()
+            val zipFile = File(logDir.parentFile, "${logDir.name}.zip")
+            zipFile.writeBytes(ByteArray(50))
+            zipFile
         }
     }
 
@@ -370,7 +372,7 @@ class DebugLogSessionManagerTest : BaseTest() {
     inner class Guards {
 
         @Test
-        fun `delete is rejected when session id is in zippingIds`() = runTest {
+        fun `delete throws when session id is in zippingIds`() = runTest {
             // Create a session with a finished zip so scan doesn't trigger auto-zip
             createSessionDir("session1")
             createZipFile("session1")
@@ -383,9 +385,10 @@ class DebugLogSessionManagerTest : BaseTest() {
 
             // Create another session dir and set up a blocking zip mock
             val newDir = createSessionDir("session2")
-            coEvery { debugLogZipper.zipAndGetUri(newDir) } coAnswers {
+            every { debugLogZipper.zip(newDir) } answers {
                 // Never completes — simulates long-running zip
-                kotlinx.coroutines.awaitCancellation()
+                Thread.sleep(Long.MAX_VALUE)
+                error("unreachable")
             }
             coEvery { recorderModule.requestStopRecorder() } returns RecorderModule.StopResult.Stopped(
                 sessionId = "session2",
@@ -395,14 +398,100 @@ class DebugLogSessionManagerTest : BaseTest() {
             // Stop recording triggers zipSessionAsync → adds session2 to zippingIds
             manager.requestStopRecording()
 
-            // Attempt delete while zipping — should be rejected
-            manager.delete("session2")
-
-            // Let delete coroutine run (if it wasn't rejected)
-            advanceUntilIdle()
+            // Attempt delete while zipping — should throw
+            shouldThrow<IllegalArgumentException> {
+                manager.delete("session2")
+            }
 
             // Session dir should still exist
             File(logParent, "session2").exists() shouldBe true
+        }
+
+        @Test
+        fun `delete throws for active recording`() = runTest {
+            val dir = createSessionDir("session1")
+            recorderState.value = RecorderModule.State(currentLogDir = dir)
+            coEvery { recorderModule.getCurrentLogDir() } returns dir
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IllegalArgumentException> {
+                manager.delete("session1")
+            }
+        }
+    }
+
+    @Nested
+    inner class ZipSession {
+
+        @Test
+        fun `zipSession returns existing valid zip`() = runTest {
+            createSessionDir("session1")
+            val zip = createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            val result = manager.zipSession("session1")
+            result shouldBe zip
+        }
+
+        @Test
+        fun `zipSession re-zips when dir is newer`() = runTest {
+            val dir = createSessionDir("session1")
+            val zip = createZipFile("session1")
+            // Make the zip older than the dir
+            zip.setLastModified(dir.lastModified() - 10_000)
+
+            mockZipperCreatesFile()
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            val result = manager.zipSession("session1")
+            result.exists() shouldBe true
+            result.extension shouldBe "zip"
+        }
+
+        @Test
+        fun `zipSession throws for active recording`() = runTest {
+            val dir = createSessionDir("session1")
+            recorderState.value = RecorderModule.State(currentLogDir = dir)
+            coEvery { recorderModule.getCurrentLogDir() } returns dir
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IllegalArgumentException> {
+                manager.zipSession("session1")
+            }
+        }
+
+        @Test
+        fun `zipSession throws when no directory found`() = runTest {
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            shouldThrow<IllegalArgumentException> {
+                manager.zipSession("nonexistent")
+            }
+        }
+    }
+
+    @Nested
+    inner class StaleTempCleanup {
+
+        @Test
+        fun `scanSessions cleans up stale zip tmp files`() {
+            createSessionDir("session1")
+            createZipFile("session1")
+            val tmpFile = File(logParent, "session1.zip.tmp").apply { writeBytes(ByteArray(10)) }
+            tmpFile.exists() shouldBe true
+
+            DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            tmpFile.exists() shouldBe false
         }
     }
 }

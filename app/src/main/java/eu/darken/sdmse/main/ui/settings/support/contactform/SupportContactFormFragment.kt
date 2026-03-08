@@ -96,12 +96,13 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
         vm.logPickerState.observe2(ui) { pickerState ->
             val items = pickerState.sessions.map { session ->
                 LogSessionAdapter.SessionVH.Item(
+                    sessionId = session.sessionId,
                     zipFile = session.zipFile,
                     size = session.size,
                     lastModified = session.lastModified,
-                    isSelected = session.zipFile == pickerState.selectedZip,
-                    onSelected = { vm.selectLogSession(session.zipFile) },
-                    onDelete = { confirmDeleteLogSession(session.zipFile) },
+                    isSelected = session.sessionId == pickerState.selectedSessionId,
+                    onSelected = { vm.selectLogSession(session.sessionId) },
+                    onDelete = { confirmDeleteLogSession(session.sessionId) },
                 )
             }
             logSessionAdapter.update(items)
@@ -187,12 +188,12 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
         ui.debugLogCard.isVisible = state?.isBug == true
     }
 
-    private fun confirmDeleteLogSession(zipFile: java.io.File) {
+    private fun confirmDeleteLogSession(sessionId: String) {
         MaterialAlertDialogBuilder(requireContext()).apply {
             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
-            setMessage(getString(eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x, zipFile.name))
+            setMessage(getString(eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x, sessionId))
             setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                vm.deleteLogSession(zipFile)
+                vm.deleteLogSession(sessionId)
             }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
         }.show()

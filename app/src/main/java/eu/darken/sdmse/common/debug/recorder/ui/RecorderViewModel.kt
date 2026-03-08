@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
-import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
@@ -35,7 +34,6 @@ class RecorderViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val webpageTool: WebpageTool,
-    private val debugLogZipper: DebugLogZipper,
     private val sessionManager: DebugLogSessionManager,
 ) : ViewModel3(dispatcherProvider) {
 
@@ -99,8 +97,7 @@ class RecorderViewModel @Inject constructor(
     }
 
     fun share() = launch {
-        val zipFile = stater.value().compressedFile ?: throw IllegalStateException("No compressed file available")
-        val uri = debugLogZipper.getUriForZip(zipFile)
+        val uri = sessionManager.getZipUri(sessionId)
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             putExtra(Intent.EXTRA_STREAM, uri)
