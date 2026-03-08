@@ -191,6 +191,60 @@
                 </LinearLayout>
             </com.google.android.material.card.MaterialCardView>
 
+            <!-- Failed Session Card -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/failed_card"
+                style="@style/Widget.Material3.CardView.Elevated"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:visibility="gone"
+                app:cardBackgroundColor="?attr/colorErrorContainer"
+                app:cardElevation="2dp"
+                tools:visibility="visible">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginBottom="8dp"
+                        android:gravity="top"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_marginEnd="12dp"
+                            android:src="@drawable/ic_error_outline"
+                            app:tint="?attr/colorOnErrorContainer" />
+
+                        <com.google.android.material.textview.MaterialTextView
+                            style="@style/TextAppearance.Material3.TitleMedium"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="@string/debug_debuglog_screen_failed_title"
+                            android:textColor="?attr/colorOnErrorContainer"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <com.google.android.material.textview.MaterialTextView
+                        android:id="@+id/failed_reason"
+                        style="@style/TextAppearance.Material3.BodyMedium"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="?attr/colorOnErrorContainer"
+                        tools:text="The debug log file was empty." />
+
+                </LinearLayout>
+            </com.google.android.material.card.MaterialCardView>
+
             <!-- Log Files Header -->
             <com.google.android.material.card.MaterialCardView
                 android:id="@+id/log_files_header"
@@ -303,23 +357,23 @@
                 android:padding="16dp">
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/cancel_action"
+                    android:id="@+id/delete_action"
                     style="@style/Widget.Material3.Button.OutlinedButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
-                    android:text="@string/debug_debuglog_screen_discard_action"
+                    android:text="@string/general_delete_action"
                     app:strokeColor="?attr/colorOutline" />
 
                 <com.google.android.material.button.MaterialButton
-                    android:id="@+id/keep_action"
+                    android:id="@+id/close_action"
                     style="@style/Widget.Material3.Button.TonalButton"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginHorizontal="4dp"
                     android:layout_weight="1"
-                    android:text="@string/general_save_action" />
+                    android:text="@string/general_close_action" />
 
                 <FrameLayout
                     android:layout_width="0dp"

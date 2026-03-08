@@ -16,10 +16,12 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
-import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
+import kotlinx.coroutines.flow.map
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
@@ -34,54 +36,71 @@ class RecorderViewModel @Inject constructor(
     @ApplicationContext private val context: Context,
     private val webpageTool: WebpageTool,
     private val debugLogZipper: DebugLogZipper,
+    private val sessionManager: DebugLogSessionManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val sessionPath = handle.get<String>(RecorderActivity.RECORD_PATH)?.let { File(it) }
-    private val zipPath = sessionPath?.let { File(it.parentFile, "${it.name}.zip") }
+    private val sessionId = handle.get<String>(RecorderActivity.EXTRA_SESSION_ID)
+        ?: throw IllegalStateException("No session ID provided")
 
-    private val stater = DynamicStateFlow(TAG, vmScope) {
-        State(logDir = sessionPath)
-    }
+    private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.asLiveData2()
 
     val shareEvent = SingleLiveEvent<Intent>()
 
     init {
         launch {
-            if (sessionPath == null) throw IllegalStateException("No recorded path found")
+            sessionManager.sessions
+                .map { sessions -> sessions.find { it.id == sessionId } }
+                .collect { session ->
+                    if (session == null) {
+                        log(TAG, WARN) { "Session $sessionId no longer exists" }
+                        popNavStack()
+                        return@collect
+                    }
 
-            val recordingDuration = try {
-                val attrs = Files.readAttributes(sessionPath.toPath(), BasicFileAttributes::class.java)
-                Duration.between(attrs.creationTime().toInstant(), Instant.now())
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to read session dir creation time: $e" }
-                null
-            }
-            stater.updateBlocking { copy(recordingDuration = recordingDuration) }
+                    val logDir = session.logDir
+                    val logEntries = if (logDir.isDirectory) {
+                        logDir.listFiles()
+                            ?.map { LogFileAdapter.Entry.Item(path = it, size = it.length()) }
+                            ?.sortedByDescending { it.size }
+                            ?: emptyList()
+                    } else {
+                        emptyList()
+                    }
 
-            log(TAG) { "Getting log files in dir: $sessionPath" }
-            val logFiles = sessionPath.listFiles() ?: throw IllegalStateException("No log files found")
+                    val recordingDuration = if (logDir.isDirectory) {
+                        try {
+                            val attrs = Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
+                            val coreLog = File(logDir, "core.log")
+                            val endTime = if (coreLog.exists()) coreLog.lastModified() else logDir.lastModified()
+                            Duration.between(attrs.creationTime().toInstant(), Instant.ofEpochMilli(endTime))
+                        } catch (e: Exception) {
+                            log(TAG, WARN) { "Failed to read recording duration: $e" }
+                            null
+                        }
+                    } else null
 
-            log(TAG) { "Found ${logFiles.size} logfiles: $logFiles" }
-            var entries = logFiles.map { LogFileAdapter.Entry.Item(path = it) }
-            stater.updateBlocking { copy(logEntries = entries) }
+                    val failedReason = (session as? DebugLogSession.Failed)?.reason
 
-            log(TAG) { "Determining log file size..." }
-            entries = entries.map { entry -> entry.copy(size = entry.path.length()) }.sortedByDescending { it.size }
-            stater.updateBlocking { copy(logEntries = entries) }
-
-            log(TAG) { "Compressing log files..." }
-            val uri = debugLogZipper.zipAndGetUri(sessionPath)
-            val zipFile = zipPath ?: throw IllegalStateException("No zip path found")
-            val zippedSize = zipFile.length()
-            log(TAG) { "Zip file created ${zippedSize}B at $zipFile" }
-            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize, isWorking = false) }
+                    stater.updateBlocking {
+                        copy(
+                            logDir = logDir,
+                            logEntries = logEntries,
+                            recordingDuration = recordingDuration,
+                            isZipping = session is DebugLogSession.Zipping,
+                            isFailed = session is DebugLogSession.Failed,
+                            failedReason = failedReason,
+                            compressedFile = (session as? DebugLogSession.Finished)?.zipFile,
+                            compressedSize = (session as? DebugLogSession.Finished)?.compressedSize,
+                        )
+                    }
+                }
         }
     }
 
     fun share() = launch {
-        if (sessionPath == null) throw IllegalStateException("sessionPath is null")
-        val uri = debugLogZipper.zipAndGetUri(sessionPath)
+        val zipFile = stater.value().compressedFile ?: throw IllegalStateException("No compressed file available")
+        val uri = debugLogZipper.getUriForZip(zipFile)
 
         val intent = Intent(Intent.ACTION_SEND).apply {
             putExtra(Intent.EXTRA_STREAM, uri)
@@ -106,30 +125,24 @@ class RecorderViewModel @Inject constructor(
         webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
     }
 
-    fun keep() = launch {
-        sessionPath?.deleteRecursively()
+    fun close() = launch {
         popNavStack()
     }
 
-    fun discard() = launch {
-        stater.updateBlocking { copy(isWorking = true) }
-
-        sessionPath?.deleteAll()
-        if (sessionPath?.exists() == true) log(TAG, WARN) { "Failed to delete $sessionPath" }
-
-        zipPath?.delete()
-        if (zipPath?.exists() == true) log(TAG, WARN) { "Failed to delete $zipPath" }
-
+    fun delete() = launch {
+        sessionManager.delete(sessionId)
         popNavStack()
     }
 
     data class State(
-        val logDir: File?,
+        val logDir: File? = null,
         val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
         val compressedFile: File? = null,
         val compressedSize: Long? = null,
         val recordingDuration: Duration? = null,
-        val isWorking: Boolean = true,
+        val isZipping: Boolean = false,
+        val isFailed: Boolean = false,
+        val failedReason: DebugLogSession.Failed.Reason? = null,
     )
 
     companion object {

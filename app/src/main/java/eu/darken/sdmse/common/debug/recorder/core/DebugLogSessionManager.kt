@@ -1,0 +1,331 @@
+package eu.darken.sdmse.common.debug.recorder.core
+
+import eu.darken.sdmse.common.coroutine.AppScope
+import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.replayingShare
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableSharedFlow
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.update
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.sync.Mutex
+import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withContext
+import java.io.File
+import java.nio.file.Files
+import java.nio.file.attribute.BasicFileAttributes
+import java.time.Instant
+import javax.inject.Inject
+import javax.inject.Singleton
+
+@Singleton
+class DebugLogSessionManager @Inject constructor(
+    @AppScope private val appScope: CoroutineScope,
+    private val dispatcherProvider: DispatcherProvider,
+    private val recorderModule: RecorderModule,
+    private val debugLogZipper: DebugLogZipper,
+) {
+
+    private val fsMutex = Mutex()
+    private val zippingIds = MutableStateFlow<Set<String>>(emptySet())
+    private val failedZipIds = MutableStateFlow<Set<String>>(emptySet())
+    private val refreshTrigger = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
+    private val pendingAutoZips = mutableSetOf<String>()
+
+    val sessions: Flow<List<DebugLogSession>> = combine(
+        recorderModule.state,
+        zippingIds,
+        failedZipIds,
+        refreshTrigger.onStart { emit(Unit) },
+    ) { recorderState, zipping, failedZips, _ ->
+        withContext(dispatcherProvider.IO) {
+            val (sessions, autoZipCandidates) = fsMutex.withLock {
+                val activeRecordingDir = recorderState.currentLogDir
+                val logDirs = recorderModule.getLogDirectories()
+                val scanned = scanSessions(logDirs, activeRecordingDir)
+                applyOverlays(scanned, zipping, failedZips)
+            }
+            // Schedule auto-zips outside the combine lambda to avoid reentrancy
+            val newCandidates = autoZipCandidates.filter { (id, _) ->
+                id !in pendingAutoZips && id !in zipping
+            }
+            if (newCandidates.isNotEmpty()) {
+                newCandidates.forEach { (sessionId, _) -> pendingAutoZips.add(sessionId) }
+                appScope.launch {
+                    newCandidates.forEach { (sessionId, logDir) ->
+                        log(TAG, INFO) { "Found orphan session dir, auto-zipping: $sessionId" }
+                        zipSessionAsync(sessionId, logDir)
+                    }
+                }
+            }
+            sessions
+        }
+    }.replayingShare(appScope)
+
+    private fun applyOverlays(
+        sessions: List<DebugLogSession>,
+        zipping: Set<String>,
+        failedZips: Set<String>,
+    ): Pair<List<DebugLogSession>, List<Pair<String, File>>> {
+        val autoZipCandidates = mutableListOf<Pair<String, File>>()
+
+        val result = sessions.map { session ->
+            when {
+                session is DebugLogSession.Recording -> session
+                session.id in zipping -> DebugLogSession.Zipping(
+                    id = session.id,
+                    createdAt = session.createdAt,
+                    logDir = session.logDir,
+                    diskSize = session.diskSize,
+                )
+                session.id in failedZips -> DebugLogSession.Failed(
+                    id = session.id,
+                    createdAt = session.createdAt,
+                    logDir = session.logDir,
+                    diskSize = session.diskSize,
+                    reason = DebugLogSession.Failed.Reason.ZIP_FAILED,
+                )
+                session is DebugLogSession.Zipping -> {
+                    // Orphan that needs auto-zip
+                    autoZipCandidates.add(session.id to session.logDir)
+                    session
+                }
+                else -> session
+            }
+        }
+
+        return result to autoZipCandidates
+    }
+
+    private fun zipSessionAsync(sessionId: String, logDir: File) {
+        zippingIds.update { it + sessionId }
+        appScope.launch(dispatcherProvider.IO) {
+            try {
+                debugLogZipper.zipAndGetUri(logDir)
+                log(TAG, INFO) { "Zipping complete for $sessionId" }
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "Zipping failed for $sessionId: ${e.asLog()}" }
+                failedZipIds.update { it + sessionId }
+            } finally {
+                pendingAutoZips.remove(sessionId)
+                zippingIds.update { it - sessionId }
+                refresh()
+            }
+        }
+    }
+
+    suspend fun startRecording(): File {
+        return recorderModule.startRecorder()
+    }
+
+    suspend fun requestStopRecording(): RecorderModule.StopResult {
+        val result = recorderModule.requestStopRecorder()
+        if (result is RecorderModule.StopResult.Stopped) {
+            zipSessionAsync(result.sessionId, result.logDir)
+        }
+        return result
+    }
+
+    suspend fun forceStopRecording(): RecorderModule.StopResult.Stopped? {
+        val logDir = recorderModule.stopRecorder() ?: return null
+        val sessionId = logDir.name
+        zipSessionAsync(sessionId, logDir)
+        return RecorderModule.StopResult.Stopped(sessionId = sessionId, logDir = logDir)
+    }
+
+    fun delete(sessionId: String) {
+        if (sessionId in zippingIds.value) {
+            log(TAG, WARN) { "Cannot delete session $sessionId while it's being zipped" }
+            return
+        }
+
+        failedZipIds.update { it - sessionId }
+        appScope.launch(dispatcherProvider.IO) {
+            fsMutex.withLock {
+                recorderModule.getLogDirectories().forEach { parent ->
+                    File(parent, sessionId).let { dir ->
+                        if (dir.exists()) {
+                            dir.deleteRecursively()
+                            log(TAG) { "Deleted session dir: ${dir.path}" }
+                        }
+                    }
+                    File(parent, "$sessionId.zip").let { zip ->
+                        if (zip.exists()) {
+                            zip.delete()
+                            log(TAG) { "Deleted session zip: ${zip.path}" }
+                        }
+                    }
+                }
+            }
+            refresh()
+        }
+    }
+
+    fun deleteAll() {
+        val currentZipping = zippingIds.value
+        appScope.launch(dispatcherProvider.IO) {
+            fsMutex.withLock {
+                val activeDir = recorderModule.getCurrentLogDir()
+                recorderModule.getLogDirectories().forEach { parent ->
+                    parent.listFiles()?.forEach { file ->
+                        val sessionId = deriveSessionId(file)
+                        if (sessionId in currentZipping) return@forEach
+                        if (activeDir != null && file.isDirectory && file.absolutePath == activeDir.absolutePath) return@forEach
+
+                        file.deleteRecursively()
+                        log(TAG) { "Deleted: ${file.path}" }
+                    }
+                }
+            }
+            refresh()
+        }
+    }
+
+    fun refresh() {
+        refreshTrigger.tryEmit(Unit)
+    }
+
+    companion object {
+        private val TAG = logTag("Debug", "Log", "Session", "Manager")
+
+        fun deriveSessionId(file: File): String {
+            return if (file.isDirectory) file.name else file.nameWithoutExtension
+        }
+
+        fun parseCreatedAt(file: File): Instant = try {
+            val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
+            attrs.creationTime().toInstant()
+        } catch (e: Exception) {
+            log(TAG, WARN) { "Failed to read creation time for ${file.name}: ${e.message}" }
+            Instant.ofEpochMilli(file.lastModified())
+        }
+
+        private fun computeDiskSize(file: File): Long {
+            if (!file.exists()) return 0L
+            return if (file.isDirectory) {
+                file.walkTopDown().filter { it.isFile }.sumOf { it.length() }
+            } else {
+                file.length()
+            }
+        }
+
+        fun scanSessions(
+            logDirectories: List<File>,
+            activeRecordingDir: File?,
+        ): List<DebugLogSession> {
+            val sessions = mutableListOf<DebugLogSession>()
+
+            logDirectories.forEach { parent ->
+                val children = parent.listFiles() ?: return@forEach
+
+                val dirs = children.filter { it.isDirectory }
+                val zips = children.filter { it.extension == "zip" }.associateBy { it.nameWithoutExtension }
+
+                for (dir in dirs) {
+                    val sessionId = dir.name
+                    val createdAt = parseCreatedAt(dir)
+                    val diskSize = computeDiskSize(dir)
+
+                    when {
+                        activeRecordingDir != null && dir.absolutePath == activeRecordingDir.absolutePath -> {
+                            sessions.add(DebugLogSession.Recording(sessionId, createdAt, dir, diskSize))
+                        }
+                        zips.containsKey(sessionId) -> {
+                            val zipFile = zips[sessionId]!!
+                            sessions.add(classifyWithZip(sessionId, createdAt, dir, diskSize, zipFile))
+                        }
+                        else -> {
+                            sessions.add(classifyOrphan(sessionId, createdAt, dir, diskSize))
+                        }
+                    }
+                }
+
+                // Standalone zips without a directory
+                for ((name, zipFile) in zips) {
+                    if (dirs.any { it.name == name }) continue
+                    val createdAt = parseCreatedAt(zipFile)
+                    val zipSize = zipFile.length()
+                    if (zipSize > 0) {
+                        sessions.add(
+                            DebugLogSession.Finished(
+                                id = name,
+                                createdAt = createdAt,
+                                logDir = File(parent, name),
+                                diskSize = zipSize,
+                                zipFile = zipFile,
+                                compressedSize = zipSize,
+                            )
+                        )
+                    } else {
+                        sessions.add(
+                            DebugLogSession.Failed(
+                                id = name,
+                                createdAt = createdAt,
+                                logDir = File(parent, name),
+                                diskSize = 0L,
+                                reason = DebugLogSession.Failed.Reason.CORRUPT_ZIP,
+                            )
+                        )
+                    }
+                }
+            }
+
+            return sessions.sortedWith(
+                compareByDescending<DebugLogSession> { it.createdAt }.thenBy { it.id }
+            )
+        }
+
+        private fun classifyWithZip(
+            sessionId: String,
+            createdAt: Instant,
+            dir: File,
+            diskSize: Long,
+            zipFile: File,
+        ): DebugLogSession {
+            val coreLog = File(dir, "core.log")
+            val zipValid = zipFile.length() > 0
+            val totalDiskSize = diskSize + zipFile.length()
+
+            return when {
+                !coreLog.exists() && zipValid -> DebugLogSession.Finished(sessionId, createdAt, dir, totalDiskSize, zipFile, zipFile.length())
+                !coreLog.exists() -> DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.MISSING_LOG)
+                coreLog.length() == 0L && zipValid -> DebugLogSession.Finished(sessionId, createdAt, dir, totalDiskSize, zipFile, zipFile.length())
+                coreLog.length() == 0L -> DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.EMPTY_LOG)
+                zipValid -> DebugLogSession.Finished(sessionId, createdAt, dir, totalDiskSize, zipFile, zipFile.length())
+                else -> DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.CORRUPT_ZIP)
+            }
+        }
+
+        private fun classifyOrphan(
+            sessionId: String,
+            createdAt: Instant,
+            dir: File,
+            diskSize: Long,
+        ): DebugLogSession {
+            val coreLog = File(dir, "core.log")
+            return when {
+                !coreLog.exists() -> {
+                    log(TAG, WARN) { "Orphan session dir has no core.log: $sessionId" }
+                    DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.MISSING_LOG)
+                }
+                coreLog.length() == 0L -> {
+                    log(TAG, WARN) { "Orphan session dir has empty core.log: $sessionId" }
+                    DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.EMPTY_LOG)
+                }
+                else -> {
+                    // Return as Zipping — overlay will trigger auto-zip
+                    DebugLogSession.Zipping(sessionId, createdAt, dir, diskSize)
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,408 @@
+package eu.darken.sdmse.common.debug.recorder.core
+
+import io.kotest.matchers.collections.shouldHaveSize
+import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
+import io.mockk.coEvery
+import io.mockk.every
+import io.mockk.mockk
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.test.StandardTestDispatcher
+import kotlinx.coroutines.test.advanceUntilIdle
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Nested
+import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
+import testhelpers.coroutine.TestDispatcherProvider
+import java.io.File
+
+@OptIn(ExperimentalCoroutinesApi::class)
+class DebugLogSessionManagerTest : BaseTest() {
+
+    private lateinit var testDir: File
+    private lateinit var logParent: File
+    private lateinit var recorderModule: RecorderModule
+    private lateinit var debugLogZipper: DebugLogZipper
+    private lateinit var recorderState: MutableStateFlow<RecorderModule.State>
+
+    @BeforeEach
+    fun setup() {
+        testDir = File(IO_TEST_BASEDIR, "DebugLogSessionManagerTest").apply {
+            deleteRecursively()
+            mkdirs()
+        }
+        logParent = File(testDir, "logs").apply { mkdirs() }
+
+        recorderState = MutableStateFlow(RecorderModule.State())
+        recorderModule = mockk<RecorderModule>().apply {
+            every { state } returns recorderState
+            every { getLogDirectories() } returns listOf(logParent)
+            coEvery { getCurrentLogDir() } returns null
+        }
+        debugLogZipper = mockk()
+    }
+
+    @AfterEach
+    fun cleanup() {
+        testDir.deleteRecursively()
+    }
+
+    private fun createSessionDir(name: String, coreLogContent: String? = "log content"): File {
+        val dir = File(logParent, name).apply { mkdirs() }
+        if (coreLogContent != null) {
+            File(dir, "core.log").writeText(coreLogContent)
+        }
+        return dir
+    }
+
+    private fun createZipFile(name: String, size: Int = 100): File {
+        val zip = File(logParent, "$name.zip")
+        if (size > 0) {
+            zip.writeBytes(ByteArray(size))
+        } else {
+            zip.createNewFile()
+        }
+        return zip
+    }
+
+    /** Mock that actually creates the zip file, preventing infinite auto-zip loops */
+    private fun mockZipperCreatesFile() {
+        coEvery { debugLogZipper.zipAndGetUri(any()) } answers {
+            val logDir = firstArg<File>()
+            File(logDir.parentFile, "${logDir.name}.zip").writeBytes(ByteArray(50))
+            mockk()
+        }
+    }
+
+    @Nested
+    inner class ScanSessions {
+
+        @Test
+        fun `valid session with dir and non-empty zip is Finished`() = runTest {
+            createSessionDir("session1")
+            createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Finished>()
+            session.id shouldBe "session1"
+            session.compressedSize shouldBe 100L
+        }
+
+        @Test
+        fun `dir with 0-byte zip is Failed CORRUPT_ZIP`() = runTest {
+            createSessionDir("session1")
+            createZipFile("session1", size = 0)
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Failed>()
+            session.reason shouldBe DebugLogSession.Failed.Reason.CORRUPT_ZIP
+        }
+
+        @Test
+        fun `orphan dir without core log is Failed MISSING_LOG`() = runTest {
+            createSessionDir("session1", coreLogContent = null)
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Failed>()
+            session.reason shouldBe DebugLogSession.Failed.Reason.MISSING_LOG
+        }
+
+        @Test
+        fun `orphan dir with empty core log is Failed EMPTY_LOG`() = runTest {
+            createSessionDir("session1", coreLogContent = "")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Failed>()
+            session.reason shouldBe DebugLogSession.Failed.Reason.EMPTY_LOG
+        }
+
+        @Test
+        fun `dir without core log but valid zip is Finished`() = runTest {
+            createSessionDir("session1", coreLogContent = null)
+            createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+        }
+
+        @Test
+        fun `dir with empty core log but valid zip is Finished`() = runTest {
+            createSessionDir("session1", coreLogContent = "")
+            createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+        }
+
+        @Test
+        fun `standalone valid zip without dir is Finished`() = runTest {
+            createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Finished>()
+            session.compressedSize shouldBe 100L
+        }
+
+        @Test
+        fun `standalone empty zip without dir is Failed CORRUPT_ZIP`() = runTest {
+            createZipFile("session1", size = 0)
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Failed>()
+            session.reason shouldBe DebugLogSession.Failed.Reason.CORRUPT_ZIP
+        }
+
+        @Test
+        fun `active recording dir is Recording`() = runTest {
+            val dir = createSessionDir("session1")
+            recorderState.value = RecorderModule.State(currentLogDir = dir)
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Recording>()
+        }
+
+        @Test
+        fun `orphan dir with valid core log triggers auto-zip`() = runTest {
+            createSessionDir("session1", coreLogContent = "some log data")
+            mockZipperCreatesFile()
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            // Collect until auto-zip completes and session transitions to Finished
+            val sessions = manager.sessions.first { sessions ->
+                sessions.any { it is DebugLogSession.Finished }
+            }
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+        }
+    }
+
+    @Nested
+    inner class CompanionScanSessions {
+
+        @Test
+        fun `scanSessions classifies dirs correctly without overlay`() {
+            createSessionDir("session1")
+            createZipFile("session1")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+            sessions.first().id shouldBe "session1"
+        }
+
+        @Test
+        fun `scanSessions returns orphan with valid log as Zipping`() {
+            createSessionDir("session1", coreLogContent = "data")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Zipping>()
+        }
+
+        @Test
+        fun `scanSessions marks active recording correctly`() {
+            val dir = createSessionDir("session1")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), dir)
+
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Recording>()
+        }
+    }
+
+    @Nested
+    inner class SortOrder {
+
+        @Test
+        fun `sessions are sorted deterministically`() {
+            // Create with zips to avoid orphan auto-zip
+            createSessionDir("zzz_session")
+            createZipFile("zzz_session")
+            createSessionDir("aaa_session")
+            createZipFile("aaa_session")
+            createSessionDir("mmm_session")
+            createZipFile("mmm_session")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 3
+            val ids = sessions.map { it.id }
+            ids shouldBe ids.sortedWith(
+                compareByDescending<String> { sessions.find { s -> s.id == it }!!.createdAt }.thenBy { it }
+            )
+        }
+    }
+
+    @Nested
+    inner class DeriveSessionId {
+
+        @Test
+        fun `directory returns name`() {
+            val dir = File(logParent, "my_session").apply { mkdirs() }
+            DebugLogSessionManager.deriveSessionId(dir) shouldBe "my_session"
+        }
+
+        @Test
+        fun `zip file returns name without extension`() {
+            val zip = File(logParent, "my_session.zip").apply { createNewFile() }
+            DebugLogSessionManager.deriveSessionId(zip) shouldBe "my_session"
+        }
+
+        @Test
+        fun `non-zip file returns name without extension`() {
+            val file = File(logParent, "my_session.txt").apply { createNewFile() }
+            DebugLogSessionManager.deriveSessionId(file) shouldBe "my_session"
+        }
+    }
+
+    @Nested
+    inner class ParseCreatedAt {
+
+        @Test
+        fun `returns creation time for existing file`() {
+            val dir = File(logParent, "test_dir").apply { mkdirs() }
+            val createdAt = DebugLogSessionManager.parseCreatedAt(dir)
+            val diffMs = System.currentTimeMillis() - createdAt.toEpochMilli()
+            (diffMs < 5000) shouldBe true
+        }
+
+        @Test
+        fun `falls back to lastModified for non-existent file`() {
+            val file = File(logParent, "nonexistent")
+            val createdAt = DebugLogSessionManager.parseCreatedAt(file)
+            createdAt.toEpochMilli() shouldBe 0L
+        }
+    }
+
+    @Nested
+    inner class DiskSize {
+
+        @Test
+        fun `Finished session includes disk size from dir and zip`() {
+            createSessionDir("session1", coreLogContent = "some content here")
+            createZipFile("session1", size = 200)
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Finished>()
+            (session.diskSize > 0) shouldBe true
+            (session.diskSize >= 200) shouldBe true
+        }
+
+        @Test
+        fun `Recording session has disk size`() {
+            val dir = createSessionDir("session1", coreLogContent = "log data")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), dir)
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Recording>()
+            (session.diskSize > 0) shouldBe true
+        }
+
+        @Test
+        fun `standalone zip has disk size equal to zip length`() {
+            createZipFile("session1", size = 500)
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 1
+            val session = sessions.first()
+            session.shouldBeInstanceOf<DebugLogSession.Finished>()
+            session.diskSize shouldBe 500L
+        }
+    }
+
+    @Nested
+    inner class Guards {
+
+        @Test
+        fun `delete is rejected when session id is in zippingIds`() = runTest {
+            // Create a session with a finished zip so scan doesn't trigger auto-zip
+            createSessionDir("session1")
+            createZipFile("session1")
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+            val sessions = manager.sessions.first()
+            sessions shouldHaveSize 1
+            sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
+
+            // Create another session dir and set up a blocking zip mock
+            val newDir = createSessionDir("session2")
+            coEvery { debugLogZipper.zipAndGetUri(newDir) } coAnswers {
+                // Never completes — simulates long-running zip
+                kotlinx.coroutines.awaitCancellation()
+            }
+            coEvery { recorderModule.requestStopRecorder() } returns RecorderModule.StopResult.Stopped(
+                sessionId = "session2",
+                logDir = newDir,
+            )
+
+            // Stop recording triggers zipSessionAsync → adds session2 to zippingIds
+            manager.requestStopRecording()
+
+            // Attempt delete while zipping — should be rejected
+            manager.delete("session2")
+
+            // Let delete coroutine run (if it wasn't rejected)
+            advanceUntilIdle()
+
+            // Session dir should still exist
+            File(logParent, "session2").exists() shouldBe true
+        }
+    }
+}

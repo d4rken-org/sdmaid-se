@@ -6,7 +6,6 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.Preference
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
@@ -20,6 +19,8 @@ import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 import javax.inject.Inject
 import eu.darken.sdmse.common.ui.R as UiR
+
+
 
 @Keep
 @AndroidEntryPoint
@@ -38,6 +39,11 @@ class SupportFragment : PreferenceFragment2() {
     private val installIdPref by lazy { findPreference<Preference>("support.installid")!! }
     private val debugLogPref by lazy { findPreference<Preference>("support.debuglog")!! }
     private val debugLogFolderPref by lazy { findPreference<Preference>("support.debuglog.folder")!! }
+
+    override fun onResume() {
+        super.onResume()
+        vm.refreshSessions()
+    }
 
     override fun onPreferencesCreated() {
         findPreference<Preference>("support.contact")!!.setOnPreferenceClickListener {
@@ -67,6 +73,10 @@ class SupportFragment : PreferenceFragment2() {
                     onContinue = {},
                     onStopAnyway = { vm.confirmStopDebugLog() },
                 ).show()
+
+                is SupportViewModel.SupportEvents.LaunchRecorderActivity -> {
+                    startActivity(event.intent)
+                }
             }
         }
 
@@ -93,33 +103,21 @@ class SupportFragment : PreferenceFragment2() {
         }
 
         vm.debugLogFolderStats.observe2(this) { stats ->
-            if (stats.fileCount == 0) {
+            if (stats.sessionCount == 0) {
                 debugLogFolderPref.summary = getString(R.string.support_debuglog_folder_empty_desc)
             } else {
                 val formattedSize = Formatter.formatShortFileSize(requireContext(), stats.totalSizeBytes)
                 debugLogFolderPref.summary = resources.getQuantityString(
                     R.plurals.support_debuglog_folder_desc,
-                    stats.fileCount,
-                    stats.fileCount,
+                    stats.sessionCount,
+                    stats.sessionCount,
                     formattedSize
                 )
             }
         }
 
         debugLogFolderPref.setOnPreferenceClickListener {
-            val stats = vm.debugLogFolderStats.value ?: return@setOnPreferenceClickListener true
-            if (stats.fileCount == 0) {
-                Snackbar.make(requireView(), R.string.support_debuglog_folder_empty_desc, Snackbar.LENGTH_SHORT).show()
-            } else {
-                MaterialAlertDialogBuilder(requireContext()).apply {
-                    setTitle(R.string.support_debuglog_folder_delete_confirmation_title)
-                    setMessage(R.string.support_debuglog_folder_delete_confirmation_message)
-                    setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                        vm.deleteAllDebugLogs()
-                    }
-                    setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
-                }.show()
-            }
+            SettingsFragmentDirections.actionSettingsContainerFragmentToDebugLogSessionsDialog().navigate()
             true
         }
 
