@@ -17,6 +17,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -143,7 +144,15 @@ class RecorderActivity : Activity2() {
         }
 
         ui.closeAction.setOnClickListener { vm.close() }
-        ui.deleteAction.setOnClickListener { vm.delete() }
+        ui.deleteAction.setOnClickListener {
+            MaterialAlertDialogBuilder(this).apply {
+                setMessage(R.string.debug_debuglog_sessions_delete_confirmation_message)
+                setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                    vm.delete()
+                }
+                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+            }.show()
+        }
     }
 
     companion object {
