@@ -66,6 +66,7 @@ class LogSessionAdapter @Inject constructor() :
         }
 
         data class Item(
+            val sessionId: String,
             val zipFile: File,
             val size: Long,
             val lastModified: Long,
@@ -73,7 +74,7 @@ class LogSessionAdapter @Inject constructor() :
             val onSelected: () -> Unit,
             val onDelete: () -> Unit,
         ) : LogSessionAdapter.Item {
-            override val stableId: Long = zipFile.hashCode().toLong()
+            override val stableId: Long = sessionId.hashCode().toLong()
         }
     }
 }

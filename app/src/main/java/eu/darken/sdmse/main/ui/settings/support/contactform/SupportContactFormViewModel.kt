@@ -16,7 +16,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
-import eu.darken.sdmse.common.debug.recorder.core.DebugLogZipper
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -35,7 +34,6 @@ class SupportContactFormViewModel @Inject constructor(
     private val emailTool: EmailTool,
     private val upgradeRepo: UpgradeRepo,
     private val sessionManager: DebugLogSessionManager,
-    private val debugLogZipper: DebugLogZipper,
 ) : ViewModel3(dispatcherProvider) {
 
     val events = SingleLiveEvent<SupportContactFormEvents>()
@@ -46,18 +44,18 @@ class SupportContactFormViewModel @Inject constructor(
 
     val state = currentState.asLiveData2()
 
-    private val selectedZip = MutableStateFlow<File?>(null)
+    private val selectedSessionId = MutableStateFlow<String?>(null)
     private val pendingSessionId = MutableStateFlow<String?>(null)
 
     init {
-        // Auto-select: when a pending session finishes zipping, select its zip
+        // Auto-select: when a pending session finishes zipping, select it
         launch {
             sessionManager.sessions.collect { sessions ->
                 val pending = pendingSessionId.value ?: return@collect
                 val finished = sessions.filterIsInstance<DebugLogSession.Finished>().find { it.id == pending }
                 if (finished != null) {
                     pendingSessionId.value = null
-                    selectedZip.value = finished.zipFile
+                    selectedSessionId.value = finished.id
                     return@collect
                 }
                 // Clear pending if session failed
@@ -71,15 +69,15 @@ class SupportContactFormViewModel @Inject constructor(
 
     val logPickerState = combine(
         sessionManager.sessions,
-        selectedZip,
-    ) { sessions, selected ->
+        selectedSessionId,
+    ) { sessions, selectedId ->
         val isRecording = sessions.any { it is DebugLogSession.Recording }
         val isZipping = sessions.any { it is DebugLogSession.Zipping }
         val finishedSessions = sessions.filterIsInstance<DebugLogSession.Finished>()
 
         // Validate selection still exists
-        val validatedSelection = selected?.takeIf { sel ->
-            finishedSessions.any { it.zipFile == sel }
+        val validatedSelection = selectedId?.takeIf { id ->
+            finishedSessions.any { it.id == id }
         }
 
         LogPickerState(
@@ -87,12 +85,13 @@ class SupportContactFormViewModel @Inject constructor(
             isZipping = isZipping,
             sessions = finishedSessions.map { session ->
                 LogSessionItem(
+                    sessionId = session.id,
                     zipFile = session.zipFile,
                     size = session.compressedSize,
                     lastModified = session.createdAt.toEpochMilli(),
                 )
             },
-            selectedZip = validatedSelection,
+            selectedSessionId = validatedSelection,
         )
     }.asLiveData2()
 
@@ -100,10 +99,11 @@ class SupportContactFormViewModel @Inject constructor(
         val isRecording: Boolean = false,
         val isZipping: Boolean = false,
         val sessions: List<LogSessionItem> = emptyList(),
-        val selectedZip: File? = null,
+        val selectedSessionId: String? = null,
     )
 
     data class LogSessionItem(
+        val sessionId: String,
         val zipFile: File,
         val size: Long,
         val lastModified: Long,
@@ -155,12 +155,11 @@ class SupportContactFormViewModel @Inject constructor(
         sessionManager.refresh()
     }
 
-    fun selectLogSession(zipFile: File) = launch {
-        selectedZip.value = if (selectedZip.value == zipFile) null else zipFile
+    fun selectLogSession(sessionId: String) = launch {
+        selectedSessionId.value = if (selectedSessionId.value == sessionId) null else sessionId
     }
 
-    fun deleteLogSession(zipFile: File) {
-        val sessionId = zipFile.nameWithoutExtension
+    fun deleteLogSession(sessionId: String) = launch {
         sessionManager.delete(sessionId)
     }
 
@@ -194,9 +193,9 @@ class SupportContactFormViewModel @Inject constructor(
         try {
             val state = currentState.value()
 
-            val logUri = pickerState.selectedZip?.let {
+            val logUri = pickerState.selectedSessionId?.let { id ->
                 try {
-                    debugLogZipper.getUriForZip(it)
+                    sessionManager.getZipUri(id)
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to zip logs: ${e.asLog()}" }
                     events.postValue(SupportContactFormEvents.ShowError(R.string.support_contact_debuglog_zip_error))

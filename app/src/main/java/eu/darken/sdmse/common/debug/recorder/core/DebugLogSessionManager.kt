@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.debug.recorder.core
 
+import android.net.Uri
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -9,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.replayingShare
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableSharedFlow
@@ -110,8 +112,12 @@ class DebugLogSessionManager @Inject constructor(
         zippingIds.update { it + sessionId }
         appScope.launch(dispatcherProvider.IO) {
             try {
-                debugLogZipper.zipAndGetUri(logDir)
+                fsMutex.withLock {
+                    debugLogZipper.zip(logDir)
+                }
                 log(TAG, INFO) { "Zipping complete for $sessionId" }
+            } catch (e: CancellationException) {
+                throw e
             } catch (e: Exception) {
                 log(TAG, ERROR) { "Zipping failed for $sessionId: ${e.asLog()}" }
                 failedZipIds.update { it + sessionId }
@@ -142,52 +148,84 @@ class DebugLogSessionManager @Inject constructor(
         return RecorderModule.StopResult.Stopped(sessionId = sessionId, logDir = logDir)
     }
 
-    fun delete(sessionId: String) {
-        if (sessionId in zippingIds.value) {
-            log(TAG, WARN) { "Cannot delete session $sessionId while it's being zipped" }
-            return
-        }
-
-        failedZipIds.update { it - sessionId }
-        appScope.launch(dispatcherProvider.IO) {
-            fsMutex.withLock {
-                recorderModule.getLogDirectories().forEach { parent ->
-                    File(parent, sessionId).let { dir ->
-                        if (dir.exists()) {
-                            dir.deleteRecursively()
-                            log(TAG) { "Deleted session dir: ${dir.path}" }
-                        }
-                    }
-                    File(parent, "$sessionId.zip").let { zip ->
-                        if (zip.exists()) {
-                            zip.delete()
-                            log(TAG) { "Deleted session zip: ${zip.path}" }
-                        }
-                    }
-                }
+    private fun findSessionFiles(sessionId: String): Pair<File?, File?> {
+        for (logParent in recorderModule.getLogDirectories()) {
+            val dir = File(logParent, sessionId)
+            val zip = File(logParent, "$sessionId.zip")
+            val dirExists = dir.exists() && dir.isDirectory
+            val zipExists = zip.exists() && zip.isFile
+            if (dirExists || zipExists) {
+                return Pair(if (dirExists) dir else null, if (zipExists) zip else null)
             }
-            refresh()
         }
+        return Pair(null, null)
     }
 
-    fun deleteAll() {
-        val currentZipping = zippingIds.value
-        appScope.launch(dispatcherProvider.IO) {
-            fsMutex.withLock {
-                val activeDir = recorderModule.getCurrentLogDir()
-                recorderModule.getLogDirectories().forEach { parent ->
-                    parent.listFiles()?.forEach { file ->
-                        val sessionId = deriveSessionId(file)
-                        if (sessionId in currentZipping) return@forEach
-                        if (activeDir != null && file.isDirectory && file.absolutePath == activeDir.absolutePath) return@forEach
+    suspend fun zipSession(sessionId: String): File = fsMutex.withLock {
+        // Do NOT call sessions.first() here — it acquires fsMutex in its producer, which would deadlock.
+        val activeDir = recorderModule.getCurrentLogDir()
+        require(activeDir?.name != sessionId) { "Cannot zip an active recording session" }
 
-                        file.deleteRecursively()
-                        log(TAG) { "Deleted: ${file.path}" }
+        val (dir, existingZip) = findSessionFiles(sessionId)
+        if (existingZip != null && existingZip.length() > 0) {
+            if (dir == null || existingZip.lastModified() >= dir.lastModified()) {
+                return@withLock existingZip
+            }
+        }
+        requireNotNull(dir) { "No log directory found for session $sessionId" }
+        failedZipIds.update { it - sessionId }
+        withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
+    }
+
+    suspend fun getZipUri(sessionId: String): Uri {
+        val zipFile = zipSession(sessionId)
+        return debugLogZipper.getUriForZip(zipFile)
+    }
+
+    suspend fun delete(sessionId: String) = fsMutex.withLock {
+        // Check recorder state directly — do NOT call sessions.first() (deadlock risk with fsMutex)
+        val activeDir = recorderModule.getCurrentLogDir()
+        require(activeDir?.name != sessionId) { "Cannot delete an active recording session" }
+        require(sessionId !in zippingIds.value) {
+            "Cannot delete session $sessionId while it's being zipped"
+        }
+        withContext(dispatcherProvider.IO) {
+            recorderModule.getLogDirectories().forEach { parent ->
+                File(parent, sessionId).let { dir ->
+                    if (dir.exists()) {
+                        dir.deleteRecursively()
+                        log(TAG) { "Deleted session dir: ${dir.path}" }
+                    }
+                }
+                File(parent, "$sessionId.zip").let { zip ->
+                    if (zip.exists()) {
+                        zip.delete()
+                        log(TAG) { "Deleted session zip: ${zip.path}" }
                     }
                 }
             }
-            refresh()
         }
+        failedZipIds.update { it - sessionId }
+        refresh()
+    }
+
+    suspend fun deleteAll() = fsMutex.withLock {
+        val currentZipping = zippingIds.value
+        val activeDir = recorderModule.getCurrentLogDir()
+        withContext(dispatcherProvider.IO) {
+            recorderModule.getLogDirectories().forEach { parent ->
+                parent.listFiles()?.forEach { file ->
+                    val sessionId = deriveSessionId(file)
+                    if (sessionId in currentZipping) return@forEach
+                    if (activeDir != null && file.isDirectory && file.absolutePath == activeDir.absolutePath) return@forEach
+
+                    file.deleteRecursively()
+                    log(TAG) { "Deleted: ${file.path}" }
+                }
+            }
+        }
+        failedZipIds.update { emptySet() }
+        refresh()
     }
 
     fun refresh() {
@@ -226,6 +264,12 @@ class DebugLogSessionManager @Inject constructor(
 
             logDirectories.forEach { parent ->
                 val children = parent.listFiles() ?: return@forEach
+
+                // Clean up stale temp files from interrupted zip operations
+                children.filter { it.extension == "tmp" && it.name.endsWith(".zip.tmp") }.forEach { tmp ->
+                    tmp.delete()
+                    log(TAG) { "Deleted stale temp file: ${tmp.name}" }
+                }
 
                 val dirs = children.filter { it.isDirectory }
                 val zips = children.filter { it.extension == "zip" }.associateBy { it.nameWithoutExtension }
