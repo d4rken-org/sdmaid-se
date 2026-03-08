@@ -364,7 +364,9 @@
                     android:layout_marginEnd="4dp"
                     android:layout_weight="1"
                     android:text="@string/general_delete_action"
-                    app:strokeColor="?attr/colorOutline" />
+                    android:textColor="?attr/colorError"
+                    app:iconTint="?attr/colorError"
+                    app:strokeColor="?attr/colorError" />
 
                 <com.google.android.material.button.MaterialButton
                     android:id="@+id/close_action"
