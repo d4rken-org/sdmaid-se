@@ -42,6 +42,7 @@ import java.time.Instant
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
+import javax.inject.Provider
 import javax.inject.Singleton
 
 @Singleton
@@ -53,6 +54,7 @@ class RecorderModule @Inject constructor(
     private val sdmId: SDMId,
     private val debugSettings: DebugSettings,
     private val curriculumVitae: CurriculumVitae,
+    private val recorderProvider: Provider<Recorder>,
 ) {
 
     private val triggerFile by lazy {
@@ -92,7 +94,7 @@ class RecorderModule @Inject constructor(
                             debugSettings.recorderPath.value(it.path)
                         }
 
-                        val newRecorder = Recorder().apply { start(logDir) }
+                        val newRecorder = recorderProvider.get().apply { start(logDir) }
 
                         if (!triggerFile.exists()) triggerFile.createNewFile()
 
@@ -159,7 +161,9 @@ class RecorderModule @Inject constructor(
             }
         }
 
-        return sessionDir
+        return requireNotNull(sessionDir?.takeIf { it.exists() }) {
+            "Failed to create recording directory in both external and cache locations"
+        }
     }
 
     suspend fun startRecorder(): File {
