@@ -3,7 +3,6 @@ package eu.darken.sdmse.common
 import android.app.Application
 import android.content.Context
 import android.content.Intent
-import eu.darken.sdmse.appcontrol.core.restore.UnarchiveManager
 import eu.darken.sdmse.appcontrol.core.restore.UnarchiveReceiver
 import eu.darken.sdmse.corpsefinder.core.watcher.ExternalWatcherTask
 import eu.darken.sdmse.corpsefinder.core.watcher.ExternalWatcherTaskReceiver
@@ -38,8 +37,8 @@ class BroadcastReceiverBackupGuardTest : BaseTest() {
     @Test
     fun `UnarchiveReceiver does not crash with restricted context`() {
         val intent = mockk<Intent>(relaxed = true).apply {
-            every { action } returns UnarchiveManager.ACTION_UNARCHIVE_RESULT
-            every { getIntExtra(UnarchiveManager.EXTRA_REQUEST_CODE, -1) } returns 42
+            every { action } returns "eu.darken.sdmse.action.UNARCHIVE_RESULT"
+            every { getIntExtra("eu.darken.sdmse.extra.REQUEST_CODE", -1) } returns 42
         }
         UnarchiveReceiver().onReceive(restrictedContext, intent)
     }
