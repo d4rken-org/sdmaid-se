@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.databinding.SupportContactLogSessionItemBinding
 import java.io.File
 import javax.inject.Inject
@@ -66,7 +67,7 @@ class LogSessionAdapter @Inject constructor() :
         }
 
         data class Item(
-            val sessionId: String,
+            val sessionId: SessionId,
             val zipFile: File,
             val size: Long,
             val lastModified: Long,
@@ -74,7 +75,7 @@ class LogSessionAdapter @Inject constructor() :
             val onSelected: () -> Unit,
             val onDelete: () -> Unit,
         ) : LogSessionAdapter.Item {
-            override val stableId: Long = sessionId.hashCode().toLong()
+            override val stableId: Long = sessionId.value.hashCode().toLong()
         }
     }
 }

@@ -38,10 +38,10 @@ class DebugLogSessionManager @Inject constructor(
 ) {
 
     private val fsMutex = Mutex()
-    private val zippingIds = MutableStateFlow<Set<String>>(emptySet())
-    private val failedZipIds = MutableStateFlow<Set<String>>(emptySet())
+    private val zippingIds = MutableStateFlow<Set<SessionId>>(emptySet())
+    private val failedZipIds = MutableStateFlow<Set<SessionId>>(emptySet())
     private val refreshTrigger = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
-    private val pendingAutoZips = mutableSetOf<String>()
+    private val pendingAutoZips = mutableSetOf<SessionId>()
 
     val sessions: Flow<List<DebugLogSession>> = combine(
         recorderModule.state,
@@ -50,20 +50,19 @@ class DebugLogSessionManager @Inject constructor(
         refreshTrigger.onStart { emit(Unit) },
     ) { recorderState, zipping, failedZips, _ ->
         withContext(dispatcherProvider.IO) {
-            val (sessions, autoZipCandidates) = fsMutex.withLock {
+            val (sessions, orphans) = fsMutex.withLock {
                 val activeRecordingDir = recorderState.currentLogDir
                 val logDirs = recorderModule.getLogDirectories()
                 val scanned = scanSessions(logDirs, activeRecordingDir)
-                applyOverlays(scanned, zipping, failedZips)
+                val orphans = findOrphans(scanned, zipping, pendingAutoZips)
+                val overlaid = applyOverlays(scanned, zipping, failedZips)
+                overlaid to orphans
             }
-            // Schedule auto-zips outside the combine lambda to avoid reentrancy
-            val newCandidates = autoZipCandidates.filter { (id, _) ->
-                id !in pendingAutoZips && id !in zipping
-            }
-            if (newCandidates.isNotEmpty()) {
-                newCandidates.forEach { (sessionId, _) -> pendingAutoZips.add(sessionId) }
+            // Schedule auto-zips outside the lock to avoid reentrancy
+            if (orphans.isNotEmpty()) {
+                orphans.forEach { (sessionId, _) -> pendingAutoZips.add(sessionId) }
                 appScope.launch {
-                    newCandidates.forEach { (sessionId, logDir) ->
+                    orphans.forEach { (sessionId, logDir) ->
                         log(TAG, INFO) { "Found orphan session dir, auto-zipping: $sessionId" }
                         zipSessionAsync(sessionId, logDir)
                     }
@@ -75,40 +74,29 @@ class DebugLogSessionManager @Inject constructor(
 
     private fun applyOverlays(
         sessions: List<DebugLogSession>,
-        zipping: Set<String>,
-        failedZips: Set<String>,
-    ): Pair<List<DebugLogSession>, List<Pair<String, File>>> {
-        val autoZipCandidates = mutableListOf<Pair<String, File>>()
-
-        val result = sessions.map { session ->
-            when {
-                session is DebugLogSession.Recording -> session
-                session.id in zipping -> DebugLogSession.Zipping(
-                    id = session.id,
-                    createdAt = session.createdAt,
-                    logDir = session.logDir,
-                    diskSize = session.diskSize,
-                )
-                session.id in failedZips -> DebugLogSession.Failed(
-                    id = session.id,
-                    createdAt = session.createdAt,
-                    logDir = session.logDir,
-                    diskSize = session.diskSize,
-                    reason = DebugLogSession.Failed.Reason.ZIP_FAILED,
-                )
-                session is DebugLogSession.Zipping -> {
-                    // Orphan that needs auto-zip
-                    autoZipCandidates.add(session.id to session.logDir)
-                    session
-                }
-                else -> session
-            }
+        zipping: Set<SessionId>,
+        failedZips: Set<SessionId>,
+    ): List<DebugLogSession> = sessions.map { session ->
+        when {
+            session is DebugLogSession.Recording -> session
+            session.id in zipping -> DebugLogSession.Zipping(
+                id = session.id,
+                createdAt = session.createdAt,
+                logDir = session.logDir,
+                diskSize = session.diskSize,
+            )
+            session.id in failedZips -> DebugLogSession.Failed(
+                id = session.id,
+                createdAt = session.createdAt,
+                logDir = session.logDir,
+                diskSize = session.diskSize,
+                reason = DebugLogSession.Failed.Reason.ZIP_FAILED,
+            )
+            else -> session
         }
-
-        return result to autoZipCandidates
     }
 
-    private fun zipSessionAsync(sessionId: String, logDir: File) {
+    private fun zipSessionAsync(sessionId: SessionId, logDir: File) {
         zippingIds.update { it + sessionId }
         appScope.launch(dispatcherProvider.IO) {
             try {
@@ -143,15 +131,16 @@ class DebugLogSessionManager @Inject constructor(
 
     suspend fun forceStopRecording(): RecorderModule.StopResult.Stopped? {
         val logDir = recorderModule.stopRecorder() ?: return null
-        val sessionId = logDir.name
+        val sessionId = SessionId.derive(logDir)
         zipSessionAsync(sessionId, logDir)
         return RecorderModule.StopResult.Stopped(sessionId = sessionId, logDir = logDir)
     }
 
-    private fun findSessionFiles(sessionId: String): Pair<File?, File?> {
+    private fun findSessionFiles(sessionId: SessionId): Pair<File?, File?> {
+        val baseName = sessionId.baseName
         for (logParent in recorderModule.getLogDirectories()) {
-            val dir = File(logParent, sessionId)
-            val zip = File(logParent, "$sessionId.zip")
+            val dir = File(logParent, baseName)
+            val zip = File(logParent, "$baseName.zip")
             val dirExists = dir.exists() && dir.isDirectory
             val zipExists = zip.exists() && zip.isFile
             if (dirExists || zipExists) {
@@ -161,10 +150,12 @@ class DebugLogSessionManager @Inject constructor(
         return Pair(null, null)
     }
 
-    suspend fun zipSession(sessionId: String): File = fsMutex.withLock {
+    suspend fun zipSession(sessionId: SessionId): File = fsMutex.withLock {
         // Do NOT call sessions.first() here — it acquires fsMutex in its producer, which would deadlock.
         val activeDir = recorderModule.getCurrentLogDir()
-        require(activeDir?.name != sessionId) { "Cannot zip an active recording session" }
+        if (activeDir != null) {
+            require(SessionId.derive(activeDir) != sessionId) { "Cannot zip an active recording session" }
+        }
 
         val (dir, existingZip) = findSessionFiles(sessionId)
         if (existingZip != null && existingZip.length() > 0) {
@@ -177,27 +168,30 @@ class DebugLogSessionManager @Inject constructor(
         withContext(dispatcherProvider.IO) { debugLogZipper.zip(dir) }
     }
 
-    suspend fun getZipUri(sessionId: String): Uri {
+    suspend fun getZipUri(sessionId: SessionId): Uri {
         val zipFile = zipSession(sessionId)
         return debugLogZipper.getUriForZip(zipFile)
     }
 
-    suspend fun delete(sessionId: String) = fsMutex.withLock {
+    suspend fun delete(sessionId: SessionId) = fsMutex.withLock {
         // Check recorder state directly — do NOT call sessions.first() (deadlock risk with fsMutex)
         val activeDir = recorderModule.getCurrentLogDir()
-        require(activeDir?.name != sessionId) { "Cannot delete an active recording session" }
+        if (activeDir != null) {
+            require(SessionId.derive(activeDir) != sessionId) { "Cannot delete an active recording session" }
+        }
         require(sessionId !in zippingIds.value) {
             "Cannot delete session $sessionId while it's being zipped"
         }
+        val baseName = sessionId.baseName
         withContext(dispatcherProvider.IO) {
             recorderModule.getLogDirectories().forEach { parent ->
-                File(parent, sessionId).let { dir ->
+                File(parent, baseName).let { dir ->
                     if (dir.exists()) {
                         dir.deleteRecursively()
                         log(TAG) { "Deleted session dir: ${dir.path}" }
                     }
                 }
-                File(parent, "$sessionId.zip").let { zip ->
+                File(parent, "$baseName.zip").let { zip ->
                     if (zip.exists()) {
                         zip.delete()
                         log(TAG) { "Deleted session zip: ${zip.path}" }
@@ -215,7 +209,7 @@ class DebugLogSessionManager @Inject constructor(
         withContext(dispatcherProvider.IO) {
             recorderModule.getLogDirectories().forEach { parent ->
                 parent.listFiles()?.forEach { file ->
-                    val sessionId = deriveSessionId(file)
+                    val sessionId = SessionId.derive(file)
                     if (sessionId in currentZipping) return@forEach
                     if (activeDir != null && file.isDirectory && file.absolutePath == activeDir.absolutePath) return@forEach
 
@@ -235,10 +229,6 @@ class DebugLogSessionManager @Inject constructor(
     companion object {
         private val TAG = logTag("Debug", "Log", "Session", "Manager")
 
-        fun deriveSessionId(file: File): String {
-            return if (file.isDirectory) file.name else file.nameWithoutExtension
-        }
-
         fun parseCreatedAt(file: File): Instant = try {
             val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
             attrs.creationTime().toInstant()
@@ -254,6 +244,16 @@ class DebugLogSessionManager @Inject constructor(
             } else {
                 file.length()
             }
+        }
+
+        fun findOrphans(
+            scannedSessions: List<DebugLogSession>,
+            currentlyZipping: Set<SessionId>,
+            pendingAutoZips: Set<SessionId>,
+        ): List<Pair<SessionId, File>> {
+            return scannedSessions.filterIsInstance<DebugLogSession.Zipping>()
+                .filter { it.id !in currentlyZipping && it.id !in pendingAutoZips }
+                .map { it.id to it.logDir }
         }
 
         fun scanSessions(
@@ -275,7 +275,7 @@ class DebugLogSessionManager @Inject constructor(
                 val zips = children.filter { it.extension == "zip" }.associateBy { it.nameWithoutExtension }
 
                 for (dir in dirs) {
-                    val sessionId = dir.name
+                    val sessionId = SessionId.derive(dir)
                     val createdAt = parseCreatedAt(dir)
                     val diskSize = computeDiskSize(dir)
 
@@ -283,8 +283,8 @@ class DebugLogSessionManager @Inject constructor(
                         activeRecordingDir != null && dir.absolutePath == activeRecordingDir.absolutePath -> {
                             sessions.add(DebugLogSession.Recording(sessionId, createdAt, dir, diskSize))
                         }
-                        zips.containsKey(sessionId) -> {
-                            val zipFile = zips[sessionId]!!
+                        zips.containsKey(dir.name) -> {
+                            val zipFile = zips[dir.name]!!
                             sessions.add(classifyWithZip(sessionId, createdAt, dir, diskSize, zipFile))
                         }
                         else -> {
@@ -296,12 +296,13 @@ class DebugLogSessionManager @Inject constructor(
                 // Standalone zips without a directory
                 for ((name, zipFile) in zips) {
                     if (dirs.any { it.name == name }) continue
+                    val sessionId = SessionId.derive(zipFile)
                     val createdAt = parseCreatedAt(zipFile)
                     val zipSize = zipFile.length()
                     if (zipSize > 0) {
                         sessions.add(
                             DebugLogSession.Finished(
-                                id = name,
+                                id = sessionId,
                                 createdAt = createdAt,
                                 logDir = File(parent, name),
                                 diskSize = zipSize,
@@ -312,7 +313,7 @@ class DebugLogSessionManager @Inject constructor(
                     } else {
                         sessions.add(
                             DebugLogSession.Failed(
-                                id = name,
+                                id = sessionId,
                                 createdAt = createdAt,
                                 logDir = File(parent, name),
                                 diskSize = 0L,
@@ -324,12 +325,12 @@ class DebugLogSessionManager @Inject constructor(
             }
 
             return sessions.sortedWith(
-                compareByDescending<DebugLogSession> { it.createdAt }.thenBy { it.id }
+                compareByDescending<DebugLogSession> { it.createdAt }.thenBy { it.id.value }
             )
         }
 
         private fun classifyWithZip(
-            sessionId: String,
+            sessionId: SessionId,
             createdAt: Instant,
             dir: File,
             diskSize: Long,
@@ -350,7 +351,7 @@ class DebugLogSessionManager @Inject constructor(
         }
 
         private fun classifyOrphan(
-            sessionId: String,
+            sessionId: SessionId,
             createdAt: Instant,
             dir: File,
             diskSize: Long,
@@ -366,7 +367,7 @@ class DebugLogSessionManager @Inject constructor(
                     DebugLogSession.Failed(sessionId, createdAt, dir, diskSize, DebugLogSession.Failed.Reason.EMPTY_LOG)
                 }
                 else -> {
-                    // Return as Zipping — overlay will trigger auto-zip
+                    // Return as Zipping — findOrphans() will trigger auto-zip
                     DebugLogSession.Zipping(sessionId, createdAt, dir, diskSize)
                 }
             }

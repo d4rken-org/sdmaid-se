@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import dagger.hilt.android.qualifiers.ApplicationContext
@@ -847,7 +848,7 @@ class DashboardViewModel @Inject constructor(
         launchRecorderActivity(result.sessionId)
     }
 
-    private fun launchRecorderActivity(sessionId: String) {
+    private fun launchRecorderActivity(sessionId: SessionId) {
         val intent = RecorderActivity.getLaunchIntent(context, sessionId).apply {
             addFlags(android.content.Intent.FLAG_ACTIVITY_NEW_TASK)
         }

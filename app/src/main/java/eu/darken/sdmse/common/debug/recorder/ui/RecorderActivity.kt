@@ -17,6 +17,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
@@ -159,9 +160,9 @@ class RecorderActivity : Activity2() {
         internal val TAG = logTag("Debug", "Log", "RecorderActivity")
         const val EXTRA_SESSION_ID = "sessionId"
 
-        fun getLaunchIntent(context: Context, sessionId: String): Intent {
+        fun getLaunchIntent(context: Context, sessionId: SessionId): Intent {
             return Intent(context, RecorderActivity::class.java).apply {
-                putExtra(EXTRA_SESSION_ID, sessionId)
+                putExtra(EXTRA_SESSION_ID, sessionId.value)
             }
         }
     }
