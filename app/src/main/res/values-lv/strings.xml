@@ -264,7 +264,7 @@
     <string name="review_app_review_action">Recenzēt</string>
     <string name="review_app_dismiss_action">Varbūt vēlāk</string>
     <string name="review_app_body">Vai vēlaties atstāt SD Maid recenziju? ❤️</string>
-    <string name="anniversary_card_title">Happy SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_title">Priecīgs SD Maid gadadienas svētki ❤️</string>
     <string name="anniversary_card_install_date">Ar jums kopš %s</string>
     <plurals name="anniversary_card_body">
         <item quantity="zero">%1$d gadu stiprība. Jūsu ierīce paliek tīra un sakārtota ar SD Maid. Atbrīvotā vieta: %2$s</item>
@@ -283,7 +283,7 @@ Mēģiniet: %3$s</item>
     <string name="shortcut_onetap_short">Skenēt + Dzēst</string>
     <string name="shortcut_onetap_long">Skenēt un dzēst vienā darbībā</string>
     <string name="shortcuts_settings_category">Ātrceļi</string>
-    <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
+    <string name="shortcuts_onetap_enabled_title">Viena pieskāriena īssaite</string>
     <string name="shortcuts_onetap_enabled_summary">Rādīt \"Skenēt + Dzēst\" ātrceļu, ilgi nospiežot programmas ikonu. Izmanto tās pašas rīkus kā vienreizējā informācijas paneļa darbība.</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

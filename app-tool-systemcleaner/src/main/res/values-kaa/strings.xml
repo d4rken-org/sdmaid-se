@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_explanation_short">Қандай да нақты қолданбаға тиеслі емес артық даталар.</string>
+    <string name="systemcleaner_explanation_short">Birtegin applicationg̣a tépelep basqanday falak maglıwmat.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
         <item quantity="one">%d sáykes óśirip tastandı</item>
         <item quantity="other">%d sáykes óśirip tastandı</item>
@@ -12,16 +12,16 @@
     <string name="systemcleaner_filter_custom_label">Arnawlı filtrler</string>
     <string name="systemcleaner_filter_custom_manage_label">Arnawlı filtrlerdi basqarıń</string>
     <string name="systemcleaner_filter_custom_manage_summary">Өзіңіздің өзгеше фильтрлерін құру, ошыру, импорт һәм экспорт ету.</string>
-    <string name="systemcleaner_filter_logfiles_label">Система лог файллары</string>
-    <string name="systemcleaner_filter_logfiles_summary">Түрлі орынлардағы система һәм система сервисі лог файллары (мысалы, *.log).</string>
-    <string name="systemcleaner_filter_packagecaches_label">Орнатқыш кэші</string>
-    <string name="systemcleaner_filter_packagecaches_summary">Системаның десте басқаруы томонынан пайдаланылатын орнатылған қолданбаларға байланыслы кэштелген даталар.</string>
+    <string name="systemcleaner_filter_logfiles_label">Sıstema jurnal fayllları</string>
+    <string name="systemcleaner_filter_logfiles_summary">Sıstema je sıstema qızmeti jurnal fayllları (m.m. *.log) túwli ornında.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Ornativshili keshe</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Ornativshi applicationlar bilan baylanıslı keshtalg̣an maglıwmat, sıstema paket menedjerı tarafınnan qollanaladi.</string>
     <string name="systemcleaner_filter_advertisements_label">Reklama faylları</string>
     <string name="systemcleaner_filter_advertisements_summary">Жарнамалар үшін немесе жарнамалар томонынан құрылған файллар.</string>
     <string name="systemcleaner_filter_anr_label">ANR qátelikleri</string>
     <string name="systemcleaner_filter_anr_summary">\'Қолданба жауап бермей тур\' оқиғаларының іздері.</string>
-    <string name="systemcleaner_filter_emptydirectories_label">Бос қалталар</string>
-    <string name="systemcleaner_filter_emptydirectories_summary">Құрылғының барлық жерінен бос қалталар. Ишкі қалталар бірнеше өтуді талап етуі мүмкін.</string>
+    <string name="systemcleaner_filter_emptydirectories_label">Boš papkalar</string>
+    <string name="systemcleaner_filter_emptydirectories_summary">Sıstema júwninde túwli boš papkalar. Iš papkalar bir nesheme jaylaw kerek boluwı mumkin.</string>
     <string name="systemcleaner_filter_screenshots_label">Экран суреттері</string>
     <string name="systemcleaner_filter_screenshots_summary">%s-dan eski skrinshot\'lar bir neshe qoldanba hám jaylardıń.</string>
     <string name="systemcleaner_filter_trashed_label">Táslenen fayllardı</string>
