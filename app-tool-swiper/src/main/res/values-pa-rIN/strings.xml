@@ -140,4 +140,21 @@
     <string name="swiper_help_message">ਫੈਸਲਾ ਲੈਣ ਲਈ ਹਰ ਫਾਈਲ ਸਵਾਈਪ ਕਰੋ:\n\n← ਖੱਬੇ ਸਵਾਈਪ: %1$s\n→ ਸੱਜੇ ਸਵਾਈਪ: %2$s\n↑ ਉੱਪਰ ਸਵਾਈਪ: ਛੱਡੋ\n↓ ਹੇਠਾਂ ਸਵਾਈਪ: ਵਾਪਸ (ਪਹਿਲੇ ਸਵਾਈਪ ਤੋਂ ਬਾਅਦ)\n\nਤੁਸੀਂ ਹੇਠਾਂ ਦਿੱਤੇ ਬਟਨ ਵੀ ਵਰਤ ਸਕਦੇ ਹੋ।\n\nਜਦੋਂ ਤੁਸੀਂ ਮੁਕੰਮਲ ਕਰ ਲਵੋ, ਆਪਣੇ ਸਾਰੇ ਫੈਸਲੇ ਦੇਖਣ ਲਈ \"ਸਮੀਖਿਆ\" \'ਤੇ ਟੈਪ ਕਰੋ। ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਸਮੀਖਿਆ ਸਕ੍ਰੀਨ \'ਤੇ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰਦੇ ਕੁਝ ਵੀ ਮਿਟਾਇਆ ਨਹੀਂ ਜਾਂਦਾ।</string>
     <string name="swiper_gesture_overlay_dismiss_action">ਸਮਝ ਗਿਆਂ/ ਗਈ</string>
     <string name="swiper_help_action">ਮਦਦ</string>
+    <string name="swiper_file_type_filter_title">ਸਿਰਫ਼ ਇਹ ਫ਼ਾਈਲ ਕਿਸਮਾਂ ਦਿਖਾਓ</string>
+    <string name="swiper_file_type_filter_hint">ਉਹ ਕਿਸਮਾਂ ਚੁਣੋ ਜੋ ਤੁਸੀਂ ਦੇਖਣਾ ਚਾਹੁੰਦੇ ਹੋ। ਜੇ ਕੋਈ ਨਹੀਂ ਚੁਣੀ, ਸਾਰੀਆਂ ਫ਼ਾਈਲਾਂ ਦਿਖਾਈਆਂ ਜਾਂਦੀਆਂ ਹਨ।</string>
+    <string name="swiper_file_type_category_images">ਤਸਵੀਰਾਂ</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ਵੀਡੀਓ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ਆਡੀਓ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ਦਸਤਾਵੇਜ਼</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ਪੁਰਾਲੇਖ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">ਲਾਗੂ ਕਰੋ</string>
+    <string name="swiper_session_filter_action">ਫ਼ਾਈਲਾਂ ਫ਼ਿਲਟਰ ਕਰੋ</string>
+    <string name="swiper_file_type_filter_summary">ਫ਼ਿਲਟਰ ਕੀਤਾ: %1$s</string>
+    <string name="swiper_session_no_matching_files">ਕੋਈ ਮੇਲ ਖਾਂਦੀਆਂ ਫ਼ਾਈਲਾਂ ਨਹੀਂ ਮਿਲੀਆਂ</string>
+    <string name="swiper_open_externally_action">ਬਾਹਰੀ ਐਪ ਵਿੱਚ ਖੋਲ੍ਹੋ</string>
 </resources>

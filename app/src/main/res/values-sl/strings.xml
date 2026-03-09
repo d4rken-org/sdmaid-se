@@ -30,6 +30,19 @@
     <string name="debug_debuglog_short_recording_desc">Snemanje je bilo zelo kratko. Dnevniki odpravljanja napak so posnetki, ne posnetki stanja — reproducirajte težavo med aktivnim snemanjem, da bo dnevnik koristen.</string>
     <string name="debug_debuglog_short_recording_continue_action">Nadaljuj snemanje</string>
     <string name="debug_debuglog_short_recording_stop_action">Ustavi vseeno</string>
+    <string name="debug_debuglog_screen_failed_title">Seja ni uspela</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Datoteka z dnevnikom odpravljanja napak je bila prazna. Poskusite znova snemati in reproducirajte težavo med snemanjem.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Datoteka z dnevnikom odpravljanja napak manjka. Snemanje je morda bilo prekinjeno.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Stisnjeni arhiv je poškodovan. Poskusite znova snemati.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Stiskanje ni uspelo. Preverite razpoložljivi prostor za shranjevanje in poskusite znova.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Stiskanje…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Ni uspelo: prazen dnevnik</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Ni uspelo: manjkajoči dnevnik</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Ni uspelo: poškodovan arhiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Ni uspelo: napaka pri stiskanju</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Izbrisati to sejo dnevnika za odpravljanje napak?</string>
+    <string name="support_contact_post_send_message">Sporočilo uspešno poslano?</string>
+    <string name="debug_debuglog_sessions_stop_action">Ustavi</string>
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -46,6 +59,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Rezultati opravil</string>
     <string name="tasks_result_subtext">Rezultat opravila</string>
+    <string name="tasks_timeout_error_label">Časovna omejitev naloge je potekla</string>
+    <string name="tasks_timeout_error_desc">Naloga je trajala predolgo in je bila ustavljena. Poskusite znova.</string>
     <string name="onboarding_welcome_title">Dobrodošli!</string>
     <string name="onboarding_welcome_body1">SD Maid SE upravlja z datotekami, programi in shrambo.</string>
     <string name="onboarding_welcome_body2">Pridobite prostor s čiščenjem ostankov drugih programov.  Izbrišite nepotrebne datoteke in odstranite ostanke podatkov.</string>

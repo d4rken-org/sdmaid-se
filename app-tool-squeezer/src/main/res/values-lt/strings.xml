@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="squeezer_explanation_short">Suglaudinti vaizdus, kad sutaupytumėte vietos atmintyje.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">Rasta %d nuotrauka</item>
+        <item quantity="few">Rastos %d nuotraukos</item>
+        <item quantity="many">Rasta %d nuotraukų</item>
+        <item quantity="other">Rasta %d vaizdų</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s galima sutaupyti</item>
+        <item quantity="few">Galima sutaupyti ~%s</item>
+        <item quantity="many">Galima sutaupyti ~%s</item>
+        <item quantity="other">~%s galima sutaupyti</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d nuotrauka sukompresuota</item>
+        <item quantity="few">%d nuotraukos sukompresuotos</item>
+        <item quantity="many">%d nuotraukų sukompresuota</item>
+        <item quantity="other">Suspausti %d vaizdų</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d nuotrauka pasirinkta</item>
+        <item quantity="few">%d nuotraukos pasirinktos</item>
+        <item quantity="many">%d nuotraukų pasirinkta</item>
+        <item quantity="other">Pasirinkta %d vaizdų</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Ieškoti vietos</string>
+    <string name="squeezer_search_locations_default_summary">Fotoaparato aplankai (numatytasis)</string>
+    <string name="squeezer_min_size_title">Minimalus failo dydis</string>
+    <string name="squeezer_min_size_description">Praleisti vaizdus, mažesnius nei šis dydis.</string>
+    <string name="squeezer_min_age_title">Minimalus failo amžius</string>
+    <string name="squeezer_min_age_description">Įtraukti tik vaizdus senesnius nei šis amžius.</string>
+    <string name="squeezer_compression_settings_label">Suglaudinimo nustatymai</string>
+    <string name="squeezer_quality_label">Kokybė</string>
+    <string name="squeezer_quality_title">Suglaudinimo kokybė</string>
+    <string name="squeezer_quality_description">Maesnė kokybė reiškia mažesnį failo dydį, bet sumaginą vaizdo kokybę.</string>
+    <string name="squeezer_quality_example_format">Pavyzdys: %1$s vaizdas → sutaupo ~%2$s prie %3$d%% kokybės</string>
+    <string name="squeezer_quality_warning_low">Maesnė kokybė gali sukelti matomus artefaktus.</string>
+    <string name="squeezer_quality_warning_high">Labai aukšta kokybė suteikia minimalias vietos sutaupymas.</string>
+    <string name="squeezer_types_category_label">Vaizdų tipai</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Įtraukti JPEG vaizdus (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Įtraukti WebP vaizdus (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Praleisti anksčiau suglaudintus</string>
+    <string name="squeezer_skip_compressed_description">Praleisti vaizdus, kurie jau buvo suglaudinti SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Rašyti EXIF žymė</string>
+    <string name="squeezer_exif_marker_description">Prideti žymę prie vaizdo EXIF vartotojo komentaro lauko, kad būtų užkirstas kelias pakartotiniam suglaudinimui net jei suglaudinimo istorija išvaloma.</string>
+    <string name="squeezer_estimated_savings_format">~%s sutaupyta</string>
+    <string name="squeezer_no_savings_expected">Ribotos sutaupymas</string>
+    <string name="squeezer_current_size_format">Dydis: %s</string>
+    <string name="squeezer_compress_action">Suglaudinti</string>
+    <string name="squeezer_compress_all_action">Suglaudinti visus</string>
+    <string name="squeezer_preview_dialog_title">Patvirtinti suglaudinimą</string>
+    <string name="squeezer_preview_total_size">Bendras dydis</string>
+    <string name="squeezer_preview_estimated_savings">Numatomas sutaupymas</string>
+    <string name="squeezer_compress_confirmation_title">Suglaudinti vaizdus?</string>
+    <string name="squeezer_compress_confirmation_message">Tai pakeis originalius vaizdus suglaudintomis versijomis. Šio veiksmo negalima atcofti.</string>
+    <string name="squeezer_history_title">Suglaudinimo istorija</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d elementas (%2$s)</item>
+        <item quantity="few">%1$d elementai (%2$s)</item>
+        <item quantity="many">%1$d elementų (%2$s)</item>
+        <item quantity="other">%1$d elementų (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">Nėra suglaudinimo istorijos</string>
+    <string name="squeezer_history_clear_title">Išvalyti suglaudinimo istoriją</string>
+    <string name="squeezer_history_clear_message">Tai leis anksčiau suglaudintus vaizdus suglaudinti iš naujo. Patys vaizdai neličiami.</string>
+    <string name="squeezer_onboarding_title">Apie vaizdų suglaudinimą</string>
+    <string name="squeezer_onboarding_message">Vaizdų suglaudinimas sumažina failo dydį pašalindamas vizualias detales. Šis procesas yra neatstatomas - originalės kokybės negalima atstatyti.\n\nStai kaip atrodys jūsų vaizdai:</string>
+    <string name="squeezer_onboarding_original_label">Originalas</string>
+    <string name="squeezer_onboarding_compressed_label">Po suglaudinimo</string>
+    <string name="squeezer_onboarding_quality_label">Kokybė: %d%%</string>
+    <string name="squeezer_compare_action">Peržiūrėti palyginimą</string>
+    <string name="squeezer_no_example_found">Pasirinktuose keliuose vaizdai nerasti.</string>
+    <string name="squeezer_result_empty_message">Nerasti jokių suglaudinamo vaizdų.</string>
+    <string name="squeezer_setup_warning">Suglaudinimas neatstatomai sumažina vaizdo kokybę, kad sutaupytų vietos. Tai negali būti atcofta. Atidžiai patikrinkite nustatymus prieš pradėdami.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze sumažina vaizdo failų dydį, kad atlaisvintų vietos atmintyje. Tai neatstatomai sumažina vaizdo kokybę ir negali būti atcofta. Atidžiai patikrinkite nustatymus prieš pradėdami.</string>
+    <string name="squeezer_setup_paths_title">Ieškoti vietos</string>
+    <string name="squeezer_setup_paths_default">Pasirinkti aplankus paiieškai</string>
+    <string name="squeezer_setup_quality_title">Suglaudinimo kokybė</string>
+    <string name="squeezer_setup_age_title">Minimalus amžius</string>
+    <string name="squeezer_setup_age_none">Be apribojimo (įtraukti visus failus)</string>
+    <string name="squeezer_setup_start_action">Pradėti nuskaitymą</string>
+    <string name="squeezer_quality_hint_very_low">Kokybė žemiau 40% gali sukurti nenaudojamus vaizdus.</string>
+    <string name="squeezer_quality_hint_low">Mažesnė kokybė sutaupo daugiau vietos, tačiau gali sukelti matomus artefaktus.</string>
+    <string name="squeezer_quality_hint_high">Labai aukšta kokybė suteikia minimalias vietos sutaupymas.</string>
+    <string name="squeezer_quality_hint_normal">Subalansuota kokybė ir vietos sutaupymas.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">Mažigiausiai %d diena sena</item>
+        <item quantity="few">Mažigiausiai %d dienos senos</item>
+        <item quantity="many">Mažigiausiai %d dienų sena</item>
+        <item quantity="other">Ne mažiau kaip %d dienų</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Numatamai ~%d%% sutaupymas JPEG failams</string>
+    <string name="squeezer_onboarding_got_it">Supratau</string>
+</resources>

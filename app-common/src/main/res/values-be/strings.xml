@@ -88,6 +88,7 @@
     <string name="general_view_action">Праглядзець</string>
     <string name="general_update_action">Абнавіць</string>
     <string name="general_scan_action">Сканіраваць</string>
+    <string name="general_close_action">Закрыць</string>
     <string name="general_delete_action">Выдаліць</string>
     <string name="general_delete_selected_action">Выдаліць выбраныя</string>
     <string name="general_show_details_action">Паказаць падрабязнасці</string>
@@ -160,6 +161,7 @@
     <string name="general_device_label">Прылада</string>
     <string name="general_settings_title">Налады</string>
     <string name="general_help_title">Дапамога</string>
+    <string name="general_hints_label">Заўвага</string>
     <string name="file_type_symbolic_link">Спасылка</string>
     <string name="file_type_directory">Каталог</string>
     <string name="file_type_file">Файл</string>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Змахнуць і выдаліць</string>
     <string name="stats_label">Гісторыя</string>
     <string name="settings_category_tools_label">Інструменты</string>
-    <string name="general_hints_label">Заўвага</string>
     <string name="settings_category_filter_generic">Агульны фільтр</string>
     <string name="settings_category_filter_specific">Спецыяльны фільтр</string>
     <string name="settings_category_risklevel">Узровень рызыкі</string>

@@ -140,4 +140,21 @@
     <string name="swiper_help_message">ውሳኔ ለማድረግ እያንዳንዱን ፋይል ያንሸራትቱ:\n\n← ወደ ግራ ያንሸራትቱ: %1$s\n→ ወደ ቀኝ ያንሸራትቱ: %2$s\n↑ ወደ ላይ ያንሸራትቱ: ዝለል\n↓ ወደ ታች ያንሸራትቱ: መልስ (ከመጀመሪያው ማንሸራተት በኋላ)\n\nከታች ያሉትን ቁልፎችም መጠቀም ይችላሉ።\n\nሲያልቁ ሁሉንም ውሳኔዎችዎን ለማየት \"ይገምግሙ\" ይንኩ። በግምገማ ስክሪኑ ላይ እስኪያረጋግጡ ድረስ ምንም አይሰረዝም።</string>
     <string name="swiper_gesture_overlay_dismiss_action">ገባኝ</string>
     <string name="swiper_help_action">እርዳታ</string>
+    <string name="swiper_file_type_filter_title">እነዚህን የፋይል ዓይነቶች ብቻ አሳይ</string>
+    <string name="swiper_file_type_filter_hint">ማየት የሚፈልጓቸውን ዓይነቶች ምልክት ያድርጉ። ምንም ምልክት ካልተደረገ ሁሉም ፋይሎች ይታያሉ።</string>
+    <string name="swiper_file_type_category_images">ምስሎች</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ቪዲዮዎች</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ኦዲዮ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ሰነዶች</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ማህደሮች</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">ተግብር</string>
+    <string name="swiper_session_filter_action">ፋይሎችን አጣራ</string>
+    <string name="swiper_file_type_filter_summary">ተጣርቷል: %1$s</string>
+    <string name="swiper_session_no_matching_files">የሚዛመዱ ፋይሎች አልተገኙም</string>
+    <string name="swiper_open_externally_action">በውጫዊ መተግበሪያ ክፈት</string>
 </resources>

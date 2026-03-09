@@ -123,4 +123,21 @@
     <string name="swiper_help_message">Geser setiap file untuk membuat keputusan:\n\n← Geser ke kiri: %1$s\n→ Geser ke kanan: %2$s\n↑ Geser ke atas: Lewati\n↓ Geser ke bawah: Batal (setelah geseran pertama)\n\nAnda juga dapat menggunakan tombol di bagian bawah.\n\nSetelah selesai, ketuk \"Tinjau\" untuk melihat semua keputusan Anda. Tidak ada yang dihapus sampai Anda mengonfirmasi di layar tinjauan.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Mengerti</string>
     <string name="swiper_help_action">Bantuan</string>
+    <string name="swiper_file_type_filter_title">Hanya tampilkan tipe file ini</string>
+    <string name="swiper_file_type_filter_hint">Centang tipe yang ingin Anda lihat. Jika tidak ada yang dicentang, semua file ditampilkan.</string>
+    <string name="swiper_file_type_category_images">Gambar</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumen</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arsip</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Terapkan</string>
+    <string name="swiper_session_filter_action">Filter file</string>
+    <string name="swiper_file_type_filter_summary">Difilter: %1$s</string>
+    <string name="swiper_session_no_matching_files">Tidak ada file yang cocok ditemukan</string>
+    <string name="swiper_open_externally_action">Buka di aplikasi eksternal</string>
 </resources>

@@ -174,4 +174,21 @@
     <string name="swiper_help_message">החלק כל קובץ כדי לקבל החלטה:\n\n← החלק שמאלה: %1$s\n→ החלק ימינה: %2$s\n↑ החלק למעלה: דלג\n↓ החלק למטה: בטל (אחרי ההחלקה הראשונה)\n\nאפשר גם להשתמש בכפתורים בתחתית.\n\nכשסיימת, הקש \"סקירה\" כדי לראות את כל ההחלטות שלך. שום דבר לא נמחק עד שתאשר במסך הסקירה.</string>
     <string name="swiper_gesture_overlay_dismiss_action">הבנתי</string>
     <string name="swiper_help_action">עזרה</string>
+    <string name="swiper_file_type_filter_title">הצג רק סוגי קבצים אלה</string>
+    <string name="swiper_file_type_filter_hint">סמן את הסוגים שברצונך לראות. אם לא סומן אף סוג, כל הקבצים יוצגו.</string>
+    <string name="swiper_file_type_category_images">תמונות</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">סרטונים</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">שמע</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">מסמכים</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ארכיונים</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">החל</string>
+    <string name="swiper_session_filter_action">סינון קבצים</string>
+    <string name="swiper_file_type_filter_summary">מסונן: %1$s</string>
+    <string name="swiper_session_no_matching_files">לא נמצאו קבצים תואמים</string>
+    <string name="swiper_open_externally_action">פתח באפליקציה חיצונית</string>
 </resources>

@@ -86,6 +86,7 @@
     <string name="general_view_action">చూడండి</string>
     <string name="general_update_action">అప్‌డేట్ చేయండి</string>
     <string name="general_scan_action">స్కాన్ చేయండి</string>
+    <string name="general_close_action">మూసివేయి</string>
     <string name="general_delete_action">తొలగించండి</string>
     <string name="general_delete_selected_action">ఎంచుకున్నవి తొలగించండి</string>
     <string name="general_show_details_action">వివరాలు చూపించండి</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">పరికరం</string>
     <string name="general_settings_title">సెట్టింగులు</string>
     <string name="general_help_title">సహాయం</string>
+    <string name="general_hints_label">గమనిక</string>
     <string name="file_type_symbolic_link">లింక్</string>
     <string name="file_type_directory">డైరెక్టరీ</string>
     <string name="file_type_file">ఫైల్</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">స్వైపర్</string>
     <string name="stats_label">చరిత్ర</string>
     <string name="settings_category_tools_label">టూల్స్</string>
-    <string name="general_hints_label">గమనిక</string>
     <string name="settings_category_filter_generic">సాధారణ ఫిల్టర్</string>
     <string name="settings_category_filter_specific">నిర్దిష్ట ఫిల్టర్</string>
     <string name="settings_category_risklevel">రిస్క్ లెవల్</string>

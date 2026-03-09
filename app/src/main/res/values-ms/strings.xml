@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">Rakaman ini sangat pendek. Log nyahpepijat adalah rakaman, bukan tangkapan skrin — hasilkan semula masalah semasa rakaman aktif agar log berguna.</string>
     <string name="debug_debuglog_short_recording_continue_action">Teruskan rakaman</string>
     <string name="debug_debuglog_short_recording_stop_action">Hentikan juga</string>
+    <string name="debug_debuglog_screen_failed_title">Sesi Gagal</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Fail log debug kosong. Cuba rakam semula dan hasilkan semula isu semasa merakam.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Fail log debug tiada. Rakaman mungkin telah terganggu.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Arkib termampat rosak. Cuba rakam semula.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Pemampatan gagal. Semak storan yang tersedia dan cuba lagi.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Memampatkan…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Gagal: log kosong</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Gagal: log tiada</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Gagal: arkib rosak</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Gagal: ralat pemampatan</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Padam sesi log debug ini?</string>
+    <string name="support_contact_post_send_message">Mesej berjaya dihantar?</string>
+    <string name="debug_debuglog_sessions_stop_action">Henti</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid sedang bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Keputusan tugas</string>
     <string name="tasks_result_subtext">Keputusan tugas</string>
+    <string name="tasks_timeout_error_label">Tugas tamat masa</string>
+    <string name="tasks_timeout_error_desc">Tugas mengambil masa terlalu lama dan telah dihentikan. Sila cuba lagi.</string>
     <string name="onboarding_welcome_title">Selamat datang</string>
     <string name="onboarding_welcome_body1">SD Maid SE mengurus fail, aplikasi dan storan.</string>
     <string name="onboarding_welcome_body2">Dapatkan ruang storan dengan membersihkan di belakang aplikasi lain. Padamkan fail yang boleh dibuang dan alih keluar data yang tersisa.</string>

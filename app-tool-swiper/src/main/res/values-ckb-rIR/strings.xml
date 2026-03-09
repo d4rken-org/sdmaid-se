@@ -140,4 +140,21 @@
     <string name="swiper_help_message">هەر فایلێک هەڵبسوڕێنە بۆ بڕیاردان:\n\n← هەڵسوڕاندن بۆ چەپ: %1$s\n→ هەڵسوڕاندن بۆ ڕاست: %2$s\n↑ هەڵسوڕاندن بۆ سەرەوە: تێپەڕاندن\n↓ هەڵسوڕاندن بۆ خوارەوە: گەڕانەوە (دوای یەکەم هەڵسوڕاندن)\n\nدەتوانیت دوگمەکانی خوارەوەش بەکاربهێنیت.\n\nکاتێک تەواو بوو، \"پێداچوونەوە\" بکە بۆ بینینی هەموو بڕیارەکانت. هیچ شتێک ناسڕێتەوە تاکو لە ڕوونمای پێداچوونەوەدا پشتڕاست بکەیتەوە.</string>
     <string name="swiper_gesture_overlay_dismiss_action">تێگەیشتم</string>
     <string name="swiper_help_action">یارمەتی</string>
+    <string name="swiper_file_type_filter_title">تەنها ئەم جۆرە فایلانە نیشان بدە</string>
+    <string name="swiper_file_type_filter_hint">جۆرەکانی کە دەتەوێت ببینیت هەڵبژێرە. ئەگەر هیچیان هەڵنەبژێردرا، هەموو فایلەکان نیشان دەدرێن.</string>
+    <string name="swiper_file_type_category_images">وێنەکان</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ڤیدیۆکان</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">دەنگ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">بەڵگەنامەکان</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ئەرشیفەکان</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">جێبەجێکردن</string>
+    <string name="swiper_session_filter_action">فایلەکان فلتەر بکە</string>
+    <string name="swiper_file_type_filter_summary">فلتەرکراو: %1$s</string>
+    <string name="swiper_session_no_matching_files">هیچ فایلێکی گونجاو نەدۆزرایەوە</string>
+    <string name="swiper_open_externally_action">لە ئەپی دەرەکی بکەرەوە</string>
 </resources>

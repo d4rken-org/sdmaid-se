@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">ادعم التطوير</string>
     <string name="upgrade_screen_sponsor_action_hint">البديل هو الإعلانات والتحليلات و Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">شكراً على دعمك لتطوير المصادر المفتوحة ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">عدت بالفعل؟ دعمك يبقي SD Maid حياً!</string>
 </resources>

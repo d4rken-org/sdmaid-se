@@ -88,6 +88,7 @@
     <string name="general_view_action">Zobraziť</string>
     <string name="general_update_action">Aktualizovať</string>
     <string name="general_scan_action">Skenovať</string>
+    <string name="general_close_action">Zavrieť</string>
     <string name="general_delete_action">Vymazať</string>
     <string name="general_delete_selected_action">Zmazať vybrané</string>
     <string name="general_show_details_action">Zobraziť podrobnosti</string>
@@ -160,6 +161,7 @@
     <string name="general_device_label">Zariadenie</string>
     <string name="general_settings_title">Nastavenia</string>
     <string name="general_help_title">Pomoc</string>
+    <string name="general_hints_label">Oznámenie</string>
     <string name="file_type_symbolic_link">Odkaz</string>
     <string name="file_type_directory">Adresár</string>
     <string name="file_type_file">Súbor</string>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">História</string>
     <string name="settings_category_tools_label">Nástroje</string>
-    <string name="general_hints_label">Oznámenie</string>
     <string name="settings_category_filter_generic">Všeobecný filter</string>
     <string name="settings_category_filter_specific">Špecifický filter</string>
     <string name="settings_category_risklevel">Úroveň rizika</string>

@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">ການບັນທຶກສັ້ນຫຼາຍ. ບັນທຶກດີບັກແມ່ນການບັນທຶກ, ບໍ່ແມ່ນສະແນບຊັອດ — ສ້າງບັນຫາຄືນໃໝ່ຂະນະທີ່ການບັນທຶກກຳລັງໃຊ້ງານຢູ່ເພື່ອໃຫ້ບັນທຶກມີປະໂຫຍດ.</string>
     <string name="debug_debuglog_short_recording_continue_action">ສືບຕໍ່ການບັນທຶກ</string>
     <string name="debug_debuglog_short_recording_stop_action">ຢຸດຢ່າງໃດກໍຕາມ</string>
+    <string name="debug_debuglog_screen_failed_title">ການສາກລົ້ມເຫລວ</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">ໄຟລ໌ບັນທຶກດີບັກຫວ່າງເປົ່າ. ລອງບັນທຶກໃໝ່ ແລະ ສ້າງຄືນບັນຫາໃນລະຫວ່າງການບັນທຶກ.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">ໄຟລ໌ບັນທຶກດີບັກຫາຍໄປ. ການບັນທຶກອາດຖືກຂັດຈັງຫວະ.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">ໄຟລ໌ບີບອັດເສຍຫາຍ. ລອງບັນທຶກໃໝ່.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">ການບີບອັດລົ້ມເຫລວ. ກວດເບິ່ງພື້ນທີ່ຫວ່າງ ແລະ ລອງໃໝ່.</string>
+    <string name="debug_debuglog_sessions_zipping_label">ກຳລັງບີບອັດ…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">ລົ້ມເຫລວ: ບັນທຶກຫວ່າງ</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">ລົ້ມເຫລວ: ບັນທຶກຫາຍ</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">ລົ້ມເຫລວ: ໄຟລ໌ບີບອັດເສຍຫາຍ</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">ລົ້ມເຫລວ: ຂໍ້ຜິດພາດໃນການບີບອັດ</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">ລຶບການສາກດີບັກນີ້?</string>
+    <string name="support_contact_post_send_message">ສົ່ງຂໍ້ຄວາມສຳເລັດແລ້ວບໍ?</string>
+    <string name="debug_debuglog_sessions_stop_action">ຢຸດ</string>
     <string name="tasks_activity_notification_channel_label">ໜ້າວຽກທີ່ກຳລັງດຳເນີນການ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ກຳລັງເຮັດວຽກ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ຜົນລັບຂອງໜ້າວຽກ</string>
     <string name="tasks_result_subtext">ຜົນລັບຂອງໜ້າວຽກ</string>
+    <string name="tasks_timeout_error_label">ໜ້າວຽກໝົດເວລາ</string>
+    <string name="tasks_timeout_error_desc">ໜ້າວຽກໃຊ້ເວລາດົນເກີນໄປ ແລະ ໄດ້ຢຸດແລ້ວ. ກະລຸນາລອງໃໝ່ອີກຄັ້ງ.</string>
     <string name="onboarding_welcome_title">ຍິນດີຕ້ອນຮັບ</string>
     <string name="onboarding_welcome_body1">SD Maid SE ຈັດການໄຟລ໌, ແອັບ ແລະ ການເກັບຮັກສາ.</string>
     <string name="onboarding_welcome_body2">ໄດ້ຮັບພື້ນທີ່ເກັບຮັກສາໂດຍການທຳຄວາມສະອາດຫລັງຈາກແອັບອື່ນໆ. ລຶບໄຟລ໌ທີ່ບໍ່ຈຳເປັນ ແລະ ເອົາຂໍ້ມູນທີ່ເຫຼືອອອກ.</string>

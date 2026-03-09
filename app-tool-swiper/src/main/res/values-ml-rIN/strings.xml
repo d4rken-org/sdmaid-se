@@ -149,4 +149,21 @@
 തീർന്നാൽ, നിങ്ങളുടെ എല്ലാ തീരുമാനങ്ങളും കാണാൻ \"അവലോകനം\" ടാപ്പ് ചെയ്യുക. അവലോകന സ്ക്രീനിൽ സ്ഥിരീകരിക്കുന്നത് വരെ ഒന്നും ഇല്ലാതാകില്ല.</string>
     <string name="swiper_gesture_overlay_dismiss_action">മനസ്സിലായി</string>
     <string name="swiper_help_action">ഹെല്പ്</string>
+    <string name="swiper_file_type_filter_title">ഈ ഫയൽ തരങ്ങൾ മാത്രം കാണിക്കുക</string>
+    <string name="swiper_file_type_filter_hint">നിങ്ങൾ കാണാൻ ആഗ്രഹിക്കുന്ന തരങ്ങൾ തിരഞ്ഞെടുക്കുക. ഒന്നും തിരഞ്ഞെടുത്തില്ലെങ്കിൽ, എല്ലാ ഫയലുകളും കാണിക്കും.</string>
+    <string name="swiper_file_type_category_images">ചിത്രങ്ങൾ</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">വീഡിയോകൾ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ഓഡിയോ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ഡോക്യുമെന്റുകൾ</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ആർക്കൈവുകൾ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">പ്രയോഗിക്കുക</string>
+    <string name="swiper_session_filter_action">ഫയലുകൾ ഫിൽട്ടർ ചെയ്യുക</string>
+    <string name="swiper_file_type_filter_summary">ഫിൽട്ടർ ചെയ്തത്: %1$s</string>
+    <string name="swiper_session_no_matching_files">യോജിക്കുന്ന ഫയലുകൾ ഒന്നും കണ്ടെത്തിയില്ല</string>
+    <string name="swiper_open_externally_action">ബാഹ്യ ആപ്പിൽ തുറക്കുക</string>
 </resources>

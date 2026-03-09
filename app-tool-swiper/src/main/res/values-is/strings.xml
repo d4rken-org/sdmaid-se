@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Strjúktu hverri skrá til að taka ákvörðun:\n\n← Strjúktu til vinstri: %1$s\n→ Strjúktu til hægri: %2$s\n↑ Strjúktu upp: Sleppa\n↓ Strjúktu niður: Afturkalla (eftir fyrsta strjúk)\n\nÞú getur líka notað hnappana neðst.\n\nÞegar þú ert búin/n, ýttu á \"Yfirfara\" til að sjá allar ákvarðanir þínar. Ekkert er eytt fyrr en þú staðfestir á yfirferðarskjánum.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ég skil</string>
     <string name="swiper_help_action">Hjálp</string>
+    <string name="swiper_file_type_filter_title">Sýna aðeins þessar skráargerðir</string>
+    <string name="swiper_file_type_filter_hint">Hakaðu við þær gerðir sem þú vilt sjá. Ef engar eru hakað við, birtast allar skrár.</string>
+    <string name="swiper_file_type_category_images">Myndir</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Myndbönd</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Hljóð</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Skjöl</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Skjalasafn</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Nota</string>
+    <string name="swiper_session_filter_action">Sía skrár</string>
+    <string name="swiper_file_type_filter_summary">Síað: %1$s</string>
+    <string name="swiper_session_no_matching_files">Engar samsvarandi skrár fundust</string>
+    <string name="swiper_open_externally_action">Opna í utanaðkomandi forriti</string>
 </resources>

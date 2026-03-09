@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Zhvillimi i sponsorëve</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativa janë reklamat, analitika dhe Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Faleminderit për mbështetjen e zhvillimit me burim të hapur ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Kthehesh tashmë? Mbështetja juaj e mban SD Maid gjallë!</string>
 </resources>

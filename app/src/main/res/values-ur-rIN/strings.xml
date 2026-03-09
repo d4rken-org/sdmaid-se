@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">ریکارڈنگ بہت مختصر تھی۔ ڈیبگ لاگز ریکارڈنگز ہیں، اسنیپ شاٹس نہیں — لاگ کو مفید بنانے کے لیے ریکارڈنگ فعال ہونے کے دوران مسئلہ دوبارہ پیش کریں۔</string>
     <string name="debug_debuglog_short_recording_continue_action">ریکارڈنگ جاری رکھیں</string>
     <string name="debug_debuglog_short_recording_stop_action">پھر بھی روکیں</string>
+    <string name="debug_debuglog_screen_failed_title">سیشن ناکام</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">ڈیبگ لاگ فائل خالی تھی۔ دوبارہ ریکارڈنگ کریں اور ریکارڈنگ کے دوران مسئلہ دوبارہ پیش کریں۔</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">ڈیبگ لاگ فائل غائب ہے۔ ریکارڈنگ میں خلل پڑ گیا ہو سکتا ہے۔</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">کمپریسڈ آرکائیو خراب ہے۔ دوبارہ ریکارڈنگ کریں۔</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">کمپریشن ناکام ہوئی۔ دستیاب اسٹوریج چیک کریں اور دوبارہ کوشش کریں۔</string>
+    <string name="debug_debuglog_sessions_zipping_label">کمپریس ہو رہا ہے…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">ناکام: خالی لاگ</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">ناکام: لاگ غائب</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">ناکام: خراب آرکائیو</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">ناکام: کمپریشن کی خرابی</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">یہ ڈیبگ لاگ سیشن حذف کریں؟</string>
+    <string name="support_contact_post_send_message">پیغام کامیابی سے بھیجا گیا؟</string>
+    <string name="debug_debuglog_sessions_stop_action">روکیں</string>
     <string name="tasks_activity_notification_channel_label">فعال کام</string>
     <string name="tasks_activity_working_notification_title">SD Maid کام کر رہا ہے</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">کام کے نتائج</string>
     <string name="tasks_result_subtext">کام کا نتیجہ</string>
+    <string name="tasks_timeout_error_label">کام کا وقت ختم ہو گیا</string>
+    <string name="tasks_timeout_error_desc">کام میں بہت زیادہ وقت لگا اور اسے روک دیا گیا۔ براہ کرم دوبارہ کوشش کریں۔</string>
     <string name="onboarding_welcome_title">خوش آمدید</string>
     <string name="onboarding_welcome_body1">SD Maid SE فائلوں، ایپس اور اسٹوریج کا انتظام کرتا ہے۔</string>
     <string name="onboarding_welcome_body2">دوسرے ایپس کے پیچھے صفائی کرکے اسٹوریج کی جگہ حاصل کریں۔ غیر ضروری فائلوں کو حذف کریں اور بقایا ڈیٹا کو ہٹا دیں۔</string>

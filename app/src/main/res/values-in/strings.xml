@@ -20,13 +20,26 @@
     <string name="debug_debuglog_screen_session_path_label">Jalur sesi</string>
     <string name="debug_debuglog_screen_log_files_label">File log</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d file siap (%2$s)</item>
+        <item quantity="other">%1$d file siap (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Fitur ini mencatat semua yang dilakukan aplikasi ke dalam file yang dapat dibagikan. File yang dibuat berisi informasi sensitif (misalnya nama file dan aplikasi yang terpasang). Bagikan hanya kepada pihak tepercaya (misalnya pengembang yang sedang memecahkan masalah).</string>
     <string name="debug_debuglog_short_recording_title">Rekaman sangat singkat</string>
     <string name="debug_debuglog_short_recording_desc">Rekaman sangat singkat. Log debug adalah rekaman aktivitas, bukan snapshot — ulangi masalah saat perekaman sedang aktif agar log berguna.</string>
     <string name="debug_debuglog_short_recording_continue_action">Lanjutkan perekaman</string>
     <string name="debug_debuglog_short_recording_stop_action">Tetap hentikan</string>
+    <string name="debug_debuglog_screen_failed_title">Sesi Gagal</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">File log debug kosong. Coba rekam ulang dan reproduksi masalah saat merekam.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">File log debug tidak ditemukan. Perekaman mungkin telah terganggu.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Arsip terkompresi rusak. Coba rekam ulang.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Kompresi gagal. Periksa penyimpanan yang tersedia dan coba lagi.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Mengompresi…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Gagal: log kosong</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Gagal: log tidak ada</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Gagal: arsip rusak</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Gagal: kesalahan kompresi</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Hapus sesi log debug ini?</string>
+    <string name="support_contact_post_send_message">Pesan berhasil terkirim?</string>
+    <string name="debug_debuglog_sessions_stop_action">Hentikan</string>
     <string name="tasks_activity_notification_channel_label">Tugas aktif</string>
     <string name="tasks_activity_working_notification_title">SD Maid bekerja</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Hasil tugas</string>
     <string name="tasks_result_subtext">Hasil tugas</string>
+    <string name="tasks_timeout_error_label">Tugas habis waktu</string>
+    <string name="tasks_timeout_error_desc">Tugas memakan terlalu lama dan dihentikan. Silakan coba lagi.</string>
     <string name="onboarding_welcome_title">Selamat datang</string>
     <string name="onboarding_welcome_body1">SD Maid SE mengelola berkas, aplikasi, dan penyimpanan.</string>
     <string name="onboarding_welcome_body2">Kosongkan ruang penyimpanan dengan membersihkan aplikasi. Buang berkas yang tidak terpakai dan hapus sisa-sisa data.</string>

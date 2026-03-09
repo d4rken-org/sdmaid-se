@@ -88,6 +88,7 @@
     <string name="general_view_action">הצג</string>
     <string name="general_update_action">עדכן</string>
     <string name="general_scan_action">סריקה</string>
+    <string name="general_close_action">סגור</string>
     <string name="general_delete_action">מחיקה</string>
     <string name="general_delete_selected_action">מחק נבחרים</string>
     <string name="general_show_details_action">הצג פרטים</string>
@@ -160,6 +161,7 @@
     <string name="general_device_label">מכשיר</string>
     <string name="general_settings_title">הגדרות</string>
     <string name="general_help_title">עזרה</string>
+    <string name="general_hints_label">הודעה</string>
     <string name="file_type_symbolic_link">קישור</string>
     <string name="file_type_directory">תיקייה</string>
     <string name="file_type_file">קובץ</string>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">היסטוריה</string>
     <string name="settings_category_tools_label">כלים</string>
-    <string name="general_hints_label">הודעה</string>
     <string name="settings_category_filter_generic">פילטר כללי</string>
     <string name="settings_category_filter_specific">פילטר ספציפי</string>
     <string name="settings_category_risklevel">רמת סיכון</string>

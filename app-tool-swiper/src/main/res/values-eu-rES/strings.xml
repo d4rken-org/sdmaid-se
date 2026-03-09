@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Irristatu fitxategi bakoitza erabaki bat hartzeko:\n\n← Irristatu ezkerrera: %1$s\n→ Irristatu eskuinera: %2$s\n↑ Irristatu gora: Saltatu\n↓ Irristatu behera: Desegin (lehen irristadaren ondoren)\n\nBeheko botoiak ere erabil ditzakezu.\n\nBukatutakoan, sakatu \"Berrikusi\" zure erabaki guztiak ikusteko. Ezer ez da ezabatuko berrikusketa pantailan baieztatu arte.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Ulertuta</string>
     <string name="swiper_help_action">Laguntza</string>
+    <string name="swiper_file_type_filter_title">Erakutsi fitxategi mota hauek soilik</string>
+    <string name="swiper_file_type_filter_hint">Hautatu ikusi nahi dituzun motak. Bat ere hautatzen ez bada, fitxategi guztiak erakutsiko dira.</string>
+    <string name="swiper_file_type_category_images">Irudiak</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Bideoak</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audioa</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumentuak</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Artxiboak</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Aplikatu</string>
+    <string name="swiper_session_filter_action">Iragazki fitxategiak</string>
+    <string name="swiper_file_type_filter_summary">Iragazita: %1$s</string>
+    <string name="swiper_session_no_matching_files">Ez da bat datorren fitxategirik aurkitu</string>
+    <string name="swiper_open_externally_action">Ireki kanpoko aplikazioan</string>
 </resources>

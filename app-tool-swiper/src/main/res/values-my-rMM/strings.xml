@@ -123,4 +123,21 @@
     <string name="swiper_help_message">ဖိုင်တစ်ခုစီကို ပွတ်ဆွဲပြီး ဆုံးဖြတ်ပါ:\n\n← ဘယ်ဘက်သို့ ပွတ်ဆွဲ: %1$s\n→ ညာဘက်သို့ ပွတ်ဆွဲ: %2$s\n↑ အပေါ်သို့ ပွတ်ဆွဲ: ကျော်မည်\n↓ အောက်သို့ ပွတ်ဆွဲ: ပြန်ယူမည် (ပထမ ပွတ်ဆွဲပြီးနောက်)\n\nအောက်ခြေ ခလုတ်များကိုလည်း သုံးနိုင်ပါသည်။\n\nပြီးသွားသောအခါ \"ပြန်စစ်\" ကို တို့ပြီး သင့်ဆုံးဖြတ်ချက်များ အားလုံးကို ကြည့်ပါ။ ပြန်စစ်သည့် မျက်နှာပြင်တွင် အတည်ပြုသည့်အထိ ဘာမျှ မဖျက်ပါ။</string>
     <string name="swiper_gesture_overlay_dismiss_action">နား လည်ပါပြီ</string>
     <string name="swiper_help_action">အကူအညီ</string>
+    <string name="swiper_file_type_filter_title">ဤဖိုင်အမျိုးအစားများကိုသာ ပြပါ</string>
+    <string name="swiper_file_type_filter_hint">ကြည့်လိုသောအမျိုးအစားများကို စစ်ဆေးပါ။ မည်သည့်အမျိုးအစားမှ မစစ်ဆေးပါက ဖိုင်အားလုံးကို ပြပါမည်။</string>
+    <string name="swiper_file_type_category_images">ပုံများ</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ဗီဒီယိုများ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">အသံ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">စာရွက်စာတမ်းများ</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">မော်ကွန်းများ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">သုံးမည်</string>
+    <string name="swiper_session_filter_action">ဖိုင်များ စစ်ထုတ်မည်</string>
+    <string name="swiper_file_type_filter_summary">စစ်ထုတ်ထားသည်- %1$s</string>
+    <string name="swiper_session_no_matching_files">ကိုက်ညီသောဖိုင်များ မတွေ့ပါ</string>
+    <string name="swiper_open_externally_action">ပြင်ပအပ်ပ်တွင် ဖွင့်မည်</string>
 </resources>

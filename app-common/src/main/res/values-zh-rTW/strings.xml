@@ -85,6 +85,7 @@
     <string name="general_view_action">檢視</string>
     <string name="general_update_action">更新</string>
     <string name="general_scan_action">掃描</string>
+    <string name="general_close_action">關閉</string>
     <string name="general_delete_action">刪除</string>
     <string name="general_delete_selected_action">刪除已選取的項目</string>
     <string name="general_show_details_action">顯示詳細資料</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">裝置</string>
     <string name="general_settings_title">設定</string>
     <string name="general_help_title">說明</string>
+    <string name="general_hints_label">注意事項</string>
     <string name="file_type_symbolic_link">連結</string>
     <string name="file_type_directory">目錄</string>
     <string name="file_type_file">檔案</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">歷史記錄</string>
     <string name="settings_category_tools_label">工具</string>
-    <string name="general_hints_label">注意事項</string>
     <string name="settings_category_filter_generic">一般過濾器</string>
     <string name="settings_category_filter_specific">指定過濾器</string>
     <string name="settings_category_risklevel">風險層級</string>

@@ -140,4 +140,21 @@
     <string name="swiper_help_message">තීරණයක් ගැනීමට සෑම ගොනුවක්ම ස්වයිප් කරන්න:\n\n← වමට ස්වයිප්: %1$s\n→ දකුණට ස්වයිප්: %2$s\n↑ ඉහළට ස්වයිප්: මඟ හරින්න\n↓ පහළට ස්වයිප්: අස් කරන්න (පළමු ස්වයිප් එකෙන් පසු)\n\nඔබට පහළ බොත්තම් ද භාවිත කළ හැක.\n\nඔබ අවසන් වූ විට, ඔබේ සියලු තීරණ බැලීමට \"සමාලෝචනය\" තට්ටු කරන්න. සමාලෝචන තිරයේ තහවුරු කරන තුරු කිසිවක් මකා නොදමයි.</string>
     <string name="swiper_gesture_overlay_dismiss_action">තේරුණා</string>
     <string name="swiper_help_action">උදව්</string>
+    <string name="swiper_file_type_filter_title">මෙම ගොනු වර්ග පමණක් පෙන්වන්න</string>
+    <string name="swiper_file_type_filter_hint">ඔබ දැකීමට කැමති වර්ග සලකුණු කරන්න. කිසිවක් සලකුණු නොකළ හොත්, සියළු ගොනු පෙන්වනු ලැබේ.</string>
+    <string name="swiper_file_type_category_images">රූප</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">වීඩියෝ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ශ්‍රව්‍ය</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ලේඛන</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">සංරක්ෂිත</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">යොදන්න</string>
+    <string name="swiper_session_filter_action">ගොනු පෙරහන්</string>
+    <string name="swiper_file_type_filter_summary">පෙරහන් කළ: %1$s</string>
+    <string name="swiper_session_no_matching_files">ගැළපෙන ගොනු හමු නොවිණි</string>
+    <string name="swiper_open_externally_action">බාහිර යෙදුමකින් විවෘත කරන්න</string>
 </resources>

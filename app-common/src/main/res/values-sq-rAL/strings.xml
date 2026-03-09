@@ -86,6 +86,7 @@
     <string name="general_view_action">Pamje</string>
     <string name="general_update_action">Përditëso</string>
     <string name="general_scan_action">Skeno</string>
+    <string name="general_close_action">Mbyll</string>
     <string name="general_delete_action">Fshije</string>
     <string name="general_delete_selected_action">Fshij të zgjedhurin</string>
     <string name="general_show_details_action">Shfaq detajet</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Pajisja</string>
     <string name="general_settings_title">Cilësimet</string>
     <string name="general_help_title">Ndihmë</string>
+    <string name="general_hints_label">Paralajmërim</string>
     <string name="file_type_symbolic_link">Lidhje</string>
     <string name="file_type_directory">Drejtoria</string>
     <string name="file_type_file">Skedar</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historiku</string>
     <string name="settings_category_tools_label">Mjetet</string>
-    <string name="general_hints_label">Paralajmërim</string>
     <string name="settings_category_filter_generic">Filtër gjenerik</string>
     <string name="settings_category_filter_specific">Filtër specifik</string>
     <string name="settings_category_risklevel">Niveli i rrezikut</string>

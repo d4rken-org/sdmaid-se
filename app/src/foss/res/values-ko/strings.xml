@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">개발 후원하기</string>
     <string name="upgrade_screen_sponsor_action_hint">다른 방식은 광고, 데이터 수집, 그리고 플레이 스토어입니다 🙁</string>
     <string name="upgrade_screen_thanks_toast">오픈소스 개발을 지원해주셔서 감사합니다 ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">벌써 돌아오셨나요? 여러분의 후원이 SD Maid를 살아있게 합니다!</string>
 </resources>

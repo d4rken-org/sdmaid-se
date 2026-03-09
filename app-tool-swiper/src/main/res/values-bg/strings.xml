@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Плъзнете всеки файл, за да вземете решение:\n\n← Плъзнете наляво: %1$s\n→ Плъзнете надясно: %2$s\n↑ Плъзнете нагоре: Пропускане\n↓ Плъзнете надолу: Отмяна (след първото плъзгане)\n\nМожете също да използвате бутоните в долната част.\n\nКогато приключите, докоснете \"Преглед\", за да видите всичките си решения. Нищо не се изтрива, докато не потвърдите на екрана за преглед.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Разбрах</string>
     <string name="swiper_help_action">Помощ</string>
+    <string name="swiper_file_type_filter_title">Показвай само тези типове файлове</string>
+    <string name="swiper_file_type_filter_hint">Отметнете типовете, които искате да виждате. Ако нито един не е отметнат, се показват всички файлове.</string>
+    <string name="swiper_file_type_category_images">Изображения</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Видеа</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Аудио</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Документи</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Архиви</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Приложи</string>
+    <string name="swiper_session_filter_action">Филтриране на файлове</string>
+    <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
+    <string name="swiper_session_no_matching_files">Не са намерени съответстващи файлове</string>
+    <string name="swiper_open_externally_action">Отвори във външно приложение</string>
 </resources>

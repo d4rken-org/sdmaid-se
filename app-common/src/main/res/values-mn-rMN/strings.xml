@@ -86,6 +86,7 @@
     <string name="general_view_action">Харах</string>
     <string name="general_update_action">Шинэчлэх</string>
     <string name="general_scan_action">Скан хийх</string>
+    <string name="general_close_action">Хаах</string>
     <string name="general_delete_action">Устгах</string>
     <string name="general_delete_selected_action">Сонгосныг устгах</string>
     <string name="general_show_details_action">Дэлгэрэнгүй харуулах</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Төхөөрөмж</string>
     <string name="general_settings_title">Тохиргоо</string>
     <string name="general_help_title">Тусламж</string>
+    <string name="general_hints_label">Мэдэгдэл</string>
     <string name="file_type_symbolic_link">Холбоос</string>
     <string name="file_type_directory">Лавлах</string>
     <string name="file_type_file">Файл</string>
@@ -191,11 +193,10 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Түүх</string>
     <string name="settings_category_tools_label">Хэрэгслүүд</string>
-    <string name="general_hints_label">Анхааруулга</string>
     <string name="settings_category_filter_generic">Ерөнхий шүүлтүүр</string>
-    <string name="settings_category_filter_specific">Тусгай шүүлтүүр</string>
-    <string name="settings_category_risklevel">Эрсдэлийн түвшин</string>
+    <string name="settings_category_filter_specific">Тодорхой шүүлтүүр</string>
+    <string name="settings_category_risklevel">Эрсдлийн түвшин</string>
     <string name="settings_category_filter">Шүүлтүүр</string>
-    <string name="appcontrol_systemsettings_open_title">Тохиргоо харуулах</string>
+    <string name="appcontrol_systemsettings_open_title">Тохиргоог харуулах</string>
     <string name="systemcleaner_customfilter_create_action">Тусгай шүүлтүүр үүсгэх</string>
 </resources>

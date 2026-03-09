@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">සංවර්ධනයට අනුග්‍රහය දෙන්න</string>
     <string name="upgrade_screen_sponsor_action_hint">විකල්පය දැන්වීම්, විශ්ලේෂණ සහ Google Play වේ 🙁</string>
     <string name="upgrade_screen_thanks_toast">විවෘත මූලාශ්‍ර සංවර්ධනයට සහාය දීම ගැන ස්තූතියි ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">දැනටමත් ආපසු? ඔබේ සහාය SD Maid ජීවත් කරවයි!</string>
 </resources>

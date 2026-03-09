@@ -174,4 +174,21 @@
     <string name="swiper_help_message">Правядзіце пальцам па кожным файле, каб прыняць рашэнне:\n\n← Правесці ўлева: %1$s\n→ Правесці ўправа: %2$s\n↑ Правесці ўверх: Прапусціць\n↓ Правесці ўніз: Скасаваць (пасля першага правядзення)\n\nВы таксама можаце выкарыстоўваць кнопкі ўнізе.\n\nКалі скончыце, дакраніцеся \"Агляд\", каб убачыць усе вашы рашэнні. Нічога не выдаляецца, пакуль вы не пацвердзіце на экране агляду.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Зразумела</string>
     <string name="swiper_help_action">Дапамога</string>
+    <string name="swiper_file_type_filter_title">Паказваць толькі гэтыя тыпы файлаў</string>
+    <string name="swiper_file_type_filter_hint">Адзначце тыпы, якія вы хочаце бачыць. Калі нічога не адзначана, паказваюцца ўсе файлы.</string>
+    <string name="swiper_file_type_category_images">Выявы</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Відэа</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Аўдыё</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Дакументы</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Архівы</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Ужыць</string>
+    <string name="swiper_session_filter_action">Фільтраваць файлы</string>
+    <string name="swiper_file_type_filter_summary">Адфільтравана: %1$s</string>
+    <string name="swiper_session_no_matching_files">Адпаведных файлаў не знойдзена</string>
+    <string name="swiper_open_externally_action">Адкрыць ў знешнім дадатку</string>
 </resources>

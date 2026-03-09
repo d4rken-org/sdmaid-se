@@ -20,14 +20,27 @@
     <string name="debug_debuglog_screen_session_path_label">Sitzungspfad</string>
     <string name="debug_debuglog_screen_log_files_label">Protokolldateien</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d Datei bereit (%2$s)</item>
-        <item quantity="other">%1$d Dateien bereit (%2$s)</item>
+        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
+        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="debug_debuglog_short_recording_title">Sehr kurze Aufzeichnung</string>
     <string name="debug_debuglog_short_recording_desc">Die Aufzeichnung war sehr kurz. Debug-Protokolle sind Aufzeichnungen, keine Momentaufnahmen — reproduziere das Problem während die Aufzeichnung aktiv ist, damit das Protokoll nützlich ist.</string>
     <string name="debug_debuglog_short_recording_continue_action">Aufzeichnung fortsetzen</string>
     <string name="debug_debuglog_short_recording_stop_action">Trotzdem stoppen</string>
+    <string name="debug_debuglog_screen_failed_title">Sitzung fehlgeschlagen</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Die Debug-Protokolldatei war leer. Versuche erneut aufzuzeichnen und reproduziere das Problem während der Aufzeichnung.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Die Debug-Protokolldatei fehlt. Die Aufzeichnung wurde möglicherweise unterbrochen.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Das komprimierte Archiv ist beschädigt. Versuche es erneut aufzuzeichnen.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Komprimierung fehlgeschlagen. Überprüfe den verfügbaren Speicher und versuche es erneut.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Komprimierung läuft…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Fehlgeschlagen: leeres Protokoll</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Fehlgeschlagen: fehlendes Protokoll</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Fehlgeschlagen: beschädigtes Archiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Fehlgeschlagen: Komprimierungsfehler</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Diese Debug-Protokollsitzung löschen?</string>
+    <string name="support_contact_post_send_message">Nachricht erfolgreich gesendet?</string>
+    <string name="debug_debuglog_sessions_stop_action">Stopp</string>
     <string name="tasks_activity_notification_channel_label">Aktive Aufgaben</string>
     <string name="tasks_activity_working_notification_title">SD Maid arbeitet</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Ergebnisse der Aufgabe</string>
     <string name="tasks_result_subtext">Ergebnis der Aufgabe</string>
+    <string name="tasks_timeout_error_label">Aufgabe hat das Zeitlimit überschritten</string>
+    <string name="tasks_timeout_error_desc">Die Aufgabe hat zu lange gedauert und wurde gestoppt. Bitte erneut versuchen.</string>
     <string name="onboarding_welcome_title">Willkommen</string>
     <string name="onboarding_welcome_body1">SD Maid SE verwaltet Dateien, Apps und Speicher.</string>
     <string name="onboarding_welcome_body2">Erhalte Speicherplatz, indem Reste von anderen Apps aufgeräumt werden. Entferne optionale Daten und zurückgebliebene Dateien.</string>

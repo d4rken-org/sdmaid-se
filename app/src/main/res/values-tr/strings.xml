@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Kayıt çok kısaydı. Hata ayıklama günlükleri uzun kayıtlardır, anlık kesitler değil — kayıt aktifken sorunu yeniden üretin ki günlük işe yarar olsun.</string>
     <string name="debug_debuglog_short_recording_continue_action">Kaydetmeye devam et</string>
     <string name="debug_debuglog_short_recording_stop_action">Yine de durdur</string>
+    <string name="debug_debuglog_screen_failed_title">Oturum Başarısız Oldu</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Hata ayıklama günlük dosyası boştu. Tekrar kayıt yapın ve kayıt sırasında sorunu yeniden oluşturun.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Hata ayıklama günlük dosyası eksik. Kayıt kesintiye uğramış olabilir.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Sıkıştırılmış arşiv bozuk. Tekrar kayıt yapın.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Sıkıştırma başarısız oldu. Kullanılabilir depolama alanını kontrol edin ve tekrar deneyin.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Sıkıştırılıyor…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Başarısız: boş günlük</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Başarısız: eksik günlük</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Başarısız: bozuk arşiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Başarısız: sıkıştırma hatası</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Bu hata ayıklama günlük oturumu silinsin mi?</string>
+    <string name="support_contact_post_send_message">Mesaj başarıyla gönderildi mi?</string>
+    <string name="debug_debuglog_sessions_stop_action">Durdur</string>
     <string name="tasks_activity_notification_channel_label">Etkin görevler</string>
     <string name="tasks_activity_working_notification_title">SD Maid şu an çalışıyor</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Sonuçlar</string>
     <string name="tasks_result_subtext">Sonuç</string>
+    <string name="tasks_timeout_error_label">Görev zaman aşımına uğradı</string>
+    <string name="tasks_timeout_error_desc">Görev çok uzun sürdü ve durduruldu. Lütfen tekrar deneyin.</string>
     <string name="onboarding_welcome_title">Hoşgeldiniz</string>
     <string name="onboarding_welcome_body1">SD Maid SE dosyaları, uygulamaları ve depolama alanını yönetir.</string>
     <string name="onboarding_welcome_body2">Diğer uygulamaların geride bıraktıklarını temizleyerek depolama alanı kazanın. Gereksiz dosyaları ve artakalan verileri silin.</string>

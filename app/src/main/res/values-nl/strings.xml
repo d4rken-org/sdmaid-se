@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">De opname was zeer kort. Foutopsporingslogs zijn opnames, geen momentopnames — reproduceer het probleem terwijl de opname actief is om de log bruikbaar te maken.</string>
     <string name="debug_debuglog_short_recording_continue_action">Doorgaan met opnemen</string>
     <string name="debug_debuglog_short_recording_stop_action">Toch stoppen</string>
+    <string name="debug_debuglog_screen_failed_title">Sessie mislukt</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Het foutopsporingslogboekbestand was leeg. Probeer opnieuw op te nemen en reproduceer het probleem tijdens de opname.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Het foutopsporingslogboekbestand ontbreekt. De opname is mogelijk onderbroken.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Het gecomprimeerde archief is beschadigd. Probeer opnieuw op te nemen.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Comprimeren mislukt. Controleer de beschikbare opslag en probeer opnieuw.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Comprimeren…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Mislukt: leeg logboek</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Mislukt: ontbrekend logboek</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Mislukt: beschadigd archief</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Mislukt: compressiefout</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Deze foutopsporingssessie verwijderen?</string>
+    <string name="support_contact_post_send_message">Bericht succesvol verzonden?</string>
+    <string name="debug_debuglog_sessions_stop_action">Stoppen</string>
     <string name="tasks_activity_notification_channel_label">Actieve taken</string>
     <string name="tasks_activity_working_notification_title">SD Maid is aan het werk</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Taak resultaten</string>
     <string name="tasks_result_subtext">Taak resultaat</string>
+    <string name="tasks_timeout_error_label">Taak is verlopen</string>
+    <string name="tasks_timeout_error_desc">De taak duurde te lang en is gestopt. Probeer het opnieuw.</string>
     <string name="onboarding_welcome_title">Welkom</string>
     <string name="onboarding_welcome_body1">SD Maid SE beheert bestanden, apps en opslag.</string>
     <string name="onboarding_welcome_body2">Win opslagruimte door op te ruimen achter andere apps. Verwijder vervangbare bestanden en verwijder overgebleven gegevens.</string>

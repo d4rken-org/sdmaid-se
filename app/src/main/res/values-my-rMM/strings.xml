@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">အသံဖမ်းချိန် အလွန်တိုနေသည်။ Debug မှတ်တမ်းများသည် ဓာတ်ပုံမဟုတ်ဘဲ အသံဖမ်းချက်များဖြစ်သည် — မှတ်တမ်းထောက်ကူဖြစ်ရန် အသံဖမ်းနေစဉ် ပြဿနာကို ပြန်ဖော်ထုတ်ပါ။</string>
     <string name="debug_debuglog_short_recording_continue_action">အသံဖမ်းဆက်လုပ်မည်</string>
     <string name="debug_debuglog_short_recording_stop_action">မည်သို့ပင်ဆိုစေ ရပ်မည်</string>
+    <string name="debug_debuglog_screen_failed_title">အစည်းအဝေး မအောင်မြင်ပါ</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">debug log ဖိုင်သည် ဗလာဖြစ်နေသည်။ ထပ်မံသတ်မှတ်ကာ မှတ်တမ်းတင်နေစဉ် ပြဿနာကို ပြန်လည်ဖြစ်ပေါ်စေပါ။</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">debug log ဖိုင်မတွေ့ပါ။ မှတ်တမ်းတင်ခြင်းကို အနှောင့်အယှက်ဖြစ်ခဲ့နိုင်သည်။</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">ချုံ့ထားသောဖိုင်သည် ပျက်စီးနေသည်။ ထပ်မံမှတ်တမ်းတင်ကြည့်ပါ။</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">ချုံ့ခြင်း မအောင်မြင်ပါ။ သိုလှောင်မှုနေရာလပ်ကို စစ်ဆေးပြီး ထပ်မံကြိုးစားပါ။</string>
+    <string name="debug_debuglog_sessions_zipping_label">ချုံ့နေသည်…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">မအောင်မြင်ပါ: log ဗလာဖြစ်နေသည်</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">မအောင်မြင်ပါ: log မတွေ့ပါ</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">မအောင်မြင်ပါ: archive ပျက်စီးနေသည်</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">မအောင်မြင်ပါ: ချုံ့ရာတွင် အမှားအယွင်းဖြစ်သည်</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">ဤ debug log အစည်းအဝေးကို ဖျက်မည်လား?</string>
+    <string name="support_contact_post_send_message">မက်ဆေ့ချ် အောင်မြင်စွာ ပေးပို့ပြီးပြီလား?</string>
+    <string name="debug_debuglog_sessions_stop_action">ရပ်ရန်</string>
     <string name="tasks_activity_notification_channel_label">လှုပ်ရှားနေသော အလုပ်များ</string>
     <string name="tasks_activity_working_notification_title">SD Maid လုပ်ဆောင်နေသည်</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">အလုပ် ရလဒ်များ</string>
     <string name="tasks_result_subtext">အလုပ် ရလဒ်</string>
+    <string name="tasks_timeout_error_label">တာဝန်ကြာချိန်ကျော်လွန်သွားပြီ</string>
+    <string name="tasks_timeout_error_desc">တာဝန်သည် အချိန်အတော်ကြာနေသောကြောင့် ရပ်တန့်သွားသည်။ ထပ်မံကြိုးစားပါ။</string>
     <string name="onboarding_welcome_title">ကြိုဆိုပါသည်</string>
     <string name="onboarding_welcome_body1">SD Maid SE သည် ဖိုင်များ၊ အက်ပ်များနှင့် သိမ်းဆည်းမှုကို စီမံခန့်ခွဲသည်။</string>
     <string name="onboarding_welcome_body2">အခြားအက်ပ်များ၏နောက်တွင် သန့်ရှင်းရေးလုပ်ခြင်းဖြင့် သိမ်းဆည်းမှုနေရာရပါ။ မလိုအပ်သောဖိုင်များကို ဖျက်ပြီး ကျန်ရှိနေသောဒေတာများကို ဖယ်ရှားပါ။</string>

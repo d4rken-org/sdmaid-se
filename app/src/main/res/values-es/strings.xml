@@ -20,14 +20,27 @@
     <string name="debug_debuglog_screen_session_path_label">Directorio actualmente utilizado para guardar los datos de las sesiones</string>
     <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d archivo listo (%2$s)</item>
-        <item quantity="other">%1$d archivos listos (%2$s)</item>
+        <item quantity="one">%1$d archivo listo (%2$s) · %3$s</item>
+        <item quantity="other">%1$d archivos listos (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con personas de confianza (por ejemplo, un desarrollador que solucione un problema).</string>
     <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
-    <string name="debug_debuglog_short_recording_desc">La grabación fue muy corta. Los registros de depuración son grabaciones, no instantáneas — reproduce el problema mientras la grabación está activa para que el registro sea útil.</string>
+    <string name="debug_debuglog_short_recording_desc">La grabación fue muy breve. Los registros de depuración son grabaciones, no instantáneas: reproduzca el problema mientras la grabación está activa para que el registro sea útil.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continuar grabando</string>
     <string name="debug_debuglog_short_recording_stop_action">Detener de todas formas</string>
+    <string name="debug_debuglog_screen_failed_title">Sesión fallida</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">El archivo de registro de depuración estaba vacío. Intenta grabar de nuevo y reproduce el problema durante la grabación.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">El archivo de registro de depuración no está disponible. Es posible que la grabación haya sido interrumpida.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">El archivo comprimido está dañado. Intenta grabar de nuevo.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">La compresión falló. Comprueba el almacenamiento disponible e inténtalo de nuevo.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Comprimiendo…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Fallido: registro vacío</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Fallido: registro no disponible</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Fallido: archivo dañado</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Fallido: error de compresión</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">¿Eliminar esta sesión de registro de depuración?</string>
+    <string name="support_contact_post_send_message">¿Mensaje enviado correctamente?</string>
+    <string name="debug_debuglog_sessions_stop_action">Detener</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Resultados de la tarea</string>
     <string name="tasks_result_subtext">Resultado de la tarea</string>
+    <string name="tasks_timeout_error_label">La tarea ha agotado el tiempo de espera</string>
+    <string name="tasks_timeout_error_desc">La tarea tardó demasiado y fue detenida. Por favor, inténtalo de nuevo.</string>
     <string name="onboarding_welcome_title">Bienvenido</string>
     <string name="onboarding_welcome_body1">SD Maid SE administra los archivos, las aplicaciones y el almacenamiento.</string>
     <string name="onboarding_welcome_body2">Ahorra espacio de almacenamiento limpiando detrás de otras aplicaciones. Elimina los archivos innecesarios y los datos sobrantes.</string>
@@ -104,7 +119,7 @@
     <string name="discord_description">Un lugar donde pasar el rato y preguntar.</string>
     <string name="support_contact_label">Contactar con el desarrollador</string>
     <string name="support_contact_desc">Rellena un formulario para enviar un correo electrónico al desarrollador.</string>
-    <string name="support_contact_welcome">Yo mismo leo todos los mensajes y hago todo lo posible por responder. Como manejo el desarrollo, la corrección de errores y el soporte técnico por mi cuenta, puede llevar un poco de tiempo. Gracias por tu paciencia.</string>
+    <string name="support_contact_welcome">Leo todos los mensajes personalmente y hago todo lo posible por responder, pero como trabajo solo en esto, puede llevarme un poco de tiempo. Gracias por tu paciencia.</string>
     <string name="support_contact_footer">Tu mensaje se enviará por correo electrónico. La información del dispositivo y de la configuración se adjunta automáticamente. Puedes adjuntar capturas de pantalla o un vídeo al correo electrónico. Algunas partes del correo electrónico estarán en inglés para que el desarrollador pueda entenderlo fácilmente.</string>
     <string name="support_contact_category_label">Categoría</string>
     <string name="support_contact_category_bug_label">Informe de un error</string>

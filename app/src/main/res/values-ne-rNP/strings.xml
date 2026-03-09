@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">रेकर्डिङ अत्यन्त छोटो थियो। डिबग लगहरू रेकर्डिङहरू हुन्, स्न्यापसटहरू होइनन् — लग उपयोगी होस् भनेर रेकर्डिङ सक्रिय हुँदा समस्या पुनः उत्पन्न गर्नुहोस्।</string>
     <string name="debug_debuglog_short_recording_continue_action">रेकर्डिङ जारी राख्नुहोस्</string>
     <string name="debug_debuglog_short_recording_stop_action">जे भए पनि रोक्नुहोस्</string>
+    <string name="debug_debuglog_screen_failed_title">सत्र असफल भयो</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">डिबग लग फाइल खाली थियो। फेरि रेकर्ड गर्नुहोस् र रेकर्ड गर्दा समस्या पुनः उत्पादन गर्नुहोस्।</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">डिबग लग फाइल हराइरहेको छ। रेकर्डिङ बाधित भएको हुन सक्छ।</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">संकुचित अभिलेख भ्रष्ट छ। फेरि रेकर्ड गर्नुहोस्।</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">संकुचन असफल भयो। उपलब्ध भण्डारण जाँच गर्नुहोस् र फेरि प्रयास गर्नुहोस्।</string>
+    <string name="debug_debuglog_sessions_zipping_label">संकुचन गर्दै…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">असफल: खाली लग</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">असफल: हराइरहेको लग</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">असफल: भ्रष्ट अभिलेख</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">असफल: संकुचन त्रुटि</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">यो डिबग लग सत्र मेट्ने?</string>
+    <string name="support_contact_post_send_message">सन्देश सफलतापूर्वक पठाइयो?</string>
+    <string name="debug_debuglog_sessions_stop_action">रोक्नुहोस्</string>
     <string name="tasks_activity_notification_channel_label">सक्रिय कार्यहरू</string>
     <string name="tasks_activity_working_notification_title">SD Maid काम गरिरहेको छ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">कार्य परिणामहरू</string>
     <string name="tasks_result_subtext">कार्य परिणाम</string>
+    <string name="tasks_timeout_error_label">कार्यको समय सकियो</string>
+    <string name="tasks_timeout_error_desc">कार्यले धेरै समय लियो र रोकियो। कृपया फेरि प्रयास गर्नुहोस्।</string>
     <string name="onboarding_welcome_title">स्वागत</string>
     <string name="onboarding_welcome_body1">SD Maid SE ले फाइलहरू, एपहरू र भण्डारण व्यवस्थापन गर्छ।</string>
     <string name="onboarding_welcome_body2">अन्य एपहरूको पछाडि सफाई गरेर भण्डारण ठाउँ प्राप्त गर्नुहोस्। खर्च गर्न मिल्ने फाइलहरू मेटाउनुहोस् र बाँकी डेटा हटाउनुहोस्।</string>

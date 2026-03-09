@@ -85,6 +85,7 @@
     <string name="general_view_action">Lihat</string>
     <string name="general_update_action">Perbarui</string>
     <string name="general_scan_action">Pindai</string>
+    <string name="general_close_action">Tutup</string>
     <string name="general_delete_action">Hapus</string>
     <string name="general_delete_selected_action">Hapus yang dipilih</string>
     <string name="general_show_details_action">Tampilkan detail</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">Perangkat</string>
     <string name="general_settings_title">Pengaturan</string>
     <string name="general_help_title">Bantuan</string>
+    <string name="general_hints_label">Catatan</string>
     <string name="file_type_symbolic_link">Tautan</string>
     <string name="file_type_directory">Direktori</string>
     <string name="file_type_file">Berkas</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Pemilah</string>
     <string name="stats_label">Riwayat</string>
     <string name="settings_category_tools_label">Peralatan</string>
-    <string name="general_hints_label">Catatan</string>
     <string name="settings_category_filter_generic">Filter umum</string>
     <string name="settings_category_filter_specific">Filter khusus</string>
     <string name="settings_category_risklevel">Tingkat risiko</string>

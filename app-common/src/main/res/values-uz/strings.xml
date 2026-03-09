@@ -86,6 +86,7 @@
     <string name="general_view_action">Ko\'rish</string>
     <string name="general_update_action">Yangilash</string>
     <string name="general_scan_action">Skanerlash</string>
+    <string name="general_close_action">Yopish</string>
     <string name="general_delete_action">O\'chirish</string>
     <string name="general_delete_selected_action">Tanlanganlarni o\'chirish</string>
     <string name="general_show_details_action">Tafsilotlarni ko\'rsatish</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Qurilma</string>
     <string name="general_settings_title">Sozlamalar</string>
     <string name="general_help_title">Yordam</string>
+    <string name="general_hints_label">Eslatma</string>
     <string name="file_type_symbolic_link">Havola</string>
     <string name="file_type_directory">Katalog</string>
     <string name="file_type_file">Fayl</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">O‘chirish</string>
     <string name="stats_label">Tarix</string>
     <string name="settings_category_tools_label">Vositalar</string>
-    <string name="general_hints_label">Eslatma</string>
     <string name="settings_category_filter_generic">Umumiy filtr</string>
     <string name="settings_category_filter_specific">Maxsus filtr</string>
     <string name="settings_category_risklevel">Xavf darajasi</string>

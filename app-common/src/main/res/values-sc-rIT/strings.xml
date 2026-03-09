@@ -86,6 +86,7 @@
     <string name="general_view_action">Bìdere</string>
     <string name="general_update_action">Agiornare</string>
     <string name="general_scan_action">Iscansire</string>
+    <string name="general_close_action">Serra</string>
     <string name="general_delete_action">Iscancellare</string>
     <string name="general_delete_selected_action">Iscancellare su selettu</string>
     <string name="general_show_details_action">Ammustrare detàllios</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Dispositivu</string>
     <string name="general_settings_title">Impostatzonis</string>
     <string name="general_help_title">Agiudu</string>
+    <string name="general_hints_label">Avisu</string>
     <string name="file_type_symbolic_link">Ligòngiu</string>
     <string name="file_type_directory">Diretòriu</string>
     <string name="file_type_file">Archìviu</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Istòria</string>
     <string name="settings_category_tools_label">Ainas</string>
-    <string name="general_hints_label">Avisu</string>
     <string name="settings_category_filter_generic">Filtru genèricu</string>
     <string name="settings_category_filter_specific">Filtru ispetzìficu</string>
     <string name="settings_category_risklevel">Livellu de riscutu</string>

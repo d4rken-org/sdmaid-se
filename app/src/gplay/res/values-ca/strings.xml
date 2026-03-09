@@ -6,7 +6,7 @@
     <string name="upgrades_dashcard_title">Millora a l\'SD Maid SE</string>
     <string name="upgrades_dashcard_body">L\'SD Maid SE Pro ofereix millors resultats, més funcions i opcions per a usuaris avançats.</string>
     <string name="upgrades_dashcard_upgrade_action">Millora</string>
-    <string name="upgrades_gplay_unavailable_error_title">Google Play està no disponible</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play no disponible</string>
     <string name="upgrades_gplay_unavailable_error_description">L\'SD Maid no es pot connectar al Google Play. El Google Play està instal·lat i actualitzat? Heu iniciat sessió amb el vostre compte de Google? Proveu d\'esborrar la memòria cau de l\'aplicació Google Play i reinicieu el dispositiu.</string>
     <string name="upgrades_gplay_billing_error_label">Problema del Google Play</string>
     <string name="upgrades_gplay_billing_error_description">S\'ha produït un problema amb el Google Play. Torneu-ho a provar més tard o reinicieu el dispositiu.\n\nDetalls: %s</string>

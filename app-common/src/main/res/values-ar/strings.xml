@@ -90,6 +90,7 @@
     <string name="general_view_action">عرض</string>
     <string name="general_update_action">تحديث</string>
     <string name="general_scan_action">فحص</string>
+    <string name="general_close_action">إغلاق</string>
     <string name="general_delete_action">حذف</string>
     <string name="general_delete_selected_action">حذف المُحدد</string>
     <string name="general_show_details_action">عرض التفاصيل</string>
@@ -176,6 +177,7 @@
     <string name="general_device_label">الجهاز</string>
     <string name="general_settings_title">الإعدادات</string>
     <string name="general_help_title">مساعدة</string>
+    <string name="general_hints_label">تنويه</string>
     <string name="file_type_symbolic_link">رابط</string>
     <string name="file_type_directory">مسار</string>
     <string name="file_type_file">ملف</string>
@@ -225,8 +227,8 @@
         <item quantity="zero">لم يتم إنشاء أي استبعاد</item>
         <item quantity="one">تم إنشاء استبعاد واحد</item>
         <item quantity="two">تم إنشاء استبعادان اثنان</item>
-        <item quantity="few">لم يتم إنشاء أي استبعاد</item>
-        <item quantity="many">لم يتم إنشاء أي استبعاد</item>
+        <item quantity="few">تم إنشاء %d استبعادات</item>
+        <item quantity="many">تم إنشاء %d استبعادات</item>
         <item quantity="other">تم إنشاء %d استبعادات</item>
     </plurals>
     <string name="corpsefinder_tool_name">العثور على الملفات المتبقية</string>
@@ -239,7 +241,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">السجل</string>
     <string name="settings_category_tools_label">الأدوات</string>
-    <string name="general_hints_label">تنويه</string>
     <string name="settings_category_filter_generic">مرشح عام</string>
     <string name="settings_category_filter_specific">مرشح خاص</string>
     <string name="settings_category_risklevel">مستوى المخاطرة</string>

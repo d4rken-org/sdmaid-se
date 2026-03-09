@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Лизгајте секоја датотека за да донесете одлука:\n\n← Лизгајте лево: %1$s\n→ Лизгајте десно: %2$s\n↑ Лизгајте горе: Прескокни\n↓ Лизгајте долу: Врати (по првото лизгање)\n\nМожете исто така да ги користите копчињата на дното.\n\nКога ќе завршите, допрете \"Прегледај\" за да ги видите сите ваши одлуки. Ништо не се брише додека не потврдите на екранот за преглед.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Разбрав</string>
     <string name="swiper_help_action">Помош</string>
+    <string name="swiper_file_type_filter_title">Прикажи само овие типови датотеки</string>
+    <string name="swiper_file_type_filter_hint">Значете ги типовите што сакате да ги видите. Ако ништо не е значено, се прикажуваат сите датотеки.</string>
+    <string name="swiper_file_type_category_images">Слики</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Видеа</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Аудио</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Документи</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Архиви</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Примени</string>
+    <string name="swiper_session_filter_action">Филтрирај датотеки</string>
+    <string name="swiper_file_type_filter_summary">Филтрирано: %1$s</string>
+    <string name="swiper_session_no_matching_files">Не се понајдени соодветни датотеки</string>
+    <string name="swiper_open_externally_action">Отвори во надворешна апликација</string>
 </resources>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Pembangunan penaja</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatifnya ialah iklan, analitik dan Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Terima kasih kerana menyokong pembangunan sumber terbuka ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Dah balik? Sokongan anda menghidupkan SD Maid!</string>
 </resources>

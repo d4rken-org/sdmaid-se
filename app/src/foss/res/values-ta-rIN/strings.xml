@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">மேம்பாட்டை ஸ்பான்சர் செய்யுங்கள்</string>
     <string name="upgrade_screen_sponsor_action_hint">மாற்று விளம்பரங்கள், பகுப்பாய்வுகள் மற்றும் Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">திறந்த மூல மேம்பாட்டை ஆதரித்ததற்கு நன்றி ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">ஏற்கனவே திரும்பிவிட்டீர்களா? உங்கள் ஆதரவு SD Maid-ஐ உயிரோடு வைக்கிறது!</string>
 </resources>

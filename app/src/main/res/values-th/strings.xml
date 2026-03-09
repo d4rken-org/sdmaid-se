@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">การบันทึกสั้นมาก บันทึกดีบักคือการบันทึกต่อเนื่อง ไม่ใช่ภาพนิ่ง — ทำให้ปัญหาเกิดขึ้นซ้ำในขณะที่การบันทึกกำลังทำงานอยู่เพื่อให้บันทึกมีประโยชน์</string>
     <string name="debug_debuglog_short_recording_continue_action">บันทึกต่อ</string>
     <string name="debug_debuglog_short_recording_stop_action">หยุดอยู่ดี</string>
+    <string name="debug_debuglog_screen_failed_title">เซสชันล้มเหลว</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">ไฟล์บันทึกการดีบักว่างเปล่า ลองบันทึกอีกครั้งและจำลองปัญหาขณะกำลังบันทึก</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">ไฟล์บันทึกการดีบักหายไป การบันทึกอาจถูกขัดจังหวะ</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">ไฟล์เก็บถาวรที่บีบอัดเสียหาย ลองบันทึกอีกครั้ง</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">การบีบอัดล้มเหลว ตรวจสอบพื้นที่จัดเก็บที่มีอยู่และลองอีกครั้ง</string>
+    <string name="debug_debuglog_sessions_zipping_label">กำลังบีบอัด…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">ล้มเหลว: บันทึกว่างเปล่า</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">ล้มเหลว: บันทึกหายไป</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">ล้มเหลว: ไฟล์เก็บถาวรเสียหาย</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">ล้มเหลว: ข้อผิดพลาดในการบีบอัด</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">ลบเซสชันบันทึกการดีบักนี้?</string>
+    <string name="support_contact_post_send_message">ส่งข้อความสำเร็จแล้วหรือไม่?</string>
+    <string name="debug_debuglog_sessions_stop_action">หยุด</string>
     <string name="tasks_activity_notification_channel_label">งานที่ทำอยู่</string>
     <string name="tasks_activity_working_notification_title">SD Maid กำลังทำงาน</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ผลงาน</string>
     <string name="tasks_result_subtext">ผลงาน</string>
+    <string name="tasks_timeout_error_label">งานหมดเวลา</string>
+    <string name="tasks_timeout_error_desc">งานใช้เวลานานเกินไปและถูกหยุด โปรดลองอีกครั้ง</string>
     <string name="onboarding_welcome_title">ยินดีต้อนรับ</string>
     <string name="onboarding_welcome_body1">SD Maid SE เป็นแอพจัดการไฟล์, แอพ, และพื้นที่จัดเก็บในอุปกรณ์</string>
     <string name="onboarding_welcome_body2">เพิ่มพื้นที่จัดเก็บโดยล้างไฟล์ขยะในแอพต่างๆ และลบไฟล์ตกค้าง</string>

@@ -85,6 +85,7 @@
     <string name="general_view_action">查看</string>
     <string name="general_update_action">更新</string>
     <string name="general_scan_action">扫描</string>
+    <string name="general_close_action">关闭</string>
     <string name="general_delete_action">删除</string>
     <string name="general_delete_selected_action">删除所选</string>
     <string name="general_show_details_action">显示详细信息</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">设备</string>
     <string name="general_settings_title">设置</string>
     <string name="general_help_title">帮助</string>
+    <string name="general_hints_label">注意</string>
     <string name="file_type_symbolic_link">链接</string>
     <string name="file_type_directory">目录</string>
     <string name="file_type_file">文件</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">历史</string>
     <string name="settings_category_tools_label">工具</string>
-    <string name="general_hints_label">注意</string>
     <string name="settings_category_filter_generic">通用筛选器</string>
     <string name="settings_category_filter_specific">特定过滤器</string>
     <string name="settings_category_risklevel">风险等级</string>

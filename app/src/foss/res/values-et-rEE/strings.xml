@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Rahastage arendamist</string>
     <string name="upgrade_screen_sponsor_action_hint">Teiseks võimaluseks on reklaamid, analüüs ja Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Aitäh, et toetate avatud lähtekoodiga arendamist ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Juba tagasi? Sinu toetus utsitab arendama SD Maidi!</string>
 </resources>

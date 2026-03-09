@@ -86,6 +86,7 @@
     <string name="general_view_action">دیکھیں</string>
     <string name="general_update_action">اپ ڈیٹ کریں</string>
     <string name="general_scan_action">اسکین کریں</string>
+    <string name="general_close_action">بند کریں</string>
     <string name="general_delete_action">حذف کریں</string>
     <string name="general_delete_selected_action">منتخب کو حذف کریں</string>
     <string name="general_show_details_action">تفصیلات دکھائیں</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">ڈیوائس</string>
     <string name="general_settings_title">سیٹنگز</string>
     <string name="general_help_title">مدد</string>
+    <string name="general_hints_label">نوٹس</string>
     <string name="file_type_symbolic_link">لنک</string>
     <string name="file_type_directory">ڈائریکٹری</string>
     <string name="file_type_file">فائل</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">عافیتاریخ</string>
     <string name="settings_category_tools_label">ٹولز</string>
-    <string name="general_hints_label">نوٹس</string>
     <string name="settings_category_filter_generic">عمومی فلٹر</string>
     <string name="settings_category_filter_specific">مخصوص فلٹر</string>
     <string name="settings_category_risklevel">خطرے کی سطح</string>

@@ -86,6 +86,7 @@
     <string name="general_view_action">Ver</string>
     <string name="general_update_action">Actualizar</string>
     <string name="general_scan_action">Escanear</string>
+    <string name="general_close_action">Cerrar</string>
     <string name="general_delete_action">Borrar</string>
     <string name="general_delete_selected_action">Eliminar las selecciones</string>
     <string name="general_show_details_action">Mostrar detalles</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Dispositivo</string>
     <string name="general_settings_title">Ajustes</string>
     <string name="general_help_title">Ayuda</string>
+    <string name="general_hints_label">Aviso</string>
     <string name="file_type_symbolic_link">Enlace</string>
     <string name="file_type_directory">Directorio</string>
     <string name="file_type_file">Archivo</string>
@@ -179,19 +181,18 @@
     <string name="general_unsaved_confirmation_message">¡Tienes cambios sin guardar!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">Una exclusión creada</item>
-        <item quantity="other">Se han creado %d excepciones</item>
+        <item quantity="other">%d exclusiones creadas</item>
     </plurals>
     <string name="corpsefinder_tool_name">Buscador de restos</string>
     <string name="systemcleaner_tool_name">Limpiador del sistema</string>
     <string name="appcleaner_tool_name">Limpiador de aplicaciones</string>
     <string name="deduplicator_tool_name">Eliminar archivos duplicados</string>
-    <string name="squeezer_tool_name">Compresión de medios</string>
+    <string name="squeezer_tool_name">Compresión y transcodificación de imágenes/videos</string>
     <string name="appcontrol_tool_name">Control de las aplicaciones</string>
     <string name="analyzer_tool_name">Analizador del Almacenamiento</string>
-    <string name="swiper_tool_name">Limpiador</string>
+    <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historial</string>
     <string name="settings_category_tools_label">Herramientas</string>
-    <string name="general_hints_label">Aviso</string>
     <string name="settings_category_filter_generic">Filtro genérico</string>
     <string name="settings_category_filter_specific">Filtro específico</string>
     <string name="settings_category_risklevel">Nivel del riesgo</string>

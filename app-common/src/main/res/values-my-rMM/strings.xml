@@ -85,6 +85,7 @@
     <string name="general_view_action">ကြည့်ပါ</string>
     <string name="general_update_action">အပ်ဒိတ်လုပ်ပါ</string>
     <string name="general_scan_action">စကင်န်လုပ်ပါ</string>
+    <string name="general_close_action">ပိတ်ရန်</string>
     <string name="general_delete_action">ဖျက်ပါ</string>
     <string name="general_delete_selected_action">ရွေးချယ်ထားသည်ကို ဖျက်ပါ</string>
     <string name="general_show_details_action">အသေးစိတ်ပြပါ</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">စက်ပစ္စည်း</string>
     <string name="general_settings_title">ဆက်တင်းများ</string>
     <string name="general_help_title">အကူအညီ</string>
+    <string name="general_hints_label">အသိပေးချက်</string>
     <string name="file_type_symbolic_link">လင့်ခ်</string>
     <string name="file_type_directory">ဒါရိုက်တိုရီ</string>
     <string name="file_type_file">ဖိုင်</string>
@@ -179,11 +181,10 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">မှတ်တမ်း</string>
     <string name="settings_category_tools_label">ကိရိယာများ</string>
-    <string name="general_hints_label">အသိပေးချက်</string>
     <string name="settings_category_filter_generic">ယေဘူယျ filter</string>
     <string name="settings_category_filter_specific">သီးခြား filter</string>
     <string name="settings_category_risklevel">အန္တရာယ်အဆင့်</string>
     <string name="settings_category_filter">စစ်ထုတ်ခြင်း</string>
-    <string name="appcontrol_systemsettings_open_title">ဆက်တင်များ ပြသောသောရန်</string>
+    <string name="appcontrol_systemsettings_open_title">ဆက်တင်များပြပါ</string>
     <string name="systemcleaner_customfilter_create_action">စိတ်ကြိုက် စစ်ထုတ်မှု ဖန်တီးရန်</string>
 </resources>

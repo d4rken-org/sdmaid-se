@@ -174,4 +174,21 @@
     <string name="swiper_help_message">Przesuń każdy plik, aby podjąć decyzję:\n\n← Przesuń w lewo: %1$s\n→ Przesuń w prawo: %2$s\n↑ Przesuń w górę: Pomiń\n↓ Przesuń w dół: Cofnij (po pierwszym przesunięciu)\n\nMożesz również użyć przycisków na dole.\n\nPo zakończeniu dotknij „Przejrzyj”, aby zobaczyć wszystkie swoje decyzje. Nic nie zostanie usunięte, dopóki nie potwierdzisz na ekranie przeglądu.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumiem</string>
     <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_file_type_filter_title">Pokaż tylko te typy plików</string>
+    <string name="swiper_file_type_filter_hint">Zaznacz typy, które chcesz zobaczyć. Jeśli żaden nie jest zaznaczony, wyświetlone zostaną wszystkie pliki.</string>
+    <string name="swiper_file_type_category_images">Obrazy</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Filmy</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Dźwięki</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumenty</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archiwa</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Zastosuj</string>
+    <string name="swiper_session_filter_action">Filtr plików</string>
+    <string name="swiper_file_type_filter_summary">Przefiltrowano: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nie znaleziono pasujących plików</string>
+    <string name="swiper_open_externally_action">Otwórz w aplikacji zewnętrznej</string>
 </resources>

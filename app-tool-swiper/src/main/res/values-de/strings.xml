@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Wische über jede Datei, um eine Entscheidung zu treffen:\n\n← Nach links wischen: %1$s\n→ Nach rechts wischen: %2$s\n↑ Nach oben wischen: Überspringen\n↓ Nach unten wischen: Rückgängig (nach dem ersten Wisch)\n\nDu kannst auch die Schaltflächen unten verwenden.\n\nWenn du fertig bist, tippe auf \"Überprüfen\", um alle deine Entscheidungen zu sehen. Es wird nichts gelöscht, bis du auf dem Überprüfungsbildschirm bestätigst.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Verstanden</string>
     <string name="swiper_help_action">Hilfe</string>
+    <string name="swiper_file_type_filter_title">Nur diese Dateitypen anzeigen</string>
+    <string name="swiper_file_type_filter_hint">Wähle die Typen aus, die du sehen möchtest. Wenn keine ausgewählt sind, werden alle Dateien angezeigt.</string>
+    <string name="swiper_file_type_category_images">Bilder</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumente</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archive</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Anwenden</string>
+    <string name="swiper_session_filter_action">Dateien filtern</string>
+    <string name="swiper_file_type_filter_summary">Gefiltert: %1$s</string>
+    <string name="swiper_session_no_matching_files">Keine passenden Dateien gefunden</string>
+    <string name="swiper_open_externally_action">In externer App öffnen</string>
 </resources>

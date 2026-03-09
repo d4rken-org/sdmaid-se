@@ -86,6 +86,7 @@
     <string name="general_view_action">हेर्नुहोस्</string>
     <string name="general_update_action">अपडेट गर्नुहोस्</string>
     <string name="general_scan_action">स्क्यान गर्नुहोस्</string>
+    <string name="general_close_action">बन्द गर्नुहोस्</string>
     <string name="general_delete_action">मेटाउनुहोस्</string>
     <string name="general_delete_selected_action">चयन गरिएको मेटाउनुहोस्</string>
     <string name="general_show_details_action">विवरणहरू देखाउनुहोस्</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">उपकरण</string>
     <string name="general_settings_title">सेटिङहरू</string>
     <string name="general_help_title">मद्दत</string>
+    <string name="general_hints_label">सूचना</string>
     <string name="file_type_symbolic_link">लिङ्क</string>
     <string name="file_type_directory">डाइरेक्टरी</string>
     <string name="file_type_file">फाइल</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">इतिहास</string>
     <string name="settings_category_tools_label">उपकरणहरू</string>
-    <string name="general_hints_label">सूचना</string>
     <string name="settings_category_filter_generic">सामान्य फिल्टर</string>
     <string name="settings_category_filter_specific">विशिष्ट फिल्टर</string>
     <string name="settings_category_risklevel">जोखिम स्तर</string>

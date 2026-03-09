@@ -86,6 +86,7 @@
     <string name="general_view_action">ਵੇਖੋ</string>
     <string name="general_update_action">ਅਪਡੇਟ</string>
     <string name="general_scan_action">ਸਕੈਨ ਕਰੋ</string>
+    <string name="general_close_action">ਬੰਦ ਕਰੋ</string>
     <string name="general_delete_action">ਮਿਟਾਓ</string>
     <string name="general_delete_selected_action">ਚੁਣੇ ਮਿਟਾਓ</string>
     <string name="general_show_details_action">ਵੇਰਵੇ ਦਿਖਾਓ</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">ਯੰਤਰ</string>
     <string name="general_settings_title">ਸੈਟਿੰਗਾਂ</string>
     <string name="general_help_title">ਮਦਦ</string>
+    <string name="general_hints_label">ਸੂਚਨਾ</string>
     <string name="file_type_symbolic_link">ਲਿੰਕ</string>
     <string name="file_type_directory">ਡਾਇਰੈਕਟਰੀ</string>
     <string name="file_type_file">ਫਾਈਲ</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">ਸਵਾਈਪਰ</string>
     <string name="stats_label">ਇਤਿਹਾਸ</string>
     <string name="settings_category_tools_label">ਸੰਦ</string>
-    <string name="general_hints_label">ਸੂਚਨਾ</string>
     <string name="settings_category_filter_generic">ਆਮ ਫਿਲਟਰ</string>
     <string name="settings_category_filter_specific">ਖ਼ਾਸ ਫਿਲਟਰ</string>
     <string name="settings_category_risklevel">ਜੋਖਿਮ ਪੱਧਰ</string>

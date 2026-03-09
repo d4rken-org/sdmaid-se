@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Salvestis oli väga lühike. Silumislogid on salvestised, mitte hetktõmmised — probleemi taasesitamiseks peab salvestamine olema aktiivne, et logi oleks kasulik.</string>
     <string name="debug_debuglog_short_recording_continue_action">Jätka salvestamist</string>
     <string name="debug_debuglog_short_recording_stop_action">Peata ikkagi</string>
+    <string name="debug_debuglog_screen_failed_title">Seanss nurjus</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Silumislogi fail oli tühi. Proovi uuesti salvestada ja korda probleemi salvestamise ajal.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Silumislogi fail puudub. Salvestamine võib olla katkestatud.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Tihendatud arhiiv on rikutud. Proovi uuesti salvestada.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Tihendamine nurjus. Kontrolli salvestusruumi vaba mahtu ja proovi uuesti.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Tihendamine…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Nurjus: tühi logi</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Nurjus: puuduv logi</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Nurjus: rikutud arhiiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Nurjus: tihendamisviga</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Kustutada see silumislogi seanss?</string>
+    <string name="support_contact_post_send_message">Sõnum edukalt saadetud?</string>
+    <string name="debug_debuglog_sessions_stop_action">Peata</string>
     <string name="tasks_activity_notification_channel_label">Aktiivsed ülesanded</string>
     <string name="tasks_activity_working_notification_title">SD Maid toimetab</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Ülesande tulemused</string>
     <string name="tasks_result_subtext">Ülesande tulemus</string>
+    <string name="tasks_timeout_error_label">Ülesande aeg sai täis</string>
+    <string name="tasks_timeout_error_desc">Ülesande lahendamine kestis liiga kaua ja lõpetati. Proovige uuesti.</string>
     <string name="onboarding_welcome_title">Tere tulemast</string>
     <string name="onboarding_welcome_body1">SD Maid SE haldab faile, rakendusi ja salvestamist.</string>
     <string name="onboarding_welcome_body2">Salvestamisruumi lisamiseks korrastage teisi rakendusi. Kustutage kasutud failid ja järele jäänud andmed.</string>
@@ -116,7 +131,7 @@
     <string name="support_contact_tool_systemcleaner_label">Süsteemipuhastaja</string>
     <string name="support_contact_tool_deduplicator_label">Koopiate eemaldaja</string>
     <string name="support_contact_tool_analyzer_label">Analüsaator</string>
-    <string name="support_contact_tool_appcontrol_label">Rakendusekontroll</string>
+    <string name="support_contact_tool_appcontrol_label">Rakendustekontroll</string>
     <string name="support_contact_tool_scheduler_label">Ajastaja</string>
     <string name="support_contact_tool_general_label">Üldine</string>
     <string name="support_contact_description_label">Kirjeldus</string>

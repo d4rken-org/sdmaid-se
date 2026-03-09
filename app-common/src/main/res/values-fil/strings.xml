@@ -86,6 +86,7 @@
     <string name="general_view_action">Tingnan</string>
     <string name="general_update_action">Mag-update</string>
     <string name="general_scan_action">Mag-scan</string>
+    <string name="general_close_action">Isara</string>
     <string name="general_delete_action">Burahin</string>
     <string name="general_delete_selected_action">I-delete ang mga napili</string>
     <string name="general_show_details_action">Ipakita ang mga detalye</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Device</string>
     <string name="general_settings_title">Mga setting</string>
     <string name="general_help_title">Tulong</string>
+    <string name="general_hints_label">Paunawa</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Directory</string>
     <string name="file_type_file">File</string>
@@ -191,9 +193,8 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Kasaysayan</string>
     <string name="settings_category_tools_label">Mga Kagamitan</string>
-    <string name="general_hints_label">Paunawa</string>
-    <string name="settings_category_filter_generic">Generic na filter</string>
-    <string name="settings_category_filter_specific">Specific na filter</string>
+    <string name="settings_category_filter_generic">Pangkalahatang filter</string>
+    <string name="settings_category_filter_specific">Tiyak na filter</string>
     <string name="settings_category_risklevel">Antas ng panganib</string>
     <string name="settings_category_filter">Salaan</string>
     <string name="appcontrol_systemsettings_open_title">Ipakita ang mga setting</string>

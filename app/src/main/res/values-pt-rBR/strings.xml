@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">A gravação foi muito curta. Logs de depuração são gravações, não instantâneos — reproduza o problema enquanto a gravação estiver ativa para que o log seja útil.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continuar gravação</string>
     <string name="debug_debuglog_short_recording_stop_action">Parar mesmo assim</string>
+    <string name="debug_debuglog_screen_failed_title">Sessão com Falha</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">O arquivo de log de depuração estava vazio. Tente gravar novamente e reproduza o problema durante a gravação.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">O arquivo de log de depuração está ausente. A gravação pode ter sido interrompida.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">O arquivo compactado está corrompido. Tente gravar novamente.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">A compactação falhou. Verifique o armazenamento disponível e tente novamente.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Compactando…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Falha: log vazio</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Falha: log ausente</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Falha: arquivo corrompido</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Falha: erro de compactação</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Excluir esta sessão de log de depuração?</string>
+    <string name="support_contact_post_send_message">Mensagem enviada com sucesso?</string>
+    <string name="debug_debuglog_sessions_stop_action">Parar</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">O SD Maid está trabalhando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Resultados das tarefas</string>
     <string name="tasks_result_subtext">Resultado da tarefa</string>
+    <string name="tasks_timeout_error_label">Tempo limite da tarefa esgotado</string>
+    <string name="tasks_timeout_error_desc">A tarefa demorou muito e foi interrompida. Por favor, tente novamente.</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
     <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, apps e armazenamento.</string>
     <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando arquivos desnecessários deixados por aplicativos. Exclua arquivos descartáveis ​​e remova os dados restantes.</string>

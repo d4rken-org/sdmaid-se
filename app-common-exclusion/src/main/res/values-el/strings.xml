@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="exclusion_manager_title">Διαχείριση εξαιρέσεων</string>
-    <string name="exclusion_manager_desc">Διαχείριση εξαιρέσεων αρχείων και εφαρμογών.</string>
-    <string name="exclusion_explanation_body1">Εξαίρεση αρχείων και εφαρμογών από τις λειτουργίες του SD Maid.</string>
+    <string name="exclusion_manager_title">Διαχειριστής εξαιρέσεων</string>
+    <string name="exclusion_manager_desc">Διαχειριστείτε εξαιρέσεις αρχείων και εφαρμογών.</string>
+    <string name="exclusion_explanation_body1">Εξαιρέστε αρχεία και εφαρμογές από τις λειτουργίες του SD Maid.</string>
     <string name="exclusion_add_new_hint">Για να προσθέστε νέες εξαιρέσεις, αφήστε το SD Maid να αναζητήσει και στη συνέχεια χρησιμοποιήστε το μενού περιβάλλοντος στο αποτέλεσμα που θέλετε να εξαιρέσετε.</string>
     <string name="exclusion_create_action">Δημιουργία εξαίρεσης</string>
     <string name="exclusion_edit_action">Επεξεργασία εξαίρεσης</string>

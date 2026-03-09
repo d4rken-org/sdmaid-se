@@ -174,4 +174,21 @@
     <string name="swiper_help_message">Přejeďte prstem po každém souboru a rozhodněte se:\n\n← Přejetí doleva: %1$s\n→ Přejetí doprava: %2$s\n↑ Přejetí nahoru: Přeskočit\n↓ Přejetí dolů: Zrušit (po prvním přejetí)\n\nMůžete také použít tlačítka v dolní části.\n\nAž budete hotovi, klepněte na \"Posoudit\" a zobrazte všechna svá rozhodnutí. Nic se nesmaže, dokud nepotvrdíte na obrazovce s přehledem.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Rozumím</string>
     <string name="swiper_help_action">Pomoc</string>
+    <string name="swiper_file_type_filter_title">Zobrazit pouze tyto typy souborů</string>
+    <string name="swiper_file_type_filter_hint">Zaškrtněte typy, které chcete zobrazit. Pokud není zaškrtnuto nic, zobrazí se všechny soubory.</string>
+    <string name="swiper_file_type_category_images">Obrázky</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videa</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumenty</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archivy</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Použít</string>
+    <string name="swiper_session_filter_action">Filtrovat soubory</string>
+    <string name="swiper_file_type_filter_summary">Filtrováno: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nenalezeny žádné odpovídající soubory</string>
+    <string name="swiper_open_externally_action">Otevřít v externí aplikaci</string>
 </resources>

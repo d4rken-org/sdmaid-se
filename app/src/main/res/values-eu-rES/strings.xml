@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Grabaketa oso laburra izan zen. Arazketa-erregistroak grabaketak dira, ez argazkiak — erreproduzitu arazoa grabaketa aktibo dagoen bitartean erregistroa baliagarria izan dadin.</string>
     <string name="debug_debuglog_short_recording_continue_action">Jarraitu grabatzen</string>
     <string name="debug_debuglog_short_recording_stop_action">Gelditu hala ere</string>
+    <string name="debug_debuglog_screen_failed_title">Saioa huts egin du</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Arazketa-egunkariaren fitxategia hutsik zegoen. Saiatu berriro grabatzen eta erreproduzitu arazoa grabatzen ari zarela.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Arazketa-egunkariaren fitxategia falta da. Grabaketa eten egin zen.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Konprimitutako artxiboa hondatuta dago. Saiatu berriro grabatzen.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Konpresioak huts egin du. Egiaztatu erabilgarri dagoen biltegiratzea eta saiatu berriro.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Konprimatzen…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Huts eginda: egunkari hutsa</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Huts eginda: egunkaria falta da</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Huts eginda: artxibo hondatua</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Huts eginda: konpresio-errorea</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Arazketa-egunkariaren saio hau ezabatu?</string>
+    <string name="support_contact_post_send_message">Mezua behar bezala bidali da?</string>
+    <string name="debug_debuglog_sessions_stop_action">Gelditu</string>
     <string name="tasks_activity_notification_channel_label">Zeregin aktiboak</string>
     <string name="tasks_activity_working_notification_title">SD Maid lanean dabil</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Zereginen emaitzak</string>
     <string name="tasks_result_subtext">Zereginaren emaitza</string>
+    <string name="tasks_timeout_error_label">Atazak denbora-muga gainditu du</string>
+    <string name="tasks_timeout_error_desc">Atazak denbora gehiegi hartu du eta gelditu egin da. Saiatu berriro.</string>
     <string name="onboarding_welcome_title">Ongi etorri</string>
     <string name="onboarding_welcome_body1">SD Maid SE-k fitxategiak, aplikazioak eta biltegia kudeatzen ditu.</string>
     <string name="onboarding_welcome_body2">Lortu biltegiratze-lekua beste aplikazioen atzean garbitzean. Ezabatu gastu daitezkeen fitxategiak eta kendu geratzen diren datuak.</string>

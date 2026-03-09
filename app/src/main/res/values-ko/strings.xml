@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">녹화가 매우 짧았습니다. 디버그 로그는 녹화이지 스냅샷이 아닙니다 — 로그가 유용하려면 녹화가 활성화된 상태에서 문제를 재현하세요.</string>
     <string name="debug_debuglog_short_recording_continue_action">계속 녹화</string>
     <string name="debug_debuglog_short_recording_stop_action">그래도 중지</string>
+    <string name="debug_debuglog_screen_failed_title">세션 실패</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">디버그 로그 파일이 비어 있습니다. 다시 녹화를 시작하고 녹화 중에 문제를 재현해 보세요.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">디버그 로그 파일이 없습니다. 녹화가 중단되었을 수 있습니다.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">압축 파일이 손상되었습니다. 다시 녹화해 보세요.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">압축에 실패했습니다. 사용 가능한 저장 공간을 확인하고 다시 시도해 보세요.</string>
+    <string name="debug_debuglog_sessions_zipping_label">압축 중…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">실패: 빈 로그</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">실패: 로그 없음</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">실패: 손상된 아카이브</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">실패: 압축 오류</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">이 디버그 로그 세션을 삭제하시겠습니까?</string>
+    <string name="support_contact_post_send_message">메시지가 성공적으로 전송되었나요?</string>
+    <string name="debug_debuglog_sessions_stop_action">중지</string>
     <string name="tasks_activity_notification_channel_label">진행 중인 작업</string>
     <string name="tasks_activity_working_notification_title">SD Maid가 작업 중에 있습니다</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">작업 결과</string>
     <string name="tasks_result_subtext">작업 결과</string>
+    <string name="tasks_timeout_error_label">작업 시간이 초과되었습니다</string>
+    <string name="tasks_timeout_error_desc">작업이 너무 오래 걸려 중지되었습니다. 다시 시도해 주세요.</string>
     <string name="onboarding_welcome_title">환영합니다</string>
     <string name="onboarding_welcome_body1">SD Maid SE는 파일, 앱, 저장 공간을 관리합니다.</string>
     <string name="onboarding_welcome_body2">여러 앱의 데이터를 정리하고 저장 공간을 확보하세요. 임시 파일을 삭제하고 남는 데이터를 정리하세요.</string>

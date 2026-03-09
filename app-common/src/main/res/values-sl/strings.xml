@@ -88,6 +88,7 @@
     <string name="general_view_action">Pokaži</string>
     <string name="general_update_action">Posodobi</string>
     <string name="general_scan_action">Preglej</string>
+    <string name="general_close_action">Zapri</string>
     <string name="general_delete_action">Izbriši</string>
     <string name="general_delete_selected_action">Izbriši izbrano</string>
     <string name="general_show_details_action">Prikaži podrobnosti</string>
@@ -160,6 +161,7 @@
     <string name="general_device_label">Naprava</string>
     <string name="general_settings_title">Nastavitve</string>
     <string name="general_help_title">Pomoč</string>
+    <string name="general_hints_label">Obvestilo</string>
     <string name="file_type_symbolic_link">Povezava</string>
     <string name="file_type_directory">Mapa</string>
     <string name="file_type_file">Datoteka</string>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Zgodovina</string>
     <string name="settings_category_tools_label">Orodja</string>
-    <string name="general_hints_label">Obvestilo</string>
     <string name="settings_category_filter_generic">Splošni filter</string>
     <string name="settings_category_filter_specific">Določeni filter</string>
     <string name="settings_category_risklevel">Raven tveganja</string>

@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">ਰਿਕਾਰਡਿੰਗ ਬਹੁਤ ਛੋਟੀ ਸੀ। ਡੀਬੱਗ ਲੌਗ ਰਿਕਾਰਡਿੰਗਾਂ ਹਨ, ਸਨੈਪਸ਼ਾਟ ਨਹੀਂ — ਲੌਗ ਉਪਯੋਗੀ ਹੋਣ ਲਈ ਰਿਕਾਰਡਿੰਗ ਚੱਲਦੇ ਸਮੇਂ ਸਮੱਸਿਆ ਦੁਬਾਰਾ ਪੈਦਾ ਕਰੋ।</string>
     <string name="debug_debuglog_short_recording_continue_action">ਰਿਕਾਰਡਿੰਗ ਜਾਰੀ ਰੱਖੋ</string>
     <string name="debug_debuglog_short_recording_stop_action">ਫਿਰ ਵੀ ਰੋਕੋ</string>
+    <string name="debug_debuglog_screen_failed_title">ਸੈਸ਼ਨ ਅਸਫਲ ਹੋਇਆ</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">ਡੀਬੱਗ ਲੌਗ ਫ਼ਾਈਲ ਖਾਲੀ ਸੀ। ਦੁਬਾਰਾ ਰਿਕਾਰਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ ਅਤੇ ਰਿਕਾਰਡਿੰਗ ਦੌਰਾਨ ਸਮੱਸਿਆ ਨੂੰ ਦੁਹਰਾਓ।</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">ਡੀਬੱਗ ਲੌਗ ਫ਼ਾਈਲ ਗੁੰਮ ਹੈ। ਰਿਕਾਰਡਿੰਗ ਵਿੱਚ ਰੁਕਾਵਟ ਆ ਸਕਦੀ ਸੀ।</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">ਕੰਪ੍ਰੈੱਸ ਕੀਤਾ ਆਰਕਾਈਵ ਖਰਾਬ ਹੈ। ਦੁਬਾਰਾ ਰਿਕਾਰਡ ਕਰਨ ਦੀ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">ਕੰਪ੍ਰੈੱਸ਼ਨ ਅਸਫਲ ਹੋਈ। ਉਪਲਬਧ ਸਟੋਰੇਜ ਦੀ ਜਾਂਚ ਕਰੋ ਅਤੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
+    <string name="debug_debuglog_sessions_zipping_label">ਕੰਪ੍ਰੈੱਸ ਕੀਤਾ ਜਾ ਰਿਹਾ ਹੈ…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">ਅਸਫਲ: ਖਾਲੀ ਲੌਗ</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">ਅਸਫਲ: ਗੁੰਮ ਲੌਗ</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">ਅਸਫਲ: ਖਰਾਬ ਆਰਕਾਈਵ</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">ਅਸਫਲ: ਕੰਪ੍ਰੈੱਸ਼ਨ ਗਲਤੀ</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">ਕੀ ਇਸ ਡੀਬੱਗ ਲੌਗ ਸੈਸ਼ਨ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?</string>
+    <string name="support_contact_post_send_message">ਸੁਨੇਹਾ ਸਫਲਤਾਪੂਰਵਕ ਭੇਜਿਆ ਗਿਆ?</string>
+    <string name="debug_debuglog_sessions_stop_action">ਬੰਦ ਕਰੋ</string>
     <string name="tasks_activity_notification_channel_label">ਸਰਗਰਮ ਕੰਮ</string>
     <string name="tasks_activity_working_notification_title">SD Maid ਕੰਮ ਕਰ ਰਿਹਾ ਹੈ</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">ਕਾਰਜ ਨਤੀਜੇ</string>
     <string name="tasks_result_subtext">ਕਾਰਜ ਨਤੀਜੇ</string>
+    <string name="tasks_timeout_error_label">ਕੰਮ ਦਾ ਸਮਾਂ ਖਤਮ ਹੋ ਗਿਆ</string>
+    <string name="tasks_timeout_error_desc">ਕੰਮ ਬਹੁਤ ਲੰਮਾ ਸਮਾਂ ਲੈ ਗਿਆ ਅਤੇ ਰੋਕ ਦਿੱਤਾ ਗਿਆ। ਕਿਰਪਾ ਕਰਕੇ ਦੁਬਾਰਾ ਕੋਸ਼ਿਸ਼ ਕਰੋ।</string>
     <string name="onboarding_welcome_title">ਜੀ ਆਇਆਂ ਨੂੰ</string>
     <string name="onboarding_welcome_body1">SD Maid SE ਫਾਈਲਾਂ, ਐਪਾਂ ਅਤੇ ਸਟੋਰੇਜ ਦਾ ਪ੍ਰਬੰਧਨ ਕਰਦੀ ਹੈ।</string>
     <string name="onboarding_welcome_body2">ਹੋਰ ਐਪਾਂ ਦੇ ਪਿੱਛੇ ਸਾਫ਼ ਕਰਕੇ ਸਟੋਰੇਜ ਥਾਂ ਪ੍ਰਾਪਤ ਕਰੋ। ਬੇਲੋੜੀਆਂ ਫਾਈਲਾਂ ਨੂੰ ਮਿਟਾਓ ਅਤੇ ਬਚਿਆ ਹੋਇਆ ਡੇਟਾ ਹਟਾਓ।</string>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Remti plėtrą</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatyva yra reklamos, analitika ir Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ačiū, kad remiате atvirojo kodo plėtrą ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Jau grįžote? Jūsų parama palaiko SD Maid gyvą!</string>
 </resources>

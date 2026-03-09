@@ -86,6 +86,7 @@
     <string name="general_view_action">Преглед</string>
     <string name="general_update_action">Актуализиране</string>
     <string name="general_scan_action">Сканиране</string>
+    <string name="general_close_action">Затваряне</string>
     <string name="general_delete_action">Изтриване</string>
     <string name="general_delete_selected_action">Изтриване на избраните</string>
     <string name="general_show_details_action">Показване на подробности</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Устройство</string>
     <string name="general_settings_title">Настройки</string>
     <string name="general_help_title">Помощ</string>
+    <string name="general_hints_label">Забележка</string>
     <string name="file_type_symbolic_link">Връзка</string>
     <string name="file_type_directory">Директория</string>
     <string name="file_type_file">Файл</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">История</string>
     <string name="settings_category_tools_label">Инструменти</string>
-    <string name="general_hints_label">Забележка</string>
     <string name="settings_category_filter_generic">Общ филтър</string>
     <string name="settings_category_filter_specific">Специфичен филтър</string>
     <string name="settings_category_risklevel">Ниво на риск</string>

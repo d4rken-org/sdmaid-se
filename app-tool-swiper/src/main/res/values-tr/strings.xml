@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Her dosyayı kaydırarak bir karar verin:\n\n← Sola kaydırma: %1$s\n→ Sağa kaydırma: %2$s\n↑ Yukarı kaydırma: Atla\n↓ Aşağı kaydırma: Geri al (ilk kaydırmadan sonra)\n\nAlttaki düğmeleri de kullanabilirsiniz.\n\nİşiniz bittiğinde, tüm kararlarınızı görmek için \"İncele\"ye dokunun. İnceleme ekranında onaylayana kadar hiçbir şey silinmez.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Anladım</string>
     <string name="swiper_help_action">Yardım</string>
+    <string name="swiper_file_type_filter_title">Yalnızca bu dosya türlerini göster</string>
+    <string name="swiper_file_type_filter_hint">Görmek istediğiniz türleri işaretleyin. Hiçbiri işaretlenmemişse tüm dosyalar gösterilir.</string>
+    <string name="swiper_file_type_category_images">Görseller</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videolar</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Ses</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Belgeler</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arşivler</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Uygula</string>
+    <string name="swiper_session_filter_action">Dosyaları filtrele</string>
+    <string name="swiper_file_type_filter_summary">Filtrelenmiş: %1$s</string>
+    <string name="swiper_session_no_matching_files">Eşleşen dosya bulunamadı</string>
+    <string name="swiper_open_externally_action">Harici uygulamada aç</string>
 </resources>

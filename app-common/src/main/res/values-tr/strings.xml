@@ -86,6 +86,7 @@
     <string name="general_view_action">Bak</string>
     <string name="general_update_action">Güncelle</string>
     <string name="general_scan_action">Tara</string>
+    <string name="general_close_action">Kapat</string>
     <string name="general_delete_action">Sil</string>
     <string name="general_delete_selected_action">Seçilenleri sil</string>
     <string name="general_show_details_action">Detayları göster</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Cihaz</string>
     <string name="general_settings_title">Ayarlar</string>
     <string name="general_help_title">Yardım</string>
+    <string name="general_hints_label">Dikkat</string>
     <string name="file_type_symbolic_link">Bağlantı</string>
     <string name="file_type_directory">Dizin</string>
     <string name="file_type_file">Dosya</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Kaydırıcı</string>
     <string name="stats_label">Geçmiş</string>
     <string name="settings_category_tools_label">Araçlar</string>
-    <string name="general_hints_label">Dikkat</string>
     <string name="settings_category_filter_generic">Genel filtre</string>
     <string name="settings_category_filter_specific">Özel filtre</string>
     <string name="settings_category_risklevel">Risk Seviyesi</string>

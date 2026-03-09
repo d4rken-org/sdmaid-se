@@ -174,4 +174,21 @@
     <string name="swiper_help_message">Проведіть по кожному файлу, щоб прийняти рішення:\n\n← Проведіть вліво: %1$s\n→ Проведіть вправо: %2$s\n↑ Проведіть вгору: Пропустити\n↓ Проведіть вниз: Скасувати (після першого свайпу)\n\nВи також можете використовувати кнопки внизу.\n\nКоли закінчите, натисніть \"Огляд\", щоб переглянути всі рішення. Нічого не видаляється, поки ви не підтвердите на екрані перегляду.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Зрозуміло</string>
     <string name="swiper_help_action">Допомога</string>
+    <string name="swiper_file_type_filter_title">Показувати лише ці типи файлів</string>
+    <string name="swiper_file_type_filter_hint">Позначте типи, які хочете бачити. Якщо жодного не позначено, відображаються всі файли.</string>
+    <string name="swiper_file_type_category_images">Зображення</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Відео</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Аудіо</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Документи</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Архіви</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Застосувати</string>
+    <string name="swiper_session_filter_action">Фільтр файлів</string>
+    <string name="swiper_file_type_filter_summary">Відфільтровано: %1$s</string>
+    <string name="swiper_session_no_matching_files">Не знайдено відповідних файлів</string>
+    <string name="swiper_open_externally_action">Відкрити у зовнішньому додатку</string>
 </resources>

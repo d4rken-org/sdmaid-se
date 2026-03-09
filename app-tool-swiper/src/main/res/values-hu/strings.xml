@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Húzd az egyes fájlokat a döntéshez:\n\n← Húzás balra: %1$s\n→ Húzás jobbra: %2$s\n↑ Húzás felfelé: Kihagyás\n↓ Húzás lefelé: Visszavonás (az első húzás után)\n\nAz alul lévő gombokat is használhatod.\n\nHa végeztél, érintsd meg az \"Áttekintés\" gombot az összes döntésed megtekintéséhez. Semmi nem törlődik, amíg meg nem erősíted az áttekintő képernyőn.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Megvan</string>
     <string name="swiper_help_action">Segítség</string>
+    <string name="swiper_file_type_filter_title">Csak ezeket a fájltípusokat mutassa</string>
+    <string name="swiper_file_type_filter_hint">Jelöld be a megtekinteni kívánt típusokat. Ha egyik sincs bejelölve, az összes fájl megjelenik.</string>
+    <string name="swiper_file_type_category_images">Képek</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videók</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Hang</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumentumok</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archívumok</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Alkalmaz</string>
+    <string name="swiper_session_filter_action">Fájlok szűrése</string>
+    <string name="swiper_file_type_filter_summary">Szűrve: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nem található megfelelő fájl</string>
+    <string name="swiper_open_externally_action">Megnyitás külső alkalmazásban</string>
 </resources>

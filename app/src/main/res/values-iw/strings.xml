@@ -30,6 +30,19 @@
     <string name="debug_debuglog_short_recording_desc">ההקלטה הייתה קצרה מאוד. יומני באגים הם הקלטות, לא תמונות מצב — שחזר את הבעיה בזמן שההקלטה פעילה כדי שהיומן יהיה שימושי.</string>
     <string name="debug_debuglog_short_recording_continue_action">המשך הקלטה</string>
     <string name="debug_debuglog_short_recording_stop_action">עצור בכל זאת</string>
+    <string name="debug_debuglog_screen_failed_title">הפעלה נכשלה</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">קובץ יומן הניפוי שגיאות היה ריק. נסה להקליט שוב ולשחזר את הבעיה בזמן ההקלטה.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">קובץ יומן הניפוי שגיאות חסר. ייתכן שההקלטה הופסקה.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">הארכיון הדחוס פגום. נסה להקליט שוב.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">הדחיסה נכשלה. בדוק את האחסון הפנוי ונסה שוב.</string>
+    <string name="debug_debuglog_sessions_zipping_label">דוחס…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">נכשל: יומן ריק</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">נכשל: יומן חסר</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">נכשל: ארכיון פגום</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">נכשל: שגיאת דחיסה</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">למחוק את הפעלת יומן הניפוי שגיאות הזו?</string>
+    <string name="support_contact_post_send_message">ההודעה נשלחה בהצלחה?</string>
+    <string name="debug_debuglog_sessions_stop_action">עצור</string>
     <string name="tasks_activity_notification_channel_label">משימות פעילות</string>
     <string name="tasks_activity_working_notification_title">SD Maid פועל</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -46,6 +59,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
     <string name="tasks_result_subtext">תוצאת המשימה</string>
+    <string name="tasks_timeout_error_label">המשימה פגה</string>
+    <string name="tasks_timeout_error_desc">המשימה ארכה זמן רב מדי והופסקה. אנא נסה שוב.</string>
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
     <string name="onboarding_welcome_body1">SD Maid SE - מנהל קבצים, אפליקציות ואחסון.</string>
     <string name="onboarding_welcome_body2">השג שטח אחסון בעזרת ניקוי שאריות של אפליקציות אחרות. מחק קבצים לא נחוצים או זמניים והסר שאריות של נתונים.</string>

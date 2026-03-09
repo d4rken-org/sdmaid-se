@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Σαρώστε κάθε αρχείο για να λάβετε μια απόφαση:\n\n← Σάρωση αριστερά: %1$s\n→ Σάρωση δεξιά: %2$s\n↑ Σάρωση πάνω: Παράλειψη\n↓ Σάρωση κάτω: Αναίρεση (μετά την πρώτη σάρωση)\n\nΜπορείτε επίσης να χρησιμοποιήσετε τα κουμπιά στο κάτω μέρος.\n\nΌταν τελειώσετε, πατήστε \"Αξιολόγηση\" για να δείτε όλες τις αποφάσεις σας. Τίποτα δεν διαγράφεται μέχρι να επιβεβαιώσετε στην οθόνη αξιολόγησης.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Το κατάλαβα</string>
     <string name="swiper_help_action">Βοήθεια</string>
+    <string name="swiper_file_type_filter_title">Εμφάνιση μόνο αυτών των τύπων αρχείων</string>
+    <string name="swiper_file_type_filter_hint">Επιλέξτε τους τύπους που θέλετε να δείτε. Αν δεν επιλεγεί κανένας, εμφανίζονται όλα τα αρχεία.</string>
+    <string name="swiper_file_type_category_images">Εικόνες</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Βίντεο</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Ήχος</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Έγγραφα</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Αρχεία</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Εφαρμογή</string>
+    <string name="swiper_session_filter_action">Φιλτράρισμα αρχείων</string>
+    <string name="swiper_file_type_filter_summary">Φιλτραρισμένα: %1$s</string>
+    <string name="swiper_session_no_matching_files">Δεν βρέθηκαν αντίστοιχα αρχεία</string>
+    <string name="swiper_open_externally_action">Άνοιγμα σε εξωτερική εφαρμογή</string>
 </resources>

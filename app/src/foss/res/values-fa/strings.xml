@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">حامی توسعه دهنده</string>
     <string name="upgrade_screen_sponsor_action_hint">جایگزین تبلیغات، تجزیه و تحلیل و Google Play 🙁 هستند</string>
     <string name="upgrade_screen_thanks_toast">از شما برای حمایت از توسعه منبع باز سپاسگزاریم ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">برگشتی؟ حمایت شما SD Maid را زنده نگه می‌دارد!</string>
 </resources>

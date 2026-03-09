@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Szponzori fejlesztés</string>
     <string name="upgrade_screen_sponsor_action_hint">Az alternatívák a hirdetések, az elemzések és a Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Köszönjük, hogy támogatod a nyílt forráskódú fejlesztést ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Már vissza? A támogatásod életben tartja az SD Maid-et!</string>
 </resources>

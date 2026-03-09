@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Tài trợ nhà phát triển</string>
     <string name="upgrade_screen_sponsor_action_hint">Giải pháp thay thế là quảng cáo, phân tích và Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Cảm ơn bạn đã hỗ trợ phát triển mã nguồn mở ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Quay lại rồi? Sự ủng hộ của bạn giúp SD Maid tồn tại!</string>
 </resources>

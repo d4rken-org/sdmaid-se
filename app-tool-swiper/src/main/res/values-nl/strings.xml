@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Veeg over elk bestand om een ​​beslissing te nemen:\n\n← Veeg naar links: %1$s\n→ Veeg naar rechts: %2$s\n↑ Veeg omhoog: Overslaan\n↓ Veeg omlaag: Ongedaan maken (na de eerste veegbeweging)\n\nJe kunt ook de knoppen onderaan gebruiken.\n\nAls je klaar bent, tik je op \'Beoordelen\' om al je beslissingen te bekijken. Niets wordt verwijderd totdat je bevestigt op het beoordelingsscherm.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Begrepen</string>
     <string name="swiper_help_action">Help</string>
+    <string name="swiper_file_type_filter_title">Toon alleen deze bestandstypen</string>
+    <string name="swiper_file_type_filter_hint">Vink de typen aan die je wilt zien. Als er geen zijn aangevinkt, worden alle bestanden getoond.</string>
+    <string name="swiper_file_type_category_images">Afbeeldingen</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video\'s</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documenten</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archieven</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Toepassen</string>
+    <string name="swiper_session_filter_action">Filter bestanden</string>
+    <string name="swiper_file_type_filter_summary">Gefilterd: %1$s</string>
+    <string name="swiper_session_no_matching_files">Geen overeenkomende bestanden gevonden</string>
+    <string name="swiper_open_externally_action">Openen in externe app</string>
 </resources>

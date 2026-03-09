@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="analyzer_explanation_short">Sužinokite, kas užima vietą jūsų įrenginyje.</string>
+    <string name="analyzer_progress_scanning_device">Ieškoma atminties įrenginimų</string>
+    <string name="analyzer_progress_scanning_storage">Nuskaitoma atmintis</string>
+    <string name="analyzer_progress_scanning_apps">Nuskaitomas programos</string>
+    <string name="analyzer_progress_scanning_userfiles">Ieškomi vartotojo failai</string>
+    <string name="analyzer_progress_scanning_system">Nuskaitomi sistemos duomenys</string>
+    <string name="analyzer_device_storage_title">Įrenginio atmintis</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s pasiekiama</item>
+        <item quantity="few">%s pasiekiama</item>
+        <item quantity="many">%s pasiekiama</item>
+        <item quantity="other">%s prieinama</item>
+    </plurals>
+    <plurals name="analyzer_space_used">
+        <item quantity="one">%s naudojama</item>
+        <item quantity="few">%s naudojama</item>
+        <item quantity="many">%s naudojama</item>
+        <item quantity="other">%s naudojama</item>
+    </plurals>
+    <string name="analyzer_content_access_opaque">Tiesioginė prieiga neprieinama</string>
+    <string name="analyzer_content_create_swiper_session_action">Sukurti Swiper seansus</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Grėbėjo sesija sukurta su %d elementu</item>
+        <item quantity="few">Grėbėjo sesija sukurta su %d elementais</item>
+        <item quantity="many">Grėbėjo sesija sukurta su %d elementų</item>
+        <item quantity="other">Swiper sesija sukurta su %d elementų</item>
+    </plurals>
+    <string name="analyzer_storage_type_primary_title">Pagrindinė atmintis</string>
+    <string name="analyzer_storage_type_primary_description">Pagrindinė jūsų įrenginio atmintis. Turi vidinę SD kortelę, privatų programų saugojimą ir sistemos duomenis.</string>
+    <string name="analyzer_storage_type_secondary_title">Antrinė atmintis</string>
+    <string name="analyzer_storage_type_secondary_description">Antrinė atmintis, įprasta nuimama SD kortelė. Turi laikmenų failus ir duomenis iš ją palaikantų programų.</string>
+    <string name="analyzer_storage_type_tertiary_title">Keliū laikmenų atmintis</string>
+    <string name="analyzer_storage_type_tertiary_description">Keliū laikmenų atmintis, pvz. \"flash drive\" įjungta į jūsų USB prievadą.</string>
+    <string name="analyzer_storage_content_title">Atminties turinys</string>
+    <string name="analyzer_storage_content_type_app_label">Programos</string>
+    <string name="analyzer_storage_content_type_app_description">Vieta, užimama įdiegtomis programomis ir jų duomenimis (t.y. programos failais, duomenimis ir talpyklomis).</string>
+    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">Trūksta leidimų</string>
+    <string name="analyzer_storage_content_type_media_label">Vartotojo failai</string>
+    <string name="analyzer_storage_content_type_media_description">Užfiksuotos nuotraukos, įrašyti vaizdo įrašai ar atsisiųsti duomenys. Visi duomenys, nepriklausantys konkreiai programai.</string>
+    <string name="analyzer_storage_content_type_system_label">Sistemos duomenys</string>
+    <string name="analyzer_storage_content_type_system_description">Sistemos programos ir sistemos duomenys. Programos ir duomenys iš kitų vartotojų, jei šiame įrenginyje nustatytos kelios vartotojų paskyros.</string>
+    <string name="analyzer_storage_content_app_code_label">Programos kodas</string>
+    <string name="analyzer_storage_content_app_code_description">Programos failai, bibliotekos ir ištekliai. Ši vieta gali būti atlaisvinta išdiegiant programą arba ją archyvuojant (galima naujesnose Android versijose).</string>
+    <string name="analyzer_storage_content_app_data_label">Programos duomenys</string>
+    <string name="analyzer_storage_content_app_data_description">Duomenys, nustatymai ir talpyklos.</string>
+    <string name="analyzer_storage_content_app_media_label">Programos laikmenų failai</string>
+    <string name="analyzer_storage_content_app_media_description">Laikmenų failai iš šios programos, pvz. gautos WhatsApp nuotraukos.</string>
+    <string name="analyzer_storage_content_app_extra_label">Papildomi programos failai</string>
+    <string name="analyzer_storage_content_app_extra_description">Papilomi duomenys, kuriuos ši programa yra padejusi už numatytųjų kelų, pvz. nuotraukos ar atsisiųtimai.</string>
+    <string name="analyzer_app_details_app_occupies_x_on_y">Ši programa užima %1$s „%2$s“.</string>
+    <string name="analyzer_app_details_app_is_archived">Ši programa yra archyvuota.</string>
+</resources>

@@ -29,6 +29,19 @@
     <string name="debug_debuglog_short_recording_desc">Снимање је било веома кратко. Дебаг логови су снимци, не снимке стања — репродукујте проблем док је снимање активно да би лог био користан.</string>
     <string name="debug_debuglog_short_recording_continue_action">Настави снимање</string>
     <string name="debug_debuglog_short_recording_stop_action">Заустави свеједно</string>
+    <string name="debug_debuglog_screen_failed_title">Сесија није успела</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Датотека дневника за отклањање грешака је празна. Покушајте поново са снимањем и репродукујте проблем током снимања.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Датотека дневника за отклањање грешака недостаје. Снимање је можда прекинуто.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Компримована архива је оштећена. Покушајте поново са снимањем.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Компресија није успела. Проверите расположиви простор за складиштење и покушајте поново.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Компримовање…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Неуспешно: празан дневник</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Неуспешно: дневник недостаје</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Неуспешно: оштећена архива</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Неуспешно: грешка при компресији</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Обрисати ову сесију дневника за отклањање грешака?</string>
+    <string name="support_contact_post_send_message">Порука је успешно послата?</string>
+    <string name="debug_debuglog_sessions_stop_action">Заустави</string>
     <string name="tasks_activity_notification_channel_label">Активни задаци</string>
     <string name="tasks_activity_working_notification_title">СД Чистач ради</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -43,6 +56,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Резултати задатака</string>
     <string name="tasks_result_subtext">Резултат задатака</string>
+    <string name="tasks_timeout_error_label">Задатак је истекао</string>
+    <string name="tasks_timeout_error_desc">Задатак је трајао предуго и заустављен је. Молимо покушајте поново.</string>
     <string name="onboarding_welcome_title">Добродошли</string>
     <string name="onboarding_welcome_body1">СД Чистач 2 управља датотекама, апликацијама и складиштем.</string>
     <string name="onboarding_welcome_body2">Добијте простор за складиштење чишћењем иза других апликација. Избришите потрошне датотеке и уклоните остатке података.</string>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Borg ontwikkeling</string>
     <string name="upgrade_screen_sponsor_action_hint">Die alternatief is advertensies, analitiek en Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Dankie dat jy oopbron ontwikkeling ondersteun ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Al terug? Jou ondersteuning hou SD Maid aan die lewe!</string>
 </resources>

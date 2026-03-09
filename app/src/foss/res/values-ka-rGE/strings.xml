@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">სპონსორის განვითარება</string>
     <string name="upgrade_screen_sponsor_action_hint">ალტერნატივა არის რეკლამა, ანალიტიკა და Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">გმადლობთ ღია კოდის განვითარების მხარდაჭერისთვის ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">უკვე დაბრუნდით? თქვენი მხარდაჭერა SD Maid-ს სიცოცხლეს ანარჩუნებს!</string>
 </resources>

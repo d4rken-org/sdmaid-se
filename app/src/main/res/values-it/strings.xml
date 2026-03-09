@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">La registrazione è stata molto breve. I log di debug sono registrazioni, non istantanee — riproduci il problema mentre la registrazione è attiva affinché il log sia utile.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continua a registrare</string>
     <string name="debug_debuglog_short_recording_stop_action">Interrompi comunque</string>
+    <string name="debug_debuglog_screen_failed_title">Sessione Fallita</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Il file di log di debug era vuoto. Prova a registrare di nuovo e riproduci il problema durante la registrazione.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Il file di log di debug è mancante. La registrazione potrebbe essere stata interrotta.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">L\'archivio compresso è danneggiato. Prova a registrare di nuovo.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Compressione non riuscita. Controlla lo spazio di archiviazione disponibile e riprova.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Compressione in corso…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Non riuscito: log vuoto</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Non riuscito: log mancante</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Non riuscito: archivio corrotto</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Non riuscito: errore di compressione</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Eliminare questa sessione di log di debug?</string>
+    <string name="support_contact_post_send_message">Messaggio inviato con successo?</string>
+    <string name="debug_debuglog_sessions_stop_action">Interrompi</string>
     <string name="tasks_activity_notification_channel_label">Processi attivi</string>
     <string name="tasks_activity_working_notification_title">SD Maid è in esecuzione</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Risultati attività</string>
     <string name="tasks_result_subtext">Risultato attività</string>
+    <string name="tasks_timeout_error_label">Attività scaduta</string>
+    <string name="tasks_timeout_error_desc">L’attività ha impiegato troppo tempo ed è stata interrotta. Riprova.</string>
     <string name="onboarding_welcome_title">Benvenuto</string>
     <string name="onboarding_welcome_body1">SD Maid SE gestisce file, app e spazio di archiviazione.</string>
     <string name="onboarding_welcome_body2">Guadagna spazio di archiviazione rimuovendo i rimasugli delle altre app. Elimina i file inutili e rimuovi i dati rimasti di app disinstallate.</string>

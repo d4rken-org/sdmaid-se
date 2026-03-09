@@ -88,6 +88,7 @@
     <string name="general_view_action">Zobrazit</string>
     <string name="general_update_action">Aktualizovat</string>
     <string name="general_scan_action">Skenovat</string>
+    <string name="general_close_action">Zavřít</string>
     <string name="general_delete_action">Vymazat</string>
     <string name="general_delete_selected_action">Smazat vybrané</string>
     <string name="general_show_details_action">Zobrazit podrobnosti</string>
@@ -160,6 +161,7 @@
     <string name="general_device_label">Zařízení</string>
     <string name="general_settings_title">Nastavení</string>
     <string name="general_help_title">Pomoc</string>
+    <string name="general_hints_label">Oznámení</string>
     <string name="file_type_symbolic_link">Odkaz</string>
     <string name="file_type_directory">Adresář</string>
     <string name="file_type_file">Soubor</string>
@@ -215,10 +217,9 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historie</string>
     <string name="settings_category_tools_label">Nástroje</string>
-    <string name="general_hints_label">Oznámení</string>
     <string name="settings_category_filter_generic">Všeobecný filtr</string>
     <string name="settings_category_filter_specific">Specifický filtr</string>
-    <string name="settings_category_risklevel">Úrovně rizika</string>
+    <string name="settings_category_risklevel">Úroveň rizika</string>
     <string name="settings_category_filter">Filtr</string>
     <string name="appcontrol_systemsettings_open_title">Zobrazit nastavení</string>
     <string name="systemcleaner_customfilter_create_action">Vytvořit vlastní filtr</string>

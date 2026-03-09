@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Pyyhkäise jokainen tiedosto päätöksen tekemiseksi:\n\n← Pyyhkäise vasemmalle: %1$s\n→ Pyyhkäise oikealle: %2$s\n↑ Pyyhkäise ylös: Ohita\n↓ Pyyhkäise alas: Kumoa (ensimmäisen pyyhkäisyn jälkeen)\n\nVoit myös käyttää alareunan painikkeita.\n\nKun olet valmis, napauta \"Tarkista\" nähdäksesi kaikki päätöksesi. Mitään ei poisteta ennen kuin vahvistat tarkistusnäytöllä.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selvä</string>
     <string name="swiper_help_action">Ohje</string>
+    <string name="swiper_file_type_filter_title">Näytä vain nämä tiedostotyypit</string>
+    <string name="swiper_file_type_filter_hint">Valitse tyypit, jotka haluat nähdä. Jos mitään ei ole valittu, kaikki tiedostot näytetään.</string>
+    <string name="swiper_file_type_category_images">Kuvat</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videot</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Ääni</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Asiakirjat</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arkistot</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Käytä</string>
+    <string name="swiper_session_filter_action">Suodata tiedostoja</string>
+    <string name="swiper_file_type_filter_summary">Suodatettu: %1$s</string>
+    <string name="swiper_session_no_matching_files">Vastaavia tiedostoja ei löydy</string>
+    <string name="swiper_open_externally_action">Avaa ulkoisessa sovelluksessa</string>
 </resources>

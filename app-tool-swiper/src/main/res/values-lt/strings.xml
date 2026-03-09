@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_description">Greitai sutvarkykite aplankus — perbraukite failus, kad pasirinktumėte palikti, ištrinti arba praleisti.</string>
+    <string name="swiper_dashcard_description">Sutvarkykite konkreius aplankus greičiau nei failų narsyklėje — tiesiog perbraukite kiekvieną failą.</string>
+    <string name="swiper_start_action">Pradėti braukymą</string>
+    <string name="swiper_continue_action">Tęsti seansą</string>
+    <string name="swiper_sessions_description">Peržiūrėkite failus 3 paprastais žingsniais:\n\n1. Pasirinkite aplanką nuskaitymui\n2. Perbraukite failus, kad pasirinktumėte palikti, ištrinti arba praleisti\n3. Peržiūrėkite sprendimus ir patvirtinkite\n\nNieko nepanaikiname, kol nepaspausite galutinio naikinimo mygtuko.</string>
+    <string name="swiper_select_folders_action">Pasirinkti aplankus</string>
+    <string name="swiper_scanning_title">Nuskaitoma…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d elementas rastas</item>
+        <item quantity="few">Rasti %d elementai</item>
+        <item quantity="many">Rasta %d elementų</item>
+        <item quantity="other">Rasta %d elementų</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d elementas ištrintas</item>
+        <item quantity="few">%d elementai ištrinti</item>
+        <item quantity="many">%d elementų ištrinta</item>
+        <item quantity="other">Ištrinta %d elementų</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d elemento nepavyko</item>
+        <item quantity="few">%d elementų nepavyko</item>
+        <item quantity="many">%d elementų nepavyko</item>
+        <item quantity="other">%d elementų nepavyko</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d iš %2$d</string>
+    <string name="swiper_keep_action">Palikti</string>
+    <string name="swiper_skip_action">Praleisti</string>
+    <string name="swiper_review_action">Peržiūreti</string>
+    <string name="swiper_status_title">Peržiūreti sprendimus</string>
+    <string name="swiper_status_action_keep_selected">Palikti pasirinktus</string>
+    <string name="swiper_status_action_delete_selected">Trinti pažymėtus</string>
+    <string name="swiper_status_action_reset_selected">Atstatyti pasirinktus</string>
+    <string name="swiper_decision_undecided">Nespręstas</string>
+    <string name="swiper_retry_action">Bandyti dar kartą</string>
+    <string name="swiper_delete_confirmation_title">Ištrinti failus?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">Tai neatstatoma ištrins %1$d failą (%2$s). Ši veiksmo atlikti nebus galima.</item>
+        <item quantity="few">Tai neatstatoma ištrins %1$d failus (%2$s). Ši veiksmo atlikti nebus galima.</item>
+        <item quantity="many">Tai neatstatoma ištrins %1$d failų (%2$s). Ši veiksmo atlikti nebus galima.</item>
+        <item quantity="other">Bus visam laikui ištrinta %1$d failų (%2$s). Šio veiksmo negalima atšaukti.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d nusprendimo elementas liks vėlesnei peraižai.</item>
+        <item quantity="few">%d nusprendimo elementai liks vėlesnei peraižai.</item>
+        <item quantity="many">%d nusprendimo elementų liks vėlesnei peraižai.</item>
+        <item quantity="other">%d neapsisprendusių elementų bus palikta vėlesnei peržiūrai.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Ištrinti %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Pakeisti braukimo kryptis</string>
+    <string name="swiper_settings_swap_directions_summary">Braukti kairėn, kad palikti, dešinėn, kad ištrinti.</string>
+    <string name="swiper_settings_show_details_title">Rodyti failo informaciją</string>
+    <string name="swiper_settings_show_details_summary">Rodyti failo pavadinimą, dydį ir datą braukimo ekrane.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptinis atsakas</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibruoti priimant sprendimą palikti arba ištrinti.</string>
+    <string name="swiper_discard_session_confirmation_title">Atmesti seansus?</string>
+    <string name="swiper_discard_session_confirmation_message">Visi sprendimai bus prarasti. Ar tikrai?</string>
+    <string name="swiper_no_preview_available">Peržiūra neprieinama</string>
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Tęsti sesiją iš prieš %1$d dieną (%2$d%% atlikta)</item>
+        <item quantity="few">Tęsti sesiją nuo prieš %1$d dienas (%2$d%% baigta)</item>
+        <item quantity="many">Tęsti sesiją nuo prieš %1$d dienų (%2$d%% baigta)</item>
+        <item quantity="other">Tęsti sesiją iš prieš %1$d dienų (%2$d%% atlikta)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d sesija</item>
+        <item quantity="few">%d sesijos</item>
+        <item quantity="many">%d sesijų</item>
+        <item quantity="other">%d sesijų</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d nesprestas elementas</item>
+        <item quantity="few">%d nesprendrti elementai</item>
+        <item quantity="many">%d nesprestų elementų</item>
+        <item quantity="other">%d neapsisprendusių elementų</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Sukurta %1$s, paskutinis veikimas %2$s</string>
+    <string name="swiper_session_remove_action">Pašalinti seansus</string>
+    <string name="swiper_sessions_empty_hint">Paspauskite +, kad pasirinktumėte aplanką ir pradėtumėte braukyti</string>
+    <string name="swiper_sessions_upgrade_body">Atnaujinkite, kad pašalintumėte šiuos apribojimus ir palaikytumėte plėtorą. Nemokama versija yra ribota iki:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d failas per sesiją</item>
+        <item quantity="few">%d failai per sesiją</item>
+        <item quantity="many">%d failų per sesiją</item>
+        <item quantity="other">%d failų per sesiją</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d sesija</item>
+        <item quantity="few">%d sesijos</item>
+        <item quantity="many">%d sesijų</item>
+        <item quantity="other">%d sesijų</item>
+    </plurals>
+    <string name="swiper_session_default_label">Seansas #%d</string>
+    <string name="swiper_session_rename_title">Pervardyti seansus</string>
+    <string name="swiper_session_rename_hint">Įveskite seanso pavadinimą</string>
+    <string name="swiper_sessions_current_sessions">Dabaritiniai seansai</string>
+    <string name="swiper_session_paths_label">Keliai</string>
+    <string name="swiper_session_status_label">Būsena</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d pasilaikyti</item>
+        <item quantity="few">%d palikti</item>
+        <item quantity="many">%d palikti</item>
+        <item quantity="other">%d pasilaikyti</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d ištrinti</item>
+        <item quantity="few">%d ištrinti</item>
+        <item quantity="many">%d ištrinti</item>
+        <item quantity="other">%d ištrinti</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d neapsprendžiama</item>
+        <item quantity="few">%d neapsprendžiama</item>
+        <item quantity="many">%d neapsprendžiama</item>
+        <item quantity="other">%d neapsispręsta</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d jau palikta</item>
+        <item quantity="few">%d jau palikta</item>
+        <item quantity="many">%d jau palikta</item>
+        <item quantity="other">%d jau palikta</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d jau ištrinta</item>
+        <item quantity="few">%d jau ištrinta</item>
+        <item quantity="many">%d jau ištrinta</item>
+        <item quantity="other">%d jau ištrinta</item>
+    </plurals>
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d palikta</item>
+        <item quantity="few">%d palikti</item>
+        <item quantity="many">%d palikta</item>
+        <item quantity="other">%d palikta</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d ištrinta</item>
+        <item quantity="few">%d ištrinti</item>
+        <item quantity="many">%d ištrinta</item>
+        <item quantity="other">%d ištrinta</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Išskyrti „%1$s“ iš Swiper nuskaitymo?</string>
+    <string name="swiper_sessions_header_title">Pasiruosę sutvarkyti?</string>
+    <string name="swiper_sessions_suggestions_label">Pradėkite nuo:</string>
+    <string name="swiper_sessions_suggestion_downloads">Atsisiuntimų aplankas</string>
+    <string name="swiper_sessions_suggestion_screenshots">Ekrano nuotraukos</string>
+    <string name="swiper_sessions_suggestion_camera">Fotoaparato ritinys</string>
+    <string name="swiper_stamp_keep_1">Palikti!</string>
+    <string name="swiper_stamp_keep_2">Puiku!</string>
+    <string name="swiper_stamp_keep_3">Taip!</string>
+    <string name="swiper_stamp_keep_4">Išsaugoti!</string>
+    <string name="swiper_stamp_delete_1">Ne!</string>
+    <string name="swiper_stamp_delete_2">Iki!</string>
+    <string name="swiper_stamp_delete_3">Šiukšlė!</string>
+    <string name="swiper_stamp_delete_4">Trinti!</string>
+    <string name="swiper_stamp_skip_1">Praleisti!</string>
+    <string name="swiper_stamp_skip_2">Vistiek!</string>
+    <string name="swiper_stamp_skip_3">Vėliau!</string>
+    <string name="swiper_stamp_skip_4">Gal būt!</string>
+    <string name="swiper_stamp_undo_1">Atšaukti!</string>
+    <string name="swiper_stamp_undo_2">Atgal!</string>
+    <string name="swiper_stamp_undo_3">Oi!</string>
+    <string name="swiper_stamp_undo_4">Palaukti!</string>
+    <string name="swiper_gesture_overlay_dismiss">Palieskite bet kur, kad pradėtumėte</string>
+    <string name="swiper_gesture_overlay_left_delete">← Trinti</string>
+    <string name="swiper_gesture_overlay_right_keep">Palikti →</string>
+    <string name="swiper_gesture_overlay_left_keep">← Palikti</string>
+    <string name="swiper_gesture_overlay_right_delete">Trinti →</string>
+    <string name="swiper_gesture_overlay_up_skip">↑ Praleisti</string>
+    <string name="swiper_gesture_overlay_down_undo">↓ Atšaukti</string>
+    <string name="swiper_help_title">Kaip veikia Swiper</string>
+    <string name="swiper_help_message">Perbraukite kiekvieną failą, kad priimtumėte sprendimą:\n\n← Braukti kairėn: %1$s\n→ Braukti dešinėn: %2$s\n↑ Braukti aukštyn: Praleisti\n↓ Braukti žemyn: Atcofti (po pirmojo braukimo)\n\nTaip pat galite naudoti mygtukus aplačioje.\n\nKai baigsite, palieskite „Peržiūra“, kad pamatytumėte visus sprendimus. Nieko naičinama, kol nepatvirtinsite peržiūros ekrane.</string>
+    <string name="swiper_gesture_overlay_dismiss_action">Supratau</string>
+    <string name="swiper_help_action">Pagalba</string>
+    <string name="swiper_file_type_filter_title">Rodyti tik šiuos failų tipus</string>
+    <string name="swiper_file_type_filter_hint">Pažimėkite tipus, kuriuos norite matyti. Jei nieko nepažimėta, rodomi visi failai.</string>
+    <string name="swiper_file_type_category_images">Vaizdai</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Vaizdo įrašai</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Garso įrašai</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumentai</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archyvai</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Taikyti</string>
+    <string name="swiper_session_filter_action">Filtruoti failus</string>
+    <string name="swiper_file_type_filter_summary">Filtruota: %1$s</string>
+    <string name="swiper_session_no_matching_files">Atitinkančių failų nerasta</string>
+    <string name="swiper_open_externally_action">Atidaryti išorine programa</string>
+</resources>

@@ -86,6 +86,7 @@
     <string name="general_view_action">Weergave</string>
     <string name="general_update_action">Updaten</string>
     <string name="general_scan_action">Scannen</string>
+    <string name="general_close_action">Sluiten</string>
     <string name="general_delete_action">Verwijderen</string>
     <string name="general_delete_selected_action">Verwijder geselecteerde</string>
     <string name="general_show_details_action">Toon details</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Apparaat</string>
     <string name="general_settings_title">Instellingen</string>
     <string name="general_help_title">Help</string>
+    <string name="general_hints_label">Kennisgeving</string>
     <string name="file_type_symbolic_link">Koppeling</string>
     <string name="file_type_directory">Adresboek</string>
     <string name="file_type_file">Bestand</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Geschiedenis</string>
     <string name="settings_category_tools_label">Hulpmiddelen</string>
-    <string name="general_hints_label">Kennisgeving</string>
     <string name="settings_category_filter_generic">Algemene filter</string>
     <string name="settings_category_filter_specific">Specifieke filter</string>
     <string name="settings_category_risklevel">Risico niveau</string>

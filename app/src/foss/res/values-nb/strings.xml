@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Støtt utviklingen</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternativet er annonser, analyser og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Takk for at du støtter utviklingen som har åpen kildekode ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Tilbake allerede? Din støtte holder SD Maid i live!</string>
 </resources>

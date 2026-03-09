@@ -87,6 +87,7 @@
     <string name="general_view_action">Vezi</string>
     <string name="general_update_action">Actualizează</string>
     <string name="general_scan_action">Scanează</string>
+    <string name="general_close_action">Închide</string>
     <string name="general_delete_action">Șterge</string>
     <string name="general_delete_selected_action">Ştergeţi selecţia</string>
     <string name="general_show_details_action">Vezi detalii</string>
@@ -152,6 +153,7 @@
     <string name="general_device_label">Dispozitiv</string>
     <string name="general_settings_title">Setări</string>
     <string name="general_help_title">Ajutor</string>
+    <string name="general_hints_label">Înștiințare</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Director</string>
     <string name="file_type_file">Fișier</string>
@@ -203,7 +205,6 @@
     <string name="swiper_tool_name">Glisare</string>
     <string name="stats_label">Istoric</string>
     <string name="settings_category_tools_label">Instrumente</string>
-    <string name="general_hints_label">Înștiințare</string>
     <string name="settings_category_filter_generic">Filtru generic</string>
     <string name="settings_category_filter_specific">Filtru specific</string>
     <string name="settings_category_risklevel">Nivel de risc</string>

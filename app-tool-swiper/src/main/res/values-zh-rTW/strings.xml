@@ -123,4 +123,21 @@
     <string name="swiper_help_message">滑動每個檔案來做決定：\n\n← 向左滑動：%1$s\n→ 向右滑動：%2$s\n↑ 向上滑動：跳過\n↓ 向下滑動：復原（第一次滑動後）\n\n您也可以使用底部的按鈕。\n\n完成後，點擊「檢閱」查看所有決定。在檢閱畫面確認之前，不會刪除任何內容。</string>
     <string name="swiper_gesture_overlay_dismiss_action">瞭解了</string>
     <string name="swiper_help_action">說明</string>
+    <string name="swiper_file_type_filter_title">只顯示這些檔案類型</string>
+    <string name="swiper_file_type_filter_hint">勾選您想查看的類型。若未勾選任何類型，將顯示所有檔案。</string>
+    <string name="swiper_file_type_category_images">圖片</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">影片</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">音訊</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">文件</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">壓縮檔</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">套用</string>
+    <string name="swiper_session_filter_action">篩選檔案</string>
+    <string name="swiper_file_type_filter_summary">已篩選：%1$s</string>
+    <string name="swiper_session_no_matching_files">找不到符合的檔案</string>
+    <string name="swiper_open_externally_action">在外部應用程式中開啟</string>
 </resources>
