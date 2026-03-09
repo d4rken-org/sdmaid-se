@@ -3,6 +3,7 @@ package eu.darken.sdmse.common.debug.recorder.core
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.collections.shouldHaveSize
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import io.mockk.coEvery
 import io.mockk.every
@@ -288,6 +289,61 @@ class DebugLogSessionManagerTest : BaseTest() {
             SessionId("ext:my_session").location shouldBe "ext"
             SessionId("cache:my_session").location shouldBe "cache"
         }
+
+        @Test
+        fun `zip tmp file derives name including zip in basename`() {
+            // nameWithoutExtension strips only the last extension: "session1.zip.tmp" → "session1.zip"
+            // In practice scanSessions deletes these before they reach derive()
+            val tmp = File(logParent, "session1.zip.tmp").apply { createNewFile() }
+            SessionId.derive(tmp) shouldBe SessionId("ext:session1.zip")
+        }
+
+        @Test
+        fun `non-zip non-directory file strips extension`() {
+            val txt = File(logParent, "session1.txt").apply { createNewFile() }
+            SessionId.derive(txt) shouldBe SessionId("ext:session1")
+        }
+
+        @Test
+        fun `file in unknown path gets ext prefix`() {
+            val unknownDir = File(testDir, "some/random/path").apply { mkdirs() }
+            val dir = File(unknownDir, "my_session").apply { mkdirs() }
+            SessionId.derive(dir) shouldBe SessionId("ext:my_session")
+        }
+
+        @Test
+        fun `baseName handles colons in session name`() {
+            // substringAfter(":") only splits on the first colon
+            val id = SessionId("ext:my:session:name")
+            id.location shouldBe "ext"
+            id.baseName shouldBe "my:session:name"
+        }
+
+        @Test
+        fun `same basename in ext and cache produces different ids`() {
+            val extParent = File(testDir, "external/debug/logs").apply { mkdirs() }
+            val cacheParent = File(testDir, "cache/debug/logs").apply { mkdirs() }
+
+            val extDir = File(extParent, "session1").apply { mkdirs() }
+            val cacheDir = File(cacheParent, "session1").apply { mkdirs() }
+
+            val extId = SessionId.derive(extDir)
+            val cacheId = SessionId.derive(cacheDir)
+
+            extId shouldBe SessionId("ext:session1")
+            cacheId shouldBe SessionId("cache:session1")
+            extId shouldNotBe cacheId
+        }
+
+        @Test
+        fun `derive roundtrip - baseName reconstructs original filename`() {
+            val dir = File(logParent, "2025-03-09_143022").apply { mkdirs() }
+            val id = SessionId.derive(dir)
+
+            id.baseName shouldBe "2025-03-09_143022"
+            // baseName can be used to find the file again
+            File(logParent, id.baseName).exists() shouldBe true
+        }
     }
 
     @Nested
@@ -530,6 +586,54 @@ class DebugLogSessionManagerTest : BaseTest() {
             shouldThrow<IllegalArgumentException> {
                 manager.zipSession(sessionId("nonexistent"))
             }
+        }
+    }
+
+    @Nested
+    inner class DualLocation {
+
+        @Test
+        fun `scanSessions from two directories produces distinct sessions`() {
+            val extParent = File(testDir, "external/debug/logs").apply { mkdirs() }
+            val cacheParent = File(testDir, "cache/debug/logs").apply { mkdirs() }
+
+            // Same basename in both locations
+            File(extParent, "session1").apply { mkdirs() }
+            File(extParent, "session1.zip").apply { writeBytes(ByteArray(50)) }
+            File(cacheParent, "session1").apply { mkdirs() }
+            File(cacheParent, "session1.zip").apply { writeBytes(ByteArray(80)) }
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(extParent, cacheParent), null)
+
+            sessions shouldHaveSize 2
+            val ids = sessions.map { it.id }.toSet()
+            ids shouldBe setOf(SessionId("ext:session1"), SessionId("cache:session1"))
+        }
+
+        @Test
+        fun `delete by baseName removes from all directories`() = runTest {
+            // delete() iterates all logDirectories and removes by baseName,
+            // so same-named sessions in different locations are both deleted.
+            val extParent = File(testDir, "external/debug/logs").apply { mkdirs() }
+            val cacheParent = File(testDir, "cache/debug/logs").apply { mkdirs() }
+
+            File(extParent, "session1").apply { mkdirs() }
+            File(extParent, "session1.zip").apply { writeBytes(ByteArray(50)) }
+            File(cacheParent, "session1").apply { mkdirs() }
+            File(cacheParent, "session1.zip").apply { writeBytes(ByteArray(80)) }
+
+            every { recorderModule.getLogDirectories() } returns listOf(extParent, cacheParent)
+
+            val testDispatcher = StandardTestDispatcher(testScheduler)
+            val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
+
+            manager.delete(SessionId("ext:session1"))
+
+            // Both locations are cleaned because delete() uses baseName across all directories
+            File(extParent, "session1").exists() shouldBe false
+            File(extParent, "session1.zip").exists() shouldBe false
+            File(cacheParent, "session1").exists() shouldBe false
+            File(cacheParent, "session1.zip").exists() shouldBe false
         }
     }
 
