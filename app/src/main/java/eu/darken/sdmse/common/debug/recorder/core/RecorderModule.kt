@@ -39,7 +39,7 @@ import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
 import java.time.Duration
 import java.time.Instant
-import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -130,8 +130,8 @@ class RecorderModule @Inject constructor(
         val pkg = BuildConfigWrap.APPLICATION_ID
         val version = BuildConfigWrap.VERSION_CODE
         val timestamp = DateTimeFormatter
-            .ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
-            .withZone(ZoneId.systemDefault())
+            .ofPattern("yyyyMMdd'T'HHmmss'Z'")
+            .withZone(ZoneOffset.UTC)
             .format(Instant.now())
 
         val logId = sdmId.id.take(4)
@@ -150,7 +150,7 @@ class RecorderModule @Inject constructor(
         }
 
         if (sessionDir == null) {
-            sessionDir = File(File(context.cacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+            sessionDir = File(File(context.cacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
                 if (mkdirs()) {
                     log(TAG) { "Private session dir created" }
                 } else {
