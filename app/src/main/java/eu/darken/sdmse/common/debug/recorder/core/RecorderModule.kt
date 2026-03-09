@@ -78,7 +78,7 @@ class RecorderModule @Inject constructor(
     init {
         internalState.flow
             .onEach {
-                log(TAG) { "New Recorder state: $internalState" }
+                log(TAG) { "New Recorder state: $it" }
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
