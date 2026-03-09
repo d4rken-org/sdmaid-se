@@ -20,6 +20,7 @@ import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
+import java.time.Instant
 
 @OptIn(ExperimentalCoroutinesApi::class)
 class DebugLogSessionManagerTest : BaseTest() {
@@ -415,6 +416,20 @@ class DebugLogSessionManagerTest : BaseTest() {
                 compareByDescending<String> { sessions.find { s -> s.id.value == it }!!.createdAt }.thenBy { it }
             )
         }
+
+        @Test
+        fun `sessions with same createdAt sorted by id ascending`() {
+            createSessionDir("eu.darken.sdmse_1_20231114T120000Z_aaaa")
+            createZipFile("eu.darken.sdmse_1_20231114T120000Z_aaaa")
+            createSessionDir("eu.darken.sdmse_1_20231114T120000Z_zzzz")
+            createZipFile("eu.darken.sdmse_1_20231114T120000Z_zzzz")
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            sessions shouldHaveSize 2
+            sessions[0].id.value shouldBe "ext:eu.darken.sdmse_1_20231114T120000Z_aaaa"
+            sessions[1].id.value shouldBe "ext:eu.darken.sdmse_1_20231114T120000Z_zzzz"
+        }
     }
 
     @Nested
@@ -433,6 +448,28 @@ class DebugLogSessionManagerTest : BaseTest() {
             val file = File(logParent, "nonexistent")
             val createdAt = DebugLogSessionManager.parseCreatedAt(file)
             createdAt.toEpochMilli() shouldBe 0L
+        }
+
+        @Test
+        fun `parses new UTC format from directory name`() {
+            val dir = File(logParent, "eu.darken.sdmse_1_20231114T120000Z_abcd").apply { mkdirs() }
+            val createdAt = DebugLogSessionManager.parseCreatedAt(dir)
+            createdAt shouldBe Instant.parse("2023-11-14T12:00:00Z")
+        }
+
+        @Test
+        fun `parses old format from directory name`() {
+            val dir = File(logParent, "eu.darken.sdmse_1_2023-11-14_12-00-00-000_abcd").apply { mkdirs() }
+            val createdAt = DebugLogSessionManager.parseCreatedAt(dir)
+            createdAt shouldBe Instant.parse("2023-11-14T12:00:00Z")
+        }
+
+        @Test
+        fun `falls back to filesystem for unrecognized name`() {
+            val dir = File(logParent, "random_name").apply { mkdirs() }
+            val createdAt = DebugLogSessionManager.parseCreatedAt(dir)
+            val diffMs = System.currentTimeMillis() - createdAt.toEpochMilli()
+            (diffMs < 5000) shouldBe true
         }
     }
 

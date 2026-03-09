@@ -26,6 +26,8 @@ import java.io.File
 import java.nio.file.Files
 import java.nio.file.attribute.BasicFileAttributes
 import java.time.Instant
+import java.time.ZoneOffset
+import java.time.format.DateTimeFormatter
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -229,12 +231,37 @@ class DebugLogSessionManager @Inject constructor(
     companion object {
         private val TAG = logTag("Debug", "Log", "Session", "Manager")
 
-        fun parseCreatedAt(file: File): Instant = try {
-            val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
-            attrs.creationTime().toInstant()
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Failed to read creation time for ${file.name}: ${e.message}" }
-            Instant.ofEpochMilli(file.lastModified())
+        private val NEW_TIMESTAMP_REGEX = Regex("""\d{8}T\d{6}Z""")
+        private val NEW_TIMESTAMP_FORMAT = DateTimeFormatter.ofPattern("yyyyMMdd'T'HHmmss'Z'").withZone(ZoneOffset.UTC)
+        private val OLD_TIMESTAMP_REGEX = Regex("""\d{4}-\d{2}-\d{2}_\d{2}-\d{2}-\d{2}-\d{3}""")
+        private val OLD_TIMESTAMP_FORMAT = DateTimeFormatter.ofPattern("yyyy-MM-dd_HH-mm-ss-SSS").withZone(ZoneOffset.UTC)
+
+        fun parseCreatedAt(file: File): Instant {
+            val name = file.name
+
+            NEW_TIMESTAMP_REGEX.find(name)?.value?.let { match ->
+                try {
+                    return NEW_TIMESTAMP_FORMAT.parse(match, Instant::from)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to parse new timestamp from ${file.name}: ${e.message}" }
+                }
+            }
+
+            OLD_TIMESTAMP_REGEX.find(name)?.value?.let { match ->
+                try {
+                    return OLD_TIMESTAMP_FORMAT.parse(match, Instant::from)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to parse old timestamp from ${file.name}: ${e.message}" }
+                }
+            }
+
+            return try {
+                val attrs = Files.readAttributes(file.toPath(), BasicFileAttributes::class.java)
+                attrs.creationTime().toInstant()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to read creation time for ${file.name}: ${e.message}" }
+                Instant.ofEpochMilli(file.lastModified())
+            }
         }
 
         private fun computeDiskSize(file: File): Long {
