@@ -172,12 +172,23 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
             }
         }
 
+        vm.postSendPromptEvent.observe2 {
+            MaterialAlertDialogBuilder(requireContext()).apply {
+                setMessage(R.string.support_contact_post_send_message)
+                setPositiveButton(eu.darken.sdmse.common.R.string.general_done_action) { _, _ ->
+                    findNavController().popBackStack()
+                }
+                setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+            }.show()
+        }
+
         super.onViewCreated(view, savedInstanceState)
     }
 
     override fun onResume() {
         super.onResume()
         vm.refreshLogSessions()
+        vm.checkPendingSend()
     }
 
     private fun updateCombinedUi() {
