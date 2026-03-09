@@ -43,7 +43,7 @@ class DebugLogSessionManager @Inject constructor(
     private val zippingIds = MutableStateFlow<Set<SessionId>>(emptySet())
     private val failedZipIds = MutableStateFlow<Set<SessionId>>(emptySet())
     private val refreshTrigger = MutableSharedFlow<Unit>(extraBufferCapacity = 1)
-    private val pendingAutoZips = mutableSetOf<SessionId>()
+    private val pendingAutoZips = java.util.Collections.synchronizedSet(mutableSetOf<SessionId>())
 
     val sessions: Flow<List<DebugLogSession>> = combine(
         recorderModule.state,

@@ -209,7 +209,7 @@ class SupportContactFormViewModel @Inject constructor(
                 } catch (e: Exception) {
                     log(TAG, ERROR) { "Failed to zip logs: ${e.asLog()}" }
                     events.postValue(SupportContactFormEvents.ShowError(R.string.support_contact_debuglog_zip_error))
-                    null
+                    return@launch
                 }
             }
 

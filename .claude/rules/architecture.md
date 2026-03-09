@@ -43,8 +43,8 @@ SD Maid SE's cleaning tools are implemented within the main app module under `eu
 
 ## MVVM with Custom ViewModel Hierarchy
 
-- `ViewModel1` → `ViewModel2` → `ViewModel3` → `ViewModel4`
-- `ViewModel4` adds navigation capabilities
+- `ViewModel1` → `ViewModel2` → `ViewModel3`
+- `ViewModel3` adds navigation capabilities
 - Uses Hilt for assisted injection
 
 ## Dependency Injection

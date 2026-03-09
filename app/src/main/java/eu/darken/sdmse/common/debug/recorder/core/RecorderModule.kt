@@ -105,7 +105,7 @@ class RecorderModule @Inject constructor(
                         )
                     } else if (!shouldRecord && isRecording) {
                         log(TAG) { "Stopping log recorder for: $currentLogDir" }
-                        recorder!!.stop()
+                        requireNotNull(recorder) { "Recorder was null despite isRecording" }.stop()
 
                         debugSettings.recorderPath.value(null)
                         if (triggerFile.exists() && !triggerFile.delete()) {
@@ -166,7 +166,8 @@ class RecorderModule @Inject constructor(
         internalState.updateBlocking {
             copy(shouldRecord = true)
         }
-        return internalState.flow.filter { it.isRecording }.first().currentLogDir!!
+        val state = internalState.flow.filter { it.isRecording }.first()
+        return requireNotNull(state.currentLogDir) { "currentLogDir was null despite isRecording" }
     }
 
     suspend fun requestStopRecorder(): StopResult {
