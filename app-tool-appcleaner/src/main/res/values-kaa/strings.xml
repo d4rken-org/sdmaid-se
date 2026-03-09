@@ -2,7 +2,7 @@
 <resources>
     <string name="appcleaner_explanation_short">Белгилі қолданбаларға тиисли жойылатын мәліметлер.</string>
     <string name="appcleaner_filter_defaultcachespublic_label">Ашық кешлер</string>
-    <string name="appcleaner_filter_defaultcachespublic_summary">Негизги ашық қолданба кешлери. Ески Android нусқаларында Android/data астында орналасады. Система конфигурациясындағы \"Кешти тазалаў\" басқанда жойылады.</string>
+    <string name="appcleaner_filter_defaultcachespublic_summary">Negizgi jambas applicationlar kesheleri. Eskilep Android túwlilerinde Android/data astında qatnaw múmkin. Sıstema parametrleri arası \"Keshni tázalew\" tıklegenden soń o‘shirüledi.</string>
     <string name="appcleaner_filter_defaultcachesprivate_label">Жеке кешлер</string>
     <string name="appcleaner_filter_defaultcachesprivate_summary">Негизги жеке қолданба кешлери. Система конфигурациясындағы \"Кешти тазалаў\" басқанда жойылады.</string>
     <string name="appcleaner_include_systemapps_label">Система қолданбаларын қосыў</string>
@@ -94,5 +94,5 @@
     <string name="appcleaner_automation_loading">Jetimlilik qullığı arqalı avtomatiya dayarlıqta</string>
     <string name="appcleaner_automation_progress_find_ok_confirmation">Aldıńǵı háreketin tastıyıqlaw ǵáreketi (gilt sözler: %s)</string>
     <string name="appcleaner_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
-    <string name="appcleaner_include_multiuser_summary">Бул құрылғыдағы басқа пайдаланыўшы профильлеринің қолданбаларын қосыў.</string>
+    <string name="appcleaner_include_multiuser_summary">Basqa user profilelardan applicationlarni qosıw.</string>
 </resources>

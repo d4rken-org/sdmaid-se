@@ -177,26 +177,26 @@
     <string name="setup_feature_requires_additional_setup_x">ئەم تایبەتمەندیە پێویستی بە تەواوکردنی بابەتەکانی ڕێکخستنی زیادە هەیە: %s</string>
     <string name="upgrade_feature_requires_pro">پرۆ پێویستە</string>
     <string name="general_include_multiuser_label">بەکارهێنەرانی دیکەش تێبگرە</string>
-    <string name="general_include_multiuser_summary">Include apps from other user profiles on this device.</string>
+    <string name="general_include_multiuser_summary">Include apps from other user proفایلs on this device.</string>
     <string name="general_unsaved_confirmation_message">گۆڕانکارییەکانت تۆمار نەکراون!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">یەک دەرنەخراو دروستکرا</item>
         <item quantity="other">%d دەرنەخراو دروستکران</item>
     </plurals>
     <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="systemcleaner_tool_name">سیستەمپاکer</string>
+    <string name="appcleaner_tool_name">ئەپپاکer</string>
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="squeezer_tool_name">Media Squeeze</string>
-    <string name="appcontrol_tool_name">AppControl</string>
-    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="appcontrol_tool_name">ئەپControl</string>
+    <string name="analyzer_tool_name">ناحیەکانAnalyzer</string>
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">مێژوو</string>
     <string name="settings_category_tools_label">ئامرازەکان</string>
     <string name="settings_category_filter_generic">پاڵاوتنی گشتی</string>
     <string name="settings_category_filter_specific">پاڵاوتنی تایبەت</string>
-    <string name="settings_category_risklevel">Risk level</string>
+    <string name="settings_category_risklevel">مەترسی level</string>
     <string name="settings_category_filter">پاڵاوتن</string>
-    <string name="appcontrol_systemsettings_open_title">Show settings</string>
-    <string name="systemcleaner_customfilter_create_action">Create custom filter</string>
+    <string name="appcontrol_systemsettings_open_title">نیشاندان settings</string>
+    <string name="systemcleaner_customfilter_create_action">Create custom پاڵاوتن</string>
 </resources>

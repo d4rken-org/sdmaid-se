@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Declutter folders fast — swipe through files to keep, delete, or skip.</string>
+    <string name="swiper_tool_description">Ātri sakārtojiet mapes — velciet failus, lai saglabātu, izdzēstu vai izlaistu.</string>
     <string name="swiper_dashcard_description">Ātri sākārtojiet konkrētas mapes ātrāk nekā failu pārlūkprogrammā — vienkopši veiciet faila veikumu.</string>
     <string name="swiper_start_action">Sākt velkšanu</string>
     <string name="swiper_continue_action">Turpināt sesiju</string>

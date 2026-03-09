@@ -7,5 +7,5 @@
         <item quantity="one">%d ڕێگا هەڵبژێردراوە</item>
         <item quantity="other">%d ڕێگا هەڵبژێردراوە</item>
     </plurals>
-    <string name="picker_home_action">داتا areas</string>
+    <string name="picker_home_action">بەشی دەرەنجام</string>
 </resources>

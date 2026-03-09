@@ -177,7 +177,7 @@
     <string name="setup_feature_requires_additional_setup_x">Bul funkciya qosimsha ornatlash elementlerin tolemlawdi talap etedi: %s</string>
     <string name="upgrade_feature_requires_pro">Pro talab etiledi</string>
     <string name="general_include_multiuser_label">Basqa paydalanıwshılardı qosıń</string>
-    <string name="general_include_multiuser_summary">Бул құрылғыдағы басқа пайдаланыўшы профильлеринің қолданбаларын қосыў.</string>
+    <string name="general_include_multiuser_summary">Basqa user profilelardan applicationlarni qosıw.</string>
     <string name="general_unsaved_confirmation_message">Saqlanbaǵan ózgerislerińiz bar!</string>
     <plurals name="exclusion_x_new_exclusions">
         <item quantity="one">1 shıǵarıp taslaw jaratıldı</item>

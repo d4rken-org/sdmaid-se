@@ -126,7 +126,7 @@
     <string name="support_contact_category_feature_label">Múmkinlik soraw</string>
     <string name="support_contact_category_question_label">Soraw</string>
     <string name="support_contact_tool_label">Baylanıslı qural</string>
-    <string name="support_contact_tool_appcleaner_label">Қолданба тазалағыш</string>
+    <string name="support_contact_tool_appcleaner_label">AppCleaner</string>
     <string name="support_contact_tool_corpsefinder_label">CorpseFinder</string>
     <string name="support_contact_tool_systemcleaner_label">Sistema</string>
     <string name="support_contact_tool_deduplicator_label">Dublikatlardı tabıwshı</string>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_explanation_short">Бұрыннан ошырылған қолданбаларға тиеслі даталар.</string>
+    <string name="corpsefinder_explanation_short">Alırılıp tastalg̣an applicationlar haqındag̣ı maglıwmat.</string>
     <string name="corpsefinder_settings_summary">Сканерлеу фильтрлерін һәм риск дәрежелерін сазлаў.</string>
-    <string name="corpsefinder_settings_risk_keeper_title">Кереклі қалдықтарды қосу</string>
-    <string name="corpsefinder_settings_risk_keeper_summary">Қолданба ошырылған болса да, сіз сақтағыңыз келетін файллар, мысалы, сіз түсірген суреттер немесе құраған резервтік көшірмелер.</string>
-    <string name="corpsefinder_settings_risk_common_title">Көп кездесетін атларды қосу</string>
-    <string name="corpsefinder_settings_risk_common_summary">Көп пайдаланылатын атлары бар даталар, мысалы, \"Жазулар\" қалтасы өте көп белгісіз қолданбаларға тиеслі.</string>
+    <string name="corpsefinder_settings_risk_keeper_title">Saylaw almasqaland qalarlar</string>
+    <string name="corpsefinder_settings_risk_keeper_summary">Application tastalg̣annan keyin de saqlaw kerek bolgan faylllar, masalan sézip alg̣an fotolar yaki yaratqan záxirelendürüwler.</string>
+    <string name="corpsefinder_settings_risk_common_title">Keng taralg̣an atlı maglıwmatni qosıw</string>
+    <string name="corpsefinder_settings_risk_common_summary">Keng taralg̣an atlı maglıwmat, masalan \"Eskelim\" papkası köp naqtan bilimey applicationlarg̣a tegisli bolıwı mumkin.</string>
     <string name="corpsefinder_watcher_title">Gúzetshini óshiriw</string>
     <string name="corpsefinder_watcher_summary">Қолданба ошырылғанда қалдықтарды автоматик сканерлеу.</string>
     <string name="corpsefinder_watcher_autodelete_title">Avtomat tárizde óshiriw</string>
@@ -54,6 +54,6 @@
     <string name="corpsefinder_delete_all_confirmation_message">Barlıq qosımsha qaldıqları óshirilsinbe?</string>
     <string name="corpsefinder_owners_label">Iyeleri</string>
     <string name="corpsefinder_owner_unknown">Iyesi belgisiz</string>
-    <string name="corpsefinder_corpse_hint_keeper">Бұл элемент сахибі ошырылған болса да, сіз сақтағыңыз келетін даталарды қамти алады, мысалы, суреттер немесе резервтік көшірмелер.</string>
-    <string name="corpsefinder_corpse_hint_common">Бұл элементтің өте көп кездесетін аты бар һәм ол SD Maid білмейтін әлі де орнатылған қолданбаларға тиеслі болуы мүмкін.</string>
+    <string name="corpsefinder_corpse_hint_keeper">Bul zat aplikatıonı tastalg̣an bolatında de saqlaw kerek bolg̣an maglıwmat boluwı mumkin, masalan fotolar yaki záxirelendürüwler.</string>
+    <string name="corpsefinder_corpse_hint_common">Bul zat keng taralg̣an atlı, SD Maid bilmegen aktiv applicationlarg̣a tegisli boluwı mumkin.</string>
 </resources>
