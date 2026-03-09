@@ -85,6 +85,7 @@
     <string name="general_view_action">보기</string>
     <string name="general_update_action">업데이트</string>
     <string name="general_scan_action">스캔</string>
+    <string name="general_close_action">닫기</string>
     <string name="general_delete_action">삭제</string>
     <string name="general_delete_selected_action">선택한 항목 삭제</string>
     <string name="general_show_details_action">세부 정보 보기</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">기기</string>
     <string name="general_settings_title">설정</string>
     <string name="general_help_title">도움</string>
+    <string name="general_hints_label">주의</string>
     <string name="file_type_symbolic_link">링크</string>
     <string name="file_type_directory">디렉토리</string>
     <string name="file_type_file">파일</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">이력</string>
     <string name="settings_category_tools_label">도구</string>
-    <string name="general_hints_label">주의</string>
     <string name="settings_category_filter_generic">일반 필터</string>
     <string name="settings_category_filter_specific">특정 필터</string>
     <string name="settings_category_risklevel">위험 수준</string>

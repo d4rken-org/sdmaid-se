@@ -20,14 +20,27 @@
     <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
     <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d skrá tilbúin (%2$s)</item>
-        <item quantity="other">%1$d skrár tilbúnar (%2$s)</item>
+        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
+        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Þessi eiginleiki skráir allt sem forritið er að gera í deilanlega skrá. Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
     <string name="debug_debuglog_short_recording_title">Mjög stutt upptaka</string>
     <string name="debug_debuglog_short_recording_desc">Upptakan var mjög stutt. Villuleitarskrár eru upptökur, ekki skyndimyndir — endurframleiddu villuna meðan upptaka er virk til þess að skráin sé gagnleg.</string>
     <string name="debug_debuglog_short_recording_continue_action">Halda áfram upptöku</string>
     <string name="debug_debuglog_short_recording_stop_action">Stöðva samt sem áður</string>
+    <string name="debug_debuglog_screen_failed_title">Lota mistókst</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Villulágaskráin var tóm. Reyndu að taka upp aftur og endurskapa vandamálið meðan á upptöku stendur.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Villulágaskráin vantar. Upptak gæti hafa verið truflað.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Þjappaða skjalasafnið er skemmt. Reyndu að taka upp aftur.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Þjöppun mistókst. Athugaðu laust geymslusvæði og reyndu aftur.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Þjappar…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Mistókst: tómt lag</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Mistókst: lag vantar</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Mistókst: skemmt skjalasafn</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Mistókst: þjöppunarvilla</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Eyða þessari villulágalotu?</string>
+    <string name="support_contact_post_send_message">Skilaboð send?</string>
+    <string name="debug_debuglog_sessions_stop_action">Stöðva</string>
     <string name="tasks_activity_notification_channel_label">Virk verkefni</string>
     <string name="tasks_activity_working_notification_title">SD Maid er að vinna</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Verkefnaniðurstöður</string>
     <string name="tasks_result_subtext">Verkefnaniðurstaða</string>
+    <string name="tasks_timeout_error_label">Verkefni rann út á tíma</string>
+    <string name="tasks_timeout_error_desc">Verkefnið tók of langan tíma og var stöðvað. Vinsamlegast reyndu aftur.</string>
     <string name="onboarding_welcome_title">Velkomin</string>
     <string name="onboarding_welcome_body1">SD Maid SE stjórnar skrám, forritum og geymslu.</string>
     <string name="onboarding_welcome_body2">Fáðu geymslupláss með því að hreinsa upp á eftir öðrum forritum. Eyddu óþarfa skrám og fjarlægðu afgangsgögn.</string>

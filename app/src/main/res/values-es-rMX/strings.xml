@@ -20,14 +20,27 @@
     <string name="debug_debuglog_screen_session_path_label">Ruta de la sesión</string>
     <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d archivo listo (%2$s)</item>
-        <item quantity="other">%1$d archivos listos (%2$s)</item>
+        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
+        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo compartible. El archivo generado contiene información sensible (p. ej., nombres de archivos y aplicaciones instaladas). Solo compártelo con partes de confianza (p. ej., un desarrollador resolviendo un problema).</string>
     <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
     <string name="debug_debuglog_short_recording_desc">La grabación fue muy corta. Los registros de depuración son grabaciones, no capturas — reproduce el problema mientras la grabación está activa para que el registro sea útil.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continuar grabando</string>
     <string name="debug_debuglog_short_recording_stop_action">Detener de todos modos</string>
+    <string name="debug_debuglog_screen_failed_title">Sesión fallida</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">El archivo de registro de depuración estaba vacío. Intenta grabar de nuevo y reproduce el problema mientras grabas.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">El archivo de registro de depuración no se encuentra. Es posible que la grabación haya sido interrumpida.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">El archivo comprimido está dañado. Intenta grabar de nuevo.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">La compresión falló. Verifica el almacenamiento disponible e intenta de nuevo.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Comprimiendo…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Error: registro vacío</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Error: registro faltante</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Error: archivo dañado</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Error: error de compresión</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">¿Eliminar esta sesión de registro de depuración?</string>
+    <string name="support_contact_post_send_message">¿Mensaje enviado correctamente?</string>
+    <string name="debug_debuglog_sessions_stop_action">Detener</string>
     <string name="tasks_activity_notification_channel_label">Tareas activas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está trabajando</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Resultados de tarea</string>
     <string name="tasks_result_subtext">Resultado de tarea</string>
+    <string name="tasks_timeout_error_label">Se agotó el tiempo de espera de la tarea</string>
+    <string name="tasks_timeout_error_desc">La tarea tardó demasiado y fue detenida. Por favor, inténtalo de nuevo.</string>
     <string name="onboarding_welcome_title">Bienvenido</string>
     <string name="onboarding_welcome_body1">SD Maid SE gestiona archivos, aplicaciones y almacenamiento.</string>
     <string name="onboarding_welcome_body2">Ahorra espacio limpiando detrás de otras aplicaciones. Elimina archivos innecesarios y remueve datos sobrantes.</string>
@@ -252,7 +267,7 @@
     </plurals>
     <string name="anniversary_share_title">Comparte el aniversario de SD Maid</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d año con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$st</item>
+        <item quantity="one">%1$d año con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$s</item>
         <item quantity="other">%1$d años con SD Maid — Espacio liberado: %2$s. Mantén tu Android limpio y ordenado. #SDMaid\nPruébalo: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Buscar + Eliminar</string>

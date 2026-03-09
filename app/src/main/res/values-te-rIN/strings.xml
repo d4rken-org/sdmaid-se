@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">రికార్డింగ్ చాలా చిన్నది. డీబగ్ లాగ్‌లు రికార్డింగ్‌లు, స్నాప్‌షాట్‌లు కాదు — లాగ్ ఉపయోగకరంగా ఉండాలంటే రికార్డింగ్ యాక్టివ్‌గా ఉన్నప్పుడు సమస్యను పునరావృతం చేయండి.</string>
     <string name="debug_debuglog_short_recording_continue_action">రికార్డింగ్ కొనసాగించు</string>
     <string name="debug_debuglog_short_recording_stop_action">అయినా ఆపు</string>
+    <string name="debug_debuglog_screen_failed_title">సెషన్ విఫలమైంది</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">డీబగ్ లాగ్ ఫైల్ ఖాళీగా ఉంది. మళ్ళీ రికార్డ్ చేయండి మరియు రికార్డింగ్ చేస్తున్నప్పుడు సమస్యను పునరావృతం చేయండి.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">డీబగ్ లాగ్ ఫైల్ లేదు. రికార్డింగ్ అంతరాయం పడి ఉండవచ్చు.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">కంప్రెస్ చేయబడిన ఆర్కైవ్ పాడైపోయింది. మళ్ళీ రికార్డ్ చేయండి.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">కంప్రెషన్ విఫలమైంది. అందుబాటులో ఉన్న స్టోరేజ్ తనిఖీ చేసి మళ్ళీ ప్రయత్నించండి.</string>
+    <string name="debug_debuglog_sessions_zipping_label">కంప్రెస్ చేస్తోంది…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">విఫలమైంది: ఖాళీ లాగ్</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">విఫలమైంది: లాగ్ లేదు</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">విఫలమైంది: పాడైన ఆర్కైవ్</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">విఫలమైంది: కంప్రెషన్ లోపం</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">ఈ డీబగ్ లాగ్ సెషన్‌ను తొలగించాలా?</string>
+    <string name="support_contact_post_send_message">సందేశం విజయవంతంగా పంపబడిందా?</string>
+    <string name="debug_debuglog_sessions_stop_action">ఆపు</string>
     <string name="tasks_activity_notification_channel_label">సక్రియ కార్యాలు</string>
     <string name="tasks_activity_working_notification_title">SD Maid పని చేస్తోంది</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">కార్యం ఫలితాలు</string>
     <string name="tasks_result_subtext">కార్యం ఫలితం</string>
+    <string name="tasks_timeout_error_label">టాస్క్ సమయం ముగిసింది</string>
+    <string name="tasks_timeout_error_desc">టాస్క్ చాలా ఎక్కువ సమయం తీసుకుంది మరియు ఆపబడింది. దయచేసి మళ్ళీ ప్రయత్నించండి.</string>
     <string name="onboarding_welcome_title">స్వాగతం</string>
     <string name="onboarding_welcome_body1">SD Maid SE ఫైల్స్, యాప్‌లు మరియు స్టోరేజీని నిర్వహిస్తుంది.</string>
     <string name="onboarding_welcome_body2">ఇతర యాప్‌ల వెనుక ఉన్న చెత్తను శుభ్రం చేయడం ద్వారా స్టోరేజీ స్థలాన్ని పొందండి. అనవసరమైన ఫైల్లను తొలగించి మిగిలిన డేటాను తీసివేయండి.</string>

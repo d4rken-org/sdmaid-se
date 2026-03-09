@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Garapena babestu</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatiboa iragarkinak, analisiak eta Google Play dira 🙁</string>
     <string name="upgrade_screen_thanks_toast">Eskerrik asko iturburu irekiko garapena babesten duzulako ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Dagoeneko itzuli zara? Zure laguntzak SD Maid bizirik mantentzen du!</string>
 </resources>

@@ -17,7 +17,7 @@
     <string name="general_error_no_compatible_app_found_msg">Nie znaleziono kompatybilnej aplikacji do obsługi tego żądania.</string>
     <string name="general_todo_msg">Funkcja jest wciąż opracowywana i obecnie niedostępna.</string>
     <string name="general_share_action">Udostępnij</string>
-    <string name="general_done_action">Gotowe</string>
+    <string name="general_done_action">Zrobione</string>
     <string name="general_apply_action">Zastosuj</string>
     <string name="general_copy_action">Kopiuj</string>
     <string name="general_cancel_action">Anuluj</string>
@@ -74,7 +74,7 @@
     <string name="general_sort_options_label">Opcje sortowania</string>
     <string name="general_sort_reverse_action">Odwróć kolejność sortowania</string>
     <string name="general_tag_filter_label">Filtruj według tagów</string>
-    <string name="general_tag_system">System</string>
+    <string name="general_tag_system">Systemowy</string>
     <string name="general_result_success_message">Operacja zakończona sukcesem</string>
     <string name="general_result_failure_message">Operacja nie powiodła się</string>
     <plurals name="general_result_x_space_freed">
@@ -88,6 +88,7 @@
     <string name="general_view_action">Wyświetl</string>
     <string name="general_update_action">Aktualizuj</string>
     <string name="general_scan_action">Skanuj</string>
+    <string name="general_close_action">Zamknij</string>
     <string name="general_delete_action">Usuń</string>
     <string name="general_delete_selected_action">Usuń zaznaczone</string>
     <string name="general_show_details_action">Pokaż szczegóły</string>
@@ -160,12 +161,13 @@
     <string name="general_device_label">Urządzenie</string>
     <string name="general_settings_title">Ustawienia</string>
     <string name="general_help_title">Pomoc</string>
+    <string name="general_hints_label">Uwaga</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Katalog</string>
     <string name="file_type_file">Plik</string>
     <string name="file_type_unknown">Nieznany</string>
-    <string name="general_progress_ready">Gotowe</string>
-    <string name="general_progress_done">Wykonano</string>
+    <string name="general_progress_ready">Gotowy</string>
+    <string name="general_progress_done">Zrobione</string>
     <string name="general_rom_type_auto_label">Automatyczne (domyślnie)</string>
     <plurals name="general_age_days">
         <item quantity="one">%d dzień</item>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Przesuwacz</string>
     <string name="stats_label">Historia</string>
     <string name="settings_category_tools_label">Narzędzia</string>
-    <string name="general_hints_label">Uwaga</string>
     <string name="settings_category_filter_generic">Filtr ogólny</string>
     <string name="settings_category_filter_specific">Filtr szczegółowy</string>
     <string name="settings_category_risklevel">Poziom ryzyka</string>

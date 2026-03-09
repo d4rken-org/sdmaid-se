@@ -86,6 +86,7 @@
     <string name="general_view_action">نمایش</string>
     <string name="general_update_action">به‌روزرسانی</string>
     <string name="general_scan_action">اسکن</string>
+    <string name="general_close_action">بستن</string>
     <string name="general_delete_action">حذف</string>
     <string name="general_delete_selected_action">حذف انتخاب شده‌‌‌‌‌‌ها</string>
     <string name="general_show_details_action">نمایش جزئیات</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">دستگاه</string>
     <string name="general_settings_title">تنظیمات</string>
     <string name="general_help_title">کمک</string>
+    <string name="general_hints_label">اطلاعیه</string>
     <string name="file_type_symbolic_link">پیوند</string>
     <string name="file_type_directory">مسیر</string>
     <string name="file_type_file">فایل</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">تاریخچه</string>
     <string name="settings_category_tools_label">ابزارها</string>
-    <string name="general_hints_label">اطلاعیه</string>
     <string name="settings_category_filter_generic">فیلتر کلی</string>
     <string name="settings_category_filter_specific">فیلتر خاص</string>
     <string name="settings_category_risklevel">سطح خطر</string>

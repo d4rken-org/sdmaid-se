@@ -26,7 +26,7 @@
     <string name="corpsefinder_filter_publicmedia_label">Публичные медиафайлы</string>
     <string name="corpsefinder_filter_publicmedia_summary">Публичные медиафайлы, например, файлы, полученные через приложения для обмена сообщениями.</string>
     <string name="corpsefinder_filter_publicobb_label">OBB-файлы ресурсов</string>
-    <string name="corpsefinder_filter_publicobb_summary">Дополнительные ресурсы приложений такие как уровни игр.</string>
+    <string name="corpsefinder_filter_publicobb_summary">Дополнительные ресурсы приложений, такие как данные игр.</string>
     <string name="corpsefinder_filter_publicdata_label">Публичные данные приложений</string>
     <string name="corpsefinder_filter_publicdata_summary">Неконфиденциальные данные приложений, например, кэш карт.</string>
     <string name="corpsefinder_filter_sdcard_label">Карта памяти</string>

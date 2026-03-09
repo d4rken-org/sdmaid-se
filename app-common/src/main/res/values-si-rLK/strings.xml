@@ -74,7 +74,7 @@
     <string name="general_sort_options_label">වර්ග විකල්ප</string>
     <string name="general_sort_reverse_action">ප්‍රතිලෝම වර්ග ක්‍රමය</string>
     <string name="general_tag_filter_label">ටැග අනුව පෙරන්න</string>
-    <string name="general_tag_system">පද්ධති</string>
+    <string name="general_tag_system">පද්ධතිය</string>
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>
     <string name="general_result_failure_message">ක්‍රියාව අසාර්ථක විය</string>
     <plurals name="general_result_x_space_freed">
@@ -86,6 +86,7 @@
     <string name="general_view_action">බලන්න</string>
     <string name="general_update_action">යාවත්කාලීන කරන්න</string>
     <string name="general_scan_action">ස්කෑන් කරන්න</string>
+    <string name="general_close_action">වසන්න</string>
     <string name="general_delete_action">මකන්න</string>
     <string name="general_delete_selected_action">තෝරාගත් ඒවා මකන්න</string>
     <string name="general_show_details_action">විස්තර පෙන්වන්න</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">උපකරණය</string>
     <string name="general_settings_title">සැකසීම්</string>
     <string name="general_help_title">උදව්</string>
+    <string name="general_hints_label">දැනුම්දීම</string>
     <string name="file_type_symbolic_link">සම්බන්ධකය</string>
     <string name="file_type_directory">ඩිරෙක්ටරි</string>
     <string name="file_type_file">ගොනුව</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">ස්වයිපර්</string>
     <string name="stats_label">ඉතිහාසය</string>
     <string name="settings_category_tools_label">මෙවලම්</string>
-    <string name="general_hints_label">සෑහන්</string>
     <string name="settings_category_filter_generic">සාමාන්‍ය පෙරණය</string>
     <string name="settings_category_filter_specific">විශේෂිත පෙරණය</string>
     <string name="settings_category_risklevel">අවදානම් මට්ටම</string>

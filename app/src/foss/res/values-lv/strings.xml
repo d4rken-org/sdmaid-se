@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Sponsorēt attīstību</string>
     <string name="upgrade_screen_sponsor_action_hint">Alternatīva ir reklāmas, analītika un Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Paldies par atklātā koda attīstības atbalstīšanu ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Jau atpakaļ? Jūsu atbalsts uztur SD Maid dzīvu!</string>
 </resources>

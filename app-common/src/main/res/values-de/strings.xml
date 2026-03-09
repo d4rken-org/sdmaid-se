@@ -86,6 +86,7 @@
     <string name="general_view_action">Ansehen</string>
     <string name="general_update_action">Aktualisieren</string>
     <string name="general_scan_action">Scannen</string>
+    <string name="general_close_action">Schließen</string>
     <string name="general_delete_action">Löschen</string>
     <string name="general_delete_selected_action">Ausgewähltes löschen</string>
     <string name="general_show_details_action">Zeige Details</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Gerät</string>
     <string name="general_settings_title">Einstellungen</string>
     <string name="general_help_title">Hilfe</string>
+    <string name="general_hints_label">Hinweis</string>
     <string name="file_type_symbolic_link">Verknüpfung</string>
     <string name="file_type_directory">Verzeichnis</string>
     <string name="file_type_file">Datei</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Verlauf</string>
     <string name="settings_category_tools_label">Werkzeuge</string>
-    <string name="general_hints_label">Hinweis</string>
     <string name="settings_category_filter_generic">Allgemeine Filter</string>
     <string name="settings_category_filter_specific">Spezifische Filter</string>
     <string name="settings_category_risklevel">Risikostufe</string>

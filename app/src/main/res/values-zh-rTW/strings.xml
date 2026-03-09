@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">錄製時間非常短。除錯日誌是錄製內容，而非快照——請在錄製期間重現問題，以使日誌有用。</string>
     <string name="debug_debuglog_short_recording_continue_action">繼續錄製</string>
     <string name="debug_debuglog_short_recording_stop_action">仍然停止</string>
+    <string name="debug_debuglog_screen_failed_title">工作階段失敗</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">除錯記錄檔案為空。請再次錄製並在錄製期間重現問題。</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">除錯記錄檔案遺失。錄製可能已被中斷。</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">壓縮封存已損毀。請再次錄製。</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">壓縮失敗。請檢查可用儲存空間後再試一次。</string>
+    <string name="debug_debuglog_sessions_zipping_label">壓縮中…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">失敗：記錄為空</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">失敗：記錄遺失</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">失敗：封存損毀</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">失敗：壓縮錯誤</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">刪除此除錯記錄工作階段？</string>
+    <string name="support_contact_post_send_message">訊息已成功傳送？</string>
+    <string name="debug_debuglog_sessions_stop_action">停止</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">工作結果</string>
     <string name="tasks_result_subtext">工作結果</string>
+    <string name="tasks_timeout_error_label">任務逾時</string>
+    <string name="tasks_timeout_error_desc">任務花費時間過長已被停止。請再試一次。</string>
     <string name="onboarding_welcome_title">歡迎</string>
     <string name="onboarding_welcome_body1">SD 女僕 SE 可以管理檔案、應用程式和儲存空間。</string>
     <string name="onboarding_welcome_body2">透過清理其他應用程式背後的內容以釋出儲存空間。刪除無關緊要的檔案，並移除剩餘的資料。</string>

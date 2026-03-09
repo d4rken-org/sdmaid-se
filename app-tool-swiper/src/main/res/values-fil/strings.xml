@@ -140,4 +140,21 @@
     <string name="swiper_help_message">I-swipe ang bawat file para gumawa ng desisyon:\n\n← I-swipe pakaliwa: %1$s\n→ I-swipe pakanan: %2$s\n↑ I-swipe pataas: Laktawan\n↓ I-swipe pababa: I-undo (pagkatapos ng unang swipe)\n\nMaaari ka ring gumamit ng mga button sa ibaba.\n\nKapag tapos ka na, i-tap ang \"Suriin\" para makita ang lahat ng iyong desisyon. Walang nabubura hanggang hindi mo kinukumpirma sa review screen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Kuha ko</string>
     <string name="swiper_help_action">Tulong</string>
+    <string name="swiper_file_type_filter_title">Ipakita lamang ang mga uri ng file na ito</string>
+    <string name="swiper_file_type_filter_hint">Suriin ang mga uri na nais mong makita. Kung wala ang namarkahan, lahat ng mga file ay ipinapakita.</string>
+    <string name="swiper_file_type_category_images">Mga Larawan</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Mga Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Mga Dokumento</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Mga Archive</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Ilapat</string>
+    <string name="swiper_session_filter_action">I-filter ang mga file</string>
+    <string name="swiper_file_type_filter_summary">Nai-filter: %1$s</string>
+    <string name="swiper_session_no_matching_files">Walang nahanap na katugmang mga file</string>
+    <string name="swiper_open_externally_action">Buksan sa panlabas na app</string>
 </resources>

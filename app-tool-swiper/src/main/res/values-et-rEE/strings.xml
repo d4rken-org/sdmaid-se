@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Otsustamiseks pühi iga faili:\n\n← Pühi vasakule: %1$s\n→ Pühi paremale: %2$s\n↑ Pühi üles: jäta vahele\n↓ Pühi alla: võta tagasi (pärast esimest pühkimist)\n\nVõid kasutada ka alumisi nuppe.\n\nKui oled lõpetanud, puuduta „Vaata üle“, et näha kõiki oma otsuseid. Midagi ei kustutata enne, kui kinnitad ülevaatekuval.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Selge!</string>
     <string name="swiper_help_action">Abi</string>
+    <string name="swiper_file_type_filter_title">Kuva ainult neid failitüüpe</string>
+    <string name="swiper_file_type_filter_hint">Märgi tüübid, mida soovid näha. Kui ühtegi pole märgitud, kuvatakse kõik failid.</string>
+    <string name="swiper_file_type_category_images">Pildid</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videod</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Heli</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumendid</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arhiivid</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Rakenda</string>
+    <string name="swiper_session_filter_action">Filtreeri faile</string>
+    <string name="swiper_file_type_filter_summary">Filtreeritud: %1$s</string>
+    <string name="swiper_session_no_matching_files">Ühtegi sobivat faili ei leitud</string>
+    <string name="swiper_open_externally_action">Ava muus rakenduses</string>
 </resources>

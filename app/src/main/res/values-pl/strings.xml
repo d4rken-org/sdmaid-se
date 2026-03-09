@@ -30,6 +30,19 @@
     <string name="debug_debuglog_short_recording_desc">Nagranie było bardzo krótkie. Dzienniki debugowania to nagrania, a nie migawki — odtwórz problem podczas nagrywania, aby dziennik był przydatny.</string>
     <string name="debug_debuglog_short_recording_continue_action">Kontynuuj nagrywanie</string>
     <string name="debug_debuglog_short_recording_stop_action">Zatrzymaj mimo to</string>
+    <string name="debug_debuglog_screen_failed_title">Sesja nie powiodła się</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Plik dziennika debugowania był pusty. Spróbuj nagrać ponownie i odtwórz problem podczas nagrywania.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Brakuje pliku dziennika debugowania. Nagrywanie mogło zostać przerwane.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Skompresowane archiwum jest uszkodzone. Spróbuj nagrać ponownie.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Kompresja nie powiodła się. Sprawdź dostępne miejsce i spróbuj ponownie.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Kompresowanie…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Błąd: pusty dziennik</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Błąd: brakujący dziennik</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Błąd: uszkodzone archiwum</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Błąd: błąd kompresji</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Usunąć tę sesję dziennika debugowania?</string>
+    <string name="support_contact_post_send_message">Wiadomość wysłana pomyślnie?</string>
+    <string name="debug_debuglog_sessions_stop_action">Zatrzymaj</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -46,6 +59,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Wyniki zadania</string>
     <string name="tasks_result_subtext">Wynik zadania</string>
+    <string name="tasks_timeout_error_label">Zadanie przekroczyło limit czasu</string>
+    <string name="tasks_timeout_error_desc">Zadanie trwało zbyt długo i zostało przerwane. Spróbuj ponownie.</string>
     <string name="onboarding_welcome_title">Witaj</string>
     <string name="onboarding_welcome_body1">SD Maid SE zarządza plikami, aplikacjami i pamięcią urządzenia.</string>
     <string name="onboarding_welcome_body2">Zyskaj miejsce w pamięci, sprzątając po innych aplikacjach. Usuń zbędne pliki i pozostałości danych.</string>

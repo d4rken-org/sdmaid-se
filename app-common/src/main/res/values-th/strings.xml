@@ -85,6 +85,7 @@
     <string name="general_view_action">ดู</string>
     <string name="general_update_action">อัปเดต</string>
     <string name="general_scan_action">สแกน</string>
+    <string name="general_close_action">ปิด</string>
     <string name="general_delete_action">ลบ</string>
     <string name="general_delete_selected_action">ลบที่เลือก</string>
     <string name="general_show_details_action">แสดงรายละเอียด</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">อุปกรณ์</string>
     <string name="general_settings_title">การตั้งค่า</string>
     <string name="general_help_title">ช่วยเหลือ</string>
+    <string name="general_hints_label">ข้อสังเกต</string>
     <string name="file_type_symbolic_link">ลิงก์</string>
     <string name="file_type_directory">ไดเรกทอรี</string>
     <string name="file_type_file">ไฟล์</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ประวัติ</string>
     <string name="settings_category_tools_label">เครื่องมือ</string>
-    <string name="general_hints_label">ข้อสังเกต</string>
     <string name="settings_category_filter_generic">ตัวกรองทั่วไป</string>
     <string name="settings_category_filter_specific">ตัวกรองเจาะจง</string>
     <string name="settings_category_risklevel">ระดับความเสี่ยง</string>

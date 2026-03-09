@@ -85,6 +85,7 @@
     <string name="general_view_action">Xem</string>
     <string name="general_update_action">Cập nhật</string>
     <string name="general_scan_action">Quét</string>
+    <string name="general_close_action">Đóng</string>
     <string name="general_delete_action">Xoá</string>
     <string name="general_delete_selected_action">Xóa mục đã chọn</string>
     <string name="general_show_details_action">Xem chi tiết</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">Thiết bị</string>
     <string name="general_settings_title">Cài đặt</string>
     <string name="general_help_title">Trợ giúp</string>
+    <string name="general_hints_label">Thông báo</string>
     <string name="file_type_symbolic_link">Liên kết</string>
     <string name="file_type_directory">Thư mục</string>
     <string name="file_type_file">Tệp</string>
@@ -179,7 +181,6 @@
     <string name="swiper_tool_name">Vuốt</string>
     <string name="stats_label">Lịch sử</string>
     <string name="settings_category_tools_label">Công cụ</string>
-    <string name="general_hints_label">Ghi chú</string>
     <string name="settings_category_filter_generic">Bộ lọc chung</string>
     <string name="settings_category_filter_specific">Bộ lọc cụ thể</string>
     <string name="settings_category_risklevel">Mức độ rủi ro</string>

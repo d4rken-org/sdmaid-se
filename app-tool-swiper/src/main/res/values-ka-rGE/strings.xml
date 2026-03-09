@@ -140,4 +140,21 @@
     <string name="swiper_help_message">გადაფურცლეთ თითოეული ფაილი გადაწყვეტილების მისაღებად:\n\n← გადაფურცლეთ მარცხნივ: %1$s\n→ გადაფურცლეთ მარჯვნივ: %2$s\n↑ გადაფურცლეთ ზემოთ: გამოტოვება\n↓ გადაფურცლეთ ქვემოთ: გაუქმება (პირველი გადაფურცვლის შემდეგ)\n\nასევე შეგიძლიათ გამოიყენოთ ღილაკები ბოლოში.\n\nდასრულების შემდეგ, შეეხეთ \"მიმოხილვას\" ყველა გადაწყვეტილების სანახავად. არაფერი წაიშლება, სანამ მიმოხილვის ეკრანზე არ დაადასტურებთ.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Გავიგე</string>
     <string name="swiper_help_action">დახმარება</string>
+    <string name="swiper_file_type_filter_title">მხოლოდ ამ ტიპის ფაილების ჩვენება</string>
+    <string name="swiper_file_type_filter_hint">მონიშნეთ ის ტიპები, რომელთა ნახვა გსურთ. თუ არცერთი არ არის მონიშნული, ყველა ფაილი გამოჩნდება.</string>
+    <string name="swiper_file_type_category_images">სურათები</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ვიდეოები</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">აუდიო</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">დოკუმენტები</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">არქივები</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">გამოყენება</string>
+    <string name="swiper_session_filter_action">ფაილების გაფილტვრა</string>
+    <string name="swiper_file_type_filter_summary">გაფილტრული: %1$s</string>
+    <string name="swiper_session_no_matching_files">შესაბამისი ფაილები ვერ მოიძებნა</string>
+    <string name="swiper_open_externally_action">გარე აპლიკაციაში გახსნა</string>
 </resources>

@@ -74,7 +74,7 @@
     <string name="general_sort_options_label">Izinketho zokuhlunga</string>
     <string name="general_sort_reverse_action">Imodi yokuhlungana okuphambene</string>
     <string name="general_tag_filter_label">Hlola ngama-tag</string>
-    <string name="general_tag_system">Isistimu</string>
+    <string name="general_tag_system">Uhlelo</string>
     <string name="general_result_success_message">Kuqedwe ngempumelelo</string>
     <string name="general_result_failure_message">Umsebenzi uhlulekile</string>
     <plurals name="general_result_x_space_freed">
@@ -86,6 +86,7 @@
     <string name="general_view_action">Buka</string>
     <string name="general_update_action">Buyekeza</string>
     <string name="general_scan_action">Scanna</string>
+    <string name="general_close_action">Vala</string>
     <string name="general_delete_action">Susa</string>
     <string name="general_delete_selected_action">Susa okukhethiwe</string>
     <string name="general_show_details_action">Bonisa imininingwane</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Idivayisi</string>
     <string name="general_settings_title">Izilungiselelo</string>
     <string name="general_help_title">Usizo</string>
+    <string name="general_hints_label">Isaziso</string>
     <string name="file_type_symbolic_link">Isixhumanisi</string>
     <string name="file_type_directory">Uhla lwemibhalo</string>
     <string name="file_type_file">Ifayela</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Umlando</string>
     <string name="settings_category_tools_label">Amathuluzi</string>
-    <string name="general_hints_label">Isaziso</string>
     <string name="settings_category_filter_generic">Isihlunga esijwayelekile</string>
     <string name="settings_category_filter_specific">Isihlunga esikhethekile</string>
     <string name="settings_category_risklevel">Izinga lengozi</string>

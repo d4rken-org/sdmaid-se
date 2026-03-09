@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="appcontrol_explanation_short">Jūsų įrenginyje įdiegtos programos.</string>
+    <plurals name="appcontrol_x_apps_detected_label">
+        <item quantity="one">Aptikta %d programa</item>
+        <item quantity="few">Aptiktos %d programos</item>
+        <item quantity="many">Aptikta %d programų</item>
+        <item quantity="other">Aptikta %d programų</item>
+    </plurals>
+    <string name="appcontrol_toggle_app_selection_action">Perjungti programas</string>
+    <string name="appcontrol_toggle_app_enable_action">Įjungti programą</string>
+    <string name="appcontrol_toggle_app_disable_action">Išjungti programą</string>
+    <string name="appcontrol_toggle_app_enable_description">Įjungus programą ji gali veikti ir gali tapti matoma paleidimo priemonėje, jei turi veiklą.</string>
+    <string name="appcontrol_toggle_app_disable_description">Išjungus programą ji nebegali veikti ir yra paslėpta meniu. Duomenys neprarandami.</string>
+    <string name="appcontrol_appstore_open_title">Atidaryti programėlių parduotuvėje</string>
+    <string name="appcontrol_appstore_open_description">Atidarykite šią programą programėlių parduotuvėje, iš kurios ji buvo įdiegta.</string>
+    <string name="appcontrol_systemsettings_open_description">Atidarykite šio įrenginio sistemos nustatymus šiai programai.</string>
+    <string name="appcontrol_app_launch_title">Paleisti programą</string>
+    <string name="appcontrol_app_launch_description">Paleisti pagrindinį šios programos veiklą.</string>
+    <string name="appcontrol_app_forcestop_title">Priverstinai sustabdyti</string>
+    <string name="appcontrol_app_forcestop_description">Sustabdyti programą. Neleisti jai paleisti pačiai, kol neątrauksite ar neperkrausite įrenginio.</string>
+    <string name="appcontrol_app_uninstall_description">Pašalinti šią programą iš jūsų įrenginio.</string>
+    <string name="appcontrol_app_exclude_add_title">Netraukti programos</string>
+    <string name="appcontrol_app_exclude_add_description">Netraukti šios programos iš kitų SD Maid operacijų.</string>
+    <string name="appcontrol_app_exclude_edit_title">Redaguoti išėmimą</string>
+    <string name="appcontrol_app_exclude_edit_description">Šiuo metu ši programa netraukiama iš vieno ar daugiau įrankio.</string>
+    <string name="appcontrol_tag_user">Vartotojas</string>
+    <string name="appcontrol_tag_active">Neseniai aktyvus</string>
+    <string name="appcontrol_tag_apk_base">APK</string>
+    <string name="appcontrol_tag_apk_bundle">Paketas</string>
+    <string name="appcontrol_tag_archived">Archyvuota</string>
+    <string name="appcontrol_tag_uninstalled">Tik duomenys</string>
+    <string name="appcontrol_tag_not_installed">Neįdiegta</string>
+    <string name="appcontrol_tag_enabled">Įjungta</string>
+    <string name="appcontrol_tag_disabled">Išjungta</string>
+    <string name="appcontrol_tag_debug">Derinimas</string>
+    <string name="appcontrol_progress_enabling_package">Įjungiama programa</string>
+    <string name="appcontrol_progress_disabling_package">Išjungiama programa</string>
+    <string name="appcontrol_list_filteroptions_label">Filtravimo parinktys</string>
+    <string name="appcontrol_list_sortmode_name_label">Programos pavadinimas</string>
+    <string name="appcontrol_list_sortmode_updated_label">Paskutinis atnaujinimas</string>
+    <string name="appcontrol_list_sortmode_installed_label">Pirmas įdiegimas</string>
+    <string name="appcontrol_list_sortmode_packagename_label">Paketo pavadinimas</string>
+    <string name="appcontrol_list_sortmode_size_label">Dydis</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Ekrano laikas</string>
+    <string name="appcontrol_list_sortmode_size_caveat_msg">Programų dyžių sąmatos yra apytikslės dėl našumo priežasių. Naudokite įrankio Atminties analizatorius tikslesniems duomenims.</string>
+    <string name="appcontrol_progress_uninstalling_app">Pašalinama programa</string>
+    <plurals name="appcontrol_uninstall_result_message_x">
+        <item quantity="one">%d programa buvo pašalinta</item>
+        <item quantity="few">%d programos pašalintos</item>
+        <item quantity="many">%d programų pašalinta</item>
+        <item quantity="other">%d programų buvo pašalinta</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archyvas</string>
+    <string name="appcontrol_archive_selection_action">Archyvuoti programas</string>
+    <string name="appcontrol_archive_description">Archyvuokite, kad atlaisvintumėte vietos, išlaikydami programos duomenis vėlesniam atkūrimui.</string>
+    <string name="appcontrol_progress_archiving_app">Archyvuojama programa…</string>
+    <string name="appcontrol_archive_confirmation_title">Patvirtinti archyvavimą</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archyvuoti %d programą?</item>
+        <item quantity="few">Archyvuoti %d programas?</item>
+        <item quantity="many">Archyvuoti %d programų?</item>
+        <item quantity="other">Archyvuoti %d programų?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d programa suarchyvuota</item>
+        <item quantity="few">%d programos suarchyvuotos</item>
+        <item quantity="many">%d programų suarchyvuota</item>
+        <item quantity="other">%d programų archyvuota</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Atkurti</string>
+    <string name="appcontrol_restore_selection_action">Atkurti programas</string>
+    <string name="appcontrol_restore_description">Atkurti archyvuotą programą į visai įdiegtos būklę. Programos duomenys išsaugomi.</string>
+    <string name="appcontrol_progress_restoring_app">Atkuriama programa…</string>
+    <string name="appcontrol_restore_confirmation_title">Patvirtinti atkūrimą</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Atkurti %d programą?</item>
+        <item quantity="few">Atkurti %d programas?</item>
+        <item quantity="many">Atkurti %d programų?</item>
+        <item quantity="other">Atkurti %d programų?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d programa atkurta</item>
+        <item quantity="few">%d programos atkurtos</item>
+        <item quantity="many">%d programų atkurta</item>
+        <item quantity="other">%d programų atkurta</item>
+    </plurals>
+    <string name="appcontrol_app_sizes_title">Programos dydis</string>
+    <string name="appcontrol_app_sizes_apk_label">Programa</string>
+    <string name="appcontrol_app_sizes_data_label">Duomenys</string>
+    <string name="appcontrol_app_sizes_cache_label">Podrauga</string>
+    <string name="appcontrol_toggle_confirmation_title">Patvirtinti veiksmą</string>
+    <plurals name="appcontrol_toggle_confirmation_message_x">
+        <item quantity="one">Keisti %d programos įjungta/išjungta bŪveną?</item>
+        <item quantity="few">Keisti %d programų įjungta/išjungta bŪveną?</item>
+        <item quantity="many">Keisti %d programų įjungta/išjungta bŪveną?</item>
+        <item quantity="other">Pakeisti įjungimo/išjungimo būsenas %d programų?</item>
+    </plurals>
+    <plurals name="appcontrol_toggle_result_message_x">
+        <item quantity="one">%d programa buvo perjungta</item>
+        <item quantity="few">%d programos perjungtos</item>
+        <item quantity="many">%d programų perjungta</item>
+        <item quantity="other">%d programų buvo perjungta</item>
+    </plurals>
+    <string name="appcontrol_settings_module_sizing_enabled_label">Nustatyti dyžius</string>
+    <string name="appcontrol_settings_module_sizing_enabled_description">Gauti apytikslį kiekvienos programos dydžio īvertį.</string>
+    <string name="appcontrol_settings_module_activity_enabled_label">Nustatyti aktyvumą</string>
+    <string name="appcontrol_settings_module_activity_enabled_description">Sužinoti, ar programa yra (arba neseniai buvo) aktyvi.</string>
+    <string name="appcontrol_export_app_selection_action">Eksportuoti programas</string>
+    <string name="appcontrol_export_title">Eksportuoti programą</string>
+    <string name="appcontrol_export_description">Įrašyti šios programos diegimo failus. Tai neapima programos duomenų.</string>
+    <plurals name="appcontrol_export_result_message_x">
+        <item quantity="one">%d programa buvo eksportuota</item>
+        <item quantity="few">%d programos eksportuotos</item>
+        <item quantity="many">%d programų eksportuota</item>
+        <item quantity="other">%d programų buvo eksportuota</item>
+    </plurals>
+    <string name="appcontrol_progress_exporting_x">Eksportuojama %s</string>
+    <string name="appcontrol_share_list_action">Bendrinti sąrašą</string>
+    <string name="appcontrol_share_list_title">Mano programos</string>
+    <string name="appcontrol_share_list_footer">Bendrinta per SD Maid SE</string>
+    <string name="appcontrol_force_stop_selection_action">Priverstinai sustabdyti programas</string>
+    <string name="appcontrol_force_stop_action">Priverstinis sustabdymas</string>
+    <string name="appcontrol_force_stop_confirm_title">Patvirtinti priverstini sustabdymą</string>
+    <plurals name="appcontrol_force_stop_confirmation_message_x">
+        <item quantity="one">Priverstinai sustabdyti %d programą?</item>
+        <item quantity="few">Priverstinai sustabdyti %d programas?</item>
+        <item quantity="many">Priverstinai sustabdyti %d programų?</item>
+        <item quantity="other">Priverstinai sustabdyti %d programų?</item>
+    </plurals>
+    <plurals name="appcontrol_force_stop_result_message_x">
+        <item quantity="one">%d programa buvo sustabdyta</item>
+        <item quantity="few">%d programos sustabdytos</item>
+        <item quantity="many">%d programų sustabdyta</item>
+        <item quantity="other">%d programų buvo sustabdyta</item>
+    </plurals>
+    <string name="appcontrol_automation_title">AppControl automatizavimas</string>
+    <string name="appcontrol_automation_subtitle_force_stopping">Priverstinai sustabdoma…</string>
+    <string name="appcontrol_automation_progress_find_force_stop">Ieškoma mygtuko „Priverstinai sustabdyti“ (raktažoždiai: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archyvuojama…</string>
+    <string name="appcontrol_automation_progress_find_archive">Ieškoma mygtuko „Archyvas“ (raktažoždiai: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Atkuriama…</string>
+    <string name="appcontrol_automation_progress_find_restore">Ieškoma mygtuko „Atkurti“ (raktažoždiai: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Ekrano laikas: %1$s nuo %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Paskutinis atnaujinimas: %s</string>
+    <string name="appcontrol_item_installedat_x_label">įdiegta: %s</string>
+    <string name="shortcut_appcontrol_short">Programų valdymas</string>
+    <string name="shortcut_appcontrol_long">Tvarkyti įdiegtas programas</string>
+    <string name="appcontrol_automation_loading">Rengiamas automatizavimas per prieigamumo tarnybą</string>
+    <string name="appcontrol_automation_progress_find_ok_confirmation">Bandoma patvirtinti ankstesnį veiksmą (raktažoždiai: %s)</string>
+    <string name="appcontrol_include_multiuser_label">Įtraukti kitus vartotojus</string>
+    <string name="appcontrol_include_multiuser_summary">Įtraukti programas iš kitų vartotojų profilių šiame įrenginyje.</string>
+</resources>

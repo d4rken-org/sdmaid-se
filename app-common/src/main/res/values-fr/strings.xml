@@ -86,6 +86,7 @@
     <string name="general_view_action">Afficher</string>
     <string name="general_update_action">Mettre à jour</string>
     <string name="general_scan_action">Analyser</string>
+    <string name="general_close_action">Fermer</string>
     <string name="general_delete_action">Supprimer</string>
     <string name="general_delete_selected_action">Supprimer les éléments choisis</string>
     <string name="general_show_details_action">Afficher les détails</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Appareil</string>
     <string name="general_settings_title">Paramètres</string>
     <string name="general_help_title">Aide</string>
+    <string name="general_hints_label">Avis</string>
     <string name="file_type_symbolic_link">Lien</string>
     <string name="file_type_directory">Dossier</string>
     <string name="file_type_file">Fichier</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Balayeur</string>
     <string name="stats_label">Historique</string>
     <string name="settings_category_tools_label">Outils</string>
-    <string name="general_hints_label">Avis</string>
     <string name="settings_category_filter_generic">Filtre générique</string>
     <string name="settings_category_filter_specific">Filtre spécifique</string>
     <string name="settings_category_risklevel">Niveau de risque</string>

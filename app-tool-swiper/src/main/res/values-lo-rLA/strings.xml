@@ -123,4 +123,21 @@
     <string name="swiper_help_message">ສົບແຕ່ລະໄຟລ໌ເພື່ອຕັດສິນໃຈ:\n\n← ສົບຊ້າຍ: %1$s\n→ ສົບຂວາ: %2$s\n↑ ສົບຂຶ້ນ: ຂ້າມ\n↓ ສົບລງ: ຍ້ອນຄືນ (ຫລັງຈາກສົບແລ້ວ)\n\nທ່ານສາມາຖໃຊ້ປຸ່ມດ້ານລ່າງດ້ວຍ.\n\nເມື່ອສຳເລັດແລ້ວ, ກດ \"ຕຣວຈສອບ\" ເພື່ອດູການຕັດສິນໃຈທັງຫມດ. ໄມ່ມີສິ່ງໃດຖືກລົບຈນກວ່າທ່ານຍືນຍັນບນຫນ້າຕຣວຈສອບ.</string>
     <string name="swiper_gesture_overlay_dismiss_action">ເຂົ້າໃຈແລ້ວ</string>
     <string name="swiper_help_action">ຊ່ວຍເຫຼືອ</string>
+    <string name="swiper_file_type_filter_title">ສະແດງສະເພາະປະເພດໄຟລ໌ເຫຼົ່ານີ້</string>
+    <string name="swiper_file_type_filter_hint">ໝາຍປະເພດທີ່ທ່ານຕ້ອງການເບິ່ງ. ຖ້າບໍ່ໄດ້ໝາຍໄວ້, ໄຟລ໌ທັງໝົດຈະຖືກສະແດງ.</string>
+    <string name="swiper_file_type_category_images">ຮູບພາບ</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ວິດີໂອ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ສຽງ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ເອກະສານ</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ໄຟລ໌ບີບອັດ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">ນຳໃຊ້</string>
+    <string name="swiper_session_filter_action">ກອງໄຟລ໌</string>
+    <string name="swiper_file_type_filter_summary">ກອງແລ້ວ: %1$s</string>
+    <string name="swiper_session_no_matching_files">ບໍ່ພົບໄຟລ໌ທີ່ກົງກັນ</string>
+    <string name="swiper_open_externally_action">ເປີດໃນແອັບພາຍນອກ</string>
 </resources>

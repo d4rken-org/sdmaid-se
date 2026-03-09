@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Спонзорирај развој</string>
     <string name="upgrade_screen_sponsor_action_hint">Алтернативата се реклами, аналитика и Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ви благодариме што го поддржувате развојот на отворен код ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Веќе се вративте? Вашата поддршка го одржува SD Maid жив!</string>
 </resources>

@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Swiep elke lêer om \'n besluit te neem:\n\n← Swiep links: %1$s\n→ Swiep regs: %2$s\n↑ Swiep op: Slaan oor\n↓ Swiep af: Ontdoen (na eerste swiep)\n\nJy kan ook die knoppies onderaan gebruik.\n\nAs jy klaar is, tik \"Hersien\" om al jou besluite te sien. Niks word verwyder totdat jy op die hersieningsskerm bevestig nie.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Verstaan</string>
     <string name="swiper_help_action">Hulp</string>
+    <string name="swiper_file_type_filter_title">Wys slegs hierdie lêertipes</string>
+    <string name="swiper_file_type_filter_hint">Merk die tipes wat jy wil sien. As geen gemerk is nie, word alle lêers gewys.</string>
+    <string name="swiper_file_type_category_images">Beelde</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Oudio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumente</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Argiewe</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Toepas</string>
+    <string name="swiper_session_filter_action">Filtreer lêers</string>
+    <string name="swiper_file_type_filter_summary">Gefilteer: %1$s</string>
+    <string name="swiper_session_no_matching_files">Geen ooreenstemmende lêers gevind nie</string>
+    <string name="swiper_open_externally_action">Maak oop in eksterne program</string>
 </resources>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Financer le développement</string>
     <string name="upgrade_screen_sponsor_action_hint">Sinon, des publicités, des analyses et Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Merci de soutenir le développement des logiciels libres ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Déjà de retour ? Votre soutien maintient SD Maid en vie !</string>
 </resources>

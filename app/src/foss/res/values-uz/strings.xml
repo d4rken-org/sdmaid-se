@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Rivojlanishni sponsorlik qilish</string>
     <string name="upgrade_screen_sponsor_action_hint">Muqobil reklama, tahlil va Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Ochiq manba rivojlanishini qo\'llab-quvvatlaganingiz uchun rahmat ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Allaqachon qaytdingizmi? Sizning qo\'llab-quvvatlashingiz SD Maidni tirik saqlaydi!</string>
 </resources>

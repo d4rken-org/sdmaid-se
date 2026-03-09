@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Svep varje fil för att fatta ett beslut:\n\n← Svep vänster: %1$s\n→ Svep höger: %2$s\n↑ Svep uppåt: Hoppa över\n↓ Svep nedåt: Ångra (efter första svepet)\n\nDu kan också använda knapparna längst ned.\n\nNär du är klar, tryck på \"Granska\" för att se alla dina beslut. Inget raderas förrän du bekräftar på granskningsskärmen.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Jag fattar</string>
     <string name="swiper_help_action">Hjälp</string>
+    <string name="swiper_file_type_filter_title">Visa bara dessa filtyper</string>
+    <string name="swiper_file_type_filter_hint">Markera de typer du vill se. Om inga är markerade visas alla filer.</string>
+    <string name="swiper_file_type_category_images">Bilder</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videor</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Ljud</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokument</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arkiv</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Tillämpa</string>
+    <string name="swiper_session_filter_action">Filtrera filer</string>
+    <string name="swiper_file_type_filter_summary">Filtrerat: %1$s</string>
+    <string name="swiper_session_no_matching_files">Inga matchande filer hittades</string>
+    <string name="swiper_open_externally_action">Öppna i extern app</string>
 </resources>

@@ -140,4 +140,21 @@
     <string name="swiper_help_message">முடிவெடுக்க ஒவ்வொரு கோப்பையும் ஸ்வைப் செய்யவும்:\n\n← இடதுபக்கம் ஸ்வைப்: %1$s\n→ வலதுபக்கம் ஸ்வைப்: %2$s\n↑ மேலே ஸ்வைப்: தவிர்\n↓ கீழே ஸ்வைப்: மீட்டமை (முதல் ஸ்வைப்பிற்குப் பிறகு)\n\nகீழே உள்ள பொத்தான்களையும் பயன்படுத்தலாம்.\n\nமுடிந்ததும், உங்கள் அனைத்து முடிவுகளையும் காண \"மதிப்பாய்வு\" என்பதைத் தட்டவும். மதிப்பாய்வுத் திரையில் உறுதிப்படுத்தும் வரை எதுவும் நீக்கப்படாது.</string>
     <string name="swiper_gesture_overlay_dismiss_action">புரிந்தது</string>
     <string name="swiper_help_action">உதவி</string>
+    <string name="swiper_file_type_filter_title">இந்த கோப்பு வகைகளை மட்டும் காட்டு</string>
+    <string name="swiper_file_type_filter_hint">நீங்கள் பார்க்க விரும்பும் வகைகளை தேர்வு செய்யுங்கள். எதுவும் தேர்வு செய்யப்படவில்லை என்றால், அனைத்து கோப்புகளும் காட்டப்படும்.</string>
+    <string name="swiper_file_type_category_images">படங்கள்</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">வீடியோக்கள்</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">ஆடியோ</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ஆவணங்கள்</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">காப்பகங்கள்</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">பயன்படுத்து</string>
+    <string name="swiper_session_filter_action">கோப்புகளை வடிகட்டு</string>
+    <string name="swiper_file_type_filter_summary">வடிகட்டப்பட்டது: %1$s</string>
+    <string name="swiper_session_no_matching_files">பொருந்தும் கோப்புகள் எதுவும் இல்லை</string>
+    <string name="swiper_open_externally_action">வெளிப்புற பயன்பாட்டில் திற</string>
 </resources>

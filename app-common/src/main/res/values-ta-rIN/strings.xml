@@ -86,6 +86,7 @@
     <string name="general_view_action">பார்</string>
     <string name="general_update_action">புதுப்பி</string>
     <string name="general_scan_action">ஸ்கேன் செய்</string>
+    <string name="general_close_action">மூடு</string>
     <string name="general_delete_action">நீக்கு</string>
     <string name="general_delete_selected_action">தேர்ந்தெடுத்தவற்றை நீக்கு</string>
     <string name="general_show_details_action">விவரங்களைக் காட்டு</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">சாதனம்</string>
     <string name="general_settings_title">அமைப்புகள்</string>
     <string name="general_help_title">உதவி</string>
+    <string name="general_hints_label">அறிவிப்பு</string>
     <string name="file_type_symbolic_link">இணைப்பு</string>
     <string name="file_type_directory">டைரக்டரி</string>
     <string name="file_type_file">கோப்பு</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">வரலாறு</string>
     <string name="settings_category_tools_label">கருவிகள்</string>
-    <string name="general_hints_label">அறிவிப்பு</string>
     <string name="settings_category_filter_generic">பொது அரிப்பு</string>
     <string name="settings_category_filter_specific">திறந்த அரிப்பு</string>
     <string name="settings_category_risklevel">ஆபத்து நிலை</string>

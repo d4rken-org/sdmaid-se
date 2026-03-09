@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Deslize cada arquivo para tomar uma decisão:\n\n← Deslize para a esquerda: %1$s\n→ Deslize para a direita: %2$s\n↑ Deslize para cima: Ignorar\n↓ Deslize para baixo: Desfazer (após o primeiro deslize)\n\nVocê também pode usar os botões na parte inferior.\n\nQuando terminar, toque em \"Revisar\" para ver todas as suas decisões. Nada será excluído até que você confirme na tela de revisão.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entendi</string>
     <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_file_type_filter_title">Mostrar apenas estes tipos de arquivo</string>
+    <string name="swiper_file_type_filter_hint">Marque os tipos que você deseja ver. Se nenhum estiver marcado, todos os arquivos serão mostrados.</string>
+    <string name="swiper_file_type_category_images">Imagens</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Vídeos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Áudio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documentos</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arquivos compactados</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Aplicar</string>
+    <string name="swiper_session_filter_action">Filtrar arquivos</string>
+    <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nenhum arquivo correspondente encontrado</string>
+    <string name="swiper_open_externally_action">Abrir em aplicativo externo</string>
 </resources>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">開発支援者</string>
     <string name="upgrade_screen_sponsor_action_hint">代替は広告や分析そしてGoogle Playになります</string>
     <string name="upgrade_screen_thanks_toast">オープンソースでの開発に協力してくれてありがとうございます ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">もう戻りましたか？あなたのサポートがSD Maidを支えています！</string>
 </resources>

@@ -157,4 +157,21 @@
     <string name="swiper_help_message">Povucite svaku datoteku za donošenje odluke:\n\n← Povucite ulijevo: %1$s\n→ Povucite udesno: %2$s\n↑ Povucite prema gore: Preskoči\n↓ Povucite prema dolje: Poništi (nakon prvog povlačenja)\n\nMožete koristiti i gumbe na dnu.\n\nKada završite, dodirnite \"Pregled\" za prikaz svih vaših odluka. Ništa se ne briše dok ne potvrdite na zaslonu za pregled.</string>
     <string name="swiper_gesture_overlay_dismiss_action">U redu</string>
     <string name="swiper_help_action">Pomoć</string>
+    <string name="swiper_file_type_filter_title">Prikaži samo ove vrste datoteka</string>
+    <string name="swiper_file_type_filter_hint">Označite vrste koje želite vidjeti. Ako ništa nije označeno, prikazuju se sve datoteke.</string>
+    <string name="swiper_file_type_category_images">Slike</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videozapisi</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumenti</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arhive</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Primijeni</string>
+    <string name="swiper_session_filter_action">Filtriraj datoteke</string>
+    <string name="swiper_file_type_filter_summary">Filtrirano: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nisu pronađene odgovarajuće datoteke</string>
+    <string name="swiper_open_externally_action">Otvori u vanjskoj aplikaciji</string>
 </resources>

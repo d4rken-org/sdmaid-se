@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="stats_dash_body_size">
+        <item quantity="one">Atlaisvinta %s.</item>
+        <item quantity="few">Atlaisvinta %s.</item>
+        <item quantity="many">Atlaisvinta %s.</item>
+        <item quantity="other">%s atlaisvinta.</item>
+    </plurals>
+    <plurals name="stats_dash_body_count">
+        <item quantity="one">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
+        <item quantity="few">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
+        <item quantity="many">Apdorota %s elementų, nuo tada kai pakvietėte SD Maid į savo įrenginį.</item>
+        <item quantity="other">%s elementų apdorota nuo tada, kai pakvieteėte SD Maid į savo įrenginį.</item>
+    </plurals>
+    <string name="stats_report_status_success">Sėkmė</string>
+    <string name="stats_report_status_partial_success">Dalinė sėkmė</string>
+    <string name="stats_report_status_partial_failure">Klaida</string>
+    <string name="stats_settings_desc">Konfigurūkite SD Maid statistiką, ataskaitas ir duomenų saugojimą.</string>
+    <string name="stats_settings_retention_category">Saugojimas</string>
+    <string name="stats_settings_retention_reports_label">Bendros ataskaitos</string>
+    <string name="stats_settings_retention_reports_desc">Dienų skaičius prieš trinant bazines SD Maid operacijų ataskaitas.</string>
+    <string name="stats_settings_retention_paths_label">Išsami kelio informacija</string>
+    <string name="stats_settings_retention_paths_desc">Dienų skaičius, kiek laiko saugoti informaciją apie SD Maid paveiktus kelius.</string>
+    <plurals name="stats_settings_retention_x_days">
+        <item quantity="one">%d diena</item>
+        <item quantity="few">%d dienos</item>
+        <item quantity="many">%d dienų</item>
+        <item quantity="other">%d dienų</item>
+    </plurals>
+    <string name="stats_settings_reset_all_label">Nustatyti viską iš naujo</string>
+    <string name="stats_settings_reset_all_desc">Ištrinti visas ataskaitas ir nustatyti visas statistikas į nulį.</string>
+    <string name="stats_affected_paths_label">Paveikti keliai</string>
+    <string name="stats_affected_pkgs_label">Paveiktos programos</string>
+</resources>

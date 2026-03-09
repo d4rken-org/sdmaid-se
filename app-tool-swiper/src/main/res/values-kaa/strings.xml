@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Sheshim qabıl etiw ushın hár fayldi sırǵıtıń:\n\n← Sheske sırǵıtıw: %1$s\n→ Oń táreplege sırǵıtıw: %2$s\n↑ Joqarıǵa sırǵıtıw: O\'tiw\n↓ Tómenke sırǵıtıw: Qaytarıw (birinshi sırǵıtıwdan keyin)\n\nSiz tómendegi túymelerdi de paydalana alasız.\n\nTamam bolǵanda, barlıq sheshimlerińizdi kóriw ushın \"Ko\'rip shıǵıw\" túymesin basıń. Ko\'rip shıǵıw ekranında tastıyıqlaǵansha hesh nárse o\'shirilmeydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Túsinikli</string>
     <string name="swiper_help_action">Járdem</string>
+    <string name="swiper_file_type_filter_title">Tek usı fayl tiplerin kórset</string>
+    <string name="swiper_file_type_filter_hint">Kórgińiz kelgen tiplerdi belgileń. Heshqaysısı belgilenbese, barlıq fayllar kórsetiledi.</string>
+    <string name="swiper_file_type_category_images">Súwretler</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videolar</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Awdio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Hújjetler</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arxivler</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Qollanıw</string>
+    <string name="swiper_session_filter_action">Faylları súzginen ótkeriw</string>
+    <string name="swiper_file_type_filter_summary">Súzginen ótkerilgen: %1$s</string>
+    <string name="swiper_session_no_matching_files">Sáykes fayllar tabılmadı</string>
+    <string name="swiper_open_externally_action">Sırtqı qosılmada ashıw</string>
 </resources>

@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">ترقی کو اسپانسر کریں</string>
     <string name="upgrade_screen_sponsor_action_hint">متبادل اشتہارات، تجزیات اور Google Play ہیں 🙁</string>
     <string name="upgrade_screen_thanks_toast">اوپن سورس ڈیولپمنٹ کی حمایت کرنے کا شکریہ ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">پہلے ہی واپس؟ آپ کی حمایت SD Maid کو زندہ رکھتی ہے!</string>
 </resources>

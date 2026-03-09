@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Iscorre cada archìviu pro leare una detzisione:\n\n← Iscorre a manu manca: %1$s\n→ Iscorre a manu dereta: %2$s\n↑ Iscorre a susu: Brinca\n↓ Iscorre a josso: Annulla (a pustis de su primu iscorrimentu)\n\nPodes fintzas impreare is butones in bàsciu.\n\nCando as acabadu, toca \"Revisione\" pro bìdere totu is detzisiones tuas. No si cantzellat nudda fintzas a cando non lu cunfirmas in sa pàgina de revisione.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Apat cumprèndiu</string>
     <string name="swiper_help_action">Agiudu</string>
+    <string name="swiper_file_type_filter_title">Ammustra sos tipos de archiviu solu</string>
+    <string name="swiper_file_type_filter_hint">Controlla sos tipos chi boles bidere. Si nisciunu est controlladu, totos sos archivios sun ammustratos.</string>
+    <string name="swiper_file_type_category_images">Immàgines</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Àudio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documentos</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archivios</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Appliga</string>
+    <string name="swiper_session_filter_action">Filtra archivios</string>
+    <string name="swiper_file_type_filter_summary">Filtradu: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nisciunu archiviu currispundente agatadu</string>
+    <string name="swiper_open_externally_action">Aberi in app esterna</string>
 </resources>

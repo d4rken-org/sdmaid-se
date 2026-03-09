@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">A gravação foi muito curta. Os registos de depuração são gravações, não capturas instantâneas — reproduza o problema enquanto a gravação está ativa para que o registo seja útil.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continuar a gravar</string>
     <string name="debug_debuglog_short_recording_stop_action">Parar mesmo assim</string>
+    <string name="debug_debuglog_screen_failed_title">Sessão Falhou</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">O ficheiro de registo de depuração estava vazio. Tente gravar novamente e reproduza o problema durante a gravação.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">O ficheiro de registo de depuração está em falta. A gravação pode ter sido interrompida.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">O arquivo comprimido está corrompido. Tente gravar novamente.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">A compressão falhou. Verifique o armazenamento disponível e tente novamente.</string>
+    <string name="debug_debuglog_sessions_zipping_label">A comprimir…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Falhou: registo vazio</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Falhou: registo em falta</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Falhou: arquivo corrompido</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Falhou: erro de compressão</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Eliminar esta sessão de registo de depuração?</string>
+    <string name="support_contact_post_send_message">Mensagem enviada com sucesso?</string>
+    <string name="debug_debuglog_sessions_stop_action">Parar</string>
     <string name="tasks_activity_notification_channel_label">Tarefas ativas</string>
     <string name="tasks_activity_working_notification_title">SD Maid está em execução</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Resultados da tarefa</string>
     <string name="tasks_result_subtext">Resultado da tarefa</string>
+    <string name="tasks_timeout_error_label">A tarefa expirou</string>
+    <string name="tasks_timeout_error_desc">A tarefa demorou demasiado tempo e foi interrompida. Por favor, tente novamente.</string>
     <string name="onboarding_welcome_title">Bem-vindo</string>
     <string name="onboarding_welcome_body1">SD Maid SE gerencia arquivos, aplicações e armazenamento.</string>
     <string name="onboarding_welcome_body2">Ganhe espaço de armazenamento limpando o sistema. Apague ficheiros dispensáveis e remova restos de dados.</string>

@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Yazı çox qısa idi. Sazlama jurnalları anlıq görüntülər deyil, yazılardır — jurnal faydalı olsun deyə problem aktiv yazı zamanı yenidən göstərilməlidir.</string>
     <string name="debug_debuglog_short_recording_continue_action">Yazmağa davam et</string>
     <string name="debug_debuglog_short_recording_stop_action">Hər halda dayandır</string>
+    <string name="debug_debuglog_screen_failed_title">Sessiya Uğursuz Oldu</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Sazlama jurnalı faylı boş idi. Yenidən qeyd etməyə çalışın və qeyd zamanı problemi yenidən yaradın.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Sazlama jurnalı faylı yoxdur. Qeyd prosesi kəsilmiş ola bilər.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Sıxılmış arxiv zədələnib. Yenidən qeyd etməyə çalışın.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Sıxışdırma uğursuz oldu. Mövcud yaddaşı yoxlayın və yenidən cəhd edin.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Sıxılır…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Uğursuz: boş jurnal</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Uğursuz: jurnal yoxdur</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Uğursuz: zədələnmiş arxiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Uğursuz: sıxışdırma xətası</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Bu sazlama jurnalı sessiyasını silmək istəyirsiniz?</string>
+    <string name="support_contact_post_send_message">Mesaj uğurla göndərildi?</string>
+    <string name="debug_debuglog_sessions_stop_action">Dayandır</string>
     <string name="tasks_activity_notification_channel_label">Aktiv tapşırıqlar</string>
     <string name="tasks_activity_working_notification_title">SD Maid işləyir</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Tapşırıq nəticələri</string>
     <string name="tasks_result_subtext">Tapşırıq nəticəsi</string>
+    <string name="tasks_timeout_error_label">Tapşırığın vaxtı bitdi</string>
+    <string name="tasks_timeout_error_desc">Tapşırıq çox uzun çəkdi və dayandırıldı. Zəhmət olmasa, yenidən cəhd edin.</string>
     <string name="onboarding_welcome_title">Xoş gəlmişsiniz</string>
     <string name="onboarding_welcome_body1">SD Maid SE faylları, tətbiqləri və yaddaşa nəzarət edir.</string>
     <string name="onboarding_welcome_body2">Digər tətbiqlərin arxasında təmizlik edərək yaddaş yeri qazanın. Xərcləyə bilən faylları silin və qalan məlumatları götürün.</string>

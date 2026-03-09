@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">පටිගත කිරීම ඉතා කෙටි විය. Debug logs යනු ස්නැප්ෂොට් නොව පටිගත කිරීම් — ලොගය ප්‍රයෝජනවත් වීමට නම් පටිගත කිරීම සක්‍රිය ව ඇති අතරතුර ගැටළුව නැවත ඇති කරන්න.</string>
     <string name="debug_debuglog_short_recording_continue_action">පටිගත කිරීම දිගටම කරන්න</string>
     <string name="debug_debuglog_short_recording_stop_action">කෙසේ හෝ නවත්වන්න</string>
+    <string name="debug_debuglog_screen_failed_title">සැසිය අසාර්ථක විය</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">දෝශ නිරාකරණ ලොග් ගොනුව හිස් විය. නැවත පටිගත කිරීමට උත්සාහ කරන්න සහ පටිගත කරන අතරතුර ගැටලුව නැවත ප්‍රකාශ කරන්න.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">දෝශ නිරාකරණ ලොග් ගොනුව නොමැත. පටිගත කිරීම බාධා වී ඇති විය හැකිය.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">සම්පීඩිත සංරක්ෂාවාරය දූෂිත වී ඇත. නැවත පටිගත කිරීමට උත්සාහ කරන්න.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">සම්පීඩනය අසාර්ථක විය. තිබෙන ගබඩා ඉඩ පරීක්ෂා කර නැවත උත්සාහ කරන්න.</string>
+    <string name="debug_debuglog_sessions_zipping_label">සම්පීඩනය කරමින්…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">අසාර්ථකයි: හිස් ලොගය</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">අසාර්ථකයි: නොමැති ලොගය</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">අසාර්ථකයි: දූෂිත සංරක්ෂාවාරය</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">අසාර්ථකයි: සම්පීඩන දෝෂය</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">මෙම දෝශ නිරාකරණ ලොග් සැසිය මකන්නද?</string>
+    <string name="support_contact_post_send_message">පණිවිඩය සාර්ථකව යවන ලදද?</string>
+    <string name="debug_debuglog_sessions_stop_action">නවතන්න</string>
     <string name="tasks_activity_notification_channel_label">සක්‍රිය කාර්යයන්</string>
     <string name="tasks_activity_working_notification_title">SD Maid ක්‍රියාත්මක වෙමින්</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">කාර්ය ප්‍රතිඵල</string>
     <string name="tasks_result_subtext">කාර්ය ප්‍රතිඵලය</string>
+    <string name="tasks_timeout_error_label">කාර්යය කාලය ඉකුත් විය</string>
+    <string name="tasks_timeout_error_desc">කාර්යය ඉතා දිගු කාලයක් ගත කළ අතර නතර කරන ලදී. කරුණාකර නැවත උත්සාහ කරන්න.</string>
     <string name="onboarding_welcome_title">සාදරයෙන් පිළිගනිමු</string>
     <string name="onboarding_welcome_body1">SD Maid SE ගොනු, යෙදුම් සහ ආචයනය කළමනාකරණය කරයි.</string>
     <string name="onboarding_welcome_body2">වෙනත් යෙදුම් පිටුපස පිරිසිදු කිරීමෙන් ආචයන ඉඩ ලබාගන්න. වියදම් කළ හැකි ගොනු මකා ඉතිරි දත්ත ඉවත් කරන්න.</string>

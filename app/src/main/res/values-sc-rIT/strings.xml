@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Sa registratzione est istada meda curta. Sos log de debug sunt registratziones, no instantàneas — reproduxi su problema mentres sa registratzione est ativa pro chi su log siat ùtile.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continua sa registratzione</string>
     <string name="debug_debuglog_short_recording_stop_action">Ferma igualmente</string>
+    <string name="debug_debuglog_screen_failed_title">Sessione Fallida</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Su file de registratzione de debug fiat bogadu. Tenta de torrare a registrare e reproduzi su problema durante sa registratzione.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Su file de registratzione de debug mancat. Sa registratzione at podidu esser interrumpida.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">S\'archiviu comprimidu est corrompidu. Tenta de torrare a registrare.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Sa compressione ha fallidu. Verifica su depositu disponibile e tenta de nou.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Comprimende…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Fallidu: registro bogadu</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Fallidu: registro mancante</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Fallidu: archiviu corrompidu</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Fallidu: errore de compressione</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Cancella custa sessione de debug log?</string>
+    <string name="support_contact_post_send_message">Messàgiu imbiadu cun sucessu?</string>
+    <string name="debug_debuglog_sessions_stop_action">Para</string>
     <string name="tasks_activity_notification_channel_label">Traballos ativos</string>
     <string name="tasks_activity_working_notification_title">SD Maid est trabalende</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Risultados de traballos</string>
     <string name="tasks_result_subtext">Risultadu de traballu</string>
+    <string name="tasks_timeout_error_label">Compidu scadidu</string>
+    <string name="tasks_timeout_error_desc">Su compidu at pigadu tropu tempus e est istadu firmadu. Torra a proare.</string>
     <string name="onboarding_welcome_title">Bene bènnidos</string>
     <string name="onboarding_welcome_body1">SD Maid SE gestionat documentos, aplicatziones e archìviu.</string>
     <string name="onboarding_welcome_body2">Ottenere ispàtziu de archìviu limpende a pustis de àteras aplicatziones. Cantzellare documentos chi si podent ispentzare e bogare datos chi abarrant.</string>

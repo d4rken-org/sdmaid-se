@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Падтрымаць распрацоўку</string>
     <string name="upgrade_screen_sponsor_action_hint">Альтэрнатыва - рэклама, аналітыка і Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Дзякуй за падтрымку распрацоўкі з адкрытым зыходным кодам ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Ужо вяртаецеся? Ваша падтрымка трымае SD Maid пры жыцці!</string>
 </resources>

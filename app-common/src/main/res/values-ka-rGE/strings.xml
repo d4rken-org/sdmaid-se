@@ -86,6 +86,7 @@
     <string name="general_view_action">ნახვა</string>
     <string name="general_update_action">განახლება</string>
     <string name="general_scan_action">სკანირება</string>
+    <string name="general_close_action">დახურვა</string>
     <string name="general_delete_action">წაშლა</string>
     <string name="general_delete_selected_action">მონიშნულის წაშლა</string>
     <string name="general_show_details_action">დეტალების ჩვენება</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">მოწყობილობა</string>
     <string name="general_settings_title">პარამეტრები</string>
     <string name="general_help_title">დახმარება</string>
+    <string name="general_hints_label">შენიშვნა</string>
     <string name="file_type_symbolic_link">Ბმული</string>
     <string name="file_type_directory">დირექტორია</string>
     <string name="file_type_file">ფაილი</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ისტორია</string>
     <string name="settings_category_tools_label">ხელსაწყოები</string>
-    <string name="general_hints_label">შენიშვნა</string>
     <string name="settings_category_filter_generic">ზოგადი ფილტრი</string>
     <string name="settings_category_filter_specific">სპეციფიკური ფილტრი</string>
     <string name="settings_category_risklevel">რისკის დონე</string>

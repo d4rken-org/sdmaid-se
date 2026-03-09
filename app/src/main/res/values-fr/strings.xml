@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">L\'enregistrement était très court. Les journaux de débogage sont des enregistrements, pas des instantanés — reproduisez le problème pendant que l\'enregistrement est actif pour que le journal soit utile.</string>
     <string name="debug_debuglog_short_recording_continue_action">Continuer l\'enregistrement</string>
     <string name="debug_debuglog_short_recording_stop_action">Arrêter quand même</string>
+    <string name="debug_debuglog_screen_failed_title">Session échouée</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Le fichier journal de débogage était vide. Essayez d\'enregistrer à nouveau et reproduisez le problème pendant l\'enregistrement.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Le fichier journal de débogage est manquant. L\'enregistrement a peut-être été interrompu.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">L\'archive compressée est corrompue. Essayez d\'enregistrer à nouveau.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">La compression a échoué. Vérifiez l\'espace de stockage disponible et réessayez.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Compression…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Échec : journal vide</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Échec : journal manquant</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Échec : archive corrompue</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Échec : erreur de compression</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Supprimer cette session de journal de débogage ?</string>
+    <string name="support_contact_post_send_message">Message envoyé avec succès ?</string>
+    <string name="debug_debuglog_sessions_stop_action">Arrêter</string>
     <string name="tasks_activity_notification_channel_label">Tâches actives</string>
     <string name="tasks_activity_working_notification_title">SD Maid travaille</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Résultats de la tâche</string>
     <string name="tasks_result_subtext">Résultat de la tâche</string>
+    <string name="tasks_timeout_error_label">La tâche a expiré</string>
+    <string name="tasks_timeout_error_desc">La tâche a pris trop de temps et a été arrêtée. Veuillez réessayer.</string>
     <string name="onboarding_welcome_title">Bienvenue</string>
     <string name="onboarding_welcome_body1">SD Maid SE gère les fichiers, les applis et la mémoire.</string>
     <string name="onboarding_welcome_body2">Libérez la mémoire de votre appareil en nettoyant derrière les autres applis. Supprimez les fichiers superflus et les données restantes.</string>

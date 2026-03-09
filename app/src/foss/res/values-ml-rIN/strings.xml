@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">വികസനം സ്പോൺസർ ചെയ്യുക</string>
     <string name="upgrade_screen_sponsor_action_hint">പരസ്യങ്ങൾ, അനലിറ്റിക്‌സ്, ഗൂഗിൾ പ്ലേ എന്നിവയാണ് ബദൽ🙁</string>
     <string name="upgrade_screen_thanks_toast">ഓപ്പൺ സോഴ്‌സ് വികസനത്തെ പിന്തുണച്ചതിന് നന്ദി ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">ഇതിനകം തിരിച്ചു വന്നോ? നിങ്ങളുടെ പിന്തുണ SD Maid നെ ജീവനോടെ നിലനിർത്തുന്നു!</string>
 </resources>

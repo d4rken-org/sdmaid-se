@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Хөгжлийг дэмжих</string>
     <string name="upgrade_screen_sponsor_action_hint">Өөр сонголт бол зар сурталчилгаа, шинжилгээ, Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Нээлттэй эхийн хөгжлийг дэмжсэнд баярлалаа ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Аль хэдийн буцаж ирлээ? Таны дэмжлэг SD Maid-ийг амьд байлгадаг!</string>
 </resources>

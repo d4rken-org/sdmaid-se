@@ -7,9 +7,9 @@
     <string name="slogan_message_3">ଯାହା ଆବଶ୍ୟକ ତାହା କରିବା।</string>
     <string name="slogan_message_4">କ୍ରମାଗତ ଭାବରେ ଆପଣଙ୍କର ସମସ୍ତ ବତକ।</string>
     <string name="slogan_message_5">ନିଷ୍କଳଙ୍କ।</string>
-    <string name="slogan_message_6">ବାଇଟ୍ସ୍, ଚାଲିଯାଅ!</string>
-    <string name="slogan_message_7">ମୁକ୍ତ ସ୍ଥାନ, ସନ୍ତୁଷ୍ଟ ସ୍ଥାନ।</string>
-    <string name="slogan_message_8">କେବେ ହାର ମାନିବନି।</string>
+    <string name="slogan_message_6">ବାଇଟ୍‌ସ୍, ପଳାଅ!</string>
+    <string name="slogan_message_7">ମୁକ୍ତ ସ୍ଥାନ, ସୁଖୀ ସ୍ଥାନ।</string>
+    <string name="slogan_message_8">ତୁମକୁ କେବେ ଛାଡ଼ିବୁ ନାହିଁ।</string>
     <string name="general_thank_you_label">ଆପଣଙ୍କୁ ଧନ୍ୟଵାଦ</string>
     <string name="general_error_type_mismatch_msg">ପ୍ରକାର ଅସମତା: %1$s ଚାହୁଁଥିଲା, କିନ୍ତୁ %2$s ପାଇଲା।</string>
     <string name="general_error_cant_access_msg">%s କୁ ପହଞ୍ଚିପାରିବ ନାହିଁ।</string>
@@ -86,6 +86,7 @@
     <string name="general_view_action">ଦେଖିବା</string>
     <string name="general_update_action">ଅଦ୍ୟତନ କରିବା</string>
     <string name="general_scan_action">ସ୍କେନ୍ କରିବା</string>
+    <string name="general_close_action">ବନ୍ଦ କରନ୍ତୁ</string>
     <string name="general_delete_action">ବିଲୋପ କର</string>
     <string name="general_delete_selected_action">ମନୋନୀତ ବିଲୋପ କରିବା</string>
     <string name="general_show_details_action">ବିବରଣୀ ଦେଖାଅ</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">ଡିଵାଇସ୍</string>
     <string name="general_settings_title">ସେଟିଂ</string>
     <string name="general_help_title">ସହାୟତା</string>
+    <string name="general_hints_label">ସୂଚନା</string>
     <string name="file_type_symbolic_link">ଲିଙ୍କ୍</string>
     <string name="file_type_directory">ଡାଇରେକ୍ଟୋରୀ</string>
     <string name="file_type_file">ଫାଇଲ୍</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ଇତିହାସ</string>
     <string name="settings_category_tools_label">ଉପକରଣଗୁଡ଼ିକ</string>
-    <string name="general_hints_label">ସୂଚନା</string>
     <string name="settings_category_filter_generic">ସାଧାରଣ ଫିଲ୍ଟର</string>
     <string name="settings_category_filter_specific">ନିର୍ଦ୍ଦିଷ୍ଟ ଫିଲ୍ଟର</string>
     <string name="settings_category_risklevel">ବିପଦ ସ୍ତର</string>

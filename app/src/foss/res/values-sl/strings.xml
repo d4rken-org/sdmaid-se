@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Podpri razvoj</string>
     <string name="upgrade_screen_sponsor_action_hint">Druga možnost so oglasi, analitika in Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Hvala, ker podpirate odprtokodni razvoj. ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Že nazaj? Vaša podpora ohranja SD Maid pri življenju!</string>
 </resources>

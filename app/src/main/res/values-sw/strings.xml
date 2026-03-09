@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Rekodi ilikuwa fupi sana. Kumbukumbu za utatuzi ni rekodi, si picha za wakati fulani — rudia tatizo wakati rekodi inaendelea ili kumbukumbu iwe na manufaa.</string>
     <string name="debug_debuglog_short_recording_continue_action">Endelea kurekodi</string>
     <string name="debug_debuglog_short_recording_stop_action">Simama hata hivyo</string>
+    <string name="debug_debuglog_screen_failed_title">Kikao Kimeshindwa</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Faili ya kumbukumbu ya utatuzi ilikuwa tupu. Jaribu kurekodi tena na uzalishe tatizo wakati wa kurekodi.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Faili ya kumbukumbu ya utatuzi haipo. Urekodi unaweza kuwa ulikatizwa.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Akiba iliyosindikwa imeharibiwa. Jaribu kurekodi tena.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Usindikaji umeshindwa. Angalia nafasi ya hifadhi inayopatikana na ujaribu tena.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Inasindika…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Imeshindwa: kumbukumbu tupu</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Imeshindwa: kumbukumbu haipo</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Imeshindwa: akiba iliyoharibiwa</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Imeshindwa: hitilafu ya usindikaji</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Futa kikao hiki cha kumbukumbu ya utatuzi?</string>
+    <string name="support_contact_post_send_message">Ujumbe ulitumwa kwa mafanikio?</string>
+    <string name="debug_debuglog_sessions_stop_action">Simama</string>
     <string name="tasks_activity_notification_channel_label">Kazi zinazofanya kazi</string>
     <string name="tasks_activity_working_notification_title">SD Maid inafanya kazi</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Matokeo ya kazi</string>
     <string name="tasks_result_subtext">Tokeo la kazi</string>
+    <string name="tasks_timeout_error_label">Kazi ilimaliza muda</string>
+    <string name="tasks_timeout_error_desc">Kazi ilichukua muda mrefu sana na ilisimamishwa. Tafadhali jaribu tena.</string>
     <string name="onboarding_welcome_title">Karibu</string>
     <string name="onboarding_welcome_body1">SD Maid SE inasimamia mafaili, programu na hifadhi.</string>
     <string name="onboarding_welcome_body2">Pata nafasi ya kuhifadhi kwa kusafisha nyuma ya programu nyingine. Futa mafaili yanayoweza kutumika na ondoa data iliyobaki.</string>

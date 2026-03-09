@@ -30,6 +30,19 @@
     <string name="debug_debuglog_short_recording_desc">Nahrávanie bolo veľmi krátke. Denníky ladenia sú nahrávky, nie snímky — reprodukujte problém počas aktívneho nahrávania, aby bol záznam užitočný.</string>
     <string name="debug_debuglog_short_recording_continue_action">Pokračovať v nahrávaní</string>
     <string name="debug_debuglog_short_recording_stop_action">Zastaviť aj tak</string>
+    <string name="debug_debuglog_screen_failed_title">Relácia zlyhala</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Súbor denníka ladenia bol prázdny. Skúste nahrávanie zopakovať a znova vyvolajte problém počas nahrávania.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Súbor denníka ladenia chýba. Nahrávanie mohlo byť prerušené.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Komprimovaný archív je poškodený. Skúste nahrávanie zopakovať.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Komprimovanie zlyhalo. Skontrolujte dostupné úložisko a skúste znova.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Komprimovanie…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Zlyhanie: prázdny denník</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Zlyhanie: chýbajúci denník</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Zlyhanie: poškodený archív</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Zlyhanie: chyba komprimácie</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Odstrániť túto reláciu denníka ladenia?</string>
+    <string name="support_contact_post_send_message">Správa bola úspešne odoslaná?</string>
+    <string name="debug_debuglog_sessions_stop_action">Zastaviť</string>
     <string name="tasks_activity_notification_channel_label">Aktívne úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -46,6 +59,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Výsledky úlohy</string>
     <string name="tasks_result_subtext">Výsledok úlohy</string>
+    <string name="tasks_timeout_error_label">Časový limit úlohy vypršal</string>
+    <string name="tasks_timeout_error_desc">Úloha trvala príliš dlho a bola zastavená. Skúste to znova.</string>
     <string name="onboarding_welcome_title">Vitajte</string>
     <string name="onboarding_welcome_body1">SD Maid SE spravuje súbory, aplikácie a úložisko.</string>
     <string name="onboarding_welcome_body2">Získajte úložný priestor čistením po iných aplikáciách. Vymažte nepotrebné súbory a odstráňte zvyšné údaje.</string>

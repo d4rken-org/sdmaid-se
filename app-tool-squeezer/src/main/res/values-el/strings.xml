@@ -37,8 +37,8 @@
     <string name="squeezer_type_webp_description">Συμπερίληψη εικόνων WebP (.webp).</string>
     <string name="squeezer_skip_compressed_title">Παράλειψη ήδη συμπιεσμένων</string>
     <string name="squeezer_skip_compressed_description">Παράλειψη εικόνων που έχουν ήδη συμπιεστεί από το SD Maid.</string>
-    <string name="squeezer_exif_marker_title">Εγγραφή σημαδιού EXIF</string>
-    <string name="squeezer_exif_marker_description">Προσθήκη σημαδιού στο πεδίο σχολίων χρήστη EXIF της εικόνας για αποτροπή επανασυμπίεσης ακόμα και αν εκκαθαριστεί το ιστορικό συμπίεσης.</string>
+    <string name="squeezer_exif_marker_title">Εγγραφή δείκτη EXIF</string>
+    <string name="squeezer_exif_marker_description">Προσάρτηση ενός δείκτη στο πεδίο σχολίων χρήστη EXIF της εικόνας για την αποτροπή επανασυμπίεσης ακόμη και αν εκκαθαριστεί το ιστορικό συμπίεσης.</string>
     <string name="squeezer_estimated_savings_format">~%s εξοικονόμηση</string>
     <string name="squeezer_no_savings_expected">Περιορισμένη εξοικονόμηση</string>
     <string name="squeezer_current_size_format">Μέγεθος: %s</string>

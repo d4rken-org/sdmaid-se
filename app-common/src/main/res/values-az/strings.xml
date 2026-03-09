@@ -86,6 +86,7 @@
     <string name="general_view_action">Baxış</string>
     <string name="general_update_action">Yenilə</string>
     <string name="general_scan_action">Skan</string>
+    <string name="general_close_action">Bağla</string>
     <string name="general_delete_action">Sil</string>
     <string name="general_delete_selected_action">Seçilənləri sil</string>
     <string name="general_show_details_action">Təfərrüatları göstər</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Cihaz</string>
     <string name="general_settings_title">Parametrlər</string>
     <string name="general_help_title">Kömək</string>
+    <string name="general_hints_label">Bildiriş</string>
     <string name="file_type_symbolic_link">Bağlantı</string>
     <string name="file_type_directory">Qovluq</string>
     <string name="file_type_file">Fayl</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Sürüşdürücü</string>
     <string name="stats_label">Tarix</string>
     <string name="settings_category_tools_label">Alətlər</string>
-    <string name="general_hints_label">Bildiriş</string>
     <string name="settings_category_filter_generic">Ümumi filter</string>
     <string name="settings_category_filter_specific">Xüsusi filter</string>
     <string name="settings_category_risklevel">Risk səviyyəsi</string>

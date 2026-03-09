@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Styrkja þróun</string>
     <string name="upgrade_screen_sponsor_action_hint">Valkosturinn eru auglýsingar, greiningar og Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Takk fyrir að styðja opinn hugbúnaðarþróun ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">Kominn aftur? Stuðningur þinn heldur SD Maid lifandi!</string>
 </resources>

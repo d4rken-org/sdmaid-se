@@ -85,6 +85,7 @@
     <string name="general_view_action">មើល</string>
     <string name="general_update_action">អាប់ដេត</string>
     <string name="general_scan_action">ស្គែន</string>
+    <string name="general_close_action">បិទ</string>
     <string name="general_delete_action">លុប</string>
     <string name="general_delete_selected_action">លុបធាតុដែលបានរើស</string>
     <string name="general_show_details_action">បង្ហាញព័ត៌មានលម្អិត</string>
@@ -136,6 +137,7 @@
     <string name="general_device_label">ឧបករណ៍</string>
     <string name="general_settings_title">ការកំណត់</string>
     <string name="general_help_title">ជំនួយ</string>
+    <string name="general_hints_label">សេចក្តីជូនដំណឹង</string>
     <string name="file_type_symbolic_link">បញ្ជាប់</string>
     <string name="file_type_directory">ថត</string>
     <string name="file_type_file">ឯកសារ</string>
@@ -179,11 +181,10 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">ប្រវត្តិ</string>
     <string name="settings_category_tools_label">ឧបករណ៍</string>
-    <string name="general_hints_label">កំណត់</string>
-    <string name="settings_category_filter_generic">តម្រង ទូទៅ</string>
-    <string name="settings_category_filter_specific">តម្រង ដែលមានលក្ខណៈវិសេស</string>
+    <string name="settings_category_filter_generic">តម្រងទូទៅ</string>
+    <string name="settings_category_filter_specific">តម្រងជាក់លាក់</string>
     <string name="settings_category_risklevel">កម្រិតហានិភ័យ</string>
     <string name="settings_category_filter">តម្រង</string>
     <string name="appcontrol_systemsettings_open_title">បង្ហាញការកំណត់</string>
-    <string name="systemcleaner_customfilter_create_action">បង្កើតប័ណ័តសកម្មត្រងបញ្ជា</string>
+    <string name="systemcleaner_customfilter_create_action">បង្កើតតម្រងផ្ទាល់ខ្លួន</string>
 </resources>

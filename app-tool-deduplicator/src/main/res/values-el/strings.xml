@@ -44,7 +44,7 @@
     <string name="deduplicator_matches_exact_label">Ακριβή αντίγραφα</string>
     <string name="deduplicator_matches_similar_label">Παρόμοια αρχεία</string>
     <string name="deduplicator_arbiter_title">Στρατηγική διαγραφής</string>
-    <string name="deduplicator_arbiter_summary">Ρύθμιση ποια αρχεία διατηρούνται και ποια διαγράφονται.</string>
+    <string name="deduplicator_arbiter_summary">Ρυθμίστε ποια αρχεία διατηρούνται και ποια διαγράφονται.</string>
     <string name="deduplicator_arbiter_explanation">Κατά τη διαγραφή διπλότυπων, το SD Maid αποφασίζει ποιο αρχείο θα διατηρήσει ελέγχοντας κάθε κριτήριο με τη σειρά. Το πρώτο κριτήριο που δίνει σαφή νικητή καθορίζει το αποτέλεσμα. Σύρετε για αναδιάταξη, πατήστε για αλλαγή λειτουργίας.</string>
     <string name="deduplicator_arbiter_select_mode_title">Λειτουργία επιλογής</string>
     <string name="deduplicator_arbiter_configure_paths_action">Ρύθμιση διαδρομών…</string>

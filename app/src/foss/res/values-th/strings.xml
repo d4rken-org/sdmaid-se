@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">สปอนเซอร์การพัฒนา</string>
     <string name="upgrade_screen_sponsor_action_hint">ทางเลือกคือโฆษณา การวิเคราะห์ และ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ขอบคุณสำหรับการสนับสนุนการพัฒนาโอเพ่นซอร์ส ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">กลับมาแล้วเหรอ? การสนับสนุนของคุณช่วยให้ SD Maid อยู่รอด!</string>
 </resources>

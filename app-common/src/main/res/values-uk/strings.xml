@@ -37,12 +37,12 @@
     <string name="general_manage_action">Керування</string>
     <string name="general_sync_action">Синхронізувати</string>
     <string name="general_error_label">Помилка</string>
-    <string name="general_tap_hint_msg">Торкніться, щоб переглянути додаткові параметри</string>
-    <string name="general_upgrade_action">Покращити</string>
+    <string name="general_tap_hint_msg">Натисніть, щоб переглянути додаткові опції</string>
+    <string name="general_upgrade_action">Оновити</string>
     <string name="general_donate_action">Пожертвувати</string>
     <string name="general_check_action">Перевірити</string>
     <string name="general_filter_action">Фільтр</string>
-    <string name="general_internal_not_available_msg">Підключення до Інтернету недоступне</string>
+    <string name="general_internal_not_available_msg">Немає доступу до Інтернету</string>
     <string name="general_refresh_action">Оновити</string>
     <string name="general_progress_searching">Пошук</string>
     <string name="general_progress_generating_searchpaths">Створення шляхів пошуку</string>
@@ -68,13 +68,13 @@
     <string name="general_progress_loading_egg_13">Принаймні ви не на очікуванні</string>
     <string name="general_help_action">Допомога</string>
     <string name="general_continue">Продовжити</string>
-    <string name="general_progress_queued">В черзі</string>
+    <string name="general_progress_queued">У черзі</string>
     <string name="general_progress_deleting">Видалення</string>
     <string name="general_progress_deleting_x">Видалення %s</string>
     <string name="general_sort_options_label">Параметри сортування</string>
     <string name="general_sort_reverse_action">Зворотне сортування</string>
     <string name="general_tag_filter_label">Фільтрувати за тегами</string>
-    <string name="general_tag_system">Системна</string>
+    <string name="general_tag_system">Система</string>
     <string name="general_result_success_message">Операція успішна</string>
     <string name="general_result_failure_message">Операція не вдалася</string>
     <plurals name="general_result_x_space_freed">
@@ -83,11 +83,12 @@
         <item quantity="many">Звільніть %s місця.</item>
         <item quantity="other">Звільніть %s місця.</item>
     </plurals>
-    <string name="general_options_label">Параметри</string>
+    <string name="general_options_label">Опції</string>
     <string name="general_details_label">Подробиці</string>
     <string name="general_view_action">Дивитися</string>
-    <string name="general_update_action">Оновити</string>
+    <string name="general_update_action">Оновлення</string>
     <string name="general_scan_action">Сканувати</string>
+    <string name="general_close_action">Закрити</string>
     <string name="general_delete_action">Видалити</string>
     <string name="general_delete_selected_action">Видалити вибране</string>
     <string name="general_show_details_action">Показати подробиці</string>
@@ -119,7 +120,7 @@
     <string name="general_root_required_message">Потрібен рутований пристрій</string>
     <string name="general_search_action">Пошук</string>
     <string name="general_scan_device_action">Сканувати пристрій</string>
-    <string name="general_open_system_settings_action">Відкрийте налаштування системи</string>
+    <string name="general_open_system_settings_action">Відкрити системні налаштування</string>
     <plurals name="result_x_items">
         <item quantity="one">%s елемент</item>
         <item quantity="few">%s елементів</item>
@@ -160,6 +161,7 @@
     <string name="general_device_label">Пристрій</string>
     <string name="general_settings_title">Налаштування</string>
     <string name="general_help_title">Допомога</string>
+    <string name="general_hints_label">Примітка</string>
     <string name="file_type_symbolic_link">Посилання</string>
     <string name="file_type_directory">Каталог</string>
     <string name="file_type_file">Файл</string>
@@ -189,13 +191,13 @@
     <string name="general_error_invalid_input_label">Невірне введення</string>
     <string name="general_information_for_the_developer">Інформація для розробника</string>
     <string name="general_error_report_bug_action">Повідомити про помилку</string>
-    <string name="general_error_ipc_deadobject_title">Сервісне з’єднання втрачено</string>
+    <string name="general_error_ipc_deadobject_title">З’єднання з сервісом втрачено</string>
     <string name="general_error_ipc_deadobject_description">Несподівано було втрачено зв\'язок з критично важливою службою (наприклад, Magisk, Shizuku або іншими службами системного рівня). Будь ласка, перезавантажте пристрій. Якщо проблема не зникне, перевірте наявність оновлень або зв\'яжіться зі мною, щоб я міг її виправити.</string>
     <string name="general_user_label_owner">Власник</string>
     <string name="general_user_label_system">Система</string>
     <string name="setup_title">Налаштування</string>
     <string name="setup_feature_requires_additional_setup_x">Ця функція вимагає виконання додаткових елементів налаштування: %s</string>
-    <string name="upgrade_feature_requires_pro">Потрібна Pro-версія</string>
+    <string name="upgrade_feature_requires_pro">Потрібна версія Pro</string>
     <string name="general_include_multiuser_label">Включити інших користувачів</string>
     <string name="general_include_multiuser_summary">Включити додатки з інших профілів користувачів на цьому пристрої.</string>
     <string name="general_unsaved_confirmation_message">Ви маєте незбережені зміни!</string>
@@ -215,7 +217,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Історія</string>
     <string name="settings_category_tools_label">Інструменти</string>
-    <string name="general_hints_label">Примітка</string>
     <string name="settings_category_filter_generic">Загальний фільтр</string>
     <string name="settings_category_filter_specific">Спеціальний фільтр</string>
     <string name="settings_category_risklevel">Рівень ризику</string>

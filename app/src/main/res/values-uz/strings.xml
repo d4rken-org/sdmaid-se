@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Yozuv juda qisqa bo\'ldi. Debug jurnallari — bu yozuvlar, emas rasmlar — jurnal foydali bo\'lishi uchun yozuv faol bo\'lganida muammoni takrorlang.</string>
     <string name="debug_debuglog_short_recording_continue_action">Yozuvni davom ettirish</string>
     <string name="debug_debuglog_short_recording_stop_action">Baribir to\'xtatish</string>
+    <string name="debug_debuglog_screen_failed_title">Sessiya muvaffaqiyatsiz yakunlandi</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Debug jurnal fayli bo\'sh edi. Qayta yozishga harakat qiling va muammoni yozish jarayonida takrorlang.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Debug jurnal fayli topilmadi. Yozish to\'xtatilgan bo\'lishi mumkin.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Siqilgan arxiv buzilgan. Qayta yozishga harakat qiling.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Siqish muvaffaqiyatsiz yakunlandi. Mavjud xotirani tekshiring va qayta urinib ko\'ring.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Siqilmoqda…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Muvaffaqiyatsiz: bo\'sh jurnal</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Muvaffaqiyatsiz: jurnal yo\'q</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Muvaffaqiyatsiz: buzilgan arxiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Muvaffaqiyatsiz: siqish xatosi</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Ushbu debug jurnal seansini o\'chirib tashlamoqchimisiz?</string>
+    <string name="support_contact_post_send_message">Xabar muvaffaqiyatli yuborildi?</string>
+    <string name="debug_debuglog_sessions_stop_action">To\'xtatish</string>
     <string name="tasks_activity_notification_channel_label">Faol vazifalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid ishlayapti</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Vazifa natijalari</string>
     <string name="tasks_result_subtext">Vazifa natijasi</string>
+    <string name="tasks_timeout_error_label">Vazifa vaqti tugadi</string>
+    <string name="tasks_timeout_error_desc">Vazifa juda ko\'p vaqt oldi va to\'xtatildi. Iltimos, qayta urinib ko\'ring.</string>
     <string name="onboarding_welcome_title">Xush kelibsiz</string>
     <string name="onboarding_welcome_body1">SD Maid SE fayllar, ilovalar va xotirani boshqaradi.</string>
     <string name="onboarding_welcome_body2">Boshqa ilovalar ortidagi axlatni tozalash orqali xotira joyini bo\'shating. Keraksiz fayllarni o\'chiring va qolgan ma\'lumotlarni olib tashlang.</string>

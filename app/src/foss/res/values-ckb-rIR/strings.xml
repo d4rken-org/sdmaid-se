@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">سپۆنسەریکردنی پەرەپێدان</string>
     <string name="upgrade_screen_sponsor_action_hint">بژاردەی دیکە بریتین لە ڕێکلام، شیکاری و گوگڵ پلەی 🙁</string>
     <string name="upgrade_screen_thanks_toast">سوپاس بۆ پشتگیریکردنی پەرەپێدانی سەرچاوە کراوە ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">زووتت گەڕایەوە؟ پشتیوانیت SD Maid زیندوو دەهێڵێتەوە!</string>
 </resources>

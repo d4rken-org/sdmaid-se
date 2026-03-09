@@ -6,8 +6,8 @@
         <item quantity="other">%d ଚିତ୍ରଗୁଡିକ ମିଳିଲା</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
-        <item quantity="one">~%s ସଞ୍ଚୟ ହୋଇପାରେ</item>
-        <item quantity="other">~%s ସଞ୍ଚୟ ହୋଇପାରେ</item>
+        <item quantity="one">~%s ସଞ୍ଚୟ କରିହେବ</item>
+        <item quantity="other">~%s ସଞ୍ଚୟ କରିହେବ</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
         <item quantity="one">%d ଚିତ୍ର ସଙ୍କୋଚିତ</item>

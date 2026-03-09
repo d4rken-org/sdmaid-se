@@ -140,4 +140,21 @@
     <string name="swiper_help_message">সিদ্ধান্ত নিতে প্রতিটি ফাইল সোয়াইপ করুন:\n\n← বামে সোয়াইপ: %1$s\n→ ডানে সোয়াইপ: %2$s\n↑ উপরে সোয়াইপ: এড়িয়ে যান\n↓ নিচে সোয়াইপ: পূর্বাবস্থা (প্রথম সোয়াইপের পর)\n\nআপনি নিচের বোতামগুলিও ব্যবহার করতে পারেন।\n\nশেষ হলে, আপনার সব সিদ্ধান্ত দেখতে \"পর্যালোচনা\" ট্যাপ করুন। পর্যালোচনা স্ক্রিনে নিশ্চিত না করা পর্যন্ত কিছুই মুছে ফেলা হবে না।</string>
     <string name="swiper_gesture_overlay_dismiss_action">বুঝেছি</string>
     <string name="swiper_help_action">সহায়তা</string>
+    <string name="swiper_file_type_filter_title">শুধুমাত্র এই ফাইল ধরনগুলো দেখান</string>
+    <string name="swiper_file_type_filter_hint">আপনি যে ধরনগুলো দেখতে চান তা চেক করুন। যদি কোনোটি চেক না করা থাকে, সমস্ত ফাইল দেখানো হবে।</string>
+    <string name="swiper_file_type_category_images">ছবি</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ভিডিও</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">অডিও</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">ডকুমেন্ট</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">আর্কাইভ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">প্রয়োগ করুন</string>
+    <string name="swiper_session_filter_action">ফাইল ফিল্টার করুন</string>
+    <string name="swiper_file_type_filter_summary">ফিল্টার করা হয়েছে: %1$s</string>
+    <string name="swiper_session_no_matching_files">কোনো মিলসম্পন্ন ফাইল পাওয়া যায়নি</string>
+    <string name="swiper_open_externally_action">বাহ্যিক অ্যাপে খুলুন</string>
 </resources>

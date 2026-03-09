@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="picker_select_paths_title">Pasirinkti kelius</string>
+    <string name="picker_selected_paths_title">Pasirinkti keliai</string>
+    <string name="picker_unsaved_confirmation_message">Atmesti pakeitimus?</string>
+    <plurals name="picker_selected_paths_subtitle">
+        <item quantity="one">Pasirinktas %d kelias</item>
+        <item quantity="few">Pasirinkti %d keliai</item>
+        <item quantity="many">%d kelių pasirinkta</item>
+        <item quantity="other">Pasirinkta %d kelių</item>
+    </plurals>
+    <string name="picker_home_action">Duomenų sritys</string>
+</resources>

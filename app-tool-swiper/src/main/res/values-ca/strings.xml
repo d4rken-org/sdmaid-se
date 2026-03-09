@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Llisqueu cada fitxer per prendre una decisió:\n\n← Llisca a l\'esquerra: %1$s\n→ Llisca a la dreta: %2$s\n↑ Llisca amunt: Omet\n↓ Llisca avall: Desfés (després del primer lliscament)\n\nTambé podeu usar els botons de la part inferior.\n\nQuan hàgiu acabat, toqueu «Revisa» per veure totes les decisions. No se suprimeix res fins que ho confirmeu a la pantalla de revisió.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entesos</string>
     <string name="swiper_help_action">Ajuda</string>
+    <string name="swiper_file_type_filter_title">Mostra només aquests tipus de fitxers</string>
+    <string name="swiper_file_type_filter_hint">Marqueu els tipus que voleu veure. Si no n\'hi ha cap de marcat, es mostren tots els fitxers.</string>
+    <string name="swiper_file_type_category_images">Imatges</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Vídeos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Àudio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documents</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Fitxers comprimits</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Aplica</string>
+    <string name="swiper_session_filter_action">Filtra fitxers</string>
+    <string name="swiper_file_type_filter_summary">Filtrat: %1$s</string>
+    <string name="swiper_session_no_matching_files">No s\'han trobat fitxers coincidents</string>
+    <string name="swiper_open_externally_action">Obre en una aplicació externa</string>
 </resources>

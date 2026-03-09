@@ -155,4 +155,21 @@
 जब तपाइँ सकिनुहुन्छ, आफ्ना सबै निर्णयहरू हेर्न \"समीक्षा\" ट्याप गर्नुहोस्। समीक्षा स्क्रिनमा तपाइँले पुष्टि नगरेसम्म केही मेटाइँदैन।</string>
     <string name="swiper_gesture_overlay_dismiss_action">बुझे</string>
     <string name="swiper_help_action">मद्दत</string>
+    <string name="swiper_file_type_filter_title">यी फाइल प्रकारहरू मात्र देखाउनुहोस्</string>
+    <string name="swiper_file_type_filter_hint">तपाईं हेर्न चाहनुभएका प्रकारहरू जाँच गर्नुहोस्। यदि कुनै पनि जाँच गरिएको छैन भने, सबै फाइलहरू देखाइन्छन्।</string>
+    <string name="swiper_file_type_category_images">तस्बिरहरू</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">भिडियोहरू</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">अडियो</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">कागजातहरू</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">संग्रहणहरू</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">लागू गर्नुहोस्</string>
+    <string name="swiper_session_filter_action">फाइलहरू फिल्टर गर्नुहोस्</string>
+    <string name="swiper_file_type_filter_summary">फिल्टर गरिएको: %1$s</string>
+    <string name="swiper_session_no_matching_files">मिल्दो फाइलहरू फेला परेनन्</string>
+    <string name="swiper_open_externally_action">बाह्य एपमा खोल्नुहोस्</string>
 </resources>

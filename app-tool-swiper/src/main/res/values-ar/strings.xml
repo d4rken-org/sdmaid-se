@@ -208,4 +208,21 @@
     <string name="swiper_help_message">مرر كل ملف لاتخاذ قرار:\n\n← مرر لليسار: %1$s\n→ مرر لليمين: %2$s\n↑ مرر للأعلى: تخطَّ\n↓ مرر للأسفل: تراجع (بعد أول تمريرة)\n\nيمكنك أيضًا استخدام الأزرار في الأسفل.\n\nعند الانتهاء، انقر على \"مراجعة\" لرؤية جميع قراراتك. لن يتم حذف أي شيء حتى تؤكد في شاشة المراجعة.</string>
     <string name="swiper_gesture_overlay_dismiss_action">عُلم</string>
     <string name="swiper_help_action">مساعدة</string>
+    <string name="swiper_file_type_filter_title">إظهار أنواع الملفات هذه فقط</string>
+    <string name="swiper_file_type_filter_hint">حدد الأنواع التي تريد رؤيتها. إذا لم يتم تحديد أي نوع، سيتم عرض جميع الملفات.</string>
+    <string name="swiper_file_type_category_images">الصور</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">الفيديوهات</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">الصوت</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">المستندات</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">الأرشيفات</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">تطبيق</string>
+    <string name="swiper_session_filter_action">تصفية الملفات</string>
+    <string name="swiper_file_type_filter_summary">تمت التصفية: %1$s</string>
+    <string name="swiper_session_no_matching_files">لم يتم العثور على ملفات مطابقة</string>
+    <string name="swiper_open_externally_action">فتح في تطبيق خارجي</string>
 </resources>

@@ -26,7 +26,7 @@
     <string name="swiper_review_action">مرور</string>
     <string name="swiper_status_title">بررسی تصمیم‌ها</string>
     <string name="swiper_status_action_keep_selected">حفظ انتخاب شده</string>
-    <string name="swiper_status_action_delete_selected">حذف انتخاب شده‌‌‌‌‌‌ها</string>
+    <string name="swiper_status_action_delete_selected">حذف انتخاب شده</string>
     <string name="swiper_status_action_reset_selected">بازنشانی انتخاب شده</string>
     <string name="swiper_decision_undecided">تصمیم‌نگرفته</string>
     <string name="swiper_retry_action">تلاش مجدد</string>
@@ -140,4 +140,21 @@
     <string name="swiper_help_message">هر فایل را بکشید تا تصمیم بگیرید:\n\n← کشیدن به چپ: %1$s\n→ کشیدن به راست: %2$s\n↑ کشیدن به بالا: رد شدن\n↓ کشیدن به پایین: بازگشت (پس از اولین کشیدن)\n\nهمچنین می‌توانید از دکمه‌های پایین استفاده کنید.\n\nوقتی کارتان تمام شد، روی \"بررسی\" ضربه بزنید تا همه تصمیم‌هایتان را ببینید. تا زمانی که در صفحه بررسی تأیید نکنید، هیچ چیز حذف نمی‌شود.</string>
     <string name="swiper_gesture_overlay_dismiss_action">فهمیدم</string>
     <string name="swiper_help_action">کمک</string>
+    <string name="swiper_file_type_filter_title">فقط این نوع‌های فایل را نشان بده</string>
+    <string name="swiper_file_type_filter_hint">نوع‌هایی که می‌خواهید ببینید را علامت بزنید. اگر هیچ‌کدام علامت‌زده نشده باشد، همه فایل‌ها نشان داده می‌شوند.</string>
+    <string name="swiper_file_type_category_images">تصاویر</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg، png، gif، webp، heic…</string>
+    <string name="swiper_file_type_category_videos">ویدیوها</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4، mkv، avi، mov، webm…</string>
+    <string name="swiper_file_type_category_audio">صوتی</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3، flac، aac، ogg، wav…</string>
+    <string name="swiper_file_type_category_documents">اسناد</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf، doc، xlsx، txt، epub…</string>
+    <string name="swiper_file_type_category_archives">آرشیوها</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip، rar، 7z، tar، apk…</string>
+    <string name="swiper_file_type_filter_apply_action">اعمال</string>
+    <string name="swiper_session_filter_action">فیلتر فایل‌ها</string>
+    <string name="swiper_file_type_filter_summary">فیلتر شده: %1$s</string>
+    <string name="swiper_session_no_matching_files">فایل مطابقی یافت نشد</string>
+    <string name="swiper_open_externally_action">باز کردن در برنامه خارجی</string>
 </resources>

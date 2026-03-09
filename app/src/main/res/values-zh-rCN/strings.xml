@@ -27,6 +27,19 @@
     <string name="debug_debuglog_short_recording_desc">录音时间非常短。调试日志是录制内容，而非快照——请在录制过程中重现问题，日志才能发挥作用。</string>
     <string name="debug_debuglog_short_recording_continue_action">继续录制</string>
     <string name="debug_debuglog_short_recording_stop_action">仍然停止</string>
+    <string name="debug_debuglog_screen_failed_title">会话失败</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">调试日志文件为空。请重新录制并在录制过程中复现问题。</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">调试日志文件丢失。录制可能已被中断。</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">压缩包已损坏。请重新录制。</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">压缩失败。请检查可用存储空间后重试。</string>
+    <string name="debug_debuglog_sessions_zipping_label">正在压缩…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">失败：日志为空</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">失败：日志丢失</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">失败：压缩包损坏</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">失败：压缩错误</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">删除此调试日志会话？</string>
+    <string name="support_contact_post_send_message">消息发送成功？</string>
+    <string name="debug_debuglog_sessions_stop_action">停止</string>
     <string name="tasks_activity_notification_channel_label">正在执行的操作</string>
     <string name="tasks_activity_working_notification_title">SD Maid 正在运行</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -37,6 +50,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">任务结果</string>
     <string name="tasks_result_subtext">任务结果</string>
+    <string name="tasks_timeout_error_label">任务超时</string>
+    <string name="tasks_timeout_error_desc">任务耗时过长，已被停止。请重试。</string>
     <string name="onboarding_welcome_title">欢迎</string>
     <string name="onboarding_welcome_body1">SD Maid SE 是一款管理文件、应用和存储空间的工具。</string>
     <string name="onboarding_welcome_body2">通过清理其他应用程序留下的垃圾文件和残留数据，来释放存储空间。</string>

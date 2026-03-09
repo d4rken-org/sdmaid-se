@@ -13,16 +13,19 @@
     <string name="general_thank_you_label">Ačiū</string>
     <string name="general_error_type_mismatch_msg">Tipo neatitikimas: norėjome %1$s, bet gavome %2$s.</string>
     <string name="general_error_cant_access_msg">Negalima pasiekti %s.</string>
-    <string name="general_error_root_unavailable">Šaknies prieiga nepasiekiama.</string>    <string name="general_error_no_compatible_app_found_msg">Nerasta suderinama programa šiam užklausai apdoroti.</string>
+    <string name="general_error_root_unavailable">Šaknies prieiga nepasiekiama.</string>
+    <string name="general_error_no_compatible_app_found_msg">Nerasta suderinama programa šiam užklausai apdoroti.</string>
     <string name="general_todo_msg">Ši funkcija dar kuriama ir šiuo metu nepasiekiama.</string>
     <string name="general_share_action">Dalintis</string>
     <string name="general_done_action">Atlikta</string>
     <string name="general_apply_action">Taikyti</string>
-    <string name="general_copy_action">Kopijuoti</string>    <string name="general_cancel_action">Atšaukti</string>
+    <string name="general_copy_action">Kopijuoti</string>
+    <string name="general_cancel_action">Atšaukti</string>
     <string name="general_discard_action">Atmesti</string>
     <string name="general_reset_action">Atstatyti</string>
     <string name="general_drag_handle_description">Vilkite, kad pertvarkytumėte</string>
-    <string name="general_save_action">Išsaugoti</string>    <string name="general_gotit_action">Supratau</string>
+    <string name="general_save_action">Išsaugoti</string>
+    <string name="general_gotit_action">Supratau</string>
     <string name="general_fix_action">Taisyti</string>
     <string name="general_set_up_action">Nustatyti</string>
     <string name="general_edit_action">Redaguoti</string>
@@ -71,6 +74,7 @@
     <string name="general_sort_options_label">Rūšiavimo parinktys</string>
     <string name="general_sort_reverse_action">Atvirkštinis rūšiavimo režimas</string>
     <string name="general_tag_filter_label">Filtruoti pagal žymes</string>
+    <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operacija sėkminga</string>
     <string name="general_result_failure_message">Operacija nepavyko</string>
     <plurals name="general_result_x_space_freed">
@@ -84,6 +88,7 @@
     <string name="general_view_action">Peržiūrėti</string>
     <string name="general_update_action">Atnaujinti</string>
     <string name="general_scan_action">Skenuoti</string>
+    <string name="general_close_action">Uždaryti</string>
     <string name="general_delete_action">Trinti</string>
     <string name="general_delete_selected_action">Trinti pažymėtus</string>
     <string name="general_show_details_action">Rodyti išsamiau</string>
@@ -156,6 +161,7 @@
     <string name="general_device_label">Įrenginys</string>
     <string name="general_settings_title">Nustatymai</string>
     <string name="general_help_title">Pagalba</string>
+    <string name="general_hints_label">Pastaba</string>
     <string name="file_type_symbolic_link">Nuoroda</string>
     <string name="file_type_directory">Katalogas</string>
     <string name="file_type_file">Failas</string>
@@ -191,17 +197,30 @@
     <string name="general_user_label_system">Sistema</string>
     <string name="setup_title">Nustatymai</string>
     <string name="setup_feature_requires_additional_setup_x">Šiai funkcijai reikia atlikti papildomus sąrankos elementus: %s</string>
-    <string name="corpsefinder_tool_name">CorpseFinder</string>
-    <string name="systemcleaner_tool_name">SystemCleaner</string>
-    <string name="appcleaner_tool_name">\"AppCleaner\"</string>
-    <string name="settings_category_tools_label">Įrankiai</string>
+    <string name="upgrade_feature_requires_pro">Reikia Pro</string>
     <string name="general_include_multiuser_label">Įtraukti kitus naudotojus</string>
     <string name="general_include_multiuser_summary">Įtraukti programas iš kitų naudotojų profilių šiame įrenginyje.</string>
     <string name="general_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
-    <string name="general_hints_label">Pranešimas</string>
+    <plurals name="exclusion_x_new_exclusions">
+        <item quantity="one">Vienas išėmimas sukurtas</item>
+        <item quantity="few">Sukurti %d išskyryriai</item>
+        <item quantity="many">Sukurta %d išskyrymų</item>
+        <item quantity="other">Sukurta %d išskyrimo</item>
+    </plurals>
+    <string name="corpsefinder_tool_name">CorpseFinder</string>
+    <string name="systemcleaner_tool_name">SystemCleaner</string>
+    <string name="appcleaner_tool_name">AppCleaner</string>
+    <string name="deduplicator_tool_name">Deduplicator</string>
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="appcontrol_tool_name">AppControl</string>
+    <string name="analyzer_tool_name">StorageAnalyzer</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="stats_label">Istorija</string>
+    <string name="settings_category_tools_label">Įrankiai</string>
     <string name="settings_category_filter_generic">Bendrasis filtras</string>
     <string name="settings_category_filter_specific">Specifinis filtras</string>
     <string name="settings_category_risklevel">Rizikos lygis</string>
     <string name="settings_category_filter">Filtras</string>
+    <string name="appcontrol_systemsettings_open_title">Rodyti nustatymus</string>
     <string name="systemcleaner_customfilter_create_action">Sukurti pasirinktinį filtrą</string>
 </resources>

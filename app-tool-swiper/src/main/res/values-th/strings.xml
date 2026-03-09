@@ -123,4 +123,21 @@
     <string name="swiper_help_message">ปัดไฟล์แต่ละรายการเพื่อตัดสินใจ:\n\n← ปัดซ้าย: %1$s\n→ ปัดขวา: %2$s\n↑ ปัดขึ้น: ข้าม\n↓ ปัดลง: เลิกทำ (หลังจากปัดครั้งแรก)\n\nคุณยังสามารถใช้ปุ่มด้านล่างได้\n\nเมื่อเสร็จแล้ว แตะ \"ตรวจสอบ\" เพื่อดูการตัดสินใจทั้งหมดของคุณ จะไม่มีอะไรถูกลบจนกว่าคุณจะยืนยันในหน้าตรวจสอบ</string>
     <string name="swiper_gesture_overlay_dismiss_action">เข้าใจแล้ว</string>
     <string name="swiper_help_action">ช่วยเหลือ</string>
+    <string name="swiper_file_type_filter_title">แสดงเฉพาะประเภทไฟล์เหล่านี้</string>
+    <string name="swiper_file_type_filter_hint">เลือกประเภทที่ต้องการดู หากไม่ได้เลือกประเภทใด จะแสดงไฟล์ทั้งหมด</string>
+    <string name="swiper_file_type_category_images">รูปภาพ</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">วิดีโอ</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">เสียง</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">เอกสาร</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">ไฟล์บีบอัด</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">ใช้งาน</string>
+    <string name="swiper_session_filter_action">กรองไฟล์</string>
+    <string name="swiper_file_type_filter_summary">กรองแล้ว: %1$s</string>
+    <string name="swiper_session_no_matching_files">ไม่พบไฟล์ที่ตรงกัน</string>
+    <string name="swiper_open_externally_action">เปิดในแอปภายนอก</string>
 </resources>

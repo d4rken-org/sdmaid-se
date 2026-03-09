@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Piga swaipu kwa kila faili ili kufanya uamuzi:\n\n← Piga swaipu kushoto: %1$s\n→ Piga swaipu kulia: %2$s\n↑ Piga swaipu juu: Ruka\n↓ Piga swaipu chini: Tendua (baada ya swaipu ya kwanza)\n\nUnaweza pia kutumia vitufe vilivyo chini.\n\nUkimaliza, gusa \"Kagua\" ili kuona maamuzi yako yote. Hakuna kinachofutwa hadi utakapothibitisha kwenye skrini ya ukaguzi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Nimeelewa</string>
     <string name="swiper_help_action">Msaada</string>
+    <string name="swiper_file_type_filter_title">Onyesha aina hizi za faili peke yake</string>
+    <string name="swiper_file_type_filter_hint">Angalia aina unazotaka kuona. Ikiwa hakuna iliyochaguliwa, faili zote zinaonyeshwa.</string>
+    <string name="swiper_file_type_category_images">Picha</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Sauti</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Hati</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Makala</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Tumia</string>
+    <string name="swiper_session_filter_action">Chuja faili</string>
+    <string name="swiper_file_type_filter_summary">Zilizochujwa: %1$s</string>
+    <string name="swiper_session_no_matching_files">Hakuna faili zinazofanana zilizopatikana</string>
+    <string name="swiper_open_externally_action">Fungua katika programu ya nje</string>
 </resources>

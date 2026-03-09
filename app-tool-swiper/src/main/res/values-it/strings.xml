@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Scorri ogni file per prendere una decisione:\n\n← Scorri a sinistra: %1$s\n→ Scorri a destra: %2$s\n↑ Scorri in alto: Salta\n↓ Scorri in basso: Annulla (dopo il primo scorrimento)\n\nPuoi anche usare i pulsanti in basso.\n\nQuando hai finito, tocca \"Revisione\" per vedere tutte le tue decisioni. Nulla viene eliminato finché non confermi nella schermata di revisione.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Fatto</string>
     <string name="swiper_help_action">Aiuto</string>
+    <string name="swiper_file_type_filter_title">Mostra solo questi tipi di file</string>
+    <string name="swiper_file_type_filter_hint">Seleziona i tipi che vuoi vedere. Se nessuno è selezionato, vengono mostrati tutti i file.</string>
+    <string name="swiper_file_type_category_images">Immagini</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documenti</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Archivi</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Applica</string>
+    <string name="swiper_session_filter_action">Filtra file</string>
+    <string name="swiper_file_type_filter_summary">Filtrati: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nessun file corrispondente trovato</string>
+    <string name="swiper_open_externally_action">Apri nell’app esterna</string>
 </resources>

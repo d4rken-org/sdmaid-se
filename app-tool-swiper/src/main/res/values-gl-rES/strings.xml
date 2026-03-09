@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Pasa o dedo en cada ficheiro para tomar unha decisión:\n\n← Pasar á esquerda: %1$s\n→ Pasar á dereita: %2$s\n↑ Pasar cara arriba: Saltar\n↓ Pasar cara abaixo: Desfacer (despois do primeiro xesto)\n\nTamén podes usar os botóns de abaixo.\n\nCando remates, toca \"Revisar\" para ver todas as túas decisións. Non se elimina nada ata que confirmes na pantalla de revisión.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Entendido</string>
     <string name="swiper_help_action">Axuda</string>
+    <string name="swiper_file_type_filter_title">Mostrar só estes tipos de ficheiro</string>
+    <string name="swiper_file_type_filter_hint">Marca os tipos que queres ver. Se non se marca ningún, móstranse todos os ficheiros.</string>
+    <string name="swiper_file_type_category_images">Imaxes</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Vídeos</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Documentos</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arquivos</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Aplicar</string>
+    <string name="swiper_session_filter_action">Filtrar ficheiros</string>
+    <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
+    <string name="swiper_session_no_matching_files">Non se atoparon ficheiros coincidentes</string>
+    <string name="swiper_open_externally_action">Abrir nunha aplicación externa</string>
 </resources>

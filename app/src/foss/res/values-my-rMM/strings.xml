@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">ဖွံ့ဖြိုးတိုးတက်မှုကို ကမကထပံ့ပိုးရန်</string>
     <string name="upgrade_screen_sponsor_action_hint">အခြားရွေးချယ်စရာမှာ ကြော်ငြာများ၊ ခွဲခြမ်းစိတ်ဖြာခြင်းနှင့် Google Play တို့ဖြစ်သည် 🙁</string>
     <string name="upgrade_screen_thanks_toast">ပွင့်လင်းရင်းမြစ် ဖွံ့ဖြိုးတိုးတက်မှုကို ပံ့ပိုးပေးသည့်အတွက် ကျေးဇူးတင်ပါသည် ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">ပြန်လာပြီးပြီလား။ သင်၏ပံ့ပိုးမှုသည် SD Maid ကို ရှင်သန်နေစေသည်!</string>
 </resources>

@@ -6,7 +6,7 @@
     </plurals>
     <plurals name="stats_dash_body_count">
         <item quantity="one">%s στοιχείο έχει επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
-        <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε τον SD Maid στη συσκευή σας.</item>
+        <item quantity="other">%s στοιχεία έχουν επεξεργαστεί από τη στιγμή που προσκαλέσατε το SD Maid στη συσκευή σας.</item>
     </plurals>
     <string name="stats_report_status_success">Επιτυχία</string>
     <string name="stats_report_status_partial_success">Μερική επιτυχία</string>

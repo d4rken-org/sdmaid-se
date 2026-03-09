@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Η εγγραφή ήταν πολύ σύντομη. Τα αρχεία καταγραφής εντοπισμού σφαλμάτων είναι εγγραφές, όχι στιγμιότυπα — αναπαράγετε το πρόβλημα ενώ η εγγραφή είναι ενεργή για να είναι χρήσιμο το αρχείο.</string>
     <string name="debug_debuglog_short_recording_continue_action">Συνέχεια εγγραφής</string>
     <string name="debug_debuglog_short_recording_stop_action">Διακοπή ούτως ή άλλως</string>
+    <string name="debug_debuglog_screen_failed_title">Η συνεδρία απέτυχε</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Το αρχείο καταγραφής αποσφαλμάτωσης ήταν κενό. Δοκιμάστε να εγγράψετε ξανά και αναπαράγετε το πρόβλημα κατά την εγγραφή.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Το αρχείο καταγραφής αποσφαλμάτωσης λείπει. Η εγγραφή μπορεί να έχει διακοπεί.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Το συμπιεσμένο αρχείο είναι κατεστραμμένο. Δοκιμάστε να εγγράψετε ξανά.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Η συμπίεση απέτυχε. Ελέγξτε τον διαθέσιμο χώρο αποθήκευσης και δοκιμάστε ξανά.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Συμπίεση…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Αποτυχία: κενό αρχείο καταγραφής</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Αποτυχία: αρχείο καταγραφής λείπει</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Αποτυχία: κατεστραμμένο αρχείο</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Αποτυχία: σφάλμα συμπίεσης</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Διαγραφή αυτής της συνεδρίας αρχείου καταγραφής αποσφαλμάτωσης;</string>
+    <string name="support_contact_post_send_message">Το μήνυμα εστάλη επιτυχώς;</string>
+    <string name="debug_debuglog_sessions_stop_action">Διακοπή</string>
     <string name="tasks_activity_notification_channel_label">Ενεργές διεργασίες</string>
     <string name="tasks_activity_working_notification_title">Η εφαρμογή SD Maid είναι απασχολημένη</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Αποτελέσματα διεργασιών</string>
     <string name="tasks_result_subtext">Αποτέλεσμα διεργασίας</string>
+    <string name="tasks_timeout_error_label">Η εργασία εξέπνευσε</string>
+    <string name="tasks_timeout_error_desc">Η εργασία διήρκεσε πολύ και διακόπηκε. Παρακαλώ δοκιμάστε ξανά.</string>
     <string name="onboarding_welcome_title">Καλώς ορίσατε</string>
     <string name="onboarding_welcome_body1">Το SD Maid SE διαχειρίζεται αρχεία, εφαρμογές και χώρο αποθήκευσης.</string>
     <string name="onboarding_welcome_body2">Αποκτήστε αποθηκευτικό χώρο με τον καθαρισμό άλλων εφαρμογών. Διαγράψτε τα άχρηστα αρχεία και αφαιρέστε τα δεδομένα που έχουν απομείνει.</string>
@@ -132,7 +147,7 @@
     <string name="support_contact_debuglog_label">Αρχείο καταγραφής σφαλμάτων</string>
     <string name="support_contact_debuglog_zip_error">Αποτυχία συμπίεσης αρχείου καταγραφής εντοπισμού σφαλμάτων</string>
     <string name="support_contact_debuglog_picker_hint">Επισυνάψτε ένα υπάρχον αρχείο καταγραφής εντοπισμού σφαλμάτων ή εγγράψτε ένα νέο.</string>
-    <string name="support_contact_debuglog_picker_empty">Δεν βρέθηκαν αρχεία καταγραφής εντοπισμού σφαλμάτων. Εγγράψτε ένα πρώτα.</string>
+    <string name="support_contact_debuglog_picker_empty">Δεν βρέθηκαν αρχεία καταγραφής σφαλμάτων. Καταγράψτε ένα πρώτα.</string>
     <string name="support_contact_send_action">Ανοίξτε εφαρμογή email</string>
     <string name="support_contact_no_email_app">Δεν βρέθηκε εφαρμογή email σε αυτή τη συσκευή.</string>
     <string name="changelog_label">Αρχείο αλλαγών</string>
@@ -197,7 +212,7 @@
     <string name="setup_acs_state_stopped_hint_miui">Εάν η υπηρεσία συνεχίζει να απενεργοποιείται μετά από λίγο, δοκιμάστε να ενεργοποιήσετε την επιλογή \"Αυτόματη εκκίνηση\" για το SD Maid στις ρυθμίσεις συστήματος.</string>
     <string name="setup_acs_consent_positive_action">Ενεργοποίηση υπηρεσίας και παραχώρηση πρόσβασης</string>
     <string name="setup_acs_consent_negative_action">Μη χρήση υπηρεσίας προσβασιμότητας</string>
-    <string name="setup_acs_allow_hint">Εάν δείτε ένα μικρό εικονίδιο στην άκρη της οθόνης, τότε ενεργοποιήσατε κατά λάθος την επιλογή \"συντόμευση\".</string>
+    <string name="setup_acs_allow_hint">Η συντόμευση ή το κουμπί πρόσβασης εγκεσιμότητας για το SD Maid SE είναι ενεργοποιημένη. Ανοίξτε τις Ρυθμίσεις Προσβασιμότητας της συσκευής σας και απενεργοποιήστε την επιλογή συντόμευσης/κουμπιού για να αποφύγετε το ανεπιθύμητο εικονίδιο στην άκρη της οθόνης.</string>
     <string name="setup_acs_disallow_hint">Εάν αλλάξετε γνώμη, μπορείτε να αλλάξετε ξανά αυτήν την επιλογή μεταβαίνοντας στις ρυθμίσεις και επανεκκινώντας την εγκατάσταση.</string>
     <string name="setup_acs_appops_restriction_title">Περιορισμένες ρυθμίσεις</string>
     <string name="setup_acs_appops_restriction_body">Δεν είναι δυνατή η ενεργοποίηση της υπηρεσίας προσβασιμότητας SD Maid; Το Android 13+ ενδέχεται να εφαρμόζει περιορισμούς σε εφαρμογές που δεν είναι εγκατεστημένες μέσω του Google Play. Καταργήστε αυτούς τους περιορισμούς από τη σελίδα λεπτομερειών του συστήματος για το SD Maid. Η επιλογή βρίσκεται στο μενού στην επάνω δεξιά γωνία.</string>

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="systemcleaner_explanation_short">Nereikalingi duomenys, kurie nepriklauso jokiai konkrečiai programėlei.</string>
+    <string name="systemcleaner_explanation_short">Nereikalingi duomenys, kurie nepriklauso jokiai konkrečiai programai.</string>
     <plurals name="systemcleaner_result_x_items_deleted">
-        <item quantity="one">%d atitikmuo ištrintas</item>
+        <item quantity="one">%d atitikimas ištrintas</item>
         <item quantity="few">%d atitikmenys ištrinti</item>
-        <item quantity="many">%d atitikmenų ištrinta</item>
+        <item quantity="many">%d atitikmens ištrinta</item>
         <item quantity="other">%d atitikmenų ištrinta</item>
     </plurals>
     <plurals name="systemcleaner_result_x_items_found">
@@ -97,12 +97,12 @@
     <string name="systemcleaner_customfilter_editor_size_label">Dydžių apribojimai</string>
     <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimalus dydis</string>
     <string name="systemcleaner_customfilter_editor_size_maximum_label">Maksimalus dydis</string>
-    <string name="systemcleaner_customfilter_editor_size_explanation">Apriboti atitikmenis pagal failo dydį. Palikite neprieštarautinai, kad atitiktų bet kokį dydį.</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Riboti atitikmenis pagal failo dydį. Laikykite nenustatytą, kad atitiktų bet kokį dydį.</string>
     <string name="systemcleaner_customfilter_editor_age_label">Amžiaus apribojimai</string>
-    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimalus amžius</string>
-    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maksimalus amžius</string>
-    <string name="systemcleaner_customfilter_editor_age_explanation">Apriboti atitikmenis pagal failo amžių (paskutinio pakeitimo laikas). Palikite neprieštarautinai, kad atitiktų bet kokį amžių.</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Mažiausias amžius</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Didžiausias amžius</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Riboti atitikmenis pagal failo amžių (paskutinio modifikavimo laiką). Laikykite nenustatytą, kad atitiktų bet kokio amžiaus.</string>
     <string name="systemcleaner_customfilter_import_action">Importuoti naują filtrą</string>
     <string name="systemcleaner_customfilter_export_action">Eksportuoti pasirinktą filtrą</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Jūs turite neišsaugotų pakeitimų!</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Turite neišsaugotų pakeitimų!</string>
 </resources>

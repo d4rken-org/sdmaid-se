@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Qərar vermək üçün hər faylı sürüşdürün:\n\n← Sola sürüşdürün: %1$s\n→ Sağa sürüşdürün: %2$s\n↑ Yuxarı sürüşdürün: Keç\n↓ Aşağı sürüşdürün: Geri al (ilk sürüşdürmədən sonra)\n\nAşağıdakı düymələrdən də istifadə edə bilərsiniz.\n\nBitirdikdə, bütün qərarlarınızı görmək üçün \"Baxış\" düyməsinə toxunun. Baxış ekranında təsdiqləyənə qədər heç nə silinmir.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Başa düşdüm</string>
     <string name="swiper_help_action">Kömək</string>
+    <string name="swiper_file_type_filter_title">Yalnız bu fayl növlərini göstər</string>
+    <string name="swiper_file_type_filter_hint">Görmək istədiyiniz növləri seçin. Heç biri seçilməyibsə, bütün fayllar göstərilir.</string>
+    <string name="swiper_file_type_category_images">Şəkillər</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videolar</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Sənədlər</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arxivlər</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Tətbiq et</string>
+    <string name="swiper_session_filter_action">Faylları filtrele</string>
+    <string name="swiper_file_type_filter_summary">Filtrləndi: %1$s</string>
+    <string name="swiper_session_no_matching_files">Uyğun fayl tapılmadı</string>
+    <string name="swiper_open_externally_action">Xərici tətbibdə aç</string>
 </resources>

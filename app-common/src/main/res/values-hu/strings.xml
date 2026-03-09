@@ -86,6 +86,7 @@
     <string name="general_view_action">Megtekintés</string>
     <string name="general_update_action">Frissítés</string>
     <string name="general_scan_action">Vizsgálás</string>
+    <string name="general_close_action">Bezár</string>
     <string name="general_delete_action">Törlés</string>
     <string name="general_delete_selected_action">Kijelöltek törlése</string>
     <string name="general_show_details_action">Részletek mutatása</string>
@@ -149,6 +150,7 @@
     <string name="general_device_label">Eszköz</string>
     <string name="general_settings_title">Beállítások</string>
     <string name="general_help_title">Segítség</string>
+    <string name="general_hints_label">Értesítés</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Könyvtár</string>
     <string name="file_type_file">Fájl</string>
@@ -196,7 +198,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Előzmények</string>
     <string name="settings_category_tools_label">Eszközök</string>
-    <string name="general_hints_label">Értesítés</string>
     <string name="settings_category_filter_generic">Általános szűrő</string>
     <string name="settings_category_filter_specific">Specifikus szűrő</string>
     <string name="settings_category_risklevel">Kockázati szint</string>

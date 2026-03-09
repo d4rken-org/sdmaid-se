@@ -140,4 +140,21 @@
     <string name="swiper_help_message">فیصلہ کرنے کے لیے ہر فائل سوائپ کریں:\n\n← بائیں سوائپ کریں: %1$s\n→ دائیں سوائپ کریں: %2$s\n↑ اوپر سوائپ کریں: چھوڑیں\n↓ نیچے سوائپ کریں: واپس (پہلے سوائپ کے بعد)\n\nآپ نیچے کے بٹن بھی استعمال کر سکتے ہیں۔\n\nجب آپ مکمل کر لیں، اپنے تمام فیصلے دیکھنے کے لیے \"جائزہ\" پر ٹیپ کریں۔ جائزہ اسکرین پر تصدیق کرنے تک کچھ بھی حذف نہیں ہوتا۔</string>
     <string name="swiper_gesture_overlay_dismiss_action">سمجھ گیا</string>
     <string name="swiper_help_action">مدد</string>
+    <string name="swiper_file_type_filter_title">صرف یہ فائل کی اقسام دکھائیں</string>
+    <string name="swiper_file_type_filter_hint">وہ اقسام چیک کریں جو آپ دیکھنا چاہتے ہیں۔ اگر کوئی چیک نہیں ہے، تمام فائلیں دکھائی جاتی ہیں۔</string>
+    <string name="swiper_file_type_category_images">تصاویر</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">ویڈیوز</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">آڈیو</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">دستاویزات</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">آرکائیوز</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">لاگو کریں</string>
+    <string name="swiper_session_filter_action">فائلیں فلٹر کریں</string>
+    <string name="swiper_file_type_filter_summary">فلٹر شدہ: %1$s</string>
+    <string name="swiper_session_no_matching_files">کوئی مماثل فائلیں نہیں ملیں</string>
+    <string name="swiper_open_externally_action">بیرونی ایپ میں کھولیں</string>
 </resources>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="swiper_label">Swiper</string>
-    <string name="swiper_tool_description">Ātri kārtŋ mapes — veļciet failus, lai saglabātu, dzēstu vai izlaistu.</string>
+    <string name="swiper_tool_description">Declutter folders fast — swipe through files to keep, delete, or skip.</string>
     <string name="swiper_dashcard_description">Ātri sākārtojiet konkrētas mapes ātrāk nekā failu pārlūkprogrammā — vienkopši veiciet faila veikumu.</string>
     <string name="swiper_start_action">Sākt velkšanu</string>
     <string name="swiper_continue_action">Turpināt sesiju</string>
@@ -166,4 +166,21 @@ Varat arī izmantot pogas apakšā.
 Kad esat pabeidzis, pieskarieties \"Pārskatīt\", lai redzētu visus lēmumus. Nekas netiks dzēsts, kamēr neapstiprināsiet pārskata ekrānā.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Sapratu</string>
     <string name="swiper_help_action">Palīdzība</string>
+    <string name="swiper_file_type_filter_title">Rādīt tikai šos failu tipus</string>
+    <string name="swiper_file_type_filter_hint">Atzīmējiet tipus, kurus vēlaties redzēt. Ja neviens nav atzīmēts, tiek rādīti visi faili.</string>
+    <string name="swiper_file_type_category_images">Attēli</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Dokumenti</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arhīvi</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Lietot</string>
+    <string name="swiper_session_filter_action">Filtrēt failus</string>
+    <string name="swiper_file_type_filter_summary">Filtrēts: %1$s</string>
+    <string name="swiper_session_no_matching_files">Nav atrasts neviens atbilstošs fails</string>
+    <string name="swiper_open_externally_action">Atvērt ārējā lietotne</string>
 </resources>

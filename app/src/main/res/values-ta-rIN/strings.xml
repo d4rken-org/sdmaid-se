@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">பதிவு மிகவும் குறுகியதாக இருந்தது. பிழை பதிவுகள் பதிவுகளாகும், ஸ்னாப்ஷாட்கள் அல்ல — பதிவு செயலில் இருக்கும்போது சிக்கலை மீண்டும் உருவாக்கவும், இல்லையெனில் பதிவு பயனுள்ளதாக இருக்காது.</string>
     <string name="debug_debuglog_short_recording_continue_action">பதிவை தொடரவும்</string>
     <string name="debug_debuglog_short_recording_stop_action">எப்படியும் நிறுத்தவும்</string>
+    <string name="debug_debuglog_screen_failed_title">அமர்வு தோல்வியடைந்தது</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">பிழைத்திருத்த பதிவு கோப்பு காலியாக இருந்தது. மீண்டும் பதிவு செய்ய முயற்சிக்கவும், பதிவு செய்யும் போது சிக்கலை மீண்டும் உருவாக்கவும்.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">பிழைத்திருத்த பதிவு கோப்பு காணவில்லை. பதிவு குறுக்கிடப்பட்டிருக்கலாம்.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">சுருக்கப்பட்ட காப்பகம் சிதைந்துள்ளது. மீண்டும் பதிவு செய்ய முயற்சிக்கவும்.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">சுருக்கம் தோல்வியடைந்தது. கிடைக்கும் சேமிப்பிடத்தை சரிபார்த்து மீண்டும் முயற்சிக்கவும்.</string>
+    <string name="debug_debuglog_sessions_zipping_label">சுருக்குகிறது…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">தோல்வி: காலி பதிவு</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">தோல்வி: காணாத பதிவு</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">தோல்வி: சிதைந்த காப்பகம்</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">தோல்வி: சுருக்க பிழை</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">இந்த பிழைத்திருத்த பதிவு அமர்வை நீக்கவா?</string>
+    <string name="support_contact_post_send_message">செய்தி வெற்றிகரமாக அனுப்பப்பட்டதா?</string>
+    <string name="debug_debuglog_sessions_stop_action">நிறுத்து</string>
     <string name="tasks_activity_notification_channel_label">செயலில் உள்ள பணிகள்</string>
     <string name="tasks_activity_working_notification_title">SD Maid வேலை செய்கிறது</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">பணி முடிவுகள்</string>
     <string name="tasks_result_subtext">பணி முடிவு</string>
+    <string name="tasks_timeout_error_label">பணி நேர வரம்பு மீறியது</string>
+    <string name="tasks_timeout_error_desc">பணி மிக நீண்ட நேரம் எடுத்தது மற்றும் நிறுத்தப்பட்டது. மீண்டும் முயற்சிக்கவும்.</string>
     <string name="onboarding_welcome_title">வரவேற்கிறோம்</string>
     <string name="onboarding_welcome_body1">SD Maid SE கோப்புகள், பயன்பாடுகள் மற்றும் சேமிப்பகத்தை நிர்வகிக்கிறது.</string>
     <string name="onboarding_welcome_body2">மற்ற பயன்பாடுகளின் பின்னால் சுத்தம் செய்வதன் மூலம் சேமிப்பக இடத்தைப் பெறுங்கள். செலவிடக்கூடிய கோப்புகளை நீக்கி மீதமுள்ள தரவை அகற்றவும்.</string>

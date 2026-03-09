@@ -28,6 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Opptaket var veldig kort. Feilsøkingslogger er opptak, ikke øyeblikksbilder — reproduser problemet mens opptaket er aktivt for at loggen skal være nyttig.</string>
     <string name="debug_debuglog_short_recording_continue_action">Fortsett opptak</string>
     <string name="debug_debuglog_short_recording_stop_action">Stopp uansett</string>
+    <string name="debug_debuglog_screen_failed_title">Økt mislyktes</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Feilsøkingsloggfilen var tom. Prøv å ta opp igjen og reproduser problemet under opptak.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Feilsøkingsloggfilen mangler. Opptaket kan ha blitt avbrutt.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Det komprimerte arkivet er ødelagt. Prøv å ta opp igjen.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Komprimering mislyktes. Kontroller tilgjengelig lagringsplass og prøv igjen.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Komprimerer…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Mislyktes: tom logg</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Mislyktes: manglende logg</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Mislyktes: ødelagt arkiv</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Mislyktes: komprimeringsfeil</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Slette denne feilsøkingsloggøkten?</string>
+    <string name="support_contact_post_send_message">Ble meldingen sendt?</string>
+    <string name="debug_debuglog_sessions_stop_action">Stopp</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -40,6 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Oppgaveresultater</string>
     <string name="tasks_result_subtext">Oppgaveresultat</string>
+    <string name="tasks_timeout_error_label">Oppgaven fikk tidsavbrudd</string>
+    <string name="tasks_timeout_error_desc">Oppgaven tok for lang tid og ble stoppet. Prøv igjen.</string>
     <string name="onboarding_welcome_title">Velkommen</string>
     <string name="onboarding_welcome_body1">SD Maid SE behandler filer, apper og lagring.</string>
     <string name="onboarding_welcome_body2">Få lagringsplass ved å rydde opp bak andre apper. Slett unødvendige filer og fjern datarester.</string>

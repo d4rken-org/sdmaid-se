@@ -140,4 +140,21 @@
     <string name="swiper_help_message">Qaror qabul qilish uchun har bir faylni suring:\n\n← Chapga suring: %1$s\n→ O\'ngga suring: %2$s\n↑ Yuqoriga suring: O\'tkazish\n↓ Pastga suring: Qaytarish (birinchi surishdan keyin)\n\nSiz pastdagi tugmalardan ham foydalanishingiz mumkin.\n\nTugatganingizda, barcha qarorlaringizni ko\'rish uchun \"Ko\'rib chiqish\" ni bosing. Ko\'rib chiqish ekranida tasdiqlaguningizcha hech narsa o\'chirilmaydi.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Tushundim</string>
     <string name="swiper_help_action">Yordam</string>
+    <string name="swiper_file_type_filter_title">Faqat shu fayl turlarini ko\'rsatish</string>
+    <string name="swiper_file_type_filter_hint">Ko\'rmoqchi bo\'lgan turlarni belgilang. Hech biri belgilanmagan bo\'lsa, barcha fayllar ko\'rsatiladi.</string>
+    <string name="swiper_file_type_category_images">Rasmlar</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Videolar</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Audio</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Hujjatlar</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Arxivlar</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Qo\'llash</string>
+    <string name="swiper_session_filter_action">Fayllarni filtrlash</string>
+    <string name="swiper_file_type_filter_summary">Filtrlangan: %1$s</string>
+    <string name="swiper_session_no_matching_files">Mos keladigan fayllar topilmadi</string>
+    <string name="swiper_open_externally_action">Tashqi ilovada ochish</string>
 </resources>

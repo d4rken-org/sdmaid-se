@@ -15,4 +15,5 @@
     <string name="upgrade_screen_sponsor_action">ສະໜັບສະໜູນການພັດທະນາ</string>
     <string name="upgrade_screen_sponsor_action_hint">ທາງເລືອກແມ່ນໂຄສະນາ, ການວິເຄາະ ແລະ Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">ຂອບໃຈສໍາລັບການສະໜັບສະໜູນການພັດທະນາແຫຼ່ງເປີດ ❤️</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">ກັບມາແລ້ວບໍ? ການສະໜັບສະໜູນຂອງທ່ານຮັກສາ SD Maid ໃຫ້ມີຊີວິດຢູ່!</string>
 </resources>

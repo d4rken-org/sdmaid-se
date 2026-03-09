@@ -86,6 +86,7 @@
     <string name="general_view_action">Se</string>
     <string name="general_update_action">Oppdater</string>
     <string name="general_scan_action">Skann</string>
+    <string name="general_close_action">Lukk</string>
     <string name="general_delete_action">Slett</string>
     <string name="general_delete_selected_action">Slett valgte</string>
     <string name="general_show_details_action">Vis detaljer</string>
@@ -144,6 +145,7 @@
     <string name="general_device_label">Enhet</string>
     <string name="general_settings_title">Innstillinger</string>
     <string name="general_help_title">Hjelp</string>
+    <string name="general_hints_label">Merk</string>
     <string name="file_type_symbolic_link">Link</string>
     <string name="file_type_directory">Mappe</string>
     <string name="file_type_file">Fil</string>
@@ -191,7 +193,6 @@
     <string name="swiper_tool_name">Swiper</string>
     <string name="stats_label">Historie</string>
     <string name="settings_category_tools_label">Verktøy</string>
-    <string name="general_hints_label">Merk</string>
     <string name="settings_category_filter_generic">Generelt filter</string>
     <string name="settings_category_filter_specific">Spesifikt filter</string>
     <string name="settings_category_risklevel">Risikonivå</string>

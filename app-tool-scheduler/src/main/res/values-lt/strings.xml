@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="scheduler_label">Planuotuvas</string>
+    <string name="scheduler_execution_label">Kitas vykdymas (apytikriai)</string>
+    <string name="scheduler_execution_last_label">Paskutinis vykdymas</string>
+    <string name="scheduler_settings_label">Planuotuvas</string>
+    <string name="scheduler_settings_summary">Koreguoti planuotuvo nustatymus.</string>
+    <string name="scheduler_new_schedule_action">Sukurti tvarkaraoďdį</string>
+    <string name="scheduler_schedule_name_label">Tvarkaraočio pavadinimas</string>
+    <string name="scheduler_schedule_toggle_enabled">Tvarkaraočis įjungtas</string>
+    <string name="scheduler_schedule_toggle_disabled">Tvarkaraočis išjungtas</string>
+    <string name="scheduler_edit_schedule_action">Redaguoti tvarkaraoďdį</string>
+    <string name="scheduler_schedule_time_label">Apytikslis laikas</string>
+    <string name="scheduler_schedule_repeat_label">Kartojimo intervalas dienomis</string>
+    <string name="scheduler_schedule_default_name">Numatytasis tvarkaraočis</string>
+    <string name="scheduler_current_schedule_x_at_x">%1$s apie %2$s</string>
+    <string name="scheduler_schedule_next_at_x">Planuojama %s</string>
+    <string name="scheduler_schedule_last_at_x">Paskutinis vykdymas %s</string>
+    <plurals name="scheduler_schedule_repeat_x_days">
+        <item quantity="one">Kasdien</item>
+        <item quantity="few">Kas %d dienas</item>
+        <item quantity="many">Kas %d dienų</item>
+        <item quantity="other">Kas %d dienų</item>
+    </plurals>
+    <string name="scheduler_schedule_repeat_interval">Kartojimo intervalas</string>
+    <string name="scheduler_inaccurate_execution_hint">Numatomi vykdymo laikai yra apytikslių. Tvarkaraočių vykdymas gali būti atidedamas arba paspartinamas, jei tai taupo akumulatorų.</string>
+    <string name="scheduler_no_active_schedules_subtitle">Nėra aktyvaus tvarkaraočų</string>
+    <string name="scheduler_setting_nopowersaving_title">Praleisti, kai akumuliatorius žemas</string>
+    <string name="scheduler_setting_nopowersaving_summary">Jei įrenginys veikia energijos taupymo režimu, planuojamas vykdymas bus praleistas.</string>
+    <string name="scheduler_setting_charging_title">Praleisti, kai nekraunama</string>
+    <string name="scheduler_setting_charging_summary">Jei įrenginys nekraunamas, planuojamas vykdymas bus praleistas.</string>
+    <string name="scheduler_setting_automation_title">Prieunamumo paslauga</string>
+    <string name="scheduler_setting_automation_summary">Įtraukti veiksmus, naudojančius prieigamumo tarnybą. Tam reikia, kad SD Maid galėtų sąveikauti su jūsų ekranu (t. y. jis turėtų būti atrakinta) vykdant užduotis.</string>
+    <string name="scheduler_notification_channel_label">Planuotuvas</string>
+    <string name="scheduler_notification_title">Planuojama užduotis</string>
+    <string name="scheduler_notification_message">Vykdoma: „%s“</string>
+    <string name="scheduler_notification_result_title">Planuotuvas baigė</string>
+    <string name="scheduler_notification_result_success_message">Visos planuotos užduotys įvykdytos sėkmingai.</string>
+    <string name="scheduler_notification_result_failure_message">Kai kurios planuotos užduotys nepavyko arba susidarė klaidų. Pabandykite jas vykdyti rankiniu būdu.</string>
+    <string name="scheduler_commands_after_schedule_label">Komandos po tvarkaraočės</string>
+    <string name="scheduler_commands_after_schedule_desc">Android apvalkalo komandos, kurios bus įvykdytos tvarkaraočės pabaigoje.</string>
+    <string name="scheduler_battery_optimization_hint">Svarstykite išjungti akumuliatoriaus optimizavimą SD Maid, jei patiriate problemų su foniniu vykdymu.</string>
+</resources>

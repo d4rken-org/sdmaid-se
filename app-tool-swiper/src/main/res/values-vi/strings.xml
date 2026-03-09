@@ -123,4 +123,21 @@
     <string name="swiper_help_message">Vuốt từng tệp để đưa ra quyết định:\n\n← Vuốt sang trái: %1$s\n→ Vuốt sang phải: %2$s\n↑ Vuốt lên: Bỏ qua\n↓ Vuốt xuống: Hoàn tác (sau lần vuốt đầu tiên)\n\nBạn cũng có thể sử dụng các nút ở phía dưới.\n\nKhi hoàn tất, nhấn \"Xem lại\" để xem tất cả quyết định của bạn. Không có gì bị xóa cho đến khi bạn xác nhận trên màn hình xem lại.</string>
     <string name="swiper_gesture_overlay_dismiss_action">Đã hiểu</string>
     <string name="swiper_help_action">Trợ giúp</string>
+    <string name="swiper_file_type_filter_title">Chỉ hiển thị các loại tệp này</string>
+    <string name="swiper_file_type_filter_hint">Chọn các loại bạn muốn xem. Nếu không có loại nào được chọn, tất cả các tệp sẽ được hiển thị.</string>
+    <string name="swiper_file_type_category_images">Hình ảnh</string>
+    <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
+    <string name="swiper_file_type_category_videos">Video</string>
+    <string name="swiper_file_type_category_videos_subtitle">mp4, mkv, avi, mov, webm…</string>
+    <string name="swiper_file_type_category_audio">Âm thanh</string>
+    <string name="swiper_file_type_category_audio_subtitle">mp3, flac, aac, ogg, wav…</string>
+    <string name="swiper_file_type_category_documents">Tài liệu</string>
+    <string name="swiper_file_type_category_documents_subtitle">pdf, doc, xlsx, txt, epub…</string>
+    <string name="swiper_file_type_category_archives">Lưu trữ</string>
+    <string name="swiper_file_type_category_archives_subtitle">zip, rar, 7z, tar, apk…</string>
+    <string name="swiper_file_type_filter_apply_action">Áp dụng</string>
+    <string name="swiper_session_filter_action">Lọc tệp</string>
+    <string name="swiper_file_type_filter_summary">Đã lọc: %1$s</string>
+    <string name="swiper_session_no_matching_files">Không tìm thấy tệp phù hợp</string>
+    <string name="swiper_open_externally_action">Mở trong ứng dụng bên ngoài</string>
 </resources>
