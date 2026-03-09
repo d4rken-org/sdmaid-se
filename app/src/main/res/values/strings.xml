@@ -39,6 +39,7 @@
     <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Failed: corrupt archive</string>
     <string name="debug_debuglog_sessions_failed_zip_error_label">Failed: compression error</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Delete this debug log session?</string>
+    <string name="support_contact_post_send_message">Message sent successfully?</string>
     <string name="debug_debuglog_sessions_stop_action">Stop</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>

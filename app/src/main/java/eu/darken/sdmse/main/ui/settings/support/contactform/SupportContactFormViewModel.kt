@@ -38,6 +38,9 @@ class SupportContactFormViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider) {
 
     val events = SingleLiveEvent<SupportContactFormEvents>()
+    val postSendPromptEvent = SingleLiveEvent<Unit>()
+    @Volatile
+    private var pendingSendCheck = false
 
     private val currentState = DynamicStateFlow(TAG, vmScope) {
         handle.get<State>(KEY_STATE) ?: State()
@@ -185,6 +188,12 @@ class SupportContactFormViewModel @Inject constructor(
         pendingSessionId.value = result.sessionId
     }
 
+    fun checkPendingSend() {
+        if (!pendingSendCheck) return
+        pendingSendCheck = false
+        postSendPromptEvent.postValue(Unit)
+    }
+
     fun send() = launch {
         val pickerState = logPickerState.value ?: return@launch
         if (pickerState.isRecording) return@launch
@@ -245,6 +254,7 @@ class SupportContactFormViewModel @Inject constructor(
             )
 
             val intent = emailTool.build(email, offerChooser = true)
+            pendingSendCheck = true
             events.postValue(SupportContactFormEvents.OpenEmail(intent))
         } finally {
             updateState { copy(isSending = false) }
