@@ -20,7 +20,7 @@
     <string name="debug_debuglog_screen_session_path_label">セッションパス</string>
     <string name="debug_debuglog_screen_log_files_label">ログファイル</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="other">%1$d つのファイルが準備完了 (%2$s)</item>
+        <item quantity="other">%1$d つのファイルが準備完了 (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">この機能はアプリが行っているすべてのことを共有可能なファイルに記録します。生成されたファイルには機密情報（ファイル名やインストール済みアプリなど）が含まれています。信頼できる相手（問題をトラブルシューティングしている開発者など）とのみ共有してください。</string>
     <string name="debug_debuglog_short_recording_title">非常に短い録音</string>

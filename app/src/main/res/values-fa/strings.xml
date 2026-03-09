@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">مسیر نشست</string>
     <string name="debug_debuglog_screen_log_files_label">فايل گزارشات</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d پرونده آماده (%2$s) · %3$s</item>
+        <item quantity="other">%1$d پرونده آماده (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">این ویژگی هر کاری را که برنامه انجام می دهد در یک فایل قابل اشتراک گذاری ثبت می کند. فایل تولید شده حاوی اطلاعات حساس است (مانند نام فایل ها و برنامه های نصب شده). آن را فقط با اشخاص مورد اعتماد به اشتراک بگذارید (مثلاً برنامه‌نویسی که در حال عیب‌یابی یک مشکل است).</string>
     <string name="debug_debuglog_short_recording_title">ضبط بسیار کوتاه</string>
