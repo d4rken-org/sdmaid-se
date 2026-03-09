@@ -12,6 +12,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
@@ -78,7 +79,7 @@ class DebugLogSessionsDialog : BottomSheetDialogFragment2() {
         super.onViewCreated(view, savedInstanceState)
     }
 
-    private fun confirmDelete(sessionId: String) {
+    private fun confirmDelete(sessionId: SessionId) {
         MaterialAlertDialogBuilder(requireContext()).apply {
             setMessage(R.string.debug_debuglog_sessions_delete_confirmation_message)
             setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->

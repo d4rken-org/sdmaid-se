@@ -11,12 +11,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.StandardTestDispatcher
-import kotlinx.coroutines.test.advanceUntilIdle
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Nested
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import java.io.File
@@ -24,7 +23,7 @@ import java.io.File
 @OptIn(ExperimentalCoroutinesApi::class)
 class DebugLogSessionManagerTest : BaseTest() {
 
-    private lateinit var testDir: File
+    @TempDir lateinit var testDir: File
     private lateinit var logParent: File
     private lateinit var recorderModule: RecorderModule
     private lateinit var debugLogZipper: DebugLogZipper
@@ -32,10 +31,6 @@ class DebugLogSessionManagerTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        testDir = File(IO_TEST_BASEDIR, "DebugLogSessionManagerTest").apply {
-            deleteRecursively()
-            mkdirs()
-        }
         logParent = File(testDir, "logs").apply { mkdirs() }
 
         recorderState = MutableStateFlow(RecorderModule.State())
@@ -45,11 +40,6 @@ class DebugLogSessionManagerTest : BaseTest() {
             coEvery { getCurrentLogDir() } returns null
         }
         debugLogZipper = mockk()
-    }
-
-    @AfterEach
-    fun cleanup() {
-        testDir.deleteRecursively()
     }
 
     private fun createSessionDir(name: String, coreLogContent: String? = "log content"): File {
@@ -80,6 +70,9 @@ class DebugLogSessionManagerTest : BaseTest() {
         }
     }
 
+    /** Derive session ID consistent with how the manager does it */
+    private fun sessionId(name: String): SessionId = SessionId("ext:$name")
+
     @Nested
     inner class ScanSessions {
 
@@ -95,7 +88,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             sessions shouldHaveSize 1
             val session = sessions.first()
             session.shouldBeInstanceOf<DebugLogSession.Finished>()
-            session.id shouldBe "session1"
+            session.id shouldBe sessionId("session1")
             session.compressedSize shouldBe 100L
         }
 
@@ -238,7 +231,7 @@ class DebugLogSessionManagerTest : BaseTest() {
 
             sessions shouldHaveSize 1
             sessions.first().shouldBeInstanceOf<DebugLogSession.Finished>()
-            sessions.first().id shouldBe "session1"
+            sessions.first().id shouldBe sessionId("session1")
         }
 
         @Test
@@ -263,6 +256,89 @@ class DebugLogSessionManagerTest : BaseTest() {
     }
 
     @Nested
+    inner class SessionIdDerivation {
+
+        @Test
+        fun `directory derives ext prefix`() {
+            val dir = File(logParent, "my_session").apply { mkdirs() }
+            SessionId.derive(dir) shouldBe SessionId("ext:my_session")
+        }
+
+        @Test
+        fun `zip file derives ext prefix without extension`() {
+            val zip = File(logParent, "my_session.zip").apply { createNewFile() }
+            SessionId.derive(zip) shouldBe SessionId("ext:my_session")
+        }
+
+        @Test
+        fun `cache path derives cache prefix`() {
+            val cacheParent = File(testDir, "cache/debug/logs").apply { mkdirs() }
+            val dir = File(cacheParent, "my_session").apply { mkdirs() }
+            SessionId.derive(dir) shouldBe SessionId("cache:my_session")
+        }
+
+        @Test
+        fun `baseName strips prefix`() {
+            SessionId("ext:my_session").baseName shouldBe "my_session"
+            SessionId("cache:my_session").baseName shouldBe "my_session"
+        }
+
+        @Test
+        fun `location returns prefix`() {
+            SessionId("ext:my_session").location shouldBe "ext"
+            SessionId("cache:my_session").location shouldBe "cache"
+        }
+    }
+
+    @Nested
+    inner class FindOrphans {
+
+        @Test
+        fun `finds orphan Zipping sessions`() {
+            createSessionDir("session1", coreLogContent = "data")
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet())
+
+            orphans shouldHaveSize 1
+            orphans.first().first shouldBe sessionId("session1")
+        }
+
+        @Test
+        fun `excludes sessions already being zipped`() {
+            createSessionDir("session1", coreLogContent = "data")
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            val orphans = DebugLogSessionManager.findOrphans(sessions, setOf(sessionId("session1")), emptySet())
+
+            orphans shouldHaveSize 0
+        }
+
+        @Test
+        fun `excludes sessions in pendingAutoZips`() {
+            createSessionDir("session1", coreLogContent = "data")
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), setOf(sessionId("session1")))
+
+            orphans shouldHaveSize 0
+        }
+
+        @Test
+        fun `does not find Finished or Failed sessions`() {
+            createSessionDir("session1")
+            createZipFile("session1")
+            createSessionDir("session2", coreLogContent = null)
+
+            val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
+
+            val orphans = DebugLogSessionManager.findOrphans(sessions, emptySet(), emptySet())
+
+            orphans shouldHaveSize 0
+        }
+    }
+
+    @Nested
     inner class SortOrder {
 
         @Test
@@ -278,32 +354,10 @@ class DebugLogSessionManagerTest : BaseTest() {
             val sessions = DebugLogSessionManager.scanSessions(listOf(logParent), null)
 
             sessions shouldHaveSize 3
-            val ids = sessions.map { it.id }
+            val ids = sessions.map { it.id.value }
             ids shouldBe ids.sortedWith(
-                compareByDescending<String> { sessions.find { s -> s.id == it }!!.createdAt }.thenBy { it }
+                compareByDescending<String> { sessions.find { s -> s.id.value == it }!!.createdAt }.thenBy { it }
             )
-        }
-    }
-
-    @Nested
-    inner class DeriveSessionId {
-
-        @Test
-        fun `directory returns name`() {
-            val dir = File(logParent, "my_session").apply { mkdirs() }
-            DebugLogSessionManager.deriveSessionId(dir) shouldBe "my_session"
-        }
-
-        @Test
-        fun `zip file returns name without extension`() {
-            val zip = File(logParent, "my_session.zip").apply { createNewFile() }
-            DebugLogSessionManager.deriveSessionId(zip) shouldBe "my_session"
-        }
-
-        @Test
-        fun `non-zip file returns name without extension`() {
-            val file = File(logParent, "my_session.txt").apply { createNewFile() }
-            DebugLogSessionManager.deriveSessionId(file) shouldBe "my_session"
         }
     }
 
@@ -391,7 +445,7 @@ class DebugLogSessionManagerTest : BaseTest() {
                 error("unreachable")
             }
             coEvery { recorderModule.requestStopRecorder() } returns RecorderModule.StopResult.Stopped(
-                sessionId = "session2",
+                sessionId = sessionId("session2"),
                 logDir = newDir,
             )
 
@@ -400,7 +454,7 @@ class DebugLogSessionManagerTest : BaseTest() {
 
             // Attempt delete while zipping — should throw
             shouldThrow<IllegalArgumentException> {
-                manager.delete("session2")
+                manager.delete(sessionId("session2"))
             }
 
             // Session dir should still exist
@@ -417,7 +471,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
 
             shouldThrow<IllegalArgumentException> {
-                manager.delete("session1")
+                manager.delete(sessionId("session1"))
             }
         }
     }
@@ -433,7 +487,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             val testDispatcher = StandardTestDispatcher(testScheduler)
             val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
 
-            val result = manager.zipSession("session1")
+            val result = manager.zipSession(sessionId("session1"))
             result shouldBe zip
         }
 
@@ -449,7 +503,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             val testDispatcher = StandardTestDispatcher(testScheduler)
             val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
 
-            val result = manager.zipSession("session1")
+            val result = manager.zipSession(sessionId("session1"))
             result.exists() shouldBe true
             result.extension shouldBe "zip"
         }
@@ -464,7 +518,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
 
             shouldThrow<IllegalArgumentException> {
-                manager.zipSession("session1")
+                manager.zipSession(sessionId("session1"))
             }
         }
 
@@ -474,7 +528,7 @@ class DebugLogSessionManagerTest : BaseTest() {
             val manager = DebugLogSessionManager(backgroundScope, TestDispatcherProvider(testDispatcher), recorderModule, debugLogZipper)
 
             shouldThrow<IllegalArgumentException> {
-                manager.zipSession("nonexistent")
+                manager.zipSession(sessionId("nonexistent"))
             }
         }
     }

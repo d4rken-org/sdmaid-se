@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
@@ -37,8 +38,10 @@ class RecorderViewModel @Inject constructor(
     private val sessionManager: DebugLogSessionManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val sessionId = handle.get<String>(RecorderActivity.EXTRA_SESSION_ID)
-        ?: throw IllegalStateException("No session ID provided")
+    private val sessionId = SessionId(
+        handle.get<String>(RecorderActivity.EXTRA_SESSION_ID)
+            ?: throw IllegalStateException("No session ID provided")
+    )
 
     private val stater = DynamicStateFlow(TAG, vmScope) { State() }
     val state = stater.asLiveData2()

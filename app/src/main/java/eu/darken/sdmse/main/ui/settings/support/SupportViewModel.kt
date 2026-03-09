@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
@@ -81,7 +82,7 @@ class SupportViewModel @Inject constructor(
         launchRecorderActivity(result.sessionId)
     }
 
-    private fun launchRecorderActivity(sessionId: String) {
+    private fun launchRecorderActivity(sessionId: SessionId) {
         val intent = RecorderActivity.getLaunchIntent(context, sessionId).apply {
             addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         }

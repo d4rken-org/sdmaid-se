@@ -19,6 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
 import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.lists.differ.update
@@ -188,7 +189,7 @@ class SupportContactFormFragment : Fragment3(R.layout.support_contact_form_fragm
         ui.debugLogCard.isVisible = state?.isBug == true
     }
 
-    private fun confirmDeleteLogSession(sessionId: String) {
+    private fun confirmDeleteLogSession(sessionId: SessionId) {
         MaterialAlertDialogBuilder(requireContext()).apply {
             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
             setMessage(getString(eu.darken.sdmse.common.R.string.general_delete_confirmation_message_x, sessionId))

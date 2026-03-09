@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -44,8 +45,8 @@ class SupportContactFormViewModel @Inject constructor(
 
     val state = currentState.asLiveData2()
 
-    private val selectedSessionId = MutableStateFlow<String?>(null)
-    private val pendingSessionId = MutableStateFlow<String?>(null)
+    private val selectedSessionId = MutableStateFlow<SessionId?>(null)
+    private val pendingSessionId = MutableStateFlow<SessionId?>(null)
 
     init {
         // Auto-select: when a pending session finishes zipping, select it
@@ -99,11 +100,11 @@ class SupportContactFormViewModel @Inject constructor(
         val isRecording: Boolean = false,
         val isZipping: Boolean = false,
         val sessions: List<LogSessionItem> = emptyList(),
-        val selectedSessionId: String? = null,
+        val selectedSessionId: SessionId? = null,
     )
 
     data class LogSessionItem(
-        val sessionId: String,
+        val sessionId: SessionId,
         val zipFile: File,
         val size: Long,
         val lastModified: Long,
@@ -155,11 +156,11 @@ class SupportContactFormViewModel @Inject constructor(
         sessionManager.refresh()
     }
 
-    fun selectLogSession(sessionId: String) = launch {
+    fun selectLogSession(sessionId: SessionId) = launch {
         selectedSessionId.value = if (selectedSessionId.value == sessionId) null else sessionId
     }
 
-    fun deleteLogSession(sessionId: String) = launch {
+    fun deleteLogSession(sessionId: SessionId) = launch {
         sessionManager.delete(sessionId)
     }
 

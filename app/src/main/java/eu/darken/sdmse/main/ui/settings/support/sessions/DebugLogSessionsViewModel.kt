@@ -5,6 +5,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
+import eu.darken.sdmse.common.debug.recorder.core.SessionId
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -25,7 +26,7 @@ class DebugLogSessionsViewModel @Inject constructor(
         val sessions: List<DebugLogSession> = emptyList(),
     )
 
-    fun delete(sessionId: String) = launch {
+    fun delete(sessionId: SessionId) = launch {
         sessionManager.delete(sessionId)
     }
 

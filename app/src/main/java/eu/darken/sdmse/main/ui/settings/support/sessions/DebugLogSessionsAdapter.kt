@@ -129,7 +129,7 @@ class DebugLogSessionsAdapter @Inject constructor() :
             val onClicked: (() -> Unit)? = null,
             val onStop: (() -> Unit)? = null,
         ) : DebugLogSessionsAdapter.Item {
-            override val stableId: Long = session.id.hashCode().toLong()
+            override val stableId: Long = session.id.value.hashCode().toLong()
         }
     }
 }

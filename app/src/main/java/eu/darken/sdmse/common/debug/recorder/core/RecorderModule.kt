@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
+import android.os.SystemClock
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
@@ -81,7 +82,9 @@ class RecorderModule @Inject constructor(
 
                 internalState.updateBlocking {
                     if (!isRecording && shouldRecord) {
-                        val logDir = debugSettings.recorderPath.value()?.let {
+                        val savedPath = debugSettings.recorderPath.value()
+                        val isResuming = savedPath != null
+                        val logDir = savedPath?.let {
                             log(TAG) { "Continuing existing log: $it" }
                             File(it)
                         } ?: createRecordingDir().also {
@@ -98,6 +101,7 @@ class RecorderModule @Inject constructor(
                         copy(
                             recorder = newRecorder,
                             currentLogDir = logDir,
+                            recordingStartedAt = if (isResuming) 0L else SystemClock.elapsedRealtime(),
                         )
                     } else if (!shouldRecord && isRecording) {
                         log(TAG) { "Stopping log recorder for: $currentLogDir" }
@@ -111,6 +115,7 @@ class RecorderModule @Inject constructor(
                         copy(
                             recorder = null,
                             currentLogDir = null,
+                            recordingStartedAt = 0L,
                         )
                     } else {
                         this
@@ -170,22 +175,28 @@ class RecorderModule @Inject constructor(
 
         val logDir = currentState.currentLogDir
         if (logDir != null) {
-            try {
-                val attrs = withContext(dispatcherProvider.IO) {
-                    Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
+            val elapsedMs = if (currentState.recordingStartedAt > 0) {
+                SystemClock.elapsedRealtime() - currentState.recordingStartedAt
+            } else {
+                // Fallback for resumed sessions — use file creation time
+                try {
+                    val attrs = withContext(dispatcherProvider.IO) {
+                        Files.readAttributes(logDir.toPath(), BasicFileAttributes::class.java)
+                    }
+                    Duration.between(attrs.creationTime().toInstant(), Instant.now()).toMillis()
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
+                    Long.MAX_VALUE // Don't block stop on fallback failure
                 }
-                val elapsedSeconds = Duration.between(attrs.creationTime().toInstant(), Instant.now()).seconds
-                if (elapsedSeconds < MIN_RECORDING_SECONDS) {
-                    log(TAG) { "Recording too short: ${elapsedSeconds}s < ${MIN_RECORDING_SECONDS}s" }
-                    return StopResult.TooShort
-                }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Failed to read log dir creation time: ${e.asLog()}" }
+            }
+            if (elapsedMs < MIN_RECORDING_MS) {
+                log(TAG) { "Recording too short: ${elapsedMs}ms < ${MIN_RECORDING_MS}ms" }
+                return StopResult.TooShort
             }
         }
 
         val stoppedDir = stopRecorder() ?: return StopResult.NotRecording
-        return StopResult.Stopped(sessionId = stoppedDir.name, logDir = stoppedDir)
+        return StopResult.Stopped(sessionId = SessionId.derive(stoppedDir), logDir = stoppedDir)
     }
 
     suspend fun stopRecorder(): File? {
@@ -239,7 +250,7 @@ class RecorderModule @Inject constructor(
 
     sealed class StopResult {
         data object TooShort : StopResult()
-        data class Stopped(val sessionId: String, val logDir: File) : StopResult()
+        data class Stopped(val sessionId: SessionId, val logDir: File) : StopResult()
         data object NotRecording : StopResult()
     }
 
@@ -247,6 +258,7 @@ class RecorderModule @Inject constructor(
         val shouldRecord: Boolean = false,
         internal val recorder: Recorder? = null,
         val currentLogDir: File? = null,
+        val recordingStartedAt: Long = 0L,
     ) {
         val isRecording: Boolean
             get() = recorder != null
@@ -255,6 +267,6 @@ class RecorderModule @Inject constructor(
     companion object {
         internal val TAG = logTag("Debug", "Log", "Recorder", "Module")
         private const val FORCE_FILE = "force_debug_run"
-        private const val MIN_RECORDING_SECONDS = 5L
+        private const val MIN_RECORDING_MS = 5_000L
     }
 }
