@@ -135,7 +135,7 @@ class DynamicStateFlow<T>(
 
         lTag?.let { log(it, VERBOSE) { "Waiting for update." } }
         val ourUpdate = internalFlow.first { it.updatedBy == update }
-        lTag?.let { log(it, VERBOSE) { "Finished waiting, got $ourUpdate" } }
+        lTag?.let { log(it, VERBOSE) { "Finished waiting, got ${ourUpdate.value}" } }
 
         ourUpdate.error?.let { throw it }
 

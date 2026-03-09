@@ -32,7 +32,6 @@ import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.launchIn
-import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.system.exitProcess
@@ -85,10 +84,6 @@ open class App : Application(), Configuration.Provider {
         }.launchIn(appScope)
 
         bugReporter.setup(this)
-
-        recorderModule.state
-            .onEach { log(TAG) { "RecorderModule: $it" } }
-            .launchIn(appScope)
 
         theming.setup()
 
