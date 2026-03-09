@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Ruta de sesión</string>
     <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d archivo listo (%2$s) · %3$s</item>
+        <item quantity="other">%1$d archivos listos (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo que se puede compartir. El archivo generado contiene información confidencial (por ejemplo, nombres de archivos y aplicaciones instaladas). Compártalo solo con terceros de confianza (por ejemplo, un desarrollador que soluciona un problema).</string>
     <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>
@@ -209,10 +209,10 @@
     <string name="setup_acs_state_ondemand">El servicio se lanzará bajo demanda</string>
     <string name="setup_acs_state_stopped">El Servicio de accesibilidad está detenido</string>
     <string name="setup_acs_state_stopped_hint">El servicio está activado, pero no se está ejecutando. Desactivalo/activalo o reiniciá tu dispositivo. Comprobá que SD Maid no está siendo \"optimizado\" por el sistema.</string>
-    <string name="setup_acs_state_stopped_hint_miui">If the service keeps getting disabled after a while, try enabling the "Auto Start" option for SD Maid in the system settings.</string>
+    <string name="setup_acs_state_stopped_hint_miui">Si el servicio sigue siendo detenido después de un tiempo, intentá activando la opción \"Inicio automático\"\ para SD Maid en los ajustes del sistema.</string>
     <string name="setup_acs_consent_positive_action">Activar servicio y permitir acceso</string>
     <string name="setup_acs_consent_negative_action">No usar el Servicio de accesibilidad</string>
-    <string name="setup_acs_allow_hint">The accessibility shortcut or button for SD Maid SE is enabled. Open your device\'s Accessibility settings and disable the shortcut/button option to prevent an unwanted icon on the screen edge.</string>
+    <string name="setup_acs_allow_hint">Si ves un ícono chiquito en la pantalla abajo a la derecha, entonces accidentalmente activaste la opción \"Atajo\"\.</string>
     <string name="setup_acs_disallow_hint">Si cambiás de opinión, podés cambiar esta opción de nuevo yendo a los Ajustes y reiniciando la configuración.</string>
     <string name="setup_acs_appops_restriction_title">Ajustes restrictos</string>
     <string name="setup_acs_appops_restriction_body">¿No podés activar el Servicio de accesibilidad? Android 13+ puede aplicar restricciones a aplicaciones no instaladas mediante Google Play. Desactivá esas restricciones desde la página de detalles del sistema para SD Maid. La opción está en el menú contextual arriba a la derecha.</string>
@@ -267,8 +267,8 @@
     </plurals>
     <string name="anniversary_share_title">Compartí tu aniversario de SD Maid</string>
     <plurals name="anniversary_share_text">
-        <item quantity="one">%1$d year with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
-        <item quantity="other">%1$d years with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
+        <item quantity="one">%1$d año con SD Maid — Espacio liberado: %2$s. Mantené tu Android limpio y ordenado. #SDMaid\nProbálo: %3$s</item>
+        <item quantity="other">%1$d años con SD Maid — Espacio liberado: %2$s. Mantené tu Android limpio y ordenado. #SDMaid\nProbálo: %3$s</item>
     </plurals>
     <string name="shortcut_onetap_short">Escanear + Eliminar</string>
     <string name="shortcut_onetap_long">Escanear y eliminar en una acción</string>

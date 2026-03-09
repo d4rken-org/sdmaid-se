@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Lotslóð</string>
     <string name="debug_debuglog_screen_log_files_label">Annálaskrár</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d skrá tilbúin (%2$s) · %3$s</item>
+        <item quantity="other">%1$d skrár tilbúnar (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Þessi eiginleiki skráir allt sem forritið er að gera í deilanlega skrá. Búna skráin inniheldur viðkvæmar upplýsingar (t.d. skráarnöfn og uppsett forrit). Deildu henni aðeins með áreiðanlegum aðilum (t.d. þróunaraðila sem er að leysa vandamál).</string>
     <string name="debug_debuglog_short_recording_title">Mjög stutt upptaka</string>

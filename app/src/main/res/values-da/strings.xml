@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Session Sti</string>
     <string name="debug_debuglog_screen_log_files_label">Log Filer</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d fil klar (%2$s) · %3$s</item>
+        <item quantity="other">%1$d filer klar (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Denne funktion registrerer alt, appen gør, i en delbar fil. Den genererede fil indeholder følsomme oplysninger (f.eks. filnavne og installerede apps). Del den kun med betroede parter (f.eks. en udvikler, der foretager fejlfinding).</string>
     <string name="debug_debuglog_short_recording_title">Meget kort optagelse</string>

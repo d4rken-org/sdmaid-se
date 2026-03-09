@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Патека на сесијата</string>
     <string name="debug_debuglog_screen_log_files_label">Дневнички датотеки</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d датотека готова (%2$s) · %3$s</item>
+        <item quantity="other">%1$d датотеки готови (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Оваа функција снима сè што апликацијата прави во датотека за споделување. Генерираната датотека содржи чувствителни информации (пр. имиња на датотеки и инсталирани апликации). Споделувајте ја само со доверливи лица (пр. развивач кој решава проблем).</string>
     <string name="debug_debuglog_short_recording_title">Многу кратко снимање</string>

@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Ruta de la sesión</string>
     <string name="debug_debuglog_screen_log_files_label">Archivos de registro</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d archivo listo (%2$s) · %3$s</item>
+        <item quantity="other">%1$d archivos listos (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Esta función registra todo lo que hace la aplicación en un archivo compartible. El archivo generado contiene información sensible (p. ej., nombres de archivos y aplicaciones instaladas). Solo compártelo con partes de confianza (p. ej., un desarrollador resolviendo un problema).</string>
     <string name="debug_debuglog_short_recording_title">Grabación muy corta</string>

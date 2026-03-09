@@ -20,8 +20,8 @@
     <string name="debug_debuglog_screen_session_path_label">Sitzungspfad</string>
     <string name="debug_debuglog_screen_log_files_label">Protokolldateien</string>
     <plurals name="debug_debuglog_screen_log_files_ready">
-        <item quantity="one">%1$d file ready (%2$s) · %3$s</item>
-        <item quantity="other">%1$d files ready (%2$s) · %3$s</item>
+        <item quantity="one">%1$d Datei bereit (%2$s) · %3$s</item>
+        <item quantity="other">%1$d Dateien bereit (%2$s) · %3$s</item>
     </plurals>
     <string name="settings_debuglog_explanation">Diese Funktion zeichnet alle Aktivitäten der App in einer gemeinsam nutzbaren Datei auf. Die generierte Datei enthält vertrauliche Informationen (z. B. Dateinamen und installierte Apps). Gebe diese nur an vertrauenswürdige Parteien weiter (z. B. einen Entwickler, der ein Problem behebt).</string>
     <string name="debug_debuglog_short_recording_title">Sehr kurze Aufzeichnung</string>
