@@ -29,7 +29,7 @@ Get a comprehensive list of all apps installed on your device. Enabled, disabled
 
 📊 What is using all your space
 
-Storage management can be complex with apps, media, system, and other files across phone storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
+Storage management can be complex with apps, media, system, and other files across device storage, SD cards, and USB devices. "StorageAnalyzer" is a file manager that displays how space is used on your device, simplifying your storage management.
 
 📷 Find duplicate data
 
