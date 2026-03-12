@@ -13,5 +13,5 @@ jobs:
     name: "Validation"
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 #v4.2.2
-      - uses: gradle/actions/wrapper-validation@06832c7b30a0129d7fb559bcc6e43d26f6374244 #v4.3.1
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
+      - uses: gradle/actions/wrapper-validation@0723195856401067f7a2779048b490ace7a47d7c #v5.0.2
