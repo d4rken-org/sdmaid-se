@@ -38,7 +38,7 @@ class SpaceTracker @Inject constructor(
             val storages = readCurrentStorages()
             val inserted = insertSnapshots(storages, now)
 
-            if (inserted > 0 || force) {
+            if (inserted > 0) {
                 statsSettings.lastSnapshotAt.value(now.toEpochMilli())
             }
 

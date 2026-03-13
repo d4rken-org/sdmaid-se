@@ -43,7 +43,6 @@ class SpaceHistoryRepo @Inject constructor(
                     if (latest.spaceFree == spaceFree && latest.spaceCapacity == spaceCapacity) {
                         return@withTransaction false
                     }
-                    reportsDatabase.spaceSnapshotDao.deleteById(latest.id)
                 }
             }
 
