@@ -15,16 +15,20 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.easterEggProgressMsg
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
+import eu.darken.sdmse.squeezer.ui.onboarding.SqueezerOnboardingDialog
 import eu.darken.sdmse.databinding.DashboardFragmentBinding
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
@@ -39,6 +43,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
     @Inject lateinit var dashAdapter: DashboardAdapter
     @Inject lateinit var oneClickOptions: OneClickOptionsDialog
     @Inject lateinit var previewDialog: PreviewDeletionDialog
+    @Inject lateinit var squeezerInfoDialog: SqueezerOnboardingDialog
     @Inject lateinit var theming: Theming
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -79,6 +84,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             }
         }
 
+
         vm.bottomBarState.observe2(ui) { state ->
             if (state.activeTasks > 0 || state.queuedTasks > 0) {
                 bottomBarTextLeft.apply {
@@ -103,6 +109,11 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 bottomBarTextLeft.text = ""
             }
 
+            bottomBar.findViewById<View>(R.id.menu_action_settings).let {
+                it.isFocusable = true
+                it.isFocusableInTouchMode = false
+                it.nextFocusUpId = R.id.main_action
+            }
             bottomBar.menu?.findItem(R.id.menu_action_upgrade)?.let {
                 it.isVisible = state.upgradeInfo?.isPro != true
             }
@@ -110,6 +121,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             mainAction.apply {
                 isInvisible = !state.isReady
                 isEnabled = state.actionState != DashboardViewModel.BottomBarState.Action.WORKING
+                ui.mainAction.nextFocusDownId = R.id.menu_action_settings
 
                 setOnClickListener {
                     if (state.actionState == DashboardViewModel.BottomBarState.Action.DELETE) {
@@ -219,6 +231,8 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                     onNeutral = { vm.showDeduplicator() },
                 )
 
+                is DashboardEvents.SqueezerProcessConfirmation -> showSqueezerConfirmation(event)
+
                 DashboardEvents.SetupDismissHint -> {
                     Snackbar
                         .make(
@@ -231,14 +245,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                         .show()
                 }
 
-                is DashboardEvents.TaskResult -> Snackbar
-                    .make(
-                        requireView(),
-                        event.result.primaryInfo.get(requireContext()),
-                        Snackbar.LENGTH_LONG
-                    )
-                    .setAnchorView(ui.mainAction)
-                    .show()
+                is DashboardEvents.TaskResult -> {} // No snackbar, results shown on cards
 
                 is DashboardEvents.TodoHint -> MaterialAlertDialogBuilder(requireContext()).apply {
                     setMessage(eu.darken.sdmse.common.R.string.general_todo_msg)
@@ -249,9 +256,41 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 } catch (e: ActivityNotFoundException) {
                     e.asErrorDialogBuilder(requireActivity()).show()
                 }
+
+                is DashboardEvents.SqueezerSetup -> {
+                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
+                }
             }
         }
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        val navController = findNavController()
+        val curDest = navController.currentDestination
+        if (curDest != null && curDest.id != R.id.dashboardFragment) {
+            log(tag, WARN) { "Dashboard resumed but currentDestination is ${curDest.label}, recovering" }
+            navController.popBackStack(R.id.dashboardFragment, false)
+        }
+    }
+
+    private fun showSqueezerConfirmation(event: DashboardEvents.SqueezerProcessConfirmation) {
+        MaterialAlertDialogBuilder(requireContext()).apply {
+            setTitle(R.string.squeezer_compress_confirmation_title)
+            setMessage(R.string.squeezer_compress_confirmation_message)
+            setPositiveButton(R.string.squeezer_compress_action) { _, _ -> vm.confirmSqueezerProcessing() }
+            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+            if (event.sampleImage != null) {
+                setNeutralButton(R.string.squeezer_preview_info_action) { _, _ ->
+                    squeezerInfoDialog.show(
+                        sampleImage = event.sampleImage,
+                        quality = event.quality,
+                        onDismiss = { showSqueezerConfirmation(event) },
+                    )
+                }
+            }
+        }.show()
     }
 }

@@ -3,8 +3,10 @@ package eu.darken.sdmse.deduplicator.core
 import eu.darken.sdmse.common.collections.toByteString
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hashing.Hasher
+import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -23,19 +25,25 @@ class DuplicatesDeleterTest : BaseTest() {
         coEvery { delete(any(), any()) } returns Unit
     }
     private val arbiter: DuplicatesArbiter = mockk<DuplicatesArbiter>().apply {
-        coEvery { decideGroups(any()) } answers {
+        coEvery { getStrategy() } returns ArbiterStrategy(criteria = emptyList())
+        coEvery { decideGroups(any(), any()) } answers {
             val groups = arg<Collection<Duplicate.Group>>(0)
             groups.first() to groups.drop(1).toSet()
         }
-        coEvery { decideDuplicates(any()) } answers {
+        coEvery { decideDuplicates(any(), any()) } answers {
             val dupes = arg<Collection<Duplicate>>(0).sortedBy { it.path.path }
             dupes.first() to dupes.drop(1).toSet()
         }
     }
+    private val mediaStoreTool: MediaStoreTool = mockk<MediaStoreTool>().apply {
+        coEvery { notifyDeleted(any()) } returns Unit
+        coEvery { flush() } returns Unit
+    }
 
     fun create() = DuplicatesDeleter(
         gatewaySwitch = gatewaySwitch,
-        arbiter = arbiter
+        arbiter = arbiter,
+        mediaStoreTool = mediaStoreTool,
     )
 
     @Test

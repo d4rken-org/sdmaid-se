@@ -4,12 +4,14 @@ import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppStoreActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.ArchiveActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExcludeActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ExportActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ForceStopActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoSizeVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.InfoUsageVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.LaunchActionVH
+import eu.darken.sdmse.appcontrol.ui.list.actions.items.RestoreActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.SystemSettingsActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.ToggleActionVH
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.UninstallActionVH
@@ -33,12 +35,14 @@ class AppActionAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is InfoSizeVH.Item }) { InfoSizeVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is InfoUsageVH.Item }) { InfoUsageVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is LaunchActionVH.Item }) { LaunchActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ForceStopActionVH.Item }) { ForceStopActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is UninstallActionVH.Item }) { UninstallActionVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ArchiveActionVH.Item }) { ArchiveActionVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is RestoreActionVH.Item }) { RestoreActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ToggleActionVH.Item }) { ToggleActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppStoreActionVH.Item }) { AppStoreActionVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SystemSettingsActionVH.Item }) { SystemSettingsActionVH(it) })

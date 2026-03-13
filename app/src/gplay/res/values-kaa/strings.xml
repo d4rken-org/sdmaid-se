@@ -3,7 +3,27 @@
     <string name="app_name_upgraded">SD Maid SE Pro</string>
     <string name="app_name_upgrade_postfix">Pro</string>
     <string name="upgrade_feature_requires_pro">SD Maid SE Pro talap etiledi</string>
+    <string name="upgrades_dashcard_title">SD Maid di jańalaw</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro jaqsıraq nátiyje, kóbirek funkciyalar hám quwatlı paydalanıwshılar ushın variantlardı usınadı.</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play qol jetpeydi</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play menen baylanısa almadı. Google Play ornatılǵan hám jańalanǵan ba? Google akkawntıńız kiriw jasalǵan ba? Google Play ilovasınıń keshin tazalaw hám qurılmańızdı qayta júklep kórıń.</string>
+    <string name="upgrades_no_purchases_found_check_account">Satıp alıwlar tabılmadı. Durıs akkawnt paydalanıp atırsız ba?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro alıw</string>
+    <string name="upgrade_screen_preamble">SD Maid de reklama joq hám paydalanıwshı maǵlıwmatların satpaydı. Meniń jumısım siz tárepinen qárejelep turıladı ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Artıqmashlıqlar</string>
+    <string name="upgrade_screen_benefits_body">• Ilova tazalaw 💯\n• Rejelestirilgen ámeliyatlar ⏰\n• Barlıq ásbaplar ushın qosımsha variantlar ⚙️\n• Óz óshiriw qaǵıydalarıńız ✍️\n• Motivaciyalanǵan baǵdarlamashı 🧙\nhám basqa…</string>
     <string name="upgrade_screen_how_title">Variantlar</string>
+    <string name="upgrade_screen_how_body">Siz bir mártelik satıp alıw hám arzanıraq jıllıq jazılıw arasınan tańlawıńız múmkin.\nJazılıw tegin 14 kúnlik sınaqtan baslanadı, keyin jılına bir ret tólem alınadı. Sınaq hám jazılıw qálegen waqıtta biykar etilıwi múmkin.\nBirdey funkciyalar, tek hárbir bahalaw modelleri.</string>
+    <string name="upgrade_screen_subscription_trial_action">Tegin 14 kúnlik sınaqdı baslaw</string>
     <string name="upgrade_screen_subscription_action">Jazılıw</string>
+    <string name="upgrade_screen_subscription_action_hint">Jazılıw jılına %s turadı.</string>
+    <string name="upgrade_screen_iap_action">Bir mártelik satıp alıw</string>
+    <string name="upgrade_screen_iap_action_hint">Bir mártelik satıp alıw %s turadı.</string>
+    <string name="upgrade_screen_thanks_toast">Siz eń jaqsısız! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Satıp alıwdı qálpine keltiriw</string>
+    <string name="upgrade_screen_restore_purchase_message">Sizdiń jańalawıńız birdeyin Google akkawnttaǵı barlıq qurılmalarda járamlı.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Tanılmaǵan jańalawlar ushın másele sheshiw keńesleri:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronizaciyası waqıt alıwı múmkin. Qayta júklew, Google Play keshin tazalaw yamasa jáne kútiw ushın háreket etiń.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Bir neshe akkawnt Google Play di shatasıwı múmkin. Basqa akkawntlardan shıǵıń yamasa Google Play veb-saytı arqalı ornatıń, bul anıq akkawnt menen baylanıstı májbúr etedi.</string>
 </resources>

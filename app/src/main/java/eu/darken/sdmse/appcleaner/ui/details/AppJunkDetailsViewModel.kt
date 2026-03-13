@@ -10,10 +10,12 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
@@ -24,7 +26,6 @@ import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
-import java.lang.Integer.min
 import java.time.Instant
 import javax.inject.Inject
 
@@ -38,16 +39,8 @@ class AppJunkDetailsViewModel @Inject constructor(
 
     private val args by handle.navArgs<AppJunkDetailsFragmentArgs>()
 
-    private var currentTarget: InstallId? = null
-        get() = field ?: handle["target"]
-        set(value) {
-            field = value.also { handle["target"] = it }
-        }
-    private var lastPosition: Int? = null
-        get() = field ?: handle["position"]
-        set(value) {
-            field = value.also { handle["position"] = it }
-        }
+    private var currentTarget: InstallId? by handle.mutableState("target")
+    private var lastPosition: Int? by handle.mutableState("position")
 
     init {
         appCleaner.state
@@ -84,19 +77,13 @@ class AppJunkDetailsViewModel @Inject constructor(
     ) { progress, newData ->
         val newJunks = newData.junks.sortedByDescending { it.size }
 
-        val requestedTarget = currentTarget ?: args.identifier
-
-        // Target still within the data set?
-        val currentIndex = newJunks.indexOfFirst { it.identifier == requestedTarget }
-        if (currentIndex != -1) lastPosition = currentIndex
-
-        // If the target is no longer with us, use the new item that is now at the same position
-        val availableTarget = when {
-            newJunks.isEmpty() -> null
-            currentIndex != -1 -> requestedTarget
-            lastPosition != null -> newJunks[min(lastPosition!!, newJunks.size - 1)].identifier
-            else -> requestedTarget
-        }
+        val availableTarget = resolveTarget(
+            items = newJunks,
+            requestedTarget = currentTarget ?: args.identifier,
+            lastPosition = lastPosition,
+            identifierOf = { it.identifier },
+            onPositionTracked = { lastPosition = it },
+        )
 
         State(
             items = newJunks,

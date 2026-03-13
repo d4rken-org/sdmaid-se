@@ -35,6 +35,7 @@ class BreadCrumbBar<ItemT : APath> @JvmOverloads constructor(
 
     override fun onFinishInflate() {
         if (isInEditMode) {
+            @Suppress("UNCHECKED_CAST")
             setCrumbs(
                 listOf(
                     *RawPath.build("/this/is/darkens/test").path.split(File.separator.toRegex())

@@ -83,6 +83,6 @@ open class AndroidTVLabels @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
     }
 }

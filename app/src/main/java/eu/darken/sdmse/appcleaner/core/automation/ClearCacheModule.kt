@@ -45,6 +45,7 @@ import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.common.OpsCounter
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -67,6 +68,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.main.core.GeneralSettings
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.NonCancellable
@@ -84,6 +86,7 @@ class ClearCacheModule @AssistedInject constructor(
     private val labelDebugger: LabelDebugger,
     private val deviceDetective: DeviceDetective,
     private val animationTool: AnimationTool,
+    private val generalSettings: GeneralSettings,
 ) : AutomationModule(automationHost) {
 
     private fun getPriotizedSpecGenerators(): List<AppCleanerSpecGenerator> = specGenerators
@@ -201,7 +204,6 @@ class ClearCacheModule @AssistedInject constructor(
         }
 
         for (target in task.targets) {
-            @Suppress("AssignedValueIsNeverRead")
             lastTarget = target.pkgId
             if (target.userHandle != currentUserHandle) {
                 throw UnsupportedOperationException("ACS based deletion is not support for other users ($target)")
@@ -284,6 +286,8 @@ class ClearCacheModule @AssistedInject constructor(
     private suspend fun processSpecForPkg(pkg: Installed) {
         log(TAG) { "Clearing default primary caches for $pkg" }
         val start = System.currentTimeMillis()
+        val romTypeDetection = generalSettings.romTypeDetection.value()
+        log(TAG, INFO) { "romTypeDetection=$romTypeDetection" }
 
         val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
             ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }

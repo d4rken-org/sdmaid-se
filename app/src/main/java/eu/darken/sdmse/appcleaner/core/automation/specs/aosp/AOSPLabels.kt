@@ -38,6 +38,6 @@ class AOSPLabels @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Labels")
     }
 }

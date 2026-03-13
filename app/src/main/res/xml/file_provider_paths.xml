@@ -3,7 +3,7 @@
     <cache-path
         name="debug_logs"
         path="debug/logs" />
-    <external-cache-path
+    <external-files-path
         name="debug_logs"
         path="debug/logs" />
     <root-path

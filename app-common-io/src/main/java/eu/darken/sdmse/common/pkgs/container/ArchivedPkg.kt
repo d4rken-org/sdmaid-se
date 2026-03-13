@@ -1,5 +1,7 @@
 package eu.darken.sdmse.common.pkgs.container
 
+import android.annotation.SuppressLint
+import android.content.pm.ArchivedPackageInfo
 import android.content.pm.PackageInfo
 import androidx.appcompat.content.res.AppCompatResources
 import eu.darken.sdmse.common.ca.CaDrawable
@@ -17,17 +19,22 @@ import eu.darken.sdmse.common.pkgs.getLabel2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.user.UserHandle2
 
+@SuppressLint("NewApi")
 data class ArchivedPkg(
     override val packageInfo: PackageInfo,
     override val userHandle: UserHandle2,
     override val installerInfo: InstallerInfo,
+    private val archivedPackageInfo: ArchivedPackageInfo? = null,
 ) : Installed, InstallDetails {
 
     override val id: Pkg.Id
         get() = packageInfo.packageName.toPkgId()
 
     override val label: CaString = caString { context ->
-        context.packageManager.getLabel2(id) ?: id.name
+        // Try to get label from ArchivedPackageInfo first (works for archived apps)
+        archivedPackageInfo?.launcherActivities?.firstOrNull()?.label?.toString()
+            ?: context.packageManager.getLabel2(id) // Fall back to standard PM API (may not work for archived apps)
+            ?: id.name
     }.cache()
 
     override val icon: CaDrawable = caDrawable { context ->

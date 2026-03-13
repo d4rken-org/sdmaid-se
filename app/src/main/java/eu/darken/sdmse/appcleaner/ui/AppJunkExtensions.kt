@@ -15,6 +15,7 @@ import eu.darken.sdmse.appcleaner.core.forensics.filter.HiddenFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.MobileQQFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.OfflineCacheFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.RecycleBinsFilter
+import eu.darken.sdmse.appcleaner.core.forensics.filter.ShortcutServiceFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.TelegramFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.ThreemaFilter
 import eu.darken.sdmse.appcleaner.core.forensics.filter.ThumbnailsFilter
@@ -41,6 +42,7 @@ val <T : ExpendablesFilter> KClass<T>.labelRes: Int
         OfflineCacheFilter::class -> R.string.appcleaner_filter_offlinecache_label
         RecycleBinsFilter::class -> R.string.appcleaner_filter_recyclebins_label
         WebViewCacheFilter::class -> R.string.appcleaner_filter_webview_label
+        ShortcutServiceFilter::class -> R.string.appcleaner_filter_shortcutservice_label
         WhatsAppBackupsFilter::class -> R.string.appcleaner_filter_whatsapp_backups_label
         WhatsAppReceivedFilter::class -> R.string.appcleaner_filter_whatsapp_received_label
         WhatsAppSentFilter::class -> R.string.appcleaner_filter_whatsapp_sent_label
@@ -67,6 +69,7 @@ val <T : ExpendablesFilter> KClass<T>.descriptionRes: Int
         OfflineCacheFilter::class -> R.string.appcleaner_filter_offlinecache_summary
         RecycleBinsFilter::class -> R.string.appcleaner_filter_recyclebins_summary
         WebViewCacheFilter::class -> R.string.appcleaner_filter_webview_summary
+        ShortcutServiceFilter::class -> R.string.appcleaner_filter_shortcutservice_summary
         WhatsAppBackupsFilter::class -> R.string.appcleaner_filter_whatsapp_backups_summary
         WhatsAppReceivedFilter::class -> R.string.appcleaner_filter_whatsapp_received_summary
         WhatsAppSentFilter::class -> R.string.appcleaner_filter_whatsapp_sent_summary
@@ -93,6 +96,7 @@ val <T : ExpendablesFilter> KClass<T>.iconsRes: Int
         OfflineCacheFilter::class -> R.drawable.ic_signal_off_24
         RecycleBinsFilter::class -> R.drawable.ic_recycle_bin_24
         WebViewCacheFilter::class -> R.drawable.ic_chrome_24
+        ShortcutServiceFilter::class -> R.drawable.ic_image_multiple_24
         WhatsAppBackupsFilter::class -> R.drawable.ic_whatsapp_24
         WhatsAppReceivedFilter::class -> R.drawable.ic_whatsapp_24
         WhatsAppSentFilter::class -> R.drawable.ic_whatsapp_24

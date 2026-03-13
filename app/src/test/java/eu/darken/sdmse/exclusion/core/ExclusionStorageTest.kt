@@ -1,7 +1,6 @@
 package eu.darken.sdmse.exclusion.core
 
 import android.content.Context
-import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationAppModule
@@ -11,29 +10,25 @@ import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
-import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.io.TempDir
 import testhelpers.BaseTest
 import testhelpers.coroutine.TestDispatcherProvider
 import testhelpers.json.toComparableJson
 import java.io.File
 
 class ExclusionStorageTest : BaseTest() {
-    private val testFolder = File(IO_TEST_BASEDIR, "exclusion-storage-test")
+    @TempDir lateinit var testFolder: File
     private val moshi = SerializationAppModule().moshi()
-    private val context: Context = mockk<Context>().apply {
-        every { filesDir } returns testFolder
-    }
 
-    @AfterEach
-    fun cleanup() {
-        testFolder.deleteAll()
+    private fun createContext(): Context = mockk<Context>().apply {
+        every { filesDir } returns testFolder
     }
 
     fun create() = ExclusionStorage(
         dispatcherProvider = TestDispatcherProvider(),
-        context = context,
-        moshi = moshi
+        context = createContext(),
+        moshi = moshi,
     )
 
     @Test

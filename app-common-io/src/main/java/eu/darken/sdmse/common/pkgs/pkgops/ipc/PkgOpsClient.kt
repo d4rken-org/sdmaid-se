@@ -1,7 +1,7 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
+import android.content.IntentSender
 import android.content.pm.PackageInfo
-import android.os.DeadObjectException
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -19,27 +19,11 @@ class PkgOpsClient @AssistedInject constructor(
     @Assisted private val connection: PkgOpsConnection
 ) : IpcClientModule {
 
-    fun getUserNameForUID(uid: Int): String? = try {
-        connection.getUserNameForUID(uid)
+    fun forceStop(installId: InstallId): Boolean = try {
+        connection.forceStop(installId)
     } catch (e: Exception) {
         throw e.refineException().also {
-            log(TAG, ERROR) { "getUserNameForUID(uid=$uid) failed: ${it.asLog()}" }
-        }
-    }
-
-    fun getGroupNameforGID(gid: Int): String? = try {
-        connection.getGroupNameforGID(gid)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed: ${it.asLog()}" }
-        }
-    }
-
-    fun forceStop(packageName: String): Boolean = try {
-        connection.forceStop(packageName)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${it.asLog()}" }
+            log(TAG, ERROR) { "forceStop($installId) failed: ${it.asLog()}" }
         }
     }
 
@@ -59,19 +43,21 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    suspend fun clearCache(pkgId: Pkg.Id, dryRun: Boolean): Boolean = try {
-        connection.clearCache(pkgId.name, dryRun)
-    } catch (e: Exception) {
-        throw e.refineException().also {
-            log(TAG, ERROR) { "clearCache(pkgId=$pkgId) failed: ${it.asLog()}" }
-        }
-    }
-
     suspend fun trimCaches(desiredBytes: Long, storageId: String? = null, dryRun: Boolean): Boolean = try {
         connection.trimCaches(desiredBytes, storageId, dryRun)
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) { "trimCaches(desiredBytes=$desiredBytes, storageId=$storageId) failed: ${it.asLog()}" }
+        }
+    }
+
+    fun getPackageInfoAsUser(id: Pkg.Id, flags: Long, userHandle: UserHandle2): PackageInfo? = try {
+        connection.getPackageInfoAsUser(id.name, flags, userHandle.handleId)
+    } catch (e: Exception) {
+        throw e.refineException().also {
+            log(TAG, ERROR) {
+                "getPackageInfoAsUser(id=$id, flags=$flags, userHandle=$userHandle) failed: ${it.asLog()}"
+            }
         }
     }
 
@@ -97,12 +83,12 @@ class PkgOpsClient @AssistedInject constructor(
         }
     }
 
-    fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int): Unit = try {
-        connection.setApplicationEnabledSetting(packageName, newState, flags)
+    fun setApplicationEnabledSetting(id: InstallId, newState: Int, flags: Int): Unit = try {
+        connection.setApplicationEnabledSetting(id, newState, flags)
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) {
-                "setApplicationEnabledSetting(packageName=$packageName, newState=$newState, flags=$flags) failed: ${it.asLog()}"
+                "setApplicationEnabledSetting(id=$id, newState=$newState, flags=$flags) failed: ${it.asLog()}"
             }
         }
     }
@@ -128,6 +114,14 @@ class PkgOpsClient @AssistedInject constructor(
     } catch (e: Exception) {
         throw e.refineException().also {
             log(TAG, ERROR) { "setAppOps(id=$id, key=$key, value=$value) failed: ${it.asLog()}" }
+        }
+    }
+
+    fun requestUnarchive(packageName: String, statusReceiver: IntentSender): Unit = try {
+        connection.requestUnarchive(packageName, statusReceiver)
+    } catch (e: Exception) {
+        throw e.refineException().also {
+            log(TAG, ERROR) { "requestUnarchive($packageName) failed: ${it.asLog()}" }
         }
     }
 

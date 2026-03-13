@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcontrol.core.automation.specs.oukitel
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -11,6 +10,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowException
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.aosp.AOSPLabels
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
@@ -65,13 +65,21 @@ class OukitelSpecs @Inject constructor(
         }
     }
 
+    override suspend fun getArchive(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Archive automation not yet supported on Oukitel")
+    }
+
+    override suspend fun getRestore(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Restore automation not yet supported on Oukitel")
+    }
+
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val forceStopLabels = aospLabels.getForceStopButtonDynamic(this)
         var wasDisabled = false
 
-        val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+        val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
             if (stepAttempts >= 1 && pkg.hasNoSettings) {
                 throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
             }

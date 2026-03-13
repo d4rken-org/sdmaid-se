@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Kailangan ang SD Maid SE FOSS</string>
+    <string name="upgrades_dashcard_title">I-upgrade ang SD Maid</string>
+    <string name="upgrades_dashcard_body">I-unlock ang mga karagdagang feature at maging patron para suportahan ang patuloy na development!</string>
+    <string name="upgrades_dashcard_upgrade_action">I-upgrade</string>
+    <string name="upgrade_screen_title">Pahusayin ang SD Maid</string>
+    <string name="upgrade_screen_preamble">Walang mga ads ang SD Maid at hindi nagbebenta ng user data. Ang patuloy na development ay posible lamang dahil sa inyo.</string>
+    <string name="upgrade_screen_how_title">Paano tumulong</string>
+    <string name="upgrade_screen_how_body">Maging patron at mag-sponsor ng development! I-tap ang button sa ibaba para ma-activate ang lahat ng extra features at buksan ang aking GitHub Sponsors profile.</string>
+    <string name="upgrade_screen_why_title">Ito ay gumagawa ng mahika 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner delete functionality 💯\n• Scheduled operations ⏰\n• Extra options para sa lahat ng tools ⚙️\n• Sariling deletion rules ✍️\n• Motivated na developer 🧙\nat marami pang iba…</string>
+    <string name="upgrade_screen_sponsor_action">Mag-sponsor ng development</string>
+    <string name="upgrade_screen_sponsor_action_hint">Ang alternative ay ads, analytics at Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Salamat sa pagsuporta sa open-source development ❤️</string>
+</resources>

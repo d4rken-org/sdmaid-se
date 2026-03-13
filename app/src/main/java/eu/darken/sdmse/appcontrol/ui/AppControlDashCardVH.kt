@@ -23,9 +23,12 @@ class AppControlDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
         toolLoadingIndicator.isGone = !item.isInitializing
-        viewAction.isEnabled = !item.isInitializing
-        root.apply {
+        viewAction.apply {
+            isEnabled = !item.isInitializing
             setOnClickListener { item.onViewDetails() }
+        }
+        root.apply {
+            setOnClickListener { viewAction.performClick() }
             isClickable = !item.isInitializing
         }
     }

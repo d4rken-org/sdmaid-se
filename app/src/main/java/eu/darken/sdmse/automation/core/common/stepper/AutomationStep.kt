@@ -1,8 +1,10 @@
 package eu.darken.sdmse.automation.core.common.stepper
 
-import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
+import kotlin.time.Duration
+import kotlin.time.Duration.Companion.seconds
 
 data class AutomationStep(
     val source: String,
@@ -10,10 +12,10 @@ data class AutomationStep(
     val label: CaString,
     val icon: CaDrawable? = null,
     val windowLaunch: (suspend StepContext.() -> Unit)? = null,
-    val windowCheck: (suspend StepContext.() -> AccessibilityNodeInfo)? = null,
-    val nodeRecovery: (suspend StepContext.(AccessibilityNodeInfo) -> Boolean)? = null,
+    val windowCheck: (suspend StepContext.() -> ACSNodeInfo)? = null,
+    val nodeRecovery: (suspend StepContext.(ACSNodeInfo) -> Boolean)? = null,
     val nodeAction: (suspend StepContext.() -> Boolean)? = null,
-    val timeout: Long = 15 * 1000,
+    val timeout: Duration = 30.seconds, // Inner attempt timeout is 10s, queryStatsForPkg timeout is 20s
 ) {
     override fun toString(): String = "Step(source=$source, description=$descriptionInternal)"
 }

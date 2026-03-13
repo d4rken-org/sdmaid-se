@@ -25,7 +25,7 @@ class DeduplicatorListAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListGridVH.Item }) { DeduplicatorListGridVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DeduplicatorListLinearVH.Item }) { DeduplicatorListLinearVH(it) })
     }

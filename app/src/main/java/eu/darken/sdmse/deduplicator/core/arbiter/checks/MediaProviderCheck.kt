@@ -1,6 +1,7 @@
 package eu.darken.sdmse.deduplicator.core.arbiter.checks
 
 import dagger.Reusable
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium

@@ -2,6 +2,17 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">SD Maid SE Pro talap etiledi</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS kerek</string>
+    <string name="upgrades_dashcard_title">SD Maid-ti jańalaw</string>
+    <string name="upgrades_dashcard_body">Qosımsha mümkinliklerdi ashıń hám uzlıksız rawajlanıwdı qollap-quwatlawshı úshin homiyshı bolıń!</string>
     <string name="upgrades_dashcard_upgrade_action">Jańalaw</string>
+    <string name="upgrade_screen_title">SD Maid-ti jaqsılaw</string>
+    <string name="upgrade_screen_preamble">SD Maid-te jaríyalar joq hám paydalanıwshı maǵlıwmatların satpaydı. Uzlıksız rawajlanıw tek sizdiń arqalı múmkin.</string>
+    <string name="upgrade_screen_how_title">Járdem beriwdiń jolı</string>
+    <string name="upgrade_screen_how_body">Homiyshı bolıń hám rawajlanıwdı sponsorlaw qılıń! Barlıq qosımsha mümkinliklerdi faallastırıw hám meniń GitHub Sponsors profilimdi ashıw úshin tómendegi túymeshikti basıń.</string>
+    <string name="upgrade_screen_why_title">Bul tılsım qıladı 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner óshiriw funktsiası 💯\n• Josparlangan operatsiyalar ⏰\n• Barlıq qurallar úshin qosımsha opsiyalar ⚙️\n• Óziñizdiń óshiriw qáǵıydalarıñız ✍️\n• Motivatsiyalangan rawajlandırıwshı 🧙\nhám basqalar…</string>
+    <string name="upgrade_screen_sponsor_action">Rawajlanıwdı sponsorlaw qılıw</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternativa jaríyalar, analitika hám Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Ashıq kod rawajlanıwın qollap-quwatlaǵanıñız úshin raxmet ❤️</string>
 </resources>

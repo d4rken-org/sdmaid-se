@@ -76,7 +76,7 @@ class RealmeLabels @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Realme", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Realme", "Labels")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

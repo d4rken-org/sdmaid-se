@@ -2,11 +2,10 @@ package eu.darken.sdmse.automation.core.common.stepper
 
 import android.accessibilityservice.AccessibilityService
 import android.content.Intent
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Reusable
 import eu.darken.sdmse.automation.core.ScreenState
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.automation.core.errors.PlanAbortException
 import eu.darken.sdmse.automation.core.errors.ScreenUnavailableException
@@ -37,6 +36,7 @@ import kotlinx.coroutines.isActive
 import kotlinx.coroutines.withTimeout
 import javax.inject.Inject
 import kotlin.system.measureTimeMillis
+import kotlin.time.Duration.Companion.seconds
 
 @Reusable
 class Stepper @Inject constructor(
@@ -77,7 +77,7 @@ class Stepper @Inject constructor(
                         stepAttempts = stepAttempts++,
                     )
                     try {
-                        withTimeout(5 * 1000) {
+                        withTimeout(10.seconds) {
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }
@@ -139,7 +139,7 @@ class Stepper @Inject constructor(
         // avg delay between activity launch and acs event
         delay(50)
 
-        val targetWindowRoot: AccessibilityNodeInfo = withTimeout(4000) {
+        val targetWindowRoot: ACSNodeInfo = withTimeout(4000) {
             if (step.windowCheck != null) {
                 log(tag, INFO) { "Executing windowCheck and determining root window..." }
                 step.windowCheck.invoke(stepContext)
@@ -148,7 +148,7 @@ class Stepper @Inject constructor(
                 stepContext.host.waitForWindowRoot()
             }
         }
-        log(tag, INFO) { "Target root window node is ${targetWindowRoot.toStringShort()}" }
+        log(tag, INFO) { "Target root window node is $targetWindowRoot" }
 
         if (step.nodeAction != null) {
             // Perform action, e.g. clicking a button

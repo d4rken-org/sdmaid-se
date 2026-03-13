@@ -25,7 +25,15 @@ interface SystemCleanerFilter : Progress.Host, Progress.Client {
 
     suspend fun match(item: APathLookup<*>): Match?
 
-    suspend fun process(matches: Collection<Match>)
+    suspend fun process(matches: Collection<Match>): Collection<Processed>
+
+    data class Processed(
+        val match: Match,
+        val error: Throwable?,
+    ) {
+        val success: Boolean
+            get() = error == null
+    }
 
     interface Match {
         val expectedGain: Long

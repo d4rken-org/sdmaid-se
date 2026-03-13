@@ -20,6 +20,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -84,8 +85,8 @@ open class AndroidTVSpecs @Inject constructor(
             }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode {
-                    if (!it.idMatches("android:id/title")) false else it.textMatchesAny(clearCacheButtonLabels)
+                val target = findNodeByLabel(clearCacheButtonLabels) {
+                    it.idMatches("android:id/title")
                 } ?: return@action false
 
                 val mapped = findClickableParent(node = target) ?: return@action false
@@ -160,7 +161,7 @@ open class AndroidTVSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AndroidTV", "Specs")
         val SETTINGS_PKG = "com.android.tv.settings".toPkgId()
 
     }

@@ -11,6 +11,7 @@ import androidx.core.view.isVisible
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.export.AppExportType
 import eu.darken.sdmse.common.pkgs.isArchived
+import eu.darken.sdmse.common.pkgs.isDebuggable
 import eu.darken.sdmse.common.pkgs.isEnabled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.isUninstalled
@@ -35,6 +36,7 @@ class AppInfoTagView @JvmOverloads constructor(
 
     fun setPkg(appInfo: AppInfo) = ui.apply {
         tagSystem.tagSystem.isVisible = appInfo.pkg.isSystemApp
+        tagDebug.tagDebug.isVisible = appInfo.pkg.isDebuggable
 
         tagArchived.tagArchived.isVisible = appInfo.pkg.isArchived
         tagUninstalled.tagUninstalled.isVisible = appInfo.pkg.isUninstalled

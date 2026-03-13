@@ -3,18 +3,26 @@
     <string name="dashboard_delete_all_message">Выдаліць рэзультаты ва ўсіх інструментах?</string>
     <string name="dashboard_settings_category">Панэль кіравання</string>
     <string name="dashboard_motd_title">Паведамленне ад распрацоўшчыка</string>
-    <string name="dashboard_settings_oneclick_title">Рэжым аднаго націскання</string>
+    <string name="dashboard_settings_oneclick_title">Хуткі рэжым</string>
     <string name="dashboard_settings_oneclick_summary">Запуск працэсу сканіравання і выдалення ва ўсіх інструментах націсканнем кнопкі дзеяння на панэлі кіравання без дадатковых пацвярджэнняў.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Інструменты ў рэжыме аднаго націскання</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у аперацыі аднаго націскання?</string>
-    <string name="debug_debuglog_size_label">Памер</string>
-    <string name="debug_debuglog_size_compressed_label">Сціснуты памер</string>
+    <string name="dashboard_settings_oneclick_tools_title">Інструменты ў хуткім рэжыме</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Якія інструменты трэба ўключыць у хуткіх аперацыях?</string>
     <string name="debug_notification_channel_label">Апавяшчэнні адладкі</string>
     <string name="debug_debuglog_file_label">Запісаны файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запіс журнала адладкі</string>
     <string name="debug_debuglog_record_action">Запісаць журнал адладкі</string>
     <string name="debug_debuglog_stop_action">Спыніць запіс</string>
     <string name="debug_debuglog_sensitive_information_message">Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі.</string>
+    <string name="debug_debuglog_screen_title">Журналы адладкі</string>
+    <string name="debug_debuglog_screen_discard_action">Адхіліць</string>
+    <string name="debug_debuglog_screen_session_path_label">Шлях сесіі</string>
+    <string name="debug_debuglog_screen_log_files_label">Файлы журналаў</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one"> %1$d файл гатовы (%2$s)</item>
+        <item quantity="few"> %1$d файла гатова (%2$s)</item>
+        <item quantity="many"> %1$d файлаў гатова (%2$s)</item>
+        <item quantity="other">%1$d файлаў гатова (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Гэта функцыя запісвае ўсё, што робіць праграма, у файл, якім можна падзяліцца. Створаны файл змяшчае канфідэнцыяльную інфармацыю (напрыклад, назвы файлаў і спіс усталяваных праграм). Дзяліцеся ім толькі з даверанымі асобамі (напрыклад, з распрацоўшчыкам для вырашэння вашай праблемы).</string>
     <string name="tasks_activity_notification_channel_label">Актыўныя задачы</string>
     <string name="tasks_activity_working_notification_title">SD Maid працуе</string>
@@ -56,7 +64,6 @@
     <string name="onboarding_setup_continue_action">Наладзіць доступ</string>
     <string name="settings_privacy_policy_label">Палітыка канфідэнцыяльнасці</string>
     <string name="settings_privacy_policy_desc">Адказнае абыходжанне з данымі.</string>
-    <string name="settings_licenses_label">Ліцэнзіі</string>
     <string name="settings_category_other_label">Іншае</string>
     <string name="settings_category_filter_generic">Агульны фільтр</string>
     <string name="settings_category_filter_specific">Спецыяльны фільтр</string>
@@ -91,6 +98,12 @@
     <string name="discord_description">Месца, дзе можна пагутарыць і задаць пытанні.</string>
     <string name="changelog_label">Журнал змяненняў</string>
     <string name="settings_acknowledgements_label">Падзякі</string>
+    <string name="settings_acknowledgements_category_translations_title">Пераклады</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Хто гэта пераклаў?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Падзякі</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Асаблівая падзяка нашым сябрам.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Ліцэнзіі</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Праграмнае забеспячэнне, якое выкарыстоўваецца SD Maid.</string>
     <string name="setup_label">Наладжванне</string>
     <string name="setup_incomplete_card_title">Наладжванне не завершана</string>
     <string name="setup_incomplete_card_body">Каб дамагчыся лепшых рэзультатаў, завяршыце наладжванне SD Maid.</string>
@@ -201,6 +214,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Прыватныя даныя праграм, напрыклад, уліковыя даныя, налады, а таксама кэш браўзера.</string>
     <string name="corpsefinder_filter_dalvik_label">Кэшаваныя даныя</string>
     <string name="corpsefinder_filter_dalvik_summary">Кэшаваныя даныя, якія выкарыстоўваюцца пры выкананні праграм.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Профілі ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Профілі ART выкарыстоўваюцца Android для аптымізацыі прадукцыйнасці праграм.</string>
     <string name="corpsefinder_filter_applib_label">Бібліятэкі праграм</string>
     <string name="corpsefinder_filter_applib_summary">Даныя, звязаныя з бібліятэкамі праграм.</string>
     <string name="corpsefinder_filter_appsource_label">Рэсурсы праграм</string>
@@ -246,8 +261,10 @@
     <string name="systemcleaner_filter_custom_label">Карыстальніцкі фільтр</string>
     <string name="systemcleaner_filter_custom_manage_label">Кіраванне карыстальніцкімі фільтрамі</string>
     <string name="systemcleaner_filter_custom_manage_summary">Стварайце, выдаляйце, імпартуйце і экспартуйце вашы карыстальніцкія фільтры.</string>
-    <string name="systemcleaner_filter_logfiles_label">Файлы журналаў</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файлы журналаў (*.log) з усёй прылады.</string>
+    <string name="systemcleaner_filter_logfiles_label">Файлы сістэмнага журнала</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала сістэмы і сістэмных службаў (напрыклад, *.log) у розных месцах.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Кэш усталёўшчыка</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Кэшаваныя даныя, звязаныя з усталяванымі праграмамі, якія выкарыстоўваюцца сістэмай кіравання пакетамі.</string>
     <string name="systemcleaner_filter_advertisements_label">Файлы рэкламы</string>
     <string name="systemcleaner_filter_advertisements_summary">Файлы, якія былі створаны для або з дапамогай рэкламы.</string>
     <string name="systemcleaner_filter_anr_label">Памылкі адказу праграм (ANR)</string>
@@ -272,8 +289,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Даныя, якія праграма Windows Explorer можа ствараць на падключаным сховішчы."</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскізы выяў</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кэшаваныя эскізы выяў і відэафайлаў.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Часовыя файлы</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Часовыя файлы, якія звычайна змяшчаюць кароткачасовы кэш для актыўных аперацый.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Часовыя сістэмныя файлы</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Звязаныя з сістэмай часовыя файлы, якія звычайна змяшчаюць кароткачасовы кэш для актыўных аперацый.</string>
     <string name="systemcleaner_filter_analytics_label">Файлы аналітыкі</string>
     <string name="systemcleaner_filter_analytics_summary">Даныя, звязаныя з аналітыкай і адсочваннем памылак.</string>
     <string name="systemcleaner_filter_downloadcache_label">Кэш спамповак</string>
@@ -364,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Файлы, якія былі выдалены, але змешчаны ў спецыяльную папку, каб іх можна было аднавіць.</string>
     <string name="appcleaner_filter_webview_label">Файлы Webview</string>
     <string name="appcleaner_filter_webview_summary">Файлы кашу Webview, якія выкарыстоўваюцца ў праграмах.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Значкі ярлыкоў праграм</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кэшаваныя значкі для ярлыкоў праграм і меню сумеснага выкарыстання.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Рэзервовыя копіі WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Выдаленне старых рэзервовых копій WhatsApp з захаваннем актуальнай рэзервовай копіі.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Файлы, якія вы атрымалі ад карыстальнікаў у WhatsApp.</string>
@@ -414,6 +433,13 @@
         <item quantity="other">Выдаліць непатрэбныя файлы ў %d выбраных праграмах?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Выдаленне кэшу з дапамогай Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Вызначэнне недаступных кэшаў</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Немагчыма ачысціць кэш</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Сістэма адключыла кнопку «Ачысціць кэш» для гэтай праграмы. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Экран налад недаступны</string>
+    <string name="appcleaner_automation_error_no_settings_body">Гэта сістэмная праграма не мае экрана налад. Ачыстка кэшу праз службу спецыяльных магчымасцей немагчымая. Дадайце яе ў выключэнні, каб паскорыць ачыстку кэшу.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Сістэмная праграма настроена няправільна</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">У праграме бяспекі HyperOS (com.miui.securitycenter) адсутнічае дазвол на статыстыку выкарыстання (GET_USAGE_STATS). Гэта парушае такія функцыі, як «Ачысціць даныя» ў наладах праграмы і ачыстка кэшу праз службу спецыяльных магчымасцей. Дайце дазвол на аднаўленне поўнай функцыянальнасці.</string>
     <string name="deduplicator_tool_name">Дэдуплікатар</string>
     <string name="deduplicator_explanation_short">Пошук дублікатаў даных на вашай прыладзе.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -440,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Кантрольная сума зместу</string>
     <string name="deduplicator_detection_method_checksum_summary">Вызначэнне дублікатаў шляхам разліку кантрольных сум для файлаў. Файлы з супадаючымі кантрольнымі сумамі маюць аднолькавы змест.</string>
     <string name="deduplicator_detection_method_phash_title">Падобныя ўласцівасці</string>
-    <string name="deduplicator_detection_method_phash_summary">Пошук падобных файлаў з дапамогай аналізу асаблівасцей і параўнання ўнікальных уласцівасцяў зместу.</string>
+    <string name="deduplicator_detection_method_phash_summary">Пошук падобных файлаў з дапамогай аналізу асаблівасцей і параўнання падобных уласцівасцей. ⚠️ Выяўленне на аснове падабенства можа змяшчаць памылковыя вынікі, якія патрабуюць ручнога выяўлення.</string>
     <string name="deduplicator_occupied_space_label">Занятае сховішча</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s занята дублікатамі</item>
@@ -481,7 +507,7 @@
     <string name="appcontrol_app_launch_title">Запусціць праграму</string>
     <string name="appcontrol_app_launch_description">Запуск асноўнай дзейнасці гэтай праграмы.</string>
     <string name="appcontrol_app_forcestop_title">Прымусовае спыненне</string>
-    <string name="appcontrol_app_forcestop_description">Спыненне праграмы. Засцерагае яе ад самаадвольнага запуску, пакуль вы яе не адкрыеце або не перазагрузіце прыладу.</string>
+    <string name="appcontrol_app_forcestop_description">Спыніць праграму. Засцерагчы яе ад самаадвольнага запуску, пакуль вы яе не адкрыеце або не перазагрузіце прыладу.</string>
     <string name="appcontrol_app_uninstall_description">Выдаліць гэту праграму з вашай прылады.</string>
     <string name="appcontrol_app_exclude_add_title">Выключаныя праграмы</string>
     <string name="appcontrol_app_exclude_add_description">Выключыць гэту праграму з іншых аперацый у SD Maid.</string>
@@ -505,6 +531,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Першае ўсталяванне</string>
     <string name="appcontrol_list_sortmode_packagename_label">Назва пакета</string>
     <string name="appcontrol_list_sortmode_size_label">Памер</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Час выкарыстання</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Памеры праграм ацэньваюцца паводле іх прадукцыйнасці. З дапамогай Аналізу сховішча атрымайце больш дакладныя даныя.</string>
     <string name="appcontrol_progress_uninstalling_app">Выдаленне праграмы</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -534,6 +561,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Атрымайце прыблізную ацэнку памеру кожнай праграмы.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Вызначэнне актыўнасці</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Даведайцеся, ці з\'яўляецца актыўнай праграма (або была такой нядаўна).</string>
+    <string name="appcontrol_include_multiuser_label">Уключаць іншых карыстальнікаў</string>
+    <string name="appcontrol_include_multiuser_summary">Уключэнне ў сканіраванне праграм з іншых карыстальніцкіх профіляў на гэтай прыладзе.</string>
     <string name="appcontrol_export_app_selection_action">Экспартаваць праграмы</string>
     <string name="appcontrol_export_title">Экспартаваць праграму</string>
     <string name="appcontrol_export_description">Захаваць інсталяцыйныя файлы гэтай праграмы на вашай прыладзе. Яны не ўключаюць даныя з праграмы.</string>
@@ -564,6 +593,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Прымусовае спыненне…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Пошук кнопкі \"Прымусовае спыненне\" (ключавыя словы: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Спроба пацвердзіць папярэдняе дзеянне (ключавыя словы: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Час выкарыстання: %1$s з %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Апошняе абнаўленне: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Усталявана: %s</string>
     <string name="analyzer_tool_name">Аналіз сховішча</string>
     <string name="analyzer_explanation_short">Даведайцеся, што займае месца на вашай прыладзе.</string>
     <string name="analyzer_progress_scanning_device">Пошук запамінальных прылад</string>
@@ -658,7 +690,12 @@
     <string name="automation_error_not_running_body">Служба спецыяльных магчымасцей не працуе. Паспрабуйце перазагрузіць прыладу.</string>
     <string name="automation_error_screen_unavailable_title">Экран недаступны</string>
     <string name="automation_error_screen_unavailable_body">Выкананне аперацыі было спынена, таму што экран стаў недаступным (напр., дысплэй выключаны, або актывіраваны экран блакіроўкі).</string>
+    <string name="automation_error_compatibility_title">Сумяшчальнасць з аўтаматызацыяй</string>
     <string name="automation_error_compatibility_body">SD Maid не ўдалося вызначыць макет экрана. Калі гэта паўтараецца, магчыма, ваша мова або налады падтрымліваюцца не цалкам. Праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог гэта выправіць.</string>
+    <string name="automation_error_timeout_title">Тайм-аўт аўтаматызацыі</string>
+    <string name="automation_error_timeout_body">SD Maid не выканала ўсе этапы ў вызначаны тэрмін. Калі гэта будзе працягвацца, магчыма спатрэбіцца наладжванне праграмы для вашай прылады. Праверце наяўнасць абнаўленняў або звяжыцеся са мной, каб я мог гэта выправіць.</string>
+    <string name="automation_error_overlay_title">Накладанне аўтаматызацыі</string>
+    <string name="automation_error_overlay_body">SD Maid не атрымалася паказаць накладанне аўтаматызацыі. Праверце дазволы і паспрабуйце перазагрузіць прыладу.</string>
     <string name="history_label">Гісторыя</string>
     <string name="history_description">Храналагічны спіс апошніх дзеянняў і закранутых даных.</string>
     <string name="scheduler_label">Планіроўшчык</string>
@@ -716,6 +753,21 @@
     <string name="review_app_review_action">Водгук</string>
     <string name="review_app_dismiss_action">Магчыма пазней</string>
     <string name="review_app_body">Ці вы хочаце пакінуць водгук на SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">З гадавінай, SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">З вамі з %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Ужо %1$d год разам. Дзякуй, што давяраеце SD Maid падтрымліваць чысціню і парадак на вашым Android. Вызвалена месца: %2$s</item>
+        <item quantity="few">%1$d гады працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+        <item quantity="many">%1$d гадоў працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+        <item quantity="other">%1$d гадоў працы. Ваша прылада застаецца чыстай і акуратнай з SD Maid. Вызвалена месца: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Падзяліцеся гадавінай SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d год з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="few">%1$d гады з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="many">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+        <item quantity="other">%1$d гадоў з SD Maid — Вызвалена месца: %2$s. Падтрымлівае чысціню і парадак на вашым Android. #SDMaid\nПаспрабуйце: %3$s</item>
+    </plurals>
     <string name="stats_label">Гісторыя</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s было вызвалена.</item>
@@ -764,4 +816,11 @@
     <string name="area_type_public_obb_label">Публічныя рэсурсы праграм</string>
     <string name="area_type_private_data_label">Прыватныя даныя праграм</string>
     <string name="area_type_portable_label">Партатыўнае сховішча</string>
+    <string name="shortcut_appcontrol_short">Кантроль праграм</string>
+    <string name="shortcut_appcontrol_long">Кіраванне ўсталяванымі праграмамі</string>
+    <string name="shortcut_onetap_short">Сканіраванне + выдаленне</string>
+    <string name="shortcut_onetap_long">Сканіраванне і выдаленне адным націсканнем</string>
+    <string name="shortcuts_settings_category">Ярлыкі</string>
+    <string name="shortcuts_onetap_enabled_title">Хуткі ярлык</string>
+    <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
 </resources>

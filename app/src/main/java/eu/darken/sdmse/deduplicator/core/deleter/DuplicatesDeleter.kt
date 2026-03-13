@@ -4,13 +4,16 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.delete
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import kotlinx.coroutines.flow.Flow
@@ -20,6 +23,7 @@ import javax.inject.Inject
 class DuplicatesDeleter @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val arbiter: DuplicatesArbiter,
+    private val mediaStoreTool: MediaStoreTool,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -37,16 +41,21 @@ class DuplicatesDeleter @Inject constructor(
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_deleting)
 
+        // Snapshot strategy once at the start to avoid redundant DataStore access
+        val strategy = arbiter.getStrategy()
+
         val deletedDupes = when (task.mode) {
-            is DeduplicatorDeleteTask.TargetMode.All -> data.targetAll()
+            is DeduplicatorDeleteTask.TargetMode.All -> data.targetAll(strategy)
             is DeduplicatorDeleteTask.TargetMode.Clusters -> data.targetClusters(
                 targets = task.mode.targets,
                 deleteAll = task.mode.deleteAll,
+                strategy = strategy,
             )
 
             is DeduplicatorDeleteTask.TargetMode.Groups -> data.targetGroups(
                 targets = task.mode.targets,
                 deleteAll = task.mode.deleteAll,
+                strategy = strategy,
             )
 
             is DeduplicatorDeleteTask.TargetMode.Duplicates -> data.targetDuplicates(
@@ -56,17 +65,23 @@ class DuplicatesDeleter @Inject constructor(
 
         log(TAG) { "Deletion finished, deleted ${deletedDupes.size} duplicates" }
 
+        mediaStoreTool.flush()
+
         return Deleted(success = deletedDupes.toSet())
     }
 
-    private suspend fun Deduplicator.Data.targetAll(): Collection<Duplicate> {
+    private suspend fun Deduplicator.Data.targetAll(strategy: ArbiterStrategy): Collection<Duplicate> {
         log(TAG, VERBOSE) { "targetAll()" }
-        return targetClusters(clusters.map { it.identifier }.toSet())
+        return targetClusters(
+            targets = clusters.map { it.identifier }.toSet(),
+            strategy = strategy,
+        )
     }
 
     private suspend fun Deduplicator.Data.targetClusters(
         targets: Set<Duplicate.Cluster.Id>,
         deleteAll: Boolean = false,
+        strategy: ArbiterStrategy,
     ): Collection<Duplicate> {
         log(TAG, VERBOSE) { "#targetClusters(deleteAll=$deleteAll): $targets" }
         return clusters
@@ -77,18 +92,21 @@ class DuplicatesDeleter @Inject constructor(
                     targetGroups(
                         targets = cluster.groups.map { it.identifier }.toSet(),
                         deleteAll = true,
+                        strategy = strategy,
                     )
                 } else {
-                    val (favorite, rest) = arbiter.decideGroups(cluster.groups)
+                    val (favorite, rest) = arbiter.decideGroups(cluster.groups, strategy)
                     log(TAG, VERBOSE) { "_targetClusters(): Our favorite is $favorite" }
 
                     val favoriteResult = targetGroups(
                         targets = setOf(favorite.identifier),
                         deleteAll = false, // !!
+                        strategy = strategy,
                     )
                     val restResult = targetGroups(
                         targets = rest.map { it.identifier }.toSet(),
                         deleteAll = true,
+                        strategy = strategy,
                     )
                     favoriteResult + restResult
                 }
@@ -99,6 +117,7 @@ class DuplicatesDeleter @Inject constructor(
     private suspend fun Deduplicator.Data.targetGroups(
         targets: Set<Duplicate.Group.Id>,
         deleteAll: Boolean = false,
+        strategy: ArbiterStrategy,
     ): Collection<Duplicate> {
         log(TAG, VERBOSE) { "#_targetGroups(deleteAll=$deleteAll): $targets" }
         return clusters
@@ -109,7 +128,7 @@ class DuplicatesDeleter @Inject constructor(
                 if (deleteAll || group.duplicates.size == 1) {
                     targetDuplicates(group.duplicates.map { it.identifier }.toSet())
                 } else {
-                    val (favorite, rest) = arbiter.decideDuplicates(group.duplicates)
+                    val (favorite, rest) = arbiter.decideDuplicates(group.duplicates, strategy)
                     log(TAG, VERBOSE) { "__targetGroups(): Our favorite is $favorite" }
 
                     targetDuplicates(rest.map { it.identifier }.toSet())
@@ -131,6 +150,7 @@ class DuplicatesDeleter @Inject constructor(
                 log(TAG, VERBOSE) { "___targetDuplicates(): Deleting ${dupe.identifier}" }
                 updateProgressSecondary(dupe.lookup.userReadablePath)
                 dupe.path.delete(gatewaySwitch)
+                (dupe.path as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
     }
 

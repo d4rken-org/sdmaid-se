@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.PkgDataSource
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
+import eu.darken.sdmse.common.pkgs.container.HiddenPkg
 import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.features.InstallerInfo
@@ -46,6 +47,7 @@ class NotInstalledPkgsSource @Inject constructor(
 ) : PkgDataSource {
 
     private val targetFlags = MATCH_ARCHIVED_PACKAGES or PackageManager.MATCH_UNINSTALLED_PACKAGES.toLong()
+    private val cachedZeroFlagPkgs = mutableMapOf<UserHandle2, Set<PackageInfo>>()
 
     override suspend fun getPkgs(): Collection<Installed> = pkgOps.useRes {
         log(TAG) { "getPkgs()" }
@@ -54,6 +56,8 @@ class NotInstalledPkgsSource @Inject constructor(
             log(TAG, ERROR) { "QUERY_ALL_PACKAGES is not granted !?" }
             throw QueryAllPkgsPermissionMissing()
         }
+
+        cachedZeroFlagPkgs.clear()
 
         val pkgs = mutableListOf<Installed>().apply { addAll(coreList()) }
 
@@ -70,11 +74,21 @@ class NotInstalledPkgsSource @Inject constructor(
             pkgs.addAll(extraPkgs)
         }
 
+        cachedZeroFlagPkgs.clear()
+
         log(TAG, VERBOSE) { "getPkgs(): Total ${pkgs.size}" }
 
         pkgs
             .distinctBy { "${it.packageName}:${it.userHandle.handleId}" }
             .also { log(TAG, VERBOSE) { "getPkgs(): Unique ${it.size}" } }
+    }
+
+    // Faster than doing single pkg queries to determine if an app is hidden
+    private suspend fun getNormalApps(userHandle2: UserHandle2): Map<String, PackageInfo> {
+        if (cachedZeroFlagPkgs.containsKey(userHandle2)) return cachedZeroFlagPkgs[userHandle2]!!.associateBy { it.packageName }
+        val newLookUp = pkgOps.queryPkgs(0L, userHandle2).toSet()
+        cachedZeroFlagPkgs[userHandle2] = newLookUp
+        return newLookUp.associateBy { it.packageName }
     }
 
     private suspend fun coreList(): Collection<Installed> {
@@ -92,7 +106,7 @@ class NotInstalledPkgsSource @Inject constructor(
         log(TAG, VERBOSE) { "userSpecific()" }
 
         return userManager
-            .allUsers()
+            .otherUsers()
             .map { profile ->
                 pkgOps.queryPkgs(targetFlags, profile.handle).toPkgs(profile.handle).also {
                     log(TAG, VERBOSE) { "userSpecific(): ${it.size} pkgs for $profile" }
@@ -105,24 +119,44 @@ class NotInstalledPkgsSource @Inject constructor(
     }
 
     private suspend fun Collection<PackageInfo>.toPkgs(handle: UserHandle2): Collection<Installed> {
+        log(TAG, VERBOSE) { "Before conversion: ${this.size} `PackageInfo` items" }
         val installerData = pkgOps.getInstallerData(this)
-        return this.mapNotNull { it.toPkg(handle, installerData[it]) }
-    }
+        val converted = mapNotNull { pkgInfo ->
+            when {
+                // Order matters: Check archived FIRST to distinguish from uninstall -k apps
+                // Both have null sourceDir, but only archived apps have ArchivedPackageInfo
+                pkgInfo.isArchived() -> {
+                    // Get ArchivedPackageInfo for label access (PM APIs fail for archived packages)
+                    val archivedInfo = try {
+                        @SuppressLint("NewApi")
+                        context.packageManager.getArchivedPackage(pkgInfo.packageName)
+                    } catch (e: Exception) {
+                        log(TAG, VERBOSE) { "Failed to get ArchivedPackageInfo for ${pkgInfo.packageName}: $e" }
+                        null
+                    }
+                    ArchivedPkg(
+                        packageInfo = pkgInfo,
+                        userHandle = handle,
+                        installerInfo = installerData[pkgInfo] ?: InstallerInfo(),
+                        archivedPackageInfo = archivedInfo,
+                    ).also { log(TAG, VERBOSE) { "ArchivedPkg: $it" } }
+                }
 
-    private fun PackageInfo.toPkg(handle: UserHandle2, installerInfo: InstallerInfo?): Installed? = when {
-        // Order matters
-        isUninstalled -> UninstalledPkg(
-            packageInfo = this,
-            userHandle = handle
-        )
+                pkgInfo.isUninstalled() -> UninstalledPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle,
+                ).also { log(TAG, VERBOSE) { "UninstalledPkg: $it" } }
 
-        isArchived -> ArchivedPkg(
-            packageInfo = this,
-            userHandle = handle,
-            installerInfo = installerInfo ?: InstallerInfo()
-        )
+                pkgInfo.isHidden(handle) -> HiddenPkg(
+                    packageInfo = pkgInfo,
+                    userHandle = handle,
+                ).also { log(TAG, VERBOSE) { "HiddenPkg: $it" } }
 
-        else -> null
+                else -> null
+            }
+        }
+        log(TAG, VERBOSE) { "After conversion: ${converted.size} `Installed` items" }
+        return converted
     }
 
     private val PackageInfo.privateFlags: Int
@@ -133,31 +167,52 @@ class NotInstalledPkgsSource @Inject constructor(
                     isAccessible = true
                 }
                 privateFlagsField.getInt(applicationInfo)
-            } catch (e: Exception) {
+            } catch (_: Exception) {
                 log(TAG, WARN) { "Failed to get privateFlags for ${this.packageName}" }
                 0
             }
         }
 
-    private val PackageInfo.isArchived: Boolean
-        get() {
-            return hasApiLevel(35) && applicationInfo?.sourceDir == null
+    @SuppressLint("NewApi")
+    private suspend fun PackageInfo.isArchived(): Boolean {
+        if (!hasApiLevel(35)) return false
+
+        // Verify the APK is removed (archived apps have no sourceDir), fast check
+        if (applicationInfo?.sourceDir != null) return false
+
+        // A package is truly archived only if:
+        // 1. The system has archive info for it (getArchivedPackage returns non-null)
+        //    Note: This returns non-null for archivable apps too (Play Store apps with pre-generated stubs)
+        // 2. The APK is actually removed (sourceDir is null)
+        // Without both conditions, it's just an archivable but still-installed package
+        val hasArchiveInfo = try {
+            context.packageManager.getArchivedPackage(packageName) != null
+        } catch (e: Exception) {
+            if (Bugs.isTrace) log(TAG, VERBOSE) { "Failed to check archived status for $packageName: $e" }
+            false
         }
 
-    private val PackageInfo.isUninstalled: Boolean
-        get() = when {
-            !hasApiLevel(29) -> {
-                val sourceDir = applicationInfo?.sourceDir
-                try {
-                    sourceDir?.let { !File(it).exists() } ?: true
-                } catch (e: Exception) {
-                    log(TAG, WARN) { "Failed to check if $sourceDir exists for $packageName:\n${e.asLog()}" }
-                    false
-                }
+        return hasArchiveInfo
+    }
+
+    private suspend fun PackageInfo.isUninstalled(): Boolean = when {
+        !hasApiLevel(29) -> {
+            val sourceDir = applicationInfo?.sourceDir
+            try {
+                sourceDir?.let { !File(it).exists() } ?: true
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to check if $sourceDir exists for $packageName:\n${e.asLog()}" }
+                false
             }
-
-            else -> (privateFlags and PRIVATE_FLAG_HAS_FRAGILE_USER_DATA) != 0
         }
+        // On API 35+, isArchived() is checked first, so null sourceDir means uninstalled -k
+        hasApiLevel(35) -> applicationInfo?.sourceDir == null
+        // API 29-34: fall back to flag check (no archived apps exist pre-API 35)
+        else -> (privateFlags and PRIVATE_FLAG_HAS_FRAGILE_USER_DATA) != 0
+    }
+
+    private suspend fun PackageInfo.isHidden(handle: UserHandle2): Boolean =
+        getNormalApps(handle)[packageName] == null
 
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
@@ -165,7 +220,7 @@ class NotInstalledPkgsSource @Inject constructor(
     }
 
     companion object {
-        // TODO Update when using API35: MATCH_ARCHIVED_PACKAGES
+        // Using constant value to support API < 35, matches PackageManager.MATCH_ARCHIVED_PACKAGES
         private const val MATCH_ARCHIVED_PACKAGES = 0x100000000L // 4294967296L
         private const val PRIVATE_FLAG_HAS_FRAGILE_USER_DATA = 1 shl 24
         private val TAG = logTag("Pkg", "Repo", "Source", "NotInstalledPkgs")

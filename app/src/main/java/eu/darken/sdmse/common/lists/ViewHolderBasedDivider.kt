@@ -57,6 +57,7 @@ class ViewHolderBasedDivider constructor(
             if (!filter(previousVH, thisVH, nextVH)) continue
 
             parent.getDecoratedBoundsWithMargins(thisChild, bounds)
+            @Suppress("DEPRECATION")
             val bottom: Int = bounds.bottom + ViewCompat.getTranslationY(thisChild).roundToInt()
             val top: Int = bottom - divider.intrinsicHeight
             divider.setBounds(left, top, right, bottom)

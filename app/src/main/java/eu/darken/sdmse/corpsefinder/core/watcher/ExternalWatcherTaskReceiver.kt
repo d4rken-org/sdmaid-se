@@ -35,6 +35,7 @@ class ExternalWatcherTaskReceiver : BroadcastReceiver() {
             return
         }
 
+        @Suppress("DEPRECATION")
         val externalTask = intent.getParcelableExtra<ExternalWatcherTask>(EXTRA_TASK)
 
         if (externalTask == null) {

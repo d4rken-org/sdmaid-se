@@ -9,7 +9,7 @@ import javax.inject.Inject
 class MimeTypeTool @Inject constructor() {
 
     suspend fun determineMimeType(lookup: APathLookup<*>): String {
-        val ext = MimeTypeMap.getFileExtensionFromUrl(lookup.name)
+        val ext = lookup.name.substringAfterLast('.', "").lowercase()
         return MimeTypeMap.getSingleton().getMimeTypeFromExtension(ext) ?: MimeTypes.Unknown.value
     }
 }

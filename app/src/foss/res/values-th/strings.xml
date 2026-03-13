@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">บังคับ SD Maid SE</string>
+    <string name="app_name_upgrade_postfix">บังคับ</string>
+    <string name="upgrade_feature_requires_pro">ต้องการ SD Maid SE FOSS</string>
+    <string name="upgrades_dashcard_title">อัปเกรด SD Maid</string>
+    <string name="upgrades_dashcard_body">ปลดล็อกฟีเจอร์เพิ่มเติมและเป็นผู้อุปถัมภ์เพื่อสนับสนุนการพัฒนาอย่างต่อเนื่อง!</string>
+    <string name="upgrades_dashcard_upgrade_action">อัปเกรด</string>
+    <string name="upgrade_screen_title">ปรับปรุง SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid ไม่มีโฆษณาและไม่ขายข้อมูลผู้ใช้ การพัฒนาอย่างต่อเนื่องจึงเป็นไปได้เพียงแค่ด้วยคุณเท่านั้น</string>
+    <string name="upgrade_screen_how_title">วิธีการช่วยเหลือ</string>
+    <string name="upgrade_screen_how_body">เป็นผู้อุปถัมภ์และสปอนเซอร์การพัฒนา! แตะปุ่มด้านล่างเพื่อเปิดใช้ฟีเจอร์เพิ่มเติมทั้งหมดและเปิดโปรไฟล์ GitHub Sponsors ของฉัน</string>
+    <string name="upgrade_screen_why_title">สิ่งนี้ทำให้เกิด 🪄</string>
+    <string name="upgrade_screen_why_body">• ฟังก์ชันการลบของ AppCleaner 💯\n• การดำเนินการตามตารางเวลา ⏰\n• ตัวเลือกเพิ่มเติมสำหรับเครื่องมือทั้งหมด ⚙️\n• กฎการลบของคุณเอง ✍️\n• นักพัฒนาที่มีแรงบันดาลใจ 🧙\nและอื่นๆ อีกมากมาย…</string>
+    <string name="upgrade_screen_sponsor_action">สปอนเซอร์การพัฒนา</string>
+    <string name="upgrade_screen_sponsor_action_hint">ทางเลือกคือโฆษณา การวิเคราะห์ และ Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">ขอบคุณสำหรับการสนับสนุนการพัฒนาโอเพ่นซอร์ส ❤️</string>
+</resources>

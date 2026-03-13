@@ -27,6 +27,7 @@ class MotdCardVH(parent: ViewGroup) :
 
         body.apply {
             text = item.state.motd.message
+            @Suppress("DEPRECATION")
             autoLinkMask = Linkify.ALL
             movementMethod = LinkMovementMethod.getInstance()
         }

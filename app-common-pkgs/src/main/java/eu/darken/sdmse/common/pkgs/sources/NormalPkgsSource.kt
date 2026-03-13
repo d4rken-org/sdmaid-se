@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.pkgs.sources
 
 import android.content.Context
+import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
 import dagger.Binds
 import dagger.Module
@@ -74,12 +75,15 @@ class NormalPkgsSource @Inject constructor(
         }
 
         // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
-        val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL)
+        val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong())
         if (pkgInfos.isEmpty()) {
             throw InvalidPkgInventoryException("Could not retrieve list of installed packages")
         }
         if (pkgInfos.none { it.packageName == BuildConfigWrap.APPLICATION_ID }) {
             throw InvalidPkgInventoryException("Returned package data didn't contain us")
+        }
+        if (pkgInfos.none { SANITY_PKGS.contains(it.packageName) }) {
+            throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
         }
 
         val currentHandle = userManager.currentUser().handle
@@ -89,7 +93,7 @@ class NormalPkgsSource @Inject constructor(
             NormalPkg(
                 packageInfo = it,
                 userHandle = currentHandle,
-                installerInfo = installerData[it] ?: InstallerInfo()
+                installerInfo = installerData[it] ?: InstallerInfo(),
             )
         }
 
@@ -109,14 +113,14 @@ class NormalPkgsSource @Inject constructor(
         val result = userManager.allUsers()
             .map { profile ->
                 // FYI: MATCH_ALL does not include MATCH_UNINSTALLED_PACKAGES
-                val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL, profile.handle)
+                val pkgInfos = pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong(), profile.handle)
                 val installerData = pkgOps.getInstallerData(pkgInfos)
 
                 val userPkgs = pkgInfos.map {
                     NormalPkg(
                         packageInfo = it,
                         userHandle = profile.handle,
-                        installerInfo = installerData[it] ?: InstallerInfo()
+                        installerInfo = installerData[it] ?: InstallerInfo(),
                     )
                 }
 
@@ -139,6 +143,10 @@ class NormalPkgsSource @Inject constructor(
     }
 
     companion object {
+        private val SANITY_PKGS = setOf(
+            "android",
+            "com.android.cts.ctsshim",
+        )
         private val TAG = logTag("Pkg", "Repo", "Source", "NormalPkgs")
     }
 }

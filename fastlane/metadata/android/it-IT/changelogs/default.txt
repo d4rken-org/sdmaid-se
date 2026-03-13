@@ -1,8 +1,9 @@
-Ehi 👋
-SD Maid 2/SE è in fase di sviluppo attivo. Sto lavorando a nuove funzionalità ogni giorno.
-Se hai qualche buona idea, fammi sapere 😊!
+Ciao 👋
+SD Maid 2/SE è in sviluppo attivo—aggiungo sempre cose nuove!
+Hai idee? Fammelo sapere 😊
 
-Gli aggiornamenti includono correzioni di bug, miglioramenti delle prestazioni e forse nuove funzionalità.
-Un changelog dettagliato è sempre disponibile su GitHub.
+🐛 Correzioni di bug, 🚀 miglioramenti delle prestazioni, forse anche ✨ nuove funzionalità.
 
-Per tua informazione: qui ci sono solo io, quindi a volte le risposte potrebbero richiedere un po' di tempo. Scusa per questo!
+Changelog: https://sdmse.darken.eu/changelog
+
+Nota: Sono solo qui, a volte le risposte potrebbero richiedere un po' di tempo. Scusate!

@@ -144,4 +144,29 @@ class DalvikProfileCSITest : BaseCSITest() {
             }
         }
     }
+
+    @Test fun `android 16 profile paths should not be handled`() = runTest {
+        val processor = getProcessor()
+
+        // Android 16 current profile paths - should NOT be identified by DalvikProfileCSI
+        val android16CurrentPaths = listOf(
+            LocalPath.build("/data_mirror/cur_profiles/0/com.android.chrome/primary.prof"),
+            LocalPath.build("/data_mirror/cur_profiles/0/com.facebook.katana/primary.prof"),
+            LocalPath.build("/data_mirror/cur_profiles/0/eu.darken.sdmse/primary.prof"),
+            LocalPath.build("/data_mirror/cur_profiles/999/com.android.chrome/primary.prof"),
+        )
+
+        // Android 16 reference profile paths - should NOT be identified by DalvikProfileCSI
+        val android16RefPaths = listOf(
+            LocalPath.build("/data_mirror/ref_profiles/com.android.chrome/primary.prof"),
+            LocalPath.build("/data_mirror/ref_profiles/com.facebook.katana/primary.prof"),
+            LocalPath.build("/data_mirror/ref_profiles/eu.darken.sdmse/primary.prof"),
+        )
+
+        // Test that DalvikProfileCSI does NOT identify these Android 16 paths
+        for (path in android16CurrentPaths + android16RefPaths) {
+            val areaInfo = processor.identifyArea(path)
+            areaInfo shouldBe null  // Should not be handled by DalvikProfileCSI
+        }
+    }
 }

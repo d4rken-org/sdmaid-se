@@ -26,6 +26,7 @@ class DalvikProfileModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : DataAreaModule {
 
+    // Unused since Android 16 (API36), "art-profiles" are now under `/data/misc/profiles`
     override suspend fun secondPass(firstPass: Collection<DataArea>): Collection<DataArea> {
         val gateway = gatewaySwitch.getGateway(APath.PathType.LOCAL) as LocalGateway
 

@@ -6,10 +6,13 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
@@ -32,9 +35,11 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     deduplicator: Deduplicator,
     private val taskManager: TaskManager,
+    private val settings: DeduplicatorSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<DeduplicatorDetailsFragmentArgs>()
-    private var currentTarget: Duplicate.Cluster.Id? = null
+    private var currentTarget: Duplicate.Cluster.Id? by handle.mutableState("target")
+    private var lastPosition: Int? by handle.mutableState("position")
 
     init {
         deduplicator.state
@@ -68,13 +73,24 @@ class DeduplicatorDetailsViewModel @Inject constructor(
             .map { it.data }
             .filterNotNull()
             .distinctUntilChangedBy { data -> data.clusters.map { it.identifier }.toSet() },
-    ) { progress, data ->
+        settings.isDirectoryViewEnabled.flow,
+    ) { progress, data, isDirectoryViewEnabled ->
         val sortedClusters = data.clusters
             .sortedByDescending { it.averageSize }
+
+        val availableTarget = resolveTarget(
+            items = sortedClusters,
+            requestedTarget = currentTarget ?: args.identifier,
+            lastPosition = lastPosition,
+            identifierOf = { it.identifier },
+            onPositionTracked = { lastPosition = it },
+        )
+
         State(
             items = sortedClusters,
-            target = currentTarget ?: args.identifier,
+            target = availableTarget,
             progress = progress,
+            isDirectoryViewEnabled = isDirectoryViewEnabled,
         )
     }.asLiveData2()
 
@@ -82,11 +98,17 @@ class DeduplicatorDetailsViewModel @Inject constructor(
         val items: List<Duplicate.Cluster>,
         val target: Duplicate.Cluster.Id?,
         val progress: Progress.Data?,
+        val isDirectoryViewEnabled: Boolean = false,
     )
 
     fun updatePage(identifier: Duplicate.Cluster.Id) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
+    }
+
+    fun toggleDirectoryView() = launch {
+        log(TAG) { "toggleDirectoryView()" }
+        settings.isDirectoryViewEnabled.update { !it }
     }
 
     companion object {

@@ -1,0 +1,44 @@
+name: Test Reports
+
+on:
+  workflow_run:
+    workflows: ['Code tests & eval']
+    types:
+      - completed
+
+permissions:
+  contents: read
+  actions: read
+  checks: write
+  pull-requests: read
+
+jobs:
+  report:
+    runs-on: ubuntu-22.04
+    if: always()
+    steps:
+      - name: Test Report - FOSS Debug
+        uses: dorny/test-reporter@v2.1.1
+        if: always()
+        with:
+          name: 'Unit Tests - testFoss Debug'
+          artifact: test-results-testFoss-Debug
+          path: '**/*.xml'
+          reporter: java-junit
+          fail-on-error: false
+          list-suites: 'failed'
+          list-tests: 'failed'
+          max-annotations: 10
+
+      - name: Test Report - GPlay Debug
+        uses: dorny/test-reporter@v2.1.1
+        if: always()
+        with:
+          name: 'Unit Tests - testGplay Debug'
+          artifact: test-results-testGplay-Debug
+          path: '**/*.xml'
+          reporter: java-junit
+          fail-on-error: false
+          list-suites: 'failed'
+          list-tests: 'failed'
+          max-annotations: 10

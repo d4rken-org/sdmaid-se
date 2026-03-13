@@ -1,2 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE Pro</string>
+    <string name="app_name_upgrade_postfix">Pro</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE Pro tələb olunur</string>
+    <string name="upgrades_dashcard_title">SD Maid-i yüksəldin</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro daha yaxşı nəticələr, daha çox xüsusiyyətlər və güc istifadəçiləri üçün seçimlər təklif edir.</string>
+    <string name="upgrades_dashcard_upgrade_action">Yüksəlt</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play əlçatan deyil</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play-ə qoşula bilmir. Google Play quraşdırılıb və yenilənib? Google hesabınız daxil olub? Google Play tətbiqinin keşini təmizləməyi və cihazınızı yenidən başlatmağı sınayın.</string>
+    <string name="upgrades_gplay_billing_error_label">Google Play Problemi</string>
+    <string name="upgrades_gplay_billing_error_description">Google Play ilə bağlı problem yarandı. Zəhmət olmasa, bir az sonra yenidən cəhd edin və ya cihazınızı yenidən başladın.\n\nTəfərrüatlar: %s</string>
+    <string name="upgrades_no_purchases_found_check_account">Heç bir alış tapılmadı. Düzgün hesabdan istifadə edirsiniz?</string>
+    <string name="upgrade_screen_title">SD Maid SE Pro əldə edin</string>
+    <string name="upgrade_screen_preamble">SD Maid-də reklam yoxdur və istifadəçi məlumatları satmır. Mənim işim sizin tərəfinizdən maliyyələşdirilir ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Üstünlüklər</string>
+    <string name="upgrade_screen_benefits_body">• Tətbiq təmizləmə 💯\n• Planlaşdırılmış əməliyyatlar ⏰\n• Bütün alətlər üçün əlavə seçimlər ⚙️\n• Öz silmə qaydalarınız ✍️\n• Motivasiyalı tərtibatçı 🧙\nvə daha çox…</string>
+    <string name="upgrade_screen_how_title">Seçimlər</string>
+    <string name="upgrade_screen_how_body">Siz birdəfəlik alış və daha ucuz illik abunə arasında seçim edə bilərsiniz.\nAbunə pulsuz 14 günlük sınaq ilə başlayır, bundan sonra ildə bir dəfə ödəniş edəcəksiniz. Sınaq və abunə istənilən vaxt ləğv edilə bilər.\nEyni xüsusiyyətlər, sadəcə fərqli qiymət modelləri.</string>
+    <string name="upgrade_screen_subscription_trial_action">Pulsuz 14 günlük sınağa başlayın</string>
+    <string name="upgrade_screen_subscription_action">Abunə olun</string>
+    <string name="upgrade_screen_subscription_action_hint">Abunə ildə %s başa gəlir.</string>
+    <string name="upgrade_screen_iap_action">Birdəfəlik alış</string>
+    <string name="upgrade_screen_iap_action_hint">Birdəfəlik alış %s başa gəlir.</string>
+    <string name="upgrade_screen_thanks_toast">Siz ən yaxşısınız! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Alışı bərpa et</string>
+    <string name="upgrade_screen_restore_purchase_message">Yeniləməniz eyni Google hesabında cihazlar arasında keçərlidir.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Tanınmayan yeniləmələr üçün problemlərin həlli məsləhətləri:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store sinxronlaşdırması vaxt ala bilər. Yenidən başlatmağı, Google Play keşini təmizləməyi və ya sadəcə gözləməyi sınayın.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Çoxlu hesablar Google Play-i çaşdıra bilər. Digər hesablardan çıxın və ya Google Play veb saytı vasitəsilə quraşdırın ki, bu da müəyyən hesabla əlaqələri məcbur edir.</string>
+</resources>

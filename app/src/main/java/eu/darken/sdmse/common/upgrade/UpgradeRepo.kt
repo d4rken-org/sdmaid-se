@@ -4,7 +4,8 @@ import kotlinx.coroutines.flow.Flow
 import java.time.Instant
 
 interface UpgradeRepo {
-    val mainWebsite: String
+    val storeSite: String
+    val upgradeSite: String
 
     val upgradeInfo: Flow<Info>
 
@@ -16,6 +17,8 @@ interface UpgradeRepo {
         val isPro: Boolean
 
         val upgradedAt: Instant?
+
+        val error: Throwable?
     }
 
     enum class Type {

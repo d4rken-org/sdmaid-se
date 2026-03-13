@@ -98,13 +98,6 @@ class StorageContentViewModel @Inject constructor(
                     is SystemCategory -> SystemCategoryVH.Item(
                         storage = storage,
                         content = content,
-                        onItemClick = {
-                            if (content.groups.isEmpty()) return@Item
-                            StorageContentFragmentDirections.actionStorageFragmentToContentFragment(
-                                storageId = targetStorageId,
-                                groupId = content.groups.single().id,
-                            ).navigate()
-                        }
                     )
                 }
             }

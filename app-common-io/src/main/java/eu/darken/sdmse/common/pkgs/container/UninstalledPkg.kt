@@ -31,5 +31,5 @@ data class UninstalledPkg(
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_package_variant_24)!!
     }.cache()
 
-    override fun toString(): String = "UninstalledPkg(packageName=$packageName"
+    override fun toString(): String = "UninstalledPkg(packageName=$packageName)"
 }

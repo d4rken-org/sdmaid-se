@@ -1,5 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter
 
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.filterDistinctRoots
@@ -20,16 +22,33 @@ abstract class BaseSystemCleanerFilter : SystemCleanerFilter {
         progressPub.value = update(progressPub.value)
     }
 
-    suspend fun Collection<SystemCleanerFilter.Match>.deleteAll(
+    suspend fun Collection<SystemCleanerFilter.Match.Deletion>.deleteAll(
         gatewaySwitch: GatewaySwitch
-    ) = this
-        .map { it as SystemCleanerFilter.Match.Deletion }
-        .map { it.lookup }
-        .filterDistinctRoots()
-        .also { updateProgressCount(Progress.Count.Percent(it.size)) }
-        .forEach { targetContent ->
-            updateProgressPrimary(targetContent.userReadablePath)
-            targetContent.delete(gatewaySwitch, recursive = true)
-            increaseProgress()
+    ): Collection<SystemCleanerFilter.Processed> {
+        val uniqueRoots = this.map { it.lookup }.filterDistinctRoots()
+        val uniqueMatches = this.filter { it.lookup in uniqueRoots }
+
+        if (uniqueMatches.size != uniqueRoots.size) {
+            throw IllegalStateException("Matches (${uniqueMatches.size}) != Roots (${uniqueRoots.size})")
         }
+
+        updateProgressCount(Progress.Count.Percent(uniqueRoots.size))
+
+        return uniqueMatches.map { match ->
+            updateProgressPrimary(match.lookup.userReadablePath)
+            var error: Throwable? = null
+            try {
+                match.lookup.delete(gatewaySwitch, recursive = true)
+            } catch (e: Exception) {
+                log(identifier, WARN) { "Failed to delete ${match.lookup}" }
+                error = e
+            } finally {
+                increaseProgress()
+            }
+            SystemCleanerFilter.Processed(
+                match = match,
+                error = error,
+            )
+        }
+    }
 }

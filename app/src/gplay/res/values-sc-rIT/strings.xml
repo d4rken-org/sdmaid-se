@@ -1,2 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">Rechedet SD Maid SE Pro</string>
+    <string name="upgrades_dashcard_title">Agiorna SD Maid</string>
+    <string name="upgrades_dashcard_body">SD Maid Pro oferit risultados mègius, prus caraterìsticas e optziones pro utentes avantzados.</string>
+    <string name="upgrades_dashcard_upgrade_action">Agiorna</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play no est disponìbile</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid non podet si connètere a Google Play. Google Play est installadu e agiornadu? Su contu Google tuo est intradu? Proa a limpiare sa cache de s\'aplicatzione Google Play e a torrare a allùghere su dispositivu tuo.</string>
+    <string name="upgrades_no_purchases_found_check_account">Perunu cùmperu agatadu. Ses impreande su contu giustu?</string>
+    <string name="upgrade_screen_title">Otene SD Maid SE Pro</string>
+    <string name="upgrade_screen_preamble">SD Maid non tenet publitzidade e non bendet datos de sos utentes. Su traballu meu est finantziadu dae bois ❤️.</string>
+    <string name="upgrade_screen_benefits_title">Vantàgios</string>
+    <string name="upgrade_screen_benefits_body">• Lìmpia de aplicatziones 💯\n• Operatziones programadas ⏰\n• Optziones in prus pro totu sas ainas ⚙️\n• Sas règulas tuas de cantzelladura ✍️\n• Unu isviluppadore motivadu 🧙\ne àteru…</string>
+    <string name="upgrade_screen_how_title">Optziones</string>
+    <string name="upgrade_screen_how_body">Podes seberare intre unu cùmperu de una borta ebbia e un\'abbonamentu annuale prus baràtu.\nS\'abbonamentu cumintza cun una proa de badas de 14 dies, a pustis de custu ti diant cobràre una borta a s\'annu. Sa proa e s\'abbonamentu podent èssere cantzellados in cale si siat momentu.\nSas matèssias caraterìsticas, modelos de prètziu diferentes ebbia.</string>
+    <string name="upgrade_screen_subscription_trial_action">Cumintza sa proa de badas de 14 dies</string>
+    <string name="upgrade_screen_subscription_action">Abbòna·ti</string>
+    <string name="upgrade_screen_subscription_action_hint">S\'abbonamentu costat %s a s\'annu.</string>
+    <string name="upgrade_screen_iap_action">Cùmperu de una borta</string>
+    <string name="upgrade_screen_iap_action_hint">Su cùmperu de una borta costat %s.</string>
+    <string name="upgrade_screen_thanks_toast">Ses su mègius! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">Recùpera su cùmperu</string>
+    <string name="upgrade_screen_restore_purchase_message">S\'agiornamentu tuo est vàlidu in dispositivos diferentes cun su matèssiu contu Google.</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">Cunsigiàdos pro risòlvere problemas cun agiornamentos non reconnotos:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Sa sincronizatzione de Play Store podet leare tempus. Proa a torrare a allùghere, limpiare sa cache de Google Play o simplesmente iseta.</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">Contos mùltiplos podent cunfùndere Google Play. Essi dae àteros contos o installa dae su situ web de Google Play, chi fortza assotziatziones cun unu contu ispetzìficu.</string>
+</resources>

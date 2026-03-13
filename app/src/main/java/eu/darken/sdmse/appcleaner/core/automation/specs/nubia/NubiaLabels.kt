@@ -39,7 +39,7 @@ class NubiaLabels @Inject constructor(
         aospLabels.getStorageEntryStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Nubia", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Nubia", "Labels")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

@@ -17,6 +17,7 @@ data class Schedule(
     @Json(name = "minute") val minute: Int = 0,
     @Json(name = "label") val label: String = "",
     @Json(name = "repeatInterval") val repeatInterval: Duration = Duration.ofDays(3),
+    @Json(name = "userZone") val userZone: String? = null,
     @Json(name = "corpsefinderEnabled") val useCorpseFinder: Boolean = false,
     @Json(name = "systemcleanerEnabled") val useSystemCleaner: Boolean = false,
     @Json(name = "appcleanerEnabled") val useAppCleaner: Boolean = false,
@@ -26,38 +27,51 @@ data class Schedule(
     val isEnabled: Boolean
         get() = scheduledAt != null
 
-    internal fun calcFirstExecutionAt(
-        userZone: ZoneId = ZoneId.systemDefault()
-    ): Instant? {
-        if (scheduledAt == null) return null
+    private fun resolveZone(): ZoneId = userZone?.let {
+        try {
+            ZoneId.of(it)
+        } catch (e: Exception) {
+            log(SchedulerManager.TAG, WARN) { "Invalid stored timezone '$it', falling back to system default: $e" }
+            null
+        }
+    } ?: ZoneId.systemDefault()
 
-        val scheduledAtZoned = scheduledAt.atZone(userZone)
-        return scheduledAtZoned
-            .withHour(hour)
-            .withMinute(minute)
-            .let {
-                if (it.isAfter(scheduledAtZoned)) {
-                    it.plus(repeatInterval.minus(Duration.ofDays(1)))
-                } else {
-                    it.plus(repeatInterval)
-                }
-            }
-            .toInstant()
+    private fun calcTargetTime(zone: ZoneId) = scheduledAt?.atZone(zone)?.withHour(hour)?.withMinute(minute)
+
+    internal fun calcFirstExecutionAt(
+        zone: ZoneId = resolveZone()
+    ): Instant? {
+        val targetToday = calcTargetTime(zone) ?: return null
+        val scheduledAtZoned = scheduledAt!!.atZone(zone)
+        val intervalDays = repeatInterval.toDays()
+
+        // Use calendar arithmetic (plusDays) to preserve local time across DST
+        return if (targetToday.isAfter(scheduledAtZoned)) {
+            // Target time today is still ahead, first execution in (interval - 1) days
+            targetToday.plusDays(intervalDays - 1)
+        } else {
+            // Target time today has passed, first execution in interval days
+            targetToday.plusDays(intervalDays)
+        }.toInstant()
     }
 
     fun calcExecutionEta(
         now: Instant,
         reschedule: Boolean,
-        userZone: ZoneId = ZoneId.systemDefault(),
+        zone: ZoneId = resolveZone(),
     ): Duration? {
         if (scheduledAt == null) return null
 
+        val intervalDays = repeatInterval.toDays()
+
         fun calcNextTrigger(present: Instant): Instant {
-            var nextTrigger = calcFirstExecutionAt(userZone)!!
-            while (nextTrigger.isBefore(present)) {
-                nextTrigger = nextTrigger.plus(repeatInterval)
+            var nextZoned = calcTargetTime(zone) ?: return present
+            // Find next occurrence strictly after present (not at or before)
+            while (!nextZoned.toInstant().isAfter(present)) {
+                // Use plusDays to preserve local time across DST transitions
+                nextZoned = nextZoned.plusDays(intervalDays)
             }
-            return nextTrigger
+            return nextZoned.toInstant()
         }
 
         return Duration

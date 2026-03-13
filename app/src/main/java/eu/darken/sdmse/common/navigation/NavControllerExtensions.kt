@@ -4,6 +4,11 @@ import android.os.Bundle
 import androidx.annotation.IdRes
 import androidx.navigation.NavController
 import androidx.navigation.NavDirections
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
+
+private val TAG = logTag("Navigation")
 
 fun NavController.navigateIfNotThere(@IdRes resId: Int, args: Bundle? = null) {
     if (currentDestination?.id == resId) return
@@ -11,7 +16,15 @@ fun NavController.navigateIfNotThere(@IdRes resId: Int, args: Bundle? = null) {
 }
 
 fun NavController.doNavigate(direction: NavDirections) {
-    currentDestination?.getAction(direction.actionId)?.let { navigate(direction) }
+    val curDest = currentDestination
+    val action = curDest?.getAction(direction.actionId)
+    if (action != null) {
+        navigate(direction)
+        return
+    }
+    log(TAG, WARN) {
+        "Navigation dropped: ${direction.javaClass.simpleName} not found on ${curDest?.label ?: "null"}"
+    }
 }
 
 fun NavController.isGraphSet(): Boolean = try {

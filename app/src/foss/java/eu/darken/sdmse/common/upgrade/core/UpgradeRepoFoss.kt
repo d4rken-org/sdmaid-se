@@ -10,10 +10,12 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import java.time.Instant
-import java.util.*
+import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,7 +26,8 @@ class UpgradeRepoFoss @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : UpgradeRepo {
 
-    override val mainWebsite: String = SITE
+    override val storeSite: String = STORE_SITE
+    override val upgradeSite: String = UPGRADE_SITE
 
     private val refreshTrigger = MutableStateFlow(UUID.randomUUID())
 
@@ -43,6 +46,7 @@ class UpgradeRepoFoss @Inject constructor(
         }
     }
         .setupCommonEventHandlers(TAG) { "upgradeInfo" }
+        .shareIn(appScope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
 
     fun launchGithubSponsorsUpgrade() = appScope.launch {
         log(TAG) { "launchGithubSponsorsUpgrade()" }
@@ -50,7 +54,7 @@ class UpgradeRepoFoss @Inject constructor(
             upgradedAt = Instant.now(),
             upgradeType = FossUpgrade.Type.GITHUB_SPONSORS
         )
-        webpageTool.open(mainWebsite)
+        webpageTool.open(upgradeSite)
     }
 
     override suspend fun refresh() {
@@ -62,12 +66,14 @@ class UpgradeRepoFoss @Inject constructor(
         override val isPro: Boolean = false,
         override val upgradedAt: Instant? = null,
         val fossUpgradeType: FossUpgrade.Type? = null,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.FOSS
     }
 
     companion object {
-        private const val SITE = "https://github.com/sponsors/d4rken"
+        private const val STORE_SITE = "https://github.com/d4rken-org/sdmaid-se"
+        private const val UPGRADE_SITE = "https://github.com/sponsors/d4rken"
         private val TAG = logTag("Upgrade", "Foss", "Repo")
     }
 }

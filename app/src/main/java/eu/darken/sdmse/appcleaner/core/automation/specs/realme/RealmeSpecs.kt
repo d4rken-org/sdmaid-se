@@ -15,12 +15,12 @@ import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.clickGesture
+import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
-import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
 import eu.darken.sdmse.automation.core.specs.windowCheck
 import eu.darken.sdmse.automation.core.specs.windowCheckDefaultSettings
@@ -29,6 +29,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.toVisualStrings
@@ -80,6 +81,27 @@ class RealmeSpecs @Inject constructor(
 
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = storageFinder(this) ?: return@action false
+                log(TAG) { "Found target $target" }
+                when {
+                    hasApiLevel(35) -> {
+                        val mapped = findClickableParent(maxNesting = 3, node = target)
+                        if (mapped != null) {
+                            clickNormal(node = mapped)
+                        } else {
+                            log(TAG, WARN) { "Target has no clickable parent, trying gesture..." }
+                            clickGesture(node = target)
+                        }
+                    }
+
+                    else -> {
+                        val mapped = findClickableParent(maxNesting = 6, node = target) ?: return@action false
+                        clickNormal(isDryRun = false, mapped)
+                    }
+                }
+            }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Storage entry for $pkg",
@@ -87,7 +109,7 @@ class RealmeSpecs @Inject constructor(
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
                 nodeRecovery = defaultNodeRecovery(pkg),
-                nodeAction = defaultFindAndClick(finder = storageFinder),
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -98,25 +120,18 @@ class RealmeSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(35) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            true
-                        }
-
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
+                val target = when {
+                    hasApiLevel(35) -> findNodeByLabel(clearCacheButtonLabels)
+                    else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
+                // On API 35+, button text may be nested in non-clickable wrapper, find clickable parent.
+                // If no clickable parent exists (e.g., disabled button when cache=0), fall back to target
+                // and let clickClearCache() handle the disabled state.
                 val mapped = when {
-                    hasApiLevel(35) && isUnclickableButton -> findClickableParent(node = target)
+                    hasApiLevel(35) && !target.isClickyButton() -> findClickableParent(node = target) ?: target
                     else -> target
-                } ?: return@action false
+                }
 
                 clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
             }
@@ -139,7 +154,7 @@ class RealmeSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Realme", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Realme", "Specs")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

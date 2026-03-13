@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventàriu de aplicatziones non bàlidu</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Su sistema at frunidu un\'elencu non bàlidu de aplicatziones installadas a SD Maid.</string>
+</resources>

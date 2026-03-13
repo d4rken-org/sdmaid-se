@@ -89,10 +89,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_less_action"
-            style="@style/SDMButton.Tonal"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="-"
+            app:backgroundTint="?colorSecondary"
+            app:icon="@drawable/ic_clock_minus_outline_24"
+            app:iconSize="24dp"
+            app:iconTint="?colorOnSecondary"
             app:layout_constraintBottom_toBottomOf="@id/repeat_days_value"
             app:layout_constraintEnd_toStartOf="@id/repeat_days_value"
             app:layout_constraintHorizontal_chainStyle="packed"
@@ -114,10 +117,13 @@
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/repeat_days_more_action"
-            style="@style/SDMButton.Tonal"
+            style="@style/Widget.Material3.Button.IconButton.Filled"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="+"
+            app:backgroundTint="?colorSecondary"
+            app:icon="@drawable/ic_clock_plus_outline_24"
+            app:iconSize="24dp"
+            app:iconTint="?colorOnSecondary"
             app:layout_constraintBottom_toBottomOf="@id/repeat_days_value"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@id/repeat_days_value"

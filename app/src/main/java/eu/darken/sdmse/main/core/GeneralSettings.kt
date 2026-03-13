@@ -53,10 +53,20 @@ class GeneralSettings @Inject constructor(
     val oneClickSystemCleanerEnabled = dataStore.createValue("dashboard.oneclick.systemcleaner.enabled", true)
     val oneClickAppCleanerEnabled = dataStore.createValue("dashboard.oneclick.appcleaner.enabled", true)
     val oneClickDeduplicatorEnabled = dataStore.createValue("dashboard.oneclick.deduplicator.enabled", false)
+    val shortcutOneClickEnabled = dataStore.createValue("shortcut.oneclick.enabled", false)
 
     val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())
 
     val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, moshi)
+
+    val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, moshi)
+
+    val dashboardCardConfig = dataStore.createValue(
+        key = "dashboard.cards.config",
+        defaultValue = DashboardCardConfig(),
+        moshi = moshi,
+        fallbackToDefault = true,
+    )
 
     override val mapper = PreferenceStoreMapper(
         debugSettings.isDebugMode,
@@ -64,6 +74,7 @@ class GeneralSettings @Inject constructor(
         themeStyle,
         usePreviews,
         enableDashboardOneClick,
+        shortcutOneClickEnabled,
         motdSettings.isMotdEnabled,
         isUpdateCheckEnabled,
     )

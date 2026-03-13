@@ -1,24 +1,40 @@
-<i>SD Maid SE</i> es el asistente de confianza de tu Android, para mantenerlo limpio y ordenado.
+<i>SD Maid 2/SE</i> es el asistente de confianza de tu Android, para mantenerlo limpio y ordenado.
 
-Nadie es perfecto y Android tampoco lo es.
+Nada es perfecto, tal es el caso de Android.
 * Las aplicaciones que ya has eliminado dejan algo atrás.
-* Los registros, informes de fallos y otros archivos que realmente no deseas se están creando constantemente.
-* Tu almacenamiento está acumulando archivos y directorios que no reconoces.
+* Se crean constantemente registros, informes de fallos y otros archivos que no deseas.
+* Tu almacenamiento está recopilando archivos y carpetas que no reconoces.
+* Fotos duplicadas en tu galería.
 
-No sigamos aquí... Deja que SD Maid SE te ayude:
+¡Deja que SD Maid 2/SE te ayude!
 
-* Limpia los datos de aplicaciones ya desinstaladas
-* Eliminar archivos innecesarios y cachés ocultos
-* Eliminar archivos de sistema no utilizados
-* Crea tus propios filtros para archivos aleatorios
-* Buscar y eliminar datos duplicados
-* Analiza tu almacenamiento y elimina archivos grandes que ocupan espacio
+SD Maid 2/SE es un administrador de aplicaciones y archivos que se especializa en saber qué aplicaciones han creado archivos específicos en tu dispositivo. SD Maid 2/SE busca en tu dispositivo y compara archivos con las aplicaciones instaladas para ofrecer opciones para liberar espacio de almacenamiento de forma segura.
 
-SD Maid SE no tiene anuncios. Algunas funciones requieren una actualización de pago.
+✨ Limpia después de desinstalar aplicaciones
+Si las aplicaciones crean archivos fuera de sus carpetas designadas, los archivos pueden permanecer incluso después de desinstalar las aplicaciones. La herramienta "Buscador de Restos" encuentra los remanentes de las aplicaciones, te dice a qué aplicación pertenecían y te ayuda a eliminarlos.
+
+🔍 Busca en tu dispositivo de forma inteligente
+Filtra por carpetas vacías, archivos temporales, aplicaciones ya instaladas y más. Incluso puedes crear tus propios criterios de búsqueda. La herramienta "Limpiador del Sistema" te permite buscar automáticamente en tu dispositivo y eliminar archivos según diversos criterios.
+
+🧹 Elimina archivos prescindibles y cachés ocultos
+Miniaturas, papeleras de reciclaje, cachés sin conexión y más: si las aplicaciones no se limpian solas, esta aplicación lo hará. La herramienta "Limpiador de Aplicaciones" encuentra aplicaciones con archivos prescindibles.
+
+📦 Administra todas tus aplicaciones
+Obtén una lista completa de todas las aplicaciones instaladas en tu dispositivo. Aplicación habilitada, deshabilitada, de usuario o de sistema: ninguna aplicación puede ocultarse de ti. La herramienta "Control de Aplicaciones" es un administrador de aplicaciones que te permite buscar, ordenar y controlar tus aplicaciones.
+
+📊 ¿Qué está usando todo tu espacio?
+La gestión del almacenamiento puede ser compleja con aplicaciones, medios, sistema y otros archivos en el almacenamiento del teléfono, tarjetas SD y dispositivos USB. "Analizador de Almacenamiento" es un administrador de archivos que muestra cómo se utiliza el espacio en tu dispositivo, simplificando la gestión de tu almacenamiento.
+
+📷 Encuentra datos duplicados
+Descargas duplicadas, fotos enviadas a través de redes sociales o simplemente imágenes similares de la misma escena: con el tiempo, las copias pueden acumularse. La herramienta "Eliminador de Duplicados" encuentra archivos que son exactamente iguales o similares y te ayuda a eliminar copias adicionales.
+
+Esta aplicación no tiene publicidad. Algunas funciones requieren una actualización de pago.
 
 SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
 Optimizado para las versiones más recientes de Android y centrado en la limpieza.
 
-SD Maid SE cuenta con características opcionales que utilizan la API de AccessibilityService para automatizar acciones tediosas.
-Utilizando la API de AccessibilityService, SD Maid SE puede hacer clic en botones por ti para realizar operaciones en varias aplicaciones, por ejemplo. borrando cachés.
-SD Maid SE no utiliza la API de AccessibilityService para recopilar información.
+Esta aplicación tiene funciones opcionales que utilizan la API del Servicio de Accesibilidad para automatizar acciones tediosas.
+Usando la API del Servicio de Accesibilidad, esta aplicación puede hacer clic en botones por ti para realizar operaciones en múltiples aplicaciones, por ejemplo, eliminar cachés. borrando cachés.
+Esta aplicación no utiliza la API del Servicio de Accesibilidad para recopilar información.
+
+SD Maid 2/SE es una aplicación de Administrador de Archivos y Limpiador.

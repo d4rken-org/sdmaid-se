@@ -3,7 +3,6 @@ package eu.darken.sdmse.common.files.saf
 import android.content.ContentResolver
 import android.content.Context
 import android.net.Uri
-import eu.darken.sdmse.common.files.*
 import io.kotest.matchers.shouldBe
 import io.mockk.mockk
 import org.junit.Test
@@ -11,9 +10,10 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
+import testhelpers.TestApplication
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [29])
+@Config(sdk = [33], application = TestApplication::class)
 class SAFDocFileTest : BaseTest() {
     private val context: Context = mockk()
     private val contentResolver: ContentResolver = mockk()

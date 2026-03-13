@@ -14,8 +14,10 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compression.Zipper
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.local.deleteAll
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import java.io.File
@@ -29,10 +31,11 @@ class RecorderViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val recordedPath = File(handle.get<String>(RecorderActivity.RECORD_PATH)!!)
+    private val sessionPath = handle.get<String>(RecorderActivity.RECORD_PATH)?.let { File(it) }
+    private val zipPath = sessionPath?.let { File(it.parentFile, "${it.name}.zip") }
 
     private val stater = DynamicStateFlow(TAG, vmScope) {
-        State(logDir = recordedPath)
+        State(logDir = sessionPath)
     }
     val state = stater.asLiveData2()
 
@@ -40,8 +43,11 @@ class RecorderViewModel @Inject constructor(
 
     init {
         launch {
-            log(TAG) { "Getting log files in dir: $recordedPath" }
-            val logFiles = recordedPath.listFiles()!!
+            if (sessionPath == null) throw IllegalStateException("No recorded path found")
+
+            log(TAG) { "Getting log files in dir: $sessionPath" }
+            val logFiles = sessionPath.listFiles() ?: throw IllegalStateException("No log files found")
+
             log(TAG) { "Found ${logFiles.size} logfiles: $logFiles" }
             var entries = logFiles.map { LogFileAdapter.Entry.Item(path = it) }
             stater.updateBlocking { copy(logEntries = entries) }
@@ -51,7 +57,7 @@ class RecorderViewModel @Inject constructor(
             stater.updateBlocking { copy(logEntries = entries) }
 
             log(TAG) { "Compressing log files..." }
-            val zipFile = File(recordedPath.parentFile, "${recordedPath.name}.zip")
+            val zipFile = zipPath ?: throw IllegalStateException("No zip path found")
             log(TAG) { "Writing zip file to $zipFile" }
             Zipper().zip(
                 entries.map { it.path.path },
@@ -59,7 +65,7 @@ class RecorderViewModel @Inject constructor(
             )
             val zippedSize = zipFile.length()
             log(TAG) { "Zip file created ${zippedSize}B at $zipFile" }
-            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize) }
+            stater.updateBlocking { copy(compressedFile = zipFile, compressedSize = zippedSize, isWorking = false) }
         }
     }
 
@@ -96,15 +102,25 @@ class RecorderViewModel @Inject constructor(
         webpageTool.open(SdmSeLinks.PRIVACY_POLICY)
     }
 
+    fun discard() = launch {
+        stater.updateBlocking { copy(isWorking = true) }
+
+        sessionPath?.deleteAll()
+        if (sessionPath?.exists() == true) log(TAG, WARN) { "Failed to delete $sessionPath" }
+
+        zipPath?.delete()
+        if (zipPath?.exists() == true) log(TAG, WARN) { "Failed to delete $zipPath" }
+
+        popNavStack()
+    }
+
     data class State(
-        val logDir: File,
+        val logDir: File?,
         val logEntries: List<LogFileAdapter.Entry.Item> = emptyList(),
         val compressedFile: File? = null,
-        val compressedSize: Long? = null
-    ) {
-        val loading: Boolean
-            get() = compressedSize == null
-    }
+        val compressedSize: Long? = null,
+        val isWorking: Boolean = true,
+    )
 
     companion object {
         private val TAG = logTag("Debug", "Recorder", "ViewModel")

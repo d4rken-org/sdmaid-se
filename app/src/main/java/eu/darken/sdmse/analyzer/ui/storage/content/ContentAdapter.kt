@@ -25,8 +25,9 @@ class ContentAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
-        addMod(TypedVHCreatorMod({ data[it] is ContentItemVH.Item }) { ContentItemVH(it) })
+        addMod(DataBinderMod({ data }))
+        addMod(TypedVHCreatorMod({ data[it] is ContentItemListVH.Item }) { ContentItemListVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is ContentItemGridVH.Item }) { ContentItemGridVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ContentGroupVH.Item }) { ContentGroupVH(it) })
     }
 

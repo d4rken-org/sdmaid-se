@@ -30,7 +30,7 @@ class OxygenOSLabels14Plus @Inject constructor(
     ): Set<String> = aospLabels14Plus.getClearCacheStatic(acsContext)
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Labels", "14Plus")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Labels", "14Plus")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 

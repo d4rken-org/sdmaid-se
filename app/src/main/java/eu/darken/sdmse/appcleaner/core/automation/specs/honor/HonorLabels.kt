@@ -49,6 +49,6 @@ class HonorLabels @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Honor", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Honor", "Labels")
     }
 }

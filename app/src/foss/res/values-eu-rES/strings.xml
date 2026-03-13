@@ -1,2 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS behar da</string>
+    <string name="upgrades_dashcard_title">SD Maid eguneratu</string>
+    <string name="upgrades_dashcard_body">Eginbide gehigarriak desblokeatu eta babesle izan etengabeko garapena laguntzeko!</string>
+    <string name="upgrades_dashcard_upgrade_action">Eguneratu</string>
+    <string name="upgrade_screen_title">SD Maid hobetu</string>
+    <string name="upgrade_screen_preamble">SD Maid-ek ez du iragarkirik eta ez ditu erabiltzaileen datuak saltzen. Etengabeko garapena zure bidez soilik da posible.</string>
+    <string name="upgrade_screen_how_title">Nola lagundu</string>
+    <string name="upgrade_screen_how_body">Izan babesle eta garapen babeslari! Egin klik beheko botoian eginbide gehigarri guztiak aktibatzeko eta nire GitHub Sponsors profila irekitzeko.</string>
+    <string name="upgrade_screen_why_title">Honek sortzen du 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner ezabatzeko funtzioa 💯\n• Programatutako eragiketak ⏰\n• Tresna guztietarako aukera gehigarriak ⚙️\n• Zure ezabatzeko arauak ✍️\n• Garatzaile batekin bultzada 🧙\neta gehiago…</string>
+    <string name="upgrade_screen_sponsor_action">Garapena babestu</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternatiboa iragarkinak, analisiak eta Google Play dira 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Eskerrik asko iturburu irekiko garapena babesten duzulako ❤️</string>
+</resources>

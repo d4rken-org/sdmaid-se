@@ -2,8 +2,11 @@ package eu.darken.sdmse.common.pkgs.pkgops.ipc
 
 import android.app.ActivityManager
 import android.content.Context
+import android.content.IntentSender
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager
+import android.os.Build
+import android.os.Process
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.flowshell.core.cmd.FlowCmd
 import eu.darken.flowshell.core.cmd.execute
@@ -23,11 +26,12 @@ import eu.darken.sdmse.common.pkgs.deleteApplicationCacheFilesAsUser
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.freeStorageAndNotify
 import eu.darken.sdmse.common.pkgs.getInstalledPackagesAsUser
-import eu.darken.sdmse.common.pkgs.pkgops.LibcoreTool
+import eu.darken.sdmse.common.pkgs.getPackageInfosAsUser
 import eu.darken.sdmse.common.pkgs.pkgops.ProcessScanner
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.shell.SharedShell
 import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.getIdentifier
 import kotlinx.coroutines.runBlocking
 import java.lang.Thread.sleep
 import javax.inject.Inject
@@ -35,7 +39,6 @@ import javax.inject.Inject
 
 class PkgOpsHost @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val libcoreTool: LibcoreTool,
     private val sharedShell: SharedShell,
     private val processScanner: ProcessScanner,
 ) : PkgOpsConnection.Stub(), IpcHostModule {
@@ -45,20 +48,6 @@ class PkgOpsHost @Inject constructor(
 
     private val am: ActivityManager
         get() = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-
-    override fun getUserNameForUID(uid: Int): String? = try {
-        libcoreTool.getNameForUid(uid)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "getUserNameForUID(uid=$uid) failed: ${e.asLog()}" }
-        throw e.wrapToPropagate()
-    }
-
-    override fun getGroupNameforGID(gid: Int): String? = try {
-        libcoreTool.getNameForGid(gid)
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "getGroupNameforGID(gid=$gid) failed: ${e.asLog()}" }
-        throw e.wrapToPropagate()
-    }
 
     override fun getRunningPackages(): RunningPackagesResult = try {
         val result = try {
@@ -83,15 +72,33 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun forceStop(packageName: String): Boolean = try {
+    override fun forceStop(installId: InstallId): Boolean = try {
         val am = context.getSystemService(Context.ACTIVITY_SERVICE) as ActivityManager
-        val forceStopPackage = am.javaClass.getDeclaredMethod("forceStopPackage", String::class.java).apply {
+
+        @Suppress("DiscouragedPrivateApi")
+        val forceStopPackageAsUser = am.javaClass.getDeclaredMethod(
+            "forceStopPackageAsUser", String::class.java, Int::class.javaPrimitiveType
+        ).apply {
             isAccessible = true
         }
-        forceStopPackage.invoke(am, packageName)
-        true
+        val pkg = installId.pkgId.name
+        val userId = installId.userHandle.handleId
+        log(TAG) { "Force stopping $pkg for user $userId..." }
+        try {
+            forceStopPackageAsUser.invoke(am, pkg, userId)
+            true
+        } catch (e: NoSuchMethodException) {
+            log(TAG, ERROR) { "Method forceStopPackageAsUser was unavailable: ${e.asLog()}" }
+            val result = runBlocking {
+                sharedShell.useRes {
+                    FlowCmd("am force-stop --user ${installId.userHandle.handleId} ${installId.pkgId.name}").execute(it)
+                }
+            }
+            log(TAG, VERBOSE) { "forceStop($installId) result: $result" }
+            result.isSuccessful
+        }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "forceStop(packageName=$packageName) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "forceStop($installId) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
@@ -135,6 +142,19 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
+    override fun getPackageInfoAsUser(packageName: String, flags: Long, handleId: Int): PackageInfo? = try {
+        log(TAG, VERBOSE) { "getPackageInfoAsUser($packageName, $flags, $handleId)..." }
+
+        pm.getPackageInfosAsUser(packageName, flags, UserHandle2(handleId)).also {
+            log(TAG) { "getPackageInfoAsUser($packageName, $flags, $handleId): $it" }
+        }
+    } catch (e: Exception) {
+        log(TAG, ERROR) {
+            "getPackageInfoAsUser(packageName=$packageName, flags=$flags, handleId=$handleId) failed: ${e.asLog()}"
+        }
+        throw e.wrapToPropagate()
+    }
+
     override fun getInstalledPackagesAsUser(flags: Long, handleId: Int): List<PackageInfo> = try {
         log(TAG, VERBOSE) { "getInstalledPackagesAsUser($flags, $handleId)..." }
 
@@ -156,12 +176,34 @@ class PkgOpsHost @Inject constructor(
         throw e.wrapToPropagate()
     }
 
-    override fun setApplicationEnabledSetting(packageName: String, newState: Int, flags: Int) = try {
-        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags)..." }
-        pm.setApplicationEnabledSetting(packageName, newState, flags)
-        log(TAG, VERBOSE) { "setApplicationEnabledSetting($packageName, $newState, $flags) succesful" }
+    override fun setApplicationEnabledSetting(id: InstallId, newState: Int, flags: Int) = try {
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($id, $newState, $flags)..." }
+
+        val currentUser = Process.myUserHandle().getIdentifier()
+        log(TAG) { "currentUser: $currentUser" }
+        if (id.userHandle.handleId == currentUser) {
+            pm.setApplicationEnabledSetting(id.pkgId.name, newState, flags)
+        } else {
+            val command = when (newState) {
+                PackageManager.COMPONENT_ENABLED_STATE_ENABLED -> "enable"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED -> "disable-user"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER -> "disable-user"
+                PackageManager.COMPONENT_ENABLED_STATE_DISABLED_UNTIL_USED -> "disable-until-used"
+                PackageManager.COMPONENT_ENABLED_STATE_DEFAULT -> "default-state"
+                else -> throw IllegalArgumentException("Unknown state: $newState")
+            }
+
+            val result = runBlocking {
+                sharedShell.useRes {
+                    FlowCmd("pm $command --user ${id.userHandle.handleId} ${id.pkgId.name}").execute(it)
+                }
+            }
+            log(TAG, INFO) { "setApplicationEnabledSetting result: $result" }
+        }
+
+        log(TAG, VERBOSE) { "setApplicationEnabledSetting($id, $newState, $flags) succesful" }
     } catch (e: Exception) {
-        log(TAG, ERROR) { "setApplicationEnabledSetting($packageName, $newState, $flags) failed: ${e.asLog()}" }
+        log(TAG, ERROR) { "setApplicationEnabledSetting($id, $newState, $flags) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 
@@ -201,6 +243,19 @@ class PkgOpsHost @Inject constructor(
         result.exitCode == FlowProcess.ExitCode.OK
     } catch (e: Exception) {
         log(TAG, ERROR) { "setAppOps($packageName, $handleId, $key, $value) failed: ${e.asLog()}" }
+        throw e.wrapToPropagate()
+    }
+
+    override fun requestUnarchive(packageName: String, statusReceiver: IntentSender) = try {
+        log(TAG, VERBOSE) { "requestUnarchive($packageName)..." }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.VANILLA_ICE_CREAM) {
+            pm.packageInstaller.requestUnarchive(packageName, statusReceiver)
+        } else {
+            throw UnsupportedOperationException("requestUnarchive requires API 35+")
+        }
+        log(TAG, VERBOSE) { "requestUnarchive($packageName) initiated" }
+    } catch (e: Exception) {
+        log(TAG, ERROR) { "requestUnarchive($packageName) failed: ${e.asLog()}" }
         throw e.wrapToPropagate()
     }
 

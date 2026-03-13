@@ -7,14 +7,22 @@
     <string name="dashboard_settings_oneclick_summary">Bez dalších potvrzení spusťte skenování a odstraňování pro všechny nástroje klepnutím na tlačítko akcí na panelu nástrojů.</string>
     <string name="dashboard_settings_oneclick_tools_title">Nástroje na jedno klepnutí</string>
     <string name="dashboard_settings_oneclick_tools_desc">Které nástroje by měly být zahrnuty do operací na jedno klepnutí?</string>
-    <string name="debug_debuglog_size_label">Velikost</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimovaná velikost</string>
     <string name="debug_notification_channel_label">Oznámení o ladění</string>
     <string name="debug_debuglog_file_label">Zaznamenaný soubor záznamu</string>
     <string name="debug_debuglog_recording_progress">Zaznamenávání soubor záznamu</string>
     <string name="debug_debuglog_record_action">Zaznamenat soubor záznamu</string>
     <string name="debug_debuglog_stop_action">Ukončit záznam</string>
     <string name="debug_debuglog_sensitive_information_message">Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte pouze s důvěryhodnými protistranami.</string>
+    <string name="debug_debuglog_screen_title">Protokol ladění</string>
+    <string name="debug_debuglog_screen_discard_action">Zrušit</string>
+    <string name="debug_debuglog_screen_session_path_label">Cesta relace</string>
+    <string name="debug_debuglog_screen_log_files_label">Soubory protokolů</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d soubor připraven (%2$s)</item>
+        <item quantity="few">%1$d soubory připraveny (%2$s)</item>
+        <item quantity="many">%1$d souborů připraveno (%2$s)</item>
+        <item quantity="other">%1$d souborů připraveno (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Tato funkce zaznamenává vše, co aplikace dělá do souboru, který lze sdílet. Vygenerovaný soubor obsahuje citlivé informace (např. názvy souborů a nainstalovaných aplikací). Sdílejte je pouze s důvěryhodnými stranami (např. s vývojáři, kteří řeší nějaký problém).</string>
     <string name="tasks_activity_notification_channel_label">Aktivní úlohy</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
@@ -56,7 +64,6 @@
     <string name="onboarding_setup_continue_action">Nastavit přístup</string>
     <string name="settings_privacy_policy_label">Zásady ochrany osobních údajů</string>
     <string name="settings_privacy_policy_desc">Zodpovědné nakládání s daty.</string>
-    <string name="settings_licenses_label">Licence</string>
     <string name="settings_category_other_label">Ostatní</string>
     <string name="settings_category_filter_generic">Všeobecný filtr</string>
     <string name="settings_category_filter_specific">Specifický filtr</string>
@@ -91,6 +98,12 @@
     <string name="discord_description">Místo, kde se můžete scházet a klást otázky.</string>
     <string name="changelog_label">Seznam změn</string>
     <string name="settings_acknowledgements_label">Poděkování</string>
+    <string name="settings_acknowledgements_category_translations_title">Překlady</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kdo aplikaci přeložil?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Poděkování</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Zvláštní poděkování našim přátelům.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licence</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software používaný aplikací SD Maid.</string>
     <string name="setup_label">Nastavení</string>
     <string name="setup_incomplete_card_title">Nastavení dokončena</string>
     <string name="setup_incomplete_card_body">Dokončete nastavení aplikace SD Maid pro dosažení lepších výsledků.</string>
@@ -201,6 +214,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Soukromá data aplikace, např. pověření, nastavení aplikace, ale také mezipaměti prohlížeče.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Data o spuštění aplikace uložená v mezipaměti.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profily ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profily ART používá systém Android k optimalizaci výkonu aplikací.</string>
     <string name="corpsefinder_filter_applib_label">Knihovny aplikace</string>
     <string name="corpsefinder_filter_applib_summary">Data knihovny související s aplikací.</string>
     <string name="corpsefinder_filter_appsource_label">Zdroje aplikace</string>
@@ -366,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Soubory, které byly smazány, ale i vloženy do speciální složky, aby je bylo možné znovu obnovit.</string>
     <string name="appcleaner_filter_webview_label">Soubory WebView</string>
     <string name="appcleaner_filter_webview_summary">Soubory ukládané do mezipaměti instancemi WebView použité v aplikacích.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikony zkratek aplikací</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Ikony v mezipaměti pro zkratky aplikací a menu sdílení.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Zálohy WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Smažte další kopie záloh aplikace WhatsApp a ponechte si pouze nejnovější.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Soubory, které jste obdrželi od osob prostřednictvím aplikace WhatsApp.</string>
@@ -449,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Kontrolní součet obsahu</string>
     <string name="deduplicator_detection_method_checksum_summary">Určení duplikátů pomocí výpočtu kontrolních součtů souborů. Soubory se shodnými kontrolními součty mají naprosto stejný obsah.</string>
     <string name="deduplicator_detection_method_phash_title">Percepční hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Vyhledávání podobných souborů pomocí analýzy vlastností obsahu a porovnávání percepčních hodnot hash.</string>
+    <string name="deduplicator_detection_method_phash_summary">Vyhledejte podobné soubory pomocí analýzy vlastností obsahu a porovnání hodnot percepčního hash. ⚠️ Detekce na základě podobnosti může zahrnovat falešné pozitivní výsledky, které vyžadují ruční ověření.</string>
     <string name="deduplicator_occupied_space_label">Obsazené úložiště</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Obsazeno duplikáty je %s</item>
@@ -490,7 +507,7 @@
     <string name="appcontrol_app_launch_title">Spustit aplikaci</string>
     <string name="appcontrol_app_launch_description">Spuštění hlavní aktivity této aplikace.</string>
     <string name="appcontrol_app_forcestop_title">Vynutit ukončení</string>
-    <string name="appcontrol_app_forcestop_description">Ukončí aplikaci. Zabrání jejímu samovolnému spuštění, dokud ji neotevřete nebo nerestartujete zařízení.</string>
+    <string name="appcontrol_app_forcestop_description">Ukončete aplikaci. Zabraňte jejímu spuštění, dokud ji neotevřete nebo dokud zařízení nebude restartováno.</string>
     <string name="appcontrol_app_uninstall_description">Odinstalujte tuto aplikaci z vašeho zařízení.</string>
     <string name="appcontrol_app_exclude_add_title">Vyloučit aplikaci</string>
     <string name="appcontrol_app_exclude_add_description">Vyloučit tuto aplikaci z ostatních operací v SD Maid.</string>
@@ -544,9 +561,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Získejte hrubý odhad velikosti každé aplikace.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Zjistit aktivitu</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Zjistěte, zda je (nebo nedávno byla) aplikace aktivní.</string>
+    <string name="appcontrol_include_multiuser_label">Zahrnout další uživatele</string>
+    <string name="appcontrol_include_multiuser_summary">Zahrnout aplikace z dalších uživatelských profilů v tomto zařízení.</string>
     <string name="appcontrol_export_app_selection_action">Exportovat aplikace</string>
     <string name="appcontrol_export_title">Exportovat aplikaci</string>
-    <string name="appcontrol_export_description">Uloží instalační soubory této aplikace. To nezahrnuje data aplikace.</string>
+    <string name="appcontrol_export_description">Uložte instalační soubory této aplikace. Nezahrnuje to data aplikace.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikace byla exportována</item>
         <item quantity="few">%d aplikace byly exportovány</item>
@@ -734,6 +753,21 @@
     <string name="review_app_review_action">Ohodnotit</string>
     <string name="review_app_dismiss_action">Možná později</string>
     <string name="review_app_body">Chcete ohodnotit SD Maid? ❤️</string>
+    <string name="anniversary_card_title">Šťastné výročí s aplikací SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">S vámi od %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Již %1$d rok spolu. Děkujeme, že důvěřujete aplikaci SD Maid, aby udržovala váš Android čistý a uklizený. Uvolněné místo: %2$s</item>
+        <item quantity="few">%1$d roky bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="many">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Sdílejte své výročí s aplikací SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d rok s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="few">%1$d roky s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="many">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+        <item quantity="other">%1$d let s aplikací SD Maid — Uvolněné místo: %2$s. Udržuji váš Android čistý a uklizený. #SDMaid\nVyzkoušejte: %3$s</item>
+    </plurals>
     <string name="stats_label">Historie</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Bylo uvolněno %s.</item>
@@ -782,4 +816,19 @@
     <string name="area_type_public_obb_label">Veřejné zdroje aplikace</string>
     <string name="area_type_private_data_label">Soukromé data aplikace</string>
     <string name="area_type_portable_label">Přenosné úložiště</string>
+    <string name="shortcut_appcontrol_short">Ovládání aplikací</string>
+    <string name="shortcut_appcontrol_long">Správa nainstalovaných aplikací</string>
+    <string name="shortcut_onetap_short">Skenovat + smazat</string>
+    <string name="shortcut_onetap_long">Skenování a mazání v jedné akci</string>
+    <string name="shortcuts_settings_category">Zkratky</string>
+    <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
+    <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Režim ladění je zapnutý</string>
+    <string name="debug_card_trace_mode_label">Povolit režim stopy</string>
+    <string name="debug_card_dryrun_mode_label">Režim zkoušky (zakázat mazání)</string>
+    <string name="debug_card_areas_reload_action">Znovu načíst datové oblasti</string>
+    <string name="debug_card_pkgs_reload_action">Znovu načíst aplikace</string>
+    <string name="debug_card_root_test_action">Test root</string>
+    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
 </resources>

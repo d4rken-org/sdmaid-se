@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.google.android.material.button.MaterialButton xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/Widget.Material3.Button.TextButton"
+    android:id="@+id/action_review"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="40dp"
+    android:textSize="16sp"
+    android:paddingHorizontal="16dp"
+    android:text="@string/swiper_review_action"
+    app:icon="@drawable/baseline_list_alt_24"
+    app:iconGravity="start"
+    app:iconSize="24dp" />

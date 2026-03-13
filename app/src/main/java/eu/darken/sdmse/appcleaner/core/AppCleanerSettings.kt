@@ -29,6 +29,8 @@ class AppCleanerSettings @Inject constructor(
 
     val includeInaccessibleEnabled = dataStore.createValue("include.inaccessible.enabled", true)
 
+    val forceStopBeforeClearing = dataStore.createValue("forcestop.before.clearing.enabled", false)
+
     val includeSystemAppsEnabled = dataStore.createValue("include.systemapps.enabled", false)
     val includeRunningAppsEnabled = dataStore.createValue("include.runningapps.enabled", true)
     val includeOtherUsersEnabled = dataStore.createValue("include.multiuser.enabled", false)
@@ -46,6 +48,8 @@ class AppCleanerSettings @Inject constructor(
     val filterThumbnailsEnabled = dataStore.createValue("filter.thumbnails.enabled", true)
     val filterOfflineCachesEnabled = dataStore.createValue("filter.offlinecache.enabled", false)
     val filterRecycleBinsEnabled = dataStore.createValue("filter.recyclebins.enabled", false)
+    val filterShortcutServiceEnabled = dataStore.createValue("filter.shortcutservice.enabled", false)
+
     val filterWebviewEnabled = dataStore.createValue("filter.webview.enabled", true)
     val filterThreemaEnabled = dataStore.createValue("filter.threema.enabled", false)
     val filterTelegramEnabled = dataStore.createValue("filter.telegram.enabled", false)
@@ -66,6 +70,7 @@ class AppCleanerSettings @Inject constructor(
         includeRunningAppsEnabled,
         includeOtherUsersEnabled,
         includeInaccessibleEnabled,
+        forceStopBeforeClearing,
         minCacheSizeBytes,
         minCacheAgeMs,
         filterDefaultCachesPublicEnabled,
@@ -80,6 +85,7 @@ class AppCleanerSettings @Inject constructor(
         filterOfflineCachesEnabled,
         filterRecycleBinsEnabled,
         filterWebviewEnabled,
+        filterShortcutServiceEnabled,
         filterThreemaEnabled,
         filterTelegramEnabled,
         filterWhatsAppBackupsEnabled,

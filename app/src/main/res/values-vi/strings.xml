@@ -7,14 +7,19 @@
     <string name="dashboard_settings_oneclick_summary">Bắt đầu quét và xóa tất cả các công cụ bằng một lần nhấn vào nút hành động của bảng điều khiển, không cần xác nhận thêm.</string>
     <string name="dashboard_settings_oneclick_tools_title">Công cụ một chạm</string>
     <string name="dashboard_settings_oneclick_tools_desc">Những công cụ nào nên được đưa vào thao tác một chạm?</string>
-    <string name="debug_debuglog_size_label">Kích thước</string>
-    <string name="debug_debuglog_size_compressed_label">Kích thước nén</string>
     <string name="debug_notification_channel_label">Thông báo gỡ lỗi</string>
     <string name="debug_debuglog_file_label">Tệp nhật ký đã ghi</string>
     <string name="debug_debuglog_recording_progress">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_record_action">Ghi nhật ký gỡ lỗi</string>
     <string name="debug_debuglog_stop_action">Dừng ghi</string>
     <string name="debug_debuglog_sensitive_information_message">Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ nó với các bên đáng tin cậy.</string>
+    <string name="debug_debuglog_screen_title">Nhật ký gỡ lỗi</string>
+    <string name="debug_debuglog_screen_discard_action">Bỏ qua</string>
+    <string name="debug_debuglog_screen_session_path_label">Đường dẫn phiên</string>
+    <string name="debug_debuglog_screen_log_files_label">Tệp nhật ký</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">%1$d tệp đã sẵn sàng (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Tính năng này ghi lại mọi thứ ứng dụng đang làm vào một tệp có thể chia sẻ. Tệp được tạo chứa thông tin nhạy cảm (ví dụ: tên tệp và ứng dụng đã cài đặt). Chỉ chia sẻ với các bên đáng tin cậy (ví dụ: nhà phát triển đang khắc phục sự cố).</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
@@ -50,7 +55,6 @@
     <string name="onboarding_setup_continue_action">Thiết lập quyền truy cập</string>
     <string name="settings_privacy_policy_label">Chính sách bảo mật</string>
     <string name="settings_privacy_policy_desc">Xử lý dữ liệu có trách nhiệm.</string>
-    <string name="settings_licenses_label">Giấy phép</string>
     <string name="settings_category_other_label">Khác</string>
     <string name="settings_category_filter_generic">Bộ lọc chung</string>
     <string name="settings_category_filter_specific">Bộ lọc cụ thể</string>
@@ -85,6 +89,12 @@
     <string name="discord_description">Một nơi để giải trí và đặt câu hỏi.</string>
     <string name="changelog_label">Nhật ký thay đổi</string>
     <string name="settings_acknowledgements_label">Ghi nhận</string>
+    <string name="settings_acknowledgements_category_translations_title">Bản dịch</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Ai đã dịch cái này?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Cảm ơn bạn</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Xin gửi lời cảm ơn đặc biệt đến những người bạn của chúng ta.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Giấy phép</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Phần mềm được sử dụng bởi SD Maid.</string>
     <string name="setup_label">Thiết lập</string>
     <string name="setup_incomplete_card_title">Thiết lập chưa hoàn tất</string>
     <string name="setup_incomplete_card_body">Kết thúc thiết lập của SD Maid để có kết quả tốt hơn.</string>
@@ -189,6 +199,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Dữ liệu ứng dụng riêng tư, ví dụ: thông tin đăng nhập, cài đặt ứng dụng cũng bao gồm cả bộ đệm của trình duyệt.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Dữ liệu thực thi ứng dụng được lưu trong bộ nhớ cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Cấu hình ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Cấu hình ART được Android sử dụng để tối ưu hóa hiệu suất ứng dụng.</string>
     <string name="corpsefinder_filter_applib_label">Thư viện ứng dụng</string>
     <string name="corpsefinder_filter_applib_summary">Dữ liệu thư viện liên quan đến ứng dụng.</string>
     <string name="corpsefinder_filter_appsource_label">Nguồn ứng dụng</string>
@@ -342,6 +354,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Các tệp đã bị xóa nhưng được đưa vào một thư mục đặc biệt để cho phép khôi phục chúng.</string>
     <string name="appcleaner_filter_webview_label">Tệp Webview</string>
     <string name="appcleaner_filter_webview_summary">Các tệp được lưu vào bộ đệm ẩn bởi các phiên bản Webview được sử dụng trong các ứng dụng.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Biểu tượng phím tắt ứng dụng</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Biểu tượng được lưu trong bộ nhớ đệm cho các phím tắt ứng dụng và menu chia sẻ.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Sao lưu WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Xóa các bản sao lưu bổ sung của WhatsApp và chỉ giữ bản mới nhất.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Các tập tin bạn nhận được từ mọi người qua WhatsApp.</string>
@@ -385,9 +399,11 @@
     <string name="appcleaner_progress_shizuku_deleting_caches">Xóa bộ đệm bằng cách sử dụng Shizuku</string>
     <string name="appcleaner_progress_determining_inaccessible_caches">Xác định bộ nhớ đệm không thể truy cập</string>
     <string name="appcleaner_automation_error_locked_appcache_title">Xóa bộ nhớ đệm không khả dụng</string>
-    <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã vô hiệu hóa nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Tạo một loại trừ cho ứng dụng này.</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Hệ thống đã tắt nút \"Xóa bộ nhớ đệm\" cho ứng dụng này. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
     <string name="appcleaner_automation_error_no_settings_title">Màn hình cài đặt không khả dụng</string>
-    <string name="appcleaner_automation_error_no_settings_body">Ứng dụng hệ thống này không có màn hình cài đặt. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Tạo loại trừ cho ứng dụng này.</string>
+    <string name="appcleaner_automation_error_no_settings_body">Màn hình cài đặt không có sẵn trên ứng dụng hệ thống này. Không thể xóa bộ nhớ đệm thông qua dịch vụ trợ năng. Loại bỏ nó để tăng tốc độ xóa bộ nhớ đệm.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Ứng dụng hệ thống bị cấu hình sai</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Ứng dụng Bảo mật của HyperOS (com.miui.securitycenter) thiếu quyền Thống kê Sử dụng (GET_USAGE_STATS). Điều này làm hỏng các tính năng như \"Xóa Dữ liệu\" trong chi tiết ứng dụng và xóa bộ nhớ cache qua dịch vụ trợ năng. Cấp quyền để khôi phục đầy đủ chức năng.</string>
     <string name="deduplicator_tool_name">Quản lý tệp trùng lặp</string>
     <string name="deduplicator_explanation_short">Tìm dữ liệu trùng lặp trên thiết bị của bạn.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -408,7 +424,7 @@
     <string name="deduplicator_detection_method_checksum_title">Tổng kiểm tra nội dung</string>
     <string name="deduplicator_detection_method_checksum_summary">Xác định các bản sao bằng cách tính tổng kiểm tra cho các tập tin. Các tệp có tổng kiểm tra phù hợp có nội dung giống hệt nhau.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị.</string>
+    <string name="deduplicator_detection_method_phash_summary">Tìm các tệp tương tự bằng cách phân tích các tính năng nội dung và so sánh các giá trị Hash. ⚠️ Phát hiện dựa trên sự tương đồng có thể bao gồm các kết qủa không chính xác, cần xác minh thủ công.</string>
     <string name="deduplicator_occupied_space_label">Lưu trữ bị chiếm dụng</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s bị chiếm bởi các bản sao</item>
@@ -443,7 +459,7 @@
     <string name="appcontrol_app_launch_title">Chạy ứng dụng</string>
     <string name="appcontrol_app_launch_description">Khởi chạy hoạt động chính của ứng dụng này.</string>
     <string name="appcontrol_app_forcestop_title">Buộc dừng</string>
-    <string name="appcontrol_app_forcestop_description">Dừng ứng dụng. Ngăn chặn nó tự khởi động cho đến khi bạn mở nó hoặc thiết bị được khởi động lại.</string>
+    <string name="appcontrol_app_forcestop_description">Dừng ứng dụng. Hãy ngăn không cho ứng dụng tự khởi động cho đến khi bạn mở ứng dụng hoặc khởi động lại thiết bị.</string>
     <string name="appcontrol_app_uninstall_description">Gỡ cài đặt ứng dụng này khỏi thiết bị của bạn.</string>
     <string name="appcontrol_app_exclude_add_title">Loại trừ ứng dụng</string>
     <string name="appcontrol_app_exclude_add_description">Loại trừ ứng dụng này khỏi các hoạt động khác trong SD Maid.</string>
@@ -488,9 +504,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Nhận ước tính sơ bộ về kích thước của từng ứng dụng.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Xác định hoạt động</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Tìm hiểu xem một ứng dụng đang (hoặc gần đây) có hoạt động hay không.</string>
+    <string name="appcontrol_include_multiuser_label">Bao gồm những người dùng khác</string>
+    <string name="appcontrol_include_multiuser_summary">Bao gồm các ứng dụng từ hồ sơ người dùng khác trên thiết bị này.</string>
     <string name="appcontrol_export_app_selection_action">Xuất ứng dụng</string>
     <string name="appcontrol_export_title">Xuất ứng dụng</string>
-    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Điều này không bao gồm dữ liệu ứng dụng.</string>
+    <string name="appcontrol_export_description">Lưu tệp cài đặt của ứng dụng này. Dữ liệu này không bao gồm.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">%d ứng dụng đã được xuất</item>
     </plurals>
@@ -511,7 +529,7 @@
     <string name="appcontrol_automation_progress_find_ok_confirmation">Đang cố gắng xác nhận hành động trước đó (từ khóa: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Thời gian sử dụng màn hình: %1$s kể từ %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Cập nhật lần cuối: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Đã cài đặt:%s</string>
+    <string name="appcontrol_item_installedat_x_label">Cài đặt theo: %s</string>
     <string name="analyzer_tool_name">Phân tích bộ nhớ</string>
     <string name="analyzer_explanation_short">Tìm hiểu những gì đang chiếm dung lượng trên thiết bị của bạn.</string>
     <string name="analyzer_progress_scanning_device">Tìm kiếm bộ nhớ thiết bị</string>
@@ -597,7 +615,12 @@
     <string name="automation_error_not_running_body">Dịch vụ trợ năng đang không chạy. Hãy thử khởi động lại thiết bị.</string>
     <string name="automation_error_screen_unavailable_title">Màn hình không có sẵn</string>
     <string name="automation_error_screen_unavailable_body">Thao tác đã bị hủy vì màn hình không khả dụng (ví dụ: tắt màn hình hoặc kích hoạt màn hình khóa).</string>
+    <string name="automation_error_compatibility_title">Tương thích tự động hóa</string>
     <string name="automation_error_compatibility_body">SD Maid không thể tìm ra bố cục màn hình. Nếu điều này tiếp tục xảy ra, ngôn ngữ hoặc thiết lập của bạn có thể không được hỗ trợ đầy đủ. Kiểm tra bản cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_timeout_title">Hết thời gian tự động hóa</string>
+    <string name="automation_error_timeout_body">SD Maid đã không hoàn thành tất cả các bước trong giới hạn thời gian. Nếu điều này tiếp tục xảy ra, tôi có thể cần điều chỉnh ứng dụng cho thiết bị của bạn. Kiểm tra cập nhật hoặc liên hệ với tôi để tôi có thể khắc phục.</string>
+    <string name="automation_error_overlay_title">Lớp phủ tự động hóa</string>
+    <string name="automation_error_overlay_body">SD Maid không thể hiển thị lớp phủ tự động hóa. Kiểm tra quyền và thử khởi động lại thiết bị của bạn.</string>
     <string name="history_label">Lịch sử</string>
     <string name="history_description">Một danh sách theo trình tự thời gian của các hành động gần đây và dữ liệu bị ảnh hưởng.</string>
     <string name="scheduler_label">Lịch trình</string>
@@ -652,6 +675,15 @@
     <string name="review_app_review_action">Đánh giá</string>
     <string name="review_app_dismiss_action">Để sau</string>
     <string name="review_app_body">Bạn có muốn để lại đánh giá cho SD Maid không?️ ❤️</string>
+    <string name="anniversary_card_title">Mừng kỷ niệm SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Với bạn từ %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">Đã %1$d năm rồi. Cảm ơn bạn đã tin tưởng SD Maid để giữ cho thiết bị Android của bạn luôn sạch sẽ và gọn gàng. Dung lượng trống: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Chia sẻ kỷ niệm SD Maid của bạn</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">%1$d năm với SD Maid — Không gian trống: %2$s. Giữ cho Android của bạn sạch sẽ và gọn gàng. #SDMaid\nHãy thử: %3$s</item>
+    </plurals>
     <string name="stats_label">Lịch sử</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s đã được giải phóng.</item>
@@ -688,4 +720,11 @@
     <string name="area_type_public_obb_label">Tài nguyên ứng dụng công khai</string>
     <string name="area_type_private_data_label">Dữ liệu ứng dụng riêng tư</string>
     <string name="area_type_portable_label">Bộ lưu trữ di động</string>
+    <string name="shortcut_appcontrol_short">Kiểm soát ứng dụng</string>
+    <string name="shortcut_appcontrol_long">Quản lý các ứng dụng đã cài đặt</string>
+    <string name="shortcut_onetap_short">Quét + Xóa</string>
+    <string name="shortcut_onetap_long">Quét và xóa trong một thao tác</string>
+    <string name="shortcuts_settings_category">Phím tắt</string>
+    <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
+    <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
 </resources>

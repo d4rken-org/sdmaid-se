@@ -7,14 +7,19 @@
     <string name="dashboard_settings_oneclick_summary">僅需輕觸儀表板上的動作按鈕，即可啟動所有工具的掃描與刪除作業，無須額外確認。</string>
     <string name="dashboard_settings_oneclick_tools_title">單鍵工具</string>
     <string name="dashboard_settings_oneclick_tools_desc">哪些工具需要被包含進單鍵作業？</string>
-    <string name="debug_debuglog_size_label">大小</string>
-    <string name="debug_debuglog_size_compressed_label">壓縮大小</string>
     <string name="debug_notification_channel_label">偵錯通知</string>
     <string name="debug_debuglog_file_label">已記錄的記錄檔案</string>
     <string name="debug_debuglog_recording_progress">正在記錄偵錯記錄</string>
     <string name="debug_debuglog_record_action">記錄偵錯記錄</string>
     <string name="debug_debuglog_stop_action">停止記錄</string>
     <string name="debug_debuglog_sensitive_information_message">產生的檔案包含敏感資訊 (例如檔案名稱和已安裝的應用程式)，請僅將它分享至受信任的對象。</string>
+    <string name="debug_debuglog_screen_title">偵錯日誌</string>
+    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_session_path_label">工作階段路徑</string>
+    <string name="debug_debuglog_screen_log_files_label">日誌檔</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="other">已準備好 %1$d 個檔案（%2$s）</item>
+    </plurals>
     <string name="settings_debuglog_explanation">此功能將應用程式正在執行的所有操作記錄到可分享檔案中。 產生的檔案包含敏感資訊(例如檔案名稱和已安裝的應用程式)。 僅與可信任方分享(例如解決問題的開發人員)。</string>
     <string name="tasks_activity_notification_channel_label">進行中的工作</string>
     <string name="tasks_activity_working_notification_title">SD 女僕正在運作</string>
@@ -50,7 +55,6 @@
     <string name="onboarding_setup_continue_action">設定存取權</string>
     <string name="settings_privacy_policy_label">隱私權政策</string>
     <string name="settings_privacy_policy_desc">以負責的態度處理資料。</string>
-    <string name="settings_licenses_label">授權</string>
     <string name="settings_category_other_label">其他</string>
     <string name="settings_category_filter_generic">一般過濾器</string>
     <string name="settings_category_filter_specific">指定過濾器</string>
@@ -85,6 +89,12 @@
     <string name="discord_description">一個可以在其中閒逛並提出問題的地方。</string>
     <string name="changelog_label">變更記錄</string>
     <string name="settings_acknowledgements_label">特別感謝</string>
+    <string name="settings_acknowledgements_category_translations_title">翻譯</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">翻譯人員</string>
+    <string name="settings_acknowledgements_category_thanks_title">感謝</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">特別感謝各方好友協助。</string>
+    <string name="settings_acknowledgements_category_licenses_title">授權</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">SD Maid 使用的軟體技術。</string>
     <string name="setup_label">安裝程式</string>
     <string name="setup_incomplete_card_title">設定未完成</string>
     <string name="setup_incomplete_card_body">完成 SD 女僕的設定以取得更佳的結果。</string>
@@ -189,6 +199,8 @@
     <string name="corpsefinder_filter_privatedata_summary">私人應用程式資料，例如認證、應用程式設定，但也包括瀏覽器快取。</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik 快取</string>
     <string name="corpsefinder_filter_dalvik_summary">已快取的應用程式執行資料。</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART 設定檔</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Android 系統會利用 ART 設定檔來最佳化應用程式的效能。</string>
     <string name="corpsefinder_filter_applib_label">應用程式庫</string>
     <string name="corpsefinder_filter_applib_summary">與應用程式相關的程式庫資料。</string>
     <string name="corpsefinder_filter_appsource_label">應用程式來源</string>
@@ -222,8 +234,10 @@
     <string name="systemcleaner_filter_custom_label">自訂過濾器</string>
     <string name="systemcleaner_filter_custom_manage_label">管理自訂過濾器</string>
     <string name="systemcleaner_filter_custom_manage_summary">建立、刪除、匯入或匯出您的自訂過濾器。</string>
-    <string name="systemcleaner_filter_logfiles_label">記錄檔案</string>
-    <string name="systemcleaner_filter_logfiles_summary">來自整部裝置的記錄檔案 (*.log)。</string>
+    <string name="systemcleaner_filter_logfiles_label">系統記錄檔案</string>
+    <string name="systemcleaner_filter_logfiles_summary">在不同位置的系統及系統服務記錄檔案 (例如 *.log)。</string>
+    <string name="systemcleaner_filter_packagecaches_label">安裝程式快取</string>
+    <string name="systemcleaner_filter_packagecaches_summary">由系統套件安裝程式快取的資料，這與已安裝的應用程式相關。</string>
     <string name="systemcleaner_filter_advertisements_label">廣告檔案</string>
     <string name="systemcleaner_filter_advertisements_summary">為廣告或由廣告建立的檔案。</string>
     <string name="systemcleaner_filter_anr_label">ANR 錯誤</string>
@@ -233,7 +247,7 @@
     <string name="systemcleaner_filter_screenshots_label">截圖</string>
     <string name="systemcleaner_filter_screenshots_summary">來自多個應用程式和位置的螢幕截圖，時間早於 %s。</string>
     <string name="systemcleaner_filter_trashed_label">垃圾檔案</string>
-    <string name="systemcleaner_filter_trashed_summary">來自各種應用程式和位置的回收桶中的檔案，這些檔案已標記為刪除，但尚未被永久移除。</string>
+    <string name="systemcleaner_filter_trashed_summary">來自各種應用程式與位置的資源回收桶檔案，這些檔案已標記為刪除，但尚未被永久移除。</string>
     <string name="systemcleaner_filter_screenshots_age_label">螢幕截圖年齡</string>
     <string name="systemcleaner_filter_screenshots_age_summary">設定螢幕截圖可考慮刪除的最小年齡。</string>
     <string name="systemcleaner_filter_superfluosapks_label">非必要的 APK 檔案</string>
@@ -248,8 +262,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Windows 檔案總管可以在連線的儲存體上建立的資料。"</string>
     <string name="systemcleaner_filter_thumbnails_label">縮圖影像</string>
     <string name="systemcleaner_filter_thumbnails_summary">圖片和影片的快取預覽。</string>
-    <string name="systemcleaner_filter_tempfiles_label">暫存檔案</string>
-    <string name="systemcleaner_filter_tempfiles_summary">暫存檔案，通常用於進行中作業的短期快取。</string>
+    <string name="systemcleaner_filter_tempfiles_label">暫存系統檔案</string>
+    <string name="systemcleaner_filter_tempfiles_summary">與系統相關的暫存檔案，通常用於進行中作業的短期快取。</string>
     <string name="systemcleaner_filter_analytics_label">分析檔案</string>
     <string name="systemcleaner_filter_analytics_summary">與分析和錯誤追縱相關的資料。</string>
     <string name="systemcleaner_filter_downloadcache_label">下載快取</string>
@@ -340,6 +354,8 @@
     <string name="appcleaner_filter_recyclebins_summary">已被刪除的檔案，但被存放在一個特殊的資料夾中，以允許將它們還原。</string>
     <string name="appcleaner_filter_webview_label">Webview 檔案</string>
     <string name="appcleaner_filter_webview_summary">應用程式中使用 Webview 執行個體所快取的檔案。</string>
+    <string name="appcleaner_filter_shortcutservice_label">應用程式捷徑圖示</string>
+    <string name="appcleaner_filter_shortcutservice_summary">用於應用程式捷徑與分享選單的快取圖示。</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp 備份</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">刪除 WhatsApp 備份的額外複本，僅保留最新的備份。</string>
     <string name="appcleaner_filter_whatsapp_received_summary">您透過 WhatsApp 收到的檔案。</string>
@@ -381,6 +397,13 @@
         <item quantity="other">為 %d 個已選取的應用程式刪除無關緊要的檔案？</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">正在透過使用 Shizuku 刪除快取</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">正在判斷無法存取的快取</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">清除快取不可用</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">系統已停用此應用程式的「清除快取」按鈕。排除它以加快快取清除速度。</string>
+    <string name="appcleaner_automation_error_no_settings_title">設定畫面不可用</string>
+    <string name="appcleaner_automation_error_no_settings_body">此系統應用程式沒有設定畫面。無法透過無障礙服務清除快取。排除它以加快快取清除速度。</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">系統應用程式配置錯誤</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS 的安全應用程式 (com.miui.securitycenter) 缺少使用統計權限 (GET_USAGE_STATS)。這會破壞應用程式詳細資訊中的「清除資料」等功能和透過無障礙清除快取。授予權限以恢復完整功能。</string>
     <string name="deduplicator_tool_name">除重程式</string>
     <string name="deduplicator_explanation_short">找出您裝置上的重複資料。</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -401,7 +424,7 @@
     <string name="deduplicator_detection_method_checksum_title">內容總和檢查碼</string>
     <string name="deduplicator_detection_method_checksum_summary">透過計算檔案的總和檢查碼來確定重複項目，總和檢查碼相符的檔案具有完全相同的內容。</string>
     <string name="deduplicator_detection_method_phash_title">感知雜湊</string>
-    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵並比較感知雜湊值來尋找相似檔案。</string>
+    <string name="deduplicator_detection_method_phash_summary">透過分析內容特徵與比對感知雜湊值（Perceptual Hash）來找出相似檔案。⚠️ 基於相似度的偵測可能會出現誤判，請務必進行人工確認。</string>
     <string name="deduplicator_occupied_space_label">佔用儲存空間</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="other">%s 被重複項目佔用</item>
@@ -436,7 +459,7 @@
     <string name="appcontrol_app_launch_title">啟動應用程式</string>
     <string name="appcontrol_app_launch_description">啟動這個應用程式的主要活動。</string>
     <string name="appcontrol_app_forcestop_title">強制停止</string>
-    <string name="appcontrol_app_forcestop_description">停止應用程式。防止它自行啟動，直到您打開它或裝置被重新啟動。</string>
+    <string name="appcontrol_app_forcestop_description">停止應用程式。在您主動開啟或重新啟動裝置之前，系統將阻止該應用程式自行執行。</string>
     <string name="appcontrol_app_uninstall_description">從您的裝置中解除安裝這個應用程式。</string>
     <string name="appcontrol_app_exclude_add_title">排除應用程式</string>
     <string name="appcontrol_app_exclude_add_description">從 SD 女僕的其他作業中排除這個應用程式。</string>
@@ -460,6 +483,7 @@
     <string name="appcontrol_list_sortmode_installed_label">首次安裝</string>
     <string name="appcontrol_list_sortmode_packagename_label">套件名稱</string>
     <string name="appcontrol_list_sortmode_size_label">大小</string>
+    <string name="appcontrol_list_sortmode_screentime_label">螢幕時間</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">應用程式大小是因節約效能原因而估計的，可使用儲存分析器工具以取得更精確的資料。</string>
     <string name="appcontrol_progress_uninstalling_app">正在解除安裝應用程式</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -480,9 +504,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">粗略估計每個應用程式的大小</string>
     <string name="appcontrol_settings_module_activity_enabled_label">確認活動</string>
     <string name="appcontrol_settings_module_activity_enabled_description">查找活動（或最近活動）的應用程式</string>
+    <string name="appcontrol_include_multiuser_label">包含其他使用者</string>
+    <string name="appcontrol_include_multiuser_summary">包含此裝置上其他使用者設定檔的應用程式。</string>
     <string name="appcontrol_export_app_selection_action">匯出應用程式</string>
     <string name="appcontrol_export_title">匯出應用程式</string>
-    <string name="appcontrol_export_description">儲存此應用程式的安裝檔案。這不包括應用程式資料。</string>
+    <string name="appcontrol_export_description">備份此應用程式的安裝檔（APK）。此操作不會包含應用程式資料。</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="other">已匯出 %d 個應用程式</item>
     </plurals>
@@ -501,6 +527,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">正在強制停止…</string>
     <string name="appcontrol_automation_progress_find_force_stop">尋找「強制停止」按鈕（關鍵詞：%s）</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">嘗試確認先前的動作（關鍵詞：%s）</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">螢幕時間：%1$s，自從 %2$s 起</string>
+    <string name="appcontrol_item_lastupdate_x_label">最後更新：%s</string>
+    <string name="appcontrol_item_installedat_x_label">安裝於：%s</string>
     <string name="analyzer_tool_name">儲存分析器</string>
     <string name="analyzer_explanation_short">找出哪些檔案佔用您的裝置空間。</string>
     <string name="analyzer_progress_scanning_device">正在搜尋儲存裝置</string>
@@ -586,7 +615,12 @@
     <string name="automation_error_not_running_body">無障礙服務未在執行，請嘗試重新啟動裝置。</string>
     <string name="automation_error_screen_unavailable_title">螢幕無法使用</string>
     <string name="automation_error_screen_unavailable_body">作業已中止，因為螢幕無法使用 (例如顯示器已關閉或處於鎖定畫面)。</string>
+    <string name="automation_error_compatibility_title">自動化相容性</string>
     <string name="automation_error_compatibility_body">SD Maid 無法辨識螢幕佈局。如果這種情況持續發生，可能是因為您的語言或設定尚未完全支援。請檢查是否有更新，或聯絡我以便修復問題。</string>
+    <string name="automation_error_timeout_title">自動化逾時</string>
+    <string name="automation_error_timeout_body">SD Maid 未在時間限制內完成所有步驟。如果這種情況持續發生，我可能需要為您的裝置調整應用程式。檢查更新或聯絡我，以便我修復它。</string>
+    <string name="automation_error_overlay_title">自動化覆蓋層</string>
+    <string name="automation_error_overlay_body">SD Maid 無法顯示自動化覆蓋層。檢查權限並嘗試重新啟動您的裝置。</string>
     <string name="history_label">歷史記錄</string>
     <string name="history_description">依照時間順序列出最近的動作和受影響的資料。</string>
     <string name="scheduler_label">排程器</string>
@@ -641,6 +675,15 @@
     <string name="review_app_review_action">評論</string>
     <string name="review_app_dismiss_action">稍後再說</string>
     <string name="review_app_body">您想為 SD Maid 留下評論嗎？❤️</string>
+    <string name="anniversary_card_title">SD Maid 週年快樂❤️</string>
+    <string name="anniversary_card_install_date">從 %s 陪伴您至今</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="other">我們已共度了 %1$d 個年頭。感謝您信任 SD Maid，讓我們協助維持您 Android 裝置的整潔。已釋放空間：%2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">分享您的 SD Maid 週年紀念</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="other">與 SD Maid 走過 %1$d 年 — 共釋放空間：%2$s。讓 Android 系統常保潔淨。 #SDMaid\n立即體驗：%3$s</item>
+    </plurals>
     <string name="stats_label">歷史記錄</string>
     <plurals name="stats_dash_body_size">
         <item quantity="other">%s 已被釋放。</item>
@@ -677,4 +720,19 @@
     <string name="area_type_public_obb_label">公共應用程式資源</string>
     <string name="area_type_private_data_label">私人應用程式資料</string>
     <string name="area_type_portable_label">可攜式儲存空間</string>
+    <string name="shortcut_appcontrol_short">程式控制</string>
+    <string name="shortcut_appcontrol_long">管理已安裝的程式</string>
+    <string name="shortcut_onetap_short">掃描 + 刪除</string>
+    <string name="shortcut_onetap_long">一鍵掃描並刪除</string>
+    <string name="shortcuts_settings_category">捷徑</string>
+    <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
+    <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵式儀表板相同的工具。</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug 模式已啟用</string>
+    <string name="debug_card_trace_mode_label">啟用 trace 模式</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run 模式（停用刪除）</string>
+    <string name="debug_card_areas_reload_action">重新載入資料區域</string>
+    <string name="debug_card_pkgs_reload_action">重新載入應用程式</string>
+    <string name="debug_card_root_test_action">測試 root</string>
+    <string name="debug_card_shizuku_test_action">測試 Shizuku</string>
 </resources>

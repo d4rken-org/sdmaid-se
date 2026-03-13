@@ -52,13 +52,14 @@
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
-        style="@style/TextAppearance.Material3.LabelSmall"
+        style="@style/TextAppearance.Material3.LabelMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="16dp"
         android:layout_marginBottom="4dp"
+        android:layout_marginTop="2dp"
         android:ellipsize="end"
-        android:gravity="start"
+        android:gravity="end"
         android:singleLine="true"
         android:textColor="?colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -17,6 +17,7 @@
             style="@style/SDMToolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:menu="@menu/menu_analyzer_content"
             app:title="@string/analyzer_storage_content_type_app_label" />
 
     </com.google.android.material.appbar.AppBarLayout>

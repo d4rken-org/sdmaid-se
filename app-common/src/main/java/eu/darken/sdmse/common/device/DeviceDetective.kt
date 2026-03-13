@@ -4,9 +4,9 @@ import android.app.UiModeManager
 import android.content.Context
 import android.content.pm.PackageManager
 import android.content.res.Configuration
-import android.os.Build
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -35,29 +35,34 @@ class DeviceDetective @Inject constructor(
     }
 
     private fun manufactor(name: String): Boolean {
-        return Build.MANUFACTURER.lowercase() == name.lowercase()
+        return BuildWrap.MANUFACTOR.equals(name, ignoreCase = true)
     }
 
     private fun brand(name: String): Boolean {
-        return Build.BRAND?.lowercase() == name.lowercase()
+        return BuildWrap.BRAND.equals(name, ignoreCase = true)
     }
 
     private fun display(name: String): Boolean {
-        return Build.DISPLAY?.lowercase()?.contains(name.lowercase()) == true
+        return BuildWrap.DISPLAY?.lowercase()?.contains(name.lowercase()) == true
     }
 
     private fun product(name: String): Boolean {
-        return Build.PRODUCT?.lowercase()?.contains(name.lowercase()) == true
+        return BuildWrap.PRODUCT?.lowercase()?.contains(name.lowercase()) == true
     }
 
     private fun apps(pkgs: Set<String>) = pkgs.any { context.isInstalled(it) }
 
     private fun versionStarts(prints: Set<String>) = prints.any {
-        Build.VERSION.INCREMENTAL.startsWith(it)
+        BuildWrap.VERSION.INCREMENTAL.startsWith(it)
     }
 
     fun getROMType(): RomType = when {
-        isAndroidTV() -> RomType.ANDROID_TV
+        isAndroidTV() -> when {
+            // #1826, it's a "tv box" but runs a phone-style ROM
+            manufactor("UGOOS") -> RomType.AOSP
+            else -> RomType.ANDROID_TV
+        }
+
         display("lineage") || product("lineage") || apps(LINEAGE_PKGS) -> RomType.LINEAGE
         // run mostly near-stock Android
         brand("alcatel") -> RomType.ALCATEL
@@ -70,8 +75,8 @@ class DeviceDetective @Inject constructor(
         // LG UX, last devices run Android, close to AOSP
         manufactor("lge") -> RomType.LGUX
 
-        manufactor("Xiaomi") -> when {
-            apps(HYPEROS_PKGS) && versionStarts(HYPEROS_VERSION_STARTS) -> when {
+        manufactor("Xiaomi") || manufactor("POCO") -> when {
+            versionStarts(HYPEROS_VERSION_STARTS) -> when {
                 // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
                 hasApiLevel(33) -> RomType.HYPEROS
                 // Otherwise it is likely a false positive MIUI detection
@@ -135,9 +140,8 @@ class DeviceDetective @Inject constructor(
             "OS1",
             // Xiaomi/corot_global/corot:15/AP3A.240617.008/OS2.0.6.0.VMLMIXM:user/release-keys
             "OS2",
-        )
-        private val HYPEROS_PKGS = setOf(
-            "com.miui.securitycenter"
+            // POCO/miro_eea/miro:16/BP2A.250605.031.A3/OS3.0.3.0.WOMEUXM:user/release-keys
+            "OS3",
         )
         private val FLYME_PKGS = setOf(
             "com.meizu.flyme.update"

@@ -3,17 +3,15 @@ package eu.darken.sdmse.common.pkgs.pkgops
 import android.app.usage.StorageStatsManager
 import android.app.usage.UsageStatsManager
 import android.content.Context
+import android.content.IntentSender
 import android.content.pm.ApplicationInfo
 import android.content.pm.PackageInfo
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_DISABLED_USER
 import android.content.pm.PackageManager.COMPONENT_ENABLED_STATE_ENABLED
-import android.content.pm.PackageManager.GET_UNINSTALLED_PACKAGES
 import android.content.pm.PackageManager.NameNotFoundException
 import android.content.pm.PackageManager.PackageInfoFlags
 import android.content.pm.PackageManager.SYNCHRONOUS
 import android.content.pm.SharedLibraryInfo
-import android.graphics.drawable.Drawable
-import android.os.Process
 import android.os.storage.StorageManager
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.ModeUnavailableException
@@ -90,94 +88,96 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun getUserNameForUID(uid: Int): String? = rootOps { client ->
-        client.getUserNameForUID(uid)
-    }
-
-    suspend fun getGroupNameforGID(gid: Int): String? = rootOps { client ->
-        client.getGroupNameforGID(gid)
-    }
-
-    fun getUIDForUserName(userName: String): Int? = when (val gid = Process.getUidForName(userName)) {
-        -1 -> null
-        else -> gid
-    }
-
-    fun getGIDForGroupName(groupName: String): Int? = when (val gid = Process.getGidForName(groupName)) {
-        -1 -> null
-        else -> gid
-    }
-
-    suspend fun forceStop(pkgId: Pkg.Id, mode: Mode = Mode.AUTO): Boolean {
-        log(TAG, VERBOSE) { "forceStop($pkgId, mode=$mode)" }
+    suspend fun forceStop(installId: InstallId, mode: Mode = Mode.AUTO): Boolean {
+        log(TAG, VERBOSE) { "forceStop($installId, mode=$mode)" }
         try {
             val opsAction = { opsClient: PkgOpsClient ->
-                opsClient.forceStop(pkgId.name)
+                opsClient.forceStop(installId)
             }
 
             if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
-                log(TAG) { "forceStop($pkgId, $mode->ADB)" }
+                log(TAG) { "forceStop($installId, $mode->ADB)" }
                 return adbOps { opsAction(it) }
 
             }
 
             if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "forceStop($pkgId, $mode->ROOT)" }
+                log(TAG) { "forceStop($installId, $mode->ROOT)" }
                 return rootOps { opsAction(it) }
             }
 
             throw ModeUnavailableException("Mode $mode is unavailable")
         } catch (e: Exception) {
             if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "forceStop(...): $mode unavailable for $pkgId" }
+                log(TAG, DEBUG) { "forceStop(...): $mode unavailable for $installId" }
             } else {
-                log(TAG, WARN) { "forceStop($pkgId, mode=$mode) failed: $e" }
+                log(TAG, WARN) { "forceStop($installId, mode=$mode) failed: $e" }
             }
-            throw PkgOpsException(message = "changePackageState($pkgId, $mode) failed", cause = e)
+            throw PkgOpsException(message = "changePackageState($installId, $mode) failed", cause = e)
         }
     }
 
-    suspend fun queryPkg(pkgName: Pkg.Id, flags: Long, userHandle: UserHandle2): PackageInfo? = ipcFunnel.use {
-        try {
-            ipcFunnel.use {
-                if (hasApiLevel(33)) {
-                    @Suppress("NewApi")
-                    packageManager.getPackageInfo(pkgName.name, PackageInfoFlags.of(flags))
-                } else {
-                    packageManager.getPackageInfo(pkgName.name, flags.toInt())
+    suspend fun queryPkg(id: Pkg.Id, flags: Long, userHandle: UserHandle2, mode: Mode = Mode.AUTO): PackageInfo? {
+        log(TAG) { "queryPkg($id, $flags, $userHandle, $mode)" }
+        return when {
+            mode == Mode.NORMAL || (mode == Mode.AUTO && userHandle == userManager2.currentUser().handle) -> ipcFunnel.use {
+                try {
+                    ipcFunnel.use {
+                        if (hasApiLevel(33)) {
+                            @Suppress("NewApi")
+                            packageManager.getPackageInfo(id.name, PackageInfoFlags.of(flags))
+                        } else {
+                            packageManager.getPackageInfo(id.name, flags.toInt())
+                        }
+                    }
+                } catch (_: NameNotFoundException) {
+                    log(TAG, VERBOSE) { "queryPkg($id, $flags): null" }
+                    null
                 }
             }
-        } catch (e: NameNotFoundException) {
-            log(TAG, VERBOSE) { "queryPkg($pkgName, $flags): null" }
-            null
+
+            mode == Mode.ROOT || (mode == Mode.AUTO && rootManager.canUseRootNow()) -> {
+                rootOps { it.getPackageInfoAsUser(id, flags, userHandle) }
+            }
+
+            mode == Mode.ADB || (mode == Mode.AUTO && adbManager.canUseAdbNow()) -> {
+                adbOps { it.getPackageInfoAsUser(id, flags, userHandle) }
+            }
+
+            else -> {
+                throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            }
         }
     }
 
-    suspend fun queryPkgs(flags: Int) = queryPkgs(flags.toLong())
+    suspend fun queryPkgs(
+        flags: Long,
+        userHandle: UserHandle2? = null,
+        mode: Mode = Mode.AUTO
+    ): Collection<PackageInfo> {
+        log(TAG) { "queryPkgs($flags, $userHandle, $mode)" }
+        val targetHandle = userHandle ?: userManager2.currentUser().handle
+        return when {
+            mode == Mode.NORMAL || (mode == Mode.AUTO && targetHandle == userManager2.currentUser().handle) -> ipcFunnel.use {
+                if (hasApiLevel(33)) {
+                    @Suppress("NewApi")
+                    packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
+                } else {
+                    packageManager.getInstalledPackages(flags.toInt())
+                }
+            }
 
-    @Suppress("QueryPermissionsNeeded")
-    suspend fun queryPkgs(flags: Long): Collection<PackageInfo> = ipcFunnel.use {
-        if (hasApiLevel(33)) {
-            @Suppress("NewApi")
-            packageManager.getInstalledPackages(PackageInfoFlags.of(flags))
-        } else {
-            packageManager.getInstalledPackages(flags.toInt())
-        }
-    }
+            mode == Mode.ROOT || (mode == Mode.AUTO && rootManager.canUseRootNow()) -> {
+                rootOps { it.getInstalledPackagesAsUserStream(flags, targetHandle) }
+            }
 
-    suspend fun queryPkgs(flags: Int, userHandle: UserHandle2) = queryPkgs(flags.toLong(), userHandle)
+            mode == Mode.ADB || mode == Mode.AUTO && adbManager.canUseAdbNow() -> {
+                adbOps { it.getInstalledPackagesAsUserStream(flags, targetHandle) }
+            }
 
-    suspend fun queryPkgs(flags: Long, userHandle: UserHandle2): Collection<PackageInfo> = when {
-        rootManager.canUseRootNow() -> {
-            rootOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
-        }
-
-        adbManager.canUseAdbNow() -> {
-            adbOps { it.getInstalledPackagesAsUserStream(flags, userHandle) }
-        }
-
-        else -> {
-            throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            else -> {
+                throw IllegalStateException("Can't get user specific packages (neither root nor adb) access available")
+            }
         }
     }
 
@@ -192,20 +192,8 @@ class PkgOps @Inject constructor(
             packageManager.getPackageUid(pkg.name, 0)
         }
         true
-    } catch (e: NameNotFoundException) {
+    } catch (_: NameNotFoundException) {
         false
-    }
-
-    suspend fun queryAppInfos(
-        pkg: Pkg.Id,
-        flags: Int = GET_UNINSTALLED_PACKAGES
-    ): ApplicationInfo? = ipcFunnel.use {
-        try {
-            packageManager.getApplicationInfo(pkg.name, flags)
-        } catch (e: NameNotFoundException) {
-            log(TAG, WARN) { "queryAppInfos($pkg=pkg,flags=$flags) packageName not found." }
-            null
-        }
     }
 
     suspend fun getLabel(pkgId: Pkg.Id): String? = ipcFunnel.use {
@@ -213,7 +201,7 @@ class PkgOps @Inject constructor(
             ipcFunnel.use {
                 packageManager.getLabel2(pkgId)
             }
-        } catch (e: NameNotFoundException) {
+        } catch (_: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(packageName=$pkgId) packageName not found." }
             null
         }
@@ -222,7 +210,7 @@ class PkgOps @Inject constructor(
     suspend fun getLabel(applicationInfo: ApplicationInfo): String? = ipcFunnel.use {
         try {
             applicationInfo.loadLabel(packageManager).toString()
-        } catch (e: NameNotFoundException) {
+        } catch (_: NameNotFoundException) {
             log(TAG, WARN) { "getLabel(applicationInfo=$applicationInfo) packageName not found." }
             null
         }
@@ -241,27 +229,13 @@ class PkgOps @Inject constructor(
         }
     }
 
-    suspend fun getIcon(pkg: Pkg.Id): Drawable? {
-        val appInfo = queryAppInfos(pkg, GET_UNINSTALLED_PACKAGES)
-        return appInfo?.let { getIcon(it) }
-    }
-
-    suspend fun getIcon(appInfo: ApplicationInfo): Drawable? = ipcFunnel.use {
-        try {
-            appInfo.loadIcon(packageManager)
-        } catch (e: Exception) {
-            log(TAG) { "Failed to get icon ${e.asLog()}" }
-            null
-        }
-    }
-
     suspend fun getSharedLibraries(
         flags: Int = 0
     ): List<SharedLibraryInfo> = ipcFunnel.use {
         packageManager.getSharedLibraries2(flags)
     }
 
-    suspend fun changePackageState(id: Pkg.Id, enabled: Boolean, mode: Mode = Mode.AUTO) {
+    suspend fun changePackageState(id: InstallId, enabled: Boolean, mode: Mode = Mode.AUTO) {
         log(TAG, VERBOSE) { "changePackageState($id, enabled=$enabled, mode=$mode)" }
         try {
             if (mode == Mode.NORMAL) throw PkgOpsException("changePackageState($id,$enabled) does not support mode=NORMAL")
@@ -273,7 +247,7 @@ class PkgOps @Inject constructor(
 
             val opsAction = { opsClient: PkgOpsClient ->
                 opsClient.setApplicationEnabledSetting(
-                    packageName = id.name,
+                    id = id,
                     newState = newState,
                     flags = run {
                         @Suppress("NewApi")
@@ -302,30 +276,6 @@ class PkgOps @Inject constructor(
                 log(TAG, WARN) { "changePackageState($id, enabled=$enabled, mode=$mode) failed: $e" }
             }
             throw PkgOpsException(message = "changePackageState($id, $enabled, $mode) failed", cause = e)
-        }
-    }
-
-    suspend fun clearCache(id: InstallId, mode: Mode = Mode.AUTO) {
-        log(TAG) { "clearCache($id, $mode)" }
-        try {
-            if (mode == Mode.NORMAL) throw PkgOpsException("clearCache($id) does not support mode=NORMAL")
-
-            if (mode == Mode.ADB) throw PkgOpsException("clearCache($id) does not support mode=ADB")
-
-            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
-                log(TAG) { "clearCache($id, $mode->ROOT)" }
-                rootOps { it.clearCache(id, dryRun = Bugs.isDryRun) }
-                return
-            }
-
-            throw ModeUnavailableException("Mode $mode is unavailable")
-        } catch (e: Exception) {
-            if (e is ModeUnavailableException) {
-                log(TAG, DEBUG) { "clearCache(...): $mode unavailable for $id" }
-            } else {
-                log(TAG, WARN) { "clearCache($id,$mode) failed: ${e.asLog()}" }
-            }
-            throw PkgOpsException(message = "clearCache($id, $mode) failed", cause = e)
         }
     }
 
@@ -486,14 +436,47 @@ class PkgOps @Inject constructor(
         }
     }
 
+    suspend fun requestUnarchive(packageName: String, statusReceiver: IntentSender, mode: Mode = Mode.AUTO) {
+        log(TAG, VERBOSE) { "requestUnarchive($packageName, mode=$mode)" }
+        try {
+            if (mode == Mode.NORMAL) throw PkgOpsException("requestUnarchive does not support mode=NORMAL")
+
+            if (rootManager.canUseRootNow() && (mode == Mode.AUTO || mode == Mode.ROOT)) {
+                log(TAG) { "requestUnarchive($packageName, $mode->ROOT)" }
+                rootOps { it.requestUnarchive(packageName, statusReceiver) }
+                return
+            }
+
+            if (adbManager.canUseAdbNow() && (mode == Mode.AUTO || mode == Mode.ADB)) {
+                log(TAG) { "requestUnarchive($packageName, $mode->ADB)" }
+                adbOps { it.requestUnarchive(packageName, statusReceiver) }
+                return
+            }
+
+            throw ModeUnavailableException("Mode $mode is unavailable")
+        } catch (e: Exception) {
+            if (e is ModeUnavailableException) {
+                log(TAG, DEBUG) { "requestUnarchive(...): $mode unavailable" }
+            } else {
+                log(TAG, WARN) { "requestUnarchive($packageName, $mode) failed: ${e.asLog()}" }
+            }
+            throw PkgOpsException(message = "requestUnarchive($packageName, $mode) failed", cause = e)
+        }
+    }
+
     data class SizeStats(
         val appBytes: Long,
         val cacheBytes: Long,
         val externalCacheBytes: Long?,
         val dataBytes: Long,
     ) {
+        /** User data excluding cache (matches Android Settings display) */
+        val userDataBytes: Long
+            get() = (dataBytes - cacheBytes).coerceAtLeast(0)
+
+        /** Total storage. Note: dataBytes already includes cacheBytes */
         val total: Long
-            get() = appBytes + dataBytes + cacheBytes
+            get() = appBytes + dataBytes
     }
 
     suspend fun querySizeStats(
@@ -515,7 +498,10 @@ class PkgOps @Inject constructor(
             } else null,
             dataBytes = stats.dataBytes,
         ).also { log(TAG, VERBOSE) { "querySizeStats($installId,$storageUUID) -> $it" } }
-    } catch (e: NameNotFoundException) {
+    } catch (_: NameNotFoundException) {
+        null
+    } catch (e: SecurityException) {
+        log(TAG, WARN) { "Failed to querySizeStats due to lack of permission: $installId: $e" }
         null
     } catch (e: Exception) {
         log(TAG, ERROR) { "Failed to querySizeStats for $installId: ${e.asLog()}" }

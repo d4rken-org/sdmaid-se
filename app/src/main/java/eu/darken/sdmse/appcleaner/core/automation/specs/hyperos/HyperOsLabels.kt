@@ -218,7 +218,20 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
 
     private fun getClearDataButtonLabelsDynamic(
         acsContext: AutomationExplorer.Context
-    ) = acsContext.getStrings(SETTINGS_PKG, setOf("app_manager_menu_clear_data"))
+    ) = acsContext.getStrings(SETTINGS_PKG, setOf(
+        "app_manager_menu_clear_data",
+    ))
+
+    /**
+     * On HyperOS 2.x, ALL apps show "Clear all data" and clicking it opens a dialog with "Clear cache" option.
+     * On HyperOS 3 (Android 16), apps WITHOUT cache show "Clear all data" but the dialog has NO "Clear cache" option.
+     * We separate this label to detect apps without cache on HyperOS 3 and skip them immediately.
+     */
+    fun getClearAllDataButtonLabels(
+        acsContext: AutomationExplorer.Context
+    ): Set<String> = acsContext.getStrings(SETTINGS_PKG, setOf(
+        "app_manager_clear_all_data",
+    ))
 
     private fun getClearDataButtonLabelsFallback(
         acsContext: AutomationExplorer.Context
@@ -321,7 +334,7 @@ class HyperOsLabels @Inject constructor() : AppCleanerLabelSource {
     ) = acsContext.getStrings(SETTINGS_PKG, setOf("storage_app_detail_clear_all_data"))
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "HyperOs", "Labels")
         private val SETTINGS_PKG = "com.miui.securitycenter".toPkgId()
     }
 }

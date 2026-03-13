@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">చెల్లని యాప్ ఇన్వెంటరీ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">సిస్టమ్ SD Maidకు ఇన్‌స్టాల్ చేయబడిన యాప్‌ల చెల్లని జాబితాను అందించింది.</string>
+</resources>

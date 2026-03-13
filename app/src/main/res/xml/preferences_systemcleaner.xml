@@ -36,6 +36,13 @@
             app:summary="@string/systemcleaner_filter_superfluosapks_summary"
             app:title="@string/systemcleaner_filter_superfluosapks_label" />
         <CheckBoxPreference
+            app:icon="@drawable/ic_approximately_equal_24"
+            app:isPreferenceVisible="false"
+            app:key="filter.superfluosapks.includesameversion"
+            app:singleLineTitle="false"
+            app:summary="@string/systemcleaner_filter_superfluosapks_includesameversion_summary"
+            app:title="@string/systemcleaner_filter_superfluosapks_includesameversion_label" />
+        <CheckBoxPreference
             app:icon="@drawable/ic_recycle_bin_24"
             app:key="filter.trashed.enabled"
             app:singleLineTitle="false"

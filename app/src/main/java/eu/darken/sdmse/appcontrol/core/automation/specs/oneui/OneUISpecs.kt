@@ -65,6 +65,14 @@ class OneUISpecs @Inject constructor(
         }
     }
 
+    override suspend fun getArchive(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Archive automation not yet supported on OneUI")
+    }
+
+    override suspend fun getRestore(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Restore automation not yet supported on OneUI")
+    }
+
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
@@ -140,7 +148,7 @@ class OneUISpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppControl", "Automation", "Samsung", "Specs")
+        val TAG: String = logTag("AppControl", "Automation", "OneUI", "Specs")
     }
 
 }

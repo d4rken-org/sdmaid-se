@@ -15,8 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultFindAndClick
@@ -92,28 +91,22 @@ class OxygenOSSpecs @Inject constructor(
         run {
             val clearCacheButtonLabels =
                 oxygenOSLabels.getClearCacheDynamic(this) + oxygenOSLabels.getClearCacheStatic(this)
+
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var isUnclickableButton = false
-                val target = findNode { node ->
-                    when {
-                        hasApiLevel(34) -> {
-                            if (!node.textMatchesAny(clearCacheButtonLabels)) return@findNode false
-                            isUnclickableButton = !node.isClickyButton()
-                            true
-                        }
-
-                        else -> {
-                            node.isClickyButton() && node.textMatchesAny(clearCacheButtonLabels)
-                        }
-                    }
+                val target = when {
+                    hasApiLevel(34) -> findNodeByLabel(clearCacheButtonLabels)
+                    else -> findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() }
                 } ?: return@action false
 
+                // On API 34+, button text may be nested in non-clickable wrapper, find clickable parent.
+                // If no clickable parent exists (e.g., disabled button when cache=0), fall back to target
+                // and let clickClearCache() handle the disabled state.
                 val mapped = when {
-                    hasApiLevel(34) && isUnclickableButton -> findClickableParent(node = target)
+                    hasApiLevel(34) && !target.isClickyButton() -> findClickableParent(node = target) ?: target
                     else -> target
-                } ?: return@action false
+                }
 
                 clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = mapped)
             }
@@ -137,7 +130,7 @@ class OxygenOSSpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OnePlus", "Specs")
     }
 
 }

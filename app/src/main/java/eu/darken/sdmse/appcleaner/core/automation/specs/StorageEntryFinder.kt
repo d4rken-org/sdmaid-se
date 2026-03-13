@@ -4,8 +4,8 @@ import android.app.usage.StorageStats
 import android.content.Context
 import android.graphics.Rect
 import android.text.format.Formatter
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.findParentOrNull
 import eu.darken.sdmse.automation.core.common.idContains
@@ -13,7 +13,6 @@ import eu.darken.sdmse.automation.core.common.isTextView
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.common.textVariants
-import eu.darken.sdmse.automation.core.common.toStringShort
 import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.DEBUG
@@ -28,16 +27,19 @@ import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageStatsManager2
+import kotlinx.coroutines.TimeoutCancellationException
+import kotlinx.coroutines.withTimeout
 import java.util.Locale
 import javax.inject.Inject
 import kotlin.math.ln
 import kotlin.math.pow
+import kotlin.time.Duration.Companion.seconds
 
 class StorageEntryFinder @Inject constructor(
     @ApplicationContext private val context: Context,
     private val statsManager: StorageStatsManager2,
 ) {
-    internal suspend fun createSizeMatcher(pkg: Installed): ((AccessibilityNodeInfo) -> Boolean)? {
+    internal suspend fun createSizeMatcher(pkg: Installed): ((ACSNodeInfo) -> Boolean)? {
         log(TAG) { "createSizeMatcher(${pkg.installId} initialising..." }
 
         val targetSize = determineTargetSize(pkg) ?: return null
@@ -79,19 +81,33 @@ class StorageEntryFinder @Inject constructor(
             return null
         }
 
+        val start = System.currentTimeMillis()
+
         val stats1: StorageStats = try {
-            // OS uses queryStatsForPkg and NOT queryStatsForAppUid
-            // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt;l=51
-            statsManager.queryStatsForPkg(storageId, pkg)
+            // Query on larger apps, e.g. Amazon Prime Video exceeds 15 seconds on a samsung/gts9wifieea/gts9wifi:15/AP3A.240905.015.A2/X710XXS5CYG1:user/release-keys
+            // Default step time out is 30 seconds, so after failing the query we can continue still and try something else
+            withTimeout(20.seconds) {
+                // OS uses queryStatsForPkg and NOT queryStatsForAppUid
+                // https://cs.android.com/android/platform/superproject/main/+/main:frameworks/base/packages/SettingsLib/SpaPrivileged/src/com/android/settingslib/spaprivileged/template/app/AppStorageSize.kt;l=51
+                statsManager.queryStatsForPkg(storageId, pkg)
+            }
         } catch (e: SecurityException) {
             log(TAG, WARN) { "Don't have permission to query app size for ${pkg.id}: $e" }
+            return null
+        } catch (e: TimeoutCancellationException) {
+            log(TAG, WARN) { "queryStatsForPkg timed outwhen querying app size for ${pkg.id}: $e" }
             return null
         } catch (e: Exception) {
             log(TAG, ERROR) { "Unexpected error when querying app size for ${pkg.id}: ${e.asLog()}" }
             return null
         }
 
-        return stats1.appBytes + stats1.dataBytes
+        val combined = stats1.appBytes + stats1.dataBytes
+
+        val stop = System.currentTimeMillis() - start
+        log(TAG, VERBOSE) { "queryStatsForPkg($storageId,$pkg) after ${stop}ms: $combined" }
+
+        return combined
     }
 
     internal fun generateTargetTexts(targetSize: Long): Set<String> {
@@ -139,10 +155,11 @@ class StorageEntryFinder @Inject constructor(
     suspend fun storageFinderAOSP(
         labels: Collection<String>,
         pkg: Installed,
-    ): suspend StepContext.() -> AccessibilityNodeInfo? = {
-        val matchStorage = createSizeMatcher(pkg) ?: { false }
+    ): suspend StepContext.() -> ACSNodeInfo? {
+        val matchStorage = createSizeMatcher(pkg) ?: { _: ACSNodeInfo -> false }
+        return {
 
-        val storageFilter: (AccessibilityNodeInfo) -> Int? = when {
+        val storageFilter: (ACSNodeInfo) -> Int? = when {
             hasApiLevel(33) -> storageFilter@{ node ->
                 if (!node.isTextView()) return@storageFilter null
                 when {
@@ -165,9 +182,8 @@ class StorageEntryFinder @Inject constructor(
         val matches = host.waitForWindowRoot().crawl()
             .map { it.node }
             .mapNotNull { node ->
-                val priority = storageFilter(node)
-                if (priority == null) return@mapNotNull null
-                log(TAG, VERBOSE) { "Priority $priority: ${node.toStringShort()}" }
+                val priority = storageFilter(node) ?: return@mapNotNull null
+                log(TAG, VERBOSE) { "Priority $priority: $node" }
                 node to priority
             }
             .sortedBy { it.second }
@@ -175,14 +191,14 @@ class StorageEntryFinder @Inject constructor(
             .toMutableList()
 
         log(TAG, if (matches.size > 1) WARN else DEBUG) { "Got ${matches.size} matches" }
-        matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - ${nodeInfo.toStringShort()}" } }
+        matches.forEachIndexed { index, nodeInfo -> log(TAG) { "#$index - $nodeInfo" } }
 
         // Siblings in storage entry
         if (matches.size == 2) {
             val first = matches[0]
             val second = matches[1]
             if (first.parent == second.parent) {
-                log(TAG, WARN) { "Double match on entry summary, removing summary: ${second.toStringShort()}" }
+                log(TAG, WARN) { "Double match on entry summary, removing summary: $second" }
                 matches.remove(second)
             }
         }
@@ -225,13 +241,14 @@ class StorageEntryFinder @Inject constructor(
         }
 
         matches.firstOrNull()
+        }
     }
 
     enum class ACSNodePaneState {
         LEFT, RIGHT, FULL
     }
 
-    private fun StepContext.determinePane(node: AccessibilityNodeInfo, margin: Int = 50): ACSNodePaneState {
+    private fun StepContext.determinePane(node: ACSNodeInfo, margin: Int = 50): ACSNodePaneState {
         val metrics = host.service.resources.displayMetrics
         val screenMidX = metrics.widthPixels / 2
 
@@ -253,6 +270,6 @@ class StorageEntryFinder @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
+        private val TAG: String = logTag("AppCleaner", "Automation", "StorageEntryFinder")
     }
 }

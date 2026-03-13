@@ -17,19 +17,22 @@ import eu.darken.sdmse.common.upgrade.core.billing.BillingManager
 import eu.darken.sdmse.common.upgrade.core.billing.PurchasedSku
 import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import eu.darken.sdmse.common.upgrade.core.billing.UserCanceledBillingException
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
+import kotlinx.coroutines.flow.retryWhen
 import kotlinx.coroutines.flow.shareIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import java.time.Instant
 import javax.inject.Inject
 import javax.inject.Singleton
+import kotlin.math.pow
 
 @Singleton
 class UpgradeRepoGplay @Inject constructor(
@@ -39,7 +42,8 @@ class UpgradeRepoGplay @Inject constructor(
     private val billingCache: BillingCache,
 ) : UpgradeRepo {
 
-    override val mainWebsite: String = SITE
+    override val storeSite: String = STORE_SITE
+    override val upgradeSite: String = UPGRADE_SITE
 
     override val upgradeInfo: Flow<Info> = billingManager.billingData
         .map<BillingData, BillingData?> { it }
@@ -68,17 +72,19 @@ class UpgradeRepoGplay @Inject constructor(
             }
         }
         .distinctUntilChanged()
-        .catch {
+        .retryWhen { error, attempt ->
             // Ignore Google Play errors if the last pro state was recent
             val now = System.currentTimeMillis()
             val lastProStateAt = billingCache.lastProStateAt.value()
-            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, error=$it" }
+            log(TAG) { "Catch: now=$now, lastProStateAt=$lastProStateAt, attempt=$attempt, error=$error" }
             if ((now - lastProStateAt) < 7 * 24 * 60 * 1000L) { // 7 days
-                log(TAG, VERBOSE) { "We are not pro, but were recently, and just and an error, what is GPlay doing???" }
+                log(TAG, VERBOSE) { "We are not pro, but were recently, and just got an error, what is GPlay doing???" }
                 emit(Info(gracePeriod = true, billingData = null))
             } else {
-                throw it
+                emit(Info(billingData = null, error = error))
             }
+            delay(30_000L * 2.0.pow(attempt.toDouble()).toLong())
+            true
         }
         .setupCommonEventHandlers(TAG) { "upgradeInfo2" }
         .shareIn(scope, SharingStarted.WhileSubscribed(3000L, 0L), replay = 1)
@@ -89,6 +95,10 @@ class UpgradeRepoGplay @Inject constructor(
             try {
                 billingManager.startIapFlow(activity, sku, offer)
             } catch (e: Exception) {
+                if (e is UserCanceledBillingException) {
+                    log(TAG) { "User canceled billing flow" }
+                    return@launch
+                }
                 log(TAG) { "startIapFlow failed:${e.asLog()}" }
                 withContext(dispatcherProvider.Main) {
                     e.asErrorDialogBuilder(activity).show()
@@ -107,6 +117,7 @@ class UpgradeRepoGplay @Inject constructor(
     data class Info(
         private val gracePeriod: Boolean = false,
         private val billingData: BillingData?,
+        override val error: Throwable? = null,
     ) : UpgradeRepo.Info {
 
         override val type: UpgradeRepo.Type = UpgradeRepo.Type.GPLAY
@@ -136,7 +147,8 @@ class UpgradeRepoGplay @Inject constructor(
 
 
     companion object {
-        private const val SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
+        private const val STORE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
+        private const val UPGRADE_SITE = "https://play.google.com/store/apps/details?id=eu.darken.sdmse"
         val TAG: String = logTag("Upgrade", "Gplay", "Repo")
     }
 }

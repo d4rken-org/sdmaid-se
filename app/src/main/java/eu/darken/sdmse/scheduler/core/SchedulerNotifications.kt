@@ -77,13 +77,15 @@ class SchedulerNotifications @Inject constructor(
 
     private fun getStateNotification(schedule: Schedule?): Notification = getStateBuilder(schedule).build()
 
-    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getStateBuilder(schedule).toForegroundInfo(schedule)
+    fun getForegroundInfo(schedule: Schedule): ForegroundInfo = getStateBuilder(schedule).toForegroundInfo(schedule.id)
 
-    private fun NotificationCompat.Builder.toForegroundInfo(schedule: Schedule): ForegroundInfo = if (hasApiLevel(29)) {
+    fun getForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = getStateBuilder(null).toForegroundInfo(scheduleId)
+
+    private fun NotificationCompat.Builder.toForegroundInfo(scheduleId: ScheduleId): ForegroundInfo = if (hasApiLevel(29)) {
         @Suppress("NewApi")
-        ForegroundInfo(schedule.id.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
+        ForegroundInfo(scheduleId.toNotificationid(), build(), ServiceInfo.FOREGROUND_SERVICE_TYPE_DATA_SYNC)
     } else {
-        ForegroundInfo(schedule.id.toNotificationid(), build())
+        ForegroundInfo(scheduleId.toNotificationid(), build())
     }
 
     private fun ScheduleId.toNotificationid(): Int {
@@ -118,6 +120,8 @@ class SchedulerNotifications @Inject constructor(
                         SDMTool.Type.APPCONTROL -> R.string.appcontrol_tool_name
                         SDMTool.Type.ANALYZER -> R.string.analyzer_tool_name
                         SDMTool.Type.DEDUPLICATOR -> R.string.deduplicator_tool_name
+SDMTool.Type.SQUEEZER -> R.string.squeezer_tool_name
+                        SDMTool.Type.SWIPER -> R.string.swiper_tool_name
                     }
                     context.getString(toolNameId) to it.error.toString()
                 }
@@ -141,6 +145,20 @@ class SchedulerNotifications @Inject constructor(
         log(TAG) { "notifyResult($id, $results)" }
         notificationManager.notify(id, notification)
     }
+
+    fun notifyError(scheduleId: ScheduleId) {
+        val baseId = (scheduleId.hashCode() and Int.MAX_VALUE) % 101
+        val id = NOTIFICATION_ID_RANGE_RESULT + baseId
+        val notification = getBaseResultBuilder().apply {
+            setContentTitle(context.getString(R.string.scheduler_notification_result_title))
+            val text = context.getString(R.string.scheduler_notification_result_failure_message)
+            setContentText(text)
+            setStyle(NotificationCompat.BigTextStyle().bigText(text))
+        }.build()
+        log(TAG) { "notifyError($id, $scheduleId)" }
+        notificationManager.notify(id, notification)
+    }
+
 
     data class Results(
         val task: SDMTool.Task,

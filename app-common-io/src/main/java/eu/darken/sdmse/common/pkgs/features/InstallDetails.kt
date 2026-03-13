@@ -14,6 +14,9 @@ interface InstallDetails : PkgInfo {
     val isUpdatedSystemApp: Boolean
         get() = applicationInfo?.run { flags and ApplicationInfo.FLAG_UPDATED_SYSTEM_APP != 0 } ?: true
 
+    val isDebuggable: Boolean
+        get() = applicationInfo?.run { flags and ApplicationInfo.FLAG_DEBUGGABLE != 0 } ?: false
+
     val installedAt: Instant?
         get() = packageInfo.firstInstallTime.takeIf { it != 0L }?.let { Instant.ofEpochMilli(it) }
 

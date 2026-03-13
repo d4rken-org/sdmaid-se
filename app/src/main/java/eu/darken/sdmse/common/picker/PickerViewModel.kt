@@ -54,7 +54,7 @@ class PickerViewModel @Inject constructor(
         }
         launch {
             log(TAG) { "Loading pre-selected paths: ${request.selectedPaths}" }
-            request.selectedPaths
+            val preSelected = request.selectedPaths
                 .mapNotNull {
                     try {
                         it.lookup(gatewaySwitch)
@@ -64,7 +64,65 @@ class PickerViewModel @Inject constructor(
                         null
                     }
                 }
-                .let { selectedItems.value = it }
+            selectedItems.value = preSelected
+
+            // Navigate to the parent of the first selected path
+            val firstSelected = preSelected.firstOrNull()
+            if (firstSelected != null) {
+                val areaState = dataAreaManager.state.first()
+                val targetArea = areaState.areas
+                    .filter { request.allowedAreas.isEmpty() || request.allowedAreas.contains(it.type) }
+                    .sortedByDescending { it.path.segments.size }
+                    .firstOrNull { it.path.isAncestorOf(firstSelected.lookedUp) || it.path == firstSelected.lookedUp }
+
+                if (targetArea != null) {
+                    // Build navigation path from area root to the selected path (so it's visible)
+                    val navPath = mutableListOf<PickerItem>()
+                    val targetSegments = firstSelected.lookedUp.segments
+                    val areaSegments = targetArea.path.segments.size
+
+                    // Add the area root first
+                    val areaLookup = targetArea.path.lookup(gatewaySwitch)
+                    navPath.add(
+                        PickerItem(
+                            dataArea = targetArea,
+                            lookup = areaLookup,
+                            parent = null,
+                            selected = false,
+                            selectable = true,
+                        )
+                    )
+
+                    // Build path from area to parent of selected (so selected is visible in list)
+                    for (i in areaSegments until targetSegments.size) {
+                        val childSegments = targetSegments.subList(areaSegments, i + 1).toTypedArray()
+                        val childPath = targetArea.path.child(*childSegments)
+                        val lookup = try {
+                            childPath.lookup(gatewaySwitch)
+                        } catch (e: Exception) {
+                            log(TAG) { "Failed to lookup nav path segment: $childPath" }
+                            break
+                        }
+                        navPath.add(
+                            PickerItem(
+                                dataArea = targetArea,
+                                lookup = lookup,
+                                parent = navPath.lastOrNull(),
+                                selected = false,
+                                selectable = true,
+                            )
+                        )
+                    }
+
+                    // Remove the last item (the selected path itself) so it shows in the list
+                    if (navPath.size > 1) {
+                        navPath.removeLast()
+                    }
+
+                    log(TAG, INFO) { "Pre-navigating to: ${navPath.map { it.lookup.lookedUp }}" }
+                    navigationState.value = navPath.takeIf { it.isNotEmpty() }
+                }
+            }
         }
     }
 
@@ -183,13 +241,26 @@ class PickerViewModel @Inject constructor(
 
     fun select(paths: Collection<APathLookup<*>>) {
         log(TAG) { "select($paths)" }
-        val newSelectedItems = selectedItems.value.toMutableList()
-        paths.forEach { path ->
-            val removed = newSelectedItems.removeIf { it.lookedUp == path.lookedUp }
-            if (!removed) {
-                newSelectedItems.removeIf { path.isAncestorOf(it) }
-                newSelectedItems.removeIf { path.isDescendantOf(it) }
-                newSelectedItems.add(path)
+        val newSelectedItems = when (request.mode) {
+            PickerRequest.PickMode.DIR -> {
+                // DIR mode: single selection only - replace any existing selection
+                val path = paths.firstOrNull() ?: return
+                val isAlreadySelected = selectedItems.value.any { it.lookedUp == path.lookedUp }
+                if (isAlreadySelected) emptyList() else listOf(path)
+            }
+
+            PickerRequest.PickMode.DIRS -> {
+                // DIRS mode: allow multiple selections with toggle logic
+                selectedItems.value.toMutableList().apply {
+                    paths.forEach { path ->
+                        val removed = removeIf { it.lookedUp == path.lookedUp }
+                        if (!removed) {
+                            removeIf { path.isAncestorOf(it) }
+                            removeIf { path.isDescendantOf(it) }
+                            add(path)
+                        }
+                    }
+                }
             }
         }
         selectedItems.value = newSelectedItems

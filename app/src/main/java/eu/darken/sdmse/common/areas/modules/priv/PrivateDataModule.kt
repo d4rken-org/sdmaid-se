@@ -9,7 +9,9 @@ import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.modules.DataAreaModule
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -59,6 +61,7 @@ class PrivateDataModule @Inject constructor(
      * Looking at /data/data will just show our own package, even with root
      * /data_mirror/data_ce/null/0
      * /data_mirror/data_de/null/0
+     * and /data/user and /data/user_de will only show the current user/owner
      */
     private suspend fun getMirrored(gateway: LocalGateway): Collection<DataArea> {
         val dataMirrorContent = gateway.listFiles(mirrorArea, mode = LocalGateway.Mode.ROOT)

@@ -3,6 +3,8 @@ package eu.darken.sdmse.appcleaner.core.automation.specs
 import android.content.Context
 import android.content.pm.PackageManager
 import android.view.accessibility.AccessibilityNodeInfo
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
@@ -19,9 +21,10 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
+import testhelpers.TestApplication
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [29])
+@Config(sdk = [33], application = TestApplication::class)
 class OnTheFlyLablerTest : BaseTest() {
 
     private val statsManager = mockk<StorageStatsManager2>()
@@ -50,11 +53,11 @@ class OnTheFlyLablerTest : BaseTest() {
         text: String,
         type: String = "android.widget.TextView",
         id: String? = null,
-    ) = AccessibilityNodeInfo().apply {
+    ): ACSNodeInfo = AccessibilityNodeInfo().apply {
         setText(text)
         viewIdResourceName = id
         className = type
-    }
+    }.toNodeInfo()
 
     @Test
     fun `match via summary`() = runTest {

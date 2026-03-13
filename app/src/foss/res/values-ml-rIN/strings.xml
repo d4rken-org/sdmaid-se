@@ -2,13 +2,14 @@
 <resources>
     <string name="app_name_upgraded">SD മെയ്ഡ് SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">SD മെയ്ഡ് SE പ്രോ ആവശ്യമാണ്</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS ആവശ്യമാണ്</string>
     <string name="upgrades_dashcard_title">SD മെയ്ഡ് നവീകരിക്കുക</string>
     <string name="upgrades_dashcard_body">കൂടുതൽ സവിശേഷതകൾ അൺലോക്കുചെയ്‌ത് തുടർ വികസനത്തെ പിന്തുണയ്ക്കുന്നതിന് ഒരു പാട്രോൺ ആകുക!</string>
     <string name="upgrades_dashcard_upgrade_action">അപ്ഗ്രേഡുചെയ്യുക</string>
     <string name="upgrade_screen_title">SD മെയ്ഡ് മെച്ചപ്പെടുത്തുക</string>
     <string name="upgrade_screen_preamble">SD മെയ്ഡിൽ പരസ്യങ്ങളില്ല, ഉപയോക്തൃ ഡാറ്റ വിൽക്കുന്നുമില്ല. തുടർവികസനം നിങ്ങളാൽ മാത്രമേ സാധ്യമാകൂ.</string>
     <string name="upgrade_screen_how_title">എങ്ങനെ സഹായിക്കാം</string>
+    <string name="upgrade_screen_how_body">പാട്രോൺ ആകുകയും വികസനം സ്പോൺസർ ചെയ്യുകയും ചെയ്യുക! എല്ലാ അധിക സവിശേഷതകളും സജീവമാക്കാനും എന്റെ GitHub Sponsors പ്രൊഫൈൽ തുറക്കാനും താഴെയുള്ള ബട്ടൺ ടാപ്പ് ചെയ്യുക.</string>
     <string name="upgrade_screen_why_title">ഇത് മനപ്പൂർവ്വം 🪄</string>
     <string name="upgrade_screen_why_body">• AppCleaner ഡിലീറ്റ് പ്രവർത്തനം 💯\n• ഷെഡ്യൂൾ ചെയ്ത പ്രവർത്തനങ്ങൾ ⏰\n• എല്ലാ ടൂളുകൾക്കുമുള്ള അധിക ഓപ്‌ഷനുകൾ ⚙️\n• നിങ്ങളുടെ സ്വന്തം ഇല്ലാതാക്കൽ നിയമങ്ങൾ ✍️\n• ഒരു പ്രചോദിത ഡെവലപ്പർ 🧙\nകൂടാതെ മറ്റും…</string>
     <string name="upgrade_screen_sponsor_action">വികസനം സ്പോൺസർ ചെയ്യുക</string>

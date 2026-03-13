@@ -6,6 +6,8 @@
     <string name="upgrades_dashcard_title">SD मेड को उन्नत करें</string>
     <string name="upgrades_dashcard_body">SD मेड प्रो अत्यधिक उपयोगकर्ताओं के लिए बेहतर परिणाम देता है, उन्हें अधिक सुविधाएं और विकल्प प्रदान करता है।</string>
     <string name="upgrades_dashcard_upgrade_action">उन्नत करें</string>
+    <string name="upgrades_gplay_unavailable_error_title">Google Play अनुपलब्ध है</string>
+    <string name="upgrades_gplay_unavailable_error_description">SD Maid Google Play से कनेक्ट नहीं हो सकता। क्या Google Play इंस्टॉल और अप-टू-डेट है? क्या आपका Google खाता लॉग इन है? Google Play ऐप का कैश साफ़ करने और अपने डिवाइस को रीबूट करने का प्रयास करें।</string>
     <string name="upgrades_no_purchases_found_check_account">कोई खरीदारी जानकारी नहीं मिली। क्या आप सही खाते का उपयोग कर रहे हैं?</string>
     <string name="upgrade_screen_title">SD मेड SE प्रो प्राप्त करें</string>
     <string name="upgrade_screen_preamble">SD Maid के पास कोई विज्ञापन नहीं है और वह उपयोगकर्ता डेटा नहीं बेचती है। मेरा काम आपके द्वारा वित्तपोषित है ❤️।</string>
@@ -19,4 +21,9 @@
     <string name="upgrade_screen_iap_action">एक-बार खरीदे</string>
     <string name="upgrade_screen_iap_action_hint">एकमुश्त खरीदारी का मूल्य %s है।</string>
     <string name="upgrade_screen_thanks_toast">आप सर्वश्रेष्ठ हैं! ❤️</string>
+    <string name="upgrade_screen_restore_purchase_action">खरीदारी पुनर्स्थापित करें</string>
+    <string name="upgrade_screen_restore_purchase_message">आपका अपग्रेड एक ही Google खाते पर सभी उपकरणों में मान्य है।</string>
+    <string name="upgrade_screen_restore_troubleshooting_msg">अपहचानित अपग्रेड के लिए समस्या निवारण युक्तियाँ:</string>
+    <string name="upgrade_screen_restore_sync_patience_hint">Play Store सिंक्रोनाइज़ेशन में समय लग सकता है। रीबूट करने, Google Play कैश साफ़ करने या बस प्रतीक्षा करने का प्रयास करें।</string>
+    <string name="upgrade_screen_restore_multiaccount_hint">कई खाते Google Play को भ्रमित कर सकते हैं। अन्य खातों से लॉग आउट करें या Google Play वेबसाइट के माध्यम से इंस्टॉल करें, जो एक विशिष्ट खाते के साथ संबंध को बाध्य करता है।</string>
 </resources>

@@ -37,7 +37,13 @@ class ClusterHeaderVH(parent: ViewGroup) :
             cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count }
         )
 
-        sizeValue.text = Formatter.formatShortFileSize(context, cluster.totalSize)
+        val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)
+        val freeable = context.getQuantityString2(
+            eu.darken.sdmse.common.R.plurals.x_space_can_be_freed,
+            1,
+            Formatter.formatShortFileSize(context, cluster.redundantSize),
+        )
+        sizeValue.text = "$totalSize ($freeable)"
 
         deleteAction.setOnClickListener { item.onDeleteAllClicked(item) }
         excludeAction.setOnClickListener { item.onExcludeClicked(item) }

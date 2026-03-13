@@ -22,7 +22,13 @@ import eu.darken.sdmse.common.getCompatColor
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.getSpanCount
 
-fun Fragment.doNavigate(direction: NavDirections) = findNavController().doNavigate(direction)
+fun Fragment.doNavigate(direction: NavDirections) {
+    if (!isAdded) {
+        log(WARN) { "Trying to navigate from ${this.javaClass.simpleName} that isn't added: ${direction.javaClass.simpleName}" }
+        return
+    }
+    findNavController().doNavigate(direction)
+}
 
 fun Fragment.popBackStack(): Boolean {
     if (!isAdded) {

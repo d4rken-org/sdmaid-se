@@ -34,6 +34,6 @@ open class FuntouchOSLabels @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels")
     }
 }

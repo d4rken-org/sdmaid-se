@@ -33,7 +33,7 @@ class InfoSizeVH(parent: ViewGroup) :
             isVisible = appInfo.pkg is SourceAvailable
         }
         apkLabel.isGone = apkSize.isGone
-        dataSize.text = Formatter.formatFileSize(context, sizes.dataBytes)
+        dataSize.text = Formatter.formatFileSize(context, sizes.userDataBytes)
         cacheSize.text = Formatter.formatFileSize(context, sizes.cacheBytes)
 
         itemView.setOnClickListener { item.onClicked(appInfo) }

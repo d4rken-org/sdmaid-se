@@ -7,14 +7,22 @@
     <string name="dashboard_settings_oneclick_summary">Rozpocznij skanowanie i usuwanie dla wszystkich narzędzi, dotykając przycisku akcji na pulpicie nawigacyjnym, bez dodatkowych potwierdzeń.</string>
     <string name="dashboard_settings_oneclick_tools_title">Narzędzia jednego-dotknięcia</string>
     <string name="dashboard_settings_oneclick_tools_desc">Które narzędzia powinny być zawarte w operacjach jednego dotknięcia?</string>
-    <string name="debug_debuglog_size_label">Rozmiar</string>
-    <string name="debug_debuglog_size_compressed_label">Skompresowany rozmiar</string>
     <string name="debug_notification_channel_label">Powiadomienia debugowania</string>
     <string name="debug_debuglog_file_label">Zapisany plik logu</string>
     <string name="debug_debuglog_recording_progress">Rejestrowanie logu debugowania</string>
     <string name="debug_debuglog_record_action">Rejestruj log debugowania</string>
     <string name="debug_debuglog_stop_action">Zatrzymaj rejestrowanie</string>
     <string name="debug_debuglog_sensitive_information_message">Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Dziel się nim tylko z zaufanymi osobami.</string>
+    <string name="debug_debuglog_screen_title">Log debugowania</string>
+    <string name="debug_debuglog_screen_discard_action">Odrzuć</string>
+    <string name="debug_debuglog_screen_session_path_label">Ścieżka sesji</string>
+    <string name="debug_debuglog_screen_log_files_label">Pliki dziennika zdarzeń</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d plik gotowy (%2$s)</item>
+        <item quantity="few">%1$d pliki gotowe (%2$s)</item>
+        <item quantity="many">%1$d plików gotowych (%2$s)</item>
+        <item quantity="other">%1$d plików gotowych (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Funkcja rejestruje wszystko co robi aplikacja, do pliku który można udostępnić. Wygenerowany plik zawiera poufne informacje (np. nazwy plików i zainstalowane aplikacje). Dziel się nim tylko z zaufanymi osobami (np. z deweloperem, który rozwiązuje problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktywne zadania</string>
     <string name="tasks_activity_working_notification_title">SD Maid pracuje</string>
@@ -56,7 +64,6 @@
     <string name="onboarding_setup_continue_action">Konfiguruj dostęp</string>
     <string name="settings_privacy_policy_label">Polityka prywatności</string>
     <string name="settings_privacy_policy_desc">Odpowiedzialne zarządzanie danymi.</string>
-    <string name="settings_licenses_label">Licencje</string>
     <string name="settings_category_other_label">Inne</string>
     <string name="settings_category_filter_generic">Filtr ogólny</string>
     <string name="settings_category_filter_specific">Filtr szczegółowy</string>
@@ -91,6 +98,12 @@
     <string name="discord_description">Miejsce do spędzania czasu i zadawania pytań.</string>
     <string name="changelog_label">Lista zmian</string>
     <string name="settings_acknowledgements_label">Podziękowania</string>
+    <string name="settings_acknowledgements_category_translations_title">Tłumaczenia</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Kto to przetłumaczył?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Podziękowania</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Szczególne podziękowania dla naszych przyjaciół.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licencje</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Oprogramowanie używane przez SD Maid.</string>
     <string name="setup_label">Konfiguracja</string>
     <string name="setup_incomplete_card_title">Konfiguracja nie jest ukończona</string>
     <string name="setup_incomplete_card_body">Dokończ konfigurację SD Maid, aby uzyskać lepsze wyniki.</string>
@@ -201,6 +214,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Prywatne dane aplikacji, np. dane uwierzytelniające, ustawienia aplikacji, ale także pamięci podręczne przeglądarek.</string>
     <string name="corpsefinder_filter_dalvik_label">Pamięć podręczna Dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Pamięć podręczna danych wykonujących aplikacji.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profile ART są używane przez Androida do optymalizacji wydajności aplikacji.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteki aplikacji</string>
     <string name="corpsefinder_filter_applib_summary">Dane związane z bibliotekami aplikacji.</string>
     <string name="corpsefinder_filter_appsource_label">Źródła aplikacji</string>
@@ -260,7 +275,7 @@
     <string name="systemcleaner_filter_screenshots_summary">Zrzuty ekranu starsze niż %s z wielu aplikacji i lokalizacji.</string>
     <string name="systemcleaner_filter_trashed_label">Pliki w koszu</string>
     <string name="systemcleaner_filter_trashed_summary">Pliki w koszu z różnych aplikacji i lokalizacji, które są oznaczone do usunięcia, ale nie zostały jeszcze trwale usunięte.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Wiek zrzutu ekranu</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Data zrzutu ekranu</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimalny wiek, od którego zacznie się usuwanie.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Zbędne pliki APK</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Pliki instalacyjne, które są starsze lub równe wersjom już zainstalowanych aplikacji.</string>
@@ -366,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Pliki, które zostały usunięte, ale przeniesione do specjalnego folderu, aby można je było przywrócić.</string>
     <string name="appcleaner_filter_webview_label">Pliki Webview</string>
     <string name="appcleaner_filter_webview_summary">Pliki buforowane przez instancje Webview używane w aplikacjach.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikony skrótu aplikacji</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Podręczne ikony dla skrótów aplikacji i menu udostępniania.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Kopie zapasowe WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Usuń dodatkowe kopie zapasowe WhatsApp i zachowaj tylko najnowszą.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Pliki otrzymane od innych osób za pośrednictwem aplikacji WhatsApp.</string>
@@ -449,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Suma kontrolna zawartości</string>
     <string name="deduplicator_detection_method_checksum_summary">Określ duplikaty, obliczając sumy kontrolne dla plików. Pliki z pasującymi sumami kontrolnymi mają dokładnie taką samą zawartość.</string>
     <string name="deduplicator_detection_method_phash_title">Percepcyjny hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki analizując funkcje zawartości i porównując percepcyjne wartości hash.</string>
+    <string name="deduplicator_detection_method_phash_summary">Znajdź podobne pliki analizując funkcje zawartości i porównując percepcyjne wartości haszujące⚠️ Podobne wykrywanie może zawierać fałszywe pozytywne elementy wymagające ręcznej weryfikacji.</string>
     <string name="deduplicator_occupied_space_label">Zajęta pamięć</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s jest zajęty przez duplikaty</item>
@@ -514,7 +531,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Pierwsza instalacja</string>
     <string name="appcontrol_list_sortmode_packagename_label">Nazwa pakietu</string>
     <string name="appcontrol_list_sortmode_size_label">Rozmiar</string>
-    <string name="appcontrol_list_sortmode_screentime_label">Czas używania</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Czas przed ekranem</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Rozmiary aplikacji są szacowane ze względów wydajności. Użyj narzędzia Analizator magazynu, aby uzyskać dokładniejsze dane.</string>
     <string name="appcontrol_progress_uninstalling_app">Odinstalowywanie aplikacji</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -544,9 +561,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Uzyskaj przybliżony szacunkowy rozmiar każdej aplikacji.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Określ aktywność</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Dowiedz się, czy aplikacja jest (lub była ostatnio) używana.</string>
+    <string name="appcontrol_include_multiuser_label">Uwzględnij innych użytkowników</string>
+    <string name="appcontrol_include_multiuser_summary">Uwzględnij aplikacje innych użytkowników na tym urządzeniu.</string>
     <string name="appcontrol_export_app_selection_action">Eksportuj aplikacje</string>
     <string name="appcontrol_export_title">Eksportuj aplikację</string>
-    <string name="appcontrol_export_description">Zapisz pliki instalacyjne tej aplikacji. Nie uwzględnia danych aplikacji.</string>
+    <string name="appcontrol_export_description">Zachowuje pliki instalacyjne tej aplikacji. Nie obejmuje to danych aplikacji.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d aplikacja została wyeksportowana</item>
         <item quantity="few">%d aplikacje zostały wyeksportowane</item>
@@ -674,9 +693,9 @@
     <string name="automation_error_compatibility_title">Zgodność z automatyzacją</string>
     <string name="automation_error_compatibility_body">SD Maid nie może rozpoznać układu ekranu. Jeśli będzie się to powtarzać, Twój język lub konfiguracja mogą nie być w pełni obsługiwane. Sprawdź aktualizacje lub skontaktuj się ze mną, aby móc je naprawić.</string>
     <string name="automation_error_timeout_title">Limit czasu automatyzacji</string>
-    <string name="automation_error_timeout_body">SD Maid nie zakończył wszystkich etapów w wyznaczonym terminie. Jeśli będzie się to powtarzać, to może być wymagane dostosowanie aplikacji do twojego urządzenia. Sprawdź aktualizacje lub skontaktuj się ze mną, abym mógł to naprawić.</string>
-    <string name="automation_error_overlay_title">Nakładka automatyzacyjna</string>
-    <string name="automation_error_overlay_body">SD Maid nie może pokazać nakładki na automatyzację. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
+    <string name="automation_error_timeout_body">SD Maid nie wykonał wszystkich kroków w wyznaczonym czasie. Jeśli problem będzie się powtarzał, być może będzie trzeba dostosować aplikację do twojego urządzenia. Sprawdź dostępność aktualizacji lub skontaktuj się ze mną, abym mógł to naprawić.</string>
+    <string name="automation_error_overlay_title">Nakładka automatyzacji</string>
+    <string name="automation_error_overlay_body">SD Maid nie mógł wyświetlić nakładki automatyzacji. Sprawdź uprawnienia i spróbuj ponownie uruchomić urządzenie.</string>
     <string name="history_label">Historia</string>
     <string name="history_description">Chronologiczna lista ostatnich działań i dotyczących ich danych.</string>
     <string name="scheduler_label">Harmonogram</string>
@@ -734,6 +753,21 @@
     <string name="review_app_review_action">Oceń</string>
     <string name="review_app_dismiss_action">Może później</string>
     <string name="review_app_body">Chcesz wystawić recenzję SD Maid?️ ❤️</string>
+    <string name="anniversary_card_title">Udanej rocznicy SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">Razem z tobą od %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Już %1$d rok razem. Dziękujemy za ufanie do SD Maid na utrzymanie twojego Androida w dobrym stanie i porządku. Uwolniono: %2$s</item>
+        <item quantity="few">Już %1$d lata razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="many">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+        <item quantity="other">Już %1$d lat razem. Dziękujemy za ufanie do SD Maid, który utrzymuje porządek i czystość w Androidzie. Uprzątnięto: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Udostępnij swoją rocznicę SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d rok razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="few">%1$d lata razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="many">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+        <item quantity="other">%1$d lat razem — uprzątnięto %2$s. Utrzymuje porządek i czystość w Androidzie. #SDMaid\nWypróbuj: %3$s</item>
+    </plurals>
     <string name="stats_label">Historia</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s zostało zwolnione.</item>
@@ -782,4 +816,11 @@
     <string name="area_type_public_obb_label">Ogólnodostępne zasoby aplikacji</string>
     <string name="area_type_private_data_label">Prywatne dane aplikacji</string>
     <string name="area_type_portable_label">Pamięć przenośna</string>
+    <string name="shortcut_appcontrol_short">Kontrola aplikacji</string>
+    <string name="shortcut_appcontrol_long">Zarządzaj zainstalowanymi aplikacjami</string>
+    <string name="shortcut_onetap_short">Skanuj + Usuń</string>
+    <string name="shortcut_onetap_long">Skanuj i usuń w jednej akcji</string>
+    <string name="shortcuts_settings_category">Skróty</string>
+    <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
+    <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
 </resources>

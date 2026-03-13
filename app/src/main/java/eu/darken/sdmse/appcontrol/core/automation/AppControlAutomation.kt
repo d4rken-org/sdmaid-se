@@ -11,6 +11,7 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveAutomationTask
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlLabelDebugger
 import eu.darken.sdmse.appcontrol.core.automation.specs.AppControlSpecGenerator
 import eu.darken.sdmse.appcontrol.core.automation.specs.androidtv.AndroidTVSpecs
@@ -19,6 +20,7 @@ import eu.darken.sdmse.appcontrol.core.automation.specs.hyperos.HyperOsSpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.miui.MIUISpecs
 import eu.darken.sdmse.appcontrol.core.automation.specs.oneui.OneUISpecs
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopAutomationTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreAutomationTask
 import eu.darken.sdmse.automation.core.AutomationHost
 import eu.darken.sdmse.automation.core.AutomationModule
 import eu.darken.sdmse.automation.core.AutomationTask
@@ -65,6 +67,14 @@ class AppControlAutomation @AssistedInject constructor(
     private val deviceDetective: DeviceDetective,
 ) : AutomationModule(automationHost) {
 
+    private enum class Operation {
+        ARCHIVE,
+        RESTORE;
+
+        val unsupportedMessage: String
+            get() = "ACS based ${name.lowercase()} is not supported for other users"
+    }
+
     private fun getPriotizedSpecGenerators(): List<AppControlSpecGenerator> = specGenerators
         .get()
         .also { log(TAG) { "${it.size} step generators are available" } }
@@ -92,12 +102,20 @@ class AppControlAutomation @AssistedInject constructor(
 
     override suspend fun process(task: AutomationTask): AutomationTask.Result {
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
+
+        val subtitle = when (task) {
+            is ForceStopAutomationTask -> R.string.appcontrol_automation_subtitle_force_stopping
+            is ArchiveAutomationTask -> R.string.appcontrol_automation_subtitle_archiving
+            is RestoreAutomationTask -> R.string.appcontrol_automation_subtitle_restoring
+            else -> R.string.appcontrol_automation_subtitle_force_stopping
+        }
+
         host.changeOptions {
             AutomationHost.Options(
                 showOverlay = true,
                 passthrough = false,
                 controlPanelTitle = R.string.appcontrol_automation_title.toCaString(),
-                controlPanelSubtitle = R.string.appcontrol_automation_subtitle_force_stopping.toCaString(),
+                controlPanelSubtitle = subtitle.toCaString(),
                 accessibilityServiceInfo = AccessibilityServiceInfo().apply {
                     flags = (
                             AccessibilityServiceInfo.FLAG_RETRIEVE_INTERACTIVE_WINDOWS
@@ -112,6 +130,16 @@ class AppControlAutomation @AssistedInject constructor(
 
         return when (task) {
             is ForceStopAutomationTask -> processForceStop(task)
+            is ArchiveAutomationTask -> {
+                val (successful, failed) = processOperation(task.targets, Operation.ARCHIVE)
+                ArchiveAutomationTask.Result(successful, failed)
+            }
+
+            is RestoreAutomationTask -> {
+                val (successful, failed) = processOperation(task.targets, Operation.RESTORE)
+                RestoreAutomationTask.Result(successful, failed)
+            }
+
             else -> throw NotImplementedError("$task is not implemented")
         }
     }
@@ -240,6 +268,130 @@ class AppControlAutomation @AssistedInject constructor(
         }
     }
 
+    private suspend fun processOperation(
+        targets: List<InstallId>,
+        operation: Operation,
+    ): Pair<Set<InstallId>, Set<InstallId>> {
+        labelDebugger.logAllLabels()
+
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+        val operationName = operation.name.lowercase()
+
+        updateProgressCount(Progress.Count.Percent(targets.size))
+
+        var cancelledByUser = false
+        val currentUserHandle = userManager2.currentUser().handle
+        for (target in targets) {
+            if (target.userHandle != currentUserHandle) {
+                throw UnsupportedOperationException("${operation.unsupportedMessage} ($target)")
+            }
+
+            val installed = pkgRepo.get(target.pkgId, target.userHandle)
+
+            if (installed == null) {
+                log(TAG, WARN) { "$target is not in package repo" }
+                failed.add(target)
+                continue
+            }
+
+            log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }}ing $installed" }
+            updateProgressPrimary(installed.label ?: target.pkgId.name.toCaString())
+
+            try {
+                processOperationSpecForPkg(installed, operation)
+                log(TAG, INFO) { "Successfully ${operationName}d $target" }
+                successful.add(target)
+            } catch (e: Exception) {
+                when {
+                    e is InvalidSystemStateException -> {
+                        log(TAG, WARN) { "Invalid system state: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is AutomationTimeoutException -> {
+                        log(TAG, WARN) { "Timeout while processing $installed: $e" }
+                        failed.add(target)
+                    }
+
+                    e is AutomationOverlayException -> {
+                        log(TAG, ERROR) { "Automation overlay error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is UnsupportedOperationException -> {
+                        log(TAG, ERROR) { "Unsupported operation error: ${e.asLog()}" }
+                        throw e
+                    }
+
+                    e is CancellationException -> {
+                        log(TAG, WARN) { "We were cancelled: ${e.asLog()}" }
+                        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_cancel_action)
+                        updateProgressSecondary(CaString.EMPTY)
+                        updateProgressCount(Progress.Count.Indeterminate())
+                        if (e is UserCancelledAutomationException) {
+                            log(TAG, INFO) { "User has cancelled automation process, aborting..." }
+                            cancelledByUser = true
+                            break
+                        } else {
+                            throw e
+                        }
+                    }
+
+                    else -> {
+                        log(TAG, WARN) { "Failure for $target: ${e.asLog()}" }
+                        failed.add(target)
+                    }
+                }
+            } finally {
+                updateProgressCount(Progress.Count.Percent(targets.indexOf(target), targets.size))
+            }
+        }
+
+        delay(250)
+
+        finishAutomation(
+            userCancelled = cancelledByUser,
+            returnToApp = true,
+            deviceDetective = deviceDetective,
+        )
+
+        return successful to failed
+    }
+
+    private suspend fun processOperationSpecForPkg(pkg: Installed, operation: Operation) {
+        val operationName = operation.name.lowercase()
+        log(TAG) { "Processing $operationName spec for $pkg" }
+        val start = System.currentTimeMillis()
+
+        val specGenerator = getPriotizedSpecGenerators().firstOrNull { it.isResponsible(pkg) }
+            ?: getPriotizedSpecGenerators().single { it is AOSPSpecs }
+
+        log(TAG) { "Using spec generator: $specGenerator" }
+
+        val spec = try {
+            when (operation) {
+                Operation.ARCHIVE -> specGenerator.getArchive(pkg)
+                Operation.RESTORE -> specGenerator.getRestore(pkg)
+            }
+        } catch (e: UnsupportedOperationException) {
+            log(TAG, WARN) { "Spec $specGenerator doesn't support $operationName, falling back to AOSP: ${e.message}" }
+            val aospSpec = getPriotizedSpecGenerators().single { it is AOSPSpecs }
+            when (operation) {
+                Operation.ARCHIVE -> aospSpec.getArchive(pkg)
+                Operation.RESTORE -> aospSpec.getRestore(pkg)
+            }
+        }
+        log(TAG) { "Generated $operationName spec for ${pkg.id} is $spec" }
+
+        when (spec) {
+            is AutomationSpec.Explorer -> processExplorerSpec(pkg, spec)
+        }
+
+        val stop = System.currentTimeMillis()
+        log(TAG) { "${operationName.replaceFirstChar { it.uppercase() }} spec processed in ${(stop - start)}ms for $pkg " }
+    }
+
     @Module @InstallIn(SingletonComponent::class)
     abstract class DIM {
         @Binds @IntoSet abstract fun mod(mod: Factory): AutomationModule.Factory
@@ -247,7 +399,8 @@ class AppControlAutomation @AssistedInject constructor(
 
     @AssistedFactory
     interface Factory : AutomationModule.Factory {
-        override fun isResponsible(task: AutomationTask): Boolean = task is ForceStopAutomationTask
+        override fun isResponsible(task: AutomationTask): Boolean =
+            task is ForceStopAutomationTask || task is ArchiveAutomationTask || task is RestoreAutomationTask
 
         override fun create(host: AutomationHost, moduleScope: CoroutineScope): AppControlAutomation
     }

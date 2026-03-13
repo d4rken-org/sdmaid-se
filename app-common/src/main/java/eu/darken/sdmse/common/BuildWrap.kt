@@ -11,6 +11,15 @@ object BuildWrap {
     val MANUFACTOR: String
         get() = Build.MANUFACTURER
 
+    val BRAND: String?
+        get() = Build.BRAND
+
+    val DISPLAY: String?
+        get() = Build.DISPLAY
+
+    val PRODUCT: String?
+        get() = Build.PRODUCT
+
     val VERSION = VersionWrap
 
     object VersionWrap {
@@ -20,6 +29,8 @@ object BuildWrap {
             get() = Build.VERSION.PREVIEW_SDK_INT
         val CODENAME
             get() = Build.VERSION.CODENAME
+        val INCREMENTAL
+            get() = Build.VERSION.INCREMENTAL
     }
 }
 

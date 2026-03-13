@@ -5,6 +5,7 @@ import android.view.View
 import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.common.observe2
@@ -31,6 +32,9 @@ class AppControlSettingsFragment : PreferenceFragment2() {
     private val determineRunning: BadgedCheckboxPreference
         get() = findPreference(settings.moduleActivityEnabled.keyName)!!
 
+    private val includeOtherUsers: BadgedCheckboxPreference
+        get() = findPreference(settings.includeMultiUserEnabled.keyName)!!
+
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
@@ -40,14 +44,37 @@ class AppControlSettingsFragment : PreferenceFragment2() {
         determineRunning.badgedAction = {
             setOf(SetupModule.Type.USAGE_STATS).showFixSetupHint(this)
         }
+        includeOtherUsers.badgedAction = {
+            setOf(SetupModule.Type.ROOT, SetupModule.Type.SHIZUKU).showFixSetupHint(this)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2(this) { state ->
             determineSizes.isRestricted = !state.state.canInfoSize
             determineRunning.isRestricted = !state.state.canInfoActive
+            includeOtherUsers.apply {
+                isPersistent = state.isPro
+                if (state.isPro) {
+                    setSummary(R.string.appcleaner_include_multiuser_summary)
+                } else {
+                    summary =
+                        "${getString(R.string.appcleaner_include_multiuser_summary)}\n${getString(R.string.upgrade_feature_requires_pro)}"
+                }
+                setOnPreferenceClickListener {
+                    if (!state.isPro) {
+                        isChecked = false
+                        MainDirections.goToUpgradeFragment().navigate()
+                        true
+                    } else {
+                        false
+                    }
+                }
+                isRestricted = !state.state.canIncludeMultiUser
+            }
+
+            super.onViewCreated(view, savedInstanceState)
         }
-        super.onViewCreated(view, savedInstanceState)
     }
 
 }

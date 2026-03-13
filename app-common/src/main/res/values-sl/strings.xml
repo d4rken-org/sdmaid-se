@@ -5,8 +5,11 @@
     <string name="slogan_message_1">Čist in urejen.</string>
     <string name="slogan_message_2">Preprečevanje nereda.</string>
     <string name="slogan_message_3">Čistimo navlako.</string>
+    <string name="slogan_message_4">Napravo spravimo v red.</string>
     <string name="slogan_message_5">Brezmadežen.</string>
     <string name="slogan_message_6">Bajti, pojdite stran!</string>
+    <string name="slogan_message_7">Prosti prostor, srečen prostor.</string>
+    <string name="slogan_message_8">Nikoli te ne bom razočaral.</string>
     <string name="general_thank_you_label">Hvala!</string>
     <string name="general_error_type_mismatch_msg">Neujemanje vrste: zahtevano %1$s, dobljeno %2$s.</string>
     <string name="general_error_cant_access_msg">Dostop do %s ni mogoč.</string>
@@ -57,6 +60,7 @@
     <string name="general_progress_loading_egg_5">Superstroj se pripravlja</string>
     <string name="general_progress_loading_egg_6">Podajanje masla</string>
     <string name="general_progress_loading_egg_7">Torej, kako smo kaj?</string>
+    <string name="general_progress_loading_egg_8">Bip bup bop</string>
     <string name="general_progress_loading_egg_9">Predpomnenje življenjskih odločitev</string>
     <string name="general_progress_loading_egg_10">Klicanje Cthulhuja</string>
     <string name="general_progress_loading_egg_11">To je čisto v redu.</string>
@@ -72,6 +76,12 @@
     <string name="general_tag_filter_label">Filtriraj po oznakah</string>
     <string name="general_result_success_message">Opravilo je bilo uspešno.</string>
     <string name="general_result_failure_message">Opravilo je spodletelo.</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">Sproščenih je bilo %s.</item>
+        <item quantity="two">Sproščenih je bilo %s.</item>
+        <item quantity="few">Sproščenih je bilo %s.</item>
+        <item quantity="other">Sproščenih je bilo %s.</item>
+    </plurals>
     <string name="general_options_label">Možnosti</string>
     <string name="general_details_label">Podrobnosti</string>
     <string name="general_view_action">Pokaži</string>
@@ -84,7 +94,18 @@
     <string name="general_toggle_layout_mode">Preklopi način pogleda</string>
     <string name="general_delete_confirmation_title">Potrdite izbris</string>
     <string name="general_delete_confirmation_message_x">Izbriši \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Izbriši %d izbranih predmetov?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Izbriši izbrani predmet?</item>
+        <item quantity="two">Izbriši izbrana predmeta?</item>
+        <item quantity="few">Izbriši %d izbrane predmete?</item>
+        <item quantity="other">Izbriši %d izbranih predmetov?</item>
+    </plurals>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">Izbrisan je bil %d predmet.</item>
+        <item quantity="two">Izbrisana sta bila %d predmeta.</item>
+        <item quantity="few">Izbrisani so bili %d-je predmeti.</item>
+        <item quantity="other">Izbrisanih je bilo %d predmetov.</item>
+    </plurals>
     <string name="general_remove_action">Odstrani</string>
     <string name="general_remove_selected_action">Odstrani izbrano</string>
     <plurals name="general_remove_success_x_items">
@@ -116,6 +137,12 @@
         <item quantity="few">Spodletelih: %d</item>
         <item quantity="other">Spodletelih: %d</item>
     </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">Sprostite lahko %s.</item>
+        <item quantity="two">Sprostite lahko %s.</item>
+        <item quantity="few">Sprostite lahko %s.</item>
+        <item quantity="other">Sprostite lahko %s.</item>
+    </plurals>
     <string name="general_info_label">Podrobnosti</string>
     <string name="general_count_label">Število</string>
     <string name="general_app_label">Program</string>
@@ -139,6 +166,18 @@
     <string name="general_progress_ready">Pripravljen</string>
     <string name="general_progress_done">Končano</string>
     <string name="general_rom_type_auto_label">Samodejno (privzeto)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d dan</item>
+        <item quantity="two">%d dneva</item>
+        <item quantity="few">%d dni</item>
+        <item quantity="other">%d dni</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d ura</item>
+        <item quantity="two">%d uri</item>
+        <item quantity="few">%d ure</item>
+        <item quantity="other">%d ur</item>
+    </plurals>
     <plurals name="result_x_files">
         <item quantity="one">%s datoteka</item>
         <item quantity="two">%s datoteki</item>
@@ -146,4 +185,11 @@
         <item quantity="other">%s datotek</item>
     </plurals>
     <string name="general_advice_title">Nasvet</string>
+    <string name="general_error_invalid_input_label">Neveljaven vnos.</string>
+    <string name="general_information_for_the_developer">Informacije za razvijalca</string>
+    <string name="general_error_report_bug_action">Prijavi napako</string>
+    <string name="general_error_ipc_deadobject_title">Povezava s storitvijo je prekinjena</string>
+    <string name="general_error_ipc_deadobject_description">Povezava s kritično storitvijo (npr. Magisk, Shizuku ali druge sistemske storitve) je bila nepričakovano prekinjena. Prosimo, ponovno zaženite napravo. Če se težava ponavlja, preverite posodobitve ali me kontaktirajte, da lahko težavo odpravim.</string>
+    <string name="general_user_label_owner">Lastnik</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

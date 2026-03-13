@@ -311,7 +311,14 @@ class LocalGateway @Inject constructor(
                     if (nonRootList == null) throw ReadException(path = path)
                     nonRootList
                         .map { it.toLocalPath() }
-                        .map { it.performLookup() }
+                        .mapNotNull {
+                            try {
+                                it.performLookup()
+                            } catch (e: IOException) {
+                                log(TAG, WARN) { "lookupFiles($path): Failed to lookup child $it: ${e.asLog()}" }
+                                null
+                            }
+                        }
                 }
 
                 hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {
@@ -361,7 +368,14 @@ class LocalGateway @Inject constructor(
                         if (nonRootList == null) throw ReadException(path = path)
                         nonRootList
                             .map { it.toLocalPath() }
-                            .map { it.performLookupExtended(ipcFunnel, libcoreTool) }
+                            .mapNotNull {
+                                try {
+                                    it.performLookupExtended(ipcFunnel, libcoreTool)
+                                } catch (e: IOException) {
+                                    log(TAG, WARN) { "lookupFilesExtended($path): Failed to lookup child $it: ${e.asLog()}" }
+                                    null
+                                }
+                            }
                     }
 
                     hasRoot() && (mode == Mode.ROOT || nonRootList == null && mode == Mode.AUTO) -> {

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="dashboard_delete_all_message">מחיקת התוצאות בכל הכלים?</string>
+    <string name="dashboard_delete_all_message">למחוק תוצאות בכל הכלים?</string>
     <string name="dashboard_settings_category">לוח בקרה</string>
     <string name="dashboard_motd_title">הודעה מהמפתח</string>
-    <string name="dashboard_settings_oneclick_title">מצב לחיצה אחת</string>
+    <string name="dashboard_settings_oneclick_title">מצב לחיצה-אחת</string>
     <string name="dashboard_settings_oneclick_summary">התחלת סריקה ומחיקה עבור כל הכלים בלחיצה על כפתור הפעולה בלוח הבקרה, ללא אישורים נוספים.</string>
-    <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה אחת</string>
-    <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה אחת?</string>
-    <string name="debug_debuglog_size_label">גודל</string>
-    <string name="debug_debuglog_size_compressed_label">גודל דחוס</string>
+    <string name="dashboard_settings_oneclick_tools_title">כלים בלחיצה-אחת</string>
+    <string name="dashboard_settings_oneclick_tools_desc">אילו כלים צריכים להיכלל בפעולות בלחיצה-אחת?</string>
     <string name="debug_notification_channel_label">התראות ניפוי באגים</string>
     <string name="debug_debuglog_file_label">קבצי לוג שמורים</string>
     <string name="debug_debuglog_recording_progress">מקליט לוג דיבוג</string>
@@ -33,7 +31,7 @@
     <string name="tasks_result_notification_channel_label">תוצאות המשימה</string>
     <string name="tasks_result_subtext">תוצאת המשימה</string>
     <string name="onboarding_welcome_title">ברוכים הבאים</string>
-    <string name="onboarding_welcome_body1">SD Maid SE מנהלת קבצים, אפליקציות ואחסון.</string>
+    <string name="onboarding_welcome_body1">SD Maid SE - מנהל קבצים, אפליקציות ואחסון.</string>
     <string name="onboarding_welcome_body2">השג שטח אחסון בעזרת ניקוי שאריות של אפליקציות אחרות. מחק קבצים לא נחוצים או זמניים והסר שאריות של נתונים.</string>
     <string name="onboarding_welcome_body_beta">זוהי גרסאת בטא (בדיקות), השתמשו בה עם חוש הומור ותכנית גיבוי. דווחו בבקשה על בעיות שנתקלתם בהן.</string>
     <string name="onboarding_welcome_continue_action">המשך</string>
@@ -56,7 +54,6 @@
     <string name="onboarding_setup_continue_action">הגדר גישה</string>
     <string name="settings_privacy_policy_label">מדיניות פרטיות</string>
     <string name="settings_privacy_policy_desc">טיפול בנתונים בצורה אחראית.</string>
-    <string name="settings_licenses_label">רשיונות</string>
     <string name="settings_category_other_label">אחר</string>
     <string name="settings_category_filter_generic">פילטר כללי</string>
     <string name="settings_category_filter_specific">פילטר ספציפי</string>
@@ -450,7 +447,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="deduplicator_detection_method_checksum_title">בדיקת תוכן</string>
     <string name="deduplicator_detection_method_checksum_summary">קבע כפילויות על ידי חישוב סכומי ביקורת עבור קבצים. לקבצים עם סכומי ביקורת תואמים יש את אותו תוכן בדיוק.</string>
     <string name="deduplicator_detection_method_phash_title">זיהוי גיבוב</string>
-    <string name="deduplicator_detection_method_phash_summary">מצא קבצים דומים על ידי ניתוח תוכן הקובץ והשוואת ערכי גיבוב.</string>
     <string name="deduplicator_occupied_space_label">נפח אחסון תפוס</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s תפוס על ידי כפילויות</item>
@@ -491,7 +487,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_app_launch_title">פתח אפליקציה</string>
     <string name="appcontrol_app_launch_description">פתח את המסך העיקרי של אפליקציה זו.</string>
     <string name="appcontrol_app_forcestop_title">כפה עצירה</string>
-    <string name="appcontrol_app_forcestop_description">עוצר את האפליקציה. מונע ממנה להיפתח מחדש עד שתפתח אותה בעצמך או שהמכשיר יופעל מחדש.</string>
     <string name="appcontrol_app_uninstall_description">הסר התקנת אפליקציה זו.</string>
     <string name="appcontrol_app_exclude_add_title">החרג יישום</string>
     <string name="appcontrol_app_exclude_add_description">החרג את האפליקציה הזו מפעולות אחרות ב-SD Maid.</string>
@@ -547,7 +542,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_settings_module_activity_enabled_description">גלה אם אפליקציה פעילה (או הייתה לאחרונה) פעילה.</string>
     <string name="appcontrol_export_app_selection_action">ייצוא אפליקציות</string>
     <string name="appcontrol_export_title">ייצוא אפליקציה</string>
-    <string name="appcontrol_export_description">שמור את קובצי ההתקנה של האפליקציה הזו. זה לא כולל נתוני אפליקציה.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">אפליקציה %d יוצאה</item>
         <item quantity="two">%d אפליקציות יוצאו</item>
@@ -577,7 +571,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">מנסה לאמת פעולה קודמת (מילות מפתח: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">זמן מסך: %1$s מאז %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">העדכון האחרון: %s</string>
-    <string name="appcontrol_item_installedat_x_label">הותקן בתאריך: %s</string>
     <string name="analyzer_tool_name">מנתח אחסון</string>
     <string name="analyzer_explanation_short">גלה מה תופס מקום במכשיר שלך.</string>
     <string name="analyzer_progress_scanning_device">מחפש התקני אחסון</string>
@@ -728,7 +721,7 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="translation_translators_people">Elid1; SiiiE</string>
     <string name="motd_setting_enabled_label">הודעות חשובות</string>
     <string name="motd_setting_enabled_explanation">אפשר ל-SD Maid לבדוק אם יש הודעות חשובות מהמפתח.</string>
-    <string name="updatecheck_setting_enabled_label">בדיקת עדכון</string>
+    <string name="updatecheck_setting_enabled_label">בדיקת עדכונים</string>
     <string name="updatecheck_setting_enabled_explanation">אפשר ל-SD Maid לחפש עדכונים כדי ליידע אותך אם גרסה חדשה יותר זמינה.</string>
     <string name="device_settings_category">מכשיר</string>
     <string name="beta_version_indicator_desc">גרסאות טרום-הפצה מציגות סרט קטן במסך ההתחלה. הם מתעדכנים בתדירות גבוהה יותר, אולי יהיו להם יותר תכונות, אבל יכולים להיות גם יותר באגים.</string>

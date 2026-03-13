@@ -2,7 +2,7 @@
 
 Niemand is perfect en Android ook niet.
 * Apps die je al hebt verwijderd, laten iets achter.
-* Logboeken, crashrapporten en andere bestanden die je niet wilt, worden voortdurend aangemaakt.
+* Er worden voortdurend logs, crashrapporten en andere bestanden aangemaakt die je niet nodig hebt.
 * Je opslagruimte verzamelt bestanden en mappen die je niet herkent.
 * Dubbele foto's in je galerij.
 
@@ -23,7 +23,7 @@ Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet 
 Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. Het hulpmiddel "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
 
 📊 Wat gebruikt al je ruimte
-Opslagbeheer kan complex zijn met apps, media, systeem- en andere bestanden op telefoonopslag, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoe de ruimte op je apparaat wordt gebruikt, waardoor je opslagbeheer wordt vereenvoudigd.
+Opslagbeheer kan complex zijn met apps, media, systeembestanden en andere bestanden op je telefoongeheugen, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoeveel ruimte er op je apparaat wordt gebruikt, waardoor je opslagbeheer eenvoudiger wordt.
 
 📷 Vind dubbele gegevens
 Dubbele downloads, foto's verzonden via sociale media of gewoon vergelijkbare foto's van dezelfde scène: na verloop van tijd kunnen kopieën zich ophopen. Het hulpprogramma "Deduplicator" vindt bestanden die precies hetzelfde of vergelijkbaar zijn en helpt je extra kopieën te verwijderen.
@@ -33,8 +33,8 @@ Deze app is advertentievrij. Voor sommige functies is een betaalde upgrade verei
 SD Maid 2/SE is de opvolger van SD Maid 1/Legacy.
 Geoptimaliseerd voor nieuwere Android-versies en gericht op opschonen.
 
-Deze app heeft optionele functies die gebruik maken van de AccessibilityService API om vervelende acties te automatiseren.
+Deze app heeft optionele functies die gebruik maken van de Toegankelijkheidsservice API om vervelende acties te automatiseren.
 Met behulp van de AccessibilityService API kan deze app op knoppen klikken waarmee u bewerkingen in meerdere apps kunt uitvoeren, bijv. caches aan het verwijderen.
-Deze app maakt geen gebruik van de AccessibilityService API om informatie te verzamelen.
+Deze app maakt geen gebruik van de Toegankelijkheidsservice API om informatie te verzamelen.
 
 SD Maid 2/SE is een bestandsbeheerder- en opschoonapp.

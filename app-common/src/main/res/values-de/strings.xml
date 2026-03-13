@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Sauber und ordentlich.</string>
     <string name="slogan_message_2">Chaos verhindern.</string>
     <string name="slogan_message_3">Das Notwendige tun.</string>
+    <string name="slogan_message_4">All Deine Schäfchen im Trockenen.</string>
     <string name="slogan_message_5">Makellos.</string>
     <string name="slogan_message_6">Bytes, verschwindet!</string>
     <string name="slogan_message_7">Freier Platz, glücklicher Platz.</string>
@@ -91,7 +92,10 @@
     <string name="general_toggle_layout_mode">Ansichtsmodus wechseln</string>
     <string name="general_delete_confirmation_title">Löschung bestätigen</string>
     <string name="general_delete_confirmation_message_x">\"%s\" löschen?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">%d ausgewählte Objekte löschen?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">%d ausgewähltes Element löschen?</item>
+        <item quantity="other">%d ausgewählte Elemente löschen?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d Element wurde gelöscht.</item>
         <item quantity="other">%d Elemente wurden gelöscht.</item>
@@ -161,4 +165,9 @@
     <string name="general_advice_title">Tipps</string>
     <string name="general_error_invalid_input_label">Ungültige Eingabe</string>
     <string name="general_information_for_the_developer">Informationen für den Entwickler</string>
+    <string name="general_error_report_bug_action">Fehler melden</string>
+    <string name="general_error_ipc_deadobject_title">Verbindung zum Dienst verloren</string>
+    <string name="general_error_ipc_deadobject_description">Die Verbindung zu einem kritischen Dienst (z.B. Magisk, Shizuku oder anderen System-Level-Diensten) wurde unerwartet verloren. Bitte starten Sie Ihr Gerät neu. Wenn das Problem weiterhin besteht, prüfen Sie nach Updates oder wenden Sie sich an mich, damit ich es beheben kann.</string>
+    <string name="general_user_label_owner">Besitzer</string>
+    <string name="general_user_label_system">System</string>
 </resources>

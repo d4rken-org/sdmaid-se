@@ -3,18 +3,26 @@
     <string name="dashboard_delete_all_message">Удалить результаты во всех инструментах?</string>
     <string name="dashboard_settings_category">Панель управления</string>
     <string name="dashboard_motd_title">Сообщение от разработчика</string>
-    <string name="dashboard_settings_oneclick_title">Режим \"одного нажатия\"</string>
+    <string name="dashboard_settings_oneclick_title">Режим одного нажатия</string>
     <string name="dashboard_settings_oneclick_summary">Запуск сканирования и очистки в одно нажатие с панели управления без дополнительных подтверждений.</string>
-    <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно касание</string>
-    <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного касания?</string>
-    <string name="debug_debuglog_size_label">Размер</string>
-    <string name="debug_debuglog_size_compressed_label">Сжатый размер</string>
+    <string name="dashboard_settings_oneclick_tools_title">Инструменты в одно нажатие</string>
+    <string name="dashboard_settings_oneclick_tools_desc">Какие инструменты следует включить в операции одного нажатия?</string>
     <string name="debug_notification_channel_label">Отладочные уведомления</string>
     <string name="debug_debuglog_file_label">Записанный файл журнала</string>
     <string name="debug_debuglog_recording_progress">Запись журнала отладки</string>
     <string name="debug_debuglog_record_action">Запись журнала отладки</string>
     <string name="debug_debuglog_stop_action">Остановить запись</string>
     <string name="debug_debuglog_sensitive_information_message">Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Передавайте его только доверенным лицам.</string>
+    <string name="debug_debuglog_screen_title">Журнал отладки</string>
+    <string name="debug_debuglog_screen_discard_action">Отклонить</string>
+    <string name="debug_debuglog_screen_session_path_label">Путь сессии</string>
+    <string name="debug_debuglog_screen_log_files_label">Файлы журналов</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="few">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="many">Файлов готово: %1$d (%2$s)</item>
+        <item quantity="other">Файлов готово: %1$d (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Эта функция записывает все действия приложения в файл, который может быть выложен в общий доступ. Созданный файл содержит конфиденциальную информацию (например, имена файлов и установленные приложения). Делитесь им только с доверенными лицами (например, с разработчиком, который устраняет проблему).</string>
     <string name="tasks_activity_notification_channel_label">Активные задачи</string>
     <string name="tasks_activity_working_notification_title">SD Maid работает</string>
@@ -56,7 +64,6 @@
     <string name="onboarding_setup_continue_action">Настроить доступ</string>
     <string name="settings_privacy_policy_label">Политика конфиденциальности</string>
     <string name="settings_privacy_policy_desc">Ответственность за обращение с данными.</string>
-    <string name="settings_licenses_label">Лицензии</string>
     <string name="settings_category_other_label">Прочее</string>
     <string name="settings_category_filter_generic">Общий фильтр</string>
     <string name="settings_category_filter_specific">Особый фильтр</string>
@@ -91,6 +98,12 @@
     <string name="discord_description">Место, где можно пообщаться и задать вопросы.</string>
     <string name="changelog_label">Изменения</string>
     <string name="settings_acknowledgements_label">Благодарности</string>
+    <string name="settings_acknowledgements_category_translations_title">Переводы</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Кто это перевёл?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Благодарности</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Особая благодарность нашим друзьям.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Лицензии</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Программное обеспечение, используемое SD Maid.</string>
     <string name="setup_label">Установка</string>
     <string name="setup_incomplete_card_title">Установка не завершена</string>
     <string name="setup_incomplete_card_body">Завершите установку SD Maid, чтобы добиться лучших результатов.</string>
@@ -201,6 +214,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Приватные данные приложения, такие как учетные записи, настройки приложения, а также кэш браузеров.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik кэш</string>
     <string name="corpsefinder_filter_dalvik_summary">Кэшированные данные о выполнении приложения.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Профили ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Профили ART используются Android для оптимизации работы приложений.</string>
     <string name="corpsefinder_filter_applib_label">Библиотеки приложений</string>
     <string name="corpsefinder_filter_applib_summary">Данные библиотек, связанные с приложением.</string>
     <string name="corpsefinder_filter_appsource_label">Источники приложений</string>
@@ -246,8 +261,10 @@
     <string name="systemcleaner_filter_custom_label">Пользовательские фильтры</string>
     <string name="systemcleaner_filter_custom_manage_label">Управление пользовательскими фильтрами</string>
     <string name="systemcleaner_filter_custom_manage_summary">Создание, удаление, импорт и экспорт пользовательских фильтров.</string>
-    <string name="systemcleaner_filter_logfiles_label">Файлы журналов</string>
-    <string name="systemcleaner_filter_logfiles_summary">Файлы журналов (*.log) со всего устройства.</string>
+    <string name="systemcleaner_filter_logfiles_label">Файлы системного журнала</string>
+    <string name="systemcleaner_filter_logfiles_summary">Файлы журнала системы и системных служб (например, *.log) в различных местах.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Кэш установщика</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Кэшированные данные, связанные с установленными приложениями, используемые системой управления пакетами.</string>
     <string name="systemcleaner_filter_advertisements_label">Файлы рекламы</string>
     <string name="systemcleaner_filter_advertisements_summary">Файлы, созданные для или с помощью рекламы.</string>
     <string name="systemcleaner_filter_anr_label">Ошибки ANR</string>
@@ -272,8 +289,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Данные, которые проводник Windows может создавать на подключенном хранилище."</string>
     <string name="systemcleaner_filter_thumbnails_label">Эскизы изображений</string>
     <string name="systemcleaner_filter_thumbnails_summary">Кэшированный предпросмотр для изображений и видео.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Временные файлы</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Временные файлы, обычно краткосрочный кэш для активных операций.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Временные системные файлы</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Системные временные файлы, обычно кратковременные кэши для активных операций.</string>
     <string name="systemcleaner_filter_analytics_label">Файлы аналитики</string>
     <string name="systemcleaner_filter_analytics_summary">Данные, связанные с аналитикой и отслеживанием ошибок.</string>
     <string name="systemcleaner_filter_downloadcache_label">Кэш загрузок</string>
@@ -364,6 +381,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Файлы, которые были удалены, но помещены в специальную папку, чтобы их можно было восстановить.</string>
     <string name="appcleaner_filter_webview_label">Файлы Webview</string>
     <string name="appcleaner_filter_webview_summary">Файлы кэша Webview, используемые в приложениях.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Значки ярлыков приложений</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Кэшированные значки ярлыков приложений и меню \"Поделиться\".</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Резервные копии WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Удаление лишних резервных копий WhatsAp и сохранение только последней.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Файлы, которые Вы получили от пользователей через WhatsApp.</string>
@@ -414,6 +433,13 @@
         <item quantity="other">Удалить ненужные данные для %d выбранных приложений?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Удаление кэша с помощью Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Определение недоступного кэша</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Очистка кэша недоступна</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Система отключила кнопку \"Очистить кэш\" для этого приложения. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Экран настроек недоступен</string>
+    <string name="appcleaner_automation_error_no_settings_body">У этого системного приложения нет экрана настроек. Очистка кэша через службу специальных возможностей невозможна. Добавьте в исключения, чтобы ускорить очистку кэша.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Системное приложение не настроено</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Приложение HyperOS Security (com.miui.securitycenter) не имеет разрешения статистики использования (GET_USAGE_STATS). Это препятствует работе таких функций, как «Очистить данные» в деталях приложения и не позволяет очистить кэш через службу специальных возможностей. Предоставьте разрешение для восстановление полной функциональности.</string>
     <string name="deduplicator_tool_name">Дедупликатор</string>
     <string name="deduplicator_explanation_short">Найти дубликаты данных на Вашем устройстве.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -440,7 +466,7 @@
     <string name="deduplicator_detection_method_checksum_title">Контрольная сумма содержимого</string>
     <string name="deduplicator_detection_method_checksum_summary">Выявлять дубликаты вычислением контрольной суммы файлов. Файлы с одинаковой контрольной суммой идентичны по содержимому.</string>
     <string name="deduplicator_detection_method_phash_title">Похожее содержимое</string>
-    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов путем анализа и сравнения уникальных свойств содержимого.</string>
+    <string name="deduplicator_detection_method_phash_summary">Поиск похожих файлов посредством анализа свойств содержимого и сравнения значений хэша. ⚠️ Обнаружение на основе схожести может включать неверные позиции, требующие ручной проверки.</string>
     <string name="deduplicator_occupied_space_label">Используемая память</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">Дубликатами занято: %s</item>
@@ -505,6 +531,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Первая установка</string>
     <string name="appcontrol_list_sortmode_packagename_label">Имя пакета</string>
     <string name="appcontrol_list_sortmode_size_label">Размер</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Время экрана</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Размеры приложений оцениваются для анализа производительности. Используйте инструмент Анализ памяти для получения более точных данных.</string>
     <string name="appcontrol_progress_uninstalling_app">Удаление приложения</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -534,9 +561,11 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Получите приблизительную оценку размера каждого приложения.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Определение активности</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Узнайте, активно ли приложение (или недавно было активно).</string>
+    <string name="appcontrol_include_multiuser_label">Включать других пользователей</string>
+    <string name="appcontrol_include_multiuser_summary">Включать приложения из других профилей пользователей на этом устройстве.</string>
     <string name="appcontrol_export_app_selection_action">Экспорт приложений</string>
     <string name="appcontrol_export_title">Экспорт приложения</string>
-    <string name="appcontrol_export_description">Сохраните файлы установки этого приложения. Это не включает данные приложения.</string>
+    <string name="appcontrol_export_description">Сохранение файлов установки этого приложения. Это не включает данные приложения.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">Экспортировано приложений: %d</item>
         <item quantity="few">Экспортировано приложений: %d</item>
@@ -564,6 +593,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Принудительное завершение…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Поиск кнопки \"Принудительное завершение\" (ключевые слова: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Попытка подтвердить предыдущее действие (ключевые слова: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Время экрана: %1$s с %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Последнее обновление: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Установлено: %s</string>
     <string name="analyzer_tool_name">Анализ памяти</string>
     <string name="analyzer_explanation_short">Узнайте, что занимает место на Вашем устройстве.</string>
     <string name="analyzer_progress_scanning_device">Поиск хранилищ</string>
@@ -658,7 +690,12 @@
     <string name="automation_error_not_running_body">Служба специальных возможностей не запущена. Попробуйте перезагрузить устройство.</string>
     <string name="automation_error_screen_unavailable_title">Экран недоступен</string>
     <string name="automation_error_screen_unavailable_body">Операция была прервана, потому что экран стал недоступным (например, экран выключен или активен экран блокировки).</string>
+    <string name="automation_error_compatibility_title">Совместимость автоматизации</string>
     <string name="automation_error_compatibility_body">SD Maid не удалось определить макет экрана. Если это происходит, Ваш язык или настройки могут поддерживаться не полностью. Проверьте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
+    <string name="automation_error_timeout_title">Таймаут автоматизации</string>
+    <string name="automation_error_timeout_body">SD Maid не завершила все шаги в течение установленного времени. Если это происходит постоянно, может потребоваться настройка приложения для Вашего устройства. Проверяйте наличие обновлений или свяжитесь со мной, чтобы я мог это исправить.</string>
+    <string name="automation_error_overlay_title">Наложение автоматизации</string>
+    <string name="automation_error_overlay_body">SD Maid не удалось отобразить наложение автоматизации. Проверьте разрешения и попробуйте перезагрузить устройство.</string>
     <string name="history_label">История</string>
     <string name="history_description">Хронологический список последних действий и затронутых данных.</string>
     <string name="scheduler_label">Расписание</string>
@@ -716,6 +753,21 @@
     <string name="review_app_review_action">Отзыв</string>
     <string name="review_app_dismiss_action">Возможно, позже</string>
     <string name="review_app_body">Вы хотите оставить отзыв для SD Maid? ❤️</string>
+    <string name="anniversary_card_title">С годовщиной SD Maid ❤️</string>
+    <string name="anniversary_card_install_date">С Вами с %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Уже %1$d год вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="few">Уже %1$d года вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="many">Уже %1$d лет вместе. Спасибо за доверие к SD Maid, которая помогает содержать Ваш Android в чистоте и порядке. Освобождено %2$s</item>
+        <item quantity="other">%1$d лет вместе. Ваше устройство остается в чистоте и порядке с SD Maid. Свободное пространство: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Поделитесь годовщиной SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d год с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="few">%1$d года с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="many">%1$d лет с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+        <item quantity="other">%1$d лет с SD Maid — %2$s освобождено. Поддерживаем Android в чистоте и порядке. #SDMaid\nПопробуйте: %3$s</item>
+    </plurals>
     <string name="stats_label">История</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">Освобождено: %s</item>
@@ -764,4 +816,19 @@
     <string name="area_type_public_obb_label">Общие ресурсы приложений</string>
     <string name="area_type_private_data_label">Общие данные приложений</string>
     <string name="area_type_portable_label">Съёмный накопитель</string>
+    <string name="shortcut_appcontrol_short">Менеджер</string>
+    <string name="shortcut_appcontrol_long">Управление установленными приложениями</string>
+    <string name="shortcut_onetap_short">Сканирование + Удаление</string>
+    <string name="shortcut_onetap_long">Сканирование и удаление одним нажатием</string>
+    <string name="shortcuts_settings_category">Ярлыки</string>
+    <string name="shortcuts_onetap_enabled_title">Ярлык в одно нажатие</string>
+    <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Режим отладки включен</string>
+    <string name="debug_card_trace_mode_label">Включить режим трассировки</string>
+    <string name="debug_card_dryrun_mode_label">Режим пробного запуска (отключить удаление)</string>
+    <string name="debug_card_areas_reload_action">Перезагрузить области данных</string>
+    <string name="debug_card_pkgs_reload_action">Перезагрузить приложения</string>
+    <string name="debug_card_root_test_action">Проверить root</string>
+    <string name="debug_card_shizuku_test_action">Проверить Shizuku</string>
 </resources>

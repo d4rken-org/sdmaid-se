@@ -39,6 +39,7 @@ class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) 
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)
@@ -100,8 +101,9 @@ class CorpseFinderListFragment : Fragment3(R.layout.corpsefinder_list_fragment) 
                                 )
                             )
                         } else {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            resources.getQuantityString(
+                                eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                                 event.items.size
                             )
                         }

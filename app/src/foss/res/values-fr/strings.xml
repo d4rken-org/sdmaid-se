@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE, version libre</string>
     <string name="app_name_upgrade_postfix">Logiciel libre</string>
-    <string name="upgrade_feature_requires_pro">Nécessite SD Maid SE Pro</string>
+    <string name="upgrade_feature_requires_pro">Nécessite SD Maid SE, version libre</string>
     <string name="upgrades_dashcard_title">Passer à SD Maid Pro</string>
     <string name="upgrades_dashcard_body">Débloquez des fonctions supplémentaires et devenez mécène pour soutenir le développement continu.</string>
     <string name="upgrades_dashcard_upgrade_action">Passer Pro</string>
@@ -10,8 +10,8 @@
     <string name="upgrade_screen_preamble">SD Maid ne présente aucune publicité et ne vend pas les données des utilisateurs. La poursuite du développement n\'est possible que grâce à vous.</string>
     <string name="upgrade_screen_how_title">Comment aider</string>
     <string name="upgrade_screen_how_body">Devenez mécène et soutenez le développement. Touchez le bouton ci-dessous pour activer toutes les fonctions supplémentaires et ouvrir mon profil GitHub Sponsors.</string>
-    <string name="upgrade_screen_why_title">Ceci conjure 🪄</string>
-    <string name="upgrade_screen_why_body">• Fonction de suppression Nettoyeur d’applis 💯\n• Opérations planifiées ⏰\n• Options supplémentaires pour tous les outils ⚙️\n• Vos propres règles de suppression ✍️\n• Un développeur motivé 🧙\net plus…</string>
+    <string name="upgrade_screen_why_title">Vous obtiendrez comme par magie 🪄 :</string>
+    <string name="upgrade_screen_why_body">• La fonction de suppression Nettoyeur d’applis 💯\n• Des opérations planifiées ⏰\n• Des options supplémentaires pour tous les outils ⚙️\n• Vos propres règles de suppression ✍️\n• Un développeur motivé 🧙\net plus encore…</string>
     <string name="upgrade_screen_sponsor_action">Financer le développement</string>
     <string name="upgrade_screen_sponsor_action_hint">Sinon, des publicités, des analyses et Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Merci de soutenir le développement des logiciels libres ❤️</string>

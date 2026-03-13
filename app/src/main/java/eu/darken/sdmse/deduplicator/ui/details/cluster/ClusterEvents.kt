@@ -1,6 +1,6 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster
 
-import eu.darken.sdmse.common.files.APathLookup
+import android.content.Intent
 import eu.darken.sdmse.common.previews.PreviewOptions
 
 sealed class ClusterEvents {
@@ -9,7 +9,7 @@ sealed class ClusterEvents {
         val allowDeleteAll: Boolean
     ) : ClusterEvents()
 
-    data class OpenDuplicate(val lookup: APathLookup<*>) : ClusterEvents()
+    data class OpenDuplicate(val intent: Intent) : ClusterEvents()
 
     data class ViewDuplicate(val options: PreviewOptions) : ClusterEvents()
 }

@@ -1,6 +1,9 @@
 theme: minima
 plugins:
   - jekyll-relative-links
+  - jekyll-github-metadata
+  - jemoji
+
 relative_links:
   enabled: true
   collections: true
@@ -11,6 +14,7 @@ author: "by Matthias Urhahn"
 
 include:
   - PRIVACY_POLICY.md
+  - CHANGELOG.md
 exclude:
   - buildSrc
   - gradle/wrapper

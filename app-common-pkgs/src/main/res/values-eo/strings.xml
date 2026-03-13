@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Nevalida aplikaĵ-inventaro</string>
+    <string name="pkgrepo_invalid_inventory_error_description">La sistemo provizis nevalidan liston de instalitaj aplikaĵoj al SD Maid.</string>
+</resources>

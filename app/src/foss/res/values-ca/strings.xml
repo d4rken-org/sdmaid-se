@@ -2,7 +2,7 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE Pro</string>
+    <string name="upgrade_feature_requires_pro">Cal l\'SD Maid SE FOSS</string>
     <string name="upgrades_dashcard_title">Actualització de l\'SD Maid</string>
     <string name="upgrades_dashcard_body">Desbloquegeu funcions addicionals i convertiu-vos en mecenes per donar suport al continuïtat del suport!</string>
     <string name="upgrades_dashcard_upgrade_action">Actualitza</string>

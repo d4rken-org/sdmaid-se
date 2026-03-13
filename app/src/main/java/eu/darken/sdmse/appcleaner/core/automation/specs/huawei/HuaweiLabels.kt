@@ -85,7 +85,7 @@ class HuaweiLabels @Inject constructor(
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Huawei", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Huawei", "Labels")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

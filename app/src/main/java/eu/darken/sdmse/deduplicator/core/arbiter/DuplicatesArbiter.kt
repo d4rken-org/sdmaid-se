@@ -3,36 +3,39 @@ package eu.darken.sdmse.deduplicator.core.arbiter
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.DuplicateTypeCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.LocationCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.MediaProviderCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.ModificationCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.NestingCheck
+import eu.darken.sdmse.deduplicator.core.arbiter.checks.PreferredPathCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.SizeCheck
+import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
 
 class DuplicatesArbiter @Inject constructor(
+    private val settings: DeduplicatorSettings,
     private val duplicateTypeCheck: DuplicateTypeCheck,
     private val mediaProviderCheck: MediaProviderCheck,
     private val locationCheck: LocationCheck,
     private val nestingCheck: NestingCheck,
     private val modificationCheck: ModificationCheck,
     private val sizeCheck: SizeCheck,
+    private val preferredPathCheck: PreferredPathCheck,
 ) {
 
-    private val strategy = ArbiterStrategy(
-        criteria = listOf(
-            ArbiterCriterium.DuplicateType(),
-            ArbiterCriterium.MediaProvider(),
-            ArbiterCriterium.Location(),
-            ArbiterCriterium.Nesting(),
-            ArbiterCriterium.Modified(),
-        )
-    )
+    suspend fun getStrategy(): ArbiterStrategy {
+        val arbiterConfig = settings.arbiterConfig.flow.first()
+        return ArbiterStrategy(criteria = arbiterConfig.criteria)
+    }
 
-    suspend fun decideGroups(litigants: Collection<Duplicate.Group>): Pair<Duplicate.Group, Set<Duplicate.Group>> {
+    suspend fun decideGroups(
+        litigants: Collection<Duplicate.Group>,
+        strategy: ArbiterStrategy,
+    ): Pair<Duplicate.Group, Set<Duplicate.Group>> {
         log(TAG) { "decideGroups(): ${litigants.size} items, strategy=$strategy" }
 
         if (litigants.isEmpty()) throw IllegalArgumentException("Must pass at least 1 group!")
@@ -40,9 +43,12 @@ class DuplicatesArbiter @Inject constructor(
 
         var workList = litigants.toList()
 
-        strategy.criteria.forEach { crit ->
+        // Process in reverse order so that criteria at the TOP of the list have HIGHEST priority
+        // (they are processed LAST and thus have the final say in the sort order)
+        strategy.criteria.reversed().forEach { crit ->
             val favoritisedWorkList = when (crit) {
                 is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favoriteGroups(workList, crit)
+                is ArbiterCriterium.PreferredPath -> null
                 is ArbiterCriterium.MediaProvider -> null
                 is ArbiterCriterium.Location -> null
                 is ArbiterCriterium.Nesting -> null
@@ -55,15 +61,21 @@ class DuplicatesArbiter @Inject constructor(
         return workList.first() to workList.drop(1).toSet()
     }
 
-    suspend fun decideDuplicates(litigants: Collection<Duplicate>): Pair<Duplicate, Collection<Duplicate>> {
+    suspend fun decideDuplicates(
+        litigants: Collection<Duplicate>,
+        strategy: ArbiterStrategy,
+    ): Pair<Duplicate, Collection<Duplicate>> {
         log(TAG) { "decideDuplicates(): ${litigants.size} items, strategy=$strategy" }
         if (litigants.isEmpty()) throw IllegalArgumentException("Must pass at least 1 duplicate!")
 
         var workList = litigants.toList()
 
-        strategy.criteria.forEach { crit ->
+        // Process in reverse order so that criteria at the TOP of the list have HIGHEST priority
+        // (they are processed LAST and thus have the final say in the sort order)
+        strategy.criteria.reversed().forEach { crit ->
             val favoritisedWorkList = when (crit) {
                 is ArbiterCriterium.DuplicateType -> duplicateTypeCheck.favorite(workList, crit)
+                is ArbiterCriterium.PreferredPath -> preferredPathCheck.favorite(workList, crit)
                 is ArbiterCriterium.MediaProvider -> mediaProviderCheck.favorite(workList, crit)
                 is ArbiterCriterium.Location -> locationCheck.favorite(workList, crit)
                 is ArbiterCriterium.Nesting -> nestingCheck.favorite(workList, crit)

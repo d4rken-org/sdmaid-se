@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">ଅବୈଧ ଆପ୍ ଇନଭେଣ୍ଟୋରୀ</string>
+    <string name="pkgrepo_invalid_inventory_error_description">ସିଷ୍ଟମ୍ SD Maid କୁ ସ୍ଥାପିତ ଆପ୍‌ଗୁଡ଼ିକର ଏକ ଅବୈଧ ତାଲିକା ପ୍ରଦାନ କରିଛି।</string>
+</resources>

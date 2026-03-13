@@ -42,27 +42,44 @@
             app:layout_constraintTop_toBottomOf="@id/title"
             tools:text="Every 3 days at 11:00" />
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/primary"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="0dp"
+        <LinearLayout
+            android:id="@+id/execution_info_container"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
+            android:background="@drawable/bg_rounded_secondary_container"
+            android:orientation="vertical"
+            android:padding="12dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/subtitle"
-            tools:text="Next execution in 14 hours" />
+            app:layout_constraintTop_toBottomOf="@id/subtitle">
 
-        <com.google.android.material.textview.MaterialTextView
-            android:id="@+id/secondary"
-            style="@style/TextAppearance.Material3.BodyMedium"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/primary"
-            tools:text="Last executed 10 hours ago" />
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/primary"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_clock_plus_outline_24"
+                android:drawablePadding="8dp"
+                android:gravity="center_vertical"
+                android:drawableTint="?colorOnSecondaryContainer"
+                android:textColor="?colorOnSecondaryContainer"
+                tools:text="Next execution in 14 hours" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/secondary"
+                style="@style/TextAppearance.Material3.BodyMedium"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:drawableStart="@drawable/ic_file_clock_outline_24"
+                android:gravity="center_vertical"
+                android:drawablePadding="8dp"
+                android:drawableTint="?colorOnSecondaryContainer"
+                android:textColor="?colorOnSecondaryContainer"
+                tools:text="Last executed 10 hours ago" />
+
+        </LinearLayout>
 
         <com.google.android.material.materialswitch.MaterialSwitch
             android:id="@+id/enabled_toggle"
@@ -72,7 +89,7 @@
             android:layout_marginTop="16dp"
             android:checked="false"
             android:text="@string/scheduler_schedule_toggle_disabled"
-            app:layout_constraintTop_toBottomOf="@id/secondary" />
+            app:layout_constraintTop_toBottomOf="@id/execution_info_container" />
 
         <LinearLayout
             android:id="@+id/options_container"

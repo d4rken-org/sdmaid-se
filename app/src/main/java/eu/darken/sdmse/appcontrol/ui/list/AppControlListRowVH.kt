@@ -2,6 +2,7 @@ package eu.darken.sdmse.appcontrol.ui.list
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppInfo
@@ -44,6 +45,11 @@ class AppControlListRowVH(parent: ViewGroup) :
         icon.loadAppIcon(appInfo.pkg)
         label.text = appInfo.label.get(context)
         packagename.text = appInfo.pkg.packageName
+
+        userInfo.apply {
+            isGone = appInfo.userProfile == null
+            text = appInfo?.userProfile?.getHumanLabel()?.get(context)
+        }
 
         extraInfo.text = when (item.sortMode) {
             SortSettings.Mode.INSTALLED_AT -> getString(

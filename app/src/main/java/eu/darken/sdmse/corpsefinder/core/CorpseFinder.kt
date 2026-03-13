@@ -99,6 +99,7 @@ class CorpseFinder @Inject constructor(
             progress = progress,
             isFilterPrivateDataAvailable = useRoot,
             isFilterDalvikCacheAvailable = useRoot,
+            isFilterArtProfilesAvailable = useRoot,
             isFilterAppLibrariesAvailable = useRoot,
             isFilterAppSourcesAvailable = useRoot,
             isFilterPrivateAppSourcesAvailable = useRoot,
@@ -139,11 +140,13 @@ class CorpseFinder @Inject constructor(
                                 watcherNotifications.notifyOfDeletion(watcherResult)
                             }
                         } else {
-                            val watcherResult = ExternalWatcherResult.Scan(
-                                pkgId = task.target,
-                                foundItems = targets.size
-                            )
-                            watcherNotifications.notifyOfScan(watcherResult)
+                            if (targets.isNotEmpty()) {
+                                val watcherResult = ExternalWatcherResult.Scan(
+                                    pkgId = task.target,
+                                    foundItems = targets.size
+                                )
+                                watcherNotifications.notifyOfScan(watcherResult)
+                            }
                             null
                         }
 
@@ -376,6 +379,7 @@ class CorpseFinder @Inject constructor(
         val progress: Progress.Data?,
         val isFilterPrivateDataAvailable: Boolean,
         val isFilterDalvikCacheAvailable: Boolean,
+        val isFilterArtProfilesAvailable: Boolean,
         val isFilterAppLibrariesAvailable: Boolean,
         val isFilterAppSourcesAvailable: Boolean,
         val isFilterPrivateAppSourcesAvailable: Boolean,

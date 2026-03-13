@@ -1,39 +1,39 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Context
-import android.content.Intent
-import androidx.core.content.FileProvider
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.core.AnalyzerSettings
 import eu.darken.sdmse.analyzer.core.content.ContentDeleteTask
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
-import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.files.core.local.File
-import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
+import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.systemcleaner.core.filter.custom.EditorOptionsCreator
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
@@ -48,10 +48,12 @@ class ContentViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     @Suppress("StaticFieldLeak") @ApplicationContext private val context: Context,
     private val analyzer: Analyzer,
-    private val mimeTypeTool: MimeTypeTool,
+    private val analyzerSettings: AnalyzerSettings,
+    private val viewIntentTool: ViewIntentTool,
     private val exclusionManager: ExclusionManager,
     private val editorOptionsCreator: EditorOptionsCreator,
     private val upgradeRepo: UpgradeRepo,
+    private val swiper: Swiper,
 ) : ViewModel3(dispatcherProvider) {
 
     private val navArgs by handle.navArgs<ContentFragmentArgs>()
@@ -84,7 +86,8 @@ class ContentViewModel @Inject constructor(
         analyzer.data.filter { it.findContentGroup() != null },
         analyzer.progress,
         navigationState,
-    ) { data, progress, navLevels ->
+        analyzerSettings.contentLayoutMode.flow,
+    ) { data, progress, navLevels, layoutMode ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.findContentGroup()!!
 
@@ -109,32 +112,42 @@ class ContentViewModel @Inject constructor(
             subtitle = subtitle,
             storage = storage,
             items = null,
+            layoutMode = layoutMode,
             progress = progress,
         ).run { emit(this) }
 
-        val items = (currentLevel?.children ?: contentGroup.contents)
+        val items: List<ContentAdapter.Item> = (currentLevel?.children ?: contentGroup.contents)
             .sortedByDescending { it.size }
             .map { content ->
-                ContentItemVH.Item(
-                    parent = currentLevel,
-                    content = content,
-                    onItemClicked = {
-                        when (content.type) {
-                            FileType.FILE -> if (content.lookup != null) {
-                                open(content.lookup)
-                            } else {
-                                log(TAG) { "Content has no lookup, can't open: $content" }
-                            }
-
-                            else -> if (content.inaccessible) {
-                                log(TAG) { "No details available for $content" }
-                                events.postValue(ContentItemEvents.ShowNoAccessHint(content))
-                            } else {
-                                navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
-                            }
+                val onItemClicked: () -> Unit = {
+                    when (content.type) {
+                        FileType.FILE -> if (content.lookup != null) {
+                            open(content.lookup)
+                        } else {
+                            log(TAG) { "Content has no lookup, can't open: $content" }
                         }
-                    },
-                )
+
+                        else -> if (content.inaccessible) {
+                            log(TAG) { "No details available for $content" }
+                            events.postValue(ContentItemEvents.ShowNoAccessHint(content))
+                        } else {
+                            navigationState.value = (navigationState.value ?: emptyList()).plus(content.path)
+                        }
+                    }
+                }
+                when (layoutMode) {
+                    LayoutMode.LINEAR -> ContentItemListVH.Item(
+                        parent = currentLevel,
+                        content = content,
+                        onItemClicked = onItemClicked,
+                    )
+
+                    LayoutMode.GRID -> ContentItemGridVH.Item(
+                        parent = currentLevel,
+                        content = content,
+                        onItemClicked = onItemClicked,
+                    )
+                }
             }
 
         State(
@@ -142,6 +155,7 @@ class ContentViewModel @Inject constructor(
             subtitle = subtitle,
             storage = storage,
             items = items,
+            layoutMode = layoutMode,
             progress = progress,
         ).run { emit(this) }
     }.asLiveData2()
@@ -149,27 +163,14 @@ class ContentViewModel @Inject constructor(
     fun open(lookup: APathLookup<*>) = launch {
         log(TAG) { "open(): Opening $lookup" }
 
-        if (lookup !is LocalPathLookup) {
-            log(TAG) { "open(): Can't open unsupported path type: ${lookup.pathType}" }
+        val intent = viewIntentTool.create(lookup)
+        if (intent == null) {
+            log(TAG, WARN) { "open(): Unable to create view intent for $lookup" }
             return@launch
         }
-        val javaPath = File(lookup.path)
-        val uri = FileProvider.getUriForFile(context, "${context.packageName}.provider", javaPath)
-        val mimeType = mimeTypeTool.determineMimeType(lookup)
-        log(TAG) { "open(): MimeType is $mimeType" }
 
-        val intent = Intent(Intent.ACTION_VIEW).apply {
-            addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION)
-            addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION)
-            setDataAndType(uri, mimeType)
-        }
-
-        val chooserIntent = Intent.createChooser(intent, lookup.name).apply {
-            addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        }
-
-        log(TAG) { "open() launching chooser $chooserIntent" }
-        events.postValue(ContentItemEvents.OpenContent(chooserIntent))
+        log(TAG) { "open(): Launching intent for $lookup" }
+        events.postValue(ContentItemEvents.OpenContent(intent))
     }
 
     fun delete(items: Set<ContentItem>) = launch {
@@ -208,7 +209,8 @@ class ContentViewModel @Inject constructor(
         val targets = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -223,7 +225,8 @@ class ContentViewModel @Inject constructor(
         val contentItems = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -247,7 +250,8 @@ class ContentViewModel @Inject constructor(
         val targets = items
             .map {
                 when (it) {
-                    is ContentItemVH.Item -> setOf(it.content)
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
                     is ContentGroupVH.Item -> it.contentGroup.contents
                     else -> throw IllegalArgumentException("Unknown type $it")
                 }
@@ -260,11 +264,47 @@ class ContentViewModel @Inject constructor(
         ContentFragmentDirections.goToCustomFilterEditor(initial = options).navigate()
     }
 
+    fun createSwiperSession(items: List<ContentAdapter.Item>) = launch {
+        log(TAG) { "createSwiperSession(${items.size})" }
+
+        val paths = items
+            .map {
+                when (it) {
+                    is ContentItemListVH.Item -> setOf(it.content)
+                    is ContentItemGridVH.Item -> setOf(it.content)
+                    is ContentGroupVH.Item -> it.contentGroup.contents
+                    else -> throw IllegalArgumentException("Unknown type $it")
+                }
+            }
+            .flatten()
+            .filter { !it.inaccessible }
+            .map { it.path }
+            .toSet()
+
+        if (paths.isEmpty()) {
+            log(TAG, WARN) { "createSwiperSession(): No accessible items to create session" }
+            return@launch
+        }
+
+        val sessionId = swiper.createSession(paths)
+        log(TAG) { "createSwiperSession(): Created session $sessionId with ${paths.size} paths" }
+        events.postValue(ContentItemEvents.SwiperSessionCreated(sessionId, paths.size))
+    }
+
+    fun toggleLayoutMode() = launch {
+        log(TAG) { "toggleLayoutMode()" }
+        when (analyzerSettings.contentLayoutMode.value()) {
+            LayoutMode.LINEAR -> analyzerSettings.contentLayoutMode.value(LayoutMode.GRID)
+            LayoutMode.GRID -> analyzerSettings.contentLayoutMode.value(LayoutMode.LINEAR)
+        }
+    }
+
     data class State(
         val title: CaString?,
         val subtitle: CaString?,
         val storage: DeviceStorage,
-        val items: List<ContentItemVH.Item>?,
+        val items: List<ContentAdapter.Item>?,
+        val layoutMode: LayoutMode,
         val progress: Progress.Data?,
     )
 

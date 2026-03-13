@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventar i pavlefshëm i aplikacioneve</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistemi i dha SD Maid një listë të pavlefshme të aplikacioneve të instaluara.</string>
+</resources>

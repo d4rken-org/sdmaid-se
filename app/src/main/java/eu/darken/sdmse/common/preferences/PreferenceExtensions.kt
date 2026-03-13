@@ -16,7 +16,7 @@ inline fun <reified T> ListPreference.setupWithEnum(preference: DataStoreValue<T
     val startValue = preference.valueBlocking
 
     entries = enumValues<T>().map { it.label.get(context) }.toTypedArray()
-    entryValues = enumValues<T>().map { it.name }.toTypedArray()
+    entryValues = enumValues<T>().map { (preference.writer(it) as String).removeSurrounding("\"") }.toTypedArray()
     value = (preference.writer(startValue) as String).removeSurrounding("\"")
 
     setOnPreferenceChangeListener { _, newValueRaw ->

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+
+    <string name="upgrade_feature_requires_pro">Bezonas SD Maid SE FOSS</string>
+
+    <string name="upgrades_dashcard_title">Ĝisdatigi SD Maid</string>
+    <string name="upgrades_dashcard_body">Malŝlosu pliajn funkciojn kaj fariĝu patrono por subteni daŭran disvolvadon!</string>
+    <string name="upgrades_dashcard_upgrade_action">Ĝisdatigi</string>
+
+    <string name="upgrade_screen_title">Plibonigi SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid havas neniujn reklamojn kaj ne vendas uzantajn datumojn. Daŭra disvolvado estas ebligata nur de vi.</string>
+    <string name="upgrade_screen_how_title">Kiel helpi</string>
+    <string name="upgrade_screen_how_body">Fariĝu patrono kaj sponsoru disvolvadon! Tuŝetu la butonon sube por aktivigi ĉiujn ekstrajn funkciojn kaj malfermi mian GitHub Sponsors profilon.</string>
+    <string name="upgrade_screen_why_title">Ĉi tio sorĉas 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner forigo-funkcio 💯\n• Planitaj operacioj ⏰\n• Ekstraj opcioj por ĉiuj iloj ⚙️\n• Viaj propraj forigo-reguloj ✍️\n• Motivita programisto 🧙\nkaj pli…</string>
+    <string name="upgrade_screen_sponsor_action">Sponsori disvolvadon</string>
+    <string name="upgrade_screen_sponsor_action_hint">La alternativo estas reklamoj, analizoj kaj Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Dankon pro subteno de malfermfonta disvolvado ❤️</string>
+</resources>

@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
 import eu.darken.sdmse.common.sharedresource.Resource
 import eu.darken.sdmse.common.sharedresource.SharedResource
+import eu.darken.sdmse.common.shell.ShellOps
 import io.kotest.matchers.shouldBe
 import io.mockk.MockKAnnotations
 import io.mockk.coEvery
@@ -28,6 +29,8 @@ class FileForensicsTest : BaseTest() {
     @MockK lateinit var testAreaInfo: AreaInfo
     @MockK lateinit var gatewaySwitch: GatewaySwitch
     @MockK lateinit var pkgOps: PkgOps
+    @MockK lateinit var shellOps: ShellOps
+
     val processors = mutableSetOf<CSIProcessor>()
     private val processorsProvider = Provider<Set<CSIProcessor>> { processors }
 
@@ -47,6 +50,14 @@ class FileForensicsTest : BaseTest() {
         }
         every { pkgOps.sharedResource } returns mockk<SharedResource<Any>>().apply {
             every { resourceId } returns "pkgops:SR"
+            coEvery { get() } returns mockk<Resource<Any>>().apply {
+                every { close() } returns Unit
+            }
+            every { isClosed } returns true
+            every { close() } returns Unit
+        }
+        every { shellOps.sharedResource } returns mockk<SharedResource<Any>>().apply {
+            every { resourceId } returns "shellops:SR"
             coEvery { get() } returns mockk<Resource<Any>>().apply {
                 every { close() } returns Unit
             }

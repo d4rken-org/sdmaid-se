@@ -53,7 +53,7 @@ class InventorySetupModule @Inject constructor(
                 missingPermission.isEmpty() -> {
                     run {
                         val pkgs = try {
-                            pkgOps.queryPkgs(PackageManager.MATCH_ALL).map { it.packageName }
+                            pkgOps.queryPkgs(PackageManager.MATCH_ALL.toLong()).map { it.packageName }
                         } catch (e: Exception) {
                             log(TAG, ERROR) { "Check for fake access failed: ${e.asLog()}" }
                             null

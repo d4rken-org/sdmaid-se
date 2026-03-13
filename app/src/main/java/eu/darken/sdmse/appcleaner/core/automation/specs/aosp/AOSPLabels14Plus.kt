@@ -288,7 +288,7 @@ class AOSPLabels14Plus @Inject constructor() : AppCleanerLabelSource {
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Labels", "14Plus")
+        private val TAG: String = logTag("AppCleaner", "Automation", "AOSP", "Labels", "14Plus")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

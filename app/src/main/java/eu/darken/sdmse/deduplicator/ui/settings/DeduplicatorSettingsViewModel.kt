@@ -31,7 +31,7 @@ class DeduplicatorSettingsViewModel @Inject constructor(
         State(
             isPro = isPro,
             state = state,
-            scanPaths = scanPaths.paths.sortedBy { it.path }
+            scanPaths = scanPaths.paths.sortedBy { it.path },
         )
     }.asLiveData2()
 

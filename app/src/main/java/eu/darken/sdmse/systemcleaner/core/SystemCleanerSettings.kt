@@ -31,6 +31,10 @@ class SystemCleanerSettings @Inject constructor(
     val filterAdvertisementsEnabled = dataStore.createValue("filter.advertisements.enabled", true)
     val filterEmptyDirectoriesEnabled = dataStore.createValue("filter.emptydirectories.enabled", true)
     val filterSuperfluosApksEnabled = dataStore.createValue("filter.superfluosapks.enabled", false)
+    val filterSuperfluosApksIncludeSameVersion = dataStore.createValue(
+        "filter.superfluosapks.includesameversion",
+        true,  // Default: include same version (current behavior)
+    )
     val filterLostDirEnabled = dataStore.createValue("filter.lostdir.enabled", true)
     val filterLinuxFilesEnabled = dataStore.createValue("filter.linuxfiles.enabled", true)
     val filterMacFilesEnabled = dataStore.createValue("filter.macfiles.enabled", true)
@@ -65,6 +69,7 @@ class SystemCleanerSettings @Inject constructor(
         filterAdvertisementsEnabled,
         filterEmptyDirectoriesEnabled,
         filterSuperfluosApksEnabled,
+        filterSuperfluosApksIncludeSameVersion,
         filterScreenshotsEnabled,
         filterScreenshotsAge,
         filterTrashedEnabled,

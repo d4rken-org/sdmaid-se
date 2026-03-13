@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Yaroqsiz ilovalar inventarizatsiyasi</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Tizim SD Maidga oʻrnatilgan ilovalarning yaroqsiz roʻyxatini taqdim qildi.</string>
+</resources>

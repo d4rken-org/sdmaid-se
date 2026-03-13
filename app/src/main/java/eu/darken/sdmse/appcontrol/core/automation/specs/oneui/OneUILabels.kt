@@ -26,6 +26,6 @@ open class OneUILabels @Inject constructor() : AppControlLabelSource {
     ): Set<String> = acsContext.getStrings(AOSPLabels.SETTINGS_PKG, setOf("cancel", "dlg_cancel"))
 
     companion object {
-        val TAG: String = logTag("AppControl", "Automation", "Samsung", "Labels")
+        val TAG: String = logTag("AppControl", "Automation", "OneUI", "Labels")
     }
 }

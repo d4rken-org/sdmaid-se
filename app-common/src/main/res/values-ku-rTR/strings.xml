@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">SD Maid SE</string>
+
+    <string name="slogan_message_0">Di xizmeta we de.</string>
+    <string name="slogan_message_1">Pak û rêkûpêk.</string>
+    <string name="slogan_message_2">Şoreşê asteng dike.</string>
+    <string name="slogan_message_3">Tiştê hewce ye dike.</string>
+    <string name="slogan_message_5">Bêkêmasî.</string>
+    <string name="slogan_message_6">Bayt, biro!</string>
+    <string name="slogan_message_7">Cihê vala, cihê kêfê.</string>
+    <string name="slogan_message_8">Tu carî dev jê bernadim.</string>
+
+    <string name="general_thank_you_label">Spas</string>
+
+    <string name="general_error_type_mismatch_msg">Cure ne li hev hatiye: %1$s dixwest, lê %2$s hat.</string>
+    <string name="general_error_cant_access_msg">Nikare bigire %s.</string>
+    <string name="general_error_root_unavailable">Gihîştina root tune ye.</string>
+    <string name="general_error_empty_result_msg">Encam vala bû.</string>
+    <string name="general_error_no_compatible_app_found_msg">Tu sepana lihevhatî nehat dîtin ku vê daxwazê biguhere.</string>
+    <string name="general_todo_msg">Li ser vê taybetmendiyê hîn tê xebitîn û niha ne amade ye.</string>
+    <string name="general_share_action">Parve bike</string>
+    <string name="general_done_action">Temam</string>
+    <string name="general_copy_action">Kopî bike</string>
+    <string name="general_wipe_action">Paqij bike</string>
+    <string name="general_cancel_action">Betal bike</string>
+    <string name="general_discard_action">Bavêje dûr</string>
+    <string name="general_reset_action">Nû bike</string>
+    <string name="general_save_action">Tomar bike</string>
+    <string name="general_thanks_action">Spas</string>
+    <string name="general_gotit_action">Fêm bûm</string>
+    <string name="general_fix_action">Çareser bike</string>
+    <string name="general_set_up_action">Saz bike</string>
+    <string name="general_edit_action">Guherandin</string>
+    <string name="general_na_label">Tune</string>
+    <string name="general_empty_label">Vala</string>
+    <string name="general_dismiss_action">Derxe</string>
+    <string name="general_maybe_later_action">Dibe paşê</string>
+    <string name="general_manage_action">Rêve bike</string>
+    <string name="general_sync_action">Hevdem bike</string>
+    <string name="general_error_label">Çewtî</string>
+    <string name="general_tap_hint_msg">Ji bo vebijarkên zêdetir bitikîne</string>
+    <string name="general_upgrade_action">Bilind bike</string>
+    <string name="general_donate_action">Bexş bike</string>
+    <string name="general_check_action">Kontrol bike</string>
+    <string name="general_filter_action">Filtre</string>
+    <string name="general_internal_not_available_msg">Girêdana înternetê tune ye</string>
+    <string name="general_refresh_action">Nû bike</string>
+    <string name="general_progress_searching">Lêgerîn</string>
+    <string name="general_progress_generating_searchpaths">Rêyên lêgerînê çêdike</string>
+    <string name="general_progress_filtering">Filtre dike</string>
+    <string name="general_progress_preparing">Amade dike</string>
+    <string name="general_progress_processing_x">%s tê karsazîkirin</string>
+    <string name="general_progress_loading">Bar dike</string>
+    <string name="general_progress_loading_app_data">Daneyên sepanê bar dike</string>
+    <string name="general_progress_loading_data_areas">Herêmên daneyan bar dike</string>
+    <string name="general_progress_loading_egg_0">Hîn ji iPhone-ê bilez e</string>
+    <string name="general_progress_loading_egg_1">RAM-a zêdetir dakêşe</string>
+    <string name="general_progress_loading_egg_2">Soon™</string>
+    <string name="general_progress_loading_egg_3">CPU di vçûyîna qehweyê de ye</string>
+    <string name="general_progress_loading_egg_4">Li bendê daneyên ji Pepe Silvia ye</string>
+    <string name="general_progress_loading_egg_5">Turbo encabulator dest pê dike</string>
+    <string name="general_progress_loading_egg_6">Rûnê derbas dike</string>
+    <string name="general_progress_loading_egg_7">Çawa ye? Tu çawa didome?</string>
+    <string name="general_progress_loading_egg_8">Beeping boop bop</string>
+    <string name="general_progress_loading_egg_9">Hilbijartinên jiyanê buffer dike</string>
+    <string name="general_progress_loading_egg_10">Cthulhu bang dike</string>
+    <string name="general_progress_loading_egg_11">Ev baş e</string>
+    <string name="general_progress_loading_egg_12">Ji kerema xwe benede</string>
+    <string name="general_progress_loading_egg_13">Bi kêmanî tu li bendê nînî</string>
+    <string name="general_help_action">Alîkarî</string>
+    <string name="general_continue">Berdewam bike</string>
+    <string name="general_progress_queued">Di rêzê de</string>
+    <string name="general_progress_deleting">Jê dibe</string>
+    <string name="general_progress_deleting_x">%s jê dibe</string>
+    <string name="general_sort_options_label">Vebijarkên rêzkirin</string>
+    <string name="general_sort_reverse_action">Moda rêzkirina berevajî</string>
+    <string name="general_tag_filter_label">Li gorî nîşanan filtre bike</string>
+
+    <string name="general_result_success_message">Operasyon serkeftî</string>
+    <string name="general_result_failure_message">Operasyon şikest</string>
+    <plurals name="general_result_x_space_freed">
+        <item quantity="one">%s cih azad kir.</item>
+        <item quantity="other">%s cih azad kir.</item>
+    </plurals>
+
+    <string name="general_options_label">Vebijark</string>
+    <string name="general_details_label">Hûragahî</string>
+    <string name="general_view_action">Nîşan bide</string>
+    <string name="general_update_action">Nûve bike</string>
+    <string name="general_scan_action">Şane bike</string>
+    <string name="general_delete_action">Jê bibe</string>
+    <string name="general_delete_selected_action">Yên hilbijartî jê bibe</string>
+    <string name="general_show_details_action">Hûragahiyan nîşan bide</string>
+    <string name="general_show_all_action">Hemûyan nîşan bide</string>
+    <string name="general_toggle_layout_mode">Moda dîmenê biguherîne</string>
+
+    <string name="general_delete_confirmation_title">Jêbirinê piştrast bike</string>
+    <string name="general_delete_confirmation_message_x">\"%s\" jê bibî?</string>
+    <string name="general_delete_confirmation_message_selected_x_items">%d tiştên hilbijartî jê bibî?</string>
+    <plurals name="general_delete_success_deleted_x">
+        <item quantity="one">%d tişt hate jêbirin.</item>
+        <item quantity="other">%d tişt hatin jêbirin.</item>
+    </plurals>
+
+    <string name="general_remove_action">Rake</string>
+    <string name="general_remove_selected_action">Yên hilbijartî rake</string>
+    <plurals name="general_remove_success_x_items">
+        <item quantity="one">Yek tişt hat rakirin</item>
+        <item quantity="other">%d tişt hatin rakirin</item>
+    </plurals>
+
+    <string name="general_root_required_label">Root hewce ye</string>
+    <string name="general_root_required_message">Cîhazeke bi root hewce ye</string>
+
+    <string name="general_search_action">Lêgerîn</string>
+    <string name="general_scan_device_action">Cîhazê şane bike</string>
+    <string name="general_open_system_settings_action">Mîhengên pergalê veke</string>
+
+    <plurals name="result_x_items">
+        <item quantity="one">%s tişt</item>
+        <item quantity="other">%s tişt</item>
+    </plurals>
+    <plurals name="result_x_successful">
+        <item quantity="one">%d serkeftî</item>
+        <item quantity="other">%d serkeftî</item>
+    </plurals>
+    <plurals name="result_x_failed">
+        <item quantity="one">%d şikest</item>
+        <item quantity="other">%d şikest</item>
+    </plurals>
+    <plurals name="x_space_can_be_freed">
+        <item quantity="one">%s dikare azad bibe</item>
+        <item quantity="other">%s dikare azad bibe</item>
+    </plurals>
+    <string name="general_info_label">Agahî</string>
+    <string name="general_count_label">Hejmar</string>
+    <string name="general_app_label">Sepan</string>
+    <string name="general_more_info_action">Agahiya zêdetir</string>
+    <string name="general_grant_access_action">Mafê gihîştinê bide</string>
+    <string name="general_enable_service_action">Karûbarê çalak bike</string>
+    <string name="general_undo_action">Paşve bike</string>
+
+    <string name="general_list_select_all_action">Hemûyan hilbijêre</string>
+
+    <string name="general_path_label">Rê</string>
+    <string name="general_type_label">Cure</string>
+    <string name="general_size_label">Mezinahî</string>
+    <string name="general_exclude_action">Derxe</string>
+    <string name="general_exclude_selected_action">Yên hilbijartî derxe</string>
+
+    <string name="general_device_label">Cîhaz</string>
+
+    <string name="general_settings_title">Mîheng</string>
+    <string name="general_help_title">Alîkarî</string>
+
+    <string name="file_type_symbolic_link">Girêdan</string>
+    <string name="file_type_directory">Pelrêç</string>
+    <string name="file_type_file">Pel</string>
+    <string name="file_type_unknown">Nenas</string>
+
+    <string name="general_progress_ready">Amade</string>
+    <string name="general_progress_done">Temam</string>
+
+    <string name="general_rom_type_auto_label">Otomatîk (standard)</string>
+    <plurals name="general_age_days">
+        <item quantity="one">%d roj</item>
+        <item quantity="other">%d roj</item>
+    </plurals>
+    <plurals name="general_age_hours">
+        <item quantity="one">%d saet</item>
+        <item quantity="other">%d saet</item>
+    </plurals>
+    <plurals name="result_x_files">
+        <item quantity="one">%s pel</item>
+        <item quantity="other">%s pel</item>
+    </plurals>
+    <string name="general_advice_title">Şîret</string>
+    <string name="general_error_invalid_input_label">Têketina ne derbasdar</string>
+    <string name="general_information_for_the_developer">Agahî ji bo pêşdebirê</string>
+    <string name="general_error_report_bug_action">Çewtiyê rapor bike</string>
+    <string name="general_error_ipc_deadobject_title">Girêdana Karûbarê Winda Bû</string>
+    <string name="general_error_ipc_deadobject_description">Girêdana bi karûbarek girîng (wek Magisk, Shizuku, an karûbarên din ên asta pergalê) re bi awayekî bêhêvî hate windakirin. Ji kerema xwe cîhaza xwe ji nû ve bipêçîne. Heke pirsgirêk domiya, li nûvekirinên kontrol bike an bi min re têkilî daynin da ez vê çareser bikim.</string>
+</resources>

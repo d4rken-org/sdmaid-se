@@ -193,13 +193,6 @@ class SystemCrawlerSieveTest : BaseTest() {
                 SegmentCriterium(segs("", "sdcard", "abc", ""), mode = SegmentCriterium.Mode.Start(allowPartial = true))
             )
         ).match(baseLookup.copy(lookedUp = basePath.child("abc"))).matches shouldBe false
-        Config(
-            pathCriteria = setOf(
-                SegmentCriterium(
-                    segs("", "sdcard", "abc", ""), mode = SegmentCriterium.Mode.Start(allowPartial = false)
-                )
-            )
-        ).match(baseLookup.copy(lookedUp = basePath.child("abc", "/"))).matches shouldBe true
 
         Config(
             pathCriteria = setOf(

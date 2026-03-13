@@ -36,6 +36,9 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
     private val searchLocationsPref: Preference2
         get() = findPreference("scan.location.paths")!!
 
+    private val arbiterConfigPref: Preference2
+        get() = findPreference("arbiter.config")!!
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         vm.state.observe2(this) { state ->
             log(TAG) { "Updating state: $state" }
@@ -85,6 +88,11 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
 
         searchLocationsPref.setOnLongClickListener {
             vm.resetScanPaths()
+            true
+        }
+
+        arbiterConfigPref.setOnPreferenceClickListener {
+            MainDirections.goToArbiterConfig().navigate()
             true
         }
 

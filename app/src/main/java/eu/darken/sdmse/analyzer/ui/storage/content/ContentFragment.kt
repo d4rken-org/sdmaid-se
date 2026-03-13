@@ -21,10 +21,13 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.installListSelection
+import eu.darken.sdmse.common.lists.resolveSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
+import kotlin.math.max
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.AnalyzerContentFragmentBinding
 
@@ -58,27 +61,39 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
             setNavigationOnClickListener { vm.onNavigateBack() }
             setOnMenuItemClickListener {
                 when (it.itemId) {
+                    R.id.action_toggle_layout_mode -> {
+                        vm.toggleLayoutMode()
+                        true
+                    }
+
                     else -> false
                 }
             }
-
         }
 
         val adapter = ContentAdapter()
+        val layoutManager = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
         ui.list.setupDefaults(
             adapter,
-            horizontalDividers = true,
-            layouter = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false),
+            horizontalDividers = false,
+            layouter = layoutManager,
         )
 
         installListSelection(
             adapter = adapter,
             cabMenuRes = R.menu.menu_analyzer_content_list_cab,
             onPrepare = { tracker, mode, menu ->
-                val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
-                val hasInaccessible = selectedItems.any { it !is ContentItemVH.Item || it.content.inaccessible }
+                val selectedItems = resolveSelection(tracker, adapter.data, "onPrepare")
+                val hasInaccessible = selectedItems.any {
+                    when (it) {
+                        is ContentItemListVH.Item -> it.content.inaccessible
+                        is ContentItemGridVH.Item -> it.content.inaccessible
+                        else -> true
+                    }
+                }
                 menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible
                 menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible
+                menu.findItem(R.id.action_create_swiper_session)?.isVisible = !hasInaccessible
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ContentAdapter.Item> ->
@@ -93,8 +108,9 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         MaterialAlertDialogBuilder(requireContext()).apply {
                             setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                             setMessage(
-                                getString(
-                                    eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                                resources.getQuantityString(
+                                    eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                    selected.size,
                                     selected.size,
                                 )
                             )
@@ -113,6 +129,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         true
                     }
 
+                    R.id.action_create_swiper_session -> {
+                        vm.createSwiperSession(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
                     else -> false
                 }
             }
@@ -121,6 +143,21 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         vm.state.observe2(ui) { state ->
             toolbar.title = state.title?.get(requireContext())
             toolbar.subtitle = state.subtitle?.get(requireContext())
+
+            val newSpanCount = when (state.layoutMode) {
+                LayoutMode.LINEAR -> getSpanCount()
+                LayoutMode.GRID -> max(getSpanCount(widthDp = 144), 3)
+            }
+            if (layoutManager.spanCount != newSpanCount) {
+                layoutManager.spanCount = newSpanCount
+            }
+
+            toolbar.menu.findItem(R.id.action_toggle_layout_mode)?.setIcon(
+                when (state.layoutMode) {
+                    LayoutMode.LINEAR -> R.drawable.baseline_grid_view_24
+                    LayoutMode.GRID -> R.drawable.ic_baseline_view_list_24
+                }
+            )
 
             loadingOverlay.setProgress(state.progress)
             if (state.progress == null) adapter.update(state.items)
@@ -180,6 +217,17 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         e.asErrorDialogBuilder(requireActivity()).show()
                     }
                 }
+
+                is ContentItemEvents.SwiperSessionCreated -> Snackbar
+                    .make(
+                        requireView(),
+                        getQuantityString2(R.plurals.analyzer_content_swiper_session_created_x_items, event.itemCount),
+                        Snackbar.LENGTH_LONG
+                    )
+                    .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
+                        ContentFragmentDirections.goToSwiperSessions().navigate()
+                    }
+                    .show()
             }
         }
 

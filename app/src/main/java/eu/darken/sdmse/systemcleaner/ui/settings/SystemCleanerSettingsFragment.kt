@@ -53,6 +53,10 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         get() = findPreference(settings.filterUsageStatsEnabled.keyName)!!
     private val filterPackageCaches: BadgedCheckboxPreference
         get() = findPreference(settings.filterPackageCacheEnabled.keyName)!!
+    private val filterSuperfluosApksEnabled: CheckBoxPreference
+        get() = findPreference(settings.filterSuperfluosApksEnabled.keyName)!!
+    private val filterSuperfluosApksIncludeSameVersion: CheckBoxPreference
+        get() = findPreference(settings.filterSuperfluosApksIncludeSameVersion.keyName)!!
     private val filterScreenshotsEnabled: CheckBoxPreference
         get() = findPreference(settings.filterScreenshotsEnabled.keyName)!!
     private val filterScreenshotsAge: Preference
@@ -63,6 +67,12 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
 
         customFilterEntry.setOnPreferenceClickListener {
             SettingsFragmentDirections.actionSettingsContainerFragmentToCustomFilterListFragment().navigate()
+            true
+        }
+
+        filterSuperfluosApksIncludeSameVersion.isVisible = filterSuperfluosApksEnabled.isChecked
+        filterSuperfluosApksEnabled.setOnPreferenceChangeListener { _, isEnabled ->
+            filterSuperfluosApksIncludeSameVersion.isVisible = isEnabled as Boolean
             true
         }
 

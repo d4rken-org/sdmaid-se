@@ -14,6 +14,7 @@ import okio.Buffer
 data class PackageInfoPayload(
     val payload: List<PackageInfo>,
 ) : Parcelable {
+    @Suppress("DEPRECATION", "UNCHECKED_CAST")
     constructor(parcel: Parcel) : this(
         parcel.readParcelableArray(PackageInfo::class.java.classLoader)!!.toList() as List<PackageInfo>
     )

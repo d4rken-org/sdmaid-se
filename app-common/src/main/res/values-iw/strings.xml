@@ -5,6 +5,7 @@
     <string name="slogan_message_1">נקי ומסודר.</string>
     <string name="slogan_message_2">מונע כאוס.</string>
     <string name="slogan_message_3">עושה מה שצריך.</string>
+    <string name="slogan_message_4">כל הברווזים שלך ברצף.</string>
     <string name="slogan_message_5">ללא כתמים.</string>
     <string name="slogan_message_6">בייטים, הסתלקו!</string>
     <string name="slogan_message_7">מקום פנוי, מקום שמח.</string>
@@ -93,7 +94,6 @@
     <string name="general_toggle_layout_mode">שנה מצב תצוגה</string>
     <string name="general_delete_confirmation_title">אישור מחיקה</string>
     <string name="general_delete_confirmation_message_x">למחוק את \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">למחוק את %d הפריטים שנבחרו?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">פריט %d נמחק.</item>
         <item quantity="two">נמחקו %d פריטים.</item>
@@ -182,4 +182,6 @@
     <string name="general_error_invalid_input_label">קלט לא חוקי</string>
     <string name="general_information_for_the_developer">מידע למפתח</string>
     <string name="general_error_report_bug_action">דווח על באג</string>
+    <string name="general_error_ipc_deadobject_title">החיבור לשירות נותק</string>
+    <string name="general_error_ipc_deadobject_description">החיבור לשירות קריטי (למשל Magisk, Shizuku או שירותים מערכתיים אחרים) נותק באופן בלתי צפוי. אנא אתחל את המכשיר שלך. אם הבעיה נמשכת, בדוק אם קיימים עדכונים או פנה אליי כדי שאוכל לתקן זאת.</string>
 </resources>

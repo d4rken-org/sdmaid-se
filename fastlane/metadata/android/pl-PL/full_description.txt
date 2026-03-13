@@ -1,9 +1,9 @@
-<i>SD Maid 2/SE</i> to zaufany asystent Twojego Androida, który zadba o czystość i porządek.
+<i>SD Maid 2/SE</i> to zaufany asystent wtojego Androida, który zadba o czystość i porządek.
 
-Nikt nie jest doskonały, podobnie jak Android.
-* Usunięte aplikacje pozostawiają coś za sobą.
+Nikt nie jest doskonały, Android również.
+* Aplikacje, które już usunąłeś, pozostawiają po sobie jakieś ślady.
 * Logi, raporty o awariach i inne niepotrzebne pliki są tworzone na bieżąco.
-* W Twojej pamięci gromadzone są pliki i foldery, których nie rozpoznajesz.
+* W twojej pamięci gromadzone są pliki i foldery, których nie rozpoznajesz.
 * Duplikaty zdjęć w galerii.
 
 Nie tędy droga… Niech SD Maid 2/SE Ci pomoże!

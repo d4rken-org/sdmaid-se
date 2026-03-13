@@ -88,6 +88,12 @@
             android:id="@+id/action_dashboardFragment_to_deduplicatorDetailsFragment"
             app:destination="@id/deduplicatorDetailsFragment" />
         <action
+            android:id="@+id/action_dashboardFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_squeezerSetupFragment"
+            app:destination="@id/squeezerSetupFragment" />
+        <action
             android:id="@+id/action_dashboardFragment_to_systemCleanerDetailsFragment"
             app:destination="@id/systemCleanerDetailsFragment" />
         <action
@@ -99,6 +105,9 @@
         <action
             android:id="@+id/action_dashboardFragment_to_reportsFragment"
             app:destination="@id/reportsFragment" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_swiperSessionsFragment"
+            app:destination="@id/swiperSessionsFragment" />
     </fragment>
 
     <action
@@ -139,6 +148,12 @@
     <action
         android:id="@+id/goToUpgradeFragment"
         app:destination="@id/upgradeFragment" />
+    <action
+        android:id="@+id/goToReportsFragment"
+        app:destination="@id/reportsFragment" />
+    <action
+        android:id="@+id/goToSwiperSessions"
+        app:destination="@id/swiperSessionsFragment" />
     <fragment
         android:id="@+id/upgradeFragment"
         android:name="eu.darken.sdmse.common.upgrade.ui.UpgradeFragment"
@@ -246,8 +261,8 @@
         android:name="eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog"
         tools:layout="@layout/appcontrol_action_dialog">
         <argument
-            android:name="pkgId"
-            app:argType="eu.darken.sdmse.common.pkgs.Pkg$Id" />
+            android:name="installId"
+            app:argType="eu.darken.sdmse.common.pkgs.features.InstallId" />
     </dialog>
     <fragment
         android:id="@+id/dataAreasFragment"
@@ -450,6 +465,10 @@
             app:destination="@id/deduplicatorDetailsFragment" />
     </fragment>
     <fragment
+        android:id="@+id/arbiterConfigFragment"
+        android:name="eu.darken.sdmse.deduplicator.ui.settings.arbiter.ArbiterConfigFragment"
+        tools:layout="@layout/deduplicator_arbiter_config_fragment" />
+    <fragment
         android:id="@+id/deduplicatorDetailsFragment"
         android:name="eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment"
         tools:layout="@layout/deduplicator_details_fragment">
@@ -467,6 +486,26 @@
             android:name="identifier"
             app:argType="eu.darken.sdmse.deduplicator.core.Duplicate$Cluster$Id" />
     </fragment>
+    <fragment
+        android:id="@+id/squeezerSetupFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment"
+        tools:layout="@layout/squeezer_setup_fragment">
+        <action
+            android:id="@+id/action_squeezerSetupFragment_to_squeezerListFragment"
+            app:destination="@id/squeezerListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/squeezerListFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.list.SqueezerListFragment"
+        tools:layout="@layout/squeezer_list_fragment">
+        <action
+            android:id="@+id/goToExclusions"
+            app:destination="@id/exclusionsListFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/squeezerSettingsFragment"
+        android:name="eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment"
+        tools:layout="@layout/preference_fragment" />
 
     <action
         android:id="@+id/goToPreview"
@@ -518,6 +557,16 @@
     <action
         android:id="@+id/goToPicker"
         app:destination="@id/pickerFragment" />
+    <action
+        android:id="@+id/goToArbiterConfig"
+        app:destination="@id/arbiterConfigFragment" />
+    <action
+        android:id="@+id/goToDashboardCardConfig"
+        app:destination="@id/dashboardCardConfigFragment" />
+    <fragment
+        android:id="@+id/dashboardCardConfigFragment"
+        android:name="eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment"
+        tools:layout="@layout/dashboard_card_config_fragment" />
     <fragment
         android:id="@+id/pickerFragment"
         android:name="eu.darken.sdmse.common.picker.PickerFragment"
@@ -525,6 +574,43 @@
         <argument
             android:name="request"
             app:argType="eu.darken.sdmse.common.picker.PickerRequest" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/swiperSessionsFragment"
+        android:name="eu.darken.sdmse.swiper.ui.sessions.SwiperSessionsFragment"
+        tools:layout="@layout/swiper_sessions_fragment">
+        <action
+            android:id="@+id/action_swiperSessionsFragment_to_swiperSwipeFragment"
+            app:destination="@id/swiperSwipeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/swiperSwipeFragment"
+        android:name="eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeFragment"
+        tools:layout="@layout/swiper_swipe_fragment">
+        <argument
+            android:name="sessionId"
+            app:argType="string" />
+        <argument
+            android:name="startIndex"
+            android:defaultValue="-1"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_swiperSwipeFragment_to_swiperStatusFragment"
+            app:destination="@id/swiperStatusFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/swiperStatusFragment"
+        android:name="eu.darken.sdmse.swiper.ui.status.SwiperStatusFragment"
+        tools:layout="@layout/swiper_status_fragment">
+        <argument
+            android:name="sessionId"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_swiperStatusFragment_to_swiperSwipeFragment"
+            app:destination="@id/swiperSwipeFragment"
+            app:popUpTo="@id/swiperSwipeFragment"
+            app:popUpToInclusive="true" />
     </fragment>
 
 </navigation>

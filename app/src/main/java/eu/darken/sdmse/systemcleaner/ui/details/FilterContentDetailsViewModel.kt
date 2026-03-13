@@ -6,9 +6,11 @@ import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
@@ -35,7 +37,8 @@ class FilterContentDetailsViewModel @Inject constructor(
     private val taskManager: TaskManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
     private val args by handle.navArgs<FilterContentDetailsFragmentArgs>()
-    private var currentTarget: FilterIdentifier? = null
+    private var currentTarget: FilterIdentifier? by handle.mutableState("target")
+    private var lastPosition: Int? by handle.mutableState("position")
 
     init {
         systemCleaner.state
@@ -74,9 +77,19 @@ class FilterContentDetailsViewModel @Inject constructor(
                 data.filterContents.map { it.identifier }.toSet()
             },
     ) { progress, data ->
+        val sortedContents = data.filterContents.sortedByDescending { it.size }
+
+        val availableTarget = resolveTarget(
+            items = sortedContents,
+            requestedTarget = currentTarget ?: args.filterIdentifier,
+            lastPosition = lastPosition,
+            identifierOf = { it.identifier },
+            onPositionTracked = { lastPosition = it },
+        )
+
         State(
-            items = data.filterContents.sortedByDescending { it.size },
-            target = currentTarget ?: args.filterIdentifier,
+            items = sortedContents,
+            target = availableTarget,
             progress = progress,
         )
     }.asLiveData2()

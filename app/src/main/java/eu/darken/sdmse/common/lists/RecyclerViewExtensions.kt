@@ -15,7 +15,9 @@ import androidx.recyclerview.widget.RecyclerView.LayoutManager
 import com.google.android.material.appbar.MaterialToolbar
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.DividerItemDecoration2
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.selection.ItemSelectionKeyProvider
@@ -90,7 +92,8 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
     onPrepare: (SelectionTracker<String>, ActionMode, Menu) -> Boolean = { _: SelectionTracker<String>, _: ActionMode, _: Menu -> false },
     onSelected: (SelectionTracker<String>, MenuItem, List<ItemT>) -> Boolean,
     onChange: (SelectionTracker<String>) -> Unit = {},
-    selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything()
+    selectionPredicate: SelectionTracker.SelectionPredicate<String> = SelectionPredicates.createSelectAnything(),
+    cabTitle: ((List<ItemT>) -> CharSequence)? = null,
 ): SelectionTracker<String> where AdapterT : DataAdapter<ItemT>, AdapterT : ModularAdapter<*> {
     val context = requireContext()
     val tracker = adapter.setupSelectionBase(list, selectionPredicate)
@@ -118,7 +121,7 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
             }
 
             else -> {
-                val selectedItems = tracker.selection.map { key -> adapter.data.first { it.itemSelectionKey == key } }
+                val selectedItems = resolveSelection(tracker, adapter.data, "onActionItemClicked")
                 onSelected(tracker, menuItem, selectedItems)
             }
         }
@@ -136,10 +139,15 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
                 tracker.hasSelection() -> {
                     actionMode ?: toolbar.startActionMode(cabCallback)?.also { actionMode = it }
                     actionMode?.apply {
-                        title = context.getQuantityString2(
-                            eu.darken.sdmse.common.R.plurals.result_x_items,
-                            tracker.selection.size()
-                        )
+                        title = if (cabTitle != null) {
+                            val selectedItems = resolveSelection(tracker, adapter.data, "onSelectionChanged")
+                            cabTitle.invoke(selectedItems)
+                        } else {
+                            context.getQuantityString2(
+                                eu.darken.sdmse.common.R.plurals.result_x_items,
+                                tracker.selection.size()
+                            )
+                        }
                         invalidate()
                     }
                 }
@@ -153,4 +161,17 @@ fun <AdapterT, ItemT : SelectableItem> Fragment3.installListSelection(
     })
 
     return tracker
+}
+
+private val TAG = logTag("ListSelection")
+
+internal fun <ItemT : SelectableItem> resolveSelection(
+    tracker: SelectionTracker<String>,
+    data: List<ItemT>,
+    caller: String,
+): List<ItemT> {
+    val resolved = tracker.selection.mapNotNull { key -> data.firstOrNull { it.itemSelectionKey == key } }
+    val staleCount = tracker.selection.size() - resolved.size
+    if (staleCount > 0) log(TAG, WARN) { "$caller: $staleCount stale selection keys" }
+    return resolved
 }

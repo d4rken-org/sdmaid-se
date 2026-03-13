@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">অবৈধ යෙදුම් ලැයිස්තුව</string>
+    <string name="pkgrepo_invalid_inventory_error_description">SD Maid වෙත පද්ධතිය ස්ථාපිත යෙදුම් පිළිබඳව অবৈধ ලැයිස්තුවක් ලබා දී ඇත.</string>
+</resources>

@@ -52,6 +52,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
     private var searchView: SearchView? = null
     private var showAppToggleActions: Boolean = false
     private var showAppForceStopActions: Boolean = false
+    private var showAppArchiveActions: Boolean = false
+    private var showAppRestoreActions: Boolean = false
 
     val DrawerLayout.isDrawerOpen: Boolean
         get() = isDrawerOpen(GravityCompat.END)
@@ -99,6 +101,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.action_filterpane -> {
@@ -153,6 +156,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
             onPrepare = { _: SelectionTracker<String>, _: ActionMode, menu: Menu ->
                 menu.findItem(R.id.action_toggle_selection)?.isVisible = showAppToggleActions
                 menu.findItem(R.id.action_forcestop_selection)?.isVisible = showAppForceStopActions
+                menu.findItem(R.id.action_archive_selection)?.isVisible = showAppArchiveActions
+                menu.findItem(R.id.action_restore_selection)?.isVisible = showAppRestoreActions
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: Collection<AppControlListAdapter.Item> ->
@@ -185,6 +190,24 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
                     R.id.action_forcestop_selection -> {
                         vm.forceStop(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_archive_selection -> {
+                        vm.archive(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_restore_selection -> {
+                        vm.restore(selected)
+                        tracker.clearSelection()
+                        true
+                    }
+
+                    R.id.action_share_selection -> {
+                        vm.shareList(selected)
                         tracker.clearSelection()
                         true
                     }
@@ -231,6 +254,8 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
         vm.state.observe2(ui) { state ->
             showAppToggleActions = state.allowActionToggle
             showAppForceStopActions = state.allowActionForceStop
+            showAppArchiveActions = state.allowActionArchive
+            showAppRestoreActions = state.allowActionRestore
 
             loadingOverlay.setProgress(state.progress)
             list.isGone = state.progress != null
@@ -307,8 +332,9 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     setTitle(eu.darken.sdmse.common.R.string.general_delete_confirmation_title)
                     setMessage(
                         if (event.items.size > 1) {
-                            getString(
-                                eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                            resources.getQuantityString(
+                                eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                                event.items.size,
                                 event.items.size
                             )
                         } else {
@@ -370,12 +396,44 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                     setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
                 }.show()
 
+                is AppControlListEvents.ConfirmArchive -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.appcontrol_archive_confirmation_title)
+                    setMessage(
+                        getQuantityString2(R.plurals.appcontrol_archive_confirmation_x, event.items.size)
+                    )
+                    setPositiveButton(R.string.appcontrol_archive_action) { _, _ ->
+                        vm.archive(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+
+                is AppControlListEvents.ConfirmRestore -> MaterialAlertDialogBuilder(requireContext()).apply {
+                    setTitle(R.string.appcontrol_restore_confirmation_title)
+                    setMessage(
+                        getQuantityString2(R.plurals.appcontrol_restore_confirmation_x, event.items.size)
+                    )
+                    setPositiveButton(R.string.appcontrol_restore_action) { _, _ ->
+                        vm.restore(event.items, confirmed = true)
+                        tracker.clearSelection()
+                    }
+                    setNeutralButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                }.show()
+
                 is AppControlListEvents.ShowResult -> {
                     Snackbar.make(
                         requireView(),
                         event.result.primaryInfo.get(requireContext()),
                         Snackbar.LENGTH_SHORT
                     ).show()
+                }
+
+                is AppControlListEvents.ShareList -> {
+                    val shareIntent = Intent(Intent.ACTION_SEND).apply {
+                        type = "text/plain"
+                        putExtra(Intent.EXTRA_TEXT, event.text)
+                    }
+                    startActivity(Intent.createChooser(shareIntent, null))
                 }
             }
         }

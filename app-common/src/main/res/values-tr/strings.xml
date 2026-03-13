@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Temiz ve düzenli.</string>
     <string name="slogan_message_2">Kaosu önleme.</string>
     <string name="slogan_message_3">Gerekeni yapmak.</string>
+    <string name="slogan_message_4">Tüm işleriniz hazır ve organize.</string>
     <string name="slogan_message_5">Tertemiz.</string>
     <string name="slogan_message_6">Bitler, defolun!</string>
     <string name="slogan_message_7">Boş alan, mutlu yer.</string>
@@ -91,7 +92,10 @@
     <string name="general_toggle_layout_mode">Görünüm modunu değiştir</string>
     <string name="general_delete_confirmation_title">Silmeyi onayla</string>
     <string name="general_delete_confirmation_message_x">\"%s\" silinsin mi?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Seçili %d öğe silinsin mi?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Seçili %d öğe silinsin mi?</item>
+        <item quantity="other">Seçili %d öğe silinsin mi?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">%d öğe silindi.</item>
         <item quantity="other">%d öğe silindi.</item>
@@ -162,4 +166,8 @@
     <string name="general_error_invalid_input_label">Geçersiz giriş</string>
     <string name="general_information_for_the_developer">Geliştirici için bilgiler</string>
     <string name="general_error_report_bug_action">Hata bildir</string>
+    <string name="general_error_ipc_deadobject_title">Servis bağlantısı kesildi</string>
+    <string name="general_error_ipc_deadobject_description">Kritik bir hizmetle (örneğin Magisk, Shizuku veya diğer sistem düzeyi hizmetler) bağlantı beklenmedik bir şekilde kesildi. Lütfen cihazınızı yeniden başlatın. Sorun devam ederse, güncellemeleri kontrol edin veya düzeltebilmem için bana ulaşın.</string>
+    <string name="general_user_label_owner">Sahibi</string>
+    <string name="general_user_label_system">Sistem</string>
 </resources>

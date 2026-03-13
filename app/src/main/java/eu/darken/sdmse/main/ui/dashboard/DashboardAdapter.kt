@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.lists.differ.setupDiffer
 import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
+import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
 import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
@@ -25,7 +26,9 @@ import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.ui.SchedulerDashCardVH
+import eu.darken.sdmse.squeezer.ui.SqueezerDashCardVH
 import eu.darken.sdmse.stats.ui.StatsDashCardVH
+import eu.darken.sdmse.swiper.ui.SwiperDashCardVH
 import javax.inject.Inject
 
 @ActivityScoped
@@ -40,7 +43,7 @@ class DashboardAdapter @Inject constructor(
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is TitleCardVH.Item }) { TitleCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DebugCardVH.Item }) { DebugCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SetupCardVH.Item }) { SetupCardVH(it) })
@@ -49,11 +52,14 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is DashboardToolCard.Item }) { DashboardToolCard(it) })
         addMod(TypedVHCreatorMod({ data[it] is AppControlDashCardVH.Item }) { AppControlDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AnalyzerDashCardVH.Item }) { AnalyzerDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SqueezerDashCardVH.Item }) { SqueezerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DebugRecorderCardVH.Item }) { DebugRecorderCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
+        addMod(TypedVHCreatorMod({ data[it] is AnniversaryCardVH.Item }) { AnniversaryCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is StatsDashCardVH.Item }) { StatsDashCardVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is SwiperDashCardVH.Item }) { SwiperDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ErrorDataAreaVH.Item }) { ErrorDataAreaVH(it) })
     }
 

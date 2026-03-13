@@ -31,5 +31,5 @@ data class HiddenPkg(
             ?: AppCompatResources.getDrawable(context, R.drawable.ic_default_app_icon_24)!!
     }.cache()
 
-    override fun toString(): String = "HiddenPkg(packageName=$packageName"
+    override fun toString(): String = "HiddenPkg(packageName=$packageName, userHandle=$userHandle)"
 }

@@ -103,7 +103,7 @@ class FlymeSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Flyme", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Flyme", "Specs")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

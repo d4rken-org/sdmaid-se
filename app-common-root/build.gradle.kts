@@ -1,10 +1,7 @@
 plugins {
     id("com.android.library")
-    id("org.jetbrains.kotlin.android")
-    id("kotlin-android")
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
-    id("kotlin-kapt")
     id("projectConfig")
 }
 
@@ -24,7 +21,6 @@ android {
 
     setupCompileOptions()
 
-    setupKotlinOptions()
 
     testOptions {
         unitTests {
@@ -32,10 +28,12 @@ android {
         }
         tasks.withType<Test> {
             useJUnitPlatform()
-            setupTestLogging()
+            setupTests()
         }
     }
 }
+
+setupKotlinOptions()
 
 dependencies {
     coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:${Versions.Desugar.core}")

@@ -27,9 +27,11 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.MediaStoreTool
 import eu.darken.sdmse.common.files.delete
 import eu.darken.sdmse.common.files.filterDistinctRoots
 import eu.darken.sdmse.common.files.isAncestorOf
+import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.flow.replayingShare
 import eu.darken.sdmse.common.getQuantityString2
@@ -63,6 +65,7 @@ class Analyzer @Inject constructor(
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
     private val appInventorySetupModule: InventorySetupModule,
+    private val mediaStoreTool: MediaStoreTool,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.ANALYZER
@@ -188,6 +191,7 @@ class Analyzer @Inject constructor(
                 log(TAG) { "Deleting $target" }
                 updateProgressSecondary(target.userReadablePath)
                 target.delete(gatewaySwitch, recursive = true)
+                (target as? LocalPath)?.let { mediaStoreTool.notifyDeleted(it) }
             }
 
         // TODO this seems convoluted, can we come up with a better data pattern?
@@ -237,6 +241,8 @@ class Analyzer @Inject constructor(
         storageCategories.value = storageCategories.value.mutate {
             this[task.storageId] = this[task.storageId]!!.minus(oldCategory).plus(newCategory)
         }
+
+        mediaStoreTool.flush()
 
         return ContentDeleteTask.Result(
             affectedSpace = freedSpace,

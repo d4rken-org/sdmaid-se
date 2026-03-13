@@ -6,15 +6,24 @@
     <string name="dashboard_settings_oneclick_summary">Start scan and deletion for all tools with a tap on the dashboard\'s action button, no extra confirmations.</string>
     <string name="dashboard_settings_oneclick_tools_title">One-Tap Tools</string>
     <string name="dashboard_settings_oneclick_tools_desc">Which tools should be included in one-tap operations?</string>
+    <string name="dashboard_card_config_title">Dashboard cards</string>
+    <string name="dashboard_card_config_desc">Configure which cards are shown and their order</string>
+    <string name="dashboard_card_config_header_title">Drag to reorder, toggle to show/hide</string>
 
-    <string name="debug_debuglog_size_label">Size</string>
-    <string name="debug_debuglog_size_compressed_label">Compressed size</string>
     <string name="debug_notification_channel_label">Debug notifications</string>
     <string name="debug_debuglog_file_label">Recorded log file</string>
     <string name="debug_debuglog_recording_progress">Recording debug log</string>
     <string name="debug_debuglog_record_action">Record debug log</string>
     <string name="debug_debuglog_stop_action">Stop recording</string>
     <string name="debug_debuglog_sensitive_information_message">The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties.</string>
+    <string name="debug_debuglog_screen_title">Debug Log</string>
+    <string name="debug_debuglog_screen_discard_action">Discard</string>
+    <string name="debug_debuglog_screen_session_path_label">Session Path</string>
+    <string name="debug_debuglog_screen_log_files_label">Log Files</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d file ready (%2$s)</item>
+        <item quantity="other">%1$d files ready (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">This feature records everything the app is doing into a shareable file. The generated file contains sensitive information (e.g. file names and installed apps). Only share it with trusted parties (e.g. a developer troubleshooting an issue).</string>
 
     <string name="tasks_activity_notification_channel_label">Active tasks</string>
@@ -58,7 +67,6 @@
 
     <string name="settings_privacy_policy_label">Privacy policy</string>
     <string name="settings_privacy_policy_desc">Handling data responsibly.</string>
-    <string name="settings_licenses_label">Licenses</string>
     <string name="settings_category_other_label">Other</string>
 
     <string name="settings_category_filter_generic">Generic filter</string>
@@ -96,11 +104,25 @@
     <string name="support_installid_desc">Automatic error reports are anonymous. Share your install ID if the developer needs to find your error reports.</string>
     <string name="support_debuglog_label">Debug log</string>
     <string name="support_debuglog_desc">Record everything the app is doing into a text file that you can share.</string>
+    <string name="support_debuglog_folder_label">Debug log folder</string>
+    <plurals name="support_debuglog_folder_desc">
+        <item quantity="one">%1$d file using %2$s</item>
+        <item quantity="other">%1$d files using %2$s</item>
+    </plurals>
+    <string name="support_debuglog_folder_empty_desc">No debug logs stored</string>
+    <string name="support_debuglog_folder_delete_confirmation_title">Delete all debug logs?</string>
+    <string name="support_debuglog_folder_delete_confirmation_message">This will permanently delete all stored debug log sessions. This action cannot be undone.</string>
     <string name="discord_label">Discord</string>
     <string name="discord_description">A place to hang out in and ask questions.</string>
 
     <string name="changelog_label">Changelog</string>
     <string name="settings_acknowledgements_label">Acknowledgements</string>
+    <string name="settings_acknowledgements_category_translations_title">Translations</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Who translated this?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Thanks</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Special thanks to our friends.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licenses</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Software used by SD Maid.</string>
 
     <string name="setup_label">Setup</string>
     <string name="setup_incomplete_card_title">Setup is incomplete</string>
@@ -187,6 +209,14 @@
     <string name="debug_mode_explanation">Enable test options and more verbose output. App will run slower and perform differently.</string>
     <string name="debug_bugreporter_label">Automatic bug reports</string>
     <string name="debug_bugreporter_summary">Automatically reports issues, e.g. details on the app crashes so I can figure out why and fix it.</string>
+    <!-- Debug card (dashboard) -->
+    <string name="debug_card_title">Debug mode is enabled</string>
+    <string name="debug_card_trace_mode_label">Enable trace mode</string>
+    <string name="debug_card_dryrun_mode_label">Dry-run mode (disable deletion)</string>
+    <string name="debug_card_areas_reload_action">Reload data areas</string>
+    <string name="debug_card_pkgs_reload_action">Reload apps</string>
+    <string name="debug_card_root_test_action">Test root</string>
+    <string name="debug_card_shizuku_test_action">Test Shizuku</string>
 
     <string name="settings_category_tools_label">Tools</string>
     <string name="settings_category_filter">Filter</string>
@@ -225,6 +255,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Private app data, e.g. credentials, app settings but also browser caches.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik cache</string>
     <string name="corpsefinder_filter_dalvik_summary">Cached app execution data.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART profiles</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART profiles are used by Android to optimize app performance.</string>
     <string name="corpsefinder_filter_applib_label">App libraries</string>
     <string name="corpsefinder_filter_applib_summary">App related library data.</string>
     <string name="corpsefinder_filter_appsource_label">App sources</string>
@@ -280,7 +312,9 @@
     <string name="systemcleaner_filter_screenshots_age_label">Screenshot Age</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Minimum age for screenshots to be considered for deletion.</string>
     <string name="systemcleaner_filter_superfluosapks_label">Superfluous APKs</string>
-    <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are older or equal to app versions that are already installed.</string>
+    <string name="systemcleaner_filter_superfluosapks_summary">Setup files that are no longer needed based on installed app versions.</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_label">Include same version</string>
+    <string name="systemcleaner_filter_superfluosapks_includesameversion_summary">Also target APK files that match the installed version. Disable to only remove older versions.</string>
     <string name="systemcleaner_filter_lostdir_label">LOST.DIR folders</string>
     <string name="systemcleaner_filter_lostdir_summary">Temporary files that are created when transferring data between Android devices.</string>
     <string name="systemcleaner_filter_linuxfiles_label">Linux files</string>
@@ -342,6 +376,14 @@
     <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Name is equal to keyword</string>
     <string name="systemcleaner_customfilter_last_edit">Last edit: %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Live search</string>
+    <string name="systemcleaner_customfilter_editor_size_label">Size restrictions</string>
+    <string name="systemcleaner_customfilter_editor_size_minimum_label">Minimum size</string>
+    <string name="systemcleaner_customfilter_editor_size_maximum_label">Maximum size</string>
+    <string name="systemcleaner_customfilter_editor_size_explanation">Limit matches based on file size. Leave unset to match any size.</string>
+    <string name="systemcleaner_customfilter_editor_age_label">Age restrictions</string>
+    <string name="systemcleaner_customfilter_editor_age_minimum_label">Minimum age</string>
+    <string name="systemcleaner_customfilter_editor_age_maximum_label">Maximum age</string>
+    <string name="systemcleaner_customfilter_editor_age_explanation">Limit matches based on file age (last modified time). Leave unset to match any age.</string>
     <string name="systemcleaner_customfilter_import_action">Import new filter</string>
     <string name="systemcleaner_customfilter_export_action">Export selected filter</string>
 
@@ -385,6 +427,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Files that have been deleted but put into a special folder to allow to restore them.</string>
     <string name="appcleaner_filter_webview_label">Webview files</string>
     <string name="appcleaner_filter_webview_summary">Files cached by Webview instances used within apps.</string>
+    <string name="appcleaner_filter_shortcutservice_label">App shortcut icons</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Cached icons for app shortcuts and share menus.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp backups</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Delete extra copies of WhatsApp backups and only keep the latest.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Files you received from people via WhatsApp.</string>
@@ -438,6 +482,9 @@
     <string name="appcleaner_automation_error_no_settings_body">This system app has no settings screen. Cache clearing via accessibility service is not possible. Exclude it to speed up cache clearing.</string>
     <string name="appcleaner_automation_error_securitycenter_permission_title">System app misconfigured</string>
     <string name="appcleaner_automation_error_securitycenter_permission_body">HyperOS\'s Security app (com.miui.securitycenter) is missing the Usage Stats permission (GET_USAGE_STATS). This breaks features like "Clear Data" in app details and cache clearing via accessibility. Grant the permission to restore full functionality.</string>
+    <string name="appcleaner_forcestop_before_clearing_label">Force-stop before clearing</string>
+    <string name="appcleaner_forcestop_before_clearing_summary">Force-stop apps before clearing their cache. It can help clear some apps\' caches, but may cause apps to misbehave and require manual restart.</string>
+    <string name="appcleaner_progress_force_stopping">Force-stopping apps…</string>
 
     <string name="deduplicator_tool_name">Deduplicator</string>
     <string name="deduplicator_explanation_short">Find duplicate data on your device.</string>
@@ -453,6 +500,9 @@
     <string name="deduplicator_protection_deleteall_allowed_summary">Show options that allow you to delete all files in a set of duplicates so that no file is left over.</string>
     <string name="deduplicator_search_locations_title">Search locations</string>
     <string name="deduplicator_search_locations_all_summary">All accessible areas</string>
+    <string name="deduplicator_keep_prefer_paths_title">Prefer keeping in</string>
+    <string name="deduplicator_keep_prefer_paths_summary">When deciding which duplicate to keep, prefer keeping files in these locations.</string>
+    <string name="deduplicator_keep_prefer_paths_none_summary">No locations configured</string>
     <string name="deduplicator_skip_minsize_title">Minimum size</string>
     <string name="deduplicator_skip_minsize_description">Skip files that are below the minimum size.</string>
     <string name="deduplicator_skip_uncommon_title">Skip uncommon file types</string>
@@ -461,7 +511,7 @@
     <string name="deduplicator_detection_method_checksum_title">Content checksum</string>
     <string name="deduplicator_detection_method_checksum_summary">Determine duplicates by calculating checksums for files. Files with matching checksums have the exact same content.</string>
     <string name="deduplicator_detection_method_phash_title">Perceptual hash</string>
-    <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values.</string>
+    <string name="deduplicator_detection_method_phash_summary">Find similar files by analyzing content features and comparing perceptual hash values. ⚠️ Similarity-based detection may include false positives requiring manual verification.</string>
     <string name="deduplicator_occupied_space_label">Occupied storage</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s is occupied by duplicates</item>
@@ -480,6 +530,129 @@
     <string name="deduplicator_details_cluster_title">Set of duplicates</string>
     <string name="deduplicator_matches_exact_label">Exact copies</string>
     <string name="deduplicator_matches_similar_label">Similar files</string>
+    <string name="deduplicator_arbiter_title">Deletion strategy</string>
+    <string name="deduplicator_arbiter_summary">Configure which files are kept and which are deleted.</string>
+    <string name="deduplicator_arbiter_explanation">When deleting duplicates, SD Maid decides which file to keep by checking each criterion in order. The first criterion that produces a clear winner determines the result. Drag to reorder, tap to change mode.</string>
+    <string name="deduplicator_arbiter_select_mode_title">Select mode</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configure paths…</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_title">Duplicate type</string>
+    <string name="deduplicator_arbiter_criterium_duplicate_type_description">Prefer exact matches over similar files.</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_title">Media indexing</string>
+    <string name="deduplicator_arbiter_criterium_media_provider_description">Consider whether files are indexed by the media provider.</string>
+    <string name="deduplicator_arbiter_criterium_location_title">Storage location</string>
+    <string name="deduplicator_arbiter_criterium_location_description">Prefer files on internal or external storage.</string>
+    <string name="deduplicator_arbiter_criterium_nesting_title">Folder depth</string>
+    <string name="deduplicator_arbiter_criterium_nesting_description">Prefer files in shallower or deeper folder structures.</string>
+    <string name="deduplicator_arbiter_criterium_modified_title">Modification date</string>
+    <string name="deduplicator_arbiter_criterium_modified_description">Prefer older or newer files based on modification time.</string>
+    <string name="deduplicator_arbiter_criterium_size_title">File size</string>
+    <string name="deduplicator_arbiter_criterium_size_description">Prefer larger or smaller files when sizes differ.</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_title">Preferred locations</string>
+    <string name="deduplicator_arbiter_criterium_preferred_path_description">Keep files in your configured preferred locations.</string>
+    <string name="deduplicator_arbiter_mode_prefer_checksum">Prefer exact matches</string>
+    <string name="deduplicator_arbiter_mode_prefer_phash">Prefer similar files</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Prefer indexed files</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Prefer non-indexed files</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Prefer internal storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Prefer external storage</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Prefer shallow folders</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Prefer deeper folders</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Prefer older files</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Prefer newer files</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Prefer larger files</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Prefer smaller files</string>
+
+    <string name="deduplicator_view_mode_groups_label">Groups</string>
+    <string name="deduplicator_view_mode_directories_label">Folders</string>
+
+
+    <string name="squeezer_tool_name">Media Squeeze</string>
+    <string name="squeezer_explanation_short">Compress images to save storage space.</string>
+    <plurals name="squeezer_result_x_images_found">
+        <item quantity="one">%d image found</item>
+        <item quantity="other">%d images found</item>
+    </plurals>
+    <plurals name="squeezer_result_x_estimated_savings">
+        <item quantity="one">~%s can be saved</item>
+        <item quantity="other">~%s can be saved</item>
+    </plurals>
+    <plurals name="squeezer_result_x_images_compressed">
+        <item quantity="one">%d image compressed</item>
+        <item quantity="other">%d images compressed</item>
+    </plurals>
+    <plurals name="squeezer_preview_x_images">
+        <item quantity="one">%d image selected</item>
+        <item quantity="other">%d images selected</item>
+    </plurals>
+    <string name="squeezer_search_locations_title">Search locations</string>
+    <string name="squeezer_search_locations_default_summary">Camera folders (default)</string>
+    <string name="squeezer_min_size_title">Minimum file size</string>
+    <string name="squeezer_min_size_description">Skip images smaller than this size.</string>
+    <string name="squeezer_min_age_title">Minimum file age</string>
+    <string name="squeezer_min_age_description">Only include images older than this age.</string>
+    <string name="squeezer_compression_settings_label">Compression settings</string>
+    <string name="squeezer_quality_label">Quality</string>
+    <string name="squeezer_quality_title">Compression quality</string>
+    <string name="squeezer_quality_description">Lower quality means smaller file size but reduced image quality.</string>
+    <string name="squeezer_quality_value_format">%d%%</string>
+    <string name="squeezer_quality_example_format">Example: %1$s image → saves ~%2$s at %3$d%% quality</string>
+    <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
+    <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
+    <string name="squeezer_types_category_label">Image types</string>
+    <string name="squeezer_type_jpeg_title">JPEG</string>
+    <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg).</string>
+    <string name="squeezer_type_webp_title">WebP</string>
+    <string name="squeezer_type_webp_description">Include WebP images (.webp).</string>
+    <string name="squeezer_skip_compressed_title">Skip previously compressed</string>
+    <string name="squeezer_skip_compressed_description">Skip images that have already been compressed by SD Maid.</string>
+    <string name="squeezer_exif_marker_title">Write EXIF marker</string>
+    <string name="squeezer_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
+    <string name="squeezer_estimated_savings_format">~%s savings</string>
+    <string name="squeezer_no_savings_expected">Limited savings</string>
+    <string name="squeezer_current_size_format">Size: %s</string>
+    <string name="squeezer_compress_action">Compress</string>
+    <string name="squeezer_compress_all_action">Compress all</string>
+    <string name="squeezer_preview_dialog_title">Confirm compression</string>
+    <string name="squeezer_preview_total_size">Total size</string>
+    <string name="squeezer_preview_estimated_savings">Estimated savings</string>
+    <string name="squeezer_compress_confirmation_title">Compress images?</string>
+    <string name="squeezer_compress_confirmation_message">This will replace original images with compressed versions. This action cannot be undone.</string>
+    <string name="squeezer_history_title">Compression history</string>
+    <plurals name="squeezer_history_summary">
+        <item quantity="one">%1$d item (%2$s)</item>
+        <item quantity="other">%1$d items (%2$s)</item>
+    </plurals>
+    <string name="squeezer_history_empty">No compression history</string>
+    <string name="squeezer_history_clear_title">Clear compression history</string>
+    <string name="squeezer_history_clear_message">This will allow previously compressed images to be compressed again. The images themselves are not affected.</string>
+    <string name="squeezer_onboarding_title">About Image Compression</string>
+    <string name="squeezer_onboarding_message">Image compression reduces file size by removing visual detail. This process is irreversible - the original quality cannot be restored.\n\nHere\'s a preview of how your images will look:</string>
+    <string name="squeezer_onboarding_original_label">Original</string>
+    <string name="squeezer_onboarding_compressed_label">After compression</string>
+    <string name="squeezer_onboarding_quality_label">Quality: %d%%</string>
+    <string name="squeezer_onboarding_tap_to_zoom_hint">Tap images to zoom</string>
+    <string name="squeezer_onboarding_got_it">Got it</string>
+    <string name="squeezer_preview_info_action">Show example</string>
+    <string name="squeezer_no_example_found">No images found in selected paths.</string>
+    <string name="squeezer_result_empty_message">No compressible images found.</string>
+    <string name="squeezer_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduces the file size of images to free up storage space. This permanently reduces image quality and cannot be undone. Review your settings carefully before starting.</string>
+    <string name="squeezer_setup_paths_title">Search locations</string>
+    <string name="squeezer_setup_paths_default">Select folders to search</string>
+    <string name="squeezer_setup_quality_title">Compression quality</string>
+    <string name="squeezer_setup_age_title">Minimum age</string>
+    <string name="squeezer_setup_age_none">No limit (include all files)</string>
+    <string name="squeezer_setup_start_action">Start Scan</string>
+    <string name="squeezer_quality_value">%d%%</string>
+    <string name="squeezer_quality_hint_very_low">Quality below 40% may create unusable images.</string>
+    <string name="squeezer_quality_hint_low">Lower quality saves more space but may cause visible artifacts.</string>
+    <string name="squeezer_quality_hint_high">Very high quality provides minimal space savings.</string>
+    <string name="squeezer_quality_hint_normal">Balanced quality and space savings.</string>
+    <plurals name="squeezer_min_age_x_days">
+        <item quantity="one">At least %d day old</item>
+        <item quantity="other">At least %d days old</item>
+    </plurals>
+    <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for JPEG files</string>
 
 
     <string name="appcontrol_tool_name">AppControl</string>
@@ -500,7 +673,7 @@
     <string name="appcontrol_app_launch_title">Launch app</string>
     <string name="appcontrol_app_launch_description">Launch this app\'s primary activity.</string>
     <string name="appcontrol_app_forcestop_title">Force stop</string>
-    <string name="appcontrol_app_forcestop_description">Stops the app. Prevents it from starting itself until you open it or the device is rebooted.</string>
+    <string name="appcontrol_app_forcestop_description">Stop the app. Prevent it from starting itself until you open it or the device is rebooted.</string>
     <string name="appcontrol_app_uninstall_description">Uninstall this app from your device.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude app</string>
     <string name="appcontrol_app_exclude_add_description">Exclude this app from other operations in SD Maid.</string>
@@ -516,6 +689,7 @@
     <string name="appcontrol_tag_not_installed">Not installed</string>
     <string name="appcontrol_tag_enabled">Enabled</string>
     <string name="appcontrol_tag_disabled">Disabled</string>
+    <string name="appcontrol_tag_debug">Debug</string>
     <string name="appcontrol_progress_enabling_package">Enabling app</string>
     <string name="appcontrol_progress_disabling_package">Disabling app</string>
     <string name="appcontrol_list_filteroptions_label">Filter options</string>
@@ -530,6 +704,32 @@
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app was uninstalled</item>
         <item quantity="other">%d apps were uninstalled</item>
+    </plurals>
+    <string name="appcontrol_archive_action">Archive</string>
+    <string name="appcontrol_archive_selection_action">Archive apps</string>
+    <string name="appcontrol_archive_description">Archive to free space while keeping app data for later restoration.</string>
+    <string name="appcontrol_progress_archiving_app">Archiving app…</string>
+    <string name="appcontrol_archive_confirmation_title">Confirm archive</string>
+    <plurals name="appcontrol_archive_confirmation_x">
+        <item quantity="one">Archive %d app?</item>
+        <item quantity="other">Archive %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_archive_result_x">
+        <item quantity="one">%d app archived</item>
+        <item quantity="other">%d apps archived</item>
+    </plurals>
+    <string name="appcontrol_restore_action">Restore</string>
+    <string name="appcontrol_restore_selection_action">Restore apps</string>
+    <string name="appcontrol_restore_description">Restore archived app to fully installed state. App data is preserved.</string>
+    <string name="appcontrol_progress_restoring_app">Restoring app…</string>
+    <string name="appcontrol_restore_confirmation_title">Confirm restore</string>
+    <plurals name="appcontrol_restore_confirmation_x">
+        <item quantity="one">Restore %d app?</item>
+        <item quantity="other">Restore %d apps?</item>
+    </plurals>
+    <plurals name="appcontrol_restore_result_x">
+        <item quantity="one">%d app restored</item>
+        <item quantity="other">%d apps restored</item>
     </plurals>
     <string name="appcontrol_app_sizes_title">App size</string>
     <string name="appcontrol_app_sizes_apk_label">App</string>
@@ -548,14 +748,19 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Get a rough estimate of each app\'s size.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determine activity</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Find out if an app is (or recently was) active.</string>
+    <string name="appcontrol_include_multiuser_label">Include other users</string>
+    <string name="appcontrol_include_multiuser_summary">Include apps from other user profiles on this device.</string>
     <string name="appcontrol_export_app_selection_action">Export apps</string>
     <string name="appcontrol_export_title">Export app</string>
-    <string name="appcontrol_export_description">Save this app\’s installation files. This does not include app data.</string>
+    <string name="appcontrol_export_description">Save this app\'s installation files. This does not include app data.</string>
     <plurals name="appcontrol_export_result_message_x">
         <item quantity="one">%d app was exported</item>
         <item quantity="other">%d apps were exported</item>
     </plurals>
     <string name="appcontrol_progress_exporting_x">Exporting %s</string>
+    <string name="appcontrol_share_list_action">Share list</string>
+    <string name="appcontrol_share_list_title">My Apps</string>
+    <string name="appcontrol_share_list_footer">Shared via SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Force stop apps</string>
     <string name="appcontrol_force_stop_action">Force stop</string>
     <string name="appcontrol_force_stop_confirm_title">Confirm force stop</string>
@@ -572,9 +777,13 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Force stopping…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Looking for \"Force stop\" button (keywords: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Trying to confirm previous action (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_archiving">Archiving…</string>
+    <string name="appcontrol_automation_progress_find_archive">Looking for \"Archive\" button (keywords: %s)</string>
+    <string name="appcontrol_automation_subtitle_restoring">Restoring…</string>
+    <string name="appcontrol_automation_progress_find_restore">Looking for \"Restore\" button (keywords: %s)</string>
     <string name="appcontrol_item_screentime_x_since_y_label">Screen time: %1$s since %2$s</string>
     <string name="appcontrol_item_lastupdate_x_label">Last updated: %s</string>
-    <string name="appcontrol_item_installedat_x_label">Installed at: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Installed on: %s</string>
 
     <string name="analyzer_tool_name">StorageAnalyzer</string>
     <string name="analyzer_explanation_short">Find out what is taking up space on your device.</string>
@@ -593,6 +802,11 @@
         <item quantity="other">%s used</item>
     </plurals>
     <string name="analyzer_content_access_opaque">No direct access available</string>
+    <string name="analyzer_content_create_swiper_session_action">Create Swiper session</string>
+    <plurals name="analyzer_content_swiper_session_created_x_items">
+        <item quantity="one">Swiper session created with %d item</item>
+        <item quantity="other">Swiper session created with %d items</item>
+    </plurals>
     <string name="analyzer_storage_type_primary_title">Primary storage</string>
     <string name="analyzer_storage_type_primary_description">The primary storage of your device. Contains the internal SD card, private storage for apps and system data.</string>
     <string name="analyzer_storage_type_secondary_title">Secondary storage</string>
@@ -637,6 +851,7 @@
     <string name="exclusion_type_segment">Segment exclusion</string>
     <string name="exclusion_tags_alltools">All tools</string>
     <string name="exclusion_target_label">Exclusion target</string>
+    <string name="exclusion_editor_path_change_action">Tap to change path</string>
     <string name="exclusion_option_allow_partial">Allow partial matches</string>
     <string name="exclusion_option_ignore_casing">Ignore casing</string>
     <string name="exclusion_editor_affected_tools_label">Affected tools</string>
@@ -738,6 +953,18 @@
     <string name="review_app_dismiss_action">Maybe later</string>
     <string name="review_app_body">Would you like to leave SD Maid a review?️ ❤️</string>
 
+    <string name="anniversary_card_title">Happy SD Maid Anniversary ❤️</string>
+    <string name="anniversary_card_install_date">With you since %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Already %1$d year together. Thanks for trusting SD Maid to keep your Android clean and tidy. Freed space: %2$s</item>
+        <item quantity="other">%1$d years strong. Your device stays clean and tidy with SD Maid. Freed space: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Share your SD Maid anniversary</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d year with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
+        <item quantity="other">%1$d years with SD Maid — Freed space: %2$s. Keeping your Android clean and tidy. #SDMaid\nTry it: %3$s</item>
+    </plurals>
+
     <string name="stats_label">History</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s has been freed.</item>
@@ -780,4 +1007,149 @@
     <string name="area_type_public_obb_label">Public app resources</string>
     <string name="area_type_private_data_label">Private app data</string>
     <string name="area_type_portable_label">Portable storage</string>
+
+    <string name="shortcut_appcontrol_short">App Control</string>
+    <string name="shortcut_appcontrol_long">Manage installed apps</string>
+    <string name="shortcut_onetap_short">Scan + Delete</string>
+    <string name="shortcut_onetap_long">Scan and delete in one action</string>
+
+    <string name="shortcuts_settings_category">Shortcuts</string>
+    <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
+    <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
+
+    <string name="swiper_label">Swiper</string>
+    <string name="swiper_tool_name">Swiper</string>
+    <string name="swiper_tool_description">Swipe through files to decide what to keep or delete.</string>
+    <string name="swiper_dashcard_description">SD Maid handles most things automatically. For everything else, there\'s swiping!</string>
+    <string name="swiper_start_action">Start swiping</string>
+    <string name="swiper_continue_action">Continue session</string>
+    <string name="swiper_sessions_description">Some files just need a human touch. Swipe to decide their fate - nothing gets deleted until you say so. You can pause anytime and continue later.</string>
+    <string name="swiper_select_folders_action">Select folders</string>
+    <string name="swiper_scanning_title">Scanning…</string>
+    <plurals name="swiper_result_x_items_found">
+        <item quantity="one">%d item found</item>
+        <item quantity="other">%d items found</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_deleted">
+        <item quantity="one">%d item deleted</item>
+        <item quantity="other">%d items deleted</item>
+    </plurals>
+    <plurals name="swiper_result_x_items_failed">
+        <item quantity="one">%d item failed</item>
+        <item quantity="other">%d items failed</item>
+    </plurals>
+    <string name="swiper_item_position">#%1$d of %2$d</string>
+    <string name="swiper_keep_action">Keep</string>
+    <string name="swiper_skip_action">Skip</string>
+    <string name="swiper_review_action">Review</string>
+    <string name="swiper_status_title">Review decisions</string>
+    <string name="swiper_status_action_keep_selected">Keep selected</string>
+    <string name="swiper_status_action_delete_selected">Delete selected</string>
+    <string name="swiper_status_action_reset_selected">Reset selected</string>
+    <string name="swiper_decision_undecided">Undecided</string>
+    <string name="swiper_retry_action">Retry</string>
+    <string name="swiper_delete_confirmation_title">Delete files?</string>
+    <plurals name="swiper_delete_confirmation_message">
+        <item quantity="one">This will permanently delete %1$d file (%2$s). This action cannot be undone.</item>
+        <item quantity="other">This will permanently delete %1$d files (%2$s). This action cannot be undone.</item>
+    </plurals>
+    <plurals name="swiper_delete_confirmation_message_partial_undecided">
+        <item quantity="one">%d undecided item will remain for later review.</item>
+        <item quantity="other">%d undecided items will remain for later review.</item>
+    </plurals>
+    <string name="swiper_delete_x_action">Delete %1$d</string>
+    <string name="swiper_settings_swap_directions_title">Swap swipe directions</string>
+    <string name="swiper_settings_swap_directions_summary">Swipe left to keep, right to delete.</string>
+    <string name="swiper_settings_show_details_title">Show file details</string>
+    <string name="swiper_settings_show_details_summary">Display file name, size and date on the swipe screen.</string>
+    <string name="swiper_settings_haptic_feedback_title">Haptic feedback</string>
+    <string name="swiper_settings_haptic_feedback_summary">Vibrate when making keep or delete decisions.</string>
+    <string name="swiper_discard_session_confirmation_title">Discard session?</string>
+    <string name="swiper_discard_session_confirmation_message">All decisions will be lost. Are you sure?</string>
+    <string name="swiper_no_preview_available">No preview available</string>
+
+    <plurals name="swiper_dashcard_session_context">
+        <item quantity="one">Continue session from %1$d day ago (%2$d%% finished)</item>
+        <item quantity="other">Continue session from %1$d days ago (%2$d%% finished)</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_sessions">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <plurals name="swiper_dashcard_x_undecided_items">
+        <item quantity="one">%d undecided item</item>
+        <item quantity="other">%d undecided items</item>
+    </plurals>
+    <string name="swiper_session_timestamps">Created %1$s, last activity %2$s</string>
+    <string name="swiper_session_remove_action">Remove session</string>
+    <string name="swiper_sessions_empty_hint">Tap + to select a folder and start swiping</string>
+    <string name="swiper_sessions_upgrade_body">Upgrade to remove these limits and support development. The free version is limited to:</string>
+    <plurals name="swiper_sessions_upgrade_files_limit">
+        <item quantity="one">%d file per session</item>
+        <item quantity="other">%d files per session</item>
+    </plurals>
+    <plurals name="swiper_sessions_upgrade_sessions_limit">
+        <item quantity="one">%d session</item>
+        <item quantity="other">%d sessions</item>
+    </plurals>
+    <string name="swiper_session_default_label">Session #%d</string>
+    <string name="swiper_session_rename_title">Rename session</string>
+    <string name="swiper_session_rename_hint">Enter a name for this session</string>
+    <string name="swiper_sessions_current_sessions">Current sessions</string>
+    <string name="swiper_session_paths_label">Paths</string>
+    <string name="swiper_session_status_label">Status</string>
+    <plurals name="swiper_session_status_to_keep">
+        <item quantity="one">%d to keep</item>
+        <item quantity="other">%d to keep</item>
+    </plurals>
+    <plurals name="swiper_session_status_to_delete">
+        <item quantity="one">%d to delete</item>
+        <item quantity="other">%d to delete</item>
+    </plurals>
+    <plurals name="swiper_session_status_undecided">
+        <item quantity="one">%d undecided</item>
+        <item quantity="other">%d undecided</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_kept">
+        <item quantity="one">%d already kept</item>
+        <item quantity="other">%d already kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_already_deleted">
+        <item quantity="one">%d already deleted</item>
+        <item quantity="other">%d already deleted</item>
+    </plurals>
+    <!-- Shorter versions for side-by-side display -->
+    <plurals name="swiper_session_status_kept">
+        <item quantity="one">%d kept</item>
+        <item quantity="other">%d kept</item>
+    </plurals>
+    <plurals name="swiper_session_status_deleted">
+        <item quantity="one">%d deleted</item>
+        <item quantity="other">%d deleted</item>
+    </plurals>
+    <string name="swiper_exclude_confirmation_message">Exclude \"%1$s\" from Swiper scans?</string>
+
+    <string name="swiper_sessions_header_title">Ready to declutter?</string>
+    <string name="swiper_sessions_suggestions_label">Try starting with:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads folder</string>
+    <string name="swiper_sessions_suggestion_screenshots">Screenshots</string>
+    <string name="swiper_sessions_suggestion_camera">Camera roll</string>
+
+    <!-- Swiper stamp variations (Tinder-style labels) -->
+    <string name="swiper_stamp_keep_1">Keep!</string>
+    <string name="swiper_stamp_keep_2">Nice!</string>
+    <string name="swiper_stamp_keep_3">Yes!</string>
+    <string name="swiper_stamp_keep_4">Save!</string>
+    <string name="swiper_stamp_delete_1">Nope!</string>
+    <string name="swiper_stamp_delete_2">Bye!</string>
+    <string name="swiper_stamp_delete_3">Trash!</string>
+    <string name="swiper_stamp_delete_4">Delete!</string>
+    <string name="swiper_stamp_skip_1">Skip!</string>
+    <string name="swiper_stamp_skip_2">Meh!</string>
+    <string name="swiper_stamp_skip_3">Later!</string>
+    <string name="swiper_stamp_skip_4">Maybe!</string>
+    <string name="swiper_stamp_undo_1">Undo!</string>
+    <string name="swiper_stamp_undo_2">Back!</string>
+    <string name="swiper_stamp_undo_3">Oops!</string>
+    <string name="swiper_stamp_undo_4">Wait!</string>
 </resources>

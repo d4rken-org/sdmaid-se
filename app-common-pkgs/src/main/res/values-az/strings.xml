@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Yanlış tətbiq inventarı</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistem SD Maid üçün quraşdırılmış tətbiqlərin yanlış siyahısını təqdim etdi.</string>
+</resources>

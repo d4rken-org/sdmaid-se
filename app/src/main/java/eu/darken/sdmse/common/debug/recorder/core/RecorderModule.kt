@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.res.Resources
 import android.os.Build
 import android.os.Environment
+import androidx.core.content.pm.PackageInfoCompat
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.BuildWrap
@@ -54,7 +55,7 @@ class RecorderModule @Inject constructor(
     private val triggerFile by lazy {
         try {
             File(context.getExternalFilesDir(null), FORCE_FILE)
-        } catch (e: Exception) {
+        } catch (_: Exception) {
             File(
                 Environment.getExternalStorageDirectory(),
                 "/Android/data/${BuildConfigWrap.APPLICATION_ID}/files/$FORCE_FILE"
@@ -129,12 +130,33 @@ class RecorderModule @Inject constructor(
             .ofPattern("yyyy-MM-dd_HH-mm-ss-SSS")
             .withZone(ZoneId.systemDefault())
             .format(Instant.now())
-        @Suppress("SetWorldWritable", "SetWorldReadable")
-        return File(File(context.externalCacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
-            mkdirs()
-            if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
-            if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+
+        val logId = sdmId.id.take(4)
+        var sessionDir: File? = null
+
+        File(File(context.getExternalFilesDir(null), "debug/logs"), "${pkg}_${version}_${timestamp}_$logId").apply {
+            @Suppress("SetWorldWritable", "SetWorldReadable")
+            if (mkdirs()) {
+                log(TAG) { "Public session dir created" }
+                if (setReadable(true, false)) log(TAG) { "Session dir is readable" }
+                if (setWritable(true, false)) log(TAG) { "Session dir is writeable" }
+                sessionDir = this
+            } else {
+                log(TAG, ERROR) { "Failed to create public session dir" }
+            }
         }
+
+        if (sessionDir == null) {
+            sessionDir = File(File(context.cacheDir, "debug/logs"), "${pkg}_${version}_${timestamp}").apply {
+                if (mkdirs()) {
+                    log(TAG) { "Private session dir created" }
+                } else {
+                    log(TAG, ERROR) { "Failed to create private session dir" }
+                }
+            }
+        }
+
+        return sessionDir
     }
 
     suspend fun startRecorder(): File {
@@ -153,6 +175,20 @@ class RecorderModule @Inject constructor(
         return currentPath
     }
 
+    fun getLogDirectories(): List<File> {
+        val dirs = mutableListOf<File>()
+
+        // Primary location: external files dir
+        context.getExternalFilesDir(null)?.let { externalDir ->
+            File(externalDir, "debug/logs").takeIf { it.exists() }?.let { dirs.add(it) }
+        }
+
+        // Fallback location: cache dir
+        File(context.cacheDir, "debug/logs").takeIf { it.exists() }?.let { dirs.add(it) }
+
+        return dirs
+    }
+
     private suspend fun logInfos() {
         val pkgInfo = context.getPackageInfo()
         log(TAG, INFO) { "APILEVEL: ${BuildWrap.VERSION.SDK_INT}" }
@@ -160,7 +196,7 @@ class RecorderModule @Inject constructor(
         log(TAG, INFO) { "Build.MANUFACTOR: ${Build.MANUFACTURER}" }
         log(TAG, INFO) { "Build.BRAND: ${Build.BRAND}" }
         log(TAG, INFO) { "Build.PRODUCT: ${Build.PRODUCT}" }
-        val versionInfo = "${pkgInfo.versionName} (${pkgInfo.versionCode})"
+        val versionInfo = "${pkgInfo.versionName} (${PackageInfoCompat.getLongVersionCode(pkgInfo)})"
         log(TAG, INFO) { "App: ${context.packageName} - $versionInfo " }
         log(TAG, INFO) { "Build: ${BuildConfigWrap.FLAVOR}-${BuildConfigWrap.BUILD_TYPE}" }
 

@@ -5,7 +5,7 @@
     <string name="slogan_message_1">Clean and tidy.</string>
     <string name="slogan_message_2">Preventing chaos.</string>
     <string name="slogan_message_3">Doing what is necessary.</string>
-    <string name="slogan_message_4" translatable="false">All your ducks in a row.</string>
+    <string name="slogan_message_4">All your ducks in a row.</string>
     <string name="slogan_message_5">Spotless.</string>
     <string name="slogan_message_6">Bytes, be gone!</string>
     <string name="slogan_message_7">Free space, happy place.</string>
@@ -21,11 +21,13 @@
     <string name="general_todo_msg">This feature is still being worked on and currently not available.</string>
     <string name="general_share_action">Share</string>
     <string name="general_done_action">Done</string>
+    <string name="general_apply_action">Apply</string>
     <string name="general_copy_action">Copy</string>
     <string name="general_wipe_action">Wipe</string>
     <string name="general_cancel_action">Cancel</string>
     <string name="general_discard_action">Discard</string>
     <string name="general_reset_action">Reset</string>
+    <string name="general_drag_handle_description">Drag to reorder</string>
     <string name="general_save_action">Save</string>
     <string name="general_thanks_action">Thanks</string>
     <string name="general_gotit_action">Got it</string>
@@ -34,6 +36,7 @@
     <string name="general_edit_action">Edit</string>
     <string name="general_na_label">N/A</string>
     <string name="general_empty_label">Empty</string>
+    <string name="general_new_badge_label">New</string>
     <string name="general_dismiss_action">Dismiss</string>
     <string name="general_maybe_later_action">Maybe later</string>
     <string name="general_manage_action">Manage</string>
@@ -97,7 +100,10 @@
 
     <string name="general_delete_confirmation_title">Confirm deletion</string>
     <string name="general_delete_confirmation_message_x">Delete \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Delete %d selected items?</string>
+    <plurals name="general_delete_confirmation_message_selected_x_items">
+        <item quantity="one">Delete %d selected item?</item>
+        <item quantity="other">Delete %d selected items?</item>
+    </plurals>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Deleted %d item.</item>
         <item quantity="other">Deleted %d items.</item>
@@ -181,4 +187,7 @@
     <string name="general_error_report_bug_action">Report bug</string>
     <string name="general_error_ipc_deadobject_title">Service Connection Lost</string>
     <string name="general_error_ipc_deadobject_description">The connection to a critical service (e.g. Magisk, Shizuku, or other system-level services) was unexpectedly lost. Please reboot your device. If the issue persists, check for updates or reach out to me so I can fix it.</string>
+
+    <string name="general_user_label_owner">Owner</string>
+    <string name="general_user_label_system">System</string>
 </resources>

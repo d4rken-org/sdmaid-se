@@ -33,7 +33,7 @@ class UpgradeViewModel @Inject constructor(
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
-
+    private var hasShownError: Boolean = false
     val events = SingleLiveEvent<UpgradeEvents>()
 
     init {
@@ -74,6 +74,18 @@ class UpgradeViewModel @Inject constructor(
         if (iap == null && sub == null) {
             throw GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
         }
+
+        if (!current.isPro && current.error != null) {
+            if (!hasShownError) {
+                hasShownError = true
+                // Linter bug
+                @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
+                errorEvents.postValue(current.error!!)
+            }
+        } else {
+            hasShownError = false
+        }
+
         Pricing(
             iap = iap?.first(),
             sub = sub?.first(),

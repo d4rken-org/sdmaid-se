@@ -5,6 +5,7 @@
     <string name="slogan_message_1">Pulito e ordinato.</string>
     <string name="slogan_message_2">Prevenire il caos.</string>
     <string name="slogan_message_3">Fare ciò che è necessario.</string>
+    <string name="slogan_message_4">Tutto il necessario a disposizione.</string>
     <string name="slogan_message_5">Immacolato.</string>
     <string name="slogan_message_6">Byte, spariscano!</string>
     <string name="slogan_message_7">Spazio libero, spazio felice.</string>
@@ -91,7 +92,6 @@
     <string name="general_toggle_layout_mode">Cambia modalità di visualizzazione</string>
     <string name="general_delete_confirmation_title">Conferma eliminazione</string>
     <string name="general_delete_confirmation_message_x">Eliminare \"%s\"?</string>
-    <string name="general_delete_confirmation_message_selected_x_items">Eliminare %d elementi selezionati?</string>
     <plurals name="general_delete_success_deleted_x">
         <item quantity="one">Eliminato %d elemento</item>
         <item quantity="other">Eliminati %d elementi</item>

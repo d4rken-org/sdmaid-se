@@ -66,6 +66,14 @@ open class AndroidTVSpecs @Inject constructor(
         }
     }
 
+    override suspend fun getArchive(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Archive automation not yet supported on Android TV")
+    }
+
+    override suspend fun getRestore(pkg: Installed): AutomationSpec {
+        throw UnsupportedOperationException("Restore automation not yet supported on Android TV")
+    }
+
     private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 

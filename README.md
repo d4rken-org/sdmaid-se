@@ -1,4 +1,4 @@
-<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/banner.png" width="400">
+<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/.assets/banner.png" width="400" alt="Banner">
 
 # SD Maid 2/SE
 
@@ -6,9 +6,9 @@
 [![Crowdin](https://badges.crowdin.net/sdmaid-se/localized.svg)](https://crowdin.com/project/sdmaid-se)
 [![Code tests & eval](https://img.shields.io/github/actions/workflow/status/d4rken-org/sdmaid-se/code-checks.yml?logo=githubactions&label=Code%20tests
 )](https://github.com/d4rken-org/sdmaid-se/actions)
-[![Github Downloads](https://img.shields.io/github/downloads/d4rken-org/sdmaid-se/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/d4rken-org/sdmaid-se/edit/main/README.md#download)
-[![Google Play Downloads](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Deu.darken.sdmse%26l%3DGoogle%2520Play%26m%3D%24totalinstalls)](https://github.com/d4rken-org/sdmaid-se/edit/main/README.md#download)
-[![⭐](https://img.shields.io/endpoint?url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Deu.darken.sdmse%26gl%3DUS%26hl%3Den%26l%3D%25E2%25AD%2590%26m%3D%24rating)](https://github.com/d4rken-org/sdmaid-se/edit/main/README.md#download)
+[![Github Downloads](https://img.shields.io/github/downloads/d4rken-org/sdmaid-se/total.svg?label=GitHub%20Downloads&logo=github)](https://github.com/d4rken-org/sdmaid-se/main/README.md#download)
+[![Google Play Downloads](https://img.shields.io/endpoint?color=green&logo=google-play&logoColor=green&url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Deu.darken.sdmse%26l%3DGoogle%2520Play%26m%3D%24totalinstalls)](https://github.com/d4rken-org/sdmaid-se/main/README.md#download)
+[![⭐](https://img.shields.io/endpoint?url=https%3A%2F%2Fplay.cuzi.workers.dev%2Fplay%3Fi%3Deu.darken.sdmse%26gl%3DUS%26hl%3Den%26l%3D%25E2%25AD%2590%26m%3D%24rating)](https://github.com/d4rken-org/sdmaid-se/main/README.md#download)
 
 > _**SD Maid 2/SE is actively being worked on and not feature complete. Feature requests are welcome!**_
 
@@ -61,7 +61,7 @@ sponsor ❤️.
 
 ## Screenshots
 
-<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/8.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/9.png" width="100">
+<img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/1.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/2.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/3.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/4.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/5.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/6.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/7.png" width="100"><img src="https://github.com/d4rken-org/sdmaid-se/raw/main/fastlane/metadata/android/en-US/images/phoneScreenshots/8.png" width="100">
 
 ## License
 

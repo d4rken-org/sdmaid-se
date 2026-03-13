@@ -32,7 +32,6 @@
         android:clipToPadding="false"
         android:contentDescription="Analyzer content"
         android:paddingTop="4dp"
-        android:paddingBottom="72dp"
         app:layout_behavior="@string/appbar_scrolling_view_behavior"
         tools:ignore="HardcodedText"
         tools:listitem="@layout/analyzer_content_item_vh" />

@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.ipc.source
 data class LocalPathLookupsIPCWrapper(
     val payload: List<LocalPathLookup>,
 ) : Parcelable, IPCWrapper {
+    @Suppress("DEPRECATION", "UNCHECKED_CAST")
     constructor(parcel: Parcel) : this(
         parcel.readParcelableArray(LocalPathLookup::class.java.classLoader)!!.toList() as List<LocalPathLookup>
     )

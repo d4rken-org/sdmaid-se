@@ -6,10 +6,15 @@ import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import dagger.multibindings.IntoSet
 import eu.darken.sdmse.R
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveSupport
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
+import eu.darken.sdmse.appcontrol.core.archive.Archiver
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.export.AppExporter
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopper
+import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
+import eu.darken.sdmse.appcontrol.core.restore.Restorer
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.toggle.ComponentToggler
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
@@ -68,6 +73,9 @@ class AppControl @Inject constructor(
     private val componentToggler: ComponentToggler,
     private val forceStopper: ForceStopper,
     private val uninstaller: Uninstaller,
+    private val archiver: Archiver,
+    private val restorer: Restorer,
+    private val archiveSupport: ArchiveSupport,
     usageStatsSetupModule: UsageStatsSetupModule,
     storageSetupModule: StorageSetupModule,
     rootManager: RootManager,
@@ -108,6 +116,9 @@ class AppControl @Inject constructor(
             canInfoScreenTime = usageState.isComplete,
             canToggle = useRoot || useAdb,
             canForceStop = useAcs || useRoot || useAdb,
+            canIncludeMultiUser = useRoot || useAdb,
+            canArchive = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
+            canRestore = archiveSupport.isArchivingEnabled && (useRoot || useAdb || useAcs),
         )
     }.replayingShare(appScope)
 
@@ -124,6 +135,8 @@ class AppControl @Inject constructor(
                     is UninstallTask -> performUninstall(task)
                     is AppExportTask -> performExportSave(task)
                     is ForceStopTask -> performForceStop(task)
+                    is ArchiveTask -> performArchive(task)
+                    is RestoreTask -> performRestore(task)
                     else -> throw UnsupportedOperationException("Unsupported task: $task")
                 }
             }
@@ -151,7 +164,7 @@ class AppControl @Inject constructor(
         val appInfos = appScan.run {
             if (task.refreshPkgCache) refresh()
             allApps(
-                user = userManager.currentUser().handle,
+                user = if (task.includeMultiUser) null else userManager.currentUser().handle,
                 includeActive = task.loadInfoActive && curState.canInfoActive,
                 includeSize = task.loadInfoSize && curState.canInfoSize,
                 includeUsage = task.loadInfoScreenTime && curState.canInfoScreenTime,
@@ -163,6 +176,7 @@ class AppControl @Inject constructor(
             hasInfoScreenTime = task.loadInfoScreenTime && curState.canInfoScreenTime,
             hasInfoActive = task.loadInfoSize && curState.canInfoSize,
             hasInfoSize = task.loadInfoSize && curState.canInfoSize,
+            hasIncludedMultiUser = task.includeMultiUser && curState.canIncludeMultiUser,
         )
 
         return AppControlScanTask.Result(itemCount = appInfos.size)
@@ -217,9 +231,10 @@ class AppControl @Inject constructor(
                 val updatedPkgs = affectedPkgs.map {
                     appScan.app(
                         pkgId = it,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
                         includeSize = snapshot.hasInfoSize,
                         includeActive = snapshot.hasInfoActive,
-                        includeUsage = snapshot.hasInfoScreenTime
+                        includeUsage = snapshot.hasInfoScreenTime,
                     )
                 }.flatten()
                 cleanedSnapshot + updatedPkgs
@@ -269,6 +284,7 @@ class AppControl @Inject constructor(
                 val updatedPkgs = affectedPkgs.map {
                     appScan.app(
                         pkgId = it,
+                        user = userManager.currentUser().handle,
                         includeSize = snapshot.hasInfoSize,
                         includeActive = snapshot.hasInfoActive,
                         includeUsage = snapshot.hasInfoScreenTime
@@ -350,6 +366,111 @@ class AppControl @Inject constructor(
         return ForceStopTask.Result(successful, failed)
     }
 
+    private suspend fun performArchive(task: ArchiveTask): ArchiveTask.Result {
+        log(TAG) { "performArchive(): $task" }
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+
+        archiver.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(R.string.appcontrol_progress_archiving_app)
+
+                try {
+                    archiver.archive(target)
+                    successful.add(target.installId)
+                    log(TAG, INFO) { "Successfully archived $target" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to archive $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
+            }
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        appScan.refresh()
+
+        internalData.value = snapshot.copy(
+            apps = run {
+                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime,
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
+        )
+
+        return ArchiveTask.Result(successful, failed)
+    }
+
+    private suspend fun performRestore(task: RestoreTask): RestoreTask.Result {
+        log(TAG) { "performRestore(): $task" }
+        updateProgressCount(Progress.Count.Counter(task.targets.size))
+
+        val snapshot = internalData.value ?: throw IllegalStateException("App data wasn't loaded")
+        val successful = mutableSetOf<InstallId>()
+        val failed = mutableSetOf<InstallId>()
+
+        restorer.useRes {
+            task.targets.forEach { targetId ->
+                val target = snapshot.apps.single { it.installId == targetId }
+                updateProgressPrimary(target.label)
+                updateProgressSecondary(R.string.appcontrol_progress_restoring_app)
+
+                try {
+                    restorer.restore(target)
+                    successful.add(target.installId)
+                    log(TAG, INFO) { "Successfully restored $target" }
+                } catch (e: Exception) {
+                    log(TAG, ERROR) { "Failed to restore $targetId: ${e.asLog()}" }
+                    failed.add(targetId)
+                } finally {
+                    increaseProgress()
+                }
+            }
+        }
+
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading_app_data)
+        updateProgressSecondary(CaString.EMPTY)
+        updateProgressCount(Progress.Count.Indeterminate())
+
+        appScan.refresh()
+
+        internalData.value = snapshot.copy(
+            apps = run {
+                val affectedPkgs = successful.map { it.pkgId } + failed.map { it.pkgId }
+                val cleanedSnapshot = snapshot.apps.filterNot { affectedPkgs.contains(it.id) }
+                val updatedPkgs = affectedPkgs.map {
+                    appScan.app(
+                        pkgId = it,
+                        user = if (snapshot.hasIncludedMultiUser) null else userManager.currentUser().handle,
+                        includeSize = snapshot.hasInfoSize,
+                        includeActive = snapshot.hasInfoActive,
+                        includeUsage = snapshot.hasInfoScreenTime,
+                    )
+                }.flatten()
+                cleanedSnapshot + updatedPkgs
+            }
+        )
+
+        return RestoreTask.Result(successful, failed)
+    }
 
     data class State(
         val data: Data?,
@@ -359,6 +480,9 @@ class AppControl @Inject constructor(
         val canInfoSize: Boolean,
         val canInfoActive: Boolean,
         val canInfoScreenTime: Boolean,
+        val canIncludeMultiUser: Boolean,
+        val canArchive: Boolean,
+        val canRestore: Boolean,
     ) : SDMTool.State
 
     data class Data(
@@ -367,6 +491,7 @@ class AppControl @Inject constructor(
         val hasInfoScreenTime: Boolean,
         val hasInfoActive: Boolean,
         val hasInfoSize: Boolean,
+        val hasIncludedMultiUser: Boolean,
     )
 
     @InstallIn(SingletonComponent::class)

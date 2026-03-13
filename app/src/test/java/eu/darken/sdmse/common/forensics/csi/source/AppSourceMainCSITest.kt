@@ -4,8 +4,10 @@ import eu.darken.sdmse.common.BuildWrap
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.clutter.Marker
+import eu.darken.sdmse.common.files.child
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.removePrefix
+import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.forensics.csi.BaseCSITest
 import eu.darken.sdmse.common.forensics.csi.source.tools.ApkDirCheck
 import eu.darken.sdmse.common.forensics.csi.source.tools.AppSourceClutterCheck
@@ -265,6 +267,88 @@ class AppSourceMainCSITest : BaseCSITest() {
         }
     }
 
+    @Test fun testProcess_android11_double_hash_standard_packages() = runTest {
+        val processor = getProcessor()
+
+        val testCases = listOf(
+            "com.example.deeplviewer" to "~~4IQxTCyRFPq4S53KU3KhBQ==/com.example.deeplviewer-ekB8USahHaRHG-eHQqgtaA==/",
+            "com.unciv.app" to "~~4SQmc6pIMWUKe4duEnDYLA==/com.unciv.app-tedbtxdTjOq9-Zi5XmVZ9A==/",
+            "com.mixplorer.addon.tagger" to "~~D8kt0_yGoTzeRfPqpXig_A==/com.mixplorer.addon.tagger-7Mv8xwIcEfyZQxHsN3crBg==/",
+            "com.android.chrome" to "~~KV8oafUkVvQFcQ0CrB9Xcg==/com.android.chrome-u8-iRxh1dNuDLvYFLhiLCg==/"
+        )
+
+        for ((packageName, pathPattern) in testCases) {
+            val pkgId = packageName.toPkgId()
+            mockPkg(pkgId)
+
+            for (base in bases) {
+                val toHit = base.child(pathPattern.toSegs())
+                val locationInfo = processor.identifyArea(toHit)!!
+                processor.findOwners(locationInfo).apply {
+                    owners.single().pkgId shouldBe pkgId
+                }
+            }
+        }
+    }
+
+    @Test fun testProcess_android11_versioned_trichrome_packages() = runTest {
+        val processor = getProcessor()
+
+        val testCases = listOf(
+            "com.google.android.trichromelibrary_661308832" to "~~LZPmWFF7U8b5p2t4TdZl_g==/com.google.android.trichromelibrary_661308832-Kg7UPJMq-h9KEhvNLQ_MQQ==/",
+            "com.google.android.trichromelibrary_725805143" to "~~Wk3_8lFYVcexJSSp02wnBA==/com.google.android.trichromelibrary_725805143-cdAJ89ohmzvBP2SPp0jbFw==/",
+            "com.google.android.trichromelibrary_720416833" to "~~hRTU7eqvvwqGI1M_HDkSYw==/com.google.android.trichromelibrary_720416833-SwGRwNc5AwLq6Ex3nV4SRw==/"
+        )
+
+        for ((packageName, pathPattern) in testCases) {
+            val pkgId = packageName.toPkgId()
+            mockPkg(pkgId)
+
+            for (base in bases) {
+                val toHit = base.child(pathPattern)
+                val locationInfo = processor.identifyArea(toHit)!!
+                processor.findOwners(locationInfo).apply {
+                    owners.single().pkgId shouldBe pkgId
+                }
+            }
+        }
+    }
+
+    @Test fun testProcess_trichrome_library_apk() = runTest {
+        val processor = getProcessor()
+
+        // Test cases with different versioned package names
+        val testCases = listOf(
+            "com.google.android.trichromelibrary_720416833" to "~~hRTU7eqvvwqGI1M_HDkSYw==/com.google.android.trichromelibrary_720416833-SwGRwNc5AwLq6Ex3nV4SRw==/TrichromeLibrary.apk",
+            "com.google.android.trichromelibrary" to "com.google.android.trichromelibrary-1234/TrichromeLibrary.apk",
+            "com.google.android.trichromelibrary_661308832" to "com.google.android.trichromelibrary_661308832-RLEuLDrRIaICTBfF4FhaFg==/TrichromeLibrary.apk"
+        )
+
+        for ((expectedPkgName, path) in testCases) {
+            val packageName = expectedPkgName.toPkgId()
+            mockPkg(packageName)
+
+            val targets = bases.map { it.child(path) }
+
+            val apkArchive = mockk<PkgArchive>().apply {
+                every { id } returns packageName
+                every { tryField<String?>(any()) } returns null
+                every { applicationInfo } returns null
+                every { requestedPermissions } returns emptySet()
+            }
+
+            for (toHit in targets) {
+                coEvery { pkgOps.viewArchive(toHit, 0) } returns apkArchive
+                coEvery { pkgOps.viewArchive(toHit, any()) } returns apkArchive
+
+                val locationInfo = processor.identifyArea(toHit)!!
+                processor.findOwners(locationInfo).apply {
+                    owners.map { it.pkgId }.distinct().single() shouldBe packageName
+                }
+            }
+        }
+    }
+
     @Test fun testStrictMatching_no_false_positive_dir() = runTest {
         val processor = getProcessor()
 
@@ -347,6 +431,45 @@ class AppSourceMainCSITest : BaseCSITest() {
                 val locationInfo = processor.identifyArea(toHit)!!
                 processor.findOwners(locationInfo).apply {
                     owners.single().pkgId shouldBe packageName
+                }
+            }
+        }
+    }
+
+    @Test fun `test vmdl tmp directories have no owner and are corpses`() = runTest {
+        val processor = getProcessor()
+
+        val testCases = listOf(
+            "vmdl1156857058.tmp",
+            "vmdl1604118467.tmp",
+            "vmdl1951435554.tmp"
+        )
+
+        for (base in bases) {
+            for (vmdlDir in testCases) {
+                run {
+                    // Test the tmp directory itself
+                    val toHit = base.child(vmdlDir)
+                    val locationInfo = processor.identifyArea(toHit)!!
+
+                    locationInfo.isBlackListLocation shouldBe true
+
+                    processor.findOwners(locationInfo).apply {
+                        owners.size shouldBe 0
+                        hasKnownUnknownOwner shouldBe false
+                    }
+                }
+                run {
+                    // Test .dm files within the tmp directory
+                    val toHit = base.child(vmdlDir, "com.microsoft.rdc.androidx.dm")
+                    val locationInfo = processor.identifyArea(toHit)!!
+
+                    locationInfo.isBlackListLocation shouldBe true
+
+                    processor.findOwners(locationInfo).apply {
+                        owners.size shouldBe 0
+                        hasKnownUnknownOwner shouldBe false
+                    }
                 }
             }
         }

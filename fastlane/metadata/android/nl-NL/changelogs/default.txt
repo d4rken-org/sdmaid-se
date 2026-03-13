@@ -1,8 +1,9 @@
 Hoi 👋
-SD Maid 2/SE is actief in ontwikkeling. Ik werk elke dag aan nieuwe functies.
-Als je goede ideeën hebt, laat het me weten 😊!
+SD Maid 2/SE wordt actief ontwikkeld—ik voeg constant nieuwe dingen toe!
+Heb je ideeën? Laat het me weten 😊
 
-Updates bevatten bugfixes, prestatieverbeteringen en misschien nieuwe functies.
-Een gedetailleerd changelog is altijd beschikbaar op GitHub.
+🐛 Bugfixes, 🚀 prestatieverbetering, misschien zelfs ✨ nieuwe functies.
 
-Voor de duidelijkheid: Ik ben hier alleen, dus soms kan het even duren voordat ik reageer. Sorry daarvoor!
+Changelog: https://sdmse.darken.eu/changelog
+
+FYI: Ik ben hier alleen, soms kunnen antwoorden even duren. Sorry daarvoor!

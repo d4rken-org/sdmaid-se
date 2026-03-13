@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Inventori apl tidak sah</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sistem memberikan senarai apl yang dipasang tidak sah kepada SD Maid.</string>
+</resources>

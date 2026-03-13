@@ -42,20 +42,38 @@ sealed class AKnownPkg(override val id: Pkg.Id) : Pkg {
 
     data object GooglePlay : AKnownPkg("com.android.vending"), AppStore {
         override val iconRes: Int = R.drawable.ic_baseline_gplay_24
+        override val storeLabel: String = "Google Play"
         override val urlGenerator: ((Pkg.Id) -> String) = {
             "https://play.google.com/store/apps/details?id=${it.name}"
         }
     }
 
-    data object VivoAppStore : AKnownPkg("com.vivo.appstore"), AppStore
+    data object VivoAppStore : AKnownPkg("com.vivo.appstore"), AppStore {
+        override val storeLabel: String = "Vivo App Store"
+    }
 
-    data object OppoMarket : AKnownPkg("com.oppo.market"), AppStore
+    data object OppoMarket : AKnownPkg("com.oppo.market"), AppStore {
+        override val storeLabel: String = "Oppo Market"
+    }
 
-    data object HuaweiAppGallery : AKnownPkg("com.huawei.appmarket"), AppStore
+    data object HuaweiAppGallery : AKnownPkg("com.huawei.appmarket"), AppStore {
+        override val storeLabel: String = "Huawei AppGallery"
+    }
 
-    data object SamsungAppStore : AKnownPkg("com.sec.android.app.samsungapps"), AppStore
+    data object SamsungAppStore : AKnownPkg("com.sec.android.app.samsungapps"), AppStore {
+        override val storeLabel: String = "Samsung Galaxy Store"
+    }
 
-    data object XiaomiAppStore : AKnownPkg("com.xiaomi.mipicks"), AppStore
+    data object XiaomiAppStore : AKnownPkg("com.xiaomi.mipicks"), AppStore {
+        override val storeLabel: String = "Xiaomi GetApps"
+    }
+
+    data object FDroid : AKnownPkg("org.fdroid.fdroid"), AppStore {
+        override val storeLabel: String = "F-Droid"
+        override val urlGenerator: ((Pkg.Id) -> String) = {
+            "https://f-droid.org/packages/${it.name}"
+        }
+    }
 
     companion object {
         val values: List<AKnownPkg> = listOf(
@@ -65,7 +83,8 @@ sealed class AKnownPkg(override val id: Pkg.Id) : Pkg {
             OppoMarket,
             HuaweiAppGallery,
             SamsungAppStore,
-            XiaomiAppStore
+            XiaomiAppStore,
+            FDroid,
         )
 
         val APP_STORES by lazy { values.filterIsInstance<AppStore>() }

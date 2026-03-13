@@ -1,6 +1,4 @@
-import com.android.build.gradle.BaseExtension
-import com.android.build.gradle.LibraryExtension
-import org.gradle.api.Action
+import com.android.build.api.dsl.LibraryExtension
 import org.gradle.api.JavaVersion
 import org.gradle.api.Project
 import org.gradle.api.tasks.testing.Test
@@ -9,16 +7,11 @@ import org.gradle.api.tasks.testing.TestListener
 import org.gradle.api.tasks.testing.TestResult
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
-import org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.dsl.JvmTarget
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 import java.io.File
-import java.io.FileInputStream
 import java.util.Properties
-
-/**
- * Configures the [kotlinOptions][org.jetbrains.kotlin.gradle.dsl.KotlinJvmOptions] extension.
- */
-private fun LibraryExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
-    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
 
 fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
     if (projectConfig.compileSdkPreview != null) {
@@ -36,14 +29,7 @@ fun LibraryExtension.setupLibraryDefaults(projectConfig: ProjectConfig) {
 val Project.projectConfig: ProjectConfig
     get() = extensions.findByType(ProjectConfig::class.java)!!
 
-fun com.android.build.api.dsl.CommonExtension<
-        com.android.build.api.dsl.LibraryBuildFeatures,
-        com.android.build.api.dsl.LibraryBuildType,
-        com.android.build.api.dsl.LibraryDefaultConfig,
-        com.android.build.api.dsl.LibraryProductFlavor,
-        *,
-        *
-        >.setupModuleBuildTypes() {
+fun LibraryExtension.setupModuleBuildTypes() {
     buildTypes {
         debug {
             consumerProguardFiles("consumer-rules.pro")
@@ -57,27 +43,27 @@ fun com.android.build.api.dsl.CommonExtension<
     }
 }
 
-private fun BaseExtension.kotlinOptions(configure: Action<KotlinJvmOptions>): Unit =
-    (this as org.gradle.api.plugins.ExtensionAware).extensions.configure("kotlinOptions", configure)
-
-fun BaseExtension.setupKotlinOptions() {
-    kotlinOptions {
-        jvmTarget = "17"
-        freeCompilerArgs = freeCompilerArgs + listOf(
-            "-opt-in=kotlin.RequiresOptIn",
-            "-opt-in=kotlin.ExperimentalStdlibApi",
-            "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
-            "-opt-in=kotlinx.coroutines.FlowPreview",
-            "-opt-in=kotlin.time.ExperimentalTime",
-            "-opt-in=kotlin.RequiresOptIn",
-            "-Xjvm-default=all",
-            "-XXLanguage:+DataObjects",
-            "-Xcontext-receivers"
-        )
+fun Project.setupKotlinOptions() {
+    tasks.withType<KotlinCompile>().configureEach {
+        compilerOptions {
+            jvmTarget.set(JvmTarget.JVM_17)
+            freeCompilerArgs.addAll(
+                listOf(
+                    "-opt-in=kotlin.RequiresOptIn",
+                    "-opt-in=kotlin.ExperimentalStdlibApi",
+                    "-opt-in=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                    "-opt-in=kotlinx.coroutines.FlowPreview",
+                    "-opt-in=kotlin.time.ExperimentalTime",
+                    "-Xjvm-default=all",
+                    "-Xcontext-parameters",
+                    "-Xannotation-default-target=param-property",
+                )
+            )
+        }
     }
 }
 
-fun BaseExtension.setupCompileOptions() {
+fun LibraryExtension.setupCompileOptions() {
     compileOptions {
         isCoreLibraryDesugaringEnabled = true
         sourceCompatibility = JavaVersion.VERSION_17
@@ -93,14 +79,21 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
 
     if (keyStoreFromEnv?.exists() == true) {
         println("Using signing data from environment variables.")
+        val missingVars = listOf("STORE_PASSWORD", "KEY_ALIAS", "KEY_PASSWORD")
+            .filter { System.getenv(it).isNullOrBlank() }
+        if (missingVars.isNotEmpty()) {
+            println("WARNING: STORE_PATH is set but missing: ${missingVars.joinToString()}")
+        }
         storeFile = keyStoreFromEnv
         storePassword = System.getenv("STORE_PASSWORD")
         keyAlias = System.getenv("KEY_ALIAS")
         keyPassword = System.getenv("KEY_PASSWORD")
     } else {
-        println("Using signing data from properties file.")
+        println("Using signing data from properties file ($signingPropsPath).")
         val props = Properties().apply {
-            signingPropsPath?.takeIf { it.canRead() }?.let { load(FileInputStream(it)) }
+            signingPropsPath?.takeIf { it.canRead() }?.let { file ->
+                file.inputStream().use { stream -> load(stream) }
+            }
         }
 
         val keyStorePath = props.getProperty("release.storePath")?.let { File(it) }
@@ -110,38 +103,86 @@ fun com.android.build.api.dsl.SigningConfig.setupCredentials(
             storePassword = props.getProperty("release.storePassword")
             keyAlias = props.getProperty("release.keyAlias")
             keyPassword = props.getProperty("release.keyPassword")
+        } else {
+            println("WARNING: No valid signing configuration found (no env vars, no valid properties file).")
         }
     }
 }
 
-fun Test.setupTestLogging() {
+fun Test.setupTests() {
+    maxHeapSize = "2048m"
+    maxParallelForks = 2
+    forkEvery = 100
+
     testLogging {
         events(
             TestLogEvent.FAILED,
-            TestLogEvent.PASSED,
             TestLogEvent.SKIPPED,
-//            TestLogEvent.STANDARD_OUT,
         )
-        exceptionFormat = TestExceptionFormat.FULL
+        exceptionFormat = TestExceptionFormat.SHORT
         showExceptions = true
         showCauses = true
-        showStackTraces = true
+        showStackTraces = false
+    }
 
-        addTestListener(object : TestListener {
-            override fun beforeSuite(suite: TestDescriptor) {}
-            override fun beforeTest(testDescriptor: TestDescriptor) {}
-            override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {}
-            override fun afterSuite(suite: TestDescriptor, result: TestResult) {
-                if (suite.parent != null) {
-                    val messages = """
-                        ------------------------------------------------------------------------------------------------
-                        | ${result.resultType} ${result.testCount} tests: ${result.successfulTestCount} passed, ${result.failedTestCount} failed, ${result.skippedTestCount} skipped)
-                        ------------------------------------------------------------------------------------------------
-                        
-                    """.trimIndent()
-                    println(messages)
+    val failedTests = mutableListOf<String>()
+    var totalTests = 0
+    var passedTests = 0
+    var failedTestCount = 0
+    var skippedTests = 0
+
+    addTestListener(object : TestListener {
+        override fun beforeSuite(suite: TestDescriptor) {
+            if (suite.parent == null) {
+                println("\n🧪 Starting test suite: ${suite.displayName}")
+            }
+        }
+
+        override fun beforeTest(testDescriptor: TestDescriptor) {}
+
+        override fun afterTest(testDescriptor: TestDescriptor, result: TestResult) {
+            when (result.resultType) {
+                TestResult.ResultType.SUCCESS -> {
+                    print(".")
+                    passedTests++
+                }
+
+                TestResult.ResultType.FAILURE -> {
+                    print("F")
+                    failedTests.add("${testDescriptor.className} > ${testDescriptor.displayName}")
+                    failedTestCount++
+                }
+
+                TestResult.ResultType.SKIPPED -> {
+                    print("S")
+                    skippedTests++
                 }
             }
-        })
-    }
+            totalTests++
+        }
+
+        override fun afterSuite(suite: TestDescriptor, result: TestResult) {
+            // Only show final summary for the root suite
+            if (suite.parent == null) {
+                println("\n")
+                println("=".repeat(80))
+                println("📊 TEST RESULTS SUMMARY")
+                println("=".repeat(80))
+                println("Total: ${result.testCount} | ✅ Passed: ${result.successfulTestCount} | ❌ Failed: ${result.failedTestCount} | ⏭️ Skipped: ${result.skippedTestCount}")
+                println("Duration: ${(result.endTime - result.startTime) / 1000.0}s")
+
+                if (failedTests.isNotEmpty()) {
+                    println("\n❌ FAILED TESTS:")
+                    println("-".repeat(80))
+                    failedTests.forEach { testName ->
+                        println("  • $testName")
+                    }
+                    println("-".repeat(80))
+                }
+
+                println("Result: ${if (result.resultType == TestResult.ResultType.SUCCESS) "✅ PASSED" else "❌ FAILED"}")
+                println("=".repeat(80))
+            }
+        }
+    })
 }

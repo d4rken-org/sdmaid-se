@@ -1,17 +1,13 @@
 package eu.darken.sdmse.automation.core.common
 
-import android.view.accessibility.AccessibilityNodeInfo
-
 data class CrawledNode(
-    val node: AccessibilityNodeInfo,
+    val node: ACSNodeInfo,
     val level: Int
 ) {
 
     private val levelPrefix = "${INDENT.substring(0, level)}${level}"
 
-    val infoFull: String = "$levelPrefix: $node"
-
-    val infoShort: String = "$levelPrefix: ${node.toStringShort()}"
+    val infoShort: String = "$levelPrefix: $node"
 
     companion object {
         const val INDENT =

@@ -15,6 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.stepper.findClickableSibling
 import eu.darken.sdmse.automation.core.common.stepper.findNode
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
@@ -28,11 +29,13 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.funnel.IPCFunnel
+import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -61,11 +64,25 @@ class AOSPSpecs @Inject constructor(
     override suspend fun getForceStop(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
         override val tag: String = TAG
         override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
-            mainPlan(pkg)
+            forceStopPlan(pkg)
         }
     }
 
-    private val mainPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+    override suspend fun getArchive(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+        override val tag: String = TAG
+        override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
+            archivePlan(pkg)
+        }
+    }
+
+    override suspend fun getRestore(pkg: Installed): AutomationSpec = object : AutomationSpec.Explorer {
+        override val tag: String = TAG
+        override suspend fun createPlan(): suspend AutomationExplorer.Context.() -> Unit = {
+            restorePlan(pkg)
+        }
+    }
+
+    private val forceStopPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         val forceStopLabels = aospLabels.getForceStopButtonDynamic(this)
@@ -73,18 +90,31 @@ class AOSPSpecs @Inject constructor(
 
         run {
             val action: suspend StepContext.() -> Boolean = action@{
-                val target = findNode { node ->
+                val candidate = findNode { node ->
                     node.textMatchesAny(forceStopLabels)
                 } ?: return@action false
 
-                val mapped = findClickableParent(node = target) ?: return@action false
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
 
-                if (mapped.isEnabled) {
-                    clickNormal(node = mapped)
-                } else {
-                    wasDisabled = true
-                    true
+                // Seen on Pixel 8 with Android 16 (beta)
+                // Force stop may consist of a button (no text)) and a textview (unclickable), same layout as everything else
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findClickableSibling(node = candidate)
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
                 }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
             }
 
             val step = AutomationStep(
@@ -134,6 +164,110 @@ class AOSPSpecs @Inject constructor(
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
+    }
+
+    private val archivePlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+        log(TAG, INFO) { "Executing archive plan for ${pkg.installId} with context $this" }
+
+        val archiveLabels = aospLabels.getArchiveButtonDynamic(this)
+        var wasDisabled = false
+
+        run {
+            val action: suspend StepContext.() -> Boolean = action@{
+                val candidate = findNode { node ->
+                    node.textMatchesAny(archiveLabels)
+                } ?: return@action false
+
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
+
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findClickableSibling(node = candidate)
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
+            }
+
+            val step = AutomationStep(
+                source = TAG,
+                descriptionInternal = "Archive button for $pkg",
+                label = R.string.appcontrol_automation_progress_find_archive.toCaString(archiveLabels),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
+            )
+            stepper.withProgress(this) { process(this@plan, step) }
+        }
+
+        if (wasDisabled) {
+            log(TAG) { "Archive button was disabled, app cannot be archived." }
+            return@plan
+        }
+        // Note: Android 15+ doesn't show a confirmation dialog - archive happens immediately when the button is clicked
+    }
+
+    private val restorePlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
+        log(TAG, INFO) { "Executing restore plan for ${pkg.installId} with context $this" }
+
+        val restoreLabels = aospLabels.getRestoreButtonDynamic(this)
+        var wasDisabled = false
+
+        run {
+            val action: suspend StepContext.() -> Boolean = action@{
+                val candidate = findNode { node ->
+                    node.textMatchesAny(restoreLabels)
+                } ?: return@action false
+
+                var target = findClickableParent(maxNesting = 3, includeSelf = true, node = candidate)
+
+                if (target == null && hasApiLevel(35)) {
+                    log(TAG, WARN) { "No clickable parent found for $candidate" }
+                    target = findClickableSibling(node = candidate)
+                    if (target != null) log(TAG, INFO) { "Clickable sibling found: $target" }
+                }
+
+                if (target == null) {
+                    log(TAG, WARN) { "No clickable target found for $candidate" }
+                    return@action false
+                }
+
+                if (!target.isEnabled) {
+                    wasDisabled = true
+                    return@action true
+                }
+
+                clickNormal(node = target)
+            }
+
+            val step = AutomationStep(
+                source = TAG,
+                descriptionInternal = "Restore button for $pkg",
+                label = R.string.appcontrol_automation_progress_find_restore.toCaString(restoreLabels),
+                windowLaunch = windowLauncherDefaultSettings(pkg),
+                windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
+                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeAction = action,
+            )
+            stepper.withProgress(this) { process(this@plan, step) }
+        }
+
+        if (wasDisabled) {
+            log(TAG) { "Restore button was disabled, app cannot be restored." }
+            return@plan
+        }
+        // Note: Similar to archive, restore typically doesn't show a confirmation dialog
     }
 
     @Module @InstallIn(SingletonComponent::class)

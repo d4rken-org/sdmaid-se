@@ -25,7 +25,7 @@ class AffectedPkgsAdapter @Inject constructor() :
     override fun getItemCount(): Int = data.size
 
     init {
-        addMod(DataBinderMod(data))
+        addMod(DataBinderMod({ data }))
         addMod(TypedVHCreatorMod({ data[it] is AffectedPkgsHeaderVH.Item }) { AffectedPkgsHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is AffectedPkgVH.Item }) { AffectedPkgVH(it) })
     }

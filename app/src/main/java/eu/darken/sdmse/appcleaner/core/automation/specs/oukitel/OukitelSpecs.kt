@@ -1,6 +1,5 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.oukitel
 
-import android.view.accessibility.AccessibilityNodeInfo
 import dagger.Binds
 import dagger.Module
 import dagger.Reusable
@@ -12,13 +11,15 @@ import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowExcepti
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.isClickyButton
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.stepper.AutomationStep
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
@@ -71,7 +72,7 @@ class OukitelSpecs @Inject constructor(
         log(TAG, INFO) { "Executing plan for ${pkg.installId} with context $this" }
 
         run {
-            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+            val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
                 if (stepAttempts >= 1 && pkg.hasNoSettings) {
                     throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
                 }
@@ -105,11 +106,16 @@ class OukitelSpecs @Inject constructor(
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
-            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+            val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
                 windowCheck { _, root ->
                     if (root.pkgId != SETTINGS_PKG) return@windowCheck false
                     root.crawl().map { it.node }.any { it.textMatchesAny(clearCacheButtonLabels) }
                 }()
+            }
+
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() } ?: return@action false
+                clickClearCache(isDryRun = Bugs.isDryRun, pkg, node = target)
             }
 
             val step = AutomationStep(
@@ -117,9 +123,7 @@ class OukitelSpecs @Inject constructor(
                 descriptionInternal = "Clear cache button for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
                 windowCheck = windowCheck,
-                nodeAction = defaultFindAndClickClearCache(isDryRun = Bugs.isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -132,7 +136,7 @@ class OukitelSpecs @Inject constructor(
 
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
-        val TAG: String = logTag("AppCleaner", "Automation", "OUKITEL", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OUKITEL", "Specs")
     }
 
 }

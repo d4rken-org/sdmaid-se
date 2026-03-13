@@ -17,6 +17,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
+import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parceler
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
@@ -65,6 +66,7 @@ class StorageVolumeX(
     val isMounted: Boolean
         get() = volume.state == Environment.MEDIA_MOUNTED
 
+    @IgnoredOnParcel
     private val methodGetPath: Method? by lazy {
         try {
             volumeClass.getMethod("getPath")
@@ -82,6 +84,7 @@ class StorageVolumeX(
             directory?.path
         }
 
+    @IgnoredOnParcel
     private val methodGetPathFile: Method? by lazy {
         try {
             volumeClass.getMethod("getPathFile")
@@ -91,6 +94,7 @@ class StorageVolumeX(
         }
     }
 
+    @IgnoredOnParcel
     private val methodGetUserLabel: Method? by lazy {
         try {
             volumeClass.getMethod("getUserLabel")
@@ -108,6 +112,7 @@ class StorageVolumeX(
             null
         }
 
+    @IgnoredOnParcel
     private val methodGetDescription: Method? by lazy {
         try {
             volumeClass.getMethod("getDescription", Context::class.java)
@@ -133,6 +138,7 @@ class StorageVolumeX(
         }
     }
 
+    @IgnoredOnParcel
     private val methodGetOwner: Method? by lazy {
         try {
             volumeClass.getMethod("getOwner")
@@ -153,6 +159,7 @@ class StorageVolumeX(
             null
         }
 
+    @Suppress("DEPRECATION")
     fun createAccessIntent(directory: String? = null): Intent? {
         return volume.createAccessIntent(directory)
 //        return Intent(ACTION_OPEN_EXTERNAL_DIRECTORY).apply {
@@ -162,6 +169,7 @@ class StorageVolumeX(
     }
 
     val rootUri: Uri
+        @Suppress("DEPRECATION")
         @SuppressLint("NewApi")
         get() = if (hasApiLevel(29)) {
             volume.createOpenDocumentTreeIntent().getParcelableExtra(DocumentsContract.EXTRA_INITIAL_URI)!!
@@ -229,6 +237,7 @@ class StorageVolumeX(
     }
 }
 
+@Suppress("DEPRECATION")
 internal object AnyParceler : Parceler<Any> {
     override fun create(parcel: Parcel): Any = parcel.readParcelable(StorageVolumeX::class.java.classLoader)!!
 

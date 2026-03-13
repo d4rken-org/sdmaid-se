@@ -112,6 +112,7 @@ abstract class BaseRootHost(
             // a prepared Looper is required for the calls below to succeed
             if (Looper.getMainLooper() == null) {
                 try {
+                    @Suppress("DEPRECATION")
                     Looper.prepareMainLooper()
                 } catch (e: Exception) {
                     log(ERROR) { "Failed prepareMainLooper() for systemContext" }

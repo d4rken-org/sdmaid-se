@@ -122,7 +122,7 @@ class FlymeLabels @Inject constructor() : AppCleanerLabelSource {
         .toSet()
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "Flyme", "Labels")
+        private val TAG: String = logTag("AppCleaner", "Automation", "Flyme", "Labels")
         val SETTINGS_PKG = "com.android.settings".toPkgId()
     }
 }

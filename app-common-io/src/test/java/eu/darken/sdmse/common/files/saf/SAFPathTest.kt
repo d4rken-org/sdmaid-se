@@ -15,11 +15,12 @@ import org.junit.runner.RunWith
 import org.robolectric.RobolectricTestRunner
 import org.robolectric.annotation.Config
 import testhelpers.BaseTest
+import testhelpers.TestApplication
 import testhelpers.json.toComparableJson
 import java.lang.reflect.Type
 
 @RunWith(RobolectricTestRunner::class)
-@Config(sdk = [29])
+@Config(sdk = [33], application = TestApplication::class)
 class SAFPathTest : BaseTest() {
 
     val testUri = "content://com.android.externalstorage.documents/tree/primary%3Asafstor"

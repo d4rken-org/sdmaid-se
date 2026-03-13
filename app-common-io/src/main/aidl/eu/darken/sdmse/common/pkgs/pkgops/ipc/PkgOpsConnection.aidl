@@ -1,5 +1,6 @@
 package eu.darken.sdmse.common.pkgs.pkgops.ipc;
 
+import android.content.IntentSender;
 import android.content.pm.PackageInfo;
 import eu.darken.sdmse.common.ipc.RemoteInputStream;
 import eu.darken.sdmse.common.pkgs.features.InstallId;
@@ -7,13 +8,9 @@ import eu.darken.sdmse.common.pkgs.pkgops.ipc.RunningPackagesResult;
 
 interface PkgOpsConnection {
 
-    String getUserNameForUID(int uid);
-
-    String getGroupNameforGID(int gid);
-
     RunningPackagesResult getRunningPackages();
 
-    boolean forceStop(String packageName);
+    boolean forceStop(in InstallId installId);
 
     boolean clearCacheAsUser(String packageName, int handleId, boolean dryRun);
 
@@ -21,15 +18,19 @@ interface PkgOpsConnection {
 
     boolean trimCaches(long desiredBytes, String storageId, boolean dryRun);
 
+    PackageInfo getPackageInfoAsUser(String packageName, long flags, int handleId);
+
     List<PackageInfo> getInstalledPackagesAsUser(long flags, int handleId);
 
     RemoteInputStream getInstalledPackagesAsUserStream(long flags, int handleId);
 
-    void setApplicationEnabledSetting (String packageName, int newState, int flags);
+    void setApplicationEnabledSetting (in InstallId installId, int newState, int flags);
 
     boolean grantPermission(String packageName, int handleId, String permissionId);
 
     boolean revokePermission(String packageName, int handleId, String permissionId);
 
     boolean setAppOps(String packageName, int handleId, String key, String value);
+
+    void requestUnarchive(String packageName, in IntentSender statusReceiver);
 }

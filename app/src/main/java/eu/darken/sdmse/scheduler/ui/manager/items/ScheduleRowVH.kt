@@ -1,7 +1,6 @@
 package eu.darken.sdmse.scheduler.ui.manager.items
 
 import android.view.ViewGroup
-import androidx.core.view.isGone
 import androidx.core.view.isVisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.lists.binding
@@ -44,8 +43,14 @@ class ScheduleRowVH(parent: ViewGroup) :
 
         val formatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT)
         val now = Instant.now()
+
+        val showPrimary = schedule.scheduledAt != null
+        val showSecondary = schedule.executedAt != null
+
+        executionInfoContainer.isVisible = showPrimary || showSecondary
+
         primary.apply {
-            isVisible = schedule.scheduledAt != null
+            isVisible = showPrimary
             text = schedule.calcExecutionEta(now, false)?.let { eta ->
                 val next = now.plus(eta).toSystemTimezone().format(formatter)
                 getString(R.string.scheduler_schedule_next_at_x, next)
@@ -53,7 +58,7 @@ class ScheduleRowVH(parent: ViewGroup) :
         }
 
         secondary.apply {
-            isVisible = schedule.executedAt != null
+            isVisible = showSecondary
             text = schedule.executedAt?.let {
                 val local = it.toSystemTimezone().format(formatter)
                 getString(R.string.scheduler_schedule_last_at_x, local)
@@ -69,27 +74,32 @@ class ScheduleRowVH(parent: ViewGroup) :
             }
         }
 
-        optionsContainer.isGone = schedule.isEnabled
+        val disabledAlpha = if (schedule.isEnabled) 0.38f else 1f
 
         editAction.apply {
-            isGone = schedule.isEnabled
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
             setOnClickListener { item.onEdit() }
         }
 
         removeAction.apply {
-            isGone = schedule.isEnabled
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
             setOnClickListener { item.onRemove() }
         }
 
         toolCorpsefinderToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useCorpseFinder)
             setOnCheckedChangeListener { _, _ -> item.onToggleCorpseFinder() }
         }
         toolSystemcleanerToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useSystemCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleSystemCleaner() }
         }
         toolAppcleanerToggle.apply {
+            isEnabled = !schedule.isEnabled
             setChecked2(schedule.useAppCleaner)
             setOnCheckedChangeListener { _, _ -> item.onToggleAppCleaner() }
         }
@@ -100,7 +110,11 @@ class ScheduleRowVH(parent: ViewGroup) :
         } else {
             getString(R.string.scheduler_commands_after_schedule_desc)
         }
-        commandsEditAction.setOnClickListener { item.onEditFinalCommands() }
+        commandsEditAction.apply {
+            isEnabled = !schedule.isEnabled
+            alpha = disabledAlpha
+            setOnClickListener { item.onEditFinalCommands() }
+        }
     }
 
     data class Item(

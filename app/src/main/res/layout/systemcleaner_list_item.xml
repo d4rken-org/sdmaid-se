@@ -38,13 +38,13 @@
         style="@style/TextAppearance.Material3.BodySmall"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:maxLines="3"
         android:ellipsize="end"
-        android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/items"
         app:layout_constraintEnd_toEndOf="@id/primary"
         app:layout_constraintStart_toStartOf="@id/primary"
         app:layout_constraintTop_toBottomOf="@id/primary"
-        tools:text="This is an extra info row" />
+        tools:text="@tools:sample/lorem/random" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/items"

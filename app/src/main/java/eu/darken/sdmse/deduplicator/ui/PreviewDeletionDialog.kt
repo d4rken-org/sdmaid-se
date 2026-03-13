@@ -195,8 +195,9 @@ class PreviewDeletionDialog @Inject constructor(
                             mode.duplicates.single().lookup.userReadablePath.get(context),
                         )
 
-                        else -> context.getString(
-                            eu.darken.sdmse.common.R.string.general_delete_confirmation_message_selected_x_items,
+                        else -> context.resources.getQuantityString(
+                            eu.darken.sdmse.common.R.plurals.general_delete_confirmation_message_selected_x_items,
+                            mode.count,
                             mode.count
                         )
                     }
@@ -244,7 +245,7 @@ class PreviewDeletionDialog @Inject constructor(
         override fun getItemCount(): Int = data.size
 
         init {
-            addMod(DataBinderMod(data))
+            addMod(DataBinderMod({ data }))
             addMod(SimpleVHCreatorMod { VH(it) })
         }
 

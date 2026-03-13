@@ -2,13 +2,14 @@
 <resources>
     <string name="app_name_upgraded">SD मेड SE FOSS</string>
     <string name="app_name_upgrade_postfix">FOSS</string>
-    <string name="upgrade_feature_requires_pro">SD मेड SE प्रो की अवश्यकता है</string>
+    <string name="upgrade_feature_requires_pro">SD Maid SE FOSS की आवश्यकता है</string>
     <string name="upgrades_dashcard_title">SD मेड को उन्नत करें</string>
     <string name="upgrades_dashcard_body">अतिरिक्त सुविधाओं को अनलॉक करें और निरंतर विकास का समर्थन करने के लिए संरक्षक बनें!</string>
     <string name="upgrades_dashcard_upgrade_action">उन्नत करें</string>
     <string name="upgrade_screen_title">SD मेड में सुधार करें</string>
     <string name="upgrade_screen_preamble">SD मेड के पास कोई विज्ञापन नहीं है और वह उपयोगकर्ता डेटा नहीं बेचती है। निरंतर विकास आपके द्वारा ही संभव है।</string>
     <string name="upgrade_screen_how_title">कैसे सहायता करें</string>
+    <string name="upgrade_screen_how_body">संरक्षक बनें और विकास को प्रायोजित करें! सभी अतिरिक्त सुविधाओं को सक्रिय करने और मेरी GitHub Sponsors प्रोफ़ाइल खोलने के लिए नीचे दिए गए बटन को टैप करें।</string>
     <string name="upgrade_screen_why_title">यह जादू 🪄</string>
     <string name="upgrade_screen_why_body">• ऐप क्लीनर हटाने की कार्यक्षमता 💯\n• निर्धारित संचालन ⏰\n• सभी टूल के लिए अतिरिक्त विकल्प ⚙️\n• आपके अपने मिटाने के नियम ✍️\n• एक प्रेरित डेवलपर 🧙\nऔर बहुत कुछ…</string>
     <string name="upgrade_screen_sponsor_action">विकास को प्रायोजक करें</string>

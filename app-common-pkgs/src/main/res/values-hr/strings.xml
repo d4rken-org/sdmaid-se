@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Nevažeći popis aplikacija</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Sustav je SD Maidu dostavio nevažeći popis instaliranih aplikacija.</string>
+</resources>

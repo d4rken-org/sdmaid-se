@@ -25,11 +25,12 @@ class EdgeToEdgeHelper(activity: Activity) {
         ViewCompat.setOnApplyWindowInsetsListener(view) { v: View, insets: WindowInsetsCompat ->
             if (Bugs.isTrace) log(tag, VERBOSE) { "Applying padding insets to $v" }
             val systemBars: Insets = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            val displayCutout: Insets = insets.getInsets(WindowInsetsCompat.Type.displayCutout())
             v.setPadding(
-                if (left) systemBars.left else v.paddingLeft,
-                if (top) systemBars.top else v.paddingTop,
-                if (right) systemBars.right else v.paddingRight,
-                if (bottom) systemBars.bottom else v.paddingBottom,
+                if (left) maxOf(systemBars.left, displayCutout.left) else v.paddingLeft,
+                if (top) maxOf(systemBars.top, displayCutout.top) else v.paddingTop,
+                if (right) maxOf(systemBars.right, displayCutout.right) else v.paddingRight,
+                if (bottom) maxOf(systemBars.bottom, displayCutout.bottom) else v.paddingBottom,
             )
             insets
         }

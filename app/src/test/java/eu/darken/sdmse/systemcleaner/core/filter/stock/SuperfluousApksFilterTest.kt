@@ -8,10 +8,12 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.systemcleaner.core.filter.SystemCleanerFilterTest
 import eu.darken.sdmse.systemcleaner.core.sieve.SystemCrawlerSieve
 import io.mockk.every
+import io.mockk.mockk
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import testhelpers.mockDataStoreValue
 
 class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
     @BeforeEach
@@ -24,7 +26,7 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
         super.teardown()
     }
 
-    private fun create() = SuperfluousApksFilter(
+    private fun create(includeSameVersion: Boolean = true) = SuperfluousApksFilter(
         sieveFactory = object : SystemCrawlerSieve.Factory {
             override fun create(config: SystemCrawlerSieve.Config): SystemCrawlerSieve =
                 SystemCrawlerSieve(config, fileForensics)
@@ -33,6 +35,9 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
         pkgRepo = pkgRepo,
         gatewaySwitch = gatewaySwitch,
         cacheRepo = cacheRepo,
+        settings = mockk<eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings>().apply {
+            every { filterSuperfluosApksIncludeSameVersion } returns mockDataStoreValue(includeSameVersion)
+        },
     )
 
     @Test fun testFilter() = runTest {
@@ -107,6 +112,36 @@ class SuperfluousApksFilterTest : SystemCleanerFilterTest() {
         }
 
         confirm(create())
+    }
+
+    @Test fun `testFilter excludes same version when setting disabled`() = runTest {
+        mockDefaults()
+
+        areaManager.currentAreas().map { area ->
+            val areaPath = area.path
+
+            "packageName1".toPkgId().let { pkg ->
+                mockArchive(pkg, areaPath.child("Download", "older.apk")).apply {
+                    every { versionCode } returns 1L
+                }
+                mockArchive(pkg, areaPath.child("Download", "equal.apk")).apply {
+                    every { versionCode } returns 2L
+                }
+                mockArchive(pkg, areaPath.child("Download", "newer.apk")).apply {
+                    every { versionCode } returns 3L
+                }
+                mockPkg(pkg).apply {
+                    every { versionCode } returns 2L
+                }
+            }
+        }
+
+        neg(SDCARD, "Download", Flag.Dir)
+        pos(SDCARD, "Download/older.apk", Flag.File)  // Still matched: installed (2) > archive (1)
+        neg(SDCARD, "Download/equal.apk", Flag.File)  // NOT matched: installed (2) is not > archive (2)
+        neg(SDCARD, "Download/newer.apk", Flag.File)  // Not matched: installed (2) < archive (3)
+
+        confirm(create(includeSameVersion = false))
     }
 
 }

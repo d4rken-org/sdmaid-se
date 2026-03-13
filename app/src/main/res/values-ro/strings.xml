@@ -7,14 +7,21 @@
     <string name="dashboard_settings_oneclick_summary">Începe scanarea și ștergerea pentru toate uneltele cu o apăsare pe butonul de acțiune al tabloului de bord, fără confirmări suplimentare.</string>
     <string name="dashboard_settings_oneclick_tools_title">Instrumente cu o singură atingere </string>
     <string name="dashboard_settings_oneclick_tools_desc">Ce instrumente ar trebui incluse în operaţiunile cu o singură atingere?</string>
-    <string name="debug_debuglog_size_label">Dimensiune</string>
-    <string name="debug_debuglog_size_compressed_label">Dimensiunea comprimată</string>
     <string name="debug_notification_channel_label">Notificări de depanare</string>
     <string name="debug_debuglog_file_label">Fișier de jurnal înregistrat</string>
     <string name="debug_debuglog_recording_progress">Înregistrează jurnalul de depanare</string>
     <string name="debug_debuglog_record_action">Înregistrează jurnalul de depanare</string>
     <string name="debug_debuglog_stop_action">Oprire înregistrare</string>
     <string name="debug_debuglog_sensitive_information_message">Fișierul generat conține informații sensibile (ex: numele fișierului și aplicații instalate). Partajează-l doar cu părțile de încredere.</string>
+    <string name="debug_debuglog_screen_title">Jurnal de depanare</string>
+    <string name="debug_debuglog_screen_discard_action">Renunțați</string>
+    <string name="debug_debuglog_screen_session_path_label">Cale sesiune</string>
+    <string name="debug_debuglog_screen_log_files_label">Fișiere jurnal</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fișier gata (%2$s)</item>
+        <item quantity="few">%1$d fișiere gata (%2$s)</item>
+        <item quantity="other">%1$d fișiere gata (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Această funcție înregistrează tot ce face aplicația într-un fișier partajabil. Fișierul generat conține informații sensibile (de exemplu, numele fișierelor și aplicațiilor instalate). Distribuiți-l numai persoanelor de încredere (de exemplu, unui dezvoltator care depanează o problemă).</string>
     <string name="tasks_activity_notification_channel_label">Sarcini active</string>
     <string name="tasks_activity_working_notification_title">SD Maid funcționează</string>
@@ -54,7 +61,6 @@
     <string name="onboarding_setup_continue_action">Configurează accesul</string>
     <string name="settings_privacy_policy_label">Politica de confidențialitate</string>
     <string name="settings_privacy_policy_desc">Gestionarea responsabilă a datelor.</string>
-    <string name="settings_licenses_label">Licențe</string>
     <string name="settings_category_other_label">Altele</string>
     <string name="settings_category_filter_generic">Filtru generic</string>
     <string name="settings_category_filter_specific">Filtru specific</string>
@@ -89,6 +95,12 @@
     <string name="discord_description">Un loc în care să stai și să pui întrebări.</string>
     <string name="changelog_label">Jurnal de schimbări</string>
     <string name="settings_acknowledgements_label">Mulțumiri</string>
+    <string name="settings_acknowledgements_category_translations_title">Traduceri</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Cine a tradus asta?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Mulțumiri</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Mulțumiri speciale prietenilor noștrii.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Licențe</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Program folosit de SD Maid.</string>
     <string name="setup_label">Partea de configurare</string>
     <string name="setup_incomplete_card_title">Partea de configurare este incompletă</string>
     <string name="setup_incomplete_card_body">Termină partea de configurare al SD Maid pentru a obține rezultate mai bune.</string>
@@ -197,6 +209,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Datele aplicației private, ex: acreditările, setările aplicației, dar și cache-urile browserului.</string>
     <string name="corpsefinder_filter_dalvik_label">Cache dalvik</string>
     <string name="corpsefinder_filter_dalvik_summary">Datele de execuție a aplicației stocate în cache.</string>
+    <string name="corpsefinder_filter_artprofiles_label">Profile ART</string>
+    <string name="corpsefinder_filter_artprofiles_summary">Profilele ART sunt folosite de Android pentru optimizarea performanței aplicațiilor.</string>
     <string name="corpsefinder_filter_applib_label">Biblioteci ale aplicației</string>
     <string name="corpsefinder_filter_applib_summary">Date de bibliotecă legate de aplicație.</string>
     <string name="corpsefinder_filter_appsource_label">Sursele aplicației</string>
@@ -238,8 +252,10 @@
     <string name="systemcleaner_filter_custom_label">Filtru personalizat</string>
     <string name="systemcleaner_filter_custom_manage_label">Gestionează filtrele personalizate</string>
     <string name="systemcleaner_filter_custom_manage_summary">Creează, șterge, importă și exportă filtrele tale personalizate.</string>
-    <string name="systemcleaner_filter_logfiles_label">Fișiere de jurnal</string>
-    <string name="systemcleaner_filter_logfiles_summary">Fișiere de jurnal (*.log) de pe tot dispozitivul.</string>
+    <string name="systemcleaner_filter_logfiles_label">Fișiere jurnal de sistem</string>
+    <string name="systemcleaner_filter_logfiles_summary">Fișiere jurnal de sistem și serviciu (de exemplu, *.log) în diferite locații.</string>
+    <string name="systemcleaner_filter_packagecaches_label">Instalator cache</string>
+    <string name="systemcleaner_filter_packagecaches_summary">Date stocate în cache legate de aplicațiile instalate care sunt utilizate de gestionarea pachetelor sistemului.</string>
     <string name="systemcleaner_filter_advertisements_label">Fișiere publicitare</string>
     <string name="systemcleaner_filter_advertisements_summary">Fișiere care au fost create pentru sau de reclame.</string>
     <string name="systemcleaner_filter_anr_label">Erori ANR</string>
@@ -264,8 +280,8 @@
     <string name="systemcleaner_filter_windowsfiles_summary">"Date pe care exploratorul de fișiere Windows le poate crea în spațiul de stocare conectat."</string>
     <string name="systemcleaner_filter_thumbnails_label">Imagini miniatură</string>
     <string name="systemcleaner_filter_thumbnails_summary">Previzualizări prin cache pentru imagini și videoclipuri.</string>
-    <string name="systemcleaner_filter_tempfiles_label">Fișiere temporare</string>
-    <string name="systemcleaner_filter_tempfiles_summary">Fișiere temporare, de obicei, cache de scurtă durată pentru operațiuni active.</string>
+    <string name="systemcleaner_filter_tempfiles_label">Fișiere de sistem temporare</string>
+    <string name="systemcleaner_filter_tempfiles_summary">Fișiere temporare legate de sistem, de obicei cache-uri de scurtă durată pentru operațiuni active.</string>
     <string name="systemcleaner_filter_analytics_label">Fișiere de analize</string>
     <string name="systemcleaner_filter_analytics_summary">Date legate de analiză și de urmărire a erorilor.</string>
     <string name="systemcleaner_filter_downloadcache_label">Memoria cache descărcată</string>
@@ -356,6 +372,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Fișiere care sunt șterse, dar puse într-un dosar special pentru a permite să le restaureze.</string>
     <string name="appcleaner_filter_webview_label">Fișiere WebView</string>
     <string name="appcleaner_filter_webview_summary">Fișiere cache de instanțele Webview folosite în aplicații.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Pictograme ale comenzilor rapide pentru aplicații</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Pictograme cache pentru comenzi rapide de aplicații și meniuri de partajare.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">Copii de rezervă WhatsApp</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Șterge extra copii al backup-urilor WhatsApp și păstrează numai cel de ultima dată.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Fișierele pe care le-ați primit de la oameni prin WhatsApp.</string>
@@ -403,6 +421,13 @@
         <item quantity="other">Ștergeți fișierele consumabile pentru aplicațiile selectate %d?</item>
     </plurals>
     <string name="appcleaner_progress_shizuku_deleting_caches">Ştergerea cache-urilor folosind Shizuku</string>
+    <string name="appcleaner_progress_determining_inaccessible_caches">Determinarea cache-urilor inaccesibile</string>
+    <string name="appcleaner_automation_error_locked_appcache_title">Curățare cache indisponibil</string>
+    <string name="appcleaner_automation_error_locked_appcache_body">Sistemul a dezactivat butonul \"Curățare cache\" pentru această aplicație. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="appcleaner_automation_error_no_settings_title">Setări ecran indisponibil</string>
+    <string name="appcleaner_automation_error_no_settings_body">Această aplicație de sistem nu are ecran de setări. Nu este posibilă compensarea cache-ului prin intermediul serviciului de accesibilitate. Excludeți-o pentru a accelera curățarea cache-ului.</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_title">Aplicație de sistem configurată greșit</string>
+    <string name="appcleaner_automation_error_securitycenter_permission_body">Aplicația de securitate HyperOS (com.miui.securitycenter) nu are permisiunea de utilizare a statisticilor (GET_USAGE_STATS). Acest lucru rupe caracteristici precum \"Curățare Date\" în detaliile aplicației și ștergerea cache-ului prin accesibilitate. Acordați permisiunea de a restabili funcționalitatea completă.</string>
     <string name="deduplicator_tool_name">Curățitor de duplicate</string>
     <string name="deduplicator_explanation_short">Găsiți date duplicat pe dispozitivul dvs.</string>
     <plurals name="deduplicator_result_x_clusters_processed">
@@ -427,7 +452,7 @@
     <string name="deduplicator_detection_method_checksum_title">Sumă verificare conținut</string>
     <string name="deduplicator_detection_method_checksum_summary">Determinați duplicate prin calcularea sumelor de verificare pentru fișiere. Fișierele cu sumele corespunzătoare de verificare au exact același conținut.</string>
     <string name="deduplicator_detection_method_phash_title">Hash veșnic</string>
-    <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile conținutului și comparând valorile hash perceptuale.</string>
+    <string name="deduplicator_detection_method_phash_summary">Găsiți fișiere similare analizând caracteristicile de conținut și comparând valorile hash perceptuale. ⚠️ Detectarea bazată pe similitudine poate include rezultate fals pozitive care necesită verificare manuală.</string>
     <string name="deduplicator_occupied_space_label">Spațiu de stocare ocupat</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s este ocupat de duplicate</item>
@@ -466,7 +491,7 @@
     <string name="appcontrol_app_launch_title">Lansează aplicația</string>
     <string name="appcontrol_app_launch_description">Lansează activitatea principală a aplicației.</string>
     <string name="appcontrol_app_forcestop_title">Opriți forțat</string>
-    <string name="appcontrol_app_forcestop_description">Oprește aplicația. Îl împiedică să pornească singur până când îl deschideți sau dispozitivul este repornit.</string>
+    <string name="appcontrol_app_forcestop_description">Opriți aplicația. Împiedicați-o să pornească singură până când o deschideți sau până când dispozitivul este repornit.</string>
     <string name="appcontrol_app_uninstall_description">Dezinstalați această aplicație de pe dispozitivul dvs.</string>
     <string name="appcontrol_app_exclude_add_title">Exclude aplicația</string>
     <string name="appcontrol_app_exclude_add_description">Exclude această aplicație din alte operații în SD Maid.</string>
@@ -490,6 +515,7 @@
     <string name="appcontrol_list_sortmode_installed_label">Prima dată instalată</string>
     <string name="appcontrol_list_sortmode_packagename_label">Numele pachetului</string>
     <string name="appcontrol_list_sortmode_size_label">Dimensiune</string>
+    <string name="appcontrol_list_sortmode_screentime_label">Timp ecran pornit</string>
     <string name="appcontrol_list_sortmode_size_caveat_msg">Dimensiunile aplicației sunt estimate din motive de performanță. Utilizați unealta de analiză a stocării pentru date mai exacte.</string>
     <string name="appcontrol_progress_uninstalling_app">Dezinstalare aplicație</string>
     <plurals name="appcontrol_uninstall_result_message_x">
@@ -516,6 +542,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Obțineți o estimare aproximativă a dimensiunii fiecărei aplicații.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Determină activitatea</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Află dacă o aplicație este (sau a fost recent) activă.</string>
+    <string name="appcontrol_include_multiuser_label">Includeți alți utilizatori</string>
+    <string name="appcontrol_include_multiuser_summary">Includeți aplicații din alte profiluri de utilizator pe acest dispozitiv.</string>
     <string name="appcontrol_export_app_selection_action">Exportă aplicații</string>
     <string name="appcontrol_export_title">Exportă aplicația</string>
     <string name="appcontrol_export_description">Salvați fișierele de instalare ale acestei aplicații. Aceasta nu include datele aplicației.</string>
@@ -543,6 +571,9 @@
     <string name="appcontrol_automation_subtitle_force_stopping">Oprirea forțată…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Se caută butonul „Oprire forțată” (cuvinte cheie: %s)</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Se încearcă confirmarea acțiunii anterioare (cuvinte cheie: %s)</string>
+    <string name="appcontrol_item_screentime_x_since_y_label">Timp ecran: %1$s din %2$s</string>
+    <string name="appcontrol_item_lastupdate_x_label">Ultima actualizare: %s</string>
+    <string name="appcontrol_item_installedat_x_label">Instalat pe: %s</string>
     <string name="analyzer_tool_name">Analizator de stocare</string>
     <string name="analyzer_explanation_short">Aflați ce ocupă spațiu pe dispozitivul dvs.</string>
     <string name="analyzer_progress_scanning_device">Se caută dispozitive de stocare</string>
@@ -634,7 +665,12 @@
     <string name="automation_error_not_running_body">Serviciul de accesibilitate nu rulează. Încercați să reporniți dispozitivul.</string>
     <string name="automation_error_screen_unavailable_title">Ecran indisponibil</string>
     <string name="automation_error_screen_unavailable_body">Operația a fost anulată deoarece ecranul a devenit indisponibil (de exemplu, afișare oprită sau ecranul de blocare activ).</string>
+    <string name="automation_error_compatibility_title">Compatibilitate automată</string>
     <string name="automation_error_compatibility_body">SD Maid nu și-a putut da seama de aspectul ecranului. Dacă acest lucru se întâmplă în continuare, este posibil ca limba sau configurația dvs. să nu fie pe deplin acceptate. Verificați actualizările sau contactați-mă ca să pot remedia.</string>
+    <string name="automation_error_timeout_title">Automatizarea a expirat</string>
+    <string name="automation_error_timeout_body">SD Maid nu a parcurs toți pașii în termenul limită. Dacă acest lucru continuă să se întâmple, ar putea fi necesar să ajustați aplicația pentru dispozitivul dvs. Verificați dacă există actualizări sau contactați-mă pentru a le putea repara.</string>
+    <string name="automation_error_overlay_title">Suprapunere automată</string>
+    <string name="automation_error_overlay_body">SD Maid nu a putut arăta suprapunerea automatizării. Verificați permisiunile și încercați să reporniți dispozitivul.</string>
     <string name="history_label">Istoric</string>
     <string name="history_description">O listă cronologică cu acțiuni recente și date afectate.</string>
     <string name="scheduler_label">Programator</string>
@@ -691,6 +727,19 @@
     <string name="review_app_review_action">Revizuire</string>
     <string name="review_app_dismiss_action">Poate mai târziu</string>
     <string name="review_app_body">Doriți să lăsați aplicației SD Maid o recenzie?️ ❤️</string>
+    <string name="anniversary_card_title">Aniversare SD Maid Fericită ❤️</string>
+    <string name="anniversary_card_install_date">Alături de tine din %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Deja %1$d an împreună. Vă mulțumim pentru încrederea în SD Maid pentru a menține Android curat și ordonat. Spațiu liber: %2$s</item>
+        <item quantity="few">%1$d ani puternici. Dispozitivul dumneavoastră rămâne curat și ordonat cu SD Maid. Spațiu liber: %2$s</item>
+        <item quantity="other">%1$d ani puternici. Dispozitivul dumneavoastră rămâne curat și ordonat cu SD Maid. Spațiu liber: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Distribuiți aniversarea SD Maid</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d an cu SD Maid — Spațiu liber: %2$s. Păstrarea Androidului curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+        <item quantity="few">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+        <item quantity="other">%1$d ani cu SD Maid — Spațiu liber: %2$s. Păstrarea Android curat și ordonat. #SDMaid\nÎncearcă: %3$s</item>
+    </plurals>
     <string name="stats_label">Istoric</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s a fost eliberat.</item>
@@ -735,4 +784,11 @@
     <string name="area_type_public_obb_label">Resursele aplicației publice</string>
     <string name="area_type_private_data_label">Date private ale aplicației</string>
     <string name="area_type_portable_label">Depozitare portabilă</string>
+    <string name="shortcut_appcontrol_short">Controlul Aplicațiilor</string>
+    <string name="shortcut_appcontrol_long">Gestionați aplicațiile instalate</string>
+    <string name="shortcut_onetap_short">Scanare + Ștergere</string>
+    <string name="shortcut_onetap_long">Scanați și ștergeți într-o singură acțiune</string>
+    <string name="shortcuts_settings_category">Scurtături</string>
+    <string name="shortcuts_onetap_enabled_title">Comandă rapidă cu o singură atingere</string>
+    <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
 </resources>

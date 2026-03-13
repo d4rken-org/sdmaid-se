@@ -1,0 +1,361 @@
+package eu.darken.sdmse.automation.core.common.stepper
+
+import eu.darken.sdmse.automation.core.AutomationHost
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
+import eu.darken.sdmse.automation.core.errors.DisabledTargetException
+import eu.darken.sdmse.automation.core.errors.UnclickableTargetException
+import eu.darken.sdmse.automation.core.specs.AutomationExplorer
+import eu.darken.sdmse.common.progress.Progress
+import io.kotest.assertions.throwables.shouldThrow
+import io.kotest.matchers.collections.shouldContain
+import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
+import io.mockk.mockk
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.emptyFlow
+import kotlinx.coroutines.test.runTest
+import org.junit.jupiter.api.Test
+import testhelpers.BaseTest
+import testhelpers.TestACSNodeInfo
+
+class StepperExtensionsTest : BaseTest() {
+
+    private fun createStepContext(): StepContext {
+        val mockHostContext = mockk<AutomationExplorer.Context>()
+        return StepContext(
+            hostContext = mockHostContext,
+            tag = "test",
+            stepAttempts = 1
+        )
+    }
+
+    private fun createStepContextWithTree(root: TestACSNodeInfo): StepContext {
+        val mockHost = mockk<AutomationHost>()
+        coEvery { mockHost.windowRoot() } returns root
+
+        val mockHostContext = object : AutomationExplorer.Context {
+            override val host: AutomationHost = mockHost
+            override val progress: Flow<Progress.Data?> = emptyFlow()
+            override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {}
+        }
+
+        return StepContext(
+            hostContext = mockHostContext,
+            tag = "test",
+            stepAttempts = 1
+        )
+    }
+
+    private fun createNode(isClickable: Boolean = false): TestACSNodeInfo {
+        return TestACSNodeInfo(isClickable = isClickable)
+    }
+
+
+    @Test
+    fun `findClickableSibling returns null when node has no parent`() = runTest {
+        val context = createStepContext()
+        val orphanNode = createNode()
+
+        context.findClickableSibling(node = orphanNode) shouldBe null
+    }
+
+    @Test
+    fun `findClickableSibling returns self when includeSelf is true and node is clickable`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        context.findClickableSibling(includeSelf = true, node = targetNode) shouldBe targetNode
+        context.findClickableSibling(includeSelf = false, node = targetNode) shouldBe null
+    }
+
+    @Test
+    fun `findClickableSibling basic functionality test`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val clickableSibling = createNode(isClickable = true)
+        createNode().addChildren(targetNode, clickableSibling)
+
+        val result = context.findClickableSibling(node = targetNode)
+
+        result shouldBe clickableSibling
+    }
+
+    @Test
+    fun `findClickableSibling skips non-clickable siblings`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val nonClickableSibling1 = createNode(isClickable = false)
+        val clickableSibling = createNode(isClickable = true)
+        val nonClickableSibling2 = createNode(isClickable = false)
+        createNode().addChildren(targetNode, nonClickableSibling1, clickableSibling, nonClickableSibling2)
+
+        val result = context.findClickableSibling(node = targetNode)
+
+        result shouldBe clickableSibling
+    }
+
+    @Test
+    fun `findClickableSibling traverses up multiple levels`() = runTest {
+        val context = createStepContext()
+
+        // Create nested structure: grandparent -> parent -> targetNode, clickableSibling
+        val targetNode = createNode()
+        val parent = createNode().addChild(targetNode)
+        val clickableSibling = createNode(isClickable = true)
+        createNode().addChildren(parent, clickableSibling)
+
+        val result = context.findClickableSibling(maxNesting = 2, node = targetNode)
+
+        result shouldBe clickableSibling
+    }
+
+    // Tests for findClickableParent
+    @Test
+    fun `findClickableParent returns null when node has no parent`() = runTest {
+        val context = createStepContext()
+        val orphanNode = createNode()
+
+        context.findClickableParent(node = orphanNode) shouldBe null
+    }
+
+    @Test
+    fun `findClickableParent returns self when includeSelf is true and node is clickable`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        context.findClickableParent(includeSelf = true, node = targetNode) shouldBe targetNode
+        context.findClickableParent(includeSelf = false, node = targetNode) shouldBe null
+    }
+
+    @Test
+    fun `findClickableParent finds immediate clickable parent`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val clickableParent = createNode(isClickable = true).addChild(targetNode)
+
+        val result = context.findClickableParent(node = targetNode)
+
+        result shouldBe clickableParent
+    }
+
+    @Test
+    fun `findClickableParent skips non-clickable parents and finds clickable ancestor`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val nonClickableParent = createNode(isClickable = false).addChild(targetNode)
+        val clickableGrandParent = createNode(isClickable = true).addChild(nonClickableParent)
+
+        val result = context.findClickableParent(node = targetNode)
+
+        result shouldBe clickableGrandParent
+    }
+
+    @Test
+    fun `findClickableParent respects maxNesting limit`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val parent1 = createNode(isClickable = false).addChild(targetNode)
+        val parent2 = createNode(isClickable = false).addChild(parent1)
+        val parent3 = createNode(isClickable = true).addChild(parent2) // This should be found
+        createNode(isClickable = true).addChild(parent3) // This is beyond maxNesting
+
+        // With maxNesting = 3, should find parent3
+        val result1 = context.findClickableParent(maxNesting = 3, node = targetNode)
+        result1 shouldBe parent3
+
+        // With maxNesting = 2, should not find any clickable parent
+        val result2 = context.findClickableParent(maxNesting = 2, node = targetNode)
+        result2 shouldBe null
+    }
+
+    @Test
+    fun `findClickableParent returns first clickable parent in hierarchy`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val clickableParent = createNode(isClickable = true).addChild(targetNode)
+        createNode(isClickable = true).addChild(clickableParent)
+
+        val result = context.findClickableParent(node = targetNode)
+
+        // Should return the first (immediate) clickable parent, not the grandparent
+        result shouldBe clickableParent
+    }
+
+    // Tests for clickNormal
+    @Test
+    fun `clickNormal performs click action on enabled clickable node`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        val result = context.clickNormal(node = targetNode)
+
+        result shouldBe true
+        targetNode.performedActions shouldContain ACSNodeInfo.ACTION_CLICK
+    }
+
+    @Test
+    fun `clickNormal throws DisabledTargetException when node is disabled`() = runTest {
+        val context = createStepContext()
+        val disabledNode = TestACSNodeInfo(isClickable = true, isEnabled = false)
+
+        shouldThrow<DisabledTargetException> {
+            context.clickNormal(node = disabledNode)
+        }
+    }
+
+    @Test
+    fun `clickNormal throws UnclickableTargetException when node is not clickable`() = runTest {
+        val context = createStepContext()
+        val nonClickableNode = createNode(isClickable = false)
+
+        shouldThrow<UnclickableTargetException> {
+            context.clickNormal(node = nonClickableNode)
+        }
+    }
+
+    @Test
+    fun `clickNormal uses ACTION_SELECT in dry run mode`() = runTest {
+        val context = createStepContext()
+        val targetNode = createNode(isClickable = true)
+
+        val result = context.clickNormal(isDryRun = true, node = targetNode)
+
+        result shouldBe true
+        targetNode.performedActions shouldContain ACSNodeInfo.ACTION_SELECT
+    }
+
+    @Test
+    fun `clickNormal dry run mode ignores clickable requirement`() = runTest {
+        val context = createStepContext()
+        val nonClickableNode = createNode(isClickable = false)
+
+        val result = context.clickNormal(isDryRun = true, node = nonClickableNode)
+
+        result shouldBe true
+        nonClickableNode.performedActions shouldContain ACSNodeInfo.ACTION_SELECT
+    }
+
+    @Test
+    fun `clickNormal dry run mode still checks enabled requirement`() = runTest {
+        val context = createStepContext()
+        val disabledNode = TestACSNodeInfo(isClickable = false, isEnabled = false)
+
+        shouldThrow<DisabledTargetException> {
+            context.clickNormal(isDryRun = true, node = disabledNode)
+        }
+    }
+
+    // Tests for findNearestTo (basic tests without bounds)
+    @Test
+    fun `findNearestTo returns null when node has no parent`() = runTest {
+        val context = createStepContext()
+        val orphanNode = createNode()
+
+        context.findNearestTo(node = orphanNode) shouldBe null
+    }
+
+
+    @Test
+    fun `findNearestTo returns null when no siblings match predicate`() = runTest {
+        val context = createStepContext()
+
+        val targetNode = createNode()
+        val nonClickableSibling1 = createNode(isClickable = false)
+        val nonClickableSibling2 = createNode(isClickable = false)
+        createNode().addChildren(targetNode, nonClickableSibling1, nonClickableSibling2)
+
+        val result = context.findNearestTo(node = targetNode) { it.isClickable }
+
+        result shouldBe null
+    }
+
+    // Tests for findNodeByLabel
+    @Test
+    fun `findNodeByLabel returns node matching first label with priority`() = runTest {
+        // Build tree: Node1 has "Cache" (appears first in tree), Node2 has "Clear cache"
+        val node1 = TestACSNodeInfo(text = "Cache")
+        val node2 = TestACSNodeInfo(text = "Clear cache")
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        // Labels in priority order: "Clear cache" should be preferred
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        // Should return node2 (matches first label) not node1 (matches second label but appears first in tree)
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel falls back to second label when first not found`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Cache")
+        val root = TestACSNodeInfo().addChild(node1)
+
+        val context = createStepContextWithTree(root)
+
+        // First label doesn't match, should fall back to second
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        result shouldBe node1
+    }
+
+    @Test
+    fun `findNodeByLabel returns null when no labels match`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Storage")
+        val node2 = TestACSNodeInfo(text = "Data")
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache"))
+
+        result shouldBe null
+    }
+
+    @Test
+    fun `findNodeByLabel respects predicate filter`() = runTest {
+        // Both nodes have matching text, but only one is clickable
+        val node1 = TestACSNodeInfo(text = "Clear cache", isClickable = false)
+        val node2 = TestACSNodeInfo(text = "Clear cache", isClickable = true)
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(listOf("Clear cache")) { it.isClickable }
+
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel with predicate falls back to next label`() = runTest {
+        // First label matches but node doesn't pass predicate, second label matches and passes
+        val node1 = TestACSNodeInfo(text = "Clear cache", isClickable = false)
+        val node2 = TestACSNodeInfo(text = "Cache", isClickable = true)
+        val root = TestACSNodeInfo().addChildren(node1, node2)
+
+        val context = createStepContextWithTree(root)
+
+        // First label matches node1 but it's not clickable, should fall back to second label
+        val result = context.findNodeByLabel(listOf("Clear cache", "Cache")) { it.isClickable }
+
+        result shouldBe node2
+    }
+
+    @Test
+    fun `findNodeByLabel returns null for empty labels list`() = runTest {
+        val node1 = TestACSNodeInfo(text = "Clear cache")
+        val root = TestACSNodeInfo().addChild(node1)
+
+        val context = createStepContextWithTree(root)
+
+        val result = context.findNodeByLabel(emptyList())
+
+        result shouldBe null
+    }
+}

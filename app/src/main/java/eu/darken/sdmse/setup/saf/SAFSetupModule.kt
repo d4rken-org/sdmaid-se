@@ -38,7 +38,7 @@ import eu.darken.sdmse.common.rngString
 import eu.darken.sdmse.common.storage.PathMapper
 import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.common.storage.StorageManager2
-import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -61,6 +61,7 @@ class SAFSetupModule @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val deviceDetective: DeviceDetective,
     private val pkgOps: PkgOps,
+    private val userManager: UserManager2,
 ) : SetupModule {
 
     private val refreshTrigger = MutableStateFlow(rngString)
@@ -77,16 +78,23 @@ class SAFSetupModule @Inject constructor(
     private suspend fun getAccessObjects(): List<Result.PathAccess> {
         val requestObjects = mutableListOf<Result.PathAccess>()
 
+        val currentUriPerms = contentResolver.persistedUriPermissions
+        log(TAG) { "persistedUriPermissions:\n${currentUriPerms.joinToString("\n")}" }
+
+        val allUsers = userManager.allUsers()
+        log(TAG, VERBOSE) { "allUsers:\n${allUsers.joinToString("\n")}" }
+
+        val storageVolumes = storageManager2.storageVolumes
+        log(TAG, VERBOSE) { "storageVolumes:\n${storageVolumes.joinToString("\n")}" }
+
         // Android TV doesn't have the DocumentsUI app necessary to grant us permissions
         if (deviceDetective.getROMType() == RomType.ANDROID_TV) {
             log(TAG) { "Skipping SAF setup as this is an Android TV device." }
             return requestObjects
         }
 
-        val currentUriPerms = contentResolver.persistedUriPermissions
-
         if (!hasApiLevel(30)) {
-            storageManager2.storageVolumes
+            storageVolumes
                 .filter {
                     if (it.directory == null) {
                         log(TAG, INFO) { "Storage not backed by a path: $it" }
@@ -150,21 +158,44 @@ class SAFSetupModule @Inject constructor(
          * On Android 13 this trick no longer works :(
          */
         if (hasApiLevel(30) && !hasApiLevel(33)) {
-            val isRestricted = pkgOps.queryPkg(
-                pkgName = "com.google.android.documentsui".toPkgId(),
-                flags = 0,
-                userHandle = UserHandle2()
-            )?.let { pkg ->
-                log(TAG) { "Files-DocumentsUI: appInfos=$pkg" }
-                log(TAG) { "Files-DocumentsUI: targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
-                log(TAG) { "Files-DocumentsUI: versionName=${pkg.versionName}" }
+            var anyRestricted = false
+            var foundAnyPackage = false
+
+            for (pkgName in DOCUMENTS_UI_PACKAGES) {
+                val pkg = pkgOps.queryPkg(
+                    id = pkgName.toPkgId(),
+                    flags = 0,
+                    userHandle = userManager.currentUser().handle,
+                ) ?: continue
+
+                foundAnyPackage = true
+
+                log(TAG) { "Files-DocumentsUI ($pkgName): appInfos=$pkg" }
+                log(TAG) { "Files-DocumentsUI ($pkgName): targetSdkVersion=${pkg.applicationInfo?.targetSdkVersion}" }
+                log(TAG) { "Files-DocumentsUI ($pkgName): versionName=${pkg.versionName}" }
                 val versionCode = PackageInfoCompat.getLongVersionCode(pkg)
-                log(TAG) { "Files-DocumentsUI: versionCode=$versionCode" }
-                // Commit 901f1d6044aade190bb943ccc18d26244132648e with changes first seen in tag 'aml_doc_331120000'
-                val isTooNew = versionCode >= 331120000L
+                log(TAG) { "Files-DocumentsUI ($pkgName): versionCode=$versionCode" }
+
                 val hasKnownMarker = (pkg.applicationInfo?.targetSdkVersion ?: 0) >= 34
-                hasKnownMarker || isTooNew
-            } ?: true
+                // Commit 901f1d6044aade190bb943ccc18d26244132648e with changes first seen in tag 'aml_doc_331120000'
+                // Version code threshold is specific to Google's DocumentsUI
+                val isTooNew = pkgName == "com.google.android.documentsui" && versionCode >= 331120000L
+                val pkgIsRestricted = hasKnownMarker || isTooNew
+
+                log(TAG) { "Files-DocumentsUI ($pkgName): isRestricted=$pkgIsRestricted (hasKnownMarker=$hasKnownMarker, isTooNew=$isTooNew)" }
+
+                if (pkgIsRestricted) {
+                    anyRestricted = true
+                    break  // Early exit - any restricted package means overall restricted
+                }
+            }
+
+            // Restricted if: any package is restricted OR no packages found at all
+            val isRestricted = anyRestricted || !foundAnyPackage
+
+            if (!foundAnyPackage) {
+                log(TAG) { "Files-DocumentsUI: No DocumentsUI package found, assuming restricted" }
+            }
 
             log(TAG) { "Files-DocumentsUI: is restricted? $isRestricted" }
 
@@ -225,7 +256,7 @@ class SAFSetupModule @Inject constructor(
         // TODO provide some more elaborate lookups for TV boxes that struggle with this?
         // See https://commonsware.com/blog/2017/12/27/storage-access-framework-missing-action.html
 
-        log(TAG) { "Generated: $requestObjects" }
+        log(TAG) { "Generated:\n${requestObjects.joinToString("\n")}" }
         return requestObjects
     }
 
@@ -283,5 +314,9 @@ class SAFSetupModule @Inject constructor(
 
     companion object {
         private val TAG = logTag("Setup", "SAF", "Module")
+        private val DOCUMENTS_UI_PACKAGES = listOf(
+            "com.google.android.documentsui",  // Google/GMS variant
+            "com.android.documentsui",          // AOSP variant
+        )
     }
 }

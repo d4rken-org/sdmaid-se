@@ -2,13 +2,13 @@
 <resources>
     <string name="app_name_upgraded">SD Maid SE مفتوح المصدر</string>
     <string name="app_name_upgrade_postfix">البرمجيات الحرة (FOSS)</string>
-    <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE Pro</string>
+    <string name="upgrade_feature_requires_pro">يتطلب SD Maid SE مفتوح المصدر</string>
     <string name="upgrades_dashcard_title">ترقية SD Maid</string>
     <string name="upgrades_dashcard_body">افتح ميزات إضافية وكن راعياً لدعم التطوير المستمر!</string>
     <string name="upgrades_dashcard_upgrade_action">ترقية</string>
     <string name="upgrade_screen_title">تحسين SD Maid</string>
     <string name="upgrade_screen_preamble">لا تحتوي SD Maid على إعلانات ولا يبيع بيانات المستخدم. التطوير المستمر ممكن فقط بواسطتك.</string>
-    <string name="upgrade_screen_how_title">كيف أساعد</string>
+    <string name="upgrade_screen_how_title">كيف أساعدك</string>
     <string name="upgrade_screen_how_body">كن داعما وراعيا للتطوير! انقر على الزر أدناه لتفعيل جميع الميزات الإضافية وفتح ملفي الخاص برعاة GitHub.</string>
     <string name="upgrade_screen_why_title">هذا يستحضر 🪄</string>
     <string name="upgrade_screen_why_body">•خيار تنظيف التطبيقات 💯\n • عمليات مجدولة ⏰\n• خيارات إضافية لجميع الأدوات ⚙️\n• قواعد الحذف الخاصة بك ✍️\n• مطور متحمس 🧙\n والمزيد…</string>

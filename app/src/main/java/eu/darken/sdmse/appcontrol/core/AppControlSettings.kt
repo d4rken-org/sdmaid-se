@@ -30,10 +30,12 @@ class AppControlSettings @Inject constructor(
     val ackSizeSortCaveat = dataStore.createValue("list.filter.sizesort.caveat.ack", false)
     val moduleSizingEnabled = dataStore.createValue("module.sizing.enabled", true)
     val moduleActivityEnabled = dataStore.createValue("module.activity.enabled", true)
+    val includeMultiUserEnabled = dataStore.createValue("include.multiuser.enabled", false)
 
     override val mapper = PreferenceStoreMapper(
         moduleSizingEnabled,
-        moduleActivityEnabled
+        moduleActivityEnabled,
+        includeMultiUserEnabled,
     )
 
     companion object {

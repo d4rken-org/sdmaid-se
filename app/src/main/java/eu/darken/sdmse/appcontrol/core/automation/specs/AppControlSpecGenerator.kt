@@ -6,4 +6,6 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 
 interface AppControlSpecGenerator : SpecGenerator {
     suspend fun getForceStop(pkg: Installed): AutomationSpec
+    suspend fun getArchive(pkg: Installed): AutomationSpec
+    suspend fun getRestore(pkg: Installed): AutomationSpec
 }

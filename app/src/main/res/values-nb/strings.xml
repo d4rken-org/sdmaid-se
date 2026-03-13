@@ -7,14 +7,20 @@
     <string name="dashboard_settings_oneclick_summary">Start søk og sletting for alle verktøy med ett trykk på handlingsknappen i kontrollpanelet, uten ekstra bekreftelser.</string>
     <string name="dashboard_settings_oneclick_tools_title">Ett-trykksverktøy</string>
     <string name="dashboard_settings_oneclick_tools_desc">Hvilke verktøy bør inkluderes i ett-trykksoperasjoner?</string>
-    <string name="debug_debuglog_size_label">Størrelse</string>
-    <string name="debug_debuglog_size_compressed_label">Komprimert størrelse</string>
     <string name="debug_notification_channel_label">Feilsøkingsvarsler</string>
     <string name="debug_debuglog_file_label">Registrert loggfil</string>
     <string name="debug_debuglog_recording_progress">Tar opp feilsøkingslogg</string>
     <string name="debug_debuglog_record_action">Registrer feilsøkingslogg</string>
     <string name="debug_debuglog_stop_action">Stopp opptak</string>
     <string name="debug_debuglog_sensitive_information_message">Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter.</string>
+    <string name="debug_debuglog_screen_title">Feilsøkingslogg</string>
+    <string name="debug_debuglog_screen_discard_action">Forkast</string>
+    <string name="debug_debuglog_screen_session_path_label">Øktsti</string>
+    <string name="debug_debuglog_screen_log_files_label">Loggfiler</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">%1$d fil klar (%2$s)</item>
+        <item quantity="other">%1$d filer klar (%2$s)</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Denne funksjonen registrerer alt appen gjør i en fil som kan deles. Den genererte filen inneholder sensitiv informasjon (f.eks. filnavn og installerte apper). Del den kun med pålitelige parter (f.eks. en utvikler som feilsøker et problem).</string>
     <string name="tasks_activity_notification_channel_label">Aktive oppgaver</string>
     <string name="tasks_activity_working_notification_title">SD Maid jobber</string>
@@ -52,7 +58,6 @@
     <string name="onboarding_setup_continue_action">Gi tilgang</string>
     <string name="settings_privacy_policy_label">Personvernregler</string>
     <string name="settings_privacy_policy_desc">Håndterer data ansvarlig.</string>
-    <string name="settings_licenses_label">Lisenser</string>
     <string name="settings_category_other_label">Andre</string>
     <string name="settings_category_filter_generic">Generelt filter</string>
     <string name="settings_category_filter_specific">Spesifikt filter</string>
@@ -87,6 +92,12 @@
     <string name="discord_description">Et sted å henge og stille spørsmål.</string>
     <string name="changelog_label">Endringslogg</string>
     <string name="settings_acknowledgements_label">Anerkjennelser</string>
+    <string name="settings_acknowledgements_category_translations_title">Oversettelser</string>
+    <string name="settings_acknowledgements_category_translations_subtitle">Hvem oversatte dette?</string>
+    <string name="settings_acknowledgements_category_thanks_title">Takk</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">En spesiell takk til våre venner.</string>
+    <string name="settings_acknowledgements_category_licenses_title">Lisenser</string>
+    <string name="settings_acknowledgements_category_licenses_subtitle">Programvare brukt av SD Maid.</string>
     <string name="setup_label">Oppsett</string>
     <string name="setup_incomplete_card_title">Oppsettet er ufullstendig</string>
     <string name="setup_incomplete_card_body">Fullfør oppsettet av SD Maid for å få bedre resultater.</string>
@@ -193,6 +204,8 @@
     <string name="corpsefinder_filter_privatedata_summary">Privat appdata, f.eks. legitimasjon, appinnstillinger, men også nettleserbuffere.</string>
     <string name="corpsefinder_filter_dalvik_label">Dalvik buffere</string>
     <string name="corpsefinder_filter_dalvik_summary">Bufret data for appkjøring.</string>
+    <string name="corpsefinder_filter_artprofiles_label">ART-profiler</string>
+    <string name="corpsefinder_filter_artprofiles_summary">ART-profiler brukes av Android for å optimalisere appytelsen.</string>
     <string name="corpsefinder_filter_applib_label">Appbiblioteker</string>
     <string name="corpsefinder_filter_applib_summary">Apprelaterte bibliotekdata.</string>
     <string name="corpsefinder_filter_appsource_label">Appkilder</string>
@@ -350,6 +363,8 @@
     <string name="appcleaner_filter_recyclebins_summary">Filer som har blitt slettet, men lagt i en spesiell mappe slik at de kan gjenopprettes.</string>
     <string name="appcleaner_filter_webview_label">Webview-filer</string>
     <string name="appcleaner_filter_webview_summary">Filer bufret av Webview-forekomster brukt i apper.</string>
+    <string name="appcleaner_filter_shortcutservice_label">Ikoner for app-snarvei</string>
+    <string name="appcleaner_filter_shortcutservice_summary">Bufrede ikoner for app-snarveier og delingsmenyer.</string>
     <string name="appcleaner_filter_whatsapp_backups_label">WhatsApp sikkerhetskopier</string>
     <string name="appcleaner_filter_whatsapp_backups_summary">Slett ekstra kopier av WhatsApp sikkerhetskopier og kun behold de nyeste.</string>
     <string name="appcleaner_filter_whatsapp_received_summary">Filer mottatt fra personer i WhatsApp.</string>
@@ -423,7 +438,7 @@
     <string name="deduplicator_detection_method_checksum_title">Sjekksum i innhold</string>
     <string name="deduplicator_detection_method_checksum_summary">Bestem duplikater ved å beregne sjekksummer for filer. Filer med samsvarende sjekksum har nøyaktig samme innhold.</string>
     <string name="deduplicator_detection_method_phash_title">Perseptuell hasj</string>
-    <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdselementer og sammenligne perseptuelle hash-verdier.</string>
+    <string name="deduplicator_detection_method_phash_summary">Finn lignende filer ved å analysere innholdsfunksjoner og sammenligne perseptuelle hashverdier. ⚠️ Likhetsbasert deteksjon kan inkludere falske positiver som krever manuell verifisering.</string>
     <string name="deduplicator_occupied_space_label">Brukt lagringsplass</string>
     <plurals name="deduplicator_x_space_occupied_by_duplicates_msg">
         <item quantity="one">%s er brukt av duplikater</item>
@@ -460,7 +475,7 @@
     <string name="appcontrol_app_launch_title">Start app</string>
     <string name="appcontrol_app_launch_description">Start denne appens primære aktivitet.</string>
     <string name="appcontrol_app_forcestop_title">Tving avslutning</string>
-    <string name="appcontrol_app_forcestop_description">Stopper appen. Hindrer den fra å starte seg selv, frem til du åpner den eller enheten startes på nytt.</string>
+    <string name="appcontrol_app_forcestop_description">Stopp appen. Hindre den fra å starte seg selv, frem til du åpner den eller enheten startes på nytt.</string>
     <string name="appcontrol_app_uninstall_description">Avinstaller denne appen fra enheten din.</string>
     <string name="appcontrol_app_exclude_add_title">Ekskluder app</string>
     <string name="appcontrol_app_exclude_add_description">Ekskluder denne appen fra andre operasjoner i SD Maid.</string>
@@ -508,6 +523,8 @@
     <string name="appcontrol_settings_module_sizing_enabled_description">Få et grovt estimat av størrelsen til hver app.</string>
     <string name="appcontrol_settings_module_activity_enabled_label">Bestem aktivitet</string>
     <string name="appcontrol_settings_module_activity_enabled_description">Finn ut om en app er (eller nylig var) aktiv.</string>
+    <string name="appcontrol_include_multiuser_label">Inkluder andre brukere</string>
+    <string name="appcontrol_include_multiuser_summary">Inkluder apper fra andre brukerprofiler på denne enheten.</string>
     <string name="appcontrol_export_app_selection_action">Eksporter apper</string>
     <string name="appcontrol_export_title">Eksporter app</string>
     <string name="appcontrol_export_description">Lagre installasjonsfilene til denne appen. Dette inkluderer ikke appdata.</string>
@@ -684,6 +701,17 @@
     <string name="review_app_review_action">Anmeldelse</string>
     <string name="review_app_dismiss_action">Kanskje senere</string>
     <string name="review_app_body">Vil du gi SD Maid en anmeldelse? ❤️</string>
+    <string name="anniversary_card_title">Gledelig SD Maid Jubileum ❤️</string>
+    <string name="anniversary_card_install_date">Med deg siden %s</string>
+    <plurals name="anniversary_card_body">
+        <item quantity="one">Allerede %1$d år sammen. Takk for at du stoler på SD Maid for å holde din Android ren og ryddig. Frigjort plass: %2$s</item>
+        <item quantity="other">%1$d år sammen. Din enhet holdes ren og rydding med SD Maid. Frigjort plass: %2$s</item>
+    </plurals>
+    <string name="anniversary_share_title">Del ditt SD Maid årsjubileum</string>
+    <plurals name="anniversary_share_text">
+        <item quantity="one">%1$d år med SD Maid — Frigjort plass: %2$s. Holder din Android ren og ryddig. #SDMaid\nPrøv det: %3$s</item>
+        <item quantity="other">%1$d år med SD Maid — Frigjort plass: %2$s. Holder din Android ren og ryddig. #SDMaid\nPrøv det: %3$s</item>
+    </plurals>
     <string name="stats_label">Historie</string>
     <plurals name="stats_dash_body_size">
         <item quantity="one">%s har blitt frigjort.</item>
@@ -724,4 +752,11 @@
     <string name="area_type_public_obb_label">Offentlige appressurser</string>
     <string name="area_type_private_data_label">Privat appdata</string>
     <string name="area_type_portable_label">Bærbar lagring</string>
+    <string name="shortcut_appcontrol_short">Appkontroll</string>
+    <string name="shortcut_appcontrol_long">Administrer installerte apper</string>
+    <string name="shortcut_onetap_short">Skann + Slett</string>
+    <string name="shortcut_onetap_long">Skann og slett i en handling</string>
+    <string name="shortcuts_settings_category">Snarveier</string>
+    <string name="shortcuts_onetap_enabled_title">Ett-trykk snarvei</string>
+    <string name="shortcuts_onetap_enabled_summary">Vis \"Skann + Slett\" snarvei når app-ikonet holdes inne. Bruker samme verktøy som ett-trykk kontrollpanel.</string>
 </resources>

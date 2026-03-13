@@ -91,6 +91,7 @@ class DividerItemDecoration2 constructor(
         for (i in 0 until childCount) {
             val child: View = parent.getChildAt(i)
             parent.getDecoratedBoundsWithMargins(child, bounds)
+            @Suppress("DEPRECATION")
             val bottom: Int = bounds.bottom + Math.round(ViewCompat.getTranslationY(child))
             val top: Int = bottom - divider.intrinsicHeight
             divider.setBounds(left, top, right, bottom)
@@ -122,6 +123,7 @@ class DividerItemDecoration2 constructor(
         for (i in 0 until childCount) {
             val child: View = parent.getChildAt(i)
             parent.layoutManager!!.getDecoratedBoundsWithMargins(child, bounds)
+            @Suppress("DEPRECATION")
             val right: Int = bounds.right + Math.round(ViewCompat.getTranslationX(child))
             val left: Int = right - divider.intrinsicWidth
             divider.setBounds(left, top, right, bottom)

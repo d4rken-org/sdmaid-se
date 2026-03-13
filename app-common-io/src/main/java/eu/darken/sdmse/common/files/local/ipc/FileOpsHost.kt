@@ -216,6 +216,8 @@ class FileOpsHost @Inject constructor(
             if (success) log(TAG, WARN) { "Tried to delete file, but it's already gone: $path" }
         }
 
+        if (!success) log(TAG, WARN) { "Failed to delete: $path (canWrite=${javaFile.canWrite()})" }
+
         success
     } catch (e: Exception) {
         log(TAG, ERROR) { "delete(path=$path,recursive=$recursive,dryRun=$dryRun) failed\n${e.asLog()}" }

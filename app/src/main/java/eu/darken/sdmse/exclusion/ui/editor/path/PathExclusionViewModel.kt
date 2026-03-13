@@ -8,10 +8,12 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.current
@@ -86,9 +88,57 @@ class PathExclusionViewModel @Inject constructor(
         }
     }
 
+    fun editPath() = launch {
+        log(TAG) { "editPath()" }
+        val currentPath = currentState.value().current.path
+        val request = PickerRequest(
+            requestKey = PICKER_REQUEST_KEY,
+            mode = PickerRequest.PickMode.DIR,
+            selectedPaths = listOf(currentPath),
+        )
+        events.postValue(PathEditorEvents.LaunchPicker(request))
+    }
+
+    fun updatePath(newPath: APath) = launch {
+        log(TAG) { "updatePath($newPath)" }
+        currentState.updateBlocking {
+            val newExclusion = current.copy(path = newPath)
+            val newLookup = try {
+                gatewaySwitch.lookup(newPath)
+            } catch (e: Exception) {
+                log(TAG, VERBOSE) { "Path exclusion lookup failed: $e" }
+                null
+            }
+            copy(current = newExclusion, lookup = newLookup)
+        }
+    }
+
     fun save() = launch {
         log(TAG) { "save()" }
-        exclusionManager.save(currentState.value().current)
+        val snap = currentState.value()
+
+        var toSave = snap.current
+
+        // If path changed (original exists with different ID), handle potential conflicts
+        val origId = snap.original?.id
+        if (origId != null && origId != snap.current.id) {
+            log(TAG) { "Path changed, removing old exclusion: $origId" }
+
+            // Check if an exclusion already exists for the new path and merge tags
+            val existingForNewPath = exclusionManager.current()
+                .filterIsInstance<PathExclusion>()
+                .singleOrNull { it.id == snap.current.id }
+
+            if (existingForNewPath != null) {
+                log(TAG) { "Merging with existing exclusion: $existingForNewPath" }
+                val mergedTags = snap.current.tags + existingForNewPath.tags
+                toSave = snap.current.copy(tags = mergedTags)
+            }
+
+            exclusionManager.remove(origId)
+        }
+
+        exclusionManager.save(toSave)
         popNavStack()
     }
 
@@ -125,6 +175,7 @@ class PathExclusionViewModel @Inject constructor(
     }
 
     companion object {
+        internal const val PICKER_REQUEST_KEY = "PathExclusionViewModel.picker"
         private val TAG = logTag("Exclusion", "Editor", "Path", "ViewModel")
     }
 

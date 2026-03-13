@@ -8,6 +8,16 @@
         android:title="@string/general_delete_selected_action"
         app:showAsAction="ifRoom" />
     <item
+        android:id="@+id/action_archive_selection"
+        android:icon="@drawable/ic_archive_24"
+        android:title="@string/appcontrol_archive_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_restore_selection"
+        android:icon="@drawable/ic_settings_backup_restore_24"
+        android:title="@string/appcontrol_restore_selection_action"
+        app:showAsAction="ifRoom" />
+    <item
         android:id="@+id/action_exclude_selected"
         android:icon="@drawable/ic_shield_plus_24"
         android:title="@string/general_exclude_selected_action"
@@ -31,5 +41,10 @@
         android:id="@+id/action_select_all"
         android:icon="@drawable/ic_select_all_24"
         android:title="@string/general_list_select_all_action"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/action_share_selection"
+        android:icon="@drawable/outline_share_24"
+        android:title="@string/appcontrol_share_list_action"
         app:showAsAction="ifRoom" />
 </menu>

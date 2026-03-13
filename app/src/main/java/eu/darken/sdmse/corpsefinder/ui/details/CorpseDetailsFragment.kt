@@ -13,6 +13,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.ui.updateLiftStatus
 import eu.darken.sdmse.common.uix.Fragment3
+import eu.darken.sdmse.common.uix.setDataIfChanged
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.CorpsefinderDetailsFragmentBinding
 
@@ -30,6 +31,7 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
 
         ui.toolbar.apply {
             setupWithNavController(findNavController())
+            @Suppress("DEPRECATION")
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     else -> super.onOptionsItemSelected(it)
@@ -60,13 +62,14 @@ class CorpseDetailsFragment : Fragment3(R.layout.corpsefinder_details_fragment) 
             viewpager.isInvisible = state.progress != null
 
             if (state.progress == null) {
-                pagerAdapter.apply {
-                    setData(state.items)
-                    notifyDataSetChanged()
+                if (pagerAdapter.setDataIfChanged(state.items) { it.identifier }) {
+                    state.items.indexOfFirst { it.identifier == state.target }
+                        .takeIf { it != -1 }
+                        ?.let { position ->
+                            viewpager.currentItem = position
+                            tablayout.post { if (isAdded) tablayout.setScrollPosition(position, 0f, true) }
+                        }
                 }
-                state.items.indexOfFirst { it.identifier == state.target }
-                    .takeIf { it != -1 }
-                    ?.let { viewpager.currentItem = it }
             }
         }
 

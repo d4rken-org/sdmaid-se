@@ -9,14 +9,17 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.MainDirections
+import eu.darken.sdmse.R
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlScanTask
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.FilterSettings
 import eu.darken.sdmse.appcontrol.core.SortSettings
+import eu.darken.sdmse.appcontrol.core.archive.ArchiveTask
 import eu.darken.sdmse.appcontrol.core.export.AppExportTask
 import eu.darken.sdmse.appcontrol.core.forcestop.ForceStopTask
+import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
@@ -26,8 +29,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.formatDuration
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.AppStore
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.isEnabled
+import eu.darken.sdmse.common.pkgs.toKnownPkg
 import eu.darken.sdmse.common.pkgs.isInstalled
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.progress.Progress
@@ -177,6 +182,8 @@ class AppControlListViewModel @Inject constructor(
                 },
                 allowActionToggle = cur.canToggle,
                 allowActionForceStop = cur.canForceStop,
+                allowActionArchive = cur.canArchive,
+                allowActionRestore = cur.canRestore,
                 allowFilterActive = cur.canInfoActive && settings.moduleActivityEnabled.value(),
                 allowSortSize = cur.canInfoSize && settings.moduleSizingEnabled.value(),
                 allowSortScreenTime = cur.canInfoScreenTime,
@@ -256,7 +263,7 @@ class AppControlListViewModel @Inject constructor(
                         lablrScreenTime = if (listSort.mode == SortSettings.Mode.SCREEN_TIME) content.lablrScreenTime else null,
                         onItemClicked = {
                             AppControlListFragmentDirections.actionAppControlListFragmentToAppActionDialog(
-                                content.pkg.id
+                                content.installId,
                             ).navigate()
                         },
                     )
@@ -329,7 +336,7 @@ class AppControlListViewModel @Inject constructor(
                 FilterSettings.Tag.ENABLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
-                    old.tags.plus(tag).minus(FilterSettings.Tag.DISABLED)
+                    old.tags.plus(tag).minus(FilterSettings.Tag.DISABLED).minus(FilterSettings.Tag.NOT_INSTALLED)
                 }
 
                 FilterSettings.Tag.DISABLED -> if (existing) {
@@ -347,7 +354,7 @@ class AppControlListViewModel @Inject constructor(
                 FilterSettings.Tag.NOT_INSTALLED -> if (existing) {
                     old.tags.minus(tag)
                 } else {
-                    old.tags.plus(tag)
+                    old.tags.plus(tag).minus(FilterSettings.Tag.ENABLED)
                 }
             }
             old.copy(tags = newTags)
@@ -364,6 +371,7 @@ class AppControlListViewModel @Inject constructor(
         loadInfoSize = settings.moduleSizingEnabled.value(),
         loadInfoActive = settings.moduleActivityEnabled.value(),
         loadInfoScreenTime = settings.listSort.value().mode == SortSettings.Mode.SCREEN_TIME,
+        includeMultiUser = settings.includeMultiUserEnabled.value(),
     )
 
     fun refresh(refreshPkgCache: Boolean = false) = launch {
@@ -436,6 +444,67 @@ class AppControlListViewModel @Inject constructor(
         events.postValue(AppControlListEvents.ShowResult(result))
     }
 
+    fun archive(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "archive(${items.size}, confirmed=$confirmed)" }
+        if (items.size > 1 && !upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmArchive(items.toList()))
+            return@launch
+        }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        val result = taskManager.submit(ArchiveTask(targets = targets)) as ArchiveTask.Result
+        events.postValue(AppControlListEvents.ShowResult(result))
+    }
+
+    fun restore(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
+        log(TAG) { "restore(${items.size}, confirmed=$confirmed)" }
+        if (items.size > 1 && !upgradeRepo.isPro()) {
+            MainDirections.goToUpgradeFragment().navigate()
+            return@launch
+        }
+
+        if (!confirmed) {
+            events.postValue(AppControlListEvents.ConfirmRestore(items.toList()))
+            return@launch
+        }
+        val targets = items.map { it.appInfo.installId }.toSet()
+        val result = taskManager.submit(RestoreTask(targets = targets)) as RestoreTask.Result
+        events.postValue(AppControlListEvents.ShowResult(result))
+    }
+
+    fun shareList(items: Collection<AppControlListAdapter.Item>) = launch {
+        log(TAG) { "shareList(${items.size})" }
+        val appsList = items.joinToString("\n") { item ->
+            val pkg = item.appInfo.pkg
+            val label = item.appInfo.label.get(context)
+            val pkgName = pkg.packageName
+            val versionName = pkg.versionName ?: "?"
+            val versionCode = pkg.versionCode
+
+            val store = (pkg as? InstallDetails)?.installerInfo?.installer
+                ?.let { installer ->
+                    (installer as? AppStore)
+                        ?: installer.id.toKnownPkg() as? AppStore
+                }
+
+            buildString {
+                append("- **$label** `$pkgName` v$versionName ($versionCode)")
+                val storeLink = store?.urlGenerator?.invoke(pkg.id)
+                if (storeLink != null) {
+                    append(" [${store.storeLabel}]($storeLink)")
+                }
+            }
+        }
+        val title = context.getString(R.string.appcontrol_share_list_title)
+        val footer = context.getString(R.string.appcontrol_share_list_footer)
+        val text = "# $title\n\n$appsList\n\n---\n*$footer*"
+        events.postValue(AppControlListEvents.ShareList(text))
+    }
+
     data class State(
         val appInfos: List<AppControlListRowVH.Item>?,
         val progressWorker: Progress.Data?,
@@ -443,6 +512,8 @@ class AppControlListViewModel @Inject constructor(
         val options: DisplayOptions,
         val allowActionToggle: Boolean = false,
         val allowActionForceStop: Boolean = false,
+        val allowActionArchive: Boolean = false,
+        val allowActionRestore: Boolean = false,
         val allowSortSize: Boolean = false,
         val allowSortScreenTime: Boolean = false,
         val allowFilterActive: Boolean = false,

@@ -22,7 +22,8 @@ class AnalyzerDashCardVH(parent: ViewGroup) :
         payloads: List<Any>
     ) -> Unit = binding { item ->
 
-        root.setOnClickListener { item.onViewDetails() }
+        viewAction. setOnClickListener { item.onViewDetails() }
+        root. setOnClickListener { viewAction.performClick() }
     }
 
     data class Item(

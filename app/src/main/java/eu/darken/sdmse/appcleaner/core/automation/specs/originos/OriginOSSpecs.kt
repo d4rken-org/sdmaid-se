@@ -15,8 +15,7 @@ import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.Stepper
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
-import eu.darken.sdmse.automation.core.common.stepper.findNode
-import eu.darken.sdmse.automation.core.common.textMatchesAny
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.specs.AutomationExplorer
 import eu.darken.sdmse.automation.core.specs.AutomationSpec
 import eu.darken.sdmse.automation.core.specs.defaultNodeRecovery
@@ -102,9 +101,7 @@ class OriginOSSpecs @Inject constructor(
             log(TAG) { "clearCacheButtonLabels=${clearCacheButtonLabels.toVisualStrings()}" }
 
             val action: suspend StepContext.() -> Boolean = action@{
-                var target = findNode { node ->
-                    node.textMatchesAny(clearCacheButtonLabels)
-                } ?: return@action false
+                var target = findNodeByLabel(clearCacheButtonLabels) ?: return@action false
 
                 if (!target.isClickable) {
                     log(tag) { "'Clear cache' element was not clickable: $target" }
@@ -134,7 +131,7 @@ class OriginOSSpecs @Inject constructor(
     companion object {
         val SETTINGS_PKG = "com.android.settings".toPkgId()
 
-        val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Spec")
+        private val TAG: String = logTag("AppCleaner", "Automation", "OriginOS", "Spec")
     }
 
 }

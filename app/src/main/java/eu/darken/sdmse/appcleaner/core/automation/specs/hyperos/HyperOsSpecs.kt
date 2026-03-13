@@ -1,9 +1,7 @@
 package eu.darken.sdmse.appcleaner.core.automation.specs.hyperos
 
-import android.app.AppOpsManager
 import android.content.Context
 import android.graphics.Rect
-import android.view.accessibility.AccessibilityNodeInfo
 import androidx.core.content.pm.PackageInfoCompat
 import dagger.Binds
 import dagger.Module
@@ -17,10 +15,11 @@ import eu.darken.sdmse.appcleaner.core.automation.errors.NoSettingsWindowExcepti
 import eu.darken.sdmse.appcleaner.core.automation.specs.AppCleanerSpecGenerator
 import eu.darken.sdmse.appcleaner.core.automation.specs.StorageEntryFinder
 import eu.darken.sdmse.appcleaner.core.automation.specs.aosp.AOSPLabels
-import eu.darken.sdmse.appcleaner.core.automation.specs.defaultFindAndClickClearCache
+import eu.darken.sdmse.appcleaner.core.automation.specs.clickClearCache
 import eu.darken.sdmse.automation.core.AutomationService
 import eu.darken.sdmse.automation.core.animation.AnimationState
 import eu.darken.sdmse.automation.core.animation.AnimationTool
+import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.idContains
 import eu.darken.sdmse.automation.core.common.idMatches
@@ -34,6 +33,7 @@ import eu.darken.sdmse.automation.core.common.stepper.clickGesture
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
 import eu.darken.sdmse.automation.core.common.stepper.findNode
+import eu.darken.sdmse.automation.core.common.stepper.findNodeByLabel
 import eu.darken.sdmse.automation.core.common.textEndsWithAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.automation.core.errors.DisabledTargetException
@@ -51,10 +51,8 @@ import eu.darken.sdmse.automation.core.waitForWindowRoot
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs.isDryRun
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
-import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.debug.toVisualStrings
@@ -75,7 +73,9 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.mapNotNull
 import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.seconds
 
 
 @Reusable
@@ -114,14 +114,13 @@ class HyperOsSpecs @Inject constructor(
 
         var windowPkg: Pkg.Id? = null
 
-        val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+        val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
             if (stepAttempts >= 1 && pkg.hasNoSettings) {
                 throw NoSettingsWindowException("${pkg.packageName} has no settings window.")
             }
             // Wait for correct base window
             host.events
-                .map { it.event }
-                .filter { event -> event.pkgId == SETTINGS_PKG_HYPEROS || event.pkgId == SETTINGS_PKG_AOSP }
+                .filter { it.pkgId == SETTINGS_PKG_HYPEROS || it.pkgId == SETTINGS_PKG_AOSP }
                 .mapNotNull { host.windowRoot() }
                 .first { root ->
                     when {
@@ -160,22 +159,6 @@ class HyperOsSpecs @Inject constructor(
         }
     }
 
-    private fun isSecurityCenterMissingPermission(): Boolean = try {
-        val appOps = context.getSystemService(Context.APP_OPS_SERVICE) as AppOpsManager
-
-        @Suppress("DEPRECATION")
-        val mode = appOps.checkOp(
-            AppOpsManager.OPSTR_GET_USAGE_STATS,
-            context.packageManager.getApplicationInfo(SETTINGS_PKG_HYPEROS.name, 0).uid,
-            SETTINGS_PKG_HYPEROS.name,
-        )
-        log(TAG) { "${SETTINGS_PKG_HYPEROS}.GET_USAGE_STATS = $mode" }
-        mode != AppOpsManager.MODE_ALLOWED
-    } catch (e: Exception) {
-        log(TAG, ERROR) { "Failed to determine if security center is missing permission:${e.asLog()}" }
-        false
-    }
-
     private val settingsPlan: suspend AutomationExplorer.Context.(Installed) -> Unit = plan@{ pkg ->
         log(TAG, INFO) { "Executing AOSP settings plan for ${pkg.installId} with context $this" }
 
@@ -199,13 +182,16 @@ class HyperOsSpecs @Inject constructor(
             val clearCacheButtonLabels =
                 aospLabels.getClearCacheDynamic(this) + aospLabels.getClearCacheStatic(this)
 
+            val action: suspend StepContext.() -> Boolean = action@{
+                val target = findNodeByLabel(clearCacheButtonLabels) { it.isClickyButton() } ?: return@action false
+                clickClearCache(isDryRun = isDryRun, pkg, node = target)
+            }
+
             val step = AutomationStep(
                 source = TAG,
                 descriptionInternal = "Clear cache (settings plan) for $pkg",
                 label = R.string.appcleaner_automation_progress_find_clear_cache.toCaString(clearCacheButtonLabels),
-                nodeAction = defaultFindAndClickClearCache(isDryRun = isDryRun, pkg) {
-                    if (!it.isClickyButton()) false else it.textMatchesAny(clearCacheButtonLabels)
-                },
+                nodeAction = action,
             )
             stepper.withProgress(this) { process(this@plan, step) }
         }
@@ -252,7 +238,18 @@ class HyperOsSpecs @Inject constructor(
                         }
                     }
 
-                    return@action false
+                    // HyperOS 2/3: "Clear all data" shown for apps without cache leads to dialog without "Clear cache"
+                    findNode { it.isTextView() && it.textMatchesAny(clearAllDataLabels) }?.let {
+                        throw PlanAbortException(
+                            message = "Got 'Clear all data'. App has no cache, skipping.",
+                            treatAsSuccess = true,
+                        )
+                    }
+
+                    throw PlanAbortException(
+                        message = "No 'Clear data' or 'Clear cache' found. App has no cache, skipping.",
+                        treatAsSuccess = true,
+                    )
                 }
 
                 val mapped = findClickableParent(node = clearDataTarget) ?: return@action false
@@ -260,7 +257,7 @@ class HyperOsSpecs @Inject constructor(
                     clickNormal(node = mapped)
                 } catch (e: DisabledTargetException) {
                     throw when {
-                        isSecurityCenterMissingPermission() -> {
+                        isSecurityCenterMissingPermission(context, SETTINGS_PKG_HYPEROS, TAG) -> {
                             log(TAG, WARN) { "`com.miui.securitycenter` is missing permissions: $e" }
                             SecurityCenterMissingPermissionException()
                         }
@@ -301,36 +298,46 @@ class HyperOsSpecs @Inject constructor(
             // -> Clear data
             // -> Clear cache
             // -> Cancel
-
-            val windowCheck: suspend StepContext.() -> AccessibilityNodeInfo = {
+            val windowCheck: suspend StepContext.() -> ACSNodeInfo = {
                 // Wait till the dialog is shown
+                log(TAG) { "Settling-Check: Waiting for the right window..." }
                 host.events.first { _ ->
                     val root = host.windowRoot() ?: return@first false
                     if (root.pkgId != SETTINGS_PKG_HYPEROS) return@first false
-                    root.crawl().map { it.node }.any { it.idContains("id/alertTitle") }
+                    log(TAG) { "Settling-Check: Checking the root node for the right window..." }
+                    root.crawl().map { it.node }.any { node -> ALERT_WINDOW_IDS.any { node.idContains(it) } }
                 }
                 log(TAG) { "Settling-Check:  Got the right window, now waiting for dialog to settle..." }
                 val noAnimations: Boolean = animationTool.getState() == AnimationState.DISABLED
                 if (noAnimations) log(TAG) { "Settling-Check: Animations are disabled, using short debounce." }
 
                 // Now we have to make sure the BottomSheetDialog animation is settled
-                val settledTargetPosition = host.events
-                    .mapNotNull { host.windowRoot() }
-                    .mapNotNull { root ->
-                        val rect = Rect()
-                        (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
-                        log(TAG) { "Settling-Check0: Window Root: $rect" }
-                        root.crawl().map { it.node }.singleOrNull {
-                            it.textMatchesAny(clearCacheLabels)
+                val settledTargetPosition = withTimeoutOrNull(3.seconds) {
+                    host.events
+                        .mapNotNull { host.windowRoot() }
+                        .mapNotNull { root ->
+                            val rect = Rect()
+                            (host.service as AutomationService).windowRoot()?.getBoundsInScreen(rect)
+                            log(TAG) { "Settling-Check0: Window Root: $rect" }
+                            root.crawl().map { it.node }.singleOrNull {
+                                it.textMatchesAny(clearCacheLabels)
+                            }
                         }
-                    }
-                    .map { Rect().apply { it.getBoundsInScreen(this) } }
-                    .onEach { log(TAG) { "Settling-Check1: $it" } }
-                    .distinctUntilChanged()
-                    .onEach { log(TAG) { "Settling-Check2: $it" } }
-                    .debounce(if (noAnimations) 100 else 500)
-                    .onEach { log(TAG) { "Settling-Check3: $it" } }
-                    .first()
+                        .map { Rect().apply { it.getBoundsInScreen(this) } }
+                        .onEach { log(TAG) { "Settling-Check1: $it" } }
+                        .distinctUntilChanged()
+                        .onEach { log(TAG) { "Settling-Check2: $it" } }
+                        .debounce(if (noAnimations) 100 else 500)
+                        .onEach { log(TAG) { "Settling-Check3: $it" } }
+                        .first()
+                }
+
+                if (settledTargetPosition == null) {
+                    throw PlanAbortException(
+                        message = "Clear cache button not found in dialog. App has no cache, skipping.",
+                        treatAsSuccess = true,
+                    )
+                }
                 log(TAG) { "Settling-Check: Target has settled on $settledTargetPosition" }
                 host.waitForWindowRoot()
             }
@@ -373,11 +380,12 @@ class HyperOsSpecs @Inject constructor(
         // -> Cancel        -> Ok
         run {
             val windowCheck = windowCheck { event, root ->
+                log(TAG) { "Performing window-check for confirmation window..." }
                 if (root.pkgId != SETTINGS_PKG_HYPEROS) return@windowCheck false
                 return@windowCheck root.crawl().map { it.node }.any { subNode ->
                     // This is required to relax the match on the dialog texts
                     // Otherwise it could detect the clear cache button as match
-                    if (!subNode.idContains("id/alertTitle")) return@any false
+                    if (!ALERT_WINDOW_IDS.any { subNode.idContains(it) }) return@any false
                     return@any when {
                         subNode.textMatchesAny(dialogTitles) -> true
                         subNode.textMatchesAny(dialogTitles.map { it.replace("?", "") }) -> true
@@ -418,9 +426,13 @@ class HyperOsSpecs @Inject constructor(
     }
 
     companion object {
-        val TAG: String = logTag("AppCleaner", "Automation", "HyperOS", "Specs")
+        private val TAG: String = logTag("AppCleaner", "Automation", "HyperOS", "Specs")
         private val SETTINGS_PKG_HYPEROS = "com.miui.securitycenter".toPkgId()
         private val SETTINGS_PKG_AOSP = "com.android.settings".toPkgId()
-
+        private val ALERT_WINDOW_IDS = setOf(
+            "id/alertTitle",
+            "id/action_sheet_root_view",
+            "id/action_sheet_content",
+        )
     }
 }

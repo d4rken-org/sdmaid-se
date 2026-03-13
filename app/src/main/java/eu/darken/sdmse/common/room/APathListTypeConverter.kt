@@ -1,12 +1,15 @@
 package eu.darken.sdmse.common.room
 
+import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.adapter
+import dagger.Reusable
 import eu.darken.sdmse.common.files.APath
 import javax.inject.Inject
 
-
+@Reusable
+@ProvidedTypeConverter
 class APathListTypeConverter @Inject constructor(
     moshi: Moshi,
 ) {

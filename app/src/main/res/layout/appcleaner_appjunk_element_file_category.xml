@@ -27,7 +27,7 @@
         android:ellipsize="end"
         android:singleLine="true"
         app:layout_constraintBottom_toTopOf="@id/secondary"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toStartOf="@id/collapse_action"
         app:layout_constraintStart_toEndOf="@id/icon"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed"
@@ -46,6 +46,18 @@
         app:layout_constraintTop_toBottomOf="@id/primary"
         app:layout_constraintVertical_chainStyle="packed"
         tools:text="999.99 KB (2 items)" />
+
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/collapse_action"
+        style="@style/Widget.Material3.Button.IconButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        app:icon="@drawable/ic_expand_less"
+        app:iconTint="?colorOnBackground"
+        app:layout_constraintBottom_toBottomOf="@id/secondary"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/primary" />
 
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/description"

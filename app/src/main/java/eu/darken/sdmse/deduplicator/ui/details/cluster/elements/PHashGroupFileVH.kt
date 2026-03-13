@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
+import eu.darken.sdmse.common.replaceLast
 import eu.darken.sdmse.databinding.DeduplicatorClusterElementPhashgroupFileBinding
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
@@ -40,7 +41,11 @@ class PHashGroupFileVH(parent: ViewGroup) :
             transformations(RoundedCornersTransformation(36F))
         }
         previewImage.setOnClickListener { item.onPreviewClick(item) }
-        primary.text = dupe.lookup.userReadablePath.get(context)
+
+        val fileName = dupe.path.userReadableName.get(context)
+        name.text = fileName
+        path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
+
         secondary.text = String.format("%.2f%%", dupe.similarity * 100)
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
 

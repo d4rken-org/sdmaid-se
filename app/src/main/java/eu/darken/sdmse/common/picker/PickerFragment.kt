@@ -4,7 +4,11 @@ import android.os.Bundle
 import android.view.View
 import android.widget.LinearLayout
 import androidx.activity.OnBackPressedCallback
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.doOnLayout
 import androidx.core.view.iterator
+import androidx.core.view.updatePadding
 import androidx.fragment.app.setFragmentResult
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
@@ -50,17 +54,45 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
         EdgeToEdgeHelper(requireActivity()).apply {
             insetsPadding(ui.root, left = true, right = true)
             insetsPadding(ui.appbarlayout, top = true)
-            insetsPadding(ui.list, bottom = true)
             insetsPadding(ui.loadingOverlay, bottom = true)
+        }
+
+        var navBarInsets = 0
+        ViewCompat.setOnApplyWindowInsetsListener(ui.list) { _, insets ->
+            val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+            navBarInsets = systemBars.bottom
+            insets
         }
 
         sheetBehavior = BottomSheetBehavior.from(ui.selectedContainer).apply {
             isHideable = false
             state = BottomSheetBehavior.STATE_COLLAPSED
             peekHeight = requireContext().dpToPx(64f)
-            ui.root.post {
-                maxHeight = ((ui.root.height - ui.toolbar.height) * 0.5f).roundToInt()
-            }
+
+            addBottomSheetCallback(object : BottomSheetBehavior.BottomSheetCallback() {
+                override fun onStateChanged(bottomSheet: View, newState: Int) {}
+
+                override fun onSlide(bottomSheet: View, slideOffset: Float) {
+                    val sheetHeight = ui.root.height - bottomSheet.top
+                    ui.list.updatePadding(bottom = sheetHeight + navBarInsets)
+                }
+            })
+        }
+
+        fun updateSheetDimensions() {
+            val newMaxHeight = ((ui.root.height - ui.toolbar.height) * 0.5f).roundToInt()
+            sheetBehavior.maxHeight = newMaxHeight
+
+            val sheetHeight = ui.root.height - ui.selectedContainer.top
+            ui.list.updatePadding(bottom = sheetHeight.coerceAtLeast(0) + navBarInsets)
+        }
+
+        ui.root.addOnLayoutChangeListener { _, _, _, _, _, _, _, _, _ ->
+            updateSheetDimensions()
+        }
+
+        ui.root.doOnLayout {
+            updateSheetDimensions()
         }
 
         ui.toolbar.apply {
@@ -102,8 +134,16 @@ class PickerFragment : Fragment3(R.layout.common_picker_fragment) {
 
         vm.state.observe2(ui) { state ->
             log(TAG) { "updating with new state: $state" }
-            if (state.progress != null) toolbar.subtitle = state.current?.lookup?.path ?: ""
+            toolbar.subtitle = state.current?.lookup?.path ?: ""
             toolbar.menu.iterator().forEach { it.isVisible = state.progress == null }
+
+            toolbar.setNavigationIcon(
+                if (state.current == null) {
+                    R.drawable.ic_baseline_close_24
+                } else {
+                    R.drawable.ic_baseline_arrow_back_24
+                }
+            )
 
             if (state.progress == null) pickerAdapter.update(state.items)
 

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="pkgrepo_invalid_inventory_error_title">Невалиден инвентар на апликации</string>
+    <string name="pkgrepo_invalid_inventory_error_description">Системот обезбеди невалидна листа на инсталирани апликации за SD Maid.</string>
+</resources>

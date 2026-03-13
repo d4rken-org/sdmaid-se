@@ -4,9 +4,11 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.previews.PreviewOptions
@@ -23,6 +25,7 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.DirectoryHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
@@ -37,6 +40,7 @@ class ClusterViewModel @Inject constructor(
     private val settings: DeduplicatorSettings,
     private val taskManager: TaskManager,
     private val upgradeRepo: UpgradeRepo,
+    private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val args = ClusterFragmentArgs.fromSavedStateHandle(handle)
@@ -49,11 +53,15 @@ class ClusterViewModel @Inject constructor(
         .map { data -> data.clusters.singleOrNull { it.identifier == args.identifier } }
         .filterNotNull()
 
+    private val collapsedDirectories = MutableStateFlow<Set<DirectoryGroup.Id>>(emptySet())
+
     val state = combine(
         clusterData,
         deduplicator.progress,
         settings.allowDeleteAll.flow,
-    ) { cluster, progress, allowDeleteAll ->
+        settings.isDirectoryViewEnabled.flow,
+        collapsedDirectories,
+    ) { cluster, progress, allowDeleteAll, isDirectoryViewEnabled, collapsed ->
         val elements = mutableListOf<ClusterAdapter.Item>()
 
         ClusterHeaderVH.Item(
@@ -62,6 +70,24 @@ class ClusterViewModel @Inject constructor(
             onExcludeClicked = { exclude(setOf(it)) },
         ).run { elements.add(this) }
 
+        if (isDirectoryViewEnabled) {
+            buildDirectoryViewElements(cluster, collapsed, elements)
+        } else {
+            buildGroupViewElements(cluster, elements)
+        }
+
+        State(
+            elements = elements,
+            progress = progress,
+            allowDeleteAll = allowDeleteAll,
+            isDirectoryViewEnabled = isDirectoryViewEnabled,
+        )
+    }.asLiveData2()
+
+    private fun buildGroupViewElements(
+        cluster: Duplicate.Cluster,
+        elements: MutableList<ClusterAdapter.Item>,
+    ) {
         cluster.groups
             .sortedByDescending { it.totalSize }
             .flatMap { group ->
@@ -122,18 +148,68 @@ class ClusterViewModel @Inject constructor(
                 items
             }
             .run { elements.addAll(this) }
+    }
 
-        State(
-            elements = elements,
-            progress = progress,
-            allowDeleteAll = allowDeleteAll,
-        )
-    }.asLiveData2()
+    private fun buildDirectoryViewElements(
+        cluster: Duplicate.Cluster,
+        collapsed: Set<DirectoryGroup.Id>,
+        elements: MutableList<ClusterAdapter.Item>,
+    ) {
+        // Collect all duplicates from all groups
+        val allDuplicates = cluster.groups.flatMap { it.duplicates }
+
+        // Group duplicates by their parent directory
+        val directoryGroups = allDuplicates
+            .groupBy { it.path.segments.dropLast(1) }
+            .map { (parentSegments, duplicates) ->
+                DirectoryGroup(
+                    parentSegments = parentSegments,
+                    duplicates = duplicates.sortedBy { it.path.name },
+                )
+            }
+            .sortedByDescending { it.totalSize }
+
+        directoryGroups.forEach { dirGroup ->
+            val isCollapsed = collapsed.contains(dirGroup.identifier)
+
+            DirectoryHeaderVH.Item(
+                directoryGroup = dirGroup,
+                onItemClick = { deleteDirectoryDuplicates(it) },
+                isCollapsed = isCollapsed,
+                onCollapseToggle = { toggleDirectoryCollapse(dirGroup.identifier) },
+            ).run { elements.add(this) }
+
+            if (!isCollapsed) {
+                dirGroup.duplicates.map { dupe ->
+                    when (dupe) {
+                        is ChecksumDuplicate -> ChecksumGroupFileVH.Item(
+                            duplicate = dupe,
+                            onItemClick = { delete(listOf(it)) }
+                        )
+
+                        is PHashDuplicate -> PHashGroupFileVH.Item(
+                            duplicate = dupe,
+                            onItemClick = { delete(listOf(it)) },
+                            onPreviewClick = { item ->
+                                val options = PreviewOptions(
+                                    paths = listOf(item.path)
+                                )
+                                events.postValue(ClusterEvents.ViewDuplicate(options))
+                            }
+                        )
+
+                        else -> throw IllegalArgumentException("Unknown duplicate type: $dupe")
+                    }
+                }.run { elements.addAll(this) }
+            }
+        }
+    }
 
     data class State(
         val elements: List<ClusterAdapter.Item>,
         val progress: Progress.Data? = null,
         val allowDeleteAll: Boolean = false,
+        val isDirectoryViewEnabled: Boolean = false,
     )
 
     fun delete(
@@ -195,7 +271,46 @@ class ClusterViewModel @Inject constructor(
 
     fun open(item: ClusterAdapter.DuplicateItem) = launch {
         log(TAG, INFO) { "open(): $item" }
-        events.postValue(ClusterEvents.OpenDuplicate(item.duplicate.lookup))
+        val intent = viewIntentTool.create(item.duplicate.lookup)
+        if (intent == null) {
+            log(TAG, WARN) { "open(): Unable to create view intent for ${item.duplicate.lookup}" }
+            return@launch
+        }
+        events.postValue(ClusterEvents.OpenDuplicate(intent))
+    }
+
+    fun toggleDirectoryView() = launch {
+        log(TAG, INFO) { "toggleDirectoryView()" }
+        settings.isDirectoryViewEnabled.update { !it }
+    }
+
+    private fun toggleDirectoryCollapse(directoryId: DirectoryGroup.Id) = launch {
+        val current = collapsedDirectories.value
+        collapsedDirectories.value = if (current.contains(directoryId)) {
+            current - directoryId
+        } else {
+            current + directoryId
+        }
+    }
+
+    private fun deleteDirectoryDuplicates(item: DirectoryHeaderVH.Item) {
+        val duplicateItems = item.directoryGroup.duplicates.mapNotNull { dupe ->
+            when (dupe) {
+                is ChecksumDuplicate -> ChecksumGroupFileVH.Item(
+                    duplicate = dupe,
+                    onItemClick = {}
+                )
+
+                is PHashDuplicate -> PHashGroupFileVH.Item(
+                    duplicate = dupe,
+                    onItemClick = {},
+                    onPreviewClick = {}
+                )
+
+                else -> null
+            }
+        }
+        delete(duplicateItems)
     }
 
     companion object {

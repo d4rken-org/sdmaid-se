@@ -1,2 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources></resources>
+<resources>
+    <string name="app_name_upgraded">SD Maid SE FOSS</string>
+    <string name="app_name_upgrade_postfix">FOSS</string>
+    <string name="upgrade_feature_requires_pro">Kräver SD Maid SE FOSS</string>
+    <string name="upgrades_dashcard_title">Uppgradera SD Maid</string>
+    <string name="upgrades_dashcard_body">Lås upp ytterligare funktioner och bli en beskyddare för att stödja fortsatt utveckling!</string>
+    <string name="upgrades_dashcard_upgrade_action">Uppgradera</string>
+    <string name="upgrade_screen_title">Förbättra SD Maid</string>
+    <string name="upgrade_screen_preamble">SD Maid har inga annonser och säljer inte användardata. Fortsatt utveckling är endast möjlig tack vare dig.</string>
+    <string name="upgrade_screen_how_title">Hur du kan hjälpa</string>
+    <string name="upgrade_screen_how_body">Bli en beskyddare och sponsra utvecklingen! Tryck på knappen nedan för att aktivera alla extra funktioner och öppna min GitHub Sponsors-profil.</string>
+    <string name="upgrade_screen_why_title">Detta trollar fram 🪄</string>
+    <string name="upgrade_screen_why_body">• AppCleaner raderingsfunktionalitet 💯\n• Schemalagda operationer ⏰\n• Extra alternativ för alla verktyg ⚙️\n• Dina egna raderingsregler ✍️\n• En motiverad utvecklare 🧙\noch mer…</string>
+    <string name="upgrade_screen_sponsor_action">Sponsra utvecklingen</string>
+    <string name="upgrade_screen_sponsor_action_hint">Alternativet är annonser, analys och Google Play 🙁</string>
+    <string name="upgrade_screen_thanks_toast">Tack för att du stöder utveckling med öppen källkod ❤️</string>
+</resources>
