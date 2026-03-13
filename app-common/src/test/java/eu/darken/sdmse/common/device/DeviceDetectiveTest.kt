@@ -307,6 +307,18 @@ class DeviceDetectiveTest : BaseTest() {
     }
 
     @Test
+    fun `detect MIUI V12 on Black Shark 5 - blackshark patriot Android 12`() {
+        // blackshark/PAR-H0/patriot:12/PTRT2206200OS00MP1/V12.0.1.0.RBICNBS:user/release-keys
+        val context = deviceFromFingerprint(
+            "blackshark/PAR-H0/patriot:12/PTRT2206200OS00MP1/V12.0.1.0.RBICNBS:user/release-keys",
+            installedPackages = setOf("com.miui.securitycenter")
+        )
+        detective = DeviceDetective(context)
+
+        detective.getROMType() shouldBe RomType.MIUI
+    }
+
+    @Test
     fun `detect Nubia device`() {
         val context = mockDevice {
             manufacturer = "nubia"

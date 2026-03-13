@@ -75,7 +75,8 @@ class DeviceDetective @Inject constructor(
         // LG UX, last devices run Android, close to AOSP
         manufactor("lge") -> RomType.LGUX
 
-        manufactor("Xiaomi") || manufactor("POCO") -> when {
+        // Black Shark is a Xiaomi sub-brand running JoyUI (MIUI fork)
+        manufactor("Xiaomi") || manufactor("POCO") || manufactor("blackshark") -> when {
             versionStarts(HYPEROS_VERSION_STARTS) -> when {
                 // HyperOS 1.0 is based on Android 14 / API34, some backports exist (e.g. pissarropro)
                 hasApiLevel(33) -> RomType.HYPEROS
