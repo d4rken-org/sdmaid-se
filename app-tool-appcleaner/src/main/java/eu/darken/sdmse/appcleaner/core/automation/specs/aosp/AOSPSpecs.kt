@@ -199,6 +199,8 @@ class AOSPSpecs @Inject constructor(
         sizeParser: SizeParser?,
         timeoutMs: Long = 3000,
     ): Boolean {
+        if (Bugs.isDryRun) return true
+
         val eventOk = validateClickEffect(source, timeoutMs)
         if (!eventOk) return false
 
