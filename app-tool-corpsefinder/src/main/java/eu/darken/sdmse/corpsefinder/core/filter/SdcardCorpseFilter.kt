@@ -23,6 +23,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.canRead
 import eu.darken.sdmse.common.files.canWrite
@@ -187,7 +188,13 @@ class SdcardCorpseFilter @Inject constructor(
         if (cachedData != null) return cachedData
 
         val candidateRaw = area.path.child(*marker.segments.toTypedArray())
-        if (!candidateRaw.exists(gatewaySwitch)) return emptyList()
+        val candidateExists = try {
+            candidateRaw.exists(gatewaySwitch)
+        } catch (e: ReadException) {
+            log(TAG, WARN) { "Can't check existence for $candidateRaw: ${e.message}" }
+            return emptyList()
+        }
+        if (!candidateExists) return emptyList()
 
         // Sdcard names are case-insensitive, the marker name is fixed though..
         // Actual name could be "MiBand" but by using the marker prefix we would end up with "miband"
