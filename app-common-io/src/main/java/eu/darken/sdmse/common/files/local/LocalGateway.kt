@@ -569,18 +569,29 @@ class LocalGateway @Inject constructor(
             val canCheckNormal = when (mode) {
                 Mode.ROOT -> false
                 Mode.ADB -> false
-                else -> when {
-                    // exists() = true is never a false positive
-                    javaFile.exists() -> true
-                    // This is a bit iffy, but checking readability on the parent has proven reliable
-                    javaFileParent?.exists() == true && javaFileParent.canRead() -> true
-                    // On Android 12+ Android/data isn't accessible anymore via normal java file access.
-                    hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
-                    // If the file path is on public storage, and it wasn't Android/data then, assume true
-                    else -> storageEnvironment.externalDirs
-                        .firstOrNull { it.isAncestorOf(path) }
-                        ?.asFile()
-                        ?.canRead() ?: false
+                else -> {
+                    val result = when {
+                        // exists() = true is never a false positive
+                        javaFile.exists() -> true
+                        // This is a bit iffy, but checking readability on the parent has proven reliable
+                        javaFileParent?.exists() == true && javaFileParent.canRead() -> true
+                        // On Android 12+ Android/data isn't accessible anymore via normal java file access.
+                        hasApiLevel(32) && storageEnvironment.publicDataDirs.any { it.isAncestorOf(path) } -> false
+                        // If the file path is on public storage, and it wasn't Android/data then, assume true
+                        else -> storageEnvironment.externalDirs
+                            .firstOrNull { it.isAncestorOf(path) }
+                            ?.asFile()
+                            ?.canRead() ?: false
+                    }
+                    if (Bugs.isDebug && !result && path.isUncommonAndroidDir) {
+                        val extDir = storageEnvironment.externalDirs.firstOrNull { it.isAncestorOf(path) }
+                        log(TAG, WARN) {
+                            "exists(): canCheckNormal=false for uncommon Android subdir: $path, " +
+                                "parentExists=${javaFileParent?.exists()}, parentCanRead=${javaFileParent?.canRead()}, " +
+                                "extDir=$extDir, extCanRead=${extDir?.asFile()?.canRead()}"
+                        }
+                    }
+                    result
                 }
             }
 

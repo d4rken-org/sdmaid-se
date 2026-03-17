@@ -123,3 +123,17 @@ fun LocalPath.removePrefix(prefix: LocalPath, overlap: Int = 0): Segments {
     if (!startsWith(prefix)) throw IllegalArgumentException("$prefix is not a prefix of $this")
     return segments.drop(prefix.segments.size - overlap)
 }
+
+private val WELL_KNOWN_ANDROID_SUBDIRS = setOf("data", "obb", "media")
+
+/**
+ * Returns true if this path is under an uncommon `Android/` subdirectory,
+ * i.e. not `data`, `obb`, or `media`.
+ */
+val LocalPath.isUncommonAndroidDir: Boolean
+    get() {
+        val segs = segments
+        val idx = segs.indexOf("Android")
+        if (idx < 0 || idx + 1 >= segs.size) return false
+        return segs[idx + 1] !in WELL_KNOWN_ANDROID_SUBDIRS
+    }
