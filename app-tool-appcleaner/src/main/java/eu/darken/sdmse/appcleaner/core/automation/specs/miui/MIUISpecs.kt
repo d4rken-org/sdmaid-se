@@ -59,6 +59,7 @@ import eu.darken.sdmse.common.deviceadmin.DeviceAdminManager
 import eu.darken.sdmse.common.funnel.IPCFunnel
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.progress.withProgress
@@ -227,12 +228,14 @@ class MIUISpecs @Inject constructor(
                             SecurityCenterMissingPermissionException()
                         }
 
-                        else -> {
-                            log(TAG, WARN) { "Clear data button is disabled, not a permission issue, skipping: $e" }
+                        pkg.isSystemApp -> {
+                            log(TAG, WARN) { "Clear data button is disabled for system app, skipping: $e" }
                             PlanAbortException(
-                                message = "Clear data button disabled for ${pkg.packageName}, can't clear cache via security center.",
+                                message = "Clear data button disabled for system app ${pkg.packageName}, can't clear cache via security center.",
                             )
                         }
+
+                        else -> e
                     }
                 }
             }
