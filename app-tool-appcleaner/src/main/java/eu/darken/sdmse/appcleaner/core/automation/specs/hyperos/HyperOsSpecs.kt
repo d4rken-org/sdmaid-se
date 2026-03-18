@@ -256,7 +256,12 @@ class HyperOsSpecs @Inject constructor(
                             SecurityCenterMissingPermissionException()
                         }
 
-                        else -> e
+                        else -> {
+                            log(TAG, WARN) { "Clear data button is disabled, not a permission issue, skipping: $e" }
+                            PlanAbortException(
+                                message = "Clear data button disabled for ${pkg.packageName}, can't clear cache via security center.",
+                            )
+                        }
                     }
                 }
             }
