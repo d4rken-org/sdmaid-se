@@ -80,9 +80,9 @@ class InventorySetupModule @Inject constructor(
         .onStart { emit(Loading()) }
         .replayingShare(appScope)
 
-    private fun getRequiredPermission(): Set<Permission> = when {
-        hasApiLevel(34) -> setOf(Permission.QUERY_ALL_PACKAGES)
-        else -> emptySet()
+    private fun getRequiredPermission(): Set<Permission> = buildSet {
+        if (hasApiLevel(34)) add(Permission.QUERY_ALL_PACKAGES)
+        add(Permission.GET_INSTALLED_APPS)
     }
 
     override suspend fun refresh() {

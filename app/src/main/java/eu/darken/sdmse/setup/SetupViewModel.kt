@@ -16,7 +16,10 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.navArgs
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.permissions.RuntimePermission
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
+import eu.darken.sdmse.common.pkgs.getSettingsIntent
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
@@ -216,8 +219,15 @@ class SetupViewModel @Inject constructor(
                         SetupModule.Type.INVENTORY -> when (state) {
                             is SetupModule.State.Current -> InventorySetupCardVH.Item(
                                 state = state as InventorySetupModule.Result,
+                                // TODO: If more setup cards need runtime-vs-settings branching, extract a shared helper
                                 onGrantAction = {
-                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.settingsIntent))
+                                    val result = state as InventorySetupModule.Result
+                                    val runtimePerm = result.missingPermission.firstOrNull { it is RuntimePermission }
+                                    if (runtimePerm != null) {
+                                        events.postValue(SetupEvents.RuntimePermissionRequests(runtimePerm))
+                                    } else {
+                                        events.postValue(SetupEvents.ShowOurDetailsPage(result.settingsIntent))
+                                    }
                                 },
                                 onHelp = {
                                     webpageTool.open(InventorySetupModule.INFO_URL)
@@ -277,9 +287,14 @@ class SetupViewModel @Inject constructor(
                 Permission.POST_NOTIFICATIONS -> {}
                 Permission.WRITE_SECURE_SETTINGS -> {}
                 Permission.QUERY_ALL_PACKAGES -> {}
+                Permission.GET_INSTALLED_APPS -> {}
                 null -> {}
             }
             setupManager.refresh()
+        } else if (permission == Permission.GET_INSTALLED_APPS) {
+            // Runtime dialog may not work on some OEMs — fall back to app settings
+            val settingsIntent = context.packageName.toPkgId().getSettingsIntent(context)
+            events.postValue(SetupEvents.ShowOurDetailsPage(settingsIntent))
         }
     }
 
