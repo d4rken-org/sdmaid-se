@@ -17,6 +17,7 @@ import coil.load
 import coil.request.CachePolicy
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.dpToPx
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.squeezer.databinding.SqueezerComparisonDialogBinding
 import eu.darken.sdmse.squeezer.core.CompressibleImage
@@ -144,7 +145,7 @@ class ComparisonDialog : DialogFragment() {
         _binding = null
         val cacheDir = requireContext().cacheDir
         lifecycleScope.launch(Dispatchers.IO) {
-            File(cacheDir, "squeezer_preview").deleteRecursively()
+            File(cacheDir, "squeezer_preview").deleteRecursivelySafe()
         }
         super.onDestroyView()
     }

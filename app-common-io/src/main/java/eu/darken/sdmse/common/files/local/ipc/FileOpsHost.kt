@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.files.Ownership
 import eu.darken.sdmse.common.files.Permissions
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.core.local.createSymlink
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.files.core.local.listFiles2
 import eu.darken.sdmse.common.files.local.DirectLocalWalker
 import eu.darken.sdmse.common.files.local.LocalPath
@@ -207,7 +208,7 @@ class FileOpsHost @Inject constructor(
 
         var success = when {
             dryRun -> javaFile.canWrite()
-            recursive -> javaFile.deleteRecursively()
+            recursive -> javaFile.deleteRecursivelySafe()
             else -> javaFile.delete()
         }
 
