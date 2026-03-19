@@ -1,4 +1,4 @@
-<i>SD Maid 2/SE</i> zure Androidaren laguntzaile fidagarria da, garbita eta ordenan mantentzen dituena.
+<i>SD Maid 2/SE</i> is your Android’s trusted assistant, to keep it clean and tidy.
 
 Inor ez da perfektua, eta Android ere ez.
 

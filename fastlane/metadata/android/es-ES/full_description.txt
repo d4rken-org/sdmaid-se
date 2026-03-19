@@ -49,7 +49,7 @@ SD Maid 2/SE es el sucesor de SD Maid 1/Legacy.
 Optimizado para nuevas versiones de Android y enfocado en la limpieza.
 
 Esta aplicación tiene funciones opcionales que utilizan la API del Servicio de Accesibilidad para automatizar acciones tediosas.
-Mediante la API del Servicio de Accesibilidad, esta aplicación puede pulsar botones para que realices operaciones en varias aplicaciones, por ejemplo borrando la memoria caché.
+Usando la API AccessibilityService, esta aplicación puede hacer clic en botones para que pueda realizar operaciones en varias aplicaciones, por ejemplo. borrando la memoria caché.
 Esta aplicación no utiliza la API del Servicio de Accesibilidad para recopilar información.
 
 SD Maid 2/SE es una aplicación de limpieza y gestión de archivos.
