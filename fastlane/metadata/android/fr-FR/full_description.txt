@@ -1,55 +1,55 @@
-<i>SD Maid 2/SE</i> est l’assistante de votre Android, pour le garder propre et bien rangé, en toute confiance.
+<i>SD Maid 2/SE</i>, l’assistante de votre Android, pour le garder propre et bien rangé, en toute confiance.
 
 Personne n’est parfait et Android non plus.
 
 * Les applis que vous avez déjà supprimées laissent des traces.
-* Des journaux, des relevés de plantage et d’autres fichiers dont vous ne voulez pas sont créés en permanence.
+* Des journaux, relevés de plantage et autres fichiers dont vous ne voulez pas sont créés en permanence.
 * Des fichiers et dossiers que vous ne reconnaissez pas s’accumulent sur votre téléphone.
-* Plusieurs exemplaires de vos photos se trouvent dans votre galerie.
+* Des photos en double se trouvent dans votre galerie.
 
 N’allons pas plus loin… Laissez SD Maid 2/SE vous aider.
 
-SD Maid 2/SE est une appli et un gestionnaire de fichiers spécialisé dans l'identification des applis ayant créé des fichiers sur votre appareil. SD Maid 2/SE parcourt votre appareil et compare les fichiers aux applis installées pour vous offrir des options de libération d’espace en toute sécurité.
+SD Maid 2/SE est une appli et gestionnaire de fichiers spécialisée dans l’identification des applis ayant créé les fichiers de votre appareil. SD Maid 2/SE parcourt votre appareil et compare les fichiers aux applis installées pour vous proposer des options de libération d’espace en toute sécurité.
 
 ✨ Nettoyer après désinstallation des applis
 
-Si des applis créent des fichiers en dehors de leurs dossiers désignés, ces fichiers peuvent subsister même après désinstallation des applis. La « Recherche de cadavres » trouve les restes d’applis, vous indique à quelle appli ils appartenaient et vous aide à les supprimer.
+Si des applis créent des fichiers en dehors de leurs dossiers désignés, des fichiers peuvent subsister après désinstallation des applis. La « Recherche de cadavres » trouve les restes d’applis, vous indique à quelle appli ils appartenaient et vous aide à les supprimer.
 
 🔍 Rechercher intelligemment sur votre appareil
 
-Cherchez les dossiers vides, les fichiers temporaires, les applis déjà installées et plus encore. Créez vos propres critères de recherche. Le « Nettoyeur système » vous permet de chercher automatiquement sur votre appareil des fichiers selon différents critères et de les supprimer.
+Cherchez les dossiers vides, fichiers temporaires, applis déjà installées et plus. Vous pouvez créer vos propres critères de recherche. Le « Nettoyeur système » permet de chercher et supprimer automatiquement des fichiers sur votre appareil selon différents critères.
 
 🧹 Supprimer les fichiers superflus et les caches dissimulés
 
-Imagettes, corbeilles, caches hors ligne et plus encore. Si les applis laissent des traces, cette appli fera le ménage. Le « Nettoyeur d’applis » trouve les applis qui ont des fichiers superflus.
+Imagettes, corbeilles, caches hors ligne et plus. Si les applis laissent des traces, elle fera le ménage. Le « Nettoyeur d’applis » trouve les applis avec des fichiers superflus.
 
 📦 Gérer toutes vos applis
 
-Obtenez la liste de toutes les applis installées sur votre appareil. Applis activées, désactivées, pour utilisateurs ou système, aucune appli ne vous échappe. Le « Vérificateur d’applis » vous permet d’explorer, trier et contrôler vos applis.
+Obtenez la liste complète des applis installées sur votre appareil. Applis activées, désactivées, pour utilisateurs ou système, aucune appli ne vous échappe. Le « Vérificateur d’applis » est un gestionnaire d’applis qui vous permet d’explorer, trier et contrôler vos applis.
 
 📊 Ce qui utilise tout votre espace
 
-La gestion du stockage peut s’avérer complexe avec les applis, médias, fichiers système et autres répartis sur la mémoire du téléphone, les cartes SD et les périphériques USB. L’« Analyseur de mémoire » affiche l’utilisation de l’espace sur votre appareil et simplifie la gestion du stockage.
+La gestion du stockage peut s’avérer complexe avec les applis, les médias, les fichiers système et autres fichiers répartis sur la mémoire de l’appareil, les cartes SD et sur les périphériques USB. L’« Analyseur de mémoire » affiche l’utilisation de l’espace sur votre appareil et simplifie la gestion de votre espace de stockage.
 
 📷 Trouver des données dupliquées
 
 Photos provenant des réseaux sociaux, images similaires d’une même scène et téléchargements dupliqués. Les copies s’accumulent. Le « Déduplicateur » trouve les fichiers identiques ou similaires et vous aide à supprimer les copies supplémentaires.
 
-👆 Désencombrez d'un glissement
+👆 Désencombrez d’un balayage
 
-Choisissez un dossier et parcourez les fichiers un par un avec de simples glissements pour les garder, supprimer ou ignorer. L'outil « Swiper » vous permet de revoir toutes les décisions avant que rien ne soit supprimé, et vous pouvez sauvegarder une session pour la reprendre plus tard.
+Choisissez un dossier et parcourez les fichiers un par un en les balayant pour garder, supprimer ou ignorer. L’outil « Balayeur » vous permet d’examiner vos décisions avant de supprimer les éléments. Vous pouvez aussi enregistrer une session pour la reprendre plus tard.
 
-🗄️ Libérez de l'espace sans supprimer vos photos
+🗄️ Libérer de l’espace sans supprimer de photos
 
-Les photos peuvent occuper beaucoup de stockage, mais vous ne voulez pas toujours les supprimer. L'outil « Media Squeeze » compresse vos images avec des paramètres de qualité réglables pour libérer de l'espace tout en conservant vos photos.
+Les photos peuvent occuper beaucoup de place, mais vous ne voulez pas toujours les supprimer. L’outil « Compression des médias » compresse vos images avec des paramètres de qualité réglables, pour libérer de l’espace tout en conservant vos photos.
 
 SD Maid ne sert aucune publicité. Certaines fonctions sont réservées à la version payante.
 
 SD Maid 2/SE succède à SD Maid 1/Legacy.
 Optimisée pour les versions récentes d’Android et axée sur le nettoyage.
 
-Cette appli propose des fonctions facultatives utilisant l’API d’accessibilité « AccessibilityService » pour automatiser les actions fastidieuses.
-Grâce à l’API d’accessibilité « AccessibilityService », elle peut cliquer sur des boutons à votre place pour effectuer des opérations sur différentes applis, par exemple : suppression des caches.
+Cette appli propose des fonctions facultatives qui font appel à l’API d’accessibilité « AccessibilityService » afin d’automatiser les actions fastidieuses.
+Grâce à l’API d’accessibilité « AccessibilityService », cette appli peut cliquer sur des boutons à votre place afin d’effectuer des opérations sur différentes applis, par exemple : suppression des caches.
 Cette appli n’utilise pas l’API d’accessibilité « AccessibilityService » pour recueillir des renseignements.
 
 SD Maid 2/SE est une appli de gestion des fichiers et de nettoyage.

@@ -37,7 +37,7 @@ Podvojeni prejemi, fotografije, poslane preko družbenih omrežij ali podobne fo
 
 👆 Počisti z drsenjem
 
-Izberi mapo in pregleduj datoteke eno za drugo s preprostimi drsnimi potezami – ohrani, izbriši ali preskoči. Orodje »Swiper« ti omogoča pregled vseh odločitev, preden se karkoli izbriše, in sejo lahko shraniš za nadaljevanje pozneje.
+Izberi mapo in pregleduj datoteke eno za drugo s preprostimi drsnimi potezami – ohrani, izbriši ali preskoči. Orodje Drsnik omogoča pregled vseh odločitev preden se karkoli izbriše, sejo pa lahko shranite za kasneje.
 
 🗄️ Prihrani prostor brez brisanja fotografij
 
