@@ -110,6 +110,23 @@ sealed class Permission(
     data object QUERY_ALL_PACKAGES
         : Permission("android.permission.QUERY_ALL_PACKAGES")
 
+    // Non-AOSP permission from Chinese TAF standard (TTAF 108-2022).
+    // Required by Chinese ROMs (HyperOS, ColorOS, OriginOS, HarmonyOS) to access the full app list.
+    // Does not exist on AOSP/Pixel/Samsung — isGranted() returns true when absent.
+    data object GET_INSTALLED_APPS
+        : Permission("com.android.permission.GET_INSTALLED_APPS"), RuntimePermission {
+        override fun isGranted(context: Context): Boolean {
+            val exists = try {
+                context.packageManager.getPermissionInfo(permissionId, 0)
+                true
+            } catch (_: Exception) {
+                false
+            }
+            if (!exists) return true
+            return super.isGranted(context)
+        }
+    }
+
     fun Intent.resolveActivities(context: Context): Collection<ResolveInfo> =
         context.packageManager.queryIntentActivities(
             this,
@@ -127,6 +144,7 @@ sealed class Permission(
                 PACKAGE_USAGE_STATS,
                 WRITE_SECURE_SETTINGS,
                 QUERY_ALL_PACKAGES,
+                GET_INSTALLED_APPS,
             )
         }
 

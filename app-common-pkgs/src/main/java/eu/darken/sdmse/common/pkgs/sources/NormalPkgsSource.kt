@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.adb.canUseAdbNow
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
@@ -83,6 +84,10 @@ class NormalPkgsSource @Inject constructor(
             throw InvalidPkgInventoryException("Returned package data didn't contain us")
         }
         if (pkgInfos.none { SANITY_PKGS.contains(it.packageName) }) {
+            log(TAG, WARN) { "coreList(): ${pkgInfos.size} pkgs returned, missing SANITY_PKGS $SANITY_PKGS" }
+            if (Bugs.isTrace) {
+                log(TAG, WARN) { "coreList(): First 10: ${pkgInfos.take(10).map { it.packageName }}" }
+            }
             throw InvalidPkgInventoryException("Returned package data didn't contain `android` core package")
         }
 
