@@ -47,20 +47,24 @@ class StatsDashCardVH(parent: ViewGroup) :
             body.text = SpannableString(wholeText).apply {
                 val startFreed = wholeText.indexOf(space)
                 val endFreed = startFreed + space.length
-                setSpan(
-                    ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
-                    startFreed,
-                    endFreed,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
-                val startProcessed = wholeText.indexOf(processedFormatted)
+                if (startFreed >= 0 && endFreed <= wholeText.length) {
+                    setSpan(
+                        ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
+                        startFreed,
+                        endFreed,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
+                val startProcessed = wholeText.indexOf(processed, endFreed.coerceAtLeast(0))
                 val endProcessed = startProcessed + processed.length
-                setSpan(
-                    ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
-                    startProcessed,
-                    endProcessed,
-                    Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
-                )
+                if (startProcessed >= 0 && endProcessed <= wholeText.length) {
+                    setSpan(
+                        ForegroundColorSpan(getColorForAttr(androidx.appcompat.R.attr.colorPrimary)),
+                        startProcessed,
+                        endProcessed,
+                        Spannable.SPAN_EXCLUSIVE_EXCLUSIVE
+                    )
+                }
             }
         } else {
             body.text = getString(StatsR.string.stats_dash_body_snapshots_only)
