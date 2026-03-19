@@ -197,6 +197,6 @@
     <string name="settings_category_filter_specific">Filtro específico</string>
     <string name="settings_category_risklevel">Nivel del riesgo</string>
     <string name="settings_category_filter">Filtrar</string>
-    <string name="appcontrol_systemsettings_open_title">Mostrar ajustes</string>
-    <string name="systemcleaner_customfilter_create_action">Crear filtro personalizado</string>
+    <string name="appcontrol_systemsettings_open_title">Mostrar los ajustes</string>
+    <string name="systemcleaner_customfilter_create_action">Crear un filtro personalizado</string>
 </resources>

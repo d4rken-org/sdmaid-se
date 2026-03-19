@@ -12,7 +12,7 @@
     <string name="automation_error_screen_unavailable_title">No hay ninguna pantalla disponible</string>
     <string name="automation_error_screen_unavailable_body">La operación se canceló porque la pantalla dejó de estar disponible (por ejemplo, pantalla apagada o pantalla de bloqueo activa).</string>
     <string name="automation_error_compatibility_title">Compatibilidad de automatización</string>
-    <string name="automation_error_compatibility_body">SD Maid no ha podido determinar la disposición de la pantalla. Si esto sigue sucediendo, es posible que tu idioma o configuraciones no sean totalmente compatibles. Comprueba si hay actualizaciones o ponte en contacto conmigo para que pueda solucionarlo.</string>
+    <string name="automation_error_compatibility_body">SD Maid no pudo determinar el diseño de la pantalla. Si esto sigue sucediendo, es posible que tu idioma o configuración no estén totalmente soportados. Revisa si hay actualizaciones o comunícate conmigo para que pueda arreglarlo.</string>
     <string name="automation_error_timeout_title">Tiempo de espera de automatización</string>
     <string name="automation_error_timeout_body">SD Maid no completó todos los pasos dentro del tiempo límite. Si esto sigue ocurriendo, quizás tenga que adaptar la aplicación a su dispositivo. Busque actualizaciones o contácteme para solucionarlo.</string>
     <string name="automation_error_overlay_title">Superposición de automatización</string>

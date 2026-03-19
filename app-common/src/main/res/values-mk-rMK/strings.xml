@@ -122,8 +122,8 @@
         <item quantity="other">%d успешно</item>
     </plurals>
     <plurals name="result_x_failed">
-        <item quantity="one">%d failed</item>
-        <item quantity="other">%d failed</item>
+        <item quantity="one">%d неуспешно</item>
+        <item quantity="other">%d неуспешно</item>
     </plurals>
     <plurals name="x_space_can_be_freed">
         <item quantity="one">%s може да се ослободи</item>

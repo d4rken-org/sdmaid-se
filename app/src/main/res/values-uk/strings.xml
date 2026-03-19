@@ -141,7 +141,7 @@
     <string name="support_contact_tool_analyzer_label">Аналізатор</string>
     <string name="support_contact_tool_appcontrol_label">Управління додатками</string>
     <string name="support_contact_tool_scheduler_label">Планувальник</string>
-    <string name="support_contact_tool_general_label">Загальне</string>
+    <string name="support_contact_tool_general_label">Загальні</string>
     <string name="support_contact_description_label">Опис</string>
     <string name="support_contact_description_bug_hint">Опишіть, що сталося і як відтворити проблему. Будь ласка, опишіть детально (мінімум 20 слів).</string>
     <string name="support_contact_description_feature_hint">Опишіть функцію, яку ви хотіли б бачити. Будь ласка, опишіть її якомога детальніше (мінімум 20 слів).</string>
@@ -196,7 +196,7 @@
     <string name="setup_shizuku_card_title">Shizuku</string>
     <string name="setup_shizuku_card_body">Дозвольте SD Maid використовувати Shizuku, де це можливо, щоб покращити результати та увімкнути функції.</string>
     <string name="setup_shizuku_card_body2">Цей параметр не діє, якщо на вашому пристрої не встановлено додаток Shizuku.</string>
-    <string name="setup_shizuku_card_root_info">Shizuku у поєднанні з root-доступом не дає додаткових можливостей, але підвищує надійність. SD Maid використовуватиме його як резервний метод.</string>
+    <string name="setup_shizuku_card_root_info">Shizuku у поєднанні з root доступом не дає додаткових можливостей, але підвищує надійність. SD Maid використовуватиме його як резервний метод.</string>
     <string name="setup_shizuku_state_ready_label">Посилання на Shizuku готове.</string>
     <string name="setup_shizuku_state_waiting_label">Чекаємо на зв\'язок з Shizuku.</string>
     <string name="setup_shizuku_enable_shizuku_use_label">Використовуйте Shizuku, якщо це можливо</string>

@@ -45,7 +45,7 @@
     <string name="appcontrol_progress_uninstalling_app">App verwijderen</string>
     <plurals name="appcontrol_uninstall_result_message_x">
         <item quantity="one">%d app werd verwijderd</item>
-        <item quantity="other">%d app werden verwijderd</item>
+        <item quantity="other">%d apps werden verwijderd</item>
     </plurals>
     <string name="appcontrol_archive_action">Archiveren</string>
     <string name="appcontrol_archive_selection_action">Apps archiveren</string>

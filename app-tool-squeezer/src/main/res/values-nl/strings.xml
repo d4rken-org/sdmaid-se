@@ -32,9 +32,9 @@
     <string name="squeezer_quality_warning_high">Zeer hoge kwaliteit biedt minimale ruimtebesparing.</string>
     <string name="squeezer_types_category_label">Afbeeldingstypen</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
-    <string name="squeezer_type_jpeg_description">JPEG-afbeeldingen opnemen (.jpg, .jpeg).</string>
+    <string name="squeezer_type_jpeg_description">Voeg JPEG-afbeeldingen (.jpg, .jpeg) toe.</string>
     <string name="squeezer_type_webp_title">WebP</string>
-    <string name="squeezer_type_webp_description">WebP-afbeeldingen opnemen (.webp).</string>
+    <string name="squeezer_type_webp_description">Voeg WebP-afbeeldingen (.webp) toe.</string>
     <string name="squeezer_skip_compressed_title">Eerder gecomprimeerd overslaan</string>
     <string name="squeezer_skip_compressed_description">Sla afbeeldingen over die al door SD Maid zijn gecomprimeerd.</string>
     <string name="squeezer_exif_marker_title">EXIF-markering schrijven</string>
@@ -43,7 +43,7 @@
     <string name="squeezer_no_savings_expected">Beperkte besparing</string>
     <string name="squeezer_current_size_format">Grootte: %s</string>
     <string name="squeezer_compress_action">Comprimeren</string>
-    <string name="squeezer_compress_all_action">Alles comprimeren</string>
+    <string name="squeezer_compress_all_action">Comprimeer alles</string>
     <string name="squeezer_preview_dialog_title">Compressie bevestigen</string>
     <string name="squeezer_preview_total_size">Totale grootte</string>
     <string name="squeezer_preview_estimated_savings">Geschatte besparing</string>

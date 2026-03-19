@@ -13,7 +13,7 @@
     <string name="systemcleaner_filter_custom_manage_label">Gérer les filtres personnalisés</string>
     <string name="systemcleaner_filter_custom_manage_summary">Créer, supprimer, importer et exporter vos filtres personnalisés.</string>
     <string name="systemcleaner_filter_logfiles_label">Fichiers journaux du système</string>
-    <string name="systemcleaner_filter_logfiles_summary">Fichiers journaux du système et du service système (p. ex *.log) dans différents emplacements.</string>
+    <string name="systemcleaner_filter_logfiles_summary">Fichiers journaux du système et des services système (p. ex *.log) dans différents emplacements.</string>
     <string name="systemcleaner_filter_packagecaches_label">Cache du programme d’installation</string>
     <string name="systemcleaner_filter_packagecaches_summary">Données mises en cache relatives aux applis installées, utilisées par la gestion des paquets du système.</string>
     <string name="systemcleaner_filter_advertisements_label">Fichiers de publicités</string>
@@ -24,7 +24,7 @@
     <string name="systemcleaner_filter_emptydirectories_summary">Dossiers vides de tout l’appareil. Les dossiers imbriqués peuvent demander plusieurs opérations.</string>
     <string name="systemcleaner_filter_screenshots_label">Captures d’écran</string>
     <string name="systemcleaner_filter_screenshots_summary">Captures d’écran de %s ou plus provenant de plusieurs applis et emplacements.</string>
-    <string name="systemcleaner_filter_trashed_label">Fichiers des corbeilles</string>
+    <string name="systemcleaner_filter_trashed_label">Fichiers déplacés vers les corbeilles</string>
     <string name="systemcleaner_filter_trashed_summary">Fichiers situés dans les corbeilles de divers emplacements et applis, marqués pour suppression, mais qui n’ont pas encore été irrémédiablement supprimés.</string>
     <string name="systemcleaner_filter_screenshots_age_label">Âge de la capture d’écran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Âge minimal pour que les captures d’écran soient prises en compte pour être supprimées.</string>
@@ -57,9 +57,9 @@
     <string name="systemcleaner_filter_recenttasks_label">Tâches récentes</string>
     <string name="systemcleaner_filter_recenttasks_summary">Données relatives à l’historique des tâches dans le sélecteur de tâches du système.</string>
     <string name="systemcleaner_filter_tombstones_label">Résidus de plantage du système</string>
-    <string name="systemcleaner_filter_tombstones_summary">Si des processus natifs plantent (p. ex. des jeux), alors des fichiers sont créés ici.</string>
+    <string name="systemcleaner_filter_tombstones_summary">Si des processus natifs plantent (p. ex. des jeux), des fichiers sont créés ici.</string>
     <string name="systemcleaner_filter_usagestats_label">Statistiques d’utilisation</string>
-    <string name="systemcleaner_filter_usagestats_summary">Fichiers liés aux statistiques d’utilisation des applis.</string>
+    <string name="systemcleaner_filter_usagestats_summary">Fichiers relatifs aux statistiques d’utilisation des applis.</string>
     <string name="systemcleaner_delete_all_confirmation_message">Supprimer tout le contenu du filtre ?</string>
     <string name="systemcleaner_customfilter_label">Filtre personnalisé</string>
     <string name="systemcleaner_customfilter_create_hint">Créez un filtre personnalisé pour supprimer les fichiers supplémentaires propres à votre appareil et à vos cas d\'usage.</string>
@@ -68,7 +68,7 @@
     <string name="systemcleaner_customfilter_editor_warning">Les filtres personnalisés peuvent présenter des risques. Vérifiez les résultats de votre analyse avant de supprimer.</string>
     <string name="systemcleaner_customfilter_editor_areas_label">Zones de données</string>
     <string name="systemcleaner_customfilter_editor_areas_explanation">Si aucune zone n’est choisie, toutes les zones de données accessibles seront analysées et comparées.</string>
-    <string name="systemcleaner_customfilter_editor_filetypes_label">Restriction de type de fichier</string>
+    <string name="systemcleaner_customfilter_editor_filetypes_label">Restrictions de type de fichier</string>
     <string name="systemcleaner_customfilter_editor_filetypes_files_label">Fichiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_directories_label">Dossiers</string>
     <string name="systemcleaner_customfilter_editor_filetypes_hint">Si aucun type n’est choisi, tous les types seront comparés.</string>
@@ -84,10 +84,10 @@
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_end_label">Le chemin se termine par un mot-clé</string>
     <string name="systemcleaner_customfilter_editor_segments_matching_mode_equal_label">Le chemin est égal à un mot-clé</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_label">Mode de comparaison du nom</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Le chemin commence par un mot-clé</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_start_label">Le nom commence par un mot-clé</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_contains_label">Le nom comprend des mots-clés</string>
     <string name="systemcleaner_customfilter_editor_name_matching_mode_end_label">Le nom se termine par un mot-clé</string>
-    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Le nom est égal au mots-clé</string>
+    <string name="systemcleaner_customfilter_editor_name_matching_mode_equal_label">Le nom est égal à un mot-clé</string>
     <string name="systemcleaner_customfilter_last_edit">Dernière modification : %s</string>
     <string name="systemcleaner_customfilter_editor_livesearch_label">Recherche en direct</string>
     <string name="systemcleaner_customfilter_editor_size_label">Restriction de taille</string>
@@ -100,5 +100,5 @@
     <string name="systemcleaner_customfilter_editor_age_explanation">Limiter les correspondances en fonction de l’âge du fichier (date de dernière modification). Ne pas définir pour accepter tous les âges.</string>
     <string name="systemcleaner_customfilter_import_action">Importer un nouveau filtre</string>
     <string name="systemcleaner_customfilter_export_action">Exporter le filtre choisi</string>
-    <string name="systemcleaner_editor_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>
+    <string name="systemcleaner_editor_unsaved_confirmation_message">Des changements ne sont pas enregistrés !</string>
 </resources>

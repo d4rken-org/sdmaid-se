@@ -39,7 +39,7 @@
     <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Error: fitxer comprimit malmès</string>
     <string name="debug_debuglog_sessions_failed_zip_error_label">Error: error de compressió</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Voleu suprimir aquesta sessió de registre de depuració?</string>
-    <string name="support_contact_post_send_message">El missatge s’ha enviat correctament?</string>
+    <string name="support_contact_post_send_message">El missatge s\'ha enviat correctament?</string>
     <string name="debug_debuglog_sessions_stop_action">Atura</string>
     <string name="tasks_activity_notification_channel_label">Tasques actives</string>
     <string name="tasks_activity_working_notification_title">L\'SD Maid està en execució</string>

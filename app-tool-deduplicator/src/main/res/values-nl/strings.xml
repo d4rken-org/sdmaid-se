@@ -64,16 +64,16 @@
     <string name="deduplicator_arbiter_criterium_preferred_path_description">Bewaar bestanden in je geconfigureerde voorkeurslocaties.</string>
     <string name="deduplicator_arbiter_mode_prefer_checksum">Exacte overeenkomsten verkiezen</string>
     <string name="deduplicator_arbiter_mode_prefer_phash">Vergelijkbare bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_indexed">Geïndexeerde bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_unknown">Niet-geïndexeerde bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_primary">Interne opslag verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_secondary">Externe opslag verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_shallow">Ondiepe mappen verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_deeper">Diepere mappen verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_older">Oudere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_newer">Nieuwere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_larger">Grotere bestanden verkiezen</string>
-    <string name="deduplicator_arbiter_mode_prefer_smaller">Kleinere bestanden verkiezen</string>
+    <string name="deduplicator_arbiter_mode_prefer_indexed">Geef de voorkeur aan geïndexeerde bestanden</string>
+    <string name="deduplicator_arbiter_mode_prefer_unknown">Geef de voorkeur aan niet-geïndexeerde bestanden</string>
+    <string name="deduplicator_arbiter_mode_prefer_primary">Interne opslag heeft de voorkeur</string>
+    <string name="deduplicator_arbiter_mode_prefer_secondary">Externe opslag heeft de voorkeur</string>
+    <string name="deduplicator_arbiter_mode_prefer_shallow">Geef de voorkeur aan ondiepe mappen</string>
+    <string name="deduplicator_arbiter_mode_prefer_deeper">Geef de voorkeur aan diepere mappen</string>
+    <string name="deduplicator_arbiter_mode_prefer_older">Geef de voorkeur aan oudere bestanden</string>
+    <string name="deduplicator_arbiter_mode_prefer_newer">Geef de voorkeur aan recentere bestanden</string>
+    <string name="deduplicator_arbiter_mode_prefer_larger">Geef de voorkeur aan grotere bestanden</string>
+    <string name="deduplicator_arbiter_mode_prefer_smaller">Geef de voorkeur aan kleinere bestanden</string>
     <string name="deduplicator_view_mode_groups_label">Groepen</string>
     <string name="deduplicator_view_mode_directories_label">Mappen</string>
 </resources>

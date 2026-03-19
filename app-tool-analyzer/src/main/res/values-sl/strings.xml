@@ -20,12 +20,12 @@
         <item quantity="other">Uporabljeno: %s</item>
     </plurals>
     <string name="analyzer_content_access_opaque">Neposredni dostop ni na voljo.</string>
-    <string name="analyzer_content_create_swiper_session_action">Ustvari sejo Swiperja</string>
+    <string name="analyzer_content_create_swiper_session_action">Ustvari sejo Drsnika</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
-        <item quantity="one">Seja Swiperja je bila ustvarjena z %d predmetom.</item>
-        <item quantity="two">Seja Swiperja je bila ustvarjena z %d predmetoma.</item>
-        <item quantity="few">Seja Swiperja je bila ustvarjena s %d predmeti.</item>
-        <item quantity="other">Seja Swiperja je bila ustvarjena z %d predmeti.</item>
+        <item quantity="one">Seja Drsnika je bila ustvarjena z %d-im predmetom.</item>
+        <item quantity="two">Seja Drsnika je bila ustvarjena z %d-ma predmetoma.</item>
+        <item quantity="few">Seja Drsnika je bila ustvarjena s %d-mi predmeti.</item>
+        <item quantity="other">Seja Drsnika je bila ustvarjena s/z %d-imi predmeti.</item>
     </plurals>
     <string name="analyzer_storage_type_primary_title">Primarna pomnilniška naprava</string>
     <string name="analyzer_storage_type_primary_description">Primarna pomnilniška naprava.  Vsebuje notranjo kartico SD, zasebno shrambo programov in sistemske podatke.</string>

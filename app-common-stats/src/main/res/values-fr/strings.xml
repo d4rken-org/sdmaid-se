@@ -11,7 +11,7 @@
     <string name="stats_report_status_success">Réussite</string>
     <string name="stats_report_status_partial_success">Réussite partielle</string>
     <string name="stats_report_status_partial_failure">Échec</string>
-    <string name="stats_settings_desc">Configurer les statistiques, les relevés et la conservation des données de SD Maid.</string>
+    <string name="stats_settings_desc">Configurez les statistiques, les relevés et la conservation des données de SD Maid.</string>
     <string name="stats_settings_retention_category">Conservation</string>
     <string name="stats_settings_retention_reports_label">Relevés généraux</string>
     <string name="stats_settings_retention_reports_desc">Nombre de jours avant suppression des relevés d’opération de base de SD Maid.</string>

@@ -15,5 +15,5 @@
     <string name="upgrade_screen_sponsor_action">Patrocinadores</string>
     <string name="upgrade_screen_sponsor_action_hint">La alternativa son los anuncios, las analíticas y Google Play 🙁</string>
     <string name="upgrade_screen_thanks_toast">Gracias por apoyar el desarrollo del código abierto ❤️</string>
-    <string name="upgrade_screen_sponsor_return_too_quick">¿Ya de vuelta? ¡Tu apoyo mantiene vivo a SD Maid!</string>
+    <string name="upgrade_screen_sponsor_return_too_quick">¿Regresaste? ¡Tu apoyo mantiene con vida a SD Maid!</string>
 </resources>

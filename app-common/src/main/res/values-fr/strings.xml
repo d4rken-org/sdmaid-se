@@ -175,7 +175,7 @@
     <string name="general_user_label_system">Système</string>
     <string name="setup_title">Configuration</string>
     <string name="setup_feature_requires_additional_setup_x">Cette fonction nécessite de configurer des éléments supplémentaires : %s</string>
-    <string name="upgrade_feature_requires_pro">Nécessite Pro</string>
+    <string name="upgrade_feature_requires_pro">Version Pro seulement</string>
     <string name="general_include_multiuser_label">Inclure d’autres utilisateurs</string>
     <string name="general_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
     <string name="general_unsaved_confirmation_message">Vous avez des changements non enregistrés.</string>

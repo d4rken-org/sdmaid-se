@@ -109,8 +109,8 @@
     </plurals>
     <string name="swiper_exclude_confirmation_message">\"%1$s\" uitsluiten van Swiper-scans?</string>
     <string name="swiper_sessions_header_title">Klaar om op te ruimen?</string>
-    <string name="swiper_sessions_suggestions_label">Begin met:</string>
-    <string name="swiper_sessions_suggestion_downloads">Map Downloads</string>
+    <string name="swiper_sessions_suggestions_label">Probeer te beginnen met:</string>
+    <string name="swiper_sessions_suggestion_downloads">Downloads-map</string>
     <string name="swiper_sessions_suggestion_screenshots">Schermafbeeldingen</string>
     <string name="swiper_sessions_suggestion_camera">Camerarol</string>
     <string name="swiper_stamp_keep_1">Bewaren!</string>
@@ -125,10 +125,10 @@
     <string name="swiper_stamp_skip_2">Mwah!</string>
     <string name="swiper_stamp_skip_3">Later!</string>
     <string name="swiper_stamp_skip_4">Misschien!</string>
-    <string name="swiper_stamp_undo_1">Ongedaan!</string>
+    <string name="swiper_stamp_undo_1">Ongedaan maken!</string>
     <string name="swiper_stamp_undo_2">Terug!</string>
     <string name="swiper_stamp_undo_3">Oeps!</string>
-    <string name="swiper_stamp_undo_4">Wacht!</string>
+    <string name="swiper_stamp_undo_4">Wachten!</string>
     <string name="swiper_gesture_overlay_dismiss">Tik ergens om te beginnen</string>
     <string name="swiper_gesture_overlay_left_delete">← Verwijderen</string>
     <string name="swiper_gesture_overlay_right_keep">Bewaren →</string>

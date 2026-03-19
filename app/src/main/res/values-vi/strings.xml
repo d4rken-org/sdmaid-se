@@ -38,7 +38,7 @@
     <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Thất bại: tệp nén bị hỏng</string>
     <string name="debug_debuglog_sessions_failed_zip_error_label">Thất bại: nén bị lỗi</string>
     <string name="debug_debuglog_sessions_delete_confirmation_message">Xóa phiên nhật ký gỡ lỗi này?</string>
-    <string name="support_contact_post_send_message">Tin nhắn đã được gửi thành công?</string>
+    <string name="support_contact_post_send_message">Đã gửi tin nhắn thành công?</string>
     <string name="debug_debuglog_sessions_stop_action">Dừng</string>
     <string name="tasks_activity_notification_channel_label">Tác vụ đang chạy</string>
     <string name="tasks_activity_working_notification_title">SD Maid đang hoạt động</string>
@@ -150,7 +150,7 @@
     <string name="settings_acknowledgements_category_translations_title">Bản dịch</string>
     <string name="settings_acknowledgements_category_translations_subtitle">Ai đã dịch cái này?</string>
     <string name="settings_acknowledgements_category_thanks_title">Cảm ơn bạn</string>
-    <string name="settings_acknowledgements_category_thanks_subtitle">Xin gửi lời cảm ơn đặc biệt đến những người bạn của chúng ta.</string>
+    <string name="settings_acknowledgements_category_thanks_subtitle">Đặc biệt cảm ơn những người bạn của chúng ta.</string>
     <string name="settings_acknowledgements_category_licenses_title">Giấy phép</string>
     <string name="settings_acknowledgements_category_licenses_subtitle">Phần mềm được sử dụng bởi SD Maid.</string>
     <string name="setup_label">Thiết lập</string>
