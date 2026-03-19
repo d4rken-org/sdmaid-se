@@ -1,7 +1,7 @@
 package eu.darken.sdmse.scheduler.core
 
 import android.content.Context
-import eu.darken.sdmse.common.files.core.local.deleteAll
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.matchers.shouldBe
 import io.mockk.every
@@ -17,14 +17,14 @@ import java.time.Duration
 import java.time.Instant
 
 class ScheduleStorageTest : BaseTest() {
-    private val testDir = File(IO_TEST_BASEDIR)
+    private val testDir = File(IO_TEST_BASEDIR, "schedule-storage-test")
     private val context: Context = mockk<Context>().apply {
         every { filesDir } returns testDir
     }
 
     @AfterEach
     fun cleanup() {
-        testDir.deleteAll()
+        testDir.deleteRecursivelySafe()
     }
 
     private fun create() = ScheduleStorage(

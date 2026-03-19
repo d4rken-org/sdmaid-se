@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.flow.replayingShare
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -189,8 +190,9 @@ class DebugLogSessionManager @Inject constructor(
             recorderModule.getLogDirectories().forEach { parent ->
                 File(parent, baseName).let { dir ->
                     if (dir.exists()) {
-                        dir.deleteRecursively()
-                        log(TAG) { "Deleted session dir: ${dir.path}" }
+                        if (dir.deleteRecursivelySafe()) {
+                            log(TAG) { "Deleted session dir: ${dir.path}" }
+                        }
                     }
                 }
                 File(parent, "$baseName.zip").let { zip ->
@@ -215,8 +217,9 @@ class DebugLogSessionManager @Inject constructor(
                     if (sessionId in currentZipping) return@forEach
                     if (activeDir != null && file.isDirectory && file.absolutePath == activeDir.absolutePath) return@forEach
 
-                    file.deleteRecursively()
-                    log(TAG) { "Deleted: ${file.path}" }
+                    if (file.deleteRecursivelySafe()) {
+                        log(TAG) { "Deleted: ${file.path}" }
+                    }
                 }
             }
         }

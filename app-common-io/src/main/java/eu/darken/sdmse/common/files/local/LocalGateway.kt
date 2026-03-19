@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.files.WriteException
 import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.callbacks
 import eu.darken.sdmse.common.files.core.local.createSymlink
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.files.core.local.isReadable
 import eu.darken.sdmse.common.files.core.local.listFiles2
 import eu.darken.sdmse.common.files.core.local.parentsInclusive
@@ -789,7 +790,7 @@ class LocalGateway @Inject constructor(
                                 javaFile.canWrite()
                             }
 
-                            recursive -> deleteRecursively()
+                            recursive -> deleteRecursivelySafe()
                             else -> delete()
                         }
                     }

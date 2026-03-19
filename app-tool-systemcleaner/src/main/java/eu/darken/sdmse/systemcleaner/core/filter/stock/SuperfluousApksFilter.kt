@@ -23,7 +23,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.copyToAutoClose
-import eu.darken.sdmse.common.files.core.local.deleteAll
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.files.file
 import eu.darken.sdmse.common.files.inputStream
 import eu.darken.sdmse.common.files.local.toLocalPath
@@ -73,7 +73,7 @@ class SuperfluousApksFilter @Inject constructor(
             dir.mkdirs()
             dir.let { it.listFiles()?.toList() }?.forEach {
                 log(TAG, WARN) { "Deleting stale cache data: $it" }
-                it.deleteAll()
+                it.deleteRecursivelySafe()
             }
         }
     }
@@ -141,7 +141,7 @@ class SuperfluousApksFilter @Inject constructor(
 
                     if (extractedBase.exists()) pkgOps.viewArchive(extractedBase.toLocalPath()) else null
                 } finally {
-                    extractedDir.deleteAll()
+                    extractedDir.deleteRecursivelySafe()
                 }
             }
 

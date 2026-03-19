@@ -1,6 +1,6 @@
 package eu.darken.sdmse.common.hashing
 
-import eu.darken.sdmse.common.files.core.local.deleteAll
+import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.hashing.Hasher.Type
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
@@ -17,7 +17,7 @@ class HasherTest : BaseTest() {
 
     @AfterEach
     fun cleanup() {
-        testFolder.deleteAll()
+        testFolder.deleteRecursivelySafe()
     }
 
     @Test fun `MD5 direct`() = runTest {

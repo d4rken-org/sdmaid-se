@@ -5,30 +5,14 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import java.io.File
-import java.io.FileNotFoundException
 import java.io.IOException
 
-@Suppress("FunctionName")
 fun File(vararg crumbs: String): File {
     var compacter = File(crumbs[0])
     for (i in 1 until crumbs.size) {
         compacter = File(compacter, crumbs[i])
     }
     return compacter
-}
-
-fun File.requireExists(): File {
-    if (!exists()) {
-        throw IllegalStateException("Path doesn't exist, but should: $this")
-    }
-    return this
-}
-
-fun File.requireNotExists(): File {
-    if (exists()) {
-        throw IllegalStateException("Path exist, but shouldn't: $this")
-    }
-    return this
 }
 
 fun File.tryMkDirs(): File {
@@ -69,18 +53,25 @@ fun File.tryMkFile(): File {
     }
 }
 
-@Throws(IOException::class)
-fun File.deleteAll() {
+fun File.deleteRecursivelySafe(): Boolean {
+    // readLink() is fail-open: returns null on any error, treating the path as "not a symlink".
+    // Safe because: as root (the dangerous context), readlink never fails on permission;
+    // as non-root, permission errors also block listFiles()/delete(), so recursion goes nowhere.
+    val linkTarget = readLink()
+    if (linkTarget != null) {
+        log(WARN) { "deleteRecursivelySafe(): Symlink detected, deleting link only: $this -> $linkTarget" }
+        return delete()
+    }
+    var success = true
     if (isDirectory) {
-        listFiles()?.forEach { it.deleteAll() }
+        val children = listFiles()
+        if (children != null) {
+            for (child in children) {
+                if (!child.deleteRecursivelySafe()) success = false
+            }
+        }
     }
-    if (delete()) {
-        log(VERBOSE) { "File.release(): Deleted $this" }
-    } else if (!exists()) {
-        log(WARN) { "File.release(): File didn't exist: $this" }
-    } else {
-        throw FileNotFoundException("Failed to delete file: $this")
-    }
+    return if (success) delete() else false
 }
 
 fun File.listFiles2(): List<File> {
@@ -100,7 +91,7 @@ fun File.createSymlink(target: File): Boolean {
 
 fun File.readLink(): String? = try {
     Os.readlink(this.path)
-} catch (e: Exception) {
+} catch (_: Exception) {
     null
 }
 
@@ -113,11 +104,9 @@ fun File.isReadable(): Boolean = try {
         reader().use { it.read() }
         true
     }
-} catch (e: Exception) {
+} catch (_: Exception) {
     false
 }
-
-fun File.canReadExecute(): Boolean = canRead() && canExecute()
 
 val File.parents: Sequence<File>
     get() = sequence {
@@ -130,5 +119,3 @@ val File.parents: Sequence<File>
 
 val File.parentsInclusive: Sequence<File>
     get() = sequenceOf(this) + parents
-
-fun String.fixSlashes(): String = replace("/", File.separator)
