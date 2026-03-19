@@ -23,5 +23,18 @@
     "frontend-design@claude-plugins-official": true,
     "kotlin-lsp@claude-plugins-official": true,
     "support-investigator@claude-code-cafe": true
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "npx block-no-verify@1.1.2"
+          }
+        ]
+      }
+    ]
   }
 }
