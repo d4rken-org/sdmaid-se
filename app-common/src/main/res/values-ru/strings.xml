@@ -222,5 +222,5 @@
     <string name="settings_category_risklevel">Уровень риска</string>
     <string name="settings_category_filter">Фильтр</string>
     <string name="appcontrol_systemsettings_open_title">Показать настройки</string>
-    <string name="systemcleaner_customfilter_create_action">Создать пользовательский фильтр</string>
+    <string name="systemcleaner_customfilter_create_action">Создать свой фильтр</string>
 </resources>

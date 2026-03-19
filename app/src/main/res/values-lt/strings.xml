@@ -225,8 +225,7 @@
     <string name="setup_acs_allow_hint">Jei ekrano krašte matote mažą piktogramą, vadinasi, netyčia įjungėte sparčiųjų klavišų parinktį.</string>
     <string name="setup_acs_disallow_hint">Jei persigalvojate, šią parinktį galite vėl pakeisti eidami į nustatymus ir iš naujo paleisdami sąranką.</string>
     <string name="setup_acs_appops_restriction_title">Apriboti nustatymai</string>
-    <string name="setup_acs_appops_restriction_body">Negalite įjungti SD Maids prieinamumo paslaugos? Android 13+ gali taikyti apribojimus programoms, kurios nėra įdiegtos per Google Play. Panaikinkite šiuos apribojimus sistemos detaliajame puslapyje
- SD Maid. Ši parinktis yra kontekstiniame meniu viršutiniame dešiniajame kampe.</string>
+    <string name="setup_acs_appops_restriction_body">Negalite įjungti SD Maids prieinamumo paslaugos? Android 13+ gali taikyti apribojimus programoms, kurios nėra įdiegtos per Google Play. Panaikinkite šiuos apribojimus sistemos detaliajame puslapyje SD Maid. Ši parinktis yra kontekstiniame meniu viršutiniame dešiniajame kampe.</string>
     <string name="setup_inventory_card_title">Programų sąrašas</string>
     <string name="setup_inventory_card_body">SD Maid turi žinoti, kurias programas turite, kad rastų failus, nepriklausančius jokioms įdiegtoms programoms.</string>
     <string name="setup_inventory_card_extra">Ieškokite leidimo, vadinamo „Programų sąrašas“ arba „Užklausti visus paketus“.</string>

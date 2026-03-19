@@ -212,7 +212,7 @@
     <string name="setup_notification_hint">Uporaba obvestila je zmerna.🤞</string>
     <string name="setup_acs_card_title">Storitev dostopnosti</string>
     <string name="setup_acs_card_body">Storitev dostopnosti SD Maidu omogoča upravljanje z zaslonom s samodejnim opravljanjem dolgočasnih dejanj, npr. dotikanje gumba \"Počisti predpomnilnik\" na več zaslonih.</string>
-    <string name="setup_acs_card_body2">SD Maid storitve dostopnosti ne bo uporabljal brez vašega soglasja, pri čemer bo med njeno dejavnostjo vedno prikazal vidni (opustljivi) kazalnik in je ne bo uporabljal za zbiranje podatkov.</string>
+    <string name="setup_acs_card_body2">SD Maid storitve dostopnosti ne bo uporabljal brez vašega soglasja, med njeno dejavnostjo pa bo vedno prikazal vidni (opustljivi) kazalnik in je ne bo uporabljal za zbiranje podatkov.</string>
     <string name="setup_acs_state_enabled">Storitev dostopnosti je omogočena.</string>
     <string name="setup_acs_state_disabled">Storitev dostopnosti je onemogočena.</string>
     <string name="setup_acs_state_running">Storitev dostopnosti se izvaja.</string>

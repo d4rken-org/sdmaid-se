@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="corpsefinder_explanation_short">Gegevens van reeds verwijderde apps.</string>
+    <string name="corpsefinder_explanation_short">Gegevens die toebehoren aan reeds verwijderde apps.</string>
     <string name="corpsefinder_settings_summary">Pas scanfilters en risiconiveaus aan.</string>
     <string name="corpsefinder_settings_risk_keeper_title">Inclusief gewenste restanten</string>
     <string name="corpsefinder_settings_risk_keeper_summary">Bestanden die je misschien wilt bewaren, zelfs als de app wordt verwijderd, bijv. foto\'s die je hebt genomen of back-ups die je hebt gemaakt.</string>

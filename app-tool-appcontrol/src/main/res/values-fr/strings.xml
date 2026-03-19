@@ -61,8 +61,8 @@
         <item quantity="other">%d applis ont été archivées</item>
     </plurals>
     <string name="appcontrol_restore_action">Restaurer</string>
-    <string name="appcontrol_restore_selection_action">Restaurer des applis</string>
-    <string name="appcontrol_restore_description">Restaurer complètement une appli archivée. Les données de l’appli sont conservées.</string>
+    <string name="appcontrol_restore_selection_action">Restaurer les applis</string>
+    <string name="appcontrol_restore_description">Restaurer une appli archivée dans son état entièrement installé. Les données de l’appli sont conservées.</string>
     <string name="appcontrol_progress_restoring_app">Restauration de l’appli…</string>
     <string name="appcontrol_restore_confirmation_title">Confirmer la restauration</string>
     <plurals name="appcontrol_restore_confirmation_x">
@@ -100,19 +100,19 @@
     <string name="appcontrol_progress_exporting_x">Exportation de %s</string>
     <string name="appcontrol_share_list_action">Partager la liste</string>
     <string name="appcontrol_share_list_title">Mes applis</string>
-    <string name="appcontrol_share_list_footer">Partagé par SD Maid SE</string>
+    <string name="appcontrol_share_list_footer">Partagée par SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Arrêt forcer des applis</string>
     <string name="appcontrol_force_stop_action">Arrêt forcé</string>
     <string name="appcontrol_force_stop_confirm_title">Confirmer l’arrêt forcé</string>
     <plurals name="appcontrol_force_stop_confirmation_message_x">
-        <item quantity="one">Arrêt forcé d’%d applis ?</item>
+        <item quantity="one">Arrêt forcé d’%d appli ?</item>
         <item quantity="other">Arrêt forcé de %d applis ?</item>
     </plurals>
     <plurals name="appcontrol_force_stop_result_message_x">
         <item quantity="one">%d appli a été arrêtée</item>
         <item quantity="other">%d applis ont été arrêtées</item>
     </plurals>
-    <string name="appcontrol_automation_title">Automatisation du Nettoyeur d’applis</string>
+    <string name="appcontrol_automation_title">Automatisation du Vérificateur d’applis</string>
     <string name="appcontrol_automation_subtitle_force_stopping">Arrêt forcé…</string>
     <string name="appcontrol_automation_progress_find_force_stop">Recherche du bouton « Arrêt forcé » (mots-clés : %s)</string>
     <string name="appcontrol_automation_subtitle_archiving">Archivage…</string>
@@ -126,6 +126,6 @@
     <string name="shortcut_appcontrol_long">Gérez les applis installées</string>
     <string name="appcontrol_automation_loading">Préparation de l’automatisation grâce au service d’accessibilité</string>
     <string name="appcontrol_automation_progress_find_ok_confirmation">Tentative de confirmation de l’action précédente (mots clés : %s)</string>
-    <string name="appcontrol_include_multiuser_label">Inclure d’autres utilisateurs</string>
-    <string name="appcontrol_include_multiuser_summary">Inclure les applis d’autres profil utilisateur sur cet appareil.</string>
+    <string name="appcontrol_include_multiuser_label">Inclure d’autres utilisateurs-trices</string>
+    <string name="appcontrol_include_multiuser_summary">Inclure les applis d’autres profils utilisateur sur cet appareil.</string>
 </resources>

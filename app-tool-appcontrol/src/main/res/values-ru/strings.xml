@@ -53,7 +53,7 @@
     </plurals>
     <string name="appcontrol_archive_action">Архивирование</string>
     <string name="appcontrol_archive_selection_action">Архивировать приложения</string>
-    <string name="appcontrol_archive_description">Архивируйте для освобождения места и сохранении данных приложения для последующего восстановления.</string>
+    <string name="appcontrol_archive_description">Архивируйте для освобождения места и сохранения данных приложения для последующего восстановления.</string>
     <string name="appcontrol_progress_archiving_app">Архивация приложения…</string>
     <string name="appcontrol_archive_confirmation_title">Подтвердите архивирование</string>
     <plurals name="appcontrol_archive_confirmation_x">
@@ -118,7 +118,7 @@
     <string name="appcontrol_progress_exporting_x">Экспорт %s</string>
     <string name="appcontrol_share_list_action">Поделиться списком</string>
     <string name="appcontrol_share_list_title">Мои приложения</string>
-    <string name="appcontrol_share_list_footer">Поделиться с помощью SD Maid SE</string>
+    <string name="appcontrol_share_list_footer">Поделились с помощью SD Maid SE</string>
     <string name="appcontrol_force_stop_selection_action">Принудительное завершение приложений</string>
     <string name="appcontrol_force_stop_action">Принудительное завершение</string>
     <string name="appcontrol_force_stop_confirm_title">Подтвердите завершение</string>

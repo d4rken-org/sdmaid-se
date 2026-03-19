@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="picker_select_paths_title">Choisir les chemins</string>
+    <string name="picker_select_paths_title">Choisir des chemins</string>
     <string name="picker_selected_paths_title">Chemins choisis</string>
     <string name="picker_unsaved_confirmation_message">Abandonner les changements ?</string>
     <plurals name="picker_selected_paths_subtitle">

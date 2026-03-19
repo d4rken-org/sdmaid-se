@@ -141,7 +141,7 @@
     <string name="swiper_gesture_overlay_dismiss_action">Entiendo</string>
     <string name="swiper_help_action">Ayuda</string>
     <string name="swiper_file_type_filter_title">Mostrar solo estos tipos de archivo</string>
-    <string name="swiper_file_type_filter_hint">Marca los tipos que quieres ver. Si no hay ninguno marcado, se muestran todos los archivos.</string>
+    <string name="swiper_file_type_filter_hint">Selecciona los tipos que quieres ver. Si ninguno está seleccionado, se muestran todos los archivos.</string>
     <string name="swiper_file_type_category_images">Imágenes</string>
     <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
     <string name="swiper_file_type_category_videos">Vídeos</string>
@@ -155,6 +155,6 @@
     <string name="swiper_file_type_filter_apply_action">Aplicar</string>
     <string name="swiper_session_filter_action">Filtrar archivos</string>
     <string name="swiper_file_type_filter_summary">Filtrado: %1$s</string>
-    <string name="swiper_session_no_matching_files">No se encontraron archivos coincidentes</string>
-    <string name="swiper_open_externally_action">Abrir en aplicación externa</string>
+    <string name="swiper_session_no_matching_files">Sin archivos coincidentes</string>
+    <string name="swiper_open_externally_action">Abrir en una aplicación externa</string>
 </resources>
