@@ -12,7 +12,7 @@ set -euo pipefail
 export LC_ALL=C.UTF-8
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-METADATA_DIR="$SCRIPT_DIR/../../fastlane/metadata/android"
+METADATA_DIR="$SCRIPT_DIR/metadata/android"
 
 TITLE_MAX=30
 SHORT_DESC_MAX=80
