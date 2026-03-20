@@ -2,13 +2,18 @@ package eu.darken.sdmse.squeezer.ui.onboarding
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.File
+import java.io.IOException
 
 object BitmapSampler {
 
+    private val TAG = logTag("Squeezer", "BitmapSampler")
     private const val MAX_DIMENSION = 2048
 
-    fun decodeSampledBitmap(file: File, maxDimension: Int = MAX_DIMENSION): Bitmap? {
+    fun decodeSampledBitmap(file: File, maxDimension: Int = MAX_DIMENSION): Bitmap? = try {
         val options = BitmapFactory.Options().apply {
             inJustDecodeBounds = true
         }
@@ -21,9 +26,12 @@ object BitmapSampler {
             inSampleSize = calculateInSampleSize(outWidth, outHeight, maxDimension)
         }
 
-        return file.inputStream().use { input ->
+        file.inputStream().use { input ->
             BitmapFactory.decodeStream(input, null, options)
         }
+    } catch (e: IOException) {
+        log(TAG, WARN) { "Failed to decode bitmap from ${file.path}: ${e.message}" }
+        null
     }
 
     private fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {
