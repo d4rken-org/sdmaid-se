@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Кратенки</string>
     <string name="shortcuts_onetap_enabled_title">Кратенка за едно допирање</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи кратенка \"Скенирај + Избриши\" при долго притискање на иконата на апликацијата. Ги користи истите алатки како контролната табла со едно допирање.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дена</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

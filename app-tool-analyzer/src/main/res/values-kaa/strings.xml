@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Bul baǵdarlama ádettegi jollardan tısqarı jaylastırǵan qosımsha maǵlıwmatlar, mısalı, súwretler yamasa júklewler.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Bul baǵdarlama \"%2$s\" ústinde %1$s orın iyeleydi.</string>
     <string name="analyzer_app_details_app_is_archived">Bul baǵdarlama arxivlangan.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 күнде</string>
 </resources>

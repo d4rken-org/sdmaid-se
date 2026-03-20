@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">මෙම යෙදුම පෙරනිමි මාර්ගවලින් බහිරයට තැබී අමතර දත්ත, උදා. ෆායාකෘට හෝ ඩೞවන්ලෝඩ්.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">මෙම යෙදුම \"%2$s\" හි %1$s අවවන් න් කරයි.</string>
     <string name="analyzer_app_details_app_is_archived">මෙම යෙදුම ආරකිව කර ඇත.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s දින 7කදී</string>
 </resources>

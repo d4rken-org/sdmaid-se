@@ -277,5 +277,6 @@ Probatu: %3$s</item>
     <string name="shortcuts_settings_category">Lasterbideak</string>
     <string name="shortcuts_onetap_enabled_title">Lasterbidea pultsazio bakarrera</string>
     <string name="shortcuts_onetap_enabled_summary">Erakutsi \"Bilatu + Ezabatu\" lasterbidea aplikazioaren ikonoa luzean sakatzerakoan. Atala txokirako paila berberak erabiltzen ditu.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 egunetan</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

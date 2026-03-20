@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Dades addicionals que aquesta aplicació ha col·locat fora de les rutes per defecte, p. ex. fotos o baixades.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aquesta aplicació ocupa %1$s a «%2$s».</string>
     <string name="analyzer_app_details_app_is_archived">Aquesta aplicació s\'ha arxivat.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7d</string>
 </resources>

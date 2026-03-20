@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">捷徑</string>
     <string name="shortcuts_onetap_enabled_title">一鍵捷徑</string>
     <string name="shortcuts_onetap_enabled_summary">長按應用程式圖示時顯示「掃描 + 刪除」捷徑。使用與一鍵儀表板相同的工具。</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s（7天內）</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

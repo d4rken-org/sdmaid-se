@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Kortpaaie</string>
     <string name="shortcuts_onetap_enabled_title">Eentik-kortpad</string>
     <string name="shortcuts_onetap_enabled_summary">Wys \"Skandeer + Verwyder\"-kortpad wanneer die toepassingsikoon langgedruk word. Gebruik dieselfde gereedskap as die eentik-kontrolepaneel.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7 dae</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

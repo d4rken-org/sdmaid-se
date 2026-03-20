@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Qısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tək toxunuşlu qısayol</string>
     <string name="shortcuts_onetap_enabled_summary">Tətbiq nişanına ikonuna uzun basdıqda \"Skan et + Sil\" qısayolunu göstər. Tək toxunuşlu idarə panelindəki eyni alətlərdən istifadə edir.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 gündə</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

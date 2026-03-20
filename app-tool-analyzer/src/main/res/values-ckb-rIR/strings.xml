@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="analyzer_explanation_short">بزانە چی شوێن دەگێرێت لە ئامێرەکەتدا.</string>
-    <string name="analyzer_progress_scanning_device">گەڕانing for storage devices</string>
-    <string name="analyzer_progress_scanning_storage">گەڕانning storage</string>
-    <string name="analyzer_progress_scanning_apps">گەڕانning apps</string>
-    <string name="analyzer_progress_scanning_userfiles">گەڕانing user files</string>
-    <string name="analyzer_progress_scanning_system">گەڕانning system data</string>
-    <string name="analyzer_device_storage_title">ئامێر storage</string>
     <plurals name="analyzer_space_available">
         <item quantity="one">%s بەردەستە</item>
         <item quantity="other">%s بەردەستە</item>
@@ -15,7 +9,6 @@
         <item quantity="one">%s بەکاردەهێنرێت</item>
         <item quantity="other">%s بەکاردەهێنرێت</item>
     </plurals>
-    <string name="analyzer_content_access_opaque">نەخێر direct access available</string>
     <string name="analyzer_content_create_swiper_session_action">دروستکردنی سێشنی Swiper</string>
     <plurals name="analyzer_content_swiper_session_created_x_items">
         <item quantity="one">سێشنی Swiper دروستکرا بە %d بابەت</item>
@@ -24,25 +17,13 @@
     <string name="analyzer_storage_type_primary_title">ئەمبارەکردنی سەرەکی</string>
     <string name="analyzer_storage_type_primary_description">ئەمبارەکردنی سەرەکی ئامێرەکەت. کارتی SD ناوخۆیی، ئەمبارەکردنی تایبەت بۆ ئەپەکان و داتای سیستەم دەگێرێتەوە.</string>
     <string name="analyzer_storage_type_secondary_title">ئەمبارەکردنی دووەم</string>
-    <string name="analyzer_storage_type_secondary_description">A secondary storage, usually a removable SD card. Contains media فایلs and data from apps that support it.</string>
     <string name="analyzer_storage_type_tertiary_title">ئەمبارەی گواستراوە</string>
     <string name="analyzer_storage_type_tertiary_description">ئەمبارەی گواستراوە، بۆ نموونە فلاش درایڤ کراوتەناو پۆرتی USB.</string>
-    <string name="analyzer_storage_content_title">ناحیەکان content</string>
     <string name="analyzer_storage_content_type_app_label">ئەپەکان</string>
-    <string name="analyzer_storage_content_type_app_description">Space occupied by installed apps and their data (i.e. application فایلs, data and caches).</string>
-    <string name="analyzer_storage_content_type_app_setup_incomplete_hint">مۆڵەتs are missing</string>
-    <string name="analyzer_storage_content_type_media_label">User فایلs</string>
     <string name="analyzer_storage_content_type_media_description">وێنەی وێنەگیراو، ڤیدیۆی تۆمارکراو یان داتای داونلۆدکراو. هەر داتاییکە بەلونگی ئەپێکی دیاریکراو نابێت.</string>
-    <string name="analyzer_storage_content_type_system_label">سیستەم data</string>
-    <string name="analyzer_storage_content_type_system_description">سیستەم apps and system data. ئەپs and data from other users, if several user accounts are set on this device.</string>
-    <string name="analyzer_storage_content_app_code_label">ئەپ code</string>
-    <string name="analyzer_storage_content_app_code_description">ئەپlication files, libraries and resources. This space can be freed by uninstalling the app or archiving it (available on newer Android version).</string>
-    <string name="analyzer_storage_content_app_data_label">ئەپ data</string>
-    <string name="analyzer_storage_content_app_data_description">داتا, settings and caches.</string>
     <string name="analyzer_storage_content_app_media_label">ئەپ media</string>
-    <string name="analyzer_storage_content_app_media_description">میدیا files from this app, e.g. received Whatsئەپ photos.</string>
-    <string name="analyzer_storage_content_app_extra_label">Extra app فایلs</string>
     <string name="analyzer_storage_content_app_extra_description">داتای زیادە کە ئەم ئەپە لە دەرەوەی ڕێگاکانی بنەڕەتی داناوە، بۆ نموونە وێنەکان یان داونلۆدەکان.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ئەم ئەپە %1$s لەسەر \"%2$s\" دەیگێرێت.</string>
     <string name="analyzer_app_details_app_is_archived">ئەم ئەپە ئەرشیفکراوە.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s لە ٧ ڕۆژدا</string>
 </resources>

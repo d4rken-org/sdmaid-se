@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Ekstra data som denne appen har plassert utenfor standardbanene, f.eks. bilder eller nedlastinger.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Denne appen bruker %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denne appen er arkivert.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
 </resources>

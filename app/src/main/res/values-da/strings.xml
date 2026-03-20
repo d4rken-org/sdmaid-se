@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Genveje</string>
     <string name="shortcuts_onetap_enabled_title">Ettryksgenvej</string>
     <string name="shortcuts_onetap_enabled_summary">Vis \"Scan + Slet\"-genvejen ved langt tryk på app-ikonet. Bruger de samme værktøjer som ettryks-kontrolpanelet.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s på 7 dage</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

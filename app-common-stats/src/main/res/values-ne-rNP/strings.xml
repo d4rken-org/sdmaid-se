@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">सबै प्रतिवेदनहरू मेटाउनुहोस् र सबै तथ्याङ्क शून्यमा सेट गर्नुहोस्।</string>
     <string name="stats_affected_paths_label">प्रभावित पथहरू</string>
     <string name="stats_affected_pkgs_label">प्रभावित अनुप्रयोगहरू</string>
+    <string name="stats_dash_body_snapshots_only">तपाईंको भण्डारण इतिहास ट्र्याक गर्दै।</string>
+    <string name="stats_storage_trend_action">भण्डारण प्रवृत्ति</string>
+    <string name="stats_space_history_title">भण्डारण प्रवृत्ति</string>
+    <string name="stats_space_history_range_title">दायरा</string>
+    <string name="stats_space_history_range_7d">७ दिनहरू</string>
+    <string name="stats_space_history_range_30d">३० दिनहरू</string>
+    <string name="stats_space_history_range_90d">९० दिनहरू</string>
+    <string name="stats_space_history_storage_title">भण्डारण</string>
+    <string name="stats_space_history_current_used_label">हालको प्रयोग</string>
+    <string name="stats_space_history_min_label">न्यूनतम प्रयोग</string>
+    <string name="stats_space_history_max_label">अधिकतम प्रयोग</string>
+    <string name="stats_space_history_delta_label">परिवर्तन</string>
+    <string name="stats_space_history_delta_in_x">%1$s %2$s मा</string>
+    <string name="stats_space_history_upgrade_title">पूर्ण इतिहास Pro सुविधा हो</string>
+    <string name="stats_space_history_upgrade_body">प्रत्येक भण्डारण उपकरणको पूर्ण ९०-दिने प्रवृत्ति दृश्य अनलक गर्न अपग्रेड गर्नुहोस्।</string>
+    <string name="stats_space_history_marker_freed">%1$s मुक्त गरियो</string>
+    <string name="stats_storage_type_primary">प्राथमिक भण्डारण</string>
+    <string name="stats_storage_type_secondary">द्वितीयक भण्डारण</string>
+    <string name="stats_storage_type_portable">पोर्टेबल भण्डारण</string>
+    <string name="stats_settings_retention_snapshots_label">भण्डारण स्न्यापशटहरू</string>
+    <string name="stats_settings_retention_snapshots_desc">भण्डारण स्थान स्न्यापशटहरू राख्ने दिनहरूको संख्या।</string>
 </resources>

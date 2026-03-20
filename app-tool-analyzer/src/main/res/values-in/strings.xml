@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">Data lain yang ditempatkan di luar jalur umumnya oleh aplikasi ini, seperti foto atau unduhan.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menempati %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarsipkan.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
 </resources>

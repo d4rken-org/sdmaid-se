@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Bu uygulamanın varsayılan dizinler dışındaki verileri, örneğin fotoğraflar veya indirmeler.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Bu uygulama \"%2$s\"de %1$s yer kaplıyor.</string>
     <string name="analyzer_app_details_app_is_archived">Bu uygulama arşivlendi.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 günde</string>
 </resources>

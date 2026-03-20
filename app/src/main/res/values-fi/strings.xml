@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Pikanäppäimet</string>
     <string name="shortcuts_onetap_enabled_title">Yhden napautuksen pikakuvake</string>
     <string name="shortcuts_onetap_enabled_summary">Näytä \"Skannaa + Poista\" -pikakuvake painamalla sovelluskuvaketta pitkään. Käyttää samoja työkaluja kuin yhden napautuksen kojelauta.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 päivässä</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

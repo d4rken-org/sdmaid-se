@@ -48,4 +48,5 @@
     <string name="analyzer_storage_content_app_extra_description">Papildu dati, ko šī lietotne ir ievietojusi ārpus noklusušās ceļu, piem., fotoattēli vai lejupielādes.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Šī lietotne aizņem %1$s uz \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Šī lietotne ir arhivēta.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 dienās</string>
 </resources>

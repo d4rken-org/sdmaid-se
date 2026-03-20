@@ -26,7 +26,7 @@
     <string name="systemcleaner_filter_screenshots_summary">Captures d’écran de %s ou plus provenant de plusieurs applis et emplacements.</string>
     <string name="systemcleaner_filter_trashed_label">Fichiers déplacés vers les corbeilles</string>
     <string name="systemcleaner_filter_trashed_summary">Fichiers situés dans les corbeilles de divers emplacements et applis, marqués pour suppression, mais qui n’ont pas encore été irrémédiablement supprimés.</string>
-    <string name="systemcleaner_filter_screenshots_age_label">Âge de la capture d’écran</string>
+    <string name="systemcleaner_filter_screenshots_age_label">Âge des capture d’écran</string>
     <string name="systemcleaner_filter_screenshots_age_summary">Âge minimal pour que les captures d’écran soient prises en compte pour être supprimées.</string>
     <string name="systemcleaner_filter_superfluosapks_label">APK superflus</string>
     <string name="systemcleaner_filter_superfluosapks_summary">Fichiers d’installation inutiles d’après les versions d’applis installées.</string>

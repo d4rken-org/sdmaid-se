@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">ຂ້ອມູນເພີ່ມເຕີມທີ່ແອບນີ້ໄດ້ວາງນອກເສ້ນທາງເພີ່ມເຕີມ, ເຊ່ນ ຣູບຖ່າຍ ຫຣືອການດາວນໄອດ້.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ແອບນີ້ໃຊ້ພື້ນທີ່ %1$s ທີ່ \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">ແອບນີ້ຖືກເກັບໄວ້ໃນຕຸແລ້ວ.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ໃນ 7 ວັນ</string>
 </resources>

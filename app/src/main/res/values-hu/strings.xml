@@ -45,7 +45,7 @@
     <string name="tasks_activity_working_notification_title">Az SD Maid működik</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d aktív feladat</item>
-        <item quantity="other">%d aktív feladatok 😁</item>
+        <item quantity="other">%d aktív feladatok</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d feladat a sorban</item>
@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Parancsikonok</string>
     <string name="shortcuts_onetap_enabled_title">Egyérintéses parancsikon</string>
     <string name="shortcuts_onetap_enabled_summary">\"Keresés + Törlés\" parancsikon megjelenítése az alkalmazásikon hosszú nyomásakor. Ugyanazokat az eszközöket használja, mint az egyérintéses irányítópult.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 nap alatt</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

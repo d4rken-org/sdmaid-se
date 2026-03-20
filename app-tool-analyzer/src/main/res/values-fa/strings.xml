@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">داده‌های اضافی که این برنامه در خارج از مسیرهای پیش‌فرض ذخیره کرده است، مثلاً عکس‌ها یا بارگیری‌ها.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">این برنامه %1$s بر روی \"%2$s\" را اشغال کرده.</string>
     <string name="analyzer_app_details_app_is_archived">این برنامه بایگانی شده است.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s در ۷ روز</string>
 </resources>

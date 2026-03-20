@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Données supplémentaires que cette appli a placées en dehors des chemins par défaut, p. ex. des photos ou des téléchargements.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Cette appli occupe %1$s sur \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Cette appli a été archivée.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7j</string>
 </resources>

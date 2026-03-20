@@ -283,5 +283,6 @@
     <string name="shortcuts_settings_category">Пречице</string>
     <string name="shortcuts_onetap_enabled_title">Пречица једним кликом</string>
     <string name="shortcuts_onetap_enabled_summary">Прикажи пречицу \"Скенирај + Обриши\" при дугом притиску на иконицу апликације. Користи исте алатке као контролна табла једним кликом.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дана</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

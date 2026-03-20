@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">ショートカット</string>
     <string name="shortcuts_onetap_enabled_title">ワンタップショートカット</string>
     <string name="shortcuts_onetap_enabled_summary">アプリアイコンを長押しすると「スキャン + 削除」ショートカットを表示します。ワンタップダッシュボードと同じツールを使用します。</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s（7日間）</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

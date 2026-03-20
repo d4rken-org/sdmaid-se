@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Kısayollar</string>
     <string name="shortcuts_onetap_enabled_title">Tek dokunuş kısayolu</string>
     <string name="shortcuts_onetap_enabled_summary">Uygulama simgesine uzun basıldığında \"Tara + Sil\" kısayolunu gösterir. Tek dokunuşla kontrol paneliyle aynı araçları kullanır.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">7 günde %s</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

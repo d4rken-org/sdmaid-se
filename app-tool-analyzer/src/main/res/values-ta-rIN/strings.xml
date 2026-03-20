@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">இந்த பயன்பாடு இயல்பு பாதைகளுக்கு வெளியே வைத்துள்ள கூடுதல் தரவு, எ.கா. படங்கள் அல்லது இறங்குதல்கள்.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">இந்த பயன்பாடு \"%2$s\" இல் %1$s ஆக்ரமிக்கிறது.</string>
     <string name="analyzer_app_details_app_is_archived">இந்த பயன்பாடு அர்கைவ் செய்யப்பட்டுள்ளது.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 நாட்களில்</string>
 </resources>

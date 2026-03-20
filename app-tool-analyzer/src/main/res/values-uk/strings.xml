@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">Додаткові дані, які додаток розмістив за межами шляхів за умовчанням, наприклад, фотографії або завантаження.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Цей додаток займає %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Цей додаток було заархівовано.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 днів</string>
 </resources>

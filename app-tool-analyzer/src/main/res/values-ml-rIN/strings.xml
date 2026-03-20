@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">ഈ ആപ്പ് ഡിഫോർൽട് പാതകൾക്കു പുറത്ത് സ്ഥാപിച്ച അധിക ഡേറ്റ, ഉദാ. ഫോട്ടോകൾ അഥവാ ഡൗൺലോഡുകൾ.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ഈ ആപ്പ് \"%2$s\"-ൽ %1$s ഉപയോഗിക്കുന്നു.</string>
     <string name="analyzer_app_details_app_is_archived">ഈ ആപ്പ് ആർക്കൈവ് ചെയ്തിട്ടുണ്ട്.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 ദിവസത്തിൽ</string>
 </resources>

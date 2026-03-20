@@ -289,5 +289,6 @@
     <string name="shortcuts_settings_category">Ярлыки</string>
     <string name="shortcuts_onetap_enabled_title">Ярлык в одно нажатие</string>
     <string name="shortcuts_onetap_enabled_summary">Показывать ярлык «Сканирование + Удаление» при удержании нажатия на значке приложения. Использует те же инструменты, что и панель управления в одно нажатие.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дней</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

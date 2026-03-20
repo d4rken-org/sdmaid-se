@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">அனைத்து அறிக்கைகளையும் நீக்கி அனைத்து புள்ளிவிவரங்களையும் சீரோவுக்கு அமைக்கவும்.</string>
     <string name="stats_affected_paths_label">பாதிக்கப்பட்ட பாதைகள்</string>
     <string name="stats_affected_pkgs_label">பாதிக்கப்பட்ட பயன்பாடுகள்</string>
+    <string name="stats_dash_body_snapshots_only">உங்கள் சேமிப்பக வரலாற்றை கண்காணிக்கிறது.</string>
+    <string name="stats_storage_trend_action">சேமிப்பக போக்கு</string>
+    <string name="stats_space_history_title">சேமிப்பக போக்கு</string>
+    <string name="stats_space_history_range_title">வரம்பு</string>
+    <string name="stats_space_history_range_7d">7 நாட்கள்</string>
+    <string name="stats_space_history_range_30d">30 நாட்கள்</string>
+    <string name="stats_space_history_range_90d">90 நாட்கள்</string>
+    <string name="stats_space_history_storage_title">சேமிப்பகம்</string>
+    <string name="stats_space_history_current_used_label">தற்போது பயன்படுத்தப்பட்டது</string>
+    <string name="stats_space_history_min_label">குறைந்தபட்சம் பயன்படுத்தப்பட்டது</string>
+    <string name="stats_space_history_max_label">அதிகபட்சம் பயன்படுத்தப்பட்டது</string>
+    <string name="stats_space_history_delta_label">வேறுபாடு</string>
+    <string name="stats_space_history_delta_in_x">%2$s இல் %1$s</string>
+    <string name="stats_space_history_upgrade_title">முழு வரலாறும் Pro அம்சம்</string>
+    <string name="stats_space_history_upgrade_body">ஒவ்வொரு சேமிப்பக சாதனத்திற்கும் முழு 90-நாள் போக்கு காட்சியை திறக்க மேம்படுத்தவும்.</string>
+    <string name="stats_space_history_marker_freed">%1$s விடுவிக்கப்பட்டது</string>
+    <string name="stats_storage_type_primary">முதன்மை சேமிப்பு</string>
+    <string name="stats_storage_type_secondary">இரண்டாம் நிலை சேமிப்பு</string>
+    <string name="stats_storage_type_portable">கையடக்க சேமிப்பு</string>
+    <string name="stats_settings_retention_snapshots_label">சேமிப்பக ஸ்னாப்ஷாட்கள்</string>
+    <string name="stats_settings_retention_snapshots_desc">சேமிப்பக இடத்தின் ஸ்னாப்ஷாட்களை வைத்திருக்க வேண்டிய நாட்களின் எண்ணிக்கை.</string>
 </resources>

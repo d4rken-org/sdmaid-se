@@ -277,5 +277,6 @@
     <string name="shortcuts_settings_category">सर्टकटहरू</string>
     <string name="shortcuts_onetap_enabled_title">एक-ट्याप सर्टकट</string>
     <string name="shortcuts_onetap_enabled_summary">अनुप्रयोगको आइकन लामो दबाउँदा \"स्क्यान गर्नुहोस् + मेटाउनुहोस्\" सर्टकट देखाउनुहोस्। एक-ट्याप ड्यासबोर्डका जस्तै उपकरणहरू प्रयोग गर्दछ।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ७ दिनमा</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

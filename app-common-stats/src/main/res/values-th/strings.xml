@@ -22,4 +22,25 @@
     <string name="stats_settings_reset_all_desc">ลบรายงานทั้งหมดและตั้งค่าสถิติทั้งหมดเป็นศูนย์</string>
     <string name="stats_affected_paths_label">เส้นทางที่ได้รับผลกระทบ</string>
     <string name="stats_affected_pkgs_label">แอพที่ได้รับผลกระทบ</string>
+    <string name="stats_dash_body_snapshots_only">ติดตามประวัติพื้นที่เก็บข้อมูลของคุณ</string>
+    <string name="stats_storage_trend_action">แนวโน้มพื้นที่เก็บข้อมูล</string>
+    <string name="stats_space_history_title">แนวโน้มพื้นที่เก็บข้อมูล</string>
+    <string name="stats_space_history_range_title">ช่วงเวลา</string>
+    <string name="stats_space_history_range_7d">7 วัน</string>
+    <string name="stats_space_history_range_30d">30 วัน</string>
+    <string name="stats_space_history_range_90d">90 วัน</string>
+    <string name="stats_space_history_storage_title">พื้นที่เก็บข้อมูล</string>
+    <string name="stats_space_history_current_used_label">ใช้งานปัจจุบัน</string>
+    <string name="stats_space_history_min_label">ใช้งานขั้นต่ำ</string>
+    <string name="stats_space_history_max_label">ใช้งานสูงสุด</string>
+    <string name="stats_space_history_delta_label">เดลต้า</string>
+    <string name="stats_space_history_delta_in_x">%1$s ใน %2$s</string>
+    <string name="stats_space_history_upgrade_title">ประวัติทั้งหมดเป็นฟีเจอร์ Pro</string>
+    <string name="stats_space_history_upgrade_body">อัปเกรดเพื่อปลดล็อกมุมมองแนวโน้ม 90 วันแบบเต็มสำหรับแต่ละอุปกรณ์จัดเก็บข้อมูล</string>
+    <string name="stats_space_history_marker_freed">เพิ่มพื้นที่ว่าง %1$s</string>
+    <string name="stats_storage_type_primary">พื้นที่จัดเก็บหลัก</string>
+    <string name="stats_storage_type_secondary">พื้นที่จัดเก็บรอง</string>
+    <string name="stats_storage_type_portable">พื้นที่จัดเก็บแบบพกพา</string>
+    <string name="stats_settings_retention_snapshots_label">สแนปช็อตพื้นที่เก็บข้อมูล</string>
+    <string name="stats_settings_retention_snapshots_desc">จำนวนวันที่จะเก็บสแนปช็อตพื้นที่เก็บข้อมูล</string>
 </resources>

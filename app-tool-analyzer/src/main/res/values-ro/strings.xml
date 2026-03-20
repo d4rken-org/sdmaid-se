@@ -48,4 +48,5 @@
     <string name="analyzer_storage_content_app_extra_description">Date suplimentare pe care această aplicație le-a plasat în afara căilor implicite, de exemplu fotografii sau descărcări.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Această aplicație ocupă %1$s pe \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Această aplicație a fost arhivată.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s în 7z</string>
 </resources>

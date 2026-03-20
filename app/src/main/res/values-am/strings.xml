@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">ምቹ መንገዶች</string>
     <string name="shortcuts_onetap_enabled_title">አንድ-ንካ ምቹ መንገድ</string>
     <string name="shortcuts_onetap_enabled_summary">የመተግበሪያ አዶውን ረዘም ብለው ሲጫኑ \"ፈልግ + ሰርዝ\" ምቹ መንገድ ያሳዩ። ከአንድ-ንካ ዳሽቦርድ ጋር ተመሳሳይ መሣሪያዎችን ይጠቀማል።</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s በ7 ቀናት ውስጥ</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

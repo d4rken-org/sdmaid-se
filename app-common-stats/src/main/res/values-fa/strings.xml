@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">حذف همه گزارش‌ها و تنظیم همه آمارها به صفر.</string>
     <string name="stats_affected_paths_label">مسیرهای تحت تأثیر</string>
     <string name="stats_affected_pkgs_label">برنامه‌های تحت تأثیر</string>
+    <string name="stats_dash_body_snapshots_only">ردیابی تاریخچه ذخیره‌سازی شما.</string>
+    <string name="stats_storage_trend_action">روند ذخیره‌سازی</string>
+    <string name="stats_space_history_title">روند ذخیره‌سازی</string>
+    <string name="stats_space_history_range_title">بازه</string>
+    <string name="stats_space_history_range_7d">۷ روز</string>
+    <string name="stats_space_history_range_30d">۳۰ روز</string>
+    <string name="stats_space_history_range_90d">۹۰ روز</string>
+    <string name="stats_space_history_storage_title">ذخیره‌سازی</string>
+    <string name="stats_space_history_current_used_label">استفاده فعلی</string>
+    <string name="stats_space_history_min_label">حداقل استفاده</string>
+    <string name="stats_space_history_max_label">حداکثر استفاده</string>
+    <string name="stats_space_history_delta_label">تفاضل</string>
+    <string name="stats_space_history_delta_in_x">%1$s در %2$s</string>
+    <string name="stats_space_history_upgrade_title">تاریخچه کامل یک ویژگی Pro است</string>
+    <string name="stats_space_history_upgrade_body">برای مشاهده روند کامل ۹۰ روزه هر دستگاه ذخیره‌سازی، ارتقاء دهید.</string>
+    <string name="stats_space_history_marker_freed">آزاد شده %1$s</string>
+    <string name="stats_storage_type_primary">حافظه اصلی</string>
+    <string name="stats_storage_type_secondary">حافظه ثانویه</string>
+    <string name="stats_storage_type_portable">فضای ذخیره‌سازی قابل‌حمل</string>
+    <string name="stats_settings_retention_snapshots_label">عکس‌برداری‌های ذخیره‌سازی</string>
+    <string name="stats_settings_retention_snapshots_desc">تعداد روزهای نگهداشت عکس‌برداری‌های فضای ذخیره‌سازی.</string>
 </resources>

@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Επιπλέον δεδομένα που έχει τοποθετήσει αυτή η εφαρμογή εκτός των προεπιλεγμένων διαδρομών, π.χ. φωτογραφίες ή λήψεις.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Αυτή η εφαρμογή καταλαμβάνει %1$s στο \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Αυτή η εφαρμογή έχει αρχειοθετηθεί.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s σε 7η</string>
 </resources>

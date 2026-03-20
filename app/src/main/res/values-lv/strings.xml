@@ -285,5 +285,6 @@ Mēģiniet: %3$s</item>
     <string name="shortcuts_settings_category">Ātrceļi</string>
     <string name="shortcuts_onetap_enabled_title">Viena pieskāriena īssaite</string>
     <string name="shortcuts_onetap_enabled_summary">Rādīt \"Skenēt + Dzēst\" ātrceļu, ilgi nospiežot programmas ikonu. Izmanto tās pašas rīkus kā vienreizējā informācijas paneļa darbība.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 dienās</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

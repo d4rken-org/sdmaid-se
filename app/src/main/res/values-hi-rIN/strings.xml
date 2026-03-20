@@ -278,5 +278,6 @@
     <string name="shortcuts_settings_category">शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_title">वन-टैप शॉर्टकट</string>
     <string name="shortcuts_onetap_enabled_summary">ऐप आइकन को देर तक दबाने पर \"स्कैन + हटाएं\" शॉर्टकट दिखाएं। वन-टैप डैशबोर्ड के समान टूल का उपयोग करता है।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 दिनों में</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

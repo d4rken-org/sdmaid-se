@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">Dodatkowe dane, które aplikacja umieściła poza domyślnymi ścieżkami, np. zdjęcia lub pobierania.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikacja zajmuje %1$s na \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikacja została zarchiwizowana.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s w 7 dni</string>
 </resources>

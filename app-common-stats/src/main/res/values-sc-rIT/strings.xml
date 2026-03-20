@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Cantzellare totu is rapòrtos e impostare totu is istàdisticas a tzeru.</string>
     <string name="stats_affected_paths_label">Caminos afetados</string>
     <string name="stats_affected_pkgs_label">Aplicatziones afetadas</string>
+    <string name="stats_dash_body_snapshots_only">Monitorende sa cronologia de su memorizamentu tuo.</string>
+    <string name="stats_storage_trend_action">Tendèntzia de Memorizamentu</string>
+    <string name="stats_space_history_title">Tendèntzia de Memorizamentu</string>
+    <string name="stats_space_history_range_title">Intervàllu</string>
+    <string name="stats_space_history_range_7d">7 dies</string>
+    <string name="stats_space_history_range_30d">30 dies</string>
+    <string name="stats_space_history_range_90d">90 dies</string>
+    <string name="stats_space_history_storage_title">Memorizamentu</string>
+    <string name="stats_space_history_current_used_label">Uzadu atuale</string>
+    <string name="stats_space_history_min_label">Uzadu mínimo</string>
+    <string name="stats_space_history_max_label">Uzadu màssimu</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
+    <string name="stats_space_history_upgrade_title">Sa cronologia cumpleta est una funtzionalidade Pro</string>
+    <string name="stats_space_history_upgrade_body">Aggiunna pro isviluppare sa visualizatzione de sa tendèntzia de 90 dies pro ogni dispositiu de memorizamentu.</string>
+    <string name="stats_space_history_marker_freed">Liberadu %1$s</string>
+    <string name="stats_storage_type_primary">Archìviu primàriu</string>
+    <string name="stats_storage_type_secondary">Archìviu secundàriu</string>
+    <string name="stats_storage_type_portable">Archìviu portàbile</string>
+    <string name="stats_settings_retention_snapshots_label">Instantàneas de memorizamentu</string>
+    <string name="stats_settings_retention_snapshots_desc">Número de dies pro mantenni sas instantàneas de s’ispatziu de memorizamentu.</string>
 </resources>

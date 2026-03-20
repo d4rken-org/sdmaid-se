@@ -141,12 +141,12 @@
     <string name="support_contact_tool_analyzer_label">Analyzer</string>
     <string name="support_contact_tool_appcontrol_label">AppControl</string>
     <string name="support_contact_tool_scheduler_label">Scheduler</string>
-    <string name="support_contact_tool_general_label">Загальнае</string>
+    <string name="support_contact_tool_general_label">Агульнае</string>
     <string name="support_contact_description_label">Апісанне</string>
     <string name="support_contact_description_bug_hint">Апішыце, што адбылася і як узнаваць праблему. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
     <string name="support_contact_description_feature_hint">Апішыце функцыю, якую вы хацелі б бачыць. Калі ласка, будьце дакладнымі (mінімум 20 слоў).</string>
     <string name="support_contact_description_question_hint">Апішыце ваш пытанне дакладна. Калі ласка, будьце дакладнымі (мінімум 20 слоў).</string>
-    <string name="support_contact_expected_label">Ачаканая павёдацьмасць</string>
+    <string name="support_contact_expected_label">Чаканыя паводзіны</string>
     <string name="support_contact_expected_hint">Апішыце, чаго вы ачакалі (мінімум 10 слоў).</string>
     <plurals name="support_contact_word_count">
         <item quantity="one">%1$d / %2$d слова</item>
@@ -289,5 +289,6 @@
     <string name="shortcuts_settings_category">Ярлыкі</string>
     <string name="shortcuts_onetap_enabled_title">Хуткі ярлык</string>
     <string name="shortcuts_onetap_enabled_summary">Паказваць ярлык \"Сканіраванне + выдаленне\" пры доўгім націсканні на значок праграмы. Выкарыстоўвае тыя ж інструменты, што і хуткая панэль кіравання.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дзён</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

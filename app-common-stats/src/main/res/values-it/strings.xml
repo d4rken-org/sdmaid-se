@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Cancella tutti i report e imposta tutte le statistiche a zero.</string>
     <string name="stats_affected_paths_label">Percorsi interessati</string>
     <string name="stats_affected_pkgs_label">App interessate</string>
+    <string name="stats_dash_body_snapshots_only">Tracciamento della cronologia dello spazio di archiviazione.</string>
+    <string name="stats_storage_trend_action">Tendenza archiviazione</string>
+    <string name="stats_space_history_title">Tendenza archiviazione</string>
+    <string name="stats_space_history_range_title">Intervallo</string>
+    <string name="stats_space_history_range_7d">7 giorni</string>
+    <string name="stats_space_history_range_30d">30 giorni</string>
+    <string name="stats_space_history_range_90d">90 giorni</string>
+    <string name="stats_space_history_storage_title">Archiviazione</string>
+    <string name="stats_space_history_current_used_label">Attualmente usato</string>
+    <string name="stats_space_history_min_label">Minimo usato</string>
+    <string name="stats_space_history_max_label">Massimo usato</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s in %2$s</string>
+    <string name="stats_space_history_upgrade_title">La cronologia completa è una funzionalità Pro</string>
+    <string name="stats_space_history_upgrade_body">Aggiorna per sbloccare la visualizzazione completa delle tendenze a 90 giorni per ogni dispositivo di archiviazione.</string>
+    <string name="stats_space_history_marker_freed">Liberati %1$s</string>
+    <string name="stats_storage_type_primary">Archivio principale</string>
+    <string name="stats_storage_type_secondary">Archivio secondario</string>
+    <string name="stats_storage_type_portable">Archiviazione portatile</string>
+    <string name="stats_settings_retention_snapshots_label">Istantanee dello spazio di archiviazione</string>
+    <string name="stats_settings_retention_snapshots_desc">Numero di giorni per mantenere le istantanee dello spazio di archiviazione.</string>
 </resources>

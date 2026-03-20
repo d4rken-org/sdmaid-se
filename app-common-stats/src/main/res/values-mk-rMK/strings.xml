@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Избриши ги сите извештаи и постави ги сите статистики на нула.</string>
     <string name="stats_affected_paths_label">Засегнати патеки</string>
     <string name="stats_affected_pkgs_label">Засегнати апликации</string>
+    <string name="stats_dash_body_snapshots_only">Следење на историјата на складиштето.</string>
+    <string name="stats_storage_trend_action">Тренд на складиште</string>
+    <string name="stats_space_history_title">Тренд на складиште</string>
+    <string name="stats_space_history_range_title">Опсег</string>
+    <string name="stats_space_history_range_7d">7 дена</string>
+    <string name="stats_space_history_range_30d">30 дена</string>
+    <string name="stats_space_history_range_90d">90 дена</string>
+    <string name="stats_space_history_storage_title">Складиште</string>
+    <string name="stats_space_history_current_used_label">Тековно користено</string>
+    <string name="stats_space_history_min_label">Минимум користено</string>
+    <string name="stats_space_history_max_label">Максимум користено</string>
+    <string name="stats_space_history_delta_label">Делта</string>
+    <string name="stats_space_history_delta_in_x">%1$s за %2$s</string>
+    <string name="stats_space_history_upgrade_title">Целосната историја е Про функција</string>
+    <string name="stats_space_history_upgrade_body">Надградете за да го отклучите целосниот 90-дневен приказ на тренд за секој уред за складирање.</string>
+    <string name="stats_space_history_marker_freed">Ослободено %1$s</string>
+    <string name="stats_storage_type_primary">Примарно складиште</string>
+    <string name="stats_storage_type_secondary">Секундарно складиште</string>
+    <string name="stats_storage_type_portable">Преносливо складиште</string>
+    <string name="stats_settings_retention_snapshots_label">Снимки на складиштето</string>
+    <string name="stats_settings_retention_snapshots_desc">Број на денови за чување снимки на просторот за складирање.</string>
 </resources>

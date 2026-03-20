@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">ਸ਼ਾਰਟਕੱਟ</string>
     <string name="shortcuts_onetap_enabled_title">ਇੱਕ-ਟੈਪ ਸ਼ਾਰਟਕੱਟ</string>
     <string name="shortcuts_onetap_enabled_summary">ਐਪ ਆਈਕਨ ਨੂੰ ਦੇਰ ਤੱਕ ਦਬਾਉਣ \'ਤੇ \"ਸਕੈਨ + ਮਿਟਾਓ\" ਸ਼ਾਰਟਕੱਟ ਦਿਖਾਓ। ਇੱਕ-ਟੈਪ ਡੈਸ਼ਬੋਰਡ ਵਾਂਗ ਹੀ ਔਜ਼ਾਰ ਵਰਤਦਾ ਹੈ।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 ਦਿਨਾਂ ਵਿੱਚ</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

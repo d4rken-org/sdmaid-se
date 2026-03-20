@@ -111,7 +111,7 @@
     <string name="support_debuglog_folder_empty_desc">Không có nhật ký gỡ lỗi được ghi</string>
     <string name="support_debuglog_folder_delete_confirmation_title">Xóa tất cả nhật ký gỡ lỗi?</string>
     <string name="support_debuglog_folder_delete_confirmation_message">Thao tác này sẽ xóa vĩnh viễn tất cả các phiên ghi chép gỡ lỗi đã lưu. Không thể hủy bỏ thao tác này.</string>
-    <string name="discord_label">Xung đột</string>
+    <string name="discord_label">Discord</string>
     <string name="discord_description">Một nơi để giải trí và đặt câu hỏi.</string>
     <string name="support_contact_label">Liên hệ nhà phát triển</string>
     <string name="support_contact_desc">Điền vào biểu mẫu để gửi email cho nhà phát triển.</string>
@@ -270,5 +270,6 @@ TheNothingGuy</string>
     <string name="shortcuts_settings_category">Phím tắt</string>
     <string name="shortcuts_onetap_enabled_title">Phím tắt một chạm</string>
     <string name="shortcuts_onetap_enabled_summary">Hiển thị phím tắt \"Quét + Xóa\" khi nhấn và giữ biểu tượng ứng dụng. Sử dụng các công cụ tương tự như bảng điều khiển một chạm.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s trong 7 ngày</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

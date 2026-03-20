@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">تمام رپورٹس حذف کریں اور تمام شماریات صفر پر رکھیں۔</string>
     <string name="stats_affected_paths_label">متاثر پاتھز</string>
     <string name="stats_affected_pkgs_label">متاثر ایپس</string>
+    <string name="stats_dash_body_snapshots_only">آپ کی اسٹوریج کی تاریخ ٹریک کی جا رہی ہے۔</string>
+    <string name="stats_storage_trend_action">اسٹوریج ٹرینڈ</string>
+    <string name="stats_space_history_title">اسٹوریج ٹرینڈ</string>
+    <string name="stats_space_history_range_title">رینج</string>
+    <string name="stats_space_history_range_7d">7 دن</string>
+    <string name="stats_space_history_range_30d">30 دن</string>
+    <string name="stats_space_history_range_90d">90 دن</string>
+    <string name="stats_space_history_storage_title">اسٹوریج</string>
+    <string name="stats_space_history_current_used_label">موجودہ استعمال شدہ</string>
+    <string name="stats_space_history_min_label">کم سے کم استعمال شدہ</string>
+    <string name="stats_space_history_max_label">زیادہ سے زیادہ استعمال شدہ</string>
+    <string name="stats_space_history_delta_label">ڈیلٹا</string>
+    <string name="stats_space_history_delta_in_x">%1$s میں %2$s</string>
+    <string name="stats_space_history_upgrade_title">مکمل تاریخ ایک پرو فیچر ہے</string>
+    <string name="stats_space_history_upgrade_body">ہر اسٹوریج ڈیوائس کے لیے مکمل ۹۰ دن کا ٹرینڈ ویو کھولنے کے لیے اپ گریڈ کریں۔</string>
+    <string name="stats_space_history_marker_freed">%1$s آزاد کیا گیا</string>
+    <string name="stats_storage_type_primary">بنیادی اسٹوریج</string>
+    <string name="stats_storage_type_secondary">ثانوی اسٹوریج</string>
+    <string name="stats_storage_type_portable">پورٹابل اسٹوریج</string>
+    <string name="stats_settings_retention_snapshots_label">اسٹوریج اسنیپ شاٹس</string>
+    <string name="stats_settings_retention_snapshots_desc">اسٹوریج اسپیس اسنیپ شاٹس کو رکھنے کے دنوں کی تعداد۔</string>
 </resources>

@@ -45,7 +45,7 @@
     <string name="tasks_activity_working_notification_title">SD Maid fungerar</string>
     <plurals name="tasks_activity_active_notification_message">
         <item quantity="one">%d aktiv uppgift</item>
-        <item quantity="other">Aktiva uppgifter</item>
+        <item quantity="other">%d aktiva uppgifter</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">%d uppgift i kö</item>
@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Genvägar</string>
     <string name="shortcuts_onetap_enabled_title">En-tryck genväg</string>
     <string name="shortcuts_onetap_enabled_summary">Visa \"Skanna + Ta bort\" genväg vid långtryck på appikonen. Använder samma verktyg som en-tryck instrumentpanel.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s på 7 dagar</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Otseteed</string>
     <string name="shortcuts_onetap_enabled_title">Ühepuuteline otsetee</string>
     <string name="shortcuts_onetap_enabled_summary">Kuva „Skanni ja kustuta\" otseteed, kui hoida kaua all rakenduse ikooni. Kasutab samu vahendeid nagu ühepuuteline töölaud.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 päeva jooksul</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

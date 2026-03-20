@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Susa yonke imibiko bese usetha zonke izibalo ku-zero.</string>
     <string name="stats_affected_paths_label">Izindlela ezithintekile</string>
     <string name="stats_affected_pkgs_label">Izinhlelo zokusebenza ezithintekile</string>
+    <string name="stats_dash_body_snapshots_only">Ukulandela umlando wakho wesitoreji.</string>
+    <string name="stats_storage_trend_action">Isilingo Sesitoreji</string>
+    <string name="stats_space_history_title">Isilingo Sesitoreji</string>
+    <string name="stats_space_history_range_title">Ibanga</string>
+    <string name="stats_space_history_range_7d">Izinsuku ezingu-7</string>
+    <string name="stats_space_history_range_30d">Izinsuku ezingu-30</string>
+    <string name="stats_space_history_range_90d">Izinsuku ezingu-90</string>
+    <string name="stats_space_history_storage_title">Isitoreji</string>
+    <string name="stats_space_history_current_used_label">Okusetshenzisiwe manje</string>
+    <string name="stats_space_history_min_label">Okuncane okusetshenzisiwe</string>
+    <string name="stats_space_history_max_label">Okuningi okusetshenzisiwe</string>
+    <string name="stats_space_history_delta_label">Umehluko</string>
+    <string name="stats_space_history_delta_in_x">%1$s ku-%2$s</string>
+    <string name="stats_space_history_upgrade_title">Umlando ophelele iwuchiphile we-Pro</string>
+    <string name="stats_space_history_upgrade_body">Thuthukela ukuvula ukubuka ukulandelela okugcwele kwezinsuku eziyi-90 kwaleso naleso sifiso sesitoreji.</string>
+    <string name="stats_space_history_marker_freed">Kukhishiwe %1$s</string>
+    <string name="stats_storage_type_primary">Isitoreji esiyinhloko</string>
+    <string name="stats_storage_type_secondary">Isitoreji sesibili</string>
+    <string name="stats_storage_type_portable">Isitoreji esiphathekayo</string>
+    <string name="stats_settings_retention_snapshots_label">Izithombe zesitoreji</string>
+    <string name="stats_settings_retention_snapshots_desc">Inani lezinsuku yokugcina izithombe zendawo yesitoreji.</string>
 </resources>

@@ -290,5 +290,6 @@ SD Maid ישתמש בו כאלטרנטיבה.</string>
     <string name="shortcuts_settings_category">קיצורי דרך</string>
     <string name="shortcuts_onetap_enabled_title">קיצור דרך בלחיצה אחת</string>
     <string name="shortcuts_onetap_enabled_summary">הצג קיצור \"סריקה + מחיקה\" בלחיצה ארוכה על סמל האפליקציה. משתמש באותם כלים כמו לוח המחוונים בלחיצה אחת.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ב-7 ימים</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

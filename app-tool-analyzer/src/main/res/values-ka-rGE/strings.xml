@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">დამატებითი მონაცემები, რომლებიც ეს აპი განათავსა ნაგულისხმევი გზების გარეთ, მაგ. ფოტოები ან ჩამოტვირთული ფაილები.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ეს აპი იკავებს %1$s \"%2$s\"-ზე.</string>
     <string name="analyzer_app_details_app_is_archived">ეს აპი დაარქივებულია.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 დღეში</string>
 </resources>

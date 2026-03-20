@@ -282,5 +282,6 @@
     <string name="shortcuts_settings_category">Scurtături</string>
     <string name="shortcuts_onetap_enabled_title">Comandă rapidă cu o singură atingere</string>
     <string name="shortcuts_onetap_enabled_summary">Afișează comanda rapidă „Scanare + Ștergere” atunci când apăsați lung pe pictograma aplicației. Utilizează aceleași instrumente ca și tabloul de bord cu o singură atingere.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s în 7 zile</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

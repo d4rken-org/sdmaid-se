@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Yorliqlar</string>
     <string name="shortcuts_onetap_enabled_title">Bir bosish yorlig\'i</string>
     <string name="shortcuts_onetap_enabled_summary">Ilova belgisini uzoq bosganda \"Skanerlash + O\'chirish\" yorlig\'ini ko\'rsatish. Bir bosishli boshqaruv paneli bilan bir xil vositalardan foydalanadi.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 kunda</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

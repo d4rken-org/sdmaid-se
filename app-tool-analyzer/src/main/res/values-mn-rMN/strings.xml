@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Энэ апп үндсэн замаас гадна тавьсан нэмэлт өгөгдөл, жишээ нь зураг эсвэл татаж авсан файлууд.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Энэ апп \"%2$s\" дээр %1$s езлаад байна.</string>
     <string name="analyzer_app_details_app_is_archived">Энэ апп архивлагдсан.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 хоногт</string>
 </resources>

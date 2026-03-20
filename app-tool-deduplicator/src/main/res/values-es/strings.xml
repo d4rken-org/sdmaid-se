@@ -47,7 +47,7 @@
     <string name="deduplicator_arbiter_summary">Configurar qué archivos se conservan y cuáles se eliminan.</string>
     <string name="deduplicator_arbiter_explanation">Cuando se eliminan los duplicados, SD Maid decide qué archivo conservar comprobando cada criterio en orden. El primer criterio que produce un ganador claro determina el resultado. Arrastre para reordenar, toque para cambiar el modo.</string>
     <string name="deduplicator_arbiter_select_mode_title">Seleccionar el modo</string>
-    <string name="deduplicator_arbiter_configure_paths_action">Configurar rutas…</string>
+    <string name="deduplicator_arbiter_configure_paths_action">Configurando las rutas…</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_title">Tipo de duplicado</string>
     <string name="deduplicator_arbiter_criterium_duplicate_type_description">Preferir coincidencias exactas sobre archivos similares.</string>
     <string name="deduplicator_arbiter_criterium_media_provider_title">Indexación de medios</string>

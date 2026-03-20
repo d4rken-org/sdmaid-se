@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Eliminar todos los reportes y establecer todas las estadísticas en cero.</string>
     <string name="stats_affected_paths_label">Rutas afectadas</string>
     <string name="stats_affected_pkgs_label">Aplicaciones afectadas</string>
+    <string name="stats_dash_body_snapshots_only">Seguimiento del historial de almacenamiento.</string>
+    <string name="stats_storage_trend_action">Tendencia de almacenamiento</string>
+    <string name="stats_space_history_title">Tendencia de almacenamiento</string>
+    <string name="stats_space_history_range_title">Rango</string>
+    <string name="stats_space_history_range_7d">7 días</string>
+    <string name="stats_space_history_range_30d">30 días</string>
+    <string name="stats_space_history_range_90d">90 días</string>
+    <string name="stats_space_history_storage_title">Almacenamiento</string>
+    <string name="stats_space_history_current_used_label">Uso actual</string>
+    <string name="stats_space_history_min_label">Uso mínimo</string>
+    <string name="stats_space_history_max_label">Uso máximo</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s en %2$s</string>
+    <string name="stats_space_history_upgrade_title">El historial completo es una función Pro</string>
+    <string name="stats_space_history_upgrade_body">Actualiza para desbloquear la vista de tendencia completa de 90 días para cada dispositivo de almacenamiento.</string>
+    <string name="stats_space_history_marker_freed">Liberado %1$s</string>
+    <string name="stats_storage_type_primary">Almacenamiento principal</string>
+    <string name="stats_storage_type_secondary">Almacenamiento secundario</string>
+    <string name="stats_storage_type_portable">Almacenamiento portátil</string>
+    <string name="stats_settings_retention_snapshots_label">Instantáneas de almacenamiento</string>
+    <string name="stats_settings_retention_snapshots_desc">Número de días para conservar las instantáneas del espacio de almacenamiento.</string>
 </resources>

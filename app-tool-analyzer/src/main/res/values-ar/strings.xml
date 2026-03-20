@@ -57,4 +57,5 @@
     <string name="analyzer_storage_content_app_extra_description">بيانات إضافية وضعها هذا التطبيق خارج المسارات الافتراضية، مثل الصور أو التنزيلات.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">يشغل هذا التطبيق %1$s في \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">تم أرشفة هذا التطبيق.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s في 7 أيام</string>
 </resources>

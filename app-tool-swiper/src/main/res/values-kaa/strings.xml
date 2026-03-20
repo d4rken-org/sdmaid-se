@@ -141,7 +141,7 @@
     <string name="swiper_gesture_overlay_dismiss_action">Túsinikli</string>
     <string name="swiper_help_action">Járdem</string>
     <string name="swiper_file_type_filter_title">Tek usı fayl tiplerin kórset</string>
-    <string name="swiper_file_type_filter_hint">Kórgińiz kelgen tiplerdi belgileń. Heshqaysısı belgilenbese, barlıq fayllar kórsetiledi.</string>
+    <string name="swiper_file_type_filter_hint">Kórgіńіz kelgen tiplerdi belgilеń. Heshqaysısı belgilenбесе, барлыq fayllar kórsеtіledі.</string>
     <string name="swiper_file_type_category_images">Súwretler</string>
     <string name="swiper_file_type_category_images_subtitle">jpg, png, gif, webp, heic…</string>
     <string name="swiper_file_type_category_videos">Videolar</string>

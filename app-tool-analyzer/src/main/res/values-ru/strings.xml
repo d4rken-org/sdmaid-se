@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">Дополнительные данные, которые это приложение поместило вне стандартных путей, например фото или загрузки.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Это приложение занимает %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Это приложение было архивировано.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дней</string>
 </resources>

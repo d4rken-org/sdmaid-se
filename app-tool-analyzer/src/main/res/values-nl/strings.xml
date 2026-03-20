@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Extra gegevens die deze app buiten de standaard paden heeft geplaatst, bijv. foto\'s of downloads.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Deze app neemt %1$s in beslag op \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Deze app is gearchiveerd.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
 </resources>

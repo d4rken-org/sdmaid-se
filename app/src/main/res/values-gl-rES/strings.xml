@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Atallos</string>
     <string name="shortcuts_onetap_enabled_title">Atallo dun toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar o atallo \"Escanear + Eliminar\" ao manter premida a icona da aplicación. Usa as mesmas ferramentas que o panel dun toque.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7 días</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

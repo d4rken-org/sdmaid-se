@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Data za ziada ambazo programu hii imeziweka nje ya njia za kawaida, k.m. picha au vipakuzi.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Programu hii inatumia %1$s kwenye \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Programu hii imehifadhiwa.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s katika siku 7</string>
 </resources>

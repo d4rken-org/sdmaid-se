@@ -9,20 +9,37 @@
         <item quantity="other">%s مادە پرۆسەسکراوە لەو کاتەی SD Maid بانی کردیت بۆ ئامێرەکەت.</item>
     </plurals>
     <string name="stats_report_status_success">سەرکەوتن</string>
-    <string name="stats_report_status_partial_success">بەشی success</string>
+    <string name="stats_report_status_partial_success">بەشی سەرکەوتن</string>
     <string name="stats_report_status_partial_failure">شکست</string>
     <string name="stats_settings_desc">ئامارەکان، ڕاپۆرتەکان و پاراستنی داتای SD Maid ڕێکبخە.</string>
     <string name="stats_settings_retention_category">پاراستن</string>
-    <string name="stats_settings_retention_reports_label">گشتی reports</string>
-    <string name="stats_settings_retention_reports_desc">ژمارە of days before deleting basic SD Maid operation reports.</string>
     <string name="stats_settings_retention_paths_label">زانیاری وردی ڕێگا</string>
     <string name="stats_settings_retention_paths_desc">ژمارەی ڕۆژەکان بۆ پاراستنی وردەکاری دەربارەی ڕێگاکانی کاریگەری SD Maid.</string>
     <plurals name="stats_settings_retention_x_days">
         <item quantity="one">%d ڕۆژ</item>
         <item quantity="other">%d ڕۆژ</item>
     </plurals>
-    <string name="stats_settings_reset_all_label">ڕیسێت all</string>
-    <string name="stats_settings_reset_all_desc">سڕینەوە all reports and set all statistics to zero.</string>
     <string name="stats_affected_paths_label">ڕێگاکانی کاریگەرکراو</string>
     <string name="stats_affected_pkgs_label">ئەپەکانی کاریگەرکراو</string>
+    <string name="stats_dash_body_snapshots_only">شوێنکەوتنی مێژووی ئەنبارەکەت.</string>
+    <string name="stats_storage_trend_action">ڕووتری ئەنبار</string>
+    <string name="stats_space_history_title">ڕووتری ئەنبار</string>
+    <string name="stats_space_history_range_title">مەودا</string>
+    <string name="stats_space_history_range_7d">٧ ڕۆژ</string>
+    <string name="stats_space_history_range_30d">٣٠ ڕۆژ</string>
+    <string name="stats_space_history_range_90d">٩٠ ڕۆژ</string>
+    <string name="stats_space_history_storage_title">ئەنبار</string>
+    <string name="stats_space_history_current_used_label">ئێستا بەکارهاتووە</string>
+    <string name="stats_space_history_min_label">کەمترین بەکارهاتوو</string>
+    <string name="stats_space_history_max_label">زۆرترین بەکارهاتوو</string>
+    <string name="stats_space_history_delta_label">دێڵتا</string>
+    <string name="stats_space_history_delta_in_x">%1$s لە %2$s</string>
+    <string name="stats_space_history_upgrade_title">مێژووی تەواو تایبەتمەندییەکی Pro ە</string>
+    <string name="stats_space_history_upgrade_body">Pro بکە بۆ کردنەوەی دیمەنی ڕووتری ٩٠ ڕۆژی بۆ هەر ئامێرێکی ئەنبار.</string>
+    <string name="stats_space_history_marker_freed">%1$s ئازادکراوە</string>
+    <string name="stats_storage_type_primary">ئەنبارێکی سەرەکی</string>
+    <string name="stats_storage_type_secondary">ئەنبارێکی دووەم</string>
+    <string name="stats_storage_type_portable">ئەنبارێکی گواستانەپێز</string>
+    <string name="stats_settings_retention_snapshots_label">سناپشێتی ئەنبار</string>
+    <string name="stats_settings_retention_snapshots_desc">ژمارەی ڕۆژەکان بۆ چاودانی سناپشیتی ئەنباری سطحی.</string>
 </resources>

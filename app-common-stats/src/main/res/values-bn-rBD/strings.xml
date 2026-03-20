@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">সমস্ত রিপোর্ট মুছুন এবং সমস্ত পরিসংখ্যান শূন্যে সেট করুন.</string>
     <string name="stats_affected_paths_label">প্রভাবিত পাথ</string>
     <string name="stats_affected_pkgs_label">প্রভাবিত অ্যাপস</string>
+    <string name="stats_dash_body_snapshots_only">আপনার স্টোরেজ ইতিহাস ট্র্যাক করা হচ্ছে।</string>
+    <string name="stats_storage_trend_action">স্টোরেজ প্রবণতা</string>
+    <string name="stats_space_history_title">স্টোরেজ প্রবণতা</string>
+    <string name="stats_space_history_range_title">পরিসীমা</string>
+    <string name="stats_space_history_range_7d">৭ দিন</string>
+    <string name="stats_space_history_range_30d">৩০ দিন</string>
+    <string name="stats_space_history_range_90d">৯০ দিন</string>
+    <string name="stats_space_history_storage_title">স্টোরেজ</string>
+    <string name="stats_space_history_current_used_label">বর্তমানে ব্যবহৃত</string>
+    <string name="stats_space_history_min_label">ন্যূনতম ব্যবহৃত</string>
+    <string name="stats_space_history_max_label">সর্বোচ্চ ব্যবহৃত</string>
+    <string name="stats_space_history_delta_label">পরিবর্তন</string>
+    <string name="stats_space_history_delta_in_x">%2$s এ %1$s</string>
+    <string name="stats_space_history_upgrade_title">সম্পূর্ণ ইতিহাস একটি Pro বৈশিষ্ট্য</string>
+    <string name="stats_space_history_upgrade_body">প্রতিটি স্টোরেজ ডিভাইসের জন্য সম্পূর্ণ ৯০-দিনের প্রবণতা দৃশ্য আনলক করতে আপগ্রেড করুন।</string>
+    <string name="stats_space_history_marker_freed">%1$s মুক্ত করা হয়েছে</string>
+    <string name="stats_storage_type_primary">প্রাথমিক স্টোরেজ</string>
+    <string name="stats_storage_type_secondary">সেকেন্ডারি স্টোরেজ</string>
+    <string name="stats_storage_type_portable">পোর্টেবল স্টোরেজ</string>
+    <string name="stats_settings_retention_snapshots_label">স্টোরেজ স্ন্যাপশট</string>
+    <string name="stats_settings_retention_snapshots_desc">স্টোরেজ স্পেস স্ন্যাপশট রাখার দিনের সংখ্যা।</string>
 </resources>

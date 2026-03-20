@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">Data tambahan yang telah diletakkan oleh aplikasi ini di luar laluan lalai, cth. foto atau muat turun.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Aplikasi ini menduduki %1$s pada \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Aplikasi ini telah diarkibkan.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s dalam 7h</string>
 </resources>

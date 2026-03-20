@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">តិន្នន័យបន្ថែមដែលកម្មវិធីនេបានដាកចេញចេញពីឡប់ដែលកំណត់តំព័ឡកឌ័ត់ប័ក ដូចជា រូបថត់ អ្វីតមកម្មវិធីដញ្ចូល។</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">កម្មវិធីនេកំពុង %1$s នៅលើ \"%2$s\"។</string>
     <string name="analyzer_app_details_app_is_archived">កម្មវិធីនេត្រូវបានឈាកជៅកន្ល័យ។</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ក្នុង 7ថ្ងៃ</string>
 </resources>

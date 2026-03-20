@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">اضافی ڈیٹا جو اس ایپ نے ڈیفالٹ پاتھز کے باہر رکھا ہے، جیسے فوٹوز یا ڈاؤن لوڈز۔</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">یہ ایپ \"%2$s\" پر %1$s قبضہ میں لیے ہوئے ہے۔</string>
     <string name="analyzer_app_details_app_is_archived">یہ ایپ آرکائیو کیا گیا ہے۔</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ۷ دنوں میں</string>
 </resources>

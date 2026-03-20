@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Snarveier</string>
     <string name="shortcuts_onetap_enabled_title">Ett-trykk snarvei</string>
     <string name="shortcuts_onetap_enabled_summary">Vis \"Skann + Slett\" snarvei når app-ikonet holdes inne. Bruker samme verktøy som ett-trykk kontrollpanel.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s på 7 dager</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

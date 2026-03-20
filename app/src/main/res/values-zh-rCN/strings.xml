@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">快捷键</string>
     <string name="shortcuts_onetap_enabled_title">一键快捷方式</string>
     <string name="shortcuts_onetap_enabled_summary">长按应用图标时显示“扫描+删除”快捷键。使用与一键控制面板相同的工具。</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s（7天内）</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>
