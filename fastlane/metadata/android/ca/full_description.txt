@@ -1,47 +1,47 @@
-L'<i>SD Maid 2/SE</i> és l'assistent de confiança del vostre Android per mantenir-lo net i ordenat.
+<i>SD Maid 2/SE</i> és l'assistent de confiança del vostre Android per mantenir-lo net i ordenat.
 
 Ningú és perfecte i l'Android tampoc.
 
-* Les aplicacions que ja heu eliminat deixen alguna cosa enrere.
-* Registres, informes d'error i altres fitxers que no voleu es creen constantment.
-* El vostre emmagatzematge està recopilant fitxers i carpetes que no reconeixeu.
-* Duplica fotos a la vostra galeria.
+* Les aplicacions eliminades deixen alguna cosa enrere.
+* Registres, informes d'error i altres fitxers no desitjats es creen constantment.
+* El vostre emmagatzematge acumula fitxers i carpetes que no reconeixeu.
+* Fotos duplicades a la galeria.
 
-No continueu així... Deixeu que l'SD Maid 2/SE us ajudi!
+Deixeu que l'SD Maid 2/SE us ajudi!
 
-L'SD Maid 2/SE és un gestor d'aplicacions i fitxers especialitzat en saber quines aplicacions han creat fitxers específics al vostre dispositiu. L'SD Maid 2/SE cerca al vostre dispositiu i compara fitxers amb les aplicacions instal·lades per oferir opcions per alliberar espai d'emmagatzematge de manera segura.
+L'SD Maid 2/SE és un gestor d'aplicacions i fitxers especialitzat en saber quines aplicacions han creat quins fitxers al vostre dispositiu. Compara els fitxers amb les aplicacions instal·lades per alliberar espai de forma segura.
 
-✨ Neteja després de desinstal·lar les aplicacions
+✨ Neteja després de desinstal·lar
 
-Si les aplicacions creen fitxers fora de les carpetes designades, els fitxers poden romandre fins i tot després de desinstal·lar les aplicacions. L'eina «Cercador de brossa» troba les restes d'aplicacions, us indica a quina aplicació pertanyien i us ajuda a eliminar-les.
+Si les aplicacions creen fitxers fora de les carpetes designades, persisteixen fins i tot després de desinstal·lar-les. L'eina "CorpseFinder" troba les restes, indica a quina aplicació pertanyien i ajuda a eliminar-les.
 
-🔍 Cerca el vostre dispositiu de manera intel·ligent
+🔍 Cerca el dispositiu de manera intel·ligent
 
-Filtreu les carpetes buides, els fitxers temporals, les aplicacions ja instal·lades i molt més. Fins i tot podeu crear els vostres propis criteris de cerca. L'eina «Netejador del sistema» us permet cercar automàticament al vostre dispositiu i eliminar fitxers segons diversos criteris.
+Filtreu carpetes buides, fitxers temporals, aplicacions ja instal·lades i més. Creeu els vostres propis criteris de cerca. L'eina "SystemCleaner" cerca i elimina fitxers automàticament segons diversos criteris.
 
 🧹 Suprimeix fitxers fungibles i memòries cau ocultes
 
-Miniatures, papereres, memòria cau fora de línia i molt més: si les aplicacions no es netegen després, aquesta aplicació ho farà. L'eina «Netejador d'aplicacions» troba aplicacions amb fitxers fungibles.
+Miniatures, papereres, memòria cau fora de línia i més: si les aplicacions no es netegen, "AppCleaner" ho farà.
 
-📦 Gestiona totes les vostres aplicacions
+📦 Gestiona totes les aplicacions
 
-Obteniu una llista completa de totes les aplicacions instal·lades al vostre dispositiu. Aplicació habilitada, deshabilitada, d'usuari o del sistema: cap aplicació es pot amagar. L'eina «Control d'aplicacions» és un gestor d'aplicacions que us permet cercar, ordenar i controlar les vostres aplicacions.
+Llista completa de totes les aplicacions instal·lades: habilitades, deshabilitades, d'usuari o del sistema — cap es pot amagar. L'eina "AppControl" us permet cercar, ordenar i controlar les aplicacions.
 
-📊 Què està utilitzant tot el vostre espai
+📊 Què utilitza tot el vostre espai
 
-La gestió de l'emmagatzematge pot ser complexa amb aplicacions, mitjans, sistema i altres fitxers a l'emmagatzematge del telèfon, targetes SD i dispositius USB. L'«Analitzador d'emmagatzematge» és un gestor de fitxers que mostra com s'utilitza l'espai al dispositiu, simplificant la gestió de l'emmagatzematge.
+La gestió de l'emmagatzematge pot ser complexa amb aplicacions, mitjans i fitxers del sistema al telèfon, targetes SD i USB. L'eina "StorageAnalyzer" mostra com s'utilitza l'espai al dispositiu.
 
 📷 Cerca dades duplicades
 
-Baixades duplicades, fotos enviades a través de les xarxes socials o simplement imatges similars de la mateixa escena: amb el temps, es poden acumular còpies. L'eina «Desduplicador» troba fitxers que són exactament iguals o similars i us ajuda a eliminar còpies addicionals.
+Baixades duplicades, fotos de xarxes socials o imatges similars de la mateixa escena: les còpies s'acumulen. L'eina "Deduplicator" troba fitxers idèntics o similars i ajuda a eliminar les còpies addicionals.
 
 👆 Desfeu-vos del desordre amb un lliscament
 
-Trieu una carpeta i reviseu els fitxers un per un amb lliscaments simples per conservar, eliminar o ometre. L'eina «Swiper» us permet revisar totes les decisions abans d'eliminar res, i podeu desar una sessió per continuar-la més tard.
+Trieu una carpeta i reviseu els fitxers un per un amb lliscaments simples per conservar, eliminar o ometre. L'eina "Swiper" permet revisar totes les decisions abans d'eliminar res, i podeu desar una sessió per continuar-la més tard.
 
-🗄️ Estalvieu espai sense esborrar fotos
+🗜️ Estalvieu espai sense esborrar fotos
 
-Les fotos poden ocupar molt d'emmagatzematge, però no sempre voleu eliminar-les. L'eina «Media Squeeze» comprimeix imatges amb paràmetres de qualitat ajustables per alliberar espai mentre conserves les vostres fotos.
+Les fotos poden ocupar molt d'emmagatzematge, però no sempre voleu eliminar-les. L'eina "Media Squeeze" comprimeix imatges amb paràmetres de qualitat ajustables per alliberar espai conservant les vostres fotos.
 
 Aquesta aplicació no té anuncis. Algunes funcions requereixen una millora de pagament.
 
@@ -49,7 +49,7 @@ L'SD Maid 2/SE és el successor de l'SD Maid 1/Legacy.
 Optimitzat per a les versions més noves d'Android i centrat en la neteja.
 
 Aquesta aplicació té funcions opcionals que utilitzen l'API AccessibilityService per automatitzar accions tedioses.
-Mitjançant l'API AccessibilityService, aquesta aplicació pot fer clic als botons perquè realitzeu operacions en diverses aplicacions, p. ex. esborrant memòries cau.
+Mitjançant l'API AccessibilityService, pot fer clic als botons per realitzar operacions en diverses aplicacions, p. ex. esborrant memòries cau.
 Aquesta aplicació no utilitza l'API AccessibilityService per recollir informació.
 
 L'SD Maid 2/SE és una aplicació de neteja i gestor de fitxers.
