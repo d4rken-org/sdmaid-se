@@ -9,11 +9,11 @@ Walang sinumang perpekto, kahit na ang Android.
 
 Huwag nang magpatuloy dito… Hayaan ang SD Maid 2/SE na tumulong sa iyo!
 
-Ang SD Maid 2/SE ay app at file manager na dalubhasa sa pag-alam kung aling app ang lumikha ng mga file sa iyong device. Naghahambing ito ng mga file sa mga naka-install na app para ligtas na mapalaya ang storage space.
+Ang SD Maid 2/SE ay app at file manager na nakakaalam kung aling app ang lumikha ng mga file sa iyong device. Naghahambing ito ng mga file sa mga naka-install na app para ligtas na mapalaya ang storage space.
 
 ✨ Linisin pagkatapos mag-uninstall ng mga app
 
-Kung ang mga app ay lumilikha ng mga file sa labas ng kanilang itinalagang folder, maaaring manatili ang mga ito kahit pagkatapos i-uninstall. Ang "CorpseFinder" tool ay nakakahanap ng mga natitira, sinasabi kung aling app ang kabilang at tumutulong burahin ang mga ito.
+Kung ang mga app ay gumawa ng file sa labas ng itinalagang folder, maaaring manatili ang mga ito kahit pagkatapos i-uninstall. Ang "CorpseFinder" tool ay nakakahanap ng mga natitira, sinasabi kung aling app ang kabilang at tumutulong burahin ang mga ito.
 
 🔍 Tuklasin ang iyong device sa matalinong paraan
 
@@ -52,4 +52,4 @@ May opsyonal na feature ang app na ito na gumagamit ng AccessibilityService API 
 Gamit ang API na ito, maaaring mag-click ng mga button para sa iyo upang magsagawa ng mga operasyon sa maraming app, hal. pagbura ng mga cache.
 Hindi ginagamit ang AccessibilityService API upang makolekta ang impormasyon.
 
-Ang SD Maid 2/SE ay isang File Manager & Cleaner App.
+SD Maid 2/SE ay isang File Manager & Cleaner App.

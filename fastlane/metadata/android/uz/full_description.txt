@@ -49,7 +49,7 @@ SD Maid 2/SE - bu SD Maid 1/Legacy-ning naslchasi.
 Yangi Android versiyalari uchun optimallashtirilgan va tozalashga qaratilgan.
 
 Bu ilovada AccessibilityService API dan foydalanib maslahat beradigan harakatlarni avtomatlashtirish uchun ixtiyoriy xususiyatlar mavjud.
-AccessibilityService API dan foydalanib, bu ilova siz uchun tugmalarni bosishi va bir nechta ilovalar uchun operatsiyalarni bajarishi mumkin, masalan keshlash memory-ni o'chirish.
+AccessibilityService API dan foydalanib, bu ilova siz uchun tugmalarni bosishi va bir nechta ilovalar uchun operatsiyalarni bajarishi mumkin, masalan keshlarni o'chirish.
 Bu ilova AccessibilityService API dan ma'lumotlarni to'plash uchun foydalanmaydi.
 
 SD Maid 2/SE fayl boshqaruvchisi va tozalash ilovasidir.
