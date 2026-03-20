@@ -1,55 +1,55 @@
-<i>SD Maid 2/SE</i> este asistentul dvs. de încredere pentru Android, pentru a-l menține curat și ordonat.
+<i>SD Maid 2/SE</i> este asistentul de încredere pentru Android, pentru a-l menține curat și ordonat.
 
-Nimeni nu este perfect și nici Android nu este.
+Nimeni nu este perfect și nici Android.
 
-* Aplicațiile pe care le-ai eliminat deja lasă ceva în spatele lor.
-* Jurnalele, rapoartele de blocare și alte fișiere pe care nu le doriți sunt create în mod constant.
-* Stocarea dvs. colectează fișiere și foldere pe care nu le recunoașteți.
-* Dublați fotografii în galeria dvs.
+* Aplicațiile deja eliminate lasă ceva în urmă.
+* Jurnalele, rapoartele de blocare și alte fișiere nedorite sunt create în mod constant.
+* Stocarea colectează fișiere și foldere pe care nu le recunoașteți.
+* Fotografii duplicate în galerie.
 
-Să nu continuăm aici... Lăsați SD Maid 2/SE să vă ajute!
+Lăsați SD Maid 2/SE să vă ajute!
 
-SD Maid 2/SE este un manager de aplicații și fișiere care este specializat în a ști ce aplicații au creat anumite fișiere pe dispozitivul dvs. SD Maid 2/SE caută dispozitivul dvs. și compară fișierele cu aplicațiile instalate pentru a oferi opțiuni pentru eliberarea în siguranță a spațiului de stocare.
+SD Maid 2/SE este un manager de aplicații și fișiere specializat în identificarea aplicațiilor care au creat fișiere pe dispozitivul dvs. Compară fișierele cu aplicațiile instalate pentru a oferi opțiuni de eliberare în siguranță a spațiului de stocare.
 
-✨ Curățați după dezinstalarea aplicațiilor
+✨ Curățați după dezinstalare
 
-Dacă aplicațiile creează fișiere în afara folderelor lor desemnate, atunci fișierele pot rămâne chiar și după dezinstalarea aplicațiilor. Instrumentul „Găsitor de cadavre” găsește rămășițele aplicațiilor, vă spune căror aplicații au aparținut și vă ajută să le ștergeți.
+Dacă aplicațiile creează fișiere în afara folderelor lor desemnate, acestea pot rămâne și după dezinstalare. Instrumentul "CorpseFinder" găsește rămășițele aplicațiilor, vă spune căror aplicații aparțineau și vă ajută să le ștergeți.
 
 🔍 Căutați dispozitivul în mod inteligent
 
-Filtrați pentru foldere goale, fișiere temporare, aplicații deja instalate și multe altele. Puteți chiar să vă creați propriile criterii de căutare. Instrumentul „Curățitor de sistem” vă permite să căutați automat dispozitivul și să ștergeți fișiere pe baza diferitelor criterii.
+Filtrați foldere goale, fișiere temporare, aplicații deja instalate și altele. Creați propriile criterii de căutare. Instrumentul "SystemCleaner" caută automat și șterge fișiere pe baza diverselor criterii.
 
-🧹 Ștergeți fișierele consumabile și cache-urile ascunse
+🧹 Ștergeți fișierele inutile și cache-urile ascunse
 
-Miniaturi, coșuri de gunoi, cache offline și multe altele: dacă aplicațiile nu se curăță după ele, atunci această aplicație o va face. Instrumentul „Curățitor de aplicații” găsește aplicații cu fișiere consumabile.
+Miniaturi, coșuri de gunoi, cache offline și altele: dacă aplicațiile nu se curăță, "AppCleaner" o va face.
 
-📦 Gestionați toate aplicațiile dvs
+📦 Gestionați toate aplicațiile
 
-Obțineți o listă cuprinzătoare a tuturor aplicațiilor instalate pe dispozitivul dvs. Aplicație activată, dezactivată, de utilizator sau de sistem: nicio aplicație nu vă poate ascunde. Instrumentul „Controlul Aplicațiilor” este un manager de aplicații care vă permite să căutați, să sortați și să vă controlați aplicațiile.
+Obțineți o listă completă a tuturor aplicațiilor instalate: activate, dezactivate, de utilizator sau de sistem — nicio aplicație nu vă poate scăpa. Instrumentul "AppControl" vă permite să căutați, sortați și controlați aplicațiile.
 
-📊 Ce vă folosește tot spațiul
+📊 Ce consumă tot spațiul
 
-Gestionarea stocării poate fi complexă cu aplicații, media, sistem și alte fișiere din stocarea telefonului, cardurile SD și dispozitivele USB. „Analizatorul de stocare” este un manager de fișiere care afișează modul în care este utilizat spațiul pe dispozitiv, simplificând gestionarea stocării.
+Gestionarea stocării poate fi complexă cu aplicații, media și fișiere de sistem pe telefon, carduri SD și dispozitive USB. Instrumentul "StorageAnalyzer" arată cum este utilizat spațiul pe dispozitiv.
 
-📷 Găsiți date duplicat
+📷 Găsiți datele duplicate
 
-Descărcări duplicate, fotografii trimise prin intermediul rețelelor sociale sau doar imagini similare ale aceleiași scene: în timp, copiile se pot acumula. Instrumentul „Deduplicator” găsește fișiere care sunt exact aceleași sau similare și vă ajută să ștergeți copii suplimentare.
+Descărcări duplicate, fotografii din rețele sociale sau imagini similare ale aceleiași scene: copiile se pot acumula. Instrumentul "Deduplicator" găsește fișiere identice sau similare și vă ajută să ștergeți copiile în plus.
 
-👆 Organizează cu o glisare
+👆 Organizați cu o glisare
 
-Alege un folder și parcurge fișierele unul câte unul cu simple glisări pentru a păstra, șterge sau sări peste ele. Instrumentul „Swiper” îți permite să revizuiești toate deciziile înainte ca ceva să fie șters, iar sesiunea poate fi salvată pentru a continua mai târziu.
+Alegeți un folder și parcurgeți fișierele unul câte unul cu glisări simple pentru a păstra, șterge sau sări. Instrumentul "Swiper" vă permite să revizuiți toate deciziile înainte de ștergere, iar sesiunea poate fi salvată pentru a continua mai târziu.
 
-🗜️ Eliberează spațiu fără a șterge fotografiile
+🗜️ Eliberați spațiu fără a șterge fotografii
 
-Fotografiile pot ocupa mult spațiu de stocare, dar nu vrei întotdeauna să le elimini. Instrumentul „Media Squeeze” comprimă imaginile tale cu setări de calitate reglabile pentru a elibera spațiu păstrându-ți fotografiile.
+Fotografiile pot ocupa mult spațiu, dar nu doriți întotdeauna să le eliminați. Instrumentul "Media Squeeze" comprimă imaginile cu setări de calitate reglabile pentru a elibera spațiu păstrând fotografiile.
 
 Această aplicație nu conține reclame. Unele funcții necesită o actualizare plătită.
 
 SD Maid 2/SE este succesorul lui SD Maid 1/Legacy.
 Optimizat pentru versiuni noi de Android și concentrat pe curățare.
 
-Această aplicație are caracteristici opționale care utilizează API-ul AccessibilityService pentru a automatiza acțiunile obositoare.
-Folosind API-ul AccessibilityService, această aplicație poate face clic pe butoane pentru a efectua operațiuni pe mai multe aplicații, de exemplu. ștergerea cache-urilor.
+Această aplicație are funcții opționale care utilizează API-ul AccessibilityService pentru a automatiza acțiunile obositoare.
+Folosind API-ul AccessibilityService, această aplicație poate face clic pe butoane pentru a efectua operațiuni pe mai multe aplicații, de ex. ștergerea cache-urilor.
 Această aplicație nu utilizează API-ul AccessibilityService pentru a colecta informații.
 
-SD Maid 2/SE este o aplicație Manager de fișiere & Curățitor.
+SD Maid 2/SE este o aplicație Manager de fișiere &amp; Curățitor.

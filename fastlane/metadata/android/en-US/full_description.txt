@@ -9,7 +9,7 @@ Nobody is perfect and neither is Android.
 
 Let’s not go on here… Let SD Maid 2/SE help you!
 
-SD Maid 2/SE is an app and file manager that specializes in knowing which apps have created specific files on your device. SD Maid 2/SE searches your device and compares files with installed apps to offer options for safely freeing up storage space.
+SD Maid 2/SE is an app and file manager that knows which apps created files on your device. It compares files with installed apps to help you safely free up storage space.
 
 ✨ Clean up after uninstalling apps
 
@@ -17,7 +17,7 @@ If apps create files outside their designated folders then files can remain even
 
 🔍 Search your device the smart way
 
-Filter for empty folders, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool allows you to automatically search your device and delete files based on various criteria.
+Filter for empty folders, temporary files, already installed apps and more. You can even create your own search criteria. The "SystemCleaner" tool automatically searches and deletes files based on various criteria.
 
 🧹 Delete expendable files and hidden caches
 
@@ -25,7 +25,7 @@ Thumbnails, trash bins, offline caches and more: If apps don't clean up after th
 
 📦 Manage all of your apps
 
-Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that allows you to search, sort and control your apps.
+Get a comprehensive list of all apps installed on your device. Enabled, disabled, user or system app: no app can hide from you. The "AppControl" tool is an app manager that lets you search, sort and control your apps.
 
 📊 What is using all your space
 
