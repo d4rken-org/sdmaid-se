@@ -22,4 +22,25 @@
     <string name="stats_settings_reset_all_desc">លុបរាយការណ៍ទាំងនាំ និងកំណត់ស្ថិតិការណ៍tousត្រូកន្លែសូន។</string>
     <string name="stats_affected_paths_label">ព័ត្រូត្រូវបានប័ស្សសកម្មលើ</string>
     <string name="stats_affected_pkgs_label">កម្មវិធីត្រូវបានប័ស្សសកម្មលើ</string>
+    <string name="stats_dash_body_snapshots_only">កំពុងតាមដានប្រវត្តិផ្ទុករបស់អ្នក។</string>
+    <string name="stats_storage_trend_action">និន្នាការផ្ទុក</string>
+    <string name="stats_space_history_title">និន្នាការផ្ទុក</string>
+    <string name="stats_space_history_range_title">ជួរ</string>
+    <string name="stats_space_history_range_7d">7 ថ្ងៃ</string>
+    <string name="stats_space_history_range_30d">30 ថ្ងៃ</string>
+    <string name="stats_space_history_range_90d">90 ថ្ងៃ</string>
+    <string name="stats_space_history_storage_title">ផ្ទុក</string>
+    <string name="stats_space_history_current_used_label">ការប្រើបច្ចុប្បន្ន</string>
+    <string name="stats_space_history_min_label">ការប្រើប្រាស់អប្បបរមា</string>
+    <string name="stats_space_history_max_label">ការប្រើប្រាស់អតិបរមា</string>
+    <string name="stats_space_history_delta_label">ភាពខុសគ្នា</string>
+    <string name="stats_space_history_delta_in_x">%1$s ក្នុង %2$s</string>
+    <string name="stats_space_history_upgrade_title">ប្រវត្តិពេញលេញជាមុខងារ Pro</string>
+    <string name="stats_space_history_upgrade_body">លើកកំរិតដើម្បីដោះសោការមើលនិន្នាការ 90 ថ្ងៃពេញលេញសម្រាប់ឧបករណ៍ផ្ទុករាល់ពួក។</string>
+    <string name="stats_space_history_marker_freed">បានដោះលែង %1$s</string>
+    <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>
+    <string name="stats_storage_type_secondary">ឧបករណ៍ផ្ទុកបន្ទាប់បន្សំ</string>
+    <string name="stats_storage_type_portable">ឧបករណ៍ផ្ទុកចល័ត</string>
+    <string name="stats_settings_retention_snapshots_label">ថតអេក្រង់ផ្ទុក</string>
+    <string name="stats_settings_retention_snapshots_desc">ចំនួនថ្ងៃដើម្បីរក្សាទុករូបថតទំហំផ្ទុក។</string>
 </resources>

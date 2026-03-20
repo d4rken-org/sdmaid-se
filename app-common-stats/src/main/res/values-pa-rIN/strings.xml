@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">ਸਾਰੀਆਂ ਰਿਪੋਰਟਾਂ ਮਿਟਾਓ ਅਤੇ ਸਾਰੇ ਅੰਕੜੇ ਜ਼ੀਰੋ \'ਤੇ ਸੈੱਟ ਕਰੋ।</string>
     <string name="stats_affected_paths_label">ਪ੍ਰਭਾਵਿਤ ਮਾਰਗ</string>
     <string name="stats_affected_pkgs_label">ਪ੍ਰਭਾਵਿਤ ਐਪਾਂ</string>
+    <string name="stats_dash_body_snapshots_only">ਤੁਹਾਡੇ ਸਟੋਰੇਜ ਇਤਿਹਾਸ ਨੂੰ ਟਰੈਕ ਕਰਨਾ।</string>
+    <string name="stats_storage_trend_action">ਸਟੋਰੇਜ ਰੁਝਾਨ</string>
+    <string name="stats_space_history_title">ਸਟੋਰੇਜ ਰੁਝਾਨ</string>
+    <string name="stats_space_history_range_title">ਰੇਂਜ</string>
+    <string name="stats_space_history_range_7d">7 ਦਿਨ</string>
+    <string name="stats_space_history_range_30d">30 ਦਿਨ</string>
+    <string name="stats_space_history_range_90d">90 ਦਿਨ</string>
+    <string name="stats_space_history_storage_title">ਸਟੋਰੇਜ</string>
+    <string name="stats_space_history_current_used_label">ਮੌਜੂਦਾ ਵਰਤੀ ਗਈ</string>
+    <string name="stats_space_history_min_label">ਘੱਟੋ-ਘੱਟ ਵਰਤੀ ਗਈ</string>
+    <string name="stats_space_history_max_label">ਵੱਧ ਤੋਂ ਵੱਧ ਵਰਤੀ ਗਈ</string>
+    <string name="stats_space_history_delta_label">ਡੈਲਟਾ</string>
+    <string name="stats_space_history_delta_in_x">%1$s %2$s ਵਿੱਚ</string>
+    <string name="stats_space_history_upgrade_title">ਪੂਰਾ ਇਤਿਹਾਸ ਇੱਕ Pro ਵਿਸ਼ੇਸ਼ਤਾ ਹੈ</string>
+    <string name="stats_space_history_upgrade_body">ਹਰ ਸਟੋਰੇਜ ਡਿਵਾਈਸ ਲਈ ਪੂਰਾ 90-ਦਿਨ ਰੁਝਾਨ ਦ੍ਰਿਸ਼ ਅਨਲਾਕ ਕਰਨ ਲਈ ਅੱਪਗ੍ਰੇਡ ਕਰੋ।</string>
+    <string name="stats_space_history_marker_freed">%1$s ਮੁਕਤ ਕੀਤਾ</string>
+    <string name="stats_storage_type_primary">ਮੁੱਖ ਸਟੋਰੇਜ</string>
+    <string name="stats_storage_type_secondary">ਸੈਕੰਡਰੀ ਸਟੋਰੇਜ</string>
+    <string name="stats_storage_type_portable">ਪੋਰਟੇਬਲ ਸਟੋਰੇਜ</string>
+    <string name="stats_settings_retention_snapshots_label">ਸਟੋਰੇਜ ਸਨੈਪਸ਼ਾਟ</string>
+    <string name="stats_settings_retention_snapshots_desc">ਸਟੋਰੇਜ ਸਪੇਸ ਸਨੈਪਸ਼ਾਟ ਰੱਖਣ ਲਈ ਦਿਨਾਂ ਦੀ ਸੰਖਿਆ੍</string>
 </resources>

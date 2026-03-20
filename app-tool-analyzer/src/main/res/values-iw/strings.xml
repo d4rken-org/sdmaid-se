@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">נתונים נוספים שהאפליקציה הזו מיקמה מחוץ לנתיבי ברירת המחדל, למשל. תמונות או הורדות.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">אפליקציה זו תופסת %1$s ב-\"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">אפליקציה זו הועבר לארכיון.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ב-7 ימים</string>
 </resources>

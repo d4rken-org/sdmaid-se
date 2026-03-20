@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Barlıq esabatlardı óshiriw hám barlıq statistikalardı nólge ornatıw.</string>
     <string name="stats_affected_paths_label">Tásirleng̱en jollar</string>
     <string name="stats_affected_pkgs_label">Tásirleng̱en qosımshalar</string>
+    <string name="stats_dash_body_snapshots_only">Сақлау орны тарийхын қадағалаў.</string>
+    <string name="stats_storage_trend_action">Сақлау орны тренди</string>
+    <string name="stats_space_history_title">Сақлау орны тренди</string>
+    <string name="stats_space_history_range_title">Диапазон</string>
+    <string name="stats_space_history_range_7d">7 kún</string>
+    <string name="stats_space_history_range_30d">30 kún</string>
+    <string name="stats_space_history_range_90d">90 kún</string>
+    <string name="stats_space_history_storage_title">Сақлау орны</string>
+    <string name="stats_space_history_current_used_label">Ҳазирги пайдаланылған</string>
+    <string name="stats_space_history_min_label">Минимал пайдаланылған</string>
+    <string name="stats_space_history_max_label">Максимал пайдаланылған</string>
+    <string name="stats_space_history_delta_label">Дельта</string>
+    <string name="stats_space_history_delta_in_x">%1$s ишинде %2$s</string>
+    <string name="stats_space_history_upgrade_title">Толық тарийх Pro функциясы болып табылады</string>
+    <string name="stats_space_history_upgrade_body">Ҳәр бир сақлау қурылмасы ушын толық 90 күнлик тренд көринисин ашыў ушын жаңартың.</string>
+    <string name="stats_space_history_marker_freed">Босатылды %1$s</string>
+    <string name="stats_storage_type_primary">Тийкарғы сақлау орны</string>
+    <string name="stats_storage_type_secondary">Қосымша сақлау орны</string>
+    <string name="stats_storage_type_portable">Алмаламалы сақлау орны</string>
+    <string name="stats_settings_retention_snapshots_label">Сақлау орны снимоклары</string>
+    <string name="stats_settings_retention_snapshots_desc">Сақлау орны снимокларын сақлаў күнлер саны.</string>
 </resources>

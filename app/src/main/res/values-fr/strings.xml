@@ -25,7 +25,7 @@
     </plurals>
     <string name="settings_debuglog_explanation">Cette fonction enregistre les actions de l’appli dans un fichier partageable. Le fichier généré comprend des renseignements sensibles (p. ex. des noms de fichier et les applis installées). Ne le partagez qu’avec des tiers de confiance (p. ex. un développeur qui cherche à résoudre un problème).</string>
     <string name="debug_debuglog_short_recording_title">Enregistrement très court</string>
-    <string name="debug_debuglog_short_recording_desc">L’enregistrement était très court. Les journaux de débogage sont des enregistrements, pas des instantanés. Pour que le journal soit utile, reproduisez le problème pendant que l’enregistrement est actif.</string>
+    <string name="debug_debuglog_short_recording_desc">L’enregistrement était très court. Les journaux de débogage sont des enregistrements, pas des instantanés. Pour que le journal soit utile, reproduisez le problème pendant que l’enregistrement est actif .</string>
     <string name="debug_debuglog_short_recording_continue_action">Poursuivre l’enregistrement</string>
     <string name="debug_debuglog_short_recording_stop_action">Arrêter quand même</string>
     <string name="debug_debuglog_screen_failed_title">Échec de la session</string>
@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Raccourcis</string>
     <string name="shortcuts_onetap_enabled_title">Raccourci à accès direct</string>
     <string name="shortcuts_onetap_enabled_summary">Afficher le raccourci « Analyser + supprimer » en touchant et maintenant l’icône de l’appli. Utilise les mêmes outils que le tableau de bord à accès direct.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7 jours</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

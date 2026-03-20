@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">यस app ले पूर्वनिर्धारित paths बाहिर राखेको अतिरिक्त डेटा, जस्तै फोटोहरू वा डाउनलोडहरू।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">यो app ले \"%2$s\" मा %1$s ओगटेको छ।</string>
     <string name="analyzer_app_details_app_is_archived">यो app संग्रहित गरिएको छ।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ७ दिनमा</string>
 </resources>

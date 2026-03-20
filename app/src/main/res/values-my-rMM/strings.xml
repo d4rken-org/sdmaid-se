@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">ခင်ဗျား</string>
     <string name="shortcuts_onetap_enabled_title">တစ်ချက်သုံးတိုက်ခင်ဗျား</string>
     <string name="shortcuts_onetap_enabled_summary">အပ်ပလီကေးရှင်း icon ကို အရှည်ကြာ တိုက်နယ်သည့်အခါ \"စကင်န်လုပ် + ဖျက်\" အတိုကောက် ပွင့်လင်းပြသပါ။ အဆင့်တစ်ခုထဲ dashboard ဖြင့်အလားတူ tool များအသုံးပြုသည်။</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ၇ ရက်အတွင်း</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -293,5 +293,6 @@ Bandykite: %3$s</item>
     <string name="shortcuts_settings_category">Nuorodos</string>
     <string name="shortcuts_onetap_enabled_title">Vienu paspaudimu nuoroda</string>
     <string name="shortcuts_onetap_enabled_summary">Rodyti „Nuskaityti + Ištrinti“ nuorodą ilgai spaudžiant programos piktogramą. Naudoja tuos pačius įrankius kaip vienu paspaudimu prietaisai.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s per 7 dienų</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

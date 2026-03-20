@@ -22,4 +22,25 @@
     <string name="stats_settings_reset_all_desc">အအကြေးများကို ဖက်ချပြီးသောက စကᒰသတောများကို သုည်လုံးအသားသိုသွက်သွက်ချရန်။</string>
     <string name="stats_affected_paths_label">ခရောကြေးပောထ်များ</string>
     <string name="stats_affected_pkgs_label">ခရောကြေးအကြေးများ</string>
+    <string name="stats_dash_body_snapshots_only">သင့်သိုလှောင်မှု မှတ်တမ်းကို ခြေရာခံနေသည်။</string>
+    <string name="stats_storage_trend_action">သိုလှောင်မှု လမ်းကြောင်း</string>
+    <string name="stats_space_history_title">သိုလှောင်မှု လမ်းကြောင်း</string>
+    <string name="stats_space_history_range_title">အပိုင်းအခြား</string>
+    <string name="stats_space_history_range_7d">၇ ရက်</string>
+    <string name="stats_space_history_range_30d">၃၀ ရက်</string>
+    <string name="stats_space_history_range_90d">၉၀ ရက်</string>
+    <string name="stats_space_history_storage_title">သိုလှောင်မှု</string>
+    <string name="stats_space_history_current_used_label">လောလောဆယ် အသုံးပြုထားသည်</string>
+    <string name="stats_space_history_min_label">အနည်းဆုံး အသုံးပြုထားသည်</string>
+    <string name="stats_space_history_max_label">အများဆုံး အသုံးပြုထားသည်</string>
+    <string name="stats_space_history_delta_label">ကွာခြားချက်</string>
+    <string name="stats_space_history_delta_in_x">%2$s အတွင်း %1$s</string>
+    <string name="stats_space_history_upgrade_title">မှတ်တမ်းအပြည့်အစုံသည် Pro အင်္ဂါရပ်ဖြစ်သည်</string>
+    <string name="stats_space_history_upgrade_body">သိုလှောင်ကိရိယာတစ်ခုချင်းစီ၏ ၉၀ ရက် လမ်းကြောင်းမြင်ကွင်းအပြည့်ကို ဖွင့်ရန် အဆင့်မြှင့်ပါ။</string>
+    <string name="stats_space_history_marker_freed">%1$s လွတ်မြောက်ခဲ့သည်</string>
+    <string name="stats_storage_type_primary">မူလသိုလှောင်မှု</string>
+    <string name="stats_storage_type_secondary">ဒုတိယသိုလှောင်မှု</string>
+    <string name="stats_storage_type_portable">လွယ်ကူစွာသယ်နိုင်သော သိုလှောင်မှု</string>
+    <string name="stats_settings_retention_snapshots_label">သိုလှောင်မှု ဓာတ်ပုံရိုက်ချက်များ</string>
+    <string name="stats_settings_retention_snapshots_desc">သိုလှောင်မှုနေရာ ဓာတ်ပုံရိုက်ချက်များကို သိမ်းဆည်းထားရမည့် ရက်အရေအတွက်။</string>
 </resources>

@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">특정 앱에서 다운로드한 파일 중 기본 폴더(downloads, photos)에 포함되지 않은 파일입니다.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">앱이 \"%2$s\"의 %1$s를 차지하고 있습니다.</string>
     <string name="analyzer_app_details_app_is_archived">보관됨</string>
+    <string name="analyzer_storage_trend_delta_in_7d">7일 동안 %s</string>
 </resources>

@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Aukagögn sem þetta forrit hefur sett utan sjálfgefinna slóða, t.d. myndir eða niðurhal.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Þetta forrit tekur %1$s á \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Þetta forrit hefur verið safnvistað.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s á 7d</string>
 </resources>

@@ -269,5 +269,6 @@
     <string name="shortcuts_settings_category">ທາງລັດ</string>
     <string name="shortcuts_onetap_enabled_title">ທາງລັດກົດດຽວ</string>
     <string name="shortcuts_onetap_enabled_summary">ສະແດງທາງລັດ \"ສະແກນ + ລົບ\" ເມື່ອກົດທີ່ຕົວະປະກອບເສີມຂອງແອັບຯນານ ໃຊ້ເຄື່ອງມືອັນດຽວກັນກັບdashboard ກົດດຽວ</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ໃນ 7 ມື້</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

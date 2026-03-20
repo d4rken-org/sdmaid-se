@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Extra adatok, amelyeket ez az alkalmazás az alapértelmezett elérési útvonalakon kívül helyezett el, pl. fényképek vagy letöltések.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ez az alkalmazás %1$s-t foglal el a \"%2$s\"-on.</string>
     <string name="analyzer_app_details_app_is_archived">Ez az alkalmazás archiválva lett.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 nap alatt</string>
 </resources>

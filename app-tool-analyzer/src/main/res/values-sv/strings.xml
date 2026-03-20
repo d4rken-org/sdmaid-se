@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Extra data som denna app har placerat utanför standardsökvägarna, t.ex. foton eller nedladdningar.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Denna app upptar %1$s på \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Denna app har arkiverats.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s på 7d</string>
 </resources>

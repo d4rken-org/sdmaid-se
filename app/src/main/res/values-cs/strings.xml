@@ -289,5 +289,6 @@
     <string name="shortcuts_settings_category">Zkratky</string>
     <string name="shortcuts_onetap_enabled_title">Zkratka jedním klepnutím</string>
     <string name="shortcuts_onetap_enabled_summary">Zobrazení zkratky \"Skenovat + smazat\" při dlouhém stisknutí ikony aplikace. Používá stejné nástroje jako ovládací panel jedním klepnutím.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

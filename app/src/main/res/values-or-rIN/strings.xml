@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_title">ଏକ-ଟ୍ୟାପ୍ ସର୍ଟକଟ୍</string>
     <string name="shortcuts_onetap_enabled_summary">ଆପ୍ ଆଇକନ୍ ଦୀର୍ଘ-ଦବାଇବା ସମୟରେ \"ସ୍କାନ୍ + ଡିଲିଟ୍\" ସର୍ଟକଟ୍ ଦେଖାନ୍ତୁ। ଏକ-ଟ୍ୟାପ୍ ଡ୍ୟାସବୋର୍ଡ ସହ ସମାନ ଟୁଲ୍ ବ୍ୟବହାର କରେ।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ୭ ଦିନ ମଧ୍ୟରେ</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

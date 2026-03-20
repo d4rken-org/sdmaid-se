@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">Ďalšie údaje, ktoré táto aplikácia umiestnila mimo predvolených ciest, napr. fotografie alebo stiahnuté súbory.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Táto aplikácia zaberá %1$s na „%2$s“.</string>
     <string name="analyzer_app_details_app_is_archived">Táto aplikácia bola archivovaná.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s za 7 dní</string>
 </resources>

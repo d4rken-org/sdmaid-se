@@ -289,5 +289,6 @@
     <string name="shortcuts_settings_category">Швидкі клавіші</string>
     <string name="shortcuts_onetap_enabled_title">Швидкий доступ одним дотиком</string>
     <string name="shortcuts_onetap_enabled_summary">Показувати ярлик «Сканувати + Видалити» при довгому натисканні на значок додатка. Використовує ті ж інструменти, що й панель керування одним дотиком.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 днів</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

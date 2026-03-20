@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">Dữ liệu bổ sung mà ứng dụng này đã đặt bên ngoài đường dẫn mặc định, ví dụ: ảnh hoặc tải xuống.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ứng dụng này chiếm %1$s trên \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ứng dụng này đã được lưu trữ.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s trong 7 ngày</string>
 </resources>

@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Бүх тайланг устгаж, бүх статистикийг тэг болгох.</string>
     <string name="stats_affected_paths_label">Нөлөөлсөн замууд</string>
     <string name="stats_affected_pkgs_label">Нөлөөлсөн аппликешнүүд</string>
+    <string name="stats_dash_body_snapshots_only">Таны хадгалалтын түүхийг хянаж байна.</string>
+    <string name="stats_storage_trend_action">Хадгалалтын чиг хандлага</string>
+    <string name="stats_space_history_title">Хадгалалтын чиг хандлага</string>
+    <string name="stats_space_history_range_title">Хугацаа</string>
+    <string name="stats_space_history_range_7d">7 өдөр</string>
+    <string name="stats_space_history_range_30d">30 өдөр</string>
+    <string name="stats_space_history_range_90d">90 өдөр</string>
+    <string name="stats_space_history_storage_title">Хадгалалт</string>
+    <string name="stats_space_history_current_used_label">Одоогийн ашиглалт</string>
+    <string name="stats_space_history_min_label">Хамгийн бага ашиглалт</string>
+    <string name="stats_space_history_max_label">Хамгийн их ашиглалт</string>
+    <string name="stats_space_history_delta_label">Зөрүү</string>
+    <string name="stats_space_history_delta_in_x">%1$s, %2$s хугацаанд</string>
+    <string name="stats_space_history_upgrade_title">Бүрэн түүх нь Pro онцлог</string>
+    <string name="stats_space_history_upgrade_body">Хадгалалтын төхөөрөмж бүрийн 90 хоногийн бүрэн чиг хандлагыг харахын тулд шинэчлэх.</string>
+    <string name="stats_space_history_marker_freed">%1$s чөлөөлсөн</string>
+    <string name="stats_storage_type_primary">Үндсэн хадгалалт</string>
+    <string name="stats_storage_type_secondary">Хоёрдогч хадгалалт</string>
+    <string name="stats_storage_type_portable">Зөөврийн хадгалалт</string>
+    <string name="stats_settings_retention_snapshots_label">Хадгалалтын агшин зургууд</string>
+    <string name="stats_settings_retention_snapshots_desc">Хадгалалтын зайн агшин зургуудыг хэдэн хоног хадгалах тоо.</string>
 </resources>

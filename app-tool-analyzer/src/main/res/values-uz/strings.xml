@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Ushbu ilova standart yo\'llardan tashqarida joylashtirgan qo\'shimcha ma\'lumotlar, masalan, rasmlar yoki yuklamalar.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ushbu ilova \"%2$s\" da %1$s joy egallaydi.</string>
     <string name="analyzer_app_details_app_is_archived">Ushbu ilova arxivlangan.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 kunda</string>
 </resources>

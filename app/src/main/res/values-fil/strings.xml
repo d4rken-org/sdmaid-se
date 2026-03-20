@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Mga Shortcut</string>
     <string name="shortcuts_onetap_enabled_title">One-tap na shortcut</string>
     <string name="shortcuts_onetap_enabled_summary">Ipakita ang \"Scan + Delete\" shortcut kapag matagal na pinindot ang app icon. Gumagamit ng parehong mga tool tulad ng one-tap dashboard.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s sa loob ng 7 na araw</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

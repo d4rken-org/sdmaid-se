@@ -303,5 +303,6 @@
     <string name="shortcuts_settings_category">الاختصارات</string>
     <string name="shortcuts_onetap_enabled_title">اختصار بنقرة واحدة</string>
     <string name="shortcuts_onetap_enabled_summary">أظهر الاختصار \"فحص + حذف\" عند الضغط المطول على أيقونة التطبيق. يستخدم نفس الأدوات مثل لوحة التحكم بنقرة واحدة.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s في 7 أيام</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

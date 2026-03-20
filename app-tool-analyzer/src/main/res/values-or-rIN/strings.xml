@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">ଏହି ଆପ୍ ଡିଫଲ୍ଟ ପାଥ୍ ବାହାରେ ରଖିଥିବା ଅତିରିକ୍ତ ଡାଟା, ଯେପରିକି ଫଟୋ କିମ୍ବା ଡାଉନଲୋଡ୍।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ଏହି ଆପ୍ \"%2$s\"ରେ %1$s ଦଖଲ କରିଛି।</string>
     <string name="analyzer_app_details_app_is_archived">ଏହି ଆପ୍ ଆର୍କାଇଭ୍ ହୋଇଛି।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ୭ ଦିନ ମଧ୍ୟରେ</string>
 </resources>

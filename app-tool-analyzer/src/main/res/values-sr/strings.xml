@@ -48,4 +48,5 @@
     <string name="analyzer_storage_content_app_extra_description">Додатни подаци које је ова апликација сместила ван подразумеваних путања, нпр. фотографије или преузимања.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ова апликација заузима %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ова апликација је архивирана.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7д</string>
 </resources>

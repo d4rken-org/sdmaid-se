@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Διαγράψτε όλες τις αναφορές και μηδενίστε όλα τα στατιστικά στοιχεία.</string>
     <string name="stats_affected_paths_label">Επηρεαζόμενες διαδρομές</string>
     <string name="stats_affected_pkgs_label">Επηρεαζόμενες εφαρμογές</string>
+    <string name="stats_dash_body_snapshots_only">Παρακολούθηση του ιστορικού αποθήκευσής σας.</string>
+    <string name="stats_storage_trend_action">Τάση αποθήκευσης</string>
+    <string name="stats_space_history_title">Τάση αποθήκευσης</string>
+    <string name="stats_space_history_range_title">Εύρος</string>
+    <string name="stats_space_history_range_7d">7 ημέρες</string>
+    <string name="stats_space_history_range_30d">30 ημέρες</string>
+    <string name="stats_space_history_range_90d">90 ημέρες</string>
+    <string name="stats_space_history_storage_title">Αποθηκευτικός χώρος</string>
+    <string name="stats_space_history_current_used_label">Τρέχουσα χρήση</string>
+    <string name="stats_space_history_min_label">Ελάχιστη χρήση</string>
+    <string name="stats_space_history_max_label">Μέγιστη χρήση</string>
+    <string name="stats_space_history_delta_label">Δέλτα</string>
+    <string name="stats_space_history_delta_in_x">%1$s σε %2$s</string>
+    <string name="stats_space_history_upgrade_title">Το πλήρες ιστορικό είναι λειτουργία Pro</string>
+    <string name="stats_space_history_upgrade_body">Αναβαθμίστε για να ξεκλειδώσετε την πλήρη προβολή τάσης 90 ημερών για κάθε συσκευή αποθήκευσης.</string>
+    <string name="stats_space_history_marker_freed">Ελευθερώθηκε %1$s</string>
+    <string name="stats_storage_type_primary">Πρωτεύων αποθηκευτικός χώρος</string>
+    <string name="stats_storage_type_secondary">Δευτερεύων αποθηκευτικός χώρος</string>
+    <string name="stats_storage_type_portable">Φορητός αποθηκευτικός χώρος</string>
+    <string name="stats_settings_retention_snapshots_label">Στιγμιότυπα αποθηκευτικού χώρου</string>
+    <string name="stats_settings_retention_snapshots_desc">Αριθμός ημερών διατήρησης στιγμιότυπων χώρου αποθήκευσης.</string>
 </resources>

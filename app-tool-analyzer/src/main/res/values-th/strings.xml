@@ -42,4 +42,5 @@
     <string name="analyzer_storage_content_app_extra_description">ข้อมูลเพิ่มเติมที่แอพนี้วางไว้นอกเส้นทางเริ่มต้น เช่น รูปภาพหรือไฟล์ดาวน์โหลด</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">แอพนี้ใช้พื้นที่ %1$s บน \"%2$s\"</string>
     <string name="analyzer_app_details_app_is_archived">แอพนี้ถูกเก็บไว้แล้ว</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ใน 7 วัน</string>
 </resources>

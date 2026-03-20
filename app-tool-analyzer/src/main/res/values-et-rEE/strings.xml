@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Lisaandmed, mis ei asu rakenduse tavapärastes asukohtades, nt pildid või alla laaditud sisu.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Sellele rakendusele kuulub kohas \"%2$s\" %1$s.</string>
     <string name="analyzer_app_details_app_is_archived">See rakendus on arhiveeritud.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7p-ga</string>
 </resources>

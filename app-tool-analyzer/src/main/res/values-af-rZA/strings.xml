@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Ekstra data wat hierdie toepassing buite die verstek paaie geplaas het, bv. foto\'s of aflaaie.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Hierdie toepassing beset %1$s op \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Hierdie toepassing is geargiveer.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
 </resources>

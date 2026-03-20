@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Të dhëna shtesë që ky aplikacion ka vendosur jashtë shtigjeve të paracaktuara, p.sh. foto ose shkarkime.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Ky aplikacion zë %1$s në \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Ky aplikacion është arkivuar.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s në 7d</string>
 </resources>

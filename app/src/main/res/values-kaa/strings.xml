@@ -28,19 +28,19 @@
     <string name="debug_debuglog_short_recording_desc">Jazıw өte qısqa bolды. Debug jurналları — bul jazıwlar, sнimkeler emes — jurnal paydalı bolıwı ushın jazıw aktiv bolǵanda máseleni qaytadan keltiriń.</string>
     <string name="debug_debuglog_short_recording_continue_action">Jazıwdı dawam ettiw</string>
     <string name="debug_debuglog_short_recording_stop_action">Degen menen toqtatıw</string>
-    <string name="debug_debuglog_screen_failed_title">Sessiya sátsiz boldı</string>
-    <string name="debug_debuglog_screen_failed_empty_log_desc">Debug jurnal faylı bos boldy. Qaytadan jazıp kóriń hám jazıw dawamında máseleni qayta shıǵarıń.</string>
-    <string name="debug_debuglog_screen_failed_missing_log_desc">Debug jurnal faylı joq. Jazıw úzilgen bolıwı múmkin.</string>
-    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Sıqılǵan arxiv búlingen. Qaytadan jazıp kóriń.</string>
-    <string name="debug_debuglog_screen_failed_zip_error_desc">Sıqıw sátsiz boldı. Bos saqlawdı tekseriń hám qayta urınıń.</string>
-    <string name="debug_debuglog_sessions_zipping_label">Sıqılıp atır…</string>
-    <string name="debug_debuglog_sessions_failed_empty_log_label">Sátsiz: bos jurnal</string>
-    <string name="debug_debuglog_sessions_failed_missing_log_label">Sátsiz: jurnal joq</string>
-    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Sátsiz: búlinsegen arxiv</string>
-    <string name="debug_debuglog_sessions_failed_zip_error_label">Sátsiz: sıqıw qátesi</string>
-    <string name="debug_debuglog_sessions_delete_confirmation_message">Bul debug jurnal sessiyasın óshiriw kerekpe?</string>
-    <string name="support_contact_post_send_message">Xabar sátti jiberildi me?</string>
-    <string name="debug_debuglog_sessions_stop_action">Toqtatıw</string>
+    <string name="debug_debuglog_screen_failed_title">Sessiya sätsiz аяқталды</string>
+    <string name="debug_debuglog_screen_failed_empty_log_desc">Отладка журналы файлы бос болды. Қайтадан жазып көріңіз және жазу барысында мәселені қайта шығарыңыз.</string>
+    <string name="debug_debuglog_screen_failed_missing_log_desc">Отладка журналы файлы жоқ. Жазу үзілген болуы мүмкін.</string>
+    <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Сығылған архив бүлінген. Қайтадан жазып көріңіз.</string>
+    <string name="debug_debuglog_screen_failed_zip_error_desc">Сығу сәтсіз аяқталды. Бос сақтау орнын тексеріп, қайтадан көріңіз.</string>
+    <string name="debug_debuglog_sessions_zipping_label">Сығылуда…</string>
+    <string name="debug_debuglog_sessions_failed_empty_log_label">Сәтсіз: бос журнал</string>
+    <string name="debug_debuglog_sessions_failed_missing_log_label">Сәтсіз: журнал жоқ</string>
+    <string name="debug_debuglog_sessions_failed_corrupt_zip_label">Сәтсіз: бүлінген архив</string>
+    <string name="debug_debuglog_sessions_failed_zip_error_label">Сәтсіз: сығу қатесі</string>
+    <string name="debug_debuglog_sessions_delete_confirmation_message">Бұл отладка журналы сессиясын жою керек пе?</string>
+    <string name="support_contact_post_send_message">Xабар сәтли жиберилди ме?</string>
+    <string name="debug_debuglog_sessions_stop_action">Тоқтату</string>
     <string name="tasks_activity_notification_channel_label">Aktiv wazıypalar</string>
     <string name="tasks_activity_working_notification_title">SD Maid islep atır</string>
     <plurals name="tasks_activity_active_notification_message">
@@ -53,8 +53,8 @@
     </plurals>
     <string name="tasks_result_notification_channel_label">Tapsırmanı orınlaw nátiyjeleri</string>
     <string name="tasks_result_subtext">Tapsırmanı orınlaw nátiyjesi</string>
-    <string name="tasks_timeout_error_label">Tapsırma waqtı ótti</string>
-    <string name="tasks_timeout_error_desc">Tapsırma óte kóp waqıt aldı hám toqtatıldı. Qayta urınıń.</string>
+    <string name="tasks_timeout_error_label">Тапсырманың уақыты өтіп кетти</string>
+    <string name="tasks_timeout_error_desc">Тапсырма өте көп уақыт алды ҳәм тоқтатылды. Қайта урыныңыз.</string>
     <string name="onboarding_welcome_title">Xosh kelipsiz</string>
     <string name="onboarding_welcome_body1">SD Maid SE fayllar, programmalar hám saqlawdı basqaradi.</string>
     <string name="onboarding_welcome_body2">Basqa programmalarnın artasın tazartqan menen saqlaw orinın artır. Kerek emes fayllardan qutul hám qaldıq maǵlıwmatlardı oshir.</string>
@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Tezkor belgiler</string>
     <string name="shortcuts_onetap_enabled_title">Bir basıw tezkor belgisi</string>
     <string name="shortcuts_onetap_enabled_summary">Qollanba ikonkasın uzaq basqanda \"Skanerlew + O\'shiriw\" tezkor belgisini ko\'rsetiw. Bir basıw basqarma paneli menen birday qurallar paydalanıladı.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 kúnde</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">바로가기</string>
     <string name="shortcuts_onetap_enabled_title">원탭 바로가기</string>
     <string name="shortcuts_onetap_enabled_summary">앱 아이콘을 길게 눌렀을 때 \"스캔 + 삭제\" 바로가기를 표시합니다. 원탭 대시보드와 동일한 도구를 사용합니다.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s (7일 기준)</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

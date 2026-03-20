@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Izinqamuleli</string>
     <string name="shortcuts_onetap_enabled_title">Isinqamuleli sokucindezela kanye</string>
     <string name="shortcuts_onetap_enabled_summary">Bonisa isinqamuleli \"Sesha + Susa\" lapho ucindezela isikhathi eside isithonjana sohlelo. Sisebenzisa amathuluzi afanayo nebhodi lokuphatha lokucindezela kanye.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ezinsukwini ezingu-7</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

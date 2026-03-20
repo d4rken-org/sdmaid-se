@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">অতিরিক্ত ডেটা যা এই অ্যাপটি ডিফল্ট পাথের বাইরে রেখেছে, যেমন ফটো বা ডাউনলোড।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">এই অ্যাপটি \"%2$s\" এ %1$s দখল করে।</string>
     <string name="analyzer_app_details_app_is_archived">এই অ্যাপটি আর্কাইভ করা হয়েছে।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ৭ দিনে</string>
 </resources>

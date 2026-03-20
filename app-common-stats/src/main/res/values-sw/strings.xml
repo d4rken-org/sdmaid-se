@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Futa ripoti zote na weka takwimu zote kuwa sifuri.</string>
     <string name="stats_affected_paths_label">Njia zilizoathiriwa</string>
     <string name="stats_affected_pkgs_label">Programu zilizoathiriwa</string>
+    <string name="stats_dash_body_snapshots_only">Inafuatilia historia ya hifadhi yako.</string>
+    <string name="stats_storage_trend_action">Mwenendo wa Hifadhi</string>
+    <string name="stats_space_history_title">Mwenendo wa Hifadhi</string>
+    <string name="stats_space_history_range_title">Kipindi</string>
+    <string name="stats_space_history_range_7d">Siku 7</string>
+    <string name="stats_space_history_range_30d">Siku 30</string>
+    <string name="stats_space_history_range_90d">Siku 90</string>
+    <string name="stats_space_history_storage_title">Hifadhi</string>
+    <string name="stats_space_history_current_used_label">Inayotumiwa sasa</string>
+    <string name="stats_space_history_min_label">Kiwango cha chini kilichotumiwa</string>
+    <string name="stats_space_history_max_label">Kiwango cha juu kilichotumiwa</string>
+    <string name="stats_space_history_delta_label">Tofauti</string>
+    <string name="stats_space_history_delta_in_x">%1$s katika %2$s</string>
+    <string name="stats_space_history_upgrade_title">Historia kamili ni kipengele cha Pro</string>
+    <string name="stats_space_history_upgrade_body">Boresha ili kufungua mwonekano kamili wa mwenendo wa siku 90 kwa kila kifaa cha hifadhi.</string>
+    <string name="stats_space_history_marker_freed">Iliyoachiliwa %1$s</string>
+    <string name="stats_storage_type_primary">Hifadhi ya msingi</string>
+    <string name="stats_storage_type_secondary">Hifadhi ya pili</string>
+    <string name="stats_storage_type_portable">Hifadhi ya kubeba</string>
+    <string name="stats_settings_retention_snapshots_label">Picha za hifadhi ya nafasi</string>
+    <string name="stats_settings_retention_snapshots_desc">Idadi ya siku za kuhifadhi picha za nafasi ya hifadhi.</string>
 </resources>

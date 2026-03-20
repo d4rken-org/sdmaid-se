@@ -268,5 +268,6 @@
     <string name="shortcuts_settings_category">ផ្លូវវឹង</string>
     <string name="shortcuts_onetap_enabled_title">ផ្លូវវឹងចុចម្តង់</string>
     <string name="shortcuts_onetap_enabled_summary">បង្ហាញផ្លូវវឹង \"ស្កែន + លុប\" នៅពេលចុចឡើងវេចកម្មវិធីយូរពេលយើង។ ប្រើប្រាស់ឧបករណ៍ដូចគ្នានត្រឹម dashboard ចុចម្តង់។</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ក្នុង 7 ថ្ងៃ</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

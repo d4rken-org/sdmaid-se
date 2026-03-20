@@ -290,5 +290,6 @@ Karol Szastok (K4r0lSz);</string>
     <string name="shortcuts_settings_category">Skróty</string>
     <string name="shortcuts_onetap_enabled_title">Skrót jednym dotknięciem</string>
     <string name="shortcuts_onetap_enabled_summary">Pokaż skrót \"Skanuj + Usuń\" po długim naciśnięciu ikony aplikacji. Korzysta z tych samych narzędzi co pulpit jednego dotknięcia.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s w ciągu 7 dni</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

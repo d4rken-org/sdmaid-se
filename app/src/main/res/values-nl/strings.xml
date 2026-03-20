@@ -28,7 +28,7 @@
     <string name="debug_debuglog_short_recording_desc">De opname was zeer kort. Foutopsporingslogs zijn opnames, geen momentopnames — reproduceer het probleem terwijl de opname actief is om de log bruikbaar te maken.</string>
     <string name="debug_debuglog_short_recording_continue_action">Doorgaan met opnemen</string>
     <string name="debug_debuglog_short_recording_stop_action">Toch stoppen</string>
-    <string name="debug_debuglog_screen_failed_title">Sessie mislukt</string>
+    <string name="debug_debuglog_screen_failed_title">Sessie Mislukt</string>
     <string name="debug_debuglog_screen_failed_empty_log_desc">Het foutopsporingslogboekbestand was leeg. Probeer opnieuw op te nemen en reproduceer het probleem tijdens de opname.</string>
     <string name="debug_debuglog_screen_failed_missing_log_desc">Het foutopsporingslogboekbestand ontbreekt. De opname is mogelijk onderbroken.</string>
     <string name="debug_debuglog_screen_failed_corrupt_zip_desc">Het gecomprimeerde archief is beschadigd. Probeer opnieuw op te nemen.</string>
@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Snelkoppelingen</string>
     <string name="shortcuts_onetap_enabled_title">Snelkoppeling met één tik</string>
     <string name="shortcuts_onetap_enabled_summary">Toon de snelkoppeling \'Scannen + Verwijderen\' wanneer je het app-pictogram lang ingedrukt houdt. Gebruikt hezelfde gereedschap als het one-tap dashboard.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7 dagen</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

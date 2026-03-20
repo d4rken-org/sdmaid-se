@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Datos additzionales chi custa aplicatzione at postu a foras de is caminos predefinidos, es. fotografias o iscarrigamentos.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Custa aplicatzione ocupat %1$s in \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Custa aplicatzione est istada archiviada.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7g</string>
 </resources>

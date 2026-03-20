@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Scorciatoie</string>
     <string name="shortcuts_onetap_enabled_title">Scorciatoia singolo tocco</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la scorciatoia \"Scansione + Elimina\" quando si tiene premuta l\'icona dell\'app. Usa gli stessi strumenti della dashboard singolo tocco.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7 giorni</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

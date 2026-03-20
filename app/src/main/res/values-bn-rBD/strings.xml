@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_title">এক-ট্যাপ শর্টকাট</string>
     <string name="shortcuts_onetap_enabled_summary">অ্যাপ আইকনটি দীর্ঘক্ষণ টিপে রাখলে \"স্ক্যান + ডিলিট\" শর্টকাট দেখান। ওয়ান-ট্যাপ ড্যাশবোর্ডের মতো একই টুল ব্যবহার করে।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s ৭ দিনে</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

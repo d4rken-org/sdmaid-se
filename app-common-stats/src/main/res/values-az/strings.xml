@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">Bütün hesabatları silin və bütün statistikaları sıfıra qoyun.</string>
     <string name="stats_affected_paths_label">Təsirlənən yollar</string>
     <string name="stats_affected_pkgs_label">Təsirlənən tətbiqlər</string>
+    <string name="stats_dash_body_snapshots_only">Yaddaş tarixçəniz izlənilir.</string>
+    <string name="stats_storage_trend_action">Yaddaş Trendi</string>
+    <string name="stats_space_history_title">Yaddaş Trendi</string>
+    <string name="stats_space_history_range_title">Aralıq</string>
+    <string name="stats_space_history_range_7d">7 gün</string>
+    <string name="stats_space_history_range_30d">30 gün</string>
+    <string name="stats_space_history_range_90d">90 gün</string>
+    <string name="stats_space_history_storage_title">Yaddaş</string>
+    <string name="stats_space_history_current_used_label">Hazırda istifadə olunan</string>
+    <string name="stats_space_history_min_label">Minimum istifadə olunan</string>
+    <string name="stats_space_history_max_label">Maksimum istifadə olunan</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s, %2$s ərzində</string>
+    <string name="stats_space_history_upgrade_title">Tam tarixçə Pro xüsusiyyətidir</string>
+    <string name="stats_space_history_upgrade_body">Hər saxlama qurğusu üçün tam 90 günlük trend görünüşünün kilidini açmaq üçün təkmilləşdirin.</string>
+    <string name="stats_space_history_marker_freed">%1$s azaldıldı</string>
+    <string name="stats_storage_type_primary">Əsas yaddaş</string>
+    <string name="stats_storage_type_secondary">İkinci yaddaş</string>
+    <string name="stats_storage_type_portable">Taşınan yaddaş</string>
+    <string name="stats_settings_retention_snapshots_label">Yaddaş anlıq görüntüləri</string>
+    <string name="stats_settings_retention_snapshots_desc">Yaddaş məkan anlıq görüntülərini saxlamaq üçün günlərin sayı.</string>
 </resources>

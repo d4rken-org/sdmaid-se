@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Бързи клавиши</string>
     <string name="shortcuts_onetap_enabled_title">Бърз клавиш с едно докосване</string>
     <string name="shortcuts_onetap_enabled_summary">Показване на бърз клавиш \"Сканиране + Изтриване\" при дълго натискане на иконата на приложението. Използва същите инструменти като таблото с едно докосване.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7 дни</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

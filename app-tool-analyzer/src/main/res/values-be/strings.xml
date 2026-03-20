@@ -51,4 +51,5 @@
     <string name="analyzer_storage_content_app_extra_description">Дадатковыя даныя, якія гэта праграма размясціла па-за стандартнымі шляхамі, напр. фатаграфіі або спампоўкі.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Гэта праграма займае %1$s на \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Гэта праграма перамешчана ў архіў.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s за 7д</string>
 </resources>

@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">షార్ట్‌కట్‌లు</string>
     <string name="shortcuts_onetap_enabled_title">వన్-టాప్ షార్ట్‌కట్</string>
     <string name="shortcuts_onetap_enabled_summary">యాప్ ఐకాన్‌ను ఎక్కువసేపు నొక్కినప్పుడు \"స్కాన్ + తొలగించు\" షార్ట్‌కట్‌ను చూపించు. వన్-టాప్ డ్యాష్‌బోర్డ్ వలె అదే టూల్స్ ఉపయోగిస్తుంది.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 రోజులలో</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

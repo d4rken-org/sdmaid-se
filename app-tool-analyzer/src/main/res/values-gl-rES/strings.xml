@@ -36,7 +36,7 @@
     <string name="analyzer_storage_content_type_system_label">Datos do sistema</string>
     <string name="analyzer_storage_content_type_system_description">Aplicacións e datos do sistema. Aplicacións e datos doutros usuarios, se hai varias contas de usuario configuradas neste dispositivo.</string>
     <string name="analyzer_storage_content_app_code_label">Código da aplicación</string>
-    <string name="analyzer_storage_content_app_code_description">Ficheiros de aplicación, bibliotecas e recursos. Este e</string>
+    <string name="analyzer_storage_content_app_code_description">Ficheiros de aplicación, bibliotecas e recursos. Este espazo pode liberarse desinstalando a aplicación ou arquivándoa (dispoñible en versións máis recentes de Android).</string>
     <string name="analyzer_storage_content_app_data_label">Datos da aplicación</string>
     <string name="analyzer_storage_content_app_data_description">Datos, configuración e cachés.</string>
     <string name="analyzer_storage_content_app_media_label">Multimedia da aplicación</string>
@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">Datos extra que esta aplicación colocou fóra das rutas predeterminadas, por exemplo, fotos ou descargas.</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">Esta aplicación ocupa %1$s en \"%2$s\".</string>
     <string name="analyzer_app_details_app_is_archived">Esta aplicación foi arquivada.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7d</string>
 </resources>

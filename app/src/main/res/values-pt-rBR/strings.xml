@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Atalhos</string>
     <string name="shortcuts_onetap_enabled_title">Atalho com um toque</string>
     <string name="shortcuts_onetap_enabled_summary">Mostrar atalho \"Escanear + Excluir\" ao pressionar e segurar o ícone do aplicativo. Usa as mesmas ferramentas que um toque.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s em 7 dias</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

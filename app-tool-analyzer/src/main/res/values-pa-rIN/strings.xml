@@ -45,4 +45,5 @@
     <string name="analyzer_storage_content_app_extra_description">ਵਾਧੂ ਡਾਟਾ ਜੋ ਇਸ ਐਪ ਨੇ ਮੂਲ ਮਾਰਗਾਂ ਤੋਂ ਬਾਹਰ ਰੱਖਿਆ ਹੈ, ਜਿਵੇਂ ਕਿ ਤਸਵੀਰਾਂ ਜਾਂ ਡਾਊਨਲੋਡ।</string>
     <string name="analyzer_app_details_app_occupies_x_on_y">ਇਹ ਐਪ \"%2$s\" \'ਤੇ %1$s ਦਾ ਸਥਾਨ ਲੈਂਦੀ ਹੈ।</string>
     <string name="analyzer_app_details_app_is_archived">ਇਹ ਐਪ ਸੰਗ੍ਰਹਿਤ ਕੀਤੀ ਗਈ ਹੈ।</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s 7 ਦਿਨਾਂ ਵਿੱਚ</string>
 </resources>

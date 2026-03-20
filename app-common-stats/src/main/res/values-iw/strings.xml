@@ -31,4 +31,25 @@
     <string name="stats_settings_reset_all_desc">מחק את כל הדוחות והגדר את כל הנתונים הסטטיסטיים לאפס.</string>
     <string name="stats_affected_paths_label">נתיבים מושפעים</string>
     <string name="stats_affected_pkgs_label">יישומים מושפעים</string>
+    <string name="stats_dash_body_snapshots_only">מעקב אחר היסטוריית האחסון שלך.</string>
+    <string name="stats_storage_trend_action">מגמת אחסון</string>
+    <string name="stats_space_history_title">מגמת אחסון</string>
+    <string name="stats_space_history_range_title">טווח</string>
+    <string name="stats_space_history_range_7d">7 ימים</string>
+    <string name="stats_space_history_range_30d">30 ימים</string>
+    <string name="stats_space_history_range_90d">90 ימים</string>
+    <string name="stats_space_history_storage_title">אחסון</string>
+    <string name="stats_space_history_current_used_label">שימוש נוכחי</string>
+    <string name="stats_space_history_min_label">מינימום שימוש</string>
+    <string name="stats_space_history_max_label">מקסימום שימוש</string>
+    <string name="stats_space_history_delta_label">דלתא</string>
+    <string name="stats_space_history_delta_in_x">%1$s ב-%2$s</string>
+    <string name="stats_space_history_upgrade_title">היסטוריה מלאה היא תכונת Pro</string>
+    <string name="stats_space_history_upgrade_body">שדרג כדי לפתח את תצוגת המגמה המלאה של 90 יום עבור כל התקן אחסון.</string>
+    <string name="stats_space_history_marker_freed">שוחרר %1$s</string>
+    <string name="stats_storage_type_primary">אחסון ראשי</string>
+    <string name="stats_storage_type_secondary">אחסון משני</string>
+    <string name="stats_storage_type_portable">אחסון נייד</string>
+    <string name="stats_settings_retention_snapshots_label">תמונות מצב של אחסון</string>
+    <string name="stats_settings_retention_snapshots_desc">מספר ימים לשמירת תמונות מצב של שטח האחסון.</string>
 </resources>

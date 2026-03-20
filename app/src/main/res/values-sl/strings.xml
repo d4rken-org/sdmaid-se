@@ -46,10 +46,10 @@
     <string name="tasks_activity_notification_channel_label">Dejavna opravila</string>
     <string name="tasks_activity_working_notification_title">SD Maid opravlja naloge</string>
     <plurals name="tasks_activity_active_notification_message">
-        <item quantity="one">Dejavno je %d opravilo.</item>
-        <item quantity="two">Dejavni sta %d opravili.</item>
-        <item quantity="few">Dejavna so %d opravila.</item>
-        <item quantity="other">Dejavnih je %d opravil.</item>
+        <item quantity="one">Dejavno je %d opr.</item>
+        <item quantity="two">Dejavni sta %d opr.</item>
+        <item quantity="few">Dejavna so %d opr.</item>
+        <item quantity="other">Dejavnih je %d opr.</item>
     </plurals>
     <plurals name="tasks_activity_queued_notification_message">
         <item quantity="one">V čakalni vrsti je %d.</item>
@@ -289,5 +289,6 @@
     <string name="shortcuts_settings_category">Bližnjice</string>
     <string name="shortcuts_onetap_enabled_title">Bližnjica z enim dotikom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaži bližnjico \"Preglej + Izbriši\" ob dolgem pritisku na ikono programa.  Uporablja ista orodja, kot nadzorna plošča dejanj z enim dotikom.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s v 7 dneh</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

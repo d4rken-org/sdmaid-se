@@ -277,5 +277,6 @@
     <string name="shortcuts_settings_category">ഷോർട്ട്കട്ടുകൾ</string>
     <string name="shortcuts_onetap_enabled_title">ഒരു ടാപ് ഷോർട്ട്കട്ട്</string>
     <string name="shortcuts_onetap_enabled_summary">ആപ്പ് ഐക്കണിൽ ദീർഘ പ്രെസ് ചെയ്യുമ്പോൾ \"സ്കാൻ + ഡിലീറ്റ്\" ഷോർട്ട്കട്ട് കാണിക്കുക. വണ്ഡർ-ടാപ് ഡാഷ്ബോർഡ് പോലെ അതേ ടൂളുകൾ ഉപയോഗിക്കുന്നു.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">7 ദിവസത്തിൽ %s</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

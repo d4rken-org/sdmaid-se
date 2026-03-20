@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">ସମସ୍ତ ରିପୋର୍ଟ ଡିଲିଟ୍ କରନ୍ତୁ ଏବଂ ସମସ୍ତ ପରିସଂଖ୍ୟାନ ଶୂନ୍ୟରେ ସେଟ୍ କରନ୍ତୁ।</string>
     <string name="stats_affected_paths_label">ପ୍ରଭାବିତ ପଥ</string>
     <string name="stats_affected_pkgs_label">ପ୍ରଭାବିତ ଆପ୍</string>
+    <string name="stats_dash_body_snapshots_only">ଆପଣଙ୍କ ଷ୍ଟୋରେଜ ଇତିହାସ ଟ୍ରାକ କରୁଛି।</string>
+    <string name="stats_storage_trend_action">ଷ୍ଟୋରେଜ ଟ୍ରେଣ୍ଡ</string>
+    <string name="stats_space_history_title">ଷ୍ଟୋରେଜ ଟ୍ରେଣ୍ଡ</string>
+    <string name="stats_space_history_range_title">ପରିସର</string>
+    <string name="stats_space_history_range_7d">୭ ଦିନ</string>
+    <string name="stats_space_history_range_30d">୩୦ ଦିନ</string>
+    <string name="stats_space_history_range_90d">୯୦ ଦିନ</string>
+    <string name="stats_space_history_storage_title">ଷ୍ଟୋରେଜ</string>
+    <string name="stats_space_history_current_used_label">ବର୍ତ୍ତମାନ ବ୍ୟବହୃତ</string>
+    <string name="stats_space_history_min_label">ସର୍ବନିମ୍ନ ବ୍ୟବହୃତ</string>
+    <string name="stats_space_history_max_label">ସର୍ବାଧିକ ବ୍ୟବହୃତ</string>
+    <string name="stats_space_history_delta_label">ଡେଲ୍ଟା</string>
+    <string name="stats_space_history_delta_in_x">%1$s %2$s ମଧ୍ୟରେ</string>
+    <string name="stats_space_history_upgrade_title">ସମ୍ପୂର୍ଣ୍ଣ ଇତିହାସ ଏକ Pro ବୈଶିଷ୍ଟ୍ୟ</string>
+    <string name="stats_space_history_upgrade_body">ପ୍ରତ୍ୟେକ ଷ୍ଟୋରେଜ ଡିଭାଇସ ପାଇଁ ସମ୍ପୂର୍ଣ୍ଣ ୯୦-ଦିନ ଟ୍ରେଣ୍ଡ ଭ୍ୟୁ ଅନ୍ଲକ କରିବାକୁ ଅପଗ୍ରେଡ କରନ୍ତୁ।</string>
+    <string name="stats_space_history_marker_freed">%1$s ମୁକ୍ତ ହୋଇଛି</string>
+    <string name="stats_storage_type_primary">ପ୍ରାଥମିକ ଷ୍ଟୋରେଜ୍</string>
+    <string name="stats_storage_type_secondary">ପରୋକ୍ଷ ଷ୍ଟୋରେଜ୍</string>
+    <string name="stats_storage_type_portable">ପୋର୍ଟେବଲ୍ ଷ୍ଟୋରେଜ୍</string>
+    <string name="stats_settings_retention_snapshots_label">ଷ୍ଟୋରେଜ ସ୍ନାପସଟ</string>
+    <string name="stats_settings_retention_snapshots_desc">ଷ୍ଟୋରେଜ ସ୍ପେସ ସ୍ନାପସଟ ରଖିବାର ଦିନ ସଂଖ୍ୟା।</string>
 </resources>

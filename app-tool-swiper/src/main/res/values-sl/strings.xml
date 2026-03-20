@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="swiper_label">Drsnik</string>
+    <string name="swiper_label">Drsnika</string>
     <string name="swiper_tool_description">Hitro uredite mape — povlecite datoteke, da jih ohranite, izbrišete ali preskočite.</string>
     <string name="swiper_dashcard_description">Uredite posamezne mape hitreje kot z upraviteljem datotek — samo povlecite vsako datoteko.</string>
     <string name="swiper_start_action">Začni z vlečenjem</string>
@@ -165,7 +165,7 @@
     <string name="swiper_stamp_undo_4">Počakaj!</string>
     <string name="swiper_gesture_overlay_dismiss">Tapnite kjerkoli za začetek</string>
     <string name="swiper_gesture_overlay_left_delete">← Izbriši</string>
-    <string name="swiper_gesture_overlay_right_keep">Obdrži →</string>
+    <string name="swiper_gesture_overlay_right_keep">Obdrži→</string>
     <string name="swiper_gesture_overlay_left_keep">← Obdrži</string>
     <string name="swiper_gesture_overlay_right_delete">Izbriši →</string>
     <string name="swiper_gesture_overlay_up_skip">↑ Preskoči</string>

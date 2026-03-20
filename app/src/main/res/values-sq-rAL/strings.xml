@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Shkurtica</string>
     <string name="shortcuts_onetap_enabled_title">Shkurtica me një të klikuar</string>
     <string name="shortcuts_onetap_enabled_summary">Shfaq shkurtoren \"Skano + Fshij\" kur shtyp gjatë ikonën e aplikacionit. Përdor të njëjtat mjete si paneli me një prekje.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s në 7 ditë</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

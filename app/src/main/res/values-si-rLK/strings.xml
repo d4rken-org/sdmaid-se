@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">කෙටිමං</string>
     <string name="shortcuts_onetap_enabled_title">එක්-තට්ටු කෙටිමඟ</string>
     <string name="shortcuts_onetap_enabled_summary">යෙදුම් අයිකනය දිගු ඔබා ගෙන \"පරිලෝකනය + මකන්න\" කෙටිමඟ පෙන්වන්න. එක්-තට්ටු උපකරණ පුවරුව හා සමාන මෙවලම් භාවිත කරයි.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">දින 7 තුළ %s</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Συντομεύσεις</string>
     <string name="shortcuts_onetap_enabled_title">Συντόμευση ενός πατήματος</string>
     <string name="shortcuts_onetap_enabled_summary">Εμφάνιση συντόμευσης \"Σάρωση + Διαγραφή\" όταν πατάτε παρατεταμένα το εικονίδιο της εφαρμογής. Χρησιμοποιεί τα ίδια εργαλεία με τον πίνακα ενός πατήματος.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s σε 7 ημέρες</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

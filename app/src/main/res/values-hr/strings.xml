@@ -282,5 +282,6 @@
     <string name="shortcuts_settings_category">Prečaci</string>
     <string name="shortcuts_onetap_enabled_title">Prečac jednim dodirom</string>
     <string name="shortcuts_onetap_enabled_summary">Prikaže prečac \"Skeniraj + Izbriši\" kada dugo pritisnete ikonu aplikacije. Koristi iste alate kao i nadzorna ploča s jednim dodirom.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s u 7 dana</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

@@ -25,4 +25,25 @@
     <string name="stats_settings_reset_all_desc">සියල්ල වාර්තා මකා සියලු සංඛ්‍යාලේඛන ශූන්යමට සවය කරන්න.</string>
     <string name="stats_affected_paths_label">බලපෑමට ලක්වූ මාර්ග</string>
     <string name="stats_affected_pkgs_label">බලපෑමට ලක්වූ යෙදුම්</string>
+    <string name="stats_dash_body_snapshots_only">ඔබගේ ගබඩා ඉතිහාසය නිරීක්ෂණය කරමින්.</string>
+    <string name="stats_storage_trend_action">ගබඩා ප්‍රවණතාව</string>
+    <string name="stats_space_history_title">ගබඩා ප්‍රවණතාව</string>
+    <string name="stats_space_history_range_title">පරාසය</string>
+    <string name="stats_space_history_range_7d">දින 7</string>
+    <string name="stats_space_history_range_30d">දින 30</string>
+    <string name="stats_space_history_range_90d">දින 90</string>
+    <string name="stats_space_history_storage_title">ගබඩාව</string>
+    <string name="stats_space_history_current_used_label">වත්මනේ භාවිතා කළ</string>
+    <string name="stats_space_history_min_label">අවම භාවිතා කළ</string>
+    <string name="stats_space_history_max_label">උපරිම භාවිතා කළ</string>
+    <string name="stats_space_history_delta_label">වෙනස</string>
+    <string name="stats_space_history_delta_in_x">%1$s, %2$s හිදී</string>
+    <string name="stats_space_history_upgrade_title">සම්පූර්ණ ඉතිහාසය Pro විශේෂාංගයකි</string>
+    <string name="stats_space_history_upgrade_body">සෑම ගබඩා උපාංගයක් සඳහාම සම්පූර්ණ 90-දින ප්‍රවණතා දසුන අගුළු ඇරීමට උත්සාහ කරන්න.</string>
+    <string name="stats_space_history_marker_freed">නිදහස් කළ %1$s</string>
+    <string name="stats_storage_type_primary">මුලික ආචයනය</string>
+    <string name="stats_storage_type_secondary">ද්විතීය ආචයනය</string>
+    <string name="stats_storage_type_portable">ජංගම ආචයනය</string>
+    <string name="stats_settings_retention_snapshots_label">ගබඩා ස්නැප්ශොට්</string>
+    <string name="stats_settings_retention_snapshots_desc">ගබඩා අවකාශ ස්නැප්ශොට් තබා ගත යුතු දින ගණන.</string>
 </resources>

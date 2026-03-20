@@ -275,5 +275,6 @@
     <string name="shortcuts_settings_category">Dreceres</string>
     <string name="shortcuts_onetap_enabled_title">Drecera d\'un toc</string>
     <string name="shortcuts_onetap_enabled_summary">Mostra la drecera «Escaneja + Suprimeix» quan es manté premuda la icona de l\'aplicació. Utilitza les mateixes eines que el tauler de control d\'un toc.</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s en 7 dies</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>

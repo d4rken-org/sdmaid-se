@@ -22,4 +22,25 @@
     <string name="stats_settings_reset_all_desc">Padam semua laporan dan tetapkan semua statistik kepada sifar.</string>
     <string name="stats_affected_paths_label">Laluan</string>
     <string name="stats_affected_pkgs_label">Aplikasi</string>
+    <string name="stats_dash_body_snapshots_only">Menjejaki sejarah storan anda.</string>
+    <string name="stats_storage_trend_action">Trend Storan</string>
+    <string name="stats_space_history_title">Trend Storan</string>
+    <string name="stats_space_history_range_title">Julat</string>
+    <string name="stats_space_history_range_7d">7 hari</string>
+    <string name="stats_space_history_range_30d">30 hari</string>
+    <string name="stats_space_history_range_90d">90 hari</string>
+    <string name="stats_space_history_storage_title">Storan</string>
+    <string name="stats_space_history_current_used_label">Digunakan semasa ini</string>
+    <string name="stats_space_history_min_label">Minimum digunakan</string>
+    <string name="stats_space_history_max_label">Maksimum digunakan</string>
+    <string name="stats_space_history_delta_label">Delta</string>
+    <string name="stats_space_history_delta_in_x">%1$s dalam %2$s</string>
+    <string name="stats_space_history_upgrade_title">Sejarah penuh adalah ciri Pro</string>
+    <string name="stats_space_history_upgrade_body">Naik taraf untuk membuka kunci paparan trend 90 hari penuh untuk setiap peranti storan.</string>
+    <string name="stats_space_history_marker_freed">Dibebaskan %1$s</string>
+    <string name="stats_storage_type_primary">Storan utama</string>
+    <string name="stats_storage_type_secondary">Storan sekunder</string>
+    <string name="stats_storage_type_portable">Storan mudah alih</string>
+    <string name="stats_settings_retention_snapshots_label">Syot kilat storan</string>
+    <string name="stats_settings_retention_snapshots_desc">Bilangan hari untuk menyimpan syot kilat ruang storan.</string>
 </resources>
