@@ -9,7 +9,7 @@ Enginn er fullkominn og Android er það ekki heldur.
 
 Ætlum við ekki að halda áfram hér… Leyðu SD Maid 2/SE að hjálpa þér!
 
-SD Maid 2/SE er forrit og skráastjóri sem sérhæfir sig í að vita hvaða forrit hafa búð til tilteknar skrár á tækinu þínu. SD Maid 2/SE leitar í tækinu þínu og ber saman skrár við uppsett forrit til að bjóða upp á valkosti til að losa um geymslupláss á öruggan hátt.
+SD Maid 2/SE er app og skráastjóri sem veit hvaða öppin bjuggu til skrár á tækinu þínu. Hún ber saman skrár með uppsettu öppum til að hjálpa þér að losa geymslupláss á öruggan hátt.
 
 ✨ Hreinsaðu eftir því að forrit hafi verið fjarlægð
 
@@ -17,7 +17,7 @@ Ef forrit búa til skrár utan tilnefndra möppa geta skrár verið eftir jafnve
 
 🔍 Leitaðu í tækinu þínu á snjallann hátt
 
-Sía fyrir tómum möppum, bráðabirgðaskrám, þegar uppsettum forritum og fleira. Þú getur jafnvel búð til þín eigin leitarskilyrði. Verkfærið "SystemCleaner" gerir þér kleift að leita sjálfkrafa í tækinu þínu og eyða skrám sem byggðar eru á ýmsum skilyrðum.
+Sía fyrir tómum möppum, bráðabirgðaskrám, þegar uppsettum forritum og fleira. Þú getur jafnvel búð til þín eigin leitarskilyrði. "SystemCleaner" tækið leitar sjálfkrafa og eyðir skrám á grundvelli ýmissa skilyrða.
 
 🧹 Eyðu óþarfum skrám og földum skyndiminnum
 
@@ -25,11 +25,11 @@ Smásmyndir, ruslatunnur, gagnaflutningur án netsambands og fleira: Ef forrit h
 
 📦 Stjórnaðu öllum forritum þínum
 
-Fáðu yfirgripsmikla lista yfir öll forrit sem eru sett upp á tækinu þínu. Virkt, óvirkt, notanda- eða kerfisprogram: ekkert forrit getur falið sig fyrir þér. Verkfærið "AppControl" er forritastjóri sem gerir þér kleift að leita, flokka og stjórna forritum þínum.
+Fáðu yfirgripsmikla lista yfir öll forrit sem eru sett upp á tækinu þínu. Virkt, óvirkt, notanda- eða kerfisprogram: ekkert forrit getur falið sig fyrir þér. "AppControl" tækið er appastjóri sem gerir þér kleift að leita, raða og stjórna öppunum þínum.
 
 📊 Hvað er að nota allt plássið
 
-Geymslustjórnun getur verið flókin með forritum, myndefni, kerfi og öðrum skrám á geymsluytækjum, SD-kortum og USB-tækjum. "StorageAnalyzer" er skráastjóri sem sýnir hvernig plássið er notað á tækinu þínu og einfaldari geymslustjórnun.
+Geymsluumræði getur verið flokið með forritum, miðlægum skrám, kerfissk rám og öðrum skrám á tæki-geymslu, SD-sp jóldum og USB-tækjum. "StorageAnalyzer" er skráastjóri sem sýnir hvernig plássið er notað á tækinu þínu og einfaldari geymslustjórnun.
 
 📷 Finndu tvítekið gögn
 

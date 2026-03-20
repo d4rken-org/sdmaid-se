@@ -9,7 +9,7 @@ Niemand is perfect en Android ook niet.
 
 Laten we hier niet verder op ingaan... Laat SD Maid 2/SE je helpen!
 
-SD Maid 2/SE is een app- en bestandsbeheerder die gespecialiseerd is in het weten welke apps specifieke bestanden op je apparaat hebben gemaakt. SD Maid 2/SE doorzoekt je apparaat en vergelijkt bestanden met geïnstalleerde apps om opties te bieden voor het veilig vrijmaken van opslagruimte.
+SD Maid 2/SE is een app- en bestandsbeheerder die weet welke apps bestanden op je apparaat hebben gemaakt. Het vergelijkt bestanden met geïnstalleerde apps om opslagruimte vrij te maken.
 
 ✨ Ruim op na het verwijderen van apps
 
@@ -17,7 +17,7 @@ Als apps bestanden buiten de aangewezen mappen maken, kunnen de bestanden blijve
 
 🔍 Zoek op een slimme manier op je apparaat
 
-Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer. Je kunt zelfs jouw eigen zoekcriteria maken. Met het hulpprogramma 'SystemCleaner' kun je automatisch je apparaat doorzoeken en bestanden verwijderen op basis van verschillende criteria.
+Filter op lege mappen, tijdelijke bestanden, reeds geïnstalleerde apps en meer. Je kunt zelfs jouw eigen zoekcriteria maken. Het hulpprogramma "SystemCleaner" zoekt en verwijdert automatisch bestanden op basis van verschillende criteria.
 
 🧹 Verwijder overbodige bestanden en verborgen caches
 
@@ -25,11 +25,11 @@ Miniaturen, prullenbakken, offline caches en meer: ​​als apps zichzelf niet 
 
 📦 Beheer al je apps
 
-Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. Het hulpmiddel "AppControl" is een app-manager waarmee je jouw apps kunt zoeken, sorteren en beheren.
+Krijg een uitgebreide lijst van alle apps die op je apparaat zijn geïnstalleerd. Ingeschakeld, uitgeschakeld, gebruikers- of systeem-app: geen enkele app kan zich voor je verbergen. Het hulpmiddel "AppControl" is een app-manager waarmee je apps kunt zoeken, sorteren en beheren.
 
 📊 Wat gebruikt al je ruimte
 
-Opslagbeheer kan complex zijn met apps, media, systeembestanden en andere bestanden op je telefoongeheugen, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoeveel ruimte er op je apparaat wordt gebruikt, waardoor je opslagbeheer eenvoudiger wordt.
+Opslagbeheer kan complex zijn met apps, media, systeembestanden en andere bestanden op je apparaatgeheugen, SD-kaarten en USB-apparaten. "StorageAnalyzer" is een bestandsbeheerder die weergeeft hoeveel ruimte er op je apparaat wordt gebruikt, waardoor je opslagbeheer eenvoudiger wordt.
 
 📷 Vind dubbele gegevens
 

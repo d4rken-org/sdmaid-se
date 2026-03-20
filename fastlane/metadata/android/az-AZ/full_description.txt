@@ -9,7 +9,7 @@ Heç kim mükəmməl deyil, Android də.
 
 Burada davam etməyək… SD Maid 2/SE sizə kömək etsin!
 
-SD Maid 2/SE, cihazınızda hansı tətbiqlərin müəyyən fayllar yaratdığını bilməkdə ixətisaşlaşmış tətbiq və fayl meneceridir. SD Maid 2/SE cihazınızı axtaran və faylları yüklənmiş tətbiqlərlə müqayisə edərək saxlama məkanını təhlükəsiz boşaltmaq seçimləri təklif edir.
+SD Maid 2/SE cihazınızda hansı tətbiqlərin fayl yaratdığını bilən tətbiq və fayl meneceridir. Yaddaş sahəsini təhlükəsiz azaltmaq üçün faylları quraşdırılmış tətbiqlərlə müqayisə edir.
 
 ✨ Tətbiqləri sildəkdən sonra təmizləyin
 
@@ -17,7 +17,7 @@ Tətbiqlər təyin edilmiş qovluqların xəricində fayllar yaradırsa, tətbiq
 
 🔍 Cihazınızı açıq fikirlə axtarın
 
-Boş qovluqlar, müəqqəti fayllar, artıq yüklənmiş tətbiqlər və daha çoxu üçün süzgəc. Hətta öz axtarış meyarlarınızı yarada bilərsiniz. "SystemCleaner" aləti cihazınızı avtomatik axtarmanıza və müxtəlif mələyarlara əsasən faylları silməyinizə imkan verir.
+Boş qovluqlar, müəqqəti fayllar, artıq yüklənmiş tətbiqlər və daha çoxu üçün süzgəc. Hətta öz axtarış meyarlarınızı yarada bilərsiniz. "SystemCleaner" aləti müxtəlif meyarlara əsasən faylları avtomatik axtarır və silir.
 
 🧹 Lazımsız faylları və gizli keşləri silin
 
@@ -25,11 +25,11 @@ Miniatürlər, zəbil qutuları, oflayn keşlər və daha çoxu: Tətbiqlər öz
 
 📦 Bütn tətbiqlərinizi idarə edin
 
-Cihazınızda yüklənmiş bütn tətbiqlərin hərtərəfli siyahısını əldə edin. Fəal, deaktiv, istifədəçi və ya sistem tətbiqi: heç bir tətbiq sizdən gizlənə bilməz. "AppControl" aləti tətbiqlərinizi axtarıb sərələndirməyinizə və idarə etməyinizə imkan verən tətbiq meneceridir.
+Cihazınızda yüklənmiş bütn tətbiqlərin hərtərəfli siyahısını əldə edin. Fəal, deaktiv, istifədəçi və ya sistem tətbiqi: heç bir tətbiq sizdən gizlənə bilməz. "AppControl" aləti tətbiqlərinizi axtarmağa, sıralamağa və idarə etməyə imkan verən tətbiq meneceridir.
 
 📊 Yeriğinizi nə işledir
 
-Tətbiq, media, sistem və digər fayllarla telefon saxlaması, SD kartlar və USB qurğular arasında saxlama idarəsi mürəkkəb ola bilər. "StorageAnalyzer" cihazınızda yerin necə istifadə edildiyini göstərən fayl meneceridir və saxlama idarənizi sadələşdirir.
+Yaddaş idarəetməsi mürəkkəb ola bilər: tətbiq, media, sistem və digər fayllara aiddir - cihaz yaddaşı, SD kartlar və USB qurğularda. "StorageAnalyzer" cihazınızda yerin necə istifadə edildiyini göstərən fayl meneceridir və saxlama idarənizi sadələşdirir.
 
 📷 Dublikat məlumatları tapın
 

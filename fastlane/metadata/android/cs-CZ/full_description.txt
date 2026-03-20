@@ -9,7 +9,7 @@ Nikdo není dokonalý, ani systém Android.
 
 Nepokračujte v tom… SD Maid 2/SE vám pomůže!
 
-SD Maid 2/SE je správce aplikací a souborů, který se specializuje na zjišťování, které aplikace vytvořily ve vašem zařízení konkrétní soubory. SD Maid 2/SE prohledá vaše zařízení a porovná soubory s nainstalovanými aplikacemi a nabídne možnosti bezpečného uvolnění úložiště.
+SD Maid 2/SE je správce aplikací a souborů, který ví, které aplikace vytvořily soubory ve vašem zařízení. Porovnává soubory s nainstalovanými aplikacemi a pomáhá vám bezpečně uvolnit úložiště.
 
 ✨ Čištění po odinstalování aplikací
 
@@ -17,7 +17,7 @@ Pokud aplikace vytvářejí soubory mimo určené složky, mohou v nich zůstat 
 
 🔍 Vyhledávání v zařízení chytrým způsobem
 
-Filtrujte prázdné složky, dočasné soubory, již nainstalované aplikace a další. Můžete si dokonce vytvořit vlastní kritéria vyhledávání. Nástroj "Čistič systému" umožňuje automaticky prohledávat zařízení a odstraňovat soubory na základě různých kritérií.
+Filtrujte prázdné složky, dočasné soubory, již nainstalované aplikace a další. Můžete si dokonce vytvořit vlastní kritéria vyhledávání. Nástroj "SystemCleaner" automaticky vyhledává a odstraňuje soubory na základě různých kritérií.
 
 🧹 Odstranění postradatelných souborů a skrytých mezipamětí
 
@@ -25,11 +25,11 @@ Náhledy, koše, offline mezipaměti a další: pokud po sobě aplikace neuklíz
 
 📦 Správa všech aplikací
 
-Získejte úplný seznam všech aplikací nainstalovaných v zařízení. Povolená, zakázaná, uživatelská nebo systémová aplikace: žádná aplikace se před vámi neschová. Nástroj "Správce aplikací" je správce aplikací, který umožňuje vyhledávat, třídit a ovládat aplikace.
+Získejte úplný seznam všech aplikací nainstalovaných v zařízení. Povolená, zakázaná, uživatelská nebo systémová aplikace: žádná aplikace se před vámi neschová. Nástroj "AppControl" je správce aplikací, který umožňuje vyhledávat, třídit a ovládat aplikace.
 
 📊 Co využívá veškeré vaše úložiště
 
-Správa úložiště může být složitá díky aplikacím, médiím, systému a dalším souborům v úložišti telefonu, na kartách SD a zařízeních USB. "Analyzátor úložiště" je správce souborů, který zobrazuje využití místa v zařízení a zjednodušuje tak správu úložiště.
+Správa úložiště může být složitá díky aplikacím, médiím, systému a dalším souborům v úložišti zařízení, na kartách SD a zařízeních USB. "Analyzátor úložiště" je správce souborů, který zobrazuje využití místa v zařízení a zjednodušuje tak správu úložiště.
 
 📷 Vyhledání duplicitních dat
 

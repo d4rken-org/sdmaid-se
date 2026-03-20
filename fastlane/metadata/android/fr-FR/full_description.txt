@@ -21,11 +21,11 @@ Cherchez les dossiers vides, fichiers temporaires, applis installées et plus. C
 
 🧹 Supprimer fichiers superflus et caches
 
-Miniatures, corbeilles, caches hors ligne et plus : si les applis laissent des traces, "AppCleaner" fait le ménage.
+Miniatures, corbeilles, caches hors ligne et plus : si les applis laissent des traces, "AppCleaner" fait le ménage. Le « Nettoyeur d’applis » trouve les applis avec des fichiers superflus.
 
 📦 Gérer toutes vos applis
 
-Liste complète des applis installées : activées, désactivées, utilisateur ou système — aucune ne vous échappe. L'outil "AppControl" vous permet de rechercher, trier et contrôler vos applis.
+Obtenez la liste complète des applis installées sur votre appareil. Liste complète des applis installées : activées, désactivées, utilisateur ou système — aucune ne vous échappe. L'outil "AppControl" vous permet de rechercher, trier et contrôler vos applis.
 
 📊 Ce qui utilise votre espace
 
@@ -49,7 +49,7 @@ SD Maid 2/SE succède à SD Maid 1/Legacy.
 Optimisée pour les versions récentes d'Android et axée sur le nettoyage.
 
 Cette appli propose des fonctions facultatives utilisant l'API AccessibilityService pour automatiser des actions fastidieuses.
-Grâce à l'API AccessibilityService, cette appli peut cliquer sur des boutons à votre place pour effectuer des opérations sur plusieurs applis, par exemple la suppression des caches.
+Grâce à l'API AccessibilityService, cette appli peut cliquer sur des boutons à votre place pour effectuer des opérations sur plusieurs applis, par exemple la suppression des caches. suppression des caches.
 Cette appli n'utilise pas l'API AccessibilityService pour recueillir des informations.
 
 SD Maid 2/SE est une appli de gestion des fichiers et de nettoyage.

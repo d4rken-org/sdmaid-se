@@ -9,7 +9,7 @@ Nikto nie je dokonalý a Android tiež nie.
 
 Nepokračujme tu... Nechajte SD Maid 2/SE pomôcť vám!
 
-SD Maid 2/SE je aplikácia a správca súborov, ktorý sa špecializuje na zistenie, ktoré aplikácie vytvorili konkrétne súbory na vašom zariadení. SD Maid 2/SE prehľadá vaše zariadenie a porovná súbory s nainštalovanými aplikáciami, aby ponúkol možnosti na bezpečné uvoľnenie úložného priestoru.
+SD Maid 2/SE je aplikácia a správca súborov, ktorý vie, ktoré aplikácie vytvorili súbory na vašom zariadení. Porovnáva súbory s nainštalovanými aplikáciami, aby vám pomohol bezpečne uvoľniť úložný priestor.
 
 ✨ Čistenie po odinštalovaní aplikácií
 
@@ -17,7 +17,7 @@ Ak aplikácie vytvárajú súbory mimo svojich určených priečinkov, súbory m
 
 🔍 Prehľadajte svoje zariadenie inteligentným spôsobom
 
-Filtrujte prázdne priečinky, dočasné súbory, už nainštalované aplikácie a ďalšie. Môžete si dokonca vytvoriť vlastné kritériá vyhľadávania. Nástroj „Čistič systému“ vám umožňuje automaticky prehľadávať vaše zariadenie a mazať súbory na základe rôznych kritérií.
+Filtrujte prázdne priečinky, dočasné súbory, už nainštalované aplikácie a ďalšie. Môžete si dokonca vytvoriť vlastné kritériá vyhľadávania. Nástroj „SystemCleaner“ automaticky vyhľadáva a maže súbory na základe rôznych kritérií.
 
 🧹 Odstráňte nepotrebné súbory a skryté vyrovnávacie pamäte
 
@@ -25,11 +25,11 @@ Miniatúry, smetné koše, offline vyrovnávacie pamäte a ďalšie: Ak aplikác
 
 📦 Spravujte všetky svoje aplikácie
 
-Získajte úplný zoznam všetkých aplikácií nainštalovaných vo vašom zariadení. Povolená, zakázaná, používateľská alebo systémová aplikácia: žiadna aplikácia sa pred vami nemôže skryť. Nástroj „Správca aplikácií“ je správca aplikácií, ktorý vám umožňuje vyhľadávať, triediť a ovládať vaše aplikácie.
+Získajte úplný zoznam všetkých aplikácií nainštalovaných vo vašom zariadení. Povolená, zakázaná, používateľská alebo systémová aplikácia: žiadna aplikácia sa pred vami nemôže skryť. Nástroj „AppControl“ je správca aplikácií, ktorý vám umožňuje vyhľadávať, triediť a ovládať vaše aplikácie.
 
 📊 Čo využíva celý váš priestor
 
-Správa úložiska môže byť zložitá s aplikáciami, médiami, systémovými a ďalšími súbormi v úložisku telefónu, SD kartách a zariadeniach USB. „Analyzátor úložiska“ je správca súborov, ktorý zobrazuje využitie miesta na vašom zariadení, čím zjednodušuje správu úložiska.
+Správa úložiska môže byť zložitá s aplikáciami, médiami, systémovými a ďalšími súbormi v úložisku zariadenia, SD kartách a zariadeniach USB. „Analyzátor úložiska“ je správca súborov, ktorý zobrazuje využitie miesta na vašom zariadení, čím zjednodušuje správu úložiska.
 
 📷 Nájdite duplicitné údaje
 

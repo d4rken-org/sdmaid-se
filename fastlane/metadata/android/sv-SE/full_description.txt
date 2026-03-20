@@ -9,7 +9,7 @@ Ingen är perfekt och inte Android heller.
 
 Låt oss inte fortsätta räkna upp… Låt SD Maid 2/SE hjälpa dig!
 
-SD Maid 2/SE är en app- och filhanterare som specialiserat sig på att veta vilka appar som har skapat specifika filer på din enhet. SD Maid 2/SE söker igenom din enhet och jämför filer med installerade appar för att erbjuda alternativ för att på ett säkert sätt frigöra lagringsutrymme.
+SD Maid 2/SE är en app- och filhanterare som vet vilka appar som skapade filer på din enhet. Den jämför filer med installerade appar för att hjälpa dig att frigöra lagringsutrymme på ett säkert sätt.
 
 ✨ Rensa upp efter att ha avinstallerat appar
 
@@ -17,7 +17,7 @@ Om appar skapar filer utanför sina utsedda mappar kan filerna finnas kvar även
 
 🔍 Sök igenom din enhet på ett smart sätt
 
-Filtrera efter tomma mappar, temporära filer, redan installerade appar med mera. Du kan till och med skapa din egna sökkriterier. Verktyget "SystemCleaner" låter dig automatiskt söka igenom din enhet och ta bort filer baserat på olika kriterier.
+Filtrera efter tomma mappar, temporära filer, redan installerade appar med mera. Du kan till och med skapa din egna sökkriterier. Verktyget "SystemCleaner" söker automatiskt och raderar filer baserat på olika kriterier.
 
 🧹 Ta bort onödiga filer och dolda cachar
 
@@ -25,11 +25,11 @@ Miniatyrbilder, papperskorgar, offlinecachar med mera: Om appar inte städar upp
 
 📦 Hantera alla dina appar
 
-Få en fullständig lista över alla appar installerade på din enhet. Aktiverad, inaktiverad, användar- eller systemapp: ingen app kan gömma sig för dig. Verktyget "AppControl" är en apphanterare som låter dig söka, sortera och hantera dina appar.
+Få en fullständig lista över alla appar installerade på din enhet. Aktiverad, inaktiverad, användar- eller systemapp: ingen app kan gömma sig för dig. Verktyget "AppControl" är en apphanterare som låter dig söka, sortera och kontrollera dina appar.
 
 📊 Vad är det som tar upp all ditt utrymme
 
-Lagringshantering kan vara komplext med appar, media, system och andra filer spridda över telefonens lagring, SD-kort och USB-enheter. "StorageAnalyzer" är en filhanterare som visar hur utrymme används på din enhet och förenklar hanteringen av din lagring.
+Lagringshantering kan vara komplext med appar, media, system och andra filer på enhetslagring, SD-kort och USB-enheter. "StorageAnalyzer" är en filhanterare som visar hur utrymme används på din enhet och förenklar hanteringen av din lagring.
 
 📷 Hitta duplicerad data
 

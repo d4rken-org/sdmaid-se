@@ -21,7 +21,7 @@ Filtrá carpetas vacías, archivos temporales, aplicaciones ya instaladas y más
 
 🧹 Eliminá archivos prescindibles y cachés ocultos
 
-Miniaturas, papeleras, cachés sin conexión y más: si las aplicaciones no se limpian solas, "AppCleaner" lo hará.
+Miniaturas, papeleras, cachés sin conexión y más: si las aplicaciones no se limpian solas, "AppCleaner" lo hará. La herramienta "Limpiador de aplicaciones" encuentra aplicaciones con archivos prescindibles.
 
 📦 Gestioná todas tus aplicaciones
 
@@ -49,7 +49,7 @@ SD Maid 2/SE es la sucesora de SD Maid 1/Legacy.
 Optimizado para versiones nuevas de Android y enfocado en limpiar.
 
 Esta aplicación tiene funciones opcionales que utilizan la API AccessibilityService para automatizar acciones tediosas.
-Mediante la API AccessibilityService, esta aplicación puede pulsar botones para realizar operaciones en varias aplicaciones, por ejemplo eliminando cachés.
+Mediante la API AccessibilityService, esta aplicación puede pulsar botones para realizar operaciones en varias aplicaciones, por ejemplo eliminando cachés. eliminando cachés.
 Esta aplicación no utiliza la API AccessibilityService para recopilar información.
 
 SD Maid 2/SE es una aplicación de limpieza y gestión de archivos.

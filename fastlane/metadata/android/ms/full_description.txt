@@ -9,7 +9,7 @@ Tiada siapa yang sempurna dan begitu juga Android.
 
 Jangan teruskan di sini… Biarkan SD Maid 2/SE membantu anda!
 
-SD Maid 2/SE ialah pengurus aplikasi dan fail yang pakar dalam mengetahui aplikasi mana yang telah mencipta fail tertentu di peranti anda. SD Maid 2/SE mencari peranti anda dan membandingkan fail dengan aplikasi yang dipasang untuk menawarkan pilihan bagi membebaskan ruang penyimpanan dengan selamat.
+SD Maid 2/SE ialah pengurus apl dan fail yang mengetahui apl mana yang mencipta fail pada peranti anda. Ia membandingkan fail dengan apl yang dipasang untuk membantu anda mengosongkan ruang storan dengan selamat.
 
 ✨ Bersihkan selepas menyahpasang aplikasi
 
@@ -17,7 +17,7 @@ Jika aplikasi membuat fail di luar folder yang ditentukan, fail boleh kekal wala
 
 🔍 Cari peranti anda dengan cara yang pintar
 
-Tapis untuk folder kosong, fail sementara, aplikasi yang sudah dipasang dan banyak lagi. Anda juga boleh membuat kriteria pencarian anda sendiri. Alat "SystemCleaner" membolehkan anda mencari peranti secara automatik dan memadamkan fail berdasarkan pelbagai kriteria.
+Tapis untuk folder kosong, fail sementara, aplikasi yang sudah dipasang dan banyak lagi. Anda juga boleh membuat kriteria pencarian anda sendiri. Alat "SystemCleaner" secara automatik mencari dan memadam fail berdasarkan pelbagai kriteria.
 
 🧹 Padamkan fail yang boleh dibuang dan cache tersembunyi
 
@@ -25,11 +25,11 @@ Gambar kecil, tong sampah, cache luar talian dan banyak lagi: Jika aplikasi tida
 
 📦 Urus semua aplikasi anda
 
-Dapatkan senarai komprehensif semua aplikasi yang dipasang di peranti anda. Didayakan, dilumpuhkan, aplikasi pengguna atau sistem: tiada aplikasi boleh bersembunyi daripada anda. Alat "AppControl" ialah pengurus aplikasi yang membolehkan anda mencari, menyusun dan mengawal aplikasi anda.
+Dapatkan senarai komprehensif semua aplikasi yang dipasang di peranti anda. Didayakan, dilumpuhkan, aplikasi pengguna atau sistem: tiada aplikasi boleh bersembunyi daripada anda. Alat "AppControl" ialah pengurus apl yang membolehkan anda mencari, mengisih dan mengawal apl anda.
 
 📊 Apa yang menggunakan semua ruang anda
 
-Pengurusan penyimpanan boleh menjadi rumit dengan aplikasi, media, sistem dan fail lain di seluruh storan telefon, kad SD dan peranti USB. "StorageAnalyzer" ialah pengurus fail yang memaparkan bagaimana ruang digunakan di peranti anda, memudahkan pengurusan penyimpanan anda.
+Pengurusan storan boleh menjadi kompleks dengan apl, media, sistem, dan fail lain merentasi storan peranti, kad SD, dan peranti USB. "StorageAnalyzer" ialah pengurus fail yang memaparkan bagaimana ruang digunakan di peranti anda, memudahkan pengurusan penyimpanan anda.
 
 📷 Cari data berganda
 

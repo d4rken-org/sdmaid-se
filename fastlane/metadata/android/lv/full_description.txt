@@ -9,7 +9,7 @@ Neviens nav perfekts, arī ne Android.
 
 Neturpināsim tālāk… Ļaujiet SD Maid 2/SE jums palīdzēt!
 
-SD Maid 2/SE ir lietotne un failu pārvaldnieks, kas specializējas zināt, kuras lietotnes ir izveidojušas specifiskus failus jūsu ierīcē. SD Maid 2/SE meklē jūsu ierīcē un salīdzina failus ar instalētajām lietotņēm, lai piedāvātu iespējas drošai krātuves vietas atbrīvošanai.
+SD Maid 2/SE ir lietotņu un failu pārvaldnieks, kas zina, kuras lietotnes izveidoja failus jūsu ierīcē. Tas salīdzina failus ar instalētajām lietotnēm, lai palīdzētu droši atbrīvot krātuves vietu.
 
 ✨ Attīrīt pēc lietoņu atinstalēšanas
 
@@ -17,7 +17,7 @@ Ja lietotnes izveido failus ārpus savām atrašanās vietām, faili var palikt 
 
 🔍 Meklējiet savu ierīci gudri
 
-Filtrējiet tukšas mapes, pagaidu failus, jau instalētās lietotnes un vairāk. Varat pat izveidot savas meklēšanas kritērijus. Rīks „SystemCleaner” ļauj jums automātiski meklēt jūsu ierīcē un dzēst failus pēc dažādiem kritērijiem.
+Filtrējiet tukšas mapes, pagaidu failus, jau instalētās lietotnes un vairāk. Varat pat izveidot savas meklēšanas kritērijus. Rīks "SystemCleaner" automātiski meklē un dzēš failus, pamatojoties uz dažādiem kritērijiem.
 
 🧹 Dzēsiet nepiebūtiskos failus un slēptus cache
 
@@ -25,11 +25,11 @@ Sīktēli, atkritumu tvertnes, bezsaistes kešatmiņa un vairāk: Ja lietotnes n
 
 📦 Vadiet visas savas lietotnes
 
-Iegūstiet visaptverošu sarakstu ar visām jūsu ierīcē instalētajām lietotņēm. Iespējota, atspējota, lietotāja vai sistēmas lietotne: neviena lietotne no jums nevar paslēpties. Rīks "AppControl" ir lietoņu pārvaldnieks, kas ļauj meklēt, kārtot un kontrolēt jūsu lietotnes.
+Iegūstiet visaptverošu sarakstu ar visām jūsu ierīcē instalētajām lietotņēm. Iespējota, atspējota, lietotāja vai sistēmas lietotne: neviena lietotne no jums nevar paslēpties. Rīks "AppControl" ir lietotņu pārvaldnieks, kas ļauj meklēt, kārtot un pārvaldīt jūsu lietotnes.
 
 📊 Kas izmanto visu jūsu vietu
 
-Krātuvnes pārvaldība var būt sarežģīta ar lietotņēm, multividi, sistēmu un citiem failiem telefonā, SD kartēs un USB ierīcēs. "StorageAnalyzer" ir failu pārvaldnieks, kas parāda, kā vieta tiek izmantota jūsu ierīcē, vienkāršojot jūsu krātuvnes pārvaldību.
+Krātuves pārvaldība var būt sareļģīta, ņemot vērā lietotnes, multividi, sistēmas un citus failus ierīces krātuvē, SD kartēs un USB ierīcēs. "StorageAnalyzer" ir failu pārvaldnieks, kas parāda, kā vieta tiek izmantota jūsu ierīcē, vienkāršojot jūsu krātuvnes pārvaldību.
 
 📷 Atrodiet dublējošos datus
 

@@ -9,7 +9,7 @@ Niekas nėra tobulas, taip pat ir „Android“.
 
 Neplėskime čia… Leiskite SD Maid 2/SE jums padėti!
 
-SD Maid 2/SE yra programų ir failų tvarkytuvei, kuri specializuojasi žinoti, kurios programos sukūrė konkrečius failus jūsų įrenginyje. SD Maid 2/SE peržiūri jūsų įrenginį ir palygina failus su įdiegtomis programomis, siūlydama parinktis saugiai atlaisvinti saugojimo vietą.
+SD Maid 2/SE yra programėlė ir failų tvarkyklė, kuri žino, kurios programėlės sukūrė failus jūsų įrenginyje. Ji lygina failus su įdiegtomis programėlėmis, kad padėtų saugiai atlaisvinti saugyklos vietos.
 
 ✨ Išvalykite po programų pašalinimo
 
@@ -17,7 +17,7 @@ Jei programos sukuria failus už joms skirtų aplankų ribų, failai gali likti 
 
 🔍 Išmaniai peržiūrėkite savo įrenginį
 
-Filtruokite pagal tuščius aplankus, laikinuosius failus, jau įdiegtas programas ir daugiau. Galite sukurti ir savo paieškos kriterijus. Įrankis „SystemCleaner“ leidžia automatiškai peržiūrėti jūsų įrenginį ir šalinti failus pagal įvairius kriterijus.
+Filtruokite pagal tuščius aplankus, laikinuosius failus, jau įdiegtas programas ir daugiau. Galite sukurti ir savo paieškos kriterijus. Įrankis „SystemCleaner“ automatiškai ieško ir ištrina failus pagal įvairius kriterijus.
 
 🧹 Šalinkite nereikalingus failus ir paslėptus podėlius
 
@@ -25,11 +25,11 @@ Miniatūros, šiukšliadėžės, neprisijungę podėliai ir daugiau: jei program
 
 📦 Valdykite visas savo programas
 
-Gaukite išsamų visų jūsų įrenginyje įdiegtu programų sąrašą. Įjungta, išjungta, vartotojo ar sistemos programa: nė viena programa nuo jūsų neslėps. Įrankis „AppControl“ yra programų valdytojas, leidžiantis ieškoti, rūšiuoti ir valdyti jūsų programas.
+Gaukite išsamų visų jūsų įrenginyje įdiegtu programų sąrašą. Įjungta, išjungta, vartotojo ar sistemos programa: nė viena programa nuo jūsų neslėps. Įrankis „AppControl“ yra programėlių tvarkyklė, leidžianti ieškoti, rūšiuoti ir valdyti savo programėles.
 
 📊 Kas naudoja visą jūsų vietą
 
-Saugojimo valdymas gali būti sudėtingas turint programas, mediją, sistemą ir kitus failus telefono saugykloje, SD kortelėse ir USB įrenginiuose. „StorageAnalyzer“ yra failų valdytojas, kuris rodo, kaip naudojama vieta jūsų įrenginyje, supaprastindamas saugojimo valdymą.
+Saugyklos valdymas gali būti sudėtingas dėl programų, medijos, sistemos ir kitų failų įrenginio saugykloje, SD kortelėse ir USB įrenginiuose. „StorageAnalyzer“ yra failų valdytojas, kuris rodo, kaip naudojama vieta jūsų įrenginyje, supaprastindamas saugojimo valdymą.
 
 📷 Raskite dubliuotus duomenis
 
