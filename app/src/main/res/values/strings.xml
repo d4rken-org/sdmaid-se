@@ -315,6 +315,6 @@
     <string name="shortcuts_onetap_enabled_title">One-tap shortcut</string>
     <string name="shortcuts_onetap_enabled_summary">Show \"Scan + Delete\" shortcut when long-pressing the app icon. Uses the same tools as one-tap dashboard.</string>
 
-    <string name="analyzer_storage_trend_delta_in_7d">%s in 7d</string>
+    <string name="analyzer_storage_trend_delta_in_7d">%s in 7 days</string>
     <!-- Shorter versions for side-by-side display -->
 </resources>
