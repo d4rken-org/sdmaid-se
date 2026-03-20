@@ -9,7 +9,7 @@ Semmi sem tökéletes, még az Android sem.
 
 Ne is folytassuk... Hagyd, hogy az SD Maid 2/SE segítsen!
 
-Az SD Maid 2/SE egy olyan alkalmazás- és fájlkezelő, amely arra specializálódott, hogy tudja, mely alkalmazások hoztak létre bizonyos fájlokat a készüléken. Az SD Maid 2/SE átkutatja a készüléket, és összehasonlítja a fájlokat a telepített alkalmazásokkal, hogy lehetőségeket kínáljon a tárhely biztonságos felszabadítására.
+Az SD Maid 2/SE egy alkalmazás- és fájlkezelő, amely tudja, mely alkalmazások hoztak létre fájlokat a készüléken. Összehasonlítja a fájlokat a telepített alkalmazásokkal, hogy biztonságosan felszabadíthasd a tárhelyet.
 
 ✨ Alkalmazások eltávolítása utáni tisztítás
 
@@ -17,7 +17,7 @@ Ha az alkalmazások a kijelölt mappákon kívül hoznak létre fájlokat, akkor
 
 🔍 Keresés az eszközön okos módon
 
-Az üres mappák, az ideiglenes fájlok, a már telepített alkalmazások stb. szűrése. Még saját keresési feltételeket is létrehozhatóak. A „RendszerTisztító” eszköz lehetővé teszi a készülék automatikus keresését és a fájlok törlését különböző feltételek alapján.
+Az üres mappák, az ideiglenes fájlok, a már telepített alkalmazások stb. szűrése. Még saját keresési feltételeket is létrehozhatóak. A „SystemCleaner” eszköz automatikusan megkeresi és törli a fájlokat különböző feltételek alapján.
 
 🧹 Felesleges fájlok és rejtett gyorsítótárak törlése
 
@@ -25,11 +25,11 @@ Miniatűrök, kukák, offline gyorsítótárak és még sok más: Ha az alkalmaz
 
 📦 Az összes alkalmazás kezelése
 
-Átfogó listát kaphatsz a készülékre telepített összes alkalmazásról. Engedélyezett, letiltott, felhasználói vagy rendszeralkalmazás: egyetlen alkalmazás sem rejtőzhet el előled. Az „AlkalmazásTisztító” eszköz egy alkalmazáskezelő, amely lehetővé teszi az alkalmazások keresését, rendezését és ellenőrzését.
+Átfogó listát kaphatsz a készülékre telepített összes alkalmazásról. Engedélyezett, letiltott, felhasználói vagy rendszeralkalmazás: egyetlen alkalmazás sem rejtőzhet el előled. Az „AppControl” eszköz egy alkalmazáskezelő, amely lehetővé teszi az alkalmazások keresését, rendezését és vezérlését.
 
 📊 Mi használja az összes helyet
 
-A tárhely kezelése összetett lehet az alkalmazások, a média, a rendszer és egyéb fájlok kezelése a telefon tárolóján, az SD-kártyákon és az USB-eszközökön. A „TárhelyElemző” egy fájlkezelő, amely megjeleníti, hogyan van használva a tárhely az eszközön, így egyszerűsítve a tárhelykezelést.
+A tárhely kezelése összetett lehet az alkalmazások, a média, a rendszer és egyéb fájlok kezelésével az eszköztárolón, SD-kártyákon és USB-eszközökön. A „TárhelyElemző” egy fájlkezelő, amely megjeleníti, hogyan van használva a tárhely az eszközön, így egyszerűsítve a tárhelykezelést.
 
 📷 Duplikált adatok keresése
 

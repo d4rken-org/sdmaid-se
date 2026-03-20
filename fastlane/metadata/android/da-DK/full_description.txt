@@ -9,7 +9,7 @@ Ingen er perfekte – heller ikke Android.
 
 Lad os ikke fortsætte her… Lad SD Maid 2/SE hjælpe dig!
 
-SD Maid 2/SE er en app- og filhåndtering, der er specialiseret i at identificere, hvilke apps der har oprettet bestemte filer på din enhed. SD Maid 2/SE søger på din enhed og sammenligner filer med installerede apps for at tilbyde sikre muligheder for at frigøre lagerplads.
+SD Maid 2/SE er en app- og filhåndtering, der ved, hvilke apps der har oprettet filer på din enhed. Den sammenligner filer med installerede apps for at hjælpe dig med sikkert at frigøre lagerplads.
 
 ✨ Ryd op efter afinstallation af apps
 
@@ -17,7 +17,7 @@ Hvis apps opretter filer uden for deres tildelte mapper, kan filerne forblive, s
 
 🔍 Søg på din enhed på den smarte måde
 
-Filtrér efter tomme mapper, midlertidige filer, allerede installerede apps og mere. Du kan endda oprette dine egne søgekriterier. Værktøjet "Systemrenser" lader dig automatisk søge på din enhed og slette filer baseret på forskellige kriterier.
+Filtrér efter tomme mapper, midlertidige filer, allerede installerede apps og mere. Du kan endda oprette dine egne søgekriterier. Værktøjet "Systemrenser" søger automatisk og sletter filer baseret på forskellige kriterier.
 
 🧹 Slet overflødige filer og skjulte cacher
 
@@ -29,7 +29,7 @@ Få en omfattende liste over alle apps installeret på din enhed. Aktiveret, dea
 
 📊 Hvad bruger al din plads
 
-Lageradministration kan være kompleks med apps, medier, systemer og andre filer på tværs af telefonlager, SD-kort og USB-enheder. "Lageranalyse" er en filhåndtering, der viser, hvordan pladsen bruges på din enhed, hvilket forenkler lageradministration.
+Lageradministration kan være kompleks med apps, medier, systemer og andre filer på tværs af enhedslager, SD-kort og USB-enheder. "Lageranalyse" er en filhåndtering, der viser, hvordan pladsen bruges på din enhed, hvilket forenkler lageradministration.
 
 📷 Find duplikerede data
 

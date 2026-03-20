@@ -9,7 +9,7 @@ Nihče ni popoln, niti Android.
 
 In še bil lahko naštevali …  Naj vam SD Maid 2/SE pomaga!
 
-SD Maid 2/SE je upravitelj datotek in programov, ki poišče, kateri programi so ustvarili določene datoteke na napravi. SD Maid 2/SE preišče napravo in primerja datoteke z nameščenimi programi, da lahko ponudi možnosti varne sprostitve prostora.
+SD Maid 2/SE je upravitelj programov in datotek, ki ve, kateri programi so ustvarili datoteke na vaši napravi. Primerja datoteke z nameščenimi programi in vam pomaga varno sprostiti prostor za shranjevanje.
 
 ✨ Čiščenje po odstranitvi programov
 
@@ -17,7 +17,7 @@ SD Maid 2/SE je upravitelj datotek in programov, ki poišče, kateri programi so
 
 🔍 Pametno iskanje po napravi
 
-Filtrirajte prazne mape, začasne datoteke, že nameščene programe in več. Ustvarite lahko tudi svoja iskalna merila. Orodje "Čistilec sistema" omogoča samodejno iskanje in brisanje datotek glede na razna merila.
+Filtrirajte prazne mape, začasne datoteke, že nameščene programe in več. Ustvarite lahko tudi svoja iskalna merila. Orodje "Čistilec sistema" samodejno išče in briše datoteke glede na različna merila.
 
 🧹 Brisanje odvečnih datotek in skritih predpomnilnikov
 
@@ -29,7 +29,7 @@ Pridobite celovit seznam vseh nameščenih programov na napravi. Omogočen, onem
 
 📊 Kaj porablja ves prostor
 
-S programi, predstavnostjo, sistemom in drugimi datotekami je lahko upravljanje s prostorom, kartico SD in napravami USB zapleteno. "Analizator shrambe" je upravitelj datotek, ki ponazori način uporabe prostora na napravi in s tem poenostavi upravljanje z njem.
+S programi, predstavnostjo, sistemom in drugimi datotekami je lahko upravljanje s pomnilnikom naprave, karticami SD in napravami USB zapleteno. "Analizator shrambe" je upravitelj datotek, ki ponazori način uporabe prostora na napravi in s tem poenostavi upravljanje z njem.
 
 📷 Iskanje podvojenih podatkov
 

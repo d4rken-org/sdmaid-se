@@ -9,7 +9,7 @@ Niemand ist perfekt, Android auch nicht.
 
 Das muss nicht sein... Lass dir von SD Maid 2/SE helfen!
 
-SD Maid 2/SE ist eine App und Dateimanager, der darauf spezialisiert ist, zu wissen, welche Apps bestimmte Dateien auf dem Gerät erstellt haben. SD Maid 2/SE durchsucht Dein Gerät und vergleicht Dateien mit installierten Apps, um Optionen zur sicheren Speicherplatzgewinnung anzubieten.
+SD Maid 2/SE ist eine App und Dateimanager, der weiß, welche Apps Dateien auf dem Gerät erstellt haben. Es vergleicht Dateien mit installierten Apps, um Speicherplatz sicher freizugeben.
 
 ✨ Bereinigen nach der Deinstallation von Apps
 
@@ -17,7 +17,7 @@ Wenn Apps Dateien außerhalb ihres vorgesehenen Ordners erstellen, können Datei
 
 🔍 Durchsuch Dein Gerät auf intelligente Weise
 
-Filter nach leeren Ordnern, temporären Dateien, bereits installierten Apps und mehr. Du kannst sogar eigene Suchkriterien erstellen. Mit dem "System-Reiniger" Tool kannst Du automatisch nach verschiedenen Kriterien suchen und Dateien löschen.
+Filter nach leeren Ordnern, temporären Dateien, bereits installierten Apps und mehr. Du kannst sogar eigene Suchkriterien erstellen. Das Tool "SystemCleaner" sucht und löscht Dateien automatisch nach verschiedenen Kriterien.
 
 🧹 Lösch überflüssige Dateien und versteckte Caches
 
@@ -25,11 +25,11 @@ Vorschaubilder, Papierkörbe, Offline-Caches und mehr: Wenn Apps nicht selbst au
 
 📦 Verwalte alle Deine Apps
 
-Erhalte eine umfassende Liste aller auf Deinem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Dir verstecken. Das Tool "App-Kontrolle" ist ein App-Manager, mit dem Du Deine Apps suchen, sortieren und steuern kannst.
+Erhalte eine umfassende Liste aller auf Deinem Gerät installierten Apps. Aktiviert, deaktiviert, Benutzer oder System-App: Keine App kann sich vor Dir verstecken. Das Tool "AppControl" ist ein App-Manager zum Suchen, Sortieren und Steuern Ihrer Apps.
 
 📊 Was verbraucht Deinen Speicherplatz
 
-Das Speichermanagement ist komplex. Apps, Medien, System und anderen Dateien sind über den Telefonspeicher, die SD-Karten und USB-Geräte verstreut. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Deinem Gerät genutzt wird und vereinfacht Deine Speicherverwaltung.
+Die Speicherverwaltung kann komplex sein – mit Apps, Medien, System- und anderen Dateien über den Gerätespeicher, SD-Karten und USB-Geräte hinweg. "Speicheranalyse" ist ein Dateimanager, der anzeigt, wie Platz auf Deinem Gerät genutzt wird und vereinfacht Deine Speicherverwaltung.
 
 📷 Duplikate finden
 

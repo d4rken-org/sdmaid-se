@@ -9,7 +9,7 @@ Kimse mükemmel değildir ve Android de öyle.
 
 Burada devam etmeyelim... SD Maid 2/SE size yardımcı olsun!
 
-SD Maid 2/SE, cihazınızda hangi uygulamaların belirli dosyaları oluşturduğunu bilmek konusunda uzmanlaşmış bir uygulama ve dosya yöneticisidir. SD Maid 2/SE cihazınızı arar ve dosyaları yüklü uygulamalarla karşılaştırarak depolama alanını güvenli bir şekilde boşaltmak için seçenekler sunar.
+SD Maid 2/SE, cihazınızda hangi uygulamaların dosya oluşturduğunu bilen bir uygulama ve dosya yöneticisidir. Depolama alanını güvenle boşaltmanıza yardımcı olmak için dosyaları yüklü uygulamalarla karşılaştırır.
 
 ✨ Uygulamaları kaldırdıktan sonra kalıntıları temizleyin
 
@@ -17,7 +17,7 @@ Uygulamalar belirlenen klasörlerin dışında dosyalar oluşturursa, uygulamala
 
 🔍 Cihazınızı akıllı bir şekilde tarayın
 
-Boş klasörleri, geçici dosyaları, önceden yüklenmiş uygulamaları ve daha fazlasını filtreleyin. Kendi arama kriterlerinizi bile oluşturabilirsiniz. "Sistem Temizleyicisi" aracı, cihazınızı otomatik olarak aramanıza ve çeşitli kriterlere göre dosyaları silmenize olanak tanır.
+Boş klasörleri, geçici dosyaları, önceden yüklenmiş uygulamaları ve daha fazlasını filtreleyin. Kendi arama kriterlerinizi bile oluşturabilirsiniz. "Sistem Temizleyicisi" aracı, çeşitli kriterlere göre dosyaları otomatik olarak arar ve siler.
 
 🧹 Gereksiz dosyaları ve gizli önbellekleri silin
 
@@ -25,11 +25,11 @@ Resim önizlemeleri, çöp kutuları, çevrimdışı önbellekler ve daha fazlas
 
 📦 Tüm uygulamalarınızı yönetin
 
-Cihazınızda yüklü tüm uygulamaların kapsamlı bir listesini alın. Etkin, devre dışı, kullanıcı veya sistem uygulaması: hiçbir uygulama sizden saklanamaz. "Uygulama Kontrolü" aracı, uygulamalarınızı aramanıza, sıralamanıza ve kontrol etmenize olanak tanıyan bir uygulama yöneticisidir.
+Cihazınızda yüklü tüm uygulamaların kapsamlı bir listesini alın. Etkin, devre dışı, kullanıcı veya sistem uygulaması: hiçbir uygulama sizden saklanamaz. "Uygulama Kontrolü" aracı, uygulamalarınızı aramanıza, sıralamanıza ve yönetmenize olanak tanıyan bir uygulama yöneticisidir.
 
 📊 Tüm alanınızı ne kullanıyor?
 
-Depolama yönetimi, telefon depolama alanı, SD kartlar ve USB aygıtlarındaki uygulamalar, medya, sistem ve diğer dosyalarla karmaşık olabilir. "Depolama Analizcisi" cihazınızda nasıl alan kullanıldığını gösteren ve depolama yönetiminizi basitleştiren bir dosya yöneticisidir.
+Depolama yönetimi, cihaz depolama alanı, SD kartlar ve USB aygıtlarındaki uygulamalar, medya, sistem ve diğer dosyalarla karmaşık olabilir. "Depolama Analizcisi" cihazınızda nasıl alan kullanıldığını gösteren ve depolama yönetiminizi basitleştiren bir dosya yöneticisidir.
 
 📷 Yinelenen verileri bulun
 

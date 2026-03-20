@@ -9,7 +9,7 @@ Nitko nije savršen, pa tako ni Android.
 
 Da ne duljimo... Neka vam SD Maid 2/SE pomogne!
 
-SD Maid 2/SE je aplikacija i upravitelj datoteka specijaliziran za to da prepozna koje su aplikacije stvorile određene datoteke na vašem uređaju. SD Maid 2/SE pretražuje vaš uređaj i uspoređuje datoteke s instaliranim aplikacijama kako bi ponudio opcije za sigurno oslobađanje prostora za pohranu.
+SD Maid 2/SE je aplikacija i upravitelj datoteka koja zna koje su aplikacije stvorile datoteke na vašem uređaju. Uspoređuje datoteke s instaliranim aplikacijama kako bi vam pomogla sigurno osloboditi prostor za pohranu.
 
 ✨ Počistite nakon deinstalacije aplikacija
 
@@ -17,7 +17,7 @@ Ako aplikacije stvaraju datoteke izvan svojih određenih mapa, datoteke mogu ost
 
 🔍 Pretražujte svoj uređaj na pametniji način
 
-Filtrirajte prazne mape, privremene datoteke, predinstalirane aplikacije i još mnogo toga. Možete čak i stvoriti vlastite kriterije pretraživanja. Alat "Čistač sustava" omogućuje vam automatsko pretraživanje uređaja i brisanje datoteka na temelju različitih kriterija.
+Filtrirajte prazne mape, privremene datoteke, predinstalirane aplikacije i još mnogo toga. Možete čak i stvoriti vlastite kriterije pretraživanja. Alat "Čistač sustava" automatski pretražuje i briše datoteke na temelju različitih kriterija.
 
 🧹 Izbrišite potrošne datoteke i skrivene predmemorije
 
@@ -29,7 +29,7 @@ Dobijte sveobuhvatan popis svih aplikacija instaliranih na vašem uređaju. Omog
 
 📊 Što vam zauzima sav prostor
 
-Upravljanje pohranom može biti složeno s aplikacijama, medijima, sustavom i drugim datotekama na memoriji telefona, SD karticama i USB uređajima. "Analizator pohrane" je upravitelj datoteka koji prikazuje na koji se način prostor na vašem uređaju koristi, pojednostavljujući upravljanje pohranom.
+Upravljanje pohranom može biti složeno s aplikacijama, medijima, sustavom i drugim datotekama na pohrani uređaja, SD karticama i USB uređajima. "Analizator pohrane" je upravitelj datoteka koji prikazuje na koji se način prostor na vašem uređaju koristi, pojednostavljujući upravljanje pohranom.
 
 📷 Pronađite duplicirane podatke
 

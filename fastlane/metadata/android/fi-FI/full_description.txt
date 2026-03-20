@@ -9,7 +9,7 @@ Kukaan ei ole täydellinen, eikä Androidkaan.
 
 Ei jatketa ​​tähän. Anna SD Maid 2/SE:n auttaa sinua!
 
-SD Maid 2/SE on sovellus ja tiedostonhallintaohjelma, joka on erikoistunut määrittämään, mitkä sovellukset ovat luoneet tiettyjä tiedostoja laitteellesi. SD Maid 2/SE etsii laitteeltasi tiedostoja ja vertaa niitä asennettuihin sovelluksiin tarjotakseen vaihtoehtoja tallennustilan turvalliseen vapauttamiseen.
+SD Maid 2/SE on sovellus- ja tiedostonhallinta, joka tietää mitkä sovellukset ovat luoneet tiedostoja laitteellesi. Se vertaa tiedostoja asennettuihin sovelluksiin auttaen vapauttamaan tallennustilaa turvallisesti.
 
 ✨ Siivoa sovellusten poistamisen jälkeen
 
@@ -17,7 +17,7 @@ Jos sovellukset luovat tiedostoja niiden nimettyjen kansioiden ulkopuolelle, tie
 
 🔍 Hae laitteeltasi älykkäästi
 
-Suodata tyhjiä kansioita, väliaikaisia ​​tiedostoja, jo asennettuja sovelluksia ja enemmänkin. Voit jopa luoda omia hakukriteerejä. "SystemCleaner"-työkalun avulla voit automaattisesti etsiä laitteeltasi ja poistaa tiedostoja erilaisten kriteerien perusteella.
+Suodata tyhjiä kansioita, väliaikaisia ​​tiedostoja, jo asennettuja sovelluksia ja enemmänkin. Voit jopa luoda omia hakukriteerejä. "SystemCleaner"-työkalu etsii ja poistaa tiedostoja automaattisesti eri kriteerien perusteella.
 
 🧹 Poista kertakäyttöiset tiedostot ja piilotetut välimuistit
 
@@ -25,11 +25,11 @@ Pienoiskuvat, roskakorit, ei-verkkotilassa olevat välimuistit ja enemmänkin: J
 
 📦 Hallitse kaikkia sovelluksiasi
 
-Saat kattavan luettelon kaikista laitteellesi asennetuista sovelluksista. Käytössä, pois käytöstä, käyttäjä- vai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "AppControl"-työkalu on sovellusten hallintaohjelma, jonka avulla voit hakea, lajitella ja hallita sovelluksiasi.
+Saat kattavan luettelon kaikista laitteellesi asennetuista sovelluksista. Käytössä, pois käytöstä, käyttäjä- vai järjestelmäsovellus: mikään sovellus ei voi piiloutua sinulta. "AppControl"-työkalu on sovellusten hallinta, jonka avulla voit hakea, lajitella ja hallita sovelluksiasi.
 
 📊 Mikä vie kaiken tilasi
 
-Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa puhelimen tallennustilassa, SD-korteilla ja USB-laitteilla. "StorageAnalyzer" on tiedostonhallintaohjelma, joka näyttää, miten laitteesi tilaa käytetään, mikä yksinkertaistaa tallennustilan hallintaa.
+Tallennustilan hallinta voi olla monimutkaista sovellusten, median, järjestelmän ja muiden tiedostojen kanssa laitteen tallennustilassa, SD-korteilla ja USB-laitteilla. "StorageAnalyzer" on tiedostonhallintaohjelma, joka näyttää, miten laitteesi tilaa käytetään, mikä yksinkertaistaa tallennustilan hallintaa.
 
 📷 Etsi päällekkäisiä tietoja
 

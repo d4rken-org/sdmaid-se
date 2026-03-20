@@ -9,7 +9,7 @@ Nessuno è perfetto, nemmeno Android.
 
 Lascia che SD Maid 2/SE ti aiuti!
 
-SD Maid 2/SE è un'app e un gestore di file specializzato nel riconoscere quali applicazioni hanno creato file specifici nel tuo dispositivo. SD Maid 2/SE scansiona il tuo dispositivo e compara i file con le app installate permettendoti di liberare spazio di archiviazione in modo sicuro.
+SD Maid 2/SE è un'app e un gestore di file che sa quali app hanno creato file sul tuo dispositivo. Confronta i file con le app installate per liberare spazio in modo sicuro.
 
 ✨ Pulizia dopo la disinstallazione delle app
 
@@ -17,7 +17,7 @@ Non andiamo oltre... Se le app creano file al di fuori delle cartelle d'installa
 
 🔍 Ricerca nel tuo dispositivo in modo intelligente
 
-Filtra per cartelle vuote, file temporanei, app già installate e molto altro. Puoi anche creare i tuoi filtri di ricerca. La funzione "Pulitore di Sistema" ti consente di cercare e rimuovere file in base a vari criteri.
+Filtra per cartelle vuote, file temporanei, app già installate e molto altro. Puoi anche creare i tuoi filtri di ricerca. La funzione "Pulitore di Sistema" cerca ed elimina automaticamente file in base a vari criteri.
 
 🧹 Elimina i file rimovibili e le cache nascoste
 
@@ -25,11 +25,11 @@ Anteprime, file nel cestino, cache offline e altro ancora: se le rispettive app 
 
 📦 Gestisci tutte le tue app
 
-Ottieni un elenco completo di tutte le app installate sul tuo dispositivo. App attive, disattivate, installate dall'utente o di sistema: nessuna di queste potrà nascondersi. La funzionalità "Controllo App" ti consente di cercare, ordinare e controllare le tue app.
+Ottieni un elenco completo di tutte le app installate sul tuo dispositivo. App attive, disattivate, installate dall'utente o di sistema: nessuna di queste potrà nascondersi. La funzionalità "Controllo App" è un gestore app che ti permette di cercare, ordinare e controllare le tue app.
 
 📊 Che cosa sta usando tutta la tua memoria
 
-La gestione della memoria può essere complessa tra app, file multimediali, file di sistema e altri file presenti nel dispositivo, schede SD e dispositivi USB. L'"Analizzatore di Archiviazione" è un gestore file che mostra lo spazio utilizzato nel dispositivo, semplificando la gestione della memoria.
+La gestione dello spazio di archiviazione può essere complessa tra app, file multimediali, file di sistema e altri file presenti nel dispositivo, schede SD e dispositivi USB. L'"Analizzatore di Archiviazione" è un gestore file che mostra lo spazio utilizzato nel dispositivo, semplificando la gestione della memoria.
 
 📷 Trova file doppioni
 

@@ -9,7 +9,7 @@ Mitte keegi pole täiuslik ja sama kehtib Androidile.
 
 Saab ka teisiti... Luba SD Maid 2/SE-l end aidata!
 
-SD Maid 2/SE on rakendus ja failihaldur, mis teab rakenduste loodud failide päritolu. SD Maid 2/SE otsib seadmest ja võrdleb faile paigaldatud rakendustega, et pakkuda ohutut hoiuruumi vabastamist.
+SD Maid 2/SE on seadmesse faile loovaid rakendusi teadev rakendus. See võrdleb faile paigaldatud rakendustega, et aidata salvestusruumi turvaliselt vabastada.
 
 ✨ Rakenduste eemaldamisjärgne puhastus
 
@@ -17,7 +17,7 @@ Kui rakendused loovad faile kohtadesse, kus pole nende andmeid, siis need failid
 
 🔍 Otsige seadmest nutikalt
 
-Jaota tühje kaustu, ajutisi faile, juba paigaldatud rakendusi ja muud. Saate luua isegi enda otsingutermini. Süsteemipuhastaja otsib ise seadmest faile kustutamiseks vastavalt teie nõudmisele.
+Jaota tühje kaustu, ajutisi faile, juba paigaldatud rakendusi ja muud. Saate luua isegi enda otsingutermini. „Süsteemipuhastaja“ otsib ja kustutab faile ise erinevate nõuete alusel.
 
 🧹 Jääkide ja peidetud vahemälude kustutamine
 
@@ -25,11 +25,11 @@ Pisipildid, prügikastid, võrguühenduseta vahemälud jne. Kui rakendused ei ko
 
 📦 Hallake kõiki rakendusi
 
-Saate põhjaliku loendi kõikidest seadmesse paigaldatud rakendustest. Lubatud, keelatud, kasutaja või süsteemi rakendus: ükski rakendus ei peida end teie eest. Rakendusekontroll on rakendusi otsiv, jaotav ja haldav rakendustehaldur.
+Saate põhjaliku loendi kõikidest seadmesse paigaldatud rakendustest. Lubatud, keelatud, kasutaja või süsteemi rakendus: ükski rakendus ei peida end teie eest. „Rakendusekontroll“ on rakenduste haldur, millega saate neid otsida, eristada ja hallata.
 
 📊 Mis võtab ruumi?
 
-Ruumi haldamine rakenduste, meediumi, süsteemi ja muude failidega on keeruline telefoni sisemälus, SD-kaartidel ja USB-seadmetel. „Hoiustamisruumi analüüsija” on seadme ruumi kasutamist kirjeldav ja ruumi haldamist hõlbustav failihaldur.
+Hoiustamisruumi haldamine võib olla keerukas, kui rakenduste, meediumite, süsteemi ja muud failid on kõikjal seadme hoiustamisruumis, SD-kaartidel ja USB-seadmetel laiali. „Hoiustamisruumi analüüsija” on seadme ruumi kasutamist kirjeldav ja ruumi haldamist hõlbustav failihaldur.
 
 📷 Samasuguste andmete otsimine
 

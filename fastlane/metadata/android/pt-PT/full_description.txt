@@ -9,7 +9,7 @@ Ninguém é perfeito e o Android também não.
 
 Não vá por aí… SD Maid SE está aqui para ajudar!
 
-O SD Maid 2/SE é uma aplicação e um organizador de arquivos especializado em saber quais aplicações criaram arquivos específicos no seu dispositivo. O SD Maid 2/SE pesquisa o seu dispositivo e compara arquivos com aplicações instalaas para oferecer opções de libertar espaço de armazenamento com segurança.
+O SD Maid 2/SE é uma aplicação e gestor de ficheiros que sabe quais aplicações criaram ficheiros no seu dispositivo. Compara ficheiros com aplicações instaladas para ajudá-lo a libertar espaço de armazenamento em segurança.
 
 ✨ Limpar após desinstalar aplicações
 
@@ -17,7 +17,7 @@ Se aplicações criam arquivos fora dos seus diretórios designados, então os a
 
 🔍 Pesquise o seu dispositivo de maneira inteligente
 
-Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. Você pode mesmo criar os seus próprios critérios de pesquisa. A ferramenta "Cleaner" permite que você procure automaticamente no seu dispositivo e exclua arquivos com base em vários critérios.
+Filtro para pastas vazias, arquivos temporários, apps já instalados e muito mais. Você pode mesmo criar os seus próprios critérios de pesquisa. A ferramenta "SystemCleaner" procura e elimina automaticamente ficheiros com base em vários critérios.
 
 🧹 Apague arquivos dispensáveis e caches ocultas
 
@@ -25,11 +25,11 @@ Miniaturas, caixotes do lixo, caches offline e muito mais: Se as aplicações n�
 
 📦 Faça gestão de todas as suas aplicações
 
-Obtenha uma lista completa de todas as aplicações instalados no seu dispositivo. Ativada, desativada, aplicação do sistema ou do utilizador: nenhuma aplicação pode se esconder de si. A ferramenta "AppControl" é um gestor de aplicações que lhe permite pesquisar, classificar e controlar as suas aplicações.
+Obtenha uma lista completa de todas as aplicações instalados no seu dispositivo. Ativada, desativada, aplicação do sistema ou do utilizador: nenhuma aplicação pode se esconder de si. A ferramenta "AppControl" é um gestor de aplicações que lhe permite pesquisar, ordenar e controlar as suas aplicações.
 
 📊 O que está a usar todo o seu espaço
 
-Gestão de armazenamento pode ser complexo com aplicações mídia, sistema e outros arquivos entre o armazenamento do telefone, cartões SD e dispositivos USB. "StorageAnalyzer" é um gestor de arquivos que exibe como o espaço é usado no seu dispositivo, simplificando a sua gestão de armazenamento.
+A gestão de armazenamento pode ser complexa com aplicações, multimédia, sistema e outros ficheiros no armazenamento do dispositivo, cartões SD e dispositivos USB. "StorageAnalyzer" é um gestor de arquivos que exibe como o espaço é usado no seu dispositivo, simplificando a sua gestão de armazenamento.
 
 📷 Encontrar dados duplicados
 

@@ -2,54 +2,54 @@
 
 Askush nuk është i përsosur dhe as Android.
 
-* Aplikacionet e hequra lënë diçka pas.
-* Regjistrat, raportet e rrëzimit dhe skedarë të tjerë të padëshiruar krijohen vazhdimisht.
-* Ruajtja juaj grumbullon skedarë dhe dosje që nuk i njehni.
-* Fotografitë e dyfishta në galerinë tuaj.
+* Aplikacionet që keni hequr tashmë lënë diçka pas.
+* Regjistrat, raportet e rrëzimit dhe skedarë të tjerë që nuk i dëshironi krijohen vazhdimisht.
+* Ruajtja juaj po grumbullon skedarë dhe dosje që nuk i njehni.
+* Fotografi të dyfishta në galerinë tuaj.
 
-Le t'ju ndihmojë SD Maid 2/SE!
+Le të mos vazhdojmë këtu… Le t'ju ndihmojë SD Maid 2/SE!
 
-SD Maid 2/SE është menaxher aplikacionesh dhe skedarësh që specializohet në identifikimin e aplikacioneve që kanë krijuar skedarë në pajisjen tuaj. Krahason skedarët me aplikacionet e instaluara për të liruar hapësirën e ruajtjes me siguri.
+SD Maid 2/SE është një aplikacion dhe menaxher skedarësh që di cilat aplikacione kanë krijuar skedarë në pajisjen tuaj. Krahason skedarët me aplikacionet e instaluara për t'ju ndihmuar të lironi hapësirën e ruajtjes në mënyrë të sigurt.
 
-✨ Pastroni pas çinstalimit
+✨ Pastroni pas çinstalimit të aplikacioneve
 
-Nëse aplikacionet krijojnë skedarë jashtë dosjeve të tyre, mbeten edhe pas çinstalimit. Mjeti "CorpseFinder" gjen mbetjet, tregon cilit aplikacion i përkisnin dhe ndihmon t'i fshini.
+Nëse aplikacionet krijojnë skedarë jashtë dosjeve të tyre të caktuara, skedarët mund të mbëten edhe pas çinstalimit të aplikacioneve. Mjeti "CorpseFinder" gjen mbëtjet e aplikacioneve, ju tregon cilit aplikacion i përkisnin dhe ju ndihmon t'i fshini ato.
 
-🔍 Kërkoni pajisjen tuaj inteligjentisht
+🔍 Kërkoni në pajisjen tuaj në mënyrë inteligjente
 
-Filtroni dosje bosh, skedarë të përkohshëm, aplikacione të instaluara dhe më shumë. Krijoni kriteret tuaja të kërkimit. Mjeti "SystemCleaner" kërkon automatikisht dhe fshin skedarë bazuar në kritere të ndryshme.
+Filtroni për dosje bosh, skedarë të përkohshëm, aplikacione tashmë të instaluara dhe më shumë. Ju mund të krijoni madje edhe kriteret tuaja të kërkimit. Mjeti "SystemCleaner" kërkon dhe fshin automatikisht skedarët bazuar në kritere të ndryshme.
 
-🧹 Fshini skedarë të panevojshëm dhe cache të fshehura
+🧹 Fshini skedarë të panevojshmë dhe cache-t e fshehura
 
-Miniatura, koshi i plehrave, cache offline dhe më shumë: nëse aplikacionet nuk pastrojnë, "AppCleaner" do ta bëjë.
+Miniatura, koshi i plehrave, cache-t offline dhe më shumë: Nëse aplikacionet nuk pastrojnë pas vetes, kjo aplikacion do ta bëjë. Mjeti "AppCleaner" gjen aplikacione me skedarë të panevojshmë.
 
-📦 Menaxhoni të gjitha aplikacionet
+📦 Menaxhoni të gjitha aplikacionet tuaja
 
-Listë e plotë e të gjitha aplikacioneve të instaluara: aktive, joaktive, të përdoruesit ose të sistemit — asnjë nuk fshihet. Mjeti "AppControl" lejon të kërkoni, renditni dhe kontrolloni aplikacionet.
+Merrni një listë gjithëpërfshirëse të të gjitha aplikacioneve të instaluara në pajisjen tuaj. I aktivizuar, i çaktivizuar, aplikacion i përdoruesit ose i sistemit: asnjë aplikacion nuk mund të fshihet prej jush. Vegla "AppControl" është një menaxher aplikacioni që ju lejon të kërkoni, renditni dhe kontrolloni aplikacionet tuaja.
 
-📊 Çfarë po zë gjithë hapësirën
+📊 Çfarë po përdor gjithë hapësirën tuaj
 
-Menaxhimi i ruajtjes mund të jetë kompleks me aplikacione, media dhe skedarë sistemi në telefon, karta SD dhe USB. Mjeti "StorageAnalyzer" tregon si përdoret hapësira në pajisjen tuaj.
+Menaxhimi i hapësirës ruajtëse mund të jetë kompleks me aplikacionet, mediat, sistemin dhe skedarët e tjerë në hapësirën ruajtëse të pajisjes, kartat SD dhe pajisjet USB. "StorageAnalyzer" është një menaxher skedarësh që shfaq si përdoret hapësira në pajisjen tuaj, duke thjeshtuar menaxhimin e ruajtjes.
 
 📷 Gjeni të dhëna të dyfishta
 
-Shkarkime të dyfishta, foto nga rrjetet sociale ose imazhe të ngjashme të të njëjtit skenë: kopjet grumbullohen. Mjeti "Deduplicator" gjen skedarë identikë ose të ngjashëm dhe ndihmon të fshini kopjet shtesë.
+Shkarkime të dyfishta, foto të dërguara nëpërmjet mediave sociale ose thjesht foto të ngjashme të të njëjtit skenë: Me kalimin e kohës kopjet mund të grumbullohen. Mjeti "Deduplicator" gjen skedarë që janë saktësisht të njëjtë ose të ngjashmë dhe ju ndihmon të fshini kopjet shtesë.
 
 👆 Rregulloni me një rrëshqitje
 
-Zgjidhni një dosje dhe kaloni nëpër skedarë një nga një me rrëshqitje të thjeshta për të mbajtur, fshirë ose kaluar. Mjeti "Swiper" lejon të rishikoni vendimet para çdo fshirjeje, dhe mund të ruani sesionin për të vazhduar më vonë.
+Zgjidhni një dosje dhe kaloni nëpër skedarë një nga një me rrëshqitje të thjeshta për të mbajtur, fshirë ose kaluar. Mjeti "Swiper" ju lejon të rishikoni të gjitha vendimet para se të fshihet ndonjë gjë, dhe mund të ruani një sesion për të vazhduar më vonë.
 
-🗜️ Kurseni hapësirë pa fshirë fotot
+🗄️ Kurseni hapësirë pa fshirë fotot
 
-Fotot mund të zënë shumë hapësirë, por jo gjithmonë doni t'i hiqni. Mjeti "Media Squeeze" kompresion imazhet tuaja me cilësime të rregullueshme për të liruar hapësirë duke ruajtur fotografitë tuaja.
+Fotot mund të zënë shumë hapësirë ruajtëse, por jo gjithmonë dëshironi t'i hiqni ato. Mjeti "Media Squeeze" kompresion imazhet tuaja me cilësime të rregullueshme të cilësisë për të liruar hapësirë duke mbajtur fotografitë tuaja.
 
-Ky aplikacion nuk ka reklama. Disa funksione kërkojnë një azhurnim me pagesë.
+Kjo aplikacion nuk ka reklama. Disa funksione kërkojnë një azhurnim me pagesë.
 
 SD Maid 2/SE është pasardhësi i SD Maid 1/Legacy.
 I optimizuar për versionet më të reja të Android dhe i fokusuar në pastrimin.
 
-Ky aplikacion ka veçori opsionale që shfrytëzojnë API-n AccessibilityService për të automatizuar veprimet e mërzitshme.
-Duke përdorur API-n AccessibilityService, ky aplikacion mund të klikojë butonat për ju për të kryer operacione në shumë aplikacione, p.sh. fshirja e cache-ve.
-Ky aplikacion nuk e përdor API-n AccessibilityService për të mbledhur informacione.
+Kjo aplikacion ka veçori opsionale që shfrytëzojnë API-n AccessibilityService për të automatizuar veprimet e mërzitshme.
+Duke përdorur API-n AccessibilityService, kjo aplikacion mund të klikojë butonat për ju për të kryer operacione në shumë aplikacione, p.sh. fshirja e cache-ve.
+Kjo aplikacion nuk e përdor API-n AccessibilityService për të mbledhur informacione.
 
-SD Maid 2/SE është një Menaxher Skedarësh &amp; Aplikacion Pastrues.
+SD Maid 2/SE është një Menaxher Skedarësh & Aplikacion Pastrues.

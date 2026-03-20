@@ -9,7 +9,7 @@ Niemand is perfek nie en ook nie Android nie.
 
 Kom ons gaan nie hier aan nie... Laat SD Maid 2/SE jou help!
 
-SD Maid 2/SE is 'n toepassing- en lêerbestuurder wat daarin spesialiseer om te weet watter toepassings spesifieke lêers op jou toestel geskep het. SD Maid 2/SE deursoek jou toestel en vergelyk lêers met geïnstalleerde toepassings om opsies te bied om veilig stoorspasie vry te maak.
+SD Maid 2/SE is 'n toepassing- en lêerbestuurder wat weet watter toepassings lêers op jou toestel geskep het. Dit vergelyk lêers met geïnstalleerde toepassings om jou te help om bergingspasie veilig vry te maak.
 
 ✨ Maak skoon nadat jy programme verwyder het
 
@@ -17,7 +17,7 @@ As toepassings lêers buite hul aangewese vouers skep, kan lêers bly, selfs nad
 
 🔍 Soek jou toestel op die slim manier
 
-Filter vir leë dopgehou, tydelike lêers, reeds geïnstalleerde toepassings en meer. Jy kan selfs jou eie soekkriteria skep. Met die "SystemCleaner"-instrument kan jy outomaties jou toestel deursoek en lêers uitvee op grond van verskeie kriteria.
+Filter vir leë dopgehou, tydelike lêers, reeds geïnstalleerde toepassings en meer. Jy kan selfs jou eie soekkriteria skep. Die "SystemCleaner"-instrument deursoek outomaties en vee lêers uit op grond van verskeie kriteria.
 
 🧹 Vee uitwisbare lêers en verborge kas uit
 
@@ -25,11 +25,11 @@ Duimnaels, asblikke, vanlyn kas en meer: As programme nie agter hulself opruim n
 
 📦 Bestuur al jou programme
 
-Kry 'n omvattende lys van alle toepassings wat op jou toestel geïnstalleer is. Geaktiveerde, gedeaktiveerde, gebruiker- of stelseltoepassing: geen toepassing kan vir jou wegsteek nie. Die "AppControl"-nutsding is 'n toepassingbestuurder waarmee u u toepassings kan soek, sorteer en beheer.
+Kry 'n omvattende lys van alle toepassings wat op jou toestel geïnstalleer is. Geaktiveerde, gedeaktiveerde, gebruiker- of stelseltoepassing: geen toepassing kan vir jou wegsteek nie. Die "AppControl"-nutsding is 'n toepassingbestuurder waarmee jy jou toepassings kan soek, sorteer en beheer.
 
 📊 Wat gebruik al jou spasie
 
-Bergingbestuur kan kompleks wees met toepassings, media, stelsel- en ander lêers oor telefoonberging, SD-kaarte en USB-toestelle. "StorageAnalyzer" is 'n lêerbestuurder wat wys hoe spasie op jou toestel gebruik word, wat jou bergingbestuur vereenvoudig.
+Bergingbestuur kan kompleks wees met toepassings, media, stelsel- en ander lêers oor toestelberging, SD-kaarte en USB-toestelle. "StorageAnalyzer" is 'n lêerbestuurder wat wys hoe spasie op jou toestel gebruik word, wat jou bergingbestuur vereenvoudig.
 
 📷 Soek duplikaatdata
 

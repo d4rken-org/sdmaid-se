@@ -9,7 +9,7 @@ Hésh kim shárt emes hámde Android da shárt emes.
 
 Búl jerde davamlanbaymyz… SD Maid 2/SE-nıñ kömegiñe muvaqqal túriñiz!
 
-SD Maid 2/SE - qaysi app’lar sizdiñ quraymaña qaysi fayl’larды jüzege asırğanlığın bilip turadı app hámde fayl menegeri. SD Maid 2/SE quraymaňıznı izdep, fayl’lardy o‘rnatılğan app’lar men salıstırıp, saqlawsh bo‘shin tevin qutulgah optsiyaların taklif etedi.
+SD Maid 2/SE — qurılmańızdaǵı faylları qaysı qosımshalar jaratqanın biletúǵın qosımsha hám fayl basqarıwshısı. Ol xotira orının xawipsiz bosha alıwǵa járdem beriw ushın faylların ornatılǵan qosımshalar menen salıstırıp kóredi.
 
 ✨ App’larny alastaw sonında tazalaw
 
@@ -17,7 +17,7 @@ Agar ilova belgilangan papkalaridan tashqarida fayllar yaratsa, ilova o'chirilga
 
 🔍 Ushbu joylashtirilgan yuqori intellektli izlanish
 
-Bo'sh papkalar, vaqtincha fayllar, allaqachon o'rnatilgan ilovalari va boshqalarni filtrlang. Siz hatto o‘zingizning izlanish mezonlaringizni yarata olasiz. "SystemCleaner" vositasi qurilmangizni avtomatik ravishda izlab fayllarni turli mezonlar asosida o‘chirishga imkon beradi.
+Bo'sh papkalar, vaqtincha fayllar, allaqachon o'rnatilgan ilovalari va boshqalarni filtrlang. Siz hatto o‘zingizning izlanish mezonlaringizni yarata olasiz. "SystemCleaner" quralı túrli kriteriyalar tiykarında faylların avtomatik túrde izleydi hám joyıp joq qıladı.
 
 🧹 Keraksiz fayllarni va yashirin keshlarni o‘chirib tashlang
 
@@ -25,11 +25,11 @@ Tasvirlar, axlat qutilari, oflayn keshlar va boshqalar: Agar ilova o‘zini toza
 
 📦 Barcha ilovalaringizni boshqaring
 
-Qurilmangizga o‘rnatilgan barcha ilovalarga keng ko‘rinish oling. Faollashtirilgan, o‘chirilgan, foydalanuvchi yoki tizim ilovasi: hech qanday ilova siz oldidan yashina olmaydi. "AppControl" vositasi ilovalardagi qidiruv, saralash va boshqarishga imkon beradigan ilova menedjeri.
+Qurilmangizga o‘rnatilgan barcha ilovalarga keng ko‘rinish oling. Faollashtirilgan, o‘chirilgan, foydalanuvchi yoki tizim ilovasi: hech qanday ilova siz oldidan yashina olmaydi. "AppControl" quralı qosımshalarıńızdı izlew, sıralastırıw hám basqarıwǵa múmkinlik beretuǵın qosımsha basqarıwshısı.
 
 📊 Barcha joyingizni nima ishlatayotgani
 
-Saqlash boshqarishi murakkab bo‘lishi mumkin: ilova, media, tizim va boshqa fayllar telefon saqlash joyida, SD kartalar va USB qurilmalarida. "StorageAnalyzer" saqlash joyi qurilmangizda qanday ishlatilayotganini ko‘rsatadigan fayl menedjeri bo‘lib, saqlash boshqarishini soddalashtiradi.
+Сақлауды басқарыў қурылма сақлауы, SD карталар ҳәм USB қурылмалары арасындағы қосымшалар, медиа, система ҳәм басқа файллар менен татаўлы болыўы мүмкин. "StorageAnalyzer" saqlash joyi qurilmangizda qanday ishlatilayotganini ko‘rsatadigan fayl menedjeri bo‘lib, saqlash boshqarishini soddalashtiradi.
 
 📷 Takroriy ma‘lumotlarni topib oling
 

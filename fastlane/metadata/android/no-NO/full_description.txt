@@ -9,7 +9,7 @@ Ingen er perfekte, heller ikke Android.
 
 La oss ikke fortsette her… La SD Maid 2/SE hjelpe deg!
 
-SD Maid 2/SE er en app og filbehandler som spesialiserer seg på kunnskap om hvilke apper som står bak spesifikke filer på enheten din. SD Maid 2/SE søker gjennom enheten din og sammenligner filer med installerte apper for å tilby alternativer hvor du trygt kan frigjøre lagringsplass.
+SD Maid 2/SE er en app og filbehandler som vet hvilke apper som opprettet filer på enheten din. Den sammenligner filer med installerte apper for å hjelpe deg med å frigjøre lagringsplass på en trygg måte.
 
 ✨ Rydd opp etter apper er avinstallert
 
@@ -17,7 +17,7 @@ Hvis apper oppretter filer utenfor de angitte mappene, kan filene bli liggende i
 
 🔍 Søk gjennom enheten din på den smarte måten
 
-Filtre for tomme mapper, midlertidige filer, allerede installerte apper og mer. Du kan til og med lage dine egne søkekriterier. Verktøyet "Systemrenser" lar deg automatisk søke gjennom enheten og slette filer basert på forskjellige kriterier.
+Filtre for tomme mapper, midlertidige filer, allerede installerte apper og mer. Du kan til og med lage dine egne søkekriterier. Verktøyet «SystemCleaner» søker automatisk og sletter filer basert på ulike kriterier.
 
 🧹 Slett unødvendige filer og skjulte buffere
 
@@ -25,11 +25,11 @@ Miniatyrbilder, papirkurver, offline-hurtigbuffere og mer: Hvis apper ikke rydde
 
 📦 Administrer alle appene dine
 
-Få en sammensatt liste over alle installerte apper på enheten din. Aktivert, deaktivert, bruker eller systemapp: ingen apper kan skjule seg for deg. Verktøyet "Appkontroll" er en app-behandler som lar deg søke, sortere og kontrollere appene dine.
+Få en sammensatt liste over alle installerte apper på enheten din. Aktivert, deaktivert, bruker eller systemapp: ingen apper kan skjule seg for deg. Verktøyet «AppControl» er en app-behandler som lar deg søke, sortere og styre appene dine.
 
 📊 Hva er det som bruker all plassen din
 
-Lagringshåndtering kan være komplisert med apper, medier, system og andre filer på tvers av telefonlagring, SD-kort og USB-enheter. Verktøyet "Lagringsanalysator" er en filbehandler som viser hvordan plass brukes på enheten din, og forenkler lagringsbehandlingen.
+Lagringshåndtering kan være komplisert med apper, medier, system og andre filer på tvers av enhetslagring, SD-kort og USB-enheter. Verktøyet "Lagringsanalysator" er en filbehandler som viser hvordan plass brukes på enheten din, og forenkler lagringsbehandlingen.
 
 📷 Finn duplisert data
 

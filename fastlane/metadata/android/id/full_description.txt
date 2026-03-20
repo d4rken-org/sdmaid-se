@@ -9,7 +9,7 @@ Tiada yang sempurna dan itu termasuk Android.
 
 Mari kita tidak lanjutkan... Biarkan SD Maid 2/SE membantu Anda!
 
-SD Maid 2/SE adalah pengelola aplikasi dan file yang ahli dalam mengenali aplikasi mana yang membuat file tertentu di perangkat Anda. SD Maid 2/SE memindai perangkat Anda dan membandingkan file dengan aplikasi terpasang, lalu menawarkan cara aman untuk membebaskan ruang penyimpanan.
+SD Maid 2/SE adalah pengelola aplikasi dan file yang mengetahui aplikasi mana yang membuat file di perangkat Anda. Ini membandingkan file dengan aplikasi yang terpasang untuk membantu Anda membebaskan ruang penyimpanan dengan aman.
 
 ✨ Bersihkan sisa setelah Anda menghapus aplikasi
 
@@ -17,7 +17,7 @@ Jika aplikasi membuat file di luar folder khususnya, file-file itu bisa tetap ti
 
 🔍 Pindai perangkat Anda secara cerdas
 
-Filter untuk folder kosong, file sementara, aplikasi terpasang, dan lainnya. Anda bahkan bisa membuat kriteria pencarian sendiri. Alat "Pembersih Sistem" memungkinkan Anda memindai perangkat secara otomatis dan menghapus file berdasarkan berbagai kriteria.
+Filter untuk folder kosong, file sementara, aplikasi terpasang, dan lainnya. Anda bahkan bisa membuat kriteria pencarian sendiri. Alat "SystemCleaner" secara otomatis mencari dan menghapus file berdasarkan berbagai kriteria.
 
 🧹 Hapus file tak terpakai dan cache tersembunyi
 
@@ -25,11 +25,11 @@ Thumbnail, tempat sampah, cache offline, dan lainnya: Jika aplikasi tidak member
 
 📦 Kelola semua aplikasi Anda
 
-Dapatkan daftar lengkap semua aplikasi yang terpasang di perangkat Anda. Aplikasi aktif, nonaktif, milik pengguna, atau sistem: tidak ada yang dapat tersembunyi dari Anda. Alat "AppControl" adalah pengelola yang memungkinkan Anda mencari, menyortir, dan mengendalikan aplikasi Anda.
+Dapatkan daftar lengkap semua aplikasi yang terpasang di perangkat Anda. Aplikasi aktif, nonaktif, milik pengguna, atau sistem: tidak ada yang dapat tersembunyi dari Anda. Alat "AppControl" adalah pengelola aplikasi yang memungkinkan Anda mencari, menyortir, dan mengendalikan aplikasi.
 
 📊 Apa saja yang menggunakan ruang penyimpanan anda
 
-Manajemen penyimpanan bisa rumit dengan aplikasi, media, sistem, dan file lain yang tersebar di penyimpanan ponsel, kartu SD, serta perangkat USB. "StorageAnalyzer" adalah pengelola file yang menunjukkan penggunaan ruang di perangkat Anda, sehingga memudahkan manajemen penyimpanan.
+Manajemen penyimpanan bisa rumit dengan aplikasi, media, sistem, dan file lain yang tersebar di penyimpanan perangkat, kartu SD, serta perangkat USB. "StorageAnalyzer" adalah pengelola file yang menunjukkan penggunaan ruang di perangkat Anda, sehingga memudahkan manajemen penyimpanan.
 
 📷 Temukan data duplikat
 
