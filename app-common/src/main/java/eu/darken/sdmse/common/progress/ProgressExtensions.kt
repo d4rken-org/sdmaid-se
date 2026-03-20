@@ -108,5 +108,7 @@ suspend fun <T : Progress.Host, R> T.withProgress(
     } finally {
         forwardingJob.cancelAndJoin()
         scope.cancel("Finished scope")
+        // Flow's onCompletion doesn't restore because isActive is false after cancellation
+        client.updateProgress { onCompletion(it) }
     }
 }
