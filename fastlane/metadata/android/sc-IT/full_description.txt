@@ -29,11 +29,11 @@ Otene un'elencu completu de totu is app installadas in su dispositivu. Ativadas,
 
 📊 Che cosa est impreando tuttu s'ispazzu tuvu
 
-Sa gestione de sa memorizamentu podet essere cumplicada cun apps, media, sistema e àteros archìvios tra sa memorizamentu de su dispositiu, sas schedas SD e sos dispositivos USB. "StorageAnalyzer" est un gestore de archivos chi ammustra comente s'archiviadura est impreada in su dispositivu, simplificande sa gestione de s'archiviadura.
+Sa gestione de sa memorizamentu podet essere cumplicada cun apps, media, sistema e àteros archìvios tra sa memorizamentu de su dispositiu, sas schedas SD e sos dispositivos USB. "StorageAnalyzer" est un gestore de archivos chi ammustra comente s'archiviadura est impreada in su dispositivu, simplificande sa gestione.
 
 📷 Aischire datos duplicados
 
-Downloads duplicados, fotografie mandadas per is redes sociales o solamente fotografie similes de is istessa scena: In su tempus is copias podent accumularese. Lo strumentu "Deduplicator" aischit is archivos chi sunt esattamente is istessos o similes e ti agiudat a tzolare is copias extras.
+Downloads duplicados, fotografie mandadas per is redes sociales o fotografie similes de is istessa scena: In su tempus is copias podent accumularese. Lo strumentu "Deduplicator" aischit is archivos chi sunt esattamente is istessos o similes e ti agiudat a tzolare is copias extras.
 
 👆 Riordina cun unu scivolamentu
 
