@@ -57,3 +57,6 @@ SD Maid SE's cleaning tools are implemented within the main app module under `eu
 ## Pitfalls
 
 - Use `APath.segments` for path segment access — do NOT manually split path strings
+- `android.nonTransitiveRClass=true` is enabled — app's `R.attr` only contains attrs defined by the app module itself
+  - Theme attrs from dependencies must use their declaring module's R class (e.g. `com.google.android.material.R.attr.colorSecondary`)
+  - Widget attrs like `errorTextColor` are NOT theme attrs — using `MaterialColors.getColor()` with them crashes at runtime
