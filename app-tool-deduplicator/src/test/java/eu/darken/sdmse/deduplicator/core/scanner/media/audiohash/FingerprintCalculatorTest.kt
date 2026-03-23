@@ -101,14 +101,17 @@ class FingerprintCalculatorTest : BaseTest() {
     }
 
     @Test
-    fun `silence produces stable result`() {
+    fun `silence is rejected as featureless`() {
         val silence = ShortArray(FingerprintCalculator.TARGET_SAMPLE_RATE * 2)
-        val result1 = create().calculate(silence, FingerprintCalculator.TARGET_SAMPLE_RATE)
-        val result2 = create().calculate(silence, FingerprintCalculator.TARGET_SAMPLE_RATE)
+        // Silence produces all-zero energy differences → low entropy → rejected
+        create().calculate(silence, FingerprintCalculator.TARGET_SAMPLE_RATE).shouldBeNull()
+    }
 
-        result1.shouldNotBeNull()
-        result2.shouldNotBeNull()
-        result1 shouldBe result2
+    @Test
+    fun `near-constant noise is rejected as featureless`() {
+        // Constant amplitude — energy differences are near-zero
+        val constantNoise = ShortArray(FingerprintCalculator.TARGET_SAMPLE_RATE * 2) { 1000 }
+        create().calculate(constantNoise, FingerprintCalculator.TARGET_SAMPLE_RATE).shouldBeNull()
     }
 
     @Test
