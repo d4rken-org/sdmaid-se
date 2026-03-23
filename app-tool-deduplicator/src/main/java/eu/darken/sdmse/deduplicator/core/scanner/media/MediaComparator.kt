@@ -8,7 +8,7 @@ class MediaComparator @Inject constructor() {
 
     data class MediaInfo(
         val audioResult: AudioFingerprinter.Result?,
-        val frameHash: PHasher.Result?,
+        val frameHashes: List<PHasher.Result>,
         val isVideo: Boolean,
     )
 
@@ -27,11 +27,9 @@ class MediaComparator @Inject constructor() {
             return a.audioResult.similarityTo(b.audioResult)
         }
 
-        // Both video-no-audio → use frame hash comparison
+        // Both video-no-audio → use multi-frame hash comparison
         if (a.isVideo && b.isVideo && a.audioResult == null && b.audioResult == null) {
-            val aHash = a.frameHash ?: return null
-            val bHash = b.frameHash ?: return null
-            val frameSim = aHash.similarityTo(bHash)
+            val frameSim = averageFrameSimilarity(a.frameHashes, b.frameHashes) ?: return null
             return if (frameSim > VISUAL_ONLY_THRESHOLD) frameSim else null
         }
 
@@ -40,11 +38,21 @@ class MediaComparator @Inject constructor() {
 
     fun computeWithTiebreaker(a: MediaInfo, b: MediaInfo, audioSim: Double): Double? {
         if (!a.isVideo || !b.isVideo) return null
-        val aHash = a.frameHash ?: return null
-        val bHash = b.frameHash ?: return null
-        val frameSim = aHash.similarityTo(bHash)
+        val frameSim = averageFrameSimilarity(a.frameHashes, b.frameHashes) ?: return null
         // Weighted: 70% audio, 30% visual
         return audioSim * 0.7 + frameSim * 0.3
+    }
+
+    /**
+     * Average pHash similarity across paired frames.
+     * Compares frames at the same index (both extracted at matching timestamps).
+     * Falls back to comparing however many pairs are available.
+     */
+    fun averageFrameSimilarity(a: List<PHasher.Result>, b: List<PHasher.Result>): Double? {
+        if (a.isEmpty() || b.isEmpty()) return null
+        val pairs = minOf(a.size, b.size)
+        val totalSim = (0 until pairs).sumOf { i -> a[i].similarityTo(b[i]) }
+        return totalSim / pairs
     }
 
     companion object {
