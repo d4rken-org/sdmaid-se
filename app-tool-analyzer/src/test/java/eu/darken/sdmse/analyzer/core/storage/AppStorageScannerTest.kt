@@ -60,11 +60,13 @@ class AppStorageScannerTest : BaseTest() {
         isPrivate: Boolean = false,
         mountUserId: Int? = 0,
         path: File = File("/storage/emulated"),
+        pathForUser: File? = File("/storage/emulated/0"),
     ) = mockk<VolumeInfoX>().apply {
         every { this@apply.fsUuid } returns fsUuid
         every { this@apply.isPrivate } returns isPrivate
         every { this@apply.mountUserId } returns mountUserId
         every { this@apply.path } returns path
+        every { this@apply.getPathForUser(any()) } returns pathForUser
         every { this@apply.isMounted } returns true
     }
 

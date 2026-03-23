@@ -62,13 +62,14 @@ class AppStorageScanner @AssistedInject constructor(
 
             else -> candidates.single()
         }
-            ?.path
-            ?.let { LocalPath.build(it) }
-            ?.let {
-                when {
-                    it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
-                    else -> it
-                }
+            ?.let { volume ->
+                volume.getPathForUser(currentUser.handleId)?.let { LocalPath.build(it) }
+                    ?: volume.path?.let { LocalPath.build(it) }?.let {
+                        when {
+                            it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
+                            else -> it
+                        }
+                    }
             }
         setOfNotNull(mainPath)
     }
