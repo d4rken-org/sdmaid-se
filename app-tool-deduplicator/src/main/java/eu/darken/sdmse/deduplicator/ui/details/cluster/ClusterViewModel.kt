@@ -19,8 +19,6 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
-import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
@@ -43,7 +41,6 @@ class ClusterViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
     private val viewIntentTool: ViewIntentTool,
-    private val arbiter: DuplicatesArbiter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val identifier: Duplicate.Cluster.Id = handle.get<Duplicate.Cluster.Id>("identifier")!!
@@ -66,7 +63,6 @@ class ClusterViewModel @Inject constructor(
         collapsedDirectories,
     ) { cluster, progress, allowDeleteAll, isDirectoryViewEnabled, collapsed ->
         val elements = mutableListOf<ClusterAdapter.Item>()
-        val strategy = arbiter.getStrategy()
 
         ClusterHeaderVH.Item(
             cluster = cluster,
@@ -75,9 +71,9 @@ class ClusterViewModel @Inject constructor(
         ).run { elements.add(this) }
 
         if (isDirectoryViewEnabled) {
-            buildDirectoryViewElements(cluster, collapsed, strategy, elements)
+            buildDirectoryViewElements(cluster, collapsed, elements)
         } else {
-            buildGroupViewElements(cluster, strategy, elements)
+            buildGroupViewElements(cluster, elements)
         }
 
         State(
@@ -88,9 +84,8 @@ class ClusterViewModel @Inject constructor(
         )
     }.asLiveData2()
 
-    private suspend fun buildGroupViewElements(
+    private fun buildGroupViewElements(
         cluster: Duplicate.Cluster,
-        strategy: ArbiterStrategy,
         elements: MutableList<ClusterAdapter.Item>,
     ) {
         cluster.groups
@@ -98,11 +93,7 @@ class ClusterViewModel @Inject constructor(
             .flatMap { group ->
                 val items = mutableListOf<ClusterAdapter.Item>()
 
-                val keeperId = if (group.duplicates.size >= 2) {
-                    arbiter.decideDuplicates(group.duplicates, strategy).first.identifier
-                } else {
-                    group.duplicates.firstOrNull()?.identifier
-                }
+                val keeperId = group.keeperIdentifier
 
                 when (group.type) {
                     Duplicate.Type.CHECKSUM -> {
@@ -120,7 +111,7 @@ class ClusterViewModel @Inject constructor(
                         group.duplicates.map { dupe ->
                             ChecksumGroupFileVH.Item(
                                 duplicate = dupe,
-                                isKeeper = dupe.identifier == keeperId,
+                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
                                 onItemClick = { delete(listOf(it)) },
                             )
                         }.run { items.addAll(this) }
@@ -143,7 +134,7 @@ class ClusterViewModel @Inject constructor(
                         group.duplicates.map { dupe ->
                             PHashGroupFileVH.Item(
                                 duplicate = dupe,
-                                isKeeper = dupe.identifier == keeperId,
+                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
                                 onItemClick = { delete(listOf(it)) },
                                 onPreviewClick = { item ->
                                     val paths = group.duplicates.map { it.path }
@@ -163,26 +154,16 @@ class ClusterViewModel @Inject constructor(
             .run { elements.addAll(this) }
     }
 
-    private suspend fun buildDirectoryViewElements(
+    private fun buildDirectoryViewElements(
         cluster: Duplicate.Cluster,
         collapsed: Set<DirectoryGroup.Id>,
-        strategy: ArbiterStrategy,
         elements: MutableList<ClusterAdapter.Item>,
     ) {
-        // Pre-compute keeper for each group
-        val keeperIds = cluster.groups.associate { group ->
-            val keeperId = if (group.duplicates.size >= 2) {
-                arbiter.decideDuplicates(group.duplicates, strategy).first.identifier
-            } else {
-                group.duplicates.firstOrNull()?.identifier
-            }
-            group.identifier to keeperId
-        }
-
-        // Build a lookup from duplicate to its group
-        val dupeToGroup = cluster.groups.flatMap { group ->
-            group.duplicates.map { it.identifier to group.identifier }
-        }.toMap()
+        // Pre-compute delete targets from stored keeper identifiers
+        val deleteTargetIds = cluster.groups
+            .filter { it.keeperIdentifier != null && it.duplicates.size >= 2 }
+            .flatMap { group -> group.duplicates.filter { it.identifier != group.keeperIdentifier }.map { it.identifier } }
+            .toSet()
 
         // Collect all duplicates from all groups
         val allDuplicates = cluster.groups.flatMap { it.duplicates }
@@ -210,18 +191,17 @@ class ClusterViewModel @Inject constructor(
 
             if (!isCollapsed) {
                 dirGroup.duplicates.map { dupe ->
-                    val groupId = dupeToGroup[dupe.identifier]
-                    val isKeeper = groupId != null && keeperIds[groupId] == dupe.identifier
+                    val willBeDeleted = dupe.identifier in deleteTargetIds
                     when (dupe) {
                         is ChecksumDuplicate -> ChecksumGroupFileVH.Item(
                             duplicate = dupe,
-                            isKeeper = isKeeper,
+                            willBeDeleted = willBeDeleted,
                             onItemClick = { delete(listOf(it)) },
                         )
 
                         is PHashDuplicate -> PHashGroupFileVH.Item(
                             duplicate = dupe,
-                            isKeeper = isKeeper,
+                            willBeDeleted = willBeDeleted,
                             onItemClick = { delete(listOf(it)) },
                             onPreviewClick = { item ->
                                 val options = PreviewOptions(

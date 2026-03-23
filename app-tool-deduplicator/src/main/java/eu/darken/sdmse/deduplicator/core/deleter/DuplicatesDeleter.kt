@@ -128,9 +128,14 @@ class DuplicatesDeleter @Inject constructor(
                 if (deleteAll || group.duplicates.size == 1) {
                     targetDuplicates(group.duplicates.map { it.identifier }.toSet())
                 } else {
-                    val (favorite, rest) = arbiter.decideDuplicates(group.duplicates, strategy)
-                    log(TAG, VERBOSE) { "__targetGroups(): Our favorite is $favorite" }
-
+                    val keeperId = group.keeperIdentifier
+                    val rest = if (keeperId != null) {
+                        group.duplicates.filter { it.identifier != keeperId }
+                    } else {
+                        val (favorite, nonKeepers) = arbiter.decideDuplicates(group.duplicates, strategy)
+                        log(TAG, VERBOSE) { "__targetGroups(): Our favorite is $favorite" }
+                        nonKeepers
+                    }
                     targetDuplicates(rest.map { it.identifier }.toSet())
                 }
             }

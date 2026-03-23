@@ -67,16 +67,16 @@
         tools:text="97.14% similar" />
 
     <ImageView
-        android:id="@+id/keeper_icon"
+        android:id="@+id/delete_icon"
         android:layout_width="16dp"
         android:layout_height="16dp"
         android:layout_marginEnd="4dp"
-        android:src="@drawable/ic_shield_24"
+        android:src="@drawable/ic_delete"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/size_value"
         app:layout_constraintEnd_toStartOf="@id/size_value"
         app:layout_constraintTop_toTopOf="@id/size_value"
-        app:tint="?colorPrimary"
+        app:tint="?colorError"
         tools:visibility="visible" />
 
     <com.google.android.material.textview.MaterialTextView

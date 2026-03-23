@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.keepResourceHoldersAlive
+import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
@@ -35,6 +36,9 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.drop
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
@@ -50,6 +54,7 @@ class Deduplicator @Inject constructor(
     private val scanner: Provider<DuplicatesScanner>,
     private val deleter: Provider<DuplicatesDeleter>,
     private val settings: DeduplicatorSettings,
+    private val arbiter: DuplicatesArbiter,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.DEDUPLICATOR
@@ -78,6 +83,18 @@ class Deduplicator @Inject constructor(
     }.replayingShare(appScope)
 
     private val toolLock = Mutex()
+
+    init {
+        settings.arbiterConfig.flow
+            .drop(1)
+            .onEach {
+                toolLock.withLock {
+                    log(TAG, INFO) { "Arbiter config changed, clearing scan data" }
+                    internalData.value = null
+                }
+            }
+            .launchIn(appScope)
+    }
     override suspend fun submit(task: SDMTool.Task): SDMTool.Task.Result = toolLock.withLock {
         task as DeduplicatorTask
         log(TAG, INFO) { "submit($task) starting..." }
@@ -154,7 +171,7 @@ class Deduplicator @Inject constructor(
 
         updateProgress { Progress.Data() }
 
-        internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet())
+        internalData.value = snapshot.prune(result.success.map { it.identifier }.toSet(), arbiter)
 
         return DeduplicatorDeleteTask.Success(
             affectedSpace = result.success.sumOf { it.size },
@@ -187,17 +204,32 @@ class Deduplicator @Inject constructor(
             .toSet()
         exclusionManager.save(exclusions)
 
+        val strategy = arbiter.getStrategy()
         val newCluster: Duplicate.Cluster? = cluster
             .copy(
                 groups = cluster.groups.mapNotNull { group ->
+                    val filteredDuplicates = group.duplicates.filter { !paths.contains(it.path) }
+                    val keeperValid = filteredDuplicates.any { it.identifier == group.keeperIdentifier }
                     val newGroup = when (group.type) {
-                        Duplicate.Type.CHECKSUM -> (group as ChecksumDuplicate.Group).copy(
-                            duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
-                        )
+                        Duplicate.Type.CHECKSUM -> {
+                            val dupes = filteredDuplicates.filterIsInstance<ChecksumDuplicate>().toSet()
+                            val keeperId = when {
+                                keeperValid -> group.keeperIdentifier
+                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                                else -> null
+                            }
+                            (group as ChecksumDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
+                        }
 
-                        Duplicate.Type.PHASH -> (group as PHashDuplicate.Group).copy(
-                            duplicates = group.duplicates.filter { !paths.contains(it.path) }.toSet()
-                        )
+                        Duplicate.Type.PHASH -> {
+                            val dupes = filteredDuplicates.filterIsInstance<PHashDuplicate>().toSet()
+                            val keeperId = when {
+                                keeperValid -> group.keeperIdentifier
+                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                                else -> null
+                            }
+                            (group as PHashDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
+                        }
                     }
                     if (newGroup.duplicates.size >= 2) {
                         newGroup
@@ -270,9 +302,12 @@ class Deduplicator @Inject constructor(
     }
 }
 
-internal fun Deduplicator.Data.prune(deletedIds: Set<Duplicate.Id>): Deduplicator.Data {
+internal suspend fun Deduplicator.Data.prune(
+    deletedIds: Set<Duplicate.Id>,
+    arbiter: DuplicatesArbiter,
+): Deduplicator.Data {
+    val strategy = arbiter.getStrategy()
     val newClusters = this.clusters
-        .asSequence()
         .map { oldCluster ->
             // Remove duplicates from groups
             val newGroups = oldCluster.groups
@@ -284,17 +319,30 @@ internal fun Deduplicator.Data.prune(deletedIds: Set<Duplicate.Id>): Deduplicato
                             !wasDeleted
                         }
                         .toSet()
+                    val keeperValid = newDuplicates.any { it.identifier == oldGroup.keeperIdentifier }
                     when (oldGroup.type) {
                         Duplicate.Type.CHECKSUM -> {
                             oldGroup as ChecksumDuplicate.Group
                             @Suppress("UNCHECKED_CAST")
-                            oldGroup.copy(duplicates = newDuplicates as Set<ChecksumDuplicate>)
+                            val dupes = newDuplicates as Set<ChecksumDuplicate>
+                            val keeperId = when {
+                                keeperValid -> oldGroup.keeperIdentifier
+                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                                else -> null
+                            }
+                            oldGroup.copy(duplicates = dupes, keeperIdentifier = keeperId)
                         }
 
                         Duplicate.Type.PHASH -> {
                             oldGroup as PHashDuplicate.Group
                             @Suppress("UNCHECKED_CAST")
-                            oldGroup.copy(duplicates = newDuplicates as Set<PHashDuplicate>)
+                            val dupes = newDuplicates as Set<PHashDuplicate>
+                            val keeperId = when {
+                                keeperValid -> oldGroup.keeperIdentifier
+                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                                else -> null
+                            }
+                            oldGroup.copy(duplicates = dupes, keeperIdentifier = keeperId)
                         }
                     }
                 }

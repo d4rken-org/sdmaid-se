@@ -28,6 +28,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.progress.withProgress
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
@@ -57,6 +58,7 @@ class DuplicatesScanner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
     private val commonFilesCheck: CommonFilesCheck,
     private val fileForensics: FileForensics,
+    private val arbiter: DuplicatesArbiter,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -292,7 +294,22 @@ class DuplicatesScanner @Inject constructor(
                 }
             }
         }
-        return clusters
+        val strategy = arbiter.getStrategy()
+        val clustersWithKeepers = clusters.map { cluster ->
+            cluster.copy(
+                groups = cluster.groups.map { group ->
+                    if (group.duplicates.size < 2) return@map group
+                    val keeper = arbiter.decideDuplicates(group.duplicates, strategy).first
+                    when (group) {
+                        is ChecksumDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
+                        is PHashDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
+                        else -> group
+                    }
+                }.toSet()
+            )
+        }.toSet()
+
+        return clustersWithKeepers
     }
 
     companion object {
