@@ -20,31 +20,17 @@
         tools:src="?colorPrimary"
         tools:visibility="visible" />
 
-    <ImageView
-        android:id="@+id/delete_icon"
-        android:layout_width="16dp"
-        android:layout_height="16dp"
-        android:layout_marginTop="4dp"
-        android:layout_marginEnd="16dp"
-        android:src="@drawable/ic_delete"
-        android:visibility="gone"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:tint="?colorError"
-        tools:visibility="visible" />
-
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/name"
         style="@style/TextAppearance.Material3.BodyMedium"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
+        android:layout_marginHorizontal="16dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
         android:ellipsize="end"
         android:maxLines="2"
         android:textColor="?colorOnBackground"
-        app:layout_constraintEnd_toStartOf="@id/delete_icon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/preview_image"
         app:layout_constraintTop_toTopOf="parent"
         tools:text="somefilename.apk" />
@@ -64,21 +50,32 @@
         app:layout_constraintTop_toBottomOf="@id/name"
         tools:text="/storage/emulated/0/Downloads/something" />
 
+    <ImageView
+        android:id="@+id/delete_icon"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_marginEnd="4dp"
+        android:src="@drawable/ic_delete"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/secondary"
+        app:layout_constraintEnd_toStartOf="@id/secondary"
+        app:layout_constraintTop_toTopOf="@id/secondary"
+        app:tint="?colorError"
+        tools:visibility="visible" />
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/secondary"
         style="@style/TextAppearance.Material3.LabelMedium"
-        android:layout_width="0dp"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="4dp"
         android:layout_marginTop="2dp"
         android:ellipsize="end"
-        android:gravity="end"
         android:singleLine="true"
         android:textColor="?colorOnBackground"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@id/preview_image"
         app:layout_constraintTop_toBottomOf="@id/path"
         tools:text="999.99 MB" />
 
