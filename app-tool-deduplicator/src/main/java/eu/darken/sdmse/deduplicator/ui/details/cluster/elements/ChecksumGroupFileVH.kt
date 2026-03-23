@@ -39,14 +39,14 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
         name.text = fileName
         path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
-        keeperIcon.isVisible = item.isKeeper
+        deleteIcon.isVisible = item.willBeDeleted
 
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val duplicate: ChecksumDuplicate,
-        val isKeeper: Boolean = false,
+        val willBeDeleted: Boolean = false,
         val onItemClick: (Item) -> Unit,
     ) : ClusterAdapter.DuplicateItem, SelectableItem {
 

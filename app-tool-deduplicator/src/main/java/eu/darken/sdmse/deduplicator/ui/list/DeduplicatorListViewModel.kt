@@ -1,9 +1,7 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
-import dagger.hilt.android.lifecycle.HiltViewModel
 import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
-import eu.darken.sdmse.deduplicator.R
+import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -11,12 +9,14 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.previews.PreviewOptions
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -65,6 +65,12 @@ class DeduplicatorListViewModel @Inject constructor(
                 when (layoutMode) {
                     LayoutMode.LINEAR -> DeduplicatorListLinearVH.Item(
                         cluster = cluster,
+                        deleteTargetIds = cluster.groups
+                            .filter { it.keeperIdentifier != null && it.duplicates.size >= 2 }
+                            .flatMap { g ->
+                                g.duplicates.filter { it.identifier != g.keeperIdentifier }.map { it.identifier }
+                            }
+                            .toSet(),
                         onItemClicked = { delete(setOf(it)) },
                         onDupeClicked = { delete(setOf(it)) },
                         onPreviewClicked = { item ->
@@ -80,7 +86,7 @@ class DeduplicatorListViewModel @Inject constructor(
                                 position = paths.indexOf(item.dupe.path)
                             )
                             events.postValue(DeduplicatorListEvents.PreviewEvent(options))
-                        }
+                        },
                     )
 
                     LayoutMode.GRID -> DeduplicatorListGridVH.Item(
@@ -164,7 +170,10 @@ class DeduplicatorListViewModel @Inject constructor(
 
     fun showDetails(id: Duplicate.Cluster.Id) = launch {
         log(TAG, INFO) { "showDetails(id=$id)" }
-        navDirections(R.id.action_deduplicatorListFragment_to_deduplicatorDetailsFragment, bundleOf("identifier" to id)).navigate()
+        navDirections(
+            R.id.action_deduplicatorListFragment_to_deduplicatorDetailsFragment,
+            bundleOf("identifier" to id)
+        ).navigate()
     }
 
     fun toggleLayoutMode() = launch {

@@ -50,14 +50,14 @@ class PHashGroupFileVH(parent: ViewGroup) :
         secondary.text = String.format("%.2f%%", dupe.similarity * 100)
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
 
-        keeperIcon.isVisible = item.isKeeper
+        deleteIcon.isVisible = item.willBeDeleted
 
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val duplicate: PHashDuplicate,
-        val isKeeper: Boolean = false,
+        val willBeDeleted: Boolean = false,
         val onItemClick: (Item) -> Unit,
         val onPreviewClick: (Item) -> Unit,
     ) : ClusterAdapter.DuplicateItem, SelectableItem {

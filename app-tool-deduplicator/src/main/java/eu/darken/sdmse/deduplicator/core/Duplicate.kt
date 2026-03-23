@@ -39,6 +39,8 @@ interface Duplicate {
     interface Group {
         val identifier: Id
         val duplicates: Set<Duplicate>
+        val keeperIdentifier: Duplicate.Id?
+            get() = null
 
         val type: Type
 

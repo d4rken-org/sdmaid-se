@@ -14,7 +14,8 @@ data class ChecksumDuplicate(
 
     data class Group(
         override val duplicates: Set<ChecksumDuplicate>,
-        override val identifier: Duplicate.Group.Id
+        override val identifier: Duplicate.Group.Id,
+        override val keeperIdentifier: Duplicate.Id? = null,
     ) : Duplicate.Group {
 
         override val type: Duplicate.Type

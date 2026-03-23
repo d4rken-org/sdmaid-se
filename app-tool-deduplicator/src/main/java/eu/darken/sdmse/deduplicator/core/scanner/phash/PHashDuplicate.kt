@@ -15,7 +15,8 @@ data class PHashDuplicate(
 
     data class Group(
         override val identifier: Duplicate.Group.Id,
-        override val duplicates: Set<PHashDuplicate>
+        override val duplicates: Set<PHashDuplicate>,
+        override val keeperIdentifier: Duplicate.Id? = null,
     ) : Duplicate.Group {
         override val type: Duplicate.Type
             get() = Duplicate.Type.PHASH

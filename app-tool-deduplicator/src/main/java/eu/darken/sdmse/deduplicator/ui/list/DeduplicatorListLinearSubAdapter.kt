@@ -89,12 +89,15 @@ class DeduplicatorListLinearSubAdapter @Inject constructor() :
 
             secondary.text = Formatter.formatShortFileSize(context, dupe.size)
 
+            deleteIcon.isVisible = item.willBeDeleted
+
             root.setOnClickListener { item.onItemClicked(item) }
         }
 
         data class Item(
             override val cluster: Duplicate.Cluster,
             override val dupe: Duplicate,
+            val willBeDeleted: Boolean = false,
             val onItemClicked: (Item) -> Unit,
             val onPreviewClicked: (Item) -> Unit,
         ) : DeduplicatorListLinearSubAdapter.Item {

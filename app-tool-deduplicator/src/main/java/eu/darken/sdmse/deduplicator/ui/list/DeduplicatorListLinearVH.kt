@@ -71,8 +71,9 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
                 DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item(
                     cluster = cluster,
                     dupe = dupe,
+                    willBeDeleted = dupe.identifier in item.deleteTargetIds,
                     onItemClicked = { item.onDupeClicked(it) },
-                    onPreviewClicked = { item.onItemPreviewClick(it) }
+                    onPreviewClicked = { item.onItemPreviewClick(it) },
                 )
             }
         adapter.update(subItems)
@@ -82,10 +83,11 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
 
     data class Item(
         override val cluster: Duplicate.Cluster,
+        val deleteTargetIds: Set<Duplicate.Id> = emptySet(),
         val onItemClicked: (Item) -> Unit,
         val onDupeClicked: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit,
         val onPreviewClicked: (Item) -> Unit,
-        val onItemPreviewClick: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit
+        val onItemPreviewClick: (DeduplicatorListLinearSubAdapter.DuplicateItemVH.Item) -> Unit,
     ) : DeduplicatorListAdapter.Item {
 
         override val itemSelectionKey: String
