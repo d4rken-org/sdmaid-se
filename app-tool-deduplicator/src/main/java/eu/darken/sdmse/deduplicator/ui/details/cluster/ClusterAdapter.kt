@@ -18,6 +18,8 @@ import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFil
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.DirectoryHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.MediaGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.MediaGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import javax.inject.Inject
@@ -39,6 +41,8 @@ class ClusterAdapter @Inject constructor() :
         addMod(TypedVHCreatorMod({ data[it] is ChecksumGroupFileVH.Item }) { ChecksumGroupFileVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is PHashGroupHeaderVH.Item }) { PHashGroupHeaderVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is PHashGroupFileVH.Item }) { PHashGroupFileVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is MediaGroupHeaderVH.Item }) { MediaGroupHeaderVH(it) })
+        addMod(TypedVHCreatorMod({ data[it] is MediaGroupFileVH.Item }) { MediaGroupFileVH(it) })
     }
 
     abstract class BaseVH<D : Item, B : ViewBinding>(

@@ -51,6 +51,12 @@
             app:singleLineTitle="false"
             app:summary="@string/deduplicator_detection_method_phash_summary"
             app:title="@string/deduplicator_detection_method_phash_title" />
+        <CheckBoxPreference
+            app:icon="@drawable/ic_waveform_box_24"
+            app:key="sleuth.media.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/deduplicator_detection_method_media_summary"
+            app:title="@string/deduplicator_detection_method_media_title" />
     </PreferenceCategory>
 
 </PreferenceScreen>

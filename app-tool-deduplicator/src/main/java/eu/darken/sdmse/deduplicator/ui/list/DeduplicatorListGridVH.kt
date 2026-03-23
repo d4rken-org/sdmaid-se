@@ -54,6 +54,7 @@ class DeduplicatorListGridVH(parent: ViewGroup) :
 
         matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
         matchTypePhash.isVisible = item.cluster.types.contains(Duplicate.Type.PHASH)
+        matchTypeMedia.isVisible = item.cluster.types.contains(Duplicate.Type.MEDIA)
 
         previewAction.setOnClickListener { item.onPreviewClicked(item) }
         footerContainer.setOnClickListener { item.onFooterClicked(item) }

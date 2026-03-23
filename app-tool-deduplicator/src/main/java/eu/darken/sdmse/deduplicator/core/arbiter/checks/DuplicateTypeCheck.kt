@@ -29,5 +29,6 @@ class DuplicateTypeCheck @Inject constructor() : ArbiterCheck {
     fun Duplicate.Type.toPriority() = when (this) {
         Duplicate.Type.CHECKSUM -> 1
         Duplicate.Type.PHASH -> 2
+        Duplicate.Type.MEDIA -> 2
     }
 }

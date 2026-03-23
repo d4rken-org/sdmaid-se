@@ -22,6 +22,7 @@ import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.deleter.DuplicatesDeleter
 import eu.darken.sdmse.deduplicator.core.scanner.DuplicatesScanner
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
@@ -138,6 +139,7 @@ class Deduplicator @Inject constructor(
             skipUncommon = settings.skipUncommon.value(),
             useSleuthChecksum = settings.isSleuthChecksumEnabled.value(),
             useSleuthPHash = settings.isSleuthPHashEnabled.value(),
+            useSleuthMedia = settings.isSleuthMediaEnabled.value(),
         )
 
         val results = scanner.get().withProgress(this) {
@@ -227,6 +229,16 @@ class Deduplicator @Inject constructor(
                         else -> null
                     }
                     (group as PHashDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
+                }
+
+                Duplicate.Type.MEDIA -> {
+                    val dupes = filteredDuplicates.filterIsInstance<MediaDuplicate>().toSet()
+                    val keeperId = when {
+                        keeperValid -> group.keeperIdentifier
+                        dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                        else -> null
+                    }
+                    (group as MediaDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
                 }
             }
             if (newGroup.duplicates.size >= 2) {
@@ -344,6 +356,18 @@ internal suspend fun Deduplicator.Data.prune(
                             oldGroup as PHashDuplicate.Group
                             @Suppress("UNCHECKED_CAST")
                             val dupes = newDuplicates as Set<PHashDuplicate>
+                            val keeperId = when {
+                                keeperValid -> oldGroup.keeperIdentifier
+                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                                else -> null
+                            }
+                            oldGroup.copy(duplicates = dupes, keeperIdentifier = keeperId)
+                        }
+
+                        Duplicate.Type.MEDIA -> {
+                            oldGroup as MediaDuplicate.Group
+                            @Suppress("UNCHECKED_CAST")
+                            val dupes = newDuplicates as Set<MediaDuplicate>
                             val keeperId = when {
                                 keeperValid -> oldGroup.keeperIdentifier
                                 dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier

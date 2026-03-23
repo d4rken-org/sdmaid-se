@@ -4,20 +4,20 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import coil.transform.RoundedCornersTransformation
-import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.common.replaceLast
-import eu.darken.sdmse.deduplicator.databinding.DeduplicatorClusterElementPhashgroupFileBinding
-import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.R
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
+import eu.darken.sdmse.deduplicator.databinding.DeduplicatorClusterElementMediagroupFileBinding
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
 
 
-class PHashGroupFileVH(parent: ViewGroup) :
-    ClusterAdapter.BaseVH<PHashGroupFileVH.Item, DeduplicatorClusterElementPhashgroupFileBinding>(
-        R.layout.deduplicator_cluster_element_phashgroup_file,
+class MediaGroupFileVH(parent: ViewGroup) :
+    ClusterAdapter.BaseVH<MediaGroupFileVH.Item, DeduplicatorClusterElementMediagroupFileBinding>(
+        R.layout.deduplicator_cluster_element_mediagroup_file,
         parent
     ), ClusterAdapter.DuplicateItem.VH, SelectableVH {
 
@@ -29,9 +29,9 @@ class PHashGroupFileVH(parent: ViewGroup) :
         itemView.isActivated = selected
     }
 
-    override val viewBinding = lazy { DeduplicatorClusterElementPhashgroupFileBinding.bind(itemView) }
+    override val viewBinding = lazy { DeduplicatorClusterElementMediagroupFileBinding.bind(itemView) }
 
-    override val onBindData: DeduplicatorClusterElementPhashgroupFileBinding.(
+    override val onBindData: DeduplicatorClusterElementMediagroupFileBinding.(
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
@@ -47,7 +47,13 @@ class PHashGroupFileVH(parent: ViewGroup) :
         name.text = fileName
         path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
-        secondary.text = String.format("%.2f%%", dupe.similarity * 100)
+        val matchType = when {
+            dupe.audioHash != null && dupe.frameHash != null -> context.getString(R.string.deduplicator_media_match_audio_visual)
+            dupe.audioHash != null -> context.getString(R.string.deduplicator_media_match_audio)
+            dupe.frameHash != null -> context.getString(R.string.deduplicator_media_match_visual)
+            else -> ""
+        }
+        secondary.text = "${String.format("%.2f%%", dupe.similarity * 100)} ($matchType)"
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
 
         deleteIcon.isVisible = item.willBeDeleted
@@ -56,7 +62,7 @@ class PHashGroupFileVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val duplicate: PHashDuplicate,
+        override val duplicate: MediaDuplicate,
         val willBeDeleted: Boolean = false,
         val onItemClick: (Item) -> Unit,
         val onPreviewClick: (Item) -> Unit,

@@ -19,13 +19,17 @@ import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ChecksumGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.ClusterHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.DirectoryHeaderVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.MediaGroupFileVH
+import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.MediaGroupHeaderVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupFileVH
 import eu.darken.sdmse.deduplicator.ui.details.cluster.elements.PHashGroupHeaderVH
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -41,6 +45,7 @@ class ClusterViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
     private val viewIntentTool: ViewIntentTool,
+    private val arbiter: DuplicatesArbiter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val identifier: Duplicate.Cluster.Id = handle.get<Duplicate.Cluster.Id>("identifier")!!
@@ -63,6 +68,7 @@ class ClusterViewModel @Inject constructor(
         collapsedDirectories,
     ) { cluster, progress, allowDeleteAll, isDirectoryViewEnabled, collapsed ->
         val elements = mutableListOf<ClusterAdapter.Item>()
+        val strategy = arbiter.getStrategy()
 
         ClusterHeaderVH.Item(
             cluster = cluster,
@@ -71,9 +77,9 @@ class ClusterViewModel @Inject constructor(
         ).run { elements.add(this) }
 
         if (isDirectoryViewEnabled) {
-            buildDirectoryViewElements(cluster, collapsed, elements)
+            buildDirectoryViewElements(cluster, collapsed, strategy, elements)
         } else {
-            buildGroupViewElements(cluster, elements)
+            buildGroupViewElements(cluster, strategy, elements)
         }
 
         State(
@@ -84,8 +90,9 @@ class ClusterViewModel @Inject constructor(
         )
     }.asLiveData2()
 
-    private fun buildGroupViewElements(
+    private suspend fun buildGroupViewElements(
         cluster: Duplicate.Cluster,
+        strategy: eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy,
         elements: MutableList<ClusterAdapter.Item>,
     ) {
         val favoriteGroupId = cluster.favoriteGroupIdentifier
@@ -93,7 +100,6 @@ class ClusterViewModel @Inject constructor(
             .sortedByDescending { it.totalSize }
             .flatMap { group ->
                 val items = mutableListOf<ClusterAdapter.Item>()
-
                 val keeperId = group.keeperIdentifier
                 val isNonFavoriteGroup = favoriteGroupId != null
                     && cluster.groups.size >= 2
@@ -153,6 +159,38 @@ class ClusterViewModel @Inject constructor(
                             )
                         }.run { items.addAll(this) }
                     }
+
+                    Duplicate.Type.MEDIA -> {
+                        group as MediaDuplicate.Group
+                        MediaGroupHeaderVH.Item(
+                            group = group,
+                            willBeDeleted = isNonFavoriteGroup,
+                            onItemClick = { delete(setOf(it)) },
+                            onViewActionClick = { item ->
+                                val paths = group.duplicates.map { it.path }
+                                val options = PreviewOptions(
+                                    paths = paths,
+                                    position = paths.indexOf(item.path)
+                                )
+                                events.postValue(ClusterEvents.ViewDuplicate(options))
+                            }
+                        ).run { items.add(this) }
+                        group.duplicates.map { dupe ->
+                            MediaGroupFileVH.Item(
+                                duplicate = dupe,
+                                willBeDeleted = keeperId != null && dupe.identifier != keeperId,
+                                onItemClick = { delete(listOf(it)) },
+                                onPreviewClick = { item ->
+                                    val paths = group.duplicates.map { it.path }
+                                    val options = PreviewOptions(
+                                        paths = paths,
+                                        position = paths.indexOf(item.path)
+                                    )
+                                    events.postValue(ClusterEvents.ViewDuplicate(options))
+                                }
+                            )
+                        }.run { items.addAll(this) }
+                    }
                 }
 
                 items
@@ -160,9 +198,10 @@ class ClusterViewModel @Inject constructor(
             .run { elements.addAll(this) }
     }
 
-    private fun buildDirectoryViewElements(
+    private suspend fun buildDirectoryViewElements(
         cluster: Duplicate.Cluster,
         collapsed: Set<DirectoryGroup.Id>,
+        strategy: eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy,
         elements: MutableList<ClusterAdapter.Item>,
     ) {
         // Pre-compute delete targets from stored keeper identifiers
@@ -173,6 +212,11 @@ class ClusterViewModel @Inject constructor(
 
         // Collect all duplicates from all groups
         val allDuplicates = cluster.groups.flatMap { it.duplicates }
+
+        // Build lookup: duplicate -> its group
+        val dupeToGroup = cluster.groups.flatMap { group ->
+            group.duplicates.map { it.identifier to group.identifier }
+        }.toMap()
 
         // Group duplicates by their parent directory
         val directoryGroups = allDuplicates
@@ -206,6 +250,18 @@ class ClusterViewModel @Inject constructor(
                         )
 
                         is PHashDuplicate -> PHashGroupFileVH.Item(
+                            duplicate = dupe,
+                            willBeDeleted = willBeDeleted,
+                            onItemClick = { delete(listOf(it)) },
+                            onPreviewClick = { item ->
+                                val options = PreviewOptions(
+                                    paths = listOf(item.path)
+                                )
+                                events.postValue(ClusterEvents.ViewDuplicate(options))
+                            }
+                        )
+
+                        is MediaDuplicate -> MediaGroupFileVH.Item(
                             duplicate = dupe,
                             willBeDeleted = willBeDeleted,
                             onItemClick = { delete(listOf(it)) },
@@ -321,6 +377,12 @@ class ClusterViewModel @Inject constructor(
                 )
 
                 is PHashDuplicate -> PHashGroupFileVH.Item(
+                    duplicate = dupe,
+                    onItemClick = {},
+                    onPreviewClick = {}
+                )
+
+                is MediaDuplicate -> MediaGroupFileVH.Item(
                     duplicate = dupe,
                     onItemClick = {},
                     onPreviewClick = {}

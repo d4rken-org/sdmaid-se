@@ -1,9 +1,9 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.lists.binding
-import androidx.core.view.isVisible
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.common.replaceLast

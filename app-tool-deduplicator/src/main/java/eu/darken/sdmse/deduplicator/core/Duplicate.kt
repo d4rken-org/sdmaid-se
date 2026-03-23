@@ -30,7 +30,8 @@ interface Duplicate {
 
     enum class Type {
         CHECKSUM,
-        PHASH
+        PHASH,
+        MEDIA,
     }
 
     @Parcelize

@@ -20,6 +20,10 @@ class DuplicateTypeCheckTest : BaseTest() {
         every { type } returns Duplicate.Type.PHASH
     }
 
+    private val dupeMedia = mockk<Duplicate>().apply {
+        every { type } returns Duplicate.Type.MEDIA
+    }
+
     private fun create() = DuplicateTypeCheck()
 
     @Test
@@ -46,5 +50,35 @@ class DuplicateTypeCheckTest : BaseTest() {
             listOf(dupePhash, dupeChecksum),
             ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH),
         ) shouldBe listOf(dupePhash, dupeChecksum)
+    }
+
+    @Test
+    fun `media hash has same priority as phash`() = runTest {
+        // Both similarity types should have equal priority
+        val check = create()
+
+        // In PREFER_CHECKSUM mode, checksum comes first, then both similarity types tied
+        val preferChecksum = check.favorite(
+            listOf(dupeMedia, dupeChecksum, dupePhash),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM),
+        )
+        preferChecksum.first() shouldBe dupeChecksum
+    }
+
+    @Test
+    fun `prefer checksum with all three types - checksum wins`() = runTest {
+        create().favorite(
+            listOf(dupePhash, dupeMedia, dupeChecksum),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_CHECKSUM),
+        ).first() shouldBe dupeChecksum
+    }
+
+    @Test
+    fun `prefer phash with all three types - similarity types before checksum`() = runTest {
+        val result = create().favorite(
+            listOf(dupeChecksum, dupePhash, dupeMedia),
+            ArbiterCriterium.DuplicateType(ArbiterCriterium.DuplicateType.Mode.PREFER_PHASH),
+        )
+        result.last() shouldBe dupeChecksum
     }
 }
