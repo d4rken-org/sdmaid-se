@@ -294,8 +294,14 @@ class DuplicatesScanner @Inject constructor(
                 }
             }
         }
+        updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_preparing)
+        updateProgressCount(Progress.Count.Percent(0, clusters.size))
+
         val strategy = arbiter.getStrategy()
+        var clusterIndex = 0
         val clustersWithKeepers = clusters.map { cluster ->
+            updateProgressCount(Progress.Count.Percent(++clusterIndex, clusters.size))
+            updateProgressSecondary(cluster.previewFile.userReadablePath)
             val groupsWithKeepers = cluster.groups.map { group ->
                 if (group.duplicates.size < 2) return@map group
                 val keeper = arbiter.decideDuplicates(group.duplicates, strategy).first
