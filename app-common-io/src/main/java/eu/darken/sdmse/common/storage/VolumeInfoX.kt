@@ -112,6 +112,22 @@ class VolumeInfoX internal constructor(private val mVolumeInfoObject: Any) {
             null
         }
 
+    private val methodGetMountUserId: Method? by lazy {
+        try {
+            volumeInfoClass.getMethod("getMountUserId")
+        } catch (e: Exception) {
+            log(TAG, WARN) { "volumeInfoClass.getMethod(\"getMountUserId\"): ${e.asLog()}" }
+            null
+        }
+    }
+    val mountUserId: Int?
+        get() = try {
+            methodGetMountUserId?.invoke(mVolumeInfoObject) as? Int
+        } catch (e: ReflectiveOperationException) {
+            log(TAG, WARN) { "VolumeInfo.mountUserId reflection failed" }
+            null
+        }
+
     private val methodGetFsUuid: Method? by lazy {
         try {
             volumeInfoClass.getMethod("getFsUuid")

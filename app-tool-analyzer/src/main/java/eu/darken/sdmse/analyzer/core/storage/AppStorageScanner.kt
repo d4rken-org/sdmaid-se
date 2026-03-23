@@ -44,11 +44,13 @@ class AppStorageScanner @AssistedInject constructor(
 ) {
 
     private val publicPaths = SuspendingLazy<Set<APath>> {
-        val candidates = storageManager2.storageVolumes
-            .filter { it.uuid == storage.id.internalId }
+        val candidates = storageManager2.volumes
+            ?.filter { !it.isPrivate }
+            ?.filter { it.fsUuid == storage.id.internalId }
+            ?.filter { it.mountUserId == null || it.mountUserId == currentUser.handleId }
 
         val mainPath = when {
-            candidates.isEmpty() -> {
+            candidates.isNullOrEmpty() -> {
                 log(TAG, WARN) { "No public volume found for ${storage.id}" }
                 null
             }
@@ -60,9 +62,14 @@ class AppStorageScanner @AssistedInject constructor(
 
             else -> candidates.single()
         }
-            ?.directory
+            ?.path
             ?.let { LocalPath.build(it) }
-
+            ?.let {
+                when {
+                    it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
+                    else -> it
+                }
+            }
         setOfNotNull(mainPath)
     }
 

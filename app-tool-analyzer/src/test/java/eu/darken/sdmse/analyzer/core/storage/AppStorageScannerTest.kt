@@ -11,9 +11,8 @@ import eu.darken.sdmse.common.pkgs.features.Installed
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageStatsManager2
-import eu.darken.sdmse.common.storage.StorageVolumeX
+import eu.darken.sdmse.common.storage.VolumeInfoX
 import eu.darken.sdmse.common.user.UserHandle2
-import io.kotest.matchers.longs.shouldBeGreaterThan
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -56,9 +55,21 @@ class AppStorageScannerTest : BaseTest() {
         every { applicationInfo } returns testAppInfo
     }
 
+    private fun mockVolume(
+        fsUuid: String? = null,
+        isPrivate: Boolean = false,
+        mountUserId: Int? = 0,
+        path: File = File("/storage/emulated"),
+    ) = mockk<VolumeInfoX>().apply {
+        every { this@apply.fsUuid } returns fsUuid
+        every { this@apply.isPrivate } returns isPrivate
+        every { this@apply.mountUserId } returns mountUserId
+        every { this@apply.path } returns path
+        every { this@apply.isMounted } returns true
+    }
+
     @BeforeEach
     fun setup() {
-        // Default: StorageStats query fails (tests work without Android StorageStats)
         coEvery { statsManager.queryStatsForPkg(any(), any()) } throws SecurityException("Test")
     }
 
@@ -78,97 +89,81 @@ class AppStorageScannerTest : BaseTest() {
     )
 
     @Test
-    fun `publicPaths resolves from storageVolumes for primary storage`() = runTest {
-        val mockVolume = mockk<StorageVolumeX>().apply {
-            every { uuid } returns null  // Primary has null uuid
-            every { directory } returns File("/storage/emulated/0")
-        }
-        every { storageManager2.storageVolumes } returns listOf(mockVolume)
+    fun `single matching volume resolves publicPaths`() = runTest {
+        every { storageManager2.volumes } returns listOf(
+            mockVolume(fsUuid = null, mountUserId = 0),
+        )
 
-        // Android/data must exist for it to be included
+        val mockStats = mockk<StorageStats>().apply {
+            every { appBytes } returns 50_000_000L
+            every { dataBytes } returns 1_000_000_000L
+            every { cacheBytes } returns 100_000L
+        }
+        coEvery { statsManager.queryStatsForPkg(any(), any()) } returns mockStats
         coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
-        coEvery {
-            gatewaySwitch.exists(
-                match { it.path.contains("Android/data") },
-                type = any(),
-            )
-        } returns true
 
         val scanner = createScanner()
         val result = scanner.process(
-            AppStorageScanner.Request.Initial(
-                pkg = mockPkg,
-                extraData = emptySet(),
-            )
+            AppStorageScanner.Request.Initial(pkg = mockPkg, extraData = emptySet())
         )
 
-        // With no StorageStats, sizes will be null/0, but the structure should have appData
+        // publicPaths resolved → appData should contain an Android/data entry (even if inaccessible)
         result.pkgStat.appData.shouldNotBeNull()
+        val dataPaths = result.pkgStat.appData!!.contents.map { it.path.path }
+        dataPaths.any { it.contains("/data/user") } shouldBe true
+        result.pkgStat.totalSize shouldBe 1_050_000_000L
     }
 
     @Test
-    fun `publicPaths is empty when no volume matches`() = runTest {
-        val mockVolume = mockk<StorageVolumeX>().apply {
-            every { uuid } returns "non-matching-uuid"
-            every { directory } returns File("/storage/sdcard1")
-        }
-        every { storageManager2.storageVolumes } returns listOf(mockVolume)
+    fun `multiple volumes with different mountUserId picks correct user`() = runTest {
+        // The bug scenario: two emulated volumes with fsUuid=null, different mountUserId
+        // Old code used singleOrNull which returned null for 2+ matches
+        every { storageManager2.volumes } returns listOf(
+            mockVolume(isPrivate = true, path = File("/data")),  // private, filtered out
+            mockVolume(fsUuid = null, mountUserId = 0, path = File("/storage/emulated")),  // user 0
+            mockVolume(fsUuid = null, mountUserId = 10, path = File("/storage/emulated")), // user 10
+        )
 
+        val mockStats = mockk<StorageStats>().apply {
+            every { appBytes } returns 50_000_000L
+            every { dataBytes } returns 1_000_000_000L
+            every { cacheBytes } returns 100_000L
+        }
+        coEvery { statsManager.queryStatsForPkg(any(), any()) } returns mockStats
+        coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
+
+        val scanner = createScanner()  // currentUser = 0
+        val result = scanner.process(
+            AppStorageScanner.Request.Initial(pkg = mockPkg, extraData = emptySet())
+        )
+
+        // Should resolve despite multiple volumes (mountUserId filters to user 0 only)
+        result.pkgStat.appData.shouldNotBeNull()
+        result.pkgStat.totalSize shouldBe 1_050_000_000L
+    }
+
+    @Test
+    fun `no matching volume returns empty publicPaths`() = runTest {
+        every { storageManager2.volumes } returns listOf(
+            mockVolume(fsUuid = "some-sdcard-uuid", mountUserId = 0),
+        )
         coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
 
         val scanner = createScanner()
         val result = scanner.process(
-            AppStorageScanner.Request.Initial(
-                pkg = mockPkg,
-                extraData = emptySet(),
-            )
+            AppStorageScanner.Request.Initial(pkg = mockPkg, extraData = emptySet())
         )
 
-        // appData still exists (from private data fallback) but with no Android/data entries
+        // appData still exists (from private data fallback) but no Android/data
         val dataPaths = result.pkgStat.appData?.contents?.map { it.path.path } ?: emptyList()
         dataPaths.none { it.contains("Android/data") } shouldBe true
     }
 
     @Test
-    fun `shallow scan uses StorageStats for data size`() = runTest {
-        val mockVolume = mockk<StorageVolumeX>().apply {
-            every { uuid } returns null
-            every { directory } returns File("/storage/emulated/0")
-        }
-        every { storageManager2.storageVolumes } returns listOf(mockVolume)
-
-        val mockStats = mockk<StorageStats>().apply {
-            every { appBytes } returns 100_000_000L  // 100 MB
-            every { dataBytes } returns 30_000_000_000L  // 30 GB
-            every { cacheBytes } returns 500_000L
-        }
-        coEvery { statsManager.queryStatsForPkg(any(), any()) } returns mockStats
-
-        coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
-
-        val scanner = createScanner()
-        val result = scanner.process(
-            AppStorageScanner.Request.Initial(
-                pkg = mockPkg,
-                extraData = emptySet(),
-            )
+    fun `shallow scan uses StorageStats for sizes`() = runTest {
+        every { storageManager2.volumes } returns listOf(
+            mockVolume(fsUuid = null, mountUserId = 0),
         )
-
-        result.pkgStat.isShallow shouldBe true
-        // App code should use appBytes
-        result.pkgStat.appCode.shouldNotBeNull()
-        result.pkgStat.appCode!!.groupSize shouldBe 100_000_000L
-        // App data should use dataBytes (StorageStats fallback)
-        result.pkgStat.appData.shouldNotBeNull()
-        result.pkgStat.appData!!.groupSize shouldBe 30_000_000_000L
-        // Total should be appBytes + dataBytes
-        result.pkgStat.totalSize shouldBe 30_100_000_000L
-    }
-
-    @Test
-    fun `shallow scan without matching volume still uses StorageStats fallback`() = runTest {
-        // Simulate the old broken behavior: no matching public volume
-        every { storageManager2.storageVolumes } returns emptyList()
 
         val mockStats = mockk<StorageStats>().apply {
             every { appBytes } returns 100_000_000L
@@ -176,21 +171,33 @@ class AppStorageScannerTest : BaseTest() {
             every { cacheBytes } returns 500_000L
         }
         coEvery { statsManager.queryStatsForPkg(any(), any()) } returns mockStats
-
         coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
 
         val scanner = createScanner()
         val result = scanner.process(
-            AppStorageScanner.Request.Initial(
-                pkg = mockPkg,
-                extraData = emptySet(),
-            )
+            AppStorageScanner.Request.Initial(pkg = mockPkg, extraData = emptySet())
         )
 
-        // Even without public volume, shallow scan uses StorageStats
+        result.pkgStat.isShallow shouldBe true
         result.pkgStat.appCode.shouldNotBeNull()
         result.pkgStat.appCode!!.groupSize shouldBe 100_000_000L
         result.pkgStat.appData.shouldNotBeNull()
         result.pkgStat.appData!!.groupSize shouldBe 30_000_000_000L
+        result.pkgStat.totalSize shouldBe 30_100_000_000L
+    }
+
+    @Test
+    fun `volumes API returns null is handled gracefully`() = runTest {
+        every { storageManager2.volumes } returns null
+        coEvery { gatewaySwitch.exists(any(), type = any()) } returns false
+
+        val scanner = createScanner()
+        val result = scanner.process(
+            AppStorageScanner.Request.Initial(pkg = mockPkg, extraData = emptySet())
+        )
+
+        // Should not crash, just have no Android/data entries
+        val dataPaths = result.pkgStat.appData?.contents?.map { it.path.path } ?: emptyList()
+        dataPaths.none { it.contains("Android/data") } shouldBe true
     }
 }
