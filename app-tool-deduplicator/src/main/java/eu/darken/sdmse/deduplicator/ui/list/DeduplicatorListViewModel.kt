@@ -65,12 +65,23 @@ class DeduplicatorListViewModel @Inject constructor(
                 when (layoutMode) {
                     LayoutMode.LINEAR -> DeduplicatorListLinearVH.Item(
                         cluster = cluster,
-                        deleteTargetIds = cluster.groups
-                            .filter { it.keeperIdentifier != null && it.duplicates.size >= 2 }
-                            .flatMap { g ->
-                                g.duplicates.filter { it.identifier != g.keeperIdentifier }.map { it.identifier }
-                            }
-                            .toSet(),
+                        deleteTargetIds = run {
+                            val favId = cluster.favoriteGroupIdentifier
+                            cluster.groups.flatMap { group ->
+                                if (group.identifier == favId) {
+                                    // Favorite group: only non-keeper files are targets
+                                    val keeper = group.keeperIdentifier
+                                    if (keeper != null) {
+                                        group.duplicates.filter { it.identifier != keeper }.map { it.identifier }
+                                    } else {
+                                        emptyList()
+                                    }
+                                } else {
+                                    // Non-favorite group: all files are targets
+                                    group.duplicates.map { it.identifier }
+                                }
+                            }.toSet()
+                        },
                         onItemClicked = { delete(setOf(it)) },
                         onDupeClicked = { delete(setOf(it)) },
                         onPreviewClicked = { item ->

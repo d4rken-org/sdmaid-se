@@ -88,18 +88,23 @@ class ClusterViewModel @Inject constructor(
         cluster: Duplicate.Cluster,
         elements: MutableList<ClusterAdapter.Item>,
     ) {
+        val favoriteGroupId = cluster.favoriteGroupIdentifier
         cluster.groups
             .sortedByDescending { it.totalSize }
             .flatMap { group ->
                 val items = mutableListOf<ClusterAdapter.Item>()
 
                 val keeperId = group.keeperIdentifier
+                val isNonFavoriteGroup = favoriteGroupId != null
+                    && cluster.groups.size >= 2
+                    && group.identifier != favoriteGroupId
 
                 when (group.type) {
                     Duplicate.Type.CHECKSUM -> {
                         group as ChecksumDuplicate.Group
                         ChecksumGroupHeaderVH.Item(
                             group = group,
+                            willBeDeleted = isNonFavoriteGroup,
                             onItemClick = { delete(setOf(it)) },
                             onViewActionClick = { item ->
                                 val options = PreviewOptions(
@@ -121,6 +126,7 @@ class ClusterViewModel @Inject constructor(
                         group as PHashDuplicate.Group
                         PHashGroupHeaderVH.Item(
                             group = group,
+                            willBeDeleted = isNonFavoriteGroup,
                             onItemClick = { delete(setOf(it)) },
                             onViewActionClick = { item ->
                                 val paths = group.duplicates.map { it.path }

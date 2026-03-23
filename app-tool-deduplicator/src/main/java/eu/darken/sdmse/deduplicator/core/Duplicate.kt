@@ -66,6 +66,7 @@ interface Duplicate {
     data class Cluster(
         val identifier: Id,
         val groups: Set<Group>,
+        val favoriteGroupIdentifier: Group.Id? = null,
     ) {
         val averageSize: Double
             get() = groups.map { it.totalSize }.average()

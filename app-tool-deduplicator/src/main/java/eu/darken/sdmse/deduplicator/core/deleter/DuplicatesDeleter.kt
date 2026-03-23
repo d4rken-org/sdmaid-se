@@ -95,12 +95,18 @@ class DuplicatesDeleter @Inject constructor(
                         strategy = strategy,
                     )
                 } else {
-                    val (favorite, rest) = arbiter.decideGroups(cluster.groups, strategy)
+                    val favoriteId = cluster.favoriteGroupIdentifier
+                    val (favorite, rest) = if (favoriteId != null) {
+                        val fav = cluster.groups.first { it.identifier == favoriteId }
+                        fav to cluster.groups.filter { it.identifier != favoriteId }.toSet()
+                    } else {
+                        arbiter.decideGroups(cluster.groups, strategy)
+                    }
                     log(TAG, VERBOSE) { "_targetClusters(): Our favorite is $favorite" }
 
                     val favoriteResult = targetGroups(
                         targets = setOf(favorite.identifier),
-                        deleteAll = false, // !!
+                        deleteAll = false,
                         strategy = strategy,
                     )
                     val restResult = targetGroups(

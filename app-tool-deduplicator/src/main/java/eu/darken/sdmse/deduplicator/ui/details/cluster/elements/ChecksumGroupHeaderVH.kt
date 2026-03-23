@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 import android.text.format.Formatter
 import android.view.ViewGroup
 import eu.darken.sdmse.deduplicator.R
+import androidx.core.view.isVisible
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.lists.binding
@@ -32,6 +33,8 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
         countValue.text = context.getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_files, group.count)
         sizeValue.text = Formatter.formatFileSize(context, group.averageSize.roundToLong())
 
+        deleteIcon.isVisible = item.willBeDeleted
+
         headerContainer.setOnClickListener { item.onItemClick(item) }
         footerContainer.setOnClickListener { item.onItemClick(item) }
         root.setOnClickListener { item.onViewActionClick(item) }
@@ -39,6 +42,7 @@ class ChecksumGroupHeaderVH(parent: ViewGroup) :
 
     data class Item(
         override val group: ChecksumDuplicate.Group,
+        val willBeDeleted: Boolean = false,
         val onItemClick: (Item) -> Unit,
         val onViewActionClick: (Item) -> Unit,
     ) : ClusterAdapter.GroupItem, SelectableItem {

@@ -205,40 +205,47 @@ class Deduplicator @Inject constructor(
         exclusionManager.save(exclusions)
 
         val strategy = arbiter.getStrategy()
-        val newCluster: Duplicate.Cluster? = cluster
-            .copy(
-                groups = cluster.groups.mapNotNull { group ->
-                    val filteredDuplicates = group.duplicates.filter { !paths.contains(it.path) }
-                    val keeperValid = filteredDuplicates.any { it.identifier == group.keeperIdentifier }
-                    val newGroup = when (group.type) {
-                        Duplicate.Type.CHECKSUM -> {
-                            val dupes = filteredDuplicates.filterIsInstance<ChecksumDuplicate>().toSet()
-                            val keeperId = when {
-                                keeperValid -> group.keeperIdentifier
-                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
-                                else -> null
-                            }
-                            (group as ChecksumDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
-                        }
+        val newGroups = cluster.groups.mapNotNull { group ->
+            val filteredDuplicates = group.duplicates.filter { !paths.contains(it.path) }
+            val keeperValid = filteredDuplicates.any { it.identifier == group.keeperIdentifier }
+            val newGroup = when (group.type) {
+                Duplicate.Type.CHECKSUM -> {
+                    val dupes = filteredDuplicates.filterIsInstance<ChecksumDuplicate>().toSet()
+                    val keeperId = when {
+                        keeperValid -> group.keeperIdentifier
+                        dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                        else -> null
+                    }
+                    (group as ChecksumDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
+                }
 
-                        Duplicate.Type.PHASH -> {
-                            val dupes = filteredDuplicates.filterIsInstance<PHashDuplicate>().toSet()
-                            val keeperId = when {
-                                keeperValid -> group.keeperIdentifier
-                                dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
-                                else -> null
-                            }
-                            (group as PHashDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
-                        }
+                Duplicate.Type.PHASH -> {
+                    val dupes = filteredDuplicates.filterIsInstance<PHashDuplicate>().toSet()
+                    val keeperId = when {
+                        keeperValid -> group.keeperIdentifier
+                        dupes.size >= 2 -> arbiter.decideDuplicates(dupes, strategy).first.identifier
+                        else -> null
                     }
-                    if (newGroup.duplicates.size >= 2) {
-                        newGroup
-                    } else {
-                        log(TAG) { "Group is less than 2 entries: $newGroup" }
-                        null
-                    }
-                }.toSet()
-            )
+                    (group as PHashDuplicate.Group).copy(duplicates = dupes, keeperIdentifier = keeperId)
+                }
+            }
+            if (newGroup.duplicates.size >= 2) {
+                newGroup
+            } else {
+                log(TAG) { "Group is less than 2 entries: $newGroup" }
+                null
+            }
+        }.toSet()
+
+        val favoriteValid = newGroups.any { it.identifier == cluster.favoriteGroupIdentifier }
+        val newFavoriteId = when {
+            favoriteValid -> cluster.favoriteGroupIdentifier
+            newGroups.size >= 2 -> arbiter.decideGroups(newGroups, strategy).first.identifier
+            else -> newGroups.firstOrNull()?.identifier
+        }
+
+        val newCluster: Duplicate.Cluster? = cluster
+            .copy(groups = newGroups, favoriteGroupIdentifier = newFavoriteId)
             .takeIf { it.groups.isNotEmpty() }
 
         if (newCluster == null) log(TAG) { "Cluster was empty after exclusion" }
@@ -353,7 +360,13 @@ internal suspend fun Deduplicator.Data.prune(
                     !empty
                 }
                 .toSet()
-            oldCluster.copy(groups = newGroups)
+            val favoriteValid = newGroups.any { it.identifier == oldCluster.favoriteGroupIdentifier }
+            val newFavoriteId = when {
+                favoriteValid -> oldCluster.favoriteGroupIdentifier
+                newGroups.size >= 2 -> arbiter.decideGroups(newGroups, strategy).first.identifier
+                else -> newGroups.firstOrNull()?.identifier
+            }
+            oldCluster.copy(groups = newGroups, favoriteGroupIdentifier = newFavoriteId)
         }
         .filter {
             val isSolo = it.count < 2
