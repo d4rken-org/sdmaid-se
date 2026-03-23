@@ -8,8 +8,14 @@ import kotlin.math.sin
 /**
  * Minimal radix-2 Cooley-Tukey FFT for power-of-2 sizes.
  * Operates in-place on interleaved real/imaginary arrays.
+ *
+ * Uses pre-computed trig lookup tables to avoid expensive cos/sin calls
+ * in the butterfly loop. Tables are instance-scoped and freed with the instance.
  */
 class SimpleFFT @Inject constructor() {
+
+    // Instance-scoped trig table cache — built on first use per size, freed when instance is GC'd
+    private val tableCache = HashMap<Int, Pair<DoubleArray, DoubleArray>>()
 
     /**
      * Compute the FFT of [real] and [imag] arrays in-place.
@@ -35,16 +41,20 @@ class SimpleFFT @Inject constructor() {
             j += k
         }
 
-        // Cooley-Tukey butterfly
+        // Cooley-Tukey butterfly with trig lookup
+        val tables = getOrBuildTables(n)
+        val cosLookup = tables.first
+        val sinLookup = tables.second
+
         var step = 2
         while (step <= n) {
             val halfStep = step / 2
-            val angle = -2.0 * PI / step
+            val tableStride = n / step
             for (i in 0 until n step step) {
                 for (m in 0 until halfStep) {
-                    val w = angle * m
-                    val wr = cos(w)
-                    val wi = sin(w)
+                    val tableIdx = m * tableStride
+                    val wr = cosLookup[tableIdx]
+                    val wi = sinLookup[tableIdx]
                     val idx1 = i + m
                     val idx2 = i + m + halfStep
                     val tr = wr * real[idx2] - wi * imag[idx2]
@@ -67,6 +77,20 @@ class SimpleFFT @Inject constructor() {
         val half = real.size / 2
         return DoubleArray(half) { i ->
             kotlin.math.sqrt(real[i] * real[i] + imag[i] * imag[i])
+        }
+    }
+
+    private fun getOrBuildTables(n: Int): Pair<DoubleArray, DoubleArray> {
+        return tableCache.getOrPut(n) {
+            val halfN = n / 2
+            val cosTable = DoubleArray(halfN)
+            val sinTable = DoubleArray(halfN)
+            for (i in 0 until halfN) {
+                val angle = -2.0 * PI * i / n
+                cosTable[i] = cos(angle)
+                sinTable[i] = sin(angle)
+            }
+            cosTable to sinTable
         }
     }
 }

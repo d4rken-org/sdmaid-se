@@ -40,6 +40,13 @@ class FingerprintCalculator @Inject constructor(
         if (bandEnergies.size < 2) return null
 
         val rawBits = computeEnergyDifferenceBits(bandEnergies)
+
+        // Reject featureless audio (wind noise, engine drone, silence).
+        // If the raw bits are overwhelmingly one value, the fingerprint
+        // is not discriminative and will false-match other featureless audio.
+        val setBitRatio = rawBits.count { it }.toDouble() / rawBits.size
+        if (setBitRatio < MIN_BIT_ENTROPY || setBitRatio > (1.0 - MIN_BIT_ENTROPY)) return null
+
         val fingerprint = sampleToFixedLength(rawBits)
 
         return Result(fingerprint = fingerprint)
@@ -143,6 +150,7 @@ class FingerprintCalculator @Inject constructor(
         private const val NUM_BANDS = 8
         private const val FINGERPRINT_BITS = 256
         private const val FINGERPRINT_LONGS = FINGERPRINT_BITS / Long.SIZE_BITS // 4
+        private const val MIN_BIT_ENTROPY = 0.15 // Reject if <15% or >85% of bits are set
         const val TARGET_SAMPLE_RATE = 8000
 
         // Pre-computed Hann window coefficients
