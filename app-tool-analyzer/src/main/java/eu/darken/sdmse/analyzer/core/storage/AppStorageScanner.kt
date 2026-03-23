@@ -76,14 +76,28 @@ class AppStorageScanner @AssistedInject constructor(
     private val publicMediaPaths = SuspendingLazy<Set<APath>> {
         publicPaths.value()
             .map { it.child("Android", "media") }
-            .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
+            .filter {
+                try {
+                    gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to check public media path $it: $e" }
+                    false
+                }
+            }
             .toSet()
     }
 
     private val publicDataPaths = SuspendingLazy<Set<APath>> {
         publicPaths.value()
             .map { it.child("Android", "data") }
-            .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
+            .filter {
+                try {
+                    gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to check public data path $it: $e" }
+                    false
+                }
+            }
             .toSet()
     }
 
