@@ -111,4 +111,127 @@ class DuplicatesDeleterTest : BaseTest() {
             data = data,
         ).success shouldBe setOf(dupe1, dupe2)
     }
+
+    @Test
+    fun `group deletion uses stored keeperIdentifier instead of arbiter`() = runTest {
+        val deleter = create()
+
+        val dupe1 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe1")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash1".toByteString()),
+        )
+        val dupe2 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe2")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash2".toByteString()),
+        )
+
+        // keeperIdentifier points to dupe2 — arbiter would pick dupe1 (sorted by path)
+        val data = Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("cluster1"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("group1"),
+                            duplicates = setOf(dupe1, dupe2),
+                            keeperIdentifier = dupe2.identifier,
+                        ),
+                    ),
+                    favoriteGroupIdentifier = Duplicate.Group.Id("group1"),
+                )
+            )
+        )
+
+        // Should delete dupe1 (not the keeper dupe2), regardless of arbiter's preference
+        deleter.delete(
+            task = DeduplicatorDeleteTask(
+                mode = DeduplicatorDeleteTask.TargetMode.Groups(
+                    deleteAll = false,
+                    targets = setOf(Duplicate.Group.Id("group1")),
+                )
+            ),
+            data = data,
+        ).success shouldBe setOf(dupe1)
+    }
+
+    @Test
+    fun `cluster deletion uses stored favoriteGroupIdentifier instead of arbiter`() = runTest {
+        val deleter = create()
+
+        val dupe1 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe1")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash1".toByteString()),
+        )
+        val dupe2 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe2")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash2".toByteString()),
+        )
+        val dupe3 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe3")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash3".toByteString()),
+        )
+        val dupe4 = ChecksumDuplicate(
+            lookup = mockk<APathLookup<*>>().apply {
+                every { lookedUp } returns LocalPath.build("path", "dupe4")
+                every { path } returns lookedUp.path
+                every { userReadablePath } returns lookedUp.userReadablePath
+            },
+            hash = Hasher.Result(type = Hasher.Type.MD5, hash = "hash4".toByteString()),
+        )
+
+        // favoriteGroupIdentifier points to group2 — arbiter would pick group1 (first in set)
+        val data = Deduplicator.Data(
+            clusters = setOf(
+                Duplicate.Cluster(
+                    identifier = Duplicate.Cluster.Id("cluster1"),
+                    groups = setOf(
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("group1"),
+                            duplicates = setOf(dupe1, dupe2),
+                            keeperIdentifier = dupe1.identifier,
+                        ),
+                        ChecksumDuplicate.Group(
+                            identifier = Duplicate.Group.Id("group2"),
+                            duplicates = setOf(dupe3, dupe4),
+                            keeperIdentifier = dupe3.identifier,
+                        ),
+                    ),
+                    favoriteGroupIdentifier = Duplicate.Group.Id("group2"),
+                )
+            )
+        )
+
+        // Favorite is group2 (dupe3 kept, dupe4 deleted), group1 deleted entirely
+        val result = deleter.delete(
+            task = DeduplicatorDeleteTask(
+                mode = DeduplicatorDeleteTask.TargetMode.Clusters(
+                    deleteAll = false,
+                    targets = setOf(Duplicate.Cluster.Id("cluster1")),
+                )
+            ),
+            data = data,
+        )
+
+        result.success shouldBe setOf(dupe1, dupe2, dupe4)
+    }
 }

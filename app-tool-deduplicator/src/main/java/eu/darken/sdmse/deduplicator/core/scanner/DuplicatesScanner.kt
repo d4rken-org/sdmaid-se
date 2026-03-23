@@ -296,17 +296,23 @@ class DuplicatesScanner @Inject constructor(
         }
         val strategy = arbiter.getStrategy()
         val clustersWithKeepers = clusters.map { cluster ->
-            cluster.copy(
-                groups = cluster.groups.map { group ->
-                    if (group.duplicates.size < 2) return@map group
-                    val keeper = arbiter.decideDuplicates(group.duplicates, strategy).first
-                    when (group) {
-                        is ChecksumDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
-                        is PHashDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
-                        else -> group
-                    }
-                }.toSet()
-            )
+            val groupsWithKeepers = cluster.groups.map { group ->
+                if (group.duplicates.size < 2) return@map group
+                val keeper = arbiter.decideDuplicates(group.duplicates, strategy).first
+                when (group) {
+                    is ChecksumDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
+                    is PHashDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
+                    else -> group
+                }
+            }.toSet()
+
+            val favoriteGroupId = if (groupsWithKeepers.size >= 2) {
+                arbiter.decideGroups(groupsWithKeepers, strategy).first.identifier
+            } else {
+                groupsWithKeepers.firstOrNull()?.identifier
+            }
+
+            cluster.copy(groups = groupsWithKeepers, favoriteGroupIdentifier = favoriteGroupId)
         }.toSet()
 
         return clustersWithKeepers
