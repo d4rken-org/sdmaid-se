@@ -62,13 +62,14 @@ class AppStorageScanner @AssistedInject constructor(
 
             else -> candidates.single()
         }
-            ?.path
-            ?.let { LocalPath.build(it) }
-            ?.let {
-                when {
-                    it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
-                    else -> it
-                }
+            ?.let { volume ->
+                volume.getPathForUser(currentUser.handleId)?.let { LocalPath.build(it) }
+                    ?: volume.path?.let { LocalPath.build(it) }?.let {
+                        when {
+                            it.segments.last() == "emulated" -> it.child("${currentUser.handleId}")
+                            else -> it
+                        }
+                    }
             }
         setOfNotNull(mainPath)
     }
@@ -76,14 +77,28 @@ class AppStorageScanner @AssistedInject constructor(
     private val publicMediaPaths = SuspendingLazy<Set<APath>> {
         publicPaths.value()
             .map { it.child("Android", "media") }
-            .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
+            .filter {
+                try {
+                    gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to check public media path $it: $e" }
+                    false
+                }
+            }
             .toSet()
     }
 
     private val publicDataPaths = SuspendingLazy<Set<APath>> {
         publicPaths.value()
             .map { it.child("Android", "data") }
-            .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO) }
+            .filter {
+                try {
+                    gatewaySwitch.exists(it, type = GatewaySwitch.Type.AUTO)
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "Failed to check public data path $it: $e" }
+                    false
+                }
+            }
             .toSet()
     }
 
