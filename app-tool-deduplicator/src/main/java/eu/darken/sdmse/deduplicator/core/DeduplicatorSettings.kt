@@ -35,6 +35,7 @@ class DeduplicatorSettings @Inject constructor(
     val minSizeBytes = dataStore.createValue<Long>("skip.minsize.bytes", MIN_FILE_SIZE)
     val isSleuthChecksumEnabled = dataStore.createValue("sleuth.checksum.enabled", true)
     val isSleuthPHashEnabled = dataStore.createValue("sleuth.phash.enabled", false)
+    val isSleuthMediaEnabled = dataStore.createValue("sleuth.media.enabled", false)
     val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), moshi)
 
     @JsonClass(generateAdapter = true)
@@ -72,6 +73,7 @@ class DeduplicatorSettings @Inject constructor(
         skipUncommon,
         isSleuthChecksumEnabled,
         isSleuthPHashEnabled,
+        isSleuthMediaEnabled,
         scanPaths,
         arbiterConfig,
     )

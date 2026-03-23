@@ -86,6 +86,13 @@
                     android:layout_height="16dp"
                     android:src="@drawable/ic_approximately_equal_box_24"
                     app:tint="?colorSecondary" />
+
+                <ImageView
+                    android:id="@+id/match_type_media"
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_waveform_box_24"
+                    app:tint="?colorTertiary" />
             </LinearLayout>
         </androidx.constraintlayout.widget.ConstraintLayout>
 

@@ -47,7 +47,9 @@ class CommonFilesCheck @Inject constructor(
             "video/webm",
             "video/ogg",
             "video/x-msvideo",
-            "video/mpeg"
+            "video/mpeg",
+            "video/3gpp",
+            "video/quicktime",
         )
 
         private val AUDIO = setOf(
@@ -57,7 +59,10 @@ class CommonFilesCheck @Inject constructor(
             "audio/webm",
             "audio/aac",
             "audio/x-wav",
-            "audio/x-aiff"
+            "audio/x-aiff",
+            "audio/flac",
+            "audio/mp4",
+            "audio/x-m4a",
         )
         private val ARCHIVES = setOf(
             "application/zip",

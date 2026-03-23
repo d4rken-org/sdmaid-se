@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.deduplicator.databinding.DeduplicatorClusterElementHeaderBinding
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterAdapter
 
@@ -32,9 +33,11 @@ class ClusterHeaderVH(parent: ViewGroup) :
             cluster.groups.filterIsInstance<ChecksumDuplicate.Group>().sumOf { it.count }
         )
 
+        val similarCount = cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count } +
+            cluster.groups.filterIsInstance<MediaDuplicate.Group>().sumOf { it.count }
         methodPhashValue.text = context.getQuantityString2(
             eu.darken.sdmse.common.R.plurals.result_x_files,
-            cluster.groups.filterIsInstance<PHashDuplicate.Group>().sumOf { it.count }
+            similarCount,
         )
 
         val totalSize = Formatter.formatShortFileSize(context, cluster.totalSize)

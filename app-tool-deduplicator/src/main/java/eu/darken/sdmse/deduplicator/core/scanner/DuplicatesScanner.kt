@@ -31,6 +31,8 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumSleuth
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaSleuth
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashSleuth
 import eu.darken.sdmse.exclusion.core.ExclusionManager
@@ -44,6 +46,7 @@ import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.flow.toSet
 import java.util.UUID
 import javax.inject.Inject
 import javax.inject.Provider
@@ -52,6 +55,7 @@ import javax.inject.Provider
 class DuplicatesScanner @Inject constructor(
     private val checksumSleuthProvider: Provider<ChecksumSleuth>,
     private val pHashSleuthProvider: Provider<PHashSleuth>,
+    private val mediaHashSleuthProvider: Provider<MediaSleuth>,
     private val exclusionManager: ExclusionManager,
     private val areaManager: DataAreaManager,
     private val dispatcherProvider: DispatcherProvider,
@@ -169,6 +173,7 @@ class DuplicatesScanner @Inject constructor(
         val skipUncommon: Boolean,
         val useSleuthChecksum: Boolean,
         val useSleuthPHash: Boolean,
+        val useSleuthMedia: Boolean,
     )
 
     suspend fun scan(options: Options): Set<Duplicate.Cluster> {
@@ -180,30 +185,44 @@ class DuplicatesScanner @Inject constructor(
             customPathSearchFlow(options.paths)
         }
 
-        val searchFlow = searchPaths
+        // Materialize once to avoid redundant filesystem walks per sleuth
+        val allCandidates = searchPaths
             .flowOn(dispatcherProvider.IO)
             .buffer(1024)
             .filter {
                 if (!it.isFile) return@filter false
                 val isGoodSize = it.size >= options.minimumSize
                 val isGoodType = (!options.skipUncommon || commonFilesCheck.isCommon(it))
-                if (Bugs.isDebug) log(TAG) { "goodSize=$isGoodSize, goodType=$isGoodType <-> $it" }
+                if (Bugs.isDebug) log(TAG, VERBOSE) { "goodSize=$isGoodSize, goodType=$isGoodType <-> $it" }
                 isGoodSize && isGoodType
             }
+            .toSet()
+
+        log(TAG) { "Collected ${allCandidates.size} candidates" }
+
+        val candidateFlow = allCandidates.asFlow()
 
         val cksGroups: Set<ChecksumDuplicate.Group> = if (options.useSleuthChecksum) {
             log(TAG) { "ChecksumSleuth is enabled" }
-            checksumSleuthProvider.get().withProgress(this) { investigate(searchFlow) }
+            checksumSleuthProvider.get().withProgress(this) { investigate(candidateFlow) }
         } else {
             log(TAG) { "ChecksumSleuth is disabled" }
             emptySet()
         }
 
-        val phGroups = if (options.useSleuthPHash) {
+        val phGroups: Set<Duplicate.Group> = if (options.useSleuthPHash) {
             log(TAG) { "PHashSleuth is enabled" }
-            pHashSleuthProvider.get().withProgress(this) { investigate(searchFlow) }
+            pHashSleuthProvider.get().withProgress(this) { investigate(candidateFlow) }
         } else {
             log(TAG) { "PHashSleuth is disabled" }
+            emptySet()
+        }
+
+        val mhGroups: Set<Duplicate.Group> = if (options.useSleuthMedia) {
+            log(TAG) { "MediaSleuth is enabled" }
+            mediaHashSleuthProvider.get().withProgress(this) { investigate(candidateFlow) }
+        } else {
+            log(TAG) { "MediaSleuth is disabled" }
             emptySet()
         }
 
@@ -211,33 +230,31 @@ class DuplicatesScanner @Inject constructor(
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
 
-        val overlaps = mutableMapOf<ChecksumDuplicate.Group, Set<PHashDuplicate.Group>>()
-        val uniques = mutableSetOf<PHashDuplicate.Group>()
+        // Generic overlap merge: checksum groups take precedence over all similarity groups
+        val similarityGroups = phGroups + mhGroups
+        val overlaps = mutableMapOf<ChecksumDuplicate.Group, MutableSet<Duplicate.Group>>()
+        val uniques = mutableSetOf<Duplicate.Group>()
 
-        // Sort phash results, which need to be grouped with others, and which are unique?
-        phGroups.forEach { phGrp ->
-            val phashPaths = phGrp.duplicates.map { it.path }.toSet()
+        similarityGroups.forEach { simGrp ->
+            val simPaths = simGrp.duplicates.map { it.path }.toSet()
 
             val cksOverlaps = cksGroups.filter { cksGrp ->
-                cksGrp.duplicates.any { phashPaths.contains(it.path) }
+                cksGrp.duplicates.any { simPaths.contains(it.path) }
             }
 
-            when {
-                cksOverlaps.isNotEmpty() -> {
-                    cksOverlaps.forEach { overlaps[it] = (overlaps[it] ?: emptySet()).plus(phGrp) }
+            if (cksOverlaps.isNotEmpty()) {
+                cksOverlaps.forEach {
+                    overlaps.getOrPut(it) { mutableSetOf() }.add(simGrp)
                 }
-
-                else -> {
-                    uniques.add(phGrp)
-                }
+            } else {
+                uniques.add(simGrp)
             }
         }
 
         val clusters = mutableSetOf<Duplicate.Cluster>()
 
         val cksCoveredPaths = cksGroups
-            .map { it.duplicates }
-            .flatten()
+            .flatMap { it.duplicates }
             .map { it.path }
             .toSet()
 
@@ -248,34 +265,25 @@ class DuplicatesScanner @Inject constructor(
 
                 if (Bugs.isTrace) overlapping?.forEachIndexed { index, group -> log(TAG, VERBOSE) { "#$index $group" } }
 
-
                 val grps = mutableSetOf<Duplicate.Group>(cksGrp)
 
                 overlapping
-                    ?.map { phGrp ->
-                        // If some dupes are already covered by checksum matches, then they take precedence
-                        // A similarity match that already has a checksum match, will not be shown as similarity match
-                        val uniquePhDupes = phGrp.duplicates
-                            .filter { phDupe -> !cksCoveredPaths.contains(phDupe.path) }
-                            .toSet()
-                        phGrp.copy(duplicates = uniquePhDupes)
-                    }
-                    ?.filter { it.duplicates.isNotEmpty() }
+                    ?.mapNotNull { simGrp -> stripCoveredPaths(simGrp, cksCoveredPaths) }
                     ?.let { grps.addAll(it) }
 
                 Duplicate.Cluster(
                     identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
-                    groups = grps
+                    groups = grps,
                 )
             }
             .run { clusters.addAll(this) }
 
         uniques
-            .map { phGrp ->
-                if (Bugs.isTrace) log(TAG, VERBOSE) { "Unique PHGroup: $phGrp" }
+            .map { simGrp ->
+                if (Bugs.isTrace) log(TAG, VERBOSE) { "Unique similarity group: $simGrp" }
                 Duplicate.Cluster(
                     identifier = Duplicate.Cluster.Id(UUID.randomUUID().toString()),
-                    groups = setOf(phGrp)
+                    groups = setOf(simGrp),
                 )
             }
             .run { clusters.addAll(this) }
@@ -308,6 +316,7 @@ class DuplicatesScanner @Inject constructor(
                 when (group) {
                     is ChecksumDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
                     is PHashDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
+                    is MediaDuplicate.Group -> group.copy(keeperIdentifier = keeper.identifier)
                     else -> group
                 }
             }.toSet()
@@ -322,6 +331,21 @@ class DuplicatesScanner @Inject constructor(
         }.toSet()
 
         return clustersWithKeepers
+    }
+
+    private fun stripCoveredPaths(group: Duplicate.Group, coveredPaths: Set<APath>): Duplicate.Group? {
+        val stripped = when (group) {
+            is eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate.Group -> {
+                group.copy(duplicates = group.duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
+            }
+
+            is eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate.Group -> {
+                group.copy(duplicates = group.duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
+            }
+
+            else -> return null
+        }
+        return if (stripped.duplicates.isNotEmpty()) stripped else null
     }
 
     companion object {

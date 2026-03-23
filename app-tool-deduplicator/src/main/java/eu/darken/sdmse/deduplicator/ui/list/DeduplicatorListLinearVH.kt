@@ -64,6 +64,7 @@ class DeduplicatorListLinearVH(parent: ViewGroup) :
 
         matchTypeChecksum.isVisible = item.cluster.types.contains(Duplicate.Type.CHECKSUM)
         matchTypePhash.isVisible = item.cluster.types.contains(Duplicate.Type.PHASH)
+        matchTypeMedia.isVisible = item.cluster.types.contains(Duplicate.Type.MEDIA)
 
         val subItems = cluster.groups
             .flatMap { it.duplicates }
