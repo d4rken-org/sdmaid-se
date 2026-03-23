@@ -142,7 +142,7 @@ class StorageScanner @Inject constructor(
 
                 val folders = storageDir?.lookedUp
                     ?.listFiles(gatewaySwitch)
-                    ?.filter { it.name != "Android" }
+                    ?.filter { storage.type == DeviceStorage.Type.PORTABLE || it.name != "Android" }
                     ?.mapNotNull { fileForensics.findOwners(it) }
                     ?.filter { setOf(DataArea.Type.SDCARD, DataArea.Type.PORTABLE).contains(it.areaInfo.type) }
                     ?.onEach { log(TAG) { "Top level dir: $it" } }
