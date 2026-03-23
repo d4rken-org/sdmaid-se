@@ -4,6 +4,7 @@ import android.text.format.Formatter
 import android.view.ViewGroup
 import coil.transform.RoundedCornersTransformation
 import eu.darken.sdmse.deduplicator.R
+import androidx.core.view.isVisible
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableItem
@@ -49,11 +50,14 @@ class PHashGroupFileVH(parent: ViewGroup) :
         secondary.text = String.format("%.2f%%", dupe.similarity * 100)
         sizeValue.text = Formatter.formatShortFileSize(context, dupe.size)
 
+        keeperIcon.isVisible = item.isKeeper
+
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val duplicate: PHashDuplicate,
+        val isKeeper: Boolean = false,
         val onItemClick: (Item) -> Unit,
         val onPreviewClick: (Item) -> Unit,
     ) : ClusterAdapter.DuplicateItem, SelectableItem {

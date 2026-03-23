@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster.elements
 import android.view.ViewGroup
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.lists.binding
+import androidx.core.view.isVisible
 import eu.darken.sdmse.common.lists.selection.SelectableItem
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.common.replaceLast
@@ -38,11 +39,14 @@ class ChecksumGroupFileVH(parent: ViewGroup) :
         name.text = fileName
         path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
+        keeperIcon.isVisible = item.isKeeper
+
         root.setOnClickListener { item.onItemClick(item) }
     }
 
     data class Item(
         override val duplicate: ChecksumDuplicate,
+        val isKeeper: Boolean = false,
         val onItemClick: (Item) -> Unit,
     ) : ClusterAdapter.DuplicateItem, SelectableItem {
 
