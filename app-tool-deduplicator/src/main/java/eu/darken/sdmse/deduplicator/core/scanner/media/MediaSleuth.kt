@@ -118,22 +118,28 @@ class MediaSleuth @Inject constructor(
         val videoCount = hashedItems.count { it.isVideo }
         log(TAG) {
             "Hashed ${hashedItems.size} media files in ${hashMs}ms " +
-                "(avg ${avgMs}ms/file, audio=$audioCount, video=$videoCount, " +
-                "concurrency=$MAX_CONCURRENT_DECODERS)"
+                    "(avg ${avgMs}ms/file, audio=$audioCount, video=$videoCount, " +
+                    "concurrency=$MAX_CONCURRENT_DECODERS)"
         }
 
         // Group by duration bucket before pairwise comparison
         val durationBuckets = hashedItems.groupBy { it.durationBucket }
         val comparableBuckets = durationBuckets.values.filter { it.size >= 2 }
+        val filesToCompare = comparableBuckets.sumOf { it.size }
         log(TAG) {
-            "${durationBuckets.size} duration buckets, ${comparableBuckets.size} with 2+ items " +
-                "(${comparableBuckets.sumOf { it.size }} files to compare)"
+            "${durationBuckets.size} duration buckets, ${comparableBuckets.size} with 2+ items ($filesToCompare files to compare)"
         }
 
+        updateProgressSecondary(R.string.deduplicator_progress_comparing_files.toCaString())
+        updateProgressCount(Progress.Count.Percent(0, filesToCompare))
+
         val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
+        var comparedCount = 0
 
         comparableBuckets.forEach { bucketItems ->
             findSimilarGroups(bucketItems, hashBuckets)
+            comparedCount += bucketItems.size
+            updateProgressCount(Progress.Count.Percent(comparedCount, filesToCompare))
         }
 
         val hashStop = System.currentTimeMillis()
@@ -148,7 +154,7 @@ class MediaSleuth @Inject constructor(
                     MediaDuplicate(
                         lookup = item,
                         audioHash = hashed.audioResult,
-                        frameHash = hashed.cachedFrameHash,
+                        frameHashes = hashed.cachedFrameHashes,
                         similarity = similarity,
                     )
                 }.toSet()
@@ -181,7 +187,7 @@ class MediaSleuth @Inject constructor(
                         if (tiebreakerSim != null && tiebreakerSim > MediaComparator.ACCEPT_THRESHOLD) {
                             log(TAG, VERBOSE) {
                                 "Tiebreaker: ${String.format("%.2f%%", tiebreakerSim * 100)} " +
-                                    "(audio=${String.format("%.2f%%", sim * 100)})"
+                                        "(audio=${String.format("%.2f%%", sim * 100)})"
                             }
                             other to tiebreakerSim
                         } else {
@@ -204,43 +210,61 @@ class MediaSleuth @Inject constructor(
         }
     }
 
-    private fun HashedMedia.toMediaInfo() = MediaComparator.MediaInfo(
+    private fun HashedMedia.toMediaInfo(reason: String) = MediaComparator.MediaInfo(
         audioResult = audioResult,
-        frameHash = getOrComputeFrameHash(),
+        frameHashes = getOrComputeFrameHashes(reason),
         isVideo = isVideo,
     )
 
     private fun computeSimilarity(a: HashedMedia, b: HashedMedia): Double? {
-        // Lazy: only compute frame hash for video-no-audio pairs
+        // Lazy: only compute frame hashes for video-no-audio pairs
+        val reason = "no audio track"
         val aInfo = MediaComparator.MediaInfo(
             audioResult = a.audioResult,
-            frameHash = if (a.audioResult == null && a.isVideo) a.getOrComputeFrameHash() else null,
+            frameHashes = if (a.audioResult == null && a.isVideo) a.getOrComputeFrameHashes(reason) else emptyList(),
             isVideo = a.isVideo,
         )
         val bInfo = MediaComparator.MediaInfo(
             audioResult = b.audioResult,
-            frameHash = if (b.audioResult == null && b.isVideo) b.getOrComputeFrameHash() else null,
+            frameHashes = if (b.audioResult == null && b.isVideo) b.getOrComputeFrameHashes(reason) else emptyList(),
             isVideo = b.isVideo,
         )
         return comparator.computeSimilarity(aInfo, bInfo)
     }
 
     private fun computeWithTiebreaker(a: HashedMedia, b: HashedMedia, audioSim: Double): Double? {
-        return comparator.computeWithTiebreaker(a.toMediaInfo(), b.toMediaInfo(), audioSim)
+        val reason = "audio tiebreaker"
+        return comparator.computeWithTiebreaker(a.toMediaInfo(reason), b.toMediaInfo(reason), audioSim)
     }
 
     private fun hashMediaFile(item: APathLookup<*>, mime: String): HashedMedia? {
         val filePath = item.lookedUp.asFile().absolutePath
         val isVideo = mime.startsWith("video/")
 
-        // Audio fingerprint only — frame hash computed lazily on demand
         val audioResult = audioFingerprinter.fingerprint(filePath)
 
         // For video without audio, we still need duration for bucketing
         val durationMs = audioResult?.durationMs ?: extractDuration(filePath)
 
-        // Must be a video (for lazy frame hash) or have audio
+        // Must be a video or have audio
         if (audioResult == null && !isVideo) return null
+
+        // For video without audio, compute frame hashes now (during hashing phase)
+        // to benefit from parallel processing. Video+audio files keep lazy frame hashes
+        // since they rarely need them (only for tiebreaker).
+        val earlyFrameHashes = if (audioResult == null && isVideo) {
+            try {
+                extractFrameHashes(filePath, durationMs, "no audio track")
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Failed to extract frame hashes: $e" }
+                emptyList()
+            }
+        } else {
+            null
+        }
+
+        // Video without audio must have frame hashes to be useful
+        if (audioResult == null && earlyFrameHashes.isNullOrEmpty()) return null
 
         return HashedMedia(
             lookup = item,
@@ -248,25 +272,32 @@ class MediaSleuth @Inject constructor(
             filePath = filePath,
             isVideo = isVideo,
             durationMs = durationMs,
+            precomputedFrameHashes = earlyFrameHashes,
         )
     }
 
-    private fun extractFrameHash(filePath: String): PHasher.Result? {
-        val retrieverStart = System.currentTimeMillis()
+    private fun extractFrameHashes(filePath: String, durationMs: Long, reason: String = ""): List<PHasher.Result> {
+        if (durationMs <= 0) return emptyList()
+
+        val start = System.currentTimeMillis()
         val retriever = MediaMetadataRetriever()
+        val pHasher = PHasher()
         return try {
             retriever.setDataSource(filePath)
-            val bitmap = retriever.getFrameAtTime(0, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
-                ?: return null
-            val retrieverMs = System.currentTimeMillis() - retrieverStart
+            // Extract 5 frames at 10%, 30%, 50%, 70%, 90% of duration
+            val timestamps = FRAME_POSITIONS.map { pct -> (durationMs * pct).toLong() * 1000 } // ms → µs
 
-            val phashStart = System.currentTimeMillis()
-            val result = PHasher().calc(bitmap)
-            val phashMs = System.currentTimeMillis() - phashStart
+            val hashes = timestamps.mapNotNull { timeUs ->
+                val bitmap = retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
+                    ?: return@mapNotNull null
+                pHasher.calc(bitmap)
+            }
 
+            val elapsed = System.currentTimeMillis() - start
             val fileName = filePath.substringAfterLast('/')
-            log(TAG) { "Frame [$fileName] retriever=${retrieverMs}ms phash=${phashMs}ms" }
-            result
+            val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
+            log(TAG) { "Frames [$fileName] ${hashes.size}/${timestamps.size} frames in ${elapsed}ms$reasonSuffix" }
+            hashes
         } finally {
             retriever.release()
         }
@@ -290,28 +321,30 @@ class MediaSleuth @Inject constructor(
         val filePath: String,
         val isVideo: Boolean,
         val durationMs: Long,
+        precomputedFrameHashes: List<PHasher.Result>? = null,
     ) {
         val durationBucket: Long
             get() = durationMs / DURATION_BUCKET_MS
 
-        // Lazy frame hash — only computed when tiebreaker needs it
-        var cachedFrameHash: PHasher.Result? = null
+        // Frame hashes — pre-computed for video-no-audio, lazy for video+audio (tiebreaker only)
+        var cachedFrameHashes: List<PHasher.Result> = precomputedFrameHashes ?: emptyList()
             private set
-        private var frameHashComputed = false
+        private var frameHashesComputed = precomputedFrameHashes != null
 
-        fun getOrComputeFrameHash(): PHasher.Result? {
-            if (!frameHashComputed) {
-                frameHashComputed = true
+        fun getOrComputeFrameHashes(reason: String = ""): List<PHasher.Result> {
+            if (!frameHashesComputed) {
+                frameHashesComputed = true
                 if (isVideo) {
-                    cachedFrameHash = try {
-                        extractFrameHash(filePath)
+                    updateProgressSecondary(lookup.userReadablePath)
+                    cachedFrameHashes = try {
+                        extractFrameHashes(filePath, durationMs, reason)
                     } catch (e: Exception) {
-                        log(TAG, WARN) { "Failed to extract frame hash: $e" }
-                        null
+                        log(TAG, WARN) { "Failed to extract frame hashes: $e" }
+                        emptyList()
                     }
                 }
             }
-            return cachedFrameHash
+            return cachedFrameHashes
         }
     }
 
@@ -319,6 +352,7 @@ class MediaSleuth @Inject constructor(
         private const val MAX_CONCURRENT_DECODERS = 4
         private const val PER_FILE_TIMEOUT_MS = 30_000L
         private const val DURATION_BUCKET_MS = 5_000L
+        private val FRAME_POSITIONS = doubleArrayOf(0.10, 0.30, 0.50, 0.70, 0.90)
         private val TAG = logTag("Deduplicator", "Sleuth", "Media")
     }
 }

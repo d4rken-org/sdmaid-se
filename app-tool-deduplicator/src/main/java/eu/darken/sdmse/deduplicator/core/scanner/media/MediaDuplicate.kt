@@ -8,7 +8,7 @@ import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 data class MediaDuplicate(
     override val lookup: APathLookup<*>,
     val audioHash: AudioFingerprinter.Result?,
-    val frameHash: PHasher.Result?,
+    val frameHashes: List<PHasher.Result>,
     val similarity: Double,
 ) : Duplicate {
 

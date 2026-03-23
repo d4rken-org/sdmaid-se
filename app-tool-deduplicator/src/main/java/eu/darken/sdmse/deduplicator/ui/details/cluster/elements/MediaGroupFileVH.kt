@@ -48,9 +48,9 @@ class MediaGroupFileVH(parent: ViewGroup) :
         path.text = dupe.path.userReadablePath.get(context).replaceLast(fileName, "")
 
         val matchType = when {
-            dupe.audioHash != null && dupe.frameHash != null -> context.getString(R.string.deduplicator_media_match_audio_visual)
+            dupe.audioHash != null && dupe.frameHashes.isNotEmpty() -> context.getString(R.string.deduplicator_media_match_audio_visual)
             dupe.audioHash != null -> context.getString(R.string.deduplicator_media_match_audio)
-            dupe.frameHash != null -> context.getString(R.string.deduplicator_media_match_visual)
+            dupe.frameHashes.isNotEmpty() -> context.getString(R.string.deduplicator_media_match_visual)
             else -> ""
         }
         secondary.text = "${String.format("%.2f%%", dupe.similarity * 100)} ($matchType)"
