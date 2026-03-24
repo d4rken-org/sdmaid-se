@@ -144,6 +144,26 @@ class FingerprintCalculator @Inject constructor(
         override fun hashCode(): Int = fingerprint.contentHashCode()
     }
 
+    // Hann window and band boundaries — instance-scoped, computed once on first use, freed with instance
+    private val hannWindow by lazy {
+        DoubleArray(FRAME_SIZE) { i ->
+            0.5 * (1.0 - cos(2.0 * PI * i / (FRAME_SIZE - 1)))
+        }
+    }
+
+    private val bandBoundaries: IntArray by lazy {
+        val halfSize = FRAME_SIZE / 2
+        val boundaries = IntArray(NUM_BANDS + 1)
+        boundaries[0] = 1 // Skip DC
+        boundaries[NUM_BANDS] = halfSize
+        val logMin = ln(1.0)
+        val logMax = ln(halfSize.toDouble())
+        for (i in 1 until NUM_BANDS) {
+            boundaries[i] = kotlin.math.exp(logMin + (logMax - logMin) * i / NUM_BANDS).toInt()
+        }
+        boundaries
+    }
+
     companion object {
         private const val FRAME_SIZE = 512
         private const val HOP_SIZE = 256
@@ -152,24 +172,5 @@ class FingerprintCalculator @Inject constructor(
         private const val FINGERPRINT_LONGS = FINGERPRINT_BITS / Long.SIZE_BITS // 4
         private const val MIN_BIT_ENTROPY = 0.15 // Reject if <15% or >85% of bits are set
         const val TARGET_SAMPLE_RATE = 8000
-
-        // Pre-computed Hann window coefficients
-        private val hannWindow = DoubleArray(FRAME_SIZE) { i ->
-            0.5 * (1.0 - cos(2.0 * PI * i / (FRAME_SIZE - 1)))
-        }
-
-        // Logarithmically-spaced band boundaries for 256 FFT bins (half of 512)
-        private val bandBoundaries: IntArray = run {
-            val halfSize = FRAME_SIZE / 2
-            val boundaries = IntArray(NUM_BANDS + 1)
-            boundaries[0] = 1 // Skip DC
-            boundaries[NUM_BANDS] = halfSize
-            val logMin = ln(1.0)
-            val logMax = ln(halfSize.toDouble())
-            for (i in 1 until NUM_BANDS) {
-                boundaries[i] = kotlin.math.exp(logMin + (logMax - logMin) * i / NUM_BANDS).toInt()
-            }
-            boundaries
-        }
     }
 }

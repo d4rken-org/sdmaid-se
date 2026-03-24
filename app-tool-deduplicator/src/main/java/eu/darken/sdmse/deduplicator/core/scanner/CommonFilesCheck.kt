@@ -15,7 +15,6 @@ class CommonFilesCheck @Inject constructor(
 
     suspend fun isCommon(lookup: APathLookup<*>): Boolean {
         val mimeType = mimeTypeTool.determineMimeType(lookup)
-        if (Bugs.isDebug) log(TAG, VERBOSE) { "MimeType: $mimeType <- ${lookup.path}" }
         return when {
             mimeType == "application/octet-stream" -> APPS_SUFFIXES.contains(lookup.extension)
             else -> COMMON_TYPES.contains(mimeType)

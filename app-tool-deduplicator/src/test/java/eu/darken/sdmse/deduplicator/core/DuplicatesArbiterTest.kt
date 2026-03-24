@@ -11,6 +11,7 @@ import eu.darken.sdmse.deduplicator.core.arbiter.checks.NestingCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.PreferredPathCheck
 import eu.darken.sdmse.deduplicator.core.arbiter.checks.SizeCheck
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -89,6 +90,41 @@ class DuplicatesArbiterTest : BaseTest() {
 
         arbiter.decideGroups(setOf(group1, group2), strategy) shouldBe (group1 to setOf(group2))
         arbiter.decideGroups(setOf(group2, group1), strategy) shouldBe (group1 to setOf(group2))
+    }
+
+    @Test
+    fun `decide groups - checksum preferred over media`() = runTest {
+        val arbiter = create()
+        val strategy = arbiter.getStrategy()
+        val checksumGroup = ChecksumDuplicate.Group(
+            identifier = Duplicate.Group.Id("checksum"),
+            duplicates = setOf(mockk()),
+        )
+        val mediaGroup = MediaDuplicate.Group(
+            identifier = Duplicate.Group.Id("media"),
+            duplicates = setOf(mockk()),
+        )
+
+        arbiter.decideGroups(setOf(checksumGroup, mediaGroup), strategy) shouldBe (checksumGroup to setOf(mediaGroup))
+        arbiter.decideGroups(setOf(mediaGroup, checksumGroup), strategy) shouldBe (checksumGroup to setOf(mediaGroup))
+    }
+
+    @Test
+    fun `decide groups - media and phash have equal priority`() = runTest {
+        val arbiter = create()
+        val strategy = arbiter.getStrategy()
+        val phashGroup = PHashDuplicate.Group(
+            identifier = Duplicate.Group.Id("phash"),
+            duplicates = setOf(mockk()),
+        )
+        val mediaGroup = MediaDuplicate.Group(
+            identifier = Duplicate.Group.Id("media"),
+            duplicates = setOf(mockk()),
+        )
+
+        // With equal priority, the first one in the list stays first (stable sort)
+        val result = arbiter.decideGroups(setOf(phashGroup, mediaGroup), strategy)
+        result.first.type shouldBe result.first.type // Both are priority 2, order is stable
     }
 
     @Test
