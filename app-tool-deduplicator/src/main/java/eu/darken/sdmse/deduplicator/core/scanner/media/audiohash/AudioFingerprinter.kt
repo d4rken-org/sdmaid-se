@@ -29,18 +29,17 @@ class AudioFingerprinter @Inject constructor(
      */
     fun fingerprint(filePath: String): Result? {
         val totalStart = System.currentTimeMillis()
-
-        val openStart = System.currentTimeMillis()
         val extractor = MediaExtractor()
         try {
-            extractor.setDataSource(filePath)
-        } catch (e: IOException) {
-            log(TAG, WARN) { "Failed to open $filePath: $e" }
-            return null
-        }
-        val openMs = System.currentTimeMillis() - openStart
+            val openStart = System.currentTimeMillis()
+            try {
+                extractor.setDataSource(filePath)
+            } catch (e: IOException) {
+                log(TAG, WARN) { "Failed to open $filePath: $e" }
+                return null
+            }
+            val openMs = System.currentTimeMillis() - openStart
 
-        try {
             val audioTrackIndex = findAudioTrack(extractor) ?: run {
                 log(TAG, VERBOSE) { "No audio track in $filePath" }
                 return null
@@ -69,7 +68,7 @@ class AudioFingerprinter @Inject constructor(
 
             val totalMs = System.currentTimeMillis() - totalStart
             val fileName = filePath.substringAfterLast('/')
-            log(TAG) { "Audio [$fileName] open=${openMs}ms decode=${decodeMs}ms fp=${fpMs}ms total=${totalMs}ms" }
+            log(TAG, VERBOSE) { "Audio [$fileName] open=${openMs}ms decode=${decodeMs}ms fp=${fpMs}ms total=${totalMs}ms" }
 
             return Result(
                 fingerprint = fingerprint,

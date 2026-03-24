@@ -130,7 +130,7 @@ class MediaSleuth @Inject constructor(
             "${durationBuckets.size} duration buckets, ${comparableBuckets.size} with 2+ items ($filesToCompare files to compare)"
         }
 
-        updateProgressSecondary(R.string.deduplicator_progress_comparing_files.toCaString())
+        updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
         updateProgressCount(Progress.Count.Percent(0, filesToCompare))
 
         val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
@@ -296,7 +296,7 @@ class MediaSleuth @Inject constructor(
             val elapsed = System.currentTimeMillis() - start
             val fileName = filePath.substringAfterLast('/')
             val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
-            log(TAG) { "Frames [$fileName] ${hashes.size}/${timestamps.size} frames in ${elapsed}ms$reasonSuffix" }
+            log(TAG, VERBOSE) { "Frames [$fileName] ${hashes.size}/${timestamps.size} frames in ${elapsed}ms$reasonSuffix" }
             hashes
         } finally {
             retriever.release()
@@ -327,8 +327,11 @@ class MediaSleuth @Inject constructor(
             get() = durationMs / DURATION_BUCKET_MS
 
         // Frame hashes — pre-computed for video-no-audio, lazy for video+audio (tiebreaker only)
+        @Volatile
         var cachedFrameHashes: List<PHasher.Result> = precomputedFrameHashes ?: emptyList()
             private set
+
+        @Volatile
         private var frameHashesComputed = precomputedFrameHashes != null
 
         fun getOrComputeFrameHashes(reason: String = ""): List<PHasher.Result> {
