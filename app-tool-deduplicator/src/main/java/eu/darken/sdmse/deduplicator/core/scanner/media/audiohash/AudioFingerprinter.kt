@@ -7,6 +7,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewayMediaDataSource
+import eu.darken.sdmse.common.files.GatewaySwitch
 import java.io.IOException
 import java.nio.ByteBuffer
 import java.nio.ByteOrder
@@ -14,6 +17,7 @@ import javax.inject.Inject
 
 class AudioFingerprinter @Inject constructor(
     private val fingerprintCalculator: FingerprintCalculator,
+    private val gatewaySwitch: GatewaySwitch,
 ) {
 
     data class Result(
@@ -24,24 +28,27 @@ class AudioFingerprinter @Inject constructor(
     }
 
     /**
-     * Extract audio from [filePath] and compute a fingerprint.
+     * Extract audio from [lookup] and compute a fingerprint.
+     * Uses the gateway abstraction for file access, supporting local, root, Shizuku, and SAF paths.
      * Returns null if the file has no audio track or cannot be decoded.
      */
-    fun fingerprint(filePath: String): Result? {
+    suspend fun fingerprint(lookup: APathLookup<*>): Result? {
         val totalStart = System.currentTimeMillis()
+        val fileName = lookup.path.substringAfterLast('/')
+        val mediaDataSource = GatewayMediaDataSource(gatewaySwitch.file(lookup.lookedUp, readWrite = false))
         val extractor = MediaExtractor()
         try {
             val openStart = System.currentTimeMillis()
             try {
-                extractor.setDataSource(filePath)
+                extractor.setDataSource(mediaDataSource)
             } catch (e: IOException) {
-                log(TAG, WARN) { "Failed to open $filePath: $e" }
+                log(TAG, WARN) { "Failed to open $fileName: $e" }
                 return null
             }
             val openMs = System.currentTimeMillis() - openStart
 
             val audioTrackIndex = findAudioTrack(extractor) ?: run {
-                log(TAG, VERBOSE) { "No audio track in $filePath" }
+                log(TAG, VERBOSE) { "No audio track in $fileName" }
                 return null
             }
 
@@ -59,16 +66,16 @@ class AudioFingerprinter @Inject constructor(
             val decodeMs = System.currentTimeMillis() - decodeStart
 
             val fpStart = System.currentTimeMillis()
-            val fingerprint = fingerprintCalculator.calculate(pcmSamples, sampleRate)
-                ?: run {
-                    log(TAG, VERBOSE) { "Too few samples for fingerprint from $filePath" }
-                    return null
-                }
+            val fingerprint = fingerprintCalculator.calculate(pcmSamples, sampleRate) ?: run {
+                log(TAG, VERBOSE) { "Too few samples for fingerprint from $fileName" }
+                return null
+            }
             val fpMs = System.currentTimeMillis() - fpStart
 
             val totalMs = System.currentTimeMillis() - totalStart
-            val fileName = filePath.substringAfterLast('/')
-            log(TAG, VERBOSE) { "Audio [$fileName] open=${openMs}ms decode=${decodeMs}ms fp=${fpMs}ms total=${totalMs}ms" }
+            log(TAG, VERBOSE) {
+                "Audio [$fileName] open=${openMs}ms decode=${decodeMs}ms fp=${fpMs}ms total=${totalMs}ms"
+            }
 
             return Result(
                 fingerprint = fingerprint,
@@ -76,6 +83,7 @@ class AudioFingerprinter @Inject constructor(
             )
         } finally {
             extractor.release()
+            mediaDataSource.close()
         }
     }
 
@@ -106,7 +114,6 @@ class AudioFingerprinter @Inject constructor(
             codec.configure(format, null, null, 0)
             codec.start()
 
-            // Collect ~10 seconds of mono samples at the original sample rate
             val maxSamples = sampleRate * MAX_DURATION_SECONDS
             val monoSamples = ShortArray(maxSamples)
             var sampleCount = 0

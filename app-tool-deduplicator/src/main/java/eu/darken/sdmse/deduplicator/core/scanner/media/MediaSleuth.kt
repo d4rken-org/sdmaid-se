@@ -13,6 +13,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.asFile
+import eu.darken.sdmse.common.files.GatewayProxyFileDescriptor
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
@@ -42,11 +44,12 @@ import java.util.UUID
 import javax.inject.Inject
 
 class MediaSleuth @Inject constructor(
-    @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val mimeTypeTool: MimeTypeTool,
     private val audioFingerprinter: AudioFingerprinter,
     private val comparator: MediaComparator,
+    private val gatewaySwitch: GatewaySwitch,
+    private val gatewayProxyFileDescriptor: GatewayProxyFileDescriptor,
 ) : Sleuth {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -64,7 +67,6 @@ class MediaSleuth @Inject constructor(
         // Collect suspects with cached MIME types to avoid redundant detection
         val suspectsWithMime = searchFlow
             .toSet()
-            .filter { it.lookedUp is LocalPath }
             .mapNotNull { item ->
                 val mime = mimeTypeTool.determineMimeType(item)
                 if (mime.startsWith("video/") || mime.startsWith("audio/")) {
@@ -79,6 +81,7 @@ class MediaSleuth @Inject constructor(
 
         val hashStart = System.currentTimeMillis()
         val codecSemaphore = Semaphore(MAX_CONCURRENT_DECODERS)
+        val frameSemaphore = Semaphore(MAX_CONCURRENT_FRAME_EXTRACTORS)
 
         val hashedItems: List<HashedMedia> = suspectsWithMime
             .asFlow()
@@ -90,7 +93,7 @@ class MediaSleuth @Inject constructor(
                     val result = try {
                         codecSemaphore.withPermit {
                             withTimeoutOrNull(PER_FILE_TIMEOUT_MS) {
-                                hashMediaFile(item, mime)
+                                hashMediaFile(item, mime, frameSemaphore)
                             }
                         }
                     } catch (e: Exception) {
@@ -162,7 +165,7 @@ class MediaSleuth @Inject constructor(
         }.toSet()
     }
 
-    private fun findSimilarGroups(
+    private suspend fun findSimilarGroups(
         items: List<HashedMedia>,
         hashBuckets: MutableSet<Set<Pair<APathLookup<*>, Double>>>,
     ) {
@@ -210,13 +213,13 @@ class MediaSleuth @Inject constructor(
         }
     }
 
-    private fun HashedMedia.toMediaInfo(reason: String) = MediaComparator.MediaInfo(
+    private suspend fun HashedMedia.toMediaInfo(reason: String) = MediaComparator.MediaInfo(
         audioResult = audioResult,
         frameHashes = getOrComputeFrameHashes(reason),
         isVideo = isVideo,
     )
 
-    private fun computeSimilarity(a: HashedMedia, b: HashedMedia): Double? {
+    private suspend fun computeSimilarity(a: HashedMedia, b: HashedMedia): Double? {
         // Lazy: only compute frame hashes for video-no-audio pairs
         val reason = "no audio track"
         val aInfo = MediaComparator.MediaInfo(
@@ -232,19 +235,18 @@ class MediaSleuth @Inject constructor(
         return comparator.computeSimilarity(aInfo, bInfo)
     }
 
-    private fun computeWithTiebreaker(a: HashedMedia, b: HashedMedia, audioSim: Double): Double? {
+    private suspend fun computeWithTiebreaker(a: HashedMedia, b: HashedMedia, audioSim: Double): Double? {
         val reason = "audio tiebreaker"
         return comparator.computeWithTiebreaker(a.toMediaInfo(reason), b.toMediaInfo(reason), audioSim)
     }
 
-    private fun hashMediaFile(item: APathLookup<*>, mime: String): HashedMedia? {
-        val filePath = item.lookedUp.asFile().absolutePath
+    private suspend fun hashMediaFile(item: APathLookup<*>, mime: String, frameSemaphore: Semaphore): HashedMedia? {
         val isVideo = mime.startsWith("video/")
 
-        val audioResult = audioFingerprinter.fingerprint(filePath)
+        val audioResult = audioFingerprinter.fingerprint(item)
 
         // For video without audio, we still need duration for bucketing
-        val durationMs = audioResult?.durationMs ?: extractDuration(filePath)
+        val durationMs = audioResult?.durationMs ?: extractDuration(item)
 
         // Must be a video or have audio
         if (audioResult == null && !isVideo) return null
@@ -254,7 +256,9 @@ class MediaSleuth @Inject constructor(
         // since they rarely need them (only for tiebreaker).
         val earlyFrameHashes = if (audioResult == null && isVideo) {
             try {
-                extractFrameHashes(filePath, durationMs, "no audio track")
+                frameSemaphore.withPermit {
+                    extractFrameHashes(item, durationMs, "no audio track")
+                }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to extract frame hashes: $e" }
                 emptyList()
@@ -269,23 +273,29 @@ class MediaSleuth @Inject constructor(
         return HashedMedia(
             lookup = item,
             audioResult = audioResult,
-            filePath = filePath,
             isVideo = isVideo,
             durationMs = durationMs,
             precomputedFrameHashes = earlyFrameHashes,
         )
     }
 
-    private fun extractFrameHashes(filePath: String, durationMs: Long, reason: String = ""): List<PHasher.Result> {
+    /**
+     * Extract frame hashes using MediaMetadataRetriever via a gateway-backed temp file.
+     * Uses proxy file descriptor for gateway-backed seekable access.
+     */
+    private suspend fun extractFrameHashes(
+        item: APathLookup<*>,
+        durationMs: Long,
+        reason: String = "",
+    ): List<PHasher.Result> {
         if (durationMs <= 0) return emptyList()
 
         val start = System.currentTimeMillis()
-        val retriever = MediaMetadataRetriever()
-        val pHasher = PHasher()
-        return try {
-            retriever.setDataSource(filePath)
-            // Extract 5 frames at 10%, 30%, 50%, 70%, 90% of duration
+        val fileName = item.path.substringAfterLast('/')
+
+        return useRetriever(item) { retriever ->
             val timestamps = FRAME_POSITIONS.map { pct -> (durationMs * pct).toLong() * 1000 } // ms → µs
+            val pHasher = PHasher()
 
             val hashes = timestamps.mapNotNull { timeUs ->
                 val bitmap = retriever.getFrameAtTime(timeUs, MediaMetadataRetriever.OPTION_CLOSEST_SYNC)
@@ -294,31 +304,68 @@ class MediaSleuth @Inject constructor(
             }
 
             val elapsed = System.currentTimeMillis() - start
-            val fileName = filePath.substringAfterLast('/')
             val reasonSuffix = if (reason.isNotEmpty()) " ($reason)" else ""
             log(TAG, VERBOSE) { "Frames [$fileName] ${hashes.size}/${timestamps.size} frames in ${elapsed}ms$reasonSuffix" }
             hashes
-        } finally {
-            retriever.release()
-        }
+        } ?: emptyList()
     }
 
-    private fun extractDuration(filePath: String): Long {
+    private suspend fun extractDuration(item: APathLookup<*>): Long = try {
+        useRetriever(item) { retriever ->
+            retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
+        } ?: 0L
+    } catch (_: Exception) {
+        0L
+    }
+
+    /**
+     * Run [block] with a [MediaMetadataRetriever].
+     * Fast path: direct file access for LocalPath (no FUSE overhead).
+     * Fallback: gateway proxy file descriptor for non-local or restricted files.
+     */
+    private suspend fun <T> useRetriever(
+        item: APathLookup<*>,
+        block: (MediaMetadataRetriever) -> T,
+    ): T? {
+        if (item.lookedUp is LocalPath && item.lookedUp.asFile().canRead()) {
+            val retriever = MediaMetadataRetriever()
+            try {
+                retriever.setDataSource(item.lookedUp.asFile().absolutePath)
+                return block(retriever)
+            } catch (e: Exception) {
+                log(TAG, VERBOSE) { "Direct path failed for ${item.path}, falling back to gateway: $e" }
+                retriever.release()
+                // Fall through to gateway path
+            }
+        }
+        return useRetrieverViaGateway(item, block)
+    }
+
+    /**
+     * Fallback: [MediaMetadataRetriever] backed by a gateway proxy file descriptor.
+     * Uses [android.os.storage.StorageManager.openProxyFileDescriptor] to create a virtual FD
+     * that delegates seekable reads to the gateway's [okio.FileHandle].
+     * Works for all access methods (root, Shizuku, SAF) but has FUSE overhead.
+     */
+    private suspend fun <T> useRetrieverViaGateway(
+        item: APathLookup<*>,
+        block: (MediaMetadataRetriever) -> T,
+    ): T? {
+        val handle = gatewaySwitch.file(item.lookedUp, readWrite = false)
+        val pfd = gatewayProxyFileDescriptor.create(handle)
         val retriever = MediaMetadataRetriever()
         return try {
-            retriever.setDataSource(filePath)
-            retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)?.toLongOrNull() ?: 0L
-        } catch (e: Exception) {
-            0L
+            retriever.setDataSource(pfd.fileDescriptor)
+            block(retriever)
         } finally {
             retriever.release()
+            pfd.close()
         }
     }
 
     inner class HashedMedia(
         val lookup: APathLookup<*>,
         val audioResult: AudioFingerprinter.Result?,
-        val filePath: String,
         val isVideo: Boolean,
         val durationMs: Long,
         precomputedFrameHashes: List<PHasher.Result>? = null,
@@ -334,13 +381,13 @@ class MediaSleuth @Inject constructor(
         @Volatile
         private var frameHashesComputed = precomputedFrameHashes != null
 
-        fun getOrComputeFrameHashes(reason: String = ""): List<PHasher.Result> {
+        suspend fun getOrComputeFrameHashes(reason: String = ""): List<PHasher.Result> {
             if (!frameHashesComputed) {
                 frameHashesComputed = true
                 if (isVideo) {
                     updateProgressSecondary(lookup.userReadablePath)
                     cachedFrameHashes = try {
-                        extractFrameHashes(filePath, durationMs, reason)
+                        extractFrameHashes(lookup, durationMs, reason)
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Failed to extract frame hashes: $e" }
                         emptyList()
@@ -353,6 +400,7 @@ class MediaSleuth @Inject constructor(
 
     companion object {
         private const val MAX_CONCURRENT_DECODERS = 4
+        private const val MAX_CONCURRENT_FRAME_EXTRACTORS = 1
         private const val PER_FILE_TIMEOUT_MS = 30_000L
         private const val DURATION_BUCKET_MS = 5_000L
         private val FRAME_POSITIONS = doubleArrayOf(0.10, 0.30, 0.50, 0.70, 0.90)

@@ -268,7 +268,7 @@ class DuplicatesScanner @Inject constructor(
                 val grps = mutableSetOf<Duplicate.Group>(cksGrp)
 
                 overlapping
-                    ?.mapNotNull { simGrp -> stripCoveredPaths(simGrp, cksCoveredPaths) }
+                    ?.mapNotNull { simGrp -> simGrp.stripCoveredPaths(cksCoveredPaths) }
                     ?.let { grps.addAll(it) }
 
                 Duplicate.Cluster(
@@ -333,22 +333,20 @@ class DuplicatesScanner @Inject constructor(
         return clustersWithKeepers
     }
 
-    private fun stripCoveredPaths(group: Duplicate.Group, coveredPaths: Set<APath>): Duplicate.Group? {
-        val stripped = when (group) {
-            is eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate.Group -> {
-                group.copy(duplicates = group.duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
-            }
-
-            is eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate.Group -> {
-                group.copy(duplicates = group.duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
-            }
-
-            else -> return null
-        }
-        return if (stripped.duplicates.isNotEmpty()) stripped else null
-    }
-
     companion object {
         private val TAG = logTag("Deduplicator", "Scanner")
     }
+}
+
+/**
+ * Strips duplicates whose paths are already covered by checksum groups.
+ * Returns null if no duplicates remain after stripping.
+ */
+internal fun Duplicate.Group.stripCoveredPaths(coveredPaths: Set<APath>): Duplicate.Group? {
+    val stripped = when (this) {
+        is PHashDuplicate.Group -> copy(duplicates = duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
+        is MediaDuplicate.Group -> copy(duplicates = duplicates.filter { !coveredPaths.contains(it.path) }.toSet())
+        else -> return null
+    }
+    return stripped.takeIf { it.duplicates.isNotEmpty() }
 }
