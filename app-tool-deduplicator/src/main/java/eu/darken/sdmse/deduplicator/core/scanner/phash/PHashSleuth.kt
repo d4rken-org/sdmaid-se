@@ -81,6 +81,7 @@ class PHashSleuth @Inject constructor(
         val processedCount = AtomicInteger(0)
         val failedCount = AtomicInteger(0)
         val processSemaphore = Semaphore(MAX_CONCURRENT_OPS)
+        val pHasher = PHasher()
 
         val hashedItems: Map<APathLookup<*>, PHasher.Result> = suspects
             .asFlow()
@@ -95,14 +96,15 @@ class PHashSleuth @Inject constructor(
 
                             try {
                                 val calcStart = System.currentTimeMillis()
-                                val result = PHasher().calc(bitmap)
+                                val result = pHasher.calc(bitmap)
                                 val calcMs = System.currentTimeMillis() - calcStart
                                 totalHashMs.addAndGet(calcMs)
                                 processedCount.incrementAndGet()
 
                                 log(TAG, VERBOSE) {
-                                    "PHash decode=${decodeMs}ms hash=${calcMs}ms total=${decodeMs + calcMs}ms" +
-                                        " size=${item.size / 1024}KB - ${item.path}"
+                                    "PHash decode=${decodeMs}ms hash=${calcMs}ms" +
+                                            " acVar=${String.format("%.1f", result.acVariance)}" +
+                                            " size=${item.size / 1024}KB - ${item.path}"
                                 }
                                 result
                             } finally {
@@ -128,19 +130,34 @@ class PHashSleuth @Inject constructor(
             .toList()
             .toMap()
 
+        val filteredItems = hashedItems.filter { (item, result) ->
+            val lowComplexity = result.acVariance < MIN_AC_VARIANCE
+            if (lowComplexity) {
+                log(TAG, VERBOSE) {
+                    "Skipping low-complexity image (acVar=${String.format("%.2f", result.acVariance)}): ${item.path}"
+                }
+            }
+            !lowComplexity
+        }
+
+        val skippedCount = hashedItems.size - filteredItems.size
+        if (skippedCount > 0) {
+            log(TAG, INFO) { "PHash: skipped $skippedCount low-complexity images (acVariance < $MIN_AC_VARIANCE)" }
+        }
+
         val compareStart = System.currentTimeMillis()
         val requiredSim = 0.95f
-        val remainingItems = LinkedList(hashedItems.keys)
+        val remainingItems = LinkedList(filteredItems.keys)
         val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
 
         updateProgressCount(Progress.Count.Percent(remainingItems.size))
 
         while (currentCoroutineContext().isActive && remainingItems.isNotEmpty()) {
             val target = remainingItems.removeFirst()
-            val targetHash = hashedItems[target]!!
+            val targetHash = filteredItems[target]!!
 
             val others = remainingItems
-                .map { it to targetHash.similarityTo(hashedItems[it]!!) }
+                .map { it to targetHash.similarityTo(filteredItems[it]!!) }
                 .onEach { (other, sim) ->
                     if (Bugs.isTrace || sim > requiredSim) {
                         log(TAG, VERBOSE) { "${String.format("%.2f%%", sim * 100)} : $target <-> $other" }
@@ -164,12 +181,15 @@ class PHashSleuth @Inject constructor(
         val failed = failedCount.get()
         log(TAG, INFO) {
             "PHash: ${processed} images in ${wallMs}ms (${if (processed > 0) wallMs / processed else 0}ms/img)," +
-                " decode=${totalDecodeMs.get()}ms hash=${totalHashMs.get()}ms," +
-                " failed=$failed, concurrency=$DEFAULT_CONCURRENCY"
+                    " decode=${totalDecodeMs.get()}ms hash=${totalHashMs.get()}ms," +
+                    " failed=$failed, concurrency=$DEFAULT_CONCURRENCY"
         }
 
         val compareMs = System.currentTimeMillis() - compareStart
-        log(TAG, INFO) { "PHash comparison: ${hashedItems.size} items in ${compareMs}ms, found ${hashBuckets.size} groups" }
+        log(
+            TAG,
+            INFO
+        ) { "PHash comparison: ${filteredItems.size} items in ${compareMs}ms, found ${hashBuckets.size} groups" }
 
         return hashBuckets.map { items: Set<Pair<APathLookup<*>, Double>> ->
             PHashDuplicate.Group(
@@ -177,7 +197,7 @@ class PHashSleuth @Inject constructor(
                 duplicates = items.map { (item, similarity) ->
                     PHashDuplicate(
                         lookup = item,
-                        hash = hashedItems[item]!!,
+                        hash = filteredItems[item]!!,
                         similarity = similarity,
                     )
                 }.toSet()
@@ -199,7 +219,7 @@ class PHashSleuth @Inject constructor(
 
             // Pass 2: decode with optimal inSampleSize targeting PHASH_SIZE
             val decodeOptions = BitmapFactory.Options().apply {
-                inSampleSize = calculateInSampleSize(boundsOptions.outWidth, boundsOptions.outHeight)
+                inSampleSize = boundsOptions.calculateInSampleSize()
             }
             val rawBitmap = handle.source().inputStream().use { stream ->
                 BitmapFactory.decodeStream(stream, null, decodeOptions)
@@ -214,43 +234,50 @@ class PHashSleuth @Inject constructor(
                     )
                 }
             } catch (e: IOException) {
+                log(TAG, VERBOSE) { "Failed to read exif orientation (defaulting to NORMAL): $e" }
                 ExifInterface.ORIENTATION_NORMAL
             }
 
-            applyExifOrientation(rawBitmap, orientation)
+            rawBitmap.applyExifOrientation(orientation)
         }
     }
 
     companion object {
         private const val MAX_CONCURRENT_OPS = 4
-        // Decode target: larger than the 32x32 PHash input to preserve detail during resize.
-        // inSampleSize will decode to roughly this size, then PHashAlgorithm resizes to 32x32.
+
+        // Minimum AC coefficient variance for a meaningful pHash comparison.
+        // Images below this have near-uniform content where DCT hash bits are noise-dominated.
+        private const val MIN_AC_VARIANCE = 100.0
+
+        // Decode target: larger than the 64x64 PHash input to preserve detail during resize.
+        // inSampleSize will decode to roughly this size, then PHashAlgorithm resizes to 64x64.
         private const val DECODE_TARGET_SIZE = 256
 
         private val TAG = logTag("Deduplicator", "Sleuth", "PHash")
-
-        private fun calculateInSampleSize(width: Int, height: Int): Int {
-            var inSampleSize = 1
-            while (width / (inSampleSize * 2) >= DECODE_TARGET_SIZE && height / (inSampleSize * 2) >= DECODE_TARGET_SIZE) {
-                inSampleSize *= 2
-            }
-            return inSampleSize
-        }
-
-        private fun applyExifOrientation(bitmap: Bitmap, orientation: Int): Bitmap {
-            val matrix = when (orientation) {
-                ExifInterface.ORIENTATION_ROTATE_90 -> Matrix().apply { postRotate(90f) }
-                ExifInterface.ORIENTATION_ROTATE_180 -> Matrix().apply { postRotate(180f) }
-                ExifInterface.ORIENTATION_ROTATE_270 -> Matrix().apply { postRotate(270f) }
-                ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> Matrix().apply { postScale(-1f, 1f) }
-                ExifInterface.ORIENTATION_FLIP_VERTICAL -> Matrix().apply { postScale(1f, -1f) }
-                ExifInterface.ORIENTATION_TRANSPOSE -> Matrix().apply { postRotate(90f); postScale(-1f, 1f) }
-                ExifInterface.ORIENTATION_TRANSVERSE -> Matrix().apply { postRotate(270f); postScale(-1f, 1f) }
-                else -> return bitmap
-            }
-            val rotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
-            if (rotated !== bitmap) bitmap.recycle()
-            return rotated
-        }
     }
+}
+
+private fun BitmapFactory.Options.calculateInSampleSize(): Int {
+    var inSampleSize = 1
+    val targetSize = 256
+    while (outWidth / (inSampleSize * 2) >= targetSize && outHeight / (inSampleSize * 2) >= targetSize) {
+        inSampleSize *= 2
+    }
+    return inSampleSize
+}
+
+private fun Bitmap.applyExifOrientation(orientation: Int): Bitmap {
+    val matrix = when (orientation) {
+        ExifInterface.ORIENTATION_ROTATE_90 -> Matrix().apply { postRotate(90f) }
+        ExifInterface.ORIENTATION_ROTATE_180 -> Matrix().apply { postRotate(180f) }
+        ExifInterface.ORIENTATION_ROTATE_270 -> Matrix().apply { postRotate(270f) }
+        ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> Matrix().apply { postScale(-1f, 1f) }
+        ExifInterface.ORIENTATION_FLIP_VERTICAL -> Matrix().apply { postScale(1f, -1f) }
+        ExifInterface.ORIENTATION_TRANSPOSE -> Matrix().apply { postRotate(90f); postScale(-1f, 1f) }
+        ExifInterface.ORIENTATION_TRANSVERSE -> Matrix().apply { postRotate(270f); postScale(-1f, 1f) }
+        else -> return this
+    }
+    val rotated = Bitmap.createBitmap(this, 0, 0, width, height, matrix, true)
+    if (rotated !== this) recycle()
+    return rotated
 }

@@ -9,6 +9,7 @@ import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterStrategy
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHashBits
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -58,7 +59,7 @@ class DeduplicatorTest : BaseTest() {
             modifiedAt = Instant.EPOCH,
             target = null,
         ),
-        hash = PHasher.Result(2L),
+        hash = PHasher.Result(PHashBits(2L)),
         similarity = 0.96
     )
     val phDupe1 = PHashDuplicate(
@@ -69,7 +70,7 @@ class DeduplicatorTest : BaseTest() {
             modifiedAt = Instant.EPOCH,
             target = null,
         ),
-        hash = PHasher.Result(1L),
+        hash = PHasher.Result(PHashBits(1L)),
         similarity = 0.95
     )
 

@@ -5,6 +5,8 @@ import android.graphics.Canvas
 import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
+import androidx.core.graphics.get
+import androidx.core.graphics.scale
 import kotlin.math.cos
 import kotlin.math.sqrt
 
@@ -16,23 +18,22 @@ import kotlin.math.sqrt
  * Based On: http://www.hackerfactor.com/blog/index.php?/archives/432-Looks-Like-It.html
  */
 class PHashAlgorithm constructor(
-    private val size: Int = 32,
-    private val smallerSize: Int = 8,
+    private val size: Int = 64,
+    private val smallerSize: Int = 12,
 ) {
 
-    fun calc(img: Bitmap): Long {
-        /* 1. Reduce size.
-        * Like Average Hash, pHash starts with a small image.
-        * However, the image is larger than 8x8; 32x32 is a good size.
-        * This is really done to simplify the DCT computation and not
-        * because it is needed to reduce the high frequencies.
-        */
+    init {
+        require(size > 1) { "size must be > 1, was $size" }
+        require(smallerSize in 2..size) { "smallerSize must be in 2..$size, was $smallerSize" }
+    }
+
+    data class Result(val hash: PHashBits, val acVariance: Double)
+
+    fun calc(img: Bitmap): Result {
+        // 1. Reduce size to NxN for DCT computation.
         var workImg = resize(img, size, size)
 
-        /* 2. Reduce color.
-         * The image is reduced to a grayscale just to further simplify
-         * the number of computations.
-         */
+        // 2. Reduce color to grayscale.
         workImg = grayscale(workImg)
 
         val vals = Array(size) { DoubleArray(size) }
@@ -42,58 +43,48 @@ class PHashAlgorithm constructor(
             }
         }
 
-        /* 3. Compute the DCT.
-         * The DCT separates the image into a collection of frequencies
-         * and scalars. While JPEG uses an 8x8 DCT, this algorithm uses
-         * a 32x32 DCT.
-         */
+        // 3. Compute the DCT using separable 2-pass approach (O(n³) instead of O(n⁴)).
         val dctVals = applyDCT(vals)
 
-        /* 4. Reduce the DCT.
-         * This is the magic step. While the DCT is 32x32, just keep the
-         * top-left 8x8. Those represent the lowest frequencies in the
-         * picture.
-         */
-        /* 5. Compute the average value.
-         * Like the Average Hash, compute the mean DCT value (using only
-         * the 8x8 DCT low-frequency values and excluding the first term
-         * since the DC coefficient can be significantly different from
-         * the other values and will throw off the average).
-        */
-        var total = 0.0
-        for (x in 0..<smallerSize) {
-            for (y in 0..<smallerSize) {
-                total += dctVals[x][y]
+        // 4. Compute mean and variance over the AC terms that contribute to the hash.
+        // Only terms where x != 0 && y != 0 are used for hash bits.
+        val acCount = (smallerSize - 1) * (smallerSize - 1)
+        var acTotal = 0.0
+        for (x in 1..<smallerSize) {
+            for (y in 1..<smallerSize) {
+                acTotal += dctVals[x][y]
             }
         }
-        total -= dctVals[0][0]
-        val avg = total / (smallerSize * smallerSize - 1).toDouble()
+        val avg = acTotal / acCount.toDouble()
 
-        /* 6. Further reduce the DCT.
-         * This is the magic step. Set the 64 hash bits to 0 or 1
-         * depending on whether each of the 64 DCT values is above or
-         * below the average value. The result doesn't tell us the
-         * actual low frequencies; it just tells us the very-rough
-         * relative scale of the frequencies to the mean. The result
-         * will not vary as long as the overall structure of the image
-         * remains the same; this can survive gamma and color histogram
-         * adjustments without a problem.
-         */
-        var hash: Long = 0
-        for (x in 0..<smallerSize) {
-            for (y in 0..<smallerSize) {
-                if (x != 0 && y != 0) {
-                    hash *= 2
-                    if (dctVals[x][y] > avg) hash++
+        var sumSqDiff = 0.0
+        for (x in 1..<smallerSize) {
+            for (y in 1..<smallerSize) {
+                val diff = dctVals[x][y] - avg
+                sumSqDiff += diff * diff
+            }
+        }
+        val acVariance = sumSqDiff / acCount.toDouble()
+
+        // 5. Pack hash bits: 1 if DCT value > mean, 0 otherwise. MSB-first into LongArray.
+        val totalBits = acCount
+        val words = LongArray((totalBits + Long.SIZE_BITS - 1) / Long.SIZE_BITS)
+        var bitIndex = 0
+        for (x in 1..<smallerSize) {
+            for (y in 1..<smallerSize) {
+                if (dctVals[x][y] > avg) {
+                    words[bitIndex / Long.SIZE_BITS] = words[bitIndex / Long.SIZE_BITS] or
+                        (1L shl (Long.SIZE_BITS - 1 - bitIndex % Long.SIZE_BITS))
                 }
+                bitIndex++
             }
         }
 
-        return hash
+        return Result(PHashBits(words, totalBits), acVariance)
     }
 
     private fun resize(bm: Bitmap, newHeight: Int, newWidth: Int): Bitmap {
-        return Bitmap.createScaledBitmap(bm, newWidth, newHeight, true)
+        return bm.scale(newWidth, newHeight)
     }
 
     private fun grayscale(orginalBitmap: Bitmap): Bitmap {
@@ -109,21 +100,39 @@ class PHashAlgorithm constructor(
         return blackAndWhiteBitmap
     }
 
-    private fun getBlue(img: Bitmap, x: Int, y: Int): Int = img.getPixel(x, y) and 0xff
+    private fun getBlue(img: Bitmap, x: Int, y: Int): Int = img[x, y] and 0xff
 
-    // DCT with precomputed cosine table — eliminates 2M+ cos() calls per image.
-    // From http://stackoverflow.com/questions/4240490/problems-with-dct-and-idct-algorithm-in-java
+    // Precompute once per instance: table[i][u] = cos((2*i+1) / (2*n) * u * PI)
+    private val cosTable: Array<DoubleArray> = Array(size) { i ->
+        DoubleArray(size) { u ->
+            cos((2 * i + 1) / (2.0 * size) * u * Math.PI)
+        }
+    }
+
+    // Separable 2D DCT: two passes of 1D DCT (rows then columns).
+    // O(n³) instead of the naive O(n⁴) approach.
     private fun applyDCT(f: Array<DoubleArray>): Array<DoubleArray> {
-        val cosTable = cosineTable(size)
         val c0 = 1.0 / sqrt(2.0)
+
+        // Pass 1: 1D DCT along columns for each row
+        val temp = Array(size) { DoubleArray(size) }
+        for (i in 0..<size) {
+            for (v in 0..<size) {
+                var sum = 0.0
+                for (j in 0..<size) {
+                    sum += cosTable[j][v] * f[i][j]
+                }
+                temp[i][v] = sum
+            }
+        }
+
+        // Pass 2: 1D DCT along rows for each column
         val result = Array(size) { DoubleArray(size) }
         for (u in 0..<size) {
             for (v in 0..<size) {
                 var sum = 0.0
                 for (i in 0..<size) {
-                    for (j in 0..<size) {
-                        sum += cosTable[i][u] * cosTable[j][v] * f[i][j]
-                    }
+                    sum += cosTable[i][u] * temp[i][v]
                 }
                 val cu = if (u == 0) c0 else 1.0
                 val cv = if (v == 0) c0 else 1.0
@@ -131,26 +140,5 @@ class PHashAlgorithm constructor(
             }
         }
         return result
-    }
-
-    companion object {
-        private var cachedSize: Int = 0
-        private var cachedTable: Array<DoubleArray> = emptyArray()
-
-        /**
-         * Returns cosine lookup table: `table[i][u] = cos((2*i+1) / (2*n) * u * PI)`
-         * Cached since PHashAlgorithm is instantiated per image but size never changes.
-         */
-        @Synchronized
-        private fun cosineTable(n: Int): Array<DoubleArray> {
-            if (n == cachedSize) return cachedTable
-            cachedTable = Array(n) { i ->
-                DoubleArray(n) { u ->
-                    cos((2 * i + 1) / (2.0 * n) * u * Math.PI)
-                }
-            }
-            cachedSize = n
-            return cachedTable
-        }
     }
 }

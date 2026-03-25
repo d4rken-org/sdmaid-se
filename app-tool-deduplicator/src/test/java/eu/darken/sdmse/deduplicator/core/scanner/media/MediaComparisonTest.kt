@@ -3,6 +3,7 @@ package eu.darken.sdmse.deduplicator.core.scanner.media
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaComparator.MediaInfo
 import eu.darken.sdmse.deduplicator.core.scanner.media.audiohash.AudioFingerprinter
 import eu.darken.sdmse.deduplicator.core.scanner.media.audiohash.FingerprintCalculator
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHashBits
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 import io.kotest.matchers.doubles.shouldBeLessThan
 import io.kotest.matchers.nulls.shouldBeNull
@@ -20,8 +21,8 @@ class MediaComparisonTest : BaseTest() {
         durationMs = durationMs,
     )
 
-    private fun frameHash(hash: Long) = PHasher.Result(hash = hash)
-    private fun frameHashes(vararg hashes: Long) = hashes.map { PHasher.Result(hash = it) }
+    private fun frameHash(hash: Long) = PHasher.Result(hash = PHashBits(hash))
+    private fun frameHashes(vararg hashes: Long) = hashes.map { PHasher.Result(hash = PHashBits(it)) }
 
     // Identical audio fingerprint
     private val audioA = audioResult(0x1111111111111111L, 0x2222222222222222L, 0x3333333333333333L, 0x4444444444444444L)

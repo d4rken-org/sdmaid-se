@@ -5,6 +5,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.checksum.ChecksumDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.media.MediaDuplicate
 import eu.darken.sdmse.deduplicator.core.scanner.phash.PHashDuplicate
+import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHashBits
 import eu.darken.sdmse.deduplicator.core.scanner.phash.phash.PHasher
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
@@ -27,7 +28,7 @@ class StripCoveredPathsTest : BaseTest() {
                         every { lookedUp } returns lp(path)
                         every { this@mockk.path } returns path
                     },
-                    hash = PHasher.Result(hash = 0L),
+                    hash = PHasher.Result(hash = PHashBits(0L)),
                     similarity = 1.0,
                 )
             }.toSet(),
