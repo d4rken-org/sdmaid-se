@@ -4,8 +4,18 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.core.storage.toFlatContent
 import eu.darken.sdmse.analyzer.core.storage.toNestedContent
+import eu.darken.sdmse.analyzer.core.storage.walkContentItem
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.FileType
+import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.files.local.LocalPathLookup
 import io.kotest.matchers.shouldBe
+import io.mockk.coEvery
+import io.mockk.mockk
+import kotlinx.coroutines.flow.flowOf
+import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
@@ -109,5 +119,56 @@ class StorageScannerExtensionsTest : BaseTest() {
         postNesting.findContent {
             it.path == LocalPath.build("folder1", "folder2B", "folder3")
         } shouldBe item3B
+    }
+
+    private fun mockLookup(
+        path: LocalPath,
+        fileType: FileType = FileType.DIRECTORY,
+        size: Long = 4096L,
+    ) = mockk<LocalPathLookup> {
+        coEvery { lookedUp } returns path
+        coEvery { this@mockk.fileType } returns fileType
+        coEvery { this@mockk.size } returns size
+    }
+
+    @Test
+    fun `walkContentItem with default maxItems does not overflow`() = runTest {
+        val path = LocalPath.build("test", "dir")
+        val dirLookup = mockLookup(path)
+        val childLookup = mockLookup(LocalPath.build("test", "dir", "file1"), FileType.FILE, 100L)
+
+        val gatewaySwitch = mockk<GatewaySwitch> {
+            coEvery { lookup(any(), type = any()) } returns dirLookup as APathLookup<APath>
+            coEvery { walk(any(), any()) } returns flowOf(childLookup as APathLookup<APath>)
+        }
+
+        // Default maxItems=Int.MAX_VALUE must not crash with take(Int.MAX_VALUE + 1) overflow
+        val result = path.walkContentItem(gatewaySwitch)
+        result.path shouldBe path
+        result.children.size shouldBe 1
+    }
+
+    @Test
+    fun `walkContentItem falls back to du when maxItems exceeded`() = runTest {
+        val path = LocalPath.build("test", "dir")
+        val dirLookup = mockLookup(path)
+        val child1 = mockLookup(LocalPath.build("test", "dir", "f1"), FileType.FILE, 100L)
+        val child2 = mockLookup(LocalPath.build("test", "dir", "f2"), FileType.FILE, 200L)
+        val child3 = mockLookup(LocalPath.build("test", "dir", "f3"), FileType.FILE, 300L)
+
+        val gatewaySwitch = mockk<GatewaySwitch> {
+            coEvery { lookup(any(), type = any()) } returns dirLookup as APathLookup<APath>
+            coEvery { walk(any(), any()) } returns flowOf(
+                child1 as APathLookup<APath>,
+                child2 as APathLookup<APath>,
+                child3 as APathLookup<APath>,
+            )
+            coEvery { du(any(), any()) } returns 600L
+        }
+
+        // maxItems=2 but 3 items exist, should fall back to sizeContentItem (du)
+        val result = path.walkContentItem(gatewaySwitch, maxItems = 2)
+        result.inaccessible shouldBe true
+        result.itemSize shouldBe (4096L + 600L)  // lookup.size + du result
     }
 }
