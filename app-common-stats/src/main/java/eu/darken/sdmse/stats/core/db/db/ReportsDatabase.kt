@@ -20,6 +20,7 @@ import eu.darken.sdmse.stats.core.StatsSettings
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.launch
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.launchIn
@@ -63,7 +64,7 @@ class ReportsDatabase @Inject constructor(
         return total
     }
 
-    val databaseSize = MutableStateFlow(getDatabaseSize())
+    val databaseSize = MutableStateFlow(0L)
 
     private val reportsDao: ReportsDao
         get() = database.reports()
@@ -140,6 +141,10 @@ class ReportsDatabase @Inject constructor(
             }
             .catch { log(TAG, ERROR) { "Failed to clean up snapshots: ${it.asLog()}" } }
             .launchIn(appScope + dispatcherProvider.IO)
+
+        appScope.launch(dispatcherProvider.IO) {
+            databaseSize.value = getDatabaseSize()
+        }
     }
 
     val reports = reportsDao.waterfall()
