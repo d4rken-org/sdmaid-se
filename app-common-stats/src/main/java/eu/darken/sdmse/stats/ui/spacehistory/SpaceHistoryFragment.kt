@@ -14,6 +14,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.google.android.material.chip.Chip
+import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.EdgeToEdgeHelper
@@ -112,6 +113,17 @@ class SpaceHistoryFragment : Fragment3(R.layout.stats_space_history_fragment) {
                     isCheckable = true
                     isChecked = storage.id == state.selectedStorageId
                     setOnClickListener { vm.selectStorage(storage.id) }
+                    setOnLongClickListener {
+                        MaterialAlertDialogBuilder(requireContext()).apply {
+                            setTitle(R.string.stats_space_history_delete_storage_title)
+                            setMessage(R.string.stats_space_history_delete_storage_desc)
+                            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                                vm.deleteStorage(storage.id)
+                            }
+                            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ -> }
+                        }.show()
+                        true
+                    }
                 }
                 storageChipGroup.addView(chip)
             }

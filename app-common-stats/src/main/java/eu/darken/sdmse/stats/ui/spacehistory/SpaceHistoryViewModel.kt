@@ -138,6 +138,14 @@ class SpaceHistoryViewModel @Inject constructor(
         selectedStorageId.value = storageId
     }
 
+    fun deleteStorage(storageId: String) = launch {
+        log(TAG) { "deleteStorage($storageId)" }
+        spaceHistoryRepo.deleteStorage(storageId)
+        if (selectedStorageId.value == storageId) {
+            selectedStorageId.value = null
+        }
+    }
+
     fun openUpgrade() {
         log(TAG) { "openUpgrade()" }
         navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
