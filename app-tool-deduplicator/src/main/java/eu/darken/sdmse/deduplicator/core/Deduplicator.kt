@@ -152,13 +152,12 @@ class Deduplicator @Inject constructor(
         results.forEach { it.totalSize }
         log(TAG) { "Field warm up done." }
 
-        internalData.value = Data(
-            clusters = results
-        )
+        val data = Data(clusters = results)
+        internalData.value = data
 
         return DeduplicatorScanTask.Success(
-            itemCount = results.size,
-            recoverableSpace = results.sumOf { it.redundantSize },
+            itemCount = data.clusters.size,
+            recoverableSpace = data.redundantSize,
         )
     }
 
@@ -305,9 +304,7 @@ class Deduplicator @Inject constructor(
     data class Data(
         val clusters: Set<Duplicate.Cluster> = emptySet(),
     ) {
-        val totalSize: Long get() = clusters.sumOf { it.totalSize }
-        val redudantSize: Long get() = clusters.sumOf { it.redundantSize }
-        val totalCount: Int get() = clusters.size
+        val redundantSize: Long get() = clusters.sumOf { it.redundantSize }
     }
 
     @InstallIn(SingletonComponent::class)

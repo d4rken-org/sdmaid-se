@@ -56,7 +56,13 @@ interface Duplicate {
         val averageSize: Double
             get() = duplicates.map { it.size }.average()
         val redundantSize: Long
-            get() = duplicates.drop(1).sumOf { it.size }
+            get() {
+                val keeperSize = keeperIdentifier
+                    ?.let { kid -> duplicates.firstOrNull { it.identifier == kid }?.size }
+                    ?: duplicates.firstOrNull()?.size
+                    ?: 0L
+                return totalSize - keeperSize
+            }
         val count: Int
             get() = duplicates.size
 
@@ -74,7 +80,12 @@ interface Duplicate {
         val totalSize: Long
             get() = groups.sumOf { it.totalSize }
         val redundantSize: Long
-            get() = groups.sumOf { it.redundantSize }
+            get() {
+                val favId = favoriteGroupIdentifier
+                return groups.sumOf { group ->
+                    if (group.identifier == favId && group.count >= 2) group.redundantSize else group.totalSize
+                }
+            }
         val count: Int
             get() = groups.sumOf { it.count }
         val types: Set<Type>
