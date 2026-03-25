@@ -6,8 +6,8 @@ import androidx.fragment.app.FragmentManager
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 import eu.darken.sdmse.systemcleaner.core.FilterContent
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment
+import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentViewModel
 
 class FilterContentDetailsPagerAdapter(
     private val activity: FragmentActivity,
@@ -17,7 +17,7 @@ class FilterContentDetailsPagerAdapter(
     override fun getPageWidth(position: Int): Float = 1f / context.getSpanCount()
 
     override fun onCreateFragment(item: FilterContent): Fragment = FilterContentFragment().apply {
-        arguments = bundleOf("identifier" to item.identifier)
+        arguments = FilterContentViewModel.Args(identifier = item.identifier).toBundle()
     }
 
     override fun getPageTitle(position: Int): CharSequence = data[position].label.get(activity)

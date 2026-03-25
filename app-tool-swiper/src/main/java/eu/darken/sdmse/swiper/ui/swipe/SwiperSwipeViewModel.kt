@@ -15,6 +15,7 @@ import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.swiper.R
 import androidx.core.os.bundleOf
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.swiper.ui.status.SwiperStatusViewModel
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -36,8 +37,9 @@ class SwiperSwipeViewModel @Inject constructor(
     private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val sessionId: String = requireNotNull(handle.get<String>("sessionId")) { "sessionId argument is required" }
-    private val startIndex: Int = handle.get<Int>("startIndex") ?: -1
+    private val args = Args.from(handle)
+    private val sessionId: String = args.sessionId
+    private val startIndex: Int = args.startIndex
 
     private val currentIndexOverride = MutableStateFlow<Int?>(
         if (startIndex >= 0) startIndex else null
@@ -225,7 +227,7 @@ class SwiperSwipeViewModel @Inject constructor(
 
     fun navigateToStatus() {
         log(TAG, INFO) { "navigateToStatus()" }
-        navDirections(R.id.action_swiperSwipeFragment_to_swiperStatusFragment, bundleOf("sessionId" to sessionId)).navigate()
+        navDirections(R.id.action_swiperSwipeFragment_to_swiperStatusFragment, SwiperStatusViewModel.Args(sessionId = sessionId).toBundle()).navigate()
     }
 
     fun dismissGestureOverlay() = launch {
@@ -275,6 +277,23 @@ class SwiperSwipeViewModel @Inject constructor(
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label
+    }
+
+    data class Args(
+        val sessionId: String,
+        val startIndex: Int = -1,
+    ) {
+        fun toBundle() = bundleOf(KEY_SESSION_ID to sessionId, KEY_START_INDEX to startIndex)
+
+        companion object {
+            private const val KEY_SESSION_ID = "sessionId"
+            private const val KEY_START_INDEX = "startIndex"
+
+            fun from(handle: SavedStateHandle) = Args(
+                sessionId = requireNotNull(handle.get<String>(KEY_SESSION_ID)) { "sessionId argument is required" },
+                startIndex = handle.get<Int>(KEY_START_INDEX) ?: -1,
+            )
+        }
     }
 
     companion object {

@@ -2,6 +2,7 @@ package eu.darken.sdmse.deduplicator.ui.details.cluster
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ViewIntentTool
@@ -48,7 +49,7 @@ class ClusterViewModel @Inject constructor(
     private val arbiter: DuplicatesArbiter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: Duplicate.Cluster.Id = handle.get<Duplicate.Cluster.Id>("identifier")!!
+    private val identifier: Duplicate.Cluster.Id = Args.from(handle).identifier
 
     val events = SingleLiveEvent<ClusterEvents>()
 
@@ -392,6 +393,20 @@ class ClusterViewModel @Inject constructor(
             }
         }
         delete(duplicateItems)
+    }
+
+    data class Args(
+        val identifier: Duplicate.Cluster.Id,
+    ) {
+        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
+
+        companion object {
+            private const val KEY_IDENTIFIER = "identifier"
+
+            fun from(handle: SavedStateHandle) = Args(
+                identifier = handle.get<Duplicate.Cluster.Id>(KEY_IDENTIFIER)!!,
+            )
+        }
     }
 
     companion object {

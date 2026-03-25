@@ -10,6 +10,7 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFile
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
+import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -38,7 +39,7 @@ class AppJunkViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: InstallId = handle.get<InstallId>("identifier")!!
+    private val identifier: InstallId = Args.from(handle).identifier
 
     val events = SingleLiveEvent<AppJunkEvents>()
 
@@ -174,6 +175,20 @@ class AppJunkViewModel @Inject constructor(
             collapsedCategories.value = current - category
         } else {
             collapsedCategories.value = current + category
+        }
+    }
+
+    data class Args(
+        val identifier: InstallId,
+    ) {
+        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
+
+        companion object {
+            private const val KEY_IDENTIFIER = "identifier"
+
+            fun from(handle: SavedStateHandle) = Args(
+                identifier = handle.get<InstallId>(KEY_IDENTIFIER)!!,
+            )
         }
     }
 

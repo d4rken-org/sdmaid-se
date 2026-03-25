@@ -3,7 +3,6 @@ package eu.darken.sdmse.scheduler.ui.manager
 import android.annotation.SuppressLint
 import android.content.Context
 import androidx.lifecycle.SavedStateHandle
-import androidx.core.os.bundleOf
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BatteryHelper
@@ -29,6 +28,7 @@ import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.ScheduleId
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
+import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemViewModel
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
@@ -118,7 +118,7 @@ class SchedulerManagerViewModel @Inject constructor(
                 onEdit = {
                     navDirections(
                         R.id.action_schedulerManagerFragment_to_scheduleItemDialog,
-                        bundleOf("scheduleId" to schedule.id)
+                        ScheduleItemViewModel.Args(scheduleId = schedule.id).toBundle()
                     ).navigate()
                 },
                 onToggle = {
@@ -178,7 +178,7 @@ class SchedulerManagerViewModel @Inject constructor(
         log(TAG) { "createNew()" }
         navDirections(
             R.id.action_schedulerManagerFragment_to_scheduleItemDialog,
-            bundleOf("scheduleId" to UUID.randomUUID().toString())
+            ScheduleItemViewModel.Args(scheduleId = UUID.randomUUID().toString()).toBundle()
         ).navigate()
     }
 

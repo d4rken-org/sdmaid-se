@@ -1,10 +1,11 @@
 package eu.darken.sdmse.analyzer.ui.storage.device
 
-import androidx.lifecycle.SavedStateHandle
 import androidx.core.os.bundleOf
+import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -67,7 +68,7 @@ class DeviceStorageViewModel @Inject constructor(
                         } else {
                             navDirections(
                                 R.id.action_deviceStorageFragment_to_storageFragment,
-                                bundleOf("storageId" to it.storage.id)
+                                StorageContentViewModel.Args(storageId = it.storage.id).toBundle()
                             ).navigate()
                         }
                     },

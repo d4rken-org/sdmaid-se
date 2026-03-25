@@ -5,6 +5,8 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.ui.storage.apps.AppsViewModel
+import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
@@ -40,7 +42,7 @@ class StorageContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = handle.get<StorageId>("storageId")!!
+    private val targetStorageId: StorageId = Args.from(handle).storageId
 
     init {
         analyzer.data
@@ -79,7 +81,7 @@ class StorageContentViewModel @Inject constructor(
                             } else {
                                 navDirections(
                                     R.id.action_storageFragment_to_appsFragment,
-                                    bundleOf("storageId" to targetStorageId)
+                                    AppsViewModel.Args(storageId = targetStorageId).toBundle()
                                 ).navigate()
                             }
                         }
@@ -92,10 +94,11 @@ class StorageContentViewModel @Inject constructor(
                             if (content.groups.isEmpty()) return@Item
                             navDirections(
                                 R.id.action_storageFragment_to_contentFragment,
-                                bundleOf(
-                                    "storageId" to targetStorageId,
-                                    "groupId" to content.groups.single().id,
-                                )
+                                ContentViewModel.Args(
+                                    storageId = targetStorageId,
+                                    groupId = content.groups.single().id,
+                                    installId = null,
+                                ).toBundle()
                             ).navigate()
                         }
                     )
@@ -137,6 +140,20 @@ class StorageContentViewModel @Inject constructor(
         val content: List<StorageContentAdapter.Item>?,
         val progress: Progress.Data?,
     )
+
+    data class Args(
+        val storageId: StorageId,
+    ) {
+        fun toBundle() = bundleOf(KEY_STORAGE_ID to storageId)
+
+        companion object {
+            private const val KEY_STORAGE_ID = "storageId"
+
+            fun from(handle: SavedStateHandle) = Args(
+                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
+            )
+        }
+    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Storage", "Content", "ViewModel")
