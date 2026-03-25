@@ -11,6 +11,9 @@ on:
         type: boolean
         default: true
 
+permissions:
+  contents: read
+
 jobs:
   release-github:
     name: Create GitHub release
@@ -33,6 +36,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup project and build environment
         uses: ./.github/actions/common-setup
@@ -108,6 +112,7 @@ jobs:
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd #v6.0.2
         with:
           fetch-depth: 0
+          persist-credentials: false
 
       - name: Setup project and build environment
         uses: ./.github/actions/common-setup
