@@ -127,7 +127,7 @@ class AppStorageScanner @AssistedInject constructor(
                 ?.let { codeDir ->
                     if (!request.shallow && useRoot) {
                         try {
-                            return@let codeDir.walkContentItem(gatewaySwitch)
+                            return@let codeDir.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
                         } catch (e: ReadException) {
                             log(TAG, ERROR) { "Failed to read $codeDir despire root access? ${e.asLog()}" }
                         }
@@ -162,8 +162,8 @@ class AppStorageScanner @AssistedInject constructor(
                     }
 
                     gatewaySwitch.exists(pubData, type = GatewaySwitch.Type.AUTO) -> try {
-                        pubData.walkContentItem(gatewaySwitch)
-                    } catch (e: ReadException) {
+                        pubData.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
+                    } catch (_: ReadException) {
                         ContentItem.fromInaccessible(pubData)
                     }
 
@@ -180,7 +180,7 @@ class AppStorageScanner @AssistedInject constructor(
                     return@run request.pkg
                         .getPrivateDataDirs(dataAreas)
                         .filter { gatewaySwitch.exists(it, type = GatewaySwitch.Type.CURRENT) }
-                        .map { it.walkContentItem(gatewaySwitch) }
+                        .map { it.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS) }
                 } catch (e: ReadException) {
                     log(TAG, ERROR) { "Failed to read private data dirs for $request.pkg: ${e.asLog()}" }
                 }
@@ -215,9 +215,9 @@ class AppStorageScanner @AssistedInject constructor(
                     if (request.shallow) {
                         path.sizeContentItem(gatewaySwitch)
                     } else {
-                        path.walkContentItem(gatewaySwitch)
+                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
                     }
-                } catch (e: ReadException) {
+                } catch (_: ReadException) {
                     null
                 }
             }
@@ -236,9 +236,9 @@ class AppStorageScanner @AssistedInject constructor(
                     if (request.shallow) {
                         path.sizeContentItem(gatewaySwitch)
                     } else {
-                        path.walkContentItem(gatewaySwitch)
+                        path.walkContentItem(gatewaySwitch, maxItems = WALK_MAX_ITEMS)
                     }
-                } catch (e: ReadException) {
+                } catch (_: ReadException) {
                     null
                 }
             }
@@ -306,6 +306,7 @@ class AppStorageScanner @AssistedInject constructor(
     }
 
     companion object {
+        private const val WALK_MAX_ITEMS = 100_000
         private val TAG = logTag("Analyzer", "Storage", "Scanner", "Pkg")
     }
 }

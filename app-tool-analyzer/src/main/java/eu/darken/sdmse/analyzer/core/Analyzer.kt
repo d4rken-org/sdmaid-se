@@ -54,7 +54,9 @@ import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
+import kotlin.time.Duration.Companion.minutes
 import javax.inject.Named
 import javax.inject.Provider
 import javax.inject.Singleton
@@ -274,10 +276,17 @@ class Analyzer @Inject constructor(
 
         val start = System.currentTimeMillis()
 
-        val updatedApp = storageScanner.get().withProgress(this) { deepScanApp(targetStorage, targetApp) }
+        val updatedApp = withTimeoutOrNull(DEEP_SCAN_TIMEOUT) {
+            storageScanner.get().withProgress(this@Analyzer) { deepScanApp(targetStorage, targetApp) }
+        }
 
         val stop = System.currentTimeMillis()
         log(TAG) { "deepScanApp() took ${stop - start}ms" }
+
+        if (updatedApp == null) {
+            log(TAG, WARN) { "deepScanApp() timed out after ${stop - start}ms, keeping shallow data" }
+            return AppDeepScanTask.Result(false)
+        }
 
         storageCategories.value = storageCategories.value.mutate {
             this[targetStorage.id] = this[targetStorage.id]!!.map { category ->
@@ -307,6 +316,7 @@ class Analyzer @Inject constructor(
     }
 
     companion object {
+        private val DEEP_SCAN_TIMEOUT = 5.minutes
         private val TAG = logTag("Analyzer")
     }
 }

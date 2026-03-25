@@ -14,49 +14,53 @@ import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.du
 import eu.darken.sdmse.common.files.walk
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.take
 import kotlinx.coroutines.flow.toList
 import java.util.LinkedList
 
 
 fun Collection<ContentItem>.toNestedContent(): Collection<ContentItem> {
     val workList = this.sortedBy { it.path.segments.size }.reversed().toMutableList()
+    val topLevelIndices = mutableListOf<Int>()
 
-    val topLevel = mutableListOf<ContentItem>()
+    // Normalize root segments: [""] and emptyList() both represent root
+    fun Segments.normalized(): Segments = if (isEmpty() || singleOrNull() == "") emptyList() else this
 
-    val parentIndexMap = mutableMapOf<Segments, Int>()
+    // Pre-build index for O(1) parent lookup instead of O(n) indexOfFirst
+    val segmentToIndex = HashMap<Segments, Int>(workList.size)
+    workList.forEachIndexed { index, item ->
+        segmentToIndex[item.path.segments.normalized()] = index
+    }
 
-    for (item in workList) {
+    // Collect child indices per parent to avoid repeated set copies via .plus()
+    val childIndices = arrayOfNulls<MutableList<Int>>(workList.size)
+
+    for ((idx, item) in workList.withIndex()) {
         val childSegs = item.path.segments
         if (childSegs.isEmpty() || childSegs.singleOrNull() == "") {
-            topLevel.add(item)
+            topLevelIndices.add(idx)
             continue
         }
 
-        val parentSegs = childSegs.subList(0, childSegs.size - 1)
+        val parentSegs = childSegs.subList(0, childSegs.size - 1).normalized()
+        val parentIndex = segmentToIndex[parentSegs]
 
-        val parentIndex = parentIndexMap[parentSegs]
-            ?: workList.indexOfFirst {
-                val segs = it.path.segments
-                if (parentSegs.isEmpty()) {
-                    segs.isEmpty() || segs.singleOrNull() == ""
-                } else {
-                    segs == parentSegs
-                }
-            }.also { parentIndexMap[parentSegs] = it }
-
-        if (parentIndex != -1) {
-            val parent = workList[parentIndex]
-
-            val updatedParent = parent.copy(
-                children = parent.children.plus(item)
-            )
-            workList[parentIndex] = updatedParent
+        if (parentIndex != null) {
+            val list = childIndices[parentIndex]
+                ?: mutableListOf<Int>().also { childIndices[parentIndex] = it }
+            list.add(idx)
         } else {
-            topLevel.add(item)
+            topLevelIndices.add(idx)
         }
     }
 
-    return topLevel
+    // Freeze: merge children into parents (deepest-first, so children are already updated)
+    for (i in workList.indices) {
+        val indices = childIndices[i] ?: continue
+        workList[i] = workList[i].copy(children = workList[i].children + indices.map { workList[it] })
+    }
+
+    return topLevelIndices.map { workList[it] }
 }
 
 fun Collection<ContentItem>.toFlatContent(): Collection<ContentItem> =
@@ -89,18 +93,34 @@ fun Collection<ContentItem>.findContent(filter: (ContentItem) -> Boolean): Conte
 }
 
 
-suspend fun APath.walkContentItem(gatewaySwitch: GatewaySwitch): ContentItem {
+suspend fun APath.walkContentItem(
+    gatewaySwitch: GatewaySwitch,
+    maxItems: Int = Int.MAX_VALUE,
+): ContentItem {
     log(TAG, VERBOSE) { "Walking content items for $this" }
 
     // What ever `this` is , the gatewaySwitch should make sure we end up with something usable
     val lookup = gatewaySwitch.lookup(this, type = GatewaySwitch.Type.AUTO)
 
     return if (lookup.fileType == FileType.DIRECTORY) {
+        val start = System.currentTimeMillis()
+
         val children = try {
-            lookup.walk(gatewaySwitch).map { ContentItem.fromLookup(it) }.toList()
+            lookup.walk(gatewaySwitch)
+                .map { ContentItem.fromLookup(it) }
+                .let { flow -> if (maxItems < Int.MAX_VALUE) flow.take(maxItems + 1) else flow }
+                .toList()
         } catch (e: ReadException) {
             log(TAG, WARN) { "Failed to walk $this: ${e.asLog()}" }
-            emptySet()
+            emptyList()
+        }
+
+        val elapsed = System.currentTimeMillis() - start
+        log(TAG) { "Walked $this: ${children.size} items in ${elapsed}ms (limit=$maxItems)" }
+
+        if (children.size > maxItems) {
+            log(TAG, WARN) { "Walk item limit ($maxItems) exceeded for $this, falling back to du" }
+            return this.sizeContentItem(gatewaySwitch)
         }
 
         children.plus(ContentItem.fromLookup(lookup)).toNestedContent().single()
