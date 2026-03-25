@@ -8,7 +8,6 @@ import android.text.format.Formatter
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppControlScanTask
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
@@ -23,6 +22,7 @@ import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionViewModel
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
@@ -264,7 +264,7 @@ class AppControlListViewModel @Inject constructor(
                         onItemClicked = {
                             navDirections(
                                 eu.darken.sdmse.appcontrol.R.id.action_appControlListFragment_to_appActionDialog,
-                                bundleOf("installId" to content.installId)
+                                AppActionViewModel.Args(installId = content.installId).toBundle()
                             ).navigate()
                         },
                     )

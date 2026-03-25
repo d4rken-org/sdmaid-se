@@ -3,11 +3,11 @@ package eu.darken.sdmse.deduplicator.ui.details
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
+import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterViewModel
 
 class DeduplicatorDetailsPagerAdapter(
     activity: FragmentActivity,
@@ -17,7 +17,7 @@ class DeduplicatorDetailsPagerAdapter(
     override fun getPageWidth(position: Int): Float = 1f / context.getSpanCount()
 
     override fun onCreateFragment(item: Duplicate.Cluster): Fragment = ClusterFragment().apply {
-        arguments = bundleOf("identifier" to item.identifier)
+        arguments = ClusterViewModel.Args(identifier = item.identifier).toBundle()
     }
 
     override fun getPageTitle(position: Int): CharSequence = context.getString(

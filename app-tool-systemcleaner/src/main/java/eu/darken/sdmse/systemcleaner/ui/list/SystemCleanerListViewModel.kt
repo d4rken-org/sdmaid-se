@@ -8,10 +8,10 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.systemcleaner.R
+import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsViewModel
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
@@ -78,7 +78,7 @@ class SystemCleanerListViewModel @Inject constructor(
         log(TAG, INFO) { "showDetails(filterContent=${item.content.identifier})" }
         navDirections(
             R.id.action_systemCleanerListFragment_to_systemCleanerDetailsFragment,
-            bundleOf("filterIdentifier" to item.content.identifier)
+            FilterContentDetailsViewModel.Args(filterIdentifier = item.content.identifier).toBundle()
         ).navigate()
     }
 

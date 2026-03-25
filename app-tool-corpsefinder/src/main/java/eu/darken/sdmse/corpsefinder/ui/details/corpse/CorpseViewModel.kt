@@ -3,6 +3,7 @@ package eu.darken.sdmse.corpsefinder.ui.details.corpse
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
+import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -26,7 +27,7 @@ class CorpseViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: APath = handle.get<APath>("identifier")!!
+    private val identifier: APath = Args.from(handle).identifier
 
     val events = SingleLiveEvent<CorpseEvents>()
 
@@ -95,6 +96,20 @@ class CorpseViewModel @Inject constructor(
 
         if (items.singleOrNull() is CorpseElementHeaderVH.Item) {
             corpseFinder.exclude(setOf(corpse.identifier))
+        }
+    }
+
+    data class Args(
+        val identifier: APath,
+    ) {
+        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
+
+        companion object {
+            private const val KEY_IDENTIFIER = "identifier"
+
+            fun from(handle: SavedStateHandle) = Args(
+                identifier = handle.get<APath>(KEY_IDENTIFIER)!!,
+            )
         }
     }
 

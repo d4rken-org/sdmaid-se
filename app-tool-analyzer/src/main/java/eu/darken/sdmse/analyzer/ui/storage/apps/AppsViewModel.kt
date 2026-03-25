@@ -8,6 +8,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -31,7 +32,7 @@ class AppsViewModel @Inject constructor(
     analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = handle.get<StorageId>("storageId")!!
+    private val targetStorageId: StorageId = Args.from(handle).storageId
 
     private val searchQuery = MutableStateFlow("")
 
@@ -94,10 +95,10 @@ class AppsViewModel @Inject constructor(
                     onItemClicked = {
                         navDirections(
                             R.id.action_appsFragment_to_appDetailsFragment,
-                            bundleOf(
-                                "storageId" to storage.id,
-                                "installId" to installId,
-                            )
+                            AppDetailsViewModel.Args(
+                                storageId = storage.id,
+                                installId = installId,
+                            ).toBundle()
                         ).navigate()
                     }
                 )
@@ -123,6 +124,20 @@ class AppsViewModel @Inject constructor(
         val isSearchActive: Boolean = false,
         val progress: Progress.Data?,
     )
+
+    data class Args(
+        val storageId: StorageId,
+    ) {
+        fun toBundle() = bundleOf(KEY_STORAGE_ID to storageId)
+
+        companion object {
+            private const val KEY_STORAGE_ID = "storageId"
+
+            fun from(handle: SavedStateHandle) = Args(
+                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
+            )
+        }
+    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Content", "Apps", "ViewModel")

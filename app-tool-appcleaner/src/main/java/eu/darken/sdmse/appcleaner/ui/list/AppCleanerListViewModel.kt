@@ -1,12 +1,12 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -69,7 +69,7 @@ class AppCleanerListViewModel @Inject constructor(
         log(TAG, INFO) { "showDetails(${item.junk.identifier})" }
         navDirections(
             R.id.action_appCleanerListFragment_to_appCleanerDetailsFragment2,
-            bundleOf("identifier" to item.junk.identifier)
+            AppJunkDetailsViewModel.Args(identifier = item.junk.identifier).toBundle()
         ).navigate()
     }
 

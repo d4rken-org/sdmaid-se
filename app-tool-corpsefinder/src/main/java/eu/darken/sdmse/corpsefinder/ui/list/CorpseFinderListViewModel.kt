@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.ui.list
 
-import androidx.core.os.bundleOf
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -12,6 +11,7 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
+import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsViewModel
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -101,7 +101,7 @@ class CorpseFinderListViewModel @Inject constructor(
         log(TAG, INFO) { "showDetails(item=$item)" }
         navDirections(
             R.id.action_corpseFinderListFragment_to_corpseFinderDetailsFragment,
-            bundleOf("corpsePath" to (item as CorpseFinderListRowVH.Item).corpse.identifier)
+            CorpseDetailsViewModel.Args(corpsePath = (item as CorpseFinderListRowVH.Item).corpse.identifier).toBundle()
         ).navigate()
     }
 

@@ -36,7 +36,7 @@ class FilterContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: String = handle.get<String>("identifier")!!
+    private val identifier: String = Args.from(handle).identifier
 
     val events = SingleLiveEvent<FilterContentEvents>()
 
@@ -140,6 +140,20 @@ class FilterContentViewModel @Inject constructor(
         val items: List<FilterContentElementsAdapter.Item>,
         val progress: Progress.Data?,
     )
+
+    data class Args(
+        val identifier: String,
+    ) {
+        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
+
+        companion object {
+            private const val KEY_IDENTIFIER = "identifier"
+
+            fun from(handle: SavedStateHandle) = Args(
+                identifier = handle.get<String>(KEY_IDENTIFIER)!!,
+            )
+        }
+    }
 
     companion object {
         private val TAG = logTag("SystemCleaner", "Details", "ViewModel")

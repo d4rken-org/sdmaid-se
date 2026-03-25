@@ -12,6 +12,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.swiper.R
 import androidx.core.os.bundleOf
 import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeViewModel
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -34,7 +35,7 @@ class SwiperStatusViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val sessionId: String = handle.get<String>("sessionId")!!
+    private val sessionId: String = Args.from(handle).sessionId
 
     val events = SingleLiveEvent<SwiperStatusEvents>()
 
@@ -88,7 +89,7 @@ class SwiperStatusViewModel @Inject constructor(
         if (currentPosition < 0) return
         navDirections(
             R.id.action_swiperStatusFragment_to_swiperSwipeFragment,
-            bundleOf("sessionId" to sessionId, "startIndex" to currentPosition),
+            SwiperSwipeViewModel.Args(sessionId = sessionId, startIndex = currentPosition).toBundle(),
         ).navigate()
     }
 
@@ -158,6 +159,20 @@ class SwiperStatusViewModel @Inject constructor(
         val canDone: Boolean = deletedCount > 0 && deleteCount == 0 && !isProcessing
         // Has already processed items from previous partial finalization
         val hasProcessedItems: Boolean = alreadyKeptCount > 0 || alreadyDeletedCount > 0
+    }
+
+    data class Args(
+        val sessionId: String,
+    ) {
+        fun toBundle() = bundleOf(KEY_SESSION_ID to sessionId)
+
+        companion object {
+            private const val KEY_SESSION_ID = "sessionId"
+
+            fun from(handle: SavedStateHandle) = Args(
+                sessionId = handle.get<String>(KEY_SESSION_ID)!!,
+            )
+        }
     }
 
     companion object {

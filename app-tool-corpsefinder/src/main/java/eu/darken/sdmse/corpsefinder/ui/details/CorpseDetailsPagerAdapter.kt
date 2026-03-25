@@ -1,6 +1,5 @@
 package eu.darken.sdmse.corpsefinder.ui.details
 
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.fragment.app.FragmentManager
@@ -9,6 +8,7 @@ import eu.darken.sdmse.common.getSpanCount
 import eu.darken.sdmse.common.uix.DetailsPagerAdapter3
 import eu.darken.sdmse.corpsefinder.core.Corpse
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment
+import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseViewModel
 
 class CorpseDetailsPagerAdapter(
     activity: FragmentActivity,
@@ -18,7 +18,7 @@ class CorpseDetailsPagerAdapter(
     override fun getPageWidth(position: Int): Float = 1f / context.getSpanCount()
 
     override fun onCreateFragment(item: Corpse): Fragment = CorpseFragment().apply {
-        arguments = bundleOf("identifier" to item.identifier)
+        arguments = CorpseViewModel.Args(identifier = item.identifier).toBundle()
     }
 
     override fun getPageTitle(position: Int): CharSequence = data[position].lookup.name

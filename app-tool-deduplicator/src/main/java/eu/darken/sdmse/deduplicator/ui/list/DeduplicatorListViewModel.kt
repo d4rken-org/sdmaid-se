@@ -1,6 +1,5 @@
 package eu.darken.sdmse.deduplicator.ui.list
 
-import androidx.core.os.bundleOf
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -11,6 +10,7 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.previews.PreviewOptions
+import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsViewModel
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -183,7 +183,7 @@ class DeduplicatorListViewModel @Inject constructor(
         log(TAG, INFO) { "showDetails(id=$id)" }
         navDirections(
             R.id.action_deduplicatorListFragment_to_deduplicatorDetailsFragment,
-            bundleOf("identifier" to id)
+            DeduplicatorDetailsViewModel.Args(identifier = id).toBundle()
         ).navigate()
     }
 

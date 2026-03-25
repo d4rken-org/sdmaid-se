@@ -75,7 +75,7 @@ class AppActionViewModel @Inject constructor(
     private val userManager2: UserManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val installId: InstallId = handle.get<InstallId>("installId")!!
+    private val installId: InstallId = Args.from(handle).installId
 
     init {
         appControl.state
@@ -354,6 +354,20 @@ class AppActionViewModel @Inject constructor(
         val progress: Progress.Data?,
         val actions: List<AppActionAdapter.Item>? = null,
     )
+
+    data class Args(
+        val installId: InstallId,
+    ) {
+        fun toBundle() = bundleOf(KEY_INSTALL_ID to installId)
+
+        companion object {
+            private const val KEY_INSTALL_ID = "installId"
+
+            fun from(handle: SavedStateHandle) = Args(
+                installId = handle.get<InstallId>(KEY_INSTALL_ID)!!,
+            )
+        }
+    }
 
     companion object {
         private val TAG = logTag("AppControl", "Action", "Dialog", "ViewModel")

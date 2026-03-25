@@ -58,9 +58,10 @@ class ContentViewModel @Inject constructor(
     private val swiperSessionCreator: SwiperSessionCreator,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = handle.get<StorageId>("storageId")!!
-    private val targetGroupId: ContentGroup.Id = handle.get<ContentGroup.Id>("groupId")!!
-    private val targetInstallId: InstallId? = handle.get<InstallId>("installId")
+    private val args = Args.from(handle)
+    private val targetStorageId: StorageId = args.storageId
+    private val targetGroupId: ContentGroup.Id = args.groupId
+    private val targetInstallId: InstallId? = args.installId
 
     val events = SingleLiveEvent<ContentItemEvents>()
 
@@ -317,6 +318,30 @@ class ContentViewModel @Inject constructor(
         val layoutMode: LayoutMode,
         val progress: Progress.Data?,
     )
+
+    data class Args(
+        val storageId: StorageId,
+        val groupId: ContentGroup.Id,
+        val installId: InstallId?,
+    ) {
+        fun toBundle() = bundleOf(
+            KEY_STORAGE_ID to storageId,
+            KEY_GROUP_ID to groupId,
+            KEY_INSTALL_ID to installId,
+        )
+
+        companion object {
+            private const val KEY_STORAGE_ID = "storageId"
+            private const val KEY_GROUP_ID = "groupId"
+            private const val KEY_INSTALL_ID = "installId"
+
+            fun from(handle: SavedStateHandle) = Args(
+                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
+                groupId = handle.get<ContentGroup.Id>(KEY_GROUP_ID)!!,
+                installId = handle.get<InstallId>(KEY_INSTALL_ID),
+            )
+        }
+    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Content", "ViewModel")
