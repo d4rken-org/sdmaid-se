@@ -2,6 +2,7 @@ package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import android.os.Bundle
 import android.view.View
+import androidx.appcompat.widget.SearchView
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
@@ -13,6 +14,7 @@ import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
+import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -39,7 +41,18 @@ class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
                     else -> false
                 }
             }
+            menu.findItem(R.id.action_search)?.actionView?.apply {
+                this as SearchView
+                queryHint = getString(eu.darken.sdmse.common.R.string.general_search_action)
+                setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+                    override fun onQueryTextSubmit(query: String): Boolean = false
 
+                    override fun onQueryTextChange(query: String): Boolean {
+                        vm.updateSearchQuery(query)
+                        return false
+                    }
+                })
+            }
         }
 
         val adapter = AppsAdapter()
@@ -50,7 +63,11 @@ class AppsFragment : Fragment3(R.layout.analyzer_apps_fragment) {
         )
 
         vm.state.observe2(ui) { state ->
-            toolbar.subtitle = state.storage.label.get(requireContext())
+            toolbar.subtitle = if (state.isSearchActive) {
+                getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, state.apps.size)
+            } else {
+                state.storage.label.get(requireContext())
+            }
 
             adapter.update(state.apps)
             loadingOverlay.setProgress(state.progress)
