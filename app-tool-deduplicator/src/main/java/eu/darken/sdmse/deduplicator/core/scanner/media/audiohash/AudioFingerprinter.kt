@@ -21,15 +21,24 @@ class AudioFingerprinter @Inject constructor(
 ) {
 
     data class Result(
-        val fingerprint: FingerprintCalculator.Result,
+        val fingerprints: List<FingerprintCalculator.Result>,
         val durationMs: Long,
     ) {
-        fun similarityTo(other: Result): Double = fingerprint.similarityTo(other.fingerprint)
+        fun similarityTo(other: Result): Double {
+            if (fingerprints.isEmpty() || other.fingerprints.isEmpty()) return 0.0
+            val pairs = minOf(fingerprints.size, other.fingerprints.size)
+            val totalSim = (0 until pairs).sumOf { i -> fingerprints[i].similarityTo(other.fingerprints[i]) }
+            return totalSim / pairs
+        }
     }
 
     /**
-     * Extract audio from [lookup] and compute a fingerprint.
+     * Extract audio from [lookup] and compute fingerprints.
      * Uses the gateway abstraction for file access, supporting local, root, Shizuku, and SAF paths.
+     *
+     * For files >= 6 seconds: computes 3 fingerprints at 10%, 50%, 90% of duration.
+     * For shorter files: computes 1 fingerprint from the start (up to 5 seconds).
+     *
      * Returns null if the file has no audio track or cannot be decoded.
      */
     suspend fun fingerprint(lookup: APathLookup<*>): Result? {
@@ -61,24 +70,27 @@ class AudioFingerprinter @Inject constructor(
             val mime = format.getString(MediaFormat.KEY_MIME)!!
 
             val decodeStart = System.currentTimeMillis()
-            val pcmSamples = decodeAudioToPcm(extractor, mime, format, sampleRate, channelCount)
-                ?: return null
+            val fingerprints = withAudioCodec(mime, format) { codec ->
+                if (durationMs >= SHORT_FILE_THRESHOLD_MS) {
+                    fingerprintMultiPosition(extractor, codec, sampleRate, channelCount, durationUs, fileName)
+                } else {
+                    fingerprintSinglePosition(extractor, codec, sampleRate, channelCount, fileName)
+                }
+            } ?: return null
             val decodeMs = System.currentTimeMillis() - decodeStart
 
-            val fpStart = System.currentTimeMillis()
-            val fingerprint = fingerprintCalculator.calculate(pcmSamples, sampleRate) ?: run {
-                log(TAG, VERBOSE) { "Too few samples for fingerprint from $fileName" }
+            if (fingerprints.isEmpty()) {
+                log(TAG, VERBOSE) { "No valid fingerprints from $fileName" }
                 return null
             }
-            val fpMs = System.currentTimeMillis() - fpStart
 
             val totalMs = System.currentTimeMillis() - totalStart
             log(TAG, VERBOSE) {
-                "Audio [$fileName] open=${openMs}ms decode=${decodeMs}ms fp=${fpMs}ms total=${totalMs}ms"
+                "Audio [$fileName] ${fingerprints.size} segments, open=${openMs}ms decode=${decodeMs}ms total=${totalMs}ms"
             }
 
             return Result(
-                fingerprint = fingerprint,
+                fingerprints = fingerprints,
                 durationMs = durationMs,
             )
         } finally {
@@ -96,72 +108,65 @@ class AudioFingerprinter @Inject constructor(
         return null
     }
 
-    private fun decodeAudioToPcm(
+    private fun fingerprintSinglePosition(
         extractor: MediaExtractor,
-        mime: String,
-        format: MediaFormat,
+        codec: MediaCodec,
         sampleRate: Int,
         channelCount: Int,
-    ): ShortArray? {
+        fileName: String,
+    ): List<FingerprintCalculator.Result> {
+        val maxSamples = sampleRate * MAX_SINGLE_DURATION_SECONDS
+        val pcm = decodePcmSegment(extractor, codec, channelCount, maxSamples) ?: return emptyList()
+        val fp = fingerprintCalculator.calculate(pcm, sampleRate) ?: run {
+            log(TAG, VERBOSE) { "Too few samples for fingerprint from $fileName" }
+            return emptyList()
+        }
+        return listOf(fp)
+    }
+
+    private fun fingerprintMultiPosition(
+        extractor: MediaExtractor,
+        codec: MediaCodec,
+        sampleRate: Int,
+        channelCount: Int,
+        durationUs: Long,
+        fileName: String,
+    ): List<FingerprintCalculator.Result> {
+        val maxSamples = sampleRate * SEGMENT_DURATION_SECONDS
+        return FINGERPRINT_POSITIONS.toList().mapNotNull { pct ->
+            val seekUs = (durationUs * pct).toLong()
+            extractor.seekTo(seekUs, MediaExtractor.SEEK_TO_CLOSEST_SYNC)
+            codec.flush()
+
+            val pcm = decodePcmSegment(extractor, codec, channelCount, maxSamples)
+            if (pcm == null) {
+                log(TAG, VERBOSE) { "No PCM at ${(pct * 100).toInt()}% of $fileName" }
+                return@mapNotNull null
+            }
+
+            val fp = fingerprintCalculator.calculate(pcm, sampleRate)
+            if (fp == null) {
+                log(TAG, VERBOSE) { "Fingerprint failed at ${(pct * 100).toInt()}% of $fileName" }
+            }
+            fp
+        }
+    }
+
+    private inline fun <T> withAudioCodec(
+        mime: String,
+        format: MediaFormat,
+        block: (MediaCodec) -> T,
+    ): T? {
         val codec = try {
             MediaCodec.createDecoderByType(mime)
         } catch (e: IOException) {
             log(TAG, WARN) { "No decoder for $mime: $e" }
             return null
         }
-
         try {
             codec.configure(format, null, null, 0)
             codec.start()
-
-            val maxSamples = sampleRate * MAX_DURATION_SECONDS
-            val monoSamples = ShortArray(maxSamples)
-            var sampleCount = 0
-            var inputDone = false
-            val bufferInfo = MediaCodec.BufferInfo()
-            val timeoutUs = 10_000L
-
-            while (sampleCount < maxSamples) {
-                // Feed input
-                if (!inputDone) {
-                    val inputIndex = codec.dequeueInputBuffer(timeoutUs)
-                    if (inputIndex >= 0) {
-                        val inputBuffer = codec.getInputBuffer(inputIndex)!!
-                        val bytesRead = extractor.readSampleData(inputBuffer, 0)
-                        if (bytesRead < 0) {
-                            codec.queueInputBuffer(inputIndex, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
-                            inputDone = true
-                        } else {
-                            codec.queueInputBuffer(inputIndex, 0, bytesRead, extractor.sampleTime, 0)
-                            extractor.advance()
-                        }
-                    }
-                }
-
-                // Read output
-                val outputIndex = codec.dequeueOutputBuffer(bufferInfo, timeoutUs)
-                if (outputIndex >= 0) {
-                    if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) {
-                        codec.releaseOutputBuffer(outputIndex, false)
-                        break
-                    }
-
-                    val outputBuffer = codec.getOutputBuffer(outputIndex)!!
-                    outputBuffer.order(ByteOrder.nativeOrder())
-
-                    sampleCount = readPcmToMono(
-                        outputBuffer,
-                        channelCount,
-                        monoSamples,
-                        sampleCount,
-                        maxSamples,
-                    )
-
-                    codec.releaseOutputBuffer(outputIndex, false)
-                }
-            }
-
-            return if (sampleCount > 0) monoSamples.copyOf(sampleCount) else null
+            return block(codec)
         } finally {
             try {
                 codec.stop()
@@ -169,6 +174,61 @@ class AudioFingerprinter @Inject constructor(
             }
             codec.release()
         }
+    }
+
+    private fun decodePcmSegment(
+        extractor: MediaExtractor,
+        codec: MediaCodec,
+        channelCount: Int,
+        maxSamples: Int,
+    ): ShortArray? {
+        val monoSamples = ShortArray(maxSamples)
+        var sampleCount = 0
+        var inputDone = false
+        val bufferInfo = MediaCodec.BufferInfo()
+        val timeoutUs = 10_000L
+
+        while (sampleCount < maxSamples) {
+            // Feed input
+            if (!inputDone) {
+                val inputIndex = codec.dequeueInputBuffer(timeoutUs)
+                if (inputIndex >= 0) {
+                    val inputBuffer = codec.getInputBuffer(inputIndex)!!
+                    val bytesRead = extractor.readSampleData(inputBuffer, 0)
+                    if (bytesRead < 0) {
+                        codec.queueInputBuffer(inputIndex, 0, 0, 0, MediaCodec.BUFFER_FLAG_END_OF_STREAM)
+                        inputDone = true
+                    } else {
+                        codec.queueInputBuffer(inputIndex, 0, bytesRead, extractor.sampleTime, 0)
+                        extractor.advance()
+                    }
+                }
+            }
+
+            // Read output
+            val outputIndex = codec.dequeueOutputBuffer(bufferInfo, timeoutUs)
+            if (outputIndex >= 0) {
+                if (bufferInfo.flags and MediaCodec.BUFFER_FLAG_END_OF_STREAM != 0) {
+                    codec.releaseOutputBuffer(outputIndex, false)
+                    break
+                }
+
+                val outputBuffer = codec.getOutputBuffer(outputIndex)!!
+                outputBuffer.order(ByteOrder.nativeOrder())
+
+                sampleCount = readPcmToMono(
+                    outputBuffer,
+                    channelCount,
+                    monoSamples,
+                    sampleCount,
+                    maxSamples,
+                )
+
+                codec.releaseOutputBuffer(outputIndex, false)
+            }
+        }
+
+        return if (sampleCount > 0) monoSamples.copyOf(sampleCount) else null
     }
 
     private fun readPcmToMono(
@@ -211,7 +271,10 @@ class AudioFingerprinter @Inject constructor(
     }
 
     companion object {
-        private const val MAX_DURATION_SECONDS = 5
+        private const val MAX_SINGLE_DURATION_SECONDS = 5
+        private const val SEGMENT_DURATION_SECONDS = 2
+        private const val SHORT_FILE_THRESHOLD_MS = 6_000L
+        private val FINGERPRINT_POSITIONS = doubleArrayOf(0.10, 0.50, 0.90)
         private val TAG = logTag("Deduplicator", "Sleuth", "Media", "AudioFingerprinter")
     }
 }

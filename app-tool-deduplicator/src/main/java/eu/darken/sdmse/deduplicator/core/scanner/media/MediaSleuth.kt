@@ -194,9 +194,20 @@ class MediaSleuth @Inject constructor(
                             }
                             other to tiebreakerSim
                         } else {
+                            log(TAG, VERBOSE) {
+                                "Near-miss (tiebreaker): audio=${String.format("%.2f%%", sim * 100)}" +
+                                        ", tiebreaker=${tiebreakerSim?.let { String.format("%.2f%%", it * 100) } ?: "null"}" +
+                                        " : ${target.lookup.path} <-> ${other.lookup.path}"
+                            }
                             null
                         }
                     } else {
+                        if (sim != null && sim > NEAR_MISS_THRESHOLD) {
+                            log(TAG, VERBOSE) {
+                                "Near-miss (below reject): ${String.format("%.2f%%", sim * 100)}" +
+                                        " : ${target.lookup.path} <-> ${other.lookup.path}"
+                            }
+                        }
                         null
                     }
                 }
@@ -403,6 +414,7 @@ class MediaSleuth @Inject constructor(
         private const val MAX_CONCURRENT_FRAME_EXTRACTORS = 1
         private const val PER_FILE_TIMEOUT_MS = 30_000L
         private const val DURATION_BUCKET_MS = 5_000L
+        private const val NEAR_MISS_THRESHOLD = 0.80
         private val FRAME_POSITIONS = doubleArrayOf(0.10, 0.30, 0.50, 0.70, 0.90)
         private val TAG = logTag("Deduplicator", "Sleuth", "Media")
     }

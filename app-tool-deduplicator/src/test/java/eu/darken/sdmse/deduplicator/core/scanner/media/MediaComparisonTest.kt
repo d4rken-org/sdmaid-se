@@ -17,7 +17,15 @@ class MediaComparisonTest : BaseTest() {
     private val comparator = MediaComparator()
 
     private fun audioResult(vararg fingerprint: Long, durationMs: Long = 10000L) = AudioFingerprinter.Result(
-        fingerprint = FingerprintCalculator.Result(fingerprint = longArrayOf(*fingerprint)),
+        fingerprints = listOf(FingerprintCalculator.Result(fingerprint = longArrayOf(*fingerprint))),
+        durationMs = durationMs,
+    )
+
+    private fun multiAudioResult(
+        segments: List<LongArray>,
+        durationMs: Long = 10000L,
+    ) = AudioFingerprinter.Result(
+        fingerprints = segments.map { FingerprintCalculator.Result(fingerprint = it) },
         durationMs = durationMs,
     )
 
@@ -176,5 +184,51 @@ class MediaComparisonTest : BaseTest() {
         val long = frameHashes(0x1111L, 0x2222L, 0x3333L, 0x4444L, 0x5555L)
         // Should compare only 2 pairs
         comparator.averageFrameSimilarity(short, long) shouldBe 1.0
+    }
+
+    // --- multi-position audio fingerprint ---
+
+    @Test
+    fun `multi-position audio - identical 3 segments = 1_0`() {
+        val seg = longArrayOf(0x1111111111111111L, 0x2222222222222222L, 0x3333333333333333L, 0x4444444444444444L)
+        val a = multiAudioResult(listOf(seg, seg, seg))
+        val b = multiAudioResult(listOf(seg, seg, seg))
+
+        a.similarityTo(b) shouldBe 1.0
+    }
+
+    @Test
+    fun `multi-position audio - 3 segments vs 1 segment compares only first pair`() {
+        val seg = longArrayOf(0x1111111111111111L, 0x2222222222222222L, 0x3333333333333333L, 0x4444444444444444L)
+        val diffSeg = longArrayOf(-1L, -1L, -1L, -1L)
+        // a has 3 segments (first identical, rest different), b has 1 segment
+        val a = multiAudioResult(listOf(seg, diffSeg, diffSeg))
+        val b = multiAudioResult(listOf(seg))
+
+        // Only first pair compared → 1.0
+        a.similarityTo(b) shouldBe 1.0
+    }
+
+    @Test
+    fun `multi-position audio - empty fingerprints returns 0_0`() {
+        val empty = AudioFingerprinter.Result(fingerprints = emptyList(), durationMs = 10000L)
+        val nonEmpty = multiAudioResult(
+            listOf(longArrayOf(0x1111111111111111L, 0x2222222222222222L, 0x3333333333333333L, 0x4444444444444444L)),
+        )
+
+        empty.similarityTo(nonEmpty) shouldBe 0.0
+        nonEmpty.similarityTo(empty) shouldBe 0.0
+    }
+
+    @Test
+    fun `multi-position audio - one different segment lowers average`() {
+        val seg = longArrayOf(0x1111111111111111L, 0x2222222222222222L, 0x3333333333333333L, 0x4444444444444444L)
+        val diffSeg = longArrayOf(-1L, -1L, -1L, -1L)
+        val a = multiAudioResult(listOf(seg, seg, seg))
+        val b = multiAudioResult(listOf(seg, seg, diffSeg))
+
+        val sim = a.similarityTo(b)
+        // 2 perfect pairs + 1 imperfect → average < 1.0
+        sim shouldBeLessThan 1.0
     }
 }
