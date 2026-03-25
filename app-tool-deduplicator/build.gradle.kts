@@ -52,6 +52,7 @@ dependencies {
     addCoroutines()
     addSerialization()
 
+    implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.recyclerview:recyclerview-selection:1.2.0")

@@ -20,18 +20,7 @@ class PHashAlgorithm constructor(
     private val smallerSize: Int = 8,
 ) {
 
-    private val coefficients: DoubleArray = DoubleArray(size)
-
-    private fun initCoefficients() {
-        for (i in 1..<size) {
-            coefficients[i] = 1.0
-        }
-        coefficients[0] = 1 / sqrt(2.0)
-    }
-
     fun calc(img: Bitmap): Long {
-        initCoefficients()
-
         /* 1. Reduce size.
         * Like Average Hash, pHash starts with a small image.
         * However, the image is larger than 8x8; 32x32 is a good size.
@@ -104,7 +93,7 @@ class PHashAlgorithm constructor(
     }
 
     private fun resize(bm: Bitmap, newHeight: Int, newWidth: Int): Bitmap {
-        return Bitmap.createScaledBitmap(bm, newWidth, newHeight, false)
+        return Bitmap.createScaledBitmap(bm, newWidth, newHeight, true)
     }
 
     private fun grayscale(orginalBitmap: Bitmap): Bitmap {
@@ -122,23 +111,46 @@ class PHashAlgorithm constructor(
 
     private fun getBlue(img: Bitmap, x: Int, y: Int): Int = img.getPixel(x, y) and 0xff
 
+    // DCT with precomputed cosine table — eliminates 2M+ cos() calls per image.
     // From http://stackoverflow.com/questions/4240490/problems-with-dct-and-idct-algorithm-in-java
     private fun applyDCT(f: Array<DoubleArray>): Array<DoubleArray> {
+        val cosTable = cosineTable(size)
+        val c0 = 1.0 / sqrt(2.0)
         val result = Array(size) { DoubleArray(size) }
         for (u in 0..<size) {
             for (v in 0..<size) {
                 var sum = 0.0
                 for (i in 0..<size) {
                     for (j in 0..<size) {
-                        val cos1 = cos((2 * i + 1) / (2.0 * size) * u * Math.PI)
-                        val cos2 = cos((2 * j + 1) / (2.0 * size) * v * Math.PI)
-                        sum += cos1 * cos2 * f[i][j]
+                        sum += cosTable[i][u] * cosTable[j][v] * f[i][j]
                     }
                 }
-                sum *= coefficients[u] * coefficients[v] / 4.0
-                result[u][v] = sum
+                val cu = if (u == 0) c0 else 1.0
+                val cv = if (v == 0) c0 else 1.0
+                result[u][v] = sum * cu * cv / 4.0
             }
         }
         return result
+    }
+
+    companion object {
+        private var cachedSize: Int = 0
+        private var cachedTable: Array<DoubleArray> = emptyArray()
+
+        /**
+         * Returns cosine lookup table: `table[i][u] = cos((2*i+1) / (2*n) * u * PI)`
+         * Cached since PHashAlgorithm is instantiated per image but size never changes.
+         */
+        @Synchronized
+        private fun cosineTable(n: Int): Array<DoubleArray> {
+            if (n == cachedSize) return cachedTable
+            cachedTable = Array(n) { i ->
+                DoubleArray(n) { u ->
+                    cos((2 * i + 1) / (2.0 * n) * u * Math.PI)
+                }
+            }
+            cachedSize = n
+            return cachedTable
+        }
     }
 }

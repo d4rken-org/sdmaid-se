@@ -1,27 +1,28 @@
 package eu.darken.sdmse.deduplicator.core.scanner.phash
 
-import android.content.Context
-import androidx.core.graphics.drawable.toBitmap
-import coil.imageLoader
-import coil.request.ImageRequest
-import coil.request.SuccessResult
-import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.deduplicator.R
+import android.graphics.Bitmap
+import android.graphics.BitmapFactory
+import android.graphics.Matrix
+import androidx.exifinterface.media.ExifInterface
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.coil.BitmapFetcher
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APathLookup
+import eu.darken.sdmse.common.files.GatewaySwitch
+import eu.darken.sdmse.common.files.extension
+import eu.darken.sdmse.common.files.inputStream
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.increaseProgress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
+import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.scanner.CommonFilesCheck
 import eu.darken.sdmse.deduplicator.core.scanner.Sleuth
@@ -39,13 +40,17 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.flow.toSet
 import kotlinx.coroutines.isActive
+import kotlinx.coroutines.sync.Semaphore
+import kotlinx.coroutines.sync.withPermit
 import java.io.IOException
 import java.util.LinkedList
 import java.util.UUID
+import java.util.concurrent.atomic.AtomicInteger
+import java.util.concurrent.atomic.AtomicLong
 import javax.inject.Inject
 
 class PHashSleuth @Inject constructor(
-    @ApplicationContext private val context: Context,
+    private val gatewaySwitch: GatewaySwitch,
     private val dispatcherProvider: DispatcherProvider,
     private val commonFilesCheck: CommonFilesCheck,
 ) : Sleuth {
@@ -64,42 +69,66 @@ class PHashSleuth @Inject constructor(
 
         val suspects = searchFlow
             .filter { commonFilesCheck.isImage(it) }
+            .filter { it.extension?.lowercase() != "svg" }
             .toSet()
 
         updateProgressSecondary(R.string.deduplicator_progress_comparing_files)
         updateProgressCount(Progress.Count.Percent(suspects.size))
 
         val hashStart = System.currentTimeMillis()
+        val totalDecodeMs = AtomicLong(0)
+        val totalHashMs = AtomicLong(0)
+        val processedCount = AtomicInteger(0)
+        val failedCount = AtomicInteger(0)
+        val processSemaphore = Semaphore(MAX_CONCURRENT_OPS)
 
         val hashedItems: Map<APathLookup<*>, PHasher.Result> = suspects
             .asFlow()
-            .flowOn(dispatcherProvider.IO)
             .flatMapMerge { item ->
                 flow {
-                    val start = System.currentTimeMillis()
-
                     val hash = try {
-                        item.calculatePHash(context)
-                    } catch (e: IOException) {
-                        log(TAG, WARN) { "Failed to determine phash for $item: $e" }
-                        null
-                    }
+                        processSemaphore.withPermit {
+                            val decodeStart = System.currentTimeMillis()
+                            val bitmap = item.loadBitmap()
+                            val decodeMs = System.currentTimeMillis() - decodeStart
+                            totalDecodeMs.addAndGet(decodeMs)
 
-                    if (Bugs.isTrace) {
-                        val stop = System.currentTimeMillis()
-                        log(TAG, VERBOSE) {
-                            "PHash ${hash?.format()} took ${String.format("%4d", stop - start)}ms - ${item.path}"
+                            try {
+                                val calcStart = System.currentTimeMillis()
+                                val result = PHasher().calc(bitmap)
+                                val calcMs = System.currentTimeMillis() - calcStart
+                                totalHashMs.addAndGet(calcMs)
+                                processedCount.incrementAndGet()
+
+                                log(TAG, VERBOSE) {
+                                    "PHash decode=${decodeMs}ms hash=${calcMs}ms total=${decodeMs + calcMs}ms" +
+                                        " size=${item.size / 1024}KB - ${item.path}"
+                                }
+                                result
+                            } finally {
+                                bitmap.recycle()
+                            }
                         }
+                    } catch (e: IOException) {
+                        log(TAG, WARN) { "Failed to load bitmap for $item: $e" }
+                        failedCount.incrementAndGet()
+                        null
+                    } catch (e: OutOfMemoryError) {
+                        log(TAG, WARN) { "OOM loading bitmap for $item: $e" }
+                        failedCount.incrementAndGet()
+                        null
                     }
 
                     increaseProgress()
                     emit(if (hash != null) item to hash else null)
                 }
             }
+            .flowOn(dispatcherProvider.IO)
             .filterNotNull()
             .toList()
             .toMap()
 
+        val compareStart = System.currentTimeMillis()
         val requiredSim = 0.95f
         val remainingItems = LinkedList(hashedItems.keys)
         val hashBuckets = mutableSetOf<Set<Pair<APathLookup<*>, Double>>>()
@@ -130,7 +159,17 @@ class PHashSleuth @Inject constructor(
         }
 
         val hashStop = System.currentTimeMillis()
-        log(TAG) { "PHash investigation took ${(hashStop - hashStart)}ms (${DEFAULT_CONCURRENCY})" }
+        val wallMs = hashStop - hashStart
+        val processed = processedCount.get()
+        val failed = failedCount.get()
+        log(TAG, INFO) {
+            "PHash: ${processed} images in ${wallMs}ms (${if (processed > 0) wallMs / processed else 0}ms/img)," +
+                " decode=${totalDecodeMs.get()}ms hash=${totalHashMs.get()}ms," +
+                " failed=$failed, concurrency=$DEFAULT_CONCURRENCY"
+        }
+
+        val compareMs = System.currentTimeMillis() - compareStart
+        log(TAG, INFO) { "PHash comparison: ${hashedItems.size} items in ${compareMs}ms, found ${hashBuckets.size} groups" }
 
         return hashBuckets.map { items: Set<Pair<APathLookup<*>, Double>> ->
             PHashDuplicate.Group(
@@ -146,24 +185,72 @@ class PHashSleuth @Inject constructor(
         }.toSet()
     }
 
-    private suspend fun APathLookup<*>.calculatePHash(context: Context): PHasher.Result {
-        val request = ImageRequest.Builder(context).apply {
-            data(BitmapFetcher.Request(this@calculatePHash))
-            // Hardware backed bitmaps don't support direct pixel access
-            allowHardware(false)
-            size(1024)
-        }.build()
+    private suspend fun APathLookup<*>.loadBitmap(): Bitmap {
+        return gatewaySwitch.file(lookedUp, readWrite = false).use { handle ->
+            // Pass 1: decode bounds only
+            val boundsOptions = BitmapFactory.Options().apply { inJustDecodeBounds = true }
+            handle.source().inputStream().use { stream ->
+                BitmapFactory.decodeStream(stream, null, boundsOptions)
+            }
 
-        val result = context.imageLoader.execute(request)
+            if (boundsOptions.outWidth <= 0 || boundsOptions.outHeight <= 0) {
+                throw IOException("Failed to decode bounds for $this (${boundsOptions.outWidth}x${boundsOptions.outHeight})")
+            }
 
-        if (result !is SuccessResult) {
-            throw IOException("Failed to load bitmap for $this: $result")
+            // Pass 2: decode with optimal inSampleSize targeting PHASH_SIZE
+            val decodeOptions = BitmapFactory.Options().apply {
+                inSampleSize = calculateInSampleSize(boundsOptions.outWidth, boundsOptions.outHeight)
+            }
+            val rawBitmap = handle.source().inputStream().use { stream ->
+                BitmapFactory.decodeStream(stream, null, decodeOptions)
+            } ?: throw IOException("Failed to decode bitmap for $this")
+
+            // Pass 3: read EXIF orientation and apply rotation
+            val orientation = try {
+                handle.source().inputStream().use { stream ->
+                    ExifInterface(stream).getAttributeInt(
+                        ExifInterface.TAG_ORIENTATION,
+                        ExifInterface.ORIENTATION_NORMAL,
+                    )
+                }
+            } catch (e: IOException) {
+                ExifInterface.ORIENTATION_NORMAL
+            }
+
+            applyExifOrientation(rawBitmap, orientation)
         }
-
-        return PHasher().calc(result.drawable.toBitmap())
     }
 
     companion object {
+        private const val MAX_CONCURRENT_OPS = 4
+        // Decode target: larger than the 32x32 PHash input to preserve detail during resize.
+        // inSampleSize will decode to roughly this size, then PHashAlgorithm resizes to 32x32.
+        private const val DECODE_TARGET_SIZE = 256
+
         private val TAG = logTag("Deduplicator", "Sleuth", "PHash")
+
+        private fun calculateInSampleSize(width: Int, height: Int): Int {
+            var inSampleSize = 1
+            while (width / (inSampleSize * 2) >= DECODE_TARGET_SIZE && height / (inSampleSize * 2) >= DECODE_TARGET_SIZE) {
+                inSampleSize *= 2
+            }
+            return inSampleSize
+        }
+
+        private fun applyExifOrientation(bitmap: Bitmap, orientation: Int): Bitmap {
+            val matrix = when (orientation) {
+                ExifInterface.ORIENTATION_ROTATE_90 -> Matrix().apply { postRotate(90f) }
+                ExifInterface.ORIENTATION_ROTATE_180 -> Matrix().apply { postRotate(180f) }
+                ExifInterface.ORIENTATION_ROTATE_270 -> Matrix().apply { postRotate(270f) }
+                ExifInterface.ORIENTATION_FLIP_HORIZONTAL -> Matrix().apply { postScale(-1f, 1f) }
+                ExifInterface.ORIENTATION_FLIP_VERTICAL -> Matrix().apply { postScale(1f, -1f) }
+                ExifInterface.ORIENTATION_TRANSPOSE -> Matrix().apply { postRotate(90f); postScale(-1f, 1f) }
+                ExifInterface.ORIENTATION_TRANSVERSE -> Matrix().apply { postRotate(270f); postScale(-1f, 1f) }
+                else -> return bitmap
+            }
+            val rotated = Bitmap.createBitmap(bitmap, 0, 0, bitmap.width, bitmap.height, matrix, true)
+            if (rotated !== bitmap) bitmap.recycle()
+            return rotated
+        }
     }
 }
