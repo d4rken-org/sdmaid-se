@@ -27,6 +27,11 @@ class SpaceHistoryRepo @Inject constructor(
 
     fun getReports(since: Instant): Flow<List<ReportEntity>> = reportsDatabase.getReportsSince(since)
 
+    suspend fun deleteStorage(storageId: String) {
+        reportsDatabase.spaceSnapshotDao.deleteByStorageId(storageId)
+        reportsDatabase.refreshDatabaseSize()
+    }
+
     suspend fun insertIfNotRecent(
         storageId: String,
         recordedAt: Instant,

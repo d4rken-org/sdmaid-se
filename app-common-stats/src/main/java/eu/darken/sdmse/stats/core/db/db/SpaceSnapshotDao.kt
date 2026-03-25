@@ -30,6 +30,9 @@ interface SpaceSnapshotDao {
     @Query("DELETE FROM space_snapshots WHERE id = :snapshotId")
     suspend fun deleteById(snapshotId: Long)
 
+    @Query("DELETE FROM space_snapshots WHERE storage_id = :storageId")
+    suspend fun deleteByStorageId(storageId: String)
+
     @Query("SELECT DISTINCT storage_id FROM space_snapshots")
     fun getDistinctStorageIds(): Flow<List<String>>
 
