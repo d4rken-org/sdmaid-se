@@ -13,10 +13,11 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.error.localized
+import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.notifications.PendingIntentCompat
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.scheduler.R
+import eu.darken.sdmse.stats.core.ReportDetails
 import javax.inject.Inject
 import eu.darken.sdmse.common.ui.R as UiR
 
@@ -31,6 +32,12 @@ class SchedulerNotifications @Inject constructor(
             CHANNEL_ID,
             context.getString(R.string.scheduler_notification_channel_label),
             NotificationManager.IMPORTANCE_LOW
+        ).run { notificationManager.createNotificationChannel(this) }
+
+        NotificationChannel(
+            RESULT_CHANNEL_ID,
+            context.getString(R.string.scheduler_notification_result_channel_label),
+            NotificationManager.IMPORTANCE_DEFAULT
         ).run { notificationManager.createNotificationChannel(this) }
     }
 
@@ -57,7 +64,22 @@ class SchedulerNotifications @Inject constructor(
         setOngoing(true)
     }
 
-    private fun getBaseResultBuilder() = getBaseBuilder().apply {
+    private fun getBaseResultBuilder() = NotificationCompat.Builder(context, RESULT_CHANNEL_ID).apply {
+        val openIntent = context.packageManager.getLaunchIntentForPackage(context.packageName)
+        val openPi = openIntent?.let {
+            PendingIntent.getActivity(
+                context,
+                0,
+                it,
+                PendingIntentCompat.FLAG_IMMUTABLE
+            )
+        }
+
+        setChannelId(RESULT_CHANNEL_ID)
+        setContentIntent(openPi)
+        priority = NotificationCompat.PRIORITY_DEFAULT
+        setSmallIcon(UiR.drawable.ic_notification_mascot_24)
+        setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
         setOngoing(false)
     }
 
@@ -65,8 +87,8 @@ class SchedulerNotifications @Inject constructor(
         if (schedule == null) {
             return getBaseStateBuilder().apply {
                 setStyle(null)
-                setContentTitle(context.getString(eu.darken.sdmse.common.R.string.app_name))
-                setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_loading))
+                setContentTitle(context.getString(R.string.scheduler_notification_title))
+                setContentText(context.getString(eu.darken.sdmse.common.R.string.general_progress_preparing))
             }
         }
 
@@ -108,49 +130,69 @@ class SchedulerNotifications @Inject constructor(
         notificationManager.cancel(id)
     }
 
-    private fun getResultBuilder(results: Set<Results>): NotificationCompat.Builder = getBaseResultBuilder().apply {
+    private fun SDMTool.Type.toToolNameId(): Int = when (this) {
+        SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.string.corpsefinder_tool_name
+        SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.string.systemcleaner_tool_name
+        SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.string.appcleaner_tool_name
+        SDMTool.Type.APPCONTROL -> eu.darken.sdmse.common.R.string.appcontrol_tool_name
+        SDMTool.Type.ANALYZER -> eu.darken.sdmse.common.R.string.analyzer_tool_name
+        SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.string.deduplicator_tool_name
+        SDMTool.Type.SQUEEZER -> eu.darken.sdmse.common.R.string.squeezer_tool_name
+        SDMTool.Type.SWIPER -> eu.darken.sdmse.common.R.string.swiper_tool_name
+    }
+
+    private fun getResultBuilder(
+        results: Set<Results>,
+    ): NotificationCompat.Builder = getBaseResultBuilder().apply {
         setContentTitle(context.getString(R.string.scheduler_notification_result_title))
-        val text = if (results.any { it.error != null }) {
-            val errorMsg = context.getString(R.string.scheduler_notification_result_failure_message)
-            val errorTools = results
-                .filter { it.error != null }
-                .map {
-                    val toolNameId = when (it.task.type) {
-                        SDMTool.Type.CORPSEFINDER -> eu.darken.sdmse.common.R.string.corpsefinder_tool_name
-                        SDMTool.Type.SYSTEMCLEANER -> eu.darken.sdmse.common.R.string.systemcleaner_tool_name
-                        SDMTool.Type.APPCLEANER -> eu.darken.sdmse.common.R.string.appcleaner_tool_name
-                        SDMTool.Type.APPCONTROL -> eu.darken.sdmse.common.R.string.appcontrol_tool_name
-                        SDMTool.Type.ANALYZER -> eu.darken.sdmse.common.R.string.analyzer_tool_name
-                        SDMTool.Type.DEDUPLICATOR -> eu.darken.sdmse.common.R.string.deduplicator_tool_name
-                        SDMTool.Type.SQUEEZER -> eu.darken.sdmse.common.R.string.squeezer_tool_name
-                        SDMTool.Type.SWIPER -> eu.darken.sdmse.common.R.string.swiper_tool_name
-                    }
-                    context.getString(toolNameId) to it.error!!.localized(context).asText().get(context)
-                }
-            "$errorMsg\n${errorTools.joinToString("\n") { "${it.first}: ${it.second}" }}"
-        } else {
-            context.getString(R.string.scheduler_notification_result_success_message)
-        }
+        val text = buildResultText(results)
         setContentText(text)
         setStyle(NotificationCompat.BigTextStyle().bigText(text))
         log(TAG) { "getResultBuilder(): $results" }
     }
 
-    private fun Set<Results>.toNotificationid(): Int {
+    private fun buildResultText(results: Set<Results>): String {
+        if (results.isEmpty()) {
+            return context.getString(R.string.scheduler_notification_result_success_message)
+        }
+        return results.joinToString("\n") { result ->
+            val toolName = context.getString(result.task.type.toToolNameId())
+            if (result.error != null) {
+                val errorLabel = context.getString(eu.darken.sdmse.common.R.string.general_error_label)
+                "$toolName: $errorLabel"
+            } else if (result.result != null) {
+                val space = (result.result as? ReportDetails.AffectedSpace)?.affectedSpace
+                if (space != null && space > 0L) {
+                    val (formatted, quantity) = ByteFormatter.formatSize(context, space)
+                    val freedText = context.resources.getQuantityString(
+                        eu.darken.sdmse.common.R.plurals.general_result_x_space_freed,
+                        quantity,
+                        formatted,
+                    )
+                    "$toolName: $freedText"
+                } else {
+                    "$toolName: ${result.result.primaryInfo.get(context)}"
+                }
+            } else {
+                toolName
+            }
+        }
+    }
+
+    private fun ScheduleId.toResultNotificationId(): Int {
         val baseId = (this.hashCode() and Int.MAX_VALUE) % 101
         return NOTIFICATION_ID_RANGE_RESULT + baseId
     }
 
-    fun notifyResult(results: Set<Results>) {
-        val id = results.toNotificationid()
+    fun notifyResult(scheduleId: ScheduleId, results: Set<Results>) {
+        val id = scheduleId.toResultNotificationId()
         val notification = getResultBuilder(results).build()
         log(TAG) { "notifyResult($id, $results)" }
         notificationManager.notify(id, notification)
     }
 
     fun notifyError(scheduleId: ScheduleId) {
-        val baseId = (scheduleId.hashCode() and Int.MAX_VALUE) % 101
-        val id = NOTIFICATION_ID_RANGE_RESULT + baseId
+        val id = scheduleId.toResultNotificationId()
         val notification = getBaseResultBuilder().apply {
             setContentTitle(context.getString(R.string.scheduler_notification_result_title))
             val text = context.getString(R.string.scheduler_notification_result_failure_message)
@@ -171,6 +213,7 @@ class SchedulerNotifications @Inject constructor(
     companion object {
         val TAG = logTag("Scheduler", "Notifications", "Worker")
         private val CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler"
+        private val RESULT_CHANNEL_ID = "${BuildConfigWrap.APPLICATION_ID}.notification.channel.scheduler.result"
         internal const val NOTIFICATION_ID_RANGE_STATE = 1000
         internal const val NOTIFICATION_ID_RANGE_RESULT = 1200
     }
