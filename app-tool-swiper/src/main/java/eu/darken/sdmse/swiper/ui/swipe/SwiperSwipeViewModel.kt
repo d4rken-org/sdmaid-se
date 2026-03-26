@@ -36,7 +36,7 @@ class SwiperSwipeViewModel @Inject constructor(
     private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val route = handle.toRoute<SwiperSwipeRoute>()
+    private val route = SwiperSwipeRoute.from(handle)
     private val sessionId: String = route.sessionId
     private val startIndex: Int = route.startIndex
 

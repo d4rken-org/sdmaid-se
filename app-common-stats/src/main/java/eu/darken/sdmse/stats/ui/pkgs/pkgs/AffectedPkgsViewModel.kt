@@ -33,7 +33,7 @@ class AffectedPkgsViewModel @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val reportId: ReportId = handle.toRoute<AffectedPkgsRoute>().reportIdUUID
+    private val reportId: ReportId = AffectedPkgsRoute.from(handle).reportIdUUID
 
     private val report: Flow<Report> = flowOf(reportId)
         .map { statsRepo.getById(it) }

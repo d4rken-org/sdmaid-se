@@ -38,7 +38,7 @@ class AppJunkDetailsViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: InstallId? = handle.toRoute<AppJunkDetailsRoute>(AppJunkDetailsRoute.typeMap).identifier
+    private val identifier: InstallId? = AppJunkDetailsRoute.from(handle).identifier
 
     private var currentTarget: InstallId? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")

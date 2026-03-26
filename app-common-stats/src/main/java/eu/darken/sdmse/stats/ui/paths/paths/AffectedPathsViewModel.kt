@@ -30,7 +30,7 @@ class AffectedPathsViewModel @Inject constructor(
     private val statsRepo: StatsRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val reportId: ReportId = handle.toRoute<AffectedFilesRoute>().reportIdUUID
+    private val reportId: ReportId = AffectedFilesRoute.from(handle).reportIdUUID
 
     private val report: Flow<Report> = flowOf(reportId)
         .map { statsRepo.getById(it) }

@@ -37,7 +37,7 @@ class FilterContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: String = handle.toRoute<FilterContentRoute>().identifier
+    private val identifier: String = FilterContentRoute.from(handle).identifier
 
     val events = SingleLiveEvent<FilterContentEvents>()
 

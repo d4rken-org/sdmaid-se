@@ -38,7 +38,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
     private val settings: DeduplicatorSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val identifier: Duplicate.Cluster.Id? = handle.toRoute<DeduplicatorDetailsRoute>(DeduplicatorDetailsRoute.typeMap).identifier
+    private val identifier: Duplicate.Cluster.Id? = DeduplicatorDetailsRoute.from(handle).identifier
     private var currentTarget: Duplicate.Cluster.Id? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 

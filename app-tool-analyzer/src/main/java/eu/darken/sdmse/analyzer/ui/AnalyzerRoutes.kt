@@ -1,6 +1,8 @@
 package eu.darken.sdmse.analyzer.ui
 
+import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
+import androidx.navigation.toRoute
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.common.pkgs.features.InstallId
@@ -17,6 +19,8 @@ data class StorageContentRoute(
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
         )
+
+        fun from(handle: SavedStateHandle) = handle.toRoute<StorageContentRoute>(typeMap)
     }
 }
 
@@ -28,6 +32,8 @@ data class AppsRoute(
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
         )
+
+        fun from(handle: SavedStateHandle) = handle.toRoute<AppsRoute>(typeMap)
     }
 }
 
@@ -41,6 +47,8 @@ data class AppDetailsRoute(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
             typeOf<InstallId>() to serializableNavType(InstallId.serializer()),
         )
+
+        fun from(handle: SavedStateHandle) = handle.toRoute<AppDetailsRoute>(typeMap)
     }
 }
 
@@ -56,5 +64,7 @@ data class ContentRoute(
             typeOf<ContentGroup.Id>() to serializableNavType(ContentGroup.Id.serializer()),
             typeOf<InstallId?>() to serializableNavType(InstallId.serializer(), isNullableAllowed = true),
         )
+
+        fun from(handle: SavedStateHandle) = handle.toRoute<ContentRoute>(typeMap)
     }
 }
