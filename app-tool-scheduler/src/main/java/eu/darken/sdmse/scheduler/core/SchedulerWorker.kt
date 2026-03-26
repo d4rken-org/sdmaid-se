@@ -62,6 +62,7 @@ class SchedulerWorker @AssistedInject constructor(
 
     private val workerScope = CoroutineScope(dispatcherProvider.Default + SupervisorJob())
     private var finishedWithError = false
+    private var currentSchedule: Schedule? = null
 
     private val scheduleId: ScheduleId
         get() = inputData.getString(INPUT_SCHEDULE_ID) as ScheduleId
@@ -71,7 +72,12 @@ class SchedulerWorker @AssistedInject constructor(
     }
 
     override suspend fun getForegroundInfo(): ForegroundInfo {
-        return schedulerNotifications.getForegroundInfo(scheduleId)
+        val schedule = currentSchedule
+        return if (schedule != null) {
+            schedulerNotifications.getForegroundInfo(schedule)
+        } else {
+            schedulerNotifications.getForegroundInfo(scheduleId)
+        }
     }
 
     override suspend fun doWork(): Result = try {
@@ -85,7 +91,7 @@ class SchedulerWorker @AssistedInject constructor(
             log(TAG, ERROR) { "Can't execute in foreground: ${e.asLog()}" }
         }
 
-        val schedule = getSchedule()
+        val schedule = getSchedule().also { currentSchedule = it }
 
         if (runAttemptCount > 0) {
             log(TAG, WARN) { "Repeat execution attempt ($runAttemptCount) for $schedule" }
@@ -95,7 +101,7 @@ class SchedulerWorker @AssistedInject constructor(
             log(TAG, INFO) { "Executing schedule $schedule" }
             Bugs.leaveBreadCrumb("Executing schedule")
 
-            schedulerNotifications.notifyState(schedule)
+            setForeground(schedulerNotifications.getForegroundInfo(schedule))
 
             doDoWork(schedule)
 
@@ -172,7 +178,7 @@ class SchedulerWorker @AssistedInject constructor(
 
         log(TAG) { "Waiting for jobs to complete: $taskJobs" }
         val taskResults = taskJobs.awaitAll().toSet()
-        schedulerNotifications.notifyResult(taskResults)
+        schedulerNotifications.notifyResult(schedule.id, taskResults)
         log(TAG) { "All task jobs have finished." }
 
         schedule.commandsAfterSchedule.takeIf { it.isNotEmpty() }?.let { cmds ->
