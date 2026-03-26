@@ -19,6 +19,7 @@ import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
+import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import javax.inject.Inject
 
@@ -31,8 +32,9 @@ class PathExclusionViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val initialOptions: PathExclusionEditorOptions? = handle["initial"]
-    private val identifier: ExclusionId = handle["exclusionId"] ?: PathExclusion.createId(initialOptions!!.targetPath)
+    private val route = PathExclusionEditorRoute.from(handle)
+    private val initialOptions: PathExclusionEditorOptions? = route.initial
+    private val identifier: ExclusionId = route.exclusionId ?: PathExclusion.createId(initialOptions!!.targetPath)
 
     val events = SingleLiveEvent<PathEditorEvents>()
 

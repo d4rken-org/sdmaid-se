@@ -17,6 +17,7 @@ import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
+import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import javax.inject.Inject
 
@@ -29,8 +30,9 @@ class PkgExclusionViewModel @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val initialOptions: PkgExclusionEditorOptions? = handle["initial"]
-    private val identifier: ExclusionId = handle["exclusionId"] ?: PkgExclusion.createId(initialOptions!!.targetPkgId)
+    private val route = PkgExclusionEditorRoute.from(handle)
+    private val initialOptions: PkgExclusionEditorOptions? = route.initial
+    private val identifier: ExclusionId = route.exclusionId ?: PkgExclusion.createId(initialOptions!!.targetPkgId)
 
     val events = SingleLiveEvent<PkgExclusionEvents>()
 
