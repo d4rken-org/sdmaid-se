@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isAncestorOf
@@ -17,6 +18,7 @@ import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.lookup
 import eu.darken.sdmse.common.files.lookupFiles
 import eu.darken.sdmse.common.flow.replayingShare
+import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import kotlinx.coroutines.awaitCancellation
@@ -25,6 +27,7 @@ import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.first
 import okio.IOException
 import javax.inject.Inject
+import kotlin.reflect.typeOf
 
 @HiltViewModel
 class PickerViewModel @Inject constructor(
@@ -34,7 +37,9 @@ class PickerViewModel @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val request: PickerRequest = handle["request"]!!
+    private val request: PickerRequest = handle.toRoute<PickerRoute>(
+        typeMap = mapOf(typeOf<PickerRequest>() to serializableNavType(PickerRequest.serializer()))
+    ).request
 
     private val selectedItems = MutableStateFlow(emptyList<APathLookup<*>>())
     private val navigationState = MutableStateFlow<List<PickerItem>?>(null)

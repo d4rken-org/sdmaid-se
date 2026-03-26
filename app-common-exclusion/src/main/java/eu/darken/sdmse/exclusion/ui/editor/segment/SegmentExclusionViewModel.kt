@@ -18,6 +18,7 @@ import eu.darken.sdmse.exclusion.core.remove
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.ExclusionId
+import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
 import javax.inject.Inject
 
@@ -30,8 +31,9 @@ class SegmentExclusionViewModel @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val initialOptions: SegmentExclusionEditorOptions? = handle["initial"]
-    private val identifier: ExclusionId? = handle["exclusionId"]
+    private val route = SegmentExclusionEditorRoute.from(handle)
+    private val initialOptions: SegmentExclusionEditorOptions? = route.initial
+    private val identifier: ExclusionId? = route.exclusionId
 
     val events = SingleLiveEvent<SegmentExclusionEvents>()
 

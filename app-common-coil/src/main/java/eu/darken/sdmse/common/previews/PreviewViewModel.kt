@@ -17,7 +17,7 @@ class PreviewViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val options: PreviewOptions = handle["options"]!!
+    private val options: PreviewOptions = PreviewRoute.from(handle).options
     private val currentPosition = MutableStateFlow(options.position)
 
     val events = SingleLiveEvent<PreviewEvents>()
