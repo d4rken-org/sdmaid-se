@@ -156,8 +156,7 @@ class ClusterFragment : Fragment3(R.layout.deduplicator_cluster_fragment) {
 
                 is ClusterEvents.ViewDuplicate -> {
                     findNavController().navigate(
-                        resId = eu.darken.sdmse.common.R.id.goToPreview,
-                        args = bundleOf("options" to event.options)
+                        eu.darken.sdmse.common.previews.PreviewRoute(options = event.options)
                     )
                 }
             }

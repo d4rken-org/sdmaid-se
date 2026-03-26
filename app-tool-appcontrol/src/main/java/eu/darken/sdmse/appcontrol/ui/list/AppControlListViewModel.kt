@@ -22,8 +22,8 @@ import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionViewModel
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -262,10 +262,7 @@ class AppControlListViewModel @Inject constructor(
                         lablrSize = if (listSort.mode == SortSettings.Mode.SIZE) content.lablrSize else null,
                         lablrScreenTime = if (listSort.mode == SortSettings.Mode.SCREEN_TIME) content.lablrScreenTime else null,
                         onItemClicked = {
-                            navDirections(
-                                eu.darken.sdmse.appcontrol.R.id.action_appControlListFragment_to_appActionDialog,
-                                AppActionViewModel.Args(installId = content.installId).toBundle()
-                            ).navigate()
+                            navigateTo(AppActionRoute(installId = content.installId))
                         },
                     )
                 }
@@ -414,7 +411,7 @@ class AppControlListViewModel @Inject constructor(
     fun export(items: Collection<AppControlListAdapter.Item>, saveDir: Uri? = null) = launch {
         log(TAG) { "export(${items.size}, saveDir=$saveDir)" }
         if (items.size > 1 && !upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -432,7 +429,7 @@ class AppControlListViewModel @Inject constructor(
     fun forceStop(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG) { "forceStop(${items.size}, confirmed=$confirmed)" }
         if (items.size > 1 && !upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -448,7 +445,7 @@ class AppControlListViewModel @Inject constructor(
     fun archive(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG) { "archive(${items.size}, confirmed=$confirmed)" }
         if (items.size > 1 && !upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -464,7 +461,7 @@ class AppControlListViewModel @Inject constructor(
     fun restore(items: Collection<AppControlListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG) { "restore(${items.size}, confirmed=$confirmed)" }
         if (items.size > 1 && !upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

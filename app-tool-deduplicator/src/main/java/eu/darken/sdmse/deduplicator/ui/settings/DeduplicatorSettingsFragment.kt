@@ -7,7 +7,7 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import dagger.hilt.android.AndroidEntryPoint
 import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.datastore.valueBlocking
@@ -52,10 +52,9 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
                     }
                 }
                 setOnPreferenceClickListener {
-                    navDirections(
-                        eu.darken.sdmse.common.R.id.goToPicker,
-                        bundleOf(
-                            "request" to PickerRequest(
+                    findNavController().navigate(
+                        eu.darken.sdmse.common.picker.PickerRoute(
+                            request = PickerRequest(
                                 requestKey = searchLocationsPref.key,
                                 mode = PickerRequest.PickMode.DIRS,
                                 allowedAreas = setOf(
@@ -67,7 +66,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
                                 selectedPaths = state.scanPaths
                             )
                         )
-                    ).navigate()
+                    )
                     true
                 }
             }
@@ -96,7 +95,7 @@ class DeduplicatorSettingsFragment : PreferenceFragment2() {
         }
 
         arbiterConfigPref.setOnPreferenceClickListener {
-            navDirections(eu.darken.sdmse.common.R.id.goToArbiterConfig).navigate()
+            findNavController().navigate(eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute)
             true
         }
 

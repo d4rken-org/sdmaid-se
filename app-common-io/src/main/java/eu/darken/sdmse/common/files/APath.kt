@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.saf.SAFPath
 import eu.darken.sdmse.common.serialization.ValueBasedPolyJsonAdapterFactory
+import kotlinx.serialization.Serializable
 
 @Keep
 interface APath : Parcelable {
@@ -24,6 +25,7 @@ interface APath : Parcelable {
     fun child(vararg segments: String): APath
 
     @Keep
+    @Serializable
     enum class PathType {
         RAW, LOCAL, SAF
     }

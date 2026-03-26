@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearSmoothScroller
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.common.ByteFormatter
@@ -105,8 +107,7 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
                     position = 0,
                 )
                 findNavController().navigate(
-                    resId = eu.darken.sdmse.common.R.id.goToPreview,
-                    args = bundleOf("options" to options),
+                    eu.darken.sdmse.common.previews.PreviewRoute(options = options)
                 )
             }
 
@@ -152,7 +153,8 @@ class SwiperSwipeFragment : Fragment3(R.layout.swiper_swipe_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 SwiperSwipeEvents.NavigateToSessions -> {
-                    if (!findNavController().popBackStack(eu.darken.sdmse.common.R.id.swiperSessionsFragment, inclusive = false)) {
+                    if (!findNavController().popBackStack(eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute, inclusive = false)) {
+                        log(tag, WARN) { "SwiperSessionsRoute not in back stack, falling back to simple pop" }
                         findNavController().popBackStack()
                     }
                 }

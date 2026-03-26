@@ -1,14 +1,15 @@
 package eu.darken.sdmse.systemcleaner.ui.details
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.main.core.SDMTool
@@ -36,7 +37,7 @@ class FilterContentDetailsViewModel @Inject constructor(
     systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val filterIdentifier: String? = Args.from(handle).filterIdentifier
+    private val filterIdentifier: String? = handle.toRoute<FilterContentDetailsRoute>().filterIdentifier
     private var currentTarget: FilterIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
@@ -103,20 +104,6 @@ class FilterContentDetailsViewModel @Inject constructor(
     fun updatePage(identifier: FilterIdentifier) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
-    }
-
-    data class Args(
-        val filterIdentifier: String?,
-    ) {
-        fun toBundle() = bundleOf(KEY_FILTER_IDENTIFIER to filterIdentifier)
-
-        companion object {
-            private const val KEY_FILTER_IDENTIFIER = "filterIdentifier"
-
-            fun from(handle: SavedStateHandle) = Args(
-                filterIdentifier = handle.get<String>(KEY_FILTER_IDENTIFIER),
-            )
-        }
     }
 
     companion object {

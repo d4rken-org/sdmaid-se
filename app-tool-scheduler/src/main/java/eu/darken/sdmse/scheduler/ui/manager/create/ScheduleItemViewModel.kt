@@ -1,8 +1,8 @@
 package eu.darken.sdmse.scheduler.ui.manager.create
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -10,6 +10,7 @@ import eu.darken.sdmse.common.flow.DynamicStateFlow
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.SchedulerManager
+import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import java.time.Duration
 import javax.inject.Inject
 
@@ -21,7 +22,7 @@ class ScheduleItemViewModel @Inject constructor(
     private val schedulerManager: SchedulerManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val scheduleId: String = Args.from(handle).scheduleId
+    private val scheduleId: String = handle.toRoute<ScheduleItemRoute>().scheduleId
 
     private val internalState = DynamicStateFlow<State>(parentScope = vmScope) {
         val existing = schedulerManager.getSchedule(scheduleId)
@@ -92,20 +93,6 @@ class ScheduleItemViewModel @Inject constructor(
         val canSave: Boolean
             get() = label != null && hour != null && minute != null
 
-    }
-
-    data class Args(
-        val scheduleId: String,
-    ) {
-        fun toBundle() = bundleOf(KEY_SCHEDULE_ID to scheduleId)
-
-        companion object {
-            private const val KEY_SCHEDULE_ID = "scheduleId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                scheduleId = handle.get<String>(KEY_SCHEDULE_ID)!!,
-            )
-        }
     }
 
     companion object {

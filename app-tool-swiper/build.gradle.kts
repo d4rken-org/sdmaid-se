@@ -6,6 +6,7 @@ plugins {
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "${projectConfig.packageName}.swiper"
@@ -61,6 +62,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
+    addKotlinxNavSerialization()
     addRoomDb()
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")

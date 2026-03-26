@@ -14,8 +14,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView.VERTICAL
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.previews.PreviewRoute
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.lists.differ.update
@@ -171,7 +172,7 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        navDirections(eu.darken.sdmse.common.R.id.goToExclusions).navigate()
+                        safeNavigate(ExclusionsListRoute)
                     }
                     .show()
 
@@ -182,10 +183,7 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
                 ).show()
 
                 is SqueezerListEvents.PreviewEvent -> {
-                    findNavController().navigate(
-                        resId = eu.darken.sdmse.common.R.id.goToPreview,
-                        args = bundleOf("options" to event.options)
-                    )
+                    safeNavigate(PreviewRoute(options = event.options))
                 }
             }
         }

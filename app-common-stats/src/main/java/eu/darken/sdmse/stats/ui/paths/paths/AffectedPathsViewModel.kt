@@ -1,6 +1,7 @@
 package eu.darken.sdmse.stats.ui.paths
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -10,6 +11,7 @@ import eu.darken.sdmse.stats.core.AffectedPath
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsRepo
+import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 import eu.darken.sdmse.stats.ui.paths.elements.AffectedPathVH
 import eu.darken.sdmse.stats.ui.paths.elements.AffectedPathsHeaderVH
 import kotlinx.coroutines.flow.Flow
@@ -28,7 +30,7 @@ class AffectedPathsViewModel @Inject constructor(
     private val statsRepo: StatsRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val reportId: ReportId = handle["reportId"]!!
+    private val reportId: ReportId = handle.toRoute<AffectedFilesRoute>().reportIdUUID
 
     private val report: Flow<Report> = flowOf(reportId)
         .map { statsRepo.getById(it) }

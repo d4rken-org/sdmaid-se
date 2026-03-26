@@ -6,18 +6,25 @@ import android.view.WindowManager
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
 import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
+import androidx.navigation.createGraph
+import androidx.navigation.fragment.NavHostFragment
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.navigation.findNavController
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Activity2
 import eu.darken.sdmse.databinding.MainActivityBinding
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
+import eu.darken.sdmse.main.ui.navigation.mainNavGraph
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import javax.inject.Inject
 
@@ -47,6 +54,13 @@ class MainActivity : Activity2() {
 
         ui = MainActivityBinding.inflate(layoutInflater)
         setContentView(ui.root)
+
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
+        navHostFragment.navController.graph = navHostFragment.navController.createGraph(
+            startDestination = DashboardRoute,
+        ) {
+            mainNavGraph()
+        }
 
         curriculumVitae.updateAppOpened()
 
@@ -88,15 +102,13 @@ class MainActivity : Activity2() {
         val shortcutAction = intent.getStringExtra(ShortcutActivity.EXTRA_SHORTCUT_ACTION)
         if (shortcutAction != null) {
             log(tag, VERBOSE) { "Handling shortcut action: $shortcutAction" }
-            
+
             when (shortcutAction) {
                 ShortcutActivity.ACTION_OPEN_APPCONTROL -> {
-                    navController.navigate(
-                        eu.darken.sdmse.MainDirections.goToAppControlListFragment()
-                    )
+                    navController.safeNavigate(AppControlListRoute)
                 }
                 ShortcutActivity.ACTION_UPGRADE -> {
-                    navController.navigate(eu.darken.sdmse.MainDirections.goToUpgradeFragment())
+                    navController.safeNavigate(UpgradeRoute())
                 }
             }
         }

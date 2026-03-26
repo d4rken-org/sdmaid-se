@@ -1,6 +1,7 @@
 package eu.darken.sdmse.stats.ui.pkgs
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
@@ -12,6 +13,7 @@ import eu.darken.sdmse.stats.core.AffectedPkg
 import eu.darken.sdmse.stats.core.Report
 import eu.darken.sdmse.stats.core.ReportId
 import eu.darken.sdmse.stats.core.StatsRepo
+import eu.darken.sdmse.stats.ui.AffectedPkgsRoute
 import eu.darken.sdmse.stats.ui.pkgs.elements.AffectedPkgVH
 import eu.darken.sdmse.stats.ui.pkgs.elements.AffectedPkgsHeaderVH
 import kotlinx.coroutines.flow.Flow
@@ -31,7 +33,7 @@ class AffectedPkgsViewModel @Inject constructor(
     private val pkgRepo: PkgRepo,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val reportId: ReportId = handle["reportId"]!!
+    private val reportId: ReportId = handle.toRoute<AffectedPkgsRoute>().reportIdUUID
 
     private val report: Flow<Report> = flowOf(reportId)
         .map { statsRepo.getById(it) }

@@ -40,8 +40,7 @@ class PreviewDeletionDialog @Inject constructor(
 
     private fun openPreview(options: PreviewOptions) {
         (context as Activity).findNavController(eu.darken.sdmse.common.R.id.nav_host).navigate(
-            resId = eu.darken.sdmse.common.R.id.goToPreview,
-            args = bundleOf("options" to options)
+            eu.darken.sdmse.common.previews.PreviewRoute(options = options)
         )
     }
 

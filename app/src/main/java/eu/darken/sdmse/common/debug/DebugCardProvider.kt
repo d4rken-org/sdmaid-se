@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.flow.combine
 import eu.darken.sdmse.common.forensics.FileForensics
-import eu.darken.sdmse.common.navigation.navVia
+import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.pkgs.PkgRepo
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.RootSettings
@@ -34,7 +34,6 @@ import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.ui.dashboard.DashboardEvents
-import eu.darken.sdmse.main.ui.dashboard.DashboardFragmentDirections
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
@@ -93,7 +92,7 @@ class DebugCardProvider @Inject constructor(
                 }
             },
             onViewLog = {
-                DashboardFragmentDirections.actionDashboardFragmentToLogViewFragment().navVia(vm)
+                vm.navigateTo(LogViewRoute)
             },
             rootTestResult = rootState,
             onTestRoot = {

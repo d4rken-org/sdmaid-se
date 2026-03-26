@@ -1,6 +1,7 @@
 package eu.darken.sdmse.setup
 
 import kotlinx.coroutines.flow.Flow
+import kotlinx.serialization.Serializable
 import java.time.Instant
 
 interface SetupModule {
@@ -20,6 +21,7 @@ interface SetupModule {
         }
     }
 
+    @Serializable
     enum class Type {
         USAGE_STATS,
         AUTOMATION,

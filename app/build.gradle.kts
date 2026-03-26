@@ -5,7 +5,7 @@ plugins {
     id("com.google.devtools.ksp")
 }
 apply(plugin = "dagger.hilt.android.plugin")
-apply(plugin = "androidx.navigation.safeargs.kotlin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 val commitHashProvider = providers.of(CommitHashValueSource::class) {}
 
@@ -220,6 +220,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
+    addKotlinxNavSerialization()
     addRetrofit()
 
     "gplayImplementation"("com.android.billingclient:billing:8.3.0")

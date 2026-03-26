@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 data class DataArea(
     val path: APath,
@@ -27,6 +28,7 @@ data class DataArea(
         EMULATED
     }
 
+    @Serializable
     @Keep @Parcelize
     enum class Type(val raw: String) : Parcelable {
         @Json(name = "SDCARD") SDCARD("SDCARD"),

@@ -26,6 +26,8 @@ import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.Specialpermission
 import eu.darken.sdmse.common.uix.Fragment3
@@ -97,7 +99,7 @@ class SetupFragment : Fragment3(R.layout.setup_fragment) {
                     }
 
                     R.id.action_show_areas -> {
-                        SetupFragmentDirections.actionSetupFragmentToDataAreasFragment().navigate()
+                        safeNavigate(DataAreasRoute)
                         true
                     }
 

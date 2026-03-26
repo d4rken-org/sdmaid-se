@@ -2,13 +2,14 @@ package eu.darken.sdmse.deduplicator.ui.details
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.SingleLiveEvent
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.mutableState
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.uix.resolveTarget
 import eu.darken.sdmse.deduplicator.core.Deduplicator
@@ -37,7 +38,7 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
     private val settings: DeduplicatorSettings,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val identifier: Duplicate.Cluster.Id? = Args.from(handle).identifier
+    private val identifier: Duplicate.Cluster.Id? = handle.toRoute<DeduplicatorDetailsRoute>().identifier
     private var currentTarget: Duplicate.Cluster.Id? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
@@ -109,20 +110,6 @@ class DeduplicatorDetailsViewModel @Inject constructor(
     fun toggleDirectoryView() = launch {
         log(TAG) { "toggleDirectoryView()" }
         settings.isDirectoryViewEnabled.update { !it }
-    }
-
-    data class Args(
-        val identifier: Duplicate.Cluster.Id?,
-    ) {
-        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
-
-        companion object {
-            private const val KEY_IDENTIFIER = "identifier"
-
-            fun from(handle: SavedStateHandle) = Args(
-                identifier = handle.get<Duplicate.Cluster.Id>(KEY_IDENTIFIER),
-            )
-        }
     }
 
     companion object {

@@ -1,5 +1,6 @@
 package eu.darken.sdmse.appcleaner.ui.details.appjunk
 
+import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
@@ -10,12 +11,11 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFile
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementFileVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementHeaderVH
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.elements.AppJunkElementInaccessibleVH
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -135,7 +135,7 @@ class AppJunkViewModel @Inject constructor(
 
     fun delete(items: Collection<AppJunkElementsAdapter.Item>, confirmed: Boolean = false) = launch {
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

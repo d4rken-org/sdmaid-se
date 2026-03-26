@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentContainerView
 import androidx.fragment.app.FragmentManager
 import androidx.navigation.NavController
-import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -21,14 +21,6 @@ import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.getCompatColor
 import eu.darken.sdmse.common.getQuantityString2
 import eu.darken.sdmse.common.getSpanCount
-
-fun Fragment.doNavigate(direction: NavDirections) {
-    if (!isAdded) {
-        log(WARN) { "Trying to navigate from ${this.javaClass.simpleName} that isn't added: ${direction.javaClass.simpleName}" }
-        return
-    }
-    findNavController().doNavigate(direction)
-}
 
 fun Fragment.popBackStack(): Boolean {
     if (!isAdded) {
@@ -78,3 +70,11 @@ fun Fragment.getColorForAttr(@AttrRes attrId: Int): Int = requireContext().getCo
 
 @ColorInt
 fun Fragment.getCompatColor(@ColorRes attrId: Int): Int = requireContext().getCompatColor(attrId)
+
+fun Fragment.safeNavigate(route: Any, navOptions: NavOptions? = null) {
+    if (!isAdded) {
+        log(WARN) { "Trying to navigate from ${this.javaClass.simpleName} that isn't added: $route" }
+        return
+    }
+    findNavController().safeNavigate(route, navOptions)
+}

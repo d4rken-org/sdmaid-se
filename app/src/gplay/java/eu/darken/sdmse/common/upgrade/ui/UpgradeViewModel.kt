@@ -9,8 +9,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
@@ -32,12 +33,12 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
+    private val route = handle.toRoute<UpgradeRoute>()
     private var hasShownError: Boolean = false
     val events = SingleLiveEvent<UpgradeEvents>()
 
     init {
-        if (!navArgs.forced) {
+        if (!route.forced) {
             upgradeRepo.upgradeInfo
                 .filter { it.isPro }
                 .take(1)

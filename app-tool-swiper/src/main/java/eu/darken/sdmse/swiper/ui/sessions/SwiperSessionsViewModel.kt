@@ -12,10 +12,8 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.common.navigation.navDirections
-import eu.darken.sdmse.swiper.R
 import eu.darken.sdmse.swiper.core.FileTypeFilter
-import eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeViewModel
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
 import eu.darken.sdmse.swiper.core.tasks.SwiperScanTask
@@ -88,7 +86,7 @@ class SwiperSessionsViewModel @Inject constructor(
         } else {
             log(TAG) { "Cache hit for session $sessionId, skipping refresh" }
         }
-        navDirections(R.id.action_swiperSessionsFragment_to_swiperSwipeFragment, SwiperSwipeViewModel.Args(sessionId = sessionId).toBundle()).navigate()
+        navigateTo(SwiperSwipeRoute(sessionId = sessionId))
     }
 
     fun scanSession(sessionId: String) = launch {

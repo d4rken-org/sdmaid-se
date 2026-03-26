@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.ui.enableBigText
-import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
 
 val SetupModule.Type.labelRes: Int
     @StringRes get() = when (this) {
@@ -40,13 +40,14 @@ fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
         .enableBigText()
         .apply { duration = 5000 }
         .setAction(eu.darken.sdmse.common.R.string.general_set_up_action) {
-            val direction = SettingsFragmentDirections.goToSetup(
-                options = SetupScreenOptions(
-                    showCompleted = true,
-                    typeFilter = this
+            navController.safeNavigate(
+                SetupRoute(
+                    options = SetupScreenOptions(
+                        showCompleted = true,
+                        typeFilter = this
+                    )
                 )
             )
-            navController.navigate(direction)
         }
         .show()
 }

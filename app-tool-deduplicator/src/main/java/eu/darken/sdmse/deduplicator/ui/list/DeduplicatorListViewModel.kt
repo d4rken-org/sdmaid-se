@@ -8,15 +8,14 @@ import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.previews.PreviewOptions
-import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsViewModel
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
-import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.deduplicator.core.Deduplicator
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -135,7 +134,7 @@ class DeduplicatorListViewModel @Inject constructor(
         }
 
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -160,7 +159,7 @@ class DeduplicatorListViewModel @Inject constructor(
         }
 
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -181,10 +180,7 @@ class DeduplicatorListViewModel @Inject constructor(
 
     fun showDetails(id: Duplicate.Cluster.Id) = launch {
         log(TAG, INFO) { "showDetails(id=$id)" }
-        navDirections(
-            R.id.action_deduplicatorListFragment_to_deduplicatorDetailsFragment,
-            DeduplicatorDetailsViewModel.Args(identifier = id).toBundle()
-        ).navigate()
+        navigateTo(DeduplicatorDetailsRoute(identifier = id))
     }
 
     fun toggleLayoutMode() = launch {

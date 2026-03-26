@@ -34,6 +34,7 @@ dependencies {
     addAndroidCore()
     addIO()
     addSerialization()
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.serialization}")
 
     implementation("junit:junit:4.13.2")
     implementation("org.junit.vintage:junit-vintage-engine:5.14.2")

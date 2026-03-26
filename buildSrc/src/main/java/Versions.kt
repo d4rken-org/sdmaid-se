@@ -2,6 +2,7 @@ object Versions {
     object Kotlin {
         const val core = "2.2.10"
         const val coroutines = "1.10.2"
+        const val serialization = "1.8.1"
     }
 
     object Dagger {

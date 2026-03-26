@@ -6,9 +6,12 @@ import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import androidx.preference.CheckBoxPreference
 import androidx.preference.Preference
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.main.ui.navigation.DashboardCardConfigRoute
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.locale.toList
 import eu.darken.sdmse.common.observe2
@@ -73,7 +76,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
         }
 
         dashboardCardConfig.setOnPreferenceClickListener {
-            MainDirections.goToDashboardCardConfig().navigate()
+            findNavController().safeNavigate(DashboardCardConfigRoute)
             true
         }
 
@@ -93,7 +96,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
                 else -> {
                     {
-                        MainDirections.goToUpgradeFragment(forced = true).navigate()
+                        findNavController().safeNavigate(UpgradeRoute(forced = true))
                     }
                 }
             }
@@ -102,7 +105,7 @@ class GeneralSettingsFragment : PreferenceFragment3() {
 
                 else -> {
                     {
-                        MainDirections.goToUpgradeFragment(forced = true).navigate()
+                        findNavController().safeNavigate(UpgradeRoute(forced = true))
                     }
                 }
             }

@@ -25,7 +25,9 @@ import eu.darken.sdmse.common.lists.resolveSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
 import kotlin.math.max
@@ -185,7 +187,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         if (event.items.size == 1) {
                             vm.openExclusion(event.items.single())
                         } else {
-                            navDirections(eu.darken.sdmse.common.R.id.goToExclusions).navigate()
+                            safeNavigate(ExclusionsListRoute)
                         }
                     }
                     .show()
@@ -228,7 +230,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        navDirections(eu.darken.sdmse.common.R.id.goToSwiperSessions).navigate()
+                        safeNavigate(SwiperSessionsRoute)
                     }
                     .show()
             }

@@ -1,8 +1,8 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.Context
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.analyzer.core.Analyzer
@@ -13,6 +13,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
+import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
@@ -24,7 +25,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.files.FilterEditorOptionsCreator
+import eu.darken.sdmse.common.files.SwiperSessionCreator
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageId
@@ -34,9 +37,10 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
+import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
-import eu.darken.sdmse.common.files.FilterEditorOptionsCreator
-import eu.darken.sdmse.common.files.SwiperSessionCreator
+import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
+import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
@@ -58,10 +62,10 @@ class ContentViewModel @Inject constructor(
     private val swiperSessionCreator: SwiperSessionCreator,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val args = Args.from(handle)
-    private val targetStorageId: StorageId = args.storageId
-    private val targetGroupId: ContentGroup.Id = args.groupId
-    private val targetInstallId: InstallId? = args.installId
+    private val route = handle.toRoute<ContentRoute>()
+    private val targetStorageId: StorageId = route.storageId
+    private val targetGroupId: ContentGroup.Id = route.groupId
+    private val targetInstallId: InstallId? = route.installId
 
     val events = SingleLiveEvent<ContentItemEvents>()
 
@@ -201,15 +205,11 @@ class ContentViewModel @Inject constructor(
 
     fun openExclusion(item: ContentItem) = launch {
         log(TAG) { "openExclusion(${item.path})" }
-        navDirections(
-            eu.darken.sdmse.common.R.id.goToPathExclusionEditor,
-            bundleOf(
-                "exclusionId" to null,
-                "initial" to PathExclusionEditorOptions(
-                    targetPath = item.path,
-                ),
-            )
-        ).navigate()
+        navigateTo(PathExclusionEditorRoute(
+            initial = PathExclusionEditorOptions(
+                targetPath = item.path,
+            ),
+        ))
     }
 
     fun delete(items: List<ContentAdapter.Item>) {
@@ -251,7 +251,7 @@ class ContentViewModel @Inject constructor(
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Not PRO, redirecting to upgrade screen." }
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
@@ -269,10 +269,7 @@ class ContentViewModel @Inject constructor(
             .toSet()
 
         val options = filterEditorOptionsCreator.createOptions(targets)
-        navDirections(
-            eu.darken.sdmse.common.R.id.goToCustomFilterEditor,
-            bundleOf("initial" to options)
-        ).navigate()
+        navigateTo(CustomFilterEditorRoute(initial = options as CustomFilterEditorOptions))
     }
 
     fun createSwiperSession(items: List<ContentAdapter.Item>) = launch {
@@ -318,30 +315,6 @@ class ContentViewModel @Inject constructor(
         val layoutMode: LayoutMode,
         val progress: Progress.Data?,
     )
-
-    data class Args(
-        val storageId: StorageId,
-        val groupId: ContentGroup.Id,
-        val installId: InstallId?,
-    ) {
-        fun toBundle() = bundleOf(
-            KEY_STORAGE_ID to storageId,
-            KEY_GROUP_ID to groupId,
-            KEY_INSTALL_ID to installId,
-        )
-
-        companion object {
-            private const val KEY_STORAGE_ID = "storageId"
-            private const val KEY_GROUP_ID = "groupId"
-            private const val KEY_INSTALL_ID = "installId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
-                groupId = handle.get<ContentGroup.Id>(KEY_GROUP_ID)!!,
-                installId = handle.get<InstallId>(KEY_INSTALL_ID),
-            )
-        }
-    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Content", "ViewModel")

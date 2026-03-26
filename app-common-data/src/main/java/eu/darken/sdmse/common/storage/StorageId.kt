@@ -1,13 +1,16 @@
 package eu.darken.sdmse.common.storage
 
 import android.os.Parcelable
+import eu.darken.sdmse.common.serialization.UUIDSerializer
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import java.util.UUID
 
+@Serializable
 @Parcelize
 data class StorageId(
     val internalId: String?,
-    val externalId: UUID,
+    @Serializable(with = UUIDSerializer::class) val externalId: UUID,
 ) : Parcelable {
 
     companion object {

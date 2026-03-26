@@ -7,14 +7,16 @@ import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.stats.R
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.stats.ui.SpaceHistoryRoute
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import eu.darken.sdmse.stats.core.db.SpaceSnapshotEntity
@@ -38,14 +40,14 @@ class SpaceHistoryViewModel @Inject constructor(
     private val storageManager2: StorageManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val selectedStorageId = MutableStateFlow(handle.get<String?>("storageId"))
+    private val selectedStorageId = MutableStateFlow(handle.toRoute<SpaceHistoryRoute>().storageId)
     private val selectedRange = MutableStateFlow(Range.DAYS_7)
 
     private val storages = spaceHistoryRepo.getAvailableStorageIds()
         .map { snapshotIds -> resolveStorageOptions(snapshotIds) }
 
     init {
-        log(TAG) { "init(storageId=${handle.get<String?>("storageId")})" }
+        log(TAG) { "init(storageId=${selectedStorageId.value})" }
 
         combine(
             storages,
@@ -127,7 +129,7 @@ class SpaceHistoryViewModel @Inject constructor(
     fun selectRange(range: Range) = launch {
         log(TAG) { "selectRange($range)" }
         if (range != Range.DAYS_7 && !upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
         selectedRange.value = range
@@ -148,7 +150,7 @@ class SpaceHistoryViewModel @Inject constructor(
 
     fun openUpgrade() {
         log(TAG) { "openUpgrade()" }
-        navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+        navigateTo(UpgradeRoute())
     }
 
     data class State(

@@ -6,7 +6,8 @@ import androidx.annotation.Keep
 import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.appcontrol.R
-import eu.darken.sdmse.common.navigation.navDirections
+import androidx.navigation.fragment.findNavController
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.appcontrol.core.AppControlSettings
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
@@ -64,7 +65,7 @@ class AppControlSettingsFragment : PreferenceFragment2() {
                 setOnPreferenceClickListener {
                     if (!state.isPro) {
                         isChecked = false
-                        navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+                        findNavController().navigate(UpgradeRoute())
                         true
                     } else {
                         false

@@ -8,14 +8,13 @@ import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.flow.combine
-import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.ViewIntentTool
-import eu.darken.sdmse.swiper.R
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.swiper.ui.status.SwiperStatusViewModel
+import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -37,9 +36,9 @@ class SwiperSwipeViewModel @Inject constructor(
     private val viewIntentTool: ViewIntentTool,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val args = Args.from(handle)
-    private val sessionId: String = args.sessionId
-    private val startIndex: Int = args.startIndex
+    private val route = handle.toRoute<SwiperSwipeRoute>()
+    private val sessionId: String = route.sessionId
+    private val startIndex: Int = route.startIndex
 
     private val currentIndexOverride = MutableStateFlow<Int?>(
         if (startIndex >= 0) startIndex else null
@@ -227,7 +226,7 @@ class SwiperSwipeViewModel @Inject constructor(
 
     fun navigateToStatus() {
         log(TAG, INFO) { "navigateToStatus()" }
-        navDirections(R.id.action_swiperSwipeFragment_to_swiperStatusFragment, SwiperStatusViewModel.Args(sessionId = sessionId).toBundle()).navigate()
+        navigateTo(SwiperStatusRoute(sessionId = sessionId))
     }
 
     fun dismissGestureOverlay() = launch {
@@ -277,23 +276,6 @@ class SwiperSwipeViewModel @Inject constructor(
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label
-    }
-
-    data class Args(
-        val sessionId: String,
-        val startIndex: Int = -1,
-    ) {
-        fun toBundle() = bundleOf(KEY_SESSION_ID to sessionId, KEY_START_INDEX to startIndex)
-
-        companion object {
-            private const val KEY_SESSION_ID = "sessionId"
-            private const val KEY_START_INDEX = "startIndex"
-
-            fun from(handle: SavedStateHandle) = Args(
-                sessionId = requireNotNull(handle.get<String>(KEY_SESSION_ID)) { "sessionId argument is required" },
-                startIndex = handle.get<Int>(KEY_START_INDEX) ?: -1,
-            )
-        }
     }
 
     companion object {

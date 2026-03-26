@@ -126,7 +126,7 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 SwiperStatusEvents.NavigateToSessions -> {
-                    findNavController().popBackStack(eu.darken.sdmse.common.R.id.swiperSessionsFragment, inclusive = false)
+                    findNavController().popBackStack(eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute, inclusive = false)
                 }
             }
         }

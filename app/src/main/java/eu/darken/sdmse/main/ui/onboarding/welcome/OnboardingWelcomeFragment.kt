@@ -10,9 +10,12 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
 import eu.darken.sdmse.common.pkgs.toPkgId
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingWelcomeFragmentBinding
+import eu.darken.sdmse.main.ui.navigation.OnboardingPrivacyRoute
+import eu.darken.sdmse.main.ui.navigation.VersusSetupRoute
 
 @AndroidEntryPoint
 class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment) {
@@ -28,11 +31,9 @@ class OnboardingWelcomeFragment : Fragment3(R.layout.onboarding_welcome_fragment
         ui.goAction.setOnClickListener {
             val legacySdm = requireContext().packageManager.getPackageInfo2("eu.thedarken.sdm".toPkgId(), 0)
             if (legacySdm != null) {
-                OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToVersusSetupFragment()
-                    .navigate()
+                safeNavigate(VersusSetupRoute)
             } else {
-                OnboardingWelcomeFragmentDirections.actionOnboardingWelcomeFragmentToOnboardingPrivacyFragment()
-                    .navigate()
+                safeNavigate(OnboardingPrivacyRoute)
             }
         }
 

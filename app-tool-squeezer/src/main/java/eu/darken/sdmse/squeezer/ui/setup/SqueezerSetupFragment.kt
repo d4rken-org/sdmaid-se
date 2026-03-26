@@ -10,8 +10,9 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.picker.PickerRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.EdgeToEdgeHelper
@@ -143,10 +144,9 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 is SqueezerSetupEvents.OpenPathPicker -> {
-                    navDirections(
-                        eu.darken.sdmse.common.R.id.goToPicker,
-                        bundleOf(
-                            "request" to PickerRequest(
+                    safeNavigate(
+                        PickerRoute(
+                            request = PickerRequest(
                                 requestKey = PICKER_REQUEST_KEY,
                                 mode = PickerRequest.PickMode.DIRS,
                                 allowedAreas = setOf(
@@ -158,12 +158,11 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
                                 selectedPaths = event.currentPaths.toList()
                             )
                         )
-                    ).navigate()
+                    )
                 }
 
                 is SqueezerSetupEvents.NavigateToList -> {
-                    navDirections(R.id.action_squeezerSetupFragment_to_squeezerListFragment)
-                        .navigate()
+                    safeNavigate(SqueezerListRoute)
                 }
 
                 is SqueezerSetupEvents.ShowExample -> {

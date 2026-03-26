@@ -13,8 +13,9 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.navigation.doNavigate
+import eu.darken.sdmse.common.navigation.NavCommand
 import eu.darken.sdmse.common.navigation.popBackStack
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.observe2
 
 
@@ -47,9 +48,13 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onViewCreated(view=$view, savedInstanceState=$savedInstanceState)" }
 
-        vm.navEvents.observe2(this, ui) { dir ->
-            log(tag, VERBOSE) { "Nav event: $dir" }
-            dir?.let { doNavigate(it) } ?: popBackStack()
+        vm.navEvents.observe2(this, ui) { command ->
+            log(tag, VERBOSE) { "Nav event: $command" }
+            when (command) {
+                is NavCommand.To -> safeNavigate(command.route, command.navOptions)
+                is NavCommand.Back -> popBackStack()
+                null -> popBackStack()
+            }
         }
         vm.errorEvents.observe2(this, ui) {
             log(tag, VERBOSE) { "Error event: $it" }

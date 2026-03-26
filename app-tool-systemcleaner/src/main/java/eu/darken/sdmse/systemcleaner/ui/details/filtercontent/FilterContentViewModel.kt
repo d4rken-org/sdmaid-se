@@ -1,17 +1,17 @@
 package eu.darken.sdmse.systemcleaner.ui.details.filtercontent
 
-import android.os.Bundle
+import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
-import androidx.navigation.NavDirections
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.systemcleaner.R
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import androidx.core.os.bundleOf
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.previews.PreviewOptions
+import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -21,6 +21,7 @@ import eu.darken.sdmse.systemcleaner.core.filter.stock.EmptyDirectoryFilter
 import eu.darken.sdmse.systemcleaner.core.filter.stock.ScreenshotsFilter
 import eu.darken.sdmse.systemcleaner.core.filter.stock.TrashedFilter
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerProcessingTask
+import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementFileVH
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.elements.FilterContentElementHeaderVH
 import kotlinx.coroutines.flow.combine
@@ -36,7 +37,7 @@ class FilterContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: String = Args.from(handle).identifier
+    private val identifier: String = handle.toRoute<FilterContentRoute>().identifier
 
     val events = SingleLiveEvent<FilterContentEvents>()
 
@@ -73,13 +74,7 @@ class FilterContentViewModel @Inject constructor(
                 onThumbnailClick = when (filterContent.identifier) {
                     TrashedFilter::class.filterIdentifier, ScreenshotsFilter::class.filterIdentifier -> {
                         {
-                            object : NavDirections {
-                                override val actionId: Int = eu.darken.sdmse.common.R.id.goToPreview
-                                override val arguments: Bundle = bundleOf(
-                                    "options" to PreviewOptions(item.path)
-                                )
-
-                            }.navigate()
+                            navigateTo(PreviewRoute(options = PreviewOptions(item.path)))
                         }
                     }
 
@@ -148,10 +143,6 @@ class FilterContentViewModel @Inject constructor(
 
         companion object {
             private const val KEY_IDENTIFIER = "identifier"
-
-            fun from(handle: SavedStateHandle) = Args(
-                identifier = handle.get<String>(KEY_IDENTIFIER)!!,
-            )
         }
     }
 

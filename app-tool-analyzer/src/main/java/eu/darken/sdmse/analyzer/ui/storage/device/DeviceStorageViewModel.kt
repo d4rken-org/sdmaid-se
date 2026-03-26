@@ -1,21 +1,21 @@
 package eu.darken.sdmse.analyzer.ui.storage.device
 
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
+import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.intervalFlow
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
+import eu.darken.sdmse.stats.ui.SpaceHistoryRoute
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapLatest
@@ -64,23 +64,17 @@ class DeviceStorageViewModel @Inject constructor(
                     isPro = isPro,
                     onItemClicked = {
                         if (storage.setupIncomplete) {
-                            navDirections(eu.darken.sdmse.common.R.id.goToSetup).navigate()
+                            navigateTo(SetupRoute())
                         } else {
-                            navDirections(
-                                R.id.action_deviceStorageFragment_to_storageFragment,
-                                StorageContentViewModel.Args(storageId = it.storage.id).toBundle()
-                            ).navigate()
+                            navigateTo(StorageContentRoute(storageId = it.storage.id))
                         }
                     },
                     onTrendClicked = { item ->
                         if (isPro) {
-                            navDirections(
-                                eu.darken.sdmse.common.R.id.goToSpaceHistoryFragment,
-                                bundleOf("storageId" to item.storage.id.externalId.toString())
-                            )
+                            navigateTo(SpaceHistoryRoute(storageId = item.storage.id.externalId.toString()))
                         } else {
-                            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment)
-                        }.navigate()
+                            navigateTo(UpgradeRoute())
+                        }
                     },
                 )
             },
