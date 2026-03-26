@@ -81,7 +81,7 @@ data class SegmentCriterium(
             val allowPartial: Boolean = false,
         ) : Mode
 
-        @Serializable @SerialName("EQUAL")
+        @Serializable @SerialName("MATCH")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(

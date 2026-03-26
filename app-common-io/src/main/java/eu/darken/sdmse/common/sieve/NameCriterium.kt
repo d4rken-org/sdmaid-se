@@ -45,7 +45,7 @@ data class NameCriterium(
             val ignoreCase: Boolean = true,
         ) : Mode
 
-        @Serializable @SerialName("EQUAL")
+        @Serializable @SerialName("MATCH")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(
