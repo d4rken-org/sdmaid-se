@@ -37,6 +37,8 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
+    addKotlinxNavSerialization()
+    api("androidx.navigation:navigation-common:${Versions.AndroidX.Navigation.core}")
     addIO()
     addTesting()
 

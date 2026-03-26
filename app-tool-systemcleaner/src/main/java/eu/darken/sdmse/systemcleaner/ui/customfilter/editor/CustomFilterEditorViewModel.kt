@@ -25,10 +25,8 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.currentConfigs
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
-import androidx.navigation.toRoute
 import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
 import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
-import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.live.LiveSearchListRow
 import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.flow.callbackFlow
@@ -43,7 +41,6 @@ import kotlinx.coroutines.flow.scan
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
-import kotlin.reflect.typeOf
 
 
 @HiltViewModel
@@ -57,9 +54,7 @@ class CustomFilterEditorViewModel @Inject constructor(
     private val settings: SystemCleanerSettings,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val route = handle.toRoute<CustomFilterEditorRoute>(
-        typeMap = mapOf(typeOf<CustomFilterEditorOptions?>() to serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true))
-    )
+    private val route = CustomFilterEditorRoute.from(handle)
     private val navArgs = object {
         val initial: CustomFilterEditorOptions? = route.initial
         val identifier: FilterIdentifier? = route.identifier
