@@ -2,10 +2,15 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import androidx.lifecycle.asLiveData
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.MainDirections
+import androidx.navigation.navOptions
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
+import eu.darken.sdmse.appcleaner.ui.AppCleanerListRoute
+import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
+import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerOneClickTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerScanTask
@@ -13,6 +18,10 @@ import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerSchedulerTask
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.SdmSeLinks
+import eu.darken.sdmse.common.navigation.routes.LogViewRoute
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderListRoute
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataAreaManager
@@ -52,12 +61,15 @@ import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderSchedulerTask
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderTask
 import eu.darken.sdmse.corpsefinder.core.tasks.UninstallWatcherTask
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
 import eu.darken.sdmse.deduplicator.core.hasData
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorDeleteTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.main.core.DashboardCardConfig
+import eu.darken.sdmse.main.ui.navigation.OnboardingWelcomeRoute
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
@@ -82,15 +94,23 @@ import eu.darken.sdmse.main.ui.dashboard.items.StatsDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SwiperDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
 import eu.darken.sdmse.scheduler.core.SchedulerManager
+import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
 import eu.darken.sdmse.setup.SetupManager
+import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerTask
 import eu.darken.sdmse.stats.core.SpaceHistoryRepo
 import eu.darken.sdmse.stats.core.StatsRepo
 import eu.darken.sdmse.stats.core.StatsSettings
+import eu.darken.sdmse.stats.ui.ReportsRoute
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
+import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.systemcleaner.core.SystemCleaner
 import eu.darken.sdmse.systemcleaner.core.hasData
@@ -148,7 +168,12 @@ class DashboardViewModel @Inject constructor(
 
     init {
         if (!generalSettings.isOnboardingCompleted.valueBlocking) {
-            DashboardFragmentDirections.actionDashboardFragmentToOnboardingWelcomeFragment().navigate()
+            navigateTo(
+                OnboardingWelcomeRoute,
+                navOptions = navOptions {
+                    popUpTo(DashboardRoute) { inclusive = true }
+                }
+            )
         } else {
             launch {
                 releaseManager.checkEarlyAdopter()
@@ -235,7 +260,7 @@ class DashboardViewModel @Inject constructor(
             },
             onViewTool = { showCorpseFinder() },
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderDetailsFragment().navigate()
+                navigateTo(CorpseDetailsRoute())
             },
         )
     }
@@ -262,7 +287,7 @@ class DashboardViewModel @Inject constructor(
             },
             onViewTool = { showSystemCleaner() },
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerDetailsFragment().navigate()
+                navigateTo(FilterContentDetailsRoute())
             },
         )
     }
@@ -290,7 +315,7 @@ class DashboardViewModel @Inject constructor(
             },
             onViewTool = { showAppCleaner() },
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToAppCleanerDetailsFragment().navigate()
+                navigateTo(AppJunkDetailsRoute())
             },
         )
     }
@@ -323,7 +348,7 @@ class DashboardViewModel @Inject constructor(
             },
             onViewTool = { showDeduplicator() },
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorDetailsFragment().navigate()
+                navigateTo(DeduplicatorDetailsRoute())
             },
         )
     }
@@ -337,7 +362,7 @@ class DashboardViewModel @Inject constructor(
                 data = state?.data,
                 progress = state?.progress,
                 onViewDetails = {
-                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
+                    navigateTo(SqueezerSetupRoute)
                 },
             )
         }
@@ -350,7 +375,7 @@ class DashboardViewModel @Inject constructor(
                 data = state?.data,
                 progress = state?.progress,
                 onViewDetails = {
-                    DashboardFragmentDirections.actionDashboardFragmentToAppControlListFragment().navigate()
+                    navigateTo(AppControlListRoute)
                 }
             )
         }
@@ -379,7 +404,7 @@ class DashboardViewModel @Inject constructor(
             progress = progress,
             combinedDelta = combinedDelta,
             onViewDetails = {
-                DashboardFragmentDirections.actionDashboardFragmentToDeviceStorageFragment().navigate()
+                navigateTo(DeviceStorageRoute)
             },
         )
     }
@@ -392,7 +417,7 @@ class DashboardViewModel @Inject constructor(
             schedulerState = schedulerState,
             taskState = taskState,
             onManageClicked = {
-                DashboardFragmentDirections.actionDashboardFragmentToSchedulerManagerFragment().navigate()
+                navigateTo(SchedulerManagerRoute)
             }
         )
     }
@@ -442,7 +467,7 @@ class DashboardViewModel @Inject constructor(
                     setupManager.setDismissed(true)
                     events.postValue(DashboardEvents.SetupDismissHint)
                 },
-                onContinue = { MainDirections.goToSetup().navigate() }
+                onContinue = { navigateTo(SetupRoute()) }
             )
 
             if (setupState.isIncomplete) return@flatMapLatest flowOf(item)
@@ -491,10 +516,10 @@ class DashboardViewModel @Inject constructor(
             showProRequirement = !isPro,
             onViewAction = {
                 if (isPro) {
-                    DashboardFragmentDirections.actionDashboardFragmentToReportsFragment()
+                    navigateTo(ReportsRoute)
                 } else {
-                    MainDirections.goToUpgradeFragment()
-                }.navigate()
+                    navigateTo(UpgradeRoute())
+                }
             }
         )
     }
@@ -612,7 +637,7 @@ class DashboardViewModel @Inject constructor(
             ?.takeIf { !it.isPro }
             ?.let {
                 UpgradeCardVH.Item(
-                    onUpgrade = { MainDirections.goToUpgradeFragment().navigate() }
+                    onUpgrade = { navigateTo(UpgradeRoute()) }
                 )
             }
             ?.run { items.add(this) }
@@ -773,7 +798,7 @@ class DashboardViewModel @Inject constructor(
                     if (appCleaner.state.first().data != null && upgradeRepo.isPro()) {
                         submitTask(AppCleanerProcessingTask())
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
-                        MainDirections.goToUpgradeFragment().navigate()
+                        navigateTo(UpgradeRoute())
                     }
                 }
 
@@ -781,7 +806,7 @@ class DashboardViewModel @Inject constructor(
                     if (upgradeRepo.isPro()) {
                         submitTask(AppCleanerOneClickTask())
                     } else if (appCleaner.state.first().data.hasData && !corpseFinder.state.first().data.hasData && !systemCleaner.state.first().data.hasData) {
-                        MainDirections.goToUpgradeFragment().navigate()
+                        navigateTo(UpgradeRoute())
                     }
                 }
             }
@@ -812,7 +837,7 @@ class DashboardViewModel @Inject constructor(
 
     fun showCorpseFinder() {
         log(TAG, INFO) { "showCorpseFinderDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToCorpseFinderListFragment().navigate()
+        navigateTo(CorpseFinderListRoute)
     }
 
     fun confirmFilterContentDeletion() = launch {
@@ -822,14 +847,14 @@ class DashboardViewModel @Inject constructor(
 
     fun showSystemCleaner() {
         log(TAG, INFO) { "showSystemCleanerDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToSystemCleanerListFragment().navigate()
+        navigateTo(SystemCleanerListRoute)
     }
 
     fun confirmAppJunkDeletion() = launch {
         log(TAG, INFO) { "confirmAppJunkDeletion()" }
 
         if (!upgradeRepo.isPro()) {
-            MainDirections.goToUpgradeFragment().navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
         submitTask(AppCleanerProcessingTask())
@@ -837,24 +862,24 @@ class DashboardViewModel @Inject constructor(
 
     fun showAppCleaner() {
         log(TAG, INFO) { "showAppCleanerDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToAppCleanerListFragment().navigate()
+        navigateTo(AppCleanerListRoute)
     }
 
     fun showDeduplicator() {
         log(TAG, INFO) { "showDeduplicatorDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToDeduplicatorListFragment().navigate()
+        navigateTo(DeduplicatorListRoute)
     }
 
     fun showSwiper() {
         log(TAG, INFO) { "showSwiper()" }
-        DashboardFragmentDirections.actionDashboardFragmentToSwiperSessionsFragment().navigate()
+        navigateTo(SwiperSessionsRoute)
     }
 
     fun confirmDeduplicatorDeletion() = launch {
         log(TAG, INFO) { "confirmDeduplicatorDeletion()" }
 
         if (!upgradeRepo.isPro()) {
-            MainDirections.goToUpgradeFragment().navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
         submitTask(DeduplicatorDeleteTask())
@@ -862,7 +887,7 @@ class DashboardViewModel @Inject constructor(
 
     fun showSqueezer() {
         log(TAG, INFO) { "showSqueezerDetails()" }
-        DashboardFragmentDirections.actionDashboardFragmentToSqueezerListFragment().navigate()
+        navigateTo(SqueezerListRoute)
     }
 
     fun confirmStopRecording() = launch {

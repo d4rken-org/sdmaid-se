@@ -18,9 +18,11 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.exclusion.R
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.EdgeToEdgeHelper
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
+import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
+import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -136,7 +138,7 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                                 R.string.exclusion_create_pkg_hint,
                                 Toast.LENGTH_LONG
                             ).show()
-                            findNavController().navigate(eu.darken.sdmse.common.R.id.goToAppControlListFragment)
+                            safeNavigate(AppControlListRoute)
                         }
 
                         1 -> {
@@ -145,16 +147,15 @@ class ExclusionListFragment : Fragment3(R.layout.exclusion_list_fragment) {
                                 R.string.exclusion_create_path_hint,
                                 Toast.LENGTH_LONG
                             ).show()
-                            findNavController().navigate(eu.darken.sdmse.common.R.id.goToDeviceStorageFragment)
+                            safeNavigate(DeviceStorageRoute)
                         }
 
-                        2 -> navDirections(
-                            R.id.action_exclusionsListFragment_to_segmentExclusionFragment,
-                            bundleOf(
-                                "exclusionId" to null as String?,
-                                "initial" to SegmentExclusionEditorOptions()
+                        2 -> safeNavigate(
+                            SegmentExclusionEditorRoute(
+                                exclusionId = null,
+                                initial = SegmentExclusionEditorOptions(),
                             )
-                        ).navigate()
+                        )
                     }
                 }
                 setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->

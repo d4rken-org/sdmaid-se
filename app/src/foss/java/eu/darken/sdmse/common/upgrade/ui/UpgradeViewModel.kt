@@ -5,9 +5,10 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
@@ -25,13 +26,13 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoFoss,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<UpgradeFragmentArgs>()
+    private val route = handle.toRoute<UpgradeRoute>()
 
     val snackbarEvents = SingleLiveEvent<Int>()
     val toastEvents = SingleLiveEvent<Int>()
 
     init {
-        if (!navArgs.forced) {
+        if (!route.forced) {
             upgradeRepo.upgradeInfo
                 .filter { it.isPro }
                 .take(1)

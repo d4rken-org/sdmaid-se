@@ -2,20 +2,19 @@ package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import android.annotation.SuppressLint
 import android.content.Context
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
+import eu.darken.sdmse.analyzer.ui.AppsRoute
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageId
@@ -32,7 +31,7 @@ class AppsViewModel @Inject constructor(
     analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = Args.from(handle).storageId
+    private val targetStorageId: StorageId = handle.toRoute<AppsRoute>().storageId
 
     private val searchQuery = MutableStateFlow("")
 
@@ -93,13 +92,10 @@ class AppsViewModel @Inject constructor(
                     appCategory = category,
                     pkgStat = pkgStat,
                     onItemClicked = {
-                        navDirections(
-                            R.id.action_appsFragment_to_appDetailsFragment,
-                            AppDetailsViewModel.Args(
-                                storageId = storage.id,
-                                installId = installId,
-                            ).toBundle()
-                        ).navigate()
+                        navigateTo(AppDetailsRoute(
+                            storageId = storage.id,
+                            installId = installId,
+                        ))
                     }
                 )
             }
@@ -124,20 +120,6 @@ class AppsViewModel @Inject constructor(
         val isSearchActive: Boolean = false,
         val progress: Progress.Data?,
     )
-
-    data class Args(
-        val storageId: StorageId,
-    ) {
-        fun toBundle() = bundleOf(KEY_STORAGE_ID to storageId)
-
-        companion object {
-            private const val KEY_STORAGE_ID = "storageId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
-            )
-        }
-    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Content", "Apps", "ViewModel")

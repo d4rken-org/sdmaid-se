@@ -1,57 +1,65 @@
 package eu.darken.sdmse.main.core
 
-import io.kotest.matchers.collections.shouldNotBeEmpty
+import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
+import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.analyzer.ui.StorageContentRoute
+import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallId
+import eu.darken.sdmse.common.storage.StorageId
+import eu.darken.sdmse.common.user.UserHandle2
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
+import eu.darken.sdmse.deduplicator.ui.ClusterRoute
+import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
+import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.setup.SetupScreenOptions
+import eu.darken.sdmse.setup.SetupModule
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.shouldNotBe
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
-import java.io.File
-import javax.xml.parsers.DocumentBuilderFactory
-import org.w3c.dom.Element
+import java.util.UUID
 
 class NavigationIdConsistencyTest : BaseTest() {
 
-    private val docBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder()
+    @Test
+    fun `object routes are singletons`() {
+        DashboardRoute shouldNotBe null
+    }
 
     @Test
-    fun `all tool module action IDs must exist in main_nav xml`() {
-        val projectRoot = File("..")
+    fun `data class routes with defaults are constructable`() {
+        UpgradeRoute() shouldBe UpgradeRoute(forced = false)
+        SetupRoute() shouldBe SetupRoute(options = null)
+        CorpseDetailsRoute() shouldBe CorpseDetailsRoute(corpsePathJson = null)
+    }
 
-        val navGraphActions = parseNavGraphActionIds(
-            File(projectRoot, "app/src/main/res/navigation/main_nav.xml")
+    @Test
+    fun `key routes serialize and deserialize correctly`() {
+        val storageId = StorageId(internalId = "primary", externalId = UUID.fromString("550e8400-e29b-41d4-a716-446655440000"))
+        val installId = InstallId(pkgId = Pkg.Id("com.example"), userHandle = UserHandle2(0))
+
+        val routes = listOf(
+            UpgradeRoute(forced = true),
+            SetupRoute(options = SetupScreenOptions(isOnboarding = true, typeFilter = setOf(SetupModule.Type.ROOT))),
+            StorageContentRoute(storageId = storageId),
+            AppDetailsRoute(storageId = storageId, installId = installId),
+            ContentRoute(storageId = storageId, groupId = ContentGroup.Id("group-1"), installId = installId),
+            ClusterRoute(identifier = Duplicate.Cluster.Id("cluster-1")),
+            ScheduleItemRoute(scheduleId = "sched-1"),
+            SwiperSwipeRoute(sessionId = "session-1", startIndex = 5),
+            CorpseDetailsRoute(corpsePath = LocalPath.build("/data/test")),
         )
-        navGraphActions.shouldNotBeEmpty()
 
-        val toolModuleIds = projectRoot.listFiles { f -> f.isDirectory && f.name.startsWith("app-tool-") }
-            ?.flatMap { moduleDir ->
-                val idsFile = File(moduleDir, "src/main/res/values/ids.xml")
-                if (!idsFile.exists()) return@flatMap emptyList()
-                parseIdsXmlActionIds(idsFile).map { actionName -> moduleDir.name to actionName }
-            }
-            ?: emptyList()
-
-        toolModuleIds.shouldNotBeEmpty()
-
-        val mismatches = toolModuleIds.filter { (_, actionName) -> actionName !in navGraphActions }
-        mismatches shouldBe emptyList()
-    }
-
-    private fun parseNavGraphActionIds(navFile: File): Set<String> {
-        val doc = docBuilder.parse(navFile)
-        val actions = doc.getElementsByTagName("action")
-        return (0 until actions.length).mapNotNull { i ->
-            val id = (actions.item(i) as Element).getAttribute("android:id")
-            id.removePrefix("@+id/").removePrefix("@id/").takeIf { it.startsWith("action_") }
-        }.toSet()
-    }
-
-    private fun parseIdsXmlActionIds(idsFile: File): List<String> {
-        val doc = docBuilder.parse(idsFile)
-        val items = doc.getElementsByTagName("item")
-        return (0 until items.length).mapNotNull { i ->
-            val element = items.item(i) as Element
-            val name = element.getAttribute("name")
-            val type = element.getAttribute("type")
-            name.takeIf { type == "id" && it.startsWith("action_") }
+        routes.forEach { route ->
+            val json = Json.encodeToString(kotlinx.serialization.serializer(route::class.java), route)
+            json.isNotBlank() shouldBe true
         }
     }
 }

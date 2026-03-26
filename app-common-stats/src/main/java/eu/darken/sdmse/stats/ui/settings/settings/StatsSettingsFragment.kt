@@ -47,9 +47,9 @@ class StatsSettingsFragment : PreferenceFragment3() {
             lifecycleScope.launch {
                 val isPro = upgradeRepo.isPro()
                 if (isPro) {
-                    findNavController().navigate(eu.darken.sdmse.common.R.id.goToReportsFragment)
+                    findNavController().navigate(eu.darken.sdmse.stats.ui.ReportsRoute)
                 } else {
-                    findNavController().navigate(eu.darken.sdmse.common.R.id.goToUpgradeFragment)
+                    findNavController().navigate(eu.darken.sdmse.common.navigation.routes.UpgradeRoute())
                 }
             }
             true

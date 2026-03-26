@@ -6,6 +6,7 @@ plugins {
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "${projectConfig.packageName}.deduplicator"
@@ -51,6 +52,7 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
+    addKotlinxNavSerialization()
 
     implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")

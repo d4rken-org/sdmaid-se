@@ -22,9 +22,9 @@ import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterConfig
 import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterRepo
 import eu.darken.sdmse.systemcleaner.core.filter.custom.RawFilter
 import eu.darken.sdmse.systemcleaner.core.filter.custom.toggleCustomFilter
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.types.CustomFilterDefaultVH
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onStart
@@ -98,14 +98,11 @@ class CustomFilterListViewModel @Inject constructor(
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Pro upgrade required" }
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 
-        navDirections(
-            eu.darken.sdmse.systemcleaner.R.id.action_customFilterListFragment_to_customFilterEditorFragment,
-            bundleOf("identifier" to item.config.identifier)
-        ).navigate()
+        navigateTo(CustomFilterEditorRoute(identifier = item.config.identifier))
     }
 
     fun importFilter(uris: Collection<Uri>? = null) = launch {
@@ -141,7 +138,7 @@ class CustomFilterListViewModel @Inject constructor(
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Pro upgrade required" }
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

@@ -124,8 +124,7 @@ class PathExclusionFragment : Fragment3(R.layout.exclusion_editor_path_fragment)
 
                 is PathEditorEvents.LaunchPicker -> {
                     findNavController().navigate(
-                        eu.darken.sdmse.common.R.id.goToPicker,
-                        bundleOf("request" to it.request)
+                        eu.darken.sdmse.common.picker.PickerRoute(request = it.request)
                     )
                 }
             }

@@ -6,6 +6,7 @@ import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
 interface Pkg {
 
@@ -18,6 +19,7 @@ interface Pkg {
 
     val icon: CaDrawable?
 
+    @Serializable
     @Parcelize
     @JsonClass(generateAdapter = true)
     data class Id(

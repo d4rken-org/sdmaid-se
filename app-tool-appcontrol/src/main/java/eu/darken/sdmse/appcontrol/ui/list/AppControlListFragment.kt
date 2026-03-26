@@ -42,7 +42,8 @@ import eu.darken.sdmse.common.setChecked2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.appcontrol.databinding.AppcontrolListFragmentBinding
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import javax.inject.Inject
 import eu.darken.sdmse.common.ui.R as UiR
 
@@ -360,7 +361,7 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        navDirections(eu.darken.sdmse.common.R.id.goToExclusions).navigate()
+                        safeNavigate(ExclusionsListRoute)
                     }
                     .show()
 

@@ -66,7 +66,7 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
         super.onPreferencesCreated()
 
         customFilterEntry.setOnPreferenceClickListener {
-            findNavController().navigate(eu.darken.sdmse.common.R.id.goToCustomFilterList)
+            findNavController().navigate(eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute)
             true
         }
 

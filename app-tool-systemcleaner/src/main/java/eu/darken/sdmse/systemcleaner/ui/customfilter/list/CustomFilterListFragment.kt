@@ -30,10 +30,11 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.systemcleaner.databinding.SystemcleanerCustomfilterListFragmentBinding
-import eu.darken.sdmse.systemcleaner.core.filter.custom.CustomFilterEditorOptions
+import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
 import javax.inject.Inject
 
 @AndroidEntryPoint
@@ -157,15 +158,14 @@ class CustomFilterListFragment : Fragment3(R.layout.systemcleaner_customfilter_l
                 isGone = state.isPro == null
                 setOnClickListener {
                     if (state.isPro == true) {
-                        navDirections(
-                            R.id.action_customFilterListFragment_to_customFilterEditorFragment,
-                            bundleOf(
-                                "initial" to CustomFilterEditorOptions(),
-                                "identifier" to null,
+                        safeNavigate(
+                            CustomFilterEditorRoute(
+                                initial = CustomFilterEditorOptions(),
+                                identifier = null,
                             )
-                        ).navigate()
+                        )
                     } else if (state.isPro == false) {
-                        navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+                        safeNavigate(UpgradeRoute())
                     }
                 }
             }

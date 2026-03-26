@@ -8,8 +8,8 @@ import android.net.Uri
 import android.provider.Settings
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import androidx.navigation.toRoute
 import dagger.hilt.android.qualifiers.ApplicationContext
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.appcontrol.core.AppInfo
 import eu.darken.sdmse.appcontrol.core.archive.ArchiveException
@@ -42,7 +42,8 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
@@ -75,7 +76,7 @@ class AppActionViewModel @Inject constructor(
     private val userManager2: UserManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val installId: InstallId = Args.from(handle).installId
+    private val installId: InstallId = handle.toRoute<AppActionRoute>().installId
 
     init {
         appControl.state
@@ -206,13 +207,7 @@ class AppActionViewModel @Inject constructor(
                 onExclude = {
                     launch {
                         if (existingExclusion != null) {
-                            navDirections(
-                                eu.darken.sdmse.common.R.id.goToPkgExclusionEditor,
-                                bundleOf(
-                                    "exclusionId" to existingExclusion.id,
-                                    "initial" to null,
-                                )
-                            ).navigate()
+                            navigateTo(PkgExclusionEditorRoute(exclusionId = existingExclusion.id))
                         } else {
                             val newExcl = PkgExclusion(pkgId = appInfo.id)
                             exclusionManager.save(newExcl)
@@ -354,20 +349,6 @@ class AppActionViewModel @Inject constructor(
         val progress: Progress.Data?,
         val actions: List<AppActionAdapter.Item>? = null,
     )
-
-    data class Args(
-        val installId: InstallId,
-    ) {
-        fun toBundle() = bundleOf(KEY_INSTALL_ID to installId)
-
-        companion object {
-            private const val KEY_INSTALL_ID = "installId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                installId = handle.get<InstallId>(KEY_INSTALL_ID)!!,
-            )
-        }
-    }
 
     companion object {
         private val TAG = logTag("AppControl", "Action", "Dialog", "ViewModel")

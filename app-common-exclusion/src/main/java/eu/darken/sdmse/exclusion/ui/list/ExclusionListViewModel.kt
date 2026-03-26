@@ -36,14 +36,13 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
 import eu.darken.sdmse.exclusion.core.types.UserExclusion
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
+import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
+import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.list.types.PackageExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.PathExclusionVH
 import eu.darken.sdmse.exclusion.ui.list.types.SegmentExclusionVH
-import eu.darken.sdmse.common.navigation.navDirections
-import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
-import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions
-import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
-import androidx.core.os.bundleOf
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.map
@@ -113,10 +112,7 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            navDirections(
-                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_pkgExclusionFragment,
-                                bundleOf("exclusionId" to exclusion.id, "initial" to null as PkgExclusionEditorOptions?)
-                            ).navigate()
+                            navigateTo(PkgExclusionEditorRoute(exclusionId = exclusion.id))
                         }
                     }
                 )
@@ -129,10 +125,7 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            navDirections(
-                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_pathExclusionFragment,
-                                bundleOf("exclusionId" to exclusion.id, "initial" to null as PathExclusionEditorOptions?)
-                            ).navigate()
+                            navigateTo(PathExclusionEditorRoute(exclusionId = exclusion.id))
                         }
                     }
                 )
@@ -144,10 +137,7 @@ class ExclusionListViewModel @Inject constructor(
                         if (isDefault) {
                             webpageTool.open((holder as DefaultExclusion).reason)
                         } else {
-                            navDirections(
-                                eu.darken.sdmse.common.exclusion.R.id.action_exclusionsListFragment_to_segmentExclusionFragment,
-                                bundleOf("exclusionId" to exclusion.id, "initial" to null as SegmentExclusionEditorOptions?)
-                            ).navigate()
+                            navigateTo(SegmentExclusionEditorRoute(exclusionId = exclusion.id))
                         }
                     }
                 )
@@ -259,7 +249,7 @@ class ExclusionListViewModel @Inject constructor(
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Pro upgrade required" }
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

@@ -6,6 +6,7 @@ plugins {
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "${projectConfig.packageName}.common.coil"
@@ -46,6 +47,7 @@ dependencies {
     addDI()
     addCoroutines()
     addCoilApi()
+    addKotlinxNavSerialization()
 
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 

@@ -1,14 +1,15 @@
 package eu.darken.sdmse.corpsefinder.ui.details
 
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.SingleLiveEvent
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.mutableState
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.uix.resolveTarget
@@ -37,7 +38,7 @@ class CorpseDetailsViewModel @Inject constructor(
     corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val corpsePath: APath? = Args.from(handle).corpsePath
+    private val corpsePath: APath? = handle.toRoute<CorpseDetailsRoute>().corpsePath
     private var currentTarget: CorpseIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 
@@ -102,20 +103,6 @@ class CorpseDetailsViewModel @Inject constructor(
     fun updatePage(identifier: CorpseIdentifier) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
-    }
-
-    data class Args(
-        val corpsePath: APath?,
-    ) {
-        fun toBundle() = bundleOf(KEY_CORPSE_PATH to corpsePath)
-
-        companion object {
-            private const val KEY_CORPSE_PATH = "corpsePath"
-
-            fun from(handle: SavedStateHandle) = Args(
-                corpsePath = handle.get<APath>(KEY_CORPSE_PATH),
-            )
-        }
     }
 
     companion object {

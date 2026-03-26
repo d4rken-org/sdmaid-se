@@ -11,8 +11,11 @@ import eu.darken.sdmse.common.files.segmentContains
 import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.toSegs
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 
+@Serializable
 @JsonClass(generateAdapter = true)
 @Parcelize
 data class SegmentCriterium(
@@ -44,14 +47,17 @@ data class SegmentCriterium(
         )
     }
 
+    @Serializable
     sealed interface Mode : SieveCriterium.Mode {
 
+        @Serializable @SerialName("ANCESTOR")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Ancestor(
             val ignoreCase: Boolean = true,
         ) : Mode
 
+        @Serializable @SerialName("START")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Start(
@@ -59,6 +65,7 @@ data class SegmentCriterium(
             val allowPartial: Boolean = false,
         ) : Mode
 
+        @Serializable @SerialName("CONTAIN")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Contain(
@@ -66,6 +73,7 @@ data class SegmentCriterium(
             val allowPartial: Boolean = false,
         ) : Mode
 
+        @Serializable @SerialName("END")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class End(
@@ -73,12 +81,14 @@ data class SegmentCriterium(
             val allowPartial: Boolean = false,
         ) : Mode
 
+        @Serializable @SerialName("EQUAL")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(
             val ignoreCase: Boolean = true,
         ) : Mode
 
+        @Serializable @SerialName("SPECIFIC")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Specific(

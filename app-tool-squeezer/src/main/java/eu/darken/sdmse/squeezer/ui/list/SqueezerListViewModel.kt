@@ -1,7 +1,7 @@
 package eu.darken.sdmse.squeezer.ui.list
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
@@ -114,7 +114,7 @@ class SqueezerListViewModel @Inject constructor(
         }
 
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

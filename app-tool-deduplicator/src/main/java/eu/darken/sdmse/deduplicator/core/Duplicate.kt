@@ -6,6 +6,7 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathLookup
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 import java.time.Instant
 
 interface Duplicate {
@@ -94,6 +95,7 @@ interface Duplicate {
         val previewFile: APathLookup<*>
             get() = groups.first().previewFile
 
+        @Serializable
         @Parcelize
         data class Id(val value: String) : Parcelable
     }

@@ -16,7 +16,7 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -28,7 +28,7 @@ import eu.darken.sdmse.scheduler.core.Schedule
 import eu.darken.sdmse.scheduler.core.ScheduleId
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.core.SchedulerSettings
-import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemViewModel
+import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
@@ -116,10 +116,7 @@ class SchedulerManagerViewModel @Inject constructor(
             ScheduleRowVH.Item(
                 schedule = schedule,
                 onEdit = {
-                    navDirections(
-                        R.id.action_schedulerManagerFragment_to_scheduleItemDialog,
-                        ScheduleItemViewModel.Args(scheduleId = schedule.id).toBundle()
-                    ).navigate()
+                    navigateTo(ScheduleItemRoute(scheduleId = schedule.id))
                 },
                 onToggle = {
                     launch {
@@ -132,7 +129,7 @@ class SchedulerManagerViewModel @Inject constructor(
                                 )
                             )
                         } else {
-                            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+                            navigateTo(UpgradeRoute())
                         }
                     }
                 },
@@ -176,10 +173,7 @@ class SchedulerManagerViewModel @Inject constructor(
 
     fun createNew() {
         log(TAG) { "createNew()" }
-        navDirections(
-            R.id.action_schedulerManagerFragment_to_scheduleItemDialog,
-            ScheduleItemViewModel.Args(scheduleId = UUID.randomUUID().toString()).toBundle()
-        ).navigate()
+        navigateTo(ScheduleItemRoute(scheduleId = UUID.randomUUID().toString()))
     }
 
     fun debugSchedule() = launch {

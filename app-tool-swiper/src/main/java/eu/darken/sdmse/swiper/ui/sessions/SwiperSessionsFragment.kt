@@ -12,8 +12,9 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.textfield.TextInputEditText
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.swiper.R
-import eu.darken.sdmse.common.navigation.navDirections
-import androidx.core.os.bundleOf
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.APath
@@ -97,7 +98,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                     SwiperSessionsUpgradeVH.Item(
                         freeVersionLimit = state.freeVersionLimit,
                         freeSessionLimit = state.freeSessionLimit,
-                        onUpgrade = { navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate() },
+                        onUpgrade = { safeNavigate(UpgradeRoute()) },
                     )
                 )
             }
@@ -142,10 +143,9 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
     }
 
     private fun openPicker() {
-        navDirections(
-            eu.darken.sdmse.common.R.id.goToPicker,
-            bundleOf(
-                "request" to PickerRequest(
+        safeNavigate(
+            PickerRoute(
+                request = PickerRequest(
                     requestKey = PICKER_REQUEST_KEY,
                     mode = PickerRequest.PickMode.DIRS,
                     allowedAreas = setOf(
@@ -155,8 +155,8 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                         DataArea.Type.PUBLIC_MEDIA
                     ),
                 )
-            ),
-        ).navigate()
+            )
+        )
     }
 
     private fun showDiscardConfirmation(sessionId: String) {

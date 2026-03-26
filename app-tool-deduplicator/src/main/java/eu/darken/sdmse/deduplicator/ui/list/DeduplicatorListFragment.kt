@@ -6,7 +6,6 @@ import android.view.View
 import androidx.core.view.isInvisible
 import androidx.fragment.app.viewModels
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
 import androidx.recyclerview.widget.GridLayoutManager
@@ -20,8 +19,9 @@ import eu.darken.sdmse.common.lists.installListSelection
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.previews.PreviewRoute
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -171,7 +171,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                         Snackbar.LENGTH_LONG
                     )
                     .setAction(eu.darken.sdmse.common.R.string.general_view_action) {
-                        navDirections(eu.darken.sdmse.common.R.id.goToExclusions).navigate()
+                        safeNavigate(ExclusionsListRoute)
                     }
                     .show()
 
@@ -182,10 +182,7 @@ class DeduplicatorListFragment : Fragment3(R.layout.deduplicator_list_fragment) 
                 ).show()
 
                 is DeduplicatorListEvents.PreviewEvent -> {
-                    findNavController().navigate(
-                        resId = eu.darken.sdmse.common.R.id.goToPreview,
-                        args = bundleOf("options" to event.options)
-                    )
+                    safeNavigate(PreviewRoute(options = event.options))
                 }
             }
         }

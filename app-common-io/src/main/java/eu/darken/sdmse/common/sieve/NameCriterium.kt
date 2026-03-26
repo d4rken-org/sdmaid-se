@@ -3,7 +3,10 @@ package eu.darken.sdmse.common.sieve
 import com.squareup.moshi.JsonClass
 import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 @JsonClass(generateAdapter = true)
 @Parcelize
 data class NameCriterium(
@@ -18,26 +21,31 @@ data class NameCriterium(
         is Mode.Equal -> target.equals(name, ignoreCase = mode.ignoreCase)
     }
 
+    @Serializable
     sealed interface Mode : SieveCriterium.Mode {
 
+        @Serializable @SerialName("START")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Start(
             val ignoreCase: Boolean = true,
         ) : Mode
 
+        @Serializable @SerialName("CONTAIN")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Contain(
             val ignoreCase: Boolean = true,
         ) : Mode
 
+        @Serializable @SerialName("END")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class End(
             val ignoreCase: Boolean = true,
         ) : Mode
 
+        @Serializable @SerialName("EQUAL")
         @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(

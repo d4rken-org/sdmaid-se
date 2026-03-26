@@ -2,17 +2,16 @@ package eu.darken.sdmse.appcleaner.ui.list
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.appcleaner.R
 import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
-import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsViewModel
+import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -67,16 +66,13 @@ class AppCleanerListViewModel @Inject constructor(
 
     fun showDetails(item: AppCleanerListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(${item.junk.identifier})" }
-        navDirections(
-            R.id.action_appCleanerListFragment_to_appCleanerDetailsFragment2,
-            AppJunkDetailsViewModel.Args(identifier = item.junk.identifier).toBundle()
-        ).navigate()
+        navigateTo(AppJunkDetailsRoute(identifier = item.junk.identifier))
     }
 
     fun delete(items: Collection<AppCleanerListAdapter.Item>, confirmed: Boolean = false) = launch {
         log(TAG, INFO) { "delete(${items.size})" }
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
         if (!confirmed) {

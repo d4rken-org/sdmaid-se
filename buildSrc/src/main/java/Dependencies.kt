@@ -106,6 +106,10 @@ fun DependencyHandlerScope.addSerialization() {
     ksp("com.squareup.moshi:moshi-kotlin-codegen:$version")
 }
 
+fun DependencyHandlerScope.addKotlinxNavSerialization() {
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.serialization}")
+}
+
 private const val OKIO_VERSION = "3.16.4"
 
 fun DependencyHandlerScope.addIO() {

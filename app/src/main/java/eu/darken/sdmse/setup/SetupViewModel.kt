@@ -10,17 +10,21 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
+import androidx.navigation.navOptions
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
-import eu.darken.sdmse.common.navigation.navArgs
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.RuntimePermission
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.main.ui.navigation.SetupScreenOptionsNavType
+import kotlin.reflect.typeOf
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.inventory.InventorySetupCardVH
@@ -59,14 +63,16 @@ class SetupViewModel @Inject constructor(
     private val shizukuSetupModule: ShizukuSetupModule,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val navArgs by handle.navArgs<SetupFragmentArgs>()
+    private val route = handle.toRoute<SetupRoute>(
+        typeMap = mapOf(typeOf<SetupScreenOptions?>() to SetupScreenOptionsNavType)
+    )
 
     init {
         setupManager.setDismissed(false)
     }
 
     // TODO support filtering based on screenOptions.filterTypes
-    val screenOptions = navArgs.options ?: SetupScreenOptions()
+    val screenOptions = route.options ?: SetupScreenOptions()
 
     val events = SingleLiveEvent<SetupEvents>()
 
@@ -305,7 +311,12 @@ class SetupViewModel @Inject constructor(
 
     fun navback() {
         if (screenOptions.isOnboarding) {
-            SetupFragmentDirections.actionSetupFragmentToDashboardFragment().navigate()
+            navigateTo(
+                DashboardRoute,
+                navOptions = navOptions {
+                    popUpTo(DashboardRoute) { inclusive = true }
+                }
+            )
         } else {
             popNavStack()
         }

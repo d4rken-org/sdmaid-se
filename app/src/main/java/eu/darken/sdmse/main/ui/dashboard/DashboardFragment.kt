@@ -11,6 +11,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.ByteFormatter
@@ -26,6 +27,10 @@ import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.navigation.getColorForAttr
 import eu.darken.sdmse.common.navigation.getQuantityString2
 import eu.darken.sdmse.common.navigation.getSpanCount
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.main.ui.navigation.SettingsRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -70,12 +75,12 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
             setOnMenuItemClickListener {
                 when (it.itemId) {
                     R.id.menu_action_upgrade -> {
-                        DashboardFragmentDirections.goToUpgradeFragment().navigate()
+                        safeNavigate(UpgradeRoute())
                         true
                     }
 
                     R.id.menu_action_settings -> {
-                        DashboardFragmentDirections.actionDashboardFragmentToSettingsContainerFragment().navigate()
+                        safeNavigate(SettingsRoute)
                         true
                     }
 
@@ -256,7 +261,7 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
                 }
 
                 is DashboardEvents.SqueezerSetup -> {
-                    DashboardFragmentDirections.actionDashboardFragmentToSqueezerSetupFragment().navigate()
+                    safeNavigate(SqueezerSetupRoute)
                 }
 
                 is DashboardEvents.ShowShortRecordingWarning -> ShortRecordingDialog(
@@ -290,9 +295,9 @@ class DashboardFragment : Fragment3(R.layout.dashboard_fragment) {
         val navController = findNavController()
         val curDest = navController.currentDestination
         log(tag) { "onResume(): currentDestination=${curDest?.label} (${curDest?.id?.let { "0x${Integer.toHexString(it)}" } ?: "null"})" }
-        if (curDest != null && curDest.id != R.id.dashboardFragment) {
+        if (curDest != null && curDest.route != DashboardRoute::class.qualifiedName) {
             log(tag, WARN) { "Dashboard resumed but currentDestination is ${curDest.label}, recovering" }
-            navController.popBackStack(R.id.dashboardFragment, false)
+            navController.popBackStack(DashboardRoute, false)
         }
     }
 

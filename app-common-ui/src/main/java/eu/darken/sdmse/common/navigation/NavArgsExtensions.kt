@@ -1,27 +1,30 @@
 package eu.darken.sdmse.common.navigation
 
+import android.net.Uri
 import android.os.Bundle
-import android.os.Parcelable
-import androidx.annotation.IdRes
-import androidx.lifecycle.SavedStateHandle
-import androidx.navigation.NavArgs
-import androidx.navigation.NavArgsLazy
-import androidx.navigation.NavDirections
-import java.io.Serializable
+import androidx.navigation.NavType
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.json.Json
 
-// TODO Remove with "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.0-alpha/stable"
-inline fun <reified Args : NavArgs> SavedStateHandle.navArgs() = NavArgsLazy(Args::class) {
-    Bundle().apply {
-        keys().forEach {
-            when (val value = get<Any>(it)) {
-                is Serializable -> putSerializable(it, value)
-                is Parcelable -> putParcelable(it, value)
-            }
-        }
+inline fun <reified T : Any> serializableNavType(
+    serializer: KSerializer<T>,
+    isNullableAllowed: Boolean = false,
+    json: Json = Json { ignoreUnknownKeys = true },
+): NavType<T> = object : NavType<T>(isNullableAllowed) {
+    override fun put(bundle: Bundle, key: String, value: T) {
+        bundle.putString(key, json.encodeToString(serializer, value))
     }
-}
 
-fun navDirections(@IdRes actionId: Int, args: Bundle = Bundle.EMPTY): NavDirections = object : NavDirections {
-    override val actionId: Int = actionId
-    override val arguments: Bundle = args
+    @Suppress("DEPRECATION")
+    override fun get(bundle: Bundle, key: String): T? {
+        return bundle.getString(key)?.let { json.decodeFromString(serializer, it) }
+    }
+
+    override fun parseValue(value: String): T {
+        return json.decodeFromString(serializer, Uri.decode(value))
+    }
+
+    override fun serializeAsValue(value: T): String {
+        return Uri.encode(json.encodeToString(serializer, value))
+    }
 }

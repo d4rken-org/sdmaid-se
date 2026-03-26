@@ -2,16 +2,16 @@ package eu.darken.sdmse.analyzer.ui.storage.app
 
 import android.content.Context
 import android.content.Intent
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.AppDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
+import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppCodeVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppDataVH
 import eu.darken.sdmse.analyzer.ui.storage.app.items.AppDetailsAppMediaVH
@@ -23,7 +23,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.progress.Progress
@@ -44,9 +43,9 @@ class AppDetailsViewModel @Inject constructor(
     private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val args = Args.from(handle)
-    private val targetStorageId: StorageId = args.storageId
-    private val targetInstallId: InstallId = args.installId
+    private val route = handle.toRoute<AppDetailsRoute>()
+    private val targetStorageId: StorageId = route.storageId
+    private val targetInstallId: InstallId = route.installId
 
     init {
         // Handle process death+restore
@@ -113,14 +112,11 @@ class AppDetailsViewModel @Inject constructor(
                     pkgStat = pkgStat,
                     group = group,
                     onViewAction = {
-                        navDirections(
-                            R.id.action_appDetailsFragment_to_contentFragment,
-                            ContentViewModel.Args(
-                                storageId = targetStorageId,
-                                groupId = group.id,
-                                installId = pkgStat.id,
-                            ).toBundle()
-                        ).navigate()
+                        navigateTo(ContentRoute(
+                            storageId = targetStorageId,
+                            groupId = group.id,
+                            installId = pkgStat.id,
+                        ))
                     }
                 )
             }
@@ -133,14 +129,11 @@ class AppDetailsViewModel @Inject constructor(
                     pkgStat = pkgStat,
                     group = group,
                     onViewAction = {
-                        navDirections(
-                            R.id.action_appDetailsFragment_to_contentFragment,
-                            ContentViewModel.Args(
-                                storageId = targetStorageId,
-                                groupId = group.id,
-                                installId = pkgStat.id,
-                            ).toBundle()
-                        ).navigate()
+                        navigateTo(ContentRoute(
+                            storageId = targetStorageId,
+                            groupId = group.id,
+                            installId = pkgStat.id,
+                        ))
                     }
                 )
             }
@@ -153,14 +146,11 @@ class AppDetailsViewModel @Inject constructor(
                     pkgStat = pkgStat,
                     group = group,
                     onViewAction = {
-                        navDirections(
-                            R.id.action_appDetailsFragment_to_contentFragment,
-                            ContentViewModel.Args(
-                                storageId = targetStorageId,
-                                groupId = group.id,
-                                installId = pkgStat.id,
-                            ).toBundle()
-                        ).navigate()
+                        navigateTo(ContentRoute(
+                            storageId = targetStorageId,
+                            groupId = group.id,
+                            installId = pkgStat.id,
+                        ))
                     }
                 )
             }
@@ -173,14 +163,11 @@ class AppDetailsViewModel @Inject constructor(
                     pkgStat = pkgStat,
                     group = group,
                     onViewAction = {
-                        navDirections(
-                            R.id.action_appDetailsFragment_to_contentFragment,
-                            ContentViewModel.Args(
-                                storageId = targetStorageId,
-                                groupId = group.id,
-                                installId = pkgStat.id,
-                            ).toBundle()
-                        ).navigate()
+                        navigateTo(ContentRoute(
+                            storageId = targetStorageId,
+                            groupId = group.id,
+                            installId = pkgStat.id,
+                        ))
                     }
                 )
             }
@@ -200,26 +187,6 @@ class AppDetailsViewModel @Inject constructor(
         val items: List<AppDetailsAdapter.Item>?,
         val progress: Progress.Data?,
     )
-
-    data class Args(
-        val storageId: StorageId,
-        val installId: InstallId,
-    ) {
-        fun toBundle() = bundleOf(
-            KEY_STORAGE_ID to storageId,
-            KEY_INSTALL_ID to installId,
-        )
-
-        companion object {
-            private const val KEY_STORAGE_ID = "storageId"
-            private const val KEY_INSTALL_ID = "installId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
-                installId = handle.get<InstallId>(KEY_INSTALL_ID)!!,
-            )
-        }
-    }
 
     companion object {
         private val TAG = logTag("Analyzer", "App", "Details", "ViewModel")

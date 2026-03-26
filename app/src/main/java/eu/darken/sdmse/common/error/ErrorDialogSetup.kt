@@ -5,9 +5,11 @@ import androidx.navigation.findNavController
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.WriteException
-import androidx.core.os.bundleOf
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import eu.darken.sdmse.setup.IncompleteSetupException
+import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import eu.darken.sdmse.setup.labelRes
 
@@ -25,7 +27,7 @@ private fun IncompleteSetupException.toLocalizedError(): LocalizedError = Locali
     fixAction = {
         val navController = Navigation.findNavController(it, eu.darken.sdmse.R.id.nav_host)
         val options = SetupScreenOptions(isOnboarding = true, typeFilter = setupTypes)
-        navController.navigate(eu.darken.sdmse.MainDirections.goToSetup(options = options))
+        navController.safeNavigate(SetupRoute(options = options))
     }
 )
 
@@ -37,11 +39,9 @@ fun installErrorDialogCustomizer() {
                 error.localized(activity).copy(
                     infoActionLabel = eu.darken.sdmse.common.exclusion.R.string.exclusion_create_action.toCaString(),
                     infoAction = { ctx ->
-                        ctx.findNavController(eu.darken.sdmse.R.id.nav_host).navigate(
-                            resId = eu.darken.sdmse.R.id.goToPathExclusionEditor,
-                            args = bundleOf(
-                                "initial" to PathExclusionEditorOptions(targetPath = error.path!!),
-                                "exclusionId" to null as String?,
+                        ctx.findNavController(eu.darken.sdmse.R.id.nav_host).safeNavigate(
+                            PathExclusionEditorRoute(
+                                initial = PathExclusionEditorOptions(targetPath = error.path!!),
                             )
                         )
                     }

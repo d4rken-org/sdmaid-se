@@ -8,8 +8,9 @@ import androidx.viewbinding.ViewBinding
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.error.asErrorDialogBuilder
-import eu.darken.sdmse.common.navigation.doNavigate
+import eu.darken.sdmse.common.navigation.NavCommand
 import eu.darken.sdmse.common.navigation.popBackStack
+import eu.darken.sdmse.common.navigation.safeNavigate
 
 
 abstract class DialogFragment3(@LayoutRes layoutRes: Int?) : DialogFragment2(layoutRes) {
@@ -26,10 +27,14 @@ abstract class DialogFragment3(@LayoutRes layoutRes: Int?) : DialogFragment2(lay
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        vm.navEvents.observe2(ui) {
-            log(tag, VERBOSE) { "Nav event: $it" }
+        vm.navEvents.observe2(ui) { command ->
+            log(tag, VERBOSE) { "Nav event: $command" }
 
-            it?.run { doNavigate(this) } ?: onFinishEvent?.invoke() ?: popBackStack()
+            when (command) {
+                is NavCommand.To -> safeNavigate(command.route, command.navOptions)
+                is NavCommand.Back -> onFinishEvent?.invoke() ?: popBackStack()
+                null -> onFinishEvent?.invoke() ?: popBackStack()
+            }
         }
 
         vm.errorEvents.observe2(ui) {

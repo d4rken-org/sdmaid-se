@@ -6,9 +6,11 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.snackbar.Snackbar
+import androidx.navigation.fragment.findNavController
 import dagger.hilt.android.AndroidEntryPoint
-import eu.darken.sdmse.MainDirections
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
@@ -18,6 +20,7 @@ import eu.darken.sdmse.common.preferences.Preference2
 import eu.darken.sdmse.common.preferences.tintIcon
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import javax.inject.Inject
 
@@ -62,12 +65,12 @@ class SettingsIndexFragment : PreferenceFragment2() {
 
     override fun onPreferencesCreated() {
         findPreference<Preference>("exclusions.list.show")!!.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToExclusionsListFragment().navigate()
+            findNavController().safeNavigate(ExclusionsListRoute)
             true
         }
 
         setupPref.setOnPreferenceClickListener {
-            MainDirections.goToSetup(options = SetupScreenOptions(showCompleted = true)).navigate()
+            findNavController().safeNavigate(SetupRoute(options = SetupScreenOptions(showCompleted = true)))
             true
         }
 

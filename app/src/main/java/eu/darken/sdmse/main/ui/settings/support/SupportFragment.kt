@@ -16,7 +16,10 @@ import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.observe2
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.main.core.GeneralSettings
-import eu.darken.sdmse.main.ui.settings.SettingsFragmentDirections
+import androidx.navigation.fragment.findNavController
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.main.ui.navigation.DebugLogSessionsRoute
+import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
 import javax.inject.Inject
 import eu.darken.sdmse.common.ui.R as UiR
 
@@ -47,7 +50,7 @@ class SupportFragment : PreferenceFragment2() {
 
     override fun onPreferencesCreated() {
         findPreference<Preference>("support.contact")!!.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToSupportContactFormFragment().navigate()
+            findNavController().safeNavigate(SupportFormRoute)
             true
         }
         installIdPref.setOnPreferenceClickListener {
@@ -117,7 +120,7 @@ class SupportFragment : PreferenceFragment2() {
         }
 
         debugLogFolderPref.setOnPreferenceClickListener {
-            SettingsFragmentDirections.actionSettingsContainerFragmentToDebugLogSessionsDialog().navigate()
+            findNavController().safeNavigate(DebugLogSessionsRoute)
             true
         }
 

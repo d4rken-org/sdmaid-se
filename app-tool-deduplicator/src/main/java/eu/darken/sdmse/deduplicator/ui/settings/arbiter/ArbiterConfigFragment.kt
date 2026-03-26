@@ -9,8 +9,8 @@ import androidx.recyclerview.widget.ItemTouchHelper
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.safeNavigate
+import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -18,7 +18,6 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.common.lists.setupDefaults
-import eu.darken.sdmse.common.navigation.doNavigate
 import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
@@ -126,7 +125,7 @@ class ArbiterConfigFragment : Fragment3(R.layout.deduplicator_arbiter_config_fra
 
         vm.modeSelectionEvents.observe2 { event -> showModeSelectionDialog(event) }
 
-        vm.pickerEvents.observe2 { request -> doNavigate(navDirections(eu.darken.sdmse.common.R.id.goToPicker, bundleOf("request" to request))) }
+        vm.pickerEvents.observe2 { request -> safeNavigate(PickerRoute(request = request)) }
 
         super.onViewCreated(view, savedInstanceState)
 

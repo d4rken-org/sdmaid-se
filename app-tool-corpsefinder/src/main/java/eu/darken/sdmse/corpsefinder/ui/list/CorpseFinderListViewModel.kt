@@ -6,12 +6,10 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.corpsefinder.R
 import eu.darken.sdmse.corpsefinder.core.CorpseFinder
-import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsViewModel
+import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.corpsefinder.core.hasData
 import eu.darken.sdmse.corpsefinder.core.tasks.CorpseFinderDeleteTask
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
@@ -99,10 +97,7 @@ class CorpseFinderListViewModel @Inject constructor(
 
     fun showDetails(item: CorpseFinderListAdapter.Item) = launch {
         log(TAG, INFO) { "showDetails(item=$item)" }
-        navDirections(
-            R.id.action_corpseFinderListFragment_to_corpseFinderDetailsFragment,
-            CorpseDetailsViewModel.Args(corpsePath = (item as CorpseFinderListRowVH.Item).corpse.identifier).toBundle()
-        ).navigate()
+        navigateTo(CorpseDetailsRoute(corpsePath = (item as CorpseFinderListRowVH.Item).corpse.identifier))
     }
 
     companion object {

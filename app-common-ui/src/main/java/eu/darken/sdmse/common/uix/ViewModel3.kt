@@ -1,25 +1,25 @@
 package eu.darken.sdmse.common.uix
 
-import androidx.navigation.NavDirections
+import androidx.navigation.NavOptions
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.error.ErrorEventSource
+import eu.darken.sdmse.common.navigation.NavCommand
 import eu.darken.sdmse.common.navigation.NavEventSource
-import eu.darken.sdmse.common.navigation.navVia
 
 
 abstract class ViewModel3(
     dispatcherProvider: DispatcherProvider,
 ) : ViewModel2(dispatcherProvider), NavEventSource, ErrorEventSource {
 
-    override val navEvents = SingleLiveEvent<NavDirections?>()
+    override val navEvents = SingleLiveEvent<NavCommand?>()
     override val errorEvents = SingleLiveEvent<Throwable>()
 
-    fun NavDirections.navigate() {
-        navVia(navEvents)
+    fun navigateTo(route: Any, navOptions: NavOptions? = null) {
+        navEvents.postValue(NavCommand.To(route, navOptions))
     }
 
     fun popNavStack() {
-        navEvents.postValue(null)
+        navEvents.postValue(NavCommand.Back)
     }
 }

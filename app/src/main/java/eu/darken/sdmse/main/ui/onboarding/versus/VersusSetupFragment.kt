@@ -6,9 +6,11 @@ import androidx.fragment.app.viewModels
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingVersusFragmentBinding
+import eu.darken.sdmse.main.ui.navigation.OnboardingPrivacyRoute
 
 @AndroidEntryPoint
 class VersusSetupFragment : Fragment3(R.layout.onboarding_versus_fragment) {
@@ -22,7 +24,7 @@ class VersusSetupFragment : Fragment3(R.layout.onboarding_versus_fragment) {
         }
 
         ui.goAction.setOnClickListener {
-            VersusSetupFragmentDirections.actionVersusSetupFragmentToOnboardingPrivacyFragment().navigate()
+            safeNavigate(OnboardingPrivacyRoute)
         }
         super.onViewCreated(view, savedInstanceState)
     }

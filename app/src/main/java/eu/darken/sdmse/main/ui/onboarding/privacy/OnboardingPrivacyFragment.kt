@@ -8,9 +8,11 @@ import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.setChecked2
+import eu.darken.sdmse.common.navigation.safeNavigate
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.databinding.OnboardingPrivacyFragmentBinding
+import eu.darken.sdmse.main.ui.navigation.OnboardingSetupRoute
 
 @AndroidEntryPoint
 class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment) {
@@ -24,7 +26,7 @@ class OnboardingPrivacyFragment : Fragment3(R.layout.onboarding_privacy_fragment
         }
 
         ui.goAction.setOnClickListener {
-            OnboardingPrivacyFragmentDirections.actionOnboardingPrivacyFragmentToOnboardingSetupFragment().navigate()
+            safeNavigate(OnboardingSetupRoute)
         }
 
         ui.privacyPolicyAction.setOnClickListener { vm.goPrivacyPolicy() }

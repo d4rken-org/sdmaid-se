@@ -4,24 +4,5 @@
     <item name="list" type="id" />
     <item name="toolbar" type="id" />
     <item name="action_select_all" type="id" />
-
-    <!-- Global navigation action IDs -->
-    <item name="goToExclusions" type="id" />
-    <item name="goToUpgradeFragment" type="id" />
-    <item name="goToReportsFragment" type="id" />
-    <item name="goToSwiperSessions" type="id" />
-    <item name="goToSetup" type="id" />
-    <item name="goToAppControlListFragment" type="id" />
-    <item name="goToDeviceStorageFragment" type="id" />
-    <item name="goToSpaceHistoryFragment" type="id" />
-    <item name="goToCustomFilterEditor" type="id" />
-    <item name="goToArbiterConfig" type="id" />
-    <item name="goToPreview" type="id" />
-    <item name="goToCustomFilterList" type="id" />
-    <item name="goToPicker" type="id" />
-    <item name="goToDashboard" type="id" />
-    <item name="goToPathExclusionEditor" type="id" />
-    <item name="goToPkgExclusionEditor" type="id" />
     <item name="nav_host" type="id" />
-    <item name="swiperSessionsFragment" type="id" />
 </resources>

@@ -1,17 +1,17 @@
 package eu.darken.sdmse.analyzer.ui.storage.storage
 
-import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
+import androidx.navigation.toRoute
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.Analyzer
-import eu.darken.sdmse.analyzer.ui.storage.apps.AppsViewModel
-import eu.darken.sdmse.analyzer.ui.storage.content.ContentViewModel
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
+import eu.darken.sdmse.analyzer.ui.AppsRoute
+import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.analyzer.ui.StorageContentRoute
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.AppCategoryVH
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.MediaCategoryVH
 import eu.darken.sdmse.analyzer.ui.storage.storage.categories.SystemCategoryVH
@@ -20,12 +20,13 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.setup.SetupRoute
 import kotlinx.coroutines.flow.catch
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
@@ -42,7 +43,7 @@ class StorageContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = Args.from(handle).storageId
+    private val targetStorageId: StorageId = handle.toRoute<StorageContentRoute>().storageId
 
     init {
         analyzer.data
@@ -51,7 +52,7 @@ class StorageContentViewModel @Inject constructor(
             .onEach { taskSubmitter.submit(StorageScanTask(targetStorageId)) }
             .catch {
                 log(TAG, WARN) { "Storage unavailable $targetStorageId: ${it.asLog()}" }
-                navDirections(eu.darken.sdmse.common.R.id.goToDashboard).navigate()
+                navigateTo(DashboardRoute)
             }
             .launchInViewModel()
     }
@@ -77,12 +78,9 @@ class StorageContentViewModel @Inject constructor(
                         content = content,
                         onItemClicked = {
                             if (content.setupIncomplete) {
-                                navDirections(eu.darken.sdmse.common.R.id.goToSetup).navigate()
+                                navigateTo(SetupRoute())
                             } else {
-                                navDirections(
-                                    R.id.action_storageFragment_to_appsFragment,
-                                    AppsViewModel.Args(storageId = targetStorageId).toBundle()
-                                ).navigate()
+                                navigateTo(AppsRoute(storageId = targetStorageId))
                             }
                         }
                     )
@@ -92,14 +90,11 @@ class StorageContentViewModel @Inject constructor(
                         content = content,
                         onItemClicked = {
                             if (content.groups.isEmpty()) return@Item
-                            navDirections(
-                                R.id.action_storageFragment_to_contentFragment,
-                                ContentViewModel.Args(
-                                    storageId = targetStorageId,
-                                    groupId = content.groups.single().id,
-                                    installId = null,
-                                ).toBundle()
-                            ).navigate()
+                            navigateTo(ContentRoute(
+                                storageId = targetStorageId,
+                                groupId = content.groups.single().id,
+                                installId = null,
+                            ))
                         }
                     )
 
@@ -140,20 +135,6 @@ class StorageContentViewModel @Inject constructor(
         val content: List<StorageContentAdapter.Item>?,
         val progress: Progress.Data?,
     )
-
-    data class Args(
-        val storageId: StorageId,
-    ) {
-        fun toBundle() = bundleOf(KEY_STORAGE_ID to storageId)
-
-        companion object {
-            private const val KEY_STORAGE_ID = "storageId"
-
-            fun from(handle: SavedStateHandle) = Args(
-                storageId = handle.get<StorageId>(KEY_STORAGE_ID)!!,
-            )
-        }
-    }
 
     companion object {
         private val TAG = logTag("Analyzer", "Storage", "Content", "ViewModel")

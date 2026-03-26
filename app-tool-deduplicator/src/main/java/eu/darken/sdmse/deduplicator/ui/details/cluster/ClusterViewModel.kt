@@ -1,9 +1,9 @@
 package eu.darken.sdmse.deduplicator.ui.details.cluster
 
+import androidx.core.os.bundleOf
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import androidx.core.os.bundleOf
-import eu.darken.sdmse.common.navigation.navDirections
+import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -18,6 +18,7 @@ import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
 import eu.darken.sdmse.deduplicator.core.Deduplicator
+import eu.darken.sdmse.deduplicator.ui.ClusterRoute
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.core.arbiter.DuplicatesArbiter
@@ -301,7 +302,7 @@ class ClusterViewModel @Inject constructor(
         }
 
         if (!upgradeRepo.isPro()) {
-            navDirections(eu.darken.sdmse.common.R.id.goToUpgradeFragment).navigate()
+            navigateTo(UpgradeRoute())
             return@launch
         }
 

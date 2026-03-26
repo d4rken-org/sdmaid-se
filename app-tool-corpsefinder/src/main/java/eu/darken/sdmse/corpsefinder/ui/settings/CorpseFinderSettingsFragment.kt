@@ -74,7 +74,7 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
                 setOnPreferenceClickListener {
                     if (!state.isPro) {
                         isChecked = false
-                        findNavController().navigate(eu.darken.sdmse.common.R.id.goToUpgradeFragment)
+                        findNavController().navigate(eu.darken.sdmse.common.navigation.routes.UpgradeRoute())
                         true
                     } else {
                         false

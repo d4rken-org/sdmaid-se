@@ -4,7 +4,9 @@ import android.os.Parcel
 import android.os.Parcelable
 import android.os.UserHandle
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Parcelize
 data class UserHandle2(
     val handleId: Int = 0

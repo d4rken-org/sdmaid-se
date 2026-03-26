@@ -6,12 +6,13 @@ import eu.darken.sdmse.appcleaner.core.AppCleaner
 import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
+import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.common.SingleLiveEvent
-import androidx.core.os.bundleOf
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.navigation.mutableState
+import androidx.navigation.toRoute
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
@@ -37,7 +38,7 @@ class AppJunkDetailsViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val identifier: InstallId? = Args.from(handle).identifier
+    private val identifier: InstallId? = handle.toRoute<AppJunkDetailsRoute>().identifier
 
     private var currentTarget: InstallId? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
@@ -101,20 +102,6 @@ class AppJunkDetailsViewModel @Inject constructor(
     fun updatePage(identifier: InstallId) {
         log(TAG) { "updatePage($identifier)" }
         currentTarget = identifier
-    }
-
-    data class Args(
-        val identifier: InstallId?,
-    ) {
-        fun toBundle() = bundleOf(KEY_IDENTIFIER to identifier)
-
-        companion object {
-            private const val KEY_IDENTIFIER = "identifier"
-
-            fun from(handle: SavedStateHandle) = Args(
-                identifier = handle.get<InstallId>(KEY_IDENTIFIER),
-            )
-        }
     }
 
     companion object {
