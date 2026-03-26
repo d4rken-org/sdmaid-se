@@ -43,7 +43,7 @@ class AppDetailsViewModel @Inject constructor(
     private val analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val route = handle.toRoute<AppDetailsRoute>()
+    private val route = handle.toRoute<AppDetailsRoute>(AppDetailsRoute.typeMap)
     private val targetStorageId: StorageId = route.storageId
     private val targetInstallId: InstallId = route.installId
 

@@ -55,4 +55,5 @@ dependencies {
 
     addTesting()
     testImplementation(project(":app-common-test"))
+    testImplementation("org.robolectric:robolectric:4.16")
 }
