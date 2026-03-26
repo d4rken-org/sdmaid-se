@@ -35,7 +35,7 @@ class SwiperStatusViewModel @Inject constructor(
     private val exclusionManager: ExclusionManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val sessionId: String = handle.toRoute<SwiperStatusRoute>().sessionId
+    private val sessionId: String = SwiperStatusRoute.from(handle).sessionId
 
     val events = SingleLiveEvent<SwiperStatusEvents>()
 

@@ -26,7 +26,7 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoFoss,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val route = handle.toRoute<UpgradeRoute>()
+    private val route = UpgradeRoute.from(handle)
 
     val snackbarEvents = SingleLiveEvent<Int>()
     val toastEvents = SingleLiveEvent<Int>()

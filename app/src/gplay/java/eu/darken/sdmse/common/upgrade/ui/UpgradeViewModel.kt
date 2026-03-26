@@ -33,7 +33,7 @@ class UpgradeViewModel @Inject constructor(
     private val upgradeRepo: UpgradeRepoGplay,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
-    private val route = handle.toRoute<UpgradeRoute>()
+    private val route = UpgradeRoute.from(handle)
     private var hasShownError: Boolean = false
     val events = SingleLiveEvent<UpgradeEvents>()
 

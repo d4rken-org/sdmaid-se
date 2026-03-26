@@ -62,7 +62,7 @@ class ContentViewModel @Inject constructor(
     private val swiperSessionCreator: SwiperSessionCreator,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val route = handle.toRoute<ContentRoute>(ContentRoute.typeMap)
+    private val route = ContentRoute.from(handle)
     private val targetStorageId: StorageId = route.storageId
     private val targetGroupId: ContentGroup.Id = route.groupId
     private val targetInstallId: InstallId? = route.installId

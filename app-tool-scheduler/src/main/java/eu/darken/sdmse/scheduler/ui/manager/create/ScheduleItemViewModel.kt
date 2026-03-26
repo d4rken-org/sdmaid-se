@@ -22,7 +22,7 @@ class ScheduleItemViewModel @Inject constructor(
     private val schedulerManager: SchedulerManager,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val scheduleId: String = handle.toRoute<ScheduleItemRoute>().scheduleId
+    private val scheduleId: String = ScheduleItemRoute.from(handle).scheduleId
 
     private val internalState = DynamicStateFlow<State>(parentScope = vmScope) {
         val existing = schedulerManager.getSchedule(scheduleId)

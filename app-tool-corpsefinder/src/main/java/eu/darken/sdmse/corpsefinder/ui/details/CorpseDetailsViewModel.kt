@@ -38,7 +38,7 @@ class CorpseDetailsViewModel @Inject constructor(
     corpseFinder: CorpseFinder,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val corpsePath: APath? = handle.toRoute<CorpseDetailsRoute>().corpsePath
+    private val corpsePath: APath? = CorpseDetailsRoute.from(handle).corpsePath
     private var currentTarget: CorpseIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 

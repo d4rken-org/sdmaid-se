@@ -76,7 +76,7 @@ class AppActionViewModel @Inject constructor(
     private val userManager2: UserManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val installId: InstallId = handle.toRoute<AppActionRoute>(AppActionRoute.typeMap).installId
+    private val installId: InstallId = AppActionRoute.from(handle).installId
 
     init {
         appControl.state

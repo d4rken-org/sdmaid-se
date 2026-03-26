@@ -31,7 +31,7 @@ class AppsViewModel @Inject constructor(
     analyzer: Analyzer,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = handle.toRoute<AppsRoute>(AppsRoute.typeMap).storageId
+    private val targetStorageId: StorageId = AppsRoute.from(handle).storageId
 
     private val searchQuery = MutableStateFlow("")
 

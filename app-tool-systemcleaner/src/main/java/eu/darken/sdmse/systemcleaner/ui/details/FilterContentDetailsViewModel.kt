@@ -37,7 +37,7 @@ class FilterContentDetailsViewModel @Inject constructor(
     systemCleaner: SystemCleaner,
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
-    private val filterIdentifier: String? = handle.toRoute<FilterContentDetailsRoute>().filterIdentifier
+    private val filterIdentifier: String? = FilterContentDetailsRoute.from(handle).filterIdentifier
     private var currentTarget: FilterIdentifier? by handle.mutableState("target")
     private var lastPosition: Int? by handle.mutableState("position")
 

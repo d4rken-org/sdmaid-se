@@ -40,7 +40,7 @@ class SpaceHistoryViewModel @Inject constructor(
     private val storageManager2: StorageManager2,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val selectedStorageId = MutableStateFlow(handle.toRoute<SpaceHistoryRoute>().storageId)
+    private val selectedStorageId = MutableStateFlow(SpaceHistoryRoute.from(handle).storageId)
     private val selectedRange = MutableStateFlow(Range.DAYS_7)
 
     private val storages = spaceHistoryRepo.getAvailableStorageIds()

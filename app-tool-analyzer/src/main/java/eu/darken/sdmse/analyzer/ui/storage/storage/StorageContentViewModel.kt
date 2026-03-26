@@ -43,7 +43,7 @@ class StorageContentViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
 ) : ViewModel3(dispatcherProvider) {
 
-    private val targetStorageId: StorageId = handle.toRoute<StorageContentRoute>(StorageContentRoute.typeMap).storageId
+    private val targetStorageId: StorageId = StorageContentRoute.from(handle).storageId
 
     init {
         analyzer.data
