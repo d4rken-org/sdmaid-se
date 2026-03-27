@@ -129,7 +129,18 @@ class InaccessibleDeleter @Inject constructor(
             failedTargets.putAll(adbResult.failed)
         }
 
-        val remainingTargets = targets.filter { !successTargets.contains(it.identifier) }
+        val remainingTargets = targets
+            .filter { !successTargets.contains(it.identifier) }
+            .filter { junk ->
+                val currentCache = inaccessibleCacheProvider.determineCache(junk.pkg)
+                if (currentCache != null && currentCache.totalSize == 0L) {
+                    log(TAG) { "Cache now zero, skipping automation: ${junk.identifier}" }
+                    successTargets.add(junk.identifier)
+                    false
+                } else {
+                    true
+                }
+            }
 
         // Force-stop apps before clearing cache if enabled
         if (useAutomation && remainingTargets.isNotEmpty() && settings.forceStopBeforeClearing.value()) {
@@ -171,6 +182,9 @@ class InaccessibleDeleter @Inject constructor(
         } else if (!useAutomation) {
             log(TAG, INFO) { "useAutomation=false" }
         }
+
+        // Clean up contradictory bookkeeping: if an app failed earlier but succeeded later, remove from failed
+        successTargets.forEach { failedTargets.remove(it) }
 
         return InaccDelResult(
             succesful = successTargets.toSet(),
@@ -280,6 +294,22 @@ class InaccessibleDeleter @Inject constructor(
                     log(TAG, WARN) { "trimCache failed for ${junk.identifier}" }
                     failedTargets[junk.identifier] =
                         IllegalStateException("trimCache failed, single:${junk.identifier}")
+                }
+            }
+
+            // Re-check system apps — trimCaches may have cleared their caches too
+            val systemTargets = targets.filter { it.pkg.isSystemApp }
+            if (systemTargets.isNotEmpty()) {
+                log(TAG) { "Re-checking ${systemTargets.size} system app targets after trimCaches" }
+                for (junk in systemTargets) {
+                    val beforeInfo = junk.inaccessibleCache!!
+                    val newInfo = inaccessibleCacheProvider.determineCache(junk.pkg)
+                    if (newInfo != null && newInfo.totalSize < beforeInfo.totalSize) {
+                        log(TAG) { "System app cache decreased after trimCaches: ${junk.identifier}" }
+                        successTargets.add(junk.identifier)
+                    } else {
+                        log(TAG, VERBOSE) { "System app cache unchanged: ${junk.identifier}" }
+                    }
                 }
             }
         } catch (e: Exception) {
