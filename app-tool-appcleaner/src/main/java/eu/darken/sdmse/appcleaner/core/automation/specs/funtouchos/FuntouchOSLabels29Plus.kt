@@ -51,7 +51,17 @@ class FuntouchOSLabels29Plus @Inject constructor(
 
     fun getClearCacheStatic(
         acsContext: AutomationExplorer.Context
-    ): Set<String> = aospLabels14Plus.getClearCacheStatic(acsContext)
+    ): Set<String> = acsContext.getLocales()
+        .map { it.language to it.script }
+        .mapNotNull { (lang, _) ->
+            when {
+                "in".toLang() == lang -> setOf("Bersihkan cache")
+                else -> null
+            }
+        }
+        .flatten()
+        .append { aospLabels14Plus.getClearCacheStatic(acsContext) }
+        .toSet()
 
     companion object {
         private val TAG: String = logTag("AppCleaner", "Automation", "FuntouchOS", "Labels", "29Plus")
