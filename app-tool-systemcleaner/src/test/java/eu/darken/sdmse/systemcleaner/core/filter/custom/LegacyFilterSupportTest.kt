@@ -3,7 +3,7 @@ package eu.darken.sdmse.systemcleaner.core.filter.custom
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import io.kotest.matchers.shouldBe
@@ -15,7 +15,7 @@ import testhelpers.BaseTest
 class LegacyFilterSupportTest : BaseTest() {
 
     private fun create() = LegacyFilterSupport(
-        json = SerializationAppModule().json()
+        json = SerializationIOModule().json()
     )
 
     @Test

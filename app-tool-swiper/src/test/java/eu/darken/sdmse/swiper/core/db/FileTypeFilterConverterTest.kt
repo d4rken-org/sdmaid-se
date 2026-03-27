@@ -1,6 +1,6 @@
 package eu.darken.sdmse.swiper.core.db
 
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.FileTypeFilter
 import io.kotest.matchers.nulls.shouldBeNull
@@ -15,7 +15,7 @@ class FileTypeFilterConverterTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        val json = SerializationAppModule().json()
+        val json = SerializationIOModule().json()
         converter = FileTypeFilterConverter(json)
     }
 

@@ -1,7 +1,7 @@
 package eu.darken.sdmse.squeezer.core
 
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
@@ -17,7 +17,7 @@ class SqueezerSettingsTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        json = SerializationAppModule().json()
+        json = SerializationIOModule().json()
     }
 
     @Test
@@ -58,12 +58,10 @@ class SqueezerSettingsTest : BaseTest() {
             {
                 "paths": [
                     {
-                        "file": "/storage/emulated/0/DCIM",
-                        "pathType": "LOCAL"
+                        "file": "/storage/emulated/0/DCIM"
                     },
                     {
-                        "file": "/storage/emulated/0/Pictures",
-                        "pathType": "LOCAL"
+                        "file": "/storage/emulated/0/Pictures"
                     }
                 ]
             }

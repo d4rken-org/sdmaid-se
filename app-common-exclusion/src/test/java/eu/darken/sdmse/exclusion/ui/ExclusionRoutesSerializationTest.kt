@@ -46,8 +46,7 @@ class ExclusionRoutesSerializationTest : BaseTest() {
                 "exclusionId": "exc-123",
                 "initial": {
                     "targetPath": {
-                        "pathType": "LOCAL",
-                        "path": "/storage/emulated/0/DCIM"
+                        "file": "/storage/emulated/0/DCIM"
                     }
                 }
             }
