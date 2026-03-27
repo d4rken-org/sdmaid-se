@@ -1,7 +1,5 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -9,11 +7,14 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.isAncestorOf
 import eu.darken.sdmse.common.files.matches
+import eu.darken.sdmse.common.serialization.APathSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class PathExclusion(
-    @Json(name = "path") val path: APath,
-    @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
+    @SerialName("path") @Serializable(with = APathSerializer::class) val path: APath,
+    @SerialName("tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Path {
 
     override val id: ExclusionId

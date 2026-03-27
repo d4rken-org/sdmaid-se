@@ -1,34 +1,36 @@
 package eu.darken.sdmse.swiper.core
 
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 enum class FileTypeCategory(val extensions: Set<String>) {
-    IMAGES(
+    @SerialName("IMAGES") IMAGES(
         setOf(
             "jpg", "jpeg", "png", "gif", "bmp", "webp", "heic", "heif",
             "svg", "ico", "tiff", "tif", "raw", "cr2", "nef", "arw", "dng",
         )
     ),
-    VIDEOS(
+    @SerialName("VIDEOS") VIDEOS(
         setOf(
             "mp4", "mkv", "avi", "mov", "wmv", "flv", "webm", "m4v",
             "3gp", "3g2", "ts", "mts", "m2ts", "vob",
         )
     ),
-    AUDIO(
+    @SerialName("AUDIO") AUDIO(
         setOf(
             "mp3", "flac", "aac", "ogg", "wav", "wma", "m4a", "opus",
             "alac", "aiff", "mid", "midi",
         )
     ),
-    DOCUMENTS(
+    @SerialName("DOCUMENTS") DOCUMENTS(
         setOf(
             "pdf", "doc", "docx", "xls", "xlsx", "ppt", "pptx",
             "txt", "rtf", "csv", "odt", "ods", "odp", "epub",
             "html", "htm", "xml", "json", "md",
         )
     ),
-    ARCHIVES(
+    @SerialName("ARCHIVES") ARCHIVES(
         setOf(
             "zip", "rar", "7z", "tar", "gz", "bz2", "xz", "zst",
             "apk", "jar", "cab", "iso", "dmg",
@@ -44,7 +46,7 @@ enum class FileTypeCategory(val extensions: Set<String>) {
     }
 }
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class FileTypeFilter(
     val categories: Set<FileTypeCategory> = emptySet(),
     val customExtensions: Set<String> = emptySet(),

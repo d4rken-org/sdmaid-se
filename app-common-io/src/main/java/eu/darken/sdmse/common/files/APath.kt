@@ -4,9 +4,7 @@ import android.os.Parcelable
 import androidx.annotation.Keep
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
-import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.saf.SAFPath
-import eu.darken.sdmse.common.serialization.ValueBasedPolyJsonAdapterFactory
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Keep
@@ -27,16 +25,9 @@ interface APath : Parcelable {
     @Keep
     @Serializable
     enum class PathType {
-        RAW, LOCAL, SAF
-    }
-
-    companion object {
-        val MOSHI_FACTORY: ValueBasedPolyJsonAdapterFactory<APath> =
-            ValueBasedPolyJsonAdapterFactory.of(APath::class.java, "pathType")
-                .withSubtype(RawPath::class.java, PathType.RAW.name)
-                .withSubtype(LocalPath::class.java, PathType.LOCAL.name)
-                .withSubtype(SAFPath::class.java, PathType.SAF.name)
-                .skipLabelSerialization()
+        @SerialName("RAW") RAW,
+        @SerialName("LOCAL") LOCAL,
+        @SerialName("SAF") SAF,
     }
 
 }

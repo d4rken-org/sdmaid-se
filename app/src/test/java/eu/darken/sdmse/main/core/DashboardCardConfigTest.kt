@@ -1,33 +1,31 @@
 package eu.darken.sdmse.main.core
 
-import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class DashboardCardConfigTest : BaseTest() {
-    private val moshi = SerializationAppModule().moshi()
+    private val json: Json = SerializationAppModule().json()
 
     @Test
     fun `DashboardCardType enum values serialize correctly`() {
-        val adapter = moshi.adapter(DashboardCardType::class.java)
         DashboardCardType.entries.forEach { type ->
-            val json = adapter.toJson(type)
-            json shouldBe "\"${type.name}\""
-            adapter.fromJson(json) shouldBe type
+            val serialized = json.encodeToString(DashboardCardType.serializer(), type)
+            serialized shouldBe "\"${type.name}\""
+            json.decodeFromString(DashboardCardType.serializer(), serialized) shouldBe type
         }
     }
 
     @Test
     fun `DashboardCardConfig round trip with default cards`() {
-        val adapter = moshi.adapter(DashboardCardConfig::class.java)
         val original = DashboardCardConfig()
-
-        val json = adapter.toJson(original)
-        adapter.fromJson(json) shouldBe original
+        val serialized = json.encodeToString(DashboardCardConfig.serializer(), original)
+        json.decodeFromString(DashboardCardConfig.serializer(), serialized) shouldBe original
     }
 
     @Test
@@ -43,7 +41,6 @@ class DashboardCardConfigTest : BaseTest() {
 
     @Test
     fun `DashboardCardConfig serialization format`() {
-        val adapter = moshi.adapter(DashboardCardConfig::class.java)
         val config = DashboardCardConfig(
             cards = listOf(
                 DashboardCardConfig.CardEntry(DashboardCardType.CORPSEFINDER, isVisible = true),
@@ -51,8 +48,8 @@ class DashboardCardConfigTest : BaseTest() {
             )
         )
 
-        val json = adapter.toJson(config)
-        json.toComparableJson() shouldBe """
+        val serialized = json.encodeToString(DashboardCardConfig.serializer(), config)
+        serialized.toComparableJson() shouldBe """
             {
                 "cards": [
                     {"type": "CORPSEFINDER", "isVisible": true},
@@ -61,23 +58,19 @@ class DashboardCardConfigTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe config
+        json.decodeFromString(DashboardCardConfig.serializer(), serialized) shouldBe config
     }
 
     @Test
     fun `DashboardCardConfig empty cards list`() {
-        val adapter = moshi.adapter(DashboardCardConfig::class.java)
         val config = DashboardCardConfig(cards = emptyList())
-
-        val json = adapter.toJson(config)
-        json.toComparableJson() shouldBe """{"cards":[]}""".toComparableJson()
-
-        adapter.fromJson(json) shouldBe config
+        val serialized = json.encodeToString(DashboardCardConfig.serializer(), config)
+        serialized.toComparableJson() shouldBe """{"cards":[]}""".toComparableJson()
+        json.decodeFromString(DashboardCardConfig.serializer(), serialized) shouldBe config
     }
 
     @Test
     fun `DashboardCardConfig card order is preserved`() {
-        val adapter = moshi.adapter(DashboardCardConfig::class.java)
         val reorderedCards = listOf(
             DashboardCardConfig.CardEntry(DashboardCardType.SCHEDULER),
             DashboardCardConfig.CardEntry(DashboardCardType.ANALYZER),
@@ -85,8 +78,8 @@ class DashboardCardConfigTest : BaseTest() {
         )
         val config = DashboardCardConfig(cards = reorderedCards)
 
-        val json = adapter.toJson(config)
-        val deserialized = adapter.fromJson(json)!!
+        val serialized = json.encodeToString(DashboardCardConfig.serializer(), config)
+        val deserialized = json.decodeFromString(DashboardCardConfig.serializer(), serialized)
 
         deserialized.cards.map { it.type } shouldBe listOf(
             DashboardCardType.SCHEDULER,
@@ -97,56 +90,47 @@ class DashboardCardConfigTest : BaseTest() {
 
     @Test
     fun `CardEntry with isVisible false`() {
-        val adapter = moshi.adapter(DashboardCardConfig.CardEntry::class.java)
         val entry = DashboardCardConfig.CardEntry(
             type = DashboardCardType.DEDUPLICATOR,
             isVisible = false,
         )
 
-        val json = adapter.toJson(entry)
-        json.toComparableJson() shouldBe """
+        val serialized = json.encodeToString(DashboardCardConfig.CardEntry.serializer(), entry)
+        serialized.toComparableJson() shouldBe """
             {"type": "DEDUPLICATOR", "isVisible": false}
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe entry
+        json.decodeFromString(DashboardCardConfig.CardEntry.serializer(), serialized) shouldBe entry
     }
 
     @Test
     fun `CardEntry isVisible defaults to true when missing`() {
-        val adapter = moshi.adapter(DashboardCardConfig.CardEntry::class.java)
-        val json = """{"type":"CORPSEFINDER"}"""
-
-        val entry = adapter.fromJson(json)!!
+        val raw = """{"type":"CORPSEFINDER"}"""
+        val entry = json.decodeFromString(DashboardCardConfig.CardEntry.serializer(), raw)
         entry.type shouldBe DashboardCardType.CORPSEFINDER
         entry.isVisible shouldBe true
     }
 
     @Test
-    fun `unknown DashboardCardType throws JsonDataException`() {
-        val adapter = moshi.adapter(DashboardCardType::class.java)
-
-        shouldThrow<JsonDataException> {
-            adapter.fromJson("\"UNKNOWN_CARD\"")
+    fun `unknown DashboardCardType throws SerializationException`() {
+        shouldThrow<SerializationException> {
+            json.decodeFromString(DashboardCardType.serializer(), "\"UNKNOWN_CARD\"")
         }
     }
 
     @Test
-    fun `CardEntry with unknown type throws JsonDataException`() {
-        val adapter = moshi.adapter(DashboardCardConfig.CardEntry::class.java)
-        val json = """{"type":"FUTURE_CARD_TYPE","isVisible":true}"""
-
-        shouldThrow<JsonDataException> {
-            adapter.fromJson(json)
+    fun `CardEntry with unknown type throws SerializationException`() {
+        val raw = """{"type":"FUTURE_CARD_TYPE","isVisible":true}"""
+        shouldThrow<SerializationException> {
+            json.decodeFromString(DashboardCardConfig.CardEntry.serializer(), raw)
         }
     }
 
     @Test
     fun `DashboardCardConfig with malformed JSON throws exception`() {
-        val adapter = moshi.adapter(DashboardCardConfig::class.java)
-        val json = """{"cards": [{"type": invalid}]}"""
-
+        val raw = """{"cards": [{"type": invalid}]}"""
         shouldThrow<Exception> {
-            adapter.fromJson(json)
+            json.decodeFromString(DashboardCardConfig.serializer(), raw)
         }
     }
 }

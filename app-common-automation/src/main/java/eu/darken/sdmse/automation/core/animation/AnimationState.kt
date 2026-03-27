@@ -1,13 +1,13 @@
 package eu.darken.sdmse.automation.core.animation
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class AnimationState(
-    @Json(name = "windowAnimationScale") val windowAnimationScale: Float?,
-    @Json(name = "globalTransitionAnimationScale") val globalTransitionAnimationScale: Float?,
-    @Json(name = "globalAnimatorDurationScale") val globalAnimatorDurationscale: Float?,
+    @SerialName("windowAnimationScale") val windowAnimationScale: Float?,
+    @SerialName("globalTransitionAnimationScale") val globalTransitionAnimationScale: Float?,
+    @SerialName("globalAnimatorDurationScale") val globalAnimatorDurationscale: Float?,
 ) {
 
     companion object {

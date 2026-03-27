@@ -29,7 +29,7 @@ import java.io.File
 
 class MarkerSourceTestTool(private val assetPath: String) {
 
-    private val moshi = SerializationIOModule().moshi()
+    private val json = SerializationIOModule().json()
 
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
@@ -54,7 +54,7 @@ class MarkerSourceTestTool(private val assetPath: String) {
         cachedSource?.let { return it }
 
         return ManualMarkerSource(pkgRepo) {
-            JsonMarkerParser(context, moshi).fromAssets(assetPath)
+            JsonMarkerParser(context, json).fromAssets(assetPath)
         }.also {
             cachedSource = it
         }

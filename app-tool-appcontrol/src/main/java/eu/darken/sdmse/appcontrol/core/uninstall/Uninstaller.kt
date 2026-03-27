@@ -2,7 +2,7 @@ package eu.darken.sdmse.appcontrol.core.uninstall
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 import dagger.Reusable
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.AppControl
@@ -110,7 +110,7 @@ class Uninstaller @Inject constructor(
             else -> {
                 log(TAG) { "Using normal intent to uninstall ${app.installId}" }
                 val appSettingsIntent = Intent(Intent.ACTION_DELETE).apply {
-                    data = Uri.parse("package:${app.installId.pkgId.name}")
+                    data = "package:${app.installId.pkgId.name}".toUri()
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }
                 context.startActivity(appSettingsIntent)

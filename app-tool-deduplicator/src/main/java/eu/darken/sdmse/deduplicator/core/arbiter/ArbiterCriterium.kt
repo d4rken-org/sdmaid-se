@@ -1,12 +1,21 @@
+@file:UseSerializers(APathSerializer::class)
+
 package eu.darken.sdmse.deduplicator.core.arbiter
 
 import androidx.annotation.Keep
 import androidx.annotation.StringRes
-import com.squareup.moshi.JsonClass
-import eu.darken.sdmse.deduplicator.R
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.serialization.ValueBasedPolyJsonAdapterFactory
+import eu.darken.sdmse.common.serialization.APathSerializer
+import eu.darken.sdmse.deduplicator.R
+import kotlinx.serialization.ExperimentalSerializationApi
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
+import kotlinx.serialization.json.JsonClassDiscriminator
 
+@OptIn(ExperimentalSerializationApi::class)
+@Serializable
+@JsonClassDiscriminator("criteriumType")
 sealed interface ArbiterCriterium {
 
     fun criteriumMode(): Mode? = null
@@ -15,98 +24,100 @@ sealed interface ArbiterCriterium {
         @get:StringRes val labelRes: Int
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("DUPLICATE_TYPE")
     data class DuplicateType(
-        val mode: Mode = Mode.PREFER_CHECKSUM,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_CHECKSUM,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_CHECKSUM(R.string.deduplicator_arbiter_mode_prefer_checksum),
-            PREFER_PHASH(R.string.deduplicator_arbiter_mode_prefer_phash),
+            @SerialName("PREFER_CHECKSUM") PREFER_CHECKSUM(R.string.deduplicator_arbiter_mode_prefer_checksum),
+            @SerialName("PREFER_PHASH") PREFER_PHASH(R.string.deduplicator_arbiter_mode_prefer_phash),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("MEDIA_PROVIDER")
     data class MediaProvider(
-        val mode: Mode = Mode.PREFER_INDEXED,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_INDEXED,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_INDEXED(R.string.deduplicator_arbiter_mode_prefer_indexed),
-            PREFER_UNKNOWN(R.string.deduplicator_arbiter_mode_prefer_unknown),
+            @SerialName("PREFER_INDEXED") PREFER_INDEXED(R.string.deduplicator_arbiter_mode_prefer_indexed),
+            @SerialName("PREFER_UNKNOWN") PREFER_UNKNOWN(R.string.deduplicator_arbiter_mode_prefer_unknown),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("LOCATION")
     data class Location(
-        val mode: Mode = Mode.PREFER_PRIMARY,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_PRIMARY,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_PRIMARY(R.string.deduplicator_arbiter_mode_prefer_primary),
-            PREFER_SECONDARY(R.string.deduplicator_arbiter_mode_prefer_secondary),
+            @SerialName("PREFER_PRIMARY") PREFER_PRIMARY(R.string.deduplicator_arbiter_mode_prefer_primary),
+            @SerialName("PREFER_SECONDARY") PREFER_SECONDARY(R.string.deduplicator_arbiter_mode_prefer_secondary),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("NESTING")
     data class Nesting(
-        val mode: Mode = Mode.PREFER_SHALLOW,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_SHALLOW,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_SHALLOW(R.string.deduplicator_arbiter_mode_prefer_shallow),
-            PREFER_DEEPER(R.string.deduplicator_arbiter_mode_prefer_deeper),
+            @SerialName("PREFER_SHALLOW") PREFER_SHALLOW(R.string.deduplicator_arbiter_mode_prefer_shallow),
+            @SerialName("PREFER_DEEPER") PREFER_DEEPER(R.string.deduplicator_arbiter_mode_prefer_deeper),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("MODIFIED")
     data class Modified(
-        val mode: Mode = Mode.PREFER_OLDER,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_OLDER,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_OLDER(R.string.deduplicator_arbiter_mode_prefer_older),
-            PREFER_NEWER(R.string.deduplicator_arbiter_mode_prefer_newer),
+            @SerialName("PREFER_OLDER") PREFER_OLDER(R.string.deduplicator_arbiter_mode_prefer_older),
+            @SerialName("PREFER_NEWER") PREFER_NEWER(R.string.deduplicator_arbiter_mode_prefer_newer),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("SIZE")
     data class Size(
-        val mode: Mode = Mode.PREFER_LARGER,
+        @SerialName("mode") val mode: Mode = Mode.PREFER_LARGER,
     ) : ArbiterCriterium {
         override fun criteriumMode(): Mode = mode
 
+        @Serializable
         @Keep
         enum class Mode(@StringRes override val labelRes: Int) : ArbiterCriterium.Mode {
-            PREFER_LARGER(R.string.deduplicator_arbiter_mode_prefer_larger),
-            PREFER_SMALLER(R.string.deduplicator_arbiter_mode_prefer_smaller),
+            @SerialName("PREFER_LARGER") PREFER_LARGER(R.string.deduplicator_arbiter_mode_prefer_larger),
+            @SerialName("PREFER_SMALLER") PREFER_SMALLER(R.string.deduplicator_arbiter_mode_prefer_smaller),
         }
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
+    @SerialName("PREFERRED_PATH")
     data class PreferredPath(
-        val keepPreferPaths: Set<APath> = emptySet(),
+        @SerialName("keepPreferPaths") val keepPreferPaths: Set<APath> = emptySet(),
     ) : ArbiterCriterium
 
-    companion object {
-        val MOSHI_FACTORY: ValueBasedPolyJsonAdapterFactory<ArbiterCriterium> =
-            ValueBasedPolyJsonAdapterFactory.of(ArbiterCriterium::class.java, "criteriumType")
-                .withSubtype(DuplicateType::class.java, "DUPLICATE_TYPE")
-                .withSubtype(MediaProvider::class.java, "MEDIA_PROVIDER")
-                .withSubtype(Location::class.java, "LOCATION")
-                .withSubtype(Nesting::class.java, "NESTING")
-                .withSubtype(Modified::class.java, "MODIFIED")
-                .withSubtype(Size::class.java, "SIZE")
-                .withSubtype(PreferredPath::class.java, "PREFERRED_PATH")
-    }
 }

@@ -1,10 +1,11 @@
 package eu.darken.sdmse.common.clutter
 
 import androidx.annotation.Keep
-import com.squareup.moshi.Json
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.pkgs.Pkg
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
 @Keep
 interface Marker {
@@ -28,16 +29,17 @@ interface Marker {
      */
     fun match(otherAreaType: DataArea.Type, otherSegments: Segments): Match?
 
+    @Serializable
     @Keep
     enum class Flag(val raw: String) {
-        @Json(name = "keeper") KEEPER("keeper"),
-        @Json(name = "common") COMMON("common"),
-        @Json(name = "custodian") CUSTODIAN("custodian"),
+        @SerialName("keeper") KEEPER("keeper"),
+        @SerialName("common") COMMON("common"),
+        @SerialName("custodian") CUSTODIAN("custodian"),
         ;
     }
 
     @Keep
-    class Match constructor(
+    class Match(
         val packageNames: Set<Pkg.Id>,
         val flags: Set<Flag> = emptySet()
     ) {

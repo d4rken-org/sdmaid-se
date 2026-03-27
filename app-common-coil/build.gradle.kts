@@ -47,7 +47,7 @@ dependencies {
     addDI()
     addCoroutines()
     addCoilApi()
-    addKotlinxNavSerialization()
+    addSerialization()
 
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 

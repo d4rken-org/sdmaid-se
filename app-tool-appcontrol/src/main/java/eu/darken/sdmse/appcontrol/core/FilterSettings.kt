@@ -1,23 +1,23 @@
 package eu.darken.sdmse.appcontrol.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class FilterSettings(
-    val tags: Set<Tag> = setOf(
+    @SerialName("tags") val tags: Set<Tag> = setOf(
         Tag.USER,
         Tag.ENABLED,
     ),
 ) {
-    @JsonClass(generateAdapter = false)
+    @Serializable
     enum class Tag {
-        @Json(name = "USER") USER,
-        @Json(name = "SYSTEM") SYSTEM,
-        @Json(name = "ENABLED") ENABLED,
-        @Json(name = "DISABLED") DISABLED,
-        @Json(name = "ACTIVE") ACTIVE,
-        @Json(name = "NOT_INSTALLED") NOT_INSTALLED,
+        @SerialName("USER") USER,
+        @SerialName("SYSTEM") SYSTEM,
+        @SerialName("ENABLED") ENABLED,
+        @SerialName("DISABLED") DISABLED,
+        @SerialName("ACTIVE") ACTIVE,
+        @SerialName("NOT_INSTALLED") NOT_INSTALLED,
         ;
     }
 }

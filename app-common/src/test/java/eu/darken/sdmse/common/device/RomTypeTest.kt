@@ -1,36 +1,35 @@
 package eu.darken.sdmse.common.device
 
-import com.squareup.moshi.Moshi
 import eu.darken.sdmse.common.serialization.SerializationCommonModule
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 class RomTypeTest : BaseTest() {
 
-    private val moshi: Moshi = SerializationCommonModule().moshi()
-    private val adapter = moshi.adapter(RomType::class.java)
+    private val json: Json = SerializationCommonModule().json()
 
     @Test
-    fun `serialization uses Json name annotation`() {
+    fun `serialization uses SerialName annotation`() {
         val romType = RomType.FUNTOUCHOS
-        val json = adapter.toJson(romType)
-        json shouldBe "\"VIVO\""
+        val jsonStr = json.encodeToString(RomType.serializer(), romType)
+        jsonStr shouldBe "\"VIVO\""
     }
 
     @Test
-    fun `deserialization uses Json name annotation`() {
-        val json = "\"VIVO\""
-        val romType = adapter.fromJson(json)
+    fun `deserialization uses SerialName annotation`() {
+        val jsonStr = "\"VIVO\""
+        val romType = json.decodeFromString(RomType.serializer(), jsonStr)
         romType shouldBe RomType.FUNTOUCHOS
     }
 
     @Test
     fun `VIVO maps to FUNTOUCHOS enum constant`() {
-        val json = "\"VIVO\""
-        val deserialized = adapter.fromJson(json)
+        val jsonStr = "\"VIVO\""
+        val deserialized = json.decodeFromString(RomType.serializer(), jsonStr)
         deserialized shouldBe RomType.FUNTOUCHOS
-        deserialized?.name shouldBe "FUNTOUCHOS"
+        deserialized.name shouldBe "FUNTOUCHOS"
     }
 
     @Test
@@ -43,12 +42,12 @@ class RomTypeTest : BaseTest() {
             "\"HONOR\"" to RomType.HONOR
         )
 
-        testCases.forEach { (json, expectedEnum) ->
-            val deserialized = adapter.fromJson(json)
+        testCases.forEach { (jsonStr, expectedEnum) ->
+            val deserialized = json.decodeFromString(RomType.serializer(), jsonStr)
             deserialized shouldBe expectedEnum
 
-            val serialized = adapter.toJson(expectedEnum)
-            serialized shouldBe json
+            val serialized = json.encodeToString(RomType.serializer(), expectedEnum)
+            serialized shouldBe jsonStr
         }
     }
 }

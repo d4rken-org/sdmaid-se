@@ -1,21 +1,21 @@
 package eu.darken.sdmse.appcontrol.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class SortSettings(
-    @Json(name = "mode") val mode: Mode = Mode.LAST_UPDATE,
-    @Json(name = "reversed") val reversed: Boolean = true,
+    @SerialName("mode") val mode: Mode = Mode.LAST_UPDATE,
+    @SerialName("reversed") val reversed: Boolean = true,
 ) {
-    @JsonClass(generateAdapter = false)
+    @Serializable
     enum class Mode {
-        @Json(name = "NAME") NAME,
-        @Json(name = "LAST_UPDATE") LAST_UPDATE,
-        @Json(name = "INSTALLED_AT") INSTALLED_AT,
-        @Json(name = "PACKAGENAME") PACKAGENAME,
-        @Json(name = "SIZE") SIZE,
-        @Json(name = "SCREEN_TIME") SCREEN_TIME,
+        @SerialName("NAME") NAME,
+        @SerialName("LAST_UPDATE") LAST_UPDATE,
+        @SerialName("INSTALLED_AT") INSTALLED_AT,
+        @SerialName("PACKAGENAME") PACKAGENAME,
+        @SerialName("SIZE") SIZE,
+        @SerialName("SCREEN_TIME") SCREEN_TIME,
         ;
     }
 }

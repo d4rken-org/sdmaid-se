@@ -1,23 +1,26 @@
 package eu.darken.sdmse.common.files.local
 
 import androidx.annotation.Keep
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.serialization.FileParcelizer
+import eu.darken.sdmse.common.serialization.FileSerializer
 import kotlinx.parcelize.IgnoredOnParcel
 import kotlinx.parcelize.Parcelize
 import kotlinx.parcelize.TypeParceler
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.Transient
 import java.io.File
 
 
 @Keep
-@JsonClass(generateAdapter = true)
+@Serializable
 @Parcelize
 @TypeParceler<File, FileParcelizer>()
 data class LocalPath(
-    val file: File
+    @SerialName("file") @Serializable(with = FileSerializer::class) val file: File,
 ) : APath {
 
     override var pathType: APath.PathType

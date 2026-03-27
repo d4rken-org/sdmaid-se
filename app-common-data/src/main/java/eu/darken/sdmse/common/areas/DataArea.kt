@@ -2,12 +2,12 @@ package eu.darken.sdmse.common.areas
 
 import android.os.Parcelable
 import androidx.annotation.Keep
-import com.squareup.moshi.Json
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.user.UserHandle2
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 data class DataArea(
@@ -31,48 +31,48 @@ data class DataArea(
     @Serializable
     @Keep @Parcelize
     enum class Type(val raw: String) : Parcelable {
-        @Json(name = "SDCARD") SDCARD("SDCARD"),
-        @Json(name = "PUBLIC_MEDIA") PUBLIC_MEDIA("PUBLIC_MEDIA"),
-        @Json(name = "PUBLIC_DATA") PUBLIC_DATA("PUBLIC_DATA"),
-        @Json(name = "PUBLIC_OBB") PUBLIC_OBB("PUBLIC_OBB"),
-        @Json(name = "PRIVATE_DATA") PRIVATE_DATA("PRIVATE_DATA"),
-        @Json(name = "APP_LIB") APP_LIB("APP_LIB"),
-        @Json(name = "APP_ASEC") APP_ASEC("APP_ASEC"),
-        @Json(name = "APP_APP") APP_APP("APP_APP"),
-        @Json(name = "APP_APP_PRIVATE") APP_APP_PRIVATE("APP_APP_PRIVATE"),
-        @Json(name = "DALVIK_DEX") DALVIK_DEX("DALVIK_DEX"),
-        @Json(name = "DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
-        @Json(name = "ART_PROFILE") ART_PROFILE("ART_PROFILE"),
-        @Json(name = "DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
-        @Json(name = "DATA") DATA("DATA"),
-        @Json(name = "DATA_MISC") DATA_MISC("DATA_MISC"),
-        @Json(name = "DATA_VENDOR") DATA_VENDOR("DATA_VENDOR"),
-        @Json(name = "DATA_SYSTEM") DATA_SYSTEM("DATA_SYSTEM"),
+        @SerialName("SDCARD") SDCARD("SDCARD"),
+        @SerialName("PUBLIC_MEDIA") PUBLIC_MEDIA("PUBLIC_MEDIA"),
+        @SerialName("PUBLIC_DATA") PUBLIC_DATA("PUBLIC_DATA"),
+        @SerialName("PUBLIC_OBB") PUBLIC_OBB("PUBLIC_OBB"),
+        @SerialName("PRIVATE_DATA") PRIVATE_DATA("PRIVATE_DATA"),
+        @SerialName("APP_LIB") APP_LIB("APP_LIB"),
+        @SerialName("APP_ASEC") APP_ASEC("APP_ASEC"),
+        @SerialName("APP_APP") APP_APP("APP_APP"),
+        @SerialName("APP_APP_PRIVATE") APP_APP_PRIVATE("APP_APP_PRIVATE"),
+        @SerialName("DALVIK_DEX") DALVIK_DEX("DALVIK_DEX"),
+        @SerialName("DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
+        @SerialName("ART_PROFILE") ART_PROFILE("ART_PROFILE"),
+        @SerialName("DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
+        @SerialName("DATA") DATA("DATA"),
+        @SerialName("DATA_MISC") DATA_MISC("DATA_MISC"),
+        @SerialName("DATA_VENDOR") DATA_VENDOR("DATA_VENDOR"),
+        @SerialName("DATA_SYSTEM") DATA_SYSTEM("DATA_SYSTEM"),
 
         /**
          * Base directory for per-user system directory, credential encrypted.
          */
-        @Json(name = "DATA_SYSTEM_CE") DATA_SYSTEM_CE("DATA_SYSTEM_CE"),
+        @SerialName("DATA_SYSTEM_CE") DATA_SYSTEM_CE("DATA_SYSTEM_CE"),
 
         /**
          * Base directory for per-user system directory, device encrypted.
          */
-        @Json(name = "DATA_SYSTEM_DE") DATA_SYSTEM_DE("DATA_SYSTEM_DE"),
+        @SerialName("DATA_SYSTEM_DE") DATA_SYSTEM_DE("DATA_SYSTEM_DE"),
 
-        @Json(name = "PORTABLE") PORTABLE("PORTABLE"),
+        @SerialName("PORTABLE") PORTABLE("PORTABLE"),
 
         /**
          * Link2SD https://play.google.com/store/apps/details?id=com.buak.Link2SD
          * Apps2SD https://play.google.com/store/apps/details?id=com.a0soft.gphone.app2sd
          */
-        @Json(name = "DATA_SDEXT2") DATA_SDEXT2("DATA_SDEXT2"),
+        @SerialName("DATA_SDEXT2") DATA_SDEXT2("DATA_SDEXT2"),
 
-        @Json(name = "SYSTEM") SYSTEM("SYSTEM"),
-        @Json(name = "SYSTEM_APP") SYSTEM_APP("SYSTEM_APP"),
-        @Json(name = "SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
-        @Json(name = "OEM") OEM("OEM"),
+        @SerialName("SYSTEM") SYSTEM("SYSTEM"),
+        @SerialName("SYSTEM_APP") SYSTEM_APP("SYSTEM_APP"),
+        @SerialName("SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
+        @SerialName("OEM") OEM("OEM"),
 
-        @Json(name = "APEX") APEX("APEX"),
+        @SerialName("APEX") APEX("APEX"),
 
         ;
 

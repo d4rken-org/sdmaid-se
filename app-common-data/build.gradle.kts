@@ -43,7 +43,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
     addRoomDb()
 
     addTesting()

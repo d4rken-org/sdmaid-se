@@ -11,6 +11,7 @@ import android.os.Parcelable
 import android.os.UserHandle
 import android.os.storage.StorageVolume
 import android.provider.DocumentsContract
+import androidx.core.net.toUri
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -183,12 +184,12 @@ class StorageVolumeX(
     val documentUri: Uri
         get() = rootUri.toString()
             .replace("/root/", "/document/")
-            .let { Uri.parse(it) }
+            .toUri()
 
     val treeUri: Uri
         get() = rootUri.toString()
             .replace("/root/", "/tree/")
-            .let { Uri.parse(it) }
+            .toUri()
 
 
     val directory: File?

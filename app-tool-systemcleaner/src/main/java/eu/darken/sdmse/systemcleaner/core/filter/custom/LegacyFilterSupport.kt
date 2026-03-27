@@ -1,9 +1,6 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
 import androidx.annotation.Keep
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.Moshi
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -13,21 +10,23 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import java.time.Duration
 import java.util.UUID
 import javax.inject.Inject
 
 
 class LegacyFilterSupport @Inject constructor(
-    private val moshi: Moshi,
+    private val json: Json,
 ) {
-    private val adapter by lazy { moshi.adapter(Filter::class.java) }
 
     suspend fun import(payload: String): CustomFilterConfig? {
         log(TAG) { "Importing $payload" }
 
         val legacyFilter = try {
-            adapter.fromJson(payload)!!
+            json.decodeFromString<Filter>(payload)
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to import $payload: ${e.asLog()}" }
             return null
@@ -118,67 +117,61 @@ class LegacyFilterSupport @Inject constructor(
         )
     }
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class Filter(
-        @Json(name = "label") val label: String,
-        @Json(name = "targetType") val targetType: TargetType?,
-        @Json(name = "isEmpty") val isEmpty: Boolean?,
-        @Json(name = "locations") val locations: Set<Location>?,
-        @Json(name = "mainPath") val possibleBasePathes: Set<String>?,
-        @Json(name = "pathContains") val possiblePathContains: Set<String>?,
-        @Json(name = "possibleNameInits") val possibleNameInits: Set<String>?,
-        @Json(name = "possibleNameEndings") val possibleNameEndings: Set<String>?,
-        @Json(name = "exclusions") val exclusions: Set<String>?,
-        @Json(name = "regexes") val regex: Set<String>?,
-        @Json(name = "maximumSize") val maximumSize: Long?,
-        @Json(name = "minimumSize") val minimumSize: Long?,
-        @Json(name = "maximumAge") val maximumAge: Long?,
-        @Json(name = "minimumAge") val minimumAge: Long?,
+        @SerialName("label") val label: String,
+        @SerialName("targetType") val targetType: TargetType? = null,
+        @SerialName("isEmpty") val isEmpty: Boolean? = null,
+        @SerialName("locations") val locations: Set<Location>? = null,
+        @SerialName("mainPath") val possibleBasePathes: Set<String>? = null,
+        @SerialName("pathContains") val possiblePathContains: Set<String>? = null,
+        @SerialName("possibleNameInits") val possibleNameInits: Set<String>? = null,
+        @SerialName("possibleNameEndings") val possibleNameEndings: Set<String>? = null,
+        @SerialName("exclusions") val exclusions: Set<String>? = null,
+        @SerialName("regexes") val regex: Set<String>? = null,
+        @SerialName("maximumSize") val maximumSize: Long? = null,
+        @SerialName("minimumSize") val minimumSize: Long? = null,
+        @SerialName("maximumAge") val maximumAge: Long? = null,
+        @SerialName("minimumAge") val minimumAge: Long? = null,
     ) {
 
-        //    @Json(name = "version") private int version = VERSION;
-        //    @Json(name = "identifier") private String identifier;
-        //    @Json(name = "color") private String color;
-        //    @Json(name = "description") private String description;
-        //    @Nullable @Json(name = "rootOnly") private Boolean rootOnly;
-
+        @Serializable
         @Keep
-        @JsonClass(generateAdapter = false)
         enum class TargetType {
-            @Json(name = "FILE") FILE,
-            @Json(name = "DIRECTORY") DIRECTORY,
-            @Json(name = "UNDEFINED") UNDEFINED,
+            @SerialName("FILE") FILE,
+            @SerialName("DIRECTORY") DIRECTORY,
+            @SerialName("UNDEFINED") UNDEFINED,
         }
 
+        @Serializable
         @Keep
-        @JsonClass(generateAdapter = false)
         enum class Location(val raw: String) {
-            @Json(name = "SDCARD") SDCARD("SDCARD"),
-            @Json(name = "PUBLIC_MEDIA") PUBLIC_MEDIA("PUBLIC_MEDIA"),
-            @Json(name = "PUBLIC_DATA") PUBLIC_DATA("PUBLIC_DATA"),
-            @Json(name = "PUBLIC_OBB") PUBLIC_OBB("PUBLIC_OBB"),
-            @Json(name = "PRIVATE_DATA") PRIVATE_DATA("PRIVATE_DATA"),
-            @Json(name = "APP_LIB") APP_LIB("APP_LIB"),
-            @Json(name = "APP_ASEC") APP_ASEC("APP_ASEC"),
-            @Json(name = "MNT_SECURE_ASEC") MNT_SECURE_ASEC("MNT_SECURE_ASEC"),
-            @Json(name = "APP_APP") APP_APP("APP_APP"),
-            @Json(name = "APP_APP_PRIVATE") APP_APP_PRIVATE("APP_APP_PRIVATE"),
-            @Json(name = "DALVIK_DEX") DALVIK_DEX("DALVIK_DEX"),
-            @Json(name = "DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
-            @Json(name = "SYSTEM_APP") SYSTEM_APP("SYSTEM_APP"),
-            @Json(name = "SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
-            @Json(name = "DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
-            @Json(name = "SYSTEM") SYSTEM("SYSTEM"),
-            @Json(name = "DATA") DATA("DATA"),
-            @Json(name = "DATA_SYSTEM") DATA_SYSTEM("DATA_SYSTEM"),
-            @Json(name = "DATA_SYSTEM_CE") DATA_SYSTEM_CE("DATA_SYSTEM_CE"),
-            @Json(name = "DATA_SYSTEM_DE") DATA_SYSTEM_DE("DATA_SYSTEM_DE"),
-            @Json(name = "PORTABLE") PORTABLE("PORTABLE"),
-            @Json(name = "ROOT") ROOT("ROOT"),
-            @Json(name = "VENDOR") VENDOR("VENDOR"),
-            @Json(name = "OEM") OEM("OEM"),
-            @Json(name = "DATA_SDEXT2") DATA_SDEXT2("DATA_SDEXT2"),
-            @Json(name = "UNKNOWN") UNKNOWN("UNKNOWN"),
+            @SerialName("SDCARD") SDCARD("SDCARD"),
+            @SerialName("PUBLIC_MEDIA") PUBLIC_MEDIA("PUBLIC_MEDIA"),
+            @SerialName("PUBLIC_DATA") PUBLIC_DATA("PUBLIC_DATA"),
+            @SerialName("PUBLIC_OBB") PUBLIC_OBB("PUBLIC_OBB"),
+            @SerialName("PRIVATE_DATA") PRIVATE_DATA("PRIVATE_DATA"),
+            @SerialName("APP_LIB") APP_LIB("APP_LIB"),
+            @SerialName("APP_ASEC") APP_ASEC("APP_ASEC"),
+            @SerialName("MNT_SECURE_ASEC") MNT_SECURE_ASEC("MNT_SECURE_ASEC"),
+            @SerialName("APP_APP") APP_APP("APP_APP"),
+            @SerialName("APP_APP_PRIVATE") APP_APP_PRIVATE("APP_APP_PRIVATE"),
+            @SerialName("DALVIK_DEX") DALVIK_DEX("DALVIK_DEX"),
+            @SerialName("DALVIK_PROFILE") DALVIK_PROFILE("DALVIK_PROFILE"),
+            @SerialName("SYSTEM_APP") SYSTEM_APP("SYSTEM_APP"),
+            @SerialName("SYSTEM_PRIV_APP") SYSTEM_PRIV_APP("SYSTEM_PRIV_APP"),
+            @SerialName("DOWNLOAD_CACHE") DOWNLOAD_CACHE("DOWNLOAD_CACHE"),
+            @SerialName("SYSTEM") SYSTEM("SYSTEM"),
+            @SerialName("DATA") DATA("DATA"),
+            @SerialName("DATA_SYSTEM") DATA_SYSTEM("DATA_SYSTEM"),
+            @SerialName("DATA_SYSTEM_CE") DATA_SYSTEM_CE("DATA_SYSTEM_CE"),
+            @SerialName("DATA_SYSTEM_DE") DATA_SYSTEM_DE("DATA_SYSTEM_DE"),
+            @SerialName("PORTABLE") PORTABLE("PORTABLE"),
+            @SerialName("ROOT") ROOT("ROOT"),
+            @SerialName("VENDOR") VENDOR("VENDOR"),
+            @SerialName("OEM") OEM("OEM"),
+            @SerialName("DATA_SDEXT2") DATA_SDEXT2("DATA_SDEXT2"),
+            @SerialName("UNKNOWN") UNKNOWN("UNKNOWN"),
         }
     }
 

@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 class AppControlSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi,
+    json: Json,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_appcontrol")
@@ -25,8 +25,8 @@ class AppControlSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val listSort = dataStore.createValue("list.sort.settings", SortSettings(), moshi)
-    val listFilter = dataStore.createValue("list.filter.settings", FilterSettings(), moshi)
+    val listSort = dataStore.createValue("list.sort.settings", SortSettings(), json)
+    val listFilter = dataStore.createValue("list.filter.settings", FilterSettings(), json)
     val ackSizeSortCaveat = dataStore.createValue("list.filter.sizesort.caveat.ack", false)
     val moduleSizingEnabled = dataStore.createValue("module.sizing.enabled", true)
     val moduleActivityEnabled = dataStore.createValue("module.activity.enabled", true)

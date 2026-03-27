@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.core.motd
 
-import com.squareup.moshi.Moshi
 import dagger.Reusable
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -10,10 +9,12 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.json.Json
+import okhttp3.MediaType.Companion.toMediaType
 import okhttp3.OkHttpClient
 import retrofit2.HttpException
 import retrofit2.Retrofit
-import retrofit2.converter.moshi.MoshiConverterFactory
+import retrofit2.converter.kotlinx.serialization.asConverterFactory
 import retrofit2.converter.scalars.ScalarsConverterFactory
 import java.util.Locale
 import javax.inject.Inject
@@ -22,7 +23,7 @@ import javax.inject.Inject
 class MotdEndpoint @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val baseHttpClient: OkHttpClient,
-    private val baseMoshi: Moshi,
+    private val json: Json,
 ) {
 
     var endpointUrlOverride: String? = null
@@ -32,7 +33,7 @@ class MotdEndpoint @Inject constructor(
             baseUrl(endpointUrlOverride ?: "https://api.github.com")
             client(baseHttpClient)
             addConverterFactory(ScalarsConverterFactory.create())
-            addConverterFactory(MoshiConverterFactory.create(baseMoshi).asLenient())
+            addConverterFactory(json.asConverterFactory("application/json".toMediaType()))
         }.build().create(MotdApi::class.java)
     }
 

@@ -2,9 +2,7 @@ package eu.darken.sdmse.common.files
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.squareup.moshi.JsonClass
 
-@JsonClass(generateAdapter = true)
 data class Ownership(
     val userId: Long,
     val groupId: Long,

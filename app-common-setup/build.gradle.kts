@@ -43,7 +43,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
 
     addTesting()
     testImplementation(project(":app-common-test"))

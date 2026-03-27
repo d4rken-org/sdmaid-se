@@ -19,7 +19,7 @@ class JsonAppSieveTest : BaseTest() {
     private val context: Context = mockk()
     private val assetManager: AssetManager = mockk()
     private var testData: ByteArray? = null
-    val baseMoshi = SerializationAppModule().moshi()
+    val json = SerializationAppModule().json()
 
     @BeforeEach
     fun setup() {
@@ -29,7 +29,7 @@ class JsonAppSieveTest : BaseTest() {
         }
     }
 
-    fun create(path: String): JsonAppSieve = JsonAppSieve(path, context, baseMoshi)
+    fun create(path: String): JsonAppSieve = JsonAppSieve(path, context, json)
 
     @Test fun `invalid empty file`() {
         shouldThrowAny {

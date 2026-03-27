@@ -48,7 +48,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
     addIOApi()
 
     addTesting()

@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.serialization
 
-import com.squareup.moshi.JsonAdapter
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -9,11 +8,14 @@ import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withContext
+import kotlinx.serialization.KSerializer
+import kotlinx.serialization.json.Json
 import java.io.File
 import java.io.IOException
 
 abstract class SerializedStorage<T>(
     private val dispatcherProvider: DispatcherProvider,
+    private val json: Json,
     private val logTag: String,
 ) {
     abstract val provideBackupPath: () -> File
@@ -30,8 +32,8 @@ abstract class SerializedStorage<T>(
         }
     }
 
-    abstract val provideAdapter: () -> JsonAdapter<T>
-    private val adapter by lazy { provideAdapter() }
+    abstract val provideSerializer: () -> KSerializer<T>
+    private val serializer by lazy { provideSerializer() }
 
     private val lock = Mutex()
 
@@ -42,7 +44,7 @@ abstract class SerializedStorage<T>(
                 saveCurrent.copyTo(saveBackup, overwrite = true)
             }
             try {
-                val rawJson = adapter.toJson(data)
+                val rawJson = json.encodeToString(serializer, data)
                 saveCurrent.writeText(rawJson)
             } catch (e: IOException) {
                 log(logTag, ERROR) { "Saving failed: ${e.asLog()}" }
@@ -53,7 +55,8 @@ abstract class SerializedStorage<T>(
     }
 
     private fun tryLoadFromFile(file: File): T? = try {
-        adapter.fromFile(file)
+        val text = file.readText()
+        json.decodeFromString(serializer, text)
     } catch (e: Exception) {
         log(logTag, ERROR) { "Failed to load from $file: ${e.asLog()}" }
         null

@@ -100,13 +100,6 @@ fun DependencyHandlerScope.addLottie() {
 }
 
 fun DependencyHandlerScope.addSerialization() {
-    val version = "1.15.2"
-    implementation("com.squareup.moshi:moshi:$version")
-    implementation("com.squareup.moshi:moshi-adapters:$version")
-    ksp("com.squareup.moshi:moshi-kotlin-codegen:$version")
-}
-
-fun DependencyHandlerScope.addKotlinxNavSerialization() {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.Kotlin.serialization}")
 }
 
@@ -122,7 +115,7 @@ fun DependencyHandlerScope.addIOApi() {
 
 fun DependencyHandlerScope.addRetrofit() {
     implementation("com.squareup.retrofit2:retrofit:3.0.0")
-    implementation("com.squareup.retrofit2:converter-moshi:3.0.0")
+    implementation("com.squareup.retrofit2:converter-kotlinx-serialization:3.0.0")
     implementation("com.squareup.retrofit2:converter-scalars:3.0.0")
     implementation("com.squareup.okhttp3:logging-interceptor:4.12.0")
 

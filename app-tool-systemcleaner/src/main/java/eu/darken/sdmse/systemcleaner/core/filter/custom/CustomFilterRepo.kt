@@ -1,8 +1,6 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
 import android.content.Context
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapter
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -10,10 +8,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.serialization.fromFile
-import eu.darken.sdmse.common.serialization.toFile
-import eu.darken.sdmse.common.sieve.NameCriterium
-import eu.darken.sdmse.common.sieve.SegmentCriterium
 import eu.darken.sdmse.systemcleaner.core.SystemCleanerSettings
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
 import kotlinx.coroutines.flow.Flow
@@ -23,6 +17,7 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
+import kotlinx.serialization.json.Json
 import java.io.File
 import java.util.UUID
 import javax.inject.Inject
@@ -31,19 +26,12 @@ import javax.inject.Singleton
 @Singleton
 class CustomFilterRepo @Inject constructor(
     private val context: Context,
-    private val baseMoshi: Moshi,
+    private val json: Json,
     private val settings: SystemCleanerSettings,
     private val legacyImporter: LegacyFilterSupport,
 ) {
 
-    private val moshi by lazy {
-        baseMoshi.newBuilder().apply {
-            add(NameCriterium.MOSHI_ADAPTER_FACTORY)
-            add(SegmentCriterium.MOSHI_ADAPTER_FACTORY)
-        }.build()
-    }
     private val lock = Mutex()
-    private val configAdapter by lazy { moshi.adapter<CustomFilterConfig>() }
     private val filterDir by lazy {
         File(context.filesDir, "systemcleaner/customfilter2").apply {
             if (!exists() && mkdirs()) log(TAG) { "Created $this" }
@@ -70,7 +58,9 @@ class CustomFilterRepo @Inject constructor(
         .map { files ->
             lock.withLock {
                 val configs = files.map { configPath ->
-                    configAdapter.fromFile(configPath).also { log(TAG) { "Loaded config $configPath -> $it" } }
+                    json.decodeFromString<CustomFilterConfig>(configPath.readText()).also {
+                        log(TAG) { "Loaded config $configPath -> $it" }
+                    }
                 }
 
                 val orphaned = settings.enabledCustomFilter.value().filter { id ->
@@ -94,14 +84,14 @@ class CustomFilterRepo @Inject constructor(
         lock.withLock {
             configs.forEach { config ->
                 val path = config.identifier.configPath
-                configAdapter.toFile(config, path)
+                path.writeText(json.encodeToString(config))
                 log(TAG) { "Saved to $path" }
             }
         }
         refresh()
     }
 
-    suspend fun remove(ids: Set<FilterIdentifier>): Unit {
+    suspend fun remove(ids: Set<FilterIdentifier>) {
         log(TAG) { "remove($ids)" }
 
         lock.withLock {
@@ -127,7 +117,7 @@ class CustomFilterRepo @Inject constructor(
         log(TAG) { "importFilter($rawFilters)" }
         val configs = rawFilters.map { rawFilter ->
             try {
-                configAdapter.fromJson(rawFilter.payload)!!
+                json.decodeFromString<CustomFilterConfig>(rawFilter.payload)
             } catch (ogError: Exception) {
                 try {
                     legacyImporter.import(rawFilter.payload)!!
@@ -145,7 +135,7 @@ class CustomFilterRepo @Inject constructor(
         val configs = currentConfigs().filter { identifiers.contains(it.identifier) }
 
         return configs.map {
-            val rawJson = configAdapter.toJson(it)
+            val rawJson = json.encodeToString(it)
             RawFilter("${it.label} - ${it.identifier.takeLast(10)}.json", rawJson)
         }
     }

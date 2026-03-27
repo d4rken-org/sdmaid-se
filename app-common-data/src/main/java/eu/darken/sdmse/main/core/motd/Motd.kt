@@ -1,14 +1,18 @@
+@file:UseSerializers(UUIDSerializer::class)
+
 package eu.darken.sdmse.main.core.motd
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import eu.darken.sdmse.common.serialization.UUIDSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 import java.util.UUID
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class Motd(
-    @Json(name = "id") val id: UUID,
-    @Json(name = "message") val message: String,
-    @Json(name = "primaryLink") val primaryLink: String?,
-    @Json(name = "versionMinimum") val minimumVersion: Long?,
-    @Json(name = "versionMaximum") val maximumVersion: Long?,
+    @SerialName("id") val id: UUID,
+    @SerialName("message") val message: String,
+    @SerialName("primaryLink") val primaryLink: String? = null,
+    @SerialName("versionMinimum") val minimumVersion: Long? = null,
+    @SerialName("versionMaximum") val maximumVersion: Long? = null,
 )

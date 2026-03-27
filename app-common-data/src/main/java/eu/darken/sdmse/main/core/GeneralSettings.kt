@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
@@ -17,6 +16,7 @@ import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.motd.MotdSettings
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -24,7 +24,7 @@ import javax.inject.Singleton
 class GeneralSettings @Inject constructor(
     @ApplicationContext private val context: Context,
     debugSettings: DebugSettings,
-    moshi: Moshi,
+    json: Json,
     motdSettings: MotdSettings,
     updateChecker: UpdateChecker
 ) : PreferenceScreenData {
@@ -34,8 +34,8 @@ class GeneralSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, moshi)
-    val themeStyle = dataStore.createValue("core.ui.theme.style", ThemeStyle.DEFAULT, moshi)
+    val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, json)
+    val themeStyle = dataStore.createValue("core.ui.theme.style", ThemeStyle.DEFAULT, json)
 
     val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
 
@@ -57,14 +57,14 @@ class GeneralSettings @Inject constructor(
 
     val isUpdateCheckEnabled = dataStore.createValue("updater.check.enabled", updateChecker.isEnabledByDefault())
 
-    val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, moshi)
+    val romTypeDetection = dataStore.createValue("core.romtype.detection", RomType.AUTO, json)
 
-    val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, moshi)
+    val anniversaryDismissedYear = dataStore.createValue<Int?>("core.anniversary.dismissed.year", null, json)
 
     val dashboardCardConfig = dataStore.createValue(
         key = "dashboard.cards.config",
         defaultValue = DashboardCardConfig(),
-        moshi = moshi,
+        json = json,
         fallbackToDefault = true,
     )
 

@@ -1,17 +1,18 @@
 package eu.darken.sdmse.main.core
 
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = false)
+@Serializable
 enum class DashboardCardType {
-    CORPSEFINDER,
-    SYSTEMCLEANER,
-    APPCLEANER,
-    DEDUPLICATOR,
-    APPCONTROL,
-    ANALYZER,
-    SWIPER,
-    SQUEEZER,
-    SCHEDULER,
-    STATS,
+    @SerialName("CORPSEFINDER") CORPSEFINDER,
+    @SerialName("SYSTEMCLEANER") SYSTEMCLEANER,
+    @SerialName("APPCLEANER") APPCLEANER,
+    @SerialName("DEDUPLICATOR") DEDUPLICATOR,
+    @SerialName("APPCONTROL") APPCONTROL,
+    @SerialName("ANALYZER") ANALYZER,
+    @SerialName("SWIPER") SWIPER,
+    @SerialName("SQUEEZER") SQUEEZER,
+    @SerialName("SCHEDULER") SCHEDULER,
+    @SerialName("STATS") STATS,
 }

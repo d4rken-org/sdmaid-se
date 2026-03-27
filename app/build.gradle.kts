@@ -220,7 +220,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
     addRetrofit()
 
     "gplayImplementation"("com.android.billingclient:billing:8.3.0")

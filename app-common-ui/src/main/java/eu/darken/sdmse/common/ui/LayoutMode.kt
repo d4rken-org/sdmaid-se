@@ -1,10 +1,11 @@
 package eu.darken.sdmse.common.ui
 
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = false)
+@Serializable
 enum class LayoutMode {
-    LINEAR,
-    GRID,
+    @SerialName("LINEAR") LINEAR,
+    @SerialName("GRID") GRID,
     ;
 }

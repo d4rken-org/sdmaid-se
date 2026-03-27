@@ -1,17 +1,18 @@
 package eu.darken.sdmse.common.upgrade.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import eu.darken.sdmse.common.serialization.InstantSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import java.time.Instant
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class FossUpgrade(
-    @Json(name = "upgradedAt") val upgradedAt: Instant,
-    @Json(name = "upgradeType") val upgradeType: Type,
+    @SerialName("upgradedAt") @Serializable(with = InstantSerializer::class) val upgradedAt: Instant,
+    @SerialName("upgradeType") val upgradeType: Type,
 ) {
-    @JsonClass(generateAdapter = false)
+    @Serializable
     enum class Type {
-        @Json(name = "GITHUB_SPONSORS") GITHUB_SPONSORS,
+        @SerialName("GITHUB_SPONSORS") GITHUB_SPONSORS,
         ;
     }
 }

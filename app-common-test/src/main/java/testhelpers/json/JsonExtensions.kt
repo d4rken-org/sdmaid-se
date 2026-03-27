@@ -1,24 +1,17 @@
 package testhelpers.json
 
-import com.squareup.moshi.JsonReader
-import com.squareup.moshi.Moshi
-import okio.Buffer
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
 import okio.ByteString.Companion.encode
 import okio.buffer
 import okio.sink
 import java.io.File
 
+private val prettyJson = Json { prettyPrint = true }
 
 fun String.toComparableJson(): String {
-    val value = Buffer().use {
-        it.writeUtf8(this)
-        val reader = JsonReader.of(it)
-        reader.readJsonValue()
-    }
-
-    val adapter = Moshi.Builder().build().adapter(Any::class.java).indent("    ")
-
-    return adapter.toJson(value)
+    val element = Json.parseToJsonElement(this.trim())
+    return prettyJson.encodeToString(JsonElement.serializer(), element)
 }
 
 fun String.writeToFile(file: File) = encode().let { text ->

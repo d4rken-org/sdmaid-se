@@ -19,7 +19,7 @@ import java.io.File
 
 class JsonMarkerParserTest : BaseTest() {
 
-    private val moshi = SerializationIOModule().moshi()
+    private val json = SerializationIOModule().json()
 
     @MockK lateinit var context: Context
     @MockK lateinit var assetManager: AssetManager
@@ -47,7 +47,7 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
 
-        val markerGroups = JsonMarkerParser(context, moshi).fromAssets("/data/text.json").apply {
+        val markerGroups = JsonMarkerParser(context, json).fromAssets("/data/text.json").apply {
         }
         markerGroups.size shouldBe 1
 
@@ -82,7 +82,7 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
 
-        val markerGroups = JsonMarkerParser(context, moshi).fromAssets("/data/text.json").apply {
+        val markerGroups = JsonMarkerParser(context, json).fromAssets("/data/text.json").apply {
         }
         markerGroups.size shouldBe 1
 
@@ -123,7 +123,7 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
         shouldThrow<IOException> {
-            JsonMarkerParser(context, moshi).fromAssets("/data/text.json")
+            JsonMarkerParser(context, json).fromAssets("/data/text.json")
         }
     }
 
@@ -137,7 +137,7 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
         shouldThrow<IOException> {
-            JsonMarkerParser(context, moshi).fromAssets("/data/text.json")
+            JsonMarkerParser(context, json).fromAssets("/data/text.json")
         }
     }
 
@@ -152,7 +152,7 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
         shouldThrow<IOException> {
-            JsonMarkerParser(context, moshi).fromAssets("/data/text.json")
+            JsonMarkerParser(context, json).fromAssets("/data/text.json")
         }
     }
 
@@ -166,18 +166,18 @@ class JsonMarkerParserTest : BaseTest() {
             ]
         """.toByteArray()
         shouldThrow<IOException> {
-            JsonMarkerParser(context, moshi).fromAssets("/data/text.json")
+            JsonMarkerParser(context, json).fromAssets("/data/text.json")
         }
     }
 
     @Test fun `parse debug set`() {
-        JsonMarkerParser(context, moshi).fromAssets("./src/test/assets/clutter/db_debug_markers.json").apply {
+        JsonMarkerParser(context, json).fromAssets("./src/test/assets/clutter/db_debug_markers.json").apply {
             isEmpty() shouldBe false
         }
     }
 
     @Test fun `parse prod set`() {
-        JsonMarkerParser(context, moshi).fromAssets("./src/main/assets/clutter/db_clutter_markers.json").apply {
+        JsonMarkerParser(context, json).fromAssets("./src/main/assets/clutter/db_clutter_markers.json").apply {
             isEmpty() shouldBe false
             (size > 1000) shouldBe true
         }

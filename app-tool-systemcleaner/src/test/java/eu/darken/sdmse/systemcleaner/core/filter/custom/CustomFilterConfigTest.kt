@@ -1,7 +1,7 @@
 package eu.darken.sdmse.systemcleaner.core.filter.custom
 
 import eu.darken.sdmse.common.files.segs
-import eu.darken.sdmse.common.serialization.SerializationIOModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.common.sieve.NameCriterium
 import eu.darken.sdmse.common.sieve.SegmentCriterium
 import io.kotest.matchers.shouldBe
@@ -11,12 +11,7 @@ import testhelpers.json.toComparableJson
 import java.time.Instant
 
 class CustomFilterConfigTest : BaseTest() {
-    private val moshi = SerializationIOModule().moshi().newBuilder().apply {
-        add(NameCriterium.MOSHI_ADAPTER_FACTORY)
-        add(SegmentCriterium.MOSHI_ADAPTER_FACTORY)
-    }.build()
-
-    private val adapter = moshi.adapter(CustomFilterConfig::class.java)
+    private val json = SerializationAppModule().json()
 
     @Test
     fun `config serialization`() {
@@ -38,7 +33,7 @@ class CustomFilterConfigTest : BaseTest() {
                 )
             )
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(CustomFilterConfig.serializer(), original)
         rawJson.toComparableJson() shouldBe """
             {
                 "configVersion": 6,
@@ -69,6 +64,6 @@ class CustomFilterConfigTest : BaseTest() {
                 ]
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson)!! shouldBe original
+        json.decodeFromString(CustomFilterConfig.serializer(), rawJson) shouldBe original
     }
 }

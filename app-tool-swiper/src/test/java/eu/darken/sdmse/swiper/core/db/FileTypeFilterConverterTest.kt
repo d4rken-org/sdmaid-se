@@ -1,10 +1,10 @@
 package eu.darken.sdmse.swiper.core.db
 
-import com.squareup.moshi.Moshi
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.FileTypeFilter
-import io.kotest.matchers.shouldBe
 import io.kotest.matchers.nulls.shouldBeNull
+import io.kotest.matchers.shouldBe
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -15,8 +15,8 @@ class FileTypeFilterConverterTest : BaseTest() {
 
     @BeforeEach
     fun setup() {
-        val moshi = Moshi.Builder().build()
-        converter = FileTypeFilterConverter(moshi)
+        val json = SerializationAppModule().json()
+        converter = FileTypeFilterConverter(json)
     }
 
     @Test

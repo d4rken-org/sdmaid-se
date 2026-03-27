@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.room.Room
 import androidx.room.migration.Migration
 import androidx.sqlite.db.SupportSQLiteDatabase
-import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -13,6 +12,7 @@ import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.room.APathListTypeConverter
 import eu.darken.sdmse.common.room.APathTypeConverter
+import kotlinx.serialization.json.Json
 import javax.inject.Singleton
 
 @InstallIn(SingletonComponent::class)
@@ -23,11 +23,11 @@ class SwiperDatabaseModule {
     @Singleton
     fun provideDatabase(
         @ApplicationContext context: Context,
-        moshi: Moshi,
+        json: Json,
     ): SwiperRoomDb = Room.databaseBuilder(context, SwiperRoomDb::class.java, "swiper.db").apply {
-        addTypeConverter(APathTypeConverter(moshi))
-        addTypeConverter(APathListTypeConverter(moshi))
-        addTypeConverter(FileTypeFilterConverter(moshi))
+        addTypeConverter(APathTypeConverter(json))
+        addTypeConverter(APathListTypeConverter(json))
+        addTypeConverter(FileTypeFilterConverter(json))
         addMigrations(MIGRATION_1_2)
     }.build()
 
