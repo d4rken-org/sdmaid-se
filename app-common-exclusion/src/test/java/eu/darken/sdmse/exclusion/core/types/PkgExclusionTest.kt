@@ -1,15 +1,12 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.local.tryMkFile
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationIOModule
-import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PathExclusion
-import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -18,7 +15,7 @@ import java.io.File
 
 class PkgExclusionTest : BaseTest() {
     private val testFile = File(IO_TEST_BASEDIR, "testfile")
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
     @AfterEach
     fun cleanup() {
@@ -41,10 +38,8 @@ class PkgExclusionTest : BaseTest() {
             tags = setOf(Exclusion.Tag.GENERAL, Exclusion.Tag.APPCLEANER)
         )
 
-        val adapter = moshi.adapter(PkgExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(PkgExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "pkgId": {
                     "name": "test.pkg"
@@ -55,7 +50,7 @@ class PkgExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(PkgExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -63,10 +58,8 @@ class PkgExclusionTest : BaseTest() {
         testFile.tryMkFile()
         val original = PkgExclusion("test.pkg".toPkgId())
 
-        val adapter = moshi.adapter(PkgExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(PkgExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "pkgId": {
                     "name": "test.pkg"
@@ -77,7 +70,7 @@ class PkgExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(PkgExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -85,10 +78,8 @@ class PkgExclusionTest : BaseTest() {
         testFile.tryMkFile()
         val original = PkgExclusion("test.pkg".toPkgId())
 
-        val adapter = moshi.adapter(Exclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(ExclusionSerializer, original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "pkgId": {
                     "name": "test.pkg"
@@ -99,16 +90,16 @@ class PkgExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(ExclusionSerializer, jsonStr) shouldBe original
     }
 
     @Test
     fun `force typing`() {
         val original = PkgExclusion("test.pkg".toPkgId())
 
-        shouldThrow<JsonDataException> {
-            val json = moshi.adapter(PkgExclusion::class.java).toJson(original)
-            moshi.adapter(PathExclusion::class.java).fromJson(json)
+        shouldThrow<SerializationException> {
+            val jsonStr = json.encodeToString(PkgExclusion.serializer(), original)
+            json.decodeFromString(PathExclusion.serializer(), jsonStr)
         }
     }
 }

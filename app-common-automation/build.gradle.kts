@@ -6,6 +6,7 @@ plugins {
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "${projectConfig.packageName}.automation"

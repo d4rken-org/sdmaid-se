@@ -49,7 +49,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
 
     addLottie()
 

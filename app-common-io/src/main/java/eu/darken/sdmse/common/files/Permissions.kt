@@ -2,11 +2,9 @@ package eu.darken.sdmse.common.files
 
 import android.os.Parcel
 import android.os.Parcelable
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.toOctal
 import kotlinx.parcelize.IgnoredOnParcel
 
-@JsonClass(generateAdapter = true)
 data class Permissions(
     val mode: Int
 ) : Parcelable {

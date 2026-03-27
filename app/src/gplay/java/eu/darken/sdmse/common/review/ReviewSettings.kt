@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
+import kotlinx.serialization.json.Json
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 class ReviewSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi,
+    json: Json,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_review_gplay")
@@ -25,8 +25,8 @@ class ReviewSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val lastDismissed = dataStore.createValue("review.dismissedAt", null as Instant?, moshi)
-    val reviewedAt = dataStore.createValue("review.reviewedAt", null as Instant?, moshi)
+    val lastDismissed = dataStore.createValue("review.dismissedAt", null as Instant?, json)
+    val reviewedAt = dataStore.createValue("review.reviewedAt", null as Instant?, json)
 
     override val mapper = PreferenceStoreMapper(
 

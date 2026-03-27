@@ -1,8 +1,6 @@
 package eu.darken.sdmse.appcleaner.core.forensics.sieves
 
 import android.content.Context
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapter
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
@@ -16,19 +14,19 @@ import eu.darken.sdmse.common.files.startsWith
 import eu.darken.sdmse.common.files.toSegs
 import eu.darken.sdmse.common.openAsset
 import eu.darken.sdmse.common.pkgs.Pkg
-import okio.BufferedSource
+import kotlinx.serialization.json.Json
 import okio.buffer
 
 
 class JsonAppSieve @AssistedInject constructor(
     @Assisted private val assetPath: String,
     @ApplicationContext private val context: Context,
-    private val moshi: Moshi
+    private val json: Json,
 ) {
 
     private val filterDb: AppSieveJsonDb = run {
-        val source: BufferedSource = context.openAsset(assetPath).buffer()
-        moshi.adapter<AppSieveJsonDb>().fromJson(source)!!
+        val source = context.openAsset(assetPath).buffer()
+        source.use { json.decodeFromString<AppSieveJsonDb>(it.readUtf8()) }
     }
 
     private val regexCache = mutableMapOf<String, Regex>()

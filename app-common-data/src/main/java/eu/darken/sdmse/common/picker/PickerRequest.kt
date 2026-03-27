@@ -7,6 +7,7 @@ import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.serialization.APathSerializer
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.UseSerializers
 
@@ -20,6 +21,7 @@ data class PickerRequest(
 ) : Parcelable {
     @Serializable
     enum class PickMode {
-        DIR, DIRS
+        @SerialName("DIR") DIR,
+        @SerialName("DIRS") DIRS,
     }
 }

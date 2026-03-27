@@ -5,7 +5,6 @@ import android.content.pm.PackageInfo
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.AppScope
@@ -31,6 +30,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.launch
+import kotlinx.serialization.json.Json
 import java.time.Instant
 import java.time.LocalDate
 import java.time.Period
@@ -44,7 +44,7 @@ import kotlin.time.Duration.Companion.seconds
 class CurriculumVitae @Inject constructor(
     @ApplicationContext private val context: Context,
     @AppScope private val appScope: CoroutineScope,
-    moshi: Moshi,
+    json: Json,
     private val upgradeRepo: UpgradeRepo,
     private val dispatcherProvider: DispatcherProvider,
 ) {
@@ -56,10 +56,10 @@ class CurriculumVitae @Inject constructor(
 
     private val usPkgInfo: PackageInfo by lazy { context.getPackageInfo() }
 
-    private val _updateHistory = dataStore.createValue("stats.update.history", emptyList<String>(), moshi)
-    private val _installedFirst = dataStore.createValue<Instant?>("stats.install.first", null, moshi)
+    private val _updateHistory = dataStore.createValue("stats.update.history", emptyList<String>(), json)
+    private val _installedFirst = dataStore.createValue<Instant?>("stats.install.first", null, json)
     val installedAt = _installedFirst.flow.filterNotNull()
-    private val _launchedLast = dataStore.createValue<Instant?>("stats.launched.last", null, moshi)
+    private val _launchedLast = dataStore.createValue<Instant?>("stats.launched.last", null, json)
     private val _launchedCount = dataStore.createValue("stats.launched.count", 0)
     private val _launchedCountBeta = dataStore.createValue("stats.launched.beta.count", 0)
 
@@ -152,7 +152,7 @@ class CurriculumVitae @Inject constructor(
         }
     }
 
-    private val _openedLast = dataStore.createValue<Instant?>("stats.opened.last", null, moshi)
+    private val _openedLast = dataStore.createValue<Instant?>("stats.opened.last", null, json)
     private val _openedCount = dataStore.createValue("stats.opened.count", 0)
 
     fun updateAppOpened() = appScope.launch {

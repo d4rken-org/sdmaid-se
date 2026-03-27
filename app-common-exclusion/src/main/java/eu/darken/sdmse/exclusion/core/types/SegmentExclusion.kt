@@ -1,7 +1,5 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -11,13 +9,15 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.joinSegments
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class SegmentExclusion(
-    @Json(name = "segments") val segments: Segments,
-    @Json(name = "allowPartial") val allowPartial: Boolean,
-    @Json(name = "ignoreCase") val ignoreCase: Boolean,
-    @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
+    @SerialName("segments") val segments: Segments,
+    @SerialName("allowPartial") val allowPartial: Boolean,
+    @SerialName("ignoreCase") val ignoreCase: Boolean,
+    @SerialName("tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Path {
 
     override val id: ExclusionId

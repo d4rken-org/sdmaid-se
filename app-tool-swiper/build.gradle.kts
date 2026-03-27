@@ -62,7 +62,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
     addRoomDb()
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")

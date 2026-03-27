@@ -1,28 +1,33 @@
+@file:UseSerializers(InstantSerializer::class, DurationSerializer::class)
+
 package eu.darken.sdmse.scheduler.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.serialization.DurationSerializer
+import eu.darken.sdmse.common.serialization.InstantSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
 import java.time.Duration
 import java.time.Instant
 import java.time.ZoneId
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class Schedule(
-    @Json(name = "id") val id: ScheduleId,
-    @Json(name = "createdAt") val createdAt: Instant = Instant.now(),
-    @Json(name = "scheduledAt") val scheduledAt: Instant? = null,
-    @Json(name = "hour") val hour: Int = 22,
-    @Json(name = "minute") val minute: Int = 0,
-    @Json(name = "label") val label: String = "",
-    @Json(name = "repeatInterval") val repeatInterval: Duration = Duration.ofDays(3),
-    @Json(name = "userZone") val userZone: String? = null,
-    @Json(name = "corpsefinderEnabled") val useCorpseFinder: Boolean = false,
-    @Json(name = "systemcleanerEnabled") val useSystemCleaner: Boolean = false,
-    @Json(name = "appcleanerEnabled") val useAppCleaner: Boolean = false,
-    @Json(name = "commandsAfterSchedule") val commandsAfterSchedule: List<String> = emptyList(),
-    @Json(name = "executedAt") val executedAt: Instant? = null,
+    @SerialName("id") val id: ScheduleId,
+    @SerialName("createdAt") val createdAt: Instant = Instant.now(),
+    @SerialName("scheduledAt") val scheduledAt: Instant? = null,
+    @SerialName("hour") val hour: Int = 22,
+    @SerialName("minute") val minute: Int = 0,
+    @SerialName("label") val label: String = "",
+    @SerialName("repeatInterval") val repeatInterval: Duration = Duration.ofDays(3),
+    @SerialName("userZone") val userZone: String? = null,
+    @SerialName("corpsefinderEnabled") val useCorpseFinder: Boolean = false,
+    @SerialName("systemcleanerEnabled") val useSystemCleaner: Boolean = false,
+    @SerialName("appcleanerEnabled") val useAppCleaner: Boolean = false,
+    @SerialName("commandsAfterSchedule") val commandsAfterSchedule: List<String> = emptyList(),
+    @SerialName("executedAt") val executedAt: Instant? = null,
 ) {
     val isEnabled: Boolean
         get() = scheduledAt != null

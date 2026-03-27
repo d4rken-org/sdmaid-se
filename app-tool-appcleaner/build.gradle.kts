@@ -52,7 +52,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
 
     implementation(project(":app-common-setup"))
 

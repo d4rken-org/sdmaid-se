@@ -1,17 +1,17 @@
 package eu.darken.sdmse.common.clutter.manual
 
 import androidx.annotation.Keep
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.clutter.Marker
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
+@Serializable
 @Keep
-@JsonClass(generateAdapter = true)
-data class JsonMarkerGroup constructor(
-    @Json(name = "pkgs") val pkgs: List<String>?,
-    @Json(name = "regexPkgs") val regexPkgs: List<String>?,
-    @Json(name = "mrks") val mrks: List<JsonMarker>,
+data class JsonMarkerGroup(
+    @SerialName("pkgs") val pkgs: List<String>? = null,
+    @SerialName("regexPkgs") val regexPkgs: List<String>? = null,
+    @SerialName("mrks") val mrks: List<JsonMarker>,
 ) {
 
     init {
@@ -19,14 +19,14 @@ data class JsonMarkerGroup constructor(
         require(mrks.isNotEmpty()) { "Group contains no markers: $this" }
     }
 
+    @Serializable
     @Keep
-    @JsonClass(generateAdapter = true)
     data class JsonMarker(
-        @Json(name = "loc") val areaType: DataArea.Type,
-        @Json(name = "path") val path: String?,
-        @Json(name = "contains") val contains: String?,
-        @Json(name = "regex") val regex: String?,
-        @Json(name = "flags") val flags: Set<Marker.Flag>?,
+        @SerialName("loc") val areaType: DataArea.Type,
+        @SerialName("path") val path: String? = null,
+        @SerialName("contains") val contains: String? = null,
+        @SerialName("regex") val regex: String? = null,
+        @SerialName("flags") val flags: Set<Marker.Flag>? = null,
     ) {
         init {
             require(path != null || contains != null || regex != null) { "No path matching defined: $this" }

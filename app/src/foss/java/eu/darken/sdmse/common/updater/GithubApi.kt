@@ -1,31 +1,32 @@
 package eu.darken.sdmse.common.updater
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import eu.darken.sdmse.common.serialization.OffsetDateTimeSerializer
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import retrofit2.http.GET
 import retrofit2.http.Path
 import java.time.OffsetDateTime
 
 interface GithubApi {
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class ReleaseInfo(
-        @Json(name = "name") val name: String,
-        @Json(name = "tag_name") val tagName: String,
-        @Json(name = "prerelease") val isPreRelease: Boolean,
-        @Json(name = "html_url") val htmlUrl: String,
-        @Json(name = "published_at") val publishedAt: OffsetDateTime,
-        @Json(name = "body") val body: String,
-        @Json(name = "assets") val assets: List<Asset>,
+        @SerialName("name") val name: String,
+        @SerialName("tag_name") val tagName: String,
+        @SerialName("prerelease") val isPreRelease: Boolean,
+        @SerialName("html_url") val htmlUrl: String,
+        @SerialName("published_at") @Serializable(with = OffsetDateTimeSerializer::class) val publishedAt: OffsetDateTime,
+        @SerialName("body") val body: String,
+        @SerialName("assets") val assets: List<Asset>,
     ) {
-        @JsonClass(generateAdapter = true)
+        @Serializable
         data class Asset(
-            @Json(name = "id") val id: Long,
-            @Json(name = "name") val name: String,
-            @Json(name = "label") val label: String,
-            @Json(name = "size") val size: Long,
-            @Json(name = "content_type") val contentType: String,
-            @Json(name = "browser_download_url") val downloadUrl: String,
+            @SerialName("id") val id: Long,
+            @SerialName("name") val name: String,
+            @SerialName("label") val label: String,
+            @SerialName("size") val size: Long,
+            @SerialName("content_type") val contentType: String,
+            @SerialName("browser_download_url") val downloadUrl: String,
         )
     }
 

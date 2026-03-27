@@ -2,7 +2,7 @@ package eu.darken.sdmse.scheduler.core
 
 import android.content.Context
 import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
-import eu.darken.sdmse.common.serialization.SerializationIOModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import io.kotest.matchers.shouldBe
 import io.mockk.every
 import io.mockk.mockk
@@ -30,7 +30,7 @@ class ScheduleStorageTest : BaseTest() {
     private fun create() = ScheduleStorage(
         context = context,
         dispatcherProvider = TestDispatcherProvider(),
-        moshi = SerializationIOModule().moshi()
+        json = SerializationAppModule().json()
     )
 
     @Test
@@ -54,8 +54,8 @@ class ScheduleStorageTest : BaseTest() {
                     {
                         "id": "1234id",
                         "createdAt": "1970-01-01T00:00:00Z",
-                        "hour": 22.0,
-                        "minute": 0.0,
+                        "hour": 22,
+                        "minute": 0,
                         "label": "",
                         "repeatInterval": "PT72H",
                         "corpsefinderEnabled": false,
@@ -189,8 +189,8 @@ class ScheduleStorageTest : BaseTest() {
                         "id": "full-id",
                         "createdAt": "2024-01-15T10:00:00Z",
                         "scheduledAt": "2024-01-15T12:00:00Z",
-                        "hour": 22.0,
-                        "minute": 30.0,
+                        "hour": 22,
+                        "minute": 30,
                         "label": "Nightly Cleanup",
                         "repeatInterval": "PT24H",
                         "userZone": "Europe/Berlin",

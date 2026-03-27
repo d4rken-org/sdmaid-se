@@ -4,16 +4,16 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.createValue
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
 class FossCache @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi
+    json: Json,
 ) {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_foss")
@@ -23,7 +23,7 @@ class FossCache @Inject constructor(
 
     val upgrade = dataStore.createValue<FossUpgrade?>(
         key = "foss.upgrade",
-        moshi = moshi,
+        json = json,
         defaultValue = null,
     )
 

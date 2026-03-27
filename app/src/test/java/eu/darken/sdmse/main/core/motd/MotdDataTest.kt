@@ -29,7 +29,7 @@ class MotdDataTest : BaseTest() {
         motdEndpoint = MotdEndpoint(
             dispatcherProvider = TestDispatcherProvider(),
             baseHttpClient = HttpModule().baseHttpClient(),
-            baseMoshi = SerializationAppModule().moshi(),
+            json = SerializationAppModule().json(),
         )
         motdEndpoint.endpointUrlOverride = mockUrl
 

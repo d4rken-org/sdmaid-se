@@ -13,11 +13,11 @@ import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 
 class LegacyImporterTest : BaseTest() {
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
 
     fun create() = LegacyImporter(
-        moshi = moshi
+        json = json
     )
 
     @Test
@@ -102,7 +102,7 @@ class LegacyImporterTest : BaseTest() {
     private val TEST_DATA_PATHS = """
         {
             "exclusions": [
-    
+
                 {
                     "contains_string": "/storage/emulated/0/DCIM",
                     "tags": [

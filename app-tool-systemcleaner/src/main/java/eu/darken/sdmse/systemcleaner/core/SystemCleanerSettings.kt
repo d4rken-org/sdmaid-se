@@ -4,13 +4,13 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.systemcleaner.core.filter.FilterIdentifier
+import kotlinx.serialization.json.Json
 import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -19,7 +19,7 @@ import javax.inject.Singleton
 @Singleton
 class SystemCleanerSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi,
+    json: Json,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_systemcleaner")
@@ -53,7 +53,7 @@ class SystemCleanerSettings @Inject constructor(
     val filterUsageStatsEnabled = dataStore.createValue("filter.usagestats.enabled", false)
 
     val filterScreenshotsEnabled = dataStore.createValue("filter.screenshots.enabled", false)
-    val filterScreenshotsAge = dataStore.createValue("filter.screenshots.age", SCREENSHOTS_AGE_DEFAULT, moshi)
+    val filterScreenshotsAge = dataStore.createValue("filter.screenshots.age", SCREENSHOTS_AGE_DEFAULT, json)
 
     val filterTrashedEnabled = dataStore.createValue("filter.trashed.enabled", false)
     val filterPackageCacheEnabled = dataStore.createValue("filter.packagecache.enabled", false)
@@ -61,7 +61,7 @@ class SystemCleanerSettings @Inject constructor(
     val enabledCustomFilter = dataStore.createValue(
         "filter.custom.enabled",
         emptySet<FilterIdentifier>(),
-        moshi
+        json
     )
 
     override val mapper = PreferenceStoreMapper(

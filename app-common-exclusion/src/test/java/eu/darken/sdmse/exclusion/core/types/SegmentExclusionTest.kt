@@ -1,13 +1,11 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.local.tryMkFile
 import eu.darken.sdmse.common.files.segs
 import eu.darken.sdmse.common.serialization.SerializationIOModule
-import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -16,7 +14,7 @@ import java.io.File
 
 class SegmentExclusionTest : BaseTest() {
     private val testFile = File(IO_TEST_BASEDIR, "testfile")
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
     @AfterEach
     fun cleanup() {
@@ -34,10 +32,8 @@ class SegmentExclusionTest : BaseTest() {
             ignoreCase = true,
         )
 
-        val adapter = moshi.adapter(SegmentExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(SegmentExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "segments": [
                     "test",
@@ -52,7 +48,7 @@ class SegmentExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(SegmentExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -65,10 +61,8 @@ class SegmentExclusionTest : BaseTest() {
             ignoreCase = true,
         )
 
-        val adapter = moshi.adapter(SegmentExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(SegmentExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "segments": [
                     "test",
@@ -83,7 +77,7 @@ class SegmentExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(SegmentExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -96,10 +90,8 @@ class SegmentExclusionTest : BaseTest() {
             ignoreCase = true,
         )
 
-        val adapter = moshi.adapter(Exclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(ExclusionSerializer, original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "segments": [
                     "test",
@@ -114,7 +106,7 @@ class SegmentExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(ExclusionSerializer, jsonStr) shouldBe original
     }
 
     @Test
@@ -126,9 +118,9 @@ class SegmentExclusionTest : BaseTest() {
             ignoreCase = true,
         )
 
-        shouldThrow<JsonDataException> {
-            val json = moshi.adapter(SegmentExclusion::class.java).toJson(original)
-            moshi.adapter(PathExclusion::class.java).fromJson(json)
+        shouldThrow<SerializationException> {
+            val jsonStr = json.encodeToString(SegmentExclusion.serializer(), original)
+            json.decodeFromString(PathExclusion.serializer(), jsonStr)
         }
     }
 }

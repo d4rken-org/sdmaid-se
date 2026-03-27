@@ -1,25 +1,20 @@
 package eu.darken.sdmse.common.serialization
 
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.Moshi
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.Serializable
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class RegexAdapterTest : BaseTest() {
 
-    val moshi = Moshi.Builder().apply {
-        add(RegexAdapter())
-    }.build()
+    val json = SerializationCommonModule().json()
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class TestContainer(
-        val regexValue: Regex?,
-        val regexList: List<Regex>
+        @Serializable(with = RegexSerializer::class) val regexValue: Regex?,
+        val regexList: List<@Serializable(with = RegexSerializer::class) Regex>
     )
-
-    val adapter = moshi.adapter(TestContainer::class.java)
 
     @Test
     fun `serialize test container`() {
@@ -31,7 +26,7 @@ class RegexAdapterTest : BaseTest() {
             )
         )
 
-        val rawJson = adapter.toJson(before)
+        val rawJson = json.encodeToString(TestContainer.serializer(), before)
 
         rawJson.toComparableJson() shouldBe """
             {
@@ -59,7 +54,7 @@ class RegexAdapterTest : BaseTest() {
             }
         """.toComparableJson()
 
-        val after = adapter.fromJson(rawJson)!!
+        val after = json.decodeFromString(TestContainer.serializer(), rawJson)
         after.regexValue!!.apply {
             pattern shouldBe before.regexValue!!.pattern
             options shouldBe before.regexValue.options

@@ -6,6 +6,7 @@ plugins {
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
+apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
 
 android {
     namespace = "${projectConfig.packageName}.common"
@@ -37,7 +38,6 @@ dependencies {
     addDI()
     addCoroutines()
     addSerialization()
-    addKotlinxNavSerialization()
     api("androidx.navigation:navigation-common:${Versions.AndroidX.Navigation.core}")
     addIO()
     addTesting()

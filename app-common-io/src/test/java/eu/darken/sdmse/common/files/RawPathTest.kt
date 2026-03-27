@@ -1,49 +1,52 @@
 package eu.darken.sdmse.common.files
 
-import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.local.LocalPath
+import eu.darken.sdmse.common.serialization.APathSerializer
 import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
+import kotlinx.serialization.SerializationException
+import kotlinx.serialization.builtins.serializer
 import org.junit.jupiter.api.Test
 import testhelpers.json.toComparableJson
 import java.io.File
 
 class RawPathTest {
-    private val baseMoshi = SerializationIOModule().moshi()
+    private val json = SerializationIOModule().json()
 
     @Test
     fun `test polymorph serialization`() {
         val original = RawPath.build("test", "file")
 
-        val adapter = baseMoshi.adapter(APath::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(APathSerializer, original)
+        jsonStr.toComparableJson() shouldBe """
             {
-                "path": "test/file",
-                "pathType": "RAW"
+                "path": "test/file"
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(APathSerializer, jsonStr) shouldBe original
+    }
+
+    @Test
+    fun `polymorph deserialization of old JSON with pathType`() {
+        val original = RawPath.build("test", "file")
+        val oldJson = """{"path":"test/file","pathType":"RAW"}"""
+        json.decodeFromString(APathSerializer, oldJson) shouldBe original
     }
 
     @Test
     fun `test direct serialization`() {
         val original = RawPath.build("test", "file")
 
-        val adapter = baseMoshi.adapter(RawPath::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(RawPath.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
-                "path": "test/file",
-                "pathType": "RAW"
+                "path": "test/file"
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(RawPath.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -61,11 +64,9 @@ class RawPathTest {
     fun `force typing`() {
         val original = LocalPath.build(file = File("./testfile"))
 
-        val moshi = baseMoshi
-
-        shouldThrow<JsonDataException> {
-            val json = moshi.adapter(LocalPath::class.java).toJson(original)
-            moshi.adapter(RawPath::class.java).fromJson(json)
+        shouldThrow<SerializationException> {
+            val jsonStr = json.encodeToString(LocalPath.serializer(), original)
+            json.decodeFromString(RawPath.serializer(), jsonStr)
         }
     }
 }

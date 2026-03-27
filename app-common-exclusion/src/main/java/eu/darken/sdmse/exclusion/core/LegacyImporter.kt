@@ -1,9 +1,5 @@
 package eu.darken.sdmse.exclusion.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.Moshi
-import com.squareup.moshi.adapter
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
@@ -14,12 +10,14 @@ import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.core.types.SegmentExclusion
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 
 class LegacyImporter @Inject constructor(
-    private val moshi: Moshi,
+    private val json: Json,
 ) {
-    private val adapter by lazy { moshi.adapter<ImportContainer>() }
 
     private fun String.isValidPkgName(): Boolean {
         if (this.isEmpty()) return false
@@ -34,8 +32,7 @@ class LegacyImporter @Inject constructor(
         if (rawExclusions.isEmpty()) throw IllegalArgumentException("Exclusion data was empty")
 
         try {
-            val container =
-                adapter.fromJson(rawExclusions) ?: throw IllegalArgumentException("Exclusion data was empty")
+            val container = json.decodeFromString<ImportContainer>(rawExclusions)
 
             if (container.version < 6) throw IllegalArgumentException("SDM1 exclusions < V6 not supported")
 
@@ -70,36 +67,36 @@ class LegacyImporter @Inject constructor(
     }
 
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class ImportContainer(
-        @Json(name = "exclusions") val exclusions: List<ExclusionHolder>,
-        @Json(name = "version") val version: Int,
+        @SerialName("exclusions") val exclusions: List<ExclusionHolder>,
+        @SerialName("version") val version: Int,
     )
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class ExclusionHolder(
-        @Json(name = "contains_string") val contains: String?,
-        @Json(name = "regex_string") val regex: String?,
-        @Json(name = "tags") val tags: Set<Tag>,
-        @Json(name = "timestamp") val timestamp: Long,
-        @Json(name = "type") val type: Type,
+        @SerialName("contains_string") val contains: String? = null,
+        @SerialName("regex_string") val regex: String? = null,
+        @SerialName("tags") val tags: Set<Tag>,
+        @SerialName("timestamp") val timestamp: Long,
+        @SerialName("type") val type: Type,
     ) {
 
-        @JsonClass(generateAdapter = false)
+        @Serializable
         enum class Type {
-            @Json(name = "SIMPLE_CONTAINS") SIMPLE_CONTAINS,
-            @Json(name = "REGEX") REGEX,
+            @SerialName("SIMPLE_CONTAINS") SIMPLE_CONTAINS,
+            @SerialName("REGEX") REGEX,
         }
 
-        @JsonClass(generateAdapter = false)
+        @Serializable
         enum class Tag {
-            @Json(name = "GLOBAL") GLOBAL,
-            @Json(name = "APPCONTROL") APPCONTROL,
-            @Json(name = "CORPSEFINDER") CORPSEFINDER,
-            @Json(name = "SYSTEMCLEANER") SYSTEMCLEANER,
-            @Json(name = "APPCLEANER") APPCLEANER,
-            @Json(name = "DUPLICATES") DUPLICATES,
-            @Json(name = "DATABASES") DATABASES;
+            @SerialName("GLOBAL") GLOBAL,
+            @SerialName("APPCONTROL") APPCONTROL,
+            @SerialName("CORPSEFINDER") CORPSEFINDER,
+            @SerialName("SYSTEMCLEANER") SYSTEMCLEANER,
+            @SerialName("APPCLEANER") APPCLEANER,
+            @SerialName("DUPLICATES") DUPLICATES,
+            @SerialName("DATABASES") DATABASES;
 
             fun toSDM2Tag(): Exclusion.Tag = when (this) {
                 GLOBAL -> Exclusion.Tag.GENERAL

@@ -9,11 +9,7 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class NameCriteriumTest : BaseTest() {
-    private val moshi = SerializationAppModule().moshi().newBuilder().apply {
-        add(NameCriterium.MOSHI_ADAPTER_FACTORY)
-    }.build()
-
-    private val adapter = moshi.adapter(NameCriterium::class.java)
+    private val json = SerializationAppModule().json()
 
     @Test
     fun `name criteria START - basic`() = runTest {
@@ -70,7 +66,7 @@ class NameCriteriumTest : BaseTest() {
             name = "some.apk",
             mode = Mode.Equal(ignoreCase = false)
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(NameCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "name": "some.apk",
@@ -80,7 +76,7 @@ class NameCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(NameCriterium.serializer(), rawJson) shouldBe original
     }
 
     @Test
@@ -89,7 +85,7 @@ class NameCriteriumTest : BaseTest() {
             name = "some.apk",
             mode = Mode.Start()
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(NameCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "name": "some.apk",
@@ -99,7 +95,7 @@ class NameCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(NameCriterium.serializer(), rawJson) shouldBe original
     }
 
     @Test
@@ -108,7 +104,7 @@ class NameCriteriumTest : BaseTest() {
             name = "some.apk",
             mode = Mode.Contain()
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(NameCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "name": "some.apk",
@@ -118,7 +114,7 @@ class NameCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(NameCriterium.serializer(), rawJson) shouldBe original
     }
 
     @Test
@@ -127,7 +123,7 @@ class NameCriteriumTest : BaseTest() {
             name = "some.apk",
             mode = Mode.End()
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(NameCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "name": "some.apk",
@@ -137,6 +133,6 @@ class NameCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(NameCriterium.serializer(), rawJson) shouldBe original
     }
 }

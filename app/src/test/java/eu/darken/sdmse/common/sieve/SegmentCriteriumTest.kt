@@ -11,11 +11,7 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class SegmentCriteriumTest : BaseTest() {
-    private val moshi = SerializationAppModule().moshi().newBuilder().apply {
-        add(SegmentCriterium.MOSHI_ADAPTER_FACTORY)
-    }.build()
-
-    private val adapter = moshi.adapter(SegmentCriterium::class.java)
+    private val json = SerializationAppModule().json()
 
     @Test
     fun `pfp criteria ANCESTOR - basic`() = runTest {
@@ -123,7 +119,7 @@ class SegmentCriteriumTest : BaseTest() {
             segments = segs("a", "b"),
             mode = Mode.Ancestor(ignoreCase = false)
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(SegmentCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "segments": ["a", "b"],
@@ -133,7 +129,7 @@ class SegmentCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(SegmentCriterium.serializer(), rawJson) shouldBe original
     }
 
     @Test
@@ -142,7 +138,7 @@ class SegmentCriteriumTest : BaseTest() {
             segments = segs("a", "b"),
             mode = Mode.Start(allowPartial = true)
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(SegmentCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "segments": ["a", "b"],
@@ -153,7 +149,7 @@ class SegmentCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(SegmentCriterium.serializer(), rawJson) shouldBe original
 
         val defaultValuesRaw = """
            {
@@ -164,7 +160,7 @@ class SegmentCriteriumTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(defaultValuesRaw) shouldBe SegmentCriterium(
+        json.decodeFromString(SegmentCriterium.serializer(), defaultValuesRaw) shouldBe SegmentCriterium(
             segments = segs("a", "b"),
             mode = Mode.Start(ignoreCase = true, allowPartial = false)
         )
@@ -176,7 +172,7 @@ class SegmentCriteriumTest : BaseTest() {
             segments = segs("a", "b"),
             mode = Mode.Contain()
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(SegmentCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "segments": ["a", "b"],
@@ -187,7 +183,7 @@ class SegmentCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(SegmentCriterium.serializer(), rawJson) shouldBe original
     }
 
     @Test
@@ -196,7 +192,7 @@ class SegmentCriteriumTest : BaseTest() {
             segments = segs("a", "b"),
             mode = Mode.End()
         )
-        val rawJson = adapter.toJson(original)
+        val rawJson = json.encodeToString(SegmentCriterium.serializer(), original)
         rawJson.toComparableJson() shouldBe """
            {
                 "segments": ["a", "b"],
@@ -207,6 +203,6 @@ class SegmentCriteriumTest : BaseTest() {
                 }
             }
         """.toComparableJson()
-        adapter.fromJson(rawJson) shouldBe original
+        json.decodeFromString(SegmentCriterium.serializer(), rawJson) shouldBe original
     }
 }

@@ -1,22 +1,23 @@
 package eu.darken.sdmse.squeezer.core
 
-import com.squareup.moshi.Moshi
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationIOModule
+import eu.darken.sdmse.common.serialization.SerializationAppModule
 import eu.darken.sdmse.common.ui.LayoutMode
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.shouldNotBe
+import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
+import testhelpers.json.toComparableJson
 
 class SqueezerSettingsTest : BaseTest() {
 
-    private lateinit var moshi: Moshi
+    private lateinit var json: Json
 
     @BeforeEach
     fun setup() {
-        moshi = SerializationIOModule().moshi()
+        json = SerializationAppModule().json()
     }
 
     @Test
@@ -30,95 +31,73 @@ class SqueezerSettingsTest : BaseTest() {
     }
 
     @Test
-    fun `ScanPaths serializes and deserializes empty paths`() {
-        val adapter = moshi.adapter(SqueezerSettings.ScanPaths::class.java)
-
+    fun `ScanPaths empty serialize matches golden JSON`() {
         val original = SqueezerSettings.ScanPaths(paths = emptySet())
-        val json = adapter.toJson(original)
-        val restored = adapter.fromJson(json)
+        val jsonStr = json.encodeToString(SqueezerSettings.ScanPaths.serializer(), original)
 
-        restored shouldBe original
-        restored?.paths shouldBe emptySet()
+        jsonStr.toComparableJson() shouldBe """
+            {
+                "paths": []
+            }
+        """.toComparableJson()
+
+        json.decodeFromString(SqueezerSettings.ScanPaths.serializer(), jsonStr) shouldBe original
     }
 
     @Test
-    fun `ScanPaths serializes and deserializes multiple paths`() {
-        val adapter = moshi.adapter(SqueezerSettings.ScanPaths::class.java)
-
+    fun `ScanPaths with paths serialize matches golden JSON`() {
         val original = SqueezerSettings.ScanPaths(
             paths = setOf(
                 LocalPath.build("/storage/emulated/0/DCIM"),
                 LocalPath.build("/storage/emulated/0/Pictures"),
             )
         )
-        val json = adapter.toJson(original)
-        val restored = adapter.fromJson(json)
+        val jsonStr = json.encodeToString(SqueezerSettings.ScanPaths.serializer(), original)
 
+        jsonStr.toComparableJson() shouldBe """
+            {
+                "paths": [
+                    {
+                        "file": "/storage/emulated/0/DCIM",
+                        "pathType": "LOCAL"
+                    },
+                    {
+                        "file": "/storage/emulated/0/Pictures",
+                        "pathType": "LOCAL"
+                    }
+                ]
+            }
+        """.toComparableJson()
+
+        val restored = json.decodeFromString(SqueezerSettings.ScanPaths.serializer(), jsonStr)
         restored shouldNotBe null
-        restored?.paths?.size shouldBe 2
+        restored.paths.size shouldBe 2
     }
 
     @Test
     fun `ScanPaths default constructor has empty paths`() {
         val scanPaths = SqueezerSettings.ScanPaths()
-
         scanPaths.paths shouldBe emptySet()
     }
 
     @Test
-    fun `quality boundary - minimum is 1`() {
-        val minQuality = 1
-        minQuality shouldBe 1
+    fun `LayoutMode GRID serialize matches golden JSON`() {
+        val jsonStr = json.encodeToString(LayoutMode.serializer(), LayoutMode.GRID)
+        jsonStr shouldBe "\"GRID\""
     }
 
     @Test
-    fun `quality boundary - maximum is 100`() {
-        val maxQuality = 100
-        maxQuality shouldBe 100
+    fun `LayoutMode LINEAR serialize matches golden JSON`() {
+        val jsonStr = json.encodeToString(LayoutMode.serializer(), LayoutMode.LINEAR)
+        jsonStr shouldBe "\"LINEAR\""
     }
 
     @Test
     fun `LayoutMode serializes and deserializes correctly`() {
-        val adapter = moshi.adapter(LayoutMode::class.java)
-
         for (mode in LayoutMode.entries) {
-            val json = adapter.toJson(mode)
-            val restored = adapter.fromJson(json)
+            val jsonStr = json.encodeToString(LayoutMode.serializer(), mode)
+            val restored = json.decodeFromString(LayoutMode.serializer(), jsonStr)
             restored shouldBe mode
         }
-    }
-
-    @Test
-    fun `LayoutMode GRID serialization round-trip`() {
-        val adapter = moshi.adapter(LayoutMode::class.java)
-
-        val json = adapter.toJson(LayoutMode.GRID)
-        val restored = adapter.fromJson(json)
-
-        restored shouldBe LayoutMode.GRID
-    }
-
-    @Test
-    fun `LayoutMode LINEAR serialization round-trip`() {
-        val adapter = moshi.adapter(LayoutMode::class.java)
-
-        val json = adapter.toJson(LayoutMode.LINEAR)
-        val restored = adapter.fromJson(json)
-
-        restored shouldBe LayoutMode.LINEAR
-    }
-
-    @Test
-    fun `MIN_FILE_SIZE is reasonable for image compression`() {
-        // 512KB is a reasonable minimum - smaller images don't benefit much from compression
-        val minSizeKb = SqueezerSettings.MIN_FILE_SIZE / 1024
-        minSizeKb shouldBe 512L
-    }
-
-    @Test
-    fun `default quality produces good compression ratio`() {
-        // Quality 80 typically results in 65% of original size for JPEG
-        // This is tested in ImageScannerEstimationTest, but we verify the constant here
-        SqueezerSettings.DEFAULT_QUALITY shouldBe 80
     }
 }

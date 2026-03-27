@@ -1,7 +1,5 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaString
 import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -9,11 +7,13 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.pkgs.Pkg
 import eu.darken.sdmse.common.pkgs.getLabel2
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class PkgExclusion(
-    @Json(name = "pkgId") val pkgId: Pkg.Id,
-    @Json(name = "tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
+    @SerialName("pkgId") val pkgId: Pkg.Id,
+    @SerialName("tags") override val tags: Set<Exclusion.Tag> = setOf(Exclusion.Tag.GENERAL)
 ) : Exclusion.Pkg {
 
     override val id: ExclusionId

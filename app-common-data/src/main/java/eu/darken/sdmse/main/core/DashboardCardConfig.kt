@@ -1,16 +1,16 @@
 package eu.darken.sdmse.main.core
 
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 
-@JsonClass(generateAdapter = true)
+@Serializable
 data class DashboardCardConfig(
-    @Json(name = "cards") val cards: List<CardEntry> = defaultCards,
+    @SerialName("cards") val cards: List<CardEntry> = defaultCards,
 ) {
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class CardEntry(
-        @Json(name = "type") val type: DashboardCardType,
-        @Json(name = "isVisible") val isVisible: Boolean = true,
+        @SerialName("type") val type: DashboardCardType,
+        @SerialName("isVisible") val isVisible: Boolean = true,
     )
 
     companion object {

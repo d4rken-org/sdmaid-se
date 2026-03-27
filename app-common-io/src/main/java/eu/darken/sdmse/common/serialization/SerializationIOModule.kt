@@ -1,12 +1,13 @@
 package eu.darken.sdmse.common.serialization
 
-import com.squareup.moshi.Moshi
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.serialization.*
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.modules.SerializersModule
+import kotlinx.serialization.modules.contextual
 import javax.inject.Qualifier
 import javax.inject.Singleton
 
@@ -17,11 +18,19 @@ class SerializationIOModule {
     @Provides
     @Singleton
     @SerializationIO
-    fun moshi(
-        @SerializationCommon moshiCommon: Moshi = SerializationCommonModule().moshi()
-    ): Moshi = moshiCommon.newBuilder().apply {
-        add(APath.MOSHI_FACTORY)
-    }.build()
+    fun serializersModule(
+        @SerializationCommon commonModule: SerializersModule = SerializationCommonModule().serializersModule(),
+    ): SerializersModule = SerializersModule {
+        include(commonModule)
+        contextual(APath::class, APathSerializer)
+    }
+
+    fun json(): Json = Json {
+        ignoreUnknownKeys = true
+        encodeDefaults = true
+        explicitNulls = false
+        serializersModule = serializersModule()
+    }
 }
 
 @Qualifier

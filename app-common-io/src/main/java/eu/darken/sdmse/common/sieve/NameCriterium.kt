@@ -1,17 +1,14 @@
 package eu.darken.sdmse.common.sieve
 
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import kotlinx.parcelize.Parcelize
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
 @Serializable
-@JsonClass(generateAdapter = true)
 @Parcelize
 data class NameCriterium(
-    val name: String,
-    override val mode: Mode,
+    @SerialName("name") val name: String,
+    @SerialName("mode") override val mode: Mode,
 ) : SieveCriterium {
 
     fun match(target: String): Boolean = when (mode) {
@@ -25,39 +22,28 @@ data class NameCriterium(
     sealed interface Mode : SieveCriterium.Mode {
 
         @Serializable @SerialName("START")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Start(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
 
         @Serializable @SerialName("CONTAIN")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Contain(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
 
         @Serializable @SerialName("END")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class End(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
 
         @Serializable @SerialName("MATCH")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
     }
 
-    companion object {
-        val MOSHI_ADAPTER_FACTORY = PolymorphicJsonAdapterFactory.of(Mode::class.java, "type")
-            .withSubtype(Mode.Start::class.java, "START")
-            .withSubtype(Mode.Contain::class.java, "CONTAIN")
-            .withSubtype(Mode.End::class.java, "END")
-            .withSubtype(Mode.Equal::class.java, "MATCH")!!
-    }
 }

@@ -1,16 +1,17 @@
 package eu.darken.sdmse.common.files
 
 import androidx.annotation.Keep
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.TypeMissMatchException
 import kotlinx.parcelize.Parcelize
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
 import java.io.File
 
+@Serializable
 @Parcelize
 @Keep
-@JsonClass(generateAdapter = true)
 data class RawPath(
-    override val path: String
+    @SerialName("path") override val path: String,
 ) : APath {
 
     override var pathType: APath.PathType

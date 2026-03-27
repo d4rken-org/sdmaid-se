@@ -1,7 +1,5 @@
 package eu.darken.sdmse.common.sieve
 
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.adapters.PolymorphicJsonAdapterFactory
 import eu.darken.sdmse.common.files.Segments
 import eu.darken.sdmse.common.files.containsSegments
 import eu.darken.sdmse.common.files.endsWith
@@ -16,11 +14,10 @@ import kotlinx.serialization.Serializable
 
 
 @Serializable
-@JsonClass(generateAdapter = true)
 @Parcelize
 data class SegmentCriterium(
-    val segments: Segments,
-    override val mode: Mode,
+    @SerialName("segments") val segments: Segments,
+    @SerialName("mode") override val mode: Mode,
 ) : SieveCriterium {
 
     constructor(rawSegments: String, mode: Mode) : this(rawSegments.toSegs(), mode)
@@ -51,61 +48,46 @@ data class SegmentCriterium(
     sealed interface Mode : SieveCriterium.Mode {
 
         @Serializable @SerialName("ANCESTOR")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Ancestor(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
 
         @Serializable @SerialName("START")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Start(
-            val ignoreCase: Boolean = true,
-            val allowPartial: Boolean = false,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
+            @SerialName("allowPartial") val allowPartial: Boolean = false,
         ) : Mode
 
         @Serializable @SerialName("CONTAIN")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Contain(
-            val ignoreCase: Boolean = true,
-            val allowPartial: Boolean = false,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
+            @SerialName("allowPartial") val allowPartial: Boolean = false,
         ) : Mode
 
         @Serializable @SerialName("END")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class End(
-            val ignoreCase: Boolean = true,
-            val allowPartial: Boolean = false,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
+            @SerialName("allowPartial") val allowPartial: Boolean = false,
         ) : Mode
 
         @Serializable @SerialName("MATCH")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Equal(
-            val ignoreCase: Boolean = true,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
         ) : Mode
 
         @Serializable @SerialName("SPECIFIC")
-        @JsonClass(generateAdapter = true)
         @Parcelize
         data class Specific(
-            val index: Int,
-            val backwards: Boolean = false,
-            val ignoreCase: Boolean = true,
-            val allowPartial: Boolean = false,
+            @SerialName("index") val index: Int,
+            @SerialName("backwards") val backwards: Boolean = false,
+            @SerialName("ignoreCase") val ignoreCase: Boolean = true,
+            @SerialName("allowPartial") val allowPartial: Boolean = false,
         ) : Mode
     }
 
-    companion object {
-        val MOSHI_ADAPTER_FACTORY = PolymorphicJsonAdapterFactory.of(Mode::class.java, "type")
-            .withSubtype(Mode.Ancestor::class.java, "ANCESTOR")
-            .withSubtype(Mode.Start::class.java, "START")
-            .withSubtype(Mode.Contain::class.java, "CONTAIN")
-            .withSubtype(Mode.End::class.java, "END")
-            .withSubtype(Mode.Equal::class.java, "MATCH")!!
-            .withSubtype(Mode.Specific::class.java, "SPECIFIC")!!
-    }
 }

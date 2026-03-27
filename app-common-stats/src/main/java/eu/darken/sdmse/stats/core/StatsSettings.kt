@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
+import kotlinx.serialization.json.Json
 import java.time.Duration
 import javax.inject.Inject
 import javax.inject.Singleton
@@ -17,7 +17,7 @@ import javax.inject.Singleton
 @Singleton
 class StatsSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val moshi: Moshi,
+    private val json: Json,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_stats")
@@ -25,9 +25,9 @@ class StatsSettings @Inject constructor(
     override val dataStore: DataStore<Preferences>
         get() = context.dataStore
 
-    val retentionReports = dataStore.createValue("retention.reports", DEFAULT_RETENTION_REPORTS, moshi)
-    val retentionPaths = dataStore.createValue("retention.paths", DEFAULT_RETENTION_PATHS, moshi)
-    val retentionSnapshots = dataStore.createValue("retention.snapshots", DEFAULT_RETENTION_SNAPSHOTS, moshi)
+    val retentionReports = dataStore.createValue("retention.reports", DEFAULT_RETENTION_REPORTS, json)
+    val retentionPaths = dataStore.createValue("retention.paths", DEFAULT_RETENTION_PATHS, json)
+    val retentionSnapshots = dataStore.createValue("retention.snapshots", DEFAULT_RETENTION_SNAPSHOTS, json)
     val lastSnapshotAt = dataStore.createValue("snapshot.last.at", 0L)
 
     val totalSpaceFreed = dataStore.createValue("total.space.freed", 0L)

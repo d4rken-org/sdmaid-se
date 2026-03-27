@@ -1,15 +1,12 @@
 package eu.darken.sdmse.exclusion.core.types
 
-import com.squareup.moshi.JsonDataException
 import eu.darken.sdmse.common.files.core.local.tryMkFile
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.serialization.SerializationIOModule
-import eu.darken.sdmse.exclusion.core.types.Exclusion
-import eu.darken.sdmse.exclusion.core.types.PathExclusion
-import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
 import kotlinx.coroutines.test.runTest
+import kotlinx.serialization.SerializationException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Test
 import testhelpers.BaseTest
@@ -18,7 +15,7 @@ import java.io.File
 
 class PathExclusionTest : BaseTest() {
     private val testFile = File(IO_TEST_BASEDIR, "testfile")
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
     @AfterEach
     fun cleanup() {
@@ -41,10 +38,8 @@ class PathExclusionTest : BaseTest() {
             tags = setOf(Exclusion.Tag.DEDUPLICATOR, Exclusion.Tag.APPCLEANER)
         )
 
-        val adapter = moshi.adapter(PathExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(PathExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
                     "file": "/test/path",
@@ -57,7 +52,7 @@ class PathExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(PathExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -65,10 +60,8 @@ class PathExclusionTest : BaseTest() {
         testFile.tryMkFile()
         val original = PathExclusion(LocalPath.build("test", "path"))
 
-        val adapter = moshi.adapter(PathExclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(PathExclusion.serializer(), original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
                     "file": "/test/path",
@@ -80,7 +73,7 @@ class PathExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(PathExclusion.serializer(), jsonStr) shouldBe original
     }
 
     @Test
@@ -88,10 +81,8 @@ class PathExclusionTest : BaseTest() {
         testFile.tryMkFile()
         val original = PathExclusion(LocalPath.build("test", "path"))
 
-        val adapter = moshi.adapter(Exclusion::class.java)
-
-        val json = adapter.toJson(original)
-        json.toComparableJson() shouldBe """
+        val jsonStr = json.encodeToString(ExclusionSerializer, original)
+        jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
                     "file": "/test/path",
@@ -103,16 +94,16 @@ class PathExclusionTest : BaseTest() {
             }
         """.toComparableJson()
 
-        adapter.fromJson(json) shouldBe original
+        json.decodeFromString(ExclusionSerializer, jsonStr) shouldBe original
     }
 
     @Test
     fun `force typing`() {
         val original = PathExclusion(LocalPath.build("test", "path"))
 
-        shouldThrow<JsonDataException> {
-            val json = moshi.adapter(PathExclusion::class.java).toJson(original)
-            moshi.adapter(PkgExclusion::class.java).fromJson(json)
+        shouldThrow<SerializationException> {
+            val jsonStr = json.encodeToString(PathExclusion.serializer(), original)
+            json.decodeFromString(PkgExclusion.serializer(), jsonStr)
         }
     }
 }

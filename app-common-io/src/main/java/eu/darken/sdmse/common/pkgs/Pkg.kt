@@ -1,8 +1,6 @@
 package eu.darken.sdmse.common.pkgs
 
 import android.os.Parcelable
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
 import eu.darken.sdmse.common.ca.CaDrawable
 import eu.darken.sdmse.common.ca.CaString
 import kotlinx.parcelize.Parcelize
@@ -21,9 +19,8 @@ interface Pkg {
 
     @Serializable
     @Parcelize
-    @JsonClass(generateAdapter = true)
     data class Id(
-        @Json(name = "name") val name: String,
+        val name: String,
     ) : Parcelable {
         override fun toString(): String = name
     }

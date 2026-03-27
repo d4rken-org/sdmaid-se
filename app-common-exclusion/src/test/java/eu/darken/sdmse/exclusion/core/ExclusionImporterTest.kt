@@ -16,11 +16,11 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class ExclusionImporterTest : BaseTest() {
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
 
     fun create() = ExclusionImporter(
-        moshi = moshi
+        json = json
     )
 
     @Test
@@ -66,7 +66,7 @@ class ExclusionImporterTest : BaseTest() {
         raw.toComparableJson() shouldBe """
             {
                 "exclusionRaw": "[{\"pkgId\":{\"name\":\"test.pkg\"},\"tags\":[\"GENERAL\"]},{\"segments\":[\"\",\"test\",\"path\"],\"allowPartial\":true,\"ignoreCase\":true,\"tags\":[\"APPCLEANER\"]},{\"path\":{\"file\":\"/test/path\",\"pathType\":\"LOCAL\"},\"tags\":[\"APPCLEANER\"]}]",
-                "version": 1.0
+                "version": 1
             }
         """.toComparableJson()
 

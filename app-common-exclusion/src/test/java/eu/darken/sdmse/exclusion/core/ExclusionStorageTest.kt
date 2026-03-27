@@ -4,7 +4,6 @@ import android.content.Context
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.common.serialization.SerializationIOModule
-import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import io.kotest.matchers.shouldBe
@@ -20,7 +19,7 @@ import java.io.File
 
 class ExclusionStorageTest : BaseTest() {
     @TempDir lateinit var testFolder: File
-    private val moshi = SerializationIOModule().moshi().newBuilder().add(Exclusion.MOSHI_FACTORY).build()
+    private val json = SerializationIOModule().json()
 
     private fun createContext(): Context = mockk<Context>().apply {
         every { filesDir } returns testFolder
@@ -29,7 +28,7 @@ class ExclusionStorageTest : BaseTest() {
     fun create() = ExclusionStorage(
         dispatcherProvider = TestDispatcherProvider(),
         context = createContext(),
-        moshi = moshi,
+        json = json,
     )
 
     @Test

@@ -1,20 +1,24 @@
+@file:UseSerializers(APathSerializer::class)
+
 package eu.darken.sdmse.deduplicator.core
 
 import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
 import androidx.datastore.preferences.preferencesDataStore
-import com.squareup.moshi.Json
-import com.squareup.moshi.JsonClass
-import com.squareup.moshi.Moshi
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.datastore.PreferenceScreenData
 import eu.darken.sdmse.common.datastore.PreferenceStoreMapper
 import eu.darken.sdmse.common.datastore.createValue
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.serialization.APathSerializer
 import eu.darken.sdmse.common.ui.LayoutMode
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
+import kotlinx.serialization.SerialName
+import kotlinx.serialization.Serializable
+import kotlinx.serialization.UseSerializers
+import kotlinx.serialization.json.Json
 import javax.inject.Inject
 import javax.inject.Singleton
 
@@ -22,7 +26,7 @@ import javax.inject.Singleton
 @Singleton
 class DeduplicatorSettings @Inject constructor(
     @ApplicationContext private val context: Context,
-    moshi: Moshi,
+    json: Json,
 ) : PreferenceScreenData {
 
     private val Context.dataStore by preferencesDataStore(name = "settings_deduplicator")
@@ -36,23 +40,23 @@ class DeduplicatorSettings @Inject constructor(
     val isSleuthChecksumEnabled = dataStore.createValue("sleuth.checksum.enabled", true)
     val isSleuthPHashEnabled = dataStore.createValue("sleuth.phash.enabled", false)
     val isSleuthMediaEnabled = dataStore.createValue("sleuth.media.enabled", false)
-    val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), moshi)
+    val scanPaths = dataStore.createValue("scan.location.paths", ScanPaths(), json)
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class ScanPaths(
-        @Json(name = "paths") val paths: Set<APath> = emptySet(),
+        @SerialName("paths") val paths: Set<APath> = emptySet(),
     )
 
     val arbiterConfig = dataStore.createValue(
         key = "arbiter.config",
         defaultValue = ArbiterConfig(),
-        moshi = moshi,
+        json = json,
         fallbackToDefault = true,
     )
 
-    @JsonClass(generateAdapter = true)
+    @Serializable
     data class ArbiterConfig(
-        @Json(name = "criteria") val criteria: List<ArbiterCriterium> = listOf(
+        @SerialName("criteria") val criteria: List<ArbiterCriterium> = listOf(
             ArbiterCriterium.DuplicateType(),
             ArbiterCriterium.PreferredPath(),
             ArbiterCriterium.MediaProvider(),
@@ -63,7 +67,7 @@ class DeduplicatorSettings @Inject constructor(
         ),
     )
 
-    val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, moshi)
+    val layoutMode = dataStore.createValue("ui.list.layoutmode", LayoutMode.GRID, json)
 
     val isDirectoryViewEnabled = dataStore.createValue("ui.cluster.directoryview.enabled", false)
 

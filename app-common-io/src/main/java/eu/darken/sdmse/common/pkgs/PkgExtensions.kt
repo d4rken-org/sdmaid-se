@@ -2,7 +2,7 @@ package eu.darken.sdmse.common.pkgs
 
 import android.content.Context
 import android.content.Intent
-import android.net.Uri
+import androidx.core.net.toUri
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
 import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
@@ -12,7 +12,7 @@ fun Pkg.getSettingsIntent(context: Context) = id.getSettingsIntent(context)
 
 fun Pkg.Id.getSettingsIntent(context: Context): Intent = Intent().apply {
     action = android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS
-    data = Uri.parse("package:${this@getSettingsIntent.name}")
+    data = "package:${this@getSettingsIntent.name}".toUri()
 }
 
 fun String.toPkgId() = Pkg.Id(this)

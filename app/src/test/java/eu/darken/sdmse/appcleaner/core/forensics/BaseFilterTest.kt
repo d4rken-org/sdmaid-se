@@ -384,7 +384,7 @@ abstract class BaseFilterTest : BaseTest() {
             return JsonAppSieve(
                 context = context,
                 assetPath = assetPath,
-                moshi = SerializationAppModule().moshi(),
+                json = SerializationAppModule().json(),
             )
         }
     }
