@@ -35,8 +35,7 @@ class PickerRouteSerializationTest : BaseTest() {
                     "allowedAreas": ["SDCARD", "PUBLIC_DATA"],
                     "selectedPaths": [
                         {
-                            "pathType": "LOCAL",
-                            "path": "/storage/emulated/0/DCIM"
+                            "file": "/storage/emulated/0/DCIM"
                         }
                     ]
                 }

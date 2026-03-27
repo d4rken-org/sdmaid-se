@@ -26,12 +26,10 @@ class APathListTypeConverterTest : BaseTest() {
         jsonStr.toComparableJson() shouldBe """
             [
                 {
-                    "file": "/data/path",
-                    "pathType": "LOCAL"
+                    "file": "/data/path"
                 },
                 {
-                    "path": "/raw/path",
-                    "pathType": "RAW"
+                    "path": "/raw/path"
                 }
             ]
         """.toComparableJson()

@@ -31,12 +31,10 @@ class PreviewRoutesSerializationTest : BaseTest() {
                 "options": {
                     "paths": [
                         {
-                            "pathType": "LOCAL",
-                            "path": "/test/image.jpg"
+                            "file": "/test/image.jpg"
                         },
                         {
-                            "pathType": "LOCAL",
-                            "path": "/test/photo.png"
+                            "file": "/test/photo.png"
                         }
                     ],
                     "position": 1
@@ -61,8 +59,7 @@ class PreviewRoutesSerializationTest : BaseTest() {
             {
                 "item": {
                     "path": {
-                        "pathType": "LOCAL",
-                        "path": "/test/image.jpg"
+                        "file": "/test/image.jpg"
                     }
                 }
             }
