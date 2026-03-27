@@ -65,7 +65,7 @@ class ExclusionImporterTest : BaseTest() {
 
         raw.toComparableJson() shouldBe """
             {
-                "exclusionRaw": "[{\"pkgId\":{\"name\":\"test.pkg\"},\"tags\":[\"GENERAL\"]},{\"segments\":[\"\",\"test\",\"path\"],\"allowPartial\":true,\"ignoreCase\":true,\"tags\":[\"APPCLEANER\"]},{\"path\":{\"file\":\"/test/path\",\"pathType\":\"LOCAL\"},\"tags\":[\"APPCLEANER\"]}]",
+                "exclusionRaw": "[{\"pkgId\":{\"name\":\"test.pkg\"},\"tags\":[\"GENERAL\"]},{\"segments\":[\"\",\"test\",\"path\"],\"allowPartial\":true,\"ignoreCase\":true,\"tags\":[\"APPCLEANER\"]},{\"path\":{\"file\":\"/test/path\"},\"tags\":[\"APPCLEANER\"]}]",
                 "version": 1
             }
         """.toComparableJson()

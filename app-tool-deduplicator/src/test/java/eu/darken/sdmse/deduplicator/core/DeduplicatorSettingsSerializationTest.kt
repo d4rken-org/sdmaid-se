@@ -1,7 +1,7 @@
 package eu.darken.sdmse.deduplicator.core
 
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import eu.darken.sdmse.deduplicator.core.arbiter.ArbiterCriterium
 import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.shouldBe
@@ -12,7 +12,7 @@ import testhelpers.BaseTest
 import testhelpers.json.toComparableJson
 
 class DeduplicatorSettingsSerializationTest : BaseTest() {
-    private val json: Json = SerializationAppModule().json()
+    private val json: Json = SerializationIOModule().json()
 
     @Test
     fun `ArbiterCriterium DuplicateType serialization`() {
@@ -100,8 +100,8 @@ class DeduplicatorSettingsSerializationTest : BaseTest() {
             {
                 "criteriumType": "PREFERRED_PATH",
                 "keepPreferPaths": [
-                    {"file": "/storage/emulated/0/Pictures", "pathType": "LOCAL"},
-                    {"file": "/storage/emulated/0/DCIM", "pathType": "LOCAL"}
+                    {"file": "/storage/emulated/0/Pictures"},
+                    {"file": "/storage/emulated/0/DCIM"}
                 ]
             }
         """.toComparableJson()

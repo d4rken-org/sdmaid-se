@@ -42,8 +42,7 @@ class PathExclusionTest : BaseTest() {
         jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
-                    "file": "/test/path",
-                    "pathType": "LOCAL"
+                    "file": "/test/path"
                 },
                 "tags": [
                     "DEDUPLICATOR",
@@ -64,8 +63,7 @@ class PathExclusionTest : BaseTest() {
         jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
-                    "file": "/test/path",
-                    "pathType": "LOCAL"
+                    "file": "/test/path"
                 },
                 "tags": [
                     "GENERAL"
@@ -85,8 +83,7 @@ class PathExclusionTest : BaseTest() {
         jsonStr.toComparableJson() shouldBe """
             {
                 "path": {
-                    "file": "/test/path",
-                    "pathType": "LOCAL"
+                    "file": "/test/path"
                 },
                 "tags": [
                     "GENERAL"

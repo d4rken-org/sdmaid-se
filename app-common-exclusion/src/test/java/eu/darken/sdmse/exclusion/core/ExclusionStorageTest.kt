@@ -57,8 +57,7 @@ class ExclusionStorageTest : BaseTest() {
                 },
                 {
                     "path": {
-                        "file": "/test/path",
-                        "pathType": "LOCAL"
+                        "file": "/test/path"
                     },
                     "tags": [
                         "GENERAL"
