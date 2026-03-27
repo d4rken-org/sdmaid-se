@@ -22,8 +22,7 @@ class APathTypeConverterTest : BaseTest() {
 
         jsonStr.toComparableJson() shouldBe """
             {
-                "file": "/data/user/0/eu.darken.sdmse/cache",
-                "pathType": "LOCAL"
+                "file": "/data/user/0/eu.darken.sdmse/cache"
             }
         """.toComparableJson()
     }
@@ -43,8 +42,7 @@ class APathTypeConverterTest : BaseTest() {
 
         jsonStr.toComparableJson() shouldBe """
             {
-                "path": "/storage/emulated/0/DCIM",
-                "pathType": "RAW"
+                "path": "/storage/emulated/0/DCIM"
             }
         """.toComparableJson()
     }

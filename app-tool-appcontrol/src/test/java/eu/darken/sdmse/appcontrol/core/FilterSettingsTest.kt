@@ -1,6 +1,6 @@
 package eu.darken.sdmse.appcontrol.core
 
-import eu.darken.sdmse.common.serialization.SerializationAppModule
+import eu.darken.sdmse.common.serialization.SerializationIOModule
 import io.kotest.matchers.shouldBe
 import kotlinx.serialization.json.Json
 import org.junit.jupiter.api.Test
@@ -9,7 +9,7 @@ import testhelpers.json.toComparableJson
 
 class FilterSettingsTest : BaseTest() {
 
-    private val json: Json = SerializationAppModule().json()
+    private val json: Json = SerializationIOModule().json()
 
     @Test
     fun `serialize default matches golden JSON`() {
