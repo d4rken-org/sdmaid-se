@@ -94,6 +94,28 @@ class PathExclusionTest : BaseTest() {
         json.decodeFromString(ExclusionSerializer, jsonStr) shouldBe original
     }
 
+    // Legacy regression: old stored exclusions have pathType in the nested path object.
+
+    @Test
+    fun `legacy JSON with pathType in nested path deserializes correctly`() {
+        val legacyJson = """{"path":{"file":"/storage/emulated/0/DCIM","pathType":"LOCAL"},"tags":["GENERAL"]}"""
+        val expected = PathExclusion(
+            path = LocalPath.build("/storage/emulated/0/DCIM"),
+            tags = setOf(Exclusion.Tag.GENERAL),
+        )
+        json.decodeFromString(PathExclusion.serializer(), legacyJson) shouldBe expected
+    }
+
+    @Test
+    fun `legacy JSON with pathType via polymorphic deserializer`() {
+        val legacyJson = """{"path":{"file":"/test/path","pathType":"LOCAL"},"tags":["APPCLEANER","DEDUPLICATOR"]}"""
+        val expected = PathExclusion(
+            path = LocalPath.build("test", "path"),
+            tags = setOf(Exclusion.Tag.APPCLEANER, Exclusion.Tag.DEDUPLICATOR),
+        )
+        json.decodeFromString(ExclusionSerializer, legacyJson) shouldBe expected
+    }
+
     @Test
     fun `force typing`() {
         val original = PathExclusion(LocalPath.build("test", "path"))

@@ -54,6 +54,27 @@ class APathTypeConverterTest : BaseTest() {
         path shouldBe RawPath.build("/storage/emulated/0/DCIM")
     }
 
+    // Legacy regression: old Moshi JSON included a pathType discriminator field.
+    // Stored Room DB values may still contain it — verify ignoreUnknownKeys handles this.
+
+    @Test
+    fun `legacy LocalPath JSON with pathType deserializes correctly`() {
+        val legacyJson = """{"file":"/data/user/0/com.example/cache","pathType":"LOCAL"}"""
+        converter.to(legacyJson) shouldBe LocalPath.build(file = File("/data/user/0/com.example/cache"))
+    }
+
+    @Test
+    fun `legacy RawPath JSON with pathType deserializes correctly`() {
+        val legacyJson = """{"path":"/storage/emulated/0/Download","pathType":"RAW"}"""
+        converter.to(legacyJson) shouldBe RawPath.build("/storage/emulated/0/Download")
+    }
+
+    @Test
+    fun `legacy LocalPath JSON with pathType at different position deserializes correctly`() {
+        val legacyJson = """{"pathType":"LOCAL","file":"/data/user/0/com.example/files"}"""
+        converter.to(legacyJson) shouldBe LocalPath.build(file = File("/data/user/0/com.example/files"))
+    }
+
     @Test
     fun `round trip preserves LocalPath`() {
         val original = LocalPath.build(file = File("/test/path"))

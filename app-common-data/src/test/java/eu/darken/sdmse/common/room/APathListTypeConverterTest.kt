@@ -45,6 +45,18 @@ class APathListTypeConverterTest : BaseTest() {
         )
     }
 
+    // Legacy regression: old Moshi JSON included pathType in each element.
+
+    @Test
+    fun `legacy mixed path list with pathType deserializes correctly`() {
+        val legacyJson = """[{"file":"/data/user/0/com.example/cache","pathType":"LOCAL"},{"path":"/sdcard/DCIM","pathType":"RAW"},{"file":"/data/local/tmp","pathType":"LOCAL"}]"""
+        converter.to(legacyJson) shouldBe listOf(
+            LocalPath.build(file = File("/data/user/0/com.example/cache")),
+            RawPath.build("/sdcard/DCIM"),
+            LocalPath.build(file = File("/data/local/tmp")),
+        )
+    }
+
     @Test
     fun `serialize empty list`() {
         val jsonStr = converter.from(emptyList())
