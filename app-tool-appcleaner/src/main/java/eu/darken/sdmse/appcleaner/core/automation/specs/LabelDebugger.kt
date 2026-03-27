@@ -6,6 +6,7 @@ import android.content.res.Configuration
 import android.content.res.Resources
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.automation.core.common.AutomationLabelSource
+import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
@@ -37,10 +38,12 @@ class LabelDebugger @Inject constructor(
                 }
             }
 
-        try {
-            logResourceScan()
-        } catch (e: Exception) {
-            log(TAG, WARN) { "Resource scan failed: ${e.asLog()}" }
+        if (Bugs.isDebug) {
+            try {
+                logResourceScan()
+            } catch (e: Exception) {
+                log(TAG, WARN) { "Resource scan failed: ${e.asLog()}" }
+            }
         }
     }
 
