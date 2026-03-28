@@ -106,6 +106,32 @@ class SystemStorageScannerTest : BaseTest() {
         excluded shouldNotContain "emulated"
     }
 
+    @Test
+    fun `system DataArea types under data are NOT excluded`() {
+        val areas = setOf(
+            DataArea(
+                type = DataArea.Type.DATA,
+                path = LocalPath.build("data"),
+                userHandle = UserHandle2(0),
+            ),
+            DataArea(
+                type = DataArea.Type.APP_APP,
+                path = LocalPath.build("data", "app"),
+                userHandle = UserHandle2(0),
+            ),
+        )
+        val excluded = SystemStorageScanner.buildExcludedDataDirs(areas)
+        // APP_APP is app-related → "app" excluded
+        excluded shouldContain "app"
+        // DATA type is NOT app-related → should not cause extra exclusions
+        // (its path is just "/data" which has no child segment anyway, but the type filter matters)
+        excluded shouldNotContain "system"
+        excluded shouldNotContain "misc"
+        excluded shouldNotContain "vendor"
+        excluded shouldNotContain "system_ce"
+        excluded shouldNotContain "system_de"
+    }
+
     // --- addRemainder ---
 
     @Test
