@@ -1,6 +1,7 @@
 package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.content.ActivityNotFoundException
+import eu.darken.sdmse.analyzer.core.storage.SystemStorageScanner
 import android.os.Bundle
 import android.view.MenuItem
 import android.view.View
@@ -180,7 +181,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         vm.events.observe2 { event ->
             when (event) {
                 is ContentItemEvents.ShowNoAccessHint -> {
-                    val isOtherItem = event.item.path.path == "/other"
+                    val isOtherItem = event.item.path == SystemStorageScanner.OTHER_PATH
                     if (isOtherItem) {
                         com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
                             .setTitle(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_other_label)
