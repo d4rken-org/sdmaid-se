@@ -35,6 +35,8 @@
     <string name="analyzer_storage_content_type_media_description">Captured pictures, recorded videos or downloaded data. Any data that doesn\'t belong to a specific app.</string>
     <string name="analyzer_storage_content_type_system_label">System data</string>
     <string name="analyzer_storage_content_type_system_description">System apps and system data. Apps and data from other users, if several user accounts are set on this device.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Other</string>
+    <string name="analyzer_storage_content_type_system_info">Files that don\'t fit the Apps or User files categories. Browse only — deletion is not supported. Some areas may be incomplete due to access restrictions.</string>
     <string name="analyzer_storage_content_app_code_label">App code</string>
     <string name="analyzer_storage_content_app_code_description">Application files, libraries and resources. This space can be freed by uninstalling the app or archiving it (available on newer Android version).</string>
     <string name="analyzer_storage_content_app_data_label">App data</string>

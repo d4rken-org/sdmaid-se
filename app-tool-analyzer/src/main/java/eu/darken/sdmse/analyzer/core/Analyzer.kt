@@ -12,6 +12,7 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanTask
 import eu.darken.sdmse.analyzer.core.device.DeviceStorageScanner
 import eu.darken.sdmse.analyzer.core.storage.AppDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
+import eu.darken.sdmse.analyzer.core.storage.SystemDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.StorageScanner
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.ContentCategory
@@ -128,6 +129,7 @@ class Analyzer @Inject constructor(
                     is StorageScanTask -> scanStorageContents(task)
                     is ContentDeleteTask -> deleteContent(task)
                     is AppDeepScanTask -> deepScanApp(task)
+                    is SystemDeepScanTask -> deepScanSystem(task)
                     else -> throw UnsupportedOperationException("Unsupported task: $task")
                 }
             }
@@ -245,7 +247,7 @@ class Analyzer @Inject constructor(
             is MediaCategory -> oldCategory.copy(groups = oldCategory.groups.minus(oldGroup).plus(newGroup))
 
             is SystemCategory -> {
-                throw UnsupportedOperationException("SystemCategory???")
+                throw UnsupportedOperationException("Deletion is not supported for system content")
             }
         }
 
@@ -296,6 +298,45 @@ class Analyzer @Inject constructor(
         }
 
         return AppDeepScanTask.Result(true)
+    }
+
+    private suspend fun deepScanSystem(task: SystemDeepScanTask): SystemDeepScanTask.Result {
+        log(TAG, VERBOSE) { "deepScanSystem(): $task" }
+
+        val targetStorage = storageDevices.value.singleOrNull { it.id == task.storageId }
+            ?: throw IllegalStateException("Couldn't find ${task.storageId}")
+        val existingCategory = storageCategories.first()[targetStorage.id]
+            ?.filterIsInstance<SystemCategory>()
+            ?.singleOrNull()
+            ?: throw IllegalStateException("No SystemCategory for ${task.storageId}")
+
+        val existingGroupId = existingCategory.groups.singleOrNull()?.id
+            ?: throw IllegalStateException("No group in SystemCategory for ${task.storageId}")
+
+        val start = System.currentTimeMillis()
+
+        val updatedCategory = withTimeoutOrNull(DEEP_SCAN_TIMEOUT) {
+            storageScanner.get().withProgress(this@Analyzer) {
+                deepScanSystem(targetStorage, existingGroupId, existingCategory.spaceUsedOverride)
+            }
+        }
+
+        val stop = System.currentTimeMillis()
+        log(TAG) { "deepScanSystem() took ${stop - start}ms" }
+
+        if (updatedCategory == null) {
+            log(TAG, WARN) { "deepScanSystem() timed out after ${stop - start}ms, keeping existing data" }
+            return SystemDeepScanTask.Result(false)
+        }
+
+        storageCategories.value = storageCategories.value.mutate {
+            this[targetStorage.id] = this[targetStorage.id]!!.map { category ->
+                if (category !is SystemCategory) return@map category
+                updatedCategory
+            }
+        }
+
+        return SystemDeepScanTask.Result(true)
     }
 
     data class State(

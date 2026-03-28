@@ -11,12 +11,10 @@ import eu.darken.sdmse.common.files.asFile
 import eu.darken.sdmse.common.files.core.local.listFiles2
 import eu.darken.sdmse.common.files.isDirectory
 import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.isSymlink
 import kotlinx.coroutines.flow.AbstractFlow
 import kotlinx.coroutines.flow.FlowCollector
 import java.util.LinkedList
-
-// TODO support symlinks?
-// TODO unit test coerage
 /**
  * Prevents unnecessary lookups in Mode.NORMAL for nested directories
  */
@@ -34,6 +32,9 @@ class EscalatingWalker(
             collector.emit(startLookUp)
             return
         }
+
+        val followSymlinks = options.followSymlinks
+        val visitedCanonical = if (followSymlinks) HashSet<String>() else null
 
         val escalationMode = when {
             gateway.hasRoot() -> LocalGateway.Mode.ROOT
@@ -62,9 +63,26 @@ class EscalatingWalker(
                                 allowed
                             }
                             .forEach { child ->
-                                if (child.isDirectory) {
-                                    if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
-                                    queue.addFirst(item.toSubItem(child))
+                                val shouldDescend = child.isDirectory ||
+                                    (followSymlinks && child.isSymlink && child.lookedUp.asFile().isDirectory)
+
+                                if (shouldDescend) {
+                                    if (visitedCanonical != null) {
+                                        val canonical = try {
+                                            child.lookedUp.asFile().canonicalPath
+                                        } catch (e: Exception) {
+                                            null
+                                        }
+                                        if (canonical != null && !visitedCanonical.add(canonical)) {
+                                            log(tag, WARN) { "Cycle detected, skipping: $child -> $canonical" }
+                                        } else {
+                                            if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
+                                            queue.addFirst(item.toSubItem(child))
+                                        }
+                                    } else {
+                                        if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
+                                        queue.addFirst(item.toSubItem(child))
+                                    }
                                 }
                                 collector.emit(child)
                             }

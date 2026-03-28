@@ -41,6 +41,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
     override val vm: ContentViewModel by viewModels()
     override val ui: AnalyzerContentFragmentBinding by viewBinding()
+    private var isReadOnly = false
 
     private val onBackPressedcallback = object : OnBackPressedCallback(true) {
         override fun handleOnBackPressed() {
@@ -78,6 +79,12 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
         val adapter = ContentAdapter()
         val layoutManager = GridLayoutManager(context, getSpanCount(), GridLayoutManager.VERTICAL, false)
+        layoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
+            override fun getSpanSize(position: Int): Int = when (adapter.data.getOrNull(position)) {
+                is ContentInfoVH.Item -> layoutManager.spanCount
+                else -> 1
+            }
+        }
         ui.list.setupDefaults(
             adapter,
             horizontalDividers = false,
@@ -96,9 +103,9 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
                         else -> true
                     }
                 }
-                menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible
-                menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible
-                menu.findItem(R.id.action_create_swiper_session)?.isVisible = !hasInaccessible
+                menu.findItem(R.id.action_delete_selected)?.isVisible = !hasInaccessible && !isReadOnly
+                menu.findItem(R.id.action_create_filter_selected)?.isVisible = !hasInaccessible && !isReadOnly
+                menu.findItem(R.id.action_create_swiper_session)?.isVisible = !hasInaccessible && !isReadOnly
                 true
             },
             onSelected = { tracker: SelectionTracker<String>, item: MenuItem, selected: List<ContentAdapter.Item> ->
@@ -146,6 +153,7 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
         )
 
         vm.state.observe2(ui) { state ->
+            isReadOnly = state.isReadOnly
             toolbar.title = state.title?.get(requireContext())
             toolbar.subtitle = state.subtitle?.get(requireContext())
 

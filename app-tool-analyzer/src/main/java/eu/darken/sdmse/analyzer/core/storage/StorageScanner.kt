@@ -302,6 +302,7 @@ class StorageScanner @Inject constructor(
             storageId = storage.id,
             groups = groups,
             spaceUsedOverride = unaccountedFor,
+            isBrowsable = useRoot || useAdb,
         )
     }
 
@@ -331,6 +332,21 @@ class StorageScanner @Inject constructor(
         log(TAG) { "Rescanned ${app.id}: $rescanned" }
 
         return rescanned.pkgStat
+    }
+
+    suspend fun deepScanSystem(
+        storage: DeviceStorage,
+        existingGroupId: ContentGroup.Id,
+        existingSpaceUsedOverride: Long?,
+    ): SystemCategory {
+        log(TAG) { "deepScanSystem(): On $storage" }
+        init(storage)
+
+        updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_label)
+        updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
+
+        val scanner = SystemStorageScanner(gatewaySwitch, dataAreas)
+        return scanner.scan(storage.id, existingGroupId, existingSpaceUsedOverride)
     }
 
     companion object {

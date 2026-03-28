@@ -7,6 +7,8 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.APathGateway
+import eu.darken.sdmse.common.files.APathLookup
 import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
@@ -96,6 +98,7 @@ fun Collection<ContentItem>.findContent(filter: (ContentItem) -> Boolean): Conte
 suspend fun APath.walkContentItem(
     gatewaySwitch: GatewaySwitch,
     maxItems: Int = Int.MAX_VALUE,
+    followSymlinks: Boolean = false,
 ): ContentItem {
     log(TAG, VERBOSE) { "Walking content items for $this" }
 
@@ -105,8 +108,9 @@ suspend fun APath.walkContentItem(
     return if (lookup.fileType == FileType.DIRECTORY) {
         val start = System.currentTimeMillis()
 
+        val options = APathGateway.WalkOptions<APath, APathLookup<APath>>(followSymlinks = followSymlinks)
         val children = try {
-            lookup.walk(gatewaySwitch)
+            lookup.walk(gatewaySwitch, options)
                 .map { ContentItem.fromLookup(it) }
                 .let { flow -> if (maxItems < Int.MAX_VALUE) flow.take(maxItems + 1) else flow }
                 .toList()
