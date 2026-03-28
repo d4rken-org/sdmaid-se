@@ -437,6 +437,7 @@ class LocalGateway @Inject constructor(
                         start = path,
                         onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
                         onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
+                        followSymlinks = options.followSymlinks,
                     )
                 }
 
@@ -464,6 +465,7 @@ class LocalGateway @Inject constructor(
                             start = path,
                             onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
                             onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
+                            followSymlinks = options.followSymlinks,
                         )
                     }
                 }
@@ -483,6 +485,7 @@ class LocalGateway @Inject constructor(
                             start = path,
                             onFilter = { lookup -> options.onFilter?.invoke(lookup) ?: true },
                             onError = { lookup, exception -> options.onError?.invoke(lookup, exception) ?: true },
+                            followSymlinks = options.followSymlinks,
                         )
                     }
                 }

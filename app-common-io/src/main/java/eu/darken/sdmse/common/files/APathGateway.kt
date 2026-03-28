@@ -31,10 +31,11 @@ interface APathGateway<
     data class WalkOptions<P : APath, PLU : APathLookup<P>>(
         val pathDoesNotContain: Set<String>? = null,
         val onFilter: (suspend (PLU) -> Boolean)? = null,
-        val onError: (suspend (PLU, Exception) -> Boolean)? = null
+        val onError: (suspend (PLU, Exception) -> Boolean)? = null,
+        val followSymlinks: Boolean = false,
     ) {
         val isDirect: Boolean
-            get() = onFilter == null && onError == null
+            get() = onFilter == null && onError == null && !followSymlinks
     }
 
     suspend fun du(

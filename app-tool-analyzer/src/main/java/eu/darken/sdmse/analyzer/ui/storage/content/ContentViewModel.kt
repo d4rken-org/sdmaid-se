@@ -12,6 +12,7 @@ import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.core.content.ContentItem
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
+import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.ui.ContentRoute
 import eu.darken.sdmse.common.SingleLiveEvent
@@ -44,6 +45,7 @@ import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.combineTransform
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
 import javax.inject.Inject
@@ -87,6 +89,13 @@ class ContentViewModel @Inject constructor(
         return groups[targetGroupId]
     }
 
+    private fun Analyzer.Data.isSystemGroup(): Boolean {
+        return categories[targetStorageId]
+            ?.filterIsInstance<SystemCategory>()
+            ?.any { category -> category.groups.any { it.id == targetGroupId } }
+            ?: false
+    }
+
     val state = combineTransform(
         // Handle process death+restore
         analyzer.data.filter { it.findContentGroup() != null },
@@ -96,6 +105,7 @@ class ContentViewModel @Inject constructor(
     ) { data, progress, navLevels, layoutMode ->
         val storage = data.storages.single { it.id == targetStorageId }
         val contentGroup = data.findContentGroup()!!
+        val isReadOnly = data.isSystemGroup()
 
         val pkgStat = targetInstallId?.let {
             data.categories[targetStorageId]
@@ -120,9 +130,10 @@ class ContentViewModel @Inject constructor(
             items = null,
             layoutMode = layoutMode,
             progress = progress,
+            isReadOnly = isReadOnly,
         ).run { emit(this) }
 
-        val items: List<ContentAdapter.Item> = (currentLevel?.children ?: contentGroup.contents)
+        val contentItems: List<ContentAdapter.Item> = (currentLevel?.children ?: contentGroup.contents)
             .sortedByDescending { it.size }
             .map { content ->
                 val onItemClicked: () -> Unit = {
@@ -159,6 +170,13 @@ class ContentViewModel @Inject constructor(
                 }
             }
 
+        val items: List<ContentAdapter.Item> = if (isReadOnly && currentLevel == null) {
+            listOf(ContentInfoVH.Item(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_info))
+                .plus(contentItems)
+        } else {
+            contentItems
+        }
+
         State(
             title = title,
             subtitle = subtitle,
@@ -166,6 +184,7 @@ class ContentViewModel @Inject constructor(
             items = items,
             layoutMode = layoutMode,
             progress = progress,
+            isReadOnly = isReadOnly,
         ).run { emit(this) }
     }.asLiveData2()
 
@@ -184,6 +203,10 @@ class ContentViewModel @Inject constructor(
 
     fun delete(items: Set<ContentItem>) = launch {
         log(TAG) { "delete(): $items" }
+        if (analyzer.data.first().isSystemGroup()) {
+            log(TAG, WARN) { "delete(): Blocked — system content is read-only" }
+            return@launch
+        }
         val targets = items.map { it.path }.toSet()
         val task = ContentDeleteTask(
             storageId = targetStorageId,
@@ -248,6 +271,10 @@ class ContentViewModel @Inject constructor(
 
     fun createFilter(items: List<ContentAdapter.Item>) = launch {
         log(TAG) { "createFilter(${items.size})" }
+        if (analyzer.data.first().isSystemGroup()) {
+            log(TAG, WARN) { "createFilter(): Blocked — system content is read-only" }
+            return@launch
+        }
 
         if (!upgradeRepo.isPro()) {
             log(TAG) { "Not PRO, redirecting to upgrade screen." }
@@ -274,6 +301,10 @@ class ContentViewModel @Inject constructor(
 
     fun createSwiperSession(items: List<ContentAdapter.Item>) = launch {
         log(TAG) { "createSwiperSession(${items.size})" }
+        if (analyzer.data.first().isSystemGroup()) {
+            log(TAG, WARN) { "createSwiperSession(): Blocked — system content is read-only" }
+            return@launch
+        }
 
         val paths = items
             .map {
@@ -314,6 +345,7 @@ class ContentViewModel @Inject constructor(
         val items: List<ContentAdapter.Item>?,
         val layoutMode: LayoutMode,
         val progress: Progress.Data?,
+        val isReadOnly: Boolean = false,
     )
 
     companion object {

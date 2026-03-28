@@ -6,6 +6,7 @@ import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.StorageScanTask
+import eu.darken.sdmse.analyzer.core.storage.SystemDeepScanTask
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.MediaCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
@@ -101,6 +102,20 @@ class StorageContentViewModel @Inject constructor(
                     is SystemCategory -> SystemCategoryVH.Item(
                         storage = storage,
                         content = content,
+                        onItemClicked = {
+                            if (!content.isBrowsable) return@Item
+                            val groupId = content.groups.singleOrNull()?.id ?: return@Item
+                            // Navigate immediately to avoid flash on the storage content screen.
+                            // Deep scan runs in background; ContentFragment shows progress.
+                            navigateTo(ContentRoute(
+                                storageId = targetStorageId,
+                                groupId = groupId,
+                                installId = null,
+                            ))
+                            if (!content.isDeepScanned) {
+                                launch { taskSubmitter.submit(SystemDeepScanTask(targetStorageId)) }
+                            }
+                        }
                     )
                 }
             }
