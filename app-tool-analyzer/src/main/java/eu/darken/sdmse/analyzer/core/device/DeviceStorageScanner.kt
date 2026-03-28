@@ -17,14 +17,14 @@ import eu.darken.sdmse.common.storage.StorageManager2
 import eu.darken.sdmse.common.storage.StorageStatsManager2
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import java.util.UUID
 import javax.inject.Inject
 
 class DeviceStorageScanner @Inject constructor(
-    @Named("storage") private val storageSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.STORAGE) private val storageSetupModule: SetupModule,
     private val environment: StorageEnvironment,
     private val storageManager2: StorageManager2,
     private val storageStatsmanager: StorageStatsManager2,

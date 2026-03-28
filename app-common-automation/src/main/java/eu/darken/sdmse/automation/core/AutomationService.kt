@@ -62,7 +62,7 @@ import kotlinx.coroutines.withContext
 import kotlinx.coroutines.withTimeout
 import java.util.UUID
 import javax.inject.Inject
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import kotlin.coroutines.resume
 
 @Keep
@@ -78,7 +78,7 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
 
     @Inject lateinit var generalSettings: GeneralSettings
     @Inject lateinit var automationManager: AutomationManager
-    @Inject @Named("automation") lateinit var automationSetupModule: SetupModule
+    @Inject @SetupBinding(SetupModule.Type.AUTOMATION) lateinit var automationSetupModule: SetupModule
     @Inject lateinit var screenState: ScreenState
 
     private lateinit var windowManager: WindowManager

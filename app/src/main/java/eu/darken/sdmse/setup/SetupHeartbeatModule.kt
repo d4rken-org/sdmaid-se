@@ -5,14 +5,14 @@ import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import eu.darken.sdmse.setup.inventory.InventorySetupModule
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 
 @Module
 @InstallIn(SingletonComponent::class)
 object SetupHeartbeatModule {
 
     @Provides
-    @Named("inventory")
+    @SetupBinding(SetupModule.Type.INVENTORY)
     fun inventoryHeartbeat(module: InventorySetupModule): SetupHeartbeat = SetupHeartbeat {
         if (!module.isComplete()) {
             throw IncompleteSetupException(SetupModule.Type.INVENTORY)

@@ -48,7 +48,8 @@ import eu.darken.sdmse.exclusion.core.types.PathExclusion
 import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.SetupHeartbeat
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
+import eu.darken.sdmse.setup.SetupModule
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -71,7 +72,7 @@ class CorpseFinder @Inject constructor(
     private val watcherNotifications: WatcherNotifications,
     rootManager: RootManager,
     settings: CorpseFinderSettings,
-    @Named("inventory") private val inventorySetupCheck: SetupHeartbeat,
+    @SetupBinding(SetupModule.Type.INVENTORY) private val inventorySetupCheck: SetupHeartbeat,
 ) : SDMTool, Progress.Client {
 
     override val type: SDMTool.Type = SDMTool.Type.CORPSEFINDER
