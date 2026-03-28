@@ -15,16 +15,19 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.ReadException
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.storage.StorageId
+import dagger.Reusable
+import javax.inject.Inject
 
-class SystemStorageScanner(
+@Reusable
+class SystemStorageScanner @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
-    private val dataAreas: Set<DataArea>,
 ) {
 
     suspend fun scan(
         storageId: StorageId,
         existingGroupId: ContentGroup.Id,
         spaceUsedOverride: Long?,
+        dataAreas: Set<DataArea>,
     ): SystemCategory {
         log(TAG) { "scan(): storageId=$storageId" }
 
