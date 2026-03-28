@@ -60,6 +60,7 @@ class StorageScanner @Inject constructor(
     private val fileForensics: FileForensics,
     private val dataAreaManager: DataAreaManager,
     private val appScannerFactory: AppStorageScanner.Factory,
+    private val systemStorageScanner: SystemStorageScanner,
     @SetupBinding(SetupModule.Type.INVENTORY) private val inventorySetupModule: SetupModule,
     @SetupBinding(SetupModule.Type.USAGE_STATS) private val usageStatsSetupModule: SetupModule,
 ) : Progress.Host, Progress.Client {
@@ -345,8 +346,7 @@ class StorageScanner @Inject constructor(
         updateProgressPrimary(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_label)
         updateProgressSecondary(eu.darken.sdmse.common.R.string.general_progress_searching)
 
-        val scanner = SystemStorageScanner(gatewaySwitch, dataAreas)
-        return scanner.scan(storage.id, existingGroupId, existingSpaceUsedOverride)
+        return systemStorageScanner.scan(storage.id, existingGroupId, existingSpaceUsedOverride, dataAreas)
     }
 
     companion object {
