@@ -179,11 +179,22 @@ class ContentFragment : Fragment3(R.layout.analyzer_content_fragment) {
 
         vm.events.observe2 { event ->
             when (event) {
-                is ContentItemEvents.ShowNoAccessHint -> Snackbar.make(
-                    requireView(),
-                    eu.darken.sdmse.analyzer.R.string.analyzer_content_access_opaque,
-                    Snackbar.LENGTH_SHORT
-                ).show()
+                is ContentItemEvents.ShowNoAccessHint -> {
+                    val isOtherItem = event.item.path.path == "/other"
+                    if (isOtherItem) {
+                        com.google.android.material.dialog.MaterialAlertDialogBuilder(requireContext())
+                            .setTitle(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_other_label)
+                            .setMessage(eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_other_desc)
+                            .setPositiveButton(eu.darken.sdmse.common.R.string.general_dismiss_action, null)
+                            .show()
+                    } else {
+                        Snackbar.make(
+                            requireView(),
+                            eu.darken.sdmse.analyzer.R.string.analyzer_content_access_opaque,
+                            Snackbar.LENGTH_SHORT
+                        ).show()
+                    }
+                }
 
                 is ContentItemEvents.ExclusionsCreated -> Snackbar
                     .make(
