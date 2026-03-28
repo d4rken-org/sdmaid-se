@@ -123,8 +123,16 @@ class SystemStorageScanner @Inject constructor(
             // /data/media → emulated storage backing (MediaCategory walks /storage/emulated/0 instead)
             addAll(setOf("data", "user", "user_de", "media"))
 
-            // Dynamic: DataArea paths directly under /data/ (e.g., /data/app from APP_APP)
+            // Dynamic: only app-related DataArea types contribute exclusions
+            val appCoveredTypes = setOf(
+                DataArea.Type.APP_APP,
+                DataArea.Type.APP_APP_PRIVATE,
+                DataArea.Type.APP_LIB,
+                DataArea.Type.APP_ASEC,
+                DataArea.Type.PRIVATE_DATA,
+            )
             for (area in dataAreas) {
+                if (area.type !in appCoveredTypes) continue
                 val segs = area.path.segments
                 val dataIdx = segs.indexOf("data")
                 if (dataIdx >= 0 && dataIdx + 1 < segs.size) {
