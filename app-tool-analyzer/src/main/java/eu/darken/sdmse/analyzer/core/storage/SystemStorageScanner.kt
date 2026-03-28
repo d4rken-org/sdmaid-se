@@ -105,6 +105,8 @@ class SystemStorageScanner @Inject constructor(
 
         private const val WALK_MAX_ITEMS = 100_000
 
+        val OTHER_PATH = LocalPath.build("other")
+
         private val SYSTEM_PARTITIONS = listOf("system", "vendor", "product", "system_ext", "odm")
 
         /**
@@ -153,7 +155,7 @@ class SystemStorageScanner @Inject constructor(
                 log(TAG) { "addRemainder(): remainder=$remainder, walked=$walkedSize, total=$spaceUsedOverride" }
                 walkedItems.plus(
                     ContentItem(
-                        path = LocalPath.build("other"),
+                        path = OTHER_PATH,
                         lookup = null,
                         label = eu.darken.sdmse.analyzer.R.string.analyzer_storage_content_type_system_other_label.toCaString(),
                         type = FileType.DIRECTORY,

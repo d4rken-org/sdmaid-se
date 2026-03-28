@@ -145,7 +145,7 @@ class SystemStorageScannerTest : BaseTest() {
         )
 
         items.size shouldBe 3
-        val other = items.singleOrNull { it.path == LocalPath.build("other") }
+        val other = items.singleOrNull { it.path == SystemStorageScanner.OTHER_PATH }
         other.shouldNotBeNull()
         other.inaccessible shouldBe true
         other.itemSize shouldBe 500_000_000L
@@ -163,7 +163,7 @@ class SystemStorageScannerTest : BaseTest() {
         )
 
         items.size shouldBe 2
-        items.none { it.path == LocalPath.build("other") } shouldBe true
+        items.none { it.path == SystemStorageScanner.OTHER_PATH } shouldBe true
     }
 
     @Test
@@ -176,7 +176,7 @@ class SystemStorageScannerTest : BaseTest() {
         )
 
         items.size shouldBe 1
-        items.none { it.path == LocalPath.build("other") } shouldBe true
+        items.none { it.path == SystemStorageScanner.OTHER_PATH } shouldBe true
     }
 
     @Test

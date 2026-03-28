@@ -69,7 +69,7 @@ class IndirectLocalWalker(
                                 null
                             }
                             if (canonical != null && !visitedCanonical.add(canonical)) {
-                                log(tag, WARN) { "Cycle detected, skipping: $child -> $canonical" }
+                                log(tag, WARN) { "Already visited, skipping: $child -> $canonical" }
                             } else {
                                 if (Bugs.isTrace) log(tag, VERBOSE) { "Walking: $child" }
                                 queue.addFirst(child)
