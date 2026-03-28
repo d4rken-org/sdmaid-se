@@ -81,7 +81,13 @@ class ShellLookUpPkgsSource @Inject constructor(
 
                 log(TAG) { "Potentially hidden pkg: $pkgName" }
 
-                val sourcePath = LocalPath.build(match.groupValues[1])
+                val rawPath = match.groupValues[1]
+                if (rawPath == "null") {
+                    log(TAG, VERBOSE) { "No APK path for $pkgName (cross-profile)" }
+                    return@mapNotNull null
+                }
+
+                val sourcePath = LocalPath.build(rawPath)
                 log(TAG, VERBOSE) { "Reading archive $sourcePath" }
                 val apkInfo = pkgOps.viewArchive(sourcePath)
 
