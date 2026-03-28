@@ -46,7 +46,7 @@ import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.setup.IncompleteSetupException
 import eu.darken.sdmse.setup.SetupModule
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -73,12 +73,12 @@ class AppControl @Inject constructor(
     private val archiver: Archiver,
     private val restorer: Restorer,
     private val archiveSupport: ArchiveSupport,
-    @Named("usagestats") usageStatsSetupModule: SetupModule,
-    @Named("storage") storageSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.USAGE_STATS) usageStatsSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.STORAGE) storageSetupModule: SetupModule,
     rootManager: RootManager,
     adbManager: AdbManager,
     private val appExporterProvider: Provider<AppExporter>,
-    @Named("inventory") private val appInventorySetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
     automationManager: AutomationSubmitter,
     private val appScan: AppScan,
 ) : SDMTool, Progress.Client {

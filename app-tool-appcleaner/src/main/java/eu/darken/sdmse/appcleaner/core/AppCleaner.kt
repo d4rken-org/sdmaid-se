@@ -55,7 +55,7 @@ import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.sync.Mutex
 import kotlinx.coroutines.sync.withLock
 import javax.inject.Inject
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import javax.inject.Provider
 import javax.inject.Singleton
 
@@ -68,12 +68,12 @@ class AppCleaner @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val gatewaySwitch: GatewaySwitch,
     private val pkgOps: PkgOps,
-    @Named("usagestats") usageStatsSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.USAGE_STATS) usageStatsSetupModule: SetupModule,
     rootManager: RootManager,
     adbManager: AdbManager,
     private val shellOps: ShellOps,
     private val filterFactories: Set<@JvmSuppressWildcards ExpendablesFilter.Factory>,
-    @Named("inventory") private val appInventorySetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
 ) : SDMTool, Progress.Client {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope)

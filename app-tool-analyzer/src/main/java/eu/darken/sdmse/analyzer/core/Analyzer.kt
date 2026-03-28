@@ -57,7 +57,7 @@ import kotlinx.coroutines.sync.withLock
 import kotlinx.coroutines.withTimeoutOrNull
 import javax.inject.Inject
 import kotlin.time.Duration.Companion.minutes
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import javax.inject.Provider
 import javax.inject.Singleton
 
@@ -67,7 +67,7 @@ class Analyzer @Inject constructor(
     private val deviceScanner: Provider<DeviceStorageScanner>,
     private val storageScanner: Provider<StorageScanner>,
     private val gatewaySwitch: GatewaySwitch,
-    @Named("inventory") private val appInventorySetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.INVENTORY) private val appInventorySetupModule: SetupModule,
     private val mediaStoreTool: MediaStoreTool,
     private val spaceTracker: SpaceTracker,
 ) : SDMTool, Progress.Client {

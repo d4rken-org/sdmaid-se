@@ -24,7 +24,7 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.currentCoroutineContext
@@ -42,7 +42,7 @@ class Restorer @Inject constructor(
     private val pkgRepo: PkgRepo,
     private val userManager2: UserManager2,
     private val automation: AutomationSubmitter,
-    @Named("automation") private val automationSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
     private val unarchiveManager: UnarchiveManager,
     private val rootManager: RootManager,
     private val adbManager: AdbManager,

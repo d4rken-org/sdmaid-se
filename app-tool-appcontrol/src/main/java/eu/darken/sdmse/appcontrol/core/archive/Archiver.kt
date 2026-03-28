@@ -25,7 +25,7 @@ import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.currentCoroutineContext
@@ -47,7 +47,7 @@ class Archiver @Inject constructor(
     private val userManager2: UserManager2,
     private val archiveSupport: ArchiveSupport,
     private val automation: AutomationSubmitter,
-    @Named("automation") private val automationSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
 ) : HasSharedResource<Any> {
 
     override val sharedResource = SharedResource.createKeepAlive(TAG, appScope + dispatcherProvider.IO)

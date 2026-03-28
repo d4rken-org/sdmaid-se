@@ -28,7 +28,7 @@ import eu.darken.sdmse.common.sharedresource.HasSharedResource
 import eu.darken.sdmse.common.sharedresource.SharedResource
 import eu.darken.sdmse.common.sharedresource.adoptChildResource
 import eu.darken.sdmse.setup.SetupModule
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -44,7 +44,7 @@ class ForceStopper @Inject constructor(
     private val automation: AutomationSubmitter,
     private val adbManager: AdbManager,
     private val rootManager: RootManager,
-    @Named("automation") private val automationSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
 ) : HasSharedResource<Any>, Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(

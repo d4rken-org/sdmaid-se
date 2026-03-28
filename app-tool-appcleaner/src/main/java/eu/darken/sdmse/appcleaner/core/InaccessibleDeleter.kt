@@ -48,7 +48,7 @@ import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.isActive
 import javax.inject.Inject
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import kotlin.time.Duration.Companion.seconds
 
 
@@ -61,7 +61,7 @@ class InaccessibleDeleter @Inject constructor(
     private val inaccessibleCacheProvider: InaccessibleCacheProvider,
     private val rootManager: RootManager,
     private val settings: AppCleanerSettings,
-    @Named("automation") private val automationSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(

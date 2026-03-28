@@ -44,7 +44,7 @@ import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.common.user.UserManager2
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
-import javax.inject.Named
+import eu.darken.sdmse.setup.SetupBinding
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import javax.inject.Inject
@@ -60,8 +60,8 @@ class StorageScanner @Inject constructor(
     private val fileForensics: FileForensics,
     private val dataAreaManager: DataAreaManager,
     private val appScannerFactory: AppStorageScanner.Factory,
-    @Named("inventory") private val inventorySetupModule: SetupModule,
-    @Named("usagestats") private val usageStatsSetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.INVENTORY) private val inventorySetupModule: SetupModule,
+    @SetupBinding(SetupModule.Type.USAGE_STATS) private val usageStatsSetupModule: SetupModule,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
