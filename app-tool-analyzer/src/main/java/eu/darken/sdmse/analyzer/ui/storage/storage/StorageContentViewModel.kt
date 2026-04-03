@@ -112,7 +112,7 @@ class StorageContentViewModel @Inject constructor(
                                 groupId = groupId,
                                 installId = null,
                             ))
-                            if (!content.isDeepScanned) {
+                            if (!content.isDeepScanned && progress == null) {
                                 launch { taskSubmitter.submit(SystemDeepScanTask(targetStorageId)) }
                             }
                         }
