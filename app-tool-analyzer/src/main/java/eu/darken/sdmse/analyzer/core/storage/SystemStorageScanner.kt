@@ -38,7 +38,8 @@ class SystemStorageScanner @Inject constructor(
         log(TAG) { "scan(): excludedDataDirs=$excludedDataDirs" }
 
         val walkedItems = systemItems.plus(dataItem)
-        val isBrowsable = walkedItems.any { !it.inaccessible }
+        // Always browsable — we only reach scan() when root/ADB access is available
+        val isBrowsable = true
 
         val contentItems = addRemainder(walkedItems, spaceUsedOverride)
 
@@ -95,7 +96,7 @@ class SystemStorageScanner @Inject constructor(
 
             walkedChildren.plus(ContentItem.fromLookup(dataLookup)).toNestedContent().single()
         } catch (e: ReadException) {
-            log(TAG, WARN) { "walkData(): Failed to access /data: ${e.asLog()}" }
+            log(TAG, WARN) { "walkData(): Failed to access /data, size will be attributed to Other: ${e.asLog()}" }
             ContentItem.fromInaccessible(LocalPath.build("data"))
         }
     }
