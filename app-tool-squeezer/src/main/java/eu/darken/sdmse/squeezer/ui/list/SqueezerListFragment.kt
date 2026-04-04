@@ -106,7 +106,7 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
             },
             cabTitle = { selected ->
                 val count = selected.size
-                val totalSavings = selected.mapNotNull { it.image.estimatedSavings }.sum()
+                val totalSavings = selected.mapNotNull { it.media.estimatedSavings }.sum()
                 if (totalSavings > 0) {
                     val savingsText = Formatter.formatShortFileSize(requireContext(), totalSavings)
                     getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, count) + " • ~$savingsText"
@@ -131,7 +131,7 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
             toolbar.apply {
                 subtitle = if (state.progress == null) {
                     val count = state.items.size
-                    val totalSavings = state.items.mapNotNull { it.image.estimatedSavings }.sum()
+                    val totalSavings = state.items.mapNotNull { it.media.estimatedSavings }.sum()
                     if (totalSavings > 0) {
                         val savingsText = Formatter.formatShortFileSize(requireContext(), totalSavings)
                         getQuantityString2(eu.darken.sdmse.common.R.plurals.result_x_items, count) + " • ~$savingsText"
@@ -156,7 +156,7 @@ class SqueezerListFragment : Fragment3(R.layout.squeezer_list_fragment) {
         vm.events.observe2(ui) { event ->
             when (event) {
                 is SqueezerListEvents.ConfirmCompression -> previewDialog.show(
-                    items = event.items.map { it.image },
+                    items = event.items.map { it.media },
                     quality = event.quality,
                     onPositive = { quality ->
                         vm.compress(event.items, confirmed = true, qualityOverride = quality)

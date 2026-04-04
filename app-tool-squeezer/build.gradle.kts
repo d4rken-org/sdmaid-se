@@ -65,6 +65,8 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
+    implementation("androidx.media3:media3-transformer:${Versions.AndroidX.Media3.core}")
+
     addTesting()
     testImplementation(project(":app-common-test"))
     testImplementation("org.robolectric:robolectric:4.16")
