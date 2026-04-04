@@ -4,16 +4,18 @@ import android.content.BroadcastReceiver
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageInstaller
-import dagger.hilt.android.AndroidEntryPoint
+import dagger.hilt.EntryPoint
+import dagger.hilt.InstallIn
+import dagger.hilt.android.EntryPointAccessors
+import dagger.hilt.components.SingletonComponent
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import javax.inject.Inject
+import eu.darken.sdmse.common.isValidHiltContext
 
-@AndroidEntryPoint
 class UnarchiveReceiver : BroadcastReceiver() {
-
-    @Inject lateinit var unarchiveManager: UnarchiveManager
 
     override fun onReceive(context: Context, intent: Intent) {
         log(TAG, VERBOSE) { "onReceive($context, $intent)" }
@@ -29,6 +31,18 @@ class UnarchiveReceiver : BroadcastReceiver() {
             return
         }
 
+        if (!context.isValidHiltContext()) {
+            log(TAG, WARN) { "Invalid Hilt context (${context.applicationContext.javaClass}), skipping (backup/restore?)" }
+            return
+        }
+
+        val entryPoint = try {
+            EntryPointAccessors.fromApplication(context, ReceiverEntryPoint::class.java)
+        } catch (e: Exception) {
+            log(TAG, ERROR) { "Failed to get entry point: $e" }
+            return
+        }
+
         val status = intent.getIntExtra(PackageInstaller.EXTRA_UNARCHIVE_STATUS, -1)
         val statusMessage = intent.getStringExtra(PackageInstaller.EXTRA_STATUS_MESSAGE)
         val packageName = intent.getStringExtra(PackageInstaller.EXTRA_PACKAGE_NAME) ?: ""
@@ -41,10 +55,16 @@ class UnarchiveReceiver : BroadcastReceiver() {
             statusMessage = statusMessage,
         )
 
-        unarchiveManager.onUnarchiveResult(requestCode, result)
+        entryPoint.unarchiveManager().onUnarchiveResult(requestCode, result)
     }
 
     companion object {
         private val TAG = logTag("AppControl", "UnarchiveReceiver")
+
+        @EntryPoint
+        @InstallIn(SingletonComponent::class)
+        interface ReceiverEntryPoint {
+            fun unarchiveManager(): UnarchiveManager
+        }
     }
 }
