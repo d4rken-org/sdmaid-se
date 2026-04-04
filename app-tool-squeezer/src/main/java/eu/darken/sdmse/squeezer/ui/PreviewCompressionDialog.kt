@@ -7,6 +7,7 @@ import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.squeezer.databinding.SqueezerPreviewDialogBinding
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.ui.onboarding.ComparisonDialog
 import javax.inject.Inject
 
@@ -16,7 +17,7 @@ class PreviewCompressionDialog @Inject constructor(
 ) {
 
     fun show(
-        items: List<CompressibleImage>,
+        items: List<CompressibleMedia>,
         quality: Int,
         onPositive: (quality: Int) -> Unit,
         onNegative: () -> Unit,
@@ -49,18 +50,22 @@ class PreviewCompressionDialog @Inject constructor(
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action) { _, _ ->
                 onNegative()
             }
-            setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->
-                val sampleImage = items.firstOrNull() ?: return@setNeutralButton
-                val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
 
-                fragment.childFragmentManager.setFragmentResultListener(
-                    ComparisonDialog.REQUEST_KEY,
-                    fragment.viewLifecycleOwner,
-                ) { _, _ ->
-                    show(items, quality, onPositive, onNegative)
+            val hasOnlyImages = items.all { it is CompressibleImage }
+            if (hasOnlyImages) {
+                setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->
+                    val sampleImage = items.firstOrNull() as? CompressibleImage ?: return@setNeutralButton
+                    val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
+
+                    fragment.childFragmentManager.setFragmentResultListener(
+                        ComparisonDialog.REQUEST_KEY,
+                        fragment.viewLifecycleOwner,
+                    ) { _, _ ->
+                        show(items, quality, onPositive, onNegative)
+                    }
+                    ComparisonDialog.newInstance(path, quality, sampleImage.isWebp)
+                        .show(fragment.childFragmentManager, "comparison")
                 }
-                ComparisonDialog.newInstance(path, quality, sampleImage.isWebp)
-                    .show(fragment.childFragmentManager, "comparison")
             }
         }.show()
     }

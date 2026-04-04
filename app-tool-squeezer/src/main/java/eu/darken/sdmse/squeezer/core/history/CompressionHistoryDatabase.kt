@@ -21,12 +21,12 @@ import javax.inject.Singleton
 class CompressionHistoryDatabase @Inject constructor(
     @ApplicationContext private val context: Context,
     private val gatewaySwitch: GatewaySwitch,
+    private val videoContentHasher: VideoContentHasher,
 ) {
 
     private val database by lazy {
         Room
             .databaseBuilder(context, CompressionHistoryRoomDb::class.java, DB_NAME)
-            .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
     }
 
@@ -58,6 +58,10 @@ class CompressionHistoryDatabase @Inject constructor(
 
     suspend fun computeContentHash(path: APath): String {
         return gatewaySwitch.file(path, readWrite = false).source().hash(Hasher.Type.SHA256).format()
+    }
+
+    suspend fun computeVideoContentHash(path: APath): String {
+        return videoContentHasher.computePartialHash(path)
     }
 
     suspend fun recordCompression(contentHash: String) {

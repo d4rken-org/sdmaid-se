@@ -9,7 +9,7 @@ import testhelpers.BaseTest
  * Tests for the compression estimation logic.
  * The estimation function calculates expected file sizes based on quality settings.
  */
-class ImageScannerEstimationTest : BaseTest() {
+class MediaScannerEstimationTest : BaseTest() {
 
     /**
      * Replicate the estimation logic from CompressionEstimator for testing purposes.

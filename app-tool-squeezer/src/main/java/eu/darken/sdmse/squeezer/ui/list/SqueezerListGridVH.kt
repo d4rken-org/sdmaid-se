@@ -7,7 +7,7 @@ import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
-import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.databinding.SqueezerListGridItemBinding
 
 
@@ -32,17 +32,17 @@ class SqueezerListGridVH(parent: ViewGroup) :
         payloads: List<Any>,
     ) -> Unit = binding { item ->
         lastItem = item
-        val image = item.image
+        val media = item.media
 
         previewImage.apply {
-            loadFilePreview(image.lookup) {
+            loadFilePreview(media.lookup) {
                 bitmapConfig(Bitmap.Config.ARGB_8888)
             }
         }
 
-        primary.text = Formatter.formatShortFileSize(context, image.size)
+        primary.text = Formatter.formatShortFileSize(context, media.size)
 
-        val savings = image.estimatedSavings
+        val savings = media.estimatedSavings
         secondary.text = if (savings != null && savings > 0) {
             context.getString(
                 eu.darken.sdmse.squeezer.R.string.squeezer_estimated_savings_format,
@@ -57,14 +57,14 @@ class SqueezerListGridVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val image: CompressibleImage,
+        override val media: CompressibleMedia,
         val onItemClicked: (Item) -> Unit,
         val onPreviewClicked: (Item) -> Unit,
     ) : SqueezerListAdapter.Item {
 
         override val itemSelectionKey: String
-            get() = image.identifier.value
+            get() = media.identifier.value
 
-        override val stableId: Long = image.identifier.hashCode().toLong()
+        override val stableId: Long = media.identifier.hashCode().toLong()
     }
 }

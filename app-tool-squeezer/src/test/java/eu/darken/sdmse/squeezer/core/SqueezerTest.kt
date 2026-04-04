@@ -32,7 +32,7 @@ class SqueezerTest : BaseTest() {
     @Test
     fun `totalSize - calculates sum of all image sizes`() {
         val data = Squeezer.Data(
-            images = setOf(
+            media = setOf(
                 createImage("img1.jpg", size = 1000L),
                 createImage("img2.jpg", size = 2000L),
                 createImage("img3.jpg", size = 3000L),
@@ -44,14 +44,14 @@ class SqueezerTest : BaseTest() {
 
     @Test
     fun `totalSize - empty set returns zero`() {
-        val data = Squeezer.Data(images = emptySet())
+        val data = Squeezer.Data(media = emptySet())
         data.totalSize shouldBe 0L
     }
 
     @Test
     fun `totalCount - returns correct count`() {
         val data = Squeezer.Data(
-            images = setOf(
+            media = setOf(
                 createImage("img1.jpg"),
                 createImage("img2.jpg"),
             )
@@ -63,7 +63,7 @@ class SqueezerTest : BaseTest() {
     @Test
     fun `estimatedSavings - calculates sum of all estimated savings`() {
         val data = Squeezer.Data(
-            images = setOf(
+            media = setOf(
                 createImage("img1.jpg", size = 1000L, estimatedCompressedSize = 800L),
                 createImage("img2.jpg", size = 2000L, estimatedCompressedSize = 1500L),
                 createImage("img3.jpg", size = 3000L, estimatedCompressedSize = 2000L),
@@ -77,7 +77,7 @@ class SqueezerTest : BaseTest() {
     @Test
     fun `estimatedSavings - handles null estimated sizes`() {
         val data = Squeezer.Data(
-            images = setOf(
+            media = setOf(
                 createImage("img1.jpg", size = 1000L, estimatedCompressedSize = 800L),
                 createImage("img2.jpg", size = 2000L, estimatedCompressedSize = null),
             )
@@ -94,7 +94,7 @@ class SqueezerTest : BaseTest() {
         val img3 = createImage("img3.jpg")
 
         val original = Squeezer.Data(
-            images = setOf(img1, img2, img3)
+            media = setOf(img1, img2, img3)
         )
 
         val processedIds = setOf(img1.identifier, img3.identifier)
@@ -110,7 +110,7 @@ class SqueezerTest : BaseTest() {
         val img1 = createImage("img1.jpg")
         val img2 = createImage("img2.jpg")
 
-        val original = Squeezer.Data(images = setOf(img1, img2))
+        val original = Squeezer.Data(media = setOf(img1, img2))
 
         val processedIds = setOf(img1.identifier, img2.identifier)
 
@@ -124,7 +124,7 @@ class SqueezerTest : BaseTest() {
         val img1 = createImage("img1.jpg")
         val img2 = createImage("img2.jpg")
 
-        val original = Squeezer.Data(images = setOf(img1, img2))
+        val original = Squeezer.Data(media = setOf(img1, img2))
 
         val pruned = original.prune(emptySet())
 

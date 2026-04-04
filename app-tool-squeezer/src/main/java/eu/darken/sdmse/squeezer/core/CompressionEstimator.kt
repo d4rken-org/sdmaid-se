@@ -33,6 +33,8 @@ class CompressionEstimator @Inject constructor() {
                     else -> 0.85
                 }
             }
+            CompressibleVideo.MIME_TYPE_MP4 -> quality / 100.0
+
             else -> null
         }
     }

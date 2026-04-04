@@ -232,6 +232,7 @@ dependencies {
     implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
     addWorkerManager()
+    implementation("com.google.guava:guava:33.3.1-android")
 
     addRoomDb()
 

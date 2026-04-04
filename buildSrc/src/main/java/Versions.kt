@@ -13,6 +13,10 @@ object Versions {
         object Navigation {
             const val core = "2.9.7"
         }
+
+        object Media3 {
+            const val core = "1.6.0"
+        }
     }
 
     object Desugar {
