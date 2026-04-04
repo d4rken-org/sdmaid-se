@@ -9,6 +9,7 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.GatewaySwitch
@@ -19,10 +20,8 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.squeezer.core.CompressibleImage
-import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
-import eu.darken.sdmse.squeezer.core.tasks.SqueezerProcessTask
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -55,22 +54,14 @@ class ImageProcessor @Inject constructor(
     )
 
     suspend fun process(
-        task: SqueezerProcessTask,
-        snapshot: Squeezer.Data,
+        targets: Set<CompressibleImage>,
         quality: Int,
     ): Result = withContext(dispatcherProvider.IO) {
-        log(TAG) { "process($task, quality=$quality)" }
+        log(TAG) { "process(${targets.size} images, quality=$quality)" }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_loading)
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
-
-        val targets: Set<CompressibleImage> = when (val mode = task.mode) {
-            is SqueezerProcessTask.TargetMode.All -> snapshot.images
-            is SqueezerProcessTask.TargetMode.Selected -> {
-                snapshot.images.filter { mode.targets.contains(it.identifier) }.toSet()
-            }
-        }
 
         log(TAG, INFO) { "Processing ${targets.size} images" }
 
@@ -98,7 +89,7 @@ class ImageProcessor @Inject constructor(
             } catch (e: CancellationException) {
                 throw e
             } catch (e: Exception) {
-                log(TAG, ERROR) { "Failed to compress ${image.path}: ${e.message}" }
+                log(TAG, ERROR) { "Failed to compress ${image.path}: ${e.asLog()}" }
                 failed[image] = e
             }
         }
@@ -123,6 +114,8 @@ class ImageProcessor @Inject constructor(
         val originalFile = File(localPath.path)
         val backupFile = File(originalFile.parent, ".sdmaid_backup_${originalFile.name}")
         val tempFile = File(originalFile.parent, ".sdmaid_compress_${originalFile.name}")
+
+        var backupIsRestored = false
 
         try {
             val exifData = if (image.isJpeg) {
@@ -185,7 +178,9 @@ class ImageProcessor @Inject constructor(
             } catch (e: Exception) {
                 log(TAG, WARN) { "Compression failed, restoring backup: ${e.message}" }
                 originalFile.delete()
-                if (!backupFile.renameTo(originalFile)) {
+                if (backupFile.renameTo(originalFile)) {
+                    backupIsRestored = true
+                } else {
                     throw IOException("Failed to restore backup after error: ${e.message}", e)
                 }
                 throw e
@@ -196,7 +191,7 @@ class ImageProcessor @Inject constructor(
             return originalSize - compressedSize
         } catch (e: Exception) {
             tempFile.delete()
-            backupFile.delete()
+            if (!backupIsRestored) backupFile.delete()
             throw e
         }
     }

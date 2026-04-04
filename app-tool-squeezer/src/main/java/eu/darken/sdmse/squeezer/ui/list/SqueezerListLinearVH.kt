@@ -8,7 +8,7 @@ import eu.darken.sdmse.common.coil.loadFilePreview
 import eu.darken.sdmse.common.lists.binding
 import eu.darken.sdmse.common.lists.selection.SelectableVH
 import eu.darken.sdmse.common.replaceLast
-import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.databinding.SqueezerListLinearItemBinding
 
 
@@ -33,24 +33,24 @@ class SqueezerListLinearVH(parent: ViewGroup) :
         payloads: List<Any>,
     ) -> Unit = binding { item ->
         lastItem = item
-        val image = item.image
+        val media = item.media
 
         previewImage.apply {
-            loadFilePreview(image.lookup) {
+            loadFilePreview(media.lookup) {
                 bitmapConfig(Bitmap.Config.ARGB_8888)
             }
             setOnClickListener { item.onPreviewClicked(item) }
         }
 
-        filename.text = image.lookup.name
-        filepath.text = image.lookup.userReadablePath.get(context).replaceLast(image.lookup.name, "")
+        filename.text = media.lookup.name
+        filepath.text = media.lookup.userReadablePath.get(context).replaceLast(media.lookup.name, "")
 
         currentSize.text = context.getString(
             eu.darken.sdmse.squeezer.R.string.squeezer_current_size_format,
-            Formatter.formatShortFileSize(context, image.size)
+            Formatter.formatShortFileSize(context, media.size)
         )
 
-        val savings = image.estimatedSavings
+        val savings = media.estimatedSavings
         estimatedSavings.text = if (savings != null && savings > 0) {
             context.getString(
                 eu.darken.sdmse.squeezer.R.string.squeezer_estimated_savings_format,
@@ -64,14 +64,14 @@ class SqueezerListLinearVH(parent: ViewGroup) :
     }
 
     data class Item(
-        override val image: CompressibleImage,
+        override val media: CompressibleMedia,
         val onItemClicked: (Item) -> Unit,
         val onPreviewClicked: (Item) -> Unit,
     ) : SqueezerListAdapter.Item {
 
         override val itemSelectionKey: String
-            get() = image.identifier.value
+            get() = media.identifier.value
 
-        override val stableId: Long = image.identifier.hashCode().toLong()
+        override val stableId: Long = media.identifier.hashCode().toLong()
     }
 }

@@ -58,24 +58,24 @@ class SqueezerListViewModel @Inject constructor(
         settings.layoutMode.flow,
         settings.compressionQuality.flow,
     ) { data, progress, layoutMode, quality ->
-        val rows = data.images
+        val rows = data.media
             .sortedByDescending { it.size }
-            .map { image ->
+            .map { media ->
                 when (layoutMode) {
                     LayoutMode.LINEAR -> SqueezerListLinearVH.Item(
-                        image = image,
+                        media = media,
                         onItemClicked = { compress(setOf(it)) },
                         onPreviewClicked = { item ->
-                            val options = PreviewOptions(paths = listOf(item.image.path))
+                            val options = PreviewOptions(paths = listOf(item.media.path))
                             events.postValue(SqueezerListEvents.PreviewEvent(options))
                         },
                     )
 
                     LayoutMode.GRID -> SqueezerListGridVH.Item(
-                        image = image,
+                        media = media,
                         onItemClicked = { compress(setOf(it)) },
                         onPreviewClicked = { item ->
-                            val options = PreviewOptions(paths = listOf(item.image.path))
+                            val options = PreviewOptions(paths = listOf(item.media.path))
                             events.postValue(SqueezerListEvents.PreviewEvent(options))
                         },
                     )
@@ -119,7 +119,7 @@ class SqueezerListViewModel @Inject constructor(
         }
 
         val mode: SqueezerProcessTask.TargetMode = SqueezerProcessTask.TargetMode.Selected(
-            targets = items.map { it.image.identifier }.toSet(),
+            targets = items.map { it.media.identifier }.toSet(),
         )
 
         taskSubmitter.submit(SqueezerProcessTask(mode = mode, qualityOverride = qualityOverride))
@@ -127,7 +127,7 @@ class SqueezerListViewModel @Inject constructor(
 
     fun exclude(items: Collection<SqueezerListAdapter.Item>) = launch {
         log(TAG, INFO) { "exclude(): ${items.size}" }
-        val targets = items.map { it.image.identifier }
+        val targets = items.map { it.media.identifier }
         squeezer.exclude(targets)
         events.postValue(SqueezerListEvents.ExclusionsCreated(items.size))
     }

@@ -1,28 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="squeezer_explanation_short">Compress images to save storage space.</string>
+    <string name="squeezer_explanation_short">Compress images and videos to save storage space.</string>
     <plurals name="squeezer_result_x_images_found">
-        <item quantity="one">%d image found</item>
-        <item quantity="other">%d images found</item>
+        <item quantity="one">%d item found</item>
+        <item quantity="other">%d items found</item>
     </plurals>
     <plurals name="squeezer_result_x_estimated_savings">
         <item quantity="one">~%s can be saved</item>
         <item quantity="other">~%s can be saved</item>
     </plurals>
     <plurals name="squeezer_result_x_images_compressed">
-        <item quantity="one">%d image compressed</item>
-        <item quantity="other">%d images compressed</item>
+        <item quantity="one">%d item compressed</item>
+        <item quantity="other">%d items compressed</item>
     </plurals>
     <plurals name="squeezer_preview_x_images">
-        <item quantity="one">%d image selected</item>
-        <item quantity="other">%d images selected</item>
+        <item quantity="one">%d item selected</item>
+        <item quantity="other">%d items selected</item>
     </plurals>
     <string name="squeezer_search_locations_title">Search locations</string>
     <string name="squeezer_search_locations_default_summary">Camera folders (default)</string>
     <string name="squeezer_min_size_title">Minimum file size</string>
-    <string name="squeezer_min_size_description">Skip images smaller than this size.</string>
+    <string name="squeezer_min_size_description">Skip files smaller than this size.</string>
     <string name="squeezer_min_age_title">Minimum file age</string>
-    <string name="squeezer_min_age_description">Only include images older than this age.</string>
+    <string name="squeezer_min_age_description">Only include files older than this age.</string>
     <string name="squeezer_compression_settings_label">Compression settings</string>
     <string name="squeezer_quality_label">Quality</string>
     <string name="squeezer_quality_title">Compression quality</string>
@@ -30,13 +30,15 @@
     <string name="squeezer_quality_example_format">Example: %1$s image → saves ~%2$s at %3$d%% quality</string>
     <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
     <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
-    <string name="squeezer_types_category_label">Image types</string>
+    <string name="squeezer_types_category_label">Media types</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
     <string name="squeezer_type_webp_description">Include WebP images (.webp).</string>
+    <string name="squeezer_type_video_title">MP4 Video</string>
+    <string name="squeezer_type_video_description">Include MP4 video files (.mp4).</string>
     <string name="squeezer_skip_compressed_title">Skip previously compressed</string>
-    <string name="squeezer_skip_compressed_description">Skip images that have already been compressed by SD Maid.</string>
+    <string name="squeezer_skip_compressed_description">Skip files that have already been compressed by SD Maid.</string>
     <string name="squeezer_exif_marker_title">Write EXIF marker</string>
     <string name="squeezer_exif_marker_description">Append a marker to the image\'s EXIF user comment field to prevent re-compression even if the compression history is cleared.</string>
     <string name="squeezer_estimated_savings_format">~%s savings</string>
@@ -48,7 +50,7 @@
     <string name="squeezer_preview_total_size">Total size</string>
     <string name="squeezer_preview_estimated_savings">Estimated savings</string>
     <string name="squeezer_compress_confirmation_title">Compress images?</string>
-    <string name="squeezer_compress_confirmation_message">This will replace original images with compressed versions. This action cannot be undone.</string>
+    <string name="squeezer_compress_confirmation_message">This will replace original files with compressed versions. This action cannot be undone.</string>
     <string name="squeezer_history_title">Compression history</string>
     <plurals name="squeezer_history_summary">
         <item quantity="one">%1$d item (%2$s)</item>
@@ -64,9 +66,9 @@
     <string name="squeezer_onboarding_quality_label">Quality: %d%%</string>
     <string name="squeezer_compare_action">View comparison</string>
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
-    <string name="squeezer_result_empty_message">No compressible images found.</string>
+    <string name="squeezer_result_empty_message">No compressible media found.</string>
     <string name="squeezer_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
-    <string name="squeezer_setup_explanation">Media Squeeze reduces the file size of images to free up storage space. This permanently reduces image quality and cannot be undone. Review your settings carefully before starting.</string>
+    <string name="squeezer_setup_explanation">Media Squeeze reduces the file size of images and videos to free up storage space. This permanently reduces quality and cannot be undone. Review your settings carefully before starting.</string>
     <string name="squeezer_setup_paths_title">Search locations</string>
     <string name="squeezer_setup_paths_default">Select folders to search</string>
     <string name="squeezer_setup_quality_title">Compression quality</string>
