@@ -12,7 +12,7 @@ import eu.darken.sdmse.common.lists.modular.ModularAdapter
 import eu.darken.sdmse.common.lists.modular.mods.DataBinderMod
 import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.common.lists.selection.SelectableItem
-import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import javax.inject.Inject
 
 
@@ -37,7 +37,7 @@ class SqueezerListAdapter @Inject constructor() :
 
     interface Item : DifferItem, SelectableItem {
 
-        val image: CompressibleImage
+        val media: CompressibleMedia
 
         override val payloadProvider: ((DifferItem, DifferItem) -> DifferItem?)
             get() = { old, new ->
