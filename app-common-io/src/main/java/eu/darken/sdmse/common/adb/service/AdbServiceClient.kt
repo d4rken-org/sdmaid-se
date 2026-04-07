@@ -43,9 +43,10 @@ class AdbServiceClient @Inject constructor(
     private val pkgOpsClientFactory: PkgOpsClient.Factory,
     private val shellOpsClientFactory: ShellOpsClient.Factory,
 ) : SharedResource<AdbServiceClient.Connection>(
-    TAG,
-    coroutineScope,
-    callbackFlow {
+    tag = TAG,
+    parentScope = coroutineScope,
+    verboseLifecycle = true,
+    source = callbackFlow {
         log(TAG) { "Instantiating ADB launcher..." }
 
         if (adbSettings.useAdb.value() != true) throw AdbUnavailableException("ADB is not enabled")

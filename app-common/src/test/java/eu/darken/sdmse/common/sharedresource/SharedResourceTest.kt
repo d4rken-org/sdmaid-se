@@ -1,6 +1,7 @@
 package eu.darken.sdmse.common.sharedresource
 
 import eu.darken.sdmse.common.debug.Bugs
+import eu.darken.sdmse.common.debug.logging.Logging
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import io.kotest.assertions.throwables.shouldNotThrowAny
@@ -11,12 +12,16 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
+import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 import okio.IOException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -425,6 +430,104 @@ class SharedResourceTest : BaseTest() {
         delay(1500)
 
         sr.isClosed shouldBe true
+    }
+
+    /**
+     * Regression test for the close-on-cancel pattern used by RootManager.binder.
+     * Verifies that wrapping `send()` in try/catch with NonCancellable resource.close()
+     * cleanup correctly releases the lease when the producing coroutine is cancelled
+     * before `awaitClose { }` registers — preventing a leaked lease.
+     */
+    @Test fun `binder-style callbackFlow releases lease on cancellation`(): Unit = runBlocking {
+        val sr = SharedResource<String>(
+            tag = "binderpattern",
+            parentScope = this + Dispatchers.IO,
+            stopTimeout = Duration.ZERO,
+            source = flow {
+                emit("connection")
+                awaitCancellation()
+            }
+        )
+
+        // Reproduce the exact pattern from RootManager.binder
+        val patternFlow = callbackFlow {
+            val resource = sr.get()
+            try {
+                send(resource.item)
+            } catch (e: Throwable) {
+                withContext(NonCancellable) { resource.close() }
+                throw e
+            }
+            awaitClose { resource.close() }
+        }
+
+        // Run a few rounds to catch any timing variance
+        (1..10).forEach {
+            val job = launch(Dispatchers.IO) {
+                patternFlow.collect { /* hold the subscription */ }
+            }
+            delay(5)
+            job.cancelAndJoin()
+            // After cancellation, the pattern should have released the lease
+            // (either via catch on send-throw, or via awaitClose).
+            sr.isClosed shouldBe true
+        }
+    }
+
+    @Test fun `verboseLifecycle promotes lifecycle logs to non-trace`() = runTest2(autoCancel = true) {
+        // This test specifically asserts non-trace behavior
+        Bugs.isTrace = false
+
+        val captured = mutableListOf<String>()
+        val capture = object : Logging.Logger {
+            override fun log(
+                priority: Logging.Priority,
+                tag: String,
+                message: String,
+                metaData: Map<String, Any>?
+            ) {
+                if (tag.endsWith(":SR")) captured.add(message)
+            }
+        }
+        Logging.install(capture)
+        try {
+            val srVerbose = SharedResource(
+                tag = "verbose",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ZERO,
+                source = flow {
+                    emit(Unit)
+                    awaitCancellation()
+                },
+                verboseLifecycle = true,
+            )
+
+            val lease = srVerbose.get()
+            lease.close()
+
+            // Lifecycle breadcrumbs should fire even though Bugs.isTrace == false
+            captured.any { it.contains("Launching source job") } shouldBe true
+            captured.any { it.contains("Starting source") } shouldBe true
+            captured.any { it.contains("Waiting for source value") } shouldBe true
+            captured.any { it.contains("onCompletion due to") } shouldBe true
+
+            // Sanity: a non-verbose SharedResource in the same conditions stays silent
+            captured.clear()
+            val srSilent = SharedResource(
+                tag = "silent",
+                parentScope = this + Dispatchers.IO,
+                stopTimeout = Duration.ZERO,
+                source = flow {
+                    emit(Unit)
+                    awaitCancellation()
+                },
+                // verboseLifecycle defaults to false
+            )
+            srSilent.get().close()
+            captured.any { it.contains("Launching source job") } shouldBe false
+        } finally {
+            Logging.remove(capture)
+        }
     }
 
     @Test fun `racing global close`(): Unit = runBlocking {

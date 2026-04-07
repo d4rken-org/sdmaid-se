@@ -45,6 +45,7 @@ class RootServiceClient @Inject constructor(
 ) : SharedResource<RootServiceClient.Connection>(
     tag = TAG,
     parentScope = coroutineScope,
+    verboseLifecycle = true,
     source = callbackFlow {
         log(TAG) { "Instantiating Root launcher..." }
         if (rootSettings.useRoot.value() != true) throw RootUnavailableException("Root is not enabled")
