@@ -42,9 +42,19 @@ open class SharedResource<T : Any>(
     parentScope: CoroutineScope,
     private val source: Flow<T>,
     private val stopTimeout: Duration = Duration.ofSeconds(3),
+    /**
+     * Promote selected lifecycle breadcrumbs (acquire / source-launch / wait / cache-hit / completion)
+     * to non-trace DEBUG, so silent-failure debug logs from this resource can be diagnosed without trace mode.
+     * Off by default — opt in per resource where silent failures are a known support pain point.
+     */
+    private val verboseLifecycle: Boolean = false,
 ) : KeepAlive {
     private val iTag = "$tag:SR"
     override val resourceId: String = iTag
+
+    private inline fun lifecycleLog(message: () -> String) {
+        if (verboseLifecycle || Bugs.isTrace) log(iTag, DEBUG, message = message)
+    }
 
     private val coreLock = Mutex()
 
@@ -72,7 +82,7 @@ open class SharedResource<T : Any>(
         }
 
         if (sourceJob?.isActive == false) {
-            if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() Source is currently closing, waiting..." }
+            lifecycleLog { "[$sId|$lId]-get() Source is currently closing, waiting..." }
             while (sourceJob != null) yield()
         }
 
@@ -99,23 +109,23 @@ open class SharedResource<T : Any>(
 
                 if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() Checking for source job..." }
                 if (sourceJob != null) {
-                    if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|$lId]-get() Source job already exists" }
+                    lifecycleLog { "[$sId|$lId]-get() Source job already exists" }
                     return@withContext
                 }
 
-                if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() Launching source job..." }
                 sId = "S:${UUID.randomUUID().toString().takeLast(4)}"
+                lifecycleLog { "[$sId|$lId]-get() Launching source job..." }
                 sourceError = null
                 sourceJob = source
                     .onStart {
-                        if (Bugs.isTrace) log(iTag) { "[$sId|$lId]-source: Starting source..." }
+                        lifecycleLog { "[$sId|$lId]-source: Starting source..." }
                     }
                     .onEach {
                         if (Bugs.isTrace) log(iTag) { "[$sId|$lId]-source: sourceValue=$it" }
                         sourceValue = it
                     }
                     .onCompletion { reason ->
-                        if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-source: onCompletion due to $reason" }
+                        lifecycleLog { "[$sId|$lId]-source: onCompletion due to $reason" }
                         sourceError = reason
                         if (reason is InternalCancelationException) {
                             if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-source: Internal cancel, no cleanup" }
@@ -143,7 +153,7 @@ open class SharedResource<T : Any>(
 
         var value: T? = sourceValue
         var error: Throwable? = sourceError
-        if (Bugs.isTrace) log(iTag, VERBOSE) { "[$sId|$lId]-get() Now waiting... (value=$value, error=$error)" }
+        lifecycleLog { "[$sId|$lId]-get() Waiting for source value... (current value=$value, error=$error)" }
         while (value == null && error == null) {
             value = sourceValue?.also {
                 if (Bugs.isTrace) log(iTag, DEBUG) { "[$sId|$lId]-get() sourceValue loop, got $it" }
