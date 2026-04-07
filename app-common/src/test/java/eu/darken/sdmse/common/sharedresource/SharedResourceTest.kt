@@ -22,6 +22,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeout
+import kotlinx.coroutines.yield
 import okio.IOException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -466,11 +468,17 @@ class SharedResourceTest : BaseTest() {
             val job = launch(Dispatchers.IO) {
                 patternFlow.collect { /* hold the subscription */ }
             }
-            delay(5)
+            delay(20)
             job.cancelAndJoin()
-            // After cancellation, the pattern should have released the lease
-            // (either via catch on send-throw, or via awaitClose).
-            sr.isClosed shouldBe true
+
+            // After cancellation, the pattern should have released the lease — either via
+            // the catch on send-throw or via awaitClose. Both paths call resource.close()
+            // from the producer coroutine inside runBlocking(NonCancellable), which finishes
+            // asynchronously to the outer cancelAndJoin(). Poll with a timeout rather than
+            // assume synchronous cleanup.
+            withTimeout(2000) {
+                while (!sr.isClosed) yield()
+            }
         }
     }
 
