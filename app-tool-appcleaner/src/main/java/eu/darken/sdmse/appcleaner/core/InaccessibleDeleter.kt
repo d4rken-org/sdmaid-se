@@ -7,6 +7,7 @@ import eu.darken.sdmse.appcleaner.core.scanner.InaccessibleCacheProvider
 import eu.darken.sdmse.automation.core.AutomationSubmitter
 import eu.darken.sdmse.automation.core.ForceStopAutomationTask
 import eu.darken.sdmse.automation.core.errors.AutomationUnavailableException
+import eu.darken.sdmse.automation.core.errors.NoSettingsWindowException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
 import eu.darken.sdmse.common.adb.AdbManager
 import eu.darken.sdmse.common.adb.canUseAdbNow
@@ -22,6 +23,7 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.throttleLatest
+import eu.darken.sdmse.common.pkgs.NoSettingsDetector
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.pkgs.isSystemApp
 import eu.darken.sdmse.common.pkgs.pkgops.PkgOps
@@ -33,6 +35,7 @@ import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
 import eu.darken.sdmse.common.user.UserManager2
+import eu.darken.sdmse.setup.SetupBinding
 import eu.darken.sdmse.setup.SetupModule
 import eu.darken.sdmse.setup.isComplete
 import kotlinx.coroutines.currentCoroutineContext
@@ -48,9 +51,7 @@ import kotlinx.coroutines.flow.timeout
 import kotlinx.coroutines.flow.toList
 import kotlinx.coroutines.isActive
 import javax.inject.Inject
-import eu.darken.sdmse.setup.SetupBinding
 import kotlin.time.Duration.Companion.seconds
-
 
 class InaccessibleDeleter @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
@@ -62,6 +63,7 @@ class InaccessibleDeleter @Inject constructor(
     private val rootManager: RootManager,
     private val settings: AppCleanerSettings,
     @SetupBinding(SetupModule.Type.AUTOMATION) private val automationSetupModule: SetupModule,
+    private val noSettingsDetector: NoSettingsDetector,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(
@@ -142,43 +144,60 @@ class InaccessibleDeleter @Inject constructor(
                 }
             }
 
-        // Force-stop apps before clearing cache if enabled
-        if (useAutomation && remainingTargets.isNotEmpty() && settings.forceStopBeforeClearing.value()) {
-            forceStopApps(remainingTargets.map { it.identifier })
-        }
-
         if (useAutomation && remainingTargets.isNotEmpty()) {
             log(TAG, WARN) { "Using accessibility service to delete inaccessible caches." }
             updateProgressPrimary(eu.darken.sdmse.automation.R.string.automation_loading)
             updateProgressSecondary(CaString.EMPTY)
             updateProgressCount(Progress.Count.Indeterminate())
 
-            log(TAG) { "Processing ${remainingTargets.size} remaining inaccessible caches" }
-            remainingTargets.forEach { log(TAG, VERBOSE) { "Remaining ACS target: $it" } }
-
-            val successLive = mutableSetOf<InstallId>()
-            val failedLive = mutableMapOf<InstallId, Exception>()
-
-            val acsTask = ClearCacheTask(
-                targets = remainingTargets.map { it.identifier },
-                returnToApp = !isBackground,
-                onSuccess = { successLive.add(it) },
-                onError = { id, error -> failedLive[id] = error }
-            )
-            val result = try {
-                automationManager.submit(acsTask) as ClearCacheTask.Result
-            } catch (e: AutomationUnavailableException) {
-                throw InaccessibleDeletionException(e)
-            } catch (e: UserCancelledAutomationException) {
-                log(TAG, WARN) { "User has cancelled ($e), forwarding live progress: $successLive" }
-                ClearCacheTask.Result(
-                    successful = successLive,
-                    failed = failedLive,
+            // Pre-flight: packages we know have no settings page can never be cleared via ACS.
+            // Mark them as failed upfront so we don't waste ~4-10s per package discovering this
+            // reactively inside the automation flow.
+            val (preFailedNoSettings, automationCandidates) = remainingTargets.partition { junk ->
+                noSettingsDetector.hasNoSettings(junk.pkg)
+            }
+            preFailedNoSettings.forEach { junk ->
+                log(TAG, INFO) { "Pre-flight: no settings page, marking failed: ${junk.identifier}" }
+                failedTargets[junk.identifier] = NoSettingsWindowException(
+                    "${junk.identifier.pkgId.name} has no settings window (pre-flight)."
                 )
             }
 
-            successTargets.addAll(result.successful)
-            failedTargets.putAll(result.failed)
+            log(TAG) { "Processing ${automationCandidates.size} remaining inaccessible caches" }
+            automationCandidates.forEach { log(TAG, VERBOSE) { "Remaining ACS target: $it" } }
+
+            if (automationCandidates.isEmpty()) {
+                log(TAG) { "All remaining targets pre-flight failed, nothing to submit to ACS" }
+            } else {
+                // Force-stop apps before clearing cache if enabled
+                if (settings.forceStopBeforeClearing.value()) {
+                    forceStopApps(automationCandidates.map { it.identifier })
+                }
+
+                val successLive = mutableSetOf<InstallId>()
+                val failedLive = mutableMapOf<InstallId, Exception>()
+
+                val acsTask = ClearCacheTask(
+                    targets = automationCandidates.map { it.identifier },
+                    returnToApp = !isBackground,
+                    onSuccess = { successLive.add(it) },
+                    onError = { id, error -> failedLive[id] = error }
+                )
+                val result = try {
+                    automationManager.submit(acsTask) as ClearCacheTask.Result
+                } catch (e: AutomationUnavailableException) {
+                    throw InaccessibleDeletionException(e)
+                } catch (e: UserCancelledAutomationException) {
+                    log(TAG, WARN) { "User has cancelled ($e), forwarding live progress: $successLive" }
+                    ClearCacheTask.Result(
+                        successful = successLive,
+                        failed = failedLive,
+                    )
+                }
+
+                successTargets.addAll(result.successful)
+                failedTargets.putAll(result.failed)
+            }
         } else if (!useAutomation) {
             log(TAG, INFO) { "useAutomation=false" }
         }
