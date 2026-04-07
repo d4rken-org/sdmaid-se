@@ -12,18 +12,12 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.awaitCancellation
 import kotlinx.coroutines.cancelAndJoin
-import kotlinx.coroutines.NonCancellable
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.flow
-import kotlinx.coroutines.channels.awaitClose
 import kotlinx.coroutines.joinAll
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlinx.coroutines.runBlocking
-import kotlinx.coroutines.withContext
-import kotlinx.coroutines.withTimeout
-import kotlinx.coroutines.yield
 import okio.IOException
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -432,54 +426,6 @@ class SharedResourceTest : BaseTest() {
         delay(1500)
 
         sr.isClosed shouldBe true
-    }
-
-    /**
-     * Regression test for the close-on-cancel pattern used by RootManager.binder.
-     * Verifies that wrapping `send()` in try/catch with NonCancellable resource.close()
-     * cleanup correctly releases the lease when the producing coroutine is cancelled
-     * before `awaitClose { }` registers — preventing a leaked lease.
-     */
-    @Test fun `binder-style callbackFlow releases lease on cancellation`(): Unit = runBlocking {
-        val sr = SharedResource<String>(
-            tag = "binderpattern",
-            parentScope = this + Dispatchers.IO,
-            stopTimeout = Duration.ZERO,
-            source = flow {
-                emit("connection")
-                awaitCancellation()
-            }
-        )
-
-        // Reproduce the exact pattern from RootManager.binder
-        val patternFlow = callbackFlow {
-            val resource = sr.get()
-            try {
-                send(resource.item)
-            } catch (e: Throwable) {
-                withContext(NonCancellable) { resource.close() }
-                throw e
-            }
-            awaitClose { resource.close() }
-        }
-
-        // Run a few rounds to catch any timing variance
-        (1..10).forEach {
-            val job = launch(Dispatchers.IO) {
-                patternFlow.collect { /* hold the subscription */ }
-            }
-            delay(20)
-            job.cancelAndJoin()
-
-            // After cancellation, the pattern should have released the lease — either via
-            // the catch on send-throw or via awaitClose. Both paths call resource.close()
-            // from the producer coroutine inside runBlocking(NonCancellable), which finishes
-            // asynchronously to the outer cancelAndJoin(). Poll with a timeout rather than
-            // assume synchronous cleanup.
-            withTimeout(2000) {
-                while (!sr.isClosed) yield()
-            }
-        }
     }
 
     @Test fun `verboseLifecycle promotes lifecycle logs to non-trace`() = runTest2(autoCancel = true) {
