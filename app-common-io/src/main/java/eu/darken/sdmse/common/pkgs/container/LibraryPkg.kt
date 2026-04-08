@@ -13,6 +13,9 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.io.R
 import eu.darken.sdmse.common.pkgs.Pkg
+import eu.darken.sdmse.common.pkgs.features.InstallDetails
+import eu.darken.sdmse.common.pkgs.features.Installed
+import eu.darken.sdmse.common.pkgs.features.InstallerInfo
 import eu.darken.sdmse.common.pkgs.features.PermissionDetails
 import eu.darken.sdmse.common.pkgs.features.SourceAvailable
 import eu.darken.sdmse.common.pkgs.getIcon2
@@ -25,17 +28,18 @@ data class LibraryPkg(
     private val apkPath: APath,
     override val packageInfo: PackageInfo,
     override val userHandle: UserHandle2,
-) : SourceAvailable, PermissionDetails {
+    override val installerInfo: InstallerInfo = InstallerInfo(),
+) : Installed, InstallDetails, SourceAvailable, PermissionDetails {
+
+    // Libraries that show up here are system-level by construction.
+    // getPackageArchiveInfo() does not populate FLAG_SYSTEM, so the default
+    // InstallDetails.isSystemApp reading applicationInfo.flags would be wrong
+    // for the APK-parsed fallback path. Force it to preserve current behavior.
+    override val isSystemApp: Boolean
+        get() = true
 
     override val id: Pkg.Id
-        get() {
-            val rawId = if (versionCode == -1L) {
-                sharedLibraryInfo.name
-            } else {
-                "${sharedLibraryInfo.name}_${versionCode}"
-            }
-            return rawId.toPkgId()
-        }
+        get() = sharedLibraryInfo.toVersionedPkgId()
 
     @Suppress("DEPRECATION")
     @get:SuppressLint("NewApi")
@@ -71,4 +75,19 @@ data class LibraryPkg(
 
 
     override fun toString(): String = "LibraryPkg(packageName=$packageName, path=$apkPath)"
+}
+
+/**
+ * Constructs the `Pkg.Id` that the PackageManager uses to track this shared library.
+ *
+ * For static and SDK libraries, this is the versioned name (e.g.
+ * `com.google.android.trichromelibrary_699813532`) that `dumpsys package` accepts.
+ * For dynamic libraries (no version), this falls back to the raw library name.
+ */
+@SuppressLint("NewApi")
+fun SharedLibraryInfo.toVersionedPkgId(): Pkg.Id {
+    @Suppress("DEPRECATION")
+    val longVersion = if (hasApiLevel(28)) longVersion else version.toLong()
+    val rawId = if (longVersion == -1L) name else "${name}_$longVersion"
+    return rawId.toPkgId()
 }
