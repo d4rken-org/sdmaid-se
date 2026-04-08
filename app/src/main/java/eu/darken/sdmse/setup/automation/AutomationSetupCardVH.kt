@@ -65,10 +65,7 @@ class AutomationSetupCardVH(parent: ViewGroup) :
 
         enabledStateHint.apply {
             isVisible = !state.isServiceEnabled && state.needsXiaomiAutostart
-            when {
-                state.needsXiaomiAutostart -> getString(R.string.setup_acs_state_stopped_hint_miui)
-                else -> ""
-            }
+            text = getString(R.string.setup_acs_state_stopped_hint_miui)
         }
 
         runningState.apply {
