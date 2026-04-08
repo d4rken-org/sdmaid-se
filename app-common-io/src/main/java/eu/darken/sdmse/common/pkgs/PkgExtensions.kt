@@ -4,7 +4,6 @@ import android.content.Context
 import android.content.Intent
 import androidx.core.net.toUri
 import eu.darken.sdmse.common.pkgs.container.ArchivedPkg
-import eu.darken.sdmse.common.pkgs.container.LibraryPkg
 import eu.darken.sdmse.common.pkgs.container.UninstalledPkg
 import eu.darken.sdmse.common.pkgs.features.InstallDetails
 
@@ -30,7 +29,7 @@ val Pkg.isEnabled: Boolean
     get() = this is InstallDetails && this.isEnabled
 
 val Pkg.isSystemApp: Boolean
-    get() = (this is InstallDetails) && this.isSystemApp || this is LibraryPkg
+    get() = (this is InstallDetails) && this.isSystemApp
 
 val Pkg.isUpdatedSystemApp: Boolean
     get() = isSystemApp && (this is InstallDetails) && this.isUpdatedSystemApp
