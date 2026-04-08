@@ -9,7 +9,7 @@ Akumuntu oyiperfect, futhi Android ayiperfect nawo.
 
 Asikwazi ukunqoba lapa… Vumela i-SD Maid 2/SE ukuthi ikusise!
 
-SD Maid 2/SE iyinhlelo zesoftware nokumphathi wefayela okugxile ekwazini okukhethekile okuthi yimaphi izinhlelo zesoftware ezakhe izifayela ethize ngakuqondile ku-divayisi yakho. Iqhathanisa izifayela ne-apps efakwe ukuze unikezele ikhethelo lokugcina ngokonzululwazi nokuyilibula isithombe sesitoreji.
+SD Maid 2/SE iyinhlelo yokusebenza nokuphatha amafayela eyazi ukuthi yiziphi izinhlelo ezadala amafayela kudivayisi yakho. Iqhathanisa izifayela ne-apps efakwe ukuze unikezele ikhethelo lokugcina ngokonzululwazi nokuyilibula isithombe sesitoreji.
 
 ✨ Lungisa emva kokususa izinhlelo zesoftware
 
@@ -17,7 +17,7 @@ Uma ama-apps akha izifayela ngaphandle kwamafodele wawo avumelekile khona izifay
 
 🔍 Thola divayisi yakho ngendlela enembile
 
-Hlela izifako ezingenalutho, izifayela ezesikhashana, ama-apps asundelekile futhi okuningi. Ngisho unokwakha imikhela yokusesha eyakho. Ithuluzi lokumphathi "SystemCleaner" likuvumela ukuthola divayisi yakho ngokusulwa nokususa izifayela ngokusemweni kwezenhlelo ezahlukene.
+Hlela izifako ezingenalutho, izifayela ezesikhashana, ama-apps asundelekile futhi okuningi. Ngisho unokwakha imikhela yokusesha eyakho. Ithuluzi le-"SystemCleaner" lisesha ngokuzenzakalela futhi lisuse amafayela ngokusekelwe ezinhlotsheni ezahlukene.
 
 🧹 Susa izifayela ezingenzela futhi fihle amakhasi
 
@@ -25,11 +25,11 @@ Izithombe, izindonga zesitolo, amakhasi okusebenza ngokungemuva futhi okwengeziw
 
 📦 Phatha wonke ama-apps akho
 
-Thola uhlu oluphelele lwawo wonke ama-apps afakwe kusistimu yako. Okhutshelwe, okuthulisiwe, ama-apps asebalazini noma kasistimu: akukho app engakwazi ukuzihela. I-"AppControl" iyithuluzi lokuphatha ama-apps okukuvumela ukuthi utshele, uhlukanise futhi ukulawule ama-apps akho.
+Thola uhlu oluphelele lwawo wonke ama-apps afakwe kusistimu yako. Okhutshelwe, okuthulisiwe, ama-apps asebalazini noma kasistimu: akukho app engakwazi ukuzihela. Ithuluzi le-"AppControl" iphathi yezinhlelo elikuvumela ukuthi usesha, uhlele futhi ulawule izinhlelo zakho.
 
 📊 Yini ebandla konke inzuzo yakho
 
-Ukulawula inkumbulo kunokuba nokuluqoba ngama-apps, imithombo, isistema, nezinye izifayela eziqatshelwe kusistimu yefoneni, amakadi e-SD, kanye nemithombo ye-USB. I-"StorageAnalyzer" iyinkundla yokuphatha ifayela ebonisa indlela inzuzo esetshenziswa kusistimu yakho, eyenza ukuthi lokhu kube lula.
+Ukuphathwa kwesitoreji kungaba nzima ngezihlelo, imithombo yezindaba, uhlelo, namanye amafayela kuso sonke isitoreji sedivayisi, amakhadi we-SD, nezidingo ze-USB. I-"StorageAnalyzer" iyinkundla yokuphatha ifayela ebonisa indlela inzuzo esetshenziswa kusistimu yakho, eyenza ukuthi lokhu kube lula.
 
 📷 Thola idatha efanayo
 

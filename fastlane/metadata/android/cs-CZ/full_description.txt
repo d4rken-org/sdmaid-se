@@ -17,7 +17,7 @@ Pokud aplikace vytvářejí soubory mimo určené složky, mohou v nich zůstat 
 
 🔍 Vyhledávání v zařízení chytrým způsobem
 
-Filtrujte prázdné složky, dočasné soubory, již nainstalované aplikace a další. Můžete si dokonce vytvořit vlastní kritéria vyhledávání. Nástroj "SystemCleaner" automaticky vyhledává a odstraňuje soubory na základě různých kritérií.
+Filtrujte prázdné složky, dočasné soubory, již nainstalované aplikace a další. Můžete si dokonce vytvořit vlastní kritéria vyhledávání. Nástroj "SystemCleaner" automaticky vyhledává a maže soubory na základě různých kritérií.
 
 🧹 Odstranění postradatelných souborů a skrytých mezipamětí
 

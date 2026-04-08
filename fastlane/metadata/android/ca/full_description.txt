@@ -17,7 +17,7 @@ Si les aplicacions creen fitxers fora de les carpetes designades, els fitxers po
 
 🔍 Cerca el vostre dispositiu de manera intel·ligent
 
-Filtreu les carpetes buides, els fitxers temporals, les aplicacions ja instal·lades i molt més. Fins i tot podeu crear els vostres propis criteris de cerca. L'eina "SystemCleaner" cerca i elimina fitxers automàticament segons diversos criteris.
+Filtreu les carpetes buides, els fitxers temporals, les aplicacions ja instal·lades i molt més. Fins i tot podeu crear els vostres propis criteris de cerca. L'eina «Netejador del sistema» cerca i elimina fitxers automàticament segons diversos criteris.
 
 🧹 Suprimeix fitxers fungibles i memòries cau ocultes
 
@@ -25,7 +25,7 @@ Miniatures, papereres, memòria cau fora de línia i molt més: si les aplicacio
 
 📦 Gestiona totes les vostres aplicacions
 
-Obteniu una llista completa de totes les aplicacions instal·lades al vostre dispositiu. Aplicació habilitada, deshabilitada, d'usuari o del sistema: cap aplicació es pot amagar. L'eina "AppControl" us permet cercar, ordenar i controlar les aplicacions.
+Obteniu una llista completa de totes les aplicacions instal·lades al vostre dispositiu. Aplicació habilitada, deshabilitada, d'usuari o del sistema: cap aplicació es pot amagar. L'eina «Control d'aplicacions» us permet cercar, ordenar i controlar les aplicacions.
 
 📊 Què està utilitzant tot el vostre espai
 

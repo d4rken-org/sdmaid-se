@@ -9,7 +9,7 @@ Nikt nie jest doskonały, nawet Android.
 
 Nie tędy droga… Niech SD Maid 2/SE Ci pomoże!
 
-SD Maid 2/SE to menedżer aplikacji i plików, który wie, które aplikacje utworzyły pliki na twoim urządzeniu. Porównuje pliki z zainstalowanymi aplikacjami, aby pomóc Ci bezpiecznie zwolnić miejsce na dysku.
+SD Maid 2/SE to menedżer aplikacji i plików, który wie, które aplikacje utworzyły pliki na twoim urządzeniu. Porównuje pliki z zainstalowanymi aplikacjami, aby pomóc ci bezpiecznie zwolnić miejsce na dysku.
 
 ✨ Posprzątaj po odinstalowaniu aplikacji
 
