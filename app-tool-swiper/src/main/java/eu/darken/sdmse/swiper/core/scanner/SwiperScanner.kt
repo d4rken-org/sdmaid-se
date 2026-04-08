@@ -22,6 +22,7 @@ import eu.darken.sdmse.exclusion.core.types.match
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SessionState
+import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.core.db.SwipeItemEntity
 import eu.darken.sdmse.swiper.core.db.SwipeSessionEntity
 import kotlinx.coroutines.currentCoroutineContext
@@ -35,8 +36,6 @@ import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.flow.flowOn
-import kotlinx.coroutines.flow.take
-import kotlin.coroutines.coroutineContext
 import java.time.Instant
 import java.util.UUID
 import javax.inject.Inject
@@ -58,6 +57,7 @@ class SwiperScanner @Inject constructor(
         val paths: Set<APath>,
         val itemLimit: Int?,
         val fileTypeFilter: FileTypeFilter = FileTypeFilter.EMPTY,
+        val sortOrder: SortOrder = SortOrder.DEFAULT,
     )
 
     data class Result(
@@ -103,23 +103,31 @@ class SwiperScanner @Inject constructor(
                 }
             }
 
-        var count = 0
         val files = mutableListOf<APathLookup<*>>()
-        val limitedFlow = if (options.itemLimit != null) searchFlow.take(options.itemLimit) else searchFlow
 
-        limitedFlow.collect { lookup ->
+        searchFlow.collect { lookup ->
             currentCoroutineContext().ensureActive()
-            count++
             files.add(lookup)
             updateProgressSecondary(lookup.userReadablePath)
-            updateProgressCount(Progress.Count.Counter(count))
-            log(TAG, VERBOSE) { "Found file #$count: ${lookup.path}" }
+            updateProgressCount(Progress.Count.Counter(files.size))
+            log(TAG, VERBOSE) { "Found file #${files.size}: ${lookup.path}" }
         }
 
-        // Sort by modification time so users start with oldest files first
-        files.sortBy { it.modifiedAt }
+        // Path-based tiebreaker keeps order stable across rescans
+        // (flatMapMerge yields files in non-deterministic order)
+        val comparator: Comparator<APathLookup<*>> = when (options.sortOrder) {
+            SortOrder.OLDEST_FIRST -> compareBy({ it.modifiedAt }, { it.path })
+            SortOrder.NEWEST_FIRST -> compareByDescending<APathLookup<*>> { it.modifiedAt }.thenBy { it.path }
+            SortOrder.NAME_ASC -> compareBy({ it.name.lowercase() }, { it.path })
+            SortOrder.SIZE_DESC -> compareByDescending<APathLookup<*>> { it.size }.thenBy { it.path }
+        }
+        files.sortWith(comparator)
 
-        log(TAG) { "Scan found ${files.size} files" }
+        // Apply the free-tier item limit AFTER sorting so the user actually
+        // gets the top-N according to the chosen order, not the first N walked.
+        val finalFiles = options.itemLimit?.let { files.take(it) } ?: files
+
+        log(TAG) { "Scan found ${files.size} files, keeping ${finalFiles.size}" }
 
         val sessionId = UUID.randomUUID().toString()
         val now = Instant.now()
@@ -128,13 +136,13 @@ class SwiperScanner @Inject constructor(
             sessionId = sessionId,
             sourcePaths = options.paths.toList(),
             currentIndex = 0,
-            totalItems = files.size,
+            totalItems = finalFiles.size,
             createdAt = now,
             lastModifiedAt = now,
             state = SessionState.READY,
         )
 
-        val items = files.mapIndexed { index, lookup ->
+        val items = finalFiles.mapIndexed { index, lookup ->
             SwipeItemEntity(
                 sessionId = sessionId,
                 itemIndex = index,
@@ -145,7 +153,7 @@ class SwiperScanner @Inject constructor(
         return Result(
             session = session,
             items = items,
-            lookups = files,
+            lookups = finalFiles,
         )
     }
 

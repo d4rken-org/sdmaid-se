@@ -81,4 +81,43 @@ class SwiperDatabaseMigrationTest : BaseTest() {
             }
         }
     }
+
+    @Test
+    fun `migration 2 to 3 adds sort_order column with default OLDEST_FIRST`() {
+        helper.createDatabase("test-swiper-23.db", 2).use { db ->
+            db.execSQL(
+                """INSERT INTO swipe_sessions
+                    (session_id, source_paths, current_index, total_items, created_at, last_modified_at, state, label, kept_count, deleted_count, file_type_filter)
+                    VALUES ('test', '[]', 0, 10, 1000, 2000, 'READY', 'X', 3, 2, NULL)"""
+            )
+        }
+        helper.runMigrationsAndValidate("test-swiper-23.db", 3, true, SwiperDatabaseModule.MIGRATION_2_3).use { db ->
+            db.query("SELECT sort_order FROM swipe_sessions WHERE session_id = 'test'").use { c ->
+                c.moveToFirst() shouldBe true
+                c.getString(0) shouldBe "OLDEST_FIRST"
+            }
+        }
+    }
+
+    @Test
+    fun `migration 1 to 3 chains both migrations`() {
+        helper.createDatabase("test-swiper-13.db", 1).use { db ->
+            db.execSQL(
+                """INSERT INTO swipe_sessions
+                    (session_id, source_paths, current_index, total_items, created_at, last_modified_at, state, kept_count, deleted_count)
+                    VALUES ('test', '[]', 0, 5, 1000, 2000, 'CREATED', 0, 0)"""
+            )
+        }
+        helper.runMigrationsAndValidate(
+            "test-swiper-13.db", 3, true,
+            SwiperDatabaseModule.MIGRATION_1_2,
+            SwiperDatabaseModule.MIGRATION_2_3,
+        ).use { db ->
+            db.query("SELECT file_type_filter, sort_order FROM swipe_sessions WHERE session_id = 'test'").use { c ->
+                c.moveToFirst() shouldBe true
+                c.isNull(0) shouldBe true
+                c.getString(1) shouldBe "OLDEST_FIRST"
+            }
+        }
+    }
 }

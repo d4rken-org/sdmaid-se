@@ -21,6 +21,7 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.FileTypeFilter
+import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.common.lists.setupDefaults
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
@@ -130,6 +131,12 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                             showFileTypeFilterDialog(
                                 sessionId,
                                 sessionWithStats.session.fileTypeFilter,
+                            )
+                        },
+                        onSortOrder = {
+                            showSortOrderDialog(
+                                sessionId,
+                                sessionWithStats.session.sortOrder,
                             )
                         },
                     )
@@ -250,6 +257,21 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
 
                 val filter = FileTypeFilter(categories, customExtensions)
                 vm.updateSessionFilter(sessionId, filter)
+            }
+            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
+        }.show()
+    }
+
+    private fun showSortOrderDialog(sessionId: String, currentSortOrder: SortOrder) {
+        val orders = SortOrder.entries.toTypedArray()
+        val labels = orders.map { it.label.get(requireContext()) }.toTypedArray()
+        val checkedIndex = orders.indexOf(currentSortOrder)
+
+        MaterialAlertDialogBuilder(requireContext()).apply {
+            setTitle(eu.darken.sdmse.common.R.string.general_sort_by_title)
+            setSingleChoiceItems(labels, checkedIndex) { dialog, which ->
+                vm.updateSessionSortOrder(sessionId, orders[which])
+                dialog.dismiss()
             }
             setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
         }.show()

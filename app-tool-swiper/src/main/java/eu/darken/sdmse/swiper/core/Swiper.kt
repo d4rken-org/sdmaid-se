@@ -47,6 +47,10 @@ import javax.inject.Inject
 import javax.inject.Provider
 import javax.inject.Singleton
 
+private val SwipeSessionEntity.isReconfigurable: Boolean
+    get() = state == SessionState.CREATED ||
+        (state == SessionState.READY && totalItems == 0)
+
 @Singleton
 class Swiper @Inject constructor(
     @AppScope private val appScope: CoroutineScope,
@@ -174,11 +178,13 @@ class Swiper @Inject constructor(
         }
 
         val fileTypeFilter = existingSession?.fileTypeFilter ?: FileTypeFilter.EMPTY
+        val sortOrder = existingSession?.sortOrder ?: SortOrder.DEFAULT
 
         val scanOptions = SwiperScanner.Options(
             paths = paths,
             itemLimit = itemLimit,
             fileTypeFilter = fileTypeFilter,
+            sortOrder = sortOrder,
         )
 
         val scanResult = scanner.get().withProgress(this) {
@@ -403,11 +409,21 @@ class Swiper @Inject constructor(
     suspend fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = toolLock.withLock {
         log(TAG, INFO) { "updateSessionFilter(sessionId=$sessionId, filter=$filter)" }
         val session = sessionDao.getSession(sessionId) ?: return@withLock
-        if (session.state != SessionState.CREATED) {
-            log(TAG, WARN) { "Cannot change filter for session in state ${session.state}" }
+        if (!session.isReconfigurable) {
+            log(TAG, WARN) { "Cannot change filter for session in state ${session.state} (totalItems=${session.totalItems})" }
             return@withLock
         }
         sessionDao.update(session.copy(fileTypeFilter = filter.takeUnless { it.isEmpty }))
+    }
+
+    suspend fun updateSessionSortOrder(sessionId: String, sortOrder: SortOrder) = toolLock.withLock {
+        log(TAG, INFO) { "updateSessionSortOrder(sessionId=$sessionId, sortOrder=$sortOrder)" }
+        val session = sessionDao.getSession(sessionId) ?: return@withLock
+        if (!session.isReconfigurable) {
+            log(TAG, WARN) { "Cannot change sort order for session in state ${session.state} (totalItems=${session.totalItems})" }
+            return@withLock
+        }
+        sessionDao.update(session.copy(sortOrder = sortOrder))
     }
 
     fun getItemsForSession(sessionId: String): Flow<List<SwipeItem>> {

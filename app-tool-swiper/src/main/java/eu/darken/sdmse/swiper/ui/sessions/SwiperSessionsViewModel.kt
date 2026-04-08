@@ -13,6 +13,7 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.swiper.core.FileTypeFilter
+import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
@@ -70,6 +71,11 @@ class SwiperSessionsViewModel @Inject constructor(
     fun updateSessionFilter(sessionId: String, filter: FileTypeFilter) = launch {
         log(TAG, INFO) { "updateSessionFilter(sessionId=$sessionId, filter=$filter)" }
         swiper.updateSessionFilter(sessionId, filter)
+    }
+
+    fun updateSessionSortOrder(sessionId: String, sortOrder: SortOrder) = launch {
+        log(TAG, INFO) { "updateSessionSortOrder(sessionId=$sessionId, sortOrder=$sortOrder)" }
+        swiper.updateSessionSortOrder(sessionId, sortOrder)
     }
 
     fun continueSession(sessionId: String) = launch {

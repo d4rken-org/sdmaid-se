@@ -6,6 +6,7 @@ import androidx.room.PrimaryKey
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.swiper.core.FileTypeFilter
 import eu.darken.sdmse.swiper.core.SessionState
+import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.core.SwipeSession
 import java.time.Instant
 import java.util.UUID
@@ -24,6 +25,8 @@ data class SwipeSessionEntity(
     @ColumnInfo(name = "kept_count") val keptCount: Int = 0,
     @ColumnInfo(name = "deleted_count") val deletedCount: Int = 0,
     @ColumnInfo(name = "file_type_filter") val fileTypeFilter: FileTypeFilter? = null,
+    @ColumnInfo(name = "sort_order", defaultValue = "'OLDEST_FIRST'")
+    val sortOrder: SortOrder = SortOrder.OLDEST_FIRST,
 ) {
     fun toModel() = SwipeSession(
         sessionId = sessionId,
@@ -37,6 +40,7 @@ data class SwipeSessionEntity(
         keptCount = keptCount,
         deletedCount = deletedCount,
         fileTypeFilter = fileTypeFilter ?: FileTypeFilter.EMPTY,
+        sortOrder = sortOrder,
     )
 
     companion object {
@@ -52,6 +56,7 @@ data class SwipeSessionEntity(
             keptCount = session.keptCount,
             deletedCount = session.deletedCount,
             fileTypeFilter = session.fileTypeFilter.takeUnless { it.isEmpty },
+            sortOrder = session.sortOrder,
         )
     }
 }
