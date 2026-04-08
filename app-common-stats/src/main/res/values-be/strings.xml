@@ -9,8 +9,8 @@
     <plurals name="stats_dash_body_count">
         <item quantity="one">%s элемент апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
         <item quantity="few">%s элементы апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
-        <item quantity="many">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
-        <item quantity="other">%s элементаў апрацаваны з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="many">%s элементаў апрацавана з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
+        <item quantity="other">%s элементаў апрацавана з таго часу, як вы запрасілі SD Maid на сваю прыладу.</item>
     </plurals>
     <string name="stats_report_status_success">Паспяхова</string>
     <string name="stats_report_status_partial_success">Частковы поспех</string>

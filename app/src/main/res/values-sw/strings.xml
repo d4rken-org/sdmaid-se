@@ -19,6 +19,10 @@
     <string name="debug_debuglog_screen_discard_action">Tupa</string>
     <string name="debug_debuglog_screen_session_path_label">Njia ya Kipindi</string>
     <string name="debug_debuglog_screen_log_files_label">Mafaili ya Rekodi</string>
+    <plurals name="debug_debuglog_screen_log_files_ready">
+        <item quantity="one">faili %1$d tayari (%2$s) · %3$s</item>
+        <item quantity="other">mafaili %1$d tayari (%2$s) · %3$s</item>
+    </plurals>
     <string name="settings_debuglog_explanation">Kipengele hiki kinarekodi kila kitu programu inachofanya katika faili linaweza kushirikishwa. Faili lililotengenezwa lina maelezo ya siri (k.m. majina ya mafaili na programu zilizosakiniwa). Shiriki tu na wahusika wanaoweza kuaminika (k.m. msanidi programu anayetatua tatizo).</string>
     <string name="debug_debuglog_short_recording_title">Rekodi fupi sana</string>
     <string name="debug_debuglog_short_recording_desc">Rekodi ilikuwa fupi sana. Kumbukumbu za utatuzi ni rekodi, si picha za wakati fulani — rudia tatizo wakati rekodi inaendelea ili kumbukumbu iwe na manufaa.</string>
