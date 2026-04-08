@@ -5,7 +5,7 @@ import eu.darken.sdmse.main.core.SDMTool
 
 class SDMToolTypeConverter {
     @TypeConverter
-    fun from(value: SDMTool.Type): String = value.toString()
+    fun from(value: SDMTool.Type): String = value.name
 
     @TypeConverter
     fun to(value: String): SDMTool.Type = SDMTool.Type.valueOf(value)
