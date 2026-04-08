@@ -28,7 +28,7 @@ class SwiperDatabaseModule {
         addTypeConverter(APathTypeConverter(json))
         addTypeConverter(APathListTypeConverter(json))
         addTypeConverter(FileTypeFilterConverter(json))
-        addMigrations(MIGRATION_1_2)
+        addMigrations(MIGRATION_1_2, MIGRATION_2_3)
     }.build()
 
     @Provides
@@ -45,6 +45,14 @@ class SwiperDatabaseModule {
         val MIGRATION_1_2 = object : Migration(1, 2) {
             override fun migrate(db: SupportSQLiteDatabase) {
                 db.execSQL("ALTER TABLE swipe_sessions ADD COLUMN file_type_filter TEXT DEFAULT NULL")
+            }
+        }
+
+        val MIGRATION_2_3 = object : Migration(2, 3) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE swipe_sessions ADD COLUMN sort_order TEXT NOT NULL DEFAULT 'OLDEST_FIRST'"
+                )
             }
         }
     }

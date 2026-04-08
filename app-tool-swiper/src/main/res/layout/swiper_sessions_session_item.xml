@@ -247,13 +247,14 @@
             style="@style/TextAppearance.Material3.BodyMedium"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="12dp"
             android:text="@string/swiper_session_no_matching_files"
             android:textColor="?attr/colorOnSurfaceVariant"
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/stats_container"
+            app:layout_goneMarginTop="0dp"
             tools:visibility="gone" />
 
         <LinearLayout
@@ -266,7 +267,8 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/stats_container"
+            app:layout_constraintTop_toBottomOf="@id/no_matching_files"
+            app:layout_goneMarginTop="12dp"
             tools:visibility="visible">
 
             <com.google.android.material.progressindicator.LinearProgressIndicator
@@ -299,12 +301,22 @@
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/filter_action"
-                style="@style/Widget.Material3.Button.TextButton"
+                style="@style/Widget.Material3.Button.IconButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/general_filter_action"
+                android:contentDescription="@string/swiper_session_filter_action"
                 android:visibility="gone"
                 app:icon="@drawable/ic_filter_list_24"
+                tools:visibility="visible" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/sort_action"
+                style="@style/Widget.Material3.Button.IconButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="@string/general_sort_action"
+                android:visibility="gone"
+                app:icon="@drawable/ic_sort_descending_24"
                 tools:visibility="visible" />
 
             <Space
@@ -328,6 +340,8 @@
                 style="@style/Widget.Material3.Button.TonalButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:ellipsize="end"
+                android:maxLines="1"
                 android:text="@string/general_scan_action"
                 app:icon="@drawable/ic_baseline_search_24" />
 

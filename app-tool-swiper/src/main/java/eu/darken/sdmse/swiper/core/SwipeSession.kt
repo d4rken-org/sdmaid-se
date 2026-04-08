@@ -15,4 +15,5 @@ data class SwipeSession(
     val keptCount: Int = 0,
     val deletedCount: Int = 0,
     val fileTypeFilter: FileTypeFilter = FileTypeFilter.EMPTY,
+    val sortOrder: SortOrder = SortOrder.OLDEST_FIRST,
 )

@@ -12,6 +12,7 @@ import eu.darken.sdmse.swiper.databinding.SwiperSessionsSessionItemBinding
 import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.SessionState
+import eu.darken.sdmse.swiper.core.SortOrder
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.ui.sessions.SwiperSessionsAdapter
 import eu.darken.sdmse.common.ui.R as UiR
@@ -131,10 +132,11 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         removeAction.isVisible = true
         removeAction.setOnClickListener { item.onRemove() }
 
-        // Filter button - visible before scan or when scan found no matches
+        // Filter + sort icons - visible before scan or when scan found no matches
         val showFilter = !item.isScanning && !item.isRefreshing &&
             (session.state == SessionState.CREATED || noMatchingFiles)
         filterAction.isVisible = showFilter
+        sortAction.isVisible = showFilter
         if (showFilter) {
             filterAction.setOnClickListener { item.onFilter() }
             val hasActiveFilter = !filter.isEmpty
@@ -146,6 +148,17 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             val tint = android.content.res.ColorStateList.valueOf(context.getColorForAttr(tintAttr))
             filterAction.iconTint = tint
             filterAction.setTextColor(tint)
+
+            sortAction.setOnClickListener { item.onSortOrder() }
+            val isCustomSort = session.sortOrder != SortOrder.DEFAULT
+            val sortTintAttr = if (isCustomSort) {
+                androidx.appcompat.R.attr.colorPrimary
+            } else {
+                com.google.android.material.R.attr.colorOnSurfaceVariant
+            }
+            val sortTint = android.content.res.ColorStateList.valueOf(context.getColorForAttr(sortTintAttr))
+            sortAction.iconTint = sortTint
+            sortAction.setTextColor(sortTint)
         }
 
         // Action button - four states: not scanned, scanning, refreshing, scanned
@@ -210,6 +223,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         val onRename: () -> Unit,
         val onCancel: () -> Unit,
         val onFilter: () -> Unit,
+        val onSortOrder: () -> Unit,
     ) : SwiperSessionsAdapter.Item {
         override val stableId: Long = sessionWithStats.session.sessionId.hashCode().toLong()
     }
