@@ -36,7 +36,7 @@
     <string name="squeezer_quality_title">Kakovost stiskanja</string>
     <string name="squeezer_quality_description">Nižja kakovost pomeni manjšo velikost datoteke, a slabšo kakovost slike.</string>
     <string name="squeezer_quality_example_format">Primer: slika %1$s → prihranite ~%2$s pri %3$d%% kakovosti.</string>
-    <string name="squeezer_quality_warning_low">Nižje kakovosti lahko povzročijo vidne artefakte.</string>
+    <string name="squeezer_quality_warning_low">Nižje kakovosti lahko povzročijo vidna popačenja.</string>
     <string name="squeezer_quality_warning_high">Zelo visoka kakovost omogoča le majhen prihranek prostora.</string>
     <string name="squeezer_types_category_label">Vrste slik</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
@@ -84,14 +84,14 @@
     <string name="squeezer_setup_age_none">Brez omejitve (vključi vse datoteke)</string>
     <string name="squeezer_setup_start_action">Začni pregled</string>
     <string name="squeezer_quality_hint_very_low">Kakovost pod 40 % lahko ustvari neuporabne slike.</string>
-    <string name="squeezer_quality_hint_low">Nižja kakovost prihrani več prostora, a lahko povzroči vidne artefakte.</string>
+    <string name="squeezer_quality_hint_low">Nižja kakovost prihrani več prostora, a lahko povzroči vidna popačenja.</string>
     <string name="squeezer_quality_hint_high">Zelo visoka kakovost omogoča le minimalen prihranek prostora.</string>
     <string name="squeezer_quality_hint_normal">Uravnotežena kakovost in prihranek prostora.</string>
     <plurals name="squeezer_min_age_x_days">
         <item quantity="one">Stare vsaj %d dan</item>
         <item quantity="two">Stare vsaj %d dneva</item>
         <item quantity="few">Stare vsaj %d dni</item>
-        <item quantity="other">Stare vsaj %d dni</item>
+        <item quantity="other">Vsaj %d dni</item>
     </plurals>
     <string name="squeezer_estimated_savings_percent">Predviden prihranek za datoteke JPEG: ~%d%%.</string>
     <string name="squeezer_onboarding_got_it">Razumem!</string>

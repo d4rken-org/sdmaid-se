@@ -7,6 +7,10 @@
     <string name="analyzer_progress_scanning_userfiles">వినియోగదారు ఫైల్‌ల కోసం వెతుకుతోంది</string>
     <string name="analyzer_progress_scanning_system">సిస్టం డేటాను స్కాన్ చేస్తోంది</string>
     <string name="analyzer_device_storage_title">పరికర స్టోరేజీ</string>
+    <plurals name="analyzer_space_available">
+        <item quantity="one">%s అనుపలబ్ధం</item>
+        <item quantity="other">%s అనుపలబ్ధం</item>
+    </plurals>
     <plurals name="analyzer_space_used">
         <item quantity="one">%s ఉపయోగించబడింది</item>
         <item quantity="other">%s ఉపయోగించబడింది</item>
