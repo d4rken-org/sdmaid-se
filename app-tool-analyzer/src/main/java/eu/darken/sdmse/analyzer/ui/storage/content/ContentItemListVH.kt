@@ -2,7 +2,8 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 
 import android.text.format.Formatter
 import android.view.ViewGroup
-import androidx.core.view.isGone
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import coil.dispose
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -77,9 +78,11 @@ class ContentItemListVH(parent: ViewGroup) :
             FileType.UNKNOWN -> getString(eu.darken.sdmse.common.R.string.file_type_unknown)
         }
 
-        progress.apply {
-            isGone = item.parent?.size == null
-            progress = (((content.size ?: 0L) / (item.parent?.size ?: 1L).toDouble()) * 100).toInt()
+        sizeBar.isVisible = item.sizeRatio != null
+        if (item.sizeRatio != null) {
+            val lp = sizeBar.layoutParams as ConstraintLayout.LayoutParams
+            lp.matchConstraintPercentWidth = item.sizeRatio
+            sizeBar.layoutParams = lp
         }
 
         root.setOnClickListener { item.onItemClicked() }
@@ -88,6 +91,7 @@ class ContentItemListVH(parent: ViewGroup) :
     data class Item(
         val parent: ContentItem?,
         val content: ContentItem,
+        val sizeRatio: Float?,
         val onItemClicked: () -> Unit,
     ) : ContentAdapter.Item {
 

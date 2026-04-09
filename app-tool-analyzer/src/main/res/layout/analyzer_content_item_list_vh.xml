@@ -6,16 +6,18 @@
     android:layout_height="wrap_content"
     android:background="@drawable/bg_listitem_selectable">
 
-    <com.google.android.material.progressindicator.CircularProgressIndicator
-        android:id="@+id/progress"
-        style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintBottom_toBottomOf="@id/tertiary"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tertiary"
-        tools:progress="80" />
+    <View
+        android:id="@+id/size_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:alpha="0.4"
+        android:background="?colorPrimaryContainer"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_default="percent"
+        app:layout_constraintWidth_percent="0"
+        tools:layout_constraintWidth_percent="0.7" />
 
     <ImageView
         android:id="@+id/content_icon"
@@ -64,11 +66,11 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
         android:layout_marginTop="4dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginEnd="16dp"
         android:layout_marginBottom="8dp"
         android:gravity="end"
         app:layout_constraintBottom_toBottomOf="@id/secondary"
-        app:layout_constraintEnd_toStartOf="@id/progress"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@id/secondary"
         app:layout_constraintTop_toTopOf="@id/secondary"
         tools:text="@string/file_type_directory" />

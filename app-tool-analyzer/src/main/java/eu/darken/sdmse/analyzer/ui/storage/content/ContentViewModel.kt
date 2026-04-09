@@ -15,6 +15,7 @@ import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.core.storage.categories.SystemCategory
 import eu.darken.sdmse.analyzer.core.storage.findContent
 import eu.darken.sdmse.analyzer.ui.ContentRoute
+import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
 import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.ca.CaString
@@ -133,7 +134,10 @@ class ContentViewModel @Inject constructor(
             isReadOnly = isReadOnly,
         ).run { emit(this) }
 
-        val contentItems: List<ContentAdapter.Item> = (currentLevel?.children ?: contentGroup.contents)
+        val siblings = currentLevel?.children ?: contentGroup.contents
+        val maxSiblingSize = siblings.mapNotNull { it.size }.maxOrNull()
+
+        val contentItems: List<ContentAdapter.Item> = siblings
             .sortedByDescending { it.size }
             .map { content ->
                 val onItemClicked: () -> Unit = {
@@ -159,6 +163,7 @@ class ContentViewModel @Inject constructor(
                     LayoutMode.LINEAR -> ContentItemListVH.Item(
                         parent = currentLevel,
                         content = content,
+                        sizeRatio = computeSizeBarRatio(content.size, maxSiblingSize),
                         onItemClicked = onItemClicked,
                     )
 
