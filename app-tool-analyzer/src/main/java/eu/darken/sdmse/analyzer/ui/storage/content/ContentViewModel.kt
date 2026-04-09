@@ -170,7 +170,6 @@ class ContentViewModel @Inject constructor(
                     LayoutMode.GRID -> ContentItemGridVH.Item(
                         parent = currentLevel,
                         content = content,
-                        sizeRatio = computeSizeBarRatio(content.size, maxSiblingSize),
                         onItemClicked = onItemClicked,
                     )
                 }
