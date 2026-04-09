@@ -18,3 +18,4 @@ build/
 .kotlin/errors
 
 /fastlane/README.md
+.codex
