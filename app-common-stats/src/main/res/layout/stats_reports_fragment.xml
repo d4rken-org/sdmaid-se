@@ -39,7 +39,7 @@
         android:layout_height="match_parent"
         android:layout_margin="64dp"
         android:visibility="gone"
-        app:layout_behavior=".common.ui.BelowAppBarBehavior"
+        app:layout_behavior="eu.darken.sdmse.common.ui.BelowAppBarBehavior"
         tools:visibility="visible" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
