@@ -41,6 +41,6 @@
         android:id="@+id/loading_overlay"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_behavior=".common.ui.BelowAppBarBehavior" />
+        app:layout_behavior="eu.darken.sdmse.common.ui.BelowAppBarBehavior" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
