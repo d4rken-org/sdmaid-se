@@ -42,6 +42,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent">
 
+        <View
+            android:id="@+id/size_bar"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:alpha="0.4"
+            android:background="?colorPrimaryContainer"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_default="percent"
+            app:layout_constraintWidth_percent="0"
+            tools:layout_constraintWidth_percent="0.7" />
+
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/primary"
             style="@style/TextAppearance.Material3.LabelSmall"
@@ -52,7 +65,7 @@
             android:singleLine="true"
             android:textColor="?colorOnBackground"
             app:layout_constraintBottom_toTopOf="@id/secondary"
-            app:layout_constraintEnd_toStartOf="@id/progress"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="filename.jpg" />
 
@@ -66,19 +79,9 @@
             android:singleLine="true"
             android:textColor="?colorOnBackground"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@id/progress"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             tools:text="900 MB" />
-
-        <com.google.android.material.progressindicator.CircularProgressIndicator
-            android:id="@+id/progress"
-            style="@style/Widget.Material3.CircularProgressIndicator.ExtraSmall"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:progress="80" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
