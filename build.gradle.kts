@@ -9,7 +9,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath("com.android.tools.build:gradle:9.0.1")
+        classpath("com.android.tools.build:gradle:9.1.0")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.Kotlin.core}")
         classpath("com.google.dagger:hilt-android-gradle-plugin:${Versions.Dagger.core}")
         classpath("org.jetbrains.kotlin:kotlin-serialization:${Versions.Kotlin.core}")
