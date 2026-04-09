@@ -3,7 +3,8 @@ package eu.darken.sdmse.analyzer.ui.storage.content
 import android.graphics.Bitmap
 import android.text.format.Formatter
 import android.view.ViewGroup
-import androidx.core.view.isGone
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import coil.dispose
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.content.ContentItem
@@ -74,9 +75,11 @@ class ContentItemGridVH(parent: ViewGroup) :
             } ?: "?"
         }
 
-        progress.apply {
-            isGone = item.parent?.size == null
-            progress = (((content.size ?: 0L) / (item.parent?.size ?: 1L).toDouble()) * 100).toInt()
+        sizeBar.isVisible = item.sizeRatio != null
+        if (item.sizeRatio != null) {
+            val lp = sizeBar.layoutParams as ConstraintLayout.LayoutParams
+            lp.matchConstraintPercentWidth = item.sizeRatio
+            sizeBar.layoutParams = lp
         }
 
         root.setOnClickListener { item.onItemClicked() }
@@ -85,6 +88,7 @@ class ContentItemGridVH(parent: ViewGroup) :
     data class Item(
         val parent: ContentItem?,
         val content: ContentItem,
+        val sizeRatio: Float?,
         val onItemClicked: () -> Unit,
     ) : ContentAdapter.Item {
 
