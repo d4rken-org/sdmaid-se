@@ -2,6 +2,8 @@ package eu.darken.sdmse.analyzer.ui.storage.apps
 
 import android.text.format.Formatter
 import android.view.ViewGroup
+import androidx.constraintlayout.widget.ConstraintLayout
+import androidx.core.view.isVisible
 import eu.darken.sdmse.analyzer.R
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.common.coil.loadAppIcon
@@ -21,7 +23,6 @@ class AppsItemVH(parent: ViewGroup) :
         item: Item,
         payloads: List<Any>
     ) -> Unit = binding { item ->
-        val category = item.appCategory
         val app = item.pkgStat
 
         appIcon.loadAppIcon(app.pkg)
@@ -29,7 +30,12 @@ class AppsItemVH(parent: ViewGroup) :
         primary.text = app.pkg.label?.get(context) ?: app.pkg.packageName
         secondary.text = Formatter.formatShortFileSize(context, app.totalSize)
 
-        progress.progress = ((app.totalSize / category.spaceUsed.toDouble()) * 100).toInt()
+        sizeBar.isVisible = item.sizeRatio != null
+        if (item.sizeRatio != null) {
+            val lp = sizeBar.layoutParams as ConstraintLayout.LayoutParams
+            lp.matchConstraintPercentWidth = item.sizeRatio
+            sizeBar.layoutParams = lp
+        }
 
         root.setOnClickListener { item.onItemClicked(item) }
     }
@@ -37,6 +43,7 @@ class AppsItemVH(parent: ViewGroup) :
     data class Item(
         val appCategory: AppCategory,
         val pkgStat: AppCategory.PkgStat,
+        val sizeRatio: Float?,
         val onItemClicked: (Item) -> Unit,
     ) : AppsAdapter.Item {
 

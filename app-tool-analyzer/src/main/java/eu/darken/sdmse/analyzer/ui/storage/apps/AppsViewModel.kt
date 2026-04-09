@@ -11,6 +11,7 @@ import eu.darken.sdmse.analyzer.core.device.DeviceStorage
 import eu.darken.sdmse.analyzer.core.storage.categories.AppCategory
 import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
 import eu.darken.sdmse.analyzer.ui.AppsRoute
+import eu.darken.sdmse.analyzer.ui.storage.computeSizeBarRatio
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
@@ -71,7 +72,7 @@ class AppsViewModel @Inject constructor(
             lastCategory = category
         }
 
-        val apps = category.pkgStats
+        val filteredPkgStats = category.pkgStats
             .filter { (_, pkgStat) ->
                 if (queryNormalized.isEmpty()) return@filter true
 
@@ -87,10 +88,15 @@ class AppsViewModel @Inject constructor(
 
                 return@filter false
             }
+
+        val maxAppSize = filteredPkgStats.values.maxOfOrNull { it.totalSize }
+
+        val apps = filteredPkgStats
             .map { (installId, pkgStat) ->
                 AppsItemVH.Item(
                     appCategory = category,
                     pkgStat = pkgStat,
+                    sizeRatio = computeSizeBarRatio(pkgStat.totalSize, maxAppSize),
                     onItemClicked = {
                         navigateTo(AppDetailsRoute(
                             storageId = storage.id,
