@@ -12,12 +12,15 @@
 
 ## Base Test Classes
 
-- **`BaseTest`**: Base class for all unit tests using JUnit 5
+- **`BaseTest`**: JVM unit tests (JUnit 5)
   - Location: `app-common-test/src/main/java/testhelpers/BaseTest.kt`
   - Provides custom logging, test cleanup, and `IO_TEST_BASEDIR` constant
-- **`BaseTestInstrumentation`**: Base class for Android instrumented tests (JUnit 4)
-- **`BaseUITest`**: Specialized base class for UI testing
-- **`BaseCSITest`**: Abstract base class for forensics/CSI tests with extensive MockK setup
+- **`BaseTestInstrumentation`**: Android instrumented tests (JUnit 4)
+  - Location: `app/src/androidTest/java/testhelper/BaseTestInstrumentation.kt`
+- **`BaseUITest`**: UI instrumentation tests (JUnit 4)
+  - Location: `app/src/androidTest/java/testhelper/BaseUITest.kt`
+- **`BaseCSITest`**: Forensics/CSI unit tests with extensive MockK setup (JUnit 5)
+  - Location: `app-common-data/src/test/java/eu/darken/sdmse/common/forensics/csi/BaseCSITest.kt`
 
 ## Testing Patterns
 

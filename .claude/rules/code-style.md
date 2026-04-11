@@ -35,7 +35,7 @@
 
 - Reactive programming with Kotlin Flow and StateFlow
 - DataStore-based settings with kotlinx serialization
-- Moshi for JSON serialization
+- kotlinx.serialization for JSON serialization
 - Room for database operations
 - Coil for image loading
 
@@ -61,11 +61,25 @@ log(TAG, ERROR) { "Failed: ${e.asLog()}" } // ERROR with stacktrace
 
 ## DataStore Settings
 
-Settings use `dataStore.createValue()` with optional Moshi for complex types:
+Two `createValue()` overloads exist.
+
+**Primitive types** (Boolean/String/Int/Long/Float) — no extra argument:
 
 ```kotlin
 val usePreviews = dataStore.createValue("core.ui.previews.enabled", true)
-val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, moshi)
+```
+
+**Complex `@Serializable` types** — take a `json: Json` (kotlinx.serialization) parameter:
+
+```kotlin
+val themeMode = dataStore.createValue("core.ui.theme.mode", ThemeMode.SYSTEM, json)
+```
+
+Use `fallbackToDefault = true` only when stored JSON may be corrupt or from a legacy schema and should silently fall
+back to the default instead of throwing:
+
+```kotlin
+val arbiterConfig = dataStore.createValue("arbiter.config", ArbiterConfig(), json, fallbackToDefault = true)
 ```
 
 Access values with `.value()` (suspend) or `.flow` (reactive):

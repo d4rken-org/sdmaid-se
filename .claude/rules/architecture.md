@@ -2,36 +2,58 @@
 
 ## Module Structure
 
+Modules follow two naming conventions: `app-common-*` for shared infrastructure and `app-tool-*` for the cleaning tools.
+The authoritative list lives in `settings.gradle`.
+
 ### Core Application
-- `app`: Main application module with entry point, flavor-specific implementations, and setup flow
+
+- `app`: Main application module — entry point, flavor-specific implementations, setup flow wiring
 
 ### Foundation Modules
-- `app-common`: Core shared utilities, base architecture components, custom ViewModel hierarchy, theming system
-- `app-common-test`: Testing utilities, helpers, and base test classes for all modules
+
+- `app-common`: Core shared utilities, logging, DataStore helpers, theming, common base classes
+- `app-common-test`: Testing utilities, helpers, and base test classes for JVM unit tests
 
 ### Platform Integration Modules
-- `app-common-io`: File I/O operations, abstract path system (APath), gateway pattern for file access methods
-- `app-common-root`: Root access functionality and root-based file operations
-- `app-common-adb`: Android Debug Bridge integration via Shizuku API
-- `app-common-shell`: Shell operations and reactive command execution with FlowShell
-- `app-common-pkgs`: Package management utilities and package event handling
 
-### Cleaning Tool Packages
+- `app-common-io`: File I/O, abstract path system (`APath`), gateway pattern for file access
+- `app-common-root`: Root access and root-based file operations
+- `app-common-adb`: ADB integration via Shizuku
+- `app-common-shell`: Shell operations with reactive `FlowShell`
+- `app-common-pkgs`: Package management and package event handling
+- `app-common-data`: Room database, type converters, shared persisted data; hosts `BaseCSITest`
 
-SD Maid SE's cleaning tools are implemented within the main app module under `eu.darken.sdmse`:
-- `appcleaner`: App cache and junk cleaning functionality
-- `corpsefinder`: Finding and removing data from uninstalled apps
-- `systemcleaner`: System-wide file cleaning with configurable filters
-- `deduplicator`: Duplicate file detection and removal
-- `analyzer`: Storage analysis and overview tools
-- `appcontrol`: App management and control features
-- `scheduler`: Task scheduling and automation
+### UI & Feature Modules
+
+- `app-common-ui`: Custom ViewModel hierarchy (`ViewModel1` → `ViewModel2` → `ViewModel3`), base fragments, navigation
+- `app-common-coil`: Coil-based image loading and request pipeline
+- `app-common-automation`: Accessibility-service automation engine
+- `app-common-exclusion`: Shared exclusion rules across tools
+- `app-common-picker`: File / path picker UI
+- `app-common-setup`: Onboarding and setup flow
+- `app-common-stats`: Statistics tracking
+
+### Cleaning Tool Modules
+
+Each cleaning tool is its own Gradle module under `app-tool-*`:
+
+- `app-tool-corpsefinder`: Data from uninstalled apps
+- `app-tool-systemcleaner`: System-wide configurable file filters
+- `app-tool-appcleaner`: App cache / junk cleaning
+- `app-tool-deduplicator`: Duplicate file detection and removal
+- `app-tool-squeezer`: Storage squeezing / optimization
+- `app-tool-analyzer`: Storage analysis and overview
+- `app-tool-swiper`: Swipe-to-declutter old files
+- `app-tool-appcontrol`: App management and control
+- `app-tool-scheduler`: Task scheduling and automation
 
 ## Cleaning Tools Architecture
 
-- Each tool follows a consistent pattern: core logic, task definitions, scanner/detector, and UI components
-- Tools use `BaseTool` and implement `SDMTool` interface
-- Tasks extend appropriate base classes and use dependency injection
+- Each tool lives in its own `app-tool-*` Gradle module following a consistent pattern: core logic, task definitions,
+  scanner/detector, UI components
+- Tools implement the `SDMTool` interface directly (the older `BaseTool` abstract class is no longer used — do not
+  introduce new subclasses of it)
+- Tasks extend appropriate base classes and use Hilt injection
 - Forensics and filtering systems for intelligent file detection
 - Progress reporting and cancellation support for long-running operations
 
@@ -43,8 +65,8 @@ SD Maid SE's cleaning tools are implemented within the main app module under `eu
 
 ## MVVM with Custom ViewModel Hierarchy
 
-- `ViewModel1` → `ViewModel2` → `ViewModel3`
-- `ViewModel3` adds navigation capabilities
+- `ViewModel1` → `ViewModel2` → `ViewModel3` (defined in `app-common-ui/.../common/uix/`)
+- `ViewModel3` adds navigation and error event capabilities
 - Uses Hilt for assisted injection
 
 ## Dependency Injection

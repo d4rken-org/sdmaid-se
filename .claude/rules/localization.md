@@ -17,7 +17,7 @@ context.getString(R.string.my_string)
 
 ### Backend/Core Classes
 
-Backend classes (those in the `core` packages) and other non-UI classes should use `CAString`:
+Backend classes (those in the `core` packages) and other non-UI classes should use `CaString`:
 
 ```kotlin
 R.string.xxx.toCaString()

@@ -15,6 +15,8 @@ SD Maid SE (AKA SD Maid 2) is an Android file management tool that specializes i
 - **Analyzer**: Storage overview and analysis
 - **AppControl**: Controlling/disabling apps and components
 - **Scheduler**: Scheduling cleaning actions
+- **Swiper**: Swipe-to-declutter workflow targeting old files
+- **Squeezer**: Storage optimization / squeezing
 
 ## Build Flavors
 
