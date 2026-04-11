@@ -37,6 +37,7 @@ class ImageProcessor @Inject constructor(
     private val exifPreserver: ExifPreserver,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val fileTransaction: FileTransaction,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
 
@@ -74,17 +75,19 @@ class ImageProcessor @Inject constructor(
             updateProgressSecondary(image.lookup.userReadablePath)
 
             try {
-                val saved = processImage(image, quality)
+                val outcome = processImage(image, quality)
                 successful.add(image)
 
-                val contentHash = historyDatabase.computeContentHash(image.path)
-                historyDatabase.recordCompression(contentHash)
-
-                if (saved > 0) {
-                    totalSaved += saved
-                    log(TAG, VERBOSE) { "Compressed ${image.path}: saved $saved bytes" }
+                if (outcome.replaced) {
+                    totalSaved += outcome.savedBytes
+                    // Only record history when an actual replacement happened. No-savings runs
+                    // and dry runs both leave the file untouched and must remain visible on
+                    // future scans.
+                    val contentHash = historyDatabase.computeContentHash(image.path)
+                    historyDatabase.recordCompression(contentHash)
+                    log(TAG, VERBOSE) { "Compressed ${image.path}: saved ${outcome.savedBytes} bytes" }
                 } else {
-                    log(TAG, INFO) { "No savings for ${image.path}, marking as processed" }
+                    log(TAG, INFO) { "Skipped ${image.path} (no savings or dry-run)" }
                 }
             } catch (e: CancellationException) {
                 throw e
@@ -106,94 +109,47 @@ class ImageProcessor @Inject constructor(
         )
     }
 
-    private suspend fun processImage(image: CompressibleImage, quality: Int): Long {
-        val originalSize = image.size
+    private suspend fun processImage(
+        image: CompressibleImage,
+        quality: Int,
+    ): FileTransaction.Outcome {
         val localPath = image.path as? LocalPath
             ?: throw IllegalArgumentException("Only local paths are supported: ${image.path}")
 
         val originalFile = File(localPath.path)
-        val backupFile = File(originalFile.parent, ".sdmaid_backup_${originalFile.name}")
-        val tempFile = File(originalFile.parent, ".sdmaid_compress_${originalFile.name}")
 
-        var backupIsRestored = false
+        val exifData = if (image.isJpeg) {
+            exifPreserver.extractExif(originalFile)
+        } else {
+            null
+        }
 
-        try {
-            val exifData = if (image.isJpeg) {
-                exifPreserver.extractExif(originalFile)
-            } else {
-                null
-            }
-
-            val bitmap = decodeSampledBitmap(originalFile) ?: throw IllegalStateException("Failed to decode bitmap")
-
-            val compressedSize = try {
+        val outcome = fileTransaction.replace(
+            target = originalFile,
+            dryRun = Bugs.isDryRun,
+        ) { tempFile ->
+            val bitmap = decodeSampledBitmap(originalFile)
+                ?: throw IllegalStateException("Failed to decode bitmap")
+            try {
                 compressBitmapToFile(bitmap, image.mimeType, quality, tempFile)
             } finally {
                 bitmap.recycle()
             }
 
-            if (compressedSize >= originalSize) {
-                log(TAG, VERBOSE) { "Compressed size >= original, skipping ${image.path}" }
-                tempFile.delete()
-                return 0
-            }
-
-            if (Bugs.isDryRun) {
-                log(TAG, INFO) { "DRYRUN: Not compressing ${image.path}, would save ${originalSize - compressedSize} bytes" }
-                tempFile.delete()
-                return originalSize - compressedSize
-            }
-
-            if (image.isJpeg) {
+            if (image.isJpeg && exifData != null) {
                 exifPreserver.applyExif(tempFile.absolutePath, exifData)
             }
 
             if (settings.writeExifMarker.value()) {
                 exifPreserver.writeCompressionMarker(tempFile.absolutePath)
             }
-
-            if (!originalFile.renameTo(backupFile)) {
-                throw IOException("Failed to create backup: ${backupFile.path}")
-            }
-
-            try {
-                if (!tempFile.renameTo(originalFile)) {
-                    tempFile.inputStream().use { input ->
-                        originalFile.outputStream().use { output ->
-                            input.copyTo(output)
-                        }
-                    }
-                    if (!tempFile.delete()) {
-                        log(TAG, WARN) { "Failed to delete temp file: ${tempFile.path}" }
-                    }
-                }
-
-                if (!originalFile.exists() || !originalFile.canRead()) {
-                    throw IOException("Verification failed: compressed file not readable")
-                }
-
-                if (!backupFile.delete()) {
-                    log(TAG, WARN) { "Failed to delete backup file: ${backupFile.path}" }
-                }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Compression failed, restoring backup: ${e.message}" }
-                originalFile.delete()
-                if (backupFile.renameTo(originalFile)) {
-                    backupIsRestored = true
-                } else {
-                    throw IOException("Failed to restore backup after error: ${e.message}", e)
-                }
-                throw e
-            }
-
-            notifyMediaScanner(originalFile)
-
-            return originalSize - compressedSize
-        } catch (e: Exception) {
-            tempFile.delete()
-            if (!backupIsRestored) backupFile.delete()
-            throw e
         }
+
+        if (outcome.replaced) {
+            notifyMediaScanner(originalFile)
+        }
+
+        return outcome
     }
 
     private fun decodeSampledBitmap(file: File): Bitmap? {

@@ -168,6 +168,12 @@ class Squeezer @Inject constructor(
         val allSuccess: Set<CompressibleMedia> = imageResult.success + videoResult.success
         val totalSavedSpace = imageResult.savedSpace + videoResult.savedSpace
 
+        val allFailures = imageResult.failed.values + videoResult.failed.values
+        val failureReasons: Map<FailureReason, Int> = allFailures
+            .map { it.toFailureReason() }
+            .groupingBy { it }
+            .eachCount()
+
         updateProgress { Progress.Data() }
 
         internalData.value = snapshot.prune(allSuccess.map { it.identifier }.toSet())
@@ -176,6 +182,8 @@ class Squeezer @Inject constructor(
             affectedSpace = totalSavedSpace,
             affectedPaths = allSuccess.map { it.path }.toSet(),
             processedCount = allSuccess.size,
+            failedCount = allFailures.size,
+            failureReasons = failureReasons,
         )
     }
 

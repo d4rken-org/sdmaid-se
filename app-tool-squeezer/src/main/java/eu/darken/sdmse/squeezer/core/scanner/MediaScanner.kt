@@ -256,8 +256,11 @@ class MediaScanner @Inject constructor(
             return null
         }
 
-        val estimatedCompressedSize = compressionEstimator.estimateCompressedSize(
-            lookup.size, mimeType, options.compressionQuality,
+        val estimatedCompressedSize = compressionEstimator.estimateVideoSize(
+            originalSize = lookup.size,
+            durationMs = metadata.durationMs,
+            originalBitrateBps = metadata.bitrateBps,
+            quality = options.compressionQuality,
         )
 
         return CompressibleVideo(
