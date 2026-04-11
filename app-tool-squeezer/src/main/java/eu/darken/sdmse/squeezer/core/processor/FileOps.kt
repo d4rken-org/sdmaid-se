@@ -15,17 +15,24 @@ import java.io.File
 import javax.inject.Inject
 
 /**
- * A narrow, testable surface for the filesystem operations FileTransaction needs.
+ * A narrow, testable surface for the filesystem operations [FileTransaction] needs.
  *
- * The squeezer compression pipeline is `LocalPath`-only today (Media3 Transformer requires a
- * raw file path for video output, and ImageProcessor sources bitmaps from a `java.io.File`),
- * so this interface still hands out `java.io.File`s rather than `APath`s. That constraint
- * keeps the integration with Media3 simple; delete operations are routed through
- * `GatewaySwitch` so they still benefit from LocalGateway's NORMAL → ROOT → ADB escalation on
- * restricted paths.
+ * The squeezer compression pipeline is `LocalPath`-only because Media3 Transformer and
+ * (to a lesser extent) BitmapFactory / ExifPreserver hard-require raw filesystem paths.
+ * `MediaScanner` and the processors pre-filter candidates via `SqueezerEligibility` at
+ * `LocalGateway.Mode.NORMAL`, so everything reaching this interface is best-effort
+ * guaranteed to be reachable via plain [File]. Delete operations are still routed through
+ * `GatewaySwitch` so they benefit from NORMAL → ROOT → ADB escalation on restricted
+ * paths that might briefly require it — but the happy path is fully local.
  *
- * Splitting this out behind an interface also lets unit tests simulate specific failure modes
- * (e.g. a restore-rename failing) that are hard to force with real `java.io.File` calls.
+ * TODO(gateway): rename / copy / exists / length currently delegate to raw `java.io.File`
+ * because the gateway does not expose a rename operation today. Adding one (APathGateway +
+ * LocalGateway + FileOpsConnection.aidl + SAFGateway) would let this interface move to
+ * `APath`, but only becomes useful once Media3 / BitmapFactory / ExifPreserver accept
+ * non-File inputs.
+ *
+ * Splitting this out behind an interface also lets unit tests simulate specific failure
+ * modes (e.g. a restore-rename failing) that are hard to force with real [File] calls.
  */
 interface FileOps {
     suspend fun exists(file: File): Boolean

@@ -9,4 +9,5 @@ sealed class SqueezerSetupEvents {
     data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : SqueezerSetupEvents()
     data object NoExampleFound : SqueezerSetupEvents()
     data object NoResultsFound : SqueezerSetupEvents()
+    data class PathsDropped(val dropped: List<APath>) : SqueezerSetupEvents()
 }

@@ -32,6 +32,7 @@ import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.InsufficientStorageException
+import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.UnsupportedFormatException
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import kotlinx.coroutines.CancellationException
@@ -40,6 +41,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import java.io.File
+import java.io.IOException
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -122,10 +124,22 @@ class VideoProcessor @Inject constructor(
         quality: Int,
     ): FileTransaction.Outcome {
         val originalSize = video.size
+
+        // TODO(gateway): Transformer.start() only accepts a filesystem-path String, so
+        // transcoding is locked to raw java.io.File regardless of gateway escalation.
+        // MediaScanner pre-filters by SqueezerEligibility at Mode.NORMAL, but state can
+        // drift between scan and process (file moved / permissions changed / volume
+        // remounted) — preflight here so we surface a typed failure instead of a
+        // generic Transformer error downstream.
         val localPath = video.path as? LocalPath
             ?: throw IllegalArgumentException("Only local paths are supported: ${video.path}")
 
         val originalFile = File(localPath.path)
+
+        val verdict = SqueezerEligibility.check(originalFile)
+        if (verdict != SqueezerEligibility.Verdict.OK) {
+            throw IOException("File no longer processable ($verdict): ${originalFile.path}")
+        }
 
         // Reserve ~10% headroom on the source volume for the backup + temp copies that
         // FileTransaction will produce next to the original.

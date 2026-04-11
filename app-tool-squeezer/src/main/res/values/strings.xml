@@ -17,6 +17,10 @@
         <item quantity="one">%d failed</item>
         <item quantity="other">%d failed</item>
     </plurals>
+    <plurals name="squeezer_result_x_skipped_inaccessible">
+        <item quantity="one">%d file skipped (not accessible)</item>
+        <item quantity="other">%d files skipped (not accessible)</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selected</item>
         <item quantity="other">%d items selected</item>
@@ -72,6 +76,10 @@
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
     <string name="squeezer_result_empty_message">No compressible media found.</string>
     <string name="squeezer_setup_warning">Compression permanently reduces quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
+    <plurals name="squeezer_setup_path_dropped_message">
+        <item quantity="one">%d location can\'t be used for compression and was removed. Compression requires direct access to internal storage.</item>
+        <item quantity="other">%d locations can\'t be used for compression and were removed. Compression requires direct access to internal storage.</item>
+    </plurals>
     <string name="squeezer_setup_explanation">Media Squeeze reduces the file size of images and videos to free up storage space. This permanently reduces quality and cannot be undone. Review your settings carefully before starting.</string>
     <string name="squeezer_setup_paths_title">Search locations</string>
     <string name="squeezer_setup_paths_default">Select folders to search</string>

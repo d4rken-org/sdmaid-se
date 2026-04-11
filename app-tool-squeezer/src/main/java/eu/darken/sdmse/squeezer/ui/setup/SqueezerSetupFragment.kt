@@ -188,6 +188,16 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
                         Toast.LENGTH_SHORT
                     ).show()
                 }
+
+                is SqueezerSetupEvents.PathsDropped -> {
+                    val count = event.dropped.size
+                    val message = resources.getQuantityString(
+                        eu.darken.sdmse.squeezer.R.plurals.squeezer_setup_path_dropped_message,
+                        count,
+                        count,
+                    )
+                    Toast.makeText(requireContext(), message, Toast.LENGTH_LONG).show()
+                }
             }
         }
 

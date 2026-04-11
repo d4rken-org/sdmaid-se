@@ -117,11 +117,15 @@ class Squeezer @Inject constructor(
             compressionQuality = settings.compressionQuality.value(),
         )
 
-        val results = scanner.get().withProgress(this) {
+        val scanResult = scanner.get().withProgress(this) {
             scan(scanOptions)
         }
+        val results = scanResult.items
 
-        log(TAG, INFO) { "performScan(): ${results.size} media items found" }
+        log(TAG, INFO) {
+            "performScan(): ${results.size} media items found, " +
+                    "${scanResult.skippedInaccessibleCount} skipped (inaccessible)"
+        }
 
         internalData.value = Data(
             media = results,
@@ -131,6 +135,7 @@ class Squeezer @Inject constructor(
             itemCount = results.size,
             totalSize = results.sumOf { it.size },
             estimatedSavings = results.sumOf { it.estimatedSavings ?: 0L },
+            skippedInaccessibleCount = scanResult.skippedInaccessibleCount,
         )
     }
 
