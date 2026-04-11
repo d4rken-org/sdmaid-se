@@ -12,6 +12,20 @@ import java.io.File
 import java.io.IOException
 import javax.inject.Inject
 
+/**
+ * Atomic file replacement for the squeezer processors — same-volume rename swap with backup
+ * recovery, orphan cleanup, and restore-failure safety.
+ *
+ * TODO(gateway): FileTransaction operates on [File] because the transcode step requires a
+ * raw filesystem path (Media3 Transformer) or a raw file path / stream (BitmapFactory +
+ * ExifPreserver), and the atomic swap at the end is a same-volume `File.renameTo`.
+ * MediaScanner and the processors pre-filter candidates via `SqueezerEligibility` at
+ * `LocalGateway.Mode.NORMAL` on a best-effort basis — `renameTo` can still fail if the
+ * filesystem state changes after preflight (a race, a volume remount, or a permission
+ * flip). When Media3 ships a ParcelFileDescriptor / stream-backed output API, this layer
+ * should move up to `APath` and `GatewaySwitch.rename` / `GatewaySwitch.delete` so free
+ * NORMAL → ROOT → ADB escalation flows through from LocalGateway.
+ */
 @Reusable
 class FileTransaction @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,

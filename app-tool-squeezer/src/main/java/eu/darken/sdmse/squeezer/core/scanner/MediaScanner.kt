@@ -11,10 +11,9 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.APathLookup
-import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isFile
+import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
-import eu.darken.sdmse.common.files.walk
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
@@ -25,6 +24,7 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
+import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
@@ -37,6 +37,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
+import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
@@ -49,7 +50,7 @@ import javax.inject.Inject
 class MediaScanner @Inject constructor(
     private val exclusionManager: ExclusionManager,
     private val dispatcherProvider: DispatcherProvider,
-    private val gatewaySwitch: GatewaySwitch,
+    private val localGateway: LocalGateway,
     private val mimeTypeTool: MimeTypeTool,
     private val storageEnvironment: StorageEnvironment,
     private val historyDatabase: CompressionHistoryDatabase,
@@ -74,36 +75,51 @@ class MediaScanner @Inject constructor(
         val compressionQuality: Int,
     )
 
+    data class ScanResult(
+        val items: Set<CompressibleMedia>,
+        val skippedInaccessibleCount: Int,
+    )
+
     private suspend fun createSearchFlow(paths: Set<APath>): Flow<APathLookup<*>> {
         val exclusions = exclusionManager.pathExclusions(SDMTool.Type.SQUEEZER)
         log(TAG) { "Squeezer exclusions are: $exclusions" }
         log(TAG) { "Search paths: $paths" }
 
+        // Walk in Mode.NORMAL only: Transformer / BitmapFactory can't read files that would
+        // require root/ADB escalation anyway, so escalating here just wastes work. Paths are
+        // normalized to LocalPath at save-time in SqueezerSetupViewModel — anything non-local
+        // that survives is stale settings and gets dropped with a warning.
         return paths.asFlow()
             .flatMapMerge(2) { path ->
+                val localPath = path as? LocalPath
+                if (localPath == null) {
+                    log(TAG, WARN) { "Skipping non-local root (stale settings?): $path" }
+                    return@flatMapMerge emptyFlow()
+                }
                 val filter: suspend (APathLookup<*>) -> Boolean = filter@{ toCheck: APathLookup<*> ->
                     exclusions.none { it.match(toCheck) }
                 }
-                path.walk(
-                    gatewaySwitch,
-                    options = APathGateway.WalkOptions(
-                        onFilter = filter
-                    )
+                localGateway.walk(
+                    path = localPath,
+                    options = APathGateway.WalkOptions(onFilter = filter),
+                    mode = LocalGateway.Mode.NORMAL,
                 )
             }
     }
 
-    suspend fun scan(options: Options): Set<CompressibleMedia> {
+    suspend fun scan(options: Options): ScanResult {
         log(TAG) { "scan($options)" }
 
         if (options.paths.isEmpty()) {
             log(TAG) { "No search paths configured, returning empty result" }
-            return emptySet()
+            return ScanResult(items = emptySet(), skippedInaccessibleCount = 0)
         }
 
         updateProgressPrimary(eu.darken.sdmse.common.R.string.general_progress_searching)
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
+
+        var skippedInaccessible = 0
 
         val searchPaths = options.paths
         val searchFlow = createSearchFlow(searchPaths)
@@ -111,6 +127,17 @@ class MediaScanner @Inject constructor(
             .buffer(1024)
             .filter { lookup ->
                 if (!lookup.isFile) return@filter false
+
+                // TODO(gateway): Transformer + BitmapFactory require raw java.io.File, so
+                // files that would need root/ADB escalation are intentionally dropped. This
+                // is a best-effort stat check — processors re-run it as a preflight to
+                // catch state drift between scan and process.
+                val verdict = SqueezerEligibility.check(lookup.lookedUp)
+                if (verdict != SqueezerEligibility.Verdict.OK) {
+                    if (Bugs.isTrace) log(TAG, VERBOSE) { "Skipping ($verdict): $lookup" }
+                    skippedInaccessible++
+                    return@filter false
+                }
 
                 val isGoodSize = lookup.size >= options.minimumSize
                 if (!isGoodSize) {
@@ -161,8 +188,8 @@ class MediaScanner @Inject constructor(
             }
         }
 
-        log(TAG) { "Scan complete: ${results.size} compressible media found" }
-        return results
+        log(TAG) { "Scan complete: ${results.size} compressible media found, $skippedInaccessible skipped (inaccessible)" }
+        return ScanResult(items = results, skippedInaccessibleCount = skippedInaccessible)
     }
 
     private suspend fun processImageCandidate(

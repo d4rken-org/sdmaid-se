@@ -12,7 +12,6 @@ import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.flow.throttleLatest
 import eu.darken.sdmse.common.progress.Progress
@@ -20,6 +19,7 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import kotlinx.coroutines.flow.Flow
@@ -33,7 +33,6 @@ import kotlin.coroutines.cancellation.CancellationException
 
 class ImageProcessor @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val gatewaySwitch: GatewaySwitch,
     private val exifPreserver: ExifPreserver,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
@@ -113,10 +112,20 @@ class ImageProcessor @Inject constructor(
         image: CompressibleImage,
         quality: Int,
     ): FileTransaction.Outcome {
+        // TODO(gateway): bitmap decode/encode already stream via FileInputStream /
+        // FileOutputStream, but (a) ExifPreserver works on raw file paths and (b) the
+        // atomic swap in FileTransaction operates on java.io.File. MediaScanner pre-filters
+        // accessibility at Mode.NORMAL — preflight here so state drift between scan and
+        // process surfaces as a typed IO error instead of a crash in native EXIF code.
         val localPath = image.path as? LocalPath
             ?: throw IllegalArgumentException("Only local paths are supported: ${image.path}")
 
         val originalFile = File(localPath.path)
+
+        val verdict = SqueezerEligibility.check(originalFile)
+        if (verdict != SqueezerEligibility.Verdict.OK) {
+            throw IOException("File no longer processable ($verdict): ${originalFile.path}")
+        }
 
         val exifData = if (image.isJpeg) {
             exifPreserver.extractExif(originalFile)
