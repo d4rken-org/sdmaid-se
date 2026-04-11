@@ -688,7 +688,7 @@ route cleanup → **9** final cleanup → **10** visual regression sweep.
 ### Phase 0 — Preflight inventory (do not skip)
 
 **This is the gating phase for the whole rewrite.** The outputs of Phase 0
-become a checklist in `.claude/scratch/compose-rewrite-inventory.md` (kept on
+become a checklist in `scratch/compose-rewrite-inventory.md` (kept on
 the branch) that every later phase ticks off against. Trying to execute the
 rewrite without this inventory means discovering landmines screen-by-screen.
 
@@ -754,6 +754,13 @@ default (see Section: Confirmed decisions #3), and the only way to enforce
 that across 60+ screens is by capturing the *current* app surface before we
 touch anything, then re-capturing after Phase 9 and diffing the two sets.
 
+**Executes in the main agent — do not spawn sub-agents.** Debugbadger's
+`sessionToken` and `snapshot_id` are per-agent; a sub-agent cannot hand
+them back, and Phase 10's before/after image diff requires the main agent
+to read the PNGs directly. Building the APK via `devtools:build-runner` is
+still fine — that agent only returns a pass/fail summary and doesn't touch
+the device session.
+
 **Device prep**
 
 Target device: **`emulator-5558`** (pinned by the user). All capture and
@@ -762,7 +769,11 @@ before/after diffs are apples-to-apples.
 
 1. Build the current (pre-rewrite) FOSS debug APK via `devtools:build-runner`
    → `./gradlew :app:assembleFossDebug`.
-2. Install on `emulator-5558` under `debugbadger:debug-runner` control.
+2. Install on `emulator-5558` via the `debugbadger:*` MCP tools called
+   directly from the main agent: `debugbadger:device_list` →
+   `debugbadger:device_select(emulator-5558)` → `debugbadger:app_install(<apk>)`.
+   Keep the returned `sessionToken` — every later capture in Phase 0b and
+   Phase 10 needs the same token from the same agent.
 3. Populate representative test data. Prefer `tooling/testdata-generator/`
    (its exact entrypoints are an inventory artifact for Phase 0). If the
    generator can't populate a specific tool's state (e.g. SystemCleaner on
@@ -779,7 +790,7 @@ before/after diffs are apples-to-apples.
 
 **Screen inventory (grouped per tool/module)**
 
-Produced as a table in `.claude/scratch/compose-rewrite-inventory.md`
+Produced as a table in `scratch/compose-rewrite-inventory.md`
 alongside the Phase 0 artifacts. Each row has: `id | tool | kind (Activity/
 Fragment/BottomSheet/Dialog/Overlay) | navigation path | population notes |
 screenshot filename`. Start from this scaffolding — Phase 0b must expand it
@@ -888,7 +899,7 @@ For each row in the inventory:
 3. Capture the screen (`debugbadger:observe_screen` or the appropriate
    screenshot-producing tool — loaded on-demand at Phase 0b time).
 4. Save the image as
-   `.claude/scratch/screenshots/before/<tool>/<screen-id>.png`.
+   `scratch/screenshots/before/<tool>/<screen-id>.png`.
 5. If the screen has multiple meaningful states (empty vs populated, linear
    vs grid, dark vs light), capture each with a state suffix
    (`..._empty.png`, `..._populated.png`, `..._grid.png`).
@@ -897,7 +908,7 @@ For each row in the inventory:
 **Exit criteria for Phase 0b**
 
 - Every row in the inventory has at least one PNG on disk.
-- `.claude/scratch/compose-rewrite-inventory.md` has been updated to include
+- `scratch/compose-rewrite-inventory.md` has been updated to include
   the device-state prelude (theme, locale, orientation, font scale) and
   every screen's filename.
 - A sanity commit is made on `compose-rewrite` with the inventory file and
@@ -1157,6 +1168,14 @@ Final gate before the rewrite can merge to `main`. Matches Phase 0b's
 screenshot capture against the new build, screen-for-screen, to catch visual
 regressions that slipped through per-phase verification.
 
+**Executes in the main agent — do not spawn sub-agents.** Phase 10 replays
+Phase 0b's captures and diffs them against a re-capture of the same
+screens. Both the capture and the before/after comparison must run in the
+same agent that holds the debugbadger session: sub-agents cannot inspect
+the saved images (the diff uses the main agent's multimodal Read
+capability) and they cannot receive the session token. Any step that
+delegates capture or comparison to a sub-agent breaks the diff.
+
 **Device prep (must match Phase 0b exactly)**
 
 Same device (`emulator-5558`), same theme mode (Light), same theme style
@@ -1170,14 +1189,14 @@ invocation (recorded in Phase 0b).
 
 **Recapture procedure**
 
-Iterate every row in `.claude/scratch/compose-rewrite-inventory.md`:
+Iterate every row in `scratch/compose-rewrite-inventory.md`:
 
 1. Drive debugbadger to the screen using the navigation path recorded in
    Phase 0b (adjusted for any Compose-era route renames, which must have
    been noted during Phases 4–7).
 2. Wait for steady state.
 3. Capture to
-   `.claude/scratch/screenshots/after/<tool>/<screen-id>.png` using the same
+   `scratch/screenshots/after/<tool>/<screen-id>.png` using the same
    filename convention as `before/`.
 4. Visually compare `before/` and `after/`. Classify each screen as:
    - **Pass** — pixel-identical or within acceptable Material3-driven
@@ -1192,7 +1211,7 @@ Iterate every row in `.claude/scratch/compose-rewrite-inventory.md`:
 
 **Regression report**
 
-Produce `.claude/scratch/regression-report.md` with one row per screen:
+Produce `scratch/regression-report.md` with one row per screen:
 status (pass/deviation/regression), filename, and a link to the `before/`
 and `after/` images. Attach it to the merge-back-to-main PR.
 
@@ -1269,16 +1288,16 @@ Also walk these cross-cutting flows:
 - `app-common-ui/src/main/java/eu/darken/sdmse/common/compose/*.kt` (Scaffold, Loading, Empty, ConfirmationDialog, BreadCrumbRow, ProgressOverlay, AppInfoTag — each with its own file and `@Preview2` preview)
 - `app-common-ui/src/main/java/eu/darken/sdmse/common/results/ResultBus.kt`
 - `app-common-test/src/main/java/testhelpers/ComposeTest.kt` (Robolectric-backed base class, ported from butler)
-- `.claude/scratch/compose-rewrite-inventory.md` (Phase 0 + 0b artifact —
+- `scratch/compose-rewrite-inventory.md` (Phase 0 + 0b artifact —
   Fragment/VM/state table, route args, fragment results, activity launchers,
   custom views, adapters, plus the per-screen table feeding Phase 10).
-- `.claude/scratch/screenshots/before/**/*.png` (Phase 0b artifact — baseline
+- `scratch/screenshots/before/**/*.png` (Phase 0b artifact — baseline
   captures of every screen, committed to the branch so they survive
   subsequent rewrites).
-- `.claude/scratch/screenshots/after/**/*.png` (Phase 10 artifact).
-- `.claude/scratch/screenshots/deviations.md` (Phase 10 artifact — documents
+- `scratch/screenshots/after/**/*.png` (Phase 10 artifact).
+- `scratch/screenshots/deviations.md` (Phase 10 artifact — documents
   every intentional visual change with justification).
-- `.claude/scratch/regression-report.md` (Phase 10 artifact — per-screen
+- `scratch/regression-report.md` (Phase 10 artifact — per-screen
   pass/deviation/regression status, attached to the merge PR).
 - One `<Feature>Navigation.kt` file per module (~16 files) with
   `@Binds @IntoSet` Mod, replacing the contents of `MainNavGraph.kt`.
