@@ -2,7 +2,6 @@ package eu.darken.sdmse.main.ui.dashboard
 
 import android.view.ViewGroup
 import androidx.core.view.isGone
-import androidx.core.view.isInvisible
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.lists.binding
@@ -64,15 +63,18 @@ SDMTool.Type.APPCONTROL, SDMTool.Type.ANALYZER, SDMTool.Type.SQUEEZER, SDMTool.T
             isFocusable = item.result != null && item.progress == null
             isClickable = item.result != null && item.progress == null
         }
-        progressBar.isInvisible = item.progress == null
-        statusPrimary.isInvisible = item.progress != null
-        statusSecondary.isInvisible = item.progress != null
+        val resultPrimary = item.result?.primaryInfo?.get(context)
+        val resultSecondary = item.result?.secondaryInfo?.get(context)?.takeUnless { it.isBlank() }
+
+        progressBar.isGone = item.progress == null
+        statusPrimary.isGone = item.progress != null || resultPrimary.isNullOrBlank()
+        statusSecondary.isGone = item.progress != null || resultSecondary == null
 
         if (item.progress != null) {
             progressBar.setProgress(item.progress)
         } else if (item.result != null) {
-            statusPrimary.text = item.result.primaryInfo.get(context)
-            statusSecondary.text = item.result.secondaryInfo?.get(context)
+            statusPrimary.text = resultPrimary
+            statusSecondary.text = resultSecondary
         } else {
             statusPrimary.text = null
             statusSecondary.text = null
