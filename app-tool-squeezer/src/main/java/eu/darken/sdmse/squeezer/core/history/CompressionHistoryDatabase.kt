@@ -27,6 +27,9 @@ class CompressionHistoryDatabase @Inject constructor(
     private val database by lazy {
         Room
             .databaseBuilder(context, CompressionHistoryRoomDb::class.java, DB_NAME)
+            // Compression history is a derived cache — rebuilding it on schema mismatch is
+            // always preferable to crashing the app on upgrade.
+            .fallbackToDestructiveMigration(dropAllTables = true)
             .build()
     }
 

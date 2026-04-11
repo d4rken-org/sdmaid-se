@@ -13,6 +13,10 @@
         <item quantity="one">%d item compressed</item>
         <item quantity="other">%d items compressed</item>
     </plurals>
+    <plurals name="squeezer_result_x_items_failed">
+        <item quantity="one">%d failed</item>
+        <item quantity="other">%d failed</item>
+    </plurals>
     <plurals name="squeezer_preview_x_images">
         <item quantity="one">%d item selected</item>
         <item quantity="other">%d items selected</item>
@@ -26,7 +30,7 @@
     <string name="squeezer_compression_settings_label">Compression settings</string>
     <string name="squeezer_quality_label">Quality</string>
     <string name="squeezer_quality_title">Compression quality</string>
-    <string name="squeezer_quality_description">Lower quality means smaller file size but reduced image quality.</string>
+    <string name="squeezer_quality_description">Lower quality means smaller file size but reduced visual quality.</string>
     <string name="squeezer_quality_example_format">Example: %1$s image → saves ~%2$s at %3$d%% quality</string>
     <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
     <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
@@ -49,7 +53,7 @@
     <string name="squeezer_preview_dialog_title">Confirm compression</string>
     <string name="squeezer_preview_total_size">Total size</string>
     <string name="squeezer_preview_estimated_savings">Estimated savings</string>
-    <string name="squeezer_compress_confirmation_title">Compress images?</string>
+    <string name="squeezer_compress_confirmation_title">Compress selected items?</string>
     <string name="squeezer_compress_confirmation_message">This will replace original files with compressed versions. This action cannot be undone.</string>
     <string name="squeezer_history_title">Compression history</string>
     <plurals name="squeezer_history_summary">
@@ -58,7 +62,7 @@
     </plurals>
     <string name="squeezer_history_empty">No compression history</string>
     <string name="squeezer_history_clear_title">Clear compression history</string>
-    <string name="squeezer_history_clear_message">This will allow previously compressed images to be compressed again. The images themselves are not affected.</string>
+    <string name="squeezer_history_clear_message">This will allow previously compressed files to be compressed again. The files themselves are not affected.</string>
     <string name="squeezer_onboarding_title">About Image Compression</string>
     <string name="squeezer_onboarding_message">Image compression reduces file size by removing visual detail. This process is irreversible - the original quality cannot be restored.\n\nHere\'s a preview of how your images will look:</string>
     <string name="squeezer_onboarding_original_label">Original</string>
@@ -67,7 +71,7 @@
     <string name="squeezer_compare_action">View comparison</string>
     <string name="squeezer_no_example_found">No images found in selected paths.</string>
     <string name="squeezer_result_empty_message">No compressible media found.</string>
-    <string name="squeezer_setup_warning">Compression permanently reduces image quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
+    <string name="squeezer_setup_warning">Compression permanently reduces quality to save storage space. This cannot be undone. Review your settings carefully before starting.</string>
     <string name="squeezer_setup_explanation">Media Squeeze reduces the file size of images and videos to free up storage space. This permanently reduces quality and cannot be undone. Review your settings carefully before starting.</string>
     <string name="squeezer_setup_paths_title">Search locations</string>
     <string name="squeezer_setup_paths_default">Select folders to search</string>

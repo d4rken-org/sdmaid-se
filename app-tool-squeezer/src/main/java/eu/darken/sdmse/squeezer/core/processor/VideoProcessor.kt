@@ -6,10 +6,18 @@ import android.net.Uri
 import android.os.Handler
 import android.os.HandlerThread
 import androidx.media3.common.MediaItem
+import androidx.media3.transformer.Composition
 import androidx.media3.transformer.DefaultEncoderFactory
+import androidx.media3.transformer.EditedMediaItem
+import androidx.media3.transformer.EditedMediaItemSequence
+import androidx.media3.transformer.ExportException
+import androidx.media3.transformer.ExportResult
+import androidx.media3.transformer.ProgressHolder
 import androidx.media3.transformer.Transformer
 import androidx.media3.transformer.VideoEncoderSettings
 import dagger.hilt.android.qualifiers.ApplicationContext
+import eu.darken.sdmse.common.ca.CaString
+import eu.darken.sdmse.common.ca.caString
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
@@ -23,6 +31,8 @@ import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
+import eu.darken.sdmse.squeezer.core.InsufficientStorageException
+import eu.darken.sdmse.squeezer.core.UnsupportedFormatException
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
@@ -30,7 +40,6 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
 import java.io.File
-import java.io.IOException
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -39,6 +48,7 @@ class VideoProcessor @Inject constructor(
     @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val fileTransaction: FileTransaction,
 ) : Progress.Host, Progress.Client {
 
     private val progressPub = MutableStateFlow<Progress.Data?>(Progress.Data())
@@ -73,17 +83,19 @@ class VideoProcessor @Inject constructor(
             updateProgressSecondary(video.lookup.userReadablePath)
 
             try {
-                val saved = processVideo(video, quality)
+                val outcome = processVideo(video, quality)
                 successful.add(video)
 
-                val contentHash = historyDatabase.computeVideoContentHash(video.path)
-                historyDatabase.recordCompression(contentHash)
-
-                if (saved > 0) {
-                    totalSaved += saved
-                    log(TAG, VERBOSE) { "Compressed ${video.path}: saved $saved bytes" }
+                if (outcome.replaced) {
+                    totalSaved += outcome.savedBytes
+                    // Only record history when an actual replacement happened. A clip that
+                    // didn't shrink or a dry-run must remain visible on the next scan rather
+                    // than silently vanishing from the history skip filter.
+                    val contentHash = historyDatabase.computeVideoContentHash(video.path)
+                    historyDatabase.recordCompression(contentHash)
+                    log(TAG, VERBOSE) { "Compressed ${video.path}: saved ${outcome.savedBytes} bytes" }
                 } else {
-                    log(TAG, INFO) { "No savings for ${video.path}, marking as processed" }
+                    log(TAG, INFO) { "Skipped ${video.path} (no savings or dry-run)" }
                 }
             } catch (e: CancellationException) {
                 throw e
@@ -105,87 +117,46 @@ class VideoProcessor @Inject constructor(
     }
 
     @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
-    private suspend fun processVideo(video: CompressibleVideo, quality: Int): Long {
+    private suspend fun processVideo(
+        video: CompressibleVideo,
+        quality: Int,
+    ): FileTransaction.Outcome {
         val originalSize = video.size
         val localPath = video.path as? LocalPath
             ?: throw IllegalArgumentException("Only local paths are supported: ${video.path}")
 
         val originalFile = File(localPath.path)
-        val backupFile = File(originalFile.parent, ".sdmaid_backup_${originalFile.name}")
-        val tempFile = File(originalFile.parent, ".sdmaid_compress_${originalFile.name}")
 
-        var backupIsRestored = false
-
-        try {
-            val freeSpace = originalFile.parentFile?.usableSpace ?: 0L
-            val requiredSpace = (originalSize * 1.1).toLong()
-            if (freeSpace < requiredSpace) {
-                throw IOException("Insufficient disk space: need $requiredSpace, have $freeSpace")
-            }
-
-            val targetBitrate = (video.bitrateBps * quality / 100)
-                .coerceIn(MIN_BITRATE_BPS, Int.MAX_VALUE.toLong())
-
-            log(TAG) { "Transcoding ${video.path}: ${video.bitrateBps}bps -> ${targetBitrate}bps" }
-
-            transcodeVideo(originalFile, tempFile, targetBitrate)
-
-            val compressedSize = tempFile.length()
-
-            if (compressedSize >= originalSize) {
-                log(TAG, VERBOSE) { "Compressed size >= original, skipping ${video.path}" }
-                tempFile.delete()
-                return 0
-            }
-
-            if (Bugs.isDryRun) {
-                log(TAG, INFO) { "DRYRUN: Not compressing ${video.path}, would save ${originalSize - compressedSize} bytes" }
-                tempFile.delete()
-                return originalSize - compressedSize
-            }
-
-            if (!originalFile.renameTo(backupFile)) {
-                throw IOException("Failed to create backup: ${backupFile.path}")
-            }
-
-            try {
-                if (!tempFile.renameTo(originalFile)) {
-                    tempFile.inputStream().use { input ->
-                        originalFile.outputStream().use { output ->
-                            input.copyTo(output)
-                        }
-                    }
-                    if (!tempFile.delete()) {
-                        log(TAG, WARN) { "Failed to delete temp file: ${tempFile.path}" }
-                    }
-                }
-
-                if (!originalFile.exists() || !originalFile.canRead() || originalFile.length() != compressedSize) {
-                    throw IOException("Verification failed: compressed file not valid (expected $compressedSize bytes)")
-                }
-
-                if (!backupFile.delete()) {
-                    log(TAG, WARN) { "Failed to delete backup file: ${backupFile.path}" }
-                }
-            } catch (e: Exception) {
-                log(TAG, WARN) { "Compression failed, restoring backup: ${e.message}" }
-                originalFile.delete()
-                if (backupFile.renameTo(originalFile)) {
-                    backupIsRestored = true
-                } else {
-                    throw IOException("Failed to restore backup after error: ${e.message}", e)
-                }
-                throw e
-            }
-
-            notifyMediaScanner(originalFile)
-
-            return originalSize - compressedSize
-        } catch (e: Exception) {
-            tempFile.delete()
-            if (!backupIsRestored) backupFile.delete()
-            throw e
+        // Reserve ~10% headroom on the source volume for the backup + temp copies that
+        // FileTransaction will produce next to the original.
+        val freeSpace = originalFile.parentFile?.usableSpace ?: 0L
+        val requiredSpace = (originalSize * 1.1).toLong()
+        if (freeSpace < requiredSpace) {
+            throw InsufficientStorageException(requiredBytes = requiredSpace, availableBytes = freeSpace)
         }
+
+        val targetBitrate = (video.bitrateBps * quality / 100)
+            .coerceIn(MIN_BITRATE_BPS, Int.MAX_VALUE.toLong())
+
+        log(TAG) { "Transcoding ${video.path}: ${video.bitrateBps}bps -> ${targetBitrate}bps" }
+
+        val outcome = fileTransaction.replace(
+            target = originalFile,
+            dryRun = Bugs.isDryRun,
+        ) { tempFile ->
+            transcodeVideo(
+                inputFile = originalFile,
+                outputFile = tempFile,
+                targetBitrateBps = targetBitrate,
+                pathDisplay = video.lookup.userReadablePath,
+            )
+        }
+
+        if (outcome.replaced) {
+            notifyMediaScanner(originalFile)
+        }
+
+        return outcome
     }
 
     @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
@@ -193,56 +164,125 @@ class VideoProcessor @Inject constructor(
         inputFile: File,
         outputFile: File,
         targetBitrateBps: Long,
+        pathDisplay: CaString,
     ) {
         val handlerThread = HandlerThread("sdmaid-transformer").apply { start() }
 
         try {
-            suspendCancellableCoroutine { cont ->
+            suspendCancellableCoroutine<Unit> { cont ->
                 val handler = Handler(handlerThread.looper)
-                val encoderSettings = VideoEncoderSettings.Builder()
-                    .setBitrate(targetBitrateBps.toInt())
-                    .build()
-
-                val encoderFactory = DefaultEncoderFactory.Builder(context)
-                    .setRequestedVideoEncoderSettings(encoderSettings)
-                    .build()
-
-                val transformer = Transformer.Builder(context)
-                    .setEncoderFactory(encoderFactory)
-                    .setLooper(handlerThread.looper)
-                    .addListener(object : Transformer.Listener {
-                        override fun onCompleted(
-                            composition: androidx.media3.transformer.Composition,
-                            exportResult: androidx.media3.transformer.ExportResult,
-                        ) {
-                            cont.resume(Unit)
-                        }
-
-                        override fun onError(
-                            composition: androidx.media3.transformer.Composition,
-                            exportResult: androidx.media3.transformer.ExportResult,
-                            exportException: androidx.media3.transformer.ExportException,
-                        ) {
-                            cont.resumeWithException(exportException)
-                        }
-                    })
-                    .build()
-
-                val mediaItem = MediaItem.fromUri(Uri.fromFile(inputFile))
+                // Transformer enforces thread affinity on the looper it was configured with, so
+                // every Builder/addListener/start/getProgress/cancel call must run on the
+                // handler thread. We capture the instance in a nullable var so the cancellation
+                // handler can reach it, handling the race where cancel fires before the setup
+                // post has even executed.
+                var transformerRef: Transformer? = null
 
                 handler.post {
-                    transformer.start(mediaItem, outputFile.absolutePath)
+                    try {
+                        val progressHolder = ProgressHolder()
+
+                        val encoderSettings = VideoEncoderSettings.Builder()
+                            .setBitrate(targetBitrateBps.toInt())
+                            .build()
+
+                        val encoderFactory = DefaultEncoderFactory.Builder(context)
+                            .setRequestedVideoEncoderSettings(encoderSettings)
+                            .build()
+
+                        // Audio policy: we pass the input through a Composition with
+                        // setTransmuxAudio(true) to force deterministic audio passthrough
+                        // regardless of Media3's muxer-support-conditional default. Without
+                        // this, Media3 1.6 passthrough is contingent on the muxer accepting the
+                        // input audio MIME type (works for typical MP4+AAC, but would silently
+                        // re-encode for e.g. AC3 inside MP4). Explicit transmux makes behavior
+                        // stable across Media3 versions.
+                        val transformer = Transformer.Builder(context)
+                            .setEncoderFactory(encoderFactory)
+                            .setLooper(handlerThread.looper)
+                            .build()
+                        transformerRef = transformer
+
+                        lateinit var poller: Runnable
+                        poller = Runnable {
+                            val state = transformer.getProgress(progressHolder)
+                            if (state == Transformer.PROGRESS_STATE_AVAILABLE) {
+                                val pct = progressHolder.progress
+                                updateProgressSecondary(
+                                    caString { "${pathDisplay.get(this)} ($pct%)" }
+                                )
+                            }
+                            handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
+                        }
+
+                        transformer.addListener(object : Transformer.Listener {
+                            override fun onCompleted(
+                                composition: Composition,
+                                exportResult: ExportResult,
+                            ) {
+                                handler.removeCallbacks(poller)
+                                cont.resume(Unit)
+                            }
+
+                            override fun onError(
+                                composition: Composition,
+                                exportResult: ExportResult,
+                                exportException: ExportException,
+                            ) {
+                                handler.removeCallbacks(poller)
+                                cont.resumeWithException(mapExportException(exportException))
+                            }
+                        })
+
+                        val mediaItem = MediaItem.fromUri(Uri.fromFile(inputFile))
+                        val editedItem = EditedMediaItem.Builder(mediaItem).build()
+                        val sequence = EditedMediaItemSequence(listOf(editedItem))
+                        val composition = Composition.Builder(sequence)
+                            .setTransmuxAudio(true)
+                            .build()
+
+                        transformer.start(composition, outputFile.absolutePath)
+                        handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
+                    } catch (e: Throwable) {
+                        log(TAG, ERROR) { "Transformer setup/start threw synchronously: ${e.asLog()}" }
+                        if (cont.isActive) cont.resumeWithException(e)
+                    }
                 }
 
                 cont.invokeOnCancellation {
                     handler.post {
-                        transformer.cancel()
-                        outputFile.delete()
+                        val t = transformerRef
+                        if (t != null) {
+                            try {
+                                t.cancel()
+                            } catch (e: Throwable) {
+                                log(TAG, WARN) { "transformer.cancel() failed: ${e.message}" }
+                            }
+                        }
+                        if (outputFile.exists()) outputFile.delete()
                     }
                 }
             }
         } finally {
             handlerThread.quitSafely()
+        }
+    }
+
+    @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+    private fun mapExportException(e: ExportException): Throwable {
+        // Map broad Transformer error categories to typed exceptions. We avoid matching every
+        // specific errorCode because Media3 adds and renames codes across versions. The
+        // errorCodeName of format/codec failures reliably contains DECODER/ENCODER/FORMAT.
+        val name = runCatching { e.errorCodeName }.getOrDefault("")
+        val isFormatFailure = name.contains("DECODER", ignoreCase = true) ||
+                name.contains("ENCODER", ignoreCase = true) ||
+                name.contains("DECODING", ignoreCase = true) ||
+                name.contains("ENCODING", ignoreCase = true) ||
+                name.contains("UNSUPPORTED", ignoreCase = true)
+        return if (isFormatFailure) {
+            UnsupportedFormatException("Transformer format error ($name): ${e.message}", e)
+        } else {
+            e
         }
     }
 
@@ -257,6 +297,7 @@ class VideoProcessor @Inject constructor(
 
     companion object {
         private const val MIN_BITRATE_BPS = 100_000L
+        private const val PROGRESS_POLL_INTERVAL_MS = 500L
         private val TAG = logTag("Squeezer", "Video", "Processor")
     }
 }
