@@ -1,0 +1,1507 @@
+# Compose Rewrite: SD Maid SE
+
+## Context
+
+SD Maid SE currently ships on **XML layouts + Fragments** (62 Fragments, 207
+layouts, 15 preference screens, ~50 ModularAdapters, 367 ViewBinding references
+across ~16 modules). The `compose-rewrite` branch is the target branch for a
+full replacement of the UI layer with Jetpack Compose.
+
+The developer maintains four sibling Android projects — **butler, capod,
+bluemusic, octi** — that are all fully on Compose. They share a battle-tested
+architecture the SD Maid SE rewrite must match 1:1 so muscle memory, tooling,
+and shared review standards carry over. The single most important design
+constraint is: **produce a codebase a future `butler`/`capod` contributor can
+navigate without surprises**.
+
+### Confirmed decisions (from questions earlier in this planning session)
+
+1. **Strategy**: Big-bang rewrite on `compose-rewrite`. No hybrid Fragment
+   islands. Merge to `main` only when the whole app runs on Compose.
+2. **Preference screens**: Rewrite all 13 preference XMLs in pure Compose. Drop
+   `androidx.preference` dependency. Reuse existing `PreferenceScreenData` /
+   `DataStore` backends.
+3. **Visual fidelity**: Pixel-parity with current XML as the default. Small
+   Material3 improvements allowed where they fall out of the rewrite naturally.
+4. **VM event plumbing**: Match sibling projects exactly — `SingleEventFlow`
+   plus `ViewModel3`/`ViewModel4` interfaces. Not keeping `SingleLiveEvent`.
+
+---
+
+## Target Architecture (ported verbatim from butler/capod)
+
+Reference paths (butler canonical copy):
+
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/ui/ViewModel2.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/ui/ViewModel3.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/ui/ViewModel4.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/flow/SingleEventFlow.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/error/ErrorEventSource.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/error/ErrorEventHandler.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/navigation/NavigationDestination.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/navigation/NavigationController.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/navigation/NavigationEntry.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/navigation/NavigationEventSource.kt`
+- `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/navigation/NavigationEventHandler.kt`
+- `~/projects/butler/main/app/src/main/java/eu/darken/butler/main/ui/MainActivity.kt`
+- `~/projects/butler/main/app/src/main/java/eu/darken/butler/setup/ui/SetupNavigation.kt` (representative `NavigationEntry`)
+- `~/projects/butler/main/buildSrc/src/main/java/Dependencies.kt` (`addAndroidUI()`, `addNavigation3()`)
+- `~/projects/butler/main/.claude/rules/ui-guidelines.md` (Host/Page pattern)
+
+### 0. Host/Page pattern (canonical convention — applied to every screen)
+
+Reference: `~/projects/butler/main/.claude/rules/ui-guidelines.md`. This is
+butler's documented rule and is used without deviation across butler, capod,
+bluemusic, octi. **Every Compose screen in the SD Maid SE rewrite must follow
+it.** Codex flagged this pattern as load-bearing — skipping it strands
+per-screen VMs without event handling.
+
+Each screen splits into two composables:
+
+**`<Feature>ScreenHost`** — ViewModel wiring + side effects. The *only* place
+that touches `hiltViewModel()`, collects one-shot events, launches activity
+results, and starts intents. Always calls `ErrorEventHandler(vm)` and
+`NavigationEventHandler(vm)` with the screen's own VM so its `errorEvents` /
+`navEvents` streams actually get consumed.
+
+```kotlin
+@Composable
+fun CorpseFinderListScreenHost(
+    vm: CorpseFinderListViewModel = hiltViewModel(),
+) {
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
+
+    // Activity-result / permission launchers live here.
+    val context = LocalContext.current
+    val exportLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.CreateDocument("application/json"),
+        onResult = { uri -> uri?.let(vm::exportTo) },
+    )
+    LaunchedEffect(vm) {
+        vm.requestExportEvent.collect { exportLauncher.launch("corpses.json") }
+    }
+
+    CorpseFinderListScreen(
+        stateSource = vm.state,
+        onItemClick = vm::onItemClick,
+        onDeleteClick = vm::onDeleteClick,
+    )
+}
+```
+
+**`<Feature>Screen`** — pure presentation. Takes a `Flow<State>` and callbacks.
+Does not reference the VM. Preview-friendly via `flowOf(fakeState)`.
+
+```kotlin
+@Composable
+internal fun CorpseFinderListScreen(
+    stateSource: Flow<CorpseFinderListViewModel.State>,
+    onItemClick: (CorpseRow) -> Unit,
+    onDeleteClick: () -> Unit,
+) {
+    val state by stateSource.collectAsStateWithLifecycle(initial = null)
+    state ?: return
+    // render UI
+}
+```
+
+**Why this matters:** `ErrorEventHandler(vm)` / `NavigationEventHandler(vm)` at
+the MainActivity root *only* collect `MainViewModel`'s events — not the ~60
+feature VMs. Without per-screen Host composables, every feature VM's
+`SingleEventFlow` is never collected and nav calls silently drop. The plan's
+Phase 2 must ship this pattern; Phase 3+ must use it for every new screen
+without exception.
+
+**State shape** — pick one per screen based on phases:
+- Single `data class State(...)` with defaults → updated via `.copy()`,
+  used when the screen always has meaningful content.
+- `sealed interface State { Initializing; Error; Ready(...) }` → used when
+  phases are distinct (loading spinner vs content vs error state).
+
+### 1. Foundation primitives (new code in `app-common-ui`)
+
+| File | Role |
+|------|------|
+| `common/flow/SingleEventFlow.kt` | `Channel(BUFFERED)`-backed `AbstractFlow<T>` for one-shot events. Exposes `emit`, `tryEmit`, `emitBlocking`. |
+| `common/error/ErrorEventSource.kt` | `interface ErrorEventSource { val errorEvents: SingleEventFlow<Throwable> }` |
+| `common/error/ErrorEventHandler.kt` | `@Composable fun ErrorEventHandler(source)` — collects errors, shows `ErrorDialog`. Lives at every ScreenHost + MainActivity root. |
+| `common/navigation/NavEvent.kt` | `sealed interface NavEvent { GoTo(destination, popUpTo, inclusive); Up; Finish }` |
+| `common/navigation/NavigationDestination.kt` | `interface NavigationDestination : NavKey, java.io.Serializable` |
+| `common/navigation/NavigationController.kt` | `@Singleton` wrapper around `NavBackStack<NavKey>` with `goTo`, `up`, `replace`, `setup(backStack)`. |
+| `common/navigation/NavigationEntry.kt` | `interface NavigationEntry { fun EntryProviderBuilder<NavKey>.setup() }` |
+| `common/navigation/NavigationEventSource.kt` | `interface NavigationEventSource { val navEvents: SingleEventFlow<NavEvent> }` |
+| `common/navigation/NavigationEventHandler.kt` | `@Composable fun NavigationEventHandler(vararg sources)` — collects and routes events to `NavigationController`. |
+| `common/navigation/LocalNavigationController.kt` | `CompositionLocal` that exposes the injected `NavigationController` to every Composable. |
+
+### 2. ViewModel hierarchy (replaces current `ViewModel1`→`ViewModel3`)
+
+The current `app-common-ui/src/main/java/eu/darken/sdmse/common/uix/ViewModel*.kt`
+files get rewritten to match butler's shape:
+
+```
+ViewModel1  // logging/tag scaffold (keep as-is)
+  └─ ViewModel2  // vmScope, launch(), asStateFlow(), launchInViewModel()
+       └─ ViewModel3 : ErrorEventSource
+            // errorEvents: SingleEventFlow<Throwable>
+            // launchErrorHandler → errorEvents.emitBlocking
+            └─ ViewModel4 : NavigationEventSource
+                 // navEvents: SingleEventFlow<NavEvent>
+                 // navTo(destination, popUpTo?, inclusive)
+                 // navUp()
+```
+
+- Any screen VM that only shows data/errors extends `ViewModel3`.
+- Any screen VM that navigates extends `ViewModel4`.
+- Delete `SingleLiveEvent.kt`, `NavCommand.kt`, and all LiveData observation in
+  the old `Fragment3`. These become dead code once the last Fragment is
+  deleted.
+- Keep `DynamicStateFlow` as-is — it already integrates cleanly with
+  `collectAsStateWithLifecycle`.
+
+### 3. Navigation (Navigation3, not Navigation Compose)
+
+All four sibling projects use `androidx.navigation3` (alpha). The SD Maid SE
+rewrite uses the same library. Key mechanics:
+
+- Each feature module (e.g. `app-tool-corpsefinder`) ships a
+  `*Navigation.kt` file implementing `NavigationEntry`. It registers every
+  destination the module owns via the Navigation3 `entry<RouteType> { ... }`
+  DSL and composes the corresponding screen host.
+- Every `NavigationEntry` is bound into a Hilt `@IntoSet` multibinding:
+  ```kotlin
+  @Module @InstallIn(SingletonComponent::class)
+  abstract class Mod {
+      @Binds @IntoSet abstract fun bind(entry: CorpseFinderNavigation): NavigationEntry
+  }
+  ```
+- `MainActivity` injects `Set<@JvmSuppressWildcards NavigationEntry>` and feeds
+  the set into `NavDisplay`'s `entryProvider { navigationEntries.forEach {
+  entry -> entry.apply { setup() } } }`.
+- `NavigationController` is `@Singleton` and held in a `CompositionLocal`
+  (`LocalNavigationController`). Screens navigate via `vm.navTo(destination)` —
+  they never touch the controller directly. Root-level
+  `NavigationEventHandler(vm)` funnels the events into the controller.
+
+### 4. Routes (`NavigationDestination` replaces `NavCommand`/NavType map)
+
+Current state: every route is already a `@Serializable` data class/object (see
+`app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/routes/CommonRoutes.kt`
+and the per-tool route files referenced in `MainNavGraph.kt`).
+
+Migration rule — mechanical rename per route:
+
+```kotlin
+// before
+@Serializable
+data class UpgradeRoute(val forced: Boolean = false)
+
+// after
+@Serializable
+data class UpgradeRoute(val forced: Boolean = false) : NavigationDestination
+```
+
+Serializable NavTypes (`StorageIdNavType`, `InstallIdNavType`, …) in the
+current `MainNavGraph.kt` go away. Navigation3 passes the whole route object
+into the `entry<Route> { destination -> ... }` lambda, so typed args are
+already type-safe without an intermediate NavType wrapper.
+
+The existing routes serialization tests
+(`app-common-ui/src/test/java/eu/darken/sdmse/common/navigation/routes/CommonRoutesSerializationTest.kt`)
+should survive the rename and continue to gate the migration — good canary.
+
+### 5. Activity shell (`MainActivity`)
+
+Replace the current ViewBinding + `NavHostFragment` layout. New shape:
+
+```kotlin
+@AndroidEntryPoint
+class MainActivity : Activity2() {
+    private val vm: MainViewModel by viewModels()
+    @Inject lateinit var curriculumVitae: CurriculumVitae
+    @Inject lateinit var theming: Theming
+    @Inject lateinit var shortcutManager: ShortcutManager
+    @Inject lateinit var navCtrl: NavigationController
+    @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        val splash = installSplashScreen()
+        enableEdgeToEdge()
+        super.onCreate(savedInstanceState)
+        splash.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
+
+        setContent {
+            val themeState by vm.themeState.collectAsStateWithLifecycle()
+            SdmSeTheme(state = themeState) {
+                CompositionLocalProvider(LocalNavigationController provides navCtrl) {
+                    ErrorEventHandler(vm)
+                    NavigationEventHandler(vm)
+
+                    val backStack = rememberNavBackStack<NavigationDestination>(DashboardRoute)
+                    LaunchedEffect(Unit) { navCtrl.setup(backStack) }
+
+                    NavDisplay(
+                        backStack = backStack,
+                        onBack = { navCtrl.up() },
+                        entryDecorators = listOf(
+                            rememberSavedStateNavEntryDecorator(),
+                            rememberViewModelStoreNavEntryDecorator(),
+                        ),
+                        entryProvider = entryProvider {
+                            navigationEntries.forEach { it.apply { setup() } }
+                        },
+                    )
+                }
+            }
+        }
+    }
+}
+```
+
+Deep-link handling for `ACTION_OPEN_APPCONTROL` / `ACTION_UPGRADE` moves to
+`onNewIntent` → `vm.navTo(AppControlListRoute)` / `vm.navTo(UpgradeRoute())`
+(same semantics, routed through the VM).
+
+### 6. Theme — adopt butler's full theming system
+
+The rewrite adopts butler's theming infrastructure byte-for-byte, not just a
+one-off "translate colors.xml to `lightColorScheme()`" exercise. This gives
+SD Maid SE the same 3-dimensional theme model butler uses
+(`Mode × Style × Color`), the same extension points, and the same preview
+conventions. Reference:
+`~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/theming/`.
+
+**Files to create under `app-common-ui/src/main/java/eu/darken/sdmse/common/theming/`:**
+
+| File | Port from butler | Notes |
+|------|------------------|-------|
+| `ThemeMode.kt` | `ThemeMode.kt` | `SYSTEM / DARK / LIGHT` enum. SD Maid SE already has the same three modes in its current `Theming`; rename the enum to match butler's exact shape (`@Serializable` + `EnumPreference<ThemeMode>`). |
+| `ThemeStyle.kt` | `ThemeStyle.kt` | `DEFAULT / MATERIAL_YOU / MEDIUM_CONTRAST / HIGH_CONTRAST`. The existing SD Maid `ThemeStyle` only has DEFAULT + MATERIAL_YOU; add the two contrast variants now (butler ships them). |
+| `ThemeColor.kt` | `ThemeColor.kt` | Enum of palette choices. Start with `GREEN` (SD Maid's brand color, mapped from current `values/colors.xml`). Add additional palettes later if desired. |
+| `ThemeState.kt` | `ThemeState.kt` | `data class ThemeState(mode, style, color)` with defaults matching SD Maid (SYSTEM / DEFAULT / GREEN). |
+| `SdmSeColorsGreen.kt` | `ButlerColorsGreen.kt` | The current SD Maid green palette lifted from `values/colors.xml` + `values-night/colors.xml` — one object per `light`/`dark` `ColorScheme`. |
+| `ThemeColorProvider.kt` | `ThemeColorProvider.kt` | `getLightColorScheme(color, style)` / `getDarkColorScheme(color, style)` switch resolving `ThemeColor × ThemeStyle` → `ColorScheme`. |
+| `ColorSchemeExtensions.kt` | `ColorSchemeExtensions.kt` | Extension helpers for semantic colors not on the M3 `ColorScheme` (e.g. success/warning tones, list background stripes). |
+| `SdmSeTypography.kt` | `ButlerTypography.kt` | Custom typography if SD Maid wants it; default to `Typography()` initially if butler's is too opinionated. |
+| `SdmSeTheme.kt` | `ButlerTheme.kt` | The root Composable: `@Composable fun SdmSeTheme(state: ThemeState = ThemeState(), content: @Composable () -> Unit)`. Handles `dynamicColors` (API 31+ gate), `darkTheme` resolution, status/nav bar `InsetsController` appearance via `SideEffect`, memoized `remember(state, darkTheme, dynamicColors) { ... }` block, `MaterialTheme(colorScheme, typography, content)`. Copy butler's implementation verbatim and only change the brand name + color provider reference. |
+
+**Runtime wiring (`Theming.kt` + `GeneralSettings`):**
+
+- Existing `GeneralSettings.themeMode` / `themeStyle` stay; add
+  `GeneralSettings.themeColor` as a new `DataStoreValue<ThemeColor>` (defaults
+  to `GREEN`).
+- `Theming.kt` exposes `val themeState: StateFlow<ThemeState>` combining the
+  three flows. MainActivity collects this with
+  `collectAsStateWithLifecycle()` and passes it into `SdmSeTheme(state = ...)`.
+- `AppCompatDelegate.setDefaultNightMode` and
+  `DynamicColors.applyToActivityIfAvailable` calls **stay** — they still
+  affect `RecorderActivity` and the splash screen. Only MainActivity stops
+  recreating on theme changes (the Compose theme recomposes).
+
+**XML theme coexistence:**
+
+- `themes.xml` / `colors.xml` are **not deleted**. Still required by:
+  - `AndroidManifest.xml` — `android:theme="@style/AppTheme"` on the
+    application and `android:theme="@style/AppThemeSplash"` on MainActivity.
+  - `RecorderActivity` (debug recorder) — not part of this rewrite's scope.
+  - `AppThemeSplash` — `installSplashScreen()` reads it on cold start.
+  - `DialogTheme` — window background for any remaining dialog-style
+    activities.
+- Grep audit at end of Phase 9: any remaining `?attr/colorX` lookups or
+  `MaterialColors.getColor()` calls in Kotlin — must be replaced with
+  `MaterialTheme.colorScheme.*` or `SdmSeTheme.extras.*` (via
+  `ColorSchemeExtensions`) since those call sites are now inside composition.
+
+### 6b. File structure and composable extraction
+
+**Rule**: each logical composable lives in its own file. Large screen files
+with dozens of inline composables are not acceptable — extract anything that
+could reasonably be previewed on its own into a sibling file.
+
+- A `CorpseFinderListScreen.kt` file contains the `CorpseFinderListScreen`
+  composable + its preview. It does **not** contain `CorpseFinderListRow`,
+  `CorpseFinderToolbar`, `EmptyCorpsesState`, etc. Each of those lives in
+  its own file alongside its preview.
+- The `ScreenHost` and `Screen` composables for a single screen may live in
+  the same file (they're tightly coupled — Host wires VM, Screen renders).
+  That's an exception to the one-per-file rule.
+- A screen's file tree typically looks like:
+  ```
+  corpsefinder/ui/list/
+    CorpseFinderListScreen.kt      // Host + Screen
+    CorpseFinderListViewModel.kt
+    CorpseFinderListState.kt       // data class/sealed interface State
+    items/
+      CorpseRow.kt                 // row composable + @Preview2 preview
+      CorpseListHeader.kt
+      CorpseListEmpty.kt
+      CorpseListActionBar.kt
+  ```
+- **Every composable gets a `@Preview2` preview** wrapped in `PreviewWrapper`.
+  That's butler's `.claude/rules/ui-guidelines.md` rule copied directly:
+  "When creating compose previews, use the `@Preview2` annotation, and wrap
+  the UI element in a `PreviewWrapper`."
+- The `Preview2` annotation and `PreviewWrapper` composable are ported from
+  butler in Phase 2 (see `~/projects/butler/main/app-common/src/main/java/eu/darken/butler/common/compose/Preview2.kt`
+  and `.../ComposePreviewHelpers.kt`). Also port `Preview2Tablet` for screens
+  where tablet layout matters (Analyzer, Settings master/detail). The
+  `SampleContent` helper from butler is useful for theme-only previews.
+- Previews must compile and render in Android Studio's preview pane. That's
+  the single most important productivity feedback loop during the rewrite —
+  treat a broken preview as a blocker, not a warning.
+
+### 7. Settings screens — plain Compose + small row toolkit
+
+Current: 13 `res/xml/preferences_*.xml` + `PreferenceFragmentCompat`-based
+fragments. `PreferenceScreenData` is the DataStore-side interface and is
+**kept unchanged** — only the UI layer is rewritten.
+
+**Not a preference framework.** Each settings screen is a plain Composable
+function (`GeneralSettingsScreen`, `CorpseFinderSettingsScreen`, …) that
+composes a `LazyColumn` and drops in rows. A tiny shared toolkit supplies the
+most common row shapes, but screens are free to use raw Compose where a
+scenario doesn't fit. This deliberately avoids building a
+`PreferenceFragmentCompat`-equivalent abstraction that would drown in escape
+hatches.
+
+Small shared toolkit in
+`app-common-ui/src/main/java/eu/darken/sdmse/common/compose/settings/`:
+
+```
+SettingsScaffold.kt     // TopAppBar (title + subtitle) + LazyColumn + insets + scroll behavior
+SettingsCategory.kt     // section header
+SettingsSwitchRow.kt    // (title, summary, icon, Flow<Boolean>, onToggle)
+SettingsListRow.kt      // (title, currentLabel, onClick) — opens a dialog
+SettingsSliderRow.kt    // numeric
+SettingsClickRow.kt     // (title, summary?, icon?, onClick)
+SettingsDialogRow.kt    // row that launches a Compose dialog editor
+SettingsDivider.kt
+```
+
+Rows are thin — they accept raw `title`/`summary`/`icon` + a click callback.
+They do **not** know about `DataStoreValue<T>`. The per-screen Composable
+collects its state from the VM (`SettingsViewModel` extending `ViewModel4`)
+and calls back into the VM on interaction. That means:
+
+- **Pro-gated clicks** (GeneralSettingsFragment's upgrade-wall rows) —
+  handled by the screen: `SettingsClickRow(onClick = { if (state.isPro)
+  vm.onEditLanguage() else vm.navTo(UpgradeRoute(forced = true)) })`.
+- **API-conditional visibility** — screen-level `if (Build.VERSION.SDK_INT >=
+  X) { SettingsSwitchRow(...) }`.
+- **Dynamic summaries** — summary is a `String` computed by the VM's state,
+  re-rendered on state change.
+- **Resume refresh** (SupportFragment, SetupFragment) — VM exposes a
+  `refreshOnResume()` the host composable triggers in a
+  `LifecycleEventEffect(Lifecycle.Event.ON_RESUME) { vm.onResume() }`.
+- **Activity launches** (SupportFragment opens Play Store, debug log
+  sharing) — the Host composable owns the `rememberLauncherForActivityResult`
+  / `startActivity` calls, driven by a VM `SingleEventFlow` of intent requests.
+- **Settings child navigation + title restoration** (SettingsFragment manages
+  its own child back stack today) — becomes a normal Navigation3 route graph:
+  `SettingsRoute` → `GeneralSettingsRoute` → `AppCleanerSettingsRoute` etc.
+  Each is its own destination with its own `SettingsScaffold` title.
+  Navigation3's back stack already restores scroll position via
+  `rememberSavedStateNavEntryDecorator()`.
+
+`androidx.preference:preference-ktx` is removed at the end of the rewrite.
+`MaterialListPreference`, `SizeInputDialog`, `AgeInputDialog`,
+`QualityInputDialog` are rewritten as Compose `AlertDialog`s under
+`common/compose/settings/dialogs/` and reused across settings screens.
+
+**Parity verification:** during Phase 5, for each tool module run a key-by-key
+diff between the old `preferences_<tool>.xml` file and the new Compose
+`<Tool>SettingsScreen` — grep every `createValue(...)` call in the matching
+`*Settings.kt` and verify each key is surfaced in UI with the same
+title/summary text (string resources stay untouched, making this a mechanical
+check).
+
+### 8. Lists (LazyColumn replaces ModularAdapter)
+
+The `ModularAdapter` machinery (50 adapters, 19 `*VH` files, `BaseAdapter`, and
+the `DataBinderMod`/`TypedVHCreatorMod` system in `app-common-ui/lists/`) is
+deleted. Each row becomes a `@Composable` function taking the item and a
+click callback:
+
+```kotlin
+@Composable
+fun CorpseRow(item: CorpseRowData, onClick: () -> Unit, onCheck: (Boolean) -> Unit) { ... }
+```
+
+Multi-type lists (e.g. `DeduplicatorListGridVH` vs `DeduplicatorListLinearVH`)
+become a single `when` on a sealed `RowState` inside a `LazyColumn` /
+`LazyVerticalGrid`. Keys come from existing IDs on the row data.
+
+### 9. Dialogs
+
+- `DialogFragment3` / `BottomSheetDialogFragment2` deletions.
+- Modal dialogs (`AppActionDialog`, `DebugLogSessionsDialog`, `ScheduleItemDialog`)
+  become Navigation3 destinations rendered as Compose `Dialog`/`ModalBottomSheet`
+  inside their `entry<Route> { ... }` blocks. Navigation3 supports a dialog
+  presentation mode via the entry provider scope.
+- Ad-hoc confirmation dialogs move inline into the hosting screen with
+  `remember { mutableStateOf(...) }`.
+
+### 10. Custom Views and non-trivial list interactions
+
+Inventoried here because they're each a design decision, not a mechanical
+port. Phase 0 must populate any that this table misses — assume the list is
+not exhaustive until proven.
+
+| Current | Replacement / approach |
+|---|---|
+| `BreadCrumbBar<T>` | `LazyRow` of `AssistChip`s with overflow ellipsis. Generic over `T` via a `@Composable` label slot. |
+| `MascotView` | `Box` with `Image` overlay, positioned by `Modifier.offset`. |
+| `ProgressOverlayView` | Compose `ProgressOverlay` composable (Box + CircularProgressIndicator + optional label). Used by every tool's scan screen — must be available in Phase 2. |
+| `AppInfoTagView` (AppControl) | Compose `AppInfoTag` composable — `Row { Icon + Text }` with the same four severity variants. |
+| `SpaceHistoryFragment` chart | Keep existing chart library rendered via `AndroidView { ... }`. Revisit later. |
+| `BelowAppBarBehavior` | CoordinatorLayout goes away. Scroll-aware app bars via `TopAppBarScrollBehavior.exitUntilCollapsed`. |
+| Size/Age/Quality input dialogs | Compose `AlertDialog` + `OutlinedTextField` under `common/compose/settings/dialogs/`. |
+
+**Non-trivial list interactions — design individually, don't mass-rewrite:**
+
+| Screen | Current behavior | Compose approach |
+|---|---|---|
+| `DashboardCardConfigFragment` | Drag-reorder via ItemTouchHelper | `reorderable` library (`sh.calvin.reorderable:reorderable`) inside `LazyColumn`. Evaluate whether butler/capod already picked a library — reuse if so. |
+| `ArbiterConfigFragment` (Deduplicator) | Drag-reorder priority list | Same as above. |
+| `SystemCleanerListFragment` | CAB multi-select with ActionMode menu | Explicit `SelectionState` in VM. Scaffold swaps TopAppBar to a selection bar when `selection.isNotEmpty()`. BackHandler exits selection before popping nav. |
+| `ExclusionListFragment` | CAB multi-select | Same pattern as SystemCleaner. |
+| `DeduplicatorListFragment` / `SwiperSwipeFragment` | Custom gesture / pager | Case-by-case. Swiper's swipe deck may need `Modifier.pointerInput` + animation state; might be the single screen where a bespoke Compose rewrite takes days rather than hours. |
+| Grid/linear layout switching (Deduplicator, Squeezer) | Two adapter types | One `LazyVerticalGrid` with `GridCells.Fixed(1)` vs `Fixed(n)` driven by state. Row Composable is layout-agnostic. |
+
+Phase 0 must produce the complete inventory (see Phase 0 checklist below).
+
+### 11. Results, launchers, and external intents
+
+Fragment-based result delivery disappears with Fragments. The plan must
+actively migrate these, not discover them screen by screen. The mechanisms
+currently in use:
+
+**A. `setFragmentResult` / `setFragmentResultListener` (cross-screen returns)**
+
+Example: `PickerFragment` returns the chosen path via
+`setFragmentResult(resultKey, bundle)`, and callers like
+`SwiperSessionsFragment` listen with `setFragmentResultListener(requestKey) {
+... }`. Phase 0 must grep every `setFragmentResult*` call and map each request
+key to its listener site. Replacement pattern under Navigation3:
+
+- Caller navigates to the picker with `vm.navTo(PickerRoute(request =
+  PickerRequest(...)))`.
+- Picker VM emits the result through a singleton `PickerResultBus` (new
+  class, `@Singleton`, a `SingleEventFlow<PickerResult>` keyed by request
+  ID) *before* popping itself with `vm.navUp()`.
+- Caller's VM collects from `PickerResultBus` in its init block, filters by
+  request ID, and updates state.
+
+A small `ResultBus<Key, Value>` helper in `app-common-ui/common/results/`
+generalizes this. One bus per logical result type (`PickerResultBus`,
+`ExclusionResultBus`, …). Keyed results survive process death via Navigation3's
+saved state because they live in the consuming VM, not in the NavHost.
+
+**B. `registerForActivityResult` (system intents)**
+
+Example: `SetupFragment` has three `ActivityResultLauncher`s (manage-all-files
+permission, exact-alarm permission, app-info settings intent). `AppActionDialog`
+launches a document picker. Replacement pattern:
+
+- The launcher lives in the **Host composable** for that screen, via
+  `rememberLauncherForActivityResult(contract) { result -> vm.onResult(result) }`.
+- The VM exposes a `SingleEventFlow<LaunchRequest>` where `LaunchRequest` is a
+  screen-local sealed class (`OpenSettings(pkg)`, `CreateDocument(suggestedName)`,
+  …).
+- The Host's `LaunchedEffect` consumes the flow and calls
+  `launcher.launch(...)`.
+- Phase 0 must grep every `registerForActivityResult` call and list the
+  contract + the VM handler site.
+
+**C. `context.startActivity(intent)` from fragments (no result)**
+
+Example: `SupportFragment` opens Play Store, debug log share, email intents.
+Replacement pattern: VM emits `SingleEventFlow<Intent>`, Host composable
+collects and calls `context.startActivity(intent)` — mirrors butler's
+`SaverWorkspacePageHost` pattern
+(`vm.shareIntentEvent.collect { context.startActivity(intent) }`).
+
+**D. System back stack listeners / `OnBackPressedDispatcher`**
+
+Any custom back handling today (e.g. exit-selection-before-popping) becomes
+`BackHandler(enabled = ...) { ... }` inside the relevant composable.
+
+### 12. Gradle / Dependencies
+
+Target versions (pinned to butler's reference, which is ~2026-03-24):
+
+```kotlin
+// buildSrc/src/main/java/Versions.kt additions
+object Compose {
+    const val bom = "2025.12.00"
+    const val foundationOverride = "1.11.0-alpha01"
+}
+object Navigation3 {
+    const val core = "1.0.0-alpha08"
+    const val lifecycleVm = "2.10.0-alpha03"
+    const val adaptive = "1.0.0-alpha02"
+}
+```
+
+New helper in `buildSrc/src/main/java/Dependencies.kt`:
+
+```kotlin
+fun DependencyHandlerScope.addCompose() {
+    val composeBom = platform("androidx.compose:compose-bom:${Versions.Compose.bom}")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    implementation("androidx.compose.foundation:foundation:${Versions.Compose.foundationOverride}")
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3.adaptive:adaptive")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+
+    implementation("androidx.activity:activity-compose:1.10.1")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.8.5")
+    implementation("androidx.lifecycle:lifecycle-runtime-compose:2.8.5")
+    implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
+
+    implementation("io.coil-kt:coil-compose:2.7.0") // Coil is already present
+}
+
+fun DependencyHandlerScope.addNavigation3() {
+    implementation("androidx.navigation3:navigation3-runtime:${Versions.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui:${Versions.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui-android:${Versions.Navigation3.core}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:${Versions.Navigation3.lifecycleVm}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3-android:${Versions.Navigation3.lifecycleVm}")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:${Versions.Navigation3.adaptive}")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3-android:${Versions.Navigation3.adaptive}")
+}
+```
+
+Enable in module Gradle files (`app/build.gradle.kts`,
+`app-common-ui/build.gradle.kts`, every `app-tool-*/build.gradle.kts`,
+`app-common-*/build.gradle.kts` that currently has Fragment UI):
+
+```kotlin
+android {
+    buildFeatures {
+        compose = true
+        viewBinding = false  // remove once that module is converted
+    }
+}
+// No composeOptions block needed — Kotlin 2.2.10 uses the Kotlin Compose
+// Compiler Plugin (`org.jetbrains.kotlin.plugin.compose`). Add it to the
+// root plugins DSL and apply per-module.
+```
+
+Dependencies to remove at the end of the rewrite:
+
+- `androidx.preference:preference-ktx`
+- `androidx.navigation:navigation-fragment-ktx`
+- `androidx.navigation:navigation-ui-ktx`
+- `androidx.fragment:fragment-ktx` (last, after every `Fragment` subclass is
+  deleted — `@AndroidEntryPoint class MainActivity : Activity2()` is fine
+  without it)
+
+Additions to `addTesting()`:
+
+```kotlin
+androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+debugImplementation("androidx.compose.ui:ui-test-manifest")
+// Robolectric-based Compose tests run via testImplementation, not androidTest —
+// butler uses the same dependency in both configurations.
+testImplementation("androidx.compose.ui:ui-test-junit4")
+```
+
+### 13. Compose testing (Robolectric — no instrumentation)
+
+Compose UI tests are in scope **when they can run as regular JVM unit tests**,
+i.e. under Robolectric or without any Android context at all. Instrumentation
+tests on a real device are still out of scope (CLAUDE.md says "no UI tests
+required" — the spirit is no *instrumentation* tests; JVM-executable Compose
+tests don't burn CI cycles and give real feedback).
+
+**Reference**:
+`~/projects/butler/main/app-common-test/src/main/java/testhelpers/ComposeTest.kt`.
+Butler runs Compose UI tests under `RobolectricTestRunner` with
+`createComposeRule()` as a JUnit 4 rule, documented limitations and all:
+
+- No native bitmap support (`ImageBitmap()` → NullPointerException).
+- No drawing / `captureToImage()` (deadlocks).
+- Text measurement is approximate (~20px height, 1px/char).
+- Use for: **component behavior, click targets, content assertions, state
+  transitions** — *not* pixel-level visual verification.
+
+**Port to SD Maid SE** in Phase 2:
+
+```kotlin
+// app-common-test/src/main/java/testhelpers/ComposeTest.kt
+@RunWith(RobolectricTestRunner::class)
+@Config(application = TestApplication::class, sdk = [34])
+abstract class ComposeTest : BaseTest() {
+    @get:Rule val composeTestRule = createComposeRule()
+}
+```
+
+**What to test (non-exhaustive list of patterns worth covering):**
+
+- A settings row composable: clicking the row fires the callback with the
+  correct argument. Toggle reflects input state.
+- A state-driven composable: given `State.Loading` renders a spinner, given
+  `State.Ready(items)` renders each item, given `State.Error` renders error
+  text with retry button.
+- A selection bar: when `selection.count > 0`, the top bar shows
+  "N selected" and delete/exclude actions; when selection is empty, it
+  shows the normal toolbar.
+- A multi-state `when` inside a screen: each branch renders a visually
+  distinct subtree, verified via `onNodeWithTag(...)`.
+- Dialog confirmation flows: opening the dialog, confirming/dismissing,
+  asserting the callback receives the right value.
+
+**What NOT to test via ComposeTest** (keep these as regular `BaseTest`
+JUnit 5 tests):
+
+- Pure business logic in ViewModels (`state.copy(...)` transformations,
+  coroutine flows). These use `runTest2` + Kotest matchers per
+  `.claude/rules/testing.md` — unchanged by the rewrite.
+- Any tests that would require real rendering / screenshots / touch input.
+
+**Pure composables with no Context** (stateless pure renderers like
+formatters, wrapper layouts, data mappers) can be unit-tested without
+Robolectric at all — just call the composable inside a `composeTestRule`
+with no `Config` needed, or call the mapping function directly from a
+`BaseTest`.
+
+---
+
+## Phased Delivery (single long-lived branch, phases are internal milestones)
+
+All phases land as commits on `compose-rewrite`. No merges to `main` until
+**Phase 10** is clean. Each phase should leave `./gradlew assembleFossDebug`
+green, with the debug app runnable on a device.
+
+Phase overview: **0** repo inventory → **0b** screen inventory + baseline
+screenshots → **1** Gradle foundation → **2** `app-common-ui` foundation
+primitives → **3** Activity shell + end-to-end spike → **4** main module →
+**5** tool modules → **6** Analyzer → **7** cross-cutting modules → **8**
+route cleanup → **9** final cleanup → **10** visual regression sweep.
+
+### Phase 0 — Preflight inventory (do not skip)
+
+**This is the gating phase for the whole rewrite.** The outputs of Phase 0
+become a checklist in `.claude/scratch/compose-rewrite-inventory.md` (kept on
+the branch) that every later phase ticks off against. Trying to execute the
+rewrite without this inventory means discovering landmines screen-by-screen.
+
+Artifacts to produce:
+
+1. **Fragment + dialog + destination inventory** — one row per destination:
+   `<Route> | <FragmentClass> | module | state-class complexity (S/M/L) |
+   list-kind (none/simple/grid/reorder/CAB/pager) | custom-view deps |
+   has-dialog? | extends-VM3-or-VM4?`.
+2. **Route arg inventory** — grep every `SavedStateHandle.toRoute<...>()`
+   and every `typeMap = mapOf(typeOf<...>() to ...NavType)`. Record
+   which routes have non-primitive args, which have nullable args, which
+   are currently using `serializableNavType` wrappers.
+3. **`setFragmentResult*` inventory** — grep `setFragmentResult`,
+   `setFragmentResultListener`, `FragmentResultListener`. Map request keys
+   → producer site + consumer site. Planned replacement: which `ResultBus`
+   does each pair migrate to?
+4. **`registerForActivityResult` inventory** — grep every occurrence. Record
+   contract type + the VM method that consumes the result. Planned
+   replacement: which `SingleEventFlow<LaunchRequest>` lives on the VM?
+5. **`context.startActivity(` from Fragments** — grep. Record the intent
+   source (Play Store URL, email, external app) + who triggers it. All move
+   to VM `SingleEventFlow<Intent>` → Host collector.
+6. **`SingleLiveEvent` usage audit** — grep every `SingleLiveEvent<...>`
+   declaration and every `.observe2(` call site. Expect ~54 usages.
+   Classify each: (a) pure nav event → `navEvents`, (b) pure error
+   event → `errorEvents`, (c) other one-shot (snackbar, dialog open,
+   scroll-to-top) → new per-VM `SingleEventFlow<SomeLocalEvent>` consumed
+   by a per-screen `LaunchedEffect` in the Host composable.
+7. **`.asLiveData()` / `.observe2(` of state streams** — any non-event
+   LiveData that today carries screen state. Target replacement:
+   `StateFlow<T>` + `collectAsStateWithLifecycle`.
+8. **Custom view inventory** — globs for classes extending `View`,
+   `FrameLayout`, `LinearLayout`, `ConstraintLayout` under any `ui/`
+   package across all modules. Classify each: rewrite in Compose vs wrap
+   in `AndroidView`.
+9. **Adapter / ViewHolder inventory** — list every `*Adapter.kt` +
+   `*VH.kt`. Mark which are trivial (plain list) vs non-trivial (multi-
+   type, grid/linear switch, animation, selection state).
+10. **Manifest activities** — list every `<activity>` in
+    `AndroidManifest.xml`. Anything other than `MainActivity`,
+    `ShortcutActivity`, `RecorderActivity` is a finding — some of those may
+    need Compose conversion, some keep XML themes.
+11. **Hidden GlobalScope / lifecycleScope usage in Fragments** — grep
+    `viewLifecycleOwner.lifecycleScope` and `lifecycleScope.launch` inside
+    Fragments. Each site needs a conscious migration target (VM-side
+    coroutine, Host `LaunchedEffect`, or a side effect composable).
+12. **Existing Compose baseline** — `./gradlew assembleFossDebug` runs
+    green on the current branch (prove the starting point before touching
+    anything).
+13. **Kotlin Compose Compiler plugin compat** — Kotlin 2.2.10 + Compose
+    Compiler plugin `org.jetbrains.kotlin.plugin.compose` (same plugin
+    butler uses; no `composeOptions` block needed).
+
+Phase 0 exits only when the inventory file is complete. The table of
+Fragment → VM → state complexity feeds directly into the per-phase ordering
+later; it is not optional documentation.
+
+### Phase 0b — Screen inventory + baseline screenshots (visual regression baseline)
+
+Feeds directly into Phase 10. The entire rewrite targets pixel parity as the
+default (see Section: Confirmed decisions #3), and the only way to enforce
+that across 60+ screens is by capturing the *current* app surface before we
+touch anything, then re-capturing after Phase 9 and diffing the two sets.
+
+**Device prep**
+
+Target device: **`emulator-5558`** (pinned by the user). All capture and
+verification work in Phase 0b and Phase 10 runs against this emulator so
+before/after diffs are apples-to-apples.
+
+1. Build the current (pre-rewrite) FOSS debug APK via `devtools:build-runner`
+   → `./gradlew :app:assembleFossDebug`.
+2. Install on `emulator-5558` under `debugbadger:debug-runner` control.
+3. Populate representative test data. Prefer `tooling/testdata-generator/`
+   (its exact entrypoints are an inventory artifact for Phase 0). If the
+   generator can't populate a specific tool's state (e.g. SystemCleaner on
+   a clean device has nothing to clean), accept an "empty state"
+   screenshot for that surface and note it in the inventory.
+4. Fix the device into a consistent visual state for the whole capture run:
+   - Theme mode: **Light** (default).
+   - Theme style: **DEFAULT** (no Material You).
+   - Language: **en** (matches the base `strings.xml`).
+   - Display size / font scale: **default**.
+   - Screen orientation: **portrait**.
+5. Record these settings at the top of the inventory file so Phase 10 can
+   match them.
+
+**Screen inventory (grouped per tool/module)**
+
+Produced as a table in `.claude/scratch/compose-rewrite-inventory.md`
+alongside the Phase 0 artifacts. Each row has: `id | tool | kind (Activity/
+Fragment/BottomSheet/Dialog/Overlay) | navigation path | population notes |
+screenshot filename`. Start from this scaffolding — Phase 0b must expand it
+to cover everything the app exposes:
+
+- **Framework / Activities**
+  - `MainActivity` (single-activity host)
+  - `RecorderActivity` (debug-only)
+  - `ShortcutActivity` (not user-visible; document but don't screenshot)
+- **Main module**
+  - Onboarding: Welcome, Privacy, Versus, Setup
+  - Dashboard (with and without data)
+  - Setup (Root / Shizuku / ADB variants)
+  - Settings root
+  - General settings
+  - Dashboard card config
+  - Support / contact form
+  - Debug log sessions dialog
+  - Data Areas
+  - Log Viewer
+  - Upgrade (FOSS flavor)
+  - Upgrade (GPlay flavor) — requires gplay build, capture separately
+- **CorpseFinder**
+  - List (scan empty / scan with results)
+  - AppCorpse details
+  - Single corpse details
+  - Settings
+- **SystemCleaner**
+  - List (scan empty / scan with results)
+  - Filter content details
+  - Filter content list
+  - Custom filter list
+  - Custom filter editor (new / existing)
+  - Settings
+- **AppCleaner**
+  - List (scan empty / scan with results)
+  - App junk details
+  - App junk sub-details (per junk type)
+  - Settings
+- **AppControl**
+  - List (filter chips visible)
+  - Action dialog (bottom sheet)
+  - Settings
+- **Deduplicator**
+  - List — linear layout
+  - List — grid layout
+  - Details
+  - Cluster view
+  - Arbiter config
+  - Settings
+- **Squeezer**
+  - Setup
+  - List
+  - Settings
+- **Swiper**
+  - Sessions (empty / populated)
+  - Swipe deck (active card)
+  - Status
+  - Settings
+- **Scheduler**
+  - Manager (empty / populated)
+  - Schedule item dialog
+  - Settings
+- **Analyzer**
+  - Device storage overview
+  - Apps view
+  - App details
+  - Content view
+  - Storage content
+- **Stats**
+  - Reports
+  - Space history chart
+  - Affected paths
+  - Affected pkgs
+  - Settings
+- **Exclusions**
+  - List
+  - Path editor
+  - Pkg editor
+  - Segment editor
+- **Shared UI**
+  - Picker
+  - Preview
+  - Preview item
+- **Dialogs / overlays (reached from above)**
+  - Error dialog (trigger by simulated failure)
+  - Delete confirmation dialog
+  - Size input dialog
+  - Age input dialog
+  - Quality input dialog
+  - Progress overlay (scan in progress)
+
+Any destinations Phase 0 finds that don't appear on this list get added.
+Missing a screen here means missing it in Phase 10, which means shipping a
+visual regression.
+
+**Capture procedure**
+
+For each row in the inventory:
+
+1. Drive debugbadger to navigate from a known root (app cold start) to the
+   target screen. Record the navigation sequence in the row's "navigation
+   path" column.
+2. Wait for steady state — no spinners, no progress bars, settled scroll
+   position. Use `debugbadger:wait_for_idle` where available.
+3. Capture the screen (`debugbadger:observe_screen` or the appropriate
+   screenshot-producing tool — loaded on-demand at Phase 0b time).
+4. Save the image as
+   `.claude/scratch/screenshots/before/<tool>/<screen-id>.png`.
+5. If the screen has multiple meaningful states (empty vs populated, linear
+   vs grid, dark vs light), capture each with a state suffix
+   (`..._empty.png`, `..._populated.png`, `..._grid.png`).
+6. Append the filename to the inventory row.
+
+**Exit criteria for Phase 0b**
+
+- Every row in the inventory has at least one PNG on disk.
+- `.claude/scratch/compose-rewrite-inventory.md` has been updated to include
+  the device-state prelude (theme, locale, orientation, font scale) and
+  every screen's filename.
+- A sanity commit is made on `compose-rewrite` with the inventory file and
+  the `before/` screenshot tree so the baseline is durably preserved even if
+  later phases rewrite the tree around them.
+
+### Phase 1 — Gradle foundation
+- Add Compose BOM + Navigation3 helpers in `buildSrc`.
+- Apply Kotlin Compose Compiler plugin at root.
+- Enable `buildFeatures { compose = true }` in `app` and `app-common-ui`
+  (leave `viewBinding = true` alive during the rewrite).
+- **Smoke test**: add a throwaway `@Composable fun Placeholder()` with
+  `@Preview`, confirm it compiles and tooling works.
+
+### Phase 2 — `app-common-ui` foundation primitives
+Create, one commit each, following the butler reference files byte-for-byte
+where possible:
+1. `SingleEventFlow.kt`.
+2. `NavEvent.kt`, `NavigationDestination.kt`.
+3. `ErrorEventSource.kt`, `ErrorEventHandler.kt` (+ `ErrorDialog.kt`
+   composable that reuses `asErrorDialogBuilder`'s content as a Compose dialog).
+4. `NavigationEventSource.kt`, `NavigationEventHandler.kt`,
+   `NavigationController.kt`, `NavigationEntry.kt`,
+   `LocalNavigationController.kt`.
+5. Rewrite `ViewModel2.kt`/`ViewModel3.kt`, add `ViewModel4.kt`.
+   The old `SingleLiveEvent<NavCommand?>` path is removed; subclasses don't
+   compile until phase 4 refits them — that's fine, this branch is big-bang.
+6. **Theming system** (Section 6): `ThemeMode.kt`, `ThemeStyle.kt`,
+   `ThemeColor.kt`, `ThemeState.kt`, `SdmSeColorsGreen.kt`,
+   `ThemeColorProvider.kt`, `ColorSchemeExtensions.kt`, `SdmSeTypography.kt`,
+   `SdmSeTheme.kt`. Wire `themeState: StateFlow<ThemeState>` on `Theming.kt`.
+7. **Preview infrastructure** (Section 6b): port `Preview2.kt`,
+   `Preview2Tablet` annotations, `ComposePreviewHelpers.kt` with
+   `PreviewWrapper` + `SampleContent`. All under `common/compose/preview/`.
+8. Settings row toolkit under `common/compose/settings/` (SettingsScaffold,
+   SettingsCategory, SettingsSwitchRow, SettingsListRow, SettingsSliderRow,
+   SettingsClickRow, SettingsDialogRow, SettingsDivider + size/age/quality
+   dialog composables in `common/compose/settings/dialogs/`). Each row
+   ships with a `@Preview2` preview using `PreviewWrapper`.
+9. Common composables under `common/compose/`: `SdmSeScaffold.kt`,
+   `LoadingIndicator.kt`, `EmptyState.kt`, `ConfirmationDialog.kt`,
+   `BreadCrumbRow.kt`, `ProgressOverlay.kt`, `AppInfoTag.kt`. Each with
+   its own `@Preview2` preview.
+10. `ResultBus.kt` helper in `common/results/` for cross-screen result
+    delivery (see Section 11).
+11. **Compose test base** (Section on testing below): port butler's
+    `ComposeTest.kt` base class into
+    `app-common-test/src/main/java/testhelpers/ComposeTest.kt`. Add the
+    `androidx.compose.ui:ui-test-junit4` dependency. Write one smoke test
+    that renders `SampleContent` under `PreviewWrapper` and verifies the
+    button click — proves the Robolectric + Compose pipeline works.
+
+### Phase 3 — Activity shell + end-to-end spike
+
+**Step 3a: Preserve every MainActivity behavior that exists today.**
+The new MainActivity must carry all of these before the phase can close:
+
+- `installSplashScreen()` + `setKeepOnScreenCondition { showSplashScreen &&
+  savedInstanceState == null }` — gated on `vm.readyState` like today.
+- `enableEdgeToEdge()` (butler uses this too).
+- Early window background color (butler's pre-composition hack in
+  `~/projects/butler/main/app/src/main/java/eu/darken/butler/main/ui/MainActivity.kt`)
+  to prevent white/black flash before the Compose theme loads. Use
+  `values/colors.xml` constants for the two modes.
+- Inject `CurriculumVitae`, `Theming`, `ShortcutManager`, `navCtrl`,
+  `navigationEntries` — same Hilt bindings as today.
+- `curriculumVitae.updateAppOpened()` on create.
+- `vm.keepScreenOn.collect { ... }` in a `LaunchedEffect` that adds/removes
+  `FLAG_KEEP_SCREEN_ON` on `window`.
+- `onResume` equivalent: `LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+  vm.checkUpgrades(); vm.checkErrors() }` inside the composition.
+- `onNewIntent` / intent handling for shortcut actions
+  (`ACTION_OPEN_APPCONTROL`, `ACTION_UPGRADE`) — dispatch through
+  `vm.navTo(AppControlListRoute)` / `vm.navTo(UpgradeRoute())`. Butler does
+  this via a `savedIntent` field processed in a `LaunchedEffect` tied to
+  `vm.startupState` so routing happens after the nav graph is ready.
+- `navController.addOnDestinationChangedListener` breadcrumb
+  (`Bugs.leaveBreadCrumb("Navigated to ...")`) — replaced by a
+  `LaunchedEffect(backStack.size) { Bugs.leaveBreadCrumb("Navigated to
+  ${backStack.lastOrNull()}") }`.
+- `vm.errorEvents` routed via the root `ErrorEventHandler(vm)` — the old
+  `observe2` call.
+- `onSaveInstanceState`'s `B_KEY_SPLASH` handling — carried by Compose
+  `rememberSaveable` on `showSplashScreen` state.
+
+**Step 3b: The end-to-end spike.** Before converting any real screen, build
+*one* throwaway destination that exercises every risky integration point. This
+proves the pattern works end-to-end. If any of these fail, stop and fix the
+foundation.
+
+The spike screen: `SpikeScreenHost(vm = hiltViewModel())` registered at a
+`SpikeRoute(val id: InstallId?, val label: String)` destination (nullable
+custom-type arg, matches real routes like `AppJunkDetailsRoute`).
+
+Spike acceptance checklist:
+- [ ] `SpikeViewModel : ViewModel4` receives the route instance via
+      assisted injection or `SavedStateHandle.toRoute<SpikeRoute>()` — which
+      one is dictated by whether Navigation3 + Hilt under
+      `rememberViewModelStoreNavEntryDecorator()` populates the saved state
+      with the serialized route. **Prove which works before Phase 4.**
+      (Butler's `SetupNavigation.kt` calls the ViewModel-factory pattern via
+      `entry<DestinationSetup> { destination -> SetupScreenHost(options = ...) }`
+      passing the `destination` object *directly* as a Composable param —
+      that's the canonical route-to-VM plumbing. Match it.)
+- [ ] The `SpikeScreen` renders state collected via
+      `collectAsStateWithLifecycle`.
+- [ ] Navigating to SpikeRoute from the dashboard via `vm.navTo(SpikeRoute(
+      id = null, label = "hello"))` works and the nullable arg survives
+      serialization.
+- [ ] `vm.errorEvents.tryEmit(IllegalStateException("boom"))` triggers the
+      Host's `ErrorEventHandler` and shows the Compose `ErrorDialog`.
+      Negative test: triggering the same error from `MainViewModel` must
+      show the dialog *via the MainActivity-root handler*, not via the
+      SpikeScreenHost — proves the two handlers are independent.
+- [ ] `vm.navUp()` pops back to the dashboard.
+- [ ] A `rememberLauncherForActivityResult(ActivityResultContracts.CreateDocument(...))`
+      inside `SpikeScreenHost` opens the system picker on button press and
+      delivers the URI back to the VM.
+- [ ] A `SingleEventFlow<Intent>` on the VM, collected in the host,
+      successfully `context.startActivity(intent)` for a dummy VIEW intent.
+- [ ] Background the app, kill the process, relaunch — the Spike route
+      restores with the original label and the back stack is intact (tests
+      `rememberSavedStateNavEntryDecorator()` + Navigation3 saved state).
+- [ ] Theme switch Light → Dark → Material You during the spike screen is
+      visible, does not recreate the Activity, and the splash theme still
+      works on cold start.
+- [ ] A hardware back press on SpikeRoute pops the nav stack; a hardware
+      back press on the root dashboard shows a toast per butler's
+      double-back-to-exit convention (verify whether SD Maid wants this —
+      optional).
+
+Only when every checkbox passes does Phase 3 exit. The spike code is then
+deleted before Phase 4 begins — its purpose is to prove the foundation, not
+to ship.
+
+**Step 3c: MainActivity replacement ships.** Delete `main_activity.xml`, the
+`NavHostFragment`, `MainActivityBinding` imports. `MainViewModel` becomes a
+`ViewModel4`. Add `AppNavigation.kt` as a throwaway `NavigationEntry` that
+registers just `DashboardRoute` → "Dashboard will go here" placeholder
+composable so the real dashboard conversion in Phase 4 can swap in.
+
+### Phase 4 — `main` feature (dashboard, settings, onboarding, setup, upgrade)
+This is the biggest module. Convert in this order (each a commit):
+1. `OnboardingWelcomeFragment`, `OnboardingPrivacyFragment`,
+   `OnboardingSetupFragment`, `VersusSetupFragment`.
+2. `DashboardFragment` → `DashboardScreen` + `DashboardViewModel` extending
+   `ViewModel4`. All dashboard cards become Composables.
+3. `SetupFragment` (with its option bag).
+4. `SettingsFragment` root index + `DashboardCardConfigFragment` +
+   `SupportContactFormFragment` + `DebugLogSessionsDialog` (now an inline
+   `ModalBottomSheet`).
+5. `UpgradeFragment` (both `foss` and `gplay` flavors — each flavor ships its
+   own `UpgradeNavigation.kt` in its flavor source set, bound via
+   `@Binds @IntoSet`. Same pattern as butler's
+   `foss/...upgrade/ui/UpgradeNavigation.kt`).
+6. `DataAreasFragment`, `LogViewFragment`.
+
+At the end of Phase 4 the entire `main` module no longer has Fragments except
+maybe stubbed settings pages. Add `MainNavigation.kt` `@IntoSet` binding.
+
+### Phase 5 — Tool modules (parallelizable, one tool per commit range)
+
+For each tool module (`app-tool-corpsefinder`, `app-tool-systemcleaner`,
+`app-tool-appcleaner`, `app-tool-deduplicator`, `app-tool-appcontrol`,
+`app-tool-scheduler`, `app-tool-squeezer`, `app-tool-swiper`):
+
+1. Add `buildFeatures { compose = true }` + `addCompose()` +
+   `addNavigation3()` to the module's build file.
+2. Convert each Fragment screen to a `*ScreenHost` + `*Screen` Composable
+   pair + `*ViewModelX : ViewModel4` (or `ViewModel3` for terminal screens).
+3. Replace `*Adapter` / `*VH` files with row Composables.
+4. Rewrite the module's preferences XML as a Compose settings screen using
+   the settings row toolkit from Phase 2.
+5. Create `<Tool>Navigation.kt` (Hilt `@IntoSet`-bound) registering every
+   destination the module owns via Navigation3 `entry<Route>` calls.
+6. Delete the module's `res/layout/*.xml`, `res/xml/preferences_*.xml`,
+   and ViewBinding references. `buildFeatures.viewBinding = false`.
+7. Use `devtools:build-runner` to keep verbose output isolated.
+
+Recommended execution order (simplest → hardest, so the pattern is proven
+before the hardest screens):
+
+1. CorpseFinder (simple list + details, clean forensics path)
+2. SystemCleaner (adds custom filter editor — more dialogs)
+3. AppCleaner (most tabs, multiple detail layers)
+4. AppControl (rich action dialog + filter bar)
+5. Scheduler (small but uses picker dialogs)
+6. Squeezer (list + setup flow + settings)
+7. Deduplicator (grid/linear switch + arbiter config — most adapters)
+8. Swiper (custom swipe UI — most interactive)
+
+### Phase 6 — Analyzer (`app/…/analyzer/ui/`)
+
+Analyzer has 5 nested destinations (DeviceStorage → Apps → AppDetails and
+Content → StorageContent) and a storage-bar visualization. Convert as a
+single unit. Reuse the proportional bar from the recently reverted grid-view
+branch as a Composable primitive.
+
+### Phase 7 — Cross-cutting feature modules
+
+- `app-common-stats` (ReportsFragment, SpaceHistoryFragment,
+  AffectedPathsFragment, AffectedPkgsFragment)
+- `app-common-exclusion` (list + 3 editor screens)
+- `app-common-picker` (PickerFragment) — verify Navigation3 can host the
+  storage-access-framework handoff
+- `common/previews` (PreviewFragment + PreviewItemFragment)
+- `common/filter` (CustomFilterEditorFragment etc.)
+- `common/debug/logviewer` and `common/upgrade/ui`
+
+Each ships its own `NavigationEntry` multibound to Hilt. Module-level
+`viewBinding = false` at the end.
+
+### Phase 8 — Route cleanup (most of this already happened incrementally)
+
+The Phase 3 spike already proved the end-to-end route-to-VM plumbing, and
+Phases 4–7 add `: NavigationDestination` to each route file as their
+module gets converted. This phase is the final sweep:
+
+- Grep for any remaining `serializableNavType(...)` declarations — delete.
+  Navigation3 doesn't need them because the destination object is passed
+  directly into the `entry<Route>` lambda.
+- Delete the `app-common-ui/common/navigation/SerializableNavType.kt` helper
+  itself.
+- Delete `MainNavGraph.kt` (replaced by the Set of `NavigationEntry`s).
+- Extend `CommonRoutesSerializationTest` to round-trip every route type,
+  including those with nullable/custom-typed args. This is the strongest
+  single regression guard for the whole rewrite.
+- Audit the diff of every `*Route.kt` file: the only change should be
+  adding `: NavigationDestination`. Any other drift from the rewrite is a
+  smell.
+
+### Phase 9 — Cleanup
+
+1. Delete every `Fragment2`/`Fragment3`/`DialogFragment2`/`DialogFragment3`/
+   `PreferenceFragment2`/`PreferenceFragment3`/`BottomSheetDialogFragment2`,
+   `SingleLiveEvent`, `NavCommand`, old `Fragment3` nav observation code.
+2. Delete all `res/layout/*.xml` except the splash theme reference.
+3. Delete all `res/xml/preferences_*.xml` and custom preference attrs.
+4. Remove `androidx.preference:preference-ktx`,
+   `androidx.navigation:navigation-fragment-ktx`, and
+   `androidx.navigation:navigation-ui-ktx` from `addAndroidUI()`.
+5. Remove `androidx.fragment:fragment-ktx` if nothing still imports it.
+6. Remove `viewBinding = true` from every module — set to `false` or drop.
+7. Run `./gradlew lintVitalFossRelease lintVitalGplayRelease assembleFossDebug assembleGplayDebug testFossDebugUnitTest`
+   (via `devtools:build-runner`) and fix everything.
+8. Crowdin/string audit: ensure no new untranslated strings leaked in. Run
+   `/android-translation:strings`.
+9. Smoke test the debug APK on a real device using `debugbadger:debug` for the
+   happy path of each tool (scan → review → delete) plus onboarding. Grep the
+   remaining Kotlin for any leftover `?attr/colorX` or
+   `MaterialColors.getColor()` usages — must be replaced with
+   `MaterialTheme.colorScheme.*`.
+
+### Phase 10 — Review and confirmation (visual regression sweep)
+
+Final gate before the rewrite can merge to `main`. Matches Phase 0b's
+screenshot capture against the new build, screen-for-screen, to catch visual
+regressions that slipped through per-phase verification.
+
+**Device prep (must match Phase 0b exactly)**
+
+Same device (`emulator-5558`), same theme mode (Light), same theme style
+(DEFAULT), same locale (en), same orientation (portrait), same font scale
+(default). Use the settings prelude recorded at the top of the inventory
+file. If **any** dimension differs from Phase 0b the diff is meaningless.
+
+Install the **new** FOSS debug APK built from the final `compose-rewrite`
+tip. Re-populate test data using the same `tooling/testdata-generator/`
+invocation (recorded in Phase 0b).
+
+**Recapture procedure**
+
+Iterate every row in `.claude/scratch/compose-rewrite-inventory.md`:
+
+1. Drive debugbadger to the screen using the navigation path recorded in
+   Phase 0b (adjusted for any Compose-era route renames, which must have
+   been noted during Phases 4–7).
+2. Wait for steady state.
+3. Capture to
+   `.claude/scratch/screenshots/after/<tool>/<screen-id>.png` using the same
+   filename convention as `before/`.
+4. Visually compare `before/` and `after/`. Classify each screen as:
+   - **Pass** — pixel-identical or within acceptable Material3-driven
+     variance (minor spacing, ripple timing, elevation shadows).
+   - **Intentional deviation** — a documented design improvement (visual
+     fidelity decision #3 allowed small improvements "where they fall out
+     of the rewrite naturally"). The deviation must be explicitly
+     recorded in a `deviations.md` alongside the screenshots, with a
+     one-line justification per screen.
+   - **Regression** — unintentional difference. Blocks merge. Must be
+     fixed and the screen recaptured.
+
+**Regression report**
+
+Produce `.claude/scratch/regression-report.md` with one row per screen:
+status (pass/deviation/regression), filename, and a link to the `before/`
+and `after/` images. Attach it to the merge-back-to-main PR.
+
+**Interactive smoke test (not just static screenshots)**
+
+Static diffs miss behavioral regressions. For each tool, walk the happy
+path end-to-end on device:
+
+1. Open the tool from the dashboard.
+2. Run a scan (or trigger equivalent data-gathering).
+3. Review results. Scroll the list. Open at least one detail screen.
+4. Perform the primary action (delete / exclude / dedupe / etc.).
+5. Observe the success/undo snackbar.
+6. Return to the dashboard and confirm state refresh.
+
+Also walk these cross-cutting flows:
+
+- Onboarding from a freshly-installed app (wipe + reinstall).
+- Upgrade screen from both FOSS and GPlay flavors.
+- Settings → each tool's settings subscreen.
+- Exclusions: add a path exclusion, verify it's respected on the next scan.
+- Theme switch: Light → Dark → Material You, no activity recreation for
+  MainActivity.
+- Shortcut entry: launch via launcher long-press → AppControl shortcut,
+  verify it lands on `AppControlListRoute` directly.
+- Process death: kill the app mid-screen (3 levels deep), relaunch, verify
+  back-stack restore.
+- Picker round-trip: SwiperSessions opens the picker, selects a path, sees
+  the result on return.
+
+**Exit criteria for Phase 10**
+
+- All screens in the inventory have an `after/` capture.
+- Zero unresolved regressions in the report.
+- All intentional deviations are documented.
+- Every cross-cutting flow above is signed off in the report.
+- `./gradlew lintVitalFossRelease lintVitalGplayRelease` both green.
+- `./gradlew test` across all modules green.
+- Only then is the branch ready to merge to `main`.
+
+---
+
+## Critical files to create/modify
+
+**Create:**
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/flow/SingleEventFlow.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/error/ErrorEventSource.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/error/ErrorEventHandler.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/error/ErrorDialog.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavEvent.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavigationDestination.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavigationController.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavigationEntry.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavigationEventSource.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavigationEventHandler.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/LocalNavigationController.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/uix/ViewModel4.kt`
+- **Theming (ported from butler)**:
+  - `common/theming/ThemeMode.kt`
+  - `common/theming/ThemeStyle.kt`
+  - `common/theming/ThemeColor.kt`
+  - `common/theming/ThemeState.kt`
+  - `common/theming/SdmSeColorsGreen.kt`
+  - `common/theming/ThemeColorProvider.kt`
+  - `common/theming/ColorSchemeExtensions.kt`
+  - `common/theming/SdmSeTypography.kt`
+  - `common/theming/SdmSeTheme.kt`
+- **Preview infrastructure (ported from butler)**:
+  - `common/compose/preview/Preview2.kt` (+ `Preview2Tablet`)
+  - `common/compose/preview/PreviewWrapper.kt`
+  - `common/compose/preview/SampleContent.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/compose/settings/*.kt` (settings row toolkit)
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/compose/settings/dialogs/*.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/compose/*.kt` (Scaffold, Loading, Empty, ConfirmationDialog, BreadCrumbRow, ProgressOverlay, AppInfoTag — each with its own file and `@Preview2` preview)
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/results/ResultBus.kt`
+- `app-common-test/src/main/java/testhelpers/ComposeTest.kt` (Robolectric-backed base class, ported from butler)
+- `.claude/scratch/compose-rewrite-inventory.md` (Phase 0 + 0b artifact —
+  Fragment/VM/state table, route args, fragment results, activity launchers,
+  custom views, adapters, plus the per-screen table feeding Phase 10).
+- `.claude/scratch/screenshots/before/**/*.png` (Phase 0b artifact — baseline
+  captures of every screen, committed to the branch so they survive
+  subsequent rewrites).
+- `.claude/scratch/screenshots/after/**/*.png` (Phase 10 artifact).
+- `.claude/scratch/screenshots/deviations.md` (Phase 10 artifact — documents
+  every intentional visual change with justification).
+- `.claude/scratch/regression-report.md` (Phase 10 artifact — per-screen
+  pass/deviation/regression status, attached to the merge PR).
+- One `<Feature>Navigation.kt` file per module (~16 files) with
+  `@Binds @IntoSet` Mod, replacing the contents of `MainNavGraph.kt`.
+- One `*ScreenHost.kt` / `*Screen.kt` pair per converted screen (~62 × 2),
+  plus one file per extracted child composable (rows, headers, empty states,
+  action bars — each with its own preview).
+
+**Modify:**
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/uix/ViewModel2.kt` —
+  adopt butler's shape (abstract `launchErrorHandler`, `asStateFlow`,
+  `launchInViewModel`).
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/uix/ViewModel3.kt` —
+  drop `NavEventSource`, keep only `ErrorEventSource` with `SingleEventFlow`.
+- `app/src/main/java/eu/darken/sdmse/main/ui/MainActivity.kt` — full rewrite.
+- `buildSrc/src/main/java/Versions.kt` — add Compose/Navigation3 blocks.
+- `buildSrc/src/main/java/Dependencies.kt` — add `addCompose()`,
+  `addNavigation3()`. Remove `preference-ktx` and nav-fragment from
+  `addAndroidUI()` in Phase 9.
+- Every `app-tool-*/build.gradle.kts` and `app-common-*/build.gradle.kts` that
+  currently has UI — enable Compose, disable ViewBinding.
+- Every `*Route.kt` file — add `: NavigationDestination` superinterface.
+
+**Delete (Phase 9):**
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/SingleLiveEvent.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/navigation/NavCommand.kt`
+- `app-common-ui/src/main/java/eu/darken/sdmse/common/uix/Fragment2.kt`,
+  `Fragment3.kt`, `DialogFragment2.kt`, `DialogFragment3.kt`,
+  `BottomSheetDialogFragment2.kt`, `PreferenceFragment2.kt`,
+  `PreferenceFragment3.kt`.
+- All `res/layout/*.xml` across all modules (207 files).
+- All `res/xml/preferences_*.xml` across all modules (13 files).
+- `app/src/main/java/eu/darken/sdmse/main/ui/navigation/MainNavGraph.kt`.
+- The 50 `*Adapter.kt` files and 19 `*VH.kt` files.
+- `BaseAdapter.kt`, `ModularAdapter.kt`, `DataBinderMod.kt`,
+  `TypedVHCreatorMod.kt` and the rest of `common/lists/`.
+
+---
+
+## Reused code (do not rewrite)
+
+- `DynamicStateFlow` — keep. Works with `collectAsStateWithLifecycle()` via a
+  tiny extension on the consumer side.
+- `DispatcherProvider`, `DefaultDispatcherProvider` — keep.
+- `PreferenceScreenData` interface + `PreferenceStoreMapper` — keep.
+  Settings UI layer writes through DataStore directly; `PreferenceStoreMapper`
+  is kept only for the preference-to-DataStore bridge that's used outside of
+  UI (e.g. settings migrations).
+- `GeneralSettings` and every per-tool `*Settings` class — keep.
+- All ViewModels' business logic — keep. Only their base class changes
+  (`ViewModel3` → `ViewModel4` where they used to emit `navEvents`) and their
+  nav calls (`navigateTo(CorpseDetailsRoute)` → `navTo(CorpseDetailsRoute)`).
+- `Theming.kt` DataStore state — keep; expose as StateFlow for Compose.
+- `asErrorDialogBuilder` dialog text/icon/reporting logic — port the content
+  into a Composable `ErrorDialog` but reuse the same copy/translations.
+- Every `@Serializable` route data class — keep the shape; only add interface.
+- All `common/navigation/routes/*.kt` typed argument wrappers.
+- The `CurriculumVitae`, `ShortcutManager`, `Theming`, `MainViewModel` Hilt
+  bindings on `MainActivity`.
+
+---
+
+## Verification
+
+**Per-phase** (gates every commit batch):
+- `devtools:build-runner` → `./gradlew :app:assembleFossDebug` must be green.
+- `devtools:build-runner` → `./gradlew testFossDebugUnitTest` must pass.
+  This runs both the existing `BaseTest`-based JUnit 5 suite **and** the new
+  Robolectric-backed `ComposeTest` classes added in Phase 2+. Gate with
+  `CommonRoutesSerializationTest` and any Compose component test that ships
+  with the phase.
+- Previews for every composable added in the phase must render in Android
+  Studio's preview pane — a broken preview is a blocker.
+- Install on device, open the converted screen, tap every interactive
+  element present in the old XML version, and tick off the corresponding
+  row in the Phase 0 inventory file. The inventory is the progress
+  thermometer for the whole rewrite.
+
+**Failure-path verification — the most likely regression surface.**
+Rotation alone is insufficient. After any module conversion, run through the
+following scenarios on a real device for every converted screen:
+
+- **Process death**: `adb shell am kill eu.darken.sdmse` (or Developer
+  Options → "Don't keep activities") while the screen is visible, reopen
+  the app. Route must restore, VM state must either restore (via
+  `rememberSavedStateNavEntryDecorator`) or cold-start cleanly.
+- **Back-stack restore on cold restart**: navigate 3 levels deep, kill the
+  app, relaunch — back stack should restore to the deepest route.
+- **Shortcut entry path**: from a launcher shortcut
+  (`ACTION_OPEN_APPCONTROL`, `ACTION_UPGRADE`), confirm the initial route
+  is the shortcut target, not the dashboard.
+- **Picker result round-trip**: navigate caller → picker → pick path → pop
+  → caller receives the result via `ResultBus`. Do this after process
+  death too (caller VM must re-subscribe on restore).
+- **Missing external apps**: trigger every `startActivity(intent)` site
+  (Play Store, email, file manager) on a device that doesn't have the
+  target app installed — must not crash. `SetupFragment` already has
+  fallback handling for missing settings/apps; this behavior must be
+  preserved.
+- **Permission launchers**: deny the permission twice, then allow it.
+  The VM must receive each outcome. `MANAGE_EXTERNAL_STORAGE`,
+  `SCHEDULE_EXACT_ALARM`, and `POST_NOTIFICATIONS` are the three existing
+  contracts — verify each one.
+- **Back-into-selection**: in CAB-style multi-select screens
+  (SystemCleaner, Exclusion), select items, press back — must exit
+  selection without popping the nav stack. Press back again — must pop.
+- **Theme switching on all alive activities**: switch Light → Dark →
+  Material You while MainActivity is visible. Do the same while
+  RecorderActivity is open (debug builds) — RecorderActivity will still
+  recreate because it uses the XML theme, which is expected.
+- **Configuration change storm**: rotate device 5 times in a second on a
+  screen with a large list. LazyColumn must preserve scroll position and
+  not drop selection state.
+- **Deep route args round-trip**: navigate to a destination with a
+  nullable custom-typed argument (e.g. `AppJunkDetailsRoute(installId =
+  null)`), rotate, back. Argument should survive serialization.
+
+**End-to-end** (before considering the rewrite ready to merge):
+- `./gradlew lintVitalFossRelease lintVitalGplayRelease` both green.
+- `./gradlew assembleFossDebug assembleFossRelease assembleGplayDebug assembleGplayRelease`.
+- `./gradlew test` across all modules.
+- Manual smoke test using `debugbadger:debug` (connected Android device) for
+  each cleaning tool's happy path: scan → review result → delete → undo.
+  Include onboarding, settings, and the upgrade screen in both flavors.
+- Memory sanity check: open Analyzer on a large device, scroll through the
+  file list (the old ModularAdapter was hand-tuned; `LazyColumn` needs
+  stable `key`s on each item or you'll regress frame pacing).
+- Crowdin/string audit: run `/android-translation:strings` to confirm no
+  new untranslated strings leaked in.
+
+---
+
+## Risks & mitigations
+
+0. **Per-screen event handler coverage — highest risk.**
+   The MainActivity root only collects `MainViewModel`'s nav/error events.
+   Every feature VM's `SingleEventFlow`s need a `Host` composable to call
+   `ErrorEventHandler(vm)` + `NavigationEventHandler(vm)` — if a screen skips
+   the Host pattern, its nav calls silently drop.
+   - *Mitigation*: the Host/Page split is mandatory for every screen,
+     documented in Section 0 of this plan and enforced by pattern-matching
+     the butler guidelines file. Phase 3 spike must include a negative test
+     that triggers an error event from a feature VM and confirms the Host
+     handler (not the MainActivity handler) is what shows the dialog.
+   - *Secondary check*: grep for `ErrorEventHandler(` at the end of every
+     phase — the count must equal the number of feature ScreenHosts.
+
+1. **Navigation3 is alpha** — `1.0.0-alpha08`. API may shift mid-rewrite.
+   - *Mitigation*: pin the exact version used by butler (which is on the
+     same alpha). Monitor butler's bumps and follow them.
+   - Butler's `NavigationEntry` uses `EntryProviderBuilder<NavKey>`, capod's
+     uses `EntryProviderScope<NavKey>` — the API evolved. Use whichever the
+     pinned alpha ships; pick the newer (`EntryProviderScope`) only if the
+     pinned version supports it.
+
+2. **Hilt + Navigation3 ViewModel scoping** — sibling projects use
+   `rememberViewModelStoreNavEntryDecorator()`. Each entry gets its own
+   `ViewModelStoreOwner`. Passing the VM into the entry block means using
+   `hiltViewModel()` inside the `entry<Route> { ... }` lambda.
+   - *Mitigation*: reference butler's entry impls (e.g.
+     `SetupNavigation.kt`, `WorkspaceNavigation.kt`) — they're the canonical
+     pattern. The Phase 3 spike must validate this before Phase 4 starts.
+
+3. **Preference screen parity** — 15 preference screens with ~150 individual
+   preferences. Easy to miss one and ship a regression.
+   - *Mitigation*: do a preference-by-preference diff between the old XML and
+     the new Compose file during Phase 5, commit-by-tool. Grep every
+     `preferences_*.xml` key against `createValue(…)` calls in the matching
+     `*Settings.kt` to catch orphans.
+
+4. **Custom chart in SpaceHistoryFragment** — likely uses MPAndroidChart or
+   similar non-Compose lib.
+   - *Mitigation*: keep inside `AndroidView { … }`. Not worth a bespoke
+     Compose chart during this rewrite; revisit in a later branch.
+
+5. **Hidden LiveData fan-out** — any ad-hoc `LiveData` observed in Fragments
+   other than nav/error events (e.g. loading states, result lists). Some
+   ViewModels use `asLiveData()` for non-event state.
+   - *Mitigation*: grep `\.observe2\(` and `\.asLiveData` across the repo
+     in Phase 0. Convert each to StateFlow +
+     `collectAsStateWithLifecycle()`. Phase 0 should produce a concrete list
+     that scopes the conversion work.
+
+6. **Thread contention in `SingleEventFlow`** — butler's `errorEvents` uses
+   `emitBlocking` from the `CoroutineExceptionHandler`, which is called from
+   arbitrary threads. Validated by butler in production.
+   - *Mitigation*: none needed; straight port.
+
+7. **FOSS vs GPlay flavor upgrade screen** — two different
+   `upgrade_fragment.xml` files today. Butler handles this with
+   flavor-specific `UpgradeNavigation.kt` files under `foss/` and `gplay/`
+   source sets, each with their own `@Binds @IntoSet`.
+   - *Mitigation*: copy butler's exact layout
+     (`app/src/foss/...` + `app/src/gplay/...`) — verified to work.
+
+8. **`android.nonTransitiveRClass=true`** — CLAUDE.md warns that
+   `MaterialColors.getColor()` with widget attrs crashes at runtime. With
+   the XML theme kept but no longer driving the Compose UI, any leftover
+   `?attr/...` lookups in Kotlin during transitional screens must be
+   audited and replaced with `MaterialTheme.colorScheme.*`.
+
+9. **Merge conflicts with `main`** — SD Maid SE ships actively. If the
+   rewrite lands in a single session the conflict window is small, but any
+   work that ships to `main` *during* the rewrite session must be rebased in
+   after.
+   - *Mitigation*: start from a freshly-rebased `compose-rewrite` branch at
+     the top of the session. Hold any unrelated merges to `main` until the
+     rewrite lands.
+
+---
+
+## Out of scope
+
+- **Instrumentation tests** that require a connected device or emulator.
+  JVM-executable Compose tests under Robolectric are in scope — see
+  Section 13.
+- Refactoring non-UI modules (`app-common`, `app-common-io`, `app-common-pkgs`,
+  etc.) — they're untouched.
+- Introducing Kotlin Multiplatform / any new non-Compose architecture work.
+- Replacing Hilt.
+- Replacing Room / DataStore / Moshi / Coil / FlowShell.
+- Onboarding copy changes, feature additions, or any behavior change beyond
+  what's needed for UI parity.
+- Building additional theme palettes beyond `ThemeColor.GREEN`. The
+  infrastructure supports multiple palettes (butler has three), but only the
+  current SD Maid green is implemented in this rewrite. Additional palettes
+  are a follow-up branch.
