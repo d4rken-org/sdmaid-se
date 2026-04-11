@@ -484,15 +484,87 @@ None of `app-common-*` or `app-tool-*` manifests declare activities.
 device: emulator-5558
 theme_mode: LIGHT
 theme_style: DEFAULT
-locale: en
-orientation: portrait
+locale: en-US (locale=en-US, ro.product.locale=en-US)
+orientation: portrait (user_rotation=0)
 font_scale: 1.0
-captured_at: <ISO-8601, filled by Phase 0b>
+captured_at: 2026-04-11T19:00
+apk_build: FOSS debug, 1.7.0-rc0 (versionCode 10700000), built 2026-04-11 15:00 from `a403423c2` (docs-only delta vs `main`)
+notes:
+  - Night mode off (`cmd uimode night` → no)
+  - App data cleared before capture to get clean onboarding
+  - Capture method: `adb -s emulator-5558 exec-out screencap -p > <path>` (clean PNGs, no debugbadger overlay markers)
+  - Tap targets located via debugbadger MCP `find_element` + `tap`, with `allowEdgeTap=true` for the bottom system gesture zone
 ```
 
 ---
 
 ## 14. Phase 0b screen table
+
+### Phase 0b status (partial baseline, captured 2026-04-11)
+
+**Captured: 29 screens** covering onboarding, setup, dashboard variants, all settings surfaces reachable from a clean install, the one tool list screen that's reachable without seeded data (SystemCleaner — empty-folders/temp-files filters match on any device), and the Analyzer tree. Additional screens that did not require test data but were missed in this pass can be re-captured from the same device state ad-hoc.
+
+**Reason Phase 0b is partial**: the majority of tool list screens (CorpseFinder, AppCleaner, Deduplicator, Squeezer, Swiper, Scheduler, Analyzer Apps/Content, and every `*Details` / `*Cluster` / `*Junk` pager child) are only reachable after the corresponding tool has real data to show. A scan on an empty emulator returns "0 results" and keeps the user on the dashboard rather than navigating to the list. `tooling/testdata-generator/` was not run during this capture pass — seeding representative data for every tool is a prerequisite for the remaining captures and is deferred to the next Phase 0b extension session (or absorbed into Phase 10's re-capture pass).
+
+**Screens deferred pending test data** (see per-tool notes in Section 1):
+- `corpsefinder_list_*`, `corpsefinder_details`, `corpsefinder_corpse`
+- `appcleaner_list_*`, `appcleaner_details`, `appcleaner_appjunk`
+- `deduplicator_list_linear`, `deduplicator_list_grid`, `dedup_details`, `dedup_cluster`, `dedup_arbiter_config`
+- `squeezer_list_*`, `squeezer_setup` (needs pre-seeded source media)
+- `swiper_sessions_populated`, `swiper_swipe`, `swiper_status`
+- `scheduler_manager_populated`, `scheduler_item_dialog`
+- `systemcleaner_custom_filter_list`, `systemcleaner_custom_filter_editor_*` (custom filter work needs a seeded filter definition)
+- `analyzer_apps`, `analyzer_app_details`, `analyzer_content` (need populated storage with recognised packages)
+- `stats_reports`, `stats_affected_paths`, `stats_affected_pkgs` (need scan history)
+- `preview`, `preview_item` (reached from deduplicator/swiper after selecting an item)
+- `picker` (reached from swiper or exclusion editor)
+- `exclusion_editor_path`, `exclusion_editor_pkg`, `exclusion_editor_segment` (need to add/edit an exclusion)
+- `appcontrol_action_dialog` (long-press a row on populated AppControl list)
+- `data_areas`, `log_view`, `dashboard_card_config` (reached from less obvious entry points — confirm nav paths before re-capturing)
+- `upgrade_gplay` (separate gplay APK build)
+- `overlay_*` (error/progress/delete-confirm/size-age-quality input dialogs — trigger on demand)
+- `framework_mainactivity_cold`, `framework_recorder` (cold start / debug recorder)
+
+**Not captured on this device (conditional)**:
+- `onboarding_versus` — only reached if legacy SD Maid pkg is installed. Fresh install on `emulator-5558` goes welcome → privacy → setup directly, skipping versus.
+
+**Captured screens** (before/*.png):
+
+| id | file | state |
+|---|---|---|
+| onboarding_welcome | `before/onboarding/welcome.png` | fresh install |
+| onboarding_privacy | `before/onboarding/privacy.png` | fresh install, update+MOTD toggles default-on |
+| onboarding_setup | `before/onboarding/setup.png` | final onboarding card |
+| setup_onboarding | `before/setup/main.png` | first-run Setup screen with all permission cards |
+| dashboard_empty | `before/dashboard/dashboard_empty.png` | post-onboarding, Setup-incomplete banner visible, scans not yet run |
+| dashboard_with_results | `before/dashboard/dashboard_with_results.png` | post-scan, SystemCleaner shows 13 filter matches / 27 kB, other tools 0 results, main delete FAB visible |
+| settings_index | `before/settings/index.png` | entry PreferenceFragment list |
+| settings_general | `before/settings/general.png` | General tweaks (theme/style/language/ROM type/update check) |
+| settings_support | `before/settings/support.png` | Support index (contact developer, debug log folder, etc.) |
+| settings_acknowledgements | `before/settings/acknowledgements.png` | static contributors/licenses list |
+| support_contact_form | `before/settings/support_contact_form.png` | Contact developer form, empty fields |
+| debug_log_sessions | `before/settings/debug_log_sessions.png` | Debug log sessions dialog / empty state (no recorded logs) |
+| exclusions_list_empty | `before/exclusions/list_empty.png` | Exclusion manager with no user exclusions |
+| corpsefinder_settings | `before/corpsefinder/settings.png` | filter checkboxes |
+| systemcleaner_settings | `before/systemcleaner/settings.png` | screenshot age/pro-gated toggles |
+| systemcleaner_list_populated | `before/systemcleaner/list_populated.png` | 2 filter matches (Empty folders + Temporary system files) |
+| systemcleaner_delete_confirm | `before/systemcleaner/delete_confirm_dialog.png` | Confirm deletion dialog (delete "Empty folders"?) |
+| systemcleaner_filter_content | `before/systemcleaner/filter_content.png` | inside a filter showing its matched items |
+| appcleaner_settings | `before/appcleaner/settings.png` | size/age input dialog triggers + badged checkboxes |
+| appcontrol_list | `before/appcontrol/list.png` | 1 item (SD Maid itself), debug/APK badges visible |
+| appcontrol_settings | `before/appcontrol/settings.png` | badged checkboxes, pro gating |
+| deduplicator_settings | `before/deduplicator/settings.png` | size input dialog trigger |
+| squeezer_settings | `before/squeezer/settings.png` | Media Squeeze settings screen |
+| swiper_settings | `before/swiper/settings.png` | minimal settings |
+| scheduler_settings | `before/scheduler/settings.png` | minimal settings |
+| stats_settings | `before/stats/settings.png` | History (stats) settings with age input |
+| analyzer_device_storage | `before/analyzer/device_storage.png` | device storage overview with primary + secondary storage cards and inline chart |
+| analyzer_storage_content | `before/analyzer/storage_content.png` | content overview (primary storage, empty populated apps list, pre-rescan) |
+| upgrade_foss | `before/upgrade/main.png` | FOSS upgrade screen (GitHub sponsors CTA) |
+
+**Phase 10 recapture guidance**: matches against `after/` must re-populate test data the same way (ideally via `tooling/testdata-generator/`) so the populated SystemCleaner list has the same 2 filters match. For screens that were deferred here, Phase 10 needs to run the full seed-and-capture pass in addition to the re-capture — those rows will compare their Phase 10 `after/` image against nothing on the `before/` side and should instead be manually inspected against the post-Compose build's behavior.
+
+### Full screen list (pre-populated from Section 1 — populate the blank cells during Phase 0b extension / Phase 10)
 
 Populated in Phase 0b with navigation paths, screenshots, and diff status. Pre-populated with every destination from Section 1.
 
