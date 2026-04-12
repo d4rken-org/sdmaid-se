@@ -90,14 +90,23 @@ class VideoProcessor @Inject constructor(
 
                 if (outcome.replaced) {
                     totalSaved += outcome.savedBytes
-                    // Only record history when an actual replacement happened. A clip that
-                    // didn't shrink or a dry-run must remain visible on the next scan rather
-                    // than silently vanishing from the history skip filter.
                     val contentHash = historyDatabase.computeVideoContentHash(video.path)
                     historyDatabase.recordCompression(contentHash)
                     log(TAG, VERBOSE) { "Compressed ${video.path}: saved ${outcome.savedBytes} bytes" }
+                } else if (outcome.savedBytes == 0L) {
+                    // Actual transcode ran and produced output >= original. Record so rescans
+                    // don't burn cycles re-trying a file we already know won't shrink. Dry runs
+                    // fall through to the else branch (they have savedBytes > 0 even though
+                    // replaced = false). User's retry escape hatch is clearing history.
+                    try {
+                        val contentHash = historyDatabase.computeVideoContentHash(video.path)
+                        historyDatabase.recordNoSavings(contentHash)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to record no-savings for ${video.path}: ${e.message}" }
+                    }
+                    log(TAG, INFO) { "Skipped ${video.path} (no savings, recorded)" }
                 } else {
-                    log(TAG, INFO) { "Skipped ${video.path} (no savings or dry-run)" }
+                    log(TAG, INFO) { "Skipped ${video.path} (dry-run)" }
                 }
             } catch (e: CancellationException) {
                 throw e
@@ -197,7 +206,7 @@ class VideoProcessor @Inject constructor(
                         val progressHolder = ProgressHolder()
 
                         val encoderSettings = VideoEncoderSettings.Builder()
-                            .setBitrate(targetBitrateBps.toInt())
+                            .setBitrate(targetBitrateBps.coerceAtMost(Int.MAX_VALUE.toLong()).toInt())
                             .build()
 
                         val encoderFactory = DefaultEncoderFactory.Builder(context)

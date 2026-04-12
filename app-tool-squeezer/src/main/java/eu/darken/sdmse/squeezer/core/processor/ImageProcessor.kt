@@ -79,14 +79,23 @@ class ImageProcessor @Inject constructor(
 
                 if (outcome.replaced) {
                     totalSaved += outcome.savedBytes
-                    // Only record history when an actual replacement happened. No-savings runs
-                    // and dry runs both leave the file untouched and must remain visible on
-                    // future scans.
                     val contentHash = historyDatabase.computeContentHash(image.path)
                     historyDatabase.recordCompression(contentHash)
                     log(TAG, VERBOSE) { "Compressed ${image.path}: saved ${outcome.savedBytes} bytes" }
+                } else if (outcome.savedBytes == 0L) {
+                    // Actual re-encode ran and produced output >= original. Record so rescans
+                    // don't burn cycles re-trying a file we already know won't shrink. Dry runs
+                    // fall through to the else branch (they have savedBytes > 0 even though
+                    // replaced = false). User's retry escape hatch is clearing history.
+                    try {
+                        val contentHash = historyDatabase.computeContentHash(image.path)
+                        historyDatabase.recordNoSavings(contentHash)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to record no-savings for ${image.path}: ${e.message}" }
+                    }
+                    log(TAG, INFO) { "Skipped ${image.path} (no savings, recorded)" }
                 } else {
-                    log(TAG, INFO) { "Skipped ${image.path} (no savings or dry-run)" }
+                    log(TAG, INFO) { "Skipped ${image.path} (dry-run)" }
                 }
             } catch (e: CancellationException) {
                 throw e
