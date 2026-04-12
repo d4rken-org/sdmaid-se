@@ -3,11 +3,15 @@ package eu.darken.sdmse.deduplicator.ui
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
 import androidx.navigation.toRoute
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KType
 import kotlin.reflect.typeOf
+
+@Serializable
+data object DeduplicatorSettingsRoute : NavigationDestination
 
 @Serializable
 data object DeduplicatorListRoute

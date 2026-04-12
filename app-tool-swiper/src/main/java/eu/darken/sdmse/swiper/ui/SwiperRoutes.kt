@@ -2,7 +2,11 @@ package eu.darken.sdmse.swiper.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import kotlinx.serialization.Serializable
+
+@Serializable
+data object SwiperSettingsRoute : NavigationDestination
 
 @Serializable
 data class SwiperSwipeRoute(

@@ -2,8 +2,12 @@ package eu.darken.sdmse.stats.ui
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.toRoute
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import kotlinx.serialization.Serializable
 import java.util.UUID
+
+@Serializable
+data object StatsSettingsRoute : NavigationDestination
 
 @Serializable
 data object ReportsRoute

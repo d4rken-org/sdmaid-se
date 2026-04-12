@@ -1,6 +1,5 @@
 package eu.darken.sdmse.main.ui.settings
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material.icons.Icons
@@ -41,11 +40,20 @@ import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.appcleaner.ui.AppCleanerSettingsRoute
+import eu.darken.sdmse.appcontrol.ui.AppControlSettingsRoute
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorSettingsRoute
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.ui.navigation.AcknowledgementsRoute
 import eu.darken.sdmse.main.ui.navigation.GeneralSettingsRoute
 import eu.darken.sdmse.main.ui.navigation.SupportRoute
+import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
 import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerSettingsRoute
+import eu.darken.sdmse.stats.ui.StatsSettingsRoute
+import eu.darken.sdmse.swiper.ui.SwiperSettingsRoute
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
@@ -92,16 +100,21 @@ fun SettingsScreenHost(
         onSponsorClick = vm::openUpgradeWebsite,
         onChangelogClick = { vm.openWebsite("https://sdmse.darken.eu/changelog") },
         onChangelogLongClick = vm::showVersionInfos,
-        onToolSettingsClick = { fragmentClass ->
-            // Tool settings not yet converted to Compose — show TODO toast
-            Toast.makeText(context, "TODO: Navigate to $fragmentClass", Toast.LENGTH_SHORT).show()
+        onToolSettingsClick = { tool ->
+            val route = when (tool) {
+                "CorpseFinder" -> CorpseFinderSettingsRoute
+                "SystemCleaner" -> SystemCleanerSettingsRoute
+                "AppCleaner" -> AppCleanerSettingsRoute
+                "Deduplicator" -> DeduplicatorSettingsRoute
+                "AppControl" -> AppControlSettingsRoute
+                "Squeezer" -> SqueezerSettingsRoute
+                "Swiper" -> SwiperSettingsRoute
+                else -> return@SettingsScreen
+            }
+            vm.navTo(route)
         },
-        onStatsClick = {
-            Toast.makeText(context, "TODO: Navigate to Stats settings", Toast.LENGTH_SHORT).show()
-        },
-        onSchedulerClick = {
-            Toast.makeText(context, "TODO: Navigate to Scheduler settings", Toast.LENGTH_SHORT).show()
-        },
+        onStatsClick = { vm.navTo(StatsSettingsRoute) },
+        onSchedulerClick = { vm.navTo(SchedulerSettingsRoute) },
     )
 }
 

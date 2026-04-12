@@ -14,13 +14,17 @@ import eu.darken.sdmse.analyzer.ui.storage.apps.AppsFragment
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentFragment
 import eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragment
+import eu.darken.sdmse.appcleaner.ui.AppCleanerSettingsRoute
 import eu.darken.sdmse.appcleaner.ui.AppCleanerListRoute
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.appcleaner.ui.AppJunkRoute
 import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment
+import eu.darken.sdmse.appcleaner.ui.settings.AppCleanerSettingsFragment
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
+import eu.darken.sdmse.appcontrol.ui.AppControlSettingsRoute
+import eu.darken.sdmse.appcontrol.ui.settings.AppControlSettingsFragment
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment
 import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog
@@ -43,7 +47,9 @@ import eu.darken.sdmse.common.previews.item.PreviewItemFragment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderListRoute
+import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
 import eu.darken.sdmse.corpsefinder.ui.CorpseRoute
+import eu.darken.sdmse.corpsefinder.ui.settings.CorpseFinderSettingsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment
 import eu.darken.sdmse.corpsefinder.ui.list.CorpseFinderListFragment
@@ -52,6 +58,8 @@ import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import eu.darken.sdmse.deduplicator.ui.ClusterRoute
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorSettingsRoute
+import eu.darken.sdmse.deduplicator.ui.settings.DeduplicatorSettingsFragment
 import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment
@@ -76,14 +84,16 @@ import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFr
 import eu.darken.sdmse.main.ui.settings.support.sessions.DebugLogSessionsDialog
 import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
+import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
+import eu.darken.sdmse.scheduler.ui.settings.SchedulerSettingsFragment
 import eu.darken.sdmse.scheduler.ui.manager.SchedulerManagerFragment
 import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog
 // SetupFragment — converted to Compose
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
-import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.ui.SqueezerSettingsRoute
+import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.ui.list.SqueezerListFragment
 import eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment
 import eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment
@@ -106,7 +116,13 @@ import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
+import eu.darken.sdmse.stats.ui.StatsSettingsRoute
+import eu.darken.sdmse.stats.ui.settings.StatsSettingsFragment
+import eu.darken.sdmse.swiper.ui.SwiperSettingsRoute
+import eu.darken.sdmse.swiper.ui.settings.SwiperSettingsFragment
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
+import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
+import eu.darken.sdmse.systemcleaner.ui.settings.SystemCleanerSettingsFragment
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragment
 import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
@@ -149,6 +165,17 @@ fun NavGraphBuilder.mainNavGraph() {
     // Data Areas & Log
     // DataAreas — converted to Compose, registered via AppNavigation
     // LogView — converted to Compose, registered via AppNavigation
+
+    // Tool Settings (Fragment-based, will be converted in later phases)
+    fragment<CorpseFinderSettingsFragment, CorpseFinderSettingsRoute>()
+    fragment<SystemCleanerSettingsFragment, SystemCleanerSettingsRoute>()
+    fragment<AppCleanerSettingsFragment, AppCleanerSettingsRoute>()
+    fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
+    fragment<AppControlSettingsFragment, AppControlSettingsRoute>()
+    fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
+    fragment<SwiperSettingsFragment, SwiperSettingsRoute>()
+    fragment<SchedulerSettingsFragment, SchedulerSettingsRoute>()
+    fragment<StatsSettingsFragment, StatsSettingsRoute>()
 
     // CorpseFinder
     fragment<CorpseFinderListFragment, CorpseFinderListRoute>()
@@ -230,7 +257,6 @@ fun NavGraphBuilder.mainNavGraph() {
     // Squeezer
     fragment<SqueezerSetupFragment, SqueezerSetupRoute>()
     fragment<SqueezerListFragment, SqueezerListRoute>()
-    fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
 
     // Preview
     dialog<PreviewFragment, PreviewRoute>(
