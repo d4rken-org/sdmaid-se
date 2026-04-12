@@ -19,7 +19,7 @@ data object ExclusionsListRoute : NavigationDestination
 data class PathExclusionEditorRoute(
     val exclusionId: String? = null,
     val initial: PathExclusionEditorOptions? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<PathExclusionEditorOptions?>() to serializableNavType(PathExclusionEditorOptions.serializer(), isNullableAllowed = true),
@@ -33,7 +33,7 @@ data class PathExclusionEditorRoute(
 data class PkgExclusionEditorRoute(
     val exclusionId: String? = null,
     val initial: PkgExclusionEditorOptions? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<PkgExclusionEditorOptions?>() to serializableNavType(PkgExclusionEditorOptions.serializer(), isNullableAllowed = true),
@@ -47,7 +47,7 @@ data class PkgExclusionEditorRoute(
 data class SegmentExclusionEditorRoute(
     val exclusionId: String? = null,
     val initial: SegmentExclusionEditorOptions? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<SegmentExclusionEditorOptions?>() to serializableNavType(SegmentExclusionEditorOptions.serializer(), isNullableAllowed = true),

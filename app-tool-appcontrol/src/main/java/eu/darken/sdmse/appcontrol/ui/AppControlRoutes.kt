@@ -16,7 +16,7 @@ data object AppControlSettingsRoute : NavigationDestination
 @Serializable
 data class AppActionRoute(
     val installId: InstallId,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<InstallId>() to serializableNavType(InstallId.serializer()),

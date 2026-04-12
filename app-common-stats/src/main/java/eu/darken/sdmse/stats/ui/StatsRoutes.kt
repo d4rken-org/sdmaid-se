@@ -15,7 +15,7 @@ data object ReportsRoute : NavigationDestination
 @Serializable
 data class SpaceHistoryRoute(
     val storageId: String? = null,
-) {
+) : NavigationDestination {
     companion object {
         fun from(handle: SavedStateHandle) = handle.toRoute<SpaceHistoryRoute>()
     }
@@ -24,7 +24,7 @@ data class SpaceHistoryRoute(
 @Serializable
 data class AffectedFilesRoute(
     val reportId: String,
-) {
+) : NavigationDestination {
     constructor(uuid: UUID) : this(reportId = uuid.toString())
     val reportIdUUID: UUID
         get() = try {
@@ -41,7 +41,7 @@ data class AffectedFilesRoute(
 @Serializable
 data class AffectedPkgsRoute(
     val reportId: String,
-) {
+) : NavigationDestination {
     constructor(uuid: UUID) : this(reportId = uuid.toString())
 
     val reportIdUUID: UUID

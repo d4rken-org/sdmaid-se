@@ -34,7 +34,7 @@ data class CorpseDetailsRoute(
 @Serializable
 data class CorpseRoute(
     val identifierJson: String,
-) {
+) : NavigationDestination {
     constructor(identifier: APath) : this(
         identifierJson = Json.encodeToString(APathSerializer, identifier),
     )

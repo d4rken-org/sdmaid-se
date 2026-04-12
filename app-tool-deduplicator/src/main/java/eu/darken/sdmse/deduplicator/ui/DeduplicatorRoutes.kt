@@ -32,7 +32,7 @@ data class DeduplicatorDetailsRoute(
 @Serializable
 data class ClusterRoute(
     val identifier: Duplicate.Cluster.Id,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<Duplicate.Cluster.Id>() to serializableNavType(Duplicate.Cluster.Id.serializer()),

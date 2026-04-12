@@ -14,7 +14,7 @@ data object SchedulerManagerRoute : NavigationDestination
 @Serializable
 data class ScheduleItemRoute(
     val scheduleId: String,
-) {
+) : NavigationDestination {
     companion object {
         fun from(handle: SavedStateHandle) = handle.toRoute<ScheduleItemRoute>()
     }

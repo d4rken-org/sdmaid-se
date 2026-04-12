@@ -32,7 +32,7 @@ data class AppJunkDetailsRoute(
 @Serializable
 data class AppJunkRoute(
     val identifier: InstallId,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<InstallId>() to serializableNavType(InstallId.serializer()),
