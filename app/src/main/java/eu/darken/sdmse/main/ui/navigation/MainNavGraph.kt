@@ -78,7 +78,7 @@ import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
 import eu.darken.sdmse.scheduler.ui.manager.SchedulerManagerFragment
 import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog
-import eu.darken.sdmse.setup.SetupFragment
+// SetupFragment — converted to Compose
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
@@ -136,10 +136,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // Dashboard
     fragment<DashboardFragment, DashboardRoute>()
 
-    // Setup
-    fragment<SetupFragment, SetupRoute>(
-        typeMap = mapOf(typeOf<SetupScreenOptions?>() to SetupScreenOptionsNavType)
-    )
+    // Setup — converted to Compose, registered via AppNavigation
 
     // Settings
     fragment<SettingsFragment, SettingsRoute>()

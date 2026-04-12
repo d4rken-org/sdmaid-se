@@ -18,6 +18,8 @@ import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.ui.UpgradeScreenHost
 import eu.darken.sdmse.main.ui.areas.DataAreasScreenHost
+import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.setup.SetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyScreenHost
 import eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupScreenHost
@@ -37,5 +39,6 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<DataAreasRoute> { DataAreasScreenHost() }
         entry<LogViewRoute> { LogViewScreenHost() }
         entry<UpgradeRoute> { UpgradeScreenHost() }
+        entry<SetupRoute> { SetupScreenHost() }
     }
 }
