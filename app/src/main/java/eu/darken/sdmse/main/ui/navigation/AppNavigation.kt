@@ -18,12 +18,16 @@ import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.upgrade.ui.UpgradeScreenHost
 import eu.darken.sdmse.main.ui.areas.DataAreasScreenHost
-import eu.darken.sdmse.setup.SetupRoute
-import eu.darken.sdmse.setup.SetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyScreenHost
 import eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.welcome.OnboardingWelcomeScreenHost
+import eu.darken.sdmse.main.ui.settings.SettingsScreenHost
+import eu.darken.sdmse.main.ui.settings.acks.AcknowledgementsScreenHost
+import eu.darken.sdmse.main.ui.settings.general.GeneralSettingsScreenHost
+import eu.darken.sdmse.main.ui.settings.support.SupportScreenHost
+import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.setup.SetupScreenHost
 import javax.inject.Inject
 
 class AppNavigation @Inject constructor() : NavigationEntry {
@@ -40,5 +44,10 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<LogViewRoute> { LogViewScreenHost() }
         entry<UpgradeRoute> { UpgradeScreenHost() }
         entry<SetupRoute> { SetupScreenHost() }
+
+        entry<SettingsRoute> { SettingsScreenHost() }
+        entry<GeneralSettingsRoute> { GeneralSettingsScreenHost() }
+        entry<AcknowledgementsRoute> { AcknowledgementsScreenHost() }
+        entry<SupportRoute> { SupportScreenHost() }
     }
 }

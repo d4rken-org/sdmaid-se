@@ -3,6 +3,7 @@ package eu.darken.sdmse.exclusion.ui
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
 import androidx.navigation.toRoute
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions
@@ -12,7 +13,7 @@ import kotlin.reflect.KType
 import kotlin.reflect.typeOf
 
 @Serializable
-data object ExclusionsListRoute
+data object ExclusionsListRoute : NavigationDestination
 
 @Serializable
 data class PathExclusionEditorRoute(

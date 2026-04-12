@@ -26,3 +26,12 @@ data object DebugLogSessionsRoute : NavigationDestination
 
 @Serializable
 data object DashboardCardConfigRoute : NavigationDestination
+
+@Serializable
+data object GeneralSettingsRoute : NavigationDestination
+
+@Serializable
+data object AcknowledgementsRoute : NavigationDestination
+
+@Serializable
+data object SupportRoute : NavigationDestination

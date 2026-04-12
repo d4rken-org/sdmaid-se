@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -14,20 +15,24 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun SettingsPreferenceItem(
-    icon: ImageVector,
     title: String,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    iconPainter: Painter? = null,
     subtitle: String? = null,
     value: String? = null,
     enabled: Boolean = true,
+    onLongClick: (() -> Unit)? = null,
 ) {
     val contentAlpha = if (enabled) 1f else 0.5f
 
     SettingsBaseItem(
         icon = icon,
+        iconPainter = iconPainter,
         title = title,
         onClick = onClick,
+        onLongClick = onLongClick,
         modifier = modifier,
         subtitle = subtitle,
         enabled = enabled,

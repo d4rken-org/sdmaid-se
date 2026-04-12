@@ -70,7 +70,7 @@ import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DataAreasFragment — converted to Compose
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragment
 // Onboarding Fragments — converted to Compose
-import eu.darken.sdmse.main.ui.settings.SettingsFragment
+// SettingsFragment — converted to Compose
 import eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment
 import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFragment
 import eu.darken.sdmse.main.ui.settings.support.sessions.DebugLogSessionsDialog
@@ -138,8 +138,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Setup — converted to Compose, registered via AppNavigation
 
-    // Settings
-    fragment<SettingsFragment, SettingsRoute>()
+    // Settings — converted to Compose, registered via AppNavigation
     dialog<DebugLogSessionsDialog, DebugLogSessionsRoute>()
     fragment<SupportContactFormFragment, SupportFormRoute>()
     fragment<DashboardCardConfigFragment, DashboardCardConfigRoute>()
