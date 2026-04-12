@@ -12,6 +12,7 @@ import androidx.navigation3.runtime.entry
 import eu.darken.sdmse.common.debug.logviewer.ui.LogViewScreenHost
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.main.ui.dashboard.DashboardScreenHost
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
 import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
@@ -26,15 +27,7 @@ import javax.inject.Inject
 class AppNavigation @Inject constructor() : NavigationEntry {
 
     override fun EntryProviderBuilder<NavKey>.setup() {
-        entry<DashboardRoute> {
-            // Placeholder — will be replaced with DashboardScreenHost
-            Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                Text(
-                    text = "Dashboard will go here",
-                    style = MaterialTheme.typography.headlineMedium,
-                )
-            }
-        }
+        entry<DashboardRoute> { DashboardScreenHost() }
 
         entry<OnboardingWelcomeRoute> { OnboardingWelcomeScreenHost() }
         entry<VersusSetupRoute> { VersusSetupScreenHost() }
