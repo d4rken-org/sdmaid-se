@@ -8,6 +8,7 @@ import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.squeezer.databinding.SqueezerPreviewDialogBinding
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
+import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.ui.onboarding.ComparisonDialog
 import javax.inject.Inject
 
@@ -52,10 +53,11 @@ class PreviewCompressionDialog @Inject constructor(
             }
 
             val hasOnlyImages = items.all { it is CompressibleImage }
-            if (hasOnlyImages) {
+            val hasOnlyVideos = items.all { it is CompressibleVideo }
+            if (hasOnlyImages || hasOnlyVideos) {
                 setNeutralButton(eu.darken.sdmse.squeezer.R.string.squeezer_compare_action) { _, _ ->
-                    val sampleImage = items.firstOrNull() as? CompressibleImage ?: return@setNeutralButton
-                    val path = (sampleImage.path as? LocalPath)?.path ?: sampleImage.path.path
+                    val sample = items.firstOrNull() ?: return@setNeutralButton
+                    val path = (sample.path as? LocalPath)?.path ?: return@setNeutralButton
 
                     fragment.childFragmentManager.setFragmentResultListener(
                         ComparisonDialog.REQUEST_KEY,
@@ -63,7 +65,9 @@ class PreviewCompressionDialog @Inject constructor(
                     ) { _, _ ->
                         show(items, quality, onPositive, onNegative)
                     }
-                    ComparisonDialog.newInstance(path, quality, sampleImage.isWebp)
+                    val isWebp = (sample as? CompressibleImage)?.isWebp == true
+                    val isVideoSource = sample is CompressibleVideo
+                    ComparisonDialog.newInstance(path, quality, isWebp, isVideoSource)
                         .show(fragment.childFragmentManager, "comparison")
                 }
             }

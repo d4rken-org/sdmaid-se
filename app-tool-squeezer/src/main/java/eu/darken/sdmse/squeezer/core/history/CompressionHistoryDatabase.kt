@@ -56,7 +56,15 @@ class CompressionHistoryDatabase @Inject constructor(
         get() = historyDao.getCount()
 
     suspend fun hasBeenCompressed(contentHash: String): Boolean {
-        return historyDao.exists(contentHash)
+        return historyDao.get(contentHash)?.outcome == CompressionHistoryEntity.Outcome.COMPRESSED
+    }
+
+    /**
+     * Returns true if a previous attempt on this content already yielded no savings. The user's
+     * retry escape hatch is clearing the compression history from settings.
+     */
+    suspend fun isKnownToNotSave(contentHash: String): Boolean {
+        return historyDao.get(contentHash)?.outcome == CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS
     }
 
     suspend fun computeContentHash(path: APath): String {
@@ -69,7 +77,23 @@ class CompressionHistoryDatabase @Inject constructor(
 
     suspend fun recordCompression(contentHash: String) {
         log(TAG, INFO) { "recordCompression($contentHash)" }
-        historyDao.insert(CompressionHistoryEntity(contentHash))
+        historyDao.insert(
+            CompressionHistoryEntity(
+                contentHash = contentHash,
+                outcome = CompressionHistoryEntity.Outcome.COMPRESSED,
+            )
+        )
+        refreshDatabaseSize()
+    }
+
+    suspend fun recordNoSavings(contentHash: String) {
+        log(TAG, INFO) { "recordNoSavings($contentHash)" }
+        historyDao.insert(
+            CompressionHistoryEntity(
+                contentHash = contentHash,
+                outcome = CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS,
+            )
+        )
         refreshDatabaseSize()
     }
 

@@ -197,7 +197,7 @@ class MediaScanner @Inject constructor(
         mimeType: String,
         options: Options,
     ): CompressibleImage? {
-        val wasCompressedBefore = if (options.skipPreviouslyCompressed) {
+        val skipReason = if (options.skipPreviouslyCompressed) {
             val hasExifMarker = if (settings.writeExifMarker.value()) {
                 try {
                     val localPath = lookup.lookedUp as? LocalPath
@@ -210,23 +210,27 @@ class MediaScanner @Inject constructor(
                 false
             }
 
-            if (!hasExifMarker) {
+            if (hasExifMarker) {
+                "compressed (exif marker)"
+            } else {
                 try {
                     val contentHash = historyDatabase.computeContentHash(lookup.lookedUp)
-                    historyDatabase.hasBeenCompressed(contentHash)
+                    when {
+                        historyDatabase.hasBeenCompressed(contentHash) -> "compressed (history)"
+                        historyDatabase.isKnownToNotSave(contentHash) -> "no savings (history)"
+                        else -> null
+                    }
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
-                    false
+                    null
                 }
-            } else {
-                true
             }
         } else {
-            false
+            null
         }
 
-        if (wasCompressedBefore) {
-            log(TAG, VERBOSE) { "Skipping previously compressed image: $lookup" }
+        if (skipReason != null) {
+            log(TAG, VERBOSE) { "Skipping image ($skipReason): $lookup" }
             return null
         }
 
@@ -266,20 +270,24 @@ class MediaScanner @Inject constructor(
             return null
         }
 
-        val wasCompressedBefore = if (options.skipPreviouslyCompressed) {
+        val skipReason = if (options.skipPreviouslyCompressed) {
             try {
                 val contentHash = historyDatabase.computeVideoContentHash(lookup.lookedUp)
-                historyDatabase.hasBeenCompressed(contentHash)
+                when {
+                    historyDatabase.hasBeenCompressed(contentHash) -> "compressed (history)"
+                    historyDatabase.isKnownToNotSave(contentHash) -> "no savings (history)"
+                    else -> null
+                }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to compute video content hash for $lookup: ${e.message}" }
-                false
+                null
             }
         } else {
-            false
+            null
         }
 
-        if (wasCompressedBefore) {
-            log(TAG, VERBOSE) { "Skipping previously compressed video: $lookup" }
+        if (skipReason != null) {
+            log(TAG, VERBOSE) { "Skipping video ($skipReason): $lookup" }
             return null
         }
 

@@ -15,6 +15,23 @@ import java.nio.ByteBuffer
 import java.security.MessageDigest
 import javax.inject.Inject
 
+/**
+ * Computes a stable fingerprint for a video file so the compression history can recognize
+ * a file we've already processed across renames, moves, and filesystem-metadata changes.
+ *
+ * For files >= [PARTIAL_THRESHOLD] we hash the first and last [CHUNK_SIZE] bytes and mix
+ * the total length into the digest. Full-video hashing is intentionally avoided: a typical
+ * phone clip is 50–500 MB and a long recording can be multi-GB, so digesting the full
+ * payload would stall every scan by minutes of I/O for no practical gain. The history is a
+ * best-effort deduplication cache — a missed hit means we recompress a file we've already
+ * touched, never a data-loss path.
+ *
+ * Collision surface: a partial hash could theoretically match two different videos that
+ * share head, tail, and exact length. In practice the chance is negligible (1 MB head +
+ * 1 MB tail + 8-byte length fed into SHA-256), and within a single user's scan candidate
+ * set the risk is below any actionable threshold. If a collision ever occurred the
+ * consequence is that one file is incorrectly skipped on a rescan, not corruption.
+ */
 @Reusable
 class VideoContentHasher @Inject constructor(
     private val gatewaySwitch: GatewaySwitch,
