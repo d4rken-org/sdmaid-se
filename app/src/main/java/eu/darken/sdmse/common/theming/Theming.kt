@@ -122,6 +122,10 @@ class Theming @Inject constructor(
                 DynamicColors.applyToActivityIfAvailable(activity)
             }
         }
+
+        ThemeStyle.MEDIUM_CONTRAST, ThemeStyle.HIGH_CONTRAST -> {
+            // Handled by Compose SdmSeTheme — no XML-era action needed
+        }
     }
 
     fun notifySplashScreenDone(activity: Activity) {

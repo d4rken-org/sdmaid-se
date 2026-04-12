@@ -17,6 +17,7 @@ abstract class PreferenceFragment3 : PreferenceFragment2() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        @Suppress("DEPRECATION")
         vm.errorEvents.observe2 {
             val showDialog = onErrorEvent?.invoke(it) ?: true
             if (showDialog) it.asErrorDialogBuilder(requireActivity()).show()

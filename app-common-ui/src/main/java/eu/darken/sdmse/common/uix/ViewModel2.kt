@@ -14,15 +14,17 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineExceptionHandler
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.plus
 import kotlin.coroutines.CoroutineContext
 
-
 abstract class ViewModel2(
     private val dispatcherProvider: DispatcherProvider = DefaultDispatcherProvider(),
-) : ViewModel1() {
+    override val tag: String = defaultTag(),
+) : ViewModel1(tag = tag) {
 
     var launchErrorHandler: CoroutineExceptionHandler? = null
 
@@ -31,7 +33,9 @@ abstract class ViewModel2(
         return getErrorHandler()?.let { dispatcher + it } ?: dispatcher
     }
 
-    val vmScope = viewModelScope + getVMContext()
+    val vmScope: CoroutineScope by lazy {
+        viewModelScope + getVMContext()
+    }
 
     private fun getErrorHandler(): CoroutineExceptionHandler? {
         val handler = launchErrorHandler
@@ -39,7 +43,7 @@ abstract class ViewModel2(
 
         if (this is ErrorEventSource) {
             return CoroutineExceptionHandler { _, ex ->
-                log(WARN) { "Error during launch: ${ex.asLog()}" }
+                log(tag, WARN) { "Error during launch: ${ex.asLog()}" }
                 errorEvents.postValue(ex)
             }
         }
@@ -47,24 +51,37 @@ abstract class ViewModel2(
         return null
     }
 
+    // FIXME: Remove after Compose rewrite — use Flow + collectAsStateWithLifecycle in Compose
+    @Deprecated("Use Flow-based state in Compose screens")
     fun <T : Any> DynamicStateFlow<T>.asLiveData2() = flow.asLiveData2()
 
+    // FIXME: Remove after Compose rewrite — use Flow + collectAsStateWithLifecycle in Compose
+    @Deprecated("Use Flow-based state in Compose screens")
     fun <T> Flow<T>.asLiveData2() = this.asLiveData(context = getVMContext())
 
     fun launch(
         scope: CoroutineScope = viewModelScope,
         context: CoroutineContext = getVMContext(),
-        block: suspend CoroutineScope.() -> Unit
+        block: suspend CoroutineScope.() -> Unit,
     ) {
         try {
             scope.launch(context = context, block = block)
         } catch (e: CancellationException) {
-            log(_tag, WARN) { "launch()ed coroutine was canceled (scope=$scope): ${e.asLog()}" }
+            log(tag, WARN) { "launch()ed coroutine was canceled (scope=$scope): ${e.asLog()}" }
         }
     }
 
     open fun <T> Flow<T>.launchInViewModel() = this
-        .setupCommonEventHandlers(_tag) { "launchInViewModel()" }
+        .setupCommonEventHandlers(tag) { "launchInViewModel()" }
         .launchIn(vmScope)
 
+    fun <T> Flow<T>.asStateFlow(defaultValue: T? = null): Flow<T?> = stateIn(
+        vmScope,
+        started = SharingStarted.WhileSubscribed(5000),
+        initialValue = defaultValue,
+    )
+
+    companion object {
+        private fun defaultTag(): String = this::class.simpleName ?: "VM2"
+    }
 }

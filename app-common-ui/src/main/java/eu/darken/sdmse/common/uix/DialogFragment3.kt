@@ -27,6 +27,7 @@ abstract class DialogFragment3(@LayoutRes layoutRes: Int?) : DialogFragment2(lay
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        @Suppress("DEPRECATION")
         vm.navEvents.observe2(ui) { command ->
             log(tag, VERBOSE) { "Nav event: $command" }
 
@@ -37,6 +38,7 @@ abstract class DialogFragment3(@LayoutRes layoutRes: Int?) : DialogFragment2(lay
             }
         }
 
+        @Suppress("DEPRECATION")
         vm.errorEvents.observe2(ui) {
             log(tag, VERBOSE) { "Error event: $it" }
             val showDialog = onErrorEvent?.invoke(it) ?: true

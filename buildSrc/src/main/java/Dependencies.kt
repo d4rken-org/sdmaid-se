@@ -161,6 +161,45 @@ fun DependencyHandlerScope.addAndroidUI() {
     implementation("com.google.android.material:material:1.13.0")
 }
 
+fun DependencyHandlerScope.addCompose() {
+    val composeBom = platform("androidx.compose:compose-bom:${Versions.AndroidX.Compose.bom}")
+    implementation(composeBom)
+    androidTestImplementation(composeBom)
+
+    // Override foundation to get Modifier.visible()
+    implementation("androidx.compose.foundation:foundation:${Versions.AndroidX.Compose.foundationOverride}")
+
+    implementation("androidx.compose.material3:material3")
+    implementation("androidx.compose.ui:ui-tooling-preview")
+    debugImplementation("androidx.compose.ui:ui-tooling")
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    debugImplementation("androidx.compose.ui:ui-test-manifest")
+
+    implementation("androidx.compose.material:material-icons-extended")
+    implementation("androidx.compose.material3.adaptive:adaptive")
+
+    implementation("androidx.activity:activity-compose:1.12.4")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.9.4")
+
+    implementation("androidx.hilt:hilt-navigation-compose:1.3.0-alpha01")
+
+    implementation("com.google.accompanist:accompanist-drawablepainter:0.37.3")
+}
+
+fun DependencyHandlerScope.addNavigation3() {
+    implementation("androidx.navigation3:navigation3-runtime:${Versions.AndroidX.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui:${Versions.AndroidX.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-ui-android:${Versions.AndroidX.Navigation3.core}")
+
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:${Versions.AndroidX.Navigation3.lifecycleVm}")
+    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3-android:${Versions.AndroidX.Navigation3.lifecycleVm}")
+
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:${Versions.AndroidX.Navigation3.adaptive}")
+    implementation("androidx.compose.material3.adaptive:adaptive-navigation3-android:${Versions.AndroidX.Navigation3.adaptive}")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.Kotlin.serialization}")
+}
+
 fun DependencyHandlerScope.addTesting() {
     testImplementation("junit:junit:4.13.2")
     testImplementation("org.junit.vintage:junit-vintage-engine:5.14.2")

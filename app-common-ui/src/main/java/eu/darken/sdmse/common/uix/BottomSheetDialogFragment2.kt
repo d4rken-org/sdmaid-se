@@ -48,6 +48,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         log(tag, VERBOSE) { "onViewCreated(view=$view, savedInstanceState=$savedInstanceState)" }
 
+        @Suppress("DEPRECATION")
         vm.navEvents.observe2(this, ui) { command ->
             log(tag, VERBOSE) { "Nav event: $command" }
             when (command) {
@@ -56,6 +57,7 @@ abstract class BottomSheetDialogFragment2 : BottomSheetDialogFragment() {
                 null -> popBackStack()
             }
         }
+        @Suppress("DEPRECATION")
         vm.errorEvents.observe2(this, ui) {
             log(tag, VERBOSE) { "Error event: $it" }
             it.asErrorDialogBuilder(requireActivity()).show()

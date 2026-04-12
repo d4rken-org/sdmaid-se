@@ -3,18 +3,18 @@ package eu.darken.sdmse.common.uix
 import androidx.annotation.CallSuper
 import androidx.lifecycle.ViewModel
 import eu.darken.sdmse.common.debug.logging.log
-import eu.darken.sdmse.common.debug.logging.logTag
 
-abstract class ViewModel1 : ViewModel() {
-    internal val _tag: String = logTag("ViewModel", javaClass.simpleName, "${this.hashCode()}")
+abstract class ViewModel1(
+    open val tag: String = "ViewModel",
+) : ViewModel() {
 
-    init {
-        log(_tag) { "Initialized" }
-    }
+    // FIXME: Remove after Compose rewrite — use `tag` instead
+    @Deprecated("Use tag instead", ReplaceWith("tag"))
+    internal val _tag: String get() = tag
 
     @CallSuper
     override fun onCleared() {
-        log(_tag) { "onCleared()" }
+        log(tag) { "onCleared()" }
         super.onCleared()
     }
 }

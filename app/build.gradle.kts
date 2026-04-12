@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("projectConfig")
     id("com.google.devtools.ksp")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 apply(plugin = "dagger.hilt.android.plugin")
 apply(plugin = "org.jetbrains.kotlin.plugin.serialization")
@@ -101,6 +102,7 @@ android {
     buildFeatures {
         viewBinding = true
         buildConfig = true
+        compose = true
     }
 
     compileOptions {
@@ -231,6 +233,8 @@ dependencies {
     addAndroidCore()
     implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
+    addCompose()
+    addNavigation3()
     addWorkerManager()
 
     addRoomDb()

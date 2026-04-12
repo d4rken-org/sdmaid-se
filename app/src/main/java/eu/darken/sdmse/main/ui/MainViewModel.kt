@@ -4,24 +4,27 @@ import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.automation.core.errors.AutomationException
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.uix.ViewModel2
+import eu.darken.sdmse.common.theming.ThemeState
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
+import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
-import kotlinx.coroutines.flow.onEach
+import kotlinx.coroutines.flow.stateIn
 import java.time.Duration
 import java.time.Instant
 import javax.inject.Inject
-
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
@@ -29,25 +32,22 @@ class MainViewModel @Inject constructor(
     @Suppress("unused") private val handle: SavedStateHandle,
     private val upgradeRepo: UpgradeRepo,
     private val taskManager: TaskManager,
-) : ViewModel2(dispatcherProvider = dispatcherProvider) {
+    private val generalSettings: GeneralSettings,
+) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    private val stateFlow = MutableStateFlow(State())
-    val state = stateFlow
-        .onEach { log(VERBOSE) { "New state: $it" } }
-        .asLiveData2()
+    val state: Flow<State> = MutableStateFlow(State())
 
-    val errorEvents = SingleLiveEvent<Throwable>()
+    val readyState: Flow<Boolean> = MutableStateFlow(true)
 
-    private val readyStateInternal = MutableStateFlow(true)
-    val readyState = readyStateInternal.asLiveData2()
-
-    val keepScreenOn = taskManager.state
+    val keepScreenOn: Flow<Boolean> = taskManager.state
         .map { !it.isIdle || BuildConfigWrap.DEBUG }
-        .asLiveData2()
 
-    fun onGo() {
-        stateFlow.value = stateFlow.value.copy(ready = true)
-    }
+    val themeState = combine(
+        generalSettings.themeMode.flow,
+        generalSettings.themeStyle.flow,
+    ) { mode, style ->
+        ThemeState(mode = mode, style = style)
+    }.stateIn(vmScope, SharingStarted.WhileSubscribed(5000), ThemeState())
 
     fun checkUpgrades() = launch {
         log(TAG) { "checkUpgrades()" }
@@ -70,12 +70,12 @@ class MainViewModel @Inject constructor(
             ?.let { task ->
                 val error = task.error as? AutomationException ?: return@let
                 handledErrors = handledErrors + task.id
-                errorEvents.postValue(error)
+                errorEvents.tryEmit(error)
             }
     }
 
     data class State(
-        val ready: Boolean = false
+        val ready: Boolean = false,
     )
 
     companion object {

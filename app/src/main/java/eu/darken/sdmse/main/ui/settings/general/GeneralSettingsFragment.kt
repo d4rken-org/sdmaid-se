@@ -67,6 +67,8 @@ class GeneralSettingsFragment : PreferenceFragment3() {
             when (it) {
                 ThemeStyle.DEFAULT -> getString(R.string.ui_theme_style_default_label)
                 ThemeStyle.MATERIAL_YOU -> getString(R.string.ui_theme_style_materialyou_label)
+                ThemeStyle.MEDIUM_CONTRAST -> getString(R.string.ui_theme_style_default_label) // TODO: Add proper label
+                ThemeStyle.HIGH_CONTRAST -> getString(R.string.ui_theme_style_default_label) // TODO: Add proper label
             }
         }
 
