@@ -54,10 +54,9 @@ class SqueezerSetupViewModel @Inject constructor(
         settings.scanPaths.flow,
         settings.compressionQuality.flow,
         settings.minAge.flow,
-        settings.minSizeBytes.flow,
         squeezer.progress,
         isLoadingExample,
-    ) { scanPaths, quality, minAge, minSizeBytes, progress, loadingExample ->
+    ) { scanPaths, quality, minAge, progress, loadingExample ->
         val jpegRatio = compressionEstimator.estimateOutputRatio(CompressibleImage.MIME_TYPE_JPEG, quality)
         val estimatedSavings = jpegRatio?.let { ((1.0 - it) * 100).toInt() }
 
@@ -65,7 +64,6 @@ class SqueezerSetupViewModel @Inject constructor(
             scanPaths = scanPaths.paths.sortedBy { it.path },
             quality = quality,
             minAge = minAge,
-            minSizeBytes = minSizeBytes,
             estimatedSavingsPercent = estimatedSavings,
             progress = progress,
             isLoadingExample = loadingExample,
@@ -77,7 +75,6 @@ class SqueezerSetupViewModel @Inject constructor(
         val scanPaths: List<APath>,
         val quality: Int,
         val minAge: Duration,
-        val minSizeBytes: Long,
         val estimatedSavingsPercent: Int? = null,
         val progress: Progress.Data? = null,
         val isLoadingExample: Boolean = false,
@@ -92,11 +89,6 @@ class SqueezerSetupViewModel @Inject constructor(
     fun updateMinAge(age: Duration) = launch {
         log(TAG, INFO) { "updateMinAge($age)" }
         settings.minAge.value(age)
-    }
-
-    fun updateMinSize(size: Long) = launch {
-        log(TAG, INFO) { "updateMinSize($size)" }
-        settings.minSizeBytes.value(size)
     }
 
     fun updatePaths(paths: Set<APath>) = launch {

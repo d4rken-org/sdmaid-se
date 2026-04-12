@@ -7,11 +7,14 @@ import androidx.fragment.app.viewModels
 import androidx.preference.Preference
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import dagger.hilt.android.AndroidEntryPoint
+import android.text.format.Formatter
 import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.common.ByteFormatter
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.observe2
+import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.PreferenceFragment2
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import javax.inject.Inject
@@ -46,6 +49,27 @@ class SqueezerSettingsFragment : PreferenceFragment2() {
 
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
+
+        findPreference<Preference>(settings.minSizeBytes.keyName)?.apply {
+            summary = Formatter.formatShortFileSize(requireContext(), settings.minSizeBytes.valueBlocking)
+            setOnPreferenceClickListener {
+                SizeInputDialog(
+                    activity = requireActivity(),
+                    titleRes = R.string.squeezer_min_size_title,
+                    currentSize = settings.minSizeBytes.valueBlocking,
+                    maximumSize = 20 * 1000 * 1000L,
+                    onReset = {
+                        settings.minSizeBytes.valueBlocking = SqueezerSettings.MIN_FILE_SIZE
+                        summary = Formatter.formatShortFileSize(requireContext(), SqueezerSettings.MIN_FILE_SIZE)
+                    },
+                    onSave = {
+                        settings.minSizeBytes.valueBlocking = it
+                        summary = Formatter.formatShortFileSize(requireContext(), it)
+                    },
+                ).show()
+                true
+            }
+        }
 
         historyPref.setOnPreferenceClickListener {
             MaterialAlertDialogBuilder(requireContext()).apply {
