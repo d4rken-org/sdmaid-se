@@ -28,6 +28,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import eu.darken.sdmse.common.navigation.LegacyNavigationBridge
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
@@ -37,6 +38,10 @@ fun DashboardScreenHost(
     @Suppress("DEPRECATION")
     vm: DashboardViewModel = hiltViewModel(),
 ) {
+    // Bridge old ViewModel3 navigation events to Compose NavigationController
+    @Suppress("DEPRECATION")
+    LegacyNavigationBridge(vm.navEvents)
+
     // Bridge old ViewModel3 LiveData errors to Compose
     @Suppress("DEPRECATION")
     val error by vm.errorEvents.observeAsState()

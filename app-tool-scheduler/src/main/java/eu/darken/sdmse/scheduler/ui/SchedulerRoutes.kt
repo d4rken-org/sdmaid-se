@@ -9,7 +9,7 @@ import kotlinx.serialization.Serializable
 data object SchedulerSettingsRoute : NavigationDestination
 
 @Serializable
-data object SchedulerManagerRoute
+data object SchedulerManagerRoute : NavigationDestination
 
 @Serializable
 data class ScheduleItemRoute(

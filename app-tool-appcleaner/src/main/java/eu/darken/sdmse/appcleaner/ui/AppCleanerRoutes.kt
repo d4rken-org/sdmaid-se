@@ -14,12 +14,12 @@ import kotlin.reflect.typeOf
 data object AppCleanerSettingsRoute : NavigationDestination
 
 @Serializable
-data object AppCleanerListRoute
+data object AppCleanerListRoute : NavigationDestination
 
 @Serializable
 data class AppJunkDetailsRoute(
     val identifier: InstallId? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<InstallId?>() to serializableNavType(InstallId.serializer(), isNullableAllowed = true),

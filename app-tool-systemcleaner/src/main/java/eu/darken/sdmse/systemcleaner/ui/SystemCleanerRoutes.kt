@@ -9,12 +9,12 @@ import kotlinx.serialization.Serializable
 data object SystemCleanerSettingsRoute : NavigationDestination
 
 @Serializable
-data object SystemCleanerListRoute
+data object SystemCleanerListRoute : NavigationDestination
 
 @Serializable
 data class FilterContentDetailsRoute(
     val filterIdentifier: String? = null,
-) {
+) : NavigationDestination {
     companion object {
         fun from(handle: SavedStateHandle) = handle.toRoute<FilterContentDetailsRoute>()
     }

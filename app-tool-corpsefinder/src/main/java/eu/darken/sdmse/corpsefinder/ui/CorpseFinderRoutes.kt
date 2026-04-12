@@ -13,12 +13,12 @@ import kotlinx.serialization.json.Json
 data object CorpseFinderSettingsRoute : NavigationDestination
 
 @Serializable
-data object CorpseFinderListRoute
+data object CorpseFinderListRoute : NavigationDestination
 
 @Serializable
 data class CorpseDetailsRoute(
     val corpsePathJson: String? = null,
-) {
+) : NavigationDestination {
     constructor(corpsePath: APath?) : this(
         corpsePathJson = corpsePath?.let { Json.encodeToString(APathSerializer, it) },
     )

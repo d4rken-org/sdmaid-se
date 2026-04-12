@@ -10,7 +10,7 @@ import java.util.UUID
 data object StatsSettingsRoute : NavigationDestination
 
 @Serializable
-data object ReportsRoute
+data object ReportsRoute : NavigationDestination
 
 @Serializable
 data class SpaceHistoryRoute(

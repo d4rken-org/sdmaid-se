@@ -14,12 +14,12 @@ import kotlin.reflect.typeOf
 data object DeduplicatorSettingsRoute : NavigationDestination
 
 @Serializable
-data object DeduplicatorListRoute
+data object DeduplicatorListRoute : NavigationDestination
 
 @Serializable
 data class DeduplicatorDetailsRoute(
     val identifier: Duplicate.Cluster.Id? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<Duplicate.Cluster.Id?>() to serializableNavType(Duplicate.Cluster.Id.serializer(), isNullableAllowed = true),
@@ -43,4 +43,4 @@ data class ClusterRoute(
 }
 
 @Serializable
-data object ArbiterConfigRoute
+data object ArbiterConfigRoute : NavigationDestination
