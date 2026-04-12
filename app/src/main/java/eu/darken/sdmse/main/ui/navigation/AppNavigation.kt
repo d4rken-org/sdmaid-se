@@ -6,9 +6,8 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.navigation3.runtime.EntryProviderBuilder
+import androidx.navigation3.runtime.EntryProviderScope
 import androidx.navigation3.runtime.NavKey
-import androidx.navigation3.runtime.entry
 import eu.darken.sdmse.common.debug.logviewer.ui.LogViewScreenHost
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
@@ -32,7 +31,7 @@ import javax.inject.Inject
 
 class AppNavigation @Inject constructor() : NavigationEntry {
 
-    override fun EntryProviderBuilder<NavKey>.setup() {
+    override fun EntryProviderScope<NavKey>.setup() {
         entry<DashboardRoute> { DashboardScreenHost() }
 
         entry<OnboardingWelcomeRoute> { OnboardingWelcomeScreenHost() }

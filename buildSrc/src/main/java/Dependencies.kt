@@ -190,15 +190,10 @@ fun DependencyHandlerScope.addCompose() {
 }
 
 fun DependencyHandlerScope.addNavigation3() {
-    implementation("androidx.navigation3:navigation3-runtime:${Versions.AndroidX.Navigation3.core}")
-    implementation("androidx.navigation3:navigation3-ui:${Versions.AndroidX.Navigation3.core}")
+    implementation("androidx.navigation3:navigation3-runtime-android:${Versions.AndroidX.Navigation3.core}")
     implementation("androidx.navigation3:navigation3-ui-android:${Versions.AndroidX.Navigation3.core}")
 
-    implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3:${Versions.AndroidX.Navigation3.lifecycleVm}")
     implementation("androidx.lifecycle:lifecycle-viewmodel-navigation3-android:${Versions.AndroidX.Navigation3.lifecycleVm}")
-
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3:${Versions.AndroidX.Navigation3.adaptive}")
-    implementation("androidx.compose.material3.adaptive:adaptive-navigation3-android:${Versions.AndroidX.Navigation3.adaptive}")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-core:${Versions.Kotlin.serialization}")
 }

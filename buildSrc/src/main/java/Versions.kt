@@ -20,9 +20,9 @@ object Versions {
         }
 
         object Navigation3 {
-            const val core = "1.0.0-alpha08"
-            const val lifecycleVm = "2.10.0-alpha03"
-            const val adaptive = "1.0.0-alpha02"
+            const val core = "1.0.1"
+            const val lifecycleVm = "2.10.0"
+            const val adaptive = "1.3.0-alpha10"
         }
     }
 

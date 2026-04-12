@@ -30,7 +30,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
-import androidx.navigation3.runtime.rememberSavedStateNavEntryDecorator
+import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.common.debug.Bugs
@@ -143,7 +143,7 @@ class MainActivity : Activity2() {
 
     @Composable
     private fun Navigation() {
-        val backStack = rememberNavBackStack<NavigationDestination>(DashboardRoute)
+        val backStack = rememberNavBackStack(DashboardRoute)
 
         LaunchedEffect(Unit) { navCtrl.setup(backStack) }
 
@@ -157,7 +157,7 @@ class MainActivity : Activity2() {
                 backStack = backStack,
                 onBack = { navCtrl.up() },
                 entryDecorators = listOf(
-                    rememberSavedStateNavEntryDecorator(),
+                    rememberSaveableStateHolderNavEntryDecorator(),
                     rememberViewModelStoreNavEntryDecorator(),
                 ),
                 entryProvider = entryProvider {
