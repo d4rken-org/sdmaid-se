@@ -1,7 +1,6 @@
 package eu.darken.sdmse.squeezer.ui.setup
 
 import android.os.Bundle
-import android.text.format.Formatter
 import android.view.View
 import android.widget.Toast
 import androidx.core.view.isInvisible
@@ -24,7 +23,6 @@ import eu.darken.sdmse.common.getColorForAttr
 import eu.darken.sdmse.common.picker.PickerRequest
 import eu.darken.sdmse.common.picker.PickerResult
 import eu.darken.sdmse.common.ui.AgeInputDialog
-import eu.darken.sdmse.common.ui.SizeInputDialog
 import eu.darken.sdmse.common.uix.Fragment3
 import eu.darken.sdmse.common.viewbinding.viewBinding
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
@@ -76,18 +74,6 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
             ).show()
         }
 
-        ui.minSizeCard.setOnClickListener {
-            val currentSize = vm.state.value?.minSizeBytes ?: SqueezerSettings.MIN_FILE_SIZE
-            SizeInputDialog(
-                activity = requireActivity(),
-                titleRes = eu.darken.sdmse.squeezer.R.string.squeezer_min_size_title,
-                currentSize = currentSize,
-                maximumSize = 20 * 1000 * 1000L,
-                onReset = { vm.updateMinSize(SqueezerSettings.MIN_FILE_SIZE) },
-                onSave = { vm.updateMinSize(it) }
-            ).show()
-        }
-
         ui.qualityExampleAction.setOnClickListener {
             vm.showExample()
         }
@@ -132,8 +118,6 @@ class SqueezerSetupFragment : Fragment3(R.layout.squeezer_setup_fragment) {
                 minAgeDays,
                 minAgeDays
             )
-
-            minSizeValue.text = Formatter.formatShortFileSize(requireContext(), state.minSizeBytes)
 
             qualityExampleAction.isInvisible = state.isLoadingExample
             qualityExampleLoading.isVisible = state.isLoadingExample
