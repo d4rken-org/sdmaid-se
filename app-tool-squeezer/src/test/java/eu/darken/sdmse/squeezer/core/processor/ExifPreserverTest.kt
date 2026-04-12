@@ -2,6 +2,7 @@ package eu.darken.sdmse.squeezer.core.processor
 
 import android.graphics.Bitmap
 import androidx.exifinterface.media.ExifInterface
+import io.kotest.assertions.throwables.shouldThrow
 import io.kotest.matchers.nulls.shouldBeNull
 import io.kotest.matchers.nulls.shouldNotBeNull
 import io.kotest.matchers.shouldBe
@@ -203,13 +204,14 @@ class ExifPreserverTest : BaseTest() {
     }
 
     @Test
-    fun `applyExif does not crash on non-existent target`() {
+    fun `applyExif throws on non-existent target`() {
         val exifData = ExifPreserver.ExifData(
             attributes = mapOf(ExifInterface.TAG_MAKE to "TestCamera")
         )
 
-        // Should not throw, just log a warning
-        exifPreserver.applyExif("/non/existent/path.jpg", exifData)
+        shouldThrow<java.io.FileNotFoundException> {
+            exifPreserver.applyExif("/non/existent/path.jpg", exifData)
+        }
     }
 
     // === Combined Tests ===
