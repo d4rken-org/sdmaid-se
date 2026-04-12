@@ -31,14 +31,15 @@
     <string name="squeezer_min_size_description">Skip files smaller than this size.</string>
     <string name="squeezer_min_age_title">Minimum file age</string>
     <string name="squeezer_min_age_description">Only include files older than this age.</string>
-    <string name="squeezer_compression_settings_label">Compression settings</string>
+    <string name="squeezer_compression_settings_label">General</string>
     <string name="squeezer_quality_label">Quality</string>
     <string name="squeezer_quality_title">Compression quality</string>
     <string name="squeezer_quality_description">Lower quality means smaller file size but reduced visual quality.</string>
     <string name="squeezer_quality_example_format">Example: %1$s image → saves ~%2$s at %3$d%% quality</string>
     <string name="squeezer_quality_warning_low">Lower qualities may cause visible artifacts.</string>
     <string name="squeezer_quality_warning_high">Very high quality provides minimal space savings.</string>
-    <string name="squeezer_types_category_label">Media types</string>
+    <string name="squeezer_types_category_label">Image settings</string>
+    <string name="squeezer_video_settings_category_label">Video settings</string>
     <string name="squeezer_type_jpeg_title">JPEG</string>
     <string name="squeezer_type_jpeg_description">Include JPEG images (.jpg, .jpeg).</string>
     <string name="squeezer_type_webp_title">WebP</string>
@@ -97,6 +98,6 @@
         <item quantity="one">At least %d day old</item>
         <item quantity="other">At least %d days old</item>
     </plurals>
-    <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for JPEG files</string>
+    <string name="squeezer_estimated_savings_percent">Estimated ~%d%% savings for images</string>
     <string name="squeezer_onboarding_got_it">Got it</string>
 </resources>

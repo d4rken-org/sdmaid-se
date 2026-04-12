@@ -22,6 +22,18 @@
 
         <CheckBoxPreference
             app:defaultValue="false"
+            app:icon="@drawable/ic_new_box_24"
+            app:key="compression.exif.marker.enabled"
+            app:singleLineTitle="false"
+            app:summary="@string/squeezer_exif_marker_description"
+            app:title="@string/squeezer_exif_marker_title" />
+
+    </PreferenceCategory>
+
+    <PreferenceCategory android:title="@string/squeezer_video_settings_category_label">
+
+        <CheckBoxPreference
+            app:defaultValue="false"
             app:icon="@drawable/ic_video_compress_24"
             app:key="filter.type.video.enabled"
             app:singleLineTitle="false"
@@ -39,14 +51,6 @@
             app:singleLineTitle="false"
             app:summary="@string/squeezer_skip_compressed_description"
             app:title="@string/squeezer_skip_compressed_title" />
-
-        <CheckBoxPreference
-            app:defaultValue="false"
-            app:icon="@drawable/ic_new_box_24"
-            app:key="compression.exif.marker.enabled"
-            app:singleLineTitle="false"
-            app:summary="@string/squeezer_exif_marker_description"
-            app:title="@string/squeezer_exif_marker_title" />
 
         <Preference
             app:icon="@drawable/ic_baseline_history_24"

@@ -138,11 +138,7 @@ class ImageProcessor @Inject constructor(
             throw IOException("File no longer processable ($verdict): ${originalFile.path}")
         }
 
-        val exifData = if (image.isJpeg) {
-            exifPreserver.extractExif(originalFile)
-        } else {
-            null
-        }
+        val exifData = exifPreserver.extractExif(originalFile)
 
         val outcome = fileTransaction.replace(
             target = originalFile,
@@ -156,7 +152,7 @@ class ImageProcessor @Inject constructor(
                 bitmap.recycle()
             }
 
-            if (image.isJpeg && exifData != null) {
+            if (exifData != null) {
                 exifPreserver.applyExif(tempFile.absolutePath, exifData)
             }
 
