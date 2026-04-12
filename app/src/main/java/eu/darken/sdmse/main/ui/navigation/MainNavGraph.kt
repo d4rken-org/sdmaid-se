@@ -76,7 +76,7 @@ import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionFragment
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DataAreasFragment — converted to Compose
-import eu.darken.sdmse.main.ui.dashboard.DashboardFragment
+// DashboardFragment — converted to Compose
 // Onboarding Fragments — converted to Compose
 // SettingsFragment — converted to Compose
 import eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment
@@ -149,8 +149,7 @@ private val PickerRequestNavType = serializableNavType(PickerRequest.serializer(
 fun NavGraphBuilder.mainNavGraph() {
     // Onboarding — converted to Compose, registered via AppNavigation
 
-    // Dashboard
-    fragment<DashboardFragment, DashboardRoute>()
+    // Dashboard — converted to Compose, registered via AppNavigation
 
     // Setup — converted to Compose, registered via AppNavigation
 
