@@ -92,7 +92,7 @@ internal fun OnboardingWelcomeScreen(
             if (isBeta) {
                 Spacer(modifier = Modifier.height(16.dp))
                 Text(
-                    text = stringResource(R.string.onboarding_beta_hint),
+                    text = stringResource(R.string.onboarding_welcome_body_beta),
                     style = MaterialTheme.typography.bodySmall,
                     textAlign = TextAlign.Center,
                     color = MaterialTheme.colorScheme.error,
@@ -107,7 +107,7 @@ internal fun OnboardingWelcomeScreen(
                     .fillMaxWidth()
                     .padding(vertical = 24.dp),
             ) {
-                Text(stringResource(R.string.general_continue_action))
+                Text(stringResource(R.string.onboarding_welcome_continue_action))
             }
         }
     }

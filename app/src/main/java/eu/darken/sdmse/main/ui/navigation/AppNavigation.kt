@@ -11,6 +11,8 @@ import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entry
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
+import eu.darken.sdmse.main.ui.areas.DataAreasScreenHost
 import eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyScreenHost
 import eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupScreenHost
@@ -34,5 +36,7 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<VersusSetupRoute> { VersusSetupScreenHost() }
         entry<OnboardingPrivacyRoute> { OnboardingPrivacyScreenHost() }
         entry<OnboardingSetupRoute> { OnboardingSetupScreenHost() }
+
+        entry<DataAreasRoute> { DataAreasScreenHost() }
     }
 }

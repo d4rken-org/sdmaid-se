@@ -67,12 +67,9 @@ import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionFragment
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionFragment
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
-import eu.darken.sdmse.main.ui.areas.DataAreasFragment
+// DataAreasFragment — converted to Compose
 import eu.darken.sdmse.main.ui.dashboard.DashboardFragment
-import eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyFragment
-import eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupFragment
-import eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupFragment
-import eu.darken.sdmse.main.ui.onboarding.welcome.OnboardingWelcomeFragment
+// Onboarding Fragments — converted to Compose
 import eu.darken.sdmse.main.ui.settings.SettingsFragment
 import eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment
 import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFragment
@@ -134,11 +131,7 @@ private val PreviewItemNavType = serializableNavType(PreviewItem.serializer())
 private val PickerRequestNavType = serializableNavType(PickerRequest.serializer())
 
 fun NavGraphBuilder.mainNavGraph() {
-    // Onboarding
-    fragment<OnboardingWelcomeFragment, OnboardingWelcomeRoute>()
-    fragment<VersusSetupFragment, VersusSetupRoute>()
-    fragment<OnboardingPrivacyFragment, OnboardingPrivacyRoute>()
-    fragment<OnboardingSetupFragment, OnboardingSetupRoute>()
+    // Onboarding — converted to Compose, registered via AppNavigation
 
     // Dashboard
     fragment<DashboardFragment, DashboardRoute>()
@@ -158,7 +151,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<UpgradeFragment, UpgradeRoute>()
 
     // Data Areas & Log
-    fragment<DataAreasFragment, DataAreasRoute>()
+    // DataAreas — converted to Compose, registered via AppNavigation
     fragment<LogViewFragment, LogViewRoute>()
 
     // CorpseFinder

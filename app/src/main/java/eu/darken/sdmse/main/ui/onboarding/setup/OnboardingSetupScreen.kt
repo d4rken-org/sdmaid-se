@@ -90,7 +90,7 @@ internal fun OnboardingSetupScreen(
                     .fillMaxWidth()
                     .padding(vertical = 24.dp),
             ) {
-                Text(stringResource(R.string.general_continue_action))
+                Text(stringResource(R.string.onboarding_setup_continue_action))
             }
         }
     }

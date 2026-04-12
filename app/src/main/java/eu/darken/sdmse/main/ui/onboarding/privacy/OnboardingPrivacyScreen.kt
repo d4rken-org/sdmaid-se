@@ -92,7 +92,7 @@ internal fun OnboardingPrivacyScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             Text(
-                text = stringResource(R.string.onboarding_privacy_body),
+                text = stringResource(R.string.onboarding_privacy_body1),
                 style = MaterialTheme.typography.bodyLarge,
                 textAlign = TextAlign.Center,
             )
@@ -100,7 +100,7 @@ internal fun OnboardingPrivacyScreen(
             Spacer(modifier = Modifier.height(16.dp))
 
             OutlinedButton(onClick = onPrivacyPolicy) {
-                Text(stringResource(R.string.onboarding_privacy_policy_action))
+                Text(stringResource(R.string.settings_privacy_policy_label))
             }
 
             Spacer(modifier = Modifier.height(24.dp))
@@ -109,8 +109,8 @@ internal fun OnboardingPrivacyScreen(
             if (state.value.isUpdateCheckSupported) {
                 ToggleRow(
                     icon = { Icon(Icons.TwoTone.SystemUpdate, contentDescription = null) },
-                    title = stringResource(R.string.onboarding_privacy_update_check_title),
-                    description = stringResource(R.string.onboarding_privacy_update_check_body),
+                    title = stringResource(R.string.updatecheck_setting_enabled_label),
+                    description = stringResource(R.string.updatecheck_setting_enabled_explanation),
                     checked = state.value.isUpdateCheckEnabled,
                     onToggle = onToggleUpdateCheck,
                 )
@@ -121,8 +121,8 @@ internal fun OnboardingPrivacyScreen(
             // MOTD toggle
             ToggleRow(
                 icon = { Icon(Icons.TwoTone.Campaign, contentDescription = null) },
-                title = stringResource(R.string.onboarding_privacy_motd_title),
-                description = stringResource(R.string.onboarding_privacy_motd_body),
+                title = stringResource(R.string.motd_setting_enabled_label),
+                description = stringResource(R.string.motd_setting_enabled_explanation),
                 checked = state.value.isMotdEnabled,
                 onToggle = onToggleMotd,
             )
@@ -135,7 +135,7 @@ internal fun OnboardingPrivacyScreen(
                     .fillMaxWidth()
                     .padding(vertical = 24.dp),
             ) {
-                Text(stringResource(R.string.general_continue_action))
+                Text(stringResource(R.string.onboarding_privacy_continue_action))
             }
         }
     }

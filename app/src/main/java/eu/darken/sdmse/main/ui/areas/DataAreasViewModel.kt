@@ -2,14 +2,16 @@ package eu.darken.sdmse.main.ui.areas
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import eu.darken.sdmse.main.ui.dashboard.items.*
-import kotlinx.coroutines.flow.*
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 @HiltViewModel
@@ -18,28 +20,21 @@ class DataAreasViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val taskManager: TaskManager,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    val items = combine(
+    val state: Flow<State> = combine(
         dataAreaManager.state,
-        taskManager.state
-    ) { araeState, taskState ->
-        val items = araeState.areas.map {
-            DataAreaRowVH.Item(
-                area = it,
-            )
-        }
+        taskManager.state,
+    ) { areaState, taskState ->
         State(
-            areas = items,
-            allowReload = taskState.isIdle
+            areas = areaState.areas,
+            allowReload = taskState.isIdle,
         )
-    }
-        .onStart { emit(State()) }
-        .asLiveData2()
+    }.onStart { emit(State()) }
 
     data class State(
-        val areas: List<DataAreaRowVH.Item>? = null,
-        val allowReload: Boolean = false
+        val areas: Set<DataArea>? = null,
+        val allowReload: Boolean = false,
     )
 
     fun reloadDataAreas() = launch {
