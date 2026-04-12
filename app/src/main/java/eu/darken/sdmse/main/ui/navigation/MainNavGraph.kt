@@ -112,7 +112,7 @@ import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragme
 import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment
 import eu.darken.sdmse.systemcleaner.ui.list.SystemCleanerListFragment
-import eu.darken.sdmse.common.upgrade.ui.UpgradeFragment
+// UpgradeFragment — converted to Compose
 import kotlin.reflect.typeOf
 
 private val StorageIdNavType = serializableNavType(StorageId.serializer())
@@ -148,7 +148,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<DashboardCardConfigFragment, DashboardCardConfigRoute>()
 
     // Upgrade
-    fragment<UpgradeFragment, UpgradeRoute>()
+    // Upgrade — converted to Compose, registered via AppNavigation
 
     // Data Areas & Log
     // DataAreas — converted to Compose, registered via AppNavigation
