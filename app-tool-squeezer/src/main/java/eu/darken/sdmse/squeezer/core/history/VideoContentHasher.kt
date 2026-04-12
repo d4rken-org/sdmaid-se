@@ -9,6 +9,8 @@ import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.hashing.hash
+import eu.darken.sdmse.squeezer.core.ContentId
+import eu.darken.sdmse.squeezer.core.ContentIdentifier
 import kotlinx.coroutines.withContext
 import java.io.RandomAccessFile
 import java.nio.ByteBuffer
@@ -38,9 +40,14 @@ class VideoContentHasher @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
 ) {
 
-    suspend fun computePartialHash(path: APath): String = withContext(dispatcherProvider.IO) {
+    suspend fun computeHash(path: APath): ContentIdentifier.VideoHash = withContext(dispatcherProvider.IO) {
+        val hash = computeRawHash(path)
+        ContentIdentifier.VideoHash(ContentId(hash))
+    }
+
+    private suspend fun computeRawHash(path: APath): String {
         val localPath = path as? LocalPath
-        if (localPath != null) {
+        return if (localPath != null) {
             computeLocalPartialHash(localPath)
         } else {
             gatewaySwitch.file(path, readWrite = false).source().hash(Hasher.Type.SHA256).format()

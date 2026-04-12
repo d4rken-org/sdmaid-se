@@ -43,12 +43,12 @@ class VideoContentHasherTest : BaseTest() {
         val content = ByteArray(100_000) { (it % 256).toByte() }
         val path = localFile("small.mp4", content)
 
-        val h1 = subject.computePartialHash(path)
-        val h2 = subject.computePartialHash(path)
+        val h1 = subject.computeHash(path)
+        val h2 = subject.computeHash(path)
 
         h1 shouldBe h2
         // SHA-256 hex is 64 chars
-        h1.length shouldBe 64
+        h1.contentId.value.length shouldBe 64
     }
 
     @Test
@@ -57,11 +57,11 @@ class VideoContentHasherTest : BaseTest() {
         val content = ByteArray(4 * 1024 * 1024) { (it % 256).toByte() }
         val path = localFile("large.mp4", content)
 
-        val h1 = subject.computePartialHash(path)
-        val h2 = subject.computePartialHash(path)
+        val h1 = subject.computeHash(path)
+        val h2 = subject.computeHash(path)
 
         h1 shouldBe h2
-        h1.length shouldBe 64
+        h1.contentId.value.length shouldBe 64
     }
 
     @Test
@@ -81,8 +81,8 @@ class VideoContentHasherTest : BaseTest() {
         val pathA = localFile("a.mp4", a)
         val pathB = localFile("b.mp4", b)
 
-        val hashA = subject.computePartialHash(pathA)
-        val hashB = subject.computePartialHash(pathB)
+        val hashA = subject.computeHash(pathA)
+        val hashB = subject.computeHash(pathB)
 
         hashA shouldBe hashB
     }
@@ -92,8 +92,8 @@ class VideoContentHasherTest : BaseTest() {
         val contentA = ByteArray(4 * 1024 * 1024) { 0x11 }
         val contentB = ByteArray((4 * 1024 * 1024) + 1) { 0x11 }
 
-        val hashA = subject.computePartialHash(localFile("a.mp4", contentA))
-        val hashB = subject.computePartialHash(localFile("b.mp4", contentB))
+        val hashA = subject.computeHash(localFile("a.mp4", contentA))
+        val hashB = subject.computeHash(localFile("b.mp4", contentB))
 
         hashA shouldNotBe hashB
     }
@@ -103,8 +103,8 @@ class VideoContentHasherTest : BaseTest() {
         val contentA = ByteArray(100_000) { 0x11 }
         val contentB = ByteArray(100_000) { 0x22 }
 
-        val hashA = subject.computePartialHash(localFile("a.mp4", contentA))
-        val hashB = subject.computePartialHash(localFile("b.mp4", contentB))
+        val hashA = subject.computeHash(localFile("a.mp4", contentA))
+        val hashB = subject.computeHash(localFile("b.mp4", contentB))
 
         hashA shouldNotBe hashB
     }
@@ -115,8 +115,8 @@ class VideoContentHasherTest : BaseTest() {
         val modified = base.copyOf()
         modified[0] = 0x77
 
-        val hashA = subject.computePartialHash(localFile("a.mp4", base))
-        val hashB = subject.computePartialHash(localFile("b.mp4", modified))
+        val hashA = subject.computeHash(localFile("a.mp4", base))
+        val hashB = subject.computeHash(localFile("b.mp4", modified))
 
         hashA shouldNotBe hashB
     }
@@ -127,8 +127,8 @@ class VideoContentHasherTest : BaseTest() {
         val modified = base.copyOf()
         modified[modified.lastIndex] = 0x77
 
-        val hashA = subject.computePartialHash(localFile("a.mp4", base))
-        val hashB = subject.computePartialHash(localFile("b.mp4", modified))
+        val hashA = subject.computeHash(localFile("a.mp4", base))
+        val hashB = subject.computeHash(localFile("b.mp4", modified))
 
         hashA shouldNotBe hashB
     }

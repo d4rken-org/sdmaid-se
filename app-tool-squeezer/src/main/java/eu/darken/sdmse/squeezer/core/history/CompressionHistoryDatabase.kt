@@ -6,10 +6,7 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.files.APath
-import eu.darken.sdmse.common.files.GatewaySwitch
-import eu.darken.sdmse.common.hashing.Hasher
-import eu.darken.sdmse.common.hashing.hash
+import eu.darken.sdmse.squeezer.core.ContentId
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.onSubscription
@@ -20,8 +17,6 @@ import javax.inject.Singleton
 @Singleton
 class CompressionHistoryDatabase @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val gatewaySwitch: GatewaySwitch,
-    private val videoContentHasher: VideoContentHasher,
 ) {
 
     private val database by lazy {
@@ -55,42 +50,26 @@ class CompressionHistoryDatabase @Inject constructor(
     val count: Flow<Int>
         get() = historyDao.getCount()
 
-    suspend fun hasBeenCompressed(contentHash: String): Boolean {
-        return historyDao.get(contentHash)?.outcome == CompressionHistoryEntity.Outcome.COMPRESSED
+    suspend fun getOutcome(contentId: ContentId): CompressionHistoryEntity.Outcome? {
+        return historyDao.get(contentId.value)?.outcome
     }
 
-    /**
-     * Returns true if a previous attempt on this content already yielded no savings. The user's
-     * retry escape hatch is clearing the compression history from settings.
-     */
-    suspend fun isKnownToNotSave(contentHash: String): Boolean {
-        return historyDao.get(contentHash)?.outcome == CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS
-    }
-
-    suspend fun computeContentHash(path: APath): String {
-        return gatewaySwitch.file(path, readWrite = false).source().hash(Hasher.Type.SHA256).format()
-    }
-
-    suspend fun computeVideoContentHash(path: APath): String {
-        return videoContentHasher.computePartialHash(path)
-    }
-
-    suspend fun recordCompression(contentHash: String) {
-        log(TAG, INFO) { "recordCompression($contentHash)" }
+    suspend fun recordCompression(contentId: ContentId) {
+        log(TAG, INFO) { "recordCompression($contentId)" }
         historyDao.insert(
             CompressionHistoryEntity(
-                contentHash = contentHash,
+                contentHash = contentId.value,
                 outcome = CompressionHistoryEntity.Outcome.COMPRESSED,
             )
         )
         refreshDatabaseSize()
     }
 
-    suspend fun recordNoSavings(contentHash: String) {
-        log(TAG, INFO) { "recordNoSavings($contentHash)" }
+    suspend fun recordNoSavings(contentId: ContentId) {
+        log(TAG, INFO) { "recordNoSavings($contentId)" }
         historyDao.insert(
             CompressionHistoryEntity(
-                contentHash = contentHash,
+                contentHash = contentId.value,
                 outcome = CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS,
             )
         )

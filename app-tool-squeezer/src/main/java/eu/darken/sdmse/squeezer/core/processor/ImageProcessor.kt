@@ -22,6 +22,7 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.withContext
@@ -36,6 +37,7 @@ class ImageProcessor @Inject constructor(
     private val exifPreserver: ExifPreserver,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val imageContentHasher: ImageContentHasher,
     private val fileTransaction: FileTransaction,
     private val settings: SqueezerSettings,
 ) : Progress.Host, Progress.Client {
@@ -79,8 +81,8 @@ class ImageProcessor @Inject constructor(
 
                 if (outcome.replaced) {
                     totalSaved += outcome.savedBytes
-                    val contentHash = historyDatabase.computeContentHash(image.path)
-                    historyDatabase.recordCompression(contentHash)
+                    val identifier = imageContentHasher.computeHash(image.path)
+                    historyDatabase.recordCompression(identifier.contentId)
                     log(TAG, VERBOSE) { "Compressed ${image.path}: saved ${outcome.savedBytes} bytes" }
                 } else if (outcome.savedBytes == 0L) {
                     // Actual re-encode ran and produced output >= original. Record so rescans
@@ -88,8 +90,8 @@ class ImageProcessor @Inject constructor(
                     // fall through to the else branch (they have savedBytes > 0 even though
                     // replaced = false). User's retry escape hatch is clearing history.
                     try {
-                        val contentHash = historyDatabase.computeContentHash(image.path)
-                        historyDatabase.recordNoSavings(contentHash)
+                        val identifier = imageContentHasher.computeHash(image.path)
+                        historyDatabase.recordNoSavings(identifier.contentId)
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Failed to record no-savings for ${image.path}: ${e.message}" }
                     }

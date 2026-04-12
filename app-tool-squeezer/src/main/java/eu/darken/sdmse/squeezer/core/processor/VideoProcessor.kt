@@ -5,6 +5,7 @@ import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Handler
 import android.os.HandlerThread
+import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
 import androidx.media3.transformer.Composition
 import androidx.media3.transformer.DefaultEncoderFactory
@@ -35,6 +36,7 @@ import eu.darken.sdmse.squeezer.core.InsufficientStorageException
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.UnsupportedFormatException
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -50,6 +52,7 @@ class VideoProcessor @Inject constructor(
     @ApplicationContext private val context: Context,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val videoContentHasher: VideoContentHasher,
     private val fileTransaction: FileTransaction,
 ) : Progress.Host, Progress.Client {
 
@@ -90,8 +93,8 @@ class VideoProcessor @Inject constructor(
 
                 if (outcome.replaced) {
                     totalSaved += outcome.savedBytes
-                    val contentHash = historyDatabase.computeVideoContentHash(video.path)
-                    historyDatabase.recordCompression(contentHash)
+                    val identifier = videoContentHasher.computeHash(video.path)
+                    historyDatabase.recordCompression(identifier.contentId)
                     log(TAG, VERBOSE) { "Compressed ${video.path}: saved ${outcome.savedBytes} bytes" }
                 } else if (outcome.savedBytes == 0L) {
                     // Actual transcode ran and produced output >= original. Record so rescans
@@ -99,8 +102,8 @@ class VideoProcessor @Inject constructor(
                     // fall through to the else branch (they have savedBytes > 0 even though
                     // replaced = false). User's retry escape hatch is clearing history.
                     try {
-                        val contentHash = historyDatabase.computeVideoContentHash(video.path)
-                        historyDatabase.recordNoSavings(contentHash)
+                        val identifier = videoContentHasher.computeHash(video.path)
+                        historyDatabase.recordNoSavings(identifier.contentId)
                     } catch (e: Exception) {
                         log(TAG, WARN) { "Failed to record no-savings for ${video.path}: ${e.message}" }
                     }
@@ -127,7 +130,7 @@ class VideoProcessor @Inject constructor(
         )
     }
 
-    @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+    @OptIn(androidx.media3.common.util.UnstableApi::class)
     private suspend fun processVideo(
         video: CompressibleVideo,
         quality: Int,
@@ -182,7 +185,7 @@ class VideoProcessor @Inject constructor(
         return outcome
     }
 
-    @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+    @OptIn(androidx.media3.common.util.UnstableApi::class)
     private suspend fun transcodeVideo(
         inputFile: File,
         outputFile: File,
@@ -291,7 +294,7 @@ class VideoProcessor @Inject constructor(
         }
     }
 
-    @androidx.annotation.OptIn(androidx.media3.common.util.UnstableApi::class)
+    @OptIn(androidx.media3.common.util.UnstableApi::class)
     private fun mapExportException(e: ExportException): Throwable {
         // Map broad Transformer error categories to typed exceptions. We avoid matching every
         // specific errorCode because Media3 adds and renames codes across versions. The
