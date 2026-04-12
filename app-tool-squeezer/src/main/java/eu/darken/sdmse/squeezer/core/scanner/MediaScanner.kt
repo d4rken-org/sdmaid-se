@@ -27,6 +27,9 @@ import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.squeezer.core.history.CompressionHistoryEntity
+import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
+import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.pathExclusions
@@ -52,8 +55,9 @@ class MediaScanner @Inject constructor(
     private val dispatcherProvider: DispatcherProvider,
     private val localGateway: LocalGateway,
     private val mimeTypeTool: MimeTypeTool,
-    private val storageEnvironment: StorageEnvironment,
     private val historyDatabase: CompressionHistoryDatabase,
+    private val imageContentHasher: ImageContentHasher,
+    private val videoContentHasher: VideoContentHasher,
     private val compressionEstimator: CompressionEstimator,
     private val exifPreserver: ExifPreserver,
     private val settings: SqueezerSettings,
@@ -214,11 +218,11 @@ class MediaScanner @Inject constructor(
                 "compressed (exif marker)"
             } else {
                 try {
-                    val contentHash = historyDatabase.computeContentHash(lookup.lookedUp)
-                    when {
-                        historyDatabase.hasBeenCompressed(contentHash) -> "compressed (history)"
-                        historyDatabase.isKnownToNotSave(contentHash) -> "no savings (history)"
-                        else -> null
+                    val identifier = imageContentHasher.computeHash(lookup.lookedUp)
+                    when (historyDatabase.getOutcome(identifier.contentId)) {
+                        CompressionHistoryEntity.Outcome.COMPRESSED -> "compressed (history)"
+                        CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS -> "no savings (history)"
+                        null -> null
                     }
                 } catch (e: Exception) {
                     log(TAG, WARN) { "Failed to compute content hash for $lookup: ${e.message}" }
@@ -272,11 +276,11 @@ class MediaScanner @Inject constructor(
 
         val skipReason = if (options.skipPreviouslyCompressed) {
             try {
-                val contentHash = historyDatabase.computeVideoContentHash(lookup.lookedUp)
-                when {
-                    historyDatabase.hasBeenCompressed(contentHash) -> "compressed (history)"
-                    historyDatabase.isKnownToNotSave(contentHash) -> "no savings (history)"
-                    else -> null
+                val identifier = videoContentHasher.computeHash(lookup.lookedUp)
+                when (historyDatabase.getOutcome(identifier.contentId)) {
+                    CompressionHistoryEntity.Outcome.COMPRESSED -> "compressed (history)"
+                    CompressionHistoryEntity.Outcome.TRIED_NO_SAVINGS -> "no savings (history)"
+                    null -> null
                 }
             } catch (e: Exception) {
                 log(TAG, WARN) { "Failed to compute video content hash for $lookup: ${e.message}" }

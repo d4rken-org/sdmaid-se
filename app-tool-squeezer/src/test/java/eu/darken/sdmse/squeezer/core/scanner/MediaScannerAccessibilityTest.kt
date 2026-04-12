@@ -14,6 +14,8 @@ import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
+import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
+import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
@@ -43,8 +45,9 @@ class MediaScannerAccessibilityTest : BaseTest() {
     private val exclusionManager: ExclusionManager = mockk(relaxed = true)
     private val localGateway: LocalGateway = mockk(relaxed = true)
     private val mimeTypeTool: MimeTypeTool = mockk()
-    private val storageEnvironment: StorageEnvironment = mockk(relaxed = true)
     private val historyDatabase: CompressionHistoryDatabase = mockk(relaxed = true)
+    private val imageContentHasher: ImageContentHasher = mockk(relaxed = true)
+    private val videoContentHasher: VideoContentHasher = mockk(relaxed = true)
     private val compressionEstimator: CompressionEstimator = mockk(relaxed = true)
     private val exifPreserver: ExifPreserver = mockk(relaxed = true)
     private val settings: SqueezerSettings = mockk(relaxed = true)
@@ -97,8 +100,9 @@ class MediaScannerAccessibilityTest : BaseTest() {
         dispatcherProvider = dispatcherProvider,
         localGateway = localGateway,
         mimeTypeTool = mimeTypeTool,
-        storageEnvironment = storageEnvironment,
         historyDatabase = historyDatabase,
+        imageContentHasher = imageContentHasher,
+        videoContentHasher = videoContentHasher,
         compressionEstimator = compressionEstimator,
         exifPreserver = exifPreserver,
         settings = settings,
