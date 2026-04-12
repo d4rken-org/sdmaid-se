@@ -4,6 +4,7 @@ import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavType
 import androidx.navigation.toRoute
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
+import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.storage.StorageId
@@ -14,7 +15,7 @@ import kotlin.reflect.typeOf
 @Serializable
 data class StorageContentRoute(
     val storageId: StorageId,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
@@ -27,7 +28,7 @@ data class StorageContentRoute(
 @Serializable
 data class AppsRoute(
     val storageId: StorageId,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
@@ -41,7 +42,7 @@ data class AppsRoute(
 data class AppDetailsRoute(
     val storageId: StorageId,
     val installId: InstallId,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
@@ -57,7 +58,7 @@ data class ContentRoute(
     val storageId: StorageId,
     val groupId: ContentGroup.Id,
     val installId: InstallId? = null,
-) {
+) : NavigationDestination {
     companion object {
         val typeMap: Map<KType, NavType<*>> = mapOf(
             typeOf<StorageId>() to serializableNavType(StorageId.serializer()),
