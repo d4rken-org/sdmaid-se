@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("projectConfig")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -17,6 +18,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 
     setupCompileOptions()
@@ -49,6 +51,7 @@ dependencies {
 
     addAndroidCore()
     addAndroidUI()
+    addCompose()
     addWorkerManager()
     addDI()
     addCoroutines()
