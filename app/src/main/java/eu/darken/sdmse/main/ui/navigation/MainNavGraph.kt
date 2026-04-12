@@ -24,7 +24,7 @@ import eu.darken.sdmse.appcontrol.ui.AppActionRoute
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment
 import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog
-import eu.darken.sdmse.common.debug.logviewer.ui.LogViewFragment
+// LogViewFragment — converted to Compose
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.navigation.routes.LogViewRoute
@@ -152,7 +152,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Data Areas & Log
     // DataAreas — converted to Compose, registered via AppNavigation
-    fragment<LogViewFragment, LogViewRoute>()
+    // LogView — converted to Compose, registered via AppNavigation
 
     // CorpseFinder
     fragment<CorpseFinderListFragment, CorpseFinderListRoute>()

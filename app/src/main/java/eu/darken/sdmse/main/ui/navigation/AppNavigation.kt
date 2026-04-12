@@ -9,9 +9,11 @@ import androidx.compose.ui.Modifier
 import androidx.navigation3.runtime.EntryProviderBuilder
 import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entry
+import eu.darken.sdmse.common.debug.logviewer.ui.LogViewScreenHost
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
+import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.main.ui.areas.DataAreasScreenHost
 import eu.darken.sdmse.main.ui.onboarding.privacy.OnboardingPrivacyScreenHost
 import eu.darken.sdmse.main.ui.onboarding.setup.OnboardingSetupScreenHost
@@ -38,5 +40,6 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<OnboardingSetupRoute> { OnboardingSetupScreenHost() }
 
         entry<DataAreasRoute> { DataAreasScreenHost() }
+        entry<LogViewRoute> { LogViewScreenHost() }
     }
 }
