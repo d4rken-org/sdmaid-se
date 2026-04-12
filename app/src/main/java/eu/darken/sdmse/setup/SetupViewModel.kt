@@ -4,14 +4,12 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.WebpageTool
-import androidx.navigation.navOptions
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
@@ -21,7 +19,7 @@ import eu.darken.sdmse.common.permissions.RuntimePermission
 import eu.darken.sdmse.common.pkgs.getLaunchIntent
 import eu.darken.sdmse.common.pkgs.getSettingsIntent
 import eu.darken.sdmse.common.pkgs.toPkgId
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.setup.automation.AutomationSetupCardVH
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.inventory.InventorySetupCardVH
@@ -38,6 +36,7 @@ import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
+import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -58,7 +57,7 @@ class SetupViewModel @Inject constructor(
     private val webpageTool: WebpageTool,
     private val rootSetupModule: RootSetupModule,
     private val shizukuSetupModule: ShizukuSetupModule,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, TAG) {
 
     private val route = SetupRoute.from(handle)
 
@@ -69,7 +68,7 @@ class SetupViewModel @Inject constructor(
     // TODO support filtering based on screenOptions.filterTypes
     val screenOptions = route.options ?: SetupScreenOptions()
 
-    val events = SingleLiveEvent<SetupEvents>()
+    val events = SingleEventFlow<SetupEvents>()
 
     private val itemsStateFlow: StateFlow<List<SetupAdapter.Item>?> = setupManager.state
         .map { setupState ->
@@ -86,7 +85,7 @@ class SetupViewModel @Inject constructor(
                                 state = state as SAFSetupModule.Result,
                                 onPathClicked = {
                                     if (!it.hasAccess) {
-                                        events.postValue(SetupEvents.SafRequestAccess(it))
+                                        events.tryEmit(SetupEvents.SafRequestAccess(it))
                                     }
                                 },
                                 onHelp = {
@@ -102,7 +101,7 @@ class SetupViewModel @Inject constructor(
                                 state = state as StorageSetupModule.Result,
                                 onPathClicked = {
                                     state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                        events.tryEmit(SetupEvents.RuntimePermissionRequests(it))
                                     }
                                 },
                                 onHelp = {
@@ -135,7 +134,7 @@ class SetupViewModel @Inject constructor(
                                 state = state as UsageStatsSetupModule.Result,
                                 onGrantAction = {
                                     state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                        events.tryEmit(SetupEvents.RuntimePermissionRequests(it))
                                     }
                                 },
                                 onHelp = {
@@ -154,7 +153,7 @@ class SetupViewModel @Inject constructor(
                                         automationSetupModule.setAllow(true)
                                         automationSetupModule.refresh()
                                         if (!state.canSelfEnable) {
-                                            events.postValue(SetupEvents.ConfigureAccessibilityService(state))
+                                            events.tryEmit(SetupEvents.ConfigureAccessibilityService(state))
                                         }
                                     }
                                 },
@@ -168,7 +167,7 @@ class SetupViewModel @Inject constructor(
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#accessibility-service")
                                 },
                                 onRestrictionsShow = {
-                                    events.postValue(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
+                                    events.tryEmit(SetupEvents.ShowOurDetailsPage(state.liftRestrictionsIntent))
                                 },
                                 onRestrictionsHelp = {
                                     webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#acs-appops-restrictions")
@@ -183,7 +182,7 @@ class SetupViewModel @Inject constructor(
                                 state = state as NotificationSetupModule.Result,
                                 onGrantAction = {
                                     state.missingPermission.firstOrNull()?.let {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(it))
+                                        events.tryEmit(SetupEvents.RuntimePermissionRequests(it))
                                     }
                                 },
                                 onHelp = {
@@ -208,7 +207,7 @@ class SetupViewModel @Inject constructor(
                                         try {
                                             context.startActivity(it)
                                         } catch (e: ActivityNotFoundException) {
-                                            errorEvents.postValue(e)
+                                            errorEvents.tryEmit(e)
                                         }
                                     }
                                 }
@@ -225,9 +224,9 @@ class SetupViewModel @Inject constructor(
                                     val result = state as InventorySetupModule.Result
                                     val runtimePerm = result.missingPermission.firstOrNull { it is RuntimePermission }
                                     if (runtimePerm != null) {
-                                        events.postValue(SetupEvents.RuntimePermissionRequests(runtimePerm))
+                                        events.tryEmit(SetupEvents.RuntimePermissionRequests(runtimePerm))
                                     } else {
-                                        events.postValue(SetupEvents.ShowOurDetailsPage(result.settingsIntent))
+                                        events.tryEmit(SetupEvents.ShowOurDetailsPage(result.settingsIntent))
                                     }
                                 },
                                 onHelp = {
@@ -255,14 +254,12 @@ class SetupViewModel @Inject constructor(
         .setupCommonEventHandlers(TAG) { "listItems" }
         .stateIn(vmScope, SharingStarted.Eagerly, null)
 
-    val listItems: LiveData<List<SetupAdapter.Item>> = itemsStateFlow
+    val listItems: Flow<List<SetupAdapter.Item>> = itemsStateFlow
         .filterNotNull()
-        .asLiveData2()
 
-    val isSetupComplete: LiveData<Boolean> = itemsStateFlow
+    val isSetupComplete: Flow<Boolean> = itemsStateFlow
         .map { items -> items != null && items.isEmpty() && !screenOptions.showCompleted }
         .distinctUntilChanged()
-        .asLiveData2()
 
     fun onSafAccessGranted(uri: Uri?) = launch {
         log(TAG) { "onSafAccessGranted(uri=$uri)" }
@@ -270,7 +267,7 @@ class SetupViewModel @Inject constructor(
         try {
             safSetupModule.takePermission(uri)
         } catch (e: IllegalArgumentException) {
-            events.postValue(SetupEvents.SafWrongPathError(e))
+            events.tryEmit(SetupEvents.SafWrongPathError(e))
         }
     }
 
@@ -295,7 +292,7 @@ class SetupViewModel @Inject constructor(
         } else if (permission == Permission.GET_INSTALLED_APPS) {
             // Runtime dialog may not work on some OEMs — fall back to app settings
             val settingsIntent = context.packageName.toPkgId().getSettingsIntent(context)
-            events.postValue(SetupEvents.ShowOurDetailsPage(settingsIntent))
+            events.tryEmit(SetupEvents.ShowOurDetailsPage(settingsIntent))
         }
     }
 
@@ -306,14 +303,13 @@ class SetupViewModel @Inject constructor(
 
     fun navback() {
         if (screenOptions.isOnboarding) {
-            navigateTo(
+            navTo(
                 DashboardRoute,
-                navOptions = navOptions {
-                    popUpTo(DashboardRoute) { inclusive = true }
-                }
+                popUpTo = DashboardRoute,
+                inclusive = true,
             )
         } else {
-            popNavStack()
+            navUp()
         }
     }
 

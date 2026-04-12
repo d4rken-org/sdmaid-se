@@ -22,27 +22,25 @@ import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import eu.darken.sdmse.common.navigation.LegacyNavigationBridge
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun SetupScreenHost(
-    @Suppress("DEPRECATION")
     vm: SetupViewModel = hiltViewModel(),
 ) {
-    @Suppress("DEPRECATION")
-    LegacyNavigationBridge(vm.navEvents)
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
 
-    @Suppress("DEPRECATION")
-    val listItems by vm.listItems.observeAsState(emptyList())
-    @Suppress("DEPRECATION")
-    val isSetupComplete by vm.isSetupComplete.observeAsState(false)
+    val listItems by vm.listItems.collectAsStateWithLifecycle(initialValue = emptyList())
+    val isSetupComplete by vm.isSetupComplete.collectAsStateWithLifecycle(initialValue = false)
 
     SetupScreen(
         items = listItems,
