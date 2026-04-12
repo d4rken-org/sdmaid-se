@@ -1,8 +1,6 @@
 package eu.darken.sdmse.squeezer.core.processor
 
 import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import android.media.MediaScannerConnection
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -34,7 +32,7 @@ import kotlin.coroutines.cancellation.CancellationException
 
 class ImageProcessor @Inject constructor(
     @ApplicationContext private val context: Context,
-    private val exifPreserver: ExifPreserver,
+    private val imageCompressor: ImageCompressor,
     private val dispatcherProvider: DispatcherProvider,
     private val historyDatabase: CompressionHistoryDatabase,
     private val imageContentHasher: ImageContentHasher,
@@ -81,8 +79,12 @@ class ImageProcessor @Inject constructor(
 
                 if (outcome.replaced) {
                     totalSaved += outcome.savedBytes
-                    val identifier = imageContentHasher.computeHash(image.path)
-                    historyDatabase.recordCompression(identifier.contentId)
+                    try {
+                        val identifier = imageContentHasher.computeHash(image.path)
+                        historyDatabase.recordCompression(identifier.contentId)
+                    } catch (e: Exception) {
+                        log(TAG, WARN) { "Failed to record compression for ${image.path}: ${e.message}" }
+                    }
                     log(TAG, VERBOSE) { "Compressed ${image.path}: saved ${outcome.savedBytes} bytes" }
                 } else if (outcome.savedBytes == 0L) {
                     // Actual re-encode ran and produced output >= original. Record so rescans
@@ -107,10 +109,9 @@ class ImageProcessor @Inject constructor(
             }
         }
 
-        log(
-            TAG,
-            INFO
-        ) { "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes" }
+        log(TAG, INFO) {
+            "Processing complete: ${successful.size}/${targets.size} images, ${failed.size} failed, saved $totalSaved bytes"
+        }
 
         Result(
             success = successful,
@@ -138,27 +139,17 @@ class ImageProcessor @Inject constructor(
             throw IOException("File no longer processable ($verdict): ${originalFile.path}")
         }
 
-        val exifData = exifPreserver.extractExif(originalFile)
-
         val outcome = fileTransaction.replace(
             target = originalFile,
             dryRun = Bugs.isDryRun,
         ) { tempFile ->
-            val bitmap = decodeSampledBitmap(originalFile)
-                ?: throw IllegalStateException("Failed to decode bitmap")
-            try {
-                compressBitmapToFile(bitmap, image.mimeType, quality, tempFile)
-            } finally {
-                bitmap.recycle()
-            }
-
-            if (exifData != null) {
-                exifPreserver.applyExif(tempFile.absolutePath, exifData)
-            }
-
-            if (settings.writeExifMarker.value()) {
-                exifPreserver.writeCompressionMarker(tempFile.absolutePath)
-            }
+            imageCompressor.compress(
+                inputFile = originalFile,
+                outputFile = tempFile,
+                mimeType = image.mimeType,
+                quality = quality,
+                writeExifMarker = settings.writeExifMarker.value(),
+            )
         }
 
         if (outcome.replaced) {
@@ -166,55 +157,6 @@ class ImageProcessor @Inject constructor(
         }
 
         return outcome
-    }
-
-    private fun decodeSampledBitmap(file: File): Bitmap? {
-        val options = BitmapFactory.Options().apply {
-            inJustDecodeBounds = true
-        }
-        file.inputStream().use { input ->
-            BitmapFactory.decodeStream(input, null, options)
-        }
-
-        val inSampleSize = calculateInSampleSize(options.outWidth, options.outHeight, MAX_DIMENSION)
-
-        if (inSampleSize > 1) {
-            log(TAG, VERBOSE) { "Using inSampleSize=$inSampleSize for ${options.outWidth}x${options.outHeight}" }
-        }
-
-        options.apply {
-            inJustDecodeBounds = false
-            this.inSampleSize = inSampleSize
-        }
-
-        return file.inputStream().use { input ->
-            BitmapFactory.decodeStream(input, null, options)
-        }
-    }
-
-    private fun calculateInSampleSize(width: Int, height: Int, maxDimension: Int): Int {
-        var inSampleSize = 1
-        if (width > maxDimension || height > maxDimension) {
-            val halfWidth = width / 2
-            val halfHeight = height / 2
-            while ((halfWidth / inSampleSize) >= maxDimension || (halfHeight / inSampleSize) >= maxDimension) {
-                inSampleSize *= 2
-            }
-        }
-        return inSampleSize
-    }
-
-    private fun compressBitmapToFile(
-        bitmap: Bitmap,
-        mimeType: String,
-        quality: Int,
-        outputFile: File,
-    ): Long {
-        val format = CompressibleImage.compressFormat(mimeType)
-        outputFile.outputStream().buffered().use { output ->
-            bitmap.compress(format, quality, output)
-        }
-        return outputFile.length()
     }
 
     private fun notifyMediaScanner(file: File) {
@@ -228,6 +170,5 @@ class ImageProcessor @Inject constructor(
 
     companion object {
         private val TAG = logTag("Squeezer", "Processor")
-        private const val MAX_DIMENSION = 4096
     }
 }

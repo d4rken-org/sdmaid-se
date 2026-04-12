@@ -328,6 +328,10 @@ class MediaScanner @Inject constructor(
             val videoWidth = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_VIDEO_WIDTH)
                 ?.toIntOrNull() ?: 0
 
+            // NOTE: METADATA_KEY_BITRATE is total container bitrate (audio + video combined).
+            // For typical phone video this is fine (audio << video), but for audio-heavy
+            // content it inflates the estimate. Future improvement: extract video-only
+            // bitrate via MediaExtractor track-level metadata.
             val bitrateStr = retriever.extractMetadata(MediaMetadataRetriever.METADATA_KEY_BITRATE)
             var bitrateBps = bitrateStr?.toLongOrNull() ?: -1L
 
