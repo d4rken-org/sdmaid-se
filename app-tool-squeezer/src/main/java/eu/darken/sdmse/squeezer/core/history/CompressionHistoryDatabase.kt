@@ -2,6 +2,8 @@ package eu.darken.sdmse.squeezer.core.history
 
 import android.content.Context
 import androidx.room.Room
+import androidx.room.migration.Migration
+import androidx.sqlite.db.SupportSQLiteDatabase
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
@@ -22,9 +24,7 @@ class CompressionHistoryDatabase @Inject constructor(
     private val database by lazy {
         Room
             .databaseBuilder(context, CompressionHistoryRoomDb::class.java, DB_NAME)
-            // Compression history is a derived cache — rebuilding it on schema mismatch is
-            // always preferable to crashing the app on upgrade.
-            .fallbackToDestructiveMigration(dropAllTables = true)
+            .addMigrations(MIGRATION_1_2)
             .build()
     }
 
@@ -85,5 +85,13 @@ class CompressionHistoryDatabase @Inject constructor(
     companion object {
         private const val DB_NAME = "compression_history"
         internal val TAG = logTag("Squeezer", "History", "Database")
+
+        val MIGRATION_1_2 = object : Migration(1, 2) {
+            override fun migrate(db: SupportSQLiteDatabase) {
+                db.execSQL(
+                    "ALTER TABLE compression_history ADD COLUMN outcome TEXT NOT NULL DEFAULT 'COMPRESSED'"
+                )
+            }
+        }
     }
 }

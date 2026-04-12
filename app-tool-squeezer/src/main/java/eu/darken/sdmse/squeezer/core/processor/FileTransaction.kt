@@ -89,6 +89,7 @@ class FileTransaction @Inject constructor(
 
             if (compressedSize <= 0 || compressedSize >= originalSize) {
                 log(TAG, VERBOSE) { "No savings for ${target.path} ($compressedSize >= $originalSize)" }
+                fileOps.delete(tempFile)
                 return@withContext Outcome(
                     originalSize = originalSize,
                     replacementSize = compressedSize,
@@ -99,6 +100,7 @@ class FileTransaction @Inject constructor(
 
             if (dryRun) {
                 log(TAG, INFO) { "DRYRUN: would save ${originalSize - compressedSize} bytes on ${target.path}" }
+                fileOps.delete(tempFile)
                 return@withContext Outcome(
                     originalSize = originalSize,
                     replacementSize = compressedSize,
@@ -113,14 +115,13 @@ class FileTransaction @Inject constructor(
                 throw IOException("Failed to create backup at ${backupFile.path}")
             }
 
-            var swapSucceeded = false
             try {
-                // Prefer atomic same-volume rename. Fall back to copy only if rename fails
-                // (the workdir sits next to target so this should essentially never happen).
+                // Atomic same-volume rename. The workdir sits next to target so this should
+                // always succeed. If it doesn't, fail closed — a copy fallback would risk
+                // data loss if the app dies mid-copy (orphan recovery can't distinguish a
+                // partial copy from a valid file).
                 if (!fileOps.renameTo(tempFile, target)) {
-                    log(TAG, WARN) { "renameTo failed, falling back to copy for ${target.path}" }
-                    fileOps.copyFile(tempFile, target)
-                    fileOps.delete(tempFile)
+                    throw IOException("Failed to rename temp to target: ${target.path}")
                 }
 
                 if (!fileOps.exists(target) ||
@@ -132,7 +133,6 @@ class FileTransaction @Inject constructor(
                     )
                 }
 
-                swapSucceeded = true
             } catch (swapError: Throwable) {
                 log(TAG, WARN) { "Swap failed, restoring backup: ${swapError.message}" }
                 // Ensure the target slot is empty before we rename back.

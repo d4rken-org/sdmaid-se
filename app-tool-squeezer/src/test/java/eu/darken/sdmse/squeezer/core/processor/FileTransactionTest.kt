@@ -127,6 +127,7 @@ class FileTransactionTest : BaseTest() {
         target.length() shouldBe 500L
         target.readBytes() shouldBe original
         backupFile(target).exists() shouldBe false
+        tempFile(target).exists() shouldBe false
     }
 
     @Test
@@ -140,6 +141,7 @@ class FileTransactionTest : BaseTest() {
 
         outcome.replaced shouldBe false
         target.readBytes() shouldBe original
+        tempFile(target).exists() shouldBe false
     }
 
     @Test
@@ -155,6 +157,7 @@ class FileTransactionTest : BaseTest() {
         outcome.savedBytes shouldBe 750L
         target.length() shouldBe 1000L
         target.readBytes() shouldBe original
+        tempFile(target).exists() shouldBe false
     }
 
     @Test
@@ -296,10 +299,9 @@ class FileTransactionTest : BaseTest() {
 
         val expectedTemp = tempFile(target)
 
-        // Fail the swap — both the rename and the copy fallback for tempFile → target.
+        // Fail the swap rename (tempFile → target). No copy fallback — we fail closed.
         // The restore rename (backupFile → target) is NOT blocked, so the original is restored.
         fileOps.renameBlocker = { from, to -> from == expectedTemp && to == target }
-        fileOps.copyBlocker = { from, to -> from == expectedTemp && to == target }
 
         val caught = runCatching {
             subject.replace(target, dryRun = false) { tempFile ->
@@ -323,13 +325,12 @@ class FileTransactionTest : BaseTest() {
         val expectedTemp = tempFile(target)
         val expectedBackup = backupFile(target)
 
-        // Block the swap (temp → target, including copy fallback) AND the restore
+        // Block the swap rename (temp → target) AND the restore rename
         // (backup → target). This is the worst-case branch the safety contract is built for.
         fileOps.renameBlocker = { from, to ->
             (from == expectedTemp && to == target) ||
                 (from == expectedBackup && to == target)
         }
-        fileOps.copyBlocker = { from, to -> from == expectedTemp && to == target }
 
         val caught = runCatching {
             subject.replace(target, dryRun = false) { tempFile ->
