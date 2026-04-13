@@ -2,7 +2,8 @@ package eu.darken.sdmse.squeezer.core.processor
 
 import androidx.exifinterface.media.ExifInterface
 import dagger.Reusable
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.File
@@ -11,9 +12,14 @@ import javax.inject.Inject
 @Reusable
 class ExifPreserver @Inject constructor() {
 
+    data class GpsCoords(
+        val lat: Double,
+        val lon: Double,
+    )
+
     data class ExifData(
         val attributes: Map<String, String?>,
-        val latLong: DoubleArray? = null,
+        val gpsCoords: GpsCoords? = null,
         val altitude: Double? = null,
     )
 
@@ -26,19 +32,19 @@ class ExifPreserver @Inject constructor() {
 
             // GPS coordinates must use getLatLong()/setLatLong() — setAttribute() for
             // individual GPS tags does not create the GPS sub-IFD on a fresh file.
-            val latLong = exif.latLong
+            val gpsCoords = exif.latLong?.let { GpsCoords(it[0], it[1]) }
             val altitude = if (exif.getAttribute(ExifInterface.TAG_GPS_ALTITUDE) != null) {
                 exif.getAltitude(Double.NaN).takeIf { !it.isNaN() }
             } else {
                 null
             }
 
-            if (attributes.isEmpty() && latLong == null) {
+            if (attributes.isEmpty() && gpsCoords == null) {
                 log(TAG, VERBOSE) { "No EXIF data found" }
                 null
             } else {
-                log(TAG, VERBOSE) { "Extracted ${attributes.size} EXIF attributes, gps=${latLong != null}" }
-                ExifData(attributes, latLong, altitude)
+                log(TAG, VERBOSE) { "Extracted ${attributes.size} EXIF attributes, gps=${gpsCoords != null}" }
+                ExifData(attributes, gpsCoords, altitude)
             }
         } catch (e: Exception) {
             log(TAG, WARN) { "Failed to extract EXIF: ${e.message}" }
@@ -59,11 +65,11 @@ class ExifPreserver @Inject constructor() {
 
         // Use setLatLong()/setAltitude() to properly create the GPS sub-IFD.
         // setAttribute() for individual GPS tags doesn't create the IFD on a fresh file.
-        exifData.latLong?.let { exif.setLatLong(it[0], it[1]) }
+        exifData.gpsCoords?.let { exif.setLatLong(it.lat, it.lon) }
         exifData.altitude?.let { exif.setAltitude(it) }
 
         exif.saveAttributes()
-        log(TAG, VERBOSE) { "Applied ${exifData.attributes.size} EXIF attributes, gps=${exifData.latLong != null}" }
+        log(TAG, VERBOSE) { "Applied ${exifData.attributes.size} EXIF attributes, gps=${exifData.gpsCoords != null}" }
     }
 
     fun hasCompressionMarker(file: File): Boolean {

@@ -30,6 +30,9 @@ class ImageCompressor @Inject constructor(
             bitmap.recycle()
         }
 
+        // Fail-closed: if EXIF cannot be preserved, let the exception propagate so
+        // FileTransaction aborts the replacement. A compressed file without original
+        // EXIF metadata should not replace the source.
         if (exifData != null) {
             exifPreserver.applyExif(outputFile.absolutePath, exifData)
         }
