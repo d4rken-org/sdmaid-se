@@ -7,10 +7,7 @@ import eu.darken.sdmse.common.files.local.LocalPathLookup
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
 import eu.darken.sdmse.squeezer.core.ContentId
 import eu.darken.sdmse.squeezer.core.ContentIdentifier
-import eu.darken.sdmse.squeezer.core.InsufficientStorageException
-import eu.darken.sdmse.squeezer.core.SqueezerEligibility
 import eu.darken.sdmse.squeezer.core.history.CompressionHistoryDatabase
-import eu.darken.sdmse.squeezer.core.history.CompressionHistoryEntity
 import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import io.kotest.matchers.shouldBe
 import io.mockk.coEvery
