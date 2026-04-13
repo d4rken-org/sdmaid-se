@@ -11,6 +11,8 @@ import eu.darken.sdmse.common.hashing.Hasher
 import eu.darken.sdmse.common.hashing.hash
 import eu.darken.sdmse.squeezer.core.ContentId
 import eu.darken.sdmse.squeezer.core.ContentIdentifier
+import eu.darken.sdmse.squeezer.core.history.VideoContentHasher.Companion.CHUNK_SIZE
+import eu.darken.sdmse.squeezer.core.history.VideoContentHasher.Companion.PARTIAL_THRESHOLD
 import kotlinx.coroutines.withContext
 import java.io.RandomAccessFile
 import java.nio.ByteBuffer
@@ -94,5 +96,9 @@ class VideoContentHasher @Inject constructor(
         private const val CHUNK_SIZE = 1024L * 1024L // 1 MB
         private const val PARTIAL_THRESHOLD = 2L * CHUNK_SIZE // 2 MB
         private val TAG = logTag("Squeezer", "History", "VideoHasher")
+
+        init {
+            require(PARTIAL_THRESHOLD >= CHUNK_SIZE) { "PARTIAL_THRESHOLD must be >= CHUNK_SIZE" }
+        }
     }
 }
