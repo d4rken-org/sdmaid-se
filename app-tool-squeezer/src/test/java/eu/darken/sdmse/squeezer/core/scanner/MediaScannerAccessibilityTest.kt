@@ -7,7 +7,6 @@ import eu.darken.sdmse.common.files.FileType
 import eu.darken.sdmse.common.files.local.LocalGateway
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.files.local.LocalPathLookup
-import eu.darken.sdmse.common.storage.StorageEnvironment
 import eu.darken.sdmse.exclusion.core.ExclusionManager
 import eu.darken.sdmse.exclusion.core.types.ExclusionHolder
 import eu.darken.sdmse.squeezer.core.CompressibleImage

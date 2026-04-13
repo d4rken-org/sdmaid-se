@@ -1,6 +1,7 @@
 package eu.darken.sdmse.squeezer.core.processor
 
 import io.kotest.matchers.shouldBe
+import io.kotest.matchers.types.shouldBeInstanceOf
 import kotlinx.coroutines.test.runTest
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.BeforeEach
@@ -192,6 +193,7 @@ class FileTransactionTest : BaseTest() {
         }
 
         caught.isFailure shouldBe true
+        caught.exceptionOrNull().shouldBeInstanceOf<java.io.IOException>()
         target.length() shouldBe 1000L
     }
 
