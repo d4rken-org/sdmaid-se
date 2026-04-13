@@ -6,6 +6,7 @@ import android.os.Handler
 import android.os.HandlerThread
 import androidx.annotation.OptIn
 import androidx.media3.common.MediaItem
+import androidx.media3.common.util.UnstableApi
 import androidx.media3.transformer.Composition
 import androidx.media3.transformer.DefaultEncoderFactory
 import androidx.media3.transformer.EditedMediaItem
@@ -23,6 +24,7 @@ import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.squeezer.core.UnsupportedFormatException
 import kotlinx.coroutines.suspendCancellableCoroutine
 import java.io.File
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
@@ -39,7 +41,7 @@ class VideoTranscoder @Inject constructor(
         fun onProgress(percent: Int)
     }
 
-    @OptIn(androidx.media3.common.util.UnstableApi::class)
+    @OptIn(UnstableApi::class)
     suspend fun transcode(
         inputFile: File,
         outputFile: File,
@@ -57,8 +59,21 @@ class VideoTranscoder @Inject constructor(
                 // handler can reach it, handling the race where cancel fires before the setup
                 // post has even executed.
                 var transformerRef: Transformer? = null
+                var pollerRef: Runnable? = null
+                // Cancellation can race with setup — the setup runnable checks this flag
+                // before starting the export so it can bail early instead of writing to a
+                // file that will immediately be deleted.
+                val cancellationRequested = AtomicBoolean(false)
+
+                fun deleteOutput() {
+                    if (outputFile.exists()) outputFile.delete()
+                }
 
                 handler.post {
+                    if (cancellationRequested.get() || !cont.isActive) {
+                        deleteOutput()
+                        return@post
+                    }
                     try {
                         val progressHolder = ProgressHolder()
 
@@ -91,6 +106,7 @@ class VideoTranscoder @Inject constructor(
                             }
                             handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
                         }
+                        pollerRef = poller
 
                         transformer.addListener(object : Transformer.Listener {
                             override fun onCompleted(
@@ -98,7 +114,7 @@ class VideoTranscoder @Inject constructor(
                                 exportResult: ExportResult,
                             ) {
                                 handler.removeCallbacks(poller)
-                                cont.resume(Unit)
+                                if (cont.isActive) cont.resume(Unit)
                             }
 
                             override fun onError(
@@ -107,9 +123,14 @@ class VideoTranscoder @Inject constructor(
                                 exportException: ExportException,
                             ) {
                                 handler.removeCallbacks(poller)
-                                cont.resumeWithException(mapExportException(exportException))
+                                if (cont.isActive) cont.resumeWithException(mapExportException(exportException))
                             }
                         })
+
+                        if (cancellationRequested.get() || !cont.isActive) {
+                            deleteOutput()
+                            return@post
+                        }
 
                         val mediaItem = MediaItem.fromUri(Uri.fromFile(inputFile))
                         val editedItem = EditedMediaItem.Builder(mediaItem).build()
@@ -119,6 +140,15 @@ class VideoTranscoder @Inject constructor(
                             .build()
 
                         transformer.start(composition, outputFile.absolutePath)
+
+                        if (cancellationRequested.get()) {
+                            // Cancellation may have fired while start() was executing. The
+                            // cancellation callback already queued handler-thread cleanup, so
+                            // just avoid scheduling any more work here.
+                            deleteOutput()
+                            return@post
+                        }
+
                         handler.postDelayed(poller, PROGRESS_POLL_INTERVAL_MS)
                     } catch (e: Throwable) {
                         log(TAG, ERROR) { "Transformer setup/start threw synchronously: ${e.asLog()}" }
@@ -127,7 +157,11 @@ class VideoTranscoder @Inject constructor(
                 }
 
                 cont.invokeOnCancellation {
+                    cancellationRequested.set(true)
+                    // Direct delete covers the normal case where setup already ran.
+                    deleteOutput()
                     handler.post {
+                        pollerRef?.let { handler.removeCallbacks(it) }
                         val t = transformerRef
                         if (t != null) {
                             try {
@@ -136,7 +170,11 @@ class VideoTranscoder @Inject constructor(
                                 log(TAG, WARN) { "transformer.cancel() failed: ${e.message}" }
                             }
                         }
-                        if (outputFile.exists()) outputFile.delete()
+                        // Second delete covers early-cancel: if setup hadn't run when
+                        // the direct delete above fired, it was a no-op. The setup
+                        // block then ran and started writing outputFile before this
+                        // cancellation block drained on the same handler thread.
+                        deleteOutput()
                     }
                 }
             }
@@ -150,7 +188,7 @@ class VideoTranscoder @Inject constructor(
         private const val PROGRESS_POLL_INTERVAL_MS = 500L
         private val TAG = logTag("Squeezer", "Video", "Transcoder")
 
-        @OptIn(androidx.media3.common.util.UnstableApi::class)
+        @OptIn(UnstableApi::class)
         internal fun mapExportException(e: ExportException): Throwable {
             // Map broad Transformer error categories to typed exceptions. We avoid matching every
             // specific errorCode because Media3 adds and renames codes across versions. The
