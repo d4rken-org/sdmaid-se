@@ -17,15 +17,15 @@ import androidx.fragment.app.DialogFragment
 import androidx.lifecycle.lifecycleScope
 import coil.load
 import coil.request.CachePolicy
-import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.dpToPx
 import eu.darken.sdmse.common.files.core.local.deleteRecursivelySafe
 import eu.darken.sdmse.common.hasApiLevel
-import eu.darken.sdmse.squeezer.databinding.SqueezerComparisonDialogBinding
+import eu.darken.sdmse.squeezer.R
 import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.databinding.SqueezerComparisonDialogBinding
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
@@ -69,7 +69,7 @@ class ComparisonDialog : DialogFragment() {
             getString(R.string.squeezer_onboarding_original_label)
         }
         binding.compressedLabel.text = if (isVideoSource) {
-            "${getString(R.string.squeezer_onboarding_video_compressed_label)} ($quality%)"
+            "${getString(R.string.squeezer_onboarding_video_compressed_label)} ($quality%)\n${getString(R.string.squeezer_onboarding_video_quality_disclaimer)}"
         } else {
             "${getString(R.string.squeezer_onboarding_compressed_label)} ($quality%)"
         }
