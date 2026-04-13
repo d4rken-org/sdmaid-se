@@ -232,8 +232,10 @@ dependencies {
     implementation("androidx.documentfile:documentfile:1.1.0")
     addAndroidUI()
     addWorkerManager()
+    // WorkManager exposes ListenableFuture in its API (TaskWorkerControl.kt).
+    // Media3 Transformer (via app-tool-squeezer) transitively pulls in full Guava at runtime,
+    // but `implementation` scoping means it doesn't reach this module's compile classpath.
     implementation("com.google.guava:guava:33.3.1-android")
-
     addRoomDb()
 
     addTesting()
