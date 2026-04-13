@@ -5,7 +5,8 @@ import eu.darken.sdmse.common.MimeTypeTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.Bugs
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -19,7 +20,10 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.progress.updateProgressCount
 import eu.darken.sdmse.common.progress.updateProgressPrimary
 import eu.darken.sdmse.common.progress.updateProgressSecondary
-import eu.darken.sdmse.common.storage.StorageEnvironment
+import eu.darken.sdmse.exclusion.core.ExclusionManager
+import eu.darken.sdmse.exclusion.core.pathExclusions
+import eu.darken.sdmse.exclusion.core.types.match
+import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressibleMedia
 import eu.darken.sdmse.squeezer.core.CompressibleVideo
@@ -31,22 +35,19 @@ import eu.darken.sdmse.squeezer.core.history.CompressionHistoryEntity
 import eu.darken.sdmse.squeezer.core.history.ImageContentHasher
 import eu.darken.sdmse.squeezer.core.history.VideoContentHasher
 import eu.darken.sdmse.squeezer.core.processor.ExifPreserver
-import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.exclusion.core.pathExclusions
-import eu.darken.sdmse.exclusion.core.types.match
-import eu.darken.sdmse.main.core.SDMTool
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
-import kotlinx.coroutines.withContext
 import kotlinx.coroutines.flow.asFlow
 import kotlinx.coroutines.flow.buffer
 import kotlinx.coroutines.flow.emptyFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.flatMapMerge
 import kotlinx.coroutines.flow.flowOn
+import kotlinx.coroutines.withContext
 import java.io.File
 import java.time.Duration
 import java.time.Instant
+import java.util.concurrent.atomic.AtomicInteger
 import javax.inject.Inject
 
 
@@ -123,7 +124,7 @@ class MediaScanner @Inject constructor(
         updateProgressSecondary()
         updateProgressCount(Progress.Count.Indeterminate())
 
-        var skippedInaccessible = 0
+        val skippedInaccessible = AtomicInteger(0)
 
         val searchPaths = options.paths
         val searchFlow = createSearchFlow(searchPaths)
@@ -139,7 +140,7 @@ class MediaScanner @Inject constructor(
                 val verdict = SqueezerEligibility.check(lookup.lookedUp)
                 if (verdict != SqueezerEligibility.Verdict.OK) {
                     if (Bugs.isTrace) log(TAG, VERBOSE) { "Skipping ($verdict): $lookup" }
-                    skippedInaccessible++
+                    skippedInaccessible.incrementAndGet()
                     return@filter false
                 }
 
@@ -192,8 +193,8 @@ class MediaScanner @Inject constructor(
             }
         }
 
-        log(TAG) { "Scan complete: ${results.size} compressible media found, $skippedInaccessible skipped (inaccessible)" }
-        return ScanResult(items = results, skippedInaccessibleCount = skippedInaccessible)
+        log(TAG) { "Scan complete: ${results.size} compressible media found, ${skippedInaccessible.get()} skipped (inaccessible)" }
+        return ScanResult(items = results, skippedInaccessibleCount = skippedInaccessible.get())
     }
 
     private suspend fun processImageCandidate(
