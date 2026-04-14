@@ -12,9 +12,11 @@ import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
 import eu.darken.sdmse.automation.core.common.pkgId
 import eu.darken.sdmse.automation.core.common.scrollNode
+import eu.darken.sdmse.automation.core.common.scrollNodeBackward
 import eu.darken.sdmse.automation.core.common.stepper.StepContext
 import eu.darken.sdmse.automation.core.common.stepper.clickNormal
 import eu.darken.sdmse.automation.core.common.stepper.findClickableParent
+import eu.darken.sdmse.automation.core.common.textContainsAny
 import eu.darken.sdmse.automation.core.common.textMatchesAny
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -175,27 +177,51 @@ fun SpecGenerator.defaultFindAndClick(
     clickNormal(isDryRun = isDryRun, mapped)
 }
 
+private const val BUSY_NODE_MAX_LENGTH = 30
+
 fun SpecGenerator.defaultNodeRecovery(
-    pkg: Installed
-): suspend StepContext.(ACSNodeInfo) -> Boolean = { root ->
+    pkg: Installed,
+    extraBusyLabels: Collection<String> = emptySet(),
+): suspend StepContext.(ACSNodeInfo) -> Boolean = recovery@{ root ->
     log(tag) { "Performing node recovery for ${pkg.id}" }
-    val busyNode = root.crawl().firstOrNull { it.node.textMatchesAny(listOf("...", "…")) }
+
+    // Check for busy/loading indicators: "...", "…", or any text containing them (e.g. "Computing…")
+    val busyNode = root.crawl().firstOrNull { crawled ->
+        val text = crawled.node.text?.toString() ?: return@firstOrNull false
+        if (text.length > BUSY_NODE_MAX_LENGTH) return@firstOrNull false
+        crawled.node.textContainsAny(listOf("...", "…")) ||
+                (extraBusyLabels.isNotEmpty() && crawled.node.textMatchesAny(extraBusyLabels))
+    }
     if (busyNode != null) {
         log(tag, VERBOSE) { "Found a busy-node, attempting recovery via delay: $busyNode" }
         delay(1000)
         root.refresh()
-        true
-    } else {
-        var scrolled = false
-        root.crawl()
-            .filter { it.node.isScrollable }
-            .forEach {
-                val success = it.node.scrollNode()
-                if (success) {
-                    scrolled = true
-                    it.node.refresh()
-                }
-            }
-        scrolled
+        return@recovery true
     }
+
+    // Try scrolling forward first
+    var scrolled = false
+    val scrollableNodes = root.crawl().filter { it.node.isScrollable }.toList()
+
+    for (crawled in scrollableNodes) {
+        val success = crawled.node.scrollNode()
+        if (success) {
+            scrolled = true
+            crawled.node.refresh()
+        }
+    }
+
+    // If forward scroll failed (already at bottom), try scrolling backward
+    if (!scrolled) {
+        log(tag, VERBOSE) { "Forward scroll failed, trying backward scroll" }
+        for (crawled in scrollableNodes) {
+            val success = crawled.node.scrollNodeBackward()
+            if (success) {
+                scrolled = true
+                crawled.node.refresh()
+            }
+        }
+    }
+
+    scrolled
 }

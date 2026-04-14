@@ -161,10 +161,11 @@ class StorageEntryFinder @Inject constructor(
 
         val storageFilter: (ACSNodeInfo) -> Int? = when {
             hasApiLevel(33) -> storageFilter@{ node ->
-                if (!node.isTextView()) return@storageFilter null
                 when {
+                    // Label match: prefer TextViews but also accept other node types (Compose)
                     node.textMatchesAny(labels) -> 0
-                    matchStorage(node) -> 1
+                    // Size match: only on TextViews to avoid false positives
+                    node.isTextView() && matchStorage(node) -> 1
                     else -> null
                 }
             }

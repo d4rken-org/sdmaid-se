@@ -468,6 +468,9 @@ class AOSPSpecs @Inject constructor(
                 aospLabels.getStorageEntryDynamic(this) + aospLabels.getStorageEntryStatic(this)
             log(TAG) { "storageEntryLabels=${storageEntryLabels.toVisualStrings()}" }
 
+            val computingLabels = aospLabels.getComputingSizeDynamic(this)
+            log(TAG) { "computingLabels=${computingLabels.toVisualStrings()}" }
+
             val storageFinder = storageEntryFinder.storageFinderAOSP(storageEntryLabels, pkg)
 
             val step = AutomationStep(
@@ -476,7 +479,7 @@ class AOSPSpecs @Inject constructor(
                 label = R.string.appcleaner_automation_progress_find_storage.toCaString(storageEntryLabels),
                 windowLaunch = windowLauncherDefaultSettings(pkg),
                 windowCheck = windowCheckDefaultSettings(SETTINGS_PKG, ipcFunnel, pkg),
-                nodeRecovery = defaultNodeRecovery(pkg),
+                nodeRecovery = defaultNodeRecovery(pkg, extraBusyLabels = computingLabels),
                 nodeAction = defaultFindAndClick(finder = storageFinder),
             )
             stepper.withProgress(this) { process(this@plan, step) }

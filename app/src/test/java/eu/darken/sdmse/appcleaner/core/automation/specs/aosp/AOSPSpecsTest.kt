@@ -48,6 +48,7 @@ class AOSPSpecsTest : BaseAppCleanerSpecTest<AOSPSpecs, AOSPLabels>() {
     override fun mockLabelDefaults() {
         every { labels.getStorageEntryDynamic(any()) } returns emptySet()
         every { labels.getStorageEntryStatic(any()) } returns setOf("Storage")
+        every { labels.getComputingSizeDynamic(any()) } returns emptySet()
         every { labels.getClearCacheDynamic(any()) } returns emptySet()
         every { labels.getClearCacheStatic(any()) } returns setOf("Clear cache")
     }
