@@ -1,5 +1,76 @@
 # Compose Rewrite: SD Maid SE
 
+## Current Status (2026-04-14)
+
+### What's done
+- **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController, ErrorEventHandler, NavigationEventHandler, settings toolkit composables
+- **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules)
+- **All routes**: Every route implements NavigationDestination
+- **ViewModels migrated to ViewModel4**: Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs
+- **Navigation3 stable**: Upgraded from alpha08 to 1.0.1, fixed API renames (EntryProviderScope, rememberSaveableStateHolderNavEntryDecorator)
+- **12 screens fully converted to Compose**: Onboarding (4), Dashboard, Settings index, General Settings, Acknowledgements, Support, DataAreas, LogView
+- **Dashboard cards done**: All ~17 card types have full Compose composables with XML parity
+
+### What's broken / incomplete
+- **Setup screen is a STUB** — SetupScreen.kt only renders `item.state.type.name` as plain text. All 8 setup card types (Storage, SAF, Root, UsageStats, Automation, Notification, Shizuku, Inventory) need proper Compose implementations matching their XML layouts. **FIX THIS NEXT.**
+- **Support screen missing 2 dialogs** — `SupportEvents.ShowShortRecordingWarning` and recorder consent dialog are TODO stubs
+- **Upgrade FOSS is minimal** — only renders title, description, and one GitHub Sponsors button (no pricing display)
+- **Upgrade GPLAY is partial** — has IAP/subscription UI but depends on Billing library state
+- **53 Fragments still unconverted** — registered in mainNavGraph() but Navigation3 NavDisplay can't render Fragments, so all tool screens, exclusions, stats, preview, picker are unreachable
+- **Tool settings navigation broken** — Settings index navigates to tool settings routes but they're Fragment-based (dead)
+
+### Remaining work (priority order)
+
+#### 1. Complete Setup screen card rendering (NEXT)
+SetupScreen.kt renders stubs. Need proper Compose implementations for all 8 setup card types matching the existing XML layouts and ViewHolders:
+- StorageSetupCard (setup_storage_item.xml / StorageSetupCardVH)
+- SAFSetupCard (setup_saf_item.xml / SAFSetupCardVH)
+- RootSetupCard (setup_root_item.xml / RootSetupCardVH)
+- UsageStatsSetupCard (setup_usagestats_item.xml / UsageStatsSetupCardVH)
+- AutomationSetupCard (setup_automation_item.xml / AutomationSetupCardVH)
+- NotificationSetupCard (setup_notification_item.xml / NotificationSetupCardVH)
+- ShizukuSetupCard (setup_shizuku_item.xml / ShizukuSetupCardVH)
+- InventorySetupCard (setup_inventory_item.xml / InventorySetupCardVH)
+- SetupModuleLoadingCard (setup_module_loading_item.xml / SetupModuleLoadingCardVH)
+
+#### 2. Complete Support screen dialogs
+- Implement ShortRecordingDialog as Compose AlertDialog
+- Implement recorder consent dialog as Compose AlertDialog
+
+#### 3. Convert 9 tool settings PreferenceFragments → Compose
+CorpseFinder, SystemCleaner, AppCleaner, Deduplicator, AppControl, Squeezer, Swiper, Scheduler, Stats settings screens.
+
+#### 4. Convert 3 remaining app module Fragments
+SupportContactForm, DashboardCardConfig, DebugLogSessionsDialog.
+
+#### 5. Convert tool list/details Fragments (30 screens)
+- CorpseFinder: List, Details, Corpse (3)
+- SystemCleaner: List, FilterContentDetails, FilterContent, CustomFilterList, CustomFilterEditor (5)
+- AppCleaner: List, AppJunkDetails, AppJunk (3)
+- Deduplicator: List, Details, Cluster, ArbiterConfig (4)
+- AppControl: List, AppActionDialog (2)
+- Scheduler: Manager, ScheduleItemDialog (2)
+- Squeezer: List, Setup, ComparisonDialog (3)
+- Swiper: Sessions, Swipe, Status (3)
+- Analyzer: DeviceStorage, StorageContent, Apps, AppDetails, Content (5)
+
+#### 6. Convert cross-cutting Fragments (11 screens)
+- Exclusion: List, PathEditor, PkgEditor, SegmentEditor (4)
+- Stats: Reports, SpaceHistory, AffectedPaths, AffectedPkgs (4)
+- Preview: PreviewFragment, PreviewItemFragment (2)
+- Picker: PickerFragment (1)
+
+#### 7. Final cleanup
+- Delete mainNavGraph.kt
+- Delete all base Fragment classes (Fragment2/3, DialogFragment2/3, PreferenceFragment2/3, BottomSheetDialogFragment2)
+- Delete all ViewBinding XML layouts, RecyclerView Adapters/ViewHolders
+- Remove Fragment navigation dependencies
+- Remove ViewBinding build feature
+- Remove runtime-livedata dependency
+- Remove LegacyNavigationBridge
+
+---
+
 ## Context
 
 SD Maid SE currently ships on **XML layouts + Fragments** (62 Fragments, 207

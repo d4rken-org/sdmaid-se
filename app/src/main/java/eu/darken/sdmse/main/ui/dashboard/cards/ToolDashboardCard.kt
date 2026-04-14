@@ -1,0 +1,170 @@
+package eu.darken.sdmse.main.ui.dashboard
+
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.Icon
+import androidx.compose.material3.LocalContentColor
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Text
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.asComposable
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.main.core.SDMTool
+
+@Composable
+internal fun ToolDashboardCard(item: DashboardToolCard.Item) {
+    val toolName = stringResource(toolNameRes(item.toolType))
+    val toolDescription = stringResource(toolDescriptionRes(item.toolType))
+    val clickable = item.progress == null && item.onDelete != null
+
+    DashboardCard(
+        onClick = item.onViewTool.takeIf { clickable },
+    ) {
+        Row(verticalAlignment = Alignment.CenterVertically) {
+            Icon(
+                painter = painterResource(toolIconRes(item.toolType)),
+                contentDescription = null,
+                modifier = Modifier.size(20.dp),
+                tint = if (item.toolType == SDMTool.Type.CORPSEFINDER) Color.Unspecified else LocalContentColor.current,
+            )
+            Spacer(modifier = Modifier.width(8.dp))
+            Text(
+                text = toolName,
+                style = MaterialTheme.typography.titleMedium,
+                modifier = Modifier.weight(1f),
+            )
+            if (item.isInitializing) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(16.dp),
+                    strokeWidth = 3.dp,
+                )
+            }
+        }
+
+        if (item.progress == null && item.result == null) {
+            Spacer(modifier = Modifier.height(4.dp))
+            Text(
+                text = toolDescription,
+                style = MaterialTheme.typography.bodySmall,
+            )
+        }
+
+        if (item.progress != null || item.result != null) {
+            Spacer(modifier = Modifier.height(16.dp))
+            ProgressContainer(
+                modifier = Modifier.fillMaxWidth(),
+                onClick = item.onViewTool.takeIf { item.result != null && item.progress == null },
+                progress = item.progress,
+                resultPrimary = item.result?.primaryInfo?.asComposable(),
+                resultSecondary = item.result?.secondaryInfo?.asComposable()?.takeUnless { it.isBlank() },
+            )
+        }
+
+        Spacer(modifier = Modifier.height(12.dp))
+
+        Row(
+            modifier = Modifier.fillMaxWidth(),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            if (item.progress != null) {
+                Spacer(modifier = Modifier.weight(1f))
+                DashboardOutlinedActionButton(onClick = item.onCancel) {
+                    Icon(
+                        painter = painterResource(UiR.drawable.ic_cancel),
+                        contentDescription = null,
+                    )
+                    Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
+                    Text(text = stringResource(CommonR.string.general_cancel_action))
+                }
+            } else {
+                if (item.onDelete != null) {
+                    DashboardIconActionButton(onClick = item.onViewDetails) {
+                        Icon(
+                            painter = painterResource(R.drawable.book_open),
+                            contentDescription = stringResource(CommonR.string.general_show_details_action),
+                        )
+                    }
+                    Spacer(modifier = Modifier.weight(1f))
+                    DashboardFilledActionButton(
+                        onClick = { item.onDelete.invoke() },
+                        enabled = !item.isInitializing,
+                        colors = ButtonDefaults.buttonColors(
+                            containerColor = MaterialTheme.colorScheme.error,
+                            contentColor = MaterialTheme.colorScheme.onError,
+                        ),
+                    ) {
+                        Icon(
+                            painter = painterResource(
+                                if (item.showProRequirement) UiR.drawable.ic_baseline_stars_24 else UiR.drawable.ic_delete,
+                            ),
+                            contentDescription = null,
+                        )
+                        Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
+                        Text(text = stringResource(CommonR.string.general_delete_action))
+                    }
+                    Spacer(modifier = Modifier.width(4.dp))
+                    DashboardFilledActionButton(
+                        onClick = item.onScan,
+                        enabled = !item.isInitializing,
+                    ) {
+                        Icon(
+                            painter = painterResource(UiR.drawable.ic_folder_search_24),
+                            contentDescription = stringResource(CommonR.string.general_scan_action),
+                        )
+                    }
+                } else {
+                    Spacer(modifier = Modifier.weight(1f))
+                    DashboardFilledActionButton(
+                        onClick = item.onScan,
+                        enabled = !item.isInitializing,
+                    ) {
+                        Icon(
+                            painter = painterResource(UiR.drawable.ic_folder_search_24),
+                            contentDescription = null,
+                        )
+                        Spacer(modifier = Modifier.width(DashboardActionIconSpacing))
+                        Text(text = stringResource(CommonR.string.general_scan_action))
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun ToolDashboardCardPreview() {
+    PreviewWrapper {
+        ToolDashboardCard(
+            item = DashboardToolCard.Item(
+                toolType = SDMTool.Type.CORPSEFINDER,
+                isInitializing = false,
+                result = null,
+                progress = Progress.Data(),
+                showProRequirement = false,
+                onScan = {},
+                onDelete = {},
+                onViewTool = {},
+                onViewDetails = {},
+                onCancel = {},
+            ),
+        )
+    }
+}
