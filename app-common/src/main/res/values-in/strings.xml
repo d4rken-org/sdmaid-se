@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Dalam antrean</string>
     <string name="general_progress_deleting">Menghapus</string>
     <string name="general_progress_deleting_x">Menghapus %s</string>
+    <string name="general_sort_action">Urutkan</string>
+    <string name="general_sort_by_title">Urutkan berdasarkan</string>
     <string name="general_sort_options_label">Pilihan pengurutan</string>
     <string name="general_sort_reverse_action">Mode penyortiran terbalik</string>
+    <string name="general_sort_oldest_first">Terlama dahulu</string>
+    <string name="general_sort_newest_first">Terbaru dahulu</string>
+    <string name="general_sort_name_asc">Nama (A → Z)</string>
+    <string name="general_sort_size_desc">Terbesar dahulu</string>
     <string name="general_tag_filter_label">Saring berdasarkan tag</string>
     <string name="general_tag_system">Sistem</string>
     <string name="general_result_success_message">Pekerjaan selesai</string>

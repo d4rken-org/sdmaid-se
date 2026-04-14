@@ -44,6 +44,8 @@
     <string name="stats_storage_type_primary">प्रारंभिक संग्रहण</string>
     <string name="stats_storage_type_secondary">माध्यमिक संग्रहण</string>
     <string name="stats_storage_type_portable">पोर्टेबल संग्रहण</string>
+    <string name="stats_space_history_delete_storage_title">स्टोरेज इतिहास हटाएं?</string>
+    <string name="stats_space_history_delete_storage_desc">इस स्टोरेज के लिए सभी ट्रेंड डेटा स्थायी रूप से हटा दिया जाएगा।</string>
     <string name="stats_settings_retention_snapshots_label">संग्रहण स्नैपशॉट</string>
     <string name="stats_settings_retention_snapshots_desc">संग्रहण स्थान स्नैपशॉट रखने के दिनों की संख्या।</string>
 </resources>

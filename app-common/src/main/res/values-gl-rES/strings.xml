@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Na cola</string>
     <string name="general_progress_deleting">Eliminando</string>
     <string name="general_progress_deleting_x">Eliminando %s</string>
+    <string name="general_sort_action">Ordenar</string>
+    <string name="general_sort_by_title">Ordenar por</string>
     <string name="general_sort_options_label">Opcións de ordenación</string>
     <string name="general_sort_reverse_action">Modo de ordenación inversa</string>
+    <string name="general_sort_oldest_first">Os máis antigos primeiro</string>
+    <string name="general_sort_newest_first">Os máis novos primeiro</string>
+    <string name="general_sort_name_asc">Nome (A → Z)</string>
+    <string name="general_sort_size_desc">Os máis grandes primeiro</string>
     <string name="general_tag_filter_label">Filtrar por etiquetas</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operación exitosa</string>

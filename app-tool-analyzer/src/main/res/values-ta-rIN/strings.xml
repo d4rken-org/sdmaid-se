@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">பிடிக்கப்பட்ட படங்கள், பதிவு செய்யப்பட்ட வீடியோகள் அல்லது இறங்கப்பட்ட தரவு. குறிப்பிட்ட பயன்பாட்டுக்கு சொந்தமில்லாத எந்த தரவும்.</string>
     <string name="analyzer_storage_content_type_system_label">கணினி தரவு</string>
     <string name="analyzer_storage_content_type_system_description">கணினி பயன்பாடுகள் மற்றும் கணினி தரவு. இந்த சாதனத்தில் பல பயனர் கணக்குகள் அமைக்கப்பட்டிருந்தால், மற்ற பயனர்களின் பயன்பாடுகள் மற்றும் தரவு.</string>
+    <string name="analyzer_storage_content_type_system_other_label">மற்றவை</string>
+    <string name="analyzer_storage_content_type_system_info">ஆப்ஸ் அல்லது பயனர் கோப்புகள் வகைகளில் பொருந்தாத கோப்புகள். உலாவல் மட்டுமே — நீக்குதல் ஆதரிக்கப்படவில்லை. அணுகல் கட்டுப்பாடுகள் காரணமாக சில பகுதிகள் முழுமையற்றதாக இருக்கலாம்.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid அணுக அல்லது வகைப்படுத்த முடியாத கணினி கோப்புகள் மற்றும் பிற தரவு. இயக்க முறைமை சில பகுதிகளின் உள்ளடக்கங்களை பட்டியலிடுவதை கட்டுப்படுத்துகிறது.</string>
     <string name="analyzer_storage_content_app_code_label">பயன்பாட்டு கோட்</string>
     <string name="analyzer_storage_content_app_code_description">பயன்பாட்டு கோப்புகள், நூலகங்கள் மற்றும் வளங்கள். பயன்பாடை அன்இன்ஸ்டால் செய்வதன் மூலம் அல்லது அர்கைவ் செய்வதன் மூலம் (புதிய Android வெர்ஷன்களில் கிடைக்கும்) இந்த இடத்தை விடுவிக்க முடியும்.</string>
     <string name="analyzer_storage_content_app_data_label">பயன்பாட்டு தரவு</string>

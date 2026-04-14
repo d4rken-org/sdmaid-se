@@ -71,8 +71,14 @@
     <string name="general_progress_queued">पंक्ति में</string>
     <string name="general_progress_deleting">डिलीट कर रहा है</string>
     <string name="general_progress_deleting_x">डिलीट कर रहा है %s</string>
+    <string name="general_sort_action">क्रमबद्ध करें</string>
+    <string name="general_sort_by_title">इसके अनुसार क्रमबद्ध करें</string>
     <string name="general_sort_options_label">क्रमबद्ध विकल्प</string>
     <string name="general_sort_reverse_action">रिवर्स क्रम मोड</string>
+    <string name="general_sort_oldest_first">पहले पुराने</string>
+    <string name="general_sort_newest_first">पहले नए</string>
+    <string name="general_sort_name_asc">नाम (A → Z)</string>
+    <string name="general_sort_size_desc">पहले सबसे बड़े</string>
     <string name="general_tag_filter_label">टैग द्वारा फ़िल्टर करें</string>
     <string name="general_tag_system">सिस्टम</string>
     <string name="general_result_success_message">ऑपरेशन सफल रहा</string>

@@ -71,8 +71,14 @@
     <string name="general_progress_queued">ക്യൂവിൽ</string>
     <string name="general_progress_deleting">ഡിലീറ്റ് ചെയ്യുന്നു</string>
     <string name="general_progress_deleting_x">%s ഡിലീറ്റ് ചെയ്യുന്നു</string>
+    <string name="general_sort_action">അടുക്കുക</string>
+    <string name="general_sort_by_title">അടുക്കുക ഇതനുസരിച്ച്</string>
     <string name="general_sort_options_label">ഓപ്‌ഷനുകൾ അടുക്കുക</string>
     <string name="general_sort_reverse_action">റിവേഴ്സ് സോർട്ട് മോഡ്</string>
+    <string name="general_sort_oldest_first">പഴയത് ആദ്യം</string>
+    <string name="general_sort_newest_first">പുതിയത് ആദ്യം</string>
+    <string name="general_sort_name_asc">പേര് (A → Z)</string>
+    <string name="general_sort_size_desc">ഏറ്റവും വലുത് ആദ്യം</string>
     <string name="general_tag_filter_label">ടാഗുകൾ പ്രകാരം ഫിൽട്ടർ ചെയ്യുക</string>
     <string name="general_tag_system">സിസ്റ്റം</string>
     <string name="general_result_success_message">ഓപ്പറേഷൻ വിജയിച്ചു</string>

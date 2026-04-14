@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Çəkilmiş şəkillər, qeydə alınmış videolar və ya yüklənmiş məlumatlar. Xüsusi tətbiqə aid olmayan istənilən məlumat.</string>
     <string name="analyzer_storage_content_type_system_label">Sistem məlumatları</string>
     <string name="analyzer_storage_content_type_system_description">Sistem tətbiqləri və sistem məlumatları. Bu cihazda bir neçə istifadəçi hesabı qurulubsa, digər istifadəçilərin tətbiqləri və məlumatları.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Digər</string>
+    <string name="analyzer_storage_content_type_system_info">Tətbiqliər və ya İstifadəçi faylları kateqoriyalarına uyğun olmayan fayllar. Yalnız baxış — silinmə dəstəklənmir. Giriş məhdudiyyətləri səbəbindən bəzi sahələr natamam ola bilər.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid-in daxil ola bilmədiyi və ya kateqoriyalaşdıra bilmədiyi sistem faylları və digər məlumatlar. Əməliyyat sistemi bəzi sahələrin məzmununu siyahıya almaqı məhdudlaşdırır.</string>
     <string name="analyzer_storage_content_app_code_label">Tətbiq kodu</string>
     <string name="analyzer_storage_content_app_code_description">Tətbiq faylları, kitabxanalar və resurslar. Bu yer tətbiqi silərek və ya arxivləyərək (yeni Android versiyalarında mövcuddur) azad edilə bilər.</string>
     <string name="analyzer_storage_content_app_data_label">Tətbiq məlumatları</string>

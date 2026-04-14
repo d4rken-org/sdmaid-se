@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">ক্যাপচার করা ছবি, রেকর্ড করা ভিডিও বা ডাউনলোড করা ডেটা। কোনো নির্দিষ্ট অ্যাপের অন্তর্গত নয় এমন কোনো ডেটা।</string>
     <string name="analyzer_storage_content_type_system_label">সিস্টেম ডেটা</string>
     <string name="analyzer_storage_content_type_system_description">সিস্টেম অ্যাপস এবং সিস্টেম ডেটা। এই ডিভাইসে একাধিক ব্যবহারকারীর অ্যাকাউন্ট সেট করা থাকলে অন্যান্য ব্যবহারকারীর অ্যাপ এবং ডেটা।</string>
+    <string name="analyzer_storage_content_type_system_other_label">অন্যান্য</string>
+    <string name="analyzer_storage_content_type_system_info">ফাইলগুলি যা Apps বা User files বিভাগে পড়ে না। শুধুমাত্র ব্রাউজ করুন — মুছে ফেলা সমর্থিত নয়। অ্যাক্সেস সীমাবদ্ধতার কারণে কিছু এলাকা অসম্পূর্ণ হতে পারে।</string>
+    <string name="analyzer_storage_content_type_system_other_desc">সিস্টেম ফাইল এবং অন্যান্য ডেটা যা SD Maid অ্যাক্সেস করতে বা শ্রেণীবদ্ধ করতে পারেনি। অপারেটিং সিস্টেম কিছু এলাকার বিষয়বস্তু তালিকাভুক্ত করা সীমাবদ্ধ করে।</string>
     <string name="analyzer_storage_content_app_code_label">অ্যাপ কোড</string>
     <string name="analyzer_storage_content_app_code_description">অ্যাপ্লিকেশন ফাইল, লাইব্রেরি এবং সম্পদ. অ্যাপটি আনইনস্টল করে বা আর্কাইভ করে (নতুন Android সংস্করণে উপলব্ধ) এই স্থানটি খালি করা যেতে পারে।</string>
     <string name="analyzer_storage_content_app_data_label">অ্যাপ ডেটা</string>

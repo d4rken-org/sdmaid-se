@@ -71,8 +71,14 @@
     <string name="general_progress_queued">In tou</string>
     <string name="general_progress_deleting">Skrap</string>
     <string name="general_progress_deleting_x">Skrap %s</string>
+    <string name="general_sort_action">Sorteer</string>
+    <string name="general_sort_by_title">Sorteer volgens</string>
     <string name="general_sort_options_label">Sorteer opsies</string>
     <string name="general_sort_reverse_action">Keer sorteer modus om</string>
+    <string name="general_sort_oldest_first">Oudste eerste</string>
+    <string name="general_sort_newest_first">Nuutste eerste</string>
+    <string name="general_sort_name_asc">Naam (A → Z)</string>
+    <string name="general_sort_size_desc">Grootste eerste</string>
     <string name="general_tag_filter_label">Filter volgens etikette</string>
     <string name="general_tag_system">Stelsel</string>
     <string name="general_result_success_message">Operasie suksesvol</string>

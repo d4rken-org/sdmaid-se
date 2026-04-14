@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Rindā</string>
     <string name="general_progress_deleting">Dzēšana</string>
     <string name="general_progress_deleting_x">Dzēš %s</string>
+    <string name="general_sort_action">Kārtot</string>
+    <string name="general_sort_by_title">Kārtot pēc</string>
     <string name="general_sort_options_label">Kārtošanas opcijas</string>
     <string name="general_sort_reverse_action">Apgrieztais kārtošanas režīms</string>
+    <string name="general_sort_oldest_first">Vispirms vecākie</string>
+    <string name="general_sort_newest_first">Vispirms jaunākie</string>
+    <string name="general_sort_name_asc">Nosaukums (A → Z)</string>
+    <string name="general_sort_size_desc">Vispirms lielākie</string>
     <string name="general_tag_filter_label">Filtrēt pēc atzīmēm</string>
     <string name="general_tag_system">Sistēma</string>
     <string name="general_result_success_message">Operācija veiksmīga</string>

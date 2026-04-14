@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Emgqeni</string>
     <string name="general_progress_deleting">Iyasusa</string>
     <string name="general_progress_deleting_x">Susa %s</string>
+    <string name="general_sort_action">Hlunga</string>
+    <string name="general_sort_by_title">Hlunga ngo</string>
     <string name="general_sort_options_label">Izinketho zokuhlunga</string>
     <string name="general_sort_reverse_action">Imodi yokuhlungana okuphambene</string>
+    <string name="general_sort_oldest_first">Omdala kuqala</string>
+    <string name="general_sort_newest_first">Omusha kuqala</string>
+    <string name="general_sort_name_asc">Igama (A → Z)</string>
+    <string name="general_sort_size_desc">Olukhulu kuqala</string>
     <string name="general_tag_filter_label">Hlola ngama-tag</string>
     <string name="general_tag_system">Uhlelo</string>
     <string name="general_result_success_message">Kuqedwe ngempumelelo</string>

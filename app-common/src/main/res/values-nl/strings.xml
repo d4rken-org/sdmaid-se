@@ -71,8 +71,14 @@
     <string name="general_progress_queued">In de wachtrij</string>
     <string name="general_progress_deleting">Verwijderen</string>
     <string name="general_progress_deleting_x">Verwijderen %s</string>
+    <string name="general_sort_action">Sorteren</string>
+    <string name="general_sort_by_title">Sorteren op</string>
     <string name="general_sort_options_label">Sorteer opties</string>
     <string name="general_sort_reverse_action">Omgekeerde sorteermodus</string>
+    <string name="general_sort_oldest_first">Oudste eerst</string>
+    <string name="general_sort_newest_first">Nieuwste eerst</string>
+    <string name="general_sort_name_asc">Naam (A → Z)</string>
+    <string name="general_sort_size_desc">Grootste eerst</string>
     <string name="general_tag_filter_label">Filteren op tags</string>
     <string name="general_tag_system">Systeem</string>
     <string name="general_result_success_message">Bewerking geslaagd</string>

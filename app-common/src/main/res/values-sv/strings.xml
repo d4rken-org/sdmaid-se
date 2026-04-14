@@ -71,8 +71,14 @@
     <string name="general_progress_queued">I kö</string>
     <string name="general_progress_deleting">Tar bort</string>
     <string name="general_progress_deleting_x">Tar bort %s</string>
+    <string name="general_sort_action">Sortera</string>
+    <string name="general_sort_by_title">Sortera efter</string>
     <string name="general_sort_options_label">Sorteringsalternativ</string>
     <string name="general_sort_reverse_action">Omvänt sorteringsläge</string>
+    <string name="general_sort_oldest_first">Äldst först</string>
+    <string name="general_sort_newest_first">Nyast först</string>
+    <string name="general_sort_name_asc">Namn (A → Ö)</string>
+    <string name="general_sort_size_desc">Störst först</string>
     <string name="general_tag_filter_label">Filtrera efter taggar</string>
     <string name="general_tag_system">System</string>
     <string name="general_result_success_message">Operationen lyckades</string>

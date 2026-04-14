@@ -71,8 +71,14 @@
     <string name="general_progress_queued">대기 중</string>
     <string name="general_progress_deleting">삭제 중</string>
     <string name="general_progress_deleting_x">%s 삭제중</string>
+    <string name="general_sort_action">정렬</string>
+    <string name="general_sort_by_title">정렬 기준</string>
     <string name="general_sort_options_label">정렬 기준</string>
     <string name="general_sort_reverse_action">역정렬 모드</string>
+    <string name="general_sort_oldest_first">오래된 것 먼저</string>
+    <string name="general_sort_newest_first">최신 것 먼저</string>
+    <string name="general_sort_name_asc">이름 (A → Z)</string>
+    <string name="general_sort_size_desc">큰 것 먼저</string>
     <string name="general_tag_filter_label">태그별로 필터</string>
     <string name="general_tag_system">시스템</string>
     <string name="general_result_success_message">작업 성공</string>

@@ -5,6 +5,7 @@
     <string name="dashboard_motd_title">ข้อความจากผู้พัฒนา</string>
     <string name="dashboard_settings_oneclick_title">โหมดแตะครั้งเดียว</string>
     <string name="dashboard_settings_oneclick_summary">เริ่มการสแกนและการลบสำหรับเครื่องมือทั้งหมดด้วยการคลิกปุ่มในแดชบอร์ด โดยไม่มีการยืนยันเพิ่มเติม</string>
+    <string name="dashboard_settings_oneclick_tools_title">เครื่องมือแตะครั้งเดียว</string>
     <string name="dashboard_settings_oneclick_tools_desc">เครื่องมือใดที่ควรรวมอยู่ในการดำเนินการแตะครั้งเดียว?</string>
     <string name="dashboard_card_config_title">การ์ดแดชบอร์ด</string>
     <string name="dashboard_card_config_desc">กำหนดค่าการ์ดที่จะแสดงและลำดับ</string>

@@ -71,8 +71,14 @@
     <string name="general_progress_queued">ຢູ່ໃນແຖວ</string>
     <string name="general_progress_deleting">ກຳລັງລຶບ</string>
     <string name="general_progress_deleting_x">ກຳລັງລຶບ %s</string>
+    <string name="general_sort_action">ຈັດລຽງ</string>
+    <string name="general_sort_by_title">ຈັດລຽງຕາມ</string>
     <string name="general_sort_options_label">ຕົວເລືອກການຈັດລຽງ</string>
     <string name="general_sort_reverse_action">ປີ້ນກັບໂໝດການຈັດລຽງ</string>
+    <string name="general_sort_oldest_first">ເກົ່າທີ່ສຸດກ່ອນ</string>
+    <string name="general_sort_newest_first">ໃໝ່ທີ່ສຸດກ່ອນ</string>
+    <string name="general_sort_name_asc">ຊື່ (ກ → ຮ)</string>
+    <string name="general_sort_size_desc">ໃຫຍ່ທີ່ສຸດກ່ອນ</string>
     <string name="general_tag_filter_label">ຕອງຕາມແທັກ</string>
     <string name="general_tag_system">ລະບົບ</string>
     <string name="general_result_success_message">ການດຳເນີນງານສຳເລັດ</string>

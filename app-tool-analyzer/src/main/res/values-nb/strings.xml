@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Tatt bilder, innspilte videoer eller nedlastet data. Alle data som ikke tilhører en bestemt app.</string>
     <string name="analyzer_storage_content_type_system_label">Systemdata</string>
     <string name="analyzer_storage_content_type_system_description">Systemapper og systemdata. Apper og data fra andre brukere, hvis flere brukerkontoer er angitt på denne enheten.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Andre</string>
+    <string name="analyzer_storage_content_type_system_info">Filer som ikke passer inn i kategoriene Apper eller Brukerfiler. Bla gjennom bare — sletting støttes ikke. Noen områder kan være ufullstendige på grunn av tilgangsbegrensninger.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Systemfiler og andre data som SD Maid ikke kunne få tilgang til eller kategorisere. Operativsystemet begrenser opplistingen av innholdet i noen områder.</string>
     <string name="analyzer_storage_content_app_code_label">App-kode</string>
     <string name="analyzer_storage_content_app_code_description">Applikasjonsfiler, biblioteker og ressurser. Denne plassen kan frigjøres ved å avinstallere appen eller arkivere den (tilgjengelig på nyere Android-versjon).</string>
     <string name="analyzer_storage_content_app_data_label">App-data</string>

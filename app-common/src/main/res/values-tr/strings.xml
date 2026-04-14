@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Sırada</string>
     <string name="general_progress_deleting">Siliniyor</string>
     <string name="general_progress_deleting_x">%s siliniyor</string>
+    <string name="general_sort_action">Sırala</string>
+    <string name="general_sort_by_title">Sıralama ölçütü</string>
     <string name="general_sort_options_label">Sıralama seçenekleri</string>
     <string name="general_sort_reverse_action">Ters sıralama modu</string>
+    <string name="general_sort_oldest_first">Önce en eski</string>
+    <string name="general_sort_newest_first">Önce en yeni</string>
+    <string name="general_sort_name_asc">Ad (A → Z)</string>
+    <string name="general_sort_size_desc">Önce en büyük</string>
     <string name="general_tag_filter_label">Etiketlere göre filtrele</string>
     <string name="general_tag_system">Sistem</string>
     <string name="general_result_success_message">İşlem başarılı</string>

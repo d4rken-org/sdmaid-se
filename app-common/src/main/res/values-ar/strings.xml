@@ -71,8 +71,14 @@
     <string name="general_progress_queued">قيد الانتظار</string>
     <string name="general_progress_deleting">جار الحذف</string>
     <string name="general_progress_deleting_x">جار حذف %s</string>
+    <string name="general_sort_action">ترتيب</string>
+    <string name="general_sort_by_title">ترتيب حسب</string>
     <string name="general_sort_options_label">خيارات الفرز</string>
     <string name="general_sort_reverse_action">وضع الفرز العكسي</string>
+    <string name="general_sort_oldest_first">الأقدم أولاً</string>
+    <string name="general_sort_newest_first">الأحدث أولاً</string>
+    <string name="general_sort_name_asc">الاسم (أ ← ي)</string>
+    <string name="general_sort_size_desc">الأكبر أولاً</string>
     <string name="general_tag_filter_label">تصفية حسب العلامات</string>
     <string name="general_tag_system">النظام</string>
     <string name="general_result_success_message">تمت المهمة بنجاح</string>

@@ -41,6 +41,8 @@
     <string name="stats_storage_type_primary">ឧបករណ៍ផ្ទុកចម្បង</string>
     <string name="stats_storage_type_secondary">ឧបករណ៍ផ្ទុកបន្ទាប់បន្សំ</string>
     <string name="stats_storage_type_portable">ឧបករណ៍ផ្ទុកចល័ត</string>
+    <string name="stats_space_history_delete_storage_title">លុប​ប្រវត្តិ​ឧបករណ៍​ផ្ទុក?</string>
+    <string name="stats_space_history_delete_storage_desc">ទិន្នន័យ​និន្នាការ​ទាំង​អស់​សម្រាប់​ឧបករណ៍​ផ្ទុក​នេះ​នឹង​ត្រូវ​បាន​លុប​ជា​អចិន្ត្រៃយ៍។</string>
     <string name="stats_settings_retention_snapshots_label">ថតអេក្រង់ផ្ទុក</string>
     <string name="stats_settings_retention_snapshots_desc">ចំនួនថ្ងៃដើម្បីរក្សាទុករូបថតទំហំផ្ទុក។</string>
 </resources>

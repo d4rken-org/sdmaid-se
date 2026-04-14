@@ -71,8 +71,14 @@
     <string name="general_progress_queued">У реду</string>
     <string name="general_progress_deleting">Брисање</string>
     <string name="general_progress_deleting_x">Брисање %s</string>
+    <string name="general_sort_action">Сортирај</string>
+    <string name="general_sort_by_title">Сортирај по</string>
     <string name="general_sort_options_label">Опције сортирања</string>
     <string name="general_sort_reverse_action">Обрнути режим сортирања</string>
+    <string name="general_sort_oldest_first">Најстарији прво</string>
+    <string name="general_sort_newest_first">Најновији прво</string>
+    <string name="general_sort_name_asc">Назив (А → Ж)</string>
+    <string name="general_sort_size_desc">Највећи прво</string>
     <string name="general_tag_filter_label">Филтрирај по таговима</string>
     <string name="general_tag_system">Систем</string>
     <string name="general_result_success_message">Операција успешна</string>

@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Eilėje</string>
     <string name="general_progress_deleting">Trinamas</string>
     <string name="general_progress_deleting_x">Trinamas %s</string>
+    <string name="general_sort_action">Rūšiuoti</string>
+    <string name="general_sort_by_title">Rūšiuoti pagal</string>
     <string name="general_sort_options_label">Rūšiavimo parinktys</string>
     <string name="general_sort_reverse_action">Atvirkštinis rūšiavimo režimas</string>
+    <string name="general_sort_oldest_first">Seniausias pirmas</string>
+    <string name="general_sort_newest_first">Naujausias pirmas</string>
+    <string name="general_sort_name_asc">Pavadinimas (A → Z)</string>
+    <string name="general_sort_size_desc">Didžiausias pirmas</string>
     <string name="general_tag_filter_label">Filtruoti pagal žymes</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operacija sėkminga</string>

@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">Gambar yang diambil, video yang direkam, atau data yang diunduh. Semua data yang bukan milik aplikasi tertentu.</string>
     <string name="analyzer_storage_content_type_system_label">Data sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplikasi sistem dan data sistem. Aplikasi dan data dari pengguna lain, jika beberapa akun pengguna lain ada di perangkat ini.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Lainnya</string>
+    <string name="analyzer_storage_content_type_system_info">File yang tidak sesuai dengan kategori Aplikasi atau File Pengguna. Jelajahi saja — penghapusan tidak didukung. Beberapa area mungkin tidak lengkap karena pembatasan akses.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">File sistem dan data lain yang tidak dapat diakses atau dikategorikan oleh SD Maid. Sistem operasi membatasi pencantuman isi beberapa area.</string>
     <string name="analyzer_storage_content_app_code_label">Kode aplikasi</string>
     <string name="analyzer_storage_content_app_code_description">File aplikasi, pustaka, dan sumber daya. Ruang ini dapat dibebaskan dengan mencopot pemasangan aplikasi atau mengarsipkannya (tersedia pada versi Android yang lebih baru).</string>
     <string name="analyzer_storage_content_app_data_label">Data aplikasi</string>

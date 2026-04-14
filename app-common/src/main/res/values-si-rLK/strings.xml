@@ -71,8 +71,14 @@
     <string name="general_progress_queued">පෙළගස්සා</string>
     <string name="general_progress_deleting">මකමින්</string>
     <string name="general_progress_deleting_x">%s මකමින්</string>
+    <string name="general_sort_action">වර්ගීකරණය</string>
+    <string name="general_sort_by_title">අනුව වර්ගීකරණය</string>
     <string name="general_sort_options_label">වර්ග විකල්ප</string>
     <string name="general_sort_reverse_action">ප්‍රතිලෝම වර්ග ක්‍රමය</string>
+    <string name="general_sort_oldest_first">පැරණිතම මුලින්</string>
+    <string name="general_sort_newest_first">නවතම මුලින්</string>
+    <string name="general_sort_name_asc">නම (A → Z)</string>
+    <string name="general_sort_size_desc">විශාලතම මුලින්</string>
     <string name="general_tag_filter_label">ටැග අනුව පෙරන්න</string>
     <string name="general_tag_system">පද්ධතිය</string>
     <string name="general_result_success_message">සාර්ථකව සම්පූර්ණ කළා</string>

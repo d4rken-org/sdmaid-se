@@ -71,8 +71,14 @@
     <string name="general_progress_queued">U redu čekanja</string>
     <string name="general_progress_deleting">Brisanje</string>
     <string name="general_progress_deleting_x">Brisanje %s</string>
+    <string name="general_sort_action">Sortiraj</string>
+    <string name="general_sort_by_title">Sortiraj po</string>
     <string name="general_sort_options_label">Mogućnosti sortiranja</string>
     <string name="general_sort_reverse_action">Obrnuti način sortiranja</string>
+    <string name="general_sort_oldest_first">Najstariji prvo</string>
+    <string name="general_sort_newest_first">Najnoviji prvo</string>
+    <string name="general_sort_name_asc">Naziv (A → Z)</string>
+    <string name="general_sort_size_desc">Najveći prvo</string>
     <string name="general_tag_filter_label">Filtriraj po oznakama</string>
     <string name="general_tag_system">Sustav</string>
     <string name="general_result_success_message">Operacija uspješna</string>

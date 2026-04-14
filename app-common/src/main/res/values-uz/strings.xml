@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Navbatda</string>
     <string name="general_progress_deleting">O\'chirilmoqda</string>
     <string name="general_progress_deleting_x">%s o\'chirilmoqda</string>
+    <string name="general_sort_action">Saralash</string>
+    <string name="general_sort_by_title">Saralash mezoni</string>
     <string name="general_sort_options_label">Saralash variantlari</string>
     <string name="general_sort_reverse_action">Teskari saralash rejimi</string>
+    <string name="general_sort_oldest_first">Avval eng eskisi</string>
+    <string name="general_sort_newest_first">Avval eng yangi</string>
+    <string name="general_sort_name_asc">Nom (A → Z)</string>
+    <string name="general_sort_size_desc">Avval eng kattasi</string>
     <string name="general_tag_filter_label">Teglar bo\'yicha filtrlash</string>
     <string name="general_tag_system">Tizim</string>
     <string name="general_result_success_message">Muvaffaqiyatli bajarildi</string>

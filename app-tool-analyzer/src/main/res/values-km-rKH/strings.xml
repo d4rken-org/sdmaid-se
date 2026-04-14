@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">រូបត្សរេកែលបានថត់ វិឌិឥដែលបានថត់ អ្វីទិន្នន័យដែលបានដញ្ចូល។ តិន្នន័យណាតាញដែលមិនស្នាហ់ដល់កម្មវិធីបន្នឹក្រូមណា។</string>
     <string name="analyzer_storage_content_type_system_label">តិន្នន័យប្រព័ន្ធ</string>
     <string name="analyzer_storage_content_type_system_description">កម្មវិធីប្រព័ន្ធ និងតិន្នន័យប្រព័ន្ធ។ កម្មវិធី និងតិន្នន័យពីអ្នកប្រើផសេងតីតែ ប័ត័បានកំណត់គណនីអ្នកប្រើជាច្រើននៅឧបករណ៍នេ។</string>
+    <string name="analyzer_storage_content_type_system_other_label">ដទៃ</string>
+    <string name="analyzer_storage_content_type_system_info">ឯកសារ​ដែល​មិន​សម​នឹង​ប្រភេទ​កម្មវិធី​ឬ​ឯកសារ​អ្នក​ប្រើ​ប្រាស់។ ចូលមើល​ប៉ុណ្ណោះ — មិន​គាំទ្រ​ការ​លុប​ទេ។ តំបន់​ខ្លះ​អាច​មិន​ពេញ​លេញ​ដោយ​សារ​ការ​កំណត់​ការ​ចូល​ប្រើ​ប្រាស់។</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ឯកសារ​ប្រព័ន្ធ​និង​ទិន្នន័យ​ផ្សេង​ទៀត​ដែល SD Maid មិន​អាច​ចូល​ប្រើ​ឬ​វិភាគ​បាន។ ប្រព័ន្ធ​ប្រតិបត្តិការ​រឹត​ត្បិត​ការ​រាយ​ឈ្មោះ​មាតិកា​នៃ​តំបន់​ខ្លះ។</string>
     <string name="analyzer_storage_content_app_code_label">សង្កើតកម្មវិធី</string>
     <string name="analyzer_storage_content_app_code_description">ឯកសារកម្មវិធី ប័ន្ទាក និងសម្ភអ្ល។ ស្ថានទែនេហើឡ់ឯនល័យដោយការដកតិត្តាក់កម្មវិធី អ្វីដកទែនក្រឹត់វា អ្ល័នង់ឯកសារវា បន្ថែមនៅវៀរសន់ Android ថ្មីប័ត។</string>
     <string name="analyzer_storage_content_app_data_label">តិន្នន័យកម្មវិធី</string>

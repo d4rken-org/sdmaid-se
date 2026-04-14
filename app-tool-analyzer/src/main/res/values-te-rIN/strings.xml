@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">తీసిన చిత్రాలు, రికార్డ్ చేసిన వీడియోలు లేదా డౌన్‌లోడ్ చేసిన డేటా. నిర్దిష్ట యాప్‌కు సంబంధించని డేటా.</string>
     <string name="analyzer_storage_content_type_system_label">సిస్టం డేటా</string>
     <string name="analyzer_storage_content_type_system_description">సిస్టం యాప్‌లు మరియు సిస్టం డేటా. ఈ పరికరంలో ఎక్కువ వినియోగదారు ఖాతాలు సెట్ చేసి ఉంటే, ఇతర వినియోగదారుల నుంచి యాప్‌లు మరియు డేటా.</string>
+    <string name="analyzer_storage_content_type_system_other_label">ఇతర</string>
+    <string name="analyzer_storage_content_type_system_info">Apps లేదా వినియోగదారు ఫైళ్ళ వర్గాలలో సరిపోని ఫైళ్ళు. బ్రౌజ్ మాత్రమే — తొలగింపు మద్దతు లేదు. యాక్సెస్ పరిమితుల కారణంగా కొన్ని ప్రాంతాలు అసంపూర్ణంగా ఉండవచ్చు.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid యాక్సెస్ చేయలేకపోయిన లేదా వర్గీకరించలేకపోయిన సిస్టమ్ ఫైళ్ళు మరియు ఇతర డేటా. ఆపరేటింగ్ సిస్టమ్ కొన్ని ప్రాంతాల కంటెంట్‌లను జాబితా చేయడాన్ని నిరోధిస్తుంది.</string>
     <string name="analyzer_storage_content_app_code_label">యాప్ కోడ్</string>
     <string name="analyzer_storage_content_app_code_description">అప్లికేషన్ ఫైల్‌లు, లైబ్రరీలు మరియు రిసోర్సెస్. యాప్‌ను అనిన్‌స్టాల్ చేయడం లేదా ఆర్కైవ్ చేయడం (కొత్త Android వెర్షన్‌లో అనుపలబ్ధం) ద్వారా ఈ స్థలాన్ని విడుదల చేయవచ్చు.</string>
     <string name="analyzer_storage_content_app_data_label">యాప్ డేటా</string>

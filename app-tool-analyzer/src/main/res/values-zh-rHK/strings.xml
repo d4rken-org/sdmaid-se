@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">擷取的圖片、錄製的影片或已下載的資料，任何不屬於特定應用程式的資料。</string>
     <string name="analyzer_storage_content_type_system_label">系統資料</string>
     <string name="analyzer_storage_content_type_system_description">系統應用程式和系統資料，即來自其他使用者的應用程式和資料 (如果此裝置上有多位使用者)。</string>
+    <string name="analyzer_storage_content_type_system_other_label">其他</string>
+    <string name="analyzer_storage_content_type_system_info">不屬於「應用程式」或「使用者檔案」類別的檔案。僅供瀏覽——不支援刪除。由於存取限制，部分區域內容可能不完整。</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid 無法存取或分類的系統檔案及其他資料。作業系統限制列出某些區域的內容。</string>
     <string name="analyzer_storage_content_app_code_label">應用程式程式碼</string>
     <string name="analyzer_storage_content_app_code_description">APK 檔案和其他安裝相關檔案</string>
     <string name="analyzer_storage_content_app_data_label">應用程式資料</string>

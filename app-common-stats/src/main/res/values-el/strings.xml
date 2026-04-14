@@ -44,6 +44,8 @@
     <string name="stats_storage_type_primary">Πρωτεύων αποθηκευτικός χώρος</string>
     <string name="stats_storage_type_secondary">Δευτερεύων αποθηκευτικός χώρος</string>
     <string name="stats_storage_type_portable">Φορητός αποθηκευτικός χώρος</string>
+    <string name="stats_space_history_delete_storage_title">Διαγραφή ιστορικού αποθήκευσης;</string>
+    <string name="stats_space_history_delete_storage_desc">Όλα τα δεδομένα τάσης για αυτήν την αποθήκευση θα διαγραφούν οριστικά.</string>
     <string name="stats_settings_retention_snapshots_label">Στιγμιότυπα αποθηκευτικού χώρου</string>
     <string name="stats_settings_retention_snapshots_desc">Αριθμός ημερών διατήρησης στιγμιότυπων χώρου αποθήκευσης.</string>
 </resources>

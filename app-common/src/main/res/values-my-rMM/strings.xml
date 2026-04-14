@@ -71,8 +71,14 @@
     <string name="general_progress_queued">အစီအစဉ်တွင်</string>
     <string name="general_progress_deleting">ဖျက်နေပါသည်</string>
     <string name="general_progress_deleting_x">%s ကိုဖျက်နေပါသည်</string>
+    <string name="general_sort_action">စီရင်ရန်</string>
+    <string name="general_sort_by_title">စီရင်မည့် အခြေခံ</string>
     <string name="general_sort_options_label">စီစဉ်ရန်ရွေးချယ်မှုများ</string>
     <string name="general_sort_reverse_action">ပြောင်းပြန်စီစဉ်ရန်မုဒ်</string>
+    <string name="general_sort_oldest_first">အဟောင်းဆုံးကို ဦးစွာ</string>
+    <string name="general_sort_newest_first">အသစ်ဆုံးကို ဦးစွာ</string>
+    <string name="general_sort_name_asc">နာမည် (A → Z)</string>
+    <string name="general_sort_size_desc">အကြီးဆုံးကို ဦးစွာ</string>
     <string name="general_tag_filter_label">အမှတ်အသားများဖြင့် စစ်ထုတ်ပါ</string>
     <string name="general_tag_system">စနစ်</string>
     <string name="general_result_success_message">အောင်မြင်စွာ လုပ်ဆောင်ပြီးပါပြီ</string>

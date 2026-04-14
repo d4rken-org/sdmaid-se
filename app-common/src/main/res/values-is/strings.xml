@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Í biðröð</string>
     <string name="general_progress_deleting">Eyðir</string>
     <string name="general_progress_deleting_x">Eyðir %s</string>
+    <string name="general_sort_action">Raða</string>
+    <string name="general_sort_by_title">Raða eftir</string>
     <string name="general_sort_options_label">Röðunarvalkostir</string>
     <string name="general_sort_reverse_action">Öfug röðunarham</string>
+    <string name="general_sort_oldest_first">Elsta fyrst</string>
+    <string name="general_sort_newest_first">Nýjasta fyrst</string>
+    <string name="general_sort_name_asc">Nafn (A → Ö)</string>
+    <string name="general_sort_size_desc">Stærsta fyrst</string>
     <string name="general_tag_filter_label">Sía eftir merkjum</string>
     <string name="general_tag_system">Kerfi</string>
     <string name="general_result_success_message">Aðgerð tókst</string>
