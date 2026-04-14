@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Gezekte</string>
     <string name="general_progress_deleting">Óshiriw</string>
     <string name="general_progress_deleting_x">%s óshiriw</string>
+    <string name="general_sort_action">Сортлаў</string>
+    <string name="general_sort_by_title">Сортлаў тәртиби</string>
     <string name="general_sort_options_label">Tartıplew tańlawları</string>
     <string name="general_sort_reverse_action">Tartıplew modesin teskers etew</string>
+    <string name="general_sort_oldest_first">Ең ески биринши</string>
+    <string name="general_sort_newest_first">Ең жаңа биринши</string>
+    <string name="general_sort_name_asc">Ат (А → Я)</string>
+    <string name="general_sort_size_desc">Ең үлкен биринши</string>
     <string name="general_tag_filter_label">Teglar boyınsha filtrlew</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Amal jetiskerli</string>

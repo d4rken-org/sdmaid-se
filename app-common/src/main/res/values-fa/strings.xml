@@ -71,8 +71,14 @@
     <string name="general_progress_queued">در صف</string>
     <string name="general_progress_deleting">درحال حذف</string>
     <string name="general_progress_deleting_x">درحال حذف %s</string>
+    <string name="general_sort_action">مرتب‌سازی</string>
+    <string name="general_sort_by_title">مرتب‌سازی بر اساس</string>
     <string name="general_sort_options_label">گزینه‌های مرتب‌سازی</string>
     <string name="general_sort_reverse_action">حالت مرتب سازی معکوس</string>
+    <string name="general_sort_oldest_first">قدیمی‌ترین اول</string>
+    <string name="general_sort_newest_first">جدیدترین اول</string>
+    <string name="general_sort_name_asc">نام (الف ← ی)</string>
+    <string name="general_sort_size_desc">بزرگ‌ترین اول</string>
     <string name="general_tag_filter_label">فیلتر بر اساس برچسب</string>
     <string name="general_tag_system">سیستم</string>
     <string name="general_result_success_message">عملیات موفق</string>

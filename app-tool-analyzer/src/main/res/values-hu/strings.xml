@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Felvett képek, rögzített videók vagy letöltött adatok. Minden olyan adat, amely nem tartozik egy adott alkalmazáshoz.</string>
     <string name="analyzer_storage_content_type_system_label">Rendszeradatok</string>
     <string name="analyzer_storage_content_type_system_description">Rendszeralkalmazások és rendszeradatok.  Alkalmazások és adatok más felhasználóktól, ha több felhasználói fiók van beállítva ezen az eszközön.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Egyéb</string>
+    <string name="analyzer_storage_content_type_system_info">Az Alkalmazások vagy Felhasználói fájlok kategóriákba nem illő fájlok. Csak böngészés — a törlés nem támogatott. Egyes területek hozzáférési korlátok miatt hiányosak lehetnek.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Rendszerfájlok és egyéb adatok, amelyekhez az SD Maid nem fért hozzá, vagy nem tudta kategórizálni. Az operációs rendszer korlátozza egyes területek tartalomának listázását.</string>
     <string name="analyzer_storage_content_app_code_label">App kód</string>
     <string name="analyzer_storage_content_app_code_description">Alkalmazási fájlok, könyvtárak és erőforrások. Ez a hely felszabadítható az alkalmazás eltávolításával vagy archiválásával (az újabb Android-verziókban elérhető).</string>
     <string name="analyzer_storage_content_app_data_label">App adatok</string>

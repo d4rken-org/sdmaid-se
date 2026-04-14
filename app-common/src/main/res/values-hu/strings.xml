@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Sorban</string>
     <string name="general_progress_deleting">Törlés</string>
     <string name="general_progress_deleting_x">%s törlése</string>
+    <string name="general_sort_action">Rendezés</string>
+    <string name="general_sort_by_title">Rendezés alapja</string>
     <string name="general_sort_options_label">Rendezési lehetőségek</string>
     <string name="general_sort_reverse_action">Fordított rendezési mód</string>
+    <string name="general_sort_oldest_first">Legrégebbi először</string>
+    <string name="general_sort_newest_first">Legújabb először</string>
+    <string name="general_sort_name_asc">Név (A → Z)</string>
+    <string name="general_sort_size_desc">Legnagyobb először</string>
     <string name="general_tag_filter_label">Szűrés címkék szerint</string>
     <string name="general_tag_system">Rendszer</string>
     <string name="general_result_success_message">A művelet sikeres</string>

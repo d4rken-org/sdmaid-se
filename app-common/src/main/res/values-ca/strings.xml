@@ -71,8 +71,14 @@
     <string name="general_progress_queued">A la cua</string>
     <string name="general_progress_deleting">S\'està eliminant</string>
     <string name="general_progress_deleting_x">S\'està suprimint %s</string>
+    <string name="general_sort_action">Ordena</string>
+    <string name="general_sort_by_title">Ordena per</string>
     <string name="general_sort_options_label">Opcions d\'ordenació</string>
     <string name="general_sort_reverse_action">Mode d\'ordenació inversa</string>
+    <string name="general_sort_oldest_first">Primer els més antics</string>
+    <string name="general_sort_newest_first">Primer els més actuals</string>
+    <string name="general_sort_name_asc">Nom (A → Z)</string>
+    <string name="general_sort_size_desc">Els més grans primer</string>
     <string name="general_tag_filter_label">Filtra per etiquetes</string>
     <string name="general_tag_system">Sistema</string>
     <string name="general_result_success_message">Operació realitzada amb èxit</string>

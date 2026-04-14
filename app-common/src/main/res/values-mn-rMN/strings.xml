@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Дарааллд</string>
     <string name="general_progress_deleting">Устгаж байна</string>
     <string name="general_progress_deleting_x">%s устгаж байна</string>
+    <string name="general_sort_action">Эрэмбэлэх</string>
+    <string name="general_sort_by_title">Эрэмбэлэх шалгуур</string>
     <string name="general_sort_options_label">Эрэмбэлэх сонголтууд</string>
     <string name="general_sort_reverse_action">Урвуу эрэмбэлэх горим</string>
+    <string name="general_sort_oldest_first">Эхэлсэн огноогоор</string>
+    <string name="general_sort_newest_first">Шинэ эхэлж</string>
+    <string name="general_sort_name_asc">Нэр (А → Я)</string>
+    <string name="general_sort_size_desc">Хамгийн том эхэлж</string>
     <string name="general_tag_filter_label">Шошгоор шүүх</string>
     <string name="general_tag_system">Систем</string>
     <string name="general_result_success_message">Амжилттай гүйцэтгэгдсэн</string>

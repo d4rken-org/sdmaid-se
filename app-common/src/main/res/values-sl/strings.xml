@@ -71,8 +71,14 @@
     <string name="general_progress_queued">V čakalni vrsti</string>
     <string name="general_progress_deleting">Brisanje</string>
     <string name="general_progress_deleting_x">Brisanje %s</string>
+    <string name="general_sort_action">Razvrsti</string>
+    <string name="general_sort_by_title">Razvrsti po</string>
     <string name="general_sort_options_label">Možnosti razvrščanja</string>
     <string name="general_sort_reverse_action">Obratni vrstni red razvrščanja</string>
+    <string name="general_sort_oldest_first">Najprej najstarejše</string>
+    <string name="general_sort_newest_first">Najprej najnovejše</string>
+    <string name="general_sort_name_asc">Ime (A → Ž)</string>
+    <string name="general_sort_size_desc">Najprej največje</string>
     <string name="general_tag_filter_label">Filtriraj po oznakah</string>
     <string name="general_tag_system">Sistem</string>
     <string name="general_result_success_message">Opravilo je bilo uspešno.</string>

@@ -44,6 +44,8 @@
     <string name="stats_storage_type_primary">Үндсэн хадгалалт</string>
     <string name="stats_storage_type_secondary">Хоёрдогч хадгалалт</string>
     <string name="stats_storage_type_portable">Зөөврийн хадгалалт</string>
+    <string name="stats_space_history_delete_storage_title">Санах ойн түүхийг устгах уу?</string>
+    <string name="stats_space_history_delete_storage_desc">Энэ санах ойн бүх чиг хандлагын өгөгдөл бүрмөсөн устгагдана.</string>
     <string name="stats_settings_retention_snapshots_label">Хадгалалтын агшин зургууд</string>
     <string name="stats_settings_retention_snapshots_desc">Хадгалалтын зайн агшин зургуудыг хэдэн хоног хадгалах тоо.</string>
 </resources>

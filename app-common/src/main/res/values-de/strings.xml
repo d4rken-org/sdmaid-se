@@ -71,8 +71,14 @@
     <string name="general_progress_queued">In der Warteschlange</string>
     <string name="general_progress_deleting">Am Löschen</string>
     <string name="general_progress_deleting_x">%s wird gelöscht</string>
+    <string name="general_sort_action">Sortieren</string>
+    <string name="general_sort_by_title">Sortieren nach</string>
     <string name="general_sort_options_label">Sortier-Optionen</string>
     <string name="general_sort_reverse_action">Sortiermodus umkehren</string>
+    <string name="general_sort_oldest_first">Älteste zuerst</string>
+    <string name="general_sort_newest_first">Neueste zuerst</string>
+    <string name="general_sort_name_asc">Name (A → Z)</string>
+    <string name="general_sort_size_desc">Größte zuerst</string>
     <string name="general_tag_filter_label">Nach Tags filtern</string>
     <string name="general_tag_system">System</string>
     <string name="general_result_success_message">Operation erfolgreich</string>

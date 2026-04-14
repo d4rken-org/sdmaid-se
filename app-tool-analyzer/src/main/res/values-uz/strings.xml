@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Olingan rasmlar, yozilgan videolar yoki yuklab olingan ma\'lumotlar. Muayyan ilovaga tegishli bo\'lmagan har qanday ma\'lumot.</string>
     <string name="analyzer_storage_content_type_system_label">Tizim ma\'lumotlari</string>
     <string name="analyzer_storage_content_type_system_description">Tizim ilovalari va tizim ma\'lumotlari. Agar ushbu qurilmada bir nechta foydalanuvchi hisobi o\'rnatilgan bo\'lsa, boshqa foydalanuvchilarning ilovalari va ma\'lumotlari.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Boshqa</string>
+    <string name="analyzer_storage_content_type_system_info">Ilovalar yoki Foydalanuvchi fayllari toifalariga mos kelmaydigan fayllar. Faqat ko\'rish — o\'chirish qo\'llab-quvvatlanmaydi. Ba\'zi bo\'limlar kirish cheklovlari sababli to\'liq bo\'lmasligi mumkin.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid kira olmagan yoki toifalay olmagan tizim fayllari va boshqa ma\'lumotlar. Operatsion tizim ba\'zi bo\'limlar mazmunini ko\'rsatishni cheklaydi.</string>
     <string name="analyzer_storage_content_app_code_label">Ilova kodi</string>
     <string name="analyzer_storage_content_app_code_description">Ilova fayllari, kutubxonalar va resurslar. Bu joyni ilovani o\'chirish yoki arxivlash orqali bo\'shatish mumkin (yangi Android versiyalarida mavjud).</string>
     <string name="analyzer_storage_content_app_data_label">Ilova ma\'lumotlari</string>

@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Kuvat, videot, äänet ja muut mediatiedostot.</string>
     <string name="analyzer_storage_content_type_system_label">Järjestelmä</string>
     <string name="analyzer_storage_content_type_system_description">Käyttöjärjestelmä ja järjestelmäsovellukset.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Muut</string>
+    <string name="analyzer_storage_content_type_system_info">Tiedostot, jotka eivät sovi Sovellukset- tai Käyttäjätiedostot-luokkiin. Vain selaus — poistamista ei tueta. Jotkin alueet saattavat olla puutteellisia käyttörajoitusten vuoksi.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Järjestelmätiedostot ja muut tiedot, joihin SD Maid ei päässyt käsiksi tai joita se ei pystynyt luokittelemaan. Käyttöjärjestelmä rajoittaa joidenkin alueiden sisällön listaamista.</string>
     <string name="analyzer_storage_content_app_code_label">Koodi</string>
     <string name="analyzer_storage_content_app_code_description">Sovelluksen asennustiedostot (APK ja muut välimuistiin tallennetut tiedostot).</string>
     <string name="analyzer_storage_content_app_data_label">Tiedot</string>

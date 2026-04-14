@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Imàgines pigadas, vídeos registrados o datos iscarrigados. Cale si siat datu chi no apertenet a una aplicatzione ispetzìfica.</string>
     <string name="analyzer_storage_content_type_system_label">Datos de sistema</string>
     <string name="analyzer_storage_content_type_system_description">Aplicatziones de sistema e datos de sistema. Aplicatziones e datos dae àteros usuàrios, si tàntos contos de usuàriu sunt cunfigurrados in custu dispositivu.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Àteru</string>
+    <string name="analyzer_storage_content_type_system_info">Archìvios chi no antòniant in is categorias Aplicatziones o Archìvios de s\'utilizadore. Solu navigatzione — sa cancellatzione no est supportada. Calicuna àrea podet essere incumpleta pro via de is limitatziones de accesso.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Archìvios de sistema e datos àteros chi SD Maid no at podiù accedere o categorizare. Su sistema operativu restringhet sa lista de is cuntenutos de calicuna àrea.</string>
     <string name="analyzer_storage_content_app_code_label">Còdighe de aplicatzione</string>
     <string name="analyzer_storage_content_app_code_description">Documentos de aplicatzione, bibliotecas e risursas. Custu ispàtziu podet èssere liberadu disinstalende s\'aplicatzione o archiviende·la (a disponimentu in versiones de Android più noas).</string>
     <string name="analyzer_storage_content_app_data_label">Datos de aplicatzione</string>

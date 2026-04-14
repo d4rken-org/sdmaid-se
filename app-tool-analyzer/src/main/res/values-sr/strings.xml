@@ -38,6 +38,9 @@
     <string name="analyzer_storage_content_type_media_description">Снимљене слике, снимљени видео записи или преузети подаци. Било који подаци који не припадају одређеној апликацији.</string>
     <string name="analyzer_storage_content_type_system_label">Системски подаци</string>
     <string name="analyzer_storage_content_type_system_description">Системске апликације и системски подаци. Апликације и подаци осталих корисника, ако је на овом уређају подешено више корисничких налога.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Остало</string>
+    <string name="analyzer_storage_content_type_system_info">Датотеке које не припадају категоријама Апликације или Кориснички фајлови. Само прегледање — брисање није подржано. Неке области могу бити непотпуне услед ограничења приступа.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Системске датотеке и остали подаци којима SD Maid није могао приступити или их категорисати. Оперативни систем ограничава листање садржаја неких области.</string>
     <string name="analyzer_storage_content_app_code_label">Код апликације</string>
     <string name="analyzer_storage_content_app_code_description">Датотеке апликације, библиотеке и ресурси. Овај простор се може ослободити деинсталирањем апликације или архивирањем (доступно на новијим Андроид верзијама).</string>
     <string name="analyzer_storage_content_app_data_label">Подаци апликације</string>

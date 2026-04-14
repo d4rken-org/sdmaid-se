@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Σε αναμονή</string>
     <string name="general_progress_deleting">Διαγραφή</string>
     <string name="general_progress_deleting_x">Διαγραφή %s</string>
+    <string name="general_sort_action">Ταξινόμηση</string>
+    <string name="general_sort_by_title">Ταξινόμηση κατά</string>
     <string name="general_sort_options_label">Επιλογές ταξινόμησης</string>
     <string name="general_sort_reverse_action">Αντιστροφή λειτουργίας ταξινόμησης</string>
+    <string name="general_sort_oldest_first">Παλαιότερα πρώτα</string>
+    <string name="general_sort_newest_first">Νεότερα πρώτα</string>
+    <string name="general_sort_name_asc">Όνομα (Α → Ω)</string>
+    <string name="general_sort_size_desc">Μεγαλύτερα πρώτα</string>
     <string name="general_tag_filter_label">Φιλτράρισμα με ετικέτες</string>
     <string name="general_tag_system">Σύστημα</string>
     <string name="general_result_success_message">Λειτουργία επιτυχής</string>

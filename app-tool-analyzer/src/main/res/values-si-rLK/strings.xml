@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">වින්යාස කු ෆායාකෘට, රේකෝඩ් කු විඩියෝ හෝ ඩೞවන්ලෝඩ් කු දත්ත. විශේෂ යෙදුමකට ආවණික නොවන එනිම දත්ත.</string>
     <string name="analyzer_storage_content_type_system_label">පද්ධති දත්ත</string>
     <string name="analyzer_storage_content_type_system_description">පද්ධති යෙදුම් සහ පද්ධති දත්ත. මෙම පිකරණයම බොහෝ පරිශීලක නියෝජන සැකසා ඇත නම් ඉතර පරිශීලකයන්ගෙ යෙදුම් සහ දත්ත.</string>
+    <string name="analyzer_storage_content_type_system_other_label">වෙනත්</string>
+    <string name="analyzer_storage_content_type_system_info">යෙදුම් හෝ පරිශීලක ගොනු ප්‍රවර්ගවලට නොගැළපෙන ගොනු. පිරිසැලසුම් පමණයි — මකාදැමීම සහාය නොදක්වයි. ප්‍රවේශ සීමාවන් හේතුවෙන් සමහර ප්‍රදේශ අසම්පූර්ණ විය හැකිය.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid ප්‍රවේශ වීමට හෝ වර්ගීකරණය කිරීමට නොහැකි වූ පද්ධති ගොනු සහ වෙනත් දත්ත. මෙහෙයුම් පද්ධතිය සමහර ප්‍රදේශවල අන්තර්ගතය ලැයිස්තු කිරීම සීමා කරයි.</string>
     <string name="analyzer_storage_content_app_code_label">යෙදුමේ කෝඩය</string>
     <string name="analyzer_storage_content_app_code_description">යෙදුම් ගොනු, ඵානදාර සහ සම්පත්. යෙදුම ඉවත් කිරීමෙන් හෝ එය ආරකිව කිරීමෙන් (නව Android අනුවාදම නිවාපු) මෙම හීම මුක්ත් කරන්න පුළුවාන්.</string>
     <string name="analyzer_storage_content_app_data_label">යෙදුමේ දත්ත</string>

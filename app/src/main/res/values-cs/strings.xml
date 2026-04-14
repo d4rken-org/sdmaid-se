@@ -172,7 +172,7 @@
     <string name="setup_incomplete_card_title">Nastavení dokončena</string>
     <string name="setup_incomplete_card_body">Dokončete nastavení aplikace SD Maid pro dosažení lepších výsledků.</string>
     <string name="setup_incomplete_card_healing_in_progress_body">SD Maid se pokouší opravit problémy s nastavením.</string>
-    <string name="setup_incomplete_card_dismiss_action">Zamítnout</string>
+    <string name="setup_incomplete_card_dismiss_action">Zahodit</string>
     <string name="setup_incomplete_card_continue_action">Pokračovat v nastavení</string>
     <string name="setup_forcedshow_summary">Znovu zobrazit obrazovku nastavení včetně již dokončených položek.</string>
     <string name="setup_checking_card_body">Ověření dokončení nastavení a funkčnosti.</string>
@@ -275,7 +275,7 @@
         <item quantity="one">Již %1$d rok spolu. Děkujeme, že důvěřujete aplikaci SD Maid, aby udržovala váš Android čistý a uklizený. Uvolněné místo: %2$s</item>
         <item quantity="few">%1$d roky bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
         <item quantity="many">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
-        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstane čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
+        <item quantity="other">%1$d let bez problémů. Vaše zařízení zůstává čisté a uklizené díky aplikaci SD Maid. Uvolněné místo: %2$s</item>
     </plurals>
     <string name="anniversary_share_title">Sdílejte své výročí s aplikací SD Maid</string>
     <plurals name="anniversary_share_text">

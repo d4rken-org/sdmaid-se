@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">ພາບຖ່າຍຮູປ, ວິດີໂອທີ່ຊຶກໞ່ ຫຣືອຂ້ອມູນທີ່ດາວນໄອດ້. ຂ້ອມູນໃດໆທີ່ໄມ່ວ່າລະກັບແອບທີ່ເຈາະຈອງ.</string>
     <string name="analyzer_storage_content_type_system_label">ຂ້ອມູນລະບົ</string>
     <string name="analyzer_storage_content_type_system_description">ແອບລະບົ ແລະຂ້ອມູນລະບົ. ແອບ ແລະຂ້ອມູນຈາກຜູ້ໃຊ້ອື່ນ, ຖ້າມີບັນຊີຜູ້ໃຊ້ຫລາຍບັຍຊີຖືກຕັ້ງແຕ່ງໃນອຸປະກອນນີ້.</string>
+    <string name="analyzer_storage_content_type_system_other_label">ອື່ນໆ</string>
+    <string name="analyzer_storage_content_type_system_info">ໄຟລ໌ທີ່ບໍ່ເໝາະກັບໝວດໝູ່ Apps ຫຼື ໄຟລ໌ຜູ້ໃຊ້. ເລີ່ຍດູເທົ່ານັ້ນ — ການລົບໄຟລ໌ບໍ່ຮອງຮັບ. ບາງພື້ນທີ່ອາດຈະບໍ່ຄົບຖ້ວນ ເນື່ອງຈາກຂໍ້ຈຳກັດການເຂົ້າເຖິງ.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ໄຟລ໌ລະບົບ ແລະ ຂໍ້ມູນອື່ນໆ ທີ່ SD Maid ບໍ່ສາມາດເຂົ້າເຖິງ ຫຼື ຈັດໝວດໝູ່ໄດ້. ລະບົບປະຕິບັດການຈຳກັດການສະແດງລາຍການເນື້ອຫາໃນບາງພື້ນທີ່.</string>
     <string name="analyzer_storage_content_app_code_label">ໂຄດໂປໂກລແອບ</string>
     <string name="analyzer_storage_content_app_code_description">ໄຟລ໌ແອບ, ໄລບຣະລີ ແລະທລະພາກອະ. ພື້ນທີ່ນີ່ສາມາຖຖືກຄືນເດຟດ້ວຍການຖອນຕິດຕັ້ງແອບ ຫຣືອເກັບໄວ້ໃນຕຸ (Android ວັນໃໝ່ຮອງຮັບ).</string>
     <string name="analyzer_storage_content_app_data_label">ຂ້ອມູນແອບ</string>

@@ -71,8 +71,14 @@
     <string name="general_progress_queued">Kwenye foleni</string>
     <string name="general_progress_deleting">Kufuta</string>
     <string name="general_progress_deleting_x">Kufuta %s</string>
+    <string name="general_sort_action">Panga</string>
+    <string name="general_sort_by_title">Panga kulingana na</string>
     <string name="general_sort_options_label">Chaguo za kupanga</string>
     <string name="general_sort_reverse_action">Hali ya kupanga kinyume</string>
+    <string name="general_sort_oldest_first">La zamani kwanza</string>
+    <string name="general_sort_newest_first">Jipya kwanza</string>
+    <string name="general_sort_name_asc">Jina (A → Z)</string>
+    <string name="general_sort_size_desc">Kubwa kwanza</string>
     <string name="general_tag_filter_label">Chuja kwa lebo</string>
     <string name="general_tag_system">Mfumo</string>
     <string name="general_result_success_message">Imekamilika kwa mafanikio</string>

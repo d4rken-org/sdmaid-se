@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">कैप्चर की गई तस्वीरें, रिकॉर्ड किए गए वीडियो या डाउनलोड किए गए डेटा है। कोई भी डेटा जो किसी विशिष्ट ऐप से संबंधित नहीं है।</string>
     <string name="analyzer_storage_content_type_system_label">सिस्टम डेटा</string>
     <string name="analyzer_storage_content_type_system_description">सिस्टम ऐप्स और सिस्टम डेटा। अन्य उपयोगकर्ताओं के ऐप्स और डेटा, यदि इस डिवाइस पर कई उपयोगकर्ता खाते सेट हैं।</string>
+    <string name="analyzer_storage_content_type_system_other_label">अन्य</string>
+    <string name="analyzer_storage_content_type_system_info">वे फ़ाइलें जो एप्स या उपयोगकर्ता फ़ाइलें श्रेणियों में फिट नहीं होतीं। केवल ब्राउज़ करें — हटाना समर्थित नहीं है। कुछ क्षेत्र पहुंच प्रतिबंधों के कारण अधूरे हो सकते हैं।</string>
+    <string name="analyzer_storage_content_type_system_other_desc">सिस्टम फ़ाइलें और अन्य डेटा जिन्हें SD Maid एक्सेस या वर्गीकृत नहीं कर सका। ऑपरेटिंग सिस्टम कुछ क्षेत्रों की सामग्री सूचीबद्ध करने पर प्रतिबंध लगाता है।</string>
     <string name="analyzer_storage_content_app_code_label">ऐप कोड</string>
     <string name="analyzer_storage_content_app_code_description">एप्लिकेशन फ़ाइलें, लाइब्रेरी और संसाधन। ऐप को अनइंस्टॉल करके या संग्रहीत करके (नए Android संस्करण पर उपलब्ध) इस स्थान को मुक्त किया जा सकता है।</string>
     <string name="analyzer_storage_content_app_data_label">ऐप डेटा</string>

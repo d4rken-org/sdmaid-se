@@ -38,6 +38,9 @@
     <string name="analyzer_storage_content_type_media_description">Fotografii înregistrate, videoclipuri înregistrate sau date descărcate. Orice date care nu aparțin unei anumite aplicații.</string>
     <string name="analyzer_storage_content_type_system_label">Date de sistem</string>
     <string name="analyzer_storage_content_type_system_description">Aplicații de sistem și date de sistem. Aplicații și date de la alți utilizatori, dacă pe acest dispozitiv sunt setate mai multe conturi de utilizatori.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Altele</string>
+    <string name="analyzer_storage_content_type_system_info">Fișiere care nu se încadrează în categoriile Aplicații sau Fișiere utilizator. Numai navigare — ștergerea nu este acceptată. Unele zone pot fi incomplete din cauza restricțiilor de acces.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Fișiere de sistem și alte date la care SD Maid nu a putut accesa sau categoriza. Sistemul de operare restricționează listarea conținutului unor zone.</string>
     <string name="analyzer_storage_content_app_code_label">Codul aplicației</string>
     <string name="analyzer_storage_content_app_code_description">Fișiere de aplicații, biblioteci și resurse. Acest spațiu poate fi eliberat dezinstalând aplicația sau arhivând-o (disponibil pe versiunea Android mai nouă).</string>
     <string name="analyzer_storage_content_app_data_label">Date aplicație</string>

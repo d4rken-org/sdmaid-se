@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Συλληφθείσες εικόνες, εγγεγραμμένα βίντεο ή ληφθέντα δεδομένα. Οποιαδήποτε δεδομένα που δεν ανήκουν σε μια συγκεκριμένη εφαρμογή.</string>
     <string name="analyzer_storage_content_type_system_label">Δεδομένα συστήματος</string>
     <string name="analyzer_storage_content_type_system_description">Εφαρμογές συστήματος και δεδομένα συστήματος. Εφαρμογές και δεδομένα από άλλους χρήστες, εάν έχουν οριστεί πολλοί λογαριασμοί χρηστών σε αυτήν τη συσκευή.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Άλλο</string>
+    <string name="analyzer_storage_content_type_system_info">Αρχεία που δεν ανήκουν στις κατηγορίες Εφαρμογές ή Αρχεία χρήστη. Μόνο περιήγηση — η διαγραφή δεν υποστηρίζεται. Ορισμένες περιοχές ενδέχεται να είναι ελλιπείς λόγω περιορισμών πρόσβασης.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Αρχεία συστήματος και άλλα δεδομένα που το SD Maid δεν μπόρεσε να αποκτήσει πρόσβαση ή να κατηγοριοποιήσει. Το λειτουργικό σύστημα περιορίζει την εμφάνιση των περιεχομένων ορισμένων περιοχών.</string>
     <string name="analyzer_storage_content_app_code_label">Κώδικας εφαρμογής</string>
     <string name="analyzer_storage_content_app_code_description">Αρχεία εφαρμογών, βιβλιοθήκες και πόροι. Αυτός ο χώρος μπορεί να ελευθερωθεί με την απεγκατάσταση της εφαρμογής ή την αρχειοθέτησή της (διατίθεται σε νεότερη έκδοση Android).</string>
     <string name="analyzer_storage_content_app_data_label">Δεδομένα εφαρμογών</string>

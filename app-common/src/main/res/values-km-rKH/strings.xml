@@ -71,8 +71,14 @@
     <string name="general_progress_queued">កំពុងចាំជួរ</string>
     <string name="general_progress_deleting">កំពុងលុប</string>
     <string name="general_progress_deleting_x">កំពុងលុប %s</string>
+    <string name="general_sort_action">តម្រៀប</string>
+    <string name="general_sort_by_title">តម្រៀបតាម</string>
     <string name="general_sort_options_label">ជម្រើសនៃតម្រៀប</string>
     <string name="general_sort_reverse_action">ម៉ូតតម្រៀបបញ្ច្រាស</string>
+    <string name="general_sort_oldest_first">ចាស់ជាងមុន</string>
+    <string name="general_sort_newest_first">ថ្មីជាងគេ</string>
+    <string name="general_sort_name_asc">ឈ្មោះ (A → Z)</string>
+    <string name="general_sort_size_desc">ធំជាងគេ</string>
     <string name="general_tag_filter_label">តម្រងតាមស្លាក</string>
     <string name="general_tag_system">ប្រព័ន្ធ</string>
     <string name="general_result_success_message">ប្រតិបត្តិការជោគជ័យ</string>

@@ -32,6 +32,9 @@
     <string name="analyzer_storage_content_type_media_description">キャプチャされた写真、記録されたビデオ、またはダウンロードしたデータ。特定のアプリに属さないデータ。</string>
     <string name="analyzer_storage_content_type_system_label">システムデータ</string>
     <string name="analyzer_storage_content_type_system_description">システムアプリとシステムデータ。この端末で複数のユーザーアカウントが設定されている場合、他のユーザーからのアプリとデータ。</string>
+    <string name="analyzer_storage_content_type_system_other_label">その他</string>
+    <string name="analyzer_storage_content_type_system_info">「アプリ」または「ユーザーファイル」カテゴリに該当しないファイルです。閲覧のみ可能 — 削除はサポートされていません。アクセス制限により一部のエリアが不完全な場合があります。</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid がアクセスまたは分類できなかったシステムファイルやその他のデータです。オペレーティングシステムにより、一部のエリアの内容一覧はアクセスが制限されています。</string>
     <string name="analyzer_storage_content_app_code_label">アプリコード</string>
     <string name="analyzer_storage_content_app_code_description">アプリのファイル、ライブラリ、リソースが含まれます。この領域は、アプリをアンインストールするか、アーカイブ（新しいAndroidバージョンで利用可能）することで解放できます。</string>
     <string name="analyzer_storage_content_app_data_label">アプリのデータ</string>

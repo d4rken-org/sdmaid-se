@@ -71,8 +71,14 @@
     <string name="general_progress_queued">ਕਤਾਰ ਵਿੱਚ</string>
     <string name="general_progress_deleting">ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
     <string name="general_progress_deleting_x">%s ਮਿਟਾ ਰਿਹਾ ਹੈ</string>
+    <string name="general_sort_action">ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
+    <string name="general_sort_by_title">ਇਸ ਅਨੁਸਾਰ ਕ੍ਰਮਬੱਧ ਕਰੋ</string>
     <string name="general_sort_options_label">ਸੰਧਿ ਵਿਕਲਪ</string>
     <string name="general_sort_reverse_action">ਰਿਵਰਸ ਸੰਧਿ ਮੋਡ</string>
+    <string name="general_sort_oldest_first">ਪੁਰਾਣੇ ਪਹਿਲਾਂ</string>
+    <string name="general_sort_newest_first">ਨਵੇਂ ਪਹਿਲਾਂ</string>
+    <string name="general_sort_name_asc">ਨਾਮ (A → Z)</string>
+    <string name="general_sort_size_desc">ਸਭ ਤੋਂ ਵੱਡੇ ਪਹਿਲਾਂ</string>
     <string name="general_tag_filter_label">ਟੈਗਾਂ ਦੁਆਰਾ ਫਿਲਟਰ ਕਰੋ</string>
     <string name="general_tag_system">ਸਿਸਟਮ</string>
     <string name="general_result_success_message">ਕਾਰਵਾਈ ਸਫਲ ਹੋਈ</string>

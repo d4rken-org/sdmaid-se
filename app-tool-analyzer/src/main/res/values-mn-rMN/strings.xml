@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Бүртгэсэн зураг, бичлэгдсэн видео эсвэл татаж авсан өгөгдөл. Тухайлагдсан аппд харьяагүй огн өгөгдөл.</string>
     <string name="analyzer_storage_content_type_system_label">Системийн өгөгдөл</string>
     <string name="analyzer_storage_content_type_system_description">Системийн аппууд болон өгөгдөл. Энэ төхөөрөмжт олон харилцааны аппууд болон өгөгдөл, энэ төхөөрөмжт олон хэрэглэгчдийн бүлтгүүд хэрэглэгчийн бүртгэс өгөгдөлдэх аппууд болон өгөгдөл.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Бусад</string>
+    <string name="analyzer_storage_content_type_system_info">Аппууд эсвэл Хэрэглэгчийн файлуудын ангилалд багтахгүй файлууд. Зөвхөн харах боломжтой — устгах дэмжигдэхгүй. Хандалтын хязгаарлалтаас шалтгаалан зарим хэсэг дутуу байж болно.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">SD Maid хандаж чадаагүй буюу ангилж чадаагүй системийн файлууд болон бусад өгөгдөл. Үйлдлийн систем зарим хэсгийн агуулгыг жагсаахыг хязгаарладаг.</string>
     <string name="analyzer_storage_content_app_code_label">Аппын код</string>
     <string name="analyzer_storage_content_app_code_description">Аппликацийн файл, номдаллагууд болон нөөц. Аппыг устгах эсвэл архивлахад (шинэ Android хувилбарт боломжтой) зайг чөлөөлж болно.</string>
     <string name="analyzer_storage_content_app_data_label">Аппын өгөгдөл</string>

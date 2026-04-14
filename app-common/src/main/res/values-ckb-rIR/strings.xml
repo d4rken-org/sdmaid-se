@@ -71,8 +71,14 @@
     <string name="general_progress_queued">لە ڕیزدا</string>
     <string name="general_progress_deleting">سڕینەوە</string>
     <string name="general_progress_deleting_x">سڕینەوەی %s</string>
+    <string name="general_sort_action">رێزکردن</string>
+    <string name="general_sort_by_title">رێزکردن بەڕێی</string>
     <string name="general_sort_options_label">بژاردەکانی ڕێکخستن</string>
     <string name="general_sort_reverse_action">شێوازی ڕێکخستنی پێچەوانە</string>
+    <string name="general_sort_oldest_first">کۆنترین ھەروێی</string>
+    <string name="general_sort_newest_first">نەوترین ھەروێی</string>
+    <string name="general_sort_name_asc">ناو (آ ← یائ)(ئەلێفبە بەرەو)</string>
+    <string name="general_sort_size_desc">بزورترین ھەروێی</string>
     <string name="general_tag_filter_label">پاڵاوتن بەپێی تاگەکان</string>
     <string name="general_tag_system">سیستەم</string>
     <string name="general_result_success_message">کارپێکردن سەرکەوتوو بوو</string>

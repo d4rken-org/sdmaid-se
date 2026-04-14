@@ -71,8 +71,14 @@
     <string name="general_progress_queued">በወረፋ ውስጥ</string>
     <string name="general_progress_deleting">መሰረዝ</string>
     <string name="general_progress_deleting_x">%s መሰረዝ</string>
+    <string name="general_sort_action">ደርድር</string>
+    <string name="general_sort_by_title">በምን ይደርደር</string>
     <string name="general_sort_options_label">የአደባባይ አማራጮች</string>
     <string name="general_sort_reverse_action">የእድገት ሁነታ ማሽከርከር</string>
+    <string name="general_sort_oldest_first">ቀድሞ የተፈጠረ አስቀድሞ</string>
+    <string name="general_sort_newest_first">በቅርብ ጊዜ የተፈጠረ አስቀድሞ</string>
+    <string name="general_sort_name_asc">ስም (ሀ → ፐ)</string>
+    <string name="general_sort_size_desc">ትልቁ አስቀድሞ</string>
     <string name="general_tag_filter_label">በመለያዎች ማጣራት</string>
     <string name="general_tag_system">ሲስተም</string>
     <string name="general_result_success_message">ክንዋኔ ተሳክቷል</string>

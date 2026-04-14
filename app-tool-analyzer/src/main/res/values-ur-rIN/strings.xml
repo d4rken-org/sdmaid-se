@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">کیپچر شدہ تصاویر، ریکارڈ شدہ ویڈیوز یا ڈاؤن لوڈ شدہ ڈیٹا۔ کوئی بھی ڈیٹا جو کسی مخصوص ایپ سے تعلق نہیں رکھتا۔</string>
     <string name="analyzer_storage_content_type_system_label">سسٹم ڈیٹا</string>
     <string name="analyzer_storage_content_type_system_description">سسٹم ایپس اور سسٹم ڈیٹا۔ دوسرے صارفین کے ایپس اور ڈیٹا، اگر اس ڈیوائس پر کئی صارف اکاؤنٹس سیٹ ہیں۔</string>
+    <string name="analyzer_storage_content_type_system_other_label">دیگر</string>
+    <string name="analyzer_storage_content_type_system_info">وہ فائلیں جو ایپس یا صارف کی فائلوں کے زمروں میں فٹ نہیں ہوتیں۔ صرف براؤز کریں — حذف کرنا سپورٹ نہیں ہے۔ رسائی کی پابندیوں کی وجہ سے کچھ علاقے نامکمل ہو سکتے ہیں۔</string>
+    <string name="analyzer_storage_content_type_system_other_desc">سسٹم فائلیں اور دیگر ڈیٹا جن تک SD Maid رسائی یا درجہ بندی نہیں کر سکا۔ آپریٹنگ سسٹم کچھ علاقوں کے مواد کی فہرست کو محدود کرتا ہے۔</string>
     <string name="analyzer_storage_content_app_code_label">ایپ کوڈ</string>
     <string name="analyzer_storage_content_app_code_description">ایپلیکیشن فائلیں، لائبریریز اور ریسورسز۔ یہ جگہ ایپ کو ان انسٹال کرنے یا آرکائیو کرنے سے آزاد کی جا سکتی ہے (نئے Android ورژن پر دستیاب)۔</string>
     <string name="analyzer_storage_content_app_data_label">ایپ ڈیٹا</string>

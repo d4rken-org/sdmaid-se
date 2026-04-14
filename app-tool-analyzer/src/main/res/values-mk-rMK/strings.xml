@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Сликани фотографии, снимени видеа или преземени податоци. Сите податоци кои не припаѓаат на конкретна апликација.</string>
     <string name="analyzer_storage_content_type_system_label">Системски податоци</string>
     <string name="analyzer_storage_content_type_system_description">Системски апликации и системски податоци. Апликации и податоци од други корисници, ако на уредот има повеќе кориснички сметки.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Друго</string>
+    <string name="analyzer_storage_content_type_system_info">Датотеки кои не се вклопуваат во категориите Апликации или Кориснички датотеки. Само прелистување — бришењето не е поддржано. Некои области може да бидат нецелосни поради ограничувања на пристапот.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Системски датотеки и други податоци до кои SD Maid не можеше да пристапи или да ги категоризира. Оперативниот систем ги ограничува листите со содржини на некои области.</string>
     <string name="analyzer_storage_content_app_code_label">Код на апликација</string>
     <string name="analyzer_storage_content_app_code_description">Датотеки, библиотеки и ресурси на апликацијата. Овој простор може да се ослободи со деинсталирање или архивирање на апликацијата (достапно на понови верзии на Android).</string>
     <string name="analyzer_storage_content_app_data_label">Податоци на апликација</string>

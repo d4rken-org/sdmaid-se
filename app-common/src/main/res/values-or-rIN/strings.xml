@@ -71,8 +71,14 @@
     <string name="general_progress_queued">ଧାଡ଼ିରେ</string>
     <string name="general_progress_deleting">ବିଲୋପ କରାଯାଉଛି</string>
     <string name="general_progress_deleting_x">%s ବିଲୋପ କରାଯାଉଛି</string>
+    <string name="general_sort_action">ସଜାଇବେ</string>
+    <string name="general_sort_by_title">ଏହା ଦ୍ୱାରା ସଜାଇବେ</string>
     <string name="general_sort_options_label">ସର୍ଟ୍ ବିକଳ୍ପ</string>
     <string name="general_sort_reverse_action">ରିଭର୍ସ ସର୍ଟ୍ ମୋଡ୍</string>
+    <string name="general_sort_oldest_first">ସବୁଠୁ ପୁରୁଣା ପ୍ରଥମ</string>
+    <string name="general_sort_newest_first">ସବୁଠୁ ନୂଆ ପ୍ରଥମ</string>
+    <string name="general_sort_name_asc">ନାମ (A → Z)</string>
+    <string name="general_sort_size_desc">ସବୁଠୁ ବଡ଼ ପ୍ରଥମ</string>
     <string name="general_tag_filter_label">ଟ୍ୟାଗ ଦ୍ୱାରା ଫିଲ୍ଟର୍ କରିବା</string>
     <string name="general_tag_system">ସିଷ୍ଟମ୍</string>
     <string name="general_result_success_message">ପ୍ରକ୍ରିୟା ସଫଳ ହୋଇଛି</string>

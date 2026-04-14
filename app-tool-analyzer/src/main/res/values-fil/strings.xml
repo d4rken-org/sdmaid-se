@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">Mga nakuhang larawan, naka-record na video o na-download na data. Anumang data na hindi kabilang sa isang tukoy na app.</string>
     <string name="analyzer_storage_content_type_system_label">Data ng sistema</string>
     <string name="analyzer_storage_content_type_system_description">Mga system app at system data. Mga app at data mula sa ibang mga user, kung may mga user account na naka-set sa device na ito.</string>
+    <string name="analyzer_storage_content_type_system_other_label">Iba</string>
+    <string name="analyzer_storage_content_type_system_info">Mga file na hindi akma sa kategorya ng Apps o User files. Browse lamang — hindi sinusuportahan ang pagtanggal. Maaaring hindi kumpleto ang ilang lugar dahil sa mga paghihigpit sa access.</string>
+    <string name="analyzer_storage_content_type_system_other_desc">Mga system file at iba pang data na hindi ma-access o ma-kategorya ng SD Maid. Nililimitahan ng operating system ang paglilista ng mga nilalaman ng ilang lugar.</string>
     <string name="analyzer_storage_content_app_code_label">Code ng app</string>
     <string name="analyzer_storage_content_app_code_description">Mga application file, library at resource. Ang space na ito ay maaaring ma-free sa pamamagitan ng pag-uninstall ng app o pag-archive nito (available sa mas bagong Android version).</string>
     <string name="analyzer_storage_content_app_data_label">Data ng app</string>

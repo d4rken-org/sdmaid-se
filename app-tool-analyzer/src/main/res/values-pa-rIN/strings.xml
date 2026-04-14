@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">ਖਿੱਚੀਆਂ ਗਈਆਂ ਤਸਵੀਰਾਂ, ਰਿਕਾਰਡ ਕੀਤੇ ਵੀਡੀਓ ਜਾਂ ਡਾਊਨਲੋਡ ਕੀਤਾ ਡਾਟਾ। ਕੋਈ ਵੀ ਡਾਟਾ ਜੋ ਕਿਸੇ ਖਾਸ ਐਪ ਨਾਲ ਸਬੰਧਤ ਨਹੀਂ ਹੈ।</string>
     <string name="analyzer_storage_content_type_system_label">ਸਿਸਟਮ ਡਾਟਾ</string>
     <string name="analyzer_storage_content_type_system_description">ਸਿਸਟਮ ਐਪਾਂ ਅਤੇ ਸਿਸਟਮ ਡਾਟਾ। ਜੇ ਇਸ ਡਿਵਾਈਸ \'ਤੇ ਕਈ ਵਰਤੋਂਕਾਰ ਖਾਤੇ ਸੈੱਟ ਹਨ ਤਾਂ ਹੋਰ ਵਰਤੋਂਕਾਰਾਂ ਦੀਆਂ ਐਪਾਂ ਅਤੇ ਡਾਟਾ।</string>
+    <string name="analyzer_storage_content_type_system_other_label">ਹੋਰ</string>
+    <string name="analyzer_storage_content_type_system_info">ਉਹ ਫਾਈਲਾਂ ਜੋ ਐਪਸ ਜਾਂ ਯੂਜ਼ਰ ਫਾਈਲਾਂ ਦੀਆਂ ਸ਼੍ਰੇਣੀਆਂ ਵਿੱਚ ਫਿੱਟ ਨਹੀਂ ਬੈਠਦੀਆਂ। ਸਿਰਫ਼ ਬ੍ਰਾਊਜ਼ ਕਰੋ — ਮਿਟਾਉਣਾ ਸਮਰਥਿਤ ਨਹੀਂ ਹੈ। ਪਹੁੰਚ ਪਾਬੰਦੀਆਂ ਕਾਰਨ ਕੁਝ ਖੇਤਰ ਅਧੂਰੇ ਹੋ ਸਕਦੇ ਹਨ।</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ਸਿਸਟਮ ਫਾਈਲਾਂ ਅਤੇ ਹੋਰ ਡੇਟਾ ਜਿਸ ਤੱਕ SD Maid ਪਹੁੰਚ ਨਹੀਂ ਕਰ ਸਕਿਆ ਜਾਂ ਵਰਗੀਕਰਨ ਨਹੀਂ ਕਰ ਸਕਿਆ। ਓਪਰੇਟਿੰਗ ਸਿਸਟਮ ਕੁਝ ਖੇਤਰਾਂ ਦੀ ਸਮੱਗਰੀ ਦੀ ਸੂਚੀਬੱਧਤਾ ਤੇ ਪਾਬੰਦੀ ਲਗਾਉਂਦਾ ਹੈ।</string>
     <string name="analyzer_storage_content_app_code_label">ਐਪ ਕੋਡ</string>
     <string name="analyzer_storage_content_app_code_description">ਐਪਲੀਕੇਸ਼ਨ ਫਾਈਲਾਂ, ਲਾਇਬ੍ਰੇਰੀਆਂ ਅਤੇ ਸਰੋਤ। ਇਹ ਜਗ੍ਹਾ ਐਪ ਨੂੰ ਅਣਸਥਾਪਿਤ ਕਰਕੇ ਜਾਂ ਇਸਨੂੰ ਸੰਗ੍ਰਹਿਤ ਕਰਕੇ (ਨਵੇਂ Android ਵਰਜਨ \'ਤੇ ਉਪਲਬਧ) ਮੁਕਤ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</string>
     <string name="analyzer_storage_content_app_data_label">ਐਪ ਡਾਟਾ</string>

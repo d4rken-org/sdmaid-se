@@ -35,6 +35,9 @@
     <string name="analyzer_storage_content_type_media_description">କ୍ୟାପଚର୍ ହୋଇଥିବା ଛବି, ରେକର୍ଡ ହୋଇଥିବା ଭିଡିଓ କିମ୍ବା ଡାଉନଲୋଡ୍ ହୋଇଥିବା ଡାଟା। କୌଣସି ନିର୍ଦ୍ଦିଷ୍ଟ ଆପ୍ର ନଥିବା ଯେକୌଣସି ଡାଟା।</string>
     <string name="analyzer_storage_content_type_system_label">ସିଷ୍ଟମ୍ ତଥ୍ୟ</string>
     <string name="analyzer_storage_content_type_system_description">ସିଷ୍ଟମ୍ ଆପ୍ସ ଏବଂ ସିଷ୍ଟମ୍ ଡାଟା। ଅନ୍ୟ ଉପଭୋକ୍ତାମାନଙ୍କ ଆପ୍ସ ଏବଂ ଡାଟା, ଯଦି ଏହି ଉପକରଣରେ ଅନେକ ଉପଭୋକ୍ତା ଆକାଉଣ୍ଟ ସେଟ୍ ହୋଇଛି।</string>
+    <string name="analyzer_storage_content_type_system_other_label">ଅନ୍ୟ</string>
+    <string name="analyzer_storage_content_type_system_info">ଯେଉଁ ଫାଇଲଗୁଡ଼ିକ Apps ବା User files ବର୍ଗରେ ପଡ଼େ ନାହିଁ। କେବଳ ଦେଖିହେବ — ବିଲୋପ ସମର୍ଥିତ ନୁହେଁ। ପ୍ରବେଶ ସୀମାବଦ୍ଧତା ହେତୁ କିଛି କ୍ଷେତ୍ର ଅସମ୍ପୂର୍ଣ୍ଣ ହୋଇ ପାରେ।</string>
+    <string name="analyzer_storage_content_type_system_other_desc">ସିଷ୍ଟମ ଫାଇଲ ଓ ଅନ୍ୟ ତଥ୍ୟ ଯାହା SD Maid ଆକ୍ସେସ ବା ବର୍ଗ ନିର୍ଣ୍ଣୟ କରି ପାରି ନାହିଁ। ଅପରେଟିଂ ସିଷ୍ଟମ କିଛି କ୍ଷେତ୍ରର ବିଷୟ ତାଲିକା ଉପରେ ସୀମା ଲଗାଏ।</string>
     <string name="analyzer_storage_content_app_code_label">ଆପ୍ କୋଡ୍</string>
     <string name="analyzer_storage_content_app_code_description">ଆପ୍ଲିକେସନ୍ ଫାଇଲ, ଲାଇବ୍ରେରୀ ଏବଂ ରିସୋର୍ସ। ଆପ୍କୁ ଅନ୍‌ଇନ୍‌ଷ୍ଟଲ୍ କରି କିମ୍ବା ଆର୍କାଇଭ୍ କରି (ନୂତନ Android ସଂସ୍କରଣରେ ଉପଲବ୍ଧ) ଏହି ସ୍ଥାନ ମୁକ୍ତ କରାଯାଇପାରିବ।</string>
     <string name="analyzer_storage_content_app_data_label">ଆପ୍ ତଥ୍ୟ</string>

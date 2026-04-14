@@ -71,8 +71,14 @@
     <string name="general_progress_queued">V poradí</string>
     <string name="general_progress_deleting">Vymazávanie</string>
     <string name="general_progress_deleting_x">Odstraňuje sa %s</string>
+    <string name="general_sort_action">Zoradiť</string>
+    <string name="general_sort_by_title">Zoradiť podľa</string>
     <string name="general_sort_options_label">Možnosti zoradenia</string>
     <string name="general_sort_reverse_action">Obrátený režim triedenia</string>
+    <string name="general_sort_oldest_first">Najstaršie ako prvé</string>
+    <string name="general_sort_newest_first">Najnovšie ako prvé</string>
+    <string name="general_sort_name_asc">Názov (A → Z)</string>
+    <string name="general_sort_size_desc">Najväčšie ako prvé</string>
     <string name="general_tag_filter_label">Filtrujte podľa štítkov</string>
     <string name="general_tag_system">Systém</string>
     <string name="general_result_success_message">Operácia úspešná</string>
