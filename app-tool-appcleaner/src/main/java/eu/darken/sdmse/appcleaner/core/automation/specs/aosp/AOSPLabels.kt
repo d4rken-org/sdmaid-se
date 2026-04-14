@@ -27,6 +27,9 @@ class AOSPLabels @Inject constructor(
         else -> labels14Plus.getStorageEntryStatic(acsContext)
     }
 
+    fun getComputingSizeDynamic(acsContext: AutomationExplorer.Context): Set<String> =
+        labels29Plus.getComputingSizeDynamic(acsContext)
+
     fun getClearCacheDynamic(acsContext: AutomationExplorer.Context): Set<String> = when {
         hasApiLevel(29) -> labels29Plus.getClearCacheDynamic(acsContext)
         else -> labels14Plus.getClearCacheDynamic(acsContext)

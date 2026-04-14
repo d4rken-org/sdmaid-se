@@ -39,6 +39,7 @@ interface ACSNodeInfo {
         const val ACTION_CLICK = AccessibilityNodeInfo.ACTION_CLICK
         const val ACTION_SELECT = AccessibilityNodeInfo.ACTION_SELECT
         const val ACTION_SCROLL_FORWARD = AccessibilityNodeInfo.ACTION_SCROLL_FORWARD
+        const val ACTION_SCROLL_BACKWARD = AccessibilityNodeInfo.ACTION_SCROLL_BACKWARD
         const val ACTION_FOCUS = AccessibilityNodeInfo.ACTION_FOCUS
         const val ACTION_ACCESSIBILITY_FOCUS = AccessibilityNodeInfo.ACTION_ACCESSIBILITY_FOCUS
 

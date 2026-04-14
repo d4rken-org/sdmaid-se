@@ -77,7 +77,7 @@ class Stepper @Inject constructor(
                         stepAttempts = stepAttempts++,
                     )
                     try {
-                        withTimeout(10.seconds) {
+                        withTimeout(15.seconds) {
                             val stepTime = measureTimeMillis {
                                 doProcess(stepContext, step)
                             }

@@ -435,6 +435,47 @@ class AccessibilityNodeExtensionsTest : BaseTest() {
         nonScrollableNode.performedActions.shouldBeEmpty()
     }
 
+    // Tests for scrollNodeBackward()
+    @Test
+    fun `scrollNodeBackward performs backward scroll on scrollable node`() {
+        val scrollableNode = TestACSNodeInfo(isScrollable = true)
+
+        val result = scrollableNode.scrollNodeBackward()
+
+        result shouldBe true
+        scrollableNode.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+    }
+
+    @Test
+    fun `scrollNodeBackward returns false for non-scrollable node`() {
+        val nonScrollableNode = TestACSNodeInfo(isScrollable = false)
+
+        val result = nonScrollableNode.scrollNodeBackward()
+
+        result shouldBe false
+        nonScrollableNode.performedActions.shouldBeEmpty()
+    }
+
+    @Test
+    fun `scrollNodeBackward returns false when performAction fails`() {
+        val scrollableNode = TestACSNodeInfo(isScrollable = true, performActionResult = false)
+
+        val result = scrollableNode.scrollNodeBackward()
+
+        result shouldBe false
+        scrollableNode.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_BACKWARD
+    }
+
+    @Test
+    fun `scrollNode returns false when performAction fails`() {
+        val scrollableNode = TestACSNodeInfo(isScrollable = true, performActionResult = false)
+
+        val result = scrollableNode.scrollNode()
+
+        result shouldBe false
+        scrollableNode.performedActions shouldContain ACSNodeInfo.ACTION_SCROLL_FORWARD
+    }
+
     // Tests for AccessibilityEvent.pkgId extension
     @Test
     fun `pkgId returns valid package ID when package name is set`() {
