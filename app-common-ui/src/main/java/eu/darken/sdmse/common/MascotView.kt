@@ -105,6 +105,18 @@ class MascotView @JvmOverloads constructor(
             }
         }
 
+        applyMascotMode()
+
+        super.onFinishInflate()
+    }
+
+    fun setMascotMode(mode: MascotMode) {
+        if (mascotMode == mode) return
+        mascotMode = mode
+        applyMascotMode()
+    }
+
+    private fun applyMascotMode() {
         when (mascotMode) {
             MascotMode.AUTO -> {
                 when {
@@ -118,8 +130,6 @@ class MascotView @JvmOverloads constructor(
             MascotMode.CHRISTMAS -> applyChristmasOverlay()
             MascotMode.NEWYEAR, MascotMode.PARTY -> applyNewYearOverlay()
         }
-
-        super.onFinishInflate()
     }
 
     private fun isXmasSeason(): Boolean {

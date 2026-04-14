@@ -8,7 +8,6 @@ import com.google.android.material.color.DynamicColors
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
@@ -39,6 +38,9 @@ class Theming @Inject constructor(
         val callback = object : Application.ActivityLifecycleCallbacks {
             override fun onActivityCreated(activity: Activity, savedInstanceState: Bundle?) {
                 log(TAG, VERBOSE) { "Adding new activity: $activity" }
+
+                // Compose activities handle theming via SdmSeTheme composable
+                if (activity is eu.darken.sdmse.main.ui.MainActivity) return
 
                 generalSettings.themeMode.valueBlocking.applyMode()
                 generalSettings.themeStyle.valueBlocking.applyStyle(setOf(activity))
@@ -126,11 +128,6 @@ class Theming @Inject constructor(
         ThemeStyle.MEDIUM_CONTRAST, ThemeStyle.HIGH_CONTRAST -> {
             // Handled by Compose SdmSeTheme — no XML-era action needed
         }
-    }
-
-    fun notifySplashScreenDone(activity: Activity) {
-        log(TAG, INFO) { "notifySplashScreenDone($activity)" }
-        generalSettings.themeStyle.valueBlocking.applyStyle(setOf(activity))
     }
 
     companion object {

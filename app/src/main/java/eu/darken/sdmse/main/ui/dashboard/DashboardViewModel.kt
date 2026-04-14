@@ -707,6 +707,27 @@ class DashboardViewModel @Inject constructor(
         }
     }
 
+    data class OneClickOptionsState(
+        val corpseFinderEnabled: Boolean = true,
+        val systemCleanerEnabled: Boolean = true,
+        val appCleanerEnabled: Boolean = true,
+        val deduplicatorEnabled: Boolean = false,
+    )
+
+    val oneClickOptionsState: Flow<OneClickOptionsState> = combine(
+        generalSettings.oneClickCorpseFinderEnabled.flow,
+        generalSettings.oneClickSystemCleanerEnabled.flow,
+        generalSettings.oneClickAppCleanerEnabled.flow,
+        generalSettings.oneClickDeduplicatorEnabled.flow,
+    ) { corpseFinderEnabled, systemCleanerEnabled, appCleanerEnabled, deduplicatorEnabled ->
+        OneClickOptionsState(
+            corpseFinderEnabled = corpseFinderEnabled,
+            systemCleanerEnabled = systemCleanerEnabled,
+            appCleanerEnabled = appCleanerEnabled,
+            deduplicatorEnabled = deduplicatorEnabled,
+        )
+    }
+
     val bottomBarState = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
@@ -747,6 +768,22 @@ class DashboardViewModel @Inject constructor(
             totalSize = totalSize,
             upgradeInfo = upgradeInfo,
         )
+    }
+
+    fun setCorpseFinderOneClickEnabled(enabled: Boolean) = launch {
+        generalSettings.oneClickCorpseFinderEnabled.value(enabled)
+    }
+
+    fun setSystemCleanerOneClickEnabled(enabled: Boolean) = launch {
+        generalSettings.oneClickSystemCleanerEnabled.value(enabled)
+    }
+
+    fun setAppCleanerOneClickEnabled(enabled: Boolean) = launch {
+        generalSettings.oneClickAppCleanerEnabled.value(enabled)
+    }
+
+    fun setDeduplicatorOneClickEnabled(enabled: Boolean) = launch {
+        generalSettings.oneClickDeduplicatorEnabled.value(enabled)
     }
 
     fun mainAction(actionState: BottomBarState.Action) {
