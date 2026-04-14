@@ -18,12 +18,8 @@ import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.saveable.rememberSaveable
-import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
-import androidx.core.splashscreen.SplashScreen.Companion.installSplashScreen
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -65,8 +61,6 @@ class MainActivity : Activity2() {
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
 
-    private var showSplashScreen = true
-
     override fun onCreate(savedInstanceState: Bundle?) {
         log(TAG) { "onCreate(restoringState=${savedInstanceState != null})" }
 
@@ -79,11 +73,8 @@ class MainActivity : Activity2() {
             }
         )
 
-        val splashScreen = installSplashScreen()
         enableEdgeToEdge()
         super.onCreate(savedInstanceState)
-
-        splashScreen.setKeepOnScreenCondition { showSplashScreen && savedInstanceState == null }
 
         curriculumVitae.updateAppOpened()
 
@@ -108,16 +99,6 @@ class MainActivity : Activity2() {
                 CompositionLocalProvider(LocalNavigationController provides navCtrl) {
                     ErrorEventHandler(vm)
                     NavigationEventHandler(vm)
-
-                    // Splash screen state
-                    var splashDone by rememberSaveable { mutableStateOf(false) }
-                    val readyState by vm.readyState.collectAsStateWithLifecycle(initialValue = false)
-                    LaunchedEffect(readyState) {
-                        if (readyState) {
-                            showSplashScreen = false
-                            splashDone = true
-                        }
-                    }
 
                     // Keep screen on during tasks
                     val keepScreenOn by vm.keepScreenOn.collectAsStateWithLifecycle(initialValue = false)

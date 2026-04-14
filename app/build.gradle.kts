@@ -251,7 +251,6 @@ dependencies {
     implementation("androidx.recyclerview:recyclerview:1.4.0")
     implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
-    implementation("androidx.core:core-splashscreen:1.2.0")
     implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 

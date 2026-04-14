@@ -37,8 +37,6 @@ class MainViewModel @Inject constructor(
 
     val state: Flow<State> = MutableStateFlow(State())
 
-    val readyState: Flow<Boolean> = MutableStateFlow(true)
-
     val keepScreenOn: Flow<Boolean> = taskManager.state
         .map { !it.isIdle || BuildConfigWrap.DEBUG }
 
