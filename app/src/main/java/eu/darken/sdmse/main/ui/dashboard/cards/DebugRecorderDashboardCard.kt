@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,12 +19,22 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
 import eu.darken.sdmse.common.ui.R as UiR
 
+import java.io.File
+
+data class DebugRecorderDashboardCardItem(
+    val webpageTool: WebpageTool,
+    val isRecording: Boolean,
+    val currentLogDir: File?,
+    val onToggleRecording: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun DebugRecorderDashboardCard(item: DebugRecorderCardVH.Item) {
+internal fun DebugRecorderDashboardCard(item: DebugRecorderDashboardCardItem) {
     val context = LocalContext.current
     DashboardCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -85,7 +95,7 @@ private fun DebugRecorderDashboardCardPreview() {
     val context = LocalContext.current
     PreviewWrapper {
         DebugRecorderDashboardCard(
-            item = DebugRecorderCardVH.Item(
+            item = DebugRecorderDashboardCardItem(
                 webpageTool = WebpageTool(context),
                 isRecording = false,
                 currentLogDir = null,

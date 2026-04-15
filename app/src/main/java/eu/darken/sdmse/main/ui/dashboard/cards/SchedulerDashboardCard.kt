@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -21,7 +21,7 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
-import eu.darken.sdmse.main.ui.dashboard.items.SchedulerDashCardVH
+
 import eu.darken.sdmse.scheduler.R as SchedulerR
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import java.time.Instant
@@ -29,8 +29,16 @@ import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
+data class SchedulerDashboardCardItem(
+    val schedulerState: SchedulerManager.State,
+    val taskState: TaskSubmitter.State,
+    val onManageClicked: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun SchedulerDashboardCard(item: SchedulerDashCardVH.Item) {
+internal fun SchedulerDashboardCard(item: SchedulerDashboardCardItem) {
     val formatter = remember { DateTimeFormatter.ofLocalizedDateTime(FormatStyle.SHORT) }
     val now = Instant.now()
     val nextSchedule = item.schedulerState.schedules
@@ -109,7 +117,7 @@ internal fun SchedulerDashboardCard(item: SchedulerDashCardVH.Item) {
 private fun SchedulerDashboardCardPreview() {
     PreviewWrapper {
         SchedulerDashboardCard(
-            item = SchedulerDashCardVH.Item(
+            item = SchedulerDashboardCardItem(
                 schedulerState = SchedulerManager.State(
                     schedules = emptySet(),
                 ),

@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.ui.dashboard
 
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
 import eu.darken.sdmse.appcleaner.core.AppCleaner
@@ -37,7 +36,7 @@ import eu.darken.sdmse.common.debug.recorder.core.DebugLogSession
 import eu.darken.sdmse.common.debug.recorder.core.DebugLogSessionManager
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.debug.recorder.core.SessionId
-import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
+import eu.darken.sdmse.main.ui.dashboard.cards.DebugRecorderDashboardCardItem
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.common.flow.intervalFlow
@@ -67,7 +66,6 @@ import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorOneClickTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorScanTask
 import eu.darken.sdmse.deduplicator.core.tasks.DeduplicatorTask
 import eu.darken.sdmse.main.core.DashboardCardConfig
-import eu.darken.sdmse.main.ui.navigation.OnboardingWelcomeRoute
 import eu.darken.sdmse.main.core.DashboardCardType
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.SDMTool
@@ -75,22 +73,23 @@ import eu.darken.sdmse.main.core.motd.MotdRepo
 import eu.darken.sdmse.main.core.release.ReleaseManager
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
-import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryProvider
+import eu.darken.sdmse.main.ui.dashboard.cards.AnalyzerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.DashboardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.AnniversaryDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.AppControlDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.DebugDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.ErrorDataAreaDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.cards.MotdDashboardCardItem
-import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
-import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.AnalyzerDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.AppControlDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SchedulerDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SqueezerDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.StatsDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.SwiperDashCardVH
-import eu.darken.sdmse.main.ui.dashboard.items.UpgradeCardVH
+import eu.darken.sdmse.main.ui.dashboard.cards.ReviewDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SchedulerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SetupDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SqueezerDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.StatsDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.SwiperDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.TitleDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.ToolDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.UpdateDashboardCardItem
+import eu.darken.sdmse.main.ui.dashboard.cards.UpgradeDashboardCardItem
 import eu.darken.sdmse.scheduler.core.SchedulerManager
 import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
 import eu.darken.sdmse.setup.SetupManager
@@ -165,16 +164,8 @@ class DashboardViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider, TAG) {
 
     init {
-        if (!generalSettings.isOnboardingCompleted.valueBlocking) {
-            navTo(
-                OnboardingWelcomeRoute,
-                popUpTo = DashboardRoute,
-                inclusive = true,
-            )
-        } else {
-            launch {
-                releaseManager.checkEarlyAdopter()
-            }
+        launch {
+            releaseManager.checkEarlyAdopter()
         }
     }
 
@@ -182,7 +173,7 @@ class DashboardViewModel @Inject constructor(
 
     val events = SingleEventFlow<DashboardEvents>()
 
-    private val updateInfo: Flow<UpdateCardVH.Item?> = updateService.availableUpdate
+    private val updateInfo: Flow<UpdateDashboardCardItem?> = updateService.availableUpdate
         .map { update ->
             if (update == null) {
                 log(TAG, INFO) { "No update available" }
@@ -190,7 +181,7 @@ class DashboardViewModel @Inject constructor(
             }
 
             try {
-                return@map UpdateCardVH.Item(
+                return@map UpdateDashboardCardItem(
                     update = update,
                     onDismiss = {
                         launch {
@@ -226,7 +217,7 @@ class DashboardViewModel @Inject constructor(
         upgradeInfo,
         taskManager.state,
     ) { upgradeInfo, taskState ->
-        TitleCardVH.Item(
+        TitleDashboardCardItem(
             upgradeInfo = upgradeInfo,
             webpageTool = webpageTool,
             isWorking = !taskState.isIdle,
@@ -235,11 +226,11 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val corpseFinderItem: Flow<DashboardToolCard.Item> = combine(
+    private val corpseFinderItem: Flow<ToolDashboardCardItem> = combine(
         (corpseFinder.state as Flow<CorpseFinder.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.CORPSEFINDER) },
     ) { state, lastResult ->
-        DashboardToolCard.Item(
+        ToolDashboardCardItem(
             toolType = SDMTool.Type.CORPSEFINDER,
             isInitializing = state == null,
             result = lastResult,
@@ -262,11 +253,11 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val systemCleanerItem: Flow<DashboardToolCard.Item> = combine(
+    private val systemCleanerItem: Flow<ToolDashboardCardItem> = combine(
         (systemCleaner.state as Flow<SystemCleaner.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.SYSTEMCLEANER) },
     ) { state, lastResult ->
-        DashboardToolCard.Item(
+        ToolDashboardCardItem(
             toolType = SDMTool.Type.SYSTEMCLEANER,
             isInitializing = state == null,
             result = lastResult,
@@ -289,12 +280,12 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val appCleanerItem: Flow<DashboardToolCard.Item> = combine(
+    private val appCleanerItem: Flow<ToolDashboardCardItem> = combine(
         (appCleaner.state as Flow<AppCleaner.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.APPCLEANER) },
         upgradeInfo.map { it?.isPro ?: false },
     ) { state, lastResult, isPro ->
-        DashboardToolCard.Item(
+        ToolDashboardCardItem(
             toolType = SDMTool.Type.APPCLEANER,
             isInitializing = state == null,
             result = lastResult,
@@ -317,12 +308,12 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val deduplicatorItem: Flow<DashboardToolCard.Item?> = combine(
+    private val deduplicatorItem: Flow<ToolDashboardCardItem?> = combine(
         (deduplicator.state as Flow<Deduplicator.State?>).onStart { emit(null) },
         taskManager.state.map { it.getLatestResult(SDMTool.Type.DEDUPLICATOR) },
         upgradeInfo.map { it?.isPro ?: false },
     ) { state, lastResult, isPro ->
-        DashboardToolCard.Item(
+        ToolDashboardCardItem(
             toolType = SDMTool.Type.DEDUPLICATOR,
             isInitializing = state == null,
             result = lastResult,
@@ -350,10 +341,10 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val squeezerItem: Flow<SqueezerDashCardVH.Item?> = (squeezer.state as Flow<Squeezer.State?>)
+    private val squeezerItem: Flow<SqueezerDashboardCardItem?> = (squeezer.state as Flow<Squeezer.State?>)
         .onStart { emit(null) }
         .mapLatest { state ->
-            SqueezerDashCardVH.Item(
+            SqueezerDashboardCardItem(
                 isInitializing = state == null,
                 isNew = true,
                 data = state?.data,
@@ -364,10 +355,10 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    private val appControlItem: Flow<AppControlDashCardVH.Item?> = (appControl.state as Flow<AppControl.State?>)
+    private val appControlItem: Flow<AppControlDashboardCardItem?> = (appControl.state as Flow<AppControl.State?>)
         .onStart { emit(null) }
         .mapLatest { state ->
-            AppControlDashCardVH.Item(
+            AppControlDashboardCardItem(
                 isInitializing = state == null,
                 data = state?.data,
                 progress = state?.progress,
@@ -377,7 +368,7 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    private val analyzerItem: Flow<AnalyzerDashCardVH.Item?> = combine(
+    private val analyzerItem: Flow<AnalyzerDashboardCardItem?> = combine(
         analyzer.data,
         analyzer.progress,
         intervalFlow(1.hours).flatMapLatest {
@@ -396,7 +387,7 @@ class DashboardViewModel @Inject constructor(
             }
             .takeIf { snapshots.groupBy { s -> s.storageId }.values.any { it.size >= 2 } }
 
-        AnalyzerDashCardVH.Item(
+        AnalyzerDashboardCardItem(
             data = data,
             progress = progress,
             combinedDelta = combinedDelta,
@@ -406,11 +397,11 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val schedulerItem: Flow<SchedulerDashCardVH.Item?> = combine(
+    private val schedulerItem: Flow<SchedulerDashboardCardItem?> = combine(
         schedulerManager.state,
         taskManager.state,
     ) { schedulerState, taskState ->
-        SchedulerDashCardVH.Item(
+        SchedulerDashboardCardItem(
             schedulerState = schedulerState,
             taskState = taskState,
             onManageClicked = {
@@ -419,11 +410,11 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val dataAreaItem: Flow<ErrorDataAreaVH.Item?> = areaManager.latestState
+    private val dataAreaItem: Flow<ErrorDataAreaDashboardCardItem?> = areaManager.latestState
         .map {
             if (it == null) return@map null
             if (it.areas.isNotEmpty()) return@map null
-            ErrorDataAreaVH.Item(
+            ErrorDataAreaDashboardCardItem(
                 state = it,
                 onReload = {
                     launch {
@@ -454,11 +445,11 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    private val setupCardItem: Flow<SetupCardVH.Item?> = setupManager.state
+    private val setupCardItem: Flow<SetupDashboardCardItem?> = setupManager.state
         .flatMapLatest { setupState ->
             if (setupState.isDone || setupState.isDismissed) return@flatMapLatest flowOf(null)
 
-            val item = SetupCardVH.Item(
+            val item = SetupDashboardCardItem(
                 setupState = setupState,
                 onDismiss = {
                     setupManager.setDismissed(true)
@@ -482,10 +473,10 @@ class DashboardViewModel @Inject constructor(
             }
         }
 
-    private val reviewItem: Flow<ReviewCardVH.Item?> = reviewTool.state.map { state ->
+    private val reviewItem: Flow<ReviewDashboardCardItem?> = reviewTool.state.map { state ->
         if (!state.shouldAskForReview) return@map null
 
-        ReviewCardVH.Item(
+        ReviewDashboardCardItem(
             onReview = {
                 launch { reviewTool.reviewNow(it) }
             },
@@ -495,7 +486,7 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val statsItem: Flow<StatsDashCardVH.Item?> = combine(
+    private val statsItem: Flow<StatsDashboardCardItem?> = combine(
         statsRepo.state,
         upgradeInfo.map { it?.isPro ?: false },
         statsSettings.retentionReports.flow,
@@ -508,7 +499,7 @@ class DashboardViewModel @Inject constructor(
         }
         // Also hide if there's no data
         if (state.isEmpty) return@combine null
-        StatsDashCardVH.Item(
+        StatsDashboardCardItem(
             state = state,
             showProRequirement = !isPro,
             onViewAction = {
@@ -521,14 +512,14 @@ class DashboardViewModel @Inject constructor(
         )
     }
 
-    private val anniversaryItem: Flow<AnniversaryCardVH.Item?> = anniversaryProvider.item
+    private val anniversaryItem: Flow<AnniversaryDashboardCardItem?> = anniversaryProvider.item
 
-    private val swiperItem: Flow<SwiperDashCardVH.Item?> = combine(
+    private val swiperItem: Flow<SwiperDashboardCardItem?> = combine(
         swiper.getSessionsWithStats(),
         swiper.progress,
         upgradeInfo.map { it?.isPro ?: false },
     ) { sessionsWithStats, progress, isPro ->
-        SwiperDashCardVH.Item(
+        SwiperDashboardCardItem(
             sessionsWithStats = sessionsWithStats,
             progress = progress,
             showProRequirement = !isPro,
@@ -571,28 +562,28 @@ class DashboardViewModel @Inject constructor(
         easterEggTriggered,
         cardConfigWithRefresh,
     ) { sessions: List<DebugLogSession>,
-        debugItem: DebugCardVH.Item?,
-        titleInfo: TitleCardVH.Item,
+        debugItem: DebugDashboardCardItem?,
+        titleInfo: TitleDashboardCardItem,
         upgradeInfo: UpgradeRepo.Info?,
-        updateInfo: UpdateCardVH.Item?,
-        setupItem: SetupCardVH.Item?,
-        dataAreaError: ErrorDataAreaVH.Item?,
-        corpseFinderItem: DashboardToolCard.Item?,
-        systemCleanerItem: DashboardToolCard.Item?,
-        appCleanerItem: DashboardToolCard.Item?,
-        deduplicatorItem: DashboardToolCard.Item?,
-        squeezerItem: SqueezerDashCardVH.Item?,
-        appControlItem: AppControlDashCardVH.Item?,
-        analyzerItem: AnalyzerDashCardVH.Item?,
-        schedulerItem: SchedulerDashCardVH.Item?,
+        updateInfo: UpdateDashboardCardItem?,
+        setupItem: SetupDashboardCardItem?,
+        dataAreaError: ErrorDataAreaDashboardCardItem?,
+        corpseFinderItem: ToolDashboardCardItem?,
+        systemCleanerItem: ToolDashboardCardItem?,
+        appCleanerItem: ToolDashboardCardItem?,
+        deduplicatorItem: ToolDashboardCardItem?,
+        squeezerItem: SqueezerDashboardCardItem?,
+        appControlItem: AppControlDashboardCardItem?,
+        analyzerItem: AnalyzerDashboardCardItem?,
+        schedulerItem: SchedulerDashboardCardItem?,
         motdItem: MotdDashboardCardItem?,
-        reviewItem: ReviewCardVH.Item?,
-        anniversaryItem: AnniversaryCardVH.Item?,
-        statsItem: StatsDashCardVH.Item?,
-        swiperItem: SwiperDashCardVH.Item?,
+        reviewItem: ReviewDashboardCardItem?,
+        anniversaryItem: AnniversaryDashboardCardItem?,
+        statsItem: StatsDashboardCardItem?,
+        swiperItem: SwiperDashboardCardItem?,
         easterEggTriggered,
         cardConfig: DashboardCardConfig ->
-        val items = mutableListOf<DashboardAdapter.Item>(titleInfo)
+        val items = mutableListOf<DashboardItem>(titleInfo)
 
         val noError = dataAreaError == null
 
@@ -638,7 +629,7 @@ class DashboardViewModel @Inject constructor(
         upgradeInfo
             ?.takeIf { !it.isPro }
             ?.let {
-                UpgradeCardVH.Item(
+                UpgradeDashboardCardItem(
                     onUpgrade = { navTo(UpgradeRoute()) }
                 )
             }
@@ -647,7 +638,7 @@ class DashboardViewModel @Inject constructor(
         val recordingSession = sessions.filterIsInstance<DebugLogSession.Recording>().firstOrNull()
         val isRecording = recordingSession != null
         if (isRecording || debugItem != null) {
-            val item = DebugRecorderCardVH.Item(
+            val item = DebugRecorderDashboardCardItem(
                 webpageTool = webpageTool,
                 isRecording = isRecording,
                 currentLogDir = recordingSession?.logDir,
@@ -685,7 +676,7 @@ class DashboardViewModel @Inject constructor(
     val listState: Flow<ListState> = listStateInternal
 
     data class ListState(
-        val items: List<DashboardAdapter.Item>,
+        val items: List<DashboardItem>,
         val isEasterEgg: Boolean = false,
     )
 

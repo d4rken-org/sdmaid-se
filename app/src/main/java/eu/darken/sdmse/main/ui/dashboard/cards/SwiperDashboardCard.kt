@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -20,7 +20,8 @@ import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.main.ui.dashboard.items.SwiperDashCardVH
+import eu.darken.sdmse.common.progress.Progress
+
 import eu.darken.sdmse.swiper.R as SwiperR
 import eu.darken.sdmse.swiper.core.SessionState
 import eu.darken.sdmse.swiper.core.SwipeSession
@@ -28,8 +29,17 @@ import eu.darken.sdmse.swiper.core.Swiper
 import java.time.Duration
 import java.time.Instant
 
+data class SwiperDashboardCardItem(
+    val sessionsWithStats: List<Swiper.SessionWithStats>,
+    val progress: Progress.Data?,
+    val showProRequirement: Boolean,
+    val onViewDetails: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun SwiperDashboardCard(item: SwiperDashCardVH.Item) {
+internal fun SwiperDashboardCard(item: SwiperDashboardCardItem) {
     val context = LocalContext.current
     val subtitle = when {
         item.sessionsWithStats.isEmpty() -> stringResource(SwiperR.string.swiper_dashcard_description)
@@ -117,7 +127,7 @@ internal fun SwiperDashboardCard(item: SwiperDashCardVH.Item) {
 private fun SwiperDashboardCardPreview() {
     PreviewWrapper {
         SwiperDashboardCard(
-            item = SwiperDashCardVH.Item(
+            item = SwiperDashboardCardItem(
                 sessionsWithStats = listOf(
                     Swiper.SessionWithStats(
                         session = SwipeSession(

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -22,10 +22,19 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.common.updater.UpdateChecker
-import eu.darken.sdmse.main.ui.dashboard.items.UpdateCardVH
+
+
+data class UpdateDashboardCardItem(
+    val update: UpdateChecker.Update,
+    val onDismiss: () -> Unit,
+    val onViewUpdate: () -> Unit,
+    val onUpdate: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
 
 @Composable
-internal fun UpdateDashboardCard(item: UpdateCardVH.Item) {
+internal fun UpdateDashboardCard(item: UpdateDashboardCardItem) {
     DashboardCard(
         containerColor = MaterialTheme.colorScheme.tertiaryContainer,
         onClick = item.onViewUpdate,
@@ -93,7 +102,7 @@ private fun UpdateDashboardCardPreview() {
 
     PreviewWrapper {
         UpdateDashboardCard(
-            item = UpdateCardVH.Item(
+            item = UpdateDashboardCardItem(
                 update = update,
                 onDismiss = {},
                 onViewUpdate = {},

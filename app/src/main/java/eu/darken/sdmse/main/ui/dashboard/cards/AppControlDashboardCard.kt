@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -16,10 +16,21 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.AppControlDashCardVH
+import eu.darken.sdmse.appcontrol.core.AppControl
+import eu.darken.sdmse.common.progress.Progress
+
+
+data class AppControlDashboardCardItem(
+    val data: AppControl.Data?,
+    val isInitializing: Boolean,
+    val progress: Progress.Data?,
+    val onViewDetails: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
 
 @Composable
-internal fun AppControlDashboardCard(item: AppControlDashCardVH.Item) {
+internal fun AppControlDashboardCard(item: AppControlDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails.takeIf { !item.isInitializing }) {
         SimpleToolCardHeader(
             iconRes = CommonR.drawable.ic_apps,
@@ -48,7 +59,7 @@ internal fun AppControlDashboardCard(item: AppControlDashCardVH.Item) {
 private fun AppControlDashboardCardPreview() {
     PreviewWrapper {
         AppControlDashboardCard(
-            item = AppControlDashCardVH.Item(
+            item = AppControlDashboardCardItem(
                 data = null,
                 isInitializing = false,
                 progress = null,

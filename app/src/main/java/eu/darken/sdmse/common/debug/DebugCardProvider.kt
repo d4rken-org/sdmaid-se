@@ -34,7 +34,7 @@ import eu.darken.sdmse.common.shell.ShellOps
 import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel2
 import eu.darken.sdmse.main.ui.dashboard.DashboardEvents
-import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
+import eu.darken.sdmse.main.ui.dashboard.cards.DebugDashboardCardItem
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -83,7 +83,7 @@ class DebugCardProvider @Inject constructor(
         isCheckingFolders,
     ) { isDebug, isTrace, isDryRun, rootState, shizukuState, acsTask, checkingFolders ->
         if (!isDebug) return@combine null
-        DebugCardVH.Item(
+        DebugDashboardCardItem(
             isDryRunEnabled = isDryRun,
             onDryRunEnabled = { debugSettings.isDryRunMode.valueBlocking = it },
             isTraceEnabled = isTrace,
@@ -185,7 +185,7 @@ class DebugCardProvider @Inject constructor(
             acsTask = acsTask,
             isCheckingUnknownFolders = checkingFolders,
             onCheckUnknownFolders = {
-                if (checkingFolders) return@Item
+                if (checkingFolders) return@DebugDashboardCardItem
                 vm.launch {
                     checkUnknownFolders(vm, onError, onShowEvent)
                 }

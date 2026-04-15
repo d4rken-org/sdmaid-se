@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -20,19 +20,29 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.MascotView
+import eu.darken.sdmse.common.compose.SdmMascotMode
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
+
 import java.time.Instant
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
 
+data class AnniversaryDashboardCardItem(
+    val years: Int,
+    val installDate: Instant,
+    val spaceFreed: String,
+    val onShare: (Int) -> Unit,
+    val onDismiss: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun AnniversaryDashboardCard(item: AnniversaryCardVH.Item) {
+internal fun AnniversaryDashboardCard(item: AnniversaryDashboardCardItem) {
     DashboardCard(
         containerColor = MaterialTheme.colorScheme.tertiaryContainer,
         onClick = { item.onShare(item.years) },
@@ -42,7 +52,7 @@ internal fun AnniversaryDashboardCard(item: AnniversaryCardVH.Item) {
                 modifier = Modifier
                     .height(96.dp)
                     .padding(start = 4.dp),
-                mascotMode = MascotView.MascotMode.PARTY,
+                mascotMode = SdmMascotMode.Party,
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column {
@@ -103,7 +113,7 @@ internal fun AnniversaryDashboardCard(item: AnniversaryCardVH.Item) {
 private fun AnniversaryDashboardCardPreview() {
     PreviewWrapper {
         AnniversaryDashboardCard(
-            item = AnniversaryCardVH.Item(
+            item = AnniversaryDashboardCardItem(
                 years = 4,
                 installDate = Instant.now().minusSeconds(60L * 60L * 24L * 365L * 4L),
                 spaceFreed = "42 GB",

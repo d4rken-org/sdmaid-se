@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
@@ -17,10 +17,17 @@ import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
+
+
+data class ErrorDataAreaDashboardCardItem(
+    val state: DataAreaManager.State,
+    val onReload: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
 
 @Composable
-internal fun ErrorDataAreaDashboardCard(item: ErrorDataAreaVH.Item) {
+internal fun ErrorDataAreaDashboardCard(item: ErrorDataAreaDashboardCardItem) {
     DashboardCard(containerColor = MaterialTheme.colorScheme.errorContainer) {
         Text(
             text = stringResource(R.string.dataarea_warningcard_label),
@@ -51,7 +58,7 @@ internal fun ErrorDataAreaDashboardCard(item: ErrorDataAreaVH.Item) {
 private fun ErrorDataAreaDashboardCardPreview() {
     PreviewWrapper {
         ErrorDataAreaDashboardCard(
-            item = ErrorDataAreaVH.Item(
+            item = ErrorDataAreaDashboardCardItem(
                 state = DataAreaManager.State(emptySet()),
                 onReload = {},
             ),

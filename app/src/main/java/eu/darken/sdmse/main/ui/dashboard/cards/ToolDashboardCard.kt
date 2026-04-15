@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -28,8 +28,25 @@ import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.SDMTool
 
+import eu.darken.sdmse.main.ui.dashboard.MainActionItem
+
+data class ToolDashboardCardItem(
+    val toolType: SDMTool.Type,
+    val isInitializing: Boolean,
+    val result: SDMTool.Task.Result?,
+    val progress: Progress.Data?,
+    val showProRequirement: Boolean,
+    val onScan: () -> Unit,
+    val onDelete: (() -> Unit)?,
+    val onViewTool: () -> Unit,
+    val onViewDetails: () -> Unit,
+    val onCancel: () -> Unit,
+) : DashboardItem, MainActionItem {
+    override val stableId: Long = toolType.hashCode().toLong()
+}
+
 @Composable
-internal fun ToolDashboardCard(item: DashboardToolCard.Item) {
+internal fun ToolDashboardCard(item: ToolDashboardCardItem) {
     val toolName = stringResource(toolNameRes(item.toolType))
     val toolDescription = stringResource(toolDescriptionRes(item.toolType))
     val clickable = item.progress == null && item.onDelete != null
@@ -153,7 +170,7 @@ internal fun ToolDashboardCard(item: DashboardToolCard.Item) {
 private fun ToolDashboardCardPreview() {
     PreviewWrapper {
         ToolDashboardCard(
-            item = DashboardToolCard.Item(
+            item = ToolDashboardCardItem(
                 toolType = SDMTool.Type.CORPSEFINDER,
                 isInitializing = false,
                 result = null,

@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row
@@ -26,11 +26,19 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.stats.R as StatsR
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.StatsDashCardVH
+
 import eu.darken.sdmse.stats.core.StatsRepo
 
+data class StatsDashboardCardItem(
+    val state: StatsRepo.State,
+    val showProRequirement: Boolean,
+    val onViewAction: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun StatsDashboardCard(item: StatsDashCardVH.Item) {
+internal fun StatsDashboardCard(item: StatsDashboardCardItem) {
     val context = LocalContext.current
     val highlightColor = MaterialTheme.colorScheme.primary
     val bodyText = remember(item.state) {
@@ -111,7 +119,7 @@ internal fun StatsDashboardCard(item: StatsDashCardVH.Item) {
 private fun StatsDashboardCardPreview() {
     PreviewWrapper {
         StatsDashboardCard(
-            item = StatsDashCardVH.Item(
+            item = StatsDashboardCardItem(
                 state = StatsRepo.State(
                     reportsCount = 12,
                     snapshotsCount = 18,

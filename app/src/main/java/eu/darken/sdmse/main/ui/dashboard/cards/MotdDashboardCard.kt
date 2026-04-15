@@ -28,18 +28,18 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.motd.Motd
 import eu.darken.sdmse.main.core.motd.MotdState
-import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+
 import java.util.Locale
 import java.util.UUID
 
 private val URL_REGEX = Regex("""https?://\S+""")
 
-internal data class MotdDashboardCardItem(
+data class MotdDashboardCardItem(
     val state: MotdState,
     val onPrimary: () -> Unit,
     val onTranslate: () -> Unit,
     val onDismiss: () -> Unit,
-) : DashboardAdapter.Item {
+) : DashboardItem {
     override val stableId: Long = this.javaClass.hashCode().toLong()
 }
 

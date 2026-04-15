@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -21,12 +21,20 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
-import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
+
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.setup.SetupModule
 
+data class SetupDashboardCardItem(
+    val setupState: SetupManager.State,
+    val onDismiss: () -> Unit,
+    val onContinue: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun SetupDashboardCard(item: SetupCardVH.Item) {
+internal fun SetupDashboardCard(item: SetupDashboardCardItem) {
     val state = item.setupState
     DashboardCard(containerColor = MaterialTheme.colorScheme.primaryContainer) {
         Row(verticalAlignment = Alignment.CenterVertically) {
@@ -111,7 +119,7 @@ private fun SetupDashboardCardPreview() {
 
     PreviewWrapper {
         SetupDashboardCard(
-            item = SetupCardVH.Item(
+            item = SetupDashboardCardItem(
                 setupState = SetupManager.State(
                     moduleStates = listOf(incompleteModule),
                     isDismissed = false,

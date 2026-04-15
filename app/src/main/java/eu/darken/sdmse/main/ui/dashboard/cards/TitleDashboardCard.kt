@@ -1,10 +1,12 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
+import androidx.annotation.StringRes
 import androidx.compose.foundation.ExperimentalFoundationApi
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.gestures.awaitEachGesture
 import androidx.compose.foundation.gestures.awaitFirstDown
 import androidx.compose.foundation.gestures.awaitLongPressOrCancellation
+import androidx.compose.foundation.gestures.detectTapGestures
 import androidx.compose.foundation.gestures.waitForUpOrCancellation
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -41,12 +43,37 @@ import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
+import eu.darken.sdmse.common.upgrade.UpgradeRepo
+
+
+@StringRes
+private fun getRngSlogan() = when ((0..8).random()) {
+    0 -> CommonR.string.slogan_message_0
+    1 -> CommonR.string.slogan_message_1
+    2 -> CommonR.string.slogan_message_2
+    3 -> CommonR.string.slogan_message_3
+    4 -> CommonR.string.slogan_message_4
+    5 -> CommonR.string.slogan_message_5
+    6 -> CommonR.string.slogan_message_6
+    7 -> CommonR.string.slogan_message_7
+    8 -> CommonR.string.slogan_message_8
+    else -> throw IllegalArgumentException()
+}
+
+data class TitleDashboardCardItem(
+    val upgradeInfo: UpgradeRepo.Info?,
+    val isWorking: Boolean,
+    val onRibbonClicked: () -> Unit,
+    val webpageTool: WebpageTool,
+    val onMascotTriggered: (Boolean) -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
 
 @OptIn(ExperimentalFoundationApi::class)
 @Composable
-internal fun TitleDashboardCard(item: TitleCardVH.Item) {
-    val slogan = remember { TitleCardVH.getRngSlogan() }
+internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
+    val slogan = remember { getRngSlogan() }
     val sloganText = stringResource(slogan)
     val titleText = if (item.upgradeInfo?.isPro == true) {
         buildAnnotatedString {
@@ -99,8 +126,12 @@ internal fun TitleDashboardCard(item: TitleCardVH.Item) {
                     text = sloganText,
                     style = MaterialTheme.typography.bodySmall,
                     modifier = if (slogan == CommonR.string.slogan_message_8) {
-                        Modifier.clickable {
-                            item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                        Modifier.pointerInput(item.webpageTool) {
+                            detectTapGestures(
+                                onLongPress = {
+                                    item.webpageTool.open("https://www.youtube.com/watch?v=dQw4w9WgXcQ")
+                                },
+                            )
                         }
                     } else {
                         Modifier
@@ -154,7 +185,7 @@ private fun TitleDashboardCardPreview() {
     val context = LocalContext.current
     PreviewWrapper {
         TitleDashboardCard(
-            item = TitleCardVH.Item(
+            item = TitleDashboardCardItem(
                 upgradeInfo = null,
                 isWorking = false,
                 onRibbonClicked = {},

@@ -1,10 +1,11 @@
-package eu.darken.sdmse.main.ui.dashboard.items
+package eu.darken.sdmse.main.ui.dashboard
 
 import android.content.Context
 import android.content.Intent
 import android.text.format.Formatter
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.R
+import eu.darken.sdmse.main.ui.dashboard.cards.AnniversaryDashboardCardItem
 import eu.darken.sdmse.common.coroutine.AppScope
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
@@ -31,7 +32,7 @@ class AnniversaryProvider @Inject constructor(
     private val statsRepo: StatsRepo,
 ) {
 
-    val item: Flow<AnniversaryCardVH.Item?> = combine(
+    val item: Flow<AnniversaryDashboardCardItem?> = combine(
         generalSettings.anniversaryDismissedYear.flow,
         curriculumVitae.installedAt,
         upgradeRepo.upgradeInfo,
@@ -55,7 +56,7 @@ class AnniversaryProvider @Inject constructor(
 
         val spaceFreed = Formatter.formatShortFileSize(context, statsRepo.state.first().totalSpaceFreed)
 
-        AnniversaryCardVH.Item(
+        AnniversaryDashboardCardItem(
             years = years,
             installDate = installedAt,
             spaceFreed = spaceFreed,

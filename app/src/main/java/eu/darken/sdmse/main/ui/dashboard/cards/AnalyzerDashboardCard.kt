@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import android.text.format.Formatter
 import androidx.compose.foundation.layout.Row
@@ -21,11 +21,22 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.AnalyzerDashCardVH
+import eu.darken.sdmse.analyzer.core.Analyzer
+import eu.darken.sdmse.common.progress.Progress
+
 import kotlin.math.absoluteValue
 
+data class AnalyzerDashboardCardItem(
+    val data: Analyzer.Data?,
+    val progress: Progress.Data?,
+    val combinedDelta: Long? = null,
+    val onViewDetails: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun AnalyzerDashboardCard(item: AnalyzerDashCardVH.Item) {
+internal fun AnalyzerDashboardCard(item: AnalyzerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -87,7 +98,7 @@ internal fun AnalyzerDashboardCard(item: AnalyzerDashCardVH.Item) {
 private fun AnalyzerDashboardCardPreview() {
     PreviewWrapper {
         AnalyzerDashboardCard(
-            item = AnalyzerDashCardVH.Item(
+            item = AnalyzerDashboardCardItem(
                 data = null,
                 progress = null,
                 combinedDelta = 512L * 1024L * 1024L,

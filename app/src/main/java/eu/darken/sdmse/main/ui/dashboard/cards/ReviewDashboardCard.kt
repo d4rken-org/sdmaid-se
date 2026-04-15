@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import android.app.Activity
 import androidx.compose.foundation.layout.Row
@@ -22,10 +22,17 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
+
+
+data class ReviewDashboardCardItem(
+    val onReview: (Activity) -> Unit,
+    val onDismiss: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
 
 @Composable
-internal fun ReviewDashboardCard(item: ReviewCardVH.Item) {
+internal fun ReviewDashboardCard(item: ReviewDashboardCardItem) {
     val activity = LocalContext.current as? Activity
     DashboardCard(
         containerColor = MaterialTheme.colorScheme.secondaryContainer,
@@ -76,7 +83,7 @@ internal fun ReviewDashboardCard(item: ReviewCardVH.Item) {
 private fun ReviewDashboardCardPreview() {
     PreviewWrapper {
         ReviewDashboardCard(
-            item = ReviewCardVH.Item(
+            item = ReviewDashboardCardItem(
                 onReview = {},
                 onDismiss = {},
             ),

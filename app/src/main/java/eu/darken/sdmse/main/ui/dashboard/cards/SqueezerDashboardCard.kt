@@ -1,4 +1,4 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -19,11 +19,23 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
-import eu.darken.sdmse.main.ui.dashboard.items.SqueezerDashCardVH
+import eu.darken.sdmse.common.progress.Progress
+
+import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.R as SqueezerR
 
+data class SqueezerDashboardCardItem(
+    val data: Squeezer.Data?,
+    val isInitializing: Boolean,
+    val isNew: Boolean,
+    val progress: Progress.Data?,
+    val onViewDetails: () -> Unit,
+) : DashboardItem {
+    override val stableId: Long = this.javaClass.hashCode().toLong()
+}
+
 @Composable
-internal fun SqueezerDashboardCard(item: SqueezerDashCardVH.Item) {
+internal fun SqueezerDashboardCard(item: SqueezerDashboardCardItem) {
     DashboardCard(onClick = item.onViewDetails.takeIf { !item.isInitializing }) {
         Row(verticalAlignment = Alignment.CenterVertically) {
             Icon(
@@ -78,7 +90,7 @@ internal fun SqueezerDashboardCard(item: SqueezerDashCardVH.Item) {
 private fun SqueezerDashboardCardPreview() {
     PreviewWrapper {
         SqueezerDashboardCard(
-            item = SqueezerDashCardVH.Item(
+            item = SqueezerDashboardCardItem(
                 data = null,
                 isInitializing = false,
                 isNew = true,
