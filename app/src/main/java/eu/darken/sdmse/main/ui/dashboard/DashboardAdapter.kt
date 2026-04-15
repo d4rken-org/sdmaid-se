@@ -17,7 +17,6 @@ import eu.darken.sdmse.common.lists.modular.mods.TypedVHCreatorMod
 import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
-import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
@@ -55,7 +54,6 @@ class DashboardAdapter @Inject constructor(
         addMod(TypedVHCreatorMod({ data[it] is SqueezerDashCardVH.Item }) { SqueezerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is SchedulerDashCardVH.Item }) { SchedulerDashCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is DebugRecorderCardVH.Item }) { DebugRecorderCardVH(it) })
-        addMod(TypedVHCreatorMod({ data[it] is MotdCardVH.Item }) { MotdCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is ReviewCardVH.Item }) { ReviewCardVH(activity, it) })
         addMod(TypedVHCreatorMod({ data[it] is AnniversaryCardVH.Item }) { AnniversaryCardVH(it) })
         addMod(TypedVHCreatorMod({ data[it] is StatsDashCardVH.Item }) { StatsDashCardVH(it) })

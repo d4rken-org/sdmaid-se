@@ -77,9 +77,9 @@ import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestResult
 import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryProvider
+import eu.darken.sdmse.main.ui.dashboard.cards.MotdDashboardCardItem
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
-import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.TitleCardVH
@@ -433,10 +433,10 @@ class DashboardViewModel @Inject constructor(
             )
         }
 
-    private val motdItem: Flow<MotdCardVH.Item?> = motdRepo.motd
+    private val motdItem: Flow<MotdDashboardCardItem?> = motdRepo.motd
         .map {
             if (it == null) return@map null
-            MotdCardVH.Item(
+            MotdDashboardCardItem(
                 state = it,
                 onPrimary = {
                     launch {
@@ -585,7 +585,7 @@ class DashboardViewModel @Inject constructor(
         appControlItem: AppControlDashCardVH.Item?,
         analyzerItem: AnalyzerDashCardVH.Item?,
         schedulerItem: SchedulerDashCardVH.Item?,
-        motdItem: MotdCardVH.Item?,
+        motdItem: MotdDashboardCardItem?,
         reviewItem: ReviewCardVH.Item?,
         anniversaryItem: AnniversaryCardVH.Item?,
         statsItem: StatsDashCardVH.Item?,

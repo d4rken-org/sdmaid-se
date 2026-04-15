@@ -1,13 +1,14 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
 import androidx.compose.runtime.Composable
 import eu.darken.sdmse.common.debug.recorder.ui.DebugRecorderCardVH
+import eu.darken.sdmse.main.ui.dashboard.DashboardAdapter
+import eu.darken.sdmse.main.ui.dashboard.DashboardToolCard
 import eu.darken.sdmse.main.ui.dashboard.items.AnalyzerDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.AnniversaryCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.AppControlDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.DebugCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ErrorDataAreaVH
-import eu.darken.sdmse.main.ui.dashboard.items.MotdCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.ReviewCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SchedulerDashCardVH
 import eu.darken.sdmse.main.ui.dashboard.items.SetupCardVH
@@ -31,7 +32,7 @@ internal fun DashboardListCard(item: DashboardAdapter.Item) {
         is SqueezerDashCardVH.Item -> SqueezerDashboardCard(item)
         is SchedulerDashCardVH.Item -> SchedulerDashboardCard(item)
         is DebugRecorderCardVH.Item -> DebugRecorderDashboardCard(item)
-        is MotdCardVH.Item -> MotdDashboardCard(item)
+        is MotdDashboardCardItem -> MotdDashboardCard(item)
         is ReviewCardVH.Item -> ReviewDashboardCard(item)
         is AnniversaryCardVH.Item -> AnniversaryDashboardCard(item)
         is StatsDashCardVH.Item -> StatsDashboardCard(item)

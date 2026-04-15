@@ -56,14 +56,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.R as AppCleanerR
 import eu.darken.sdmse.common.ByteFormatter
-import eu.darken.sdmse.common.MascotView
+import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
@@ -77,6 +76,7 @@ import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.corpsefinder.R as CorpseFinderR
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
+import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 import kotlin.math.abs
@@ -317,10 +317,7 @@ internal fun DashboardScreen(
 
 @Composable
 private fun MascotOverlay() {
-    AndroidView(
-        factory = { context -> MascotView(context) },
-        modifier = Modifier.fillMaxSize(),
-    )
+    SdmMascot(modifier = Modifier.fillMaxSize())
 }
 
 private val DASHBOARD_BOTTOM_BAR_HEIGHT = 60.dp

@@ -1,8 +1,5 @@
-package eu.darken.sdmse.main.ui.dashboard
+package eu.darken.sdmse.main.ui.dashboard.cards
 
-import android.text.method.LinkMovementMethod
-import android.text.util.Linkify
-import android.widget.TextView
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -37,23 +34,21 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
-import androidx.compose.ui.viewinterop.AndroidView
 import eu.darken.sdmse.appcleaner.R as AppCleanerR
 import eu.darken.sdmse.common.BuildConfigWrap
-import eu.darken.sdmse.common.MascotView
+import eu.darken.sdmse.common.compose.SdmMascot
+import eu.darken.sdmse.common.compose.SdmMascotMode
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.asComposable
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.corpsefinder.R as CorpseFinderR
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.main.core.SDMTool
-import eu.darken.sdmse.main.core.motd.MotdState
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 
 internal val DashboardActionIconSpacing = 4.dp
@@ -301,25 +296,6 @@ internal fun DashboardProgress(progress: Progress.Data) {
     }
 }
 
-@Composable
-internal fun MotdBody(state: MotdState) {
-    val bodyColor = LocalContentColor.current
-    AndroidView(
-        factory = { context ->
-            TextView(context).apply {
-                @Suppress("DEPRECATION")
-                autoLinkMask = Linkify.ALL
-                movementMethod = LinkMovementMethod.getInstance()
-                maxLines = 24
-            }
-        },
-        modifier = Modifier.fillMaxWidth(),
-        update = { view ->
-            view.text = state.motd.message
-            view.setTextColor(bodyColor.toArgb())
-        },
-    )
-}
 
 @Composable
 internal fun DebugToggleRow(
@@ -365,17 +341,11 @@ internal fun NewBadge() {
 @Composable
 internal fun Mascot(
     modifier: Modifier = Modifier,
-    mascotMode: MascotView.MascotMode = MascotView.MascotMode.AUTO,
+    mascotMode: SdmMascotMode = SdmMascotMode.Animated,
 ) {
-    AndroidView(
-        factory = { context -> MascotView(context) },
+    SdmMascot(
         modifier = modifier,
-        update = { view ->
-            view.setMascotMode(mascotMode)
-            if (mascotMode == MascotView.MascotMode.PARTY) {
-                view.playAnimation()
-            }
-        },
+        mode = mascotMode,
     )
 }
 
