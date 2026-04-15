@@ -7,11 +7,15 @@ import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.navigation.NavigationDestination
+import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.theming.ThemeState
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
+import eu.darken.sdmse.main.ui.navigation.OnboardingWelcomeRoute
 import eu.darken.sdmse.main.core.SDMTool
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
 import eu.darken.sdmse.main.core.taskmanager.getLatestTask
@@ -34,6 +38,12 @@ class MainViewModel @Inject constructor(
     private val taskManager: TaskManager,
     private val generalSettings: GeneralSettings,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
+
+    val startRoute: NavigationDestination = if (generalSettings.isOnboardingCompleted.valueBlocking) {
+        DashboardRoute
+    } else {
+        OnboardingWelcomeRoute
+    }
 
     val state: Flow<State> = MutableStateFlow(State())
 

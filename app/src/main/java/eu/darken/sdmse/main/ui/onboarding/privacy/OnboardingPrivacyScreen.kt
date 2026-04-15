@@ -41,6 +41,8 @@ import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.R as UiR
@@ -229,5 +231,13 @@ private fun ToggleRow(
             )
         }
         Switch(checked = checked, onCheckedChange = null)
+    }
+}
+
+@Preview2
+@Composable
+private fun OnboardingPrivacyScreenPreview() {
+    PreviewWrapper {
+        OnboardingPrivacyScreen()
     }
 }

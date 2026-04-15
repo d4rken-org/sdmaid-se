@@ -5,6 +5,10 @@ import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
 import androidx.activity.compose.BackHandler
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
+import androidx.compose.animation.togetherWith
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.activity.viewModels
@@ -40,7 +44,6 @@ import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
-import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.common.theming.Theming
@@ -124,7 +127,7 @@ class MainActivity : Activity2() {
 
     @Composable
     private fun Navigation() {
-        val backStack = rememberNavBackStack(DashboardRoute)
+        val backStack = rememberNavBackStack(vm.startRoute)
 
         LaunchedEffect(Unit) { navCtrl.setup(backStack) }
 
@@ -137,6 +140,9 @@ class MainActivity : Activity2() {
             NavDisplay(
                 backStack = backStack,
                 onBack = { navCtrl.up() },
+                transitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                popTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
+                predictivePopTransitionSpec = { fadeIn(tween(400)) togetherWith fadeOut(tween(400)) },
                 entryDecorators = listOf(
                     rememberSaveableStateHolderNavEntryDecorator(),
                     rememberViewModelStoreNavEntryDecorator(),

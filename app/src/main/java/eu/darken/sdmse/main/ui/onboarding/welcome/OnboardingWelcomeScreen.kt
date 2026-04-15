@@ -34,6 +34,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.compose.SdmMascot
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.pkgs.getPackageInfo2
@@ -143,5 +145,13 @@ internal fun OnboardingWelcomeScreen(
                 }
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun OnboardingWelcomeScreenPreview() {
+    PreviewWrapper {
+        OnboardingWelcomeScreen()
     }
 }

@@ -1,5 +1,4 @@
 package eu.darken.sdmse.main.ui.onboarding.setup
-
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -34,6 +33,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 
@@ -135,5 +136,13 @@ internal fun OnboardingSetupScreen(
                 }
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun OnboardingSetupScreenPreview() {
+    PreviewWrapper {
+        OnboardingSetupScreen()
     }
 }
