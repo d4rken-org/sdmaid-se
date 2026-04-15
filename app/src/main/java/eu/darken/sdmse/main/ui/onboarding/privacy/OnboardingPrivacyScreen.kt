@@ -1,5 +1,10 @@
 package eu.darken.sdmse.main.ui.onboarding.privacy
 
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.slideInVertically
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -8,22 +13,29 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.selection.toggleable
 import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.twotone.Campaign
-import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.semantics.Role
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -31,6 +43,7 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.ui.R as UiR
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flowOf
 
@@ -72,70 +85,113 @@ internal fun OnboardingPrivacyScreen(
         )
     )
 
+    var isVisible by remember { mutableStateOf(false) }
+    val continueButtonFocusRequester = remember { FocusRequester() }
+    LaunchedEffect(Unit) { isVisible = true }
+
     Scaffold { paddingValues ->
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 24.dp),
+                .padding(paddingValues),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Spacer(modifier = Modifier.height(48.dp))
-
-            Text(
-                text = stringResource(R.string.onboarding_privacy_title),
-                style = MaterialTheme.typography.headlineMedium,
-                textAlign = TextAlign.Center,
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = stringResource(R.string.onboarding_privacy_body1),
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
-            )
-
-            Spacer(modifier = Modifier.height(16.dp))
-
-            OutlinedButton(onClick = onPrivacyPolicy) {
-                Text(stringResource(R.string.settings_privacy_policy_label))
-            }
-
-            Spacer(modifier = Modifier.height(24.dp))
-
-            // Update check toggle
-            if (state.value.isUpdateCheckSupported) {
-                ToggleRow(
-                    icon = { Icon(Icons.TwoTone.SystemUpdate, contentDescription = null) },
-                    title = stringResource(R.string.updatecheck_setting_enabled_label),
-                    description = stringResource(R.string.updatecheck_setting_enabled_explanation),
-                    checked = state.value.isUpdateCheckEnabled,
-                    onToggle = onToggleUpdateCheck,
-                )
-
-                Spacer(modifier = Modifier.height(8.dp))
-            }
-
-            // MOTD toggle
-            ToggleRow(
-                icon = { Icon(Icons.TwoTone.Campaign, contentDescription = null) },
-                title = stringResource(R.string.motd_setting_enabled_label),
-                description = stringResource(R.string.motd_setting_enabled_explanation),
-                checked = state.value.isMotdEnabled,
-                onToggle = onToggleMotd,
-            )
-
-            Spacer(modifier = Modifier.weight(1f))
-
-            Button(
-                onClick = onContinue,
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(vertical = 24.dp),
+            AnimatedVisibility(
+                visible = isVisible,
+                enter = fadeIn(animationSpec = tween(400)) + slideInVertically(
+                    initialOffsetY = { 30 },
+                    animationSpec = tween(400),
+                ),
+                modifier = Modifier.weight(1f),
             ) {
-                Text(stringResource(R.string.onboarding_privacy_continue_action))
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .verticalScroll(rememberScrollState()),
+                    horizontalAlignment = Alignment.CenterHorizontally,
+                ) {
+                    Spacer(modifier = Modifier.height(32.dp))
+
+                    Image(
+                        painter = painterResource(UiR.drawable.splash_mascot),
+                        contentDescription = null,
+                        modifier = Modifier.size(128.dp),
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.onboarding_privacy_title),
+                        style = MaterialTheme.typography.headlineMedium,
+                        textAlign = TextAlign.Center,
+                        modifier = Modifier.padding(horizontal = 32.dp),
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Text(
+                        text = stringResource(R.string.onboarding_privacy_body1),
+                        style = MaterialTheme.typography.bodyLarge,
+                        modifier = Modifier.padding(horizontal = 32.dp),
+                    )
+
+                    Spacer(modifier = Modifier.height(16.dp))
+
+                    Button(
+                        onClick = onPrivacyPolicy,
+                    ) {
+                        Text(stringResource(R.string.settings_privacy_policy_label))
+                    }
+
+                    Spacer(modifier = Modifier.height(32.dp))
+
+                    if (state.value.isUpdateCheckSupported) {
+                        ToggleRow(
+                            icon = {
+                                Icon(
+                                    painter = painterResource(R.drawable.ic_creation_24),
+                                    contentDescription = null,
+                                    modifier = Modifier.size(24.dp),
+                                )
+                            },
+                            title = stringResource(R.string.updatecheck_setting_enabled_label),
+                            description = stringResource(R.string.updatecheck_setting_enabled_explanation),
+                            checked = state.value.isUpdateCheckEnabled,
+                            onToggle = onToggleUpdateCheck,
+                        )
+                    }
+
+                    ToggleRow(
+                        icon = {
+                            Icon(
+                                painter = painterResource(R.drawable.ic_message_alert_24),
+                                contentDescription = null,
+                                modifier = Modifier.size(24.dp),
+                            )
+                        },
+                        title = stringResource(R.string.motd_setting_enabled_label),
+                        description = stringResource(R.string.motd_setting_enabled_explanation),
+                        checked = state.value.isMotdEnabled,
+                        onToggle = onToggleMotd,
+                    )
+                }
+            }
+
+            AnimatedVisibility(
+                visible = isVisible,
+                enter = fadeIn(animationSpec = tween(durationMillis = 400, delayMillis = 200)),
+            ) {
+                LaunchedEffect(Unit) { continueButtonFocusRequester.requestFocus() }
+                Button(
+                    onClick = onContinue,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .focusRequester(continueButtonFocusRequester)
+                        .padding(horizontal = 32.dp)
+                        .padding(top = 16.dp, bottom = 16.dp),
+                ) {
+                    Text(stringResource(R.string.onboarding_welcome_continue_action))
+                }
             }
         }
     }
@@ -152,8 +208,12 @@ private fun ToggleRow(
     Row(
         modifier = Modifier
             .fillMaxWidth()
-            .clickable { onToggle() }
-            .padding(vertical = 12.dp),
+            .toggleable(
+                value = checked,
+                role = Role.Switch,
+                onValueChange = { onToggle() },
+            )
+            .padding(horizontal = 16.dp, vertical = 16.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         icon()
@@ -162,13 +222,12 @@ private fun ToggleRow(
                 .weight(1f)
                 .padding(horizontal = 16.dp),
         ) {
-            Text(text = title, style = MaterialTheme.typography.titleSmall)
+            Text(text = title, style = MaterialTheme.typography.titleMedium)
             Text(
                 text = description,
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
+                style = MaterialTheme.typography.bodyMedium,
             )
         }
-        Switch(checked = checked, onCheckedChange = { onToggle() })
+        Switch(checked = checked, onCheckedChange = null)
     }
 }
