@@ -1,11 +1,16 @@
 package eu.darken.sdmse.common.compose
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.BoxWithConstraints
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.rotate
 import androidx.compose.ui.layout.Layout
@@ -26,8 +31,30 @@ import kotlin.math.roundToInt
 
 sealed interface SdmMascotMode {
     data object Animated : SdmMascotMode
+    data object Christmas : SdmMascotMode
+    data object NewYear : SdmMascotMode
     data object Party : SdmMascotMode
 }
+
+private const val MASCOT_ASPECT_RATIO = 1080f / 1920f
+
+private val NEW_YEAR_HAT = HatConfig(
+    drawableRes = R.drawable.mascot_hat_newyears_crop,
+    rotation = 30f,
+    widthPercent = 0.38f,
+    heightPercent = 0.38f,
+    horizontalBias = 0.769f,
+    verticalBias = 0.18f,
+)
+
+private val CHRISTMAS_HAT = HatConfig(
+    drawableRes = R.drawable.mascot_hat_xmas_crop,
+    rotation = 31f,
+    widthPercent = 0.36f,
+    heightPercent = 0.36f,
+    horizontalBias = 0.73f,
+    verticalBias = 0.25f,
+)
 
 @Composable
 fun SdmMascot(
@@ -38,31 +65,78 @@ fun SdmMascot(
         LottieCompositionSpec.Asset("lottie/mascot_animation_coffee_relaxed.json")
     )
 
-    Box(modifier = modifier) {
-        if (composition != null) {
-            LottieAnimation(
-                composition = composition,
-                iterations = LottieConstants.IterateForever,
-                modifier = Modifier.fillMaxSize(),
-            )
+    Box(
+        modifier = modifier,
+        contentAlignment = Alignment.Center,
+    ) {
+        MascotContentBox {
+            if (composition != null) {
+                LottieAnimation(
+                    composition = composition,
+                    iterations = LottieConstants.IterateForever,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            } else {
+                Image(
+                    painter = painterResource(R.drawable.splash_mascot),
+                    contentDescription = null,
+                    modifier = Modifier.fillMaxSize(),
+                )
+            }
+
+            val hat = resolveHat(mode)
+            if (hat != null) {
+                HatOverlay(
+                    hatRes = hat.drawableRes,
+                    rotation = hat.rotation,
+                    widthPercent = hat.widthPercent,
+                    heightPercent = hat.heightPercent,
+                    horizontalBias = hat.horizontalBias,
+                    verticalBias = hat.verticalBias,
+                )
+            }
+        }
+    }
+}
+
+@Composable
+private fun MascotContentBox(
+    content: @Composable () -> Unit,
+) {
+    BoxWithConstraints(
+        contentAlignment = Alignment.Center,
+    ) {
+        val contentModifier = if (maxHeight > 0.dp && (maxWidth / maxHeight) > MASCOT_ASPECT_RATIO) {
+            Modifier
+                .fillMaxHeight()
+                .aspectRatio(MASCOT_ASPECT_RATIO, matchHeightConstraintsFirst = true)
         } else {
-            Image(
-                painter = painterResource(R.drawable.splash_mascot),
-                contentDescription = null,
-                modifier = Modifier.fillMaxSize(),
-            )
+            Modifier
+                .fillMaxWidth()
+                .aspectRatio(MASCOT_ASPECT_RATIO)
         }
 
-        val hat = resolveHat(mode)
-        if (hat != null) {
-            HatOverlay(
-                hatRes = hat.drawableRes,
-                rotation = hat.rotation,
-                widthPercent = hat.widthPercent,
-                heightPercent = hat.heightPercent,
-                horizontalBias = hat.horizontalBias,
-                verticalBias = hat.verticalBias,
-            )
+        Box(modifier = contentModifier) {
+            content()
+        }
+    }
+}
+
+private fun resolveHat(mode: SdmMascotMode): HatConfig? {
+    return when (mode) {
+        SdmMascotMode.Party,
+        SdmMascotMode.NewYear,
+        -> NEW_YEAR_HAT
+
+        SdmMascotMode.Christmas -> CHRISTMAS_HAT
+
+        SdmMascotMode.Animated -> {
+            val now = LocalDate.now()
+            when {
+                isNewYears(now) -> NEW_YEAR_HAT
+                isXmasSeason(now) -> CHRISTMAS_HAT
+                else -> null
+            }
         }
     }
 }
@@ -75,42 +149,6 @@ private data class HatConfig(
     val horizontalBias: Float,
     val verticalBias: Float,
 )
-
-private fun resolveHat(mode: SdmMascotMode): HatConfig? {
-    if (mode == SdmMascotMode.Party) {
-        return HatConfig(
-            drawableRes = R.drawable.mascot_hat_newyears_crop,
-            rotation = 30f,
-            widthPercent = 0.38f,
-            heightPercent = 0.38f,
-            horizontalBias = 0.769f,
-            verticalBias = 0.18f,
-        )
-    }
-
-    val now = LocalDate.now()
-    return when {
-        isNewYears(now) -> HatConfig(
-            drawableRes = R.drawable.mascot_hat_newyears_crop,
-            rotation = 30f,
-            widthPercent = 0.38f,
-            heightPercent = 0.38f,
-            horizontalBias = 0.769f,
-            verticalBias = 0.18f,
-        )
-
-        isXmasSeason(now) -> HatConfig(
-            drawableRes = R.drawable.mascot_hat_xmas_crop,
-            rotation = 31f,
-            widthPercent = 0.36f,
-            heightPercent = 0.36f,
-            horizontalBias = 0.73f,
-            verticalBias = 0.25f,
-        )
-
-        else -> null
-    }
-}
 
 private fun isXmasSeason(now: LocalDate): Boolean {
     val start = LocalDate.of(now.year, Month.DECEMBER, 21)
@@ -129,20 +167,35 @@ private fun isNewYears(now: LocalDate): Boolean {
 @Preview2
 @Composable
 private fun SdmMascotPreview() {
-    PreviewWrapper {
-        SdmMascot(
-            modifier = Modifier.size(172.dp),
-        )
-    }
+    SdmMascotPreviewContent()
+}
+
+@Preview2
+@Composable
+private fun SdmMascotChristmasPreview() {
+    SdmMascotPreviewContent(mode = SdmMascotMode.Christmas)
+}
+
+@Preview2
+@Composable
+private fun SdmMascotNewYearPreview() {
+    SdmMascotPreviewContent(mode = SdmMascotMode.NewYear)
 }
 
 @Preview2
 @Composable
 private fun SdmMascotPartyPreview() {
+    SdmMascotPreviewContent(mode = SdmMascotMode.Party)
+}
+
+@Composable
+private fun SdmMascotPreviewContent(
+    mode: SdmMascotMode = SdmMascotMode.Animated,
+) {
     PreviewWrapper {
         SdmMascot(
             modifier = Modifier.size(172.dp),
-            mode = SdmMascotMode.Party,
+            mode = mode,
         )
     }
 }
