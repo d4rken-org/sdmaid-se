@@ -96,6 +96,9 @@ class SystemCleanerSettingsFragment : PreferenceFragment2() {
             true
         }
 
+        // TODO(compose-rewrite): These gated filters currently route to a
+        // ROOT-filtered setup flow via showSetupHint. Preserve that targeted
+        // setup behavior when migrating this settings screen to Compose.
         filterAnrEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }
         filterLocalTmpEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }
         filterDownloadCacheEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }

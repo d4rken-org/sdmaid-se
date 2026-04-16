@@ -25,6 +25,9 @@ fun installShowSetupHint() {
 }
 
 fun Set<SetupModule.Type>.showFixSetupHint(fragment: Fragment) {
+    // Canonical targeted-setup flow for gated settings rows and setup-related
+    // fix actions. Compose migrations should preserve both the type filter and
+    // showCompleted=true behavior when replacing showSetupHint call sites.
     // If the user navigates back while the snackbar is still showing
     // then we don't have access to the fragment anymore to get the navcontroller
     val navController = fragment.findNavController()

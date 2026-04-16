@@ -39,6 +39,10 @@ class AppControlSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
+        // TODO(compose-rewrite): Preserve the current filtered setup mappings
+        // when converting this screen to Compose: determineSizes +
+        // determineRunning -> USAGE_STATS; includeOtherUsers ->
+        // ROOT + SHIZUKU. These are intentionally targeted setup launches.
         determineSizes.badgedAction = {
             showSetupHint?.invoke(this@AppControlSettingsFragment, setOf(SetupModule.Type.USAGE_STATS))
         }

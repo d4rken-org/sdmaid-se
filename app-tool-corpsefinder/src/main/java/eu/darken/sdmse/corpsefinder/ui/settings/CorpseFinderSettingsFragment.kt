@@ -50,6 +50,9 @@ class CorpseFinderSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
+        // TODO(compose-rewrite): These gated filters all intentionally open a
+        // ROOT-filtered setup flow via showSetupHint. Keep that targeted setup
+        // behavior when this screen is rewritten in Compose.
         filterPrivateDataEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }
         filterAppSourceAsecEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }
         filterDalvikCacheEnabled.badgedAction = { showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT)) }

@@ -1153,6 +1153,11 @@ For each tool module (`app-tool-corpsefinder`, `app-tool-systemcleaner`,
 3. Replace `*Adapter` / `*VH` files with row Composables.
 4. Rewrite the module's preferences XML as a Compose settings screen using
    the settings row toolkit from Phase 2.
+   Preserve any existing filtered setup affordances on gated rows:
+   if a disabled/badged preference currently opens `SetupRoute` with a
+   specific `typeFilter`, the Compose replacement must keep the same target
+   setup-module set and keep `showCompleted = true` for those targeted
+   launches.
 5. Create `<Tool>Navigation.kt` (Hilt `@IntoSet`-bound) registering every
    destination the module owns via Navigation3 `entry<Route>` calls.
 6. Delete the module's `res/layout/*.xml`, `res/xml/preferences_*.xml`,
@@ -1537,6 +1542,11 @@ following scenarios on a real device for every converted screen:
      the new Compose file during Phase 5, commit-by-tool. Grep every
      `preferences_*.xml` key against `createValue(…)` calls in the matching
      `*Settings.kt` to catch orphans.
+   - *Extra parity check*: preserve today's filtered setup wiring for gated
+     settings rows. `showSetupHint` call sites in the legacy tool settings
+     screens currently route to `SetupRoute(showCompleted = true, typeFilter =
+     ...)`; Compose migrations must not silently downgrade those rows to a
+     generic unfiltered setup entry.
 
 4. **Custom chart in SpaceHistoryFragment** — likely uses MPAndroidChart or
    similar non-Compose lib.

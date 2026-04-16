@@ -70,6 +70,12 @@ class AppCleanerSettingsFragment : PreferenceFragment2() {
             }
         }
 
+        // TODO(compose-rewrite): When this screen moves to Compose, preserve
+        // these filtered setup targets instead of degrading to a generic setup
+        // entry: includeOtherUsers -> ROOT; includeRunningApps -> USAGE_STATS;
+        // includeInaccessibleCaches + forceStopBeforeClearing ->
+        // USAGE_STATS + AUTOMATION. These targeted launches currently go
+        // through showSetupHint -> SetupRoute(showCompleted = true, typeFilter = ...).
         includeOtherUsers.badgedAction = {
             showSetupHint?.invoke(this, setOf(SetupModule.Type.ROOT))
         }
