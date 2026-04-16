@@ -77,8 +77,16 @@ private val TAG = logTag("Setup", "Screen")
 
 @Composable
 fun SetupScreenHost(
+    route: SetupRoute = SetupRoute(),
     vm: SetupViewModel = hiltViewModel(),
 ) {
+    val screenOptions = route.options ?: SetupScreenOptions()
+    log(TAG) { "SetupScreenHost route=$route, screenOptions=$screenOptions" }
+
+    LaunchedEffect(screenOptions) {
+        vm.setScreenOptions(screenOptions)
+    }
+
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
@@ -165,8 +173,11 @@ fun SetupScreenHost(
 
     val uiState by vm.uiState.collectAsStateWithLifecycle()
 
-    LaunchedEffect(uiState) {
-        if (uiState is SetupUiState.Complete && !hasNavigatedBack) {
+    LaunchedEffect(uiState, screenOptions) {
+        if (uiState is SetupUiState.Complete &&
+            !screenOptions.showCompleted &&
+            !hasNavigatedBack
+        ) {
             hasNavigatedBack = true
             log(TAG) { "Setup is complete, navigating back." }
             vm.navback()
@@ -175,7 +186,7 @@ fun SetupScreenHost(
 
     SetupScreen(
         uiState = uiState,
-        isOnboarding = vm.screenOptions.isOnboarding,
+        isOnboarding = screenOptions.isOnboarding,
         onBack = vm::navback,
         onHelp = vm::openSetupHelp,
         onShowAreas = vm::navToDataAreas,

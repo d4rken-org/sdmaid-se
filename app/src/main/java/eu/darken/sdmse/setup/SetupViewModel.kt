@@ -40,8 +40,10 @@ import eu.darken.sdmse.setup.storage.StorageSetupCardItem
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.distinctUntilChanged
 import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.map
@@ -65,11 +67,19 @@ class SetupViewModel @Inject constructor(
 
     private val route = SetupRoute.from(handle)
 
-    init {
-        setupManager.setDismissed(false)
+    private val screenOptionsFlow: MutableStateFlow<SetupScreenOptions> =
+        MutableStateFlow(route.options ?: SetupScreenOptions())
+    val screenOptions: SetupScreenOptions get() = screenOptionsFlow.value
+
+    fun setScreenOptions(options: SetupScreenOptions) {
+        log(TAG) { "setScreenOptions($options)" }
+        screenOptionsFlow.value = options
     }
 
-    val screenOptions = route.options ?: SetupScreenOptions()
+    init {
+        log(TAG) { "Setup route parsed: options=${route.options}" }
+        setupManager.setDismissed(false)
+    }
 
     val events = SingleEventFlow<SetupEvents>()
 
@@ -88,14 +98,16 @@ class SetupViewModel @Inject constructor(
         }
     }
 
-    private val itemsStateFlow: StateFlow<List<SetupCardItem>?> = setupManager.state
-        .map { setupState ->
-            val items = mutableListOf<SetupCardItem>()
+    private val itemsStateFlow: StateFlow<List<SetupCardItem>?> = combine(
+        setupManager.state,
+        screenOptionsFlow,
+    ) { setupState, options ->
+        val items = mutableListOf<SetupCardItem>()
 
-            val typeFilter = screenOptions.typeFilter
-            setupState.moduleStates
-                .filter { typeFilter == null || typeFilter.contains(it.type) }
-                .filter { it !is SetupModule.State.Current || !it.isComplete || screenOptions.showCompleted }
+        val typeFilter = options.typeFilter
+        setupState.moduleStates
+            .filter { typeFilter == null || typeFilter.contains(it.type) }
+            .filter { it !is SetupModule.State.Current || !it.isComplete || options.showCompleted }
                 .mapNotNull { state ->
                     when (state.type) {
                         SetupModule.Type.SAF -> when (state) {
@@ -256,7 +268,7 @@ class SetupViewModel @Inject constructor(
                     }
                 }
                 .sortedBy { item ->
-                    if (screenOptions.showCompleted && item.state is SetupModule.State.Current && !item.state.isComplete) {
+                    if (options.showCompleted && item.state is SetupModule.State.Current && !item.state.isComplete) {
                         Int.MIN_VALUE
                     } else if (item is RootSetupCardItem && item.state.isInstalled && item.state.useRoot == null) {
                         Int.MIN_VALUE
@@ -266,8 +278,8 @@ class SetupViewModel @Inject constructor(
                 }
                 .run { items.addAll(this) }
 
-            items
-        }
+        items
+    }
         .setupCommonEventHandlers(TAG) { "listItems" }
         .stateIn(vmScope, SharingStarted.Eagerly, null)
 
@@ -278,19 +290,25 @@ class SetupViewModel @Inject constructor(
             onError = { emptyList() },
         )
 
-    val isSetupComplete: StateFlow<Boolean> = itemsStateFlow
-        .map { items -> items != null && items.isEmpty() && !screenOptions.showCompleted }
+    val isSetupComplete: StateFlow<Boolean> = combine(
+        itemsStateFlow,
+        screenOptionsFlow,
+    ) { items, options ->
+        items != null && items.isEmpty() && !options.showCompleted
+    }
         .distinctUntilChanged()
         .safeStateIn(
             initialValue = false,
             onError = { false },
         )
 
-    internal val uiState: StateFlow<SetupUiState> = itemsStateFlow
-        .map { items ->
+    internal val uiState: StateFlow<SetupUiState> = combine(
+        itemsStateFlow,
+        screenOptionsFlow,
+    ) { items, options ->
             when {
                 items == null -> SetupUiState.Loading
-                items.isEmpty() && !screenOptions.showCompleted -> SetupUiState.Complete
+                items.isEmpty() && !options.showCompleted -> SetupUiState.Complete
                 else -> SetupUiState.Cards(items)
             }
         }
