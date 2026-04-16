@@ -91,11 +91,9 @@ fun DashboardScreenHost(
     val activity = LocalContext.current as? Activity ?: return
     val snackbarHostState = remember { SnackbarHostState() }
 
-    val listState by vm.listState.collectAsStateWithLifecycle(initialValue = null)
-    val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle(initialValue = null)
-    val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle(
-        initialValue = DashboardViewModel.OneClickOptionsState(),
-    )
+    val listState by vm.listState.collectAsStateWithLifecycle()
+    val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
+    val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle()
 
     LaunchedEffect(vm, activity, snackbarHostState) {
         vm.events.collect { event ->

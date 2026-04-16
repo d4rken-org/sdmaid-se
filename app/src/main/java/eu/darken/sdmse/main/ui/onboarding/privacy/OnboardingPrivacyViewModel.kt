@@ -13,7 +13,7 @@ import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
 import eu.darken.sdmse.main.ui.navigation.OnboardingSetupRoute
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
@@ -28,7 +28,7 @@ class OnboardingPrivacyViewModel @Inject constructor(
     private val updateChecker: UpdateChecker,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    val state: Flow<State> = combine(
+    val state: StateFlow<State> = combine(
         motdSettings.isMotdEnabled.flow,
         generalSettings.isUpdateCheckEnabled.flow,
         flow { emit(updateChecker.isCheckSupported()) },
@@ -38,7 +38,10 @@ class OnboardingPrivacyViewModel @Inject constructor(
             isUpdateCheckEnabled = isUpdateCheckEnabled,
             isUpdateCheckSupported = isUpdateCheckSupported,
         )
-    }
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     fun onContinue() {
         navTo(OnboardingSetupRoute)
@@ -60,9 +63,9 @@ class OnboardingPrivacyViewModel @Inject constructor(
     }
 
     data class State(
-        val isMotdEnabled: Boolean,
-        val isUpdateCheckEnabled: Boolean,
-        val isUpdateCheckSupported: Boolean,
+        val isMotdEnabled: Boolean = true,
+        val isUpdateCheckEnabled: Boolean = true,
+        val isUpdateCheckSupported: Boolean = false,
     )
 
     companion object {

@@ -14,7 +14,6 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -40,8 +39,8 @@ fun SetupScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val listItems by vm.listItems.collectAsStateWithLifecycle(initialValue = emptyList())
-    val isSetupComplete by vm.isSetupComplete.collectAsStateWithLifecycle(initialValue = false)
+    val listItems by vm.listItems.collectAsStateWithLifecycle()
+    val isSetupComplete by vm.isSetupComplete.collectAsStateWithLifecycle()
 
     SetupScreen(
         items = listItems,
@@ -51,7 +50,6 @@ fun SetupScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SetupScreen(
     items: List<SetupAdapter.Item> = emptyList(),

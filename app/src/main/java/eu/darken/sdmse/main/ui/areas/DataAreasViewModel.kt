@@ -9,9 +9,8 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.main.core.taskmanager.TaskManager
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
-import kotlinx.coroutines.flow.onStart
 import javax.inject.Inject
 
 @HiltViewModel
@@ -22,7 +21,7 @@ class DataAreasViewModel @Inject constructor(
     private val taskManager: TaskManager,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
-    val state: Flow<State> = combine(
+    val state: StateFlow<State> = combine(
         dataAreaManager.state,
         taskManager.state,
     ) { areaState, taskState ->
@@ -30,7 +29,10 @@ class DataAreasViewModel @Inject constructor(
             areas = areaState.areas,
             allowReload = taskState.isIdle,
         )
-    }.onStart { emit(State()) }
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     data class State(
         val areas: Set<DataArea>? = null,

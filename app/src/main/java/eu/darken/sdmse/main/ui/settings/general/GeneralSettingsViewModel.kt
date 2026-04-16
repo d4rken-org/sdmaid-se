@@ -19,7 +19,7 @@ import eu.darken.sdmse.common.updater.UpdateChecker
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.GeneralSettings
 import eu.darken.sdmse.main.core.motd.MotdSettings
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.map
 import javax.inject.Inject
@@ -35,11 +35,9 @@ class GeneralSettingsViewModel @Inject constructor(
     private val localeManager: LocaleManager,
 ) : ViewModel4(dispatcherProvider, TAG) {
 
-    val isPro: Flow<Boolean> = upgradeRepo.upgradeInfo.map { it.isPro }
-
-    val isUpdateCheckSupported: Flow<Boolean> = flow { emit(updateChecker.isCheckSupported()) }
-
-    val state: Flow<State> = combine(
+    val state: StateFlow<State> = combine(
+        upgradeRepo.upgradeInfo.map { it.isPro },
+        flow { emit(updateChecker.isCheckSupported()) },
         generalSettings.enableDashboardOneClick.flow,
         generalSettings.shortcutOneClickEnabled.flow,
         generalSettings.themeMode.flow,
@@ -50,8 +48,10 @@ class GeneralSettingsViewModel @Inject constructor(
         motdSettings.isMotdEnabled.flow,
         debugSettings.isDebugMode.flow,
         localeManager.currentLocales,
-    ) { oneClick, shortcut, themeMode, themeStyle, previews, romType, updateCheck, motd, debug, locales ->
+    ) { isPro, isUpdateCheckSupported, oneClick, shortcut, themeMode, themeStyle, previews, romType, updateCheck, motd, debug, locales ->
         State(
+            isPro = isPro,
+            isUpdateCheckSupported = isUpdateCheckSupported,
             enableDashboardOneClick = oneClick,
             shortcutOneClickEnabled = shortcut,
             themeMode = themeMode,
@@ -64,7 +64,10 @@ class GeneralSettingsViewModel @Inject constructor(
             currentLocales = locales,
             showLanguage = hasApiLevel(33),
         )
-    }
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     fun toggleOneClick(enabled: Boolean) = launch {
         generalSettings.enableDashboardOneClick.value(enabled)
@@ -113,6 +116,8 @@ class GeneralSettingsViewModel @Inject constructor(
     }
 
     data class State(
+        val isPro: Boolean = false,
+        val isUpdateCheckSupported: Boolean = false,
         val enableDashboardOneClick: Boolean = false,
         val shortcutOneClickEnabled: Boolean = false,
         val themeMode: ThemeMode = ThemeMode.SYSTEM,

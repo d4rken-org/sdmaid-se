@@ -36,7 +36,6 @@ import eu.darken.sdmse.setup.storage.StorageSetupCardVH
 import eu.darken.sdmse.setup.storage.StorageSetupModule
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardVH
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupModule
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.distinctUntilChanged
@@ -254,12 +253,20 @@ class SetupViewModel @Inject constructor(
         .setupCommonEventHandlers(TAG) { "listItems" }
         .stateIn(vmScope, SharingStarted.Eagerly, null)
 
-    val listItems: Flow<List<SetupAdapter.Item>> = itemsStateFlow
+    val listItems: StateFlow<List<SetupAdapter.Item>> = itemsStateFlow
         .filterNotNull()
+        .safeStateIn(
+            initialValue = emptyList(),
+            onError = { emptyList() },
+        )
 
-    val isSetupComplete: Flow<Boolean> = itemsStateFlow
+    val isSetupComplete: StateFlow<Boolean> = itemsStateFlow
         .map { items -> items != null && items.isEmpty() && !screenOptions.showCompleted }
         .distinctUntilChanged()
+        .safeStateIn(
+            initialValue = false,
+            onError = { false },
+        )
 
     fun onSafAccessGranted(uri: Uri?) = launch {
         log(TAG) { "onSafAccessGranted(uri=$uri)" }

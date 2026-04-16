@@ -118,6 +118,7 @@ import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerSchedulerTask
 import eu.darken.sdmse.systemcleaner.core.tasks.SystemCleanerTask
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.flatMapLatest
@@ -533,7 +534,7 @@ class DashboardViewModel @Inject constructor(
         generalSettings.dashboardCardConfig.flow,
     ) { _, config -> config }
 
-    private val listStateInternal: Flow<ListState> = eu.darken.sdmse.common.flow.combine(
+    val listState: StateFlow<ListState?> = eu.darken.sdmse.common.flow.combine(
         sessionManager.sessions,
         debugCardProvider.create(
             vm = this,
@@ -671,9 +672,10 @@ class DashboardViewModel @Inject constructor(
         )
     }
         .throttleLatest(500)
-        .replayingShare(vmScope)
-
-    val listState: Flow<ListState> = listStateInternal
+        .safeStateIn(
+            initialValue = null,
+            onError = { null },
+        )
 
     data class ListState(
         val items: List<DashboardItem>,
@@ -705,7 +707,7 @@ class DashboardViewModel @Inject constructor(
         val deduplicatorEnabled: Boolean = false,
     )
 
-    val oneClickOptionsState: Flow<OneClickOptionsState> = combine(
+    val oneClickOptionsState: StateFlow<OneClickOptionsState> = combine(
         generalSettings.oneClickCorpseFinderEnabled.flow,
         generalSettings.oneClickSystemCleanerEnabled.flow,
         generalSettings.oneClickAppCleanerEnabled.flow,
@@ -717,16 +719,19 @@ class DashboardViewModel @Inject constructor(
             appCleanerEnabled = appCleanerEnabled,
             deduplicatorEnabled = deduplicatorEnabled,
         )
-    }
+    }.safeStateIn(
+        initialValue = OneClickOptionsState(),
+        onError = { OneClickOptionsState() },
+    )
 
-    val bottomBarState = eu.darken.sdmse.common.flow.combine(
+    val bottomBarState: StateFlow<BottomBarState?> = eu.darken.sdmse.common.flow.combine(
         upgradeInfo,
         taskManager.state,
         corpseFinder.state,
         systemCleaner.state,
         appCleaner.state,
         generalSettings.enableDashboardOneClick.flow,
-        listStateInternal.map { state -> state.items.any { it is MainActionItem } },
+        listState.map { state -> state?.items?.any { it is MainActionItem } == true },
     ) { upgradeInfo,
         taskState,
         corpseState,
@@ -759,7 +764,10 @@ class DashboardViewModel @Inject constructor(
             totalSize = totalSize,
             upgradeInfo = upgradeInfo,
         )
-    }
+    }.safeStateIn(
+        initialValue = null,
+        onError = { null },
+    )
 
     fun setCorpseFinderOneClickEnabled(enabled: Boolean) = launch {
         generalSettings.oneClickCorpseFinderEnabled.value(enabled)

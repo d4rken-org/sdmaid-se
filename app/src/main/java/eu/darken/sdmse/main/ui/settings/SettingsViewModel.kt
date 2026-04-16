@@ -14,7 +14,7 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.setup.SetupManager
-import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
@@ -33,7 +33,7 @@ class SettingsViewModel @Inject constructor(
 
     val events = SingleEventFlow<SettingEvents>()
 
-    val state: Flow<State> = combine(
+    val state: StateFlow<State> = combine(
         upgradeRepo.upgradeInfo.map { it.isPro },
         setupManager.state.map { it.isDone },
     ) { isPro, isSetUp ->
@@ -41,7 +41,10 @@ class SettingsViewModel @Inject constructor(
             isPro = isPro,
             setupDone = isSetUp,
         )
-    }
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     fun openWebsite(url: String) {
         webpageTool.open(url)

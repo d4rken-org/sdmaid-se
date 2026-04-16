@@ -46,8 +46,6 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.R as UiR
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun OnboardingPrivacyScreenHost(
@@ -55,9 +53,10 @@ fun OnboardingPrivacyScreenHost(
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+    val state by vm.state.collectAsStateWithLifecycle()
 
     OnboardingPrivacyScreen(
-        stateSource = vm.state,
+        state = state,
         onContinue = vm::onContinue,
         onPrivacyPolicy = vm::goPrivacyPolicy,
         onToggleMotd = vm::toggleMotd,
@@ -67,26 +66,16 @@ fun OnboardingPrivacyScreenHost(
 
 @Composable
 internal fun OnboardingPrivacyScreen(
-    stateSource: Flow<OnboardingPrivacyViewModel.State> = flowOf(
-        OnboardingPrivacyViewModel.State(
-            isMotdEnabled = true,
-            isUpdateCheckEnabled = true,
-            isUpdateCheckSupported = true,
-        )
+    state: OnboardingPrivacyViewModel.State = OnboardingPrivacyViewModel.State(
+        isMotdEnabled = true,
+        isUpdateCheckEnabled = true,
+        isUpdateCheckSupported = true,
     ),
     onContinue: () -> Unit = {},
     onPrivacyPolicy: () -> Unit = {},
     onToggleMotd: () -> Unit = {},
     onToggleUpdateCheck: () -> Unit = {},
 ) {
-    val state = stateSource.collectAsStateWithLifecycle(
-        initialValue = OnboardingPrivacyViewModel.State(
-            isMotdEnabled = true,
-            isUpdateCheckEnabled = true,
-            isUpdateCheckSupported = false,
-        )
-    )
-
     var isVisible by remember { mutableStateOf(false) }
     val continueButtonFocusRequester = remember { FocusRequester() }
     LaunchedEffect(Unit) { isVisible = true }
@@ -147,7 +136,7 @@ internal fun OnboardingPrivacyScreen(
 
                     Spacer(modifier = Modifier.height(32.dp))
 
-                    if (state.value.isUpdateCheckSupported) {
+                    if (state.isUpdateCheckSupported) {
                         ToggleRow(
                             icon = {
                                 Icon(
@@ -158,7 +147,7 @@ internal fun OnboardingPrivacyScreen(
                             },
                             title = stringResource(R.string.updatecheck_setting_enabled_label),
                             description = stringResource(R.string.updatecheck_setting_enabled_explanation),
-                            checked = state.value.isUpdateCheckEnabled,
+                            checked = state.isUpdateCheckEnabled,
                             onToggle = onToggleUpdateCheck,
                         )
                     }
@@ -173,7 +162,7 @@ internal fun OnboardingPrivacyScreen(
                         },
                         title = stringResource(R.string.motd_setting_enabled_label),
                         description = stringResource(R.string.motd_setting_enabled_explanation),
-                        checked = state.value.isMotdEnabled,
+                        checked = state.isMotdEnabled,
                         onToggle = onToggleMotd,
                     )
                 }

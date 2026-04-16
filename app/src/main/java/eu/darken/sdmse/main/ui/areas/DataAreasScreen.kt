@@ -15,7 +15,6 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.twotone.Folder
 import androidx.compose.material.icons.twotone.Refresh
 import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -24,6 +23,7 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
@@ -33,8 +33,6 @@ import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 
 @Composable
 fun DataAreasScreenHost(
@@ -42,23 +40,21 @@ fun DataAreasScreenHost(
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+    val state by vm.state.collectAsStateWithLifecycle()
 
     DataAreasScreen(
-        stateSource = vm.state,
+        state = state,
         onReload = vm::reloadDataAreas,
         onNavigateUp = vm::navUp,
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun DataAreasScreen(
-    stateSource: Flow<DataAreasViewModel.State> = flowOf(DataAreasViewModel.State()),
+    state: DataAreasViewModel.State = DataAreasViewModel.State(),
     onReload: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
-    val state = stateSource.collectAsStateWithLifecycle(initialValue = DataAreasViewModel.State())
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -69,7 +65,7 @@ internal fun DataAreasScreen(
                     }
                 },
                 actions = {
-                    if (state.value.allowReload) {
+                    if (state.allowReload) {
                         IconButton(onClick = onReload) {
                             Icon(Icons.TwoTone.Refresh, contentDescription = null)
                         }
@@ -78,7 +74,7 @@ internal fun DataAreasScreen(
             )
         },
     ) { paddingValues ->
-        val areas = state.value.areas
+        val areas = state.areas
         if (areas == null) {
             CircularProgressIndicator(
                 modifier = Modifier

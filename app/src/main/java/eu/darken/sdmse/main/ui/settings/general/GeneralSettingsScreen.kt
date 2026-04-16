@@ -16,7 +16,6 @@ import androidx.compose.material.icons.twotone.PhoneAndroid
 import androidx.compose.material.icons.twotone.SystemUpdate
 import androidx.compose.material.icons.twotone.TouchApp
 import androidx.compose.material.icons.twotone.ViewList
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -43,8 +42,6 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.main.ui.navigation.DashboardCardConfigRoute
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
@@ -53,14 +50,10 @@ fun GeneralSettingsScreenHost(
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
-
-    val isPro by vm.isPro.collectAsStateWithLifecycle(initialValue = false)
-    val isUpdateCheckSupported by vm.isUpdateCheckSupported.collectAsStateWithLifecycle(initialValue = false)
+    val state by vm.state.collectAsStateWithLifecycle()
 
     GeneralSettingsScreen(
-        stateSource = vm.state,
-        isPro = isPro,
-        isUpdateCheckSupported = isUpdateCheckSupported,
+        state = state,
         onNavigateUp = vm::navUp,
         onThemeModeChanged = vm::setThemeMode,
         onThemeStyleChanged = vm::setThemeStyle,
@@ -77,12 +70,9 @@ fun GeneralSettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun GeneralSettingsScreen(
-    stateSource: Flow<GeneralSettingsViewModel.State> = flowOf(GeneralSettingsViewModel.State()),
-    isPro: Boolean = false,
-    isUpdateCheckSupported: Boolean = false,
+    state: GeneralSettingsViewModel.State = GeneralSettingsViewModel.State(),
     onNavigateUp: () -> Unit = {},
     onThemeModeChanged: (ThemeMode) -> Unit = {},
     onThemeStyleChanged: (ThemeStyle) -> Unit = {},
@@ -97,8 +87,6 @@ internal fun GeneralSettingsScreen(
     onDashboardCardConfigClick: () -> Unit = {},
     onThemeLockedClick: () -> Unit = {},
 ) {
-    val state by stateSource.collectAsStateWithLifecycle(initialValue = GeneralSettingsViewModel.State())
-
     var showThemeModeDialog by remember { mutableStateOf(false) }
     var showThemeStyleDialog by remember { mutableStateOf(false) }
 
@@ -197,7 +185,7 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.ui_theme_mode_setting_explanation),
                     value = themeModeLabel,
                     onClick = {
-                        if (isPro) {
+                        if (state.isPro) {
                             showThemeModeDialog = true
                         } else {
                             onThemeLockedClick()
@@ -218,7 +206,7 @@ internal fun GeneralSettingsScreen(
                     subtitle = stringResource(R.string.ui_theme_style_setting_explanation),
                     value = themeStyleLabel,
                     onClick = {
-                        if (isPro) {
+                        if (state.isPro) {
                             showThemeStyleDialog = true
                         } else {
                             onThemeLockedClick()
@@ -265,7 +253,7 @@ internal fun GeneralSettingsScreen(
             // Other category
             item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label)) }
 
-            if (isUpdateCheckSupported) {
+            if (state.isUpdateCheckSupported) {
                 item {
                     SettingsSwitchItem(
                         icon = Icons.TwoTone.SystemUpdate,

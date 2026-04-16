@@ -75,6 +75,8 @@ abstract class ViewModel2(
         .setupCommonEventHandlers(tag) { "launchInViewModel()" }
         .launchIn(vmScope)
 
+    // Compatibility helper for legacy code. For Compose render state, prefer ViewModel4.safeStateIn()
+    // so failures become explicit UI state plus errorEvents instead of escaping into collectors.
     fun <T> Flow<T>.asStateFlow(defaultValue: T? = null): Flow<T?> = stateIn(
         vmScope,
         started = SharingStarted.WhileSubscribed(5000),

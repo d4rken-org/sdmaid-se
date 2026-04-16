@@ -14,7 +14,6 @@ import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material.icons.twotone.Shield
 import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Update
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -25,6 +24,7 @@ import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
@@ -55,8 +55,6 @@ import eu.darken.sdmse.stats.ui.StatsSettingsRoute
 import eu.darken.sdmse.swiper.ui.SwiperSettingsRoute
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flowOf
 import kotlinx.coroutines.launch
 
 @Composable
@@ -69,6 +67,7 @@ fun SettingsScreenHost(
     val context = LocalContext.current
     val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
+    val state by vm.state.collectAsStateWithLifecycle()
 
     scope.launch {
         vm.events.collect { event ->
@@ -88,7 +87,7 @@ fun SettingsScreenHost(
     }
 
     SettingsScreen(
-        stateSource = vm.state,
+        state = state,
         snackbarHostState = snackbarHostState,
         onNavigateUp = vm::navUp,
         onExclusionsClick = { vm.navTo(ExclusionsListRoute) },
@@ -118,10 +117,9 @@ fun SettingsScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SettingsScreen(
-    stateSource: Flow<SettingsViewModel.State> = flowOf(SettingsViewModel.State()),
+    state: SettingsViewModel.State = SettingsViewModel.State(),
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onNavigateUp: () -> Unit = {},
     onExclusionsClick: () -> Unit = {},
@@ -137,8 +135,6 @@ internal fun SettingsScreen(
     onStatsClick: () -> Unit = {},
     onSchedulerClick: () -> Unit = {},
 ) {
-    val state = stateSource.collectAsStateWithLifecycle(initialValue = SettingsViewModel.State())
-
     Scaffold(
         topBar = {
             TopAppBar(
@@ -265,7 +261,7 @@ internal fun SettingsScreen(
             // Other category
             item { SettingsCategoryHeader(text = stringResource(R.string.settings_category_other_label)) }
 
-            if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.value.isPro) {
+            if (BuildConfigWrap.FLAVOR == BuildConfigWrap.Flavor.FOSS && !state.isPro) {
                 item {
                     SettingsPreferenceItem(
                         icon = Icons.TwoTone.Stars,
