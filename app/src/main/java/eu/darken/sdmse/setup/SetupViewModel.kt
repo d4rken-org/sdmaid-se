@@ -336,11 +336,6 @@ class SetupViewModel @Inject constructor(
 
     fun onAccessibilityReturn() = launch {
         log(TAG) { "onAccessibilityReturn" }
-        automationSetupModule.refresh()
-    }
-
-    fun onSettingsReturn() = launch {
-        log(TAG) { "onSettingsReturn" }
         setupManager.refresh()
     }
 

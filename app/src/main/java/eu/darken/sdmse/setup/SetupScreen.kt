@@ -1,6 +1,7 @@
 package eu.darken.sdmse.setup
 
 import android.content.ActivityNotFoundException
+import android.content.Intent
 import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
@@ -38,6 +39,8 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -81,7 +84,6 @@ fun SetupScreenHost(
     val snackbarHostState = remember { SnackbarHostState() }
 
     var pendingPermission by remember { mutableStateOf<Permission?>(null) }
-    var pendingAction by remember { mutableStateOf(PendingSettingsAction.None) }
 
     val safLauncher = rememberLauncherForActivityResult(
         contract = eu.darken.sdmse.setup.saf.SafGrantPrimaryContract(),
@@ -97,28 +99,27 @@ fun SetupScreenHost(
         vm.onRuntimePermissionsGranted(perm, granted)
     }
 
-    val settingsLauncher = rememberLauncherForActivityResult(
+    val specialPermissionLauncher = rememberLauncherForActivityResult(
         contract = ActivityResultContracts.StartActivityForResult(),
     ) {
-        val action = pendingAction
         val perm = pendingPermission
-        pendingAction = PendingSettingsAction.None
         pendingPermission = null
-        when (action) {
-            PendingSettingsAction.SpecialPermission -> {
-                val granted = perm?.isGranted(context) == true
-                vm.onRuntimePermissionsGranted(perm, granted)
-            }
-            PendingSettingsAction.Accessibility -> vm.onAccessibilityReturn()
-            PendingSettingsAction.AppDetails -> vm.onSettingsReturn()
-            PendingSettingsAction.None -> Unit
-        }
+        val granted = perm?.isGranted(context) == true
+        vm.onRuntimePermissionsGranted(perm, granted)
+    }
+
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        // Covers returns from accessibility settings / app details page (no result callback).
+        vm.onAccessibilityReturn()
     }
 
     val safMissingAppMessage = stringResource(R.string.setup_saf_missing_app_error)
+    val safWrongPathMessage = stringResource(R.string.setup_saf_error_wrong_path)
 
     LaunchedEffect(Unit) {
+        log(TAG) { "Event collector started" }
         vm.events.collect { event ->
+            log(TAG) { "Handling event: $event" }
             when (event) {
                 is SetupEvents.SafRequestAccess -> try {
                     safLauncher.launch(event.item)
@@ -139,30 +140,20 @@ fun SetupScreenHost(
 
                 is SetupEvents.SpecialPermissionRequest -> {
                     pendingPermission = event.item
-                    pendingAction = PendingSettingsAction.SpecialPermission
-                    if (!launchSettingsWithFallback(settingsLauncher, event.intent, event.fallbackIntent)) {
+                    if (!launchSpecialPermission(specialPermissionLauncher, event.intent, event.fallbackIntent)) {
                         pendingPermission = null
-                        pendingAction = PendingSettingsAction.None
                     }
                 }
 
-                is SetupEvents.ConfigureAccessibilityService -> {
-                    pendingAction = PendingSettingsAction.Accessibility
-                    if (!launchSettingsWithFallback(settingsLauncher, event.item.settingsIntent, null)) {
-                        pendingAction = PendingSettingsAction.None
-                    }
-                }
+                is SetupEvents.ConfigureAccessibilityService -> startSystemActivity(
+                    context,
+                    event.item.settingsIntent,
+                )
 
-                is SetupEvents.ShowOurDetailsPage -> {
-                    pendingAction = PendingSettingsAction.AppDetails
-                    if (!launchSettingsWithFallback(settingsLauncher, event.intent, null)) {
-                        pendingAction = PendingSettingsAction.None
-                    }
-                }
+                is SetupEvents.ShowOurDetailsPage -> startSystemActivity(context, event.intent)
 
-                is SetupEvents.SafWrongPathError -> {
-                    val msg = context.getString(R.string.setup_saf_error_wrong_path)
-                    scope.launch { snackbarHostState.showSnackbar(msg) }
+                is SetupEvents.SafWrongPathError -> scope.launch {
+                    snackbarHostState.showSnackbar(safWrongPathMessage)
                 }
             }
         }
@@ -178,15 +169,15 @@ fun SetupScreenHost(
     )
 }
 
-private fun launchSettingsWithFallback(
-    launcher: androidx.activity.result.ActivityResultLauncher<android.content.Intent>,
-    intent: android.content.Intent,
-    fallback: android.content.Intent?,
+private fun launchSpecialPermission(
+    launcher: androidx.activity.result.ActivityResultLauncher<Intent>,
+    intent: Intent,
+    fallback: Intent?,
 ): Boolean = try {
     launcher.launch(intent)
     true
 } catch (e: ActivityNotFoundException) {
-    log(TAG, WARN) { "Settings launcher failed, trying fallback: $e" }
+    log(TAG, WARN) { "Special permission launcher failed, trying fallback: $e" }
     if (fallback != null) {
         try {
             launcher.launch(fallback)
@@ -200,7 +191,14 @@ private fun launchSettingsWithFallback(
     }
 }
 
-private enum class PendingSettingsAction { None, SpecialPermission, Accessibility, AppDetails }
+private fun startSystemActivity(context: android.content.Context, intent: Intent) {
+    val launchIntent = Intent(intent).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
+    try {
+        context.startActivity(launchIntent)
+    } catch (e: ActivityNotFoundException) {
+        log(TAG, WARN) { "startActivity failed: $e" }
+    }
+}
 
 @Composable
 internal fun SetupScreen(
