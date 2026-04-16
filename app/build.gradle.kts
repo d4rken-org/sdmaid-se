@@ -1,3 +1,5 @@
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
+
 plugins {
     id("com.android.application")
     id("kotlin-parcelize")
@@ -181,6 +183,12 @@ androidComponents {
 }
 
 setupKotlinOptions()
+
+tasks.withType<KotlinCompile>().configureEach {
+    compilerOptions {
+        freeCompilerArgs.add("-opt-in=androidx.compose.material3.ExperimentalMaterial3Api")
+    }
+}
 
 afterEvaluate {
     tasks.matching { it.name == "bundleGplayBeta" }.configureEach {

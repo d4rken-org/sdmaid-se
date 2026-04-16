@@ -15,8 +15,11 @@ import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.core.OurSku
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoGplay
 import eu.darken.sdmse.common.upgrade.core.billing.GplayServiceUnavailableException
+import eu.darken.sdmse.common.upgrade.core.billing.Sku
 import eu.darken.sdmse.common.upgrade.core.billing.SkuDetails
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
@@ -34,7 +37,8 @@ class UpgradeViewModel @Inject constructor(
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
     private val route = UpgradeRoute.from(handle)
-    private var hasShownError: Boolean = false
+    private var hasShownRepoError: Boolean = false
+    private var hasShownServiceUnavailableError: Boolean = false
     val events = SingleEventFlow<UpgradeEvents>()
 
     init {
@@ -47,59 +51,63 @@ class UpgradeViewModel @Inject constructor(
         }
     }
 
-    val state: Flow<Pricing> = combine(
-        flow {
-            val data = withTimeoutOrNull(5000) {
-                try {
-                    upgradeRepo.querySkus(OurSku.Iap.PRO_UPGRADE)
-                } catch (e: Exception) {
-                    errorEvents.tryEmit(e)
-                    null
-                }
-            }
-            emit(data)
-        },
-        flow {
-            val data = withTimeoutOrNull(5000) {
-                try {
-                    upgradeRepo.querySkus(OurSku.Sub.PRO_UPGRADE)
-                } catch (e: Exception) {
-                    errorEvents.tryEmit(e)
-                    null
-                }
-            }
-            emit(data)
-        },
+    internal val state: StateFlow<GplayUpgradeUiState> = combine(
+        querySkuDetails(OurSku.Iap.PRO_UPGRADE),
+        querySkuDetails(OurSku.Sub.PRO_UPGRADE),
         upgradeRepo.upgradeInfo,
     ) { iap, sub, current ->
-        if (iap == null && sub == null) {
-            throw GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
+        val serviceUnavailableError = if (iap == null && sub == null) {
+            GplayServiceUnavailableException(RuntimeException("IAP and SUB data request timed out."))
+        } else {
+            null
         }
 
-        if (!current.isPro && current.error != null) {
-            if (!hasShownError) {
-                hasShownError = true
+        if (serviceUnavailableError != null) {
+            if (!hasShownServiceUnavailableError) {
+                hasShownServiceUnavailableError = true
+                errorEvents.tryEmit(serviceUnavailableError)
+            }
+        } else {
+            hasShownServiceUnavailableError = false
+        }
+
+        if (serviceUnavailableError == null && !current.isPro && current.error != null) {
+            if (!hasShownRepoError) {
+                hasShownRepoError = true
                 @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
                 errorEvents.tryEmit(current.error!!)
             }
         } else {
-            hasShownError = false
+            hasShownRepoError = false
         }
 
-        Pricing(
-            iap = iap?.first(),
-            sub = sub?.first(),
+        if (serviceUnavailableError != null) {
+            return@combine GplayUpgradeUiState.Unavailable(serviceUnavailableError)
+        }
+
+        toLoadedState(
+            iap = iap?.firstOrNull(),
+            sub = sub?.firstOrNull(),
             hasIap = current.upgrades.any { it.sku == OurSku.Iap.PRO_UPGRADE },
             hasSub = current.upgrades.any { it.sku == OurSku.Sub.PRO_UPGRADE },
         )
-    }
-
-    data class Pricing(
-        val iap: SkuDetails?,
-        val sub: SkuDetails?,
-        val hasSub: Boolean,
-        val hasIap: Boolean,
+    }.safeStateIn(
+        initialValue = GplayUpgradeUiState.Loading,
+        onError = { error -> GplayUpgradeUiState.Unavailable(error) },
     )
+
+    private fun querySkuDetails(sku: Sku): Flow<Collection<SkuDetails>?> = flow {
+        val data = withTimeoutOrNull(5000) {
+            try {
+                upgradeRepo.querySkus(sku)
+            } catch (e: Exception) {
+                if (e is CancellationException) throw e
+                errorEvents.tryEmit(e)
+                null
+            }
+        }
+        emit(data)
+    }
 
     fun onGoIap(activity: Activity) {
         log(TAG) { "onGoIap($activity)" }

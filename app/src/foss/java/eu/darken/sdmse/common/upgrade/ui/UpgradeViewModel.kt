@@ -11,12 +11,9 @@ import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.core.UpgradeRepoFoss
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
-import java.util.UUID
 import javax.inject.Inject
 
 @HiltViewModel
@@ -39,17 +36,15 @@ class UpgradeViewModel @Inject constructor(
                 .onEach { navUp() }
                 .launchInViewModel()
         }
-    }
 
-    val state: Flow<State> = upgradeRepo.upgradeInfo
-        .map { it as UpgradeRepoFoss.Info }
-        .map { current ->
-            if (!current.isPro && current.error != null) {
+        upgradeRepo.upgradeInfo
+            .filter { !it.isPro && it.error != null }
+            .onEach { current ->
                 @Suppress("UNNECESSARY_NOT_NULL_ASSERTION")
                 errorEvents.tryEmit(current.error!!)
             }
-            State()
-        }
+            .launchInViewModel()
+    }
 
     fun goGithubSponsors() {
         log(TAG) { "goGithubSponsors()" }
@@ -71,10 +66,6 @@ class UpgradeViewModel @Inject constructor(
             toastEvents.tryEmit(R.string.upgrade_screen_thanks_toast)
         }
     }
-
-    data class State(
-        val tbd: UUID = UUID.randomUUID(),
-    )
 
     companion object {
         private const val KEY_SPONSOR_PRESSED_AT = "sponsor_pressed_at"

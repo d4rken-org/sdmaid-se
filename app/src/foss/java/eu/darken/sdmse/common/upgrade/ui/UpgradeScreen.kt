@@ -1,39 +1,31 @@
 package eu.darken.sdmse.common.upgrade.ui
 
 import android.widget.Toast
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.rememberScrollState
-import androidx.compose.foundation.verticalScroll
-import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Button
-import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.Icon
-import androidx.compose.material3.IconButton
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Button
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.twotone.AutoAwesome
+import androidx.compose.material.icons.twotone.Favorite
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.compose.LifecycleEventEffect
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import androidx.compose.ui.unit.dp
 
 @Composable
 fun UpgradeScreenHost(
@@ -44,6 +36,7 @@ fun UpgradeScreenHost(
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
+    val sponsorReturnTracker = remember { SponsorReturnTracker() }
 
     LaunchedEffect(Unit) {
         vm.snackbarEvents.collect { stringRes ->
@@ -53,7 +46,16 @@ fun UpgradeScreenHost(
 
     LaunchedEffect(Unit) {
         vm.toastEvents.collect { stringRes ->
-            Toast.makeText(context, stringRes, Toast.LENGTH_LONG).show()
+            Toast.makeText(context, context.getString(stringRes), Toast.LENGTH_LONG).show()
+        }
+    }
+
+    LifecycleEventEffect(Lifecycle.Event.ON_STOP) {
+        sponsorReturnTracker.onStop()
+    }
+    LifecycleEventEffect(Lifecycle.Event.ON_RESUME) {
+        if (sponsorReturnTracker.consumeResumeReturn()) {
+            vm.checkSponsorReturn()
         }
     }
 
@@ -64,58 +66,88 @@ fun UpgradeScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun UpgradeScreen(
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
     onGithubSponsors: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
 ) {
-    Scaffold(
-        topBar = {
-            TopAppBar(
-                title = { Text(stringResource(R.string.upgrade_screen_title)) },
-                navigationIcon = {
-                    IconButton(onClick = onNavigateUp) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
-                    }
-                },
-            )
-        },
-        snackbarHost = { SnackbarHost(snackbarHostState) },
+    UpgradeScreenScaffold(
+        titleRes = R.string.upgrade_screen_title,
+        onNavigateUp = onNavigateUp,
+        snackbarHostState = snackbarHostState,
     ) { paddingValues ->
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(paddingValues)
-                .verticalScroll(rememberScrollState())
-                .padding(horizontal = 24.dp),
-            horizontalAlignment = Alignment.CenterHorizontally,
+        UpgradeScreenContent(
+            paddingValues = paddingValues,
         ) {
-            Spacer(modifier = Modifier.height(32.dp))
-
-            Text(
-                text = stringResource(R.string.upgrade_screen_title),
-                style = MaterialTheme.typography.headlineMedium,
-                textAlign = TextAlign.Center,
+            UpgradeHeader(
+                mascotSize = 104.dp,
             )
 
-            Spacer(modifier = Modifier.height(16.dp))
-
-            Text(
-                text = stringResource(R.string.upgrade_screen_how_body),
-                style = MaterialTheme.typography.bodyLarge,
-                textAlign = TextAlign.Center,
+            UpgradePreambleCard(
+                text = stringResource(R.string.upgrade_screen_preamble),
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = MaterialTheme.colorScheme.primaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onPrimaryContainer,
+                ),
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
-
-            Button(
-                onClick = onGithubSponsors,
-                modifier = Modifier.fillMaxWidth(),
+            UpgradeSectionCard(
+                title = stringResource(R.string.upgrade_screen_why_title),
+                icon = Icons.TwoTone.AutoAwesome,
             ) {
-                Text(stringResource(R.string.upgrade_screen_sponsor_action))
+                UpgradeFeatureList(text = stringResource(R.string.upgrade_screen_why_body))
+            }
+
+            UpgradeSectionCard(
+                title = stringResource(R.string.upgrade_screen_how_title),
+                icon = Icons.TwoTone.Favorite,
+            ) {
+                UpgradeSectionBody(text = stringResource(R.string.upgrade_screen_how_body))
+            }
+
+            UpgradeActionCard(
+                colors = CardDefaults.elevatedCardColors(
+                    containerColor = MaterialTheme.colorScheme.tertiaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onTertiaryContainer,
+                ),
+            ) {
+                Button(
+                    onClick = onGithubSponsors,
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .testTag(UpgradeScreenTags.FOSS_SPONSOR),
+                ) {
+                    Text(stringResource(R.string.upgrade_screen_sponsor_action))
+                }
+
+                UpgradeHintText(text = stringResource(R.string.upgrade_screen_sponsor_action_hint))
             }
         }
+    }
+}
+
+internal class SponsorReturnTracker {
+    private var wentToBackground = false
+
+    fun onStop() {
+        wentToBackground = true
+    }
+
+    fun consumeResumeReturn(): Boolean {
+        return if (wentToBackground) {
+            wentToBackground = false
+            true
+        } else {
+            false
+        }
+    }
+}
+
+@Preview2
+@Composable
+private fun UpgradeScreenPreview() {
+    PreviewWrapper {
+        UpgradeScreen()
     }
 }

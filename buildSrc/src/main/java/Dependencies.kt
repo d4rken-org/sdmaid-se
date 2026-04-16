@@ -166,6 +166,7 @@ fun DependencyHandlerScope.addCompose() {
     val composeBom = platform("androidx.compose:compose-bom:${Versions.AndroidX.Compose.bom}")
     implementation(composeBom)
     androidTestImplementation(composeBom)
+    testImplementation(composeBom)
 
     // Override foundation to get Modifier.visible()
     implementation("androidx.compose.foundation:foundation:${Versions.AndroidX.Compose.foundationOverride}")
@@ -174,6 +175,8 @@ fun DependencyHandlerScope.addCompose() {
     implementation("androidx.compose.ui:ui-tooling-preview")
     debugImplementation("androidx.compose.ui:ui-tooling")
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("androidx.compose.ui:ui-test-android")
+    testImplementation("androidx.compose.ui:ui-test-junit4-android")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     implementation("androidx.compose.material:material-icons-extended")
