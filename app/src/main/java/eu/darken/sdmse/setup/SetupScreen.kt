@@ -1,8 +1,13 @@
 package eu.darken.sdmse.setup
 
+import android.content.ActivityNotFoundException
 import androidx.activity.compose.BackHandler
+import androidx.activity.compose.rememberLauncherForActivityResult
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
@@ -11,26 +16,58 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.Button
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.log
+import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.setup.automation.AutomationSetupCard
+import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
+import eu.darken.sdmse.setup.inventory.InventorySetupCard
+import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
+import eu.darken.sdmse.setup.notification.NotificationSetupCard
+import eu.darken.sdmse.setup.notification.NotificationSetupCardItem
+import eu.darken.sdmse.setup.root.RootSetupCard
+import eu.darken.sdmse.setup.root.RootSetupCardItem
+import eu.darken.sdmse.setup.saf.SAFSetupCard
+import eu.darken.sdmse.setup.saf.SAFSetupCardItem
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCard
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
+import eu.darken.sdmse.setup.storage.StorageSetupCard
+import eu.darken.sdmse.setup.storage.StorageSetupCardItem
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCard
+import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
+import kotlinx.coroutines.launch
 import eu.darken.sdmse.common.R as CommonR
+
+private val TAG = logTag("Setup", "Screen")
 
 @Composable
 fun SetupScreenHost(
@@ -39,88 +76,249 @@ fun SetupScreenHost(
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
-    val listItems by vm.listItems.collectAsStateWithLifecycle()
-    val isSetupComplete by vm.isSetupComplete.collectAsStateWithLifecycle()
+    val context = LocalContext.current
+    val scope = rememberCoroutineScope()
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    var pendingPermission by remember { mutableStateOf<Permission?>(null) }
+    var pendingAction by remember { mutableStateOf(PendingSettingsAction.None) }
+
+    val safLauncher = rememberLauncherForActivityResult(
+        contract = eu.darken.sdmse.setup.saf.SafGrantPrimaryContract(),
+    ) { uri ->
+        vm.onSafAccessGranted(uri)
+    }
+
+    val runtimePermissionLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.RequestPermission(),
+    ) { granted ->
+        val perm = pendingPermission
+        pendingPermission = null
+        vm.onRuntimePermissionsGranted(perm, granted)
+    }
+
+    val settingsLauncher = rememberLauncherForActivityResult(
+        contract = ActivityResultContracts.StartActivityForResult(),
+    ) {
+        val action = pendingAction
+        val perm = pendingPermission
+        pendingAction = PendingSettingsAction.None
+        pendingPermission = null
+        when (action) {
+            PendingSettingsAction.SpecialPermission -> {
+                val granted = perm?.isGranted(context) == true
+                vm.onRuntimePermissionsGranted(perm, granted)
+            }
+            PendingSettingsAction.Accessibility -> vm.onAccessibilityReturn()
+            PendingSettingsAction.AppDetails -> vm.onSettingsReturn()
+            PendingSettingsAction.None -> Unit
+        }
+    }
+
+    val safMissingAppMessage = stringResource(R.string.setup_saf_missing_app_error)
+
+    LaunchedEffect(Unit) {
+        vm.events.collect { event ->
+            when (event) {
+                is SetupEvents.SafRequestAccess -> try {
+                    safLauncher.launch(event.item)
+                } catch (e: ActivityNotFoundException) {
+                    log(TAG, WARN) { "SAF picker unavailable: $e" }
+                    scope.launch { snackbarHostState.showSnackbar(safMissingAppMessage) }
+                }
+
+                is SetupEvents.RuntimePermissionRequests -> {
+                    pendingPermission = event.item
+                    try {
+                        runtimePermissionLauncher.launch(event.item.permissionId)
+                    } catch (e: ActivityNotFoundException) {
+                        log(TAG, WARN) { "Runtime permission launcher failed: $e" }
+                        pendingPermission = null
+                    }
+                }
+
+                is SetupEvents.SpecialPermissionRequest -> {
+                    pendingPermission = event.item
+                    pendingAction = PendingSettingsAction.SpecialPermission
+                    if (!launchSettingsWithFallback(settingsLauncher, event.intent, event.fallbackIntent)) {
+                        pendingPermission = null
+                        pendingAction = PendingSettingsAction.None
+                    }
+                }
+
+                is SetupEvents.ConfigureAccessibilityService -> {
+                    pendingAction = PendingSettingsAction.Accessibility
+                    if (!launchSettingsWithFallback(settingsLauncher, event.item.settingsIntent, null)) {
+                        pendingAction = PendingSettingsAction.None
+                    }
+                }
+
+                is SetupEvents.ShowOurDetailsPage -> {
+                    pendingAction = PendingSettingsAction.AppDetails
+                    if (!launchSettingsWithFallback(settingsLauncher, event.intent, null)) {
+                        pendingAction = PendingSettingsAction.None
+                    }
+                }
+
+                is SetupEvents.SafWrongPathError -> {
+                    val msg = context.getString(R.string.setup_saf_error_wrong_path)
+                    scope.launch { snackbarHostState.showSnackbar(msg) }
+                }
+            }
+        }
+    }
+
+    val uiState by vm.uiState.collectAsStateWithLifecycle()
 
     SetupScreen(
-        items = listItems,
-        isComplete = isSetupComplete,
+        uiState = uiState,
         isOnboarding = vm.screenOptions.isOnboarding,
-        onNavigateBack = { vm.navback() },
+        onBack = vm::navback,
+        snackbarHostState = snackbarHostState,
     )
 }
 
+private fun launchSettingsWithFallback(
+    launcher: androidx.activity.result.ActivityResultLauncher<android.content.Intent>,
+    intent: android.content.Intent,
+    fallback: android.content.Intent?,
+): Boolean = try {
+    launcher.launch(intent)
+    true
+} catch (e: ActivityNotFoundException) {
+    log(TAG, WARN) { "Settings launcher failed, trying fallback: $e" }
+    if (fallback != null) {
+        try {
+            launcher.launch(fallback)
+            true
+        } catch (e2: ActivityNotFoundException) {
+            log(TAG, WARN) { "Fallback also failed: $e2" }
+            false
+        }
+    } else {
+        false
+    }
+}
+
+private enum class PendingSettingsAction { None, SpecialPermission, Accessibility, AppDetails }
+
 @Composable
 internal fun SetupScreen(
-    items: List<SetupAdapter.Item> = emptyList(),
-    isComplete: Boolean = false,
+    uiState: SetupUiState = SetupUiState.Loading,
     isOnboarding: Boolean = false,
-    onNavigateBack: () -> Unit = {},
+    onBack: () -> Unit = {},
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
 ) {
-    BackHandler(enabled = isOnboarding, onBack = onNavigateBack)
+    BackHandler(enabled = isOnboarding, onBack = onBack)
 
     Scaffold(
         topBar = {
             TopAppBar(
                 title = { Text(stringResource(CommonR.string.setup_title)) },
                 navigationIcon = {
-                    IconButton(onClick = onNavigateBack) {
+                    IconButton(onClick = onBack) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
                     }
                 },
             )
         },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
-        if (isComplete) {
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues),
-                contentAlignment = Alignment.Center,
+        when (uiState) {
+            SetupUiState.Loading -> LoadingContent(paddingValues)
+            SetupUiState.Complete -> CompleteContent(paddingValues, onContinue = onBack)
+            is SetupUiState.Cards -> CardsContent(paddingValues, uiState.items)
+        }
+    }
+}
+
+@Composable
+private fun LoadingContent(paddingValues: PaddingValues) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues),
+        contentAlignment = Alignment.Center,
+    ) {
+        CircularProgressIndicator()
+    }
+}
+
+@Composable
+private fun CompleteContent(
+    paddingValues: PaddingValues,
+    onContinue: () -> Unit,
+) {
+    Box(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues),
+        contentAlignment = Alignment.Center,
+    ) {
+        Column(horizontalAlignment = Alignment.CenterHorizontally) {
+            Text(
+                text = stringResource(CommonR.string.setup_title),
+                style = MaterialTheme.typography.headlineSmall,
+            )
+            Button(
+                onClick = onContinue,
+                modifier = Modifier.padding(top = 16.dp),
             ) {
-                Column(horizontalAlignment = Alignment.CenterHorizontally) {
-                    Text(
-                        text = stringResource(CommonR.string.setup_title),
-                        style = MaterialTheme.typography.headlineSmall,
-                    )
-                    Button(
-                        onClick = onNavigateBack,
-                        modifier = Modifier.padding(top = 16.dp),
-                    ) {
-                        Text(stringResource(CommonR.string.general_continue))
-                    }
-                }
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(paddingValues)
-                    .padding(horizontal = 8.dp),
-            ) {
-                items(items, key = { it.stableId }) { item ->
-                    Card(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .padding(vertical = 4.dp),
-                        colors = CardDefaults.cardColors(
-                            containerColor = MaterialTheme.colorScheme.surfaceContainerLow,
-                        ),
-                    ) {
-                        // Minimal rendering — detailed card composables will be added later
-                        Text(
-                            text = item.state.type.name,
-                            style = MaterialTheme.typography.titleMedium,
-                            modifier = Modifier.padding(16.dp),
-                        )
-                        if (!item.state.isComplete) {
-                            CircularProgressIndicator(
-                                modifier = Modifier.padding(start = 16.dp, bottom = 16.dp),
-                            )
-                        }
-                    }
-                }
+                Text(stringResource(CommonR.string.general_continue))
             }
         }
+    }
+}
+
+@Composable
+private fun CardsContent(
+    paddingValues: PaddingValues,
+    items: List<SetupCardItem>,
+) {
+    LazyColumn(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(paddingValues),
+        contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        items(items, key = { it.state.type }) { item ->
+            SetupCardDispatch(item, modifier = Modifier.fillMaxWidth())
+        }
+    }
+}
+
+@Composable
+private fun SetupCardDispatch(
+    item: SetupCardItem,
+    modifier: Modifier = Modifier,
+) {
+    when (item) {
+        is SetupLoadingCardItem -> SetupLoadingCard(item, modifier)
+        is SAFSetupCardItem -> SAFSetupCard(item, modifier)
+        is StorageSetupCardItem -> StorageSetupCard(item, modifier)
+        is RootSetupCardItem -> RootSetupCard(item, modifier)
+        is ShizukuSetupCardItem -> ShizukuSetupCard(item, modifier)
+        is NotificationSetupCardItem -> NotificationSetupCard(item, modifier)
+        is UsageStatsSetupCardItem -> UsageStatsSetupCard(item, modifier)
+        is AutomationSetupCardItem -> AutomationSetupCard(item, modifier)
+        is InventorySetupCardItem -> InventorySetupCard(item, modifier)
+        else -> log(TAG, WARN) { "Unhandled card item type: ${item::class.java.simpleName}" }
+    }
+}
+
+@Preview2
+@Composable
+private fun SetupScreenLoadingPreview() {
+    PreviewWrapper {
+        SetupScreen(uiState = SetupUiState.Loading)
+    }
+}
+
+@Preview2
+@Composable
+private fun SetupScreenCompletePreview() {
+    PreviewWrapper {
+        SetupScreen(uiState = SetupUiState.Complete)
     }
 }
