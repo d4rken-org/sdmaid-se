@@ -10,7 +10,6 @@ import androidx.compose.material.icons.twotone.Cancel
 import androidx.compose.material.icons.twotone.ContactSupport
 import androidx.compose.material.icons.twotone.FolderOpen
 import androidx.compose.material.icons.twotone.PermIdentity
-import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
@@ -103,7 +102,6 @@ fun SupportScreenHost(
     )
 }
 
-@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 internal fun SupportScreen(
     isRecordingSource: kotlinx.coroutines.flow.Flow<Boolean> = kotlinx.coroutines.flow.flowOf(false),
