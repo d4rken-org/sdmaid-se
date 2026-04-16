@@ -16,6 +16,7 @@ import eu.darken.sdmse.common.device.DeviceDetective
 import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.setupCommonEventHandlers
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
+import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
 import eu.darken.sdmse.common.permissions.Permission
 import eu.darken.sdmse.common.permissions.RuntimePermission
 import eu.darken.sdmse.common.permissions.Specialpermission
@@ -337,6 +338,14 @@ class SetupViewModel @Inject constructor(
     fun onAccessibilityReturn() = launch {
         log(TAG) { "onAccessibilityReturn" }
         setupManager.refresh()
+    }
+
+    fun openSetupHelp() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
+    }
+
+    fun navToDataAreas() {
+        navTo(DataAreasRoute)
     }
 
     fun navback() {

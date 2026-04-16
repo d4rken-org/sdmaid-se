@@ -7,7 +7,6 @@ import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -16,11 +15,12 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material3.Button
+import androidx.compose.material.icons.filled.MoreVert
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
-import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
@@ -32,10 +32,12 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -69,6 +71,7 @@ import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCard
 import eu.darken.sdmse.setup.usagestats.UsageStatsSetupCardItem
 import kotlinx.coroutines.launch
 import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.ui.R as UiR
 
 private val TAG = logTag("Setup", "Screen")
 
@@ -84,6 +87,7 @@ fun SetupScreenHost(
     val snackbarHostState = remember { SnackbarHostState() }
 
     var pendingPermission by remember { mutableStateOf<Permission?>(null) }
+    var hasNavigatedBack by rememberSaveable { mutableStateOf(false) }
 
     val safLauncher = rememberLauncherForActivityResult(
         contract = eu.darken.sdmse.setup.saf.SafGrantPrimaryContract(),
@@ -161,10 +165,20 @@ fun SetupScreenHost(
 
     val uiState by vm.uiState.collectAsStateWithLifecycle()
 
+    LaunchedEffect(uiState) {
+        if (uiState is SetupUiState.Complete && !hasNavigatedBack) {
+            hasNavigatedBack = true
+            log(TAG) { "Setup is complete, navigating back." }
+            vm.navback()
+        }
+    }
+
     SetupScreen(
         uiState = uiState,
         isOnboarding = vm.screenOptions.isOnboarding,
         onBack = vm::navback,
+        onHelp = vm::openSetupHelp,
+        onShowAreas = vm::navToDataAreas,
         snackbarHostState = snackbarHostState,
     )
 }
@@ -205,6 +219,8 @@ internal fun SetupScreen(
     uiState: SetupUiState = SetupUiState.Loading,
     isOnboarding: Boolean = false,
     onBack: () -> Unit = {},
+    onHelp: () -> Unit = {},
+    onShowAreas: () -> Unit = {},
     snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
 ) {
     BackHandler(enabled = isOnboarding, onBack = onBack)
@@ -215,17 +231,72 @@ internal fun SetupScreen(
                 title = { Text(stringResource(CommonR.string.setup_title)) },
                 navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                        if (isOnboarding) {
+                            Icon(
+                                painter = painterResource(UiR.drawable.ic_baseline_close_24),
+                                contentDescription = null,
+                            )
+                        } else {
+                            Icon(
+                                imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                                contentDescription = null,
+                            )
+                        }
                     }
+                },
+                actions = {
+                    SetupMenu(
+                        showAreas = !isOnboarding,
+                        onHelp = onHelp,
+                        onShowAreas = onShowAreas,
+                    )
                 },
             )
         },
         snackbarHost = { SnackbarHost(snackbarHostState) },
     ) { paddingValues ->
         when (uiState) {
-            SetupUiState.Loading -> LoadingContent(paddingValues)
-            SetupUiState.Complete -> CompleteContent(paddingValues, onContinue = onBack)
+            SetupUiState.Loading,
+            SetupUiState.Complete,
+            -> LoadingContent(paddingValues)
+
             is SetupUiState.Cards -> CardsContent(paddingValues, uiState.items)
+        }
+    }
+}
+
+@Composable
+private fun SetupMenu(
+    showAreas: Boolean,
+    onHelp: () -> Unit,
+    onShowAreas: () -> Unit,
+) {
+    var expanded by remember { mutableStateOf(false) }
+    IconButton(onClick = { expanded = true }) {
+        Icon(
+            imageVector = Icons.Default.MoreVert,
+            contentDescription = null,
+        )
+    }
+    DropdownMenu(
+        expanded = expanded,
+        onDismissRequest = { expanded = false },
+    ) {
+        DropdownMenuItem(
+            text = { Text(stringResource(CommonR.string.general_help_action)) },
+            onClick = {
+                expanded = false
+                onHelp()
+            },
+        )
+        if (showAreas) {
+            DropdownMenuItem(
+                text = { Text(stringResource(R.string.data_areas_label)) },
+                onClick = {
+                    expanded = false
+                    onShowAreas()
+                },
+            )
         }
     }
 }
@@ -239,32 +310,6 @@ private fun LoadingContent(paddingValues: PaddingValues) {
         contentAlignment = Alignment.Center,
     ) {
         CircularProgressIndicator()
-    }
-}
-
-@Composable
-private fun CompleteContent(
-    paddingValues: PaddingValues,
-    onContinue: () -> Unit,
-) {
-    Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .padding(paddingValues),
-        contentAlignment = Alignment.Center,
-    ) {
-        Column(horizontalAlignment = Alignment.CenterHorizontally) {
-            Text(
-                text = stringResource(CommonR.string.setup_title),
-                style = MaterialTheme.typography.headlineSmall,
-            )
-            Button(
-                onClick = onContinue,
-                modifier = Modifier.padding(top = 16.dp),
-            ) {
-                Text(stringResource(CommonR.string.general_continue))
-            }
-        }
     }
 }
 
@@ -315,8 +360,11 @@ private fun SetupScreenLoadingPreview() {
 
 @Preview2
 @Composable
-private fun SetupScreenCompletePreview() {
+private fun SetupScreenOnboardingPreview() {
     PreviewWrapper {
-        SetupScreen(uiState = SetupUiState.Complete)
+        SetupScreen(
+            uiState = SetupUiState.Loading,
+            isOnboarding = true,
+        )
     }
 }

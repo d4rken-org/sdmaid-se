@@ -58,23 +58,27 @@ class SetupScreenTest {
     }
 
     @Test
-    fun `complete state shows title and continue button`() {
+    fun `complete state renders no cards and no continue button`() {
+        // Complete triggers auto-nav in the Host; the Screen just shows a loading indicator.
         composeRule.setSetupContent {
             SetupScreen(uiState = SetupUiState.Complete)
         }
 
-        composeRule.onAllNodesWithText(context.getString(CommonR.string.setup_title)).assertCountEquals(2)
-        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_continue)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_continue)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_notification_title)).assertCountEquals(0)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_saf_card_title)).assertCountEquals(0)
     }
 
     @Test
-    fun `continue button in complete state invokes onBack`() {
-        var called = false
+    fun `onboarding mode hides data areas menu entry`() {
         composeRule.setSetupContent {
-            SetupScreen(uiState = SetupUiState.Complete, onBack = { called = true })
+            SetupScreen(
+                uiState = SetupUiState.Cards(items = emptyList()),
+                isOnboarding = true,
+            )
         }
-        composeRule.onNodeWithText(context.getString(CommonR.string.general_continue)).performClick()
-        composeRule.runOnIdle { assertTrue(called) }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.data_areas_label)).assertCountEquals(0)
     }
 
     @Test
