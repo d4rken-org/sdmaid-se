@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.AutoAwesome
 import androidx.compose.material.icons.twotone.Payments
 import androidx.compose.material.icons.twotone.WarningAmber
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
@@ -21,6 +22,9 @@ import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.platform.testTag
@@ -28,8 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -46,28 +50,31 @@ fun UpgradeScreenHost(
     val context = LocalContext.current
     val activity = context as? android.app.Activity
 
-    // Handle restore failed events
-    LaunchedEffect(Unit) {
+    var showRestoreFailed by remember { mutableStateOf(false) }
+
+    LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
-                UpgradeEvents.RestoreFailed -> activity?.let {
-                    MaterialAlertDialogBuilder(it).apply {
-                        setMessage(
-                            buildString {
-                                appendLine(it.getString(R.string.upgrade_screen_restore_purchase_message))
-                                appendLine()
-                                appendLine(it.getString(R.string.upgrade_screen_restore_troubleshooting_msg))
-                                appendLine()
-                                appendLine(it.getString(R.string.upgrade_screen_restore_sync_patience_hint))
-                                appendLine()
-                                appendLine(it.getString(R.string.upgrade_screen_restore_multiaccount_hint))
-                            }
-                        )
-                        setPositiveButton(eu.darken.sdmse.common.R.string.general_dismiss_action) { _, _ -> }
-                    }.show()
-                }
+                UpgradeEvents.RestoreFailed -> showRestoreFailed = true
             }
         }
+    }
+
+    if (showRestoreFailed) {
+        val purchaseMsg = stringResource(R.string.upgrade_screen_restore_purchase_message)
+        val troubleshootingMsg = stringResource(R.string.upgrade_screen_restore_troubleshooting_msg)
+        val syncHint = stringResource(R.string.upgrade_screen_restore_sync_patience_hint)
+        val multiAccountHint = stringResource(R.string.upgrade_screen_restore_multiaccount_hint)
+        val message = "$purchaseMsg\n\n$troubleshootingMsg\n\n$syncHint\n\n$multiAccountHint"
+        AlertDialog(
+            onDismissRequest = { showRestoreFailed = false },
+            text = { Text(message) },
+            confirmButton = {
+                TextButton(onClick = { showRestoreFailed = false }) {
+                    Text(stringResource(CommonR.string.general_dismiss_action))
+                }
+            },
+        )
     }
 
     val uiState by vm.state.collectAsStateWithLifecycle()
