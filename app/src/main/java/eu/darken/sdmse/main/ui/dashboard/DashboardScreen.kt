@@ -47,9 +47,12 @@ import androidx.compose.runtime.snapshotFlow
 import androidx.compose.animation.core.animateDpAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.geometry.Rect
+import androidx.compose.ui.geometry.Size
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Outline
 import androidx.compose.ui.graphics.Path
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -308,32 +311,68 @@ private fun MascotOverlay() {
 
 private val DASHBOARD_BOTTOM_BAR_HEIGHT = 60.dp
 private val DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT = 88.dp
-private val DASHBOARD_BOTTOM_BAR_CUTOUT_WIDTH = 88.dp
-private val DASHBOARD_BOTTOM_BAR_CUTOUT_DEPTH = 34.dp
-private val DASHBOARD_BOTTOM_BAR_CUTOUT_CORNER_RADIUS = 32.dp
+private val DASHBOARD_FAB_CORNER_RADIUS = 16.dp
+private val DASHBOARD_BOTTOM_BAR_TOP_CORNER_RADIUS = 24.dp
+private val DASHBOARD_BOTTOM_BAR_CUTOUT_WIDTH = 66.dp
+private val DASHBOARD_BOTTOM_BAR_CUTOUT_DEPTH = 33.dp
+private val DASHBOARD_BOTTOM_BAR_CUTOUT_OUTER_RADIUS = 12.dp
 
-private data object DashboardBottomBarShape : androidx.compose.ui.graphics.Shape {
-    override fun createOutline(size: androidx.compose.ui.geometry.Size, layoutDirection: LayoutDirection, density: Density): Outline {
-        val cutoutHalfWidth = with(density) { (DASHBOARD_BOTTOM_BAR_CUTOUT_WIDTH / 2).toPx() }
-        val cutoutDepth = with(density) { DASHBOARD_BOTTOM_BAR_CUTOUT_DEPTH.toPx() }
-        val cornerRadius = with(density) { DASHBOARD_BOTTOM_BAR_CUTOUT_CORNER_RADIUS.toPx() }
+private data object DashboardBottomBarShape : Shape {
+    override fun createOutline(size: Size, layoutDirection: LayoutDirection, density: Density): Outline {
+        val halfWidth = with(density) { (DASHBOARD_BOTTOM_BAR_CUTOUT_WIDTH / 2).toPx() }
+        val depth = with(density) { DASHBOARD_BOTTOM_BAR_CUTOUT_DEPTH.toPx() }
+        val innerR = with(density) { DASHBOARD_FAB_CORNER_RADIUS.toPx() }
+        val outerR = with(density) { DASHBOARD_BOTTOM_BAR_CUTOUT_OUTER_RADIUS.toPx() }
+        val topR = with(density) { DASHBOARD_BOTTOM_BAR_TOP_CORNER_RADIUS.toPx() }
         val center = size.width / 2f
+        val leftWall = (center - halfWidth).coerceAtLeast(topR + outerR)
+        val rightWall = (center + halfWidth).coerceAtMost(size.width - topR - outerR)
         val path = Path().apply {
-            moveTo(0f, 0f)
-            lineTo((center - cutoutHalfWidth - cornerRadius).coerceAtLeast(0f), 0f)
-            cubicTo(
-                center - cutoutHalfWidth, 0f,
-                center - cutoutHalfWidth, cutoutDepth,
-                center, cutoutDepth,
+            moveTo(topR, 0f)
+            lineTo(leftWall - outerR, 0f)
+            arcTo(
+                rect = Rect(leftWall - 2 * outerR, 0f, leftWall, 2 * outerR),
+                startAngleDegrees = 270f,
+                sweepAngleDegrees = 90f,
+                forceMoveTo = false,
             )
-            cubicTo(
-                center + cutoutHalfWidth, cutoutDepth,
-                center + cutoutHalfWidth, 0f,
-                (center + cutoutHalfWidth + cornerRadius).coerceAtMost(size.width), 0f,
+            lineTo(leftWall, depth - innerR)
+            arcTo(
+                rect = Rect(leftWall, depth - 2 * innerR, leftWall + 2 * innerR, depth),
+                startAngleDegrees = 180f,
+                sweepAngleDegrees = -90f,
+                forceMoveTo = false,
             )
-            lineTo(size.width, 0f)
+            lineTo(rightWall - innerR, depth)
+            arcTo(
+                rect = Rect(rightWall - 2 * innerR, depth - 2 * innerR, rightWall, depth),
+                startAngleDegrees = 90f,
+                sweepAngleDegrees = -90f,
+                forceMoveTo = false,
+            )
+            lineTo(rightWall, outerR)
+            arcTo(
+                rect = Rect(rightWall, 0f, rightWall + 2 * outerR, 2 * outerR),
+                startAngleDegrees = 180f,
+                sweepAngleDegrees = 90f,
+                forceMoveTo = false,
+            )
+            lineTo(size.width - topR, 0f)
+            arcTo(
+                rect = Rect(size.width - 2 * topR, 0f, size.width, 2 * topR),
+                startAngleDegrees = 270f,
+                sweepAngleDegrees = 90f,
+                forceMoveTo = false,
+            )
             lineTo(size.width, size.height)
             lineTo(0f, size.height)
+            lineTo(0f, topR)
+            arcTo(
+                rect = Rect(0f, 0f, 2 * topR, 2 * topR),
+                startAngleDegrees = 180f,
+                sweepAngleDegrees = 90f,
+                forceMoveTo = false,
+            )
             close()
         }
         return Outline.Generic(path)
@@ -485,7 +524,7 @@ private fun MainActionFab(
             ),
         color = containerColor,
         contentColor = contentColor,
-        shape = RoundedCornerShape(16.dp),
+        shape = RoundedCornerShape(DASHBOARD_FAB_CORNER_RADIUS),
         shadowElevation = 6.dp,
     ) {
         Box(contentAlignment = Alignment.Center) {
