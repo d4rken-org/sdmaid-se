@@ -2,6 +2,7 @@ package eu.darken.sdmse.main.ui.areas
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.WebpageTool
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.areas.DataAreaManager
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
@@ -19,6 +20,7 @@ class DataAreasViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     private val dataAreaManager: DataAreaManager,
     private val taskManager: TaskManager,
+    private val webpageTool: WebpageTool,
 ) : ViewModel4(dispatcherProvider = dispatcherProvider) {
 
     val state: StateFlow<State> = combine(
@@ -42,6 +44,11 @@ class DataAreasViewModel @Inject constructor(
     fun reloadDataAreas() = launch {
         log(TAG) { "reloadDataAreas()" }
         dataAreaManager.reload()
+    }
+
+    fun openDocumentation() {
+        // TODO: replace with a direct link to the data-areas documentation page.
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki")
     }
 
     companion object {

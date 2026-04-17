@@ -13,7 +13,9 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.twotone.Folder
+import androidx.compose.material.icons.twotone.Info
 import androidx.compose.material.icons.twotone.Refresh
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.Icon
@@ -21,18 +23,26 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.areas.DataArea
+import eu.darken.sdmse.common.areas.label
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.R as CommonR
 
 @Composable
 fun DataAreasScreenHost(
@@ -46,6 +56,7 @@ fun DataAreasScreenHost(
         state = state,
         onReload = vm::reloadDataAreas,
         onNavigateUp = vm::navUp,
+        onOpenDocumentation = vm::openDocumentation,
     )
 }
 
@@ -54,11 +65,36 @@ internal fun DataAreasScreen(
     state: DataAreasViewModel.State = DataAreasViewModel.State(),
     onReload: () -> Unit = {},
     onNavigateUp: () -> Unit = {},
+    onOpenDocumentation: () -> Unit = {},
 ) {
+    var showInfo by remember { mutableStateOf(false) }
+
+    if (showInfo) {
+        AlertDialog(
+            onDismissRequest = { showInfo = false },
+            text = { Text(stringResource(R.string.data_areas_description)) },
+            confirmButton = {
+                TextButton(onClick = { showInfo = false }) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        onOpenDocumentation()
+                        showInfo = false
+                    },
+                ) {
+                    Text(stringResource(CommonR.string.general_more_info_action))
+                }
+            },
+        )
+    }
+
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(eu.darken.sdmse.R.string.data_areas_label)) },
+                title = { Text(stringResource(R.string.data_areas_label)) },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
@@ -69,6 +105,9 @@ internal fun DataAreasScreen(
                         IconButton(onClick = onReload) {
                             Icon(Icons.TwoTone.Refresh, contentDescription = null)
                         }
+                    }
+                    IconButton(onClick = { showInfo = true }) {
+                        Icon(Icons.TwoTone.Info, contentDescription = null)
                     }
                 },
             )
@@ -99,6 +138,7 @@ internal fun DataAreasScreen(
 
 @Composable
 private fun DataAreaRow(area: DataArea) {
+    val context = LocalContext.current
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -114,11 +154,11 @@ private fun DataAreaRow(area: DataArea) {
         Spacer(modifier = Modifier.width(16.dp))
         Column(modifier = Modifier.weight(1f)) {
             Text(
-                text = area.type.name,
+                text = area.type.label.get(context),
                 style = MaterialTheme.typography.bodyLarge,
             )
             Text(
-                text = area.path.path,
+                text = area.path.userReadablePath.get(context),
                 style = MaterialTheme.typography.bodySmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
