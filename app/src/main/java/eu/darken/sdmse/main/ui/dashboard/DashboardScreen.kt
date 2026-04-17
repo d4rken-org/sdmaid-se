@@ -44,7 +44,10 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
+import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.animateDpAsState
+import androidx.compose.animation.core.spring
+import androidx.compose.animation.core.tween
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Rect
@@ -388,21 +391,38 @@ private fun BottomBar(
     onSettings: () -> Unit,
     onUpgrade: () -> Unit,
 ) {
-    val offsetY by animateDpAsState(
+    val fabOffsetY by animateDpAsState(
         targetValue = if (isVisible) 0.dp else DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT,
-        label = "dashboardBottomBarOffset",
+        animationSpec = if (isVisible) {
+            spring(
+                dampingRatio = Spring.DampingRatioMediumBouncy,
+                stiffness = Spring.StiffnessMediumLow,
+            )
+        } else {
+            spring(stiffness = Spring.StiffnessMediumLow)
+        },
+        label = "dashboardFabOffset",
+    )
+    val barOffsetY by animateDpAsState(
+        targetValue = if (isVisible) 0.dp else DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT,
+        animationSpec = if (isVisible) {
+            tween(durationMillis = 300, delayMillis = 150)
+        } else {
+            spring(stiffness = Spring.StiffnessMediumLow)
+        },
+        label = "dashboardBarOffset",
     )
 
     Box(
         modifier = Modifier
             .fillMaxWidth()
-            .offset(y = offsetY)
             .height(DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT),
     ) {
         Surface(
             modifier = Modifier
                 .fillMaxWidth()
                 .align(Alignment.BottomCenter)
+                .offset(y = barOffsetY)
                 .padding(top = DASHBOARD_BOTTOM_BAR_SLOT_HEIGHT - DASHBOARD_BOTTOM_BAR_HEIGHT)
                 .height(DASHBOARD_BOTTOM_BAR_HEIGHT),
             color = MaterialTheme.colorScheme.primary,
@@ -452,7 +472,9 @@ private fun BottomBar(
 
         state?.takeIf { it.isReady }?.let {
             MainActionFab(
-                modifier = Modifier.align(Alignment.TopCenter),
+                modifier = Modifier
+                    .align(Alignment.TopCenter)
+                    .offset(y = fabOffsetY),
                 actionState = it.actionState,
                 onClick = onMainAction,
                 onLongClick = onMainActionLongClick,
