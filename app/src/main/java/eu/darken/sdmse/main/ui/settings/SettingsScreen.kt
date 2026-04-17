@@ -16,6 +16,7 @@ import androidx.compose.material.icons.twotone.Stars
 import androidx.compose.material.icons.twotone.Update
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
 import androidx.compose.material3.SnackbarHost
@@ -28,6 +29,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
@@ -250,8 +252,10 @@ internal fun SettingsScreen(
                 )
             }
             item {
+                val setupTint: Color? = if (state.setupDone) null else MaterialTheme.colorScheme.tertiary
                 SettingsPreferenceItem(
                     icon = Icons.TwoTone.PhoneAndroid,
+                    iconTint = setupTint,
                     title = stringResource(CommonR.string.setup_title),
                     subtitle = stringResource(R.string.setup_forcedshow_summary),
                     onClick = onSetupClick,
