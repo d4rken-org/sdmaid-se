@@ -2,6 +2,7 @@ package eu.darken.sdmse.setup
 
 import android.content.Context
 import android.content.Intent
+import android.net.Uri
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.assertCountEquals
 import androidx.compose.ui.test.hasText
@@ -16,6 +17,8 @@ import eu.darken.sdmse.common.ca.toCaString
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.common.permissions.Permission
+import eu.darken.sdmse.common.files.saf.SAFPath
+import eu.darken.sdmse.common.pkgs.toPkgId
 import eu.darken.sdmse.setup.automation.AutomationSetupCardItem
 import eu.darken.sdmse.setup.automation.AutomationSetupModule
 import eu.darken.sdmse.setup.inventory.InventorySetupCardItem
@@ -24,8 +27,13 @@ import eu.darken.sdmse.setup.notification.NotificationSetupCardItem
 import eu.darken.sdmse.setup.notification.NotificationSetupModule
 import eu.darken.sdmse.setup.root.RootSetupCardItem
 import eu.darken.sdmse.setup.root.RootSetupModule
+import eu.darken.sdmse.setup.saf.SAFSetupCardItem
+import eu.darken.sdmse.setup.saf.SAFSetupModule
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupCardItem
+import eu.darken.sdmse.setup.shizuku.ShizukuSetupModule
 import eu.darken.sdmse.setup.storage.StorageSetupCardItem
 import eu.darken.sdmse.setup.storage.StorageSetupModule
+import io.mockk.mockk
 import java.io.File
 import java.time.Instant
 import org.junit.Assert.assertTrue
@@ -161,6 +169,30 @@ class SetupScreenTest {
     }
 
     @Test
+    fun `root card shows waiting label with question mark when root is enabled but not installed`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        RootSetupCardItem(
+                            state = RootSetupModule.Result(
+                                useRoot = true,
+                                isInstalled = false,
+                                ourService = false,
+                            ),
+                            onToggleUseRoot = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        val waitingText = context.getString(R.string.setup_root_state_waiting_label) + " ?"
+        composeRule.onAllNodesWithText(waitingText).assertCountEquals(1)
+    }
+
+    @Test
     fun `automation card with full consent shows enabled + running states and disallow action`() {
         composeRule.setSetupContent {
             SetupScreen(
@@ -195,6 +227,69 @@ class SetupScreenTest {
     }
 
     @Test
+    fun `shizuku card shows root info note and open action while waiting`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        ShizukuSetupCardItem(
+                            state = ShizukuSetupModule.Result(
+                                pkg = "moe.shizuku.privileged.api".toPkgId(),
+                                useShizuku = true,
+                                isCompatible = true,
+                                isInstalled = true,
+                                basicService = true,
+                                ourService = false,
+                                alsoHasRoot = true,
+                            ),
+                            onToggleUseShizuku = {},
+                            onOpen = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        val expectedBody = buildString {
+            append(context.getString(R.string.setup_shizuku_card_body))
+            append("\n")
+            append(context.getString(R.string.setup_shizuku_card_root_info))
+        }
+        composeRule.onAllNodesWithText(expectedBody).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_state_waiting_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(2)
+    }
+
+    @Test
+    fun `shizuku card hides open action once complete`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        ShizukuSetupCardItem(
+                            state = ShizukuSetupModule.Result(
+                                pkg = "moe.shizuku.privileged.api".toPkgId(),
+                                useShizuku = true,
+                                isCompatible = true,
+                                isInstalled = true,
+                                basicService = true,
+                                ourService = true,
+                                alsoHasRoot = false,
+                            ),
+                            onToggleUseShizuku = {},
+                            onOpen = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_shizuku_card_title)).assertCountEquals(1)
+    }
+
+    @Test
     fun `storage card renders path labels`() {
         composeRule.setSetupContent {
             SetupScreen(
@@ -222,6 +317,113 @@ class SetupScreenTest {
         composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(1)
     }
 
+    @Test
+    fun `storage card shows granted label per granted path and hides grant button when complete`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        StorageSetupCardItem(
+                            state = StorageSetupModule.Result(
+                                paths = listOf(
+                                    StorageSetupModule.Result.PathAccess(
+                                        label = "Public storage".toCaString(),
+                                        localPath = LocalPath.build(File("/storage/emulated/0")),
+                                        hasAccess = true,
+                                    ),
+                                    StorageSetupModule.Result.PathAccess(
+                                        label = "SD card".toCaString(),
+                                        localPath = LocalPath.build(File("/storage/ABCD-EF12")),
+                                        hasAccess = true,
+                                    ),
+                                ),
+                                missingPermission = emptySet(),
+                            ),
+                            onPathClicked = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(2)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(0)
+    }
+
+    @Test
+    fun `saf card shows mixed access state and keeps grant action while incomplete`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        SAFSetupCardItem(
+                            state = SAFSetupModule.Result(
+                                paths = listOf(
+                                    SAFSetupModule.Result.PathAccess(
+                                        label = "Public storage".toCaString(),
+                                        safPath = SAFPath.build(
+                                            Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A"),
+                                        ),
+                                        localPath = LocalPath.build(File("/storage/emulated/0")),
+                                        uriPermission = null,
+                                        grantIntent = Intent(),
+                                    ),
+                                    SAFSetupModule.Result.PathAccess(
+                                        label = "Public app data".toCaString(),
+                                        safPath = SAFPath.build(
+                                            Uri.parse("content://com.android.externalstorage.documents/tree/primary%3AAndroid%2Fdata"),
+                                        ),
+                                        localPath = LocalPath.build(File("/storage/emulated/0/Android/data")),
+                                        uriPermission = fakeUriPermission(),
+                                        grantIntent = Intent(),
+                                    ),
+                                ),
+                            ),
+                            onPathClicked = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(1)
+    }
+
+    @Test
+    fun `saf card hides grant action once all paths are granted`() {
+        composeRule.setSetupContent {
+            SetupScreen(
+                uiState = SetupUiState.Cards(
+                    items = listOf(
+                        SAFSetupCardItem(
+                            state = SAFSetupModule.Result(
+                                paths = listOf(
+                                    SAFSetupModule.Result.PathAccess(
+                                        label = "Public storage".toCaString(),
+                                        safPath = SAFPath.build(
+                                            Uri.parse("content://com.android.externalstorage.documents/tree/primary%3A"),
+                                        ),
+                                        localPath = LocalPath.build(File("/storage/emulated/0")),
+                                        uriPermission = fakeUriPermission(),
+                                        grantIntent = Intent(),
+                                    ),
+                                ),
+                            ),
+                            onPathClicked = {},
+                            onHelp = {},
+                        ),
+                    ),
+                ),
+            )
+        }
+
+        composeRule.onAllNodesWithText(context.getString(R.string.setup_permission_granted_label)).assertCountEquals(1)
+        composeRule.onAllNodesWithText(context.getString(CommonR.string.general_grant_access_action)).assertCountEquals(0)
+    }
+
     private data class LoadingState(
         override val type: SetupModule.Type,
         override val startAt: Instant = Instant.now(),
@@ -237,3 +439,6 @@ private fun ComposeContentTestRule.setSetupContent(
         }
     }
 }
+
+private fun fakeUriPermission(): android.content.UriPermission =
+    mockk(relaxed = true)
