@@ -1,21 +1,44 @@
 package eu.darken.sdmse.common.debug.recorder.ui
 
-import android.content.Context
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.res.stringResource
 import eu.darken.sdmse.R
 
-class ShortRecordingDialog(
-    private val context: Context,
-    private val onContinue: () -> Unit,
-    private val onStopAnyway: () -> Unit,
+@Composable
+fun ShortRecordingDialog(
+    onContinue: () -> Unit,
+    onStopAnyway: () -> Unit,
+    onDismiss: () -> Unit,
 ) {
-    fun show() {
-        MaterialAlertDialogBuilder(context).apply {
-            setTitle(R.string.debug_debuglog_short_recording_title)
-            setMessage(R.string.debug_debuglog_short_recording_desc)
-            setPositiveButton(R.string.debug_debuglog_short_recording_continue_action) { _, _ -> onContinue() }
-            setNegativeButton(R.string.debug_debuglog_short_recording_stop_action) { _, _ -> onStopAnyway() }
-            setOnCancelListener { onContinue() }
-        }.show()
-    }
+    AlertDialog(
+        onDismissRequest = {
+            onContinue()
+            onDismiss()
+        },
+        title = { Text(stringResource(R.string.debug_debuglog_short_recording_title)) },
+        text = { Text(stringResource(R.string.debug_debuglog_short_recording_desc)) },
+        confirmButton = {
+            TextButton(
+                onClick = {
+                    onContinue()
+                    onDismiss()
+                },
+            ) {
+                Text(stringResource(R.string.debug_debuglog_short_recording_continue_action))
+            }
+        },
+        dismissButton = {
+            TextButton(
+                onClick = {
+                    onStopAnyway()
+                    onDismiss()
+                },
+            ) {
+                Text(stringResource(R.string.debug_debuglog_short_recording_stop_action))
+            }
+        },
+    )
 }

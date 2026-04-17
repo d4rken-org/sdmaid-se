@@ -58,7 +58,6 @@ import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import eu.darken.sdmse.R
 import eu.darken.sdmse.appcleaner.R as AppCleanerR
 import eu.darken.sdmse.common.ByteFormatter
@@ -69,12 +68,13 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.easterEggProgressMsg
 import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
-import eu.darken.sdmse.common.error.asErrorDialogBuilder
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.corpsefinder.R as CorpseFinderR
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
+import eu.darken.sdmse.deduplicator.core.Duplicate
+import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
@@ -95,47 +95,35 @@ fun DashboardScreenHost(
     val bottomBarState by vm.bottomBarState.collectAsStateWithLifecycle()
     val oneClickOptionsState by vm.oneClickOptionsState.collectAsStateWithLifecycle()
 
+    var dialogState by remember { mutableStateOf<DashboardDialogState?>(null) }
+
     LaunchedEffect(vm, activity, snackbarHostState) {
         vm.events.collect { event ->
             when (event) {
                 is DashboardEvents.CorpseFinderDeleteConfirmation -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle(CommonR.string.general_delete_confirmation_title)
-                        .setMessage(CorpseFinderR.string.corpsefinder_delete_all_confirmation_message)
-                        .setPositiveButton(CommonR.string.general_delete_action) { _, _ -> vm.confirmCorpseDeletion() }
-                        .setNegativeButton(CommonR.string.general_cancel_action, null)
-                        .setNeutralButton(CommonR.string.general_show_details_action) { _, _ -> vm.showCorpseFinder() }
-                        .show()
+                    dialogState = DashboardDialogState.CorpseFinderDelete
                 }
 
                 is DashboardEvents.SystemCleanerDeleteConfirmation -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle(CommonR.string.general_delete_confirmation_title)
-                        .setMessage(SystemCleanerR.string.systemcleaner_delete_all_confirmation_message)
-                        .setPositiveButton(CommonR.string.general_delete_action) { _, _ -> vm.confirmFilterContentDeletion() }
-                        .setNegativeButton(CommonR.string.general_cancel_action, null)
-                        .setNeutralButton(CommonR.string.general_show_details_action) { _, _ -> vm.showSystemCleaner() }
-                        .show()
+                    dialogState = DashboardDialogState.SystemCleanerDelete
                 }
 
                 is DashboardEvents.AppCleanerDeleteConfirmation -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle(CommonR.string.general_delete_confirmation_title)
-                        .setMessage(AppCleanerR.string.appcleaner_delete_all_confirmation_message)
-                        .setPositiveButton(CommonR.string.general_delete_action) { _, _ -> vm.confirmAppJunkDeletion() }
-                        .setNegativeButton(CommonR.string.general_cancel_action, null)
-                        .setNeutralButton(CommonR.string.general_show_details_action) { _, _ -> vm.showAppCleaner() }
-                        .show()
+                    dialogState = DashboardDialogState.AppCleanerDelete
                 }
 
                 is DashboardEvents.DeduplicatorDeleteConfirmation -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle(CommonR.string.general_delete_confirmation_title)
-                        .setMessage(DeduplicatorR.string.deduplicator_delete_confirmation_message)
-                        .setPositiveButton(CommonR.string.general_delete_action) { _, _ -> vm.confirmDeduplicatorDeletion() }
-                        .setNegativeButton(CommonR.string.general_cancel_action, null)
-                        .setNeutralButton(CommonR.string.general_show_details_action) { _, _ -> vm.showDeduplicator() }
-                        .show()
+                    // PreviewDeletionDialog is still a legacy ViewBinding-based dialog because it
+                    // hosts the Deduplicator's custom preview grid; the Deduplicator module is not
+                    // yet migrated to Compose and will replace this helper in its own phase. We
+                    // reuse it here to preserve the cluster-preview UX the old DashboardFragment
+                    // provided.
+                    PreviewDeletionDialog(activity).show(
+                        mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList<Duplicate.Cluster>()),
+                        onPositive = { vm.confirmDeduplicatorDeletion() },
+                        onNegative = {},
+                        onNeutral = { vm.showDeduplicator() },
+                    )
                 }
 
                 DashboardEvents.SetupDismissHint -> {
@@ -152,45 +140,46 @@ fun DashboardScreenHost(
                 is DashboardEvents.TaskResult -> Unit
 
                 DashboardEvents.TodoHint -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setMessage(CommonR.string.general_todo_msg)
-                        .show()
+                    dialogState = DashboardDialogState.Todo
                 }
 
                 is DashboardEvents.OpenIntent -> {
                     try {
                         activity.startActivity(event.intent)
                     } catch (e: ActivityNotFoundException) {
-                        e.asErrorDialogBuilder(activity).show()
+                        vm.errorEvents.emit(e)
                     }
                 }
 
                 DashboardEvents.SqueezerSetup -> vm.navTo(SqueezerSetupRoute)
 
                 DashboardEvents.ShowShortRecordingWarning -> {
-                    ShortRecordingDialog(
-                        context = activity,
-                        onContinue = {},
-                        onStopAnyway = vm::confirmStopRecording,
-                    ).show()
+                    dialogState = DashboardDialogState.ShortRecordingWarning
                 }
 
                 is DashboardEvents.ShowUnknownFolders -> {
-                    val header = "Scanned ${event.scannedCount} dirs, skipped ${event.skippedCount}"
-                    val body = if (event.unknownPaths.isEmpty()) {
-                        "No unknown folders found."
-                    } else {
-                        "Found ${event.unknownPaths.size} unknown folder(s):\n\n${event.unknownPaths.joinToString("\n")}"
-                    }
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle("Unknown Folders")
-                        .setMessage("$header\n\n$body")
-                        .setPositiveButton(android.R.string.ok, null)
-                        .show()
+                    dialogState = DashboardDialogState.UnknownFolders(
+                        scannedCount = event.scannedCount,
+                        skippedCount = event.skippedCount,
+                        unknownPaths = event.unknownPaths,
+                    )
                 }
             }
         }
     }
+
+    DashboardEventDialogs(
+        state = dialogState,
+        onDismiss = { dialogState = null },
+        onConfirmCorpseFinder = vm::confirmCorpseDeletion,
+        onShowCorpseFinder = vm::showCorpseFinder,
+        onConfirmSystemCleaner = vm::confirmFilterContentDeletion,
+        onShowSystemCleaner = vm::showSystemCleaner,
+        onConfirmAppCleaner = vm::confirmAppJunkDeletion,
+        onShowAppCleaner = vm::showAppCleaner,
+        onStopShortRecording = vm::confirmStopRecording,
+        onConfirmMainAction = vm::mainAction,
+    )
 
     DashboardScreen(
         listState = listState,
@@ -200,12 +189,7 @@ fun DashboardScreenHost(
         onMainAction = {
             when (val actionState = bottomBarState?.actionState ?: return@DashboardScreen) {
                 DashboardViewModel.BottomBarState.Action.DELETE -> {
-                    MaterialAlertDialogBuilder(activity)
-                        .setTitle(CommonR.string.general_delete_confirmation_title)
-                        .setMessage(R.string.dashboard_delete_all_message)
-                        .setPositiveButton(CommonR.string.general_delete_action) { _, _ -> vm.mainAction(actionState) }
-                        .setNegativeButton(CommonR.string.general_cancel_action, null)
-                        .show()
+                    dialogState = DashboardDialogState.MainActionDelete(actionState)
                 }
 
                 else -> vm.mainAction(actionState)
@@ -652,4 +636,146 @@ private fun DashboardBottomBarPreviewDelete() {
             )
         }
     }
+}
+
+internal sealed interface DashboardDialogState {
+    data object CorpseFinderDelete : DashboardDialogState
+    data object SystemCleanerDelete : DashboardDialogState
+    data object AppCleanerDelete : DashboardDialogState
+    data object Todo : DashboardDialogState
+    data object ShortRecordingWarning : DashboardDialogState
+    data class MainActionDelete(
+        val action: DashboardViewModel.BottomBarState.Action,
+    ) : DashboardDialogState
+
+    data class UnknownFolders(
+        val scannedCount: Int,
+        val skippedCount: Int,
+        val unknownPaths: List<String>,
+    ) : DashboardDialogState
+}
+
+@Composable
+private fun DashboardEventDialogs(
+    state: DashboardDialogState?,
+    onDismiss: () -> Unit,
+    onConfirmCorpseFinder: () -> Unit,
+    onShowCorpseFinder: () -> Unit,
+    onConfirmSystemCleaner: () -> Unit,
+    onShowSystemCleaner: () -> Unit,
+    onConfirmAppCleaner: () -> Unit,
+    onShowAppCleaner: () -> Unit,
+    onStopShortRecording: () -> Unit,
+    onConfirmMainAction: (DashboardViewModel.BottomBarState.Action) -> Unit,
+) {
+    when (state) {
+        null -> Unit
+
+        DashboardDialogState.CorpseFinderDelete -> DeleteConfirmDialog(
+            messageRes = CorpseFinderR.string.corpsefinder_delete_all_confirmation_message,
+            onConfirm = { onConfirmCorpseFinder(); onDismiss() },
+            onDetails = { onShowCorpseFinder(); onDismiss() },
+            onDismiss = onDismiss,
+        )
+
+        DashboardDialogState.SystemCleanerDelete -> DeleteConfirmDialog(
+            messageRes = SystemCleanerR.string.systemcleaner_delete_all_confirmation_message,
+            onConfirm = { onConfirmSystemCleaner(); onDismiss() },
+            onDetails = { onShowSystemCleaner(); onDismiss() },
+            onDismiss = onDismiss,
+        )
+
+        DashboardDialogState.AppCleanerDelete -> DeleteConfirmDialog(
+            messageRes = AppCleanerR.string.appcleaner_delete_all_confirmation_message,
+            onConfirm = { onConfirmAppCleaner(); onDismiss() },
+            onDetails = { onShowAppCleaner(); onDismiss() },
+            onDismiss = onDismiss,
+        )
+
+        DashboardDialogState.Todo -> AlertDialog(
+            onDismissRequest = onDismiss,
+            text = { Text(stringResource(CommonR.string.general_todo_msg)) },
+            confirmButton = {
+                TextButton(onClick = onDismiss) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+        )
+
+        DashboardDialogState.ShortRecordingWarning -> ShortRecordingDialog(
+            onContinue = {},
+            onStopAnyway = onStopShortRecording,
+            onDismiss = onDismiss,
+        )
+
+        is DashboardDialogState.MainActionDelete -> AlertDialog(
+            onDismissRequest = onDismiss,
+            title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
+            text = { Text(stringResource(R.string.dashboard_delete_all_message)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    onConfirmMainAction(state.action)
+                    onDismiss()
+                }) {
+                    Text(stringResource(CommonR.string.general_delete_action))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = onDismiss) {
+                    Text(stringResource(CommonR.string.general_cancel_action))
+                }
+            },
+        )
+
+        is DashboardDialogState.UnknownFolders -> {
+            val header = "Scanned ${state.scannedCount} dirs, skipped ${state.skippedCount}"
+            val body = if (state.unknownPaths.isEmpty()) {
+                "No unknown folders found."
+            } else {
+                "Found ${state.unknownPaths.size} unknown folder(s):\n\n${state.unknownPaths.joinToString("\n")}"
+            }
+            AlertDialog(
+                onDismissRequest = onDismiss,
+                title = { Text("Unknown Folders") },
+                text = { Text("$header\n\n$body") },
+                confirmButton = {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(android.R.string.ok))
+                    }
+                },
+            )
+        }
+    }
+}
+
+@Composable
+private fun DeleteConfirmDialog(
+    messageRes: Int,
+    onConfirm: () -> Unit,
+    onDetails: () -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(CommonR.string.general_delete_confirmation_title)) },
+        text = { Text(stringResource(messageRes)) },
+        confirmButton = {
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+            ) {
+                TextButton(onClick = onDetails) {
+                    Text(stringResource(CommonR.string.general_show_details_action))
+                }
+                Row {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(CommonR.string.general_cancel_action))
+                    }
+                    TextButton(onClick = onConfirm) {
+                        Text(stringResource(CommonR.string.general_delete_action))
+                    }
+                }
+            }
+        },
+    )
 }
