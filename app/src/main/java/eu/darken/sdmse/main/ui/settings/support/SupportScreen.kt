@@ -22,8 +22,9 @@ import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -31,13 +32,15 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.SdmSeLinks
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
+import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
+import eu.darken.sdmse.common.debug.recorder.ui.ShortRecordingDialog
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.main.ui.navigation.DebugLogSessionsRoute
 import eu.darken.sdmse.main.ui.navigation.SupportFormRoute
-import kotlinx.coroutines.launch
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
@@ -48,14 +51,16 @@ fun SupportScreenHost(
     NavigationEventHandler(vm)
 
     val context = LocalContext.current
-    val scope = rememberCoroutineScope()
     val snackbarHostState = remember { SnackbarHostState() }
+
+    var showRecorderConsent by remember { mutableStateOf(false) }
+    var showShortRecordingWarning by remember { mutableStateOf(false) }
 
     LaunchedEffect(Unit) {
         vm.refreshSessions()
     }
 
-    scope.launch {
+    LaunchedEffect(vm, context, snackbarHostState) {
         vm.events.collect { event ->
             when (event) {
                 is SupportViewModel.SupportEvents.ShowInstallId -> {
@@ -74,10 +79,26 @@ fun SupportScreenHost(
                 }
 
                 is SupportViewModel.SupportEvents.ShowShortRecordingWarning -> {
-                    // TODO: Show short recording dialog
+                    showShortRecordingWarning = true
                 }
             }
         }
+    }
+
+    if (showRecorderConsent) {
+        RecorderConsentDialog(
+            onStartRecording = vm::startDebugLog,
+            onOpenPrivacyPolicy = { vm.openUrl(SdmSeLinks.PRIVACY_POLICY) },
+            onDismiss = { showRecorderConsent = false },
+        )
+    }
+
+    if (showShortRecordingWarning) {
+        ShortRecordingDialog(
+            onContinue = {},
+            onStopAnyway = vm::confirmStopDebugLog,
+            onDismiss = { showShortRecordingWarning = false },
+        )
     }
 
     SupportScreen(
@@ -91,8 +112,7 @@ fun SupportScreenHost(
             if (isRecording) {
                 vm.stopDebugLog()
             } else {
-                // TODO: Show recorder consent dialog
-                vm.startDebugLog()
+                showRecorderConsent = true
             }
         },
         onDebugLogFolderClick = { vm.navTo(DebugLogSessionsRoute) },
