@@ -35,6 +35,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
+import eu.darken.sdmse.common.device.RomType
 import eu.darken.sdmse.common.error.ErrorEventHandler
 import eu.darken.sdmse.common.locale.toList
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
@@ -42,6 +43,7 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.ThemeMode
 import eu.darken.sdmse.common.theming.ThemeStyle
 import eu.darken.sdmse.main.ui.navigation.DashboardCardConfigRoute
+import androidx.compose.ui.platform.LocalContext
 import eu.darken.sdmse.common.R as CommonR
 
 @Composable
@@ -64,9 +66,13 @@ fun GeneralSettingsScreenHost(
         onMotdChanged = vm::toggleMotd,
         onDebugChanged = vm::toggleDebugMode,
         onLanguageClick = vm::showLanguagePicker,
-        onOneClickToolsClick = { /* OneClickOptionsDialog — deferred */ },
         onDashboardCardConfigClick = { vm.navTo(DashboardCardConfigRoute) },
         onThemeLockedClick = { vm.navTo(UpgradeRoute(forced = true)) },
+        onRomTypeChanged = vm::setRomType,
+        onOneClickCorpseFinderChanged = vm::setOneClickCorpseFinder,
+        onOneClickSystemCleanerChanged = vm::setOneClickSystemCleaner,
+        onOneClickAppCleanerChanged = vm::setOneClickAppCleaner,
+        onOneClickDeduplicatorChanged = vm::setOneClickDeduplicator,
     )
 }
 
@@ -83,12 +89,18 @@ internal fun GeneralSettingsScreen(
     onMotdChanged: (Boolean) -> Unit = {},
     onDebugChanged: (Boolean) -> Unit = {},
     onLanguageClick: () -> Unit = {},
-    onOneClickToolsClick: () -> Unit = {},
     onDashboardCardConfigClick: () -> Unit = {},
     onThemeLockedClick: () -> Unit = {},
+    onRomTypeChanged: (RomType) -> Unit = {},
+    onOneClickCorpseFinderChanged: (Boolean) -> Unit = {},
+    onOneClickSystemCleanerChanged: (Boolean) -> Unit = {},
+    onOneClickAppCleanerChanged: (Boolean) -> Unit = {},
+    onOneClickDeduplicatorChanged: (Boolean) -> Unit = {},
 ) {
     var showThemeModeDialog by remember { mutableStateOf(false) }
     var showThemeStyleDialog by remember { mutableStateOf(false) }
+    var showRomTypeDialog by remember { mutableStateOf(false) }
+    var showOneClickTools by remember { mutableStateOf(false) }
 
     if (showThemeModeDialog) {
         ThemeModePickerDialog(
@@ -109,6 +121,28 @@ internal fun GeneralSettingsScreen(
                 showThemeStyleDialog = false
             },
             onDismiss = { showThemeStyleDialog = false },
+        )
+    }
+
+    if (showRomTypeDialog) {
+        RomTypePickerDialog(
+            currentRomType = state.romTypeDetection,
+            onRomTypeSelected = onRomTypeChanged,
+            onDismiss = { showRomTypeDialog = false },
+        )
+    }
+
+    if (showOneClickTools) {
+        OneClickOptionsDialog(
+            corpseFinderEnabled = state.oneClickCorpseFinderEnabled,
+            systemCleanerEnabled = state.oneClickSystemCleanerEnabled,
+            appCleanerEnabled = state.oneClickAppCleanerEnabled,
+            deduplicatorEnabled = state.oneClickDeduplicatorEnabled,
+            onCorpseFinderChanged = onOneClickCorpseFinderChanged,
+            onSystemCleanerChanged = onOneClickSystemCleanerChanged,
+            onAppCleanerChanged = onOneClickAppCleanerChanged,
+            onDeduplicatorChanged = onOneClickDeduplicatorChanged,
+            onDismiss = { showOneClickTools = false },
         )
     }
 
@@ -145,7 +179,7 @@ internal fun GeneralSettingsScreen(
                     icon = Icons.TwoTone.ViewList,
                     title = stringResource(R.string.dashboard_settings_oneclick_tools_title),
                     subtitle = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
-                    onClick = onOneClickToolsClick,
+                    onClick = { showOneClickTools = true },
                 )
             }
             item {
@@ -241,12 +275,13 @@ internal fun GeneralSettingsScreen(
             item { SettingsCategoryHeader(text = stringResource(R.string.device_settings_category)) }
 
             item {
+                val context = LocalContext.current
                 SettingsPreferenceItem(
                     iconPainter = painterResource(eu.darken.sdmse.common.ui.R.drawable.ic_baseline_accessibility_new_24),
                     title = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_romtype_detection_label),
                     subtitle = stringResource(eu.darken.sdmse.appcleaner.R.string.appcleaner_automation_romtype_detection_summary),
-                    value = state.romTypeDetection.name,
-                    onClick = { /* ROM type picker — deferred */ },
+                    value = state.romTypeDetection.label.get(context),
+                    onClick = { showRomTypeDialog = true },
                 )
             }
 

@@ -1,41 +1,95 @@
 package eu.darken.sdmse.main.ui.settings.general
 
-import android.content.Context
-import android.view.LayoutInflater
-import androidx.appcompat.app.AlertDialog
-import com.google.android.material.dialog.MaterialAlertDialogBuilder
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Switch
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
-import eu.darken.sdmse.common.datastore.valueBlocking
-import eu.darken.sdmse.databinding.GeneralOnetapToolsDialogBinding
-import eu.darken.sdmse.main.core.GeneralSettings
-import javax.inject.Inject
+import eu.darken.sdmse.common.R as CommonR
 
-class OneClickOptionsDialog @Inject constructor(private val settings: GeneralSettings) {
-
-    fun show(context: Context): AlertDialog = MaterialAlertDialogBuilder(context).apply {
-        setTitle(R.string.dashboard_settings_oneclick_tools_title)
-        setMessage(R.string.dashboard_settings_oneclick_tools_desc)
-
-        val binding = GeneralOnetapToolsDialogBinding.inflate(LayoutInflater.from(context)).apply {
-            corpsefinderToggle.isChecked = settings.oneClickCorpseFinderEnabled.valueBlocking
-            systemcleanerToggle.isChecked = settings.oneClickSystemCleanerEnabled.valueBlocking
-            appcleanerToggle.isChecked = settings.oneClickAppCleanerEnabled.valueBlocking
-            deduplicatorToggle.isChecked = settings.oneClickDeduplicatorEnabled.valueBlocking
-
-            corpsefinderToggle.setOnCheckedChangeListener { _, isChecked ->
-                settings.oneClickCorpseFinderEnabled.valueBlocking = isChecked
+@Composable
+fun OneClickOptionsDialog(
+    corpseFinderEnabled: Boolean,
+    systemCleanerEnabled: Boolean,
+    appCleanerEnabled: Boolean,
+    deduplicatorEnabled: Boolean,
+    onCorpseFinderChanged: (Boolean) -> Unit,
+    onSystemCleanerChanged: (Boolean) -> Unit,
+    onAppCleanerChanged: (Boolean) -> Unit,
+    onDeduplicatorChanged: (Boolean) -> Unit,
+    onDismiss: () -> Unit,
+) {
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(text = stringResource(R.string.dashboard_settings_oneclick_tools_title)) },
+        text = {
+            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
+                Text(
+                    text = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                OneClickSwitchRow(
+                    label = stringResource(CommonR.string.corpsefinder_tool_name),
+                    checked = corpseFinderEnabled,
+                    onCheckedChange = onCorpseFinderChanged,
+                )
+                OneClickSwitchRow(
+                    label = stringResource(CommonR.string.systemcleaner_tool_name),
+                    checked = systemCleanerEnabled,
+                    onCheckedChange = onSystemCleanerChanged,
+                )
+                OneClickSwitchRow(
+                    label = stringResource(CommonR.string.appcleaner_tool_name),
+                    checked = appCleanerEnabled,
+                    onCheckedChange = onAppCleanerChanged,
+                )
+                OneClickSwitchRow(
+                    label = stringResource(CommonR.string.deduplicator_tool_name),
+                    checked = deduplicatorEnabled,
+                    onCheckedChange = onDeduplicatorChanged,
+                )
             }
-            systemcleanerToggle.setOnCheckedChangeListener { _, isChecked ->
-                settings.oneClickSystemCleanerEnabled.valueBlocking = isChecked
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(text = stringResource(android.R.string.ok))
             }
-            appcleanerToggle.setOnCheckedChangeListener { _, isChecked ->
-                settings.oneClickAppCleanerEnabled.valueBlocking = isChecked
-            }
-            deduplicatorToggle.setOnCheckedChangeListener { _, isChecked ->
-                settings.oneClickDeduplicatorEnabled.valueBlocking = isChecked
-            }
-        }
-        setView(binding.root)
+        },
+    )
+}
 
-    }.show()
+@Composable
+private fun OneClickSwitchRow(
+    label: String,
+    checked: Boolean,
+    onCheckedChange: (Boolean) -> Unit,
+) {
+    Row(
+        modifier = Modifier.fillMaxWidth(),
+        horizontalArrangement = Arrangement.SpaceBetween,
+        verticalAlignment = Alignment.CenterVertically,
+    ) {
+        Text(
+            text = label,
+            style = MaterialTheme.typography.bodyLarge,
+            modifier = Modifier.weight(1f),
+        )
+        Spacer(modifier = Modifier.width(16.dp))
+        Switch(
+            checked = checked,
+            onCheckedChange = onCheckedChange,
+        )
+    }
 }

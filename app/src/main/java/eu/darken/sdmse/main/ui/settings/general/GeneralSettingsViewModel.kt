@@ -48,7 +48,12 @@ class GeneralSettingsViewModel @Inject constructor(
         motdSettings.isMotdEnabled.flow,
         debugSettings.isDebugMode.flow,
         localeManager.currentLocales,
-    ) { isPro, isUpdateCheckSupported, oneClick, shortcut, themeMode, themeStyle, previews, romType, updateCheck, motd, debug, locales ->
+        generalSettings.oneClickCorpseFinderEnabled.flow,
+        generalSettings.oneClickSystemCleanerEnabled.flow,
+        generalSettings.oneClickAppCleanerEnabled.flow,
+        generalSettings.oneClickDeduplicatorEnabled.flow,
+    ) { isPro, isUpdateCheckSupported, oneClick, shortcut, themeMode, themeStyle, previews, romType, updateCheck, motd, debug, locales,
+        oneClickCorpseFinder, oneClickSystemCleaner, oneClickAppCleaner, oneClickDeduplicator ->
         State(
             isPro = isPro,
             isUpdateCheckSupported = isUpdateCheckSupported,
@@ -63,6 +68,10 @@ class GeneralSettingsViewModel @Inject constructor(
             isDebugMode = debug,
             currentLocales = locales,
             showLanguage = hasApiLevel(33),
+            oneClickCorpseFinderEnabled = oneClickCorpseFinder,
+            oneClickSystemCleanerEnabled = oneClickSystemCleaner,
+            oneClickAppCleanerEnabled = oneClickAppCleaner,
+            oneClickDeduplicatorEnabled = oneClickDeduplicator,
         )
     }.safeStateIn(
         initialValue = State(),
@@ -105,6 +114,22 @@ class GeneralSettingsViewModel @Inject constructor(
         debugSettings.isDebugMode.value(enabled)
     }
 
+    fun setOneClickCorpseFinder(enabled: Boolean) = launch {
+        generalSettings.oneClickCorpseFinderEnabled.value(enabled)
+    }
+
+    fun setOneClickSystemCleaner(enabled: Boolean) = launch {
+        generalSettings.oneClickSystemCleanerEnabled.value(enabled)
+    }
+
+    fun setOneClickAppCleaner(enabled: Boolean) = launch {
+        generalSettings.oneClickAppCleanerEnabled.value(enabled)
+    }
+
+    fun setOneClickDeduplicator(enabled: Boolean) = launch {
+        generalSettings.oneClickDeduplicatorEnabled.value(enabled)
+    }
+
     @SuppressLint("NewApi")
     fun showLanguagePicker() = launch {
         log(TAG) { "showLanguagePicker()" }
@@ -129,6 +154,10 @@ class GeneralSettingsViewModel @Inject constructor(
         val isDebugMode: Boolean = false,
         val currentLocales: LocaleList? = null,
         val showLanguage: Boolean = false,
+        val oneClickCorpseFinderEnabled: Boolean = true,
+        val oneClickSystemCleanerEnabled: Boolean = true,
+        val oneClickAppCleanerEnabled: Boolean = true,
+        val oneClickDeduplicatorEnabled: Boolean = false,
     )
 
     companion object {

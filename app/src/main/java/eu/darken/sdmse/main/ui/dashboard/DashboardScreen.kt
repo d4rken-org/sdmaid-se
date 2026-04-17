@@ -77,6 +77,7 @@ import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
+import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.systemcleaner.R as SystemCleanerR
 import kotlin.math.abs
@@ -236,12 +237,15 @@ internal fun DashboardScreen(
 
     if (showOneClickOptions) {
         OneClickOptionsDialog(
-            state = oneClickOptionsState,
-            onDismiss = { showOneClickOptions = false },
+            corpseFinderEnabled = oneClickOptionsState.corpseFinderEnabled,
+            systemCleanerEnabled = oneClickOptionsState.systemCleanerEnabled,
+            appCleanerEnabled = oneClickOptionsState.appCleanerEnabled,
+            deduplicatorEnabled = oneClickOptionsState.deduplicatorEnabled,
             onCorpseFinderChanged = onCorpseFinderOneClickChanged,
             onSystemCleanerChanged = onSystemCleanerOneClickChanged,
             onAppCleanerChanged = onAppCleanerOneClickChanged,
             onDeduplicatorChanged = onDeduplicatorOneClickChanged,
+            onDismiss = { showOneClickOptions = false },
         )
     }
 
@@ -509,78 +513,6 @@ private fun MainActionFab(
                 )
             }
         }
-    }
-}
-
-@Composable
-private fun OneClickOptionsDialog(
-    state: DashboardViewModel.OneClickOptionsState,
-    onDismiss: () -> Unit,
-    onCorpseFinderChanged: (Boolean) -> Unit,
-    onSystemCleanerChanged: (Boolean) -> Unit,
-    onAppCleanerChanged: (Boolean) -> Unit,
-    onDeduplicatorChanged: (Boolean) -> Unit,
-) {
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(text = stringResource(R.string.dashboard_settings_oneclick_tools_title)) },
-        text = {
-            Column(verticalArrangement = Arrangement.spacedBy(12.dp)) {
-                Text(
-                    text = stringResource(R.string.dashboard_settings_oneclick_tools_desc),
-                    style = MaterialTheme.typography.bodyMedium,
-                )
-                SwitchRow(
-                    label = stringResource(CommonR.string.corpsefinder_tool_name),
-                    checked = state.corpseFinderEnabled,
-                    onCheckedChange = onCorpseFinderChanged,
-                )
-                SwitchRow(
-                    label = stringResource(CommonR.string.systemcleaner_tool_name),
-                    checked = state.systemCleanerEnabled,
-                    onCheckedChange = onSystemCleanerChanged,
-                )
-                SwitchRow(
-                    label = stringResource(CommonR.string.appcleaner_tool_name),
-                    checked = state.appCleanerEnabled,
-                    onCheckedChange = onAppCleanerChanged,
-                )
-                SwitchRow(
-                    label = stringResource(CommonR.string.deduplicator_tool_name),
-                    checked = state.deduplicatorEnabled,
-                    onCheckedChange = onDeduplicatorChanged,
-                )
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text(text = stringResource(android.R.string.ok))
-            }
-        },
-    )
-}
-
-@Composable
-private fun SwitchRow(
-    label: String,
-    checked: Boolean,
-    onCheckedChange: (Boolean) -> Unit,
-) {
-    Row(
-        modifier = Modifier.fillMaxWidth(),
-        horizontalArrangement = Arrangement.SpaceBetween,
-        verticalAlignment = Alignment.CenterVertically,
-    ) {
-        Text(
-            text = label,
-            style = MaterialTheme.typography.bodyLarge,
-            modifier = Modifier.weight(1f),
-        )
-        Spacer(modifier = Modifier.width(16.dp))
-        Switch(
-            checked = checked,
-            onCheckedChange = onCheckedChange,
-        )
     }
 }
 
