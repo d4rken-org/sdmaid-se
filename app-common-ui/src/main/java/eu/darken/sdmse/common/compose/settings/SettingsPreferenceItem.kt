@@ -7,6 +7,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
@@ -20,6 +21,7 @@ fun SettingsPreferenceItem(
     modifier: Modifier = Modifier,
     icon: ImageVector? = null,
     iconPainter: Painter? = null,
+    iconTint: Color? = null,
     subtitle: String? = null,
     value: String? = null,
     enabled: Boolean = true,
@@ -30,6 +32,7 @@ fun SettingsPreferenceItem(
     SettingsBaseItem(
         icon = icon,
         iconPainter = iconPainter,
+        iconTint = iconTint,
         title = title,
         onClick = onClick,
         onLongClick = onLongClick,

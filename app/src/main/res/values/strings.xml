@@ -104,6 +104,8 @@
     <string name="ui_theme_style_setting_explanation">The color style used when theming the app.</string>
     <string name="ui_theme_style_default_label">Default</string>
     <string name="ui_theme_style_materialyou_label">Material You</string>
+    <string name="ui_theme_style_mediumcontrast_label">Medium contrast</string>
+    <string name="ui_theme_style_highcontrast_label">High contrast</string>
 
     <string name="ui_previews_title">File previews</string>
     <string name="ui_previews_summary">Display file previews in all tools (e.g. image and video thumbnails).</string>

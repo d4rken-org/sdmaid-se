@@ -75,6 +75,8 @@ fun ThemeStylePickerDialog(
             val options = listOf(
                 ThemeStyle.DEFAULT to stringResource(R.string.ui_theme_style_default_label),
                 ThemeStyle.MATERIAL_YOU to stringResource(R.string.ui_theme_style_materialyou_label),
+                ThemeStyle.MEDIUM_CONTRAST to stringResource(R.string.ui_theme_style_mediumcontrast_label),
+                ThemeStyle.HIGH_CONTRAST to stringResource(R.string.ui_theme_style_highcontrast_label),
             )
             androidx.compose.foundation.layout.Column {
                 options.forEach { (style, label) ->

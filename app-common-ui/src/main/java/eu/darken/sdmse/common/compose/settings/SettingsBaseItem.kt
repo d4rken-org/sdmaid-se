@@ -33,6 +33,7 @@ fun SettingsBaseItem(
     icon: ImageVector? = null,
     iconPainter: Painter? = null,
     iconTinted: Boolean = true,
+    iconTint: Color? = null,
     iconSize: Dp = 24.dp,
     subtitle: String? = null,
     enabled: Boolean = true,
@@ -52,10 +53,10 @@ fun SettingsBaseItem(
     ) {
         val contentAlpha = if (enabled) 1f else 0.5f
         val hasIcon = icon != null || iconPainter != null
-        val tint = if (iconTinted) {
-            MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f * contentAlpha)
-        } else {
-            Color.Unspecified
+        val tint = when {
+            iconTint != null -> iconTint.copy(alpha = iconTint.alpha * contentAlpha)
+            iconTinted -> MaterialTheme.colorScheme.onSurface.copy(alpha = 0.6f * contentAlpha)
+            else -> Color.Unspecified
         }
 
         if (icon != null) {

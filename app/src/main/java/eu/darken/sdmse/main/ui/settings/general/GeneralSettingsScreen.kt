@@ -197,8 +197,8 @@ internal fun GeneralSettingsScreen(
                 val themeStyleLabel = when (state.themeStyle) {
                     ThemeStyle.DEFAULT -> stringResource(R.string.ui_theme_style_default_label)
                     ThemeStyle.MATERIAL_YOU -> stringResource(R.string.ui_theme_style_materialyou_label)
-                    ThemeStyle.MEDIUM_CONTRAST -> stringResource(R.string.ui_theme_style_default_label)
-                    ThemeStyle.HIGH_CONTRAST -> stringResource(R.string.ui_theme_style_default_label)
+                    ThemeStyle.MEDIUM_CONTRAST -> stringResource(R.string.ui_theme_style_mediumcontrast_label)
+                    ThemeStyle.HIGH_CONTRAST -> stringResource(R.string.ui_theme_style_highcontrast_label)
                 }
                 SettingsPreferenceItem(
                     icon = Icons.TwoTone.Palette,
