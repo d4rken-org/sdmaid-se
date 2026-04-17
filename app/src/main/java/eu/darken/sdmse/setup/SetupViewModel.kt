@@ -362,6 +362,14 @@ class SetupViewModel @Inject constructor(
         webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup")
     }
 
+    fun openSafMissingAppHelpUrl() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#open_document_tree-activitynotfoundexception")
+    }
+
+    fun openSafWrongPathHelpUrl() {
+        webpageTool.open("https://github.com/d4rken-org/sdmaid-se/wiki/Setup#storage-access-framework")
+    }
+
     fun navToDataAreas() {
         navTo(DataAreasRoute)
     }

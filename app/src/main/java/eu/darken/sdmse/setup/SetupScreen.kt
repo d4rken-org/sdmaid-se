@@ -16,6 +16,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -24,7 +25,9 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.SnackbarResult
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -125,8 +128,33 @@ fun SetupScreenHost(
         vm.onAccessibilityReturn()
     }
 
-    val safMissingAppMessage = stringResource(R.string.setup_saf_missing_app_error)
     val safWrongPathMessage = stringResource(R.string.setup_saf_error_wrong_path)
+    val helpActionLabel = stringResource(CommonR.string.general_help_action)
+
+    var showSafMissingAppDialog by remember { mutableStateOf(false) }
+
+    if (showSafMissingAppDialog) {
+        AlertDialog(
+            onDismissRequest = { showSafMissingAppDialog = false },
+            title = { Text(stringResource(CommonR.string.general_error_label)) },
+            text = { Text(stringResource(R.string.setup_saf_missing_app_error)) },
+            confirmButton = {
+                TextButton(onClick = { showSafMissingAppDialog = false }) {
+                    Text(stringResource(android.R.string.ok))
+                }
+            },
+            dismissButton = {
+                TextButton(
+                    onClick = {
+                        vm.openSafMissingAppHelpUrl()
+                        showSafMissingAppDialog = false
+                    },
+                ) {
+                    Text(stringResource(CommonR.string.general_help_action))
+                }
+            },
+        )
+    }
 
     LaunchedEffect(Unit) {
         log(TAG) { "Event collector started" }
@@ -137,7 +165,11 @@ fun SetupScreenHost(
                     safLauncher.launch(event.item)
                 } catch (e: ActivityNotFoundException) {
                     log(TAG, WARN) { "SAF picker unavailable: $e" }
-                    scope.launch { snackbarHostState.showSnackbar(safMissingAppMessage) }
+                    if (e.message?.contains("OPEN_DOCUMENT_TREE") == true) {
+                        showSafMissingAppDialog = true
+                    } else {
+                        vm.errorEvents.emit(e)
+                    }
                 }
 
                 is SetupEvents.RuntimePermissionRequests -> {
@@ -147,25 +179,39 @@ fun SetupScreenHost(
                     } catch (e: ActivityNotFoundException) {
                         log(TAG, WARN) { "Runtime permission launcher failed: $e" }
                         pendingPermission = null
+                        vm.errorEvents.emit(e)
                     }
                 }
 
                 is SetupEvents.SpecialPermissionRequest -> {
                     pendingPermission = event.item
-                    if (!launchSpecialPermission(specialPermissionLauncher, event.intent, event.fallbackIntent)) {
+                    val error = launchSpecialPermission(specialPermissionLauncher, event.intent, event.fallbackIntent)
+                    if (error != null) {
                         pendingPermission = null
+                        vm.errorEvents.emit(error)
                     }
                 }
 
-                is SetupEvents.ConfigureAccessibilityService -> startSystemActivity(
-                    context,
-                    event.item.settingsIntent,
-                )
+                is SetupEvents.ConfigureAccessibilityService -> {
+                    startSystemActivity(context, event.item.settingsIntent)?.let {
+                        vm.errorEvents.emit(it)
+                    }
+                }
 
-                is SetupEvents.ShowOurDetailsPage -> startSystemActivity(context, event.intent)
+                is SetupEvents.ShowOurDetailsPage -> {
+                    startSystemActivity(context, event.intent)?.let {
+                        vm.errorEvents.emit(it)
+                    }
+                }
 
                 is SetupEvents.SafWrongPathError -> scope.launch {
-                    snackbarHostState.showSnackbar(safWrongPathMessage)
+                    val result = snackbarHostState.showSnackbar(
+                        message = safWrongPathMessage,
+                        actionLabel = helpActionLabel,
+                    )
+                    if (result == SnackbarResult.ActionPerformed) {
+                        vm.openSafWrongPathHelpUrl()
+                    }
                 }
             }
         }
@@ -198,30 +244,32 @@ private fun launchSpecialPermission(
     launcher: androidx.activity.result.ActivityResultLauncher<Intent>,
     intent: Intent,
     fallback: Intent?,
-): Boolean = try {
+): Throwable? = try {
     launcher.launch(intent)
-    true
+    null
 } catch (e: ActivityNotFoundException) {
     log(TAG, WARN) { "Special permission launcher failed, trying fallback: $e" }
     if (fallback != null) {
         try {
             launcher.launch(fallback)
-            true
+            null
         } catch (e2: ActivityNotFoundException) {
             log(TAG, WARN) { "Fallback also failed: $e2" }
-            false
+            e2
         }
     } else {
-        false
+        e
     }
 }
 
-private fun startSystemActivity(context: android.content.Context, intent: Intent) {
+private fun startSystemActivity(context: android.content.Context, intent: Intent): Throwable? {
     val launchIntent = Intent(intent).apply { addFlags(Intent.FLAG_ACTIVITY_NEW_TASK) }
-    try {
+    return try {
         context.startActivity(launchIntent)
+        null
     } catch (e: ActivityNotFoundException) {
         log(TAG, WARN) { "startActivity failed: $e" }
+        e
     }
 }
 
