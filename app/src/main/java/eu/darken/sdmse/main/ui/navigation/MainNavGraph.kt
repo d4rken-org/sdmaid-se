@@ -79,9 +79,9 @@ import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DashboardFragment — converted to Compose
 // Onboarding Fragments — converted to Compose
 // SettingsFragment — converted to Compose
-import eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigFragment
-import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormFragment
-import eu.darken.sdmse.main.ui.settings.support.sessions.DebugLogSessionsDialog
+// DashboardCardConfigFragment — converted to Compose
+// SupportContactFormFragment — converted to Compose
+// DebugLogSessionsDialog — converted to Compose
 import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
@@ -154,9 +154,6 @@ fun NavGraphBuilder.mainNavGraph() {
     // Setup — converted to Compose, registered via AppNavigation
 
     // Settings — converted to Compose, registered via AppNavigation
-    dialog<DebugLogSessionsDialog, DebugLogSessionsRoute>()
-    fragment<SupportContactFormFragment, SupportFormRoute>()
-    fragment<DashboardCardConfigFragment, DashboardCardConfigRoute>()
 
     // Upgrade
     // Upgrade — converted to Compose, registered via AppNavigation

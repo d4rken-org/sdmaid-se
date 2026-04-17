@@ -123,6 +123,7 @@ internal fun AcknowledgementsScreen(
             LicenseItem("Shizuku", "Using system APIs directly with adb/root privileges from normal apps through a Java process started with app_process. (APACHE 2.0)", "https://github.com/RikkaApps/Shizuku", onOpenUrl)
             LicenseItem("Material Design Icons", "materialdesignicons.com (SIL Open Font License 1.1 / Attribution 4.0 International)", "https://github.com/Templarian/MaterialDesign", onOpenUrl)
             LicenseItem("Lottie", "Airbnb's Lottie for Android. (APACHE 2.0)", "https://github.com/airbnb/lottie-android", onOpenUrl)
+            LicenseItem("Reorderable", "Reorderable Composables for Jetpack Compose. (APACHE 2.0)", "https://github.com/Calvin-LL/Reorderable", onOpenUrl)
             LicenseItem("ZoomImage", "Library for zoom images, supported Android View, Compose and Compose Multiplatform. (APACHE 2.0)", "https://github.com/panpf/zoomimage", onOpenUrl)
             LicenseItem("Indicator Fast Scroll", "Android library providing a simple UI control for scrolling through RecyclerViews. (APACHE 2.0)", "https://github.com/reddit/IndicatorFastScroll", onOpenUrl)
             LicenseItem("AndroidFastScroll", "Fast scroll for Android RecyclerView and more. (APACHE 2.0)", "https://github.com/zhanghai/AndroidFastScroll", onOpenUrl)

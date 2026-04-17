@@ -23,8 +23,11 @@ import eu.darken.sdmse.main.ui.onboarding.versus.VersusSetupScreenHost
 import eu.darken.sdmse.main.ui.onboarding.welcome.OnboardingWelcomeScreenHost
 import eu.darken.sdmse.main.ui.settings.SettingsScreenHost
 import eu.darken.sdmse.main.ui.settings.acks.AcknowledgementsScreenHost
+import eu.darken.sdmse.main.ui.settings.cards.DashboardCardConfigScreenHost
 import eu.darken.sdmse.main.ui.settings.general.GeneralSettingsScreenHost
 import eu.darken.sdmse.main.ui.settings.support.SupportScreenHost
+import eu.darken.sdmse.main.ui.settings.support.contactform.SupportContactFormScreenHost
+import eu.darken.sdmse.main.ui.settings.support.sessions.DebugLogSessionsScreenHost
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenHost
 import javax.inject.Inject
@@ -48,5 +51,8 @@ class AppNavigation @Inject constructor() : NavigationEntry {
         entry<GeneralSettingsRoute> { GeneralSettingsScreenHost() }
         entry<AcknowledgementsRoute> { AcknowledgementsScreenHost() }
         entry<SupportRoute> { SupportScreenHost() }
+        entry<DashboardCardConfigRoute> { DashboardCardConfigScreenHost() }
+        entry<SupportFormRoute> { SupportContactFormScreenHost() }
+        entry<DebugLogSessionsRoute> { DebugLogSessionsScreenHost() }
     }
 }

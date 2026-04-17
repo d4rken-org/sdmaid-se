@@ -6,15 +6,17 @@
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController, ErrorEventHandler, NavigationEventHandler, settings toolkit composables
 - **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules)
 - **All routes**: Every route implements NavigationDestination
-- **ViewModels migrated to ViewModel4** (15 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus)
+- **ViewModels migrated to ViewModel4** (18 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus)
 - **Navigation3 stable**: Upgraded from alpha08 to 1.0.1, fixed API renames (EntryProviderScope, rememberSaveableStateHolderNavEntryDecorator)
-- **14 screens fully converted to Compose**: Onboarding (4: Welcome, Privacy, Setup, Versus), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay)
+- **17 screens fully converted to Compose**: Onboarding (4: Welcome, Privacy, Setup, Versus), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay)
 - **Dashboard cards done**: All 18 card types have full Compose composables with XML parity
 - **Setup cards done**: All 8 card types (Storage, SAF, Root, UsageStats, Automation, Notification, Shizuku, Inventory) + SetupLoadingCard + SetupCardContainer
 - **Support dialogs done**: `RecorderConsentDialog` and `ShortRecordingDialog` are implemented and wired into `SupportScreenHost`
+- **Reorderable lib**: Adopted `sh.calvin.reorderable` (APACHE 2.0, acknowledged in `AcknowledgementsScreen`) for drag-reorder in `DashboardCardConfigScreen`
+- **Navigation3 ModalBottomSheet pattern proven**: `DebugLogSessionsRoute` renders as a `ModalBottomSheet` inside its `entry<>` block in `AppNavigation.kt`; unblocks AppActionDialog + ScheduleItemDialog conversions
 
 ### What's broken / incomplete
-- **~49 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so all tool screens, exclusions, stats, preview, picker are unreachable
+- **~46 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so all tool screens, exclusions, stats, preview, picker are unreachable
 - **Tool settings navigation broken** — Settings index navigates to tool settings routes but they're Fragment-based (dead)
 - **Only 1 `NavigationEntry`** — `AppNavigation.kt` in `app`. Per Phase 5, each tool module and `app-common-*` UI module needs its own `NavigationEntry` bound via `@Binds @IntoSet`. None of the 9 tool modules nor the 5 cross-cutting UI modules have done this yet.
 
@@ -23,12 +25,7 @@
 #### 1. Convert 9 tool settings PreferenceFragments → Compose (NEXT)
 CorpseFinder, SystemCleaner, AppCleaner, Deduplicator, AppControl, Squeezer, Swiper, Scheduler settings (all PreferenceFragment2) + Stats settings (PreferenceFragment3).
 
-#### 2. Convert 3 remaining app module Fragments
-- `DashboardCardConfigFragment` (Fragment3)
-- `SupportContactFormFragment` (Fragment3)
-- `DebugLogSessionsDialog` (BottomSheetDialogFragment2)
-
-#### 3. Convert tool list/details Fragments (30 screens)
+#### 2. Convert tool list/details Fragments (30 screens)
 - CorpseFinder: List, Details, Corpse (3)
 - SystemCleaner: List, FilterContentDetails, FilterContent, CustomFilterList, CustomFilterEditor (5)
 - AppCleaner: List, AppJunkDetails, AppJunk (3)
@@ -39,13 +36,13 @@ CorpseFinder, SystemCleaner, AppCleaner, Deduplicator, AppControl, Squeezer, Swi
 - Swiper: Sessions, Swipe, Status (3)
 - Analyzer: DeviceStorage, StorageContent, Apps, AppDetails, Content (5)
 
-#### 4. Convert cross-cutting Fragments (11 screens)
+#### 3. Convert cross-cutting Fragments (11 screens)
 - Exclusion: List, PathEditor, PkgEditor, SegmentEditor (4)
 - Stats: Reports, SpaceHistory, AffectedPaths, AffectedPkgs (4)
 - Preview: PreviewFragment (DialogFragment3), PreviewItemFragment (DialogFragment3) (2)
 - Picker: PickerFragment (1)
 
-#### 5. Final cleanup
+#### 4. Final cleanup
 - Delete mainNavGraph.kt
 - Delete all base Fragment classes (Fragment2/3, DialogFragment2/3, PreferenceFragment2/3, BottomSheetDialogFragment2)
 - Delete all ViewBinding XML layouts, RecyclerView Adapters/ViewHolders
