@@ -94,7 +94,16 @@ internal fun DataAreasScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(stringResource(R.string.data_areas_label)) },
+                title = {
+                    Column {
+                        Text(stringResource(R.string.data_areas_label))
+                        Text(
+                            text = stringResource(CommonR.string.general_details_label),
+                            style = MaterialTheme.typography.labelMedium,
+                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                        )
+                    }
+                },
                 navigationIcon = {
                     IconButton(onClick = onNavigateUp) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
