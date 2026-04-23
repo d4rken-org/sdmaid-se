@@ -52,6 +52,7 @@ dependencies {
     addAndroidCore()
     addAndroidUI()
     addCompose()
+    addNavigation3()
     addWorkerManager()
     addDI()
     addCoroutines()

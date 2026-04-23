@@ -84,8 +84,7 @@ import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DebugLogSessionsDialog — converted to Compose
 import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
-import eu.darken.sdmse.scheduler.ui.SchedulerSettingsRoute
-import eu.darken.sdmse.scheduler.ui.settings.SchedulerSettingsFragment
+// SchedulerSettingsFragment — converted to Compose, registered via SchedulerNavigation
 import eu.darken.sdmse.scheduler.ui.manager.SchedulerManagerFragment
 import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog
 // SetupFragment — converted to Compose
@@ -169,7 +168,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<AppControlSettingsFragment, AppControlSettingsRoute>()
     fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
     // SwiperSettings — converted to Compose, registered via SwiperNavigation
-    fragment<SchedulerSettingsFragment, SchedulerSettingsRoute>()
+    // SchedulerSettings — converted to Compose, registered via SchedulerNavigation
     fragment<StatsSettingsFragment, StatsSettingsRoute>()
 
     // CorpseFinder
