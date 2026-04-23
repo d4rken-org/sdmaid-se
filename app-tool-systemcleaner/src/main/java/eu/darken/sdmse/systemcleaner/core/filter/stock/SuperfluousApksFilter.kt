@@ -156,7 +156,13 @@ class SuperfluousApksFilter @Inject constructor(
         log(TAG) { "Checking status for ${apkInfo.packageName} (${apkInfo.versionCode})" }
 
         // TODO Multiple profiles can't have different versions of the same APK, right?
-        val installed = pkgRepo.get(apkInfo.id).firstOrNull() ?: return null
+        val installed = pkgRepo.get(apkInfo.id).firstOrNull()
+        if (installed == null) {
+            log(TAG, VERBOSE) {
+                "Not superfluous (not installed): ${apkInfo.packageName} (archive=${apkInfo.versionCode})"
+            }
+            return null
+        }
 
         val superfluos = if (includeSameVersion) {
             installed.versionCode >= apkInfo.versionCode
@@ -166,6 +172,10 @@ class SuperfluousApksFilter @Inject constructor(
         if (superfluos) {
             log(TAG, VERBOSE) {
                 "Superfluos: ${installed.packageName} installed=${installed.versionCode}, archive=${apkInfo.versionCode}"
+            }
+        } else {
+            log(TAG, VERBOSE) {
+                "Not superfluous (archive is newer): ${installed.packageName} installed=${installed.versionCode}, archive=${apkInfo.versionCode}"
             }
         }
         return if (superfluos) SystemCleanerFilter.Match.Deletion(item) else null
