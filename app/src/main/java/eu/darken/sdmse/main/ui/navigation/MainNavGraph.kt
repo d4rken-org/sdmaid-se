@@ -14,14 +14,13 @@ import eu.darken.sdmse.analyzer.ui.storage.apps.AppsFragment
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentFragment
 import eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragment
-import eu.darken.sdmse.appcleaner.ui.AppCleanerSettingsRoute
 import eu.darken.sdmse.appcleaner.ui.AppCleanerListRoute
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
 import eu.darken.sdmse.appcleaner.ui.AppJunkRoute
 import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment
 import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment
-import eu.darken.sdmse.appcleaner.ui.settings.AppCleanerSettingsFragment
+// AppCleanerSettingsFragment — converted to Compose, registered via AppCleanerNavigation
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
 // AppControlSettingsFragment — converted to Compose, registered via AppControlNavigation
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
@@ -160,7 +159,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // Tool Settings (Fragment-based, will be converted in later phases)
     // CorpseFinderSettings — converted to Compose, registered via CorpseFinderNavigation
     fragment<SystemCleanerSettingsFragment, SystemCleanerSettingsRoute>()
-    fragment<AppCleanerSettingsFragment, AppCleanerSettingsRoute>()
+    // AppCleanerSettings — converted to Compose, registered via AppCleanerNavigation
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
     // AppControlSettings — converted to Compose, registered via AppControlNavigation
     // SqueezerSettings — converted to Compose, registered via SqueezerNavigation
