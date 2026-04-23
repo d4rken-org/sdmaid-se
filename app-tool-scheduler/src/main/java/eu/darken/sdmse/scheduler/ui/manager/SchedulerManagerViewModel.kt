@@ -13,12 +13,16 @@ import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
+import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.hasApiLevel
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.root.RootManager
 import eu.darken.sdmse.common.root.canUseRootNow
+import eu.darken.sdmse.common.shell.ShellOps
+import eu.darken.sdmse.common.shell.ipc.ShellOpsCmd
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
@@ -32,16 +36,21 @@ import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
 import eu.darken.sdmse.scheduler.ui.manager.items.AlarmHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.BatteryHintRowVH
 import eu.darken.sdmse.scheduler.ui.manager.items.ScheduleRowVH
+import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.flow.combine
+import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.flow.take
+import kotlinx.coroutines.withTimeoutOrNull
 import java.time.Duration
 import java.time.Instant
 import java.time.LocalTime
 import java.time.ZoneId
 import java.util.UUID
+import java.util.concurrent.atomic.AtomicBoolean
 import javax.inject.Inject
 
 @SuppressLint("StaticFieldLeak")
@@ -57,9 +66,12 @@ class SchedulerManagerViewModel @Inject constructor(
     private val rootManager: RootManager,
     private val adbManager: AdbManager,
     private val batteryHelper: BatteryHelper,
+    private val shellOps: ShellOps,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     val events = SingleLiveEvent<SchedulerManagerEvents>()
+
+    private val fixInProgress = AtomicBoolean(false)
 
     private val showBatteryOptimizationHint = combine(
         batteryHelper.isIgnoringBatteryOptimizations,
@@ -101,11 +113,7 @@ class SchedulerManagerViewModel @Inject constructor(
 
         if (hasApiLevel(31) && showBatteryHint && schedulerState.schedules.any { it.isEnabled }) {
             BatteryHintRowVH.Item(
-                onFix = {
-                    events.postValue(
-                        SchedulerManagerEvents.ShowBatteryOptimizationSettings(batteryHelper.createIntent())
-                    )
-                },
+                onFix = { fixBatteryOptimization() },
                 onDismiss = { settings.hintBatteryDismissed.valueBlocking = true }
             ).apply { items.add(this) }
         }
@@ -174,6 +182,56 @@ class SchedulerManagerViewModel @Inject constructor(
     fun createNew() {
         log(TAG) { "createNew()" }
         navigateTo(ScheduleItemRoute(scheduleId = UUID.randomUUID().toString()))
+    }
+
+    fun fixBatteryOptimization() = launch {
+        if (!fixInProgress.compareAndSet(false, true)) {
+            log(TAG) { "fixBatteryOptimization(): already in progress, ignoring" }
+            return@launch
+        }
+        try {
+            val modes = buildList {
+                if (rootManager.canUseRootNow()) add(ShellOps.Mode.ROOT)
+                if (adbManager.canUseAdbNow()) add(ShellOps.Mode.ADB)
+            }
+            val pkg = context.packageName
+            val cmd = ShellOpsCmd("/system/bin/cmd deviceidle whitelist +$pkg")
+
+            for (mode in modes) {
+                val result = try {
+                    withTimeoutOrNull(15_000L) { shellOps.execute(cmd, mode) }
+                } catch (e: CancellationException) {
+                    throw e
+                } catch (e: Exception) {
+                    log(TAG, WARN) { "fixBatteryOptimization(mode=$mode) threw: ${e.asLog()}" }
+                    null
+                }
+
+                if (result != null && result.exitCode == 0) {
+                    log(TAG, INFO) { "fixBatteryOptimization(mode=$mode) exit=0, verifying…" }
+                    val verified = withTimeoutOrNull(5_000L) {
+                        batteryHelper.isIgnoringBatteryOptimizations.filter { it }.firstOrNull()
+                    } == true
+                    if (verified) {
+                        log(TAG, INFO) { "fixBatteryOptimization(mode=$mode) verified whitelisted" }
+                        return@launch
+                    }
+                    // Exit=0 but OS still says not-whitelisted (e.g. MIUI/ColorOS silently ignoring).
+                    // Another privileged mode running the same command won't help — go straight to Settings.
+                    log(TAG, WARN) { "fixBatteryOptimization(mode=$mode) exit=0 but OS still reports not-whitelisted; falling back" }
+                    break
+                } else {
+                    log(TAG, WARN) { "fixBatteryOptimization(mode=$mode) failed: $result" }
+                }
+            }
+
+            log(TAG) { "fixBatteryOptimization(): no privileged mode succeeded, opening settings" }
+            events.postValue(
+                SchedulerManagerEvents.ShowBatteryOptimizationSettings(batteryHelper.createIntent())
+            )
+        } finally {
+            fixInProgress.set(false)
+        }
     }
 
     fun debugSchedule() = launch {
