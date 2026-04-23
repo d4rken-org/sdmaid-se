@@ -55,8 +55,7 @@ import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import eu.darken.sdmse.deduplicator.ui.ClusterRoute
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorSettingsRoute
-import eu.darken.sdmse.deduplicator.ui.settings.DeduplicatorSettingsFragment
+// DeduplicatorSettingsFragment — converted to Compose, registered via DeduplicatorNavigation
 import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment
@@ -159,7 +158,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // CorpseFinderSettings — converted to Compose, registered via CorpseFinderNavigation
     // SystemCleanerSettings — converted to Compose, registered via SystemCleanerNavigation
     // AppCleanerSettings — converted to Compose, registered via AppCleanerNavigation
-    fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
+    // DeduplicatorSettings — converted to Compose, registered via DeduplicatorNavigation
     // AppControlSettings — converted to Compose, registered via AppControlNavigation
     // SqueezerSettings — converted to Compose, registered via SqueezerNavigation
     // SwiperSettings — converted to Compose, registered via SwiperNavigation
