@@ -118,8 +118,7 @@ import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
 import eu.darken.sdmse.stats.ui.StatsSettingsRoute
 import eu.darken.sdmse.stats.ui.settings.StatsSettingsFragment
-import eu.darken.sdmse.swiper.ui.SwiperSettingsRoute
-import eu.darken.sdmse.swiper.ui.settings.SwiperSettingsFragment
+// SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
 import eu.darken.sdmse.systemcleaner.ui.settings.SystemCleanerSettingsFragment
@@ -169,7 +168,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
     fragment<AppControlSettingsFragment, AppControlSettingsRoute>()
     fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
-    fragment<SwiperSettingsFragment, SwiperSettingsRoute>()
+    // SwiperSettings — converted to Compose, registered via SwiperNavigation
     fragment<SchedulerSettingsFragment, SchedulerSettingsRoute>()
     fragment<StatsSettingsFragment, StatsSettingsRoute>()
 
