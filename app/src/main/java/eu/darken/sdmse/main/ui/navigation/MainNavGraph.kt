@@ -46,9 +46,8 @@ import eu.darken.sdmse.common.previews.item.PreviewItemFragment
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 import eu.darken.sdmse.corpsefinder.ui.CorpseFinderListRoute
-import eu.darken.sdmse.corpsefinder.ui.CorpseFinderSettingsRoute
+// CorpseFinderSettingsFragment — converted to Compose, registered via CorpseFinderNavigation
 import eu.darken.sdmse.corpsefinder.ui.CorpseRoute
-import eu.darken.sdmse.corpsefinder.ui.settings.CorpseFinderSettingsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment
 import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment
 import eu.darken.sdmse.corpsefinder.ui.list.CorpseFinderListFragment
@@ -159,7 +158,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // LogView — converted to Compose, registered via AppNavigation
 
     // Tool Settings (Fragment-based, will be converted in later phases)
-    fragment<CorpseFinderSettingsFragment, CorpseFinderSettingsRoute>()
+    // CorpseFinderSettings — converted to Compose, registered via CorpseFinderNavigation
     fragment<SystemCleanerSettingsFragment, SystemCleanerSettingsRoute>()
     fragment<AppCleanerSettingsFragment, AppCleanerSettingsRoute>()
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
