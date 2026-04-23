@@ -115,8 +115,7 @@ import eu.darken.sdmse.stats.ui.StatsSettingsRoute
 import eu.darken.sdmse.stats.ui.settings.StatsSettingsFragment
 // SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
-import eu.darken.sdmse.systemcleaner.ui.SystemCleanerSettingsRoute
-import eu.darken.sdmse.systemcleaner.ui.settings.SystemCleanerSettingsFragment
+// SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment
 import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragment
 import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
@@ -158,7 +157,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Tool Settings (Fragment-based, will be converted in later phases)
     // CorpseFinderSettings — converted to Compose, registered via CorpseFinderNavigation
-    fragment<SystemCleanerSettingsFragment, SystemCleanerSettingsRoute>()
+    // SystemCleanerSettings — converted to Compose, registered via SystemCleanerNavigation
     // AppCleanerSettings — converted to Compose, registered via AppCleanerNavigation
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
     // AppControlSettings — converted to Compose, registered via AppControlNavigation
