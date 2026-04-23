@@ -2,6 +2,13 @@
 <PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
+        app:icon="@drawable/ic_drag_vertical_24"
+        app:key="list.fastscroller.enabled"
+        app:singleLineTitle="false"
+        app:summary="@string/appcontrol_settings_fastscroller_enabled_description"
+        app:title="@string/appcontrol_settings_fastscroller_enabled_label" />
+
+    <eu.darken.sdmse.common.preferences.BadgedCheckboxPreference
         app:enabled="false"
         app:icon="@drawable/ic_weight_24"
         app:key="module.sizing.enabled"

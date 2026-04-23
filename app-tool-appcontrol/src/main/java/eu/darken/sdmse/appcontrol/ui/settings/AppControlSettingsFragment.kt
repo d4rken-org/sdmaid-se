@@ -27,6 +27,9 @@ class AppControlSettingsFragment : PreferenceFragment2() {
     override val settings: AppControlSettings by lazy { acSettings }
     override val preferenceFile: Int = R.xml.preferences_appcontrol
 
+    private val fastScroller: BadgedCheckboxPreference
+        get() = findPreference(settings.listFastScrollerEnabled.keyName)!!
+
     private val determineSizes: BadgedCheckboxPreference
         get() = findPreference(settings.moduleSizingEnabled.keyName)!!
 
@@ -39,6 +42,7 @@ class AppControlSettingsFragment : PreferenceFragment2() {
     override fun onPreferencesCreated() {
         super.onPreferencesCreated()
 
+        fastScroller.isRestricted = false
         determineSizes.badgedAction = {
             showSetupHint?.invoke(this@AppControlSettingsFragment, setOf(SetupModule.Type.USAGE_STATS))
         }

@@ -276,7 +276,11 @@ class AppControlListViewModel @Inject constructor(
             )
             emit(finalState)
         }
-    }.asLiveData2()
+    }
+        .combine(settings.listFastScrollerEnabled.flow) { base, fastScrollerEnabled ->
+            base.copy(fastScrollerEnabled = fastScrollerEnabled)
+        }
+        .asLiveData2()
 
     fun updateSearchQuery(query: String) {
         log(TAG) { "updateSearchQuery($query)" }
@@ -515,6 +519,7 @@ class AppControlListViewModel @Inject constructor(
         val allowSortSize: Boolean = false,
         val allowSortScreenTime: Boolean = false,
         val allowFilterActive: Boolean = false,
+        val fastScrollerEnabled: Boolean = true,
     ) {
         val progress: Progress.Data?
             get() = progressWorker ?: progressUI

@@ -262,7 +262,13 @@ class AppControlListFragment : Fragment3(R.layout.appcontrol_list_fragment) {
 
             loadingOverlay.setProgress(state.progress)
             list.isGone = state.progress != null
-            fastscroller.isInvisible = state.progress != null || state.appInfos.isNullOrEmpty()
+            val fastScrollerVisibility = when {
+                !state.fastScrollerEnabled -> View.GONE
+                state.progress != null || state.appInfos.isNullOrEmpty() -> View.INVISIBLE
+                else -> View.VISIBLE
+            }
+            fastscroller.visibility = fastScrollerVisibility
+            fastscrollerThumb.visibility = fastScrollerVisibility
             if (!drawer.isDrawerOpen) refreshAction.isInvisible = state.progress != null
 
             val checkedSortMode = when (state.options.listSort.mode) {
