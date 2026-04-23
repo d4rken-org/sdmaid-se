@@ -61,6 +61,11 @@ fun SettingsBadgedSwitchItem(
         return
     }
 
+    // Keep the row itself `enabled = true` so the badge click fires; the legacy
+    // BadgedCheckboxPreference achieved the same by stacking a clickable overlay on
+    // top of a disabled checkbox. The visual "disabled" cue is applied only to the
+    // trailing Switch — row title/subtitle stay at full alpha so the badge affordance
+    // is legible.
     SettingsBaseItem(
         icon = icon,
         iconPainter = iconPainter,
@@ -68,7 +73,7 @@ fun SettingsBadgedSwitchItem(
         onClick = onBadgeClick,
         modifier = modifier,
         subtitle = subtitle,
-        enabled = false,
+        enabled = true,
         trailingContent = {
             Box(
                 modifier = Modifier
