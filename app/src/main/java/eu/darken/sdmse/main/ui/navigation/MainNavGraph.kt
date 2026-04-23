@@ -23,8 +23,7 @@ import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment
 import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment
 import eu.darken.sdmse.appcleaner.ui.settings.AppCleanerSettingsFragment
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
-import eu.darken.sdmse.appcontrol.ui.AppControlSettingsRoute
-import eu.darken.sdmse.appcontrol.ui.settings.AppControlSettingsFragment
+// AppControlSettingsFragment — converted to Compose, registered via AppControlNavigation
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment
 import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog
@@ -165,7 +164,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<SystemCleanerSettingsFragment, SystemCleanerSettingsRoute>()
     fragment<AppCleanerSettingsFragment, AppCleanerSettingsRoute>()
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
-    fragment<AppControlSettingsFragment, AppControlSettingsRoute>()
+    // AppControlSettings — converted to Compose, registered via AppControlNavigation
     fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
     // SwiperSettings — converted to Compose, registered via SwiperNavigation
     // SchedulerSettings — converted to Compose, registered via SchedulerNavigation

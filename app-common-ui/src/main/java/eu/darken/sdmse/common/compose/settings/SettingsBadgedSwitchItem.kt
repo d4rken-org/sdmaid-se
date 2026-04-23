@@ -14,6 +14,7 @@ import androidx.compose.material3.Switch
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.common.compose.preview.Preview2
@@ -35,19 +36,21 @@ sealed class SettingGate(val badgeIcon: ImageVector) {
  */
 @Composable
 fun SettingsBadgedSwitchItem(
-    icon: ImageVector,
     title: String,
     subtitle: String?,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     onBadgeClick: () -> Unit,
     modifier: Modifier = Modifier,
+    icon: ImageVector? = null,
+    iconPainter: Painter? = null,
     gate: SettingGate? = null,
     enabled: Boolean = true,
 ) {
     if (gate == null) {
         SettingsSwitchItem(
             icon = icon,
+            iconPainter = iconPainter,
             title = title,
             subtitle = subtitle,
             checked = checked,
@@ -60,6 +63,7 @@ fun SettingsBadgedSwitchItem(
 
     SettingsBaseItem(
         icon = icon,
+        iconPainter = iconPainter,
         title = title,
         onClick = onBadgeClick,
         modifier = modifier,
