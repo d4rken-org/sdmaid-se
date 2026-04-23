@@ -101,7 +101,12 @@ class SchedulerWorker @AssistedInject constructor(
             log(TAG, INFO) { "Executing schedule $schedule" }
             Bugs.leaveBreadCrumb("Executing schedule")
 
-            setForeground(schedulerNotifications.getForegroundInfo(schedule))
+            try {
+                setForeground(schedulerNotifications.getForegroundInfo(schedule))
+            } catch (e: IllegalStateException) {
+                log(TAG, ERROR) { "Can't update foreground info, falling back to notifyState: ${e.asLog()}" }
+                schedulerNotifications.notifyState(schedule)
+            }
 
             doDoWork(schedule)
 
