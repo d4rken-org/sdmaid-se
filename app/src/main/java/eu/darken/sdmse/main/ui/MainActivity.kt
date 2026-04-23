@@ -28,6 +28,8 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.lifecycle.viewmodel.navigation3.rememberViewModelStoreNavEntryDecorator
+import androidx.navigation3.runtime.NavEntry
+import androidx.navigation3.runtime.NavKey
 import androidx.navigation3.runtime.entryProvider
 import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
@@ -43,6 +45,7 @@ import eu.darken.sdmse.common.navigation.NavigationController
 import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
@@ -147,7 +150,20 @@ class MainActivity : Activity2() {
                     rememberSaveableStateHolderNavEntryDecorator(),
                     rememberViewModelStoreNavEntryDecorator(),
                 ),
-                entryProvider = entryProvider {
+                entryProvider = entryProvider<NavKey>(
+                    fallback = { unknownKey ->
+                        // Prevents IllegalStateException when a tool-settings row navigates
+                        // to a route whose Fragment screen hasn't been converted yet
+                        // (e.g. CustomFilterListRoute, PickerRoute, ArbiterConfigRoute,
+                        // ReportsRoute). Tracked as immediate follow-up in the rewrite plan.
+                        NavEntry(key = unknownKey) {
+                            UnknownDestinationScreen(
+                                routeLabel = unknownKey::class.simpleName ?: unknownKey.toString(),
+                                onNavigateUp = { navCtrl.up() },
+                            )
+                        }
+                    },
+                ) {
                     navigationEntries.forEach { entry ->
                         entry.apply { setup() }
                     }
