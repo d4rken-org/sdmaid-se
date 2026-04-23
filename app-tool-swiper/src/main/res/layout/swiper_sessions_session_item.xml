@@ -93,6 +93,39 @@
 
         </LinearLayout>
 
+        <!-- Risky (whole-storage) warning -->
+        <LinearLayout
+            android:id="@+id/risky_warning"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/paths_container"
+            tools:visibility="visible">
+
+            <ImageView
+                android:id="@+id/risky_warning_icon"
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_baseline_warning_24"
+                android:contentDescription="@string/swiper_session_risky_label"
+                app:tint="?attr/colorError" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:id="@+id/risky_warning_text"
+                style="@style/TextAppearance.Material3.BodySmall"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/swiper_session_risky_label"
+                android:textColor="?attr/colorError" />
+
+        </LinearLayout>
+
         <!-- Filter summary -->
         <com.google.android.material.textview.MaterialTextView
             android:id="@+id/filter_summary"
@@ -104,7 +137,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/paths_container"
+            app:layout_constraintTop_toBottomOf="@id/risky_warning"
             tools:text="Filtered: Images, Videos"
             tools:visibility="visible" />
 

@@ -67,6 +67,21 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
             pathsContainer.addView(pathView)
         }
 
+        // Risky (whole-storage) warning.
+        // When the user has narrowed the session with a file-type filter, tone the chip down from error red to
+        // tertiary — they've consciously scoped the scan, so the warning becomes informational rather than alarming.
+        riskyWarning.isVisible = item.isRisky
+        if (item.isRisky) {
+            val tintAttr = if (session.fileTypeFilter.isEmpty) {
+                androidx.appcompat.R.attr.colorError
+            } else {
+                com.google.android.material.R.attr.colorTertiary
+            }
+            val tint = android.content.res.ColorStateList.valueOf(context.getColorForAttr(tintAttr))
+            riskyWarningIcon.imageTintList = tint
+            riskyWarningText.setTextColor(tint)
+        }
+
         // Filter summary
         val filter = session.fileTypeFilter
         if (!filter.isEmpty) {
@@ -217,6 +232,7 @@ class SwiperSessionsSessionVH(parent: ViewGroup) :
         val isScanning: Boolean,
         val isCancelling: Boolean,
         val isRefreshing: Boolean,
+        val isRisky: Boolean,
         val onScan: () -> Unit,
         val onContinue: () -> Unit,
         val onRemove: () -> Unit,

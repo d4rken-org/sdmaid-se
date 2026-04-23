@@ -23,6 +23,17 @@ fun DataArea.hasFlags(vararg lookup: DataArea.Flag): Boolean = flags.containsAll
 
 suspend fun DataAreaManager.currentAreas(): Collection<DataArea> = state.first().areas
 
+/**
+ * The area roots users see as a whole storage volume (SD card, emulated shared storage, Android/data, Android/media,
+ * Android/obb, OTG/portable). Selecting these as the source of a destructive scan effectively targets every file on
+ * that volume — worth surfacing to the user before we start iterating.
+ */
+val DataArea.Type.isSensitiveRoot: Boolean
+    get() = this in DataArea.Type.PUBLIC_LOCATIONS
+
+val DataArea.isSensitiveRoot: Boolean
+    get() = type.isSensitiveRoot
+
 val DataArea.Type.label: CaString
     get() = when (this) {
         DataArea.Type.SDCARD -> R.string.area_type_sdcard_label.toCaString()

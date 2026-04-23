@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -18,6 +19,7 @@ import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.EdgeToEdgeHelper
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.files.APath
+import kotlinx.coroutines.launch
 import eu.darken.sdmse.common.lists.differ.update
 import eu.darken.sdmse.swiper.core.FileTypeCategory
 import eu.darken.sdmse.swiper.core.FileTypeFilter
@@ -110,6 +112,7 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                 val sessionId = sessionWithStats.session.sessionId
                 val displayLabel = sessionWithStats.session.label
                     ?: getString(eu.darken.sdmse.swiper.R.string.swiper_session_default_label, position)
+                val isRisky = state.isSessionRisky(sessionId)
                 items.add(
                     SwiperSessionsSessionVH.Item(
                         sessionWithStats = sessionWithStats,
@@ -117,7 +120,8 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                         isScanning = state.isSessionScanning(sessionId),
                         isCancelling = state.isSessionCancelling(sessionId),
                         isRefreshing = state.isSessionRefreshing(sessionId),
-                        onScan = { vm.scanSession(sessionId) },
+                        isRisky = isRisky,
+                        onScan = { confirmAndScan(sessionWithStats.session.sessionId, sessionWithStats.session.sourcePaths) },
                         onContinue = { vm.continueSession(sessionId) },
                         onRemove = { showDiscardConfirmation(sessionId) },
                         onCancel = { vm.cancelScan() },
@@ -164,6 +168,28 @@ class SwiperSessionsFragment : Fragment3(R.layout.swiper_sessions_fragment) {
                 )
             )
         )
+    }
+
+    private fun confirmAndScan(sessionId: String, sourcePaths: List<APath>) {
+        viewLifecycleOwner.lifecycleScope.launch {
+            val sensitive = vm.findSensitiveRoots(sourcePaths)
+            if (sensitive.isEmpty()) {
+                vm.scanSession(sessionId)
+            } else {
+                showSensitiveRootDialog(sensitive) { vm.scanSession(sessionId) }
+            }
+        }
+    }
+
+    private fun showSensitiveRootDialog(sensitivePaths: List<APath>, onContinue: () -> Unit) {
+        val context = requireContext()
+        val pathsLabel = sensitivePaths.joinToString("\n") { it.userReadablePath.get(context) }
+        MaterialAlertDialogBuilder(context)
+            .setTitle(R.string.swiper_sensitive_root_warning_title)
+            .setMessage(getString(R.string.swiper_sensitive_root_warning_message, pathsLabel))
+            .setPositiveButton(R.string.swiper_sensitive_root_warning_continue_action) { _, _ -> onContinue() }
+            .setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
+            .show()
     }
 
     private fun showDiscardConfirmation(sessionId: String) {

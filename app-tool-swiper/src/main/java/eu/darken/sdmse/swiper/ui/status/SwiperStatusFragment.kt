@@ -1,14 +1,18 @@
 package eu.darken.sdmse.swiper.ui.status
 
+import android.content.DialogInterface
 import android.content.res.ColorStateList
 import android.os.Bundle
+import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
+import android.widget.TextView
 import androidx.core.view.ViewCompat
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.recyclerview.selection.SelectionTracker
+import com.google.android.material.checkbox.MaterialCheckBox
 import com.google.android.material.dialog.MaterialAlertDialogBuilder
 import com.google.android.material.appbar.AppBarLayout
 import dagger.hilt.android.AndroidEntryPoint
@@ -341,35 +345,96 @@ class SwiperStatusFragment : Fragment3(R.layout.swiper_status_fragment) {
             return
         }
 
-        // Show confirmation for delete items
-        val (sizeFormatted, _) = ByteFormatter.formatSize(requireContext(), state.deleteSize)
+        val context = requireContext()
+        val (sizeFormatted, _) = ByteFormatter.formatSize(context, state.deleteSize)
 
         val deleteMessage = resources.getQuantityString(
-            eu.darken.sdmse.swiper.R.plurals.swiper_delete_confirmation_message,
+            R.plurals.swiper_delete_confirmation_message,
             state.deleteCount,
             state.deleteCount,
             sizeFormatted,
         )
-        val message = if (state.undecidedCount > 0) {
-            val undecidedMessage = resources.getQuantityString(
-                eu.darken.sdmse.swiper.R.plurals.swiper_delete_confirmation_message_partial_undecided,
+        val undecidedMessage = if (state.undecidedCount > 0) {
+            resources.getQuantityString(
+                R.plurals.swiper_delete_confirmation_message_partial_undecided,
                 state.undecidedCount,
                 state.undecidedCount,
             )
-            "$deleteMessage\n\n$undecidedMessage"
-        } else {
-            deleteMessage
+        } else null
+
+        val requiresExplicitConfirm = state.hasSensitiveRoot
+
+        val dialogView = LayoutInflater.from(context)
+            .inflate(R.layout.swiper_delete_confirmation_dialog, null)
+
+        dialogView.findViewById<TextView>(R.id.message_text).text = deleteMessage
+
+        dialogView.findViewById<TextView>(R.id.undecided_text).apply {
+            if (undecidedMessage != null) {
+                text = undecidedMessage
+                visibility = View.VISIBLE
+            } else {
+                visibility = View.GONE
+            }
         }
 
-        MaterialAlertDialogBuilder(requireContext()).apply {
-            setTitle(eu.darken.sdmse.swiper.R.string.swiper_delete_confirmation_title)
-            setMessage(message)
-            setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
-                vm.retryAllFailed()  // Always call - no-op if no failed items
+        dialogView.findViewById<TextView>(R.id.sensitive_root_warning).apply {
+            visibility = if (state.hasSensitiveRoot) View.VISIBLE else View.GONE
+        }
+
+        val bucketsText = buildBucketsText(state.deletionPreview)
+        dialogView.findViewById<TextView>(R.id.buckets_text).apply {
+            if (bucketsText != null) {
+                text = bucketsText
+                visibility = View.VISIBLE
+            } else {
+                visibility = View.GONE
+            }
+        }
+
+        val checkbox = dialogView.findViewById<MaterialCheckBox>(R.id.confirm_checkbox)
+        checkbox.visibility = if (requiresExplicitConfirm) View.VISIBLE else View.GONE
+        checkbox.isChecked = false
+
+        val dialog = MaterialAlertDialogBuilder(context)
+            .setTitle(R.string.swiper_delete_confirmation_title)
+            .setView(dialogView)
+            .setPositiveButton(eu.darken.sdmse.common.R.string.general_delete_action) { _, _ ->
+                vm.retryAllFailed()
                 vm.finalize()
             }
-            setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
-        }.show()
+            .setNegativeButton(eu.darken.sdmse.common.R.string.general_cancel_action, null)
+            .show()
+
+        if (requiresExplicitConfirm) {
+            val positiveButton = dialog.getButton(DialogInterface.BUTTON_POSITIVE)
+            positiveButton.isEnabled = false
+            checkbox.setOnCheckedChangeListener { _, checked ->
+                positiveButton.isEnabled = checked
+            }
+        }
+    }
+
+    private fun buildBucketsText(preview: DeletionPreview): CharSequence? {
+        if (preview.buckets.isEmpty()) return null
+        val context = requireContext()
+        val lines = preview.buckets.map { bucket ->
+            val itemsStr = resources.getQuantityString(
+                eu.darken.sdmse.common.R.plurals.result_x_items,
+                bucket.count,
+                bucket.count,
+            )
+            val (sizeStr, _) = ByteFormatter.formatSize(context, bucket.size)
+            "• ${bucket.label} — $itemsStr ($sizeStr)"
+        }
+        val moreLine = if (preview.moreFolders > 0) {
+            resources.getQuantityString(
+                R.plurals.swiper_delete_confirmation_more_folders,
+                preview.moreFolders,
+                preview.moreFolders,
+            )
+        } else null
+        return (lines + listOfNotNull(moreLine)).joinToString("\n")
     }
 
 }

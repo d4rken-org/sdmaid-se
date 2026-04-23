@@ -2,11 +2,15 @@ package eu.darken.sdmse.swiper.ui.sessions
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
+import eu.darken.sdmse.common.areas.DataAreaManager
+import eu.darken.sdmse.common.areas.currentAreas
+import eu.darken.sdmse.common.areas.isSensitiveRoot
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.files.matches
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.uix.ViewModel3
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
@@ -29,6 +33,7 @@ class SwiperSessionsViewModel @Inject constructor(
     private val swiper: Swiper,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
+    private val dataAreaManager: DataAreaManager,
 ) : ViewModel3(dispatcherProvider = dispatcherProvider) {
 
     private val selectedPaths = MutableStateFlow<Set<APath>>(emptySet())
@@ -44,7 +49,12 @@ class SwiperSessionsViewModel @Inject constructor(
         scanningSessionId,
         cancellingSessionId,
         refreshingSessionId,
-    ) { sessionsWithStats, progress, paths, isPro, scanningId, cancellingId, refreshingId ->
+        dataAreaManager.state,
+    ) { sessionsWithStats, progress, paths, isPro, scanningId, cancellingId, refreshingId, areaState ->
+        val riskySessionIds = sessionsWithStats
+            .filter { it.session.sourcePaths.any { p -> p.isSensitiveRootIn(areaState.areas) } }
+            .map { it.session.sessionId }
+            .toSet()
         State(
             sessionsWithStats = sessionsWithStats,
             selectedPaths = paths,
@@ -54,8 +64,17 @@ class SwiperSessionsViewModel @Inject constructor(
             scanningSessionId = scanningId,
             cancellingSessionId = cancellingId,
             refreshingSessionId = refreshingId,
+            riskySessionIds = riskySessionIds,
         )
     }.asLiveData2()
+
+    suspend fun findSensitiveRoots(paths: Collection<APath>): List<APath> {
+        val areas = dataAreaManager.currentAreas()
+        return paths.filter { it.isSensitiveRootIn(areas) }
+    }
+
+    private fun APath.isSensitiveRootIn(areas: Collection<eu.darken.sdmse.common.areas.DataArea>): Boolean =
+        areas.any { it.isSensitiveRoot && this.matches(it.path) }
 
     fun setSelectedPaths(paths: Set<APath>) {
         log(TAG, INFO) { "setSelectedPaths: $paths" }
@@ -136,6 +155,7 @@ class SwiperSessionsViewModel @Inject constructor(
         val scanningSessionId: String?,
         val cancellingSessionId: String?,
         val refreshingSessionId: String?,
+        val riskySessionIds: Set<String> = emptySet(),
     ) {
         val canCreateNewSession: Boolean = isPro || sessionsWithStats.size < SwiperSettings.FREE_VERSION_SESSION_LIMIT
         val freeVersionLimit: Int = SwiperSettings.FREE_VERSION_LIMIT
@@ -144,6 +164,7 @@ class SwiperSessionsViewModel @Inject constructor(
         fun isSessionScanning(sessionId: String): Boolean = scanningSessionId == sessionId
         fun isSessionCancelling(sessionId: String): Boolean = cancellingSessionId == sessionId
         fun isSessionRefreshing(sessionId: String): Boolean = refreshingSessionId == sessionId
+        fun isSessionRisky(sessionId: String): Boolean = sessionId in riskySessionIds
     }
 
     companion object {
