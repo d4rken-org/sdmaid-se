@@ -110,8 +110,7 @@ import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
 import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
-import eu.darken.sdmse.stats.ui.StatsSettingsRoute
-import eu.darken.sdmse.stats.ui.settings.StatsSettingsFragment
+// StatsSettingsFragment — converted to Compose, registered via StatsNavigation
 // SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 // SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
@@ -163,7 +162,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // SqueezerSettings — converted to Compose, registered via SqueezerNavigation
     // SwiperSettings — converted to Compose, registered via SwiperNavigation
     // SchedulerSettings — converted to Compose, registered via SchedulerNavigation
-    fragment<StatsSettingsFragment, StatsSettingsRoute>()
+    // StatsSettings — converted to Compose, registered via StatsNavigation
 
     // CorpseFinder
     fragment<CorpseFinderListFragment, CorpseFinderListRoute>()
