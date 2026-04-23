@@ -90,10 +90,9 @@ import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
 import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
-import eu.darken.sdmse.squeezer.ui.SqueezerSettingsRoute
+// SqueezerSettingsFragment — converted to Compose, registered via SqueezerNavigation
 import eu.darken.sdmse.squeezer.ui.SqueezerSetupRoute
 import eu.darken.sdmse.squeezer.ui.list.SqueezerListFragment
-import eu.darken.sdmse.squeezer.ui.settings.SqueezerSettingsFragment
 import eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 import eu.darken.sdmse.stats.ui.AffectedPkgsRoute
@@ -165,7 +164,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<AppCleanerSettingsFragment, AppCleanerSettingsRoute>()
     fragment<DeduplicatorSettingsFragment, DeduplicatorSettingsRoute>()
     // AppControlSettings — converted to Compose, registered via AppControlNavigation
-    fragment<SqueezerSettingsFragment, SqueezerSettingsRoute>()
+    // SqueezerSettings — converted to Compose, registered via SqueezerNavigation
     // SwiperSettings — converted to Compose, registered via SwiperNavigation
     // SchedulerSettings — converted to Compose, registered via SchedulerNavigation
     fragment<StatsSettingsFragment, StatsSettingsRoute>()
