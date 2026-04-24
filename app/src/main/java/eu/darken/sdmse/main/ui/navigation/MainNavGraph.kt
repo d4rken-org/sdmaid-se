@@ -64,8 +64,6 @@ import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
 import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionFragment
-import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionEditorOptions
-import eu.darken.sdmse.exclusion.ui.editor.pkg.PkgExclusionFragment
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionEditorOptions
 import eu.darken.sdmse.exclusion.ui.editor.segment.SegmentExclusionFragment
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
@@ -122,7 +120,6 @@ private val DuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id
 private val NullableDuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer(), isNullableAllowed = true)
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
 private val PathExclusionEditorOptionsNavType = serializableNavType(PathExclusionEditorOptions.serializer(), isNullableAllowed = true)
-private val PkgExclusionEditorOptionsNavType = serializableNavType(PkgExclusionEditorOptions.serializer(), isNullableAllowed = true)
 private val SegmentExclusionEditorOptionsNavType = serializableNavType(SegmentExclusionEditorOptions.serializer(), isNullableAllowed = true)
 private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
 private val PreviewOptionsNavType = serializableNavType(PreviewOptions.serializer())
@@ -215,9 +212,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<PathExclusionFragment, PathExclusionEditorRoute>(
         typeMap = mapOf(typeOf<PathExclusionEditorOptions?>() to PathExclusionEditorOptionsNavType)
     )
-    fragment<PkgExclusionFragment, PkgExclusionEditorRoute>(
-        typeMap = mapOf(typeOf<PkgExclusionEditorOptions?>() to PkgExclusionEditorOptionsNavType)
-    )
+    // PkgExclusionEditor — converted to Compose, registered via ExclusionNavigation
     fragment<SegmentExclusionFragment, SegmentExclusionEditorRoute>(
         typeMap = mapOf(typeOf<SegmentExclusionEditorOptions?>() to SegmentExclusionEditorOptionsNavType)
     )

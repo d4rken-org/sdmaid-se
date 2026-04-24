@@ -33,15 +33,7 @@ data class PathExclusionEditorRoute(
 data class PkgExclusionEditorRoute(
     val exclusionId: String? = null,
     val initial: PkgExclusionEditorOptions? = null,
-) : NavigationDestination {
-    companion object {
-        val typeMap: Map<KType, NavType<*>> = mapOf(
-            typeOf<PkgExclusionEditorOptions?>() to serializableNavType(PkgExclusionEditorOptions.serializer(), isNullableAllowed = true),
-        )
-
-        fun from(handle: SavedStateHandle) = handle.toRoute<PkgExclusionEditorRoute>(typeMap)
-    }
-}
+) : NavigationDestination
 
 @Serializable
 data class SegmentExclusionEditorRoute(

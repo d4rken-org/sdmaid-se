@@ -9,7 +9,7 @@
         android:orderInCategory="80"
         android:visible="false"
         tools:visible="true"
-        android:title="@string/general_remove_action"
+        android:title="@string/general_save_action"
         app:showAsAction="always" />
 
     <item
