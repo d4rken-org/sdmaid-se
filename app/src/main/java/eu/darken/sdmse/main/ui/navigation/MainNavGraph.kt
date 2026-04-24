@@ -112,7 +112,7 @@ import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
 import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 // SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment
-import eu.darken.sdmse.systemcleaner.ui.customfilter.list.CustomFilterListFragment
+// CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
 import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
 import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment
 import eu.darken.sdmse.systemcleaner.ui.list.SystemCleanerListFragment
@@ -169,7 +169,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<SystemCleanerListFragment, SystemCleanerListRoute>()
     fragment<FilterContentDetailsFragment, FilterContentDetailsRoute>()
     fragment<FilterContentFragment, FilterContentRoute>()
-    fragment<CustomFilterListFragment, CustomFilterListRoute>()
+    // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
     fragment<CustomFilterEditorFragment, CustomFilterEditorRoute>(
         typeMap = mapOf(typeOf<CustomFilterEditorOptions?>() to CustomFilterEditorOptionsNavType)
     )

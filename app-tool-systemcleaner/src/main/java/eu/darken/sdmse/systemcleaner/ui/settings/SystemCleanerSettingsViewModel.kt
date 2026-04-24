@@ -160,7 +160,6 @@ class SystemCleanerSettingsViewModel @Inject constructor(
     fun setFilterPackageCache(value: Boolean) = launch { settings.filterPackageCacheEnabled.value(value) }
 
     fun onCustomFiltersClick() {
-        // FIXME: dead-click until CustomFilterList Compose conversion lands
         navTo(CustomFilterListRoute)
     }
 
