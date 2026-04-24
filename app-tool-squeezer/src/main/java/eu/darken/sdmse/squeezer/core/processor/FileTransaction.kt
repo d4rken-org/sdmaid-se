@@ -116,6 +116,20 @@ class FileTransaction @Inject constructor(
             }
 
             try {
+                // Preserve the original mtime so gallery apps that sort by date don't reorder
+                // compressed files (issue #2388). Set it on the temp inode before the final
+                // rename: rename preserves inode metadata, so the timestamp carries through.
+                // Doing it post-rename would leave a process-death window where orphan recovery
+                // deletes the backup but target still has the "now" mtime.
+                val originalModifiedAt = fileOps.getLastModified(backupFile)
+                if (originalModifiedAt > 0L) {
+                    if (!fileOps.setLastModified(tempFile, originalModifiedAt)) {
+                        log(TAG, WARN) {
+                            "Failed to preserve modification date for ${target.path}"
+                        }
+                    }
+                }
+
                 // Atomic same-volume rename. The workdir sits next to target so this should
                 // always succeed. If it doesn't, fail closed — a copy fallback would risk
                 // data loss if the app dies mid-copy (orphan recovery can't distinguish a

@@ -44,6 +44,8 @@ interface FileOps {
     suspend fun createFile(file: File): Boolean
     suspend fun listFiles(dir: File): List<File>
     suspend fun copyFile(from: File, to: File)
+    suspend fun getLastModified(file: File): Long
+    suspend fun setLastModified(file: File, time: Long): Boolean
 }
 
 @Reusable
@@ -89,6 +91,15 @@ class GatewayFileOps @Inject constructor(
         from.inputStream().use { input ->
             to.outputStream().use { output -> input.copyTo(output) }
         }
+    }
+
+    override suspend fun getLastModified(file: File): Long = file.lastModified()
+
+    override suspend fun setLastModified(file: File, time: Long): Boolean = try {
+        file.setLastModified(time)
+    } catch (e: Exception) {
+        log(TAG, WARN) { "setLastModified failed for ${file.path}: ${e.message}" }
+        false
     }
 
     companion object {
