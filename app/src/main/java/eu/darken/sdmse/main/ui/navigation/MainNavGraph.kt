@@ -57,7 +57,7 @@ import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
 import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment
-import eu.darken.sdmse.deduplicator.ui.settings.arbiter.ArbiterConfigFragment
+// ArbiterConfigFragment — converted to Compose, registered via DeduplicatorNavigation
 import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
@@ -235,7 +235,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<ClusterFragment, ClusterRoute>(
         typeMap = mapOf(typeOf<Duplicate.Cluster.Id>() to DuplicateClusterIdNavType)
     )
-    fragment<ArbiterConfigFragment, ArbiterConfigRoute>()
+    // ArbiterConfigFragment — converted to Compose, registered via DeduplicatorNavigation
 
     // Squeezer
     fragment<SqueezerSetupFragment, SqueezerSetupRoute>()

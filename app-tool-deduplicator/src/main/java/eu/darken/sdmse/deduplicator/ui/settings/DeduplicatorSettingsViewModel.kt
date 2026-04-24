@@ -120,7 +120,6 @@ class DeduplicatorSettingsViewModel @Inject constructor(
     }
 
     fun onArbiterConfigClick() {
-        // FIXME: dead-click until ArbiterConfigRoute Compose conversion lands.
         navTo(ArbiterConfigRoute)
     }
 
