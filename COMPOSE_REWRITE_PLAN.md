@@ -6,9 +6,9 @@
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
 - **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules) **+ app-common-stats + app-common-picker + app-common-exclusion**. `addNavigation3()` now added to every converted tool module's `build.gradle.kts`.
 - **All routes**: Every route implements NavigationDestination
-- **ViewModels migrated to ViewModel4** (38 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory, ExclusionList, PkgExclusionEditor, SegmentExclusionEditor, PathExclusionEditor**
+- **ViewModels migrated to ViewModel4** (40 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory, ExclusionList, PkgExclusionEditor, SegmentExclusionEditor, PathExclusionEditor, CorpseFinderList, CorpseDetails**
 - **Navigation3 stable**: Upgraded from alpha08 to 1.0.1, fixed API renames (EntryProviderScope, rememberSaveableStateHolderNavEntryDecorator)
-- **37 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens, Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList **+ AffectedPkgs, AffectedPaths, SpaceHistory (chart wrapped via AndroidView), ExclusionList, PathExclusionEditor, PkgExclusionEditor, SegmentExclusionEditor**
+- **39 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens, Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory (chart wrapped via AndroidView), ExclusionList, PathExclusionEditor, PkgExclusionEditor, SegmentExclusionEditor **+ CorpseFinderList, CorpseDetails (HorizontalPager with inline per-corpse content; CorpseRoute retired)**
 - **Dashboard cards done**: All 18 card types have full Compose composables with XML parity
 - **Setup cards done**: All 8 card types (Storage, SAF, Root, UsageStats, Automation, Notification, Shizuku, Inventory) + SetupLoadingCard + SetupCardContainer
 - **Support dialogs done**: `RecorderConsentDialog` and `ShortRecordingDialog` are implemented and wired into `SupportScreenHost`
@@ -17,12 +17,14 @@
 - **Shared settings toolkit expanded**: Compose `SizeInputDialog` + `AgeInputDialog` under `common/compose/settings/dialogs/`; `SettingsBadgedSwitchItem` with a write-blocking `SettingGate` (SetupRequired/ProRequired) replaces the legacy `BadgedCheckboxPreference`. `SettingsSwitchItem` and `SettingsBadgedSwitchItem` both accept `ImageVector` or `Painter` for the leading icon.
 - **Per-module `NavigationEntry` + Hilt `@Binds @IntoSet`**: All 9 tool modules (+ Stats inside `app-common-stats`, + `app-common-picker`, **+ `app-common-exclusion`**) ship their own `NavigationEntry`.
 - **Cross-screen result API**: `NavigationController.setResult(ResultKey<T>, value)` / `consumeResults(ResultKey<T>)` replaces the generic `ResultBus`. Typed via `ResultKey<T>` in `app-common/common/navigation/`. Consumers: `DeduplicatorSettingsViewModel` + `PathExclusionViewModel` both use `PickerResultKey`. Picker's Host still bridges to `setFragmentResult` for still-Fragment callers (Squeezer setup, Swiper sessions) until those convert.
-- **Coil ↔ Compose bridge**: `io.coil-kt:coil-compose:2.7.0` added to app-common-stats and app-common-exclusion. `AsyncImage(model = Pkg)` and `AsyncImage(model = APathLookup)` both resolve through existing Coil mappers (PkgFetcher, PathPreviewFetcher).
+- **Coil ↔ Compose bridge**: `io.coil-kt:coil-compose:2.7.0` added to app-common-stats, app-common-exclusion, **and app-common-coil**. `AsyncImage(model = Pkg)` and `AsyncImage(model = APathLookup)` both resolve through existing Coil mappers (PkgFetcher, PathPreviewFetcher). A Compose `FilePreviewImage(lookup)` helper in `app-common-coil` mirrors the legacy `ImageView.loadFilePreview` with file-type fallback/error icons — used by all tool detail screens.
+- **Shared `ProgressOverlay` Compose primitive**: `app-common-ui/.../compose/progress/ProgressOverlay.kt` hides content (alpha 0) and consumes pointer input when `Progress.Data != null`, replacing the XML `ProgressOverlayView` for every converted tool screen.
 
 ### What's broken / incomplete
-- **~29 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so all tool list/details screens and Preview are unreachable.
+- **~26 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so the remaining tool list/details screens and Preview are unreachable.
 - **Priority #1 dead-click rows — CLOSED**. CustomFilterList/Picker/ArbiterConfig/Reports all converted and wired through the new result API.
 - **Priority #2 Stats + Exclusion batch — CLOSED**. Three `ReportsViewModel` FIXMEs closed; `PathExclusionEditor` migrated off `setFragmentResultListener` to `navCtrl.consumeResults(PickerResultKey)`; Segment editor bug that ignored `targetSegments` fixed.
+- **CorpseFinder tool — CLOSED**. List + Details converted to Compose; `CorpseRoute` retired (its only caller was the ViewPager adapter, now an inline pager page inside `CorpseDetailsScreen`).
 - **New FIXME targets** (child destinations the Priority #2 conversions now land on):
   - `CustomFilterListViewModel` → CustomFilterEditorRoute (1 marker; on both edit + create paths)
   - `ExclusionListViewModel` → AppControlListRoute + DeviceStorageRoute (2 markers on openAppControl/openStoragePicker — FAB type-picker routes to placeholders until those tool lists convert)
@@ -30,8 +32,8 @@
 
 ### Remaining work (priority order)
 
-#### 1. Convert remaining tool list/details Fragments (26 screens)
-- CorpseFinder: List, Details, Corpse (3)
+#### 1. Convert remaining tool list/details Fragments (23 screens)
+- ~~CorpseFinder~~ ✓ — List + Details converted; CorpseRoute retired
 - SystemCleaner: List, FilterContentDetails, FilterContent, CustomFilterEditor (4)
 - AppCleaner: List, AppJunkDetails, AppJunk (3)
 - Deduplicator: List, Details, Cluster (3)
