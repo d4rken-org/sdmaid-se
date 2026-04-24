@@ -24,6 +24,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.toArgb
+import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.compose.LifecycleEventEffect
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -35,6 +36,7 @@ import androidx.navigation3.runtime.rememberNavBackStack
 import androidx.navigation3.runtime.rememberSaveableStateHolderNavEntryDecorator
 import androidx.navigation3.ui.NavDisplay
 import dagger.hilt.android.AndroidEntryPoint
+import eu.darken.sdmse.R
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.VERBOSE
 import eu.darken.sdmse.common.debug.logging.log
@@ -46,6 +48,7 @@ import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.NavigationEntry
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.navigation.UnknownDestinationScreen
+import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
@@ -102,7 +105,10 @@ class MainActivity : Activity2() {
                     window.decorView.setBackgroundColor(backgroundColor.toArgb())
                 }
 
-                CompositionLocalProvider(LocalNavigationController provides navCtrl) {
+                CompositionLocalProvider(
+                    LocalNavigationController provides navCtrl,
+                    LocalUpgradeBadgeLabel provides stringResource(R.string.upgrade_badge_label),
+                ) {
                     ErrorEventHandler(vm)
                     NavigationEventHandler(vm)
 

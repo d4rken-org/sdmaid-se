@@ -123,6 +123,9 @@ class CorpseFinderSettingsViewModel @Inject constructor(
     )
 
     fun setWatcherEnabled(value: Boolean) = launch {
+        // Defence-in-depth: UI gates this row behind the upgrade badge when !isPro, but
+        // refuse here too so any future caller can't bypass the check.
+        if (!state.value.isPro) return@launch
         settings.isWatcherEnabled.value(value)
     }
 

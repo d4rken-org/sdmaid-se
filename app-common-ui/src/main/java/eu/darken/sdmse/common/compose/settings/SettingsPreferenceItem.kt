@@ -16,15 +16,17 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun SettingsPreferenceItem(
+    modifier: Modifier = Modifier,
     title: String,
     onClick: () -> Unit,
-    modifier: Modifier = Modifier,
     icon: ImageVector? = null,
     iconPainter: Painter? = null,
     iconTint: Color? = null,
     subtitle: String? = null,
     value: String? = null,
     enabled: Boolean = true,
+    requiresUpgrade: Boolean = false,
+    onUpgrade: () -> Unit = {},
     onLongClick: (() -> Unit)? = null,
 ) {
     val contentAlpha = if (enabled) 1f else 0.5f
@@ -34,11 +36,12 @@ fun SettingsPreferenceItem(
         iconPainter = iconPainter,
         iconTint = iconTint,
         title = title,
-        onClick = onClick,
+        onClick = if (requiresUpgrade) onUpgrade else onClick,
         onLongClick = onLongClick,
         modifier = modifier,
         subtitle = subtitle,
         enabled = enabled,
+        requiresUpgrade = requiresUpgrade,
         trailingContent = if (value != null) {
             {
                 Text(
@@ -62,6 +65,22 @@ private fun SettingsPreferenceItemPreview() {
             subtitle = "General settings",
             onClick = {},
             value = "Value",
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SettingsPreferenceItemGatedPreview() {
+    PreviewWrapper {
+        SettingsPreferenceItem(
+            icon = Icons.TwoTone.Settings,
+            title = "Theme style",
+            subtitle = "Pick the app color scheme",
+            value = "Default",
+            onClick = {},
+            requiresUpgrade = true,
+            onUpgrade = {},
         )
     }
 }

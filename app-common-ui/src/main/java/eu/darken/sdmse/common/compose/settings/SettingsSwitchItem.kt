@@ -14,28 +14,34 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
 @Composable
 fun SettingsSwitchItem(
+    modifier: Modifier = Modifier,
     title: String,
     subtitle: String?,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
-    modifier: Modifier = Modifier,
     icon: ImageVector? = null,
     iconPainter: Painter? = null,
     enabled: Boolean = true,
+    requiresUpgrade: Boolean = false,
+    onUpgrade: () -> Unit = {},
 ) {
     SettingsBaseItem(
         icon = icon,
         iconPainter = iconPainter,
         title = title,
-        onClick = { onCheckedChange(!checked) },
+        onClick = if (requiresUpgrade) onUpgrade else { { onCheckedChange(!checked) } },
         modifier = modifier,
         subtitle = subtitle,
         enabled = enabled,
+        requiresUpgrade = requiresUpgrade,
         trailingContent = {
             Switch(
                 checked = checked,
-                onCheckedChange = onCheckedChange,
-                enabled = enabled,
+                // MUST stay null when requiresUpgrade=true — non-Pro taps must never reach
+                // onCheckedChange. Paired with enabled=false so the Switch doesn't consume
+                // pointer input before it reaches the row's combinedClickable.
+                onCheckedChange = if (requiresUpgrade) null else onCheckedChange,
+                enabled = enabled && !requiresUpgrade,
                 modifier = Modifier.padding(start = 16.dp),
             )
         },
@@ -52,6 +58,22 @@ private fun SettingsSwitchItemPreview() {
             subtitle = "General settings",
             checked = true,
             onCheckedChange = {},
+        )
+    }
+}
+
+@Preview2
+@Composable
+private fun SettingsSwitchItemGatedPreview() {
+    PreviewWrapper {
+        SettingsSwitchItem(
+            icon = Icons.TwoTone.Settings,
+            title = "Pro feature",
+            subtitle = "Tapping opens the upgrade screen",
+            checked = false,
+            onCheckedChange = {},
+            requiresUpgrade = true,
+            onUpgrade = {},
         )
     }
 }

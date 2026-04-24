@@ -32,6 +32,8 @@ import androidx.compose.ui.res.stringResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.compose.settings.SettingsCategoryHeader
 import eu.darken.sdmse.common.compose.settings.SettingsPreferenceItem
 import eu.darken.sdmse.common.compose.settings.SettingsSwitchItem
@@ -218,13 +220,9 @@ internal fun GeneralSettingsScreen(
                     title = stringResource(R.string.ui_theme_mode_setting_label),
                     subtitle = stringResource(R.string.ui_theme_mode_setting_explanation),
                     value = themeModeLabel,
-                    onClick = {
-                        if (state.isPro) {
-                            showThemeModeDialog = true
-                        } else {
-                            onThemeLockedClick()
-                        }
-                    },
+                    onClick = { showThemeModeDialog = true },
+                    requiresUpgrade = !state.isPro,
+                    onUpgrade = onThemeLockedClick,
                 )
             }
             item {
@@ -239,13 +237,9 @@ internal fun GeneralSettingsScreen(
                     title = stringResource(R.string.ui_theme_style_setting_label),
                     subtitle = stringResource(R.string.ui_theme_style_setting_explanation),
                     value = themeStyleLabel,
-                    onClick = {
-                        if (state.isPro) {
-                            showThemeStyleDialog = true
-                        } else {
-                            onThemeLockedClick()
-                        }
-                    },
+                    onClick = { showThemeStyleDialog = true },
+                    requiresUpgrade = !state.isPro,
+                    onUpgrade = onThemeLockedClick,
                 )
             }
             item {
@@ -318,5 +312,21 @@ internal fun GeneralSettingsScreen(
                 )
             }
         }
+    }
+}
+
+@Preview2
+@Composable
+private fun GeneralSettingsScreenPreviewFree() {
+    PreviewWrapper {
+        GeneralSettingsScreen(state = GeneralSettingsViewModel.State(isPro = false))
+    }
+}
+
+@Preview2
+@Composable
+private fun GeneralSettingsScreenPreviewPro() {
+    PreviewWrapper {
+        GeneralSettingsScreen(state = GeneralSettingsViewModel.State(isPro = true))
     }
 }

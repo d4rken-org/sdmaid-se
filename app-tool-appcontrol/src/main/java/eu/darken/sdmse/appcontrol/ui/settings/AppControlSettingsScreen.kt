@@ -59,15 +59,7 @@ internal fun AppControlSettingsScreen(
     onMultiUserChanged: (Boolean) -> Unit = {},
     onMultiUserBadgeClick: () -> Unit = {},
 ) {
-    val multiUserSummaryBase = stringResource(CommonR.string.general_include_multiuser_summary)
-    val proSuffix = stringResource(CommonR.string.upgrade_feature_requires_pro)
-    val multiUserSummary = if (state.isPro) multiUserSummaryBase else "$multiUserSummaryBase\n$proSuffix"
-
-    val multiUserGate = when {
-        !state.isPro -> SettingGate.ProRequired
-        !state.canIncludeMultiUser -> SettingGate.SetupRequired
-        else -> null
-    }
+    val multiUserSummary = stringResource(CommonR.string.general_include_multiuser_summary)
 
     Scaffold(
         topBar = {
@@ -112,11 +104,13 @@ internal fun AppControlSettingsScreen(
                     iconPainter = painterResource(UiR.drawable.ic_account_group_24),
                     title = stringResource(CommonR.string.general_include_multiuser_label),
                     subtitle = multiUserSummary,
-                    // When not pro, show unchecked regardless of stored value (matches legacy behavior)
+                    // Non-Pro users see an unchecked switch regardless of the stored value.
                     checked = state.isPro && state.multiUserEnabled,
                     onCheckedChange = onMultiUserChanged,
                     onBadgeClick = onMultiUserBadgeClick,
-                    gate = multiUserGate,
+                    gate = if (state.isPro && !state.canIncludeMultiUser) SettingGate.SetupRequired else null,
+                    requiresUpgrade = !state.isPro,
+                    onUpgrade = onMultiUserBadgeClick,
                 )
             }
         }

@@ -6,7 +6,6 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.twotone.Build
-import androidx.compose.material.icons.twotone.Lock
 import androidx.compose.material.icons.twotone.Settings
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -23,31 +22,40 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 /**
  * Opaque "this row is gated" marker. Each value carries the visual cue (badge icon + tint)
  * the row should show. Consumers decide what happens on badge click via [onBadgeClick].
+ *
+ * Pro-gated rows no longer use this mechanism — they render an inline [UpgradeBadge] next
+ * to the title instead. Use `requiresUpgrade` + `onUpgrade` on [SettingsSwitchItem] or
+ * [SettingsPreferenceItem] for those.
  */
 sealed class SettingGate(val badgeIcon: ImageVector) {
     data object SetupRequired : SettingGate(Icons.TwoTone.Build)
-    data object ProRequired : SettingGate(Icons.TwoTone.Lock)
 }
 
 /**
  * Switch row that suppresses DataStore writes while [gate] is non-null — taps invoke
  * [onBadgeClick] instead of [onCheckedChange]. Mirrors the legacy BadgedCheckboxPreference
  * behavior: the underlying control appears disabled, and a badge icon overlays the switch.
+ *
+ * Pro gating ([requiresUpgrade] + [onUpgrade]) takes precedence over [gate] — when both are
+ * specified for the same row (e.g. multi-user apps that also need a root setup), Pro gating
+ * is the one surfaced to the user because upgrading unblocks the Setup affordance anyway.
  */
 @Composable
 fun SettingsBadgedSwitchItem(
+    modifier: Modifier = Modifier,
     title: String,
     subtitle: String?,
     checked: Boolean,
     onCheckedChange: (Boolean) -> Unit,
     onBadgeClick: () -> Unit,
-    modifier: Modifier = Modifier,
     icon: ImageVector? = null,
     iconPainter: Painter? = null,
     gate: SettingGate? = null,
     enabled: Boolean = true,
+    requiresUpgrade: Boolean = false,
+    onUpgrade: () -> Unit = {},
 ) {
-    if (gate == null) {
+    if (requiresUpgrade || gate == null) {
         SettingsSwitchItem(
             icon = icon,
             iconPainter = iconPainter,
@@ -57,6 +65,8 @@ fun SettingsBadgedSwitchItem(
             onCheckedChange = onCheckedChange,
             modifier = modifier,
             enabled = enabled,
+            requiresUpgrade = requiresUpgrade,
+            onUpgrade = onUpgrade,
         )
         return
     }
@@ -128,18 +138,3 @@ private fun SettingsBadgedSwitchItemSetupRequiredPreview() {
     }
 }
 
-@Preview2
-@Composable
-private fun SettingsBadgedSwitchItemProRequiredPreview() {
-    PreviewWrapper {
-        SettingsBadgedSwitchItem(
-            icon = Icons.TwoTone.Settings,
-            title = "Pro feature",
-            subtitle = "Switch is suppressed; tap opens upgrade",
-            checked = true,
-            onCheckedChange = {},
-            onBadgeClick = {},
-            gate = SettingGate.ProRequired,
-        )
-    }
-}

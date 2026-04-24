@@ -85,8 +85,6 @@ internal fun CorpseFinderSettingsScreen(
     onRootFilterBadgeClick: () -> Unit = {},
 ) {
     val watcherSummary = stringResource(R.string.corpsefinder_watcher_summary)
-    val proSuffix = stringResource(CommonR.string.upgrade_feature_requires_pro)
-    val effectiveWatcherSummary = if (state.isPro) watcherSummary else "$watcherSummary\n$proSuffix"
 
     val rootGate = SettingGate.SetupRequired
 
@@ -108,15 +106,15 @@ internal fun CorpseFinderSettingsScreen(
         ) {
             item { SettingsCategoryHeader(text = stringResource(R.string.corpsefinder_watcher_title)) }
             item {
-                SettingsBadgedSwitchItem(
+                SettingsSwitchItem(
                     iconPainter = painterResource(UiR.drawable.ic_details_24),
                     title = stringResource(R.string.corpsefinder_watcher_title),
-                    subtitle = effectiveWatcherSummary,
+                    subtitle = watcherSummary,
                     // Matches legacy: unchecked while not pro regardless of stored value.
                     checked = state.isPro && state.isWatcherEnabled,
                     onCheckedChange = onWatcherChanged,
-                    onBadgeClick = onWatcherBadgeClick,
-                    gate = if (state.isPro) null else SettingGate.ProRequired,
+                    requiresUpgrade = !state.isPro,
+                    onUpgrade = onWatcherBadgeClick,
                 )
             }
             item {
