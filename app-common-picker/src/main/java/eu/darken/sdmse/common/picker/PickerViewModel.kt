@@ -360,9 +360,7 @@ class PickerViewModel @Inject constructor(
         )
         navCtrl.setResult(PickerResultKey(req.requestKey), result)
         clearPersisted()
-        // Fragment-based consumers still listen via setFragmentResult — the Host delivers that
-        // bridge before calling back into us for navUp, so we publish the same event.
-        events.tryEmit(Event.Saved(requestKey = req.requestKey, result = result))
+        navUp()
     }
 
     private fun clearPersisted() {
@@ -388,13 +386,6 @@ class PickerViewModel @Inject constructor(
 
     sealed interface Event {
         data object ExitConfirmation : Event
-
-        /**
-         * Emitted after [save]; the Host bridges this to `setFragmentResult` for any still-Fragment
-         * consumers, then calls [navUp]. Remove once every consumer migrates to
-         * `NavigationController.consumeResults(PickerResultKey(...))`.
-         */
-        data class Saved(val requestKey: String, val result: PickerResult) : Event
     }
 
     companion object {

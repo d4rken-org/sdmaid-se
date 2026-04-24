@@ -37,11 +37,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
-import androidx.fragment.app.FragmentActivity
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import eu.darken.sdmse.common.error.ErrorEventHandler
@@ -63,21 +61,12 @@ fun PickerScreenHost(
 
     LaunchedEffect(route.request) { vm.setRequest(route.request) }
 
-    val context = LocalContext.current
     var showExitConfirm by remember { mutableStateOf(false) }
 
     LaunchedEffect(vm) {
         vm.events.collect { event ->
             when (event) {
                 PickerViewModel.Event.ExitConfirmation -> showExitConfirm = true
-                is PickerViewModel.Event.Saved -> {
-                    // Bridge: Fragment-based callers (PathExclusion, SqueezerSetup, ArbiterConfig)
-                    // still register setFragmentResultListener. Drop this once they migrate to
-                    // NavigationController.consumeResults(PickerResultKey(requestKey)).
-                    (context as? FragmentActivity)?.supportFragmentManager
-                        ?.setFragmentResult(event.requestKey, event.result.toBundle())
-                    vm.navUp()
-                }
             }
         }
     }
