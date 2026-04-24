@@ -2,10 +2,10 @@ package eu.darken.sdmse.squeezer.ui.setup
 
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.MimeTypeTool
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
@@ -13,20 +13,29 @@ import eu.darken.sdmse.common.files.APathGateway
 import eu.darken.sdmse.common.files.GatewaySwitch
 import eu.darken.sdmse.common.files.isFile
 import eu.darken.sdmse.common.files.walk
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.navigation.NavigationController
+import eu.darken.sdmse.common.picker.PickerRequest
+import eu.darken.sdmse.common.picker.PickerResultKey
+import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.progress.Progress
 import eu.darken.sdmse.common.storage.StorageEnvironment
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
+import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
 import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.CompressionEstimator
 import eu.darken.sdmse.squeezer.core.Squeezer
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
 import eu.darken.sdmse.squeezer.core.hasData
 import eu.darken.sdmse.squeezer.core.tasks.SqueezerScanTask
-import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.squeezer.ui.SqueezerListRoute
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.firstOrNull
+import kotlinx.coroutines.flow.launchIn
+import kotlinx.coroutines.flow.onEach
 import java.time.Duration
 import javax.inject.Inject
 
@@ -38,15 +47,25 @@ class SqueezerSetupViewModel @Inject constructor(
     private val taskSubmitter: TaskSubmitter,
     private val compressionEstimator: CompressionEstimator,
     private val gatewaySwitch: GatewaySwitch,
-    private val storageEnvironment: StorageEnvironment,
+    @Suppress("unused") private val storageEnvironment: StorageEnvironment,
     private val mimeTypeTool: MimeTypeTool,
-) : ViewModel3(dispatcherProvider) {
+    private val navCtrl: NavigationController,
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    val events = SingleLiveEvent<SqueezerSetupEvents>()
+    val events = SingleEventFlow<Event>()
 
     private val isLoadingExample = MutableStateFlow(false)
 
-    val state = combine(
+    init {
+        navCtrl.consumeResults(PickerResultKey(PICKER_REQUEST_KEY))
+            .onEach { result ->
+                log(TAG, INFO) { "Picker returned ${result.selectedPaths.size} paths" }
+                updatePaths(result.selectedPaths)
+            }
+            .launchIn(vmScope)
+    }
+
+    val state: StateFlow<State> = combine(
         settings.scanPaths.flow,
         settings.compressionQuality.flow,
         settings.minAge.flow,
@@ -67,13 +86,16 @@ class SqueezerSetupViewModel @Inject constructor(
             isLoadingExample = loadingExample,
             canStartScan = scanPaths.paths.isNotEmpty(),
         )
-    }.asLiveData2()
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     data class State(
-        val scanPaths: List<APath>,
-        val quality: Int,
-        val minAge: Duration,
-        val minSizeBytes: Long,
+        val scanPaths: List<APath> = emptyList(),
+        val quality: Int = SqueezerSettings.DEFAULT_QUALITY,
+        val minAge: Duration = SqueezerSettings.MIN_AGE_DEFAULT,
+        val minSizeBytes: Long = SqueezerSettings.MIN_FILE_SIZE,
         val estimatedSavingsPercent: Int? = null,
         val progress: Progress.Data? = null,
         val isLoadingExample: Boolean = false,
@@ -102,8 +124,22 @@ class SqueezerSetupViewModel @Inject constructor(
 
     fun openPathPicker() = launch {
         log(TAG) { "openPathPicker()" }
-        val currentPaths = settings.scanPaths.value().paths
-        events.postValue(SqueezerSetupEvents.OpenPathPicker(currentPaths))
+        val current = settings.scanPaths.value().paths
+        navTo(
+            PickerRoute(
+                request = PickerRequest(
+                    requestKey = PICKER_REQUEST_KEY,
+                    mode = PickerRequest.PickMode.DIRS,
+                    allowedAreas = setOf(
+                        DataArea.Type.PORTABLE,
+                        DataArea.Type.SDCARD,
+                        DataArea.Type.PUBLIC_DATA,
+                        DataArea.Type.PUBLIC_MEDIA,
+                    ),
+                    selectedPaths = current.toList(),
+                ),
+            ),
+        )
     }
 
     fun startScan() = launch {
@@ -113,9 +149,10 @@ class SqueezerSetupViewModel @Inject constructor(
         log(TAG, INFO) { "Scan result: $result" }
 
         if (squeezer.state.first().data.hasData) {
-            events.postValue(SqueezerSetupEvents.NavigateToList)
+            // FIXME: SqueezerListRoute lands on UnknownDestinationScreen until SqueezerList converts.
+            navTo(SqueezerListRoute)
         } else {
-            events.postValue(SqueezerSetupEvents.NoResultsFound)
+            events.tryEmit(Event.NoResultsFound)
         }
     }
 
@@ -126,9 +163,9 @@ class SqueezerSetupViewModel @Inject constructor(
             val quality = settings.compressionQuality.value()
             val sampleImage = findSampleImage()
             if (sampleImage != null) {
-                events.postValue(SqueezerSetupEvents.ShowExample(sampleImage, quality))
+                events.tryEmit(Event.ShowExample(sampleImage, quality))
             } else {
-                events.postValue(SqueezerSetupEvents.NoExampleFound)
+                events.tryEmit(Event.NoExampleFound)
             }
         } finally {
             isLoadingExample.value = false
@@ -143,7 +180,7 @@ class SqueezerSetupViewModel @Inject constructor(
             try {
                 val lookup = searchPath.walk(
                     gatewaySwitch,
-                    options = APathGateway.WalkOptions()
+                    options = APathGateway.WalkOptions(),
                 ).firstOrNull { lookup ->
                     if (!lookup.isFile) return@firstOrNull false
                     if (lookup.size < settings.minSizeBytes.value()) return@firstOrNull false
@@ -173,7 +210,14 @@ class SqueezerSetupViewModel @Inject constructor(
         return null
     }
 
+    sealed interface Event {
+        data class ShowExample(val sampleImage: CompressibleImage, val quality: Int) : Event
+        data object NoExampleFound : Event
+        data object NoResultsFound : Event
+    }
+
     companion object {
+        internal const val PICKER_REQUEST_KEY = "squeezer.setup.paths"
         private val TAG = logTag("Squeezer", "Setup", "ViewModel")
     }
 }

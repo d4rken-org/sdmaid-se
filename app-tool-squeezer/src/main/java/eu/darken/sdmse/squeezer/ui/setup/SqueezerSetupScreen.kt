@@ -1,0 +1,576 @@
+package eu.darken.sdmse.squeezer.ui.setup
+
+import android.text.format.Formatter
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.PaddingValues
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Edit
+import androidx.compose.material.icons.filled.Info
+import androidx.compose.material3.AlertDialog
+import androidx.compose.material3.Button
+import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.OutlinedButton
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarDuration
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
+import androidx.compose.material3.Slider
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.pluralStringResource
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextOverflow
+import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import eu.darken.sdmse.common.BuildConfigWrap
+import eu.darken.sdmse.common.R as CommonR
+import eu.darken.sdmse.common.compose.preview.Preview2
+import eu.darken.sdmse.common.compose.preview.PreviewWrapper
+import eu.darken.sdmse.common.compose.progress.ProgressOverlay
+import eu.darken.sdmse.common.compose.settings.dialogs.AgeInputDialog
+import eu.darken.sdmse.common.compose.settings.dialogs.SizeInputDialog
+import eu.darken.sdmse.common.error.ErrorEventHandler
+import eu.darken.sdmse.common.files.APath
+import eu.darken.sdmse.common.navigation.NavigationEventHandler
+import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.squeezer.R
+import eu.darken.sdmse.squeezer.core.CompressibleImage
+import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
+import java.time.Duration
+
+@Composable
+fun SqueezerSetupScreenHost(
+    vm: SqueezerSetupViewModel = hiltViewModel(),
+) {
+    ErrorEventHandler(vm)
+    NavigationEventHandler(vm)
+
+    val context = LocalContext.current
+    val snackbarHostState = remember { SnackbarHostState() }
+    val snackScope = rememberCoroutineScope()
+    var exampleDialog by remember { mutableStateOf<SqueezerSetupViewModel.Event.ShowExample?>(null) }
+
+    LaunchedEffect(vm) {
+        vm.events.collect { event ->
+            when (event) {
+                is SqueezerSetupViewModel.Event.ShowExample -> exampleDialog = event
+                is SqueezerSetupViewModel.Event.NoExampleFound -> snackScope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = context.getString(R.string.squeezer_no_example_found),
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+
+                is SqueezerSetupViewModel.Event.NoResultsFound -> snackScope.launch {
+                    snackbarHostState.showSnackbar(
+                        message = context.getString(R.string.squeezer_result_empty_message),
+                        duration = SnackbarDuration.Short,
+                    )
+                }
+            }
+        }
+    }
+
+    SqueezerSetupScreen(
+        stateSource = vm.state,
+        snackbarHostState = snackbarHostState,
+        onNavigateUp = vm::navUp,
+        onPathsClick = vm::openPathPicker,
+        onQualityChange = vm::updateQuality,
+        onShowExample = vm::showExample,
+        onMinAgeChange = vm::updateMinAge,
+        onMinSizeChange = vm::updateMinSize,
+        onStartScan = vm::startScan,
+    )
+
+    exampleDialog?.let { event ->
+        ExampleCompressionDialog(
+            sample = event.sampleImage,
+            quality = event.quality,
+            onDismiss = { exampleDialog = null },
+        )
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+internal fun SqueezerSetupScreen(
+    stateSource: StateFlow<SqueezerSetupViewModel.State> = MutableStateFlow(SqueezerSetupViewModel.State()),
+    snackbarHostState: SnackbarHostState = remember { SnackbarHostState() },
+    onNavigateUp: () -> Unit = {},
+    onPathsClick: () -> Unit = {},
+    onQualityChange: (Int) -> Unit = {},
+    onShowExample: () -> Unit = {},
+    onMinAgeChange: (Duration) -> Unit = {},
+    onMinSizeChange: (Long) -> Unit = {},
+    onStartScan: () -> Unit = {},
+) {
+    val state by stateSource.collectAsStateWithLifecycle()
+    var showAgeDialog by remember { mutableStateOf(false) }
+    var showSizeDialog by remember { mutableStateOf(false) }
+
+    Scaffold(
+        topBar = {
+            TopAppBar(
+                title = { Text(stringResource(CommonR.string.squeezer_tool_name)) },
+                navigationIcon = {
+                    IconButton(onClick = onNavigateUp) {
+                        Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = null)
+                    }
+                },
+            )
+        },
+        snackbarHost = { SnackbarHost(snackbarHostState) },
+    ) { paddingValues ->
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(paddingValues),
+        ) {
+            ProgressOverlay(
+                data = state.progress,
+                modifier = Modifier.fillMaxSize(),
+            ) {
+                Column(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .verticalScroll(rememberScrollState())
+                        .padding(16.dp),
+                ) {
+                    ExplanationCard()
+                    Spacer(Modifier.height(16.dp))
+                    PathsCard(
+                        scanPaths = state.scanPaths,
+                        onClick = onPathsClick,
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    QualityCard(
+                        quality = state.quality,
+                        estimatedSavingsPercent = state.estimatedSavingsPercent,
+                        isLoadingExample = state.isLoadingExample,
+                        onQualityChange = onQualityChange,
+                        onShowExample = onShowExample,
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    AgeCard(
+                        minAge = state.minAge,
+                        onClick = { showAgeDialog = true },
+                    )
+                    Spacer(Modifier.height(16.dp))
+                    MinSizeCard(
+                        minSizeBytes = state.minSizeBytes,
+                        onClick = { showSizeDialog = true },
+                    )
+                    Spacer(Modifier.height(24.dp))
+                    Button(
+                        onClick = onStartScan,
+                        enabled = state.canStartScan,
+                        modifier = Modifier.fillMaxWidth(),
+                    ) {
+                        Icon(
+                            painter = painterResource(UiR.drawable.ic_layer_search_24),
+                            contentDescription = null,
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(R.string.squeezer_setup_start_action))
+                    }
+                }
+            }
+        }
+    }
+
+    if (showAgeDialog) {
+        AgeInputDialog(
+            titleRes = R.string.squeezer_min_age_title,
+            currentAge = state.minAge,
+            maximumAge = Duration.ofDays(365),
+            onSave = {
+                onMinAgeChange(it)
+                showAgeDialog = false
+            },
+            onReset = {
+                onMinAgeChange(SqueezerSettings.MIN_AGE_DEFAULT)
+                showAgeDialog = false
+            },
+            onDismiss = { showAgeDialog = false },
+        )
+    }
+
+    if (showSizeDialog) {
+        SizeInputDialog(
+            titleRes = R.string.squeezer_min_size_title,
+            currentSize = state.minSizeBytes,
+            maximumSize = 20 * 1000 * 1000L,
+            onSave = {
+                onMinSizeChange(it)
+                showSizeDialog = false
+            },
+            onReset = {
+                onMinSizeChange(SqueezerSettings.MIN_FILE_SIZE)
+                showSizeDialog = false
+            },
+            onDismiss = { showSizeDialog = false },
+        )
+    }
+}
+
+@Composable
+private fun ExplanationCard() {
+    Card(
+        modifier = Modifier.fillMaxWidth(),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.secondaryContainer),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.Top,
+        ) {
+            Icon(
+                imageVector = Icons.Filled.Info,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+            Spacer(Modifier.width(16.dp))
+            Text(
+                text = stringResource(R.string.squeezer_setup_explanation),
+                style = MaterialTheme.typography.bodyMedium,
+                color = MaterialTheme.colorScheme.onSecondaryContainer,
+            )
+        }
+    }
+}
+
+@Composable
+private fun PathsCard(
+    scanPaths: List<APath>,
+    onClick: () -> Unit,
+) {
+    val context = LocalContext.current
+    val value = if (scanPaths.isEmpty()) {
+        stringResource(R.string.squeezer_setup_paths_default)
+    } else {
+        scanPaths.joinToString("\n") { it.userReadablePath.get(context) }
+    }
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                painter = painterResource(UiR.drawable.ic_folder_search_24),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.squeezer_setup_paths_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = value,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(
+                imageVector = Icons.Filled.Edit,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun QualityCard(
+    quality: Int,
+    estimatedSavingsPercent: Int?,
+    isLoadingExample: Boolean,
+    onQualityChange: (Int) -> Unit,
+    onShowExample: () -> Unit,
+) {
+    val minQuality = if (BuildConfigWrap.DEBUG) 1 else 20
+    Card(modifier = Modifier.fillMaxWidth()) {
+        Column(modifier = Modifier.padding(16.dp)) {
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    painter = painterResource(UiR.drawable.ic_baseline_settings_24),
+                    contentDescription = null,
+                    tint = MaterialTheme.colorScheme.primary,
+                )
+                Spacer(Modifier.width(16.dp))
+                Text(
+                    text = stringResource(R.string.squeezer_setup_quality_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Slider(
+                    value = quality.toFloat(),
+                    valueRange = minQuality.toFloat()..100f,
+                    steps = 100 - minQuality - 1,
+                    onValueChange = { onQualityChange(it.toInt()) },
+                    modifier = Modifier.weight(1f),
+                )
+                Spacer(Modifier.width(8.dp))
+                Text(
+                    text = "$quality%",
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+            }
+            val hintRes = when {
+                quality < 40 -> R.string.squeezer_quality_hint_very_low
+                quality <= 50 -> R.string.squeezer_quality_hint_low
+                quality >= 95 -> R.string.squeezer_quality_hint_high
+                else -> R.string.squeezer_quality_hint_normal
+            }
+            Text(
+                text = stringResource(hintRes),
+                style = MaterialTheme.typography.labelSmall,
+                color = if (quality < 40) {
+                    MaterialTheme.colorScheme.error
+                } else {
+                    MaterialTheme.colorScheme.onSurfaceVariant
+                },
+            )
+            if (estimatedSavingsPercent != null && quality < 100) {
+                Spacer(Modifier.height(8.dp))
+                Text(
+                    text = stringResource(R.string.squeezer_estimated_savings_percent, estimatedSavingsPercent),
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.primary,
+                )
+            }
+            Spacer(Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.End,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Box(contentAlignment = Alignment.Center) {
+                    OutlinedButton(
+                        onClick = onShowExample,
+                        enabled = !isLoadingExample,
+                    ) {
+                        Icon(
+                            imageVector = Icons.Filled.Info,
+                            contentDescription = null,
+                            modifier = Modifier.size(18.dp),
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Text(stringResource(CommonR.string.general_details_label))
+                    }
+                    if (isLoadingExample) {
+                        CircularProgressIndicator(
+                            modifier = Modifier.size(24.dp),
+                        )
+                    }
+                }
+            }
+        }
+    }
+}
+
+@Composable
+private fun AgeCard(
+    minAge: Duration,
+    onClick: () -> Unit,
+) {
+    val days = minAge.toDays().toInt()
+    val valueText = pluralStringResource(R.plurals.squeezer_min_age_x_days, days, days)
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                painter = painterResource(UiR.drawable.ic_file_clock_outline_24),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.squeezer_setup_age_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = valueText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(
+                imageVector = Icons.Filled.Edit,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun MinSizeCard(
+    minSizeBytes: Long,
+    onClick: () -> Unit,
+) {
+    val context = LocalContext.current
+    val valueText = Formatter.formatShortFileSize(context, minSizeBytes)
+    Card(
+        modifier = Modifier
+            .fillMaxWidth()
+            .clickable(onClick = onClick),
+    ) {
+        Row(
+            modifier = Modifier.padding(16.dp),
+            verticalAlignment = Alignment.CenterVertically,
+        ) {
+            Icon(
+                painter = painterResource(UiR.drawable.ic_file_chart_outline_24),
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.primary,
+            )
+            Spacer(Modifier.width(16.dp))
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = stringResource(R.string.squeezer_min_size_title),
+                    style = MaterialTheme.typography.titleMedium,
+                )
+                Spacer(Modifier.height(4.dp))
+                Text(
+                    text = valueText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+            }
+            Icon(
+                imageVector = Icons.Filled.Edit,
+                contentDescription = null,
+                tint = MaterialTheme.colorScheme.onSurfaceVariant,
+            )
+        }
+    }
+}
+
+@Composable
+private fun ExampleCompressionDialog(
+    sample: CompressibleImage,
+    quality: Int,
+    onDismiss: () -> Unit,
+) {
+    val context = LocalContext.current
+    val originalSize = Formatter.formatShortFileSize(context, sample.size)
+    val compressedSize = sample.estimatedCompressedSize
+        ?.let { "~${Formatter.formatShortFileSize(context, it)}" }
+        ?: stringResource(R.string.squeezer_no_savings_expected)
+
+    // FIXME: The legacy onboarding dialog rendered bitmap previews and linked into ComparisonDialog.
+    //  Both are deferred until the Squeezer List + ComparisonDialog convert to Compose; this dialog
+    //  shows the size comparison text only in the meantime.
+    AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text(stringResource(R.string.squeezer_onboarding_title)) },
+        text = {
+            Column {
+                Text(
+                    text = stringResource(R.string.squeezer_onboarding_quality_label, quality),
+                    style = MaterialTheme.typography.bodyMedium,
+                )
+                Spacer(Modifier.height(16.dp))
+                Text(
+                    text = sample.lookup.userReadableName.get(context),
+                    style = MaterialTheme.typography.labelMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                )
+                Spacer(Modifier.height(8.dp))
+                Row(
+                    modifier = Modifier.fillMaxWidth(),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                ) {
+                    Column {
+                        Text(
+                            text = stringResource(R.string.squeezer_onboarding_original_label),
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                        Text(text = originalSize, style = MaterialTheme.typography.titleMedium)
+                    }
+                    Column(horizontalAlignment = Alignment.End) {
+                        Text(
+                            text = stringResource(R.string.squeezer_onboarding_compressed_label),
+                            style = MaterialTheme.typography.labelSmall,
+                        )
+                        Text(
+                            text = compressedSize,
+                            style = MaterialTheme.typography.titleMedium,
+                            color = MaterialTheme.colorScheme.primary,
+                        )
+                    }
+                }
+            }
+        },
+        confirmButton = {
+            TextButton(onClick = onDismiss) {
+                Text(stringResource(CommonR.string.general_gotit_action))
+            }
+        },
+    )
+}
+
+@Preview2
+@Composable
+private fun SqueezerSetupScreenEmptyPreview() {
+    PreviewWrapper {
+        SqueezerSetupScreen(
+            stateSource = MutableStateFlow(SqueezerSetupViewModel.State()),
+        )
+    }
+}
