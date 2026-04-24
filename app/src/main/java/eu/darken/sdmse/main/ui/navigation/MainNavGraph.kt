@@ -32,9 +32,7 @@ import eu.darken.sdmse.common.navigation.routes.DashboardRoute
 import eu.darken.sdmse.common.navigation.routes.LogViewRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.navigation.serializableNavType
-import eu.darken.sdmse.common.picker.PickerFragment
-import eu.darken.sdmse.common.picker.PickerRequest
-import eu.darken.sdmse.common.picker.PickerRoute
+// PickerFragment — converted to Compose, registered via PickerNavigation
 import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.previews.PreviewFragment
 import eu.darken.sdmse.common.previews.PreviewItemRoute
@@ -134,7 +132,6 @@ private val SegmentExclusionEditorOptionsNavType = serializableNavType(SegmentEx
 private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
 private val PreviewOptionsNavType = serializableNavType(PreviewOptions.serializer())
 private val PreviewItemNavType = serializableNavType(PreviewItem.serializer())
-private val PickerRequestNavType = serializableNavType(PickerRequest.serializer())
 
 fun NavGraphBuilder.mainNavGraph() {
     // Onboarding — converted to Compose, registered via AppNavigation
@@ -257,10 +254,7 @@ fun NavGraphBuilder.mainNavGraph() {
     fragment<AffectedPathsFragment, AffectedFilesRoute>()
     fragment<AffectedPkgsFragment, AffectedPkgsRoute>()
 
-    // Picker
-    fragment<PickerFragment, PickerRoute>(
-        typeMap = mapOf(typeOf<PickerRequest>() to PickerRequestNavType)
-    )
+    // Picker — converted to Compose, registered via PickerNavigation
 
     // Swiper
     fragment<SwiperSessionsFragment, SwiperSessionsRoute>()

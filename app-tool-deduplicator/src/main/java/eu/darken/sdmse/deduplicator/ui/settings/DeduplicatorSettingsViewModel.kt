@@ -7,7 +7,9 @@ import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.navigation.NavigationController
 import eu.darken.sdmse.common.picker.PickerRequest
+import eu.darken.sdmse.common.picker.PickerResultKey
 import eu.darken.sdmse.common.picker.PickerRoute
 import eu.darken.sdmse.common.areas.DataArea
 import eu.darken.sdmse.common.uix.ViewModel4
@@ -15,7 +17,9 @@ import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.deduplicator.core.DeduplicatorSettings
 import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
 
 
@@ -24,6 +28,7 @@ class DeduplicatorSettingsViewModel @Inject constructor(
     dispatcherProvider: DispatcherProvider,
     upgradeRepo: UpgradeRepo,
     private val settings: DeduplicatorSettings,
+    navCtrl: NavigationController,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private data class TopFlags(
@@ -81,20 +86,26 @@ class DeduplicatorSettingsViewModel @Inject constructor(
         onError = { State() },
     )
 
+    init {
+        navCtrl.consumeResults(PickerResultKey(SCAN_PATHS_REQUEST_KEY))
+            .onEach { result ->
+                log(TAG) { "Received picker result with ${result.selectedPaths.size} paths" }
+                settings.scanPaths.value(DeduplicatorSettings.ScanPaths(paths = result.selectedPaths))
+            }
+            .launchIn(vmScope)
+    }
+
     fun resetScanPaths() = launch {
         log(TAG) { "resetScanPaths()" }
         settings.scanPaths.value(DeduplicatorSettings.ScanPaths())
     }
 
     fun onSearchLocationsClick() {
-        // FIXME: dead-click until PickerRoute Compose conversion lands; the picker
-        // result round-trip also needs to be rewired (currently via setFragmentResultListener,
-        // future: ResultBus on app-common-ui).
         val current = state.value.scanPaths
         navTo(
             PickerRoute(
                 request = PickerRequest(
-                    requestKey = "scan.location.paths",
+                    requestKey = SCAN_PATHS_REQUEST_KEY,
                     mode = PickerRequest.PickMode.DIRS,
                     allowedAreas = setOf(
                         DataArea.Type.PORTABLE,
@@ -134,5 +145,6 @@ class DeduplicatorSettingsViewModel @Inject constructor(
 
     companion object {
         private val TAG = logTag("Settings", "Deduplicator", "ViewModel")
+        private const val SCAN_PATHS_REQUEST_KEY = "scan.location.paths"
     }
 }
