@@ -30,19 +30,3 @@ data class CorpseDetailsRoute(
         fun from(handle: SavedStateHandle) = handle.toRoute<CorpseDetailsRoute>()
     }
 }
-
-@Serializable
-data class CorpseRoute(
-    val identifierJson: String,
-) : NavigationDestination {
-    constructor(identifier: APath) : this(
-        identifierJson = Json.encodeToString(APathSerializer, identifier),
-    )
-
-    @Transient
-    val identifier: APath = Json.decodeFromString(APathSerializer, identifierJson)
-
-    companion object {
-        fun from(handle: SavedStateHandle) = handle.toRoute<CorpseRoute>()
-    }
-}

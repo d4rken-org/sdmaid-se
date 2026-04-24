@@ -41,11 +41,7 @@ import eu.darken.sdmse.common.previews.PreviewRoute
 import eu.darken.sdmse.common.previews.item.PreviewItem
 import eu.darken.sdmse.common.previews.item.PreviewItemFragment
 import eu.darken.sdmse.common.storage.StorageId
-import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
 // CorpseFinderSettingsFragment — converted to Compose, registered via CorpseFinderNavigation
-import eu.darken.sdmse.corpsefinder.ui.CorpseRoute
-import eu.darken.sdmse.corpsefinder.ui.details.CorpseDetailsFragment
-import eu.darken.sdmse.corpsefinder.ui.details.corpse.CorpseFragment
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
 import eu.darken.sdmse.deduplicator.ui.ClusterRoute
@@ -142,9 +138,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // SchedulerSettings — converted to Compose, registered via SchedulerNavigation
     // StatsSettings — converted to Compose, registered via StatsNavigation
 
-    // CorpseFinder — CorpseFinderListFragment converted to Compose, registered via CorpseFinderNavigation
-    fragment<CorpseDetailsFragment, CorpseDetailsRoute>()
-    fragment<CorpseFragment, CorpseRoute>()
+    // CorpseFinder — all screens converted to Compose, registered via CorpseFinderNavigation
 
     // SystemCleaner
     fragment<SystemCleanerListFragment, SystemCleanerListRoute>()

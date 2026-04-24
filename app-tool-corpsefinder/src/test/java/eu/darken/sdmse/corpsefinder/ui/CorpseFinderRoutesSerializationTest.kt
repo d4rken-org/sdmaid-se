@@ -46,22 +46,4 @@ class CorpseFinderRoutesSerializationTest : BaseTest() {
         deserialized shouldBe original
         deserialized.corpsePath shouldBe null
     }
-
-    @Test
-    fun `CorpseRoute serialization round-trip`() {
-        val original = CorpseRoute(identifier = testPath)
-
-        original.identifierJson shouldNotBe null
-
-        val serialized = json.encodeToString(original)
-        val deserialized = json.decodeFromString<CorpseRoute>(serialized)
-        deserialized shouldBe original
-    }
-
-    @Test
-    fun `CorpseRoute APath convenience constructor and getter`() {
-        val route = CorpseRoute(identifier = testPath)
-
-        route.identifier shouldBe testPath
-    }
 }
