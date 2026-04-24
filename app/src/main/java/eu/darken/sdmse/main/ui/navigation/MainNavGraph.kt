@@ -92,7 +92,6 @@ import eu.darken.sdmse.squeezer.ui.setup.SqueezerSetupFragment
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 // ReportsFragment — converted to Compose, registered via StatsNavigation
 import eu.darken.sdmse.stats.ui.SpaceHistoryRoute
-import eu.darken.sdmse.stats.ui.paths.AffectedPathsFragment
 import eu.darken.sdmse.stats.ui.spacehistory.SpaceHistoryFragment
 import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
 import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
@@ -249,8 +248,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Reports / Stats
     fragment<SpaceHistoryFragment, SpaceHistoryRoute>()
-    fragment<AffectedPathsFragment, AffectedFilesRoute>()
-    // AffectedPkgs — converted to Compose, registered via StatsNavigation
+    // AffectedFiles/AffectedPkgs — converted to Compose, registered via StatsNavigation
 
     // Picker — converted to Compose, registered via PickerNavigation
 

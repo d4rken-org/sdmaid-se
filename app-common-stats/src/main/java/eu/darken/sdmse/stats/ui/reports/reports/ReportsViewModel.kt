@@ -55,7 +55,6 @@ class ReportsViewModel @Inject constructor(
         when (row.status) {
             Report.Status.SUCCESS, Report.Status.PARTIAL_SUCCESS -> when (row.tool) {
                 SDMTool.Type.APPCONTROL -> navTo(AffectedPkgsRoute(reportId = row.reportId.toString()))
-                // FIXME: dead-click until AffectedFilesRoute Compose conversion lands.
                 else -> navTo(AffectedFilesRoute(reportId = row.reportId.toString()))
             }
 
