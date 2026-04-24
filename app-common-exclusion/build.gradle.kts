@@ -3,6 +3,7 @@ plugins {
     id("kotlin-parcelize")
     id("com.google.devtools.ksp")
     id("projectConfig")
+    id("org.jetbrains.kotlin.plugin.compose")
 }
 
 apply(plugin = "dagger.hilt.android.plugin")
@@ -17,6 +18,7 @@ android {
 
     buildFeatures {
         viewBinding = true
+        compose = true
     }
 
     setupCompileOptions()
@@ -45,9 +47,13 @@ dependencies {
 
     addAndroidCore()
     addAndroidUI()
+    addCompose()
+    addNavigation3()
     addDI()
     addCoroutines()
     addSerialization()
+
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
