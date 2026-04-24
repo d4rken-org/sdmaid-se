@@ -58,6 +58,8 @@ dependencies {
     addSerialization()
     addRoomDb()
 
+    implementation("io.coil-kt:coil-compose:2.7.0")
+
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.preference:preference-ktx:1.2.1")
