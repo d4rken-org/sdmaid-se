@@ -46,7 +46,6 @@ class StatsSettingsViewModel @Inject constructor(
 
     fun onViewStatsClick() {
         if (state.value.isPro) {
-            // FIXME: dead-click until ReportsRoute Compose conversion lands.
             navTo(ReportsRoute)
         } else {
             navTo(UpgradeRoute(forced = true))
