@@ -62,8 +62,6 @@ import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
-import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionEditorOptions
-import eu.darken.sdmse.exclusion.ui.editor.path.PathExclusionFragment
 import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DataAreasFragment — converted to Compose
 // DashboardFragment — converted to Compose
@@ -117,7 +115,6 @@ private val ContentGroupIdNavType = serializableNavType(ContentGroup.Id.serializ
 private val DuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer())
 private val NullableDuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer(), isNullableAllowed = true)
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
-private val PathExclusionEditorOptionsNavType = serializableNavType(PathExclusionEditorOptions.serializer(), isNullableAllowed = true)
 private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
 private val PreviewOptionsNavType = serializableNavType(PreviewOptions.serializer())
 private val PreviewItemNavType = serializableNavType(PreviewItem.serializer())
@@ -206,10 +203,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Exclusions
     fragment<ExclusionListFragment, ExclusionsListRoute>()
-    fragment<PathExclusionFragment, PathExclusionEditorRoute>(
-        typeMap = mapOf(typeOf<PathExclusionEditorOptions?>() to PathExclusionEditorOptionsNavType)
-    )
-    // Pkg/Segment editors — converted to Compose, registered via ExclusionNavigation
+    // Path/Pkg/Segment editors — converted to Compose, registered via ExclusionNavigation
 
     // Deduplicator
     fragment<DeduplicatorListFragment, DeduplicatorListRoute>()
