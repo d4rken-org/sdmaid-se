@@ -67,7 +67,6 @@ class ReportsViewModel @Inject constructor(
     fun onStorageTrendClick() = launch {
         log(TAG) { "onStorageTrendClick()" }
         if (upgradeRepo.isPro()) {
-            // FIXME: dead-click until SpaceHistoryRoute Compose conversion lands.
             navTo(SpaceHistoryRoute())
         } else {
             navTo(UpgradeRoute(forced = true))
