@@ -4,27 +4,29 @@
 
 ### What's done
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
-- **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules) **+ app-common-stats + app-common-picker**. `addNavigation3()` now added to every converted tool module's `build.gradle.kts`.
+- **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules) **+ app-common-stats + app-common-picker + app-common-exclusion**. `addNavigation3()` now added to every converted tool module's `build.gradle.kts`.
 - **All routes**: Every route implements NavigationDestination
-- **ViewModels migrated to ViewModel4** (31 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList**
+- **ViewModels migrated to ViewModel4** (38 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory, ExclusionList, PkgExclusionEditor, SegmentExclusionEditor, PathExclusionEditor**
 - **Navigation3 stable**: Upgraded from alpha08 to 1.0.1, fixed API renames (EntryProviderScope, rememberSaveableStateHolderNavEntryDecorator)
-- **30 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens **+ Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList**
+- **37 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens, Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList **+ AffectedPkgs, AffectedPaths, SpaceHistory (chart wrapped via AndroidView), ExclusionList, PathExclusionEditor, PkgExclusionEditor, SegmentExclusionEditor**
 - **Dashboard cards done**: All 18 card types have full Compose composables with XML parity
 - **Setup cards done**: All 8 card types (Storage, SAF, Root, UsageStats, Automation, Notification, Shizuku, Inventory) + SetupLoadingCard + SetupCardContainer
 - **Support dialogs done**: `RecorderConsentDialog` and `ShortRecordingDialog` are implemented and wired into `SupportScreenHost`
 - **Reorderable lib**: Adopted `sh.calvin.reorderable` (APACHE 2.0, acknowledged in `AcknowledgementsScreen`) for drag-reorder in `DashboardCardConfigScreen` + `ArbiterConfigScreen`
 - **Navigation3 ModalBottomSheet pattern proven**: `DebugLogSessionsRoute` renders as a `ModalBottomSheet` inside its `entry<>` block in `AppNavigation.kt`; unblocks AppActionDialog + ScheduleItemDialog conversions
 - **Shared settings toolkit expanded**: Compose `SizeInputDialog` + `AgeInputDialog` under `common/compose/settings/dialogs/`; `SettingsBadgedSwitchItem` with a write-blocking `SettingGate` (SetupRequired/ProRequired) replaces the legacy `BadgedCheckboxPreference`. `SettingsSwitchItem` and `SettingsBadgedSwitchItem` both accept `ImageVector` or `Painter` for the leading icon.
-- **Per-module `NavigationEntry` + Hilt `@Binds @IntoSet`**: All 9 tool modules (+ Stats inside `app-common-stats`, + `app-common-picker`) ship their own `NavigationEntry`.
-- **Cross-screen result API**: `NavigationController.setResult(ResultKey<T>, value)` / `consumeResults(ResultKey<T>)` replaces the generic `ResultBus`. Typed via `ResultKey<T>` in `app-common/common/navigation/`. First consumer: `DeduplicatorSettingsViewModel` collecting `PickerResultKey("scan.location.paths")`. Picker's Host still bridges to `setFragmentResult` for still-Fragment callers (Squeezer setup, PathExclusion) until those convert.
+- **Per-module `NavigationEntry` + Hilt `@Binds @IntoSet`**: All 9 tool modules (+ Stats inside `app-common-stats`, + `app-common-picker`, **+ `app-common-exclusion`**) ship their own `NavigationEntry`.
+- **Cross-screen result API**: `NavigationController.setResult(ResultKey<T>, value)` / `consumeResults(ResultKey<T>)` replaces the generic `ResultBus`. Typed via `ResultKey<T>` in `app-common/common/navigation/`. Consumers: `DeduplicatorSettingsViewModel` + `PathExclusionViewModel` both use `PickerResultKey`. Picker's Host still bridges to `setFragmentResult` for still-Fragment callers (Squeezer setup, Swiper sessions) until those convert.
+- **Coil ↔ Compose bridge**: `io.coil-kt:coil-compose:2.7.0` added to app-common-stats and app-common-exclusion. `AsyncImage(model = Pkg)` and `AsyncImage(model = APathLookup)` both resolve through existing Coil mappers (PkgFetcher, PathPreviewFetcher).
 
 ### What's broken / incomplete
-- **~36 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so all tool list/details screens, exclusions, reports/space-history/affected paths/pkgs, preview are unreachable.
+- **~29 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so all tool list/details screens and Preview are unreachable.
 - **Priority #1 dead-click rows — CLOSED**. CustomFilterList/Picker/ArbiterConfig/Reports all converted and wired through the new result API.
-- **New FIXME targets** (child destinations the Priority #1 conversions now land on):
-  - `ReportsViewModel` → AffectedFilesRoute, AffectedPkgsRoute, SpaceHistoryRoute (3 markers)
+- **Priority #2 Stats + Exclusion batch — CLOSED**. Three `ReportsViewModel` FIXMEs closed; `PathExclusionEditor` migrated off `setFragmentResultListener` to `navCtrl.consumeResults(PickerResultKey)`; Segment editor bug that ignored `targetSegments` fixed.
+- **New FIXME targets** (child destinations the Priority #2 conversions now land on):
   - `CustomFilterListViewModel` → CustomFilterEditorRoute (1 marker; on both edit + create paths)
-- **11 NavigationEntry sites remaining** — the cross-cutting UI modules (`app-common-exclusion`, `app-common-stats` reports subscreens/paths/pkgs, `app-common-coil`) and Analyzer still need their own `NavigationEntry` files as their screens convert.
+  - `ExclusionListViewModel` → AppControlListRoute + DeviceStorageRoute (2 markers on openAppControl/openStoragePicker — FAB type-picker routes to placeholders until those tool lists convert)
+- **8 NavigationEntry sites remaining** — Analyzer still needs one as its screens convert; `app-common-coil` (Preview) is the other non-tool cross-cutting site.
 
 ### Remaining work (priority order)
 
@@ -33,15 +35,13 @@
 - SystemCleaner: List, FilterContentDetails, FilterContent, CustomFilterEditor (4)
 - AppCleaner: List, AppJunkDetails, AppJunk (3)
 - Deduplicator: List, Details, Cluster (3)
-- AppControl: List, AppActionDialog (BottomSheetDialogFragment2) (2)
+- AppControl: List, AppActionDialog (BottomSheetDialogFragment2) (2 — converting AppControlList unblocks one of the ExclusionList FAB FIXMEs)
 - Scheduler: Manager, ScheduleItemDialog (BottomSheetDialogFragment2) (2)
 - Squeezer: List, Setup, ComparisonDialog (3 — Setup also drops its legacy `setFragmentResultListener` on PickerResult and migrates to `NavigationController.consumeResults(PickerResultKey)`)
-- Swiper: Sessions, Swipe, Status (3)
-- Analyzer: DeviceStorage, StorageContent, Apps, AppDetails, Content (5)
+- Swiper: Sessions, Swipe, Status (3 — Sessions also drops its legacy `setFragmentResultListener` on PickerResult)
+- Analyzer: DeviceStorage, StorageContent, Apps, AppDetails, Content (5 — converting DeviceStorage unblocks the other ExclusionList FAB FIXME)
 
-#### 2. Convert cross-cutting Fragments (9 screens)
-- Exclusion: List, PathEditor, PkgEditor, SegmentEditor (4 — PathEditor also migrates off its legacy `setFragmentResultListener` on PickerResult)
-- Stats: SpaceHistory, AffectedPaths, AffectedPkgs (3 — unblocks the 3 FIXME markers in `ReportsViewModel`)
+#### 2. Convert remaining cross-cutting Fragments (2 screens)
 - Preview: PreviewFragment (DialogFragment3), PreviewItemFragment (DialogFragment3) (2)
 
 #### 3. Final cleanup
