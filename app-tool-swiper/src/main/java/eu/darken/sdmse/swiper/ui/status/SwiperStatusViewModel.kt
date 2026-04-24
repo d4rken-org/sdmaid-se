@@ -2,17 +2,14 @@ package eu.darken.sdmse.swiper.ui.status
 
 import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
-import androidx.navigation.navOptions
-import androidx.navigation.toRoute
 import eu.darken.sdmse.common.debug.logging.logTag
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.flow.SingleEventFlow
+import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
-import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -22,7 +19,10 @@ import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.tasks.SwiperDeleteTask
-import eu.darken.sdmse.common.flow.combine
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
+import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.first
 import javax.inject.Inject
 
@@ -33,13 +33,13 @@ class SwiperStatusViewModel @Inject constructor(
     private val swiper: Swiper,
     private val taskSubmitter: TaskSubmitter,
     private val exclusionManager: ExclusionManager,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     private val sessionId: String = SwiperStatusRoute.from(handle).sessionId
 
-    val events = SingleLiveEvent<SwiperStatusEvents>()
+    val events = SingleEventFlow<Event>()
 
-    val state = combine(
+    val state: StateFlow<State> = combine(
         swiper.getSession(sessionId),
         swiper.getItemsForSession(sessionId),
         swiper.progress,
@@ -49,7 +49,9 @@ class SwiperStatusViewModel @Inject constructor(
         val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
         val deletedCount = items.count { it.decision == SwipeDecision.DELETED }
         val keepSize = items.filter { it.decision == SwipeDecision.KEEP }.sumOf { it.lookup.size }
-        val deleteSize = items.filter { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }.sumOf { it.lookup.size }
+        val deleteSize = items
+            .filter { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
+            .sumOf { it.lookup.size }
         val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
 
         State(
@@ -65,33 +67,36 @@ class SwiperStatusViewModel @Inject constructor(
             alreadyKeptCount = session?.keptCount ?: 0,
             alreadyDeletedCount = session?.deletedCount ?: 0,
         )
-    }.asLiveData2()
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
     fun resetDecision(itemId: Long) = launch {
-        log(TAG, INFO) { "resetDecision(itemId=$itemId)" }
+        log(TAG, INFO) { "resetDecision($itemId)" }
         swiper.updateDecision(itemId, SwipeDecision.UNDECIDED)
     }
 
     fun markKeep(itemId: Long) = launch {
-        log(TAG, INFO) { "markKeep(itemId=$itemId)" }
+        log(TAG, INFO) { "markKeep($itemId)" }
         swiper.updateDecision(itemId, SwipeDecision.KEEP)
     }
 
     fun markDelete(itemId: Long) = launch {
-        log(TAG, INFO) { "markDelete(itemId=$itemId)" }
+        log(TAG, INFO) { "markDelete($itemId)" }
         swiper.updateDecision(itemId, SwipeDecision.DELETE)
     }
 
     fun navigateToItem(itemId: Long) {
-        log(TAG, INFO) { "navigateToItem(itemId=$itemId)" }
-        val currentItems = state.value?.items ?: return
+        log(TAG, INFO) { "navigateToItem($itemId)" }
+        val currentItems = state.value.items
         val currentPosition = currentItems.indexOfFirst { it.id == itemId }
         if (currentPosition < 0) return
-        navigateTo(
-            SwiperSwipeRoute(sessionId = sessionId, startIndex = currentPosition),
-            navOptions = navOptions {
-                popUpTo<SwiperSwipeRoute> { inclusive = true }
-            }
+        // FIXME: Lands on UnknownDestinationScreen until SwiperSwipe converts.
+        navTo(
+            destination = SwiperSwipeRoute(sessionId = sessionId, startIndex = currentPosition),
+            popUpTo = SwiperStatusRoute(sessionId),
+            inclusive = true,
         )
     }
 
@@ -99,17 +104,14 @@ class SwiperStatusViewModel @Inject constructor(
         log(TAG, INFO) { "finalize()" }
         taskSubmitter.submit(SwiperDeleteTask(sessionId = sessionId))
 
-        // Navigate away only if session was cleaned up (no longer exists)
-        // If undecided items remain, session still exists and we stay on screen
         val sessionStillExists = swiper.getSession(sessionId).first() != null
         if (!sessionStillExists) {
-            events.postValue(SwiperStatusEvents.NavigateToSessions)
+            navToSessions()
         }
-        // Otherwise stay on screen - state will update reactively
     }
 
     fun retryFailed(itemId: Long) = launch {
-        log(TAG, INFO) { "retryFailed(itemId=$itemId)" }
+        log(TAG, INFO) { "retryFailed($itemId)" }
         swiper.retryFailedItem(itemId)
     }
 
@@ -120,10 +122,10 @@ class SwiperStatusViewModel @Inject constructor(
 
     fun done() {
         log(TAG, INFO) { "done()" }
-        events.postValue(SwiperStatusEvents.NavigateToSessions)
+        navToSessions()
     }
 
-    fun excludeAndRemove(items: List<SwipeItem>) = launch {
+    fun excludeAndRemove(items: Collection<SwipeItem>) = launch {
         log(TAG, INFO) { "excludeAndRemove(${items.size} items)" }
         items.forEach { item ->
             val exclusion = PathExclusion(
@@ -136,32 +138,48 @@ class SwiperStatusViewModel @Inject constructor(
     }
 
     fun updateDecisions(items: Collection<SwipeItem>, decision: SwipeDecision) = launch {
-        log(TAG, INFO) { "updateDecisions(${items.size} items, decision=$decision)" }
+        log(TAG, INFO) { "updateDecisions(${items.size} items → $decision)" }
         items.forEach { item ->
             swiper.updateDecision(item.id, decision)
         }
     }
 
-    data class State(
-        val items: List<SwipeItem>,
-        val keepCount: Int,
-        val deleteCount: Int,
-        val undecidedCount: Int,
-        val deletedCount: Int,
-        val keepSize: Long,
-        val deleteSize: Long,
-        val undecidedSize: Long,
-        val isProcessing: Boolean,
-        val alreadyKeptCount: Int,
-        val alreadyDeletedCount: Int,
-    ) {
-        // Can finalize at any time, even with undecided items (partial finalization)
-        val canFinalize: Boolean = !isProcessing
-        // Can show "Done" when deletions complete and nothing left to delete
-        val canDone: Boolean = deletedCount > 0 && deleteCount == 0 && !isProcessing
-        // Has already processed items from previous partial finalization
-        val hasProcessedItems: Boolean = alreadyKeptCount > 0 || alreadyDeletedCount > 0
+    private fun navToSessions() {
+        navTo(
+            destination = SwiperSessionsRoute,
+            popUpTo = SwiperSessionsRoute,
+            inclusive = true,
+        )
     }
+
+    data class State(
+        val items: List<SwipeItem> = emptyList(),
+        val keepCount: Int = 0,
+        val deleteCount: Int = 0,
+        val undecidedCount: Int = 0,
+        val deletedCount: Int = 0,
+        val keepSize: Long = 0,
+        val deleteSize: Long = 0,
+        val undecidedSize: Long = 0,
+        val isProcessing: Boolean = false,
+        val alreadyKeptCount: Int = 0,
+        val alreadyDeletedCount: Int = 0,
+    ) {
+        val canFinalize: Boolean = !isProcessing
+        val canDone: Boolean = deletedCount > 0 && deleteCount == 0 && !isProcessing
+        val hasProcessedItems: Boolean = alreadyKeptCount > 0 || alreadyDeletedCount > 0
+
+        val finalizeAction: FinalizeAction = when {
+            deletedCount > 0 && deleteCount == 0 -> FinalizeAction.DONE
+            deleteCount > 0 -> FinalizeAction.DELETE
+            keepCount > 0 -> FinalizeAction.APPLY
+            else -> FinalizeAction.HIDDEN
+        }
+    }
+
+    enum class FinalizeAction { HIDDEN, DELETE, APPLY, DONE }
+
+    sealed interface Event
 
     companion object {
         private val TAG = logTag("Swiper", "Status", "ViewModel")
