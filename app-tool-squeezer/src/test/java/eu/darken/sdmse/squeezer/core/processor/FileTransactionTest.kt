@@ -1,5 +1,6 @@
 package eu.darken.sdmse.squeezer.core.processor
 
+import io.kotest.matchers.collections.shouldBeEmpty
 import io.kotest.matchers.shouldBe
 import io.kotest.matchers.types.shouldBeInstanceOf
 import kotlinx.coroutines.test.runTest
@@ -22,6 +23,8 @@ class FileTransactionTest : BaseTest() {
     private class FakeFileOps : FileOps {
         var renameBlocker: (from: File, to: File) -> Boolean = { _, _ -> false }
         var copyBlocker: (from: File, to: File) -> Boolean = { _, _ -> false }
+        var setLastModifiedBlocker: (file: File, time: Long) -> Boolean = { _, _ -> false }
+        val setLastModifiedCalls = mutableListOf<Pair<File, Long>>()
 
         override suspend fun exists(file: File): Boolean = file.exists()
         override suspend fun canRead(file: File): Boolean = file.canRead()
@@ -53,6 +56,14 @@ class FileTransactionTest : BaseTest() {
             from.inputStream().use { input ->
                 to.outputStream().use { output -> input.copyTo(output) }
             }
+        }
+
+        override suspend fun getLastModified(file: File): Long = file.lastModified()
+
+        override suspend fun setLastModified(file: File, time: Long): Boolean {
+            setLastModifiedCalls.add(file to time)
+            if (setLastModifiedBlocker(file, time)) return false
+            return file.setLastModified(time)
         }
     }
 
@@ -373,7 +384,64 @@ class FileTransactionTest : BaseTest() {
         tempFile(target).exists() shouldBe false
     }
 
+    // --- Timestamp preservation tests (issue #2388) ---
+
+    @Test
+    fun `target retains original mtime after successful swap`() = runTest {
+        val original = ByteArray(1000) { 0x11 }
+        val target = targetWith(original)
+        val originalMtime = FIXED_MTIME_MILLIS
+        target.setLastModified(originalMtime) shouldBe true
+
+        val outcome = subject.replace(target, dryRun = false) { tempFile ->
+            tempFile.writeBytes(ByteArray(300) { 0x22 })
+        }
+
+        outcome.replaced shouldBe true
+        target.lastModified() shouldBe originalMtime
+    }
+
+    @Test
+    fun `no-savings path does not touch mtime`() = runTest {
+        // Replacement same size → transaction aborts before any rename.
+        val target = targetWith(ByteArray(500) { 0x11 })
+
+        subject.replace(target, dryRun = false) { tempFile ->
+            tempFile.writeBytes(ByteArray(500) { 0x22 })
+        }
+
+        fileOps.setLastModifiedCalls.shouldBeEmpty()
+    }
+
+    @Test
+    fun `dryRun does not touch mtime`() = runTest {
+        val target = targetWith(ByteArray(1000) { 0x11 })
+
+        subject.replace(target, dryRun = true) { tempFile ->
+            tempFile.writeBytes(ByteArray(300) { 0x22 })
+        }
+
+        fileOps.setLastModifiedCalls.shouldBeEmpty()
+    }
+
+    @Test
+    fun `setLastModified failure does not fail the transaction`() = runTest {
+        val target = targetWith(ByteArray(1000) { 0x11 })
+        fileOps.setLastModifiedBlocker = { _, _ -> true }
+
+        val outcome = subject.replace(target, dryRun = false) { tempFile ->
+            tempFile.writeBytes(ByteArray(300) { 0x22 })
+        }
+
+        outcome.replaced shouldBe true
+        target.length() shouldBe 300L
+        backupFile(target).exists() shouldBe false
+        tempFile(target).exists() shouldBe false
+    }
+
     companion object {
         private const val IO_TEST_BASEDIR = "build/tmp/unit_tests"
+
+        private const val FIXED_MTIME_MILLIS = 1_600_000_000_000L
     }
 }
