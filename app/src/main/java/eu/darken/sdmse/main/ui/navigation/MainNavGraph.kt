@@ -58,11 +58,9 @@ import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment
 import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
 import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment
 // ArbiterConfigFragment — converted to Compose, registered via DeduplicatorNavigation
-import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
-import eu.darken.sdmse.exclusion.ui.list.ExclusionListFragment
 // DataAreasFragment — converted to Compose
 // DashboardFragment — converted to Compose
 // Onboarding Fragments — converted to Compose
@@ -201,9 +199,7 @@ fun NavGraphBuilder.mainNavGraph() {
         )
     )
 
-    // Exclusions
-    fragment<ExclusionListFragment, ExclusionsListRoute>()
-    // Path/Pkg/Segment editors — converted to Compose, registered via ExclusionNavigation
+    // Exclusions — converted to Compose, registered via ExclusionNavigation
 
     // Deduplicator
     fragment<DeduplicatorListFragment, DeduplicatorListRoute>()
