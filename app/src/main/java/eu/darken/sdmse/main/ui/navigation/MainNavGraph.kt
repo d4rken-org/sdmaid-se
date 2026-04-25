@@ -62,17 +62,12 @@ import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
 import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
-import eu.darken.sdmse.systemcleaner.ui.FilterContentDetailsRoute
-import eu.darken.sdmse.systemcleaner.ui.FilterContentRoute
 // StatsSettingsFragment — converted to Compose, registered via StatsNavigation
 // SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
-import eu.darken.sdmse.systemcleaner.ui.SystemCleanerListRoute
 // SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
+// SystemCleanerListFragment, FilterContentDetailsFragment, FilterContentFragment — converted to Compose, registered via SystemCleanerNavigation
 import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment
 // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
-import eu.darken.sdmse.systemcleaner.ui.details.FilterContentDetailsFragment
-import eu.darken.sdmse.systemcleaner.ui.details.filtercontent.FilterContentFragment
-import eu.darken.sdmse.systemcleaner.ui.list.SystemCleanerListFragment
 // UpgradeFragment — converted to Compose
 import kotlin.reflect.typeOf
 
@@ -112,10 +107,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // CorpseFinder — all screens converted to Compose, registered via CorpseFinderNavigation
 
-    // SystemCleaner
-    fragment<SystemCleanerListFragment, SystemCleanerListRoute>()
-    fragment<FilterContentDetailsFragment, FilterContentDetailsRoute>()
-    fragment<FilterContentFragment, FilterContentRoute>()
+    // SystemCleaner — list/details converted to Compose, registered via SystemCleanerNavigation
     // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
     fragment<CustomFilterEditorFragment, CustomFilterEditorRoute>(
         typeMap = mapOf(typeOf<CustomFilterEditorOptions?>() to CustomFilterEditorOptionsNavType)

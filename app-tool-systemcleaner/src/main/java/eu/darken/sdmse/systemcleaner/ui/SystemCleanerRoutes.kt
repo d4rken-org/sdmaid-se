@@ -19,12 +19,3 @@ data class FilterContentDetailsRoute(
         fun from(handle: SavedStateHandle) = handle.toRoute<FilterContentDetailsRoute>()
     }
 }
-
-@Serializable
-data class FilterContentRoute(
-    val identifier: String,
-) : NavigationDestination {
-    companion object {
-        fun from(handle: SavedStateHandle) = handle.toRoute<FilterContentRoute>()
-    }
-}
