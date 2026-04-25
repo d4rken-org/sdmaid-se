@@ -1,6 +1,5 @@
 package eu.darken.sdmse.swiper.ui.status
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
@@ -22,51 +21,68 @@ import eu.darken.sdmse.swiper.core.tasks.SwiperDeleteTask
 import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
 import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
 import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import javax.inject.Inject
 
 @HiltViewModel
 class SwiperStatusViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val swiper: Swiper,
     private val taskSubmitter: TaskSubmitter,
     private val exclusionManager: ExclusionManager,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val sessionId: String = SwiperStatusRoute.from(handle).sessionId
+    // Route deserialization via SavedStateHandle.toRoute<>() crashes with MissingFieldException
+    // even for plain `String` primitives — the Picker pattern (route through entry lambda) avoids it.
+    private val routeFlow = MutableStateFlow<SwiperStatusRoute?>(null)
+
+    private val sessionId: String? get() = routeFlow.value?.sessionId
 
     val events = SingleEventFlow<Event>()
 
-    val state: StateFlow<State> = combine(
-        swiper.getSession(sessionId),
-        swiper.getItemsForSession(sessionId),
-        swiper.progress,
-    ) { session: SwipeSession?, items: List<SwipeItem>, progress ->
-        val keepCount = items.count { it.decision == SwipeDecision.KEEP }
-        val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
-        val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
-        val deletedCount = items.count { it.decision == SwipeDecision.DELETED }
-        val keepSize = items.filter { it.decision == SwipeDecision.KEEP }.sumOf { it.lookup.size }
-        val deleteSize = items
-            .filter { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
-            .sumOf { it.lookup.size }
-        val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
+    fun bindRoute(route: SwiperStatusRoute) {
+        if (routeFlow.value != null) return
+        log(TAG, INFO) { "bindRoute(sessionId=${route.sessionId})" }
+        routeFlow.value = route
+    }
 
-        State(
-            items = items,
-            keepCount = keepCount,
-            deleteCount = deleteCount,
-            undecidedCount = undecidedCount,
-            deletedCount = deletedCount,
-            keepSize = keepSize,
-            deleteSize = deleteSize,
-            undecidedSize = undecidedSize,
-            isProcessing = progress != null,
-            alreadyKeptCount = session?.keptCount ?: 0,
-            alreadyDeletedCount = session?.deletedCount ?: 0,
-        )
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val state: StateFlow<State> = routeFlow.filterNotNull().flatMapLatest { route ->
+        val sid = route.sessionId
+        combine(
+            swiper.getSession(sid),
+            swiper.getItemsForSession(sid),
+            swiper.progress,
+        ) { session: SwipeSession?, items: List<SwipeItem>, progress ->
+            val keepCount = items.count { it.decision == SwipeDecision.KEEP }
+            val deleteCount = items.count { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
+            val undecidedCount = items.count { it.decision == SwipeDecision.UNDECIDED }
+            val deletedCount = items.count { it.decision == SwipeDecision.DELETED }
+            val keepSize = items.filter { it.decision == SwipeDecision.KEEP }.sumOf { it.lookup.size }
+            val deleteSize = items
+                .filter { it.decision == SwipeDecision.DELETE || it.decision == SwipeDecision.DELETE_FAILED }
+                .sumOf { it.lookup.size }
+            val undecidedSize = items.filter { it.decision == SwipeDecision.UNDECIDED }.sumOf { it.lookup.size }
+
+            State(
+                items = items,
+                keepCount = keepCount,
+                deleteCount = deleteCount,
+                undecidedCount = undecidedCount,
+                deletedCount = deletedCount,
+                keepSize = keepSize,
+                deleteSize = deleteSize,
+                undecidedSize = undecidedSize,
+                isProcessing = progress != null,
+                alreadyKeptCount = session?.keptCount ?: 0,
+                alreadyDeletedCount = session?.deletedCount ?: 0,
+            )
+        }
     }.safeStateIn(
         initialValue = State(),
         onError = { State() },
@@ -89,22 +105,23 @@ class SwiperStatusViewModel @Inject constructor(
 
     fun navigateToItem(itemId: Long) {
         log(TAG, INFO) { "navigateToItem($itemId)" }
+        val sid = sessionId ?: return
         val currentItems = state.value.items
         val currentPosition = currentItems.indexOfFirst { it.id == itemId }
         if (currentPosition < 0) return
-        // FIXME: Lands on UnknownDestinationScreen until SwiperSwipe converts.
         navTo(
-            destination = SwiperSwipeRoute(sessionId = sessionId, startIndex = currentPosition),
-            popUpTo = SwiperStatusRoute(sessionId),
+            destination = SwiperSwipeRoute(sessionId = sid, startIndex = currentPosition),
+            popUpTo = SwiperStatusRoute(sid),
             inclusive = true,
         )
     }
 
     fun finalize() = launch {
         log(TAG, INFO) { "finalize()" }
-        taskSubmitter.submit(SwiperDeleteTask(sessionId = sessionId))
+        val sid = sessionId ?: return@launch
+        taskSubmitter.submit(SwiperDeleteTask(sessionId = sid))
 
-        val sessionStillExists = swiper.getSession(sessionId).first() != null
+        val sessionStillExists = swiper.getSession(sid).first() != null
         if (!sessionStillExists) {
             navToSessions()
         }
@@ -117,7 +134,8 @@ class SwiperStatusViewModel @Inject constructor(
 
     fun retryAllFailed() = launch {
         log(TAG, INFO) { "retryAllFailed()" }
-        swiper.retryAllFailed(sessionId)
+        val sid = sessionId ?: return@launch
+        swiper.retryAllFailed(sid)
     }
 
     fun done() {

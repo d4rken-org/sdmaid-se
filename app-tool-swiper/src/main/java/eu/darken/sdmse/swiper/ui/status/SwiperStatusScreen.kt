@@ -73,10 +73,13 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun SwiperStatusScreenHost(
+    route: eu.darken.sdmse.swiper.ui.SwiperStatusRoute,
     vm: SwiperStatusViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    androidx.compose.runtime.LaunchedEffect(route) { vm.bindRoute(route) }
 
     SwiperStatusScreen(
         stateSource = vm.state,

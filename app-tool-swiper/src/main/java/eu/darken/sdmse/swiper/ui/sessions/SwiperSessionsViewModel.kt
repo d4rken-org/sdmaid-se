@@ -124,7 +124,6 @@ class SwiperSessionsViewModel @Inject constructor(
                 refreshingSessionId.value = null
             }
         }
-        // FIXME: Lands on UnknownDestinationScreen until SwiperSwipe converts.
         navTo(SwiperSwipeRoute(sessionId = sessionId))
     }
 

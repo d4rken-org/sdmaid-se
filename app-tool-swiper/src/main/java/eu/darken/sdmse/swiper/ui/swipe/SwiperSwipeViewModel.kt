@@ -1,20 +1,19 @@
 package eu.darken.sdmse.swiper.ui.swipe
 
-import androidx.lifecycle.SavedStateHandle
+import android.content.Intent
 import dagger.hilt.android.lifecycle.HiltViewModel
-import eu.darken.sdmse.common.SingleLiveEvent
+import eu.darken.sdmse.common.ViewIntentTool
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.datastore.value
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
-import androidx.navigation.toRoute
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.flow.combine
-import eu.darken.sdmse.common.uix.ViewModel3
-import eu.darken.sdmse.common.ViewIntentTool
+import eu.darken.sdmse.common.navigation.routes.SwiperSessionsRoute
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.exclusion.core.ExclusionManager
-import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
-import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
 import eu.darken.sdmse.exclusion.core.save
 import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PathExclusion
@@ -23,26 +22,33 @@ import eu.darken.sdmse.swiper.core.SwipeItem
 import eu.darken.sdmse.swiper.core.SwipeSession
 import eu.darken.sdmse.swiper.core.Swiper
 import eu.darken.sdmse.swiper.core.SwiperSettings
+import eu.darken.sdmse.swiper.ui.SwiperStatusRoute
+import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.flatMapLatest
 import javax.inject.Inject
 
 @HiltViewModel
 class SwiperSwipeViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val swiper: Swiper,
     private val settings: SwiperSettings,
     private val exclusionManager: ExclusionManager,
     private val viewIntentTool: ViewIntentTool,
-) : ViewModel3(dispatcherProvider = dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val route = SwiperSwipeRoute.from(handle)
-    private val sessionId: String = route.sessionId
-    private val startIndex: Int = route.startIndex
+    // Nav3 + Hilt SavedStateHandle deserialization is unreliable for routes with multi-arg
+    // primitives (the SwiperSwipeRoute.from(handle) crashed on missing 'sessionId' on-device).
+    // The Host composable receives the deserialized route from the entry lambda and binds it
+    // here once. All session-scoped logic reads from the bound route via routeFlow.
+    private val routeFlow = MutableStateFlow<SwiperSwipeRoute?>(null)
 
-    private val currentIndexOverride = MutableStateFlow<Int?>(
-        if (startIndex >= 0) startIndex else null
-    )
+    private val sessionId: String? get() = routeFlow.value?.sessionId
+
+    private val currentIndexOverride = MutableStateFlow<Int?>(null)
 
     private data class UndoEntry(
         val itemId: Long,
@@ -52,75 +58,81 @@ class SwiperSwipeViewModel @Inject constructor(
 
     private val undoHistory = MutableStateFlow<List<UndoEntry>>(emptyList())
 
-    val events = SingleLiveEvent<SwiperSwipeEvents>()
+    val events = SingleEventFlow<Event>()
 
-    init {
+    fun bindRoute(route: SwiperSwipeRoute) {
+        if (routeFlow.value != null) return
+        log(TAG, INFO) { "bindRoute(sessionId=${route.sessionId}, startIndex=${route.startIndex})" }
+        routeFlow.value = route
+        if (route.startIndex >= 0) currentIndexOverride.value = route.startIndex
         launch {
-            if (!swiper.hasSessionLookups(sessionId)) {
-                log(TAG, WARN) { "Cache miss for session $sessionId after process death, navigating back to sessions" }
-                events.postValue(SwiperSwipeEvents.NavigateToSessions)
+            if (!swiper.hasSessionLookups(route.sessionId)) {
+                log(TAG, WARN) { "Cache miss for session ${route.sessionId} after process death, navigating back to sessions" }
+                navToSessions()
             }
         }
     }
 
-    val state = combine(
-        swiper.getSession(sessionId),
-        swiper.getItemsForSession(sessionId),
-        swiper.getSessionsWithStats(),
-        currentIndexOverride,
-        settings.swapSwipeDirections.flow,
-        settings.showFileDetailsOverlay.flow,
-        undoHistory,
-        settings.hasShownGestureOverlay.flow,
-    ) { session: SwipeSession?,
-        items: List<SwipeItem>,
-        allSessions: List<Swiper.SessionWithStats>,
-        indexOverride: Int?,
-        swapDirections: Boolean,
-        showDetails: Boolean,
-        undoStack: List<UndoEntry>,
-        hasShownOverlay: Boolean ->
-        // Clear stale override when session was reset to 0 (e.g., after deletion)
-        val currentIndex = when {
-            session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
-                currentIndexOverride.value = null
-                0
-            }
-            else -> indexOverride ?: session?.currentIndex ?: 0
-        }.coerceIn(0, maxOf(0, items.size - 1))
-        val keepItems = items.filter { it.decision == SwipeDecision.KEEP }
-        val deleteItems = items.filter { it.decision == SwipeDecision.DELETE }
-        val undecidedItems = items.filter { it.decision == SwipeDecision.UNDECIDED }
+    @OptIn(ExperimentalCoroutinesApi::class)
+    val state: StateFlow<State?> = routeFlow.filterNotNull().flatMapLatest { route ->
+        val sid = route.sessionId
+        combine(
+            swiper.getSession(sid),
+            swiper.getItemsForSession(sid),
+            swiper.getSessionsWithStats(),
+            currentIndexOverride,
+            settings.swapSwipeDirections.flow,
+            settings.showFileDetailsOverlay.flow,
+            undoHistory,
+            settings.hasShownGestureOverlay.flow,
+        ) { session: SwipeSession?,
+            items: List<SwipeItem>,
+            allSessions: List<Swiper.SessionWithStats>,
+            indexOverride: Int?,
+            swapDirections: Boolean,
+            showDetails: Boolean,
+            undoStack: List<UndoEntry>,
+            hasShownOverlay: Boolean ->
+            // Clear stale override when session was reset to 0 (e.g., after deletion)
+            val currentIndex = when {
+                session?.currentIndex == 0 && indexOverride != null && indexOverride > 0 -> {
+                    currentIndexOverride.value = null
+                    0
+                }
+                else -> indexOverride ?: session?.currentIndex ?: 0
+            }.coerceIn(0, maxOf(0, items.size - 1))
+            val keepItems = items.filter { it.decision == SwipeDecision.KEEP }
+            val deleteItems = items.filter { it.decision == SwipeDecision.DELETE }
+            val undecidedItems = items.filter { it.decision == SwipeDecision.UNDECIDED }
 
-        // Calculate session position (1-based, sorted by creation date)
-        val sessionPosition = allSessions
-            .sortedBy { it.session.createdAt }
-            .indexOfFirst { it.session.sessionId == sessionId }
-            .let { if (it >= 0) it + 1 else null }
+            val sessionPosition = allSessions
+                .sortedBy { it.session.createdAt }
+                .indexOfFirst { it.session.sessionId == sid }
+                .let { if (it >= 0) it + 1 else null }
 
-        State(
-            session = session,
-            items = items,
-            currentIndex = currentIndex,
-            totalItems = session?.totalItems ?: items.size,
-            keepCount = keepItems.size,
-            keepSize = keepItems.sumOf { it.lookup.size },
-            deleteCount = deleteItems.size,
-            deleteSize = deleteItems.sumOf { it.lookup.size },
-            undecidedCount = undecidedItems.size,
-            undecidedSize = undecidedItems.sumOf { it.lookup.size },
-            swapDirections = swapDirections,
-            showDetails = showDetails,
-            sessionPosition = sessionPosition,
-            canUndo = undoStack.isNotEmpty(),
-            showGestureOverlay = !hasShownOverlay,
-        )
-    }.asLiveData2()
+            State(
+                session = session,
+                items = items,
+                currentIndex = currentIndex,
+                totalItems = session?.totalItems ?: items.size,
+                keepCount = keepItems.size,
+                keepSize = keepItems.sumOf { it.lookup.size },
+                deleteCount = deleteItems.size,
+                deleteSize = deleteItems.sumOf { it.lookup.size },
+                undecidedCount = undecidedItems.size,
+                undecidedSize = undecidedItems.sumOf { it.lookup.size },
+                swapDirections = swapDirections,
+                showDetails = showDetails,
+                sessionPosition = sessionPosition,
+                canUndo = undoStack.isNotEmpty(),
+                showGestureOverlay = !hasShownOverlay,
+            )
+        }
+    }.safeStateIn(initialValue = null) { null }
 
     fun setDecision(itemId: Long, decision: SwipeDecision) = launch {
         log(TAG, INFO) { "setDecision(itemId=$itemId, decision=$decision)" }
 
-        // Store undo entry before applying decision
         val currentState = state.value
         val currentItem = currentState?.currentItem
         if (currentItem != null && currentItem.id == itemId) {
@@ -133,7 +145,7 @@ class SwiperSwipeViewModel @Inject constructor(
         }
 
         if (settings.hapticFeedbackEnabled.value()) {
-            events.postValue(SwiperSwipeEvents.TriggerHapticFeedback)
+            events.tryEmit(Event.TriggerHapticFeedback)
         }
         swiper.updateDecision(itemId, decision)
         advanceOrNavigate()
@@ -145,7 +157,6 @@ class SwiperSwipeViewModel @Inject constructor(
         val currentState = state.value ?: return@launch
         val currentItem = currentState.currentItem
 
-        // Store undo entry before skipping
         if (currentItem != null) {
             val entry = UndoEntry(
                 itemId = currentItem.id,
@@ -183,34 +194,30 @@ class SwiperSwipeViewModel @Inject constructor(
         val items = currentState.items
         val currentIdx = currentState.currentIndex
         val currentItemId = currentState.currentItem?.id
+        val sid = sessionId ?: return
 
-        // If no items remain, discard session and go back to sessions
         if (items.isEmpty()) {
             log(TAG, INFO) { "advanceOrNavigate: No items remain, discarding session" }
-            swiper.discardSession(sessionId)
-            events.postValue(SwiperSwipeEvents.NavigateToSessions)
+            swiper.discardSession(sid)
+            navToSessions()
             return
         }
 
-        // Find next undecided item (excluding the current item which may have just been decided)
         val nextUndecidedIndex = findNextUndecidedIndex(items, currentIdx, currentItemId)
 
         if (nextUndecidedIndex != null) {
             setCurrentIndex(nextUndecidedIndex)
         } else {
-            // No more undecided items - navigate to review screen
             log(TAG, INFO) { "advanceOrNavigate: No more undecided items, navigating to status" }
             navigateToStatus()
         }
     }
 
     private fun findNextUndecidedIndex(items: List<SwipeItem>, currentIdx: Int, excludeItemId: Long?): Int? {
-        // First, search forward from current position
         for (i in (currentIdx + 1) until items.size) {
             val item = items[i]
             if (item.decision == SwipeDecision.UNDECIDED && item.id != excludeItemId) return i
         }
-        // Then, search from beginning up to current position
         for (i in 0 until currentIdx) {
             val item = items[i]
             if (item.decision == SwipeDecision.UNDECIDED && item.id != excludeItemId) return i
@@ -220,13 +227,23 @@ class SwiperSwipeViewModel @Inject constructor(
 
     fun setCurrentIndex(index: Int) = launch {
         log(TAG, INFO) { "setCurrentIndex(index=$index)" }
+        val sid = sessionId ?: return@launch
         currentIndexOverride.value = index
-        swiper.updateCurrentIndex(sessionId, index)
+        swiper.updateCurrentIndex(sid, index)
     }
 
     fun navigateToStatus() {
+        val sid = sessionId ?: return
         log(TAG, INFO) { "navigateToStatus()" }
-        navigateTo(SwiperStatusRoute(sessionId = sessionId))
+        navTo(SwiperStatusRoute(sessionId = sid))
+    }
+
+    private fun navToSessions() {
+        navTo(
+            destination = SwiperSessionsRoute,
+            popUpTo = SwiperSessionsRoute,
+            inclusive = true,
+        )
     }
 
     fun dismissGestureOverlay() = launch {
@@ -238,9 +255,9 @@ class SwiperSwipeViewModel @Inject constructor(
         log(TAG, INFO) { "openExternally(${item.lookup.lookedUp})" }
         val intent = viewIntentTool.create(item.lookup)
         if (intent != null) {
-            events.postValue(SwiperSwipeEvents.OpenExternally(intent))
+            events.tryEmit(Event.OpenExternally(intent))
         } else {
-            events.postValue(SwiperSwipeEvents.ShowOpenNotSupported)
+            events.tryEmit(Event.ShowOpenNotSupported)
         }
     }
 
@@ -253,6 +270,12 @@ class SwiperSwipeViewModel @Inject constructor(
         exclusionManager.save(exclusion)
         swiper.removeItem(item.id)
         advanceOrNavigate()
+    }
+
+    sealed interface Event {
+        data object TriggerHapticFeedback : Event
+        data class OpenExternally(val intent: Intent) : Event
+        data object ShowOpenNotSupported : Event
     }
 
     data class State(
@@ -273,6 +296,7 @@ class SwiperSwipeViewModel @Inject constructor(
         val showGestureOverlay: Boolean,
     ) {
         val currentItem: SwipeItem? = items.getOrNull(currentIndex)
+        val nextItem: SwipeItem? = items.getOrNull(currentIndex + 1) ?: items.firstOrNull { it != currentItem }
         val currentItemOriginalIndex: Int? = currentItem?.itemIndex
         val progressPercent: Int = if (totalItems > 0) ((keepCount + deleteCount) * 100 / totalItems) else 0
         val sessionLabel: String? = session?.label

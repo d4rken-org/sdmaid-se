@@ -68,8 +68,6 @@ import eu.darken.sdmse.setup.SetupScreenOptions
 // SqueezerSettingsFragment + SqueezerListFragment — converted to Compose, registered via SqueezerNavigation
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 // ReportsFragment — converted to Compose, registered via StatsNavigation
-import eu.darken.sdmse.swiper.ui.SwiperSwipeRoute
-import eu.darken.sdmse.swiper.ui.swipe.SwiperSwipeFragment
 import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
 import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
@@ -195,6 +193,5 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Picker — converted to Compose, registered via PickerNavigation
 
-    // Swiper — SwiperSessionsFragment + SwiperStatusFragment converted to Compose, registered via SwiperNavigation
-    fragment<SwiperSwipeFragment, SwiperSwipeRoute>()
+    // Swiper — fully converted to Compose, registered via SwiperNavigation
 }
