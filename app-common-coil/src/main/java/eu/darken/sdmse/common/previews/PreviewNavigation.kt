@@ -8,6 +8,6 @@ import javax.inject.Inject
 class PreviewNavigation @Inject constructor() : NavigationEntry {
 
     override fun EntryProviderScope<NavKey>.setup() {
-        entry<PreviewRoute> { PreviewScreenHost() }
+        entry<PreviewRoute> { route -> PreviewScreenHost(route = route) }
     }
 }

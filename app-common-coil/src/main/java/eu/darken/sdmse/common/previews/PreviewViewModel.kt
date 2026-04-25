@@ -1,6 +1,5 @@
 package eu.darken.sdmse.common.previews
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
@@ -16,12 +15,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class PreviewViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val gatewaySwitch: GatewaySwitch,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
-
-    val options: PreviewOptions = PreviewRoute.from(handle).options
 
     suspend fun resolveLookup(path: APath): APathLookup<*>? = try {
         path.lookup(gatewaySwitch)

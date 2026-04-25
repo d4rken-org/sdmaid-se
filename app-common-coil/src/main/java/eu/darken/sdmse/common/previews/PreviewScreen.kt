@@ -56,14 +56,15 @@ import kotlinx.coroutines.launch
 
 @Composable
 fun PreviewScreenHost(
+    route: PreviewRoute,
     vm: PreviewViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
 
     PreviewScreen(
-        paths = vm.options.paths,
-        initialPosition = vm.options.position,
+        paths = route.options.paths,
+        initialPosition = route.options.position,
         resolveLookup = vm::resolveLookup,
         onNavigateUp = vm::navUp,
     )
