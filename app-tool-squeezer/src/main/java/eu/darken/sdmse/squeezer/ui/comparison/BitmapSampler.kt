@@ -1,8 +1,8 @@
-package eu.darken.sdmse.squeezer.ui.onboarding
+package eu.darken.sdmse.squeezer.ui.comparison
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
-import eu.darken.sdmse.common.debug.logging.Logging.Priority.*
+import eu.darken.sdmse.common.debug.logging.Logging.Priority.WARN
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import java.io.File

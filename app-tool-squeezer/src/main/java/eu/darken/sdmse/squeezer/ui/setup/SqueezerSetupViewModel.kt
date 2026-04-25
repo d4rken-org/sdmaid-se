@@ -149,7 +149,6 @@ class SqueezerSetupViewModel @Inject constructor(
         log(TAG, INFO) { "Scan result: $result" }
 
         if (squeezer.state.first().data.hasData) {
-            // FIXME: SqueezerListRoute lands on UnknownDestinationScreen until SqueezerList converts.
             navTo(SqueezerListRoute)
         } else {
             events.tryEmit(Event.NoResultsFound)
