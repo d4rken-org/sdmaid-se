@@ -20,7 +20,6 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Edit
 import androidx.compose.material.icons.filled.Info
-import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.Card
@@ -37,7 +36,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.Slider
 import androidx.compose.material3.Text
-import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -52,7 +50,6 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.pluralStringResource
 import androidx.compose.ui.res.stringResource
-import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -68,8 +65,8 @@ import eu.darken.sdmse.common.files.APath
 import eu.darken.sdmse.common.navigation.NavigationEventHandler
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.squeezer.R
-import eu.darken.sdmse.squeezer.core.CompressibleImage
 import eu.darken.sdmse.squeezer.core.SqueezerSettings
+import eu.darken.sdmse.squeezer.ui.comparison.SqueezerComparisonDialog
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -121,10 +118,10 @@ fun SqueezerSetupScreenHost(
     )
 
     exampleDialog?.let { event ->
-        ExampleCompressionDialog(
-            sample = event.sampleImage,
+        SqueezerComparisonDialog(
+            image = event.sampleImage,
             quality = event.quality,
-            onDismiss = { exampleDialog = null },
+            onClose = { exampleDialog = null },
         )
     }
 }
@@ -498,71 +495,6 @@ private fun MinSizeCard(
             )
         }
     }
-}
-
-@Composable
-private fun ExampleCompressionDialog(
-    sample: CompressibleImage,
-    quality: Int,
-    onDismiss: () -> Unit,
-) {
-    val context = LocalContext.current
-    val originalSize = Formatter.formatShortFileSize(context, sample.size)
-    val compressedSize = sample.estimatedCompressedSize
-        ?.let { "~${Formatter.formatShortFileSize(context, it)}" }
-        ?: stringResource(R.string.squeezer_no_savings_expected)
-
-    // FIXME: The legacy onboarding dialog rendered bitmap previews and linked into ComparisonDialog.
-    //  Both are deferred until the Squeezer List + ComparisonDialog convert to Compose; this dialog
-    //  shows the size comparison text only in the meantime.
-    AlertDialog(
-        onDismissRequest = onDismiss,
-        title = { Text(stringResource(R.string.squeezer_onboarding_title)) },
-        text = {
-            Column {
-                Text(
-                    text = stringResource(R.string.squeezer_onboarding_quality_label, quality),
-                    style = MaterialTheme.typography.bodyMedium,
-                )
-                Spacer(Modifier.height(16.dp))
-                Text(
-                    text = sample.lookup.userReadableName.get(context),
-                    style = MaterialTheme.typography.labelMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                )
-                Spacer(Modifier.height(8.dp))
-                Row(
-                    modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceBetween,
-                ) {
-                    Column {
-                        Text(
-                            text = stringResource(R.string.squeezer_onboarding_original_label),
-                            style = MaterialTheme.typography.labelSmall,
-                        )
-                        Text(text = originalSize, style = MaterialTheme.typography.titleMedium)
-                    }
-                    Column(horizontalAlignment = Alignment.End) {
-                        Text(
-                            text = stringResource(R.string.squeezer_onboarding_compressed_label),
-                            style = MaterialTheme.typography.labelSmall,
-                        )
-                        Text(
-                            text = compressedSize,
-                            style = MaterialTheme.typography.titleMedium,
-                            color = MaterialTheme.colorScheme.primary,
-                        )
-                    }
-                }
-            }
-        },
-        confirmButton = {
-            TextButton(onClick = onDismiss) {
-                Text(stringResource(CommonR.string.general_gotit_action))
-            }
-        },
-    )
 }
 
 @Preview2
