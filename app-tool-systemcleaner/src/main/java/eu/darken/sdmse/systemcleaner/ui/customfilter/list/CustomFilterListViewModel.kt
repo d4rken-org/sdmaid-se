@@ -79,7 +79,6 @@ class CustomFilterListViewModel @Inject constructor(
             navTo(UpgradeRoute())
             return@launch
         }
-        // FIXME: CustomFilterEditorRoute lands on placeholder until its own Compose conversion lands.
         navTo(CustomFilterEditorRoute(identifier = row.config.identifier))
     }
 
@@ -89,7 +88,6 @@ class CustomFilterListViewModel @Inject constructor(
             navTo(UpgradeRoute())
             return@launch
         }
-        // FIXME: CustomFilterEditorRoute lands on placeholder until its own Compose conversion lands.
         navTo(
             CustomFilterEditorRoute(
                 initial = CustomFilterEditorOptions(),

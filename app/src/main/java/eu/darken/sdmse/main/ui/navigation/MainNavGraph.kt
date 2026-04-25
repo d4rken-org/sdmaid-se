@@ -59,14 +59,12 @@ import eu.darken.sdmse.setup.SetupScreenOptions
 // SqueezerSettingsFragment + SqueezerListFragment — converted to Compose, registered via SqueezerNavigation
 import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 // ReportsFragment — converted to Compose, registered via StatsNavigation
-import eu.darken.sdmse.common.filter.CustomFilterEditorOptions
-import eu.darken.sdmse.common.filter.CustomFilterEditorRoute
 import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 // StatsSettingsFragment — converted to Compose, registered via StatsNavigation
 // SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
 // SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
 // SystemCleanerListFragment, FilterContentDetailsFragment, FilterContentFragment — converted to Compose, registered via SystemCleanerNavigation
-import eu.darken.sdmse.systemcleaner.ui.customfilter.editor.CustomFilterEditorFragment
+// CustomFilterEditorFragment — converted to Compose, registered via SystemCleanerNavigation
 // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
 // UpgradeFragment — converted to Compose
 import kotlin.reflect.typeOf
@@ -76,7 +74,6 @@ private val InstallIdNavType = serializableNavType(InstallId.serializer())
 private val NullableInstallIdNavType = serializableNavType(InstallId.serializer(), isNullableAllowed = true)
 private val ContentGroupIdNavType = serializableNavType(ContentGroup.Id.serializer())
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
-private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
 
 fun NavGraphBuilder.mainNavGraph() {
     // Onboarding — converted to Compose, registered via AppNavigation
@@ -107,11 +104,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // CorpseFinder — all screens converted to Compose, registered via CorpseFinderNavigation
 
-    // SystemCleaner — list/details converted to Compose, registered via SystemCleanerNavigation
-    // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
-    fragment<CustomFilterEditorFragment, CustomFilterEditorRoute>(
-        typeMap = mapOf(typeOf<CustomFilterEditorOptions?>() to CustomFilterEditorOptionsNavType)
-    )
+    // SystemCleaner — list/details/customfilter all converted to Compose, registered via SystemCleanerNavigation
 
     // AppCleaner
     fragment<AppCleanerListFragment, AppCleanerListRoute>()

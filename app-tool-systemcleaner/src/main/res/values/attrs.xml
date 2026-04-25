@@ -1,5 +1,0 @@
-<resources>
-    <declare-styleable name="TaggedInputView">
-        <attr name="tivTitle" format="reference" />
-    </declare-styleable>
-</resources>
