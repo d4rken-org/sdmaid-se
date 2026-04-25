@@ -8,7 +8,8 @@
 ## What to Test
 
 - Write tests for web APIs and serialized data
-- No UI tests required
+- Avoid `androidTest` instrumentation tests (slow, require a device)
+- JVM-runnable Compose UI tests (Robolectric + `androidx.compose.ui.test.junit4.createComposeRule()`) are acceptable when they catch behavior that JVM unit tests can't (route decoding, sheet/back interaction, selection-mode top bar transitions). Drive the **internal `Screen` composable** with a mock `MutableStateFlow`, never the Hilt-injected Host — that keeps the test JVM-only and free of `HiltAndroidRule`.
 
 ## Base Test Classes
 
