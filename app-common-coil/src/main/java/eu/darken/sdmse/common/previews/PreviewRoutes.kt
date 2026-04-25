@@ -5,7 +5,6 @@ import androidx.navigation.NavType
 import androidx.navigation.toRoute
 import eu.darken.sdmse.common.navigation.NavigationDestination
 import eu.darken.sdmse.common.navigation.serializableNavType
-import eu.darken.sdmse.common.previews.item.PreviewItem
 import kotlinx.serialization.Serializable
 import kotlin.reflect.KType
 import kotlin.reflect.typeOf
@@ -20,18 +19,5 @@ data class PreviewRoute(
         )
 
         fun from(handle: SavedStateHandle) = handle.toRoute<PreviewRoute>(typeMap)
-    }
-}
-
-@Serializable
-data class PreviewItemRoute(
-    val item: PreviewItem,
-) : NavigationDestination {
-    companion object {
-        val typeMap: Map<KType, NavType<*>> = mapOf(
-            typeOf<PreviewItem>() to serializableNavType(PreviewItem.serializer()),
-        )
-
-        fun from(handle: SavedStateHandle) = handle.toRoute<PreviewItemRoute>(typeMap)
     }
 }

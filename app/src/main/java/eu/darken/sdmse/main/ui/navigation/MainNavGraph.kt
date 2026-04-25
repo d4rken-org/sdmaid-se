@@ -34,12 +34,7 @@ import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.navigation.serializableNavType
 // PickerFragment — converted to Compose, registered via PickerNavigation
 import eu.darken.sdmse.common.pkgs.features.InstallId
-import eu.darken.sdmse.common.previews.PreviewFragment
-import eu.darken.sdmse.common.previews.PreviewItemRoute
-import eu.darken.sdmse.common.previews.PreviewOptions
-import eu.darken.sdmse.common.previews.PreviewRoute
-import eu.darken.sdmse.common.previews.item.PreviewItem
-import eu.darken.sdmse.common.previews.item.PreviewItemFragment
+// PreviewFragment + PreviewItemFragment — converted to Compose, registered via PreviewNavigation
 import eu.darken.sdmse.common.storage.StorageId
 // CorpseFinderSettingsFragment — converted to Compose, registered via CorpseFinderNavigation
 import eu.darken.sdmse.deduplicator.core.Duplicate
@@ -102,8 +97,6 @@ private val DuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id
 private val NullableDuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer(), isNullableAllowed = true)
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
 private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
-private val PreviewOptionsNavType = serializableNavType(PreviewOptions.serializer())
-private val PreviewItemNavType = serializableNavType(PreviewItem.serializer())
 
 fun NavGraphBuilder.mainNavGraph() {
     // Onboarding — converted to Compose, registered via AppNavigation
@@ -199,13 +192,7 @@ fun NavGraphBuilder.mainNavGraph() {
     // Squeezer — SqueezerSetupFragment converted to Compose, registered via SqueezerNavigation
     fragment<SqueezerListFragment, SqueezerListRoute>()
 
-    // Preview
-    dialog<PreviewFragment, PreviewRoute>(
-        typeMap = mapOf(typeOf<PreviewOptions>() to PreviewOptionsNavType)
-    )
-    fragment<PreviewItemFragment, PreviewItemRoute>(
-        typeMap = mapOf(typeOf<PreviewItem>() to PreviewItemNavType)
-    )
+    // Preview — converted to Compose, registered via PreviewNavigation
 
     // Reports / Stats — converted to Compose, registered via StatsNavigation
 
