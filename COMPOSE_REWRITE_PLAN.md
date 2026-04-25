@@ -1,51 +1,55 @@
 # Compose Rewrite: SD Maid SE
 
-## Current Status (2026-04-24)
+## Current Status (2026-04-25)
 
 ### What's done
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
 - **Gradle**: Compose plugin + dependencies on all 10 UI modules (app, app-common-ui, all 9 tool modules) **+ app-common-stats + app-common-picker + app-common-exclusion**. `addNavigation3()` now added to every converted tool module's `build.gradle.kts`.
 - **All routes**: Every route implements NavigationDestination
-- **ViewModels migrated to ViewModel4** (43 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory, ExclusionList, PkgExclusionEditor, SegmentExclusionEditor, PathExclusionEditor, CorpseFinderList, CorpseDetails, SqueezerSetup, SwiperStatus, SwiperSessions**
+- **ViewModels migrated to ViewModel4** (45 total): Main, Dashboard, Setup, Settings, GeneralSettings, Acknowledgements, Support, SupportContactForm, DashboardCardConfig, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS+GPLAY), all onboarding VMs (Welcome, Privacy, Setup, Versus), 9 tool-settings VMs **+ Reports, Picker, ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory, ExclusionList, PkgExclusionEditor, SegmentExclusionEditor, PathExclusionEditor, CorpseFinderList, CorpseDetails, SqueezerSetup, SqueezerList, SwiperStatus, SwiperSessions, Preview**
 - **Navigation3 stable**: Upgraded from alpha08 to 1.0.1, fixed API renames (EntryProviderScope, rememberSaveableStateHolderNavEntryDecorator)
-- **42 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens, Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory (chart wrapped via AndroidView), ExclusionList, PathExclusionEditor, PkgExclusionEditor, SegmentExclusionEditor, CorpseFinderList, CorpseDetails (HorizontalPager with inline per-corpse content; CorpseRoute retired) **+ SqueezerSetup, SwiperStatus, SwiperSessions**
+- **44 screens fully converted to Compose**: Onboarding (4), Dashboard, Setup, Settings index, General Settings, Acknowledgements, Support, DashboardCardConfig, SupportContactForm, DebugLogSessions, DataAreas, LogView, Upgrade (FOSS), Upgrade (GPlay), 9 tool-settings screens, Reports (stats), Picker (with SavedStateHandle-backed mid-pick state), ArbiterConfig, CustomFilterList, AffectedPkgs, AffectedPaths, SpaceHistory (chart wrapped via AndroidView), ExclusionList, PathExclusionEditor, PkgExclusionEditor, SegmentExclusionEditor, CorpseFinderList, CorpseDetails (HorizontalPager with inline per-corpse content; CorpseRoute retired), SqueezerSetup, SwiperStatus, SwiperSessions **+ SqueezerList (CAB-style multi-select, errorContainer FAB), Preview (Compose Dialog + HorizontalPager + AndroidView{CoilZoomImageView}, zoom-aware swipe disable; PreviewItemFragment/Adapter/Route retired)**
 - **Dashboard cards done**: All 18 card types have full Compose composables with XML parity
 - **Setup cards done**: All 8 card types (Storage, SAF, Root, UsageStats, Automation, Notification, Shizuku, Inventory) + SetupLoadingCard + SetupCardContainer
 - **Support dialogs done**: `RecorderConsentDialog` and `ShortRecordingDialog` are implemented and wired into `SupportScreenHost`
 - **Reorderable lib**: Adopted `sh.calvin.reorderable` (APACHE 2.0, acknowledged in `AcknowledgementsScreen`) for drag-reorder in `DashboardCardConfigScreen` + `ArbiterConfigScreen`
 - **Navigation3 ModalBottomSheet pattern proven**: `DebugLogSessionsRoute` renders as a `ModalBottomSheet` inside its `entry<>` block in `AppNavigation.kt`; unblocks AppActionDialog + ScheduleItemDialog conversions
 - **Shared settings toolkit expanded**: Compose `SizeInputDialog` + `AgeInputDialog` under `common/compose/settings/dialogs/`; `SettingsBadgedSwitchItem` with a write-blocking `SettingGate` (SetupRequired/ProRequired) replaces the legacy `BadgedCheckboxPreference`. `SettingsSwitchItem` and `SettingsBadgedSwitchItem` both accept `ImageVector` or `Painter` for the leading icon.
-- **Per-module `NavigationEntry` + Hilt `@Binds @IntoSet`**: All 9 tool modules (+ Stats inside `app-common-stats`, + `app-common-picker`, **+ `app-common-exclusion`**) ship their own `NavigationEntry`.
+- **Per-module `NavigationEntry` + Hilt `@Binds @IntoSet`**: All 9 tool modules (+ Stats inside `app-common-stats`, + `app-common-picker`, + `app-common-exclusion`, **+ `app-common-coil` (Preview)**) ship their own `NavigationEntry`.
 - **Cross-screen result API**: `NavigationController.setResult(ResultKey<T>, value)` / `consumeResults(ResultKey<T>)` replaces the generic `ResultBus`. Typed via `ResultKey<T>` in `app-common/common/navigation/`. Consumers: `DeduplicatorSettingsViewModel`, `ArbiterConfigViewModel`, `PathExclusionViewModel`, `SqueezerSetupViewModel`, `SwiperSessionsViewModel` all use `PickerResultKey`. **Picker FragmentManager bridge retired** — PickerScreen no longer calls `setFragmentResult`, and `PickerViewModel.Event.Saved` was removed (save() now inlines navUp() after setResult). Every Picker consumer is now Compose-only.
 - **Coil ↔ Compose bridge**: `io.coil-kt:coil-compose:2.7.0` added to app-common-stats, app-common-exclusion, **and app-common-coil**. `AsyncImage(model = Pkg)` and `AsyncImage(model = APathLookup)` both resolve through existing Coil mappers (PkgFetcher, PathPreviewFetcher). A Compose `FilePreviewImage(lookup)` helper in `app-common-coil` mirrors the legacy `ImageView.loadFilePreview` with file-type fallback/error icons — used by all tool detail screens.
 - **Shared `ProgressOverlay` Compose primitive**: `app-common-ui/.../compose/progress/ProgressOverlay.kt` hides content (alpha 0) and consumes pointer input when `Progress.Data != null`, replacing the XML `ProgressOverlayView` for every converted tool screen.
+- **Shared bitmap-comparison primitive**: `app-tool-squeezer/.../comparison/SqueezerComparisonDialog.kt` is a public reusable Compose dialog (fullscreen `Dialog(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)`) with side-by-side `AndroidView { CoilZoomImageView }`, orientation-aware Row/Column, GatewaySwitch-prepared cache file via Hilt EntryPoint, IO bitmap pipeline (`BitmapSampler` + `compress(JPEG/WEBP)` + tempfile + recycle-in-finally + async cleanup-on-dispose). Used by both Squeezer Setup show-example and Squeezer List "View comparison".
 
 ### What's broken / incomplete
-- **~23 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so the remaining tool list/details screens and Preview are unreachable.
+- **~20 Fragments still unconverted** — registered in `MainNavGraph.kt` but Navigation3 NavDisplay can't render Fragments, so the remaining tool list/details screens are unreachable.
 - **Priority #1 dead-click rows — CLOSED**. CustomFilterList/Picker/ArbiterConfig/Reports all converted and wired through the new result API.
 - **Priority #2 Stats + Exclusion batch — CLOSED**. Three `ReportsViewModel` FIXMEs closed; `PathExclusionEditor` migrated off `setFragmentResultListener` to `navCtrl.consumeResults(PickerResultKey)`; Segment editor bug that ignored `targetSegments` fixed.
 - **CorpseFinder tool — CLOSED**. List + Details converted to Compose; `CorpseRoute` retired (its only caller was the ViewPager adapter, now an inline pager page inside `CorpseDetailsScreen`).
-- **Picker bridge retirement batch — CLOSED**. SqueezerSetup / SwiperStatus / SwiperSessions converted; Picker's `setFragmentResult` emit path + `Event.Saved` removed. New FIXMEs: `SqueezerSetupViewModel.startScan` → `SqueezerListRoute` placeholder; `SwiperSessionsViewModel.continueSession`/`scanSession` → `SwiperSwipeRoute` placeholder; `SwiperStatusViewModel.navigateToItem` → `SwiperSwipeRoute` placeholder.
-- **New FIXME targets** (child destinations the Priority #2 conversions now land on):
-  - `CustomFilterListViewModel` → CustomFilterEditorRoute (1 marker; on both edit + create paths)
-  - `ExclusionListViewModel` → AppControlListRoute + DeviceStorageRoute (2 markers on openAppControl/openStoragePicker — FAB type-picker routes to placeholders until those tool lists convert)
-- **8 NavigationEntry sites remaining** — Analyzer still needs one as its screens convert; `app-common-coil` (Preview) is the other non-tool cross-cutting site.
+- **Picker bridge retirement batch — CLOSED**. SqueezerSetup / SwiperStatus / SwiperSessions converted; Picker's `setFragmentResult` emit path + `Event.Saved` removed.
+- **Squeezer + Preview batch — CLOSED**. Squeezer tool fully Compose (List + ComparisonDialog + Setup show-example bitmap restored); legacy `PreviewCompressionDialog` (MaterialAlertDialog wrapper), `ComparisonDialog` (DialogFragment), and orphan `SqueezerOnboardingDialog` deleted; `SqueezerSetupViewModel.startScan` → `SqueezerListRoute` FIXME closed. Preview cross-cutting converted: `PreviewFragment` + `PreviewItemFragment` + `PreviewAdapter` + `PreviewItemViewModel` + `PreviewItem` wrapper + `PreviewItemRoute` + `ZoomAwareViewPager` retired in favor of a single Compose Dialog with `HorizontalPager` and per-page zoom tracking. **Six PreviewRoute callers light up** (SystemCleaner FilterContent, Deduplicator List/Cluster/PreviewDeletionDialog, Squeezer List, Swiper Swipe). Picker pattern (route passed via entry lambda, NOT `SavedStateHandle.toRoute<>()`) confirmed correct for complex Serializable args under Navigation3.
+- **Outstanding FIXMEs**:
+  - `SwiperSessionsViewModel.continueSession`/`scanSession` → `SwiperSwipeRoute` placeholder (closes when SwiperSwipe converts)
+  - `SwiperStatusViewModel.navigateToItem` → `SwiperSwipeRoute` placeholder (closes when SwiperSwipe converts)
+  - `CustomFilterListViewModel` → `CustomFilterEditorRoute` (closes when CustomFilterEditor converts)
+  - `ExclusionListViewModel` → `AppControlListRoute` + `DeviceStorageRoute` (FAB type-picker; closes when AppControlList + Analyzer DeviceStorage convert)
+- **7 NavigationEntry sites remaining** — Analyzer still needs one as its screens convert; all other cross-cutting modules are wired (`app-common-coil`/Preview just landed).
 
 ### Remaining work (priority order)
 
-#### 1. Convert remaining tool list/details Fragments (20 screens)
+#### 1. Convert remaining tool list/details Fragments (17 screens)
 - ~~CorpseFinder~~ ✓ — List + Details converted; CorpseRoute retired
+- ~~Squeezer~~ ✓ — Setup + List + ComparisonDialog converted; entire tool on Compose
 - SystemCleaner: List, FilterContentDetails, FilterContent, CustomFilterEditor (4)
 - AppCleaner: List, AppJunkDetails, AppJunk (3)
 - Deduplicator: List, Details, Cluster (3)
 - AppControl: List, AppActionDialog (BottomSheetDialogFragment2) (2 — converting AppControlList unblocks one of the ExclusionList FAB FIXMEs)
 - Scheduler: Manager, ScheduleItemDialog (BottomSheetDialogFragment2) (2)
-- Squeezer: List, ComparisonDialog (2 — Setup converted, Picker consumer migrated)
-- Swiper: Swipe (1 — Sessions + Status converted, Sessions Picker consumer migrated)
+- Swiper: Swipe (1 — Sessions + Status converted; converting Swipe closes both SwiperSwipeRoute FIXMEs and unblocks SwiperStatus reachability)
 - Analyzer: DeviceStorage, StorageContent, Apps, AppDetails, Content (5 — converting DeviceStorage unblocks the other ExclusionList FAB FIXME)
 
-#### 2. Convert remaining cross-cutting Fragments (2 screens)
-- Preview: PreviewFragment (DialogFragment3), PreviewItemFragment (DialogFragment3) (2)
+#### 2. Cross-cutting Fragments — CLOSED
+- ~~Preview: PreviewFragment + PreviewItemFragment~~ ✓ — converted to a single Compose Dialog with HorizontalPager + AndroidView{CoilZoomImageView}; PreviewItemRoute retired
 
 #### 3. Final cleanup
 - Delete mainNavGraph.kt
