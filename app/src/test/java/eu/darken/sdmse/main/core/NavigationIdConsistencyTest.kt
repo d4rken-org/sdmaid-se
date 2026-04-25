@@ -11,7 +11,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.storage.StorageId
 import eu.darken.sdmse.common.user.UserHandle2
 import eu.darken.sdmse.corpsefinder.ui.CorpseDetailsRoute
-import eu.darken.sdmse.deduplicator.ui.ClusterRoute
+import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
 import eu.darken.sdmse.deduplicator.core.Duplicate
 import eu.darken.sdmse.common.files.local.LocalPath
 import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
@@ -51,7 +51,7 @@ class NavigationIdConsistencyTest : BaseTest() {
             StorageContentRoute(storageId = storageId),
             AppDetailsRoute(storageId = storageId, installId = installId),
             ContentRoute(storageId = storageId, groupId = ContentGroup.Id("group-1"), installId = installId),
-            ClusterRoute(identifier = Duplicate.Cluster.Id("cluster-1")),
+            DeduplicatorDetailsRoute(identifier = Duplicate.Cluster.Id("cluster-1")),
             ScheduleItemRoute(scheduleId = "sched-1"),
             SwiperSwipeRoute(sessionId = "session-1", startIndex = 5),
             CorpseDetailsRoute(corpsePath = LocalPath.build("/data/test")),

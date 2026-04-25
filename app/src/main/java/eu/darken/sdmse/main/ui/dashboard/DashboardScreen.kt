@@ -80,7 +80,8 @@ import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.corpsefinder.R as CorpseFinderR
 import eu.darken.sdmse.deduplicator.R as DeduplicatorR
 import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.deduplicator.ui.PreviewDeletionDialog
+import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionDialog
+import eu.darken.sdmse.deduplicator.ui.dialogs.PreviewDeletionMode
 import eu.darken.sdmse.main.ui.navigation.SettingsRoute
 import eu.darken.sdmse.main.ui.dashboard.cards.DashboardListCard
 import eu.darken.sdmse.main.ui.settings.general.OneClickOptionsDialog
@@ -120,16 +121,8 @@ fun DashboardScreenHost(
                 }
 
                 is DashboardEvents.DeduplicatorDeleteConfirmation -> {
-                    // PreviewDeletionDialog is still a legacy ViewBinding-based dialog because it
-                    // hosts the Deduplicator's custom preview grid; the Deduplicator module is not
-                    // yet migrated to Compose and will replace this helper in its own phase. We
-                    // reuse it here to preserve the cluster-preview UX the old DashboardFragment
-                    // provided.
-                    PreviewDeletionDialog(activity).show(
-                        mode = PreviewDeletionDialog.Mode.All(clusters = event.clusters ?: emptyList<Duplicate.Cluster>()),
-                        onPositive = { vm.confirmDeduplicatorDeletion() },
-                        onNegative = {},
-                        onNeutral = { vm.showDeduplicator() },
+                    dialogState = DashboardDialogState.DeduplicatorDelete(
+                        clusters = event.clusters ?: emptyList(),
                     )
                 }
 
@@ -184,6 +177,9 @@ fun DashboardScreenHost(
         onShowSystemCleaner = vm::showSystemCleaner,
         onConfirmAppCleaner = vm::confirmAppJunkDeletion,
         onShowAppCleaner = vm::showAppCleaner,
+        onConfirmDeduplicator = vm::confirmDeduplicatorDeletion,
+        onShowDeduplicator = vm::showDeduplicator,
+        onPreviewDeduplicator = { options -> vm.navTo(eu.darken.sdmse.common.previews.PreviewRoute(options = options)) },
         onStopShortRecording = vm::confirmStopRecording,
         onConfirmMainAction = vm::mainAction,
     )
@@ -635,6 +631,9 @@ internal sealed interface DashboardDialogState {
     data object CorpseFinderDelete : DashboardDialogState
     data object SystemCleanerDelete : DashboardDialogState
     data object AppCleanerDelete : DashboardDialogState
+    data class DeduplicatorDelete(
+        val clusters: List<Duplicate.Cluster>,
+    ) : DashboardDialogState
     data object Todo : DashboardDialogState
     data object ShortRecordingWarning : DashboardDialogState
     data class MainActionDelete(
@@ -658,6 +657,9 @@ private fun DashboardEventDialogs(
     onShowSystemCleaner: () -> Unit,
     onConfirmAppCleaner: () -> Unit,
     onShowAppCleaner: () -> Unit,
+    onConfirmDeduplicator: () -> Unit,
+    onShowDeduplicator: () -> Unit,
+    onPreviewDeduplicator: (eu.darken.sdmse.common.previews.PreviewOptions) -> Unit,
     onStopShortRecording: () -> Unit,
     onConfirmMainAction: (DashboardViewModel.BottomBarState.Action) -> Unit,
 ) {
@@ -683,6 +685,14 @@ private fun DashboardEventDialogs(
             onConfirm = { onConfirmAppCleaner(); onDismiss() },
             onDetails = { onShowAppCleaner(); onDismiss() },
             onDismiss = onDismiss,
+        )
+
+        is DashboardDialogState.DeduplicatorDelete -> PreviewDeletionDialog(
+            mode = PreviewDeletionMode.All(clusters = state.clusters),
+            onConfirm = { onConfirmDeduplicator(); onDismiss() },
+            onDismiss = onDismiss,
+            onPreviewClick = onPreviewDeduplicator,
+            onShowDetails = { onShowDeduplicator(); onDismiss() },
         )
 
         DashboardDialogState.Todo -> AlertDialog(

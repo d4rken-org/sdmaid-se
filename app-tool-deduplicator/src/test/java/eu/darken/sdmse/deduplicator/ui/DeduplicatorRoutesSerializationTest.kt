@@ -44,22 +44,4 @@ class DeduplicatorRoutesSerializationTest : BaseTest() {
         deserialized shouldBe original
     }
 
-    @Test
-    fun `ClusterRoute serialization round-trip`() {
-        val original = ClusterRoute(
-            identifier = Duplicate.Cluster.Id(value = "cluster-xyz-456"),
-        )
-
-        val serialized = json.encodeToString(original)
-        serialized.toComparableKotlinxJson() shouldBe """
-            {
-                "identifier": {
-                    "value": "cluster-xyz-456"
-                }
-            }
-        """.toComparableKotlinxJson()
-
-        val deserialized = json.decodeFromString<ClusterRoute>(serialized)
-        deserialized shouldBe original
-    }
 }

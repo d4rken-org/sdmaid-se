@@ -37,16 +37,7 @@ import eu.darken.sdmse.common.pkgs.features.InstallId
 // PreviewFragment + PreviewItemFragment — converted to Compose, registered via PreviewNavigation
 import eu.darken.sdmse.common.storage.StorageId
 // CorpseFinderSettingsFragment — converted to Compose, registered via CorpseFinderNavigation
-import eu.darken.sdmse.deduplicator.core.Duplicate
-import eu.darken.sdmse.deduplicator.ui.ArbiterConfigRoute
-import eu.darken.sdmse.deduplicator.ui.ClusterRoute
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorDetailsRoute
-import eu.darken.sdmse.deduplicator.ui.DeduplicatorListRoute
-// DeduplicatorSettingsFragment — converted to Compose, registered via DeduplicatorNavigation
-import eu.darken.sdmse.deduplicator.ui.details.DeduplicatorDetailsFragment
-import eu.darken.sdmse.deduplicator.ui.details.cluster.ClusterFragment
-import eu.darken.sdmse.deduplicator.ui.list.DeduplicatorListFragment
-// ArbiterConfigFragment — converted to Compose, registered via DeduplicatorNavigation
+// Deduplicator — fully converted to Compose, registered via DeduplicatorNavigation
 import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
@@ -89,8 +80,6 @@ private val StorageIdNavType = serializableNavType(StorageId.serializer())
 private val InstallIdNavType = serializableNavType(InstallId.serializer())
 private val NullableInstallIdNavType = serializableNavType(InstallId.serializer(), isNullableAllowed = true)
 private val ContentGroupIdNavType = serializableNavType(ContentGroup.Id.serializer())
-private val DuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer())
-private val NullableDuplicateClusterIdNavType = serializableNavType(Duplicate.Cluster.Id.serializer(), isNullableAllowed = true)
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
 private val CustomFilterEditorOptionsNavType = serializableNavType(CustomFilterEditorOptions.serializer(), isNullableAllowed = true)
 
@@ -175,15 +164,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Exclusions — converted to Compose, registered via ExclusionNavigation
 
-    // Deduplicator
-    fragment<DeduplicatorListFragment, DeduplicatorListRoute>()
-    fragment<DeduplicatorDetailsFragment, DeduplicatorDetailsRoute>(
-        typeMap = mapOf(typeOf<Duplicate.Cluster.Id?>() to NullableDuplicateClusterIdNavType)
-    )
-    fragment<ClusterFragment, ClusterRoute>(
-        typeMap = mapOf(typeOf<Duplicate.Cluster.Id>() to DuplicateClusterIdNavType)
-    )
-    // ArbiterConfigFragment — converted to Compose, registered via DeduplicatorNavigation
+    // Deduplicator — all screens converted to Compose, registered via DeduplicatorNavigation
 
     // Squeezer — all screens converted to Compose, registered via SqueezerNavigation
 
