@@ -46,6 +46,8 @@ the [FAQ](https://github.com/d4rken-org/sdmaid-se/wiki/FAQ).
 | [F-Droid (Main Repo)](https://f-droid.org/en/packages/eu.darken.sdmse/)                | ![https://f-droid.org/en/packages/eu.darken.sdmse/](https://img.shields.io/f-droid/v/eu.darken.sdmse?logo=f-droid&label=f-droid%20(latest))                                                                                                                                     |
 | [F-Droid (IzzyOnDroid)](https://apt.izzysoft.de/packages/eu.darken.sdmse/)             | ![https://apt.izzysoft.de/packages/eu.darken.sdmse/](https://img.shields.io/endpoint?url=https://apt.izzysoft.de/fdroid/api/v1/shield/eu.darken.sdmse&label=IzzyOnDroid%20(latest))                                                                                              |
 
+To verify the authenticity of a downloaded APK, see [SECURITY.md](./SECURITY.md).
+
 ## Support the project
 
 SD Maid has no ads and doesn't sell your data.
