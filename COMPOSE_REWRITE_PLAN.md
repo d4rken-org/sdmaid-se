@@ -1,6 +1,6 @@
 # Compose Rewrite: SD Maid SE
 
-## Current Status (2026-04-27)
+## Current Status (2026-04-27 evening)
 
 ### What's done
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
@@ -58,15 +58,18 @@
 - ~~Delete mainNavGraph.kt~~ ✓
 - ~~Delete all base Fragment classes (Fragment2/3, DialogFragment2/3, PreferenceFragment2/3, BottomSheetDialogFragment2)~~ ✓ — plus orphan helpers (ToolbarHost, Service2, ViewModelLazyKeyed, DetailsPagerAdapter3, FragmentStatePagerAdapter4)
 - ~~Delete all ViewBinding XML layouts, RecyclerView Adapters/ViewHolders~~ ✓ — orphan layouts + menus + dead-only `ids.xml` + paired XMLs for legacy custom views. After RecorderActivity converted, the entire `app-common-ui/.../lists/*` package + `LogFileAdapter` + both `debug_recorder_*.xml` are also gone (commit `2fcfb5e09`).
-- Remove Fragment navigation dependencies — **NOT done**. `navigation-fragment-ktx` + `navigation-ui-ktx` still live in 14 modules' `build.gradle.kts`. `addAndroidUI()` in `buildSrc` still pulls in `androidx.fragment:fragment-ktx` transitively. Three callbacks still call legacy `androidx.navigation.Navigation.findNavController(view, R.id.nav_host)`: `ErrorDialogSetup`, `AutomationNoConsentException`, `InaccessibleDeletionException`. Migrating those (see #4) unblocks dropping the deps.
+- ~~Remove Fragment navigation dependencies~~ ✓ — `navigation-fragment-ktx` + `navigation-ui-ktx` removed from all 16 modules (commit `54843cf43`). `dependencyInsight` on `fossDebugRuntimeClasspath` confirms zero transitive resolution. The 4 nav-using error-dialog callbacks (`ErrorDialogSetup` x2, `AutomationNoConsentException`, `InaccessibleDeletionException`) were rewired to declarative `fixActionRoute` / `infoActionRoute` fields on `LocalizedError`, dispatched through the existing `NavigationController` already wired into `ComposeErrorDialog` via `LocalNavigationController.current` (commit `423e5678b`). `androidx.fragment:fragment-ktx` is still pulled in transitively via `addAndroidUI()` for legacy Fragment-era helpers (LiveDataExtensions, ViewBindingExtensions, ActivityExtensions) — separate batch.
 - ~~Remove ViewBinding build feature~~ ✓ — stripped from 14 modules. Kept in `app-common-ui` (MascotView), `app-common-automation` (AutomationControlView). `app/` viewBinding dropped in commit `2fcfb5e09`.
 - ~~Remove runtime-livedata dependency~~ ✓
 - ~~Remove LegacyNavigationBridge~~ ✓
 - ~~RecorderActivity → Compose~~ ✓ — `ComponentActivity` + `setContent` (commit `4e51209c3`); cleanup cascade dropped `Activity2`, `ViewModel3`, `NavCommand`, `NavEventSource`, `LogFileAdapter`, the entire `lists/*` package, both `debug_recorder_*.xml` layouts, and `viewBinding` from `app/` (commit `2fcfb5e09`). `MainActivity` rebased on `ComponentActivity`. `Theming.kt` skips both Compose activities.
 
-#### 4. Three legacy `Navigation.findNavController` callbacks (likely runtime-broken)
-- `ErrorDialogSetup.kt:28,42`, `AutomationNoConsentException.kt:23`, `InaccessibleDeletionException.kt:32` all call `androidx.navigation.Navigation.findNavController(view, eu.darken.sdmse.common.R.id.nav_host)` from non-Compose error/exception handlers. The Compose-only `MainActivity.setContent {}` no longer hosts a Fragment-based `NavController`, so these calls likely throw `IllegalStateException("View ... does not have a NavController")` when the user taps the dialog action button (Setup / Exclude / Open AppControl). The `R.id.nav_host` resource still exists in `app-common/res/values/ids.xml`, but no view tree branch carries it as a tag.
-- Migrate to `LocalNavigationController` lookup or stash a `NavigationController` reference on the activity decor at `setContent` time, then route the actions through `navController.goTo(...)`. Doing so unblocks dropping `navigation-fragment-ktx` + `navigation-ui-ktx` from the 14 modules that still pull them in directly.
+#### 4. Three legacy `Navigation.findNavController` callbacks — CLOSED (3 commits)
+- ~~`ErrorDialogSetup.kt:28,42`, `AutomationNoConsentException.kt:23`, `InaccessibleDeletionException.kt:32`~~ ✓ — All 4 callsites rewired off `Navigation.findNavController(view, R.id.nav_host)` to declarative `LocalizedError.fixActionRoute` / `infoActionRoute` fields (commit `423e5678b`). `ComposeErrorDialog` dispatches them through the `NavigationController` parameter (already piped in via `LocalNavigationController.current` from `ErrorEventHandler`); the param had been unused. `R.id.nav_host` removed from `app-common/res/values/ids.xml`. Dead helpers also gone: `NavControllerExtensions.kt` (defined `safeNavigate(NavController)`), `SetupModuleSetup.kt` (`showFixSetupHint` / `installShowSetupHint` were never invoked), `SnackbarExtensions.kt` (`enableBigText` only consumed by the dead SetupModuleSetup). Bug fix: `ComposeErrorDialog.infoAction` tap now dismisses the dialog (was previously left open — legacy MaterialAlertDialogBuilder did this implicitly via the neutral button).
+- After this batch, `dependencyInsight` confirms zero transitive `navigation-fragment-ktx` / `navigation-ui-ktx` resolution. 16 modules dropped both deps (commit `54843cf43`).
+
+#### 5. Drop transitive `androidx.fragment:fragment-ktx` from `addAndroidUI()`
+- `buildSrc/.../Dependencies.kt` still includes `implementation("androidx.fragment:fragment-ktx:1.8.9")` in `addAndroidUI()`. Three legacy Fragment-era helpers still import `androidx.fragment.app.Fragment`: `LiveDataExtensions.kt` (`observe2(Fragment, ...)`), `ViewBindingExtensions.kt` (`Fragment.viewBinding()`), `ActivityExtensions.kt` (`AppCompatActivity.showFragment(...)` + `R.id.fragment_frame`). All are dead (no callsites remain). Cleanup batch: delete the three files, drop `fragment-ktx` from `addAndroidUI()`, optionally remove `R.id.fragment_frame` if also unused.
 
 ---
 
