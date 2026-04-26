@@ -14,12 +14,7 @@ import eu.darken.sdmse.analyzer.ui.storage.apps.AppsFragment
 import eu.darken.sdmse.analyzer.ui.storage.content.ContentFragment
 import eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragment
-import eu.darken.sdmse.appcleaner.ui.AppCleanerListRoute
-import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
-import eu.darken.sdmse.appcleaner.ui.AppJunkRoute
-import eu.darken.sdmse.appcleaner.ui.details.AppJunkDetailsFragment
-import eu.darken.sdmse.appcleaner.ui.details.appjunk.AppJunkFragment
-import eu.darken.sdmse.appcleaner.ui.list.AppCleanerListFragment
+// AppCleaner — list/details/page converted to Compose, registered via AppCleanerNavigation
 // AppCleanerSettingsFragment — converted to Compose, registered via AppCleanerNavigation
 import eu.darken.sdmse.appcontrol.ui.AppActionRoute
 // AppControlSettingsFragment — converted to Compose, registered via AppControlNavigation
@@ -106,14 +101,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // SystemCleaner — list/details/customfilter all converted to Compose, registered via SystemCleanerNavigation
 
-    // AppCleaner
-    fragment<AppCleanerListFragment, AppCleanerListRoute>()
-    fragment<AppJunkDetailsFragment, AppJunkDetailsRoute>(
-        typeMap = mapOf(typeOf<InstallId?>() to NullableInstallIdNavType)
-    )
-    fragment<AppJunkFragment, AppJunkRoute>(
-        typeMap = mapOf(typeOf<InstallId>() to InstallIdNavType)
-    )
+    // AppCleaner — list/details/page converted to Compose, registered via AppCleanerNavigation
 
     // AppControl
     fragment<AppControlListFragment, AppControlListRoute>()

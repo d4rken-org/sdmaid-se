@@ -52,28 +52,4 @@ class AppCleanerRoutesSerializationTest : BaseTest() {
         deserialized shouldBe original
     }
 
-    @Test
-    fun `AppJunkRoute serialization`() {
-        val original = AppJunkRoute(
-            identifier = InstallId(
-                pkgId = Pkg.Id("com.example.app"),
-                userHandle = UserHandle2(0),
-            )
-        )
-
-        val serialized = json.encodeToString(original)
-        serialized.toComparableKotlinxJson() shouldBe """
-            {
-                "identifier": {
-                    "pkgId": {
-                        "name": "com.example.app"
-                    },
-                    "userHandle": {}
-                }
-            }
-        """.toComparableKotlinxJson()
-
-        val deserialized = json.decodeFromString<AppJunkRoute>(serialized)
-        deserialized shouldBe original
-    }
 }

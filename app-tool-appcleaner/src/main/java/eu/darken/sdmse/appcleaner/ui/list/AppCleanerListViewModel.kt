@@ -1,25 +1,30 @@
 package eu.darken.sdmse.appcleaner.ui.list
 
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import eu.darken.sdmse.appcleaner.core.AppCleaner
+import eu.darken.sdmse.appcleaner.core.AppJunk
 import eu.darken.sdmse.appcleaner.core.hasData
 import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerProcessingTask
+import eu.darken.sdmse.appcleaner.core.tasks.AppCleanerTask
 import eu.darken.sdmse.appcleaner.ui.AppJunkDetailsRoute
-import eu.darken.sdmse.common.SingleLiveEvent
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.INFO
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
+import eu.darken.sdmse.common.flow.SingleEventFlow
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
+import eu.darken.sdmse.common.pkgs.features.InstallId
 import eu.darken.sdmse.common.progress.Progress
-import eu.darken.sdmse.common.uix.ViewModel3
+import eu.darken.sdmse.common.uix.ViewModel4
 import eu.darken.sdmse.common.upgrade.UpgradeRepo
 import eu.darken.sdmse.common.upgrade.isPro
+import eu.darken.sdmse.exclusion.ui.ExclusionsListRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
-import kotlinx.coroutines.flow.filterNotNull
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.take
@@ -27,82 +32,105 @@ import javax.inject.Inject
 
 @HiltViewModel
 class AppCleanerListViewModel @Inject constructor(
-    @Suppress("unused") private val handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     private val appCleaner: AppCleaner,
     private val taskSubmitter: TaskSubmitter,
     private val upgradeRepo: UpgradeRepo,
-) : ViewModel3(dispatcherProvider) {
+) : ViewModel4(dispatcherProvider, tag = TAG) {
 
     init {
         appCleaner.state
             .map { it.data }
             .filter { !it.hasData }
             .take(1)
-            .onEach { popNavStack() }
-            .launchInViewModel()
+            .onEach { navUp() }
+            .launchIn(vmScope)
     }
 
-    val events = SingleLiveEvent<AppCleanerListEvents>()
+    val events = SingleEventFlow<Event>()
 
-    val state = combine(
-        appCleaner.state.map { it.data }.filterNotNull(),
+    val state: StateFlow<State> = combine(
+        appCleaner.state.map { it.data },
         appCleaner.progress,
     ) { data, progress ->
-        val items = data.junks
-            .sortedByDescending { it.size }
-            .map { content ->
-                AppCleanerListRowVH.Item(
-                    junk = content,
-                    onItemClicked = { delete(setOf(it)) },
-                    onDetailsClicked = { showDetails(it) }
-                )
-            }
-        State(
-            items = items,
-            progress = progress,
-        )
-    }.asLiveData2()
+        val rows = data?.junks
+            ?.sortedByDescending { it.size }
+            ?.map { Row(junk = it) }
+        State(rows = rows, progress = progress)
+    }.safeStateIn(
+        initialValue = State(),
+        onError = { State() },
+    )
 
-    fun showDetails(item: AppCleanerListAdapter.Item) = launch {
-        log(TAG, INFO) { "showDetails(${item.junk.identifier})" }
-        navigateTo(AppJunkDetailsRoute(identifier = item.junk.identifier))
+    fun onRowClick(row: Row) {
+        log(TAG, INFO) { "onRowClick(${row.identifier})" }
+        events.tryEmit(Event.ConfirmDeletion(setOf(row.identifier), isSingle = true))
     }
 
-    fun delete(items: Collection<AppCleanerListAdapter.Item>, confirmed: Boolean = false) = launch {
-        log(TAG, INFO) { "delete(${items.size})" }
+    fun onDetailsClick(row: Row) {
+        log(TAG, INFO) { "onDetailsClick(${row.identifier})" }
+        navTo(AppJunkDetailsRoute(identifier = row.identifier))
+    }
+
+    fun onDeleteSelected(ids: Set<InstallId>) {
+        log(TAG, INFO) { "onDeleteSelected(${ids.size})" }
+        if (ids.isEmpty()) return
+        events.tryEmit(Event.ConfirmDeletion(ids, isSingle = ids.size == 1))
+    }
+
+    fun onDeleteConfirmed(ids: Set<InstallId>) = launch {
+        log(TAG, INFO) { "onDeleteConfirmed(${ids.size})" }
         if (!upgradeRepo.isPro()) {
-            navigateTo(UpgradeRoute())
+            navTo(UpgradeRoute())
             return@launch
         }
-        if (!confirmed) {
-            events.postValue(AppCleanerListEvents.ConfirmDeletion(items))
-            return@launch
-        }
-        val task = AppCleanerProcessingTask(targetPkgs = items.map { it.junk.identifier }.toSet())
-        val result = taskSubmitter.submit(task) as AppCleanerProcessingTask.Result
-        log(TAG) { "delete(): Result was $result" }
-        when (result) {
-            is AppCleanerProcessingTask.Success -> events.postValue(AppCleanerListEvents.TaskResult(result))
-        }
+        val data = appCleaner.state.first().data ?: return@launch
+        val validIds = ids.filter { id -> data.junks.any { it.identifier == id } }.toSet()
+        if (validIds.isEmpty()) return@launch
+
+        val task = AppCleanerProcessingTask(targetPkgs = validIds)
+        val result = taskSubmitter.submit(task) as AppCleanerTask.Result
+        log(TAG) { "onDeleteConfirmed(): Result was $result" }
+        events.tryEmit(Event.TaskResult(result))
     }
 
-    fun exclude(items: Collection<AppCleanerListAdapter.Item>) = launch {
-        log(TAG, INFO) { "exclude(${items.size})" }
-        val targets = items.mapNotNull {
-            when (it) {
-                is AppCleanerListRowVH.Item -> it.junk.identifier
-                else -> null
-            }
-        }.toSet()
-        appCleaner.exclude(targets)
-        events.postValue(AppCleanerListEvents.ExclusionsCreated(targets.size))
+    fun onExcludeSelected(ids: Set<InstallId>) = launch {
+        log(TAG, INFO) { "onExcludeSelected(${ids.size})" }
+        val data = appCleaner.state.first().data ?: return@launch
+        val validIds = ids.filter { id -> data.junks.any { it.identifier == id } }.toSet()
+        if (validIds.isEmpty()) return@launch
+        appCleaner.exclude(validIds)
+        events.tryEmit(Event.ExclusionsCreated(validIds.size))
+    }
+
+    fun onShowDetailsFromDialog(ids: Set<InstallId>) {
+        val only = ids.singleOrNull() ?: return
+        navTo(AppJunkDetailsRoute(identifier = only))
+    }
+
+    fun onShowExclusions() {
+        navTo(ExclusionsListRoute)
     }
 
     data class State(
-        val items: List<AppCleanerListAdapter.Item>,
-        val progress: Progress.Data?,
+        val rows: List<Row>? = null,
+        val progress: Progress.Data? = null,
     )
+
+    data class Row(val junk: AppJunk) {
+        val identifier: InstallId get() = junk.identifier
+    }
+
+    sealed interface Event {
+        data class ConfirmDeletion(
+            val ids: Set<InstallId>,
+            val isSingle: Boolean,
+        ) : Event
+
+        data class TaskResult(val result: AppCleanerTask.Result) : Event
+
+        data class ExclusionsCreated(val count: Int) : Event
+    }
 
     companion object {
         private val TAG = logTag("AppCleaner", "List", "ViewModel")

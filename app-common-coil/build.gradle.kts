@@ -51,7 +51,7 @@ dependencies {
     addDI()
     addCoroutines()
     addCoilApi()
-    implementation("io.coil-kt:coil-compose:2.7.0")
+    api("io.coil-kt:coil-compose:2.7.0")
     addSerialization()
 
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
