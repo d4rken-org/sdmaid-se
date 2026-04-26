@@ -41,6 +41,7 @@ class Theming @Inject constructor(
 
                 // Compose activities handle theming via SdmSeTheme composable
                 if (activity is eu.darken.sdmse.main.ui.MainActivity) return
+                if (activity is eu.darken.sdmse.common.debug.recorder.ui.RecorderActivity) return
 
                 generalSettings.themeMode.valueBlocking.applyMode()
                 generalSettings.themeStyle.valueBlocking.applyStyle(setOf(activity))
