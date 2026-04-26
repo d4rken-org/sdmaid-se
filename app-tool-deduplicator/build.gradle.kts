@@ -57,8 +57,6 @@ dependencies {
     addSerialization()
 
     implementation("androidx.exifinterface:exifinterface:1.4.2")
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("sh.calvin.reorderable:reorderable:2.5.1")
 
     addTesting()

@@ -55,9 +55,6 @@ dependencies {
 
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-
     addTesting()
     testImplementation(project(":app-common-test"))
 }

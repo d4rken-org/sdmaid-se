@@ -67,9 +67,6 @@ dependencies {
     addSerialization()
     addRoomDb()
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-
     addTesting()
     testImplementation(project(":app-common-test"))
     testImplementation("org.robolectric:robolectric:4.16")

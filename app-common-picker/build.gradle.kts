@@ -51,8 +51,6 @@ dependencies {
     addCoroutines()
     addSerialization()
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
 
     addTesting()

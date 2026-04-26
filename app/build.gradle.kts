@@ -261,8 +261,6 @@ dependencies {
     implementation("androidx.exifinterface:exifinterface:1.4.2")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")
 
-    implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     androidTestImplementation("androidx.navigation:navigation-testing:${Versions.AndroidX.Navigation.core}")
 
 
