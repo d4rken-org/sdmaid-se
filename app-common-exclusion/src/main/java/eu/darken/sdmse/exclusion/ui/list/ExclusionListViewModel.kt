@@ -291,7 +291,6 @@ class ExclusionListViewModel @Inject constructor(
     }
 
     fun openAppControl() {
-        // FIXME: dead-click until AppControlListRoute Compose conversion lands.
         navTo(eu.darken.sdmse.common.navigation.routes.AppControlListRoute)
     }
 

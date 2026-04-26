@@ -16,11 +16,7 @@ import eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment
 import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragment
 // AppCleaner — list/details/page converted to Compose, registered via AppCleanerNavigation
 // AppCleanerSettingsFragment — converted to Compose, registered via AppCleanerNavigation
-import eu.darken.sdmse.appcontrol.ui.AppActionRoute
-// AppControlSettingsFragment — converted to Compose, registered via AppControlNavigation
-import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
-import eu.darken.sdmse.appcontrol.ui.list.AppControlListFragment
-import eu.darken.sdmse.appcontrol.ui.list.actions.AppActionDialog
+// AppControl — list/action-sheet/settings converted to Compose, registered via AppControlNavigation
 // LogViewFragment — converted to Compose
 import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
 import eu.darken.sdmse.common.navigation.routes.DashboardRoute
@@ -103,11 +99,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // AppCleaner — list/details/page converted to Compose, registered via AppCleanerNavigation
 
-    // AppControl
-    fragment<AppControlListFragment, AppControlListRoute>()
-    dialog<AppActionDialog, AppActionRoute>(
-        typeMap = mapOf(typeOf<InstallId>() to InstallIdNavType)
-    )
+    // AppControl — list/action-sheet converted to Compose, registered via AppControlNavigation
 
     // Scheduler
     fragment<SchedulerManagerFragment, SchedulerManagerRoute>()
