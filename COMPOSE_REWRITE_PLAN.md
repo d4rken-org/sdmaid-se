@@ -22,7 +22,7 @@
 - **Shared bitmap-comparison primitive**: `app-tool-squeezer/.../comparison/SqueezerComparisonDialog.kt` is a public reusable Compose dialog (fullscreen `Dialog(usePlatformDefaultWidth = false, decorFitsSystemWindows = false)`) with side-by-side `AndroidView { CoilZoomImageView }`, orientation-aware Row/Column, GatewaySwitch-prepared cache file via Hilt EntryPoint, IO bitmap pipeline (`BitmapSampler` + `compress(JPEG/WEBP)` + tempfile + recycle-in-finally + async cleanup-on-dispose). Used by both Squeezer Setup show-example and Squeezer List "View comparison".
 
 ### What's broken / incomplete
-- **0 Fragments unconverted** — every former tool list/details Fragment has been replaced by a Compose route. `MainNavGraph.mainNavGraph()` is now an empty marker awaiting deletion.
+- **0 Fragments unconverted** — every former tool list/details Fragment has been replaced by a Compose route. **Final-cleanup #3 batch shipped in 3 commits (`ee6efe826`, `1e7e61a10`, `168b7b14f`)** — 80 files / ~3,000 deletions removing the Fragment base chain (Fragment2/3, DialogFragment2/3, BottomSheetDialogFragment2, PreferenceFragment2/3, ToolbarHost), orphan uix helpers (Service2, ViewModelLazyKeyed, DetailsPagerAdapter3, FragmentStatePagerAdapter4 + ext), `MainNavGraph`, `LegacyNavigationBridge`, `FragmentExtensions`, `NavDestinationExtensions`, `LogViewerAdapter`, `lists/selection/*` (5 helpers), the `installListSelection` half of `RecyclerViewExtensions`; 8 orphan layouts + 4 menus + 9 dead-only `ids.xml`; legacy custom views with their paired XMLs (`ProgressBarView`, `BreadCrumbBar` + crumb item, `QualityInputDialog`, `BadgedCheckboxPreference`, legacy `common.ui.AgeInputDialog`/`SizeInputDialog`, `CaveatPreferenceView`/`Group`); `BreadCrumbBarStyle`; `viewBinding = true` from 13 modules (kept in `app`/`app-common-ui`/`app-common-automation`); `recyclerview-selection` from 11 modules; `runtime-livedata` from `buildSrc`. `ErrorDialogSetup.kt` was switched from inline `R.id.nav_host` (deleted with `main_activity.xml`) to `eu.darken.sdmse.common.R.id.nav_host` to match the other two callers. **RecorderActivity is the lone legacy holdout** — it keeps `Activity2`, `ViewModel3`, `NavCommand`, the rest of `app-common-ui/lists/*`, viewBinding in 3 modules, and the legacy nav-fragment deps alive.
 - **Priority #1 dead-click rows — CLOSED**. CustomFilterList/Picker/ArbiterConfig/Reports all converted and wired through the new result API.
 - **Priority #2 Stats + Exclusion batch — CLOSED**. Three `ReportsViewModel` FIXMEs closed; `PathExclusionEditor` migrated off `setFragmentResultListener` to `navCtrl.consumeResults(PickerResultKey)`; Segment editor bug that ignored `targetSegments` fixed.
 - **CorpseFinder tool — CLOSED**. List + Details converted to Compose; `CorpseRoute` retired (its only caller was the ViewPager adapter, now an inline pager page inside `CorpseDetailsScreen`).
@@ -54,14 +54,23 @@
 #### 2. Cross-cutting Fragments — CLOSED
 - ~~Preview: PreviewFragment + PreviewItemFragment~~ ✓ — converted to a single Compose Dialog with HorizontalPager + AndroidView{CoilZoomImageView}; PreviewItemRoute retired
 
-#### 3. Final cleanup
-- Delete mainNavGraph.kt
-- Delete all base Fragment classes (Fragment2/3, DialogFragment2/3, PreferenceFragment2/3, BottomSheetDialogFragment2)
-- Delete all ViewBinding XML layouts, RecyclerView Adapters/ViewHolders
-- Remove Fragment navigation dependencies
-- Remove ViewBinding build feature
-- Remove runtime-livedata dependency
-- Remove LegacyNavigationBridge
+#### 3. Final cleanup — MOSTLY CLOSED (3 commits)
+- ~~Delete mainNavGraph.kt~~ ✓
+- ~~Delete all base Fragment classes (Fragment2/3, DialogFragment2/3, PreferenceFragment2/3, BottomSheetDialogFragment2)~~ ✓ — plus orphan helpers (ToolbarHost, Service2, ViewModelLazyKeyed, DetailsPagerAdapter3, FragmentStatePagerAdapter4)
+- ~~Delete all ViewBinding XML layouts, RecyclerView Adapters/ViewHolders~~ — **partially done**. 8 orphan layouts + 4 menus + 9 dead-only `ids.xml` + 7 paired XMLs for legacy custom views deleted, plus the orphan custom-view classes. The remaining `app-common-ui/lists/*` package (ModularAdapter, BindableVH, DataAdapter, AsyncDiffer chain) + `LogFileAdapter` + `debug_recorder_activity.xml` + `debug_recorder_logfile_item.xml` stay alive for the **RecorderActivity holdout**.
+- Remove Fragment navigation dependencies — **NOT done**. `navigation-fragment-ktx` + `navigation-ui-ktx` still live in 14 modules' `build.gradle.kts`. `addAndroidUI()` in `buildSrc` still pulls in `androidx.fragment:fragment-ktx` transitively. Three callbacks still call legacy `androidx.navigation.Navigation.findNavController(view, R.id.nav_host)`: `ErrorDialogSetup`, `AutomationNoConsentException`, `InaccessibleDeletionException`. Migrating those (see #5) unblocks dropping the deps.
+- ~~Remove ViewBinding build feature~~ ✓ — stripped from 13 modules. Kept in `app` (RecorderActivity + LogFileAdapter), `app-common-ui` (MascotView), `app-common-automation` (AutomationControlView).
+- ~~Remove runtime-livedata dependency~~ ✓
+- ~~Remove LegacyNavigationBridge~~ ✓
+
+#### 4. RecorderActivity → Compose (next priority)
+- `RecorderActivity` is the lone XML-based screen left in the codebase. Extends `Activity2`, inflates `DebugRecorderActivityBinding`, drives a RecyclerView via `LogFileAdapter` (extends `ModularAdapter` + `HasAsyncDiffer`), observes `RecorderViewModel.navEvents` (`SingleLiveEvent<NavCommand?>`) for the legacy nav path.
+- Converting it to Compose unblocks dropping: `Activity2.kt`, `ViewModel3.kt`, `NavCommand.kt`, `NavEventSource` (in `NavDirectionsExtensions.kt`); the entire `app-common-ui/common/lists/*` package (BaseAdapter, ModularAdapter, BindableVH, DataAdapter, MutableDataAdapter, AsyncDiffer chain, modular/mods/*, differ/*, ListItem, ViewHolderBasedDivider, the live half of RecyclerViewExtensions); `viewBinding = true` in `app/build.gradle.kts`; the two `debug_recorder_*.xml` layouts.
+- The screen is small (a list of recorded log files with share/delete actions). `DashboardItem` would need its `DifferItem`/`payloadProvider` interface dependency replaced with a plain stable-id field — straightforward since Compose `LazyColumn` doesn't need the diff machinery.
+
+#### 5. Three legacy `Navigation.findNavController` callbacks (likely runtime-broken)
+- `ErrorDialogSetup.kt:28,42`, `AutomationNoConsentException.kt:23`, `InaccessibleDeletionException.kt:32` all call `androidx.navigation.Navigation.findNavController(view, eu.darken.sdmse.common.R.id.nav_host)` from non-Compose error/exception handlers. The Compose-only `MainActivity.setContent {}` no longer hosts a Fragment-based `NavController`, so these calls likely throw `IllegalStateException("View ... does not have a NavController")` when the user taps the dialog action button (Setup / Exclude / Open AppControl). The `R.id.nav_host` resource still exists in `app-common/res/values/ids.xml`, but no view tree branch carries it as a tag.
+- Migrate to `LocalNavigationController` lookup or stash a `NavigationController` reference on the activity decor at `setContent` time, then route the actions through `navController.goTo(...)`. Doing so unblocks dropping `navigation-fragment-ktx` + `navigation-ui-ktx` from the 14 modules that still pull them in directly.
 
 ---
 
