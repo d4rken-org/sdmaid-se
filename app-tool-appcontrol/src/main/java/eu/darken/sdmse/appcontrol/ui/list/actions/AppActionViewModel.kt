@@ -6,7 +6,6 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.provider.Settings
-import androidx.lifecycle.SavedStateHandle
 import dagger.hilt.android.lifecycle.HiltViewModel
 import dagger.hilt.android.qualifiers.ApplicationContext
 import eu.darken.sdmse.appcontrol.core.AppControl
@@ -22,7 +21,6 @@ import eu.darken.sdmse.appcontrol.core.restore.RestoreTask
 import eu.darken.sdmse.appcontrol.core.toggle.AppControlToggleTask
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallException
 import eu.darken.sdmse.appcontrol.core.uninstall.UninstallTask
-import eu.darken.sdmse.appcontrol.ui.AppActionRoute
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItem
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.AppActionItemContext
 import eu.darken.sdmse.appcontrol.ui.list.actions.items.buildAppActionItems
@@ -47,10 +45,13 @@ import eu.darken.sdmse.exclusion.core.types.Exclusion
 import eu.darken.sdmse.exclusion.core.types.PkgExclusion
 import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.combine
 import kotlinx.coroutines.flow.filter
+import kotlinx.coroutines.flow.filterNotNull
 import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.flow.flatMapLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.onEach
@@ -60,7 +61,6 @@ import javax.inject.Inject
 @SuppressLint("StaticFieldLeak")
 @HiltViewModel
 class AppActionViewModel @Inject constructor(
-    handle: SavedStateHandle,
     dispatcherProvider: DispatcherProvider,
     @ApplicationContext private val context: Context,
     private val appControl: AppControl,
@@ -69,15 +69,26 @@ class AppActionViewModel @Inject constructor(
     private val userManager2: UserManager2,
 ) : ViewModel4(dispatcherProvider, tag = TAG) {
 
-    private val installId: InstallId = AppActionRoute.from(handle).installId
+    // Bound by the host via [setInstallId] (Picker-style entry-arg binding).
+    // SavedStateHandle.toRoute<>() is unreliable for non-nullable serializable args under Nav3 —
+    // see project memory `feedback_nav3_route_binding`.
+    private val installIdFlow = MutableStateFlow<InstallId?>(null)
+
+    fun setInstallId(installId: InstallId) {
+        if (installIdFlow.value == installId) return
+        installIdFlow.value = installId
+    }
 
     init {
-        appControl.state
-            .map { it.data?.apps?.firstOrNull { app -> app.installId == installId } }
-            .filter { it == null }
+        installIdFlow.filterNotNull()
+            .flatMapLatest { id ->
+                appControl.state
+                    .map { it.data?.apps?.firstOrNull { app -> app.installId == id } to id }
+            }
+            .filter { (app, _) -> app == null }
             .take(1)
-            .onEach {
-                log(TAG) { "App data for $installId is no longer available, dismissing sheet" }
+            .onEach { (_, id) ->
+                log(TAG) { "App data for $id is no longer available, dismissing sheet" }
                 navUp()
             }
             .launchIn(vmScope)
@@ -86,10 +97,12 @@ class AppActionViewModel @Inject constructor(
     val events = SingleEventFlow<Event>()
 
     val state: StateFlow<State> = combine(
+        installIdFlow,
         appControl.state,
         appControl.progress,
         exclusionManager.exclusions,
-    ) { acState, progress, _ ->
+    ) { installId, acState, progress, _ ->
+        if (installId == null) return@combine State()
         val appInfo = acState.data?.apps?.firstOrNull { it.installId == installId }
             ?: return@combine State()
 
@@ -118,11 +131,14 @@ class AppActionViewModel @Inject constructor(
         onError = { State() },
     )
 
-    private suspend fun currentAppInfoOrNull(): AppInfo? =
-        appControl.state.first().data?.apps?.firstOrNull { it.installId == installId }
+    private suspend fun currentAppInfoOrNull(): AppInfo? {
+        val id = installIdFlow.value ?: return null
+        return appControl.state.first().data?.apps?.firstOrNull { it.installId == id }
+    }
 
     fun onActionTapped(item: AppActionItem) = launch {
         log(TAG, INFO) { "onActionTapped($item)" }
+        val id = installIdFlow.value ?: return@launch
         when (item) {
             is AppActionItem.Info.Size -> openStorageSettings()
             is AppActionItem.Info.Usage -> openUsageScreen()
@@ -132,16 +148,16 @@ class AppActionViewModel @Inject constructor(
             is AppActionItem.Action.ForceStop -> submitForceStop()
             is AppActionItem.Action.Toggle -> submitToggle()
             is AppActionItem.Action.Exclude -> handleExclude(item)
-            is AppActionItem.Action.Uninstall -> events.emit(Event.ConfirmUninstall(installId))
-            is AppActionItem.Action.Archive -> events.emit(Event.ConfirmArchive(installId))
-            is AppActionItem.Action.Restore -> events.emit(Event.ConfirmRestore(installId))
+            is AppActionItem.Action.Uninstall -> events.emit(Event.ConfirmUninstall(id))
+            is AppActionItem.Action.Archive -> events.emit(Event.ConfirmArchive(id))
+            is AppActionItem.Action.Restore -> events.emit(Event.ConfirmRestore(id))
             is AppActionItem.Action.Export -> requestExportPath()
         }
     }
 
     fun onUninstallConfirmed() = launch {
         val appInfo = currentAppInfoOrNull() ?: return@launch
-        log(TAG, INFO) { "onUninstallConfirmed($installId)" }
+        log(TAG, INFO) { "onUninstallConfirmed(${appInfo.installId})" }
         val task = UninstallTask(setOf(appInfo.installId))
         val result = taskManager.submit(task) as UninstallTask.Result
         if (result.failed.isNotEmpty()) {
@@ -152,7 +168,7 @@ class AppActionViewModel @Inject constructor(
 
     fun onArchiveConfirmed() = launch {
         val appInfo = currentAppInfoOrNull() ?: return@launch
-        log(TAG, INFO) { "onArchiveConfirmed($installId)" }
+        log(TAG, INFO) { "onArchiveConfirmed(${appInfo.installId})" }
         val task = ArchiveTask(setOf(appInfo.installId))
         val result = taskManager.submit(task) as ArchiveTask.Result
         if (result.failed.isNotEmpty()) {
@@ -163,7 +179,7 @@ class AppActionViewModel @Inject constructor(
 
     fun onRestoreConfirmed() = launch {
         val appInfo = currentAppInfoOrNull() ?: return@launch
-        log(TAG, INFO) { "onRestoreConfirmed($installId)" }
+        log(TAG, INFO) { "onRestoreConfirmed(${appInfo.installId})" }
         val task = RestoreTask(setOf(appInfo.installId))
         val result = taskManager.submit(task) as RestoreTask.Result
         if (result.failed.isNotEmpty()) {

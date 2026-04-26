@@ -14,6 +14,6 @@ class AppControlNavigation @Inject constructor() : NavigationEntry {
     override fun EntryProviderScope<NavKey>.setup() {
         entry<AppControlSettingsRoute> { AppControlSettingsScreenHost() }
         entry<AppControlListRoute> { AppControlListScreenHost() }
-        entry<AppActionRoute> { AppActionSheetHost() }
+        entry<AppActionRoute> { route -> AppActionSheetHost(installId = route.installId) }
     }
 }

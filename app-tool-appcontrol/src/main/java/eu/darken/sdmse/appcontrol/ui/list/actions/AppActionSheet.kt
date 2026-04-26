@@ -81,10 +81,13 @@ private val TAG = logTag("AppControl", "Action", "Sheet")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AppActionSheetHost(
+    installId: eu.darken.sdmse.common.pkgs.features.InstallId,
     vm: AppActionViewModel = hiltViewModel(),
 ) {
     ErrorEventHandler(vm)
     NavigationEventHandler(vm)
+
+    LaunchedEffect(installId) { vm.setInstallId(installId) }
 
     val context = LocalContext.current
     val snackbarHostState = remember { SnackbarHostState() }
