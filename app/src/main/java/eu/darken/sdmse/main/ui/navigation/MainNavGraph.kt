@@ -1,7 +1,6 @@
 package eu.darken.sdmse.main.ui.navigation
 
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.fragment.dialog
 import androidx.navigation.fragment.fragment
 import eu.darken.sdmse.analyzer.core.content.ContentGroup
 import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
@@ -39,11 +38,8 @@ import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 // DashboardCardConfigFragment — converted to Compose
 // SupportContactFormFragment — converted to Compose
 // DebugLogSessionsDialog — converted to Compose
-import eu.darken.sdmse.scheduler.ui.ScheduleItemRoute
-import eu.darken.sdmse.scheduler.ui.SchedulerManagerRoute
+// Scheduler — Manager + ScheduleItem converted to Compose, registered via SchedulerNavigation
 // SchedulerSettingsFragment — converted to Compose, registered via SchedulerNavigation
-import eu.darken.sdmse.scheduler.ui.manager.SchedulerManagerFragment
-import eu.darken.sdmse.scheduler.ui.manager.create.ScheduleItemDialog
 // SetupFragment — converted to Compose
 import eu.darken.sdmse.setup.SetupRoute
 import eu.darken.sdmse.setup.SetupScreenOptions
@@ -101,9 +97,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // AppControl — list/action-sheet converted to Compose, registered via AppControlNavigation
 
-    // Scheduler
-    fragment<SchedulerManagerFragment, SchedulerManagerRoute>()
-    dialog<ScheduleItemDialog, ScheduleItemRoute>()
+    // Scheduler — Manager + ScheduleItem converted to Compose, registered via SchedulerNavigation
 
     // Analyzer
     fragment<DeviceStorageFragment, DeviceStorageRoute>()
