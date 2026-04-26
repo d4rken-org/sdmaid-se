@@ -150,7 +150,6 @@ fun DependencyHandlerScope.addWorkerManager() {
 
 fun DependencyHandlerScope.addAndroidUI() {
     implementation("androidx.activity:activity-ktx:1.12.4")
-    implementation("androidx.fragment:fragment-ktx:1.8.9")
 
     implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.9.4")
     implementation("androidx.lifecycle:lifecycle-viewmodel-savedstate:2.9.4")
