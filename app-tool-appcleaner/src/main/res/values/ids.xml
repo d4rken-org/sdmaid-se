@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Navigation action IDs used by AppCleaner UI -->
-    <item name="action_appCleanerListFragment_to_appCleanerDetailsFragment2" type="id" />
-</resources>

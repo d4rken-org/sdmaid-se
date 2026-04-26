@@ -25,7 +25,7 @@ private fun IncompleteSetupException.toLocalizedError(): LocalizedError = Locali
     },
     fixActionLabel = eu.darken.sdmse.common.R.string.setup_title.toCaString(),
     fixAction = {
-        val navController = Navigation.findNavController(it, eu.darken.sdmse.R.id.nav_host)
+        val navController = Navigation.findNavController(it, eu.darken.sdmse.common.R.id.nav_host)
         val options = SetupScreenOptions(isOnboarding = true, typeFilter = setupTypes)
         navController.safeNavigate(SetupRoute(options = options))
     }
@@ -39,7 +39,7 @@ fun installErrorDialogCustomizer() {
                 error.localized(activity).copy(
                     infoActionLabel = eu.darken.sdmse.common.exclusion.R.string.exclusion_create_action.toCaString(),
                     infoAction = { ctx ->
-                        ctx.findNavController(eu.darken.sdmse.R.id.nav_host).safeNavigate(
+                        ctx.findNavController(eu.darken.sdmse.common.R.id.nav_host).safeNavigate(
                             PathExclusionEditorRoute(
                                 initial = PathExclusionEditorOptions(targetPath = error.path!!),
                             )

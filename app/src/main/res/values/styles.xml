@@ -97,12 +97,6 @@
     <!--        <item name="android:textColor">@color/material_button_texts</item>-->
     <!--    </style>-->
 
-    <style name="BreadCrumbBarStyle">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">?attr/actionBarSize</item>
-        <item name="android:background">?colorPrimary</item>
-    </style>
-
     <style name="Widget.MaterialComponents.Button.Flush.Highlighted" parent="Widget.MaterialComponents.Button.TextButton">
         <item name="backgroundTint">?colorSecondary</item>
         <item name="android:textColor">?colorOnSecondary</item>

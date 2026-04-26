@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <!-- Navigation action IDs used by SystemCleaner UI -->
-    <item name="action_systemCleanerListFragment_to_systemCleanerDetailsFragment" type="id" />
-    <item name="action_customFilterListFragment_to_customFilterEditorFragment" type="id" />
-</resources>
