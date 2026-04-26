@@ -17,7 +17,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         compose = true
     }
 
@@ -59,7 +58,6 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
     implementation("com.github.reddit:IndicatorFastScroll:f9576c7") // 1.4.0
 
     addTesting()

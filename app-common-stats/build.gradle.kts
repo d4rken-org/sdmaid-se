@@ -17,7 +17,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         compose = true
     }
 

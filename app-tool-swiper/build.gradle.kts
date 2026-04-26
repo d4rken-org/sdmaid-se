@@ -17,7 +17,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         compose = true
     }
 
@@ -70,7 +69,6 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     addTesting()
     testImplementation(project(":app-common-test"))

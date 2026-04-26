@@ -17,7 +17,6 @@ android {
     setupModuleBuildTypes()
 
     buildFeatures {
-        viewBinding = true
         compose = true
     }
 
@@ -64,7 +63,6 @@ dependencies {
 
     implementation("androidx.navigation:navigation-fragment-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
 
     implementation("androidx.exifinterface:exifinterface:1.3.7")
     implementation("io.github.panpf.zoomimage:zoomimage-view-coil2:1.4.0")

@@ -48,7 +48,6 @@ dependencies {
     implementation("androidx.navigation:navigation-ui-ktx:${Versions.AndroidX.Navigation.core}")
     implementation("androidx.preference:preference-ktx:1.2.1")
     implementation("androidx.recyclerview:recyclerview:1.4.0")
-    implementation("androidx.recyclerview:recyclerview-selection:1.2.0")
     implementation("me.zhanghai.android.fastscroll:library:1.3.0")
     addDI()
     addCoroutines()
