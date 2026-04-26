@@ -295,7 +295,6 @@ class ExclusionListViewModel @Inject constructor(
     }
 
     fun openStoragePicker() {
-        // FIXME: dead-click until DeviceStorageRoute Compose conversion lands.
         navTo(eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute)
     }
 

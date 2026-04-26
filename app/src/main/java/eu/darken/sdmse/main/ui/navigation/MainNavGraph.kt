@@ -1,36 +1,15 @@
 package eu.darken.sdmse.main.ui.navigation
 
 import androidx.navigation.NavGraphBuilder
-import androidx.navigation.fragment.fragment
-import eu.darken.sdmse.analyzer.core.content.ContentGroup
-import eu.darken.sdmse.analyzer.ui.AppDetailsRoute
-import eu.darken.sdmse.analyzer.ui.AppsRoute
-import eu.darken.sdmse.analyzer.ui.ContentRoute
-import eu.darken.sdmse.common.navigation.routes.DeviceStorageRoute
-import eu.darken.sdmse.analyzer.ui.StorageContentRoute
-import eu.darken.sdmse.analyzer.ui.storage.app.AppDetailsFragment
-import eu.darken.sdmse.analyzer.ui.storage.apps.AppsFragment
-import eu.darken.sdmse.analyzer.ui.storage.content.ContentFragment
-import eu.darken.sdmse.analyzer.ui.storage.device.DeviceStorageFragment
-import eu.darken.sdmse.analyzer.ui.storage.storage.StorageContentFragment
+// Analyzer — all 5 storage screens converted to Compose, registered via AnalyzerNavigation
 // AppCleaner — list/details/page converted to Compose, registered via AppCleanerNavigation
 // AppCleanerSettingsFragment — converted to Compose, registered via AppCleanerNavigation
 // AppControl — list/action-sheet/settings converted to Compose, registered via AppControlNavigation
 // LogViewFragment — converted to Compose
-import eu.darken.sdmse.common.navigation.routes.DataAreasRoute
-import eu.darken.sdmse.common.navigation.routes.DashboardRoute
-import eu.darken.sdmse.common.navigation.routes.LogViewRoute
-import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
-import eu.darken.sdmse.common.navigation.serializableNavType
 // PickerFragment — converted to Compose, registered via PickerNavigation
-import eu.darken.sdmse.common.pkgs.features.InstallId
 // PreviewFragment + PreviewItemFragment — converted to Compose, registered via PreviewNavigation
-import eu.darken.sdmse.common.storage.StorageId
 // CorpseFinderSettingsFragment — converted to Compose, registered via CorpseFinderNavigation
 // Deduplicator — fully converted to Compose, registered via DeduplicatorNavigation
-import eu.darken.sdmse.exclusion.ui.PathExclusionEditorRoute
-import eu.darken.sdmse.exclusion.ui.PkgExclusionEditorRoute
-import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 // DataAreasFragment — converted to Compose
 // DashboardFragment — converted to Compose
 // Onboarding Fragments — converted to Compose
@@ -41,12 +20,10 @@ import eu.darken.sdmse.exclusion.ui.SegmentExclusionEditorRoute
 // Scheduler — Manager + ScheduleItem converted to Compose, registered via SchedulerNavigation
 // SchedulerSettingsFragment — converted to Compose, registered via SchedulerNavigation
 // SetupFragment — converted to Compose
-import eu.darken.sdmse.setup.SetupRoute
+import eu.darken.sdmse.common.navigation.serializableNavType
 import eu.darken.sdmse.setup.SetupScreenOptions
 // SqueezerSettingsFragment + SqueezerListFragment — converted to Compose, registered via SqueezerNavigation
-import eu.darken.sdmse.stats.ui.AffectedFilesRoute
 // ReportsFragment — converted to Compose, registered via StatsNavigation
-import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 // StatsSettingsFragment — converted to Compose, registered via StatsNavigation
 // SwiperSettingsFragment — converted to Compose, registered via SwiperNavigation
 // SystemCleanerSettingsFragment — converted to Compose, registered via SystemCleanerNavigation
@@ -54,12 +31,7 @@ import eu.darken.sdmse.common.navigation.routes.CustomFilterListRoute
 // CustomFilterEditorFragment — converted to Compose, registered via SystemCleanerNavigation
 // CustomFilterListFragment — converted to Compose, registered via SystemCleanerNavigation
 // UpgradeFragment — converted to Compose
-import kotlin.reflect.typeOf
 
-private val StorageIdNavType = serializableNavType(StorageId.serializer())
-private val InstallIdNavType = serializableNavType(InstallId.serializer())
-private val NullableInstallIdNavType = serializableNavType(InstallId.serializer(), isNullableAllowed = true)
-private val ContentGroupIdNavType = serializableNavType(ContentGroup.Id.serializer())
 internal val SetupScreenOptionsNavType = serializableNavType(SetupScreenOptions.serializer(), isNullableAllowed = true)
 
 fun NavGraphBuilder.mainNavGraph() {
@@ -99,27 +71,7 @@ fun NavGraphBuilder.mainNavGraph() {
 
     // Scheduler — Manager + ScheduleItem converted to Compose, registered via SchedulerNavigation
 
-    // Analyzer
-    fragment<DeviceStorageFragment, DeviceStorageRoute>()
-    fragment<StorageContentFragment, StorageContentRoute>(
-        typeMap = mapOf(typeOf<StorageId>() to StorageIdNavType)
-    )
-    fragment<AppsFragment, AppsRoute>(
-        typeMap = mapOf(typeOf<StorageId>() to StorageIdNavType)
-    )
-    fragment<AppDetailsFragment, AppDetailsRoute>(
-        typeMap = mapOf(
-            typeOf<StorageId>() to StorageIdNavType,
-            typeOf<InstallId>() to InstallIdNavType,
-        )
-    )
-    fragment<ContentFragment, ContentRoute>(
-        typeMap = mapOf(
-            typeOf<StorageId>() to StorageIdNavType,
-            typeOf<ContentGroup.Id>() to ContentGroupIdNavType,
-            typeOf<InstallId?>() to NullableInstallIdNavType,
-        )
-    )
+    // Analyzer — all 5 storage screens converted to Compose, registered via AnalyzerNavigation
 
     // Exclusions — converted to Compose, registered via ExclusionNavigation
 

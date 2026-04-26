@@ -80,7 +80,12 @@ class SpaceHistoryChartView @JvmOverloads constructor(
     private var snapshots: List<SpaceSnapshotEntity> = emptyList()
     private var reports: List<ReportEntity> = emptyList()
     var isCompact: Boolean = false
-        private set
+        set(value) {
+            if (field == value) return
+            field = value
+            updateTextSizes()
+            invalidate()
+        }
 
     private var markerPositions: List<MarkerPosition> = emptyList()
     private var selectedMarkerIndex: Int = -1
