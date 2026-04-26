@@ -21,7 +21,6 @@ import eu.darken.sdmse.common.debug.logging.asLog
 import eu.darken.sdmse.common.debug.logging.log
 import eu.darken.sdmse.common.debug.logging.logTag
 import eu.darken.sdmse.common.error.installErrorDialogCustomizer
-import eu.darken.sdmse.setup.installShowSetupHint
 import eu.darken.sdmse.common.debug.memory.MemoryMonitor
 import eu.darken.sdmse.common.debug.recorder.core.RecorderModule
 import eu.darken.sdmse.common.theming.Theming
@@ -92,7 +91,6 @@ open class App : Application(), Configuration.Provider {
         theming.setup()
 
         installErrorDialogCustomizer()
-        installShowSetupHint()
 
         memoryMonitor.register()
 

@@ -33,6 +33,9 @@ fun ComposeErrorDialog(
     val localizedError = errorDialogCustomizer?.invoke(throwable, activity ?: return)
         ?: throwable.localized(context)
 
+    val hasFix = localizedError.fixActionRoute != null || localizedError.fixAction != null
+    val hasInfo = localizedError.infoActionRoute != null || localizedError.infoAction != null
+
     AlertDialog(
         onDismissRequest = onDismiss,
         title = {
@@ -54,8 +57,18 @@ fun ComposeErrorDialog(
         },
         confirmButton = {
             Row(modifier = Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.End) {
-                localizedError.infoAction?.let { action ->
-                    TextButton(onClick = { activity?.let { action(it) } }) {
+                if (hasInfo) {
+                    TextButton(
+                        onClick = {
+                            val route = localizedError.infoActionRoute
+                            val action = localizedError.infoAction
+                            when {
+                                route != null -> navController?.goTo(route)
+                                action != null && activity != null -> action(activity)
+                            }
+                            onDismiss()
+                        },
+                    ) {
                         Text(
                             localizedError.infoActionLabel?.get(context)
                                 ?: stringResource(R.string.general_show_details_action)
@@ -64,14 +77,19 @@ fun ComposeErrorDialog(
                     Spacer(modifier = Modifier.width(8.dp))
                 }
 
-                localizedError.fixAction?.let { action ->
+                if (hasFix) {
                     TextButton(onClick = onDismiss) {
                         Text(stringResource(R.string.general_cancel_action))
                     }
                     Spacer(modifier = Modifier.width(8.dp))
                     TextButton(
                         onClick = {
-                            activity?.let { action(it) }
+                            val route = localizedError.fixActionRoute
+                            val action = localizedError.fixAction
+                            when {
+                                route != null -> navController?.goTo(route)
+                                action != null && activity != null -> action(activity)
+                            }
                             onDismiss()
                         },
                     ) {
@@ -80,8 +98,10 @@ fun ComposeErrorDialog(
                                 ?: stringResource(android.R.string.ok)
                         )
                     }
-                } ?: TextButton(onClick = onDismiss) {
-                    Text(stringResource(android.R.string.ok))
+                } else {
+                    TextButton(onClick = onDismiss) {
+                        Text(stringResource(android.R.string.ok))
+                    }
                 }
             }
         },
