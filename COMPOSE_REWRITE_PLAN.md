@@ -1,6 +1,6 @@
 # Compose Rewrite: SD Maid SE
 
-## Current Status (2026-04-27 evening)
+## Current Status (2026-04-27 late evening)
 
 ### What's done
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
@@ -68,8 +68,12 @@
 - ~~`ErrorDialogSetup.kt:28,42`, `AutomationNoConsentException.kt:23`, `InaccessibleDeletionException.kt:32`~~ ✓ — All 4 callsites rewired off `Navigation.findNavController(view, R.id.nav_host)` to declarative `LocalizedError.fixActionRoute` / `infoActionRoute` fields (commit `423e5678b`). `ComposeErrorDialog` dispatches them through the `NavigationController` parameter (already piped in via `LocalNavigationController.current` from `ErrorEventHandler`); the param had been unused. `R.id.nav_host` removed from `app-common/res/values/ids.xml`. Dead helpers also gone: `NavControllerExtensions.kt` (defined `safeNavigate(NavController)`), `SetupModuleSetup.kt` (`showFixSetupHint` / `installShowSetupHint` were never invoked), `SnackbarExtensions.kt` (`enableBigText` only consumed by the dead SetupModuleSetup). Bug fix: `ComposeErrorDialog.infoAction` tap now dismisses the dialog (was previously left open — legacy MaterialAlertDialogBuilder did this implicitly via the neutral button).
 - After this batch, `dependencyInsight` confirms zero transitive `navigation-fragment-ktx` / `navigation-ui-ktx` resolution. 16 modules dropped both deps (commit `54843cf43`).
 
-#### 5. Drop transitive `androidx.fragment:fragment-ktx` from `addAndroidUI()`
-- `buildSrc/.../Dependencies.kt` still includes `implementation("androidx.fragment:fragment-ktx:1.8.9")` in `addAndroidUI()`. Three legacy Fragment-era helpers still import `androidx.fragment.app.Fragment`: `LiveDataExtensions.kt` (`observe2(Fragment, ...)`), `ViewBindingExtensions.kt` (`Fragment.viewBinding()`), `ActivityExtensions.kt` (`AppCompatActivity.showFragment(...)` + `R.id.fragment_frame`). All are dead (no callsites remain). Cleanup batch: delete the three files, drop `fragment-ktx` from `addAndroidUI()`, optionally remove `R.id.fragment_frame` if also unused.
+#### 5. Drop `androidx.fragment:fragment-ktx` and remaining Fragment-era helpers — CLOSED (1 commit)
+- ~~Dropped `fragment-ktx`~~ ✓ (commit `825dadf2d`) from `addAndroidUI()` in `buildSrc/.../Dependencies.kt`. The three dead Fragment-era helpers are gone: `LiveDataExtensions.kt` (`observe2(Fragment)` overloads), `ViewBindingExtensions.kt` (`Fragment.viewBinding()` delegate), `ActivityExtensions.kt` (`viewParent` / `view` / `isContentViewSet` / `showFragment` / `todoToast`). Also dropped the dead `LoadingOverlayViewStyle` from `app/.../styles.xml` and the now-empty `app/.../res/values/ids.xml`.
+- `androidx.fragment.app.Fragment` / `FragmentActivity` / `FragmentFactory` remain available transitively via `androidx.appcompat:appcompat:1.7.1` (in `addAndroidCore()`); the androidTest helpers (`HiltExtensions`, `EmptyFragmentActivity`) compile without an explicit dep.
+
+#### 6. Pre-existing androidTest compilation failure (carried over from earlier batches)
+- `app/src/androidTest/java/eu/darken/sdmse/main/MainActivityTest.kt` mocks `MainViewModel.state` as `liveData { }` (LiveData) but the VM has been on `Flow<State>` since the ViewModel4 migration. It also references a non-existent `MainViewModel.onGo()` method. The 4 unit-test/assemble tasks pass, but `:app:compileFossDebugAndroidTestKotlin` fails. Unrelated to §5. Small fix: rewrite the test against `flowOf(MainViewModel.State())` and drop the `onGo()` references (or delete the test if it's no longer meaningful in a Compose-only world).
 
 ---
 
