@@ -18,7 +18,6 @@ import kotlinx.coroutines.flow.stateIn
 
 /**
  * Base ViewModel for Compose screens.
- * Extends ViewModel2 directly — sibling to the deprecated ViewModel3.
  * Provides error events via [SingleEventFlow] and navigation via [NavigationEventSource].
  *
  * Compose render state should be exposed as VM-owned [StateFlow]s. Those render-state flows must

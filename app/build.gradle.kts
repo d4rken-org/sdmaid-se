@@ -102,7 +102,6 @@ android {
     }
 
     buildFeatures {
-        viewBinding = true
         buildConfig = true
         compose = true
     }

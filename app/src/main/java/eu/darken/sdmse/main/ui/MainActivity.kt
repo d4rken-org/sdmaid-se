@@ -4,6 +4,7 @@ import android.content.Intent
 import android.content.res.Configuration
 import android.os.Bundle
 import android.view.WindowManager
+import androidx.activity.ComponentActivity
 import androidx.activity.compose.BackHandler
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
@@ -53,14 +54,13 @@ import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.common.theming.Theming
-import eu.darken.sdmse.common.uix.Activity2
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
 import javax.inject.Inject
 
 @AndroidEntryPoint
-class MainActivity : Activity2() {
+class MainActivity : ComponentActivity() {
 
     private val vm: MainViewModel by viewModels()
 
