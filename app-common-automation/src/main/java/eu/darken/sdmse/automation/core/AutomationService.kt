@@ -9,6 +9,13 @@ import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
 import androidx.annotation.Keep
 import androidx.appcompat.view.ContextThemeWrapper
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.lifecycle.setViewTreeLifecycleOwner
+import androidx.lifecycle.setViewTreeViewModelStoreOwner
+import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import dagger.hilt.android.AndroidEntryPoint
 import eu.darken.sdmse.automation.core.common.ACSNodeInfo
 import eu.darken.sdmse.automation.core.common.crawl
@@ -17,8 +24,13 @@ import eu.darken.sdmse.automation.core.common.toNodeInfo
 import eu.darken.sdmse.automation.core.errors.AutomationNoConsentException
 import eu.darken.sdmse.automation.core.errors.AutomationOverlayException
 import eu.darken.sdmse.automation.core.errors.UserCancelledAutomationException
-import eu.darken.sdmse.automation.ui.AutomationControlView
+import eu.darken.sdmse.automation.ui.AutomationOverlay
+import eu.darken.sdmse.automation.ui.AutomationOverlayState
+import eu.darken.sdmse.automation.ui.OverlayLifecycleOwner
 import eu.darken.sdmse.common.coroutine.DispatcherProvider
+import eu.darken.sdmse.common.theming.SdmSeTheme
+import eu.darken.sdmse.common.theming.ThemeState
+import eu.darken.sdmse.common.datastore.value
 import eu.darken.sdmse.common.datastore.valueBlocking
 import eu.darken.sdmse.common.debug.Bugs
 import eu.darken.sdmse.common.debug.logging.Logging.Priority.ERROR
@@ -91,13 +103,17 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
     private val hostState = MutableStateFlow(AutomationHost.State())
     override val state = hostState
 
+    private val overlayState = MutableStateFlow(AutomationOverlayState())
+    private var controlView: ComposeView? = null
+    private var overlayLifecycle: OverlayLifecycleOwner? = null
+
     private val progressPub = MutableStateFlow<Progress.Data?>(null)
     override val progress: Flow<Progress.Data?> = progressPub
     override fun updateProgress(update: (Progress.Data?) -> Progress.Data?) {
-        progressPub.value = update(progressPub.value)
+        val newValue = update(progressPub.value)
+        progressPub.value = newValue
+        overlayState.update { it.copy(progress = newValue) }
     }
-
-    private var controlView: AutomationControlView? = null
 
     override val service: AccessibilityService get() = this
 
@@ -140,10 +156,6 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
             delay(2000)
             automationSetupModule.refresh()
         }
-
-        progress
-            .onEach { pd -> withContext(dispatcher.Main) { controlView?.setProgress(pd) } }
-            .launchIn(serviceScope)
 
         screenState.state
             .map { it.isScreenAvailable }
@@ -322,8 +334,11 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
 
         serviceInfo = newOptions.accessibilityServiceInfo
 
-        withContext(dispatcher.Main) {
-            controlView?.setTitle(newOptions.controlPanelTitle, newOptions.controlPanelSubtitle)
+        overlayState.update {
+            it.copy(
+                title = newOptions.controlPanelTitle,
+                subtitle = newOptions.controlPanelSubtitle,
+            )
         }
 
         log(TAG) { "changeOptions(): isOverlayBlocked=$isOverlayBlocked" }
@@ -355,22 +370,48 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
             throw AutomationNoConsentException()
         }
 
+        val themeStateSnapshot = ThemeState(
+            mode = generalSettings.themeMode.value(),
+            style = generalSettings.themeStyle.value(),
+        )
         controlView = withContext(dispatcher.Main) {
-            AutomationControlView(
-                ContextThemeWrapper(this@AutomationService, eu.darken.sdmse.common.ui.R.style.AppTheme)
-            ).apply {
-                setCancelListener {
-                    serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
-                    currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
+            val themedContext = ContextThemeWrapper(
+                this@AutomationService,
+                eu.darken.sdmse.common.ui.R.style.AppTheme,
+            )
+            val lifecycle = OverlayLifecycleOwner().apply { onCreate() }
+            try {
+                val composeView = ComposeView(themedContext).apply {
+                    setViewTreeLifecycleOwner(lifecycle)
+                    setViewTreeViewModelStoreOwner(lifecycle)
+                    setViewTreeSavedStateRegistryOwner(lifecycle)
+                    setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnDetachedFromWindow)
+                    alpha = 0f
+                    setContent {
+                        SdmSeTheme(state = themeStateSnapshot) {
+                            val s by overlayState.collectAsState()
+                            AutomationOverlay(
+                                state = s,
+                                onCancel = {
+                                    serviceScope.launch { changeOptions { it.copy(showOverlay = false) } }
+                                    currentTask.value?.second?.cancel(cause = UserCancelledAutomationException())
+                                },
+                            )
+                        }
+                    }
                 }
-                alpha = 0f
                 log(TAG) { "submit($id): Adding controlView" }
-                try {
-                    windowManager.addView(this, overlayParams)
-                } catch (e: WindowManager.BadTokenException) {
-                    log(TAG, ERROR) { "submit($id): Failed to add controlView: ${e.asLog()}" }
-                    throw AutomationOverlayException(e)
-                }
+                windowManager.addView(composeView, overlayParams)
+                overlayLifecycle = lifecycle
+                composeView
+            } catch (e: WindowManager.BadTokenException) {
+                log(TAG, ERROR) { "submit($id): Failed to add controlView: ${e.asLog()}" }
+                runCatching { lifecycle.onDestroy() }
+                throw AutomationOverlayException(e)
+            } catch (e: Exception) {
+                log(TAG, ERROR) { "submit($id): Failed to set up controlView: ${e.asLog()}" }
+                runCatching { lifecycle.onDestroy() }
+                throw e
             }
         }
 
@@ -388,28 +429,32 @@ class AutomationService : AccessibilityService(), AutomationHost, AutomationServ
                 withContext(NonCancellable) {
                     updateProgress { null }
                     optionsLock.withLock {
-                        val isDetached = CompletableDeferred<Unit>()
-
-                        controlView!!
-                            .apply {
-                                val listener = object : View.OnAttachStateChangeListener {
-                                    override fun onViewDetachedFromWindow(v: View) {
-                                        v.removeOnAttachStateChangeListener(this)
-                                        log(TAG) { "submit($id): controlView removed: $v" }
-                                        isDetached.complete(Unit)
-                                    }
-
-                                    override fun onViewAttachedToWindow(v: View) {}
+                        val viewToRemove = controlView!!
+                        val lifecycleToDispose = overlayLifecycle
+                        try {
+                            val isDetached = CompletableDeferred<Unit>()
+                            val listener = object : View.OnAttachStateChangeListener {
+                                override fun onViewDetachedFromWindow(v: View) {
+                                    v.removeOnAttachStateChangeListener(this)
+                                    log(TAG) { "submit($id): controlView removed: $v" }
+                                    isDetached.complete(Unit)
                                 }
-                                withContext(dispatcher.Main) { addOnAttachStateChangeListener(listener) }
-                            }
-                            .also {
-                                log(TAG) { "submit($id): Removing controlView: $it" }
-                                withContext(dispatcher.Main) { windowManager.removeView(it) }
-                            }
 
-                        isDetached.await()
-                        controlView = null
+                                override fun onViewAttachedToWindow(v: View) {}
+                            }
+                            withContext(dispatcher.Main) {
+                                viewToRemove.addOnAttachStateChangeListener(listener)
+                            }
+                            log(TAG) { "submit($id): Removing controlView: $viewToRemove" }
+                            withContext(dispatcher.Main) {
+                                windowManager.removeView(viewToRemove)
+                            }
+                            isDetached.await()
+                        } finally {
+                            controlView = null
+                            runCatching { lifecycleToDispose?.onDestroy() }
+                            overlayLifecycle = null
+                        }
                     }
                     currentTask.value = null
                     log(TAG) { "submit($id): ...task complete" }
