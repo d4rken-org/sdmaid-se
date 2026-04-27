@@ -22,6 +22,8 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.automation.core.AutomationTask
 import eu.darken.sdmse.common.debug.DebugCardProvider
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DebugToggleRow
 
 
 data class DebugDashboardCardItem(

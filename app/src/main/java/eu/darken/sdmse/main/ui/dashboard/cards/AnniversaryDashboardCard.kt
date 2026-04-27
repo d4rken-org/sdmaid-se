@@ -20,11 +20,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import eu.darken.sdmse.R
+import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.compose.SdmMascotMode
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 
 import java.time.Instant
 import java.time.ZoneId
@@ -48,11 +53,11 @@ internal fun AnniversaryDashboardCard(item: AnniversaryDashboardCardItem) {
         onClick = { item.onShare(item.years) },
     ) {
         Row(verticalAlignment = Alignment.CenterVertically) {
-            Mascot(
+            SdmMascot(
                 modifier = Modifier
                     .height(96.dp)
                     .padding(start = 4.dp),
-                mascotMode = SdmMascotMode.Party,
+                mode = SdmMascotMode.Party,
             )
             Spacer(modifier = Modifier.width(8.dp))
             Column {

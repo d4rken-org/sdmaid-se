@@ -23,6 +23,9 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.analyzer.core.Analyzer
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 
 import kotlin.math.absoluteValue
 

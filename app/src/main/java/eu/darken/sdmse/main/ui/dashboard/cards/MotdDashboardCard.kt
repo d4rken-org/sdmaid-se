@@ -28,6 +28,10 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.motd.Motd
 import eu.darken.sdmse.main.core.motd.MotdState
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledTonalActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 
 import java.util.Locale
 import java.util.UUID

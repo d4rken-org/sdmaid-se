@@ -44,6 +44,7 @@ import eu.darken.sdmse.R
 import eu.darken.sdmse.common.BuildConfigWrap
 import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.WebpageTool
+import eu.darken.sdmse.common.compose.SdmMascot
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
@@ -104,7 +105,7 @@ internal fun TitleDashboardCard(item: TitleDashboardCardItem) {
         TitleHeaderLayout(
             modifier = Modifier.fillMaxWidth(),
             mascot = {
-                Mascot(
+                SdmMascot(
                     modifier = Modifier
                         .height(96.dp)
                         .rotate(mascotRotation.value)

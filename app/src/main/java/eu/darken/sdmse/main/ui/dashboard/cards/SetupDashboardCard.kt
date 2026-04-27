@@ -22,6 +22,10 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 import eu.darken.sdmse.setup.SetupManager
 import eu.darken.sdmse.setup.SetupModule
 

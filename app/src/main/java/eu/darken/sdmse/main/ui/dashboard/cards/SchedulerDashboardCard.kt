@@ -21,6 +21,9 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.main.core.taskmanager.TaskSubmitter
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 
 import eu.darken.sdmse.scheduler.R as SchedulerR
 import eu.darken.sdmse.scheduler.core.SchedulerManager

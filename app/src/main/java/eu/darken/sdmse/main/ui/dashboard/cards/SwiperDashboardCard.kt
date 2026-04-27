@@ -21,6 +21,10 @@ import eu.darken.sdmse.common.R as CommonR
 import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.NewBadge
 
 import eu.darken.sdmse.swiper.R as SwiperR
 import eu.darken.sdmse.swiper.core.SessionState

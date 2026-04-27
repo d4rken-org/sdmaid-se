@@ -26,6 +26,9 @@ import eu.darken.sdmse.common.compose.preview.Preview2
 import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.debug.recorder.ui.RecorderConsentDialog
 import eu.darken.sdmse.common.ui.R as UiR
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledTonalActionButton
 
 import java.io.File
 

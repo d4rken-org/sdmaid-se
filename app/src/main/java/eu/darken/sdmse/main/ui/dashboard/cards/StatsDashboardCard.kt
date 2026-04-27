@@ -27,6 +27,9 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.stats.R as StatsR
 import eu.darken.sdmse.common.ui.R as UiR
 
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
 import eu.darken.sdmse.stats.core.StatsRepo
 
 data class StatsDashboardCardItem(

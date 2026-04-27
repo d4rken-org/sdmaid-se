@@ -29,6 +29,12 @@ import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.main.core.SDMTool
 
 import eu.darken.sdmse.main.ui.dashboard.MainActionItem
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFilledActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardIconActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardOutlinedActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.ProgressContainer
 
 data class ToolDashboardCardItem(
     val toolType: SDMTool.Type,

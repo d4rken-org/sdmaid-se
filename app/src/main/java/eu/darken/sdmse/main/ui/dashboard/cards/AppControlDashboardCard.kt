@@ -18,6 +18,10 @@ import eu.darken.sdmse.common.compose.preview.PreviewWrapper
 import eu.darken.sdmse.common.ui.R as UiR
 import eu.darken.sdmse.appcontrol.core.AppControl
 import eu.darken.sdmse.common.progress.Progress
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardActionIconSpacing
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardCard
+import eu.darken.sdmse.main.ui.dashboard.cards.common.DashboardFlatActionButton
+import eu.darken.sdmse.main.ui.dashboard.cards.common.SimpleToolCardHeader
 
 
 data class AppControlDashboardCardItem(
