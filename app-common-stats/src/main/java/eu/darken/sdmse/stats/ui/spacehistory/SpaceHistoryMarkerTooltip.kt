@@ -1,16 +1,21 @@
 package eu.darken.sdmse.stats.ui.spacehistory
 
 import android.view.Gravity
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageView
+import android.view.ViewTreeObserver
 import android.widget.PopupWindow
-import android.widget.TextView
+import androidx.compose.ui.platform.ComposeView
+import androidx.compose.ui.platform.ViewCompositionStrategy
+import androidx.compose.ui.platform.findViewTreeCompositionContext
+import androidx.lifecycle.findViewTreeLifecycleOwner
+import androidx.lifecycle.findViewTreeViewModelStoreOwner
+import androidx.lifecycle.setViewTreeLifecycleOwner
+import androidx.lifecycle.setViewTreeViewModelStoreOwner
+import androidx.savedstate.findViewTreeSavedStateRegistryOwner
+import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 import eu.darken.sdmse.common.ByteFormatter
 import eu.darken.sdmse.common.stats.R
-import eu.darken.sdmse.main.core.iconRes
-import eu.darken.sdmse.main.core.labelRes
+import eu.darken.sdmse.common.theming.SdmSeTheme
 import eu.darken.sdmse.stats.core.db.ReportEntity
 import java.time.ZoneId
 import java.time.format.DateTimeFormatter
@@ -22,22 +27,31 @@ internal object SpaceHistoryMarkerTooltip {
 
     fun show(chart: SpaceHistoryChartView, report: ReportEntity, screenX: Int, screenY: Int) {
         val context = chart.context
-        val tooltipView = LayoutInflater.from(context)
-            .inflate(R.layout.stats_space_history_marker_tooltip, null)
-        tooltipView.findViewById<ImageView>(R.id.tooltip_icon).setImageResource(report.tool.iconRes)
-        tooltipView.findViewById<TextView>(R.id.tooltip_tool_name).setText(report.tool.labelRes)
 
-        val detail = tooltipView.findViewById<TextView>(R.id.tooltip_detail)
         val time = report.endAt.atZone(ZoneId.systemDefault()).format(timeFormatter)
-        detail.text = if (report.affectedSpace != null && report.affectedSpace!! > 0) {
-            val freed = ByteFormatter.formatSize(context, report.affectedSpace!!).first
+        val affectedSpace = report.affectedSpace
+        val detailText = if (affectedSpace != null && affectedSpace > 0) {
+            val freed = ByteFormatter.formatSize(context, affectedSpace).first
             "${context.getString(R.string.stats_space_history_marker_freed, freed)} · $time"
         } else {
             time
         }
 
+        val composeView = ComposeView(context).apply {
+            chart.findViewTreeLifecycleOwner()?.let(::setViewTreeLifecycleOwner)
+            chart.findViewTreeViewModelStoreOwner()?.let(::setViewTreeViewModelStoreOwner)
+            chart.findViewTreeSavedStateRegistryOwner()?.let(::setViewTreeSavedStateRegistryOwner)
+            chart.findViewTreeCompositionContext()?.let(::setParentCompositionContext)
+            setViewCompositionStrategy(ViewCompositionStrategy.DisposeOnDetachedFromWindow)
+            setContent {
+                SdmSeTheme {
+                    SpaceHistoryTooltipContent(tool = report.tool, detailText = detailText)
+                }
+            }
+        }
+
         val popup = PopupWindow(
-            tooltipView,
+            composeView,
             ViewGroup.LayoutParams.WRAP_CONTENT,
             ViewGroup.LayoutParams.WRAP_CONTENT,
             true,
@@ -47,15 +61,19 @@ internal object SpaceHistoryMarkerTooltip {
             setOnDismissListener { chart.clearSelection() }
         }
 
-        tooltipView.measure(
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-            View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED),
-        )
-
         val margin = (12 * context.resources.displayMetrics.density).toInt()
-        val popupX = screenX - tooltipView.measuredWidth / 2
-        val popupY = screenY - tooltipView.measuredHeight - margin
 
-        popup.showAtLocation(chart, Gravity.NO_GRAVITY, popupX, popupY)
+        composeView.viewTreeObserver.addOnPreDrawListener(object : ViewTreeObserver.OnPreDrawListener {
+            override fun onPreDraw(): Boolean {
+                val w = composeView.measuredWidth
+                val h = composeView.measuredHeight
+                if (w == 0 || h == 0) return true
+                composeView.viewTreeObserver.removeOnPreDrawListener(this)
+                popup.update(screenX - w / 2, screenY - h - margin, w, h)
+                return false
+            }
+        })
+
+        popup.showAtLocation(chart, Gravity.NO_GRAVITY, screenX, screenY)
     }
 }
