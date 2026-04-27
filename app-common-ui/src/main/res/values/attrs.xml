@@ -1,5 +1,0 @@
-<resources>
-    <declare-styleable name="ProgressOverlayView">
-        <attr name="expanded" format="boolean" />
-    </declare-styleable>
-</resources>

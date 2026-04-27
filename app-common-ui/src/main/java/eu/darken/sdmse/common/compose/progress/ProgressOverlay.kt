@@ -34,8 +34,6 @@ import eu.darken.sdmse.common.progress.Progress
 private const val ENTRANCE_DURATION_MS = 180
 
 /**
- * Compose counterpart to `ProgressOverlayView`.
- *
  * When [data] is non-null:
  *  - the wrapped [content] is hidden (alpha 0) so stale items are not visible,
  *  - the overlay panel consumes all pointer input so stale items are not tappable,
