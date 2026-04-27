@@ -256,7 +256,6 @@ internal fun DashboardProgress(progress: Progress.Data) {
 
     val secondary = progress.secondary.asComposable()
     if (secondary.isNotEmpty()) {
-        Spacer(modifier = Modifier.height(4.dp))
         Text(
             text = secondary,
             style = MaterialTheme.typography.bodySmall,
