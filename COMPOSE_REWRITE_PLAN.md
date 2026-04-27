@@ -1,6 +1,6 @@
 # Compose Rewrite: SD Maid SE
 
-## Current Status (2026-04-27 late evening)
+## Current Status (2026-04-27 — all sections closed)
 
 ### What's done
 - **Infrastructure**: Navigation3 (stable 1.0.1), ViewModel4, SingleEventFlow, SdmSeTheme, NavigationController (now with typed `setResult`/`consumeResults` + `ResultKey<T>`), ErrorEventHandler, NavigationEventHandler, settings toolkit composables
@@ -72,8 +72,8 @@
 - ~~Dropped `fragment-ktx`~~ ✓ (commit `825dadf2d`) from `addAndroidUI()` in `buildSrc/.../Dependencies.kt`. The three dead Fragment-era helpers are gone: `LiveDataExtensions.kt` (`observe2(Fragment)` overloads), `ViewBindingExtensions.kt` (`Fragment.viewBinding()` delegate), `ActivityExtensions.kt` (`viewParent` / `view` / `isContentViewSet` / `showFragment` / `todoToast`). Also dropped the dead `LoadingOverlayViewStyle` from `app/.../styles.xml` and the now-empty `app/.../res/values/ids.xml`.
 - `androidx.fragment.app.Fragment` / `FragmentActivity` / `FragmentFactory` remain available transitively via `androidx.appcompat:appcompat:1.7.1` (in `addAndroidCore()`); the androidTest helpers (`HiltExtensions`, `EmptyFragmentActivity`) compile without an explicit dep.
 
-#### 6. Pre-existing androidTest compilation failure (carried over from earlier batches)
-- `app/src/androidTest/java/eu/darken/sdmse/main/MainActivityTest.kt` mocks `MainViewModel.state` as `liveData { }` (LiveData) but the VM has been on `Flow<State>` since the ViewModel4 migration. It also references a non-existent `MainViewModel.onGo()` method. The 4 unit-test/assemble tasks pass, but `:app:compileFossDebugAndroidTestKotlin` fails. Unrelated to §5. Small fix: rewrite the test against `flowOf(MainViewModel.State())` and drop the `onGo()` references (or delete the test if it's no longer meaningful in a Compose-only world).
+#### 6. androidTest scaffolding cleanup — CLOSED (1 commit)
+- ~~Dropped 4 dead androidTest files~~ ✓ (commit `27a7bfd32`): `MainActivityTest.kt` (mocked `state` as LiveData where the VM exposes Flow + verified a non-existent `vm.onGo()` — broken since the ViewModel4 migration), `ExampleFragmentTest.kt` (fully commented out — referenced the long-gone `MainFragment`/`MainFragmentVM`), `HiltExtensions.kt` (`launchFragmentInHiltContainer<T>()` — only consumed by the commented-out test), `EmptyFragmentActivity.kt` (Hilt host for the helper). No androidTest source references Fragment after this. `:app:compileFossDebugAndroidTestKotlin` + `:app:compileGplayDebugAndroidTestKotlin` both pass.
 
 ---
 
