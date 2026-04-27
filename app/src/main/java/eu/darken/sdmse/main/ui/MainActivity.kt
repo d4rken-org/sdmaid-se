@@ -53,7 +53,6 @@ import eu.darken.sdmse.common.compose.settings.LocalUpgradeBadgeLabel
 import eu.darken.sdmse.common.navigation.routes.AppControlListRoute
 import eu.darken.sdmse.common.navigation.routes.UpgradeRoute
 import eu.darken.sdmse.common.theming.SdmSeTheme
-import eu.darken.sdmse.common.theming.Theming
 import eu.darken.sdmse.main.core.CurriculumVitae
 import eu.darken.sdmse.main.core.shortcuts.ShortcutManager
 import eu.darken.sdmse.main.ui.shortcuts.ShortcutActivity
@@ -65,7 +64,6 @@ class MainActivity : ComponentActivity() {
     private val vm: MainViewModel by viewModels()
 
     @Inject lateinit var curriculumVitae: CurriculumVitae
-    @Inject lateinit var theming: Theming
     @Inject lateinit var shortcutManager: ShortcutManager
     @Inject lateinit var navCtrl: NavigationController
     @Inject lateinit var navigationEntries: Set<@JvmSuppressWildcards NavigationEntry>
